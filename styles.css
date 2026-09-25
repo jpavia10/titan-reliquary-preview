@@ -1731,13 +1731,16 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
 .lofi-now .a { font-size: 0.7rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lofi-vol { display: flex; align-items: center; gap: 0.35rem; flex: 0 0 auto; min-width: 0; }
 .lofi-vol input[type="range"] { width: 74px; max-width: 100%; accent-color: var(--gold); cursor: pointer; }
-/* tr11: small screens — shrink chrome, never the volume slider's slot */
+/* tr14: small screens — transport on row 1, track + volume on row 2 */
 @media (max-width: 480px) {
-  .lofi-row { gap: 0.38rem; }
-  .lofi-btn { min-width: 40px; min-height: 40px; font-size: 0.95rem; }
-  .lofi-play { width: 46px; }
-  .lofi-stationbtn { width: 6.4rem; font-size: 0.66rem; padding: 0.32rem 0.55rem; }
-  .lofi-vol input[type="range"] { width: 56px; }
+  .lofi-row { flex-wrap: wrap; gap: 0.35rem; row-gap: 0.3rem; }
+  .lofi-btn { min-width: 36px; min-height: 38px; font-size: 0.9rem; }
+  .lofi-play { width: 44px; }
+  .lofi-stationbtn { width: 5.6rem; font-size: 0.64rem; padding: 0.3rem 0.5rem; }
+  .lofi-now { order: 7; flex: 1 1 55%; min-width: 0; }
+  .lofi-vol { order: 8; }
+  .lofi-vol input[type="range"] { width: 84px; }
+  .lofi-meta { font-size: 0.62rem; }
 }
 .lofi-bar .lofi-meta {
   display: flex;
@@ -2183,6 +2186,24 @@ body:has(.lofi-bar:not([hidden]):not(.collapsed)) .fab-search {
 }
 body:has(.lofi-bar.collapsed:not([hidden])) .fab-search {
   bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 4.4rem);
+}
+/* tr14: the open bar is two rows tall on phones — lift the FAB clear of it. */
+@media (max-width: 480px) {
+  body:has(.lofi-bar:not([hidden]):not(.collapsed)) .fab-search {
+    bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 10rem);
+  }
+}
+/* tr14: keep page content from sliding under the open music bar. */
+body:has(.lofi-bar:not([hidden]):not(.collapsed)) main {
+  padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 7.5rem);
+}
+body:has(.lofi-bar.collapsed:not([hidden])) main {
+  padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 4rem);
+}
+@media (max-width: 480px) {
+  body:has(.lofi-bar:not([hidden]):not(.collapsed)) main {
+    padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 10rem);
+  }
 }
 
 /* ---------- Pane transitions: walking between wings ---------- */
