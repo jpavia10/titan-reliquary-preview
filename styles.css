@@ -2037,3 +2037,409 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   .drawer-inner { animation: none; }
   .backdrop, .palette { animation: none; }
 }
+
+/* ============================================================
+   TR9 · THE MUSEUM REBUILD
+   Five wings, bottom navigation, exhibition hero. Atmospheres are
+   full experiences now — After Hours is slow/cinematic/generous,
+   Conservator is dense/archival/fast — not just different paint.
+   ============================================================ */
+
+/* ---------- Frame: room for the bottom wing nav ---------- */
+:root { --nav-h: 66px; }
+main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1.25rem); }
+
+/* The old fixed footer becomes an in-flow colophon at the end of the Hall. */
+.foot {
+  position: static;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-top: 1px solid var(--line);
+  margin-top: 2.5rem;
+  padding: 1rem 0 0;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+/* Lofi + toast ride above the wing nav now. */
+.lofi-pill { bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 0.9rem); }
+.lofi-bar { bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 0.7rem); }
+@media (min-width: 701px) {
+  .lofi-bar { bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 0.7rem); }
+}
+.toast { bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1.4rem); z-index: 120; }
+
+/* ---------- Bottom wing navigation ---------- */
+.wings {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 60;
+  display: flex;
+  background: var(--drawerbar-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line-strong);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.wing {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 0.55rem 0 0.5rem;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  min-height: var(--nav-h);
+}
+.wing svg { width: 23px; height: 23px; }
+.wing.active { color: var(--gold-soft); }
+.wing.active::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 22%; right: 22%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+}
+html[data-atmo="conservator"] .wing.active::before { box-shadow: none; }
+.wing:active { transform: scale(0.96); }
+.lab-badge {
+  position: absolute;
+  top: 4px;
+  right: calc(50% - 26px);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  background: var(--gold);
+  color: #0b0a08;
+  border-radius: 999px;
+  padding: 1px 7px;
+  text-transform: none;
+}
+html[data-atmo="conservator"] .lab-badge { color: #faf6ec; }
+.lab-badge[hidden] { display: none; }
+
+/* ---------- Floating search ---------- */
+.fab-search {
+  position: fixed;
+  right: 1rem;
+  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1rem);
+  z-index: 59;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--toastgrad1), var(--toastgrad2));
+  border: 1px solid var(--gold-deep);
+  color: var(--gold-soft);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+.fab-search:active { transform: scale(0.93); }
+
+/* ---------- Pane transitions: walking between wings ---------- */
+.pane { display: none; }
+.pane.active {
+  display: block;
+  animation: wing-in 0.5s var(--ease-out);
+}
+@keyframes wing-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+html[data-atmo="conservator"] .pane.active { animation-duration: 0.28s; animation-name: wing-in-calm; }
+@keyframes wing-in-calm {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Wing heads ---------- */
+.wing-head {
+  padding: 1.75rem 0 0.25rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+.wing-head h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0.3rem 0 0.35rem;
+  letter-spacing: 0.01em;
+}
+.wing-head .sub { margin: 0 0 1rem; }
+html[data-atmo="afterhours"] .wing-head h2, html:not([data-atmo]) .wing-head h2 {
+  font-size: 2.4rem;
+  text-shadow: 0 2px 30px rgba(200, 169, 74, 0.25);
+}
+html[data-atmo="conservator"] .wing-head { padding-top: 1.1rem; }
+html[data-atmo="conservator"] .wing-head h2 { font-size: 1.6rem; }
+
+/* ---------- Exhibition: masterpieces on the wall ---------- */
+.exhibit {
+  position: relative;
+  margin: 1.4rem 0 0.4rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  color: var(--ink);
+  font-family: var(--font);
+  padding: 0;
+}
+.exhibit-bg {
+  position: absolute; inset: -12%;
+  background:
+    radial-gradient(60% 90% at 50% 10%, rgba(200, 169, 74, 0.16), transparent 70%),
+    radial-gradient(40% 60% at 80% 90%, rgba(122, 46, 46, 0.12), transparent 70%);
+  pointer-events: none;
+}
+html[data-atmo="afterhours"] .exhibit-bg, html:not([data-atmo]) .exhibit-bg {
+  animation: kenburns 26s ease-in-out infinite alternate;
+}
+@keyframes kenburns {
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(1.12) translateY(-2%); }
+}
+html[data-atmo="conservator"] .exhibit-bg {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(122,46,46,0.08) 26px 27px),
+    radial-gradient(70% 100% at 50% 0%, rgba(138, 90, 30, 0.10), transparent 70%);
+}
+.exhibit-kicker {
+  position: relative;
+  display: flex; align-items: center; gap: 0.5rem;
+  margin: 0;
+  padding: 1rem 1.25rem 0;
+}
+.exhibit-lamp {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold-soft);
+  box-shadow: 0 0 10px var(--gold-soft);
+  animation: lamp 3s ease-in-out infinite;
+}
+@keyframes lamp { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+.exhibit-frame { position: relative; min-height: 240px; }
+.exhibit-slide {
+  position: absolute; inset: 0;
+  padding: 0.4rem 1.25rem 1.1rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 1.1s ease;
+  pointer-events: none;
+}
+.exhibit-slide.on { opacity: 1; pointer-events: auto; }
+html[data-atmo="conservator"] .exhibit-slide { transition-duration: 0.35s; }
+.ex-meta {
+  display: flex; justify-content: space-between; gap: 1rem;
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted);
+}
+.ex-ser {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  margin: 0.35rem 0 0.15rem;
+  color: var(--gold-soft);
+}
+html[data-atmo="afterhours"] .ex-ser, html:not([data-atmo]) .ex-ser {
+  text-shadow: 0 3px 40px rgba(200, 169, 74, 0.35);
+}
+.ex-line { font-size: 1rem; color: var(--ink); }
+.ex-val {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-top: 0.3rem;
+}
+.exhibit-dots {
+  position: relative;
+  display: flex; gap: 0.45rem;
+  padding: 0 1.25rem 1rem;
+}
+.exhibit-dots button {
+  width: 26px; height: 3px; border: 0; border-radius: 2px;
+  background: var(--line-strong);
+  cursor: pointer; padding: 0;
+}
+.exhibit-dots button.on { background: var(--gold-soft); }
+html[data-atmo="afterhours"] .exhibit, html:not([data-atmo]) .exhibit { min-height: 380px; }
+html[data-atmo="afterhours"] .exhibit-frame, html:not([data-atmo]) .exhibit-frame { min-height: 300px; }
+html[data-atmo="afterhours"] .ex-ser, html:not([data-atmo]) .ex-ser { font-size: 4rem; }
+html[data-atmo="conservator"] .exhibit { min-height: 250px; border-width: 1px; }
+html[data-atmo="conservator"] .exhibit-frame { min-height: 170px; }
+html[data-atmo="conservator"] .ex-ser { font-size: 2.2rem; }
+
+/* ---------- Hall: wing entrance cards ---------- */
+.wing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+@media (min-width: 760px) { .wing-grid { grid-template-columns: repeat(4, 1fr); } }
+.wing-card {
+  display: flex; flex-direction: column; gap: 0.35rem;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  color: var(--ink);
+  font-family: var(--font);
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-out), border-color 0.3s;
+}
+.wing-card:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+.wing-card svg { width: 26px; height: 26px; color: var(--gold); }
+.wing-card .wc-name { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; }
+.wing-card .wc-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+.wing-card .wc-stat { font-size: 0.78rem; color: var(--gold-soft); font-weight: 600; margin-top: auto; padding-top: 0.4rem; }
+
+/* ---------- Hall: the unmissable Lab banner ---------- */
+.lab-banner {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0 0 1.5rem;
+  padding: 1.25rem 1.25rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--gold-deep);
+  background: var(--hold-bg);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  font-family: var(--font);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.lab-banner .lb-eyebrow {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold-soft); font-weight: 700;
+}
+.lab-banner h3 {
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 600;
+  margin: 0.4rem 0 0.3rem;
+}
+.lab-banner p { margin: 0 0 0.8rem; color: var(--muted); font-size: 0.9rem; }
+.lab-progress { height: 10px; border-radius: 6px; background: var(--surface2); overflow: hidden; border: 1px solid var(--line); }
+.lab-progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-deep), var(--gold)); border-radius: 6px; transition: width 1s var(--ease-out); }
+.lab-meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.5rem; font-size: 0.85rem; }
+.lab-meta strong { font-family: var(--serif); font-size: 1.25rem; color: var(--gold-soft); }
+.lab-go { font-weight: 700; color: var(--gold-soft); }
+
+/* ---------- Hall: curator's notes ---------- */
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+@media (min-width: 760px) { .notes-grid { grid-template-columns: repeat(4, 1fr); } }
+.note-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+}
+.note-card .k { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); font-weight: 700; }
+.note-card .v { font-family: var(--serif); font-size: 1.3rem; margin: 0.25rem 0; color: var(--ink); }
+.note-card .s { font-size: 0.78rem; color: var(--muted); line-height: 1.45; }
+
+/* ---------- Gallery: pieces on the wall ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 760px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1100px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+.piece-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  color: var(--ink);
+  font-family: var(--font);
+  padding: 0;
+  transition: transform 0.3s var(--ease-out), border-color 0.3s;
+  display: flex; flex-direction: column;
+}
+.piece-card:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+.piece-card.is-new { border-color: var(--gold); }
+.pc-img {
+  aspect-ratio: 16 / 10;
+  background: var(--ph-bg);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.pc-img img { width: 100%; height: 100%; object-fit: cover; }
+.pc-mono {
+  font-family: var(--serif); font-weight: 700; font-size: 2rem;
+  color: var(--faint); letter-spacing: 0.04em;
+}
+.pc-await {
+  position: absolute; inset: auto 0 0 0;
+  font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); background: rgba(0,0,0,0.35);
+  padding: 0.2rem; text-align: center; font-weight: 700;
+}
+html[data-atmo="conservator"] .pc-await { background: rgba(250,246,236,0.8); }
+.pc-body { padding: 0.7rem 0.85rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
+.pc-ser { font-family: var(--serif); font-weight: 700; font-size: 1.25rem; color: var(--gold-soft); display: flex; align-items: center; gap: 0.4rem; }
+.pc-meta { font-size: 0.8rem; color: var(--muted); }
+.pc-foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 0.45rem; }
+.pc-val { font-family: var(--serif); font-weight: 600; color: var(--gold); }
+.pc-conf { font-size: 0.72rem; color: var(--faint); }
+html[data-atmo="conservator"] .gallery-grid { gap: 0.5rem; }
+html[data-atmo="conservator"] .piece-card { border-radius: 6px; }
+html[data-atmo="conservator"] .pc-ser { font-size: 1.05rem; }
+
+/* ---------- Lab: work orders ---------- */
+.shoot-card .btn { margin-top: 0.7rem; width: 100%; }
+.lab-queue-note {
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* ---------- Print: hide the new chrome ---------- */
+@media print {
+  .wings, .fab-search, .exhibit-dots, .wing-grid, .lab-banner { display: none !important; }
+  main { padding-bottom: 0; }
+}
+
+/* ---------- Reduced motion: calm the museum ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pane.active { animation: none; }
+  .exhibit-bg { animation: none !important; }
+  .exhibit-slide { transition-duration: 0.01s; }
+  .wing-card:hover, .piece-card:hover { transform: none; }
+}

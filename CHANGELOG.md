@@ -207,3 +207,155 @@ future pass wants to self-host them (see limitation #1).
 - Served locally via `python3 -m http.server`; all new assets return 200
   (styles, app, audio, ambient, favicon, fonts). `js/playlist.js` pending track URLs.
 - <!-- VERIFICATION: browser smoke test results go here -->
+
+## tr4 — lofi resume fix + Stormroom ambient mixer (2026-09-25)
+
+**audio.js — resume tracks the song, not the slot.** The player persisted only the
+numeric track index (`tr_lofi_track_v1`), so after the Ultralounge reorder a phone
+with a saved index resumed the wrong slot on reload. The key is now
+`tr_lofi_track_v2` storing `index::title`; on boot, if the saved title no longer
+sits in the saved slot the player resumes that song wherever it moved, else falls
+back to track 1. A stale v1 key is migrated once (forced to track 1) and retired.
+`node --check` clean; resume logic unit-tested in isolation (stale v1 → Ultralounge,
+fresh → Ultralounge, valid v2 → same song).
+
+**ambient.js — "Stormroom" mixer v2.** Web Audio graph (per-layer GainNode + master
+gain) with ~1.4s fade in/out instead of hard cuts; Storm Intensity slider couples
+rain loudness to the canvas rain (drop count/speed/opacity, drizzle→downpour) plus
+slow wind gusts; one-tap presets (Storm / Fireside / Night watch / Off); master
+volume; long-press the rain button to open the mixer (mobile-friendly; shift-click
+kept on desktop); v1 localStorage state migrated to `tr_ambient_v2`; SVG layer
+icons; bottom-sheet panel on mobile.
+
+**Stamps:** all `?v=` → `tr4`, `TITAN_BUILD = "tr4"`, SW `BUILD = "tr4"` (the SW
+precaches `audio.js?v=<BUILD>` cache-first, so the build bump is what evicts the
+stale player from phones — this was the second half of the "wrong first song" bug).
+
+## tr5 — QA defect fixes (2026-09-25)
+
+Desktop visual QA (1920×1080, all three themes) found 11 defects; fixed the 9 in
+presentation scope:
+1. Lofi "Tap for lofi" pill / mini-player now tuck behind the dossier drawer and
+   the ⌘K palette (new `titan:overlay` window event; audio.js hides and restores
+   exactly what was showing). They no longer cover dossier notes or table headers.
+2. Hero FLIPS tile subtext shortened ("2×2 holders · C### keys") — no orphan wrap.
+3. Mini-player: counter `white-space: nowrap`, credit flexes with ellipsis, desktop
+   bar widened 340→384px.
+4. Age/year displays rounded to 1 decimal (was 6-decimal false precision).
+5. Watchlist `splitFlags` no longer splits on `·` inside parentheses (the broken
+   "A020 Sacagawea (investigate / 3 years locked)" row). Remaining near-duplicate
+   rows are data-side (Grok's `vault.flags`) — flagged, not touched.
+6. Typographic nits: "Albums · Age" tab spacing; non-collapsing footer separator.
+7. Live-status "built X · checked Ns ago" wrapped in `.nowrap` — no orphan fragment.
+8. (Not a defect — QA ran against tr3; the Stormroom preset/intensity panel it
+   missed is the tr4 panel. Re-verified in the next pass.)
+9. `.table-wrap` gets `margin-bottom: 4.5rem` so the fixed footer never covers the
+   last rows; thin gold scrollbars on table-wrap, latest-rail, country-strip.
+
+## tr6 — Complete-product framework expansion (2026-09-25)
+
+Joseph's direction: tr3–tr5 were a stepping-stone; take the redesign all the way
+home before he commits. Themes were "basic / AI slop" — they are now complete
+atmospheres, and the framework anticipates Phase 2 (photo scan) instead of just
+repainting. Presentation-only: `data/`, `version.json`, photo shards untouched.
+
+**WS1 — Atmosphere system (retires the palette-toggle concept).** Vault/Ledger/Noir
+replaced by two authored atmospheres: **After Hours** (true-black gallery, champagne
+spotlighting, heavier grain — the dark concepts merged into one signature) and
+**Conservator** (archival paper, oxblood stamps, ruled ledger lines — the Ledger idea
+recast as a brighter, high-readability archival presentation). Noir retired as a
+near-duplicate, not merely deleted. One Atmosphere button + picker sheet with full
+descriptions; "Set the scene" pairs After Hours→Storm+lofi, Conservator→Fireside+lofi.
+`tr_atmo_v1` storage; legacy `tr_theme_v1` migrated (ledger→conservator,
+vault/noir→afterhours, tolerant of JSON-quoted values); first-visit light
+`prefers-color-scheme` hints Conservator, saved choice always wins.
+`audio.js` exposes `window.TitanLofi`; `ambient.js` exposes `window.TitanAmbient`.
+
+**WS2 — Phase-2-ready dossier.** Completeness meter reframed: "Record X/Y ·
+awaiting Phase 2: …" instead of "missing"; photo segment counts obverse/reverse
+(0/2 with "obverse + reverse await Phase 2"). New **Phase 2 capture** section gives
+designed homes to grade, provenance, source, weight, obverse/reverse photos with
+intentional "Awaiting Phase 2" empty states — no values invented. Photo instructions
+and file targets unchanged.
+
+**WS3 — Collection intelligence (board).** "Collection intelligence · The vault,
+thinking": top-10 value concentration (currently 33%), decade/age distribution
+bars, top-country spread by count and value, silver count, and clickable "Hidden
+gems" (est ≥ $5, confidence not high — currently 2) opening dossiers. Computed only
+from real `vault.flips` fields; graceful fallbacks when fields are sparse.
+
+**WS4 — Photo/QC command center (board).** Honest Phase-2 progress (currently
+"0 of 273 flips photographed · 0%"), awaiting flips grouped by country, top-6
+country sessions with count/represented value/silver, "Start session" sets Flips
+filters (Phase 2 + country). Empty-start messaging; completion celebration is a
+data-dependent follow-up once Phase 2 rows exist.
+
+**WS5 — Bulletproofing.** Honest offline banner ("Offline — viewing the last
+snapshot…"). Overlay manager: Escape closes the topmost layer; focus trapped in
+sheets/palette/mixer/drawer and restored on close (also fixed a real bug: Escape
+left focus stranded in the hidden palette input, which silently disabled `?` and
+`1–6`). Keyboard: `?` shortcuts sheet, `1–6` tab jumps (roving tabindex,
+aria-selected), tab-strip arrows, Ctrl/⌘K retained. Dossier print button; flips
+inventory print button; print stylesheet renders black-on-white dossier/inventory.
+
+**WS6 — Motion polish.** Shared `--ease-out` token; reveal/pane transitions moved
+to it; bars transition in; reduced-motion block suppresses all new animation.
+
+**Verification (2026-09-25, jsdom harness vs real `data/index.json`):** 37/37
+checks pass, zero uncaught exceptions — hero `$5,584.11`, board renders, insights
+math, sessions filter correctly (Mexico session → "60 / 273 · shooting list"),
+dossier Phase-2 section, palette search (8 hits for "mexico"), atmosphere
+switch + persistence + both "set the scene" pairings, shortcuts/Escape stack, tab
+keys, legacy theme migration (ledger→conservator, vault/noir→afterhours),
+offline/online banner. `node --check` clean on all five JS files; CSS braces
+balanced; `BUILD = "tr5"` stamp untouched (no `?v=` bump — deployment handles it).
+
+**Known limitations / needs a real browser:** jsdom has no layout engine, so
+390×844 / 1440×900 overflow and true visual QA (grain, spotlighting, ruled paper
+in both atmospheres) still need eyes. Lightbox with real photos can't be exercised
+until Phase 2 shards exist. Service worker precache list verified by inspection
+only (no new shell files were added, so the tr5 list still covers it).
+
+## tr6 patch — pill-first lofi (2026-09-25, Joseph's call)
+
+The lofi mini-player module no longer appears on page load. Only the "Tap for lofi"
+pill shows at boot; the full player bar appears after the user taps the pill (or
+starts audio via an atmosphere's "Set the scene"). Boot no longer attempts
+autoplay. (audio.js only; smoke harness re-run: all pass.)
+
+## tr8 — self-updating service worker (2026-09-25)
+
+Joseph's phone was stuck showing the tr5 build (old theme toggle, bar+pill overlap)
+because a tab left open never re-checked for a new service worker. The app now:
+checks for a new SW every time the tab becomes visible, and reloads once (with a
+toast) when a new SW takes control — so future deploys propagate on their own
+instead of stranding users on stale UI. First install can't reload-loop (guarded
+by prior-controller check). (app.js only.)
+
+## tr9 — Full museum rebuild (2026-09-25)
+
+Joseph rated the tr3–tr8 reskin 5/10: "I thought you were doing a full retheme
+and revamp of the product?" This build stops treating Titan as a dashboard and
+rebuilds it as a **reliquary / museum experience**:
+
+- **Five wings, bottom navigation:** Grand Hall, Gallery, Vault, Curator's
+  Study, Conservation Lab. Old tabs (Board/Flips/Bullion/World/Ops/Age) are
+  gone; saved state and `#hash` deep links migrate via a legacy map.
+- **Grand Hall:** cinematic "Now exhibiting" rotation (top-5 valued flips,
+  9s crossfade, tap for dossier), wing entrance cards, an unmissable
+  Conservation Lab banner (0 of 273 · 0%), Curator's notes, rotating "From
+  the vault" editorial, watchlist.
+- **Gallery:** flips as exhibit cards (photo or "Awaiting photo" monogram
+  frame) — no more spreadsheet-first table. Filters/sort/search/country
+  strip kept; tap a piece for its placard dossier; printable.
+- **Vault:** bullion/sets/housing/stamps + silver ledger, unchanged data.
+- **Curator's Study:** collection intelligence, precious-metal ledger, World
+  country table, Age bands, albums glance, bucket breakdown.
+- **Conservation Lab:** Phase-2 photo QC command center — shooting sessions
+  (start → Gallery pre-filtered), Requests from Titan, Next IDs, Next SER.
+- **Atmospheres as experiences:** After Hours is slow/cinematic/generous;
+  Conservator is dense/archival/fast. Wing transitions differ per atmosphere.
+- Keyboard 1–5, roving tabindex, focus trap/restore, Esc stack, print,
+  offline banner, reduced-motion, service-worker self-update all preserved.
+- Data model untouched: `data/index.json` etc. are still read-only
+  generated inputs. All values computed from real fields; nothing invented.

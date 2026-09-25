@@ -29,78 +29,137 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr8" />
+  <link rel="stylesheet" href="styles.css?v=tr9" />
 </head>
 <body>
   <div id="app">
-    <header class="hero">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="eyebrow-row">
-        <span class="sigil" aria-hidden="true">◉</span>
-        <span class="eyebrow">The Vault</span>
-        <span class="ledger-chip" id="ledger-chip">Ledger</span>
-        <span class="badge hold" title="Policy">HOLD</span>
-      </div>
-      <h1 class="wordmark">Titan Reliquary</h1>
-      <div class="hero-money">
-        <div class="hero-grand" id="hero-grand" aria-label="Estimated collection value">$0.00</div>
-        <div class="hero-cap">estimated collection value</div>
-      </div>
-      <div class="hero-stats" id="hdr-stats" aria-label="Vault totals"></div>
-      <div class="hero-actions">
-        <button type="button" id="btn-search" class="search-btn" title="Search the vault (Ctrl/⌘K)">
-          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
-          <span>Search</span><kbd>⌘K</kbd>
-        </button>
-        <button type="button" id="btn-atmo" class="atmo-btn" title="Exhibition atmosphere">
-          <span class="atmo-dot" aria-hidden="true"></span>
-          <span id="atmo-name">After Hours</span>
-        </button>
-        <button type="button" id="btn-rain" class="rain-btn" aria-pressed="false" title="Rainstorm ambience (rain sound + falling rain)">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17.5 13a4.5 4.5 0 0 0-.9-8.9A6 6 0 0 0 5.2 6.3 4 4 0 0 0 6 14.5" />
-            <line x1="8" y1="17" x2="7" y2="21" />
-            <line x1="12" y1="16" x2="11" y2="20" />
-            <line x1="16" y1="17" x2="15" y2="21" />
-          </svg>
-          <span class="rain-label">Rain</span>
-        </button>
-        <label class="auto-toggle" title="Auto-check for a newer snapshot">
-          <input type="checkbox" id="auto-refresh" checked />
-          <span>Auto</span>
-        </label>
-      </div>
-      <p class="live-status" id="live-status" aria-live="polite"></p>
-    </header>
-
-    <nav class="tabs" role="tablist" aria-label="Vault sections">
-      <button class="tab active" data-tab="board" role="tab">Board</button>
-      <button class="tab" data-tab="flips" role="tab">Flips</button>
-      <button class="tab" data-tab="bullion" role="tab">Bullion</button>
-      <button class="tab" data-tab="world" role="tab">World</button>
-      <button class="tab" data-tab="ops" role="tab">Ops</button>
-      <button class="tab" data-tab="age" role="tab">Albums · Age</button>
-    </nav>
-
     <main>
-      <section id="pane-board" class="pane active" aria-busy="true">
-        <div class="stat-band" aria-label="Loading vault">
-          <div class="tile"><span class="skeleton skeleton-line" style="width:5rem"></span><div class="val"><span class="skeleton skeleton-line" style="width:7rem"></span></div></div>
-          <div class="tile"><span class="skeleton skeleton-line" style="width:4rem"></span><div class="val"><span class="skeleton skeleton-line" style="width:5rem"></span></div></div>
-          <div class="tile"><span class="skeleton skeleton-line" style="width:4rem"></span><div class="val"><span class="skeleton skeleton-line" style="width:5rem"></span></div></div>
-        </div>
-        <div class="card wide" aria-label="Loading vault">
-          <h3><span class="skeleton skeleton-line" style="width:9rem"></span></h3>
-          <p><span class="skeleton skeleton-line"></span></p>
-          <p><span class="skeleton skeleton-line" style="width:70%"></span></p>
-        </div>
+      <!-- ══════════ GRAND HALL ══════════ -->
+      <section id="pane-hall" class="pane active" aria-busy="true" aria-label="Grand Hall">
+        <header class="hero">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="eyebrow-row">
+            <span class="sigil" aria-hidden="true">◉</span>
+            <span class="eyebrow">The Vault</span>
+            <span class="ledger-chip" id="ledger-chip">Ledger</span>
+            <span class="badge hold" title="Policy">HOLD</span>
+          </div>
+          <h1 class="wordmark">Titan Reliquary</h1>
+
+          <!-- Rotating exhibition: masterpieces on the wall -->
+          <div class="exhibit" id="exhibit">
+            <p class="eyebrow exhibit-kicker"><span class="exhibit-lamp" aria-hidden="true"></span>Now exhibiting</p>
+            <div class="exhibit-frame" id="exhibit-frame" aria-live="polite"></div>
+            <div class="exhibit-dots" id="exhibit-dots" aria-hidden="true"></div>
+          </div>
+
+          <div class="hero-money">
+            <div class="hero-grand" id="hero-grand" aria-label="Estimated collection value">$0.00</div>
+            <div class="hero-cap">estimated collection value</div>
+          </div>
+          <div class="hero-stats" id="hdr-stats" aria-label="Vault totals"></div>
+          <div class="hero-actions">
+            <button type="button" id="btn-search" class="search-btn" title="Search the vault (Ctrl/⌘K)">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+              <span>Search</span><kbd>⌘K</kbd>
+            </button>
+            <button type="button" id="btn-atmo" class="atmo-btn" title="Exhibition atmosphere">
+              <span class="atmo-dot" aria-hidden="true"></span>
+              <span id="atmo-name">After Hours</span>
+            </button>
+            <button type="button" id="btn-rain" class="rain-btn" aria-pressed="false" title="Rainstorm ambience (rain sound + falling rain)">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.5 13a4.5 4.5 0 0 0-.9-8.9A6 6 0 0 0 5.2 6.3 4 4 0 0 0 6 14.5" />
+                <line x1="8" y1="17" x2="7" y2="21" />
+                <line x1="12" y1="16" x2="11" y2="20" />
+                <line x1="16" y1="17" x2="15" y2="21" />
+              </svg>
+              <span class="rain-label">Rain</span>
+            </button>
+            <label class="auto-toggle" title="Auto-check for a newer snapshot">
+              <input type="checkbox" id="auto-refresh" checked />
+              <span>Auto</span>
+            </label>
+          </div>
+          <p class="live-status" id="live-status" aria-live="polite"></p>
+        </header>
+        <div id="hall-body"><!-- wing entrances, lab banner, curator notes --></div>
+        <footer class="foot">
+          <span id="foot-path">Local vault</span>
+          <button type="button" id="btn-refresh" class="btn">↻ Refresh</button>
+        </footer>
       </section>
-      <section id="pane-flips" class="pane"></section>
-      <section id="pane-bullion" class="pane"></section>
-      <section id="pane-world" class="pane"></section>
-      <section id="pane-ops" class="pane"></section>
-      <section id="pane-age" class="pane"></section>
+
+      <!-- ══════════ GALLERY (flips) ══════════ -->
+      <section id="pane-gallery" class="pane" aria-label="Gallery">
+        <div class="wing-head">
+          <span class="eyebrow">Wing I</span>
+          <h2>The Gallery</h2>
+          <p class="sub">Every flip on the wall · tap a piece for its placard</p>
+        </div>
+        <div id="gallery-body"></div>
+      </section>
+
+      <!-- ══════════ VAULT (bullion & reserves) ══════════ -->
+      <section id="pane-vault" class="pane" aria-label="Vault">
+        <div class="wing-head">
+          <span class="eyebrow">Wing II</span>
+          <h2>The Vault</h2>
+          <p class="sub">Bullion, sets, housing, stamps — the reserves</p>
+        </div>
+        <div id="vault-body"></div>
+      </section>
+
+      <!-- ══════════ STUDY (intelligence) ══════════ -->
+      <section id="pane-study" class="pane" aria-label="Study">
+        <div class="wing-head">
+          <span class="eyebrow">Wing III</span>
+          <h2>Curator's Study</h2>
+          <p class="sub">What the ledger knows, annotated</p>
+        </div>
+        <div id="study-body"></div>
+      </section>
+
+      <!-- ══════════ LAB (photo QC) ══════════ -->
+      <section id="pane-lab" class="pane" aria-label="Conservation Lab">
+        <div class="wing-head">
+          <span class="eyebrow">Wing IV</span>
+          <h2>Conservation Lab</h2>
+          <p class="sub">Phase 2 — photograph the archive, one country at a time</p>
+        </div>
+        <div id="lab-body"></div>
+      </section>
     </main>
+
+    <!-- Floating search: reachable from every wing -->
+    <button type="button" id="fab-search" class="fab-search" title="Search the vault (Ctrl/⌘K)" aria-label="Search the vault">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+    </button>
+
+    <!-- Bottom wing navigation -->
+    <nav class="wings" aria-label="Museum wings">
+      <button type="button" class="wing active" data-wing="hall" aria-label="Grand Hall" aria-selected="true" tabindex="0">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+        <span>Hall</span>
+      </button>
+      <button type="button" class="wing" data-wing="gallery" aria-selected="false" tabindex="-1" aria-label="Gallery">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="2"/><path d="M3 16.5l5-4 4 3 4-3 5 4"/></svg>
+        <span>Gallery</span>
+      </button>
+      <button type="button" class="wing" data-wing="vault" aria-selected="false" tabindex="-1" aria-label="Vault">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/><circle cx="12" cy="14" r="2.2"/></svg>
+        <span>Vault</span>
+      </button>
+      <button type="button" class="wing" data-wing="study" aria-selected="false" tabindex="-1" aria-label="Study">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5V5.5"/><path d="M9 8h7M9 12h5"/></svg>
+        <span>Study</span>
+      </button>
+      <button type="button" class="wing" data-wing="lab" aria-selected="false" tabindex="-1" aria-label="Conservation Lab">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v5.5L4.5 18a2.4 2.4 0 0 0 2.1 3.5h10.8a2.4 2.4 0 0 0 2.1-3.5L14 8.5V3"/><path d="M7.5 14h9"/></svg>
+        <span>Lab</span>
+        <span class="lab-badge" id="lab-badge" hidden>0%</span>
+      </button>
+    </nav>
 
     <div id="offline-banner" class="offline-banner" hidden role="status">Offline — viewing the last snapshot. New publishes will load when you're back.</div>
 
@@ -109,19 +168,19 @@
         <button type="button" class="sheet-close" id="atmo-close" aria-label="Close">×</button>
         <span class="eyebrow">Exhibition lighting</span>
         <h2 id="atmo-title">Atmosphere</h2>
-        <p class="sub">How the vault is lit tonight. Each one pairs with sound — set the scene and the room follows.</p>
+        <p class="sub">How the museum is lit tonight. Each one pairs with sound — set the scene and the room follows.</p>
         <div class="atmo-cards">
           <button type="button" class="atmo-card" data-atmo-val="afterhours">
             <span class="atmo-swatch sw-afterhours" aria-hidden="true"></span>
             <span class="atmo-card-name">After Hours</span>
-            <span class="atmo-card-desc">True-black gallery, champagne spotlights, film grain. The signature midnight exhibition.</span>
+            <span class="atmo-card-desc">True-black galleries, champagne spotlights, film grain. Slow, cinematic, dramatic — the signature midnight exhibition.</span>
             <span class="atmo-card-pair">Pairs with · Rain + Ultralounge</span>
             <span class="atmo-card-scene" data-scene="afterhours">Set the scene →</span>
           </button>
           <button type="button" class="atmo-card" data-atmo-val="conservator">
             <span class="atmo-swatch sw-conservator" aria-hidden="true"></span>
             <span class="atmo-card-name">Conservator</span>
-            <span class="atmo-card-desc">Archival paper, oxblood stamps, ruled ledger lines. Bright-room reading, conservator's desk.</span>
+            <span class="atmo-card-desc">Archival paper, oxblood stamps, ruled ledger lines. Dense, precise, fast — the conservator's desk at noon.</span>
             <span class="atmo-card-pair">Pairs with · Fireside + lofi</span>
             <span class="atmo-card-scene" data-scene="conservator">Set the scene →</span>
           </button>
@@ -139,7 +198,7 @@
           <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Previous / next dossier (when open)</dd></div>
           <div><dt><kbd>Esc</kbd></dt><dd>Close topmost panel</dd></div>
           <div><dt><kbd>?</kbd></dt><dd>This list</dd></div>
-          <div><dt><kbd>1</kbd>–<kbd>6</kbd></dt><dd>Jump to Board, Flips, Bullion, World, Ops, Albums · Age</dd></div>
+          <div><dt><kbd>1</kbd>–<kbd>5</kbd></dt><dd>Hall · Gallery · Vault · Study · Lab</dd></div>
         </dl>
       </div>
     </div>
@@ -179,16 +238,11 @@
     <div id="drawer-backdrop" class="backdrop" hidden></div>
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
-
-    <footer class="foot">
-      <span id="foot-path">Local vault</span>
-      <button type="button" id="btn-refresh" class="btn">↻ Refresh</button>
-    </footer>
   </div>
-  <script>window.TITAN_BUILD = "tr8";</script>
-  <script src="app.js?v=tr8"></script>
-  <script src="js/playlist.js?v=tr8"></script>
-  <script src="audio.js?v=tr8"></script>
-  <script src="ambient.js?v=tr8"></script>
+  <script>window.TITAN_BUILD = "tr9";</script>
+  <script src="app.js?v=tr9"></script>
+  <script src="js/playlist.js?v=tr9"></script>
+  <script src="audio.js?v=tr9"></script>
+  <script src="ambient.js?v=tr9"></script>
 </body>
 </html>

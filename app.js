@@ -113,9 +113,9 @@
 
   function saveState() {
     try {
-      const active = $(".tab.active");
+      const active = $(".wing.active");
       const state = {
-        tab: active?.dataset.tab || "board",
+        wing: active?.dataset.wing || "hall",
         flipQ: flipFilter.q,
         flipCountry: flipFilter.country,
         flipIso: flipFilter.iso,
@@ -151,16 +151,17 @@
       const pools = [vault.flips, vault.bullion, vault.sets, vault.housing, vault.stamps];
       for (const pool of pools) {
         const hit = (pool || []).find((c) => String(c.ser || "").toUpperCase() === key || String(c.scan || "").toUpperCase() === key);
-        if (hit) { dossierCtx = null; setTab(hit.kind === "flip" || hit.kind === "token" ? "flips" : "bullion", false); openDrawer(hit.scan, false); break; }
+        if (hit) { dossierCtx = null; setWing(hit.kind === "flip" || hit.kind === "token" ? "gallery" : "vault", false); openDrawer(hit.scan, false); break; }
       }
       return;
     }
-    if (h && $(`.tab[data-tab="${h}"]`)) setTab(h, false);
+    const w = mapWing(h);
+    if (h && $(`.wing[data-wing="${w}"]`)) setWing(w, false);
   }
 
-  function setTab(name, pushHash = true) {
-    $$(".tab").forEach((b) => {
-      const on = b.dataset.tab === name;
+  function setWing(name, pushHash = true) {
+    $$(".wing").forEach((b) => {
+      const on = b.dataset.wing === name;
       b.classList.toggle("active", on);
       b.setAttribute("aria-selected", String(on));
       b.tabIndex = on ? 0 : -1;
@@ -310,7 +311,7 @@
   function ensureSearch() {
     if (searchIdx || searchLoading) return searchLoading;
     searchLoading = fetchJson("data/search.json")
-      .then((d) => { searchIdx = d || {}; if (flipFilter.q.trim()) renderFlips(); })
+      .then((d) => { searchIdx = d || {}; if (flipFilter.q.trim()) renderGallery(); })
       .catch(() => { searchLoading = null; });
     return searchLoading;
   }
@@ -329,7 +330,7 @@
       renderAll();
       restoreUi();
     } catch (e) {
-      $("#pane-board").innerHTML = `<p class="error">Failed to load vault: ${esc(e.message)}</p>`;
+      $("#hall-body").innerHTML = `<p class="error">Failed to load vault: ${esc(e.message)}</p>`;
     } finally {
       if (btn) btn.disabled = false;
       updateLiveStatus();
@@ -389,10 +390,10 @@
         const box = $("#auto-refresh");
         if (box) box.checked = autoRefresh;
       }
-      if (st.tab) setTab(st.tab, false);
-      // Re-render flips / world with restored filters
-      renderFlips();
-      renderWorld();
+      if (st.wing || st.tab) setWing(mapWing(st.wing || st.tab), false);
+      // Re-render gallery / study with restored filters
+      renderGallery();
+      renderStudy();
       if (st.drawerScan) {
         openDrawer(st.drawerScan, false);
         requestAnimationFrame(() => {
@@ -422,12 +423,11 @@
 
   function renderAll() {
     renderHero();
-    renderBoard();
-    renderFlips();
-    renderBullion();
-    renderWorld();
-    renderOps();
-    renderAge();
+    renderHall();
+    renderGallery();
+    renderVault();
+    renderStudy();
+    renderLab();
     $("#foot-path").innerHTML = `<span class="ft-brand">Titan Reliquary</span><span class="ft-sep" aria-hidden="true"> · </span>Ledger ${esc(vault.ledger_version || "—")} · snapshot ${esc(snapshotLabel())}`;
     const refresh = $("#btn-refresh");
     if (refresh) { refresh.textContent = "↻ Refresh"; refresh.title = "Check for a newer published snapshot and reload"; }
@@ -644,157 +644,126 @@
       </div>`;
   }
 
-  function renderBoard() {
+  let exhibitTimer = null; // "Now exhibiting" rotation interval
+  let exhibitMasters = [];
+  let exhibitIdx = 0;
+
+  /** The exhibition: masterpieces rotate on the Hall wall like framed pieces. */
+  function startExhibit() {
+    clearInterval(exhibitTimer);
+    const frame = $("#exhibit-frame");
+    const dots = $("#exhibit-dots");
+    const box = $("#exhibit");
+    if (!frame || !vault) return;
+    exhibitMasters = (vault.flips || [])
+      .filter((f) => f.status !== "Removed" && (f.est ?? 0) > 0)
+      .sort((a, b) => (b.est ?? 0) - (a.est ?? 0))
+      .slice(0, 5);
+    exhibitIdx = 0;
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const paint = () => {
+      if (!exhibitMasters.length) {
+        frame.innerHTML = '<div class="exhibit-slide on"><div class="ex-ser">—</div><div class="ex-line">No valued flips yet</div></div>';
+        if (dots) dots.innerHTML = "";
+        return;
+      }
+      frame.innerHTML = exhibitMasters.map((f, i) => `
+        <div class="exhibit-slide${i === exhibitIdx ? " on" : ""}">
+          <div class="ex-meta"><span>Masterpiece ${i + 1} / ${exhibitMasters.length}</span><span>${f.is_silver ? "Ag" + (f.asw_oz != null ? " · " + num(f.asw_oz, 2) + " oz" : "") : esc(f.country || "")}</span></div>
+          <div class="ex-ser">${esc(f.ser || f.scan)}</div>
+          <div class="ex-line">${esc([f.country, f.year, f.denom || f.label].filter(Boolean).join(" · "))}</div>
+          <div class="ex-val">${money(f.est)}</div>
+        </div>`).join("");
+      if (dots) dots.innerHTML = exhibitMasters.map((_, i) =>
+        `<button type="button" data-i="${i}" class="${i === exhibitIdx ? "on" : ""}" aria-label="Show exhibit ${i + 1}"></button>`).join("");
+    };
+    paint();
+    const go = (i) => { exhibitIdx = (i + exhibitMasters.length) % exhibitMasters.length; paint(); };
+    if (!reduced && exhibitMasters.length > 1) {
+      exhibitTimer = setInterval(() => {
+        if (!document.body.contains(frame)) { clearInterval(exhibitTimer); return; }
+        if (document.hidden) return;
+        go(exhibitIdx + 1);
+      }, 9000);
+    }
+    if (dots) dots.onclick = (e) => { const b = e.target.closest("button[data-i]"); if (b) go(+b.dataset.i); };
+    if (box) box.onclick = (e) => {
+      if (e.target.closest(".exhibit-dots")) return;
+      const cur = exhibitMasters[exhibitIdx];
+      if (cur) { dossierCtx = null; openDrawer(cur.scan); }
+    };
+  }
+
+  function renderHall() {
     clearInterval(momentTimer); // old rotation dies with the old DOM
-    const b = vault.board || {};
+    const d = vault.drip || {};
     const m = vault.metals || {};
-    const prec = vault.precious || {};
-    const phN = vault.photos || {};
     const flipsTotal = vault.counts?.flips || 0;
 
-    // ---- (a) stat band: 5 tiles ----
-    const newest = latestFlips(1)[0];
-    const newestSub = [newest?.country, newest?.year, newest?.denom].filter(Boolean).join(" · ");
-    const grandTile = `
-      <div class="tile hero-tile reveal"><div class="k">Estimated total</div><div class="v" id="stat-grand">${money(vault.value?.estimated_total)}</div><div class="s">${esc(vault.value?.status || "")} · ${esc(vault.policy || "HOLD")}</div></div>`;
-    const statBand = `
-      <div class="stat-band" aria-label="Vault at a glance">
-        ${grandTile}
-        <div class="tile reveal"><div class="k">Vault pieces</div><div class="v">${esc(intFmt(vault.counts?.vault))}</div><div class="s">across ${esc(intFmt(vault.counts?.countries))} countries</div></div>
-        <div class="tile reveal"><div class="k">Flips</div><div class="v">${esc(intFmt(flipsTotal))}</div><div class="s">2×2 holders · C### keys</div></div>
-        <div class="tile reveal"><div class="k">Countries</div><div class="v">${esc(intFmt(vault.counts?.countries))}</div><div class="s">world flips</div></div>
-        <div class="tile reveal"><div class="k">Newest flip</div><div class="v" style="font-family:var(--serif);font-size:1.15rem">${esc(newest?.ser || newest?.scan || "—")}</div><div class="s">${esc(newestSub || "—")}</div></div>
+    startExhibit();
+
+    // ---- The Lab banner: impossible to miss ----
+    const sq = shootingData();
+    const pct = sq.live.length ? Math.round((sq.done / sq.live.length) * 100) : 0;
+    const labBanner = sq.live.length ? `
+      <button type="button" class="lab-banner reveal" id="hall-lab-go" aria-label="Open the Conservation Lab">
+        <span class="lb-eyebrow"><span class="exhibit-lamp" aria-hidden="true"></span>Conservation Lab · Phase 2</span>
+        <h3>${intFmt(sq.done)} of ${intFmt(sq.live.length)} flips photographed</h3>
+        <p>${sq.done === 0 ? "The archive is empty — the shoot starts with you. Pick a country, start a session." : "Cameras are rolling — pick the next country session."}</p>
+        <div class="lab-progress" role="img" aria-label="${pct} percent photographed"><span style="width:${pct}%"></span></div>
+        <div class="lab-meta"><strong>${pct}%</strong><span class="lab-go">Enter the Lab →</span></div>
+      </button>` : "";
+
+    // ---- Wing entrances ----
+    const wingCards = `
+      <div class="sec-head reveal"><span class="eyebrow">The museum</span><h2>Wings</h2><p class="sub">Four rooms, one vault.</p></div>
+      <div class="wing-grid">
+        <button type="button" class="wing-card reveal" data-go="gallery">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="2"/><path d="M3 16.5l5-4 4 3 4-3 5 4"/></svg>
+          <span class="wc-name">The Gallery</span>
+          <span class="wc-desc">Every flip on the wall — tap a piece for its placard.</span>
+          <span class="wc-stat">${intFmt(flipsTotal)} pieces hung</span>
+        </button>
+        <button type="button" class="wing-card reveal" data-go="vault">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/><circle cx="12" cy="14" r="2.2"/></svg>
+          <span class="wc-name">The Vault</span>
+          <span class="wc-desc">Bullion, sets and the hard reserves.</span>
+          <span class="wc-stat">${money(vault.board?.bullion?.usd)} in reserve</span>
+        </button>
+        <button type="button" class="wing-card reveal" data-go="study">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5V5.5"/><path d="M9 8h7M9 12h5"/></svg>
+          <span class="wc-name">Curator's Study</span>
+          <span class="wc-desc">Value, age and country — annotated.</span>
+          <span class="wc-stat">The ledger, thinking</span>
+        </button>
       </div>`;
 
-    // ---- (b) metals band: Ag + Au ----
-    const combAgOz = prec.combined_silver?.oz ?? m.oz?.ag ?? b.silver?.oz;
-    const combAgMelt = prec.combined_silver?.melt ?? m.melt?.ag_usd ?? b.silver?.melt;
-    const agSpot = m.spot?.ag_usd_oz ?? b.spot_ag;
-    const auOz = prec.bullion_gold?.oz ?? m.oz?.au ?? b.gold?.oz;
-    const auMelt = prec.bullion_gold?.melt ?? m.melt?.au_usd ?? b.gold?.melt;
-    const auSpot = m.spot?.au_usd_oz ?? b.spot_au;
-    const flipAgN = prec.flip_silver?.n ?? 0;
-    const flipAgUnk = (prec.flip_silver?.unknown || []).length;
-    const metalsBand = `
-      <div class="metals-band">
-        <div class="metal-tile reveal">
-          <span class="metal-glyph" aria-hidden="true">Ag</span>
-          <div><div class="m-name">Silver · combined</div><div class="m-oz">${combAgOz != null ? num(combAgOz, 2) + " oz" : "—"}</div>
-          <div class="m-rows">melt <strong>${money(combAgMelt)}</strong> · spot <strong>${agSpot != null ? money(agSpot) : "—"}</strong>${flipAgUnk ? ` · ${flipAgUnk} ASW unknown` : ""}</div></div>
-        </div>
-        <div class="metal-tile reveal">
-          <span class="metal-glyph" aria-hidden="true">Au</span>
-          <div><div class="m-name">Gold</div><div class="m-oz">${auOz != null ? num(auOz, 4) + " oz" : "—"}</div>
-          <div class="m-rows">melt <strong>${money(auMelt)}</strong> · spot <strong>${auSpot != null ? money(auSpot) : "—"}</strong></div></div>
-        </div>
+    // ---- Curator's notes ----
+    const notes = `
+      <div class="sec-head reveal"><span class="eyebrow">Marginalia</span><h2>Curator's notes</h2></div>
+      <div class="notes-grid">
+        <div class="note-card reveal"><div class="k">Last add</div><div class="v" style="font-size:1rem;line-height:1.4">${esc(d.last_add || "—")}</div></div>
+        <div class="note-card reveal"><div class="k">Soft beat</div><div class="v">${esc(intFmt(d.vault ?? vault.board?.vault ?? "—"))}</div><div class="s">Next ${esc(intFmt(d.next_soft_beat ?? 1700))}</div></div>
+        <div class="note-card reveal"><div class="k">Metals as-of</div><div class="v" style="font-size:1rem">${esc(m.as_of_local || m.as_of || d.metals_live || "—")}</div><div class="s">Ag ${money(m.spot?.ag_usd_oz)} · Au ${money(m.spot?.au_usd_oz)}</div></div>
+        <div class="note-card reveal"><div class="k">Cull watch</div><div class="s" style="color:var(--warn)">${esc(d.cull_watch || "—")}</div></div>
       </div>`;
 
-    // ---- (c) latest adds: snap-scroll rail ----
-    const latest = latestFlips(10);
-    const latestHtml = latest
-      .map((f) => {
-        const neo = highlightScans.has(f.scan) ? " is-new" : "";
-        const ag = f.is_silver ? ` <span class="badge-ag">Ag</span>` : "";
-        return `
-        <button type="button" class="latest-card reveal${neo}" data-scan="${esc(f.scan)}">
-          ${thumbImg(f)}
-          <span class="id">${esc(f.ser || f.scan)}${ag}</span>
-          <span class="ser">${esc(f.ser ? f.scan : "")}</span>
-          <span class="meta">${esc(f.country || "—")} · ${esc(f.year || "—")}<br/>${esc(f.denom || f.label || "")}</span>
-          <span class="est">${f.is_silver && f.asw_oz != null ? num(f.asw_oz, 4) + " oz · " : ""}${f.est != null ? money(f.est) : "—"}</span>
-        </button>`;
-      })
-      .join("");
-    const latestSec = `
-      <div class="sec-head reveal"><span class="eyebrow">Fresh metal</span><h2>Latest adds</h2><button type="button" class="btn small" id="go-phase2" title="Coins awaiting Phase 2 photos">Shooting list →</button></div>
-      <div class="latest-rail" aria-label="Latest added flips">${latestHtml || '<p class="empty">No flips yet</p>'}</div>`;
-
-    // ---- (d) requests from Titan ----
-    const reqSec = `
-      <div class="sec-head reveal"><span class="eyebrow">Upkeep</span><h2>Requests from Titan</h2><p class="sub">Small things you could do to firm up the data.</p></div>
-      ${requestsModule()}`;
-
-    // ---- (e) moments: editorial pull quote ----
+    // ---- Editorial moment (rotating pull quote) ----
     const momentsAll = vault.moments || [];
     const momentCard = momentsAll.length ? `
       <div class="sec-head reveal"><span class="eyebrow">Editorial</span><h2>From the vault</h2></div>
-      <figure class="moment-card reveal" aria-label="From the vault" style="margin:0">
+      <figure class="moment-card reveal" aria-label="From the vault" style="margin:0 0 1.5rem">
         <span class="mk">Vault moment</span>
         <blockquote class="moment-text" id="moment-text" style="margin:0">${esc(momentsAll[0])}</blockquote>
       </figure>` : "";
-    const moments = momentsAll.map((x) => `<li>${esc(x)}</li>`).join("");
+
+    // ---- Watchlist ----
     const flags = splitFlags(vault.flags || []).map((x) => `<li>${esc(x)}</li>`).join("");
-
-    // ---- (f) top album families: 4 cards ----
-    const glanceTop = (vault.albums_glance || [])
-      .filter((g) => /[a-z]/i.test(String(g.family || ""))) // skip malformed rows (data domain owns them)
-      .slice().sort((a, bb) => (bb.coins || 0) - (a.coins || 0)).slice(0, 4);
-    const albumSec = glanceTop.length ? `
-      <div class="sec-head reveal"><span class="eyebrow">Shelved sets</span><h2>Top album families</h2><p class="sub">${esc(intFmt(vault.counts?.albums_families ?? glanceTop.length))} families tracked</p></div>
-      <div class="album-cards">
-        ${glanceTop.map((g) => `
-          <div class="album-card reveal">
-            <div class="fam">${esc(g.family)}</div>
-            <div class="coins">${esc(intFmt(g.coins))} <small>coins · ${money(g.total)}</small></div>
-            <div class="pulse">${esc(g.pulse || "")}</div>
-          </div>`).join("")}
-      </div>` : "";
-
-    // ---- (g) buckets + age, two-col ----
-    const buckets = [
-      ["Flips", b.flips],
-      ["Bullion", b.bullion],
-      ["Albums", b.albums],
-      ["Sets", b.sets],
-      ["Housing", b.housing],
-      ["Stamps", b.stamps],
-    ];
-    const bucketHtml = buckets
-      .map(([k, v]) => {
-        if (!v || v.usd == null) return "";
-        const extra =
-          v.cards != null ? ` · ${intFmt(v.cards)} cards`
-          : v.folders != null ? ` · ${intFmt(v.folders)} folders`
-          : "";
-        return `<div class="bucket-row"><span class="k">${esc(k)}</span><span class="v">${money(v.usd)}${esc(extra)}</span></div>`;
-      })
-      .join("");
-    const ageFo = vault.age?.flips_other || {};
-    const ageAl = vault.age?.albums || {};
-    const foYear = b.age_flips?.mean_year ?? ageFo.mean_year;
-    const foAge = b.age_flips?.mean_age ?? ageFo.mean_age;
-    const alYear = b.age_albums?.mean_year ?? ageAl.mean_year;
-    const alAge = b.age_albums?.mean_age ?? ageAl.mean_age;
-    const bucketsAge = `
-      <div class="grid two">
-        <div class="card reveal"><h3>Bucket breakdown</h3>${bucketHtml || '<p class="empty">No board rows</p>'}</div>
-        <div class="card reveal"><h3>Age (board)</h3>
-          <div class="bucket-row"><span class="k">Flips+other mean</span><span class="v">${precise(foYear, 1)} · ${precise(foAge, 1)} yrs</span></div>
-          <div class="bucket-row"><span class="k">Albums mean</span><span class="v">${precise(alYear, 1)} · ${precise(alAge, 1)} yrs</span></div>
-          <div class="hint" style="margin-top:0.6rem">Albums kept separate · see Age tab</div>
-        </div>
-      </div>`;
-
-    // ---- (h) keep-an-eye flags ----
     const flagsSec = `
       <div class="sec-head reveal"><span class="eyebrow">Watchlist</span><h2>Keep an eye</h2></div>
       <div class="card reveal"><ul class="moments flags">${flags || "<li class='muted'>None</li>"}</ul></div>`;
 
-    $("#pane-board").innerHTML = `
-      ${statBand}
-      ${metalsBand}
-      ${insightsSec()}
-      ${latestSec}
-      ${shootingSec()}
-      ${reqSec}
-      ${momentCard}
-      ${albumSec}
-      ${bucketsAge}
-      ${flagsSec}
-    `;
-
-    // Count-up the stat band grand after paint.
-    countUp($("#stat-grand"), vault.value?.estimated_total, money);
+    $("#hall-body").innerHTML = `${labBanner}${wingCards}${notes}${momentCard}${flagsSec}`;
 
     // Rotate "From the vault" through vault.moments[] every 12s with a CSS fade.
     const mEl = $("#moment-text");
@@ -815,37 +784,13 @@
       }
     }
 
-    $$("#pane-board .latest-card[data-scan]").forEach((btn) => {
-      btn.addEventListener("click", () => { dossierCtx = null; openDrawer(btn.dataset.scan); });
+    $$("#hall-body [data-go]").forEach((btn) => {
+      btn.addEventListener("click", () => { setWing(btn.dataset.go); window.scrollTo(0, 0); });
     });
-    $("#go-phase2")?.addEventListener("click", () => {
-      flipFilter = { ...flipFilter, phase2: true, q: "", country: "", year: "" };
-      renderFlips(); setTab("flips");
-    });
-    $$("#pane-board [data-session]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        flipFilter = { ...flipFilter, phase2: true, q: "", year: "", country: btn.dataset.session };
-        renderFlips(); setTab("flips");
-        showToast("Session: " + btn.dataset.session + " — awaiting Phase 2");
-      });
-    });
-    $$("#pane-board .gem-row button[data-scan]").forEach((btn) => {
-      btn.addEventListener("click", () => { dossierCtx = null; openDrawer(btn.dataset.scan); });
-    });
-    const more = $("#req-more");
-    if (more) more.addEventListener("click", () => {
-      const open = !$("#req-list").classList.contains("open");
-      $("#req-list").classList.toggle("open", open);
-      more.textContent = open ? "Show fewer" : more.dataset.label;
-      try { localStorage.setItem(REQ_OPEN_KEY, open ? "1" : "0"); } catch { /* ignore */ }
-    });
-    $$("#req-list .req[data-href]").forEach((el) => el.addEventListener("click", () => {
-      const h = el.dataset.href;
-      if (h && h.startsWith("#coin=")) { location.hash = h; applyHashTab(); }
-      else if (h) setTab(h.replace(/^#/, "") === "albums" ? "age" : h.replace(/^#/, ""));
-    }));
-    observeReveals($("#pane-board"));
+    $("#hall-lab-go")?.addEventListener("click", () => { setWing("lab"); window.scrollTo(0, 0); });
+    observeReveals($("#hall-body"));
   }
+
 
 
   const REQ_KIND = {
@@ -940,7 +885,7 @@
     return rows;
   }
 
-  function renderFlips() {
+  function renderGallery() {
     // Re-rendering replaces the inputs: keep focus + caret so typing is not interrupted.
     const act = document.activeElement;
     const keep = act && ["flip-q", "flip-year"].includes(act.id) ? { id: act.id, s: act.selectionStart, e: act.selectionEnd } : null;
@@ -967,33 +912,49 @@
       })
       .join("");
 
-    const body = rows
-      .map((f) => {
-        const neo = highlightScans.has(f.scan) ? " class=\"is-new\"" : "";
-        const agBadge = f.is_silver
-          ? `<span class="badge-ag${f.asw_oz == null ? " unk" : ""}">Ag</span>`
-          : "";
-        const aswCell = f.is_silver
-          ? (f.asw_oz != null ? num(f.asw_oz, 4) : "unknown")
-          : "—";
-        const meltCell = f.is_silver ? meltLive(f) : "—";
+    // Fresh-metal rail only when the visitor isn't filtering.
+    const filtering = flipFilter.q.trim() || flipFilter.country || flipFilter.iso || flipFilter.year || flipFilter.silverOnly || flipFilter.phase2;
+    let railHtml = "";
+    if (!filtering) {
+      const latest = latestFlips(10);
+      const cards = latest.map((f) => {
+        const neo = highlightScans.has(f.scan) ? " is-new" : "";
+        const ag = f.is_silver ? ` <span class="badge-ag">Ag</span>` : "";
         return `
-        <tr data-scan="${esc(f.scan)}"${neo}>
-          <td class="ser-primary">${f.thumb ? thumbImg(f, "row-thumb") : ""}${esc(f.ser || "—")}${agBadge}${f.has_photo ? ` <span class="cam" title="Phase 2 photo on file">◉</span>` : ""}</td>
-          <td class="muted scan-sec">${esc(f.scan)}</td>
-          <td>${esc(f.country || "")}</td>
-          <td>${esc(f.year || "")}</td>
-          <td>${esc(f.denom || f.label || "")}</td>
-          <td class="num asw-cell">${aswCell}</td>
-          <td class="num asw-cell">${meltCell}</td>
-          <td class="num">${f.est != null ? money(f.est) : "—"}</td>
-          <td class="muted">${esc(f.conf || "")}</td>
-        </tr>`;
-      })
-      .join("");
+        <button type="button" class="latest-card reveal${neo}" data-scan="${esc(f.scan)}">
+          ${thumbImg(f)}
+          <span class="id">${esc(f.ser || f.scan)}${ag}</span>
+          <span class="ser">${esc(f.ser ? f.scan : "")}</span>
+          <span class="meta">${esc(f.country || "—")} · ${esc(f.year || "—")}<br/>${esc(f.denom || f.label || "")}</span>
+          <span class="est">${f.is_silver && f.asw_oz != null ? num(f.asw_oz, 4) + " oz · " : ""}${f.est != null ? money(f.est) : "—"}</span>
+        </button>`;
+      }).join("");
+      railHtml = `
+        <div class="sec-head reveal"><span class="eyebrow">Fresh metal</span><h2>Latest adds</h2><button type="button" class="btn small" id="go-lab">Shooting list →</button></div>
+        <div class="latest-rail" aria-label="Latest added flips">${cards || '<p class="empty">No flips yet</p>'}</div>`;
+    }
 
-    $("#pane-flips").innerHTML = `
-      <div class="sec-head"><span class="eyebrow">The boxes</span><h2>Flips</h2><p class="sub">2×2 holders · C### keys · tap a row</p></div>
+    // The wall: every flip as an exhibit card.
+    const wall = rows.map((f) => {
+      const neo = highlightScans.has(f.scan) ? " is-new" : "";
+      const agBadge = f.is_silver ? `<span class="badge-ag${f.asw_oz == null ? " unk" : ""}">Ag</span>` : "";
+      const visual = f.thumb
+        ? `<img class="pc-photo" data-src="${esc(f.thumb)}" alt="" />`
+        : `<span class="pc-mono" aria-hidden="true">${esc(String(f.ser || f.scan || "?").slice(0, 4))}</span>`;
+      return `
+      <button type="button" class="piece-card reveal${neo}" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
+        <span class="pc-img">${visual}${f.thumb ? "" : '<span class="pc-await">Awaiting photo</span>'}</span>
+        <span class="pc-body">
+          <span class="pc-ser">${esc(f.ser || f.scan)}${agBadge}</span>
+          <span class="pc-meta">${esc([f.country, f.year, f.denom || f.label].filter(Boolean).join(" · "))}</span>
+          <span class="pc-foot"><span class="pc-val">${f.est != null ? money(f.est) : "—"}</span><span class="pc-conf">${esc(f.conf || "")}</span></span>
+        </span>
+      </button>`;
+    }).join("");
+
+    $("#gallery-body").innerHTML = `
+      ${railHtml}
+      <div class="sec-head reveal"><span class="eyebrow">The boxes</span><h2>On the wall</h2><p class="sub">2×2 holders · C### keys · tap a piece</p></div>
       <div class="toolbar">
         <span class="search-wrap"><input type="search" id="flip-q" placeholder="Search SER · C### · country · year · denom · notes…" value="${esc(flipFilter.q)}" autocomplete="off" /><kbd title="Ctrl/⌘K opens search">⌘K</kbd></span>
         <select id="flip-country"><option value="">All countries</option>${opts}</select>
@@ -1013,24 +974,7 @@
         <span class="meta">${intFmt(rows.length)} / ${intFmt((vault.flips || []).length)}${flipFilter.silverOnly ? " · silver" : ""}${flipFilter.phase2 ? " · shooting list" : ""}${flipFilter.q.trim() && !searchIdx ? " · searching notes…" : ""}</span>
       </div>
       <div class="country-strip">${strip}</div>
-      <div class="table-wrap">
-        <table class="data" id="flip-table">
-          <thead>
-            <tr>
-              <th data-k="ser" class="${flipSort.key === "ser" ? "sorted" : ""}">SER</th>
-              <th data-k="scan" class="${flipSort.key === "scan" || flipSort.key === "newest" ? "sorted" : ""}">Scan</th>
-              <th data-k="country" class="${flipSort.key === "country" ? "sorted" : ""}">Country</th>
-              <th data-k="year" class="${flipSort.key === "year" ? "sorted" : ""}">Year</th>
-              <th data-k="denom">Denom</th>
-              <th data-k="asw_oz" class="num ${flipSort.key === "asw_oz" || flipSort.key === "asw" ? "sorted" : ""}">ASW</th>
-              <th class="num">Melt</th>
-              <th data-k="est" class="num ${flipSort.key === "est" || flipSort.key === "value" ? "sorted" : ""}">Est</th>
-              <th data-k="conf">Conf</th>
-            </tr>
-          </thead>
-          <tbody>${body || '<tr><td colspan="9" class="empty">No matches</td></tr>'}</tbody>
-        </table>
-      </div>
+      <div class="gallery-grid">${wall || '<p class="empty">No matches</p>'}</div>
     `;
 
     const qEl = $("#flip-q");
@@ -1038,10 +982,11 @@
       markTyping();
       flipFilter.q = e.target.value;
       ensureSearch();
-      if (!restoring) { renderFlips(); saveState(); }
+      if (!restoring) { renderGallery(); saveState(); }
     });
     qEl.addEventListener("focus", () => { markTyping(); ensureSearch(); });
-    $("#flip-iso")?.addEventListener("click", () => { flipFilter.iso = ""; renderFlips(); saveState(); });
+    $("#go-lab")?.addEventListener("click", () => { setWing("lab"); window.scrollTo(0, 0); });
+    $("#flip-iso")?.addEventListener("click", () => { flipFilter.iso = ""; renderGallery(); saveState(); });
     $("#flip-print")?.addEventListener("click", () => window.print());
     if (keep) {
       const el = $("#" + keep.id);
@@ -1049,13 +994,13 @@
     }
     $("#flip-country").addEventListener("change", (e) => {
       flipFilter.country = e.target.value;
-      renderFlips(); saveState();
+      renderGallery(); saveState();
     });
     const yEl = $("#flip-year");
     yEl.addEventListener("input", (e) => {
       markTyping();
       flipFilter.year = e.target.value;
-      if (!restoring) { renderFlips(); saveState(); }
+      if (!restoring) { renderGallery(); saveState(); }
     });
     yEl.addEventListener("focus", markTyping);
     $("#flip-sort").addEventListener("change", (e) => {
@@ -1066,37 +1011,35 @@
       else if (v === "country") { flipSort = { key: "country", dir: 1 }; }
       else if (v === "value") { flipSort = { key: "est", dir: -1 }; }
       else if (v === "asw") { flipSort = { key: "asw_oz", dir: -1 }; }
-      renderFlips(); saveState();
+      renderGallery(); saveState();
     });
     $("#flip-ag").addEventListener("click", () => {
       flipFilter.silverOnly = !flipFilter.silverOnly;
-      renderFlips(); saveState();
+      renderGallery(); saveState();
     });
     $("#flip-p2").addEventListener("click", () => {
       flipFilter.phase2 = !flipFilter.phase2;
-      renderFlips(); saveState();
+      renderGallery(); saveState();
     });
-    lazyThumbs($("#pane-flips"));
+    lazyThumbs($("#gallery-body"));
+    observeReveals($("#gallery-body"));
     $$(".country-chip[data-country]").forEach((btn) => {
       btn.addEventListener("click", () => {
         flipFilter.country = flipFilter.country === btn.dataset.country ? "" : btn.dataset.country;
-        renderFlips(); saveState();
+        renderGallery(); saveState();
       });
     });
-    $$("#flip-table th[data-k]").forEach((th) => {
-      th.addEventListener("click", () => {
-        const k = th.dataset.k;
-        if (flipSort.key === k) flipSort.dir *= -1;
-        else { flipSort.key = k; flipSort.dir = k === "scan" || k === "est" ? -1 : 1; }
-        renderFlips(); saveState();
+    const ctxScans = rows.map((f) => f.scan);
+    $$("#gallery-body .piece-card[data-scan], #gallery-body .latest-card[data-scan]").forEach((el) => {
+      el.addEventListener("click", () => {
+        dossierCtx = { label: "Gallery", scans: ctxScans };
+        openDrawer(el.dataset.scan);
       });
-    });
-    $$("#flip-table tbody tr[data-scan]").forEach((tr) => {
-      tr.addEventListener("click", () => { dossierCtx = null; openDrawer(tr.dataset.scan); });
     });
   }
 
-  function renderBullion() {
+
+  function renderVault() {
     const all = [
       ...(vault.bullion || []).map((x) => ({ ...x, _kind: "Bullion" })),
       ...(vault.sets || []).map((x) => ({ ...x, _kind: "Set" })),
@@ -1136,7 +1079,7 @@
           <td class="num">${f.est != null ? money(f.est) : "—"}</td>
         </tr>`)
       .join("");
-    $("#pane-bullion").innerHTML = `
+    $("#vault-body").innerHTML = `
       <div class="grid">
         <div class="card"><h3>Bullion silver</h3><div class="val">${bs.oz != null ? num(bs.oz, 4) + " oz" : "—"}</div><div class="hint">Melt ${money(bs.melt)} @ live spot</div></div>
         <div class="card"><h3>Flip silver</h3><div class="val">${fs.oz != null ? num(fs.oz, 4) + " oz" : "—"}</div><div class="hint">${money(fs.melt)} · ${intFmt(fs.n)} flips${(fs.unknown||[]).length ? " · " + fs.unknown.length + " ASW unknown" : ""}</div></div>
@@ -1160,7 +1103,7 @@
         </table>
       </div>
     `;
-    $$("#pane-bullion tbody tr[data-scan]").forEach((tr) => {
+    $$("#vault-body tbody tr[data-scan]").forEach((tr) => {
       tr.addEventListener("click", () => { dossierCtx = null; openDrawer(tr.dataset.scan); });
     });
   }
@@ -1208,7 +1151,7 @@
       </div>`;
   }
 
-  function renderWorld() {
+  function worldSec() {
     const world = vault.world || [];
     if (worldSel && !world.some((w) => w.iso === worldSel)) worldSel = "";
     const body = world
@@ -1221,8 +1164,9 @@
           <td class="muted w-note">${esc(w.note || "")}</td>
         </tr>`)
       .join("");
-    $("#pane-world").innerHTML = `
-      <div class="toolbar"><span class="meta">${intFmt(world.length)} countries · tap a country to list its coins</span></div>
+    return `
+      <div class="sec-head reveal"><span class="eyebrow">Passports</span><h2>World</h2>
+      <p class="sub">${intFmt(world.length)} countries · tap a country to list its coins</p></div>
       ${worldSel ? worldPanel(worldSel) : ""}
       <div class="table-wrap">
         <table class="data" id="world-table">
@@ -1231,12 +1175,14 @@
         </table>
       </div>
     `;
+  }
+  function bindWorld() {
     const pick = (iso) => {
       worldSel = worldSel === iso ? "" : iso;
-      renderWorld(); saveState();
-      if (worldSel) requestAnimationFrame(() => $("#world-panel")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+      renderStudy(); saveState();
+      if (worldSel) requestAnimationFrame(() => $("#world-panel")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
     };
-    $$("#world-table tr.w-row").forEach((tr) => {
+    $$("#study-body #world-table tr.w-row").forEach((tr) => {
       tr.addEventListener("click", () => pick(tr.dataset.iso));
       tr.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(tr.dataset.iso); } });
     });
@@ -1244,58 +1190,141 @@
       dossierCtx = { label: isoName(worldSel), scans: worldCoins(worldSel).map((f) => f.scan) };
       openDrawer(scan);
     };
-    $$("#world-coins tbody tr[data-scan]").forEach((tr) => {
+    $$("#study-body #world-coins tbody tr[data-scan]").forEach((tr) => {
       tr.addEventListener("click", () => openCoin(tr.dataset.scan));
       tr.addEventListener("keydown", (e) => { if (e.key === "Enter") openCoin(tr.dataset.scan); });
     });
-    $("#wp-close")?.addEventListener("click", () => { worldSel = ""; renderWorld(); saveState(); });
+    $("#wp-close")?.addEventListener("click", () => { worldSel = ""; renderStudy(); saveState(); });
     $("#wp-flips")?.addEventListener("click", () => {
       const names = [...new Set(worldCoins(worldSel).map((f) => f.country).filter(Boolean))];
       flipFilter = { ...flipFilter, q: "", year: "", silverOnly: false, phase2: false,
         country: names.length === 1 ? names[0] : "", iso: names.length === 1 ? "" : worldSel };
       flipSort = { key: "ser", dir: 1 };
-      renderFlips(); setTab("flips"); window.scrollTo(0, 0);
+      renderGallery(); setWing("gallery"); window.scrollTo(0, 0);
     });
   }
 
-  function renderOps() {
+
+  const LEGACY_WING = { board: "hall", flips: "gallery", bullion: "vault", world: "study", ops: "lab", age: "study", albums: "study" };
+  function mapWing(n) { return LEGACY_WING[n] || n || "hall"; }
+
+  /** The Conservation Lab: Phase-2 photo QC command center. */
+  function renderLab() {
+    const { live, queue, done } = shootingData();
+    const pct = live.length ? Math.round((done / live.length) * 100) : 0;
+    const badge = $("#lab-badge");
+    if (badge) { badge.hidden = !live.length; badge.textContent = pct + "%"; }
+
     const d = vault.drip || {};
-    const m = vault.metals || {};
     const ids = d.next_ids || {};
     const idRows = Object.entries(ids)
-      .map(([k, v]) => `<div class="bucket-row"><span class="k">${esc(k)}</span><span class="v ser">${esc(v)}</span></div>`)
+      .map(([k, v]) => `<div class="id-row"><span>${esc(k)}</span><strong>${esc(String(v))}</strong></div>`)
       .join("");
     const ser = (d.next_ser || [])
       .slice(0, 50)
       .map((r) => `<tr><td class="ser">${esc(r.iso)}</td><td>${esc(r.country)}</td><td>${esc(r.cont)}</td><td class="num">${esc(intFmt(r.count))}</td><td class="ser">${esc(r.next)}</td></tr>`)
       .join("");
-    const flags = splitFlags(d.flags || vault.flags || []).map((x) => `<li>${esc(x)}</li>`).join("");
 
-    $("#pane-ops").innerHTML = `
-      <div class="grid">
-        <div class="card"><h3>Last add</h3><div class="val" style="font-size:1rem;line-height:1.35">${esc(d.last_add || "—")}</div></div>
-        <div class="card"><h3>Soft beat</h3><div class="val">${esc(intFmt(d.vault ?? vault.board?.vault ?? "—"))}</div><div class="hint">Next ${esc(intFmt(d.next_soft_beat ?? 1700))}</div></div>
-        <div class="card"><h3>Metals as-of</h3><div class="val" style="font-size:1rem">${esc(m.as_of_local || m.as_of || d.metals_live || "—")}</div>
-          <div class="hint">Ag ${money(m.spot?.ag_usd_oz)} · Au ${money(m.spot?.au_usd_oz)}</div></div>
-        <div class="card"><h3>Cull watch</h3><div class="hint" style="color:var(--warn);font-size:0.9rem;margin:0">${esc(d.cull_watch || "—")}</div></div>
-      </div>
+    $("#lab-body").innerHTML = `
+      ${shootingSec()}
+      <div class="sec-head reveal"><span class="eyebrow">Work orders</span><h2>Requests from Titan</h2><p class="sub">Small things you could do to firm up the data.</p></div>
+      ${requestsModule()}
       <div class="grid two">
-        <div class="card"><h3>Next IDs</h3>${idRows || '<p class="empty">—</p>'}</div>
-        <div class="card"><h3>Open flags</h3><ul class="moments flags">${flags || "<li>—</li>"}</ul></div>
-      </div>
-      <div class="card" style="margin-top:0.75rem">
-        <h3>Next SER by country</h3>
-        <div class="table-wrap" style="max-height:360px;margin-top:0.5rem">
-          <table class="data">
-            <thead><tr><th>ISO</th><th>Country</th><th>Cont</th><th class="num">Count</th><th>Next</th></tr></thead>
-            <tbody>${ser || '<tr><td colspan="5" class="empty">—</td></tr>'}</tbody>
-          </table>
+        <div class="card reveal"><h3>Next IDs</h3>${idRows || '<p class="empty">No pending IDs</p>'}</div>
+        <div class="card reveal"><h3>Next SER by country</h3>
+          <div class="table-wrap" style="max-height:320px;margin-top:0.5rem">
+            <table class="data">
+              <thead><tr><th>ISO</th><th>Country</th><th>Cont</th><th class="num">Count</th><th>Next</th></tr></thead>
+              <tbody>${ser || '<tr><td colspan="5" class="empty">—</td></tr>'}</tbody>
+            </table>
+          </div>
         </div>
       </div>
     `;
+    // Session buttons open the Gallery pre-filtered to that country's shooting list.
+    $$("#lab-body [data-session]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        flipFilter = { ...flipFilter, phase2: true, q: "", year: "", silverOnly: false, country: btn.dataset.session };
+        flipSort = { key: "ser", dir: 1 };
+        renderGallery(); setWing("gallery"); window.scrollTo(0, 0);
+        showToast("Session: " + btn.dataset.session + " — awaiting Phase 2");
+      });
+    });
+    $("#req-more")?.addEventListener("click", () => { reqVisible += 4; renderLab(); });
+    $$("#lab-body .req[data-href]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const href = el.dataset.href;
+        if (!href) return;
+        const cm = href.match(/^#coin=(.+)$/);
+        if (cm) { openDrawer(cm[1], true); return; }
+        if (href.startsWith("#")) { setWing(mapWing(href.replace(/^#/, ""))); window.scrollTo(0, 0); }
+      });
+    });
+    observeReveals($("#lab-body"));
   }
 
-  function renderAge() {
+
+  /** Study: the precious-metals ledger (moved here from the old Board). */
+  function metalsSec() {
+    const b = vault.board || {};
+    const m = vault.metals || {};
+    const vaultN = b.vault || 0;
+    const next = b.next_soft_beat || 1700;
+    const prev = Math.floor(vaultN / 100) * 100;
+    const denom = Math.max(1, next - prev);
+    const pct = Math.min(100, Math.max(0, ((vaultN - prev) / denom) * 100));
+    const prec = vault.precious || {};
+    const flipAgOz = prec.flip_silver?.oz, flipAgMelt = prec.flip_silver?.melt, flipAgN = prec.flip_silver?.n ?? 0;
+    const flipAgUnk = (prec.flip_silver?.unknown || []).length;
+    const combAgOz = prec.combined_silver?.oz ?? m.oz?.ag ?? b.silver?.oz;
+    const combAgMelt = prec.combined_silver?.melt ?? m.melt?.ag_usd ?? b.silver?.melt;
+    const bullAgOz = prec.bullion_silver?.oz, bullAgMelt = prec.bullion_silver?.melt;
+    const auOz = m.oz?.au ?? b.gold?.oz, auMelt = m.melt?.au_usd ?? b.gold?.melt;
+    return `
+      <div class="sec-head reveal"><span class="eyebrow">The ledger</span><h2>Precious metal</h2>
+      <p class="sub">Live spot when online · ${esc(m.as_of_local || m.as_of || "—")}</p></div>
+      <div class="grid">
+        <div class="card reveal"><h3>Grand</h3><div class="val">${money(b.grand)}</div><div class="hint">${esc(vault.policy || "HOLD")}</div></div>
+        <div class="card reveal"><h3>Vault pieces</h3><div class="val">${esc(intFmt(vaultN))}</div>
+          <div class="hint">Next soft beat ${esc(intFmt(next))}</div>
+          <div class="progress-wrap"><div class="progress" title="${vaultN} / ${next}"><span style="width:${pct}%"></span></div></div>
+        </div>
+        <div class="card reveal"><h3>Flips</h3><div class="val">${esc(intFmt(vault.counts?.flips ?? 0))}</div><div class="hint">${money(b.flips?.usd)} · white 2×2</div></div>
+        <div class="card reveal"><h3>Countries</h3><div class="val">${esc(intFmt(vault.counts?.countries ?? 0))}</div><div class="hint">World flips</div></div>
+        <div class="card reveal"><h3>Board Ag</h3><div class="val">${combAgOz != null ? num(combAgOz, 2) + " oz" : "—"}</div><div class="hint">Melt ${money(combAgMelt)} · spot ${money(m.spot?.ag_usd_oz)} · METALS</div></div>
+        <div class="card reveal"><h3>Gold</h3><div class="val">${auOz != null ? num(auOz, 4) + " oz" : "—"}</div><div class="hint">Melt ${money(auMelt)} · spot ${money(m.spot?.au_usd_oz)}</div></div>
+        <div class="card reveal"><h3>Flip silver</h3><div class="val">${flipAgOz != null ? num(flipAgOz, 4) + " oz" : "—"}</div><div class="hint">${money(flipAgMelt)} @ live · ${intFmt(flipAgN)} flips${flipAgUnk ? " · " + flipAgUnk + " ASW unknown" : ""}</div></div>
+        <div class="card reveal"><h3>Bullion Ag</h3><div class="val">${bullAgOz != null ? num(bullAgOz, 4) + " oz" : "—"}</div><div class="hint">Melt ${money(bullAgMelt)} · B### stack</div></div>
+      </div>`;
+  }
+
+  /** Study: bucket breakdown + age summary (moved here from the old Board). */
+  function bucketsSec() {
+    const b = vault.board || {};
+    const buckets = [["Flips", b.flips], ["Bullion", b.bullion], ["Albums", b.albums], ["Sets", b.sets], ["Housing", b.housing], ["Stamps", b.stamps]];
+    const bucketHtml = buckets
+      .map(([k, v]) => {
+        if (!v || v.usd == null) return "";
+        const extra = v.cards != null ? ` · ${intFmt(v.cards)} cards` : v.folders != null ? ` · ${intFmt(v.folders)} folders` : "";
+        return `<div class="bucket-row"><span class="k">${esc(k)}</span><span class="v">${money(v.usd)}${esc(extra)}</span></div>`;
+      })
+      .join("");
+    const ageFo = vault.age?.flips_other || {}, ageAl = vault.age?.albums || {};
+    const foYear = b.age_flips?.mean_year ?? ageFo.mean_year, foAge = b.age_flips?.mean_age ?? ageFo.mean_age;
+    const alYear = b.age_albums?.mean_year ?? ageAl.mean_year, alAge = b.age_albums?.mean_age ?? ageAl.mean_age;
+    return `
+      <div class="grid two">
+        <div class="card reveal"><h3>Bucket breakdown</h3>${bucketHtml || '<p class="empty">No board rows</p>'}</div>
+        <div class="card reveal"><h3>Age (board)</h3>
+          <div class="bucket-row"><span class="k">Flips+other mean</span><span class="v">${precise(foYear)} · ${precise(foAge)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Albums mean</span><span class="v">${precise(alYear)} · ${precise(alAge)} yrs</span></div>
+          <div class="hint" style="margin-top:0.6rem">Albums kept separate · details below</div>
+        </div>
+      </div>`;
+  }
+
+  /** Study: age bands + albums (moved here from the old Age tab). */
+  function ageSec() {
     const age = vault.age || {};
     const fo = age.flips_other || {};
     const al = age.albums || {};
@@ -1303,28 +1332,28 @@
     const glanceBody = glance
       .map((g) => `<tr><td>${esc(g.family)}</td><td class="muted">${esc(g.ids)}</td><td class="num">${esc(intFmt(g.coins))}</td><td class="num">${money(g.total)}</td><td class="muted">${esc(g.pulse)}</td></tr>`)
       .join("");
-
-    $("#pane-age").innerHTML = `
+    return `
+      <div class="sec-head reveal"><span class="eyebrow">Patina</span><h2>Age</h2>
+      <p class="sub">As of ${esc(age.as_of || "—")} · ref ${esc(String(age.reference_year ?? ""))}</p></div>
       <div class="grid two">
-        <div class="card">
+        <div class="card reveal">
           <h3>Flips + other</h3>
           <div class="bucket-row"><span class="k">Dated</span><span class="v">${esc(intFmt(fo.n_dated ?? "—"))}</span></div>
           <div class="bucket-row"><span class="k">ND excluded</span><span class="v">${esc(intFmt(fo.n_ND_excluded ?? "—"))}</span></div>
-          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(fo.mean_year, 1)}</span></div>
-          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(fo.mean_age, 1)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(fo.mean_year)}</span></div>
+          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(fo.mean_age)} yrs</span></div>
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(fo.oldest ?? "—"))} → ${esc(String(fo.newest ?? "—"))}</span></div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>Albums (separate)</h3>
           <div class="bucket-row"><span class="k">Dated / total</span><span class="v">${esc(intFmt(al.n_dated_known ?? al.n_dated ?? "—"))} / ${esc(intFmt(al.n_total_album_coins ?? "—"))}</span></div>
           <div class="bucket-row"><span class="k">Coverage</span><span class="v">${al.coverage_pct != null ? num(al.coverage_pct, 1) + "%" : "—"}</span></div>
-          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(al.mean_year, 1)}</span></div>
-          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(al.mean_age, 1)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(al.mean_year)}</span></div>
+          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(al.mean_age)} yrs</span></div>
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(al.oldest ?? "—"))} → ${esc(String(al.newest ?? "—"))}</span></div>
-          <div class="hint" style="margin-top:0.5rem">As of ${esc(age.as_of || "—")} · ref ${esc(String(age.reference_year ?? ""))}</div>
         </div>
       </div>
-      <div class="card" style="margin-top:0.75rem">
+      <div class="card reveal" style="margin-top:0.75rem">
         <h3>Albums at a glance</h3>
         <div class="table-wrap" style="max-height:420px;margin-top:0.5rem">
           <table class="data">
@@ -1332,9 +1361,25 @@
             <tbody>${glanceBody || '<tr><td colspan="5" class="empty">—</td></tr>'}</tbody>
           </table>
         </div>
-      </div>
-    `;
+      </div>`;
   }
+
+  /** The Curator's Study: intelligence, metal, world, age — the ledger, thinking. */
+  function renderStudy() {
+    $("#study-body").innerHTML = `
+      ${insightsSec()}
+      ${metalsSec()}
+      ${worldSec()}
+      ${ageSec()}
+      ${bucketsSec()}
+    `;
+    bindWorld();
+    $$("#study-body .gem-row button[data-scan]").forEach((btn) => {
+      btn.addEventListener("click", () => { dossierCtx = null; openDrawer(btn.dataset.scan); });
+    });
+    observeReveals($("#study-body"));
+  }
+
 
   function findCard(scan) {
     const pools = [vault.flips, vault.bullion, vault.sets, vault.housing, vault.stamps];
@@ -1660,8 +1705,8 @@
   }
 
   // Tabs
-  $$(".tab").forEach((btn) => {
-    btn.addEventListener("click", () => setTab(btn.dataset.tab));
+  $$(".wing").forEach((btn) => {
+    btn.addEventListener("click", () => setWing(btn.dataset.wing));
   });
 
   $("#drawer-close").addEventListener("click", closeDrawer);
@@ -1691,7 +1736,7 @@
     if (currentDrawerScan && e.key === "ArrowLeft") dossierStep(-1);
     else if (currentDrawerScan && e.key === "ArrowRight") dossierStep(1);
     else if (e.key === "?") openKeysSheet();
-    else if (/^[1-6]$/.test(e.key)) { const t = TAB_ORDER[+e.key - 1]; if (t) { setTab(t); $(`.tab[data-tab="${t}"]`)?.focus(); } }
+    else if (/^[1-5]$/.test(e.key)) { const t = WING_ORDER[+e.key - 1]; if (t) { setWing(t); $(`.wing[data-wing="${t}"]`)?.focus(); } }
   });
   // Swipe left/right in the dossier on phones
   (() => {
@@ -1721,6 +1766,7 @@
 
   // Search palette (⌘K)
   $("#btn-search").addEventListener("click", openPalette);
+  $("#fab-search")?.addEventListener("click", openPalette);
   $("#palette-q").addEventListener("input", (e) => { markTyping(); renderPalette(e.target.value); });
   $("#palette-q").addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
@@ -1866,16 +1912,16 @@
     return true;
   }
   // Roving tabindex on the tab strip: arrows move, Enter/Space activates via the button.
-  const TAB_ORDER = ["board", "flips", "bullion", "world", "ops", "age"];
-  document.querySelector(".tabs")?.addEventListener("keydown", (e) => {
+  const WING_ORDER = ["hall", "gallery", "vault", "study", "lab"];
+  document.querySelector(".wings")?.addEventListener("keydown", (e) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    const tabs = $$(".tab");
+    const tabs = $$(".wing");
     let i = tabs.indexOf(document.activeElement);
     if (i < 0) return;
     e.preventDefault();
     i = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
     tabs[i].focus();
-    setTab(tabs[i].dataset.tab);
+    setWing(tabs[i].dataset.wing);
   });
   // Offline honesty: a slim banner when the network drops.
   const offBanner = $("#offline-banner");

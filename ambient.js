@@ -343,4 +343,12 @@
     }
   }
   syncUi();
+  // Public hooks for the atmosphere system ("Set the scene" pairing).
+  window.TitanAmbient = {
+    applyPreset,
+    setOn,
+    openMixer() { panel.hidden = false; },
+    closeMixer() { panel.hidden = true; },
+    get mixerOpen() { return !panel.hidden; },
+  };
 })();
