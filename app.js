@@ -241,8 +241,8 @@
       : (narrow ? `Live · checks every ${every}s` : `Live · checks for a new publish every ${every}s, reloads only when it changes`);
     el.title = "Polls version.json (no-store); reloads only when the build stamp changes; skips while the app is hidden";
     el.innerHTML = autoRefresh
-      ? `<span class="dot"></span>${esc(mode)} · built ${esc(snapshotLabel())} · checked ${secs}s ago${pauseNote}`
-      : `<span class="dot"></span>Auto off · built ${esc(snapshotLabel())} · checked ${secs}s ago`;
+      ? `<span class="dot"></span>${esc(mode)} · <span class="nowrap">built ${esc(snapshotLabel())} · checked ${secs}s ago</span>${pauseNote}`
+      : `<span class="dot"></span>Auto off · <span class="nowrap">built ${esc(snapshotLabel())} · checked ${secs}s ago</span>`;
   }
 
   let reloadAccum = 0;
@@ -423,7 +423,7 @@
     renderWorld();
     renderOps();
     renderAge();
-    $("#foot-path").innerHTML = `<span class="ft-brand">Titan Reliquary</span> · Ledger ${esc(vault.ledger_version || "—")} · snapshot ${esc(snapshotLabel())}`;
+    $("#foot-path").innerHTML = `<span class="ft-brand">Titan Reliquary</span><span class="ft-sep" aria-hidden="true"> · </span>Ledger ${esc(vault.ledger_version || "—")} · snapshot ${esc(snapshotLabel())}`;
     const refresh = $("#btn-refresh");
     if (refresh) { refresh.textContent = "↻ Refresh"; refresh.title = "Check for a newer published snapshot and reload"; }
     lazyThumbs();
@@ -479,8 +479,22 @@
     const out = [];
     const seen = new Set();
     const norm = (s) => s.toLowerCase().replace(/^cull watch:\s*/i, "").replace(/\s+/g, " ").trim();
+    // Split on "·" separators, but never inside parentheses: "(investigate · 3 years locked)"
+    // is one flag, not two.
+    function splitTop(str) {
+      const parts = [];
+      let depth = 0, cur = "";
+      for (const ch of str) {
+        if (ch === "(") depth++;
+        else if (ch === ")") depth = Math.max(0, depth - 1);
+        if (ch === "·" && depth === 0) { parts.push(cur); cur = ""; }
+        else cur += ch;
+      }
+      parts.push(cur);
+      return parts.map((s) => s.trim()).filter(Boolean);
+    }
     for (const raw of flags || []) {
-      const parts = String(raw).split(/\s*·\s*/).map((s) => s.trim()).filter(Boolean);
+      const parts = splitTop(String(raw));
       const chunks = parts.length >= 2 && String(raw).length > 80 ? parts : [String(raw).trim()];
       for (const c of chunks) {
         if (!c) continue;
@@ -516,7 +530,7 @@
       <div class="stat-band" aria-label="Vault at a glance">
         ${grandTile}
         <div class="tile reveal"><div class="k">Vault pieces</div><div class="v">${esc(intFmt(vault.counts?.vault))}</div><div class="s">across ${esc(intFmt(vault.counts?.countries))} countries</div></div>
-        <div class="tile reveal"><div class="k">Flips</div><div class="v">${esc(intFmt(flipsTotal))}</div><div class="s">white 2×2 · permanent C### keys</div></div>
+        <div class="tile reveal"><div class="k">Flips</div><div class="v">${esc(intFmt(flipsTotal))}</div><div class="s">2×2 holders · C### keys</div></div>
         <div class="tile reveal"><div class="k">Countries</div><div class="v">${esc(intFmt(vault.counts?.countries))}</div><div class="s">world flips</div></div>
         <div class="tile reveal"><div class="k">Newest flip</div><div class="v" style="font-family:var(--serif);font-size:1.15rem">${esc(newest?.ser || newest?.scan || "—")}</div><div class="s">${esc(newestSub || "—")}</div></div>
       </div>`;
@@ -624,8 +638,8 @@
       <div class="grid two">
         <div class="card reveal"><h3>Bucket breakdown</h3>${bucketHtml || '<p class="empty">No board rows</p>'}</div>
         <div class="card reveal"><h3>Age (board)</h3>
-          <div class="bucket-row"><span class="k">Flips+other mean</span><span class="v">${precise(foYear)} · ${precise(foAge)} yrs</span></div>
-          <div class="bucket-row"><span class="k">Albums mean</span><span class="v">${precise(alYear)} · ${precise(alAge)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Flips+other mean</span><span class="v">${precise(foYear, 1)} · ${precise(foAge, 1)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Albums mean</span><span class="v">${precise(alYear, 1)} · ${precise(alAge, 1)} yrs</span></div>
           <div class="hint" style="margin-top:0.6rem">Albums kept separate · see Age tab</div>
         </div>
       </div>`;
@@ -836,7 +850,7 @@
       .join("");
 
     $("#pane-flips").innerHTML = `
-      <div class="sec-head"><span class="eyebrow">The boxes</span><h2>Flips</h2><p class="sub">White 2×2 · permanent C### keys · tap a row for the dossier</p></div>
+      <div class="sec-head"><span class="eyebrow">The boxes</span><h2>Flips</h2><p class="sub">2×2 holders · C### keys · tap a row</p></div>
       <div class="toolbar">
         <span class="search-wrap"><input type="search" id="flip-q" placeholder="Search SER · C### · country · year · denom · notes…" value="${esc(flipFilter.q)}" autocomplete="off" /><kbd title="Ctrl/⌘K opens search">⌘K</kbd></span>
         <select id="flip-country"><option value="">All countries</option>${opts}</select>
@@ -1151,16 +1165,16 @@
           <h3>Flips + other</h3>
           <div class="bucket-row"><span class="k">Dated</span><span class="v">${esc(intFmt(fo.n_dated ?? "—"))}</span></div>
           <div class="bucket-row"><span class="k">ND excluded</span><span class="v">${esc(intFmt(fo.n_ND_excluded ?? "—"))}</span></div>
-          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(fo.mean_year)}</span></div>
-          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(fo.mean_age)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(fo.mean_year, 1)}</span></div>
+          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(fo.mean_age, 1)} yrs</span></div>
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(fo.oldest ?? "—"))} → ${esc(String(fo.newest ?? "—"))}</span></div>
         </div>
         <div class="card">
           <h3>Albums (separate)</h3>
           <div class="bucket-row"><span class="k">Dated / total</span><span class="v">${esc(intFmt(al.n_dated_known ?? al.n_dated ?? "—"))} / ${esc(intFmt(al.n_total_album_coins ?? "—"))}</span></div>
           <div class="bucket-row"><span class="k">Coverage</span><span class="v">${al.coverage_pct != null ? num(al.coverage_pct, 1) + "%" : "—"}</span></div>
-          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(al.mean_year)}</span></div>
-          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(al.mean_age)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(al.mean_year, 1)}</span></div>
+          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(al.mean_age, 1)} yrs</span></div>
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(al.oldest ?? "—"))} → ${esc(String(al.newest ?? "—"))}</span></div>
           <div class="hint" style="margin-top:0.5rem">As of ${esc(age.as_of || "—")} · ref ${esc(String(age.reference_year ?? ""))}</div>
         </div>
@@ -1414,6 +1428,7 @@
     $("#drawer").hidden = false;
     $("#drawer-backdrop").hidden = false;
     document.body.classList.add("drawer-open");
+    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
     if (persist && wasHidden === false) $("#drawer-inner").scrollTop = 0;
     if (persist) saveState();
   }
@@ -1463,6 +1478,7 @@
   function closeDrawer() {
     currentDrawerScan = null;
     document.body.classList.remove("drawer-open");
+    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
     $("#drawer").hidden = true;
     $("#drawer-backdrop").hidden = true;
     saveState();
@@ -1618,6 +1634,7 @@
     $("#palette").hidden = false;
     paletteOpen = true;
     renderPalette("");
+    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
     const q = $("#palette-q");
     q.value = "";
     requestAnimationFrame(() => q.focus());
@@ -1625,6 +1642,7 @@
   function closePalette() {
     $("#palette").hidden = true;
     paletteOpen = false;
+    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
   }
   function renderPalette(qRaw) {
     const q = norm(qRaw || "");

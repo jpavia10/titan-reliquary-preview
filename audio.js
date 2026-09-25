@@ -133,6 +133,24 @@
 
   function showBar() { bar.hidden = false; }
   function hidePill() { pill.hidden = true; }
+
+  // Tuck the floating player chrome behind the dossier / search palette so it
+  // never covers overlay content; restore exactly what was showing afterward.
+  let tucked = false, pillWasShown = false, barWasShown = false;
+  window.addEventListener("titan:overlay", (e) => {
+    if (e.detail && e.detail.open) {
+      if (tucked) return;
+      tucked = true;
+      pillWasShown = !pill.hidden;
+      barWasShown = !bar.hidden;
+      pill.hidden = true;
+      bar.hidden = true;
+    } else if (tucked) {
+      tucked = false;
+      if (pillWasShown) pill.hidden = false;
+      if (barWasShown) bar.hidden = false;
+    }
+  });
   function showPill() { pill.hidden = false; showBar(); }
 
   function updateNowPlaying() {

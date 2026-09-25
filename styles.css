@@ -677,7 +677,12 @@ html[data-theme="ledger"] .tab.active { color: #faf6ec; }
   padding: 0.25rem 0.1rem 0.8rem;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
+  scrollbar-color: var(--gold-deep) transparent;
+  scroll-padding-inline: 0.1rem;
 }
+.latest-rail::-webkit-scrollbar { height: 6px; }
+.latest-rail::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+.latest-rail::-webkit-scrollbar-track { background: transparent; }
 .latest-card {
   appearance: none;
   flex: 0 0 196px;
@@ -939,7 +944,12 @@ html[data-theme="ledger"] .filter-ag.active { background: #dfe3e8; border-color:
   max-height: 6.2rem;
   overflow: auto;
   padding-bottom: 0.15rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-deep) transparent;
 }
+.country-strip::-webkit-scrollbar { width: 6px; }
+.country-strip::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+.country-strip::-webkit-scrollbar-track { background: transparent; }
 .country-chip {
   appearance: none;
   border: 1px solid var(--line);
@@ -972,7 +982,13 @@ html[data-theme="ledger"] .filter-ag.active { background: #dfe3e8; border-color:
   max-height: calc(100vh - 300px);
   -webkit-overflow-scrolling: touch;
   box-shadow: var(--shadow);
+  margin-bottom: 4.5rem; /* clear the fixed footer */
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-deep) transparent;
 }
+.table-wrap::-webkit-scrollbar { width: 8px; height: 8px; }
+.table-wrap::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 4px; }
+.table-wrap::-webkit-scrollbar-track { background: transparent; }
 table.data {
   width: 100%;
   border-collapse: collapse;
@@ -1533,8 +1549,10 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
 }
 .lofi-bar[hidden] { display: none; }
 @media (min-width: 701px) {
-  .lofi-bar { left: auto; right: 1.25rem; width: 340px; bottom: 3.4rem; }
+  .lofi-bar { left: auto; right: 1.25rem; width: 384px; bottom: 3.4rem; }
 }
+.nowrap { white-space: nowrap; }
+.foot #foot-path .ft-sep { margin: 0 0.15em; }
 .lofi-row { display: flex; align-items: center; gap: 0.5rem; }
 .lofi-btn {
   appearance: none;
@@ -1573,7 +1591,8 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   font-size: 0.68rem;
   color: var(--muted);
 }
-.lofi-credit { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lofi-credit { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#lofi-count { flex: 0 0 auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .lofi-collapse {
   appearance: none; border: none; background: transparent; color: var(--muted);
   font-size: 1rem; cursor: pointer; padding: 0.2rem 0.4rem; min-height: 32px;
