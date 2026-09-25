@@ -1876,7 +1876,7 @@
     conservator: { name: "Conservator",    themeColor: "#f4efe4", preset: "fireside", station: "classical", pair: "Fireside + Classical" },
     colossus:    { name: "Colossus",       themeColor: "#14100a", preset: "foundry",  station: "epic",      pair: "Foundry + Five Armies" },
     nocturne:    { name: "Nocturne",       themeColor: "#070b16", preset: "tavern",   station: "jazz",      pair: "Tavern + Night on the Docks" },
-    odyssey:     { name: "Odyssey",        themeColor: "#efe6d2", preset: "wayfarer", station: "adventure", pair: "Wayfarer + Expeditionary" },
+    odyssey:     { name: "Odyssey",        themeColor: "#04121a", preset: "wayfarer", station: "adventure", pair: "Wayfarer + Expeditionary" },
     cursedwing:  { name: "The Cursed Wing", themeColor: "#0a0505", preset: "blackout", station: "dark",      pair: "Blackout + Oppressive Gloom" },
     kaleido:     { name: "Kaleidoscope",    themeColor: "#0d0218", preset: "mirage",   station: "psych",     pair: "Mirage + Psych Voyage" },
     abyss:       { name: "Sunken Treasury", themeColor: "#02101c", preset: "depths",   station: "abyss",     pair: "Depths + Pressure Hymns" },
@@ -1905,11 +1905,13 @@
     } catch { /* ignore */ }
   }
   // Per-theme full-screen FX: matrix rain + terminal for the Construct, a fake menu
-  // bar for Plaintext, hue-storm for Kaleidoscope, scanlines for Neon Vault.
+  // bar + status bar for Plaintext, hue-storm for Kaleidoscope, scanlines + sun for
+  // Neon Vault, a compass rose for Odyssey, a glyph ring for Xenohold.
   // Everything is created on switch and torn down on the next switch.
   const themeFx = { matrixTimer: 0, termTimer: 0, termAbort: 0 };
   function clearThemeFx() {
-    ["kaleido-fx", "matrix-rain", "construct-term", "notepad-bar", "neon-scan"].forEach((id) => {
+    ["kaleido-fx", "matrix-rain", "construct-term", "notepad-bar", "notepad-status",
+     "neon-scan", "neon-sun", "odyssey-compass", "xeno-ring"].forEach((id) => {
       document.getElementById(id)?.remove();
     });
     clearInterval(themeFx.matrixTimer); themeFx.matrixTimer = 0;
@@ -1997,12 +1999,26 @@
     if (atmo === "neon") {
       const d = document.createElement("div"); d.id = "neon-scan"; d.setAttribute("aria-hidden", "true");
       document.body.appendChild(d);
+      const s = document.createElement("div"); s.id = "neon-sun"; s.setAttribute("aria-hidden", "true");
+      document.body.appendChild(s);
     }
     if (atmo === "notepad") {
       const bar = document.createElement("div");
       bar.id = "notepad-bar"; bar.setAttribute("aria-hidden", "true");
       bar.innerHTML = '<span class="np-menu"><span>File</span><span>Edit</span><span>Search</span><span>View</span><span>Help</span></span><span class="np-title">Untitled - Notepad</span>';
       document.body.prepend(bar);
+      const st = document.createElement("div");
+      st.id = "notepad-status"; st.setAttribute("aria-hidden", "true");
+      st.innerHTML = '<span>Ln 1, Col 1</span><span>100%</span><span>Windows (CRLF)</span><span>UTF-8</span>';
+      document.body.appendChild(st);
+    }
+    if (atmo === "odyssey") {
+      const d = document.createElement("div"); d.id = "odyssey-compass"; d.setAttribute("aria-hidden", "true");
+      document.body.appendChild(d);
+    }
+    if (atmo === "xeno") {
+      const d = document.createElement("div"); d.id = "xeno-ring"; d.setAttribute("aria-hidden", "true");
+      document.body.appendChild(d);
     }
     if (atmo === "construct" && !reduced) { startMatrixRain(); startConstructTerm(); }
   }

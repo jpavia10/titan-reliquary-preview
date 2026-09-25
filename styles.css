@@ -3428,3 +3428,389 @@ html[data-atmo="xeno"] .card, html[data-atmo="xeno"] .tile {
 /* tr14: soundscape button in the music widget */
 .lofi-btn svg { display: block; margin: 0 auto; }
 .lofi-btn[data-act="ambience"].on { color: #7db4d8; border-color: #4a7a9a; box-shadow: 0 0 10px rgba(90, 150, 190, 0.35); }
+
+/* ================= tr17: atmosphere visual upgrade =================
+   Every atmosphere gets Kaleidoscope-tier spectacle: an animated background
+   treatment, a themed particle layer, a hero glow treatment, and a color
+   identity that doesn't collide with the others. Odyssey is reimagined from
+   scratch as a night voyage toward dawn (it no longer shares Conservator's
+   archival-paper look). All motion is transform/opacity/background-position
+   only, and every new animation stands down under prefers-reduced-motion. */
+
+/* ---------- 1. After Hours: moonbeams drift through the dark gallery ---------- */
+html[data-atmo="afterhours"] body {
+  background-image:
+    radial-gradient(45% 30% at 18% 0%, rgba(150, 190, 255, 0.10), transparent 70%),
+    linear-gradient(180deg, rgba(130, 170, 235, 0.07), transparent 32%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(2, 4, 9, 0.6) 100%);
+  animation: ah-moonbeam 34s ease-in-out infinite alternate;
+}
+@keyframes ah-moonbeam {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 24vw 6vh, 0 0, 0 0; }
+}
+html[data-atmo="afterhours"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(150, 190, 255, 0.13), transparent 70%);
+  animation: ah-breathe 12s ease-in-out infinite;
+}
+@keyframes ah-breathe { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+html[data-atmo="afterhours"] .wordmark { animation: ah-shimmer 9s ease-in-out infinite; }
+@keyframes ah-shimmer {
+  0%, 100% { text-shadow: 0 0 18px rgba(160, 200, 255, 0.22); }
+  50% { text-shadow: 0 0 36px rgba(170, 210, 255, 0.5); }
+}
+html[data-atmo="afterhours"] #dust-layer i {
+  background: radial-gradient(circle, rgba(205, 225, 255, 0.8), transparent 70%);
+}
+
+/* ---------- 2. Conservator: the desk by a window, sunbeam traveling ---------- */
+html[data-atmo="conservator"] body {
+  background-image:
+    linear-gradient(115deg, transparent 40%, rgba(255, 236, 178, 0.22) 50%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(122, 46, 46, 0.045) 27px 28px);
+  background-size: 280% 100%, auto;
+  animation: cons-sunbeam 44s ease-in-out infinite alternate;
+}
+@keyframes cons-sunbeam {
+  from { background-position: 115% 0, 0 0; }
+  to { background-position: -15% 0, 0 0; }
+}
+html[data-atmo="conservator"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(190, 140, 60, 0.15), transparent 70%);
+  animation: cons-lamp 16s ease-in-out infinite;
+}
+@keyframes cons-lamp {
+  0%, 100% { opacity: 0.7; transform: translateX(-52%); }
+  50% { opacity: 1; transform: translateX(-48%); }
+}
+html[data-atmo="conservator"] .wordmark { animation: cons-ink 20s ease-in-out infinite; }
+@keyframes cons-ink {
+  0%, 100% { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
+  50% { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 26px rgba(190, 140, 60, 0.35); }
+}
+
+/* ---------- 3. Colossus: the furnace breathes ---------- */
+html[data-atmo="colossus"] body {
+  background-image:
+    radial-gradient(100% 55% at 50% 118%, rgba(255, 122, 26, 0.16), transparent 62%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(8, 4, 1, 0.55) 100%);
+  animation: col-furnace 7s ease-in-out infinite alternate;
+}
+@keyframes col-furnace {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 0 -5vh, 0 0; }
+}
+html[data-atmo="colossus"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(255, 150, 50, 0.17), transparent 70%);
+  animation: col-stoke 4.2s ease-in-out infinite;
+}
+@keyframes col-stoke {
+  0%, 100% { opacity: 0.72; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.06); }
+}
+html[data-atmo="colossus"] .wordmark { animation: col-heat 7s ease-in-out infinite; }
+@keyframes col-heat {
+  0%, 100% { text-shadow: 0 0 34px rgba(255, 150, 50, 0.45); }
+  50% { text-shadow: 0 0 54px rgba(255, 170, 60, 0.75), 0 0 14px rgba(255, 200, 120, 0.5); }
+}
+html[data-atmo="colossus"] #dust-layer i {
+  background: radial-gradient(circle, rgba(255, 150, 60, 0.85), transparent 70%);
+}
+
+/* ---------- 4. Nocturne: a stage spotlight sweeps the cellar ---------- */
+html[data-atmo="nocturne"] .hero::before {
+  content: ""; position: absolute; inset: -2rem -10vw; pointer-events: none;
+  background: linear-gradient(100deg, transparent 30%, rgba(207, 169, 95, 0.10) 47%, rgba(160, 190, 255, 0.09) 53%, transparent 70%);
+  background-size: 300% 100%;
+  animation: noc-spot 16s ease-in-out infinite;
+}
+@keyframes noc-spot { 0% { background-position: 120% 0; } 55%, 100% { background-position: -20% 0; } }
+html[data-atmo="nocturne"] .wordmark { animation: noc-glow 11s ease-in-out infinite; }
+@keyframes noc-glow {
+  0%, 100% { text-shadow: 0 2px 30px rgba(140, 160, 210, 0.35); }
+  50% { text-shadow: 0 2px 46px rgba(207, 169, 95, 0.55); }
+}
+html[data-atmo="nocturne"] #dust-layer i {
+  background: radial-gradient(circle, rgba(232, 200, 130, 0.7), transparent 70%);
+}
+html[data-atmo="nocturne"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(140, 160, 220, 0.12), transparent 70%);
+  animation: noc-haze 14s ease-in-out infinite;
+}
+@keyframes noc-haze { 0%, 100% { opacity: 0.65; } 50% { opacity: 1; } }
+
+/* ---------- 5. Odyssey REIMAGINED: a night voyage toward dawn ----------
+   Deep-sea dark, amber horizon, parallax clouds, a slowly turning compass
+   rose behind the hero. Nothing of the old chart-table parchment remains. */
+html[data-atmo="odyssey"] {
+  --bg: #04121a; --bg2: #071a24; --surface: #0a2230; --surface2: #0f2c3d;
+  --ink: #f2e8d5; --muted: #9db3b8; --faint: #57707a;
+  --gold: #ffb347; --gold-soft: #ffd9a0; --gold-deep: #8a5a1e;
+  --line: rgba(255, 179, 71, 0.18); --line-strong: rgba(255, 179, 71, 0.45);
+  --ok: #7fd6a0; --warn: #ffb347; --bad: #ff7a6b;
+  --shadow: inset 0 1px 0 rgba(255, 200, 120, 0.08), 0 18px 55px rgba(0, 8, 14, 0.85);
+  --th-bg: #081820; --tabgrad1: #0f2c3d; --tabgrad2: #04121a;
+  --foot-bg: rgba(4, 18, 26, 0.94); --ph-bg: #050f16; --sel-bg: #0d2431;
+  --hold-bg: linear-gradient(135deg, #123242, #04121a);
+  --drawerbar-bg: rgba(10, 34, 48, 0.95); --cardmeta: #c8d8d4;
+  --skeleton1: #0f2c3d; --skeleton2: #050f16;
+  --toastgrad1: #0f2c3d; --toastgrad2: #071a24;
+  --row-hover: rgba(255, 179, 71, 0.08);
+  --grain-op: 0.06;
+  --wing-dur: 0.45s; --wing-rise: 14px;
+}
+html[data-atmo="odyssey"] body {
+  background-image:
+    radial-gradient(90% 26% at 50% 112%, rgba(255, 150, 60, 0.30), transparent 70%),
+    radial-gradient(35% 14% at 12% 78%, rgba(140, 200, 220, 0.10), transparent 70%),
+    radial-gradient(30% 12% at 78% 70%, rgba(140, 200, 220, 0.08), transparent 70%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(1, 6, 10, 0.6) 100%);
+  animation: ody-voyage 30s ease-in-out infinite alternate, ody-dawn 12s ease-in-out infinite;
+}
+@keyframes ody-voyage {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 0 0, -14vw 2vh, 18vw -2vh, 0 0; }
+}
+@keyframes ody-dawn {
+  0%, 100% { background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%; }
+  50% { background-size: 114% 114%, 100% 100%, 100% 100%, 100% 100%; }
+}
+#odyssey-compass {
+  position: fixed; top: 6vh; left: 50%; transform: translateX(-50%);
+  width: min(74vmin, 500px); height: min(74vmin, 500px);
+  z-index: -1; pointer-events: none; border-radius: 50%; opacity: 0.55;
+  background:
+    radial-gradient(circle, transparent 60%, rgba(255, 179, 71, 0.22) 61%, transparent 64%),
+    repeating-conic-gradient(from 0deg, rgba(255, 179, 71, 0.32) 0deg 1deg, transparent 1deg 15deg),
+    conic-gradient(from -45deg, transparent 0deg, rgba(255, 179, 71, 0.14) 10deg, transparent 20deg, transparent 160deg, rgba(255, 179, 71, 0.14) 170deg, transparent 180deg, transparent 340deg, rgba(255, 179, 71, 0.14) 350deg, transparent 360deg);
+  -webkit-mask: radial-gradient(circle, transparent 32%, #000 33%, #000 100%);
+  mask: radial-gradient(circle, transparent 32%, #000 33%, #000 100%);
+  animation: ody-compass 140s linear infinite;
+}
+@keyframes ody-compass { to { transform: translateX(-50%) rotate(360deg); } }
+html[data-atmo="odyssey"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(255, 170, 80, 0.20), transparent 70%);
+  animation: ody-sunbreathe 10s ease-in-out infinite;
+}
+@keyframes ody-sunbreathe {
+  0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+}
+html[data-atmo="odyssey"] .wordmark {
+  color: #ffe9c9; text-shadow: 0 0 30px rgba(255, 170, 80, 0.45);
+}
+html[data-atmo="odyssey"] #dust-layer i {
+  background: radial-gradient(circle, rgba(255, 200, 130, 0.75), transparent 70%);
+}
+html[data-atmo="odyssey"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 10%, rgba(255, 179, 71, 0.14), transparent 70%),
+    radial-gradient(40% 60% at 80% 90%, rgba(60, 140, 170, 0.16), transparent 70%);
+  animation: kenburns 22s ease-in-out infinite alternate;
+}
+html[data-atmo="odyssey"] .exhibit-lamp { background: #ffcf7a; box-shadow: 0 0 12px #ffcf7a; }
+/* retire the old chart-table chrome */
+html[data-atmo="odyssey"] .card, html[data-atmo="odyssey"] .tile,
+html[data-atmo="odyssey"] .wing-card, html[data-atmo="odyssey"] .note-card,
+html[data-atmo="odyssey"] .album-card, html[data-atmo="odyssey"] .latest-card { border-style: solid; }
+html[data-atmo="odyssey"] .sec-head { border-bottom: 2px solid var(--line-strong); }
+html[data-atmo="odyssey"] .filter-ag.active { background: #7a4d16; border-color: #ffb347; color: #ffe9c9; }
+.sw-odyssey { background: radial-gradient(circle at 50% 115%, #ffb347 0%, #0a2230 62%, #04121a 100%); }
+
+/* ---------- 6. The Cursed Wing: the room has a heartbeat ---------- */
+html[data-atmo="cursedwing"] body {
+  background-image:
+    radial-gradient(90% 40% at 50% 115%, rgba(212, 47, 47, 0.13), transparent 70%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+  animation: cursed-heart 3.6s ease-in-out infinite;
+}
+@keyframes cursed-heart {
+  0%, 100% { background-size: 100% 100%, 100% 100%; }
+  12% { background-size: 113% 113%, 100% 100%; }
+  24% { background-size: 100% 100%, 100% 100%; }
+  36% { background-size: 108% 108%, 100% 100%; }
+  52% { background-size: 100% 100%, 100% 100%; }
+}
+html[data-atmo="cursedwing"] .hero::before {
+  content: ""; position: absolute; inset: -3rem -20vw; pointer-events: none;
+  background:
+    radial-gradient(40% 60% at 30% 50%, rgba(120, 10, 10, 0.25), transparent 70%),
+    radial-gradient(40% 60% at 70% 40%, rgba(120, 10, 10, 0.20), transparent 70%);
+  background-size: 200% 100%;
+  animation: cursed-mist 21s ease-in-out infinite alternate;
+}
+@keyframes cursed-mist { from { background-position: 0 0, 0 0; } to { background-position: -30% 0, 30% 0; } }
+
+/* ---------- 7. Kaleidoscope: the storm gains a counter-rotating heart ---------- */
+#kaleido-fx::after {
+  content: ""; position: absolute; inset: 14%; border-radius: 50%;
+  background: conic-gradient(from 180deg, #00ccff, #8844ff, #ff0080, #ffee00, #00ff88, #00ccff);
+  filter: blur(70px) saturate(1.6);
+  opacity: 0.55; mix-blend-mode: screen;
+  animation: kaleido-spin-rev 26s linear infinite;
+}
+@keyframes kaleido-spin-rev { to { transform: rotate(-360deg); } }
+html[data-atmo="kaleido"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(255, 77, 210, 0.16), transparent 70%);
+  animation: kaleido-breathe 8s ease-in-out infinite;
+}
+@keyframes kaleido-breathe { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+
+/* ---------- 8. Sunken Treasury: sonar pings and bubble-motes ---------- */
+html[data-atmo="abyss"] body {
+  animation: abyss-sea 26s ease-in-out infinite alternate;
+}
+@keyframes abyss-sea {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 3vw -5vh, -3vw -4vh, 0 0; }
+}
+html[data-atmo="abyss"] .hero::before {
+  content: ""; position: absolute; left: 50%; top: 42%; width: 12rem; height: 12rem;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(120, 220, 245, 0.5); border-radius: 50%;
+  pointer-events: none;
+  animation: abyss-ping 7s ease-out infinite;
+}
+@keyframes abyss-ping {
+  0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0.85; }
+  70% { opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(3.4); opacity: 0; }
+}
+html[data-atmo="abyss"] #dust-layer i {
+  background: radial-gradient(circle, rgba(140, 230, 245, 0.75), transparent 70%);
+  box-shadow: 0 0 0 1px rgba(140, 230, 245, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.5);
+}
+html[data-atmo="abyss"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(79, 216, 232, 0.14), transparent 70%);
+  animation: abyss-glow 10s ease-in-out infinite;
+}
+@keyframes abyss-glow { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+
+/* ---------- 9. Neon Vault: the grid drives forward under a striped sun ---------- */
+#neon-sun {
+  position: fixed; left: 50%; top: 5vh; transform: translateX(-50%);
+  width: min(56vmin, 360px); height: min(56vmin, 360px); border-radius: 50%;
+  z-index: -1; pointer-events: none; opacity: 0.9;
+  background: linear-gradient(180deg, #ffd24d 0%, #ff9a3d 30%, #ff2d96 62%, #7a1aff 100%);
+  -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 16px, transparent 16px 21px);
+  mask-image: repeating-linear-gradient(180deg, #000 0 16px, transparent 16px 21px);
+  box-shadow: 0 0 90px rgba(255, 45, 150, 0.5);
+  animation: neon-sunfloat 9s ease-in-out infinite;
+}
+@keyframes neon-sunfloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-1.6vh); }
+}
+html[data-atmo="neon"] body { animation: neon-drive 3.4s linear infinite; }
+@keyframes neon-drive {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 0 0, 0 48px, 0 0, 0 0; }
+}
+html[data-atmo="neon"] .wordmark { animation: neon-flicker 7s linear infinite; }
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  6.5% { opacity: 1; } 7% { opacity: 0.55; } 7.5% { opacity: 1; }
+  53% { opacity: 1; } 53.5% { opacity: 0.7; } 54% { opacity: 1; }
+}
+html[data-atmo="neon"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(255, 45, 150, 0.16), transparent 70%);
+  animation: neon-breathe 6s ease-in-out infinite;
+}
+@keyframes neon-breathe { 0%, 100% { opacity: 0.65; } 50% { opacity: 1; } }
+
+/* ---------- 10. Plaintext: the joke gets its status bar ---------- */
+#notepad-status {
+  position: fixed; left: 0; right: 0;
+  bottom: calc(var(--nav-h, 66px) + env(safe-area-inset-bottom, 0px));
+  z-index: 70;
+  display: flex; justify-content: flex-end; gap: 1.2rem;
+  font-family: "Courier New", Courier, monospace; font-size: 0.72rem; color: #111;
+  background: #f0f0f0; border-top: 1px solid #000; border-radius: 0;
+  padding: 0.28rem 0.9rem; pointer-events: none;
+}
+#notepad-status span:first-child { margin-right: auto; }
+html[data-atmo="notepad"] .hero-grand { letter-spacing: -0.02em; }
+html[data-atmo="notepad"] .sigil { display: none !important; }
+
+/* ---------- 11. The Construct: scan sweeps and a breathing CRT ---------- */
+html[data-atmo="construct"] .hero::before {
+  content: ""; position: absolute; left: -10vw; right: -10vw; top: -30%; height: 34%;
+  background: linear-gradient(180deg, transparent, rgba(51, 255, 102, 0.10), transparent);
+  pointer-events: none;
+  animation: cx-scan 9s linear infinite;
+}
+@keyframes cx-scan { 0% { top: -30%; } 100% { top: 112%; } }
+html[data-atmo="construct"] body { animation: cx-vignette 8s ease-in-out infinite; }
+@keyframes cx-vignette {
+  0%, 100% { background-size: 100% 100%; }
+  50% { background-size: 109% 109%; }
+}
+html[data-atmo="construct"] .wordmark { animation: cx-glow 5s ease-in-out infinite; }
+@keyframes cx-glow {
+  0%, 100% { text-shadow: 0 0 12px rgba(51, 255, 102, 0.9), 0 0 44px rgba(51, 255, 102, 0.4); }
+  50% { text-shadow: 0 0 20px rgba(51, 255, 102, 1), 0 0 74px rgba(51, 255, 102, 0.65); }
+}
+
+/* ---------- 12. Xenohold: the glyph ring turns, the beam takes you ---------- */
+#xeno-ring {
+  position: fixed; top: 3vh; left: 50%; transform: translateX(-50%);
+  width: min(82vmin, 540px); height: min(82vmin, 540px);
+  z-index: -1; pointer-events: none; border-radius: 50%; opacity: 0.85;
+  background:
+    radial-gradient(circle, transparent 62%, rgba(77, 232, 194, 0.12) 63%, transparent 67%),
+    repeating-conic-gradient(from 0deg at 50% 50%, rgba(150, 120, 255, 0.42) 0deg 2deg, transparent 2deg 12deg);
+  -webkit-mask: radial-gradient(circle, transparent 54%, #000 55%, #000 80%, transparent 81%);
+  mask: radial-gradient(circle, transparent 54%, #000 55%, #000 80%, transparent 81%);
+  animation: xeno-spin 90s linear infinite;
+}
+#xeno-ring::after {
+  content: ""; position: absolute; inset: -6%; border-radius: 50%;
+  border: 1px dashed rgba(77, 232, 194, 0.4);
+  animation: xeno-spin-rev 60s linear infinite;
+}
+@keyframes xeno-spin { to { transform: translateX(-50%) rotate(360deg); } }
+@keyframes xeno-spin-rev { to { transform: rotate(-360deg); } }
+html[data-atmo="xeno"] .hero::before {
+  content: ""; position: absolute; top: -10%; bottom: -10%; left: 50%; width: 12rem;
+  transform: translateX(-50%) scaleX(0.4);
+  background: linear-gradient(90deg, transparent, rgba(150, 220, 255, 0.12), transparent);
+  pointer-events: none; opacity: 0;
+  animation: xeno-beam 18s ease-in-out infinite;
+}
+@keyframes xeno-beam {
+  0%, 88%, 100% { opacity: 0; transform: translateX(-50%) scaleX(0.4); }
+  92% { opacity: 1; transform: translateX(-50%) scaleX(1); }
+  96% { opacity: 0; transform: translateX(-50%) scaleX(1.7); }
+}
+html[data-atmo="xeno"] #dust-layer i:nth-child(odd) {
+  background: radial-gradient(circle, rgba(170, 130, 255, 0.7), transparent 70%);
+}
+html[data-atmo="xeno"] body { animation: xeno-breathe 9s ease-in-out infinite, xeno-drift 40s linear infinite; }
+@keyframes xeno-drift {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 10vw 4vh, -8vw -3vh, 6vw 8vh, 0 0; }
+}
+
+/* ---------- tr17 reduced motion: every new movement stands down ---------- */
+@media (prefers-reduced-motion: reduce) {
+  #odyssey-compass, #neon-sun, #xeno-ring { display: none; }
+  #kaleido-fx::after { display: none; }
+  html[data-atmo="afterhours"] body, html[data-atmo="afterhours"] .hero-glow,
+  html[data-atmo="afterhours"] .wordmark,
+  html[data-atmo="conservator"] body, html[data-atmo="conservator"] .hero-glow,
+  html[data-atmo="conservator"] .wordmark,
+  html[data-atmo="colossus"] body, html[data-atmo="colossus"] .hero-glow,
+  html[data-atmo="colossus"] .wordmark,
+  html[data-atmo="nocturne"] .hero::before, html[data-atmo="nocturne"] .wordmark,
+  html[data-atmo="nocturne"] .hero-glow,
+  html[data-atmo="odyssey"] body, html[data-atmo="odyssey"] .hero-glow,
+  html[data-atmo="cursedwing"] body, html[data-atmo="cursedwing"] .hero::before,
+  html[data-atmo="kaleido"] .hero-glow,
+  html[data-atmo="abyss"] body, html[data-atmo="abyss"] .hero::before,
+  html[data-atmo="abyss"] .hero-glow,
+  html[data-atmo="neon"] body, html[data-atmo="neon"] .wordmark,
+  html[data-atmo="neon"] .hero-glow,
+  html[data-atmo="construct"] .hero::before, html[data-atmo="construct"] body,
+  html[data-atmo="construct"] .wordmark,
+  html[data-atmo="xeno"] body, html[data-atmo="xeno"] .hero::before { animation: none; }
+}
