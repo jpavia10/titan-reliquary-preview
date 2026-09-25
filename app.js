@@ -1752,7 +1752,24 @@
 
   // PWA: service worker (versioned caches; network-first for version.json + data).
   if ("serviceWorker" in navigator && location.protocol === "https:") {
-    navigator.serviceWorker.register("sw.js").catch(() => {});
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.register("sw.js").then((reg) => {
+      // A tab left open (or restored) can sit on a stale build: check for a new
+      // service worker whenever the tab becomes visible again.
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) reg.update().catch(() => {});
+      });
+      // When a NEW worker takes control, the running page is the old build —
+      // reload once so the user is never stuck on stale UI. (First install has
+      // no prior controller, so it never reload-loops.)
+      let reloaded = false;
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (!hadController || reloaded) return;
+        reloaded = true;
+        showToast("New version available — refreshing…");
+        setTimeout(() => window.location.reload(), 900);
+      });
+    }).catch(() => {});
   }
 
   /* --- Atmosphere system: After Hours (midnight exhibition) / Conservator (archival desk).
