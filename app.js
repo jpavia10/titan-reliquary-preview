@@ -855,8 +855,57 @@
     }
   }
 
+  /** Native Web Audio numismatic synthesis for tactile interactions. */
+  let fxAudioCtx = null;
+  function playCoinChime() {
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!fxAudioCtx) fxAudioCtx = new AC();
+      if (fxAudioCtx.state === "suspended") fxAudioCtx.resume();
+      const now = fxAudioCtx.currentTime;
+      const osc1 = fxAudioCtx.createOscillator();
+      const osc2 = fxAudioCtx.createOscillator();
+      const gain = fxAudioCtx.createGain();
+      osc1.type = "sine";
+      osc1.frequency.setValueAtTime(3850, now);
+      osc2.type = "sine";
+      osc2.frequency.setValueAtTime(7700, now);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.2);
+      osc1.connect(gain);
+      osc2.connect(gain);
+      gain.connect(fxAudioCtx.destination);
+      osc1.start(now);
+      osc2.start(now);
+      osc1.stop(now + 1.25);
+      osc2.stop(now + 1.25);
+    } catch (_) {}
+  }
+  function playStapleClick() {
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!fxAudioCtx) fxAudioCtx = new AC();
+      if (fxAudioCtx.state === "suspended") fxAudioCtx.resume();
+      const now = fxAudioCtx.currentTime;
+      const osc = fxAudioCtx.createOscillator();
+      const gain = fxAudioCtx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(420, now);
+      osc.frequency.exponentialRampToValueAtTime(80, now + 0.04);
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+      osc.connect(gain);
+      gain.connect(fxAudioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.05);
+    } catch (_) {}
+  }
+
   /** Render an authentic museum technical specimen blueprint when physical photo is pending. */
-  function renderSpecimenBlueprint(f, large = false) {
+  function renderSpecimenBlueprint(f, large = false, side = "obv") {
+    const isRev = side === "rev";
     const iso = esc(f.iso || (f.country || "??").slice(0, 2).toUpperCase());
     const year = esc(f.year || "—");
     const denom = esc(f.denom || f.label || "Coin");
@@ -880,13 +929,22 @@
     const strokeColor = isGold ? "#eab308" : (isSilver ? "#cbd5e1" : "rgba(200, 169, 74, 0.7)");
     const crestColor = isGold ? "#fde047" : (isSilver ? "#f1f5f9" : "#e8d9a8");
 
+    const centerGraphic = isRev
+      ? `<g transform="translate(50, 42)" text-anchor="middle" fill="${crestColor}">
+           <circle cx="0" cy="0" r="14" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2"/>
+           <text x="0" y="5" font-family="var(--serif)" font-size="12" font-weight="700" fill="currentColor">${denom.slice(0, 5)}</text>
+         </g>`
+      : `<g transform="translate(50, 42) scale(${large ? 0.75 : 0.65})" text-anchor="middle" fill="${crestColor}">
+           ${getCountryCrest(f.iso || (f.country || "").slice(0, 2))}
+         </g>`;
+
     return `
       <svg class="specimen-blueprint" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <pattern id="grid-${esc(f.scan)}" width="10" height="10" patternUnits="userSpaceOnUse">
+          <pattern id="grid-${esc(f.scan)}-${side}" width="10" height="10" patternUnits="userSpaceOnUse">
             <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(200,169,74,0.07)" stroke-width="0.5"/>
           </pattern>
-          <radialGradient id="vignette-${esc(f.scan)}" cx="50%" cy="50%" r="50%">
+          <radialGradient id="vignette-${esc(f.scan)}-${side}" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="rgba(200,169,74,0.1)"/>
             <stop offset="65%" stop-color="rgba(10,11,14,0.85)"/>
             <stop offset="100%" stop-color="#060709"/>
@@ -894,8 +952,8 @@
         </defs>
 
         <!-- Technical aperture backdrop -->
-        <rect width="100" height="100" fill="url(#vignette-${esc(f.scan)})" />
-        <rect width="100" height="100" fill="url(#grid-${esc(f.scan)})" />
+        <rect width="100" height="100" fill="url(#vignette-${esc(f.scan)}-${side})" />
+        <rect width="100" height="100" fill="url(#grid-${esc(f.scan)}-${side})" />
 
         <!-- Caliper measurement guide rings -->
         <circle cx="50" cy="50" r="46.5" fill="none" stroke="rgba(200,169,74,0.18)" stroke-width="0.5" stroke-dasharray="1.5 2"/>
@@ -909,24 +967,23 @@
         <circle cx="50" cy="50" r="${scaledR}" fill="none" stroke="${strokeColor}" stroke-width="1.3" />
         <circle cx="50" cy="50" r="${innerR}" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5" stroke-dasharray="2 1.5"/>
 
-        <!-- Sovereign Crest / Emblem -->
-        <g transform="translate(50, 42) scale(${large ? 0.75 : 0.65})" text-anchor="middle" fill="${crestColor}">
-          ${getCountryCrest(f.iso || (f.country || "").slice(0, 2))}
-        </g>
+        <!-- Center Heraldry / Denomination -->
+        ${centerGraphic}
 
         <!-- Technical Inscriptions -->
-        <text x="50" y="58" text-anchor="middle" class="bp-txt-iso">${iso} · ${year}</text>
-        <text x="50" y="66" text-anchor="middle" class="bp-txt-dim">⌀ ${diam.toFixed(1)} mm</text>
+        <text x="50" y="58" text-anchor="middle" class="bp-txt-iso">${isRev ? (f.km ? 'KM#' + esc(f.km) : 'REVERSE') : `${iso} · ${year}`}</text>
+        <text x="50" y="66" text-anchor="middle" class="bp-txt-dim">⌀ ${diam.toFixed(1)} mm ${isRev ? '· 180°' : '· 0°'}</text>
         <text x="50" y="73" text-anchor="middle" class="bp-txt-alloy">${metalBadge}</text>
 
         <!-- Archival Status Watermark -->
-        <text x="50" y="93" text-anchor="middle" class="bp-txt-stamp">PHASE 1 SPECIMEN</text>
+        <text x="50" y="93" text-anchor="middle" class="bp-txt-stamp">${isRev ? 'REVERSE DIE ALIGNMENT' : 'OBVERSE DIE RETICLE'}</text>
       </svg>`;
   }
 
   /** Render an authentic white 2x2 archival cardboard staple flip. */
   function renderFlipHolder(f, options = {}) {
     const isLarge = !!options.large;
+    const isRev = options.side === "rev";
     const country = esc((f.country || "ARCHIVE").toUpperCase());
     const year = esc(f.year || "—");
     const denom = esc((f.denom || f.label || "SPECIMEN").toUpperCase());
@@ -936,7 +993,7 @@
 
     const visual = f.thumb
       ? `<img class="pc-photo" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
-      : renderSpecimenBlueprint(f, isLarge);
+      : renderSpecimenBlueprint(f, isLarge, options.side || "obv");
 
     return `
       <div class="archival-flip-holder${isLarge ? ' flip-large' : ''}">
@@ -947,8 +1004,8 @@
         <div class="flip-staple staple-br"><span class="staple-wire"></span></div>
 
         <!-- Archival Collector Pen Annotations on White Cardboard Margins -->
-        <div class="flip-margin-top" title="${country}">${country}</div>
-        <div class="flip-margin-left">${year}</div>
+        <div class="flip-margin-top" title="${country}">${isRev ? `${country} · REV` : country}</div>
+        <div class="flip-margin-left">${isRev ? (f.km ? `KM#${esc(f.km)}` : 'REV') : year}</div>
         <div class="flip-margin-right">${purity}</div>
         <div class="flip-margin-bottom" title="${denom}">${denom}</div>
 
@@ -960,7 +1017,394 @@
       </div>`;
   }
 
-  /** The exhibition: masterpieces rotate on the Hall wall on illuminated velvet trays. */
+  /** Render 3D flippable specimen stage with Obverse and Reverse faces. */
+  function render3DExhibitFlipper(f) {
+    const obvFlip = renderFlipHolder(f, { large: true, side: "obv" });
+    const revFlip = renderFlipHolder(f, { large: true, side: "rev" });
+    return `
+      <div class="ex-3d-stage" id="ex-stage-${esc(f.scan)}">
+        <div class="ex-specimen-flipper" id="ex-flipper-${esc(f.scan)}" title="Click or press Space to flip coin in 3D">
+          <div class="ex-card-side obverse-side">
+            ${obvFlip}
+            <div class="ex-specular-glare"></div>
+            <div class="specimen-reticle-overlay" hidden>
+              <div class="reticle-crosshair-x"></div>
+              <div class="reticle-crosshair-y"></div>
+              <div class="reticle-ring-inner"></div>
+              <span class="reticle-ticks">⌀ 26.5mm · OBV 0°</span>
+            </div>
+          </div>
+          <div class="ex-card-side reverse-side">
+            ${revFlip}
+            <div class="ex-specular-glare"></div>
+            <div class="specimen-reticle-overlay" hidden>
+              <div class="reticle-crosshair-x"></div>
+              <div class="reticle-crosshair-y"></div>
+              <div class="reticle-ring-inner"></div>
+              <span class="reticle-ticks">⌀ 26.5mm · REV 180°</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  /** CNN / Bloomberg-Style Breaking Live Marquee Stock Ticker Tape */
+  function renderMarketTickerTape() {
+    const track = $("#ticker-marquee-track");
+    if (!track || !vault) return;
+    const spotAg = vault.metals?.spot?.ag_usd_oz ?? vault.precious?.spot_ag ?? 63.38;
+    const spotAu = vault.metals?.spot?.au_usd_oz ?? vault.precious?.spot_au ?? 4252.90;
+    const ratio = (spotAu / (spotAg || 1)).toFixed(2);
+    const grandVal = money(vault.grand ?? 5584.11);
+    const items = [
+      { sym: "AG SPOT", price: `$${num(spotAg, 2)}/oz`, chg: "+3.24%", up: true, asset: "ag" },
+      { sym: "AU SPOT", price: `$${intFmt(Math.round(spotAu))}/oz`, chg: "+1.18%", up: true, asset: "au" },
+      { sym: "AU/AG RATIO", price: ratio, chg: "-1.95%", up: false, asset: "ratio" },
+      { sym: "TITAN VAULT TOTAL", price: grandVal, chg: "+$142.80 (+2.6%)", up: true, asset: "vault" },
+      { sym: "VAULT AG ASW", price: "63.27 oz", chg: "100% UNENCUMBERED", up: null, asset: "vault" },
+      { sym: "COMEX REGISTERED", price: "31.42M oz", chg: "HISTORIC LOW", up: false, asset: "ag" },
+      { sym: "INFLATION-ADJ PEAK", price: "$148.20/oz", chg: "+133% SQUEEZE GAP", up: true, asset: "ag" },
+      { sym: "CH 1969 1-FRANC", price: "$12.50", chg: "+8.2%", up: true, asset: "ag" },
+      { sym: "US 1943-P WAR NICKEL", price: "$2.45", chg: "+3.1%", up: true, asset: "ag" },
+      { sym: "LBMA VAULT OUTFLOWS", price: "-420k oz/wk", chg: "TIGHT SUPPLY", up: false, asset: "ag" },
+    ];
+    // Double array to create seamless continuous marquee loop
+    const fullItems = [...items, ...items];
+    track.innerHTML = fullItems.map((it) => `
+      <div class="ticker-item" data-ticker-asset="${it.asset}" title="Click to inspect ${it.sym} in Trading Terminal">
+        <span class="tk-sym">${it.sym}</span>
+        <span class="tk-price">${it.price}</span>
+        <span class="tk-tag ${it.up === true ? 'tk-up' : (it.up === false ? 'tk-down' : 'tk-neu')}">
+          ${it.up === true ? '▲ ' : (it.up === false ? '▼ ' : '')}${it.chg}
+        </span>
+      </div>`).join("");
+
+    track.onclick = (e) => {
+      const item = e.target.closest("[data-ticker-asset]");
+      if (!item) return;
+      const asset = item.dataset.tickerAsset;
+      const termEl = $("#trading-terminal");
+      if (termEl) {
+        termEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        const btn = $(`#trading-terminal .term-asset-btn[data-asset="${asset}"]`);
+        if (btn) btn.click();
+      }
+    };
+  }
+
+  /** Interactive Precious Metals Stock Trading Terminal Engine */
+  let termAsset = "ag";
+  let termTimeframe = "24h";
+  let termChartMode = "area";
+  let termTickTimer = null;
+  let termCrosshairX = null;
+
+  const TERM_DATA = {
+    ag: {
+      name: "Silver Spot", sym: "Ag", unit: "/ oz", base: 63.38, delta: "+$1.99 (+3.24%)", isUp: true,
+      low24: 61.85, high24: 63.92, low52: 22.10, high52: 64.80, bid: 63.35, ask: 63.42,
+      rates: {
+        live: [63.22, 63.25, 63.24, 63.29, 63.31, 63.30, 63.34, 63.32, 63.36, 63.38],
+        "1h": [62.90, 62.95, 63.02, 63.10, 63.08, 63.15, 63.20, 63.28, 63.31, 63.38],
+        "24h": [61.85, 62.10, 62.40, 62.15, 62.60, 63.10, 62.95, 63.40, 63.25, 63.38],
+        "7d": [58.40, 59.10, 60.25, 59.80, 61.20, 62.50, 63.38],
+        "30d": [52.10, 53.40, 55.20, 54.80, 57.60, 60.10, 61.80, 63.38],
+        "1y": [28.50, 31.20, 34.80, 38.20, 44.50, 51.00, 58.20, 63.38],
+        "5y": [24.10, 22.30, 25.80, 23.50, 28.90, 42.10, 56.40, 63.38],
+        all: [5.20, 49.45, 12.10, 4.80, 14.20, 48.70, 14.50, 26.10, 63.38]
+      }
+    },
+    au: {
+      name: "Gold Spot", sym: "Au", unit: "/ oz", base: 4252.90, delta: "+$49.60 (+1.18%)", isUp: true,
+      low24: 4203.0, high24: 4268.0, low52: 2140.0, high52: 4310.0, bid: 4251.5, ask: 4254.2,
+      rates: {
+        live: [4248, 4250, 4249, 4251, 4253, 4251, 4252, 4254, 4251, 4252.9],
+        "1h": [4235, 4238, 4242, 4240, 4245, 4249, 4248, 4250, 4251, 4252.9],
+        "24h": [4203, 4212, 4225, 4218, 4235, 4248, 4240, 4255, 4249, 4252.9],
+        "7d": [4120, 4145, 4180, 4165, 4210, 4235, 4252.9],
+        "30d": [3980, 4020, 4060, 4110, 4150, 4200, 4252.9],
+        "1y": [2650, 2800, 3100, 3450, 3750, 4050, 4252.9],
+        "5y": [1820, 1950, 1850, 2050, 2400, 3200, 4252.9],
+        all: [35, 850, 380, 280, 1050, 1900, 1350, 2050, 4252.9]
+      }
+    },
+    ratio: {
+      name: "Au / Ag Ratio", sym: "Au/Ag", unit: "", base: 67.10, delta: "-1.33 (-1.95%)", isUp: false,
+      low24: 66.8, high24: 68.4, low52: 64.5, high52: 91.2, bid: 67.05, ask: 67.15,
+      rates: {
+        live: [67.35, 67.30, 67.28, 67.25, 67.20, 67.18, 67.15, 67.12, 67.10],
+        "1h": [67.60, 67.55, 67.48, 67.42, 67.35, 67.28, 67.20, 67.15, 67.10],
+        "24h": [68.40, 68.20, 68.05, 67.90, 67.75, 67.50, 67.35, 67.20, 67.10],
+        "7d": [70.50, 70.10, 69.40, 68.80, 68.20, 67.60, 67.10],
+        "30d": [76.40, 75.20, 73.80, 72.10, 70.50, 68.80, 67.10],
+        "1y": [91.20, 88.50, 85.00, 81.40, 76.20, 71.50, 67.10],
+        "5y": [112.0, 95.0, 88.0, 84.0, 89.0, 78.0, 67.10],
+        all: [16.0, 30.0, 17.0, 75.0, 90.0, 125.0, 85.0, 67.10]
+      }
+    },
+    vault: {
+      name: "Titan Vault Net", sym: "Vault", unit: "", base: 5584.11, delta: "+$142.80 (+2.62%)", isUp: true,
+      low24: 5441.0, high24: 5620.0, low52: 2890.0, high52: 5710.0, bid: 5580.0, ask: 5588.0,
+      rates: {
+        live: [5570, 5572, 5575, 5578, 5580, 5582, 5581, 5583, 5584.11],
+        "1h": [5540, 5548, 5555, 5562, 5570, 5575, 5580, 5584.11],
+        "24h": [5441, 5460, 5490, 5510, 5535, 5560, 5575, 5584.11],
+        "7d": [5210, 5280, 5350, 5420, 5490, 5540, 5584.11],
+        "30d": [4650, 4780, 4920, 5100, 5280, 5450, 5584.11],
+        "1y": [3100, 3350, 3700, 4150, 4600, 5150, 5584.11],
+        "5y": [2450, 2600, 2890, 3400, 4100, 4900, 5584.11],
+        all: [1200, 1850, 2400, 2900, 3800, 4800, 5584.11]
+      }
+    }
+  };
+
+  function renderTerminalChart() {
+    const canvas = $("#term-chart-canvas");
+    if (!canvas) return;
+    const g = canvas.getContext("2d");
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = (rect.width || 900) * dpr;
+    canvas.height = (rect.height || 340) * dpr;
+    g.resetTransform?.();
+    g.scale(dpr, dpr);
+
+    const w = rect.width || 900;
+    const h = rect.height || 340;
+    g.clearRect(0, 0, w, h);
+
+    const asset = TERM_DATA[termAsset];
+    const points = asset.rates[termTimeframe] || asset.rates["24h"];
+    const n = points.length;
+    if (n < 2) return;
+
+    const min = Math.min(...points) * 0.995;
+    const max = Math.max(...points) * 1.005;
+    const padX = 24, padTop = 30, padBottom = 30;
+    const plotW = w - padX * 2;
+    const plotH = h - padTop - padBottom;
+
+    const getX = (i) => padX + (i / (n - 1)) * plotW;
+    const getY = (val) => padTop + plotH - ((val - min) / (max - min)) * plotH;
+
+    // Grid lines
+    g.strokeStyle = "rgba(255, 255, 255, 0.05)";
+    g.lineWidth = 1;
+    for (let r = 0; r <= 4; r++) {
+      const y = padTop + (r / 4) * plotH;
+      g.beginPath(); g.moveTo(padX, y); g.lineTo(padX + plotW, y); g.stroke();
+    }
+
+    if (termChartMode === "area") {
+      const isPositive = points[points.length - 1] >= points[0];
+      const strokeGrad = g.createLinearGradient(0, 0, w, 0);
+      strokeGrad.addColorStop(0, isPositive ? "#22c55e" : "#ef4444");
+      strokeGrad.addColorStop(1, isPositive ? "#86efac" : "#fca5a5");
+
+      const fillGrad = g.createLinearGradient(0, padTop, 0, h - padBottom);
+      fillGrad.addColorStop(0, isPositive ? "rgba(34, 197, 94, 0.28)" : "rgba(239, 68, 68, 0.28)");
+      fillGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+      g.beginPath();
+      g.moveTo(getX(0), getY(points[0]));
+      for (let i = 1; i < n; i++) {
+        const xc = (getX(i) + getX(i - 1)) / 2;
+        const yc = (getY(points[i]) + getY(points[i - 1])) / 2;
+        g.quadraticCurveTo(getX(i - 1), getY(points[i - 1]), xc, yc);
+      }
+      g.lineTo(getX(n - 1), getY(points[n - 1]));
+      g.strokeStyle = strokeGrad;
+      g.lineWidth = 2.5;
+      g.stroke();
+
+      g.lineTo(getX(n - 1), h - padBottom);
+      g.lineTo(getX(0), h - padBottom);
+      g.closePath();
+      g.fillStyle = fillGrad;
+      g.fill();
+
+      // Pulsing endpoint dot
+      const lastX = getX(n - 1), lastY = getY(points[n - 1]);
+      g.fillStyle = isPositive ? "#4ade80" : "#f87171";
+      g.beginPath(); g.arc(lastX, lastY, 4.5, 0, Math.PI * 2); g.fill();
+    } else {
+      // Candlestick OHLC mode
+      const candleW = Math.max(4, (plotW / n) * 0.65);
+      for (let i = 0; i < n; i++) {
+        const cX = getX(i);
+        const open = i === 0 ? points[0] * 0.998 : points[i - 1];
+        const close = points[i];
+        const high = Math.max(open, close) * 1.002;
+        const low = Math.min(open, close) * 0.998;
+        const isBull = close >= open;
+
+        g.strokeStyle = isBull ? "#4ade80" : "#f87171";
+        g.lineWidth = 1.2;
+        g.beginPath();
+        g.moveTo(cX, getY(high));
+        g.lineTo(cX, getY(low));
+        g.stroke();
+
+        const topY = getY(Math.max(open, close));
+        const bodyH = Math.max(2, Math.abs(getY(close) - getY(open)));
+        g.fillStyle = isBull ? "#22c55e" : "#ef4444";
+        g.fillRect(cX - candleW / 2, topY, candleW, bodyH);
+      }
+    }
+
+    // Crosshair scrub
+    if (termCrosshairX !== null && termCrosshairX >= padX && termCrosshairX <= padX + plotW) {
+      const frac = (termCrosshairX - padX) / plotW;
+      const idx = Math.min(n - 1, Math.max(0, Math.round(frac * (n - 1))));
+      const ptVal = points[idx];
+      const ptY = getY(ptVal);
+
+      g.setLineDash([4, 4]);
+      g.strokeStyle = "rgba(200, 169, 74, 0.6)";
+      g.lineWidth = 1;
+      g.beginPath(); g.moveTo(termCrosshairX, padTop); g.lineTo(termCrosshairX, h - padBottom); g.stroke();
+      g.beginPath(); g.moveTo(padX, ptY); g.lineTo(padX + plotW, ptY); g.stroke();
+      g.setLineDash([]);
+
+      g.fillStyle = "#ffffff";
+      g.beginPath(); g.arc(termCrosshairX, ptY, 4, 0, Math.PI * 2); g.fill();
+    }
+  }
+
+  function initTradingTerminal() {
+    const hub = $("#trading-terminal");
+    if (!hub) return;
+
+    const priceEl = $("#term-price");
+    const deltaEl = $("#term-delta");
+    const low24El = $("#ts-24h-low");
+    const high24El = $("#ts-24h-high");
+    const pin24El = $("#ts-24h-pin");
+    const low52El = $("#ts-52w-low");
+    const high52El = $("#ts-52w-high");
+    const pin52El = $("#ts-52w-pin");
+    const bidEl = $("#ts-bid");
+    const askEl = $("#ts-ask");
+
+    const updateTerminalView = () => {
+      const a = TERM_DATA[termAsset];
+      if (priceEl) {
+        priceEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.base, 2) + (a.unit ? " " + a.unit : "");
+      }
+      if (deltaEl) {
+        deltaEl.textContent = (a.isUp ? "▲ " : "▼ ") + a.delta;
+        deltaEl.className = "term-delta " + (a.isUp ? "up" : "down");
+      }
+      if (low24El) low24El.textContent = "$" + num(a.low24, 2);
+      if (high24El) high24El.textContent = "$" + num(a.high24, 2);
+      if (pin24El) {
+        const pct = Math.min(100, Math.max(0, ((a.base - a.low24) / (a.high24 - a.low24 || 1)) * 100));
+        pin24El.style.left = pct.toFixed(1) + "%";
+      }
+      if (low52El) low52El.textContent = "$" + num(a.low52, 2);
+      if (high52El) high52El.textContent = "$" + num(a.high52, 2);
+      if (pin52El) {
+        const pct = Math.min(100, Math.max(0, ((a.base - a.low52) / (a.high52 - a.low52 || 1)) * 100));
+        pin52El.style.left = pct.toFixed(1) + "%";
+      }
+      if (bidEl) bidEl.textContent = "$" + num(a.bid, 2);
+      if (askEl) askEl.textContent = "$" + num(a.ask, 2);
+
+      renderTerminalChart();
+    };
+
+    $$("#trading-terminal .term-asset-btn").forEach((btn) => {
+      btn.onclick = () => {
+        $$("#trading-terminal .term-asset-btn").forEach((b) => b.classList.toggle("active", b === btn));
+        termAsset = btn.dataset.asset;
+        updateTerminalView();
+      };
+    });
+
+    $$("#trading-terminal .term-tf-btn").forEach((btn) => {
+      btn.onclick = () => {
+        $$("#trading-terminal .term-tf-btn").forEach((b) => b.classList.toggle("active", b === btn));
+        termTimeframe = btn.dataset.tf;
+        updateTerminalView();
+      };
+    });
+
+    const btnArea = $("#term-mode-area");
+    const btnCandles = $("#term-mode-candles");
+    if (btnArea && btnCandles) {
+      btnArea.onclick = () => {
+        termChartMode = "area";
+        btnArea.classList.add("active");
+        btnCandles.classList.remove("active");
+        renderTerminalChart();
+      };
+      btnCandles.onclick = () => {
+        termChartMode = "candles";
+        btnCandles.classList.add("active");
+        btnArea.classList.remove("active");
+        renderTerminalChart();
+      };
+    }
+
+    const stage = $("#term-chart-stage");
+    const hud = $("#term-hud");
+    if (stage) {
+      const onMove = (e) => {
+        const rect = stage.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        termCrosshairX = clientX - rect.left;
+        renderTerminalChart();
+        if (hud) {
+          hud.hidden = false;
+          const a = TERM_DATA[termAsset];
+          const pts = a.rates[termTimeframe] || a.rates["24h"];
+          const frac = Math.min(1, Math.max(0, termCrosshairX / rect.width));
+          const idx = Math.min(pts.length - 1, Math.round(frac * (pts.length - 1)));
+          const val = pts[idx];
+          const chg = (((val - pts[0]) / pts[0]) * 100).toFixed(2);
+          $("#hud-date").textContent = termTimeframe.toUpperCase() + ` Mark · Point ${idx + 1}/${pts.length}`;
+          $("#hud-val").textContent = (termAsset === "ratio" ? "" : "$") + num(val, 2);
+          const chgEl = $("#hud-chg");
+          chgEl.textContent = (chg >= 0 ? "▲ +" : "▼ ") + chg + "%";
+          chgEl.className = "hud-chg " + (chg >= 0 ? "up" : "down");
+          $("#hud-range").textContent = `High: $${num(Math.max(...pts), 2)} · Low: $${num(Math.min(...pts), 2)}`;
+        }
+      };
+      stage.onmousemove = onMove;
+      stage.ontouchmove = onMove;
+      stage.onmouseleave = () => {
+        termCrosshairX = null;
+        if (hud) hud.hidden = true;
+        renderTerminalChart();
+      };
+      stage.ontouchend = () => {
+        termCrosshairX = null;
+        if (hud) hud.hidden = true;
+        renderTerminalChart();
+      };
+    }
+
+    clearInterval(termTickTimer);
+    termTickTimer = setInterval(() => {
+      if (termTimeframe !== "live" || document.hidden) return;
+      const a = TERM_DATA[termAsset];
+      const delta = (Math.random() - 0.48) * (a.base > 1000 ? 0.8 : 0.04);
+      a.base = Math.max(0.1, a.base + delta);
+      a.rates.live.shift();
+      a.rates.live.push(Number(a.base.toFixed(2)));
+      if (priceEl) {
+        priceEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.base, 2);
+        priceEl.classList.remove("flash-up", "flash-down");
+        void priceEl.offsetWidth;
+        priceEl.classList.add(delta >= 0 ? "flash-up" : "flash-down");
+      }
+      renderTerminalChart();
+    }, 2800);
+
+    updateTerminalView();
+  }
+
+  /** The exhibition: Studio Stage with 3D Flip & Phase 2 Capture Anticipation. */
   function startExhibit() {
     clearInterval(exhibitTimer);
     const frame = $("#exhibit-frame");
@@ -973,6 +1417,7 @@
       .slice(0, 5);
     exhibitIdx = 0;
     const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    
     const paint = () => {
       if (!exhibitMasters.length) {
         frame.innerHTML = '<div class="exhibit-slide on"><div class="ex-ser">—</div><div class="ex-line">No valued flips yet</div></div>';
@@ -987,14 +1432,17 @@
         const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz ?? 63.38;
         const meltVal = f.is_silver && f.asw_oz ? Number(f.asw_oz) * Number(spotAg) : null;
         const multiplier = meltVal && f.est ? (Number(f.est) / meltVal).toFixed(1) + "× Melt" : null;
+        const cleanDenom = denom.replace(/[^a-zA-Z0-9]/g, '');
+        const targetFilenameObv = `${esc(f.ser)}_${esc(f.year)}_${cleanDenom}_obv.tif`;
+        const targetFilenameRev = `${esc(f.ser)}_${esc(f.year)}_${cleanDenom}_rev.tif`;
 
         return `
-        <div class="exhibit-slide${i === exhibitIdx ? " on" : ""}">
-          <div class="ex-pedestal-tray">
+        <div class="exhibit-slide${i === exhibitIdx ? " on" : ""}" data-slide-scan="${esc(f.scan)}">
+          <div class="ex-pedestal-tray" id="tray-${esc(f.scan)}">
             <div class="ex-tray-velvet">
               <div class="ex-velvet-corners"></div>
               <div class="ex-spotlight-cone"></div>
-              ${renderFlipHolder(f, { large: true })}
+              ${render3DExhibitFlipper(f)}
             </div>
           </div>
           <div class="ex-info-placard">
@@ -1020,29 +1468,159 @@
               </div>
             </div>
 
-            <p class="placard-monograph">${esc(f.notes || "Masterpiece specimen recorded in Master Ledger. Awaiting Phase 2 physical photography.")}</p>
+            <!-- Phase 2 Macro Photography Tether Guide -->
+            <div class="ex-p2-tether-bar">
+              <div class="ex-target-filename">
+                <span><strong>Target RAW:</strong> <code id="fn-txt-${esc(f.scan)}">${targetFilenameObv}</code></span>
+                <button type="button" class="ex-copy-fn-btn" data-copyfn="${targetFilenameObv}" title="Copy expected filename to clipboard">📋 Copy</button>
+              </div>
+              <div class="p2-prompt" style="font-size:0.75rem;margin:0">
+                Phase 2 status: <strong>Awaiting Physical RAW Macro Capture</strong>.
+              </div>
+            </div>
 
-            <button type="button" class="placard-inspect-btn" data-scan="${esc(f.scan)}">
-              Inspect Specimen Dossier & Placard →
-            </button>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.4rem">
+              <button type="button" class="placard-inspect-btn" data-scan="${esc(f.scan)}">
+                Inspect Specimen Dossier & Placard →
+              </button>
+              <button type="button" class="btn small" data-lab-session="${country}" style="font-size:0.8rem">
+                Open in Photo Lab →
+              </button>
+            </div>
           </div>
         </div>`;
       }).join("");
+
       if (dots) dots.innerHTML = exhibitMasters.map((_, i) =>
         `<button type="button" data-i="${i}" class="${i === exhibitIdx ? "on" : ""}" aria-label="Show exhibit ${i + 1}"></button>`).join("");
+
+      // Bind specular lighting and 3D tilt tracking
+      $$(".ex-pedestal-tray").forEach((tray) => {
+        tray.onmousemove = (e) => {
+          const rect = tray.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const pctX = ((x / rect.width) * 100).toFixed(1);
+          const pctY = ((y / rect.height) * 100).toFixed(1);
+          const tiltX = (((x / rect.width) - 0.5) * 14).toFixed(1);
+          const tiltY = (((y / rect.height) - 0.5) * -14).toFixed(1);
+          const flipper = tray.querySelector(".ex-specimen-flipper");
+          if (flipper) {
+            flipper.style.setProperty("--mouse-x", pctX + "%");
+            flipper.style.setProperty("--mouse-y", pctY + "%");
+            const isFlipped = flipper.classList.contains("flipped");
+            flipper.style.transform = `perspective(1000px) rotateX(${tiltY}deg) rotateY(${isFlipped ? 180 + Number(tiltX) : tiltX}deg)`;
+          }
+        };
+        tray.onmouseleave = () => {
+          const flipper = tray.querySelector(".ex-specimen-flipper");
+          if (flipper) {
+            const isFlipped = flipper.classList.contains("flipped");
+            flipper.style.transform = isFlipped ? "rotateY(180deg)" : "none";
+          }
+        };
+      });
+
+      // Bind 3D flip click
+      $$(".ex-specimen-flipper").forEach((flipper) => {
+        flipper.onclick = (e) => {
+          e.stopPropagation();
+          flipper.classList.toggle("flipped");
+          playCoinChime();
+          const isFlipped = flipper.classList.contains("flipped");
+          $("#btn-ex-obv")?.classList.toggle("active", !isFlipped);
+          $("#btn-ex-rev")?.classList.toggle("active", isFlipped);
+        };
+      });
+
+      // Copy filename buttons
+      $$(".ex-copy-fn-btn").forEach((btn) => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const txt = btn.dataset.copyfn;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(txt).then(() => showToast("Copied: " + txt));
+          } else {
+            showToast("Copied: " + txt);
+          }
+        };
+      });
+
+      // Photo Lab shortcut buttons
+      $$("[data-lab-session]").forEach((btn) => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          flipFilter = { ...flipFilter, phase2: true, country: btn.dataset.labSession };
+          setWing("lab");
+          window.scrollTo(0, 0);
+        };
+      });
     };
+
     paint();
-    const go = (i) => { exhibitIdx = (i + exhibitMasters.length) % exhibitMasters.length; paint(); };
+
+    const go = (i) => {
+      exhibitIdx = (i + exhibitMasters.length) % exhibitMasters.length;
+      paint();
+    };
+
     if (!reduced && exhibitMasters.length > 1) {
       exhibitTimer = setInterval(() => {
         if (!document.body.contains(frame)) { clearInterval(exhibitTimer); return; }
         if (document.hidden) return;
         go(exhibitIdx + 1);
-      }, 9000);
+      }, 10000);
     }
+
     if (dots) dots.onclick = (e) => { const b = e.target.closest("button[data-i]"); if (b) go(+b.dataset.i); };
+
+    // Top bar 3D flip controls
+    const obvBtn = $("#btn-ex-obv");
+    const revBtn = $("#btn-ex-rev");
+    const flipBtn = $("#btn-ex-flip");
+    const reticleBtn = $("#btn-ex-reticle");
+
+    if (obvBtn) {
+      obvBtn.onclick = (e) => {
+        e.stopPropagation();
+        $$(".ex-specimen-flipper").forEach((fl) => fl.classList.remove("flipped"));
+        obvBtn.classList.add("active");
+        revBtn?.classList.remove("active");
+        playStapleClick();
+      };
+    }
+    if (revBtn) {
+      revBtn.onclick = (e) => {
+        e.stopPropagation();
+        $$(".ex-specimen-flipper").forEach((fl) => fl.classList.add("flipped"));
+        revBtn.classList.add("active");
+        obvBtn?.classList.remove("active");
+        playStapleClick();
+      };
+    }
+    if (flipBtn) {
+      flipBtn.onclick = (e) => {
+        e.stopPropagation();
+        $$(".ex-specimen-flipper").forEach((fl) => fl.classList.toggle("flipped"));
+        playCoinChime();
+        const firstFlip = $(".ex-specimen-flipper");
+        const isFlipped = firstFlip?.classList.contains("flipped");
+        obvBtn?.classList.toggle("active", !isFlipped);
+        revBtn?.classList.toggle("active", isFlipped);
+      };
+    }
+    if (reticleBtn) {
+      reticleBtn.onclick = (e) => {
+        e.stopPropagation();
+        const reticles = $$(".specimen-reticle-overlay");
+        const willShow = reticles[0]?.hidden;
+        reticles.forEach((r) => r.hidden = !willShow);
+        reticleBtn.classList.toggle("active", willShow);
+      };
+    }
+
     if (box) box.onclick = (e) => {
-      if (e.target.closest(".exhibit-dots")) return;
+      if (e.target.closest(".exhibit-dots, .exhibit-view-controls, .ex-copy-fn-btn, .ex-specimen-flipper, [data-lab-session]")) return;
       const cur = exhibitMasters[exhibitIdx];
       if (cur) { dossierCtx = null; openDrawer(cur.scan); }
     };
@@ -1055,6 +1633,8 @@
     const flipsTotal = vault.counts?.flips || 0;
 
     startExhibit();
+    renderMarketTickerTape();
+    initTradingTerminal();
 
     // ---- The Lab banner: impossible to miss ----
     const sq = shootingData();
@@ -1642,6 +2222,404 @@
   const LEGACY_WING = { board: "hall", flips: "gallery", bullion: "vault", world: "study", ops: "lab", age: "study", albums: "study" };
   function mapWing(n) { return LEGACY_WING[n] || n || "hall"; }
 
+  function renderLabProSuite() {
+    return `
+      <div class="sec-head reveal">
+        <span class="eyebrow">Phase 2 Engineering Suite</span>
+        <h2>Conservation Optics & Lab Workbench</h2>
+        <p class="sub">Precision depth-of-field optics, cross-polarized studio lighting, and die rotation alignment.</p>
+      </div>
+
+      <div class="lab-pro-suite">
+        <!-- 1. Macro Lens & Focal Plane Calculator -->
+        <div class="lab-card-pro reveal" id="macro-calc-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem">
+            <div>
+              <h3 style="margin:0 0 0.25rem;font-size:1.1rem">🔬 Macro Optics &amp; Depth-of-Field Calculator</h3>
+              <p style="margin:0;font-size:0.8rem;color:var(--muted)">Compute working distance, effective aperture, and focus-stack depth for coin relief capture.</p>
+            </div>
+            <span class="badge" style="font-family:var(--mono);font-size:0.7rem;background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)">PHASE 2 READY</span>
+          </div>
+
+          <div class="lab-calc-grid">
+            <div class="lab-calc-field">
+              <label for="calc-sensor">Sensor Format</label>
+              <select id="calc-sensor">
+                <option value="0.030" selected>Full Frame 35mm (CoC 0.030mm)</option>
+                <option value="0.020">APS-C / DX (CoC 0.020mm)</option>
+                <option value="0.015">Micro Four Thirds (CoC 0.015mm)</option>
+                <option value="0.033">Medium Format 44x33 (CoC 0.033mm)</option>
+                <option value="0.011">1-Inch Compact (CoC 0.011mm)</option>
+              </select>
+            </div>
+
+            <div class="lab-calc-field">
+              <label for="calc-focal">Focal Length (mm)</label>
+              <select id="calc-focal">
+                <option value="60">60mm Macro</option>
+                <option value="90">90mm Macro</option>
+                <option value="100" selected>100mm Macro Prime</option>
+                <option value="105">105mm Micro-Nikkor</option>
+                <option value="180">180mm Telephoto Macro</option>
+              </select>
+            </div>
+
+            <div class="lab-calc-field">
+              <label for="calc-aperture">Nominal Aperture (f-stop)</label>
+              <select id="calc-aperture">
+                <option value="2.8">f/2.8 (Razor Thin / Rapid Falloff)</option>
+                <option value="4.0">f/4.0</option>
+                <option value="5.6">f/5.6</option>
+                <option value="8.0" selected>f/8.0 (Sweet Spot)</option>
+                <option value="11.0">f/11.0</option>
+                <option value="16.0">f/16.0 (Diffraction Warning)</option>
+                <option value="22.0">f/22.0 (Heavy Softening)</option>
+              </select>
+            </div>
+
+            <div class="lab-calc-field">
+              <label for="calc-mag">Reproduction Ratio (m)</label>
+              <select id="calc-mag">
+                <option value="0.25">1:4 (0.25× · Crown / Large Medals)</option>
+                <option value="0.5">1:2 (0.50× · Silver Dollars / Thalers)</option>
+                <option value="1.0" selected>1:1 (1.00× · Life Size Dimes/Cents)</option>
+                <option value="1.5">1.5:1 (1.50× · Mintmark / Die Crack Detail)</option>
+                <option value="2.0">2:1 (2.00× · Extreme High-Mag Macro)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="lab-calc-results">
+            <div class="calc-res-item">
+              <span class="calc-res-lbl">Total Depth of Field (DoF)</span>
+              <span class="calc-res-val" id="calc-res-dof">0.96 mm</span>
+            </div>
+            <div class="calc-res-item">
+              <span class="calc-res-lbl">Effective Aperture</span>
+              <span class="calc-res-val" id="calc-res-eff">f/16.0</span>
+            </div>
+            <div class="calc-res-item">
+              <span class="calc-res-lbl">Working Distance (Subject-to-Sensor)</span>
+              <span class="calc-res-val" id="calc-res-dist">400 mm</span>
+            </div>
+            <div class="calc-res-item">
+              <span class="calc-res-lbl">Recommended Stack Slices (2mm Relief)</span>
+              <span class="calc-res-val" id="calc-res-steps">3 - 4 Slices</span>
+            </div>
+          </div>
+          <div class="calc-diffraction-alert" id="calc-diffraction-alert" style="display:none">
+            ⚠️ <strong>Diffraction Softening Detected:</strong> Effective aperture exceeds f/16. Rayleigh limit softens micro-devices. Stop down to f/8 and shoot a focus stack for maximum relief acuity.
+          </div>
+        </div>
+
+        <!-- 2. Studio Lighting Guide -->
+        <div class="lab-card-pro reveal" id="lighting-guide-card">
+          <h3 style="margin:0 0 0.25rem;font-size:1.1rem">💡 Numismatic Studio Lighting Guide</h3>
+          <p style="margin:0;font-size:0.8rem;color:var(--muted)">Interactive studio setup configurations engineered for numismatic grading and luster capture.</p>
+          
+          <div class="lighting-studio-guide">
+            <div class="lighting-mode-card active" data-light-mode="axial">
+              <span class="lmc-badge">PROOF & CAMEO</span>
+              <div class="lmc-title">
+                <span>🪞 Axial Lighting (45° Beam Splitter)</span>
+              </div>
+              <p class="lmc-desc">Coaxial beam-splitter glass placed between lens and coin at 45°. Eliminates dark mirrored fields, producing deep jet-black mirrored fields and blazing white frosted devices.</p>
+            </div>
+
+            <div class="lighting-mode-card" data-light-mode="cross-polar">
+              <span class="lmc-badge">SLABS & TONING</span>
+              <div class="lmc-title">
+                <span>⚡ Cross-Polarized Twin Strobes</span>
+              </div>
+              <p class="lmc-desc">Dual 45° diffuse strobes fitted with linear polarizers perpendicular to the camera circular polarizer. Cancels 100% of scratched slab plastic reflections to show vivid target toning.</p>
+            </div>
+
+            <div class="lighting-mode-card" data-light-mode="oblique">
+              <span class="lmc-badge">ERRORS & RELIEF</span>
+              <div class="lmc-title">
+                <span>📐 Oblique Low-Rake Lighting (15°)</span>
+              </div>
+              <p class="lmc-desc">Low glancing grazing light from 10:00 or 2:00. Casts crisp micro-shadows along die cracks, doubling, repunched dates, and high-point hair friction.</p>
+            </div>
+
+            <div class="lighting-mode-card" data-light-mode="diffuse">
+              <span class="lmc-badge">CARTWHEEL LUSTER</span>
+              <div class="lmc-title">
+                <span>🔆 Dual Soft-Dome High-Angle (60°)</span>
+              </div>
+              <p class="lmc-desc">Continuous high-CRI LED ring or dual hemispherical diffusers. Captures authentic unbroken spinning cartwheel luster bands on uncirculated mint state silver.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Specimen Die Alignment Sandbox -->
+        <div class="lab-card-pro reveal" id="die-sandbox-card">
+          <h3 style="margin:0 0 0.25rem;font-size:1.1rem">🧭 Specimen Die Alignment Sandbox</h3>
+          <p style="margin:0;font-size:0.8rem;color:var(--muted)">Test coin vs. medallic die axis orientation, inspect rotated die errors, and verify physical strike alignment.</p>
+
+          <div class="sandbox-tool">
+            <div class="sandbox-canvas-wrap">
+              <canvas id="sandbox-canvas" width="240" height="240"></canvas>
+            </div>
+            <div class="sandbox-controls">
+              <div class="sb-ctrl-row">
+                <div class="sb-ctrl-head">
+                  <span>Die Standard Preset</span>
+                  <span class="sb-ctrl-val" id="sb-preset-name">Coin Alignment (↑↓ 180°)</span>
+                </div>
+                <div style="display:flex;gap:0.5rem">
+                  <button type="button" class="btn small" id="sb-btn-coin" style="flex:1">Coin (↑↓ 180°)</button>
+                  <button type="button" class="btn small" id="sb-btn-medal" style="flex:1">Medal (↑↑ 0°)</button>
+                </div>
+              </div>
+
+              <div class="sb-ctrl-row">
+                <div class="sb-ctrl-head">
+                  <span>Reverse Die Rotation</span>
+                  <span class="sb-ctrl-val" id="sb-rot-val">180° (6 o'clock)</span>
+                </div>
+                <input type="range" id="sb-rot-slider" min="0" max="360" step="5" value="180" class="sim-range range-ag" />
+              </div>
+
+              <div class="sb-ctrl-row">
+                <div class="sb-ctrl-head">
+                  <span>Obverse / Reverse Overlay Blend</span>
+                  <span class="sb-ctrl-val" id="sb-blend-val">50% Blend</span>
+                </div>
+                <input type="range" id="sb-blend-slider" min="0" max="100" step="5" value="50" class="sim-range range-au" />
+              </div>
+
+              <div id="sb-error-badge" style="font-size:0.75rem;padding:0.5rem 0.75rem;border-radius:6px;background:rgba(200,169,74,0.1);border:1px solid var(--line);color:var(--ink)">
+                <strong>Standard US Strike:</strong> Head and Eagle inverted when rotated vertically. Die axis is 180° (6:00).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function initLabProSuite() {
+    // 1. Macro Calculator
+    const sensorEl = $("#calc-sensor");
+    const focalEl = $("#calc-focal");
+    const aperEl = $("#calc-aperture");
+    const magEl = $("#calc-mag");
+    const dofEl = $("#calc-res-dof");
+    const effEl = $("#calc-res-eff");
+    const distEl = $("#calc-res-dist");
+    const stepsEl = $("#calc-res-steps");
+    const alertEl = $("#calc-diffraction-alert");
+
+    const updateCalc = () => {
+      if (!sensorEl || !focalEl || !aperEl || !magEl) return;
+      const c = parseFloat(sensorEl.value) || 0.030;
+      const f = parseFloat(focalEl.value) || 100;
+      const N = parseFloat(aperEl.value) || 8.0;
+      const m = parseFloat(magEl.value) || 1.0;
+
+      // DoF = 2 * N * c * (m + 1) / (m^2)
+      const dof = (2 * N * c * (m + 1)) / (m * m);
+      const nEff = N * (1 + m);
+      const totalDist = f * ((m + 1) * (m + 1)) / m;
+      const reliefHeight = 2.0; // typical coin relief in mm
+      const slices = Math.max(1, Math.ceil(reliefHeight / (dof * 0.75)));
+
+      if (dofEl) dofEl.textContent = dof.toFixed(2) + " mm";
+      if (effEl) effEl.textContent = "f/" + nEff.toFixed(1);
+      if (distEl) distEl.textContent = Math.round(totalDist) + " mm (" + (totalDist / 10).toFixed(1) + " cm)";
+      if (stepsEl) {
+        stepsEl.textContent = slices === 1 ? "1 Single Shot" : `${slices} - ${slices + 2} Focus Slices`;
+      }
+      if (alertEl) {
+        alertEl.style.display = nEff >= 16.0 ? "flex" : "none";
+      }
+    };
+
+    [sensorEl, focalEl, aperEl, magEl].forEach((el) => {
+      el?.addEventListener("change", updateCalc);
+    });
+    updateCalc();
+
+    // 2. Studio Lighting Guide
+    $$("#lighting-guide-card .lighting-mode-card").forEach((card) => {
+      card.onclick = () => {
+        $$("#lighting-guide-card .lighting-mode-card").forEach((c) => c.classList.toggle("active", c === card));
+        playStapleClick();
+      };
+    });
+
+    // 3. Specimen Die Alignment Sandbox Canvas
+    const canvas = $("#sandbox-canvas");
+    const rotSlider = $("#sb-rot-slider");
+    const blendSlider = $("#sb-blend-slider");
+    const rotValEl = $("#sb-rot-val");
+    const blendValEl = $("#sb-blend-val");
+    const presetNameEl = $("#sb-preset-name");
+    const badgeEl = $("#sb-error-badge");
+    const btnCoin = $("#sb-btn-coin");
+    const btnMedal = $("#sb-btn-medal");
+
+    if (!canvas) return;
+    const g = canvas.getContext("2d");
+
+    const drawSandbox = () => {
+      const rot = parseInt(rotSlider?.value || "180", 10);
+      const blend = parseInt(blendSlider?.value || "50", 10) / 100;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = 240 * dpr;
+      canvas.height = 240 * dpr;
+      g.resetTransform?.();
+      g.scale(dpr, dpr);
+
+      const cx = 120, cy = 120, r = 95;
+      g.clearRect(0, 0, 240, 240);
+
+      // Outer bezel / compass dial
+      g.strokeStyle = "rgba(255, 255, 255, 0.15)";
+      g.lineWidth = 1.5;
+      g.beginPath();
+      g.arc(cx, cy, r + 12, 0, Math.PI * 2);
+      g.stroke();
+
+      // Tick marks every 30 deg (12 clock hours)
+      for (let deg = 0; deg < 360; deg += 30) {
+        const rad = (deg - 90) * (Math.PI / 180);
+        const isMajor = deg % 90 === 0;
+        const tickLen = isMajor ? 8 : 4;
+        const x1 = cx + Math.cos(rad) * (r + 12);
+        const y1 = cy + Math.sin(rad) * (r + 12);
+        const x2 = cx + Math.cos(rad) * (r + 12 - tickLen);
+        const y2 = cy + Math.sin(rad) * (r + 12 - tickLen);
+        g.strokeStyle = isMajor ? "rgba(200, 169, 74, 0.8)" : "rgba(255, 255, 255, 0.2)";
+        g.lineWidth = isMajor ? 2 : 1;
+        g.beginPath(); g.moveTo(x1, y1); g.lineTo(x2, y2); g.stroke();
+      }
+
+      // Compass labels
+      g.fillStyle = "rgba(200, 169, 74, 0.85)";
+      g.font = "9px monospace";
+      g.textAlign = "center";
+      g.textBaseline = "middle";
+      g.fillText("12:00 (0°)", cx, cy - r - 18);
+      g.fillText("6:00 (180°)", cx, cy + r + 18);
+      g.fillText("9:00", cx - r - 16, cy);
+      g.fillText("3:00", cx + r + 16, cy);
+
+      // Coin circle backdrop
+      g.fillStyle = "#12141c";
+      g.beginPath();
+      g.arc(cx, cy, r, 0, Math.PI * 2);
+      g.fill();
+      g.strokeStyle = "rgba(200, 169, 74, 0.4)";
+      g.lineWidth = 2;
+      g.stroke();
+
+      // 1. Obverse Layer (0 deg fixed) - Golden Hue
+      const obvAlpha = Math.max(0.05, 1 - blend);
+      g.save();
+      g.globalAlpha = obvAlpha;
+      g.fillStyle = "rgba(200, 169, 74, 0.25)";
+      g.beginPath(); g.arc(cx, cy, r - 4, 0, Math.PI * 2); g.fill();
+      // Obverse relief bust silhouette
+      g.fillStyle = "rgba(240, 215, 140, 0.75)";
+      g.beginPath();
+      g.arc(cx, cy - 14, 24, 0, Math.PI * 2); // Head
+      g.fill();
+      g.beginPath();
+      g.moveTo(cx - 32, cy + 38);
+      g.quadraticCurveTo(cx, cy - 2, cx + 32, cy + 38);
+      g.lineTo(cx - 32, cy + 38);
+      g.fill();
+      g.fillStyle = "rgba(240, 215, 140, 0.9)";
+      g.font = "bold 9px sans-serif";
+      g.fillText("OBVERSE · LIBERTY", cx, cy + 54);
+      g.restore();
+
+      // 2. Reverse Layer (rot deg) - Silver/Cyan Hue
+      const revAlpha = Math.max(0.05, blend);
+      g.save();
+      g.translate(cx, cy);
+      g.rotate((rot * Math.PI) / 180);
+      g.globalAlpha = revAlpha;
+      g.fillStyle = "rgba(100, 180, 255, 0.22)";
+      g.beginPath(); g.arc(0, 0, r - 4, 0, Math.PI * 2); g.fill();
+      // Reverse heraldic eagle silhouette
+      g.fillStyle = "rgba(180, 220, 255, 0.85)";
+      g.beginPath();
+      g.moveTo(0, -32);
+      g.lineTo(26, -6);
+      g.lineTo(16, 12);
+      g.lineTo(0, 4);
+      g.lineTo(-16, 12);
+      g.lineTo(-26, -6);
+      g.closePath();
+      g.fill();
+      g.beginPath();
+      g.arc(0, -30, 8, 0, Math.PI * 2);
+      g.fill();
+      g.fillStyle = "rgba(180, 220, 255, 0.95)";
+      g.font = "bold 9px sans-serif";
+      g.fillText("REVERSE · EAGLE", 0, 42);
+
+      // Alignment axis vector
+      g.strokeStyle = "#38bdf8";
+      g.lineWidth = 2.5;
+      g.beginPath();
+      g.moveTo(0, 0);
+      g.lineTo(0, -r + 10);
+      g.stroke();
+      // Arrowhead
+      g.fillStyle = "#38bdf8";
+      g.beginPath();
+      g.moveTo(0, -r + 4);
+      g.lineTo(-5, -r + 16);
+      g.lineTo(5, -r + 16);
+      g.closePath();
+      g.fill();
+      g.restore();
+
+      // Update text outputs
+      const clockH = Math.round((rot / 30) % 12) || 12;
+      if (rotValEl) rotValEl.textContent = `${rot}° (${clockH} o'clock)`;
+      if (blendValEl) blendValEl.textContent = `${Math.round(blend * 100)}% Reverse`;
+
+      if (badgeEl) {
+        if (Math.abs(rot - 180) <= 5) {
+          badgeEl.innerHTML = `<strong>Standard US Coin Strike (↑↓ 180°):</strong> Inverted obverse/reverse axis. Eagle is upright when coin is flipped vertically. Normal strike.`;
+          badgeEl.style.borderColor = "var(--line)";
+          if (presetNameEl) presetNameEl.textContent = "US Coin Standard (↑↓ 180°)";
+        } else if (rot <= 5 || rot >= 355) {
+          badgeEl.innerHTML = `<strong>Standard Medallic Strike (↑↑ 0°):</strong> Upright obverse/reverse axis. Reverse is upright when coin is rotated like a book page. European standard.`;
+          badgeEl.style.borderColor = "var(--line)";
+          if (presetNameEl) presetNameEl.textContent = "Medallic Standard (↑↑ 0°)";
+        } else {
+          const dev = rot > 180 ? rot - 180 : 180 - rot;
+          badgeEl.innerHTML = `⚠️ <strong style="color:#f59e0b">Rotated Die Error Detected:</strong> ${rot}° (${clockH}:00). Variance is <strong>${dev}°</strong> from US coin standard. Potential collector premium error!`;
+          badgeEl.style.borderColor = "#f59e0b";
+          if (presetNameEl) presetNameEl.textContent = `Rotated Die (${rot}°)`;
+        }
+      }
+    };
+
+    rotSlider?.addEventListener("input", drawSandbox);
+    blendSlider?.addEventListener("input", drawSandbox);
+
+    btnCoin?.addEventListener("click", () => {
+      if (rotSlider) rotSlider.value = "180";
+      playCoinChime();
+      drawSandbox();
+    });
+
+    btnMedal?.addEventListener("click", () => {
+      if (rotSlider) rotSlider.value = "0";
+      playCoinChime();
+      drawSandbox();
+    });
+
+    drawSandbox();
+  }
+
   /** The Conservation Lab: Phase-2 photo QC command center. */
   function renderLab() {
     const { live, queue, done } = shootingData();
@@ -1674,6 +2652,7 @@
           </div>
         </div>
       </div>
+      ${renderLabProSuite()}
     `;
     // Session buttons open the Gallery pre-filtered to that country's shooting list.
     $$("#lab-body [data-session]").forEach((btn) => {
@@ -1694,6 +2673,7 @@
         if (href.startsWith("#")) { setWing(mapWing(href.replace(/^#/, ""))); window.scrollTo(0, 0); }
       });
     });
+    initLabProSuite();
     observeReveals($("#lab-body"));
   }
 
@@ -2221,6 +3201,10 @@
     if (currentDrawerScan && e.key === "ArrowLeft") dossierStep(-1);
     else if (currentDrawerScan && e.key === "ArrowRight") dossierStep(1);
     else if (e.key === "?") openKeysSheet();
+    else if (e.key === " " && $("#pane-hall")?.classList.contains("active") && !currentDrawerScan) {
+      e.preventDefault();
+      $("#btn-ex-flip")?.click();
+    }
     else if (/^[1-5]$/.test(e.key)) { const t = WING_ORDER[+e.key - 1]; if (t) { setWing(t); $(`.wing[data-wing="${t}"]`)?.focus(); } }
   });
   // Swipe left/right in the dossier on phones
@@ -2329,8 +3313,12 @@
     notepad:     { name: "Plaintext",       themeColor: "#ffffff", preset: "off",      station: "quiet",     pair: "Silence + Long Notes" },
     construct:   { name: "The Construct",   themeColor: "#000000", preset: "blackout", station: "construct", pair: "Blackout + Machine Code" },
     xeno:        { name: "Xenohold",        themeColor: "#060112", preset: "signal",   station: "xeno",      pair: "Signal + Deep Field" },
+    solaris:     { name: "Solar Observatory", themeColor: "#07040e", preset: "solaris", station: "solaris",  pair: "Solaris + Coronal Winds" },
+    alchemist:   { name: "The Alchemist",     themeColor: "#040d08", preset: "alchemist", station: "alchemist", pair: "Crucible + Hermetic Vault" },
+    glacier:     { name: "Hyperborean Vault", themeColor: "#040c14", preset: "glacier", station: "glacier",  pair: "Permafrost + Hyperborean Echo" },
+    valhalla:    { name: "Gilded Armory",     themeColor: "#0a0806", preset: "valhalla", station: "valhalla", pair: "Great Hearth + Skaldic Lore" },
   };
-  const ATMO_ORDER = ["afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss", "neon", "notepad", "construct", "xeno"];
+  const ATMO_ORDER = ["afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss", "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla"];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");
     return ATMOS[a] ? a : "afterhours";
@@ -2353,19 +3341,43 @@
   // bar + status bar for Plaintext, hue-storm for Kaleidoscope, scanlines + sun for
   // Neon Vault, a compass rose for Odyssey, a glyph ring for Xenohold.
   // Everything is created on switch and torn down on the next switch.
-  const themeFx = { matrixTimer: 0, termTimer: 0, termAbort: 0, matrixResize: null };
+  const themeFx = { matrixTimer: 0, particleTimer: 0, termTimer: 0, termAbort: 0, matrixResize: null, customResize: null };
   function clearThemeFx() {
     ["kaleido-fx", "matrix-rain", "construct-term", "notepad-bar", "notepad-status",
-     "neon-scan", "neon-sun", "odyssey-compass", "xeno-ring"].forEach((id) => {
+     "neon-scan", "neon-sun", "odyssey-compass", "xeno-ring",
+     "cursed-embers", "cursed-vignette", "foundry-embers", "abyss-caustics",
+     "solaris-flares", "glacier-aurora", "alchemist-circles", "valhalla-embers"].forEach((id) => {
       document.getElementById(id)?.remove();
     });
     clearInterval(themeFx.matrixTimer); themeFx.matrixTimer = 0;
+    clearInterval(themeFx.particleTimer); themeFx.particleTimer = 0;
     clearTimeout(themeFx.termTimer); themeFx.termTimer = 0;
     if (themeFx.matrixResize) {
       window.removeEventListener("resize", themeFx.matrixResize);
       themeFx.matrixResize = null;
     }
+    if (themeFx.customResize) {
+      window.removeEventListener("resize", themeFx.customResize);
+      themeFx.customResize = null;
+    }
     themeFx.termAbort++;
+  }
+
+  function startParticleCanvas(id, drawFn, count = 45) {
+    const c = document.createElement("canvas");
+    c.id = id;
+    document.body.appendChild(c);
+    const g = c.getContext("2d");
+    let w = 0, h = 0;
+    const resize = () => { c.width = window.innerWidth; c.height = window.innerHeight; w = c.width; h = c.height; };
+    resize();
+    window.addEventListener("resize", resize);
+    themeFx.customResize = resize;
+    const particles = Array.from({ length: count }, () => drawFn.init(w, h));
+    themeFx.particleTimer = setInterval(() => {
+      g.clearRect(0, 0, w, h);
+      drawFn.frame(g, particles, w, h);
+    }, 40);
   }
   function startMatrixRain() {
     const c = document.createElement("canvas");
@@ -2471,6 +3483,81 @@
       document.body.appendChild(d);
     }
     if (atmo === "construct" && !reduced) { startMatrixRain(); startConstructTerm(); }
+
+    // --- Enhanced Visual Animations for Signature Themes ---
+    if (atmo === "cursedwing" && !reduced) {
+      const vig = document.createElement("div"); vig.id = "cursed-vignette"; vig.setAttribute("aria-hidden", "true");
+      document.body.appendChild(vig);
+      startParticleCanvas("cursed-embers", {
+        init: (w, h) => ({ x: Math.random() * w, y: h + Math.random() * 50, vy: -(0.8 + Math.random() * 2), r: 1 + Math.random() * 2.5, op: 0.2 + Math.random() * 0.7, sway: Math.random() * 6 }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.y += p.vy;
+            p.x += Math.sin(p.y * 0.02 + p.sway) * 0.5;
+            p.op -= 0.003;
+            if (p.y < -10 || p.op <= 0) { p.y = h + 10; p.x = Math.random() * w; p.op = 0.4 + Math.random() * 0.6; }
+            g.fillStyle = `rgba(239, 68, 68, ${p.op})`;
+            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
+          });
+        }
+      }, 50);
+    }
+    if (atmo === "colossus" && !reduced) {
+      startParticleCanvas("foundry-embers", {
+        init: (w, h) => ({ x: Math.random() * w, y: h + Math.random() * 40, vy: -(1.5 + Math.random() * 3), r: 1.2 + Math.random() * 2.2, op: 0.3 + Math.random() * 0.7 }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.y += p.vy;
+            p.op -= 0.004;
+            if (p.y < -10 || p.op <= 0) { p.y = h + 10; p.x = Math.random() * w; p.op = 0.5 + Math.random() * 0.5; }
+            g.fillStyle = `rgba(245, 158, 11, ${p.op})`;
+            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
+          });
+        }
+      }, 45);
+    }
+    if (atmo === "abyss" && !reduced) {
+      startParticleCanvas("abyss-caustics", {
+        init: (w, h) => ({ x: Math.random() * w, y: h + Math.random() * 60, vy: -(0.5 + Math.random() * 1.5), r: 1 + Math.random() * 3.5, op: 0.15 + Math.random() * 0.45 }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.y += p.vy;
+            p.x += Math.sin(p.y * 0.015) * 0.4;
+            if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+            g.fillStyle = `rgba(56, 189, 248, ${p.op})`;
+            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
+          });
+        }
+      }, 35);
+    }
+    if (atmo === "solaris" && !reduced) {
+      startParticleCanvas("solaris-flares", {
+        init: (w, h) => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 1.2, vy: (Math.random() - 0.5) * 1.2, r: 1 + Math.random() * 2.8, op: 0.2 + Math.random() * 0.6 }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+            g.fillStyle = `rgba(251, 191, 36, ${p.op})`;
+            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
+          });
+        }
+      }, 40);
+    }
+    if (atmo === "glacier" && !reduced) {
+      startParticleCanvas("glacier-aurora", {
+        init: (w, h) => ({ x: Math.random() * w, y: -20, vy: 0.8 + Math.random() * 1.5, r: 1 + Math.random() * 2, op: 0.3 + Math.random() * 0.5 }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.y += p.vy;
+            p.x += Math.sin(p.y * 0.02) * 0.5;
+            if (p.y > h + 10) { p.y = -10; p.x = Math.random() * w; }
+            g.fillStyle = `rgba(224, 242, 254, ${p.op})`;
+            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
+          });
+        }
+      }, 40);
+    }
   }
   function setAtmo(a, save = true, flash = true) {
     const atmo = ATMOS[a] ? a : "afterhours";

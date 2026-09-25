@@ -19,16 +19,18 @@
   <script>
     try {
       var __tr_a = localStorage.getItem("tr_atmo_v1");
-      var __tr_ok = ["afterhours","conservator","cabinet","colossus","nocturne"];
+      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno"];
       if (!__tr_a || __tr_ok.indexOf(__tr_a) === -1) {
-        __tr_a = "afterhours";
-        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) __tr_a = "conservator";
+        var __tr_old = localStorage.getItem("tr_theme_v1");
+        if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
+        __tr_a = (__tr_old === "ledger") ? "conservator" : "afterhours";
+        if (!__tr_old && window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) __tr_a = "conservator";
         try { localStorage.setItem("tr_atmo_v1", __tr_a); } catch (e) {}
       }
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr23" />
+  <link rel="stylesheet" href="styles.css?v=tr24" />
 </head>
 <body>
   <div id="app">
@@ -45,9 +47,28 @@
           </div>
           <h1 class="wordmark">Titan Reliquary</h1>
 
-          <!-- Rotating exhibition: masterpieces on the wall -->
+          <!-- CNN / Bloomberg-Style Live Breaking Commodities & Vault Wire -->
+          <div class="market-ticker-tape" id="market-ticker-tape" role="region" aria-label="Precious metals live market wire">
+            <div class="ticker-badge">
+              <span class="ticker-live-pulse" aria-hidden="true"></span>
+              <span class="ticker-live-lbl">LIVE WIRE</span>
+            </div>
+            <div class="ticker-marquee-track" id="ticker-marquee-track">
+              <!-- Dynamically populated and looped with live market feeds -->
+            </div>
+          </div>
+
+          <!-- Rotating exhibition: Studio Stage with 3D Flip & Phase 2 Capture Anticipation -->
           <div class="exhibit" id="exhibit">
-            <p class="eyebrow exhibit-kicker"><span class="exhibit-lamp" aria-hidden="true"></span>Now exhibiting</p>
+            <div class="exhibit-top-bar">
+              <p class="eyebrow exhibit-kicker"><span class="exhibit-lamp" aria-hidden="true"></span>Now exhibiting</p>
+              <div class="exhibit-view-controls">
+                <button type="button" class="ex-ctrl-btn active" id="btn-ex-obv" title="Inspect Obverse (Front)">Obverse</button>
+                <button type="button" class="ex-ctrl-btn" id="btn-ex-rev" title="Inspect Reverse (Back)">Reverse</button>
+                <button type="button" class="ex-ctrl-btn flip-btn" id="btn-ex-flip" title="Flip 3D Specimen (Spacebar)">⟲ 3D Flip</button>
+                <button type="button" class="ex-ctrl-btn" id="btn-ex-reticle" title="Toggle Macro Reticle & Calipers">⊕ Calipers</button>
+              </div>
+            </div>
             <div class="exhibit-frame" id="exhibit-frame" aria-live="polite"></div>
             <div class="exhibit-dots" id="exhibit-dots" aria-hidden="true"></div>
           </div>
@@ -131,6 +152,95 @@
               </div>
             </div>
           </div>
+
+          <!-- Interactive Precious Metals Stock Trading Terminal -->
+          <section class="trading-terminal-hub reveal" id="trading-terminal" aria-label="Precious Metals Trading Desk">
+            <div class="terminal-header">
+              <div class="term-title-block">
+                <div class="term-eyebrow-row">
+                  <span class="eyebrow">Market Desk</span>
+                  <span class="term-live-badge"><span class="term-live-dot" aria-hidden="true"></span>STREAMING</span>
+                </div>
+                <h2 class="term-title">Precious Metals Terminal</h2>
+                <div class="term-live-rate">
+                  <span class="term-price" id="term-price">$63.38</span>
+                  <span class="term-delta up" id="term-delta">▲ +$1.99 (+3.24%)</span>
+                </div>
+              </div>
+
+              <!-- Asset Selection -->
+              <div class="term-asset-pills" role="tablist" aria-label="Commodity Assets">
+                <button type="button" class="term-asset-btn active" data-asset="ag" role="tab" aria-selected="true">
+                  <span class="sym">Ag</span> Silver Spot
+                </button>
+                <button type="button" class="term-asset-btn" data-asset="au" role="tab" aria-selected="false">
+                  <span class="sym">Au</span> Gold Spot
+                </button>
+                <button type="button" class="term-asset-btn" data-asset="ratio" role="tab" aria-selected="false">
+                  <span class="sym">Au/Ag</span> Ratio
+                </button>
+                <button type="button" class="term-asset-btn" data-asset="vault" role="tab" aria-selected="false">
+                  <span class="sym">🏛️</span> Vault Equity
+                </button>
+              </div>
+
+              <!-- Timeframe Selection -->
+              <div class="term-time-bar" role="tablist" aria-label="Chart Timeframes">
+                <button type="button" class="term-tf-btn" data-tf="live" title="Real-Time Tick Stream">Live</button>
+                <button type="button" class="term-tf-btn" data-tf="1h" title="Past 1 Hour">1H</button>
+                <button type="button" class="term-tf-btn active" data-tf="24h" title="Past 24 Hours">24H</button>
+                <button type="button" class="term-tf-btn" data-tf="7d" title="Past 7 Days">7D</button>
+                <button type="button" class="term-tf-btn" data-tf="30d" title="Past 30 Days">30D</button>
+                <button type="button" class="term-tf-btn" data-tf="1y" title="Past 1 Year">1Y</button>
+                <button type="button" class="term-tf-btn" data-tf="5y" title="Past 5 Years">5Y</button>
+                <button type="button" class="term-tf-btn" data-tf="all" title="All-Time Historical Cycle">ALL</button>
+                <div class="term-type-toggle">
+                  <button type="button" class="term-mode-btn active" id="term-mode-area" title="Area Trend Curve">📈 Area</button>
+                  <button type="button" class="term-mode-btn" id="term-mode-candles" title="Japanese Candlestick OHLC">🕯️ Candles</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terminal Chart Stage -->
+            <div class="term-chart-stage" id="term-chart-stage">
+              <canvas id="term-chart-canvas" width="900" height="340" aria-label="Interactive stock price chart"></canvas>
+              <div class="term-hud" id="term-hud" hidden>
+                <span class="hud-date" id="hud-date">—</span>
+                <span class="hud-val" id="hud-val">—</span>
+                <span class="hud-chg" id="hud-chg">—</span>
+                <span class="hud-range" id="hud-range">—</span>
+              </div>
+            </div>
+
+            <!-- Trading Statistics & Liquidity Bar -->
+            <div class="term-stats-grid">
+              <div class="term-stat-box">
+                <span class="ts-lbl">24H Range</span>
+                <div class="ts-range-bar">
+                  <span class="ts-low" id="ts-24h-low">$61.85</span>
+                  <div class="ts-track"><span class="ts-cur" id="ts-24h-pin" style="left:76%"></span></div>
+                  <span class="ts-high" id="ts-24h-high">$63.92</span>
+                </div>
+              </div>
+              <div class="term-stat-box">
+                <span class="ts-lbl">52-Week Range</span>
+                <div class="ts-range-bar">
+                  <span class="ts-low" id="ts-52w-low">$22.10</span>
+                  <div class="ts-track"><span class="ts-cur" id="ts-52w-pin" style="left:92%"></span></div>
+                  <span class="ts-high" id="ts-52w-high">$64.80</span>
+                </div>
+              </div>
+              <div class="term-stat-box">
+                <span class="ts-lbl">Bid / Ask Spread</span>
+                <div class="ts-spread-val"><span id="ts-bid">$63.35</span> / <span id="ts-ask">$63.42</span> <em class="ts-spread-delta">(+$0.07)</em></div>
+              </div>
+              <div class="term-stat-box">
+                <span class="ts-lbl">Vault Leverage</span>
+                <div class="ts-leverage-val"><strong>+$63.27</strong> / $1.00 Ag Move</div>
+              </div>
+            </div>
+          </section>
+
           <div class="hero-stats" id="hdr-stats" aria-label="Vault totals"></div>
           <div class="hero-actions">
             <button type="button" id="btn-search" class="search-btn" title="Search the vault (Ctrl/⌘K)">
@@ -248,27 +358,118 @@
         <h2 id="atmo-title">Atmosphere</h2>
         <p class="sheet-sub">Lighting, ambient sound and music for the whole exhibition — pick a room, or hit “Set the scene” to change everything at once.</p>
         <p class="sub">How the museum is lit tonight. Each one pairs with sound — set the scene and the room follows.</p>
-        <div class="atmo-cards atmo-cards-curated">
+        <div class="atmo-cards">
           <button type="button" class="atmo-card" data-atmo-val="afterhours">
             <span class="atmo-swatch sw-afterhours" aria-hidden="true"></span>
-            <span class="atmo-card-name">The Midnight Vault</span>
-            <span class="atmo-card-desc">Deep obsidian velvet, champagne brass, and focused tungsten museum spotlights. The signature private gallery at midnight.</span>
-            <span class="atmo-card-pair">Pairs with · Night Watch + Classical</span>
+            <span class="atmo-card-name">After Hours</span>
+            <span class="atmo-card-desc">Cold moonlight on black marble. Cool, quiet, cinematic — the gallery after midnight.</span>
+            <span class="atmo-card-pair">Pairs with · Storm + Ultralounge</span>
             <span class="atmo-card-scene" data-scene="afterhours">Set the scene →</span>
           </button>
           <button type="button" class="atmo-card" data-atmo-val="conservator">
             <span class="atmo-swatch sw-conservator" aria-hidden="true"></span>
-            <span class="atmo-card-name">The Conservator's Desk</span>
-            <span class="atmo-card-desc">Heavy archival cotton paper, ruled technical grid lines, and oxblood red stamps. The master conservator's bench under natural daylight.</span>
-            <span class="atmo-card-pair">Pairs with · Deep Archive + Classical</span>
+            <span class="atmo-card-name">Conservator</span>
+            <span class="atmo-card-desc">Archival paper, oxblood stamps, ruled ledger lines. Dense, precise, fast — the conservator's desk at noon.</span>
+            <span class="atmo-card-pair">Pairs with · Fireside + Classical</span>
             <span class="atmo-card-scene" data-scene="conservator">Set the scene →</span>
           </button>
           <button type="button" class="atmo-card" data-atmo-val="colossus">
             <span class="atmo-swatch sw-colossus" aria-hidden="true"></span>
-            <span class="atmo-card-name">The Executive Salon</span>
-            <span class="atmo-card-desc">Aged dark walnut cabinetry, saddle leather, and warm polished antique bronze. The numismatist's private library by fireside.</span>
-            <span class="atmo-card-pair">Pairs with · Fireside + Ambient Strings</span>
+            <span class="atmo-card-name">Colossus</span>
+            <span class="atmo-card-desc">The furnace room. Molten bronze, ember light, war-drums — the collection at triumphal scale.</span>
+            <span class="atmo-card-pair">Pairs with · Foundry + Five Armies</span>
             <span class="atmo-card-scene" data-scene="colossus">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="nocturne">
+            <span class="atmo-swatch sw-nocturne" aria-hidden="true"></span>
+            <span class="atmo-card-name">Nocturne</span>
+            <span class="atmo-card-desc">A smoky jazz cellar under the museum. Deep blue, brass, art-deco lines — after the gala, before dawn.</span>
+            <span class="atmo-card-pair">Pairs with · Tavern + Night on the Docks</span>
+            <span class="atmo-card-scene" data-scene="nocturne">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="odyssey">
+            <span class="atmo-swatch sw-odyssey" aria-hidden="true"></span>
+            <span class="atmo-card-name">Odyssey</span>
+            <span class="atmo-card-desc">A night voyage toward dawn: turning compass, parallax clouds, amber horizon. Every coin a port of call.</span>
+            <span class="atmo-card-pair">Pairs with · Wayfarer + Expeditionary</span>
+            <span class="atmo-card-scene" data-scene="odyssey">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="cursedwing">
+            <span class="atmo-swatch sw-cursedwing" aria-hidden="true"></span>
+            <span class="atmo-card-name">The Cursed Wing</span>
+            <span class="atmo-card-desc">The gallery they don't put on the map. Black wax, blood-red seals, and something in the walls. Enter at your own risk.</span>
+            <span class="atmo-card-pair">Pairs with · Blackout + Oppressive Gloom</span>
+            <span class="atmo-card-scene" data-scene="cursedwing">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="kaleido">
+            <span class="atmo-swatch sw-kaleido" aria-hidden="true"></span>
+            <span class="atmo-card-name">Kaleidoscope</span>
+            <span class="atmo-card-desc">The vault on a trip. Melting rainbows, breathing walls, everything in motion — handle with wonder.</span>
+            <span class="atmo-card-pair">Pairs with · Mirage + Psych Voyage</span>
+            <span class="atmo-card-scene" data-scene="kaleido">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="abyss">
+            <span class="atmo-swatch sw-abyss" aria-hidden="true"></span>
+            <span class="atmo-card-name">Sunken Treasury</span>
+            <span class="atmo-card-desc">Forty fathoms down. God-rays through black water, treasure glinting in the wreck — every coin a survivor.</span>
+            <span class="atmo-card-pair">Pairs with · Depths + Pressure Hymns</span>
+            <span class="atmo-card-scene" data-scene="abyss">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="neon">
+            <span class="atmo-swatch sw-neon" aria-hidden="true"></span>
+            <span class="atmo-card-name">Neon Vault</span>
+            <span class="atmo-card-desc">Chrome midnight. Hot-pink horizons, electric grids, scanlines — the collection goes out after dark.</span>
+            <span class="atmo-card-pair">Pairs with · Grid + Midnight Drive</span>
+            <span class="atmo-card-scene" data-scene="neon">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="notepad">
+            <span class="atmo-swatch sw-notepad" aria-hidden="true"></span>
+            <span class="atmo-card-name">Plaintext</span>
+            <span class="atmo-card-desc">untitled - notepad. no themes were harmed. just the coins, in black and white.</span>
+            <span class="atmo-card-pair">Pairs with · Silence + Long Notes</span>
+            <span class="atmo-card-scene" data-scene="notepad">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="construct">
+            <span class="atmo-swatch sw-construct" aria-hidden="true"></span>
+            <span class="atmo-card-name">The Construct</span>
+            <span class="atmo-card-desc">There is no vault. Green phosphor, falling code, a terminal that knows your coins better than you do.</span>
+            <span class="atmo-card-pair">Pairs with · Blackout + Machine Code</span>
+            <span class="atmo-card-scene" data-scene="construct">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="xeno">
+            <span class="atmo-swatch sw-xeno" aria-hidden="true"></span>
+            <span class="atmo-card-name">Xenohold</span>
+            <span class="atmo-card-desc">Recovered from the signal. Bioluminescent containment for artifacts of non-human provenance. 👽</span>
+            <span class="atmo-card-pair">Pairs with · Signal + Deep Field</span>
+            <span class="atmo-card-scene" data-scene="xeno">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="solaris">
+            <span class="atmo-swatch sw-solaris" aria-hidden="true"></span>
+            <span class="atmo-card-name">Solar Observatory</span>
+            <span class="atmo-card-desc">High-altitude coronagraph station. Radiant solar gold, deep space ultraviolet indigo, and prominence flares.</span>
+            <span class="atmo-card-pair">Pairs with · Fireside + Psych Voyage</span>
+            <span class="atmo-card-scene" data-scene="solaris">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="alchemist">
+            <span class="atmo-swatch sw-alchemist" aria-hidden="true"></span>
+            <span class="atmo-card-name">The Alchemist</span>
+            <span class="atmo-card-desc">Renaissance transmutation lab. Deep emerald vitriol, smoldering cinnabar, and glowing Hermetic transmutation rings.</span>
+            <span class="atmo-card-pair">Pairs with · Tavern + Deep Archive</span>
+            <span class="atmo-card-scene" data-scene="alchemist">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="glacier">
+            <span class="atmo-swatch sw-glacier" aria-hidden="true"></span>
+            <span class="atmo-card-name">Hyperborean Vault</span>
+            <span class="atmo-card-desc">Sub-zero Arctic bullion reserve in Svalbard bedrock. Crystalline cyan, crawling frost, and shimmering polar auroras.</span>
+            <span class="atmo-card-pair">Pairs with · Storm + Cello Monolith</span>
+            <span class="atmo-card-scene" data-scene="glacier">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="valhalla">
+            <span class="atmo-swatch sw-valhalla" aria-hidden="true"></span>
+            <span class="atmo-card-name">Gilded Armory</span>
+            <span class="atmo-card-desc">The Viking hoard hall. Hearthfire reflecting off hack-silver bullion, bog-oak rafters, and ancient runic wards.</span>
+            <span class="atmo-card-pair">Pairs with · Foundry + Five Armies</span>
+            <span class="atmo-card-scene" data-scene="valhalla">Set the scene →</span>
           </button>
         </div>
       </div>
@@ -325,10 +526,10 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr23";</script>
-  <script src="app.js?v=tr23"></script>
-  <script src="js/playlist.js?v=tr23"></script>
-  <script src="audio.js?v=tr23"></script>
-  <script src="ambient.js?v=tr23"></script>
+  <script>window.TITAN_BUILD = "tr24";</script>
+  <script src="app.js?v=tr24"></script>
+  <script src="js/playlist.js?v=tr24"></script>
+  <script src="audio.js?v=tr24"></script>
+  <script src="ambient.js?v=tr24"></script>
 </body>
 </html>

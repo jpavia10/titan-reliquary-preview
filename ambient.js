@@ -60,9 +60,17 @@
                 mix: { scifi: .65, drone: .45, clank: .3, crackle: .15 } },
     signal:   { name: "Signal",    desc: "Something out there is transmitting. The bell answers.",
                 mix: { scifi: .7, drone: .5, belltoll: .45, thunder: .15 } },
+    solaris:  { name: "Solaris",   desc: "Coronal winds and high-altitude radiation hum under the sun.",
+                mix: { drone: .85, scifi: .65, gust: .45, belltoll: .2 } },
+    alchemist:{ name: "Alchemist", desc: "The bubbling crucible, hearth embers, and old paper dust.",
+                mix: { fire: .75, crackle: .65, office: .35, drone: .25 } },
+    glacier:  { name: "Hyperborean", desc: "Sub-zero polar gale howling over permafrost and glacial ice.",
+                mix: { wind: .85, gust: .8, drone: .55, belltoll: .35 } },
+    valhalla: { name: "Valhalla",  desc: "Roaring hearthfire, striking hammers of the armory, and mountain wind.",
+                mix: { fire: .85, crackle: .75, clank: .6, wind: .35 } },
     off:      { name: "Off",       desc: "Silence. Just the music.", mix: {} },
   };
-  const PRESET_ORDER = ["storm", "foundry", "fireside", "wayfarer", "night", "blackout", "tavern", "archive", "mirage", "depths", "grid", "signal", "off"];
+  const PRESET_ORDER = ["storm", "foundry", "fireside", "wayfarer", "night", "blackout", "tavern", "archive", "mirage", "depths", "grid", "signal", "solaris", "alchemist", "glacier", "valhalla", "off"];
 
   const KEY = "tr_ambient_v2";
   const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -99,6 +107,12 @@
     masterGain = ctx.createGain();
     masterGain.gain.value = state.master;
     masterGain.connect(ctx.destination);
+
+    // FFT Analyser for real-time visualizer
+    analyser = ctx.createAnalyser();
+    analyser.fftSize = 64;
+    masterGain.connect(analyser);
+
     // shared 2s white-noise buffer for the synth layers
     const len = ctx.sampleRate * 2;
     noiseBuf = ctx.createBuffer(1, len, ctx.sampleRate);
@@ -113,6 +127,70 @@
     }
     startPanDrift();
     return true;
+  }
+
+  // ---- Binaural Beats Generator (Brainwave Entrainment) ----
+  let bbLeftOsc = null, bbRightOsc = null, bbGain = null, activeBinaural = "off";
+  function setBinaural(type) {
+    activeBinaural = type || "off";
+    if (bbLeftOsc) {
+      try { bbLeftOsc.stop(); bbRightOsc.stop(); } catch (_) {}
+      bbLeftOsc = null; bbRightOsc = null;
+    }
+    if (activeBinaural === "off" || !activeBinaural) {
+      panel.querySelectorAll(".amb-bb-btn").forEach((b) => b.classList.toggle("active", b.dataset.bb === "off"));
+      return;
+    }
+    if (!ensureCtx()) return;
+    const baseFreq = 216; // Harmonic A
+    let delta = 10;
+    if (type === "alpha") delta = 10;   // 10Hz Focus
+    if (type === "theta") delta = 6;    // 6Hz Zen
+    if (type === "delta") delta = 2.5;  // 2.5Hz Deep Stillness
+    const merger = ctx.createChannelMerger(2);
+    bbGain = ctx.createGain();
+    bbGain.gain.value = 0.08;
+    bbLeftOsc = ctx.createOscillator();
+    bbLeftOsc.type = "sine";
+    bbLeftOsc.frequency.value = baseFreq;
+    bbRightOsc = ctx.createOscillator();
+    bbRightOsc.type = "sine";
+    bbRightOsc.frequency.value = baseFreq + delta;
+    bbLeftOsc.connect(merger, 0, 0);
+    bbRightOsc.connect(merger, 0, 1);
+    merger.connect(bbGain);
+    bbGain.connect(masterGain);
+    bbLeftOsc.start();
+    bbRightOsc.start();
+    panel.querySelectorAll(".amb-bb-btn").forEach((b) => b.classList.toggle("active", b.dataset.bb === type));
+  }
+
+  // ---- Sleep & Fadeout Timer ----
+  let sleepTimer = null, sleepTarget = 0;
+  function setSleepTimer(mins) {
+    if (sleepTimer) { clearInterval(sleepTimer); sleepTimer = null; }
+    const cd = panel.querySelector("#amb-timer-countdown");
+    if (!mins || mins <= 0) {
+      if (cd) cd.textContent = "";
+      panel.querySelectorAll(".amb-timer-btn").forEach((b) => b.classList.toggle("active", b.dataset.timer === "0"));
+      return;
+    }
+    panel.querySelectorAll(".amb-timer-btn").forEach((b) => b.classList.toggle("active", b.dataset.timer === String(mins)));
+    sleepTarget = Date.now() + mins * 60 * 1000;
+    sleepTimer = setInterval(() => {
+      const rem = Math.max(0, Math.round((sleepTarget - Date.now()) / 1000));
+      if (cd) cd.textContent = `${Math.floor(rem / 60)}:${String(rem % 60).padStart(2, "0")}`;
+      if (rem <= 25 && ctx) {
+        const frac = rem / 25;
+        masterGain.gain.value = state.master * frac;
+      }
+      if (rem <= 0) {
+        clearInterval(sleepTimer);
+        sleepTimer = null;
+        applyPreset("off");
+        if (cd) cd.textContent = "Fadeout complete";
+      }
+    }, 1000);
   }
   const eff = (id) => state.layers[id].on ? state.layers[id].vol * 0.9 : 0;
   function rampGain(id, t = 0.9) {
@@ -458,6 +536,7 @@
   panel.innerHTML = `
     <div class="amb-head">
       <div><div class="amb-title">Soundscape</div><div class="amb-sub">generative ambience engine</div></div>
+      <canvas id="amb-fft-canvas" class="amb-fft" width="80" height="20" aria-hidden="true" style="margin-left:auto;margin-right:0.75rem;border-radius:3px;background:rgba(0,0,0,0.3)"></canvas>
       <button type="button" id="amb-close" aria-label="Close mixer">×</button>
     </div>
     <div class="amb-secname">Scenes</div>
@@ -465,10 +544,25 @@
       ${PRESET_ORDER.map((p) => `<button type="button" class="amb-preset" data-preset="${p}"><span>${PRESETS[p].name}</span></button>`).join("")}
     </div>
     <div class="amb-preset-desc" id="amb-preset-desc">Layers fade in and out smoothly, drift slowly across the stereo field, and mix with the music player. Rain and fire show on screen too — tap any layer to build your own weather.</div>
+    <div class="amb-secname">Binaural Brainwave Entrainment</div>
+    <div class="amb-binaural-bar" style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.8rem">
+      <button type="button" class="amb-bb-btn btn small active" data-bb="off" style="font-size:0.72rem;padding:0.25rem 0.55rem">Off</button>
+      <button type="button" class="amb-bb-btn btn small" data-bb="alpha" title="10Hz Alpha Focus" style="font-size:0.72rem;padding:0.25rem 0.55rem">Alpha · 10Hz Focus</button>
+      <button type="button" class="amb-bb-btn btn small" data-bb="theta" title="6Hz Theta Meditation" style="font-size:0.72rem;padding:0.25rem 0.55rem">Theta · 6Hz Zen</button>
+      <button type="button" class="amb-bb-btn btn small" data-bb="delta" title="2.5Hz Delta Stillness" style="font-size:0.72rem;padding:0.25rem 0.55rem">Delta · 2Hz Stillness</button>
+    </div>
     <div class="amb-secname">Recorded</div>
     <div class="amb-layers">${Object.keys(RECORDED).map(layerRow).join("")}</div>
     <div class="amb-secname">Synthesized live</div>
     <div class="amb-layers">${Object.keys(SYNTH).map(layerRow).join("")}</div>
+    <div class="amb-secname">Sleep &amp; Fadeout Timer</div>
+    <div class="amb-timer-bar" style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.8rem">
+      <button type="button" class="amb-timer-btn btn small active" data-timer="0" style="font-size:0.72rem;padding:0.25rem 0.55rem">Off</button>
+      <button type="button" class="amb-timer-btn btn small" data-timer="15" style="font-size:0.72rem;padding:0.25rem 0.55rem">15m</button>
+      <button type="button" class="amb-timer-btn btn small" data-timer="30" style="font-size:0.72rem;padding:0.25rem 0.55rem">30m</button>
+      <button type="button" class="amb-timer-btn btn small" data-timer="60" style="font-size:0.72rem;padding:0.25rem 0.55rem">60m</button>
+      <span class="amb-timer-countdown" id="amb-timer-countdown" style="font-family:var(--mono);font-size:0.8rem;color:var(--gold-soft);margin-left:auto"></span>
+    </div>
     <div class="amb-foot">
       <label class="amb-master">Master <input type="range" id="amb-master" min="0" max="1" step="0.01" value="${state.master}" aria-label="Ambient master volume" /></label>
       <label class="amb-master">Rainfall <input type="range" id="amb-intensity" min="0" max="100" step="1" value="${state.intensity}" aria-label="Rainfall intensity" /></label>
@@ -505,6 +599,12 @@
   panel.querySelectorAll("input[data-vol]").forEach((s) => {
     s.addEventListener("input", () => setVol(s.dataset.vol, parseFloat(s.value)));
   });
+  panel.querySelectorAll(".amb-bb-btn").forEach((b) => {
+    b.addEventListener("click", () => setBinaural(b.dataset.bb));
+  });
+  panel.querySelectorAll(".amb-timer-btn").forEach((b) => {
+    b.addEventListener("click", () => setSleepTimer(parseInt(b.dataset.timer, 10)));
+  });
   panel.querySelector("#amb-master").addEventListener("input", (e) => {
     state.master = parseFloat(e.target.value);
     if (ctx) {
@@ -529,6 +629,27 @@
   });
   panel.querySelector("#amb-close").addEventListener("click", () => { panel.hidden = true; });
   if (btn) btn.addEventListener("click", () => { panel.hidden = !panel.hidden; });
+
+  // FFT Visualizer loop
+  function drawFft() {
+    const canvas = panel.querySelector("#amb-fft-canvas");
+    if (canvas && !panel.hidden && analyser) {
+      const g = canvas.getContext("2d");
+      const data = new Uint8Array(analyser.frequencyBinCount);
+      analyser.getByteFrequencyData(data);
+      g.clearRect(0, 0, canvas.width, canvas.height);
+      const bars = 16;
+      const barW = canvas.width / bars - 1;
+      for (let i = 0; i < bars; i++) {
+        const val = data[i * 2] / 255;
+        const h = Math.max(2, val * canvas.height);
+        g.fillStyle = val > 0.05 ? "rgba(200, 169, 74, 0.85)" : "rgba(255, 255, 255, 0.12)";
+        g.fillRect(i * (barW + 1), canvas.height - h, barW, h);
+      }
+    }
+    requestAnimationFrame(drawFft);
+  }
+  requestAnimationFrame(drawFft);
 
   // Restore persisted ambience on boot (autoplay-safe: play() may reject).
   if (LAYER_IDS.some((k) => state.layers[k].on) && ensureCtx()) {
