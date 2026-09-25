@@ -1,10 +1,9 @@
-/* Titan Reliquary — "Stormroom" ambient mixer (v2).
-   Upgrades over v1: every layer runs through the Web Audio graph
-   (per-layer GainNode + master gain) so toggles fade in/out over ~1.4s
-   instead of cutting; a Storm Intensity slider couples rain loudness to the
-   canvas rain (drizzle -> downpour, with wind gusts); one-tap presets
-   (Storm / Fireside / Night watch / Off); master volume; long-press the
-   rain button to open the mixer without toggling.
+/* Titan Reliquary — "Stormroom" ambient mixer (v3).
+   Upgrades over v2: every layer runs through its own StereoPannerNode with a
+   slow random drift, so the room has width and movement instead of a flat mono
+   wash; seven one-tap presets (Storm / Foundry / Fireside / Wayfarer /
+   Night watch / Blackout / Off) with descriptions and an active highlight that
+   clears when you tweak anything by hand.
    Sounds are hotlinked Mixkit MP3s (Mixkit Free License, no attribution
    required — not committed to the repo, documented in CHANGELOG.md).
    Rain and the lofi player (audio.js) use separate chains so they mix.
@@ -27,10 +26,13 @@
     wind: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h9a3 3 0 1 0-3-3"/><path d="M3 12h13a3 3 0 1 1-3 3"/><path d="M3 16h6a2.5 2.5 0 1 1-2.5 2.5"/></svg>',
   };
   const PRESETS = {
-    storm: { label: "Storm",     layers: { rain: [true, 0.65], thunder: [true, 0.55], fire: [false, 0.5], wind: [true, 0.3] },  intensity: 85 },
-    fireside: { label: "Fireside", layers: { rain: [false, 0.4], thunder: [false, 0.4], fire: [true, 0.7], wind: [true, 0.22] }, intensity: 30 },
-    night: { label: "Night watch", layers: { rain: [true, 0.35], thunder: [false, 0.4], fire: [false, 0.5], wind: [true, 0.5] }, intensity: 25 },
-    off:   { label: "Off",       layers: { rain: [false, 0.55], thunder: [false, 0.4], fire: [false, 0.5], wind: [false, 0.4] }, intensity: 55 },
+    storm:    { label: "Storm",     desc: "Rain hammering the skylights", layers: { rain: [true, 0.65], thunder: [true, 0.55], fire: [false, 0.5], wind: [true, 0.3] },  intensity: 85 },
+    foundry:  { label: "Foundry",   desc: "Bronze pouring, thunder rolling", layers: { rain: [false, 0.4], thunder: [true, 0.55], fire: [true, 0.75], wind: [true, 0.25] }, intensity: 60 },
+    fireside: { label: "Fireside",  desc: "The conservator's hearth", layers: { rain: [false, 0.4], thunder: [false, 0.4], fire: [true, 0.7], wind: [true, 0.22] }, intensity: 30 },
+    wayfarer: { label: "Wayfarer",  desc: "Wind over open country", layers: { rain: [true, 0.25], thunder: [false, 0.4], fire: [false, 0.5], wind: [true, 0.7] }, intensity: 40 },
+    night:    { label: "Night watch", desc: "Rain and wind after closing", layers: { rain: [true, 0.35], thunder: [false, 0.4], fire: [false, 0.5], wind: [true, 0.5] }, intensity: 25 },
+    blackout: { label: "Blackout",  desc: "The wing with the lights out", layers: { rain: [true, 0.3], thunder: [true, 0.6], fire: [false, 0.5], wind: [true, 0.5] }, intensity: 70 },
+    off:      { label: "Off",       desc: "Silence the room", layers: { rain: [false, 0.55], thunder: [false, 0.4], fire: [false, 0.5], wind: [false, 0.4] }, intensity: 55 },
   };
 
   const STATE_KEY = "tr_ambient_v2";
@@ -72,9 +74,15 @@
   const btn = document.getElementById("btn-rain");
   if (!btn) return;
 
-  // ---- Web Audio graph: source -> layerGain -> master -> destination ----
-  let actx = null, masterGain = null;
-  const nodes = {}; // k -> {el, src, gain}
+  // ---- Web Audio graph: source -> layerGain -> panner -> master -> destination ----
+  // Each layer gets its own stereo position that slowly wanders inside a
+  // per-layer range, so the room has width and movement instead of a flat
+  // mono wash. Rain drifts gently, thunder sits near-center, the fire stays
+  // right of the room, and the wind sweeps wide.
+  const PAN_RANGE = { rain: 0.35, thunder: 0.12, fire: 0.3, wind: 0.7 };
+  const PAN_CENTER = { rain: 0, thunder: 0, fire: 0.28, wind: 0 };
+  let actx = null, masterGain = null, driftT = null;
+  const nodes = {}; // k -> {el, src, gain, pan}
   function ensureGraph() {
     if (actx) { if (actx.state === "suspended") actx.resume().catch(() => {}); return true; }
     try {
@@ -92,11 +100,36 @@
         const src = actx.createMediaElementSource(el);
         const g = actx.createGain();
         g.gain.value = 0;
-        src.connect(g); g.connect(masterGain);
-        nodes[k] = { el, gain: g, fadeT: null };
+        const pan = actx.createStereoPanner ? actx.createStereoPanner() : null;
+        if (pan) {
+          pan.pan.value = PAN_CENTER[k] || 0;
+          src.connect(g); g.connect(pan); pan.connect(masterGain);
+        } else {
+          src.connect(g); g.connect(masterGain);
+        }
+        nodes[k] = { el, gain: g, pan, fadeT: null };
       }
+      startDrift();
       return true;
     } catch { return false; }
+  }
+  // Slow stereo wander: every few seconds each layer glides to a new random
+  // position inside its range. Cheap, subtle, and it makes the room feel big.
+  function startDrift() {
+    if (driftT != null) return;
+    driftT = setInterval(() => {
+      if (!actx) return;
+      const t = actx.currentTime;
+      for (const k of ORDER) {
+        const n = nodes[k];
+        if (!n || !n.pan || !state.layers[k].on) continue;
+        const c = PAN_CENTER[k] || 0, r = PAN_RANGE[k] || 0.3;
+        const target = c + (Math.random() * 2 - 1) * r;
+        n.pan.pan.cancelScheduledValues(t);
+        n.pan.pan.setValueAtTime(n.pan.pan.value, t);
+        n.pan.pan.linearRampToValueAtTime(Math.max(-1, Math.min(1, target)), t + 4);
+      }
+    }, 5200);
   }
   function layerTarget(k) {
     // audible target for a layer that is ON (0 when off); rain scales with intensity
@@ -133,6 +166,7 @@
     }
     rampGain(k);
     syncUi();
+    clearPreset();
   }
   function applyVolumes() {
     if (!actx) return;
@@ -160,6 +194,22 @@
     applyVolumes();
     seedDrops();
     syncUi();
+    markPreset(name);
+    const d = panel.querySelector("#amb-preset-desc");
+    if (d) d.textContent = p.desc || "";
+  }
+  // Highlight the active preset; any manual tweak clears it back to custom.
+  function markPreset(name) {
+    panel.querySelectorAll(".amb-preset").forEach((b) => {
+      const on = b.dataset.preset === name;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-pressed", String(on));
+    });
+  }
+  function clearPreset() {
+    markPreset(null);
+    const d = panel.querySelector("#amb-preset-desc");
+    if (d) d.textContent = "";
   }
 
   // ---- canvas rain (intensity-coupled, with gusts) ----------------------
@@ -251,8 +301,9 @@
       <button type="button" class="lofi-collapse" id="amb-close" aria-label="Close ambience panel">×</button>
     </div>
     <div class="amb-presets" role="group" aria-label="Ambience presets">
-      ${Object.entries(PRESETS).map(([key, p]) => `<button type="button" class="amb-preset" data-preset="${key}">${p.label}</button>`).join("")}
+      ${Object.entries(PRESETS).map(([key, p]) => `<button type="button" class="amb-preset" data-preset="${key}" title="${p.desc || p.label}" aria-pressed="false">${p.label}</button>`).join("")}
     </div>
+    <p class="amb-preset-desc" id="amb-preset-desc" aria-live="polite"></p>
     <div class="amb-intensity">
       <div class="amb-intensity-top"><span>Storm intensity</span><strong id="amb-int-label">${intLabel(state.intensity)}</strong></div>
       <input type="range" id="amb-intensity" min="0" max="100" step="1" value="${state.intensity}" aria-label="Storm intensity" />
@@ -268,7 +319,7 @@
       <span>Master</span>
       <input type="range" id="amb-master" min="0" max="1" step="0.01" value="${state.master}" aria-label="Master ambience volume" />
     </div>
-    <p class="ambient-note">Layers fade in and out smoothly and mix with the lofi player. Rain shows on screen too (still picture when reduced motion is set). Long-press the rain button to open this mixer.</p>`;
+    <p class="ambient-note">Layers fade in and out smoothly, drift slowly across the stereo field, and mix with the music player. Rain shows on screen too (still picture when reduced motion is set). Long-press the rain button to open this mixer.</p>`;
   document.body.appendChild(panel);
 
   function syncUi() {
@@ -307,12 +358,14 @@
       const k = r.dataset.vol;
       state.layers[k].vol = parseFloat(r.value);
       writeState();
+      clearPreset();
       if (actx) rampGain(k);
     });
   });
   panel.querySelector("#amb-intensity").addEventListener("input", (e) => {
     state.intensity = parseInt(e.target.value, 10);
     writeState();
+    clearPreset();
     panel.querySelector("#amb-int-label").textContent = intLabel(state.intensity);
     if (actx) rampGain("rain");
     if (!canvas.hidden) seedDrops();
