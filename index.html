@@ -19,7 +19,7 @@
   <script>
     try {
       var __tr_a = localStorage.getItem("tr_atmo_v1");
-      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing"];
+      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno"];
       if (__tr_ok.indexOf(__tr_a) === -1) {
         var __tr_old = localStorage.getItem("tr_theme_v1");
         if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr20" />
+  <link rel="stylesheet" href="styles.css?v=tr21" />
 </head>
 <body>
   <div id="app">
@@ -315,10 +315,10 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr9";</script>
-  <script src="app.js?v=tr20"></script>
-  <script src="js/playlist.js?v=tr20"></script>
-  <script src="audio.js?v=tr20"></script>
-  <script src="ambient.js?v=tr20"></script>
+  <script>window.TITAN_BUILD = "tr21";</script>
+  <script src="app.js?v=tr21"></script>
+  <script src="js/playlist.js?v=tr21"></script>
+  <script src="audio.js?v=tr21"></script>
+  <script src="ambient.js?v=tr21"></script>
 </body>
 </html>

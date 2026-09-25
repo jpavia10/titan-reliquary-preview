@@ -1908,7 +1908,7 @@
   // bar + status bar for Plaintext, hue-storm for Kaleidoscope, scanlines + sun for
   // Neon Vault, a compass rose for Odyssey, a glyph ring for Xenohold.
   // Everything is created on switch and torn down on the next switch.
-  const themeFx = { matrixTimer: 0, termTimer: 0, termAbort: 0 };
+  const themeFx = { matrixTimer: 0, termTimer: 0, termAbort: 0, matrixResize: null };
   function clearThemeFx() {
     ["kaleido-fx", "matrix-rain", "construct-term", "notepad-bar", "notepad-status",
      "neon-scan", "neon-sun", "odyssey-compass", "xeno-ring"].forEach((id) => {
@@ -1916,6 +1916,10 @@
     });
     clearInterval(themeFx.matrixTimer); themeFx.matrixTimer = 0;
     clearTimeout(themeFx.termTimer); themeFx.termTimer = 0;
+    if (themeFx.matrixResize) {
+      window.removeEventListener("resize", themeFx.matrixResize);
+      themeFx.matrixResize = null;
+    }
     themeFx.termAbort++;
   }
   function startMatrixRain() {
@@ -1931,6 +1935,7 @@
       cols = Math.ceil(c.width / fs); drops = Array.from({ length: cols }, () => Math.random() * -40);
     };
     size();
+    themeFx.matrixResize = size;
     window.addEventListener("resize", size);
     themeFx.matrixTimer = setInterval(() => {
       g.fillStyle = "rgba(0,0,0,0.08)"; g.fillRect(0, 0, c.width, c.height);
@@ -1971,7 +1976,7 @@
       if (myRun !== themeFx.termAbort) return; // theme changed: stop
       if (li >= CX_SCRIPT.length) {
         themeFx.termTimer = setTimeout(() => {
-          if (myRun !== themeFx.termAbort) { li = 0; ci = 0; html = ""; tick(); }
+          if (myRun === themeFx.termAbort) { li = 0; ci = 0; html = ""; tick(); }
         }, 6000);
         return;
       }

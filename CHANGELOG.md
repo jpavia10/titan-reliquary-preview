@@ -359,3 +359,24 @@ rebuilds it as a **reliquary / museum experience**:
   offline banner, reduced-motion, service-worker self-update all preserved.
 - Data model untouched: `data/index.json` etc. are still read-only
   generated inputs. All values computed from real fields; nothing invented.
+
+## tr21 — Quality & Integrity Pass (2026-09-25, Antigravity handoff)
+
+Handoff baton passed from Muse to Antigravity to finalize polish, eliminate defects,
+and prepare the consolidation bridge for Grok's master pipeline:
+
+1. **Fixed Atmosphere Reload Reversion Bug (`index.html`):** The early pre-paint FOUC script
+   checked a hardcoded whitelist `__tr_ok` that still contained only 6 atmospheres from tr6.
+   Selecting any of the 6 newer atmospheres (`kaleido`, `abyss`, `neon`, `notepad`, `construct`, `xeno`)
+   caused `__tr_ok.indexOf(__tr_a)` to return `-1` on refresh, silently wiping the user's choice
+   back to `afterhours` or `conservator`. Updated `__tr_ok` with all 12 atmospheres.
+2. **Fixed Construct Terminal Inversion Bug (`app.js`):** `startConstructTerm()` checked
+   `if (myRun !== themeFx.termAbort)` at loop restart, which inverted the abort check,
+   preventing the terminal from looping when active and potentially firing if aborted. Corrected
+   to `if (myRun === themeFx.termAbort)`.
+3. **Fixed Window Resize Listener Leak (`app.js`):** `startMatrixRain()` bound
+   `window.addEventListener("resize", size)` on activation without cleaning it up. Added
+   `matrixResize` tracking to `themeFx` and teardown in `clearThemeFx()`.
+4. **Synchronized Build Metadata:** Synchronized `window.TITAN_BUILD` (was stale `"tr9"`),
+   sw.js `BUILD` constant, and all asset query params (`?v=tr21`).
+
