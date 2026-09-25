@@ -1,4 +1,4 @@
-/* Titan Reliquary — "Stormroom" ambient engine (v4).
+/* Titan Reliquary — "Soundscape" ambient engine (v4).
    A real generative soundscape mixer, not just preset combos:
    - 9 recorded loops (Mixkit Free License, hotlinked, not committed).
    - 5 synthesized layers built live with Web Audio: sub drone, fire sparkle,
@@ -457,7 +457,7 @@
     </div>`;
   panel.innerHTML = `
     <div class="amb-head">
-      <div><div class="amb-title">Stormroom</div><div class="amb-sub">generative ambience engine</div></div>
+      <div><div class="amb-title">Soundscape</div><div class="amb-sub">generative ambience engine</div></div>
       <button type="button" id="amb-close" aria-label="Close mixer">×</button>
     </div>
     <div class="amb-secname">Scenes</div>

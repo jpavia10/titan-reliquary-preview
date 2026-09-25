@@ -1,6 +1,6 @@
 /* Titan Reliquary — music station player (v2).
-   Six stations live in js/playlist.js (TITAN_STATIONS): Lofi, Classical, Epic,
-   Jazz, Adventure, Dark. Tracks are HOTLINKED mp3s (Kevin MacLeod,
+   Twelve stations live in js/playlist.js (TITAN_STATIONS): Lofi, Classical, Epic,
+   Jazz, Adventure, Dark, Psych, Abyss, Synthwave, Quiet, Construct, Xeno. Tracks are HOTLINKED mp3s (Kevin MacLeod,
    incompetech.com, CC-BY 4.0 — credit shown in the player UI); they are not
    committed to the repo and will not work offline (see CHANGELOG.md).
    Rain/ambience is separate (ambient.js), so music and rain mix.
@@ -111,6 +111,16 @@
       <div class="lofi-vol">
         <input type="range" id="lofi-vol" min="0" max="1" step="0.01" value="${audio.volume}" aria-label="Music volume" />
       </div>
+      <button type="button" class="lofi-btn" data-act="ambience" aria-label="Ambient sounds" title="Ambient sounds — rain, fire, storms and more">
+        <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="6" y1="3" x2="6" y2="21" />
+          <line x1="12" y1="3" x2="12" y2="21" />
+          <line x1="18" y1="3" x2="18" y2="21" />
+          <circle cx="6" cy="14" r="2.6" fill="currentColor" stroke="none" />
+          <circle cx="12" cy="8" r="2.6" fill="currentColor" stroke="none" />
+          <circle cx="18" cy="16" r="2.6" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
       <button type="button" class="lofi-collapse" data-act="collapse" aria-label="Collapse player" title="Collapse">–</button>
     </div>
     <div class="station-menu" id="station-menu" hidden role="menu" aria-label="Music stations"></div>
@@ -183,7 +193,7 @@
       elPillLabel.textContent = `❚❚ ${stationName()} — tap to resume`;
       pill.classList.remove("live");
     } else {
-      elPillLabel.textContent = `Tap for ${stationName().toLowerCase()} music`;
+      elPillLabel.textContent = `Tap for music · ${valid.length} stations`;
       pill.classList.remove("live");
     }
     pill.setAttribute("aria-label", elPillLabel.textContent);
@@ -310,6 +320,8 @@
       bar.classList.toggle("collapsed", collapsed);
       b.textContent = collapsed ? "＋" : "–";
       b.setAttribute("aria-label", collapsed ? "Expand player" : "Collapse player");
+    } else if (act === "ambience") {
+      try { window.TitanAmbient?.openMixer(); } catch { /* ambience not ready */ }
     }
   });
   // Tapping outside the station menu closes it.

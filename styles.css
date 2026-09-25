@@ -1777,7 +1777,7 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
 }
 #rain-canvas[hidden] { display: none; }
 
-/* --- Ambient mixer panel ("Stormroom", ambient.js) --- */
+/* --- Ambient mixer panel ("Soundscape", ambient.js) --- */
 .ambient-panel {
   position: fixed;
   z-index: 70;
@@ -2809,7 +2809,7 @@ body.curator-sees-you { animation: seeyou 0.8s linear; }
   100% { opacity: 0; }
 }
 
-/* ================= tr11: Stormroom v4 mixer UI ================= */
+/* ================= tr11: Soundscape v4 mixer UI ================= */
 .ambient-panel {
   width: min(344px, calc(100vw - 2rem));
   max-height: min(78vh, 660px);
@@ -3397,3 +3397,7 @@ html[data-atmo="xeno"] .card, html[data-atmo="xeno"] .tile {
 .sw-notepad { background: #ffffff; border: 1px solid #000; }
 .sw-construct { background: repeating-linear-gradient(0deg, #000 0 4px, #0a2a12 4px 6px); }
 .sw-xeno { background: radial-gradient(circle at 30% 30%, #4de8c2 0%, #140546 55%, #060112 100%); }
+
+/* tr14: soundscape button in the music widget */
+.lofi-btn svg { display: block; margin: 0 auto; }
+.lofi-btn[data-act="ambience"].on { color: #7db4d8; border-color: #4a7a9a; box-shadow: 0 0 10px rgba(90, 150, 190, 0.35); }
