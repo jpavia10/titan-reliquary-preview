@@ -2443,3 +2443,302 @@ html[data-atmo="conservator"] .pc-ser { font-size: 1.05rem; }
   .exhibit-slide { transition-duration: 0.01s; }
   .wing-card:hover, .piece-card:hover { transform: none; }
 }
+
+/* ============================================================
+   tr10 — "Six Rooms": four new atmospheres, station player chrome,
+   ambient depth UI, wing transitions, easter eggs.
+   ============================================================ */
+
+/* ---------- Colossus: bronze monument ---------- */
+html[data-atmo="colossus"] {
+  --bg: #141009; --bg2: #1c1510; --surface: #20180f; --surface2: #2c2114;
+  --ink: #f6ead0; --muted: #ab9a76; --faint: #6f6046;
+  --gold: #e2a93e; --gold-soft: #ffd98c; --gold-deep: #8a6420;
+  --line: rgba(226, 169, 62, 0.16); --line-strong: rgba(226, 169, 62, 0.40);
+  --ok: #7fbf6a; --warn: #e0a93e; --bad: #d06048;
+  --shadow: inset 0 1px 0 rgba(255, 220, 150, 0.08), 0 22px 60px rgba(0, 0, 0, 0.75);
+  --th-bg: #1a1409; --tabgrad1: #2c2114; --tabgrad2: #171106;
+  --foot-bg: rgba(20, 16, 9, 0.92); --ph-bg: #141009; --sel-bg: #241a0c;
+  --hold-bg: linear-gradient(135deg, #2c2110, #171006);
+  --drawerbar-bg: rgba(32, 24, 15, 0.94); --cardmeta: #d8c9a6;
+  --skeleton1: #2c2114; --skeleton2: #141009;
+  --toastgrad1: #2c2114; --toastgrad2: #171106;
+  --row-hover: rgba(226, 169, 62, 0.07);
+  --grain-op: 0.06;
+  --wing-dur: 0.7s; --wing-rise: 26px;
+}
+html[data-atmo="colossus"] body {
+  background-image:
+    radial-gradient(80% 46% at 50% -8%, rgba(226, 169, 62, 0.16), transparent 70%),
+    repeating-linear-gradient(90deg, transparent 0 79px, rgba(226, 169, 62, 0.05) 79px 80px);
+}
+html[data-atmo="colossus"] .wing-head h2 {
+  font-size: 2.3rem; letter-spacing: 0.02em;
+  text-shadow: 0 3px 26px rgba(226, 169, 62, 0.4);
+}
+html[data-atmo="colossus"] .card, html[data-atmo="colossus"] .tile,
+html[data-atmo="colossus"] .wing-card, html[data-atmo="colossus"] .note-card {
+  border-top: 2px solid var(--gold-deep);
+}
+html[data-atmo="colossus"] .exhibit { border-width: 2px; }
+html[data-atmo="colossus"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 10%, rgba(226, 169, 62, 0.22), transparent 70%),
+    radial-gradient(40% 60% at 80% 90%, rgba(138, 100, 32, 0.16), transparent 70%);
+  animation: kenburns 18s ease-in-out infinite alternate;
+}
+html[data-atmo="colossus"] .exhibit::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 217, 140, 0.10) 50%, transparent 60%);
+  background-size: 250% 100%;
+  animation: colossus-sheen 7s ease-in-out infinite;
+}
+@keyframes colossus-sheen { 0% { background-position: 120% 0; } 60%, 100% { background-position: -120% 0; } }
+html[data-atmo="colossus"] .badge, html[data-atmo="colossus"] .badge-kind,
+html[data-atmo="colossus"] .badge-status {
+  border-color: var(--gold-deep); color: var(--gold-soft);
+  letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.68rem;
+}
+
+/* ---------- Nocturne: smoky jazz cellar ---------- */
+html[data-atmo="nocturne"] {
+  --bg: #070b16; --bg2: #0a0f1e; --surface: #0d1424; --surface2: #141c31;
+  --ink: #eae6da; --muted: #8f96ad; --faint: #596078;
+  --gold: #cfa95f; --gold-soft: #ecd096; --gold-deep: #77602f;
+  --line: rgba(140, 160, 210, 0.15); --line-strong: rgba(140, 160, 210, 0.34);
+  --ok: #6bbf7a; --warn: #d4a017; --bad: #c45c4a;
+  --shadow: inset 0 1px 0 rgba(180, 200, 255, 0.05), 0 18px 50px rgba(0, 0, 0, 0.7);
+  --th-bg: #0c1222; --tabgrad1: #182238; --tabgrad2: #0a0f1e;
+  --foot-bg: rgba(7, 11, 22, 0.92); --ph-bg: #090d18; --sel-bg: #111a2e;
+  --hold-bg: linear-gradient(135deg, #141c31, #0a0e1a);
+  --drawerbar-bg: rgba(13, 20, 36, 0.94); --cardmeta: #c3c9da;
+  --skeleton1: #182238; --skeleton2: #090d18;
+  --toastgrad1: #182238; --toastgrad2: #0a0f1e;
+  --row-hover: rgba(140, 160, 210, 0.07);
+  --grain-op: 0.07;
+  --wing-dur: 0.9s; --wing-rise: 10px;
+}
+html[data-atmo="nocturne"] body {
+  background-image:
+    radial-gradient(70% 55% at 20% 110%, rgba(90, 110, 190, 0.14), transparent 70%),
+    radial-gradient(60% 50% at 85% -10%, rgba(207, 169, 95, 0.10), transparent 70%);
+  animation: nocturne-smoke 46s ease-in-out infinite alternate;
+}
+@keyframes nocturne-smoke {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 60px 30px, -50px 20px; }
+}
+html[data-atmo="nocturne"] .sec-head { border-bottom: 3px double var(--line-strong); }
+html[data-atmo="nocturne"] .wing-head h2 {
+  font-size: 2.2rem; font-style: italic;
+  text-shadow: 0 2px 30px rgba(140, 160, 210, 0.35);
+}
+html[data-atmo="nocturne"] .badge, html[data-atmo="nocturne"] .badge-kind,
+html[data-atmo="nocturne"] .badge-status {
+  border-radius: 999px; border-color: var(--line-strong);
+  letter-spacing: 0.08em;
+}
+html[data-atmo="nocturne"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 10%, rgba(140, 160, 210, 0.14), transparent 70%),
+    radial-gradient(40% 60% at 80% 90%, rgba(207, 169, 95, 0.12), transparent 70%);
+  animation: kenburns 34s ease-in-out infinite alternate;
+}
+html[data-atmo="nocturne"] .exhibit-lamp { background: #9fb4e8; box-shadow: 0 0 10px #9fb4e8; }
+
+/* ---------- Odyssey: explorer's chart table ---------- */
+html[data-atmo="odyssey"] {
+  --bg: #ece1c8; --bg2: #e0d2b2; --surface: #f6efdc; --surface2: #eadcbd;
+  --ink: #2c2213; --muted: #6f6046; --faint: #a8936b;
+  --gold: #96690f; --gold-soft: #5c3a24; --gold-deep: #b28c46;
+  --line: rgba(92, 58, 36, 0.20); --line-strong: rgba(92, 58, 36, 0.42);
+  --ok: #3f7a44; --warn: #a06a00; --bad: #a03024;
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 14px 34px rgba(80, 58, 28, 0.18);
+  --th-bg: #e4d5b4; --tabgrad1: #e2d2ac; --tabgrad2: #cdb488;
+  --foot-bg: rgba(236, 225, 200, 0.92); --ph-bg: #e6d8b8; --sel-bg: #e2cfa2;
+  --hold-bg: linear-gradient(135deg, #f0e4c8, #dcc79c);
+  --drawerbar-bg: rgba(246, 239, 220, 0.94); --cardmeta: #4a3d2a;
+  --skeleton1: #ded0ac; --skeleton2: #ece1c8;
+  --toastgrad1: #ecdfc2; --toastgrad2: #ddcda4;
+  --row-hover: rgba(92, 58, 36, 0.06);
+  --grain-op: 0.05;
+  --wing-dur: 0.45s; --wing-rise: 14px;
+}
+html[data-atmo="odyssey"] body {
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 47px, rgba(92, 58, 36, 0.055) 47px 48px),
+    repeating-linear-gradient(90deg, transparent 0 47px, rgba(92, 58, 36, 0.055) 47px 48px),
+    radial-gradient(120% 90% at 50% 0%, rgba(150, 105, 15, 0.08), transparent 60%);
+}
+html[data-atmo="odyssey"] .card, html[data-atmo="odyssey"] .tile,
+html[data-atmo="odyssey"] .wing-card, html[data-atmo="odyssey"] .note-card,
+html[data-atmo="odyssey"] .album-card, html[data-atmo="odyssey"] .latest-card {
+  border-style: dashed;
+}
+html[data-atmo="odyssey"] .sec-head { border-bottom: 2px dotted var(--line-strong); }
+html[data-atmo="odyssey"] .sec-head h2 { letter-spacing: 0.03em; }
+html[data-atmo="odyssey"] .tab.active { color: #faf6ec; }
+html[data-atmo="odyssey"] .filter-ag.active { background: #d8c8a2; border-color: #8a6f42; color: #2c2213; }
+html[data-atmo="odyssey"] :focus-visible { outline-color: var(--gold-soft); }
+html[data-atmo="odyssey"] .exhibit-bg {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(92,58,36,0.07) 30px 31px),
+    radial-gradient(70% 100% at 50% 0%, rgba(150, 105, 15, 0.12), transparent 70%);
+}
+
+/* ---------- The Cursed Wing: black wax and blood ---------- */
+html[data-atmo="cursedwing"] {
+  --bg: #090404; --bg2: #100707; --surface: #140909; --surface2: #200e0e;
+  --ink: #ecd9d9; --muted: #a07a7a; --faint: #634545;
+  --gold: #d42f2f; --gold-soft: #ff7a6b; --gold-deep: #7d1d1d;
+  --line: rgba(212, 47, 47, 0.16); --line-strong: rgba(212, 47, 47, 0.42);
+  --ok: #6a8a4a; --warn: #d4a017; --bad: #ff4d4d;
+  --shadow: inset 0 1px 0 rgba(255, 90, 90, 0.05), 0 18px 55px rgba(0, 0, 0, 0.85);
+  --th-bg: #160a0a; --tabgrad1: #240f0f; --tabgrad2: #100707;
+  --foot-bg: rgba(9, 4, 4, 0.92); --ph-bg: #0c0606; --sel-bg: #1e0c0c;
+  --hold-bg: linear-gradient(135deg, #220e0e, #100606);
+  --drawerbar-bg: rgba(20, 9, 9, 0.94); --cardmeta: #cfa9a9;
+  --skeleton1: #200e0e; --skeleton2: #0c0606;
+  --toastgrad1: #240f0f; --toastgrad2: #100707;
+  --row-hover: rgba(212, 47, 47, 0.07);
+  --grain-op: 0.09;
+  --wing-dur: 0.4s; --wing-rise: 0px;
+}
+html[data-atmo="cursedwing"] body {
+  background-image:
+    radial-gradient(90% 40% at 50% 115%, rgba(212, 47, 47, 0.13), transparent 70%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+html[data-atmo="cursedwing"] .wordmark { animation: cursed-flicker 6s linear infinite; }
+html[data-atmo="cursedwing"] .wing-head h2 {
+  font-size: 2.1rem; letter-spacing: 0.06em;
+  text-shadow: 0 0 24px rgba(212, 47, 47, 0.55);
+}
+html[data-atmo="cursedwing"] .badge, html[data-atmo="cursedwing"] .badge-kind,
+html[data-atmo="cursedwing"] .badge-status {
+  border: 2px solid currentColor; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  transform: rotate(1.2deg); opacity: 0.94;
+}
+html[data-atmo="cursedwing"] .exhibit { border-color: var(--gold-deep); }
+html[data-atmo="cursedwing"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 10%, rgba(212, 47, 47, 0.14), transparent 70%),
+    radial-gradient(40% 60% at 80% 90%, rgba(90, 10, 10, 0.25), transparent 70%);
+}
+html[data-atmo="cursedwing"] .exhibit-slide.on { animation: ex-glitch 9s steps(1) infinite; }
+html[data-atmo="cursedwing"] .exhibit-lamp { background: #ff4d4d; box-shadow: 0 0 12px #ff4d4d; }
+@keyframes cursed-flicker {
+  0%, 100% { opacity: 1; } 3% { opacity: 0.6; } 4% { opacity: 1; }
+  41% { opacity: 1; } 42% { opacity: 0.4; } 43% { opacity: 1; } 44% { opacity: 0.75; } 45% { opacity: 1; }
+  78% { opacity: 1; } 79% { opacity: 0.55; } 80% { opacity: 1; }
+}
+@keyframes ex-glitch {
+  0%, 91%, 94%, 100% { transform: none; filter: none; }
+  92% { transform: translateX(-7px) skewX(2deg); filter: hue-rotate(40deg) saturate(1.6); }
+  93% { transform: translateX(5px); filter: invert(0.08); }
+}
+/* Easter-egg content: only exists in the Cursed Wing */
+.egg-cursed { display: none; }
+html[data-atmo="cursedwing"] .egg-cursed { display: block; }
+html[data-atmo="cursedwing"] .egg-cursed.note-card { display: block; border-color: var(--gold-deep); }
+html[data-atmo="cursedwing"] p.egg-cursed.sub { color: var(--gold-soft); font-style: italic; letter-spacing: 0.12em; }
+
+/* ---------- Atmosphere swatches for the sheet ---------- */
+.sw-colossus { background: linear-gradient(135deg, #3a2a12, #e2a93e 60%, #141009); }
+.sw-nocturne { background: linear-gradient(135deg, #070b16, #2a3a66 60%, #cfa95f); }
+.sw-odyssey { background: linear-gradient(135deg, #b28c46, #f6efdc 60%, #5c3a24); }
+.sw-cursedwing { background: linear-gradient(135deg, #090404, #d42f2f 55%, #090404); }
+
+/* ---------- Wing entrances: per-theme rise-and-settle ---------- */
+:root { --wing-dur: 0.55s; --wing-rise: 18px; }
+html[data-atmo="afterhours"] { --wing-dur: 0.55s; --wing-rise: 18px; }
+html[data-atmo="conservator"] { --wing-dur: 0.28s; --wing-rise: 6px; }
+.pane.wing-enter { animation: wing-in-var var(--wing-dur) var(--ease-out); }
+@keyframes wing-in-var {
+  from { opacity: 0; transform: translateY(var(--wing-rise)); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Atmosphere relight flash ---------- */
+.atmo-flash {
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none; opacity: 0;
+}
+.atmo-flash.go { animation: atmo-flash-a 0.85s ease-out; }
+@keyframes atmo-flash-a { 0% { opacity: 0; } 22% { opacity: 0.5; } 100% { opacity: 0; } }
+
+/* ---------- Konami egg: the room shudders ---------- */
+body.curator-sees-you { animation: seeyou 0.8s linear; }
+@keyframes seeyou {
+  0%, 100% { transform: none; } 20% { transform: translate(-6px, 3px) rotate(-0.4deg); }
+  40% { transform: translate(5px, -4px); } 60% { transform: translate(-4px, -2px) rotate(0.4deg); }
+  80% { transform: translate(3px, 2px); }
+}
+
+/* ---------- Station player chrome ---------- */
+.lofi-pill { max-width: calc(100vw - 2rem); }
+.lofi-pill #music-pill-label {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 62vw;
+}
+.lofi-pill .eq i { animation: none; transform: scaleY(0.5); opacity: 0.7; }
+.lofi-pill.live .eq i { animation: eq 1s ease-in-out infinite; opacity: 1; }
+.lofi-stationbtn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  background: var(--surface2); color: var(--gold-soft);
+  font-family: var(--font); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.35rem 0.65rem; cursor: pointer;
+  white-space: nowrap;
+}
+.lofi-stationbtn .ls-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.lofi-stationbtn .ls-caret { font-size: 0.6rem; opacity: 0.7; }
+.station-menu {
+  position: absolute; left: 0.6rem; right: 0.6rem; bottom: calc(100% + 10px);
+  background: var(--surface); border: 1px solid var(--line-strong);
+  border-radius: 14px; box-shadow: var(--shadow);
+  padding: 0.4rem; z-index: 80; max-height: 46vh; overflow-y: auto;
+}
+.station-menu[hidden] { display: none; }
+.station-opt {
+  display: flex; align-items: center; gap: 0.65rem; width: 100%;
+  background: none; border: none; border-radius: 10px;
+  padding: 0.65rem 0.75rem; cursor: pointer; text-align: left;
+  color: var(--ink); font-family: var(--font);
+}
+.station-opt:hover { background: var(--row-hover); }
+.station-opt.current { background: var(--sel-bg); box-shadow: inset 3px 0 0 var(--gold); }
+.station-opt .so-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.station-opt[data-station="lofi"] .so-dot { background: #8a7a5a; }
+.station-opt[data-station="classical"] .so-dot { background: #b09a6a; }
+.station-opt[data-station="epic"] .so-dot { background: #e2a93e; }
+.station-opt[data-station="jazz"] .so-dot { background: #6a7ab0; }
+.station-opt[data-station="adventure"] .so-dot { background: #7a9a5a; }
+.station-opt[data-station="dark"] .so-dot { background: #d42f2f; }
+.station-opt .so-name { font-weight: 700; font-size: 0.9rem; }
+.station-opt .so-tag { margin-left: auto; font-size: 0.72rem; color: var(--muted); font-style: italic; }
+
+/* ---------- Ambient mixer depth UI ---------- */
+.amb-preset.active {
+  background: var(--sel-bg); border-color: var(--gold);
+  color: var(--gold-soft); font-weight: 700;
+}
+.amb-preset-desc {
+  margin: 0.35rem 0 0; min-height: 1.1em;
+  font-size: 0.75rem; font-style: italic; color: var(--muted);
+}
+.amb-preset-desc:not(:empty)::before { content: "— "; }
+
+/* ---------- Reduced motion: still rooms ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pane.wing-enter { animation: none; }
+  .atmo-flash { display: none; }
+  body.curator-sees-you { animation: none; }
+  html[data-atmo="colossus"] .exhibit::after,
+  html[data-atmo="nocturne"] body,
+  html[data-atmo="colossus"] .exhibit-bg,
+  html[data-atmo="nocturne"] .exhibit-bg,
+  html[data-atmo="cursedwing"] .wordmark,
+  html[data-atmo="cursedwing"] .exhibit-slide.on { animation: none; }
+  .lofi-pill.live .eq i { animation: none; }
+}

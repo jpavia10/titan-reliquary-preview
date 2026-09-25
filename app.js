@@ -167,6 +167,14 @@
       b.tabIndex = on ? 0 : -1;
     });
     $$(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + name));
+    // Wing entrances: the room "opens" with a quick rise-and-settle each time
+    // you walk in. The keyframes live in CSS and respect reduced motion.
+    const pane = $("#pane-" + name);
+    if (pane) {
+      pane.classList.remove("wing-enter");
+      void pane.offsetWidth; // restart the animation
+      pane.classList.add("wing-enter");
+    }
     if (pushHash) {
       const next = "#" + name;
       if (location.hash !== next) history.replaceState(null, "", next);
@@ -716,7 +724,7 @@
 
     // ---- Wing entrances ----
     const wingCards = `
-      <div class="sec-head reveal"><span class="eyebrow">The museum</span><h2>Wings</h2><p class="sub">Four rooms, one vault.</p></div>
+      <div class="sec-head reveal"><span class="eyebrow">The museum</span><h2>Wings</h2><p class="sub">Four rooms, one vault.</p><p class="sub egg-cursed" aria-hidden="true">Hic sunt dracones — mind the thirteenth step.</p></div>
       <div class="wing-grid">
         <button type="button" class="wing-card reveal" data-go="gallery">
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="2"/><path d="M3 16.5l5-4 4 3 4-3 5 4"/></svg>
@@ -736,6 +744,12 @@
           <span class="wc-desc">Value, age and country — annotated.</span>
           <span class="wc-stat">The ledger, thinking</span>
         </button>
+        <button type="button" class="wing-card reveal" data-go="lab">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.3L4.8 18a2 2 0 0 0 1.8 3h10.8a2 2 0 0 0 1.8-3L14 9.3V3"/><path d="M7.5 15h9"/></svg>
+          <span class="wc-name">Conservation Lab</span>
+          <span class="wc-desc">Photo QC — every flip, shot and verified.</span>
+          <span class="wc-stat">${pct}% photographed</span>
+        </button>
       </div>`;
 
     // ---- Curator's notes ----
@@ -746,6 +760,7 @@
         <div class="note-card reveal"><div class="k">Soft beat</div><div class="v">${esc(intFmt(d.vault ?? vault.board?.vault ?? "—"))}</div><div class="s">Next ${esc(intFmt(d.next_soft_beat ?? 1700))}</div></div>
         <div class="note-card reveal"><div class="k">Metals as-of</div><div class="v" style="font-size:1rem">${esc(m.as_of_local || m.as_of || d.metals_live || "—")}</div><div class="s">Ag ${money(m.spot?.ag_usd_oz)} · Au ${money(m.spot?.au_usd_oz)}</div></div>
         <div class="note-card reveal"><div class="k">Cull watch</div><div class="s" style="color:var(--warn)">${esc(d.cull_watch || "—")}</div></div>
+        <div class="note-card reveal egg-cursed" aria-hidden="true"><div class="k">Do not</div><div class="v" style="font-size:1rem;line-height:1.4">tap the glass</div><div class="s">it taps back</div></div>
       </div>`;
 
     // ---- Editorial moment (rotating pull quote) ----
@@ -1831,33 +1846,55 @@
     }).catch(() => {});
   }
 
-  /* --- Atmosphere system: After Hours (midnight exhibition) / Conservator (archival desk).
-     Retires the vault/ledger/noir palette-swap. Each atmosphere is a full sensory identity:
-     lighting, texture, typography treatment, and a suggested sound pairing. --- */
+  /* --- Atmosphere system: six exhibition lightings, each a full sensory identity
+     (lighting, texture, motion language) with its own music station and ambient
+     preset. "Set the scene" applies all three at once. --- */
   const ATMOS = {
-    afterhours: { name: "After Hours", themeColor: "#060605", preset: "storm", pair: "Rain + Ultralounge" },
-    conservator: { name: "Conservator", themeColor: "#f4efe4", preset: "fireside", pair: "Fireside + lofi" },
+    afterhours:  { name: "After Hours",    themeColor: "#060605", preset: "storm",    station: "lofi",      pair: "Rain + Ultralounge" },
+    conservator: { name: "Conservator",    themeColor: "#f4efe4", preset: "fireside", station: "classical", pair: "Fireside + Classical" },
+    colossus:    { name: "Colossus",       themeColor: "#14100a", preset: "foundry",  station: "epic",      pair: "Foundry + Five Armies" },
+    nocturne:    { name: "Nocturne",       themeColor: "#070b16", preset: "night",    station: "jazz",      pair: "Night watch + Night on the Docks" },
+    odyssey:     { name: "Odyssey",        themeColor: "#efe6d2", preset: "wayfarer", station: "adventure", pair: "Wayfarer + Expeditionary" },
+    cursedwing:  { name: "The Cursed Wing", themeColor: "#0a0505", preset: "blackout", station: "dark",      pair: "Blackout + Oppressive Gloom" },
   };
+  const ATMO_ORDER = ["afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing"];
   function currentAtmo() {
-    return document.documentElement.getAttribute("data-atmo") === "conservator" ? "conservator" : "afterhours";
+    const a = document.documentElement.getAttribute("data-atmo");
+    return ATMOS[a] ? a : "afterhours";
   }
-  function setAtmo(a, save = true) {
+  // A wash of the theme's color sweeps the screen on every switch — the room
+  // "relights" instead of just repainting. Skipped for reduced motion.
+  function atmoFlash(a) {
+    try {
+      const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return;
+      const el = document.createElement("div");
+      el.className = "atmo-flash";
+      el.style.background = ATMOS[a].themeColor;
+      document.body.appendChild(el);
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add("go")));
+      setTimeout(() => el.remove(), 900);
+    } catch { /* ignore */ }
+  }
+  function setAtmo(a, save = true, flash = true) {
     const atmo = ATMOS[a] ? a : "afterhours";
+    const changed = document.documentElement.getAttribute("data-atmo") !== atmo;
     document.documentElement.setAttribute("data-atmo", atmo);
     const nm = $("#atmo-name");
     if (nm) nm.textContent = ATMOS[atmo].name;
     $$(".atmo-card").forEach((c) => c.classList.toggle("current", c.dataset.atmoVal === atmo));
     try { document.querySelector('meta[name="theme-color"]')?.setAttribute("content", ATMOS[atmo].themeColor); } catch { /* ignore */ }
     if (save) { try { localStorage.setItem(ATMO_KEY, atmo); } catch { /* ignore */ } }
+    if (changed && flash) atmoFlash(atmo);
   }
-  // "Set the scene": the atmosphere plus its suggested sound pairing, all at once.
+  // "Set the scene": the atmosphere plus its paired ambience and music station, all at once.
   function setTheScene(a) {
     setAtmo(a);
     try { window.TitanAmbient?.applyPreset(ATMOS[a].preset); } catch { /* ambience not ready */ }
-    try { window.TitanLofi?.play(); } catch { /* player not ready */ }
+    try { window.TitanLofi?.playStation(ATMOS[a].station); } catch { /* player not ready */ }
     showToast("Scene set: " + ATMOS[a].name + " · " + ATMOS[a].pair);
   }
-  setAtmo(document.documentElement.getAttribute("data-atmo") || "afterhours", false);
+  setAtmo(document.documentElement.getAttribute("data-atmo") || "afterhours", false, false);
 
   /* --- Overlay manager: Esc closes the topmost layer; focus is trapped & restored. --- */
   let lastFocus = null;
@@ -1948,12 +1985,44 @@
   $("#atmo-close")?.addEventListener("click", closeAtmoSheet);
   $("#atmo-sheet")?.addEventListener("click", (e) => { if (e.target.id === "atmo-sheet") closeAtmoSheet(); });
   $$(".atmo-card").forEach((card) => {
+    let taps = 0;
     card.addEventListener("click", (e) => {
       const scene = e.target.closest("[data-scene]");
       if (scene) { closeAtmoSheet(); setTheScene(scene.dataset.scene); }
       else setAtmo(card.dataset.atmoVal);
+      // Egg: tap the Cursed Wing card thirteen times and it taps back.
+      if (card.dataset.atmoVal === "cursedwing") {
+        taps += 1;
+        if (taps === 13) {
+          taps = 0;
+          closeAtmoSheet();
+          setTheScene("cursedwing");
+          showToast("The thirteenth tap. It knows your name now.");
+        }
+      } else { taps = 0; }
     });
   });
+
+  /* --- Easter egg: the Konami code. The curator sees you. --- */
+  (() => {
+    const seq = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+    let pos = 0;
+    window.addEventListener("keydown", (e) => {
+      if (e.key !== seq[pos]) { pos = e.key === seq[0] ? 1 : 0; return; }
+      pos += 1;
+      if (pos === seq.length) {
+        pos = 0;
+        const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!reduced) {
+          document.body.classList.remove("curator-sees-you");
+          void document.body.offsetWidth;
+          document.body.classList.add("curator-sees-you");
+          setTimeout(() => document.body.classList.remove("curator-sees-you"), 900);
+        }
+        showToast("THE CURATOR SEES YOU");
+      }
+    });
+  })();
 
   /** Count-up animation for a big figure; respects prefers-reduced-motion. */
   function countUp(el, target, fmt) {

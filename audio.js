@@ -1,73 +1,89 @@
-/* Titan Reliquary — integrated lofi player.
-   Playlist lives in js/playlist.js (static, outside data/ so publish_all.sh cannot clobber it).
-   Tracks are HOTLINKED mp3s — they are not committed to the repo and will not
-   work offline (documented in CHANGELOG.md). Rain/ambience is separate (ambient.js),
-   so lofi and rain can play simultaneously (separate <audio> elements). */
+/* Titan Reliquary — music station player (v2).
+   Six stations live in js/playlist.js (TITAN_STATIONS): Lofi, Classical, Epic,
+   Jazz, Adventure, Dark. Tracks are HOTLINKED mp3s (Kevin MacLeod,
+   incompetech.com, CC-BY 4.0 — credit shown in the player UI); they are not
+   committed to the repo and will not work offline (see CHANGELOG.md).
+   Rain/ambience is separate (ambient.js), so music and rain mix.
+   The floating pill always names the current station — it never says "lofi"
+   when another station is playing. The station can be changed manually from
+   the player bar's station menu, or programmatically via TitanLofi.playStation. */
 (() => {
   "use strict";
 
   const VOL_KEY = "tr_lofi_vol_v1";
-  const TRACK_KEY = "tr_lofi_track_v2"; // v2: stores "index::title" so a playlist
-  const AUTO_KEY = "tr_lofi_autoplay_v1"; // reorder resumes the same SONG, not the same slot
+  const STATION_KEY = "tr_music_station_v1";
+  const TRACK_KEY = "tr_music_track_v3"; // per-station: "<station>::<idx>::<title>"
+  const AUTO_KEY = "tr_lofi_autoplay_v1";
 
-  const playlist = (window.TITAN_PLAYLIST || []).filter((t) => t && t.url);
-  if (!playlist.length) return; // playlist missing: stay silent, no UI
+  const stations = window.TITAN_STATIONS || {};
+  const order = window.TITAN_STATION_ORDER || Object.keys(stations);
+  const valid = order.filter((k) => stations[k] && stations[k].tracks && stations[k].tracks.length);
+  if (!valid.length) return; // stations missing: stay silent, no UI
 
+  let stationKey = "lofi";
+  try {
+    const s = localStorage.getItem(STATION_KEY);
+    if (s && valid.includes(s)) stationKey = s;
+  } catch { /* ignore */ }
+
+  const tracks = () => stations[stationKey].tracks;
   let idx = 0;
   let audio = new Audio();
   audio.preload = "none";
   let playing = false;
-  let skipGuard = 0; // consecutive failed tracks
+  let skipGuard = 0;
   let collapsed = false;
+  let everPlayed = false;
 
   // ---- state -------------------------------------------------------------
   function readNum(key, dflt) {
     try { const v = parseFloat(localStorage.getItem(key)); return Number.isFinite(v) ? v : dflt; } catch { return dflt; }
   }
-  function readInt(key, dflt) {
-    try { const v = parseInt(localStorage.getItem(key), 10); return Number.isInteger(v) ? v : dflt; } catch { return dflt; }
-  }
-  function readBool(key, dflt) {
-    try { const v = localStorage.getItem(key); return v == null ? dflt : v === "1"; } catch { return dflt; }
-  }
   function readTrack() {
-    // Returns the saved index only if the saved title still sits in that
-    // slot; otherwise 0 (e.g. the playlist was reordered since the save).
+    const list = tracks();
     try {
+      // v3 per-station key first
       const raw = localStorage.getItem(TRACK_KEY);
-      if (raw == null) {
-        // one-time migration from the v1 bare-index key
-        const old = parseInt(localStorage.getItem("tr_lofi_track_v1"), 10);
-        if (Number.isInteger(old)) {
-          const t = playlist[Math.min(Math.max(0, old), playlist.length - 1)];
-          return { idx: 0, migrated: t && t.title }; // v1 slot is untrustworthy: start at track 1 once
+      if (raw) {
+        const parts = raw.split("::");
+        if (parts[0] === stationKey && parts.length >= 3) {
+          const i = parseInt(parts[1], 10);
+          const title = parts.slice(2).join("::");
+          if (Number.isInteger(i)) {
+            const clamped = Math.min(Math.max(0, i), list.length - 1);
+            if (title && list[clamped] && list[clamped].title !== title) {
+              const moved = list.findIndex((t) => t.title === title);
+              return moved >= 0 ? moved : 0;
+            }
+            return clamped;
+          }
         }
-        return { idx: 0 };
       }
-      const sep = raw.lastIndexOf("::");
-      const i = parseInt(sep > 0 ? raw.slice(0, sep) : raw, 10);
-      const title = sep > 0 ? raw.slice(sep + 2) : null;
-      if (!Number.isInteger(i)) return { idx: 0 };
-      const clamped = Math.min(Math.max(0, i), playlist.length - 1);
-      if (title && playlist[clamped] && playlist[clamped].title !== title) {
-        // same song moved? resume it wherever it lives now
-        const moved = playlist.findIndex((t) => t.title === title);
-        return { idx: moved >= 0 ? moved : 0 };
+      // one-time migration from the old lofi-only keys
+      if (stationKey === "lofi") {
+        const old = localStorage.getItem("tr_lofi_track_v2");
+        if (old) {
+          const sep = old.lastIndexOf("::");
+          const i = parseInt(sep > 0 ? old.slice(0, sep) : old, 10);
+          if (Number.isInteger(i)) return Math.min(Math.max(0, i), list.length - 1);
+        }
       }
-      return { idx: clamped };
-    } catch { return { idx: 0 }; }
+    } catch { /* ignore */ }
+    return 0;
   }
-  function writeTrack(i) {
+  function writeTrack() {
     try {
-      const t = playlist[i];
-      localStorage.setItem(TRACK_KEY, `${i}::${(t && t.title) || ""}`);
-      localStorage.removeItem("tr_lofi_track_v1"); // v1 key retired
+      const t = tracks()[idx];
+      localStorage.setItem(TRACK_KEY, `${stationKey}::${idx}::${(t && t.title) || ""}`);
     } catch { /* ignore */ }
   }
-  idx = readTrack().idx;
+  function writeStation() {
+    try { localStorage.setItem(STATION_KEY, stationKey); } catch { /* ignore */ }
+  }
+  idx = readTrack();
   audio.volume = Math.min(1, Math.max(0, readNum(VOL_KEY, 0.6)));
 
-  // Mobile Safari: resume an AudioContext on first touch (lofi itself uses <audio>).
+  // Mobile Safari: resume an AudioContext on first touch (music itself uses <audio>).
   let ac = null;
   function ensureCtx() {
     try {
@@ -84,18 +100,20 @@
   const bar = document.createElement("div");
   bar.className = "lofi-bar";
   bar.hidden = true;
-  bar.setAttribute("aria-label", "Lofi music player");
+  bar.setAttribute("aria-label", "Music player");
   bar.innerHTML = `
     <div class="lofi-row">
       <button type="button" class="lofi-btn" data-act="prev" aria-label="Previous track" title="Previous">⏮</button>
       <button type="button" class="lofi-btn lofi-play" data-act="play" aria-label="Play or pause" title="Play/Pause">▶</button>
       <button type="button" class="lofi-btn" data-act="next" aria-label="Next track" title="Next">⏭</button>
+      <button type="button" class="lofi-stationbtn" data-act="station" aria-label="Change station" title="Change station"><span class="ls-dot" aria-hidden="true"></span><span id="lofi-station">Lofi</span><span class="ls-caret" aria-hidden="true">▾</span></button>
       <div class="lofi-now"><div class="t" id="lofi-title">—</div><div class="a" id="lofi-artist">—</div></div>
       <div class="lofi-vol">
-        <input type="range" id="lofi-vol" min="0" max="1" step="0.01" value="${audio.volume}" aria-label="Lofi volume" />
+        <input type="range" id="lofi-vol" min="0" max="1" step="0.01" value="${audio.volume}" aria-label="Music volume" />
       </div>
       <button type="button" class="lofi-collapse" data-act="collapse" aria-label="Collapse player" title="Collapse">–</button>
     </div>
+    <div class="station-menu" id="station-menu" hidden role="menu" aria-label="Music stations"></div>
     <div class="lofi-meta">
       <span class="lofi-credit" id="lofi-credit"></span>
       <span id="lofi-count"></span>
@@ -106,7 +124,7 @@
   pill.type = "button";
   pill.className = "lofi-pill";
   pill.hidden = true;
-  pill.innerHTML = `<span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span>Tap for lofi</span>`;
+  pill.innerHTML = `<span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="music-pill-label">Tap for music</span>`;
   document.body.appendChild(pill);
 
   const toast = document.createElement("div");
@@ -125,16 +143,21 @@
   const btnPlay = bar.querySelector('[data-act="play"]');
   const elTitle = bar.querySelector("#lofi-title");
   const elArtist = bar.querySelector("#lofi-artist");
+  const elStation = bar.querySelector("#lofi-station");
   const elCredit = bar.querySelector("#lofi-credit");
   const elCount = bar.querySelector("#lofi-count");
+  const elPillLabel = pill.querySelector("#music-pill-label");
   const volInput = bar.querySelector("#lofi-vol");
   const btnCollapse = bar.querySelector('[data-act="collapse"]');
+  const stationMenu = bar.querySelector("#station-menu");
 
+  function stationName() { return stations[stationKey].name; }
   function showBar() { bar.hidden = false; }
   function hidePill() { pill.hidden = true; }
+  function showPill() { pill.hidden = false; }
 
-  // Tuck the floating player chrome behind the dossier / search palette so it
-  // never covers overlay content; restore exactly what was showing afterward.
+  // Tuck the floating player chrome behind overlays (dossier, palette, sheets)
+  // so it never covers overlay content; restore exactly what was showing after.
   let tucked = false, pillWasShown = false, barWasShown = false;
   window.addEventListener("titan:overlay", (e) => {
     if (e.detail && e.detail.open) {
@@ -150,26 +173,44 @@
       if (barWasShown) bar.hidden = false;
     }
   });
-  function showPill() { pill.hidden = false; }
+
+  function updatePill() {
+    const t = tracks()[idx];
+    if (playing) {
+      elPillLabel.textContent = `♪ ${stationName()} · ${t.title || "Untitled"}`;
+      pill.classList.add("live");
+    } else if (everPlayed) {
+      elPillLabel.textContent = `❚❚ ${stationName()} — tap to resume`;
+      pill.classList.remove("live");
+    } else {
+      elPillLabel.textContent = `Tap for ${stationName().toLowerCase()} music`;
+      pill.classList.remove("live");
+    }
+    pill.setAttribute("aria-label", elPillLabel.textContent);
+  }
 
   function updateNowPlaying() {
-    const t = playlist[idx];
+    const list = tracks();
+    const t = list[idx];
     elTitle.textContent = t.title || "Untitled";
     elTitle.title = t.title || "";
     elArtist.textContent = t.artist || "";
     elArtist.title = t.artist || "";
-    elCount.textContent = `${idx + 1} / ${playlist.length}`;
+    elStation.textContent = stationName();
+    elCount.textContent = `${idx + 1} / ${list.length}`;
     elCredit.textContent = t.license === "CC-BY" && t.credit ? t.credit : (t.license ? `© ${t.artist} · ${t.license}` : "");
     btnPlay.textContent = playing ? "⏸" : "▶";
     btnPlay.setAttribute("aria-label", playing ? "Pause" : "Play");
+    updatePill();
   }
 
   function loadTrack(i, autoplay) {
-    idx = (i + playlist.length) % playlist.length;
+    const list = tracks();
+    idx = (i + list.length) % list.length;
     skipGuard = 0;
-    audio.src = playlist[idx].url;
+    audio.src = list[idx].url;
     audio.preload = "auto";
-    writeTrack(idx);
+    writeTrack();
     updateNowPlaying();
     if (autoplay) play();
   }
@@ -180,13 +221,14 @@
     try {
       await audio.play();
     } catch (e) {
-      // Autoplay blocked (or network hiccup): show the pulsing tap pill.
+      // Autoplay blocked (or network hiccup): show the station pill.
       playing = false;
       updateNowPlaying();
       showPill();
       return;
     }
     playing = true;
+    everPlayed = true;
     hidePill();
     showBar();
     updateNowPlaying();
@@ -200,55 +242,106 @@
   function next() { loadTrack(idx + 1, playing); }
   function prev() { loadTrack(idx - 1, playing); }
 
+  function setStation(key, autoplay) {
+    if (!valid.includes(key) || key === stationKey) {
+      if (key === stationKey) { renderStationMenu(); stationMenu.hidden = true; }
+      return;
+    }
+    const wasPlaying = playing;
+    pause();
+    stationKey = key;
+    writeStation();
+    idx = readTrack();
+    renderStationMenu();
+    stationMenu.hidden = true;
+    // Fresh <audio> src for the new station; keep the bar visible context.
+    audio.removeAttribute("src");
+    audio.preload = "none";
+    loadTrack(idx, false);
+    say(`Station: ${stationName()} — ${stations[key].tag}`);
+    if (autoplay || wasPlaying) play();
+    else { showBar(); }
+  }
+  function playStation(key) {
+    setStation(key, true);
+    if (stationKey === key && !playing) play();
+  }
+
+  function renderStationMenu() {
+    stationMenu.innerHTML = valid.map((k) => `
+      <button type="button" role="menuitemradio" aria-checked="${k === stationKey}" class="station-opt${k === stationKey ? " current" : ""}" data-station="${k}">
+        <span class="so-dot" aria-hidden="true"></span>
+        <span class="so-name">${stations[k].name}</span>
+        <span class="so-tag">${stations[k].tag || ""}</span>
+      </button>`).join("");
+  }
+
   audio.addEventListener("ended", () => { loadTrack(idx + 1, true); });
   audio.addEventListener("play", () => { playing = true; updateNowPlaying(); });
   audio.addEventListener("pause", () => { playing = false; updateNowPlaying(); });
   audio.addEventListener("error", () => {
-    // Dead track: skip gracefully. If the whole list fails, stop and say so.
+    // Dead track: skip gracefully. If the whole station fails, stop and say so.
+    const list = tracks();
     skipGuard += 1;
-    if (skipGuard >= playlist.length) {
+    if (skipGuard >= list.length) {
       pause();
-      say("Lofi: every track failed to load — check your connection");
+      say(`${stationName()}: every track failed to load — check your connection`);
       return;
     }
-    const t = playlist[idx];
+    const t = list[idx];
     say(`Skipped a dead track (${t.title || "untitled"})`);
     loadTrack(idx + 1, playing);
   });
 
   bar.addEventListener("click", (e) => {
+    const opt = e.target.closest("[data-station]");
+    if (opt) { setStation(opt.dataset.station, true); return; }
     const b = e.target.closest("[data-act]");
     if (!b) return;
     const act = b.dataset.act;
     if (act === "play") toggle();
     else if (act === "next") next();
     else if (act === "prev") prev();
-    else if (act === "collapse") {
+    else if (act === "station") {
+      renderStationMenu();
+      stationMenu.hidden = !stationMenu.hidden;
+    } else if (act === "collapse") {
       collapsed = !collapsed;
       bar.classList.toggle("collapsed", collapsed);
       b.textContent = collapsed ? "＋" : "–";
       b.setAttribute("aria-label", collapsed ? "Expand player" : "Collapse player");
     }
   });
+  // Tapping outside the station menu closes it.
+  document.addEventListener("pointerdown", (e) => {
+    if (!stationMenu.hidden && !e.target.closest(".station-menu") && !e.target.closest('[data-act="station"]')) {
+      stationMenu.hidden = true;
+    }
+  }, { passive: true });
   volInput.addEventListener("input", () => {
     audio.volume = parseFloat(volInput.value);
     try { localStorage.setItem(VOL_KEY, String(audio.volume)); } catch { /* ignore */ }
   });
-  pill.addEventListener("click", () => { play(); });
+  // Pill toggles play/pause; it always names the live station.
+  pill.addEventListener("click", () => { toggle(); });
 
   // ---- boot --------------------------------------------------------------
-  // Pill-first: the full player module stays hidden until the user taps
-  // "Tap for lofi" (or starts audio via "Set the scene"). No auto-showing
-  // the bar on load, no autoplay attempt.
+  renderStationMenu();
   updateNowPlaying();
   loadTrack(idx, false);
   showPill();
-  // Persist the autoplay preference: toggling play counts as opting in, pausing as opting out.
   audio.addEventListener("play", () => { try { localStorage.setItem(AUTO_KEY, "1"); } catch { /* ignore */ } });
   audio.addEventListener("pause", () => {
-    // Only treat an explicit pause (not track-skip internals) as opting out.
     try { localStorage.setItem(AUTO_KEY, playing ? "1" : "0"); } catch { /* ignore */ }
   });
-  // Public hooks for the atmosphere system ("Set the scene" pairing).
-  window.TitanLofi = { play, pause, toggle, isPlaying: () => playing };
+  // Public hooks: atmosphere system ("Set the scene") + manual station control.
+  // TitanLofi keeps its v1 shape so older callers still work.
+  window.TitanLofi = {
+    play, pause, toggle,
+    isPlaying: () => playing,
+    playStation,
+    setStation: (k) => setStation(k, playing),
+    station: () => stationKey,
+    stations: () => valid.map((k) => ({ key: k, name: stations[k].name, tag: stations[k].tag })),
+  };
 })();
