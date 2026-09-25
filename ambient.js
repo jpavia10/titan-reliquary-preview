@@ -1,265 +1,360 @@
-/* Titan Reliquary — "Stormroom" ambient mixer (v3).
-   Upgrades over v2: every layer runs through its own StereoPannerNode with a
-   slow random drift, so the room has width and movement instead of a flat mono
-   wash; seven one-tap presets (Storm / Foundry / Fireside / Wayfarer /
-   Night watch / Blackout / Off) with descriptions and an active highlight that
-   clears when you tweak anything by hand.
-   Sounds are hotlinked Mixkit MP3s (Mixkit Free License, no attribution
-   required — not committed to the repo, documented in CHANGELOG.md).
-   Rain and the lofi player (audio.js) use separate chains so they mix.
+/* Titan Reliquary — "Stormroom" ambient engine (v4).
+   A real generative soundscape mixer, not just preset combos:
+   - 9 recorded loops (Mixkit Free License, hotlinked, not committed).
+   - 5 synthesized layers built live with Web Audio: sub drone, fire sparkle,
+     wind swells, foundry clanks, distant bell tolls.
+   - Every layer runs through its own StereoPannerNode with a slow random drift.
+   - 9 scenes (presets) with per-layer mixes, per-layer volume sliders, and
+     animated level meters. Rain shows on screen too.
    prefers-reduced-motion: canvas animation is skipped; sound still works. */
 (() => {
   "use strict";
 
-  // Verified direct MP3 URLs (Mixkit Sound Effects Free License).
-  const SOUNDS = {
-    rain:    { label: "Rain",            url: "https://assets.mixkit.co/active_storage/sfx/2394/2394-preview.mp3" },
-    thunder: { label: "Distant thunder", url: "https://assets.mixkit.co/active_storage/sfx/2395/2395-preview.mp3" },
-    fire:    { label: "Fireplace",       url: "https://assets.mixkit.co/active_storage/sfx/1330/1330-preview.mp3" },
-    wind:    { label: "Night wind",      url: "https://assets.mixkit.co/active_storage/sfx/2483/2483-preview.mp3" },
+  const MX = (id) => `https://assets.mixkit.co/active_storage/sfx/${id}/${id}-preview.mp3`;
+  // Recorded loops — verified 200 on 2026-09-25 (Mixkit Sound Effects Free License).
+  const RECORDED = {
+    rain:    { label: "Rain",            url: MX(2394) },
+    thunder: { label: "Distant thunder", url: MX(2395) },
+    fire:    { label: "Fireplace",       url: MX(1330) },
+    wind:    { label: "Night wind",      url: MX(2483) },
+    crickets:{ label: "Summer crickets", url: MX(1789) },
+    forest:  { label: "Forest birds",    url: MX(1213) },
+    crowd:   { label: "Crowd murmur",    url: MX(444)  },
+    office:  { label: "Room tone",       url: MX(447)  },
+    scifi:   { label: "Machine hum",     url: MX(2507) },
   };
-  const ORDER = ["rain", "thunder", "fire", "wind"];
-  const ICONS = {
-    rain: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17.5 13a4.5 4.5 0 0 0-.9-8.9A6 6 0 0 0 5.2 6.3 4 4 0 0 0 6 14.5"/><line x1="8" y1="17" x2="7" y2="21"/><line x1="12" y1="16" x2="11" y2="20"/><line x1="16" y1="17" x2="15" y2="21"/></svg>',
-    thunder: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 12a4.5 4.5 0 0 0-.9-8.9A6 6 0 0 0 5.2 5.3 4 4 0 0 0 6 13.5"/><path d="M13 13l-3.5 5.5H12l-1 3.5 4.5-6.5H13l1-2.5z" fill="currentColor" stroke="none"/></svg>',
-    fire: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-2.8 7-6.8 0-3.2-2-5.3-3.5-7C14 6.5 13 5 13 2.5 10 5 8.5 7.5 8.5 10c-1-.5-1.8-1.3-2.3-2.5C5.4 9.4 5 11.4 5 13.2 5 19.2 8 22 12 22z"/></svg>',
-    wind: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h9a3 3 0 1 0-3-3"/><path d="M3 12h13a3 3 0 1 1-3 3"/><path d="M3 16h6a2.5 2.5 0 1 1-2.5 2.5"/></svg>',
+  // Synthesized layers — generated live, no downloads.
+  const SYNTH = {
+    drone:   { label: "Sub drone"     },
+    crackle: { label: "Fire sparkle"  },
+    gust:    { label: "Wind swells"   },
+    clank:   { label: "Foundry clanks"},
+    belltoll:{ label: "Distant bell"  },
   };
+  const ORDER = [...Object.keys(RECORDED), ...Object.keys(SYNTH)];
+  const LAYER_IDS = ORDER;
+
+  // Scenes: each maps layer -> volume. Genuinely different mixes, not reshuffles.
   const PRESETS = {
-    storm:    { label: "Storm",     desc: "Rain hammering the skylights", layers: { rain: [true, 0.65], thunder: [true, 0.55], fire: [false, 0.5], wind: [true, 0.3] },  intensity: 85 },
-    foundry:  { label: "Foundry",   desc: "Bronze pouring, thunder rolling", layers: { rain: [false, 0.4], thunder: [true, 0.55], fire: [true, 0.75], wind: [true, 0.25] }, intensity: 60 },
-    fireside: { label: "Fireside",  desc: "The conservator's hearth", layers: { rain: [false, 0.4], thunder: [false, 0.4], fire: [true, 0.7], wind: [true, 0.22] }, intensity: 30 },
-    wayfarer: { label: "Wayfarer",  desc: "Wind over open country", layers: { rain: [true, 0.25], thunder: [false, 0.4], fire: [false, 0.5], wind: [true, 0.7] }, intensity: 40 },
-    night:    { label: "Night watch", desc: "Rain and wind after closing", layers: { rain: [true, 0.35], thunder: [false, 0.4], fire: [false, 0.5], wind: [true, 0.5] }, intensity: 25 },
-    blackout: { label: "Blackout",  desc: "The wing with the lights out", layers: { rain: [true, 0.3], thunder: [true, 0.6], fire: [false, 0.5], wind: [true, 0.5] }, intensity: 70 },
-    off:      { label: "Off",       desc: "Silence the room", layers: { rain: [false, 0.55], thunder: [false, 0.4], fire: [false, 0.5], wind: [false, 0.4] }, intensity: 55 },
+    storm:    { name: "Storm",     desc: "Rain hammers the skylights; thunder rolls somewhere far off.",
+                mix: { rain: .85, thunder: .6, wind: .5, gust: .55 } },
+    foundry:  { name: "Foundry",   desc: "Hammer-fall, furnace breath, and a deep iron drone.",
+                mix: { fire: .5, crackle: .7, clank: .8, drone: .45 } },
+    fireside: { name: "Fireside",  desc: "Leather chairs, a low fire, rain at the window.",
+                mix: { fire: .9, crackle: .45, rain: .22, wind: .18 } },
+    wayfarer: { name: "Wayfarer",  desc: "Open road under a wide sky; birds, wind, far thunder.",
+                mix: { forest: .65, wind: .45, gust: .4, thunder: .18 } },
+    night:    { name: "Night watch", desc: "The museum after midnight — crickets and a far-off bell.",
+                mix: { crickets: .7, wind: .3, belltoll: .45, drone: .12 } },
+    blackout: { name: "Blackout",  desc: "Power's out. Something in the walls is awake.",
+                mix: { drone: .8, gust: .5, belltoll: .5, scifi: .22 } },
+    tavern:   { name: "Tavern",    desc: "Low talk, clinking glass, a fire in the corner.",
+                mix: { crowd: .65, fire: .35, crackle: .3, drone: .12 } },
+    archive:  { name: "Deep archive", desc: "Paper dust, quiet machines, rain on the roof.",
+                mix: { office: .6, rain: .22, drone: .3, scifi: .15 } },
+    off:      { name: "Off",       desc: "Silence. Just the music.", mix: {} },
   };
+  const PRESET_ORDER = ["storm", "foundry", "fireside", "wayfarer", "night", "blackout", "tavern", "archive", "off"];
 
-  const STATE_KEY = "tr_ambient_v2";
-  const OLD_KEY = "tr_ambient_v1";
-  const FADE_S = 1.4;
-
-  function readState() {
-    try {
-      const s = JSON.parse(localStorage.getItem(STATE_KEY) || "null");
-      if (s && s.layers) return s;
-      // migrate v1 shape -> v2
-      const o = JSON.parse(localStorage.getItem(OLD_KEY) || "null");
-      if (o && typeof o === "object") {
-        const layers = {};
-        for (const k of ORDER) layers[k] = { on: !!(o[k] && o[k].on), vol: Number.isFinite(o[k] && o[k].vol) ? o[k].vol : 0.4 };
-        return { layers, intensity: 55, master: 0.9 };
-      }
-    } catch { /* ignore */ }
-    return null;
-  }
-  const saved = readState() || {};
-  const state = {
-    layers: {},
-    intensity: Number.isFinite(saved.intensity) ? Math.min(100, Math.max(0, saved.intensity)) : 55,
-    master: Number.isFinite(saved.master) ? Math.min(1, Math.max(0, saved.master)) : 0.9,
-  };
-  for (const k of ORDER) {
-    const s = (saved.layers || {})[k] || {};
-    state.layers[k] = {
-      on: !!s.on,
-      vol: Number.isFinite(s.vol) ? Math.min(1, Math.max(0, s.vol)) : (k === "rain" ? 0.55 : 0.4),
-    };
-  }
-  function writeState() {
-    try { localStorage.setItem(STATE_KEY, JSON.stringify(state)); } catch { /* ignore */ }
-  }
-
+  const KEY = "tr_ambient_v2";
   const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const btn = document.getElementById("btn-rain");
-  if (!btn) return;
 
-  // ---- Web Audio graph: source -> layerGain -> panner -> master -> destination ----
-  // Each layer gets its own stereo position that slowly wanders inside a
-  // per-layer range, so the room has width and movement instead of a flat
-  // mono wash. Rain drifts gently, thunder sits near-center, the fire stays
-  // right of the room, and the wind sweeps wide.
-  const PAN_RANGE = { rain: 0.35, thunder: 0.12, fire: 0.3, wind: 0.7 };
-  const PAN_CENTER = { rain: 0, thunder: 0, fire: 0.28, wind: 0 };
-  let actx = null, masterGain = null, driftT = null;
-  const nodes = {}; // k -> {el, src, gain, pan}
-  function ensureGraph() {
-    if (actx) { if (actx.state === "suspended") actx.resume().catch(() => {}); return true; }
-    try {
-      const AC = window.AudioContext || window.webkitAudioContext;
-      if (!AC) return false;
-      actx = new AC();
-      masterGain = actx.createGain();
-      masterGain.gain.value = state.master;
-      masterGain.connect(actx.destination);
-      for (const k of ORDER) {
-        const el = new Audio();
-        el.preload = "none";
-        el.loop = true;
-        el.crossOrigin = "anonymous";
-        const src = actx.createMediaElementSource(el);
-        const g = actx.createGain();
-        g.gain.value = 0;
-        const pan = actx.createStereoPanner ? actx.createStereoPanner() : null;
-        if (pan) {
-          pan.pan.value = PAN_CENTER[k] || 0;
-          src.connect(g); g.connect(pan); pan.connect(masterGain);
-        } else {
-          src.connect(g); g.connect(masterGain);
-        }
-        nodes[k] = { el, gain: g, pan, fadeT: null };
+  // ---- state ---------------------------------------------------------------
+  const state = { layers: {}, master: 0.8, intensity: 60, preset: null };
+  for (const id of LAYER_IDS) state.layers[id] = { on: false, vol: 0.7 };
+  try {
+    const raw = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (raw && raw.layers) {
+      for (const id of LAYER_IDS) if (raw.layers[id]) {
+        state.layers[id].on = !!raw.layers[id].on;
+        const v = parseFloat(raw.layers[id].vol);
+        state.layers[id].vol = Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : 0.7;
       }
-      startDrift();
-      return true;
-    } catch { return false; }
-  }
-  // Slow stereo wander: every few seconds each layer glides to a new random
-  // position inside its range. Cheap, subtle, and it makes the room feel big.
-  function startDrift() {
-    if (driftT != null) return;
-    driftT = setInterval(() => {
-      if (!actx) return;
-      const t = actx.currentTime;
-      for (const k of ORDER) {
-        const n = nodes[k];
-        if (!n || !n.pan || !state.layers[k].on) continue;
-        const c = PAN_CENTER[k] || 0, r = PAN_RANGE[k] || 0.3;
-        const target = c + (Math.random() * 2 - 1) * r;
-        n.pan.pan.cancelScheduledValues(t);
-        n.pan.pan.setValueAtTime(n.pan.pan.value, t);
-        n.pan.pan.linearRampToValueAtTime(Math.max(-1, Math.min(1, target)), t + 4);
-      }
-    }, 5200);
-  }
-  function layerTarget(k) {
-    // audible target for a layer that is ON (0 when off); rain scales with intensity
-    if (!state.layers[k].on) return 0;
-    let v = state.layers[k].vol;
-    if (k === "rain") v *= 0.25 + 0.75 * (state.intensity / 100);
-    return Math.min(1, Math.max(0, v));
-  }
-  function rampGain(k) {
-    const n = nodes[k];
-    if (!n || !actx) return;
-    const t = actx.currentTime;
-    n.gain.gain.cancelScheduledValues(t);
-    n.gain.gain.setValueAtTime(n.gain.gain.value, t);
-    n.gain.gain.linearRampToValueAtTime(layerTarget(k), t + FADE_S);
-    clearTimeout(n.fadeT);
-    if (!state.layers[k].on) {
-      n.fadeT = setTimeout(() => { try { n.el.pause(); } catch { /* ignore */ } }, (FADE_S + 0.15) * 1000);
+      if (Number.isFinite(raw.master)) state.master = Math.min(1, Math.max(0, raw.master));
+      if (Number.isFinite(raw.intensity)) state.intensity = Math.min(100, Math.max(0, raw.intensity));
+      if (raw.preset && PRESETS[raw.preset]) state.preset = raw.preset;
     }
+  } catch { /* fresh */ }
+  function writeState() {
+    try { localStorage.setItem(KEY, JSON.stringify({ layers: state.layers, master: state.master, intensity: state.intensity, preset: state.preset })); } catch { /* ignore */ }
   }
-  function setOn(k, on) {
-    if (!ensureGraph()) { say("Audio not supported here"); return; }
-    const n = nodes[k];
-    state.layers[k].on = on;
-    writeState();
-    if (on) {
-      clearTimeout(n.fadeT);
-      if (!n.el.src) n.el.src = SOUNDS[k].url;
-      n.el.play().catch(() => {
-        state.layers[k].on = false;
-        writeState(); syncUi();
-        say(`${SOUNDS[k].label} could not start (network or autoplay block)`);
+
+  // ---- audio graph ----------------------------------------------------------
+  let ctx = null, masterGain = null, noiseBuf = null;
+  const nodes = {}; // id -> { gain, pan, el? , synth? , src? }
+  function ensureCtx() {
+    if (ctx) { if (ctx.state === "suspended") ctx.resume().catch(() => {}); return true; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    ctx = new AC();
+    masterGain = ctx.createGain();
+    masterGain.gain.value = state.master;
+    masterGain.connect(ctx.destination);
+    // shared 2s white-noise buffer for the synth layers
+    const len = ctx.sampleRate * 2;
+    noiseBuf = ctx.createBuffer(1, len, ctx.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    for (const id of LAYER_IDS) {
+      const gain = ctx.createGain(); gain.gain.value = 0;
+      const pan = (ctx.createStereoPanner ? ctx.createStereoPanner() : null);
+      gain.connect(pan || masterGain);
+      if (pan) pan.connect(masterGain);
+      nodes[id] = { gain, pan, el: null, synth: null };
+    }
+    startPanDrift();
+    return true;
+  }
+  const eff = (id) => state.layers[id].on ? state.layers[id].vol * 0.9 : 0;
+  function rampGain(id, t = 0.9) {
+    const n = nodes[id]; if (!n) return;
+    const g = n.gain.gain, now = ctx.currentTime;
+    g.cancelScheduledValues(now);
+    g.setValueAtTime(g.value, now);
+    g.linearRampToValueAtTime(eff(id), now + t);
+  }
+
+  // ---- stereo drift: every layer wanders slowly through the stereo field ----
+  let driftTimer = null;
+  function startPanDrift() {
+    if (driftTimer || reducedMotion) return;
+    const wander = () => {
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      for (const id of LAYER_IDS) {
+        const p = nodes[id].pan; if (!p) continue;
+        // keep extremes subtle: ±0.55 so nothing hard-pans away
+        const target = (Math.random() * 2 - 1) * 0.55;
+        p.pan.cancelScheduledValues(now);
+        p.pan.setValueAtTime(p.pan.value, now);
+        p.pan.linearRampToValueAtTime(target, now + 6 + Math.random() * 10);
+      }
+    };
+    wander();
+    driftTimer = setInterval(wander, 9000);
+  }
+
+  // ---- synth layer builders (each returns { stop }) -------------------------
+  function lfo(param, rate, depth, base) {
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.frequency.value = rate; g.gain.value = depth;
+    o.connect(g); g.connect(param);
+    if (Number.isFinite(base)) param.value = base;
+    o.start();
+    return o;
+  }
+  const synthBuilders = {
+    // Deep sub drone: three detuned low oscillators with a slow breathing LFO.
+    drone(n) {
+      const out = ctx.createGain(); out.gain.value = 0.5; out.connect(n.gain);
+      const oscs = [];
+      [[36, "sine", .5], [41.3, "sine", .4], [55, "triangle", .22]].forEach(([f, t, gv]) => {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = t; o.frequency.value = f; g.gain.value = gv;
+        o.connect(g); g.connect(out); o.start(); oscs.push(o);
       });
+      const breath = lfo(out.gain, 0.06, 0.14, 0.5);
+      return { stop() { oscs.forEach((o) => { try { o.stop(); } catch {} }); try { breath.stop(); } catch {} out.disconnect(); } };
+    },
+    // Wind swells: looped noise through a wandering bandpass, gain breathing.
+    gust(n) {
+      const src = ctx.createBufferSource(); src.buffer = noiseBuf; src.loop = true;
+      const bp = ctx.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = 480; bp.Q.value = 0.45;
+      const g = ctx.createGain(); g.gain.value = 0.32;
+      src.connect(bp); bp.connect(g); g.connect(n.gain); src.start();
+      const l1 = lfo(g.gain, 0.09, 0.2, 0.32);
+      const l2 = lfo(bp.frequency, 0.05, 260, 480);
+      return { stop() { [l1, l2].forEach((o) => { try { o.stop(); } catch {} }); try { src.stop(); } catch {} g.disconnect(); } };
+    },
+    // Fire sparkle: random tiny noise bursts, bright bandpass, fast decay.
+    crackle(n) {
+      let dead = false, timer = 0;
+      const pop = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const s = ctx.createBufferSource(); s.buffer = noiseBuf;
+        s.playbackRate.value = 0.8 + Math.random() * 0.7;
+        const bp = ctx.createBiquadFilter(); bp.type = "bandpass";
+        bp.frequency.value = 1800 + Math.random() * 3400; bp.Q.value = 7;
+        const g = ctx.createGain();
+        const peak = 0.08 + Math.random() * 0.3, dec = 0.03 + Math.random() * 0.06;
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(Math.max(0.0012, peak), t + 0.004);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + dec);
+        s.connect(bp); bp.connect(g); g.connect(n.gain);
+        s.start(t, Math.random() * 1.5, dec + 0.05);
+        s.onended = () => { s.disconnect(); bp.disconnect(); g.disconnect(); };
+        timer = setTimeout(pop, 50 + Math.random() * 220);
+      };
+      pop();
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+    // Foundry clanks: distant metallic FM hits at irregular intervals.
+    clank(n) {
+      let dead = false, timer = 0;
+      const hit = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const f0 = 170 + Math.random() * 360;
+        const car = ctx.createOscillator(); car.type = "sine"; car.frequency.value = f0;
+        const mod = ctx.createOscillator(); mod.type = "sine"; mod.frequency.value = f0 * 2.76;
+        const mg = ctx.createGain();
+        mg.gain.setValueAtTime(f0 * 2.2, t);
+        mg.gain.exponentialRampToValueAtTime(1, t + 0.45);
+        const cg = ctx.createGain();
+        cg.gain.setValueAtTime(0.0001, t);
+        cg.gain.exponentialRampToValueAtTime(0.22 + Math.random() * 0.2, t + 0.008);
+        cg.gain.exponentialRampToValueAtTime(0.0001, t + 0.9);
+        const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 1400;
+        mod.connect(mg); mg.connect(car.frequency);
+        car.connect(cg); cg.connect(lp); lp.connect(n.gain);
+        car.start(t); mod.start(t); car.stop(t + 1); mod.stop(t + 1);
+        car.onended = () => { car.disconnect(); mod.disconnect(); mg.disconnect(); cg.disconnect(); lp.disconnect(); };
+        timer = setTimeout(hit, 2400 + Math.random() * 5200);
+      };
+      hit();
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+    // Distant bell: sparse tolls, harmonic partials, long decay.
+    belltoll(n) {
+      let dead = false, timer = 0;
+      const toll = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const base = [196, 220, 246.9][Math.floor(Math.random() * 3)];
+        [[1, .16], [2.02, .09], [2.94, .05]].forEach(([m, gv]) => {
+          const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = base * m;
+          const g = ctx.createGain();
+          g.gain.setValueAtTime(0.0001, t);
+          g.gain.exponentialRampToValueAtTime(gv, t + 0.02);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + 4.5);
+          o.connect(g); g.connect(n.gain);
+          o.start(t); o.stop(t + 5);
+          o.onended = () => { o.disconnect(); g.disconnect(); };
+        });
+        timer = setTimeout(toll, 8000 + Math.random() * 11000);
+      };
+      timer = setTimeout(toll, 1500);
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+  };
+
+  // ---- layer control ---------------------------------------------------------
+  function startRecorded(id) {
+    const n = nodes[id];
+    if (!n.el) {
+      const el = new Audio();
+      el.loop = true; el.preload = "auto"; el.crossOrigin = "anonymous";
+      el.src = RECORDED[id].url;
+      const src = ctx.createMediaElementSource(el);
+      src.connect(n.gain);
+      n.el = el;
     }
-    rampGain(k);
-    syncUi();
-    clearPreset();
+    n.el.play().catch(() => { setOn(id, false); });
   }
-  function applyVolumes() {
-    if (!actx) return;
-    for (const k of ORDER) rampGain(k);
-    const t = actx.currentTime;
-    masterGain.gain.cancelScheduledValues(t);
-    masterGain.gain.setValueAtTime(masterGain.gain.value, t);
-    masterGain.gain.linearRampToValueAtTime(state.master, t + 0.4);
+  function setOn(id, on) {
+    if (!LAYER_IDS.includes(id)) return;
+    state.layers[id].on = !!on;
+    if (on && !ensureCtx()) { state.layers[id].on = false; syncUi(); return; }
+    const n = nodes[id];
+    if (on) {
+      if (RECORDED[id]) startRecorded(id);
+      else if (!n.synth) n.synth = synthBuilders[id](n);
+    } else {
+      if (n.el) n.el.pause();
+      if (n.synth) { try { n.synth.stop(); } catch {} n.synth = null; }
+    }
+    rampGain(id);
+    if (id === "rain") setTimeout(() => (state.layers.rain.on ? startCanvas() : stopCanvas()), 60);
+    if (id === "thunder") scheduleBolt();
+    markPreset(null);
+    writeState(); syncUi();
+  }
+  function setVol(id, v) {
+    if (!LAYER_IDS.includes(id)) return;
+    state.layers[id].vol = Math.min(1, Math.max(0, v));
+    if (state.layers[id].on && ctx) rampGain(id, 0.25);
+    markPreset(null);
+    writeState(); syncVolUi();
   }
   function applyPreset(name) {
-    const p = PRESETS[name];
-    if (!p || !ensureGraph()) return;
-    for (const k of ORDER) {
-      const [on, vol] = p.layers[k];
-      state.layers[k] = { on, vol };
-      const n = nodes[k];
-      clearTimeout(n.fadeT);
-      if (on) {
-        if (!n.el.src) n.el.src = SOUNDS[k].url;
-        n.el.play().catch(() => { state.layers[k].on = false; });
+    if (!PRESETS[name]) return;
+    if (name === "off") {
+      for (const id of LAYER_IDS) if (state.layers[id].on) setOn(id, false);
+      state.preset = "off"; markPreset("off"); writeState(); syncUi();
+      return;
+    }
+    if (!ensureCtx()) return;
+    // First pass: enable everything in the mix (volumes set silently).
+    for (const id of Object.keys(PRESETS[name].mix)) {
+      state.layers[id].vol = PRESETS[name].mix[id];
+      if (!state.layers[id].on) {
+        state.layers[id].on = true;
+        const n = nodes[id];
+        if (RECORDED[id]) startRecorded(id);
+        else if (!n.synth) n.synth = synthBuilders[id](n);
       }
     }
-    state.intensity = p.intensity;
-    writeState();
-    applyVolumes();
-    seedDrops();
-    syncUi();
-    markPreset(name);
-    const d = panel.querySelector("#amb-preset-desc");
-    if (d) d.textContent = p.desc || "";
-  }
-  // Highlight the active preset; any manual tweak clears it back to custom.
-  function markPreset(name) {
-    panel.querySelectorAll(".amb-preset").forEach((b) => {
-      const on = b.dataset.preset === name;
-      b.classList.toggle("active", on);
-      b.setAttribute("aria-pressed", String(on));
-    });
-  }
-  function clearPreset() {
-    markPreset(null);
-    const d = panel.querySelector("#amb-preset-desc");
-    if (d) d.textContent = "";
+    // Second pass: disable everything else, then fade all.
+    for (const id of LAYER_IDS) {
+      const want = Object.prototype.hasOwnProperty.call(PRESETS[name].mix, id);
+      if (!want && state.layers[id].on) {
+        state.layers[id].on = false;
+        const n = nodes[id];
+        if (n.el) n.el.pause();
+        if (n.synth) { try { n.synth.stop(); } catch {} n.synth = null; }
+      }
+      if (ctx) rampGain(id, 1.2);
+    }
+    if (state.layers.rain.on) startCanvas(); else stopCanvas();
+    scheduleBolt();
+    state.preset = name;
+    markPreset(name); writeState(); syncUi();
   }
 
-  // ---- canvas rain (intensity-coupled, with gusts) ----------------------
+  // ---- canvas rain (kept from v3; intensity-coupled) --------------------------
   const canvas = document.createElement("canvas");
   canvas.id = "rain-canvas";
   canvas.hidden = true;
   canvas.setAttribute("aria-hidden", "true");
   document.body.appendChild(canvas);
-  const ctx = canvas.getContext("2d");
+  const ctx2d = canvas.getContext("2d");
   let raf = null, drops = [], t0 = 0;
   function dropCount() { return Math.round(40 + (state.intensity / 100) * 220); }
   function sizeCanvas() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     canvas.width = Math.floor(innerWidth * dpr);
     canvas.height = Math.floor(innerHeight * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (ctx2d) ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   function seedDrops() {
     const n = Math.min(280, Math.max(30, Math.floor(dropCount() * Math.min(1.4, (innerWidth * innerHeight) / 900000))));
     const boost = 0.7 + (state.intensity / 100) * 0.9;
     drops = Array.from({ length: n }, () => ({
-      x: Math.random() * innerWidth,
-      y: Math.random() * innerHeight,
-      len: (10 + Math.random() * 22) * boost,
-      spd: (9 + Math.random() * 9) * boost,
+      x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+      len: (10 + Math.random() * 22) * boost, spd: (9 + Math.random() * 9) * boost,
       op: (0.10 + Math.random() * 0.22) * (0.6 + (state.intensity / 100) * 0.7),
-      drift: -1.5 - Math.random() * 1.5,
-      ph: Math.random() * Math.PI * 2,
+      drift: -1.5 - Math.random() * 1.5, ph: Math.random() * Math.PI * 2,
     }));
   }
   function tick(now) {
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
-    ctx.lineWidth = 1.1;
-    const gust = Math.sin((now - t0) / 2600) * 2.2; // slow wind gusts
+    if (!ctx2d) return;
+    ctx2d.clearRect(0, 0, innerWidth, innerHeight);
+    ctx2d.lineWidth = 1.1;
+    const gust = Math.sin((now - t0) / 2600) * 2.2;
     for (const d of drops) {
       const sway = Math.sin((now - t0) / 900 + d.ph) * 0.6;
-      ctx.strokeStyle = `rgba(150, 180, 205, ${d.op.toFixed(3)})`;
-      ctx.beginPath();
-      ctx.moveTo(d.x, d.y);
-      ctx.lineTo(d.x + d.drift + gust + sway, d.y + d.len);
-      ctx.stroke();
-      d.y += d.spd;
-      d.x += (d.drift + gust) * 0.35;
+      ctx2d.strokeStyle = `rgba(150, 180, 205, ${d.op.toFixed(3)})`;
+      ctx2d.beginPath(); ctx2d.moveTo(d.x, d.y);
+      ctx2d.lineTo(d.x + d.drift + gust + sway, d.y + d.len); ctx2d.stroke();
+      d.y += d.spd; d.x += (d.drift + gust) * 0.35;
       if (d.y > innerHeight + 30) { d.y = -30; d.x = Math.random() * (innerWidth + 60) - 30; }
       if (d.x < -60) d.x = innerWidth + 40; else if (d.x > innerWidth + 60) d.x = -40;
     }
     raf = requestAnimationFrame(tick);
   }
   function startCanvas() {
-    if (reducedMotion) return;
+    if (reducedMotion || !ctx2d) return;
     sizeCanvas(); seedDrops(); t0 = performance.now();
     canvas.hidden = false;
     if (raf == null) raf = requestAnimationFrame(tick);
@@ -269,137 +364,152 @@
     if (raf != null) { cancelAnimationFrame(raf); raf = null; }
     window.removeEventListener("resize", sizeCanvas);
     canvas.hidden = true;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (ctx2d) ctx2d.clearRect(0, 0, canvas.width, canvas.height);
     drops = [];
   }
 
-  // ---- toast (local, tiny) ----------------------------------------------
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.hidden = true;
-  toast.setAttribute("role", "status");
-  document.body.appendChild(toast);
-  let toastT = null;
-  function say(msg) {
-    toast.textContent = msg;
-    toast.hidden = false;
-    clearTimeout(toastT);
-    toastT = setTimeout(() => { toast.hidden = true; }, 3500);
+  // ---- lightning: where there's thunder, there's lightning --------------------
+  // A full-screen flash while the thunder layer plays. Not sample-synced (the
+  // loop's claps aren't exposed) — it strikes on its own slow random timer,
+  // harder when the thunder volume is up. Blood-red under the Cursed Wing.
+  const bolt = document.createElement("div");
+  bolt.id = "lightning-flash";
+  bolt.setAttribute("aria-hidden", "true");
+  document.body.appendChild(bolt);
+  let boltTimer = 0;
+  function strike() {
+    if (reducedMotion) return;
+    const v = state.layers.thunder.vol;
+    const cursed = document.documentElement.dataset.atmo === "cursedwing";
+    bolt.style.setProperty("--bolt", cursed ? "rgba(255,70,70,0.5)" : "rgba(190,215,255,0.5)");
+    bolt.style.setProperty("--bolt-op", (0.25 + v * 0.55).toFixed(2));
+    bolt.classList.remove("strike");
+    void bolt.offsetWidth; // restart the animation
+    bolt.classList.add("strike");
   }
-
-  // ---- mixer panel -------------------------------------------------------
+  function scheduleBolt() {
+    clearTimeout(boltTimer);
+    if (!state.layers.thunder.on || reducedMotion) return;
+    boltTimer = setTimeout(() => {
+      strike();
+      // occasional double-strike: a second flash a beat later
+      if (Math.random() < 0.35) setTimeout(strike, 700 + Math.random() * 900);
+      scheduleBolt();
+    }, 9000 + Math.random() * 17000);
+  }
+  const btn = document.getElementById("btn-rain");
   const panel = document.createElement("div");
   panel.className = "ambient-panel";
   panel.hidden = true;
   panel.setAttribute("role", "dialog");
   panel.setAttribute("aria-label", "Ambient sound mixer");
-  const INT_LABELS = [[15, "Drizzle"], [45, "Steady"], [75, "Heavy"], [101, "Downpour"]];
-  const intLabel = (v) => (INT_LABELS.find(([lim]) => v < lim) || INT_LABELS[3])[1];
+  const layerLabel = (id) => (RECORDED[id] || SYNTH[id]).label;
+  const layerRow = (id) => `
+    <div class="amb-layer" data-layer="${id}">
+      <button type="button" class="amb-layertoggle" data-layerbtn="${id}" aria-pressed="false">
+        <span class="amb-meter" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="amb-layername">${layerLabel(id)}${id === "thunder" ? ' <span class="amb-bolt" title="Lightning flashes on screen">⚡</span>' : ""}</span>
+      </button>
+      <input type="range" class="amb-vol" data-vol="${id}" min="0" max="1" step="0.01"
+             value="${state.layers[id].vol}" aria-label="${layerLabel(id)} volume" />
+    </div>`;
   panel.innerHTML = `
-    <div class="ambient-head">
-      <h3>Stormroom</h3>
-      <button type="button" class="lofi-collapse" id="amb-close" aria-label="Close ambience panel">×</button>
+    <div class="amb-head">
+      <div><div class="amb-title">Stormroom</div><div class="amb-sub">generative ambience engine</div></div>
+      <button type="button" id="amb-close" aria-label="Close mixer">×</button>
     </div>
-    <div class="amb-presets" role="group" aria-label="Ambience presets">
-      ${Object.entries(PRESETS).map(([key, p]) => `<button type="button" class="amb-preset" data-preset="${key}" title="${p.desc || p.label}" aria-pressed="false">${p.label}</button>`).join("")}
+    <div class="amb-secname">Scenes</div>
+    <div class="amb-presets">
+      ${PRESET_ORDER.map((p) => `<button type="button" class="amb-preset" data-preset="${p}"><span>${PRESETS[p].name}</span></button>`).join("")}
     </div>
-    <p class="amb-preset-desc" id="amb-preset-desc" aria-live="polite"></p>
-    <div class="amb-intensity">
-      <div class="amb-intensity-top"><span>Storm intensity</span><strong id="amb-int-label">${intLabel(state.intensity)}</strong></div>
-      <input type="range" id="amb-intensity" min="0" max="100" step="1" value="${state.intensity}" aria-label="Storm intensity" />
-    </div>
-    ${ORDER.map((k) => `
-      <div class="ambient-row" data-sound="${k}">
-        <span class="amb-ico" aria-hidden="true">${ICONS[k]}</span>
-        <button type="button" class="amb-toggle" data-sound="${k}" aria-pressed="false" aria-label="Toggle ${SOUNDS[k].label}"></button>
-        <span class="amb-name">${SOUNDS[k].label}</span>
-        <input type="range" min="0" max="1" step="0.01" value="${state.layers[k].vol}" data-vol="${k}" aria-label="${SOUNDS[k].label} volume" />
-      </div>`).join("")}
-    <div class="amb-master">
-      <span>Master</span>
-      <input type="range" id="amb-master" min="0" max="1" step="0.01" value="${state.master}" aria-label="Master ambience volume" />
-    </div>
-    <p class="ambient-note">Layers fade in and out smoothly, drift slowly across the stereo field, and mix with the music player. Rain shows on screen too (still picture when reduced motion is set). Long-press the rain button to open this mixer.</p>`;
+    <div class="amb-preset-desc" id="amb-preset-desc">Layers fade in and out smoothly, drift slowly across the stereo field, and mix with the music player. Rain shows on screen too — tap any layer to build your own weather.</div>
+    <div class="amb-secname">Recorded</div>
+    <div class="amb-layers">${Object.keys(RECORDED).map(layerRow).join("")}</div>
+    <div class="amb-secname">Synthesized live</div>
+    <div class="amb-layers">${Object.keys(SYNTH).map(layerRow).join("")}</div>
+    <div class="amb-foot">
+      <label class="amb-master">Master <input type="range" id="amb-master" min="0" max="1" step="0.01" value="${state.master}" aria-label="Ambient master volume" /></label>
+      <label class="amb-master">Rainfall <input type="range" id="amb-intensity" min="0" max="100" step="1" value="${state.intensity}" aria-label="Rainfall intensity" /></label>
+    </div>`;
   document.body.appendChild(panel);
 
-  function syncUi() {
-    btn.setAttribute("aria-pressed", String(state.layers.rain.on));
-    panel.querySelectorAll(".amb-toggle").forEach((t) => {
-      t.setAttribute("aria-pressed", String(!!state.layers[t.dataset.sound].on));
-    });
-    const lbl = panel.querySelector("#amb-int-label");
-    if (lbl) lbl.textContent = intLabel(state.intensity);
-    const rainOn = state.layers.rain.on;
-    if (rainOn) startCanvas(); else stopCanvas();
+  function markPreset(name) {
+    state.preset = name;
+    panel.querySelectorAll(".amb-preset").forEach((b) => b.classList.toggle("active", b.dataset.preset === name));
+    const d = panel.querySelector("#amb-preset-desc");
+    if (d) d.textContent = name && PRESETS[name] ? PRESETS[name].desc : "Custom mix — your layers, your weather.";
   }
-
-  // rain button: tap toggles rain · long-press (600ms) opens mixer
-  let pressT = null, longFired = false;
-  btn.addEventListener("pointerdown", () => {
-    longFired = false;
-    pressT = setTimeout(() => { longFired = true; panel.hidden = false; }, 600);
+  function syncUi() {
+    for (const id of LAYER_IDS) {
+      const row = panel.querySelector(`.amb-layer[data-layer="${id}"]`);
+      if (!row) continue;
+      row.classList.toggle("on", state.layers[id].on);
+      row.querySelector("[data-layerbtn]").setAttribute("aria-pressed", String(state.layers[id].on));
+    }
+    syncVolUi();
+    if (btn) btn.setAttribute("aria-pressed", String(LAYER_IDS.some((id) => state.layers[id].on)));
+    markPreset(state.preset);
+  }
+  function syncVolUi() {
+    for (const id of LAYER_IDS) {
+      const s = panel.querySelector(`input[data-vol="${id}"]`);
+      if (s && document.activeElement !== s) s.value = state.layers[id].vol;
+    }
+  }
+  panel.querySelectorAll("[data-layerbtn]").forEach((b) => {
+    b.addEventListener("click", () => setOn(b.dataset.layerbtn, !state.layers[b.dataset.layerbtn].on));
   });
-  btn.addEventListener("pointerup", (e) => {
-    clearTimeout(pressT);
-    if (longFired) return;
-    if (e.shiftKey) { panel.hidden = false; return; } // desktop: shift-click opens mixer
-    const next = !state.layers.rain.on;
-    if (next && panel.hidden) panel.hidden = false; // reveal the mixer the first time rain starts
-    setOn("rain", next);
-  });
-  btn.addEventListener("pointerleave", () => clearTimeout(pressT));
-  btn.addEventListener("contextmenu", (e) => { if (longFired) e.preventDefault(); });
-
-  panel.querySelectorAll(".amb-toggle").forEach((t) => {
-    t.addEventListener("click", () => setOn(t.dataset.sound, !state.layers[t.dataset.sound].on));
-  });
-  panel.querySelectorAll("input[data-vol]").forEach((r) => {
-    r.addEventListener("input", () => {
-      const k = r.dataset.vol;
-      state.layers[k].vol = parseFloat(r.value);
-      writeState();
-      clearPreset();
-      if (actx) rampGain(k);
-    });
-  });
-  panel.querySelector("#amb-intensity").addEventListener("input", (e) => {
-    state.intensity = parseInt(e.target.value, 10);
-    writeState();
-    clearPreset();
-    panel.querySelector("#amb-int-label").textContent = intLabel(state.intensity);
-    if (actx) rampGain("rain");
-    if (!canvas.hidden) seedDrops();
+  panel.querySelectorAll("input[data-vol]").forEach((s) => {
+    s.addEventListener("input", () => setVol(s.dataset.vol, parseFloat(s.value)));
   });
   panel.querySelector("#amb-master").addEventListener("input", (e) => {
     state.master = parseFloat(e.target.value);
-    writeState();
-    if (actx && masterGain) {
-      const t = actx.currentTime;
+    if (ctx) {
+      const t = ctx.currentTime;
       masterGain.gain.cancelScheduledValues(t);
       masterGain.gain.setValueAtTime(masterGain.gain.value, t);
       masterGain.gain.linearRampToValueAtTime(state.master, t + 0.3);
     }
+    writeState();
+  });
+  panel.querySelector("#amb-intensity").addEventListener("input", (e) => {
+    state.intensity = parseFloat(e.target.value);
+    if (state.layers.rain.on) { seedDrops(); }
+    writeState();
   });
   panel.querySelectorAll(".amb-preset").forEach((b) => {
     b.addEventListener("click", () => applyPreset(b.dataset.preset));
   });
   panel.querySelector("#amb-close").addEventListener("click", () => { panel.hidden = true; });
+  if (btn) btn.addEventListener("click", () => { panel.hidden = !panel.hidden; });
 
   // Restore persisted ambience on boot (autoplay-safe: play() may reject).
-  if (ORDER.some((k) => state.layers[k].on) && ensureGraph()) {
-    for (const k of ORDER) {
+  if (LAYER_IDS.some((k) => state.layers[k].on) && ensureCtx()) {
+    for (const k of LAYER_IDS) {
       if (!state.layers[k].on) continue;
       const n = nodes[k];
-      n.el.src = SOUNDS[k].url;
-      n.gain.gain.value = 0;
-      n.el.play().then(() => rampGain(k)).catch(() => { state.layers[k].on = false; writeState(); });
+      if (RECORDED[k]) {
+        const el = new Audio();
+        el.loop = true; el.preload = "auto"; el.crossOrigin = "anonymous";
+        el.src = RECORDED[k].url;
+        ctx.createMediaElementSource(el).connect(n.gain);
+        n.el = el;
+        el.play().then(() => rampGain(k)).catch(() => { state.layers[k].on = false; writeState(); });
+      } else {
+        n.synth = synthBuilders[k](n);
+        rampGain(k);
+      }
     }
+    if (state.layers.rain.on) setTimeout(startCanvas, 400);
+    if (state.layers.thunder.on) scheduleBolt();
   }
   syncUi();
+
   // Public hooks for the atmosphere system ("Set the scene" pairing).
   window.TitanAmbient = {
     applyPreset,
     setOn,
+    setVol,
     openMixer() { panel.hidden = false; },
     closeMixer() { panel.hidden = true; },
     get mixerOpen() { return !panel.hidden; },

@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr10a" />
+  <link rel="stylesheet" href="styles.css?v=tr11" />
 </head>
 <body>
   <div id="app">
@@ -64,8 +64,10 @@
               <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
               <span>Search</span><kbd>⌘K</kbd>
             </button>
-            <button type="button" id="btn-atmo" class="atmo-btn" title="Exhibition atmosphere">
+            <button type="button" id="btn-atmo" class="atmo-btn" title="Exhibition atmosphere — lighting, sound and music">
               <span class="atmo-dot" aria-hidden="true"></span>
+              <span class="atmo-lbl">Atmosphere</span>
+              <span class="atmo-sep" aria-hidden="true">·</span>
               <span id="atmo-name">After Hours</span>
             </button>
             <button type="button" id="btn-rain" class="rain-btn" aria-pressed="false" title="Rainstorm ambience (rain sound + falling rain)">
@@ -169,13 +171,14 @@
         <button type="button" class="sheet-close" id="atmo-close" aria-label="Close">×</button>
         <span class="eyebrow">Exhibition lighting</span>
         <h2 id="atmo-title">Atmosphere</h2>
+        <p class="sheet-sub">Lighting, ambient sound and music for the whole exhibition — pick a room, or hit “Set the scene” to change everything at once.</p>
         <p class="sub">How the museum is lit tonight. Each one pairs with sound — set the scene and the room follows.</p>
         <div class="atmo-cards">
           <button type="button" class="atmo-card" data-atmo-val="afterhours">
             <span class="atmo-swatch sw-afterhours" aria-hidden="true"></span>
             <span class="atmo-card-name">After Hours</span>
             <span class="atmo-card-desc">True-black galleries, champagne spotlights, film grain. Slow, cinematic, dramatic — the signature midnight exhibition.</span>
-            <span class="atmo-card-pair">Pairs with · Rain + Ultralounge</span>
+            <span class="atmo-card-pair">Pairs with · Storm + Ultralounge</span>
             <span class="atmo-card-scene" data-scene="afterhours">Set the scene →</span>
           </button>
           <button type="button" class="atmo-card" data-atmo-val="conservator">
@@ -196,7 +199,7 @@
             <span class="atmo-swatch sw-nocturne" aria-hidden="true"></span>
             <span class="atmo-card-name">Nocturne</span>
             <span class="atmo-card-desc">A smoky jazz cellar under the museum. Deep blue, brass, art-deco lines — after the gala, before dawn.</span>
-            <span class="atmo-card-pair">Pairs with · Night watch + Night on the Docks</span>
+            <span class="atmo-card-pair">Pairs with · Tavern + Night on the Docks</span>
             <span class="atmo-card-scene" data-scene="nocturne">Set the scene →</span>
           </button>
           <button type="button" class="atmo-card" data-atmo-val="odyssey">
@@ -269,9 +272,9 @@
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
   <script>window.TITAN_BUILD = "tr9";</script>
-  <script src="app.js?v=tr10a"></script>
-  <script src="js/playlist.js?v=tr10a"></script>
-  <script src="audio.js?v=tr10a"></script>
-  <script src="ambient.js?v=tr10a"></script>
+  <script src="app.js?v=tr11"></script>
+  <script src="js/playlist.js?v=tr11"></script>
+  <script src="audio.js?v=tr11"></script>
+  <script src="ambient.js?v=tr11"></script>
 </body>
 </html>

@@ -441,6 +441,28 @@
     if (refresh) { refresh.textContent = "↻ Refresh"; refresh.title = "Check for a newer published snapshot and reload"; }
     lazyThumbs();
     observeReveals();
+    goldDust();
+  }
+
+  /* --- Gold dust motes: slow ambient particles drifting up the page.
+         Pure atmosphere — gold in every theme, embers in the Cursed Wing. --- */
+  function goldDust() {
+    if (document.getElementById("dust-layer")) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const layer = document.createElement("div");
+    layer.id = "dust-layer";
+    layer.setAttribute("aria-hidden", "true");
+    for (let i = 0; i < 14; i++) {
+      const m = document.createElement("i");
+      const s = 2 + Math.random() * 3;
+      m.style.left = (Math.random() * 100).toFixed(1) + "vw";
+      m.style.width = m.style.height = s.toFixed(1) + "px";
+      m.style.animationDuration = (16 + Math.random() * 18).toFixed(1) + "s";
+      m.style.animationDelay = (-Math.random() * 30).toFixed(1) + "s";
+      m.style.opacity = (0.25 + Math.random() * 0.5).toFixed(2);
+      layer.appendChild(m);
+    }
+    document.body.appendChild(layer);
   }
 
   /** Cinematic hero: wordmark, count-up grand, stat row, action cluster. */
@@ -1348,7 +1370,7 @@
     // data rows; they hold no information, so drop them at render time.
     const mdSep = (s) => typeof s === "string" && /^[\s:|\-]+$/.test(s) && /[-|]/.test(s);
     const glanceBody = glance.filter((g) => !mdSep(g.family))
-      .map((g) => `<tr><td>${esc(g.family)}</td><td class="muted">${esc(g.ids)}</td><td class="num">${esc(intFmt(g.coins))}</td><td class="num">${money(g.total)}</td><td class="muted">${esc(g.pulse)}</td></tr>`)
+      .map((g) => `<tr><td>${esc(g.family)}</td><td class="muted ids">${esc(g.ids)}</td><td class="num">${esc(intFmt(g.coins))}</td><td class="num">${money(g.total)}</td><td class="muted">${esc(g.pulse)}</td></tr>`)
       .join("");
     return `
       <div class="sec-head reveal"><span class="eyebrow">Patina</span><h2>Age</h2>
@@ -1371,9 +1393,9 @@
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(al.oldest ?? "—"))} → ${esc(String(al.newest ?? "—"))}</span></div>
         </div>
       </div>
-      <div class="card reveal" style="margin-top:0.75rem">
+      <div class="card reveal age-albums-card">
         <h3>Albums at a glance</h3>
-        <div class="table-wrap" style="max-height:420px;margin-top:0.5rem">
+        <div class="table-wrap glance-wrap" style="margin-top:0.5rem">
           <table class="data">
             <thead><tr><th>Family</th><th>IDs</th><th class="num">Coins</th><th class="num">Total</th><th>Pulse</th></tr></thead>
             <tbody>${glanceBody || '<tr><td colspan="5" class="empty">—</td></tr>'}</tbody>
@@ -1853,7 +1875,7 @@
     afterhours:  { name: "After Hours",    themeColor: "#060605", preset: "storm",    station: "lofi",      pair: "Rain + Ultralounge" },
     conservator: { name: "Conservator",    themeColor: "#f4efe4", preset: "fireside", station: "classical", pair: "Fireside + Classical" },
     colossus:    { name: "Colossus",       themeColor: "#14100a", preset: "foundry",  station: "epic",      pair: "Foundry + Five Armies" },
-    nocturne:    { name: "Nocturne",       themeColor: "#070b16", preset: "night",    station: "jazz",      pair: "Night watch + Night on the Docks" },
+    nocturne:    { name: "Nocturne",       themeColor: "#070b16", preset: "tavern",   station: "jazz",      pair: "Tavern + Night on the Docks" },
     odyssey:     { name: "Odyssey",        themeColor: "#efe6d2", preset: "wayfarer", station: "adventure", pair: "Wayfarer + Expeditionary" },
     cursedwing:  { name: "The Cursed Wing", themeColor: "#0a0505", preset: "blackout", station: "dark",      pair: "Blackout + Oppressive Gloom" },
   };
