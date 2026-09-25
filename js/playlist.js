@@ -93,7 +93,79 @@
         M("Long Note One", "Long%20Note%20One.mp3"),
       ],
     },
+    psych: {
+      name: "Psych",
+      tag: "a trip through the vault",
+      tracks: [
+        M("Deliberate Thought", "Deliberate%20Thought.mp3"),
+        M("Lightless Dawn", "Lightless%20Dawn.mp3"),
+        M("Dreamlike", "Dreamlike.mp3"),
+        M("Thunder Dreams", "Thunder%20Dreams.mp3"),
+        M("Spacial Harvest", "Spacial%20Harvest.mp3"),
+        M("Ossuary 6 - Air", "Ossuary%206%20-%20Air.mp3"),
+      ],
+    },
+    abyss: {
+      name: "Abyss",
+      tag: "pressure hymns from the wreck",
+      tracks: [
+        M("Montauk Point", "Montauk%20Point.mp3"),
+        M("Ossuary 5 - Rest", "Ossuary%205%20-%20Rest.mp3"),
+        M("Sovereign", "Sovereign.mp3"),
+        M("Echoes of Time", "Echoes%20of%20Time.mp3"),
+        M("Earnest", "Earnest.mp3"),
+        M("Lost Frontier", "Lost%20Frontier.mp3"),
+      ],
+    },
+    synthwave: {
+      name: "Synthwave",
+      tag: "midnight drive, chrome grid",
+      tracks: [
+        M("Electrodoodle", "Electrodoodle.mp3"),
+        M("New Direction", "New%20Direction.mp3"),
+        M("Funkorama", "Funkorama.mp3"),
+        M("Groove Grove", "Groove%20Grove.mp3"),
+        M("Disco Medusae", "Disco%20Medusae.mp3"),
+        M("Bicycle", "Bicycle.mp3"),
+      ],
+    },
+    quiet: {
+      name: "Quiet",
+      tag: "untitled - notepad",
+      tracks: [
+        M("Long Note Two", "Long%20Note%20Two.mp3"),
+        M("Long Note Three", "Long%20Note%20Three.mp3"),
+        M("Long Note Four", "Long%20Note%20Four.mp3"),
+        M("Air Prelude", "Air%20Prelude.mp3"),
+        M("Reaching Out", "Reaching%20Out.mp3"),
+        M("Floating Cities", "Floating%20Cities.mp3"),
+      ],
+    },
+    construct: {
+      name: "Construct",
+      tag: "machine code lullabies",
+      tracks: [
+        M("Mechanolith", "Mechanolith.mp3"),
+        M("Industrial Cinematic", "Industrial%20Cinematic.mp3"),
+        M("Volatile Reaction", "Volatile%20Reaction.mp3"),
+        M("Darkling", "Darkling.mp3"),
+        M("Industrial Music Box", "Industrial%20Music%20Box.mp3"),
+        M("Iron Horse", "Iron%20Horse.mp3"),
+      ],
+    },
+    xeno: {
+      name: "Xeno",
+      tag: "deep field transmissions",
+      tracks: [
+        M("Space 1990", "Space%201990.mp3"),
+        M("Starry", "Starry.mp3"),
+        M("Crusade", "Crusade.mp3"),
+        M("Come Play with Me", "Come%20Play%20with%20Me.mp3"),
+        M("Dreams Become Real", "Dreams%20Become%20Real.mp3"),
+        M("Silver Blue Light", "Silver%20Blue%20Light.mp3"),
+      ],
+    },
   };
   window.TITAN_PLAYLIST = window.TITAN_STATIONS.lofi.tracks;
-  window.TITAN_STATION_ORDER = ["lofi", "classical", "epic", "jazz", "adventure", "dark"];
+  window.TITAN_STATION_ORDER = ["lofi", "classical", "epic", "jazz", "adventure", "dark", "psych", "abyss", "synthwave", "quiet", "construct", "xeno"];
 })();
