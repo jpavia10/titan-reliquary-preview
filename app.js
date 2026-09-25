@@ -1316,8 +1316,8 @@
       <div class="grid two">
         <div class="card reveal"><h3>Bucket breakdown</h3>${bucketHtml || '<p class="empty">No board rows</p>'}</div>
         <div class="card reveal"><h3>Age (board)</h3>
-          <div class="bucket-row"><span class="k">Flips+other mean</span><span class="v">${precise(foYear)} · ${precise(foAge)} yrs</span></div>
-          <div class="bucket-row"><span class="k">Albums mean</span><span class="v">${precise(alYear)} · ${precise(alAge)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Flips+other mean</span><span class="v">${precise(foYear, 1)} · ${precise(foAge, 1)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Albums mean</span><span class="v">${precise(alYear, 1)} · ${precise(alAge, 1)} yrs</span></div>
           <div class="hint" style="margin-top:0.6rem">Albums kept separate · details below</div>
         </div>
       </div>`;
@@ -1329,7 +1329,10 @@
     const fo = age.flips_other || {};
     const al = age.albums || {};
     const glance = vault.albums_glance || [];
-    const glanceBody = glance
+    // The ledger sometimes carries markdown table separator rows ("------:") as
+    // data rows; they hold no information, so drop them at render time.
+    const mdSep = (s) => typeof s === "string" && /^[\s:|\-]+$/.test(s) && /[-|]/.test(s);
+    const glanceBody = glance.filter((g) => !mdSep(g.family))
       .map((g) => `<tr><td>${esc(g.family)}</td><td class="muted">${esc(g.ids)}</td><td class="num">${esc(intFmt(g.coins))}</td><td class="num">${money(g.total)}</td><td class="muted">${esc(g.pulse)}</td></tr>`)
       .join("");
     return `
@@ -1340,16 +1343,16 @@
           <h3>Flips + other</h3>
           <div class="bucket-row"><span class="k">Dated</span><span class="v">${esc(intFmt(fo.n_dated ?? "—"))}</span></div>
           <div class="bucket-row"><span class="k">ND excluded</span><span class="v">${esc(intFmt(fo.n_ND_excluded ?? "—"))}</span></div>
-          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(fo.mean_year)}</span></div>
-          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(fo.mean_age)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(fo.mean_year, 1)}</span></div>
+          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(fo.mean_age, 1)} yrs</span></div>
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(fo.oldest ?? "—"))} → ${esc(String(fo.newest ?? "—"))}</span></div>
         </div>
         <div class="card reveal">
           <h3>Albums (separate)</h3>
           <div class="bucket-row"><span class="k">Dated / total</span><span class="v">${esc(intFmt(al.n_dated_known ?? al.n_dated ?? "—"))} / ${esc(intFmt(al.n_total_album_coins ?? "—"))}</span></div>
           <div class="bucket-row"><span class="k">Coverage</span><span class="v">${al.coverage_pct != null ? num(al.coverage_pct, 1) + "%" : "—"}</span></div>
-          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(al.mean_year)}</span></div>
-          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(al.mean_age)} yrs</span></div>
+          <div class="bucket-row"><span class="k">Mean year</span><span class="v">${precise(al.mean_year, 1)}</span></div>
+          <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(al.mean_age, 1)} yrs</span></div>
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(al.oldest ?? "—"))} → ${esc(String(al.newest ?? "—"))}</span></div>
         </div>
       </div>
@@ -1770,8 +1773,18 @@
   $("#palette-q").addEventListener("input", (e) => { markTyping(); renderPalette(e.target.value); });
   $("#palette-q").addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
+      // Take the first result straight to its dossier. preventDefault + stopPropagation
+      // keep the keydown from bubbling into the document-level handler or triggering
+      // any default action; call the open path directly instead of via synthetic click.
+      e.preventDefault();
+      e.stopPropagation();
       const first = $("#palette-results .pal-row");
-      if (first) first.click();
+      if (first) {
+        const scan = first.dataset.scan;
+        closePalette();
+        dossierCtx = null;
+        openDrawer(scan);
+      }
     }
   });
   $("#palette").addEventListener("click", (e) => { if (e.target.id === "palette") closePalette(); });
