@@ -554,7 +554,7 @@ kbd {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 600;
-  padding: 0.45rem 0.85rem;
+  padding: 0.45rem 0.7rem;
   min-height: 44px;
   cursor: pointer;
   user-select: none;
@@ -1927,7 +1927,7 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   .tab { padding: 0.6rem 0.9rem; font-size: 0.86rem; }
   .tabs { top: 0.5rem; margin-bottom: 1.25rem; }
   .country-chip { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
-  .rain-label { display: none; }
+/* tr18: icon-only button now (matches the music widget's sliders icon) — no label to hide. */
   .search-btn kbd { display: none; }
   .latest-card { flex-basis: 172px; }
   .moment-text { font-size: 1.12rem; }
@@ -3076,10 +3076,7 @@ table.data td.ids { white-space: nowrap; }
   color: #9cc8e8;
 }
 .rain-btn[aria-pressed="true"] svg { filter: drop-shadow(0 0 4px rgba(125, 180, 216, 0.9)); }
-/* Keep the "Rain" text label down to 560px so the button is self-explanatory. */
-@media (min-width: 561px) and (max-width: 700px) {
-  .rain-label { display: inline; }
-}
+/* tr18: header button is icon-only (same sliders glyph as the music widget) — no label rules needed. */
 /* Conservator (Curator) is a white room: pale-gold motes vanish on it, so use a
    deep bronze-gold that reads against white. */
 html[data-atmo="conservator"] #dust-layer i {
