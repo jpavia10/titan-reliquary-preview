@@ -1700,7 +1700,7 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
 }
 .lofi-bar[hidden] { display: none; }
 @media (min-width: 701px) {
-  .lofi-bar { left: auto; right: 1.25rem; width: 384px; bottom: 3.4rem; }
+  .lofi-bar { left: auto; right: 1.25rem; width: 480px; bottom: 3.4rem; }
 }
 .nowrap { white-space: nowrap; }
 .foot #foot-path .ft-sep { margin: 0 0.15em; }

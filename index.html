@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr14" />
+  <link rel="stylesheet" href="styles.css?v=tr16" />
 </head>
 <body>
   <div id="app">
@@ -70,16 +70,12 @@
               <span class="atmo-sep" aria-hidden="true">·</span>
               <span id="atmo-name">After Hours</span>
             </button>
-            <button type="button" id="btn-rain" class="rain-btn" aria-pressed="false" title="Rainstorm ambience (rain sound + falling rain)">
+            <button type="button" id="btn-rain" class="rain-btn" aria-pressed="false" title="Ambient sounds — rain, fire, storms and more">
               <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                <path fill="currentColor" d="M17.6 12.6a4.2 4.2 0 0 0-.8-8.3 5.7 5.7 0 0 0-11 1.4A3.8 3.8 0 0 0 6.6 13.2h11z"/>
-                <g stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
-                  <line x1="8.6" y1="15.6" x2="7.4" y2="20" />
-                  <line x1="12.6" y1="15.6" x2="11.4" y2="20" />
-                  <line x1="16.6" y1="15.6" x2="15.4" y2="20" />
-                </g>
+                <path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4z"/>
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16.5 8.5a5 5 0 0 1 0 7 M19 6a8.5 8.5 0 0 1 0 12"/>
               </svg>
-              <span class="rain-label">Rain</span>
+              <span class="rain-label">Sounds</span>
             </button>
             <label class="auto-toggle" title="Auto-check for a newer snapshot">
               <input type="checkbox" id="auto-refresh" checked />
@@ -316,9 +312,9 @@
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
   <script>window.TITAN_BUILD = "tr9";</script>
-  <script src="app.js?v=tr14"></script>
-  <script src="js/playlist.js?v=tr14"></script>
-  <script src="audio.js?v=tr14"></script>
-  <script src="ambient.js?v=tr14"></script>
+  <script src="app.js?v=tr16"></script>
+  <script src="js/playlist.js?v=tr16"></script>
+  <script src="audio.js?v=tr16"></script>
+  <script src="ambient.js?v=tr16"></script>
 </body>
 </html>
