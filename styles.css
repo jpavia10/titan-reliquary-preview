@@ -554,7 +554,7 @@ kbd {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 600;
-  padding: 0.45rem 0.7rem;
+  padding: 0.45rem 0.85rem;
   min-height: 44px;
   cursor: pointer;
   user-select: none;
@@ -1928,6 +1928,10 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   .tabs { top: 0.5rem; margin-bottom: 1.25rem; }
   .country-chip { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
 /* tr18: icon-only button now (matches the music widget's sliders icon) — no label to hide. */
+/* tr19: short "Mix" label restored so the button is self-explanatory; hidden on narrow phones. */
+@media (max-width: 560px) {
+  .rain-label { display: none; }
+}
   .search-btn kbd { display: none; }
   .latest-card { flex-basis: 172px; }
   .moment-text { font-size: 1.12rem; }
@@ -3076,7 +3080,7 @@ table.data td.ids { white-space: nowrap; }
   color: #9cc8e8;
 }
 .rain-btn[aria-pressed="true"] svg { filter: drop-shadow(0 0 4px rgba(125, 180, 216, 0.9)); }
-/* tr18: header button is icon-only (same sliders glyph as the music widget) — no label rules needed. */
+/* tr19: header Mix button uses the same sliders glyph as the music widget; label shown except on narrow phones. */
 /* Conservator (Curator) is a white room: pale-gold motes vanish on it, so use a
    deep bronze-gold that reads against white. */
 html[data-atmo="conservator"] #dust-layer i {
