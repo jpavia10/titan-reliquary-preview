@@ -2762,6 +2762,12 @@ body.curator-sees-you { animation: seeyou 0.8s linear; }
 .station-opt[data-station="jazz"] .so-dot { background: #6a7ab0; }
 .station-opt[data-station="adventure"] .so-dot { background: #7a9a5a; }
 .station-opt[data-station="dark"] .so-dot { background: #d42f2f; }
+.station-opt[data-station="psych"] .so-dot { background: #c026d3; }
+.station-opt[data-station="abyss"] .so-dot { background: #1e40af; }
+.station-opt[data-station="synthwave"] .so-dot { background: #00e5ff; }
+.station-opt[data-station="quiet"] .so-dot { background: #a3a3a3; }
+.station-opt[data-station="construct"] .so-dot { background: #33ff66; }
+.station-opt[data-station="xeno"] .so-dot { background: #8b5cf6; }
 .station-opt .so-name { font-weight: 700; font-size: 0.9rem; }
 .station-opt .so-tag { margin-left: auto; font-size: 0.72rem; color: var(--muted); font-style: italic; }
 
