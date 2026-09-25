@@ -66,7 +66,6 @@
   }
   idx = readTrack().idx;
   audio.volume = Math.min(1, Math.max(0, readNum(VOL_KEY, 0.6)));
-  const autoplayPref = readBool(AUTO_KEY, true);
 
   // Mobile Safari: resume an AudioContext on first touch (lofi itself uses <audio>).
   let ac = null;
@@ -151,7 +150,7 @@
       if (barWasShown) bar.hidden = false;
     }
   });
-  function showPill() { pill.hidden = false; showBar(); }
+  function showPill() { pill.hidden = false; }
 
   function updateNowPlaying() {
     const t = playlist[idx];
@@ -189,6 +188,7 @@
     }
     playing = true;
     hidePill();
+    showBar();
     updateNowPlaying();
   }
   function pause() {
@@ -237,19 +237,18 @@
   pill.addEventListener("click", () => { play(); });
 
   // ---- boot --------------------------------------------------------------
+  // Pill-first: the full player module stays hidden until the user taps
+  // "Tap for lofi" (or starts audio via "Set the scene"). No auto-showing
+  // the bar on load, no autoplay attempt.
   updateNowPlaying();
-  showBar();
   loadTrack(idx, false);
-  if (autoplayPref) {
-    // Autoplay is usually blocked unmuted — the rejection path shows the pill.
-    play();
-  } else {
-    showBar();
-  }
+  showPill();
   // Persist the autoplay preference: toggling play counts as opting in, pausing as opting out.
   audio.addEventListener("play", () => { try { localStorage.setItem(AUTO_KEY, "1"); } catch { /* ignore */ } });
   audio.addEventListener("pause", () => {
     // Only treat an explicit pause (not track-skip internals) as opting out.
     try { localStorage.setItem(AUTO_KEY, playing ? "1" : "0"); } catch { /* ignore */ }
   });
+  // Public hooks for the atmosphere system ("Set the scene" pairing).
+  window.TitanLofi = { play, pause, toggle, isPlaying: () => playing };
 })();
