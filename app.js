@@ -8,7 +8,7 @@
   const STATE_KEY = "tr_ui_state_v1";
   const SEEN_KEY = "tr_seen_flips_v1";
   const AUTO_KEY = "tr_auto_refresh_v1";
-  const THEME_KEY = "tr_theme_v1";
+  const ATMO_KEY = "tr_atmo_v1";
   const REFRESH_MS_DRIP = 10000;
   const REFRESH_MS_WEB = 30000;
   const REQ_OPEN_KEY = "tr_req_open_v1";
@@ -159,7 +159,12 @@
   }
 
   function setTab(name, pushHash = true) {
-    $$(".tab").forEach((b) => b.classList.toggle("active", b.dataset.tab === name));
+    $$(".tab").forEach((b) => {
+      const on = b.dataset.tab === name;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-selected", String(on));
+      b.tabIndex = on ? 0 : -1;
+    });
     $$(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + name));
     if (pushHash) {
       const next = "#" + name;
@@ -513,6 +518,132 @@
     return out;
   }
 
+  /* --- Collection intelligence (WS4): computed from real flip fields only. --- */
+  function flipInsights() {
+    const flips = (vault.flips || []).filter((f) => f.status !== "Removed");
+    const valued = flips.map((f) => ({ f, v: f.est ?? 0 })).filter((x) => x.v > 0).sort((a, b) => b.v - a.v);
+    const total = valued.reduce((sum, x) => sum + x.v, 0);
+    const topN = valued.slice(0, 10);
+    const decades = {};
+    for (const f of flips) {
+      const y = parseInt(f.year, 10);
+      if (!Number.isFinite(y)) continue;
+      const d = Math.floor(y / 10) * 10;
+      decades[d] = (decades[d] || 0) + 1;
+    }
+    const decadeRows = Object.entries(decades).sort((a, b) => a[0] - b[0]);
+    const dMax = Math.max(1, ...decadeRows.map(([, n]) => n));
+    const byCountry = {};
+    for (const f of flips) {
+      const c = f.country || "Unknown";
+      byCountry[c] = byCountry[c] || { n: 0, v: 0 };
+      byCountry[c].n += 1;
+      byCountry[c].v += f.est ?? 0;
+    }
+    const topCountries = Object.entries(byCountry).sort((a, b) => b[1].n - a[1].n).slice(0, 5);
+    const cMax = Math.max(1, ...topCountries.map(([, x]) => x.n));
+    const gems = flips
+      .filter((f) => (f.est ?? 0) >= 5 && String(f.conf || "").toLowerCase() !== "high")
+      .sort((a, b) => (b.est ?? 0) - (a.est ?? 0))
+      .slice(0, 5);
+    const agN = flips.filter((f) => f.is_silver).length;
+    return { flips, valued, total, topN, decadeRows, dMax, topCountries, cMax, gems, agN };
+  }
+  function insightsSec() {
+    const { total, topN, decadeRows, dMax, topCountries, cMax, gems, agN, flips } = flipInsights();
+    if (!flips.length) return "";
+    const top10 = topN.slice(0, 10);
+    const share = total ? top10.reduce((sum, x) => sum + x.v, 0) / total : 0;
+    const concCard = `
+      <div class="insight-card reveal">
+        <h3>Value concentration</h3>
+        <p class="lede">Where the money actually sits.</p>
+        <div class="conc-lbl">Top 10 flips hold <strong>${Math.round(share * 100)}%</strong> of flip value</div>
+        <div class="conc-bar" role="img" aria-label="Top 10 flips hold ${Math.round(share * 100)} percent of flip value"><span style="width:${Math.round(share * 100)}%"></span></div>
+        <div class="conc-lbl">${topN.slice(0, 3).map((x) => esc(x.f.ser || x.f.scan)).join(" · ")} lead the cabinet</div>
+      </div>`;
+    const decadeCard = `
+      <div class="insight-card reveal">
+        <h3>Age map</h3>
+        <p class="lede">A century of pocket change, by decade.</p>
+        <div class="decade-bars">
+          ${decadeRows.map(([d, n]) => `
+            <div class="decade-row"><span class="dk">${d}s</span>
+            <span class="dt"><span style="width:${Math.round((n / dMax) * 100)}%"></span></span>
+            <span class="dv">${intFmt(n)}</span></div>`).join("")}
+        </div>
+      </div>`;
+    const spreadCard = `
+      <div class="insight-card reveal">
+        <h3>Country spread</h3>
+        <p class="lede">The cabinet's passports, ranked.</p>
+        <div class="country-spread">
+          ${topCountries.map(([c, x]) => `
+            <div class="spread-row"><span class="sc">${esc(c)}</span>
+            <span class="sv">${intFmt(x.n)} flips · ${money(x.v)}</span>
+            <span class="st"><span style="width:${Math.round((x.n / cMax) * 100)}%"></span></span></div>`).join("")}
+        </div>
+      </div>`;
+    const gemCard = `
+      <div class="insight-card reveal">
+        <h3>Hidden gems</h3>
+        <p class="lede">Worth real money, confidence still soft — verify these first.</p>
+        ${gems.length ? gems.map((f) => `
+          <div class="gem-row"><button type="button" data-scan="${esc(f.scan)}" title="Open the dossier">
+            <span><span class="g-id">${esc(f.ser || f.scan)}</span>
+            <span class="g-why">${esc([f.country, f.year, f.denom].filter(Boolean).join(" · "))} · conf ${esc(f.conf || "—")}</span></span>
+            <span class="g-val">${money(f.est)}</span>
+          </button></div>`).join("") : '<p class="empty">Nothing flagged — every valued flip reads high confidence.</p>'}
+      </div>`;
+    return `
+      <div class="sec-head reveal"><span class="eyebrow">Collection intelligence</span><h2>The vault, thinking</h2>
+      <p class="sub">Computed from the ledger — ${intFmt(flips.length)} flips · ${intFmt(agN)} silver · ${money(total)} in flips.</p></div>
+      <div class="insight-grid">${concCard}${decadeCard}${spreadCard}${gemCard}</div>`;
+  }
+
+  /* --- Shooting sessions (WS3): the Phase-2 photo mission board. --- */
+  function shootingData() {
+    const live = (vault.flips || []).filter((f) => f.status !== "Removed");
+    const queue = live.filter((f) => !f.phase2_done);
+    const done = live.length - queue.length;
+    const byCountry = {};
+    for (const f of queue) {
+      const c = f.country || "Unknown";
+      (byCountry[c] = byCountry[c] || []).push(f);
+    }
+    const groups = Object.entries(byCountry)
+      .map(([country, arr]) => ({
+        country, n: arr.length,
+        value: arr.reduce((sum, f) => sum + (f.est ?? 0), 0),
+        silver: arr.filter((f) => f.is_silver).length,
+      }))
+      .sort((a, b) => b.n - a.n);
+    return { live, queue, done, groups };
+  }
+  function shootingSec() {
+    const { live, queue, done, groups } = shootingData();
+    if (!live.length) return "";
+    const pct = live.length ? Math.round((done / live.length) * 100) : 0;
+    const top = groups.slice(0, 6);
+    return `
+      <div class="sec-head reveal"><span class="eyebrow">Photo lab</span><h2>Shooting sessions</h2>
+      <p class="sub">Phase 2, one country at a time — highest count first.</p></div>
+      <div class="shoot-progress reveal">
+        <div class="sp-top"><h3>The archive so far</h3>
+        <span class="sp-n">${intFmt(done)} of ${intFmt(live.length)} flips photographed · ${pct}%</span></div>
+        <div class="shoot-bar" role="img" aria-label="${pct} percent photographed"><span style="width:${pct}%"></span></div>
+        ${done === 0 ? '<p class="sub" style="margin:0.6rem 0 0">The archive is empty — Phase 2 begins the shoot. Pick a country below to start a session.</p>' : ""}
+      </div>
+      <div class="shoot-grid">
+        ${top.map((g) => `
+          <div class="shoot-card reveal">
+            <div class="sh-c">${esc(g.country)}</div>
+            <div class="sh-n"><strong>${intFmt(g.n)}</strong> awaiting · ${money(g.value)} on the table${g.silver ? ` · ${g.silver} silver` : ""}</div>
+            <button type="button" class="btn small" data-session="${esc(g.country)}">Start session →</button>
+          </div>`).join("")}
+      </div>`;
+  }
+
   function renderBoard() {
     clearInterval(momentTimer); // old rotation dies with the old DOM
     const b = vault.board || {};
@@ -652,7 +783,9 @@
     $("#pane-board").innerHTML = `
       ${statBand}
       ${metalsBand}
+      ${insightsSec()}
       ${latestSec}
+      ${shootingSec()}
       ${reqSec}
       ${momentCard}
       ${albumSec}
@@ -688,6 +821,16 @@
     $("#go-phase2")?.addEventListener("click", () => {
       flipFilter = { ...flipFilter, phase2: true, q: "", country: "", year: "" };
       renderFlips(); setTab("flips");
+    });
+    $$("#pane-board [data-session]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        flipFilter = { ...flipFilter, phase2: true, q: "", year: "", country: btn.dataset.session };
+        renderFlips(); setTab("flips");
+        showToast("Session: " + btn.dataset.session + " — awaiting Phase 2");
+      });
+    });
+    $$("#pane-board .gem-row button[data-scan]").forEach((btn) => {
+      btn.addEventListener("click", () => { dossierCtx = null; openDrawer(btn.dataset.scan); });
     });
     const more = $("#req-more");
     if (more) more.addEventListener("click", () => {
@@ -866,6 +1009,7 @@
         <button type="button" class="btn filter-ag${flipFilter.silverOnly ? " active" : ""}" id="flip-ag" title="Show silver flips only">Ag${agCount ? " · " + agCount : ""}</button>
         <button type="button" class="btn filter-p2${flipFilter.phase2 ? " active" : ""}" id="flip-p2" title="Awaiting Phase 2 photos (shooting list)">Awaiting Phase 2 · ${intFmt(p2Count)}</button>
         ${flipFilter.iso ? `<button type="button" class="btn small active" id="flip-iso" title="Clear the country filter from World">${esc(isoName(flipFilter.iso))} ×</button>` : ""}
+        <button type="button" class="btn small" id="flip-print" title="Print this inventory">⎙ Print</button>
         <span class="meta">${intFmt(rows.length)} / ${intFmt((vault.flips || []).length)}${flipFilter.silverOnly ? " · silver" : ""}${flipFilter.phase2 ? " · shooting list" : ""}${flipFilter.q.trim() && !searchIdx ? " · searching notes…" : ""}</span>
       </div>
       <div class="country-strip">${strip}</div>
@@ -898,6 +1042,7 @@
     });
     qEl.addEventListener("focus", () => { markTyping(); ensureSearch(); });
     $("#flip-iso")?.addEventListener("click", () => { flipFilter.iso = ""; renderFlips(); saveState(); });
+    $("#flip-print")?.addEventListener("click", () => window.print());
     if (keep) {
       const el = $("#" + keep.id);
       if (el) { el.focus({ preventScroll: true }); try { el.setSelectionRange(keep.s, keep.e); } catch { /* ignore */ } }
@@ -1330,10 +1475,14 @@
 
     const present = SER_SCHEMA.filter(([k]) => has(c[k]) || (k === "est" && c.est != null));
     const missing = SER_SCHEMA.filter(([k]) => !(has(c[k]) || (k === "est" && c.est != null))).map(([, l]) => l);
+    const p2Roles = [["obv", "Obverse"], ["rev", "Reverse"]].map(([r, lbl]) => ({ r, lbl, got: !!photoOf(c, r) }));
+    const p2Got = p2Roles.filter((x) => x.got).length;
+    const pct = Math.round((present.length / SER_SCHEMA.length) * 100);
     const completeness = isFlip
-      ? `<div class="ds-complete${missing.length ? "" : " full"}" title="${esc(missing.length ? "Missing: " + missing.join(", ") : "All SER fields present")}">
-          <span class="bar"><span style="width:${Math.round((present.length / SER_SCHEMA.length) * 100)}%"></span></span>
-          SER fields ${present.length}/${SER_SCHEMA.length}${missing.length ? " · missing " + esc(missing.join(", ")) : " · complete"}
+      ? `<div class="ds-complete${missing.length ? "" : " full"}" title="${esc(missing.length ? "Awaiting Phase 2: " + missing.join(", ") : "All SER fields present")}">
+          <span class="bar"><span style="width:${pct}%"></span></span>
+          Record ${present.length}/${SER_SCHEMA.length}${missing.length ? " · awaiting Phase 2: " + esc(missing.join(", ")) : " · complete"}
+          <span class="p2-note">Photos ${p2Got}/2${p2Got < 2 ? " · " + p2Roles.filter((x) => !x.got).map((x) => x.lbl.toLowerCase()).join(" + ") + " await Phase 2" : " · on file"}</span>
         </div>`
       : "";
 
@@ -1384,6 +1533,23 @@
         ${specItem("Photo", photoStatus)}
       </div>`;
 
+    // Phase-2 capture: fields the photo scan will fill get designed homes now,
+    // with intentional "awaiting" empty states until the scan lands.
+    const p2Field = (k, v) => `
+      <div class="p2-field"><div class="k">${esc(k)}</div>
+      <div class="v${has(v) ? "" : " awaiting"}">${has(v) ? esc(String(v)) : "Awaiting Phase 2"}</div></div>`;
+    const p2CaptureSec = isFlip ? `
+      <section class="ds-sec p2-sec"><h4>Phase 2 capture <span class="p2-tag">Phase 2</span></h4>
+        <div class="p2-grid">
+          ${p2Field("Grade", c.grade)}
+          ${p2Field("Provenance", c.provenance)}
+          ${p2Field("Source", c.acquired_from || c.acquired)}
+          ${p2Field("Weight", c.weight_g != null ? num(c.weight_g, 2) + " g" : (c.weight || ""))}
+          ${p2Field("Obverse photo", photoOf(c, "obv") ? "On file" : "")}
+          ${p2Field("Reverse photo", photoOf(c, "rev") ? "On file" : "")}
+        </div>
+      </section>` : "";
+
     $("#drawer-body").innerHTML = `
       ${stage}
       <header class="ds-head">
@@ -1399,6 +1565,7 @@
       ${section("Value", value)}
       ${section("Physical", physical)}
       ${section("Record", record)}
+      ${p2CaptureSec}
       ${c.notes ? `<section class="ds-sec"><h4>Notes</h4><div class="notes-box">${esc(c.notes)}</div></section>` : (isFlip ? `<section class="ds-sec"><h4>Notes</h4><div class="notes-box missing">—</div></section>` : "")}
     `;
 
@@ -1425,9 +1592,11 @@
     $("#dossier-next").disabled = !(i >= 0 && i < list.length - 1);
 
     const wasHidden = $("#drawer").hidden;
+    if (wasHidden) rememberFocus();
     $("#drawer").hidden = false;
     $("#drawer-backdrop").hidden = false;
     document.body.classList.add("drawer-open");
+    if (wasHidden) $("#drawer-close").focus();
     window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
     if (persist && wasHidden === false) $("#drawer-inner").scrollTop = 0;
     if (persist) saveState();
@@ -1451,7 +1620,9 @@
     lbCard = c;
     lbIdx = Math.max(0, lbList().findIndex((p) => p.role === role));
     renderLightbox();
+    rememberFocus();
     $("#lightbox").hidden = false;
+    $("#lb-close").focus();
   }
   function renderLightbox() {
     const list = lbList();
@@ -1470,17 +1641,21 @@
     renderLightbox();
   }
   function closeLightbox() {
+    if ($("#lightbox").hidden) return;
     $("#lightbox").hidden = true;
     $("#lb-img").removeAttribute("src");
     lbCard = null;
+    restoreFocus();
   }
 
   function closeDrawer() {
+    if ($("#drawer").hidden) return;
     currentDrawerScan = null;
     document.body.classList.remove("drawer-open");
     window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
     $("#drawer").hidden = true;
     $("#drawer-backdrop").hidden = true;
+    restoreFocus();
     saveState();
   }
 
@@ -1511,9 +1686,12 @@
       else if (e.key === "ArrowRight") flipLightbox(1);
       return;
     }
-    if (e.key === "Escape") { if (paletteOpen) closePalette(); else closeDrawer(); }
-    else if (!typing && currentDrawerScan && e.key === "ArrowLeft") dossierStep(-1);
-    else if (!typing && currentDrawerScan && e.key === "ArrowRight") dossierStep(1);
+    if (e.key === "Escape") { closeTopOverlay(); return; }
+    if (typing) return;
+    if (currentDrawerScan && e.key === "ArrowLeft") dossierStep(-1);
+    else if (currentDrawerScan && e.key === "ArrowRight") dossierStep(1);
+    else if (e.key === "?") openKeysSheet();
+    else if (/^[1-6]$/.test(e.key)) { const t = TAB_ORDER[+e.key - 1]; if (t) { setTab(t); $(`.tab[data-tab="${t}"]`)?.focus(); } }
   });
   // Swipe left/right in the dossier on phones
   (() => {
@@ -1577,20 +1755,129 @@
     navigator.serviceWorker.register("sw.js").catch(() => {});
   }
 
-  /* --- Theme system (vault / ledger / noir) --- */
-  function setTheme(t, save = true) {
-    const theme = ["vault", "ledger", "noir"].includes(t) ? t : "vault";
-    document.documentElement.setAttribute("data-theme", theme);
-    $$(".tt-btn").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.themeVal === theme)));
-    try { document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "ledger" ? "#f4efe4" : theme === "noir" ? "#050505" : "#12100e"); } catch { /* ignore */ }
-    if (save) { try { localStorage.setItem(THEME_KEY, theme); } catch { /* ignore */ } }
+  /* --- Atmosphere system: After Hours (midnight exhibition) / Conservator (archival desk).
+     Retires the vault/ledger/noir palette-swap. Each atmosphere is a full sensory identity:
+     lighting, texture, typography treatment, and a suggested sound pairing. --- */
+  const ATMOS = {
+    afterhours: { name: "After Hours", themeColor: "#060605", preset: "storm", pair: "Rain + Ultralounge" },
+    conservator: { name: "Conservator", themeColor: "#f4efe4", preset: "fireside", pair: "Fireside + lofi" },
+  };
+  function currentAtmo() {
+    return document.documentElement.getAttribute("data-atmo") === "conservator" ? "conservator" : "afterhours";
   }
-  try {
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    if (savedTheme) setTheme(savedTheme, false);
-    else setTheme(document.documentElement.getAttribute("data-theme") || "vault", false);
-  } catch { /* ignore */ }
-  $$(".tt-btn").forEach((b) => b.addEventListener("click", () => setTheme(b.dataset.themeVal)));
+  function setAtmo(a, save = true) {
+    const atmo = ATMOS[a] ? a : "afterhours";
+    document.documentElement.setAttribute("data-atmo", atmo);
+    const nm = $("#atmo-name");
+    if (nm) nm.textContent = ATMOS[atmo].name;
+    $$(".atmo-card").forEach((c) => c.classList.toggle("current", c.dataset.atmoVal === atmo));
+    try { document.querySelector('meta[name="theme-color"]')?.setAttribute("content", ATMOS[atmo].themeColor); } catch { /* ignore */ }
+    if (save) { try { localStorage.setItem(ATMO_KEY, atmo); } catch { /* ignore */ } }
+  }
+  // "Set the scene": the atmosphere plus its suggested sound pairing, all at once.
+  function setTheScene(a) {
+    setAtmo(a);
+    try { window.TitanAmbient?.applyPreset(ATMOS[a].preset); } catch { /* ambience not ready */ }
+    try { window.TitanLofi?.play(); } catch { /* player not ready */ }
+    showToast("Scene set: " + ATMOS[a].name + " · " + ATMOS[a].pair);
+  }
+  setAtmo(document.documentElement.getAttribute("data-atmo") || "afterhours", false);
+
+  /* --- Overlay manager: Esc closes the topmost layer; focus is trapped & restored. --- */
+  let lastFocus = null;
+  function rememberFocus() { lastFocus = document.activeElement; }
+  function restoreFocus() {
+    if (lastFocus && document.contains(lastFocus) && lastFocus.focus) lastFocus.focus();
+    lastFocus = null;
+  }
+  function openAtmoSheet() {
+    rememberFocus();
+    setAtmo(currentAtmo(), false); // refresh the "On display" marks
+    $("#atmo-sheet").hidden = false;
+    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
+    $("#atmo-close").focus();
+  }
+  function closeAtmoSheet() {
+    if ($("#atmo-sheet").hidden) return;
+    $("#atmo-sheet").hidden = true;
+    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
+    restoreFocus();
+  }
+  function openKeysSheet() {
+    rememberFocus();
+    $("#keys-sheet").hidden = false;
+    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
+    $("#keys-close").focus();
+  }
+  function closeKeysSheet() {
+    if ($("#keys-sheet").hidden) return;
+    $("#keys-sheet").hidden = true;
+    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
+    restoreFocus();
+  }
+  $("#keys-close")?.addEventListener("click", closeKeysSheet);
+  $("#keys-sheet")?.addEventListener("click", (e) => { if (e.target.id === "keys-sheet") closeKeysSheet(); });
+  // Focus trap: Tab cycles inside the topmost open overlay.
+  const FOCUSABLE = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const top = topOverlayEl();
+    if (!top) return;
+    const f = [...top.querySelectorAll(FOCUSABLE)].filter((el) => !el.disabled && el.offsetParent !== null);
+    if (!f.length) { e.preventDefault(); return; }
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  function topOverlayEl() {
+    const order = ["#lightbox", "#palette", "#atmo-sheet", "#keys-sheet", ".ambient-panel", "#drawer"];
+    for (const sel of order) {
+      const el = sel === ".ambient-panel" ? document.querySelector(sel) : $(sel);
+      if (el && !el.hidden) return el;
+    }
+    return null;
+  }
+  function closeTopOverlay() {
+    const top = topOverlayEl();
+    if (!top) return false;
+    if (top.id === "lightbox") closeLightbox();
+    else if (top.id === "palette") closePalette();
+    else if (top.id === "atmo-sheet") closeAtmoSheet();
+    else if (top.id === "keys-sheet") closeKeysSheet();
+    else if (top.classList.contains("ambient-panel")) { top.hidden = true; restoreFocus(); }
+    else if (top.id === "drawer") closeDrawer();
+    return true;
+  }
+  // Roving tabindex on the tab strip: arrows move, Enter/Space activates via the button.
+  const TAB_ORDER = ["board", "flips", "bullion", "world", "ops", "age"];
+  document.querySelector(".tabs")?.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    const tabs = $$(".tab");
+    let i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    e.preventDefault();
+    i = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+    tabs[i].focus();
+    setTab(tabs[i].dataset.tab);
+  });
+  // Offline honesty: a slim banner when the network drops.
+  const offBanner = $("#offline-banner");
+  function syncOffline() { if (offBanner) offBanner.hidden = navigator.onLine !== false; }
+  window.addEventListener("online", syncOffline);
+  window.addEventListener("offline", syncOffline);
+  syncOffline();
+  // Print buttons: dossier record + flips inventory.
+  $("#dossier-print")?.addEventListener("click", () => window.print());
+  $("#btn-atmo")?.addEventListener("click", openAtmoSheet);
+  $("#atmo-close")?.addEventListener("click", closeAtmoSheet);
+  $("#atmo-sheet")?.addEventListener("click", (e) => { if (e.target.id === "atmo-sheet") closeAtmoSheet(); });
+  $$(".atmo-card").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      const scene = e.target.closest("[data-scene]");
+      if (scene) { closeAtmoSheet(); setTheScene(scene.dataset.scene); }
+      else setAtmo(card.dataset.atmoVal);
+    });
+  });
 
   /** Count-up animation for a big figure; respects prefers-reduced-motion. */
   function countUp(el, target, fmt) {
@@ -1631,6 +1918,7 @@
   let paletteOpen = false;
   function openPalette() {
     ensureSearch();
+    rememberFocus();
     $("#palette").hidden = false;
     paletteOpen = true;
     renderPalette("");
@@ -1640,9 +1928,11 @@
     requestAnimationFrame(() => q.focus());
   }
   function closePalette() {
+    if (!paletteOpen) return;
     $("#palette").hidden = true;
     paletteOpen = false;
     window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
+    restoreFocus();
   }
   function renderPalette(qRaw) {
     const q = norm(qRaw || "");

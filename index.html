@@ -14,14 +14,22 @@
   <meta name="theme-color" content="#0b0a08" />
   <meta name="robots" content="noindex,nofollow" />
   <title>Titan Reliquary</title>
-  <!-- Theme before paint: read saved theme so there's no flash of the wrong theme -->
+  <!-- Atmosphere before paint: read saved atmosphere so there's no flash of the wrong one.
+       Migrates the old tr_theme_v1 (vault/noir -> afterhours, ledger -> conservator). -->
   <script>
     try {
-      var __tr_t = localStorage.getItem("tr_theme_v1");
-      if (__tr_t === "ledger" || __tr_t === "noir" || __tr_t === "vault") document.documentElement.setAttribute("data-theme", __tr_t);
+      var __tr_a = localStorage.getItem("tr_atmo_v1");
+      if (__tr_a !== "afterhours" && __tr_a !== "conservator") {
+        var __tr_old = localStorage.getItem("tr_theme_v1");
+        if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
+        __tr_a = (__tr_old === "ledger") ? "conservator" : "afterhours";
+        if (!__tr_old && window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) __tr_a = "conservator";
+        try { localStorage.setItem("tr_atmo_v1", __tr_a); } catch (e) {}
+      }
+      document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr5" />
+  <link rel="stylesheet" href="styles.css?v=tr6" />
 </head>
 <body>
   <div id="app">
@@ -44,11 +52,10 @@
           <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
           <span>Search</span><kbd>⌘K</kbd>
         </button>
-        <div class="theme-toggle" role="group" aria-label="Theme">
-          <button type="button" class="tt-btn" data-theme-val="vault" aria-pressed="true" title="Vault — dark gold">Vault</button>
-          <button type="button" class="tt-btn" data-theme-val="ledger" aria-pressed="false" title="Ledger — archival paper">Ledger</button>
-          <button type="button" class="tt-btn" data-theme-val="noir" aria-pressed="false" title="Noir — true black">Noir</button>
-        </div>
+        <button type="button" id="btn-atmo" class="atmo-btn" title="Exhibition atmosphere">
+          <span class="atmo-dot" aria-hidden="true"></span>
+          <span id="atmo-name">After Hours</span>
+        </button>
         <button type="button" id="btn-rain" class="rain-btn" aria-pressed="false" title="Rainstorm ambience (rain sound + falling rain)">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17.5 13a4.5 4.5 0 0 0-.9-8.9A6 6 0 0 0 5.2 6.3 4 4 0 0 0 6 14.5" />
@@ -95,6 +102,48 @@
       <section id="pane-age" class="pane"></section>
     </main>
 
+    <div id="offline-banner" class="offline-banner" hidden role="status">Offline — viewing the last snapshot. New publishes will load when you're back.</div>
+
+    <div id="atmo-sheet" class="sheet" hidden>
+      <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="atmo-title">
+        <button type="button" class="sheet-close" id="atmo-close" aria-label="Close">×</button>
+        <span class="eyebrow">Exhibition lighting</span>
+        <h2 id="atmo-title">Atmosphere</h2>
+        <p class="sub">How the vault is lit tonight. Each one pairs with sound — set the scene and the room follows.</p>
+        <div class="atmo-cards">
+          <button type="button" class="atmo-card" data-atmo-val="afterhours">
+            <span class="atmo-swatch sw-afterhours" aria-hidden="true"></span>
+            <span class="atmo-card-name">After Hours</span>
+            <span class="atmo-card-desc">True-black gallery, champagne spotlights, film grain. The signature midnight exhibition.</span>
+            <span class="atmo-card-pair">Pairs with · Rain + Ultralounge</span>
+            <span class="atmo-card-scene" data-scene="afterhours">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="conservator">
+            <span class="atmo-swatch sw-conservator" aria-hidden="true"></span>
+            <span class="atmo-card-name">Conservator</span>
+            <span class="atmo-card-desc">Archival paper, oxblood stamps, ruled ledger lines. Bright-room reading, conservator's desk.</span>
+            <span class="atmo-card-pair">Pairs with · Fireside + lofi</span>
+            <span class="atmo-card-scene" data-scene="conservator">Set the scene →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="keys-sheet" class="sheet" hidden>
+      <div class="sheet-card sheet-narrow" role="dialog" aria-modal="true" aria-labelledby="keys-title">
+        <button type="button" class="sheet-close" id="keys-close" aria-label="Close">×</button>
+        <span class="eyebrow">Keyboard</span>
+        <h2 id="keys-title">Shortcuts</h2>
+        <dl class="keys-list">
+          <div><dt><kbd>⌘K</kbd> / <kbd>Ctrl K</kbd></dt><dd>Search the vault</dd></div>
+          <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Previous / next dossier (when open)</dd></div>
+          <div><dt><kbd>Esc</kbd></dt><dd>Close topmost panel</dd></div>
+          <div><dt><kbd>?</kbd></dt><dd>This list</dd></div>
+          <div><dt><kbd>1</kbd>–<kbd>6</kbd></dt><dd>Jump to Board, Flips, Bullion, World, Ops, Albums · Age</dd></div>
+        </dl>
+      </div>
+    </div>
+
     <div id="palette" class="palette" hidden role="dialog" aria-modal="true" aria-label="Search the vault">
       <div class="palette-sheet">
         <div class="palette-bar">
@@ -112,6 +161,7 @@
           <button type="button" class="nav-btn" id="dossier-prev" aria-label="Previous flip" title="Previous (←)">‹</button>
           <button type="button" class="nav-btn" id="dossier-next" aria-label="Next flip" title="Next (→)">›</button>
           <span class="drawer-pos" id="dossier-pos"></span>
+          <button type="button" class="nav-btn" id="dossier-print" aria-label="Print dossier" title="Print dossier">⎙</button>
           <button type="button" class="drawer-close" id="drawer-close" aria-label="Close" title="Close (Esc)">×</button>
         </div>
         <div id="drawer-body"></div>
@@ -135,10 +185,10 @@
       <button type="button" id="btn-refresh" class="btn">↻ Refresh</button>
     </footer>
   </div>
-  <script>window.TITAN_BUILD = "tr5";</script>
-  <script src="app.js?v=tr5"></script>
-  <script src="js/playlist.js?v=tr5"></script>
-  <script src="audio.js?v=tr5"></script>
-  <script src="ambient.js?v=tr5"></script>
+  <script>window.TITAN_BUILD = "tr6";</script>
+  <script src="app.js?v=tr6"></script>
+  <script src="js/playlist.js?v=tr6"></script>
+  <script src="audio.js?v=tr6"></script>
+  <script src="ambient.js?v=tr6"></script>
 </body>
 </html>
