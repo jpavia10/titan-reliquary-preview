@@ -3815,3 +3815,604 @@ html[data-atmo="xeno"] body { animation: xeno-breathe 9s ease-in-out infinite, x
   html[data-atmo="construct"] .wordmark,
   html[data-atmo="xeno"] body, html[data-atmo="xeno"] .hero::before { animation: none; }
 }
+
+
+/* ============================================================
+   tr22 ? 10/10 NUMISMATIC LUXURY UPGRADE
+   - Interactive Vault Valuation & Live Melt Allocation Hub
+   - Exhibition Pedestal with 3D Procedural Coin Medallions
+   - Archival 2x2 Cardboard Flip Holders with Mylar Aperture & Sheen
+   - Precision Numismatic Caliper Gauge in Dossier
+   - Dynamic Silver Melt vs Collector Premium Multiplier
+   - Staggered Wing Cascades & Glassmorphic Navigation
+   ============================================================ */
+
+/* ---------- 1. Vault Valuation Hub & Live Melt Allocation Bar ---------- */
+.vault-valuation-hub {
+  position: relative;
+  margin: 1.2rem auto 1.6rem;
+  max-width: 720px;
+  padding: 1.4rem 1.6rem;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(22, 19, 16, 0.8) 0%, rgba(14, 13, 10, 0.95) 100%);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+}
+html[data-atmo="conservator"] .vault-valuation-hub {
+  background: linear-gradient(180deg, #fffdf8 0%, #f5efe2 100%);
+  border-color: rgba(138, 90, 30, 0.25);
+  box-shadow: 0 10px 30px rgba(60, 45, 20, 0.08), inset 0 1px 0 #fff;
+}
+.hero-grand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 8vw, 4.4rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  background: linear-gradient(135deg, #fff8e7 20%, var(--gold-soft) 60%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 30px rgba(200, 169, 74, 0.25);
+  margin-bottom: 0.3rem;
+}
+html[data-atmo="conservator"] .hero-grand {
+  background: linear-gradient(135deg, #221c12 20%, #7a2e2e 70%, #8a5a1e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+.hero-cap {
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+/* Tri-tone Metallic Allocation Bar */
+.melt-allocation-bar {
+  display: flex;
+  height: 22px;
+  width: 100%;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.08);
+  border: 1px solid rgba(0,0,0,0.4);
+  position: relative;
+  background: #080807;
+  margin-bottom: 0.9rem;
+}
+.melt-seg {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: flex-grow 0.6s var(--ease-out), filter 0.25s, transform 0.2s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.melt-seg:hover {
+  filter: brightness(1.18);
+  z-index: 2;
+}
+.seg-ag {
+  background: linear-gradient(135deg, #f0f4f8 0%, #b8c8d8 50%, #8ca0b4 100%);
+  color: #1a2530;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.2);
+}
+.seg-au {
+  background: linear-gradient(135deg, #ffe57f 0%, #ffc107 50%, #ff8f00 100%);
+  color: #3e2723;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.2);
+}
+.seg-numis {
+  background: linear-gradient(135deg, #c5cae9 0%, #7986cb 50%, #3f51b5 100%);
+  color: #ffffff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,0,0,0.3);
+}
+.seg-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+  transform: translateX(-100%);
+  animation: barGlint 6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes barGlint {
+  0%, 70% { transform: translateX(-100%); }
+  85%, 100% { transform: translateX(100%); }
+}
+
+.melt-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.legend-item strong { color: var(--ink); font-weight: 600; }
+.legend-item .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px currentColor;
+}
+.leg-ag .dot { background: #b8c8d8; color: #b8c8d8; }
+.leg-au .dot { background: #ffc107; color: #ffc107; }
+.leg-numis .dot { background: #7986cb; color: #7986cb; }
+
+/* ---------- 2. Exhibition Pedestal Showcase ---------- */
+.exhibit {
+  position: relative;
+  margin: 1.6rem 0 0.8rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(180deg, #14120e 0%, #0a0907 100%);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  width: 100%;
+  color: var(--ink);
+  padding: 0;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
+}
+.exhibit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.9), 0 0 30px rgba(200, 169, 74, 0.15);
+  border-color: var(--gold);
+}
+.exhibit-frame {
+  position: relative;
+  min-height: 280px;
+}
+.exhibit-slide {
+  position: absolute;
+  inset: 0;
+  padding: 1.4rem 1.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  transform: scale(0.97) translateY(8px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  pointer-events: none;
+}
+.exhibit-slide.on {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+/* Masterpiece Coin Medallion */
+.ex-pedestal {
+  flex-shrink: 0;
+  width: 170px;
+  height: 170px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ex-medallion {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 
+    0 12px 30px rgba(0,0,0,0.8),
+    inset 0 2px 4px rgba(255,255,255,0.7),
+    inset 0 -3px 6px rgba(0,0,0,0.6),
+    0 0 0 3px #1a1712,
+    0 0 0 5px var(--gold-deep);
+  background: radial-gradient(circle at 35% 30%, #f0f4f8 0%, #c0d0e0 45%, #7a8c9e 85%, #566472 100%);
+  color: #1a222a;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.exhibit:hover .ex-medallion {
+  transform: scale(1.05) rotate(2deg);
+}
+.ex-medallion.is-gold {
+  background: radial-gradient(circle at 35% 30%, #fff8e1 0%, #ffd54f 40%, #ff8f00 80%, #b26a00 100%);
+  box-shadow: 
+    0 12px 30px rgba(0,0,0,0.8),
+    inset 0 2px 4px rgba(255,255,255,0.8),
+    inset 0 -3px 6px rgba(0,0,0,0.6),
+    0 0 0 3px #1a1712,
+    0 0 0 5px #e6a100;
+  color: #3e2723;
+}
+/* Coin Milling & Embossing */
+.med-ring {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 2px dashed rgba(0,0,0,0.35);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+  pointer-events: none;
+}
+.med-iso {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.9rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.8), 0 -1px 1px rgba(0,0,0,0.4);
+}
+.med-year {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  margin-top: 0.2rem;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+.med-denom {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.med-shimmer {
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.55) 50%, transparent 60%);
+  animation: coinShimmer 5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes coinShimmer {
+  0%, 75% { transform: translate(-30%, -30%) rotate(0deg); }
+  90%, 100% { transform: translate(30%, 30%) rotate(0deg); }
+}
+
+.ex-info {
+  flex: 1;
+  text-align: left;
+}
+.ex-ser-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  color: var(--gold-soft);
+  margin-bottom: 0.4rem;
+}
+.ex-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0.2rem 0 0.4rem;
+}
+.ex-desc {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 0.8rem;
+}
+.ex-val-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.ex-val-tag small {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ---------- 3. Archival 2x2 Flip Cardboard Holders in Gallery ---------- */
+.piece-card {
+  position: relative;
+  background: #11100d;
+  border: 1px solid rgba(200, 169, 74, 0.16);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s, border-color 0.25s;
+}
+.piece-card:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.7), 0 0 24px rgba(200, 169, 74, 0.16);
+  border-color: var(--gold);
+}
+
+/* 2x2 Archival Holder Styling */
+.pc-holder {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  background: 
+    radial-gradient(circle at 50% 50%, #1e1b15 0%, #11100d 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+html[data-atmo="conservator"] .pc-holder {
+  background: radial-gradient(circle at 50% 50%, #fdfbf7 0%, #ede6d6 100%);
+}
+/* The Circular Mylar Window */
+.pc-window {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    inset 0 3px 8px rgba(0,0,0,0.7),
+    0 1px 0 rgba(255,255,255,0.1),
+    0 0 0 2px rgba(0,0,0,0.3);
+  overflow: hidden;
+  background: #0a0907;
+}
+/* Procedural Coin inside Window */
+.pc-coin {
+  width: 88%;
+  height: 88%;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at 35% 30%, #e2e8f0 0%, #94a3b8 50%, #64748b 90%, #475569 100%);
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.8);
+}
+.pc-coin.gold-coin {
+  background: radial-gradient(circle at 35% 30%, #fef08a 0%, #eab308 50%, #ca8a04 90%, #854d0e 100%);
+  color: #422006;
+}
+.pc-coin.bronze-coin {
+  background: radial-gradient(circle at 35% 30%, #fdba74 0%, #ea580c 50%, #9a3412 90%, #7c2d12 100%);
+  color: #431407;
+}
+.pc-coin-inner {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0,0,0,0.3);
+  pointer-events: none;
+}
+.pc-coin-iso {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+.pc-coin-year {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  margin-top: 0.1rem;
+}
+.pc-coin-denom {
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Mylar Glint Sheen */
+.pc-mylar-glint {
+  position: absolute;
+  inset: -60%;
+  background: linear-gradient(125deg, transparent 42%, rgba(255,255,255,0.35) 50%, transparent 58%);
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease-out);
+  pointer-events: none;
+}
+.piece-card:hover .pc-mylar-glint {
+  transform: translateX(100%);
+}
+
+/* Cardboard Holder Header & Label */
+.pc-card-meta {
+  padding: 0.75rem 0.85rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+.pc-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pc-ser-key {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold-soft);
+}
+.pc-ag-pill {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(184, 200, 216, 0.18);
+  border: 1px solid rgba(184, 200, 216, 0.4);
+  color: #d8e2ec;
+}
+.pc-subtitle {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.pc-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: auto;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--line);
+}
+.pc-price {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.pc-melt-note {
+  font-size: 0.68rem;
+  color: var(--faint);
+  font-family: var(--mono);
+}
+
+/* ---------- 4. Staggered Cascades & Wing Transitions ---------- */
+.pane.active {
+  animation: paneFadeIn 0.35s var(--ease-out);
+}
+@keyframes paneFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.pane.active .reveal {
+  animation: cascadeSlide 0.5s var(--ease-out) both;
+}
+.pane.active .reveal:nth-child(1) { animation-delay: 0.04s; }
+.pane.active .reveal:nth-child(2) { animation-delay: 0.08s; }
+.pane.active .reveal:nth-child(3) { animation-delay: 0.12s; }
+.pane.active .reveal:nth-child(4) { animation-delay: 0.16s; }
+.pane.active .reveal:nth-child(5) { animation-delay: 0.20s; }
+@keyframes cascadeSlide {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- 5. Luxury Audio Dock & Equalizer ---------- */
+.lofi-bar, .player-bar {
+  background: rgba(18, 16, 12, 0.92) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid var(--line-strong) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.8), 0 0 20px rgba(200, 169, 74, 0.12) !important;
+  border-radius: 18px !important;
+}
+.audio-vu-meter {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.audio-vu-meter span {
+  width: 3px;
+  height: 100%;
+  background: var(--gold);
+  border-radius: 1px;
+  transform-origin: bottom;
+  animation: vuPulse 1.2s ease-in-out infinite alternate;
+}
+.audio-vu-meter span:nth-child(1) { animation-delay: 0.1s; height: 40%; }
+.audio-vu-meter span:nth-child(2) { animation-delay: 0.3s; height: 80%; }
+.audio-vu-meter span:nth-child(3) { animation-delay: 0.5s; height: 60%; }
+.audio-vu-meter span:nth-child(4) { animation-delay: 0.2s; height: 95%; }
+.audio-vu-meter span:nth-child(5) { animation-delay: 0.4s; height: 50%; }
+@keyframes vuPulse {
+  0% { transform: scaleY(0.2); }
+  50% { transform: scaleY(0.9); }
+  100% { transform: scaleY(0.4); }
+}
+
+/* ---------- 6. Dossier Precision Caliper & Live Melt Gauge ---------- */
+.ds-caliper-box {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  position: relative;
+}
+.ds-caliper-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+.ds-caliper-visual {
+  position: relative;
+  height: 52px;
+  background: #080807;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.caliper-flip-window {
+  width: 90%;
+  height: 38px;
+  border: 1px dashed rgba(255,255,255,0.25);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.caliper-coin-fill {
+  height: 30px;
+  background: linear-gradient(90deg, #8ca0b4, #b8c8d8, #8ca0b4);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(200, 220, 240, 0.4);
+  position: relative;
+}
+.caliper-label {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--gold-soft);
+}

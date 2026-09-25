@@ -380,3 +380,36 @@ and prepare the consolidation bridge for Grok's master pipeline:
 4. **Synchronized Build Metadata:** Synchronized `window.TITAN_BUILD` (was stale `"tr9"`),
    sw.js `BUILD` constant, and all asset query params (`?v=tr21`).
 
+## tr22 — 10/10 Visual & Sensory Elevation Pass (2026-09-25, Antigravity)
+
+Major design elevation transforming the experience from a flat catalog into an interactive luxury museum reliquary:
+
+1. **Vault Valuation & Live Melt Allocation Hub (Grand Hall):**
+   - Built the tri-tone metallic allocation bar directly underneath the grand collection valuation figure.
+   - Computes real-time breakdowns from Grok's live JSON:
+     * Silver Melt Reserve: 63.27 oz Ag @ live spot = $4,009.86 (71.8% of vault) with brushed silver luster.
+     * Gold Melt Reserve: 0.1322 oz Au @ live spot = $562.23 (10.1% of vault) with 24k molten gold luster.
+     * Numismatic Collector Premium: $1,012.02 (18.1% of vault) with sapphire royalty gradient.
+   - Features animated specular glint and interactive tooltips showing exact ounces and live percentages.
+
+2. **Masterpiece Exhibition Pedestal Showcase (Grand Hall):**
+   - Completely upgraded `#exhibit` from a flat text box into an illuminated museum showcase.
+   - Displays a procedural 3D minted coin medallion with reeded rim edge, concentric milling, national monogram (ISO), year, and denomination relief.
+   - Dynamic specular gleam sweeps across the coin surface on slide transition with 3D hover response.
+
+3. **Archival 2×2 Cardboard Flip Holders (The Gallery):**
+   - Replaced empty gray monospace placeholder boxes with authentic White Archival 2×2 Cardboard Flip Holders.
+   - Features circular mylar windows displaying minted coin medallions (silver, gold, bronze) with embossed country initials, years, and denominations.
+   - Interactive dynamic mylar light sheen reflects as the user hovers over any coin card.
+   - Displays live melt price tags directly on silver flips.
+
+4. **Precision Caliper Gauge & Live Valuation Multiplier (Dossier):**
+   - Added an interactive physical caliper scale visual comparing the coin's exact millimeter diameter to the standard 50.8 mm (2-inch) cardboard window.
+   - Added a live Numismatic Multiplier widget for silver coins: calculates ASW × Spot = Pure Melt, Collector Premium, and exact multiplier ratio (e.g. 2.9× Melt).
+
+5. **Fluid Staggered Wing Cascades & Audio VU Equalizers:**
+   - Smooth staggered cascade animation when entering museum wings.
+   - Animated 5-bar gold LED equalizer in the floating soundscape console.
+   - Synchronized build stamps to `tr22`.
+
+

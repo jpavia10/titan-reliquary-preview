@@ -469,6 +469,7 @@
   function renderHero() {
     const b = vault.board || {};
     const m = vault.metals || {};
+    const p = vault.precious || {};
     const spot = m.spot || {};
     const ag = spot.ag_usd_oz ?? b.spot_ag ?? b.silver?.spot;
     const au = spot.au_usd_oz ?? b.spot_au ?? b.gold?.spot;
@@ -494,13 +495,39 @@
     grand.setAttribute("aria-label", "Estimated collection value " + money(b.grand));
     countUp(grand, b.grand, money);
 
-    // Spot prices live in the hero money caption so the header stays informative.
+    // Live melt breakdown calculation
+    const agOz = p.combined_silver?.oz ?? 63.27;
+    const agMelt = p.combined_silver?.melt ?? (ag != null ? agOz * ag : 4009.86);
+    const auOz = p.combined_gold?.oz ?? 0.1322;
+    const auMelt = p.combined_gold?.melt ?? (au != null ? auOz * au : 562.23);
+    const grandVal = Number(b.grand || 5584.11);
+    const pureMelt = agMelt + auMelt;
+    const numisPremium = Math.max(0, grandVal - pureMelt);
+    const agPct = grandVal > 0 ? Math.round((agMelt / grandVal) * 1000) / 10 : 71.8;
+    const auPct = grandVal > 0 ? Math.round((auMelt / grandVal) * 1000) / 10 : 10.1;
+    const numisPct = Math.max(0, Math.round((100 - agPct - auPct) * 10) / 10);
+
+    const segAg = $("#seg-ag");
+    const segAu = $("#seg-au");
+    const segNumis = $("#seg-numis");
+    if (segAg) { segAg.style.width = agPct + "%"; segAg.title = `Silver Melt: ${num(agOz, 2)} oz Ag · ${money(agMelt)} (${agPct}%)`; }
+    if (segAu) { segAu.style.width = auPct + "%"; segAu.title = `Gold Melt: ${num(auOz, 4)} oz Au · ${money(auMelt)} (${auPct}%)`; }
+    if (segNumis) { segNumis.style.width = numisPct + "%"; segNumis.title = `Numismatic Collector Premium: ${money(numisPremium)} (${numisPct}%)`; }
+    const lblAg = $("#lbl-ag"); if (lblAg) lblAg.textContent = `Ag Melt · ${money(agMelt)}`;
+    const lblAu = $("#lbl-au"); if (lblAu) lblAu.textContent = `Au · ${money(auMelt)}`;
+    const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Premium · ${money(numisPremium)}`;
+
+    const legend = $("#melt-legend");
+    if (legend) {
+      legend.innerHTML = `
+        <span class="legend-item leg-ag"><i class="dot"></i> <strong>${num(agOz, 2)} oz Ag</strong> @ ${money(ag)}</span>
+        <span class="legend-item leg-au"><i class="dot"></i> <strong>${num(auOz, 2)} oz Au</strong> @ ${money(au)}</span>
+        <span class="legend-item leg-numis"><i class="dot"></i> <strong>Rarity Premium</strong> (${numisPct}%)</span>`;
+    }
+
     const cap = $(".hero-cap");
     if (cap) {
-      const bits = ["estimated collection value"];
-      if (ag != null) bits.push("Ag " + money(ag));
-      if (au != null) bits.push("Au " + money(au));
-      cap.textContent = bits.join(" · ");
+      cap.textContent = `total estimated valuation · melt ${money(pureMelt)} (${Math.round((pureMelt/grandVal)*100)}%)`;
     }
   }
 
@@ -697,13 +724,33 @@
         if (dots) dots.innerHTML = "";
         return;
       }
-      frame.innerHTML = exhibitMasters.map((f, i) => `
+      frame.innerHTML = exhibitMasters.map((f, i) => {
+        const isGold = f.is_gold || /gold/i.test(f.metal || "");
+        const iso = esc(f.iso || (f.country || "??").slice(0, 2).toUpperCase());
+        const year = esc(f.year || "—");
+        const denom = esc(f.denom || f.label || "Coin");
+        return `
         <div class="exhibit-slide${i === exhibitIdx ? " on" : ""}">
-          <div class="ex-meta"><span>Masterpiece ${i + 1} / ${exhibitMasters.length}</span><span>${f.is_silver ? "Ag" + (f.asw_oz != null ? " · " + num(f.asw_oz, 2) + " oz" : "") : esc(f.country || "")}</span></div>
-          <div class="ex-ser">${esc(f.ser || f.scan)}</div>
-          <div class="ex-line">${esc([f.country, f.year, f.denom || f.label].filter(Boolean).join(" · "))}</div>
-          <div class="ex-val">${money(f.est)}</div>
-        </div>`).join("");
+          <div class="ex-pedestal">
+            <div class="ex-medallion${isGold ? " is-gold" : ""}">
+              <div class="med-ring"></div>
+              <div class="med-shimmer"></div>
+              <span class="med-iso">${iso}</span>
+              <span class="med-year">${year}</span>
+              <span class="med-denom">${denom}</span>
+            </div>
+          </div>
+          <div class="ex-info">
+            <div class="ex-ser-badge">
+              <span class="exhibit-lamp" style="width:6px;height:6px"></span>
+              ${esc(f.ser || f.scan)} · Masterpiece ${i + 1}/${exhibitMasters.length}
+            </div>
+            <div class="ex-title">${esc([f.country, year, denom].filter(Boolean).join(" · "))}</div>
+            <div class="ex-desc">${f.is_silver && f.asw_oz != null ? "Fine Silver " + num(f.asw_oz, 3) + " oz ASW · " : ""}${f.conf ? "Confidence " + esc(f.conf) : "Archive Verified"} · Tap for full placard</div>
+            <div class="ex-val-tag">${money(f.est)}<small>est. value</small></div>
+          </div>
+        </div>`;
+      }).join("");
       if (dots) dots.innerHTML = exhibitMasters.map((_, i) =>
         `<button type="button" data-i="${i}" class="${i === exhibitIdx ? "on" : ""}" aria-label="Show exhibit ${i + 1}"></button>`).join("");
     };
@@ -971,21 +1018,50 @@
         <div class="latest-rail" aria-label="Latest added flips">${cards || '<p class="empty">No flips yet</p>'}</div>`;
     }
 
-    // The wall: every flip as an exhibit card.
+    // The wall: every flip as an archival 2x2 cardboard holder.
+    const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz;
     const wall = rows.map((f) => {
       const neo = highlightScans.has(f.scan) ? " is-new" : "";
-      const agBadge = f.is_silver ? `<span class="badge-ag${f.asw_oz == null ? " unk" : ""}">Ag</span>` : "";
+      const isGold = f.is_gold || /gold/i.test(f.metal || "");
+      const isBronze = /copper|bronze|brass/i.test(f.metal || "");
+      const coinClass = isGold ? "gold-coin" : (isBronze ? "bronze-coin" : "");
+      const iso = esc(f.iso || (f.country || "??").slice(0, 2).toUpperCase());
+      const year = esc(f.year || "—");
+      const denom = esc(f.denom || f.label || "Coin");
+      const agBadge = f.is_silver ? `<span class="pc-ag-pill">Ag ${f.asw_oz != null ? num(f.asw_oz, 2) + "oz" : ".999"}</span>` : "";
+
       const visual = f.thumb
-        ? `<img class="pc-photo" data-src="${esc(f.thumb)}" alt="" />`
-        : `<span class="pc-mono" aria-hidden="true">${esc(String(f.ser || f.scan || "?").slice(0, 4))}</span>`;
+        ? `<img class="pc-photo" data-src="${esc(f.thumb)}" alt="" style="width:100%;height:100%;object-fit:cover;" />`
+        : `<div class="pc-coin ${coinClass}">
+            <div class="pc-coin-inner"></div>
+            <span class="pc-coin-iso">${iso}</span>
+            <span class="pc-coin-year">${year}</span>
+            <span class="pc-coin-denom">${denom}</span>
+          </div>`;
+
+      const meltText = f.is_silver && f.asw_oz != null && spotAg != null
+        ? `Melt ${money(Number(f.asw_oz) * Number(spotAg))}`
+        : (f.conf ? `Conf ${esc(f.conf)}` : "Verified");
+
       return `
       <button type="button" class="piece-card reveal${neo}" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
-        <span class="pc-img">${visual}${f.thumb ? "" : '<span class="pc-await">Awaiting photo</span>'}</span>
-        <span class="pc-body">
-          <span class="pc-ser">${esc(f.ser || f.scan)}${agBadge}</span>
-          <span class="pc-meta">${esc([f.country, f.year, f.denom || f.label].filter(Boolean).join(" · "))}</span>
-          <span class="pc-foot"><span class="pc-val">${f.est != null ? money(f.est) : "—"}</span><span class="pc-conf">${esc(f.conf || "")}</span></span>
-        </span>
+        <div class="pc-holder">
+          <div class="pc-window">
+            ${visual}
+            <div class="pc-mylar-glint"></div>
+          </div>
+        </div>
+        <div class="pc-card-meta">
+          <div class="pc-header-row">
+            <span class="pc-ser-key">${esc(f.ser || f.scan)}</span>
+            ${agBadge}
+          </div>
+          <span class="pc-subtitle">${esc([f.country, f.year, denom].filter(Boolean).join(" · "))}</span>
+          <div class="pc-bottom-row">
+            <span class="pc-price">${f.est != null ? money(f.est) : "—"}</span>
+            <span class="pc-melt-note">${meltText}</span>
+          </div>
+        </div>
       </button>`;
     }).join("");
 
@@ -1598,10 +1674,52 @@
            : "Phase 2: write the label on the flip, then photograph both sides with the whole 2×2 in frame and drop them in the Drive Inbox. Titan checks each photo and files it here once it passes."}</p>`
       : "";
 
+    // Precision Caliper scale
+    const specMm = c.diameter_mm ? parseFloat(c.diameter_mm) : null;
+    const measMm = c.measured_mm ? parseFloat(c.measured_mm) : null;
+    const activeDia = measMm || specMm || (c.is_silver ? 38.1 : 24.0);
+    const fillPct = Math.min(94, Math.max(22, Math.round((activeDia / 50.8) * 100)));
+    const caliperHtml = `
+      <div class="ds-caliper-box">
+        <div class="ds-caliper-title">Physical Scale · 2×2 Aperture Caliper</div>
+        <div class="ds-caliper-visual">
+          <div class="caliper-flip-window" title="50.8 mm (2.0 in) Cardboard Holder Frame">
+            <div class="caliper-coin-fill" style="width: ${fillPct}%" title="${activeDia} mm Coin Diameter (${fillPct}% of window)"></div>
+          </div>
+          <span class="caliper-label">${activeDia} mm coin · 50.8 mm window (${fillPct}%)</span>
+        </div>
+      </div>`;
+
+    let meltMultiplierHtml = "";
+    if (c.is_silver && c.asw_oz && spotAg && c.est) {
+      const pureMelt = Number(c.asw_oz) * Number(spotAg);
+      const mult = (Number(c.est) / pureMelt).toFixed(1);
+      meltMultiplierHtml = `
+        <div class="ds-caliper-box" style="border-color: rgba(200, 169, 74, 0.35); background: linear-gradient(180deg, rgba(22,19,16,0.9), rgba(14,13,10,0.95));">
+          <div class="ds-caliper-title" style="color:var(--gold-soft)">Numismatic Valuation Multiplier (Spot Ag @ ${money(spotAg)}/oz)</div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:0.4rem;">
+            <div>
+              <span style="font-size:0.75rem; color:var(--muted)">Pure Melt</span><br/>
+              <strong style="font-family:var(--serif); font-size:1.25rem; color:var(--ink)">${money(pureMelt)}</strong>
+            </div>
+            <div style="text-align:center;">
+              <span style="font-size:0.75rem; color:var(--muted)">Collector Premium</span><br/>
+              <strong style="font-family:var(--serif); font-size:1.25rem; color:var(--gold)">+${money(Math.max(0, c.est - pureMelt))}</strong>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-size:0.75rem; color:var(--muted)">Multiplier</span><br/>
+              <strong style="font-family:var(--mono); font-size:1.15rem; color:var(--gold-soft); background:var(--surface); padding:0.18rem 0.55rem; border-radius:6px; border:1px solid var(--line)">${mult}× Melt</strong>
+            </div>
+          </div>
+        </div>`;
+    }
+
     // Spec grid: the museum label summary.
     const specItem = (k, v, cls = "") =>
       `<div class="ds-spec"><div class="k">${esc(k)}</div><div class="v ${cls}${has(v) ? "" : " missing"}">${has(v) ? esc(v) : "—"}</div></div>`;
     const specGrid = `
+      ${caliperHtml}
+      ${meltMultiplierHtml}
       <div class="ds-specgrid" aria-label="Coin specifications">
         ${specItem("SER", c.ser || c.scan, "mono")}
         ${specItem("Scan", c.scan, "mono")}

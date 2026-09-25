@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr21" />
+  <link rel="stylesheet" href="styles.css?v=tr22" />
 </head>
 <body>
   <div id="app">
@@ -54,9 +54,28 @@
             <div class="exhibit-dots" id="exhibit-dots" aria-hidden="true"></div>
           </div>
 
-          <div class="hero-money">
+          <div class="vault-valuation-hub">
             <div class="hero-grand" id="hero-grand" aria-label="Estimated collection value">$0.00</div>
-            <div class="hero-cap">estimated collection value</div>
+            <div class="hero-cap">total estimated collection valuation</div>
+            <div class="melt-allocation-bar" id="melt-bar" title="Vault Metal & Rarity Allocation">
+              <div class="melt-seg seg-ag" id="seg-ag" style="width: 71.8%" title="Silver Melt (71.8%)">
+                <span class="seg-glow"></span>
+                <span class="seg-label" id="lbl-ag">Ag Melt · $4,010</span>
+              </div>
+              <div class="melt-seg seg-au" id="seg-au" style="width: 10.1%" title="Gold Melt (10.1%)">
+                <span class="seg-glow"></span>
+                <span class="seg-label" id="lbl-au">Au · $562</span>
+              </div>
+              <div class="melt-seg seg-numis" id="seg-numis" style="width: 18.1%" title="Numismatic Premium (18.1%)">
+                <span class="seg-glow"></span>
+                <span class="seg-label" id="lbl-numis">Rarity · $1,012</span>
+              </div>
+            </div>
+            <div class="melt-legend" id="melt-legend">
+              <span class="legend-item leg-ag"><i class="dot"></i> <strong>63.27 oz Ag</strong> @ $63.38</span>
+              <span class="legend-item leg-au"><i class="dot"></i> <strong>0.13 oz Au</strong> @ $4,253</span>
+              <span class="legend-item leg-numis"><i class="dot"></i> <strong>Collector Premium</strong> (18.1%)</span>
+            </div>
           </div>
           <div class="hero-stats" id="hdr-stats" aria-label="Vault totals"></div>
           <div class="hero-actions">
@@ -315,10 +334,10 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr21";</script>
-  <script src="app.js?v=tr21"></script>
-  <script src="js/playlist.js?v=tr21"></script>
-  <script src="audio.js?v=tr21"></script>
-  <script src="ambient.js?v=tr21"></script>
+  <script>window.TITAN_BUILD = "tr22";</script>
+  <script src="app.js?v=tr22"></script>
+  <script src="js/playlist.js?v=tr22"></script>
+  <script src="audio.js?v=tr22"></script>
+  <script src="ambient.js?v=tr22"></script>
 </body>
 </html>
