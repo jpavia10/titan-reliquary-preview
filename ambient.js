@@ -52,15 +52,23 @@
                 mix: { crowd: .65, fire: .35, crackle: .3, drone: .12 } },
     archive:  { name: "Deep archive", desc: "Paper dust, quiet machines, rain on the roof.",
                 mix: { office: .6, rain: .22, drone: .3, scifi: .15 } },
+    mirage:   { name: "Mirage",    desc: "Heat-shimmer on the horizon; the machines are dreaming.",
+                mix: { scifi: .5, drone: .4, gust: .4, belltoll: .3, crickets: .25 } },
+    depths:   { name: "Depths",    desc: "Forty fathoms down. Pressure, dark water, a far-off bell.",
+                mix: { drone: .75, gust: .5, belltoll: .35, scifi: .15 } },
+    grid:     { name: "Grid",      desc: "Chrome midnight. Neon hum and iron percussion.",
+                mix: { scifi: .65, drone: .45, clank: .3, crackle: .15 } },
+    signal:   { name: "Signal",    desc: "Something out there is transmitting. The bell answers.",
+                mix: { scifi: .7, drone: .5, belltoll: .45, thunder: .15 } },
     off:      { name: "Off",       desc: "Silence. Just the music.", mix: {} },
   };
-  const PRESET_ORDER = ["storm", "foundry", "fireside", "wayfarer", "night", "blackout", "tavern", "archive", "off"];
+  const PRESET_ORDER = ["storm", "foundry", "fireside", "wayfarer", "night", "blackout", "tavern", "archive", "mirage", "depths", "grid", "signal", "off"];
 
   const KEY = "tr_ambient_v2";
   const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ---- state ---------------------------------------------------------------
-  const state = { layers: {}, master: 0.8, intensity: 60, preset: null };
+  const state = { layers: {}, master: 0.8, intensity: 60, lightning: 70, preset: null };
   for (const id of LAYER_IDS) state.layers[id] = { on: false, vol: 0.7 };
   try {
     const raw = JSON.parse(localStorage.getItem(KEY) || "null");
@@ -72,11 +80,12 @@
       }
       if (Number.isFinite(raw.master)) state.master = Math.min(1, Math.max(0, raw.master));
       if (Number.isFinite(raw.intensity)) state.intensity = Math.min(100, Math.max(0, raw.intensity));
+      if (Number.isFinite(raw.lightning)) state.lightning = Math.min(100, Math.max(0, raw.lightning));
       if (raw.preset && PRESETS[raw.preset]) state.preset = raw.preset;
     }
   } catch { /* fresh */ }
   function writeState() {
-    try { localStorage.setItem(KEY, JSON.stringify({ layers: state.layers, master: state.master, intensity: state.intensity, preset: state.preset })); } catch { /* ignore */ }
+    try { localStorage.setItem(KEY, JSON.stringify({ layers: state.layers, master: state.master, intensity: state.intensity, lightning: state.lightning, preset: state.preset })); } catch { /* ignore */ }
   }
 
   // ---- audio graph ----------------------------------------------------------
@@ -267,6 +276,7 @@
     rampGain(id);
     if (id === "rain") setTimeout(() => (state.layers.rain.on ? startCanvas() : stopCanvas()), 60);
     if (id === "thunder") scheduleBolt();
+    if (id === "fire") updateFireFx();
     markPreset(null);
     writeState(); syncUi();
   }
@@ -274,6 +284,7 @@
     if (!LAYER_IDS.includes(id)) return;
     state.layers[id].vol = Math.min(1, Math.max(0, v));
     if (state.layers[id].on && ctx) rampGain(id, 0.25);
+    if (id === "fire") updateFireFx();
     markPreset(null);
     writeState(); syncVolUi();
   }
@@ -379,7 +390,7 @@
   let boltTimer = 0;
   function strike() {
     if (reducedMotion) return;
-    const v = state.layers.thunder.vol;
+    const v = state.layers.thunder.vol * (state.lightning / 100);
     const cursed = document.documentElement.dataset.atmo === "cursedwing";
     bolt.style.setProperty("--bolt", cursed ? "rgba(255,70,70,0.5)" : "rgba(190,215,255,0.5)");
     bolt.style.setProperty("--bolt-op", (0.25 + v * 0.55).toFixed(2));
@@ -397,6 +408,37 @@
       scheduleBolt();
     }, 9000 + Math.random() * 17000);
   }
+  // ---- fire glow: where there's fire sound, there's firelight --------------------
+  // A warm flickering vignette plus rising embers, intensity follows the fire
+  // layer's volume. Mirrors the lightning/thunder pairing.
+  const fireGlow = document.createElement("div");
+  fireGlow.id = "fire-glow";
+  fireGlow.setAttribute("aria-hidden", "true");
+  document.body.appendChild(fireGlow);
+  const emberLayer = document.createElement("div");
+  emberLayer.id = "ember-layer";
+  emberLayer.setAttribute("aria-hidden", "true");
+  document.body.appendChild(emberLayer);
+  function seedEmbers() {
+    emberLayer.innerHTML = "";
+    for (let i = 0; i < 12; i++) {
+      const e = document.createElement("i");
+      const s = (2 + Math.random() * 3).toFixed(1);
+      e.style.left = (Math.random() * 100).toFixed(1) + "vw";
+      e.style.width = e.style.height = s + "px";
+      e.style.animationDuration = (7 + Math.random() * 9).toFixed(1) + "s";
+      e.style.animationDelay = (-Math.random() * 14).toFixed(1) + "s";
+      emberLayer.appendChild(e);
+    }
+  }
+  function updateFireFx() {
+    const on = state.layers.fire && state.layers.fire.on && !reducedMotion;
+    const v = state.layers.fire ? state.layers.fire.vol : 0;
+    fireGlow.classList.toggle("lit", !!on);
+    emberLayer.classList.toggle("lit", !!on);
+    fireGlow.style.setProperty("--fire-op", (0.25 + v * 0.6).toFixed(2));
+    if (on && !emberLayer.children.length) seedEmbers();
+  }
   const btn = document.getElementById("btn-rain");
   const panel = document.createElement("div");
   panel.className = "ambient-panel";
@@ -408,7 +450,7 @@
     <div class="amb-layer" data-layer="${id}">
       <button type="button" class="amb-layertoggle" data-layerbtn="${id}" aria-pressed="false">
         <span class="amb-meter" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="amb-layername">${layerLabel(id)}${id === "thunder" ? ' <span class="amb-bolt" title="Lightning flashes on screen">⚡</span>' : ""}</span>
+        <span class="amb-layername">${layerLabel(id)}${id === "thunder" ? ' <span class="amb-bolt" title="Lightning flashes on screen">⚡</span>' : ""}${id === "fire" ? ' <span class="amb-bolt" title="Firelight glows on screen">🔥</span>' : ""}</span>
       </button>
       <input type="range" class="amb-vol" data-vol="${id}" min="0" max="1" step="0.01"
              value="${state.layers[id].vol}" aria-label="${layerLabel(id)} volume" />
@@ -422,7 +464,7 @@
     <div class="amb-presets">
       ${PRESET_ORDER.map((p) => `<button type="button" class="amb-preset" data-preset="${p}"><span>${PRESETS[p].name}</span></button>`).join("")}
     </div>
-    <div class="amb-preset-desc" id="amb-preset-desc">Layers fade in and out smoothly, drift slowly across the stereo field, and mix with the music player. Rain shows on screen too — tap any layer to build your own weather.</div>
+    <div class="amb-preset-desc" id="amb-preset-desc">Layers fade in and out smoothly, drift slowly across the stereo field, and mix with the music player. Rain and fire show on screen too — tap any layer to build your own weather.</div>
     <div class="amb-secname">Recorded</div>
     <div class="amb-layers">${Object.keys(RECORDED).map(layerRow).join("")}</div>
     <div class="amb-secname">Synthesized live</div>
@@ -430,6 +472,7 @@
     <div class="amb-foot">
       <label class="amb-master">Master <input type="range" id="amb-master" min="0" max="1" step="0.01" value="${state.master}" aria-label="Ambient master volume" /></label>
       <label class="amb-master">Rainfall <input type="range" id="amb-intensity" min="0" max="100" step="1" value="${state.intensity}" aria-label="Rainfall intensity" /></label>
+      <label class="amb-master">⚡ Flash <input type="range" id="amb-lightning" min="0" max="100" step="1" value="${state.lightning}" aria-label="Lightning flash intensity" /></label>
     </div>`;
   document.body.appendChild(panel);
 
@@ -477,6 +520,10 @@
     if (state.layers.rain.on) { seedDrops(); }
     writeState();
   });
+  panel.querySelector("#amb-lightning").addEventListener("input", (e) => {
+    state.lightning = parseFloat(e.target.value);
+    writeState();
+  });
   panel.querySelectorAll(".amb-preset").forEach((b) => {
     b.addEventListener("click", () => applyPreset(b.dataset.preset));
   });
@@ -504,6 +551,7 @@
     if (state.layers.thunder.on) scheduleBolt();
   }
   syncUi();
+  updateFireFx();
 
   // Public hooks for the atmosphere system ("Set the scene" pairing).
   window.TitanAmbient = {

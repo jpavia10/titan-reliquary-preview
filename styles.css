@@ -3058,3 +3058,342 @@ table.data td.ids { white-space: nowrap; }
 html[data-atmo="conservator"] #dust-layer i {
   background: radial-gradient(circle, rgba(146, 106, 30, 0.62), transparent 70%);
 }
+
+/* ================= tr13: fire fx, lightning slider note, 6 new atmospheres ================= */
+/* --- Fire glow + embers: full-screen firelight tied to the fire layer --- */
+#fire-glow {
+  position: fixed; inset: 0; z-index: 6; pointer-events: none;
+  opacity: 0; transition: opacity 1.2s ease;
+  background: radial-gradient(120% 90% at 50% 115%, rgba(255, 122, 30, var(--fire-op, 0.55)), transparent 62%);
+}
+#fire-glow.lit { opacity: 1; animation: fire-flicker 2.8s ease-in-out infinite; }
+@keyframes fire-flicker {
+  0%, 100% { filter: brightness(1); }
+  28% { filter: brightness(1.22); }
+  52% { filter: brightness(0.9); }
+  76% { filter: brightness(1.12); }
+}
+#ember-layer { position: fixed; inset: 0; z-index: 6; pointer-events: none; overflow: hidden; opacity: 0; transition: opacity 1s ease; }
+#ember-layer.lit { opacity: 1; }
+#ember-layer i {
+  position: absolute; bottom: -3vh; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 170, 70, 0.95), rgba(255, 90, 20, 0) 70%);
+  animation-name: ember-rise; animation-timing-function: linear; animation-iteration-count: infinite;
+}
+@keyframes ember-rise {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translateY(-106vh) translateX(3vw); opacity: 0; }
+}
+
+/* --- After Hours vs Colossus: split them apart. After Hours goes cold moonlight,
+   Colossus goes full furnace. --- */
+html[data-atmo="afterhours"] {
+  --bg: #04060b; --bg2: #070a11; --surface: #0a0e16; --surface2: #101724;
+  --ink: #edf1f8; --muted: #8e99ae; --faint: #545e74;
+  --gold: #cdb271; --gold-soft: #e6d6a8; --gold-deep: #6a6238;
+  --line: rgba(150, 175, 220, 0.13); --line-strong: rgba(150, 175, 220, 0.34);
+  --th-bg: #080b11; --tabgrad1: #141a26; --tabgrad2: #080b11;
+  --foot-bg: rgba(4, 6, 11, 0.92); --ph-bg: #060910; --sel-bg: #0d1320;
+  --hold-bg: linear-gradient(135deg, #141b29, #080b11);
+  --drawerbar-bg: rgba(10, 14, 22, 0.94); --cardmeta: #b9c2d4;
+  --skeleton1: #101724; --skeleton2: #060910;
+  --toastgrad1: #141a26; --toastgrad2: #080b11;
+  --row-hover: rgba(150, 175, 220, 0.06);
+  --shadow: inset 0 1px 0 rgba(180, 200, 240, 0.05), 0 18px 50px rgba(0, 0, 0, 0.8);
+}
+html[data-atmo="afterhours"] body {
+  background-image:
+    linear-gradient(180deg, rgba(130, 170, 235, 0.07), transparent 32%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(2, 4, 9, 0.6) 100%);
+}
+html[data-atmo="afterhours"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(150, 190, 255, 0.12), transparent 70%);
+}
+html[data-atmo="colossus"] {
+  --bg: #170f06; --bg2: #1f1409; --surface: #251a0c; --surface2: #32220f;
+  --ink: #fbeed4; --muted: #c09a5e; --faint: #7d5c30;
+  --gold: #f2a93b; --gold-soft: #ffd98c; --gold-deep: #9a651a;
+  --line: rgba(242, 169, 59, 0.2); --line-strong: rgba(242, 169, 59, 0.48);
+  --th-bg: #1c1207; --tabgrad1: #32220f; --tabgrad2: #1a1005;
+  --foot-bg: rgba(23, 15, 6, 0.94); --ph-bg: #170f06; --sel-bg: #2a1d0b;
+  --hold-bg: linear-gradient(135deg, #38260e, #1a1005);
+  --drawerbar-bg: rgba(37, 26, 12, 0.95); --cardmeta: #e0c793;
+  --skeleton1: #32220f; --skeleton2: #170f06;
+  --toastgrad1: #32220f; --toastgrad2: #1a1005;
+  --row-hover: rgba(242, 169, 59, 0.08);
+  --grain-op: 0.07;
+}
+html[data-atmo="colossus"] body {
+  background-image:
+    radial-gradient(100% 55% at 50% 118%, rgba(255, 122, 26, 0.16), transparent 62%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(8, 4, 1, 0.55) 100%);
+}
+html[data-atmo="colossus"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(255, 150, 50, 0.16), transparent 70%);
+}
+html[data-atmo="colossus"] .wordmark { text-shadow: 0 0 34px rgba(255, 150, 50, 0.45); }
+
+/* ---------- 7. Kaleidoscope: the psychedelic wing ---------- */
+html[data-atmo="kaleido"] {
+  --bg: #0d0218; --bg2: #120326; --surface: #170433; --surface2: #20064a;
+  --ink: #f6ecff; --muted: #b79ad9; --faint: #6f4f9e;
+  --gold: #ff4dd2; --gold-soft: #ff9de2; --gold-deep: #8a1d6e;
+  --line: rgba(255, 77, 210, 0.2); --line-strong: rgba(255, 77, 210, 0.5);
+  --ok: #4dd2a0; --warn: #ffd24d; --bad: #ff5c8a;
+  --shadow: inset 0 1px 0 rgba(255, 120, 220, 0.1), 0 18px 60px rgba(60, 0, 90, 0.8);
+  --th-bg: #150330; --tabgrad1: #20064a; --tabgrad2: #0f0222;
+  --foot-bg: rgba(13, 2, 24, 0.94); --ph-bg: #10022a; --sel-bg: #22074e;
+  --hold-bg: linear-gradient(135deg, #2a0a5e, #120326);
+  --drawerbar-bg: rgba(23, 4, 51, 0.95); --cardmeta: #d9bdf2;
+  --skeleton1: #20064a; --skeleton2: #0d0218;
+  --toastgrad1: #20064a; --toastgrad2: #0f0222;
+  --row-hover: rgba(255, 77, 210, 0.09);
+  --grain-op: 0.08;
+}
+html[data-atmo="kaleido"] body {
+  background-image: radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(10, 0, 25, 0.6) 100%);
+}
+#kaleido-fx {
+  position: fixed; inset: -25%; z-index: -1; pointer-events: none;
+  background: conic-gradient(from 0deg, #ff0080, #ff8c00, #ffee00, #00ff88, #00ccff, #8844ff, #ff0080);
+  filter: blur(90px) saturate(1.5);
+  opacity: 0.3; mix-blend-mode: screen;
+  animation: kaleido-spin 16s linear infinite;
+}
+@keyframes kaleido-spin { to { transform: rotate(360deg); } }
+html[data-atmo="kaleido"] .wordmark {
+  background: linear-gradient(90deg, #ff4dd2, #ffee00, #00ffcc, #ff4dd2);
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: kaleido-word 8s linear infinite;
+  text-shadow: none;
+}
+@keyframes kaleido-word { to { background-position: 300% 0; } }
+html[data-atmo="kaleido"] .card, html[data-atmo="kaleido"] .tile {
+  border-width: 1px; box-shadow: 0 0 24px rgba(255, 77, 210, 0.12), var(--shadow);
+}
+html[data-atmo="kaleido"] #dust-layer i {
+  background: radial-gradient(circle, rgba(255, 120, 220, 0.8), transparent 70%);
+}
+
+/* ---------- 8. Sunken Treasury: the abyssal wreck ---------- */
+html[data-atmo="abyss"] {
+  --bg: #020a12; --bg2: #031019; --surface: #061620; --surface2: #0a2030;
+  --ink: #d8f0f5; --muted: #6f96a5; --faint: #3d5a68;
+  --gold: #4fd8e8; --gold-soft: #a5ecf5; --gold-deep: #1d6a7d;
+  --line: rgba(79, 216, 232, 0.16); --line-strong: rgba(79, 216, 232, 0.42);
+  --ok: #4dd2a0; --warn: #ffd24d; --bad: #ff6b6b;
+  --shadow: inset 0 1px 0 rgba(120, 220, 240, 0.07), 0 18px 55px rgba(0, 10, 20, 0.85);
+  --th-bg: #04121c; --tabgrad1: #0a2030; --tabgrad2: #020a12;
+  --foot-bg: rgba(2, 10, 18, 0.94); --ph-bg: #031019; --sel-bg: #0b2233;
+  --hold-bg: linear-gradient(135deg, #0b2a3d, #020a12);
+  --drawerbar-bg: rgba(6, 22, 32, 0.95); --cardmeta: #a9ccd6;
+  --skeleton1: #0a2030; --skeleton2: #020a12;
+  --toastgrad1: #0a2030; --toastgrad2: #020a12;
+  --row-hover: rgba(79, 216, 232, 0.07);
+  --grain-op: 0.06;
+}
+html[data-atmo="abyss"] body {
+  background-image:
+    conic-gradient(from 168deg at 22% -10%, transparent 0deg, rgba(120, 220, 245, 0.09) 8deg, transparent 16deg),
+    conic-gradient(from 192deg at 68% -10%, transparent 0deg, rgba(120, 220, 245, 0.07) 10deg, transparent 20deg),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(0, 6, 12, 0.65) 100%);
+  animation: abyss-sway 26s ease-in-out infinite alternate;
+}
+@keyframes abyss-sway { from { background-position: 0 0, 0 0, 0 0; } to { background-position: 3vw 0, -3vw 0, 0 0; } }
+html[data-atmo="abyss"] #dust-layer i {
+  background: radial-gradient(circle, rgba(140, 230, 245, 0.75), transparent 70%);
+}
+html[data-atmo="abyss"] .wordmark { text-shadow: 0 0 30px rgba(79, 216, 232, 0.5); }
+html[data-atmo="abyss"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(79, 216, 232, 0.12), transparent 70%);
+}
+
+/* ---------- 9. Neon Vault: chrome midnight ---------- */
+html[data-atmo="neon"] {
+  --bg: #0d0118; --bg2: #12011f; --surface: #150327; --surface2: #1d0435;
+  --ink: #f2e9ff; --muted: #a58ac9; --faint: #5f4a86;
+  --gold: #00f0ff; --gold-soft: #8ef7ff; --gold-deep: #0a6a80;
+  --line: rgba(0, 240, 255, 0.18); --line-strong: rgba(255, 45, 150, 0.55);
+  --ok: #39ff88; --warn: #ffe14d; --bad: #ff2d78;
+  --shadow: inset 0 1px 0 rgba(0, 240, 255, 0.09), 0 0 34px rgba(255, 45, 150, 0.14), 0 18px 55px rgba(0, 0, 0, 0.85);
+  --th-bg: #12011f; --tabgrad1: #1d0435; --tabgrad2: #0d0118;
+  --foot-bg: rgba(13, 1, 24, 0.94); --ph-bg: #0f0220; --sel-bg: #20053c;
+  --hold-bg: linear-gradient(135deg, #26064a, #0d0118);
+  --drawerbar-bg: rgba(21, 3, 39, 0.95); --cardmeta: #cdb4ec;
+  --skeleton1: #1d0435; --skeleton2: #0d0118;
+  --toastgrad1: #1d0435; --toastgrad2: #0d0118;
+  --row-hover: rgba(0, 240, 255, 0.08);
+  --grain-op: 0.05;
+}
+html[data-atmo="neon"] body {
+  background-image:
+    radial-gradient(60% 34% at 50% 108%, rgba(255, 45, 150, 0.28), transparent 70%),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(0, 240, 255, 0.10) 46px 48px),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(255, 45, 150, 0.10) 46px 48px),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(5, 0, 12, 0.6) 100%);
+}
+#neon-scan {
+  position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0.5;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px);
+}
+html[data-atmo="neon"] .wordmark {
+  color: #fff; text-shadow: 0 0 8px #fff, 0 0 24px #ff2d96, 0 0 60px #ff2d96;
+}
+html[data-atmo="neon"] .card, html[data-atmo="neon"] .tile { border-color: rgba(0, 240, 255, 0.28); }
+html[data-atmo="neon"] #dust-layer i {
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.8), transparent 70%);
+}
+
+/* ---------- 10. Plaintext: the notepad Easter egg ----------
+   Brutally stripped: monospace everything, hairline black rules, zero chrome. */
+html[data-atmo="notepad"] {
+  --bg: #ffffff; --bg2: #ffffff; --surface: #ffffff; --surface2: #f4f4f4;
+  --ink: #111111; --muted: #333333; --faint: #777777;
+  --gold: #000000; --gold-soft: #222222; --gold-deep: #000000;
+  --line: #000000; --line-strong: #000000;
+  --ok: #005a00; --warn: #7a5a00; --bad: #a00000;
+  --shadow: none;
+  --font: "Courier New", Courier, monospace;
+  --mono: "Courier New", Courier, monospace;
+  --serif: "Courier New", Courier, monospace;
+  --radius: 0px;
+  --th-bg: #eeeeee; --tabgrad1: #ffffff; --tabgrad2: #eeeeee;
+  --foot-bg: #ffffff; --ph-bg: #f4f4f4; --sel-bg: #e8e8e8;
+  --hold-bg: #f4f4f4;
+  --drawerbar-bg: #ffffff; --cardmeta: #333333;
+  --skeleton1: #eeeeee; --skeleton2: #f8f8f8;
+  --toastgrad1: #ffffff; --toastgrad2: #eeeeee;
+  --row-hover: #eef0ff;
+  --grain-op: 0;
+}
+html[data-atmo="notepad"] body { background: #ffffff; }
+html[data-atmo="notepad"] *, html[data-atmo="notepad"] *::before, html[data-atmo="notepad"] *::after {
+  animation-duration: 0.001s !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+html[data-atmo="notepad"] .card, html[data-atmo="notepad"] .tile, html[data-atmo="notepad"] .album-card,
+html[data-atmo="notepad"] .badge, html[data-atmo="notepad"] .btn, html[data-atmo="notepad"] button {
+  border: 1px solid #000 !important; border-radius: 0 !important;
+}
+html[data-atmo="notepad"] .wordmark::after { content: "_"; animation: np-blink 1.06s steps(1) infinite !important; }
+@keyframes np-blink { 50% { opacity: 0; } }
+html[data-atmo="notepad"] #dust-layer, html[data-atmo="notepad"] #fire-glow,
+html[data-atmo="notepad"] #ember-layer, html[data-atmo="notepad"] #rain-canvas,
+html[data-atmo="notepad"] #lightning-flash, html[data-atmo="notepad"] .hero-glow,
+html[data-atmo="notepad"] .sigil { display: none !important; }
+#notepad-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: "Courier New", monospace; font-size: 0.8rem; color: #111;
+  background: #f0f0f0; border-bottom: 1px solid #000;
+  padding: 0.3rem 0.8rem; position: sticky; top: 0; z-index: 70;
+}
+#notepad-bar .np-menu span { margin-right: 1rem; }
+#notepad-bar .np-title { color: #555; }
+
+/* ---------- 11. The Construct: the Matrix Easter egg ---------- */
+html[data-atmo="construct"] {
+  --bg: #000000; --bg2: #020503; --surface: #031007; --surface2: #062012;
+  --ink: #33ff66; --muted: #1d9e4b; --faint: #0f5c2c;
+  --gold: #33ff66; --gold-soft: #7dffaa; --gold-deep: #0d7a35;
+  --line: rgba(51, 255, 102, 0.2); --line-strong: rgba(51, 255, 102, 0.55);
+  --ok: #33ff66; --warn: #d4ff4d; --bad: #ff4d4d;
+  --font: "Cascadia Code", "Consolas", "Menlo", monospace;
+  --mono: "Cascadia Code", "Consolas", "Menlo", monospace;
+  --serif: "Cascadia Code", "Consolas", "Menlo", monospace;
+  --shadow: inset 0 1px 0 rgba(51, 255, 102, 0.08), 0 0 30px rgba(51, 255, 102, 0.1), 0 18px 55px rgba(0, 0, 0, 0.9);
+  --th-bg: #031007; --tabgrad1: #062012; --tabgrad2: #010402;
+  --foot-bg: rgba(0, 0, 0, 0.94); --ph-bg: #010402; --sel-bg: #072413;
+  --hold-bg: linear-gradient(135deg, #062a15, #010402);
+  --drawerbar-bg: rgba(3, 16, 7, 0.95); --cardmeta: #1d9e4b;
+  --skeleton1: #062012; --skeleton2: #010402;
+  --toastgrad1: #062012; --toastgrad2: #010402;
+  --row-hover: rgba(51, 255, 102, 0.08);
+  --grain-op: 0.1;
+}
+html[data-atmo="construct"] body {
+  background-image: radial-gradient(120% 100% at 50% 50%, transparent 40%, rgba(0, 20, 8, 0.8) 100%);
+  text-shadow: 0 0 6px rgba(51, 255, 102, 0.6);
+}
+#matrix-rain { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.55; }
+#construct-term {
+  position: fixed; left: 0.6rem; bottom: 0.6rem; z-index: 55;
+  max-width: min(92vw, 30rem);
+  font-family: "Cascadia Code", Consolas, monospace; font-size: 0.72rem; line-height: 1.5;
+  color: #33ff66; background: rgba(0, 8, 3, 0.88);
+  border: 1px solid rgba(51, 255, 102, 0.4); border-radius: 6px;
+  padding: 0.55rem 0.7rem; pointer-events: none; white-space: pre-wrap;
+  text-shadow: 0 0 6px rgba(51, 255, 102, 0.7);
+}
+#construct-term .cx-prompt { color: #7dffaa; }
+#construct-term .cx-ok { color: #33ff66; }
+#construct-term .cx-warn { color: #ffe14d; }
+html[data-atmo="construct"] .wordmark { text-shadow: 0 0 12px rgba(51, 255, 102, 0.9), 0 0 44px rgba(51, 255, 102, 0.4); }
+html[data-atmo="construct"] #dust-layer i {
+  background: radial-gradient(circle, rgba(51, 255, 102, 0.7), transparent 70%);
+}
+
+/* ---------- 12. Xenohold: the alien module ---------- */
+html[data-atmo="xeno"] {
+  --bg: #060112; --bg2: #0a0220; --surface: #0d0330; --surface2: #140546;
+  --ink: #d9fff4; --muted: #7fc9b8; --faint: #3f6a60;
+  --gold: #4de8c2; --gold-soft: #a7f3e0; --gold-deep: #14705c;
+  --line: rgba(77, 232, 194, 0.18); --line-strong: rgba(150, 120, 255, 0.5);
+  --ok: #4de8c2; --warn: #ffe14d; --bad: #ff5c8a;
+  --shadow: inset 0 1px 0 rgba(120, 255, 220, 0.08), 0 0 40px rgba(120, 80, 255, 0.16), 0 18px 55px rgba(0, 0, 0, 0.9);
+  --th-bg: #0a0220; --tabgrad1: #140546; --tabgrad2: #060112;
+  --foot-bg: rgba(6, 1, 18, 0.94); --ph-bg: #08021a; --sel-bg: #170759;
+  --hold-bg: linear-gradient(135deg, #1c0a5e, #060112);
+  --drawerbar-bg: rgba(13, 3, 48, 0.95); --cardmeta: #a9d8cc;
+  --skeleton1: #140546; --skeleton2: #060112;
+  --toastgrad1: #140546; --toastgrad2: #060112;
+  --row-hover: rgba(77, 232, 194, 0.08);
+  --grain-op: 0.07;
+}
+html[data-atmo="xeno"] body {
+  background-image:
+    radial-gradient(34% 26% at 18% 22%, rgba(77, 232, 194, 0.14), transparent 70%),
+    radial-gradient(30% 24% at 84% 68%, rgba(150, 110, 255, 0.16), transparent 70%),
+    radial-gradient(26% 22% at 62% 12%, rgba(77, 232, 194, 0.08), transparent 70%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(2, 0, 10, 0.65) 100%);
+  animation: xeno-breathe 9s ease-in-out infinite;
+}
+@keyframes xeno-breathe {
+  0%, 100% { background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%; }
+  50% { background-size: 118% 118%, 112% 112%, 124% 124%, 100% 100%; }
+}
+html[data-atmo="xeno"] .wordmark {
+  color: #eafffa;
+  text-shadow: 0 0 10px rgba(77, 232, 194, 0.9), 0 0 44px rgba(150, 110, 255, 0.55);
+  animation: xeno-pulse 4.5s ease-in-out infinite;
+}
+@keyframes xeno-pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.35); } }
+html[data-atmo="xeno"] #dust-layer i {
+  background: radial-gradient(circle, rgba(120, 255, 215, 0.75), transparent 70%);
+}
+html[data-atmo="xeno"] .card, html[data-atmo="xeno"] .tile {
+  border-radius: 22px;
+  border-color: rgba(77, 232, 194, 0.3);
+}
+
+/* Easter-egg cards get a wink in the atmosphere sheet */
+.atmo-card[data-atmo-val="notepad"] .atmo-card-name::after { content: " 🥚"; }
+.atmo-card[data-atmo-val="construct"] .atmo-card-name::after { content: " 🥚"; }
+.atmo-card[data-atmo-val="xeno"] .atmo-card-name::after { content: " 👽"; }
+
+/* Reduced motion: kill the new full-screen fx */
+@media (prefers-reduced-motion: reduce) {
+  #fire-glow, #ember-layer, #kaleido-fx, #matrix-rain, #neon-scan { display: none; }
+  html[data-atmo="kaleido"] .wordmark, html[data-atmo="xeno"] body,
+  html[data-atmo="xeno"] .wordmark, html[data-atmo="abyss"] body { animation: none; }
+}
+
+/* tr13: swatches for the six new atmospheres */
+.sw-kaleido { background: conic-gradient(from 45deg, #ff0080, #ff8c00, #ffee00, #00ff88, #00ccff, #8844ff, #ff0080); }
+.sw-abyss { background: linear-gradient(180deg, #0a3a55 0%, #020a12 70%, #4fd8e8 130%); }
+.sw-neon { background: linear-gradient(135deg, #0d0118 20%, #ff2d96 55%, #00f0ff 90%); }
+.sw-notepad { background: #ffffff; border: 1px solid #000; }
+.sw-construct { background: repeating-linear-gradient(0deg, #000 0 4px, #0a2a12 4px 6px); }
+.sw-xeno { background: radial-gradient(circle at 30% 30%, #4de8c2 0%, #140546 55%, #060112 100%); }

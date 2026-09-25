@@ -1868,7 +1868,7 @@
     }).catch(() => {});
   }
 
-  /* --- Atmosphere system: six exhibition lightings, each a full sensory identity
+  /* --- Atmosphere system: twelve exhibition lightings, each a full sensory identity
      (lighting, texture, motion language) with its own music station and ambient
      preset. "Set the scene" applies all three at once. --- */
   const ATMOS = {
@@ -1878,8 +1878,14 @@
     nocturne:    { name: "Nocturne",       themeColor: "#070b16", preset: "tavern",   station: "jazz",      pair: "Tavern + Night on the Docks" },
     odyssey:     { name: "Odyssey",        themeColor: "#efe6d2", preset: "wayfarer", station: "adventure", pair: "Wayfarer + Expeditionary" },
     cursedwing:  { name: "The Cursed Wing", themeColor: "#0a0505", preset: "blackout", station: "dark",      pair: "Blackout + Oppressive Gloom" },
+    kaleido:     { name: "Kaleidoscope",    themeColor: "#0d0218", preset: "mirage",   station: "psych",     pair: "Mirage + Psych Voyage" },
+    abyss:       { name: "Sunken Treasury", themeColor: "#02101c", preset: "depths",   station: "abyss",     pair: "Depths + Pressure Hymns" },
+    neon:        { name: "Neon Vault",      themeColor: "#0d0118", preset: "grid",     station: "synthwave", pair: "Grid + Midnight Drive" },
+    notepad:     { name: "Plaintext",       themeColor: "#ffffff", preset: "off",      station: "quiet",     pair: "Silence + Long Notes" },
+    construct:   { name: "The Construct",   themeColor: "#000000", preset: "blackout", station: "construct", pair: "Blackout + Machine Code" },
+    xeno:        { name: "Xenohold",        themeColor: "#060112", preset: "signal",   station: "xeno",      pair: "Signal + Deep Field" },
   };
-  const ATMO_ORDER = ["afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing"];
+  const ATMO_ORDER = ["afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss", "neon", "notepad", "construct", "xeno"];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");
     return ATMOS[a] ? a : "afterhours";
@@ -1898,10 +1904,113 @@
       setTimeout(() => el.remove(), 900);
     } catch { /* ignore */ }
   }
+  // Per-theme full-screen FX: matrix rain + terminal for the Construct, a fake menu
+  // bar for Plaintext, hue-storm for Kaleidoscope, scanlines for Neon Vault.
+  // Everything is created on switch and torn down on the next switch.
+  const themeFx = { matrixTimer: 0, termTimer: 0, termAbort: 0 };
+  function clearThemeFx() {
+    ["kaleido-fx", "matrix-rain", "construct-term", "notepad-bar", "neon-scan"].forEach((id) => {
+      document.getElementById(id)?.remove();
+    });
+    clearInterval(themeFx.matrixTimer); themeFx.matrixTimer = 0;
+    clearTimeout(themeFx.termTimer); themeFx.termTimer = 0;
+    themeFx.termAbort++;
+  }
+  function startMatrixRain() {
+    const c = document.createElement("canvas");
+    c.id = "matrix-rain";
+    document.body.appendChild(c);
+    const g = c.getContext("2d");
+    const chars = "アイカサタナハマヤラワ0123456789$#+-*/ΞΦΨΩ";
+    const fs = 15;
+    let cols = 0, drops = [];
+    const size = () => {
+      c.width = window.innerWidth; c.height = window.innerHeight;
+      cols = Math.ceil(c.width / fs); drops = Array.from({ length: cols }, () => Math.random() * -40);
+    };
+    size();
+    window.addEventListener("resize", size);
+    themeFx.matrixTimer = setInterval(() => {
+      g.fillStyle = "rgba(0,0,0,0.08)"; g.fillRect(0, 0, c.width, c.height);
+      g.font = fs + "px monospace";
+      for (let i = 0; i < cols; i++) {
+        const ch = chars[(Math.random() * chars.length) | 0];
+        g.fillStyle = Math.random() < 0.06 ? "#d6ffe0" : "#33ff66";
+        g.fillText(ch, i * fs, drops[i] * fs);
+        if (drops[i] * fs > c.height && Math.random() > 0.976) drops[i] = 0;
+        drops[i]++;
+      }
+    }, 66);
+  }
+  const CX_SCRIPT = [
+    ["PS C:\\titan-vault> ", "cx-prompt"],
+    ["Get-Coin -Year 1883 | Format-Table Denom, Grade, Value", ""],
+    ["Denom   Grade   Value", "cx-ok"],
+    ["-----   -----   -----", "cx-ok"],
+    ["$1      MS-63   $142.10", "cx-ok"],
+    ["10c     AU-55   $38.75", "cx-ok"],
+    ["", ""],
+    ["PS C:\\titan-vault> ", "cx-prompt"],
+    [".\\decrypt-provenance.ps1 -Coin \"1878-CC\"", ""],
+    ["[+] provenance verified — chain of custody intact", "cx-ok"],
+    ["", ""],
+    ["PS C:\\titan-vault> ", "cx-prompt"],
+    ["wake-the-colossus --force", ""],
+    ["[!] access denied — the coins are watching", "cx-warn"],
+  ];
+  function startConstructTerm() {
+    const el = document.createElement("div");
+    el.id = "construct-term";
+    el.setAttribute("aria-hidden", "true");
+    document.body.appendChild(el);
+    const myRun = ++themeFx.termAbort;
+    let li = 0, ci = 0, html = "";
+    const tick = () => {
+      if (myRun !== themeFx.termAbort) return; // theme changed: stop
+      if (li >= CX_SCRIPT.length) {
+        themeFx.termTimer = setTimeout(() => {
+          if (myRun !== themeFx.termAbort) { li = 0; ci = 0; html = ""; tick(); }
+        }, 6000);
+        return;
+      }
+      const [text, cls] = CX_SCRIPT[li];
+      if (ci <= text.length) {
+        const shown = text.slice(0, ci).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+        el.innerHTML = html + (cls ? `<span class="${cls}">${shown}</span>` : shown)
+          + '<span class="cx-prompt">▌</span>';
+        ci++;
+        themeFx.termTimer = setTimeout(tick, text.startsWith("PS ") ? 34 : 16);
+      } else {
+        html += (cls ? `<span class="${cls}">${text.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</span>` : text) + "\n";
+        li++; ci = 0;
+        themeFx.termTimer = setTimeout(tick, li < CX_SCRIPT.length && CX_SCRIPT[li][0] === "" ? 120 : 420);
+      }
+    };
+    tick();
+  }
+  function manageThemeFx(atmo) {
+    clearThemeFx();
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (atmo === "kaleido" && !reduced) {
+      const d = document.createElement("div"); d.id = "kaleido-fx"; document.body.appendChild(d);
+    }
+    if (atmo === "neon") {
+      const d = document.createElement("div"); d.id = "neon-scan"; d.setAttribute("aria-hidden", "true");
+      document.body.appendChild(d);
+    }
+    if (atmo === "notepad") {
+      const bar = document.createElement("div");
+      bar.id = "notepad-bar"; bar.setAttribute("aria-hidden", "true");
+      bar.innerHTML = '<span class="np-menu"><span>File</span><span>Edit</span><span>Search</span><span>View</span><span>Help</span></span><span class="np-title">Untitled - Notepad</span>';
+      document.body.prepend(bar);
+    }
+    if (atmo === "construct" && !reduced) { startMatrixRain(); startConstructTerm(); }
+  }
   function setAtmo(a, save = true, flash = true) {
     const atmo = ATMOS[a] ? a : "afterhours";
     const changed = document.documentElement.getAttribute("data-atmo") !== atmo;
     document.documentElement.setAttribute("data-atmo", atmo);
+    manageThemeFx(atmo);
     const nm = $("#atmo-name");
     if (nm) nm.textContent = ATMOS[atmo].name;
     $$(".atmo-card").forEach((c) => c.classList.toggle("current", c.dataset.atmoVal === atmo));
