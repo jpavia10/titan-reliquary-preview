@@ -211,6 +211,8 @@
     elCredit.textContent = t.license === "CC-BY" && t.credit ? t.credit : (t.license ? `© ${t.artist} · ${t.license}` : "");
     btnPlay.textContent = playing ? "⏸" : "▶";
     btnPlay.setAttribute("aria-label", playing ? "Pause" : "Play");
+    const stBtn = bar.querySelector('[data-act="station"]');
+    if (stBtn) stBtn.setAttribute("data-station", stationKey);
     updatePill();
   }
 

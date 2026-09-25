@@ -1,83 +1,170 @@
-/* Titan Reliquary — "Soundscape" ambient engine (v4).
-   A real generative soundscape mixer, not just preset combos:
-   - 9 recorded loops (Mixkit Free License, hotlinked, not committed).
-   - 5 synthesized layers built live with Web Audio: sub drone, fire sparkle,
-     wind swells, foundry clanks, distant bell tolls.
-   - Every layer runs through its own StereoPannerNode with a slow random drift.
-   - 9 scenes (presets) with per-layer mixes, per-layer volume sliders, and
-     animated level meters. Rain shows on screen too.
-   prefers-reduced-motion: canvas animation is skipped; sound still works. */
+/* Titan Reliquary — "Ambience Experience Engine" (v5).
+   Generative Multi-Phenomenon Soundscape & Atmospheric Engine:
+   - 9 recorded loops (Mixkit Free License, hotlinked).
+   - 12 synthesized procedural layers built live with Web Audio:
+     drone, fire crackle, wind gust, foundry clank, distant bell,
+     ocean surf, polar blizzard, antique clockwork, singing bowl (432Hz),
+     vinyl crackle, cavern drops, wind chimes.
+   - 16 theme-matched presets (Nocturne, After Hours, Conservator, Colossus,
+     Odyssey, Cursed Wing, Kaleidoscope, Abyss, Neon, Notepad, Construct,
+     Xeno, Solaris, Alchemist, Glacier, Valhalla) + legacy aliases.
+   - Atmospheric Visual FX Engine on full-viewport canvas:
+     Rain & splash ripples, Arctic blizzard & crystalline snow,
+     sweeping wind/mist billows, rising molten forge sparks & embers,
+     Aurora Borealis wave curtains, procedural branching forked lightning,
+     refractive sunrays & aquatic caustics.
+   - Binaural brainwave entrainment (Alpha 10Hz, Theta 6Hz, Delta 2.5Hz).
+   - Stereo panning drift and sleep fadeout timer. */
 (() => {
   "use strict";
 
   const MX = (id) => `https://assets.mixkit.co/active_storage/sfx/${id}/${id}-preview.mp3`;
-  // Recorded loops — verified 200 on 2026-09-25 (Mixkit Sound Effects Free License).
+
+  // Recorded loops — verified 200 (Mixkit Sound Effects Free License).
   const RECORDED = {
-    rain:    { label: "Rain",            url: MX(2394) },
-    thunder: { label: "Distant thunder", url: MX(2395) },
-    fire:    { label: "Fireplace",       url: MX(1330) },
-    wind:    { label: "Night wind",      url: MX(2483) },
-    crickets:{ label: "Summer crickets", url: MX(1789) },
-    forest:  { label: "Forest birds",    url: MX(1213) },
-    crowd:   { label: "Crowd murmur",    url: MX(444)  },
-    office:  { label: "Room tone",       url: MX(447)  },
-    scifi:   { label: "Machine hum",     url: MX(2507) },
+    rain:     { label: "Rain",            url: MX(2394) },
+    thunder:  { label: "Distant thunder", url: MX(2395) },
+    fire:     { label: "Fireplace",       url: MX(1330) },
+    wind:     { label: "Night wind",      url: MX(2483) },
+    crickets: { label: "Summer crickets", url: MX(1789) },
+    forest:   { label: "Forest birds",    url: MX(1213) },
+    crowd:    { label: "Crowd murmur",    url: MX(444)  },
+    office:   { label: "Room tone",       url: MX(447)  },
+    scifi:    { label: "Machine hum",     url: MX(2507) },
   };
-  // Synthesized layers — generated live, no downloads.
+
+  // Synthesized layers — procedural Web Audio synthesis, zero downloads.
   const SYNTH = {
-    drone:   { label: "Sub drone"     },
-    crackle: { label: "Fire sparkle"  },
-    gust:    { label: "Wind swells"   },
-    clank:   { label: "Foundry clanks"},
-    belltoll:{ label: "Distant bell"  },
+    drone:     { label: "Sub drone"           },
+    crackle:   { label: "Fire sparkle"        },
+    gust:      { label: "Wind swells"         },
+    clank:     { label: "Foundry clanks"      },
+    belltoll:  { label: "Distant bell"        },
+    ocean:     { label: "Ocean surf"          },
+    blizzard:  { label: "Polar blizzard"      },
+    clockwork: { label: "Antique clockwork"   },
+    bowl:      { label: "Singing bowl 432Hz"  },
+    vinyl:     { label: "Vinyl crackle"       },
+    cavern:    { label: "Cavern drops"        },
+    chimes:    { label: "Wind chimes"         },
   };
+
   const ORDER = [...Object.keys(RECORDED), ...Object.keys(SYNTH)];
   const LAYER_IDS = ORDER;
 
-  // Scenes: each maps layer -> volume. Genuinely different mixes, not reshuffles.
+  // 16 Dedicated Theme Presets + Classic Aliases
   const PRESETS = {
-    storm:    { name: "Storm",     desc: "Rain hammers the skylights; thunder rolls somewhere far off.",
-                mix: { rain: .85, thunder: .6, wind: .5, gust: .55 } },
-    foundry:  { name: "Foundry",   desc: "Hammer-fall, furnace breath, and a deep iron drone.",
-                mix: { fire: .5, crackle: .7, clank: .8, drone: .45 } },
-    fireside: { name: "Fireside",  desc: "Leather chairs, a low fire, rain at the window.",
-                mix: { fire: .9, crackle: .45, rain: .22, wind: .18 } },
-    wayfarer: { name: "Wayfarer",  desc: "Open road under a wide sky; birds, wind, far thunder.",
-                mix: { forest: .65, wind: .45, gust: .4, thunder: .18 } },
-    night:    { name: "Night watch", desc: "The museum after midnight — crickets and a far-off bell.",
-                mix: { crickets: .7, wind: .3, belltoll: .45, drone: .12 } },
-    blackout: { name: "Blackout",  desc: "Power's out. Something in the walls is awake.",
-                mix: { drone: .8, gust: .5, belltoll: .5, scifi: .22 } },
-    tavern:   { name: "Tavern",    desc: "Low talk, clinking glass, a fire in the corner.",
-                mix: { crowd: .65, fire: .35, crackle: .3, drone: .12 } },
-    archive:  { name: "Deep archive", desc: "Paper dust, quiet machines, rain on the roof.",
-                mix: { office: .6, rain: .22, drone: .3, scifi: .15 } },
-    mirage:   { name: "Mirage",    desc: "Heat-shimmer on the horizon; the machines are dreaming.",
-                mix: { scifi: .5, drone: .4, gust: .4, belltoll: .3, crickets: .25 } },
-    depths:   { name: "Depths",    desc: "Forty fathoms down. Pressure, dark water, a far-off bell.",
-                mix: { drone: .75, gust: .5, belltoll: .35, scifi: .15 } },
-    grid:     { name: "Grid",      desc: "Chrome midnight. Neon hum and iron percussion.",
-                mix: { scifi: .65, drone: .45, clank: .3, crackle: .15 } },
-    signal:   { name: "Signal",    desc: "Something out there is transmitting. The bell answers.",
-                mix: { scifi: .7, drone: .5, belltoll: .45, thunder: .15 } },
-    solaris:  { name: "Solaris",   desc: "Coronal winds and high-altitude radiation hum under the sun.",
-                mix: { drone: .85, scifi: .65, gust: .45, belltoll: .2 } },
-    alchemist:{ name: "Alchemist", desc: "The bubbling crucible, hearth embers, and old paper dust.",
-                mix: { fire: .75, crackle: .65, office: .35, drone: .25 } },
-    glacier:  { name: "Hyperborean", desc: "Sub-zero polar gale howling over permafrost and glacial ice.",
-                mix: { wind: .85, gust: .8, drone: .55, belltoll: .35 } },
-    valhalla: { name: "Valhalla",  desc: "Roaring hearthfire, striking hammers of the armory, and mountain wind.",
-                mix: { fire: .85, crackle: .75, clank: .6, wind: .35 } },
-    off:      { name: "Off",       desc: "Silence. Just the music.", mix: {} },
-  };
-  const PRESET_ORDER = ["storm", "foundry", "fireside", "wayfarer", "night", "blackout", "tavern", "archive", "mirage", "depths", "grid", "signal", "solaris", "alchemist", "glacier", "valhalla", "off"];
+    nocturne:    { name: "Nocturne", desc: "Rain on midnight streets, vintage vinyl crackle, distant jazz murmur, and cool night wind.",
+                   mix: { rain: 0.70, vinyl: 0.55, crowd: 0.30, wind: 0.25, drone: 0.15 },
+                   fx: { rain: true, mist: true } },
+    afterhours:  { name: "After Hours", desc: "Quiet gallery at 2 AM — skylight rain, vinyl warmth, and deep sub drone.",
+                   mix: { rain: 0.85, vinyl: 0.45, drone: 0.35, gust: 0.25 },
+                   fx: { rain: true } },
+    conservator: { name: "Conservator", desc: "Restoration atelier: antique clockwork ticking, low hearthfire, and archival paper quiet.",
+                   mix: { clockwork: 0.70, fire: 0.55, office: 0.45, crackle: 0.30 },
+                   fx: { embers: true } },
+    colossus:    { name: "Colossus", desc: "Forging great empires: anvil clanks, deep iron furnace drone, and leaping forge sparks.",
+                   mix: { clank: 0.85, drone: 0.60, fire: 0.50, crackle: 0.65 },
+                   fx: { embers: true, mist: true } },
+    odyssey:     { name: "Odyssey", desc: "Open sea voyage: surging ocean surf, sweeping wind swells, and far seabirds.",
+                   mix: { ocean: 0.85, gust: 0.60, wind: 0.45, forest: 0.35 },
+                   fx: { mist: true } },
+    cursedwing:  { name: "Cursed Wing", desc: "Thirteenth hour: abyssal drone, cavern water plinks, and sudden violent lightning.",
+                   mix: { drone: 0.85, cavern: 0.70, thunder: 0.75, gust: 0.45 },
+                   fx: { lightning: true } },
+    kaleido:     { name: "Kaleidoscope", desc: "Psychedelic sanctuary: 432Hz singing bowl, wind chimes, and shimmering auroras.",
+                   mix: { bowl: 0.85, chimes: 0.70, drone: 0.40, gust: 0.30 },
+                   fx: { aurora: true } },
+    abyss:       { name: "Sunken Treasury", desc: "Forty fathoms deep: ocean pressure, echoing cavern drops, and refracted sun caustics.",
+                   mix: { ocean: 0.80, cavern: 0.70, drone: 0.65, belltoll: 0.35 },
+                   fx: { caustics: true } },
+    neon:        { name: "Neon Vault", desc: "Cyberpunk rain: wet asphalt, machine hum, and distant electronic thunder.",
+                   mix: { scifi: 0.70, rain: 0.65, drone: 0.45, thunder: 0.30 },
+                   fx: { rain: true, lightning: true } },
+    notepad:     { name: "Plaintext", desc: "Monastic stillness: soft room tone, quiet antique clockwork, and calm mind.",
+                   mix: { office: 0.50, clockwork: 0.40, drone: 0.15 },
+                   fx: {} },
+    construct:   { name: "The Construct", desc: "Machine room: rhythmic industrial hum, sub-bass drone, and metallic relays.",
+                   mix: { scifi: 0.80, drone: 0.65, clank: 0.45 },
+                   fx: {} },
+    xeno:        { name: "Xenohold", desc: "Extraterrestrial relay: cosmic radio signal, deep space drone, and singing bowl resonance.",
+                   mix: { scifi: 0.75, drone: 0.60, bowl: 0.55, gust: 0.35 },
+                   fx: { aurora: true } },
+    solaris:     { name: "Solaris", desc: "Solar observatory: solar wind flares, singing bowl 432Hz, and radiant corona sparks.",
+                   mix: { drone: 0.80, bowl: 0.70, gust: 0.50, fire: 0.35 },
+                   fx: { aurora: true, embers: true } },
+    alchemist:   { name: "Alchemist", desc: "Hermetic laboratory: bubbling crucible, antique clockwork, and rising sparks.",
+                   mix: { fire: 0.75, crackle: 0.65, clockwork: 0.50, office: 0.35 },
+                   fx: { embers: true } },
+    glacier:     { name: "Hyperborean", desc: "Sub-zero polar gale: arctic blizzard howl, crystalline ice, and emerald auroras.",
+                   mix: { blizzard: 0.85, gust: 0.75, wind: 0.60, belltoll: 0.40 },
+                   fx: { blizzard: true, aurora: true } },
+    valhalla:    { name: "Valhalla", desc: "Great feast hall: roaring hearthfire, striking armory anvils, and mountain gale.",
+                   mix: { fire: 0.85, crackle: 0.75, clank: 0.65, wind: 0.40 },
+                   fx: { embers: true, mist: true } },
 
-  const KEY = "tr_ambient_v2";
+    // Classic Legacy Aliases
+    storm:       { name: "Storm", desc: "Rain hammers the skylights; thunder rolls somewhere far off.",
+                   mix: { rain: 0.85, thunder: 0.60, wind: 0.50, gust: 0.55 },
+                   fx: { rain: true, lightning: true } },
+    foundry:     { name: "Foundry", desc: "Hammer-fall, furnace breath, and a deep iron drone.",
+                   mix: { fire: 0.50, crackle: 0.70, clank: 0.80, drone: 0.45 },
+                   fx: { embers: true } },
+    fireside:    { name: "Fireside", desc: "Leather chairs, a low fire, rain at the window.",
+                   mix: { fire: 0.90, crackle: 0.45, rain: 0.22, wind: 0.18 },
+                   fx: { embers: true } },
+    wayfarer:    { name: "Wayfarer", desc: "Open road under a wide sky; birds, wind, far thunder.",
+                   mix: { forest: 0.65, wind: 0.45, gust: 0.40, thunder: 0.18 },
+                   fx: { mist: true } },
+    night:       { name: "Night watch", desc: "The museum after midnight — crickets and a far-off bell.",
+                   mix: { crickets: 0.70, wind: 0.30, belltoll: 0.45, drone: 0.12 },
+                   fx: {} },
+    blackout:    { name: "Blackout", desc: "Power's out. Something in the walls is awake.",
+                   mix: { drone: 0.80, gust: 0.50, belltoll: 0.50, scifi: 0.22 },
+                   fx: { lightning: true } },
+    tavern:      { name: "Tavern", desc: "Low talk, clinking glass, a fire in the corner.",
+                   mix: { crowd: 0.65, fire: 0.35, crackle: 0.30, drone: 0.12 },
+                   fx: { embers: true } },
+    archive:     { name: "Deep archive", desc: "Paper dust, quiet machines, rain on the roof.",
+                   mix: { office: 0.60, rain: 0.22, drone: 0.30, clockwork: 0.40 },
+                   fx: {} },
+    mirage:      { name: "Mirage", desc: "Heat-shimmer on the horizon; the machines are dreaming.",
+                   mix: { scifi: 0.50, drone: 0.40, gust: 0.40, bowl: 0.40, crickets: 0.25 },
+                   fx: { aurora: true } },
+    depths:      { name: "Depths", desc: "Forty fathoms down. Pressure, dark water, a far-off bell.",
+                   mix: { ocean: 0.80, drone: 0.75, gust: 0.50, belltoll: 0.35 },
+                   fx: { caustics: true } },
+    grid:        { name: "Grid", desc: "Chrome midnight. Neon hum and iron percussion.",
+                   mix: { scifi: 0.65, drone: 0.45, clank: 0.30, crackle: 0.15 },
+                   fx: { mist: true } },
+    signal:      { name: "Signal", desc: "Something out there is transmitting. The bell answers.",
+                   mix: { scifi: 0.70, drone: 0.50, belltoll: 0.45, thunder: 0.15 },
+                   fx: { aurora: true } },
+    off:         { name: "Off", desc: "Silence. Just the music.", mix: {}, fx: {} },
+  };
+
+  const PRESET_ORDER = [
+    "nocturne", "afterhours", "conservator", "colossus",
+    "odyssey", "cursedwing", "kaleido", "abyss",
+    "neon", "solaris", "alchemist", "glacier",
+    "valhalla", "construct", "xeno", "notepad", "off"
+  ];
+
+  const KEY = "tr_ambient_v3";
   const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ---- state ---------------------------------------------------------------
-  const state = { layers: {}, master: 0.8, intensity: 60, lightning: 70, preset: null };
+  const state = {
+    layers: {},
+    master: 0.8,
+    intensity: 60,
+    lightning: 70,
+    fxIntensity: 75,
+    preset: null,
+    fx: { rain: false, blizzard: false, embers: false, aurora: false, lightning: false, mist: false, caustics: false }
+  };
   for (const id of LAYER_IDS) state.layers[id] = { on: false, vol: 0.7 };
+
   try {
     const raw = JSON.parse(localStorage.getItem(KEY) || "null");
     if (raw && raw.layers) {
@@ -89,16 +176,28 @@
       if (Number.isFinite(raw.master)) state.master = Math.min(1, Math.max(0, raw.master));
       if (Number.isFinite(raw.intensity)) state.intensity = Math.min(100, Math.max(0, raw.intensity));
       if (Number.isFinite(raw.lightning)) state.lightning = Math.min(100, Math.max(0, raw.lightning));
+      if (Number.isFinite(raw.fxIntensity)) state.fxIntensity = Math.min(100, Math.max(0, raw.fxIntensity));
       if (raw.preset && PRESETS[raw.preset]) state.preset = raw.preset;
+      if (raw.fx) {
+        for (const k of Object.keys(state.fx)) if (raw.fx[k] != null) state.fx[k] = !!raw.fx[k];
+      }
     }
   } catch { /* fresh */ }
+
   function writeState() {
-    try { localStorage.setItem(KEY, JSON.stringify({ layers: state.layers, master: state.master, intensity: state.intensity, lightning: state.lightning, preset: state.preset })); } catch { /* ignore */ }
+    try {
+      localStorage.setItem(KEY, JSON.stringify({
+        layers: state.layers, master: state.master,
+        intensity: state.intensity, lightning: state.lightning,
+        fxIntensity: state.fxIntensity, preset: state.preset, fx: state.fx
+      }));
+    } catch { /* ignore */ }
   }
 
   // ---- audio graph ----------------------------------------------------------
-  let ctx = null, masterGain = null, noiseBuf = null;
-  const nodes = {}; // id -> { gain, pan, el? , synth? , src? }
+  let ctx = null, masterGain = null, noiseBuf = null, analyser = null;
+  const nodes = {}; // id -> { gain, pan, el?, synth?, src? }
+
   function ensureCtx() {
     if (ctx) { if (ctx.state === "suspended") ctx.resume().catch(() => {}); return true; }
     const AC = window.AudioContext || window.webkitAudioContext;
@@ -108,16 +207,16 @@
     masterGain.gain.value = state.master;
     masterGain.connect(ctx.destination);
 
-    // FFT Analyser for real-time visualizer
     analyser = ctx.createAnalyser();
     analyser.fftSize = 64;
     masterGain.connect(analyser);
 
-    // shared 2s white-noise buffer for the synth layers
+    // shared 2s white-noise buffer for procedural synths
     const len = ctx.sampleRate * 2;
     noiseBuf = ctx.createBuffer(1, len, ctx.sampleRate);
     const d = noiseBuf.getChannelData(0);
     for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+
     for (const id of LAYER_IDS) {
       const gain = ctx.createGain(); gain.gain.value = 0;
       const pan = (ctx.createStereoPanner ? ctx.createStereoPanner() : null);
@@ -192,6 +291,7 @@
       }
     }, 1000);
   }
+
   const eff = (id) => state.layers[id].on ? state.layers[id].vol * 0.9 : 0;
   function rampGain(id, t = 0.9) {
     const n = nodes[id]; if (!n) return;
@@ -201,7 +301,7 @@
     g.linearRampToValueAtTime(eff(id), now + t);
   }
 
-  // ---- stereo drift: every layer wanders slowly through the stereo field ----
+  // ---- Stereo pan drift ----
   let driftTimer = null;
   function startPanDrift() {
     if (driftTimer || reducedMotion) return;
@@ -210,7 +310,6 @@
       const now = ctx.currentTime;
       for (const id of LAYER_IDS) {
         const p = nodes[id].pan; if (!p) continue;
-        // keep extremes subtle: ±0.55 so nothing hard-pans away
         const target = (Math.random() * 2 - 1) * 0.55;
         p.pan.cancelScheduledValues(now);
         p.pan.setValueAtTime(p.pan.value, now);
@@ -221,7 +320,7 @@
     driftTimer = setInterval(wander, 9000);
   }
 
-  // ---- synth layer builders (each returns { stop }) -------------------------
+  // ---- Synthesizer Builders (12 Web Audio Generative Layers) ----
   function lfo(param, rate, depth, base) {
     const o = ctx.createOscillator(), g = ctx.createGain();
     o.frequency.value = rate; g.gain.value = depth;
@@ -230,8 +329,9 @@
     o.start();
     return o;
   }
+
   const synthBuilders = {
-    // Deep sub drone: three detuned low oscillators with a slow breathing LFO.
+    // 1. Deep sub drone
     drone(n) {
       const out = ctx.createGain(); out.gain.value = 0.5; out.connect(n.gain);
       const oscs = [];
@@ -243,7 +343,8 @@
       const breath = lfo(out.gain, 0.06, 0.14, 0.5);
       return { stop() { oscs.forEach((o) => { try { o.stop(); } catch {} }); try { breath.stop(); } catch {} out.disconnect(); } };
     },
-    // Wind swells: looped noise through a wandering bandpass, gain breathing.
+
+    // 2. Wind swells
     gust(n) {
       const src = ctx.createBufferSource(); src.buffer = noiseBuf; src.loop = true;
       const bp = ctx.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = 480; bp.Q.value = 0.45;
@@ -253,7 +354,8 @@
       const l2 = lfo(bp.frequency, 0.05, 260, 480);
       return { stop() { [l1, l2].forEach((o) => { try { o.stop(); } catch {} }); try { src.stop(); } catch {} g.disconnect(); } };
     },
-    // Fire sparkle: random tiny noise bursts, bright bandpass, fast decay.
+
+    // 3. Fire sparkle
     crackle(n) {
       let dead = false, timer = 0;
       const pop = () => {
@@ -276,7 +378,8 @@
       pop();
       return { stop() { dead = true; clearTimeout(timer); } };
     },
-    // Foundry clanks: distant metallic FM hits at irregular intervals.
+
+    // 4. Foundry clanks
     clank(n) {
       let dead = false, timer = 0;
       const hit = () => {
@@ -302,7 +405,8 @@
       hit();
       return { stop() { dead = true; clearTimeout(timer); } };
     },
-    // Distant bell: sparse tolls, harmonic partials, long decay.
+
+    // 5. Distant bell
     belltoll(n) {
       let dead = false, timer = 0;
       const toll = () => {
@@ -324,9 +428,158 @@
       timer = setTimeout(toll, 1500);
       return { stop() { dead = true; clearTimeout(timer); } };
     },
+
+    // 6. Ocean surf
+    ocean(n) {
+      const src = ctx.createBufferSource(); src.buffer = noiseBuf; src.loop = true;
+      const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 320;
+      const g = ctx.createGain(); g.gain.value = 0.45;
+      src.connect(lp); lp.connect(g); g.connect(n.gain); src.start();
+      const swell = lfo(g.gain, 0.09, 0.28, 0.45);
+      const sweep = lfo(lp.frequency, 0.09, 240, 340);
+      return { stop() { [swell, sweep].forEach((o) => { try { o.stop(); } catch {} }); try { src.stop(); } catch {} g.disconnect(); } };
+    },
+
+    // 7. Polar blizzard
+    blizzard(n) {
+      const src = ctx.createBufferSource(); src.buffer = noiseBuf; src.loop = true;
+      const bp1 = ctx.createBiquadFilter(); bp1.type = "bandpass"; bp1.frequency.value = 380; bp1.Q.value = 2.8;
+      const bp2 = ctx.createBiquadFilter(); bp2.type = "bandpass"; bp2.frequency.value = 890; bp2.Q.value = 5.2;
+      const g = ctx.createGain(); g.gain.value = 0.4;
+      src.connect(bp1); bp1.connect(g);
+      src.connect(bp2); bp2.connect(g);
+      g.connect(n.gain); src.start();
+      const l1 = lfo(bp1.frequency, 0.12, 140, 380);
+      const l2 = lfo(bp2.frequency, 0.18, 280, 890);
+      const l3 = lfo(g.gain, 0.08, 0.22, 0.4);
+      return { stop() { [l1, l2, l3].forEach((o) => { try { o.stop(); } catch {} }); try { src.stop(); } catch {} g.disconnect(); } };
+    },
+
+    // 8. Antique clockwork (rhythmic tick-tock)
+    clockwork(n) {
+      let dead = false, timer = 0, isTick = true;
+      const tick = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const s = ctx.createBufferSource(); s.buffer = noiseBuf;
+        const bp = ctx.createBiquadFilter(); bp.type = "bandpass";
+        bp.frequency.value = isTick ? 880 : 660; bp.Q.value = 9;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(0.18, t + 0.002);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.04);
+        s.connect(bp); bp.connect(g); g.connect(n.gain);
+        s.start(t, 0, 0.05);
+        s.onended = () => { s.disconnect(); bp.disconnect(); g.disconnect(); };
+        isTick = !isTick;
+        timer = setTimeout(tick, 500); // 120 BPM escapement
+      };
+      tick();
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+
+    // 9. Singing bowl 432Hz
+    bowl(n) {
+      let dead = false, timer = 0;
+      const strike = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const fund = 432;
+        [[1, 0.22, 5.5], [2, 0.11, 4.0], [3, 0.05, 3.2]].forEach(([m, gv, dur]) => {
+          const osc = ctx.createOscillator(); osc.type = "sine"; osc.frequency.value = fund * m;
+          const g = ctx.createGain();
+          g.gain.setValueAtTime(0.0001, t);
+          g.gain.exponentialRampToValueAtTime(gv, t + 0.04);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+          osc.connect(g); g.connect(n.gain);
+          osc.start(t); osc.stop(t + dur + 0.2);
+          osc.onended = () => { osc.disconnect(); g.disconnect(); };
+        });
+        timer = setTimeout(strike, 6500 + Math.random() * 4000);
+      };
+      strike();
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+
+    // 10. Vinyl crackle
+    vinyl(n) {
+      let dead = false, timer = 0;
+      // Low constant motor rumble
+      const osc = ctx.createOscillator(); osc.type = "sine"; osc.frequency.value = 52;
+      const og = ctx.createGain(); og.gain.value = 0.06;
+      osc.connect(og); og.connect(n.gain); osc.start();
+      // Dust micro-pops
+      const pop = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const s = ctx.createBufferSource(); s.buffer = noiseBuf;
+        const bp = ctx.createBiquadFilter(); bp.type = "bandpass";
+        bp.frequency.value = 3500 + Math.random() * 2500; bp.Q.value = 6;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(0.04 + Math.random() * 0.08, t + 0.002);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.02);
+        s.connect(bp); bp.connect(g); g.connect(n.gain);
+        s.start(t, Math.random() * 1.5, 0.03);
+        s.onended = () => { s.disconnect(); bp.disconnect(); g.disconnect(); };
+        timer = setTimeout(pop, 40 + Math.random() * 180);
+      };
+      pop();
+      return { stop() { dead = true; clearTimeout(timer); try { osc.stop(); } catch {} og.disconnect(); } };
+    },
+
+    // 11. Cavern drops
+    cavern(n) {
+      let dead = false, timer = 0;
+      const drop = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const osc = ctx.createOscillator(); osc.type = "sine";
+        const startF = 1350 + Math.random() * 300;
+        osc.frequency.setValueAtTime(startF, t);
+        osc.frequency.exponentialRampToValueAtTime(startF * 1.35, t + 0.035);
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(0.24, t + 0.004);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.45);
+        osc.connect(g); g.connect(n.gain);
+        osc.start(t); osc.stop(t + 0.5);
+        osc.onended = () => { osc.disconnect(); g.disconnect(); };
+        timer = setTimeout(drop, 2800 + Math.random() * 5500);
+      };
+      timer = setTimeout(drop, 1200);
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+
+    // 12. Wind chimes (Pentatonic harmony)
+    chimes(n) {
+      let dead = false, timer = 0;
+      const scale = [440, 523.25, 587.33, 659.25, 783.99, 880];
+      const strike = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const f0 = scale[Math.floor(Math.random() * scale.length)];
+        const count = Math.random() < 0.35 ? 2 : 1;
+        for (let i = 0; i < count; i++) {
+          const freq = f0 * (i === 1 ? (Math.random() < 0.5 ? 1.5 : 1.25) : 1);
+          const osc = ctx.createOscillator(); osc.type = "sine"; osc.frequency.value = freq;
+          const g = ctx.createGain();
+          const strikeT = t + i * (0.08 + Math.random() * 0.15);
+          g.gain.setValueAtTime(0.0001, strikeT);
+          g.gain.exponentialRampToValueAtTime(0.18, strikeT + 0.015);
+          g.gain.exponentialRampToValueAtTime(0.0001, strikeT + 3.8);
+          osc.connect(g); g.connect(n.gain);
+          osc.start(strikeT); osc.stop(strikeT + 4.0);
+          osc.onended = () => { osc.disconnect(); g.disconnect(); };
+        }
+        timer = setTimeout(strike, 2200 + Math.random() * 4500);
+      };
+      timer = setTimeout(strike, 1000);
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
   };
 
-  // ---- layer control ---------------------------------------------------------
+  // ---- Layer control ----
   function startRecorded(id) {
     const n = nodes[id];
     if (!n.el) {
@@ -339,6 +592,7 @@
     }
     n.el.play().catch(() => { setOn(id, false); });
   }
+
   function setOn(id, on) {
     if (!LAYER_IDS.includes(id)) return;
     state.layers[id].on = !!on;
@@ -352,12 +606,15 @@
       if (n.synth) { try { n.synth.stop(); } catch {} n.synth = null; }
     }
     rampGain(id);
-    if (id === "rain") setTimeout(() => (state.layers.rain.on ? startCanvas() : stopCanvas()), 60);
-    if (id === "thunder") scheduleBolt();
-    if (id === "fire") updateFireFx();
+    if (id === "rain") setFx("rain", !!on);
+    if (id === "thunder") { setFx("lightning", !!on); if (on) scheduleBolt(); }
+    if (id === "fire") { setFx("embers", !!on); updateFireFx(); }
+    if (id === "blizzard") setFx("blizzard", !!on);
+    if (id === "ocean") setFx("caustics", !!on);
     markPreset(null);
     writeState(); syncUi();
   }
+
   function setVol(id, v) {
     if (!LAYER_IDS.includes(id)) return;
     state.layers[id].vol = Math.min(1, Math.max(0, v));
@@ -366,17 +623,30 @@
     markPreset(null);
     writeState(); syncVolUi();
   }
+
+  function setFx(type, on) {
+    if (state.fx[type] != null) {
+      state.fx[type] = !!on;
+      syncFxUi();
+      checkCanvasState();
+      writeState();
+    }
+  }
+
   function applyPreset(name) {
     if (!PRESETS[name]) return;
     if (name === "off") {
       for (const id of LAYER_IDS) if (state.layers[id].on) setOn(id, false);
+      for (const k of Object.keys(state.fx)) state.fx[k] = false;
       state.preset = "off"; markPreset("off"); writeState(); syncUi();
+      checkCanvasState();
       return;
     }
     if (!ensureCtx()) return;
-    // First pass: enable everything in the mix (volumes set silently).
-    for (const id of Object.keys(PRESETS[name].mix)) {
-      state.layers[id].vol = PRESETS[name].mix[id];
+    const p = PRESETS[name];
+    // Audio mix
+    for (const id of Object.keys(p.mix)) {
+      state.layers[id].vol = p.mix[id];
       if (!state.layers[id].on) {
         state.layers[id].on = true;
         const n = nodes[id];
@@ -384,9 +654,8 @@
         else if (!n.synth) n.synth = synthBuilders[id](n);
       }
     }
-    // Second pass: disable everything else, then fade all.
     for (const id of LAYER_IDS) {
-      const want = Object.prototype.hasOwnProperty.call(PRESETS[name].mix, id);
+      const want = Object.prototype.hasOwnProperty.call(p.mix, id);
       if (!want && state.layers[id].on) {
         state.layers[id].on = false;
         const n = nodes[id];
@@ -395,100 +664,318 @@
       }
       if (ctx) rampGain(id, 1.2);
     }
-    if (state.layers.rain.on) startCanvas(); else stopCanvas();
-    scheduleBolt();
+    // Coupled Visual Effects
+    for (const k of Object.keys(state.fx)) {
+      state.fx[k] = p.fx && p.fx[k] ? true : false;
+    }
+    if (state.fx.lightning) scheduleBolt();
     state.preset = name;
     markPreset(name); writeState(); syncUi();
+    checkCanvasState();
   }
 
-  // ---- canvas rain (kept from v3; intensity-coupled) --------------------------
+  // ---- Atmospheric Multi-Layer Canvas Engine ----
   const canvas = document.createElement("canvas");
   canvas.id = "rain-canvas";
   canvas.hidden = true;
   canvas.setAttribute("aria-hidden", "true");
   document.body.appendChild(canvas);
   const ctx2d = canvas.getContext("2d");
-  let raf = null, drops = [], t0 = 0;
-  function dropCount() { return Math.round(40 + (state.intensity / 100) * 220); }
+
+  let raf = null, t0 = 0;
+  let drops = [], ripples = [], flakes = [], sparks = [], mistWaves = [];
+  let lightningBolt = null; // { segments: [], branches: [], alpha: 0 }
+
   function sizeCanvas() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     canvas.width = Math.floor(innerWidth * dpr);
     canvas.height = Math.floor(innerHeight * dpr);
     if (ctx2d) ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  function seedDrops() {
-    const n = Math.min(280, Math.max(30, Math.floor(dropCount() * Math.min(1.4, (innerWidth * innerHeight) / 900000))));
-    const boost = 0.7 + (state.intensity / 100) * 0.9;
-    drops = Array.from({ length: n }, () => ({
+
+  function initParticles() {
+    // Rain
+    const nDrops = Math.round(50 + (state.intensity / 100) * 180);
+    drops = Array.from({ length: nDrops }, () => ({
       x: Math.random() * innerWidth, y: Math.random() * innerHeight,
-      len: (10 + Math.random() * 22) * boost, spd: (9 + Math.random() * 9) * boost,
-      op: (0.10 + Math.random() * 0.22) * (0.6 + (state.intensity / 100) * 0.7),
-      drift: -1.5 - Math.random() * 1.5, ph: Math.random() * Math.PI * 2,
+      len: 12 + Math.random() * 24, spd: 11 + Math.random() * 9,
+      op: 0.12 + Math.random() * 0.26, ph: Math.random() * Math.PI * 2
     }));
-  }
-  function tick(now) {
-    if (!ctx2d) return;
-    ctx2d.clearRect(0, 0, innerWidth, innerHeight);
-    ctx2d.lineWidth = 1.1;
-    const gust = Math.sin((now - t0) / 2600) * 2.2;
-    for (const d of drops) {
-      const sway = Math.sin((now - t0) / 900 + d.ph) * 0.6;
-      ctx2d.strokeStyle = `rgba(150, 180, 205, ${d.op.toFixed(3)})`;
-      ctx2d.beginPath(); ctx2d.moveTo(d.x, d.y);
-      ctx2d.lineTo(d.x + d.drift + gust + sway, d.y + d.len); ctx2d.stroke();
-      d.y += d.spd; d.x += (d.drift + gust) * 0.35;
-      if (d.y > innerHeight + 30) { d.y = -30; d.x = Math.random() * (innerWidth + 60) - 30; }
-      if (d.x < -60) d.x = innerWidth + 40; else if (d.x > innerWidth + 60) d.x = -40;
-    }
-    raf = requestAnimationFrame(tick);
-  }
-  function startCanvas() {
-    if (reducedMotion || !ctx2d) return;
-    sizeCanvas(); seedDrops(); t0 = performance.now();
-    canvas.hidden = false;
-    if (raf == null) raf = requestAnimationFrame(tick);
-    window.addEventListener("resize", sizeCanvas);
-  }
-  function stopCanvas() {
-    if (raf != null) { cancelAnimationFrame(raf); raf = null; }
-    window.removeEventListener("resize", sizeCanvas);
-    canvas.hidden = true;
-    if (ctx2d) ctx2d.clearRect(0, 0, canvas.width, canvas.height);
-    drops = [];
+    ripples = [];
+
+    // Snow Flakes
+    flakes = Array.from({ length: 90 }, () => ({
+      x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+      r: 1.2 + Math.random() * 3.5, spd: 1.0 + Math.random() * 2.2,
+      op: 0.25 + Math.random() * 0.6, drift: Math.random() * 1.5 - 0.75,
+      ph: Math.random() * Math.PI * 2, isCrystal: Math.random() < 0.28
+    }));
+
+    // Sparks / Embers
+    sparks = Array.from({ length: 55 }, () => ({
+      x: Math.random() * innerWidth, y: innerHeight + Math.random() * 100,
+      r: 1.2 + Math.random() * 2.6, vy: 1.5 + Math.random() * 3.2,
+      vx: (Math.random() - 0.5) * 1.8, life: 0.3 + Math.random() * 0.7,
+      hue: Math.random() < 0.2 ? 45 : (Math.random() < 0.6 ? 32 : 16)
+    }));
+
+    // Mist waves
+    mistWaves = [
+      { y: innerHeight * 0.55, amp: 28, speed: 0.0004, phase: 0, op: 0.05 },
+      { y: innerHeight * 0.75, amp: 40, speed: 0.0006, phase: 1.8, op: 0.07 },
+      { y: innerHeight * 0.90, amp: 20, speed: 0.0003, phase: 3.2, op: 0.06 }
+    ];
   }
 
-  // ---- lightning: where there's thunder, there's lightning --------------------
-  // A full-screen flash while the thunder layer plays. Not sample-synced (the
-  // loop's claps aren't exposed) — it strikes on its own slow random timer,
-  // harder when the thunder volume is up. Blood-red under the Cursed Wing.
+  function triggerForkedLightning() {
+    if (reducedMotion) return;
+    const startX = innerWidth * (0.2 + Math.random() * 0.6);
+    const segs = [{ x: startX, y: 0 }];
+    let curX = startX, curY = 0;
+    const targetY = innerHeight * (0.6 + Math.random() * 0.35);
+    const steps = 14;
+    const dy = targetY / steps;
+    const branches = [];
+
+    for (let i = 0; i < steps; i++) {
+      curX += (Math.random() - 0.48) * 44;
+      curY += dy;
+      segs.push({ x: curX, y: curY });
+      if (Math.random() < 0.45 && i > 3 && i < 11) {
+        // Branch
+        let bx = curX, by = curY;
+        const bSegs = [{ x: bx, y: by }];
+        const bDir = Math.random() < 0.5 ? -1 : 1;
+        for (let b = 0; b < 5; b++) {
+          bx += bDir * (18 + Math.random() * 24);
+          by += dy * 0.65;
+          bSegs.push({ x: bx, y: by });
+        }
+        branches.push(bSegs);
+      }
+    }
+    lightningBolt = { segments: segs, branches, alpha: 1.0 };
+    strikeFlash();
+  }
+
+  function renderVisuals(now) {
+    if (!ctx2d) return;
+    ctx2d.clearRect(0, 0, innerWidth, innerHeight);
+    const masterOp = (state.fxIntensity / 100);
+    const gust = Math.sin((now - t0) / 2800) * 2.5;
+
+    // 1. Aurora Borealis Curtains
+    if (state.fx.aurora && !reducedMotion) {
+      const aH = innerHeight * 0.42;
+      for (let layer = 0; layer < 3; layer++) {
+        ctx2d.beginPath();
+        ctx2d.moveTo(0, 0);
+        for (let x = 0; x <= innerWidth; x += 30) {
+          const w1 = Math.sin(x * 0.003 + (now * 0.0006) + layer * 1.5) * 45;
+          const w2 = Math.cos(x * 0.007 - (now * 0.0008)) * 25;
+          const y = aH * 0.4 + w1 + w2 + layer * 35;
+          ctx2d.lineTo(x, y);
+        }
+        ctx2d.lineTo(innerWidth, 0);
+        ctx2d.closePath();
+        const grad = ctx2d.createLinearGradient(0, 0, 0, aH);
+        const col = layer === 0 ? "rgba(16, 185, 129," : (layer === 1 ? "rgba(6, 182, 212," : "rgba(139, 92, 246,");
+        grad.addColorStop(0, col + " 0)");
+        grad.addColorStop(0.5, col + ` ${(0.14 * masterOp).toFixed(3)})`);
+        grad.addColorStop(1, col + " 0)");
+        ctx2d.fillStyle = grad;
+        ctx2d.fill();
+      }
+    }
+
+    // 2. Refractive Aquatic Caustics & Sunbeams
+    if (state.fx.caustics && !reducedMotion) {
+      for (let i = 0; i < 4; i++) {
+        const xOffset = (innerWidth / 5) * (i + 1) + Math.sin(now * 0.0005 + i) * 60;
+        const grad = ctx2d.createLinearGradient(xOffset - 40, 0, xOffset + 120, innerHeight);
+        grad.addColorStop(0, `rgba(200, 230, 255, ${(0.12 * masterOp).toFixed(3)})`);
+        grad.addColorStop(0.7, `rgba(100, 180, 220, ${(0.04 * masterOp).toFixed(3)})`);
+        grad.addColorStop(1, "rgba(0, 0, 0, 0)");
+        ctx2d.beginPath();
+        ctx2d.moveTo(xOffset - 25, 0);
+        ctx2d.lineTo(xOffset + 140, innerHeight);
+        ctx2d.lineTo(xOffset + 60, innerHeight);
+        ctx2d.lineTo(xOffset + 15, 0);
+        ctx2d.closePath();
+        ctx2d.fillStyle = grad;
+        ctx2d.fill();
+      }
+    }
+
+    // 3. Sweeping Mist & Wind Streams
+    if (state.fx.mist && !reducedMotion) {
+      for (const m of mistWaves) {
+        ctx2d.beginPath();
+        ctx2d.moveTo(0, innerHeight);
+        for (let x = 0; x <= innerWidth; x += 40) {
+          const y = m.y + Math.sin(x * 0.004 + (now * m.speed) + m.phase) * m.amp;
+          ctx2d.lineTo(x, y);
+        }
+        ctx2d.lineTo(innerWidth, innerHeight);
+        ctx2d.closePath();
+        const grad = ctx2d.createLinearGradient(0, m.y - m.amp, 0, innerHeight);
+        grad.addColorStop(0, `rgba(180, 200, 220, ${(m.op * masterOp).toFixed(3)})`);
+        grad.addColorStop(1, "rgba(0, 0, 0, 0)");
+        ctx2d.fillStyle = grad;
+        ctx2d.fill();
+      }
+    }
+
+    // 4. Rain & Splash Ripples
+    if (state.fx.rain) {
+      ctx2d.lineWidth = 1.1;
+      for (const d of drops) {
+        const sway = Math.sin((now - t0) / 900 + d.ph) * 0.6;
+        ctx2d.strokeStyle = `rgba(160, 195, 225, ${(d.op * masterOp).toFixed(3)})`;
+        ctx2d.beginPath(); ctx2d.moveTo(d.x, d.y);
+        ctx2d.lineTo(d.x + gust + sway, d.y + d.len); ctx2d.stroke();
+        d.y += d.spd; d.x += gust * 0.35;
+        if (d.y > innerHeight - 6) {
+          if (Math.random() < 0.45 && ripples.length < 35) {
+            ripples.push({ x: d.x, y: innerHeight - 2 - Math.random() * 8, r: 1, maxR: 12 + Math.random() * 14, op: 0.35 * masterOp });
+          }
+          d.y = -30; d.x = Math.random() * (innerWidth + 60) - 30;
+        }
+        if (d.x < -60) d.x = innerWidth + 40; else if (d.x > innerWidth + 60) d.x = -40;
+      }
+      // Expand and render ripples
+      for (let i = ripples.length - 1; i >= 0; i--) {
+        const rp = ripples[i];
+        ctx2d.strokeStyle = `rgba(170, 205, 235, ${rp.op.toFixed(3)})`;
+        ctx2d.beginPath();
+        ctx2d.ellipse(rp.x, rp.y, rp.r, rp.r * 0.35, 0, 0, Math.PI * 2);
+        ctx2d.stroke();
+        rp.r += 0.8;
+        rp.op *= 0.94;
+        if (rp.r >= rp.maxR || rp.op < 0.01) ripples.splice(i, 1);
+      }
+    }
+
+    // 5. Crystalline Snow & Arctic Blizzard
+    if (state.fx.blizzard) {
+      for (const fl of flakes) {
+        const sway = Math.sin((now - t0) / 750 + fl.ph) * 1.8;
+        ctx2d.fillStyle = `rgba(235, 245, 255, ${(fl.op * masterOp).toFixed(3)})`;
+        ctx2d.strokeStyle = `rgba(235, 245, 255, ${(fl.op * masterOp).toFixed(3)})`;
+        if (fl.isCrystal) {
+          ctx2d.lineWidth = 0.8;
+          ctx2d.beginPath();
+          ctx2d.moveTo(fl.x - fl.r, fl.y); ctx2d.lineTo(fl.x + fl.r, fl.y);
+          ctx2d.moveTo(fl.x, fl.y - fl.r); ctx2d.lineTo(fl.x, fl.y + fl.r);
+          ctx2d.stroke();
+        } else {
+          ctx2d.beginPath();
+          ctx2d.arc(fl.x, fl.y, fl.r, 0, Math.PI * 2);
+          ctx2d.fill();
+        }
+        fl.y += fl.spd;
+        fl.x += (fl.drift + gust * 0.5 + sway * 0.4);
+        if (fl.y > innerHeight + 15) { fl.y = -15; fl.x = Math.random() * (innerWidth + 80) - 40; }
+        if (fl.x < -40) fl.x = innerWidth + 30; else if (fl.x > innerWidth + 40) fl.x = -30;
+      }
+    }
+
+    // 6. Molten Sparks & Forge Embers
+    if (state.fx.embers) {
+      for (const sp of sparks) {
+        ctx2d.fillStyle = `hsla(${sp.hue}, 95%, 60%, ${(sp.life * masterOp).toFixed(3)})`;
+        ctx2d.beginPath();
+        ctx2d.arc(sp.x, sp.y, sp.r, 0, Math.PI * 2);
+        ctx2d.fill();
+        sp.y -= sp.vy;
+        sp.x += sp.vx + Math.sin(sp.y * 0.05) * 0.8;
+        sp.life -= 0.004;
+        if (sp.y < -20 || sp.life <= 0) {
+          sp.y = innerHeight + Math.random() * 30;
+          sp.x = Math.random() * innerWidth;
+          sp.life = 0.4 + Math.random() * 0.6;
+          sp.vy = 1.6 + Math.random() * 3.4;
+        }
+      }
+    }
+
+    // 7. Branching Forked Lightning Bolt
+    if (lightningBolt && lightningBolt.alpha > 0) {
+      ctx2d.save();
+      ctx2d.shadowColor = "#93c5fd";
+      ctx2d.shadowBlur = 18;
+      ctx2d.strokeStyle = `rgba(255, 255, 255, ${lightningBolt.alpha.toFixed(3)})`;
+      ctx2d.lineWidth = 2.4;
+      ctx2d.beginPath();
+      for (let i = 0; i < lightningBolt.segments.length; i++) {
+        const pt = lightningBolt.segments[i];
+        if (i === 0) ctx2d.moveTo(pt.x, pt.y); else ctx2d.lineTo(pt.x, pt.y);
+      }
+      ctx2d.stroke();
+
+      ctx2d.lineWidth = 1.2;
+      for (const br of lightningBolt.branches) {
+        ctx2d.beginPath();
+        for (let b = 0; b < br.length; b++) {
+          const pt = br[b];
+          if (b === 0) ctx2d.moveTo(pt.x, pt.y); else ctx2d.lineTo(pt.x, pt.y);
+        }
+        ctx2d.stroke();
+      }
+      ctx2d.restore();
+      lightningBolt.alpha -= 0.08;
+      if (lightningBolt.alpha <= 0) lightningBolt = null;
+    }
+
+    raf = requestAnimationFrame(renderVisuals);
+  }
+
+  function checkCanvasState() {
+    const anyFx = Object.values(state.fx).some(Boolean);
+    if (anyFx && !reducedMotion) {
+      sizeCanvas();
+      if (!drops.length) initParticles();
+      t0 = performance.now();
+      canvas.hidden = false;
+      if (raf == null) raf = requestAnimationFrame(renderVisuals);
+      window.addEventListener("resize", sizeCanvas);
+    } else {
+      if (raf != null) { cancelAnimationFrame(raf); raf = null; }
+      window.removeEventListener("resize", sizeCanvas);
+      canvas.hidden = true;
+      if (ctx2d) ctx2d.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+  // ---- Lightning Flash Screen Bloom ----
   const bolt = document.createElement("div");
   bolt.id = "lightning-flash";
   bolt.setAttribute("aria-hidden", "true");
   document.body.appendChild(bolt);
   let boltTimer = 0;
-  function strike() {
+
+  function strikeFlash() {
     if (reducedMotion) return;
-    const v = state.layers.thunder.vol * (state.lightning / 100);
+    const v = (state.layers.thunder ? state.layers.thunder.vol : 0.7) * (state.lightning / 100);
     const cursed = document.documentElement.dataset.atmo === "cursedwing";
-    bolt.style.setProperty("--bolt", cursed ? "rgba(255,70,70,0.5)" : "rgba(190,215,255,0.5)");
-    bolt.style.setProperty("--bolt-op", (0.25 + v * 0.55).toFixed(2));
+    bolt.style.setProperty("--bolt", cursed ? "rgba(255,70,70,0.55)" : "rgba(200,225,255,0.55)");
+    bolt.style.setProperty("--bolt-op", (0.35 + v * 0.55).toFixed(2));
     bolt.classList.remove("strike");
-    void bolt.offsetWidth; // restart the animation
+    void bolt.offsetWidth;
     bolt.classList.add("strike");
   }
+
   function scheduleBolt() {
     clearTimeout(boltTimer);
-    if (!state.layers.thunder.on || reducedMotion) return;
+    if ((!state.layers.thunder.on && !state.fx.lightning) || reducedMotion) return;
     boltTimer = setTimeout(() => {
-      strike();
-      // occasional double-strike: a second flash a beat later
-      if (Math.random() < 0.35) setTimeout(strike, 700 + Math.random() * 900);
+      triggerForkedLightning();
+      if (Math.random() < 0.35) setTimeout(triggerForkedLightning, 650 + Math.random() * 800);
       scheduleBolt();
-    }, 9000 + Math.random() * 17000);
+    }, 8500 + Math.random() * 16000);
   }
-  // ---- fire glow: where there's fire sound, there's firelight --------------------
-  // A warm flickering vignette plus rising embers, intensity follows the fire
-  // layer's volume. Mirrors the lightning/thunder pairing.
+
+  // ---- Fire Glow & Embers Vignette ----
   const fireGlow = document.createElement("div");
   fireGlow.id = "fire-glow";
   fireGlow.setAttribute("aria-hidden", "true");
@@ -497,9 +984,10 @@
   emberLayer.id = "ember-layer";
   emberLayer.setAttribute("aria-hidden", "true");
   document.body.appendChild(emberLayer);
+
   function seedEmbers() {
     emberLayer.innerHTML = "";
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 14; i++) {
       const e = document.createElement("i");
       const s = (2 + Math.random() * 3).toFixed(1);
       e.style.left = (Math.random() * 100).toFixed(1) + "vw";
@@ -509,41 +997,62 @@
       emberLayer.appendChild(e);
     }
   }
+
   function updateFireFx() {
-    const on = state.layers.fire && state.layers.fire.on && !reducedMotion;
-    const v = state.layers.fire ? state.layers.fire.vol : 0;
-    fireGlow.classList.toggle("lit", !!on);
-    emberLayer.classList.toggle("lit", !!on);
+    const on = (state.layers.fire && state.layers.fire.on) || state.fx.embers;
+    const v = state.layers.fire ? state.layers.fire.vol : 0.7;
+    fireGlow.classList.toggle("lit", !!on && !reducedMotion);
+    emberLayer.classList.toggle("lit", !!on && !reducedMotion);
     fireGlow.style.setProperty("--fire-op", (0.25 + v * 0.6).toFixed(2));
     if (on && !emberLayer.children.length) seedEmbers();
   }
+
+  // ---- Panel UI -------------------------------------------------------------
   const btn = document.getElementById("btn-rain");
   const panel = document.createElement("div");
   panel.className = "ambient-panel";
   panel.hidden = true;
   panel.setAttribute("role", "dialog");
-  panel.setAttribute("aria-label", "Ambient sound mixer");
+  panel.setAttribute("aria-label", "Ambience Experience Engine");
+
   const layerLabel = (id) => (RECORDED[id] || SYNTH[id]).label;
   const layerRow = (id) => `
     <div class="amb-layer" data-layer="${id}">
       <button type="button" class="amb-layertoggle" data-layerbtn="${id}" aria-pressed="false">
         <span class="amb-meter" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="amb-layername">${layerLabel(id)}${id === "thunder" ? ' <span class="amb-bolt" title="Lightning flashes on screen">⚡</span>' : ""}${id === "fire" ? ' <span class="amb-bolt" title="Firelight glows on screen">🔥</span>' : ""}</span>
+        <span class="amb-layername">${layerLabel(id)}${id === "thunder" ? ' <span class="amb-bolt" title="Forked lightning flashes on screen">⚡</span>' : ""}${id === "fire" ? ' <span class="amb-bolt" title="Forge embers on screen">🔥</span>' : ""}</span>
       </button>
       <input type="range" class="amb-vol" data-vol="${id}" min="0" max="1" step="0.01"
              value="${state.layers[id].vol}" aria-label="${layerLabel(id)} volume" />
     </div>`;
+
   panel.innerHTML = `
     <div class="amb-head">
-      <div><div class="amb-title">Soundscape</div><div class="amb-sub">generative ambience engine</div></div>
+      <div>
+        <div class="amb-title">Ambience Experience Engine</div>
+        <div class="amb-sub">Generative Multi-Phenomenon Soundscape &amp; Atmospheric Engine</div>
+      </div>
       <canvas id="amb-fft-canvas" class="amb-fft" width="80" height="20" aria-hidden="true" style="margin-left:auto;margin-right:0.75rem;border-radius:3px;background:rgba(0,0,0,0.3)"></canvas>
       <button type="button" id="amb-close" aria-label="Close mixer">×</button>
     </div>
-    <div class="amb-secname">Scenes</div>
+
+    <div class="amb-secname">Theme Presets &amp; Soundscapes</div>
     <div class="amb-presets">
       ${PRESET_ORDER.map((p) => `<button type="button" class="amb-preset" data-preset="${p}"><span>${PRESETS[p].name}</span></button>`).join("")}
     </div>
-    <div class="amb-preset-desc" id="amb-preset-desc">Layers fade in and out smoothly, drift slowly across the stereo field, and mix with the music player. Rain and fire show on screen too — tap any layer to build your own weather.</div>
+    <div class="amb-preset-desc" id="amb-preset-desc">Layers fade in smoothly and drift across the stereo field. Tap any theme preset to instantly activate its matching soundscape and atmospheric visual phenomenon.</div>
+
+    <div class="amb-secname">Atmospheric Visual FX</div>
+    <div class="amb-fx-bar">
+      <button type="button" class="amb-fx-chip" data-fx="rain">🌧️ Rain &amp; Ripples</button>
+      <button type="button" class="amb-fx-chip" data-fx="blizzard">❄️ Arctic Blizzard</button>
+      <button type="button" class="amb-fx-chip" data-fx="embers">✨ Molten Sparks</button>
+      <button type="button" class="amb-fx-chip" data-fx="aurora">🌌 Aurora Borealis</button>
+      <button type="button" class="amb-fx-chip" data-fx="lightning">⚡ Forked Lightning</button>
+      <button type="button" class="amb-fx-chip" data-fx="mist">💨 Sweeping Mist</button>
+      <button type="button" class="amb-fx-chip" data-fx="caustics">🌊 Sunrays &amp; Caustics</button>
+    </div>
+
     <div class="amb-secname">Binaural Brainwave Entrainment</div>
     <div class="amb-binaural-bar" style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.8rem">
       <button type="button" class="amb-bb-btn btn small active" data-bb="off" style="font-size:0.72rem;padding:0.25rem 0.55rem">Off</button>
@@ -551,10 +1060,13 @@
       <button type="button" class="amb-bb-btn btn small" data-bb="theta" title="6Hz Theta Meditation" style="font-size:0.72rem;padding:0.25rem 0.55rem">Theta · 6Hz Zen</button>
       <button type="button" class="amb-bb-btn btn small" data-bb="delta" title="2.5Hz Delta Stillness" style="font-size:0.72rem;padding:0.25rem 0.55rem">Delta · 2Hz Stillness</button>
     </div>
-    <div class="amb-secname">Recorded</div>
-    <div class="amb-layers">${Object.keys(RECORDED).map(layerRow).join("")}</div>
-    <div class="amb-secname">Synthesized live</div>
+
+    <div class="amb-secname">Synthesized Procedural Layers</div>
     <div class="amb-layers">${Object.keys(SYNTH).map(layerRow).join("")}</div>
+
+    <div class="amb-secname">Recorded Acoustic Loops</div>
+    <div class="amb-layers">${Object.keys(RECORDED).map(layerRow).join("")}</div>
+
     <div class="amb-secname">Sleep &amp; Fadeout Timer</div>
     <div class="amb-timer-bar" style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.8rem">
       <button type="button" class="amb-timer-btn btn small active" data-timer="0" style="font-size:0.72rem;padding:0.25rem 0.55rem">Off</button>
@@ -563,11 +1075,14 @@
       <button type="button" class="amb-timer-btn btn small" data-timer="60" style="font-size:0.72rem;padding:0.25rem 0.55rem">60m</button>
       <span class="amb-timer-countdown" id="amb-timer-countdown" style="font-family:var(--mono);font-size:0.8rem;color:var(--gold-soft);margin-left:auto"></span>
     </div>
+
     <div class="amb-foot">
       <label class="amb-master">Master <input type="range" id="amb-master" min="0" max="1" step="0.01" value="${state.master}" aria-label="Ambient master volume" /></label>
       <label class="amb-master">Rainfall <input type="range" id="amb-intensity" min="0" max="100" step="1" value="${state.intensity}" aria-label="Rainfall intensity" /></label>
+      <label class="amb-master">Visual FX <input type="range" id="amb-fx-intensity" min="0" max="100" step="1" value="${state.fxIntensity}" aria-label="Atmospheric visual effects opacity" /></label>
       <label class="amb-master">⚡ Flash <input type="range" id="amb-lightning" min="0" max="100" step="1" value="${state.lightning}" aria-label="Lightning flash intensity" /></label>
     </div>`;
+
   document.body.appendChild(panel);
 
   function markPreset(name) {
@@ -576,6 +1091,14 @@
     const d = panel.querySelector("#amb-preset-desc");
     if (d) d.textContent = name && PRESETS[name] ? PRESETS[name].desc : "Custom mix — your layers, your weather.";
   }
+
+  function syncFxUi() {
+    panel.querySelectorAll(".amb-fx-chip").forEach((chip) => {
+      const type = chip.dataset.fx;
+      chip.classList.toggle("active", !!state.fx[type]);
+    });
+  }
+
   function syncUi() {
     for (const id of LAYER_IDS) {
       const row = panel.querySelector(`.amb-layer[data-layer="${id}"]`);
@@ -584,27 +1107,43 @@
       row.querySelector("[data-layerbtn]").setAttribute("aria-pressed", String(state.layers[id].on));
     }
     syncVolUi();
-    if (btn) btn.setAttribute("aria-pressed", String(LAYER_IDS.some((id) => state.layers[id].on)));
+    syncFxUi();
+    if (btn) btn.setAttribute("aria-pressed", String(LAYER_IDS.some((id) => state.layers[id].on) || Object.values(state.fx).some(Boolean)));
     markPreset(state.preset);
+    updateFireFx();
   }
+
   function syncVolUi() {
     for (const id of LAYER_IDS) {
       const s = panel.querySelector(`input[data-vol="${id}"]`);
       if (s && document.activeElement !== s) s.value = state.layers[id].vol;
     }
   }
+
   panel.querySelectorAll("[data-layerbtn]").forEach((b) => {
     b.addEventListener("click", () => setOn(b.dataset.layerbtn, !state.layers[b.dataset.layerbtn].on));
   });
+
   panel.querySelectorAll("input[data-vol]").forEach((s) => {
     s.addEventListener("input", () => setVol(s.dataset.vol, parseFloat(s.value)));
   });
+
+  panel.querySelectorAll(".amb-fx-chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const type = chip.dataset.fx;
+      setFx(type, !state.fx[type]);
+      if (type === "lightning" && state.fx[type]) triggerForkedLightning();
+    });
+  });
+
   panel.querySelectorAll(".amb-bb-btn").forEach((b) => {
     b.addEventListener("click", () => setBinaural(b.dataset.bb));
   });
+
   panel.querySelectorAll(".amb-timer-btn").forEach((b) => {
     b.addEventListener("click", () => setSleepTimer(parseInt(b.dataset.timer, 10)));
   });
+
   panel.querySelector("#amb-master").addEventListener("input", (e) => {
     state.master = parseFloat(e.target.value);
     if (ctx) {
@@ -615,72 +1154,65 @@
     }
     writeState();
   });
+
   panel.querySelector("#amb-intensity").addEventListener("input", (e) => {
     state.intensity = parseFloat(e.target.value);
-    if (state.layers.rain.on) { seedDrops(); }
+    initParticles();
     writeState();
   });
+
+  panel.querySelector("#amb-fx-intensity").addEventListener("input", (e) => {
+    state.fxIntensity = parseFloat(e.target.value);
+    writeState();
+  });
+
   panel.querySelector("#amb-lightning").addEventListener("input", (e) => {
     state.lightning = parseFloat(e.target.value);
     writeState();
   });
+
   panel.querySelectorAll(".amb-preset").forEach((b) => {
     b.addEventListener("click", () => applyPreset(b.dataset.preset));
   });
+
   panel.querySelector("#amb-close").addEventListener("click", () => { panel.hidden = true; });
   if (btn) btn.addEventListener("click", () => { panel.hidden = !panel.hidden; });
 
   // FFT Visualizer loop
   function drawFft() {
-    const canvas = panel.querySelector("#amb-fft-canvas");
-    if (canvas && !panel.hidden && analyser) {
-      const g = canvas.getContext("2d");
+    const cv = panel.querySelector("#amb-fft-canvas");
+    if (cv && !panel.hidden && analyser) {
+      const g = cv.getContext("2d");
       const data = new Uint8Array(analyser.frequencyBinCount);
       analyser.getByteFrequencyData(data);
-      g.clearRect(0, 0, canvas.width, canvas.height);
+      g.clearRect(0, 0, cv.width, cv.height);
       const bars = 16;
-      const barW = canvas.width / bars - 1;
+      const barW = cv.width / bars - 1;
       for (let i = 0; i < bars; i++) {
         const val = data[i * 2] / 255;
-        const h = Math.max(2, val * canvas.height);
+        const h = Math.max(2, val * cv.height);
         g.fillStyle = val > 0.05 ? "rgba(200, 169, 74, 0.85)" : "rgba(255, 255, 255, 0.12)";
-        g.fillRect(i * (barW + 1), canvas.height - h, barW, h);
+        g.fillRect(i * (barW + 1), cv.height - h, barW, h);
       }
     }
     requestAnimationFrame(drawFft);
   }
   requestAnimationFrame(drawFft);
 
-  // Restore persisted ambience on boot (autoplay-safe: play() may reject).
-  if (LAYER_IDS.some((k) => state.layers[k].on) && ensureCtx()) {
-    for (const k of LAYER_IDS) {
-      if (!state.layers[k].on) continue;
-      const n = nodes[k];
-      if (RECORDED[k]) {
-        const el = new Audio();
-        el.loop = true; el.preload = "auto"; el.crossOrigin = "anonymous";
-        el.src = RECORDED[k].url;
-        ctx.createMediaElementSource(el).connect(n.gain);
-        n.el = el;
-        el.play().then(() => rampGain(k)).catch(() => { state.layers[k].on = false; writeState(); });
-      } else {
-        n.synth = synthBuilders[k](n);
-        rampGain(k);
-      }
-    }
-    if (state.layers.rain.on) setTimeout(startCanvas, 400);
-    if (state.layers.thunder.on) scheduleBolt();
-  }
-  syncUi();
-  updateFireFx();
-
-  // Public hooks for the atmosphere system ("Set the scene" pairing).
+  // ---- Public API -----------------------------------------------------------
   window.TitanAmbient = {
     applyPreset,
-    setOn,
+    toggleFx: setFx,
+    setMaster: (v) => { state.master = v; if (masterGain) masterGain.gain.value = v; writeState(); },
     setVol,
-    openMixer() { panel.hidden = false; },
-    closeMixer() { panel.hidden = true; },
-    get mixerOpen() { return !panel.hidden; },
+    setOn,
+    isActive: () => LAYER_IDS.some((id) => state.layers[id].on) || Object.values(state.fx).some(Boolean),
+    presets: () => PRESET_ORDER.map((k) => ({ key: k, name: PRESETS[k].name, desc: PRESETS[k].desc }))
   };
+
+  // Auto-init on boot if user had active preset
+  if (state.preset && PRESETS[state.preset] && state.preset !== "off") {
+    // Keep dormant until user interacts to comply with autoplay policy
+    markPreset(state.preset);
+  }
 })();
