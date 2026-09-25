@@ -211,7 +211,7 @@
       Date.now() < typingPauseUntil ||
       Date.now() < drawerScrollPauseUntil ||
       !$("#lightbox")?.hidden ||
-      ["flip-q", "flip-year"].includes(document.activeElement?.id)
+      ["flip-q", "flip-year", "palette-q"].includes(document.activeElement?.id)
     );
   }
 
@@ -416,34 +416,57 @@
   }
 
   function renderAll() {
-    renderHeader();
+    renderHero();
     renderBoard();
     renderFlips();
     renderBullion();
     renderWorld();
     renderOps();
     renderAge();
-    $("#foot-path").textContent = "Snapshot · " + snapshotLabel() + " · GitHub Pages";
+    $("#foot-path").innerHTML = `<span class="ft-brand">Titan Reliquary</span> · Ledger ${esc(vault.ledger_version || "—")} · snapshot ${esc(snapshotLabel())}`;
     const refresh = $("#btn-refresh");
     if (refresh) { refresh.textContent = "↻ Refresh"; refresh.title = "Check for a newer published snapshot and reload"; }
     lazyThumbs();
+    observeReveals();
   }
 
-  function renderHeader() {
+  /** Cinematic hero: wordmark, count-up grand, stat row, action cluster. */
+  function renderHero() {
     const b = vault.board || {};
     const m = vault.metals || {};
     const spot = m.spot || {};
     const ag = spot.ag_usd_oz ?? b.spot_ag ?? b.silver?.spot;
     const au = spot.au_usd_oz ?? b.spot_au ?? b.gold?.spot;
-    $("#hdr-sub").textContent =
-      `${vault.ledger_version || "—"} · ${intFmt(b.vault ?? vault.counts?.vault)} pieces · grand ${money(b.grand)} · ${intFmt(vault.counts?.flips)} flips · ${intFmt(vault.counts?.countries)} countries`;
-    $("#hdr-chips").innerHTML = `
-      <span class="chip"><strong>${esc(intFmt(b.vault ?? "—"))}</strong> vault</span>
-      <span class="chip grand-chip"><strong id="grand-count">${money(b.grand)}</strong> grand</span>
-      <span class="chip ag">Ag <strong>${ag != null ? money(ag) : "—"}</strong></span>
-      <span class="chip au">Au <strong>${au != null ? money(au) : "—"}</strong></span>
-    `;
-    countUp($("#grand-count"), b.grand, money);
+    const phN = vault.photos || {};
+    const flipsTotal = vault.counts?.flips || 0;
+    const photoPct = flipsTotal ? Math.round(100 * (phN.coins_with_photos ?? 0) / flipsTotal) : 0;
+
+    const chip = $("#ledger-chip");
+    if (chip) chip.textContent = "Ledger " + (vault.ledger_version || "—");
+
+    const stats = [
+      ["pieces", intFmt(vault.counts?.vault)],
+      ["flips", intFmt(flipsTotal)],
+      ["countries", intFmt(vault.counts?.countries)],
+      ["photographed", photoPct + "%"],
+    ];
+    $("#hdr-stats").innerHTML = stats
+      .map(([label, val], i) =>
+        `${i ? '<span class="dot-sep" aria-hidden="true">·</span>' : ""}<span class="hero-stat"><strong>${esc(val)}</strong> ${esc(label)}</span>`)
+      .join("");
+
+    const grand = $("#hero-grand");
+    grand.setAttribute("aria-label", "Estimated collection value " + money(b.grand));
+    countUp(grand, b.grand, money);
+
+    // Spot prices live in the hero money caption so the header stays informative.
+    const cap = $(".hero-cap");
+    if (cap) {
+      const bits = ["estimated collection value"];
+      if (ag != null) bits.push("Ag " + money(ag));
+      if (au != null) bits.push("Au " + money(au));
+      cap.textContent = bits.join(" · ");
+    }
   }
 
   function latestFlips(n = 10) {
@@ -480,11 +503,99 @@
     clearInterval(momentTimer); // old rotation dies with the old DOM
     const b = vault.board || {};
     const m = vault.metals || {};
-    const vaultN = b.vault || 0;
-    const next = b.next_soft_beat || 1700;
-    const prev = Math.floor(vaultN / 100) * 100;
-    const denom = Math.max(1, next - prev);
-    const pct = Math.min(100, Math.max(0, ((vaultN - prev) / denom) * 100));
+    const prec = vault.precious || {};
+    const phN = vault.photos || {};
+    const flipsTotal = vault.counts?.flips || 0;
+
+    // ---- (a) stat band: 5 tiles ----
+    const newest = latestFlips(1)[0];
+    const newestSub = [newest?.country, newest?.year, newest?.denom].filter(Boolean).join(" · ");
+    const grandTile = `
+      <div class="tile hero-tile reveal"><div class="k">Estimated total</div><div class="v" id="stat-grand">${money(vault.value?.estimated_total)}</div><div class="s">${esc(vault.value?.status || "")} · ${esc(vault.policy || "HOLD")}</div></div>`;
+    const statBand = `
+      <div class="stat-band" aria-label="Vault at a glance">
+        ${grandTile}
+        <div class="tile reveal"><div class="k">Vault pieces</div><div class="v">${esc(intFmt(vault.counts?.vault))}</div><div class="s">across ${esc(intFmt(vault.counts?.countries))} countries</div></div>
+        <div class="tile reveal"><div class="k">Flips</div><div class="v">${esc(intFmt(flipsTotal))}</div><div class="s">white 2×2 · permanent C### keys</div></div>
+        <div class="tile reveal"><div class="k">Countries</div><div class="v">${esc(intFmt(vault.counts?.countries))}</div><div class="s">world flips</div></div>
+        <div class="tile reveal"><div class="k">Newest flip</div><div class="v" style="font-family:var(--serif);font-size:1.15rem">${esc(newest?.ser || newest?.scan || "—")}</div><div class="s">${esc(newestSub || "—")}</div></div>
+      </div>`;
+
+    // ---- (b) metals band: Ag + Au ----
+    const combAgOz = prec.combined_silver?.oz ?? m.oz?.ag ?? b.silver?.oz;
+    const combAgMelt = prec.combined_silver?.melt ?? m.melt?.ag_usd ?? b.silver?.melt;
+    const agSpot = m.spot?.ag_usd_oz ?? b.spot_ag;
+    const auOz = prec.bullion_gold?.oz ?? m.oz?.au ?? b.gold?.oz;
+    const auMelt = prec.bullion_gold?.melt ?? m.melt?.au_usd ?? b.gold?.melt;
+    const auSpot = m.spot?.au_usd_oz ?? b.spot_au;
+    const flipAgN = prec.flip_silver?.n ?? 0;
+    const flipAgUnk = (prec.flip_silver?.unknown || []).length;
+    const metalsBand = `
+      <div class="metals-band">
+        <div class="metal-tile reveal">
+          <span class="metal-glyph" aria-hidden="true">Ag</span>
+          <div><div class="m-name">Silver · combined</div><div class="m-oz">${combAgOz != null ? num(combAgOz, 2) + " oz" : "—"}</div>
+          <div class="m-rows">melt <strong>${money(combAgMelt)}</strong> · spot <strong>${agSpot != null ? money(agSpot) : "—"}</strong>${flipAgUnk ? ` · ${flipAgUnk} ASW unknown` : ""}</div></div>
+        </div>
+        <div class="metal-tile reveal">
+          <span class="metal-glyph" aria-hidden="true">Au</span>
+          <div><div class="m-name">Gold</div><div class="m-oz">${auOz != null ? num(auOz, 4) + " oz" : "—"}</div>
+          <div class="m-rows">melt <strong>${money(auMelt)}</strong> · spot <strong>${auSpot != null ? money(auSpot) : "—"}</strong></div></div>
+        </div>
+      </div>`;
+
+    // ---- (c) latest adds: snap-scroll rail ----
+    const latest = latestFlips(10);
+    const latestHtml = latest
+      .map((f) => {
+        const neo = highlightScans.has(f.scan) ? " is-new" : "";
+        const ag = f.is_silver ? ` <span class="badge-ag">Ag</span>` : "";
+        return `
+        <button type="button" class="latest-card reveal${neo}" data-scan="${esc(f.scan)}">
+          ${thumbImg(f)}
+          <span class="id">${esc(f.ser || f.scan)}${ag}</span>
+          <span class="ser">${esc(f.ser ? f.scan : "")}</span>
+          <span class="meta">${esc(f.country || "—")} · ${esc(f.year || "—")}<br/>${esc(f.denom || f.label || "")}</span>
+          <span class="est">${f.is_silver && f.asw_oz != null ? num(f.asw_oz, 4) + " oz · " : ""}${f.est != null ? money(f.est) : "—"}</span>
+        </button>`;
+      })
+      .join("");
+    const latestSec = `
+      <div class="sec-head reveal"><span class="eyebrow">Fresh metal</span><h2>Latest adds</h2><button type="button" class="btn small" id="go-phase2" title="Coins awaiting Phase 2 photos">Shooting list →</button></div>
+      <div class="latest-rail" aria-label="Latest added flips">${latestHtml || '<p class="empty">No flips yet</p>'}</div>`;
+
+    // ---- (d) requests from Titan ----
+    const reqSec = `
+      <div class="sec-head reveal"><span class="eyebrow">Upkeep</span><h2>Requests from Titan</h2><p class="sub">Small things you could do to firm up the data.</p></div>
+      ${requestsModule()}`;
+
+    // ---- (e) moments: editorial pull quote ----
+    const momentsAll = vault.moments || [];
+    const momentCard = momentsAll.length ? `
+      <div class="sec-head reveal"><span class="eyebrow">Editorial</span><h2>From the vault</h2></div>
+      <figure class="moment-card reveal" aria-label="From the vault" style="margin:0">
+        <span class="mk">Vault moment</span>
+        <blockquote class="moment-text" id="moment-text" style="margin:0">${esc(momentsAll[0])}</blockquote>
+      </figure>` : "";
+    const moments = momentsAll.map((x) => `<li>${esc(x)}</li>`).join("");
+    const flags = splitFlags(vault.flags || []).map((x) => `<li>${esc(x)}</li>`).join("");
+
+    // ---- (f) top album families: 4 cards ----
+    const glanceTop = (vault.albums_glance || [])
+      .filter((g) => /[a-z]/i.test(String(g.family || ""))) // skip malformed rows (data domain owns them)
+      .slice().sort((a, bb) => (bb.coins || 0) - (a.coins || 0)).slice(0, 4);
+    const albumSec = glanceTop.length ? `
+      <div class="sec-head reveal"><span class="eyebrow">Shelved sets</span><h2>Top album families</h2><p class="sub">${esc(intFmt(vault.counts?.albums_families ?? glanceTop.length))} families tracked</p></div>
+      <div class="album-cards">
+        ${glanceTop.map((g) => `
+          <div class="album-card reveal">
+            <div class="fam">${esc(g.family)}</div>
+            <div class="coins">${esc(intFmt(g.coins))} <small>coins · ${money(g.total)}</small></div>
+            <div class="pulse">${esc(g.pulse || "")}</div>
+          </div>`).join("")}
+      </div>` : "";
+
+    // ---- (g) buckets + age, two-col ----
     const buckets = [
       ["Flips", b.flips],
       ["Bullion", b.bullion],
@@ -503,139 +614,40 @@
         return `<div class="bucket-row"><span class="k">${esc(k)}</span><span class="v">${money(v.usd)}${esc(extra)}</span></div>`;
       })
       .join("");
-
-    const agOz = m.oz?.ag ?? b.silver?.oz;
-    const auOz = m.oz?.au ?? b.gold?.oz;
-    const agMelt = m.melt?.ag_usd ?? b.silver?.melt;
-    const auMelt = m.melt?.au_usd ?? b.gold?.melt;
-    const prec = vault.precious || {};
-    const flipAgOz = prec.flip_silver?.oz;
-    const flipAgMelt = prec.flip_silver?.melt;
-    const flipAgN = prec.flip_silver?.n ?? 0;
-    const flipAgUnk = (prec.flip_silver?.unknown || []).length;
-    const combAgOz = prec.combined_silver?.oz ?? agOz;
-    const combAgMelt = prec.combined_silver?.melt ?? agMelt;
-    const bullAgOz = prec.bullion_silver?.oz;
-    const bullAgMelt = prec.bullion_silver?.melt;
-
-    const moments = (vault.moments || [])
-      .map((x) => `<li>${esc(x)}</li>`)
-      .join("");
-    const flags = splitFlags(vault.flags || [])
-      .map((x) => `<li>${esc(x)}</li>`)
-      .join("");
-
-    const latest = latestFlips(10);
-    const latestHtml = latest
-      .map((f) => {
-        const neo = highlightScans.has(f.scan) ? " is-new" : "";
-        const ag = f.is_silver ? ` <span class="badge-ag">Ag</span>` : "";
-        const thumb = thumbImg(f);
-        return `
-        <button type="button" class="latest-card${neo}" data-scan="${esc(f.scan)}">
-          ${thumb}
-          <span class="id">${esc(f.ser || f.scan)}${ag}</span>
-          <span class="ser">${esc(f.ser ? f.scan : "")}</span>
-          <div class="meta">${esc(f.country || "—")} · ${esc(f.year || "—")}<br/>${esc(f.denom || f.label || "")}</div>
-          <div class="est">${f.is_silver && f.asw_oz != null ? num(f.asw_oz, 4) + " oz · " : ""}${f.est != null ? money(f.est) : "—"}</div>
-        </button>`;
-      })
-      .join("");
-
-    // Prefer AGE.json for 6-dp board display when board row missing decimals
     const ageFo = vault.age?.flips_other || {};
     const ageAl = vault.age?.albums || {};
     const foYear = b.age_flips?.mean_year ?? ageFo.mean_year;
     const foAge = b.age_flips?.mean_age ?? ageFo.mean_age;
     const alYear = b.age_albums?.mean_year ?? ageAl.mean_year;
     const alAge = b.age_albums?.mean_age ?? ageAl.mean_age;
-
-    const ph = vault.photos || {};
-    const totalActive = ph.total_active ?? (vault.flips || []).length;
-    const p2 = ph.phase2_done ?? 0;
-    const p2pct = totalActive ? Math.min(100, (p2 / totalActive) * 100) : 0;
-    const photoCard = `
-        <div class="card"><h3>Photographed</h3><div class="val">${esc(intFmt(p2))} <span class="of">of ${esc(intFmt(totalActive))}</span></div>
-          <div class="hint">Phase 2 masters (both sides, label visible, QC passed and approved) · ${esc(intFmt(ph.coins_with_photos ?? 0))} with at least one side</div>
-          <div class="progress-wrap"><div class="progress" title="${p2} / ${totalActive}"><span style="width:${p2pct}%"></span></div></div>
-          <button type="button" class="btn small" id="go-phase2">Shooting list →</button>
-        </div>`;
-
-    // Vault at a glance — stat strip, using only existing index.json fields.
-    const newest = latestFlips(1)[0];
-    const phN = vault.photos || {};
-    const flipsTotal = vault.counts?.flips || 0;
-    const photoPct = flipsTotal ? Math.round(100 * (phN.coins_with_photos ?? 0) / flipsTotal) : 0;
-    const statStrip = `
-      <div class="stat-strip" aria-label="Vault at a glance">
-        <div class="stat"><div class="k">Estimated total</div><div class="v">${money(vault.value?.estimated_total)}</div><div class="s">${esc(vault.value?.status || "")}</div></div>
-        <div class="stat"><div class="k">Vault pieces</div><div class="v">${esc(intFmt(vault.counts?.vault))}</div><div class="s">across ${esc(intFmt(vault.counts?.countries))} countries</div></div>
-        <div class="stat"><div class="k">Flips</div><div class="v">${esc(intFmt(flipsTotal))}</div><div class="s">white 2×2 · permanent C### keys</div></div>
-        <div class="stat"><div class="k">Photographed</div><div class="v">${esc(intFmt(phN.coins_with_photos ?? 0))}</div><div class="s">${photoPct}% of flips · awaiting photo is normal</div></div>
-        <div class="stat"><div class="k">Newest flip</div><div class="v" style="font-size:1.05rem;font-family:var(--mono)">${esc(newest?.ser || newest?.scan || "—")}</div><div class="s">${esc([newest?.country, newest?.year, newest?.denom].filter(Boolean).join(" · "))}</div></div>
-      </div>`;
-
-    const momentsAll = vault.moments || [];
-    const momentCard = momentsAll.length ? `
-      <div class="moment-card" aria-label="From the vault">
-        <span class="mk">From the vault</span>
-        <span class="moment-text" id="moment-text">${esc(momentsAll[0])}</span>
-      </div>` : "";
-
-    const glanceTop = (vault.albums_glance || [])
-      .filter((g) => /[a-z]/i.test(String(g.family || ""))) // skip malformed rows (data domain owns them)
-      .slice().sort((a, bb) => (bb.coins || 0) - (a.coins || 0)).slice(0, 4);
-    const albumCards = glanceTop.length ? `
-      <div class="album-head"><h3>Top album families</h3><span style="font-size:0.75rem;color:var(--muted)">${esc(intFmt(vault.counts?.albums_families ?? glanceTop.length))} families tracked</span></div>
-      <div class="album-cards">
-        ${glanceTop.map((g) => `
-          <div class="album-card">
-            <div class="fam">${esc(g.family)}</div>
-            <div class="coins">${esc(intFmt(g.coins))} <small>coins · ${money(g.total)}</small></div>
-            <div class="pulse">${esc(g.pulse || "")}</div>
-          </div>`).join("")}
-      </div>` : "";
-
-    $("#pane-board").innerHTML = `
-      ${statStrip}
-      <div class="card wide" style="margin-bottom:1rem">
-        <h3>Latest adds</h3>
-        <div class="latest-grid">${latestHtml || '<p class="empty">No flips yet</p>'}</div>
-      </div>
-      ${requestsModule()}
-      ${momentCard}
-      ${albumCards}
-      <div class="grid">
-        ${photoCard}
-        <div class="card"><h3>Grand</h3><div class="val">${money(b.grand)}</div><div class="hint">${esc(vault.policy || "HOLD")}</div></div>
-        <div class="card"><h3>Vault pieces</h3><div class="val">${esc(intFmt(vaultN))}</div>
-          <div class="hint">Next soft beat ${esc(intFmt(next))}</div>
-          <div class="progress-wrap"><div class="progress" title="${vaultN} / ${next}"><span style="width:${pct}%"></span></div></div>
-        </div>
-        <div class="card"><h3>Flips</h3><div class="val">${esc(intFmt(vault.counts?.flips ?? 0))}</div><div class="hint">${money(b.flips?.usd)} · white 2×2</div></div>
-        <div class="card"><h3>Countries</h3><div class="val">${esc(intFmt(vault.counts?.countries ?? 0))}</div><div class="hint">World flips</div></div>
-        <div class="card"><h3>Board Ag</h3><div class="val">${combAgOz != null ? num(combAgOz, 2) + " oz" : "—"}</div><div class="hint">Melt ${money(combAgMelt)} · spot ${money(m.spot?.ag_usd_oz)} · METALS</div></div>
-        <div class="card"><h3>Gold</h3><div class="val">${auOz != null ? num(auOz, 4) + " oz" : "—"}</div><div class="hint">Melt ${money(auMelt)} · spot ${money(m.spot?.au_usd_oz)}</div></div>
-        <div class="card"><h3>Flip silver</h3><div class="val">${flipAgOz != null ? num(flipAgOz, 4) + " oz" : "—"}</div><div class="hint">${money(flipAgMelt)} @ live · ${intFmt(flipAgN)} flips${flipAgUnk ? " · " + flipAgUnk + " ASW unknown" : ""}</div></div>
-        <div class="card"><h3>Bullion Ag</h3><div class="val">${bullAgOz != null ? num(bullAgOz, 4) + " oz" : "—"}</div><div class="hint">Melt ${money(bullAgMelt)} · B### stack</div></div>
-      </div>
+    const bucketsAge = `
       <div class="grid two">
-        <div class="card">
-          <h3>Bucket breakdown</h3>
-          ${bucketHtml || '<p class="empty">No board rows</p>'}
-        </div>
-        <div class="card">
-          <h3>Age (board)</h3>
+        <div class="card reveal"><h3>Bucket breakdown</h3>${bucketHtml || '<p class="empty">No board rows</p>'}</div>
+        <div class="card reveal"><h3>Age (board)</h3>
           <div class="bucket-row"><span class="k">Flips+other mean</span><span class="v">${precise(foYear)} · ${precise(foAge)} yrs</span></div>
           <div class="bucket-row"><span class="k">Albums mean</span><span class="v">${precise(alYear)} · ${precise(alAge)} yrs</span></div>
           <div class="hint" style="margin-top:0.6rem">Albums kept separate · see Age tab</div>
         </div>
-      </div>
-      <div class="grid two">
-        <div class="card"><h3>Moments</h3><ul class="moments">${moments || "<li class='muted'>None</li>"}</ul></div>
-        <div class="card"><h3>Keep an eye</h3><ul class="moments flags">${flags || "<li class='muted'>None</li>"}</ul></div>
-      </div>
+      </div>`;
+
+    // ---- (h) keep-an-eye flags ----
+    const flagsSec = `
+      <div class="sec-head reveal"><span class="eyebrow">Watchlist</span><h2>Keep an eye</h2></div>
+      <div class="card reveal"><ul class="moments flags">${flags || "<li class='muted'>None</li>"}</ul></div>`;
+
+    $("#pane-board").innerHTML = `
+      ${statBand}
+      ${metalsBand}
+      ${latestSec}
+      ${reqSec}
+      ${momentCard}
+      ${albumSec}
+      ${bucketsAge}
+      ${flagsSec}
     `;
+
+    // Count-up the stat band grand after paint.
+    countUp($("#stat-grand"), vault.value?.estimated_total, money);
 
     // Rotate "From the vault" through vault.moments[] every 12s with a CSS fade.
     const mEl = $("#moment-text");
@@ -675,7 +687,9 @@
       if (h && h.startsWith("#coin=")) { location.hash = h; applyHashTab(); }
       else if (h) setTab(h.replace(/^#/, "") === "albums" ? "age" : h.replace(/^#/, ""));
     }));
+    observeReveals($("#pane-board"));
   }
+
 
   const REQ_KIND = {
     "clearer photo": "📷", "reverse needed": "↺", "confirm year": "?", "missing field": "…",
@@ -715,6 +729,21 @@
     return [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   }
 
+  /** Shared full-text match for flips: SER/scan/country/year/denom + lazy notes index.
+      Used by the Flips filter and the ⌘K search palette alike. */
+  function flipQueryMatch(f, q) {
+    const scan = String(f.scan || "").toLowerCase();
+    const ser = String(f.ser || "").toLowerCase();
+    // Allow C272 / c272 / 272 style
+    const qNorm = q.replace(/^#/, "");
+    if (scan.includes(qNorm) || ser.includes(qNorm)) return true;
+    if (/^c?\d+$/i.test(qNorm) && scan.replace(/\D/g, "").includes(qNorm.replace(/\D/g, ""))) return true;
+    const blob = norm([f.scan, f.ser, f.country, f.year, f.denom, f.label, f.mint, f.iso, f.continent, f.status, f.location, f.conf].join(" "))
+      + " " + (searchIdx?.[f.scan] || "");
+    // every word must match somewhere (order-free), so "helvetia 1969" finds C001
+    return q.split(" ").every((w) => blob.includes(w));
+  }
+
   function filteredFlips() {
     let rows = vault.flips || [];
     const q = norm(flipFilter.q);
@@ -727,18 +756,7 @@
       rows = rows.filter((f) => String(f.year || "").includes(y));
     }
     if (q) {
-      rows = rows.filter((f) => {
-        const scan = String(f.scan || "").toLowerCase();
-        const ser = String(f.ser || "").toLowerCase();
-        // Allow C272 / c272 / 272 style
-        const qNorm = q.replace(/^#/, "");
-        if (scan.includes(qNorm) || ser.includes(qNorm)) return true;
-        if (/^c?\d+$/i.test(qNorm) && scan.replace(/\D/g, "").includes(qNorm.replace(/\D/g, ""))) return true;
-        const blob = norm([f.scan, f.ser, f.country, f.year, f.denom, f.label, f.mint, f.iso, f.continent, f.status, f.location, f.conf].join(" "))
-          + " " + (searchIdx?.[f.scan] || "");
-        // every word must match somewhere (order-free), so "helvetia 1969" finds C001
-        return q.split(" ").every((w) => blob.includes(w));
-      });
+      rows = rows.filter((f) => flipQueryMatch(f, q));
     }
     const { key, dir } = flipSort;
     rows = [...rows].sort((a, b) => {
@@ -818,8 +836,9 @@
       .join("");
 
     $("#pane-flips").innerHTML = `
+      <div class="sec-head"><span class="eyebrow">The boxes</span><h2>Flips</h2><p class="sub">White 2×2 · permanent C### keys · tap a row for the dossier</p></div>
       <div class="toolbar">
-        <input type="search" id="flip-q" placeholder="Search SER · C### · country · year · denom · notes…" value="${esc(flipFilter.q)}" autocomplete="off" />
+        <span class="search-wrap"><input type="search" id="flip-q" placeholder="Search SER · C### · country · year · denom · notes…" value="${esc(flipFilter.q)}" autocomplete="off" /><kbd title="Ctrl/⌘K opens search">⌘K</kbd></span>
         <select id="flip-country"><option value="">All countries</option>${opts}</select>
         <input type="text" id="flip-year" placeholder="Year" value="${esc(flipFilter.year)}" style="flex:0 1 88px" inputmode="numeric" />
         <select id="flip-sort" title="Sort">
@@ -1319,39 +1338,53 @@
         ${c.face ? `<span class="chip">Face <strong>${esc(c.face)}</strong></span>` : ""}
       </div>`;
 
+    // Photo stage: obverse + reverse large on top; extra roles in a second row.
     const extraRoles = [...new Set(phList.map((p) => p.role))].filter((r) => r !== "obv" && r !== "rev");
-    const photos = isFlip
-      ? `<div class="ds-photos">${photoSlot(c, "obv")}${photoSlot(c, "rev")}${extraRoles.map((r) => photoSlot(c, r)).join("")}</div>
+    const stageMain = (isFlip ? ["obv", "rev"] : []).map((r) => photoSlot(c, r)).join("");
+    const stageExtra = extraRoles.map((r) => photoSlot(c, r)).join("");
+    const stage = isFlip
+      ? `<div class="ds-stage">${stageMain}</div>
+         ${stageExtra ? `<div class="ds-stage ds-stage-extra">${stageExtra}</div>` : ""}
          <p class="ph-hint">${phList.length
            ? "Tap a photo for full size."
            : "Phase 2: write the label on the flip, then photograph both sides with the whole 2×2 in frame and drop them in the Drive Inbox. Titan checks each photo and files it here once it passes."}</p>`
       : "";
 
+    // Spec grid: the museum label summary.
+    const specItem = (k, v, cls = "") =>
+      `<div class="ds-spec"><div class="k">${esc(k)}</div><div class="v ${cls}${has(v) ? "" : " missing"}">${has(v) ? esc(v) : "—"}</div></div>`;
+    const specGrid = `
+      <div class="ds-specgrid" aria-label="Coin specifications">
+        ${specItem("SER", c.ser || c.scan, "mono")}
+        ${specItem("Scan", c.scan, "mono")}
+        ${specItem("Country", c.country)}
+        ${specItem("Year", c.year)}
+        ${specItem("Denom", c.denom)}
+        ${specItem("Mint", c.mint)}
+        ${specItem("Est", c.est != null ? money(c.est) : c.est_raw, "num")}
+        ${specItem("Confidence", c.conf)}
+        ${specItem("Ag ASW", aswDisplay, "num")}
+        ${specItem("Melt @ live", meltLiveDisplay ? `${meltLiveDisplay}${spotAg != null ? " @ " + money(spotAg) + "/oz" : ""}` : "", "num")}
+        ${specItem("Location", c.location)}
+        ${specItem("Status", c.status)}
+        ${specItem("Photo", photoStatus)}
+      </div>`;
+
     $("#drawer-body").innerHTML = `
-      <header class="ds-head placard">
+      ${stage}
+      <header class="ds-head">
         <div class="ds-ser">${esc(primary)}${agTag}${auTag}${tokTag}${stTag}</div>
+        <div class="ds-rule" aria-hidden="true"></div>
         <h2>${esc(title)}</h2>
-        <div class="placard-specs" aria-label="Coin specifications">
-          <div class="placard-spec"><div class="k">SER</div><div class="v mono">${esc(c.ser || c.scan || "—")}</div></div>
-          <div class="placard-spec"><div class="k">Year</div><div class="v">${has(c.year) ? esc(c.year) : "—"}</div></div>
-          <div class="placard-spec"><div class="k">Denom</div><div class="v">${has(c.denom) ? esc(c.denom) : "—"}</div></div>
-          <div class="placard-spec"><div class="k">Mint</div><div class="v">${has(c.mint) ? esc(c.mint) : "—"}</div></div>
-          <div class="placard-spec"><div class="k">Est</div><div class="v">${c.est != null ? money(c.est) : "—"}</div></div>
-          <div class="placard-spec"><div class="k">Confidence</div><div class="v">${has(c.conf) ? esc(c.conf) : "—"}</div></div>
-        </div>
+        ${specGrid}
         <div class="scan">${esc(secondary)}</div>
         ${valueChips}
         ${completeness}
       </header>
-      <div class="ds-grid${photos ? "" : " no-photos"}">
-        ${photos ? `<div class="ds-col-photos">${photos}</div>` : ""}
-        <div class="ds-col-fields">
-          ${section("Identity", identity)}
-          ${section("Value", value)}
-          ${section("Physical", physical)}
-          ${section("Record", record)}
-        </div>
-      </div>
+      ${section("Identity", identity)}
+      ${section("Value", value)}
+      ${section("Physical", physical)}
+      ${section("Record", record)}
       ${c.notes ? `<section class="ds-sec"><h4>Notes</h4><div class="notes-box">${esc(c.notes)}</div></section>` : (isFlip ? `<section class="ds-sec"><h4>Notes</h4><div class="notes-box missing">—</div></section>` : "")}
     `;
 
@@ -1450,13 +1483,19 @@
   $("#lightbox").addEventListener("click", (e) => { if (e.target.id === "lightbox") closeLightbox(); });
   document.addEventListener("keydown", (e) => {
     const typing = ["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement?.tagName);
+    // Command palette beats everything.
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      if (paletteOpen) closePalette(); else openPalette();
+      return;
+    }
     if (!$("#lightbox").hidden) {
       if (e.key === "Escape") closeLightbox();
       else if (e.key === "ArrowLeft") flipLightbox(-1);
       else if (e.key === "ArrowRight") flipLightbox(1);
       return;
     }
-    if (e.key === "Escape") closeDrawer();
+    if (e.key === "Escape") { if (paletteOpen) closePalette(); else closeDrawer(); }
     else if (!typing && currentDrawerScan && e.key === "ArrowLeft") dossierStep(-1);
     else if (!typing && currentDrawerScan && e.key === "ArrowRight") dossierStep(1);
   });
@@ -1485,6 +1524,17 @@
   }
 
   $("#btn-refresh").addEventListener("click", () => { checkWebVersion().then(() => bustReload()); });
+
+  // Search palette (⌘K)
+  $("#btn-search").addEventListener("click", openPalette);
+  $("#palette-q").addEventListener("input", (e) => { markTyping(); renderPalette(e.target.value); });
+  $("#palette-q").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const first = $("#palette-results .pal-row");
+      if (first) first.click();
+    }
+  });
+  $("#palette").addEventListener("click", (e) => { if (e.target.id === "palette") closePalette(); });
 
   const autoBox = $("#auto-refresh");
   if (autoBox) {
@@ -1531,7 +1581,7 @@
     if (!el) return;
     const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced || target == null || Number.isNaN(Number(target))) { el.textContent = fmt(target); return; }
-    const dur = 1100, t0 = performance.now();
+    const dur = 1200, t0 = performance.now();
     const step = (now) => {
       const p = Math.min(1, (now - t0) / dur);
       const eased = 1 - Math.pow(1 - p, 3);
@@ -1539,6 +1589,67 @@
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
+  }
+
+  /* --- Reveal-on-scroll: .reveal tiles/cards stagger in, 70ms apart --- */
+  let revealObs = null;
+  function observeReveals(root = document) {
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+    if (!revealObs) {
+      revealObs = new IntersectionObserver((entries) => {
+        for (const en of entries) {
+          if (!en.isIntersecting) continue;
+          en.target.classList.add("in");
+          revealObs.unobserve(en.target);
+        }
+      }, { rootMargin: "60px" });
+    }
+    $$(".reveal:not(.in)", root).forEach((el, i) => {
+      el.style.setProperty("--rd", ((i % 8) * 70) + "ms");
+      revealObs.observe(el);
+    });
+  }
+
+  /* --- Search palette: Ctrl/⌘K command-K over the flips --- */
+  let paletteOpen = false;
+  function openPalette() {
+    ensureSearch();
+    $("#palette").hidden = false;
+    paletteOpen = true;
+    renderPalette("");
+    const q = $("#palette-q");
+    q.value = "";
+    requestAnimationFrame(() => q.focus());
+  }
+  function closePalette() {
+    $("#palette").hidden = true;
+    paletteOpen = false;
+  }
+  function renderPalette(qRaw) {
+    const q = norm(qRaw || "");
+    const box = $("#palette-results");
+    if (!q) {
+      box.innerHTML = `<div class="pal-empty">Type to search ${esc(intFmt((vault.flips || []).length))} flips — SER, scan, country, year, denom.</div>`;
+      return;
+    }
+    const hits = (vault.flips || []).filter((f) => flipQueryMatch(f, q)).slice(0, 8);
+    box.innerHTML = hits.length
+      ? hits.map((f, i) => `
+        <button type="button" class="pal-row${i === 0 ? " sel" : ""}" data-scan="${esc(f.scan)}" role="option">
+          <span class="pal-ser">${esc(f.ser || f.scan)}<span class="pal-scan">${esc(f.scan)}</span></span>
+          <span class="pal-meta">${esc([f.country, f.year, f.denom || f.label].filter(Boolean).join(" · "))}</span>
+          <span class="pal-est">${f.est != null ? money(f.est) : "—"}</span>
+        </button>`).join("")
+      : `<div class="pal-empty">No matches for “${esc(qRaw)}”.</div>`;
+    $$(".pal-row", box).forEach((row) => {
+      row.addEventListener("click", () => {
+        const scan = row.dataset.scan;
+        closePalette();
+        dossierCtx = null;
+        openDrawer(scan);
+      });
+    });
   }
 
   loadVault();

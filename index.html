@@ -11,7 +11,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
-  <meta name="theme-color" content="#12100e" />
+  <meta name="theme-color" content="#0b0a08" />
   <meta name="robots" content="noindex,nofollow" />
   <title>Titan Reliquary</title>
   <!-- Theme before paint: read saved theme so there's no flash of the wrong theme -->
@@ -21,21 +21,29 @@
       if (__tr_t === "ledger" || __tr_t === "noir" || __tr_t === "vault") document.documentElement.setAttribute("data-theme", __tr_t);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=theme-refresh-2" />
+  <link rel="stylesheet" href="styles.css?v=tr3" />
 </head>
 <body>
   <div id="app">
-    <header class="top">
-      <div class="brand">
-        <span class="coin" aria-hidden="true">◉</span>
-        <div>
-          <h1>Titan Reliquary</h1>
-          <p class="sub" id="hdr-sub"><span class="skeleton skeleton-line" role="status" aria-label="Loading vault"></span></p>
-          <p class="live-status" id="live-status" aria-live="polite"></p>
-        </div>
+    <header class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="eyebrow-row">
+        <span class="sigil" aria-hidden="true">◉</span>
+        <span class="eyebrow">The Vault</span>
+        <span class="ledger-chip" id="ledger-chip">Ledger</span>
+        <span class="badge hold" title="Policy">HOLD</span>
       </div>
-      <div class="chips" id="hdr-chips"></div>
-      <div class="hdr-actions">
+      <h1 class="wordmark">Titan Reliquary</h1>
+      <div class="hero-money">
+        <div class="hero-grand" id="hero-grand" aria-label="Estimated collection value">$0.00</div>
+        <div class="hero-cap">estimated collection value</div>
+      </div>
+      <div class="hero-stats" id="hdr-stats" aria-label="Vault totals"></div>
+      <div class="hero-actions">
+        <button type="button" id="btn-search" class="search-btn" title="Search the vault (Ctrl/⌘K)">
+          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+          <span>Search</span><kbd>⌘K</kbd>
+        </button>
         <div class="theme-toggle" role="group" aria-label="Theme">
           <button type="button" class="tt-btn" data-theme-val="vault" aria-pressed="true" title="Vault — dark gold">Vault</button>
           <button type="button" class="tt-btn" data-theme-val="ledger" aria-pressed="false" title="Ledger — archival paper">Ledger</button>
@@ -54,31 +62,30 @@
           <input type="checkbox" id="auto-refresh" checked />
           <span>Auto</span>
         </label>
-        <div class="badge hold" title="Policy">HOLD</div>
       </div>
+      <p class="live-status" id="live-status" aria-live="polite"></p>
     </header>
 
-    <nav class="tabs" role="tablist">
+    <nav class="tabs" role="tablist" aria-label="Vault sections">
       <button class="tab active" data-tab="board" role="tab">Board</button>
       <button class="tab" data-tab="flips" role="tab">Flips</button>
       <button class="tab" data-tab="bullion" role="tab">Bullion</button>
       <button class="tab" data-tab="world" role="tab">World</button>
       <button class="tab" data-tab="ops" role="tab">Ops</button>
-      <button class="tab" data-tab="age" role="tab">Albums / Age</button>
+      <button class="tab" data-tab="age" role="tab">Albums·Age</button>
     </nav>
 
     <main>
       <section id="pane-board" class="pane active" aria-busy="true">
+        <div class="stat-band" aria-label="Loading vault">
+          <div class="tile"><span class="skeleton skeleton-line" style="width:5rem"></span><div class="val"><span class="skeleton skeleton-line" style="width:7rem"></span></div></div>
+          <div class="tile"><span class="skeleton skeleton-line" style="width:4rem"></span><div class="val"><span class="skeleton skeleton-line" style="width:5rem"></span></div></div>
+          <div class="tile"><span class="skeleton skeleton-line" style="width:4rem"></span><div class="val"><span class="skeleton skeleton-line" style="width:5rem"></span></div></div>
+        </div>
         <div class="card wide" aria-label="Loading vault">
           <h3><span class="skeleton skeleton-line" style="width:9rem"></span></h3>
           <p><span class="skeleton skeleton-line"></span></p>
           <p><span class="skeleton skeleton-line" style="width:70%"></span></p>
-        </div>
-        <div class="grid">
-          <div class="card"><h3><span class="skeleton skeleton-line" style="width:5rem"></span></h3><div class="val"><span class="skeleton skeleton-line" style="width:6rem"></span></div><div class="hint"><span class="skeleton skeleton-line" style="width:80%"></span></div></div>
-          <div class="card"><h3><span class="skeleton skeleton-line" style="width:6rem"></span></h3><div class="val"><span class="skeleton skeleton-line" style="width:5rem"></span></div><div class="hint"><span class="skeleton skeleton-line" style="width:70%"></span></div></div>
-          <div class="card"><h3><span class="skeleton skeleton-line" style="width:4rem"></span></h3><div class="val"><span class="skeleton skeleton-line" style="width:7rem"></span></div><div class="hint"><span class="skeleton skeleton-line" style="width:60%"></span></div></div>
-          <div class="card"><h3><span class="skeleton skeleton-line" style="width:6rem"></span></h3><div class="val"><span class="skeleton skeleton-line" style="width:5.5rem"></span></div><div class="hint"><span class="skeleton skeleton-line" style="width:75%"></span></div></div>
         </div>
       </section>
       <section id="pane-flips" class="pane"></section>
@@ -87,6 +94,17 @@
       <section id="pane-ops" class="pane"></section>
       <section id="pane-age" class="pane"></section>
     </main>
+
+    <div id="palette" class="palette" hidden role="dialog" aria-modal="true" aria-label="Search the vault">
+      <div class="palette-sheet">
+        <div class="palette-bar">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+          <input id="palette-q" type="search" placeholder="Search SER, scan, country, year, denom…" autocomplete="off" aria-label="Search the vault" />
+          <kbd class="pal-esc">esc</kbd>
+        </div>
+        <div id="palette-results" class="palette-results" role="listbox" aria-label="Results"></div>
+      </div>
+    </div>
 
     <aside id="drawer" class="drawer" hidden aria-label="Coin dossier">
       <div class="drawer-inner" id="drawer-inner">
@@ -117,10 +135,10 @@
       <button type="button" id="btn-refresh" class="btn">↻ Refresh</button>
     </footer>
   </div>
-  <script>window.TITAN_BUILD = "theme-refresh-2";</script>
-  <script src="app.js?v=theme-refresh-2"></script>
-  <script src="js/playlist.js?v=theme-refresh-2"></script>
-  <script src="audio.js?v=theme-refresh-2"></script>
-  <script src="ambient.js?v=theme-refresh-2"></script>
+  <script>window.TITAN_BUILD = "tr3";</script>
+  <script src="app.js?v=tr3"></script>
+  <script src="js/playlist.js?v=tr4"></script>
+  <script src="audio.js?v=tr3"></script>
+  <script src="ambient.js?v=tr3"></script>
 </body>
 </html>
