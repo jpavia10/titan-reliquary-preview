@@ -4156,101 +4156,325 @@ html[data-atmo="conservator"] .hero-grand {
   border-color: var(--gold);
 }
 
-/* 2x2 Archival Holder Styling */
-.pc-holder {
-  aspect-ratio: 1 / 1;
-  position: relative;
-  background: 
-    radial-gradient(circle at 50% 50%, #1e1b15 0%, #11100d 85%);
+/* =========================================================================
+   10/10 ARCHIVAL NUMISMATIC FLIP & SPECIMEN BLUEPRINT STYLES
+   Authentic 2x2 White Cardboard Flip with Galvanized Staples & Mylar Window
+   ========================================================================= */
+
+.pc-flip-frame {
+  width: 100%;
+  padding: 0.65rem 0.65rem 0.35rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
+  align-items: center;
 }
-html[data-atmo="conservator"] .pc-holder {
-  background: radial-gradient(circle at 50% 50%, #fdfbf7 0%, #ede6d6 100%);
-}
-/* The Circular Mylar Window */
-.pc-window {
-  width: 70%;
-  height: 70%;
-  border-radius: 50%;
+
+/* Authentic White 2x2 Archival Cardboard Flip */
+.archival-flip-holder {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 220px;
+  background: #fbf9f4;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(244,239,228,0.9) 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.008) 10px, rgba(0,0,0,0.008) 20px);
+  border-radius: 6px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 
-    inset 0 3px 8px rgba(0,0,0,0.7),
-    0 1px 0 rgba(255,255,255,0.1),
-    0 0 0 2px rgba(0,0,0,0.3);
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.12);
+  user-select: none;
   overflow: hidden;
-  background: #0a0907;
 }
-/* Procedural Coin inside Window */
-.pc-coin {
-  width: 88%;
-  height: 88%;
+
+.archival-flip-holder.flip-large {
+  max-width: 270px;
+  width: 270px;
+  height: 270px;
+  box-shadow: 
+    0 12px 34px rgba(0, 0, 0, 0.65),
+    inset 0 1px 2px rgba(255, 255, 255, 1),
+    0 0 0 1px rgba(0, 0, 0, 0.16);
+}
+
+/* Galvanized Industrial Steel Staples crimping cardboard border */
+.flip-staple {
+  position: absolute;
+  width: 14px;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+.flip-large .flip-staple {
+  width: 18px;
+  height: 6px;
+}
+.flip-staple .staple-wire {
+  width: 82%;
+  height: 2px;
+  background: linear-gradient(90deg, #64748b, #cbd5e1, #94a3b8, #cbd5e1, #475569);
+  border-radius: 1px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.staple-tl { top: 9px; left: 9px; transform: rotate(-45deg); }
+.staple-tr { top: 9px; right: 9px; transform: rotate(45deg); }
+.staple-bl { bottom: 9px; left: 9px; transform: rotate(45deg); }
+.staple-br { bottom: 9px; right: 9px; transform: rotate(-45deg); }
+
+/* Handwritten-style Archival Collector Pen Margins */
+.flip-margin-top, .flip-margin-left, .flip-margin-right, .flip-margin-bottom {
+  position: absolute;
+  font-family: var(--mono);
+  color: #2b231a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  z-index: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+.flip-margin-top {
+  top: 5px;
+  font-size: 0.62rem;
+  text-align: center;
+}
+.flip-large .flip-margin-top {
+  top: 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+.flip-margin-bottom {
+  bottom: 5px;
+  font-size: 0.58rem;
+  text-align: center;
+  color: #3f3529;
+}
+.flip-large .flip-margin-bottom {
+  bottom: 8px;
+  font-size: 0.72rem;
+}
+.flip-margin-left {
+  left: 5px;
+  font-size: 0.52rem;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  max-height: 70%;
+}
+.flip-large .flip-margin-left {
+  left: 7px;
+  font-size: 0.66rem;
+}
+.flip-margin-right {
+  right: 5px;
+  font-size: 0.52rem;
+  writing-mode: vertical-lr;
+  max-height: 70%;
+}
+.flip-large .flip-margin-right {
+  right: 7px;
+  font-size: 0.66rem;
+}
+
+/* Crystal-Clear Circular Mylar Aperture Window */
+.flip-mylar-window {
+  width: 68%;
+  height: 68%;
   border-radius: 50%;
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  background: radial-gradient(circle at 35% 30%, #e2e8f0 0%, #94a3b8 50%, #64748b 90%, #475569 100%);
-  color: #0f172a;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.8);
-}
-.pc-coin.gold-coin {
-  background: radial-gradient(circle at 35% 30%, #fef08a 0%, #eab308 50%, #ca8a04 90%, #854d0e 100%);
-  color: #422006;
-}
-.pc-coin.bronze-coin {
-  background: radial-gradient(circle at 35% 30%, #fdba74 0%, #ea580c 50%, #9a3412 90%, #7c2d12 100%);
-  color: #431407;
-}
-.pc-coin-inner {
-  position: absolute;
-  inset: 4px;
-  border-radius: 50%;
-  border: 1px dashed rgba(0,0,0,0.3);
-  pointer-events: none;
-}
-.pc-coin-iso {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.15rem;
-  line-height: 1;
-}
-.pc-coin-year {
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  margin-top: 0.1rem;
-}
-.pc-coin-denom {
-  font-size: 0.52rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  max-width: 80%;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  background: #090a0d;
+  box-shadow: 
+    inset 0 3px 8px rgba(0, 0, 0, 0.85),
+    inset 0 0 0 2px rgba(40, 32, 24, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.6);
+  z-index: 1;
 }
-/* Mylar Glint Sheen */
-.pc-mylar-glint {
+
+/* Realistic Mylar Gloss & Light Sheen */
+.flip-mylar-reflection {
   position: absolute;
   inset: -60%;
-  background: linear-gradient(125deg, transparent 42%, rgba(255,255,255,0.35) 50%, transparent 58%);
+  background: linear-gradient(130deg, transparent 40%, rgba(255,255,255,0.28) 48%, rgba(255,255,255,0.06) 54%, transparent 62%);
   transform: translateX(-100%);
-  transition: transform 0.6s var(--ease-out);
+  transition: transform 0.55s var(--ease-out);
+  pointer-events: none;
+  z-index: 4;
+}
+.piece-card:hover .flip-mylar-reflection,
+.ex-pedestal-tray:hover .flip-mylar-reflection {
+  transform: translateX(100%);
+}
+
+/* Technical Specimen Blueprint Inside Window */
+.specimen-blueprint {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.specimen-blueprint .bp-txt-iso {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 8.5px;
+  fill: #f1f5f9;
+}
+.specimen-blueprint .bp-txt-dim {
+  font-family: var(--mono);
+  font-size: 6.8px;
+  font-weight: 700;
+  fill: var(--gold-soft);
+  letter-spacing: 0.04em;
+}
+.specimen-blueprint .bp-txt-alloy {
+  font-family: var(--mono);
+  font-size: 5.6px;
+  font-weight: 600;
+  fill: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.specimen-blueprint .bp-txt-stamp {
+  font-family: var(--mono);
+  font-size: 4.8px;
+  font-weight: 700;
+  fill: rgba(200, 169, 74, 0.45);
+  letter-spacing: 0.1em;
+}
+
+/* Masterpiece Exhibition Pedestal & Tray */
+.ex-pedestal-tray {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 1rem;
+}
+.ex-tray-velvet {
+  position: relative;
+  background: radial-gradient(circle at 50% 40%, #151821 0%, #090a0e 85%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 35px rgba(200, 169, 74, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ex-velvet-corners {
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(200, 169, 74, 0.25);
+  border-radius: 8px;
   pointer-events: none;
 }
-.piece-card:hover .pc-mylar-glint {
-  transform: translateX(100%);
+.ex-spotlight-cone {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(200, 169, 74, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Masterpiece Placard */
+.ex-info-placard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--surface2);
+  border: 1px solid var(--line);
+}
+.placard-kicker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.placard-title {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.placard-denom {
+  font-size: 1rem;
+  color: var(--muted);
+}
+.placard-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  margin: 0.35rem 0;
+}
+.pl-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.pl-lbl {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.pl-val {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.pl-val.gold { color: var(--gold); }
+.placard-monograph {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.placard-inspect-btn {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  color: var(--gold-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out);
+}
+.placard-inspect-btn:hover {
+  background: var(--gold);
+  color: #0b0a08;
+  border-color: var(--gold);
 }
 
 /* Cardboard Holder Header & Label */
@@ -4415,4 +4639,285 @@ html[data-atmo="conservator"] .pc-holder {
   font-family: var(--mono);
   font-size: 0.65rem;
   color: var(--gold-soft);
+}
+
+/* =========================================================================
+   MARKET SENSITIVITY SIMULATOR & CABINET TRAYS STYLES
+   ========================================================================= */
+
+.sim-wrapper {
+  margin-top: 0.85rem;
+  width: 100%;
+}
+.sim-toggle-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out);
+}
+.sim-toggle-btn:hover {
+  border-color: var(--gold);
+  background: rgba(200, 169, 74, 0.08);
+}
+.sim-toggle-badge {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(200, 169, 74, 0.15);
+  border: 1px solid rgba(200, 169, 74, 0.3);
+  color: var(--gold-soft);
+}
+.sim-toggle-badge.gain {
+  background: rgba(107, 191, 122, 0.2);
+  border-color: rgba(107, 191, 122, 0.5);
+  color: #86efac;
+}
+.sim-toggle-badge.loss {
+  background: rgba(196, 92, 74, 0.2);
+  border-color: rgba(196, 92, 74, 0.5);
+  color: #fca5a5;
+}
+.sim-toggle-arrow {
+  font-size: 0.75rem;
+  color: var(--muted);
+  transition: transform 0.2s var(--ease-out);
+}
+.sim-toggle-btn.open .sim-toggle-arrow {
+  transform: rotate(180deg);
+}
+
+.spot-sim-drawer {
+  margin-top: 0.65rem;
+  padding: 1.1rem;
+  border-radius: var(--radius);
+  background: var(--surface2);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  animation: simSlideDown 0.25s var(--ease-out);
+}
+@keyframes simSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.sim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.1rem;
+}
+.sim-instruction {
+  font-size: 0.8rem;
+  color: var(--muted);
+  max-width: 60%;
+  margin: 0;
+  line-height: 1.4;
+}
+.sim-stat-callout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.sim-stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.sim-stat-val {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.15;
+}
+.sim-stat-delta {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--faint);
+}
+.sim-stat-delta.gain { color: #4ade80; }
+.sim-stat-delta.loss { color: #f87171; }
+
+.sim-sliders-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.sim-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.sim-slider-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.sim-slider-val {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--gold-soft);
+}
+.sim-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  cursor: pointer;
+}
+.sim-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.sim-range.range-au::-webkit-slider-thumb {
+  background: linear-gradient(135deg, #fef08a, #ca8a04);
+}
+.sim-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+.sim-range-marks {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--faint);
+  margin-top: 0.15rem;
+}
+.sim-range-marks .live-mark {
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+.sim-drawer-foot {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.sim-breakdown-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.sim-chip {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+/* Cabinet Trays Navigation Bar */
+.cabinet-trays-nav {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  scrollbar-width: none;
+}
+.cabinet-trays-nav::-webkit-scrollbar { display: none; }
+.tray-tab {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 20px;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out);
+}
+.tray-tab:hover {
+  background: rgba(200, 169, 74, 0.08);
+  border-color: var(--gold);
+}
+.tray-tab.active {
+  background: var(--gold);
+  color: #0b0a08;
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(200, 169, 74, 0.35);
+}
+.tray-tab .tray-count {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  opacity: 0.8;
+  background: rgba(0,0,0,0.18);
+  padding: 0.1rem 0.4rem;
+  border-radius: 10px;
+}
+.tray-tab.active .tray-count {
+  background: rgba(0,0,0,0.3);
+  color: #ffffff;
+}
+
+/* Dossier Phase 2 Notice */
+.ds-stage-flip-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  margin-bottom: 1rem;
+}
+.ds-p2-notice {
+  text-align: center;
+  max-width: 90%;
+}
+.p2-seal {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-soft);
+  letter-spacing: 0.1em;
+}
+.p2-prompt {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-top: 0.35rem;
 }

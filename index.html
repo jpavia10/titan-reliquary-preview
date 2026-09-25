@@ -19,18 +19,16 @@
   <script>
     try {
       var __tr_a = localStorage.getItem("tr_atmo_v1");
-      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno"];
-      if (__tr_ok.indexOf(__tr_a) === -1) {
-        var __tr_old = localStorage.getItem("tr_theme_v1");
-        if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
-        __tr_a = (__tr_old === "ledger") ? "conservator" : "afterhours";
-        if (!__tr_old && window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) __tr_a = "conservator";
+      var __tr_ok = ["afterhours","conservator","cabinet","colossus","nocturne"];
+      if (!__tr_a || __tr_ok.indexOf(__tr_a) === -1) {
+        __tr_a = "afterhours";
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) __tr_a = "conservator";
         try { localStorage.setItem("tr_atmo_v1", __tr_a); } catch (e) {}
       }
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr22" />
+  <link rel="stylesheet" href="styles.css?v=tr23" />
 </head>
 <body>
   <div id="app">
@@ -75,6 +73,62 @@
               <span class="legend-item leg-ag"><i class="dot"></i> <strong>63.27 oz Ag</strong> @ $63.38</span>
               <span class="legend-item leg-au"><i class="dot"></i> <strong>0.13 oz Au</strong> @ $4,253</span>
               <span class="legend-item leg-numis"><i class="dot"></i> <strong>Collector Premium</strong> (18.1%)</span>
+            </div>
+
+            <!-- Interactive Market Sensitivity Simulator -->
+            <div class="sim-wrapper">
+              <button type="button" class="sim-toggle-btn" id="btn-spot-sim" aria-expanded="false" title="Stress-test vault value against spot price movements">
+                <span class="sim-toggle-icon">⚖️</span>
+                <span class="sim-toggle-title">Market Sensitivity Simulator</span>
+                <span class="sim-toggle-badge" id="sim-status-badge">Live Market Baseline</span>
+                <span class="sim-toggle-arrow">▾</span>
+              </button>
+
+              <div class="spot-sim-drawer" id="spot-sim-drawer" hidden>
+                <div class="sim-drawer-inner">
+                  <div class="sim-header">
+                    <p class="sim-instruction">Simulate real-time vault valuation under fluctuating gold &amp; silver spot prices.</p>
+                    <div class="sim-stat-callout">
+                      <span class="sim-stat-label">Simulated Grand Total</span>
+                      <span class="sim-stat-val" id="sim-dyn-grand">$5,584.11</span>
+                      <span class="sim-stat-delta" id="sim-dyn-delta">±$0.00 (0.0%)</span>
+                    </div>
+                  </div>
+
+                  <div class="sim-sliders-grid">
+                    <div class="sim-slider-row">
+                      <div class="sim-slider-head">
+                        <label for="sim-ag-range">🥈 Silver Spot (63.27 oz Ag in Vault)</label>
+                        <span class="sim-slider-val" id="sim-ag-val">$63.38 / oz</span>
+                      </div>
+                      <input type="range" id="sim-ag-range" min="30" max="120" step="0.5" value="63.38" class="sim-range range-ag" />
+                      <div class="sim-range-marks">
+                        <span>$30</span><span>$50</span><span class="live-mark">$63.38 (Live)</span><span>$80</span><span>$100</span><span>$120</span>
+                      </div>
+                    </div>
+
+                    <div class="sim-slider-row">
+                      <div class="sim-slider-head">
+                        <label for="sim-au-range">🥇 Gold Spot (0.1322 oz Au in Vault)</label>
+                        <span class="sim-slider-val" id="sim-au-val">$4,252.90 / oz</span>
+                      </div>
+                      <input type="range" id="sim-au-range" min="2500" max="6000" step="25" value="4252.9" class="sim-range range-au" />
+                      <div class="sim-range-marks">
+                        <span>$2,500</span><span>$3,500</span><span class="live-mark">$4,253 (Live)</span><span>$5,000</span><span>$6,000</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="sim-drawer-foot">
+                    <div class="sim-breakdown-chips">
+                      <span class="sim-chip" id="sim-chip-ag">Ag Melt: $4,010</span>
+                      <span class="sim-chip" id="sim-chip-au">Au Melt: $562</span>
+                      <span class="sim-chip" id="sim-chip-prem">Rarity Premium: $1,012</span>
+                    </div>
+                    <button type="button" class="btn small" id="sim-btn-reset">↺ Reset to Spot</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="hero-stats" id="hdr-stats" aria-label="Vault totals"></div>
@@ -194,90 +248,27 @@
         <h2 id="atmo-title">Atmosphere</h2>
         <p class="sheet-sub">Lighting, ambient sound and music for the whole exhibition — pick a room, or hit “Set the scene” to change everything at once.</p>
         <p class="sub">How the museum is lit tonight. Each one pairs with sound — set the scene and the room follows.</p>
-        <div class="atmo-cards">
+        <div class="atmo-cards atmo-cards-curated">
           <button type="button" class="atmo-card" data-atmo-val="afterhours">
             <span class="atmo-swatch sw-afterhours" aria-hidden="true"></span>
-            <span class="atmo-card-name">After Hours</span>
-            <span class="atmo-card-desc">Cold moonlight on black marble. Cool, quiet, cinematic — the gallery after midnight.</span>
-            <span class="atmo-card-pair">Pairs with · Storm + Ultralounge</span>
+            <span class="atmo-card-name">The Midnight Vault</span>
+            <span class="atmo-card-desc">Deep obsidian velvet, champagne brass, and focused tungsten museum spotlights. The signature private gallery at midnight.</span>
+            <span class="atmo-card-pair">Pairs with · Night Watch + Classical</span>
             <span class="atmo-card-scene" data-scene="afterhours">Set the scene →</span>
           </button>
           <button type="button" class="atmo-card" data-atmo-val="conservator">
             <span class="atmo-swatch sw-conservator" aria-hidden="true"></span>
-            <span class="atmo-card-name">Conservator</span>
-            <span class="atmo-card-desc">Archival paper, oxblood stamps, ruled ledger lines. Dense, precise, fast — the conservator's desk at noon.</span>
-            <span class="atmo-card-pair">Pairs with · Fireside + Classical</span>
+            <span class="atmo-card-name">The Conservator's Desk</span>
+            <span class="atmo-card-desc">Heavy archival cotton paper, ruled technical grid lines, and oxblood red stamps. The master conservator's bench under natural daylight.</span>
+            <span class="atmo-card-pair">Pairs with · Deep Archive + Classical</span>
             <span class="atmo-card-scene" data-scene="conservator">Set the scene →</span>
           </button>
           <button type="button" class="atmo-card" data-atmo-val="colossus">
             <span class="atmo-swatch sw-colossus" aria-hidden="true"></span>
-            <span class="atmo-card-name">Colossus</span>
-            <span class="atmo-card-desc">The furnace room. Molten bronze, ember light, war-drums — the collection at triumphal scale.</span>
-            <span class="atmo-card-pair">Pairs with · Foundry + Five Armies</span>
+            <span class="atmo-card-name">The Executive Salon</span>
+            <span class="atmo-card-desc">Aged dark walnut cabinetry, saddle leather, and warm polished antique bronze. The numismatist's private library by fireside.</span>
+            <span class="atmo-card-pair">Pairs with · Fireside + Ambient Strings</span>
             <span class="atmo-card-scene" data-scene="colossus">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="nocturne">
-            <span class="atmo-swatch sw-nocturne" aria-hidden="true"></span>
-            <span class="atmo-card-name">Nocturne</span>
-            <span class="atmo-card-desc">A smoky jazz cellar under the museum. Deep blue, brass, art-deco lines — after the gala, before dawn.</span>
-            <span class="atmo-card-pair">Pairs with · Tavern + Night on the Docks</span>
-            <span class="atmo-card-scene" data-scene="nocturne">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="odyssey">
-            <span class="atmo-swatch sw-odyssey" aria-hidden="true"></span>
-            <span class="atmo-card-name">Odyssey</span>
-            <span class="atmo-card-desc">A night voyage toward dawn: turning compass, parallax clouds, amber horizon. Every coin a port of call.</span>
-            <span class="atmo-card-pair">Pairs with · Wayfarer + Expeditionary</span>
-            <span class="atmo-card-scene" data-scene="odyssey">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="cursedwing">
-            <span class="atmo-swatch sw-cursedwing" aria-hidden="true"></span>
-            <span class="atmo-card-name">The Cursed Wing</span>
-            <span class="atmo-card-desc">The gallery they don't put on the map. Black wax, blood-red seals, and something in the walls. Enter at your own risk.</span>
-            <span class="atmo-card-pair">Pairs with · Blackout + Oppressive Gloom</span>
-            <span class="atmo-card-scene" data-scene="cursedwing">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="kaleido">
-            <span class="atmo-swatch sw-kaleido" aria-hidden="true"></span>
-            <span class="atmo-card-name">Kaleidoscope</span>
-            <span class="atmo-card-desc">The vault on a trip. Melting rainbows, breathing walls, everything in motion — handle with wonder.</span>
-            <span class="atmo-card-pair">Pairs with · Mirage + Psych Voyage</span>
-            <span class="atmo-card-scene" data-scene="kaleido">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="abyss">
-            <span class="atmo-swatch sw-abyss" aria-hidden="true"></span>
-            <span class="atmo-card-name">Sunken Treasury</span>
-            <span class="atmo-card-desc">Forty fathoms down. God-rays through black water, treasure glinting in the wreck — every coin a survivor.</span>
-            <span class="atmo-card-pair">Pairs with · Depths + Pressure Hymns</span>
-            <span class="atmo-card-scene" data-scene="abyss">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="neon">
-            <span class="atmo-swatch sw-neon" aria-hidden="true"></span>
-            <span class="atmo-card-name">Neon Vault</span>
-            <span class="atmo-card-desc">Chrome midnight. Hot-pink horizons, electric grids, scanlines — the collection goes out after dark.</span>
-            <span class="atmo-card-pair">Pairs with · Grid + Midnight Drive</span>
-            <span class="atmo-card-scene" data-scene="neon">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="notepad">
-            <span class="atmo-swatch sw-notepad" aria-hidden="true"></span>
-            <span class="atmo-card-name">Plaintext</span>
-            <span class="atmo-card-desc">untitled - notepad. no themes were harmed. just the coins, in black and white.</span>
-            <span class="atmo-card-pair">Pairs with · Silence + Long Notes</span>
-            <span class="atmo-card-scene" data-scene="notepad">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="construct">
-            <span class="atmo-swatch sw-construct" aria-hidden="true"></span>
-            <span class="atmo-card-name">The Construct</span>
-            <span class="atmo-card-desc">There is no vault. Green phosphor, falling code, a terminal that knows your coins better than you do.</span>
-            <span class="atmo-card-pair">Pairs with · Blackout + Machine Code</span>
-            <span class="atmo-card-scene" data-scene="construct">Set the scene →</span>
-          </button>
-          <button type="button" class="atmo-card" data-atmo-val="xeno">
-            <span class="atmo-swatch sw-xeno" aria-hidden="true"></span>
-            <span class="atmo-card-name">Xenohold</span>
-            <span class="atmo-card-desc">Recovered from the signal. Bioluminescent containment for artifacts of non-human provenance. 👽</span>
-            <span class="atmo-card-pair">Pairs with · Signal + Deep Field</span>
-            <span class="atmo-card-scene" data-scene="xeno">Set the scene →</span>
           </button>
         </div>
       </div>
@@ -334,10 +325,10 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr22";</script>
-  <script src="app.js?v=tr22"></script>
-  <script src="js/playlist.js?v=tr22"></script>
-  <script src="audio.js?v=tr22"></script>
-  <script src="ambient.js?v=tr22"></script>
+  <script>window.TITAN_BUILD = "tr23";</script>
+  <script src="app.js?v=tr23"></script>
+  <script src="js/playlist.js?v=tr23"></script>
+  <script src="audio.js?v=tr23"></script>
+  <script src="ambient.js?v=tr23"></script>
 </body>
 </html>

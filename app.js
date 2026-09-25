@@ -529,6 +529,111 @@
     if (cap) {
       cap.textContent = `total estimated valuation · melt ${money(pureMelt)} (${Math.round((pureMelt/grandVal)*100)}%)`;
     }
+
+    setupSpotSimulator();
+  }
+
+  let simAgSpot = null;
+  let simAuSpot = null;
+
+  /** Market Sensitivity Simulator: test portfolio valuation against spot fluctuations. */
+  function setupSpotSimulator() {
+    const btnToggle = $("#btn-spot-sim");
+    const drawer = $("#spot-sim-drawer");
+    const agRange = $("#sim-ag-range");
+    const auRange = $("#sim-au-range");
+    const agVal = $("#sim-ag-val");
+    const auVal = $("#sim-au-val");
+    const dynGrand = $("#sim-dyn-grand");
+    const dynDelta = $("#sim-dyn-delta");
+    const badge = $("#sim-status-badge");
+    const chipAg = $("#sim-chip-ag");
+    const chipAu = $("#sim-chip-au");
+    const chipPrem = $("#sim-chip-prem");
+    const btnReset = $("#sim-btn-reset");
+
+    if (!btnToggle || !agRange || !auRange || !vault) return;
+
+    const baseSpotAg = Number(vault.metals?.spot?.ag_usd_oz ?? vault.precious?.spot_ag ?? 63.38);
+    const baseSpotAu = Number(vault.metals?.spot?.au_usd_oz ?? vault.precious?.spot_au ?? 4252.90);
+    const agOz = Number(vault.precious?.combined_silver?.oz ?? 63.27);
+    const auOz = Number(vault.precious?.combined_gold?.oz ?? 0.1322);
+    const baseGrand = Number(vault.board?.grand ?? 5584.11);
+    
+    // Baseline non-metal value (albums, housing, collector premium, stamps, etc.)
+    const baseAgMelt = agOz * baseSpotAg;
+    const baseAuMelt = auOz * baseSpotAu;
+    const fixedBaseValue = Math.max(0, baseGrand - baseAgMelt - baseAuMelt);
+
+    if (simAgSpot === null) simAgSpot = baseSpotAg;
+    if (simAuSpot === null) simAuSpot = baseSpotAu;
+
+    agRange.value = simAgSpot;
+    auRange.value = simAuSpot;
+
+    const updateSim = () => {
+      const curAg = parseFloat(agRange.value);
+      const curAu = parseFloat(auRange.value);
+      simAgSpot = curAg;
+      simAuSpot = curAu;
+
+      agVal.textContent = `$${curAg.toFixed(2)} / oz`;
+      auVal.textContent = `$${curAu.toFixed(2)} / oz`;
+
+      const dynAgMelt = agOz * curAg;
+      const dynAuMelt = auOz * curAu;
+      const dynTotal = fixedBaseValue + dynAgMelt + dynAuMelt;
+      const delta = dynTotal - baseGrand;
+      const deltaPct = baseGrand > 0 ? (delta / baseGrand) * 100 : 0;
+
+      dynGrand.textContent = money(dynTotal);
+      chipAg.textContent = `Ag Melt: ${money(dynAgMelt)}`;
+      chipAu.textContent = `Au Melt: ${money(dynAuMelt)}`;
+      chipPrem.textContent = `Rarity Premium: ${money(fixedBaseValue)}`;
+
+      if (Math.abs(delta) < 0.5) {
+        dynDelta.textContent = `±$0.00 (0.0%)`;
+        dynDelta.className = "sim-stat-delta";
+        badge.textContent = "Live Market Baseline";
+        badge.className = "sim-toggle-badge";
+      } else {
+        const sign = delta >= 0 ? "+" : "";
+        dynDelta.textContent = `${sign}${money(delta)} (${sign}${deltaPct.toFixed(1)}%)`;
+        dynDelta.className = "sim-stat-delta " + (delta >= 0 ? "gain" : "loss");
+        badge.textContent = `${sign}${money(delta)} (${sign}${deltaPct.toFixed(1)}%)`;
+        badge.className = "sim-toggle-badge " + (delta >= 0 ? "gain" : "loss");
+      }
+
+      // Also dynamically update the main melt bar in the Hero!
+      const segAg = $("#seg-ag");
+      const segAu = $("#seg-au");
+      const segNumis = $("#seg-numis");
+      const agPct = dynTotal > 0 ? Math.round((dynAgMelt / dynTotal) * 1000) / 10 : 71.8;
+      const auPct = dynTotal > 0 ? Math.round((dynAuMelt / dynTotal) * 1000) / 10 : 10.1;
+      const numisPct = Math.max(0, Math.round((100 - agPct - auPct) * 10) / 10);
+      if (segAg) { segAg.style.width = agPct + "%"; }
+      if (segAu) { segAu.style.width = auPct + "%"; }
+      if (segNumis) { segNumis.style.width = numisPct + "%"; }
+      const lblAg = $("#lbl-ag"); if (lblAg) lblAg.textContent = `Ag Melt · ${money(dynAgMelt)}`;
+      const lblAu = $("#lbl-au"); if (lblAu) lblAu.textContent = `Au · ${money(dynAuMelt)}`;
+      const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Premium · ${money(fixedBaseValue)}`;
+    };
+
+    agRange.oninput = updateSim;
+    auRange.oninput = updateSim;
+
+    btnToggle.onclick = () => {
+      const open = !drawer.hidden;
+      drawer.hidden = open;
+      btnToggle.setAttribute("aria-expanded", String(!open));
+      btnToggle.classList.toggle("open", !open);
+    };
+
+    btnReset.onclick = () => {
+      agRange.value = baseSpotAg;
+      auRange.value = baseSpotAu;
+      updateSim();
+    };
   }
 
   function latestFlips(n = 10) {
@@ -705,7 +810,157 @@
   let exhibitMasters = [];
   let exhibitIdx = 0;
 
-  /** The exhibition: masterpieces rotate on the Hall wall like framed pieces. */
+  /* =========================================================================
+     ARCHIVAL NUMISMATIC ENGINE (10/10 Tactile 2x2 Flips & Specimen Blueprints)
+     No fake 3D cartoon coins. Real museum artifacts & precision blueprints.
+     ========================================================================= */
+
+  /** Sovereign heraldic insignias rendered as crisp hairline vector paths. */
+  function getCountryCrest(iso) {
+    const code = String(iso || "").toUpperCase();
+    switch (code) {
+      case "CH": // Switzerland: Federal Swiss Cross inside laurel wreath
+        return `<path d="M-8 0 H8 M0 -8 V8" stroke="currentColor" stroke-width="3.5" stroke-linecap="square" fill="none"/>
+                <circle cx="0" cy="0" r="13" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 1.5"/>`;
+      case "MX": // Mexico: Sovereign Golden Eagle silhouette
+        return `<path d="M0 -11 C-4 -6 -7 -2 -6 4 C-4 3 0 2 0 6 C0 2 4 3 6 4 C7 -2 4 -6 0 -11 Z" fill="currentColor"/>
+                <path d="M-10 6 Q0 12 10 6" fill="none" stroke="currentColor" stroke-width="1.2"/>`;
+      case "GB": // United Kingdom: Royal Imperial St. Edward's Crown
+      case "NO": // Norway: St. Olav's Crown
+      case "SE": // Sweden: Three Crowns
+      case "ES": // Spain: Royal Crown
+        return `<path d="M-10 5 L-12 -3 L-5 0 L0 -7 L5 0 L12 -3 L10 5 Z" fill="currentColor"/>
+                <rect x="-10" y="6" width="20" height="2.5" rx="0.8" fill="currentColor"/>
+                <circle cx="0" cy="-8.5" r="1.3" fill="currentColor"/>`;
+      case "US": // USA: Heraldic Shield with Stars
+        return `<path d="M-8 -6 H8 V-1 C8 6 0 10 0 10 C0 10 -8 6 -8 -1 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                <line x1="-8" y1="-2" x2="8" y2="-2" stroke="currentColor" stroke-width="1"/>
+                <line x1="-3" y1="-2" x2="-3" y2="8" stroke="currentColor" stroke-width="0.8"/>
+                <line x1="3" y1="-2" x2="3" y2="8" stroke="currentColor" stroke-width="0.8"/>`;
+      case "FR": // France
+      case "IT": // Italy
+      case "GR": // Greece
+        return `<path d="M-9 6 C-12 -2 -4 -9 0 -10 C4 -9 12 -2 9 6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                <circle cx="0" cy="-1" r="3" fill="currentColor"/>`;
+      case "DE": // Germany
+        return `<path d="M0 -9 L-7 -3 L-5 6 L0 3 L5 6 L7 -3 Z" fill="currentColor"/>`;
+      case "JP": // Japan
+      case "KR": // South Korea
+        return `<circle cx="0" cy="0" r="4" fill="currentColor"/>
+                <circle cx="0" cy="0" r="9" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="1.5 1.5"/>`;
+      default: // Classical Sovereign Numismatic Medallion
+        return `<circle cx="0" cy="0" r="2.5" fill="currentColor"/>
+                <circle cx="0" cy="0" r="8" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 1.5"/>
+                <path d="M-10 0 H-5 M5 0 H10 M0 -10 V-5 M0 5 V10" stroke="currentColor" stroke-width="0.8"/>`;
+    }
+  }
+
+  /** Render an authentic museum technical specimen blueprint when physical photo is pending. */
+  function renderSpecimenBlueprint(f, large = false) {
+    const iso = esc(f.iso || (f.country || "??").slice(0, 2).toUpperCase());
+    const year = esc(f.year || "—");
+    const denom = esc(f.denom || f.label || "Coin");
+    const isSilver = !!f.is_silver;
+    const isGold = !!f.is_gold || /gold/i.test(f.metal || "");
+    
+    // Parse real physical diameter in mm
+    let diam = null;
+    const dm = String(f.metal_cond || f.metal || "").match(/([\d.]+)\s*mm/i);
+    if (dm) diam = parseFloat(dm[1]);
+    if (!diam || isNaN(diam)) diam = isSilver ? 26.5 : 22.0;
+
+    // Scale radius relative to standard 50.8mm cardboard window (45 max radius in 100x100 viewBox)
+    const scaledR = Math.min(42, Math.max(18, (diam / 50.8) * 44)).toFixed(1);
+    const innerR = Math.max(12, scaledR - 3.5).toFixed(1);
+
+    const metalBadge = isSilver
+      ? (f.asw_oz ? `${num(f.asw_oz, 3)} oz ASW` : ".999 AG")
+      : (isGold ? "FINE GOLD" : (f.metal ? esc(f.metal.split("·")[0].trim().slice(0, 16)) : "BASE ALLOY"));
+
+    const strokeColor = isGold ? "#eab308" : (isSilver ? "#cbd5e1" : "rgba(200, 169, 74, 0.7)");
+    const crestColor = isGold ? "#fde047" : (isSilver ? "#f1f5f9" : "#e8d9a8");
+
+    return `
+      <svg class="specimen-blueprint" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <pattern id="grid-${esc(f.scan)}" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(200,169,74,0.07)" stroke-width="0.5"/>
+          </pattern>
+          <radialGradient id="vignette-${esc(f.scan)}" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(200,169,74,0.1)"/>
+            <stop offset="65%" stop-color="rgba(10,11,14,0.85)"/>
+            <stop offset="100%" stop-color="#060709"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Technical aperture backdrop -->
+        <rect width="100" height="100" fill="url(#vignette-${esc(f.scan)})" />
+        <rect width="100" height="100" fill="url(#grid-${esc(f.scan)})" />
+
+        <!-- Caliper measurement guide rings -->
+        <circle cx="50" cy="50" r="46.5" fill="none" stroke="rgba(200,169,74,0.18)" stroke-width="0.5" stroke-dasharray="1.5 2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+        
+        <!-- Precision crosshair axes -->
+        <line x1="50" y1="3" x2="50" y2="97" stroke="rgba(200,169,74,0.14)" stroke-width="0.5" stroke-dasharray="1 3"/>
+        <line x1="3" y1="50" x2="97" y2="50" stroke="rgba(200,169,74,0.14)" stroke-width="0.5" stroke-dasharray="1 3"/>
+
+        <!-- Scaled True Physical Perimeter -->
+        <circle cx="50" cy="50" r="${scaledR}" fill="none" stroke="${strokeColor}" stroke-width="1.3" />
+        <circle cx="50" cy="50" r="${innerR}" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5" stroke-dasharray="2 1.5"/>
+
+        <!-- Sovereign Crest / Emblem -->
+        <g transform="translate(50, 42) scale(${large ? 0.75 : 0.65})" text-anchor="middle" fill="${crestColor}">
+          ${getCountryCrest(f.iso || (f.country || "").slice(0, 2))}
+        </g>
+
+        <!-- Technical Inscriptions -->
+        <text x="50" y="58" text-anchor="middle" class="bp-txt-iso">${iso} · ${year}</text>
+        <text x="50" y="66" text-anchor="middle" class="bp-txt-dim">⌀ ${diam.toFixed(1)} mm</text>
+        <text x="50" y="73" text-anchor="middle" class="bp-txt-alloy">${metalBadge}</text>
+
+        <!-- Archival Status Watermark -->
+        <text x="50" y="93" text-anchor="middle" class="bp-txt-stamp">PHASE 1 SPECIMEN</text>
+      </svg>`;
+  }
+
+  /** Render an authentic white 2x2 archival cardboard staple flip. */
+  function renderFlipHolder(f, options = {}) {
+    const isLarge = !!options.large;
+    const country = esc((f.country || "ARCHIVE").toUpperCase());
+    const year = esc(f.year || "—");
+    const denom = esc((f.denom || f.label || "SPECIMEN").toUpperCase());
+    const purity = f.is_silver
+      ? (f.asw_oz ? `${num(f.asw_oz, 2)}oz Ag` : ".999 Ag")
+      : (f.is_gold ? ".999 Au" : (f.km ? `KM#${esc(f.km)}` : "ALLOY"));
+
+    const visual = f.thumb
+      ? `<img class="pc-photo" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
+      : renderSpecimenBlueprint(f, isLarge);
+
+    return `
+      <div class="archival-flip-holder${isLarge ? ' flip-large' : ''}">
+        <!-- Four Galvanized Industrial Staples with cardboard crimp depressions -->
+        <div class="flip-staple staple-tl"><span class="staple-wire"></span></div>
+        <div class="flip-staple staple-tr"><span class="staple-wire"></span></div>
+        <div class="flip-staple staple-bl"><span class="staple-wire"></span></div>
+        <div class="flip-staple staple-br"><span class="staple-wire"></span></div>
+
+        <!-- Archival Collector Pen Annotations on White Cardboard Margins -->
+        <div class="flip-margin-top" title="${country}">${country}</div>
+        <div class="flip-margin-left">${year}</div>
+        <div class="flip-margin-right">${purity}</div>
+        <div class="flip-margin-bottom" title="${denom}">${denom}</div>
+
+        <!-- Crystal-Clear Mylar Aperture Window -->
+        <div class="flip-mylar-window">
+          ${visual}
+          <div class="flip-mylar-reflection"></div>
+        </div>
+      </div>`;
+  }
+
+  /** The exhibition: masterpieces rotate on the Hall wall on illuminated velvet trays. */
   function startExhibit() {
     clearInterval(exhibitTimer);
     const frame = $("#exhibit-frame");
@@ -726,28 +981,50 @@
       }
       frame.innerHTML = exhibitMasters.map((f, i) => {
         const isGold = f.is_gold || /gold/i.test(f.metal || "");
-        const iso = esc(f.iso || (f.country || "??").slice(0, 2).toUpperCase());
         const year = esc(f.year || "—");
         const denom = esc(f.denom || f.label || "Coin");
+        const country = esc(f.country || "Unknown");
+        const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz ?? 63.38;
+        const meltVal = f.is_silver && f.asw_oz ? Number(f.asw_oz) * Number(spotAg) : null;
+        const multiplier = meltVal && f.est ? (Number(f.est) / meltVal).toFixed(1) + "× Melt" : null;
+
         return `
         <div class="exhibit-slide${i === exhibitIdx ? " on" : ""}">
-          <div class="ex-pedestal">
-            <div class="ex-medallion${isGold ? " is-gold" : ""}">
-              <div class="med-ring"></div>
-              <div class="med-shimmer"></div>
-              <span class="med-iso">${iso}</span>
-              <span class="med-year">${year}</span>
-              <span class="med-denom">${denom}</span>
+          <div class="ex-pedestal-tray">
+            <div class="ex-tray-velvet">
+              <div class="ex-velvet-corners"></div>
+              <div class="ex-spotlight-cone"></div>
+              ${renderFlipHolder(f, { large: true })}
             </div>
           </div>
-          <div class="ex-info">
-            <div class="ex-ser-badge">
-              <span class="exhibit-lamp" style="width:6px;height:6px"></span>
-              ${esc(f.ser || f.scan)} · Masterpiece ${i + 1}/${exhibitMasters.length}
+          <div class="ex-info-placard">
+            <div class="placard-kicker">
+              <span class="placard-seal">🏛️ CABINET MASTERPIECE</span>
+              <span class="placard-pos">${i + 1} of ${exhibitMasters.length}</span>
             </div>
-            <div class="ex-title">${esc([f.country, year, denom].filter(Boolean).join(" · "))}</div>
-            <div class="ex-desc">${f.is_silver && f.asw_oz != null ? "Fine Silver " + num(f.asw_oz, 3) + " oz ASW · " : ""}${f.conf ? "Confidence " + esc(f.conf) : "Archive Verified"} · Tap for full placard</div>
-            <div class="ex-val-tag">${money(f.est)}<small>est. value</small></div>
+            <h3 class="placard-title">${country} · ${year}</h3>
+            <div class="placard-denom">${denom}</div>
+            
+            <div class="placard-metrics">
+              <div class="pl-metric">
+                <span class="pl-lbl">Appraised Value</span>
+                <span class="pl-val gold">${money(f.est)}</span>
+              </div>
+              <div class="pl-metric">
+                <span class="pl-lbl">${f.is_silver ? "Silver Melt" : "Alloy"}</span>
+                <span class="pl-val">${meltVal ? money(meltVal) : (isGold ? "Gold" : "Base Alloy")}</span>
+              </div>
+              <div class="pl-metric">
+                <span class="pl-lbl">Valuation Multiple</span>
+                <span class="pl-val">${multiplier || (f.conf ? "Conf " + esc(f.conf) : "Archive Verified")}</span>
+              </div>
+            </div>
+
+            <p class="placard-monograph">${esc(f.notes || "Masterpiece specimen recorded in Master Ledger. Awaiting Phase 2 physical photography.")}</p>
+
+            <button type="button" class="placard-inspect-btn" data-scan="${esc(f.scan)}">
+              Inspect Specimen Dossier & Placard →
+            </button>
           </div>
         </div>`;
       }).join("");
@@ -930,9 +1207,22 @@
     return q.split(" ").every((w) => blob.includes(w));
   }
 
+  let cabinetTray = "all"; // 'crown' | 'silver' | 'world' | 'timeline' | 'all'
+
   function filteredFlips() {
     let rows = vault.flips || [];
     const q = norm(flipFilter.q);
+
+    // Filter by active Cabinet Tray
+    if (cabinetTray === "crown") {
+      rows = rows.filter((f) => f.status !== "Removed" && (f.est ?? 0) > 0)
+        .sort((a, b) => (b.est ?? 0) - (a.est ?? 0))
+        .slice(0, 12);
+      return rows;
+    } else if (cabinetTray === "silver") {
+      rows = rows.filter((f) => f.is_silver);
+    }
+
     if (flipFilter.silverOnly) rows = rows.filter((f) => f.is_silver);
     if (flipFilter.phase2) rows = rows.filter((f) => f.awaiting_phase2 !== false && f.status !== "Removed" && !f.phase2_done);
     if (flipFilter.country) rows = rows.filter((f) => f.country === flipFilter.country);
@@ -944,6 +1234,21 @@
     if (q) {
       rows = rows.filter((f) => flipQueryMatch(f, q));
     }
+
+    if (cabinetTray === "silver") {
+      rows = [...rows].sort((a, b) => (b.asw_oz ?? 0) - (a.asw_oz ?? 0));
+      return rows;
+    }
+
+    if (cabinetTray === "timeline") {
+      rows = [...rows].sort((a, b) => {
+        const ya = parseInt(String(a.year || "").replace(/\D/g, ""), 10) || 0;
+        const yb = parseInt(String(b.year || "").replace(/\D/g, ""), 10) || 0;
+        return ya - yb;
+      });
+      return rows;
+    }
+
     const { key, dir } = flipSort;
     rows = [...rows].sort((a, b) => {
       if (key === "scan" || key === "newest") {
@@ -996,10 +1301,10 @@
       })
       .join("");
 
-    // Fresh-metal rail only when the visitor isn't filtering.
+    // Fresh-metal rail only when the visitor isn't filtering and on master inventory tray
     const filtering = flipFilter.q.trim() || flipFilter.country || flipFilter.iso || flipFilter.year || flipFilter.silverOnly || flipFilter.phase2;
     let railHtml = "";
-    if (!filtering) {
+    if (!filtering && cabinetTray === "all") {
       const latest = latestFlips(10);
       const cards = latest.map((f) => {
         const neo = highlightScans.has(f.scan) ? " is-new" : "";
@@ -1018,38 +1323,20 @@
         <div class="latest-rail" aria-label="Latest added flips">${cards || '<p class="empty">No flips yet</p>'}</div>`;
     }
 
-    // The wall: every flip as an archival 2x2 cardboard holder.
+    // The wall: every flip as an authentic white 2x2 archival holder with specimen blueprint
     const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz;
     const wall = rows.map((f) => {
       const neo = highlightScans.has(f.scan) ? " is-new" : "";
-      const isGold = f.is_gold || /gold/i.test(f.metal || "");
-      const isBronze = /copper|bronze|brass/i.test(f.metal || "");
-      const coinClass = isGold ? "gold-coin" : (isBronze ? "bronze-coin" : "");
-      const iso = esc(f.iso || (f.country || "??").slice(0, 2).toUpperCase());
-      const year = esc(f.year || "—");
       const denom = esc(f.denom || f.label || "Coin");
       const agBadge = f.is_silver ? `<span class="pc-ag-pill">Ag ${f.asw_oz != null ? num(f.asw_oz, 2) + "oz" : ".999"}</span>` : "";
-
-      const visual = f.thumb
-        ? `<img class="pc-photo" data-src="${esc(f.thumb)}" alt="" style="width:100%;height:100%;object-fit:cover;" />`
-        : `<div class="pc-coin ${coinClass}">
-            <div class="pc-coin-inner"></div>
-            <span class="pc-coin-iso">${iso}</span>
-            <span class="pc-coin-year">${year}</span>
-            <span class="pc-coin-denom">${denom}</span>
-          </div>`;
-
       const meltText = f.is_silver && f.asw_oz != null && spotAg != null
         ? `Melt ${money(Number(f.asw_oz) * Number(spotAg))}`
         : (f.conf ? `Conf ${esc(f.conf)}` : "Verified");
 
       return `
       <button type="button" class="piece-card reveal${neo}" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
-        <div class="pc-holder">
-          <div class="pc-window">
-            ${visual}
-            <div class="pc-mylar-glint"></div>
-          </div>
+        <div class="pc-flip-frame">
+          ${renderFlipHolder(f)}
         </div>
         <div class="pc-card-meta">
           <div class="pc-header-row">
@@ -1065,9 +1352,34 @@
       </button>`;
     }).join("");
 
+    const trayNavHtml = `
+      <div class="cabinet-trays-nav reveal" role="tablist" aria-label="Cabinet Trays">
+        <button type="button" class="tray-tab${cabinetTray === 'all' ? ' active' : ''}" data-tray="all">
+          <span class="tray-ico">🗄️</span>
+          <span class="tray-text">Master Inventory</span>
+          <span class="tray-count">${intFmt((vault.flips || []).length)}</span>
+        </button>
+        <button type="button" class="tray-tab${cabinetTray === 'crown' ? ' active' : ''}" data-tray="crown">
+          <span class="tray-ico">👑</span>
+          <span class="tray-text">Crown Jewels</span>
+          <span class="tray-count">Top 12</span>
+        </button>
+        <button type="button" class="tray-tab${cabinetTray === 'silver' ? ' active' : ''}" data-tray="silver">
+          <span class="tray-ico">🥈</span>
+          <span class="tray-text">Silver Reserves</span>
+          <span class="tray-count">${agCount} Flips</span>
+        </button>
+        <button type="button" class="tray-tab${cabinetTray === 'timeline' ? ' active' : ''}" data-tray="timeline">
+          <span class="tray-ico">⏳</span>
+          <span class="tray-text">Timeline</span>
+          <span class="tray-count">1883–2026</span>
+        </button>
+      </div>`;
+
     $("#gallery-body").innerHTML = `
+      ${trayNavHtml}
       ${railHtml}
-      <div class="sec-head reveal"><span class="eyebrow">The boxes</span><h2>On the wall</h2><p class="sub">2×2 holders · C### keys · tap a piece</p></div>
+      <div class="sec-head reveal"><span class="eyebrow">The Cabinet</span><h2>${cabinetTray === 'crown' ? 'The Crown Jewels' : (cabinetTray === 'silver' ? 'Silver Reserves (By ASW Weight)' : (cabinetTray === 'timeline' ? 'Century Timeline (Chronological)' : 'On the Wall'))}</h2><p class="sub">Authentic 2×2 Archival Flips · Specimen Blueprints</p></div>
       <div class="toolbar">
         <span class="search-wrap"><input type="search" id="flip-q" placeholder="Search SER · C### · country · year · denom · notes…" value="${esc(flipFilter.q)}" autocomplete="off" /><kbd title="Ctrl/⌘K opens search">⌘K</kbd></span>
         <select id="flip-country"><option value="">All countries</option>${opts}</select>
@@ -1089,6 +1401,15 @@
       <div class="country-strip">${strip}</div>
       <div class="gallery-grid">${wall || '<p class="empty">No matches</p>'}</div>
     `;
+
+    // Hook up Cabinet Tray Tabs
+    $$(".tray-tab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        cabinetTray = tab.dataset.tray;
+        renderGallery();
+        saveState();
+      });
+    });
 
     const qEl = $("#flip-q");
     qEl.addEventListener("input", (e) => {
@@ -1662,16 +1983,22 @@
         ${c.face ? `<span class="chip">Face <strong>${esc(c.face)}</strong></span>` : ""}
       </div>`;
 
-    // Photo stage: obverse + reverse large on top; extra roles in a second row.
+    // Photo stage: if photos exist, show obverse + reverse; if awaiting Phase 2, showcase the Archival Flip
     const extraRoles = [...new Set(phList.map((p) => p.role))].filter((r) => r !== "obv" && r !== "rev");
     const stageMain = (isFlip ? ["obv", "rev"] : []).map((r) => photoSlot(c, r)).join("");
     const stageExtra = extraRoles.map((r) => photoSlot(c, r)).join("");
     const stage = isFlip
-      ? `<div class="ds-stage">${stageMain}</div>
-         ${stageExtra ? `<div class="ds-stage ds-stage-extra">${stageExtra}</div>` : ""}
-         <p class="ph-hint">${phList.length
-           ? "Tap a photo for full size."
-           : "Phase 2: write the label on the flip, then photograph both sides with the whole 2×2 in frame and drop them in the Drive Inbox. Titan checks each photo and files it here once it passes."}</p>`
+      ? (phList.length
+          ? `<div class="ds-stage">${stageMain}</div>
+             ${stageExtra ? `<div class="ds-stage ds-stage-extra">${stageExtra}</div>` : ""}
+             <p class="ph-hint">Tap a photo for full size.</p>`
+          : `<div class="ds-stage-flip-showcase">
+               ${renderFlipHolder(c, { large: true })}
+               <div class="ds-p2-notice">
+                 <span class="p2-seal">📷 PHASE 2 SHOOTING LIST</span>
+                 <p class="p2-prompt"><strong>Physical photography pending.</strong> Write the handwritten label on the 2×2 cardboard border, then photograph both sides with the full frame in view and drop into the collection Inbox.</p>
+               </div>
+             </div>`)
       : "";
 
     // Precision Caliper scale
