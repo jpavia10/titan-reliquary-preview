@@ -1,18 +1,99 @@
-/* Titan Reliquary — lofi playlist (static, outside data/ so publish_all.sh cannot clobber it).
+/* Titan Reliquary — music stations (static, outside data/ so publish_all.sh cannot clobber it).
    Tracks are HOTLINKED mp3s (Kevin MacLeod, incompetech.com, CC-BY 4.0 — credit
    shown in the player UI). They are not committed to the repo and will not work
-   offline (see CHANGELOG.md). Edit this array by hand to swap tracks. */
-window.TITAN_PLAYLIST = [
-  { title: "Ultralounge", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ultralounge.mp3", license: "CC-BY", credit: "\u201CUltralounge\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Chill Wave", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Chill%20Wave.mp3", license: "CC-BY", credit: "\u201CChill Wave\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Chillin Hard", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Chillin%20Hard.mp3", license: "CC-BY", credit: "\u201CChillin Hard\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Suave Standpipe", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Suave%20Standpipe.mp3", license: "CC-BY", credit: "\u201CSuave Standpipe\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Ice Flow", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ice%20Flow.mp3", license: "CC-BY", credit: "\u201CIce Flow\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Soporific", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Soporific.mp3", license: "CC-BY", credit: "\u201CSoporific\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Kool Kats", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Kool%20Kats.mp3", license: "CC-BY", credit: "\u201CKool Kats\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Mirage", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Mirage.mp3", license: "CC-BY", credit: "\u201CMirage\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Local Forecast - Slower", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Local%20Forecast%20-%20Slower.mp3", license: "CC-BY", credit: "\u201CLocal Forecast - Slower\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Disco Lounge", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Disco%20Lounge.mp3", license: "CC-BY", credit: "\u201CDisco Lounge\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Easy Jam", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Easy%20Jam.mp3", license: "CC-BY", credit: "\u201CEasy Jam\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-  { title: "Airship Serenity", artist: "Kevin MacLeod", url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Airship%20Serenity.mp3", license: "CC-BY", credit: "\u201CAirship Serenity\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0" },
-];
+   offline (see CHANGELOG.md). Every URL below was verified with an HTTP 200
+   check on 2026-09-25. Edit by hand to swap tracks.
+   TITAN_PLAYLIST is kept as an alias of the lofi station for back-compat. */
+(function () {
+  "use strict";
+  const M = (title, file) => ({
+    title,
+    artist: "Kevin MacLeod",
+    url: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/" + file,
+    license: "CC-BY",
+    credit: "\u201C" + title + "\u201D Kevin MacLeod (incompetech.com) \u2014 CC BY 4.0",
+  });
+
+  window.TITAN_STATIONS = {
+    lofi: {
+      name: "Lofi",
+      tag: "midnight study beats",
+      tracks: [
+        M("Ultralounge", "Ultralounge.mp3"),
+        M("Chill Wave", "Chill%20Wave.mp3"),
+        M("Chillin Hard", "Chillin%20Hard.mp3"),
+        M("Suave Standpipe", "Suave%20Standpipe.mp3"),
+        M("Ice Flow", "Ice%20Flow.mp3"),
+        M("Soporific", "Soporific.mp3"),
+        M("Kool Kats", "Kool%20Kats.mp3"),
+        M("Mirage", "Mirage.mp3"),
+        M("Local Forecast - Slower", "Local%20Forecast%20-%20Slower.mp3"),
+        M("Disco Lounge", "Disco%20Lounge.mp3"),
+        M("Easy Jam", "Easy%20Jam.mp3"),
+        M("Airship Serenity", "Airship%20Serenity.mp3"),
+      ],
+    },
+    classical: {
+      name: "Classical",
+      tag: "the conservator's desk",
+      tracks: [
+        M("Gymnopedie No 1", "Gymnopedie%20No%201.mp3"),
+        M("Meditation Impromptu 01", "Meditation%20Impromptu%2001.mp3"),
+        M("Meditation Impromptu 02", "Meditation%20Impromptu%2002.mp3"),
+        M("Meditation Impromptu 03", "Meditation%20Impromptu%2003.mp3"),
+        M("Thinking Music", "Thinking%20Music.mp3"),
+        M("Agnus Dei X", "Agnus%20Dei%20X.mp3"),
+      ],
+    },
+    epic: {
+      name: "Epic",
+      tag: "bronze and thunder",
+      tracks: [
+        M("Five Armies", "Five%20Armies.mp3"),
+        M("Stormfront", "Stormfront.mp3"),
+        M("Clash Defiant", "Clash%20Defiant.mp3"),
+        M("Heroic Age", "Heroic%20Age.mp3"),
+        M("Impact Prelude", "Impact%20Prelude.mp3"),
+        M("Constance", "Constance.mp3"),
+      ],
+    },
+    jazz: {
+      name: "Jazz",
+      tag: "smoke and saxophone",
+      tracks: [
+        M("Night on the Docks - Sax", "Night%20on%20the%20Docks%20-%20Sax.mp3"),
+        M("Deuces", "Deuces.mp3"),
+        M("Smooth Lovin", "Smooth%20Lovin.mp3"),
+        M("Dances and Dames", "Dances%20and%20Dames.mp3"),
+        M("I Knew a Guy", "I%20Knew%20a%20Guy.mp3"),
+        M("Off to Osaka", "Off%20to%20Osaka.mp3"),
+      ],
+    },
+    adventure: {
+      name: "Adventure",
+      tag: "maps and far horizons",
+      tracks: [
+        M("Expeditionary", "Expeditionary.mp3"),
+        M("The Path of the Goblin King", "The%20Path%20of%20the%20Goblin%20King.mp3"),
+        M("To the Ends", "To%20the%20Ends.mp3"),
+        M("Investigations", "Investigations.mp3"),
+        M("The Descent", "The%20Descent.mp3"),
+        M("The Pyre", "The%20Pyre.mp3"),
+      ],
+    },
+    dark: {
+      name: "Dark",
+      tag: "do not tap the glass",
+      tracks: [
+        M("Oppressive Gloom", "Oppressive%20Gloom.mp3"),
+        M("Darkest Child", "Darkest%20Child.mp3"),
+        M("The Dread", "The%20Dread.mp3"),
+        M("Unseen Horrors", "Unseen%20Horrors.mp3"),
+        M("Grim Idol", "Grim%20Idol.mp3"),
+        M("Long Note One", "Long%20Note%20One.mp3"),
+      ],
+    },
+  };
+  window.TITAN_PLAYLIST = window.TITAN_STATIONS.lofi.tracks;
+  window.TITAN_STATION_ORDER = ["lofi", "classical", "epic", "jazz", "adventure", "dark"];
+})();
