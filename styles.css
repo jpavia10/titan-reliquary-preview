@@ -3039,3 +3039,22 @@ table.data td.ids { white-space: nowrap; }
   .bucket-row .v { min-width: 7rem; }
   .bucket-row { font-size: 0.84rem; padding: 0.42rem 0; }
 }
+
+/* ================= tr12: rain icon legibility + dust on light themes ================= */
+/* Rain button: filled cloud reads at small sizes; stronger "on" state. */
+.rain-btn svg { width: 20px; height: 20px; flex: 0 0 auto; }
+.rain-btn[aria-pressed="true"] {
+  background: rgba(125, 180, 216, 0.14);
+  border-color: #6a9dc4;
+  color: #9cc8e8;
+}
+.rain-btn[aria-pressed="true"] svg { filter: drop-shadow(0 0 4px rgba(125, 180, 216, 0.9)); }
+/* Keep the "Rain" text label down to 560px so the button is self-explanatory. */
+@media (min-width: 561px) and (max-width: 700px) {
+  .rain-label { display: inline; }
+}
+/* Conservator (Curator) is a white room: pale-gold motes vanish on it, so use a
+   deep bronze-gold that reads against white. */
+html[data-atmo="conservator"] #dust-layer i {
+  background: radial-gradient(circle, rgba(146, 106, 30, 0.62), transparent 70%);
+}
