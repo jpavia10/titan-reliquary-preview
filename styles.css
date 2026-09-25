@@ -1734,9 +1734,14 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   font-size: 1rem; cursor: pointer; padding: 0.2rem 0.4rem; min-height: 32px;
 }
 .lofi-collapse:hover { color: var(--ink); }
-.lofi-bar.collapsed .lofi-row > :not(.lofi-collapse) { display: none; }
+.lofi-bar.collapsed .lofi-row > :not(.lofi-collapse):not(.lofi-now) { display: none; }
 .lofi-bar.collapsed .lofi-meta { display: none; }
+.lofi-bar.collapsed .station-menu { display: none; }
 .lofi-bar.collapsed { padding: 0.3rem 0.5rem; }
+.lofi-bar.collapsed .lofi-now .t { font-size: 0.78rem; }
+@media (min-width: 701px) {
+  .lofi-bar.collapsed { width: auto; max-width: 384px; }
+}
 
 /* --- Rain canvas overlay (ambient.js) --- */
 #rain-canvas {
@@ -2148,6 +2153,14 @@ html[data-atmo="conservator"] .lab-badge { color: #faf6ec; }
   cursor: pointer;
 }
 .fab-search:active { transform: scale(0.93); }
+/* When the music bar is open it sits over the FAB's spot — slide the FAB above it.
+   The expanded bar is tall; the collapsed chip is short. */
+body:has(.lofi-bar:not([hidden]):not(.collapsed)) .fab-search {
+  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 7.4rem);
+}
+body:has(.lofi-bar.collapsed:not([hidden])) .fab-search {
+  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 4.4rem);
+}
 
 /* ---------- Pane transitions: walking between wings ---------- */
 .pane { display: none; }

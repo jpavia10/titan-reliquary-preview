@@ -19,7 +19,8 @@
   <script>
     try {
       var __tr_a = localStorage.getItem("tr_atmo_v1");
-      if (__tr_a !== "afterhours" && __tr_a !== "conservator") {
+      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing"];
+      if (__tr_ok.indexOf(__tr_a) === -1) {
         var __tr_old = localStorage.getItem("tr_theme_v1");
         if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
         __tr_a = (__tr_old === "ledger") ? "conservator" : "afterhours";
