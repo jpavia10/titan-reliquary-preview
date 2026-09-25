@@ -1594,45 +1594,97 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
 }
 #rain-canvas[hidden] { display: none; }
 
-/* --- Ambient mixer panel (ambient.js) --- */
+/* --- Ambient mixer panel ("Stormroom", ambient.js) --- */
 .ambient-panel {
   position: fixed;
   z-index: 70;
   top: 4.2rem;
   right: 1rem;
-  width: min(300px, calc(100vw - 2rem));
+  width: min(320px, calc(100vw - 2rem));
   background: var(--drawerbar-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--gold-deep);
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  padding: 0.7rem 0.8rem 0.9rem;
+  border-radius: 18px;
+  box-shadow: var(--shadow), 0 0 0 1px rgba(212, 175, 106, 0.06);
+  padding: 0.85rem 0.95rem 1rem;
 }
 .ambient-panel[hidden] { display: none; }
 .ambient-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
 }
 .ambient-head h3 {
   font-family: var(--serif);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--gold-soft);
   margin: 0;
+  letter-spacing: 0.01em;
 }
+.amb-presets {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.7rem;
+}
+.amb-preset {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface2);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.42rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 36px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.amb-preset:hover { color: var(--ink); border-color: var(--gold-deep); }
+.amb-preset:active { transform: scale(0.96); }
+.amb-intensity {
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem 0.7rem;
+  margin-bottom: 0.55rem;
+}
+.amb-intensity-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.amb-intensity-top strong { color: var(--gold-soft); font-weight: 600; }
+.amb-intensity input[type="range"] { width: 100%; accent-color: #7db4d8; cursor: pointer; }
 .ambient-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0;
+  gap: 0.55rem;
+  padding: 0.5rem 0.1rem;
   border-top: 1px solid var(--line);
 }
-.ambient-row:first-of-type { border-top: none; }
+.ambient-row .amb-ico { color: var(--muted); display: inline-flex; flex: 0 0 auto; }
 .ambient-row .amb-name { flex: 1 1 auto; font-size: 0.84rem; color: var(--ink); }
-.ambient-row input[type="range"] { width: 84px; accent-color: #7db4d8; cursor: pointer; }
+.ambient-row input[type="range"] { width: 76px; accent-color: #7db4d8; cursor: pointer; }
+.amb-master {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+.amb-master input[type="range"] { flex: 1; accent-color: var(--gold); cursor: pointer; }
 .amb-toggle {
   appearance: none;
   width: 46px; height: 28px;
@@ -1642,7 +1694,7 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   cursor: pointer;
   position: relative;
   flex: 0 0 auto;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.2s, border-color 0.2s;
 }
 .amb-toggle::after {
   content: "";
@@ -1660,6 +1712,20 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
 /* ================= Responsive ================= */
 @media (max-width: 700px) {
   #app { padding: 0 0.85rem 5rem; }
+  .ambient-panel {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    max-height: 72vh;
+    overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    padding-bottom: calc(1.2rem + env(safe-area-inset-bottom));
+  }
   .hero { padding: 2.2rem 0 1.6rem; }
   .wordmark { letter-spacing: 0; }
   .grid.two { grid-template-columns: 1fr; }

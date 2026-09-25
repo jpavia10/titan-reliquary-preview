@@ -7,8 +7,8 @@
   "use strict";
 
   const VOL_KEY = "tr_lofi_vol_v1";
-  const TRACK_KEY = "tr_lofi_track_v1";
-  const AUTO_KEY = "tr_lofi_autoplay_v1";
+  const TRACK_KEY = "tr_lofi_track_v2"; // v2: stores "index::title" so a playlist
+  const AUTO_KEY = "tr_lofi_autoplay_v1"; // reorder resumes the same SONG, not the same slot
 
   const playlist = (window.TITAN_PLAYLIST || []).filter((t) => t && t.url);
   if (!playlist.length) return; // playlist missing: stay silent, no UI
@@ -30,7 +30,41 @@
   function readBool(key, dflt) {
     try { const v = localStorage.getItem(key); return v == null ? dflt : v === "1"; } catch { return dflt; }
   }
-  idx = Math.min(Math.max(0, readInt(TRACK_KEY, 0)), playlist.length - 1);
+  function readTrack() {
+    // Returns the saved index only if the saved title still sits in that
+    // slot; otherwise 0 (e.g. the playlist was reordered since the save).
+    try {
+      const raw = localStorage.getItem(TRACK_KEY);
+      if (raw == null) {
+        // one-time migration from the v1 bare-index key
+        const old = parseInt(localStorage.getItem("tr_lofi_track_v1"), 10);
+        if (Number.isInteger(old)) {
+          const t = playlist[Math.min(Math.max(0, old), playlist.length - 1)];
+          return { idx: 0, migrated: t && t.title }; // v1 slot is untrustworthy: start at track 1 once
+        }
+        return { idx: 0 };
+      }
+      const sep = raw.lastIndexOf("::");
+      const i = parseInt(sep > 0 ? raw.slice(0, sep) : raw, 10);
+      const title = sep > 0 ? raw.slice(sep + 2) : null;
+      if (!Number.isInteger(i)) return { idx: 0 };
+      const clamped = Math.min(Math.max(0, i), playlist.length - 1);
+      if (title && playlist[clamped] && playlist[clamped].title !== title) {
+        // same song moved? resume it wherever it lives now
+        const moved = playlist.findIndex((t) => t.title === title);
+        return { idx: moved >= 0 ? moved : 0 };
+      }
+      return { idx: clamped };
+    } catch { return { idx: 0 }; }
+  }
+  function writeTrack(i) {
+    try {
+      const t = playlist[i];
+      localStorage.setItem(TRACK_KEY, `${i}::${(t && t.title) || ""}`);
+      localStorage.removeItem("tr_lofi_track_v1"); // v1 key retired
+    } catch { /* ignore */ }
+  }
+  idx = readTrack().idx;
   audio.volume = Math.min(1, Math.max(0, readNum(VOL_KEY, 0.6)));
   const autoplayPref = readBool(AUTO_KEY, true);
 
@@ -118,7 +152,7 @@
     skipGuard = 0;
     audio.src = playlist[idx].url;
     audio.preload = "auto";
-    try { localStorage.setItem(TRACK_KEY, String(idx)); } catch { /* ignore */ }
+    writeTrack(idx);
     updateNowPlaying();
     if (autoplay) play();
   }
