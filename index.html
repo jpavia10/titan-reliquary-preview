@@ -19,7 +19,7 @@
   <script>
     try {
       var __tr_a = localStorage.getItem("tr_atmo_v1");
-      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno","solaris","alchemist","glacier","valhalla"];
+      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno","solaris","alchemist","glacier","valhalla","dynasty","zen","samadhi","silkroad"];
       if (!__tr_a || __tr_ok.indexOf(__tr_a) === -1) {
         var __tr_old = localStorage.getItem("tr_theme_v1");
         if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr28" />
+  <link rel="stylesheet" href="styles.css?v=tr29" />
 </head>
 <body>
   <div id="app">
@@ -473,6 +473,34 @@
             <span class="atmo-card-pair">Pairs with · Foundry + Five Armies</span>
             <span class="atmo-card-scene" data-scene="valhalla">Set the scene →</span>
           </button>
+          <button type="button" class="atmo-card" data-atmo-val="dynasty">
+            <span class="atmo-swatch sw-dynasty" aria-hidden="true"></span>
+            <span class="atmo-card-name">Dynasty</span>
+            <span class="atmo-card-desc">Imperial court &amp; red envelope lacquer. Embossed 24K gold foil, forbidden cinnabar walls, and drifting lanterns.</span>
+            <span class="atmo-card-pair">Pairs with · Imperial Gong + Guzheng Silk</span>
+            <span class="atmo-card-scene" data-scene="dynasty">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="zen">
+            <span class="atmo-swatch sw-zen" aria-hidden="true"></span>
+            <span class="atmo-card-name">Zen Garden</span>
+            <span class="atmo-card-desc">Karesansui monastery. Raked white gravel ripples, wet river slate, bamboo shishi-odoshi, and falling sakura petals.</span>
+            <span class="atmo-card-pair">Pairs with · Bamboo Clack + Shakuhachi Flute</span>
+            <span class="atmo-card-scene" data-scene="zen">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="samadhi">
+            <span class="atmo-swatch sw-samadhi" aria-hidden="true"></span>
+            <span class="atmo-card-name">Samadhi</span>
+            <span class="atmo-card-desc">Himalayan ashram meditation. Sacred saffron robes, sandalwood incense smoke, 108Hz Om resonance, and golden prana auras.</span>
+            <span class="atmo-card-pair">Pairs with · 108Hz Om Drone + Sitar Meditations</span>
+            <span class="atmo-card-scene" data-scene="samadhi">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="silkroad">
+            <span class="atmo-swatch sw-silkroad" aria-hidden="true"></span>
+            <span class="atmo-card-name">Silk Road</span>
+            <span class="atmo-card-desc">Ancient desert caravanserai. Cobalt lapis lazuli tiles, oasis dune gold, rhythmic camel caravan bells, and desert starlight.</span>
+            <span class="atmo-card-pair">Pairs with · Caravan Bells + Desert Oud</span>
+            <span class="atmo-card-scene" data-scene="silkroad">Set the scene →</span>
+          </button>
         </div>
       </div>
     </div>
@@ -528,10 +556,10 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr28";</script>
-  <script src="app.js?v=tr28"></script>
-  <script src="js/playlist.js?v=tr28"></script>
-  <script src="audio.js?v=tr28"></script>
-  <script src="ambient.js?v=tr28"></script>
+  <script>window.TITAN_BUILD = "tr29";</script>
+  <script src="app.js?v=tr29"></script>
+  <script src="js/playlist.js?v=tr29"></script>
+  <script src="audio.js?v=tr29"></script>
+  <script src="ambient.js?v=tr29"></script>
 </body>
 </html>

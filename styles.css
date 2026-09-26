@@ -5938,8 +5938,113 @@ html[data-atmo="valhalla"] body {
 }
 .sw-valhalla { background: linear-gradient(135deg, #1c140c 0%, #d97706 45%, #7f1d1d 80%, #0d0c0a 100%); }
 
+/* --- 17. Dynasty (Imperial Lacquer & Red Envelope 24K Gold) --- */
+html[data-atmo="dynasty"] {
+  --bg: #0c0204; --bg2: #160508; --surface: #1f070a; --surface2: #2d0b10;
+  --ink: #fff1f2; --muted: #fecdd3; --faint: #9f1239;
+  --gold: #eab308; --gold-soft: #fef08a; --gold-deep: #a16207;
+  --line: rgba(234, 179, 8, 0.22); --line-strong: rgba(234, 179, 8, 0.48);
+  --ok: #22c55e; --warn: #f59e0b; --bad: #ef4444;
+  --shadow: inset 0 1px 0 rgba(254, 240, 138, 0.12), 0 20px 60px rgba(0, 0, 0, 0.92);
+  --th-bg: #1f070a; --tabgrad1: #350c13; --tabgrad2: #160508;
+  --foot-bg: rgba(12, 2, 4, 0.94); --ph-bg: #100305; --sel-bg: #2d0b10;
+  --hold-bg: linear-gradient(135deg, #350c13, #160508);
+  --drawerbar-bg: rgba(31, 7, 10, 0.96); --cardmeta: #fef08a;
+  --skeleton1: #2d0b10; --skeleton2: #100305;
+  --toastgrad1: #350c13; --toastgrad2: #160508;
+  --row-hover: rgba(234, 179, 8, 0.08);
+}
+html[data-atmo="dynasty"] body {
+  background-image:
+    radial-gradient(85% 45% at 50% 0%, rgba(225, 29, 72, 0.18), transparent 75%),
+    radial-gradient(90% 70% at 75% 85%, rgba(234, 179, 8, 0.12), transparent 70%);
+}
+html[data-atmo="dynasty"] .wordmark {
+  text-shadow: 0 0 35px rgba(234, 179, 8, 0.5), 0 0 70px rgba(225, 29, 72, 0.3);
+}
+.sw-dynasty { background: linear-gradient(135deg, #e11d48 0%, #eab308 45%, #881337 80%, #0c0204 100%); }
+
+/* --- 18. Zen Garden (Raked White Sand & Moss Slate) --- */
+html[data-atmo="zen"] {
+  --bg: #08090a; --bg2: #0e1114; --surface: #14181c; --surface2: #1c2227;
+  --ink: #f8fafc; --muted: #cbd5e1; --faint: #64748b;
+  --gold: #84cc16; --gold-soft: #bef264; --gold-deep: #4d7c0f;
+  --line: rgba(132, 204, 22, 0.20); --line-strong: rgba(132, 204, 22, 0.45);
+  --ok: #84cc16; --warn: #eab308; --bad: #ef4444;
+  --shadow: inset 0 1px 0 rgba(190, 242, 100, 0.08), 0 20px 60px rgba(0, 0, 0, 0.92);
+  --th-bg: #14181c; --tabgrad1: #222930; --tabgrad2: #0e1114;
+  --foot-bg: rgba(8, 9, 10, 0.94); --ph-bg: #0b0d0e; --sel-bg: #1c2227;
+  --hold-bg: linear-gradient(135deg, #222930, #0e1114);
+  --drawerbar-bg: rgba(20, 24, 28, 0.96); --cardmeta: #bef264;
+  --skeleton1: #1c2227; --skeleton2: #0b0d0e;
+  --toastgrad1: #222930; --toastgrad2: #0e1114;
+  --row-hover: rgba(132, 204, 22, 0.08);
+}
+html[data-atmo="zen"] body {
+  background-image:
+    radial-gradient(80% 50% at 50% 0%, rgba(132, 204, 22, 0.12), transparent 75%),
+    radial-gradient(100% 70% at 20% 90%, rgba(71, 85, 105, 0.15), transparent 70%);
+}
+html[data-atmo="zen"] .wordmark {
+  text-shadow: 0 0 30px rgba(132, 204, 22, 0.35), 0 0 60px rgba(100, 116, 139, 0.25);
+}
+.sw-zen { background: linear-gradient(135deg, #cbd5e1 0%, #84cc16 45%, #1e293b 80%, #08090a 100%); }
+
+/* --- 19. Samadhi (Vedic Ashram Saffron & Himalayan Sandalwood) --- */
+html[data-atmo="samadhi"] {
+  --bg: #0b0604; --bg2: #160c07; --surface: #22120a; --surface2: #2f1a0e;
+  --ink: #fff7ed; --muted: #fed7aa; --faint: #9a3412;
+  --gold: #f97316; --gold-soft: #fdba74; --gold-deep: #c2410c;
+  --line: rgba(249, 115, 22, 0.22); --line-strong: rgba(249, 115, 22, 0.48);
+  --ok: #22c55e; --warn: #f59e0b; --bad: #ef4444;
+  --shadow: inset 0 1px 0 rgba(253, 186, 116, 0.10), 0 20px 60px rgba(0, 0, 0, 0.92);
+  --th-bg: #22120a; --tabgrad1: #381f11; --tabgrad2: #160c07;
+  --foot-bg: rgba(11, 6, 4, 0.94); --ph-bg: #0e0705; --sel-bg: #2f1a0e;
+  --hold-bg: linear-gradient(135deg, #381f11, #160c07);
+  --drawerbar-bg: rgba(34, 18, 10, 0.96); --cardmeta: #fdba74;
+  --skeleton1: #2f1a0e; --skeleton2: #0e0705;
+  --toastgrad1: #381f11; --toastgrad2: #160c07;
+  --row-hover: rgba(249, 115, 22, 0.08);
+}
+html[data-atmo="samadhi"] body {
+  background-image:
+    radial-gradient(85% 45% at 50% 0%, rgba(249, 115, 22, 0.16), transparent 75%),
+    radial-gradient(90% 70% at 80% 85%, rgba(180, 83, 9, 0.14), transparent 70%);
+}
+html[data-atmo="samadhi"] .wordmark {
+  text-shadow: 0 0 35px rgba(249, 115, 22, 0.5), 0 0 70px rgba(194, 65, 12, 0.3);
+}
+.sw-samadhi { background: linear-gradient(135deg, #fff7ed 0%, #f97316 45%, #9a3412 80%, #0b0604 100%); }
+
+/* --- 20. Silk Road (Ancient Caravanserai & Desert Starlight) --- */
+html[data-atmo="silkroad"] {
+  --bg: #030712; --bg2: #0b1120; --surface: #0f172a; --surface2: #1e293b;
+  --ink: #f8fafc; --muted: #cbd5e1; --faint: #475569;
+  --gold: #e2b340; --gold-soft: #fcd34d; --gold-deep: #b45309;
+  --line: rgba(226, 179, 64, 0.22); --line-strong: rgba(226, 179, 64, 0.48);
+  --ok: #34d399; --warn: #f59e0b; --bad: #ef4444;
+  --shadow: inset 0 1px 0 rgba(252, 211, 77, 0.10), 0 20px 60px rgba(0, 0, 0, 0.92);
+  --th-bg: #0f172a; --tabgrad1: #1e293b; --tabgrad2: #0b1120;
+  --foot-bg: rgba(3, 7, 18, 0.94); --ph-bg: #060912; --sel-bg: #1e293b;
+  --hold-bg: linear-gradient(135deg, #1e293b, #0b1120);
+  --drawerbar-bg: rgba(15, 23, 42, 0.96); --cardmeta: #fcd34d;
+  --skeleton1: #1e293b; --skeleton2: #060912;
+  --toastgrad1: #1e293b; --toastgrad2: #0b1120;
+  --row-hover: rgba(226, 179, 64, 0.08);
+}
+html[data-atmo="silkroad"] body {
+  background-image:
+    radial-gradient(85% 45% at 50% 0%, rgba(226, 179, 64, 0.15), transparent 75%),
+    radial-gradient(90% 70% at 75% 85%, rgba(30, 58, 138, 0.22), transparent 70%);
+}
+html[data-atmo="silkroad"] .wordmark {
+  text-shadow: 0 0 35px rgba(226, 179, 64, 0.45), 0 0 70px rgba(59, 130, 246, 0.25);
+}
+.sw-silkroad { background: linear-gradient(135deg, #fcd34d 0%, #1e3a8a 50%, #0f172a 80%, #030712 100%); }
+
 /* Dynamic Atmosphere Particle Canvases */
-#cursed-embers, #foundry-embers, #abyss-caustics, #solaris-flares, #glacier-aurora {
+#cursed-embers, #foundry-embers, #abyss-caustics, #solaris-flares, #glacier-aurora,
+#dynasty-lanterns, #zen-petals, #samadhi-prana, #silkroad-stars {
   position: fixed;
   inset: 0;
   width: 100vw;

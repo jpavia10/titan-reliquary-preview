@@ -35,24 +35,28 @@
 
   // Synthesized layers — procedural Web Audio synthesis, zero downloads.
   const SYNTH = {
-    drone:     { label: "Sub drone"           },
-    crackle:   { label: "Fire sparkle"        },
-    gust:      { label: "Wind swells"         },
-    clank:     { label: "Foundry clanks"      },
-    belltoll:  { label: "Distant bell"        },
-    ocean:     { label: "Ocean surf"          },
-    blizzard:  { label: "Polar blizzard"      },
-    clockwork: { label: "Antique clockwork"   },
-    bowl:      { label: "Singing bowl 432Hz"  },
-    vinyl:     { label: "Vinyl crackle"       },
-    cavern:    { label: "Cavern drops"        },
-    chimes:    { label: "Wind chimes"         },
+    drone:        { label: "Sub drone"              },
+    crackle:      { label: "Fire sparkle"           },
+    gust:         { label: "Wind swells"            },
+    clank:        { label: "Foundry clanks"         },
+    belltoll:     { label: "Distant bell"           },
+    ocean:        { label: "Ocean surf"             },
+    blizzard:     { label: "Polar blizzard"         },
+    clockwork:    { label: "Antique clockwork"      },
+    bowl:         { label: "Singing bowl 432Hz"     },
+    vinyl:        { label: "Vinyl crackle"          },
+    cavern:       { label: "Cavern drops"           },
+    chimes:       { label: "Wind chimes"            },
+    gong:         { label: "Imperial bronze gong"   },
+    bambooClack:  { label: "Shishi-odoshi bamboo"   },
+    omDrone:      { label: "Resonant 108Hz Om"      },
+    caravanBells: { label: "Caravan bronze bells"   },
   };
 
   const ORDER = [...Object.keys(RECORDED), ...Object.keys(SYNTH)];
   const LAYER_IDS = ORDER;
 
-  // 16 Dedicated Theme Presets + Classic Aliases
+  // 20 Dedicated Theme Presets + Classic Aliases
   const PRESETS = {
     nocturne:    { name: "Nocturne", desc: "Rain on midnight streets, vintage vinyl crackle, distant jazz murmur, and cool night wind.",
                    mix: { rain: 0.70, vinyl: 0.55, crowd: 0.30, wind: 0.25, drone: 0.15 },
@@ -102,6 +106,18 @@
     valhalla:    { name: "Valhalla", desc: "Great feast hall: roaring hearthfire, striking armory anvils, and mountain gale.",
                    mix: { fire: 0.85, crackle: 0.75, clank: 0.65, wind: 0.40 },
                    fx: { embers: true, mist: true } },
+    dynasty:     { name: "Dynasty", desc: "Imperial palace court: resonant bronze temple gongs, wind chimes, night wind, and drifting golden leaf.",
+                   mix: { gong: 0.85, chimes: 0.65, wind: 0.40, drone: 0.30 },
+                   fx: { goldFoil: true } },
+    zen:         { name: "Zen Garden", desc: "Karesansui monastery: rhythmic shishi-odoshi bamboo strikes, gentle wind swells, singing bowl, and falling cherry blossom petals.",
+                   mix: { bambooClack: 0.85, bowl: 0.65, gust: 0.45, crickets: 0.30 },
+                   fx: { sakura: true } },
+    samadhi:     { name: "Samadhi", desc: "Himalayan meditation sanctuary: resonant 108Hz Om drone, Tibetan singing bowl 432Hz, room tone, and swirling incense smoke ribbons.",
+                   mix: { omDrone: 0.85, bowl: 0.70, office: 0.30, drone: 0.25 },
+                   fx: { incense: true } },
+    silkroad:    { name: "Silk Road", desc: "Ancient desert caravanserai: rhythmic bronze camel bells, warm desert night wind, campfire crackle, and celestial oasis starlight.",
+                   mix: { caravanBells: 0.85, wind: 0.60, crackle: 0.45, gust: 0.40 },
+                   fx: { stars: true } },
 
     // Classic Legacy Aliases
     storm:       { name: "Storm", desc: "Rain hammers the skylights; thunder rolls somewhere far off.",
@@ -147,7 +163,8 @@
     "nocturne", "afterhours", "conservator", "colossus",
     "odyssey", "cursedwing", "kaleido", "abyss",
     "neon", "solaris", "alchemist", "glacier",
-    "valhalla", "construct", "xeno", "notepad", "off"
+    "valhalla", "construct", "xeno", "notepad",
+    "dynasty", "zen", "samadhi", "silkroad", "off"
   ];
 
   const KEY = "tr_ambient_v3";
@@ -161,7 +178,10 @@
     lightning: 70,
     fxIntensity: 75,
     preset: null,
-    fx: { rain: false, blizzard: false, embers: false, aurora: false, lightning: false, mist: false, caustics: false }
+    fx: {
+      rain: false, blizzard: false, embers: false, aurora: false, lightning: false,
+      mist: false, caustics: false, goldFoil: false, sakura: false, incense: false, stars: false
+    }
   };
   for (const id of LAYER_IDS) state.layers[id] = { on: false, vol: 0.7 };
 
@@ -577,6 +597,192 @@
       timer = setTimeout(strike, 1000);
       return { stop() { dead = true; clearTimeout(timer); } };
     },
+
+    // 13. Imperial bronze temple gong & dragon chime
+    gong(n) {
+      let dead = false, timer = 0;
+      const strike = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const f0 = 110;
+        const modes = [
+          [1.0, 0.35, 7.5],
+          [1.53, 0.22, 5.0],
+          [2.49, 0.16, 4.2],
+          [3.75, 0.11, 3.2],
+          [5.74, 0.07, 2.4],
+          [8.68, 0.04, 1.8]
+        ];
+        modes.forEach(([m, gv, dur]) => {
+          const osc = ctx.createOscillator();
+          osc.type = "sine";
+          osc.frequency.value = f0 * m;
+          osc.frequency.setValueAtTime(f0 * m * 1.015, t);
+          osc.frequency.exponentialRampToValueAtTime(f0 * m, t + 0.08);
+
+          const g = ctx.createGain();
+          g.gain.setValueAtTime(0.0001, t);
+          g.gain.exponentialRampToValueAtTime(gv, t + 0.015);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+
+          osc.connect(g);
+          g.connect(n.gain);
+          osc.start(t);
+          osc.stop(t + dur + 0.2);
+          osc.onended = () => { osc.disconnect(); g.disconnect(); };
+        });
+        timer = setTimeout(strike, 7500 + Math.random() * 5500);
+      };
+      timer = setTimeout(strike, 1200);
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+
+    // 14. Shishi-odoshi (bamboo water deer-scarer strike & water trickle)
+    bambooClack(n) {
+      let dead = false, timer = 0;
+      const clack = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        // Hollow bamboo strike (dual resonant bandpass poles)
+        [520, 880].forEach((freq, idx) => {
+          const s = ctx.createBufferSource();
+          s.buffer = noiseBuf;
+          const bp = ctx.createBiquadFilter();
+          bp.type = "bandpass";
+          bp.frequency.value = freq;
+          bp.Q.value = 14;
+          const g = ctx.createGain();
+          g.gain.setValueAtTime(0.0001, t);
+          g.gain.exponentialRampToValueAtTime(0.26 - idx * 0.06, t + 0.002);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + 0.055);
+          s.connect(bp);
+          bp.connect(g);
+          g.connect(n.gain);
+          s.start(t, 0, 0.07);
+          s.onended = () => { s.disconnect(); bp.disconnect(); g.disconnect(); };
+        });
+
+        // 0.35s later: delicate water trickle drops into stone basin
+        setTimeout(() => {
+          if (dead) return;
+          const tWater = ctx.currentTime;
+          for (let d = 0; d < 3; d++) {
+            const dropT = tWater + d * (0.09 + Math.random() * 0.08);
+            const osc = ctx.createOscillator();
+            osc.type = "sine";
+            const startF = 1250 + Math.random() * 350;
+            osc.frequency.setValueAtTime(startF, dropT);
+            osc.frequency.exponentialRampToValueAtTime(startF * 1.35, dropT + 0.03);
+            const g = ctx.createGain();
+            g.gain.setValueAtTime(0.0001, dropT);
+            g.gain.exponentialRampToValueAtTime(0.09, dropT + 0.003);
+            g.gain.exponentialRampToValueAtTime(0.0001, dropT + 0.22);
+            osc.connect(g);
+            g.connect(n.gain);
+            osc.start(dropT);
+            osc.stop(dropT + 0.25);
+            osc.onended = () => { osc.disconnect(); g.disconnect(); };
+          }
+        }, 340);
+
+        timer = setTimeout(clack, 5200 + Math.random() * 4200);
+      };
+      timer = setTimeout(clack, 1000);
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+
+    // 15. Sacred 108Hz resonant Om drone & Tibetan ghanta bell
+    omDrone(n) {
+      let dead = false, bellTimer = 0;
+      const out = ctx.createGain();
+      out.gain.value = 0.45;
+      out.connect(n.gain);
+
+      // Deep harmonic Om drone
+      const oscs = [];
+      const partials = [
+        [108, "sine", 0.42],
+        [216, "sine", 0.28],
+        [324, "triangle", 0.16],
+        [432, "sine", 0.14]
+      ];
+      partials.forEach(([f, t, gv]) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = t;
+        o.frequency.value = f;
+        g.gain.value = gv;
+        o.connect(g);
+        g.connect(out);
+        o.start();
+        oscs.push(o);
+      });
+      // Prana slow breath
+      const breath = lfo(out.gain, 0.048, 0.16, 0.45);
+
+      // Tibetan Ghanta temple bell strike
+      const ringBell = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        [[864, 0.16, 6.0], [1296, 0.08, 4.5], [1728, 0.04, 3.2]].forEach(([freq, gv, dur]) => {
+          const osc = ctx.createOscillator();
+          osc.type = "sine";
+          osc.frequency.value = freq;
+          const g = ctx.createGain();
+          g.gain.setValueAtTime(0.0001, t);
+          g.gain.exponentialRampToValueAtTime(gv, t + 0.02);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+          osc.connect(g);
+          g.connect(n.gain);
+          osc.start(t);
+          osc.stop(t + dur + 0.2);
+          osc.onended = () => { osc.disconnect(); g.disconnect(); };
+        });
+        bellTimer = setTimeout(ringBell, 12000 + Math.random() * 8000);
+      };
+      bellTimer = setTimeout(ringBell, 2500);
+
+      return {
+        stop() {
+          dead = true;
+          clearTimeout(bellTimer);
+          oscs.forEach((o) => { try { o.stop(); } catch {} });
+          try { breath.stop(); } catch {}
+          out.disconnect();
+        }
+      };
+    },
+
+    // 16. Desert camel caravan bronze bells & oasis breeze
+    caravanBells(n) {
+      let dead = false, timer = 0;
+      const chime = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        // Double-bell clink
+        const pitches = [640, 820];
+        pitches.forEach((freq, idx) => {
+          const strikeT = t + idx * 0.14;
+          [[1, 0.18, 2.8], [2.2, 0.07, 1.6]].forEach(([m, gv, dur]) => {
+            const osc = ctx.createOscillator();
+            osc.type = "sine";
+            osc.frequency.value = freq * m;
+            const g = ctx.createGain();
+            g.gain.setValueAtTime(0.0001, strikeT);
+            g.gain.exponentialRampToValueAtTime(gv, strikeT + 0.008);
+            g.gain.exponentialRampToValueAtTime(0.0001, strikeT + dur);
+            osc.connect(g);
+            g.connect(n.gain);
+            osc.start(strikeT);
+            osc.stop(strikeT + dur + 0.1);
+            osc.onended = () => { osc.disconnect(); g.disconnect(); };
+          });
+        });
+        timer = setTimeout(chime, 2400 + Math.random() * 2800);
+      };
+      timer = setTimeout(chime, 800);
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
   };
 
   // ---- Layer control ----
@@ -611,6 +817,10 @@
     if (id === "fire") { setFx("embers", !!on); updateFireFx(); }
     if (id === "blizzard") setFx("blizzard", !!on);
     if (id === "ocean") setFx("caustics", !!on);
+    if (id === "gong") setFx("goldFoil", !!on);
+    if (id === "bambooClack") setFx("sakura", !!on);
+    if (id === "omDrone") setFx("incense", !!on);
+    if (id === "caravanBells") setFx("stars", !!on);
     markPreset(null);
     writeState(); syncUi();
   }
@@ -684,6 +894,8 @@
 
   let raf = null, t0 = 0;
   let drops = [], ripples = [], flakes = [], sparks = [], mistWaves = [];
+  let goldLeaves = [], lanterns = [], sakuraPetals = [], incensePlumes = [], pranaOrbs = [], desertStars = [];
+  let shootingStar = null;
   let lightningBolt = null; // { segments: [], branches: [], alpha: 0 }
 
   function sizeCanvas() {
@@ -725,6 +937,53 @@
       { y: innerHeight * 0.75, amp: 40, speed: 0.0006, phase: 1.8, op: 0.07 },
       { y: innerHeight * 0.90, amp: 20, speed: 0.0003, phase: 3.2, op: 0.06 }
     ];
+
+    // Dynasty: Drifting Gold Leaf Flakes & Crimson Lanterns
+    goldLeaves = Array.from({ length: 42 }, () => ({
+      x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+      w: 3.5 + Math.random() * 6.5, h: 2.5 + Math.random() * 5.0,
+      vx: (Math.random() - 0.5) * 1.2, vy: 0.8 + Math.random() * 1.8,
+      rot: Math.random() * Math.PI * 2, rotSpeed: (Math.random() - 0.5) * 0.06,
+      flip: Math.random() * Math.PI, flipSpeed: 0.02 + Math.random() * 0.04,
+      op: 0.35 + Math.random() * 0.55
+    }));
+    lanterns = Array.from({ length: 5 }, (_, i) => ({
+      x: innerWidth * (0.12 + 0.19 * i) + (Math.random() - 0.5) * 80,
+      y: innerHeight + Math.random() * 200,
+      vy: 0.35 + Math.random() * 0.45,
+      r: 14 + Math.random() * 8,
+      sway: Math.random() * Math.PI * 2,
+      op: 0.5 + Math.random() * 0.4
+    }));
+
+    // Zen Garden: Falling Sakura Cherry Blossom Petals
+    sakuraPetals = Array.from({ length: 48 }, () => ({
+      x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+      r: 4.5 + Math.random() * 5.5,
+      vx: 1.0 + Math.random() * 1.8, vy: 0.8 + Math.random() * 1.4,
+      ang: Math.random() * Math.PI * 2, angSpeed: (Math.random() - 0.5) * 0.04,
+      ph: Math.random() * Math.PI * 2, op: 0.35 + Math.random() * 0.5
+    }));
+
+    // Samadhi: Incense Smoke Plumes & Golden Prana Orbs
+    incensePlumes = Array.from({ length: 3 }, (_, i) => ({
+      x: innerWidth * (0.25 + 0.25 * i),
+      phase: i * 2.1, amp: 22 + Math.random() * 14,
+      speed: 0.0012 + Math.random() * 0.0006
+    }));
+    pranaOrbs = Array.from({ length: 30 }, () => ({
+      x: Math.random() * innerWidth, y: innerHeight + Math.random() * 60,
+      r: 2.0 + Math.random() * 4.5, vy: 0.5 + Math.random() * 1.4,
+      op: 0.25 + Math.random() * 0.55, ph: Math.random() * Math.PI * 2
+    }));
+
+    // Silk Road: Desert Starlight & Shooting Stars
+    desertStars = Array.from({ length: 75 }, () => ({
+      x: Math.random() * innerWidth, y: Math.random() * (innerHeight * 0.72),
+      r: 0.8 + Math.random() * 2.2, speed: 0.002 + Math.random() * 0.004,
+      ph: Math.random() * Math.PI * 2, isDiamond: Math.random() < 0.25,
+      baseOp: 0.3 + Math.random() * 0.6
+    }));
   }
 
   function triggerForkedLightning() {
@@ -927,6 +1186,174 @@
       if (lightningBolt.alpha <= 0) lightningBolt = null;
     }
 
+    // 8. Dynasty: Floating Gold Leaf & Distant Crimson Lanterns
+    if (state.fx.goldFoil) {
+      // Background Rising Lanterns
+      for (const l of lanterns) {
+        l.y -= l.vy;
+        l.x += Math.sin(now * 0.0008 + l.sway) * 0.35;
+        if (l.y < -60) {
+          l.y = innerHeight + Math.random() * 80;
+          l.x = Math.random() * innerWidth;
+        }
+        const grad = ctx2d.createRadialGradient(l.x, l.y, 2, l.x, l.y, l.r * 1.5);
+        grad.addColorStop(0, `rgba(254, 240, 138, ${(0.85 * l.op * masterOp).toFixed(3)})`);
+        grad.addColorStop(0.35, `rgba(239, 68, 68, ${(0.65 * l.op * masterOp).toFixed(3)})`);
+        grad.addColorStop(0.8, `rgba(185, 28, 28, ${(0.25 * l.op * masterOp).toFixed(3)})`);
+        grad.addColorStop(1, "rgba(0, 0, 0, 0)");
+        ctx2d.fillStyle = grad;
+        ctx2d.beginPath();
+        ctx2d.arc(l.x, l.y, l.r * 1.5, 0, Math.PI * 2);
+        ctx2d.fill();
+
+        // Lantern oval body
+        ctx2d.fillStyle = `rgba(225, 29, 72, ${(0.8 * l.op * masterOp).toFixed(3)})`;
+        ctx2d.beginPath();
+        ctx2d.ellipse(l.x, l.y, l.r * 0.55, l.r * 0.8, 0, 0, Math.PI * 2);
+        ctx2d.fill();
+      }
+
+      // Tumbling Gold Leaf Flakes
+      for (const lf of goldLeaves) {
+        lf.y += lf.vy;
+        lf.x += lf.vx + Math.sin(now * 0.0012 + lf.rot) * 0.8;
+        lf.rot += lf.rotSpeed;
+        lf.flip += lf.flipSpeed;
+        if (lf.y > innerHeight + 20) {
+          lf.y = -20;
+          lf.x = Math.random() * innerWidth;
+        }
+        ctx2d.save();
+        ctx2d.translate(lf.x, lf.y);
+        ctx2d.rotate(lf.rot);
+        ctx2d.scale(Math.cos(lf.flip), 1);
+        const shine = Math.abs(Math.sin(lf.flip));
+        ctx2d.fillStyle = `rgba(250, 204, 21, ${(lf.op * masterOp * (0.6 + 0.4 * shine)).toFixed(3)})`;
+        ctx2d.shadowColor = "#fef08a";
+        ctx2d.shadowBlur = 6 * shine;
+        ctx2d.fillRect(-lf.w / 2, -lf.h / 2, lf.w, lf.h);
+        ctx2d.restore();
+      }
+    }
+
+    // 9. Zen Garden: Falling Sakura Cherry Blossom Petals
+    if (state.fx.sakura) {
+      for (const p of sakuraPetals) {
+        p.x += p.vx + gust * 0.4;
+        p.y += p.vy;
+        p.ang += p.angSpeed;
+        if (p.y > innerHeight + 20 || p.x > innerWidth + 30) {
+          p.y = -20;
+          p.x = Math.random() * (innerWidth + 40) - 20;
+        }
+        ctx2d.save();
+        ctx2d.translate(p.x, p.y);
+        ctx2d.rotate(p.ang);
+        ctx2d.scale(Math.cos(now * 0.002 + p.ph), 1);
+        ctx2d.fillStyle = `rgba(251, 207, 232, ${(p.op * masterOp).toFixed(3)})`;
+        ctx2d.strokeStyle = `rgba(244, 114, 182, ${(p.op * 0.7 * masterOp).toFixed(3)})`;
+        ctx2d.lineWidth = 0.6;
+        ctx2d.beginPath();
+        ctx2d.moveTo(0, -p.r);
+        ctx2d.bezierCurveTo(p.r * 0.8, -p.r * 0.4, p.r * 0.8, p.r * 0.8, 0, p.r);
+        ctx2d.bezierCurveTo(-p.r * 0.8, p.r * 0.8, -p.r * 0.8, -p.r * 0.4, 0, -p.r);
+        ctx2d.closePath();
+        ctx2d.fill();
+        ctx2d.stroke();
+        ctx2d.restore();
+      }
+    }
+
+    // 10. Samadhi: Swirling Incense Smoke Ribbons & Golden Prana
+    if (state.fx.incense) {
+      // Golden Prana Orbs
+      for (const o of pranaOrbs) {
+        o.y -= o.vy;
+        o.x += Math.sin(now * 0.001 + o.ph) * 0.6;
+        if (o.y < -30) {
+          o.y = innerHeight + Math.random() * 40;
+          o.x = Math.random() * innerWidth;
+        }
+        const pulse = 0.7 + 0.3 * Math.sin(now * 0.0025 + o.ph);
+        const grad = ctx2d.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r * 2.2);
+        grad.addColorStop(0, `rgba(253, 186, 116, ${(0.8 * o.op * pulse * masterOp).toFixed(3)})`);
+        grad.addColorStop(0.5, `rgba(249, 115, 22, ${(0.4 * o.op * pulse * masterOp).toFixed(3)})`);
+        grad.addColorStop(1, "rgba(0, 0, 0, 0)");
+        ctx2d.fillStyle = grad;
+        ctx2d.beginPath();
+        ctx2d.arc(o.x, o.y, o.r * 2.2, 0, Math.PI * 2);
+        ctx2d.fill();
+      }
+
+      // Incense Smoke Ribbons
+      for (const plume of incensePlumes) {
+        ctx2d.beginPath();
+        const startY = innerHeight;
+        ctx2d.moveTo(plume.x, startY);
+        const steps = 18;
+        const dy = innerHeight / steps;
+        for (let i = 1; i <= steps; i++) {
+          const cy = innerHeight - i * dy;
+          const progress = i / steps;
+          const spread = plume.amp * (0.8 + progress * 2.5);
+          const cx = plume.x + Math.sin(cy * 0.006 + now * plume.speed + plume.phase) * spread;
+          ctx2d.lineTo(cx, cy);
+        }
+        ctx2d.strokeStyle = `rgba(226, 214, 196, ${(0.09 * masterOp).toFixed(3)})`;
+        ctx2d.lineWidth = 14;
+        ctx2d.lineCap = "round";
+        ctx2d.stroke();
+      }
+    }
+
+    // 11. Silk Road: Desert Constellations & Shooting Stars
+    if (state.fx.stars) {
+      for (const st of desertStars) {
+        const twinkle = Math.sin(now * st.speed + st.ph);
+        const curOp = st.baseOp * (0.4 + 0.6 * Math.max(0, twinkle)) * masterOp;
+        ctx2d.fillStyle = `rgba(248, 250, 252, ${curOp.toFixed(3)})`;
+        if (st.isDiamond) {
+          ctx2d.beginPath();
+          ctx2d.moveTo(st.x, st.y - st.r * 1.8);
+          ctx2d.lineTo(st.x + st.r, st.y);
+          ctx2d.lineTo(st.x, st.y + st.r * 1.8);
+          ctx2d.lineTo(st.x - st.r, st.y);
+          ctx2d.closePath();
+          ctx2d.fill();
+        } else {
+          ctx2d.beginPath();
+          ctx2d.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+          ctx2d.fill();
+        }
+      }
+
+      // Random shooting star
+      if (!shootingStar && Math.random() < 0.012) {
+        shootingStar = {
+          x: Math.random() * innerWidth * 0.7,
+          y: Math.random() * innerHeight * 0.35,
+          len: 80 + Math.random() * 90,
+          dx: 12 + Math.random() * 8,
+          dy: 5 + Math.random() * 4,
+          life: 1.0
+        };
+      }
+      if (shootingStar) {
+        ctx2d.save();
+        ctx2d.strokeStyle = `rgba(253, 230, 138, ${(shootingStar.life * 0.7 * masterOp).toFixed(3)})`;
+        ctx2d.lineWidth = 1.6;
+        ctx2d.beginPath();
+        ctx2d.moveTo(shootingStar.x, shootingStar.y);
+        ctx2d.lineTo(shootingStar.x - shootingStar.dx * (shootingStar.len / 14), shootingStar.y - shootingStar.dy * (shootingStar.len / 14));
+        ctx2d.stroke();
+        ctx2d.restore();
+        shootingStar.x += shootingStar.dx;
+        shootingStar.y += shootingStar.dy;
+        shootingStar.life -= 0.055;
+        if (shootingStar.life <= 0) shootingStar = null;
+      }
+    }
+
     raf = requestAnimationFrame(renderVisuals);
   }
 
@@ -1053,6 +1480,10 @@
       <button type="button" class="amb-fx-chip" data-fx="lightning">⚡ Forked Lightning</button>
       <button type="button" class="amb-fx-chip" data-fx="mist">💨 Sweeping Mist</button>
       <button type="button" class="amb-fx-chip" data-fx="caustics">🌊 Sunrays &amp; Caustics</button>
+      <button type="button" class="amb-fx-chip" data-fx="goldFoil">🏮 Gold Leaf &amp; Lanterns</button>
+      <button type="button" class="amb-fx-chip" data-fx="sakura">🌸 Sakura Blossoms</button>
+      <button type="button" class="amb-fx-chip" data-fx="incense">🪔 Incense &amp; Prana</button>
+      <button type="button" class="amb-fx-chip" data-fx="stars">✨ Desert Oasis Stars</button>
     </div>
 
     <div class="amb-secname">Binaural Brainwave Entrainment</div>

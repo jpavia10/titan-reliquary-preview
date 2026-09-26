@@ -156,6 +156,8 @@
       }
       return;
     }
+    if (h === "atmo") { openAtmoSheet(); return; }
+    if (h === "ambient") { window.TitanAmbient?.openMixer(); return; }
     const w = mapWing(h);
     if (h && $(`.wing[data-wing="${w}"]`)) setWing(w, false);
   }
@@ -3004,7 +3006,7 @@
 
           <div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(0,0,0,0.4);border-radius:8px;border:1px dashed rgba(200,169,74,0.35);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
             <div style="font-family:var(--mono);font-size:0.8rem;color:var(--gold-soft);word-break:break-all">
-              📁 <strong>Local Staging Path:</strong> <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">d:\\AI experiements\\Titan\\repo\\photos\\phase2_pro_staging\\</code>
+              📁 <strong>Google Drive Staging Folder:</strong> <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">G:\\My Drive\\Titan Reliquary\\PHOTO_STAGING_PHASE2\\</code>
             </div>
             <span style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Format: 1:1 Macro RAW / TIFF 16-bit</span>
           </div>
@@ -3246,7 +3248,7 @@
     if (btnCopyPath) {
       btnCopyPath.onclick = (e) => {
         e.preventDefault();
-        const p2Path = "d:\\AI experiements\\Titan\\repo\\photos\\phase2_pro_staging\\";
+        const p2Path = "G:\\My Drive\\Titan Reliquary\\PHOTO_STAGING_PHASE2\\";
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(p2Path).then(() => {
             showToast("Copied staging folder path to clipboard!");
@@ -3631,7 +3633,7 @@
       ids: "A-P2-STAGE",
       coins: 5,
       total: 170.40,
-      pulse: "Physical RAW Macro Queue · photos/phase2_pro_staging/",
+      pulse: "Drive Shared Queue · PHOTO_STAGING_PHASE2/",
       isStaging: true
     };
     const combinedGlance = [stagingRow, ...glance.filter((g) => !mdSep(g.family))];
@@ -4251,8 +4253,16 @@
     alchemist:   { name: "The Alchemist",     themeColor: "#040d08", preset: "alchemist", station: "alchemist", pair: "Crucible + Hermetic Vault" },
     glacier:     { name: "Hyperborean Vault", themeColor: "#040c14", preset: "glacier",   station: "glacier",   pair: "Permafrost + Hyperborean Echo" },
     valhalla:    { name: "Gilded Armory",     themeColor: "#0a0806", preset: "valhalla",  station: "valhalla",  pair: "Great Hearth + Skaldic Lore" },
+    dynasty:     { name: "Dynasty",           themeColor: "#0c0204", preset: "dynasty",   station: "dynasty",   pair: "Imperial Gong + Guzheng Silk" },
+    zen:         { name: "Zen Garden",        themeColor: "#08090a", preset: "zen",       station: "zen",       pair: "Bamboo Clack + Shakuhachi Flute" },
+    samadhi:     { name: "Samadhi",           themeColor: "#0b0604", preset: "samadhi",   station: "samadhi",   pair: "108Hz Om Drone + Sitar Meditations" },
+    silkroad:    { name: "Silk Road",         themeColor: "#030712", preset: "silkroad",  station: "silkroad",  pair: "Caravan Bells + Desert Oud" },
   };
-  const ATMO_ORDER = ["afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss", "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla"];
+  const ATMO_ORDER = [
+    "afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss",
+    "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla",
+    "dynasty", "zen", "samadhi", "silkroad"
+  ];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");
     return ATMOS[a] ? a : "afterhours";
@@ -4280,7 +4290,8 @@
     ["kaleido-fx", "matrix-rain", "construct-term", "notepad-bar", "notepad-status",
      "neon-scan", "neon-sun", "odyssey-compass", "xeno-ring",
      "cursed-embers", "cursed-vignette", "foundry-embers", "abyss-caustics",
-     "solaris-flares", "glacier-aurora", "alchemist-circles", "valhalla-embers"].forEach((id) => {
+     "solaris-flares", "glacier-aurora", "alchemist-circles", "valhalla-embers",
+     "dynasty-lanterns", "zen-petals", "samadhi-prana", "silkroad-stars"].forEach((id) => {
       document.getElementById(id)?.remove();
     });
     clearInterval(themeFx.matrixTimer); themeFx.matrixTimer = 0;
@@ -4492,6 +4503,97 @@
         }
       }, 40);
     }
+    if (atmo === "dynasty" && !reduced) {
+      startParticleCanvas("dynasty-lanterns", {
+        init: (w, h) => ({
+          x: Math.random() * w, y: h + Math.random() * 40,
+          vy: -(0.6 + Math.random() * 1.4), r: 1.5 + Math.random() * 2.8,
+          op: 0.3 + Math.random() * 0.6, sway: Math.random() * Math.PI * 2,
+          isLantern: Math.random() < 0.18
+        }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.y += p.vy;
+            p.x += Math.sin(p.y * 0.015 + p.sway) * 0.7;
+            if (p.y < -30) { p.y = h + 10; p.x = Math.random() * w; }
+            if (p.isLantern) {
+              const grad = g.createRadialGradient(p.x, p.y, 1, p.x, p.y, p.r * 2.2);
+              grad.addColorStop(0, `rgba(254, 240, 138, ${p.op})`);
+              grad.addColorStop(0.4, `rgba(239, 68, 68, ${p.op * 0.8})`);
+              grad.addColorStop(1, "rgba(0, 0, 0, 0)");
+              g.fillStyle = grad;
+              g.beginPath(); g.arc(p.x, p.y, p.r * 2.2, 0, Math.PI * 2); g.fill();
+            } else {
+              g.fillStyle = `rgba(234, 179, 8, ${p.op})`;
+              g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
+            }
+          });
+        }
+      }, 45);
+    }
+    if (atmo === "zen" && !reduced) {
+      startParticleCanvas("zen-petals", {
+        init: (w, h) => ({
+          x: Math.random() * w, y: -20,
+          vx: 0.8 + Math.random() * 1.5, vy: 0.7 + Math.random() * 1.2,
+          r: 2.2 + Math.random() * 3.5, op: 0.3 + Math.random() * 0.5,
+          rot: Math.random() * Math.PI * 2, rotSpeed: (Math.random() - 0.5) * 0.05
+        }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.x += p.vx; p.y += p.vy; p.rot += p.rotSpeed;
+            if (p.y > h + 20 || p.x > w + 20) { p.y = -20; p.x = Math.random() * (w + 40) - 20; }
+            g.save();
+            g.translate(p.x, p.y);
+            g.rotate(p.rot);
+            g.fillStyle = `rgba(251, 207, 232, ${p.op})`;
+            g.beginPath();
+            g.ellipse(0, 0, p.r * 1.4, p.r * 0.7, 0, 0, Math.PI * 2);
+            g.fill();
+            g.restore();
+          });
+        }
+      }, 42);
+    }
+    if (atmo === "samadhi" && !reduced) {
+      startParticleCanvas("samadhi-prana", {
+        init: (w, h) => ({
+          x: Math.random() * w, y: h + Math.random() * 50,
+          vy: -(0.5 + Math.random() * 1.2), r: 1.8 + Math.random() * 3.8,
+          op: 0.25 + Math.random() * 0.55, sway: Math.random() * Math.PI * 2
+        }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.y += p.vy;
+            p.x += Math.sin(p.y * 0.012 + p.sway) * 0.6;
+            if (p.y < -20) { p.y = h + 10; p.x = Math.random() * w; }
+            const grad = g.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2);
+            grad.addColorStop(0, `rgba(253, 186, 116, ${p.op})`);
+            grad.addColorStop(0.5, `rgba(249, 115, 22, ${p.op * 0.5})`);
+            grad.addColorStop(1, "rgba(0, 0, 0, 0)");
+            g.fillStyle = grad;
+            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
+          });
+        }
+      }, 38);
+    }
+    if (atmo === "silkroad" && !reduced) {
+      startParticleCanvas("silkroad-stars", {
+        init: (w, h) => ({
+          x: Math.random() * w, y: Math.random() * (h * 0.75),
+          r: 0.8 + Math.random() * 2.2, op: 0.25 + Math.random() * 0.65,
+          speed: 0.02 + Math.random() * 0.05, ph: Math.random() * Math.PI * 2
+        }),
+        frame: (g, pts, w, h) => {
+          pts.forEach((p) => {
+            p.ph += p.speed;
+            const tw = 0.4 + 0.6 * Math.abs(Math.sin(p.ph));
+            g.fillStyle = `rgba(252, 211, 77, ${p.op * tw})`;
+            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
+          });
+        }
+      }, 55);
+    }
   }
   function setAtmo(a, save = true, flash = true) {
     const atmo = ATMOS[a] ? a : "afterhours";
@@ -4504,7 +4606,7 @@
     try { document.querySelector('meta[name="theme-color"]')?.setAttribute("content", ATMOS[atmo].themeColor); } catch { /* ignore */ }
     if (save) { try { localStorage.setItem(ATMO_KEY, atmo); } catch { /* ignore */ } }
     if (changed && flash) atmoFlash(atmo);
-    if (window.TitanAmbient && window.TitanAmbient.isActive?.()) {
+    if (window.TitanAmbient) {
       try { window.TitanAmbient.applyPreset(ATMOS[atmo].preset); } catch (_) {}
     }
   }
