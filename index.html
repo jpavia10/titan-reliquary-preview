@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr26" />
+  <link rel="stylesheet" href="styles.css?v=tr27" />
 </head>
 <body>
   <div id="app">
@@ -163,14 +163,17 @@
                 </div>
                 <h2 class="term-title">Precious Metals Terminal</h2>
                 <div class="term-live-rate">
-                  <span class="term-price" id="term-price">$63.38</span>
-                  <span class="term-delta up" id="term-delta">▲ +$1.99 (+3.24%)</span>
+                  <span class="term-price" id="term-price">$5,584.11</span>
+                  <span class="term-delta up" id="term-delta">▲ +$142.80 (+2.62%)</span>
                 </div>
               </div>
 
               <!-- Asset Selection -->
               <div class="term-asset-pills" role="tablist" aria-label="Commodity Assets">
-                <button type="button" class="term-asset-btn active" data-asset="ag" role="tab" aria-selected="true">
+                <button type="button" class="term-asset-btn active" data-asset="vault" role="tab" aria-selected="true">
+                  <span class="sym">🏛️</span> Vault Equity
+                </button>
+                <button type="button" class="term-asset-btn" data-asset="ag" role="tab" aria-selected="false">
                   <span class="sym">Ag</span> Silver Spot
                 </button>
                 <button type="button" class="term-asset-btn" data-asset="au" role="tab" aria-selected="false">
@@ -178,9 +181,6 @@
                 </button>
                 <button type="button" class="term-asset-btn" data-asset="ratio" role="tab" aria-selected="false">
                   <span class="sym">Au/Ag</span> Ratio
-                </button>
-                <button type="button" class="term-asset-btn" data-asset="vault" role="tab" aria-selected="false">
-                  <span class="sym">🏛️</span> Vault Equity
                 </button>
               </div>
 
@@ -219,26 +219,26 @@
               <div class="term-stat-box">
                 <span class="ts-lbl">24H Range</span>
                 <div class="ts-range-bar">
-                  <span class="ts-low" id="ts-24h-low">$61.85</span>
-                  <div class="ts-track"><span class="ts-cur" id="ts-24h-pin" style="left:76%"></span></div>
-                  <span class="ts-high" id="ts-24h-high">$63.92</span>
+                  <span class="ts-low" id="ts-24h-low">$5,441.00</span>
+                  <div class="ts-track"><span class="ts-cur" id="ts-24h-pin" style="left:80%"></span></div>
+                  <span class="ts-high" id="ts-24h-high">$5,620.00</span>
                 </div>
               </div>
               <div class="term-stat-box">
                 <span class="ts-lbl">52-Week Range</span>
                 <div class="ts-range-bar">
-                  <span class="ts-low" id="ts-52w-low">$22.10</span>
-                  <div class="ts-track"><span class="ts-cur" id="ts-52w-pin" style="left:92%"></span></div>
-                  <span class="ts-high" id="ts-52w-high">$64.80</span>
+                  <span class="ts-low" id="ts-52w-low">$0.00</span>
+                  <div class="ts-track"><span class="ts-cur" id="ts-52w-pin" style="left:99%"></span></div>
+                  <span class="ts-high" id="ts-52w-high">$5,620.00</span>
                 </div>
               </div>
               <div class="term-stat-box">
                 <span class="ts-lbl">Bid / Ask Spread</span>
-                <div class="ts-spread-val"><span id="ts-bid">$63.35</span> / <span id="ts-ask">$63.42</span> <em class="ts-spread-delta">(+$0.07)</em></div>
+                <div class="ts-spread-val"><span id="ts-bid">$5,580.00</span> / <span id="ts-ask">$5,588.00</span> <em class="ts-spread-delta">(Live NAV mark)</em></div>
               </div>
               <div class="term-stat-box">
                 <span class="ts-lbl">Vault Leverage</span>
-                <div class="ts-leverage-val"><strong>+$63.27</strong> / $1.00 Ag Move</div>
+                <div class="ts-leverage-val"><strong id="ts-leverage-txt">100% Physical Equity</strong> · 0% Margin Debt</div>
               </div>
             </div>
           </section>
@@ -528,10 +528,10 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr26";</script>
-  <script src="app.js?v=tr26"></script>
-  <script src="js/playlist.js?v=tr26"></script>
-  <script src="audio.js?v=tr26"></script>
-  <script src="ambient.js?v=tr26"></script>
+  <script>window.TITAN_BUILD = "tr27";</script>
+  <script src="app.js?v=tr27"></script>
+  <script src="js/playlist.js?v=tr27"></script>
+  <script src="audio.js?v=tr27"></script>
+  <script src="ambient.js?v=tr27"></script>
 </body>
 </html>

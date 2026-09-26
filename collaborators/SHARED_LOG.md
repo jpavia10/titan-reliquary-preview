@@ -91,8 +91,21 @@
 * **Refinement:** Redesigned mobile player bar layout; updated header ambience button to sliders glyph.
 * **Artifacts:** `HANDOFF - read me first.md` and `titan-reliquary-preview-tr20-2026-09-25.zip`.
 
+
 ---
 
-### [2026-09-24 14:32 PT] — Grok (Master Ledger v252 & Publish)
-* **Action:** Master vault publish `fa2b985`: 273 flips, 1,636 pieces, grand total $5,584.11.
-* **Pipeline:** Generated `data/index.json`, `data/detail/`, metals pricing ($63.38 Ag, $4,252.90 Au).
+### [2026-09-25 22:05 PT] — Antigravity (tr27 Build: Vault Equity Default & Authentic Minted Specimen Overhaul)
+* **Action:** 
+  1. **Precious Metals Terminal Default Variable:**
+     - Set **Vault Equity** (`data-asset="vault"`) as the **first and default visible asset** on the Precious Metals Terminal desk.
+     - Terminal now initializes directly to the Collection Total Net Equity ($5,584.11) with real-time live mark-to-market updates, 100% physical asset leverage, and historic multi-interval acquisition timeline (30D, 1Y, and ALL tracking acquisition step-ups from $0 to $5,584.11).
+  2. **Authentic Numismatic Specimen Placeholder Engine:**
+     - Completely eliminated the technical CAD wireframe crosshairs.
+     - Procedurally rendered authentic struck minted coin planchet medallions inside the 2x2 cardboard staple flip mylar windows.
+     - Features realistic metallic radial gradients (Fine Silver, Fine Gold, Antique Bronze/Copper, and Cupro-Nickel), outer reeded die rim, beaded dentil ring, curved sovereign issuer rim inscriptions (`SWITZERLAND`, `ESTADOS UNIDOS MEXICANOS`, etc.), embossed national heraldic crests, bold denomination reverse relief, and an archival "PHASE 2 SCAN PENDING" status ribbon.
+     - Preserves full 3D flip interaction between Obverse and Reverse die faces with proper coin turn alignment (0° Obverse, 180° Reverse).
+  3. **Responsive Stage Optimization:**
+     - Resolved mobile/tablet height collision in `.exhibit-frame`: added responsive media queries for screens $\le 860\text{px}$ so the 3D specimen velvet tray and monograph placard stack cleanly without clipping.
+  4. **Build & Cache Bump:**
+     - Bumped build stamp to `tr27` across `sw.js`, `index.html`, and `app.js`.
+

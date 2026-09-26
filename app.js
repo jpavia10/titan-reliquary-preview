@@ -903,80 +903,145 @@
     } catch (_) {}
   }
 
-  /** Render an authentic museum technical specimen blueprint when physical photo is pending. */
+  /** Render an authentic struck specimen minted medallion placeholder waiting for Phase 2 raw photography. */
   function renderSpecimenBlueprint(f, large = false, side = "obv") {
     const isRev = side === "rev";
     const iso = esc(f.iso || (f.country || "??").slice(0, 2).toUpperCase());
     const year = esc(f.year || "—");
-    const denom = esc(f.denom || f.label || "Coin");
-    const isSilver = !!f.is_silver;
+    const denom = esc(f.denom || f.label || "SPECIMEN");
+    const countryName = (f.country || "ARCHIVAL SPECIMEN").toUpperCase();
+    const isSilver = !!f.is_silver || !!f.asw_oz;
     const isGold = !!f.is_gold || /gold/i.test(f.metal || "");
-    
-    // Parse real physical diameter in mm
+    const isBronze = /bronze|copper|brass/i.test(f.metal || "");
+
+    // Physical millimeter scaling (50.8mm window = 44 radius in 100x100 viewBox)
     let diam = null;
     const dm = String(f.metal_cond || f.metal || "").match(/([\d.]+)\s*mm/i);
     if (dm) diam = parseFloat(dm[1]);
     if (!diam || isNaN(diam)) diam = isSilver ? 26.5 : 22.0;
 
-    // Scale radius relative to standard 50.8mm cardboard window (45 max radius in 100x100 viewBox)
-    const scaledR = Math.min(42, Math.max(18, (diam / 50.8) * 44)).toFixed(1);
-    const innerR = Math.max(12, scaledR - 3.5).toFixed(1);
+    const scaledR = Math.min(42, Math.max(22, (diam / 50.8) * 44));
+    const textR = scaledR - 3.6;
+    const dentilR = scaledR - 1.9;
+    const uid = `${esc(f.scan || 'sp')}-${side}-${large ? 'lg' : 'sm'}`;
 
     const metalBadge = isSilver
-      ? (f.asw_oz ? `${num(f.asw_oz, 3)} oz ASW` : ".999 AG")
-      : (isGold ? "FINE GOLD" : (f.metal ? esc(f.metal.split("·")[0].trim().slice(0, 16)) : "BASE ALLOY"));
+      ? (f.asw_oz ? `${num(f.asw_oz, 2)}oz Ag` : ".999 AG")
+      : (isGold ? "FINE GOLD" : (isBronze ? "COPPER" : (f.km ? `KM#${esc(f.km)}` : "ALLOY")));
 
-    const strokeColor = isGold ? "#eab308" : (isSilver ? "#cbd5e1" : "rgba(200, 169, 74, 0.7)");
-    const crestColor = isGold ? "#fde047" : (isSilver ? "#f1f5f9" : "#e8d9a8");
+    let gradStops = "";
+    let rimStroke = "";
+    let reliefFill = "";
+    let reliefStroke = "";
+    let dentilColor = "";
 
+    if (isGold) {
+      gradStops = `
+        <stop offset="0%" stop-color="#fffbeb"/>
+        <stop offset="25%" stop-color="#fef08a"/>
+        <stop offset="60%" stop-color="#ca8a04"/>
+        <stop offset="85%" stop-color="#854d0e"/>
+        <stop offset="100%" stop-color="#451a03"/>`;
+      rimStroke = "#fef08a";
+      reliefFill = "#fef08a";
+      reliefStroke = "rgba(254, 240, 138, 0.85)";
+      dentilColor = "#fef08a";
+    } else if (isBronze) {
+      gradStops = `
+        <stop offset="0%" stop-color="#ffedd5"/>
+        <stop offset="25%" stop-color="#ea580c"/>
+        <stop offset="60%" stop-color="#9a3412"/>
+        <stop offset="85%" stop-color="#6c2a12"/>
+        <stop offset="100%" stop-color="#381105"/>`;
+      rimStroke = "#fed7aa";
+      reliefFill = "#fed7aa";
+      reliefStroke = "rgba(254, 215, 170, 0.85)";
+      dentilColor = "#fed7aa";
+    } else if (isSilver) {
+      gradStops = `
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="25%" stop-color="#e2e8f0"/>
+        <stop offset="60%" stop-color="#94a3b8"/>
+        <stop offset="85%" stop-color="#475569"/>
+        <stop offset="100%" stop-color="#1e293b"/>`;
+      rimStroke = "#f8fafc";
+      reliefFill = "#ffffff";
+      reliefStroke = "rgba(255, 255, 255, 0.85)";
+      dentilColor = "#ffffff";
+    } else {
+      gradStops = `
+        <stop offset="0%" stop-color="#f8fafc"/>
+        <stop offset="25%" stop-color="#cbd5e1"/>
+        <stop offset="60%" stop-color="#64748b"/>
+        <stop offset="85%" stop-color="#334155"/>
+        <stop offset="100%" stop-color="#0f172a"/>`;
+      rimStroke = "#f1f5f9";
+      reliefFill = "#f1f5f9";
+      reliefStroke = "rgba(241, 245, 249, 0.85)";
+      dentilColor = "#f1f5f9";
+    }
+
+    const shortDenom = denom.length > 8 ? denom.slice(0, 7) + "…" : denom;
     const centerGraphic = isRev
-      ? `<g transform="translate(50, 42)" text-anchor="middle" fill="${crestColor}">
-           <circle cx="0" cy="0" r="14" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2"/>
-           <text x="0" y="5" font-family="var(--serif)" font-size="12" font-weight="700" fill="currentColor">${denom.slice(0, 5)}</text>
+      ? `<g transform="translate(50, 46)" text-anchor="middle" fill="${reliefFill}">
+           <circle cx="0" cy="0" r="14" fill="none" stroke="${dentilColor}" stroke-width="0.7" stroke-dasharray="2 1.5" opacity="0.6"/>
+           <text x="0" y="4.5" font-family="var(--serif)" font-size="${shortDenom.length > 5 ? 8.5 : 11}" font-weight="800" fill="currentColor">${shortDenom.toUpperCase()}</text>
          </g>`
-      : `<g transform="translate(50, 42) scale(${large ? 0.75 : 0.65})" text-anchor="middle" fill="${crestColor}">
+      : `<g class="coin-crest-emboss" transform="translate(50, 45) scale(${large ? 0.82 : 0.72})" text-anchor="middle" fill="${reliefFill}" stroke="${reliefStroke}">
            ${getCountryCrest(f.iso || (f.country || "").slice(0, 2))}
          </g>`;
 
+    const arcD = `M ${(50 - textR).toFixed(1)} 50 A ${textR.toFixed(1)} ${textR.toFixed(1)} 0 0 1 ${(50 + textR).toFixed(1)} 50`;
+    const bottomLabel = isRev ? (f.km ? `KM#${esc(f.km)} · 180°` : 'REVERSE DIE · 180°') : `${year} · ${metalBadge}`;
+    const badgeY = (50 + scaledR * 0.44).toFixed(1);
+
     return `
-      <svg class="specimen-blueprint" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="specimen-medallion" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="${countryName} ${denom} specimen">
         <defs>
-          <pattern id="grid-${esc(f.scan)}-${side}" width="10" height="10" patternUnits="userSpaceOnUse">
-            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(200,169,74,0.07)" stroke-width="0.5"/>
-          </pattern>
-          <radialGradient id="vignette-${esc(f.scan)}-${side}" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(200,169,74,0.1)"/>
-            <stop offset="65%" stop-color="rgba(10,11,14,0.85)"/>
-            <stop offset="100%" stop-color="#060709"/>
+          <radialGradient id="planchet-${uid}" cx="38%" cy="34%" r="65%">
+            ${gradStops}
           </radialGradient>
+          <radialGradient id="aperture-${uid}" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(20,22,28,0.95)"/>
+            <stop offset="85%" stop-color="#07080a"/>
+          </radialGradient>
+          <filter id="shadow-${uid}" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="rgba(0,0,0,0.85)"/>
+          </filter>
+          <path id="arc-top-${uid}" d="${arcD}" fill="none"/>
         </defs>
 
-        <!-- Technical aperture backdrop -->
-        <rect width="100" height="100" fill="url(#vignette-${esc(f.scan)}-${side})" />
-        <rect width="100" height="100" fill="url(#grid-${esc(f.scan)}-${side})" />
+        <!-- Velvet Aperture Window Chamber -->
+        <rect width="100" height="100" fill="url(#aperture-${uid})"/>
+        <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(200,169,74,0.12)" stroke-width="0.6"/>
 
-        <!-- Caliper measurement guide rings -->
-        <circle cx="50" cy="50" r="46.5" fill="none" stroke="rgba(200,169,74,0.18)" stroke-width="0.5" stroke-dasharray="1.5 2"/>
-        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+        <!-- Struck Metallic Planchet Disk with Physical Depth -->
+        <circle cx="50" cy="50" r="${scaledR.toFixed(1)}" fill="url(#planchet-${uid})" filter="url(#shadow-${uid})" stroke="#050608" stroke-width="0.8"/>
         
-        <!-- Precision crosshair axes -->
-        <line x1="50" y1="3" x2="50" y2="97" stroke="rgba(200,169,74,0.14)" stroke-width="0.5" stroke-dasharray="1 3"/>
-        <line x1="3" y1="50" x2="97" y2="50" stroke="rgba(200,169,74,0.14)" stroke-width="0.5" stroke-dasharray="1 3"/>
+        <!-- Raised Outer Reeded Die Rim -->
+        <circle cx="50" cy="50" r="${(scaledR - 0.5).toFixed(1)}" fill="none" stroke="${rimStroke}" stroke-width="1.0" opacity="0.9"/>
+        
+        <!-- Circular Beaded Dentil Ring -->
+        <circle cx="50" cy="50" r="${dentilR.toFixed(1)}" fill="none" stroke="${dentilColor}" stroke-width="0.8" stroke-dasharray="1.1 1.6" opacity="0.75"/>
 
-        <!-- Scaled True Physical Perimeter -->
-        <circle cx="50" cy="50" r="${scaledR}" fill="none" stroke="${strokeColor}" stroke-width="1.3" />
-        <circle cx="50" cy="50" r="${innerR}" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.5" stroke-dasharray="2 1.5"/>
+        <!-- Sovereign Issuer Upper Arc Inscription -->
+        <text class="coin-legend-top" fill="${reliefFill}">
+          <textPath href="#arc-top-${uid}" startOffset="50%" text-anchor="middle">${esc(countryName.slice(0, 18))}</textPath>
+        </text>
 
-        <!-- Center Heraldry / Denomination -->
+        <!-- Sovereign Die Heraldry / Center Face -->
         ${centerGraphic}
 
-        <!-- Technical Inscriptions -->
-        <text x="50" y="58" text-anchor="middle" class="bp-txt-iso">${isRev ? (f.km ? 'KM#' + esc(f.km) : 'REVERSE') : `${iso} · ${year}`}</text>
-        <text x="50" y="66" text-anchor="middle" class="bp-txt-dim">⌀ ${diam.toFixed(1)} mm ${isRev ? '· 180°' : '· 0°'}</text>
-        <text x="50" y="73" text-anchor="middle" class="bp-txt-alloy">${metalBadge}</text>
+        <!-- Lower Mint Year / Purity Inscription -->
+        <text x="50" y="${(50 + scaledR - 3.2).toFixed(1)}" text-anchor="middle" class="coin-legend-bot" fill="${reliefFill}">
+          ${bottomLabel}
+        </text>
 
-        <!-- Archival Status Watermark -->
-        <text x="50" y="93" text-anchor="middle" class="bp-txt-stamp">${isRev ? 'REVERSE DIE ALIGNMENT' : 'OBVERSE DIE RETICLE'}</text>
+        <!-- Phase 2 Specimen Archival Ribbon -->
+        <g class="p2-placeholder-badge" transform="translate(50, ${badgeY})">
+          <rect x="-24.5" y="-3.8" width="49" height="7.6" rx="2" fill="rgba(8, 9, 12, 0.88)" stroke="rgba(200, 169, 74, 0.65)" stroke-width="0.5"/>
+          <text x="0" y="1.4" text-anchor="middle" font-family="var(--mono)" font-size="3.5" font-weight="700" fill="#f8fafc" letter-spacing="0.08em">PHASE 2 SCAN PENDING</text>
+        </g>
       </svg>`;
   }
 
@@ -1093,7 +1158,7 @@
   }
 
   /** Interactive Precious Metals Stock Trading Terminal Engine */
-  let termAsset = "ag";
+  let termAsset = "vault";
   let termTimeframe = "24h";
   let termChartMode = "area";
   let termTickTimer = null;
@@ -1832,20 +1897,33 @@
         deltaEl.textContent = (a.isUp ? "▲ " : "▼ ") + a.delta;
         deltaEl.className = "term-delta " + (a.isUp ? "up" : "down");
       }
-      if (low24El) low24El.textContent = "$" + num(a.low24, 2);
-      if (high24El) high24El.textContent = "$" + num(a.high24, 2);
+      if (low24El) low24El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.low24, 2);
+      if (high24El) high24El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.high24, 2);
       if (pin24El) {
         const pct = Math.min(100, Math.max(0, ((a.base - a.low24) / (a.high24 - a.low24 || 1)) * 100));
         pin24El.style.left = pct.toFixed(1) + "%";
       }
-      if (low52El) low52El.textContent = "$" + num(a.low52, 2);
-      if (high52El) high52El.textContent = "$" + num(a.high52, 2);
+      if (low52El) low52El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.low52, 2);
+      if (high52El) high52El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.high52, 2);
       if (pin52El) {
         const pct = Math.min(100, Math.max(0, ((a.base - a.low52) / (a.high52 - a.low52 || 1)) * 100));
         pin52El.style.left = pct.toFixed(1) + "%";
       }
-      if (bidEl) bidEl.textContent = "$" + num(a.bid, 2);
-      if (askEl) askEl.textContent = "$" + num(a.ask, 2);
+      if (bidEl) bidEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.bid, 2);
+      if (askEl) askEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.ask, 2);
+
+      const levEl = $("#ts-leverage-txt");
+      if (levEl) {
+        if (termAsset === "vault") {
+          levEl.innerHTML = "<strong>100% Physical Equity</strong> · 0% Margin Debt";
+        } else if (termAsset === "ag") {
+          levEl.innerHTML = "<strong>+$63.27</strong> / $1.00 Ag Move";
+        } else if (termAsset === "au") {
+          levEl.innerHTML = "<strong>+$0.00</strong> / Gold Hedge";
+        } else {
+          levEl.innerHTML = "<strong>67:1</strong> Macro Ratio";
+        }
+      }
 
       renderTerminalChart();
     };

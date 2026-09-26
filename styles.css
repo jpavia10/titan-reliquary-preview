@@ -4054,15 +4054,16 @@ html[data-atmo="conservator"] .hero-grand {
 }
 .exhibit-frame {
   position: relative;
-  min-height: 280px;
+  min-height: 380px;
 }
 .exhibit-slide {
   position: absolute;
   inset: 0;
-  padding: 1.4rem 1.8rem 1.2rem;
+  padding: 1.4rem 2rem 1.2rem;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  gap: 2.5rem;
   opacity: 0;
   transform: scale(0.97) translateY(8px);
   transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
@@ -4072,6 +4073,25 @@ html[data-atmo="conservator"] .hero-grand {
   opacity: 1;
   transform: scale(1) translateY(0);
   pointer-events: auto;
+}
+
+@media (max-width: 860px) {
+  .exhibit-frame {
+    min-height: 570px;
+  }
+  .exhibit-slide {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1rem 1rem 1.2rem;
+  }
+  .ex-pedestal-tray {
+    padding: 0.25rem;
+  }
+  .ex-info-placard {
+    width: 100%;
+    max-width: 440px;
+  }
 }
 
 /* Masterpiece Coin Medallion */
@@ -4419,11 +4439,47 @@ html[data-atmo="conservator"] .hero-grand {
   transform: translateX(100%);
 }
 
-/* Technical Specimen Blueprint Inside Window */
-.specimen-blueprint {
+/* Museum Specimen Minted Planchet Placeholder Inside Mylar Window */
+.specimen-blueprint,
+.specimen-medallion {
   width: 100%;
   height: 100%;
   display: block;
+  user-select: none;
+  overflow: hidden;
+}
+.specimen-medallion text {
+  user-select: none;
+}
+.coin-legend-top {
+  font-family: var(--serif);
+  font-size: 4.2px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.coin-legend-bot {
+  font-family: var(--mono);
+  font-size: 3.6px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.coin-denom-emboss {
+  font-family: var(--serif);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+}
+.coin-crest-emboss {
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.65)) drop-shadow(0 -0.5px 0.5px rgba(255,255,255,0.4));
+}
+.p2-placeholder-badge rect {
+  transition: stroke 0.3s ease;
+}
+.piece-card:hover .p2-placeholder-badge rect,
+.ex-pedestal-tray:hover .p2-placeholder-badge rect {
+  stroke: var(--gold);
 }
 .specimen-blueprint .bp-txt-iso {
   font-family: var(--serif);
