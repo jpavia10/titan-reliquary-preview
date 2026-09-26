@@ -5,42 +5,70 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-09-26 10:35 PT] — Antigravity (tr30–tr33 Live Builds: Spatial Reliquary Ascension, Slabs, Shaders & Staging Bridge)
+* **Status:** **LIVE** on `origin/main` (`771581b`) and mirrored to `app/`.
+* **Deliverables Across Builds tr30 through tr33:**
+  1. **Compositor Engine Lag & DirectComposition Fix (tr30/tr31):**
+     - Decoupled `canvas.width`/`height` mutation in `renderTerminalChart()`, halting Direct3D swapchain thrashing in Windows DirectComposition / Edge.
+     - Generated 128×128 static noise canvas texture rendered once at startup, removing live SVG `feTurbulence` CPU filter overhead beneath backdrop-filters (0% CPU background).
+     - Fixed radio station picker selector bug in `audio.js` line 309.
+  2. **Financial & Numismatic Terminology Realignment (tr31/tr33):**
+     - Completely purged margin/debt terminology: replaced "Vault Leverage" with **"Physical Custody"** (`63.27 oz ASW · 273 Pieces · Unencumbered`).
+     - Replaced "Bid/Ask Spread" with **"Numismatic Premium"** (`+$1,574.25 (+39% over spot melt)`).
+     - Replaced "Junk Ag flips (white 2×2)" with **"Constitutional & Archival Silver Allocation"**.
+  3. **Archival Lucite Acrylic Encapsulation (tr31/tr33):**
+     - Encased featured Masterpieces and all Gallery cards in 99.9% optical acrylic Lucite slabs with crystal-beveled facets, corner mounting rivets, dark silicone velvet gaskets, and holographic GEM PROOF pedigree seals.
+     - Added segmented **Display Mode Switcher** to the Gallery header: `[🏛️ Slabs | 🏷️ 2×2 Flips | ✨ Planchets]`.
+     - Upgraded Dossier Drawer to twin Lucite slabs for Obverse & Reverse faces.
+  4. **Numismatic Light Shaders & Metrology (tr32):**
+     - Built dynamic anisotropic **Cartwheel Luster Shader** (`.coin-cartwheel-luster`) tracking cursor angle relative to coin center (`--luster-angle`).
+     - Added **Directional Emboss Relief Normal Shading** (`--relief-x`, `--relief-y`) for dynamic micro-shadows on legends and dentils.
+     - Built **Forensic 10× Hastings Triplet Jeweler's Loupe** (`#btn-ex-loupe`) with 2.8× sub-pixel optical zoom, hairline crosshairs, 0.1 mm concentric scale rings, and live coordinate telemetry (`X:+0.0 Y:+0.1mm`).
+  5. **Ergonomic Spatial Hierarchy (tr33):**
+     - Separated dock and audio: Curator Glass Dock centered, audio pill moved to bottom-left on desktop (`≥ 768px`) to prevent collision, and Quick Search on bottom-right.
+     - Replaced wrapping country chip cloud with a smooth single-row horizontal slider with CSS gradient edge masks.
+  6. **Automated AI Staging Watcher (`pipeline/watch_staging.py`):**
+     - Built cross-platform watcher scanning `G:\My Drive\Titan Reliquary\PHOTO_STAGING_PHASE2\01_RAW_INBOX_UNPROCESSED` and `02_PRIORITY_TOP5_MASTERPIECES`.
+     - Supports `--status`, `--json`, `--process`, and `--watch` daemon modes for automated OpenCV warp/cropping and cataloging.
+     - Mirrored script to Drive staging folder for direct access by Grok and collaborators.
+* **Archives & Verification:** Builds `tr30`, `tr31`, `tr32`, and `tr33` packaged as zip archives in `G:\My Drive\Titan Reliquary\`. All views verified via headless Edge CDP test scripts.
+* **Sacred Boundaries:** 100% preservation of all 20 atmospheres, 20 curated radio stations, multi-track ambient soundscape generator, and canvas weather generators.
+
 ---
 
-### [2026-09-25 22:45 PT] — Antigravity (tr28: Pro Photo Phase 2 Staging Album, Live Wire Ticker Deep-Links, Exhibit Navigation Decoupling, & Trading Terminal Default)
-* **Status:** **LIVE & DEPLOYED** (Build `tr28`).
-* **Achievements Delivered:**
-  1. **Physical & In-App Pro Photo Phase 2 Staging Album:** Created physical staging repository at `d:\AI experiements\Titan\repo\photos\phase2_pro_staging\` (and `photos/phase2_pro_staging/`) with technical `README.md` cataloging the 5 priority Masterpiece scans (`C114`, `C223`, `C073`, `C066`, `C065`), RAW/TIFF 1:1 macro rig camera specifications, and file naming standards. Integrated prominent Staging Album card in the Conservation Lab with one-click path clipboard copy and direct Gallery filtering (`flipFilter.staging`), plus highlighted entry in Curator's Study "Albums at a Glance".
-  2. **Ceased AI Image Generation & Struck Planchet Placeholders:** Replaced synthetic images with authentic numismatic minted planchet SVG blueprints featuring radial metallic alloy luster (gold, silver, bronze, cupro-nickel), reeded rims, dentil rings, sovereign legends, and a "PHASE 2 SCAN PENDING" relief badge.
-  3. **Live Wire Ticker Tape Direct Deep-Links:** Overhauled ticker click routing so items navigate to their specific target rather than blindly defaulting to the metal terminal. Specimen tickers (`C001`, `C073`, `C114`, `C223`) open their respective coin dossiers with coin chimes; `TITAN VAULT TOTAL` scrolls and pulses the Valuation Hub; `VAULT AG ASW` pulses the Silver Melt allocation bar; `COMEX REGISTERED` and `INFLATION-ADJ PEAK` open the Sensitivity Simulator; `BULLION RESERVES` switches to the Vault Reserves wing; and spot tickers route to their specific desk.
-  4. **Exhibit Navigation Decoupling & Fix for Chopped Stage:** Removed global `#exhibit` click handler that was accidentally opening specimen dossiers during scrolling or swiping. Added dedicated Prev (`‹`) and Next (`›`) navigation arrows, touch swipe left/right rotation, and restricted dossier opening exclusively to the "Inspect Specimen Dossier & Placard →" button. Eliminated archaic `data-atmo` CSS min-height constraints (which were forcing a 300px ceiling) so the coin pedestal and placard render completely with generous breathing room on desktop and mobile.
-  5. **Precious Metals Terminal Default Asset:** Set Vault Equity (`data-asset="vault"`) as the first active button and default view on the Trading Terminal desk, showing live NAV ($5,584.11) and 24H portfolio growth curve over time.
-  6. **Deployment & Mirroring:** Synchronized local mirror (`app/`), packaged `titan-reliquary-preview-tr28-2026-09-25.zip` to Google Drive, committed and pushed live to GitHub Pages.
+### [2026-09-25 23:20 PT] — Antigravity (tr29 Live Build: 4 New Sensory Atmospheres, Google Drive Staging & Universal AI Ingestion)
+* **Status:** **LIVE** at `https://jpavia10.github.io/titan-reliquary-preview/` (Build `tr29`).
+* **Deliverables:**
+  1. **Google Drive Central Photo Staging (`G:\My Drive\Titan Reliquary\PHOTO_STAGING_PHASE2\`):**
+     - Built unified multi-agent staging folders: `01_RAW_INBOX_UNPROCESSED\`, `02_PRIORITY_TOP5_MASTERPIECES\` (subfolders for C114, C223, C073, C066, C065), `03_PROCESSED_MASTERS_2600px\`, and mirrored pipeline tools and ledger data.
+     - Authored vendor-agnostic specification [`AI_MODEL_UNIVERSAL_INGESTION_GUIDE.md`](file:///G:/My%20Drive/Titan%20Reliquary/AI_MODEL_UNIVERSAL_INGESTION_GUIDE.md) allowing Grok, Claude, Gemini, GPT-4o, and DeepSeek to process flips identically.
+     - Documented user's **Staple Orientation Standard** (Side 1 clinch = notes; Side 2 loops = serial) and the 4-stage ingestion flow.
+  2. **4 New Immersive Atmospheres & Sensory Soundscapes:**
+     - **Dynasty (`dynasty`):** Chinese red envelope / imperial cinnabar lacquer with embossed 24K gold; Guzheng/Erhu court station; procedural bronze temple gong & dragon chimes; drifting tumbling gold foil & rising crimson lantern canvas engine.
+     - **Zen Garden (`zen`):** Japanese karesansui raked sand ripples, river slate & moss; Shakuhachi flute & koto station; procedural shishi-odoshi (bamboo water deer-scarer strike & water trickles); falling sakura cherry blossom petal canvas engine.
+     - **Samadhi (`samadhi`):** Mindful Vedic ashram & Tibetan meditation sanctuary; sitar, bansuri flute, 528Hz Solfeggio station; procedural 108Hz resonant Om drone & Tibetan ghanta bell; swirling incense smoke ribbons & golden prana aura canvas engine.
+     - **Silk Road (`silkroad`):** Ancient desert caravanserai & Alexandria oasis; Persian santur, desert oud & oasis lofi station; procedural rhythmic camel caravan bronze bells & oasis night wind; celestial desert constellations & shooting stars canvas engine.
+  3. **Audio & Ambience Engine Overhaul:**
+     - Added 4 procedural Web Audio synthesizers (`gong`, `bambooClack`, `omDrone`, `caravanBells`) to `SYNTH` (now 16 procedural soundscape generators + 9 recorded loops).
+     - Added 4 visual canvas effects (`goldFoil`, `sakura`, `incense`, `stars`) to full-viewport canvas engine.
+     - Upgraded `setAtmo()` to instantly auto-activate paired soundscapes on theme change with zero silence lag.
+     - Added `#atmo` and `#ambient` deep-linking hash routes.
+  4. **Station Expansion:** Expanded `window.TITAN_STATIONS` to 20 full stations with 20 curated tracks each (400 tracks total).
+* **Archive & Deployment:** Packaged `titan-reliquary-preview-tr29-2026-09-25.zip` to Google Drive and local project root; synced app mirror to `app/`.
 
 ---
 
-### [2026-09-25 21:00 PT] — Antigravity (tr26: Mobile Stack Stabilization & Complete Touch Optimization Pass)
-* **Status:** **LIVE & DEPLOYED** (Build `tr26`).
-* **Achievements Delivered:**
-  1. **Floating Mobile Music Bar (`.lofi-bar`) & Station Menu:** Fixed bottom positioning collision with `--nav-h` and safe areas (`env(safe-area-inset-bottom)`). Responsive two-row layout on screens $\le 560\text{px}$ prevents slider squishing, while single-row collapsed mode neatly keeps track info and the expand button aligned. Constrained `.station-menu` with `max-height: min(52vh, 340px); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;` so all 16 stations are smoothly navigable on mobile without shooting off the top of the viewport.
-  2. **Ambience Experience Engine Mobile Overhaul:** Resolved root-level CSS override that was constraining the panel to 344px on mobile phones. On $\le 700\text{px}$, panel is now 100% full-width (`width: 100% !important; max-height: min(85vh, calc(100dvh - 60px))`) with `z-index: 75`. Made `.amb-head` sticky (`position: sticky; top: -0.85rem`) so the close button (`#amb-close`) and live FFT visualizer remain permanently accessible while scrolling all layers. Defined and exported `openMixer` and `closeMixer` on `window.TitanAmbient` so the ambience button on the music bar functions flawlessly.
-  3. **Precious Metals Trading Terminal Mobile Touch & Scrubbing:** Added `touch-action: pan-y;` on `#term-chart-canvas` and `.term-chart-stage`. Implemented touch gesture disambiguation (locking horizontal drag to chart scrub while preserving natural vertical page scrolling). Implemented dynamic HUD auto-positioning (`termCrosshairX > 52% ? left : right`) so the inspection tooltip never covers the touch point or clips offscreen. Wrapped timeframe buttons in `.term-timeframes-row` with horizontal momentum scrolling. Formatted `.term-asset-pills` and `.term-stats-grid` into clean 2x2 grids on mobile.
-  4. **Coin Dossier 1:1 Scale & Archival Flips Mobile Stabilization:** Fixed squished/thin row image bug by defining strict circular aperture sizing (`.flip-mylar-window img, .flip-mylar-window .pc-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }`) and calling `lazyThumbs($("#drawer-body"))` on drawer open. Centered flip margins (`left: 10%; right: 10%`). Added responsive column stacking for `.ds-dual-flips` and centered the 1:1 caliper die stage on mobile screens $\le 520\text{px}$.
-  5. **Sensitivity Simulator & Cabinet Trays Touch Refinement:** Mobile-responsive vertical stack for `.sim-header` and `.sim-drawer-foot`, full-width reset button, and added `-webkit-overflow-scrolling: touch` to `.cabinet-trays-nav` and `.tabs`.
-  6. **Theme Whitelist Persistence:** Added `"solaris","alchemist","glacier","valhalla"` to `index.html` inline head script whitelist so all 16 themes properly persist across page reloads.
-  7. **Deployment & Mirroring:** Synchronized local mirror (`app/`), packaged `titan-reliquary-preview-tr26-2026-09-25.zip` to Google Drive, and pushed to `origin main`.
-
----
-
-### [2026-09-25 16:55 PT] — Antigravity (tr25: Authentic 60-Mo Historical Data, Retroactive Vault Tracking, Ambience Experience Engine & Dossier Overhaul)
-* **Status:** **LIVE & DEPLOYED** (Build `tr25`).
-* **Achievements Delivered:**
-  1. **Precious Metals Terminal & Authentic 60-Month Historical Data:** Replaced hardcoded sample points with authentic 60-month monthly datasets (Oct 2021 to Sep 2026) for Silver (XAG: $17.56 - $63.38), Gold (XAU: $1,622 - $4,252.90), and Au/Ag Ratio (125.8:1 - 67.1:1). Features high-precision candlestick OHLC wicks and bodies, trading volume histogram at the base, 10-period SMA moving average line, and interactive crosshair HUD displaying exact dates, prices, volume, and major historical landmark event notes.
-  2. **Accurate Retroactive Vault Tracking:** Directly tracks collection accession history: exactly $0.00 for all periods prior to Sept 11, 2026, then accurately climbing through each accession batch ($60.41 flips -> $1,592.71 bullion -> $2,602.05 sets/ingots -> $5,442.50 albums -> $5,584.11 live spot mark-to-market).
-  3. **Ambience Experience Engine:** 16 dedicated presets matching all 16 themes (Nocturne, After Hours, Conservator, Colossus, Odyssey, Cursed Wing, Kaleidoscope, Abyss, Neon, Notepad, Construct, Xeno, Solaris, Alchemist, Glacier, Valhalla) + legacy aliases. Every theme tap in the Atmosphere picker now instantly activates its full scene (lighting + paired ambience + music station). Added 7 new procedural Web Audio synthesizers (ocean surf, polar blizzard, antique clockwork, 432Hz singing bowl, vinyl crackle, cavern drops, pentatonic wind chimes). Upgraded full-viewport canvas engine with rain splash ripples, crystalline snow flurries, sweeping wind/mist streams, rising molten forge sparks, Aurora Borealis curtains, procedural branching forked lightning, and refractive aquatic caustics with dedicated Visual FX toggle chips.
-  4. **Radio Station Color Dots:** Added missing CSS color dots and glow effects for all new stations (`solaris`, `alchemist`, `glacier`, `valhalla`) and dynamically synchronized the player bar station button dot (`.ls-dot`).
-  5. **Coin Dossier 1:1 Scale & Dual Flips:** Fixed squished 30px caliper visual into a true 1:1 circular scale (`.ds-caliper-stage` with 140px square frame, crosshair, and die metrics) and presented both Obverse (0°) and Reverse (180°) large archival flips side-by-side.
-  6. **Deployment & Mirroring:** Bumped version to `tr25` across `sw.js`, `index.html`, and `app.js`. Synchronized local mirror (`app/`), packaged `titan-reliquary-preview-tr25-2026-09-25.zip` in Google Drive, committed and pushed to `origin main`.
+### [2026-09-25 16:33 PT] — Antigravity (tr24 Live Build & Full Feature Expansion)
+* **Status:** **LIVE** at `https://jpavia10.github.io/titan-reliquary-preview/` (Commit `d220b89`).
+* **Deliverables:**
+  1. **All 16 Themes Restored & Expanded:** Preserved all 12 original atmospheres (`afterhours`, `conservator`, `colossus`, `nocturne`, `odyssey`, `cursedwing`, `kaleido`, `abyss`, `neon`, `notepad`, `construct`, `xeno`) with custom particle canvases and CRT glitch engines; added 4 new bespoke themes (`solaris`, `alchemist`, `glacier`, `valhalla`).
+  2. **16 Dedicated Radio Stations (20+ Diverse Tracks Each):** Completely expanded `js/playlist.js` so all 16 stations feature 20+ tracks each across Kevin MacLeod, Jason Shaw (Audionautix), Scott Buckley, and classical masters.
+  3. **Ambient Audio Upgrades:** Added Web Audio FFT frequency visualizer canvas, Binaural Beats entrainment generator (Alpha 10Hz, Theta 6Hz, Delta 2.5Hz), and Sleep & Fadeout Timers (15m, 30m, 60m).
+  4. **Bloomberg/CNN Market Wire:** Added real-time continuous scrolling ticker tape with Ag/Au spot, Au/Ag ratio, unencumbered ASW, and squeeze gap metrics with click-to-terminal navigation.
+  5. **Precious Metals Trading Terminal:** Interactive candlestick and area spline charting with 8 timeframes (Live to ALL), crosshair HUD scrubber, 24H/52W range bars, bid/ask spread, and real-time live tick simulator.
+  6. **Now Exhibiting 3D Coin Viewer:** Obverse/Reverse dual-side inspection, Spacebar 3D flip shortcut with silver chime, dynamic specular mouse glare, expected Phase 2 RAW filename badge with 1-click clipboard copy, and camera calipers.
+  7. **Conservation Lab Pro Suite:** Resolved bottom UI overlap with dedicated clearance padding; built Macro Lens & Depth-of-Field Calculator (CoC, magnification, stack slice estimator, diffraction warnings), Numismatic Studio Lighting Guide (Axial beam-splitter, cross-polarized twin strobes, oblique raking), and Specimen Die Alignment Sandbox (US coin vs medallic standard, 360° rotation slider, and rotated die error detector).
+* **Archive & Deployment:** Pushed to GitHub Pages (`main` branch) and generated `titan-reliquary-preview-tr24-2026-09-25.zip` to Google Drive.
 
 ---
 
@@ -103,21 +131,8 @@
 * **Refinement:** Redesigned mobile player bar layout; updated header ambience button to sliders glyph.
 * **Artifacts:** `HANDOFF - read me first.md` and `titan-reliquary-preview-tr20-2026-09-25.zip`.
 
-
 ---
 
-### [2026-09-25 22:05 PT] — Antigravity (tr27 Build: Vault Equity Default & Authentic Minted Specimen Overhaul)
-* **Action:** 
-  1. **Precious Metals Terminal Default Variable:**
-     - Set **Vault Equity** (`data-asset="vault"`) as the **first and default visible asset** on the Precious Metals Terminal desk.
-     - Terminal now initializes directly to the Collection Total Net Equity ($5,584.11) with real-time live mark-to-market updates, 100% physical asset leverage, and historic multi-interval acquisition timeline (30D, 1Y, and ALL tracking acquisition step-ups from $0 to $5,584.11).
-  2. **Authentic Numismatic Specimen Placeholder Engine:**
-     - Completely eliminated the technical CAD wireframe crosshairs.
-     - Procedurally rendered authentic struck minted coin planchet medallions inside the 2x2 cardboard staple flip mylar windows.
-     - Features realistic metallic radial gradients (Fine Silver, Fine Gold, Antique Bronze/Copper, and Cupro-Nickel), outer reeded die rim, beaded dentil ring, curved sovereign issuer rim inscriptions (`SWITZERLAND`, `ESTADOS UNIDOS MEXICANOS`, etc.), embossed national heraldic crests, bold denomination reverse relief, and an archival "PHASE 2 SCAN PENDING" status ribbon.
-     - Preserves full 3D flip interaction between Obverse and Reverse die faces with proper coin turn alignment (0° Obverse, 180° Reverse).
-  3. **Responsive Stage Optimization:**
-     - Resolved mobile/tablet height collision in `.exhibit-frame`: added responsive media queries for screens $\le 860\text{px}$ so the 3D specimen velvet tray and monograph placard stack cleanly without clipping.
-  4. **Build & Cache Bump:**
-     - Bumped build stamp to `tr27` across `sw.js`, `index.html`, and `app.js`.
-
+### [2026-09-24 14:32 PT] — Grok (Master Ledger v252 & Publish)
+* **Action:** Master vault publish `fa2b985`: 273 flips, 1,636 pieces, grand total $5,584.11.
+* **Pipeline:** Generated `data/index.json`, `data/detail/`, metals pricing ($63.38 Ag, $4,252.90 Au).
