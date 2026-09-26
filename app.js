@@ -52,6 +52,8 @@
   let restoring = false;
   let caliperActive = false;
   try { caliperActive = localStorage.getItem("tr_caliper_v1") === "1"; } catch { /* ignore */ }
+  let galleryMode = "slab";
+  try { galleryMode = localStorage.getItem("tr_gallery_mode_v1") || "slab"; } catch { /* ignore */ }
 
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
@@ -1212,9 +1214,10 @@
     pop.onclick = (e) => { if (e.target === pop) pop.remove(); };
   }
 
-  /** Museum Lucite Slab: Archival 99.9% optical acrylic slab encapsulation for Masterpieces */
+  /** Museum Lucite Slab: Archival 99.9% optical acrylic slab encapsulation for Masterpieces & Gallery */
   function renderMuseumSlab(f, options = {}) {
     const isRev = options.side === "rev";
+    const isMini = !!options.mini;
     const country = esc((f.country || "ARCHIVE").toUpperCase());
     const year = esc(f.year || "—");
     const denom = esc((f.denom || f.label || "SPECIMEN").toUpperCase());
@@ -1224,10 +1227,10 @@
 
     const visual = f.thumb
       ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
-      : renderSpecimenBlueprint(f, true, options.side || "obv");
+      : renderSpecimenBlueprint(f, !isMini, options.side || "obv");
 
     return `
-      <div class="museum-slab${isRev ? ' slab-rev' : ' slab-obv'}">
+      <div class="museum-slab${isMini ? ' slab-mini' : ''}${isRev ? ' slab-rev' : ' slab-obv'}">
         <div class="slab-beveled-edge"></div>
         <div class="slab-rivet tl"></div>
         <div class="slab-rivet tr"></div>
@@ -1238,22 +1241,23 @@
         <div class="slab-pedigree-header">
           <div class="slab-pedigree-holo">
             <span class="slab-holo-brand">🏛️ TITAN ARCHIVAL REPOSITORY</span>
-            <span class="slab-holo-crest">GEM PROOF</span>
+            <span class="slab-holo-crest">${isMini ? 'PROOF' : 'GEM PROOF'}</span>
           </div>
           <div class="slab-pedigree-body">
             <div class="slab-pedigree-title">
               <strong>${country} · ${year}</strong>
-              <span class="slab-pedigree-grade">GEM MS · ARCHIVE № ${esc(f.ser)}</span>
+              <span class="slab-pedigree-grade">${isMini ? esc(f.ser || f.scan) : `GEM MS · ARCHIVE № ${esc(f.ser)}`}</span>
             </div>
             <div class="slab-pedigree-sub">
               <span>${denom}</span>
               <span class="slab-pedigree-metal">${purity}</span>
             </div>
           </div>
+          ${isMini ? '' : `
           <div class="slab-barcode-strip">
             <span class="slab-barcode">||| | |||| | ||| || |||| |</span>
             <span class="slab-cert-num">CERT #${esc(f.scan)}</span>
-          </div>
+          </div>`}
         </div>
 
         <!-- Frosted Silicone Core Gasket with Coin Aperture, Cartwheel Luster & Laser Optical Reticle -->
@@ -2996,7 +3000,7 @@
         <div class="latest-rail" aria-label="Latest added flips">${cards || '<p class="empty">No flips yet</p>'}</div>`;
     }
 
-    // The wall: every flip as an authentic white 2x2 archival holder with specimen blueprint
+    // The wall: supports Museum Lucite Slabs (default), Traditional 2x2 Flips, or Planchet Medallions
     const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz;
     const wall = rows.map((f) => {
       const neo = highlightScans.has(f.scan) ? " is-new" : "";
@@ -3006,10 +3010,26 @@
         ? `Melt ${money(Number(f.asw_oz) * Number(spotAg))}`
         : (f.conf ? `Conf ${esc(f.conf)}` : "Verified");
 
+      let visualHtml = "";
+      if (galleryMode === "slab") {
+        visualHtml = renderMuseumSlab(f, { mini: true, side: "obv" });
+      } else if (galleryMode === "matrix") {
+        const visual = f.thumb
+          ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
+          : renderSpecimenBlueprint(f, false, "obv");
+        visualHtml = `
+          <div class="matrix-medallion-holder">
+            ${visual}
+            <div class="coin-cartwheel-luster" aria-hidden="true"></div>
+          </div>`;
+      } else {
+        visualHtml = renderFlipHolder(f);
+      }
+
       return `
-      <button type="button" class="piece-card reveal${neo}" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
+      <button type="button" class="piece-card reveal${neo} mode-${galleryMode}" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
         <div class="pc-flip-frame">
-          ${renderFlipHolder(f)}
+          ${visualHtml}
         </div>
         <div class="pc-card-meta">
           <div class="pc-header-row">
@@ -3049,10 +3069,27 @@
         </button>
       </div>`;
 
+    const subTitle = galleryMode === 'slab'
+      ? 'Archival Lucite Acrylic Slabs · Holographic Pedigree Standards'
+      : (galleryMode === 'matrix' ? 'Struck Planchet Medallions · Ambient Directional Lighting' : 'Authentic 2×2 Archival Flips · Specimen Blueprints');
+
     $("#gallery-body").innerHTML = `
       ${trayNavHtml}
       ${railHtml}
-      <div class="sec-head reveal"><span class="eyebrow">The Cabinet</span><h2>${cabinetTray === 'crown' ? 'The Crown Jewels' : (cabinetTray === 'silver' ? 'Silver Reserves (By ASW Weight)' : (cabinetTray === 'timeline' ? 'Century Timeline (Chronological)' : 'On the Wall'))}</h2><p class="sub">Authentic 2×2 Archival Flips · Specimen Blueprints</p></div>
+      <div class="sec-head reveal">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:0.75rem;width:100%">
+          <div>
+            <span class="eyebrow">The Cabinet</span>
+            <h2>${cabinetTray === 'crown' ? 'The Crown Jewels' : (cabinetTray === 'silver' ? 'Silver Reserves (By ASW Weight)' : (cabinetTray === 'timeline' ? 'Century Timeline (Chronological)' : 'On the Wall'))}</h2>
+            <p class="sub">${subTitle}</p>
+          </div>
+          <div class="gallery-mode-switch" role="radiogroup" aria-label="Specimen presentation mode">
+            <button type="button" class="g-mode-btn${galleryMode === 'slab' ? ' active' : ''}" data-gmode="slab" title="Archival Lucite Museum Slabs (Optical Acrylic Encapsulation)">🏛️ Slabs</button>
+            <button type="button" class="g-mode-btn${galleryMode === 'flip' ? ' active' : ''}" data-gmode="flip" title="Traditional 2×2 Cardboard Flips (Stapled)">🏷️ 2×2 Flips</button>
+            <button type="button" class="g-mode-btn${galleryMode === 'matrix' ? ' active' : ''}" data-gmode="matrix" title="Pure Struck Coin Planchets (Unencumbered)">✨ Planchets</button>
+          </div>
+        </div>
+      </div>
       <div class="toolbar">
         <span class="search-wrap"><input type="search" id="flip-q" placeholder="Search SER · C### · country · year · denom · notes…" value="${esc(flipFilter.q)}" autocomplete="off" /><kbd title="Ctrl/⌘K opens search">⌘K</kbd></span>
         <select id="flip-country"><option value="">All countries</option>${opts}</select>
@@ -3075,6 +3112,18 @@
       <div class="country-strip">${strip}</div>
       <div class="gallery-grid">${wall || '<p class="empty">No matches</p>'}</div>
     `;
+
+    // Hook up Display Mode Switcher
+    $$(".g-mode-btn").forEach((btn) => {
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        galleryMode = btn.dataset.gmode;
+        try { localStorage.setItem("tr_gallery_mode_v1", galleryMode); } catch (_) {}
+        renderGallery();
+        lazyLoadImages();
+        playStapleClick();
+      };
+    });
 
     // Hook up Cabinet Tray Tabs
     $$(".tray-tab").forEach((tab) => {
@@ -3199,7 +3248,8 @@
         <div class="card"><h3>Gold</h3><div class="val">${bg.oz != null ? num(bg.oz, 4) + " oz" : "—"}</div><div class="hint">Bullion ${money(bg.melt)} · flip Au ${fg.n ? num(fg.oz, 4) + " oz" : "none"}</div></div>
       </div>
       <div class="card" style="margin-bottom:0.75rem">
-        <h3>Junk Ag flips (white 2×2)</h3>
+        <h3>Constitutional &amp; Archival Silver Allocation</h3>
+        <p class="sub" style="font-size:0.75rem;color:var(--muted);margin:0 0 0.5rem">Physical Sovereignty &amp; Numismatic ASW Reserves · Direct Custody</p>
         <div class="table-wrap" style="max-height:280px;margin-top:0.5rem">
           <table class="data">
             <thead><tr><th>SER</th><th>Scan</th><th>Country</th><th>Year</th><th>Denom</th><th class="num">ASW</th><th class="num">Melt @ live</th><th class="num">Est</th></tr></thead>
@@ -4241,16 +4291,16 @@
                <div class="ds-dual-flips">
                  <div class="ds-flip-col">
                    <span class="ds-flip-col-lbl">Obverse (Front)</span>
-                   ${renderFlipHolder(c, { large: true, side: "obv" })}
+                   ${renderMuseumSlab(c, { side: "obv" })}
                  </div>
                  <div class="ds-flip-col">
                    <span class="ds-flip-col-lbl">Reverse (Back)</span>
-                   ${renderFlipHolder(c, { large: true, side: "rev" })}
+                   ${renderMuseumSlab(c, { side: "rev" })}
                  </div>
                </div>
                <div class="ds-p2-notice">
-                 <span class="p2-seal">📷 PHASE 2 ARCHIVAL STATUS</span>
-                 <p class="p2-prompt"><strong>Physical macro photography pending.</strong> Write the handwritten label on the 2×2 cardboard border, then photograph both sides with the full frame in view and drop into the collection Inbox.</p>
+                 <span class="p2-seal">🏛️ ARCHIVAL RELIQUARY SPECIMEN</span>
+                 <p class="p2-prompt"><strong>Physical RAW Macro Photography Pending.</strong> Specimen encapsulated in optical Lucite acrylic with holographic provenance pedigree seal and precision laser die calibration.</p>
                </div>
              </div>`)
       : "";

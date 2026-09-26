@@ -1106,17 +1106,20 @@ html[data-atmo="conservator"] .filter-ag.active { background: #dfe3e8; border-co
 
 .country-strip {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0 0 0.85rem;
-  max-height: 6.2rem;
-  overflow: auto;
-  padding-bottom: 0.15rem;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0.5rem 0.65rem;
   scrollbar-width: thin;
   scrollbar-color: var(--gold-deep) transparent;
+  -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 24px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 24px), transparent);
 }
-.country-strip::-webkit-scrollbar { width: 6px; }
-.country-strip::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+.country-strip::-webkit-scrollbar { height: 4px; }
+.country-strip::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 2px; }
 .country-strip::-webkit-scrollbar-track { background: transparent; }
 .country-chip {
   appearance: none;
@@ -1124,21 +1127,22 @@ html[data-atmo="conservator"] .filter-ag.active { background: #dfe3e8; border-co
   background: var(--surface);
   color: var(--muted);
   border-radius: 999px;
-  padding: 0.45rem 0.85rem;
+  padding: 0.35rem 0.8rem;
   font-size: 0.76rem;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  min-height: 44px;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  min-height: 36px;
+  flex-shrink: 0;
+  transition: all 0.2s var(--ease-out);
 }
 .country-chip strong { color: var(--gold-soft); font-weight: 700; margin-left: 0.3rem; font-variant-numeric: tabular-nums; }
-.country-chip:hover { color: var(--ink); border-color: var(--gold-deep); }
+.country-chip:hover { color: var(--ink); border-color: var(--gold-deep); transform: translateY(-1px); }
 .country-chip.active {
   color: var(--gold-soft);
   border-color: var(--gold);
   background: var(--sel-bg);
-  box-shadow: 0 0 0 1px var(--gold-deep);
+  box-shadow: 0 0 0 1px var(--gold-deep), 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* ================= Tables ================= */
@@ -2161,6 +2165,12 @@ main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1.25rem
     box-shadow: 0 16px 44px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
     padding: 0 0.5rem;
     overflow: hidden;
+  }
+  .lofi-pill {
+    left: 1.5rem;
+    right: auto;
+    bottom: 1.25rem;
+    transform: none;
   }
 }
 .wing {
@@ -6901,5 +6911,135 @@ html[data-atmo="silkroad"] .wordmark {
 .highlight-pulse {
   animation: highlightPulse 2s ease-out 1;
 }
+
+/* ================= Gallery Display Mode Switcher ================= */
+.gallery-mode-switch {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(14, 17, 24, 0.85);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 3px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+.g-mode-btn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s var(--ease-out);
+}
+.g-mode-btn:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.05);
+}
+.g-mode-btn.active {
+  background: linear-gradient(135deg, rgba(200, 169, 74, 0.28) 0%, rgba(200, 169, 74, 0.12) 100%);
+  color: var(--gold-soft);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), inset 0 0 0 1px var(--gold);
+}
+
+/* ================= Museum Slab Mini: Gallery Card Encapsulation ================= */
+.museum-slab.slab-mini {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 220px;
+  border-radius: 12px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 22, 30, 0.9) 35%, rgba(6, 8, 12, 0.96) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.4), 
+    inset 0 -1px 2px rgba(0, 0, 0, 0.7), 
+    0 10px 28px rgba(0, 0, 0, 0.7), 
+    0 0 0 1px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+.museum-slab.slab-mini .slab-beveled-edge {
+  inset: 1.5px;
+  border-radius: 10px;
+}
+.museum-slab.slab-mini .slab-rivet {
+  width: 5px;
+  height: 5px;
+}
+.museum-slab.slab-mini .slab-pedigree-header {
+  padding: 5px 8px 3px;
+  gap: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.museum-slab.slab-mini .slab-pedigree-holo {
+  padding: 1px 4px;
+}
+.museum-slab.slab-mini .slab-holo-brand {
+  font-size: 0.46rem;
+}
+.museum-slab.slab-mini .slab-holo-crest {
+  font-size: 0.44rem;
+}
+.museum-slab.slab-mini .slab-pedigree-title strong {
+  font-size: 0.62rem;
+}
+.museum-slab.slab-mini .slab-pedigree-grade {
+  font-size: 0.52rem;
+}
+.museum-slab.slab-mini .slab-pedigree-sub {
+  font-size: 0.5rem;
+}
+.museum-slab.slab-mini .slab-gasket-core {
+  padding: 4px;
+}
+.museum-slab.slab-mini .slab-coin-aperture {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ================= Planchet Matrix Medallion ================= */
+.matrix-medallion-holder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(200, 169, 74, 0.08) 0%, transparent 70%);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.9));
+  transition: transform 0.25s var(--ease-out);
+}
+.piece-card:hover .matrix-medallion-holder {
+  transform: scale(1.05);
+}
+
+/* Piece card styling for slab mode */
+.piece-card.mode-slab {
+  background: rgba(14, 17, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.piece-card.mode-slab:hover {
+  border-color: rgba(200, 169, 74, 0.4);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.85), 0 0 24px rgba(200, 169, 74, 0.2);
+}
+
+/* Twin Museum Slabs in Dossier Showcase */
+.ds-flip-col .museum-slab {
+  width: min(240px, 85vw);
+  height: 290px;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
 
 
