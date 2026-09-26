@@ -665,6 +665,9 @@ html[data-atmo="conservator"] .tab.active { color: #faf6ec; }
 
 /* ================= Cards / tiles ================= */
 .card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 160px;
+  contain: layout style;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1591,9 +1594,8 @@ body.drawer-open { overflow: hidden; }
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.55s var(--ease-out) var(--rd, 0ms), transform 0.55s var(--ease-out) var(--rd, 0ms);
-  will-change: opacity, transform;
 }
-.reveal.in { opacity: 1; transform: none; will-change: auto; }
+.reveal.in { opacity: 1; transform: none; }
 
 /* ================= Skeleton shimmer ================= */
 .skeleton {
@@ -2290,6 +2292,9 @@ body:has(.lofi-bar.collapsed:not([hidden])) main {
 
 /* ---------- Pane transitions: walking between wings ---------- */
 .pane { display: none; }
+.pane:not(.active) * {
+  animation-play-state: paused !important;
+}
 .pane.active {
   display: block;
   animation: wing-in 0.5s var(--ease-out);
@@ -2473,6 +2478,9 @@ html[data-atmo="conservator"] .exhibit-bg {
 @media (min-width: 760px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1100px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
 .piece-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 320px;
+  contain: layout style;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -2483,7 +2491,7 @@ html[data-atmo="conservator"] .exhibit-bg {
   color: var(--ink);
   font-family: var(--font);
   padding: 0;
-  transition: transform 0.3s var(--ease-out), border-color 0.3s;
+  transition: transform 0.2s var(--ease-out), border-color 0.2s;
   display: flex; flex-direction: column;
 }
 .piece-card:hover { transform: translateY(-3px); border-color: var(--line-strong); }
@@ -3133,7 +3141,6 @@ body.curator-sees-you { animation: seeyou 0.8s linear; }
   animation-name: dust-rise;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  will-change: transform;
   transform: translateZ(0);
 }
 @keyframes dust-rise {
@@ -4104,12 +4111,14 @@ html[data-atmo="conservator"] .hero-grand {
   justify-content: center;
   gap: 3.5rem;
   opacity: 0;
+  visibility: hidden;
   transform: scale(0.97) translateY(8px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), visibility 0.6s;
   pointer-events: none;
 }
 .exhibit-slide.on {
   opacity: 1;
+  visibility: visible;
   transform: scale(1) translateY(0);
   pointer-events: auto;
 }
@@ -4793,8 +4802,9 @@ html[data-atmo="conservator"] .hero-grand {
 
 /* ---------- 5. Luxury Audio Dock & Equalizer ---------- */
 .lofi-bar, .player-bar {
-  background: rgba(18, 16, 12, 0.92) !important;
-  backdrop-filter: blur(24px) saturate(180%) !important;
+  background: rgba(18, 16, 12, 0.94) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
   border: 1px solid var(--line-strong) !important;
   box-shadow: 0 16px 48px rgba(0,0,0,0.8), 0 0 20px rgba(200, 169, 74, 0.12) !important;
   border-radius: 18px !important;
@@ -6111,12 +6121,17 @@ html[data-atmo="dynasty"] .coin-cartwheel-luster {
   );
 }
 
-/* Dynamic Planchet Relief Shading under directional light */
-.slab-coin-aperture svg,
-.slab-coin-aperture img {
+/* Dynamic Planchet Relief Shading under directional light (interactive exhibit flipper only) */
+.ex-specimen-flipper .slab-coin-aperture svg,
+.ex-specimen-flipper .slab-coin-aperture img {
   filter: drop-shadow(calc(var(--relief-x, 0) * 1px) calc(var(--relief-y, 0) * 1px) 2px rgba(255, 255, 255, 0.35))
           drop-shadow(calc(var(--relief-x, 0) * -1.5px) calc(var(--relief-y, 0) * -1.5px) 4px rgba(0, 0, 0, 0.7));
   will-change: filter;
+}
+.slab-mini .slab-coin-aperture svg,
+.slab-mini .slab-coin-aperture img {
+  filter: none;
+  will-change: auto;
 }
 
 /* ================= Forensic 10x Macro Jeweler's Loupe ================= */

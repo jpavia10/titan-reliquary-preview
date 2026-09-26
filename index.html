@@ -30,9 +30,46 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr34" />
+  <link rel="stylesheet" href="styles.css?v=tr35" />
 </head>
 <body>
+  <!-- Shared SVG Definitions for Struck Specimen Medallions (Zero-Overhead GPU Caching) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <defs>
+      <radialGradient id="grad-planchet-gold" cx="38%" cy="34%" r="65%">
+        <stop offset="0%" stop-color="#fffbeb"/>
+        <stop offset="25%" stop-color="#fef08a"/>
+        <stop offset="60%" stop-color="#ca8a04"/>
+        <stop offset="85%" stop-color="#854d0e"/>
+        <stop offset="100%" stop-color="#451a03"/>
+      </radialGradient>
+      <radialGradient id="grad-planchet-silver" cx="38%" cy="34%" r="65%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="25%" stop-color="#e2e8f0"/>
+        <stop offset="60%" stop-color="#94a3b8"/>
+        <stop offset="85%" stop-color="#475569"/>
+        <stop offset="100%" stop-color="#1e293b"/>
+      </radialGradient>
+      <radialGradient id="grad-planchet-bronze" cx="38%" cy="34%" r="65%">
+        <stop offset="0%" stop-color="#ffedd5"/>
+        <stop offset="25%" stop-color="#ea580c"/>
+        <stop offset="60%" stop-color="#9a3412"/>
+        <stop offset="85%" stop-color="#6c2a12"/>
+        <stop offset="100%" stop-color="#381105"/>
+      </radialGradient>
+      <radialGradient id="grad-planchet-alloy" cx="38%" cy="34%" r="65%">
+        <stop offset="0%" stop-color="#f8fafc"/>
+        <stop offset="25%" stop-color="#cbd5e1"/>
+        <stop offset="60%" stop-color="#64748b"/>
+        <stop offset="85%" stop-color="#334155"/>
+        <stop offset="100%" stop-color="#0f172a"/>
+      </radialGradient>
+      <radialGradient id="grad-aperture-velvet" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="rgba(20,22,28,0.95)"/>
+        <stop offset="85%" stop-color="#07080a"/>
+      </radialGradient>
+    </defs>
+  </svg>
   <div id="app">
     <main>
       <!-- ══════════ GRAND HALL ══════════ -->
@@ -557,10 +594,10 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr34";</script>
-  <script src="app.js?v=tr34"></script>
-  <script src="js/playlist.js?v=tr34"></script>
-  <script src="audio.js?v=tr34"></script>
-  <script src="ambient.js?v=tr34"></script>
+  <script>window.TITAN_BUILD = "tr35";</script>
+  <script src="app.js?v=tr35"></script>
+  <script src="js/playlist.js?v=tr35"></script>
+  <script src="audio.js?v=tr35"></script>
+  <script src="ambient.js?v=tr35"></script>
 </body>
 </html>

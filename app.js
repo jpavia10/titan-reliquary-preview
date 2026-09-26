@@ -182,7 +182,13 @@
     if (h && $(`.wing[data-wing="${w}"]`)) setWing(w, false);
   }
 
+  let galleryRendered = false;
+
   function setWing(name, pushHash = true) {
+    if (name === "gallery" && !galleryRendered) {
+      renderGallery();
+      galleryRendered = true;
+    }
     $$(".wing").forEach((b) => {
       const on = b.dataset.wing === name;
       b.classList.toggle("active", on);
@@ -424,7 +430,9 @@
       }
       if (st.wing || st.tab) setWing(mapWing(st.wing || st.tab), false);
       // Re-render gallery / study with restored filters
-      renderGallery();
+      if (mapWing(st.wing || st.tab || "hall") === "gallery") {
+        renderGallery();
+      }
       renderStudy();
       if (st.drawerScan) {
         openDrawer(st.drawerScan, false);
@@ -456,7 +464,11 @@
   function renderAll() {
     renderHero();
     renderHall();
-    renderGallery();
+    const st = readState();
+    const activeWing = (st && (st.wing || st.tab)) ? mapWing(st.wing || st.tab) : mapWing(location.hash.replace(/^#/, "") || "hall");
+    if (activeWing === "gallery") {
+      renderGallery();
+    }
     renderVault();
     renderStudy();
     renderLab();
@@ -466,6 +478,19 @@
     lazyThumbs();
     observeReveals();
     goldDust();
+
+    // Warm gallery in background during idle time
+    if (!galleryRendered) {
+      setTimeout(() => {
+        if (!galleryRendered) {
+          if (typeof requestIdleCallback === "function") {
+            requestIdleCallback(() => { if (!galleryRendered) renderGallery(); });
+          } else {
+            renderGallery();
+          }
+        }
+      }, 1500);
+    }
   }
 
   /* --- Gold dust motes: slow ambient particles drifting up the page.
@@ -953,52 +978,28 @@
       ? (f.asw_oz ? `${num(f.asw_oz, 2)}oz Ag` : ".999 AG")
       : (isGold ? "FINE GOLD" : (isBronze ? "COPPER" : (f.km ? `KM#${esc(f.km)}` : "ALLOY")));
 
-    let gradStops = "";
+    const gradId = isGold ? "grad-planchet-gold" : (isBronze ? "grad-planchet-bronze" : (isSilver ? "grad-planchet-silver" : "grad-planchet-alloy"));
     let rimStroke = "";
     let reliefFill = "";
     let reliefStroke = "";
     let dentilColor = "";
 
     if (isGold) {
-      gradStops = `
-        <stop offset="0%" stop-color="#fffbeb"/>
-        <stop offset="25%" stop-color="#fef08a"/>
-        <stop offset="60%" stop-color="#ca8a04"/>
-        <stop offset="85%" stop-color="#854d0e"/>
-        <stop offset="100%" stop-color="#451a03"/>`;
       rimStroke = "#fef08a";
       reliefFill = "#fef08a";
       reliefStroke = "rgba(254, 240, 138, 0.85)";
       dentilColor = "#fef08a";
     } else if (isBronze) {
-      gradStops = `
-        <stop offset="0%" stop-color="#ffedd5"/>
-        <stop offset="25%" stop-color="#ea580c"/>
-        <stop offset="60%" stop-color="#9a3412"/>
-        <stop offset="85%" stop-color="#6c2a12"/>
-        <stop offset="100%" stop-color="#381105"/>`;
       rimStroke = "#fed7aa";
       reliefFill = "#fed7aa";
       reliefStroke = "rgba(254, 215, 170, 0.85)";
       dentilColor = "#fed7aa";
     } else if (isSilver) {
-      gradStops = `
-        <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="25%" stop-color="#e2e8f0"/>
-        <stop offset="60%" stop-color="#94a3b8"/>
-        <stop offset="85%" stop-color="#475569"/>
-        <stop offset="100%" stop-color="#1e293b"/>`;
       rimStroke = "#f8fafc";
       reliefFill = "#ffffff";
       reliefStroke = "rgba(255, 255, 255, 0.85)";
       dentilColor = "#ffffff";
     } else {
-      gradStops = `
-        <stop offset="0%" stop-color="#f8fafc"/>
-        <stop offset="25%" stop-color="#cbd5e1"/>
-        <stop offset="60%" stop-color="#64748b"/>
-        <stop offset="85%" stop-color="#334155"/>
-        <stop offset="100%" stop-color="#0f172a"/>`;
       rimStroke = "#f1f5f9";
       reliefFill = "#f1f5f9";
       reliefStroke = "rgba(241, 245, 249, 0.85)";
@@ -1022,25 +1023,15 @@
     return `
       <svg class="specimen-medallion" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="${countryName} ${denom} specimen">
         <defs>
-          <radialGradient id="planchet-${uid}" cx="38%" cy="34%" r="65%">
-            ${gradStops}
-          </radialGradient>
-          <radialGradient id="aperture-${uid}" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(20,22,28,0.95)"/>
-            <stop offset="85%" stop-color="#07080a"/>
-          </radialGradient>
-          <filter id="shadow-${uid}" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="rgba(0,0,0,0.85)"/>
-          </filter>
           <path id="arc-top-${uid}" d="${arcD}" fill="none"/>
         </defs>
 
         <!-- Velvet Aperture Window Chamber -->
-        <rect width="100" height="100" fill="url(#aperture-${uid})"/>
+        <rect width="100" height="100" fill="url(#grad-aperture-velvet)"/>
         <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(200,169,74,0.12)" stroke-width="0.6"/>
 
         <!-- Struck Metallic Planchet Disk with Physical Depth -->
-        <circle cx="50" cy="50" r="${scaledR.toFixed(1)}" fill="url(#planchet-${uid})" filter="url(#shadow-${uid})" stroke="#050608" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="${scaledR.toFixed(1)}" fill="url(#${gradId})" stroke="#050608" stroke-width="0.8"/>
         
         <!-- Raised Outer Reeded Die Rim -->
         <circle cx="50" cy="50" r="${(scaledR - 0.5).toFixed(1)}" fill="none" stroke="${rimStroke}" stroke-width="1.0" opacity="0.9"/>
@@ -1264,13 +1255,12 @@
         <div class="slab-gasket-core">
           <div class="slab-coin-aperture">
             ${visual}
-            <div class="coin-cartwheel-luster" aria-hidden="true"></div>
-            ${renderOpticalReticle(f, options.side || "obv")}
+            ${isMini ? '' : `<div class="coin-cartwheel-luster" aria-hidden="true"></div>${renderOpticalReticle(f, options.side || "obv")}`}
           </div>
         </div>
 
         <!-- Prismatic Specular Sheen Layer -->
-        <div class="slab-optic-glare"></div>
+        ${isMini ? '' : '<div class="slab-optic-glare"></div>'}
       </div>`;
   }
 
@@ -2952,6 +2942,7 @@
   }
 
   function renderGallery() {
+    galleryRendered = true;
     // Re-rendering replaces the inputs: keep focus + caret so typing is not interrupted.
     const act = document.activeElement;
     const keep = act && ["flip-q", "flip-year"].includes(act.id) ? { id: act.id, s: act.selectionStart, e: act.selectionEnd } : null;
@@ -3404,9 +3395,9 @@
 
           <div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(0,0,0,0.4);border-radius:8px;border:1px dashed rgba(200,169,74,0.35);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
             <div style="font-family:var(--mono);font-size:0.8rem;color:var(--gold-soft);word-break:break-all">
-              📁 <strong>Google Drive Staging Folder:</strong> <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">G:\\My Drive\\Titan Reliquary\\PHOTO_STAGING_PHASE2\\</code>
+              📁 <strong>Google Drive Staging Folder:</strong> <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">G:\\My Drive\\Titan Reliquary\\PHOTO_STAGING\\STAGE_1_RAW\\</code>
             </div>
-            <span style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Format: 1:1 Macro RAW / TIFF 16-bit</span>
+            <span style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Stage 1: Pure Coin Macro (NO Labels)</span>
           </div>
 
           <div style="margin-top:1.2rem">
@@ -3646,7 +3637,7 @@
     if (btnCopyPath) {
       btnCopyPath.onclick = (e) => {
         e.preventDefault();
-        const p2Path = "G:\\My Drive\\Titan Reliquary\\PHOTO_STAGING_PHASE2\\";
+        const p2Path = "G:\\My Drive\\Titan Reliquary\\PHOTO_STAGING\\STAGE_1_RAW\\";
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(p2Path).then(() => {
             showToast("Copied staging folder path to clipboard!");
