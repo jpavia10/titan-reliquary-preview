@@ -167,7 +167,13 @@ html[data-atmo="conservator"] :focus-visible { outline-color: var(--gold-soft); 
 /* ================= Base ================= */
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html, body { margin: 0; padding: 0; }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 body {
   font-family: var(--font);
   font-variant-numeric: tabular-nums;
@@ -206,9 +212,12 @@ body::after {
 
 #app {
   max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 0 1.25rem 5rem;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button { font: inherit; }
@@ -249,13 +258,13 @@ img { max-width: 100%; }
   padding: 3.2rem 0 2rem;
   border-bottom: 1px solid var(--line);
   margin-bottom: 1.4rem;
-  overflow: visible;
+  overflow: hidden;
 }
 /* After Hours vignette: the gallery falls off to black at the edges */
 html[data-atmo="afterhours"] .hero::before, html:not([data-atmo]) .hero::before {
   content: "";
   position: absolute;
-  inset: -1rem -50vw;
+  inset: -1rem -2rem;
   pointer-events: none;
   background: radial-gradient(ellipse 90% 100% at 50% 30%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
 }
@@ -264,7 +273,8 @@ html[data-atmo="afterhours"] .hero::before, html:not([data-atmo]) .hero::before 
   top: -8rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(900px, 120vw);
+  width: min(900px, 100%);
+  max-width: 100%;
   height: 22rem;
   pointer-events: none;
   background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(200, 169, 74, 0.14), transparent 70%);
@@ -2143,7 +2153,10 @@ main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1.25rem
 .wings {
   position: fixed;
   left: 0; right: 0; bottom: 0;
-  z-index: 60;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  z-index: 100;
   display: flex;
   background: var(--drawerbar-bg);
   backdrop-filter: blur(16px);
@@ -2175,24 +2188,33 @@ main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1.25rem
 }
 .wing {
   flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 3px;
-  padding: 0.55rem 0 0.5rem;
+  padding: 0.45rem 2px 0.4rem;
   background: none;
   border: 0;
   color: var(--muted);
   font-family: var(--font);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
   position: relative;
   min-height: var(--nav-h);
+  box-sizing: border-box;
 }
-.wing svg { width: 23px; height: 23px; }
+.wing span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.wing svg { width: 22px; height: 22px; flex-shrink: 0; }
 .wing.active { color: var(--gold-soft); }
 .wing.active::before {
   content: "";
@@ -5861,7 +5883,7 @@ html[data-atmo="conservator"] .hero-grand {
 .slab-rivet.bl { bottom: 7px; left: 7px; }
 .slab-rivet.br { bottom: 7px; right: 7px; }
 
-/* Holographic Archival Pedigree Header */
+/* Holographic Archival Pedigree Header (Strict Height Lock & Invariant Centering) */
 .slab-pedigree-header {
   position: relative;
   margin: 10px 10px 0;
@@ -5871,49 +5893,92 @@ html[data-atmo="conservator"] .hero-grand {
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   z-index: 3;
+  height: 68px;
+  min-height: 68px;
+  max-height: 68px;
+  flex: 0 0 68px;
+  box-sizing: border-box;
 }
 .slab-pedigree-holo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3px 8px;
+  padding: 2px 8px;
   background: linear-gradient(90deg, #d97706, #38bdf8, #ec4899, #d97706);
   background-size: 200% auto;
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: 0.50rem;
   font-weight: 800;
   color: #fff;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  height: 18px;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.slab-holo-brand, .slab-holo-crest {
+  white-space: nowrap;
+  line-height: 1;
 }
 .slab-pedigree-body {
-  padding: 4px 8px;
+  padding: 3px 8px;
   background: rgba(15, 23, 42, 0.85);
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
+  height: 34px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .slab-pedigree-title {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  font-size: 0.72rem;
+  font-size: 0.70rem;
   color: #f8fafc;
   font-family: var(--font);
+  min-width: 0;
+  gap: 0.4rem;
+  line-height: 1.25;
+}
+.slab-pedigree-title strong {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 .slab-pedigree-grade {
+  flex: 0 0 auto;
+  white-space: nowrap;
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: 0.60rem;
   color: var(--gold-soft);
   font-weight: 700;
 }
 .slab-pedigree-sub {
   display: flex;
   justify-content: space-between;
-  font-size: 0.62rem;
+  align-items: baseline;
+  font-size: 0.60rem;
   color: var(--muted);
+  min-width: 0;
+  gap: 0.4rem;
+  line-height: 1.25;
+}
+.slab-pedigree-sub span:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 .slab-pedigree-metal {
+  flex: 0 0 auto;
+  white-space: nowrap;
   color: #93c5fd;
   font-weight: 600;
 }
@@ -5921,15 +5986,23 @@ html[data-atmo="conservator"] .hero-grand {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 8px 3px;
+  padding: 1px 8px;
   font-family: var(--mono);
-  font-size: 0.52rem;
+  font-size: 0.48rem;
   color: #94a3b8;
   background: #06080d;
+  height: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .slab-barcode {
   letter-spacing: 0.15em;
   opacity: 0.7;
+  white-space: nowrap;
+}
+.slab-cert-num {
+  white-space: nowrap;
 }
 
 /* Frosted Silicone Core Gasket with Coin Aperture */
@@ -6975,12 +7048,20 @@ html[data-atmo="silkroad"] .wordmark {
   height: 5px;
 }
 .museum-slab.slab-mini .slab-pedigree-header {
-  padding: 5px 8px 3px;
-  gap: 2px;
+  padding: 0;
+  gap: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  height: 38px;
+  min-height: 38px;
+  max-height: 38px;
+  flex: 0 0 38px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .museum-slab.slab-mini .slab-pedigree-holo {
-  padding: 1px 4px;
+  padding: 1px 6px;
+  height: 14px;
+  box-sizing: border-box;
 }
 .museum-slab.slab-mini .slab-holo-brand {
   font-size: 0.46rem;
@@ -6988,14 +7069,32 @@ html[data-atmo="silkroad"] .wordmark {
 .museum-slab.slab-mini .slab-holo-crest {
   font-size: 0.44rem;
 }
+.museum-slab.slab-mini .slab-pedigree-body {
+  padding: 2px 6px;
+  height: 24px;
+  gap: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 .museum-slab.slab-mini .slab-pedigree-title strong {
-  font-size: 0.62rem;
+  font-size: 0.58rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
 }
 .museum-slab.slab-mini .slab-pedigree-grade {
-  font-size: 0.52rem;
+  font-size: 0.50rem;
+  white-space: nowrap;
 }
 .museum-slab.slab-mini .slab-pedigree-sub {
-  font-size: 0.5rem;
+  font-size: 0.48rem;
+}
+.museum-slab.slab-mini .slab-pedigree-sub span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
 }
 .museum-slab.slab-mini .slab-gasket-core {
   padding: 4px;
@@ -7003,6 +7102,9 @@ html[data-atmo="silkroad"] .wordmark {
 .museum-slab.slab-mini .slab-coin-aperture {
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
 }
 
 /* ================= Planchet Matrix Medallion ================= */
