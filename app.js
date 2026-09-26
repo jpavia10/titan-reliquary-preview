@@ -34,6 +34,8 @@
   let momentTimer = null; // "From the vault" rotation interval
   let highlightScans = new Set();
   let restoring = false;
+  let caliperActive = false;
+  try { caliperActive = localStorage.getItem("tr_caliper_v1") === "1"; } catch { /* ignore */ }
 
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
@@ -1082,8 +1084,108 @@
         <div class="flip-mylar-window">
           ${visual}
           <div class="flip-mylar-reflection"></div>
+          ${isLarge ? renderOpticalReticle(f, options.side || "obv") : ""}
         </div>
       </div>`;
+  }
+
+  function getSpecimenDiameter(f) {
+    if (f.diameter_mm && !isNaN(f.diameter_mm)) return parseFloat(f.diameter_mm);
+    if (f.dia_mm && !isNaN(f.dia_mm)) return parseFloat(f.dia_mm);
+    const m = String(f.metal_cond || f.metal || f.specs || "").match(/([\d.]+)\s*mm/i);
+    if (m && !isNaN(parseFloat(m[1]))) return parseFloat(m[1]);
+    const dStr = String(f.denom || f.label || "").toLowerCase();
+    if (/5\s*centavos/i.test(dStr)) return 25.0;
+    if (/1\s*gulden/i.test(dStr)) return 25.0;
+    if (/25\s*cents|quarter/i.test(dStr)) return 24.3;
+    if (/5\s*franc/i.test(dStr)) return 31.45;
+    if (/1\s*franc/i.test(dStr)) return 23.2;
+    if (/dollar|1\s*oz|morgan|peace/i.test(dStr)) return 38.1;
+    if (/half|50\s*cent/i.test(dStr)) return 30.6;
+    if (/dime|10\s*cent/i.test(dStr)) return 17.9;
+    if (/cent|penny/i.test(dStr)) return 19.05;
+    return f.is_silver ? 26.5 : 22.0;
+  }
+
+  function getDieAlignment(f) {
+    const s = String(f.specs || f.notes || "").toLowerCase();
+    if (s.includes("medal")) return { type: "Medal Alignment", angle: 0, symbol: "↑↑ 0°" };
+    return { type: "Coin Alignment", angle: 180, symbol: "↑↓ 180°" };
+  }
+
+  function renderOpticalReticle(f, side = "obv") {
+    const dia = getSpecimenDiameter(f);
+    const isRev = side === "rev";
+    const dieAlign = getDieAlignment(f);
+    const angleText = isRev ? dieAlign.symbol : "0° (OBV)";
+    const planchetPct = Math.min(94, Math.max(30, Math.round((dia / 50.8) * 100)));
+    return `
+      <div class="ex-optical-reticle${caliperActive ? ' active' : ''}" id="reticle-${side}-${esc(f.scan)}">
+        <div class="ret-cross-x"></div>
+        <div class="ret-cross-y"></div>
+        <div class="ret-ring ret-ring-10" title="10 mm reference ring"></div>
+        <div class="ret-ring ret-ring-20" title="20 mm reference ring"></div>
+        <div class="ret-ring ret-ring-30" title="30 mm reference ring"></div>
+        <div class="ret-ring-planchet" style="width: ${planchetPct}%; height: ${planchetPct}%;" title="Planchet Outer Rim: ${dia} mm"></div>
+        <span class="ret-axis-lbl ret-axis-n">${angleText}</span>
+        <span class="ret-axis-lbl ret-axis-e">90°</span>
+        <span class="ret-axis-lbl ret-axis-s">${isRev ? "REV" : "180°"}</span>
+        <span class="ret-axis-lbl ret-axis-w">270°</span>
+        <div class="ret-center-pip"></div>
+      </div>`;
+  }
+
+  function renderCaliperHud(f) {
+    const dia = getSpecimenDiameter(f);
+    const dieAlign = getDieAlignment(f);
+    const fillPct = Math.min(94, Math.max(30, Math.round((dia / 50.8) * 100)));
+    return `
+      <div class="ex-caliper-hud${caliperActive ? ' active' : ''}" id="caliper-hud-${esc(f.scan)}">
+        <div class="caliper-hud-header">
+          <div class="caliper-hud-title">
+            <span class="caliper-hud-dot"></span>
+            Digital Vernier Caliper · 1:1 Scale
+          </div>
+          <span style="opacity:0.8">50.8mm Window</span>
+        </div>
+        <div class="caliper-scale-bar">
+          <div class="cal-ticks"></div>
+          <div class="cal-lcd-readout" title="Measured Physical Coin Planchet Diameter">
+            <span class="cal-lcd-sym">⌀</span>
+            <span class="cal-lcd-val">${dia.toFixed(2)}</span>
+            <span class="cal-lcd-unit">mm</span>
+          </div>
+        </div>
+        <div class="caliper-metrics-strip">
+          <span class="cm-tag gold">⌀ ${dia.toFixed(1)} mm</span>
+          <span class="cm-tag">${dieAlign.symbol} (${dieAlign.type})</span>
+          <span class="cm-tag">${fillPct}% Window Ratio</span>
+          <button type="button" class="cm-info-btn" data-act="caliper-info" title="What are Numismatic Calipers? Click for explanation">ⓘ What is this?</button>
+        </div>
+      </div>`;
+  }
+
+  function showCaliperExplainer() {
+    const existing = $(".caliper-explainer-popover");
+    if (existing) existing.remove();
+    const pop = document.createElement("div");
+    pop.className = "caliper-explainer-popover";
+    pop.innerHTML = `
+      <div class="caliper-pop-box" role="dialog" aria-modal="true" aria-label="Numismatic Caliper and Reticle Guide">
+        <button type="button" class="caliper-pop-close" aria-label="Close guide">✕ Close</button>
+        <h3 class="caliper-pop-title">📏 Numismatic Caliper &amp; Die Reticle</h3>
+        <div class="caliper-pop-body">
+          <p>In high-end coin curation and museum authentication, physical digital vernier calipers and optical reticle loupes are the numismatist's primary forensic tools:</p>
+          <ul>
+            <li><strong>Planchet Diameter (0.01 mm precision):</strong> Authentic sovereign coins are struck on rigidly calibrated planchets. Counterfeits (cast copies, electrotypes, or fraudulent alloy strikes) almost always deviate in diameter by 0.5 mm to 2.0 mm.</li>
+            <li><strong>Die Rotation Alignment (0° vs 180°):</strong> US coinage uses <em>Coin Alignment (↑↓ 180°)</em>, where flipping top-to-bottom reveals the reverse right-side-up. European and medallic issues use <em>Medal Alignment (↑↑ 0°)</em>. Rotated die errors command significant collector premiums.</li>
+            <li><strong>1:1 Aperture Ratio:</strong> Accurately measures the coin's physical diameter relative to the standard 2×2 inch (50.8 mm) archival cardboard mount window.</li>
+          </ul>
+        </div>
+      </div>`;
+    document.body.appendChild(pop);
+    pop.querySelector(".caliper-pop-close").onclick = () => pop.remove();
+    pop.onclick = (e) => { if (e.target === pop) pop.remove(); };
   }
 
   /** Render 3D flippable specimen stage with Obverse and Reverse faces. */
@@ -1096,24 +1198,13 @@
           <div class="ex-card-side obverse-side">
             ${obvFlip}
             <div class="ex-specular-glare"></div>
-            <div class="specimen-reticle-overlay" hidden>
-              <div class="reticle-crosshair-x"></div>
-              <div class="reticle-crosshair-y"></div>
-              <div class="reticle-ring-inner"></div>
-              <span class="reticle-ticks">⌀ 26.5mm · OBV 0°</span>
-            </div>
           </div>
           <div class="ex-card-side reverse-side">
             ${revFlip}
             <div class="ex-specular-glare"></div>
-            <div class="specimen-reticle-overlay" hidden>
-              <div class="reticle-crosshair-x"></div>
-              <div class="reticle-crosshair-y"></div>
-              <div class="reticle-ring-inner"></div>
-              <span class="reticle-ticks">⌀ 26.5mm · REV 180°</span>
-            </div>
           </div>
         </div>
+        ${renderCaliperHud(f)}
       </div>`;
   }
 
@@ -2223,6 +2314,16 @@
       if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); go(exhibitIdx - 1); };
       if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); go(exhibitIdx + 1); };
 
+      // Bind Caliper explainer button & sync state
+      $$("[data-act='caliper-info']").forEach((btn) => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          showCaliperExplainer();
+        };
+      });
+      const reticleBtnEl = $("#btn-ex-reticle");
+      if (reticleBtnEl) reticleBtnEl.classList.toggle("active", caliperActive);
+
       // Touch swipe support on exhibit frame
       let touchStartX = null, touchStartY = null;
       frame.ontouchstart = (e) => {
@@ -2359,12 +2460,16 @@
       };
     }
     if (reticleBtn) {
+      reticleBtn.classList.toggle("active", caliperActive);
       reticleBtn.onclick = (e) => {
         e.stopPropagation();
-        const reticles = $$(".specimen-reticle-overlay");
-        const willShow = reticles[0]?.hidden;
-        reticles.forEach((r) => r.hidden = !willShow);
-        reticleBtn.classList.toggle("active", willShow);
+        caliperActive = !caliperActive;
+        try { localStorage.setItem("tr_caliper_v1", caliperActive ? "1" : "0"); } catch { /* ignore */ }
+        reticleBtn.classList.toggle("active", caliperActive);
+        $$(".ex-optical-reticle").forEach((r) => r.classList.toggle("active", caliperActive));
+        $$(".ex-caliper-hud").forEach((h) => h.classList.toggle("active", caliperActive));
+        playStapleClick();
+        showToast(caliperActive ? "📏 Caliper Active: 1:1 Scale & Die Analyzer" : "Caliper Reticle Hidden");
       };
     }
   }
@@ -4617,6 +4722,7 @@
     try { window.TitanLofi?.playStation(ATMOS[a].station); } catch { /* player not ready */ }
     showToast("Scene set: " + ATMOS[a].name + " · " + ATMOS[a].pair);
   }
+  window.setTheScene = setTheScene;
   setAtmo(document.documentElement.getAttribute("data-atmo") || "afterhours", false, false);
 
   /* --- Overlay manager: Esc closes the topmost layer; focus is trapped & restored. --- */

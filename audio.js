@@ -134,7 +134,7 @@
   pill.type = "button";
   pill.className = "lofi-pill";
   pill.hidden = true;
-  pill.innerHTML = `<span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="music-pill-label">Tap for music</span>`;
+  pill.innerHTML = `<span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="music-pill-label">Set the scene</span>`;
   document.body.appendChild(pill);
 
   const toast = document.createElement("div");
@@ -190,10 +190,10 @@
       elPillLabel.textContent = `♪ ${stationName()} · ${t.title || "Untitled"}`;
       pill.classList.add("live");
     } else if (everPlayed) {
-      elPillLabel.textContent = `❚❚ ${stationName()} — tap to resume`;
+      elPillLabel.textContent = `❚❚ ${stationName()} — set the scene`;
       pill.classList.remove("live");
     } else {
-      elPillLabel.textContent = `Tap for music · ${valid.length} stations`;
+      elPillLabel.textContent = `Set the scene · ${valid.length} stations`;
       pill.classList.remove("live");
     }
     pill.setAttribute("aria-label", elPillLabel.textContent);
@@ -337,7 +337,15 @@
     try { localStorage.setItem(VOL_KEY, String(audio.volume)); } catch { /* ignore */ }
   });
   // Pill toggles play/pause; it always names the live station.
-  pill.addEventListener("click", () => { toggle(); });
+  // If first interaction, trigger the full 'Set the scene' atmosphere experience.
+  pill.addEventListener("click", () => {
+    if (!playing && !everPlayed && typeof window.setTheScene === "function") {
+      const cur = document.documentElement.getAttribute("data-atmo") || "afterhours";
+      window.setTheScene(cur);
+    } else {
+      toggle();
+    }
+  });
 
   // ---- boot --------------------------------------------------------------
   renderStationMenu();

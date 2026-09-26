@@ -1608,36 +1608,57 @@
     b.addEventListener("click", () => applyPreset(b.dataset.preset));
   });
 
-  panel.querySelector("#amb-close").addEventListener("click", () => { panel.hidden = true; });
-  if (btn) btn.addEventListener("click", () => { panel.hidden = !panel.hidden; });
-
-  // FFT Visualizer loop
-  function drawFft() {
-    const cv = panel.querySelector("#amb-fft-canvas");
-    if (cv && !panel.hidden && analyser) {
-      const g = cv.getContext("2d");
-      const data = new Uint8Array(analyser.frequencyBinCount);
-      analyser.getByteFrequencyData(data);
-      g.clearRect(0, 0, cv.width, cv.height);
-      const bars = 16;
-      const barW = cv.width / bars - 1;
-      for (let i = 0; i < bars; i++) {
-        const val = data[i * 2] / 255;
-        const h = Math.max(2, val * cv.height);
-        g.fillStyle = val > 0.05 ? "rgba(200, 169, 74, 0.85)" : "rgba(255, 255, 255, 0.12)";
-        g.fillRect(i * (barW + 1), cv.height - h, barW, h);
+  let fftRaf = null;
+  function startFft() {
+    if (fftRaf != null) return;
+    function loop() {
+      if (panel.hidden || !analyser) {
+        fftRaf = null;
+        return;
       }
+      const cv = panel.querySelector("#amb-fft-canvas");
+      if (cv) {
+        const g = cv.getContext("2d");
+        const data = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(data);
+        g.clearRect(0, 0, cv.width, cv.height);
+        const bars = 16;
+        const barW = cv.width / bars - 1;
+        for (let i = 0; i < bars; i++) {
+          const val = data[i * 2] / 255;
+          const h = Math.max(2, val * cv.height);
+          g.fillStyle = val > 0.05 ? "rgba(200, 169, 74, 0.85)" : "rgba(255, 255, 255, 0.12)";
+          g.fillRect(i * (barW + 1), cv.height - h, barW, h);
+        }
+      }
+      fftRaf = requestAnimationFrame(loop);
     }
-    requestAnimationFrame(drawFft);
+    fftRaf = requestAnimationFrame(loop);
   }
-  requestAnimationFrame(drawFft);
+  function stopFft() {
+    if (fftRaf != null) {
+      cancelAnimationFrame(fftRaf);
+      fftRaf = null;
+    }
+  }
+
+  panel.querySelector("#amb-close").addEventListener("click", () => {
+    panel.hidden = true;
+    stopFft();
+  });
+  if (btn) btn.addEventListener("click", () => {
+    panel.hidden = !panel.hidden;
+    if (!panel.hidden) startFft(); else stopFft();
+  });
 
   function openMixer() {
     panel.hidden = false;
     panel.scrollTop = 0;
+    startFft();
   }
   function closeMixer() {
     panel.hidden = true;
+    stopFft();
   }
 
   // ---- Public API -----------------------------------------------------------
