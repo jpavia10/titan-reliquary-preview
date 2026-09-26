@@ -939,9 +939,11 @@
       canvas.hidden = false;
       if (raf == null) raf = requestAnimationFrame(renderVisuals);
       window.addEventListener("resize", sizeCanvas);
+      window.addEventListener("orientationchange", sizeCanvas);
     } else {
       if (raf != null) { cancelAnimationFrame(raf); raf = null; }
       window.removeEventListener("resize", sizeCanvas);
+      window.removeEventListener("orientationchange", sizeCanvas);
       canvas.hidden = true;
       if (ctx2d) ctx2d.clearRect(0, 0, canvas.width, canvas.height);
     }
@@ -1199,8 +1201,18 @@
   }
   requestAnimationFrame(drawFft);
 
+  function openMixer() {
+    panel.hidden = false;
+    panel.scrollTop = 0;
+  }
+  function closeMixer() {
+    panel.hidden = true;
+  }
+
   // ---- Public API -----------------------------------------------------------
   window.TitanAmbient = {
+    openMixer,
+    closeMixer,
     applyPreset,
     toggleFx: setFx,
     setMaster: (v) => { state.master = v; if (masterGain) masterGain.gain.value = v; writeState(); },

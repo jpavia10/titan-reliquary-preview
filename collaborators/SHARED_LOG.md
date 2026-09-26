@@ -7,6 +7,19 @@
 
 ---
 
+### [2026-09-25 21:00 PT] — Antigravity (tr26: Mobile Stack Stabilization & Complete Touch Optimization Pass)
+* **Status:** **LIVE & DEPLOYED** (Build `tr26`).
+* **Achievements Delivered:**
+  1. **Floating Mobile Music Bar (`.lofi-bar`) & Station Menu:** Fixed bottom positioning collision with `--nav-h` and safe areas (`env(safe-area-inset-bottom)`). Responsive two-row layout on screens $\le 560\text{px}$ prevents slider squishing, while single-row collapsed mode neatly keeps track info and the expand button aligned. Constrained `.station-menu` with `max-height: min(52vh, 340px); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;` so all 16 stations are smoothly navigable on mobile without shooting off the top of the viewport.
+  2. **Ambience Experience Engine Mobile Overhaul:** Resolved root-level CSS override that was constraining the panel to 344px on mobile phones. On $\le 700\text{px}$, panel is now 100% full-width (`width: 100% !important; max-height: min(85vh, calc(100dvh - 60px))`) with `z-index: 75`. Made `.amb-head` sticky (`position: sticky; top: -0.85rem`) so the close button (`#amb-close`) and live FFT visualizer remain permanently accessible while scrolling all layers. Defined and exported `openMixer` and `closeMixer` on `window.TitanAmbient` so the ambience button on the music bar functions flawlessly.
+  3. **Precious Metals Trading Terminal Mobile Touch & Scrubbing:** Added `touch-action: pan-y;` on `#term-chart-canvas` and `.term-chart-stage`. Implemented touch gesture disambiguation (locking horizontal drag to chart scrub while preserving natural vertical page scrolling). Implemented dynamic HUD auto-positioning (`termCrosshairX > 52% ? left : right`) so the inspection tooltip never covers the touch point or clips offscreen. Wrapped timeframe buttons in `.term-timeframes-row` with horizontal momentum scrolling. Formatted `.term-asset-pills` and `.term-stats-grid` into clean 2x2 grids on mobile.
+  4. **Coin Dossier 1:1 Scale & Archival Flips Mobile Stabilization:** Fixed squished/thin row image bug by defining strict circular aperture sizing (`.flip-mylar-window img, .flip-mylar-window .pc-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }`) and calling `lazyThumbs($("#drawer-body"))` on drawer open. Centered flip margins (`left: 10%; right: 10%`). Added responsive column stacking for `.ds-dual-flips` and centered the 1:1 caliper die stage on mobile screens $\le 520\text{px}$.
+  5. **Sensitivity Simulator & Cabinet Trays Touch Refinement:** Mobile-responsive vertical stack for `.sim-header` and `.sim-drawer-foot`, full-width reset button, and added `-webkit-overflow-scrolling: touch` to `.cabinet-trays-nav` and `.tabs`.
+  6. **Theme Whitelist Persistence:** Added `"solaris","alchemist","glacier","valhalla"` to `index.html` inline head script whitelist so all 16 themes properly persist across page reloads.
+  7. **Deployment & Mirroring:** Synchronized local mirror (`app/`), packaged `titan-reliquary-preview-tr26-2026-09-25.zip` to Google Drive, and pushed to `origin main`.
+
+---
+
 ### [2026-09-25 16:55 PT] — Antigravity (tr25: Authentic 60-Mo Historical Data, Retroactive Vault Tracking, Ambience Experience Engine & Dossier Overhaul)
 * **Status:** **LIVE & DEPLOYED** (Build `tr25`).
 * **Achievements Delivered:**

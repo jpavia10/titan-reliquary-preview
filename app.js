@@ -1888,11 +1888,20 @@
     if (stage) {
       const onMove = (e) => {
         const rect = stage.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        termCrosshairX = clientX - rect.left;
+        const clientX = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
+        if (clientX == null) return;
+        termCrosshairX = Math.max(0, Math.min(rect.width, clientX - rect.left));
         renderTerminalChart();
         if (hud) {
           hud.hidden = false;
+          // Dynamic HUD flip: if touch/cursor is on the right half, flip HUD to left so it's never covered
+          if (termCrosshairX > rect.width * 0.52) {
+            hud.style.left = "12px";
+            hud.style.right = "auto";
+          } else {
+            hud.style.right = "12px";
+            hud.style.left = "auto";
+          }
           const a = TERM_DATA[termAsset];
           const pts = a.rates[termTimeframe] || a.rates["24h"];
           const frac = Math.min(1, Math.max(0, (termCrosshairX - 32) / (rect.width - 64)));
@@ -1932,17 +1941,34 @@
         }
       };
       stage.onmousemove = onMove;
-      stage.ontouchmove = onMove;
+      let touchStartX = 0, touchStartY = 0;
+      stage.addEventListener("touchstart", (e) => {
+        if (e.touches && e.touches[0]) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          onMove(e);
+        }
+      }, { passive: true });
+      stage.addEventListener("touchmove", (e) => {
+        if (e.touches && e.touches[0]) {
+          const dx = Math.abs(e.touches[0].clientX - touchStartX);
+          const dy = Math.abs(e.touches[0].clientY - touchStartY);
+          if (dx > dy && e.cancelable) {
+            e.preventDefault();
+          }
+          onMove(e);
+        }
+      }, { passive: false });
       stage.onmouseleave = () => {
         termCrosshairX = null;
         if (hud) hud.hidden = true;
         renderTerminalChart();
       };
-      stage.ontouchend = () => {
+      stage.addEventListener("touchend", () => {
         termCrosshairX = null;
         if (hud) hud.hidden = true;
         renderTerminalChart();
-      };
+      }, { passive: true });
     }
 
     clearInterval(termTickTimer);
@@ -3687,6 +3713,7 @@
     document.body.classList.add("drawer-open");
     if (wasHidden) $("#drawer-close").focus();
     window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
+    lazyThumbs($("#drawer-body"));
     if (persist && wasHidden === false) $("#drawer-inner").scrollTop = 0;
     if (persist) saveState();
   }

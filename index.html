@@ -19,7 +19,7 @@
   <script>
     try {
       var __tr_a = localStorage.getItem("tr_atmo_v1");
-      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno"];
+      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno","solaris","alchemist","glacier","valhalla"];
       if (!__tr_a || __tr_ok.indexOf(__tr_a) === -1) {
         var __tr_old = localStorage.getItem("tr_theme_v1");
         if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr25" />
+  <link rel="stylesheet" href="styles.css?v=tr26" />
 </head>
 <body>
   <div id="app">
@@ -186,14 +186,16 @@
 
               <!-- Timeframe Selection -->
               <div class="term-time-bar" role="tablist" aria-label="Chart Timeframes">
-                <button type="button" class="term-tf-btn" data-tf="live" title="Real-Time Tick Stream">Live</button>
-                <button type="button" class="term-tf-btn" data-tf="1h" title="Past 1 Hour">1H</button>
-                <button type="button" class="term-tf-btn active" data-tf="24h" title="Past 24 Hours">24H</button>
-                <button type="button" class="term-tf-btn" data-tf="7d" title="Past 7 Days">7D</button>
-                <button type="button" class="term-tf-btn" data-tf="30d" title="Past 30 Days">30D</button>
-                <button type="button" class="term-tf-btn" data-tf="1y" title="Past 1 Year">1Y</button>
-                <button type="button" class="term-tf-btn" data-tf="5y" title="Past 5 Years">5Y</button>
-                <button type="button" class="term-tf-btn" data-tf="all" title="All-Time Historical Cycle">ALL</button>
+                <div class="term-timeframes-row">
+                  <button type="button" class="term-tf-btn" data-tf="live" title="Real-Time Tick Stream">Live</button>
+                  <button type="button" class="term-tf-btn" data-tf="1h" title="Past 1 Hour">1H</button>
+                  <button type="button" class="term-tf-btn active" data-tf="24h" title="Past 24 Hours">24H</button>
+                  <button type="button" class="term-tf-btn" data-tf="7d" title="Past 7 Days">7D</button>
+                  <button type="button" class="term-tf-btn" data-tf="30d" title="Past 30 Days">30D</button>
+                  <button type="button" class="term-tf-btn" data-tf="1y" title="Past 1 Year">1Y</button>
+                  <button type="button" class="term-tf-btn" data-tf="5y" title="Past 5 Years">5Y</button>
+                  <button type="button" class="term-tf-btn" data-tf="all" title="All-Time Historical Cycle">ALL</button>
+                </div>
                 <div class="term-type-toggle">
                   <button type="button" class="term-mode-btn active" id="term-mode-area" title="Area Trend Curve">📈 Area</button>
                   <button type="button" class="term-mode-btn" id="term-mode-candles" title="Japanese Candlestick OHLC">🕯️ Candles</button>
@@ -526,10 +528,10 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr25";</script>
-  <script src="app.js?v=tr25"></script>
-  <script src="js/playlist.js?v=tr25"></script>
-  <script src="audio.js?v=tr25"></script>
-  <script src="ambient.js?v=tr25"></script>
+  <script>window.TITAN_BUILD = "tr26";</script>
+  <script src="app.js?v=tr26"></script>
+  <script src="js/playlist.js?v=tr26"></script>
+  <script src="audio.js?v=tr26"></script>
+  <script src="ambient.js?v=tr26"></script>
 </body>
 </html>
