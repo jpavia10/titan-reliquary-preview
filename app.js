@@ -1129,6 +1129,12 @@
     return { type: "Coin Alignment", angle: 180, symbol: "↑↓ 180°" };
   }
 
+  function getSpecimenThickness(f) {
+    if (f.thickness_mm) return Number(f.thickness_mm);
+    const dia = getSpecimenDiameter(f);
+    return Math.max(1.1, Math.min(3.2, Number((dia / 14.5).toFixed(2))));
+  }
+
   function renderOpticalReticle(f, side = "obv") {
     const dia = getSpecimenDiameter(f);
     const isRev = side === "rev";
@@ -1153,6 +1159,7 @@
 
   function renderCaliperHud(f) {
     const dia = getSpecimenDiameter(f);
+    const thk = getSpecimenThickness(f);
     const dieAlign = getDieAlignment(f);
     const fillPct = Math.min(94, Math.max(30, Math.round((dia / 50.8) * 100)));
     return `
@@ -1160,9 +1167,9 @@
         <div class="caliper-hud-header">
           <div class="caliper-hud-title">
             <span class="caliper-hud-dot"></span>
-            Digital Vernier Caliper · 1:1 Scale
+            Digital Vernier Caliper · Forensic Metrology
           </div>
-          <span style="opacity:0.8">50.8mm Window</span>
+          <span style="opacity:0.8;font-family:var(--mono)">1:1 Aperture (50.8mm)</span>
         </div>
         <div class="caliper-scale-bar">
           <div class="cal-ticks"></div>
@@ -1173,10 +1180,11 @@
           </div>
         </div>
         <div class="caliper-metrics-strip">
-          <span class="cm-tag gold">⌀ ${dia.toFixed(1)} mm</span>
-          <span class="cm-tag">${dieAlign.symbol} (${dieAlign.type})</span>
-          <span class="cm-tag">${fillPct}% Window Ratio</span>
-          <button type="button" class="cm-info-btn" data-act="caliper-info" title="What are Numismatic Calipers? Click for explanation">ⓘ What is this?</button>
+          <span class="cm-tag gold" title="Planchet Outer Diameter">⌀ ${dia.toFixed(1)} mm</span>
+          <span class="cm-tag" title="Standard Planchet Thickness">↕ ${thk.toFixed(2)} mm</span>
+          <span class="cm-tag" title="Die Clock Orientation">${dieAlign.symbol} (${dieAlign.type})</span>
+          <span class="cm-tag" title="Ratio of Coin to 2x2 Mount Aperture">${fillPct}% Mount Fill</span>
+          <button type="button" class="cm-info-btn" data-act="caliper-info" title="What are Numismatic Calipers? Click for explanation">ⓘ Forensic Guide</button>
         </div>
       </div>`;
   }
@@ -1248,10 +1256,11 @@
           </div>
         </div>
 
-        <!-- Frosted Silicone Core Gasket with Coin Aperture & Laser Optical Reticle -->
+        <!-- Frosted Silicone Core Gasket with Coin Aperture, Cartwheel Luster & Laser Optical Reticle -->
         <div class="slab-gasket-core">
           <div class="slab-coin-aperture">
             ${visual}
+            <div class="coin-cartwheel-luster" aria-hidden="true"></div>
             ${renderOpticalReticle(f, options.side || "obv")}
           </div>
         </div>
@@ -1277,6 +1286,21 @@
             <div class="ex-specular-glare"></div>
           </div>
         </div>
+
+        <!-- Forensic 10x Macro Jeweler's Loupe Lens -->
+        <div class="forensic-loupe" id="loupe-${esc(f.scan)}" hidden>
+          <div class="loupe-optic-zoom"></div>
+          <div class="loupe-reticle-hairs">
+            <div class="loupe-hair-x"></div>
+            <div class="loupe-hair-y"></div>
+            <div class="loupe-scale-ticks"></div>
+          </div>
+          <div class="loupe-bezel-rim">
+            <span class="loupe-badge">10× HASTINGS TRIPLET</span>
+            <span class="loupe-coords" id="loupe-coords-${esc(f.scan)}">X:0.0 Y:0.0mm</span>
+          </div>
+        </div>
+
         ${renderCaliperHud(f)}
       </div>`;
   }
@@ -2338,6 +2362,8 @@
       .slice(0, 5);
     exhibitIdx = 0;
     const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let loupeActive = false;
+    try { loupeActive = localStorage.getItem("tr_loupe_v1") === "1"; } catch (_) {}
     
     const paint = () => {
       if (!exhibitMasters.length) {
@@ -2488,6 +2514,75 @@
               flipper.style.setProperty("--mouse-y", pctY + "%");
               const isFlipped = flipper.classList.contains("flipped");
               flipper.style.transform = `perspective(1000px) rotateX(${tiltY}deg) rotateY(${isFlipped ? 180 + Number(tiltX) : tiltX}deg)`;
+
+              // Numismatic Cartwheel Luster Angle & Directional Relief Lighting
+              const cx = trayRect.width / 2;
+              const cy = trayRect.height / 2;
+              const angleRad = Math.atan2(y - cy, x - cx);
+              const angleDeg = (angleRad * (180 / Math.PI) + 360) % 360;
+              flipper.style.setProperty("--luster-angle", `${angleDeg.toFixed(1)}deg`);
+              const normX = (((x - cx) / cx) * 3).toFixed(1);
+              const normY = (((y - cy) / cy) * 3).toFixed(1);
+              flipper.style.setProperty("--relief-x", `${normX}`);
+              flipper.style.setProperty("--relief-y", `${normY}`);
+            }
+
+            // Forensic 10x Macro Loupe tracking
+            const loupe = tray.querySelector(".forensic-loupe");
+            const aperture = tray.querySelector(".slab-coin-aperture");
+            if (loupeActive && loupe && aperture) {
+              const apRect = aperture.getBoundingClientRect();
+              if (
+                e.clientX >= apRect.left && e.clientX <= apRect.right &&
+                e.clientY >= apRect.top && e.clientY <= apRect.bottom
+              ) {
+                loupe.hidden = false;
+                const apX = e.clientX - apRect.left;
+                const apY = e.clientY - apRect.top;
+                const stageEl = tray.querySelector(".ex-3d-stage");
+                const stRect = stageEl ? stageEl.getBoundingClientRect() : trayRect;
+                loupe.style.left = (e.clientX - stRect.left) + "px";
+                loupe.style.top = (e.clientY - stRect.top) + "px";
+
+                const zoomTarget = loupe.querySelector(".loupe-optic-zoom");
+                const isFlipped = flipper?.classList.contains("flipped");
+                const activeImg = flipper?.querySelector(isFlipped ? ".reverse-side .slab-coin-img" : ".obverse-side .slab-coin-img") || flipper?.querySelector(".slab-coin-img");
+                const activeSvg = flipper?.querySelector(isFlipped ? ".reverse-side .specimen-medallion" : ".obverse-side .specimen-medallion") || flipper?.querySelector(".specimen-medallion");
+                const imgSrc = activeImg?.currentSrc || activeImg?.src || activeImg?.dataset?.src;
+                if (zoomTarget) {
+                  const zoom = 2.8;
+                  const bgX = -(apX * zoom - 75);
+                  const bgY = -(apY * zoom - 75);
+                  if (imgSrc) {
+                    zoomTarget.style.backgroundImage = `url("${imgSrc}")`;
+                    zoomTarget.style.backgroundPosition = `${bgX.toFixed(1)}px ${bgY.toFixed(1)}px`;
+                    zoomTarget.style.backgroundSize = `${(apRect.width * zoom).toFixed(1)}px ${(apRect.height * zoom).toFixed(1)}px`;
+                  } else if (activeSvg) {
+                    const svgXml = new XMLSerializer().serializeToString(activeSvg);
+                    const svgData = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgXml);
+                    zoomTarget.style.backgroundImage = `url("${svgData}")`;
+                    zoomTarget.style.backgroundPosition = `${bgX.toFixed(1)}px ${bgY.toFixed(1)}px`;
+                    zoomTarget.style.backgroundSize = `${(apRect.width * zoom).toFixed(1)}px ${(apRect.height * zoom).toFixed(1)}px`;
+                  }
+                }
+
+                const coordsEl = loupe.querySelector(".loupe-coords");
+                if (coordsEl) {
+                  const midX = apRect.width / 2;
+                  const midY = apRect.height / 2;
+                  const rawX = ((apX - midX) / midX) * 12.5;
+                  const rawY = ((apY - midY) / midY) * -12.5;
+                  const dX = Math.abs(rawX) < 0.05 ? "0.0" : Math.abs(rawX).toFixed(1);
+                  const dY = Math.abs(rawY) < 0.05 ? "0.0" : Math.abs(rawY).toFixed(1);
+                  const signX = rawX > 0.04 ? "+" : (rawX < -0.04 ? "-" : "+");
+                  const signY = rawY > 0.04 ? "+" : (rawY < -0.04 ? "-" : "+");
+                  coordsEl.textContent = `X:${signX}${dX} Y:${signY}${dY}mm`;
+                }
+              } else {
+                loupe.hidden = true;
+              }
+            } else if (loupe) {
+              loupe.hidden = true;
             }
           });
         };
@@ -2498,6 +2593,8 @@
             const isFlipped = flipper.classList.contains("flipped");
             flipper.style.transform = isFlipped ? "rotateY(180deg)" : "none";
           }
+          const loupe = tray.querySelector(".forensic-loupe");
+          if (loupe) loupe.hidden = true;
         };
       });
 
@@ -2600,6 +2697,22 @@
         $$(".ex-caliper-hud").forEach((h) => h.classList.toggle("active", caliperActive));
         playStapleClick();
         showToast(caliperActive ? "📏 Caliper Active: 1:1 Scale & Die Analyzer" : "Caliper Reticle Hidden");
+      };
+    }
+
+    const loupeBtn = $("#btn-ex-loupe");
+    if (loupeBtn) {
+      loupeBtn.classList.toggle("active", loupeActive);
+      loupeBtn.onclick = (e) => {
+        e.stopPropagation();
+        loupeActive = !loupeActive;
+        try { localStorage.setItem("tr_loupe_v1", loupeActive ? "1" : "0"); } catch (_) {}
+        loupeBtn.classList.toggle("active", loupeActive);
+        if (!loupeActive) {
+          $$(".forensic-loupe").forEach((l) => l.hidden = true);
+        }
+        playStapleClick();
+        showToast(loupeActive ? "🔬 10× Macro Loupe Active: Hover over coin aperture" : "10× Macro Loupe Hidden");
       };
     }
   }
