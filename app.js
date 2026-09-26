@@ -17,7 +17,7 @@
 
   let vault = null;
   let flipSort = { key: "scan", dir: -1 }; // newest first by default
-  let flipFilter = { q: "", country: "", iso: "", year: "", silverOnly: false, phase2: false };
+  let flipFilter = { q: "", country: "", iso: "", year: "", silverOnly: false, phase2: false, staging: false };
   let worldSel = ""; // ISO of the country opened on the World tab
   let dossierCtx = null; // {label, scans}: prev/next order when a dossier was opened from a list other than Flips
   let searchIdx = null; // data/search.json {scan: normalized full text}; fetched lazily on first search
@@ -123,6 +123,7 @@
         worldSel,
         silverOnly: !!flipFilter.silverOnly,
         phase2: !!flipFilter.phase2,
+        staging: !!flipFilter.staging,
         flipSort,
         drawerScan: currentDrawerScan,
         scrollY: window.scrollY,
@@ -392,6 +393,7 @@
       if (flipFilter.q) ensureSearch();
       flipFilter.silverOnly = !!st.silverOnly;
       flipFilter.phase2 = !!st.phase2;
+      flipFilter.staging = !!st.staging;
       if (st.flipSort) flipSort = st.flipSort;
       if (typeof st.autoRefresh === "boolean") {
         autoRefresh = st.autoRefresh;
@@ -1122,21 +1124,23 @@
     const ratio = (spotAu / (spotAg || 1)).toFixed(2);
     const grandVal = money(vault.grand ?? 5584.11);
     const items = [
-      { sym: "AG SPOT", price: `$${num(spotAg, 2)}/oz`, chg: "+3.24%", up: true, asset: "ag" },
-      { sym: "AU SPOT", price: `$${intFmt(Math.round(spotAu))}/oz`, chg: "+1.18%", up: true, asset: "au" },
-      { sym: "AU/AG RATIO", price: ratio, chg: "-1.95%", up: false, asset: "ratio" },
-      { sym: "TITAN VAULT TOTAL", price: grandVal, chg: "+$142.80 (+2.6%)", up: true, asset: "vault" },
-      { sym: "VAULT AG ASW", price: "63.27 oz", chg: "100% UNENCUMBERED", up: null, asset: "vault" },
-      { sym: "COMEX REGISTERED", price: "31.42M oz", chg: "HISTORIC LOW", up: false, asset: "ag" },
-      { sym: "INFLATION-ADJ PEAK", price: "$148.20/oz", chg: "+133% SQUEEZE GAP", up: true, asset: "ag" },
-      { sym: "CH 1969 1-FRANC", price: "$12.50", chg: "+8.2%", up: true, asset: "ag" },
-      { sym: "US 1943-P WAR NICKEL", price: "$2.45", chg: "+3.1%", up: true, asset: "ag" },
-      { sym: "LBMA VAULT OUTFLOWS", price: "-420k oz/wk", chg: "TIGHT SUPPLY", up: false, asset: "ag" },
+      { sym: "TITAN VAULT TOTAL", price: grandVal, chg: "+$142.80 (+2.6%)", up: true, action: "hub", title: "Collection Net Worth · Click to view Valuation Hub" },
+      { sym: "VAULT AG ASW", price: "63.27 oz", chg: "100% PHYSICAL", up: null, action: "seg-ag", title: "63.27 oz Physical Silver ASW · Click to view Allocation Breakdown" },
+      { sym: "CH 1969 1-FRANC", price: "$12.50", chg: "+8.2%", up: true, action: "dossier", scan: "C001", title: "Switzerland 1969 1 Franc · Click to inspect Specimen Dossier" },
+      { sym: "US 1976 BICENTENNIAL", price: "$2.40", chg: "+3.1%", up: true, action: "dossier", scan: "C073", title: "USA 1976 Bicentennial Quarter · Click to inspect Specimen Dossier" },
+      { sym: "MEXICO 1914 5¢", price: "$125.00", chg: "+14.2%", up: true, action: "dossier", scan: "C114", title: "Mexico 1914 Chihuahua · Click to inspect Specimen Dossier" },
+      { sym: "NETHERLANDS 1967 GULDEN", price: "$16.50", chg: "+6.8%", up: true, action: "dossier", scan: "C223", title: "Netherlands 1967 Silver 1 Gulden · Click to inspect Specimen Dossier" },
+      { sym: "AG SPOT", price: `$${num(spotAg, 2)}/oz`, chg: "+3.24%", up: true, action: "terminal", asset: "ag", title: "Silver Spot · Click to inspect Live Silver Desk" },
+      { sym: "AU SPOT", price: `$${intFmt(Math.round(spotAu))}/oz`, chg: "+1.18%", up: true, action: "terminal", asset: "au", title: "Gold Spot · Click to inspect Live Gold Desk" },
+      { sym: "AU/AG RATIO", price: ratio, chg: "-1.95%", up: false, action: "terminal", asset: "ratio", title: "Gold/Silver Ratio · Click to inspect Macro Compression" },
+      { sym: "COMEX REGISTERED", price: "31.42M oz", chg: "HISTORIC LOW", up: false, action: "sim", title: "COMEX Physical Low · Click to open Market Sensitivity Simulator" },
+      { sym: "INFLATION-ADJ PEAK", price: "$148.20/oz", chg: "+133% SQUEEZE GAP", up: true, action: "sim", title: "1980 Inflation Peak Gap · Click to open Market Sensitivity Simulator" },
+      { sym: "BULLION RESERVES", price: "21 Ingots", chg: "$3,011.74", up: true, action: "vault-reserves", title: "Titan Bullion Ingots & Sets · Click to explore Vault Reserves Wing" },
     ];
     // Double array to create seamless continuous marquee loop
     const fullItems = [...items, ...items];
     track.innerHTML = fullItems.map((it) => `
-      <div class="ticker-item" data-ticker-asset="${it.asset}" title="Click to inspect ${it.sym} in Trading Terminal">
+      <div class="ticker-item" data-ticker-action="${it.action}" ${it.scan ? `data-ticker-scan="${it.scan}"` : ''} ${it.asset ? `data-ticker-asset="${it.asset}"` : ''} title="${it.title}">
         <span class="tk-sym">${it.sym}</span>
         <span class="tk-price">${it.price}</span>
         <span class="tk-tag ${it.up === true ? 'tk-up' : (it.up === false ? 'tk-down' : 'tk-neu')}">
@@ -1145,14 +1149,54 @@
       </div>`).join("");
 
     track.onclick = (e) => {
-      const item = e.target.closest("[data-ticker-asset]");
+      const item = e.target.closest("[data-ticker-action]");
       if (!item) return;
-      const asset = item.dataset.tickerAsset;
-      const termEl = $("#trading-terminal");
-      if (termEl) {
-        termEl.scrollIntoView({ behavior: "smooth", block: "center" });
-        const btn = $(`#trading-terminal .term-asset-btn[data-asset="${asset}"]`);
-        if (btn) btn.click();
+      const action = item.dataset.tickerAction;
+
+      if (action === "dossier") {
+        const scan = item.dataset.tickerScan;
+        if (scan) {
+          playCoinChime();
+          dossierCtx = null;
+          openDrawer(scan);
+        }
+      } else if (action === "terminal") {
+        const asset = item.dataset.tickerAsset;
+        const termEl = $("#trading-terminal");
+        if (termEl) {
+          termEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          const btn = $(`#trading-terminal .term-asset-btn[data-asset="${asset}"]`);
+          if (btn) btn.click();
+        }
+      } else if (action === "hub") {
+        const hubEl = $(".vault-valuation-hub");
+        if (hubEl) {
+          hubEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          hubEl.classList.remove("highlight-pulse");
+          void hubEl.offsetWidth;
+          hubEl.classList.add("highlight-pulse");
+        }
+      } else if (action === "seg-ag") {
+        const seg = $("#seg-ag") || $(".melt-allocation-bar");
+        if (seg) {
+          seg.scrollIntoView({ behavior: "smooth", block: "center" });
+          seg.classList.remove("highlight-pulse");
+          void seg.offsetWidth;
+          seg.classList.add("highlight-pulse");
+        }
+      } else if (action === "sim") {
+        const simBtn = $("#btn-spot-sim");
+        const drawer = $("#spot-sim-drawer");
+        if (simBtn) {
+          simBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+          if (drawer && drawer.hidden) {
+            simBtn.click();
+          }
+        }
+      } else if (action === "vault-reserves") {
+        setWing("vault");
+        const vPane = $("#pane-vault");
+        if (vPane) vPane.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     };
   }
@@ -2154,10 +2198,48 @@
             </div>
           </div>
         </div>`;
-      }).join("");
+      }).join("") + `
+        <button type="button" class="ex-nav-btn ex-prev" id="btn-ex-prev" aria-label="Previous masterpiece" title="Previous Masterpiece">‹</button>
+        <button type="button" class="ex-nav-btn ex-next" id="btn-ex-next" aria-label="Next masterpiece" title="Next Masterpiece">›</button>
+      `;
 
       if (dots) dots.innerHTML = exhibitMasters.map((_, i) =>
         `<button type="button" data-i="${i}" class="${i === exhibitIdx ? "on" : ""}" aria-label="Show exhibit ${i + 1}"></button>`).join("");
+
+      // Bind explicit Inspect Dossier buttons (ONLY this opens the drawer)
+      $$(".placard-inspect-btn").forEach((btn) => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          dossierCtx = null;
+          openDrawer(btn.dataset.scan);
+        };
+      });
+
+      // Bind Prev / Next Navigation Arrows
+      const prevBtn = $("#btn-ex-prev");
+      const nextBtn = $("#btn-ex-next");
+      if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); go(exhibitIdx - 1); };
+      if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); go(exhibitIdx + 1); };
+
+      // Touch swipe support on exhibit frame
+      let touchStartX = null, touchStartY = null;
+      frame.ontouchstart = (e) => {
+        if (e.touches && e.touches[0]) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      };
+      frame.ontouchend = (e) => {
+        if (touchStartX === null || !e.changedTouches || !e.changedTouches[0]) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+        touchStartX = null;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+          e.stopPropagation();
+          if (dx < 0) go(exhibitIdx + 1);
+          else go(exhibitIdx - 1);
+        }
+      };
 
       // Bind specular lighting and 3D tilt tracking
       $$(".ex-pedestal-tray").forEach((tray) => {
@@ -2283,12 +2365,6 @@
         reticleBtn.classList.toggle("active", willShow);
       };
     }
-
-    if (box) box.onclick = (e) => {
-      if (e.target.closest(".exhibit-dots, .exhibit-view-controls, .ex-copy-fn-btn, .ex-specimen-flipper, [data-lab-session]")) return;
-      const cur = exhibitMasters[exhibitIdx];
-      if (cur) { dossierCtx = null; openDrawer(cur.scan); }
-    };
   }
 
   function renderHall() {
@@ -2468,6 +2544,8 @@
       rows = rows.filter((f) => f.is_silver);
     }
 
+    const STAGING_SCANS = new Set(["C114", "C223", "C073", "C066", "C065"]);
+    if (flipFilter.staging) rows = rows.filter((f) => STAGING_SCANS.has(f.scan) || STAGING_SCANS.has(f.ser));
     if (flipFilter.silverOnly) rows = rows.filter((f) => f.is_silver);
     if (flipFilter.phase2) rows = rows.filter((f) => f.awaiting_phase2 !== false && f.status !== "Removed" && !f.phase2_done);
     if (flipFilter.country) rows = rows.filter((f) => f.country === flipFilter.country);
@@ -2547,7 +2625,7 @@
       .join("");
 
     // Fresh-metal rail only when the visitor isn't filtering and on master inventory tray
-    const filtering = flipFilter.q.trim() || flipFilter.country || flipFilter.iso || flipFilter.year || flipFilter.silverOnly || flipFilter.phase2;
+    const filtering = flipFilter.staging || flipFilter.q.trim() || flipFilter.country || flipFilter.iso || flipFilter.year || flipFilter.silverOnly || flipFilter.phase2;
     let railHtml = "";
     if (!filtering && cabinetTray === "all") {
       const latest = latestFlips(10);
@@ -2639,9 +2717,10 @@
         </select>
         <button type="button" class="btn filter-ag${flipFilter.silverOnly ? " active" : ""}" id="flip-ag" title="Show silver flips only">Ag${agCount ? " · " + agCount : ""}</button>
         <button type="button" class="btn filter-p2${flipFilter.phase2 ? " active" : ""}" id="flip-p2" title="Awaiting Phase 2 photos (shooting list)">Awaiting Phase 2 · ${intFmt(p2Count)}</button>
+        ${flipFilter.staging ? `<button type="button" class="btn small active" id="flip-staging-clear" style="background:var(--gold);color:#08090c;font-weight:700" title="Clear Staging Filter">📸 Phase 2 Staging (5) ×</button>` : ""}
         ${flipFilter.iso ? `<button type="button" class="btn small active" id="flip-iso" title="Clear the country filter from World">${esc(isoName(flipFilter.iso))} ×</button>` : ""}
         <button type="button" class="btn small" id="flip-print" title="Print this inventory">⎙ Print</button>
-        <span class="meta">${intFmt(rows.length)} / ${intFmt((vault.flips || []).length)}${flipFilter.silverOnly ? " · silver" : ""}${flipFilter.phase2 ? " · shooting list" : ""}${flipFilter.q.trim() && !searchIdx ? " · searching notes…" : ""}</span>
+        <span class="meta">${intFmt(rows.length)} / ${intFmt((vault.flips || []).length)}${flipFilter.staging ? " · 📸 staging album" : ""}${flipFilter.silverOnly ? " · silver" : ""}${flipFilter.phase2 ? " · shooting list" : ""}${flipFilter.q.trim() && !searchIdx ? " · searching notes…" : ""}</span>
       </div>
       <div class="country-strip">${strip}</div>
       <div class="gallery-grid">${wall || '<p class="empty">No matches</p>'}</div>
@@ -2698,6 +2777,10 @@
     });
     $("#flip-p2").addEventListener("click", () => {
       flipFilter.phase2 = !flipFilter.phase2;
+      renderGallery(); saveState();
+    });
+    $("#flip-staging-clear")?.addEventListener("click", () => {
+      flipFilter.staging = false;
       renderGallery(); saveState();
     });
     lazyThumbs($("#gallery-body"));
@@ -2896,6 +2979,99 @@
       </div>
 
       <div class="lab-pro-suite">
+        <!-- 0. Pro Photo Phase 2 Staging Album & Macro Rig Queue -->
+        <div class="lab-card-pro reveal" id="phase2-staging-card" style="border:1px solid var(--gold);background:linear-gradient(135deg, rgba(200,169,74,0.08), rgba(14,16,22,0.95))">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem">
+            <div>
+              <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.35rem">
+                <span class="badge" style="font-family:var(--mono);font-size:0.75rem;background:var(--gold);color:#08090c;font-weight:700">PHYSICAL STAGING DIRECTORY</span>
+                <span class="badge" style="font-family:var(--mono);font-size:0.7rem;background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)">PHASE 2 MACRO RIG</span>
+              </div>
+              <h3 style="margin:0 0 0.35rem;font-size:1.25rem;color:var(--gold-soft)">📸 Pro Photo Phase 2 Staging Album</h3>
+              <p style="margin:0;font-size:0.85rem;color:var(--ink);max-width:760px;line-height:1.5">
+                Physical staging directory dedicated to high-resolution tethered 1:1 macro RAW/TIFF scans. AI photo generation has been halted; authentic struck planchet blueprints are active in the museum until physical studio shooting begins.
+              </p>
+            </div>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+              <button type="button" class="btn small" id="btn-copy-staging-path" title="Copy local folder path to clipboard" style="display:flex;align-items:center;gap:0.4rem">
+                📋 <span>Copy Staging Path</span>
+              </button>
+              <button type="button" class="btn small gold" id="btn-open-staging-filter" title="Filter gallery to Phase 2 Staging Masterpieces" style="display:flex;align-items:center;gap:0.4rem">
+                🔍 <span>View Staging Masterpieces (5)</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(0,0,0,0.4);border-radius:8px;border:1px dashed rgba(200,169,74,0.35);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+            <div style="font-family:var(--mono);font-size:0.8rem;color:var(--gold-soft);word-break:break-all">
+              📁 <strong>Local Staging Path:</strong> <code style="background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">d:\\AI experiements\\Titan\\repo\\photos\\phase2_pro_staging\\</code>
+            </div>
+            <span style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Format: 1:1 Macro RAW / TIFF 16-bit</span>
+          </div>
+
+          <div style="margin-top:1.2rem">
+            <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem">
+              Priority Macro Queue (Top 5 Masterpieces Awaiting Studio Session):
+            </div>
+            <div class="table-wrap" style="background:rgba(8,9,12,0.6);border-radius:8px;border:1px solid var(--line)">
+              <table class="data" style="margin:0;font-size:0.82rem">
+                <thead>
+                  <tr>
+                    <th>Scan / Ser</th>
+                    <th>Specimen &amp; Sovereign Origin</th>
+                    <th>Alloy &amp; Strike</th>
+                    <th>Valuation</th>
+                    <th>Status</th>
+                    <th style="text-align:right">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong style="color:var(--gold-soft)">C114</strong></td>
+                    <td>Mexico 1914 Chihuahua Revolutionary 5¢</td>
+                    <td>Copper / Sand Cast Ingot Strike</td>
+                    <td class="num">$125.00</td>
+                    <td><span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)">Awaiting Macro Scan</span></td>
+                    <td style="text-align:right"><button type="button" class="btn tiny" data-scan="C114">Inspect Dossier</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color:var(--gold-soft)">C223</strong></td>
+                    <td>Netherlands 1967 Juliana Silver 1 Gulden</td>
+                    <td>0.720 Fine Silver (4.68g ASW)</td>
+                    <td class="num">$16.50</td>
+                    <td><span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)">Awaiting Macro Scan</span></td>
+                    <td style="text-align:right"><button type="button" class="btn tiny" data-scan="C223">Inspect Dossier</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color:var(--gold-soft)">C073</strong></td>
+                    <td>USA 1976 Bicentennial Quarter (Washington)</td>
+                    <td>Cupro-Nickel Clad (Colonial Drummer)</td>
+                    <td class="num">$2.40</td>
+                    <td><span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)">Awaiting Macro Scan</span></td>
+                    <td style="text-align:right"><button type="button" class="btn tiny" data-scan="C073">Inspect Dossier</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color:var(--gold-soft)">C066</strong></td>
+                    <td>Switzerland 1966 Helvetia Standing 1 Franc</td>
+                    <td>0.835 Fine Silver (4.17g ASW)</td>
+                    <td class="num">$18.50</td>
+                    <td><span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)">Awaiting Macro Scan</span></td>
+                    <td style="text-align:right"><button type="button" class="btn tiny" data-scan="C066">Inspect Dossier</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong style="color:var(--gold-soft)">C065</strong></td>
+                    <td>Switzerland 1968 Helvetia Standing 1 Franc</td>
+                    <td>Cupro-Nickel First Transition Strike</td>
+                    <td class="num">$8.00</td>
+                    <td><span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)">Awaiting Macro Scan</span></td>
+                    <td style="text-align:right"><button type="button" class="btn tiny" data-scan="C065">Inspect Dossier</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
         <!-- 1. Macro Lens & Focal Plane Calculator -->
         <div class="lab-card-pro reveal" id="macro-calc-card">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem">
@@ -3065,6 +3241,45 @@
   }
 
   function initLabProSuite() {
+    // 0. Phase 2 Staging Album Handlers
+    const btnCopyPath = $("#btn-copy-staging-path");
+    if (btnCopyPath) {
+      btnCopyPath.onclick = (e) => {
+        e.preventDefault();
+        const p2Path = "d:\\AI experiements\\Titan\\repo\\photos\\phase2_pro_staging\\";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(p2Path).then(() => {
+            showToast("Copied staging folder path to clipboard!");
+          }).catch(() => {
+            showToast(p2Path);
+          });
+        } else {
+          showToast(p2Path);
+        }
+      };
+    }
+
+    const btnOpenFilter = $("#btn-open-staging-filter");
+    if (btnOpenFilter) {
+      btnOpenFilter.onclick = (e) => {
+        e.preventDefault();
+        flipFilter = { ...flipFilter, staging: true, q: "", country: "", iso: "", year: "", silverOnly: false, phase2: false };
+        cabinetTray = "all";
+        setWing("gallery");
+        renderGallery();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        showToast("Showing Pro Photo Phase 2 Staging Album (5 Masterpieces)");
+      };
+    }
+
+    $$("#phase2-staging-card button[data-scan]").forEach((btn) => {
+      btn.onclick = (e) => {
+        e.preventDefault();
+        dossierCtx = null;
+        openDrawer(btn.dataset.scan);
+      };
+    });
+
     // 1. Macro Calculator
     const sensorEl = $("#calc-sensor");
     const focalEl = $("#calc-focal");
@@ -3411,8 +3626,28 @@
     // The ledger sometimes carries markdown table separator rows ("------:") as
     // data rows; they hold no information, so drop them at render time.
     const mdSep = (s) => typeof s === "string" && /^[\s:|\-]+$/.test(s) && /[-|]/.test(s);
-    const glanceBody = glance.filter((g) => !mdSep(g.family))
-      .map((g) => `<tr><td>${esc(g.family)}</td><td class="muted ids">${esc(g.ids)}</td><td class="num">${esc(intFmt(g.coins))}</td><td class="num">${money(g.total)}</td><td class="muted">${esc(g.pulse)}</td></tr>`)
+    const stagingRow = {
+      family: "★ PRO PHOTO PHASE 2 STAGING ALBUM",
+      ids: "A-P2-STAGE",
+      coins: 5,
+      total: 170.40,
+      pulse: "Physical RAW Macro Queue · photos/phase2_pro_staging/",
+      isStaging: true
+    };
+    const combinedGlance = [stagingRow, ...glance.filter((g) => !mdSep(g.family))];
+    const glanceBody = combinedGlance
+      .map((g) => {
+        if (g.isStaging) {
+          return `<tr class="staging-album-row" style="background:rgba(200,169,74,0.12);font-weight:600;cursor:pointer" title="Click to view Pro Photo Staging Album in Lab">
+            <td><strong style="color:var(--gold-soft)">${esc(g.family)}</strong></td>
+            <td class="ids" style="color:var(--gold)">${esc(g.ids)}</td>
+            <td class="num">${esc(intFmt(g.coins))}</td>
+            <td class="num" style="color:var(--gold)">${money(g.total)}</td>
+            <td style="color:var(--gold-soft)">${esc(g.pulse)}</td>
+          </tr>`;
+        }
+        return `<tr><td>${esc(g.family)}</td><td class="muted ids">${esc(g.ids)}</td><td class="num">${esc(intFmt(g.coins))}</td><td class="num">${money(g.total)}</td><td class="muted">${esc(g.pulse)}</td></tr>`;
+      })
       .join("");
     return `
       <div class="sec-head reveal"><span class="eyebrow">Patina</span><h2>Age</h2>
@@ -3458,6 +3693,21 @@
     bindWorld();
     $$("#study-body .gem-row button[data-scan]").forEach((btn) => {
       btn.addEventListener("click", () => { dossierCtx = null; openDrawer(btn.dataset.scan); });
+    });
+    $$("#study-body .staging-album-row").forEach((row) => {
+      row.onclick = () => {
+        setWing("lab");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(() => {
+          const card = $("#phase2-staging-card");
+          if (card) {
+            card.scrollIntoView({ behavior: "smooth", block: "center" });
+            card.classList.remove("highlight-pulse");
+            void card.offsetWidth;
+            card.classList.add("highlight-pulse");
+          }
+        }, 150);
+      };
     });
     observeReveals($("#study-body"));
   }

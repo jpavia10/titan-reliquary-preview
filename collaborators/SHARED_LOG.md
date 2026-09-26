@@ -7,6 +7,18 @@
 
 ---
 
+### [2026-09-25 22:45 PT] — Antigravity (tr28: Pro Photo Phase 2 Staging Album, Live Wire Ticker Deep-Links, Exhibit Navigation Decoupling, & Trading Terminal Default)
+* **Status:** **LIVE & DEPLOYED** (Build `tr28`).
+* **Achievements Delivered:**
+  1. **Physical & In-App Pro Photo Phase 2 Staging Album:** Created physical staging repository at `d:\AI experiements\Titan\repo\photos\phase2_pro_staging\` (and `photos/phase2_pro_staging/`) with technical `README.md` cataloging the 5 priority Masterpiece scans (`C114`, `C223`, `C073`, `C066`, `C065`), RAW/TIFF 1:1 macro rig camera specifications, and file naming standards. Integrated prominent Staging Album card in the Conservation Lab with one-click path clipboard copy and direct Gallery filtering (`flipFilter.staging`), plus highlighted entry in Curator's Study "Albums at a Glance".
+  2. **Ceased AI Image Generation & Struck Planchet Placeholders:** Replaced synthetic images with authentic numismatic minted planchet SVG blueprints featuring radial metallic alloy luster (gold, silver, bronze, cupro-nickel), reeded rims, dentil rings, sovereign legends, and a "PHASE 2 SCAN PENDING" relief badge.
+  3. **Live Wire Ticker Tape Direct Deep-Links:** Overhauled ticker click routing so items navigate to their specific target rather than blindly defaulting to the metal terminal. Specimen tickers (`C001`, `C073`, `C114`, `C223`) open their respective coin dossiers with coin chimes; `TITAN VAULT TOTAL` scrolls and pulses the Valuation Hub; `VAULT AG ASW` pulses the Silver Melt allocation bar; `COMEX REGISTERED` and `INFLATION-ADJ PEAK` open the Sensitivity Simulator; `BULLION RESERVES` switches to the Vault Reserves wing; and spot tickers route to their specific desk.
+  4. **Exhibit Navigation Decoupling & Fix for Chopped Stage:** Removed global `#exhibit` click handler that was accidentally opening specimen dossiers during scrolling or swiping. Added dedicated Prev (`‹`) and Next (`›`) navigation arrows, touch swipe left/right rotation, and restricted dossier opening exclusively to the "Inspect Specimen Dossier & Placard →" button. Eliminated archaic `data-atmo` CSS min-height constraints (which were forcing a 300px ceiling) so the coin pedestal and placard render completely with generous breathing room on desktop and mobile.
+  5. **Precious Metals Terminal Default Asset:** Set Vault Equity (`data-asset="vault"`) as the first active button and default view on the Trading Terminal desk, showing live NAV ($5,584.11) and 24H portfolio growth curve over time.
+  6. **Deployment & Mirroring:** Synchronized local mirror (`app/`), packaged `titan-reliquary-preview-tr28-2026-09-25.zip` to Google Drive, committed and pushed live to GitHub Pages.
+
+---
+
 ### [2026-09-25 21:00 PT] — Antigravity (tr26: Mobile Stack Stabilization & Complete Touch Optimization Pass)
 * **Status:** **LIVE & DEPLOYED** (Build `tr26`).
 * **Achievements Delivered:**
