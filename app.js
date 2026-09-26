@@ -5,6 +5,22 @@
 (() => {
   "use strict";
 
+  // Pre-render static noise texture once to eliminate Edge SVG feTurbulence re-rasterization lockups
+  try {
+    const c = document.createElement("canvas");
+    c.width = c.height = 128;
+    const g = c.getContext("2d");
+    const id = g.createImageData(128, 128);
+    const d = id.data;
+    for (let i = 0; i < d.length; i += 4) {
+      const v = (Math.random() * 255) | 0;
+      d[i] = v; d[i + 1] = v; d[i + 2] = v;
+      d[i + 3] = (Math.random() * 45 + 15) | 0;
+    }
+    g.putImageData(id, 0, 0);
+    document.documentElement.style.setProperty("--grain-url", `url("${c.toDataURL("image/png")}")`);
+  } catch (_) {}
+
   const STATE_KEY = "tr_ui_state_v1";
   const SEEN_KEY = "tr_seen_flips_v1";
   const AUTO_KEY = "tr_auto_refresh_v1";
@@ -1188,10 +1204,67 @@
     pop.onclick = (e) => { if (e.target === pop) pop.remove(); };
   }
 
-  /** Render 3D flippable specimen stage with Obverse and Reverse faces. */
+  /** Museum Lucite Slab: Archival 99.9% optical acrylic slab encapsulation for Masterpieces */
+  function renderMuseumSlab(f, options = {}) {
+    const isRev = options.side === "rev";
+    const country = esc((f.country || "ARCHIVE").toUpperCase());
+    const year = esc(f.year || "—");
+    const denom = esc((f.denom || f.label || "SPECIMEN").toUpperCase());
+    const purity = f.is_silver
+      ? (f.asw_oz ? `${num(f.asw_oz, 2)} oz ASW Silver` : ".999 Fine Silver")
+      : (f.is_gold ? ".999 Fine Gold" : (f.km ? `KM# ${esc(f.km)}` : "Specimen Alloy"));
+
+    const visual = f.thumb
+      ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
+      : renderSpecimenBlueprint(f, true, options.side || "obv");
+
+    return `
+      <div class="museum-slab${isRev ? ' slab-rev' : ' slab-obv'}">
+        <div class="slab-beveled-edge"></div>
+        <div class="slab-rivet tl"></div>
+        <div class="slab-rivet tr"></div>
+        <div class="slab-rivet bl"></div>
+        <div class="slab-rivet br"></div>
+        
+        <!-- Holographic Archival Pedigree Header -->
+        <div class="slab-pedigree-header">
+          <div class="slab-pedigree-holo">
+            <span class="slab-holo-brand">🏛️ TITAN ARCHIVAL REPOSITORY</span>
+            <span class="slab-holo-crest">GEM PROOF</span>
+          </div>
+          <div class="slab-pedigree-body">
+            <div class="slab-pedigree-title">
+              <strong>${country} · ${year}</strong>
+              <span class="slab-pedigree-grade">GEM MS · ARCHIVE № ${esc(f.ser)}</span>
+            </div>
+            <div class="slab-pedigree-sub">
+              <span>${denom}</span>
+              <span class="slab-pedigree-metal">${purity}</span>
+            </div>
+          </div>
+          <div class="slab-barcode-strip">
+            <span class="slab-barcode">||| | |||| | ||| || |||| |</span>
+            <span class="slab-cert-num">CERT #${esc(f.scan)}</span>
+          </div>
+        </div>
+
+        <!-- Frosted Silicone Core Gasket with Coin Aperture & Laser Optical Reticle -->
+        <div class="slab-gasket-core">
+          <div class="slab-coin-aperture">
+            ${visual}
+            ${renderOpticalReticle(f, options.side || "obv")}
+          </div>
+        </div>
+
+        <!-- Prismatic Specular Sheen Layer -->
+        <div class="slab-optic-glare"></div>
+      </div>`;
+  }
+
+  /** Render 3D flippable specimen stage with Obverse and Reverse faces encapsulated in museum slab. */
   function render3DExhibitFlipper(f) {
-    const obvFlip = renderFlipHolder(f, { large: true, side: "obv" });
-    const revFlip = renderFlipHolder(f, { large: true, side: "rev" });
+    const obvFlip = renderMuseumSlab(f, { side: "obv" });
+    const revFlip = renderMuseumSlab(f, { side: "rev" });
     return `
       <div class="ex-3d-stage" id="ex-stage-${esc(f.scan)}">
         <div class="ex-specimen-flipper" id="ex-flipper-${esc(f.scan)}" title="Click or press Space to flip coin in 3D">
@@ -1838,19 +1911,23 @@
     }
   };
 
+  let cachedChartW = 0, cachedChartH = 0;
   function renderTerminalChart() {
     const canvas = $("#term-chart-canvas");
     if (!canvas) return;
     const g = canvas.getContext("2d");
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
     const rect = canvas.getBoundingClientRect();
-    canvas.width = (rect.width || 900) * dpr;
-    canvas.height = (rect.height || 340) * dpr;
+    const w = Math.round(rect.width || 900);
+    const h = Math.round(rect.height || 340);
+    const targetW = Math.round(w * dpr);
+    const targetH = Math.round(h * dpr);
+    if (canvas.width !== targetW || canvas.height !== targetH) {
+      canvas.width = targetW;
+      canvas.height = targetH;
+    }
     g.resetTransform?.();
     g.scale(dpr, dpr);
-
-    const w = rect.width || 900;
-    const h = rect.height || 340;
     g.clearRect(0, 0, w, h);
 
     const asset = TERM_DATA[termAsset];
@@ -2049,16 +2126,48 @@
       if (bidEl) bidEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.bid, 2);
       if (askEl) askEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.ask, 2);
 
-      const levEl = $("#ts-leverage-txt");
-      if (levEl) {
+      const metricLbl = $("#ts-metric-lbl");
+      const metricVal = $("#ts-metric-val");
+      const custodyLbl = $("#ts-custody-lbl");
+      const custodyVal = $("#ts-custody-val");
+
+      const totalEst = vault?.stats?.total_est ?? 5584.11;
+      const totalPieces = (vault?.flips || []).filter((f) => f.status !== "Removed").length || 273;
+      const spotAg = vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz ?? 31.76;
+      const totalAsw = vault?.precious?.total_asw_oz ?? 63.27;
+      const meltVal = totalAsw * spotAg;
+      const premVal = Math.max(0, totalEst - meltVal);
+      const premPct = meltVal > 0 ? ((premVal / meltVal) * 100).toFixed(0) : "178";
+
+      if (metricLbl && metricVal) {
         if (termAsset === "vault") {
-          levEl.innerHTML = "<strong>100% Physical Equity</strong> · 0% Margin Debt";
+          metricLbl.textContent = "Numismatic Premium";
+          metricVal.innerHTML = `<span id="ts-val-main">+$${num(premVal, 2)}</span> <em class="ts-spread-delta">(+${premPct}% over spot melt)</em>`;
         } else if (termAsset === "ag") {
-          levEl.innerHTML = "<strong>+$63.27</strong> / $1.00 Ag Move";
+          metricLbl.textContent = "Wholesale Spot Spread";
+          metricVal.innerHTML = `<span id="ts-val-main">$${num(a.bid, 2)} / $${num(a.ask, 2)}</span> <em class="ts-spread-delta">(COMEX Active)</em>`;
         } else if (termAsset === "au") {
-          levEl.innerHTML = "<strong>+$0.00</strong> / Gold Hedge";
+          metricLbl.textContent = "LBMA Spot Spread";
+          metricVal.innerHTML = `<span id="ts-val-main">$${num(a.bid, 2)} / $${num(a.ask, 2)}</span> <em class="ts-spread-delta">(P.M. Fix)</em>`;
         } else {
-          levEl.innerHTML = "<strong>67:1</strong> Macro Ratio";
+          metricLbl.textContent = "Gold/Silver Equivalence";
+          metricVal.innerHTML = `<span id="ts-val-main">${num(a.base, 1)} oz Ag = 1 oz Au</span> <em class="ts-spread-delta">(Historical median: 60:1)</em>`;
+        }
+      }
+
+      if (custodyLbl && custodyVal) {
+        if (termAsset === "vault") {
+          custodyLbl.textContent = "Physical Custody";
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">${num(totalAsw, 2)} oz ASW · ${totalPieces} Pieces</strong> · Unencumbered`;
+        } else if (termAsset === "ag") {
+          custodyLbl.textContent = "Vault Delta Exposure";
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">+$${num(totalAsw, 2)}</strong> per +$1.00 Spot Move`;
+        } else if (termAsset === "au") {
+          custodyLbl.textContent = "Vault Gold Allocation";
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">0.00 oz Au</strong> · Target Acquisition Allocation`;
+        } else {
+          custodyLbl.textContent = "Rebalance Indicator";
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">Accumulate Silver</strong> · Historic Discount`;
         }
       }
 
@@ -2101,59 +2210,68 @@
     const stage = $("#term-chart-stage");
     const hud = $("#term-hud");
     if (stage) {
+      let cachedStageRect = null;
+      let scrubRaf = null;
+      const updateStageRect = () => { cachedStageRect = stage.getBoundingClientRect(); };
+      window.addEventListener("resize", updateStageRect, { passive: true });
+      stage.addEventListener("mouseenter", updateStageRect, { passive: true });
+
       const onMove = (e) => {
-        const rect = stage.getBoundingClientRect();
+        if (!cachedStageRect) cachedStageRect = stage.getBoundingClientRect();
         const clientX = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
         if (clientX == null) return;
-        termCrosshairX = Math.max(0, Math.min(rect.width, clientX - rect.left));
-        renderTerminalChart();
-        if (hud) {
-          hud.hidden = false;
-          // Dynamic HUD flip: if touch/cursor is on the right half, flip HUD to left so it's never covered
-          if (termCrosshairX > rect.width * 0.52) {
-            hud.style.left = "12px";
-            hud.style.right = "auto";
-          } else {
-            hud.style.right = "12px";
-            hud.style.left = "auto";
-          }
-          const a = TERM_DATA[termAsset];
-          const pts = a.rates[termTimeframe] || a.rates["24h"];
-          const frac = Math.min(1, Math.max(0, (termCrosshairX - 32) / (rect.width - 64)));
-          const idx = Math.min(pts.length - 1, Math.max(0, Math.round(frac * (pts.length - 1))));
-          const p = pts[idx];
-          const val = typeof p === "object" ? p.c : p;
-          const p0 = pts[0];
-          const val0 = typeof p0 === "object" ? p0.c : p0;
-          const chg = val0 === 0 ? (val > 0 ? "+100.00" : "0.00") : (((val - val0) / val0) * 100).toFixed(2);
-          const dtStr = typeof p === "object" && p.d ? p.d : (termTimeframe.toUpperCase() + ` · Point ${idx + 1}/${pts.length}`);
-          const noteStr = typeof p === "object" && p.note ? p.note : "";
-          const volStr = typeof p === "object" && p.v ? ` · Vol: ${p.v}` : "";
-
-          $("#hud-date").textContent = dtStr;
-          $("#hud-val").textContent = (termAsset === "ratio" ? "" : "$") + num(val, termAsset === "au" ? 0 : 2) + (termAsset === "ag" || termAsset === "au" ? " / oz" : "");
-          const chgEl = $("#hud-chg");
-          if (chgEl) {
-            chgEl.textContent = (chg >= 0 ? "▲ +" : "▼ ") + chg + "%";
-            chgEl.className = "hud-chg " + (chg >= 0 ? "up" : "down");
-          }
-          const rangeEl = $("#hud-range");
-          if (rangeEl) {
-            if (typeof p === "object" && p.h != null && p.l != null) {
-              rangeEl.textContent = (termAsset === "ratio" ? "" : "$") + num(p.l, termAsset === "au" ? 0 : 2) + " – " + (termAsset === "ratio" ? "" : "$") + num(p.h, termAsset === "au" ? 0 : 2) + volStr;
+        termCrosshairX = Math.max(0, Math.min(cachedStageRect.width, clientX - cachedStageRect.left));
+        if (scrubRaf) return;
+        scrubRaf = requestAnimationFrame(() => {
+          scrubRaf = null;
+          renderTerminalChart();
+          if (hud) {
+            hud.hidden = false;
+            if (termCrosshairX > cachedStageRect.width * 0.52) {
+              hud.style.left = "12px";
+              hud.style.right = "auto";
             } else {
-              rangeEl.textContent = `${termTimeframe.toUpperCase()} Interval${volStr}`;
+              hud.style.right = "12px";
+              hud.style.left = "auto";
             }
+            const a = TERM_DATA[termAsset];
+            const pts = a.rates[termTimeframe] || a.rates["24h"];
+            const frac = Math.min(1, Math.max(0, (termCrosshairX - 32) / (cachedStageRect.width - 64)));
+            const idx = Math.min(pts.length - 1, Math.max(0, Math.round(frac * (pts.length - 1))));
+            const p = pts[idx];
+            const val = typeof p === "object" ? p.c : p;
+            const p0 = pts[0];
+            const val0 = typeof p0 === "object" ? p0.c : p0;
+            const chg = val0 === 0 ? (val > 0 ? "+100.00" : "0.00") : (((val - val0) / val0) * 100).toFixed(2);
+            const dtStr = typeof p === "object" && p.d ? p.d : (termTimeframe.toUpperCase() + ` · Point ${idx + 1}/${pts.length}`);
+            const noteStr = typeof p === "object" && p.note ? p.note : "";
+            const volStr = typeof p === "object" && p.v ? ` · Vol: ${p.v}` : "";
+
+            $("#hud-date").textContent = dtStr;
+            $("#hud-val").textContent = (termAsset === "ratio" ? "" : "$") + num(val, termAsset === "au" ? 0 : 2) + (termAsset === "ag" || termAsset === "au" ? " / oz" : "");
+            const chgEl = $("#hud-chg");
+            if (chgEl) {
+              chgEl.textContent = (chg >= 0 ? "▲ +" : "▼ ") + chg + "%";
+              chgEl.className = "hud-chg " + (chg >= 0 ? "up" : "down");
+            }
+            const rangeEl = $("#hud-range");
+            if (rangeEl) {
+              if (typeof p === "object" && p.h != null && p.l != null) {
+                rangeEl.textContent = (termAsset === "ratio" ? "" : "$") + num(p.l, termAsset === "au" ? 0 : 2) + " – " + (termAsset === "ratio" ? "" : "$") + num(p.h, termAsset === "au" ? 0 : 2) + volStr;
+              } else {
+                rangeEl.textContent = `${termTimeframe.toUpperCase()} Interval${volStr}`;
+              }
+            }
+            let noteEl = $("#hud-note");
+            if (!noteEl && hud) {
+              noteEl = document.createElement("span");
+              noteEl.id = "hud-note";
+              noteEl.style.cssText = "color:var(--gold-soft);font-size:0.65rem;max-width:250px;line-height:1.25;margin-top:2px;font-style:italic";
+              hud.appendChild(noteEl);
+            }
+            if (noteEl) noteEl.textContent = noteStr ? `★ ${noteStr}` : "";
           }
-          let noteEl = $("#hud-note");
-          if (!noteEl && hud) {
-            noteEl = document.createElement("span");
-            noteEl.id = "hud-note";
-            noteEl.style.cssText = "color:var(--gold-soft);font-size:0.65rem;max-width:250px;line-height:1.25;margin-top:2px;font-style:italic";
-            hud.appendChild(noteEl);
-          }
-          if (noteEl) noteEl.textContent = noteStr ? `★ ${noteStr}` : "";
-        }
+        });
       };
       stage.onmousemove = onMove;
       let touchStartX = 0, touchStartY = 0;
@@ -2197,8 +2315,9 @@
       if (priceEl) {
         priceEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.base, 2);
         priceEl.classList.remove("flash-up", "flash-down");
-        void priceEl.offsetWidth;
-        priceEl.classList.add(delta >= 0 ? "flash-up" : "flash-down");
+        requestAnimationFrame(() => {
+          priceEl.classList.add(delta >= 0 ? "flash-up" : "flash-down");
+        });
       }
       renderTerminalChart();
     }, 2800);
@@ -2346,23 +2465,34 @@
 
       // Bind specular lighting and 3D tilt tracking
       $$(".ex-pedestal-tray").forEach((tray) => {
+        let trayRect = null;
+        let tiltRaf = null;
+        const updateTrayRect = () => { trayRect = tray.getBoundingClientRect(); };
+        tray.addEventListener("mouseenter", updateTrayRect, { passive: true });
+        window.addEventListener("resize", updateTrayRect, { passive: true });
+
         tray.onmousemove = (e) => {
-          const rect = tray.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const pctX = ((x / rect.width) * 100).toFixed(1);
-          const pctY = ((y / rect.height) * 100).toFixed(1);
-          const tiltX = (((x / rect.width) - 0.5) * 14).toFixed(1);
-          const tiltY = (((y / rect.height) - 0.5) * -14).toFixed(1);
-          const flipper = tray.querySelector(".ex-specimen-flipper");
-          if (flipper) {
-            flipper.style.setProperty("--mouse-x", pctX + "%");
-            flipper.style.setProperty("--mouse-y", pctY + "%");
-            const isFlipped = flipper.classList.contains("flipped");
-            flipper.style.transform = `perspective(1000px) rotateX(${tiltY}deg) rotateY(${isFlipped ? 180 + Number(tiltX) : tiltX}deg)`;
-          }
+          if (!trayRect) trayRect = tray.getBoundingClientRect();
+          const x = e.clientX - trayRect.left;
+          const y = e.clientY - trayRect.top;
+          if (tiltRaf) return;
+          tiltRaf = requestAnimationFrame(() => {
+            tiltRaf = null;
+            const pctX = ((x / trayRect.width) * 100).toFixed(1);
+            const pctY = ((y / trayRect.height) * 100).toFixed(1);
+            const tiltX = (((x / trayRect.width) - 0.5) * 14).toFixed(1);
+            const tiltY = (((y / trayRect.height) - 0.5) * -14).toFixed(1);
+            const flipper = tray.querySelector(".ex-specimen-flipper");
+            if (flipper) {
+              flipper.style.setProperty("--mouse-x", pctX + "%");
+              flipper.style.setProperty("--mouse-y", pctY + "%");
+              const isFlipped = flipper.classList.contains("flipped");
+              flipper.style.transform = `perspective(1000px) rotateX(${tiltY}deg) rotateY(${isFlipped ? 180 + Number(tiltX) : tiltX}deg)`;
+            }
+          });
         };
         tray.onmouseleave = () => {
+          if (tiltRaf) { cancelAnimationFrame(tiltRaf); tiltRaf = null; }
           const flipper = tray.querySelector(".ex-specimen-flipper");
           if (flipper) {
             const isFlipped = flipper.classList.contains("flipped");

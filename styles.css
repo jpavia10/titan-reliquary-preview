@@ -191,7 +191,7 @@ body::before {
   will-change: transform;
   transform: translate3d(0, 0, 0);
 }
-/* faint film grain over everything (pointer-transparent, GPU texture promoted) */
+/* faint film grain over everything (pointer-transparent, GPU texture promoted, static texture eliminates Edge SVG feTurbulence lockups) */
 body::after {
   content: "";
   position: fixed;
@@ -199,9 +199,9 @@ body::after {
   z-index: 5;
   pointer-events: none;
   opacity: var(--grain-op);
-  will-change: opacity;
   transform: translateZ(0);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+  contain: strict;
+  background-image: var(--grain-url, none);
 }
 
 #app {
@@ -1714,10 +1714,11 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   box-shadow: var(--shadow);
   padding: 0.55rem 0.7rem;
   color: var(--ink);
+  transform: translateZ(0);
 }
 .lofi-bar[hidden] { display: none; }
 @media (min-width: 701px) {
-  .lofi-bar { left: auto; right: 1.25rem; width: 480px; bottom: calc(var(--nav-h, 66px) + env(safe-area-inset-bottom) + 0.5rem); }
+  .lofi-bar { left: auto; right: 1.25rem; width: 480px; bottom: calc(var(--nav-h, 66px) + env(safe-area-inset-bottom) + 0.5rem); transform: translateZ(0); }
 }
 .nowrap { white-space: nowrap; }
 .foot #foot-path .ft-sep { margin: 0 0.15em; }
@@ -1798,6 +1799,9 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   height: 100vh;
   z-index: 6;
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
+  contain: strict;
 }
 #rain-canvas[hidden] { display: none; }
 
@@ -2138,10 +2142,26 @@ main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1.25rem
   z-index: 60;
   display: flex;
   background: var(--drawerbar-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--line-strong);
   padding-bottom: env(safe-area-inset-bottom);
+  transform: translateZ(0);
+  transition: all 0.3s var(--ease-out);
+}
+@media (min-width: 768px) {
+  .wings {
+    left: 50%;
+    right: auto;
+    bottom: 0.85rem;
+    transform: translateX(-50%) translateZ(0);
+    width: min(640px, calc(100vw - 2rem));
+    border-radius: 20px;
+    border: 1px solid var(--line-strong);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    padding: 0 0.5rem;
+    overflow: hidden;
+  }
 }
 .wing {
   flex: 1 1 0;
@@ -5767,8 +5787,8 @@ html[data-atmo="conservator"] .hero-grand {
 }
 .ex-specimen-flipper {
   position: relative;
-  width: 260px;
-  height: 260px;
+  width: 270px;
+  height: 330px;
   transform-style: preserve-3d;
   transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
@@ -5781,17 +5801,189 @@ html[data-atmo="conservator"] .hero-grand {
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 .ex-card-side.reverse-side {
   transform: rotateY(180deg);
+}
+
+/* ================= Museum Lucite Slab (Phase B Blueprint) ================= */
+.museum-slab {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.12) 0%, rgba(18, 22, 30, 0.82) 35%, rgba(6, 8, 12, 0.94) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.5), 
+    inset 0 -1px 3px rgba(0, 0, 0, 0.7), 
+    0 24px 60px rgba(0, 0, 0, 0.9), 
+    0 0 0 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  contain: layout;
+}
+
+.slab-beveled-edge {
+  position: absolute;
+  inset: 2px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Precision Corner Rivets */
+.slab-rivet {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #cbd5e1 50%, #334155 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), inset 0 0.5px 0.5px #fff;
+  z-index: 5;
+}
+.slab-rivet.tl { top: 7px; left: 7px; }
+.slab-rivet.tr { top: 7px; right: 7px; }
+.slab-rivet.bl { bottom: 7px; left: 7px; }
+.slab-rivet.br { bottom: 7px; right: 7px; }
+
+/* Holographic Archival Pedigree Header */
+.slab-pedigree-header {
+  position: relative;
+  margin: 10px 10px 0;
+  border-radius: 8px 8px 4px 4px;
+  overflow: hidden;
+  background: #0c0e14;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 3;
+}
+.slab-pedigree-holo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 8px;
+  background: linear-gradient(90deg, #d97706, #38bdf8, #ec4899, #d97706);
+  background-size: 200% auto;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+.slab-pedigree-body {
+  padding: 4px 8px;
+  background: rgba(15, 23, 42, 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.slab-pedigree-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.72rem;
+  color: #f8fafc;
+  font-family: var(--font);
+}
+.slab-pedigree-grade {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+.slab-pedigree-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.62rem;
+  color: var(--muted);
+}
+.slab-pedigree-metal {
+  color: #93c5fd;
+  font-weight: 600;
+}
+.slab-barcode-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 8px 3px;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  color: #94a3b8;
+  background: #06080d;
+}
+.slab-barcode {
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+}
+
+/* Frosted Silicone Core Gasket with Coin Aperture */
+.slab-gasket-core {
+  position: relative;
+  flex: 1;
+  margin: 8px 10px 10px;
+  border-radius: 6px;
+  background: radial-gradient(circle at 50% 50%, #151922 0%, #0a0d14 90%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slab-coin-aperture {
+  position: relative;
+  width: 184px;
+  height: 184px;
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 3px 12px rgba(0, 0, 0, 0.9), 
+    0 0 0 3px rgba(255, 255, 255, 0.04), 
+    0 0 0 4px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+.slab-coin-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+.slab-optic-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, transparent 40%, rgba(255, 255, 255, 0.06) 60%, transparent 80%);
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+  z-index: 6;
+}
+
+@media (max-width: 480px) {
+  .ex-specimen-flipper {
+    width: 240px;
+    height: 295px;
+  }
+  .slab-coin-aperture {
+    width: 160px;
+    height: 160px;
+  }
 }
 
 /* Dynamic Specular Spotlight Glint */
 .ex-specular-glare {
   position: absolute;
   inset: 0;
-  border-radius: 12px;
+  border-radius: 16px;
   pointer-events: none;
   background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.18) 0%, transparent 60%);
   mix-blend-mode: overlay;

@@ -306,8 +306,12 @@
   });
 
   bar.addEventListener("click", (e) => {
-    const opt = e.target.closest("[data-station]");
-    if (opt) { setStation(opt.dataset.station, true); return; }
+    const opt = e.target.closest(".station-opt[data-station]");
+    if (opt) {
+      setStation(opt.dataset.station, true);
+      stationMenu.hidden = true;
+      return;
+    }
     const b = e.target.closest("[data-act]");
     if (!b) return;
     const act = b.dataset.act;
