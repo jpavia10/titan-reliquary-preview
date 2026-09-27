@@ -1911,7 +1911,12 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   z-index: 70;
   top: 4.2rem;
   right: 1rem;
-  width: min(320px, calc(100vw - 2rem));
+  width: min(340px, calc(100vw - 2rem));
+  max-height: calc(100vh - 5.5rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(200, 169, 74, 0.4) transparent;
   background: var(--drawerbar-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -1919,6 +1924,16 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   border-radius: 18px;
   box-shadow: var(--shadow), 0 0 0 1px rgba(212, 175, 106, 0.06);
   padding: 0.85rem 0.95rem 1rem;
+}
+.ambient-panel::-webkit-scrollbar {
+  width: 5px;
+}
+.ambient-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ambient-panel::-webkit-scrollbar-thumb {
+  background: rgba(200, 169, 74, 0.35);
+  border-radius: 999px;
 }
 .ambient-panel[hidden] { display: none; }
 .ambient-head {
@@ -1975,6 +1990,18 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
 }
 .amb-intensity-top strong { color: var(--gold-soft); font-weight: 600; }
 .amb-intensity input[type="range"] { width: 100%; accent-color: #7db4d8; cursor: pointer; }
+.amb-reverb-bar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+.amb-reverb-btn {
+  font-size: 0.72rem; padding: 0.25rem 0.55rem; border: 1px solid var(--line);
+  background: var(--surface2); color: var(--muted); border-radius: 999px;
+  cursor: pointer; transition: all 0.15s ease;
+}
+.amb-reverb-btn:hover { border-color: var(--gold-soft); color: #fff; }
+.amb-reverb-btn.active {
+  border-color: var(--gold); background: rgba(200, 169, 74, 0.22);
+  color: var(--gold-soft); font-weight: 700; box-shadow: 0 0 10px rgba(200, 169, 74, 0.25);
+}
+.amb-eq-strip input[type="range"] { accent-color: var(--gold); height: 4px; cursor: pointer; }
 .ambient-row {
   display: flex;
   align-items: center;

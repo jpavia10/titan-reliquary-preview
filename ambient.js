@@ -51,6 +51,10 @@
     bambooClack:  { label: "Shishi-odoshi bamboo"   },
     omDrone:      { label: "Resonant 108Hz Om"      },
     caravanBells: { label: "Caravan bronze bells"   },
+    pour:         { label: "Crucible molten pour"   },
+    quartz:       { label: "432Hz Quartz crystal"   },
+    pulsar:       { label: "Deep space pulsar"      },
+    patter:       { label: "Skylight rain patter"   },
   };
 
   const ORDER = [...Object.keys(RECORDED), ...Object.keys(SYNTH)];
@@ -59,64 +63,84 @@
   // 20 Dedicated Theme Presets + Classic Aliases
   const PRESETS = {
     nocturne:    { name: "Nocturne", desc: "Rain on midnight streets, vintage vinyl crackle, distant jazz murmur, and cool night wind.",
-                   mix: { rain: 0.70, vinyl: 0.55, crowd: 0.30, wind: 0.25, drone: 0.15 },
+                   mix: { rain: 0.70, vinyl: 0.55, crowd: 0.30, wind: 0.25, patter: 0.45, drone: 0.15 },
+                   reverb: "cathedral", reverbMix: 0.28,
                    fx: { rain: true, mist: true } },
-    afterhours:  { name: "After Hours", desc: "Quiet gallery at 2 AM — skylight rain, vinyl warmth, and deep sub drone.",
-                   mix: { rain: 0.85, vinyl: 0.45, drone: 0.35, gust: 0.25 },
-                   fx: { rain: true, mist: true } },
+    afterhours:  { name: "After Hours", desc: "Quiet gallery at 2 AM — skylight rain patter, vinyl warmth, and deep sub drone.",
+                   mix: { rain: 0.85, vinyl: 0.45, patter: 0.60, drone: 0.35, gust: 0.25 },
+                   reverb: "cathedral", reverbMix: 0.32,
+                   fx: { rain: true, mist: true, cymatics: true } },
     conservator: { name: "Conservator", desc: "Restoration atelier: antique clockwork ticking, low hearthfire, and archival paper quiet.",
                    mix: { clockwork: 0.70, fire: 0.55, office: 0.45, crackle: 0.30 },
+                   reverb: "atelier", reverbMix: 0.22,
                    fx: { embers: true, mist: true } },
-    colossus:    { name: "Colossus", desc: "Forging great empires: anvil clanks, deep iron furnace drone, and leaping forge sparks.",
-                   mix: { clank: 0.85, drone: 0.60, fire: 0.50, crackle: 0.65 },
+    colossus:    { name: "Colossus", desc: "Forging great empires: anvil clanks, molten crucible pour, deep furnace drone, and leaping forge sparks.",
+                   mix: { clank: 0.85, pour: 0.70, drone: 0.60, fire: 0.50, crackle: 0.65 },
+                   reverb: "cathedral", reverbMix: 0.30,
                    fx: { embers: true, mist: true } },
     odyssey:     { name: "Odyssey", desc: "Open sea voyage: surging ocean surf, sweeping wind swells, and far seabirds.",
                    mix: { ocean: 0.85, gust: 0.60, wind: 0.45, forest: 0.35 },
+                   reverb: "cavern", reverbMix: 0.35,
                    fx: { mist: true, caustics: true } },
     cursedwing:  { name: "Cursed Wing", desc: "Thirteenth hour: abyssal drone, cavern water plinks, and sudden violent lightning.",
                    mix: { drone: 0.85, cavern: 0.70, thunder: 0.75, gust: 0.45 },
+                   reverb: "cavern", reverbMix: 0.45,
                    fx: { lightning: true, embers: true } },
-    kaleido:     { name: "Kaleidoscope", desc: "Psychedelic sanctuary: 432Hz singing bowl, wind chimes, and shimmering auroras.",
-                   mix: { bowl: 0.85, chimes: 0.70, drone: 0.40, gust: 0.30 },
-                   fx: { aurora: true, stars: true } },
+    kaleido:     { name: "Kaleidoscope", desc: "Psychedelic sanctuary: 432Hz quartz crystal bowl, wind chimes, and shimmering auroras.",
+                   mix: { quartz: 0.85, bowl: 0.70, chimes: 0.65, drone: 0.40, gust: 0.30 },
+                   reverb: "cavern", reverbMix: 0.38,
+                   fx: { aurora: true, stars: true, cymatics: true } },
     abyss:       { name: "Sunken Treasury", desc: "Forty fathoms deep: ocean pressure, echoing cavern drops, and refracted sun caustics.",
                    mix: { ocean: 0.80, cavern: 0.70, drone: 0.65, belltoll: 0.35 },
+                   reverb: "cavern", reverbMix: 0.48,
                    fx: { caustics: true, mist: true } },
     neon:        { name: "Neon Vault", desc: "Cyberpunk rain: wet asphalt, machine hum, and distant electronic thunder.",
-                   mix: { scifi: 0.70, rain: 0.65, drone: 0.45, thunder: 0.30 },
+                   mix: { scifi: 0.70, rain: 0.65, patter: 0.50, drone: 0.45, thunder: 0.30 },
+                   reverb: "cavern", reverbMix: 0.25,
                    fx: { rain: true, lightning: true } },
     notepad:     { name: "Plaintext", desc: "Monastic stillness: soft room tone, quiet antique clockwork, and calm mind.",
                    mix: { office: 0.50, clockwork: 0.40, drone: 0.15 },
+                   reverb: "atelier", reverbMix: 0.15,
                    fx: { stars: true } },
     construct:   { name: "The Construct", desc: "Machine room: rhythmic industrial hum, sub-bass drone, and green phosphor matrix streams.",
                    mix: { scifi: 0.80, drone: 0.65, clank: 0.45 },
+                   reverb: "atelier", reverbMix: 0.20,
                    fx: { dataGrid: true } },
-    xeno:        { name: "Xenohold", desc: "Extraterrestrial relay: cosmic radio signal, deep space drone, and singing bowl resonance.",
-                   mix: { scifi: 0.75, drone: 0.60, bowl: 0.55, gust: 0.35 },
+    xeno:        { name: "Xenohold", desc: "Extraterrestrial relay: deep space pulsar, cosmic radio signal, sub drone, and quartz crystal resonance.",
+                   mix: { pulsar: 0.80, scifi: 0.70, drone: 0.60, quartz: 0.55, gust: 0.35 },
+                   reverb: "cavern", reverbMix: 0.40,
                    fx: { aurora: true, stars: true } },
-    solaris:     { name: "Solaris", desc: "Solar observatory: solar wind flares, singing bowl 432Hz, and radiant corona sparks.",
-                   mix: { drone: 0.80, bowl: 0.70, gust: 0.50, fire: 0.35 },
-                   fx: { aurora: true, embers: true } },
-    alchemist:   { name: "Alchemist", desc: "Hermetic laboratory: bubbling crucible, antique clockwork, and rising sparks.",
-                   mix: { fire: 0.75, crackle: 0.65, clockwork: 0.50, office: 0.35 },
+    solaris:     { name: "Solaris", desc: "Solar observatory: solar wind flares, cosmic pulsar beacon, singing bowl 432Hz, and radiant corona sparks.",
+                   mix: { pulsar: 0.65, drone: 0.80, bowl: 0.70, gust: 0.50, fire: 0.35 },
+                   reverb: "cathedral", reverbMix: 0.30,
+                   fx: { aurora: true, embers: true, cymatics: true } },
+    alchemist:   { name: "Alchemist", desc: "Hermetic laboratory: molten crucible pour, bubbling retorts, antique clockwork, and rising sparks.",
+                   mix: { pour: 0.75, fire: 0.70, crackle: 0.60, clockwork: 0.50, office: 0.35 },
+                   reverb: "atelier", reverbMix: 0.28,
                    fx: { embers: true, mist: true } },
     glacier:     { name: "Hyperborean", desc: "Sub-zero polar gale: arctic blizzard howl, crystalline ice, and emerald auroras.",
                    mix: { blizzard: 0.85, gust: 0.75, wind: 0.60, belltoll: 0.40 },
+                   reverb: "cavern", reverbMix: 0.42,
                    fx: { blizzard: true, aurora: true } },
     valhalla:    { name: "Valhalla", desc: "Great feast hall: roaring hearthfire, striking armory anvils, and mountain gale.",
                    mix: { fire: 0.85, crackle: 0.75, clank: 0.65, wind: 0.40 },
+                   reverb: "cathedral", reverbMix: 0.35,
                    fx: { embers: true, mist: true } },
     dynasty:     { name: "Dynasty", desc: "Imperial palace court: resonant bronze temple gongs, wind chimes, night wind, and drifting golden leaf.",
                    mix: { gong: 0.85, chimes: 0.65, wind: 0.40, drone: 0.30 },
-                   fx: { goldFoil: true } },
+                   reverb: "cathedral", reverbMix: 0.34,
+                   fx: { goldFoil: true, cymatics: true } },
     zen:         { name: "Zen Garden", desc: "Karesansui monastery: rhythmic shishi-odoshi bamboo strikes, gentle wind swells, singing bowl, and falling cherry blossom petals.",
                    mix: { bambooClack: 0.85, bowl: 0.65, gust: 0.45, crickets: 0.30 },
+                   reverb: "atelier", reverbMix: 0.24,
                    fx: { sakura: true, mist: true } },
-    samadhi:     { name: "Samadhi", desc: "Himalayan meditation sanctuary: resonant 108Hz Om drone, Tibetan singing bowl 432Hz, room tone, and swirling incense smoke ribbons.",
-                   mix: { omDrone: 0.85, bowl: 0.70, office: 0.30, drone: 0.25 },
-                   fx: { incense: true } },
+    samadhi:     { name: "Samadhi", desc: "Himalayan meditation sanctuary: resonant 108Hz Om drone, 432Hz quartz bowl, room tone, and swirling incense smoke ribbons.",
+                   mix: { omDrone: 0.85, quartz: 0.75, bowl: 0.65, office: 0.30, drone: 0.25 },
+                   reverb: "cathedral", reverbMix: 0.40,
+                   fx: { incense: true, cymatics: true } },
     silkroad:    { name: "Silk Road", desc: "Ancient desert caravanserai: rhythmic bronze camel bells, warm desert night wind, campfire crackle, and celestial oasis starlight.",
                    mix: { caravanBells: 0.85, wind: 0.60, crackle: 0.45, gust: 0.40 },
+                   reverb: "atelier", reverbMix: 0.20,
                    fx: { stars: true, mist: true } },
 
     // Classic Legacy Aliases
@@ -178,10 +202,13 @@
     lightning: 70,
     fxIntensity: 75,
     preset: null,
+    reverb: "cathedral",
+    reverbMix: 0.25,
+    eq: { bass: 1.5, mid: 0.0, air: 2.0 },
     fx: {
       rain: false, blizzard: false, embers: false, aurora: false, lightning: false,
       mist: false, caustics: false, goldFoil: false, sakura: false, incense: false, stars: false,
-      dataGrid: false
+      dataGrid: false, cymatics: false
     }
   };
   for (const id of LAYER_IDS) state.layers[id] = { on: false, vol: 0.7 };
@@ -199,6 +226,13 @@
       if (Number.isFinite(raw.lightning)) state.lightning = Math.min(100, Math.max(0, raw.lightning));
       if (Number.isFinite(raw.fxIntensity)) state.fxIntensity = Math.min(100, Math.max(0, raw.fxIntensity));
       if (raw.preset && PRESETS[raw.preset]) state.preset = raw.preset;
+      if (raw.reverb) state.reverb = raw.reverb;
+      if (Number.isFinite(raw.reverbMix)) state.reverbMix = Math.min(1, Math.max(0, raw.reverbMix));
+      if (raw.eq) {
+        if (Number.isFinite(raw.eq.bass)) state.eq.bass = raw.eq.bass;
+        if (Number.isFinite(raw.eq.mid)) state.eq.mid = raw.eq.mid;
+        if (Number.isFinite(raw.eq.air)) state.eq.air = raw.eq.air;
+      }
       if (raw.fx) {
         for (const k of Object.keys(state.fx)) if (raw.fx[k] != null) state.fx[k] = !!raw.fx[k];
       }
@@ -210,24 +244,113 @@
       localStorage.setItem(KEY, JSON.stringify({
         layers: state.layers, master: state.master,
         intensity: state.intensity, lightning: state.lightning,
-        fxIntensity: state.fxIntensity, preset: state.preset, fx: state.fx
+        fxIntensity: state.fxIntensity, preset: state.preset,
+        reverb: state.reverb, reverbMix: state.reverbMix, eq: state.eq,
+        fx: state.fx
       }));
     } catch { /* ignore */ }
   }
 
   // ---- audio graph ----------------------------------------------------------
   let ctx = null, masterGain = null, noiseBuf = null, analyser = null;
+  let dryBus = null, convolverNode = null, reverbGain = null;
+  let masterLimiter = null, eqBass = null, eqMid = null, eqAir = null;
   const nodes = {}; // id -> { gain, pan, el?, synth?, src? }
+  const impulseCache = {};
+
+  function setReverbSpace(space) {
+    if (!ctx || !convolverNode) return;
+    state.reverb = space;
+    if (space === "off") {
+      if (reverbGain) reverbGain.gain.value = 0;
+      return;
+    }
+    if (reverbGain) reverbGain.gain.value = state.reverbMix || 0.25;
+    if (impulseCache[space]) {
+      convolverNode.buffer = impulseCache[space];
+      return;
+    }
+    let duration = 3.2, decay = 2.4;
+    if (space === "cathedral") { duration = 3.6; decay = 2.2; }
+    else if (space === "atelier") { duration = 0.8; decay = 3.8; }
+    else if (space === "cavern") { duration = 4.8; decay = 1.8; }
+
+    const sampleRate = ctx.sampleRate;
+    const length = Math.floor(sampleRate * duration);
+    const impulse = ctx.createBuffer(2, length, sampleRate);
+    const left = impulse.getChannelData(0);
+    const right = impulse.getChannelData(1);
+    for (let i = 0; i < length; i++) {
+      const env = Math.pow(1 - i / length, decay);
+      const early = (i < sampleRate * 0.04 && i % 380 === 0) ? (Math.random() * 2 - 1) * 0.35 : 0;
+      left[i] = ((Math.random() * 2 - 1) * env + early) * 0.7;
+      right[i] = ((Math.random() * 2 - 1) * env + early) * 0.7;
+    }
+    impulseCache[space] = impulse;
+    convolverNode.buffer = impulse;
+  }
 
   function ensureCtx() {
     if (ctx) { if (ctx.state === "suspended") ctx.resume().catch(() => {}); return true; }
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return false;
     ctx = new AC();
+
+    // 1. Dry Bus
+    dryBus = ctx.createGain();
+    dryBus.gain.value = 1.0;
+
+    // 2. 3-Band Parametric Mastering EQ
+    eqBass = ctx.createBiquadFilter();
+    eqBass.type = "lowshelf";
+    eqBass.frequency.value = 100;
+    eqBass.gain.value = state.eq ? state.eq.bass : 1.5;
+
+    eqMid = ctx.createBiquadFilter();
+    eqMid.type = "peaking";
+    eqMid.frequency.value = 1200;
+    eqMid.Q.value = 0.9;
+    eqMid.gain.value = state.eq ? state.eq.mid : 0.0;
+
+    eqAir = ctx.createBiquadFilter();
+    eqAir.type = "highshelf";
+    eqAir.frequency.value = 8500;
+    eqAir.gain.value = state.eq ? state.eq.air : 2.0;
+
+    // 3. Master Dynamics Limiter (Broadcast Studio Cleanliness)
+    masterLimiter = ctx.createDynamicsCompressor();
+    masterLimiter.threshold.value = -18;
+    masterLimiter.knee.value = 12;
+    masterLimiter.ratio.value = 5;
+    masterLimiter.attack.value = 0.005;
+    masterLimiter.release.value = 0.22;
+
+    // 4. Master Output Gain
     masterGain = ctx.createGain();
     masterGain.gain.value = state.master;
+
+    // 5. Algorithmic Acoustic Reverb Convolver
+    convolverNode = ctx.createConvolver();
+    reverbGain = ctx.createGain();
+    reverbGain.gain.value = state.reverb === "off" ? 0 : (state.reverbMix || 0.25);
+    setReverbSpace(state.reverb || "cathedral");
+
+    // Signal Routing:
+    // dryBus -> eqBass (dry path)
+    // dryBus -> convolverNode -> reverbGain -> eqBass (reverb auxiliary send)
+    dryBus.connect(eqBass);
+    dryBus.connect(convolverNode);
+    convolverNode.connect(reverbGain);
+    reverbGain.connect(eqBass);
+
+    // eqBass -> eqMid -> eqAir -> masterLimiter -> masterGain -> ctx.destination
+    eqBass.connect(eqMid);
+    eqMid.connect(eqAir);
+    eqAir.connect(masterLimiter);
+    masterLimiter.connect(masterGain);
     masterGain.connect(ctx.destination);
 
+    // FFT Spectrum Analyser
     analyser = ctx.createAnalyser();
     analyser.fftSize = 64;
     masterGain.connect(analyser);
@@ -241,8 +364,8 @@
     for (const id of LAYER_IDS) {
       const gain = ctx.createGain(); gain.gain.value = 0;
       const pan = (ctx.createStereoPanner ? ctx.createStereoPanner() : null);
-      gain.connect(pan || masterGain);
-      if (pan) pan.connect(masterGain);
+      gain.connect(pan || dryBus);
+      if (pan) pan.connect(dryBus);
       nodes[id] = { gain, pan, el: null, synth: null };
     }
     startPanDrift();
@@ -842,6 +965,120 @@
       timer = setTimeout(chime, 800);
       return { stop() { dead = true; clearTimeout(timer); } };
     },
+
+    // 17. Numismatic crucible molten pour & hiss
+    pour(n) {
+      let dead = false;
+      const src = ctx.createBufferSource();
+      src.buffer = noiseBuf;
+      src.loop = true;
+      const bp = ctx.createBiquadFilter();
+      bp.type = "bandpass";
+      bp.frequency.value = 520;
+      bp.Q.value = 1.8;
+      const g = ctx.createGain();
+      g.gain.value = 0.28;
+      src.connect(bp); bp.connect(g); g.connect(n.gain);
+      src.start();
+      const l1 = lfo(bp.frequency, 0.2, 180, 520);
+      const l2 = lfo(g.gain, 0.35, 0.12, 0.28);
+      let sizzleTimer = 0;
+      const popSizzle = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const s2 = ctx.createBufferSource(); s2.buffer = noiseBuf;
+        const hp = ctx.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 4200;
+        const sg = ctx.createGain();
+        sg.gain.setValueAtTime(0.001, t);
+        sg.gain.exponentialRampToValueAtTime(0.08 + Math.random() * 0.12, t + 0.015);
+        sg.gain.exponentialRampToValueAtTime(0.0001, t + 0.18 + Math.random() * 0.25);
+        s2.connect(hp); hp.connect(sg); sg.connect(n.gain);
+        s2.start(t); s2.stop(t + 0.5);
+        s2.onended = () => { s2.disconnect(); hp.disconnect(); sg.disconnect(); };
+        sizzleTimer = setTimeout(popSizzle, 600 + Math.random() * 900);
+      };
+      sizzleTimer = setTimeout(popSizzle, 400);
+      return {
+        stop() {
+          dead = true;
+          clearTimeout(sizzleTimer);
+          try { l1.stop(); l2.stop(); src.stop(); } catch {}
+          g.disconnect();
+        }
+      };
+    },
+
+    // 18. 432Hz Quartz crystal singing bowl with binaural beating
+    quartz(n) {
+      const out = ctx.createGain(); out.gain.value = 0.35; out.connect(n.gain);
+      const oscs = [];
+      [[432, 0.45], [436, 0.40], [864, 0.18], [1296, 0.08]].forEach(([freq, vol]) => {
+        const osc = ctx.createOscillator();
+        const g = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        g.gain.value = vol;
+        osc.connect(g); g.connect(out);
+        osc.start();
+        oscs.push(osc);
+      });
+      const breath = lfo(out.gain, 0.08, 0.15, 0.35);
+      return {
+        stop() {
+          oscs.forEach((o) => { try { o.stop(); } catch {} });
+          try { breath.stop(); } catch {}
+          out.disconnect();
+        }
+      };
+    },
+
+    // 19. Deep space cosmic pulsar & celestial clicks
+    pulsar(n) {
+      let dead = false, timer = 0;
+      const click = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(2400, t);
+        osc.frequency.exponentialRampToValueAtTime(120, t + 0.035);
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.001, t);
+        g.gain.exponentialRampToValueAtTime(0.25, t + 0.003);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.04);
+        osc.connect(g); g.connect(n.gain);
+        osc.start(t); osc.stop(t + 0.05);
+        osc.onended = () => { osc.disconnect(); g.disconnect(); };
+        timer = setTimeout(click, 720);
+      };
+      timer = setTimeout(click, 300);
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
+
+    // 20. Skylight rain patter on glass
+    patter(n) {
+      let dead = false, timer = 0;
+      const drop = () => {
+        if (dead) return;
+        const t = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        osc.type = "triangle";
+        const baseFreq = 2200 + Math.random() * 1800;
+        osc.frequency.setValueAtTime(baseFreq, t);
+        osc.frequency.exponentialRampToValueAtTime(baseFreq * 0.6, t + 0.025);
+        const g = ctx.createGain();
+        const vol = 0.03 + Math.random() * 0.08;
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(vol, t + 0.002);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.035);
+        osc.connect(g); g.connect(n.gain);
+        osc.start(t); osc.stop(t + 0.045);
+        osc.onended = () => { osc.disconnect(); g.disconnect(); };
+        timer = setTimeout(drop, 35 + Math.random() * 110);
+      };
+      timer = setTimeout(drop, 100);
+      return { stop() { dead = true; clearTimeout(timer); } };
+    },
   };
 
   // ---- Layer control ----
@@ -1104,6 +1341,16 @@
     ctx2d.clearRect(0, 0, innerWidth, innerHeight);
     const masterOp = (state.fxIntensity / 100);
     const gust = Math.sin((now - t0) / 2800) * 2.5;
+
+    // Real-time Audio Reactivity FFT Energy
+    let audioEnergy = 0;
+    if (analyser && state.preset !== "off") {
+      const fftBuf = new Uint8Array(analyser.frequencyBinCount);
+      analyser.getByteFrequencyData(fftBuf);
+      let sum = 0;
+      for (let i = 0; i < fftBuf.length; i++) sum += fftBuf[i];
+      audioEnergy = sum / (fftBuf.length * 255);
+    }
 
     // 1. Aurora Borealis Curtains
     if (state.fx.aurora && !reducedMotion) {
@@ -1471,6 +1718,29 @@
       ctx2d.restore();
     }
 
+    // 13. Cymatic Harmonic Wavefield (Audio-reactive concentric sacred geometry)
+    if ((state.fx.cymatics || audioEnergy > 0.08) && !reducedMotion) {
+      const cx = innerWidth / 2;
+      const cy = innerHeight / 2;
+      const baseR = 70 + audioEnergy * 180;
+      const rings = 3;
+      for (let r = 1; r <= rings; r++) {
+        const rad = baseR * (r * 0.7);
+        const op = (0.04 + audioEnergy * 0.16) / r * masterOp;
+        ctx2d.strokeStyle = `rgba(200, 169, 74, ${op.toFixed(3)})`;
+        ctx2d.lineWidth = 1.2;
+        ctx2d.beginPath();
+        for (let a = 0; a <= Math.PI * 2; a += 0.05) {
+          const harmonic = Math.sin(a * 6 + now * 0.003) * (5 + audioEnergy * 15);
+          const px = cx + Math.cos(a) * (rad + harmonic);
+          const py = cy + Math.sin(a) * (rad + harmonic);
+          if (a === 0) ctx2d.moveTo(px, py); else ctx2d.lineTo(px, py);
+        }
+        ctx2d.closePath();
+        ctx2d.stroke();
+      }
+    }
+
     raf = requestAnimationFrame(renderVisuals);
   }
 
@@ -1610,6 +1880,31 @@
       <button type="button" class="amb-fx-chip" data-fx="incense">🪔 Incense &amp; Prana</button>
       <button type="button" class="amb-fx-chip" data-fx="stars">✨ Desert Oasis Stars</button>
       <button type="button" class="amb-fx-chip" data-fx="dataGrid">📟 Phosphor Data Grid</button>
+      <button type="button" class="amb-fx-chip" data-fx="cymatics">🌀 Cymatic Resonance</button>
+    </div>
+
+    <div class="amb-secname">Architectural Acoustic Reverb</div>
+    <div class="amb-reverb-bar" style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.8rem">
+      <button type="button" class="amb-reverb-btn btn small" data-reverb="cathedral">🏛️ Cathedral Hall</button>
+      <button type="button" class="amb-reverb-btn btn small" data-reverb="atelier">🕯️ Velvet Atelier</button>
+      <button type="button" class="amb-reverb-btn btn small" data-reverb="cavern">🌊 Abyssal Cavern</button>
+      <button type="button" class="amb-reverb-btn btn small" data-reverb="off">Direct Dry</button>
+    </div>
+
+    <div class="amb-secname">Studio Mastering Strip &amp; 3-Band EQ</div>
+    <div class="amb-eq-strip" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;margin-bottom:1rem;background:rgba(0,0,0,0.3);padding:0.6rem 0.8rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06)">
+      <label style="font-size:0.68rem;color:var(--faint);display:flex;flex-direction:column;gap:0.2rem">
+        Bass Warmth (100Hz)
+        <input type="range" id="amb-eq-bass" min="-6" max="6" step="0.5" value="${state.eq.bass}" />
+      </label>
+      <label style="font-size:0.68rem;color:var(--faint);display:flex;flex-direction:column;gap:0.2rem">
+        Mid Presence (1.2kHz)
+        <input type="range" id="amb-eq-mid" min="-6" max="6" step="0.5" value="${state.eq.mid}" />
+      </label>
+      <label style="font-size:0.68rem;color:var(--faint);display:flex;flex-direction:column;gap:0.2rem">
+        Air Silk (8.5kHz)
+        <input type="range" id="amb-eq-air" min="-6" max="6" step="0.5" value="${state.eq.air}" />
+      </label>
     </div>
 
     <div class="amb-secname">Binaural Brainwave Entrainment</div>
@@ -1658,6 +1953,12 @@
     });
   }
 
+  function syncReverbUi() {
+    panel.querySelectorAll(".amb-reverb-btn").forEach((b) => {
+      b.classList.toggle("active", b.dataset.reverb === (state.reverb || "cathedral"));
+    });
+  }
+
   function syncUi() {
     for (const id of LAYER_IDS) {
       const row = panel.querySelector(`.amb-layer[data-layer="${id}"]`);
@@ -1667,6 +1968,7 @@
     }
     syncVolUi();
     syncFxUi();
+    syncReverbUi();
     if (btn) btn.setAttribute("aria-pressed", String(LAYER_IDS.some((id) => state.layers[id].on) || Object.values(state.fx).some(Boolean)));
     markPreset(state.preset);
     updateFireFx();
@@ -1677,6 +1979,40 @@
       const s = panel.querySelector(`input[data-vol="${id}"]`);
       if (s && document.activeElement !== s) s.value = state.layers[id].vol;
     }
+  }
+
+  panel.querySelectorAll(".amb-reverb-btn").forEach((b) => {
+    b.addEventListener("click", () => {
+      ensureCtx();
+      setReverbSpace(b.dataset.reverb);
+      writeState();
+      syncReverbUi();
+    });
+  });
+
+  const eqBassIn = panel.querySelector("#amb-eq-bass");
+  if (eqBassIn) {
+    eqBassIn.addEventListener("input", (e) => {
+      state.eq.bass = parseFloat(e.target.value);
+      if (eqBass) eqBass.gain.value = state.eq.bass;
+      writeState();
+    });
+  }
+  const eqMidIn = panel.querySelector("#amb-eq-mid");
+  if (eqMidIn) {
+    eqMidIn.addEventListener("input", (e) => {
+      state.eq.mid = parseFloat(e.target.value);
+      if (eqMid) eqMid.gain.value = state.eq.mid;
+      writeState();
+    });
+  }
+  const eqAirIn = panel.querySelector("#amb-eq-air");
+  if (eqAirIn) {
+    eqAirIn.addEventListener("input", (e) => {
+      state.eq.air = parseFloat(e.target.value);
+      if (eqAir) eqAir.gain.value = state.eq.air;
+      writeState();
+    });
   }
 
   panel.querySelectorAll("[data-layerbtn]").forEach((b) => {
