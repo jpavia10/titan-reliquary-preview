@@ -210,6 +210,90 @@ body::after {
   background-image: var(--grain-url, none);
 }
 
+/* Performance Shield: eliminate GPU compositor thrashing & CPU text-shadow re-rasterization */
+.wordmark {
+  animation: none !important;
+  text-shadow: 0 0 24px rgba(200, 169, 74, 0.35) !important;
+}
+body, body::before {
+  animation: none !important;
+}
+.hero-glow {
+  animation: none !important;
+}
+#dust-layer, #ember-layer {
+  display: none !important;
+}
+.seg-glow, .exhibit-lamp, .wing-badge-3d, .lofi-pill, .ticker-live-pulse, .term-live-dot {
+  animation: none !important;
+}
+.reveal, .pane.active .reveal {
+  animation: none !important;
+}
+/* Fixed audio/dock bars: zero backdrop-filter blur passes during scrolling */
+.lofi-bar, .player-bar, .mobile-wing-dock {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(14, 13, 10, 0.97) !important;
+}
+
+/* Grand Hall Content Containment & Virtualization: bypass layout/rasterization of offscreen blocks */
+.grand-spatial-card,
+.exhibit,
+.vault-valuation-hub,
+.trading-terminal-hub,
+.lab-banner,
+.wing-grid,
+.notes-grid,
+.moment-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+  contain: layout style paint;
+}
+
+/* Mobile & Touch Performance Shield */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  body::after {
+    display: none !important;
+  }
+  .pane.active .reveal {
+    animation: none !important;
+  }
+}
+
+/* Gallery Virtual Batching Sentinel & Load More Controls */
+.gallery-infinite-sentinel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.gallery-load-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(200, 169, 74, 0.22) 0%, rgba(200, 169, 74, 0.08) 100%);
+  border: 1px solid rgba(200, 169, 74, 0.4);
+  color: var(--gold-soft);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+.gallery-load-more-btn:hover {
+  background: linear-gradient(135deg, rgba(200, 169, 74, 0.38) 0%, rgba(200, 169, 74, 0.16) 100%);
+  border-color: var(--gold);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 #app {
   max-width: 1200px;
   width: 100%;

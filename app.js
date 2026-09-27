@@ -413,7 +413,7 @@
   }
   function thumbImg(f, cls = "lc-thumb") {
     return f.thumb
-      ? `<img class="${cls}" data-src="${esc(f.thumb)}" alt="" />`
+      ? `<img class="${cls}" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="" />`
       : `<span class="${cls} lc-blank" aria-hidden="true"></span>`;
   }
 
@@ -485,20 +485,6 @@
     if (refresh) { refresh.textContent = "↻ Refresh"; refresh.title = "Check for a newer published snapshot and reload"; }
     lazyThumbs();
     observeReveals();
-    goldDust();
-
-    // Warm gallery in background during idle time
-    if (!galleryRendered) {
-      setTimeout(() => {
-        if (!galleryRendered) {
-          if (typeof requestIdleCallback === "function") {
-            requestIdleCallback(() => { if (!galleryRendered) renderGallery(); });
-          } else {
-            renderGallery();
-          }
-        }
-      }, 1500);
-    }
   }
 
   /* --- Gold dust motes: slow ambient particles drifting up the page.
@@ -1080,7 +1066,7 @@
       : (f.is_gold ? ".999 Au" : (f.km ? `KM#${esc(f.km)}` : "ALLOY"));
 
     const visual = f.thumb
-      ? `<img class="pc-photo" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
+      ? `<img class="pc-photo" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
       : renderSpecimenBlueprint(f, isLarge, options.side || "obv");
 
     return `
@@ -1253,7 +1239,7 @@
       : (f.is_gold ? ".999 Fine Gold" : (f.km ? `KM# ${esc(f.km)}` : "Specimen Alloy"));
 
     const visual = f.thumb
-      ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
+      ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
       : renderSpecimenBlueprint(f, !isMini, options.side || "obv");
 
     return `
@@ -3014,7 +3000,7 @@
       reflHtml = renderMuseumSlab(f, { mini: false, side: "obv" });
     } else if (galleryMode === "matrix") {
       const obvImg = f.thumb
-        ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
+        ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
         : renderSpecimenBlueprint(f, false, "obv");
       const revImg = renderSpecimenBlueprint(f, false, "rev");
       obvHtml = `
@@ -3588,8 +3574,8 @@
     }
 
     // The wall: supports Museum Lucite Slabs (default), Traditional 2x2 Flips, or Planchet Medallions
-    const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz;
-    const wall = rows.map((f) => {
+    function buildPieceCardHtml(f) {
+      const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz;
       const neo = highlightScans.has(f.scan) ? " is-new" : "";
       const denom = esc(f.denom || f.label || "Coin");
       const agBadge = f.is_silver ? `<span class="pc-ag-pill">Ag ${f.asw_oz != null ? num(f.asw_oz, 2) + "oz" : ".999"}</span>` : "";
@@ -3602,7 +3588,7 @@
         visualHtml = renderMuseumSlab(f, { mini: true, side: "obv" });
       } else if (galleryMode === "matrix") {
         const visual = f.thumb
-          ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
+          ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
           : renderSpecimenBlueprint(f, false, "obv");
         visualHtml = `
           <div class="matrix-medallion-holder">
@@ -3630,7 +3616,18 @@
           </div>
         </div>
       </button>`;
-    }).join("");
+    }
+
+    const BATCH_SIZE = 28;
+    let galleryLimit = BATCH_SIZE;
+    const initialWall = rows.slice(0, galleryLimit).map(buildPieceCardHtml).join("");
+    const hasMore = rows.length > galleryLimit;
+    const sentinelHtml = hasMore ? `
+      <div id="gallery-infinite-sentinel" class="gallery-infinite-sentinel">
+        <button type="button" class="gallery-load-more-btn" id="btn-gallery-load-more">
+          Show More Coins (${rows.length - galleryLimit} remaining)
+        </button>
+      </div>` : "";
 
     const trayNavHtml = `
       <div class="cabinet-trays-nav reveal" role="tablist" aria-label="Cabinet Trays">
@@ -3746,8 +3743,45 @@
           <span class="cf-counter" id="cf-counter">${rows.length ? cfCurrentIndex + 1 : 0} of ${rows.length}</span>
         </div>
       </div>
-      <div class="gallery-grid">${wall || '<p class="empty">No matches</p>'}</div>
+      <div class="gallery-grid" id="main-gallery-grid">${initialWall || '<p class="empty">No matches</p>'}</div>
+      ${sentinelHtml}
     `;
+
+    // Infinite Scroll IntersectionObserver & Load More
+    let activeLimit = galleryLimit;
+    let observer = null;
+    function appendCards() {
+      if (activeLimit >= rows.length) return;
+      const grid = $("#main-gallery-grid");
+      if (!grid) return;
+      const nextBatch = rows.slice(activeLimit, activeLimit + BATCH_SIZE);
+      activeLimit += nextBatch.length;
+      const tempWrap = document.createElement("div");
+      tempWrap.innerHTML = nextBatch.map(buildPieceCardHtml).join("");
+      while (tempWrap.firstChild) {
+        grid.appendChild(tempWrap.firstChild);
+      }
+      lazyThumbs(grid);
+      const remaining = rows.length - activeLimit;
+      const btn = $("#btn-gallery-load-more");
+      if (remaining <= 0) {
+        if (observer) observer.disconnect();
+        $("#gallery-infinite-sentinel")?.remove();
+      } else if (btn) {
+        btn.textContent = `Show More Coins (${remaining} remaining)`;
+      }
+    }
+
+    const sentinelEl = $("#gallery-infinite-sentinel");
+    if (sentinelEl && "IntersectionObserver" in window) {
+      observer = new IntersectionObserver((entries) => {
+        if (entries[0] && entries[0].isIntersecting) {
+          appendCards();
+        }
+      }, { rootMargin: "600px" });
+      observer.observe(sentinelEl);
+    }
+    $("#btn-gallery-load-more")?.addEventListener("click", appendCards);
 
     // Hook up Display Mode Switcher
     $$(".g-mode-btn").forEach((btn) => {
@@ -3826,12 +3860,14 @@
         renderGallery(); saveState();
       });
     });
-    const ctxScans = rows.map((f) => f.scan);
-    $$("#gallery-body .piece-card[data-scan], #gallery-body .latest-card[data-scan]").forEach((el) => {
-      el.addEventListener("click", () => {
-        dossierCtx = { label: "Gallery", scans: ctxScans };
-        openDrawer(el.dataset.scan);
-      });
+
+    // Event delegation for cards: one single handler for all cards (including dynamic batches)
+    $("#gallery-body").addEventListener("click", (e) => {
+      const card = e.target.closest(".piece-card[data-scan], .latest-card[data-scan]");
+      if (card) {
+        dossierCtx = { label: "Gallery", scans: rows.map((f) => f.scan) };
+        openDrawer(card.dataset.scan);
+      }
     });
 
     // Wire apex 3D Museum Room Banner Launch Button
