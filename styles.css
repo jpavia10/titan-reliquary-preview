@@ -7762,6 +7762,62 @@ html[data-atmo="silkroad"] .wordmark {
   color: var(--muted, #94a3b8);
 }
 
+.atlas-controls-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.atlas-cams-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 0.4rem 0.6rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.2));
+  border-radius: 10px;
+}
+
+.atlas-cam-btn {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  padding: 0.3rem 0.7rem !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: var(--ink-soft, #cbd5e1) !important;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.atlas-cam-btn:hover {
+  border-color: var(--gold, #c8a94a) !important;
+  background: rgba(200, 169, 74, 0.12) !important;
+  color: var(--gold-soft, #fef08a) !important;
+}
+
+.atlas-cam-btn.active {
+  border-color: var(--gold, #c8a94a) !important;
+  background: var(--gold, #c8a94a) !important;
+  color: #08090c !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 10px rgba(200, 169, 74, 0.4);
+}
+
+.atlas-cam-zoom-in, .atlas-cam-zoom-out, .atlas-cam-reset {
+  min-width: 28px !important;
+  height: 28px !important;
+  padding: 0 0.5rem !important;
+  border-radius: 6px !important;
+  font-family: var(--mono) !important;
+  font-weight: 700 !important;
+}
+
 .atlas-toolbar {
   margin-bottom: 1rem;
 }
@@ -7801,6 +7857,75 @@ html[data-atmo="silkroad"] .wordmark {
   color: #08090c !important;
   font-weight: 700 !important;
   box-shadow: 0 0 14px rgba(200, 169, 74, 0.4);
+}
+
+.atlas-coords-hud {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold-soft, #fef08a);
+  background: rgba(8, 10, 14, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 169, 74, 0.3);
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  pointer-events: none;
+  z-index: 5;
+  letter-spacing: 0.04em;
+}
+
+.atlas-docked-dossier {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, rgba(200, 169, 74, 0.12), rgba(14, 18, 26, 0.95));
+  border: 1px solid var(--gold, #c8a94a);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.atlas-dossier-col-main {
+  flex: 1 1 300px;
+}
+
+.atlas-dossier-col-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.atlas-dossier-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.atlas-dossier-stat-val {
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold-soft, #fef08a);
+  line-height: 1.2;
+}
+
+.atlas-dossier-stat-lbl {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted, #94a3b8);
+}
+
+.atlas-dossier-col-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .atlas-route-intel {

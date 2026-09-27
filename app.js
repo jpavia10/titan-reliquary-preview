@@ -358,6 +358,7 @@
     if (btn) btn.disabled = true;
     try {
       vault = await fetchJson("data/index.json");
+      window.vault = vault;
       details.clear();
       searchIdx = null; searchLoading = null;
       loadedAt = Date.now();
@@ -5485,6 +5486,8 @@
   window.TitanSetWing = setWing;
   window.TitanSetAtmo = setAtmo;
   window.TitanRenderCoverFlow = renderCoverFlow;
+  window.TitanVault = () => vault;
+  window.vault = vault;
   setAtmo(document.documentElement.getAttribute("data-atmo") || "afterhours", false, false);
 
   /* --- Overlay manager: Esc closes the topmost layer; focus is trapped & restored. --- */
