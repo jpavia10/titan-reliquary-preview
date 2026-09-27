@@ -2941,6 +2941,515 @@
     return rows;
   }
 
+  /* ==========================================================================
+     3D COVER FLOW ENGINE (Titan Reliquary Archival Carousel)
+     11-node virtual sliding window (center ± 5 cards in 3D DOM)
+     ========================================================================== */
+  let cfCurrentIndex = 0;
+  let cfIsFlipped = false;
+  let cfLoupeActive = false;
+  try { cfLoupeActive = localStorage.getItem("tr_loupe_v1") === "1"; } catch (_) {}
+  let cfDragging = false;
+  let cfStartX = 0;
+  let cfDragDistance = 0;
+  let cfStartTime = 0;
+  let cfWheelDelta = 0;
+  let cfWheelTimer = null;
+  let cfItems = [];
+  let cfKeyBound = false;
+
+  function buildCoverFlowCardInner(f, isCenter) {
+    let obvHtml = "";
+    let revHtml = "";
+    let reflHtml = "";
+
+    if (galleryMode === "slab") {
+      obvHtml = renderMuseumSlab(f, { mini: !isCenter, side: "obv" });
+      revHtml = isCenter ? renderMuseumSlab(f, { mini: false, side: "rev" }) : "";
+      reflHtml = renderMuseumSlab(f, { mini: true, side: "obv" });
+    } else if (galleryMode === "matrix") {
+      const obvImg = f.thumb
+        ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
+        : renderSpecimenBlueprint(f, false, "obv");
+      const revImg = renderSpecimenBlueprint(f, false, "rev");
+      obvHtml = `
+        <div class="matrix-medallion-holder">
+          ${obvImg}
+          <div class="coin-cartwheel-luster" aria-hidden="true"></div>
+          ${isCenter ? renderOpticalReticle(f, "obv") : ""}
+        </div>`;
+      revHtml = isCenter ? `
+        <div class="matrix-medallion-holder">
+          ${revImg}
+          <div class="coin-cartwheel-luster" aria-hidden="true"></div>
+          ${renderOpticalReticle(f, "rev")}
+        </div>` : "";
+      reflHtml = `
+        <div class="matrix-medallion-holder">
+          ${obvImg}
+        </div>`;
+    } else {
+      // 2x2 flips
+      obvHtml = renderFlipHolder(f, { large: isCenter, side: "obv" });
+      revHtml = isCenter ? renderFlipHolder(f, { large: true, side: "rev" }) : "";
+      reflHtml = renderFlipHolder(f, { large: false, side: "obv" });
+    }
+
+    const loupeHtml = isCenter ? `
+      <div class="forensic-loupe" id="cf-loupe-${esc(f.scan)}" hidden>
+        <div class="loupe-optic-zoom"></div>
+        <div class="loupe-reticle-hairs">
+          <div class="loupe-hair-x"></div>
+          <div class="loupe-hair-y"></div>
+          <div class="loupe-scale-ticks"></div>
+        </div>
+        <div class="loupe-bezel-rim">
+          <span class="loupe-badge">10× HASTINGS TRIPLET</span>
+          <span class="loupe-coords">X:0.0 Y:0.0mm</span>
+        </div>
+      </div>` : "";
+
+    const caliperHtml = isCenter ? renderCaliperHud(f) : "";
+    const flipBadgeHtml = isCenter ? `<button type="button" class="cf-flip-badge" title="Click to flip specimen (Space/F)">🔄 3D Flip</button>` : "";
+
+    return `
+      <div class="cf-card-inner">
+        <div class="cf-face cf-face-obv">
+          ${obvHtml}
+          ${!isCenter ? '<div class="cf-glass-sheen"></div>' : ''}
+          ${loupeHtml}
+          ${caliperHtml}
+          ${flipBadgeHtml}
+        </div>
+        ${isCenter ? `
+        <div class="cf-face cf-face-rev">
+          ${revHtml}
+          ${loupeHtml}
+          ${caliperHtml}
+          ${flipBadgeHtml}
+        </div>` : ''}
+      </div>
+      <div class="cf-reflection" aria-hidden="true">
+        <div class="cf-card-inner">
+          <div class="cf-face cf-face-obv">
+            ${reflHtml}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function updateCoverFlowTransforms(dragDeltaX = 0) {
+    const container = $("#gallery-coverflow-wrap");
+    if (!container) return;
+    const stage = container.querySelector(".cf-stage");
+    if (!stage) return;
+
+    const cards = stage.querySelectorAll(".cf-card");
+    cards.forEach((card) => {
+      const offset = parseInt(card.dataset.offset, 10);
+      if (isNaN(offset)) return;
+
+      if (offset === 0) {
+        const x = (dragDeltaX * 0.45).toFixed(1);
+        card.style.transform = `translateX(${x}px) translateZ(0px) rotateY(0deg) scale(1)`;
+        card.style.zIndex = "50";
+        card.style.opacity = "1";
+        card.dataset.rotateY = cfIsFlipped ? "180" : "0";
+        card.dataset.translateZ = "0";
+        card.classList.toggle("cf-flipped", cfIsFlipped);
+      } else if (offset < 0) {
+        card.classList.remove("cf-flipped");
+        // Left flanking specimens: rotated +48 deg on Y-axis, translateZ -160px
+        const baseX = -180 + (offset + 1) * 55;
+        const x = (baseX + dragDeltaX * 0.45).toFixed(1);
+        const scale = (1 + offset * 0.03).toFixed(3);
+        card.style.transform = `translateX(${x}px) translateZ(-160px) rotateY(48deg) scale(${scale})`;
+        card.style.zIndex = String(50 + offset);
+        card.style.opacity = Math.max(0.18, 1 + offset * 0.12).toFixed(2);
+        card.dataset.rotateY = "48";
+        card.dataset.translateZ = "-160";
+      } else {
+        card.classList.remove("cf-flipped");
+        // Right flanking specimens: rotated -48 deg on Y-axis, translateZ -160px
+        const baseX = 180 + (offset - 1) * 55;
+        const x = (baseX + dragDeltaX * 0.45).toFixed(1);
+        const scale = (1 - offset * 0.03).toFixed(3);
+        card.style.transform = `translateX(${x}px) translateZ(-160px) rotateY(-48deg) scale(${scale})`;
+        card.style.zIndex = String(50 - offset);
+        card.style.opacity = Math.max(0.18, 1 - offset * 0.12).toFixed(2);
+        card.dataset.rotateY = "-48";
+        card.dataset.translateZ = "-160";
+      }
+    });
+  }
+
+  function updateCoverFlowControls() {
+    const rows = cfItems || filteredFlips();
+    const scrubber = $("#cf-scrubber");
+    if (scrubber) {
+      scrubber.max = String(Math.max(0, rows.length - 1));
+      scrubber.value = String(cfCurrentIndex);
+    }
+    const counter = $("#cf-counter");
+    if (counter) {
+      counter.textContent = `${rows.length ? cfCurrentIndex + 1 : 0} of ${rows.length}`;
+    }
+    const placard = $("#cf-placard");
+    if (placard && rows[cfCurrentIndex]) {
+      const f = rows[cfCurrentIndex];
+      const denom = esc(f.denom || f.label || "Coin");
+      const agBadge = f.is_silver ? `<span class="pc-ag-pill">Ag ${f.asw_oz != null ? num(f.asw_oz, 2) + "oz" : ".999"}</span>` : "";
+      const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz;
+      const meltText = f.is_silver && f.asw_oz != null && spotAg != null
+        ? `Melt ${money(Number(f.asw_oz) * Number(spotAg))}`
+        : (f.conf ? `Conf ${esc(f.conf)}` : "Verified");
+
+      placard.innerHTML = `
+        <div class="cf-placard-info">
+          <div class="cf-placard-title">
+            <span>${esc(f.ser || f.scan)} · ${esc(f.country || "—")} ${esc(f.year || "—")}</span>
+            ${agBadge}
+          </div>
+          <div class="cf-placard-meta">
+            <span>${denom}</span>
+            <span>·</span>
+            <span>${meltText}</span>
+          </div>
+        </div>
+        <div class="cf-placard-metrics">
+          <span class="cf-placard-price">${f.est != null ? money(f.est) : "—"}</span>
+          <button type="button" class="btn small" id="cf-btn-dossier" style="border-color:rgba(200,169,74,0.4)">Inspect Dossier →</button>
+        </div>
+      `;
+
+      placard.querySelector("#cf-btn-dossier")?.addEventListener("click", () => {
+        dossierCtx = { label: "Cover Flow", scans: rows.map(x => x.scan) };
+        openDrawer(f.scan);
+      });
+    }
+
+    $("#cf-btn-flip")?.classList.toggle("active", cfIsFlipped);
+    $("#cf-btn-loupe")?.classList.toggle("active", cfLoupeActive);
+    $("#cf-btn-caliper")?.classList.toggle("active", caliperActive);
+  }
+
+  function toggleCoverFlowFlip() {
+    cfIsFlipped = !cfIsFlipped;
+    updateCoverFlowTransforms();
+    updateCoverFlowControls();
+    playCoinChime();
+  }
+
+  function toggleCoverFlowLoupe() {
+    cfLoupeActive = !cfLoupeActive;
+    try { localStorage.setItem("tr_loupe_v1", cfLoupeActive ? "1" : "0"); } catch (_) {}
+    updateCoverFlowControls();
+    if (!cfLoupeActive) {
+      $$(".cf-card .forensic-loupe").forEach(l => l.hidden = true);
+    }
+    playStapleClick();
+    showToast(cfLoupeActive ? "🔬 10× Macro Loupe Active: Hover over coin aperture" : "10× Macro Loupe Hidden");
+  }
+
+  function toggleCoverFlowCaliper() {
+    caliperActive = !caliperActive;
+    try { localStorage.setItem("tr_caliper_v1", caliperActive ? "1" : "0"); } catch (_) {}
+    updateCoverFlowControls();
+    $$(".ex-caliper-hud").forEach(h => h.classList.toggle("active", caliperActive));
+    $$(".ex-optical-reticle").forEach(r => r.classList.toggle("active", caliperActive));
+    playStapleClick();
+    showToast(caliperActive ? "📏 Caliper Active: 1:1 Scale & Die Analyzer" : "Caliper Reticle Hidden");
+  }
+
+  function renderCoverFlow(targetIndex) {
+    const container = $("#gallery-coverflow-wrap");
+    if (!container) return;
+    const stage = container.querySelector(".cf-stage");
+    if (!stage) return;
+
+    const rows = filteredFlips();
+    cfItems = rows;
+    if (!rows || rows.length === 0) {
+      stage.innerHTML = `<p class="empty" style="color:#94a3b8;padding:2rem 0">No specimens match current criteria</p>`;
+      const placard = $("#cf-placard");
+      if (placard) placard.innerHTML = `<span style="color:#94a3b8">No specimens</span>`;
+      const counter = $("#cf-counter");
+      if (counter) counter.textContent = `0 of 0`;
+      return;
+    }
+
+    if (targetIndex != null) {
+      const clamped = Math.max(0, Math.min(rows.length - 1, targetIndex));
+      if (clamped !== cfCurrentIndex) {
+        cfIsFlipped = false;
+      }
+      cfCurrentIndex = clamped;
+    } else {
+      cfCurrentIndex = Math.max(0, Math.min(rows.length - 1, cfCurrentIndex));
+    }
+
+    // 11-node virtual sliding window: d from -5 to +5
+    const needed = [];
+    for (let d = -5; d <= 5; d++) {
+      const idx = cfCurrentIndex + d;
+      if (idx >= 0 && idx < rows.length) {
+        needed.push({ index: idx, offset: d, flip: rows[idx] });
+      }
+    }
+
+    // Map existing card DOM nodes by their index
+    const existingMap = new Map();
+    stage.querySelectorAll(".cf-card").forEach((card) => {
+      const idx = parseInt(card.dataset.index, 10);
+      existingMap.set(idx, card);
+    });
+
+    // Remove nodes that are no longer in the window
+    existingMap.forEach((card, idx) => {
+      if (!needed.some((n) => n.index === idx)) {
+        card.remove();
+      }
+    });
+
+    // Create or update nodes in the sliding window
+    needed.forEach(({ index, offset, flip }) => {
+      let card = existingMap.get(index);
+      const isCenter = offset === 0;
+
+      if (!card) {
+        card = document.createElement("div");
+        card.className = "cf-card";
+        card.dataset.index = String(index);
+        card.dataset.scan = flip.scan;
+        card.innerHTML = buildCoverFlowCardInner(flip, isCenter);
+        stage.appendChild(card);
+
+        // Flank click handler: clicking any flanking slab smoothly glides it to center
+        card.addEventListener("click", (e) => {
+          if (cfDragging) return;
+          const curOffset = parseInt(card.dataset.offset, 10);
+          if (curOffset !== 0) {
+            e.stopPropagation();
+            renderCoverFlow(index);
+            playStapleClick();
+          } else {
+            if (e.target.closest(".cf-flip-badge") || e.target.closest(".slab-beveled-edge")) {
+              e.stopPropagation();
+              toggleCoverFlowFlip();
+            }
+          }
+        });
+      } else {
+        const wasCenter = card.classList.contains("cf-card-center");
+        if (isCenter !== wasCenter) {
+          card.innerHTML = buildCoverFlowCardInner(flip, isCenter);
+        }
+      }
+
+      card.dataset.offset = String(offset);
+      card.classList.toggle("cf-card-center", isCenter);
+      card.classList.toggle("cf-card-flank", !isCenter);
+      card.classList.toggle("cf-card-left", offset < 0);
+      card.classList.toggle("cf-card-right", offset > 0);
+    });
+
+    updateCoverFlowTransforms();
+    updateCoverFlowControls();
+    lazyThumbs(container);
+  }
+
+  function handleCoverFlowKey(e) {
+    const tag = document.activeElement ? document.activeElement.tagName : "";
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+
+    const galleryPane = $("#pane-gallery");
+    if (!galleryPane || !galleryPane.classList.contains("active")) return;
+
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      renderCoverFlow(cfCurrentIndex - 1);
+      playStapleClick();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      renderCoverFlow(cfCurrentIndex + 1);
+      playStapleClick();
+    } else if (e.key === " " || e.key === "f" || e.key === "F") {
+      e.preventDefault();
+      toggleCoverFlowFlip();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      renderCoverFlow(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      renderCoverFlow(cfItems.length - 1);
+    }
+  }
+
+  function setupCoverFlowEvents() {
+    const container = $("#gallery-coverflow-wrap");
+    if (!container) return;
+    const viewport = container.querySelector(".cf-viewport");
+    const stage = container.querySelector(".cf-stage");
+
+    $("#cf-btn-prev")?.addEventListener("click", () => {
+      renderCoverFlow(cfCurrentIndex - 1);
+      playStapleClick();
+    });
+
+    $("#cf-btn-next")?.addEventListener("click", () => {
+      renderCoverFlow(cfCurrentIndex + 1);
+      playStapleClick();
+    });
+
+    $("#cf-btn-flip")?.addEventListener("click", toggleCoverFlowFlip);
+    $("#cf-btn-loupe")?.addEventListener("click", toggleCoverFlowLoupe);
+    $("#cf-btn-caliper")?.addEventListener("click", toggleCoverFlowCaliper);
+
+    const scrubber = $("#cf-scrubber");
+    if (scrubber) {
+      scrubber.addEventListener("input", (e) => {
+        renderCoverFlow(parseInt(e.target.value, 10));
+      });
+      scrubber.addEventListener("change", () => playStapleClick());
+    }
+
+    if (viewport) {
+      // Pointer drag & touch gestures
+      viewport.addEventListener("pointerdown", (e) => {
+        if (e.button !== 0) return; // primary click only
+        cfDragging = true;
+        cfStartX = e.clientX;
+        cfDragDistance = 0;
+        cfStartTime = performance.now();
+        viewport.classList.add("is-dragging");
+        try { viewport.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+
+      viewport.addEventListener("pointermove", (e) => {
+        if (!cfDragging) return;
+        const dx = e.clientX - cfStartX;
+        cfDragDistance += Math.abs(e.movementX || dx);
+        updateCoverFlowTransforms(dx);
+      });
+
+      const endDrag = (e) => {
+        if (!cfDragging) return;
+        cfDragging = false;
+        viewport.classList.remove("is-dragging");
+        try { viewport.releasePointerCapture(e.pointerId); } catch (_) {}
+
+        const dx = e.clientX - cfStartX;
+        const dt = performance.now() - cfStartTime;
+        const velocity = dx / Math.max(1, dt);
+
+        if (Math.abs(dx) > 35 || Math.abs(velocity) > 0.4) {
+          const dir = (velocity < -0.3 || dx < -35) ? 1 : -1;
+          renderCoverFlow(cfCurrentIndex + dir);
+          playStapleClick();
+        } else {
+          updateCoverFlowTransforms(0);
+        }
+      };
+
+      viewport.addEventListener("pointerup", endDrag);
+      viewport.addEventListener("pointercancel", endDrag);
+
+      // Wheel scroll
+      viewport.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        cfWheelDelta += delta;
+        if (cfWheelTimer) clearTimeout(cfWheelTimer);
+        if (Math.abs(cfWheelDelta) >= 30) {
+          const dir = cfWheelDelta > 0 ? 1 : -1;
+          cfWheelDelta = 0;
+          renderCoverFlow(cfCurrentIndex + dir);
+          playStapleClick();
+        }
+        cfWheelTimer = setTimeout(() => { cfWheelDelta = 0; }, 200);
+      }, { passive: false });
+    }
+
+    // 10x Macro Loupe tracking on center coin
+    if (stage) {
+      stage.addEventListener("mousemove", (e) => {
+        if (!cfLoupeActive) return;
+        const centerCard = stage.querySelector(".cf-card-center");
+        if (!centerCard) return;
+        const aperture = centerCard.querySelector(".slab-coin-aperture, .matrix-medallion-holder, .flip-coin-aperture, .flip-window");
+        const loupe = centerCard.querySelector(".forensic-loupe");
+        if (!aperture || !loupe) return;
+
+        const apRect = aperture.getBoundingClientRect();
+        if (
+          e.clientX >= apRect.left && e.clientX <= apRect.right &&
+          e.clientY >= apRect.top && e.clientY <= apRect.bottom
+        ) {
+          loupe.hidden = false;
+          const cardRect = centerCard.getBoundingClientRect();
+          loupe.style.left = (e.clientX - cardRect.left) + "px";
+          loupe.style.top = (e.clientY - cardRect.top) + "px";
+
+          const zoomTarget = loupe.querySelector(".loupe-optic-zoom");
+          const isRev = cfIsFlipped;
+          const activeImg = centerCard.querySelector(isRev ? ".cf-face-rev .slab-coin-img, .cf-face-rev img" : ".cf-face-obv .slab-coin-img, .cf-face-obv img");
+          const activeSvg = centerCard.querySelector(isRev ? ".cf-face-rev svg" : ".cf-face-obv svg");
+          const imgSrc = activeImg?.currentSrc || activeImg?.src || activeImg?.dataset?.src;
+
+          if (zoomTarget) {
+            const zoom = 2.8;
+            const apX = e.clientX - apRect.left;
+            const apY = e.clientY - apRect.top;
+            const bgX = -(apX * zoom - 75);
+            const bgY = -(apY * zoom - 75);
+            if (imgSrc) {
+              zoomTarget.style.backgroundImage = `url("${imgSrc}")`;
+              zoomTarget.style.backgroundPosition = `${bgX.toFixed(1)}px ${bgY.toFixed(1)}px`;
+              zoomTarget.style.backgroundSize = `${(apRect.width * zoom).toFixed(1)}px ${(apRect.height * zoom).toFixed(1)}px`;
+            } else if (activeSvg) {
+              const svgXml = new XMLSerializer().serializeToString(activeSvg);
+              const svgData = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgXml);
+              zoomTarget.style.backgroundImage = `url("${svgData}")`;
+              zoomTarget.style.backgroundPosition = `${bgX.toFixed(1)}px ${bgY.toFixed(1)}px`;
+              zoomTarget.style.backgroundSize = `${(apRect.width * zoom).toFixed(1)}px ${(apRect.height * zoom).toFixed(1)}px`;
+            }
+          }
+
+          const coordsEl = loupe.querySelector(".loupe-coords");
+          if (coordsEl) {
+            const midX = apRect.width / 2;
+            const midY = apRect.height / 2;
+            const rawX = ((e.clientX - apRect.left - midX) / midX) * 12.5;
+            const rawY = ((e.clientY - apRect.top - midY) / midY) * -12.5;
+            const signX = rawX > 0.04 ? "+" : (rawX < -0.04 ? "-" : "+");
+            const signY = rawY > 0.04 ? "+" : (rawY < -0.04 ? "-" : "+");
+            coordsEl.textContent = `X:${signX}${Math.abs(rawX).toFixed(1)} Y:${signY}${Math.abs(rawY).toFixed(1)}mm`;
+          }
+        } else {
+          loupe.hidden = true;
+        }
+      });
+
+      stage.addEventListener("mouseleave", () => {
+        const loupe = stage.querySelector(".forensic-loupe");
+        if (loupe) loupe.hidden = true;
+      });
+    }
+
+    if (!cfKeyBound) {
+      window.addEventListener("keydown", handleCoverFlowKey);
+      cfKeyBound = true;
+    }
+  }
+
+  // Expose on window for test verification & CDP automation
+  window.renderCoverFlow = renderCoverFlow;
+  window.updateCoverFlowTransforms = updateCoverFlowTransforms;
+  window.getCoverFlowIndex = () => cfCurrentIndex;
+  window.getCoverFlowFlipped = () => cfIsFlipped;
+  window.toggleCoverFlowFlip = toggleCoverFlowFlip;
+
   function renderGallery() {
     galleryRendered = true;
     // Re-rendering replaces the inputs: keep focus + caret so typing is not interrupted.
@@ -3101,6 +3610,32 @@
         <span class="meta">${intFmt(rows.length)} / ${intFmt((vault.flips || []).length)}${flipFilter.staging ? " · 📸 staging album" : ""}${flipFilter.silverOnly ? " · silver" : ""}${flipFilter.phase2 ? " · shooting list" : ""}${flipFilter.q.trim() && !searchIdx ? " · searching notes…" : ""}</span>
       </div>
       <div class="country-strip">${strip}</div>
+      <div class="gallery-coverflow-wrap" id="gallery-coverflow-wrap" aria-label="3D Cover Flow Archival Carousel">
+        <div class="cf-crest-watermark" aria-hidden="true"><svg class="crest-svg" viewBox="0 0 200 200"><use href="#crest-${currentAtmo()}"></use></svg></div>
+        <div class="cf-header">
+          <div class="cf-header-left">
+            <span class="eyebrow"><span class="exhibit-lamp" aria-hidden="true"></span>Archival Carousel · 3D Cover Flow</span>
+            <h3 class="cf-title">Specimen Showcase</h3>
+          </div>
+          <div class="cf-header-actions">
+            <button type="button" class="btn small${cfIsFlipped ? ' active' : ''}" id="cf-btn-flip" title="3D Flip Obverse / Reverse (Space or F)">🔄 3D Flip</button>
+            <button type="button" class="btn small${cfLoupeActive ? ' active' : ''}" id="cf-btn-loupe" title="Toggle 10× Macro Jeweler's Loupe">🔬 10× Loupe</button>
+            <button type="button" class="btn small${caliperActive ? ' active' : ''}" id="cf-btn-caliper" title="Toggle Digital Numismatic Calipers">📏 Calipers</button>
+          </div>
+        </div>
+        <div class="cf-viewport" id="cf-viewport" tabindex="0" aria-label="Cover Flow 3D Stage (Use Arrow Keys, Drag, or Scroll)">
+          <div class="cf-stage"></div>
+        </div>
+        <div class="cf-placard" id="cf-placard"></div>
+        <div class="cf-controls">
+          <button type="button" class="cf-nav-btn cf-prev" id="cf-btn-prev" aria-label="Previous Specimen" title="Previous (←)">‹</button>
+          <div class="cf-scrubber-wrap">
+            <input type="range" class="cf-scrubber" id="cf-scrubber" min="0" max="${Math.max(0, rows.length - 1)}" value="${cfCurrentIndex}" aria-label="Cover Flow Scrubber" />
+          </div>
+          <button type="button" class="cf-nav-btn cf-next" id="cf-btn-next" aria-label="Next Specimen" title="Next (→)">›</button>
+          <span class="cf-counter" id="cf-counter">${rows.length ? cfCurrentIndex + 1 : 0} of ${rows.length}</span>
+        </div>
+      </div>
       <div class="gallery-grid">${wall || '<p class="empty">No matches</p>'}</div>
     `;
 
@@ -3111,7 +3646,7 @@
         galleryMode = btn.dataset.gmode;
         try { localStorage.setItem("tr_gallery_mode_v1", galleryMode); } catch (_) {}
         renderGallery();
-        lazyLoadImages();
+        lazyThumbs($("#gallery-body"));
         playStapleClick();
       };
     });
@@ -3188,6 +3723,9 @@
         openDrawer(el.dataset.scan);
       });
     });
+
+    setupCoverFlowEvents();
+    renderCoverFlow(cfCurrentIndex);
   }
 
 
@@ -4816,178 +5354,15 @@
       const d = document.createElement("div"); d.id = "xeno-ring"; d.setAttribute("aria-hidden", "true");
       document.body.appendChild(d);
     }
-    if (atmo === "construct" && !reduced) { startMatrixRain(); startConstructTerm(); }
-
-    // --- Enhanced Visual Animations for Signature Themes ---
-    if (atmo === "cursedwing" && !reduced) {
-      const vig = document.createElement("div"); vig.id = "cursed-vignette"; vig.setAttribute("aria-hidden", "true");
-      document.body.appendChild(vig);
-      startParticleCanvas("cursed-embers", {
-        init: (w, h) => ({ x: Math.random() * w, y: h + Math.random() * 50, vy: -(0.8 + Math.random() * 2), r: 1 + Math.random() * 2.5, op: 0.2 + Math.random() * 0.7, sway: Math.random() * 6 }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.y += p.vy;
-            p.x += Math.sin(p.y * 0.02 + p.sway) * 0.5;
-            p.op -= 0.003;
-            if (p.y < -10 || p.op <= 0) { p.y = h + 10; p.x = Math.random() * w; p.op = 0.4 + Math.random() * 0.6; }
-            g.fillStyle = `rgba(239, 68, 68, ${p.op})`;
-            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
-          });
-        }
-      }, 50);
-    }
-    if (atmo === "colossus" && !reduced) {
-      startParticleCanvas("foundry-embers", {
-        init: (w, h) => ({ x: Math.random() * w, y: h + Math.random() * 40, vy: -(1.5 + Math.random() * 3), r: 1.2 + Math.random() * 2.2, op: 0.3 + Math.random() * 0.7 }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.y += p.vy;
-            p.op -= 0.004;
-            if (p.y < -10 || p.op <= 0) { p.y = h + 10; p.x = Math.random() * w; p.op = 0.5 + Math.random() * 0.5; }
-            g.fillStyle = `rgba(245, 158, 11, ${p.op})`;
-            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
-          });
-        }
-      }, 45);
-    }
-    if (atmo === "abyss" && !reduced) {
-      startParticleCanvas("abyss-caustics", {
-        init: (w, h) => ({ x: Math.random() * w, y: h + Math.random() * 60, vy: -(0.5 + Math.random() * 1.5), r: 1 + Math.random() * 3.5, op: 0.15 + Math.random() * 0.45 }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.y += p.vy;
-            p.x += Math.sin(p.y * 0.015) * 0.4;
-            if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
-            g.fillStyle = `rgba(56, 189, 248, ${p.op})`;
-            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
-          });
-        }
-      }, 35);
-    }
-    if (atmo === "solaris" && !reduced) {
-      startParticleCanvas("solaris-flares", {
-        init: (w, h) => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 1.2, vy: (Math.random() - 0.5) * 1.2, r: 1 + Math.random() * 2.8, op: 0.2 + Math.random() * 0.6 }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.x += p.vx; p.y += p.vy;
-            if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-            if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-            g.fillStyle = `rgba(251, 191, 36, ${p.op})`;
-            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
-          });
-        }
-      }, 40);
-    }
-    if (atmo === "glacier" && !reduced) {
-      startParticleCanvas("glacier-aurora", {
-        init: (w, h) => ({ x: Math.random() * w, y: -20, vy: 0.8 + Math.random() * 1.5, r: 1 + Math.random() * 2, op: 0.3 + Math.random() * 0.5 }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.y += p.vy;
-            p.x += Math.sin(p.y * 0.02) * 0.5;
-            if (p.y > h + 10) { p.y = -10; p.x = Math.random() * w; }
-            g.fillStyle = `rgba(224, 242, 254, ${p.op})`;
-            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
-          });
-        }
-      }, 40);
-    }
-    if (atmo === "dynasty" && !reduced) {
-      startParticleCanvas("dynasty-lanterns", {
-        init: (w, h) => ({
-          x: Math.random() * w, y: h + Math.random() * 40,
-          vy: -(0.6 + Math.random() * 1.4), r: 1.5 + Math.random() * 2.8,
-          op: 0.3 + Math.random() * 0.6, sway: Math.random() * Math.PI * 2,
-          isLantern: Math.random() < 0.18
-        }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.y += p.vy;
-            p.x += Math.sin(p.y * 0.015 + p.sway) * 0.7;
-            if (p.y < -30) { p.y = h + 10; p.x = Math.random() * w; }
-            if (p.isLantern) {
-              const grad = g.createRadialGradient(p.x, p.y, 1, p.x, p.y, p.r * 2.2);
-              grad.addColorStop(0, `rgba(254, 240, 138, ${p.op})`);
-              grad.addColorStop(0.4, `rgba(239, 68, 68, ${p.op * 0.8})`);
-              grad.addColorStop(1, "rgba(0, 0, 0, 0)");
-              g.fillStyle = grad;
-              g.beginPath(); g.arc(p.x, p.y, p.r * 2.2, 0, Math.PI * 2); g.fill();
-            } else {
-              g.fillStyle = `rgba(234, 179, 8, ${p.op})`;
-              g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
-            }
-          });
-        }
-      }, 45);
-    }
-    if (atmo === "zen" && !reduced) {
-      startParticleCanvas("zen-petals", {
-        init: (w, h) => ({
-          x: Math.random() * w, y: -20,
-          vx: 0.8 + Math.random() * 1.5, vy: 0.7 + Math.random() * 1.2,
-          r: 2.2 + Math.random() * 3.5, op: 0.3 + Math.random() * 0.5,
-          rot: Math.random() * Math.PI * 2, rotSpeed: (Math.random() - 0.5) * 0.05
-        }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.x += p.vx; p.y += p.vy; p.rot += p.rotSpeed;
-            if (p.y > h + 20 || p.x > w + 20) { p.y = -20; p.x = Math.random() * (w + 40) - 20; }
-            g.save();
-            g.translate(p.x, p.y);
-            g.rotate(p.rot);
-            g.fillStyle = `rgba(251, 207, 232, ${p.op})`;
-            g.beginPath();
-            g.ellipse(0, 0, p.r * 1.4, p.r * 0.7, 0, 0, Math.PI * 2);
-            g.fill();
-            g.restore();
-          });
-        }
-      }, 42);
-    }
-    if (atmo === "samadhi" && !reduced) {
-      startParticleCanvas("samadhi-prana", {
-        init: (w, h) => ({
-          x: Math.random() * w, y: h + Math.random() * 50,
-          vy: -(0.5 + Math.random() * 1.2), r: 1.8 + Math.random() * 3.8,
-          op: 0.25 + Math.random() * 0.55, sway: Math.random() * Math.PI * 2
-        }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.y += p.vy;
-            p.x += Math.sin(p.y * 0.012 + p.sway) * 0.6;
-            if (p.y < -20) { p.y = h + 10; p.x = Math.random() * w; }
-            const grad = g.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2);
-            grad.addColorStop(0, `rgba(253, 186, 116, ${p.op})`);
-            grad.addColorStop(0.5, `rgba(249, 115, 22, ${p.op * 0.5})`);
-            grad.addColorStop(1, "rgba(0, 0, 0, 0)");
-            g.fillStyle = grad;
-            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
-          });
-        }
-      }, 38);
-    }
-    if (atmo === "silkroad" && !reduced) {
-      startParticleCanvas("silkroad-stars", {
-        init: (w, h) => ({
-          x: Math.random() * w, y: Math.random() * (h * 0.75),
-          r: 0.8 + Math.random() * 2.2, op: 0.25 + Math.random() * 0.65,
-          speed: 0.02 + Math.random() * 0.05, ph: Math.random() * Math.PI * 2
-        }),
-        frame: (g, pts, w, h) => {
-          pts.forEach((p) => {
-            p.ph += p.speed;
-            const tw = 0.4 + 0.6 * Math.abs(Math.sin(p.ph));
-            g.fillStyle = `rgba(252, 211, 77, ${p.op * tw})`;
-            g.beginPath(); g.arc(p.x, p.y, p.r, 0, Math.PI * 2); g.fill();
-          });
-        }
-      }, 55);
-    }
+    if (atmo === "construct" && !reduced) { startConstructTerm(); }
   }
   function setAtmo(a, save = true, flash = true) {
     const atmo = ATMOS[a] ? a : "afterhours";
     const changed = document.documentElement.getAttribute("data-atmo") !== atmo;
     document.documentElement.setAttribute("data-atmo", atmo);
+    document.querySelectorAll(".hero-crest-watermark use, .exhibit-crest-watermark use, .cf-crest-watermark use").forEach((u) => {
+      u.setAttribute("href", `#crest-${atmo}`);
+    });
     manageThemeFx(atmo);
     const nm = $("#atmo-name");
     if (nm) nm.textContent = ATMOS[atmo].name;
@@ -5007,6 +5382,9 @@
     showToast("Scene set: " + ATMOS[a].name + " · " + ATMOS[a].pair);
   }
   window.setTheScene = setTheScene;
+  window.TitanSetWing = setWing;
+  window.TitanSetAtmo = setAtmo;
+  window.TitanRenderCoverFlow = renderCoverFlow;
   setAtmo(document.documentElement.getAttribute("data-atmo") || "afterhours", false, false);
 
   /* --- Overlay manager: Esc closes the topmost layer; focus is trapped & restored. --- */

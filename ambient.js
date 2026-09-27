@@ -63,43 +63,43 @@
                    fx: { rain: true, mist: true } },
     afterhours:  { name: "After Hours", desc: "Quiet gallery at 2 AM — skylight rain, vinyl warmth, and deep sub drone.",
                    mix: { rain: 0.85, vinyl: 0.45, drone: 0.35, gust: 0.25 },
-                   fx: { rain: true } },
+                   fx: { rain: true, mist: true } },
     conservator: { name: "Conservator", desc: "Restoration atelier: antique clockwork ticking, low hearthfire, and archival paper quiet.",
                    mix: { clockwork: 0.70, fire: 0.55, office: 0.45, crackle: 0.30 },
-                   fx: { embers: true } },
+                   fx: { embers: true, mist: true } },
     colossus:    { name: "Colossus", desc: "Forging great empires: anvil clanks, deep iron furnace drone, and leaping forge sparks.",
                    mix: { clank: 0.85, drone: 0.60, fire: 0.50, crackle: 0.65 },
                    fx: { embers: true, mist: true } },
     odyssey:     { name: "Odyssey", desc: "Open sea voyage: surging ocean surf, sweeping wind swells, and far seabirds.",
                    mix: { ocean: 0.85, gust: 0.60, wind: 0.45, forest: 0.35 },
-                   fx: { mist: true } },
+                   fx: { mist: true, caustics: true } },
     cursedwing:  { name: "Cursed Wing", desc: "Thirteenth hour: abyssal drone, cavern water plinks, and sudden violent lightning.",
                    mix: { drone: 0.85, cavern: 0.70, thunder: 0.75, gust: 0.45 },
-                   fx: { lightning: true } },
+                   fx: { lightning: true, embers: true } },
     kaleido:     { name: "Kaleidoscope", desc: "Psychedelic sanctuary: 432Hz singing bowl, wind chimes, and shimmering auroras.",
                    mix: { bowl: 0.85, chimes: 0.70, drone: 0.40, gust: 0.30 },
-                   fx: { aurora: true } },
+                   fx: { aurora: true, stars: true } },
     abyss:       { name: "Sunken Treasury", desc: "Forty fathoms deep: ocean pressure, echoing cavern drops, and refracted sun caustics.",
                    mix: { ocean: 0.80, cavern: 0.70, drone: 0.65, belltoll: 0.35 },
-                   fx: { caustics: true } },
+                   fx: { caustics: true, mist: true } },
     neon:        { name: "Neon Vault", desc: "Cyberpunk rain: wet asphalt, machine hum, and distant electronic thunder.",
                    mix: { scifi: 0.70, rain: 0.65, drone: 0.45, thunder: 0.30 },
                    fx: { rain: true, lightning: true } },
     notepad:     { name: "Plaintext", desc: "Monastic stillness: soft room tone, quiet antique clockwork, and calm mind.",
                    mix: { office: 0.50, clockwork: 0.40, drone: 0.15 },
-                   fx: {} },
-    construct:   { name: "The Construct", desc: "Machine room: rhythmic industrial hum, sub-bass drone, and metallic relays.",
+                   fx: { stars: true } },
+    construct:   { name: "The Construct", desc: "Machine room: rhythmic industrial hum, sub-bass drone, and green phosphor matrix streams.",
                    mix: { scifi: 0.80, drone: 0.65, clank: 0.45 },
-                   fx: {} },
+                   fx: { dataGrid: true } },
     xeno:        { name: "Xenohold", desc: "Extraterrestrial relay: cosmic radio signal, deep space drone, and singing bowl resonance.",
                    mix: { scifi: 0.75, drone: 0.60, bowl: 0.55, gust: 0.35 },
-                   fx: { aurora: true } },
+                   fx: { aurora: true, stars: true } },
     solaris:     { name: "Solaris", desc: "Solar observatory: solar wind flares, singing bowl 432Hz, and radiant corona sparks.",
                    mix: { drone: 0.80, bowl: 0.70, gust: 0.50, fire: 0.35 },
                    fx: { aurora: true, embers: true } },
     alchemist:   { name: "Alchemist", desc: "Hermetic laboratory: bubbling crucible, antique clockwork, and rising sparks.",
                    mix: { fire: 0.75, crackle: 0.65, clockwork: 0.50, office: 0.35 },
-                   fx: { embers: true } },
+                   fx: { embers: true, mist: true } },
     glacier:     { name: "Hyperborean", desc: "Sub-zero polar gale: arctic blizzard howl, crystalline ice, and emerald auroras.",
                    mix: { blizzard: 0.85, gust: 0.75, wind: 0.60, belltoll: 0.40 },
                    fx: { blizzard: true, aurora: true } },
@@ -111,13 +111,13 @@
                    fx: { goldFoil: true } },
     zen:         { name: "Zen Garden", desc: "Karesansui monastery: rhythmic shishi-odoshi bamboo strikes, gentle wind swells, singing bowl, and falling cherry blossom petals.",
                    mix: { bambooClack: 0.85, bowl: 0.65, gust: 0.45, crickets: 0.30 },
-                   fx: { sakura: true } },
+                   fx: { sakura: true, mist: true } },
     samadhi:     { name: "Samadhi", desc: "Himalayan meditation sanctuary: resonant 108Hz Om drone, Tibetan singing bowl 432Hz, room tone, and swirling incense smoke ribbons.",
                    mix: { omDrone: 0.85, bowl: 0.70, office: 0.30, drone: 0.25 },
                    fx: { incense: true } },
     silkroad:    { name: "Silk Road", desc: "Ancient desert caravanserai: rhythmic bronze camel bells, warm desert night wind, campfire crackle, and celestial oasis starlight.",
                    mix: { caravanBells: 0.85, wind: 0.60, crackle: 0.45, gust: 0.40 },
-                   fx: { stars: true } },
+                   fx: { stars: true, mist: true } },
 
     // Classic Legacy Aliases
     storm:       { name: "Storm", desc: "Rain hammers the skylights; thunder rolls somewhere far off.",
@@ -180,7 +180,8 @@
     preset: null,
     fx: {
       rain: false, blizzard: false, embers: false, aurora: false, lightning: false,
-      mist: false, caustics: false, goldFoil: false, sakura: false, incense: false, stars: false
+      mist: false, caustics: false, goldFoil: false, sakura: false, incense: false, stars: false,
+      dataGrid: false
     }
   };
   for (const id of LAYER_IDS) state.layers[id] = { on: false, vol: 0.7 };
@@ -313,12 +314,70 @@
   }
 
   const eff = (id) => state.layers[id].on ? state.layers[id].vol * 0.9 : 0;
-  function rampGain(id, t = 0.9) {
-    const n = nodes[id]; if (!n) return;
-    const g = n.gain.gain, now = ctx.currentTime;
+  const FADE_DUR = 1.35; // Studio-grade equal-power crossfade duration
+  const pendingStopTimers = {}; // id -> timerId
+
+  function crossfadeLayer(id, targetVol, duration = FADE_DUR) {
+    if (!ctx) return;
+    const n = nodes[id];
+    if (!n) return;
+    const g = n.gain.gain;
+    const now = ctx.currentTime;
+
+    // Clear any pending cleanup for this layer
+    if (pendingStopTimers[id]) {
+      clearTimeout(pendingStopTimers[id]);
+      delete pendingStopTimers[id];
+    }
+
     g.cancelScheduledValues(now);
-    g.setValueAtTime(g.value, now);
-    g.linearRampToValueAtTime(eff(id), now + t);
+    const curVal = Math.max(0.0001, g.value);
+    g.setValueAtTime(curVal, now);
+
+    const steps = 32;
+    const curve = new Float32Array(steps);
+    const isFadeOut = targetVol < 0.001;
+    const isFadeIn = curVal < 0.001;
+
+    for (let i = 0; i < steps; i++) {
+      const frac = i / (steps - 1);
+      if (isFadeOut) {
+        // Equal-power cosine curve down to 0
+        const mult = Math.cos(frac * 0.5 * Math.PI);
+        curve[i] = Math.max(0.00001, curVal * mult);
+      } else if (isFadeIn) {
+        // Equal-power sine curve up to target
+        const mult = Math.sin(frac * 0.5 * Math.PI);
+        curve[i] = Math.max(0.00001, targetVol * mult);
+      } else {
+        // Equal-power transition between two active levels
+        const mult = 0.5 - 0.5 * Math.cos(frac * Math.PI);
+        curve[i] = Math.max(0.00001, curVal + (targetVol - curVal) * mult);
+      }
+    }
+
+    g.setValueCurveAtTime(curve, now, duration);
+
+    if (isFadeOut) {
+      g.setValueAtTime(0, now + duration);
+      // Cleanly pause/stop nodes ONLY after fade reaches zero volume (eliminates all clicks/pops)
+      pendingStopTimers[id] = setTimeout(() => {
+        delete pendingStopTimers[id];
+        if (!state.layers[id].on) {
+          if (n.el) {
+            try { n.el.pause(); n.el.currentTime = 0; } catch (_) {}
+          }
+          if (n.synth) {
+            try { n.synth.stop(); } catch (_) {}
+            n.synth = null;
+          }
+        }
+      }, Math.round(duration * 1000) + 60);
+    }
+  }
+
+  function rampGain(id, t = 0.9) {
+    crossfadeLayer(id, eff(id), t);
   }
 
   // ---- Stereo pan drift ----
@@ -807,11 +866,10 @@
     if (on) {
       if (RECORDED[id]) startRecorded(id);
       else if (!n.synth) n.synth = synthBuilders[id](n);
+      crossfadeLayer(id, eff(id), 0.9);
     } else {
-      if (n.el) n.el.pause();
-      if (n.synth) { try { n.synth.stop(); } catch {} n.synth = null; }
+      crossfadeLayer(id, 0, 0.9);
     }
-    rampGain(id);
     if (id === "rain") setFx("rain", !!on);
     if (id === "thunder") { setFx("lightning", !!on); if (on) scheduleBolt(); }
     if (id === "fire") { setFx("embers", !!on); updateFireFx(); }
@@ -828,7 +886,7 @@
   function setVol(id, v) {
     if (!LAYER_IDS.includes(id)) return;
     state.layers[id].vol = Math.min(1, Math.max(0, v));
-    if (state.layers[id].on && ctx) rampGain(id, 0.25);
+    if (state.layers[id].on && ctx) crossfadeLayer(id, eff(id), 0.25);
     if (id === "fire") updateFireFx();
     markPreset(null);
     writeState(); syncVolUi();
@@ -846,7 +904,12 @@
   function applyPreset(name) {
     if (!PRESETS[name]) return;
     if (name === "off") {
-      for (const id of LAYER_IDS) if (state.layers[id].on) setOn(id, false);
+      for (const id of LAYER_IDS) {
+        if (state.layers[id].on) {
+          state.layers[id].on = false;
+          crossfadeLayer(id, 0, 1.2);
+        }
+      }
       for (const k of Object.keys(state.fx)) state.fx[k] = false;
       state.preset = "off"; markPreset("off"); writeState(); syncUi();
       checkCanvasState();
@@ -854,26 +917,29 @@
     }
     if (!ensureCtx()) return;
     const p = PRESETS[name];
-    // Audio mix
-    for (const id of Object.keys(p.mix)) {
-      state.layers[id].vol = p.mix[id];
-      if (!state.layers[id].on) {
-        state.layers[id].on = true;
-        const n = nodes[id];
-        if (RECORDED[id]) startRecorded(id);
-        else if (!n.synth) n.synth = synthBuilders[id](n);
-      }
-    }
+
+    // Outgoing layers: crossfade to 0 over FADE_DUR and defer stop/pause
     for (const id of LAYER_IDS) {
       const want = Object.prototype.hasOwnProperty.call(p.mix, id);
       if (!want && state.layers[id].on) {
         state.layers[id].on = false;
-        const n = nodes[id];
-        if (n.el) n.el.pause();
-        if (n.synth) { try { n.synth.stop(); } catch {} n.synth = null; }
+        crossfadeLayer(id, 0, FADE_DUR);
       }
-      if (ctx) rampGain(id, 1.2);
     }
+
+    // Incoming & ongoing layers: start if needed and crossfade to target mix
+    for (const id of Object.keys(p.mix)) {
+      state.layers[id].vol = p.mix[id];
+      const wasOff = !state.layers[id].on;
+      state.layers[id].on = true;
+      const n = nodes[id];
+      if (wasOff) {
+        if (RECORDED[id]) startRecorded(id);
+        else if (!n.synth) n.synth = synthBuilders[id](n);
+      }
+      crossfadeLayer(id, eff(id), FADE_DUR);
+    }
+
     // Coupled Visual Effects
     for (const k of Object.keys(state.fx)) {
       state.fx[k] = p.fx && p.fx[k] ? true : false;
@@ -895,6 +961,7 @@
   let raf = null, t0 = 0;
   let drops = [], ripples = [], flakes = [], sparks = [], mistWaves = [];
   let goldLeaves = [], lanterns = [], sakuraPetals = [], incensePlumes = [], pranaOrbs = [], desertStars = [];
+  let dataStreams = [];
   let shootingStar = null;
   let lightningBolt = null; // { segments: [], branches: [], alpha: 0 }
 
@@ -983,6 +1050,17 @@
       r: 0.8 + Math.random() * 2.2, speed: 0.002 + Math.random() * 0.004,
       ph: Math.random() * Math.PI * 2, isDiamond: Math.random() < 0.25,
       baseOp: 0.3 + Math.random() * 0.6
+    }));
+
+    // Construct: Green Phosphor Data Streams
+    const colCount = Math.max(16, Math.floor(innerWidth / 28));
+    dataStreams = Array.from({ length: colCount }, (_, i) => ({
+      x: i * 28 + 14,
+      y: Math.random() * innerHeight,
+      len: 12 + Math.floor(Math.random() * 14),
+      speed: 3.2 + Math.random() * 4.8,
+      chars: Array.from({ length: 26 }, () => String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96))),
+      step: 0
     }));
   }
 
@@ -1354,6 +1432,41 @@
       }
     }
 
+    // 12. Construct: Green Phosphor Data Grid & Digital Rain
+    if (state.fx.dataGrid && !reducedMotion) {
+      ctx2d.save();
+      ctx2d.font = '13px "Cascadia Code", "Consolas", monospace';
+      ctx2d.textAlign = "center";
+      const charH = 17;
+      for (const col of dataStreams) {
+        col.y += col.speed;
+        col.step++;
+        if (col.step % 7 === 0) {
+          col.chars[Math.floor(Math.random() * col.chars.length)] =
+            String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96));
+        }
+        if (col.y - col.len * charH > innerHeight) {
+          col.y = -20;
+          col.speed = 3 + Math.random() * 5;
+        }
+        for (let j = 0; j < col.len; j++) {
+          const cy = col.y - j * charH;
+          if (cy < -20 || cy > innerHeight + 20) continue;
+          const trailFrac = 1 - j / col.len;
+          if (j === 0) {
+            ctx2d.fillStyle = `rgba(220, 255, 235, ${(0.95 * masterOp).toFixed(3)})`;
+            ctx2d.shadowColor = "#33ff66";
+            ctx2d.shadowBlur = 8;
+          } else {
+            ctx2d.fillStyle = `rgba(51, 255, 102, ${(trailFrac * 0.7 * masterOp).toFixed(3)})`;
+            ctx2d.shadowBlur = 0;
+          }
+          ctx2d.fillText(col.chars[j % col.chars.length], col.x, cy);
+        }
+      }
+      ctx2d.restore();
+    }
+
     raf = requestAnimationFrame(renderVisuals);
   }
 
@@ -1484,6 +1597,7 @@
       <button type="button" class="amb-fx-chip" data-fx="sakura">🌸 Sakura Blossoms</button>
       <button type="button" class="amb-fx-chip" data-fx="incense">🪔 Incense &amp; Prana</button>
       <button type="button" class="amb-fx-chip" data-fx="stars">✨ Desert Oasis Stars</button>
+      <button type="button" class="amb-fx-chip" data-fx="dataGrid">📟 Phosphor Data Grid</button>
     </div>
 
     <div class="amb-secname">Binaural Brainwave Entrainment</div>

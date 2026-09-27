@@ -2323,12 +2323,13 @@ html[data-atmo="conservator"] .pane.active { animation-duration: 0.28s; animatio
   letter-spacing: 0.01em;
 }
 .wing-head .sub { margin: 0 0 1rem; }
+.wing-head h2 {
+  font-size: 2.2rem;
+  letter-spacing: 0.01em;
+}
 html[data-atmo="afterhours"] .wing-head h2, html:not([data-atmo]) .wing-head h2 {
-  font-size: 2.4rem;
   text-shadow: 0 2px 30px rgba(200, 169, 74, 0.25);
 }
-html[data-atmo="conservator"] .wing-head { padding-top: 1.1rem; }
-html[data-atmo="conservator"] .wing-head h2 { font-size: 1.6rem; }
 
 /* ---------- Exhibition: masterpieces on the wall ---------- */
 .exhibit {
@@ -2522,9 +2523,6 @@ html[data-atmo="conservator"] .pc-await { background: rgba(250,246,236,0.8); }
 .pc-foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 0.45rem; }
 .pc-val { font-family: var(--serif); font-weight: 600; color: var(--gold); }
 .pc-conf { font-size: 0.72rem; color: var(--faint); }
-html[data-atmo="conservator"] .gallery-grid { gap: 0.5rem; }
-html[data-atmo="conservator"] .piece-card { border-radius: 6px; }
-html[data-atmo="conservator"] .pc-ser { font-size: 1.05rem; }
 
 /* ---------- Lab: work orders ---------- */
 .shoot-card .btn { margin-top: 0.7rem; width: 100%; }
@@ -7157,6 +7155,542 @@ html[data-atmo="silkroad"] .wordmark {
   height: 290px;
   box-shadow: 0 16px 42px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
+
+/* ==========================================================================
+   3D COVER FLOW ARCHIVAL CAROUSEL (GALLERY APEX)
+   Early iTunes / Cover Flow 3D Specimen Showcase for Slabs, Flips & Planchets
+   ========================================================================== */
+
+.gallery-coverflow-wrap {
+  position: relative;
+  width: 100%;
+  margin: 1.25rem 0 2.25rem 0;
+  padding: 1.5rem 1rem 1.75rem 1rem;
+  background: radial-gradient(ellipse 90% 70% at 50% 35%, rgba(20, 24, 33, 0.88) 0%, rgba(8, 10, 14, 0.98) 90%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Polished Ambient Specular Pedestal Ground */
+.gallery-coverflow-wrap::before {
+  content: "";
+  position: absolute;
+  bottom: 120px;
+  left: 10%;
+  right: 10%;
+  height: 180px;
+  background: radial-gradient(ellipse 60% 40% at 50% 60%, rgba(200, 169, 74, 0.16) 0%, rgba(56, 189, 248, 0.05) 45%, transparent 75%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Header bar above Cover Flow */
+.cf-header {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+  z-index: 10;
+}
+
+.cf-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cf-header-left .eyebrow {
+  color: var(--gold, #c8a94a);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cf-header-left .cf-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cf-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cf-header-actions .btn {
+  font-size: 0.78rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cf-header-actions .btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(200, 169, 74, 0.4);
+  color: #fff;
+}
+
+.cf-header-actions .btn.active {
+  background: rgba(200, 169, 74, 0.22);
+  border-color: var(--gold, #c8a94a);
+  color: var(--gold, #c8a94a);
+  box-shadow: 0 0 12px rgba(200, 169, 74, 0.25);
+}
+
+/* 3D Viewport */
+.cf-viewport {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  height: 420px;
+  perspective: 1100px;
+  perspective-origin: 50% 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  z-index: 5;
+}
+
+.cf-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+/* 3D Stage */
+.cf-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3D Specimen Card */
+.cf-card {
+  position: absolute;
+  top: 30px;
+  width: 240px;
+  height: 290px;
+  transform-style: preserve-3d;
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, filter 0.35s ease;
+  cursor: pointer;
+  border-radius: 14px;
+  overflow: visible;
+}
+
+/* During drag, suppress transitions for instantaneous tracking */
+.cf-viewport.is-dragging .cf-card {
+  transition: none !important;
+}
+
+/* Flanking Specimen Cards */
+.cf-card.cf-card-flank {
+  filter: brightness(0.68) saturate(0.85);
+}
+
+.cf-card.cf-card-flank:hover {
+  filter: brightness(0.88) saturate(0.95);
+}
+
+/* Center Specimen Card */
+.cf-card.cf-card-center {
+  filter: brightness(1) saturate(1);
+  cursor: default;
+}
+
+/* Card inner container with 3D flip support */
+.cf-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 14px;
+}
+
+.cf-card.cf-flipped .cf-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back Faces */
+.cf-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 14px;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.cf-face-obv {
+  transform: rotateY(0deg);
+}
+
+.cf-face-rev {
+  transform: rotateY(180deg);
+}
+
+.cf-card-center .cf-face {
+  box-shadow: 
+    0 24px 64px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(200, 169, 74, 0.28),
+    0 0 0 1.5px rgba(200, 169, 74, 0.55);
+}
+
+/* Glass Edge Sheen overlay on flanking slabs */
+.cf-glass-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 60%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cf-card-left .cf-glass-sheen {
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 65%);
+}
+
+.cf-card-right .cf-glass-sheen {
+  background: linear-gradient(250deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 65%);
+}
+
+/* Cover Flow Mirror Reflection */
+.cf-reflection {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 110px;
+  margin-top: 4px;
+  transform: scaleY(-1);
+  opacity: 0.35;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 80%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 80%);
+  filter: blur(0.5px) brightness(0.85);
+  border-radius: 14px;
+}
+
+.cf-reflection .cf-face-rev {
+  display: none;
+}
+
+/* Center Card 3D Flip Quick Action Badge */
+.cf-flip-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(14, 17, 24, 0.85);
+  border: 1px solid rgba(200, 169, 74, 0.5);
+  color: var(--gold, #c8a94a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  z-index: 25;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  pointer-events: auto;
+}
+
+.cf-flip-badge:hover {
+  background: rgba(200, 169, 74, 0.25);
+  border-color: #fff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Cover Flow Mode-Specific Styles */
+.cf-card .museum-slab {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.cf-card .archival-flip-holder {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.cf-card .matrix-medallion-holder {
+  width: 220px;
+  height: 220px;
+  margin: 35px auto;
+}
+
+/* Specimen Info Placard beneath Stage */
+.cf-placard {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  background: rgba(14, 18, 26, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.cf-placard-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cf-placard-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.cf-placard-meta {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cf-placard-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cf-placard-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--gold, #c8a94a);
+  font-family: var(--mono);
+}
+
+/* Cover Flow Controls Bar */
+.cf-controls {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.85rem;
+  z-index: 10;
+}
+
+.cf-nav-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.cf-nav-btn:hover {
+  background: rgba(200, 169, 74, 0.25);
+  border-color: var(--gold, #c8a94a);
+  color: var(--gold, #c8a94a);
+  transform: scale(1.08);
+}
+
+.cf-nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Scrubber Slider */
+.cf-scrubber-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.cf-scrubber {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.cf-scrubber:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.cf-scrubber::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold, #c8a94a);
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(200, 169, 74, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.cf-scrubber::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.cf-scrubber::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold, #c8a94a);
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(200, 169, 74, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.cf-counter {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  min-width: 60px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .cf-viewport {
+    height: 360px;
+    perspective: 800px;
+  }
+  .cf-card {
+    width: 200px;
+    height: 250px;
+  }
+  .cf-reflection {
+    height: 80px;
+  }
+}
+
+/* ==========================================================================
+   HERALDIC CREST WATERMARKS & ATMOSPHERIC DEPTH
+   Procedural watermark emblems for all 20 themes with specular backlights
+   ========================================================================== */
+
+.hero-crest-watermark {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(420px, 85vw);
+  height: min(420px, 85vw);
+  pointer-events: none;
+  opacity: 0.08;
+  z-index: 0;
+  transition: opacity 0.5s ease, color 0.5s ease;
+  color: var(--gold, #c8a94a);
+}
+
+.exhibit-crest-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(320px, 75vw);
+  height: min(320px, 75vw);
+  pointer-events: none;
+  opacity: 0.06;
+  z-index: 1;
+  transition: opacity 0.5s ease, color 0.5s ease;
+  color: var(--gold, #c8a94a);
+}
+
+.cf-crest-watermark {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(340px, 80vw);
+  height: min(340px, 80vw);
+  pointer-events: none;
+  opacity: 0.07;
+  z-index: 1;
+  transition: opacity 0.5s ease, color 0.5s ease;
+  color: var(--gold, #c8a94a);
+}
+
+.crest-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 25px currentColor);
+}
+
 
 
 
