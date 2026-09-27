@@ -1861,32 +1861,69 @@ table.data tbody tr[data-scan]:focus { outline: 1px solid var(--gold-deep); outl
   .lofi-vol input[type="range"] { width: 70px; }
   .lofi-meta { font-size: 0.62rem; }
 }
-.lofi-bar.collapsed .lofi-row { flex-wrap: nowrap; }
-.lofi-bar.collapsed .lofi-now { order: 1; flex: 1 1 auto; }
-.lofi-bar.collapsed .lofi-collapse { order: 2; margin-left: auto; }
-.lofi-bar .lofi-meta {
-  display: flex;
+.lofi-bar.collapsed .lofi-row { flex-wrap: nowrap; align-items: center; gap: 0.4rem; }
+.lofi-bar.collapsed .lofi-play {
+  order: 0;
+  display: inline-flex !important;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-top: 0.4rem;
-  padding-top: 0.4rem;
-  border-top: 1px solid var(--line);
-  font-size: 0.68rem;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #0c0b08;
+  border: none;
+  font-weight: 700;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.lofi-bar.collapsed .lofi-now {
+  order: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0 0.35rem;
+}
+.lofi-bar.collapsed .lofi-collapse {
+  order: 2;
+  margin-left: auto;
+  min-width: 36px;
+  min-height: 36px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--gold-soft);
+  cursor: pointer;
+}
+.lofi-bar.collapsed .lofi-row > :not(.lofi-collapse):not(.lofi-now):not(.lofi-play) { display: none !important; }
+.lofi-bar.collapsed .lofi-meta { display: none !important; }
+.lofi-bar.collapsed .station-menu { display: none !important; }
+.lofi-bar.collapsed {
+  padding: 0.25rem 0.65rem;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(18, 16, 12, 0.94) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line-strong) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 16px rgba(200, 169, 74, 0.15) !important;
+}
+.lofi-bar.collapsed .lofi-now .t {
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ink);
+}
+.lofi-bar.collapsed .lofi-now .a {
+  font-size: 0.65rem;
   color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.lofi-credit { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#lofi-count { flex: 0 0 auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.lofi-collapse {
-  appearance: none; border: none; background: transparent; color: var(--muted);
-  font-size: 1rem; cursor: pointer; padding: 0.2rem 0.4rem; min-height: 32px;
-}
-.lofi-collapse:hover { color: var(--ink); }
-.lofi-bar.collapsed .lofi-row > :not(.lofi-collapse):not(.lofi-now) { display: none; }
-.lofi-bar.collapsed .lofi-meta { display: none; }
-.lofi-bar.collapsed .station-menu { display: none; }
-.lofi-bar.collapsed { padding: 0.3rem 0.5rem; }
-.lofi-bar.collapsed .lofi-now .t { font-size: 0.78rem; }
 @media (min-width: 701px) {
   .lofi-bar.collapsed { width: auto; max-width: 384px; }
 }
@@ -6068,9 +6105,14 @@ html[data-atmo="conservator"] .hero-grand {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
+.term-timeframes-row::-webkit-scrollbar { display: none; }
 .term-tf-btn {
-  padding: 0.3rem 0.65rem;
+  padding: 0.35rem 0.65rem;
   border-radius: 6px;
   background: transparent;
   border: 1px solid transparent;
@@ -6080,6 +6122,8 @@ html[data-atmo="conservator"] .hero-grand {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.15s;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .term-tf-btn:hover {
   color: var(--ink);
@@ -6291,10 +6335,16 @@ html[data-atmo="conservator"] .hero-grand {
 }
 .exhibit-view-controls {
   display: flex;
+  align-items: center;
   gap: 0.35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
+.exhibit-view-controls::-webkit-scrollbar { display: none; }
 .ex-ctrl-btn {
-  padding: 0.3rem 0.65rem;
+  padding: 0.35rem 0.65rem;
   border-radius: 6px;
   background: var(--surface2);
   border: 1px solid var(--line);
@@ -6303,6 +6353,8 @@ html[data-atmo="conservator"] .hero-grand {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .ex-ctrl-btn:hover {
   background: rgba(200, 169, 74, 0.1);
@@ -8161,6 +8213,24 @@ html[data-atmo="silkroad"] .wordmark {
 }
 
 @media (max-width: 768px) {
+  .cf-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .cf-header-actions {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    gap: 0.35rem;
+  }
+  .cf-header-actions::-webkit-scrollbar { display: none; }
+  .cf-header-actions .btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
   .cf-viewport {
     height: 360px;
     perspective: 800px;
@@ -9119,5 +9189,55 @@ html[data-atmo="conservator"] .atlas-hud-tooltip {
     gap: 0.6rem;
   }
 }
+
+/* =========================================================================
+   WCAG 2.2 LEVEL AA & MOBILE TOUCH TARGET ERGONOMICS (TR43)
+   ========================================================================= */
+@media (pointer: coarse), (max-width: 768px) {
+  /* Minimum interactive bounding targets for finger taps */
+  .btn.small,
+  .ex-ctrl-btn,
+  .term-tf-btn,
+  .country-chip,
+  .g-mode-btn,
+  .seg-btn,
+  .amb-reverb-btn,
+  .amb-bb-btn,
+  .amb-timer-btn {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cf-nav-btn,
+  .nav-btn,
+  .drawer-close,
+  .sheet-close,
+  .spatial-close-btn,
+  .lb-close {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Safe tap hit area expansion without visual layout distortion */
+  .lofi-btn,
+  .lofi-collapse,
+  .wings .wing,
+  .drawer-bar button {
+    position: relative;
+  }
+
+  .lofi-btn::after,
+  .lofi-collapse::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+  }
+}
+
 
 

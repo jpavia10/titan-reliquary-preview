@@ -128,6 +128,16 @@
       <span class="lofi-credit" id="lofi-credit"></span>
       <span id="lofi-count"></span>
     </div>`;
+  const isMobileScreen = typeof window !== "undefined" && window.innerWidth <= 600;
+  if (isMobileScreen) {
+    collapsed = true;
+    bar.classList.add("collapsed");
+    const colBtn = bar.querySelector('[data-act="collapse"]');
+    if (colBtn) {
+      colBtn.textContent = "＋";
+      colBtn.setAttribute("aria-label", "Expand player");
+    }
+  }
   document.body.appendChild(bar);
 
   const pill = document.createElement("button");

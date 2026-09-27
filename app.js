@@ -3657,9 +3657,40 @@
       ? 'Archival Lucite Acrylic Slabs · Holographic Pedigree Standards'
       : (galleryMode === 'matrix' ? 'Struck Planchet Medallions · Ambient Directional Lighting' : 'Authentic 2×2 Archival Flips · Specimen Blueprints');
 
+    const coverFlowHtml = `
+      <div class="gallery-coverflow-wrap" id="gallery-coverflow-wrap" aria-label="3D Cover Flow Archival Carousel">
+        <div class="cf-crest-watermark" aria-hidden="true"><svg class="crest-svg" viewBox="0 0 200 200"><use href="#crest-${currentAtmo()}"></use></svg></div>
+        <div class="cf-header">
+          <div class="cf-header-left">
+            <span class="eyebrow"><span class="exhibit-lamp" aria-hidden="true"></span>Archival Carousel · 3D Cover Flow</span>
+            <h3 class="cf-title">Specimen Showcase</h3>
+          </div>
+          <div class="cf-header-actions">
+            <button type="button" class="btn small${cfIsFlipped ? ' active' : ''}" id="cf-btn-flip" title="3D Flip Obverse / Reverse (Space or F)">🔄 3D Flip</button>
+            <button type="button" class="btn small${cfLoupeActive ? ' active' : ''}" id="cf-btn-loupe" title="Toggle 10× Macro Jeweler's Loupe">🔬 10× Loupe</button>
+            <button type="button" class="btn small${caliperActive ? ' active' : ''}" id="cf-btn-caliper" title="Toggle Digital Numismatic Calipers">📏 Calipers</button>
+            <button type="button" class="btn small" id="cf-btn-spatial" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 3D Spatial Museum Table (WebXR / Three.js)">🏛️ 3D Museum Room</button>
+            <button type="button" class="btn small" id="cf-btn-deepzoom" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 40× Gigapixel Forensic Variety Station">🔬 40× Forensic</button>
+          </div>
+        </div>
+        <div class="cf-viewport" id="cf-viewport" tabindex="0" aria-label="Cover Flow 3D Stage (Use Arrow Keys, Drag, or Scroll)">
+          <div class="cf-stage"></div>
+        </div>
+        <div class="cf-placard" id="cf-placard"></div>
+        <div class="cf-controls">
+          <button type="button" class="cf-nav-btn cf-prev" id="cf-btn-prev" aria-label="Previous Specimen" title="Previous (←)">‹</button>
+          <div class="cf-scrubber-wrap">
+            <input type="range" class="cf-scrubber" id="cf-scrubber" min="0" max="${Math.max(0, rows.length - 1)}" value="${cfCurrentIndex}" aria-label="Cover Flow Scrubber" />
+          </div>
+          <button type="button" class="cf-nav-btn cf-next" id="cf-btn-next" aria-label="Next Specimen" title="Next (→)">›</button>
+          <span class="cf-counter" id="cf-counter">${rows.length ? cfCurrentIndex + 1 : 0} of ${rows.length}</span>
+        </div>
+      </div>`;
+
     $("#gallery-body").innerHTML = `
       ${trayNavHtml}
       ${railHtml}
+      ${coverFlowHtml}
       <div class="sec-head reveal">
         <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:0.75rem;width:100%">
           <div>
@@ -3694,55 +3725,6 @@
         <span class="meta">${intFmt(rows.length)} / ${intFmt((vault.flips || []).length)}${flipFilter.staging ? " · 📸 staging album" : ""}${flipFilter.silverOnly ? " · silver" : ""}${flipFilter.phase2 ? " · shooting list" : ""}${flipFilter.q.trim() && !searchIdx ? " · searching notes…" : ""}</span>
       </div>
       <div class="country-strip">${strip}</div>
-
-      <!-- Prominent 3D Spatial Museum Examination Table Apex Entrance -->
-      <div class="gallery-spatial-banner reveal" id="gallery-spatial-banner">
-        <div class="gsb-inner">
-          <div class="gsb-left">
-            <div class="gsb-icon-wrap" aria-hidden="true">
-              <span class="gsb-icon">🏛️</span>
-            </div>
-            <div class="gsb-text">
-              <span class="gsb-kicker">Interactive Three.js Studio · Physical Shadows · 360° Drag</span>
-              <h3 class="gsb-title">3D Spatial Museum Examination Table</h3>
-              <p class="gsb-sub">Inspect physical coins on the solid mahogany table with ray-cast studio lighting, soft velvet contact shadows, 360° trackball rotation, and 90° reeded edge inspection.</p>
-            </div>
-          </div>
-          <button type="button" class="btn gsb-btn" id="btn-gallery-launch-spatial" title="Launch 3D Spatial Museum Table (Hotkey: M)">
-            <span>🏛️ Enter 3D Table</span>
-            <span class="gsb-badge">PRESS M</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="gallery-coverflow-wrap" id="gallery-coverflow-wrap" aria-label="3D Cover Flow Archival Carousel">
-        <div class="cf-crest-watermark" aria-hidden="true"><svg class="crest-svg" viewBox="0 0 200 200"><use href="#crest-${currentAtmo()}"></use></svg></div>
-        <div class="cf-header">
-          <div class="cf-header-left">
-            <span class="eyebrow"><span class="exhibit-lamp" aria-hidden="true"></span>Archival Carousel · 3D Cover Flow</span>
-            <h3 class="cf-title">Specimen Showcase</h3>
-          </div>
-          <div class="cf-header-actions">
-            <button type="button" class="btn small${cfIsFlipped ? ' active' : ''}" id="cf-btn-flip" title="3D Flip Obverse / Reverse (Space or F)">🔄 3D Flip</button>
-            <button type="button" class="btn small${cfLoupeActive ? ' active' : ''}" id="cf-btn-loupe" title="Toggle 10× Macro Jeweler's Loupe">🔬 10× Loupe</button>
-            <button type="button" class="btn small${caliperActive ? ' active' : ''}" id="cf-btn-caliper" title="Toggle Digital Numismatic Calipers">📏 Calipers</button>
-            <button type="button" class="btn small" id="cf-btn-spatial" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 3D Spatial Museum Table (WebXR / Three.js)">🏛️ 3D Museum Room</button>
-            <button type="button" class="btn small" id="cf-btn-deepzoom" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 40× Gigapixel Forensic Variety Station">🔬 40× Forensic</button>
-          </div>
-        </div>
-        <div class="cf-viewport" id="cf-viewport" tabindex="0" aria-label="Cover Flow 3D Stage (Use Arrow Keys, Drag, or Scroll)">
-          <div class="cf-stage"></div>
-        </div>
-        <div class="cf-placard" id="cf-placard"></div>
-        <div class="cf-controls">
-          <button type="button" class="cf-nav-btn cf-prev" id="cf-btn-prev" aria-label="Previous Specimen" title="Previous (←)">‹</button>
-          <div class="cf-scrubber-wrap">
-            <input type="range" class="cf-scrubber" id="cf-scrubber" min="0" max="${Math.max(0, rows.length - 1)}" value="${cfCurrentIndex}" aria-label="Cover Flow Scrubber" />
-          </div>
-          <button type="button" class="cf-nav-btn cf-next" id="cf-btn-next" aria-label="Next Specimen" title="Next (→)">›</button>
-          <span class="cf-counter" id="cf-counter">${rows.length ? cfCurrentIndex + 1 : 0} of ${rows.length}</span>
-        </div>
-      </div>
       <div class="gallery-grid" id="main-gallery-grid">${initialWall || '<p class="empty">No matches</p>'}</div>
       ${sentinelHtml}
     `;
