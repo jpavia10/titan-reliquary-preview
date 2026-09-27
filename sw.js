@@ -1,13 +1,13 @@
-/* Titan Reliquary service worker · build tr38
+/* Titan Reliquary service worker · build tr41
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr38";
+const BUILD = "tr41";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
-const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "app.js?v=" + BUILD, "spatial.js?v=" + BUILD, "styles.css?v=" + BUILD, "manifest.webmanifest",
+const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "app.js?v=" + BUILD, "spatial.js?v=" + BUILD, "deepzoom.js?v=" + BUILD, "styles.css?v=" + BUILD, "manifest.webmanifest",
   "icons/icon-192.png", "icons/apple-touch-icon.png", "favicon.svg",
   "fonts/Fraunces-500.woff2", "fonts/Fraunces-600.woff2", "fonts/Fraunces-700.woff2",
   "js/three.min.js", "js/OrbitControls.js", "js/USDZExporter.js", "js/qrcode.min.js",

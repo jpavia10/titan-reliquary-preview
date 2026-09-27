@@ -966,15 +966,19 @@
   let lightningBolt = null; // { segments: [], branches: [], alpha: 0 }
 
   function sizeCanvas() {
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
+    const dpr = isMobile ? 1.0 : Math.min(1.5, window.devicePixelRatio || 1);
     canvas.width = Math.floor(innerWidth * dpr);
     canvas.height = Math.floor(innerHeight * dpr);
     if (ctx2d) ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   function initParticles() {
+    const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
+    const scale = isMobile ? 0.45 : 1.0;
+
     // Rain
-    const nDrops = Math.round(50 + (state.intensity / 100) * 180);
+    const nDrops = Math.round((30 + (state.intensity / 100) * 120) * scale);
     drops = Array.from({ length: nDrops }, () => ({
       x: Math.random() * innerWidth, y: Math.random() * innerHeight,
       len: 12 + Math.random() * 24, spd: 11 + Math.random() * 9,
@@ -983,7 +987,7 @@
     ripples = [];
 
     // Snow Flakes
-    flakes = Array.from({ length: 90 }, () => ({
+    flakes = Array.from({ length: Math.round(70 * scale) }, () => ({
       x: Math.random() * innerWidth, y: Math.random() * innerHeight,
       r: 1.2 + Math.random() * 3.5, spd: 1.0 + Math.random() * 2.2,
       op: 0.25 + Math.random() * 0.6, drift: Math.random() * 1.5 - 0.75,
@@ -991,7 +995,7 @@
     }));
 
     // Sparks / Embers
-    sparks = Array.from({ length: 55 }, () => ({
+    sparks = Array.from({ length: Math.round(40 * scale) }, () => ({
       x: Math.random() * innerWidth, y: innerHeight + Math.random() * 100,
       r: 1.2 + Math.random() * 2.6, vy: 1.5 + Math.random() * 3.2,
       vx: (Math.random() - 0.5) * 1.8, life: 0.3 + Math.random() * 0.7,
@@ -1488,6 +1492,14 @@
       if (ctx2d) ctx2d.clearRect(0, 0, canvas.width, canvas.height);
     }
   }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      if (raf != null) { cancelAnimationFrame(raf); raf = null; }
+    } else {
+      checkCanvasState();
+    }
+  });
 
   // ---- Lightning Flash Screen Bloom ----
   const bolt = document.createElement("div");

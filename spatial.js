@@ -802,12 +802,13 @@
     camera.position.set(0, 2.3, 5.4);
 
     // 3. Renderer
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: "high-performance" });
+    const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
+    renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: false, powerPreference: "high-performance" });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(isMobile ? 1.0 : Math.min(window.devicePixelRatio, 1.5));
     renderer.setClearColor(0x06070a, 1.0);
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = isMobile ? THREE.BasicShadowMap : THREE.PCFSoftShadowMap;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.15;
     container.innerHTML = "";
@@ -840,8 +841,9 @@
     spotLight.angle = Math.PI / 5;
     spotLight.penumbra = 0.6;
     spotLight.castShadow = true;
-    spotLight.shadow.mapSize.width = 2048;
-    spotLight.shadow.mapSize.height = 2048;
+    const shadowMapSize = isMobile ? 1024 : 2048;
+    spotLight.shadow.mapSize.width = shadowMapSize;
+    spotLight.shadow.mapSize.height = shadowMapSize;
     spotLight.shadow.camera.near = 1;
     spotLight.shadow.camera.far = 15;
     spotLight.shadow.bias = -0.001;
@@ -1371,6 +1373,11 @@
   }
 
   function animate() {
+    const modal = document.getElementById("spatial-museum-modal");
+    if (!modal || modal.hidden) {
+      animFrameId = null;
+      return;
+    }
     animFrameId = requestAnimationFrame(animate);
 
     // Direct drag momentum & inertia damping (Rotates WHOLE 3D card)
@@ -1403,6 +1410,21 @@
       renderer.render(scene, camera);
     }
   }
+
+  // Auto-pause WebGL when tab is hidden or backgrounded
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      if (animFrameId) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      }
+    } else {
+      const modal = document.getElementById("spatial-museum-modal");
+      if (modal && !modal.hidden && animFrameId == null) {
+        animFrameId = requestAnimationFrame(animate);
+      }
+    }
+  });
 
   function updateHUD(f) {
     const titleEl = document.getElementById("spatial-specimen-title");
@@ -1470,12 +1492,20 @@
         camera.position.set(0, 2.5, 6.6);
         controls.update();
       }
+
+      if (animFrameId == null) {
+        animFrameId = requestAnimationFrame(animate);
+      }
     },
 
     close: function() {
       const modal = document.getElementById("spatial-museum-modal");
       if (modal) modal.hidden = true;
       document.body.style.overflow = "";
+      if (animFrameId) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      }
     },
 
     setSpecimen: function(f) {

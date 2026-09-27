@@ -3843,30 +3843,44 @@
       }
     });
 
-    // Pointer-driven 3D tilt & dynamic specular light sheen on all Gallery Cards
-    $$("#gallery-body .piece-card").forEach((card) => {
-      card.addEventListener("pointermove", (e) => {
-        const rect = card.getBoundingClientRect();
-        if (!rect.width || !rect.height) return;
-        const hw = rect.width / 2;
-        const hh = rect.height / 2;
-        const nx = (e.clientX - (rect.left + hw)) / hw;
-        const ny = (e.clientY - (rect.top + hh)) / hh;
-        if (isNaN(nx) || isNaN(ny)) return;
-        const clampedX = Math.max(-1, Math.min(1, nx));
-        const clampedY = Math.max(-1, Math.min(1, ny));
-        const tiltX = (-clampedY * 8).toFixed(1);
-        const tiltY = (clampedX * 10).toFixed(1);
-        card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(8px)`;
-        const sheenX = ((clampedX + 1) / 2 * 100).toFixed(1);
-        const sheenY = ((clampedY + 1) / 2 * 100).toFixed(1);
-        card.style.setProperty("--card-sheen-x", `${sheenX}%`);
-        card.style.setProperty("--card-sheen-y", `${sheenY}%`);
+    // Pointer-driven 3D tilt & dynamic specular light sheen on Gallery Cards (Desktop only, 120fps RAF throttled)
+    const canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (canHover) {
+      $$("#gallery-body .piece-card").forEach((card) => {
+        let cardRect = null;
+        let rafId = null;
+        card.addEventListener("mouseenter", () => {
+          cardRect = card.getBoundingClientRect();
+        });
+        card.addEventListener("mousemove", (e) => {
+          if (!cardRect) cardRect = card.getBoundingClientRect();
+          if (rafId) return;
+          rafId = requestAnimationFrame(() => {
+            rafId = null;
+            if (!cardRect || !cardRect.width || !cardRect.height) return;
+            const hw = cardRect.width / 2;
+            const hh = cardRect.height / 2;
+            const nx = (e.clientX - (cardRect.left + hw)) / hw;
+            const ny = (e.clientY - (cardRect.top + hh)) / hh;
+            if (isNaN(nx) || isNaN(ny)) return;
+            const clampedX = Math.max(-1, Math.min(1, nx));
+            const clampedY = Math.max(-1, Math.min(1, ny));
+            const tiltX = (-clampedY * 8).toFixed(1);
+            const tiltY = (clampedX * 10).toFixed(1);
+            card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(8px)`;
+            const sheenX = ((clampedX + 1) / 2 * 100).toFixed(1);
+            const sheenY = ((clampedY + 1) / 2 * 100).toFixed(1);
+            card.style.setProperty("--card-sheen-x", `${sheenX}%`);
+            card.style.setProperty("--card-sheen-y", `${sheenY}%`);
+          });
+        });
+        card.addEventListener("mouseleave", () => {
+          if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+          cardRect = null;
+          card.style.transform = "";
+        });
       });
-      card.addEventListener("pointerleave", () => {
-        card.style.transform = "";
-      });
-    });
+    }
 
     setupCoverFlowEvents();
     renderCoverFlow(cfCurrentIndex);
@@ -5291,14 +5305,16 @@
     });
   });
 
-  // Wire Top Hero 3D Spatial Table Launcher
-  $("#header-btn-spatial")?.addEventListener("click", () => {
+  // Wire Top Hero 3D Spatial Table Launcher & Grand Hall Spotlight Card
+  function launchSpatialTable() {
     const rows = filteredFlips ? filteredFlips() : (vault?.flips || []);
     const current = rows[cfCurrentIndex] || rows[0];
     if (window.TitanSpatial) {
       window.TitanSpatial.open(current, galleryMode === "matrix" ? "planchet" : (galleryMode === "flip" ? "flip" : "slab"));
     }
-  });
+  }
+  $("#header-btn-spatial")?.addEventListener("click", launchSpatialTable);
+  $("#btn-grand-launch-spatial")?.addEventListener("click", launchSpatialTable);
 
   $("#drawer-close").addEventListener("click", closeDrawer);
   $("#drawer-backdrop").addEventListener("click", closeDrawer);
