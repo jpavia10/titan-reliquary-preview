@@ -2229,6 +2229,84 @@ main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1.25rem
 }
 html[data-atmo="conservator"] .wing.active::before { box-shadow: none; }
 .wing:active { transform: scale(0.96); }
+
+/* 3D Spatial Museum Room Tab */
+.wing.wing-3d {
+  position: relative;
+  color: var(--gold-soft);
+  background: linear-gradient(180deg, rgba(200, 169, 74, 0.08) 0%, transparent 100%);
+}
+.wing.wing-3d svg {
+  color: var(--gold);
+  filter: drop-shadow(0 0 6px rgba(200, 169, 74, 0.5));
+}
+.wing.wing-3d:hover {
+  color: #fff;
+  background: linear-gradient(180deg, rgba(200, 169, 74, 0.2) 0%, transparent 100%);
+}
+.wing-badge-3d {
+  position: absolute;
+  top: 3px;
+  right: calc(50% - 24px);
+  padding: 1px 4.5px;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  font-weight: 800;
+  line-height: 1;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  color: #08090c;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  letter-spacing: 0.05em;
+  animation: pulse-3d 2.5s infinite ease-in-out;
+}
+@keyframes pulse-3d {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.12); opacity: 1; box-shadow: 0 0 12px rgba(245, 158, 11, 0.9); }
+}
+
+/* Hero 3D Spatial Table Launcher */
+.hero-spatial-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.85rem;
+  margin-left: auto;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(200, 169, 74, 0.22) 0%, rgba(200, 169, 74, 0.08) 100%);
+  border: 1px solid rgba(200, 169, 74, 0.45);
+  color: var(--gold-soft);
+  font-family: var(--font);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.hero-spatial-launcher:hover {
+  background: linear-gradient(135deg, rgba(200, 169, 74, 0.38) 0%, rgba(200, 169, 74, 0.16) 100%);
+  border-color: var(--gold);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(200, 169, 74, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.hero-spatial-launcher .hsl-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.hero-spatial-launcher .hsl-pill {
+  padding: 1px 5px;
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  font-weight: 800;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #08090c;
+  letter-spacing: 0.06em;
+}
 .lab-badge {
   position: absolute;
   top: 4px;
@@ -4324,24 +4402,41 @@ html[data-atmo="conservator"] .hero-grand {
   font-weight: 400;
 }
 
-/* ---------- 3. Archival 2x2 Flip Cardboard Holders in Gallery ---------- */
+/* ---------- 3. Archival 2x2 Mounts & Slabs in Gallery Grid ---------- */
 .piece-card {
   position: relative;
-  background: #11100d;
-  border: 1px solid rgba(200, 169, 74, 0.16);
+  background: linear-gradient(145deg, rgba(20, 27, 40, 0.85) 0%, rgba(10, 14, 22, 0.94) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   overflow: hidden;
   cursor: pointer;
   text-align: left;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s, border-color 0.25s;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transform-style: preserve-3d;
+  transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+  will-change: transform;
 }
 .piece-card:hover {
-  transform: translateY(-4px) scale(1.015);
-  box-shadow: 0 18px 42px rgba(0,0,0,0.7), 0 0 24px rgba(200, 169, 74, 0.16);
-  border-color: var(--gold);
+  border-color: rgba(200, 169, 74, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 24px rgba(200, 169, 74, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.piece-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: radial-gradient(circle 160px at var(--card-sheen-x, 50%) var(--card-sheen-y, 50%), rgba(255, 255, 255, 0.14), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 5;
+}
+.piece-card:hover::after {
+  opacity: 1;
 }
 
 /* =========================================================================
@@ -4357,138 +4452,210 @@ html[data-atmo="conservator"] .hero-grand {
   align-items: center;
 }
 
-/* Authentic White 2x2 Archival Cardboard Flip */
+/* Upgraded 2×2 Aero Frosted Acrylic Mount (Uniform High-Detail Aero 3D Presentation) */
 .archival-flip-holder {
+  position: relative;
   aspect-ratio: 1 / 1;
   width: 100%;
-  max-width: 220px;
-  background: #fbf9f4;
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(244,239,228,0.9) 100%),
-    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.008) 10px, rgba(0,0,0,0.008) 20px);
-  border-radius: 6px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 240px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(26, 35, 52, 0.88) 0%, rgba(12, 17, 26, 0.94) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.45),
-    inset 0 1px 1px rgba(255, 255, 255, 0.9),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(0, 0, 0, 0.12);
-  user-select: none;
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.75), 
+    inset 0 -1.5px 3px rgba(0, 0, 0, 0.85), 
+    inset 0 0 20px rgba(255, 255, 255, 0.08),
+    0 16px 40px rgba(0, 0, 0, 0.8), 
+    0 0 0 1px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  user-select: none;
+  contain: layout;
+  box-sizing: border-box;
 }
 
 .archival-flip-holder.flip-large {
-  max-width: 270px;
-  width: 270px;
-  height: 270px;
-  aspect-ratio: 1 / 1;
-  flex-shrink: 0;
-  box-shadow: 
-    0 12px 34px rgba(0, 0, 0, 0.65),
-    inset 0 1px 2px rgba(255, 255, 255, 1),
-    0 0 0 1px rgba(0, 0, 0, 0.16);
+  max-width: 280px;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
 }
+
 @media (max-width: 640px) {
   .archival-flip-holder.flip-large {
-    width: min(210px, 84vw);
-    height: min(210px, 84vw);
+    width: min(230px, 84vw);
+    height: min(230px, 84vw);
   }
 }
 
-/* Galvanized Industrial Steel Staples crimping cardboard border */
-.flip-staple {
-  position: absolute;
-  width: 14px;
-  height: 5px;
-  background: rgba(0, 0, 0, 0.12);
-  border-radius: 2px;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+/* Header & Footer Archival Annotation Strips on 2x2 Mount */
+.flip-aero-header {
+  position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: 6px 14px 2px;
   z-index: 3;
-}
-.flip-large .flip-staple {
-  width: 18px;
-  height: 6px;
-}
-.flip-staple .staple-wire {
-  width: 82%;
-  height: 2px;
-  background: linear-gradient(90deg, #64748b, #cbd5e1, #94a3b8, #cbd5e1, #475569);
-  border-radius: 1px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
-}
-.staple-tl { top: 9px; left: 9px; transform: rotate(-45deg); }
-.staple-tr { top: 9px; right: 9px; transform: rotate(45deg); }
-.staple-bl { bottom: 9px; left: 9px; transform: rotate(45deg); }
-.staple-br { bottom: 9px; right: 9px; transform: rotate(-45deg); }
-
-/* Handwritten-style Archival Collector Pen Margins */
-.flip-margin-top, .flip-margin-left, .flip-margin-right, .flip-margin-bottom {
-  position: absolute;
   font-family: var(--mono);
-  color: #2b231a;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  color: #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 14, 24, 0.5);
+}
+
+.flip-aero-country {
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  pointer-events: none;
-  z-index: 2;
+  color: #fff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 80%;
-}
-.flip-margin-top {
-  top: 5px;
-  left: 10%;
-  right: 10%;
-  font-size: 0.62rem;
-  text-align: center;
-}
-.flip-large .flip-margin-top {
-  top: 8px;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-}
-.flip-margin-bottom {
-  bottom: 5px;
-  left: 10%;
-  right: 10%;
-  font-size: 0.58rem;
-  text-align: center;
-  color: #3f3529;
-}
-.flip-large .flip-margin-bottom {
-  bottom: 8px;
-  font-size: 0.72rem;
-}
-.flip-margin-left {
-  left: 5px;
-  font-size: 0.52rem;
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  max-height: 70%;
-}
-.flip-large .flip-margin-left {
-  left: 7px;
-  font-size: 0.66rem;
-}
-.flip-margin-right {
-  right: 5px;
-  font-size: 0.52rem;
-  writing-mode: vertical-lr;
-  max-height: 70%;
-}
-.flip-large .flip-margin-right {
-  right: 7px;
-  font-size: 0.66rem;
+  max-width: 48%;
 }
 
-/* Crystal-Clear Circular Mylar Aperture Window */
+.flip-aero-year {
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+
+.flip-aero-ser {
+  color: #94a3b8;
+  font-size: 0.54rem;
+}
+
+.flip-aero-footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 14px 6px;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 0.60rem;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 14, 24, 0.5);
+}
+
+.flip-aero-denom {
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 58%;
+}
+
+.flip-aero-purity {
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+/* 2x2 Frosted Silicone Core Gasket */
+.flip-gasket-core {
+  position: relative;
+  flex: 1;
+  margin: 6px 8px;
+  border-radius: 8px;
+  background: 
+    radial-gradient(ellipse at 50% 50%, rgba(30, 42, 62, 0.94) 0%, rgba(10, 14, 24, 0.98) 100%),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0, rgba(255, 255, 255, 0.02) 1px, transparent 2.5px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    inset 0 3px 12px rgba(0, 0, 0, 0.9),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Recessed Coin Aperture in 2x2 Mount */
+.flip-coin-aperture {
+  position: relative;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 4px 16px rgba(0, 0, 0, 0.98), 
+    inset 0 -2px 4px rgba(255, 255, 255, 0.35), 
+    0 0 0 2px rgba(255, 255, 255, 0.08), 
+    0 0 0 4px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020408;
+}
+
+.archival-flip-holder.flip-large .flip-coin-aperture {
+  width: 196px;
+  height: 196px;
+}
+
+.flip-coin-aperture img,
+.flip-coin-aperture .pc-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Edge tabs holding coin in 2x2 silicone mount */
+.slab-edge-tab {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  z-index: 4;
+  border-radius: 1px;
+}
+.slab-edge-tab.tab-n { top: calc(50% - 79px); left: calc(50% - 3px); width: 6px; height: 4px; }
+.slab-edge-tab.tab-s { bottom: calc(50% - 79px); left: calc(50% - 3px); width: 6px; height: 4px; }
+.slab-edge-tab.tab-w { left: calc(50% - 79px); top: calc(50% - 3px); width: 4px; height: 6px; }
+.slab-edge-tab.tab-e { right: calc(50% - 79px); top: calc(50% - 3px); width: 4px; height: 6px; }
+
+.archival-flip-holder.flip-large .slab-edge-tab.tab-n { top: calc(50% - 100px); }
+.archival-flip-holder.flip-large .slab-edge-tab.tab-s { bottom: calc(50% - 100px); }
+.archival-flip-holder.flip-large .slab-edge-tab.tab-w { left: calc(50% - 100px); }
+.archival-flip-holder.flip-large .slab-edge-tab.tab-e { right: calc(50% - 100px); }
+
+/* Holographic Seal on Reverse */
+.flip-holo-seal {
+  position: absolute;
+  bottom: 24px;
+  left: 12px;
+  right: 12px;
+  height: 20px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.75), rgba(56, 189, 248, 0.75), rgba(234, 179, 8, 0.75), rgba(168, 85, 247, 0.75));
+  background-size: 300% 300%;
+  animation: holo-shimmer 4s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+.flip-holo-text {
+  font-family: var(--mono);
+  font-size: 0.50rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+@keyframes holo-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Backward compatibility for mylar window references */
 .flip-mylar-window {
   width: 68%;
   aspect-ratio: 1 / 1;
@@ -4515,7 +4682,6 @@ html[data-atmo="conservator"] .hero-grand {
   display: block;
 }
 
-/* Realistic Mylar Gloss & Light Sheen */
 .flip-mylar-reflection {
   position: absolute;
   inset: -60%;
@@ -4528,6 +4694,111 @@ html[data-atmo="conservator"] .hero-grand {
 .piece-card:hover .flip-mylar-reflection,
 .ex-pedestal-tray:hover .flip-mylar-reflection {
   transform: translateX(100%);
+}
+
+/* Prominent 3D Spatial Museum Table Gallery Entrance Banner */
+.gallery-spatial-banner {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto 1.25rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(22, 28, 42, 0.94) 0%, rgba(12, 16, 26, 0.98) 100%);
+  border: 1px solid rgba(200, 169, 74, 0.38);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 0 24px rgba(200, 169, 74, 0.15);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.gallery-spatial-banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), #fef08a, var(--gold), transparent);
+}
+.gsb-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.4rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.gsb-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1 1 320px;
+}
+.gsb-icon-wrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(200, 169, 74, 0.15);
+  border: 1px solid rgba(200, 169, 74, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(200, 169, 74, 0.2);
+}
+.gsb-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.gsb-kicker {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-soft);
+}
+.gsb-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.gsb-sub {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+.gsb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(217, 119, 6, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.gsb-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(217, 119, 6, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+.gsb-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fef08a;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 800;
 }
 
 /* Museum Specimen Minted Planchet Placeholder Inside Mylar Window */
@@ -5853,13 +6124,16 @@ html[data-atmo="conservator"] .hero-grand {
   width: 100%;
   height: 100%;
   border-radius: 16px;
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.12) 0%, rgba(18, 22, 30, 0.82) 35%, rgba(6, 8, 12, 0.94) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.22) 0%, rgba(20, 26, 38, 0.86) 35%, rgba(6, 9, 14, 0.98) 100%);
+  backdrop-filter: blur(28px) saturate(190%) contrast(106%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%) contrast(106%);
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
   box-shadow: 
-    inset 0 1px 2px rgba(255, 255, 255, 0.5), 
-    inset 0 -1px 3px rgba(0, 0, 0, 0.7), 
-    0 24px 60px rgba(0, 0, 0, 0.9), 
-    0 0 0 1px rgba(0, 0, 0, 0.5);
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.8), 
+    inset 0 -1.5px 3px rgba(0, 0, 0, 0.85), 
+    inset 0 0 24px rgba(255, 255, 255, 0.1),
+    0 24px 64px rgba(0, 0, 0, 0.92), 
+    0 0 0 1px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -5871,7 +6145,8 @@ html[data-atmo="conservator"] .hero-grand {
   position: absolute;
   inset: 2px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
   pointer-events: none;
   z-index: 4;
 }
@@ -5898,8 +6173,8 @@ html[data-atmo="conservator"] .hero-grand {
   border-radius: 8px 8px 4px 4px;
   overflow: hidden;
   background: #0c0e14;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   z-index: 3;
   height: 68px;
   min-height: 68px;
@@ -6018,10 +6293,15 @@ html[data-atmo="conservator"] .hero-grand {
   position: relative;
   flex: 1;
   margin: 8px 10px 10px;
-  border-radius: 6px;
-  background: radial-gradient(circle at 50% 50%, #151922 0%, #0a0d14 90%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  background: 
+    radial-gradient(ellipse at 50% 50%, rgba(28, 38, 56, 0.94) 0%, rgba(10, 14, 22, 0.98) 100%),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0, rgba(255, 255, 255, 0.02) 1px, transparent 2.5px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    inset 0 3px 12px rgba(0, 0, 0, 0.88),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6032,14 +6312,15 @@ html[data-atmo="conservator"] .hero-grand {
   height: 184px;
   border-radius: 50%;
   box-shadow: 
-    inset 0 3px 12px rgba(0, 0, 0, 0.9), 
-    0 0 0 3px rgba(255, 255, 255, 0.04), 
-    0 0 0 4px rgba(0, 0, 0, 0.5);
+    inset 0 4px 16px rgba(0, 0, 0, 0.98), 
+    inset 0 -2px 4px rgba(255, 255, 255, 0.35), 
+    0 0 0 3px rgba(255, 255, 255, 0.08), 
+    0 0 0 5px rgba(0, 0, 0, 0.75);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000;
+  background: #020408;
 }
 .slab-coin-img {
   width: 100%;
@@ -7398,6 +7679,12 @@ html[data-atmo="silkroad"] .wordmark {
   background: linear-gradient(250deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 65%);
 }
 
+.cf-card-center .cf-glass-sheen {
+  background: radial-gradient(circle at var(--cf-sheen-x, 50%) var(--cf-sheen-y, 40%), rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 70%);
+  opacity: 0.95;
+  mix-blend-mode: overlay;
+}
+
 /* Cover Flow Mirror Reflection */
 .cf-reflection {
   position: absolute;
@@ -8204,3 +8491,398 @@ html[data-atmo="conservator"] .atlas-hud-tooltip {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ==========================================================================
+   SPATIAL 3D NUMISMATIC MUSEUM TABLE THEATER (PHASE H)
+   ========================================================================== */
+.spatial-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #06070a;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: spatialFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes spatialFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.spatial-canvas-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.spatial-canvas-container:active {
+  cursor: grabbing;
+}
+
+.spatial-hud-top {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 10;
+  gap: 1rem;
+}
+
+.spatial-hud-info {
+  pointer-events: auto;
+  background: rgba(8, 10, 16, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.28));
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  max-width: 520px;
+}
+
+.spatial-hud-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.spatial-hud-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+  font-family: var(--serif, 'Cinzel', serif);
+  color: var(--gold-soft, #fef08a);
+  line-height: 1.2;
+}
+
+.spatial-hud-meta {
+  font-family: var(--mono, monospace);
+  font-size: 0.75rem;
+  color: var(--ink-soft, #cbd5e1);
+}
+
+.spatial-hud-actions {
+  pointer-events: auto;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.spatial-close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(8, 10, 16, 0.85);
+  border: 1px solid var(--gold, #c8a94a);
+  color: var(--gold-soft, #fef08a);
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.spatial-close-btn:hover {
+  background: var(--gold, #c8a94a);
+  color: #08090c;
+  transform: scale(1.08);
+}
+
+.spatial-hud-bottom {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(8, 10, 16, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 0.55rem 1.25rem;
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.35));
+  border-radius: 36px;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.65);
+  z-index: 10;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.spatial-ctrl-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spatial-ctrl-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--muted, #94a3b8);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--mono, monospace);
+}
+
+.spatial-flip-btn {
+  background: var(--gold, #c8a94a) !important;
+  color: #08090c !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 14px rgba(200, 169, 74, 0.4) !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 18px !important;
+}
+
+.spatial-flip-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(200, 169, 74, 0.6) !important;
+}
+
+.spatial-hint-pill {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono, monospace);
+  font-size: 0.66rem;
+  color: rgba(200, 169, 74, 0.7);
+  letter-spacing: 0.03em;
+  pointer-events: none;
+  z-index: 10;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.spatial-qr-dialog {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+}
+
+.spatial-qr-box {
+  background: #0e121a;
+  border: 1px solid var(--gold, #c8a94a);
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .spatial-hud-top {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    flex-direction: column-reverse;
+  }
+  .spatial-hud-info {
+    max-width: 100%;
+    padding: 0.65rem 0.9rem;
+  }
+  .spatial-hud-actions {
+    align-self: flex-end;
+  }
+  .spatial-hud-bottom {
+    bottom: 1.25rem;
+    width: 92%;
+    padding: 0.5rem 0.75rem;
+    gap: 0.6rem;
+  }
+  .spatial-hint-pill {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   GIGAPIXEL DEEP-ZOOM NUMISMATIC FORENSIC STATION (PHASE F)
+   ========================================================================== */
+.deepzoom-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #06080c;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: spatialFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.deepzoom-viewer-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  cursor: crosshair;
+  background: #06080c;
+}
+
+.deepzoom-reticle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(80vw, 80vh);
+  height: min(80vw, 80vh);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.reticle-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.deepzoom-hud-top {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 10;
+  gap: 1rem;
+}
+
+.deepzoom-hud-info {
+  pointer-events: auto;
+  background: rgba(8, 10, 16, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.35));
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  max-width: 520px;
+}
+
+.deepzoom-hud-actions {
+  pointer-events: auto;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.deepzoom-hud-bottom {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(8, 10, 16, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 0.55rem 1.25rem;
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.4));
+  border-radius: 36px;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.deepzoom-ctrl-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Multi-Spectral Forensic Shaders */
+.openseadragon-canvas.filter-optical {
+  filter: none !important;
+}
+
+.openseadragon-canvas.filter-relief {
+  filter: contrast(180%) drop-shadow(var(--deepzoom-relief-ox, 4px) var(--deepzoom-relief-oy, 4px) 2px rgba(0,0,0,0.85)) !important;
+}
+
+.openseadragon-canvas.filter-negative {
+  filter: invert(100%) contrast(160%) hue-rotate(180deg) !important;
+}
+
+.openseadragon-canvas.filter-toning {
+  filter: saturate(340%) contrast(145%) !important;
+}
+
+.deepzoom-variety-pin {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.pin-marker {
+  font-size: 1.4rem;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
+  animation: pinBounce 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pinBounce {
+  0% { transform: scale(0) translateY(-20px); }
+  60% { transform: scale(1.2) translateY(4px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.pin-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(8, 10, 16, 0.95);
+  border: 1px solid var(--gold, #c8a94a);
+  color: var(--gold-soft, #fef08a);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-family: var(--mono, monospace);
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+}
+
+.deepzoom-variety-pin:hover .pin-tooltip {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .deepzoom-hud-top {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    flex-direction: column-reverse;
+  }
+  .deepzoom-hud-info {
+    max-width: 100%;
+    padding: 0.65rem 0.9rem;
+  }
+  .deepzoom-hud-actions {
+    align-self: flex-end;
+  }
+  .deepzoom-hud-bottom {
+    bottom: 1.25rem;
+    width: 94%;
+    padding: 0.5rem 0.75rem;
+    gap: 0.6rem;
+  }
+}
+
+

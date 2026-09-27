@@ -378,6 +378,11 @@
             <span class="eyebrow">The Vault</span>
             <span class="ledger-chip" id="ledger-chip">Ledger</span>
             <span class="badge hold" title="Policy">HOLD</span>
+            <button type="button" class="hero-spatial-launcher" id="header-btn-spatial" title="Launch 3D Spatial Examination Table (WebXR / Studio Shadows / 360° Drag)">
+              <span class="hsl-icon">🏛️</span>
+              <span class="hsl-text">3D Museum Table</span>
+              <span class="hsl-pill">LIVE 3D</span>
+            </button>
           </div>
           <h1 class="wordmark">Titan Reliquary</h1>
 
@@ -401,6 +406,7 @@
                 <button type="button" class="ex-ctrl-btn active" id="btn-ex-obv" title="Inspect Obverse (Front)">Obverse</button>
                 <button type="button" class="ex-ctrl-btn" id="btn-ex-rev" title="Inspect Reverse (Back)">Reverse</button>
                 <button type="button" class="ex-ctrl-btn flip-btn" id="btn-ex-flip" title="Flip 3D Specimen (Spacebar)">⟲ 3D Flip</button>
+                <button type="button" class="ex-ctrl-btn spatial-launch-btn" id="btn-ex-spatial" title="Inspect on 3D Museum Table (Physical Shadows &amp; 360° Drag)">🏛️ 3D Table</button>
                 <button type="button" class="ex-ctrl-btn" id="btn-ex-reticle" title="Toggle Precision Digital Caliper &amp; Die Reticle">📏 Calipers</button>
                 <button type="button" class="ex-ctrl-btn" id="btn-ex-loupe" title="Toggle Forensic 10× Macro Loupe (Sub-millimeter inspection)">🔬 10× Loupe</button>
               </div>
@@ -685,6 +691,11 @@
         <span>Lab</span>
         <span class="lab-badge" id="lab-badge" hidden>0%</span>
       </button>
+      <button type="button" class="wing wing-3d" id="nav-btn-spatial-table" aria-label="3D Museum Table" title="Enter 3D Spatial Museum Examination Table (WebXR / Studio Shadows / 360° Drag)">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>3D Table</span>
+        <span class="wing-badge-3d">3D</span>
+      </button>
     </nav>
 
     <div id="offline-banner" class="offline-banner" hidden role="status">Offline — viewing the last snapshot. New publishes will load when you're back.</div>
@@ -848,7 +859,9 @@
         <h2 id="keys-title">Shortcuts</h2>
         <dl class="keys-list">
           <div><dt><kbd>⌘K</kbd> / <kbd>Ctrl K</kbd></dt><dd>Search the vault</dd></div>
+          <div><dt><kbd>M</kbd> / <kbd>T</kbd> / <kbd>3</kbd></dt><dd>Launch 3D Spatial Museum Examination Table</dd></div>
           <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Previous / next dossier (when open)</dd></div>
+          <div><dt><kbd>Space</kbd></dt><dd>Flip specimen 3D (Obverse / Reverse)</dd></div>
           <div><dt><kbd>Esc</kbd></dt><dd>Close topmost panel</dd></div>
           <div><dt><kbd>?</kbd></dt><dd>This list</dd></div>
           <div><dt><kbd>1</kbd>–<kbd>5</kbd></dt><dd>Hall · Gallery · Vault · Study · Lab</dd></div>
@@ -874,6 +887,8 @@
           <button type="button" class="nav-btn" id="dossier-next" aria-label="Next flip" title="Next (→)">›</button>
           <span class="drawer-pos" id="dossier-pos"></span>
           <button type="button" class="nav-btn" id="dossier-print" aria-label="Print dossier" title="Print dossier">⎙</button>
+          <button type="button" class="nav-btn" id="dossier-spatial" aria-label="3D Museum Room" title="Inspect on 3D Museum Table">🏛️</button>
+          <button type="button" class="nav-btn" id="dossier-deepzoom" aria-label="Gigapixel Deep-Zoom" title="Inspect on 40× Deep-Zoom Forensic Station">🔬</button>
           <button type="button" class="drawer-close" id="drawer-close" aria-label="Close" title="Close (Esc)">×</button>
         </div>
         <div id="drawer-body"></div>
@@ -890,9 +905,175 @@
     </div>
     <div id="drawer-backdrop" class="backdrop" hidden></div>
 
+    <!-- SPATIAL 3D NUMISMATIC MUSEUM TABLE (PHASE H) -->
+    <div id="spatial-museum-modal" class="spatial-modal" hidden role="dialog" aria-modal="true" aria-label="3D Numismatic Museum Examination Room">
+      <div class="spatial-canvas-container" id="spatial-canvas-container"></div>
+      
+      <!-- Top Floating Navigation & Telemetry Bar -->
+      <div class="spatial-hud-top">
+        <div class="spatial-hud-info">
+          <div class="spatial-hud-badges">
+            <span class="badge" style="background:var(--gold);color:#08090c;font-weight:700" id="spatial-badge-cert">TITAN CERTIFIED</span>
+            <span class="badge" style="background:rgba(200,169,74,0.18);color:var(--gold-soft)" id="spatial-badge-iso">DE · GERMANY</span>
+            <span class="badge" style="background:rgba(255,255,255,0.08);color:var(--ink-soft)" id="spatial-badge-asw">0.24 oz ASW</span>
+          </div>
+          <h2 class="spatial-hud-title" id="spatial-specimen-title">1918 Germany Empire 20 Pfennig</h2>
+          <div class="spatial-hud-meta" id="spatial-specimen-meta">SER: EU-DE-001 · Struck Specimen Planchet · Mint: Berlin (A)</div>
+        </div>
+
+        <div class="spatial-hud-actions">
+          <button type="button" class="btn small" id="spatial-btn-ar" title="View in Physical Space via AR / QuickLook">
+            🕶️ View in AR
+          </button>
+          <button type="button" class="btn small" id="spatial-btn-qr" title="Scan with Phone Camera for Mobile AR">
+            📱 Mobile QR
+          </button>
+          <button type="button" class="spatial-close-btn" id="spatial-btn-close" aria-label="Close 3D Museum" title="Close (Esc)">×</button>
+        </div>
+      </div>
+
+      <!-- Bottom Floating Controls Deck -->
+      <div class="spatial-hud-bottom">
+        <!-- Display Format Switcher -->
+        <div class="spatial-ctrl-group">
+          <span class="spatial-ctrl-label">Format:</span>
+          <div class="segmented-control" id="spatial-format-switch">
+            <button type="button" class="seg-btn active" data-format="slab">🏛️ Slab</button>
+            <button type="button" class="seg-btn" data-format="planchet">✨ Planchet</button>
+            <button type="button" class="seg-btn" data-format="flip">🏷️ 2×2 Flip</button>
+          </div>
+        </div>
+
+        <!-- Specimen Navigation & Flip Action -->
+        <div class="spatial-ctrl-group spatial-nav-group">
+          <button type="button" class="btn small" id="spatial-btn-prev" title="Previous Specimen (←)">‹</button>
+          <button type="button" class="btn small" id="spatial-btn-edge" title="Inspect Edge Profile 90°">📐 Edge 90°</button>
+          <button type="button" class="btn small spatial-flip-btn" id="spatial-btn-flip" title="Flip Specimen 180° (Spacebar)">
+            🔄 Flip 180°
+          </button>
+          <button type="button" class="btn small" id="spatial-btn-front" title="Reset to Front Face">⟲ Front</button>
+          <button type="button" class="btn small" id="spatial-btn-next" title="Next Specimen (→)">›</button>
+        </div>
+
+        <!-- Lighting Atmosphere Switcher -->
+        <div class="spatial-ctrl-group">
+          <span class="spatial-ctrl-label">Lighting:</span>
+          <div class="segmented-control" id="spatial-lighting-switch">
+            <button type="button" class="seg-btn active" data-light="gallery" title="Warm Museum Gallery Spot">🏛️ Warm</button>
+            <button type="button" class="seg-btn" data-light="loupe" title="5000K Daylight Examination">🔬 Daylight</button>
+            <button type="button" class="seg-btn" data-light="raking" title="Low-angle Relief Grazing Light">🌅 Raking</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Interaction Tooltip Hint -->
+      <div class="spatial-hint-pill" id="spatial-hint-pill">
+        🖐️ Direct Drag Specimen to Spin 360° with Momentum · 📐 90° Edge / 🔄 180° Flip · Orbit Background to Pan Table
+      </div>
+
+      <!-- AR QR Code Popover Modal (for Desktop Users) -->
+      <div id="spatial-qr-modal" class="spatial-qr-dialog" hidden>
+        <div class="spatial-qr-box">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+            <h4 style="margin:0;color:var(--gold-soft);font-size:1.1rem">Scan to Place in Your Room</h4>
+            <button type="button" class="btn small" id="spatial-qr-close">×</button>
+          </div>
+          <div id="spatial-qr-container" style="background:#fff;padding:12px;border-radius:8px;display:inline-block;margin:0 auto"></div>
+          <p style="font-size:0.8rem;color:var(--ink-soft);margin:0.75rem 0 0">
+            Open camera on iPhone, iPad, or Android to project this certified specimen in full 3D augmented reality directly onto your desk.
+          </p>
+          <div style="margin-top:0.75rem">
+            <button type="button" class="btn small" id="spatial-download-usdz" style="background:var(--gold);color:#08090c;font-weight:700">
+              📥 Download .USDZ 3D Model
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIGAPIXEL DEEP-ZOOM NUMISMATIC FORENSIC STATION (PHASE F) -->
+    <div id="deepzoom-forensic-modal" class="deepzoom-modal" hidden role="dialog" aria-modal="true" aria-label="Gigapixel Deep-Zoom Numismatic Forensic Station">
+      <div id="deepzoom-viewer-container" class="deepzoom-viewer-container"></div>
+      
+      <!-- Forensic Reticle Overlay -->
+      <div id="deepzoom-reticle-overlay" class="deepzoom-reticle">
+        <svg viewBox="0 0 100 100" class="reticle-svg" preserveAspectRatio="none">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(200,169,74,0.35)" stroke-width="0.3" stroke-dasharray="1,1" />
+          <circle cx="50" cy="50" r="35" fill="none" stroke="rgba(200,169,74,0.35)" stroke-width="0.3" stroke-dasharray="1,1" />
+          <circle cx="50" cy="50" r="25" fill="none" stroke="rgba(200,169,74,0.4)" stroke-width="0.4" />
+          <circle cx="50" cy="50" r="15" fill="none" stroke="rgba(200,169,74,0.35)" stroke-width="0.3" stroke-dasharray="1,1" />
+          <circle cx="50" cy="50" r="5" fill="none" stroke="rgba(200,169,74,0.5)" stroke-width="0.4" />
+          <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(200,169,74,0.4)" stroke-width="0.3" />
+          <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(200,169,74,0.4)" stroke-width="0.3" />
+        </svg>
+      </div>
+
+      <!-- Top Header & Telemetry Bar -->
+      <div class="deepzoom-hud-top">
+        <div class="deepzoom-hud-info">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem">
+            <span class="badge" style="background:var(--gold);color:#08090c;font-weight:700">40× FORENSIC STATION</span>
+            <span class="badge" id="deepzoom-mag-hud" style="background:rgba(200,169,74,0.2);color:var(--gold-soft);font-family:var(--mono)">2.8× MAG</span>
+            <span class="badge" id="deepzoom-coords-hud" style="background:rgba(255,255,255,0.08);color:var(--ink-soft);font-family:var(--mono)">X: 0.00 mm · Y: 0.00 mm</span>
+          </div>
+          <h3 id="deepzoom-title" style="margin:0 0 0.15rem;color:var(--gold-soft);font-size:1.15rem">1918 Germany 20 Pfennig</h3>
+          <div id="deepzoom-subtitle" style="font-family:var(--mono);font-size:0.75rem;color:var(--ink-soft)">SER: EU-DE-001 · Side: OBV · 0.05mm Sub-Millimeter Scale</div>
+        </div>
+
+        <div class="deepzoom-hud-actions">
+          <button type="button" class="btn small" id="deepzoom-btn-flip" title="Flip to Reverse Die (Spacebar)">🔄 Flip Die</button>
+          <button type="button" class="btn small active" id="deepzoom-btn-reticle" title="Toggle Concentric Reticle (R)">🎯 Reticle</button>
+          <button type="button" class="spatial-close-btn" id="deepzoom-btn-close" aria-label="Close Deep-Zoom" title="Close (Esc)">×</button>
+        </div>
+      </div>
+
+      <!-- Bottom Forensic Deck -->
+      <div class="deepzoom-hud-bottom">
+        <!-- Quick Zoom Multipliers -->
+        <div class="deepzoom-ctrl-group">
+          <span class="spatial-ctrl-label">Zoom:</span>
+          <div class="segmented-control">
+            <button type="button" class="seg-btn deepzoom-zoom-btn" data-mag="1.0">1×</button>
+            <button type="button" class="seg-btn deepzoom-zoom-btn" data-mag="5.0">5×</button>
+            <button type="button" class="seg-btn deepzoom-zoom-btn" data-mag="10.0">10×</button>
+            <button type="button" class="seg-btn deepzoom-zoom-btn" data-mag="20.0">20×</button>
+            <button type="button" class="seg-btn deepzoom-zoom-btn" data-mag="40.0">40×</button>
+          </div>
+        </div>
+
+        <!-- Multi-Spectral Forensic Filters -->
+        <div class="deepzoom-ctrl-group">
+          <span class="spatial-ctrl-label">Filter:</span>
+          <div class="segmented-control" id="deepzoom-filter-switch">
+            <button type="button" class="seg-btn active" data-filter="optical" title="True Optical Color">🔬 Optical</button>
+            <button type="button" class="seg-btn" data-filter="relief" title="High-Contrast Strike Relief">⛰️ Relief</button>
+            <button type="button" class="seg-btn" data-filter="negative" title="Negative Chroma (Tooling & Scratch Inspection)">🌓 Tooling</button>
+            <button type="button" class="seg-btn" data-filter="toning" title="UV / Patina Toning Spectrum">🌈 Toning</button>
+          </div>
+        </div>
+
+        <!-- 360° Directional Raking Light Dial -->
+        <div class="deepzoom-ctrl-group">
+          <span class="spatial-ctrl-label">Raking: <span id="deepzoom-raking-val" style="color:var(--gold-soft)">45°</span></span>
+          <input type="range" id="deepzoom-raking-slider" min="0" max="360" value="45" style="width:100px;accent-color:var(--gold)" title="Directional Light Angle (0°–360°)" />
+        </div>
+      </div>
+
+      <div class="spatial-hint-pill">
+        Drag to Pan · Wheel to Zoom up to 40× · Shift-Click to Drop Variety Note Pin · R to Toggle Reticle
+      </div>
+    </div>
+
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
   <script>window.TITAN_BUILD = "tr38";</script>
+  <script src="js/three.min.js"></script>
+  <script src="js/OrbitControls.js"></script>
+  <script src="js/USDZExporter.js"></script>
+  <script src="js/qrcode.min.js"></script>
+  <script src="js/openseadragon.min.js"></script>
+  <script src="spatial.js?v=tr38"></script>
+  <script src="deepzoom.js?v=tr38"></script>
   <script src="atlas.js?v=tr38"></script>
   <script src="app.js?v=tr38"></script>
   <script src="js/playlist.js?v=tr38"></script>

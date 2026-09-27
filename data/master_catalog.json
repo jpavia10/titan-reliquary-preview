@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0.0",
   "collection_title": "Titan Reliquary Master Archival Repository",
-  "total_specimens": 296,
-  "next_consecutive_seq": 297,
-  "next_consecutive_ser": "TITAN-297",
+  "total_specimens": 300,
+  "next_consecutive_seq": 301,
+  "next_consecutive_ser": "TITAN-301",
   "specimens": [
     {
       "ser": "TITAN-001",
@@ -34,8 +34,8 @@
         "raw_obv": "photos/raw_archive/TITAN-001_AUSTRALIA_1943_THREEPENCE_3D_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-001_AUSTRALIA_1943_THREEPENCE_3D_RAW_REV.jpg"
       },
-      "side_a_label_text": "AUSTRALIA \u00b7 1943 \u00b7 THREEPENCE (3D)",
-      "side_b_label_text": "SER #TITAN-001 \u00b7 0.04 oz ASW"
+      "side_a_label_text": "AUSTRALIA · 1943 · THREEPENCE (3D)",
+      "side_b_label_text": "SER #TITAN-001 · 0.04 oz ASW"
     },
     {
       "ser": "TITAN-002",
@@ -44,7 +44,7 @@
       "legacy_scan": "B016",
       "country": "Australia",
       "year": "2020",
-      "denom": "$1 AUD face \u00b7 1 troy oz Kangaroo",
+      "denom": "$1 AUD face · 1 troy oz Kangaroo",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -66,8 +66,8 @@
         "raw_obv": "photos/raw_archive/TITAN-002_AUSTRALIA_2020_1_AUD_FACE_1_TRO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-002_AUSTRALIA_2020_1_AUD_FACE_1_TRO_RAW_REV.jpg"
       },
-      "side_a_label_text": "AUSTRALIA \u00b7 2020 \u00b7 $1 AUD FACE \u00b7 1 TROY OZ KANGAROO",
-      "side_b_label_text": "SER #TITAN-002 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "AUSTRALIA · 2020 · $1 AUD FACE · 1 TROY OZ KANGAROO",
+      "side_b_label_text": "SER #TITAN-002 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-003",
@@ -76,7 +76,7 @@
       "legacy_scan": "B013",
       "country": "Australia",
       "year": "2023",
-      "denom": "$1 AUD face \u00b7 1 troy oz Kangaroo",
+      "denom": "$1 AUD face · 1 troy oz Kangaroo",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -98,8 +98,8 @@
         "raw_obv": "photos/raw_archive/TITAN-003_AUSTRALIA_2023_1_AUD_FACE_1_TRO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-003_AUSTRALIA_2023_1_AUD_FACE_1_TRO_RAW_REV.jpg"
       },
-      "side_a_label_text": "AUSTRALIA \u00b7 2023 \u00b7 $1 AUD FACE \u00b7 1 TROY OZ KANGAROO",
-      "side_b_label_text": "SER #TITAN-003 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "AUSTRALIA · 2023 · $1 AUD FACE · 1 TROY OZ KANGAROO",
+      "side_b_label_text": "SER #TITAN-003 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-004",
@@ -130,8 +130,8 @@
         "raw_obv": "photos/raw_archive/TITAN-004_AUSTRALIA_1944_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-004_AUSTRALIA_1944_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "AUSTRALIA \u00b7 1944 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-004 \u00b7 ARCHIVE"
+      "side_a_label_text": "AUSTRALIA · 1944 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-004 · ARCHIVE"
     },
     {
       "ser": "TITAN-005",
@@ -162,8 +162,8 @@
         "raw_obv": "photos/raw_archive/TITAN-005_AUSTRALIA_1966_20_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-005_AUSTRALIA_1966_20_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "AUSTRALIA \u00b7 1966 \u00b7 20 CENTS",
-      "side_b_label_text": "SER #TITAN-005 \u00b7 ARCHIVE"
+      "side_a_label_text": "AUSTRALIA · 1966 · 20 CENTS",
+      "side_b_label_text": "SER #TITAN-005 · ARCHIVE"
     },
     {
       "ser": "TITAN-006",
@@ -194,8 +194,8 @@
         "raw_obv": "photos/raw_archive/TITAN-006_BRAZIL_2006_5_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-006_BRAZIL_2006_5_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "BRAZIL \u00b7 2006 \u00b7 5 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-006 \u00b7 ARCHIVE"
+      "side_a_label_text": "BRAZIL · 2006 · 5 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-006 · ARCHIVE"
     },
     {
       "ser": "TITAN-007",
@@ -204,7 +204,7 @@
       "legacy_scan": "B020",
       "country": "Canada",
       "year": "2019",
-      "denom": "$5 CAD face \u00b7 1 troy oz Maple Leaf",
+      "denom": "$5 CAD face · 1 troy oz Maple Leaf",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -226,8 +226,8 @@
         "raw_obv": "photos/raw_archive/TITAN-007_CANADA_2019_5_CAD_FACE_1_TRO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-007_CANADA_2019_5_CAD_FACE_1_TRO_RAW_REV.jpg"
       },
-      "side_a_label_text": "CANADA \u00b7 2019 \u00b7 $5 CAD FACE \u00b7 1 TROY OZ MAPLE LEAF",
-      "side_b_label_text": "SER #TITAN-007 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "CANADA · 2019 · $5 CAD FACE · 1 TROY OZ MAPLE LEAF",
+      "side_b_label_text": "SER #TITAN-007 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-008",
@@ -236,7 +236,7 @@
       "legacy_scan": "B015",
       "country": "Canada",
       "year": "2020",
-      "denom": "$5 CAD face \u00b7 1 troy oz Maple Leaf",
+      "denom": "$5 CAD face · 1 troy oz Maple Leaf",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -258,8 +258,8 @@
         "raw_obv": "photos/raw_archive/TITAN-008_CANADA_2020_5_CAD_FACE_1_TRO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-008_CANADA_2020_5_CAD_FACE_1_TRO_RAW_REV.jpg"
       },
-      "side_a_label_text": "CANADA \u00b7 2020 \u00b7 $5 CAD FACE \u00b7 1 TROY OZ MAPLE LEAF",
-      "side_b_label_text": "SER #TITAN-008 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "CANADA · 2020 · $5 CAD FACE · 1 TROY OZ MAPLE LEAF",
+      "side_b_label_text": "SER #TITAN-008 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-009",
@@ -268,7 +268,7 @@
       "legacy_scan": "B021",
       "country": "Canada",
       "year": "2021",
-      "denom": "$5 CAD face \u00b7 1 troy oz Maple Leaf",
+      "denom": "$5 CAD face · 1 troy oz Maple Leaf",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -290,8 +290,8 @@
         "raw_obv": "photos/raw_archive/TITAN-009_CANADA_2021_5_CAD_FACE_1_TRO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-009_CANADA_2021_5_CAD_FACE_1_TRO_RAW_REV.jpg"
       },
-      "side_a_label_text": "CANADA \u00b7 2021 \u00b7 $5 CAD FACE \u00b7 1 TROY OZ MAPLE LEAF",
-      "side_b_label_text": "SER #TITAN-009 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "CANADA · 2021 · $5 CAD FACE · 1 TROY OZ MAPLE LEAF",
+      "side_b_label_text": "SER #TITAN-009 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-010",
@@ -300,7 +300,7 @@
       "legacy_scan": "B004",
       "country": "Canada",
       "year": "2023",
-      "denom": "$5 CAD face \u00b7 1 troy oz Maple Leaf",
+      "denom": "$5 CAD face · 1 troy oz Maple Leaf",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -322,8 +322,8 @@
         "raw_obv": "photos/raw_archive/TITAN-010_CANADA_2023_5_CAD_FACE_1_TRO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-010_CANADA_2023_5_CAD_FACE_1_TRO_RAW_REV.jpg"
       },
-      "side_a_label_text": "CANADA \u00b7 2023 \u00b7 $5 CAD FACE \u00b7 1 TROY OZ MAPLE LEAF",
-      "side_b_label_text": "SER #TITAN-010 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "CANADA · 2023 · $5 CAD FACE · 1 TROY OZ MAPLE LEAF",
+      "side_b_label_text": "SER #TITAN-010 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-011",
@@ -354,8 +354,8 @@
         "raw_obv": "photos/raw_archive/TITAN-011_CANADA_1939_5_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-011_CANADA_1939_5_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "CANADA \u00b7 1939 \u00b7 5 CENTS",
-      "side_b_label_text": "SER #TITAN-011 \u00b7 ARCHIVE"
+      "side_a_label_text": "CANADA · 1939 · 5 CENTS",
+      "side_b_label_text": "SER #TITAN-011 · ARCHIVE"
     },
     {
       "ser": "TITAN-012",
@@ -386,8 +386,8 @@
         "raw_obv": "photos/raw_archive/TITAN-012_CAYMAN_ISLANDS_1990_1_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-012_CAYMAN_ISLANDS_1990_1_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "CAYMAN ISLANDS \u00b7 1990 \u00b7 1 CENT",
-      "side_b_label_text": "SER #TITAN-012 \u00b7 ARCHIVE"
+      "side_a_label_text": "CAYMAN ISLANDS · 1990 · 1 CENT",
+      "side_b_label_text": "SER #TITAN-012 · ARCHIVE"
     },
     {
       "ser": "TITAN-013",
@@ -418,8 +418,8 @@
         "raw_obv": "photos/raw_archive/TITAN-013_CAYMAN_ISLANDS_1996_5_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-013_CAYMAN_ISLANDS_1996_5_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "CAYMAN ISLANDS \u00b7 1996 \u00b7 5 CENTS",
-      "side_b_label_text": "SER #TITAN-013 \u00b7 ARCHIVE"
+      "side_a_label_text": "CAYMAN ISLANDS · 1996 · 5 CENTS",
+      "side_b_label_text": "SER #TITAN-013 · ARCHIVE"
     },
     {
       "ser": "TITAN-014",
@@ -450,8 +450,8 @@
         "raw_obv": "photos/raw_archive/TITAN-014_CAYMAN_ISLANDS_1996_5_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-014_CAYMAN_ISLANDS_1996_5_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "CAYMAN ISLANDS \u00b7 1996 \u00b7 5 CENTS",
-      "side_b_label_text": "SER #TITAN-014 \u00b7 ARCHIVE"
+      "side_a_label_text": "CAYMAN ISLANDS · 1996 · 5 CENTS",
+      "side_b_label_text": "SER #TITAN-014 · ARCHIVE"
     },
     {
       "ser": "TITAN-015",
@@ -482,8 +482,8 @@
         "raw_obv": "photos/raw_archive/TITAN-015_CAYMAN_ISLANDS_2002_5_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-015_CAYMAN_ISLANDS_2002_5_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "CAYMAN ISLANDS \u00b7 2002 \u00b7 5 CENTS",
-      "side_b_label_text": "SER #TITAN-015 \u00b7 ARCHIVE"
+      "side_a_label_text": "CAYMAN ISLANDS · 2002 · 5 CENTS",
+      "side_b_label_text": "SER #TITAN-015 · ARCHIVE"
     },
     {
       "ser": "TITAN-016",
@@ -514,8 +514,8 @@
         "raw_obv": "photos/raw_archive/TITAN-016_CAYMAN_ISLANDS_2008_5_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-016_CAYMAN_ISLANDS_2008_5_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "CAYMAN ISLANDS \u00b7 2008 \u00b7 5 CENTS",
-      "side_b_label_text": "SER #TITAN-016 \u00b7 ARCHIVE"
+      "side_a_label_text": "CAYMAN ISLANDS · 2008 · 5 CENTS",
+      "side_b_label_text": "SER #TITAN-016 · ARCHIVE"
     },
     {
       "ser": "TITAN-017",
@@ -546,8 +546,8 @@
         "raw_obv": "photos/raw_archive/TITAN-017_CHILE_1996_50_PESOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-017_CHILE_1996_50_PESOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "CHILE \u00b7 1996 \u00b7 50 PESOS",
-      "side_b_label_text": "SER #TITAN-017 \u00b7 ARCHIVE"
+      "side_a_label_text": "CHILE · 1996 · 50 PESOS",
+      "side_b_label_text": "SER #TITAN-017 · ARCHIVE"
     },
     {
       "ser": "TITAN-018",
@@ -578,8 +578,8 @@
         "raw_obv": "photos/raw_archive/TITAN-018_COLOMBIA_2016_50_PESOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-018_COLOMBIA_2016_50_PESOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "COLOMBIA \u00b7 2016 \u00b7 50 PESOS",
-      "side_b_label_text": "SER #TITAN-018 \u00b7 ARCHIVE"
+      "side_a_label_text": "COLOMBIA · 2016 · 50 PESOS",
+      "side_b_label_text": "SER #TITAN-018 · ARCHIVE"
     },
     {
       "ser": "TITAN-019",
@@ -610,8 +610,8 @@
         "raw_obv": "photos/raw_archive/TITAN-019_COSTA_RICA_1985_5_COLONES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-019_COSTA_RICA_1985_5_COLONES_RAW_REV.jpg"
       },
-      "side_a_label_text": "COSTA RICA \u00b7 1985 \u00b7 5 COLONES",
-      "side_b_label_text": "SER #TITAN-019 \u00b7 ARCHIVE"
+      "side_a_label_text": "COSTA RICA · 1985 · 5 COLONES",
+      "side_b_label_text": "SER #TITAN-019 · ARCHIVE"
     },
     {
       "ser": "TITAN-020",
@@ -642,8 +642,8 @@
         "raw_obv": "photos/raw_archive/TITAN-020_CUBA_1962_20_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-020_CUBA_1962_20_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "CUBA \u00b7 1962 \u00b7 20 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-020 \u00b7 ARCHIVE"
+      "side_a_label_text": "CUBA · 1962 · 20 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-020 · ARCHIVE"
     },
     {
       "ser": "TITAN-021",
@@ -674,8 +674,8 @@
         "raw_obv": "photos/raw_archive/TITAN-021_EAST_CARIBBEAN_STATES_2004_10_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-021_EAST_CARIBBEAN_STATES_2004_10_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "EAST CARIBBEAN STATES \u00b7 2004 \u00b7 10 CENTS",
-      "side_b_label_text": "SER #TITAN-021 \u00b7 ARCHIVE"
+      "side_a_label_text": "EAST CARIBBEAN STATES · 2004 · 10 CENTS",
+      "side_b_label_text": "SER #TITAN-021 · ARCHIVE"
     },
     {
       "ser": "TITAN-022",
@@ -706,8 +706,8 @@
         "raw_obv": "photos/raw_archive/TITAN-022_ERITREA_1997_50_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-022_ERITREA_1997_50_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "ERITREA \u00b7 1997 \u00b7 50 CENTS",
-      "side_b_label_text": "SER #TITAN-022 \u00b7 ARCHIVE"
+      "side_a_label_text": "ERITREA · 1997 · 50 CENTS",
+      "side_b_label_text": "SER #TITAN-022 · ARCHIVE"
     },
     {
       "ser": "TITAN-023",
@@ -738,8 +738,8 @@
         "raw_obv": "photos/raw_archive/TITAN-023_FINE_MINT_ND_10_TROY_OZ_CAST__RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-023_FINE_MINT_ND_10_TROY_OZ_CAST__RAW_REV.jpg"
       },
-      "side_a_label_text": "FINE MINT \u00b7 ND \u00b7 10 TROY OZ CAST/POURED BAR (WINDOW SHOWS EMBOSSED 9 ON FACE)",
-      "side_b_label_text": "SER #TITAN-023 \u00b7 10.00 oz ASW"
+      "side_a_label_text": "FINE MINT · ND · 10 TROY OZ CAST/POURED BAR (WINDOW SHOWS EMBOSSED 9 ON FACE)",
+      "side_b_label_text": "SER #TITAN-023 · 10.00 oz ASW"
     },
     {
       "ser": "TITAN-024",
@@ -770,8 +770,8 @@
         "raw_obv": "photos/raw_archive/TITAN-024_FRANCE_1946_5_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-024_FRANCE_1946_5_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1946 \u00b7 5 FRANCS",
-      "side_b_label_text": "SER #TITAN-024 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1946 · 5 FRANCS",
+      "side_b_label_text": "SER #TITAN-024 · ARCHIVE"
     },
     {
       "ser": "TITAN-025",
@@ -802,8 +802,8 @@
         "raw_obv": "photos/raw_archive/TITAN-025_FRANCE_1960_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-025_FRANCE_1960_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1960 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-025 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1960 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-025 · ARCHIVE"
     },
     {
       "ser": "TITAN-026",
@@ -834,8 +834,8 @@
         "raw_obv": "photos/raw_archive/TITAN-026_FRANCE_1960_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-026_FRANCE_1960_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1960 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-026 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1960 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-026 · ARCHIVE"
     },
     {
       "ser": "TITAN-027",
@@ -866,8 +866,8 @@
         "raw_obv": "photos/raw_archive/TITAN-027_FRANCE_1960_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-027_FRANCE_1960_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1960 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-027 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1960 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-027 · ARCHIVE"
     },
     {
       "ser": "TITAN-028",
@@ -898,8 +898,8 @@
         "raw_obv": "photos/raw_archive/TITAN-028_FRANCE_1962_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-028_FRANCE_1962_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1962 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-028 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1962 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-028 · ARCHIVE"
     },
     {
       "ser": "TITAN-029",
@@ -930,8 +930,8 @@
         "raw_obv": "photos/raw_archive/TITAN-029_FRANCE_1963_10_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-029_FRANCE_1963_10_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1963 \u00b7 10 CENTIMES",
-      "side_b_label_text": "SER #TITAN-029 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1963 · 10 CENTIMES",
+      "side_b_label_text": "SER #TITAN-029 · ARCHIVE"
     },
     {
       "ser": "TITAN-030",
@@ -962,8 +962,8 @@
         "raw_obv": "photos/raw_archive/TITAN-030_FRANCE_1965_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-030_FRANCE_1965_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1965 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-030 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1965 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-030 · ARCHIVE"
     },
     {
       "ser": "TITAN-031",
@@ -994,8 +994,8 @@
         "raw_obv": "photos/raw_archive/TITAN-031_FRANCE_1967_10_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-031_FRANCE_1967_10_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1967 \u00b7 10 CENTIMES",
-      "side_b_label_text": "SER #TITAN-031 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1967 · 10 CENTIMES",
+      "side_b_label_text": "SER #TITAN-031 · ARCHIVE"
     },
     {
       "ser": "TITAN-032",
@@ -1004,7 +1004,7 @@
       "legacy_scan": "C033",
       "country": "France",
       "year": "1969",
-      "denom": "\u00bd franc",
+      "denom": "½ franc",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -1026,8 +1026,8 @@
         "raw_obv": "photos/raw_archive/TITAN-032_FRANCE_1969_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-032_FRANCE_1969_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1969 \u00b7 \u00bd FRANC",
-      "side_b_label_text": "SER #TITAN-032 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1969 · ½ FRANC",
+      "side_b_label_text": "SER #TITAN-032 · ARCHIVE"
     },
     {
       "ser": "TITAN-033",
@@ -1036,7 +1036,7 @@
       "legacy_scan": "C060",
       "country": "France",
       "year": "1971",
-      "denom": "\u00bd franc",
+      "denom": "½ franc",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -1058,8 +1058,8 @@
         "raw_obv": "photos/raw_archive/TITAN-033_FRANCE_1971_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-033_FRANCE_1971_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1971 \u00b7 \u00bd FRANC",
-      "side_b_label_text": "SER #TITAN-033 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1971 · ½ FRANC",
+      "side_b_label_text": "SER #TITAN-033 · ARCHIVE"
     },
     {
       "ser": "TITAN-034",
@@ -1090,8 +1090,8 @@
         "raw_obv": "photos/raw_archive/TITAN-034_FRANCE_1973_5_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-034_FRANCE_1973_5_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1973 \u00b7 5 CENTIMES",
-      "side_b_label_text": "SER #TITAN-034 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1973 · 5 CENTIMES",
+      "side_b_label_text": "SER #TITAN-034 · ARCHIVE"
     },
     {
       "ser": "TITAN-035",
@@ -1122,8 +1122,8 @@
         "raw_obv": "photos/raw_archive/TITAN-035_FRANCE_1974_20_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-035_FRANCE_1974_20_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1974 \u00b7 20 CENTIMES",
-      "side_b_label_text": "SER #TITAN-035 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1974 · 20 CENTIMES",
+      "side_b_label_text": "SER #TITAN-035 · ARCHIVE"
     },
     {
       "ser": "TITAN-036",
@@ -1154,8 +1154,8 @@
         "raw_obv": "photos/raw_archive/TITAN-036_FRANCE_1977_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-036_FRANCE_1977_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1977 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-036 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1977 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-036 · ARCHIVE"
     },
     {
       "ser": "TITAN-037",
@@ -1186,8 +1186,8 @@
         "raw_obv": "photos/raw_archive/TITAN-037_FRANCE_1980_5_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-037_FRANCE_1980_5_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1980 \u00b7 5 CENTIMES",
-      "side_b_label_text": "SER #TITAN-037 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1980 · 5 CENTIMES",
+      "side_b_label_text": "SER #TITAN-037 · ARCHIVE"
     },
     {
       "ser": "TITAN-038",
@@ -1218,8 +1218,8 @@
         "raw_obv": "photos/raw_archive/TITAN-038_FRANCE_1984_10_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-038_FRANCE_1984_10_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1984 \u00b7 10 CENTIMES",
-      "side_b_label_text": "SER #TITAN-038 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1984 · 10 CENTIMES",
+      "side_b_label_text": "SER #TITAN-038 · ARCHIVE"
     },
     {
       "ser": "TITAN-039",
@@ -1250,8 +1250,8 @@
         "raw_obv": "photos/raw_archive/TITAN-039_FRANCE_1986_20_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-039_FRANCE_1986_20_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1986 \u00b7 20 CENTIMES",
-      "side_b_label_text": "SER #TITAN-039 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1986 · 20 CENTIMES",
+      "side_b_label_text": "SER #TITAN-039 · ARCHIVE"
     },
     {
       "ser": "TITAN-040",
@@ -1260,7 +1260,7 @@
       "legacy_scan": "C221",
       "country": "France",
       "year": "1986",
-      "denom": "\u00bd franc",
+      "denom": "½ franc",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -1282,8 +1282,8 @@
         "raw_obv": "photos/raw_archive/TITAN-040_FRANCE_1986_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-040_FRANCE_1986_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1986 \u00b7 \u00bd FRANC",
-      "side_b_label_text": "SER #TITAN-040 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1986 · ½ FRANC",
+      "side_b_label_text": "SER #TITAN-040 · ARCHIVE"
     },
     {
       "ser": "TITAN-041",
@@ -1314,8 +1314,8 @@
         "raw_obv": "photos/raw_archive/TITAN-041_FRANCE_1989_10_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-041_FRANCE_1989_10_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1989 \u00b7 10 FRANCS",
-      "side_b_label_text": "SER #TITAN-041 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1989 · 10 FRANCS",
+      "side_b_label_text": "SER #TITAN-041 · ARCHIVE"
     },
     {
       "ser": "TITAN-042",
@@ -1346,8 +1346,8 @@
         "raw_obv": "photos/raw_archive/TITAN-042_FRANCE_1995_10_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-042_FRANCE_1995_10_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1995 \u00b7 10 CENTIMES",
-      "side_b_label_text": "SER #TITAN-042 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1995 · 10 CENTIMES",
+      "side_b_label_text": "SER #TITAN-042 · ARCHIVE"
     },
     {
       "ser": "TITAN-043",
@@ -1378,8 +1378,8 @@
         "raw_obv": "photos/raw_archive/TITAN-043_FRANCE_1998_10_CENTIMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-043_FRANCE_1998_10_CENTIMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1998 \u00b7 10 CENTIMES",
-      "side_b_label_text": "SER #TITAN-043 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1998 · 10 CENTIMES",
+      "side_b_label_text": "SER #TITAN-043 · ARCHIVE"
     },
     {
       "ser": "TITAN-044",
@@ -1410,8 +1410,8 @@
         "raw_obv": "photos/raw_archive/TITAN-044_FRANCE_1999_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-044_FRANCE_1999_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1999 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-044 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1999 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-044 · ARCHIVE"
     },
     {
       "ser": "TITAN-045",
@@ -1442,8 +1442,8 @@
         "raw_obv": "photos/raw_archive/TITAN-045_FRANCE_1999_10_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-045_FRANCE_1999_10_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 1999 \u00b7 10 EURO CENT",
-      "side_b_label_text": "SER #TITAN-045 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 1999 · 10 EURO CENT",
+      "side_b_label_text": "SER #TITAN-045 · ARCHIVE"
     },
     {
       "ser": "TITAN-046",
@@ -1474,8 +1474,8 @@
         "raw_obv": "photos/raw_archive/TITAN-046_FRANCE_2000_2_EURO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-046_FRANCE_2000_2_EURO_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2000 \u00b7 2 EURO",
-      "side_b_label_text": "SER #TITAN-046 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2000 · 2 EURO",
+      "side_b_label_text": "SER #TITAN-046 · ARCHIVE"
     },
     {
       "ser": "TITAN-047",
@@ -1506,8 +1506,8 @@
         "raw_obv": "photos/raw_archive/TITAN-047_FRANCE_2000_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-047_FRANCE_2000_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2000 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-047 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2000 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-047 · ARCHIVE"
     },
     {
       "ser": "TITAN-048",
@@ -1538,8 +1538,8 @@
         "raw_obv": "photos/raw_archive/TITAN-048_FRANCE_2000_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-048_FRANCE_2000_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2000 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-048 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2000 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-048 · ARCHIVE"
     },
     {
       "ser": "TITAN-049",
@@ -1570,8 +1570,8 @@
         "raw_obv": "photos/raw_archive/TITAN-049_FRANCE_2002_10_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-049_FRANCE_2002_10_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2002 \u00b7 10 EURO CENT",
-      "side_b_label_text": "SER #TITAN-049 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2002 · 10 EURO CENT",
+      "side_b_label_text": "SER #TITAN-049 · ARCHIVE"
     },
     {
       "ser": "TITAN-050",
@@ -1602,8 +1602,8 @@
         "raw_obv": "photos/raw_archive/TITAN-050_FRANCE_2009_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-050_FRANCE_2009_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2009 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-050 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2009 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-050 · ARCHIVE"
     },
     {
       "ser": "TITAN-051",
@@ -1634,8 +1634,8 @@
         "raw_obv": "photos/raw_archive/TITAN-051_FRANCE_2009_2_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-051_FRANCE_2009_2_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2009 \u00b7 2 EURO CENT",
-      "side_b_label_text": "SER #TITAN-051 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2009 · 2 EURO CENT",
+      "side_b_label_text": "SER #TITAN-051 · ARCHIVE"
     },
     {
       "ser": "TITAN-052",
@@ -1666,8 +1666,8 @@
         "raw_obv": "photos/raw_archive/TITAN-052_FRANCE_2009_5_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-052_FRANCE_2009_5_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2009 \u00b7 5 EURO CENT",
-      "side_b_label_text": "SER #TITAN-052 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2009 · 5 EURO CENT",
+      "side_b_label_text": "SER #TITAN-052 · ARCHIVE"
     },
     {
       "ser": "TITAN-053",
@@ -1698,8 +1698,8 @@
         "raw_obv": "photos/raw_archive/TITAN-053_FRANCE_2010_10_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-053_FRANCE_2010_10_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2010 \u00b7 10 EURO CENT",
-      "side_b_label_text": "SER #TITAN-053 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2010 · 10 EURO CENT",
+      "side_b_label_text": "SER #TITAN-053 · ARCHIVE"
     },
     {
       "ser": "TITAN-054",
@@ -1730,8 +1730,8 @@
         "raw_obv": "photos/raw_archive/TITAN-054_FRANCE_2010_2_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-054_FRANCE_2010_2_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2010 \u00b7 2 EURO CENT",
-      "side_b_label_text": "SER #TITAN-054 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2010 · 2 EURO CENT",
+      "side_b_label_text": "SER #TITAN-054 · ARCHIVE"
     },
     {
       "ser": "TITAN-055",
@@ -1762,8 +1762,8 @@
         "raw_obv": "photos/raw_archive/TITAN-055_FRANCE_2015_10_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-055_FRANCE_2015_10_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2015 \u00b7 10 EURO CENT",
-      "side_b_label_text": "SER #TITAN-055 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2015 · 10 EURO CENT",
+      "side_b_label_text": "SER #TITAN-055 · ARCHIVE"
     },
     {
       "ser": "TITAN-056",
@@ -1794,8 +1794,8 @@
         "raw_obv": "photos/raw_archive/TITAN-056_FRANCE_2017_2_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-056_FRANCE_2017_2_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "FRANCE \u00b7 2017 \u00b7 2 EURO CENT",
-      "side_b_label_text": "SER #TITAN-056 \u00b7 ARCHIVE"
+      "side_a_label_text": "FRANCE · 2017 · 2 EURO CENT",
+      "side_b_label_text": "SER #TITAN-056 · ARCHIVE"
     },
     {
       "ser": "TITAN-057",
@@ -1826,8 +1826,8 @@
         "raw_obv": "photos/raw_archive/TITAN-057_GERMANY_1950_5_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-057_GERMANY_1950_5_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1950 \u00b7 5 PFENNIG",
-      "side_b_label_text": "SER #TITAN-057 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1950 · 5 PFENNIG",
+      "side_b_label_text": "SER #TITAN-057 · ARCHIVE"
     },
     {
       "ser": "TITAN-058",
@@ -1858,8 +1858,8 @@
         "raw_obv": "photos/raw_archive/TITAN-058_GERMANY_1966_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-058_GERMANY_1966_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1966 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-058 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1966 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-058 · ARCHIVE"
     },
     {
       "ser": "TITAN-059",
@@ -1890,8 +1890,8 @@
         "raw_obv": "photos/raw_archive/TITAN-059_GERMANY_1970_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-059_GERMANY_1970_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1970 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-059 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1970 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-059 · ARCHIVE"
     },
     {
       "ser": "TITAN-060",
@@ -1922,8 +1922,8 @@
         "raw_obv": "photos/raw_archive/TITAN-060_GERMANY_1971_5_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-060_GERMANY_1971_5_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1971 \u00b7 5 PFENNIG",
-      "side_b_label_text": "SER #TITAN-060 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1971 · 5 PFENNIG",
+      "side_b_label_text": "SER #TITAN-060 · ARCHIVE"
     },
     {
       "ser": "TITAN-061",
@@ -1954,8 +1954,8 @@
         "raw_obv": "photos/raw_archive/TITAN-061_GERMANY_1971_5_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-061_GERMANY_1971_5_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1971 \u00b7 5 PFENNIG",
-      "side_b_label_text": "SER #TITAN-061 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1971 · 5 PFENNIG",
+      "side_b_label_text": "SER #TITAN-061 · ARCHIVE"
     },
     {
       "ser": "TITAN-062",
@@ -1986,8 +1986,8 @@
         "raw_obv": "photos/raw_archive/TITAN-062_GERMANY_1971_50_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-062_GERMANY_1971_50_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1971 \u00b7 50 PFENNIG",
-      "side_b_label_text": "SER #TITAN-062 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1971 · 50 PFENNIG",
+      "side_b_label_text": "SER #TITAN-062 · ARCHIVE"
     },
     {
       "ser": "TITAN-063",
@@ -2018,8 +2018,8 @@
         "raw_obv": "photos/raw_archive/TITAN-063_GERMANY_1972_1_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-063_GERMANY_1972_1_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1972 \u00b7 1 PFENNIG",
-      "side_b_label_text": "SER #TITAN-063 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1972 · 1 PFENNIG",
+      "side_b_label_text": "SER #TITAN-063 · ARCHIVE"
     },
     {
       "ser": "TITAN-064",
@@ -2050,8 +2050,8 @@
         "raw_obv": "photos/raw_archive/TITAN-064_GERMANY_1973_2_DEUTSCHE_MARK_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-064_GERMANY_1973_2_DEUTSCHE_MARK_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1973 \u00b7 2 DEUTSCHE MARK",
-      "side_b_label_text": "SER #TITAN-064 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1973 · 2 DEUTSCHE MARK",
+      "side_b_label_text": "SER #TITAN-064 · ARCHIVE"
     },
     {
       "ser": "TITAN-065",
@@ -2082,8 +2082,8 @@
         "raw_obv": "photos/raw_archive/TITAN-065_GERMANY_1977_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-065_GERMANY_1977_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1977 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-065 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1977 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-065 · ARCHIVE"
     },
     {
       "ser": "TITAN-066",
@@ -2114,8 +2114,8 @@
         "raw_obv": "photos/raw_archive/TITAN-066_GERMANY_1980_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-066_GERMANY_1980_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1980 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-066 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1980 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-066 · ARCHIVE"
     },
     {
       "ser": "TITAN-067",
@@ -2146,8 +2146,8 @@
         "raw_obv": "photos/raw_archive/TITAN-067_GERMANY_1981_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-067_GERMANY_1981_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1981 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-067 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1981 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-067 · ARCHIVE"
     },
     {
       "ser": "TITAN-068",
@@ -2178,8 +2178,8 @@
         "raw_obv": "photos/raw_archive/TITAN-068_GERMANY_1982_1_DEUTSCHE_MARK_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-068_GERMANY_1982_1_DEUTSCHE_MARK_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1982 \u00b7 1 DEUTSCHE MARK",
-      "side_b_label_text": "SER #TITAN-068 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1982 · 1 DEUTSCHE MARK",
+      "side_b_label_text": "SER #TITAN-068 · ARCHIVE"
     },
     {
       "ser": "TITAN-069",
@@ -2210,8 +2210,8 @@
         "raw_obv": "photos/raw_archive/TITAN-069_GERMANY_1982_1_DEUTSCHE_MARK_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-069_GERMANY_1982_1_DEUTSCHE_MARK_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1982 \u00b7 1 DEUTSCHE MARK",
-      "side_b_label_text": "SER #TITAN-069 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1982 · 1 DEUTSCHE MARK",
+      "side_b_label_text": "SER #TITAN-069 · ARCHIVE"
     },
     {
       "ser": "TITAN-070",
@@ -2242,8 +2242,8 @@
         "raw_obv": "photos/raw_archive/TITAN-070_GERMANY_1982_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-070_GERMANY_1982_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1982 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-070 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1982 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-070 · ARCHIVE"
     },
     {
       "ser": "TITAN-071",
@@ -2274,8 +2274,8 @@
         "raw_obv": "photos/raw_archive/TITAN-071_GERMANY_1982_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-071_GERMANY_1982_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1982 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-071 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1982 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-071 · ARCHIVE"
     },
     {
       "ser": "TITAN-072",
@@ -2306,8 +2306,8 @@
         "raw_obv": "photos/raw_archive/TITAN-072_GERMANY_1982_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-072_GERMANY_1982_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1982 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-072 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1982 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-072 · ARCHIVE"
     },
     {
       "ser": "TITAN-073",
@@ -2338,8 +2338,8 @@
         "raw_obv": "photos/raw_archive/TITAN-073_GERMANY_1982_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-073_GERMANY_1982_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1982 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-073 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1982 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-073 · ARCHIVE"
     },
     {
       "ser": "TITAN-074",
@@ -2370,8 +2370,8 @@
         "raw_obv": "photos/raw_archive/TITAN-074_GERMANY_1982_50_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-074_GERMANY_1982_50_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1982 \u00b7 50 PFENNIG",
-      "side_b_label_text": "SER #TITAN-074 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1982 · 50 PFENNIG",
+      "side_b_label_text": "SER #TITAN-074 · ARCHIVE"
     },
     {
       "ser": "TITAN-075",
@@ -2402,8 +2402,8 @@
         "raw_obv": "photos/raw_archive/TITAN-075_GERMANY_1983_2_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-075_GERMANY_1983_2_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1983 \u00b7 2 PFENNIG",
-      "side_b_label_text": "SER #TITAN-075 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1983 · 2 PFENNIG",
+      "side_b_label_text": "SER #TITAN-075 · ARCHIVE"
     },
     {
       "ser": "TITAN-076",
@@ -2434,8 +2434,8 @@
         "raw_obv": "photos/raw_archive/TITAN-076_GERMANY_1983_2_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-076_GERMANY_1983_2_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1983 \u00b7 2 PFENNIG",
-      "side_b_label_text": "SER #TITAN-076 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1983 · 2 PFENNIG",
+      "side_b_label_text": "SER #TITAN-076 · ARCHIVE"
     },
     {
       "ser": "TITAN-077",
@@ -2466,8 +2466,8 @@
         "raw_obv": "photos/raw_archive/TITAN-077_GERMANY_1984_1_DEUTSCHE_MARK_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-077_GERMANY_1984_1_DEUTSCHE_MARK_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1984 \u00b7 1 DEUTSCHE MARK",
-      "side_b_label_text": "SER #TITAN-077 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1984 · 1 DEUTSCHE MARK",
+      "side_b_label_text": "SER #TITAN-077 · ARCHIVE"
     },
     {
       "ser": "TITAN-078",
@@ -2498,8 +2498,8 @@
         "raw_obv": "photos/raw_archive/TITAN-078_GERMANY_1984_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-078_GERMANY_1984_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1984 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-078 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1984 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-078 · ARCHIVE"
     },
     {
       "ser": "TITAN-079",
@@ -2530,8 +2530,8 @@
         "raw_obv": "photos/raw_archive/TITAN-079_GERMANY_1985_1_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-079_GERMANY_1985_1_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1985 \u00b7 1 PFENNIG",
-      "side_b_label_text": "SER #TITAN-079 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1985 · 1 PFENNIG",
+      "side_b_label_text": "SER #TITAN-079 · ARCHIVE"
     },
     {
       "ser": "TITAN-080",
@@ -2562,8 +2562,8 @@
         "raw_obv": "photos/raw_archive/TITAN-080_GERMANY_1985_1_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-080_GERMANY_1985_1_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1985 \u00b7 1 PFENNIG",
-      "side_b_label_text": "SER #TITAN-080 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1985 · 1 PFENNIG",
+      "side_b_label_text": "SER #TITAN-080 · ARCHIVE"
     },
     {
       "ser": "TITAN-081",
@@ -2594,8 +2594,8 @@
         "raw_obv": "photos/raw_archive/TITAN-081_GERMANY_1985_1_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-081_GERMANY_1985_1_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1985 \u00b7 1 PFENNIG",
-      "side_b_label_text": "SER #TITAN-081 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1985 · 1 PFENNIG",
+      "side_b_label_text": "SER #TITAN-081 · ARCHIVE"
     },
     {
       "ser": "TITAN-082",
@@ -2626,8 +2626,8 @@
         "raw_obv": "photos/raw_archive/TITAN-082_GERMANY_1985_1_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-082_GERMANY_1985_1_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1985 \u00b7 1 PFENNIG",
-      "side_b_label_text": "SER #TITAN-082 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1985 · 1 PFENNIG",
+      "side_b_label_text": "SER #TITAN-082 · ARCHIVE"
     },
     {
       "ser": "TITAN-083",
@@ -2658,8 +2658,8 @@
         "raw_obv": "photos/raw_archive/TITAN-083_GERMANY_1985_50_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-083_GERMANY_1985_50_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1985 \u00b7 50 PFENNIG",
-      "side_b_label_text": "SER #TITAN-083 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1985 · 50 PFENNIG",
+      "side_b_label_text": "SER #TITAN-083 · ARCHIVE"
     },
     {
       "ser": "TITAN-084",
@@ -2690,8 +2690,8 @@
         "raw_obv": "photos/raw_archive/TITAN-084_GERMANY_1986_1_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-084_GERMANY_1986_1_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1986 \u00b7 1 PFENNIG",
-      "side_b_label_text": "SER #TITAN-084 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1986 · 1 PFENNIG",
+      "side_b_label_text": "SER #TITAN-084 · ARCHIVE"
     },
     {
       "ser": "TITAN-085",
@@ -2722,8 +2722,8 @@
         "raw_obv": "photos/raw_archive/TITAN-085_GERMANY_1986_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-085_GERMANY_1986_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1986 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-085 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1986 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-085 · ARCHIVE"
     },
     {
       "ser": "TITAN-086",
@@ -2754,8 +2754,8 @@
         "raw_obv": "photos/raw_archive/TITAN-086_GERMANY_1987_5_DEUTSCHE_MARK_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-086_GERMANY_1987_5_DEUTSCHE_MARK_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1987 \u00b7 5 DEUTSCHE MARK",
-      "side_b_label_text": "SER #TITAN-086 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1987 · 5 DEUTSCHE MARK",
+      "side_b_label_text": "SER #TITAN-086 · ARCHIVE"
     },
     {
       "ser": "TITAN-087",
@@ -2786,8 +2786,8 @@
         "raw_obv": "photos/raw_archive/TITAN-087_GERMANY_1987_5_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-087_GERMANY_1987_5_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1987 \u00b7 5 PFENNIG",
-      "side_b_label_text": "SER #TITAN-087 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1987 · 5 PFENNIG",
+      "side_b_label_text": "SER #TITAN-087 · ARCHIVE"
     },
     {
       "ser": "TITAN-088",
@@ -2818,8 +2818,8 @@
         "raw_obv": "photos/raw_archive/TITAN-088_GERMANY_1988_2_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-088_GERMANY_1988_2_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1988 \u00b7 2 PFENNIG",
-      "side_b_label_text": "SER #TITAN-088 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1988 · 2 PFENNIG",
+      "side_b_label_text": "SER #TITAN-088 · ARCHIVE"
     },
     {
       "ser": "TITAN-089",
@@ -2850,8 +2850,8 @@
         "raw_obv": "photos/raw_archive/TITAN-089_GERMANY_1989_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-089_GERMANY_1989_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1989 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-089 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1989 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-089 · ARCHIVE"
     },
     {
       "ser": "TITAN-090",
@@ -2882,8 +2882,8 @@
         "raw_obv": "photos/raw_archive/TITAN-090_GERMANY_1989_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-090_GERMANY_1989_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1989 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-090 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1989 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-090 · ARCHIVE"
     },
     {
       "ser": "TITAN-091",
@@ -2914,8 +2914,8 @@
         "raw_obv": "photos/raw_archive/TITAN-091_GERMANY_1990_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-091_GERMANY_1990_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1990 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-091 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1990 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-091 · ARCHIVE"
     },
     {
       "ser": "TITAN-092",
@@ -2946,8 +2946,8 @@
         "raw_obv": "photos/raw_archive/TITAN-092_GERMANY_1991_1_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-092_GERMANY_1991_1_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1991 \u00b7 1 PFENNIG",
-      "side_b_label_text": "SER #TITAN-092 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1991 · 1 PFENNIG",
+      "side_b_label_text": "SER #TITAN-092 · ARCHIVE"
     },
     {
       "ser": "TITAN-093",
@@ -2978,8 +2978,8 @@
         "raw_obv": "photos/raw_archive/TITAN-093_GERMANY_1992_5_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-093_GERMANY_1992_5_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1992 \u00b7 5 PFENNIG",
-      "side_b_label_text": "SER #TITAN-093 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1992 · 5 PFENNIG",
+      "side_b_label_text": "SER #TITAN-093 · ARCHIVE"
     },
     {
       "ser": "TITAN-094",
@@ -3010,8 +3010,8 @@
         "raw_obv": "photos/raw_archive/TITAN-094_GERMANY_1993_1_DEUTSCHE_MARK_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-094_GERMANY_1993_1_DEUTSCHE_MARK_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1993 \u00b7 1 DEUTSCHE MARK",
-      "side_b_label_text": "SER #TITAN-094 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1993 · 1 DEUTSCHE MARK",
+      "side_b_label_text": "SER #TITAN-094 · ARCHIVE"
     },
     {
       "ser": "TITAN-095",
@@ -3042,8 +3042,8 @@
         "raw_obv": "photos/raw_archive/TITAN-095_GERMANY_1995_10_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-095_GERMANY_1995_10_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 1995 \u00b7 10 PFENNIG",
-      "side_b_label_text": "SER #TITAN-095 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 1995 · 10 PFENNIG",
+      "side_b_label_text": "SER #TITAN-095 · ARCHIVE"
     },
     {
       "ser": "TITAN-096",
@@ -3074,8 +3074,8 @@
         "raw_obv": "photos/raw_archive/TITAN-096_GERMANY_2002_1_EURO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-096_GERMANY_2002_1_EURO_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 1 EURO",
-      "side_b_label_text": "SER #TITAN-096 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 1 EURO",
+      "side_b_label_text": "SER #TITAN-096 · ARCHIVE"
     },
     {
       "ser": "TITAN-097",
@@ -3106,8 +3106,8 @@
         "raw_obv": "photos/raw_archive/TITAN-097_GERMANY_2002_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-097_GERMANY_2002_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-097 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-097 · ARCHIVE"
     },
     {
       "ser": "TITAN-098",
@@ -3138,8 +3138,8 @@
         "raw_obv": "photos/raw_archive/TITAN-098_GERMANY_2002_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-098_GERMANY_2002_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-098 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-098 · ARCHIVE"
     },
     {
       "ser": "TITAN-099",
@@ -3170,8 +3170,8 @@
         "raw_obv": "photos/raw_archive/TITAN-099_GERMANY_2002_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-099_GERMANY_2002_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-099 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-099 · ARCHIVE"
     },
     {
       "ser": "TITAN-100",
@@ -3202,8 +3202,8 @@
         "raw_obv": "photos/raw_archive/TITAN-100_GERMANY_2002_10_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-100_GERMANY_2002_10_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 10 EURO CENT",
-      "side_b_label_text": "SER #TITAN-100 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 10 EURO CENT",
+      "side_b_label_text": "SER #TITAN-100 · ARCHIVE"
     },
     {
       "ser": "TITAN-101",
@@ -3234,8 +3234,8 @@
         "raw_obv": "photos/raw_archive/TITAN-101_GERMANY_2002_2_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-101_GERMANY_2002_2_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 2 EURO CENT",
-      "side_b_label_text": "SER #TITAN-101 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 2 EURO CENT",
+      "side_b_label_text": "SER #TITAN-101 · ARCHIVE"
     },
     {
       "ser": "TITAN-102",
@@ -3266,8 +3266,8 @@
         "raw_obv": "photos/raw_archive/TITAN-102_GERMANY_2002_2_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-102_GERMANY_2002_2_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 2 EURO CENT",
-      "side_b_label_text": "SER #TITAN-102 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 2 EURO CENT",
+      "side_b_label_text": "SER #TITAN-102 · ARCHIVE"
     },
     {
       "ser": "TITAN-103",
@@ -3298,8 +3298,8 @@
         "raw_obv": "photos/raw_archive/TITAN-103_GERMANY_2002_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-103_GERMANY_2002_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-103 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-103 · ARCHIVE"
     },
     {
       "ser": "TITAN-104",
@@ -3330,8 +3330,8 @@
         "raw_obv": "photos/raw_archive/TITAN-104_GERMANY_2002_5_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-104_GERMANY_2002_5_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 5 EURO CENT",
-      "side_b_label_text": "SER #TITAN-104 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 5 EURO CENT",
+      "side_b_label_text": "SER #TITAN-104 · ARCHIVE"
     },
     {
       "ser": "TITAN-105",
@@ -3362,8 +3362,8 @@
         "raw_obv": "photos/raw_archive/TITAN-105_GERMANY_2002_50_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-105_GERMANY_2002_50_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2002 \u00b7 50 EURO CENT",
-      "side_b_label_text": "SER #TITAN-105 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2002 · 50 EURO CENT",
+      "side_b_label_text": "SER #TITAN-105 · ARCHIVE"
     },
     {
       "ser": "TITAN-106",
@@ -3394,8 +3394,8 @@
         "raw_obv": "photos/raw_archive/TITAN-106_GERMANY_2003_2_EURO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-106_GERMANY_2003_2_EURO_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2003 \u00b7 2 EURO",
-      "side_b_label_text": "SER #TITAN-106 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2003 · 2 EURO",
+      "side_b_label_text": "SER #TITAN-106 · ARCHIVE"
     },
     {
       "ser": "TITAN-107",
@@ -3426,8 +3426,8 @@
         "raw_obv": "photos/raw_archive/TITAN-107_GERMANY_2008_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-107_GERMANY_2008_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2008 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-107 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2008 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-107 · ARCHIVE"
     },
     {
       "ser": "TITAN-108",
@@ -3458,8 +3458,8 @@
         "raw_obv": "photos/raw_archive/TITAN-108_GERMANY_2009_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-108_GERMANY_2009_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2009 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-108 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2009 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-108 · ARCHIVE"
     },
     {
       "ser": "TITAN-109",
@@ -3490,8 +3490,8 @@
         "raw_obv": "photos/raw_archive/TITAN-109_GERMANY_2010_2_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-109_GERMANY_2010_2_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2010 \u00b7 2 EURO CENT",
-      "side_b_label_text": "SER #TITAN-109 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2010 · 2 EURO CENT",
+      "side_b_label_text": "SER #TITAN-109 · ARCHIVE"
     },
     {
       "ser": "TITAN-110",
@@ -3522,8 +3522,8 @@
         "raw_obv": "photos/raw_archive/TITAN-110_GERMANY_2011_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-110_GERMANY_2011_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2011 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-110 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2011 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-110 · ARCHIVE"
     },
     {
       "ser": "TITAN-111",
@@ -3554,8 +3554,8 @@
         "raw_obv": "photos/raw_archive/TITAN-111_GERMANY_2012_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-111_GERMANY_2012_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2012 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-111 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2012 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-111 · ARCHIVE"
     },
     {
       "ser": "TITAN-112",
@@ -3586,8 +3586,8 @@
         "raw_obv": "photos/raw_archive/TITAN-112_GERMANY_2014_5_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-112_GERMANY_2014_5_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2014 \u00b7 5 EURO CENT",
-      "side_b_label_text": "SER #TITAN-112 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2014 · 5 EURO CENT",
+      "side_b_label_text": "SER #TITAN-112 · ARCHIVE"
     },
     {
       "ser": "TITAN-113",
@@ -3618,8 +3618,8 @@
         "raw_obv": "photos/raw_archive/TITAN-113_GERMANY_2015_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-113_GERMANY_2015_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2015 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-113 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2015 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-113 · ARCHIVE"
     },
     {
       "ser": "TITAN-114",
@@ -3650,8 +3650,8 @@
         "raw_obv": "photos/raw_archive/TITAN-114_GERMANY_2015_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-114_GERMANY_2015_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 2015 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-114 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · 2015 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-114 · ARCHIVE"
     },
     {
       "ser": "TITAN-115",
@@ -3660,7 +3660,7 @@
       "legacy_scan": "T001",
       "country": "Germany",
       "year": "ND",
-      "denom": "Spielmarke \u201c20\u201d (GR)",
+      "denom": "Spielmarke “20” (GR)",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -3682,8 +3682,8 @@
         "raw_obv": "photos/raw_archive/TITAN-115_GERMANY_ND_SPIELMARKE_20_GR_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-115_GERMANY_ND_SPIELMARKE_20_GR_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 ND \u00b7 SPIELMARKE \u201c20\u201d (GR)",
-      "side_b_label_text": "SER #TITAN-115 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · ND · SPIELMARKE “20” (GR)",
+      "side_b_label_text": "SER #TITAN-115 · ARCHIVE"
     },
     {
       "ser": "TITAN-116",
@@ -3692,7 +3692,7 @@
       "legacy_scan": "T002",
       "country": "Germany",
       "year": "ND",
-      "denom": "Spielmarke \u201c20\u201d (GR)",
+      "denom": "Spielmarke “20” (GR)",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -3714,8 +3714,8 @@
         "raw_obv": "photos/raw_archive/TITAN-116_GERMANY_ND_SPIELMARKE_20_GR_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-116_GERMANY_ND_SPIELMARKE_20_GR_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY \u00b7 ND \u00b7 SPIELMARKE \u201c20\u201d (GR)",
-      "side_b_label_text": "SER #TITAN-116 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY · ND · SPIELMARKE “20” (GR)",
+      "side_b_label_text": "SER #TITAN-116 · ARCHIVE"
     },
     {
       "ser": "TITAN-117",
@@ -3746,8 +3746,8 @@
         "raw_obv": "photos/raw_archive/TITAN-117_GERMANY_EMPIRE_1918_20_PFENNIG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-117_GERMANY_EMPIRE_1918_20_PFENNIG_RAW_REV.jpg"
       },
-      "side_a_label_text": "GERMANY (EMPIRE) \u00b7 1918 \u00b7 20 PFENNIG",
-      "side_b_label_text": "SER #TITAN-117 \u00b7 ARCHIVE"
+      "side_a_label_text": "GERMANY (EMPIRE) · 1918 · 20 PFENNIG",
+      "side_b_label_text": "SER #TITAN-117 · ARCHIVE"
     },
     {
       "ser": "TITAN-118",
@@ -3778,8 +3778,8 @@
         "raw_obv": "photos/raw_archive/TITAN-118_GREECE_1970_2_DRACHMAI_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-118_GREECE_1970_2_DRACHMAI_RAW_REV.jpg"
       },
-      "side_a_label_text": "GREECE \u00b7 1970 \u00b7 2 DRACHMAI",
-      "side_b_label_text": "SER #TITAN-118 \u00b7 ARCHIVE"
+      "side_a_label_text": "GREECE · 1970 · 2 DRACHMAI",
+      "side_b_label_text": "SER #TITAN-118 · ARCHIVE"
     },
     {
       "ser": "TITAN-119",
@@ -3810,8 +3810,8 @@
         "raw_obv": "photos/raw_archive/TITAN-119_GREECE_1982_2_DRACHMES_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-119_GREECE_1982_2_DRACHMES_RAW_REV.jpg"
       },
-      "side_a_label_text": "GREECE \u00b7 1982 \u00b7 2 DRACHMES",
-      "side_b_label_text": "SER #TITAN-119 \u00b7 ARCHIVE"
+      "side_a_label_text": "GREECE · 1982 · 2 DRACHMES",
+      "side_b_label_text": "SER #TITAN-119 · ARCHIVE"
     },
     {
       "ser": "TITAN-120",
@@ -3842,8 +3842,8 @@
         "raw_obv": "photos/raw_archive/TITAN-120_GUATEMALA_1934_10_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-120_GUATEMALA_1934_10_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "GUATEMALA \u00b7 1934 \u00b7 10 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-120 \u00b7 0.08 oz ASW"
+      "side_a_label_text": "GUATEMALA · 1934 · 10 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-120 · 0.08 oz ASW"
     },
     {
       "ser": "TITAN-121",
@@ -3874,8 +3874,8 @@
         "raw_obv": "photos/raw_archive/TITAN-121_GUATEMALA_2010_10_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-121_GUATEMALA_2010_10_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "GUATEMALA \u00b7 2010 \u00b7 10 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-121 \u00b7 ARCHIVE"
+      "side_a_label_text": "GUATEMALA · 2010 · 10 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-121 · ARCHIVE"
     },
     {
       "ser": "TITAN-122",
@@ -3906,8 +3906,8 @@
         "raw_obv": "photos/raw_archive/TITAN-122_HONG_KONG_1998_1_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-122_HONG_KONG_1998_1_RAW_REV.jpg"
       },
-      "side_a_label_text": "HONG KONG \u00b7 1998 \u00b7 $1",
-      "side_b_label_text": "SER #TITAN-122 \u00b7 ARCHIVE"
+      "side_a_label_text": "HONG KONG · 1998 · $1",
+      "side_b_label_text": "SER #TITAN-122 · ARCHIVE"
     },
     {
       "ser": "TITAN-123",
@@ -3938,8 +3938,8 @@
         "raw_obv": "photos/raw_archive/TITAN-123_HUNGARY_1967_1_FORINT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-123_HUNGARY_1967_1_FORINT_RAW_REV.jpg"
       },
-      "side_a_label_text": "HUNGARY \u00b7 1967 \u00b7 1 FORINT",
-      "side_b_label_text": "SER #TITAN-123 \u00b7 ARCHIVE"
+      "side_a_label_text": "HUNGARY · 1967 · 1 FORINT",
+      "side_b_label_text": "SER #TITAN-123 · ARCHIVE"
     },
     {
       "ser": "TITAN-124",
@@ -3970,8 +3970,8 @@
         "raw_obv": "photos/raw_archive/TITAN-124_INDIA_2001_1_RUPEE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-124_INDIA_2001_1_RUPEE_RAW_REV.jpg"
       },
-      "side_a_label_text": "INDIA \u00b7 2001 \u00b7 1 RUPEE",
-      "side_b_label_text": "SER #TITAN-124 \u00b7 ARCHIVE"
+      "side_a_label_text": "INDIA · 2001 · 1 RUPEE",
+      "side_b_label_text": "SER #TITAN-124 · ARCHIVE"
     },
     {
       "ser": "TITAN-125",
@@ -4002,8 +4002,8 @@
         "raw_obv": "photos/raw_archive/TITAN-125_IRELAND_2002_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-125_IRELAND_2002_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "IRELAND \u00b7 2002 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-125 \u00b7 ARCHIVE"
+      "side_a_label_text": "IRELAND · 2002 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-125 · ARCHIVE"
     },
     {
       "ser": "TITAN-126",
@@ -4034,8 +4034,8 @@
         "raw_obv": "photos/raw_archive/TITAN-126_IRELAND_2004_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-126_IRELAND_2004_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "IRELAND \u00b7 2004 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-126 \u00b7 ARCHIVE"
+      "side_a_label_text": "IRELAND · 2004 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-126 · ARCHIVE"
     },
     {
       "ser": "TITAN-127",
@@ -4066,8 +4066,8 @@
         "raw_obv": "photos/raw_archive/TITAN-127_IRELAND_2013_5_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-127_IRELAND_2013_5_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "IRELAND \u00b7 2013 \u00b7 5 EURO CENT",
-      "side_b_label_text": "SER #TITAN-127 \u00b7 ARCHIVE"
+      "side_a_label_text": "IRELAND · 2013 · 5 EURO CENT",
+      "side_b_label_text": "SER #TITAN-127 · ARCHIVE"
     },
     {
       "ser": "TITAN-128",
@@ -4098,8 +4098,8 @@
         "raw_obv": "photos/raw_archive/TITAN-128_ITALY_1965_100_LIRE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-128_ITALY_1965_100_LIRE_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 1965 \u00b7 100 LIRE",
-      "side_b_label_text": "SER #TITAN-128 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 1965 · 100 LIRE",
+      "side_b_label_text": "SER #TITAN-128 · ARCHIVE"
     },
     {
       "ser": "TITAN-129",
@@ -4130,8 +4130,8 @@
         "raw_obv": "photos/raw_archive/TITAN-129_ITALY_1970_50_LIRE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-129_ITALY_1970_50_LIRE_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 1970 \u00b7 50 LIRE",
-      "side_b_label_text": "SER #TITAN-129 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 1970 · 50 LIRE",
+      "side_b_label_text": "SER #TITAN-129 · ARCHIVE"
     },
     {
       "ser": "TITAN-130",
@@ -4162,8 +4162,8 @@
         "raw_obv": "photos/raw_archive/TITAN-130_ITALY_1978_50_LIRE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-130_ITALY_1978_50_LIRE_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 1978 \u00b7 50 LIRE",
-      "side_b_label_text": "SER #TITAN-130 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 1978 · 50 LIRE",
+      "side_b_label_text": "SER #TITAN-130 · ARCHIVE"
     },
     {
       "ser": "TITAN-131",
@@ -4194,8 +4194,8 @@
         "raw_obv": "photos/raw_archive/TITAN-131_ITALY_1987_500_LIRE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-131_ITALY_1987_500_LIRE_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 1987 \u00b7 500 LIRE",
-      "side_b_label_text": "SER #TITAN-131 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 1987 · 500 LIRE",
+      "side_b_label_text": "SER #TITAN-131 · ARCHIVE"
     },
     {
       "ser": "TITAN-132",
@@ -4226,8 +4226,8 @@
         "raw_obv": "photos/raw_archive/TITAN-132_ITALY_2002_1_EURO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-132_ITALY_2002_1_EURO_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 2002 \u00b7 1 EURO",
-      "side_b_label_text": "SER #TITAN-132 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 2002 · 1 EURO",
+      "side_b_label_text": "SER #TITAN-132 · ARCHIVE"
     },
     {
       "ser": "TITAN-133",
@@ -4258,8 +4258,8 @@
         "raw_obv": "photos/raw_archive/TITAN-133_ITALY_2002_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-133_ITALY_2002_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 2002 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-133 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 2002 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-133 · ARCHIVE"
     },
     {
       "ser": "TITAN-134",
@@ -4290,8 +4290,8 @@
         "raw_obv": "photos/raw_archive/TITAN-134_ITALY_2002_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-134_ITALY_2002_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 2002 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-134 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 2002 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-134 · ARCHIVE"
     },
     {
       "ser": "TITAN-135",
@@ -4322,8 +4322,8 @@
         "raw_obv": "photos/raw_archive/TITAN-135_ITALY_2002_50_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-135_ITALY_2002_50_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 2002 \u00b7 50 EURO CENT",
-      "side_b_label_text": "SER #TITAN-135 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 2002 · 50 EURO CENT",
+      "side_b_label_text": "SER #TITAN-135 · ARCHIVE"
     },
     {
       "ser": "TITAN-136",
@@ -4354,8 +4354,8 @@
         "raw_obv": "photos/raw_archive/TITAN-136_ITALY_2007_10_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-136_ITALY_2007_10_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 2007 \u00b7 10 EURO CENT",
-      "side_b_label_text": "SER #TITAN-136 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 2007 · 10 EURO CENT",
+      "side_b_label_text": "SER #TITAN-136 · ARCHIVE"
     },
     {
       "ser": "TITAN-137",
@@ -4386,8 +4386,8 @@
         "raw_obv": "photos/raw_archive/TITAN-137_ITALY_2010_2_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-137_ITALY_2010_2_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "ITALY \u00b7 2010 \u00b7 2 EURO CENT",
-      "side_b_label_text": "SER #TITAN-137 \u00b7 ARCHIVE"
+      "side_a_label_text": "ITALY · 2010 · 2 EURO CENT",
+      "side_b_label_text": "SER #TITAN-137 · ARCHIVE"
     },
     {
       "ser": "TITAN-138",
@@ -4418,8 +4418,8 @@
         "raw_obv": "photos/raw_archive/TITAN-138_JAMAICA_1975_50_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-138_JAMAICA_1975_50_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "JAMAICA \u00b7 1975 \u00b7 50 CENTS",
-      "side_b_label_text": "SER #TITAN-138 \u00b7 ARCHIVE"
+      "side_a_label_text": "JAMAICA · 1975 · 50 CENTS",
+      "side_b_label_text": "SER #TITAN-138 · ARCHIVE"
     },
     {
       "ser": "TITAN-139",
@@ -4450,8 +4450,8 @@
         "raw_obv": "photos/raw_archive/TITAN-139_JAMAICA_1993_10_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-139_JAMAICA_1993_10_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "JAMAICA \u00b7 1993 \u00b7 10 CENTS",
-      "side_b_label_text": "SER #TITAN-139 \u00b7 ARCHIVE"
+      "side_a_label_text": "JAMAICA · 1993 · 10 CENTS",
+      "side_b_label_text": "SER #TITAN-139 · ARCHIVE"
     },
     {
       "ser": "TITAN-140",
@@ -4482,8 +4482,8 @@
         "raw_obv": "photos/raw_archive/TITAN-140_JAMAICA_2015_1_DOLLAR_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-140_JAMAICA_2015_1_DOLLAR_RAW_REV.jpg"
       },
-      "side_a_label_text": "JAMAICA \u00b7 2015 \u00b7 1 DOLLAR",
-      "side_b_label_text": "SER #TITAN-140 \u00b7 ARCHIVE"
+      "side_a_label_text": "JAMAICA · 2015 · 1 DOLLAR",
+      "side_b_label_text": "SER #TITAN-140 · ARCHIVE"
     },
     {
       "ser": "TITAN-141",
@@ -4514,8 +4514,8 @@
         "raw_obv": "photos/raw_archive/TITAN-141_JAMAICA_2015_10_DOLLARS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-141_JAMAICA_2015_10_DOLLARS_RAW_REV.jpg"
       },
-      "side_a_label_text": "JAMAICA \u00b7 2015 \u00b7 10 DOLLARS",
-      "side_b_label_text": "SER #TITAN-141 \u00b7 ARCHIVE"
+      "side_a_label_text": "JAMAICA · 2015 · 10 DOLLARS",
+      "side_b_label_text": "SER #TITAN-141 · ARCHIVE"
     },
     {
       "ser": "TITAN-142",
@@ -4546,8 +4546,8 @@
         "raw_obv": "photos/raw_archive/TITAN-142_JAPAN_1965_1_YEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-142_JAPAN_1965_1_YEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "JAPAN \u00b7 1965 \u00b7 1 YEN",
-      "side_b_label_text": "SER #TITAN-142 \u00b7 ARCHIVE"
+      "side_a_label_text": "JAPAN · 1965 · 1 YEN",
+      "side_b_label_text": "SER #TITAN-142 · ARCHIVE"
     },
     {
       "ser": "TITAN-143",
@@ -4578,8 +4578,8 @@
         "raw_obv": "photos/raw_archive/TITAN-143_JAPAN_1976_1_YEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-143_JAPAN_1976_1_YEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "JAPAN \u00b7 1976 \u00b7 1 YEN",
-      "side_b_label_text": "SER #TITAN-143 \u00b7 ARCHIVE"
+      "side_a_label_text": "JAPAN · 1976 · 1 YEN",
+      "side_b_label_text": "SER #TITAN-143 · ARCHIVE"
     },
     {
       "ser": "TITAN-144",
@@ -4610,8 +4610,8 @@
         "raw_obv": "photos/raw_archive/TITAN-144_JAPAN_1982_10_YEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-144_JAPAN_1982_10_YEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "JAPAN \u00b7 1982 \u00b7 10 YEN",
-      "side_b_label_text": "SER #TITAN-144 \u00b7 ARCHIVE"
+      "side_a_label_text": "JAPAN · 1982 · 10 YEN",
+      "side_b_label_text": "SER #TITAN-144 · ARCHIVE"
     },
     {
       "ser": "TITAN-145",
@@ -4642,8 +4642,8 @@
         "raw_obv": "photos/raw_archive/TITAN-145_JAPAN_1988_10_YEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-145_JAPAN_1988_10_YEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "JAPAN \u00b7 1988 \u00b7 10 YEN",
-      "side_b_label_text": "SER #TITAN-145 \u00b7 ARCHIVE"
+      "side_a_label_text": "JAPAN · 1988 · 10 YEN",
+      "side_b_label_text": "SER #TITAN-145 · ARCHIVE"
     },
     {
       "ser": "TITAN-146",
@@ -4674,8 +4674,8 @@
         "raw_obv": "photos/raw_archive/TITAN-146_MALTA_2008_1_EURO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-146_MALTA_2008_1_EURO_RAW_REV.jpg"
       },
-      "side_a_label_text": "MALTA \u00b7 2008 \u00b7 1 EURO",
-      "side_b_label_text": "SER #TITAN-146 \u00b7 ARCHIVE"
+      "side_a_label_text": "MALTA · 2008 · 1 EURO",
+      "side_b_label_text": "SER #TITAN-146 · ARCHIVE"
     },
     {
       "ser": "TITAN-147",
@@ -4706,8 +4706,8 @@
         "raw_obv": "photos/raw_archive/TITAN-147_MALTA_2008_10_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-147_MALTA_2008_10_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "MALTA \u00b7 2008 \u00b7 10 EURO CENT",
-      "side_b_label_text": "SER #TITAN-147 \u00b7 ARCHIVE"
+      "side_a_label_text": "MALTA · 2008 · 10 EURO CENT",
+      "side_b_label_text": "SER #TITAN-147 · ARCHIVE"
     },
     {
       "ser": "TITAN-148",
@@ -4738,8 +4738,8 @@
         "raw_obv": "photos/raw_archive/TITAN-148_MALTA_2013_5_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-148_MALTA_2013_5_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "MALTA \u00b7 2013 \u00b7 5 EURO CENT",
-      "side_b_label_text": "SER #TITAN-148 \u00b7 ARCHIVE"
+      "side_a_label_text": "MALTA · 2013 · 5 EURO CENT",
+      "side_b_label_text": "SER #TITAN-148 · ARCHIVE"
     },
     {
       "ser": "TITAN-149",
@@ -4770,8 +4770,8 @@
         "raw_obv": "photos/raw_archive/TITAN-149_MEXICO_1950_25_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-149_MEXICO_1950_25_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 1950 \u00b7 25 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-149 \u00b7 0.03 oz ASW"
+      "side_a_label_text": "MEXICO · 1950 · 25 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-149 · 0.03 oz ASW"
     },
     {
       "ser": "TITAN-150",
@@ -4780,7 +4780,7 @@
       "legacy_scan": "B007",
       "country": "Mexico",
       "year": "2020",
-      "denom": "1 onza \u00b7 no face value \u00b7 1 troy oz Libertad",
+      "denom": "1 onza · no face value · 1 troy oz Libertad",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -4802,8 +4802,8 @@
         "raw_obv": "photos/raw_archive/TITAN-150_MEXICO_2020_1_ONZA_NO_FACE_V_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-150_MEXICO_2020_1_ONZA_NO_FACE_V_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 2020 \u00b7 1 ONZA \u00b7 NO FACE VALUE \u00b7 1 TROY OZ LIBERTAD",
-      "side_b_label_text": "SER #TITAN-150 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "MEXICO · 2020 · 1 ONZA · NO FACE VALUE · 1 TROY OZ LIBERTAD",
+      "side_b_label_text": "SER #TITAN-150 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-151",
@@ -4834,8 +4834,8 @@
         "raw_obv": "photos/raw_archive/TITAN-151_MEXICO_1940_1_CENTAVO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-151_MEXICO_1940_1_CENTAVO_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 1940 \u00b7 1 CENTAVO",
-      "side_b_label_text": "SER #TITAN-151 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO · 1940 · 1 CENTAVO",
+      "side_b_label_text": "SER #TITAN-151 · ARCHIVE"
     },
     {
       "ser": "TITAN-152",
@@ -4866,8 +4866,8 @@
         "raw_obv": "photos/raw_archive/TITAN-152_MEXICO_1944_5_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-152_MEXICO_1944_5_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 1944 \u00b7 5 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-152 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO · 1944 · 5 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-152 · ARCHIVE"
     },
     {
       "ser": "TITAN-153",
@@ -4898,8 +4898,8 @@
         "raw_obv": "photos/raw_archive/TITAN-153_MEXICO_1945_10_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-153_MEXICO_1945_10_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 1945 \u00b7 10 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-153 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO · 1945 · 10 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-153 · ARCHIVE"
     },
     {
       "ser": "TITAN-154",
@@ -4930,8 +4930,8 @@
         "raw_obv": "photos/raw_archive/TITAN-154_MEXICO_1964_20_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-154_MEXICO_1964_20_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 1964 \u00b7 20 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-154 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO · 1964 · 20 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-154 · ARCHIVE"
     },
     {
       "ser": "TITAN-155",
@@ -4962,8 +4962,8 @@
         "raw_obv": "photos/raw_archive/TITAN-155_MEXICO_1967_20_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-155_MEXICO_1967_20_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 1967 \u00b7 20 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-155 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO · 1967 · 20 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-155 · ARCHIVE"
     },
     {
       "ser": "TITAN-156",
@@ -4994,8 +4994,8 @@
         "raw_obv": "photos/raw_archive/TITAN-156_MEXICO_1987_5_PESOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-156_MEXICO_1987_5_PESOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 1987 \u00b7 5 PESOS",
-      "side_b_label_text": "SER #TITAN-156 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO · 1987 · 5 PESOS",
+      "side_b_label_text": "SER #TITAN-156 · ARCHIVE"
     },
     {
       "ser": "TITAN-157",
@@ -5026,8 +5026,8 @@
         "raw_obv": "photos/raw_archive/TITAN-157_MEXICO_2010_2_PESOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-157_MEXICO_2010_2_PESOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 2010 \u00b7 2 PESOS",
-      "side_b_label_text": "SER #TITAN-157 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO · 2010 · 2 PESOS",
+      "side_b_label_text": "SER #TITAN-157 · ARCHIVE"
     },
     {
       "ser": "TITAN-158",
@@ -5058,8 +5058,8 @@
         "raw_obv": "photos/raw_archive/TITAN-158_MEXICO_2013_50_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-158_MEXICO_2013_50_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO \u00b7 2013 \u00b7 50 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-158 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO · 2013 · 50 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-158 · ARCHIVE"
     },
     {
       "ser": "TITAN-159",
@@ -5090,8 +5090,8 @@
         "raw_obv": "photos/raw_archive/TITAN-159_MEXICO_CHIHUAHUA_1914_5_CENTAVOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-159_MEXICO_CHIHUAHUA_1914_5_CENTAVOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "MEXICO (CHIHUAHUA) \u00b7 1914 \u00b7 5 CENTAVOS",
-      "side_b_label_text": "SER #TITAN-159 \u00b7 ARCHIVE"
+      "side_a_label_text": "MEXICO (CHIHUAHUA) · 1914 · 5 CENTAVOS",
+      "side_b_label_text": "SER #TITAN-159 · ARCHIVE"
     },
     {
       "ser": "TITAN-160",
@@ -5122,8 +5122,8 @@
         "raw_obv": "photos/raw_archive/TITAN-160_NETHERLANDS_1967_1_GULDEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-160_NETHERLANDS_1967_1_GULDEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 1967 \u00b7 1 GULDEN",
-      "side_b_label_text": "SER #TITAN-160 \u00b7 0.15 oz ASW"
+      "side_a_label_text": "NETHERLANDS · 1967 · 1 GULDEN",
+      "side_b_label_text": "SER #TITAN-160 · 0.15 oz ASW"
     },
     {
       "ser": "TITAN-161",
@@ -5154,8 +5154,8 @@
         "raw_obv": "photos/raw_archive/TITAN-161_NETHERLANDS_1892_1_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-161_NETHERLANDS_1892_1_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 1892 \u00b7 1 CENT",
-      "side_b_label_text": "SER #TITAN-161 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 1892 · 1 CENT",
+      "side_b_label_text": "SER #TITAN-161 · ARCHIVE"
     },
     {
       "ser": "TITAN-162",
@@ -5186,8 +5186,8 @@
         "raw_obv": "photos/raw_archive/TITAN-162_NETHERLANDS_1948_1_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-162_NETHERLANDS_1948_1_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 1948 \u00b7 1 CENT",
-      "side_b_label_text": "SER #TITAN-162 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 1948 · 1 CENT",
+      "side_b_label_text": "SER #TITAN-162 · ARCHIVE"
     },
     {
       "ser": "TITAN-163",
@@ -5218,8 +5218,8 @@
         "raw_obv": "photos/raw_archive/TITAN-163_NETHERLANDS_1996_25_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-163_NETHERLANDS_1996_25_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 1996 \u00b7 25 CENTS",
-      "side_b_label_text": "SER #TITAN-163 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 1996 · 25 CENTS",
+      "side_b_label_text": "SER #TITAN-163 · ARCHIVE"
     },
     {
       "ser": "TITAN-164",
@@ -5250,8 +5250,8 @@
         "raw_obv": "photos/raw_archive/TITAN-164_NETHERLANDS_1996_25_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-164_NETHERLANDS_1996_25_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 1996 \u00b7 25 CENTS",
-      "side_b_label_text": "SER #TITAN-164 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 1996 · 25 CENTS",
+      "side_b_label_text": "SER #TITAN-164 · ARCHIVE"
     },
     {
       "ser": "TITAN-165",
@@ -5282,8 +5282,8 @@
         "raw_obv": "photos/raw_archive/TITAN-165_NETHERLANDS_2000_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-165_NETHERLANDS_2000_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 2000 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-165 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 2000 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-165 · ARCHIVE"
     },
     {
       "ser": "TITAN-166",
@@ -5314,8 +5314,8 @@
         "raw_obv": "photos/raw_archive/TITAN-166_NETHERLANDS_2000_5_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-166_NETHERLANDS_2000_5_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 2000 \u00b7 5 EURO CENT",
-      "side_b_label_text": "SER #TITAN-166 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 2000 · 5 EURO CENT",
+      "side_b_label_text": "SER #TITAN-166 · ARCHIVE"
     },
     {
       "ser": "TITAN-167",
@@ -5346,8 +5346,8 @@
         "raw_obv": "photos/raw_archive/TITAN-167_NETHERLANDS_2001_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-167_NETHERLANDS_2001_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 2001 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-167 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 2001 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-167 · ARCHIVE"
     },
     {
       "ser": "TITAN-168",
@@ -5378,8 +5378,8 @@
         "raw_obv": "photos/raw_archive/TITAN-168_NETHERLANDS_2002_2_EURO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-168_NETHERLANDS_2002_2_EURO_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 2002 \u00b7 2 EURO",
-      "side_b_label_text": "SER #TITAN-168 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 2002 · 2 EURO",
+      "side_b_label_text": "SER #TITAN-168 · ARCHIVE"
     },
     {
       "ser": "TITAN-169",
@@ -5410,8 +5410,8 @@
         "raw_obv": "photos/raw_archive/TITAN-169_NETHERLANDS_2014_5_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-169_NETHERLANDS_2014_5_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "NETHERLANDS \u00b7 2014 \u00b7 5 EURO CENT",
-      "side_b_label_text": "SER #TITAN-169 \u00b7 ARCHIVE"
+      "side_a_label_text": "NETHERLANDS · 2014 · 5 EURO CENT",
+      "side_b_label_text": "SER #TITAN-169 · ARCHIVE"
     },
     {
       "ser": "TITAN-170",
@@ -5442,8 +5442,8 @@
         "raw_obv": "photos/raw_archive/TITAN-170_NIGERIA_1976_10_KOBO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-170_NIGERIA_1976_10_KOBO_RAW_REV.jpg"
       },
-      "side_a_label_text": "NIGERIA \u00b7 1976 \u00b7 10 KOBO",
-      "side_b_label_text": "SER #TITAN-170 \u00b7 ARCHIVE"
+      "side_a_label_text": "NIGERIA · 1976 · 10 KOBO",
+      "side_b_label_text": "SER #TITAN-170 · ARCHIVE"
     },
     {
       "ser": "TITAN-171",
@@ -5452,7 +5452,7 @@
       "legacy_scan": "C144",
       "country": "Norway",
       "year": "1998",
-      "denom": "50 \u00f8re",
+      "denom": "50 øre",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -5474,8 +5474,8 @@
         "raw_obv": "photos/raw_archive/TITAN-171_NORWAY_1998_50_RE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-171_NORWAY_1998_50_RE_RAW_REV.jpg"
       },
-      "side_a_label_text": "NORWAY \u00b7 1998 \u00b7 50 \u00d8RE",
-      "side_b_label_text": "SER #TITAN-171 \u00b7 ARCHIVE"
+      "side_a_label_text": "NORWAY · 1998 · 50 ØRE",
+      "side_b_label_text": "SER #TITAN-171 · ARCHIVE"
     },
     {
       "ser": "TITAN-172",
@@ -5484,7 +5484,7 @@
       "legacy_scan": "C268",
       "country": "Norway",
       "year": "2000",
-      "denom": "50 \u00f8re",
+      "denom": "50 øre",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -5506,8 +5506,8 @@
         "raw_obv": "photos/raw_archive/TITAN-172_NORWAY_2000_50_RE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-172_NORWAY_2000_50_RE_RAW_REV.jpg"
       },
-      "side_a_label_text": "NORWAY \u00b7 2000 \u00b7 50 \u00d8RE",
-      "side_b_label_text": "SER #TITAN-172 \u00b7 ARCHIVE"
+      "side_a_label_text": "NORWAY · 2000 · 50 ØRE",
+      "side_b_label_text": "SER #TITAN-172 · ARCHIVE"
     },
     {
       "ser": "TITAN-173",
@@ -5538,8 +5538,8 @@
         "raw_obv": "photos/raw_archive/TITAN-173_PHILIPPINES_1971_10_SENTIMOS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-173_PHILIPPINES_1971_10_SENTIMOS_RAW_REV.jpg"
       },
-      "side_a_label_text": "PHILIPPINES \u00b7 1971 \u00b7 10 SENTIMOS",
-      "side_b_label_text": "SER #TITAN-173 \u00b7 ARCHIVE"
+      "side_a_label_text": "PHILIPPINES · 1971 · 10 SENTIMOS",
+      "side_b_label_text": "SER #TITAN-173 · ARCHIVE"
     },
     {
       "ser": "TITAN-174",
@@ -5570,8 +5570,8 @@
         "raw_obv": "photos/raw_archive/TITAN-174_PHILIPPINES_1984_50_SENTIMO_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-174_PHILIPPINES_1984_50_SENTIMO_RAW_REV.jpg"
       },
-      "side_a_label_text": "PHILIPPINES \u00b7 1984 \u00b7 50 SENTIMO",
-      "side_b_label_text": "SER #TITAN-174 \u00b7 ARCHIVE"
+      "side_a_label_text": "PHILIPPINES · 1984 · 50 SENTIMO",
+      "side_b_label_text": "SER #TITAN-174 · ARCHIVE"
     },
     {
       "ser": "TITAN-175",
@@ -5602,8 +5602,8 @@
         "raw_obv": "photos/raw_archive/TITAN-175_PORTUGAL_2002_20_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-175_PORTUGAL_2002_20_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "PORTUGAL \u00b7 2002 \u00b7 20 EURO CENT",
-      "side_b_label_text": "SER #TITAN-175 \u00b7 ARCHIVE"
+      "side_a_label_text": "PORTUGAL · 2002 · 20 EURO CENT",
+      "side_b_label_text": "SER #TITAN-175 · ARCHIVE"
     },
     {
       "ser": "TITAN-176",
@@ -5634,8 +5634,8 @@
         "raw_obv": "photos/raw_archive/TITAN-176_SAUDI_ARABIA_AH_1378_1958_1_QIRSH_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-176_SAUDI_ARABIA_AH_1378_1958_1_QIRSH_RAW_REV.jpg"
       },
-      "side_a_label_text": "SAUDI ARABIA \u00b7 AH 1378 (1958) \u00b7 1 QIRSH",
-      "side_b_label_text": "SER #TITAN-176 \u00b7 ARCHIVE"
+      "side_a_label_text": "SAUDI ARABIA · AH 1378 (1958) · 1 QIRSH",
+      "side_b_label_text": "SER #TITAN-176 · ARCHIVE"
     },
     {
       "ser": "TITAN-177",
@@ -5666,8 +5666,8 @@
         "raw_obv": "photos/raw_archive/TITAN-177_SINGAPORE_1967_20_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-177_SINGAPORE_1967_20_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SINGAPORE \u00b7 1967 \u00b7 20 CENTS",
-      "side_b_label_text": "SER #TITAN-177 \u00b7 ARCHIVE"
+      "side_a_label_text": "SINGAPORE · 1967 · 20 CENTS",
+      "side_b_label_text": "SER #TITAN-177 · ARCHIVE"
     },
     {
       "ser": "TITAN-178",
@@ -5698,8 +5698,8 @@
         "raw_obv": "photos/raw_archive/TITAN-178_SINGAPORE_1973_10_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-178_SINGAPORE_1973_10_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SINGAPORE \u00b7 1973 \u00b7 10 CENTS",
-      "side_b_label_text": "SER #TITAN-178 \u00b7 ARCHIVE"
+      "side_a_label_text": "SINGAPORE · 1973 · 10 CENTS",
+      "side_b_label_text": "SER #TITAN-178 · ARCHIVE"
     },
     {
       "ser": "TITAN-179",
@@ -5730,8 +5730,8 @@
         "raw_obv": "photos/raw_archive/TITAN-179_SLOVAKIA_2009_2_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-179_SLOVAKIA_2009_2_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "SLOVAKIA \u00b7 2009 \u00b7 2 EURO CENT",
-      "side_b_label_text": "SER #TITAN-179 \u00b7 ARCHIVE"
+      "side_a_label_text": "SLOVAKIA · 2009 · 2 EURO CENT",
+      "side_b_label_text": "SER #TITAN-179 · ARCHIVE"
     },
     {
       "ser": "TITAN-180",
@@ -5762,8 +5762,8 @@
         "raw_obv": "photos/raw_archive/TITAN-180_SOUTH_KOREA_1966_1_WON_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-180_SOUTH_KOREA_1966_1_WON_RAW_REV.jpg"
       },
-      "side_a_label_text": "SOUTH KOREA \u00b7 1966 \u00b7 1 WON",
-      "side_b_label_text": "SER #TITAN-180 \u00b7 ARCHIVE"
+      "side_a_label_text": "SOUTH KOREA · 1966 · 1 WON",
+      "side_b_label_text": "SER #TITAN-180 · ARCHIVE"
     },
     {
       "ser": "TITAN-181",
@@ -5794,8 +5794,8 @@
         "raw_obv": "photos/raw_archive/TITAN-181_SOUTH_KOREA_2000_100_WON_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-181_SOUTH_KOREA_2000_100_WON_RAW_REV.jpg"
       },
-      "side_a_label_text": "SOUTH KOREA \u00b7 2000 \u00b7 100 WON",
-      "side_b_label_text": "SER #TITAN-181 \u00b7 ARCHIVE"
+      "side_a_label_text": "SOUTH KOREA · 2000 · 100 WON",
+      "side_b_label_text": "SER #TITAN-181 · ARCHIVE"
     },
     {
       "ser": "TITAN-182",
@@ -5826,8 +5826,8 @@
         "raw_obv": "photos/raw_archive/TITAN-182_SOUTH_KOREA_2012_10_WON_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-182_SOUTH_KOREA_2012_10_WON_RAW_REV.jpg"
       },
-      "side_a_label_text": "SOUTH KOREA \u00b7 2012 \u00b7 10 WON",
-      "side_b_label_text": "SER #TITAN-182 \u00b7 ARCHIVE"
+      "side_a_label_text": "SOUTH KOREA · 2012 · 10 WON",
+      "side_b_label_text": "SER #TITAN-182 · ARCHIVE"
     },
     {
       "ser": "TITAN-183",
@@ -5858,8 +5858,8 @@
         "raw_obv": "photos/raw_archive/TITAN-183_SOUTH_KOREA_2013_10_WON_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-183_SOUTH_KOREA_2013_10_WON_RAW_REV.jpg"
       },
-      "side_a_label_text": "SOUTH KOREA \u00b7 2013 \u00b7 10 WON",
-      "side_b_label_text": "SER #TITAN-183 \u00b7 ARCHIVE"
+      "side_a_label_text": "SOUTH KOREA · 2013 · 10 WON",
+      "side_b_label_text": "SER #TITAN-183 · ARCHIVE"
     },
     {
       "ser": "TITAN-184",
@@ -5890,8 +5890,8 @@
         "raw_obv": "photos/raw_archive/TITAN-184_SPAIN_2000_5_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-184_SPAIN_2000_5_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "SPAIN \u00b7 2000 \u00b7 5 EURO CENT",
-      "side_b_label_text": "SER #TITAN-184 \u00b7 ARCHIVE"
+      "side_a_label_text": "SPAIN · 2000 · 5 EURO CENT",
+      "side_b_label_text": "SER #TITAN-184 · ARCHIVE"
     },
     {
       "ser": "TITAN-185",
@@ -5922,8 +5922,8 @@
         "raw_obv": "photos/raw_archive/TITAN-185_SPAIN_2008_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-185_SPAIN_2008_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "SPAIN \u00b7 2008 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-185 \u00b7 ARCHIVE"
+      "side_a_label_text": "SPAIN · 2008 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-185 · ARCHIVE"
     },
     {
       "ser": "TITAN-186",
@@ -5954,8 +5954,8 @@
         "raw_obv": "photos/raw_archive/TITAN-186_SPAIN_2014_1_EURO_CENT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-186_SPAIN_2014_1_EURO_CENT_RAW_REV.jpg"
       },
-      "side_a_label_text": "SPAIN \u00b7 2014 \u00b7 1 EURO CENT",
-      "side_b_label_text": "SER #TITAN-186 \u00b7 ARCHIVE"
+      "side_a_label_text": "SPAIN · 2014 · 1 EURO CENT",
+      "side_b_label_text": "SER #TITAN-186 · ARCHIVE"
     },
     {
       "ser": "TITAN-187",
@@ -5986,8 +5986,8 @@
         "raw_obv": "photos/raw_archive/TITAN-187_SWEDEN_1973_1_KRONA_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-187_SWEDEN_1973_1_KRONA_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWEDEN \u00b7 1973 \u00b7 1 KRONA",
-      "side_b_label_text": "SER #TITAN-187 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWEDEN · 1973 · 1 KRONA",
+      "side_b_label_text": "SER #TITAN-187 · ARCHIVE"
     },
     {
       "ser": "TITAN-188",
@@ -5996,7 +5996,7 @@
       "legacy_scan": "B010",
       "country": "Switzerland",
       "year": "ND",
-      "denom": "1 gram minted bar \u00b7 Au 999.9",
+      "denom": "1 gram minted bar · Au 999.9",
       "metal": "Gold",
       "asw_oz": 0.0,
       "km": "",
@@ -6018,8 +6018,8 @@
         "raw_obv": "photos/raw_archive/TITAN-188_SWITZERLAND_ND_1_GRAM_MINTED_BA_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-188_SWITZERLAND_ND_1_GRAM_MINTED_BA_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 ND \u00b7 1 GRAM MINTED BAR \u00b7 AU 999.9",
-      "side_b_label_text": "SER #TITAN-188 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · ND · 1 GRAM MINTED BAR · AU 999.9",
+      "side_b_label_text": "SER #TITAN-188 · ARCHIVE"
     },
     {
       "ser": "TITAN-189",
@@ -6050,8 +6050,8 @@
         "raw_obv": "photos/raw_archive/TITAN-189_SWITZERLAND_1883_10_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-189_SWITZERLAND_1883_10_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1883 \u00b7 10 RAPPEN",
-      "side_b_label_text": "SER #TITAN-189 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1883 · 10 RAPPEN",
+      "side_b_label_text": "SER #TITAN-189 · ARCHIVE"
     },
     {
       "ser": "TITAN-190",
@@ -6082,8 +6082,8 @@
         "raw_obv": "photos/raw_archive/TITAN-190_SWITZERLAND_1959_20_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-190_SWITZERLAND_1959_20_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1959 \u00b7 20 RAPPEN",
-      "side_b_label_text": "SER #TITAN-190 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1959 · 20 RAPPEN",
+      "side_b_label_text": "SER #TITAN-190 · ARCHIVE"
     },
     {
       "ser": "TITAN-191",
@@ -6114,8 +6114,8 @@
         "raw_obv": "photos/raw_archive/TITAN-191_SWITZERLAND_1963_20_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-191_SWITZERLAND_1963_20_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1963 \u00b7 20 RAPPEN",
-      "side_b_label_text": "SER #TITAN-191 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1963 · 20 RAPPEN",
+      "side_b_label_text": "SER #TITAN-191 · ARCHIVE"
     },
     {
       "ser": "TITAN-192",
@@ -6146,8 +6146,8 @@
         "raw_obv": "photos/raw_archive/TITAN-192_SWITZERLAND_1963_5_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-192_SWITZERLAND_1963_5_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1963 \u00b7 5 RAPPEN",
-      "side_b_label_text": "SER #TITAN-192 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1963 · 5 RAPPEN",
+      "side_b_label_text": "SER #TITAN-192 · ARCHIVE"
     },
     {
       "ser": "TITAN-193",
@@ -6178,8 +6178,8 @@
         "raw_obv": "photos/raw_archive/TITAN-193_SWITZERLAND_1968_1_2_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-193_SWITZERLAND_1968_1_2_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1968 \u00b7 1/2 FRANC",
-      "side_b_label_text": "SER #TITAN-193 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1968 · 1/2 FRANC",
+      "side_b_label_text": "SER #TITAN-193 · ARCHIVE"
     },
     {
       "ser": "TITAN-194",
@@ -6210,8 +6210,8 @@
         "raw_obv": "photos/raw_archive/TITAN-194_SWITZERLAND_1968_2_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-194_SWITZERLAND_1968_2_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1968 \u00b7 2 FRANCS",
-      "side_b_label_text": "SER #TITAN-194 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1968 · 2 FRANCS",
+      "side_b_label_text": "SER #TITAN-194 · ARCHIVE"
     },
     {
       "ser": "TITAN-195",
@@ -6242,8 +6242,8 @@
         "raw_obv": "photos/raw_archive/TITAN-195_SWITZERLAND_1968_2_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-195_SWITZERLAND_1968_2_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1968 \u00b7 2 FRANCS",
-      "side_b_label_text": "SER #TITAN-195 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1968 · 2 FRANCS",
+      "side_b_label_text": "SER #TITAN-195 · ARCHIVE"
     },
     {
       "ser": "TITAN-196",
@@ -6274,8 +6274,8 @@
         "raw_obv": "photos/raw_archive/TITAN-196_SWITZERLAND_1969_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-196_SWITZERLAND_1969_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1969 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-196 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1969 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-196 · ARCHIVE"
     },
     {
       "ser": "TITAN-197",
@@ -6306,8 +6306,8 @@
         "raw_obv": "photos/raw_archive/TITAN-197_SWITZERLAND_1969_20_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-197_SWITZERLAND_1969_20_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1969 \u00b7 20 RAPPEN",
-      "side_b_label_text": "SER #TITAN-197 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1969 · 20 RAPPEN",
+      "side_b_label_text": "SER #TITAN-197 · ARCHIVE"
     },
     {
       "ser": "TITAN-198",
@@ -6338,8 +6338,8 @@
         "raw_obv": "photos/raw_archive/TITAN-198_SWITZERLAND_1970_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-198_SWITZERLAND_1970_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1970 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-198 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1970 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-198 · ARCHIVE"
     },
     {
       "ser": "TITAN-199",
@@ -6370,8 +6370,8 @@
         "raw_obv": "photos/raw_archive/TITAN-199_SWITZERLAND_1971_1_2_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-199_SWITZERLAND_1971_1_2_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1971 \u00b7 1/2 FRANC",
-      "side_b_label_text": "SER #TITAN-199 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1971 · 1/2 FRANC",
+      "side_b_label_text": "SER #TITAN-199 · ARCHIVE"
     },
     {
       "ser": "TITAN-200",
@@ -6402,8 +6402,8 @@
         "raw_obv": "photos/raw_archive/TITAN-200_SWITZERLAND_1974_2_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-200_SWITZERLAND_1974_2_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1974 \u00b7 2 FRANCS",
-      "side_b_label_text": "SER #TITAN-200 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1974 · 2 FRANCS",
+      "side_b_label_text": "SER #TITAN-200 · ARCHIVE"
     },
     {
       "ser": "TITAN-201",
@@ -6434,8 +6434,8 @@
         "raw_obv": "photos/raw_archive/TITAN-201_SWITZERLAND_1978_5_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-201_SWITZERLAND_1978_5_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1978 \u00b7 5 FRANCS",
-      "side_b_label_text": "SER #TITAN-201 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1978 · 5 FRANCS",
+      "side_b_label_text": "SER #TITAN-201 · ARCHIVE"
     },
     {
       "ser": "TITAN-202",
@@ -6466,8 +6466,8 @@
         "raw_obv": "photos/raw_archive/TITAN-202_SWITZERLAND_1979_10_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-202_SWITZERLAND_1979_10_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1979 \u00b7 10 RAPPEN",
-      "side_b_label_text": "SER #TITAN-202 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1979 · 10 RAPPEN",
+      "side_b_label_text": "SER #TITAN-202 · ARCHIVE"
     },
     {
       "ser": "TITAN-203",
@@ -6498,8 +6498,8 @@
         "raw_obv": "photos/raw_archive/TITAN-203_SWITZERLAND_1981_10_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-203_SWITZERLAND_1981_10_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1981 \u00b7 10 RAPPEN",
-      "side_b_label_text": "SER #TITAN-203 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1981 · 10 RAPPEN",
+      "side_b_label_text": "SER #TITAN-203 · ARCHIVE"
     },
     {
       "ser": "TITAN-204",
@@ -6530,8 +6530,8 @@
         "raw_obv": "photos/raw_archive/TITAN-204_SWITZERLAND_1981_2_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-204_SWITZERLAND_1981_2_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1981 \u00b7 2 FRANCS",
-      "side_b_label_text": "SER #TITAN-204 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1981 · 2 FRANCS",
+      "side_b_label_text": "SER #TITAN-204 · ARCHIVE"
     },
     {
       "ser": "TITAN-205",
@@ -6562,8 +6562,8 @@
         "raw_obv": "photos/raw_archive/TITAN-205_SWITZERLAND_1981_2_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-205_SWITZERLAND_1981_2_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1981 \u00b7 2 FRANCS",
-      "side_b_label_text": "SER #TITAN-205 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1981 · 2 FRANCS",
+      "side_b_label_text": "SER #TITAN-205 · ARCHIVE"
     },
     {
       "ser": "TITAN-206",
@@ -6594,8 +6594,8 @@
         "raw_obv": "photos/raw_archive/TITAN-206_SWITZERLAND_1982_5_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-206_SWITZERLAND_1982_5_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1982 \u00b7 5 RAPPEN",
-      "side_b_label_text": "SER #TITAN-206 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1982 · 5 RAPPEN",
+      "side_b_label_text": "SER #TITAN-206 · ARCHIVE"
     },
     {
       "ser": "TITAN-207",
@@ -6626,8 +6626,8 @@
         "raw_obv": "photos/raw_archive/TITAN-207_SWITZERLAND_1983_5_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-207_SWITZERLAND_1983_5_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1983 \u00b7 5 RAPPEN",
-      "side_b_label_text": "SER #TITAN-207 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1983 · 5 RAPPEN",
+      "side_b_label_text": "SER #TITAN-207 · ARCHIVE"
     },
     {
       "ser": "TITAN-208",
@@ -6658,8 +6658,8 @@
         "raw_obv": "photos/raw_archive/TITAN-208_SWITZERLAND_1986_1_FRANC_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-208_SWITZERLAND_1986_1_FRANC_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1986 \u00b7 1 FRANC",
-      "side_b_label_text": "SER #TITAN-208 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1986 · 1 FRANC",
+      "side_b_label_text": "SER #TITAN-208 · ARCHIVE"
     },
     {
       "ser": "TITAN-209",
@@ -6690,8 +6690,8 @@
         "raw_obv": "photos/raw_archive/TITAN-209_SWITZERLAND_1989_20_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-209_SWITZERLAND_1989_20_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1989 \u00b7 20 RAPPEN",
-      "side_b_label_text": "SER #TITAN-209 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1989 · 20 RAPPEN",
+      "side_b_label_text": "SER #TITAN-209 · ARCHIVE"
     },
     {
       "ser": "TITAN-210",
@@ -6722,8 +6722,8 @@
         "raw_obv": "photos/raw_archive/TITAN-210_SWITZERLAND_1991_2_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-210_SWITZERLAND_1991_2_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1991 \u00b7 2 FRANCS",
-      "side_b_label_text": "SER #TITAN-210 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1991 · 2 FRANCS",
+      "side_b_label_text": "SER #TITAN-210 · ARCHIVE"
     },
     {
       "ser": "TITAN-211",
@@ -6754,8 +6754,8 @@
         "raw_obv": "photos/raw_archive/TITAN-211_SWITZERLAND_1991_20_RAPPEN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-211_SWITZERLAND_1991_20_RAPPEN_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 1991 \u00b7 20 RAPPEN",
-      "side_b_label_text": "SER #TITAN-211 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 1991 · 20 RAPPEN",
+      "side_b_label_text": "SER #TITAN-211 · ARCHIVE"
     },
     {
       "ser": "TITAN-212",
@@ -6786,8 +6786,8 @@
         "raw_obv": "photos/raw_archive/TITAN-212_SWITZERLAND_2014_5_FRANCS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-212_SWITZERLAND_2014_5_FRANCS_RAW_REV.jpg"
       },
-      "side_a_label_text": "SWITZERLAND \u00b7 2014 \u00b7 5 FRANCS",
-      "side_b_label_text": "SER #TITAN-212 \u00b7 ARCHIVE"
+      "side_a_label_text": "SWITZERLAND · 2014 · 5 FRANCS",
+      "side_b_label_text": "SER #TITAN-212 · ARCHIVE"
     },
     {
       "ser": "TITAN-213",
@@ -6818,8 +6818,8 @@
         "raw_obv": "photos/raw_archive/TITAN-213_TAIWAN_ROC_1978_1_YUAN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-213_TAIWAN_ROC_1978_1_YUAN_RAW_REV.jpg"
       },
-      "side_a_label_text": "TAIWAN (ROC) \u00b7 1978 \u00b7 1 YUAN",
-      "side_b_label_text": "SER #TITAN-213 \u00b7 ARCHIVE"
+      "side_a_label_text": "TAIWAN (ROC) · 1978 · 1 YUAN",
+      "side_b_label_text": "SER #TITAN-213 · ARCHIVE"
     },
     {
       "ser": "TITAN-214",
@@ -6850,8 +6850,8 @@
         "raw_obv": "photos/raw_archive/TITAN-214_THAILAND_2006_1_BAHT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-214_THAILAND_2006_1_BAHT_RAW_REV.jpg"
       },
-      "side_a_label_text": "THAILAND \u00b7 2006 \u00b7 1 BAHT",
-      "side_b_label_text": "SER #TITAN-214 \u00b7 ARCHIVE"
+      "side_a_label_text": "THAILAND · 2006 · 1 BAHT",
+      "side_b_label_text": "SER #TITAN-214 · ARCHIVE"
     },
     {
       "ser": "TITAN-215",
@@ -6882,8 +6882,8 @@
         "raw_obv": "photos/raw_archive/TITAN-215_TRINIDAD_AND_TOBAGO_2014_25_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-215_TRINIDAD_AND_TOBAGO_2014_25_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "TRINIDAD AND TOBAGO \u00b7 2014 \u00b7 25 CENTS",
-      "side_b_label_text": "SER #TITAN-215 \u00b7 ARCHIVE"
+      "side_a_label_text": "TRINIDAD AND TOBAGO · 2014 · 25 CENTS",
+      "side_b_label_text": "SER #TITAN-215 · ARCHIVE"
     },
     {
       "ser": "TITAN-216",
@@ -6914,8 +6914,8 @@
         "raw_obv": "photos/raw_archive/TITAN-216_TRINIDAD_AND_TOBAGO_2016_10_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-216_TRINIDAD_AND_TOBAGO_2016_10_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "TRINIDAD AND TOBAGO \u00b7 2016 \u00b7 10 CENTS",
-      "side_b_label_text": "SER #TITAN-216 \u00b7 ARCHIVE"
+      "side_a_label_text": "TRINIDAD AND TOBAGO · 2016 · 10 CENTS",
+      "side_b_label_text": "SER #TITAN-216 · ARCHIVE"
     },
     {
       "ser": "TITAN-217",
@@ -6924,7 +6924,7 @@
       "legacy_scan": "C208",
       "country": "Turkey",
       "year": "2011",
-      "denom": "10 kuru\u015f",
+      "denom": "10 kuruş",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -6946,8 +6946,8 @@
         "raw_obv": "photos/raw_archive/TITAN-217_TURKEY_2011_10_KURU_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-217_TURKEY_2011_10_KURU_RAW_REV.jpg"
       },
-      "side_a_label_text": "TURKEY \u00b7 2011 \u00b7 10 KURU\u015e",
-      "side_b_label_text": "SER #TITAN-217 \u00b7 ARCHIVE"
+      "side_a_label_text": "TURKEY · 2011 · 10 KURUŞ",
+      "side_b_label_text": "SER #TITAN-217 · ARCHIVE"
     },
     {
       "ser": "TITAN-218",
@@ -6956,7 +6956,7 @@
       "legacy_scan": "B018",
       "country": "United Kingdom",
       "year": "2021",
-      "denom": "\u00a32 face \u00b7 1 troy oz Britannia",
+      "denom": "£2 face · 1 troy oz Britannia",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -6978,8 +6978,8 @@
         "raw_obv": "photos/raw_archive/TITAN-218_UNITED_KINGDOM_2021_2_FACE_1_TROY_OZ_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-218_UNITED_KINGDOM_2021_2_FACE_1_TROY_OZ_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2021 \u00b7 \u00a32 FACE \u00b7 1 TROY OZ BRITANNIA",
-      "side_b_label_text": "SER #TITAN-218 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "UNITED KINGDOM · 2021 · £2 FACE · 1 TROY OZ BRITANNIA",
+      "side_b_label_text": "SER #TITAN-218 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-219",
@@ -6988,7 +6988,7 @@
       "legacy_scan": "B006",
       "country": "United Kingdom",
       "year": "2022",
-      "denom": "\u00a32 face \u00b7 1 troy oz Britannia",
+      "denom": "£2 face · 1 troy oz Britannia",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -7010,8 +7010,8 @@
         "raw_obv": "photos/raw_archive/TITAN-219_UNITED_KINGDOM_2022_2_FACE_1_TROY_OZ_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-219_UNITED_KINGDOM_2022_2_FACE_1_TROY_OZ_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2022 \u00b7 \u00a32 FACE \u00b7 1 TROY OZ BRITANNIA",
-      "side_b_label_text": "SER #TITAN-219 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "UNITED KINGDOM · 2022 · £2 FACE · 1 TROY OZ BRITANNIA",
+      "side_b_label_text": "SER #TITAN-219 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-220",
@@ -7020,7 +7020,7 @@
       "legacy_scan": "B019",
       "country": "United Kingdom",
       "year": "2022",
-      "denom": "\u00a32 face \u00b7 1 troy oz Britannia",
+      "denom": "£2 face · 1 troy oz Britannia",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -7042,8 +7042,8 @@
         "raw_obv": "photos/raw_archive/TITAN-220_UNITED_KINGDOM_2022_2_FACE_1_TROY_OZ_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-220_UNITED_KINGDOM_2022_2_FACE_1_TROY_OZ_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2022 \u00b7 \u00a32 FACE \u00b7 1 TROY OZ BRITANNIA",
-      "side_b_label_text": "SER #TITAN-220 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "UNITED KINGDOM · 2022 · £2 FACE · 1 TROY OZ BRITANNIA",
+      "side_b_label_text": "SER #TITAN-220 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-221",
@@ -7052,7 +7052,7 @@
       "legacy_scan": "B005",
       "country": "United Kingdom",
       "year": "2023",
-      "denom": "\u00a32 face \u00b7 1 troy oz Britannia",
+      "denom": "£2 face · 1 troy oz Britannia",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -7074,8 +7074,8 @@
         "raw_obv": "photos/raw_archive/TITAN-221_UNITED_KINGDOM_2023_2_FACE_1_TROY_OZ_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-221_UNITED_KINGDOM_2023_2_FACE_1_TROY_OZ_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2023 \u00b7 \u00a32 FACE \u00b7 1 TROY OZ BRITANNIA",
-      "side_b_label_text": "SER #TITAN-221 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "UNITED KINGDOM · 2023 · £2 FACE · 1 TROY OZ BRITANNIA",
+      "side_b_label_text": "SER #TITAN-221 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-222",
@@ -7084,7 +7084,7 @@
       "legacy_scan": "B014",
       "country": "United Kingdom",
       "year": "2024",
-      "denom": "\u00a32 face \u00b7 1 troy oz Britannia",
+      "denom": "£2 face · 1 troy oz Britannia",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -7106,8 +7106,8 @@
         "raw_obv": "photos/raw_archive/TITAN-222_UNITED_KINGDOM_2024_2_FACE_1_TROY_OZ_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-222_UNITED_KINGDOM_2024_2_FACE_1_TROY_OZ_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2024 \u00b7 \u00a32 FACE \u00b7 1 TROY OZ BRITANNIA",
-      "side_b_label_text": "SER #TITAN-222 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "UNITED KINGDOM · 2024 · £2 FACE · 1 TROY OZ BRITANNIA",
+      "side_b_label_text": "SER #TITAN-222 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-223",
@@ -7116,7 +7116,7 @@
       "legacy_scan": "C164",
       "country": "United Kingdom",
       "year": "1932",
-      "denom": "\u00bd penny",
+      "denom": "½ penny",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -7138,8 +7138,8 @@
         "raw_obv": "photos/raw_archive/TITAN-223_UNITED_KINGDOM_1932_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-223_UNITED_KINGDOM_1932_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1932 \u00b7 \u00bd PENNY",
-      "side_b_label_text": "SER #TITAN-223 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1932 · ½ PENNY",
+      "side_b_label_text": "SER #TITAN-223 · ARCHIVE"
     },
     {
       "ser": "TITAN-224",
@@ -7170,8 +7170,8 @@
         "raw_obv": "photos/raw_archive/TITAN-224_UNITED_KINGDOM_1968_10_NEW_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-224_UNITED_KINGDOM_1968_10_NEW_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1968 \u00b7 10 NEW PENCE",
-      "side_b_label_text": "SER #TITAN-224 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1968 · 10 NEW PENCE",
+      "side_b_label_text": "SER #TITAN-224 · ARCHIVE"
     },
     {
       "ser": "TITAN-225",
@@ -7202,8 +7202,8 @@
         "raw_obv": "photos/raw_archive/TITAN-225_UNITED_KINGDOM_1971_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-225_UNITED_KINGDOM_1971_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1971 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-225 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1971 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-225 · ARCHIVE"
     },
     {
       "ser": "TITAN-226",
@@ -7234,8 +7234,8 @@
         "raw_obv": "photos/raw_archive/TITAN-226_UNITED_KINGDOM_1971_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-226_UNITED_KINGDOM_1971_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1971 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-226 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1971 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-226 · ARCHIVE"
     },
     {
       "ser": "TITAN-227",
@@ -7266,8 +7266,8 @@
         "raw_obv": "photos/raw_archive/TITAN-227_UNITED_KINGDOM_1971_2_NEW_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-227_UNITED_KINGDOM_1971_2_NEW_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1971 \u00b7 2 NEW PENCE",
-      "side_b_label_text": "SER #TITAN-227 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1971 · 2 NEW PENCE",
+      "side_b_label_text": "SER #TITAN-227 · ARCHIVE"
     },
     {
       "ser": "TITAN-228",
@@ -7276,7 +7276,7 @@
       "legacy_scan": "C020",
       "country": "United Kingdom",
       "year": "1973",
-      "denom": "\u00bd new penny",
+      "denom": "½ new penny",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -7298,8 +7298,8 @@
         "raw_obv": "photos/raw_archive/TITAN-228_UNITED_KINGDOM_1973_NEW_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-228_UNITED_KINGDOM_1973_NEW_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1973 \u00b7 \u00bd NEW PENNY",
-      "side_b_label_text": "SER #TITAN-228 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1973 · ½ NEW PENNY",
+      "side_b_label_text": "SER #TITAN-228 · ARCHIVE"
     },
     {
       "ser": "TITAN-229",
@@ -7330,8 +7330,8 @@
         "raw_obv": "photos/raw_archive/TITAN-229_UNITED_KINGDOM_1975_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-229_UNITED_KINGDOM_1975_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1975 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-229 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1975 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-229 · ARCHIVE"
     },
     {
       "ser": "TITAN-230",
@@ -7362,8 +7362,8 @@
         "raw_obv": "photos/raw_archive/TITAN-230_UNITED_KINGDOM_1977_2_NEW_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-230_UNITED_KINGDOM_1977_2_NEW_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1977 \u00b7 2 NEW PENCE",
-      "side_b_label_text": "SER #TITAN-230 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1977 · 2 NEW PENCE",
+      "side_b_label_text": "SER #TITAN-230 · ARCHIVE"
     },
     {
       "ser": "TITAN-231",
@@ -7394,8 +7394,8 @@
         "raw_obv": "photos/raw_archive/TITAN-231_UNITED_KINGDOM_1982_20_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-231_UNITED_KINGDOM_1982_20_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1982 \u00b7 20 PENCE",
-      "side_b_label_text": "SER #TITAN-231 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1982 · 20 PENCE",
+      "side_b_label_text": "SER #TITAN-231 · ARCHIVE"
     },
     {
       "ser": "TITAN-232",
@@ -7426,8 +7426,8 @@
         "raw_obv": "photos/raw_archive/TITAN-232_UNITED_KINGDOM_1987_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-232_UNITED_KINGDOM_1987_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1987 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-232 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1987 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-232 · ARCHIVE"
     },
     {
       "ser": "TITAN-233",
@@ -7458,8 +7458,8 @@
         "raw_obv": "photos/raw_archive/TITAN-233_UNITED_KINGDOM_1988_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-233_UNITED_KINGDOM_1988_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1988 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-233 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1988 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-233 · ARCHIVE"
     },
     {
       "ser": "TITAN-234",
@@ -7490,8 +7490,8 @@
         "raw_obv": "photos/raw_archive/TITAN-234_UNITED_KINGDOM_1990_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-234_UNITED_KINGDOM_1990_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1990 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-234 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1990 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-234 · ARCHIVE"
     },
     {
       "ser": "TITAN-235",
@@ -7522,8 +7522,8 @@
         "raw_obv": "photos/raw_archive/TITAN-235_UNITED_KINGDOM_1990_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-235_UNITED_KINGDOM_1990_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1990 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-235 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1990 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-235 · ARCHIVE"
     },
     {
       "ser": "TITAN-236",
@@ -7554,8 +7554,8 @@
         "raw_obv": "photos/raw_archive/TITAN-236_UNITED_KINGDOM_1991_2_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-236_UNITED_KINGDOM_1991_2_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1991 \u00b7 2 PENCE",
-      "side_b_label_text": "SER #TITAN-236 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1991 · 2 PENCE",
+      "side_b_label_text": "SER #TITAN-236 · ARCHIVE"
     },
     {
       "ser": "TITAN-237",
@@ -7586,8 +7586,8 @@
         "raw_obv": "photos/raw_archive/TITAN-237_UNITED_KINGDOM_1992_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-237_UNITED_KINGDOM_1992_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1992 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-237 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1992 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-237 · ARCHIVE"
     },
     {
       "ser": "TITAN-238",
@@ -7618,8 +7618,8 @@
         "raw_obv": "photos/raw_archive/TITAN-238_UNITED_KINGDOM_1992_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-238_UNITED_KINGDOM_1992_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1992 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-238 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1992 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-238 · ARCHIVE"
     },
     {
       "ser": "TITAN-239",
@@ -7650,8 +7650,8 @@
         "raw_obv": "photos/raw_archive/TITAN-239_UNITED_KINGDOM_1992_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-239_UNITED_KINGDOM_1992_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1992 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-239 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1992 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-239 · ARCHIVE"
     },
     {
       "ser": "TITAN-240",
@@ -7682,8 +7682,8 @@
         "raw_obv": "photos/raw_archive/TITAN-240_UNITED_KINGDOM_1992_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-240_UNITED_KINGDOM_1992_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1992 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-240 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1992 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-240 · ARCHIVE"
     },
     {
       "ser": "TITAN-241",
@@ -7714,8 +7714,8 @@
         "raw_obv": "photos/raw_archive/TITAN-241_UNITED_KINGDOM_1992_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-241_UNITED_KINGDOM_1992_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1992 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-241 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1992 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-241 · ARCHIVE"
     },
     {
       "ser": "TITAN-242",
@@ -7746,8 +7746,8 @@
         "raw_obv": "photos/raw_archive/TITAN-242_UNITED_KINGDOM_1992_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-242_UNITED_KINGDOM_1992_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1992 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-242 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1992 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-242 · ARCHIVE"
     },
     {
       "ser": "TITAN-243",
@@ -7778,8 +7778,8 @@
         "raw_obv": "photos/raw_archive/TITAN-243_UNITED_KINGDOM_1995_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-243_UNITED_KINGDOM_1995_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1995 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-243 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1995 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-243 · ARCHIVE"
     },
     {
       "ser": "TITAN-244",
@@ -7810,8 +7810,8 @@
         "raw_obv": "photos/raw_archive/TITAN-244_UNITED_KINGDOM_1995_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-244_UNITED_KINGDOM_1995_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1995 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-244 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1995 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-244 · ARCHIVE"
     },
     {
       "ser": "TITAN-245",
@@ -7842,8 +7842,8 @@
         "raw_obv": "photos/raw_archive/TITAN-245_UNITED_KINGDOM_1996_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-245_UNITED_KINGDOM_1996_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1996 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-245 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1996 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-245 · ARCHIVE"
     },
     {
       "ser": "TITAN-246",
@@ -7874,8 +7874,8 @@
         "raw_obv": "photos/raw_archive/TITAN-246_UNITED_KINGDOM_1996_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-246_UNITED_KINGDOM_1996_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1996 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-246 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1996 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-246 · ARCHIVE"
     },
     {
       "ser": "TITAN-247",
@@ -7906,8 +7906,8 @@
         "raw_obv": "photos/raw_archive/TITAN-247_UNITED_KINGDOM_1996_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-247_UNITED_KINGDOM_1996_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1996 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-247 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1996 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-247 · ARCHIVE"
     },
     {
       "ser": "TITAN-248",
@@ -7938,8 +7938,8 @@
         "raw_obv": "photos/raw_archive/TITAN-248_UNITED_KINGDOM_1997_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-248_UNITED_KINGDOM_1997_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1997 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-248 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1997 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-248 · ARCHIVE"
     },
     {
       "ser": "TITAN-249",
@@ -7970,8 +7970,8 @@
         "raw_obv": "photos/raw_archive/TITAN-249_UNITED_KINGDOM_1997_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-249_UNITED_KINGDOM_1997_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1997 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-249 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1997 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-249 · ARCHIVE"
     },
     {
       "ser": "TITAN-250",
@@ -8002,8 +8002,8 @@
         "raw_obv": "photos/raw_archive/TITAN-250_UNITED_KINGDOM_1998_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-250_UNITED_KINGDOM_1998_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1998 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-250 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1998 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-250 · ARCHIVE"
     },
     {
       "ser": "TITAN-251",
@@ -8034,8 +8034,8 @@
         "raw_obv": "photos/raw_archive/TITAN-251_UNITED_KINGDOM_1998_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-251_UNITED_KINGDOM_1998_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 1998 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-251 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 1998 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-251 · ARCHIVE"
     },
     {
       "ser": "TITAN-252",
@@ -8066,8 +8066,8 @@
         "raw_obv": "photos/raw_archive/TITAN-252_UNITED_KINGDOM_2000_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-252_UNITED_KINGDOM_2000_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2000 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-252 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2000 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-252 · ARCHIVE"
     },
     {
       "ser": "TITAN-253",
@@ -8098,8 +8098,8 @@
         "raw_obv": "photos/raw_archive/TITAN-253_UNITED_KINGDOM_2001_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-253_UNITED_KINGDOM_2001_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2001 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-253 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2001 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-253 · ARCHIVE"
     },
     {
       "ser": "TITAN-254",
@@ -8130,8 +8130,8 @@
         "raw_obv": "photos/raw_archive/TITAN-254_UNITED_KINGDOM_2001_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-254_UNITED_KINGDOM_2001_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2001 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-254 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2001 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-254 · ARCHIVE"
     },
     {
       "ser": "TITAN-255",
@@ -8162,8 +8162,8 @@
         "raw_obv": "photos/raw_archive/TITAN-255_UNITED_KINGDOM_2003_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-255_UNITED_KINGDOM_2003_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2003 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-255 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2003 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-255 · ARCHIVE"
     },
     {
       "ser": "TITAN-256",
@@ -8194,8 +8194,8 @@
         "raw_obv": "photos/raw_archive/TITAN-256_UNITED_KINGDOM_2007_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-256_UNITED_KINGDOM_2007_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2007 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-256 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2007 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-256 · ARCHIVE"
     },
     {
       "ser": "TITAN-257",
@@ -8226,8 +8226,8 @@
         "raw_obv": "photos/raw_archive/TITAN-257_UNITED_KINGDOM_2007_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-257_UNITED_KINGDOM_2007_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2007 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-257 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2007 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-257 · ARCHIVE"
     },
     {
       "ser": "TITAN-258",
@@ -8258,8 +8258,8 @@
         "raw_obv": "photos/raw_archive/TITAN-258_UNITED_KINGDOM_2008_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-258_UNITED_KINGDOM_2008_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2008 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-258 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2008 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-258 · ARCHIVE"
     },
     {
       "ser": "TITAN-259",
@@ -8290,8 +8290,8 @@
         "raw_obv": "photos/raw_archive/TITAN-259_UNITED_KINGDOM_2009_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-259_UNITED_KINGDOM_2009_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2009 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-259 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2009 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-259 · ARCHIVE"
     },
     {
       "ser": "TITAN-260",
@@ -8322,8 +8322,8 @@
         "raw_obv": "photos/raw_archive/TITAN-260_UNITED_KINGDOM_2010_1_PENNY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-260_UNITED_KINGDOM_2010_1_PENNY_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2010 \u00b7 1 PENNY",
-      "side_b_label_text": "SER #TITAN-260 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2010 · 1 PENNY",
+      "side_b_label_text": "SER #TITAN-260 · ARCHIVE"
     },
     {
       "ser": "TITAN-261",
@@ -8354,8 +8354,8 @@
         "raw_obv": "photos/raw_archive/TITAN-261_UNITED_KINGDOM_2010_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-261_UNITED_KINGDOM_2010_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2010 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-261 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2010 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-261 · ARCHIVE"
     },
     {
       "ser": "TITAN-262",
@@ -8386,8 +8386,8 @@
         "raw_obv": "photos/raw_archive/TITAN-262_UNITED_KINGDOM_2010_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-262_UNITED_KINGDOM_2010_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2010 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-262 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2010 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-262 · ARCHIVE"
     },
     {
       "ser": "TITAN-263",
@@ -8418,8 +8418,8 @@
         "raw_obv": "photos/raw_archive/TITAN-263_UNITED_KINGDOM_2010_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-263_UNITED_KINGDOM_2010_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2010 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-263 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2010 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-263 · ARCHIVE"
     },
     {
       "ser": "TITAN-264",
@@ -8450,8 +8450,8 @@
         "raw_obv": "photos/raw_archive/TITAN-264_UNITED_KINGDOM_2012_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-264_UNITED_KINGDOM_2012_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2012 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-264 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2012 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-264 · ARCHIVE"
     },
     {
       "ser": "TITAN-265",
@@ -8482,8 +8482,8 @@
         "raw_obv": "photos/raw_archive/TITAN-265_UNITED_KINGDOM_2013_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-265_UNITED_KINGDOM_2013_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2013 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-265 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2013 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-265 · ARCHIVE"
     },
     {
       "ser": "TITAN-266",
@@ -8514,8 +8514,8 @@
         "raw_obv": "photos/raw_archive/TITAN-266_UNITED_KINGDOM_2013_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-266_UNITED_KINGDOM_2013_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2013 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-266 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2013 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-266 · ARCHIVE"
     },
     {
       "ser": "TITAN-267",
@@ -8546,8 +8546,8 @@
         "raw_obv": "photos/raw_archive/TITAN-267_UNITED_KINGDOM_2014_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-267_UNITED_KINGDOM_2014_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2014 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-267 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2014 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-267 · ARCHIVE"
     },
     {
       "ser": "TITAN-268",
@@ -8578,8 +8578,8 @@
         "raw_obv": "photos/raw_archive/TITAN-268_UNITED_KINGDOM_2014_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-268_UNITED_KINGDOM_2014_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2014 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-268 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2014 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-268 · ARCHIVE"
     },
     {
       "ser": "TITAN-269",
@@ -8610,8 +8610,8 @@
         "raw_obv": "photos/raw_archive/TITAN-269_UNITED_KINGDOM_2014_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-269_UNITED_KINGDOM_2014_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2014 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-269 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2014 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-269 · ARCHIVE"
     },
     {
       "ser": "TITAN-270",
@@ -8642,8 +8642,8 @@
         "raw_obv": "photos/raw_archive/TITAN-270_UNITED_KINGDOM_2015_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-270_UNITED_KINGDOM_2015_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2015 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-270 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2015 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-270 · ARCHIVE"
     },
     {
       "ser": "TITAN-271",
@@ -8674,8 +8674,8 @@
         "raw_obv": "photos/raw_archive/TITAN-271_UNITED_KINGDOM_2016_10_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-271_UNITED_KINGDOM_2016_10_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2016 \u00b7 10 PENCE",
-      "side_b_label_text": "SER #TITAN-271 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2016 · 10 PENCE",
+      "side_b_label_text": "SER #TITAN-271 · ARCHIVE"
     },
     {
       "ser": "TITAN-272",
@@ -8706,8 +8706,8 @@
         "raw_obv": "photos/raw_archive/TITAN-272_UNITED_KINGDOM_2016_5_PENCE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-272_UNITED_KINGDOM_2016_5_PENCE_RAW_REV.jpg"
       },
-      "side_a_label_text": "UNITED KINGDOM \u00b7 2016 \u00b7 5 PENCE",
-      "side_b_label_text": "SER #TITAN-272 \u00b7 ARCHIVE"
+      "side_a_label_text": "UNITED KINGDOM · 2016 · 5 PENCE",
+      "side_b_label_text": "SER #TITAN-272 · ARCHIVE"
     },
     {
       "ser": "TITAN-273",
@@ -8716,7 +8716,7 @@
       "legacy_scan": "B011",
       "country": "USA",
       "year": "2023",
-      "denom": "$5 face \u00b7 1/10 troy oz AGE",
+      "denom": "$5 face · 1/10 troy oz AGE",
       "metal": "Gold",
       "asw_oz": 0.0,
       "km": "",
@@ -8738,8 +8738,8 @@
         "raw_obv": "photos/raw_archive/TITAN-273_USA_2023_5_FACE_1_10_TROY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-273_USA_2023_5_FACE_1_10_TROY_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 2023 \u00b7 $5 FACE \u00b7 1/10 TROY OZ AGE",
-      "side_b_label_text": "SER #TITAN-273 \u00b7 ARCHIVE"
+      "side_a_label_text": "USA · 2023 · $5 FACE · 1/10 TROY OZ AGE",
+      "side_b_label_text": "SER #TITAN-273 · ARCHIVE"
     },
     {
       "ser": "TITAN-274",
@@ -8748,7 +8748,7 @@
       "legacy_scan": "C088",
       "country": "USA",
       "year": "1957",
-      "denom": "10\u00a2 Roosevelt",
+      "denom": "10¢ Roosevelt",
       "metal": "Silver",
       "asw_oz": 0.0723,
       "km": "",
@@ -8770,8 +8770,8 @@
         "raw_obv": "photos/raw_archive/TITAN-274_USA_1957_10_ROOSEVELT_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-274_USA_1957_10_ROOSEVELT_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 1957 \u00b7 10\u00a2 ROOSEVELT",
-      "side_b_label_text": "SER #TITAN-274 \u00b7 0.07 oz ASW"
+      "side_a_label_text": "USA · 1957 · 10¢ ROOSEVELT",
+      "side_b_label_text": "SER #TITAN-274 · 0.07 oz ASW"
     },
     {
       "ser": "TITAN-275",
@@ -8780,7 +8780,7 @@
       "legacy_scan": "B002",
       "country": "USA",
       "year": "2019",
-      "denom": "$1 ASE \u00b7 1 troy oz",
+      "denom": "$1 ASE · 1 troy oz",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -8802,8 +8802,8 @@
         "raw_obv": "photos/raw_archive/TITAN-275_USA_2019_1_ASE_1_TROY_OZ_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-275_USA_2019_1_ASE_1_TROY_OZ_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 2019 \u00b7 $1 ASE \u00b7 1 TROY OZ",
-      "side_b_label_text": "SER #TITAN-275 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "USA · 2019 · $1 ASE · 1 TROY OZ",
+      "side_b_label_text": "SER #TITAN-275 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-276",
@@ -8812,7 +8812,7 @@
       "legacy_scan": "B001",
       "country": "USA",
       "year": "ND",
-      "denom": "1 troy oz rounds \u00d7 7 (no face \u00b7 private mint Buffalo / Indian Head type)",
+      "denom": "1 troy oz rounds × 7 (no face · private mint Buffalo / Indian Head type)",
       "metal": "Silver",
       "asw_oz": 7.0,
       "km": "",
@@ -8834,8 +8834,8 @@
         "raw_obv": "photos/raw_archive/TITAN-276_USA_ND_1_TROY_OZ_ROUNDS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-276_USA_ND_1_TROY_OZ_ROUNDS_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 ND \u00b7 1 TROY OZ ROUNDS \u00d7 7 (NO FACE \u00b7 PRIVATE MINT BUFFALO / INDIAN HEAD TYPE)",
-      "side_b_label_text": "SER #TITAN-276 \u00b7 7.00 oz ASW"
+      "side_a_label_text": "USA · ND · 1 TROY OZ ROUNDS × 7 (NO FACE · PRIVATE MINT BUFFALO / INDIAN HEAD TYPE)",
+      "side_b_label_text": "SER #TITAN-276 · 7.00 oz ASW"
     },
     {
       "ser": "TITAN-277",
@@ -8844,7 +8844,7 @@
       "legacy_scan": "B008",
       "country": "USA",
       "year": "ND",
-      "denom": "1/4 troy oz rounds \u00d7 10 (no face \u00b7 Buffalo / Indian Head type)",
+      "denom": "1/4 troy oz rounds × 10 (no face · Buffalo / Indian Head type)",
       "metal": "Silver",
       "asw_oz": 2.5,
       "km": "",
@@ -8866,8 +8866,8 @@
         "raw_obv": "photos/raw_archive/TITAN-277_USA_ND_1_4_TROY_OZ_ROUN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-277_USA_ND_1_4_TROY_OZ_ROUN_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 ND \u00b7 1/4 TROY OZ ROUNDS \u00d7 10 (NO FACE \u00b7 BUFFALO / INDIAN HEAD TYPE)",
-      "side_b_label_text": "SER #TITAN-277 \u00b7 2.50 oz ASW"
+      "side_a_label_text": "USA · ND · 1/4 TROY OZ ROUNDS × 10 (NO FACE · BUFFALO / INDIAN HEAD TYPE)",
+      "side_b_label_text": "SER #TITAN-277 · 2.50 oz ASW"
     },
     {
       "ser": "TITAN-278",
@@ -8876,7 +8876,7 @@
       "legacy_scan": "B012",
       "country": "USA",
       "year": "ND",
-      "denom": "1 troy oz rectangular bars \u00d7 2",
+      "denom": "1 troy oz rectangular bars × 2",
       "metal": "Silver",
       "asw_oz": 2.0,
       "km": "",
@@ -8898,8 +8898,8 @@
         "raw_obv": "photos/raw_archive/TITAN-278_USA_ND_1_TROY_OZ_RECTAN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-278_USA_ND_1_TROY_OZ_RECTAN_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 ND \u00b7 1 TROY OZ RECTANGULAR BARS \u00d7 2",
-      "side_b_label_text": "SER #TITAN-278 \u00b7 2.00 oz ASW"
+      "side_a_label_text": "USA · ND · 1 TROY OZ RECTANGULAR BARS × 2",
+      "side_b_label_text": "SER #TITAN-278 · 2.00 oz ASW"
     },
     {
       "ser": "TITAN-279",
@@ -8908,7 +8908,7 @@
       "legacy_scan": "B009",
       "country": "USA",
       "year": "ND",
-      "denom": "1/4 troy oz rounds \u00d7 4 (no face \u00b7 Buffalo / Indian Head type)",
+      "denom": "1/4 troy oz rounds × 4 (no face · Buffalo / Indian Head type)",
       "metal": "Silver",
       "asw_oz": 1.0,
       "km": "",
@@ -8930,8 +8930,8 @@
         "raw_obv": "photos/raw_archive/TITAN-279_USA_ND_1_4_TROY_OZ_ROUN_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-279_USA_ND_1_4_TROY_OZ_ROUN_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 ND \u00b7 1/4 TROY OZ ROUNDS \u00d7 4 (NO FACE \u00b7 BUFFALO / INDIAN HEAD TYPE)",
-      "side_b_label_text": "SER #TITAN-279 \u00b7 1.00 oz ASW"
+      "side_a_label_text": "USA · ND · 1/4 TROY OZ ROUNDS × 4 (NO FACE · BUFFALO / INDIAN HEAD TYPE)",
+      "side_b_label_text": "SER #TITAN-279 · 1.00 oz ASW"
     },
     {
       "ser": "TITAN-280",
@@ -8940,7 +8940,7 @@
       "legacy_scan": "B017",
       "country": "USA",
       "year": "ND",
-      "denom": "1 troy oz round (no face \u00b7 Buffalo / bison type)",
+      "denom": "1 troy oz round (no face · Buffalo / bison type)",
       "metal": "Silver",
       "asw_oz": 0.0,
       "km": "",
@@ -8962,8 +8962,8 @@
         "raw_obv": "photos/raw_archive/TITAN-280_USA_ND_1_TROY_OZ_ROUND__RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-280_USA_ND_1_TROY_OZ_ROUND__RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 ND \u00b7 1 TROY OZ ROUND (NO FACE \u00b7 BUFFALO / BISON TYPE)",
-      "side_b_label_text": "SER #TITAN-280 \u00b7 0.00 oz ASW"
+      "side_a_label_text": "USA · ND · 1 TROY OZ ROUND (NO FACE · BUFFALO / BISON TYPE)",
+      "side_b_label_text": "SER #TITAN-280 · 0.00 oz ASW"
     },
     {
       "ser": "TITAN-281",
@@ -8994,8 +8994,8 @@
         "raw_obv": "photos/raw_archive/TITAN-281_USA_1976_25_CENTS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-281_USA_1976_25_CENTS_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 1976 \u00b7 25 CENTS",
-      "side_b_label_text": "SER #TITAN-281 \u00b7 ARCHIVE"
+      "side_a_label_text": "USA · 1976 · 25 CENTS",
+      "side_b_label_text": "SER #TITAN-281 · ARCHIVE"
     },
     {
       "ser": "TITAN-282",
@@ -9026,8 +9026,8 @@
         "raw_obv": "photos/raw_archive/TITAN-282_USA_2009_PROP_50_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-282_USA_2009_PROP_50_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 2009 \u00b7 PROP $50",
-      "side_b_label_text": "SER #TITAN-282 \u00b7 ARCHIVE"
+      "side_a_label_text": "USA · 2009 · PROP $50",
+      "side_b_label_text": "SER #TITAN-282 · ARCHIVE"
     },
     {
       "ser": "TITAN-283",
@@ -9058,8 +9058,8 @@
         "raw_obv": "photos/raw_archive/TITAN-283_USA_2013_PROP_1_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-283_USA_2013_PROP_1_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 2013 \u00b7 PROP $1",
-      "side_b_label_text": "SER #TITAN-283 \u00b7 ARCHIVE"
+      "side_a_label_text": "USA · 2013 · PROP $1",
+      "side_b_label_text": "SER #TITAN-283 · ARCHIVE"
     },
     {
       "ser": "TITAN-284",
@@ -9068,7 +9068,7 @@
       "legacy_scan": "S002",
       "country": "USA",
       "year": "1979-S",
-      "denom": "6-coin United States Proof Set (1\u00a2 \u00b7 5\u00a2 \u00b7 10\u00a2 \u00b7 25\u00a2 \u00b7 50\u00a2 \u00b7 SBA $1)",
+      "denom": "6-coin United States Proof Set (1¢ · 5¢ · 10¢ · 25¢ · 50¢ · SBA $1)",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -9090,8 +9090,8 @@
         "raw_obv": "photos/raw_archive/TITAN-284_USA_1979_S_6_COIN_UNITED_ST_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-284_USA_1979_S_6_COIN_UNITED_ST_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 1979-S \u00b7 6-COIN UNITED STATES PROOF SET (1\u00a2 \u00b7 5\u00a2 \u00b7 10\u00a2 \u00b7 25\u00a2 \u00b7 50\u00a2 \u00b7 SBA $1)",
-      "side_b_label_text": "SER #TITAN-284 \u00b7 ARCHIVE"
+      "side_a_label_text": "USA · 1979-S · 6-COIN UNITED STATES PROOF SET (1¢ · 5¢ · 10¢ · 25¢ · 50¢ · SBA $1)",
+      "side_b_label_text": "SER #TITAN-284 · ARCHIVE"
     },
     {
       "ser": "TITAN-285",
@@ -9100,7 +9100,7 @@
       "legacy_scan": "S001",
       "country": "USA",
       "year": "2021-S",
-      "denom": "7-coin United States Mint Silver Proof Set\u00ae",
+      "denom": "7-coin United States Mint Silver Proof Set®",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -9122,8 +9122,8 @@
         "raw_obv": "photos/raw_archive/TITAN-285_USA_2021_S_7_COIN_UNITED_ST_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-285_USA_2021_S_7_COIN_UNITED_ST_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 2021-S \u00b7 7-COIN UNITED STATES MINT SILVER PROOF SET\u00ae",
-      "side_b_label_text": "SER #TITAN-285 \u00b7 ARCHIVE"
+      "side_a_label_text": "USA · 2021-S · 7-COIN UNITED STATES MINT SILVER PROOF SET®",
+      "side_b_label_text": "SER #TITAN-285 · ARCHIVE"
     },
     {
       "ser": "TITAN-286",
@@ -9154,8 +9154,8 @@
         "raw_obv": "photos/raw_archive/TITAN-286_USA_CA_1970S_NONE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-286_USA_CA_1970S_NONE_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 ca. 1970s \u00b7 NONE",
-      "side_b_label_text": "SER #TITAN-286 \u00b7 ARCHIVE"
+      "side_a_label_text": "USA · ca. 1970s · NONE",
+      "side_b_label_text": "SER #TITAN-286 · ARCHIVE"
     },
     {
       "ser": "TITAN-287",
@@ -9186,8 +9186,8 @@
         "raw_obv": "photos/raw_archive/TITAN-287_USA_ND_RIDE_TOKEN_SANDY_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-287_USA_ND_RIDE_TOKEN_SANDY_RAW_REV.jpg"
       },
-      "side_a_label_text": "USA \u00b7 ND \u00b7 RIDE TOKEN (SANDY THE PONY",
-      "side_b_label_text": "SER #TITAN-287 \u00b7 ARCHIVE"
+      "side_a_label_text": "USA · ND · RIDE TOKEN (SANDY THE PONY",
+      "side_b_label_text": "SER #TITAN-287 · ARCHIVE"
     },
     {
       "ser": "TITAN-288",
@@ -9218,8 +9218,8 @@
         "raw_obv": "photos/raw_archive/TITAN-288_USSR_1931_3_KOPECKS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-288_USSR_1931_3_KOPECKS_RAW_REV.jpg"
       },
-      "side_a_label_text": "USSR \u00b7 1931 \u00b7 3 KOPECKS",
-      "side_b_label_text": "SER #TITAN-288 \u00b7 ARCHIVE"
+      "side_a_label_text": "USSR · 1931 · 3 KOPECKS",
+      "side_b_label_text": "SER #TITAN-288 · ARCHIVE"
     },
     {
       "ser": "TITAN-289",
@@ -9250,8 +9250,8 @@
         "raw_obv": "photos/raw_archive/TITAN-289_USSR_1932_15_KOPECKS_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-289_USSR_1932_15_KOPECKS_RAW_REV.jpg"
       },
-      "side_a_label_text": "USSR \u00b7 1932 \u00b7 15 KOPECKS",
-      "side_b_label_text": "SER #TITAN-289 \u00b7 ARCHIVE"
+      "side_a_label_text": "USSR · 1932 · 15 KOPECKS",
+      "side_b_label_text": "SER #TITAN-289 · ARCHIVE"
     },
     {
       "ser": "TITAN-290",
@@ -9282,8 +9282,8 @@
         "raw_obv": "photos/raw_archive/TITAN-290_USSR_1962_1_KOPEK_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-290_USSR_1962_1_KOPEK_RAW_REV.jpg"
       },
-      "side_a_label_text": "USSR \u00b7 1962 \u00b7 1 KOPEK",
-      "side_b_label_text": "SER #TITAN-290 \u00b7 ARCHIVE"
+      "side_a_label_text": "USSR · 1962 · 1 KOPEK",
+      "side_b_label_text": "SER #TITAN-290 · ARCHIVE"
     },
     {
       "ser": "TITAN-291",
@@ -9314,8 +9314,8 @@
         "raw_obv": "photos/raw_archive/TITAN-291_USSR_1974_1_KOPEK_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-291_USSR_1974_1_KOPEK_RAW_REV.jpg"
       },
-      "side_a_label_text": "USSR \u00b7 1974 \u00b7 1 KOPEK",
-      "side_b_label_text": "SER #TITAN-291 \u00b7 ARCHIVE"
+      "side_a_label_text": "USSR · 1974 · 1 KOPEK",
+      "side_b_label_text": "SER #TITAN-291 · ARCHIVE"
     },
     {
       "ser": "TITAN-292",
@@ -9346,8 +9346,8 @@
         "raw_obv": "photos/raw_archive/TITAN-292_VATICAN_CITY_1951_10_LIRE_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-292_VATICAN_CITY_1951_10_LIRE_RAW_REV.jpg"
       },
-      "side_a_label_text": "VATICAN CITY \u00b7 1951 \u00b7 10 LIRE",
-      "side_b_label_text": "SER #TITAN-292 \u00b7 ARCHIVE"
+      "side_a_label_text": "VATICAN CITY · 1951 · 10 LIRE",
+      "side_b_label_text": "SER #TITAN-292 · ARCHIVE"
     },
     {
       "ser": "TITAN-293",
@@ -9356,7 +9356,7 @@
       "legacy_scan": "C232",
       "country": "Vietnam",
       "year": "2003",
-      "denom": "1000 \u0111\u1ed3ng",
+      "denom": "1000 đồng",
       "metal": "Base Metal / Specimen",
       "asw_oz": 0.0,
       "km": "",
@@ -9378,8 +9378,8 @@
         "raw_obv": "photos/raw_archive/TITAN-293_VIETNAM_2003_1000_NG_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-293_VIETNAM_2003_1000_NG_RAW_REV.jpg"
       },
-      "side_a_label_text": "VIETNAM \u00b7 2003 \u00b7 1000 \u0110\u1ed2NG",
-      "side_b_label_text": "SER #TITAN-293 \u00b7 ARCHIVE"
+      "side_a_label_text": "VIETNAM · 2003 · 1000 ĐỒNG",
+      "side_b_label_text": "SER #TITAN-293 · ARCHIVE"
     },
     {
       "ser": "TITAN-294",
@@ -9410,8 +9410,8 @@
         "raw_obv": "photos/raw_archive/TITAN-294_VIETNAM_STATE_OF_VIETNAM_1953_20_SU_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-294_VIETNAM_STATE_OF_VIETNAM_1953_20_SU_RAW_REV.jpg"
       },
-      "side_a_label_text": "VIETNAM (STATE OF VIETNAM) \u00b7 1953 \u00b7 20 SU",
-      "side_b_label_text": "SER #TITAN-294 \u00b7 ARCHIVE"
+      "side_a_label_text": "VIETNAM (STATE OF VIETNAM) · 1953 · 20 SU",
+      "side_b_label_text": "SER #TITAN-294 · ARCHIVE"
     },
     {
       "ser": "TITAN-295",
@@ -9442,8 +9442,8 @@
         "raw_obv": "photos/raw_archive/TITAN-295_YUGOSLAVIA_1984_1_DINAR_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-295_YUGOSLAVIA_1984_1_DINAR_RAW_REV.jpg"
       },
-      "side_a_label_text": "YUGOSLAVIA \u00b7 1984 \u00b7 1 DINAR",
-      "side_b_label_text": "SER #TITAN-295 \u00b7 ARCHIVE"
+      "side_a_label_text": "YUGOSLAVIA · 1984 · 1 DINAR",
+      "side_b_label_text": "SER #TITAN-295 · ARCHIVE"
     },
     {
       "ser": "TITAN-296",
@@ -9474,8 +9474,144 @@
         "raw_obv": "photos/raw_archive/TITAN-296_YUGOSLAVIA_1984_1_DINAR_RAW_OBV.jpg",
         "raw_rev": "photos/raw_archive/TITAN-296_YUGOSLAVIA_1984_1_DINAR_RAW_REV.jpg"
       },
-      "side_a_label_text": "YUGOSLAVIA \u00b7 1984 \u00b7 1 DINAR",
-      "side_b_label_text": "SER #TITAN-296 \u00b7 ARCHIVE"
+      "side_a_label_text": "YUGOSLAVIA · 1984 · 1 DINAR",
+      "side_b_label_text": "SER #TITAN-296 · ARCHIVE"
+    },
+    {
+      "ser": "TITAN-297",
+      "seq_num": 297,
+      "legacy_ser": "TITAN-297",
+      "legacy_scan": "C297",
+      "country": "France",
+      "year": "1914",
+      "denom": "5 Francs",
+      "metal": "Silver",
+      "asw_oz": 0.7234,
+      "km": "KM#844.1",
+      "est_val": 0.0,
+      "iso": "XX",
+      "continent": "World",
+      "stage_status": {
+        "stage1_raw_obv": false,
+        "stage1_raw_rev": false,
+        "stage2_label_side_a": false,
+        "stage2_label_side_b": false,
+        "agent_cropped_obv": false,
+        "agent_cropped_rev": false
+      },
+      "filenaming": {
+        "base_slug": "TITAN-297_FRANCE_1914_5_FRANCS",
+        "agent_cropped_obv": "photos/agent_cropped/TITAN-297_FRANCE_1914_5_FRANCS_OBV.webp",
+        "agent_cropped_rev": "photos/agent_cropped/TITAN-297_FRANCE_1914_5_FRANCS_REV.webp",
+        "thumb_obv": "photos/thumbs/TITAN-297_FRANCE_1914_5_FRANCS_OBV.webp",
+        "thumb_rev": "photos/thumbs/TITAN-297_FRANCE_1914_5_FRANCS_REV.webp",
+        "raw_obv": "photos/raw_archive/TITAN-297_FRANCE_1914_5_FRANCS_RAW_OBV.jpg",
+        "raw_rev": "photos/raw_archive/TITAN-297_FRANCE_1914_5_FRANCS_RAW_REV.jpg"
+      },
+      "side_a_label_text": "FRANCE · 1914 · 5 FRANCS",
+      "side_b_label_text": "SER #TITAN-297 · 0.72 oz ASW"
+    },
+    {
+      "ser": "TITAN-298",
+      "seq_num": 298,
+      "legacy_ser": "TITAN-298",
+      "legacy_scan": "C298",
+      "country": "France",
+      "year": "1914",
+      "denom": "5 Francs",
+      "metal": "Silver",
+      "asw_oz": 0.7234,
+      "km": "KM#844.1",
+      "est_val": 0.0,
+      "iso": "XX",
+      "continent": "World",
+      "stage_status": {
+        "stage1_raw_obv": false,
+        "stage1_raw_rev": false,
+        "stage2_label_side_a": false,
+        "stage2_label_side_b": false,
+        "agent_cropped_obv": false,
+        "agent_cropped_rev": false
+      },
+      "filenaming": {
+        "base_slug": "TITAN-298_FRANCE_1914_5_FRANCS",
+        "agent_cropped_obv": "photos/agent_cropped/TITAN-298_FRANCE_1914_5_FRANCS_OBV.webp",
+        "agent_cropped_rev": "photos/agent_cropped/TITAN-298_FRANCE_1914_5_FRANCS_REV.webp",
+        "thumb_obv": "photos/thumbs/TITAN-298_FRANCE_1914_5_FRANCS_OBV.webp",
+        "thumb_rev": "photos/thumbs/TITAN-298_FRANCE_1914_5_FRANCS_REV.webp",
+        "raw_obv": "photos/raw_archive/TITAN-298_FRANCE_1914_5_FRANCS_RAW_OBV.jpg",
+        "raw_rev": "photos/raw_archive/TITAN-298_FRANCE_1914_5_FRANCS_RAW_REV.jpg"
+      },
+      "side_a_label_text": "FRANCE · 1914 · 5 FRANCS",
+      "side_b_label_text": "SER #TITAN-298 · 0.72 oz ASW"
+    },
+    {
+      "ser": "TITAN-299",
+      "seq_num": 299,
+      "legacy_ser": "TITAN-299",
+      "legacy_scan": "C299",
+      "country": "France",
+      "year": "1914",
+      "denom": "5 Francs",
+      "metal": "Silver",
+      "asw_oz": 0.7234,
+      "km": "KM#844.1",
+      "est_val": 0.0,
+      "iso": "XX",
+      "continent": "World",
+      "stage_status": {
+        "stage1_raw_obv": true,
+        "stage1_raw_rev": false,
+        "stage2_label_side_a": false,
+        "stage2_label_side_b": false,
+        "agent_cropped_obv": true,
+        "agent_cropped_rev": false
+      },
+      "filenaming": {
+        "base_slug": "TITAN-299_FRANCE_1914_5_FRANCS",
+        "agent_cropped_obv": "photos/agent_cropped/TITAN-299_FRANCE_1914_5_FRANCS_OBV.webp",
+        "agent_cropped_rev": "photos/agent_cropped/TITAN-299_FRANCE_1914_5_FRANCS_REV.webp",
+        "thumb_obv": "photos/thumbs/TITAN-299_FRANCE_1914_5_FRANCS_OBV.webp",
+        "thumb_rev": "photos/thumbs/TITAN-299_FRANCE_1914_5_FRANCS_REV.webp",
+        "raw_obv": "photos/raw_archive/TITAN-299_FRANCE_1914_5_FRANCS_RAW_OBV.jpg",
+        "raw_rev": "photos/raw_archive/TITAN-299_FRANCE_1914_5_FRANCS_RAW_REV.jpg"
+      },
+      "side_a_label_text": "FRANCE · 1914 · 5 FRANCS",
+      "side_b_label_text": "SER #TITAN-299 · 0.72 oz ASW"
+    },
+    {
+      "ser": "TITAN-300",
+      "seq_num": 300,
+      "legacy_ser": "TITAN-300",
+      "legacy_scan": "C300",
+      "country": "France",
+      "year": "1914",
+      "denom": "5 Francs",
+      "metal": "Silver",
+      "asw_oz": 0.7234,
+      "km": "KM#844.1",
+      "est_val": 0.0,
+      "iso": "XX",
+      "continent": "World",
+      "stage_status": {
+        "stage1_raw_obv": true,
+        "stage1_raw_rev": false,
+        "stage2_label_side_a": false,
+        "stage2_label_side_b": false,
+        "agent_cropped_obv": true,
+        "agent_cropped_rev": false
+      },
+      "filenaming": {
+        "base_slug": "TITAN-300_FRANCE_1914_5_FRANCS",
+        "agent_cropped_obv": "photos/agent_cropped/TITAN-300_FRANCE_1914_5_FRANCS_OBV.webp",
+        "agent_cropped_rev": "photos/agent_cropped/TITAN-300_FRANCE_1914_5_FRANCS_REV.webp",
+        "thumb_obv": "photos/thumbs/TITAN-300_FRANCE_1914_5_FRANCS_OBV.webp",
+        "thumb_rev": "photos/thumbs/TITAN-300_FRANCE_1914_5_FRANCS_REV.webp",
+        "raw_obv": "photos/raw_archive/TITAN-300_FRANCE_1914_5_FRANCS_RAW_OBV.jpg",
+        "raw_rev": "photos/raw_archive/TITAN-300_FRANCE_1914_5_FRANCS_RAW_REV.jpg"
+      },
+      "side_a_label_text": "FRANCE · 1914 · 5 FRANCS",
+      "side_b_label_text": "SER #TITAN-300 · 0.72 oz ASW"
     }
   ]
 }

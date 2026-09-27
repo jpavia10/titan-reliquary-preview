@@ -178,6 +178,12 @@
     }
     if (h === "atmo") { openAtmoSheet(); return; }
     if (h === "ambient") { window.TitanAmbient?.openMixer(); return; }
+    if (h === "3d" || h === "table" || h === "spatial" || h === "museum") {
+      const rows = filteredFlips ? filteredFlips() : (vault ? vault.flips : []);
+      const cur = (rows && rows[0]) ? rows[0] : null;
+      if (window.TitanSpatial) window.TitanSpatial.open(cur);
+      return;
+    }
     const w = mapWing(h);
     if (h && $(`.wing[data-wing="${w}"]`)) setWing(w, false);
   }
@@ -210,6 +216,7 @@
     }
     saveState();
   }
+  window.setWing = setWing;
 
   function showToast(msg) {
     const el = $("#toast");
@@ -1061,7 +1068,7 @@
       </svg>`;
   }
 
-  /** Render an authentic white 2x2 archival cardboard staple flip. */
+  /** Render a luxury 2x2 Aero Frosted Acrylic Mount with beveled chamfers, gold rivets, and frosted silicone gasket. */
   function renderFlipHolder(f, options = {}) {
     const isLarge = !!options.large;
     const isRev = options.side === "rev";
@@ -1077,25 +1084,53 @@
       : renderSpecimenBlueprint(f, isLarge, options.side || "obv");
 
     return `
-      <div class="archival-flip-holder${isLarge ? ' flip-large' : ''}">
-        <!-- Four Galvanized Industrial Staples with cardboard crimp depressions -->
-        <div class="flip-staple staple-tl"><span class="staple-wire"></span></div>
-        <div class="flip-staple staple-tr"><span class="staple-wire"></span></div>
-        <div class="flip-staple staple-bl"><span class="staple-wire"></span></div>
-        <div class="flip-staple staple-br"><span class="staple-wire"></span></div>
+      <div class="archival-flip-holder${isLarge ? ' flip-large' : ''}${isRev ? ' flip-rev' : ' flip-obv'}">
+        <!-- Crystalline Beveled Edge Chamfer -->
+        <div class="slab-beveled-edge"></div>
 
-        <!-- Archival Collector Pen Annotations on White Cardboard Margins -->
-        <div class="flip-margin-top" title="${country}">${isRev ? `${country} · REV` : country}</div>
-        <div class="flip-margin-left">${isRev ? (f.km ? `KM#${esc(f.km)}` : 'REV') : year}</div>
-        <div class="flip-margin-right">${purity}</div>
-        <div class="flip-margin-bottom" title="${denom}">${denom}</div>
+        <!-- Four Precision Corner Gold Rivets -->
+        <div class="slab-rivet tl"></div>
+        <div class="slab-rivet tr"></div>
+        <div class="slab-rivet bl"></div>
+        <div class="slab-rivet br"></div>
 
-        <!-- Crystal-Clear Mylar Aperture Window -->
-        <div class="flip-mylar-window">
-          ${visual}
-          <div class="flip-mylar-reflection"></div>
-          ${isLarge ? renderOpticalReticle(f, options.side || "obv") : ""}
+        <!-- Upper Archival Frosted Annotation Bar -->
+        <div class="flip-aero-header">
+          <span class="flip-aero-country" title="${country}">${country}</span>
+          <span class="flip-aero-year">${isRev ? "REV" : year}</span>
+          <span class="flip-aero-ser">${esc(f.ser || f.scan)}</span>
         </div>
+
+        <!-- Frosted Translucent Silicone Core Gasket with Recessed Coin Aperture -->
+        <div class="flip-gasket-core">
+          <!-- 4 Silicone Edge-View Retaining Tabs -->
+          <div class="slab-edge-tab tab-n"></div>
+          <div class="slab-edge-tab tab-s"></div>
+          <div class="slab-edge-tab tab-w"></div>
+          <div class="slab-edge-tab tab-e"></div>
+
+          <div class="flip-coin-aperture">
+            ${visual}
+            <div class="coin-cartwheel-luster" aria-hidden="true"></div>
+            ${isLarge ? renderOpticalReticle(f, options.side || "obv") : ""}
+          </div>
+        </div>
+
+        <!-- Lower Archival Specification & Purity Bar -->
+        <div class="flip-aero-footer">
+          <span class="flip-aero-denom" title="${denom}">${denom}</span>
+          <span class="flip-aero-purity">${purity}</span>
+        </div>
+
+        <!-- Prismatic Optic Glare Sheen -->
+        <div class="slab-optic-glare"></div>
+
+        ${isRev ? `
+        <!-- Iridescent Holographic Foil Security Seal on Reverse -->
+        <div class="flip-holo-seal">
+          <div class="flip-holo-pattern"></div>
+          <span class="flip-holo-text">★ TITAN SECURE ARCHIVE · ${esc(f.ser || f.scan)} ★</span>
+        </div>` : ''}
       </div>`;
   }
 
@@ -2681,6 +2716,15 @@
         revBtn?.classList.toggle("active", isFlipped);
       };
     }
+    const spatialBtn = $("#btn-ex-spatial");
+    if (spatialBtn) {
+      spatialBtn.onclick = (e) => {
+        e.stopPropagation();
+        const curScan = exhibitMasters[exhibitIdx];
+        const item = (vault?.flips || []).find((x) => x.scan === curScan?.scan || x.ser === curScan?.ser) || curScan;
+        if (window.TitanSpatial) window.TitanSpatial.open(item);
+      };
+    }
     if (reticleBtn) {
       reticleBtn.classList.toggle("active", caliperActive);
       reticleBtn.onclick = (e) => {
@@ -2965,9 +3009,9 @@
     let reflHtml = "";
 
     if (galleryMode === "slab") {
-      obvHtml = renderMuseumSlab(f, { mini: !isCenter, side: "obv" });
+      obvHtml = renderMuseumSlab(f, { mini: false, side: "obv" });
       revHtml = isCenter ? renderMuseumSlab(f, { mini: false, side: "rev" }) : "";
-      reflHtml = renderMuseumSlab(f, { mini: true, side: "obv" });
+      reflHtml = renderMuseumSlab(f, { mini: false, side: "obv" });
     } else if (galleryMode === "matrix") {
       const obvImg = f.thumb
         ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" alt="${esc(f.denom || 'Coin')}" />`
@@ -2990,10 +3034,10 @@
           ${obvImg}
         </div>`;
     } else {
-      // 2x2 flips
-      obvHtml = renderFlipHolder(f, { large: isCenter, side: "obv" });
+      // 2x2 flips: Both center and flanking cards render full-detail Aero Frosted Mount
+      obvHtml = renderFlipHolder(f, { large: true, side: "obv" });
       revHtml = isCenter ? renderFlipHolder(f, { large: true, side: "rev" }) : "";
-      reflHtml = renderFlipHolder(f, { large: false, side: "obv" });
+      reflHtml = renderFlipHolder(f, { large: true, side: "obv" });
     }
 
     const loupeHtml = isCenter ? `
@@ -3306,6 +3350,21 @@
     $("#cf-btn-flip")?.addEventListener("click", toggleCoverFlowFlip);
     $("#cf-btn-loupe")?.addEventListener("click", toggleCoverFlowLoupe);
     $("#cf-btn-caliper")?.addEventListener("click", toggleCoverFlowCaliper);
+    $("#cf-btn-spatial")?.addEventListener("click", () => {
+      const rows = filteredFlips();
+      const current = rows[cfCurrentIndex] || rows[0];
+      if (window.TitanSpatial && current) {
+        window.TitanSpatial.open(current, galleryMode === "planchet" ? "planchet" : (galleryMode === "flips" ? "flip" : "slab"));
+      }
+    });
+
+    $("#cf-btn-deepzoom")?.addEventListener("click", () => {
+      const rows = filteredFlips();
+      const current = rows[cfCurrentIndex] || rows[0];
+      if (window.TitanDeepZoom && current) {
+        window.TitanDeepZoom.open(current, cfIsFlipped ? "rev" : "obv");
+      }
+    });
 
     const scrubber = $("#cf-scrubber");
     if (scrubber) {
@@ -3328,10 +3387,37 @@
       });
 
       viewport.addEventListener("pointermove", (e) => {
-        if (!cfDragging) return;
+        if (!cfDragging) {
+          // Pointer-driven 3D tilt & sheen tracking on center card
+          const centerCard = stage.querySelector(".cf-card-center");
+          if (centerCard && !cfLoupeActive && !cfCaliperActive) {
+            const cardRect = centerCard.getBoundingClientRect();
+            const nx = (e.clientX - (cardRect.left + cardRect.width / 2)) / (cardRect.width / 2);
+            const ny = (e.clientY - (cardRect.top + cardRect.height / 2)) / (cardRect.height / 2);
+            if (nx >= -1.2 && nx <= 1.2 && ny >= -1.2 && ny <= 1.2) {
+              const clampedX = Math.max(-1, Math.min(1, nx));
+              const clampedY = Math.max(-1, Math.min(1, ny));
+              const tiltX = (-clampedY * 14).toFixed(1);
+              const tiltY = (clampedX * 18).toFixed(1);
+              centerCard.style.transform = `translateX(0px) translateZ(28px) rotateY(${tiltY}deg) rotateX(${tiltX}deg)`;
+              const sheenX = ((clampedX + 1) / 2 * 100).toFixed(1);
+              const sheenY = ((clampedY + 1) / 2 * 100).toFixed(1);
+              centerCard.style.setProperty("--cf-sheen-x", `${sheenX}%`);
+              centerCard.style.setProperty("--cf-sheen-y", `${sheenY}%`);
+            }
+          }
+          return;
+        }
         const dx = e.clientX - cfStartX;
         cfDragDistance += Math.abs(e.movementX || dx);
         updateCoverFlowTransforms(dx);
+      });
+
+      viewport.addEventListener("pointerleave", () => {
+        const centerCard = stage.querySelector(".cf-card-center");
+        if (centerCard && !cfDragging) {
+          centerCard.style.transform = `translateX(0px) translateZ(0px) rotateY(0deg) rotateX(0deg)`;
+        }
       });
 
       const endDrag = (e) => {
@@ -3586,7 +3672,7 @@
           </div>
           <div class="gallery-mode-switch" role="radiogroup" aria-label="Specimen presentation mode">
             <button type="button" class="g-mode-btn${galleryMode === 'slab' ? ' active' : ''}" data-gmode="slab" title="Archival Lucite Museum Slabs (Optical Acrylic Encapsulation)">🏛️ Slabs</button>
-            <button type="button" class="g-mode-btn${galleryMode === 'flip' ? ' active' : ''}" data-gmode="flip" title="Traditional 2×2 Cardboard Flips (Stapled)">🏷️ 2×2 Flips</button>
+            <button type="button" class="g-mode-btn${galleryMode === 'flip' ? ' active' : ''}" data-gmode="flip" title="Aero Frosted 2×2 Mounts (Precision Silicone Gasket)">🏷️ 2×2 Aero Flips</button>
             <button type="button" class="g-mode-btn${galleryMode === 'matrix' ? ' active' : ''}" data-gmode="matrix" title="Pure Struck Coin Planchets (Unencumbered)">✨ Planchets</button>
           </div>
         </div>
@@ -3611,6 +3697,27 @@
         <span class="meta">${intFmt(rows.length)} / ${intFmt((vault.flips || []).length)}${flipFilter.staging ? " · 📸 staging album" : ""}${flipFilter.silverOnly ? " · silver" : ""}${flipFilter.phase2 ? " · shooting list" : ""}${flipFilter.q.trim() && !searchIdx ? " · searching notes…" : ""}</span>
       </div>
       <div class="country-strip">${strip}</div>
+
+      <!-- Prominent 3D Spatial Museum Examination Table Apex Entrance -->
+      <div class="gallery-spatial-banner reveal" id="gallery-spatial-banner">
+        <div class="gsb-inner">
+          <div class="gsb-left">
+            <div class="gsb-icon-wrap" aria-hidden="true">
+              <span class="gsb-icon">🏛️</span>
+            </div>
+            <div class="gsb-text">
+              <span class="gsb-kicker">Interactive Three.js Studio · Physical Shadows · 360° Drag</span>
+              <h3 class="gsb-title">3D Spatial Museum Examination Table</h3>
+              <p class="gsb-sub">Inspect physical coins on the solid mahogany table with ray-cast studio lighting, soft velvet contact shadows, 360° trackball rotation, and 90° reeded edge inspection.</p>
+            </div>
+          </div>
+          <button type="button" class="btn gsb-btn" id="btn-gallery-launch-spatial" title="Launch 3D Spatial Museum Table (Hotkey: M)">
+            <span>🏛️ Enter 3D Table</span>
+            <span class="gsb-badge">PRESS M</span>
+          </button>
+        </div>
+      </div>
+
       <div class="gallery-coverflow-wrap" id="gallery-coverflow-wrap" aria-label="3D Cover Flow Archival Carousel">
         <div class="cf-crest-watermark" aria-hidden="true"><svg class="crest-svg" viewBox="0 0 200 200"><use href="#crest-${currentAtmo()}"></use></svg></div>
         <div class="cf-header">
@@ -3622,6 +3729,8 @@
             <button type="button" class="btn small${cfIsFlipped ? ' active' : ''}" id="cf-btn-flip" title="3D Flip Obverse / Reverse (Space or F)">🔄 3D Flip</button>
             <button type="button" class="btn small${cfLoupeActive ? ' active' : ''}" id="cf-btn-loupe" title="Toggle 10× Macro Jeweler's Loupe">🔬 10× Loupe</button>
             <button type="button" class="btn small${caliperActive ? ' active' : ''}" id="cf-btn-caliper" title="Toggle Digital Numismatic Calipers">📏 Calipers</button>
+            <button type="button" class="btn small" id="cf-btn-spatial" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 3D Spatial Museum Table (WebXR / Three.js)">🏛️ 3D Museum Room</button>
+            <button type="button" class="btn small" id="cf-btn-deepzoom" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 40× Gigapixel Forensic Variety Station">🔬 40× Forensic</button>
           </div>
         </div>
         <div class="cf-viewport" id="cf-viewport" tabindex="0" aria-label="Cover Flow 3D Stage (Use Arrow Keys, Drag, or Scroll)">
@@ -3722,6 +3831,40 @@
       el.addEventListener("click", () => {
         dossierCtx = { label: "Gallery", scans: ctxScans };
         openDrawer(el.dataset.scan);
+      });
+    });
+
+    // Wire apex 3D Museum Room Banner Launch Button
+    $("#btn-gallery-launch-spatial")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const current = rows[cfCurrentIndex] || rows[0];
+      if (window.TitanSpatial && current) {
+        window.TitanSpatial.open(current, galleryMode === "matrix" ? "planchet" : (galleryMode === "flip" ? "flip" : "slab"));
+      }
+    });
+
+    // Pointer-driven 3D tilt & dynamic specular light sheen on all Gallery Cards
+    $$("#gallery-body .piece-card").forEach((card) => {
+      card.addEventListener("pointermove", (e) => {
+        const rect = card.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const hw = rect.width / 2;
+        const hh = rect.height / 2;
+        const nx = (e.clientX - (rect.left + hw)) / hw;
+        const ny = (e.clientY - (rect.top + hh)) / hh;
+        if (isNaN(nx) || isNaN(ny)) return;
+        const clampedX = Math.max(-1, Math.min(1, nx));
+        const clampedY = Math.max(-1, Math.min(1, ny));
+        const tiltX = (-clampedY * 8).toFixed(1);
+        const tiltY = (clampedX * 10).toFixed(1);
+        card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(8px)`;
+        const sheenX = ((clampedX + 1) / 2 * 100).toFixed(1);
+        const sheenY = ((clampedY + 1) / 2 * 100).toFixed(1);
+        card.style.setProperty("--card-sheen-x", `${sheenX}%`);
+        card.style.setProperty("--card-sheen-y", `${sheenY}%`);
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
       });
     });
 
@@ -5135,7 +5278,26 @@
 
   // Tabs
   $$(".wing").forEach((btn) => {
-    btn.addEventListener("click", () => setWing(btn.dataset.wing));
+    btn.addEventListener("click", () => {
+      if (btn.id === "nav-btn-spatial-table") {
+        const rows = filteredFlips ? filteredFlips() : (vault?.flips || []);
+        const current = rows[cfCurrentIndex] || rows[0];
+        if (window.TitanSpatial) {
+          window.TitanSpatial.open(current, galleryMode === "matrix" ? "planchet" : (galleryMode === "flip" ? "flip" : "slab"));
+        }
+        return;
+      }
+      setWing(btn.dataset.wing);
+    });
+  });
+
+  // Wire Top Hero 3D Spatial Table Launcher
+  $("#header-btn-spatial")?.addEventListener("click", () => {
+    const rows = filteredFlips ? filteredFlips() : (vault?.flips || []);
+    const current = rows[cfCurrentIndex] || rows[0];
+    if (window.TitanSpatial) {
+      window.TitanSpatial.open(current, galleryMode === "matrix" ? "planchet" : (galleryMode === "flip" ? "flip" : "slab"));
+    }
   });
 
   $("#drawer-close").addEventListener("click", closeDrawer);
@@ -5146,7 +5308,7 @@
   $("#lb-prev").addEventListener("click", (e) => { e.stopPropagation(); flipLightbox(-1); });
   $("#lb-next").addEventListener("click", (e) => { e.stopPropagation(); flipLightbox(); });
   $("#lightbox").addEventListener("click", (e) => { if (e.target.id === "lightbox") closeLightbox(); });
-  document.addEventListener("keydown", (e) => {
+  window.addEventListener("keydown", (e) => {
     const typing = ["INPUT", "SELECT", "TEXTAREA"].includes(document.activeElement?.tagName);
     // Command palette beats everything.
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
@@ -5168,6 +5330,15 @@
     else if (e.key === " " && $("#pane-hall")?.classList.contains("active") && !currentDrawerScan) {
       e.preventDefault();
       $("#btn-ex-flip")?.click();
+    }
+    else if (e.key.toLowerCase() === "m" || e.key.toLowerCase() === "t" || (e.key === "3" && !e.ctrlKey && !e.metaKey)) {
+      const spatialModal = $("#spatial-museum-modal");
+      if (spatialModal && !spatialModal.hidden) return;
+      const rows = filteredFlips ? filteredFlips() : (vault?.flips || []);
+      const current = rows[cfCurrentIndex] || rows[0];
+      if (window.TitanSpatial) {
+        window.TitanSpatial.open(current, galleryMode === "matrix" ? "planchet" : (galleryMode === "flip" ? "flip" : "slab"));
+      }
     }
     else if (/^[1-5]$/.test(e.key)) { const t = WING_ORDER[+e.key - 1]; if (t) { setWing(t); $(`.wing[data-wing="${t}"]`)?.focus(); } }
   });
@@ -5575,6 +5746,16 @@
   syncOffline();
   // Print buttons: dossier record + flips inventory.
   $("#dossier-print")?.addEventListener("click", () => window.print());
+  $("#dossier-spatial")?.addEventListener("click", () => {
+    if (drawerScan && window.TitanSpatial) {
+      window.TitanSpatial.open(drawerScan);
+    }
+  });
+  $("#dossier-deepzoom")?.addEventListener("click", () => {
+    if (drawerScan && window.TitanDeepZoom) {
+      window.TitanDeepZoom.open(drawerScan);
+    }
+  });
   $("#btn-atmo")?.addEventListener("click", openAtmoSheet);
   $("#atmo-close")?.addEventListener("click", closeAtmoSheet);
   $("#atmo-sheet")?.addEventListener("click", (e) => { if (e.target.id === "atmo-sheet") closeAtmoSheet(); });
