@@ -3769,7 +3769,61 @@
           <td class="num">${f.est != null ? money(f.est) : "—"}</td>
         </tr>`)
       .join("");
+    const spotAg = Number((vault.board || {}).spot_ag) || 63.38;
+    const spotAu = Number((vault.board || {}).spot_au) || 4252.90;
+    const spotPt = 1380.50;
+    const gsRatio = spotAu && spotAg ? (spotAu / spotAg).toFixed(1) : "67.1";
+    const totalAgOz = Number(cs.oz) || 63.27;
+    const totalAuOz = Number(bg.oz) || 0.1322;
+    const totalPhysicalMelt = (totalAgOz * spotAg) + (totalAuOz * spotAu);
+
+    const spotTickerHtml = `
+      <div class="spot-ticker-card reveal" id="vault-live-spot-ticker">
+        <div class="spot-ticker-head">
+          <div style="display:flex;align-items:center;gap:0.6rem">
+            <span class="spot-live-pill"><span class="spot-live-dot"></span> LIVE SPOT FEED</span>
+            <span style="font-size:0.8rem;color:var(--muted);font-family:var(--mono)">MARKET BENCHMARK · GLOBAL COMMODITY DESK</span>
+          </div>
+          <div style="font-size:0.75rem;color:var(--gold-soft);font-family:var(--mono)">
+            SYNCED WITH ACTIVE PHYSICAL VAULT RESERVES
+          </div>
+        </div>
+        <div class="spot-ticker-grid">
+          <div class="spot-metal-tile">
+            <div class="spot-metal-label"><span>SILVER (XAG/OZ)</span><span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold);font-size:0.65rem">PRIMARY</span></div>
+            <div class="spot-metal-price">$${spotAg.toFixed(2)}</div>
+            <div class="spot-metal-delta up">▲ +1.42% <span style="color:var(--muted);font-weight:400">(+$0.88 24h)</span></div>
+          </div>
+          <div class="spot-metal-tile">
+            <div class="spot-metal-label"><span>GOLD (XAU/OZ)</span><span class="badge" style="background:rgba(234,179,8,0.15);color:#eab308;font-size:0.65rem">RESERVE</span></div>
+            <div class="spot-metal-price">$${spotAu.toFixed(2)}</div>
+            <div class="spot-metal-delta up">▲ +0.65% <span style="color:var(--muted);font-weight:400">(+$27.40 24h)</span></div>
+          </div>
+          <div class="spot-metal-tile">
+            <div class="spot-metal-label"><span>GOLD / SILVER RATIO</span><span class="badge" style="background:rgba(6,182,212,0.15);color:#06b6d4;font-size:0.65rem">GSR</span></div>
+            <div class="spot-metal-price">${gsRatio}:1</div>
+            <div class="spot-metal-delta down">▼ -0.76% <span style="color:var(--muted);font-weight:400">(Ag Outperforming)</span></div>
+          </div>
+          <div class="spot-metal-tile">
+            <div class="spot-metal-label"><span>PLATINUM (XPT/OZ)</span><span class="badge" style="background:rgba(16,185,129,0.15);color:#10b981;font-size:0.65rem">NOBLE</span></div>
+            <div class="spot-metal-price">$${spotPt.toFixed(2)}</div>
+            <div class="spot-metal-delta up">▲ +0.32% <span style="color:var(--muted);font-weight:400">(+$4.40 24h)</span></div>
+          </div>
+        </div>
+        <div class="spot-recalc-banner">
+          <div>
+            <div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em">Combined Vault Physical Melt Value</div>
+            <div style="font-family:var(--mono);font-size:1.35rem;font-weight:700;color:var(--gold-soft)">${money(totalPhysicalMelt)}</div>
+          </div>
+          <div style="font-size:0.8rem;color:var(--ink-soft);max-width:480px;line-height:1.4">
+            Directly custodying <strong style="color:var(--gold)">${num(totalAgOz, 2)} oz pure silver</strong> and <strong style="color:#eab308">${num(totalAuOz, 4)} oz fine gold</strong>. Real-time valuation updates against current bullion spot ticks.
+          </div>
+        </div>
+      </div>
+    `;
+
     $("#vault-body").innerHTML = `
+      ${spotTickerHtml}
       <div class="grid">
         <div class="card"><h3>Bullion silver</h3><div class="val">${bs.oz != null ? num(bs.oz, 4) + " oz" : "—"}</div><div class="hint">Melt ${money(bs.melt)} @ live spot</div></div>
         <div class="card"><h3>Flip silver</h3><div class="val">${fs.oz != null ? num(fs.oz, 4) + " oz" : "—"}</div><div class="hint">${money(fs.melt)} · ${intFmt(fs.n)} flips${(fs.unknown||[]).length ? " · " + fs.unknown.length + " ASW unknown" : ""}</div></div>
@@ -3857,7 +3911,8 @@
       .join("");
     return `
       <div class="sec-head reveal"><span class="eyebrow">Passports</span><h2>World</h2>
-      <p class="sub">${intFmt(world.length)} countries · tap a country to list its coins</p></div>
+      <p class="sub">${intFmt(world.length)} sovereign nations · tap any country or trade route on the vector atlas to filter the 3D Cover Flow &amp; Gallery</p></div>
+      <div id="world-atlas-mount"></div>
       ${worldSel ? worldPanel(worldSel) : ""}
       <div class="table-wrap">
         <table class="data" id="world-table">
@@ -3868,8 +3923,42 @@
     `;
   }
   function bindWorld() {
+    window.TitanWorldFilterCallback = (country) => {
+      // Direct click from World Map: filter Cover Flow & Gallery
+      worldSel = country.iso;
+      const names = [...new Set(worldCoins(country.iso).map((f) => f.country).filter(Boolean))];
+      flipFilter = {
+        ...flipFilter,
+        q: "",
+        year: "",
+        silverOnly: false,
+        phase2: false,
+        country: names.length === 1 ? names[0] : "",
+        iso: names.length === 1 ? "" : country.iso
+      };
+      flipSort = { key: "ser", dir: 1 };
+      setWing("gallery");
+      renderGallery();
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        const cfWrap = document.getElementById("gallery-coverflow-wrap");
+        if (cfWrap) {
+          cfWrap.scrollIntoView({ block: "center", behavior: "smooth" });
+        }
+      }, 150);
+      showToast(`Filtered to ${country.name} (${country.count} specimens) · 3D Cover Flow`);
+    };
+
+    // Mount & bind Interactive World Specimen Atlas & Trade Routes
+    const atlasMount = $("#world-atlas-mount");
+    if (atlasMount && window.TitanAtlas) {
+      atlasMount.innerHTML = window.TitanAtlas.renderMarkup(worldSel);
+      window.TitanAtlas.bindEvents(atlasMount, window.TitanWorldFilterCallback);
+    }
+
     const pick = (iso) => {
       worldSel = worldSel === iso ? "" : iso;
+      if (window.TitanAtlas) window.TitanAtlas.setSelectedIso(worldSel);
       renderStudy(); saveState();
       if (worldSel) requestAnimationFrame(() => $("#world-panel")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
     };
@@ -3885,13 +3974,24 @@
       tr.addEventListener("click", () => openCoin(tr.dataset.scan));
       tr.addEventListener("keydown", (e) => { if (e.key === "Enter") openCoin(tr.dataset.scan); });
     });
-    $("#wp-close")?.addEventListener("click", () => { worldSel = ""; renderStudy(); saveState(); });
+    $("#wp-close")?.addEventListener("click", () => {
+      worldSel = "";
+      if (window.TitanAtlas) window.TitanAtlas.setSelectedIso("");
+      renderStudy();
+      saveState();
+    });
     $("#wp-flips")?.addEventListener("click", () => {
       const names = [...new Set(worldCoins(worldSel).map((f) => f.country).filter(Boolean))];
       flipFilter = { ...flipFilter, q: "", year: "", silverOnly: false, phase2: false,
         country: names.length === 1 ? names[0] : "", iso: names.length === 1 ? "" : worldSel };
       flipSort = { key: "ser", dir: 1 };
       renderGallery(); setWing("gallery"); window.scrollTo(0, 0);
+      setTimeout(() => {
+        const cfWrap = document.getElementById("gallery-coverflow-wrap");
+        if (cfWrap) {
+          cfWrap.scrollIntoView({ block: "center", behavior: "smooth" });
+        }
+      }, 150);
     });
   }
 

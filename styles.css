@@ -4491,7 +4491,7 @@ html[data-atmo="conservator"] .hero-grand {
 /* Crystal-Clear Circular Mylar Aperture Window */
 .flip-mylar-window {
   width: 68%;
-  height: 68%;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   position: relative;
   display: flex;
@@ -7457,9 +7457,23 @@ html[data-atmo="silkroad"] .wordmark {
 }
 
 .cf-card .archival-flip-holder {
-  width: 100%;
-  height: 100%;
+  width: 240px;
+  height: 240px;
+  max-width: 240px;
+  max-height: 240px;
+  aspect-ratio: 1 / 1;
+  margin: 25px auto;
   box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .cf-card .archival-flip-holder {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 25px auto;
+  }
 }
 
 .cf-card .matrix-medallion-holder {
@@ -7691,6 +7705,377 @@ html[data-atmo="silkroad"] .wordmark {
   filter: drop-shadow(0 0 25px currentColor);
 }
 
+/* ==========================================================================
+   INTERACTIVE WORLD SPECIMEN ATLAS & HISTORICAL TRADE ROUTES (STUDY WING)
+   ========================================================================== */
+#world-atlas-mount {
+  margin-bottom: 2rem;
+}
 
+.atlas-card {
+  position: relative;
+  background: var(--bg-card, #131720);
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.2));
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
 
+.atlas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 
+.atlas-quick-metrics {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+}
+
+.atlas-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.atlas-stat-val {
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gold-soft, #fef08a);
+  line-height: 1.2;
+}
+
+.atlas-stat-lbl {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted, #94a3b8);
+}
+
+.atlas-toolbar {
+  margin-bottom: 1rem;
+}
+
+.atlas-routes-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.atlas-route-btn {
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 20px !important;
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.25)) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: var(--ink, #e2e8f0) !important;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.atlas-route-btn:hover {
+  border-color: var(--gold, #c8a94a) !important;
+  background: rgba(200, 169, 74, 0.12) !important;
+  color: var(--gold-soft, #fef08a) !important;
+  transform: translateY(-1px);
+}
+
+.atlas-route-btn.active {
+  border-color: var(--gold, #c8a94a) !important;
+  background: var(--gold, #c8a94a) !important;
+  color: #08090c !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 14px rgba(200, 169, 74, 0.4);
+}
+
+.atlas-route-intel {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.2));
+  border-left: 3px solid var(--gold, #c8a94a);
+  border-radius: 8px;
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.atlas-svg-container {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 40%, rgba(18, 24, 38, 0.95) 0%, rgba(8, 10, 14, 0.98) 100%);
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.25));
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+html[data-atmo="conservator"] .atlas-svg-container {
+  background: radial-gradient(circle at 50% 40%, #f6f1e3 0%, #ebe2ca 100%);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.08);
+}
+
+.atlas-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.atlas-continents {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+@keyframes silverFlow {
+  from {
+    stroke-dashoffset: 40;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.atlas-route-path {
+  animation: silverFlow 3s linear infinite;
+}
+
+@keyframes waypointPulse {
+  0% {
+    r: 4.5px;
+    opacity: 0.8;
+  }
+  100% {
+    r: 15px;
+    opacity: 0;
+  }
+}
+
+.atlas-pulse {
+  animation: waypointPulse 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+.atlas-node {
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.atlas-node:hover {
+  transform: scale(1.18);
+}
+
+.atlas-node:focus-visible .atlas-node-core {
+  stroke: #ffffff;
+  stroke-width: 2.5px;
+}
+
+.atlas-node .atlas-node-halo {
+  transition: fill 0.25s ease, r 0.25s ease;
+}
+
+.atlas-node:hover .atlas-node-halo {
+  fill: rgba(200, 169, 74, 0.45);
+}
+
+.atlas-node.selected .atlas-node-core {
+  fill: #fff;
+  stroke: var(--gold, #c8a94a);
+  stroke-width: 2.5px;
+}
+
+.atlas-waypoint {
+  cursor: pointer;
+}
+
+.atlas-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+}
+
+.atlas-hud-tooltip {
+  position: fixed;
+  z-index: 99999;
+  pointer-events: none;
+  background: rgba(10, 13, 18, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--gold, #c8a94a);
+  border-radius: 10px;
+  padding: 0.85rem 1.15rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(200, 169, 74, 0.25);
+  max-width: 300px;
+}
+
+html[data-atmo="conservator"] .atlas-hud-tooltip {
+  background: rgba(253, 250, 243, 0.96);
+  border-color: #8c7335;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.atlas-hud-card strong {
+  color: var(--ink, #fff);
+}
+
+/* ==========================================================================
+   LIVE PRECIOUS METALS SPOT TICKER (VAULT WING)
+   ========================================================================== */
+.spot-ticker-card {
+  background: var(--bg-card, #131720);
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.2));
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.spot-ticker-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+}
+
+.spot-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #34d399;
+  border-radius: 20px;
+  padding: 0.2rem 0.65rem;
+}
+
+.spot-live-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseLive 1.8s infinite;
+}
+
+@keyframes pulseLive {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.spot-ticker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.spot-metal-tile {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.06));
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.spot-metal-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold, #c8a94a);
+}
+
+.spot-metal-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--muted, #94a3b8);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.spot-metal-price {
+  font-family: var(--mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold-soft, #fef08a);
+  line-height: 1.2;
+}
+
+.spot-metal-delta {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.spot-metal-delta.up {
+  color: #34d399;
+}
+
+.spot-metal-delta.down {
+  color: #f87171;
+}
+
+.spot-recalc-banner {
+  background: linear-gradient(135deg, rgba(200, 169, 74, 0.12), rgba(0, 0, 0, 0.4));
+  border: 1px solid var(--gold, #c8a94a);
+  border-radius: 10px;
+  padding: 0.85rem 1.15rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .atlas-card {
+    padding: 1rem;
+  }
+  .atlas-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .atlas-quick-metrics {
+    justify-content: space-around;
+  }
+  .atlas-routes-bar {
+    overflow-x: auto;
+    padding-bottom: 4px;
+    flex-wrap: nowrap;
+  }
+  .atlas-route-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .spot-ticker-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
