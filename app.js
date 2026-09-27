@@ -5351,6 +5351,7 @@
   }
   $("#header-btn-spatial")?.addEventListener("click", launchSpatialTable);
   $("#btn-grand-launch-spatial")?.addEventListener("click", launchSpatialTable);
+  window.launchSpatialTable = launchSpatialTable;
 
   $("#drawer-close").addEventListener("click", closeDrawer);
   $("#drawer-backdrop").addEventListener("click", closeDrawer);
