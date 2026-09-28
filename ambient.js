@@ -1557,9 +1557,7 @@
         ctx2d.rotate(lf.rot);
         ctx2d.scale(Math.cos(lf.flip), 1);
         const shine = Math.abs(Math.sin(lf.flip));
-        ctx2d.fillStyle = `rgba(250, 204, 21, ${(lf.op * masterOp * (0.6 + 0.4 * shine)).toFixed(3)})`;
-        ctx2d.shadowColor = "#fef08a";
-        ctx2d.shadowBlur = 6 * shine;
+        ctx2d.fillStyle = `rgba(${shine > 0.7 ? "254, 240, 138" : "250, 204, 21"}, ${(lf.op * masterOp * (0.6 + 0.4 * shine)).toFixed(3)})`;
         ctx2d.fillRect(-lf.w / 2, -lf.h / 2, lf.w, lf.h);
         ctx2d.restore();
       }
@@ -1705,12 +1703,9 @@
           if (cy < -20 || cy > innerHeight + 20) continue;
           const trailFrac = 1 - j / col.len;
           if (j === 0) {
-            ctx2d.fillStyle = `rgba(220, 255, 235, ${(0.95 * masterOp).toFixed(3)})`;
-            ctx2d.shadowColor = "#33ff66";
-            ctx2d.shadowBlur = 8;
+            ctx2d.fillStyle = `rgba(220, 255, 235, ${(0.98 * masterOp).toFixed(3)})`;
           } else {
-            ctx2d.fillStyle = `rgba(51, 255, 102, ${(trailFrac * 0.7 * masterOp).toFixed(3)})`;
-            ctx2d.shadowBlur = 0;
+            ctx2d.fillStyle = `rgba(51, 255, 102, ${(trailFrac * 0.75 * masterOp).toFixed(3)})`;
           }
           ctx2d.fillText(col.chars[j % col.chars.length], col.x, cy);
         }

@@ -1018,15 +1018,22 @@
       <svg class="specimen-medallion" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="${countryName} ${denom} specimen">
         <defs>
           <path id="arc-top-${uid}" d="${arcD}" fill="none"/>
+          <filter id="pl-shadow-${uid}" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.6"/>
+          </filter>
         </defs>
 
         <!-- Velvet Aperture Window Chamber -->
         <rect width="100" height="100" fill="url(#grad-aperture-velvet)"/>
-        <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(200,169,74,0.12)" stroke-width="0.6"/>
+        <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(200,169,74,0.15)" stroke-width="0.75"/>
+        <circle cx="50" cy="50" r="47.2" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="0.5"/>
 
         <!-- Struck Metallic Planchet Disk with Physical Depth -->
-        <circle cx="50" cy="50" r="${scaledR.toFixed(1)}" fill="url(#${gradId})" stroke="#050608" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="${scaledR.toFixed(1)}" fill="url(#${gradId})" stroke="#050608" stroke-width="0.8" filter="url(#pl-shadow-${uid})"/>
         
+        <!-- Cartwheel Specular Luster Overlay -->
+        <circle cx="50" cy="50" r="${scaledR.toFixed(1)}" fill="url(#grad-coin-luster)" pointer-events="none"/>
+
         <!-- Raised Outer Reeded Die Rim -->
         <circle cx="50" cy="50" r="${(scaledR - 0.5).toFixed(1)}" fill="none" stroke="${rimStroke}" stroke-width="1.0" opacity="0.9"/>
         
@@ -1045,14 +1052,9 @@
         <text x="50" y="${(50 + scaledR - 3.2).toFixed(1)}" text-anchor="middle" class="coin-legend-bot" fill="${reliefFill}">
           ${bottomLabel}
         </text>
-
-        <!-- Phase 2 Specimen Archival Ribbon -->
-        <g class="p2-placeholder-badge" transform="translate(50, ${badgeY})">
-          <rect x="-24.5" y="-3.8" width="49" height="7.6" rx="2" fill="rgba(8, 9, 12, 0.88)" stroke="rgba(200, 169, 74, 0.65)" stroke-width="0.5"/>
-          <text x="0" y="1.4" text-anchor="middle" font-family="var(--mono)" font-size="3.5" font-weight="700" fill="#f8fafc" letter-spacing="0.08em">PHASE 2 SCAN PENDING</text>
-        </g>
       </svg>`;
   }
+  window.renderSpecimenBlueprint = renderSpecimenBlueprint;
 
   /** Render a luxury 2x2 Aero Frosted Acrylic Mount with beveled chamfers, gold rivets, and frosted silicone gasket. */
   function renderFlipHolder(f, options = {}) {
@@ -4828,9 +4830,18 @@
     const fo = age.flips_other || {};
     const al = age.albums || {};
     const glance = vault.albums_glance || [];
-    // The ledger sometimes carries markdown table separator rows ("------:") as
-    // data rows; they hold no information, so drop them at render time.
+    // Strict numismatic validation to prevent raw scraped markdown artifacts from entering the ledger
     const mdSep = (s) => typeof s === "string" && /^[\s:|\-]+$/.test(s) && /[-|]/.test(s);
+    const isRealAlbum = (g) => {
+      if (!g || !g.family) return false;
+      if (mdSep(g.family)) return false;
+      const fam = String(g.family).trim();
+      const ids = String(g.ids || "").trim();
+      if (fam.startsWith("$") || fam.startsWith("---") || fam === "Flips" || fam === "Country") return false;
+      if (ids === "Sets" || ids === "ISO" || ids.startsWith("$") || ids.startsWith("---")) return false;
+      return true;
+    };
+
     const stagingRow = {
       family: "★ PRO PHOTO PHASE 2 STAGING ALBUM",
       ids: "A-P2-STAGE",
@@ -4839,7 +4850,7 @@
       pulse: "Drive Shared Queue · PHOTO_STAGING_PHASE2/",
       isStaging: true
     };
-    const combinedGlance = [stagingRow, ...glance.filter((g) => !mdSep(g.family))];
+    const combinedGlance = [stagingRow, ...glance.filter(isRealAlbum)];
     const glanceBody = combinedGlance
       .map((g) => {
         if (g.isStaging) {
@@ -4851,7 +4862,13 @@
             <td style="color:var(--gold-soft)">${esc(g.pulse)}</td>
           </tr>`;
         }
-        return `<tr><td>${esc(g.family)}</td><td class="muted ids">${esc(g.ids)}</td><td class="num">${esc(intFmt(g.coins))}</td><td class="num">${money(g.total)}</td><td class="muted">${esc(g.pulse)}</td></tr>`;
+        return `<tr class="interactive-album-row" data-album-family="${esc(g.family)}" data-album-ids="${esc(g.ids)}" title="Click to inspect ${esc(g.family)} album slots &amp; missing holes" style="cursor:pointer">
+          <td><strong style="color:var(--ink)">${esc(g.family)}</strong> <span style="font-size:0.75rem;color:var(--gold);opacity:0.9;margin-left:0.35rem">📖 Inspect</span></td>
+          <td class="muted ids">${esc(g.ids)}</td>
+          <td class="num">${esc(intFmt(g.coins))}</td>
+          <td class="num">${money(g.total)}</td>
+          <td class="muted">${esc(g.pulse)}</td>
+        </tr>`;
       })
       .join("");
     return `
@@ -4886,6 +4903,330 @@
       </div>`;
   }
 
+  // ==========================================
+  // INTERACTIVE NUMISMATIC ALBUM & HOLE INSPECTOR (PHASE I)
+  // ==========================================
+  let activeAlbumFamily = "American Silver Eagles";
+  let activeAlbumId = "A026";
+  let activeAlbumFilter = "all";
+
+  const ALBUM_METADATA = {
+    "American Silver Eagles": {
+      binderType: "Whitman Deluxe Leatherette",
+      ids: ["A026", "A025"],
+      volumes: {
+        "A026": { title: "Vol 1: 1986–2021 (Type 1 Heraldic)", totalSlots: 36, filled: 18, startYear: 1986, endYear: 2021, denom: "$1 Silver Eagle", metal: ".999 Silver (1 oz ASW)", holes: ["1995", "1996 Key Date", "2003", "2008", "2011", "2017"] },
+        "A025": { title: "Vol 2: 2021 Type 2–Present (Landing Eagle)", totalSlots: 16, filled: 6, startYear: 2021, endYear: 2026, denom: "$1 Silver Eagle", metal: ".999 Silver (1 oz ASW)", holes: ["2025 Target", "2026 Target"] }
+      }
+    },
+    "Kennedy halves": {
+      binderType: "Dansco 7166 Archival Half Dollar",
+      ids: ["A007", "A008", "A009"],
+      volumes: {
+        "A007": { title: "Vol 1: 1964–1985 (Silver & Clad)", totalSlots: 36, filled: 32, startYear: 1964, endYear: 1985, denom: "50¢ Half Dollar", metal: "90% / 40% Silver & Clad", holes: ["1966", "1970 Key", "1972", "1972-D"] },
+        "A008": { title: "Vol 2: 1986–2003 P&D", totalSlots: 36, filled: 32, startYear: 1986, endYear: 2003, denom: "50¢ Half Dollar", metal: "Clad Composition", holes: ["1998-P", "1998-D", "2001-P", "2001-D"] },
+        "A009": { title: "Vol 3: 2004–Present NIFC", totalSlots: 24, filled: 15, startYear: 2004, endYear: 2024, denom: "50¢ Half Dollar", metal: "Clad & Matte NIFC", holes: ["2022", "2023", "2024"] }
+      }
+    },
+    "Washington quarters": {
+      binderType: "Whitman Classic #9125",
+      ids: ["A021", "A027", "A010", "A011", "A028", "A012", "A029"],
+      volumes: {
+        "A021": { title: "50 State & Territory Quarters 1999–2008 P&D", totalSlots: 112, filled: 107, startYear: 1999, endYear: 2009, denom: "25¢ State Quarter", metal: "Clad Composition", holes: ["2004-P IA", "2005-D MN", "2006-P NV", "2008-D AK", "2008-P HI"] },
+        "A027": { title: "America the Beautiful National Parks 2010–2021", totalSlots: 112, filled: 95, startYear: 2010, endYear: 2021, denom: "25¢ ATB Quarter", metal: "Clad & W-Mintmarks", holes: ["2019-W", "2020-W", "2021 Tuskegee P&D"] },
+        "A010": { title: "Clad Washington Quarters 1965–1994", totalSlots: 64, filled: 59, startYear: 1965, endYear: 1994, denom: "25¢ Washington Quarter", metal: "Cupronickel Clad", holes: ["1982-P", "1982-D", "1983-P", "1983-D", "1989-D"] },
+        "A011": { title: "Washington Quarters 1988–1997 P&D", totalSlots: 25, filled: 20, startYear: 1988, endYear: 1997, denom: "25¢ Quarter", metal: "Clad Composition", holes: ["1995-P", "1996-D", "1997-D"] },
+        "A028": { title: "American Women Quarters 2022–2025", totalSlots: 40, filled: 13, startYear: 2022, endYear: 2025, denom: "25¢ AWQ", metal: "Clad Composition", holes: ["2024 Tubman", "2024 Nin", "2024 Tallchief", "2025 Mankiller"] },
+        "A012": { title: "Silver Washington Quarters 1932–1964", totalSlots: 83, filled: 1, startYear: 1932, endYear: 1964, denom: "25¢ 90% Silver", metal: "90% Silver (0.1808 oz ASW)", holes: ["1932-D Key", "1932-S Key", "1934-D", "1935-D", "1936-D", "1937-S"] },
+        "A029": { title: "Washington Quarters Blank Starter", totalSlots: 40, filled: 0, startYear: 1965, endYear: 1998, denom: "25¢ Quarter", metal: "Clad Composition", holes: ["All Starter Slots Open"] }
+      }
+    },
+    "Dollar albums": {
+      binderType: "Whitman #9144 Presidential & Sacagawea",
+      ids: ["A030", "A018", "A020", "A019", "A017"],
+      volumes: {
+        "A030": { title: "Presidential $1 Coins P&D", totalSlots: 80, filled: 30, startYear: 2007, endYear: 2016, denom: "$1 Golden Dollar", metal: "Manganese Brass", holes: ["2012-P Cleveland", "2013-D McKinley", "2014-P Harding", "2015-D Truman", "2016-P Reagan"] },
+        "A018": { title: "Eisenhower Large Dollars 1971–1978", totalSlots: 16, filled: 9, startYear: 1971, endYear: 1978, denom: "$1 Ike Dollar", metal: "Clad & 40% Silver", holes: ["1971-S 40% Proof", "1972 Type 2", "1973-P", "1973-D"] },
+        "A020": { title: "Sacagawea & Native American $1", totalSlots: 24, filled: 3, startYear: 2000, endYear: 2024, denom: "$1 Sacagawea", metal: "Golden Manganese", holes: ["2002–2024 NIFC Native American Dates"] },
+        "A019": { title: "Susan B. Anthony Dollars 1979–1999", totalSlots: 12, filled: 2, startYear: 1979, endYear: 1999, denom: "$1 SBA", metal: "Cupronickel Clad", holes: ["1979-P Wide Rim", "1981-S", "1999-D"] },
+        "A017": { title: "Dollar Album Empty Reserve", totalSlots: 20, filled: 0, startYear: 1971, endYear: 2020, denom: "$1 Coin", metal: "Dollar Alloy", holes: ["Open Reserve Holes"] }
+      }
+    },
+    "Roosevelt dimes": {
+      binderType: "Whitman #9029 / #9030 Archival",
+      ids: ["A004", "A003", "A005"],
+      volumes: {
+        "A004": { title: "Clad Roosevelt Dimes 1965–2004", totalSlots: 80, filled: 74, startYear: 1965, endYear: 2004, denom: "10¢ Roosevelt", metal: "Cupronickel Clad", holes: ["1969", "1971", "1973", "1996-W Key"] },
+        "A003": { title: "Roosevelt Dimes 2005–2024 P&D", totalSlots: 40, filled: 39, startYear: 2005, endYear: 2024, denom: "10¢ Roosevelt", metal: "Cupronickel Clad", holes: ["2024-P Target"] },
+        "A005": { title: "Silver Roosevelt Dimes 1946–1964", totalSlots: 48, filled: 2, startYear: 1946, endYear: 1964, denom: "10¢ 90% Silver", metal: "90% Silver (0.0723 oz ASW)", holes: ["1949-S", "1950-S", "1951-S"] }
+      }
+    },
+    "Lincoln cents": {
+      binderType: "Whitman #9004 / #9030 Cents",
+      ids: ["A016", "A001", "A002", "A023"],
+      volumes: {
+        "A016": { title: "Lincoln Memorial 1975–2013 Near-Complete", totalSlots: 90, filled: 84, startYear: 1975, endYear: 2013, denom: "1¢ Lincoln Cent", metal: "Copper / Copper-Plated Zinc", holes: ["1982-D Sm Date Brass", "1982-P Sm Date Zinc", "1982-D Sm Date Zinc", "2009-P Log Cabin", "2009-P Formative", "2009-P Professional"] },
+        "A001": { title: "Early Lincoln Wheat Cents 1909–1940", totalSlots: 90, filled: 75, startYear: 1909, endYear: 1940, denom: "1¢ Wheat Cent", metal: "95% Copper Bronze", holes: ["1909-S VDB Key", "1909-S", "1914-D Key", "1922 Plain", "1931-S"] },
+        "A002": { title: "Lincoln Wheat & Memorial 1941–1974", totalSlots: 68, filled: 17, startYear: 1941, endYear: 1974, denom: "1¢ Lincoln", metal: "Bronze & Zinc Clad", holes: ["1943 Steel Cents (P/D/S)", "1955/55 DDO", "1960 Sm Date"] },
+        "A023": { title: "Lincoln Shield & Commemorative 2010–Present", totalSlots: 30, filled: 7, startYear: 2010, endYear: 2024, denom: "1¢ Shield Cent", metal: "Copper-Plated Zinc", holes: ["2019-W", "2020-W", "2024-D"] }
+      }
+    },
+    "Indian / Flying Eagle": {
+      binderType: "Whitman Deluxe #9003",
+      ids: ["A022"],
+      volumes: {
+        "A022": { title: "Indian Head & Flying Eagle Cents 1856–1909", totalSlots: 58, filled: 1, startYear: 1856, endYear: 1909, denom: "1¢ Indian Cent", metal: "Copper-Nickel & Bronze", holes: ["1856 Flying Eagle Key", "1877 Key Date", "1908-S", "1909-S"] }
+      }
+    },
+    "Type set": {
+      binderType: "Whitman #9046 20th Century Type Set",
+      ids: ["A024"],
+      volumes: {
+        "A024": { title: "20th Century United States Type Set", totalSlots: 20, filled: 10, startYear: 1900, endYear: 1999, denom: "Type Set Specimen", metal: "Silver, Bronze, Clad & Steel", holes: ["Morgan Dollar 90% Ag", "Peace Dollar 90% Ag", "Walking Liberty Half", "Standing Liberty Quarter"] }
+      }
+    },
+    "Jefferson nickels": {
+      binderType: "Whitman #9009 Jefferson Nickels",
+      ids: ["A014", "A013", "A015"],
+      volumes: {
+        "A014": { title: "Jefferson Nickels 1962–1995", totalSlots: 67, filled: 57, startYear: 1962, endYear: 1995, denom: "5¢ Jefferson", metal: "Cupronickel", holes: ["1968-S", "1969-S", "1970-S"] },
+        "A013": { title: "Jefferson Nickels 1996–2023", totalSlots: 60, filled: 56, startYear: 1996, endYear: 2023, denom: "5¢ Jefferson", metal: "Cupronickel", holes: ["2004-D Keelboat", "2005-P Bison", "2023-P", "2023-D"] },
+        "A015": { title: "Early Jefferson Nickels 1938–1961 (incl War Silver)", totalSlots: 66, filled: 9, startYear: 1938, endYear: 1961, denom: "5¢ Jefferson", metal: "Cupronickel & 35% Silver", holes: ["1939-D Key", "1939-S", "1942–1945 War Silver Holes", "1950-D Key"] }
+      }
+    },
+    "Canada small cents": {
+      binderType: "Whitman Canada Classic",
+      ids: ["A033", "A032"],
+      volumes: {
+        "A033": { title: "Canada Small Cents Vol 1: 1920–1964", totalSlots: 50, filled: 35, startYear: 1920, endYear: 1964, denom: "1 Cent George V/VI & Elizabeth II", metal: "98% Bronze", holes: ["1922 Key", "1923 Key", "1924 Semi-Key", "1925 Key", "1936 Dot"] },
+        "A032": { title: "Canada Small Cents Vol 2: 1965–2012 Final Struck", totalSlots: 52, filled: 7, startYear: 1965, endYear: 2012, denom: "1 Cent Small Cent", metal: "Bronze / Copper-Plated Zinc", holes: ["1985 Pointed 5", "1997", "2006 Magnetic"] }
+      }
+    },
+    "Buffalo nickels": {
+      binderType: "Whitman #9007 Buffalo Nickels 1913–1938",
+      ids: ["A031"],
+      volumes: {
+        "A031": { title: "Buffalo Nickels 1913–1938 Complete Whitman", totalSlots: 65, filled: 1, startYear: 1913, endYear: 1938, denom: "5¢ Indian Head / Bison", metal: "75% Copper / 25% Nickel", holes: ["1913-S Var 2 Key", "1914-D", "1918/7-D Overdate", "1926-S Key", "1937-D 3-Legged"] }
+      }
+    },
+    "Mercury": {
+      binderType: "Whitman #9014 Mercury Head Dimes",
+      ids: ["A006"],
+      volumes: {
+        "A006": { title: "Mercury Head Dimes 1916–1945", totalSlots: 78, filled: 1, startYear: 1916, endYear: 1945, denom: "10¢ Winged Liberty", metal: "90% Silver (0.0723 oz ASW)", holes: ["1916-D Holy Grail Key", "1921 Key", "1921-D Key", "1942/1 Overdate", "1945 Micro S"] }
+      }
+    }
+  };
+
+  const ALBUM_FAMILIES_ORDER = [
+    "American Silver Eagles",
+    "Kennedy halves",
+    "Washington quarters",
+    "Dollar albums",
+    "Roosevelt dimes",
+    "Lincoln cents",
+    "Indian / Flying Eagle",
+    "Type set",
+    "Jefferson nickels",
+    "Canada small cents",
+    "Buffalo nickels",
+    "Mercury"
+  ];
+
+  function openAlbumInspector(family, rawIds) {
+    if (!family || !ALBUM_METADATA[family]) family = "American Silver Eagles";
+    activeAlbumFamily = family;
+    const meta = ALBUM_METADATA[family];
+    if (meta && meta.ids && meta.ids.length > 0) {
+      if (rawIds) {
+        const idList = rawIds.split(/[\s·,]+/).map(s => s.trim()).filter(Boolean);
+        activeAlbumId = idList.find(id => meta.ids.includes(id)) || meta.ids[0];
+      } else {
+        activeAlbumId = meta.ids[0];
+      }
+    } else {
+      activeAlbumId = "A026";
+    }
+    activeAlbumFilter = "all";
+    renderAlbumInspectorView();
+    const modal = $("#album-inspector-modal");
+    if (modal) {
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function closeAlbumInspector() {
+    const modal = $("#album-inspector-modal");
+    if (modal) modal.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  function stepAlbumFamily(dir) {
+    const idx = ALBUM_FAMILIES_ORDER.indexOf(activeAlbumFamily);
+    const nextIdx = (idx + dir + ALBUM_FAMILIES_ORDER.length) % ALBUM_FAMILIES_ORDER.length;
+    openAlbumInspector(ALBUM_FAMILIES_ORDER[nextIdx]);
+  }
+
+  function renderAlbumInspectorView() {
+    const meta = ALBUM_METADATA[activeAlbumFamily] || {
+      binderType: "Archival Numismatic Binder",
+      ids: [activeAlbumId],
+      volumes: { [activeAlbumId]: { title: activeAlbumFamily, totalSlots: 40, filled: 10, startYear: 1900, endYear: 2000, denom: "Specimen", metal: "Archival Alloy", holes: [] } }
+    };
+    const vol = meta.volumes[activeAlbumId] || Object.values(meta.volumes)[0];
+    if (!vol) return;
+
+    // Badges & Titles
+    const bId = $("#album-badge-id");
+    const bType = $("#album-badge-type");
+    const bSpec = $("#album-badge-spec");
+    const aTitle = $("#album-inspector-title");
+    const aMeta = $("#album-inspector-meta");
+    const aBar = $("#album-progress-bar");
+
+    if (bId) bId.textContent = `ALBUM ${activeAlbumId}`;
+    if (bType) bType.textContent = meta.binderType.toUpperCase();
+    if (bSpec) bSpec.textContent = vol.metal.toUpperCase();
+    if (aTitle) aTitle.textContent = `${activeAlbumFamily} · ${vol.title}`;
+
+    const pct = vol.totalSlots > 0 ? Math.round((vol.filled / vol.totalSlots) * 100) : 0;
+    if (aMeta) aMeta.innerHTML = `<strong>${vol.filled}</strong> of <strong>${vol.totalSlots}</strong> Slots Filled · <span style="color:var(--gold)">${pct}% Complete</span> · Series Spec: ${vol.metal}`;
+    if (aBar) aBar.style.width = `${pct}%`;
+
+    // Tabs for volumes in this family
+    const tabsContainer = $("#album-family-tabs");
+    if (tabsContainer) {
+      tabsContainer.innerHTML = meta.ids.map(id => {
+        const v = meta.volumes[id];
+        const vTitle = v ? v.title.split(":")[0] : id;
+        const activeClass = id === activeAlbumId ? " active" : "";
+        return `<button type="button" class="album-tab-btn${activeClass}" data-album-id="${id}">${id}: ${vTitle}</button>`;
+      }).join("");
+
+      tabsContainer.querySelectorAll(".album-tab-btn").forEach(btn => {
+        btn.onclick = () => {
+          activeAlbumId = btn.dataset.albumId;
+          renderAlbumInspectorView();
+        };
+      });
+    }
+
+    // Generate slots
+    const startYear = vol.startYear || 1986;
+    const endYear = vol.endYear || 2024;
+    const totalSlots = vol.totalSlots || 36;
+    const filledCount = vol.filled || 0;
+    const namedHoles = (vol.holes || []).map(String);
+    const flips = vault?.flips || [];
+
+    const slots = [];
+    let curYear = startYear;
+    for (let i = 0; i < totalSlots; i++) {
+      const yearStr = String(curYear);
+      let isHole = false;
+      let holeLabel = "";
+      for (const h of namedHoles) {
+        if (h.startsWith(yearStr) || h === yearStr) {
+          isHole = true;
+          holeLabel = h;
+          break;
+        }
+      }
+      if (!isHole && i >= filledCount) {
+        isHole = true;
+      }
+      const isFilled = !isHole;
+
+      // Match flip in vault
+      const matchedFlip = flips.find(f => {
+        if (!f.year || String(f.year) !== yearStr) return false;
+        if (activeAlbumFamily.includes("Silver Eagles") && (f.denom?.includes("Eagle") || f.is_silver)) return true;
+        if (activeAlbumFamily.includes("Mercury") && /mercury|dime/i.test(f.denom || "")) return true;
+        if (activeAlbumFamily.includes("Buffalo") && /buffalo|nickel/i.test(f.denom || "")) return true;
+        return true;
+      });
+
+      slots.push({
+        idx: i + 1,
+        year: yearStr,
+        label: holeLabel || yearStr,
+        isFilled,
+        isHole,
+        coin: matchedFlip || (isFilled ? { year: yearStr, denom: vol.denom, country: "United States", iso: "US", is_silver: /silver/i.test(vol.metal) } : null)
+      });
+
+      if (curYear < endYear) curYear++;
+    }
+
+    // Update filter counts
+    const filledSlots = slots.filter(s => s.isFilled);
+    const missingSlots = slots.filter(s => s.isHole);
+    const cAll = $("#album-count-all");
+    const cFill = $("#album-count-filled");
+    const cMiss = $("#album-count-missing");
+    if (cAll) cAll.textContent = slots.length;
+    if (cFill) cFill.textContent = filledSlots.length;
+    if (cMiss) cMiss.textContent = missingSlots.length;
+
+    // Filter slots based on active filter
+    let displaySlots = slots;
+    if (activeAlbumFilter === "filled") displaySlots = filledSlots;
+    else if (activeAlbumFilter === "missing") displaySlots = missingSlots;
+
+    // Render Grid
+    const grid = $("#album-slots-grid");
+    if (grid) {
+      grid.innerHTML = displaySlots.map(s => {
+        if (s.isFilled) {
+          const coinObj = s.coin || { year: s.year, denom: vol.denom, country: "United States", iso: "US", is_silver: true };
+          const visual = coinObj.thumb
+            ? `<img class="slot-coin-disc" src="${esc(coinObj.thumb)}" loading="lazy" decoding="async" alt="${esc(s.year)}" />`
+            : `<div class="slot-coin-disc">${renderSpecimenBlueprint(coinObj, false, "obv")}</div>`;
+          const clickAttr = coinObj.scan ? `data-scan="${esc(coinObj.scan)}"` : `data-info="Slot #${s.idx}: ${s.year} ${esc(vol.denom)}"`;
+
+          return `
+            <div class="album-slot-card is-filled" ${clickAttr} title="Slot #${s.idx}: ${s.year} ${esc(vol.denom)} (Filled) - Click to inspect">
+              <div class="slot-aperture-wrap">
+                ${visual}
+              </div>
+              <div class="slot-year-tag">${esc(s.year)}</div>
+              <div class="slot-denom-tag">${esc(vol.denom)}</div>
+              <span class="slot-status-pill filled">✓ FILLED</span>
+            </div>`;
+        } else {
+          return `
+            <div class="album-slot-card is-missing" title="Slot #${s.idx}: ${esc(s.label)} (Target Hole Needed)" data-info="Missing Target: ${esc(s.label)}">
+              <div class="slot-aperture-wrap">
+                <div class="slot-hole-cavity">
+                  <span class="slot-hole-target-cross">⌖</span>
+                  <span class="slot-hole-lbl">TARGET</span>
+                </div>
+              </div>
+              <div class="slot-year-tag" style="color:var(--gold-soft)">${esc(s.label)}</div>
+              <div class="slot-denom-tag" style="color:var(--muted)">Target Hole</div>
+              <span class="slot-status-pill missing">OPEN HOLE</span>
+            </div>`;
+        }
+      }).join("");
+
+      // Wire card click listeners
+      grid.querySelectorAll(".album-slot-card").forEach(card => {
+        card.onclick = () => {
+          if (card.dataset.scan) {
+            closeAlbumInspector();
+            openDrawer(card.dataset.scan);
+          } else if (card.dataset.info && typeof showToast === "function") {
+            showToast(card.dataset.info);
+          }
+        };
+      });
+    }
+  }
+
+  window.openAlbumInspector = openAlbumInspector;
+  window.closeAlbumInspector = closeAlbumInspector;
+
   /** The Curator's Study: intelligence, metal, world, age — the ledger, thinking. */
   function renderStudy() {
     $("#study-body").innerHTML = `
@@ -4912,6 +5253,11 @@
             card.classList.add("highlight-pulse");
           }
         }, 150);
+      };
+    });
+    $$("#study-body .interactive-album-row").forEach((row) => {
+      row.onclick = () => {
+        openAlbumInspector(row.dataset.albumFamily, row.dataset.albumIds);
       };
     });
     observeReveals($("#study-body"));
@@ -5332,8 +5678,21 @@
     }
   }
   $("#header-btn-spatial")?.addEventListener("click", launchSpatialTable);
-  $("#btn-grand-launch-spatial")?.addEventListener("click", launchSpatialTable);
   window.launchSpatialTable = launchSpatialTable;
+
+  // Wire Album Inspector modal controls
+  $("#album-modal-backdrop")?.addEventListener("click", closeAlbumInspector);
+  $("#album-btn-close")?.addEventListener("click", closeAlbumInspector);
+  $("#album-btn-prev")?.addEventListener("click", () => stepAlbumFamily(-1));
+  $("#album-btn-next")?.addEventListener("click", () => stepAlbumFamily(1));
+  $$("#album-filter-pills .album-filter-pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      $$("#album-filter-pills .album-filter-pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      activeAlbumFilter = pill.dataset.filter;
+      renderAlbumInspectorView();
+    });
+  });
 
   $("#drawer-close").addEventListener("click", closeDrawer);
   $("#drawer-backdrop").addEventListener("click", closeDrawer);
@@ -5350,6 +5709,12 @@
       e.preventDefault();
       if (paletteOpen) closePalette(); else openPalette();
       return;
+    }
+    const albumModal = $("#album-inspector-modal");
+    if (albumModal && !albumModal.hidden) {
+      if (e.key === "Escape") { closeAlbumInspector(); return; }
+      if (e.key === "ArrowLeft") { stepAlbumFamily(-1); return; }
+      if (e.key === "ArrowRight") { stepAlbumFamily(1); return; }
     }
     if (!$("#lightbox").hidden) {
       if (e.key === "Escape") closeLightbox();

@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr43" />
+  <link rel="stylesheet" href="styles.css?v=tr44" />
 </head>
 <body>
   <!-- Shared SVG Definitions for Struck Specimen Medallions (Zero-Overhead GPU Caching) -->
@@ -63,6 +63,19 @@
         <stop offset="60%" stop-color="#64748b"/>
         <stop offset="85%" stop-color="#334155"/>
         <stop offset="100%" stop-color="#0f172a"/>
+      </radialGradient>
+      <!-- Deep Velvet Chamber & Aperture Radial Shadow -->
+      <radialGradient id="grad-aperture-velvet" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#0c1017" stop-opacity="0.95"/>
+        <stop offset="65%" stop-color="#06080c" stop-opacity="0.98"/>
+        <stop offset="100%" stop-color="#020305" stop-opacity="1"/>
+      </radialGradient>
+      <!-- Cartwheel Specular Luster Overlay -->
+      <radialGradient id="grad-coin-luster" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="rgba(255,255,255,0.22)"/>
+        <stop offset="45%" stop-color="rgba(255,255,255,0.06)"/>
+        <stop offset="85%" stop-color="rgba(0,0,0,0.15)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,0.45)"/>
       </radialGradient>
       <!-- 20 Heraldic Theme Watermark Crests -->
       <!-- 1. After Hours: Crowned Crescent & Crossed Museum Skeleton Keys -->
@@ -390,22 +403,6 @@
             <div class="ticker-marquee-track" id="ticker-marquee-track">
               <!-- Dynamically populated and looped with live market feeds -->
             </div>
-          </div>
-
-          <!-- Grand Hall Unmissable 3D Spatial Table Spotlight Portal -->
-          <div class="grand-spatial-card" id="grand-spatial-hero-card">
-            <div class="gsc-left">
-              <div class="gsc-icon-wrap" aria-hidden="true">🏛️</div>
-              <div>
-                <div class="gsc-badge">WEBGL · WEBXR · PHYSICAL SHADOWS · 360° DRAG</div>
-                <div class="gsc-title">3D Spatial Museum Examination Table</div>
-                <div class="gsc-desc">Inspect authentic physical Lucite slabs, 2×2 mounts, and raw struck planchets on the solid mahogany table with studio ray-cast lighting, velvet contact shadows, and 360° trackball rotation.</div>
-              </div>
-            </div>
-            <button type="button" class="gsc-btn" id="btn-grand-launch-spatial" title="Launch 3D Spatial Examination Room (Hotkeys: M, T, 3)">
-              <span>🏛️ Launch 3D Table</span>
-              <span class="gsc-key">PRESS M</span>
-            </button>
           </div>
 
           <!-- Rotating exhibition: Studio Stage with 3D Flip & Phase 2 Capture Anticipation -->
@@ -916,6 +913,50 @@
     </div>
     <div id="drawer-backdrop" class="backdrop" hidden></div>
 
+    <!-- INTERACTIVE NUMISMATIC ALBUM & HOLE INSPECTOR (PHASE I) -->
+    <div id="album-inspector-modal" class="album-modal" hidden role="dialog" aria-modal="true" aria-label="Numismatic Album & Hole Inspector">
+      <div class="album-modal-backdrop" id="album-modal-backdrop"></div>
+      <div class="album-binder-shell">
+        <!-- Leatherette Binder Header -->
+        <div class="album-binder-header">
+          <div class="album-header-main">
+            <div class="album-header-badges">
+              <span class="badge" style="background:var(--gold);color:#08090c;font-weight:700" id="album-badge-id">ALBUM A026</span>
+              <span class="badge" style="background:rgba(200,169,74,0.18);color:var(--gold-soft)" id="album-badge-type">ARCHIVAL NUMISMATIC BINDER</span>
+              <span class="badge" style="background:rgba(255,255,255,0.08);color:var(--ink-soft)" id="album-badge-spec">WHITMAN STANDARD</span>
+            </div>
+            <h2 class="album-title" id="album-inspector-title">American Silver Eagles (1986–2021)</h2>
+            <div class="album-series-meta" id="album-inspector-meta">18 of 24 Slots Filled · 75% Complete · Melt &amp; Premium: $1,630.05</div>
+          </div>
+          <div class="album-header-actions">
+            <button type="button" class="btn small" id="album-btn-prev" title="Previous Album">‹ Prev</button>
+            <button type="button" class="btn small" id="album-btn-next" title="Next Album">Next ›</button>
+            <button type="button" class="spatial-close-btn" id="album-btn-close" aria-label="Close Album Inspector" title="Close (Esc)">×</button>
+          </div>
+        </div>
+
+        <!-- Album Sub-Bar: Family Switcher Tabs + Slot Filter -->
+        <div class="album-controls-bar">
+          <div class="album-tabs" id="album-family-tabs"></div>
+          <div class="album-filter-pills" id="album-filter-pills">
+            <button type="button" class="album-filter-pill active" data-filter="all">All Slots (<span id="album-count-all">0</span>)</button>
+            <button type="button" class="album-filter-pill" data-filter="filled">Filled (<span id="album-count-filled">0</span>)</button>
+            <button type="button" class="album-filter-pill" data-filter="missing">Missing Targets (<span id="album-count-missing">0</span>)</button>
+          </div>
+        </div>
+
+        <!-- Album Progress Bar -->
+        <div class="album-progress-wrap">
+          <div class="album-progress-bar" id="album-progress-bar" style="width:0%"></div>
+        </div>
+
+        <!-- Physical Album Velvet Board with Milled Coin Apertures -->
+        <div class="album-board" id="album-board">
+          <div class="album-slots-grid" id="album-slots-grid"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- SPATIAL 3D NUMISMATIC MUSEUM TABLE (PHASE H) -->
     <div id="spatial-museum-modal" class="spatial-modal" hidden role="dialog" aria-modal="true" aria-label="3D Numismatic Museum Examination Room">
       <div class="spatial-canvas-container" id="spatial-canvas-container"></div>
@@ -1077,18 +1118,19 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr43";</script>
+  <script>window.TITAN_BUILD = "tr44";</script>
   <script src="js/three.min.js"></script>
   <script src="js/OrbitControls.js"></script>
+  <script src="js/fflate.min.js"></script>
   <script src="js/USDZExporter.js"></script>
   <script src="js/qrcode.min.js"></script>
   <script src="js/openseadragon.min.js"></script>
-  <script src="spatial.js?v=tr43"></script>
-  <script src="deepzoom.js?v=tr43"></script>
-  <script src="atlas.js?v=tr43"></script>
-  <script src="app.js?v=tr43"></script>
-  <script src="js/playlist.js?v=tr43"></script>
-  <script src="audio.js?v=tr43"></script>
-  <script src="ambient.js?v=tr43"></script>
+  <script src="spatial.js?v=tr44"></script>
+  <script src="deepzoom.js?v=tr44"></script>
+  <script src="atlas.js?v=tr44"></script>
+  <script src="app.js?v=tr44"></script>
+  <script src="js/playlist.js?v=tr44"></script>
+  <script src="audio.js?v=tr44"></script>
+  <script src="ambient.js?v=tr44"></script>
 </body>
 </html>

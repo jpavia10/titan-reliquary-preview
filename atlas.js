@@ -843,18 +843,49 @@
     }
   }
 
-  function showTooltip(html, x, y) {
+  function getEraSpanText() {
+    const v = window.vault || {};
+    const flips = v.flips || [];
+    let minYear = 1883;
+    let maxYear = 2026;
+    const years = flips.map(f => parseInt(f.year, 10)).filter(y => !isNaN(y) && y > 1000 && y < 2100);
+    if (years.length) {
+      minYear = Math.min(...years);
+      maxYear = Math.max(...years);
+    }
+    return `${minYear}–${maxYear}`;
+  }
+
+  function showTooltip(html, xOrEl, y) {
     initTooltip();
     tooltipNode.innerHTML = html;
     tooltipNode.style.display = "block";
-    const pad = 15;
-    const rect = tooltipNode.getBoundingClientRect();
-    let left = x + pad;
-    let top = y + pad;
-    if (left + rect.width > window.innerWidth - 10) left = x - rect.width - pad;
-    if (top + rect.height > window.innerHeight - 10) top = y - rect.height - pad;
-    tooltipNode.style.left = Math.max(10, left) + "px";
-    tooltipNode.style.top = Math.max(10, top) + "px";
+    tooltipNode.style.pointerEvents = "none";
+    const pad = 12;
+    const tRect = tooltipNode.getBoundingClientRect();
+    let left, top;
+
+    if (xOrEl && typeof xOrEl === "object" && xOrEl.getBoundingClientRect) {
+      const elRect = xOrEl.getBoundingClientRect();
+      // Center horizontally above element, or place below if cramped near top
+      left = elRect.left + (elRect.width / 2) - (tRect.width / 2);
+      top = elRect.top - tRect.height - pad;
+      if (top < 10) {
+        top = elRect.bottom + pad;
+      }
+    } else {
+      left = (xOrEl || 0) + pad;
+      top = (y || 0) + pad;
+      if (left + tRect.width > window.innerWidth - 15) left = (xOrEl || 0) - tRect.width - pad;
+      if (top + tRect.height > window.innerHeight - 15) top = (y || 0) - tRect.height - pad;
+    }
+
+    // Keep steadily within viewport boundaries
+    left = Math.max(10, Math.min(window.innerWidth - tRect.width - 10, left));
+    top = Math.max(10, Math.min(window.innerHeight - tRect.height - 10, top));
+
+    tooltipNode.style.left = `${Math.round(left)}px`;
+    tooltipNode.style.top = `${Math.round(top)}px`;
   }
 
   function hideTooltip() {
@@ -1069,7 +1100,7 @@
           <div class="atlas-quick-metrics">
             <div class="atlas-stat"><span class="atlas-stat-val">${countries.length}</span><span class="atlas-stat-lbl">NATIONS</span></div>
             <div class="atlas-stat"><span class="atlas-stat-val">${totalCount}</span><span class="atlas-stat-lbl">PIECES</span></div>
-            <div class="atlas-stat"><span class="atlas-stat-val">500 BC</span><span class="atlas-stat-lbl">ERA SPAN</span></div>
+            <div class="atlas-stat"><span class="atlas-stat-val">${getEraSpanText()}</span><span class="atlas-stat-lbl">ERA SPAN</span></div>
           </div>
         </div>
 
@@ -1287,11 +1318,7 @@
             </div>
           </div>
         `;
-        showTooltip(html, e.clientX, e.clientY);
-      });
-
-      node.addEventListener("mousemove", (e) => {
-        showTooltip(tooltipNode.innerHTML, e.clientX, e.clientY);
+        showTooltip(html, node);
       });
 
       node.addEventListener("mouseleave", () => {
@@ -1332,7 +1359,7 @@
       const role = wp.dataset.role;
       const rName = wp.dataset.route;
 
-      wp.addEventListener("mouseenter", (e) => {
+      wp.addEventListener("mouseenter", () => {
         const html = `
           <div class="atlas-hud-card">
             <div style="font-size:0.9rem;font-weight:700;color:var(--gold-soft);margin-bottom:3px">${name}</div>
@@ -1340,11 +1367,7 @@
             <div style="font-size:0.75rem;color:var(--ink)">${role}</div>
           </div>
         `;
-        showTooltip(html, e.clientX, e.clientY);
-      });
-
-      wp.addEventListener("mousemove", (e) => {
-        showTooltip(tooltipNode.innerHTML, e.clientX, e.clientY);
+        showTooltip(html, wp);
       });
 
       wp.addEventListener("mouseleave", () => {
