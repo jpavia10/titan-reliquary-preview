@@ -3631,6 +3631,11 @@
         </button>
       </div>` : "";
 
+    const flipYears = (vault.flips || []).map(f => parseInt(f.year, 10)).filter(y => !isNaN(y) && y > 1000 && y < 2100);
+    const minFlipY = flipYears.length ? Math.min(...flipYears) : 1883;
+    const maxFlipY = flipYears.length ? Math.max(...flipYears) : 2017;
+    const timelineSpan = `${minFlipY}–${maxFlipY}`;
+
     const trayNavHtml = `
       <div class="cabinet-trays-nav reveal" role="tablist" aria-label="Cabinet Trays">
         <button type="button" class="tray-tab${cabinetTray === 'all' ? ' active' : ''}" data-tray="all">
@@ -3651,7 +3656,7 @@
         <button type="button" class="tray-tab${cabinetTray === 'timeline' ? ' active' : ''}" data-tray="timeline">
           <span class="tray-ico">⏳</span>
           <span class="tray-text">Timeline</span>
-          <span class="tray-count">1883–2026</span>
+          <span class="tray-count">${timelineSpan}</span>
         </button>
       </div>`;
 
@@ -4916,7 +4921,7 @@
       ids: ["A026", "A025"],
       volumes: {
         "A026": { title: "Vol 1: 1986–2021 (Type 1 Heraldic)", totalSlots: 36, filled: 18, startYear: 1986, endYear: 2021, denom: "$1 Silver Eagle", metal: ".999 Silver (1 oz ASW)", holes: ["1995", "1996 Key Date", "2003", "2008", "2011", "2017"] },
-        "A025": { title: "Vol 2: 2021 Type 2–Present (Landing Eagle)", totalSlots: 16, filled: 6, startYear: 2021, endYear: 2026, denom: "$1 Silver Eagle", metal: ".999 Silver (1 oz ASW)", holes: ["2025 Target", "2026 Target"] }
+        "A025": { title: "Vol 2: 2021 Type 2–Present (Landing Eagle)", totalSlots: 16, filled: 6, startYear: 2021, endYear: 2024, denom: "$1 Silver Eagle", metal: ".999 Silver (1 oz ASW)", holes: ["2025 (Open Target — Unowned)", "2026 (Open Target — Unowned)"] }
       }
     },
     "Kennedy halves": {
