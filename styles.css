@@ -2306,7 +2306,7 @@ main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 1.25rem
   width: 100%;
   max-width: 100vw;
   box-sizing: border-box;
-  z-index: 100;
+  z-index: 100100; /* Always accessible above modals and sheets to prevent navigation lockup */
   display: flex;
   background: var(--drawerbar-bg);
   backdrop-filter: blur(16px);
@@ -9543,7 +9543,7 @@ html[data-atmo="conservator"] .atlas-hud-tooltip {
 
 @media (max-width: 768px) {
   .album-modal {
-    padding: 0.75rem;
+    padding: 0.75rem 0.75rem calc(var(--nav-h, 60px) + env(safe-area-inset-bottom, 0px) + 0.75rem) 0.75rem;
   }
   .album-binder-header {
     padding: 1rem;

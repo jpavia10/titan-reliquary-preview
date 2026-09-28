@@ -163,6 +163,9 @@
     }
   }
 
+  const LEGACY_WING = { board: "hall", flips: "gallery", bullion: "vault", world: "study", ops: "lab", age: "study", albums: "study" };
+  function mapWing(n) { return LEGACY_WING[n] || n || "hall"; }
+
   function applyHashTab() {
     const h = (location.hash || "").replace(/^#/, "");
     // Deep link: #coin=EU-CH-008 or #coin=C001 opens that dossier
@@ -191,10 +194,19 @@
   let galleryRendered = false;
 
   function setWing(name, pushHash = true) {
-    if (name === "gallery" && !galleryRendered) {
-      renderGallery();
-      galleryRendered = true;
-    }
+    if (!name) return;
+
+    // 1. Defensively dismiss all open modals, overlays, sheets, drawers, and spatial tables
+    if (typeof closeAlbumInspector === "function") closeAlbumInspector();
+    if (window.TitanSpatial?.close) window.TitanSpatial.close();
+    if (window.TitanDeepZoom?.close) window.TitanDeepZoom.close();
+    if (typeof closeDrawer === "function" && currentDrawerScan) closeDrawer();
+    if (typeof closeLightbox === "function") closeLightbox();
+    if (typeof closeKeysSheet === "function") closeKeysSheet();
+    if (typeof closeAtmoSheet === "function") closeAtmoSheet();
+    document.body.style.overflow = "";
+
+    // 2. Set active classes on wing buttons and panes so layout geometry exists
     $$(".wing").forEach((b) => {
       const on = b.dataset.wing === name;
       b.classList.toggle("active", on);
@@ -202,8 +214,22 @@
       b.tabIndex = on ? 0 : -1;
     });
     $$(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + name));
-    // Wing entrances: the room "opens" with a quick rise-and-settle each time
-    // you walk in. The keyframes live in CSS and respect reduced motion.
+
+    // 3. Render gallery if entering gallery wing and not yet rendered or if body is empty
+    if (name === "gallery") {
+      const gBody = $("#gallery-body");
+      if ((!galleryRendered || !gBody || !gBody.firstElementChild) && vault && vault.flips) {
+        renderGallery();
+        galleryRendered = true;
+      } else if (typeof updateCoverFlowTransforms === "function") {
+        // Re-align Cover Flow transforms now that #pane-gallery is active in viewport
+        requestAnimationFrame(() => {
+          updateCoverFlowTransforms();
+        });
+      }
+    }
+
+    // 4. Wing entrances: the room "opens" with a quick rise-and-settle each time
     const pane = $("#pane-" + name);
     if (pane) {
       pane.classList.remove("wing-enter");
@@ -436,26 +462,32 @@
         const box = $("#auto-refresh");
         if (box) box.checked = autoRefresh;
       }
-      if (st.wing || st.tab) setWing(mapWing(st.wing || st.tab), false);
-      // Re-render gallery / study with restored filters
-      if (mapWing(st.wing || st.tab || "hall") === "gallery") {
-        renderGallery();
-      }
-      renderStudy();
-      if (st.drawerScan) {
-        openDrawer(st.drawerScan, false);
-        requestAnimationFrame(() => {
-          const inner = $("#drawer-inner");
-          if (inner && st.drawerScroll) inner.scrollTop = st.drawerScroll;
-        });
-      }
+    }
+
+    const hash = (location.hash || "").replace(/^#/, "");
+    const hashWing = hash && !hash.startsWith("coin=") ? mapWing(hash) : null;
+    const targetWing = (hashWing && $(`.wing[data-wing="${hashWing}"]`)) ? hashWing : mapWing(st?.wing || st?.tab || "hall");
+    setWing(targetWing, false);
+
+    // Re-render gallery / study with restored filters
+    if (targetWing === "gallery") {
+      renderGallery();
+      galleryRendered = true;
+    }
+    renderStudy();
+    if (st && st.drawerScan && !hash.startsWith("coin=")) {
+      openDrawer(st.drawerScan, false);
       requestAnimationFrame(() => {
-        if (typeof st.scrollY === "number") window.scrollTo(0, st.scrollY);
+        const inner = $("#drawer-inner");
+        if (inner && st.drawerScroll) inner.scrollTop = st.drawerScroll;
       });
-    } else {
+    }
+    requestAnimationFrame(() => {
+      if (st && typeof st.scrollY === "number") window.scrollTo(0, st.scrollY);
+    });
+    if (hash.startsWith("coin=") || !st) {
       applyHashTab();
     }
-    if (st && /^#coin=/i.test(location.hash)) applyHashTab();
     // localStorage auto preference wins over default if set
     try {
       const savedAuto = localStorage.getItem(AUTO_KEY);
@@ -473,9 +505,11 @@
     renderHero();
     renderHall();
     const st = readState();
-    const activeWing = (st && (st.wing || st.tab)) ? mapWing(st.wing || st.tab) : mapWing(location.hash.replace(/^#/, "") || "hall");
+    const hash = (location.hash || "").replace(/^#/, "");
+    const activeWing = hash && !hash.startsWith("coin=") ? mapWing(hash) : ((st && (st.wing || st.tab)) ? mapWing(st.wing || st.tab) : "hall");
     if (activeWing === "gallery") {
       renderGallery();
+      galleryRendered = true;
     }
     renderVault();
     renderStudy();
@@ -3526,6 +3560,7 @@
   window.toggleCoverFlowFlip = toggleCoverFlowFlip;
 
   function renderGallery() {
+    if (!vault || !vault.flips) return;
     galleryRendered = true;
     // Re-rendering replaces the inputs: keep focus + caret so typing is not interrupted.
     const act = document.activeElement;
@@ -4178,9 +4213,6 @@
     });
   }
 
-
-  const LEGACY_WING = { board: "hall", flips: "gallery", bullion: "vault", world: "study", ops: "lab", age: "study", albums: "study" };
-  function mapWing(n) { return LEGACY_WING[n] || n || "hall"; }
 
   function renderLabProSuite() {
     return `
@@ -5690,8 +5722,32 @@
   window.launchSpatialTable = launchSpatialTable;
 
   // Wire Album Inspector modal controls
-  $("#album-modal-backdrop")?.addEventListener("click", closeAlbumInspector);
-  $("#album-btn-close")?.addEventListener("click", closeAlbumInspector);
+  const albumModal = $("#album-inspector-modal");
+  if (albumModal) {
+    albumModal.addEventListener("click", (e) => {
+      if (e.target === albumModal || e.target.id === "album-modal-backdrop") {
+        closeAlbumInspector();
+      }
+    });
+    albumModal.addEventListener("touchend", (e) => {
+      if (e.target === albumModal || e.target.id === "album-modal-backdrop") {
+        e.preventDefault();
+        closeAlbumInspector();
+      }
+    }, { passive: false });
+  }
+  const albumCloseBtn = $("#album-btn-close");
+  if (albumCloseBtn) {
+    albumCloseBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeAlbumInspector();
+    });
+    albumCloseBtn.addEventListener("touchend", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      closeAlbumInspector();
+    }, { passive: false });
+  }
   $("#album-btn-prev")?.addEventListener("click", () => stepAlbumFamily(-1));
   $("#album-btn-next")?.addEventListener("click", () => stepAlbumFamily(1));
   $$("#album-filter-pills .album-filter-pill").forEach((pill) => {
