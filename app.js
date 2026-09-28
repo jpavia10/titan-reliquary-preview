@@ -3464,19 +3464,21 @@
       viewport.addEventListener("pointerup", endDrag);
       viewport.addEventListener("pointercancel", endDrag);
 
-      // Wheel scroll
+      // Wheel scroll: only intercept horizontal swipes or Shift+wheel, letting normal page scrolling pass through
       viewport.addEventListener("wheel", (e) => {
-        e.preventDefault();
-        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-        cfWheelDelta += delta;
-        if (cfWheelTimer) clearTimeout(cfWheelTimer);
-        if (Math.abs(cfWheelDelta) >= 30) {
-          const dir = cfWheelDelta > 0 ? 1 : -1;
-          cfWheelDelta = 0;
-          renderCoverFlow(cfCurrentIndex + dir);
-          playStapleClick();
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
+          e.preventDefault();
+          const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+          cfWheelDelta += delta;
+          if (cfWheelTimer) clearTimeout(cfWheelTimer);
+          if (Math.abs(cfWheelDelta) >= 30) {
+            const dir = cfWheelDelta > 0 ? 1 : -1;
+            cfWheelDelta = 0;
+            renderCoverFlow(cfCurrentIndex + dir);
+            playStapleClick();
+          }
+          cfWheelTimer = setTimeout(() => { cfWheelDelta = 0; }, 200);
         }
-        cfWheelTimer = setTimeout(() => { cfWheelDelta = 0; }, 200);
       }, { passive: false });
     }
 
@@ -3559,9 +3561,20 @@
   window.getCoverFlowFlipped = () => cfIsFlipped;
   window.toggleCoverFlowFlip = toggleCoverFlowFlip;
 
+  let galleryScrollListener = null;
+  let galleryResizeListener = null;
+
   function renderGallery() {
     if (!vault || !vault.flips) return;
     galleryRendered = true;
+    if (galleryScrollListener) {
+      window.removeEventListener("scroll", galleryScrollListener);
+      galleryScrollListener = null;
+    }
+    if (galleryResizeListener) {
+      window.removeEventListener("resize", galleryResizeListener);
+      galleryResizeListener = null;
+    }
     // Re-rendering replaces the inputs: keep focus + caret so typing is not interrupted.
     const act = document.activeElement;
     const keep = act && ["flip-q", "flip-year"].includes(act.id) ? { id: act.id, s: act.selectionStart, e: act.selectionEnd } : null;
@@ -3771,29 +3784,71 @@
       ${sentinelHtml}
     `;
 
-    // Infinite Scroll IntersectionObserver & Load More
+    // Infinite Scroll IntersectionObserver + Active Window Scroll Fallback
     let activeLimit = galleryLimit;
     let observer = null;
+    let scrollRaf = null;
+
     function appendCards() {
       if (activeLimit >= rows.length) return;
       const grid = $("#main-gallery-grid");
       if (!grid) return;
+
       const nextBatch = rows.slice(activeLimit, activeLimit + BATCH_SIZE);
       activeLimit += nextBatch.length;
+
+      const frag = document.createDocumentFragment();
       const tempWrap = document.createElement("div");
       tempWrap.innerHTML = nextBatch.map(buildPieceCardHtml).join("");
       while (tempWrap.firstChild) {
-        grid.appendChild(tempWrap.firstChild);
+        frag.appendChild(tempWrap.firstChild);
       }
+      grid.appendChild(frag);
+
       lazyThumbs(grid);
+      observeReveals(grid);
+      bindCardHover(grid);
+
       const remaining = rows.length - activeLimit;
       const btn = $("#btn-gallery-load-more");
       if (remaining <= 0) {
-        if (observer) observer.disconnect();
+        if (observer) { observer.disconnect(); observer = null; }
         $("#gallery-infinite-sentinel")?.remove();
-      } else if (btn) {
-        btn.textContent = `Show More Coins (${remaining} remaining)`;
+        if (galleryScrollListener) {
+          window.removeEventListener("scroll", galleryScrollListener);
+          galleryScrollListener = null;
+        }
+        if (galleryResizeListener) {
+          window.removeEventListener("resize", galleryResizeListener);
+          galleryResizeListener = null;
+        }
+      } else {
+        if (btn) {
+          btn.textContent = `Show More Coins (${remaining} remaining)`;
+        }
+        scheduleScrollCheck();
       }
+    }
+
+    function checkGalleryScroll() {
+      const pane = $("#pane-gallery");
+      if (!pane || !pane.classList.contains("active")) return;
+      const sentinel = $("#gallery-infinite-sentinel");
+      if (!sentinel) return;
+
+      const rect = sentinel.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight || 900;
+      if (rect.top <= vh + 1000) {
+        appendCards();
+      }
+    }
+
+    function scheduleScrollCheck() {
+      if (scrollRaf) return;
+      scrollRaf = requestAnimationFrame(() => {
+        scrollRaf = null;
+        checkGalleryScroll();
+      });
     }
 
     const sentinelEl = $("#gallery-infinite-sentinel");
@@ -3802,10 +3857,18 @@
         if (entries[0] && entries[0].isIntersecting) {
           appendCards();
         }
-      }, { rootMargin: "600px" });
+      }, { root: null, rootMargin: "1000px" });
       observer.observe(sentinelEl);
     }
+
+    galleryScrollListener = scheduleScrollCheck;
+    galleryResizeListener = scheduleScrollCheck;
+    window.addEventListener("scroll", galleryScrollListener, { passive: true });
+    window.addEventListener("resize", galleryResizeListener, { passive: true });
     $("#btn-gallery-load-more")?.addEventListener("click", appendCards);
+
+    // Initial check in case tall viewport or zoom already exposes sentinel
+    scheduleScrollCheck();
 
     // Hook up Display Mode Switcher
     $$(".g-mode-btn").forEach((btn) => {
@@ -3905,8 +3968,11 @@
 
     // Pointer-driven 3D tilt & dynamic specular light sheen on Gallery Cards (Desktop only, 120fps RAF throttled)
     const canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (canHover) {
-      $$("#gallery-body .piece-card").forEach((card) => {
+    function bindCardHover(root = document) {
+      if (!canHover) return;
+      const cards = root.querySelectorAll ? root.querySelectorAll(".piece-card:not(.has-tilt)") : [];
+      cards.forEach((card) => {
+        card.classList.add("has-tilt");
         let cardRect = null;
         let rafId = null;
         card.addEventListener("mouseenter", () => {
@@ -3941,6 +4007,7 @@
         });
       });
     }
+    bindCardHover($("#gallery-body"));
 
     setupCoverFlowEvents();
     renderCoverFlow(cfCurrentIndex);
