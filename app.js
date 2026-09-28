@@ -1290,35 +1290,35 @@
         <div class="slab-pedigree-header">
           <div class="slab-pedigree-holo">
             <span class="slab-holo-brand">🏛️ TITAN ARCHIVAL REPOSITORY</span>
-            <span class="slab-holo-crest">${isMini ? 'PROOF' : 'GEM PROOF'}</span>
+            <span class="slab-holo-crest">GEM PROOF</span>
           </div>
           <div class="slab-pedigree-body">
             <div class="slab-pedigree-title">
               <strong>${country} · ${year}</strong>
-              <span class="slab-pedigree-grade">${isMini ? esc(f.ser || f.scan) : `GEM MS · ARCHIVE № ${esc(f.ser)}`}</span>
+              <span class="slab-pedigree-grade">${isMini ? `GEM MS · ${esc(f.ser || f.scan)}` : `GEM MS · ARCHIVE № ${esc(f.ser)}`}</span>
             </div>
             <div class="slab-pedigree-sub">
               <span>${denom}</span>
               <span class="slab-pedigree-metal">${purity}</span>
             </div>
           </div>
-          ${isMini ? '' : `
           <div class="slab-barcode-strip">
             <span class="slab-barcode">||| | |||| | ||| || |||| |</span>
             <span class="slab-cert-num">CERT #${esc(f.scan)}</span>
-          </div>`}
+          </div>
         </div>
 
         <!-- Frosted Silicone Core Gasket with Coin Aperture, Cartwheel Luster & Laser Optical Reticle -->
         <div class="slab-gasket-core">
           <div class="slab-coin-aperture">
             ${visual}
-            ${isMini ? '' : `<div class="coin-cartwheel-luster" aria-hidden="true"></div>${renderOpticalReticle(f, options.side || "obv")}`}
+            <div class="coin-cartwheel-luster" aria-hidden="true"></div>
+            ${isMini ? '' : renderOpticalReticle(f, options.side || "obv")}
           </div>
         </div>
 
         <!-- Prismatic Specular Sheen Layer -->
-        ${isMini ? '' : '<div class="slab-optic-glare"></div>'}
+        <div class="slab-optic-glare"></div>
       </div>`;
   }
 
@@ -3609,13 +3609,19 @@
       const cards = latest.map((f) => {
         const neo = highlightScans.has(f.scan) ? " is-new" : "";
         const ag = f.is_silver ? ` <span class="badge-ag">Ag</span>` : "";
+        const slabVisual = renderMuseumSlab(f, { mini: true, side: "obv" });
         return `
-        <button type="button" class="latest-card reveal${neo}" data-scan="${esc(f.scan)}">
-          ${thumbImg(f)}
-          <span class="id">${esc(f.ser || f.scan)}${ag}</span>
-          <span class="ser">${esc(f.ser ? f.scan : "")}</span>
-          <span class="meta">${esc(f.country || "—")} · ${esc(f.year || "—")}<br/>${esc(f.denom || f.label || "")}</span>
-          <span class="est">${f.is_silver && f.asw_oz != null ? num(f.asw_oz, 4) + " oz · " : ""}${f.est != null ? money(f.est) : "—"}</span>
+        <button type="button" class="latest-card piece-card-3d reveal${neo}" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
+          <div class="lc-slab-wrap">
+            ${slabVisual}
+          </div>
+          <div class="lc-footer-meta">
+            <div class="lc-meta-row">
+              <span class="id">${esc(f.ser || f.scan)}${ag}</span>
+              <span class="est">${f.est != null ? money(f.est) : "—"}</span>
+            </div>
+            <span class="meta">${esc(f.country || "—")} · ${esc(f.year || "—")}</span>
+          </div>
         </button>`;
       }).join("");
       railHtml = `
@@ -3970,7 +3976,7 @@
     const canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     function bindCardHover(root = document) {
       if (!canHover) return;
-      const cards = root.querySelectorAll ? root.querySelectorAll(".piece-card:not(.has-tilt)") : [];
+      const cards = root.querySelectorAll ? root.querySelectorAll(".piece-card:not(.has-tilt), .latest-card:not(.has-tilt)") : [];
       cards.forEach((card) => {
         card.classList.add("has-tilt");
         let cardRect = null;
