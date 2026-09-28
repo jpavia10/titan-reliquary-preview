@@ -1333,6 +1333,17 @@
           </div>
         </div>
 
+        <!-- Archival Pedigree Footer: Valuation, Melt Multiplier & Security Hallmark -->
+        <div class="slab-pedigree-footer">
+          <div class="slab-footer-info">
+            <span class="slab-footer-price">${f.est != null ? money(f.est) : "—"}</span>
+            <span class="slab-footer-melt">${f.is_silver && f.asw_oz != null && (vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz) ? `Melt ${money(Number(f.asw_oz) * Number(vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz))}` : (f.conf ? `Conf ${esc(f.conf)}` : "Verified")}</span>
+          </div>
+          <div class="slab-footer-seal">
+            <span class="slab-footer-seal-text">${isRev ? "CERTIFIED PROVENANCE" : "🏛️ TITAN ARCHIVE"}</span>
+          </div>
+        </div>
+
         <!-- Prismatic Specular Sheen Layer -->
         <div class="slab-optic-glare"></div>
       </div>`;
@@ -3139,8 +3150,9 @@
         card.style.zIndex = "50";
         card.style.opacity = "1";
         card.dataset.rotateY = cfIsFlipped ? "180" : "0";
-        card.dataset.translateZ = "0";
         card.classList.toggle("cf-flipped", cfIsFlipped);
+        const inner = card.querySelector(".cf-card-inner");
+        if (inner) inner.classList.toggle("is-flipped", cfIsFlipped);
       } else if (offset < 0) {
         card.classList.remove("cf-flipped");
         // Left flanking specimens: rotated +48 deg on Y-axis, translateZ -160px
@@ -3627,20 +3639,10 @@
       const latest = latestFlips(10);
       const cards = latest.map((f) => {
         const neo = highlightScans.has(f.scan) ? " is-new" : "";
-        const ag = f.is_silver ? ` <span class="badge-ag">Ag</span>` : "";
-        const slabVisual = renderMuseumSlab(f, { mini: true, side: "obv" });
+        const slabVisual = renderMuseumSlab(f, { side: "obv" });
         return `
         <button type="button" class="latest-card piece-card-3d reveal${neo}" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
-          <div class="lc-slab-wrap">
-            ${slabVisual}
-          </div>
-          <div class="lc-footer-meta">
-            <div class="lc-meta-row">
-              <span class="id">${esc(f.ser || f.scan)}${ag}</span>
-              <span class="est">${f.est != null ? money(f.est) : "—"}</span>
-            </div>
-            <span class="meta">${esc(f.country || "—")} · ${esc(f.year || "—")}</span>
-          </div>
+          ${slabVisual}
         </button>`;
       }).join("");
       railHtml = `
@@ -3650,19 +3652,13 @@
 
     // The wall: supports Museum Lucite Slabs (default), Traditional 2x2 Flips, or Planchet Medallions
     function buildPieceCardHtml(f) {
-      const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz;
       const neo = highlightScans.has(f.scan) ? " is-new" : "";
-      const denom = esc(f.denom || f.label || "Coin");
-      const agBadge = f.is_silver ? `<span class="pc-ag-pill">Ag ${f.asw_oz != null ? num(f.asw_oz, 2) + "oz" : ".999"}</span>` : "";
-      const meltText = f.is_silver && f.asw_oz != null && spotAg != null
-        ? `Melt ${money(Number(f.asw_oz) * Number(spotAg))}`
-        : (f.conf ? `Conf ${esc(f.conf)}` : "Verified");
 
       let obvVisual = "";
       let revVisual = "";
       if (galleryMode === "slab") {
-        obvVisual = renderMuseumSlab(f, { mini: true, side: "obv" });
-        revVisual = renderMuseumSlab(f, { mini: true, side: "rev" });
+        obvVisual = renderMuseumSlab(f, { side: "obv" });
+        revVisual = renderMuseumSlab(f, { side: "rev" });
       } else if (galleryMode === "matrix") {
         const obvImg = f.thumb
           ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
@@ -3679,35 +3675,24 @@
             <div class="coin-cartwheel-luster" aria-hidden="true"></div>
           </div>`;
       } else {
-        obvVisual = renderFlipHolder(f, { side: "obv" });
-        revVisual = renderFlipHolder(f, { side: "rev" });
+        obvVisual = renderFlipHolder(f, { large: true, side: "obv" });
+        revVisual = renderFlipHolder(f, { large: true, side: "rev" });
       }
 
       return `
-      <div class="piece-card reveal${neo} mode-${galleryMode}" role="button" tabindex="0" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
+      <div class="piece-card piece-card-3d reveal${neo} mode-${galleryMode}" role="button" tabindex="0" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
         <div class="pc-flip-frame">
           <div class="pc-3d-flipper-stage" data-flipper-scan="${esc(f.scan)}">
             <div class="pc-3d-flipper">
               <div class="pc-side pc-side-obv">
                 ${obvVisual}
-                <button type="button" class="pc-3d-flip-trigger" title="🔄 3D Flip to Reverse" aria-label="3D Flip to reverse">🔄 3D Flip</button>
+                <button type="button" class="cf-flip-badge pc-flip-action-btn" title="Click to flip (Space/F)">🔄 3D Flip</button>
               </div>
               <div class="pc-side pc-side-rev">
                 ${revVisual}
-                <button type="button" class="pc-3d-flip-trigger" title="🔄 3D Flip to Obverse" aria-label="3D Flip to obverse">🔄 3D Flip</button>
+                <button type="button" class="cf-flip-badge pc-flip-action-btn" title="Click to flip (Space/F)">🔄 3D Flip</button>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="pc-card-meta">
-          <div class="pc-header-row">
-            <span class="pc-ser-key">${esc(f.ser || f.scan)}</span>
-            ${agBadge}
-          </div>
-          <span class="pc-subtitle">${esc([f.country, f.year, denom].filter(Boolean).join(" · "))}</span>
-          <div class="pc-bottom-row">
-            <span class="pc-price">${f.est != null ? money(f.est) : "—"}</span>
-            <span class="pc-melt-note">${meltText}</span>
           </div>
         </div>
       </div>`;
@@ -4064,9 +4049,28 @@
             if (isNaN(nx) || isNaN(ny)) return;
             const clampedX = Math.max(-1, Math.min(1, nx));
             const clampedY = Math.max(-1, Math.min(1, ny));
-            const tiltX = (-clampedY * 8).toFixed(1);
-            const tiltY = (clampedX * 10).toFixed(1);
-            card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(8px)`;
+            const tiltX = (-clampedY * 10).toFixed(1);
+            const tiltY = (clampedX * 12).toFixed(1);
+
+            const flipper = card.querySelector(".pc-3d-flipper");
+            const stage = card.querySelector(".pc-3d-flipper-stage");
+            const isFlipped = stage?.classList.contains("is-flipped");
+            const baseRotY = isFlipped ? 180 : 0;
+            const effTiltY = isFlipped ? -Number(tiltY) : Number(tiltY);
+
+            if (flipper) {
+              flipper.style.transform = `perspective(900px) rotateX(${tiltX}deg) rotateY(${baseRotY + effTiltY}deg) translateZ(8px)`;
+            } else {
+              card.style.transform = `perspective(900px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(8px)`;
+            }
+
+            // Directional lighting & Cartwheel Luster Angle matching Now Exhibiting
+            const angleRad = Math.atan2(e.clientY - (cardRect.top + hh), e.clientX - (cardRect.left + hw));
+            const angleDeg = (angleRad * (180 / Math.PI) + 360) % 360;
+            card.style.setProperty("--luster-angle", `${angleDeg.toFixed(1)}deg`);
+            card.style.setProperty("--relief-x", `${(clampedX * 2.5).toFixed(1)}`);
+            card.style.setProperty("--relief-y", `${(clampedY * 2.5).toFixed(1)}`);
+
             const sheenX = ((clampedX + 1) / 2 * 100).toFixed(1);
             const sheenY = ((clampedY + 1) / 2 * 100).toFixed(1);
             card.style.setProperty("--card-sheen-x", `${sheenX}%`);
@@ -4076,7 +4080,14 @@
         card.addEventListener("mouseleave", () => {
           if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
           cardRect = null;
-          card.style.transform = "";
+          const flipper = card.querySelector(".pc-3d-flipper");
+          const stage = card.querySelector(".pc-3d-flipper-stage");
+          const isFlipped = stage?.classList.contains("is-flipped");
+          if (flipper) {
+            flipper.style.transform = isFlipped ? "rotateY(180deg)" : "";
+          } else {
+            card.style.transform = "";
+          }
         });
       });
     }
