@@ -4921,7 +4921,7 @@
       ids: ["A026", "A025"],
       volumes: {
         "A026": { title: "Vol 1: 1986–2021 (Type 1 Heraldic)", totalSlots: 36, filled: 18, startYear: 1986, endYear: 2021, denom: "$1 Silver Eagle", metal: ".999 Silver (1 oz ASW)", holes: ["1995", "1996 Key Date", "2003", "2008", "2011", "2017"] },
-        "A025": { title: "Vol 2: 2021 Type 2–Present (Landing Eagle)", totalSlots: 16, filled: 6, startYear: 2021, endYear: 2024, denom: "$1 Silver Eagle", metal: ".999 Silver (1 oz ASW)", holes: ["2025 (Open Target — Unowned)", "2026 (Open Target — Unowned)"] }
+        "A025": { title: "Vol 2: 2021 Type 2–Present (Landing Eagle)", totalSlots: 16, filled: 6, startYear: 2021, endYear: 2026, denom: "$1 Silver Eagle", metal: ".999 Silver (1 oz ASW)", holes: [] }
       }
     },
     "Kennedy halves": {
@@ -5152,10 +5152,14 @@
         return true;
       });
 
+      const isPastYears = (curYear >= endYear && i >= (endYear - startYear + 1));
+      const displayYear = isPastYears ? "—" : yearStr;
+      const displayLabel = holeLabel || (isPastYears ? `Future Reserve Slot #${i + 1}` : yearStr);
+
       slots.push({
         idx: i + 1,
-        year: yearStr,
-        label: holeLabel || yearStr,
+        year: displayYear,
+        label: displayLabel,
         isFilled,
         isHole,
         coin: matchedFlip || (isFilled ? { year: yearStr, denom: vol.denom, country: "United States", iso: "US", is_silver: /silver/i.test(vol.metal) } : null)
