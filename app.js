@@ -53,7 +53,15 @@
   let caliperActive = false;
   try { caliperActive = localStorage.getItem("tr_caliper_v1") === "1"; } catch { /* ignore */ }
   let galleryMode = "slab";
-  try { galleryMode = localStorage.getItem("tr_gallery_mode_v1") || "slab"; } catch { /* ignore */ }
+  try {
+    const saved = localStorage.getItem("tr_gallery_mode_v1");
+    if (saved === "slab" || saved === "flip" || saved === "matrix") {
+      galleryMode = saved;
+    } else {
+      galleryMode = "slab";
+      localStorage.setItem("tr_gallery_mode_v1", "slab");
+    }
+  } catch { /* ignore */ }
 
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
@@ -1101,8 +1109,12 @@
       ? (f.asw_oz ? `${num(f.asw_oz, 2)}oz Ag` : ".999 Ag")
       : (f.is_gold ? ".999 Au" : (f.km ? `KM#${esc(f.km)}` : "ALLOY"));
 
-    const visual = f.thumb
-      ? `<img class="pc-photo" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
+    const revPhoto = typeof photoOf === "function" ? photoOf(f, "rev") : null;
+    const obvPhoto = typeof photoOf === "function" ? photoOf(f, "obv") : null;
+    const imgUrl = isRev ? (revPhoto?.url || null) : (f.thumb || obvPhoto?.url || null);
+
+    const visual = imgUrl
+      ? `<img class="pc-photo" data-src="${esc(imgUrl)}" loading="lazy" decoding="async" alt="${esc((f.denom || 'Coin') + (isRev ? ' Reverse' : ' Obverse'))}" />`
       : renderSpecimenBlueprint(f, isLarge, options.side || "obv");
 
     return `
@@ -1274,8 +1286,12 @@
       ? (f.asw_oz ? `${num(f.asw_oz, 2)} oz ASW Silver` : ".999 Fine Silver")
       : (f.is_gold ? ".999 Fine Gold" : (f.km ? `KM# ${esc(f.km)}` : "Specimen Alloy"));
 
-    const visual = f.thumb
-      ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
+    const revPhoto = typeof photoOf === "function" ? photoOf(f, "rev") : null;
+    const obvPhoto = typeof photoOf === "function" ? photoOf(f, "obv") : null;
+    const imgUrl = isRev ? (revPhoto?.url || null) : (f.thumb || obvPhoto?.url || null);
+
+    const visual = imgUrl
+      ? `<img class="pc-photo slab-coin-img" data-src="${esc(imgUrl)}" loading="lazy" decoding="async" alt="${esc((f.denom || 'Coin') + (isRev ? ' Reverse' : ' Obverse'))}" />`
       : renderSpecimenBlueprint(f, !isMini, options.side || "obv");
 
     return `
@@ -1289,12 +1305,12 @@
         <!-- Holographic Archival Pedigree Header -->
         <div class="slab-pedigree-header">
           <div class="slab-pedigree-holo">
-            <span class="slab-holo-brand">🏛️ TITAN ARCHIVAL REPOSITORY</span>
-            <span class="slab-holo-crest">GEM PROOF</span>
+            <span class="slab-holo-brand">${isRev ? "🏛️ PROVENANCE PEDIGREE SEAL" : "🏛️ TITAN ARCHIVAL REPOSITORY"}</span>
+            <span class="slab-holo-crest">${isRev ? "CERTIFIED" : "GEM PROOF"}</span>
           </div>
           <div class="slab-pedigree-body">
             <div class="slab-pedigree-title">
-              <strong>${country} · ${year}</strong>
+              <strong>${country} · ${isRev ? "REVERSE DIE" : year}</strong>
               <span class="slab-pedigree-grade">${isMini ? `GEM MS · ${esc(f.ser || f.scan)}` : `GEM MS · ARCHIVE № ${esc(f.ser)}`}</span>
             </div>
             <div class="slab-pedigree-sub">
@@ -3301,7 +3317,7 @@
             renderCoverFlow(index);
             playStapleClick();
           } else {
-            if (e.target.closest(".cf-flip-badge") || e.target.closest(".slab-beveled-edge")) {
+            if (!e.target.closest("a, button:not(.cf-flip-badge)")) {
               e.stopPropagation();
               toggleCoverFlowFlip();
             }
@@ -3421,7 +3437,9 @@
               const clampedY = Math.max(-1, Math.min(1, ny));
               const tiltX = (-clampedY * 14).toFixed(1);
               const tiltY = (clampedX * 18).toFixed(1);
-              centerCard.style.transform = `translateX(0px) translateZ(28px) rotateY(${tiltY}deg) rotateX(${tiltX}deg)`;
+              const effTiltY = cfIsFlipped ? -Number(tiltY) : Number(tiltY);
+              const baseRot = cfIsFlipped ? 180 : 0;
+              centerCard.style.transform = `translateX(0px) translateZ(28px) rotateY(${baseRot + effTiltY}deg) rotateX(${tiltX}deg)`;
               const sheenX = ((clampedX + 1) / 2 * 100).toFixed(1);
               const sheenY = ((clampedY + 1) / 2 * 100).toFixed(1);
               centerCard.style.setProperty("--cf-sheen-x", `${sheenX}%`);
@@ -3438,7 +3456,8 @@
       viewport.addEventListener("pointerleave", () => {
         const centerCard = stage.querySelector(".cf-card-center");
         if (centerCard && !cfDragging) {
-          centerCard.style.transform = `translateX(0px) translateZ(0px) rotateY(0deg) rotateX(0deg)`;
+          const baseRot = cfIsFlipped ? 180 : 0;
+          centerCard.style.transform = `translateX(0px) translateZ(0px) rotateY(${baseRot}deg) rotateX(0deg)`;
         }
       });
 
@@ -3639,26 +3658,46 @@
         ? `Melt ${money(Number(f.asw_oz) * Number(spotAg))}`
         : (f.conf ? `Conf ${esc(f.conf)}` : "Verified");
 
-      let visualHtml = "";
+      let obvVisual = "";
+      let revVisual = "";
       if (galleryMode === "slab") {
-        visualHtml = renderMuseumSlab(f, { mini: true, side: "obv" });
+        obvVisual = renderMuseumSlab(f, { mini: true, side: "obv" });
+        revVisual = renderMuseumSlab(f, { mini: true, side: "rev" });
       } else if (galleryMode === "matrix") {
-        const visual = f.thumb
+        const obvImg = f.thumb
           ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
           : renderSpecimenBlueprint(f, false, "obv");
-        visualHtml = `
+        const revImg = renderSpecimenBlueprint(f, false, "rev");
+        obvVisual = `
           <div class="matrix-medallion-holder">
-            ${visual}
+            ${obvImg}
+            <div class="coin-cartwheel-luster" aria-hidden="true"></div>
+          </div>`;
+        revVisual = `
+          <div class="matrix-medallion-holder">
+            ${revImg}
             <div class="coin-cartwheel-luster" aria-hidden="true"></div>
           </div>`;
       } else {
-        visualHtml = renderFlipHolder(f);
+        obvVisual = renderFlipHolder(f, { side: "obv" });
+        revVisual = renderFlipHolder(f, { side: "rev" });
       }
 
       return `
-      <button type="button" class="piece-card reveal${neo} mode-${galleryMode}" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
+      <div class="piece-card reveal${neo} mode-${galleryMode}" role="button" tabindex="0" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
         <div class="pc-flip-frame">
-          ${visualHtml}
+          <div class="pc-3d-flipper-stage" data-flipper-scan="${esc(f.scan)}">
+            <div class="pc-3d-flipper">
+              <div class="pc-side pc-side-obv">
+                ${obvVisual}
+                <button type="button" class="pc-3d-flip-trigger" title="🔄 3D Flip to Reverse" aria-label="3D Flip to reverse">🔄 3D Flip</button>
+              </div>
+              <div class="pc-side pc-side-rev">
+                ${revVisual}
+                <button type="button" class="pc-3d-flip-trigger" title="🔄 3D Flip to Obverse" aria-label="3D Flip to obverse">🔄 3D Flip</button>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="pc-card-meta">
           <div class="pc-header-row">
@@ -3671,7 +3710,7 @@
             <span class="pc-melt-note">${meltText}</span>
           </div>
         </div>
-      </button>`;
+      </div>`;
     }
 
     const BATCH_SIZE = 28;
@@ -3956,10 +3995,38 @@
 
     // Event delegation for cards: one single handler for all cards (including dynamic batches)
     $("#gallery-body").addEventListener("click", (e) => {
+      const flipBtn = e.target.closest(".pc-3d-flip-trigger, .pc-flip-action-btn");
+      if (flipBtn) {
+        e.stopPropagation();
+        e.preventDefault();
+        const stage = flipBtn.closest(".pc-3d-flipper-stage");
+        if (stage) {
+          stage.classList.toggle("is-flipped");
+          playStapleClick();
+        }
+        return;
+      }
       const card = e.target.closest(".piece-card[data-scan], .latest-card[data-scan]");
       if (card) {
         dossierCtx = { label: "Gallery", scans: rows.map((f) => f.scan) };
         openDrawer(card.dataset.scan);
+      }
+    });
+
+    $("#gallery-body").addEventListener("keydown", (e) => {
+      const card = e.target.closest(".piece-card[data-scan]");
+      if (!card) return;
+      if (e.key === "Enter") {
+        e.preventDefault();
+        dossierCtx = { label: "Gallery", scans: rows.map((f) => f.scan) };
+        openDrawer(card.dataset.scan);
+      } else if (e.key === " " || e.key === "f" || e.key === "F") {
+        e.preventDefault();
+        const stage = card.querySelector(".pc-3d-flipper-stage");
+        if (stage) {
+          stage.classList.toggle("is-flipped");
+          playStapleClick();
+        }
       }
     });
 
@@ -5251,15 +5318,64 @@
       // Match flip in vault
       const matchedFlip = flips.find(f => {
         if (!f.year || String(f.year) !== yearStr) return false;
-        if (activeAlbumFamily.includes("Silver Eagles") && (f.denom?.includes("Eagle") || f.is_silver)) return true;
-        if (activeAlbumFamily.includes("Mercury") && /mercury|dime/i.test(f.denom || "")) return true;
-        if (activeAlbumFamily.includes("Buffalo") && /buffalo|nickel/i.test(f.denom || "")) return true;
-        return true;
+        const isUS = f.country === "United States" || f.iso === "US";
+        if (activeAlbumFamily.includes("Silver Eagles")) return isUS && (f.denom?.includes("Eagle") || /eagle/i.test(f.label || ""));
+        if (activeAlbumFamily.includes("Mercury")) return isUS && (/mercury|dime/i.test(f.denom || "") || /mercury|dime/i.test(f.label || ""));
+        if (activeAlbumFamily.includes("Buffalo")) return isUS && (/buffalo|nickel/i.test(f.denom || "") || /buffalo|nickel/i.test(f.label || ""));
+        if (activeAlbumFamily.includes("Washington")) return isUS && (/quarter/i.test(f.denom || "") || /quarter/i.test(f.label || ""));
+        if (activeAlbumFamily.includes("Kennedy")) return isUS && (/half/i.test(f.denom || "") || /half/i.test(f.label || ""));
+        if (activeAlbumFamily.includes("Canada")) return (f.country === "Canada" || f.iso === "CA") && /cent/i.test(f.denom || "");
+        return false;
       });
 
       const isPastYears = (curYear >= endYear && i >= (endYear - startYear + 1));
       const displayYear = isPastYears ? "—" : yearStr;
       const displayLabel = holeLabel || (isPastYears ? `Future Reserve Slot #${i + 1}` : yearStr);
+      const safeYearSlug = String(displayYear).replace(/[^a-zA-Z0-9]/g, "") || `S${i + 1}`;
+      const slotScan = matchedFlip?.scan || `ALBUM-${activeAlbumId}-S${String(i + 1).padStart(2, "0")}-${safeYearSlug}`;
+
+      // Build or register complete numismatic specimen dossier
+      const isSilver = /silver|ag/i.test(vol.metal) || activeAlbumFamily.includes("Silver Eagles") || activeAlbumFamily.includes("Mercury");
+      const isGold = /gold|au/i.test(vol.metal);
+      const aswVal = activeAlbumFamily.includes("Silver Eagles")
+        ? 0.999
+        : (vol.metal.includes("90% Silver")
+          ? (/dime/i.test(vol.denom) ? 0.0723 : /half/i.test(vol.denom) ? 0.3617 : /quarter/i.test(vol.denom) ? 0.1808 : 0.7734)
+          : (vol.metal.includes("40% Silver") ? 0.1479 : null));
+
+      const slotDossier = matchedFlip || {
+        scan: slotScan,
+        ser: `${activeAlbumId} · Slot #${String(i + 1).padStart(2, "0")}`,
+        kind: "flip",
+        cat: "coin",
+        country: activeAlbumFamily.includes("Canada") ? "Canada" : "United States",
+        iso: activeAlbumFamily.includes("Canada") ? "CA" : "US",
+        continent: "North America",
+        year: displayYear !== "—" ? displayYear : String(startYear + i),
+        denom: vol.denom,
+        metal: vol.metal,
+        is_silver: isSilver,
+        is_gold: isGold,
+        asw_oz: aswVal,
+        est: isFilled ? (activeAlbumFamily.includes("Silver Eagles") ? 38.00 : (isSilver ? 15.00 : 2.50)) : 0.0,
+        conf: isFilled ? "high" : "target",
+        status: isFilled ? "Album Specimen (Encapsulated in Binder)" : "Target Acquisition (Missing Hole in Binder)",
+        location: `${activeAlbumFamily} (${activeAlbumId}) · Slot #${i + 1}`,
+        mintage: isFilled ? `Official striking for ${displayYear}` : `Key/Target striking for ${displayLabel}`,
+        notes: isFilled
+          ? `Specimen residing in ${meta.binderType}, Album ID ${activeAlbumId}, Slot #${i + 1}. Volume: ${vol.title}. Authenticated collection specimen.`
+          : `Missing target hole in ${meta.binderType} (${activeAlbumId}), Slot #${i + 1} [${displayLabel}]. Priority acquisition target.`,
+        specs: `${vol.denom} · Composition: ${vol.metal} · Physical slot #${i + 1} of ${totalSlots}`,
+        design: `${vol.title} archival series strike`,
+        tender: activeAlbumFamily.includes("Canada") ? "Canadian Legal Tender" : "United States Legal Tender",
+        qty_n: 1,
+        label: `${activeAlbumFamily.includes("Canada") ? "Canada" : "USA"} · ${displayYear} · ${vol.denom}`,
+        diameter_mm: activeAlbumFamily.includes("Silver Eagles") ? 40.6 : (/half/i.test(vol.denom) ? 30.6 : (/quarter/i.test(vol.denom) ? 24.3 : (/dime/i.test(vol.denom) ? 17.9 : (/nickel|5¢/i.test(vol.denom) ? 21.2 : 19.0)))),
+        _full: true,
+        photos: []
+      };
+
+      albumCoinDossiers.set(slotScan, slotDossier);
 
       slots.push({
         idx: i + 1,
@@ -5267,7 +5383,8 @@
         label: displayLabel,
         isFilled,
         isHole,
-        coin: matchedFlip || (isFilled ? { year: yearStr, denom: vol.denom, country: "United States", iso: "US", is_silver: /silver/i.test(vol.metal) } : null)
+        scan: slotScan,
+        coin: slotDossier
       });
 
       if (curYear < endYear) curYear++;
@@ -5293,16 +5410,16 @@
     if (grid) {
       grid.innerHTML = displaySlots.map(s => {
         if (s.isFilled) {
-          const coinObj = s.coin || { year: s.year, denom: vol.denom, country: "United States", iso: "US", is_silver: true };
+          const coinObj = s.coin;
           const visual = coinObj.thumb
             ? `<img class="slot-coin-disc" src="${esc(coinObj.thumb)}" loading="lazy" decoding="async" alt="${esc(s.year)}" />`
             : `<div class="slot-coin-disc">${renderSpecimenBlueprint(coinObj, false, "obv")}</div>`;
-          const clickAttr = coinObj.scan ? `data-scan="${esc(coinObj.scan)}"` : `data-info="Slot #${s.idx}: ${s.year} ${esc(vol.denom)}"`;
 
           return `
-            <div class="album-slot-card is-filled" ${clickAttr} title="Slot #${s.idx}: ${s.year} ${esc(vol.denom)} (Filled) - Click to inspect">
+            <div class="album-slot-card is-filled" data-scan="${esc(s.scan)}" title="Slot #${s.idx}: ${s.year} ${esc(vol.denom)} (Filled) - Click to inspect full dossier">
               <div class="slot-aperture-wrap">
                 ${visual}
+                <div class="slot-luster-ring"></div>
               </div>
               <div class="slot-year-tag">${esc(s.year)}</div>
               <div class="slot-denom-tag">${esc(vol.denom)}</div>
@@ -5310,7 +5427,7 @@
             </div>`;
         } else {
           return `
-            <div class="album-slot-card is-missing" title="Slot #${s.idx}: ${esc(s.label)} (Target Hole Needed)" data-info="Missing Target: ${esc(s.label)}">
+            <div class="album-slot-card is-missing" data-scan="${esc(s.scan)}" title="Slot #${s.idx}: ${esc(s.label)} (Target Hole Needed) - Click to inspect target dossier" data-info="Missing Target: ${esc(s.label)}">
               <div class="slot-aperture-wrap">
                 <div class="slot-hole-cavity">
                   <span class="slot-hole-target-cross">⌖</span>
@@ -5324,14 +5441,16 @@
         }
       }).join("");
 
-      // Wire card click listeners
+      // Wire card click listeners: opens rich dossier drawer
       grid.querySelectorAll(".album-slot-card").forEach(card => {
         card.onclick = () => {
           if (card.dataset.scan) {
+            dossierCtx = {
+              label: `${activeAlbumFamily} (${activeAlbumId})`,
+              scans: slots.map(sl => sl.scan)
+            };
             closeAlbumInspector();
             openDrawer(card.dataset.scan);
-          } else if (card.dataset.info && typeof showToast === "function") {
-            showToast(card.dataset.info);
           }
         };
       });
@@ -5378,7 +5497,10 @@
   }
 
 
+  const albumCoinDossiers = new Map();
+
   function findCard(scan) {
+    if (albumCoinDossiers.has(scan)) return albumCoinDossiers.get(scan);
     const pools = [vault.flips, vault.bullion, vault.sets, vault.housing, vault.stamps];
     for (const pool of pools) {
       const hit = (pool || []).find((c) => c.scan === scan);
@@ -5402,6 +5524,10 @@
     // Navigate in the order the user is looking at: the World country list it was opened from,
     // else the filtered Flips list, else newest-first.
     if (dossierCtx && dossierCtx.scans.includes(currentDrawerScan)) return dossierCtx.scans;
+    if (currentDrawerScan && currentDrawerScan.startsWith("ALBUM-")) {
+      const prefix = currentDrawerScan.split("-S")[0];
+      return Array.from(albumCoinDossiers.keys()).filter((k) => k.startsWith(prefix));
+    }
     const rows = filteredFlips();
     const pool = rows.length ? rows : latestFlips(1e6);
     return pool.map((f) => f.scan);

@@ -3,7 +3,7 @@
   "collection_title": "Titan Reliquary Master Archival Repository",
   "total_specimens": 300,
   "next_consecutive_seq": 301,
-  "next_consecutive_ser": "TITAN-301",
+  "next_consecutive_ser": "EU-FR-038",
   "specimens": [
     {
       "ser": "TITAN-001",
@@ -9478,7 +9478,7 @@
       "side_b_label_text": "SER #TITAN-296 · ARCHIVE"
     },
     {
-      "ser": "TITAN-297",
+      "ser": "EU-FR-034",
       "seq_num": 297,
       "legacy_ser": "TITAN-297",
       "legacy_scan": "C297",
@@ -9488,9 +9488,9 @@
       "metal": "Silver",
       "asw_oz": 0.7234,
       "km": "KM#844.1",
-      "est_val": 0.0,
-      "iso": "XX",
-      "continent": "World",
+      "est_val": 45.85,
+      "iso": "FR",
+      "continent": "Europe",
       "stage_status": {
         "stage1_raw_obv": false,
         "stage1_raw_rev": false,
@@ -9509,10 +9509,11 @@
         "raw_rev": "photos/raw_archive/TITAN-297_FRANCE_1914_5_FRANCS_RAW_REV.jpg"
       },
       "side_a_label_text": "FRANCE · 1914 · 5 FRANCS",
-      "side_b_label_text": "SER #TITAN-297 · 0.72 oz ASW"
+      "side_b_label_text": "SER #EU-FR-034 · 0.72 oz ASW",
+      "notes": "French 5 Francs Silver Crown (1914). Official strike. Replaces temporary TITAN ID with permanent serial EU-FR-034."
     },
     {
-      "ser": "TITAN-298",
+      "ser": "EU-FR-035",
       "seq_num": 298,
       "legacy_ser": "TITAN-298",
       "legacy_scan": "C298",
@@ -9522,9 +9523,9 @@
       "metal": "Silver",
       "asw_oz": 0.7234,
       "km": "KM#844.1",
-      "est_val": 0.0,
-      "iso": "XX",
-      "continent": "World",
+      "est_val": 45.85,
+      "iso": "FR",
+      "continent": "Europe",
       "stage_status": {
         "stage1_raw_obv": false,
         "stage1_raw_rev": false,
@@ -9543,10 +9544,11 @@
         "raw_rev": "photos/raw_archive/TITAN-298_FRANCE_1914_5_FRANCS_RAW_REV.jpg"
       },
       "side_a_label_text": "FRANCE · 1914 · 5 FRANCS",
-      "side_b_label_text": "SER #TITAN-298 · 0.72 oz ASW"
+      "side_b_label_text": "SER #EU-FR-035 · 0.72 oz ASW",
+      "notes": "French 5 Francs Silver Crown (1914). Official strike. Replaces temporary TITAN ID with permanent serial EU-FR-035."
     },
     {
-      "ser": "TITAN-299",
+      "ser": "EU-FR-036",
       "seq_num": 299,
       "legacy_ser": "TITAN-299",
       "legacy_scan": "C299",
@@ -9556,9 +9558,9 @@
       "metal": "Silver",
       "asw_oz": 0.7234,
       "km": "KM#844.1",
-      "est_val": 0.0,
-      "iso": "XX",
-      "continent": "World",
+      "est_val": 45.85,
+      "iso": "FR",
+      "continent": "Europe",
       "stage_status": {
         "stage1_raw_obv": true,
         "stage1_raw_rev": false,
@@ -9577,10 +9579,11 @@
         "raw_rev": "photos/raw_archive/TITAN-299_FRANCE_1914_5_FRANCS_RAW_REV.jpg"
       },
       "side_a_label_text": "FRANCE · 1914 · 5 FRANCS",
-      "side_b_label_text": "SER #TITAN-299 · 0.72 oz ASW"
+      "side_b_label_text": "SER #EU-FR-036 · 0.72 oz ASW",
+      "notes": "French 5 Francs Silver Crown (1914). Official strike. Replaces temporary TITAN ID with permanent serial EU-FR-036."
     },
     {
-      "ser": "TITAN-300",
+      "ser": "EU-FR-037",
       "seq_num": 300,
       "legacy_ser": "TITAN-300",
       "legacy_scan": "C300",
@@ -9590,9 +9593,9 @@
       "metal": "Silver",
       "asw_oz": 0.7234,
       "km": "KM#844.1",
-      "est_val": 0.0,
-      "iso": "XX",
-      "continent": "World",
+      "est_val": 45.85,
+      "iso": "FR",
+      "continent": "Europe",
       "stage_status": {
         "stage1_raw_obv": true,
         "stage1_raw_rev": false,
@@ -9611,7 +9614,8 @@
         "raw_rev": "photos/raw_archive/TITAN-300_FRANCE_1914_5_FRANCS_RAW_REV.jpg"
       },
       "side_a_label_text": "FRANCE · 1914 · 5 FRANCS",
-      "side_b_label_text": "SER #TITAN-300 · 0.72 oz ASW"
+      "side_b_label_text": "SER #EU-FR-037 · 0.72 oz ASW",
+      "notes": "French 5 Francs Silver Crown (1914). Official strike. Replaces temporary TITAN ID with permanent serial EU-FR-037."
     }
   ]
 }
