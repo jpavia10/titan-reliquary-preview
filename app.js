@@ -3053,41 +3053,9 @@
   let cfKeyBound = false;
 
   function buildCoverFlowCardInner(f, isCenter) {
-    let obvHtml = "";
-    let revHtml = "";
-    let reflHtml = "";
-
-    if (galleryMode === "slab") {
-      obvHtml = renderMuseumSlab(f, { mini: false, side: "obv" });
-      revHtml = isCenter ? renderMuseumSlab(f, { mini: false, side: "rev" }) : "";
-      reflHtml = renderMuseumSlab(f, { mini: false, side: "obv" });
-    } else if (galleryMode === "matrix") {
-      const obvImg = f.thumb
-        ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
-        : renderSpecimenBlueprint(f, false, "obv");
-      const revImg = renderSpecimenBlueprint(f, false, "rev");
-      obvHtml = `
-        <div class="matrix-medallion-holder">
-          ${obvImg}
-          <div class="coin-cartwheel-luster" aria-hidden="true"></div>
-          ${isCenter ? renderOpticalReticle(f, "obv") : ""}
-        </div>`;
-      revHtml = isCenter ? `
-        <div class="matrix-medallion-holder">
-          ${revImg}
-          <div class="coin-cartwheel-luster" aria-hidden="true"></div>
-          ${renderOpticalReticle(f, "rev")}
-        </div>` : "";
-      reflHtml = `
-        <div class="matrix-medallion-holder">
-          ${obvImg}
-        </div>`;
-    } else {
-      // 2x2 flips: Both center and flanking cards render full-detail Aero Frosted Mount
-      obvHtml = renderFlipHolder(f, { large: true, side: "obv" });
-      revHtml = isCenter ? renderFlipHolder(f, { large: true, side: "rev" }) : "";
-      reflHtml = renderFlipHolder(f, { large: true, side: "obv" });
-    }
+    const obvHtml = renderMuseumSlab(f, { side: "obv" });
+    const revHtml = isCenter ? renderMuseumSlab(f, { side: "rev" }) : "";
+    const reflHtml = renderMuseumSlab(f, { side: "obv" });
 
     const loupeHtml = isCenter ? `
       <div class="forensic-loupe" id="cf-loupe-${esc(f.scan)}" hidden>
@@ -3425,15 +3393,25 @@
     }
 
     if (viewport) {
-      // Pointer drag & touch gestures
       viewport.addEventListener("pointerdown", (e) => {
         if (e.button !== 0) return; // primary click only
+        if (e.target.closest("button, .cf-flip-badge, .btn, a, input, select")) return;
         cfDragging = true;
         cfStartX = e.clientX;
         cfDragDistance = 0;
         cfStartTime = performance.now();
         viewport.classList.add("is-dragging");
         try { viewport.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+
+      viewport.addEventListener("click", (e) => {
+        const flipBtn = e.target.closest(".cf-flip-badge");
+        if (flipBtn) {
+          e.stopPropagation();
+          e.preventDefault();
+          toggleCoverFlowFlip();
+          return;
+        }
       });
 
       viewport.addEventListener("pointermove", (e) => {
@@ -3650,34 +3628,11 @@
         <div class="latest-rail" aria-label="Latest added flips">${cards || '<p class="empty">No flips yet</p>'}</div>`;
     }
 
-    // The wall: supports Museum Lucite Slabs (default), Traditional 2x2 Flips, or Planchet Medallions
+    // The wall: 100% uniform 3D Lucite Museum Slabs
     function buildPieceCardHtml(f) {
       const neo = highlightScans.has(f.scan) ? " is-new" : "";
-
-      let obvVisual = "";
-      let revVisual = "";
-      if (galleryMode === "slab") {
-        obvVisual = renderMuseumSlab(f, { side: "obv" });
-        revVisual = renderMuseumSlab(f, { side: "rev" });
-      } else if (galleryMode === "matrix") {
-        const obvImg = f.thumb
-          ? `<img class="pc-photo slab-coin-img" data-src="${esc(f.thumb)}" loading="lazy" decoding="async" alt="${esc(f.denom || 'Coin')}" />`
-          : renderSpecimenBlueprint(f, false, "obv");
-        const revImg = renderSpecimenBlueprint(f, false, "rev");
-        obvVisual = `
-          <div class="matrix-medallion-holder">
-            ${obvImg}
-            <div class="coin-cartwheel-luster" aria-hidden="true"></div>
-          </div>`;
-        revVisual = `
-          <div class="matrix-medallion-holder">
-            ${revImg}
-            <div class="coin-cartwheel-luster" aria-hidden="true"></div>
-          </div>`;
-      } else {
-        obvVisual = renderFlipHolder(f, { large: true, side: "obv" });
-        revVisual = renderFlipHolder(f, { large: true, side: "rev" });
-      }
+      const obvVisual = renderMuseumSlab(f, { side: "obv" });
+      const revVisual = renderMuseumSlab(f, { side: "rev" });
 
       return `
       <div class="piece-card piece-card-3d reveal${neo} mode-${galleryMode}" role="button" tabindex="0" data-scan="${esc(f.scan)}" aria-label="${esc((f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" "))}">
