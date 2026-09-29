@@ -856,7 +856,13 @@
     return `${minYear}–${maxYear}`;
   }
 
+  let tooltipHideTimer = null;
+
   function showTooltip(html, xOrEl, y) {
+    if (tooltipHideTimer) {
+      clearTimeout(tooltipHideTimer);
+      tooltipHideTimer = null;
+    }
     initTooltip();
     tooltipNode.innerHTML = html;
     tooltipNode.style.display = "block";
@@ -866,7 +872,8 @@
     let left, top;
 
     if (xOrEl && typeof xOrEl === "object" && xOrEl.getBoundingClientRect) {
-      const elRect = xOrEl.getBoundingClientRect();
+      const coreEl = xOrEl.querySelector?.(".atlas-node-core") || xOrEl;
+      const elRect = coreEl.getBoundingClientRect();
       // Center horizontally above element, or place below if cramped near top
       left = elRect.left + (elRect.width / 2) - (tRect.width / 2);
       top = elRect.top - tRect.height - pad;
@@ -888,8 +895,18 @@
     tooltipNode.style.top = `${Math.round(top)}px`;
   }
 
-  function hideTooltip() {
-    if (tooltipNode) tooltipNode.style.display = "none";
+  function hideTooltip(immediate = false) {
+    if (tooltipHideTimer) {
+      clearTimeout(tooltipHideTimer);
+      tooltipHideTimer = null;
+    }
+    if (immediate) {
+      if (tooltipNode) tooltipNode.style.display = "none";
+    } else {
+      tooltipHideTimer = setTimeout(() => {
+        if (tooltipNode) tooltipNode.style.display = "none";
+      }, 75);
+    }
   }
 
   function animateToViewBox(nx, ny, nw, nh, duration = 400) {
@@ -924,6 +941,78 @@
     if (typeof window.TitanWorldFilterCallback === "function") {
       window.TitanWorldFilterCallback(country);
     }
+  }
+
+  // Docked Country Dossier Card (rendered dynamically upon node selection)
+  function renderDockedDossier(selC) {
+    if (!selC) return "";
+    const vaultFlips = (window.vault?.flips || []);
+    const countryFlips = vaultFlips.filter(f => 
+      (f.iso || "").toUpperCase() === selC.iso || 
+      (f.country || "").toLowerCase() === selC.name.toLowerCase()
+    );
+    const previewCoins = countryFlips.slice(0, 4);
+
+    const coinsHtml = previewCoins.map(coin => `
+      <div class="atlas-dossier-coin-chip" data-scan="${coin.scan}" title="Click to view specimen dossier" tabindex="0">
+        ${coin.thumb ? `<img src="${coin.thumb}" alt="${coin.denom || ''}" class="atlas-dossier-coin-thumb" loading="lazy" />` : `<span class="atlas-dossier-coin-icon">🪙</span>`}
+        <div class="atlas-dossier-coin-info">
+          <span class="atlas-dossier-coin-title">${coin.year || ''} ${coin.denom || coin.label || 'Specimen'}</span>
+          <span class="atlas-dossier-coin-sub">${coin.ser || coin.scan} · ${coin.grade || coin.metal || ''}</span>
+        </div>
+        <span class="atlas-dossier-coin-inspect">Inspect →</span>
+      </div>
+    `).join("");
+
+    return `
+      <div class="atlas-docked-dossier" id="atlas-docked-dossier">
+        <div class="atlas-dossier-main-row">
+          <div class="atlas-dossier-col-main">
+            <div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.25rem">
+              <span style="font-size:1.8rem;line-height:1">${selC.flag}</span>
+              <div>
+                <h4 style="margin:0;font-size:1.25rem;color:var(--gold-soft);display:flex;align-items:center;gap:0.5rem">
+                  ${selC.name}
+                  <span class="badge" style="background:var(--gold);color:#08090c;font-size:0.72rem;font-weight:700">${selC.iso}</span>
+                </h4>
+                <div style="font-size:0.75rem;color:var(--muted);font-family:var(--mono)">ISO: ${selC.iso} · ${selC.region} · ${selC.era}</div>
+              </div>
+            </div>
+            <p style="margin:0.25rem 0 0;font-size:0.82rem;color:var(--ink-soft);line-height:1.4">
+              <strong>Notable Specimen:</strong> <span style="color:var(--gold-soft)">${selC.notable}</span> &nbsp;|&nbsp; <strong>Mint:</strong> <span>${selC.mint}</span>
+            </p>
+          </div>
+          <div class="atlas-dossier-col-stats">
+            <div class="atlas-dossier-stat">
+              <span class="atlas-dossier-stat-val">${selC.count}</span>
+              <span class="atlas-dossier-stat-lbl">PIECES</span>
+            </div>
+            <div class="atlas-dossier-stat">
+              <span class="atlas-dossier-stat-val">${selC.asw}</span>
+              <span class="atlas-dossier-stat-lbl">ASW AG</span>
+            </div>
+            <div class="atlas-dossier-stat">
+              <span class="atlas-dossier-stat-val">${selC.share}%</span>
+              <span class="atlas-dossier-stat-lbl">OF VAULT</span>
+            </div>
+          </div>
+          <div class="atlas-dossier-col-actions">
+            <button type="button" class="btn small atlas-btn-cf-jump" data-iso="${selC.iso}" style="background:var(--gold);color:#08090c;font-weight:700">
+              ⚡ Open in 3D Cover Flow (${selC.count}) →
+            </button>
+            <button type="button" class="btn small atlas-btn-close-dossier" title="Clear selection">×</button>
+          </div>
+        </div>
+        ${previewCoins.length ? `
+          <div class="atlas-dossier-specimens-section">
+            <div class="atlas-dossier-specimens-title">Featured Specimens from ${selC.name} (${countryFlips.length} in collection):</div>
+            <div class="atlas-dossier-specimens-grid">
+              ${coinsHtml}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+    `;
   }
 
   function renderAtlasMarkup(selectedIso) {
@@ -1019,7 +1108,7 @@
           <circle r="${haloR}" class="atlas-node-halo" fill="rgba(200,169,74,0.18)" />
           <circle r="${r}" class="atlas-node-core" fill="var(--gold, #c8a94a)" stroke="#0b0a08" stroke-width="1.25" />
           ${c.count >= 4 ? `<text y="2.5" text-anchor="middle" font-size="${r > 7 ? '6.5' : '5.5'}" font-weight="700" fill="#0b0a08" font-family="var(--mono)">${c.count}</text>` : ""}
-          ${isSel ? `<circle r="${r + 4.5}" fill="none" stroke="var(--gold-soft, #fef08a)" stroke-width="1.5" stroke-dasharray="2.5,1.5" class="atlas-pulse" />` : ""}
+          ${isSel ? `<circle r="${r + 4.5}" fill="none" stroke="var(--gold-soft, #fef08a)" stroke-width="1.5" stroke-dasharray="2.5,1.5" class="atlas-pulse atlas-pulse-ring" />` : ""}
         </g>
       `;
     });
@@ -1042,47 +1131,8 @@
       }
     }
 
-    // Docked Country Dossier Card (rendered dynamically upon node selection)
-    let selectedCountryDossier = "";
     const selC = countries.find(c => c.iso === activeCountryIso);
-    if (selC) {
-      selectedCountryDossier = `
-        <div class="atlas-docked-dossier reveal">
-          <div class="atlas-dossier-col-main">
-            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.25rem">
-              <span style="font-size:1.5rem">${selC.flag}</span>
-              <div>
-                <h4 style="margin:0;font-size:1.2rem;color:var(--gold-soft)">${selC.name}</h4>
-                <div style="font-size:0.75rem;color:var(--muted);font-family:var(--mono)">ISO: ${selC.iso} · ${selC.region} · ${selC.era}</div>
-              </div>
-            </div>
-            <p style="margin:0.25rem 0 0;font-size:0.82rem;color:var(--ink-soft);line-height:1.4">
-              <strong>Notable Specimen:</strong> ${selC.notable} &nbsp;|&nbsp; <strong>Mint:</strong> ${selC.mint}
-            </p>
-          </div>
-          <div class="atlas-dossier-col-stats">
-            <div class="atlas-dossier-stat">
-              <span class="atlas-dossier-stat-val">${selC.count}</span>
-              <span class="atlas-dossier-stat-lbl">PIECES</span>
-            </div>
-            <div class="atlas-dossier-stat">
-              <span class="atlas-dossier-stat-val">${selC.asw}</span>
-              <span class="atlas-dossier-stat-lbl">ASW AG</span>
-            </div>
-            <div class="atlas-dossier-stat">
-              <span class="atlas-dossier-stat-val">${selC.share}%</span>
-              <span class="atlas-dossier-stat-lbl">OF VAULT</span>
-            </div>
-          </div>
-          <div class="atlas-dossier-col-actions">
-            <button type="button" class="btn small atlas-btn-cf-jump" data-iso="${selC.iso}" style="background:var(--gold);color:#08090c;font-weight:700">
-              ⚡ Open in 3D Cover Flow →
-            </button>
-            <button type="button" class="btn small atlas-btn-close-dossier" title="Clear selection">×</button>
-          </div>
-        </div>
-      `;
-    }
+    const selectedCountryDossier = renderDockedDossier(selC);
 
     return `
       <div class="atlas-card card reveal" id="titan-world-atlas-wrap">
@@ -1094,7 +1144,7 @@
             </div>
             <h3 style="margin:0;font-size:1.35rem;color:var(--gold-soft)">Interactive World Specimen Atlas &amp; Silver Trade Routes</h3>
             <p style="margin:0.25rem 0 0;font-size:0.82rem;color:var(--ink)">
-              Geographic provenance and historic trade veins. Tap any sovereign nation to instantly filter the <strong>3D Cover Flow</strong> and <strong>Gallery</strong>.
+              Geographic provenance and historic trade veins. Tap any sovereign nation to inspect its cataloged pieces and filter the <strong>3D Cover Flow</strong>.
             </p>
           </div>
           <div class="atlas-quick-metrics">
@@ -1111,6 +1161,14 @@
             <button type="button" class="btn small atlas-cam-zoom-in" title="Zoom in">+</button>
             <button type="button" class="btn small atlas-cam-zoom-out" title="Zoom out">-</button>
             <button type="button" class="btn small atlas-cam-reset" title="Reset view">↺</button>
+          </div>
+          <div class="atlas-country-search-wrap">
+            <select class="atlas-country-select" id="atlas-country-select" aria-label="Jump to Sovereign Nation">
+              <option value="">Jump to Nation (45 Countries)...</option>
+              ${countries.slice().sort((a,b) => a.name.localeCompare(b.name)).map(c => `
+                <option value="${c.iso}" ${c.iso === activeCountryIso ? 'selected' : ''}>${c.flag} ${c.name} (${c.count} pcs)</option>
+              `).join('')}
+            </select>
           </div>
           <div class="atlas-routes-bar">
             ${routeButtons}
@@ -1147,7 +1205,9 @@
           </svg>
         </div>
 
-        ${selectedCountryDossier}
+        <div id="atlas-docked-dossier-wrap">
+          ${selectedCountryDossier}
+        </div>
 
         <div class="atlas-footer-bar">
           <div style="font-size:0.75rem;color:var(--ink-soft);display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
@@ -1169,6 +1229,104 @@
     if (!container) return;
 
     const activeCallback = onSelectCountry || window.TitanWorldFilterCallback;
+
+    function bindDossierActions(wrap) {
+      if (!wrap) return;
+      wrap.querySelectorAll(".atlas-dossier-coin-chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+          const scan = chip.dataset.scan;
+          if (typeof window.openDrawer === "function") {
+            window.openDrawer(scan);
+          }
+        });
+        chip.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const scan = chip.dataset.scan;
+            if (typeof window.openDrawer === "function") window.openDrawer(scan);
+          }
+        });
+      });
+
+      wrap.querySelector(".atlas-btn-cf-jump")?.addEventListener("click", (e) => {
+        const iso = e.currentTarget.dataset.iso;
+        const liveCs = getDynamicCountries();
+        const c = liveCs.find(x => x.iso === iso);
+        if (c) {
+          const cb = activeCallback || window.TitanWorldFilterCallback;
+          if (typeof cb === "function") cb(c);
+        }
+      });
+
+      wrap.querySelector(".atlas-btn-close-dossier")?.addEventListener("click", () => {
+        selectCountry("", false);
+      });
+    }
+
+    function selectCountry(iso, focusCam = false) {
+      activeCountryIso = iso;
+      const countries = getDynamicCountries();
+      const c = countries.find(x => x.iso === iso);
+
+      // Update node classes
+      container.querySelectorAll(".atlas-node").forEach(node => {
+        const match = node.dataset.iso === iso;
+        node.classList.toggle("selected", match);
+        // Remove old selection pulse
+        const oldPulse = node.querySelector(".atlas-pulse-ring");
+        if (oldPulse) oldPulse.remove();
+        if (match) {
+          const core = node.querySelector(".atlas-node-core");
+          const r = core ? parseFloat(core.getAttribute("r")) : 6;
+          const pulse = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          pulse.setAttribute("r", String(r + 4.5));
+          pulse.setAttribute("fill", "none");
+          pulse.setAttribute("stroke", "var(--gold-soft, #fef08a)");
+          pulse.setAttribute("stroke-width", "1.5");
+          pulse.setAttribute("stroke-dasharray", "2.5,1.5");
+          pulse.setAttribute("class", "atlas-pulse atlas-pulse-ring");
+          node.appendChild(pulse);
+          if (node.parentNode) node.parentNode.appendChild(node);
+        }
+      });
+
+      // Update quick-jump select if present
+      const selEl = container.querySelector("#atlas-country-select");
+      if (selEl && selEl.value !== iso) selEl.value = iso;
+
+      // Update docked dossier in place
+      const wrap = container.querySelector("#atlas-docked-dossier-wrap");
+      if (wrap) {
+        wrap.innerHTML = renderDockedDossier(c);
+        bindDossierActions(wrap);
+        if (c) {
+          const dossier = wrap.querySelector(".atlas-docked-dossier");
+          if (dossier) dossier.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }
+
+      // Synchronize with #world-table in Study wing if present
+      document.querySelectorAll("#study-body #world-table tr.w-row").forEach(tr => {
+        tr.classList.toggle("selected", tr.dataset.iso === iso);
+      });
+
+      // Optionally center camera on country
+      if (focusCam && c) {
+        const targetW = 240, targetH = 120;
+        const nx = Math.max(0, Math.min(1000 - targetW, c.x - targetW / 2));
+        const ny = Math.max(0, Math.min(500 - targetH, c.y - targetH / 2));
+        animateToViewBox(nx, ny, targetW, targetH, 350);
+      }
+    }
+
+    // Bind initial dossier actions
+    bindDossierActions(container.querySelector("#atlas-docked-dossier-wrap"));
+
+    // Quick-jump select change event
+    container.querySelector("#atlas-country-select")?.addEventListener("change", (e) => {
+      const iso = e.target.value;
+      selectCountry(iso, true);
+    });
 
     // Camera preset buttons
     container.querySelectorAll(".atlas-cam-btn").forEach(btn => {
@@ -1297,7 +1455,11 @@
       const c = countries.find(x => x.iso === iso);
       if (!c) return;
 
-      node.addEventListener("mouseenter", (e) => {
+      node.addEventListener("mouseenter", () => {
+        // Bring hovered node to the top of the SVG DOM to avoid overlap clipping
+        if (node.parentNode) {
+          node.parentNode.appendChild(node);
+        }
         const html = `
           <div class="atlas-hud-card">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;border-bottom:1px solid rgba(200,169,74,0.2);padding-bottom:4px;margin-bottom:6px">
@@ -1322,25 +1484,17 @@
       });
 
       node.addEventListener("mouseleave", () => {
-        hideTooltip();
+        hideTooltip(false);
       });
 
-      const handleSelect = () => {
-        hideTooltip();
-        activeCountryIso = c.iso;
-        const parent = document.getElementById("world-atlas-mount");
-        if (parent) {
-          parent.innerHTML = renderAtlasMarkup(activeCountryIso);
-          bindAtlasEvents(parent, activeCallback);
-          const dossier = parent.querySelector(".atlas-docked-dossier");
-          if (dossier) dossier.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
-      };
+      node.addEventListener("click", (e) => {
+        e.stopPropagation();
+        hideTooltip(true);
+        selectCountry(c.iso, false);
+      });
 
-      node.onclick = handleSelect;
-      node.addEventListener("click", handleSelect);
-
-      node.addEventListener("dblclick", () => {
+      node.addEventListener("dblclick", (e) => {
+        e.stopPropagation();
         const cb = activeCallback || window.TitanWorldFilterCallback;
         if (typeof cb === "function") cb(c);
       });
@@ -1348,7 +1502,8 @@
       node.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          handleSelect();
+          hideTooltip(true);
+          selectCountry(c.iso, false);
         }
       });
     });
@@ -1360,6 +1515,7 @@
       const rName = wp.dataset.route;
 
       wp.addEventListener("mouseenter", () => {
+        if (wp.parentNode) wp.parentNode.appendChild(wp);
         const html = `
           <div class="atlas-hud-card">
             <div style="font-size:0.9rem;font-weight:700;color:var(--gold-soft);margin-bottom:3px">${name}</div>
@@ -1371,34 +1527,17 @@
       });
 
       wp.addEventListener("mouseleave", () => {
-        hideTooltip();
+        hideTooltip(false);
       });
 
       wp.addEventListener("click", () => {
-        hideTooltip();
+        hideTooltip(true);
         if (typeof showToast === "function") showToast(`${name}: ${role}`);
       });
     });
 
-    // Jump button in docked dossier
-    container.querySelector(".atlas-btn-cf-jump")?.addEventListener("click", (e) => {
-      const iso = e.currentTarget.dataset.iso;
-      const liveCs = getDynamicCountries();
-      const c = liveCs.find(x => x.iso === iso);
-      if (c) {
-        const cb = activeCallback || window.TitanWorldFilterCallback;
-        if (typeof cb === "function") cb(c);
-      }
-    });
-
-    container.querySelector(".atlas-btn-close-dossier")?.addEventListener("click", () => {
-      activeCountryIso = "";
-      const parent = document.getElementById("world-atlas-mount");
-      if (parent) {
-        parent.innerHTML = renderAtlasMarkup("");
-        bindAtlasEvents(parent, activeCallback);
-      }
-    });
+    // Export selectCountry to container instance
+    container._atlasSelectCountry = selectCountry;
   }
 
   // Public Atlas API
@@ -1410,6 +1549,14 @@
     bindEvents: bindAtlasEvents,
     setActiveRoute: (id) => { activeRouteId = id; },
     setSelectedIso: (iso) => { activeCountryIso = iso; },
+    selectCountry: (iso, focusCam) => {
+      const mount = document.getElementById("world-atlas-mount");
+      if (mount && mount._atlasSelectCountry) {
+        mount._atlasSelectCountry(iso, focusCam);
+      } else {
+        activeCountryIso = iso;
+      }
+    },
     focusPreset: (key) => {
       const p = VIEW_PRESETS[key];
       if (p) {

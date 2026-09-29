@@ -8524,16 +8524,32 @@ html[data-atmo="silkroad"] .wordmark {
 
 .atlas-docked-dossier {
   margin-top: 1rem;
-  background: linear-gradient(135deg, rgba(200, 169, 74, 0.12), rgba(14, 18, 26, 0.95));
+  background: linear-gradient(135deg, rgba(200, 169, 74, 0.12), rgba(14, 18, 26, 0.96));
   border: 1px solid var(--gold, #c8a94a);
   border-radius: 12px;
-  padding: 1rem 1.25rem;
+  padding: 1.15rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(200, 169, 74, 0.15);
+  transition: all 0.25s ease;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: atlasDossierIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes atlasDossierIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.atlas-dossier-main-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1.25rem;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  width: 100%;
 }
 
 .atlas-dossier-col-main {
@@ -8571,6 +8587,204 @@ html[data-atmo="silkroad"] .wordmark {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+/* Specimen preview grid within docked country dossier */
+.atlas-dossier-specimens-section {
+  border-top: 1px solid rgba(200, 169, 74, 0.2);
+  padding-top: 0.85rem;
+  width: 100%;
+}
+
+.atlas-dossier-specimens-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold, #c8a94a);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.atlas-dossier-specimens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.65rem;
+}
+
+.atlas-dossier-coin-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem 0.65rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-align: left;
+}
+
+.atlas-dossier-coin-chip:hover {
+  background: rgba(200, 169, 74, 0.18);
+  border-color: var(--gold, #c8a94a);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.atlas-dossier-coin-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(200, 169, 74, 0.4);
+  background: #000;
+  flex-shrink: 0;
+}
+
+.atlas-dossier-coin-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.atlas-dossier-coin-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.atlas-dossier-coin-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink, #fff);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.atlas-dossier-coin-sub {
+  font-size: 0.7rem;
+  color: var(--muted, #94a3b8);
+  font-family: var(--mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.atlas-dossier-coin-inspect {
+  font-size: 0.7rem;
+  color: var(--gold, #c8a94a);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Country quick-select dropdown */
+.atlas-country-search-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.atlas-country-select {
+  background: var(--bg-card, #131720);
+  color: var(--ink, #fff);
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.3));
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.atlas-country-select:hover, .atlas-country-select:focus {
+  border-color: var(--gold, #c8a94a);
+  box-shadow: 0 0 8px rgba(200, 169, 74, 0.3);
+}
+
+/* Study Wing Section Navigation Pills */
+.study-nav-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem;
+  background: rgba(14, 18, 26, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.study-nav-pill {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted, #94a3b8);
+  border-radius: 7px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.study-nav-pill:hover {
+  color: var(--ink, #fff);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.study-nav-pill.active {
+  color: #08090c;
+  background: var(--gold, #c8a94a);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(200, 169, 74, 0.35);
+}
+
+/* World table search and controls */
+.world-table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(14, 18, 26, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+
+.world-search-input {
+  max-width: 380px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle, rgba(200, 169, 74, 0.25));
+  color: var(--ink, #fff);
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+
+.world-search-input:focus {
+  border-color: var(--gold, #c8a94a);
+  box-shadow: 0 0 10px rgba(200, 169, 74, 0.3);
+  outline: none;
+}
+
+.world-table-count {
+  font-size: 0.78rem;
+  font-family: var(--mono);
+  color: var(--gold-soft, #fef08a);
+  font-weight: 600;
 }
 
 .atlas-route-intel {
@@ -8640,30 +8854,53 @@ html[data-atmo="conservator"] .atlas-svg-container {
 .atlas-node {
   cursor: pointer;
   outline: none;
-  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: visiblePainted;
 }
 
-.atlas-node:hover {
-  transform: scale(1.18);
+.atlas-node text {
+  pointer-events: none;
+  user-select: none;
 }
 
-.atlas-node:focus-visible .atlas-node-core {
-  stroke: #ffffff;
-  stroke-width: 2.5px;
+.atlas-node .atlas-node-core {
+  transition: r 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), fill 0.2s ease, stroke 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
 }
 
 .atlas-node .atlas-node-halo {
-  transition: fill 0.25s ease, r 0.25s ease;
+  pointer-events: visiblePainted;
+  transition: r 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), fill 0.2s ease, opacity 0.2s ease;
 }
 
-.atlas-node:hover .atlas-node-halo {
-  fill: rgba(200, 169, 74, 0.45);
+.atlas-node:hover .atlas-node-core,
+.atlas-node:focus-visible .atlas-node-core {
+  fill: #ffffff !important;
+  stroke: var(--gold, #c8a94a) !important;
+  stroke-width: 2.4px !important;
+  filter: drop-shadow(0 0 6px rgba(200, 169, 74, 0.95));
+}
+
+.atlas-node:hover .atlas-node-halo,
+.atlas-node:focus-visible .atlas-node-halo {
+  fill: rgba(200, 169, 74, 0.45) !important;
+  opacity: 1 !important;
 }
 
 .atlas-node.selected .atlas-node-core {
-  fill: #fff;
-  stroke: var(--gold, #c8a94a);
-  stroke-width: 2.5px;
+  fill: #ffffff !important;
+  stroke: var(--gold-soft, #fef08a) !important;
+  stroke-width: 2.8px !important;
+  filter: drop-shadow(0 0 8px rgba(254, 240, 138, 0.85));
+}
+
+.atlas-node.selected .atlas-node-halo {
+  fill: rgba(254, 240, 138, 0.38) !important;
+  opacity: 1 !important;
+}
+
+.atlas-node.dimmed {
+  opacity: 0.22;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .atlas-waypoint {

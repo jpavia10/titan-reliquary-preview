@@ -223,7 +223,7 @@
     });
     $$(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + name));
 
-    // 3. Render gallery if entering gallery wing and not yet rendered or if body is empty
+    // 3. Render gallery or study if entering wing and not yet rendered or if body is empty
     if (name === "gallery") {
       const gBody = $("#gallery-body");
       if ((!galleryRendered || !gBody || !gBody.firstElementChild) && vault && vault.flips) {
@@ -234,6 +234,11 @@
         requestAnimationFrame(() => {
           updateCoverFlowTransforms();
         });
+      }
+    } else if (name === "study") {
+      const sBody = $("#study-body");
+      if ((!sBody || !sBody.firstElementChild) && vault) {
+        renderStudy();
       }
     }
 
@@ -812,23 +817,27 @@
     const decadeCard = `
       <div class="insight-card reveal">
         <h3>Age map</h3>
-        <p class="lede">A century of pocket change, by decade.</p>
+        <p class="lede">A century of pocket change, by decade (tap to filter gallery).</p>
         <div class="decade-bars">
           ${decadeRows.map(([d, n]) => `
-            <div class="decade-row"><span class="dk">${d}s</span>
-            <span class="dt"><span style="width:${Math.round((n / dMax) * 100)}%"></span></span>
-            <span class="dv">${intFmt(n)}</span></div>`).join("")}
+            <div class="decade-row interactive-decade" data-decade="${d}" style="cursor:pointer" title="Click to filter gallery to ${d}s">
+              <span class="dk">${d}s</span>
+              <span class="dt"><span style="width:${Math.round((n / dMax) * 100)}%"></span></span>
+              <span class="dv">${intFmt(n)}</span>
+            </div>`).join("")}
         </div>
       </div>`;
     const spreadCard = `
       <div class="insight-card reveal">
         <h3>Country spread</h3>
-        <p class="lede">The cabinet's passports, ranked.</p>
+        <p class="lede">The cabinet's passports, ranked (tap to filter gallery).</p>
         <div class="country-spread">
           ${topCountries.map(([c, x]) => `
-            <div class="spread-row"><span class="sc">${esc(c)}</span>
-            <span class="sv">${intFmt(x.n)} flips · ${money(x.v)}</span>
-            <span class="st"><span style="width:${Math.round((x.n / cMax) * 100)}%"></span></span></div>`).join("")}
+            <div class="spread-row interactive-country-spread" data-country="${esc(c)}" style="cursor:pointer" title="Click to filter gallery to ${esc(c)}">
+              <span class="sc">${esc(c)}</span>
+              <span class="sv">${intFmt(x.n)} flips · ${money(x.v)}</span>
+              <span class="st"><span style="width:${Math.round((x.n / cMax) * 100)}%"></span></span>
+            </div>`).join("")}
         </div>
       </div>`;
     const gemCard = `
@@ -837,13 +846,16 @@
         <p class="lede">Worth real money, confidence still soft — verify these first.</p>
         ${gems.length ? gems.map((f) => `
           <div class="gem-row"><button type="button" data-scan="${esc(f.scan)}" title="Open the dossier">
-            <span><span class="g-id">${esc(f.ser || f.scan)}</span>
-            <span class="g-why">${esc([f.country, f.year, f.denom].filter(Boolean).join(" · "))} · conf ${esc(f.conf || "—")}</span></span>
+            <span>
+              ${f.thumb ? `<img src="${esc(f.thumb)}" alt="" style="width:24px;height:24px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;border:1px solid rgba(200,169,74,0.4)" />` : ""}
+              <span class="g-id">${esc(f.ser || f.scan)}</span>
+              <span class="g-why">${esc([f.country, f.year, f.denom].filter(Boolean).join(" · "))} · conf ${esc(f.conf || "—")}</span>
+            </span>
             <span class="g-val">${money(f.est)}</span>
           </button></div>`).join("") : '<p class="empty">Nothing flagged — every valued flip reads high confidence.</p>'}
       </div>`;
     return `
-      <div class="sec-head reveal"><span class="eyebrow">Collection intelligence</span><h2>The vault, thinking</h2>
+      <div class="sec-head reveal" id="sec-intelligence"><span class="eyebrow">Collection intelligence</span><h2>The vault, thinking</h2>
       <p class="sub">Computed from the ledger — ${intFmt(flips.length)} flips · ${intFmt(agN)} silver · ${money(total)} in flips.</p></div>
       <div class="insight-grid">${concCard}${decadeCard}${spreadCard}${gemCard}</div>`;
   }
@@ -4234,11 +4246,15 @@
         </tr>`)
       .join("");
     return `
-      <div class="sec-head reveal"><span class="eyebrow">Passports</span><h2>World</h2>
-      <p class="sub">${intFmt(world.length)} sovereign nations · tap any country or trade route on the vector atlas to filter the 3D Cover Flow &amp; Gallery</p></div>
+      <div class="sec-head reveal" id="sec-world"><span class="eyebrow">Passports</span><h2>World Specimen Atlas</h2>
+      <p class="sub">${intFmt(world.length)} sovereign nations · tap any country bubble or trade route on the vector atlas to inspect or filter the 3D Cover Flow &amp; Gallery</p></div>
       <div id="world-atlas-mount"></div>
-      ${worldSel ? worldPanel(worldSel) : ""}
+      <div id="world-panel-mount">${worldSel ? worldPanel(worldSel) : ""}</div>
       <div class="table-wrap">
+        <div class="world-table-controls">
+          <input type="search" id="world-table-search" placeholder="🔍 Search sovereign nations by name, ISO, or note..." class="input small world-search-input" />
+          <div class="world-table-count" id="world-table-count">${world.length} sovereign nations</div>
+        </div>
         <table class="data" id="world-table">
           <thead><tr><th>Country</th><th>ISO</th><th class="num w-sermax">SER max</th><th class="num">Count</th><th class="w-note">Note</th></tr></thead>
           <tbody>${body || '<tr><td colspan="5" class="empty">No world table</td></tr>'}</tbody>
@@ -4280,43 +4296,77 @@
       window.TitanAtlas.bindEvents(atlasMount, window.TitanWorldFilterCallback);
     }
 
+    // Live search for World Table
+    const searchInput = $("#world-table-search");
+    const countDisplay = $("#world-table-count");
+    if (searchInput) {
+      searchInput.addEventListener("input", () => {
+        const q = searchInput.value.trim().toLowerCase();
+        let matchCount = 0;
+        $$("#study-body #world-table tr.w-row").forEach(tr => {
+          const text = tr.innerText.toLowerCase();
+          const match = !q || text.includes(q);
+          tr.style.display = match ? "" : "none";
+          if (match) matchCount++;
+        });
+        if (countDisplay) {
+          countDisplay.textContent = q ? `${matchCount} matching nation${matchCount === 1 ? '' : 's'}` : `${(vault.world || []).length} sovereign nations`;
+        }
+      });
+    }
+
+    function bindWorldPanel() {
+      const openCoin = (scan) => {
+        dossierCtx = { label: isoName(worldSel), scans: worldCoins(worldSel).map((f) => f.scan) };
+        openDrawer(scan);
+      };
+      $$("#study-body #world-coins tbody tr[data-scan]").forEach((tr) => {
+        tr.addEventListener("click", () => openCoin(tr.dataset.scan));
+        tr.addEventListener("keydown", (e) => { if (e.key === "Enter") openCoin(tr.dataset.scan); });
+      });
+      $("#wp-close")?.addEventListener("click", () => {
+        pick(worldSel);
+      });
+      $("#wp-flips")?.addEventListener("click", () => {
+        const names = [...new Set(worldCoins(worldSel).map((f) => f.country).filter(Boolean))];
+        flipFilter = { ...flipFilter, q: "", year: "", silverOnly: false, phase2: false,
+          country: names.length === 1 ? names[0] : "", iso: names.length === 1 ? "" : worldSel };
+        flipSort = { key: "ser", dir: 1 };
+        renderGallery(); setWing("gallery"); window.scrollTo(0, 0);
+        setTimeout(() => {
+          const cfWrap = document.getElementById("gallery-coverflow-wrap");
+          if (cfWrap) {
+            cfWrap.scrollIntoView({ block: "center", behavior: "smooth" });
+          }
+        }, 150);
+      });
+    }
+
     const pick = (iso) => {
       worldSel = worldSel === iso ? "" : iso;
-      if (window.TitanAtlas) window.TitanAtlas.setSelectedIso(worldSel);
-      renderStudy(); saveState();
+      if (window.TitanAtlas && window.TitanAtlas.selectCountry) {
+        window.TitanAtlas.selectCountry(worldSel, true);
+      }
+      $$("#study-body #world-table tr.w-row").forEach((tr) => {
+        const isMatch = tr.dataset.iso === worldSel;
+        tr.classList.toggle("selected", isMatch);
+        tr.setAttribute("aria-expanded", String(isMatch));
+      });
+      const wpMount = $("#world-panel-mount");
+      if (wpMount) {
+        wpMount.innerHTML = worldSel ? worldPanel(worldSel) : "";
+        bindWorldPanel();
+      }
+      saveState();
       if (worldSel) requestAnimationFrame(() => $("#world-panel")?.scrollIntoView?.({ behavior: "smooth", block: "start" }));
     };
+
     $$("#study-body #world-table tr.w-row").forEach((tr) => {
       tr.addEventListener("click", () => pick(tr.dataset.iso));
       tr.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(tr.dataset.iso); } });
     });
-    const openCoin = (scan) => {
-      dossierCtx = { label: isoName(worldSel), scans: worldCoins(worldSel).map((f) => f.scan) };
-      openDrawer(scan);
-    };
-    $$("#study-body #world-coins tbody tr[data-scan]").forEach((tr) => {
-      tr.addEventListener("click", () => openCoin(tr.dataset.scan));
-      tr.addEventListener("keydown", (e) => { if (e.key === "Enter") openCoin(tr.dataset.scan); });
-    });
-    $("#wp-close")?.addEventListener("click", () => {
-      worldSel = "";
-      if (window.TitanAtlas) window.TitanAtlas.setSelectedIso("");
-      renderStudy();
-      saveState();
-    });
-    $("#wp-flips")?.addEventListener("click", () => {
-      const names = [...new Set(worldCoins(worldSel).map((f) => f.country).filter(Boolean))];
-      flipFilter = { ...flipFilter, q: "", year: "", silverOnly: false, phase2: false,
-        country: names.length === 1 ? names[0] : "", iso: names.length === 1 ? "" : worldSel };
-      flipSort = { key: "ser", dir: 1 };
-      renderGallery(); setWing("gallery"); window.scrollTo(0, 0);
-      setTimeout(() => {
-        const cfWrap = document.getElementById("gallery-coverflow-wrap");
-        if (cfWrap) {
-          cfWrap.scrollIntoView({ block: "center", behavior: "smooth" });
-        }
-      }, 150);
-    });
+
+    bindWorldPanel();
   }
 
 
@@ -4925,7 +4975,7 @@
     const bullAgOz = prec.bullion_silver?.oz, bullAgMelt = prec.bullion_silver?.melt;
     const auOz = m.oz?.au ?? b.gold?.oz, auMelt = m.melt?.au_usd ?? b.gold?.melt;
     return `
-      <div class="sec-head reveal"><span class="eyebrow">The ledger</span><h2>Precious metal</h2>
+      <div class="sec-head reveal" id="sec-metals"><span class="eyebrow">The ledger</span><h2>Precious metal</h2>
       <p class="sub">Live spot when online · ${esc(m.as_of_local || m.as_of || "—")}</p></div>
       <div class="grid">
         <div class="card reveal"><h3>Grand</h3><div class="val">${money(b.grand)}</div><div class="hint">${esc(vault.policy || "HOLD")}</div></div>
@@ -4957,6 +5007,8 @@
     const foYear = b.age_flips?.mean_year ?? ageFo.mean_year, foAge = b.age_flips?.mean_age ?? ageFo.mean_age;
     const alYear = b.age_albums?.mean_year ?? ageAl.mean_year, alAge = b.age_albums?.mean_age ?? ageAl.mean_age;
     return `
+      <div class="sec-head reveal" id="sec-buckets"><span class="eyebrow">Holdings</span><h2>Storage Buckets</h2>
+      <p class="sub">Asset distribution across binders, flips, bullion tubes, and sets</p></div>
       <div class="grid two">
         <div class="card reveal"><h3>Bucket breakdown</h3>${bucketHtml || '<p class="empty">No board rows</p>'}</div>
         <div class="card reveal"><h3>Age (board)</h3>
@@ -5015,7 +5067,7 @@
       })
       .join("");
     return `
-      <div class="sec-head reveal"><span class="eyebrow">Patina</span><h2>Age</h2>
+      <div class="sec-head reveal" id="sec-age"><span class="eyebrow">Patina</span><h2>Age &amp; Albums</h2>
       <p class="sub">As of ${esc(age.as_of || "—")} · ref ${esc(String(age.reference_year ?? ""))}</p></div>
       <div class="grid two">
         <div class="card reveal">
@@ -5427,17 +5479,50 @@
   window.closeAlbumInspector = closeAlbumInspector;
 
   /** The Curator's Study: intelligence, metal, world, age — the ledger, thinking. */
+  /** The Curator's Study: world atlas, intelligence, metal, age, buckets. */
   function renderStudy() {
     $("#study-body").innerHTML = `
+      <nav class="study-nav-pills reveal" aria-label="Study Wing Sections">
+        <button type="button" class="study-nav-pill active" data-target="#sec-world">🌐 World Atlas &amp; Map</button>
+        <button type="button" class="study-nav-pill" data-target="#sec-intelligence">💡 Vault Intelligence</button>
+        <button type="button" class="study-nav-pill" data-target="#sec-metals">⚖️ Precious Metals</button>
+        <button type="button" class="study-nav-pill" data-target="#sec-age">⏳ Age &amp; Albums</button>
+        <button type="button" class="study-nav-pill" data-target="#sec-buckets">📦 Storage Buckets</button>
+      </nav>
+      ${worldSec()}
       ${insightsSec()}
       ${metalsSec()}
-      ${worldSec()}
       ${ageSec()}
       ${bucketsSec()}
     `;
     bindWorld();
+    bindStudyNav();
     $$("#study-body .gem-row button[data-scan]").forEach((btn) => {
       btn.addEventListener("click", () => { dossierCtx = null; openDrawer(btn.dataset.scan); });
+    });
+    $$("#study-body .interactive-decade").forEach((row) => {
+      row.addEventListener("click", () => {
+        const d = row.dataset.decade;
+        if (d) {
+          flipFilter = { ...flipFilter, q: "", country: "", iso: "", year: d.slice(0, 3) };
+          renderGallery();
+          setWing("gallery");
+          window.scrollTo(0, 0);
+          showToast(`Filtered gallery to ${d}s decade`);
+        }
+      });
+    });
+    $$("#study-body .interactive-country-spread").forEach((row) => {
+      row.addEventListener("click", () => {
+        const country = row.dataset.country;
+        if (country) {
+          flipFilter = { ...flipFilter, q: "", country, iso: "", year: "" };
+          renderGallery();
+          setWing("gallery");
+          window.scrollTo(0, 0);
+          showToast(`Filtered gallery to ${country}`);
+        }
+      });
     });
     $$("#study-body .staging-album-row").forEach((row) => {
       row.onclick = () => {
@@ -5460,6 +5545,18 @@
       };
     });
     observeReveals($("#study-body"));
+  }
+
+  function bindStudyNav() {
+    $$("#study-body .study-nav-pill").forEach((pill) => {
+      pill.addEventListener("click", () => {
+        $$("#study-body .study-nav-pill").forEach((p) => p.classList.toggle("active", p === pill));
+        const target = $(pill.dataset.target);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
   }
 
 
