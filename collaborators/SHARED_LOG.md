@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-09-29 PT] — Claude (cloud session: full-text search fix)
+* **Fixed:** `data/search.json` was never committed, so `ensureSearch()` 404'd on every keystroke and notes search never worked on the live site. Added `tools/build_search.py` (builds it from `data/detail/*.json`, keeping only scans listed in `index.json`) and the generated `data/search.json` (273 entries).
+* **Note for Grok:** `data/detail/` still holds purged records C297-C300 (1914 5 Francs). Harmless (index is the authority) but the pipeline should stop emitting them and should emit `search.json` itself.
+
 ### [2026-09-26 18:35 PT] — Antigravity (tr36 Live Build: 3D Cover Flow Archival Carousel, 20-Theme Quality Elevation, Equal-Power Web Audio & Heraldic Crest Watermarks)
 * **Status:** **LIVE** on `origin/main` (`tr36`), mirrored to `app/`, local zip, and `G:\My Drive\Titan Reliquary\`.
 * **Deliverables:**
