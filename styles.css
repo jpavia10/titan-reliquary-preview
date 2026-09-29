@@ -10596,6 +10596,872 @@ html[data-atmo="conservator"] .atlas-hud-tooltip {
   padding-bottom: 2.25rem !important;
 }
 
+/* ==========================================================================
+   THE VAULT WING OVERHAUL — TR49
+   Physical Precious Metals Reserve Strongroom
+   ========================================================================== */
 
+/* --- Phase 1: Vault Door Entry Animation --- */
+.vault-door-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(26, 29, 38, 0.98) 0%, rgba(14, 16, 22, 0.99) 50%, #06070a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+.vault-door-overlay.vault-opened {
+  opacity: 0;
+  pointer-events: none;
+}
+.vault-door-circle {
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at 35% 35%,
+    #4a5062 0%, #2a2e3a 45%, #181a22 100%);
+  border: 10px solid #232733;
+  box-shadow:
+    0 0 0 3px rgba(200, 169, 74, 0.75),
+    0 0 0 16px #131620,
+    0 0 0 19px rgba(200, 169, 74, 0.35),
+    0 24px 80px rgba(0, 0, 0, 0.95),
+    inset 0 0 60px rgba(0, 0, 0, 0.85),
+    inset 0 2px 4px rgba(255, 255, 255, 0.25);
+  transform: rotate(0deg);
+  transition: transform 0.85s cubic-bezier(0.34, 1.4, 0.64, 1),
+              opacity 0.4s ease 0.45s;
+}
+.vault-opened .vault-door-circle {
+  transform: rotate(-55deg) scale(1.25);
+  opacity: 0;
+}
+.vault-door-dial {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #2f3444, #151720);
+  border: 4px solid var(--gold, #c8a94a);
+  box-shadow:
+    0 0 24px rgba(200, 169, 74, 0.4),
+    inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+.vault-door-dial::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 1px dashed rgba(200, 169, 74, 0.45);
+}
+.vault-door-dial::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 42px;
+  background: var(--gold-soft, #fef08a);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(200, 169, 74, 0.8);
+}
+.vault-door-label {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-soft, #fef08a);
+  text-shadow: 0 0 10px rgba(200, 169, 74, 0.6);
+  white-space: nowrap;
+}
+.vault-door-bolt {
+  position: absolute;
+  width: 42px;
+  height: 12px;
+  background: linear-gradient(180deg, #60687c, #303544);
+  border: 1px solid var(--gold, #c8a94a);
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.vault-door-bolt:nth-child(1) { top: -6px; left: 50%; transform: translateX(-50%) rotate(90deg); }
+.vault-door-bolt:nth-child(2) { top: 50%; right: -20px; transform: translateY(-50%) rotate(0deg); }
+.vault-door-bolt:nth-child(3) { bottom: -6px; left: 50%; transform: translateX(-50%) rotate(90deg); }
+.vault-door-bolt:nth-child(4) { top: 50%; left: -20px; transform: translateY(-50%) rotate(0deg); }
+.vault-opened .vault-door-bolt:nth-child(1) { transform: translateX(-50%) translateY(30px); opacity: 0; }
+.vault-opened .vault-door-bolt:nth-child(2) { transform: translateY(-50%) translateX(-30px); opacity: 0; }
+.vault-opened .vault-door-bolt:nth-child(3) { transform: translateX(-50%) translateY(-30px); opacity: 0; }
+.vault-opened .vault-door-bolt:nth-child(4) { transform: translateY(-50%) translateX(30px); opacity: 0; }
 
+/* Vault interior laser grid overlay & dock clearance */
+.vault-interior {
+  position: relative;
+  padding-bottom: 6rem !important;
+}
+.vault-interior::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 79px,
+      rgba(16, 185, 129, 0.03) 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 79px,
+      rgba(16, 185, 129, 0.03) 80px
+    );
+  opacity: 0;
+  animation: laserFadeIn 1.5s ease 1s forwards;
+}
+@keyframes laserFadeIn {
+  to { opacity: 1; }
+}
+
+/* --- Phase 2: 3D Bullion Stack Visualizer --- */
+.vault-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(200, 169, 74, 0.15);
+}
+.vault-section-head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--gold-soft, #fef08a);
+  font-family: var(--serif);
+}
+.vault-section-head .vault-sec-sub {
+  font-size: 0.78rem;
+  color: var(--muted, #94a3b8);
+  font-family: var(--mono);
+}
+
+.bullion-vault-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.bullion-lot-card {
+  background: linear-gradient(145deg, #131720, #0e1016);
+  border: 1px solid rgba(200, 169, 74, 0.18);
+  border-radius: 14px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  perspective: 900px;
+}
+.bullion-lot-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold, #c8a94a);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 24px rgba(200, 169, 74, 0.1);
+}
+.bullion-lot-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--card-sheen-x, 50%) var(--card-sheen-y, 50%),
+    rgba(200, 169, 74, 0.06) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  border-radius: 14px;
+}
+
+/* 3D Bullion Visuals */
+.bullion-3d-visual {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Silver Round Tube Stack */
+.bullion-tube {
+  position: relative;
+  width: 80px;
+  height: 100px;
+}
+.bullion-tube-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 90px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(2px);
+}
+.bullion-round {
+  position: absolute;
+  left: 50%;
+  width: 56px;
+  height: 10px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #d4d8e0, #94a3b8, #b0b8c8);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+.bullion-round::after {
+  content: ".999";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5px;
+  font-family: var(--mono);
+  color: rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.5px;
+}
+
+/* Poured Silver / Stamped Bar */
+.bullion-bar {
+  position: relative;
+  width: 100px;
+  height: 55px;
+  background: linear-gradient(135deg, #c8cdd8, #8892a4, #a0a8b8, #c0c8d4);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.25),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: perspective(500px) rotateX(8deg) rotateY(-3deg);
+}
+.bullion-bar-stamp {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+  text-align: center;
+  line-height: 1.3;
+}
+.bullion-bar-weight {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.45);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Gold Coin Disc */
+.bullion-gold-disc {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,
+    #fde68a, #eab308, #ca8a04, #a16207);
+  border: 2px solid #fbbf24;
+  box-shadow:
+    0 4px 16px rgba(234, 179, 8, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.bullion-gold-disc::after {
+  content: "Au";
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Mint Set Box */
+.bullion-mint-box {
+  width: 110px;
+  height: 65px;
+  background: linear-gradient(145deg, #1e3a5f, #0f2847);
+  border: 2px solid rgba(200, 169, 74, 0.4);
+  border-radius: 6px;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.bullion-mint-box::before {
+  content: "★";
+  font-size: 1.1rem;
+  color: var(--gold, #c8a94a);
+  margin-bottom: 2px;
+}
+.bullion-mint-box-label {
+  font-family: var(--mono);
+  font-size: 0.45rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 74, 0.7);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Housing / Storage Drawer */
+.bullion-housing {
+  width: 90px;
+  height: 55px;
+  background: linear-gradient(145deg, #2a1f12, #1a140b);
+  border: 1px solid rgba(200, 169, 74, 0.25);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bullion-housing::after {
+  content: "📦";
+  font-size: 1.5rem;
+}
+
+/* Stamp */
+.bullion-stamp-frame {
+  width: 60px;
+  height: 72px;
+  background: linear-gradient(145deg, #f5f0e0, #e8dfc8);
+  border: 3px solid rgba(200, 169, 74, 0.5);
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bullion-stamp-frame::after {
+  content: "📮";
+  font-size: 1.3rem;
+}
+
+/* Lot manifest (text below visual) */
+.bullion-lot-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.bullion-lot-id {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(200, 169, 74, 0.15);
+  color: var(--gold-soft, #fef08a);
+  border: 1px solid rgba(200, 169, 74, 0.3);
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+.bullion-lot-purity {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+.bullion-lot-purity.ag {
+  background: rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+.bullion-lot-purity.au {
+  background: rgba(234, 179, 8, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+.bullion-lot-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink, #e2e8f0);
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+.bullion-lot-desc {
+  font-size: 0.75rem;
+  color: var(--muted, #94a3b8);
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.bullion-lot-housing {
+  font-size: 0.7rem;
+  color: var(--ink-soft, #94a3b8);
+  font-family: var(--mono);
+  padding: 0.35rem 0.6rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.6rem;
+}
+
+/* Live melt ticker strip */
+.bullion-lot-melt-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.4rem;
+  padding: 0.5rem 0.65rem;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.blm-metric {
+  text-align: center;
+}
+.blm-metric .blm-val {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold-soft, #fef08a);
+  display: block;
+}
+.blm-metric .blm-lbl {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted, #94a3b8);
+  display: block;
+  margin-top: 0.15rem;
+}
+
+/* --- Phase 3: Sovereign Reserve Portfolio Dashboard --- */
+.vault-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.vault-dash-card {
+  background: linear-gradient(145deg, #131720, #0e1016);
+  border: 1px solid rgba(200, 169, 74, 0.18);
+  border-radius: 14px;
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.vault-dash-card.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Allocation Donut Chart */
+.vault-donut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.vault-donut {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  /* conic-gradient set dynamically via JS style attribute */
+}
+.vault-donut::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #0e1016;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.vault-donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+.vault-donut-center .donut-total {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-soft, #fef08a);
+  display: block;
+}
+.vault-donut-center .donut-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted, #94a3b8);
+}
+.vault-donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+.vault-donut-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--ink, #e2e8f0);
+}
+.vault-donut-legend-item .legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.vault-donut-legend-item .legend-pct {
+  font-family: var(--mono);
+  font-weight: 600;
+  color: var(--gold-soft, #fef08a);
+  margin-left: auto;
+}
+
+/* Physical Custody Metrics */
+.vault-custody-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.vault-custody-metric {
+  flex: 1;
+  min-width: 140px;
+  background: linear-gradient(145deg, #131720, #0e1016);
+  border: 1px solid rgba(200, 169, 74, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+.vault-custody-metric .vcm-val {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-soft, #fef08a);
+  display: block;
+  line-height: 1.2;
+}
+.vault-custody-metric .vcm-lbl {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted, #94a3b8);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* Enhanced Spot Ticker (sparkline) */
+.spot-sparkline-svg {
+  display: block;
+  width: 100%;
+  height: 28px;
+  margin-top: 0.35rem;
+}
+.spot-sparkline-svg polyline {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.spot-sparkline-svg polyline.ag-spark { stroke: #94a3b8; }
+.spot-sparkline-svg polyline.au-spark { stroke: #eab308; }
+.spot-sparkline-svg polyline.pt-spark { stroke: #10b981; }
+.spot-sparkline-svg polyline.ratio-spark { stroke: #06b6d4; }
+.spot-range-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  position: relative;
+  margin-top: 0.4rem;
+}
+.spot-range-bar .spot-range-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 2px;
+}
+.spot-range-bar .spot-range-marker {
+  position: absolute;
+  top: -3px;
+  width: 3px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--gold, #c8a94a);
+}
+.spot-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55rem;
+  font-family: var(--mono);
+  color: var(--muted, #94a3b8);
+  margin-top: 0.2rem;
+}
+
+/* --- Phase 4: Silver Allocation Inspector --- */
+.silver-stack-bar-wrap {
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+}
+.silver-stack-bar {
+  display: flex;
+  height: 28px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+}
+.silver-stack-bar .ss-segment {
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+  min-width: 2px;
+}
+.silver-stack-bar .ss-segment:hover {
+  filter: brightness(1.3);
+  z-index: 2;
+}
+.silver-stack-bar .ss-segment .ss-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1d26;
+  border: 1px solid var(--gold, #c8a94a);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.72rem;
+  color: var(--ink, #e2e8f0);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+.silver-stack-bar .ss-segment:hover .ss-tooltip {
+  opacity: 1;
+}
+
+/* Sort and filter controls above table */
+.vault-table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.vault-table-search {
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+}
+.vault-table-sort-pills {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.vault-sort-pill {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--muted, #94a3b8);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.vault-sort-pill.active {
+  background: rgba(200, 169, 74, 0.15);
+  border-color: var(--gold, #c8a94a);
+  color: var(--gold-soft, #fef08a);
+}
+.vault-sort-pill:hover {
+  border-color: rgba(200, 169, 74, 0.4);
+  color: var(--ink, #e2e8f0);
+}
+
+/* Inline ASW progress bar in table */
+.asw-inline-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+}
+.asw-inline-bar .asw-bar-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  position: relative;
+}
+.asw-inline-bar .asw-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #64748b, #cbd5e1);
+}
+.asw-inline-bar .asw-val {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink, #e2e8f0);
+  white-space: nowrap;
+  min-width: 55px;
+  text-align: right;
+}
+
+/* --- Phase 5: Liquidation Scenario Calculator --- */
+.vault-scenario-panel {
+  background: linear-gradient(145deg, #141824, #0b0d13);
+  border: 1px solid rgba(200, 169, 74, 0.28);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.vault-scenario-panel .sc-head-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-soft, #fef08a);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.vault-scenario-sliders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.vault-scenario-slider-group label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted, #94a3b8);
+  margin-bottom: 0.35rem;
+}
+.vault-scenario-slider-group .scenario-val {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-soft, #fef08a);
+  float: right;
+}
+.vault-scenario-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+.scenario-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  transition: border-color 0.2s ease;
+}
+.scenario-card.best {
+  border-color: var(--gold, #c8a94a);
+  box-shadow: 0 0 12px rgba(200, 169, 74, 0.1);
+}
+.scenario-card .sc-name {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted, #94a3b8);
+  margin-bottom: 0.3rem;
+}
+.scenario-card .sc-amount {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold-soft, #fef08a);
+}
+.scenario-card .sc-detail {
+  font-size: 0.7rem;
+  color: var(--ink-soft, #94a3b8);
+  margin-top: 0.25rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .vault-dashboard {
+    grid-template-columns: 1fr;
+  }
+  .bullion-vault-grid {
+    grid-template-columns: 1fr;
+  }
+  .vault-donut-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+  .vault-door-circle {
+    width: 280px;
+    height: 280px;
+  }
+  .vault-custody-row {
+    flex-direction: column;
+  }
+}
 

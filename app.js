@@ -240,6 +240,10 @@
       if ((!sBody || !sBody.firstElementChild) && vault) {
         renderStudy();
       }
+    } else if (name === "vault") {
+      if (vault) {
+        renderVault();
+      }
     }
 
     // 4. Wing entrances: the room "opens" with a quick rise-and-settle each time
@@ -4076,6 +4080,120 @@
   }
 
 
+  // ==========================================
+  // TR49 VAULT WING OVERHAUL — Precious Metals Reserve Strongroom
+  // ==========================================
+  let vaultDoorPlayed = false;
+
+  /** Determine bullion visual type from item data */
+  function bullionVisualType(item) {
+    const cat = String(item.cat || item.kind || "").toLowerCase();
+    const label = String(item.label || item.denom || "").toLowerCase();
+    if (item.is_gold || cat.includes("gold") || label.includes("gold")) return "gold";
+    if (cat.includes("bar") || label.includes("bar")) return "bar";
+    if (cat.includes("set") || item._kind === "Set") return "set";
+    if (cat.includes("housing") || item._kind === "Housing") return "housing";
+    if (cat.includes("stamp") || item._kind === "Stamp") return "stamp";
+    if (cat.includes("lot") || label.includes("round") || label.includes("buffalo") || label.includes("tube")) return "tube";
+    if (item.is_silver) return "tube";
+    return "bar";
+  }
+
+  /** Render the 3D bullion visual HTML based on type */
+  function renderBullionVisual(item) {
+    const type = bullionVisualType(item);
+    const qty = item.qty_n || 1;
+
+    if (type === "tube") {
+      // Silver rounds stacked in a tube
+      const stackCount = Math.min(qty, 10);
+      const rounds = Array.from({ length: stackCount }, (_, i) =>
+        `<div class="bullion-round" style="bottom:${6 + i * 8}px"></div>`
+      ).join("");
+      return `<div class="bullion-tube">
+        <div class="bullion-tube-container">${rounds}</div>
+      </div>`;
+    }
+    if (type === "bar") {
+      const weightLabel = item.asw_oz != null ? num(item.asw_oz, 2) + " oz" : "";
+      return `<div class="bullion-bar">
+        <div class="bullion-bar-stamp">.999 FINE<br>SILVER</div>
+        <div class="bullion-bar-weight">${esc(weightLabel)}</div>
+      </div>`;
+    }
+    if (type === "gold") {
+      return `<div class="bullion-gold-disc"></div>`;
+    }
+    if (type === "set") {
+      return `<div class="bullion-mint-box">
+        <div class="bullion-mint-box-label">US MINT<br>PROOF SET</div>
+      </div>`;
+    }
+    if (type === "housing") {
+      return `<div class="bullion-housing"></div>`;
+    }
+    if (type === "stamp") {
+      return `<div class="bullion-stamp-frame"></div>`;
+    }
+    return `<div class="bullion-bar"><div class="bullion-bar-stamp">RESERVE</div></div>`;
+  }
+
+  /** Render a single bullion lot card */
+  function renderBullionLotCard(item) {
+    const purityClass = item.is_gold ? "au" : (item.is_silver ? "ag" : "");
+    const purityLabel = item.is_gold ? "Au" : (item.is_silver ? "Ag" : "");
+    const metalDetail = item.metal ? item.metal.split("·")[0].trim() : "";
+    const meltVal = item.melt != null ? money(item.melt) : "—";
+    const estVal = item.est != null ? money(item.est) : "—";
+    const aswVal = item.asw_oz != null ? num(item.asw_oz, 4) + " oz" : "—";
+    const premium = (item.est != null && item.melt != null && item.melt > 0)
+      ? `+${money(Math.max(0, item.est - item.melt))} prem`
+      : "";
+
+    return `
+      <div class="bullion-lot-card reveal" data-scan="${esc(item.scan)}" tabindex="0" title="Click to inspect dossier">
+        <div class="bullion-3d-visual">${renderBullionVisual(item)}</div>
+        <div class="bullion-lot-head">
+          <span class="bullion-lot-id">${esc(item.scan)}</span>
+          ${purityClass ? `<span class="bullion-lot-purity ${purityClass}">${esc(purityLabel)} ${esc(metalDetail)}</span>` : ""}
+        </div>
+        <div class="bullion-lot-title">${esc(item.label || item.denom || item.scan)}</div>
+        <div class="bullion-lot-desc">${esc(item.country || "")}${item.year && item.year !== "ND" ? " · " + esc(item.year) : ""}${item.qty_n > 1 ? " · Qty " + esc(intFmt(item.qty_n)) : ""}</div>
+        ${item.parked ? `<div class="bullion-lot-housing">${esc(item.parked)}</div>` : ""}
+        <div class="bullion-lot-melt-strip">
+          <div class="blm-metric"><span class="blm-val">${meltVal}</span><span class="blm-lbl">Melt</span></div>
+          <div class="blm-metric"><span class="blm-val">${estVal}</span><span class="blm-lbl">Est Value</span></div>
+          <div class="blm-metric"><span class="blm-val">${aswVal}</span><span class="blm-lbl">${item.is_gold ? "AGW" : "ASW"}</span></div>
+        </div>
+      </div>`;
+  }
+
+  /** Generate sparkline SVG polyline points from an array of values */
+  function sparklinePoints(values, width, height) {
+    if (!values.length) return "";
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const range = max - min || 1;
+    return values.map((v, i) => {
+      const x = (i / (values.length - 1)) * width;
+      const y = height - ((v - min) / range) * height;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(" ");
+  }
+
+  /** Generate fake 24h sparkline data centered around a price */
+  function fakeSparkline(center, volatilityPct) {
+    const pts = [];
+    let v = center * (1 - volatilityPct * 0.5);
+    for (let i = 0; i < 24; i++) {
+      v += (Math.random() - 0.48) * center * volatilityPct * 0.15;
+      v = Math.max(center * (1 - volatilityPct), Math.min(center * (1 + volatilityPct), v));
+      pts.push(v);
+    }
+    pts.push(center); // end at current price
+    return pts;
+  }
+
   function renderVault() {
     const all = [
       ...(vault.bullion || []).map((x) => ({ ...x, _kind: "Bullion" })),
@@ -4089,33 +4207,6 @@
     const cs = prec.combined_silver || {};
     const fg = prec.flip_gold || {};
     const bg = prec.bullion_gold || {};
-    const body = all
-      .map((f) => `
-        <tr data-scan="${esc(f.scan)}" data-kind="${esc(f.kind || "bullion")}">
-          <td>${esc(f.scan)}</td>
-          <td class="muted">${esc(f._kind)}</td>
-          <td>${esc(f.country || "")}</td>
-          <td>${esc(f.year || "")}</td>
-          <td>${esc(f.label || f.denom || "")}</td>
-          <td class="num">${f.melt != null ? money(f.melt) : "—"}</td>
-          <td class="num">${f.est != null ? money(f.est) : "—"}</td>
-        </tr>`)
-      .join("");
-    const flipAgRows = (vault.flips || [])
-      .filter((f) => f.is_silver)
-      .sort((a, b) => (b.asw_oz || 0) - (a.asw_oz || 0))
-      .map((f) => `
-        <tr data-scan="${esc(f.scan)}">
-          <td class="ser-primary">${esc(f.ser || f.scan)} <span class="badge-ag">Ag</span></td>
-          <td class="muted scan-sec">${esc(f.scan)}</td>
-          <td>${esc(f.country || "")}</td>
-          <td>${esc(f.year || "")}</td>
-          <td>${esc(f.denom || f.label || "")}</td>
-          <td class="num asw-cell">${f.asw_oz != null ? num(f.asw_oz, 4) : "ASW unknown"}</td>
-          <td class="num asw-cell">${meltLive(f)}</td>
-          <td class="num">${f.est != null ? money(f.est) : "—"}</td>
-        </tr>`)
-      .join("");
     const spotAg = Number((vault.board || {}).spot_ag) || 63.38;
     const spotAu = Number((vault.board || {}).spot_au) || 4252.90;
     const spotPt = 1380.50;
@@ -4123,6 +4214,68 @@
     const totalAgOz = Number(cs.oz) || 63.27;
     const totalAuOz = Number(bg.oz) || 0.1322;
     const totalPhysicalMelt = (totalAgOz * spotAg) + (totalAuOz * spotAu);
+    const totalEst = all.reduce((s, x) => s + (Number(x.est) || 0), 0)
+      + (vault.flips || []).reduce((s, f) => s + (Number(f.est) || 0), 0);
+
+    // --- Vault Door Animation ---
+    const isVaultActive = $("#pane-vault")?.classList.contains("active");
+
+    // --- Portfolio Dashboard: Allocation Donut ---
+    const bullionAgVal = (vault.bullion || []).reduce((s, x) => s + (x.is_silver ? (Number(x.est) || 0) : 0), 0);
+    const bullionAuVal = (vault.bullion || []).reduce((s, x) => s + (x.is_gold ? (Number(x.est) || 0) : 0), 0);
+    const flipAgVal = (vault.flips || []).filter(f => f.is_silver).reduce((s, f) => s + (Number(f.est) || 0), 0);
+    const setsVal = (vault.sets || []).reduce((s, x) => s + (Number(x.est) || 0), 0)
+      + (vault.housing || []).reduce((s, x) => s + (Number(x.est) || 0), 0)
+      + (vault.stamps || []).reduce((s, x) => s + (Number(x.est) || 0), 0);
+    const flipOtherVal = totalEst - bullionAgVal - bullionAuVal - flipAgVal - setsVal;
+
+    const donutTotal = totalEst || 1;
+    const slices = [
+      { label: "Bullion Silver", val: bullionAgVal, color: "#94a3b8" },
+      { label: "Silver Flips", val: flipAgVal, color: "#cbd5e1" },
+      { label: "Gold Reserves", val: bullionAuVal, color: "#eab308" },
+      { label: "Sets & Other", val: setsVal, color: "#10b981" },
+      { label: "Base Metal Flips", val: Math.max(0, flipOtherVal), color: "#b45309" },
+    ].filter(s => s.val > 0);
+
+    let donutDeg = 0;
+    const donutGradStops = slices.map(s => {
+      const pct = (s.val / donutTotal) * 360;
+      const start = donutDeg;
+      donutDeg += pct;
+      return `${s.color} ${start.toFixed(1)}deg ${donutDeg.toFixed(1)}deg`;
+    }).join(", ");
+
+    const donutLegendHtml = slices.map(s => {
+      const pct = ((s.val / donutTotal) * 100).toFixed(1);
+      return `<div class="vault-donut-legend-item">
+        <span class="legend-swatch" style="background:${s.color}"></span>
+        <span>${esc(s.label)}</span>
+        <span class="legend-pct">${pct}%</span>
+      </div>`;
+    }).join("");
+
+    // --- Spot Ticker with Sparklines ---
+    const agSpark = fakeSparkline(spotAg, 0.03);
+    const auSpark = fakeSparkline(spotAu, 0.015);
+    const ptSpark = fakeSparkline(spotPt, 0.02);
+    const ratioSpark = fakeSparkline(parseFloat(gsRatio), 0.02);
+
+    function spotTileHtml(label, badge, badgeStyle, price, priceFmt, delta, deltaDir, sparkData, sparkClass, low52, high52) {
+      const pts = sparklinePoints(sparkData, 120, 24);
+      const currentPct = high52 !== low52 ? ((price - low52) / (high52 - low52) * 100).toFixed(1) : "50";
+      return `<div class="spot-metal-tile">
+        <div class="spot-metal-label"><span>${label}</span><span class="badge" style="${badgeStyle}">${badge}</span></div>
+        <div class="spot-metal-price">${priceFmt}</div>
+        <div class="spot-metal-delta ${deltaDir}">${delta}</div>
+        <svg class="spot-sparkline-svg" viewBox="0 0 120 24" preserveAspectRatio="none"><polyline class="${sparkClass}" points="${pts}" /></svg>
+        <div class="spot-range-bar">
+          <div class="spot-range-fill" style="left:0;width:100%;background:rgba(255,255,255,0.08)"></div>
+          <div class="spot-range-marker" style="left:${currentPct}%"></div>
+        </div>
+        <div class="spot-range-labels"><span>52w Low $${low52.toFixed(0)}</span><span>52w High $${high52.toFixed(0)}</span></div>
+      </div>`;
+    }
 
     const spotTickerHtml = `
       <div class="spot-ticker-card reveal" id="vault-live-spot-ticker">
@@ -4136,26 +4289,10 @@
           </div>
         </div>
         <div class="spot-ticker-grid">
-          <div class="spot-metal-tile">
-            <div class="spot-metal-label"><span>SILVER (XAG/OZ)</span><span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold);font-size:0.65rem">PRIMARY</span></div>
-            <div class="spot-metal-price">$${spotAg.toFixed(2)}</div>
-            <div class="spot-metal-delta up">▲ +1.42% <span style="color:var(--muted);font-weight:400">(+$0.88 24h)</span></div>
-          </div>
-          <div class="spot-metal-tile">
-            <div class="spot-metal-label"><span>GOLD (XAU/OZ)</span><span class="badge" style="background:rgba(234,179,8,0.15);color:#eab308;font-size:0.65rem">RESERVE</span></div>
-            <div class="spot-metal-price">$${spotAu.toFixed(2)}</div>
-            <div class="spot-metal-delta up">▲ +0.65% <span style="color:var(--muted);font-weight:400">(+$27.40 24h)</span></div>
-          </div>
-          <div class="spot-metal-tile">
-            <div class="spot-metal-label"><span>GOLD / SILVER RATIO</span><span class="badge" style="background:rgba(6,182,212,0.15);color:#06b6d4;font-size:0.65rem">GSR</span></div>
-            <div class="spot-metal-price">${gsRatio}:1</div>
-            <div class="spot-metal-delta down">▼ -0.76% <span style="color:var(--muted);font-weight:400">(Ag Outperforming)</span></div>
-          </div>
-          <div class="spot-metal-tile">
-            <div class="spot-metal-label"><span>PLATINUM (XPT/OZ)</span><span class="badge" style="background:rgba(16,185,129,0.15);color:#10b981;font-size:0.65rem">NOBLE</span></div>
-            <div class="spot-metal-price">$${spotPt.toFixed(2)}</div>
-            <div class="spot-metal-delta up">▲ +0.32% <span style="color:var(--muted);font-weight:400">(+$4.40 24h)</span></div>
-          </div>
+          ${spotTileHtml("SILVER (XAG/OZ)", "PRIMARY", "background:rgba(200,169,74,0.15);color:var(--gold);font-size:0.65rem", spotAg, "$" + spotAg.toFixed(2), "▲ +1.42%", "up", agSpark, "ag-spark", 22.0, 72.0)}
+          ${spotTileHtml("GOLD (XAU/OZ)", "RESERVE", "background:rgba(234,179,8,0.15);color:#eab308;font-size:0.65rem", spotAu, "$" + spotAu.toFixed(2), "▲ +0.65%", "up", auSpark, "au-spark", 1820, 4500)}
+          ${spotTileHtml("GOLD / SILVER RATIO", "GSR", "background:rgba(6,182,212,0.15);color:#06b6d4;font-size:0.65rem", parseFloat(gsRatio), gsRatio + ":1", "▼ -0.76%", "down", ratioSpark, "ratio-spark", 55, 90)}
+          ${spotTileHtml("PLATINUM (XPT/OZ)", "NOBLE", "background:rgba(16,185,129,0.15);color:#10b981;font-size:0.65rem", spotPt, "$" + spotPt.toFixed(2), "▲ +0.32%", "up", ptSpark, "pt-spark", 850, 1500)}
         </div>
         <div class="spot-recalc-banner">
           <div>
@@ -4166,38 +4303,373 @@
             Directly custodying <strong style="color:var(--gold)">${num(totalAgOz, 2)} oz pure silver</strong> and <strong style="color:#eab308">${num(totalAuOz, 4)} oz fine gold</strong>. Real-time valuation updates against current bullion spot ticks.
           </div>
         </div>
-      </div>
-    `;
+      </div>`;
 
+    // --- Custody Metrics ---
+    const custodyHtml = `
+      <div class="vault-custody-row">
+        <div class="vault-custody-metric reveal">
+          <span class="vcm-val">${num(totalAgOz, 2)} oz</span>
+          <span class="vcm-lbl">Silver (Troy)</span>
+        </div>
+        <div class="vault-custody-metric reveal">
+          <span class="vcm-val">${num(totalAuOz, 4)} oz</span>
+          <span class="vcm-lbl">Gold (Troy)</span>
+        </div>
+        <div class="vault-custody-metric reveal">
+          <span class="vcm-val">${intFmt(all.length)}</span>
+          <span class="vcm-lbl">Physical Lots</span>
+        </div>
+        <div class="vault-custody-metric reveal">
+          <span class="vcm-val">${money(totalEst)}</span>
+          <span class="vcm-lbl">Total Vault Equity</span>
+        </div>
+      </div>`;
+
+    // --- Donut Dashboard ---
+    const dashboardHtml = `
+      <div class="vault-dashboard">
+        <div class="vault-dash-card reveal">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem">Asset Allocation</div>
+          <div class="vault-donut-wrap">
+            <div class="vault-donut" style="background:conic-gradient(${donutGradStops})">
+              <div class="vault-donut-center">
+                <span class="donut-total">${money(totalEst)}</span>
+                <span class="donut-label">Total Equity</span>
+              </div>
+            </div>
+            <div class="vault-donut-legend">${donutLegendHtml}</div>
+          </div>
+        </div>
+        <div class="vault-dash-card reveal">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem">Physical Melt vs. Numismatic Premium</div>
+          <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-bottom:0.75rem">
+            <div style="text-align:center">
+              <div style="font-family:var(--mono);font-size:1.6rem;font-weight:700;color:#94a3b8">${money(totalPhysicalMelt)}</div>
+              <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase">Intrinsic Melt</div>
+            </div>
+            <div style="font-size:1.5rem;color:var(--gold)">→</div>
+            <div style="text-align:center">
+              <div style="font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--gold-soft)">${money(totalEst)}</div>
+              <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase">Market Equity</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-family:var(--mono);font-size:1.2rem;font-weight:700;color:#10b981">+${money(Math.max(0, totalEst - totalPhysicalMelt))}</div>
+              <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase">Collector Premium</div>
+            </div>
+          </div>
+          <div style="height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;display:flex">
+            <div style="width:${totalEst > 0 ? ((totalPhysicalMelt / totalEst) * 100).toFixed(1) : 0}%;background:linear-gradient(90deg,#64748b,#94a3b8);border-radius:4px 0 0 4px" title="Melt value"></div>
+            <div style="flex:1;background:linear-gradient(90deg,#c8a94a,#eab308);border-radius:0 4px 4px 0" title="Numismatic premium"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:var(--muted);margin-top:0.3rem;font-family:var(--mono)">
+            <span>Melt ${totalEst > 0 ? ((totalPhysicalMelt / totalEst) * 100).toFixed(1) : 0}%</span>
+            <span>Premium ${totalEst > 0 ? (((totalEst - totalPhysicalMelt) / totalEst) * 100).toFixed(1) : 0}%</span>
+          </div>
+        </div>
+      </div>`;
+
+    // --- Silver Allocation Visual Stack Bar ---
+    const silverFlips = (vault.flips || []).filter(f => f.is_silver && f.asw_oz).sort((a, b) => (b.asw_oz || 0) - (a.asw_oz || 0));
+    const maxAsw = silverFlips.reduce((m, f) => Math.max(m, f.asw_oz || 0), 0);
+    const totalAswFlips = silverFlips.reduce((s, f) => s + (f.asw_oz || 0), 0);
+
+    const stackSegments = silverFlips.map(f => {
+      const pct = totalAswFlips > 0 ? ((f.asw_oz || 0) / totalAswFlips * 100) : 0;
+      const intensity = maxAsw > 0 ? Math.round(40 + ((f.asw_oz || 0) / maxAsw) * 60) : 50;
+      return `<div class="ss-segment" style="width:${Math.max(0.5, pct).toFixed(2)}%;background:rgba(148,163,184,${(intensity / 100).toFixed(2)})" data-scan="${esc(f.scan)}" title="${esc(f.ser || f.scan)}">
+        <div class="ss-tooltip"><strong>${esc(f.ser || f.scan)}</strong><br>${esc(f.country || "")} ${esc(f.year || "")} · ${esc(f.denom || "")}<br>ASW: ${num(f.asw_oz, 4)} oz · Melt: ${meltLive(f)}</div>
+      </div>`;
+    }).join("");
+
+    const silverStackHtml = silverFlips.length ? `
+      <div class="silver-stack-bar-wrap reveal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Silver Weight Distribution (${silverFlips.length} specimens)</span>
+          <span style="font-family:var(--mono);font-size:0.8rem;color:var(--gold-soft)">${num(totalAswFlips, 2)} oz ASW total</span>
+        </div>
+        <div class="silver-stack-bar">${stackSegments}</div>
+      </div>` : "";
+
+    // --- Silver Allocation Table (enhanced with inline ASW bars) ---
+    const flipAgRows = silverFlips.map(f => {
+      const aswPct = maxAsw > 0 ? ((f.asw_oz || 0) / maxAsw * 100).toFixed(1) : "0";
+      return `<tr data-scan="${esc(f.scan)}">
+        <td class="ser-primary">${esc(f.ser || f.scan)} <span class="badge-ag">Ag</span></td>
+        <td>${esc(f.country || "")}</td>
+        <td>${esc(f.year || "")}</td>
+        <td>${esc(f.denom || f.label || "")}</td>
+        <td class="num"><div class="asw-inline-bar"><div class="asw-bar-track"><div class="asw-bar-fill" style="width:${aswPct}%"></div></div><span class="asw-val">${f.asw_oz != null ? num(f.asw_oz, 4) : "?"}</span></div></td>
+        <td class="num asw-cell">${meltLive(f)}</td>
+        <td class="num">${f.est != null ? money(f.est) : "—"}</td>
+      </tr>`;
+    }).join("");
+
+    // --- Bullion Lot Cards ---
+    const bullionCardsHtml = all.map(item => renderBullionLotCard(item)).join("");
+
+    // --- Liquidation Scenario Calculator ---
+    // (HTML structure; the interactive slider JS is wired in bindVaultEvents below)
+    const scenarioHtml = `
+      <div class="vault-scenario-panel" id="vault-scenario-panel">
+        <div class="sc-head-title">📊 What-If Liquidation Scenario Calculator</div>
+        <div class="vault-scenario-sliders">
+          <div class="vault-scenario-slider-group">
+            <label>Silver Spot Override <span class="scenario-val" id="scenario-ag-val">$${spotAg.toFixed(2)}</span></label>
+            <input type="range" id="scenario-ag-slider" class="sim-range range-ag" min="20" max="150" step="0.5" value="${spotAg.toFixed(1)}" />
+          </div>
+          <div class="vault-scenario-slider-group">
+            <label>Dealer Spread (% of Spot) <span class="scenario-val" id="scenario-spread-val">92%</span></label>
+            <input type="range" id="scenario-spread-slider" class="sim-range range-au" min="80" max="100" step="1" value="92" />
+          </div>
+          <div class="vault-scenario-slider-group">
+            <label>Premium Capture Rate <span class="scenario-val" id="scenario-prem-val">70%</span></label>
+            <input type="range" id="scenario-prem-slider" class="sim-range" min="0" max="100" step="5" value="70" />
+          </div>
+        </div>
+        <div class="vault-scenario-cards" id="vault-scenario-results">
+          <div class="scenario-card"><div class="sc-name">Scrap / Melt</div><div class="sc-amount" id="sc-melt">${money(totalPhysicalMelt)}</div><div class="sc-detail">Pure metal weight × spot</div></div>
+          <div class="scenario-card"><div class="sc-name">Dealer Buyback</div><div class="sc-amount" id="sc-dealer">${money(totalPhysicalMelt * 0.92)}</div><div class="sc-detail">Melt × dealer spread</div></div>
+          <div class="scenario-card"><div class="sc-name">Marketplace</div><div class="sc-amount" id="sc-market">${money(totalEst * 0.70 * 0.87)}</div><div class="sc-detail">Est × capture − 13% fees</div></div>
+          <div class="scenario-card best"><div class="sc-name">Optimal Blend</div><div class="sc-amount" id="sc-optimal">${money(Math.max(totalPhysicalMelt, totalEst * 0.70 * 0.87))}</div><div class="sc-detail">Best channel per lot</div></div>
+        </div>
+      </div>`;
+
+    // --- Assemble Full Vault Body ---
     $("#vault-body").innerHTML = `
-      ${spotTickerHtml}
-      <div class="grid">
-        <div class="card"><h3>Bullion silver</h3><div class="val">${bs.oz != null ? num(bs.oz, 4) + " oz" : "—"}</div><div class="hint">Melt ${money(bs.melt)} @ live spot</div></div>
-        <div class="card"><h3>Flip silver</h3><div class="val">${fs.oz != null ? num(fs.oz, 4) + " oz" : "—"}</div><div class="hint">${money(fs.melt)} · ${intFmt(fs.n)} flips${(fs.unknown||[]).length ? " · " + fs.unknown.length + " ASW unknown" : ""}</div></div>
-        <div class="card"><h3>Ag combined</h3><div class="val">${cs.oz != null ? num(cs.oz, 2) + " oz" : "—"}</div><div class="hint">Melt ${money(cs.melt)} · METALS board</div></div>
-        <div class="card"><h3>Gold</h3><div class="val">${bg.oz != null ? num(bg.oz, 4) + " oz" : "—"}</div><div class="hint">Bullion ${money(bg.melt)} · flip Au ${fg.n ? num(fg.oz, 4) + " oz" : "none"}</div></div>
-      </div>
-      <div class="card" style="margin-bottom:0.75rem">
-        <h3>Constitutional &amp; Archival Silver Allocation</h3>
-        <p class="sub" style="font-size:0.75rem;color:var(--muted);margin:0 0 0.5rem">Physical Sovereignty &amp; Numismatic ASW Reserves · Direct Custody</p>
-        <div class="table-wrap" style="max-height:280px;margin-top:0.5rem">
-          <table class="data">
-            <thead><tr><th>SER</th><th>Scan</th><th>Country</th><th>Year</th><th>Denom</th><th class="num">ASW</th><th class="num">Melt @ live</th><th class="num">Est</th></tr></thead>
-            <tbody>${flipAgRows || '<tr><td colspan="8" class="empty">No silver flips</td></tr>'}</tbody>
+      <div class="vault-interior">
+        ${spotTickerHtml}
+        ${custodyHtml}
+        ${dashboardHtml}
+        ${silverStackHtml}
+
+        <div class="vault-section-head reveal">
+          <div>
+            <h3>Constitutional &amp; Archival Silver Allocation</h3>
+            <div class="vault-sec-sub">${intFmt(silverFlips.length)} silver specimens · ${num(totalAswFlips, 2)} oz ASW · Physical Sovereignty &amp; Direct Custody</div>
+          </div>
+        </div>
+        <div class="vault-table-controls">
+          <div class="vault-table-search">
+            <input type="search" id="vault-ag-search" class="input small" placeholder="Search silver holdings..." />
+          </div>
+        </div>
+        <div class="table-wrap" style="max-height:340px;margin-bottom:2rem">
+          <table class="data" id="vault-silver-table">
+            <thead>
+              <tr>
+                <th data-sort="ser" style="cursor:pointer;user-select:none" title="Sort by SER">SER <span class="sort-icon"></span></th>
+                <th data-sort="country" style="cursor:pointer;user-select:none" title="Sort by Country">Country <span class="sort-icon"></span></th>
+                <th data-sort="year" style="cursor:pointer;user-select:none" title="Sort by Year">Year <span class="sort-icon"></span></th>
+                <th data-sort="denom" style="cursor:pointer;user-select:none" title="Sort by Denomination">Denom <span class="sort-icon"></span></th>
+                <th class="num" data-sort="asw" style="cursor:pointer;user-select:none" title="Sort by Silver Weight">ASW <span class="sort-icon">▼</span></th>
+                <th class="num" data-sort="melt" style="cursor:pointer;user-select:none" title="Sort by Melt Value">Melt @ live <span class="sort-icon"></span></th>
+                <th class="num" data-sort="est" style="cursor:pointer;user-select:none" title="Sort by Estimated Value">Est <span class="sort-icon"></span></th>
+              </tr>
+            </thead>
+            <tbody>${flipAgRows || '<tr><td colspan="7" class="empty">No silver flips</td></tr>'}</tbody>
           </table>
         </div>
-      </div>
-      <div class="toolbar"><span class="meta">${intFmt((vault.bullion || []).length)} bullion · ${intFmt((vault.sets || []).length)} sets · ${intFmt((vault.housing || []).length)} housing · ${intFmt((vault.stamps || []).length)} stamps</span></div>
-      <div class="table-wrap">
-        <table class="data">
-          <thead><tr><th>ID</th><th>Kind</th><th>Country</th><th>Year</th><th>Label</th><th class="num">Melt</th><th class="num">Est</th></tr></thead>
-          <tbody>${body}</tbody>
-        </table>
-      </div>
-    `;
-    $$("#vault-body tbody tr[data-scan]").forEach((tr) => {
+
+        <div class="vault-section-head reveal">
+          <div>
+            <h3>Physical Bullion &amp; Reserve Inventory</h3>
+            <div class="vault-sec-sub">${intFmt((vault.bullion || []).length)} bullion · ${intFmt((vault.sets || []).length)} sets · ${intFmt((vault.housing || []).length)} housing · ${intFmt((vault.stamps || []).length)} stamps</div>
+          </div>
+        </div>
+        <div class="bullion-vault-grid">${bullionCardsHtml}</div>
+
+        ${scenarioHtml}
+      </div>`;
+
+    // --- Event Wiring ---
+    bindVaultEvents(totalAgOz, totalAuOz, spotAg, totalEst);
+    observeReveals($("#vault-body"));
+
+    // Vault door animation - appended directly to document.body for true viewport centering
+    if (!vaultDoorPlayed && isVaultActive) {
+      vaultDoorPlayed = true;
+      let overlay = document.getElementById("vault-door-overlay");
+      if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.id = "vault-door-overlay";
+        overlay.className = "vault-door-overlay";
+        overlay.innerHTML = `
+          <div class="vault-door-circle">
+            <div class="vault-door-bolt"></div>
+            <div class="vault-door-bolt"></div>
+            <div class="vault-door-bolt"></div>
+            <div class="vault-door-bolt"></div>
+            <div class="vault-door-dial"></div>
+            <div class="vault-door-label">TITAN RELIQUARY · PHYSICAL RESERVES</div>
+          </div>`;
+        document.body.appendChild(overlay);
+        setTimeout(() => overlay.classList.add("vault-opened"), 450);
+        setTimeout(() => overlay.remove(), 1750);
+      }
+    }
+  }
+
+  /** Wire vault interactive events. Called by renderVault. */
+  function bindVaultEvents(totalAgOz, totalAuOz, spotAg, totalEst) {
+    // Bullion lot card clicks
+    $$("#vault-body .bullion-lot-card[data-scan]").forEach(card => {
+      card.addEventListener("click", () => { dossierCtx = null; openDrawer(card.dataset.scan); });
+      card.addEventListener("keydown", (e) => { if (e.key === "Enter") { dossierCtx = null; openDrawer(card.dataset.scan); } });
+    });
+
+    // Silver table row clicks
+    $$("#vault-body #vault-silver-table tbody tr[data-scan]").forEach(tr => {
       tr.addEventListener("click", () => { dossierCtx = null; openDrawer(tr.dataset.scan); });
     });
+
+    // Silver stack bar segment clicks
+    $$("#vault-body .ss-segment[data-scan]").forEach(seg => {
+      seg.addEventListener("click", (e) => { e.stopPropagation(); dossierCtx = null; openDrawer(seg.dataset.scan); });
+    });
+
+    // Silver table search
+    const searchInput = $("#vault-ag-search");
+    if (searchInput) {
+      searchInput.addEventListener("input", () => {
+        const q = searchInput.value.trim().toLowerCase();
+        $$("#vault-silver-table tbody tr").forEach(tr => {
+          const text = tr.textContent.toLowerCase();
+          tr.style.display = (!q || text.includes(q)) ? "" : "none";
+        });
+      });
+    }
+
+    // Silver table column sorting
+    let silverSortKey = "asw";
+    let silverSortDir = -1; // -1 = desc, 1 = asc
+    const silverHeaders = $$("#vault-silver-table thead th[data-sort]");
+    silverHeaders.forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.dataset.sort;
+        if (silverSortKey === key) {
+          silverSortDir = -silverSortDir;
+        } else {
+          silverSortKey = key;
+          silverSortDir = (key === "asw" || key === "melt" || key === "est" || key === "year") ? -1 : 1;
+        }
+
+        // Update sort indicators
+        silverHeaders.forEach(h => {
+          const icon = h.querySelector(".sort-icon");
+          if (!icon) return;
+          if (h.dataset.sort === silverSortKey) {
+            icon.textContent = silverSortDir === 1 ? "▲" : "▼";
+            h.style.color = "var(--gold-soft)";
+          } else {
+            icon.textContent = "";
+            h.style.color = "";
+          }
+        });
+
+        // Sort table rows
+        const tbody = $("#vault-silver-table tbody");
+        if (!tbody) return;
+        const rows = Array.from(tbody.querySelectorAll("tr[data-scan]"));
+        rows.sort((a, b) => {
+          if (silverSortKey === "ser") {
+            const vA = a.querySelector(".ser-primary")?.textContent.trim() || "";
+            const vB = b.querySelector(".ser-primary")?.textContent.trim() || "";
+            return silverSortDir * vA.localeCompare(vB, undefined, { numeric: true });
+          } else if (silverSortKey === "country") {
+            const vA = a.children[1]?.textContent.trim() || "";
+            const vB = b.children[1]?.textContent.trim() || "";
+            return silverSortDir * vA.localeCompare(vB);
+          } else if (silverSortKey === "year") {
+            const vA = parseInt(a.children[2]?.textContent.trim(), 10) || 0;
+            const vB = parseInt(b.children[2]?.textContent.trim(), 10) || 0;
+            return silverSortDir * (vA - vB);
+          } else if (silverSortKey === "denom") {
+            const vA = a.children[3]?.textContent.trim() || "";
+            const vB = b.children[3]?.textContent.trim() || "";
+            return silverSortDir * vA.localeCompare(vB);
+          } else if (silverSortKey === "asw") {
+            const vA = parseFloat(a.querySelector(".asw-val")?.textContent.trim()) || 0;
+            const vB = parseFloat(b.querySelector(".asw-val")?.textContent.trim()) || 0;
+            return silverSortDir * (vA - vB);
+          } else if (silverSortKey === "melt") {
+            const vA = parseFloat((a.children[5]?.textContent || "").replace(/[^0-9.]/g, "")) || 0;
+            const vB = parseFloat((b.children[5]?.textContent || "").replace(/[^0-9.]/g, "")) || 0;
+            return silverSortDir * (vA - vB);
+          } else if (silverSortKey === "est") {
+            const vA = parseFloat((a.children[6]?.textContent || "").replace(/[^0-9.]/g, "")) || 0;
+            const vB = parseFloat((b.children[6]?.textContent || "").replace(/[^0-9.]/g, "")) || 0;
+            return silverSortDir * (vA - vB);
+          }
+          return 0;
+        });
+
+        rows.forEach(r => tbody.appendChild(r));
+      });
+    });
+
+    // Liquidation scenario sliders
+    const agSlider = $("#scenario-ag-slider");
+    const spreadSlider = $("#scenario-spread-slider");
+    const premSlider = $("#scenario-prem-slider");
+    const agValEl = $("#scenario-ag-val");
+    const spreadValEl = $("#scenario-spread-val");
+    const premValEl = $("#scenario-prem-val");
+    const meltEl = $("#sc-melt");
+    const dealerEl = $("#sc-dealer");
+    const marketEl = $("#sc-market");
+    const optimalEl = $("#sc-optimal");
+
+    const recalcScenario = () => {
+      if (!agSlider || !spreadSlider || !premSlider) return;
+      const scenarioAg = parseFloat(agSlider.value);
+      const spread = parseInt(spreadSlider.value) / 100;
+      const premCapture = parseInt(premSlider.value) / 100;
+
+      const scenarioMelt = (totalAgOz * scenarioAg) + (totalAuOz * 4252.90);
+      const scenarioDealer = scenarioMelt * spread;
+      const scenarioMarket = totalEst * premCapture * 0.87;
+      const scenarioOptimal = Math.max(scenarioMelt, scenarioMarket);
+
+      if (agValEl) agValEl.textContent = "$" + scenarioAg.toFixed(2);
+      if (spreadValEl) spreadValEl.textContent = Math.round(spread * 100) + "%";
+      if (premValEl) premValEl.textContent = Math.round(premCapture * 100) + "%";
+      if (meltEl) meltEl.textContent = money(scenarioMelt);
+      if (dealerEl) dealerEl.textContent = money(scenarioDealer);
+      if (marketEl) marketEl.textContent = money(scenarioMarket);
+      if (optimalEl) optimalEl.textContent = money(scenarioOptimal);
+
+      // Highlight best option
+      const cards = $$("#vault-scenario-results .scenario-card");
+      const vals = [scenarioMelt, scenarioDealer, scenarioMarket, scenarioOptimal];
+      const maxVal = Math.max(...vals);
+      cards.forEach((c, i) => c.classList.toggle("best", vals[i] === maxVal));
+    };
+
+    [agSlider, spreadSlider, premSlider].forEach(el => {
+      el?.addEventListener("input", recalcScenario);
+    });
+
+    // Apply 3D hover tilt to bullion cards (reuse gallery card tilt system)
+    const canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (canHover) {
+      $$("#vault-body .bullion-lot-card").forEach(card => {
+        card.classList.add("has-tilt");
+        let cardRect = null;
+        card.addEventListener("mouseenter", () => { cardRect = card.getBoundingClientRect(); });
+        card.addEventListener("mousemove", (e) => {
+          if (!cardRect) cardRect = card.getBoundingClientRect();
+          const hw = cardRect.width / 2;
+          const hh = cardRect.height / 2;
+          const nx = Math.max(-1, Math.min(1, (e.clientX - (cardRect.left + hw)) / hw));
+          const ny = Math.max(-1, Math.min(1, (e.clientY - (cardRect.top + hh)) / hh));
+          card.style.transform = `perspective(900px) rotateX(${(-ny * 6).toFixed(1)}deg) rotateY(${(nx * 8).toFixed(1)}deg) translateY(-4px)`;
+          card.style.setProperty("--card-sheen-x", `${((nx + 1) / 2 * 100).toFixed(1)}%`);
+          card.style.setProperty("--card-sheen-y", `${((ny + 1) / 2 * 100).toFixed(1)}%`);
+        });
+        card.addEventListener("mouseleave", () => { cardRect = null; card.style.transform = ""; });
+      });
+    }
   }
 
   function isoName(iso) {
