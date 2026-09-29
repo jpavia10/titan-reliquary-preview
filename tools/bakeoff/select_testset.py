@@ -14,6 +14,11 @@ N = 30
 NON_EU_QUOTA = 12
 SILVER_MIN = 5
 
+def clean_mint(m):
+    """The ledger's mint field is free text ('Royal Mint', 'not on shown side'); only a bare mark like 'B' is usable as ground truth."""
+    m = (m or "").strip()
+    return m if 0 < len(m) <= 3 and m.isalpha() else ""
+
 def km(refs):
     import re
     m = re.search(r"KM#\s*([\w.]+)", refs or "")
@@ -58,7 +63,7 @@ def main():
     for f, d in picked:
         out.append({"scan": f["scan"], "ser": f["ser"], "country": f["country"], "iso": f["iso"],
                     "continent": f["continent"], "year": str(f["year"]),
-                    "denom": str(f["denom"]).split("·")[0].strip(), "mint": f.get("mint") or "",
+                    "denom": str(f["denom"]).split("·")[0].strip(), "mint": clean_mint(f.get("mint")),
                     "km": km(d.get("refs")), "is_silver": bool(d.get("is_silver"))})
     json.dump(out, open("tools/bakeoff/testset.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(len(out), "coins;", sum(o["is_silver"] for o in out), "silver;",

@@ -16,6 +16,6 @@ Goal: pick the cheapest vision model that reads a Phase 1 photo (pen-labelled fl
 
 ## Scoring
 - Per field: correct / wrong / abstained. Abstaining (null, "", "unknown") is never counted as wrong.
-- **Core accuracy** = correct over country, year, denom, mint (where the ledger has a ground truth).
+- **Core accuracy** = correct over country, year, denom, mint. Mint is only scored for coins whose ledger value is a bare mark like `B` (the ledger's mint field is otherwise free text), so it covers only some coins.
 - **Invented-value rate** = confident wrong answers over all scored fields. This is the number to keep near zero.
 - Suggested bar: core accuracy >= 95% and invented-value rate <= 1%. Then pick the cheapest model that clears it; record cost and seconds per coin alongside.
