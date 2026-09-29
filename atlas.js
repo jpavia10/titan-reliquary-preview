@@ -1490,20 +1490,24 @@
       node.addEventListener("click", (e) => {
         e.stopPropagation();
         hideTooltip(true);
-        selectCountry(c.iso, false);
-      });
-
-      node.addEventListener("dblclick", (e) => {
-        e.stopPropagation();
         const cb = activeCallback || window.TitanWorldFilterCallback;
-        if (typeof cb === "function") cb(c);
+        if (typeof cb === "function") {
+          cb(c);
+        } else {
+          selectCountry(c.iso, false);
+        }
       });
 
       node.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           hideTooltip(true);
-          selectCountry(c.iso, false);
+          const cb = activeCallback || window.TitanWorldFilterCallback;
+          if (typeof cb === "function") {
+            cb(c);
+          } else {
+            selectCountry(c.iso, false);
+          }
         }
       });
     });

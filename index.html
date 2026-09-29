@@ -30,7 +30,7 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr47" />
+  <link rel="stylesheet" href="styles.css?v=tr48" />
 </head>
 <body>
   <!-- Shared SVG Definitions for Struck Specimen Medallions (Zero-Overhead GPU Caching) -->
@@ -929,19 +929,33 @@
             <div class="album-series-meta" id="album-inspector-meta">18 of 24 Slots Filled · 75% Complete · Melt &amp; Premium: $1,630.05</div>
           </div>
           <div class="album-header-actions">
+            <button type="button" class="btn small" id="album-btn-wantlist" title="Generate Missing Holes &amp; Want List" style="border-color:rgba(200,169,74,0.5);color:var(--gold-soft);background:rgba(200,169,74,0.12)">📑 Want List</button>
             <button type="button" class="btn small" id="album-btn-prev" title="Previous Album">‹ Prev</button>
             <button type="button" class="btn small" id="album-btn-next" title="Next Album">Next ›</button>
             <button type="button" class="spatial-close-btn" id="album-btn-close" aria-label="Close Album Inspector" title="Close (Esc)">×</button>
           </div>
         </div>
 
-        <!-- Album Sub-Bar: Family Switcher Tabs + Slot Filter -->
+        <!-- Album Sub-Bar: Volume Switcher + Page Nav + 3D Page Flip + Slot Filter -->
         <div class="album-controls-bar">
           <div class="album-tabs" id="album-family-tabs"></div>
-          <div class="album-filter-pills" id="album-filter-pills">
-            <button type="button" class="album-filter-pill active" data-filter="all">All Slots (<span id="album-count-all">0</span>)</button>
-            <button type="button" class="album-filter-pill" data-filter="filled">Filled (<span id="album-count-filled">0</span>)</button>
-            <button type="button" class="album-filter-pill" data-filter="missing">Missing Targets (<span id="album-count-missing">0</span>)</button>
+          
+          <div class="album-page-nav-wrap" id="album-page-nav-wrap">
+            <button type="button" class="btn small album-page-btn" id="album-page-prev" title="Previous Page">‹</button>
+            <span class="album-page-indicator" id="album-page-indicator">Page 1 of 3</span>
+            <button type="button" class="btn small album-page-btn" id="album-page-next" title="Next Page">›</button>
+            <button type="button" class="btn small" id="album-btn-toggle-spread" title="Toggle between Paginated Page View and All Slots Spread">📄 Page View</button>
+          </div>
+
+          <div class="album-action-pills">
+            <button type="button" class="btn small album-flip-page-btn" id="album-btn-flip-page" title="Flip Entire Page to Inspect Reverse Designs">
+              <span class="flip-icon">🔄</span> <span id="album-flip-page-text">Flip Page (Obverse)</span>
+            </button>
+            <div class="album-filter-pills" id="album-filter-pills">
+              <button type="button" class="album-filter-pill active" data-filter="all">All (<span id="album-count-all">0</span>)</button>
+              <button type="button" class="album-filter-pill" data-filter="filled">Filled (<span id="album-count-filled">0</span>)</button>
+              <button type="button" class="album-filter-pill" data-filter="missing">Holes (<span id="album-count-missing">0</span>)</button>
+            </div>
           </div>
         </div>
 
@@ -952,8 +966,42 @@
 
         <!-- Physical Album Velvet Board with Milled Coin Apertures -->
         <div class="album-board" id="album-board">
-          <div class="album-slots-grid" id="album-slots-grid"></div>
+          <div class="album-binder-spine-margin" aria-hidden="true">
+            <span class="spine-screw"></span>
+            <span class="spine-screw"></span>
+            <span class="spine-screw"></span>
+          </div>
+          <div class="album-page-container" id="album-page-container">
+            <div class="album-page-header-row">
+              <span class="album-page-badge" id="album-page-badge">PAGE 1 · 1986–1997</span>
+              <span class="album-page-face-label" id="album-page-face-label">OBVERSE VIEW · ACETATE SLIDE IN PLACE</span>
+            </div>
+            <div class="album-slots-grid" id="album-slots-grid"></div>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- NUMISMATIC MISSING HOLES & WANT LIST MODAL -->
+    <div id="album-wantlist-modal" class="album-modal" hidden role="dialog" aria-modal="true" aria-label="Numismatic Want List &amp; Missing Holes Checklist">
+      <div class="album-modal-backdrop" id="album-wantlist-backdrop"></div>
+      <div class="wantlist-shell">
+        <div class="wantlist-header">
+          <div>
+            <div class="album-header-badges">
+              <span class="badge" style="background:var(--gold);color:#08090c;font-weight:700">FIELD WANT LIST</span>
+              <span class="badge" style="background:rgba(200,169,74,0.18);color:var(--gold-soft)">TITAN RELIQUARY</span>
+            </div>
+            <h2 class="album-title" id="wantlist-title">Collection Missing Holes Checklist</h2>
+            <div class="album-series-meta" id="wantlist-subtitle">Acquisition targets for coin shows, LCS visits, and bourse floor trading</div>
+          </div>
+          <div class="album-header-actions">
+            <button type="button" class="btn small" id="wantlist-btn-copy">📋 Copy Checklist</button>
+            <button type="button" class="btn small" id="wantlist-btn-print">🖨️ Print</button>
+            <button type="button" class="spatial-close-btn" id="wantlist-btn-close" aria-label="Close Want List" title="Close (Esc)">×</button>
+          </div>
+        </div>
+        <div class="wantlist-body" id="wantlist-body"></div>
       </div>
     </div>
 
@@ -1118,19 +1166,19 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr47";</script>
+  <script>window.TITAN_BUILD = "tr48";</script>
   <script src="js/three.min.js"></script>
   <script src="js/OrbitControls.js"></script>
   <script src="js/fflate.min.js"></script>
   <script src="js/USDZExporter.js"></script>
   <script src="js/qrcode.min.js"></script>
   <script src="js/openseadragon.min.js"></script>
-  <script src="spatial.js?v=tr47"></script>
-  <script src="deepzoom.js?v=tr47"></script>
-  <script src="atlas.js?v=tr47"></script>
-  <script src="app.js?v=tr47"></script>
-  <script src="js/playlist.js?v=tr47"></script>
-  <script src="audio.js?v=tr47"></script>
-  <script src="ambient.js?v=tr47"></script>
+  <script src="spatial.js?v=tr48"></script>
+  <script src="deepzoom.js?v=tr48"></script>
+  <script src="atlas.js?v=tr48"></script>
+  <script src="app.js?v=tr48"></script>
+  <script src="js/playlist.js?v=tr48"></script>
+  <script src="audio.js?v=tr48"></script>
+  <script src="ambient.js?v=tr48"></script>
 </body>
 </html>

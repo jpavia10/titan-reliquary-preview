@@ -3773,6 +3773,8 @@
         <button type="button" class="btn filter-p2${flipFilter.phase2 ? " active" : ""}" id="flip-p2" title="Awaiting Phase 2 photos (shooting list)">Awaiting Phase 2 · ${intFmt(p2Count)}</button>
         ${flipFilter.staging ? `<button type="button" class="btn small active" id="flip-staging-clear" style="background:var(--gold);color:#08090c;font-weight:700" title="Clear Staging Filter">📸 Phase 2 Staging (5) ×</button>` : ""}
         ${flipFilter.iso ? `<button type="button" class="btn small active" id="flip-iso" title="Clear the country filter from World">${esc(isoName(flipFilter.iso))} ×</button>` : ""}
+        ${flipFilter.country ? `<button type="button" class="btn small active" id="flip-country-clear" title="Clear country filter">${esc(flipFilter.country)} ×</button>` : ""}
+        ${(flipFilter.iso || flipFilter.country) ? `<button type="button" class="btn small" id="flip-return-atlas" style="border:1px solid var(--gold);color:var(--gold-soft);background:rgba(200,169,74,0.12);font-weight:600" title="Return to World Map in Study Wing">🌐 ← Return to Map</button>` : ""}
         <button type="button" class="btn small" id="flip-print" title="Print this inventory">⎙ Print</button>
         <span class="meta">${intFmt(rows.length)} / ${intFmt((vault.flips || []).length)}${flipFilter.staging ? " · 📸 staging album" : ""}${flipFilter.silverOnly ? " · silver" : ""}${flipFilter.phase2 ? " · shooting list" : ""}${flipFilter.q.trim() && !searchIdx ? " · searching notes…" : ""}</span>
       </div>
@@ -3898,6 +3900,15 @@
     qEl.addEventListener("focus", () => { markTyping(); ensureSearch(); });
     $("#go-lab")?.addEventListener("click", () => { setWing("lab"); window.scrollTo(0, 0); });
     $("#flip-iso")?.addEventListener("click", () => { flipFilter.iso = ""; renderGallery(); saveState(); });
+    $("#flip-country-clear")?.addEventListener("click", () => { flipFilter.country = ""; renderGallery(); saveState(); });
+    $("#flip-return-atlas")?.addEventListener("click", () => {
+      setWing("study");
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        const atlas = document.querySelector("#titan-world-atlas-wrap") || document.querySelector("#sec-world");
+        if (atlas) atlas.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    });
     $("#flip-print")?.addEventListener("click", () => window.print());
     if (keep) {
       const el = $("#" + keep.id);
@@ -5020,12 +5031,32 @@
   }
 
   /** Study: age bands + albums (moved here from the old Age tab). */
+  let albumViewMode = "shelf"; // "shelf" | "matrix"
+  let albumCategoryFilter = "all"; // "all" | "silver" | "classic" | "modern" | "world"
+  let activeAlbumPage = 1;
+  let activeAlbumSpreadMode = false;
+  let activeAlbumPageFlipped = false;
+
+  const ALBUM_FAMILIES_CONFIG = {
+    "American Silver Eagles": { theme: "navy", cat: "silver", emblem: "🦅", spec: ".999 Silver Bullion", title: "American Silver Eagles", era: "1986–Present", maker: "Whitman Deluxe Leatherette" },
+    "Kennedy halves": { theme: "chestnut", cat: "silver", emblem: "🗽", spec: "90% & 40% Silver / Clad", title: "Kennedy Halves", era: "1964–Present", maker: "Dansco 7166 Archival" },
+    "Washington quarters": { theme: "forest", cat: "modern", emblem: "🏛️", spec: "90% Silver & CuNi Clad", title: "Washington Quarters", era: "1932–Present", maker: "Whitman Classic #9125" },
+    "Dollar albums": { theme: "gold", cat: "modern", emblem: "🪙", spec: "Golden Manganese & Clad", title: "Dollar Albums", era: "1971–Present", maker: "Whitman #9144" },
+    "Roosevelt dimes": { theme: "cobalt", cat: "modern", emblem: "🌿", spec: "90% Silver & CuNi Clad", title: "Roosevelt Dimes", era: "1946–Present", maker: "Whitman #9029 / #9030" },
+    "Lincoln cents": { theme: "copper", cat: "classic", emblem: "🌾", spec: "95% Bronze & Zinc Clad", title: "Lincoln Cents", era: "1909–Present", maker: "Whitman #9004 / #9030" },
+    "Indian / Flying Eagle": { theme: "burgundy", cat: "classic", emblem: "🪶", spec: "CuNi & Bronze", title: "Indian / Flying Eagle", era: "1856–1909", maker: "Whitman Deluxe #9003" },
+    "Type set": { theme: "obsidian", cat: "classic", emblem: "⚜️", spec: "Gold, Silver, Bronze & Clad", title: "20th Century Type Set", era: "1900–1999", maker: "Whitman #9046" },
+    "Jefferson nickels": { theme: "sage", cat: "modern", emblem: "🏛️", spec: "Cupronickel & 35% Silver", title: "Jefferson Nickels", era: "1938–Present", maker: "Whitman #9009" },
+    "Canada small cents": { theme: "crimson", cat: "world", emblem: "🍁", spec: "98% Bronze & Zinc Clad", title: "Canada Small Cents", era: "1920–2012", maker: "Whitman Canada Classic" },
+    "Buffalo nickels": { theme: "saddle", cat: "classic", emblem: "🦬", spec: "75% Copper / 25% Nickel", title: "Buffalo Nickels", era: "1913–1938", maker: "Whitman #9007" },
+    "Mercury": { theme: "indigo", cat: "silver", emblem: "🪽", spec: "90% Fine Silver (0.0723 oz ASW)", title: "Mercury Head Dimes", era: "1916–1945", maker: "Whitman #9014" }
+  };
+
   function ageSec() {
     const age = vault.age || {};
     const fo = age.flips_other || {};
     const al = age.albums || {};
     const glance = vault.albums_glance || [];
-    // Strict numismatic validation to prevent raw scraped markdown artifacts from entering the ledger
     const mdSep = (s) => typeof s === "string" && /^[\s:|\-]+$/.test(s) && /[-|]/.test(s);
     const isRealAlbum = (g) => {
       if (!g || !g.family) return false;
@@ -5037,6 +5068,7 @@
       return true;
     };
 
+    const realAlbums = glance.filter(isRealAlbum);
     const stagingRow = {
       family: "★ PRO PHOTO PHASE 2 STAGING ALBUM",
       ids: "A-P2-STAGE",
@@ -5045,32 +5077,127 @@
       pulse: "Drive Shared Queue · PHOTO_STAGING_PHASE2/",
       isStaging: true
     };
-    const combinedGlance = [stagingRow, ...glance.filter(isRealAlbum)];
-    const glanceBody = combinedGlance
-      .map((g) => {
-        if (g.isStaging) {
-          return `<tr class="staging-album-row" style="background:rgba(200,169,74,0.12);font-weight:600;cursor:pointer" title="Click to view Pro Photo Staging Album in Lab">
-            <td><strong style="color:var(--gold-soft)">${esc(g.family)}</strong></td>
-            <td class="ids" style="color:var(--gold)">${esc(g.ids)}</td>
-            <td class="num">${esc(intFmt(g.coins))}</td>
-            <td class="num" style="color:var(--gold)">${money(g.total)}</td>
-            <td style="color:var(--gold-soft)">${esc(g.pulse)}</td>
-          </tr>`;
+    const combinedGlance = [stagingRow, ...realAlbums];
+
+    // Filter by active category
+    const filteredAlbums = combinedGlance.filter(g => {
+      if (g.isStaging) return true;
+      if (albumCategoryFilter === "all") return true;
+      const cfg = ALBUM_FAMILIES_CONFIG[g.family];
+      return cfg && cfg.cat === albumCategoryFilter;
+    });
+
+    // 1. Archival Bookshelf Binder Cards
+    const shelfCardsHtml = filteredAlbums.map(g => {
+      if (g.isStaging) {
+        return `
+          <div class="album-binder-card binder-theme-gold staging-binder-card" data-album-family="${esc(g.family)}" style="border:1.5px solid var(--gold);background:linear-gradient(135deg, rgba(200,169,74,0.15), rgba(13,18,28,0.95))">
+            <div class="binder-card-top">
+              <div>
+                <span class="badge" style="background:var(--gold);color:#08090c;font-weight:700">MACRO RIG QUEUE</span>
+                <h4 class="binder-card-title" style="margin-top:0.35rem">★ Pro Photo Staging</h4>
+                <div class="binder-card-sub">${esc(g.ids)} · Tethered Phase 2 RAW Mission</div>
+              </div>
+              <span class="binder-card-emblem">📸</span>
+            </div>
+            <div class="binder-stats-row">
+              <div><div class="binder-stat-val gold">${esc(intFmt(g.coins))}</div><div class="binder-stat-lbl">Specimens</div></div>
+              <div><div class="binder-stat-val">Phase 2</div><div class="binder-stat-lbl">Queue</div></div>
+              <div><div class="binder-stat-val gold">${money(g.total)}</div><div class="binder-stat-lbl">Est Value</div></div>
+            </div>
+            <div class="binder-progress-line">
+              <div class="binder-progress-meta"><span>Drive Shared Queue</span><span style="color:var(--gold-soft)">Ready</span></div>
+              <div class="binder-track"><div class="binder-fill" style="width:100%"></div></div>
+            </div>
+            <div class="binder-actions-row">
+              <button type="button" class="btn small binder-btn-open" id="btn-open-staging-album">🔬 Open Staging in Lab</button>
+            </div>
+          </div>
+        `;
+      }
+
+      const cfg = ALBUM_FAMILIES_CONFIG[g.family] || {
+        theme: "obsidian",
+        cat: "classic",
+        emblem: "📖",
+        spec: "Archival Series",
+        title: g.family,
+        era: "Numismatic",
+        maker: "Archival Binder"
+      };
+
+      const meta = ALBUM_METADATA[g.family];
+      let totalCap = 0;
+      let totalHoles = 0;
+      if (meta && meta.volumes) {
+        for (const v of Object.values(meta.volumes)) {
+          totalCap += (v.totalSlots || 0);
+          totalHoles += (v.holes ? v.holes.length : Math.max(0, (v.totalSlots || 0) - (v.filled || 0)));
         }
-        return `<tr class="interactive-album-row" data-album-family="${esc(g.family)}" data-album-ids="${esc(g.ids)}" title="Click to inspect ${esc(g.family)} album slots &amp; missing holes" style="cursor:pointer">
-          <td><strong style="color:var(--ink)">${esc(g.family)}</strong> <span style="font-size:0.75rem;color:var(--gold);opacity:0.9;margin-left:0.35rem">📖 Inspect</span></td>
-          <td class="muted ids">${esc(g.ids)}</td>
+      }
+      if (totalCap === 0) totalCap = Math.max(g.coins, 30);
+      const fillPct = Math.min(100, Math.round((g.coins / totalCap) * 100));
+
+      return `
+        <div class="album-binder-card binder-theme-${cfg.theme}" data-album-family="${esc(g.family)}" data-album-ids="${esc(g.ids)}">
+          <div class="binder-card-top">
+            <div>
+              <span class="badge" style="background:rgba(255,255,255,0.08);color:var(--gold-soft);font-size:0.68rem">${cfg.maker.toUpperCase()}</span>
+              <h4 class="binder-card-title">${esc(cfg.title)}</h4>
+              <div class="binder-card-sub">${esc(g.ids)} · ${esc(cfg.era)} · ${esc(cfg.spec)}</div>
+            </div>
+            <span class="binder-card-emblem">${cfg.emblem}</span>
+          </div>
+          <div class="binder-stats-row">
+            <div><div class="binder-stat-val">${esc(intFmt(g.coins))}</div><div class="binder-stat-lbl">Logged</div></div>
+            <div><div class="binder-stat-val gold">${fillPct}%</div><div class="binder-stat-lbl">Filled</div></div>
+            <div><div class="binder-stat-val gold">${money(g.total)}</div><div class="binder-stat-lbl">Book Val</div></div>
+          </div>
+          <div class="binder-progress-line">
+            <div class="binder-progress-meta">
+              <span>${intFmt(g.coins)} of ${intFmt(totalCap)} slots</span>
+              <span style="color:${fillPct > 70 ? '#34d399' : 'var(--gold-soft)'}">${totalHoles} holes open</span>
+            </div>
+            <div class="binder-track">
+              <div class="binder-fill" style="width:${fillPct}%"></div>
+            </div>
+          </div>
+          <div style="font-size:0.75rem;color:var(--ink-soft);margin-bottom:0.85rem;line-height:1.4">
+            ${esc(g.pulse)}
+          </div>
+          <div class="binder-actions-row">
+            <button type="button" class="btn small binder-btn-open btn-open-album-inspector" data-album-family="${esc(g.family)}" data-album-ids="${esc(g.ids)}">📖 Open Binder</button>
+            <button type="button" class="btn small binder-btn-holes btn-open-album-holes" data-album-family="${esc(g.family)}" data-album-ids="${esc(g.ids)}" title="Inspect open holes in this binder">🔍 Holes</button>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    // 2. Ledger Matrix Table View
+    const glanceBody = filteredAlbums.map((g) => {
+      if (g.isStaging) {
+        return `<tr class="staging-album-row" style="background:rgba(200,169,74,0.12);font-weight:600;cursor:pointer" title="Click to view Pro Photo Staging Album in Lab">
+          <td><strong style="color:var(--gold-soft)">${esc(g.family)}</strong></td>
+          <td class="ids" style="color:var(--gold)">${esc(g.ids)}</td>
           <td class="num">${esc(intFmt(g.coins))}</td>
-          <td class="num">${money(g.total)}</td>
-          <td class="muted">${esc(g.pulse)}</td>
+          <td class="num" style="color:var(--gold)">${money(g.total)}</td>
+          <td style="color:var(--gold-soft)">${esc(g.pulse)}</td>
         </tr>`;
-      })
-      .join("");
+      }
+      return `<tr class="interactive-album-row" data-album-family="${esc(g.family)}" data-album-ids="${esc(g.ids)}" title="Click to inspect ${esc(g.family)} album slots &amp; missing holes" style="cursor:pointer">
+        <td><strong style="color:var(--ink)">${esc(g.family)}</strong> <span style="font-size:0.75rem;color:var(--gold);opacity:0.9;margin-left:0.35rem">📖 Inspect</span></td>
+        <td class="muted ids">${esc(g.ids)}</td>
+        <td class="num">${esc(intFmt(g.coins))}</td>
+        <td class="num">${money(g.total)}</td>
+        <td class="muted">${esc(g.pulse)}</td>
+      </tr>`;
+    }).join("");
+
     return `
       <div class="sec-head reveal" id="sec-age"><span class="eyebrow">Patina</span><h2>Age &amp; Albums</h2>
       <p class="sub">As of ${esc(age.as_of || "—")} · ref ${esc(String(age.reference_year ?? ""))}</p></div>
       <div class="grid two">
-        <div class="card reveal">
+        <div class="card reveal" style="opacity:1 !important; transform:none !important">
           <h3>Flips + other</h3>
           <div class="bucket-row"><span class="k">Dated</span><span class="v">${esc(intFmt(fo.n_dated ?? "—"))}</span></div>
           <div class="bucket-row"><span class="k">ND excluded</span><span class="v">${esc(intFmt(fo.n_ND_excluded ?? "—"))}</span></div>
@@ -5078,7 +5205,7 @@
           <div class="bucket-row"><span class="k">Mean age</span><span class="v">${precise(fo.mean_age, 1)} yrs</span></div>
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(fo.oldest ?? "—"))} → ${esc(String(fo.newest ?? "—"))}</span></div>
         </div>
-        <div class="card reveal">
+        <div class="card reveal" style="opacity:1 !important; transform:none !important">
           <h3>Albums (separate)</h3>
           <div class="bucket-row"><span class="k">Dated / total</span><span class="v">${esc(intFmt(al.n_dated_known ?? al.n_dated ?? "—"))} / ${esc(intFmt(al.n_total_album_coins ?? "—"))}</span></div>
           <div class="bucket-row"><span class="k">Coverage</span><span class="v">${al.coverage_pct != null ? num(al.coverage_pct, 1) + "%" : "—"}</span></div>
@@ -5087,14 +5214,36 @@
           <div class="bucket-row"><span class="k">Oldest → newest</span><span class="v">${esc(String(al.oldest ?? "—"))} → ${esc(String(al.newest ?? "—"))}</span></div>
         </div>
       </div>
-      <div class="card reveal age-albums-card">
-        <h3>Albums at a glance</h3>
-        <div class="table-wrap glance-wrap" style="margin-top:0.5rem">
-          <table class="data">
-            <thead><tr><th>Family</th><th>IDs</th><th class="num">Coins</th><th class="num">Total</th><th>Pulse</th></tr></thead>
-            <tbody>${glanceBody || '<tr><td colspan="5" class="empty">—</td></tr>'}</tbody>
-          </table>
+      <div class="card reveal age-albums-card" style="opacity:1 !important; transform:none !important">
+        <div class="album-shelf-header">
+          <div>
+            <h3 style="margin:0 0 0.25rem;color:var(--gold-soft);font-size:1.35rem">Numismatic Album Library</h3>
+            <div style="font-size:0.8rem;color:var(--ink-soft);font-family:var(--mono)">12 Master Collections · 32 Archival Volumes · 930 Staged Coins</div>
+          </div>
+          <div class="album-shelf-views">
+            <button type="button" class="btn small album-shelf-view-btn${albumViewMode === 'shelf' ? ' active' : ''}" data-view="shelf" title="3D Embossed Leatherette Bookshelf">📚 Binder Rack</button>
+            <button type="button" class="btn small album-shelf-view-btn${albumViewMode === 'matrix' ? ' active' : ''}" data-view="matrix" title="Comprehensive Data Ledger">📋 Ledger Matrix</button>
+            <button type="button" class="btn small btn-shelf-wantlist" id="btn-shelf-wantlist" style="border-color:var(--gold);color:var(--gold-soft);background:rgba(200,169,74,0.12);font-weight:700" title="Generate Missing Holes Checklist for Coin Shows">📑 Want List</button>
+          </div>
         </div>
+
+        <div class="album-shelf-filter-tabs">
+          <button type="button" class="shelf-filter-tab${albumCategoryFilter === 'all' ? ' active' : ''}" data-cat="all">All Binders (${combinedGlance.length})</button>
+          <button type="button" class="shelf-filter-tab${albumCategoryFilter === 'silver' ? ' active' : ''}" data-cat="silver">🥈 Silver &amp; Bullion</button>
+          <button type="button" class="shelf-filter-tab${albumCategoryFilter === 'classic' ? ' active' : ''}" data-cat="classic">🏛️ Classic Series</button>
+          <button type="button" class="shelf-filter-tab${albumCategoryFilter === 'modern' ? ' active' : ''}" data-cat="modern">🪙 Modern Clad</button>
+          <button type="button" class="shelf-filter-tab${albumCategoryFilter === 'world' ? ' active' : ''}" data-cat="world">🍁 International</button>
+        </div>
+
+        ${albumViewMode === 'shelf'
+          ? `<div class="album-shelf-grid">${shelfCardsHtml}</div>`
+          : `<div class="table-wrap glance-wrap">
+              <table class="data">
+                <thead><tr><th>Family</th><th>IDs</th><th class="num">Coins</th><th class="num">Total</th><th>Pulse</th></tr></thead>
+                <tbody>${glanceBody || '<tr><td colspan="5" class="empty">—</td></tr>'}</tbody>
+              </table>
+            </div>`
+        }
       </div>`;
   }
 
@@ -5228,7 +5377,7 @@
     "Mercury"
   ];
 
-  function openAlbumInspector(family, rawIds) {
+  function openAlbumInspector(family, rawIds, initialFilter = "all") {
     if (!family || !ALBUM_METADATA[family]) family = "American Silver Eagles";
     activeAlbumFamily = family;
     const meta = ALBUM_METADATA[family];
@@ -5242,7 +5391,9 @@
     } else {
       activeAlbumId = "A026";
     }
-    activeAlbumFilter = "all";
+    activeAlbumFilter = initialFilter;
+    activeAlbumPage = 1;
+    activeAlbumPageFlipped = false;
     renderAlbumInspectorView();
     const modal = $("#album-inspector-modal");
     if (modal) {
@@ -5261,6 +5412,117 @@
     const idx = ALBUM_FAMILIES_ORDER.indexOf(activeAlbumFamily);
     const nextIdx = (idx + dir + ALBUM_FAMILIES_ORDER.length) % ALBUM_FAMILIES_ORDER.length;
     openAlbumInspector(ALBUM_FAMILIES_ORDER[nextIdx]);
+  }
+
+  function openWantListModal(targetFamily = null) {
+    const modal = $("#album-wantlist-modal");
+    if (!modal) return;
+    const listBody = $("#wantlist-body");
+    const titleEl = $("#wantlist-title");
+    const subEl = $("#wantlist-subtitle");
+
+    const familiesToScan = targetFamily ? [targetFamily] : ALBUM_FAMILIES_ORDER;
+    const allHoles = [];
+
+    for (const fam of familiesToScan) {
+      const meta = ALBUM_METADATA[fam];
+      if (!meta || !meta.volumes) continue;
+      for (const [vId, vol] of Object.entries(meta.volumes)) {
+        const startY = vol.startYear || 1900;
+        const endY = vol.endYear || 2024;
+        const totalS = vol.totalSlots || 36;
+        const filledC = vol.filled || 0;
+        const holes = vol.holes || [];
+
+        let curY = startY;
+        for (let i = 0; i < totalS; i++) {
+          const yStr = String(curY);
+          let isHole = false;
+          let label = "";
+          for (const h of holes) {
+            if (h.startsWith(yStr) || h === yStr) {
+              isHole = true;
+              label = h;
+              break;
+            }
+          }
+          if (!isHole && i >= filledC) {
+            isHole = true;
+            label = (curY <= endY) ? yStr : `Reserve Slot #${i + 1}`;
+          }
+          if (isHole) {
+            const isKey = /key/i.test(label) || /1996|1909-S|1914-D|1916-D|1932-D|1932-S|1950-D/i.test(label);
+            const isSemiKey = /semi|overdate|wide|vdb/i.test(label);
+            const estCost = isKey ? "$95.00 – $450.00" : (vol.metal.includes("Silver") ? "$32.00 – $65.00" : "$3.50 – $18.00");
+            allHoles.push({
+              family: fam,
+              albumId: vId,
+              slotNum: i + 1,
+              target: label,
+              denom: vol.denom,
+              metal: vol.metal,
+              isKey,
+              isSemiKey,
+              estCost
+            });
+          }
+          if (curY < endY) curY++;
+        }
+      }
+    }
+
+    if (titleEl) {
+      titleEl.textContent = targetFamily ? `${targetFamily} · Target Want List` : "Comprehensive Collection Want List";
+    }
+    if (subEl) {
+      subEl.textContent = `${allHoles.length} missing target holes identified across ${familiesToScan.length} album series · Field Checklist`;
+    }
+
+    const rowsHtml = allHoles.map(h => {
+      const badgeClass = h.isKey ? "key" : (h.isSemiKey ? "semi-key" : "standard");
+      const badgeText = h.isKey ? "KEY DATE" : (h.isSemiKey ? "SEMI-KEY" : "NEEDED");
+      return `
+        <tr>
+          <td><span class="badge" style="background:rgba(255,255,255,0.06);color:var(--gold-soft);font-family:var(--mono);font-size:0.7rem">${esc(h.albumId)}</span></td>
+          <td><strong>${esc(h.target)}</strong></td>
+          <td>${esc(h.denom)}</td>
+          <td style="color:var(--ink-soft);font-size:0.8rem">${esc(h.family)}</td>
+          <td><span class="wantlist-target-badge ${badgeClass}">${badgeText}</span></td>
+          <td style="font-family:var(--mono);color:var(--gold);font-weight:600">${esc(h.estCost)}</td>
+        </tr>
+      `;
+    }).join("");
+
+    if (listBody) {
+      listBody.innerHTML = `
+        <div class="wantlist-table-wrap">
+          <table class="wantlist-table">
+            <thead>
+              <tr>
+                <th>Album</th>
+                <th>Target Date / Variety</th>
+                <th>Denomination</th>
+                <th>Series Family</th>
+                <th>Status</th>
+                <th>Est Acquisition</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rowsHtml || '<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--ink-soft)">No missing target holes. Series 100% complete!</td></tr>'}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeWantListModal() {
+    const modal = $("#album-wantlist-modal");
+    if (modal) modal.hidden = true;
+    document.body.style.overflow = "";
   }
 
   function renderAlbumInspectorView() {
@@ -5302,6 +5564,7 @@
       tabsContainer.querySelectorAll(".album-tab-btn").forEach(btn => {
         btn.onclick = () => {
           activeAlbumId = btn.dataset.albumId;
+          activeAlbumPage = 1;
           renderAlbumInspectorView();
         };
       });
@@ -5395,12 +5658,14 @@
 
       albumCoinDossiers.set(slotScan, slotDossier);
 
+      const isKey = /key/i.test(displayLabel) || /1996|1909-S|1914-D|1916-D|1932-D|1932-S|1950-D/i.test(displayLabel);
       slots.push({
         idx: i + 1,
         year: displayYear,
         label: displayLabel,
         isFilled,
         isHole,
+        isKey,
         scan: slotScan,
         coin: slotDossier
       });
@@ -5408,7 +5673,13 @@
       if (curYear < endYear) curYear++;
     }
 
-    // Update filter counts
+    // Pagination calculations
+    const SLOTS_PER_PAGE = 12;
+    const totalPages = Math.ceil(totalSlots / SLOTS_PER_PAGE) || 1;
+    if (activeAlbumPage > totalPages) activeAlbumPage = totalPages;
+    if (activeAlbumPage < 1) activeAlbumPage = 1;
+
+    // Filter counts
     const filledSlots = slots.filter(s => s.isFilled);
     const missingSlots = slots.filter(s => s.isHole);
     const cAll = $("#album-count-all");
@@ -5418,10 +5689,58 @@
     if (cFill) cFill.textContent = filledSlots.length;
     if (cMiss) cMiss.textContent = missingSlots.length;
 
-    // Filter slots based on active filter
-    let displaySlots = slots;
-    if (activeAlbumFilter === "filled") displaySlots = filledSlots;
-    else if (activeAlbumFilter === "missing") displaySlots = missingSlots;
+    // Update filter pills active state
+    $$("#album-filter-pills .album-filter-pill").forEach(p => {
+      p.classList.toggle("active", p.dataset.filter === activeAlbumFilter);
+    });
+
+    // Determine slots to display
+    let candidateSlots = slots;
+    if (activeAlbumFilter === "filled") candidateSlots = filledSlots;
+    else if (activeAlbumFilter === "missing") candidateSlots = missingSlots;
+
+    let displaySlots = candidateSlots;
+    if (!activeAlbumSpreadMode && activeAlbumFilter === "all") {
+      const pageStartIdx = (activeAlbumPage - 1) * SLOTS_PER_PAGE;
+      displaySlots = candidateSlots.slice(pageStartIdx, pageStartIdx + SLOTS_PER_PAGE);
+    }
+
+    // Update Page Navigation Controls
+    const pageInd = $("#album-page-indicator");
+    const pageBadge = $("#album-page-badge");
+    const pageFaceLbl = $("#album-page-face-label");
+    const toggleSpreadBtn = $("#album-btn-toggle-spread");
+    const flipText = $("#album-flip-page-text");
+    const pageContainer = $("#album-page-container");
+
+    if (pageInd) {
+      pageInd.textContent = activeAlbumSpreadMode ? "Spread View" : `Page ${activeAlbumPage} of ${totalPages}`;
+    }
+    if (toggleSpreadBtn) {
+      toggleSpreadBtn.textContent = activeAlbumSpreadMode ? "📄 Page View" : "⊞ All Spread";
+      toggleSpreadBtn.title = activeAlbumSpreadMode ? "Switch to single archival cardstock page view" : "View all album slots at once";
+    }
+    if (flipText) {
+      flipText.textContent = activeAlbumPageFlipped ? "Flip to Obverse" : "Flip to Reverse";
+    }
+    if (pageFaceLbl) {
+      pageFaceLbl.textContent = activeAlbumPageFlipped ? "REVERSE VIEW · MINTMARK & EAGLE REVEALED" : "OBVERSE VIEW · ACETATE SLIDE IN PLACE";
+    }
+
+    const firstDisplaySlot = displaySlots[0];
+    const lastDisplaySlot = displaySlots[displaySlots.length - 1];
+    if (pageBadge) {
+      if (activeAlbumSpreadMode) {
+        pageBadge.textContent = `FULL ALBUM SPREAD · ${slots.length} TOTAL SLOTS`;
+      } else {
+        const yRange = (firstDisplaySlot && lastDisplaySlot) ? `${firstDisplaySlot.year}–${lastDisplaySlot.year}` : `SLOTS`;
+        pageBadge.textContent = `PAGE ${activeAlbumPage} OF ${totalPages} · ${yRange}`;
+      }
+    }
+
+    if (pageContainer) {
+      pageContainer.classList.toggle("is-page-flipped", Boolean(activeAlbumPageFlipped));
+    }
 
     // Render Grid
     const grid = $("#album-slots-grid");
@@ -5429,15 +5748,28 @@
       grid.innerHTML = displaySlots.map(s => {
         if (s.isFilled) {
           const coinObj = s.coin;
-          const visual = coinObj.thumb
-            ? `<img class="slot-coin-disc" src="${esc(coinObj.thumb)}" loading="lazy" decoding="async" alt="${esc(s.year)}" />`
-            : `<div class="slot-coin-disc">${renderSpecimenBlueprint(coinObj, false, "obv")}</div>`;
+          const obvVisual = coinObj.thumb
+            ? `<img class="slot-coin-disc" src="${esc(coinObj.thumb)}" loading="lazy" decoding="async" alt="${esc(s.year)} Obverse" />`
+            : renderSpecimenBlueprint(coinObj, false, "obv");
+
+          const revPhotoUrl = (typeof photoOf === "function" && photoOf(coinObj, "rev")?.url) ? photoOf(coinObj, "rev").url : null;
+          const revVisual = revPhotoUrl
+            ? `<img class="slot-coin-disc" src="${esc(revPhotoUrl)}" loading="lazy" decoding="async" alt="${esc(s.year)} Reverse" />`
+            : renderSpecimenBlueprint(coinObj, false, "rev");
 
           return `
             <div class="album-slot-card is-filled" data-scan="${esc(s.scan)}" title="Slot #${s.idx}: ${s.year} ${esc(vol.denom)} (Filled) - Click to inspect full dossier">
               <div class="slot-aperture-wrap">
-                ${visual}
-                <div class="slot-luster-ring"></div>
+                <div class="slot-aperture-flipper">
+                  <div class="slot-coin-disc-face is-obv">
+                    ${obvVisual}
+                    <div class="slot-luster-ring"></div>
+                  </div>
+                  <div class="slot-coin-disc-face is-rev">
+                    ${revVisual}
+                    <div class="slot-luster-ring"></div>
+                  </div>
+                </div>
               </div>
               <div class="slot-year-tag">${esc(s.year)}</div>
               <div class="slot-denom-tag">${esc(vol.denom)}</div>
@@ -5449,12 +5781,12 @@
               <div class="slot-aperture-wrap">
                 <div class="slot-hole-cavity">
                   <span class="slot-hole-target-cross">⌖</span>
-                  <span class="slot-hole-lbl">TARGET</span>
+                  <span class="slot-hole-lbl">${s.isKey ? 'KEY TARGET' : 'TARGET'}</span>
                 </div>
               </div>
-              <div class="slot-year-tag" style="color:var(--gold-soft)">${esc(s.label)}</div>
+              <div class="slot-year-tag" style="color:${s.isKey ? 'var(--gold-soft)' : 'var(--ink)'}">${esc(s.label)}</div>
               <div class="slot-denom-tag" style="color:var(--muted)">Target Hole</div>
-              <span class="slot-status-pill missing">OPEN HOLE</span>
+              <span class="slot-status-pill ${s.isKey ? 'key-date' : 'missing'}">${s.isKey ? '★ KEY DATE' : 'OPEN HOLE'}</span>
             </div>`;
         }
       }).join("");
@@ -5473,12 +5805,60 @@
         };
       });
     }
+
+    // Wire Page Nav Buttons
+    const prevPageBtn = $("#album-page-prev");
+    const nextPageBtn = $("#album-page-next");
+    if (prevPageBtn) {
+      prevPageBtn.onclick = () => {
+        if (activeAlbumPage > 1) {
+          activeAlbumPage--;
+          renderAlbumInspectorView();
+        }
+      };
+    }
+    if (nextPageBtn) {
+      nextPageBtn.onclick = () => {
+        if (activeAlbumPage < totalPages) {
+          activeAlbumPage++;
+          renderAlbumInspectorView();
+        }
+      };
+    }
+
+    // Wire View Mode Spread Toggle
+    const toggleSpreadEl = $("#album-btn-toggle-spread");
+    if (toggleSpreadEl) {
+      toggleSpreadEl.onclick = () => {
+        activeAlbumSpreadMode = !activeAlbumSpreadMode;
+        renderAlbumInspectorView();
+      };
+    }
+
+    // Wire 3D Page Flip Button
+    const flipPageBtn = $("#album-btn-flip-page");
+    if (flipPageBtn) {
+      flipPageBtn.onclick = () => {
+        activeAlbumPageFlipped = !activeAlbumPageFlipped;
+        renderAlbumInspectorView();
+        playStapleClick();
+      };
+    }
+
+    // Wire Want List Button inside inspector
+    const wantListBtn = $("#album-btn-wantlist");
+    if (wantListBtn) {
+      wantListBtn.onclick = () => {
+        openWantListModal(activeAlbumFamily);
+      };
+    }
   }
 
   window.openAlbumInspector = openAlbumInspector;
   window.closeAlbumInspector = closeAlbumInspector;
+  window.openWantListModal = openWantListModal;
+  window.closeWantListModal = closeWantListModal;
 
-  /** The Curator's Study: intelligence, metal, world, age — the ledger, thinking. */
   /** The Curator's Study: world atlas, intelligence, metal, age, buckets. */
   function renderStudy() {
     $("#study-body").innerHTML = `
@@ -5497,9 +5877,13 @@
     `;
     bindWorld();
     bindStudyNav();
+
+    // Gem rows
     $$("#study-body .gem-row button[data-scan]").forEach((btn) => {
       btn.addEventListener("click", () => { dossierCtx = null; openDrawer(btn.dataset.scan); });
     });
+
+    // Decade rows
     $$("#study-body .interactive-decade").forEach((row) => {
       row.addEventListener("click", () => {
         const d = row.dataset.decade;
@@ -5512,6 +5896,8 @@
         }
       });
     });
+
+    // Country spread rows
     $$("#study-body .interactive-country-spread").forEach((row) => {
       row.addEventListener("click", () => {
         const country = row.dataset.country;
@@ -5524,6 +5910,8 @@
         }
       });
     });
+
+    // Staging album row
     $$("#study-body .staging-album-row").forEach((row) => {
       row.onclick = () => {
         setWing("lab");
@@ -5539,11 +5927,65 @@
         }, 150);
       };
     });
-    $$("#study-body .interactive-album-row").forEach((row) => {
-      row.onclick = () => {
-        openAlbumInspector(row.dataset.albumFamily, row.dataset.albumIds);
+
+    // Album bookshelf view mode toggle
+    $$("#study-body .album-shelf-view-btn").forEach((btn) => {
+      btn.onclick = () => {
+        albumViewMode = btn.dataset.view;
+        renderStudy();
       };
     });
+
+    // Album shelf category filter tabs
+    $$("#study-body .shelf-filter-tab").forEach((tab) => {
+      tab.onclick = () => {
+        albumCategoryFilter = tab.dataset.cat;
+        renderStudy();
+      };
+    });
+
+    // Album shelf want list button
+    $("#btn-shelf-wantlist")?.addEventListener("click", () => {
+      openWantListModal(null);
+    });
+
+    // Staging album open button on shelf
+    $("#btn-open-staging-album")?.addEventListener("click", () => {
+      setWing("lab");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => {
+        const card = $("#phase2-staging-card");
+        if (card) {
+          card.scrollIntoView({ behavior: "smooth", block: "center" });
+          card.classList.add("highlight-pulse");
+        }
+      }, 150);
+    });
+
+    // Open binder buttons on cards
+    $$("#study-body .btn-open-album-inspector, #study-body .interactive-album-row").forEach((el) => {
+      el.onclick = (e) => {
+        e.stopPropagation();
+        openAlbumInspector(el.dataset.albumFamily, el.dataset.albumIds, "all");
+      };
+    });
+
+    // Open holes buttons on cards
+    $$("#study-body .btn-open-album-holes").forEach((el) => {
+      el.onclick = (e) => {
+        e.stopPropagation();
+        openAlbumInspector(el.dataset.albumFamily, el.dataset.albumIds, "missing");
+      };
+    });
+
+    // Card background click opens binder
+    $$("#study-body .album-binder-card:not(.staging-binder-card)").forEach((card) => {
+      card.onclick = (e) => {
+        if (e.target.closest("button")) return;
+        openAlbumInspector(card.dataset.albumFamily, card.dataset.albumIds, "all");
+      };
+    });
+
     observeReveals($("#study-body"));
   }
 
