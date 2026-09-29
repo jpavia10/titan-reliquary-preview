@@ -1,5 +1,7 @@
 # Photo-metadata model bake-off
 
+> **Deferred.** Not needed for the current drip (Phase 1 uses chat models). Run this only when an in-app "photograph a coin, AI fills the record" feature is planned, and after Phase 1 is complete, since it needs the known-answer coins photographed again.
+
 Goal: pick the cheapest vision model that reads a Phase 1 photo (pen-labelled flip) and fills the core record fields with no invented values. Protocol: `docs/PHOTO_PROTOCOL.md` on Drive, Step 2.
 
 ## Files
