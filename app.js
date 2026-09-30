@@ -3743,6 +3743,7 @@
     getSpecimenDiameterSource: (f) => getSpecimenDiameterSource(f),
     openDrawer: (scan, ctx) => { dossierCtx = ctx || null; return openDrawer(scan); },
     openAtmoSheet: () => openAtmoSheet(), openKeysSheet: () => openKeysSheet(),
+    launchSpatial: () => launchSpatialTable(),
     closePalette: () => closePalette(),
     render: null, filtered: null, palette: null, dossier: null,
   };

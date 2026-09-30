@@ -955,9 +955,9 @@
     const target = $(".gx-open", all[j]);
     if (target) { target.focus({ preventScroll: true }); target.scrollIntoView({ block: "nearest", behavior: REDUCED() ? "auto" : "smooth" }); }
   }
-  function openCard(scan) {
+  function openCard(scan, noCtx) {
     rememberRecent(scan);
-    B.openDrawer(scan, { label: "Gallery", scans: wallList.map((f) => f.scan) });
+    B.openDrawer(scan, noCtx ? null : { label: "Gallery", scans: wallList.map((f) => f.scan) });
   }
   function bindEvents(body) {
     if (body.dataset.gfBound) return;
@@ -1078,8 +1078,336 @@
     }).observe(pane, { attributes: true, attributeFilter: ["class"] });
   })();
 
+  /* ══════════════════════════ ⌘K palette v2 ══════════════════════════
+     Grouped results (recent, places, actions, coins, vault lots, albums, wings), Up/Down/Enter, recent pieces. */
+  const has = (v) => v != null && String(v).trim() !== "";
+  const flipsAll = () => (B.vault && B.vault.flips) || [];
+  let palItems = [];
+  let palSel = 0;
+  const WINGS = [
+    ["hall", "Grand Hall", "Overview, value and what's new"],
+    ["gallery", "Gallery", "Every flip on the wall"],
+    ["vault", "Vault", "Bullion, sets and reserves"],
+    ["study", "Curator's Study", "Albums, world map and ledger"],
+    ["lab", "Conservation Lab", "Photography progress"],
+  ];
+  /** Open the wing with the current (already set) filters and show the top of the wall. */
+  function goGallery() {
+    B.setWing("gallery");
+    schedule(0);
+    setTimeout(() => { const f = $("#gf-finder"); if (f) f.scrollIntoView({ behavior: REDUCED() ? "auto" : "smooth", block: "start" }); }, 80);
+  }
+  function showView(set, sort) { clearFilters(); setF(set || {}); setSort(sort || DEFAULT_SORT); goGallery(); }
+  function palActions() {
+    const silverN = flipsAll().filter((f) => f.is_silver).length;
+    return [
+      { t: "Most valuable pieces", s: "Gallery, highest estimate first", k: "valuable expensive top best value crown", run: () => showView({ top: 12 }, "value") },
+      { t: "Silver pieces", s: `${silverN} flips with silver content`, k: "silver ag metal melt", run: () => showView({ metal: "Silver" }, "asw") },
+      { t: "Oldest pieces first", s: "Gallery sorted by year", k: "oldest old early history timeline year", run: () => showView({}, "year") },
+      { t: "Recently added", s: "Newest entries in the ledger", k: "recent new latest added", run: () => showView({}, "added") },
+      { t: "Clear gallery filters", s: "Show all pieces", k: "clear reset all filters everything", run: () => showView({}, DEFAULT_SORT) },
+      { t: "Surprise me", s: "Open a random piece", k: "random surprise any lucky", run: () => { const all = flipsAll(); const f = all[Math.floor(Math.random() * all.length)]; if (f) openCard(f.scan, true); } },
+      { t: "Change the atmosphere", s: "Lighting, sound and music", k: "atmosphere theme lighting colour color dark light music sound", run: () => B.openAtmoSheet() },
+      { t: "Keyboard shortcuts", s: "Press ? anywhere", k: "keyboard shortcuts keys help", run: () => B.openKeysSheet() },
+      { t: "Open the 3D table", s: "Examine a piece in 3D", k: "3d table spatial museum room", run: () => { if (B.launchSpatial) B.launchSpatial(); } },
+      { t: "Print the gallery list", s: "Printable inventory of the current view", k: "print list inventory paper", run: () => { B.setWing("gallery"); update(); setTimeout(() => window.print(), 60); } },
+    ];
+  }
+  const blobCache = new WeakMap();
+  function blob(o, fields) {
+    let b = blobCache.get(o);
+    if (!b) { b = B.norm(fields.map((k) => o[k]).filter(has).join(" ")); blobCache.set(o, b); }
+    return b;
+  }
+  const wordsMatch = (text, q) => q.split(" ").every((w) => text.includes(w));
+
+  const ICO = {
+    piece: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="5" stroke-dasharray="1.5 1.8"/></svg>`,
+    vault: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3 16l3-6h12l3 6z"/><path d="M6 10l2-4h8l2 4"/></svg>`,
+    album: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="1.5"/><circle cx="10" cy="9" r="1.6"/><circle cx="14" cy="9" r="1.6"/><circle cx="10" cy="14" r="1.6"/><circle cx="14" cy="14" r="1.6"/></svg>`,
+    place: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>`,
+    wing: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>`,
+    act: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>`,
+  };
+  function palRowHtml(it, i) {
+    return `<button type="button" class="gxp-row${i === palSel ? " sel" : ""}" id="gxp-${i}" role="option" aria-selected="${i === palSel}" data-i="${i}" tabindex="-1">
+      <span class="gxp-ico gxp-${it.g}" aria-hidden="true">${it.ico || ""}</span>
+      <span class="gxp-main"><span class="gxp-t">${it.t}</span>${it.s ? `<span class="gxp-s">${it.s}</span>` : ""}</span>
+      ${it.r ? `<span class="gxp-r">${it.r}</span>` : ""}
+    </button>`;
+  }
+
+  function buildPalette(qRaw) {
+    const q = B.norm(qRaw || "");
+    const items = [];
+    const push = (g, it) => items.push({ g, ico: ICO[g === "recent" ? "piece" : g], ...it });
+    const flipItem = (f) => ({
+      t: `${esc(f.country || "")} · ${esc(f.year || "")}`,
+      s: `${esc(f.denom || f.label || "")} · <span class="gxp-mono">${esc(f.ser || f.scan)}</span>${f.is_silver ? " · Ag" : ""}`,
+      r: f.est != null ? money(f.est) : "",
+      run: () => openCard(f.scan, true),
+    });
+    if (!q) {
+      const all = flipsAll();
+      const recent = recentScans().map((s) => all.find((f) => f.scan === s)).filter(Boolean).slice(0, 4);
+      recent.forEach((f) => push("recent", { ...flipItem(f), head: "Recently viewed" }));
+      palActions().slice(0, 4).forEach((a) => push("act", { t: a.t, s: a.s, run: a.run, head: "Suggestions" }));
+      WINGS.forEach(([w, t, s]) => push("wing", { t, s, run: () => B.setWing(w), head: "Go to" }));
+      return items;
+    }
+    const flips = flipsAll();
+    // Year / decade shortcuts: "1964", "1960s"
+    const ym = q.match(/^(1[5-9]\d|20\d)(\d|0s)$/);
+    if (ym) {
+      const dec = /s$/.test(q);
+      const y = parseInt(q, 10);
+      const n = flips.filter((f) => { const yy = yearNum(f.year); return yy != null && (dec ? Math.floor(yy / 10) * 10 === y : yy === y); }).length;
+      if (n) push("act", { t: dec ? `Pieces from the ${y}s` : `Pieces from ${y}`, s: `${n} on the wall`, head: "Show in the gallery",
+        run: () => showView(dec ? { era: String(y) } : { year: String(y) }, "year") });
+    }
+    // Continents and countries
+    const conts = new Map(), ctry = new Map();
+    flips.forEach((f) => {
+      if (f.continent) conts.set(f.continent, (conts.get(f.continent) || 0) + 1);
+      if (f.country) ctry.set(f.country, (ctry.get(f.country) || 0) + 1);
+    });
+    [...conts].filter(([c]) => wordsMatch(B.norm(c), q)).forEach(([c, n]) => push("place", { t: esc(c), s: `${n} pieces`, head: "Places", run: () => showView({ cont: c }, DEFAULT_SORT) }));
+    [...ctry].filter(([c]) => wordsMatch(B.norm(c), q)).slice(0, 4).forEach(([c, n]) => push("place", { t: esc(c), s: `${n} ${n === 1 ? "piece" : "pieces"}`, head: "Places", run: () => showView({ country: c }, DEFAULT_SORT) }));
+    // Actions whose name matches come before the long lists
+    palActions().filter((a) => wordsMatch(B.norm(`${a.t} ${a.k}`), q)).slice(0, 3).forEach((a) => push("act", { t: a.t, s: a.s, head: "Actions", run: a.run }));
+    // Flips
+    const hits = flips.filter((f) => B.flipQueryMatch(f, q));
+    hits.slice(0, 6).forEach((f) => push("piece", { ...flipItem(f), head: `Pieces · ${hits.length}` }));
+    if (hits.length > 6) push("piece", { t: `Show all ${hits.length} matches on the wall`, s: `Search the gallery for “${esc(qRaw.trim())}”`, head: `Pieces · ${hits.length}`, run: () => showView({ q: qRaw.trim() }, DEFAULT_SORT) });
+    // Vault: bullion, sets, housing, stamps
+    const v = B.vault;
+    const vHits = [];
+    [["bullion", "Bullion"], ["sets", "Set"], ["housing", "Housing"], ["stamps", "Stamps"]].forEach(([k, lbl]) => (v[k] || []).forEach((c) => {
+      if (wordsMatch(blob(c, ["scan", "ser", "country", "year", "denom", "denom_line", "cat", "metal", "label", "kind"]) + " " + B.norm(lbl), q)) vHits.push([c, lbl]);
+    }));
+    vHits.slice(0, 5).forEach(([c, lbl]) => push("vault", {
+      t: esc(c.denom_line || c.denom || c.label || c.scan).slice(0, 90),
+      s: `${lbl} · <span class="gxp-mono">${esc(c.scan)}</span>${c.country && lbl !== "Housing" ? " · " + esc(c.country) : ""}`,
+      r: c.est != null ? money(c.est) : "", head: `Vault · ${vHits.length}`, run: () => B.openDrawer(c.scan, null),
+    }));
+    // Album families
+    (v.albums_glance || []).filter((g) => wordsMatch(B.norm([g.family, g.ids, "album binder"].join(" ")), q)).slice(0, 4).forEach((g) => push("album", {
+      t: esc(g.family), s: `${intFmt(g.coins)} coins · ${esc(g.ids)}`, r: g.total != null ? money(g.total) : "", head: "Albums",
+      run: () => { B.setWing("study"); if (typeof window.openAlbumInspector === "function") window.openAlbumInspector(g.family, g.ids); },
+    }));
+    // Wings
+    WINGS.filter(([w, t, s]) => wordsMatch(B.norm(`${w} ${t} ${s} wing room`), q)).forEach(([w, t, s]) => push("wing", { t, s, head: "Go to", run: () => B.setWing(w) }));
+    return items;
+  }
+
+  function paletteRender(qRaw) {
+    const box = $("#palette-results");
+    if (!box || !B.vault) return false;
+    palItems = buildPalette(qRaw);
+    palSel = 0;
+    const input = $("#palette-q");
+    if (input && input.placeholder.indexOf("albums") < 0) input.placeholder = "Search pieces, countries, bullion, albums, actions…";
+    if (!palItems.length) {
+      box.innerHTML = `<div class="gxp-empty">Nothing found for “${esc(qRaw)}”.<br/><span>Try a country, a year like 1964, a denomination, or a word from the notes.</span></div>`;
+      if (input) input.removeAttribute("aria-activedescendant");
+      return true;
+    }
+    let html = "", last = "";
+    palItems.forEach((it, i) => {
+      if (it.head !== last) { html += `<div class="gxp-head" role="presentation">${esc(it.head)}</div>`; last = it.head; }
+      html += palRowHtml(it, i);
+    });
+    box.innerHTML = html + `<div class="gxp-foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>Esc</kbd> close</span></div>`;
+    if (input) input.setAttribute("aria-activedescendant", "gxp-0");
+    return true;
+  }
+  function palMove(d) {
+    if (!palItems.length) return;
+    palSel = (palSel + d + palItems.length) % palItems.length;
+    $$("#palette-results .gxp-row").forEach((r) => {
+      const on = Number(r.dataset.i) === palSel;
+      r.classList.toggle("sel", on);
+      r.setAttribute("aria-selected", String(on));
+      if (on) r.scrollIntoView({ block: "nearest" });
+    });
+    const input = $("#palette-q");
+    if (input) input.setAttribute("aria-activedescendant", "gxp-" + palSel);
+  }
+  function palRun(i) {
+    const it = palItems[i];
+    if (!it) return false;
+    B.closePalette();
+    try { it.run(); } catch (err) { console.warn("[gallery] palette action failed", err); }
+    return true;
+  }
+  (function bindPalette() {
+    const q = $("#palette-q"), box = $("#palette-results");
+    if (!q || !box) return;
+    q.addEventListener("keydown", (e) => {
+      if (B.paletteBroken || !palItems.length || !$(".gxp-row", box)) return; // classic palette is showing: its own handler runs
+      if (e.key === "ArrowDown") { e.preventDefault(); palMove(1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); palMove(-1); }
+      else if (e.key === "Enter") { e.preventDefault(); palRun(palSel); }
+    });
+    box.addEventListener("click", (e) => {
+      const r = e.target.closest(".gxp-row");
+      if (r) palRun(Number(r.dataset.i));
+    });
+    box.addEventListener("mousemove", (e) => {
+      const r = e.target.closest(".gxp-row");
+      if (r && Number(r.dataset.i) !== palSel) palMove(Number(r.dataset.i) - palSel);
+    });
+  })();
+
+  /* ══════════════════════════ flip dossier v2 ══════════════════════════
+     Flips and tokens only. Every line is read from the ledger record (index + detail JSON); a missing field is
+     simply not printed. The drawn faces say they are drawings; nothing here invents a grade, a cert or a size. */
+  const SCHEMA = ["ser", "scan", "added", "cat", "continent", "country", "iso", "year", "mint", "denom", "refs", "metal", "specs", "mintage", "design", "tender", "qty", "face", "est", "conf", "label", "photo", "parked", "notes"];
+  const FULL = [
+    ["SER", "ser"], ["Scan", "scan"], ["Scan note", "scan_note"], ["Added", "added"], ["Category", "cat"], ["Continent", "continent"],
+    ["Country", "country"], ["ISO", "iso"], ["Year", "year_line"], ["Denomination", "denom_line"], ["Label", "label"],
+    ["Metal and condition", "metal"], ["Specs", "specs"], ["Mintage", "mintage"], ["Design", "design"], ["References", "refs"],
+    ["Legal tender", "tender"], ["Quantity", "qty"], ["Face and estimate", "face_line"], ["Housing", "parked"], ["Location", "location"],
+    ["Photo", "photo"], ["Status", "status"],
+  ];
+  /** Diameter only when the ledger (or a photo measurement) has one. */
+  function sizeFrom(c) {
+    if (c.measured_mm != null && Number.isFinite(Number(c.measured_mm))) return { mm: Number(c.measured_mm), src: "measured from a photograph" };
+    for (const k of ["diameter_mm", "dia_mm"]) if (c[k] != null && Number.isFinite(Number(c[k]))) return { mm: Number(c[k]), src: "recorded in the ledger" };
+    const m = String(c.metal_cond || c.metal || c.specs || "").match(/(\d{1,2}(?:\.\d+)?)\s*mm\b/i);
+    return m ? { mm: parseFloat(m[1]), src: "from the ledger's metal note" } : null;
+  }
+  function gramsFrom(c) {
+    if (c.weight_g != null && Number.isFinite(Number(c.weight_g))) return Number(c.weight_g);
+    const m = String(c.metal || "").match(/(\d{1,3}(?:\.\d+)?)\s*g\b/i);
+    return m ? parseFloat(m[1]) : null;
+  }
+  function alignmentFrom(c) {
+    const s = String(c.specs || "").toLowerCase();
+    if (/medal alignment|medallic/.test(s)) return "Medal alignment (↑↑)";
+    if (/coin alignment/.test(s)) return "Coin alignment (↑↓)";
+    return "";
+  }
+
+  function dossierHtml(c) {
+    if (!c || !flipsAll().some((f) => f.scan === c.scan)) return null; // only real ledger flips (not album slots)
+    const photos = (c.photos || []).filter((p) => p.url);
+    const hasObv = photos.some((p) => p.role === "obv"), hasRev = photos.some((p) => p.role === "rev");
+    const face = (side) => {
+      if ((side === "obv" && hasObv) || (side === "rev" && hasRev)) return B.photoSlot(c, side);
+      return `<figure class="gxd-face"><span class="gxd-coin" style="--r:${planchetR(c).toFixed(1)}">${coinSvg(c, side, true)}</span><figcaption>${side === "obv" ? "Obverse (drawn)" : "Reverse (drawn)"}</figcaption></figure>`;
+    };
+    const drawn = !(hasObv && hasRev);
+    const target = c.photo_stem ? `${c.photo_stem}_obv.jpg` : "";
+    const photoNote = !target && has(c.photo) ? ` <span class="gxd-photo-note">Ledger: ${esc(c.photo)}</span>` : "";
+    const spotAg = B.vault.precious?.spot_ag ?? B.vault.metals?.spot?.ag_usd_oz;
+    const melt = c.melt_live != null ? Number(c.melt_live) : (c.asw_oz != null && spotAg != null ? Number(c.asw_oz) * Number(spotAg) : null);
+    const size = sizeFrom(c);
+    const grams = gramsFrom(c);
+    const align = alignmentFrom(c);
+    const title = [c.country, c.year].filter(has).join(" · ") || c.label || c.scan;
+    const sub = [c.denom, c.mint ? `mint mark ${c.mint}` : ""].filter(has).join(" · ");
+    const present = SCHEMA.filter((k) => has(c[k]) || (k === "est" && c.est != null)).length;
+    const badges = [
+      c.is_silver ? `<span class="gxd-badge ag">Silver</span>` : "",
+      c.kind === "token" ? `<span class="gxd-badge">Token</span>` : "",
+      c.conf && c.conf !== "high" ? `<span class="gxd-badge warn" title="Identification confidence">Confidence: ${esc(c.conf)}</span>` : "",
+    ].join("");
+    const fact = (k, v) => has(v) ? `<div class="gxd-fact"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>` : "";
+    const gauge = size ? (() => {
+      const pct = Math.max(20, Math.min(96, (size.mm / 50.8) * 100));
+      return `<section class="gxd-sec gxd-size" aria-label="Actual size">
+        <h4>Size</h4>
+        <div class="gxd-gauge">
+          <div class="gxd-window" title="2×2 inch flip window (50.8 mm)"><span class="gxd-disc" style="width:${pct.toFixed(1)}%;height:${pct.toFixed(1)}%"></span></div>
+          <p><strong>${B.num(size.mm, 1, 1)} mm</strong> across${grams != null ? ` · <strong>${B.num(grams, 2)} g</strong>` : ""}<br/><span>Drawn to scale inside a 2×2 inch flip (50.8 mm). Diameter ${esc(size.src)}.</span></p>
+        </div>
+      </section>`;
+    })() : "";
+    const full = FULL.filter(([, k]) => has(c[k])).map(([lbl, k]) => `<div class="gxd-fact"><dt>${esc(lbl)}</dt><dd>${esc(c[k])}</dd></div>`).join("");
+    const yr = yearNum(c.year);
+    const era = yr != null ? String(Math.floor(yr / 10) * 10) : "";
+    return `
+      <div class="gxd">
+        <div class="gxd-stage${drawn ? " is-drawn" : ""}">
+          <div class="gxd-faces">${face("obv")}${face("rev")}</div>
+          ${drawn ? `<p class="gxd-pending"><span class="gxd-dot" aria-hidden="true"></span>Photographs pending (Phase 2). These faces are drawn from the ledger, not photographed.${target ? ` Target file: <code class="ph-file" data-copy="${esc(target)}" title="Tap to copy">${esc(target)}</code>` : photoNote}</p>` : `<p class="ph-hint">Tap a photo for full size.</p>`}
+        </div>
+        <header class="gxd-head">
+          <div class="gxd-ids"><span class="gxd-ser">${esc(c.ser || c.scan)}</span>${c.ser ? `<span class="gxd-scan">${esc(c.scan)}</span>` : ""}${badges}</div>
+          <h2>${esc(title)}</h2>
+          ${sub ? `<p class="gxd-sub">${esc(sub)}</p>` : ""}
+          <div class="gxd-value">
+            <div><span class="gxd-k">Estimated value</span><strong class="gxd-est">${c.est != null ? money(c.est) : "not recorded"}</strong></div>
+            ${c.face ? `<div><span class="gxd-k">Face value</span><strong>${esc(c.face)}</strong></div>` : ""}
+            ${c.is_silver ? `<div><span class="gxd-k">Silver content</span><strong>${c.asw_oz != null ? B.num(c.asw_oz, 4) + " oz" : "not recorded"}</strong>${melt != null ? `<span class="gxd-note">melt ${money(melt)}${spotAg != null ? ` at ${money(spotAg)}/oz` : ""}</span>` : ""}</div>` : ""}
+          </div>
+        </header>
+        <section class="gxd-sec">
+          <h4>Museum label</h4>
+          <dl class="gxd-facts">
+            ${fact("Country", c.country)}${fact("Continent", c.continent)}${fact("Year", c.year_line || c.year)}
+            ${fact("Denomination", c.denom_line || c.denom)}${fact("Metal and condition", c.metal)}${fact("Mintage", c.mintage)}
+            ${fact("References", c.refs)}${fact("Legal tender", c.tender)}${fact("Die alignment", align)}${fact("Housing", c.parked)}
+            ${fact("Identification", c.conf ? `${c.conf} confidence` : "")}${fact("Added to the ledger", c.added)}
+          </dl>
+        </section>
+        ${c.design ? `<section class="gxd-sec gxd-story"><h4>Design</h4><p>${esc(c.design)}</p></section>` : ""}
+        ${c.notes ? `<section class="gxd-sec gxd-story"><h4>Curator's notes</h4><p>${esc(c.notes)}</p></section>` : ""}
+        ${gauge}
+        <section class="gxd-sec gxd-acts" aria-label="Related">
+          ${c.country ? `<button type="button" class="gxd-act" data-gxd="country" data-v="${esc(c.country)}">More from ${esc(c.country)}</button>` : ""}
+          ${era ? `<button type="button" class="gxd-act" data-gxd="era" data-v="${era}">More from the ${era}s</button>` : ""}
+          <button type="button" class="gxd-act" data-gxd="link" data-v="${esc(c.ser || c.scan)}">Copy link to this piece</button>
+        </section>
+        <details class="gxd-full">
+          <summary>Full ledger record <span>${present} of ${SCHEMA.length} fields filled</span></summary>
+          <dl class="gxd-facts">${full}</dl>
+        </details>
+      </div>`;
+  }
+
+  (function bindDossier() {
+    const body = $("#drawer-body");
+    if (!body) return;
+    body.addEventListener("click", async (e) => {
+      const b = e.target.closest("[data-gxd]");
+      if (!b) return;
+      const act = b.dataset.gxd, v = b.dataset.v;
+      if (act === "country" || act === "era") {
+        const close = $("#drawer-close");
+        if (close) close.click();
+        showView({ [act]: v }, DEFAULT_SORT);
+      } else if (act === "link") {
+        const url = location.origin + location.pathname + "#coin=" + encodeURIComponent(v);
+        let ok = false;
+        try { await navigator.clipboard.writeText(url); ok = true; } catch (_) { ok = false; }
+        const t = b.textContent; b.textContent = ok ? "Link copied" : url; setTimeout(() => { b.textContent = t; }, 2000);
+      }
+    });
+  })();
+
+  /* ══════════════════════════ print list ══════════════════════════ */
+  function buildPrintSheet() {
+    let el = $("#gf-print-sheet");
+    const root = $("#gf-root");
+    if (!root) return;
+    if (!el) { el = document.createElement("div"); el.id = "gf-print-sheet"; el.className = "gf-print-sheet"; root.appendChild(el); }
+    const rows = wallList;
+    const F = readF();
+    const chips = activeChips(F).map((c) => c.text).join(", ") || "All pieces";
+    el.innerHTML = `
+      <h2>Titan Reliquary · Gallery list</h2>
+      <p>${esc(chips)} · ${intFmt(rows.length)} pieces · est. ${money(rows.reduce((s, f) => s + (Number(f.est) || 0), 0))}</p>
+      <table><thead><tr><th>SER</th><th>Country</th><th>Year</th><th>Denomination</th><th>Mint</th><th>Est.</th></tr></thead>
+      <tbody>${rows.map((f) => `<tr><td>${esc(f.ser || f.scan)}</td><td>${esc(f.country || "")}</td><td>${esc(f.year || "")}</td><td>${esc(f.denom || "")}${f.is_silver ? " (Ag)" : ""}</td><td>${esc(f.mint || "")}</td><td>${f.est != null ? money(f.est) : ""}</td></tr>`).join("")}</tbody></table>`;
+  }
+  window.addEventListener("beforeprint", () => { if (galleryActive() && mounted) buildPrintSheet(); });
+
   /* ══════════════════════════ bridge hooks ══════════════════════════ */
   B.filtered = () => currentList();
+  B.palette = paletteRender;
+  B.dossier = dossierHtml;
   B.render = () => {
     if (!ensureData()) return false;
     syncFromApp();
