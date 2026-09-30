@@ -2,7 +2,7 @@
 
 Private coin and precious-metals collection viewer for Joseph Pavia (`jpavia10`).
 Read this file first, then `collaborators/SHARED_LOG.md` (newest entries at the top).
-Last verified: 2026-09-29 (build TR49, commit `a15e411`).
+Last verified: 2026-09-30 (build TR50).
 
 ## What it is
 - Zero-build PWA: vanilla HTML/CSS/ES6 (Three.js for the 3D table). No npm, no bundler.
@@ -46,6 +46,7 @@ Last verified: 2026-09-29 (build TR49, commit `a15e411`).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-09-30: tr50 shipped "The Awakening" splash (`splash.js`, `splash.css`). Shows once per session on a plain load; `?nosplash` skips, `?splash=1` forces, `TitanSplash.replay()` replays. Also earlier: full-text search fixed (`data/search.json` + `tools/build_search.py`), photo-metadata bake-off kit in `tools/bakeoff/` (deferred), Drive consolidated.
 - 2026-09-29: Session moved to the cloud. Repo cloned from GitHub; `CLAUDE.md` restored from the Drive copy (the earlier local commit never reached GitHub).
 - 2026-09-28: Audit done. `CLAUDE.md` and corrected `README.md` written. All project files copied to Drive. Old local copies recycled; Desktop shortcut now points at the live preview site.
 - 2026-09-28: GitHub token removed from git remote URLs. It was not stored elsewhere; cloud sessions use the GitHub connection.

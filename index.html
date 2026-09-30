@@ -30,9 +30,48 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr49" />
+  <!-- Splash gate: show "The Awakening" once per session on a plain load of the Grand Hall.
+       ?nosplash skips it, ?splash=1 forces it, deep links (#coin=..., #vault ...) skip it. Fails open after 7 s. -->
+  <script>
+    (function () {
+      try {
+        var q = location.search, h = location.hash;
+        var off = /[?&]nosplash\b/.test(q), force = /[?&]splash=1\b/.test(q);
+        var seen = false; try { seen = !!sessionStorage.getItem("tr_splash_v1"); } catch (e) {}
+        var plain = !h || h === "#" || h === "#hall";
+        if (!off && (force || (!seen && plain))) {
+          document.documentElement.classList.add("ts-on");
+          setTimeout(function () { if (!window.__tsReady) document.documentElement.classList.remove("ts-on"); }, 7000);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=tr50" />
+  <link rel="stylesheet" href="splash.css?v=tr50" />
 </head>
 <body>
+  <!-- ══════════ SPLASH · THE AWAKENING (see splash.js) ══════════ -->
+  <div id="tr-splash" role="dialog" aria-modal="true" aria-label="Welcome to Titan Reliquary">
+    <div class="ts-bg"></div><div class="ts-rays"></div><div class="ts-glow"></div>
+    <div class="ts-fallback-coin" aria-hidden="true"></div>
+    <canvas class="ts-gl" aria-hidden="true"></canvas>
+    <div class="ts-vig"></div><div class="ts-grain"></div>
+    <button type="button" class="ts-skip">Skip</button>
+    <div class="ts-copy">
+      <div class="ts-eyebrow">A Private Numismatic Collection</div>
+      <h1 class="ts-title" aria-label="Titan Reliquary"><span class="ts-line ts-line-1">TITAN</span><span class="ts-line ts-line-2">RELIQUARY</span></h1>
+      <div class="ts-rule"></div>
+      <p class="ts-tag">Vault &amp; Museum</p>
+      <div class="ts-stats" aria-label="Collection at a glance">
+        <div class="ts-stat"><span class="ts-num" data-k="flips">273</span><span class="ts-lab">Specimens</span></div>
+        <div class="ts-stat"><span class="ts-num" data-k="countries">45</span><span class="ts-lab">Nations</span></div>
+        <div class="ts-stat"><span class="ts-num" data-k="value">$5,584</span><span class="ts-lab">In the Vault</span></div>
+      </div>
+      <button type="button" class="ts-enter"><span>Enter the Reliquary</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      <div class="ts-hint">Drag the coin to spin it</div>
+    </div>
+    <div class="ts-flash"></div>
+  </div>
   <!-- Shared SVG Definitions for Struck Specimen Medallions (Zero-Overhead GPU Caching) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <defs>
@@ -1166,19 +1205,20 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr49";</script>
+  <script>window.TITAN_BUILD = "tr50";</script>
   <script src="js/three.min.js"></script>
+  <script src="splash.js?v=tr50"></script>
   <script src="js/OrbitControls.js"></script>
   <script src="js/fflate.min.js"></script>
   <script src="js/USDZExporter.js"></script>
   <script src="js/qrcode.min.js"></script>
   <script src="js/openseadragon.min.js"></script>
-  <script src="spatial.js?v=tr49"></script>
-  <script src="deepzoom.js?v=tr49"></script>
-  <script src="atlas.js?v=tr49"></script>
-  <script src="app.js?v=tr49"></script>
-  <script src="js/playlist.js?v=tr49"></script>
-  <script src="audio.js?v=tr49"></script>
-  <script src="ambient.js?v=tr49"></script>
+  <script src="spatial.js?v=tr50"></script>
+  <script src="deepzoom.js?v=tr50"></script>
+  <script src="atlas.js?v=tr50"></script>
+  <script src="app.js?v=tr50"></script>
+  <script src="js/playlist.js?v=tr50"></script>
+  <script src="audio.js?v=tr50"></script>
+  <script src="ambient.js?v=tr50"></script>
 </body>
 </html>
