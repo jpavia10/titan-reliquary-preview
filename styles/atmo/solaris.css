@@ -1,3 +1,147 @@
-/* Atmosphere: solaris. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="solaris"] { ...every token... }, body background, wordmark, .sw-solaris swatch,
-   and any component overrides scoped under html[data-atmo="solaris"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: SOLAR OBSERVATORY  ·  a coronagraph station at altitude.
+   Identity: the eclipse. Cold graphite instrument panels under a black sky,
+   one hot solar amber, a corona halo around the title, a telescope graticule
+   in the walls, degree-scale ticks under the hero, monospace telemetry
+   readouts. (The old violet/indigo wash is gone: space here is black.)
+   Legibility: sun-warm white ink 16:1, amber accent 9:1+, muted/faint >= contract.
+   Legacy rules overridden: styles.css "13. Solaris".
+   ========================================================================== */
+
+/* 1. Tokens -------------------------------------------------------------- */
+html[data-atmo="solaris"] {
+  --scheme: dark;
+  color-scheme: dark;
+
+  --bg: #050507;
+  --bg2: #0a0a0e;
+  --surface: #111116;      /* graphite instrument panel */
+  --surface2: #1b1c24;
+
+  --ink: #fff4dc;          /* sunlit white */
+  --muted: #d3c6a6;
+  --faint: #a89c80;
+  --cardmeta: #e6d6a8;
+
+  --gold: #ffb52e;         /* solar amber */
+  --gold-soft: #ffe08a;    /* the hot inner corona */
+  --gold-deep: #b56a08;
+  --on-gold: #140a00;
+  --focus: #fff1c2;
+
+  --line: rgba(255, 181, 46, 0.16);
+  --line-strong: rgba(255, 181, 46, 0.44);
+
+  --ok: #86e3a6;
+  --warn: #ff9a3d;         /* prominence orange */
+  --bad: #ff7468;
+
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --mono: "Cascadia Code", "Cascadia Mono", Consolas, "SF Mono", ui-monospace, Menlo, monospace;
+  --radius: 8px;
+
+  --shadow: inset 0 1px 0 rgba(255, 224, 138, 0.07), 0 16px 44px rgba(0, 0, 0, 0.85);
+  --elev-1: inset 0 1px 0 rgba(255, 224, 138, 0.06), 0 2px 8px rgba(0, 0, 0, 0.6);
+  --elev-2: inset 0 1px 0 rgba(255, 224, 138, 0.09), 0 0 22px rgba(255, 181, 46, 0.10), 0 12px 30px rgba(0, 0, 0, 0.75);
+  --elev-3: inset 0 1px 0 rgba(255, 224, 138, 0.10), 0 0 40px rgba(255, 181, 46, 0.12), 0 28px 76px rgba(0, 0, 0, 0.88);
+  --scrim: rgba(2, 2, 4, 0.76);
+
+  --th-bg: #14141a;
+  --tabgrad1: #2b2110; --tabgrad2: #0f0d09;
+  --toastgrad1: #2b2110; --toastgrad2: #0f0d09;
+  --foot-bg: rgba(5, 5, 7, 0.95);
+  --drawerbar-bg: rgba(15, 15, 20, 0.96);
+  --ph-bg: #0b0b0f;
+  --sel-bg: #2a2110;
+  --row-hover: rgba(255, 181, 46, 0.08);
+  --hold-bg: linear-gradient(135deg, #2f230d, #0f0d09);
+  --skeleton1: #1b1c24; --skeleton2: #0b0b0f;
+  --grain-op: 0.045;
+
+  --wing-dur: 0.6s;
+  --wing-rise: 12px;
+
+  scrollbar-color: #b56a08 #050507;
+}
+
+/* 2. Sky: black, a warm bloom where the sun would be, a graticule behind ---- */
+html[data-atmo="solaris"] body {
+  background-image:
+    radial-gradient(60% 34% at 50% -4%, rgba(255, 181, 46, 0.17), rgba(255, 120, 20, 0.05) 55%, transparent 78%),
+    radial-gradient(90% 60% at 100% 100%, rgba(255, 120, 20, 0.06), transparent 70%);
+}
+html[data-atmo="solaris"] body::before {
+  /* telescope graticule: 56px squares, heavier every 4th */
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 181, 46, 0.045) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(90deg, rgba(255, 181, 46, 0.045) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(0deg, rgba(255, 181, 46, 0.05) 0 1px, transparent 1px 224px),
+    repeating-linear-gradient(90deg, rgba(255, 181, 46, 0.05) 0 1px, transparent 1px 224px);
+}
+html[data-atmo="solaris"] ::selection { background: var(--gold); color: var(--on-gold); }
+
+/* 3. Wordmark: haloed by the corona (see .hero-glow) --------------------------- */
+html[data-atmo="solaris"] .wordmark {
+  color: #fff8e6;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 22px rgba(255, 181, 46, 0.5), 0 0 60px rgba(255, 130, 20, 0.28) !important;
+}
+html[data-atmo="solaris"] .hero-glow {
+  /* eclipse totality: a thin bright ring and a soft outer corona around the title */
+  width: min(1100px, 100%);
+  background:
+    radial-gradient(ellipse 44% 62% at 50% 46%, transparent 78%, rgba(255, 224, 138, 0.20) 84%, rgba(255, 150, 30, 0.09) 91%, transparent 100%),
+    radial-gradient(ellipse 60% 70% at 50% 46%, rgba(255, 181, 46, 0.09), transparent 72%);
+}
+html[data-atmo="solaris"] .hero-grand {
+  background-image: linear-gradient(135deg, #fff8e6 10%, var(--gold-soft) 50%, var(--gold) 100%);
+  text-shadow: none;
+  filter: drop-shadow(0 0 16px rgba(255, 181, 46, 0.35));
+}
+/* Degree scale along the foot of the hero, like a mount's setting circle. */
+html[data-atmo="solaris"] .hero::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 9px;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 181, 46, 0.7) 0 1px, transparent 1px 60px) bottom / 100% 9px no-repeat,
+    repeating-linear-gradient(90deg, rgba(255, 181, 46, 0.4) 0 1px, transparent 1px 12px) bottom / 100% 5px no-repeat;
+}
+
+/* 4. Picker swatch ---------------------------------------------------------- */
+.sw-solaris {
+  background:
+    radial-gradient(circle at 50% 50%, #050507 0 30%, #fff1c2 33%, #ffb52e 42%, rgba(255, 120, 20, 0.45) 62%, transparent 78%),
+    #0a0a0e;
+}
+
+/* 5. Components ------------------------------------------------------------- */
+/* Instrument panels: 8px corners, an amber header rule; readouts in monospace. */
+html[data-atmo="solaris"] :is(.card, .tile) { border-top-color: rgba(255, 181, 46, 0.55); }
+html[data-atmo="solaris"] .tile::before { width: 2px; background: linear-gradient(180deg, var(--gold-soft), var(--gold-deep)); }
+html[data-atmo="solaris"] :is(.card .val, .tile .v) { font-family: var(--mono); letter-spacing: -0.02em; font-weight: 600; }
+html[data-atmo="solaris"] :is(.card h3, .tile .k, .hero-cap) { letter-spacing: 0.18em; }
+html[data-atmo="solaris"] .wing-head h2 { text-shadow: 0 2px 26px rgba(255, 181, 46, 0.22); }
+html[data-atmo="solaris"] .tab.active { box-shadow: 0 0 18px rgba(255, 181, 46, 0.35); }
+html[data-atmo="solaris"] .tray-tab.active .tray-count { color: var(--on-gold); background: rgba(20, 10, 0, 0.16); }  /* styles.css hard-codes #fff */
+html[data-atmo="solaris"] .wing.active::before { box-shadow: 0 0 14px var(--gold); }
+html[data-atmo="solaris"] :is(.lofi-bar, .player-bar, .mobile-wing-dock) { background: rgba(12, 12, 16, 0.97) !important; }
+html[data-atmo="solaris"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 0%, rgba(255, 181, 46, 0.15), transparent 70%),
+    radial-gradient(40% 60% at 85% 100%, rgba(255, 120, 20, 0.08), transparent 70%);
+}
+/* styles.css paints these panels warm/navy black in every atmosphere: retint to graphite. */
+html[data-atmo="solaris"] .exhibit { background: linear-gradient(180deg, #15151b 0%, #08080b 100%); box-shadow: var(--elev-3); }
+html[data-atmo="solaris"] .exhibit:hover { box-shadow: var(--elev-3), 0 0 30px rgba(255, 181, 46, 0.16); }
+html[data-atmo="solaris"] .vault-valuation-hub { background: linear-gradient(180deg, rgba(24, 24, 31, 0.9), rgba(10, 10, 14, 0.96)); }
+html[data-atmo="solaris"] .market-ticker-tape { background: #08080b; border-color: var(--line); }
+html[data-atmo="solaris"] .ticker-badge { background: #14141a; }
+html[data-atmo="solaris"] :is(.study-nav-pills, .gallery-mode-switch) { background: rgba(17, 17, 22, 0.88); border-color: var(--line-strong); }
+html[data-atmo="solaris"] .album-binder-card { background: #101015; border-color: var(--line-strong); }
+
+/* 6. Reduced motion ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="solaris"] body, html[data-atmo="solaris"] .hero-glow { animation: none; }
+}
