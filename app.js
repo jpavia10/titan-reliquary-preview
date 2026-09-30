@@ -3149,10 +3149,13 @@
   let cfItems = [];
   let cfKeyBound = false;
 
+  /* Phones / touch: a lighter Cover Flow (5 cards, no mirrored reflection). Purely decorative parts are dropped. */
+  const cfLite = () => !!(window.matchMedia && window.matchMedia("(max-width: 700px), (hover: none) and (pointer: coarse)").matches);
   function buildCoverFlowCardInner(f, isCenter) {
+    const lite = cfLite();
     const obvHtml = renderMuseumSlab(f, { side: "obv" });
     const revHtml = isCenter ? renderMuseumSlab(f, { side: "rev" }) : "";
-    const reflHtml = renderMuseumSlab(f, { side: "obv" });
+    const reflHtml = lite ? "" : renderMuseumSlab(f, { side: "obv" });
 
     const loupeHtml = isCenter ? `
       <div class="forensic-loupe" id="cf-loupe-${esc(f.scan)}" hidden>
@@ -3188,13 +3191,13 @@
           ${flipBadgeHtml}
         </div>` : ''}
       </div>
-      <div class="cf-reflection" aria-hidden="true">
+      ${lite ? "" : `<div class="cf-reflection" aria-hidden="true">
         <div class="cf-card-inner">
           <div class="cf-face cf-face-obv">
             ${reflHtml}
           </div>
         </div>
-      </div>
+      </div>`}
     `;
   }
 
@@ -3349,9 +3352,10 @@
       cfCurrentIndex = Math.max(0, Math.min(rows.length - 1, cfCurrentIndex));
     }
 
-    // 11-node virtual sliding window: d from -5 to +5
+    // virtual sliding window: d from -5 to +5 (-2 to +2 on phones, where the rest is off-screen)
     const needed = [];
-    for (let d = -5; d <= 5; d++) {
+    const span = cfLite() ? 2 : 5;
+    for (let d = -span; d <= span; d++) {
       const idx = cfCurrentIndex + d;
       if (idx >= 0 && idx < rows.length) {
         needed.push({ index: idx, offset: d, flip: rows[idx] });

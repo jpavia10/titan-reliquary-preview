@@ -681,9 +681,22 @@
 
   /* Wall tile: a museum placard (country, year + denomination, SER, value) under a drawn coin.
      The coin is drawn from the ledger (no photographs exist yet); a real thumbnail replaces it when one does. */
+  /* Phones / touch: the wall draws ~12-48 coins at ~150 px; drop the parts nobody can see at that size
+     (SVG drop-shadow filter, the curved legend and the tiny year line). The placard under the coin says the same. */
+  const LITE = () => !!(window.matchMedia && window.matchMedia("(max-width: 700px), (hover: none) and (pointer: coarse)").matches);
+  function liteSvg(svg) {
+    return svg
+      .replace(/<filter[\s\S]*?<\/filter>/g, "")
+      .replace(/ filter="url\(#[^)]*\)"/g, "")
+      .replace(/<path id="arc-top-[^>]*>/g, "")
+      .replace(/<text\b[^>]*class="coin-legend-(?:top|bot)"[\s\S]*?<\/text>/g, "");
+  }
   function coinSvg(f, side, large) {
     if (side === "rev") return revSvg(f);
-    if (typeof window.renderSpecimenBlueprint === "function") return window.renderSpecimenBlueprint(f, !!large, side);
+    if (typeof window.renderSpecimenBlueprint === "function") {
+      const svg = window.renderSpecimenBlueprint(f, !!large, side);
+      return large || !LITE() ? svg : liteSvg(svg);
+    }
     return `<span class="gx-coin-blank" aria-hidden="true"></span>`;
   }
   /** Planchet radius (of 100) used to crop and zoom the drawn face. A DRAWING size only: the ledger's mm when it has one, else a generic size; never shown as a fact. */
@@ -776,6 +789,8 @@
     if (!f || !coin) return;
     if (!$(".gx-rev", coin)) coin.insertAdjacentHTML("beforeend", `<span class="gx-face gx-rev" style="--r:${planchetR(f).toFixed(1)}">${coinSvg(f, "rev")}</span>`);
     const on = !tile.classList.contains("is-turned");
+    tile.classList.add("gx-3d");
+    void tile.offsetWidth; // let the 3D styles apply before the flip starts
     tile.classList.toggle("is-turned", on);
     const btn = $(".gx-turn", tile);
     if (btn) btn.setAttribute("aria-pressed", String(on));
