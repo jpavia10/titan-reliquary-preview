@@ -102,6 +102,8 @@
         };
       });
       epoch++;
+      // renderAll() + restoreUi() run in this same task: after them a stale link must not override later filter changes.
+      if (pendingView) Promise.resolve().then(() => { pendingView = null; });
     }
     return true;
   }
@@ -201,9 +203,90 @@
       f.top = 0;
     }
     lastFilterObj = f;
+    if (pendingView) applyView(pendingView);
     if (f.silverOnly) { f.silverOnly = false; f.metal = "Silver"; }
     B.tray = "all";
   }
+
+  /* ══════════════════════════ shareable views (URL hash) ══════════════════════════
+     #gallery?cont=Europe&era=1960&sort=year  ·  restored on load and on hashchange, kept in the address
+     bar while browsing (replaceState, so Back is not flooded), and copied by the "Copy link" button. */
+  const clip = (v, n) => String(v == null ? "" : v).slice(0, n);
+  function parseView(qs) {
+    let p;
+    try { p = new URLSearchParams(qs); } catch (e) { return null; }
+    const v = {};
+    const txt = (k, n) => { const x = p.get(k); if (x != null && x.trim() !== "") v[k] = clip(x.trim(), n || 60); };
+    txt("q", 80); txt("cont"); txt("country"); txt("iso", 6); txt("metal");
+    const y = p.get("year"); if (y && /^[\d\s\-–]{1,9}$/.test(y.trim())) v.year = y.trim();
+    const era = p.get("era"); if (era && /^(\d{3}0|nd)$/.test(era)) v.era = era;
+    const val = p.get("val"); if (val && (val === "none" || VALUE_BANDS.some((b) => b.id === val))) v.val = val;
+    const type = p.get("type"); if (type === "coin" || type === "token") v.type = type;
+    const conf = p.get("conf"); if (conf && /^[a-z]{2,12}$/i.test(conf)) v.conf = conf.toLowerCase();
+    const top = parseInt(p.get("top"), 10); if (top > 0 && top <= 100) v.top = top;
+    if (p.get("stage") === "1") v.stage = true;
+    if (p.get("p2") === "1") v.p2 = true;
+    const sort = p.get("sort"); if (sort && SORTS.some((x) => x.id === sort)) v.sort = sort;
+    return v;
+  }
+  function viewParams(F, sid) {
+    const p = [];
+    const add = (k, val) => p.push(k + "=" + encodeURIComponent(val).replace(/%20/g, "+"));
+    if (F.q.trim()) add("q", F.q.trim());
+    if (F.cont) add("cont", F.cont);
+    if (F.country) add("country", F.country);
+    if (F.iso) add("iso", F.iso);
+    if (F.era) add("era", F.era);
+    if (F.year) add("year", F.year);
+    if (F.metal) add("metal", F.metal);
+    if (F.val) add("val", F.val);
+    if (F.type) add("type", F.type);
+    if (F.conf) add("conf", F.conf);
+    if (F.top) add("top", String(F.top));
+    if (F.staging) add("stage", "1");
+    if (F.p2) add("p2", "1");
+    if (sid !== DEFAULT_SORT) add("sort", sid);
+    return p.join("&");
+  }
+  const viewHash = (F, sid) => { const qs = viewParams(F, sid); return "#gallery" + (qs ? "?" + qs : ""); };
+  function applyView(v) {
+    const f = B.filter;
+    f.q = v.q || ""; f.country = v.country || ""; f.iso = v.iso || ""; f.year = v.year || "";
+    f.silverOnly = false; f.phase2 = !!v.p2; f.staging = !!v.stage;
+    f.cont = v.cont || ""; f.era = v.era || ""; f.metal = v.metal || ""; f.val = v.val || "";
+    f.type = v.type || ""; f.conf = v.conf || ""; f.top = v.top || 0;
+    setSort(v.sort || DEFAULT_SORT);
+    if (f.q) B.ensureSearch();
+  }
+  function writeUrl() {
+    if (!galleryActive()) return;
+    const h = viewHash(readF(), sortId());
+    try { if (location.hash !== h) history.replaceState(null, "", h); } catch (e) { /* sandboxed */ }
+  }
+  function shareUrl() { return location.origin + location.pathname + viewHash(readF(), sortId()); }
+  async function copyLink() {
+    const url = shareUrl();
+    let done = false;
+    try { if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(url); done = true; } } catch (e) { /* fall through */ }
+    if (!done) {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = url; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;left:-9999px;top:0";
+        document.body.appendChild(ta); ta.select(); done = document.execCommand("copy"); ta.remove();
+      } catch (e) { done = false; }
+    }
+    B.showToast(done ? "Link copied. Anyone who opens it sees this exact view." : "Copy this link: " + url);
+  }
+
+  // A shared link (#gallery?...) is read once, before the app boots, and applied by the first render(s).
+  let pendingView = null;
+  try {
+    const h = location.hash || "";
+    if (/^#gallery\?/i.test(h)) {
+      pendingView = parseView(h.slice(h.indexOf("?") + 1));
+      history.replaceState(null, "", "#gallery"); // the app reads "#gallery" to open the wing (and skips the splash: not a plain load)
+    }
+  } catch (e) { pendingView = null; }
 
   /* ══════════════════════════ filtering, sorting, counting ══════════════════════════ */
   /** Same rules as app.js flipQueryMatch (SER / scan / C### / every word anywhere in the record + notes), but the
@@ -391,6 +474,7 @@
           <div class="gf-actions">
             <button type="button" class="gf-link" data-act="clear" id="gf-clear" hidden>Clear all</button>
             <button type="button" class="gf-link" data-act="return-map" id="gf-map" hidden>← Return to map</button>
+            <button type="button" class="gf-link" data-act="copy">Copy link</button>
             <button type="button" class="gf-link" data-act="print">Print</button>
           </div>
         </div>
@@ -784,7 +868,7 @@
   }
   function persistSoon() {
     if (persistTimer) clearTimeout(persistTimer);
-    persistTimer = setTimeout(() => { persistTimer = 0; B.saveState(); }, 300);
+    persistTimer = setTimeout(() => { persistTimer = 0; B.saveState(); writeUrl(); }, 300);
   }
 
   /* ══════════════════════════ events ══════════════════════════ */
@@ -804,6 +888,7 @@
     body.dataset.gfBound = "1";
     body.addEventListener("click", (e) => {
       if (B.broken) return;
+      pendingView = null;
       const t = e.target;
       const flipBtn = t.closest(".pc-flip-action-btn");
       if (flipBtn) { e.stopPropagation(); e.preventDefault(); toggleFlip(flipBtn.closest(".piece-card")); return; }
@@ -842,12 +927,14 @@
       else if (e.key === " " || e.key === "f" || e.key === "F") { e.preventDefault(); toggleFlip(card); }
     });
     body.addEventListener("input", (e) => {
+      pendingView = null;
       const t = e.target;
       if (t.id === "flip-q") { B.markTyping(); setF({ q: t.value }); B.ensureSearch(); schedule(160); }
       else if (t.id === "flip-year") { B.markTyping(); setF({ year: t.value.trim() }); schedule(160); }
     });
     body.addEventListener("focusin", (e) => { if (e.target.id === "flip-q" || e.target.id === "flip-year") { B.markTyping(); if (e.target.id === "flip-q") B.ensureSearch(); } });
     body.addEventListener("change", (e) => {
+      pendingView = null;
       const t = e.target;
       if (t.id === "flip-sort") { setSort(t.value); schedule(0); }
       else if (t.id === "flip-country") { setF({ country: t.value }); schedule(0); }
@@ -878,6 +965,7 @@
       case "panel": setPanel(!$("#gf-panel").classList.contains("open")); break;
       case "panel-close": setPanel(false); { const c = $("#gf-finder"); if (c) c.scrollIntoView({ behavior: REDUCED() ? "auto" : "smooth", block: "start" }); } break;
       case "clear": clearFilters(); schedule(0); break;
+      case "copy": copyLink(); break;
       case "print": window.print(); break;
       case "more": loadMore(); break;
       case "go-lab": B.setWing("lab"); window.scrollTo(0, 0); break;
@@ -889,6 +977,33 @@
       default: break;
     }
   }
+
+  /* ══════════════════════════ address bar sync ══════════════════════════ */
+  window.addEventListener("hashchange", () => {
+    const h = location.hash || "";
+    if (!/^#gallery\?/i.test(h)) return;
+    // a link pasted into an open tab: show that view
+    const v = parseView(h.slice(h.indexOf("?") + 1));
+    pendingView = null;
+    if (v && ensureData()) {
+      applyView(v);
+      B.setWing("gallery", false);
+      if (!galleryActive()) return;
+      B.render();
+      writeUrl();
+    }
+  });
+  // setWing() rewrites the hash to a bare "#gallery" when the wing opens: put the view back.
+  (function watchPane() {
+    const pane = $("#pane-gallery");
+    if (!pane || !window.MutationObserver) return;
+    let was = pane.classList.contains("active");
+    new MutationObserver(() => {
+      const now = pane.classList.contains("active");
+      if (now && !was) setTimeout(writeUrl, 0);
+      was = now;
+    }).observe(pane, { attributes: true, attributeFilter: ["class"] });
+  })();
 
   /* ══════════════════════════ bridge hooks ══════════════════════════ */
   B.filtered = () => currentList();
@@ -915,6 +1030,8 @@
     list: () => currentList().map((f) => f.scan),
     facets: () => { const c = computeFacets(readF()); const o = {}; for (const k of FACETS) o[k] = Object.fromEntries(c[k]); return o; },
     metalState: () => metalState,
+    viewHash: () => viewHash(readF(), sortId()),
+    parseView,
     search: (q) => { const set = qSetFor(q); return set ? [...set] : null; },
     timings,
     metalOf: (scan) => { const d = descs.find((x) => x.scan === scan); return d ? metalOf(d) : null; },
