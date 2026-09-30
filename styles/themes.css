@@ -75,3 +75,74 @@ html[data-atmo] :is(.lofi-bar.collapsed .lofi-play, .hero-spatial-launcher .hsl-
   body, .card, .tile, .metal-tile, .album-card, .latest-card, .sheet-card,
   .drawer-inner, .foot, .tabs, .lofi-bar, .ambient-panel { transition: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   5. Atmosphere picker: crest on every swatch (wings/themes.js injects it),
+      larger secondary text for older eyes, clearer pressed/current states.
+      Per-theme files may set --sw-ink inside their .sw-<name> rule.
+   ------------------------------------------------------------------------- */
+.atmo-swatch { position: relative; overflow: hidden; }
+.atmo-swatch-crest {
+  position: absolute; right: 12px; top: 50%;
+  width: 50px; height: 50px; transform: translateY(-50%);
+  color: var(--sw-ink, rgba(255, 255, 255, 0.85));
+  opacity: 0.92;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+.sw-afterhours { --sw-ink: #e6d6a8; }
+.sw-conservator { --sw-ink: #7a2e2e; }
+.sw-conservator .atmo-swatch-crest, .sw-notepad .atmo-swatch-crest { filter: none; }
+.sw-colossus { --sw-ink: #ffd98c; }
+.sw-nocturne { --sw-ink: #ecd096; }
+.sw-odyssey { --sw-ink: #ffd9a0; }
+.sw-cursedwing { --sw-ink: #ff7a6b; }
+.sw-kaleido { --sw-ink: #ffffff; }
+.sw-abyss { --sw-ink: #a5ecf5; }
+.sw-neon { --sw-ink: #8ef7ff; }
+.sw-notepad { --sw-ink: #111111; }
+.sw-construct { --sw-ink: #7dffaa; }
+.sw-xeno { --sw-ink: #a7f3e0; }
+.sw-solaris { --sw-ink: #fde68a; }
+.sw-alchemist { --sw-ink: #a7f3d0; }
+.sw-glacier { --sw-ink: #f0f9ff; }
+.sw-valhalla { --sw-ink: #fcd34d; }
+.sw-dynasty { --sw-ink: #fef08a; }
+.sw-zen { --sw-ink: #ecfccb; }
+.sw-samadhi { --sw-ink: #ffedd5; }
+.sw-silkroad { --sw-ink: #fcd34d; }
+html[data-atmo] .atmo-card-desc { font-size: 0.86rem; line-height: 1.5; }
+html[data-atmo] .atmo-card-pair { font-size: 0.78rem; }
+html[data-atmo] .atmo-card.current::after { font-size: 0.7rem; }
+html[data-atmo] .atmo-card:hover { box-shadow: var(--elev-2); }
+html[data-atmo] .atmo-card.current { box-shadow: 0 0 0 1px var(--gold), var(--elev-1); }
+
+/* ---------------------------------------------------------------------------
+   6. Smooth relighting: the core colour tokens are registered as <color> so the
+      whole room eases from one atmosphere to the next (everything that reads a
+      token, not only the few surfaces styles.css transitions). Only these 12
+      tokens animate, only when the atmosphere changes, for 0.6s. Reduced motion
+      and browsers without @property switch instantly. Registration also means a
+      theme that sets an invalid colour falls back to the After Hours value
+      instead of breaking the page. (No JS reads these tokens as strings.)
+   ------------------------------------------------------------------------- */
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #060605; }
+@property --bg2 { syntax: "<color>"; inherits: true; initial-value: #0b0a08; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: #0e0d0a; }
+@property --surface2 { syntax: "<color>"; inherits: true; initial-value: #161310; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: #f2ead8; }
+@property --muted { syntax: "<color>"; inherits: true; initial-value: #9a927c; }
+@property --faint { syntax: "<color>"; inherits: true; initial-value: #615a48; }
+@property --gold { syntax: "<color>"; inherits: true; initial-value: #c8a94a; }
+@property --gold-soft { syntax: "<color>"; inherits: true; initial-value: #e8d9a8; }
+@property --gold-deep { syntax: "<color>"; inherits: true; initial-value: #7a6a35; }
+@property --line { syntax: "<color>"; inherits: true; initial-value: rgba(200, 169, 74, 0.14); }
+@property --line-strong { syntax: "<color>"; inherits: true; initial-value: rgba(200, 169, 74, 0.32); }
+@media (prefers-reduced-motion: no-preference) {
+  html[data-atmo] {
+    transition-property: --bg, --bg2, --surface, --surface2, --ink, --muted, --faint,
+      --gold, --gold-soft, --gold-deep, --line, --line-strong;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

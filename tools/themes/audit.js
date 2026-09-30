@@ -545,6 +545,7 @@ async function runtimeAudit(st) {
         return {
           crestShapes: sym ? sym.querySelectorAll("path,circle,ellipse,polygon,rect,line,polyline").length : 0,
           crestSrc: sym ? sym.getAttribute("data-crest-src") || "index.html" : null,
+          crestLiterals: sym ? [...sym.querySelectorAll("*")].filter((e) => ["fill", "stroke"].some((a) => { const v = e.getAttribute(a); return v && !/^(none|currentColor|url\(|transparent)/i.test(v); })).length : 0,
           card: !!card, cardName: card ? (card.querySelector(".atmo-card-name") || {}).textContent : null,
           swatchPainted: !!(scs && (scs.backgroundImage !== "none" || !/rgba\(0, 0, 0, 0\)/.test(scs.backgroundColor))),
           scheme: getComputedStyle(document.documentElement).colorScheme,
@@ -665,7 +666,7 @@ function writeReport(st, rt) {
     const min = T ? Math.min(...Object.values(T.states).map((s) => s.minRatio)) : null;
     if (T) { totFails += T.fails; totPairs += pf.length; totSig += T.failSigs.length; }
     totMissing += c.missingRequired.length;
-    L.push(`| ${t} | ${T ? T.fails : "-"} | ${T ? T.failSigs.length : "-"} | ${T ? min.toFixed(2) : "-"} | ${T ? pf.length : "-"} | ${T ? T.smallTight : "-"} | ${c.missingRequired.join(" ") || "0"} | ${c.missingSemantic.length} | ${p.swatch ? "y" : "NO"}${T && !T.runtime.swatchPainted ? "(unpainted)" : ""} | ${p.crest ? "y" : "NO"}${T ? "(" + T.runtime.crestShapes + ")" : ""}${p.crestOverride ? "*" : ""} | ${p.card ? "y" : "NO"} | ${p.prepaint ? "y" : "NO"} |`);
+    L.push(`| ${t} | ${T ? T.fails : "-"} | ${T ? T.failSigs.length : "-"} | ${T ? min.toFixed(2) : "-"} | ${T ? pf.length : "-"} | ${T ? T.smallTight : "-"} | ${c.missingRequired.join(" ") || "0"} | ${c.missingSemantic.length} | ${p.swatch ? "y" : "NO"}${T && !T.runtime.swatchPainted ? "(unpainted)" : ""} | ${p.crest ? "y" : "NO"}${T ? "(" + T.runtime.crestShapes + (T.runtime.crestLiterals ? ", " + T.runtime.crestLiterals + " literal colours" : "") + ")" : ""}${p.crestOverride ? "*" : ""} | ${p.card ? "y" : "NO"} | ${p.prepaint ? "y" : "NO"} |`);
   }
   L.push("", `**Totals:** text contrast fails ${rt ? totFails : "-"} (unique signatures ${rt ? totSig : "-"}), token-pair fails ${rt ? totPairs : "-"}, missing required tokens ${totMissing}, hard-coded CSS literals ${st.cssHard.length} (text ${st.cssHard.filter((x) => x.kind === "text").length}), app.js literal lines ${st.jsHard.length}` + (rt ? `, theme-blind failing elements ${rt.hardFails.length}, console errors ${rt.consoleErrors.length}` : ""), "");
   if (rt) {
