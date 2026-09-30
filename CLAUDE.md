@@ -48,6 +48,7 @@ Last verified: 2026-09-30 (build TR50).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-09-30: Honesty + wing pass on `main`: ledger-derived Hall ticker/terminal/Vault spot (no invented prices, grades or certs), Hall first-screen layout, Gallery handler/filter fixes, sw.js build sync, dark-panel contrast in light atmospheres. Agent branches `wing-lab`, `wing-study`, `themes`, `splash-v2` are finished but NOT merged (awaiting owner). Plans for hall/gallery/lab are in `notes/agents/` on their branches.
 - 2026-09-30: Schema v2 drafted (`schema/SCHEMA_V2.md`, `schema/v2/`, `tools/schema/`): type/specimen split, computed album holes, formatting rules, migration + validator. Not wired into the app; awaiting owner decisions (section 9 of the doc).
 - 2026-09-30: tr50 shipped "The Awakening" splash (`splash.js`, `splash.css`). Shows once per session on a plain load; `?nosplash` skips, `?splash=1` forces, `TitanSplash.replay()` replays. Also earlier: full-text search fixed (`data/search.json` + `tools/build_search.py`), photo-metadata bake-off kit in `tools/bakeoff/` (deferred), Drive consolidated.
 - 2026-09-29: Session moved to the cloud. Repo cloned from GitHub; `CLAUDE.md` restored from the Drive copy (the earlier local commit never reached GitHub).

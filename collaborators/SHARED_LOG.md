@@ -17,6 +17,15 @@
 * **Fixed:** `data/search.json` was never committed, so `ensureSearch()` 404'd on every keystroke and notes search never worked on the live site. Added `tools/build_search.py` (builds it from `data/detail/*.json`, keeping only scans listed in `index.json`) and the generated `data/search.json` (273 entries).
 * **Note for Grok:** `data/detail/` still holds purged records C297-C300 (1914 5 Francs). Harmless (index is the authority) but the pipeline should stop emitting them and should emit `search.json` itself.
 
+### [2026-09-30 PT] — Claude (honesty + Hall/Gallery pass, on main)
+* **Fixed:** sw.js stuck on tr42 (phones never got tr43-49); dark-on-dark text in TR49 Vault and 18 dark panels in light atmospheres (Conservator/Notepad/Odyssey).
+* **Honesty (no invented data shown as fact):** Vault spot ticker and Hall Live Wire rebuilt from `metals.spot/prior_spot`, `value`, `counts`; metals terminal no longer random-walks, shows SNAPSHOT + prior-quote deltas, 52-week and bid/ask boxes removed; slabs/table/dossier no longer print GEM PROOF / GEM MS / CERT # / CERTIFIED (coins are ungraded); "Rarity/Collector Premium" on collection totals is now "Value above melt".
+* **Hall:** value hub above the exhibit (first phone screen); phone control grids (44px); exhibit pauses on hover/focus/touch/off-screen.
+* **Gallery:** delegated handlers bound once (a tap used to fire once per past render); Cover Flow keys no longer steal Space/arrows; Crown Jewels respects filters; year box prefix/range; Phase 2 count = filter rule.
+* **Not merged yet (agent branches, need owner OK):** wing-lab, wing-study, themes, splash-v2. **Not done:** Gallery finder/palette/dossier v2, caliper fallback diameter, per-atmosphere contrast for the other 17 atmospheres, Lab fabricated staging card (fixed on wing-lab).
+
+---
+
 ### [2026-09-26 18:35 PT] — Antigravity (tr36 Live Build: 3D Cover Flow Archival Carousel, 20-Theme Quality Elevation, Equal-Power Web Audio & Heraldic Crest Watermarks)
 * **Status:** **LIVE** on `origin/main` (`tr36`), mirrored to `app/`, local zip, and `G:\My Drive\Titan Reliquary\`.
 * **Deliverables:**
