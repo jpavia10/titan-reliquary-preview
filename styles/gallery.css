@@ -583,3 +583,6 @@
 #pane-gallery .gf-wallhead .eyebrow, #pane-gallery .gf-root .eyebrow { font-size: 0.8125rem; }
 #pane-gallery .gf-root .g-mode-btn { font-size: 0.8125rem; min-height: 44px; }
 .gf-search kbd { font-size: 0.8125rem; }
+@media (max-width: 700px) {
+  #pane-gallery .gf-root .cf-header-actions #cf-btn-loupe, #pane-gallery .gf-root .cf-header-actions #cf-btn-caliper, #pane-gallery .gf-root .cf-header-actions #cf-btn-deepzoom { display: none; }
+}

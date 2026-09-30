@@ -86,20 +86,36 @@ Base: `main` @ 5ef9717 (tr50). Scope: `#pane-gallery` (`renderGallery`, `filtere
   with the Cover Flow, the Hall and the 3D table, so its fake labels are reported, not changed);
   any `data/` change.
 
-## Status (implementation agent, branch `worktree-agent-ab8460336533ae0e4`, base main @ 8079876 / tr51)
+## Status (integration pass: one Gallery from two independent builds)
 
-Already on main before this pass (verified, not redone): plan items 1, 2, 3, 6 and half of 7
-(handlers bound once, Cover Flow keys scoped, Crown Jewels respects filters + `yearMatches`, no fake
-GEM / CERT text on slabs, caliper labels its diameter source).
+Two sessions implemented this plan separately. **A** = branch `worktree-agent-ab8460336533ae0e4` (based on current main). **B** =
+`claude/rescue-wing-gallery-54b53c241d07506a` (based on the older 5ef9717, before the integrator's gallery fixes). This branch starts from A
+(merged; it already carries the integrator's fixes) and takes B's parts where B was better.
 
-| Item | State | Commit |
+| Plan item | Source | State |
 |---|---|---|
-| B Finder (search, facets with live counts, sorts, chips, Clear all, presets) | done | see git log |
-| A Performance (wall-only re-render, cached tiles, batches) | done | see git log |
+| A wall performance (keyed re-render, cached tile prototypes cloned per tile, batches of 24/12, deferred Cover Flow, stale Cover Flow node fix) | **A** | done |
+| B Finder: search, Continent / Country / Decade / exact year or range / Metal / Value / Type / Confidence, live facet counts, 8 sorts, active-filter chips, Clear all, one-tap presets | **A** | done. Counts come from the same predicate as the wall (each facet counts the other filters only). `filteredFlips()` returns the wall's list, so Cover Flow, dossier prev/next and the 3D table agree with it |
+| C Shareable views `#gallery?cont=Europe&era=1960&sort=year`, restored on load and on hashchange, kept in the address bar, Copy link; `#coin=` still opens a dossier | **A** | done |
+| D Readable wall tile: museum placard (country, year + denomination, SER, value; Ag and Token badges), drawn obverse, reverse drawn on first turn, 44px turn button, 13px minimum type, three looks (Slabs / 2x2 flips / Planchets) as CSS frames on one tile | **B** (markup + CSS), cloned through A's tile cache | done. Replaces the old double-slab cards (about 2,100 DOM nodes instead of 5,300) |
+| E Arrow keys, Home/End between tiles, F turns the focused piece, Enter/Space open it; Cover Flow keys stay on the carousel | **B** (adapted) + integrator fix | done |
+| F Empty state: names the filters, one-tap "Remove X -> n coins" buttons (n computed exactly), Show all | **new** (A listed the filters only; B's version used its own predicate) | done |
+| G Palette v2: grouped results (recent, places, actions, coins, vault lots, albums, wings), Up/Down/Enter, year and decade shortcuts, recently viewed | **B** (adapted to A's filter state, `yearMatches`, presets) | done |
+| H Flip dossier v2: drawn faces labelled "(drawn)" with an explicit photo-pending note and target filename, one museum label, design and curator's notes from the detail JSON, size gauge only when the ledger (or a photo measurement) has a diameter and saying which, full record collapsible, related links | **B** (adapted: diameter source wording follows `getSpecimenDiameterSource`; "not recorded" instead of a dash) | done |
+| Print list (plain table of the current view) | **B** | done |
+| Phone layout: finder and presets before the long carousel, loupe / calipers / forensic buttons hidden on phones, sort and country on one row | **new** | done |
 
-Measured (headless Chromium, software GL, shared 4-CPU box, so use the ratios): typing five characters in
-the search box cost 220-610 ms per key and produced 9-12 long tasks in the classic gallery; the Finder does
-2-50 ms of synchronous work per key (list 0.5-2 ms, facets 0.3-3 ms, wall 0.1-15 ms once tiles are cached)
-and moves the Cover Flow and the state save to 260-300 ms after the last change. Gallery DOM after boot:
-5,323 nodes (28 tiles, two full slabs each) -> 2,168 nodes (24 tiles, obverse only; the reverse slab is
-drawn the first time a tile is flipped) on desktop and 1,967 (12 tiles) on a phone.
+Kept from the integrator (on the base, untouched): delegated handlers bound once, Cover Flow keys scoped, Crown Jewels respects filters,
+`yearMatches()`, `isAwaitingPhase2()`, no fake grades or certs, caliper diameter source labels.
+
+Fallbacks: each hook in app.js (`render`, `filtered`, `palette`, `dossier`) is wrapped; if `wings/gallery.js` is missing or throws, the classic code
+runs (verified by blocking the file: 28 classic cards, 8 palette rows, classic dossier).
+
+Measured (headless Chromium, software GL, shared box): typing "switzerland" at 120 ms per key gave one 66 ms long task in total; the per-key
+pipeline is list 2 ms, facets 1 ms, wall 15 ms. Facet counts checked against a direct computation over `data/index.json` (Europe + 1960s = 21 on the
+wall and in the status line; every country facet count equals the direct count). Contrast audit of the wing (finder, wall, presets) in After Hours,
+Conservator and Notepad at 1300 and 390 px: no text below 4.5:1 or 13px outside the Cover Flow's own dark case. No horizontal scroll at 390 px.
+
+Not done / reported only: `renderMuseumSlab` (shared with the Cover Flow, Hall and 3D table) still draws 8-11 px type on its slabs inside the Cover Flow
+carousel; true virtualization (batches plus keyed re-render are enough at 273 flips); sw.js must precache `wings/gallery.js` and `styles/gallery.css`
+(integrator).
