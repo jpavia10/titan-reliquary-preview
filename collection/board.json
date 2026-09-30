@@ -1,0 +1,1940 @@
+{
+"source": "ledger v254 (Grok)",
+"snapshot_of": {
+"ledger_version": "v254",
+"generated_at": "2026-09-30T15:12:46Z",
+"content_hash": "ce9ece4795560e9e"
+},
+"authority": "Board totals (Ag oz, Au oz, grand total, album value) are authoritative per owner 2026-09-30: 'all silver is logged from Grok, use that info'. They are not recomputed from itemized records; records only move them by their own change since this snapshot (see basis).",
+"basis": {
+"flip_usd": 176.4,
+"flip_cards": 267,
+"token_usd": 10.5,
+"token_cards": 6,
+"ag_oz": 37.7703,
+"au_oz": 0.1322,
+"bullion_usd": 3029.25,
+"bullion_cards": 21,
+"set_usd": 75.0,
+"set_cards": 2,
+"housing_usd": 183.0,
+"housing_cards": 4,
+"stamp_usd": 1.5,
+"stamp_cards": 1,
+"_spec_est_sum": 186.9,
+"_ledger_flips_usd_all": 188.41
+},
+"index": {
+"board": {
+"ledger_version": "v254",
+"vault": 1636,
+"next_soft_beat": 1700,
+"grand": 5393.7,
+"grand_raw": "$5,393.70",
+"flips": {
+"raw": "$183.82 · 267 cards · white 2×2",
+"usd": 183.82,
+"cards": 267
+},
+"bullion": {
+"raw": "$2,893.60 · 21 cards · Ag+Au",
+"usd": 2893.6,
+"cards": 21
+},
+"housing": {
+"raw": "$183.00 · 4 (H001 · H002 · H003 Sentry×3 · H004 Sentry×2)",
+"usd": 183.0
+},
+"stamps": {
+"raw": "$1.50 · 3 (P001)",
+"usd": 1.5
+},
+"sets": {
+"raw": "$72.39 · 2 (mint/proof)",
+"usd": 72.39
+},
+"albums": {
+"raw": "$2,059.39 · 33 folders · ~930 coins",
+"usd": 2059.39,
+"folders": 33,
+"coins": 930
+},
+"silver": {
+"raw": "~63.27 oz known · spot $60.59/oz · melt $3,833.28 · see METALS.json",
+"usd": 63.27,
+"oz": 63.27,
+"spot": 60.59,
+"melt": 3833.28
+},
+"gold": {
+"raw": "~0.1322 oz known · spot $4,161.50/oz · melt $550.15 · see METALS.json",
+"usd": 0.1322,
+"oz": 0.1322,
+"spot": 4161.5,
+"melt": 550.15
+},
+"world": {
+"raw": "45 countries · 1883 → 2026 · flips from 1883 Libertas · +Vatican",
+"usd": 45.0
+},
+"countries": 45,
+"age_flips": {
+"raw": "mean year 1988.037383 · mean age 37.962617 yrs · n 321 dated · oldest 1883",
+"mean_year": 1988.037383,
+"mean_age": 37.962617
+},
+"age_albums": {
+"raw": "mean year 1992.986914 · mean age 33.013086 yrs · n 917 / 930 · oldest 1899 · separate",
+"mean_year": 1992.986914,
+"mean_age": 33.013086
+},
+"spot_ag": 60.59,
+"spot_au": 4161.5
+},
+"metals": {
+"as_of": "2026-09-30",
+"as_of_local": "2026-09-30 08:12 PT",
+"source": "gold-api.com",
+"source_updated_at": "2026-09-30T15:12:17Z",
+"spot": {
+"ag_usd_oz": 60.585999,
+"au_usd_oz": 4161.5,
+"gold_silver_ratio": 68.69
+},
+"prior_spot": {
+"ag_usd_oz": 61.104,
+"au_usd_oz": 4160.5
+},
+"oz": {
+"ag": 63.27,
+"au": 0.1322
+},
+"inventory": {
+"ag": {
+"ase_albums": {
+"oz": 24.0,
+"bucket": "albums",
+"note": "A025+A026 ASE · year-prem over melt"
+},
+"s001_proof": {
+"oz": 0.897,
+"bucket": "sets",
+"note": "S001 2021-S Ag proof · melt + light OGP"
+},
+"junk_flips": {
+"oz": 0.3733,
+"bucket": "flips",
+"note": "C031·C088·C223·C235·C263 junk Ag",
+"pieces": {
+"C031": 0.0419,
+"C088": 0.0723,
+"C223": 0.15,
+"C235": 0.077,
+"C263": 0.0321
+}
+},
+"bullion": {
+"oz": 37.9997,
+"bucket": "bullion",
+"note": "B### Ag stack · remainder to board 63.27"
+}
+},
+"au": {
+"B010_pamp_1g": {
+"oz": 0.0322,
+"bucket": "bullion",
+"premium_usd": 10.0
+},
+"B011_age_tenth": {
+"oz": 0.1,
+"bucket": "bullion",
+"premium_usd": 35.0
+}
+}
+},
+"melt": {
+"ag_usd": 3833.28,
+"au_usd": 550.15
+},
+"premiums_usd": {
+"ase_year_prem": 109.0,
+"s001_ogp": 8.04,
+"au_product": 45.0
+},
+"board_delta": {
+"d_ag_per_oz": -0.518,
+"d_au_per_oz": 1.0,
+"d_albums": -12.43,
+"d_sets": -0.46,
+"d_flips": -0.19,
+"d_bullion": -19.55,
+"d_grand": -32.63
+},
+"board": {
+"flips": 183.82,
+"bullion": 2893.6,
+"sets": 72.39,
+"albums": 2059.39,
+"housing": 183.0,
+"stamps": 1.5,
+"grand": 5393.7
+},
+"policy": "HOLD · melt for junk Ag · ASE melt+year prem · bullion melt+light product prem · not dealer ask"
+},
+"age": {
+"as_of": "2026-09-30",
+"reference_year": 2026,
+"flips_other": {
+"n_dated": 321,
+"n_ND_excluded": 30,
+"mean_year": 1988.03738317757,
+"median_year": 1988.0,
+"mean_age": 37.962616822429936,
+"oldest": 1883,
+"newest": 2024,
+"breakdown": {
+"flips_CT_dated": 294,
+"flips_CT_ND": 4,
+"bullion_dated": 14,
+"bullion_ND": 26,
+"sets_dated": 13,
+"sets_ND": 0
+},
+"sum_years": 638160
+},
+"albums": {
+"n_dated_known": 917,
+"n_total_album_coins": 930,
+"coverage_pct": 98.6,
+"mean_year": 1992.9869138495092,
+"median_year": 1998.0,
+"mean_age": 33.013086150490835,
+"oldest": 1899,
+"newest": 2026,
+"by_album_n": {
+"A001": 75,
+"A002": 17,
+"A003": 39,
+"A004": 74,
+"A005": 2,
+"A006": 1,
+"A007": 32,
+"A008": 32,
+"A009": 15,
+"A010": 59,
+"A011": 20,
+"A012": 1,
+"A013": 56,
+"A014": 57,
+"A015": 9,
+"A016": 84,
+"A017": 0,
+"A018": 9,
+"A019": 2,
+"A020": 3,
+"A021": 107,
+"A022": 1,
+"A023": 7,
+"A024": 10,
+"A025": 6,
+"A026": 18,
+"A027": 95,
+"A028": 13,
+"A029": 0,
+"A030": 30,
+"A031": 1,
+"A032": 7,
+"A033": 35
+},
+"n_dated": 917,
+"sum_years": 1827569
+},
+"blended_footnote": {
+"n_dated": 1238,
+"mean_year": 1991.7035541195476,
+"median_year": 1995.0,
+"mean_age": 34.29644588045244,
+"oldest": 1883,
+"newest": 2026,
+"note": "Optional only — do not mix into primary flips or albums figures",
+"sum_years": 2465729
+},
+"caveats": [
+"A001: 75 dated from ALBUMS appendix page maps; 2 unlabeled extras excluded",
+"A002: 17 labeled dated fills; 1 extras-page cent excluded until year locked",
+"A003: 2005–2024 P+D minus 2024-P",
+"A004: clad Roosevelt 1965–2004 minus 1969/1971/1973/1996-W",
+"A007: metal breakdown + holes 1966/1970/1972/1972-D",
+"A008: 1986–2003 P+D minus 4 holes",
+"A009: 15 years restored 2026-09-22 from early album attachment (no rescan)",
+"A010: APPROX: 59 solid clad expanded across 1965–~1994 (exact slot map not in ALBUMS.md)",
+"A011: best effort: 20 assumed 1988–1997 P+D solid; 5 of 25 coins unmapped",
+"A013: APPROX 1996–2023 P+D (56); hole list implies more openings than filled",
+"A014: 1962–1995 P+D minus 10 listed holes (trimmed to index 57)",
+"A016: 1975–2013 near-complete minus 6 holes (3×1982 Sm + 3×2009-P)",
+"A020: photo locked 2000-P · 2000-D · 2001-D only; 4 eagle-rev mid unknowns + 1 Presidential Liberty mis-slot excluded",
+"A021: State/DC/Terr P+D minus 5 named holes",
+"A024: type set: steel 1943; Bicent×2→1976; clad Wash/Kenn≈1980; BY 1992×5",
+"A027: ATB hole-sheet reconstruction (95); 2021 includes unlabeled park quarters",
+"A028: 13 photo-verified fills (2023 honoree names partial)",
+"A030: 30 from Presidential P/D hole sheet",
+"T004: approx 'ca. 1970s' → ND"
+],
+"cards_parsed": {
+"C": 267,
+"T": 6,
+"B": 21,
+"S": 2
+}
+},
+"drip": {
+"next_ids": {
+"flip": "C272",
+"token": "T007",
+"bullion": "B022",
+"housing": "H005",
+"set": "S003",
+"stamp": "P002"
+},
+"metals_live": "Ag $60.59/oz · Au $4,161.50/oz · 2026-09-30 08:12 PT · METALS.json",
+"vault": 1636,
+"next_soft_beat": 1700,
+"board_snapshot": {
+"grand": 5393.7,
+"flips_usd": 188.41,
+"flips_cards": 273,
+"countries": 45
+},
+"cull_watch": "C251 / C262 YU 1984 1 Dinar twin — keep both unless one is clearly weaker",
+"flags": [
+"A020 Sacagawea — investigate · years locked",
+"1982 clear roll parked (unsorted + 3 emptied A016 Sm seats) · no small dates · Cu/Zn TBD"
+],
+"last_add": "C271 · NA-MX-010 · Mexico · 2013 · 50 Centavos",
+"next_ser": [
+{
+"iso": "ER",
+"country": "Eritrea",
+"cont": "AF",
+"ser_max": "001",
+"count": 1,
+"next": "AF-ER-002"
+},
+{
+"iso": "NG",
+"country": "Nigeria",
+"cont": "AF",
+"ser_max": "001",
+"count": 1,
+"next": "AF-NG-002"
+},
+{
+"iso": "HK",
+"country": "Hong Kong",
+"cont": "AS",
+"ser_max": "001",
+"count": 1,
+"next": "AS-HK-002"
+},
+{
+"iso": "IN",
+"country": "India",
+"cont": "AS",
+"ser_max": "001",
+"count": 1,
+"next": "AS-IN-002"
+},
+{
+"iso": "JP",
+"country": "Japan",
+"cont": "AS",
+"ser_max": "004",
+"count": 4,
+"next": "AS-JP-005"
+},
+{
+"iso": "KR",
+"country": "South Korea",
+"cont": "AS",
+"ser_max": "004",
+"count": 4,
+"next": "AS-KR-005"
+},
+{
+"iso": "PH",
+"country": "Philippines",
+"cont": "AS",
+"ser_max": "002",
+"count": 2,
+"next": "AS-PH-003"
+},
+{
+"iso": "SA",
+"country": "Saudi Arabia",
+"cont": "AS",
+"ser_max": "001",
+"count": 1,
+"next": "AS-SA-002"
+},
+{
+"iso": "SG",
+"country": "Singapore",
+"cont": "AS",
+"ser_max": "002",
+"count": 2,
+"next": "AS-SG-003"
+},
+{
+"iso": "TH",
+"country": "Thailand",
+"cont": "AS",
+"ser_max": "001",
+"count": 1,
+"next": "AS-TH-002"
+},
+{
+"iso": "TW",
+"country": "Taiwan (ROC)",
+"cont": "AS",
+"ser_max": "001",
+"count": 1,
+"next": "AS-TW-002"
+},
+{
+"iso": "VN",
+"country": "Vietnam",
+"cont": "AS",
+"ser_max": "002",
+"count": 2,
+"next": "AS-VN-003"
+},
+{
+"iso": "CH",
+"country": "Switzerland",
+"cont": "EU",
+"ser_max": "024",
+"count": 24,
+"next": "EU-CH-025"
+},
+{
+"iso": "DE",
+"country": "Germany",
+"cont": "EU",
+"ser_max": "061",
+"count": 61,
+"next": "EU-DE-062"
+},
+{
+"iso": "ES",
+"country": "Spain",
+"cont": "EU",
+"ser_max": "003",
+"count": 3,
+"next": "EU-ES-004"
+},
+{
+"iso": "FR",
+"country": "France",
+"cont": "EU",
+"ser_max": "033",
+"count": 33,
+"next": "EU-FR-034"
+},
+{
+"iso": "GB",
+"country": "United Kingdom",
+"cont": "EU",
+"ser_max": "050",
+"count": 50,
+"next": "EU-GB-051"
+},
+{
+"iso": "GR",
+"country": "Greece",
+"cont": "EU",
+"ser_max": "002",
+"count": 2,
+"next": "EU-GR-003"
+},
+{
+"iso": "HU",
+"country": "Hungary",
+"cont": "EU",
+"ser_max": "001",
+"count": 1,
+"next": "EU-HU-002"
+},
+{
+"iso": "IE",
+"country": "Ireland",
+"cont": "EU",
+"ser_max": "003",
+"count": 3,
+"next": "EU-IE-004"
+},
+{
+"iso": "IT",
+"country": "Italy",
+"cont": "EU",
+"ser_max": "010",
+"count": 10,
+"next": "EU-IT-011"
+},
+{
+"iso": "MT",
+"country": "Malta",
+"cont": "EU",
+"ser_max": "003",
+"count": 3,
+"next": "EU-MT-004"
+},
+{
+"iso": "NL",
+"country": "Netherlands",
+"cont": "EU",
+"ser_max": "010",
+"count": 10,
+"next": "EU-NL-011"
+},
+{
+"iso": "NO",
+"country": "Norway",
+"cont": "EU",
+"ser_max": "002",
+"count": 2,
+"next": "EU-NO-003"
+},
+{
+"iso": "PT",
+"country": "Portugal",
+"cont": "EU",
+"ser_max": "001",
+"count": 1,
+"next": "EU-PT-002"
+},
+{
+"iso": "SE",
+"country": "Sweden",
+"cont": "EU",
+"ser_max": "001",
+"count": 1,
+"next": "EU-SE-002"
+},
+{
+"iso": "SK",
+"country": "Slovakia",
+"cont": "EU",
+"ser_max": "001",
+"count": 1,
+"next": "EU-SK-002"
+},
+{
+"iso": "SU",
+"country": "USSR",
+"cont": "EU",
+"ser_max": "004",
+"count": 4,
+"next": "EU-SU-005"
+},
+{
+"iso": "TR",
+"country": "Turkey",
+"cont": "EU",
+"ser_max": "001",
+"count": 1,
+"next": "EU-TR-002"
+},
+{
+"iso": "VA",
+"country": "Vatican City",
+"cont": "EU",
+"ser_max": "001",
+"count": 1,
+"next": "EU-VA-002"
+},
+{
+"iso": "YU",
+"country": "Yugoslavia",
+"cont": "EU",
+"ser_max": "002",
+"count": 2,
+"next": "EU-YU-003"
+},
+{
+"iso": "CA",
+"country": "Canada",
+"cont": "NA",
+"ser_max": "001",
+"count": 1,
+"next": "NA-CA-002"
+},
+{
+"iso": "CR",
+"country": "Costa Rica",
+"cont": "NA",
+"ser_max": "001",
+"count": 1,
+"next": "NA-CR-002"
+},
+{
+"iso": "CU",
+"country": "Cuba",
+"cont": "NA",
+"ser_max": "001",
+"count": 1,
+"next": "NA-CU-002"
+},
+{
+"iso": "EC",
+"country": "East Caribbean States",
+"cont": "NA",
+"ser_max": "001",
+"count": 1,
+"next": "NA-EC-002"
+},
+{
+"iso": "GT",
+"country": "Guatemala",
+"cont": "NA",
+"ser_max": "002",
+"count": 2,
+"next": "NA-GT-003"
+},
+{
+"iso": "JM",
+"country": "Jamaica",
+"cont": "NA",
+"ser_max": "004",
+"count": 4,
+"next": "NA-JM-005"
+},
+{
+"iso": "KY",
+"country": "Cayman Islands",
+"cont": "NA",
+"ser_max": "005",
+"count": 5,
+"next": "NA-KY-006"
+},
+{
+"iso": "MX",
+"country": "Mexico",
+"cont": "NA",
+"ser_max": "010",
+"count": 10,
+"next": "NA-MX-011"
+},
+{
+"iso": "TT",
+"country": "Trinidad and Tobago",
+"cont": "NA",
+"ser_max": "002",
+"count": 2,
+"next": "NA-TT-003"
+},
+{
+"iso": "US",
+"country": "USA",
+"cont": "NA",
+"ser_max": "006",
+"count": 6,
+"next": "NA-US-007"
+},
+{
+"iso": "AU",
+"country": "Australia",
+"cont": "OC",
+"ser_max": "003",
+"count": 3,
+"next": "OC-AU-004"
+},
+{
+"iso": "BR",
+"country": "Brazil",
+"cont": "SA",
+"ser_max": "001",
+"count": 1,
+"next": "SA-BR-002"
+},
+{
+"iso": "CL",
+"country": "Chile",
+"cont": "SA",
+"ser_max": "001",
+"count": 1,
+"next": "SA-CL-002"
+},
+{
+"iso": "CO",
+"country": "Colombia",
+"cont": "SA",
+"ser_max": "001",
+"count": 1,
+"next": "SA-CO-002"
+}
+],
+"as_of": "2026-09-30"
+},
+"value": {
+"estimated_total": 5393.7,
+"status": "partial",
+"policy": "HOLD / do not sell"
+},
+"moments": [
+"Oldest flip: Switzerland 1883 10 Rp (C242) · was Mexico Revolution 1914 (C114) · album Indian 1899 (A022) still older overall",
+"Heritage: Malta C028 / C043 / C064 — ~25% Maltese line · Hypogeum 2015 · €1 Cross locks vault 1000",
+"Soft beat: Norway 1998 50 Øre (C144) locks vault 1500 · country #21",
+"Soft beat: Guatemala 1934 10¢ silver (C235) locks vault 1600",
+"Fresh start: Switzerland 1883 10 Rp (C242) — Joseph’s first coin of the new token-cap drip · oldest flip",
+"Money beat: grand crosses $5000 on Sentry housing add (H003/H004)",
+"Weight: Ag ~63.27 oz @ $60.59/oz · Au ~0.1322 oz @ $4,161.50/oz · see METALS.json",
+"Newest bullion: Maple 2019/2021 (B020/B021) · four Maples now",
+"Housing: H001 chest · H002 scale · H003 Sentry medium ×3 · H004 Sentry small ×2 · stamps P001",
+"Newest flip: Mexico 2013 50 Centavos (C271) · stainless KM#936 · first MX 50¢",
+"Newest set: USA 1979-S Proof Set Type I (S002) · OGP · clad",
+"Newest album: Whitman Canada Small Cents 2479 + 4049 (A033/A032) · 35+7",
+"Near-complete: Lincoln #3 (A016 84/90 · 3×1982 Sm open) · State quarters deluxe (A021) · ATB/National Park deluxe (A027)"
+],
+"flags": [
+"A020 Sacagawea (investigate · 3 years locked) · 1982 clear roll (unsorted + 3 emptied A016 Sm seats) · no small dates · Cu/Zn TBD · session-end cull watch C251/C262 YU 1984 1 Dinar twin (keep both unless one is clearly weaker)",
+"A020 Sacagawea — investigate · years locked",
+"1982 clear roll parked (unsorted + 3 emptied A016 Sm seats) · no small dates · Cu/Zn TBD",
+"Cull watch: C251 / C262 YU 1984 1 Dinar twin — keep both unless one is clearly weaker"
+],
+"world": [
+{
+"country": "Germany",
+"iso": "DE",
+"ser_max": "061",
+"count": 61,
+"note": "Depth bench · 1950 5 Pf · 2 DM 1973-D · 5 Pf · 10 Pf · incl. Empire 1918"
+},
+{
+"country": "United Kingdom",
+"iso": "GB",
+"ser_max": "050",
+"count": 50,
+"note": "Decimal · 1p incl. 1997 · 2p · 5p · 10p 1968+ · 20p · Britannias"
+},
+{
+"country": "France",
+"iso": "FR",
+"ser_max": "033",
+"count": 33,
+"note": "Francs → euro · ½ Fr 1969/1986 · 5c 1973/1980 · 1946 2 Fr"
+},
+{
+"country": "Switzerland",
+"iso": "CH",
+"ser_max": "024",
+"count": 24,
+"note": "Opened the vault · 1883 10 Rp oldest flip · 1959 20 Rp · +2 Fr twins"
+},
+{
+"country": "Italy",
+"iso": "IT",
+"ser_max": "010",
+"count": 10,
+"note": "Vulcan 50 L · 1965 100 L · 1987 500 L → euro"
+},
+{
+"country": "Netherlands",
+"iso": "NL",
+"ser_max": "010",
+"count": 10,
+"note": "+1892 1¢ · 1948 1¢ · 1967 1G silver · Beatrix → Willem-Alexander"
+},
+{
+"country": "Mexico",
+"iso": "MX",
+"ser_max": "010",
+"count": 10,
+"note": "Libertad · 1914 · 1940 1¢ · 1944/1945 · 1950 25¢ Ag · 1964/1967 20¢ · 1987 $5 · 2010 $2 · 2013 50¢"
+},
+{
+"country": "USA",
+"iso": "US",
+"ser_max": "006",
+"count": 6,
+"note": "Meijer · Nixon · Prop $1/$50 · Bicent. · Buffalos · ASE · proofs"
+},
+{
+"country": "Cayman Islands",
+"iso": "KY",
+"ser_max": "005",
+"count": 5,
+"note": "1990 1¢ · 1996×2 · 2002 · 2008 5¢ · country #28"
+},
+{
+"country": "Jamaica",
+"iso": "JM",
+"ser_max": "004",
+"count": 4,
+"note": "1975 50¢ · 1993 10¢ · 2015 $1 · 2015 $10 · country #16"
+},
+{
+"country": "USSR",
+"iso": "SU",
+"ser_max": "004",
+"count": 4,
+"note": "1931 3 Kop · 1932 15 Kop · 1962/1974 1 Kop"
+},
+{
+"country": "Australia",
+"iso": "AU",
+"ser_max": "003",
+"count": 3,
+"note": "1943-S 3d · 1944 Perth 1d · 1966 20¢ · Kangaroos"
+},
+{
+"country": "Ireland",
+"iso": "IE",
+"ser_max": "003",
+"count": 3,
+"note": "2002 · 2004 1€c · 2013 5€c harp"
+},
+{
+"country": "Japan",
+"iso": "JP",
+"ser_max": "004",
+"count": 4,
+"note": "1965/1976 1¥ · 1982/1988 10¥ · country #34"
+},
+{
+"country": "Malta",
+"iso": "MT",
+"ser_max": "003",
+"count": 3,
+"note": "Heritage · €1 Cross · vault 1000"
+},
+{
+"country": "Spain",
+"iso": "ES",
+"ser_max": "003",
+"count": 3,
+"note": "2000 5€c · 2008/2014 1€c Santiago"
+},
+{
+"country": "Greece",
+"iso": "GR",
+"ser_max": "002",
+"count": 2,
+"note": "1970 2 Δραχμαί · 1982 2 Δραχμές · country #41"
+},
+{
+"country": "Guatemala",
+"iso": "GT",
+"ser_max": "002",
+"count": 2,
+"note": "1934 10¢ Ag · 2010 Quiriguá · country #31 · vault 1600"
+},
+{
+"country": "Philippines",
+"iso": "PH",
+"ser_max": "002",
+"count": 2,
+"note": "1971 10 Sentimos Balagtas · 1984 50 Sentimo eagle · country #26"
+},
+{
+"country": "Singapore",
+"iso": "SG",
+"ser_max": "002",
+"count": 2,
+"note": "1967 20¢ · 1973 10¢ · country #42"
+},
+{
+"country": "South Korea",
+"iso": "KR",
+"ser_max": "004",
+"count": 4,
+"note": "1966 1원 · 2000 100원 · 2012/2013 10원 clad · country #36"
+},
+{
+"country": "Trinidad and Tobago",
+"iso": "TT",
+"ser_max": "002",
+"count": 2,
+"note": "2014 25¢ · 2016 10¢ · country #33"
+},
+{
+"country": "Vietnam",
+"iso": "VN",
+"ser_max": "002",
+"count": 2,
+"note": "1953 20 Su (State) · 2003 1000đ · country #39"
+},
+{
+"country": "Yugoslavia",
+"iso": "YU",
+"ser_max": "002",
+"count": 2,
+"note": "1984 1 Dinar ×2 (C251/C262) · country #43"
+},
+{
+"country": "Brazil",
+"iso": "BR",
+"ser_max": "001",
+"count": 1,
+"note": "Country #14"
+},
+{
+"country": "Canada",
+"iso": "CA",
+"ser_max": "001",
+"count": 1,
+"note": "1939 5¢ beaver · Maples · country #17"
+},
+{
+"country": "Chile",
+"iso": "CL",
+"ser_max": "001",
+"count": 1,
+"note": "1996 50 Pesos O’Higgins · country #22"
+},
+{
+"country": "Colombia",
+"iso": "CO",
+"ser_max": "001",
+"count": 1,
+"note": "2016 50 pesos oso · country #40"
+},
+{
+"country": "Costa Rica",
+"iso": "CR",
+"ser_max": "001",
+"count": 1,
+"note": "First Americas"
+},
+{
+"country": "Cuba",
+"iso": "CU",
+"ser_max": "001",
+"count": 1,
+"note": "1962 20 Centavos · country #44"
+},
+{
+"country": "East Caribbean States",
+"iso": "EC",
+"ser_max": "001",
+"count": 1,
+"note": "2004 10¢ Golden Hind · country #24"
+},
+{
+"country": "Eritrea",
+"iso": "ER",
+"ser_max": "001",
+"count": 1,
+"note": "1997 50¢ kudu · country #37"
+},
+{
+"country": "Hong Kong",
+"iso": "HK",
+"ser_max": "001",
+"count": 1,
+"note": "1998 $1 · country #23"
+},
+{
+"country": "Hungary",
+"iso": "HU",
+"ser_max": "001",
+"count": 1,
+"note": "SER EU-HU-001–001"
+},
+{
+"country": "India",
+"iso": "IN",
+"ser_max": "001",
+"count": 1,
+"note": "2001 1₹ Noida · country #32"
+},
+{
+"country": "Nigeria",
+"iso": "NG",
+"ser_max": "001",
+"count": 1,
+"note": "1976 10 kobo palms · country #30"
+},
+{
+"country": "Norway",
+"iso": "NO",
+"ser_max": "002",
+"count": 2,
+"note": "1998/2000 50 Øre · country #21 · vault 1500"
+},
+{
+"country": "Portugal",
+"iso": "PT",
+"ser_max": "001",
+"count": 1,
+"note": "Country #15 · first-year euro"
+},
+{
+"country": "Saudi Arabia",
+"iso": "SA",
+"ser_max": "001",
+"count": 1,
+"note": "AH 1378 1 qirsh · country #38"
+},
+{
+"country": "Slovakia",
+"iso": "SK",
+"ser_max": "001",
+"count": 1,
+"note": "SER EU-SK-001–001"
+},
+{
+"country": "Sweden",
+"iso": "SE",
+"ser_max": "001",
+"count": 1,
+"note": "1973 1 kr last Gustaf VI Adolf · country #27"
+},
+{
+"country": "Taiwan (ROC)",
+"iso": "TW",
+"ser_max": "001",
+"count": 1,
+"note": "1978 1 Yuan Chiang · country #29"
+},
+{
+"country": "Thailand",
+"iso": "TH",
+"ser_max": "001",
+"count": 1,
+"note": "2006 1 Baht Rama IX / Wat Phra Kaew · country #25"
+},
+{
+"country": "Turkey",
+"iso": "TR",
+"ser_max": "001",
+"count": 1,
+"note": "2011 10 kuruş · country #35"
+},
+{
+"country": "Vatican City",
+"iso": "VA",
+"ser_max": "001",
+"count": 1,
+"note": "1951 10 Lire Prudentia · country #45"
+}
+],
+"albums_glance": [
+{
+"family": "American Silver Eagles",
+"ids": "A026 · A025",
+"coins": 24,
+"total": 1563.06,
+"pulse": "24 oz · melt $1,454.06 · year-prem +$109"
+},
+{
+"family": "Kennedy halves",
+"ids": "A007 · A008 · A009",
+"coins": 79,
+"total": 118.42,
+"pulse": "Melt core"
+},
+{
+"family": "Washington quarters",
+"ids": "A029 · A012 · A010 · A011 · A021 · A027 · A028",
+"coins": 300,
+"total": 130.23,
+"pulse": "A029 empty #1 · A028 sparse"
+},
+{
+"family": "Dollar albums",
+"ids": "A030 · A018 · A019 · A020 · A017",
+"coins": 49,
+"total": 77.0,
+"pulse": "A030 30/80 · A020 investigate · A017 empty"
+},
+{
+"family": "Roosevelt dimes",
+"ids": "A005 · A004 · A003",
+"coins": 115,
+"total": 32.7,
+"pulse": "A003 almost full"
+},
+{
+"family": "Lincoln cents",
+"ids": "A023 · A001 · A016 · A002",
+"coins": 186,
+"total": 36.22,
+"pulse": "#1 sparse · A016 84/90 · 3×1982 Sm open"
+},
+{
+"family": "Indian / Flying Eagle",
+"ids": "A022",
+"coins": 1,
+"total": 19.0,
+"pulse": "1899 only · rest empty"
+},
+{
+"family": "Type set",
+"ids": "A024",
+"coins": 10,
+"total": 10.0,
+"pulse": "9046 · steel 1¢ · Bicent · 1992 BY"
+},
+{
+"family": "Jefferson nickels",
+"ids": "A015 · A014 · A013",
+"coins": 122,
+"total": 25.05,
+"pulse": "A015 sparse · war Ag empty"
+},
+{
+"family": "Canada small cents",
+"ids": "A033 · A032",
+"coins": 42,
+"total": 10.1,
+"pulse": "First Canada · Vol1 solid mid/late"
+},
+{
+"family": "Buffalo nickels",
+"ids": "A031",
+"coins": 1,
+"total": 5.0,
+"pulse": "1936 only · 64 holes"
+},
+{
+"family": "Mercury",
+"ids": "A006",
+"coins": 1,
+"total": 8.6,
+"pulse": "Starter"
+},
+{
+"family": "Flips",
+"ids": "Sets",
+"coins": 0,
+"total": null,
+"pulse": ""
+},
+{
+"family": "------:",
+"ids": "-----:",
+"coins": 0,
+"total": null,
+"pulse": ""
+},
+{
+"family": "$1247.71",
+"ids": "$75.00",
+"coins": 2072,
+"total": 3394.96,
+"pulse": ""
+},
+{
+"family": "Country",
+"ids": "ISO",
+"coins": 0,
+"total": null,
+"pulse": "Range note"
+},
+{
+"family": "---------",
+"ids": "-----",
+"coins": 0,
+"total": null,
+"pulse": "------------"
+},
+{
+"family": "Germany",
+"ids": "DE",
+"coins": 61,
+"total": 61.0,
+"pulse": "Depth bench · 1950 5 Pf · 2 DM 1973-D · 5 Pf · 10 Pf · incl. Empire 1918"
+},
+{
+"family": "United Kingdom",
+"ids": "GB",
+"coins": 50,
+"total": 50.0,
+"pulse": "Decimal · 1p incl. 1997 · 2p · 5p · 10p 1968+ · 20p · Britannias"
+},
+{
+"family": "France",
+"ids": "FR",
+"coins": 33,
+"total": 33.0,
+"pulse": "Francs → euro · ½ Fr 1969/1986 · 5c 1973/1980 · 1946 2 Fr"
+},
+{
+"family": "Switzerland",
+"ids": "CH",
+"coins": 24,
+"total": 24.0,
+"pulse": "Opened the vault · 1883 10 Rp oldest flip · 1959 20 Rp · +2 Fr twins"
+},
+{
+"family": "Italy",
+"ids": "IT",
+"coins": 10,
+"total": 10.0,
+"pulse": "Vulcan 50 L · 1965 100 L · 1987 500 L → euro"
+},
+{
+"family": "Netherlands",
+"ids": "NL",
+"coins": 10,
+"total": 10.0,
+"pulse": "+1892 1¢ · 1948 1¢ · 1967 1G silver · Beatrix → Willem-Alexander"
+},
+{
+"family": "Mexico",
+"ids": "MX",
+"coins": 10,
+"total": 10.0,
+"pulse": "Libertad · 1914 · 1940 1¢ · 1944/1945 · 1950 25¢ Ag · 1964/1967 20¢ · 1987 $5 · 2010 $2 · 2013 50¢"
+},
+{
+"family": "USA",
+"ids": "US",
+"coins": 6,
+"total": 6.0,
+"pulse": "Meijer · Nixon · Prop $1/$50 · Bicent. · Buffalos · ASE · proofs"
+},
+{
+"family": "Cayman Islands",
+"ids": "KY",
+"coins": 5,
+"total": 5.0,
+"pulse": "1990 1¢ · 1996×2 · 2002 · 2008 5¢ · country #28"
+},
+{
+"family": "Jamaica",
+"ids": "JM",
+"coins": 4,
+"total": 4.0,
+"pulse": "1975 50¢ · 1993 10¢ · 2015 $1 · 2015 $10 · country #16"
+},
+{
+"family": "USSR",
+"ids": "SU",
+"coins": 4,
+"total": 4.0,
+"pulse": "1931 3 Kop · 1932 15 Kop · 1962/1974 1 Kop"
+},
+{
+"family": "Australia",
+"ids": "AU",
+"coins": 3,
+"total": 3.0,
+"pulse": "1943-S 3d · 1944 Perth 1d · 1966 20¢ · Kangaroos"
+},
+{
+"family": "Ireland",
+"ids": "IE",
+"coins": 3,
+"total": 3.0,
+"pulse": "2002 · 2004 1€c · 2013 5€c harp"
+},
+{
+"family": "Japan",
+"ids": "JP",
+"coins": 4,
+"total": 4.0,
+"pulse": "1965/1976 1¥ · 1982/1988 10¥ · country #34"
+},
+{
+"family": "Malta",
+"ids": "MT",
+"coins": 3,
+"total": 3.0,
+"pulse": "Heritage · €1 Cross · vault 1000"
+},
+{
+"family": "Spain",
+"ids": "ES",
+"coins": 3,
+"total": 3.0,
+"pulse": "2000 5€c · 2008/2014 1€c Santiago"
+},
+{
+"family": "Greece",
+"ids": "GR",
+"coins": 2,
+"total": 2.0,
+"pulse": "1970 2 Δραχμαί · 1982 2 Δραχμές · country #41"
+},
+{
+"family": "Guatemala",
+"ids": "GT",
+"coins": 2,
+"total": 2.0,
+"pulse": "1934 10¢ Ag · 2010 Quiriguá · country #31 · vault 1600"
+},
+{
+"family": "Philippines",
+"ids": "PH",
+"coins": 2,
+"total": 2.0,
+"pulse": "1971 10 Sentimos Balagtas · 1984 50 Sentimo eagle · country #26"
+},
+{
+"family": "Singapore",
+"ids": "SG",
+"coins": 2,
+"total": 2.0,
+"pulse": "1967 20¢ · 1973 10¢ · country #42"
+},
+{
+"family": "South Korea",
+"ids": "KR",
+"coins": 4,
+"total": 4.0,
+"pulse": "1966 1원 · 2000 100원 · 2012/2013 10원 clad · country #36"
+},
+{
+"family": "Trinidad and Tobago",
+"ids": "TT",
+"coins": 2,
+"total": 2.0,
+"pulse": "2014 25¢ · 2016 10¢ · country #33"
+},
+{
+"family": "Vietnam",
+"ids": "VN",
+"coins": 2,
+"total": 2.0,
+"pulse": "1953 20 Su (State) · 2003 1000đ · country #39"
+},
+{
+"family": "Yugoslavia",
+"ids": "YU",
+"coins": 2,
+"total": 2.0,
+"pulse": "1984 1 Dinar ×2 (C251/C262) · country #43"
+},
+{
+"family": "Brazil",
+"ids": "BR",
+"coins": 1,
+"total": 1.0,
+"pulse": "Country #14"
+},
+{
+"family": "Canada",
+"ids": "CA",
+"coins": 1,
+"total": 1.0,
+"pulse": "1939 5¢ beaver · Maples · country #17"
+},
+{
+"family": "Chile",
+"ids": "CL",
+"coins": 1,
+"total": 1.0,
+"pulse": "1996 50 Pesos O’Higgins · country #22"
+},
+{
+"family": "Colombia",
+"ids": "CO",
+"coins": 1,
+"total": 1.0,
+"pulse": "2016 50 pesos oso · country #40"
+},
+{
+"family": "Costa Rica",
+"ids": "CR",
+"coins": 1,
+"total": 1.0,
+"pulse": "First Americas"
+},
+{
+"family": "Cuba",
+"ids": "CU",
+"coins": 1,
+"total": 1.0,
+"pulse": "1962 20 Centavos · country #44"
+},
+{
+"family": "East Caribbean States",
+"ids": "EC",
+"coins": 1,
+"total": 1.0,
+"pulse": "2004 10¢ Golden Hind · country #24"
+},
+{
+"family": "Eritrea",
+"ids": "ER",
+"coins": 1,
+"total": 1.0,
+"pulse": "1997 50¢ kudu · country #37"
+},
+{
+"family": "Hong Kong",
+"ids": "HK",
+"coins": 1,
+"total": 1.0,
+"pulse": "1998 $1 · country #23"
+},
+{
+"family": "Hungary",
+"ids": "HU",
+"coins": 1,
+"total": 1.0,
+"pulse": "SER EU-HU-001–001"
+},
+{
+"family": "India",
+"ids": "IN",
+"coins": 1,
+"total": 1.0,
+"pulse": "2001 1₹ Noida · country #32"
+},
+{
+"family": "Nigeria",
+"ids": "NG",
+"coins": 1,
+"total": 1.0,
+"pulse": "1976 10 kobo palms · country #30"
+},
+{
+"family": "Norway",
+"ids": "NO",
+"coins": 2,
+"total": 2.0,
+"pulse": "1998/2000 50 Øre · country #21 · vault 1500"
+},
+{
+"family": "Portugal",
+"ids": "PT",
+"coins": 1,
+"total": 1.0,
+"pulse": "Country #15 · first-year euro"
+},
+{
+"family": "Saudi Arabia",
+"ids": "SA",
+"coins": 1,
+"total": 1.0,
+"pulse": "AH 1378 1 qirsh · country #38"
+},
+{
+"family": "Slovakia",
+"ids": "SK",
+"coins": 1,
+"total": 1.0,
+"pulse": "SER EU-SK-001–001"
+},
+{
+"family": "Sweden",
+"ids": "SE",
+"coins": 1,
+"total": 1.0,
+"pulse": "1973 1 kr last Gustaf VI Adolf · country #27"
+},
+{
+"family": "Taiwan (ROC)",
+"ids": "TW",
+"coins": 1,
+"total": 1.0,
+"pulse": "1978 1 Yuan Chiang · country #29"
+},
+{
+"family": "Thailand",
+"ids": "TH",
+"coins": 1,
+"total": 1.0,
+"pulse": "2006 1 Baht Rama IX / Wat Phra Kaew · country #25"
+},
+{
+"family": "Turkey",
+"ids": "TR",
+"coins": 1,
+"total": 1.0,
+"pulse": "2011 10 kuruş · country #35"
+},
+{
+"family": "Vatican City",
+"ids": "VA",
+"coins": 1,
+"total": 1.0,
+"pulse": "1951 10 Lire Prudentia · country #45"
+}
+],
+"photos": {
+"images": 0,
+"coins_with_photos": 0,
+"phase2_done": 0,
+"photographed": 0,
+"total_active": 273,
+"shards": {
+"titan-photos-as": {
+"url": "https://jpavia10.github.io/titan-photos-as/",
+"cont": "AS"
+},
+"titan-photos-eu": {
+"url": "https://jpavia10.github.io/titan-photos-eu/",
+"cont": "EU"
+},
+"titan-photos-na": {
+"url": "https://jpavia10.github.io/titan-photos-na/",
+"cont": "NA"
+}
+},
+"status_counts": {
+"Logged": 273
+}
+},
+"requests": [
+{
+"id": "R001",
+"coin_key": "C272",
+"ser": "EU-DE-062",
+"kind": "confirm year",
+"text": "German 1 Euro Cent, mint J (Hamburg), year 200? - last digit not readable yet. Send a sharp close-up of the date to log it as C272 / EU-DE-062.",
+"created": "2026-09-24",
+"status": "open",
+"href": null,
+"source": "manual",
+"priority": 0
+},
+{
+"id": "R002",
+"coin_key": "A020",
+"kind": "clearer photo",
+"text": "A020 Sacagawea album (Whitman 8060): year list still incomplete. Only 2000-P, 2000-D and 2001-D are locked; 4 eagle-reverse coins in the middle are unread and 1 Presidential dollar is in the wrong slot. Photograph the date side of those 5.",
+"created": "2026-09-11",
+"status": "open",
+"href": "#albums",
+"source": "manual",
+"priority": 0
+},
+{
+"id": "R003",
+"coin_key": null,
+"kind": "info",
+"text": "1982 clear roll (unsorted, plus the 3 emptied A016 small-date seats): copper or zinc still TBD. Weigh a few: about 3.1 g = copper, about 2.5 g = zinc.",
+"created": "2026-09-24",
+"status": "open",
+"href": null,
+"source": "manual",
+"priority": 0
+},
+{
+"id": "R004",
+"coin_key": "C251",
+"kind": "info",
+"text": "Cull watch: C251 / C262 Yugoslavia 1984 1 Dinar twins. Keep both unless one is clearly weaker; a side-by-side photo settles it.",
+"created": "2026-09-24",
+"status": "open",
+"source": "manual",
+"ser": "EU-YU-001",
+"priority": 0,
+"href": "#coin=EU-YU-001"
+},
+{
+"id": "auto:clearer-photo:C114",
+"coin_key": "C114",
+"ser": "NA-MX-001",
+"kind": "clearer photo",
+"text": "Mexico (Chihuahua) 1914 5 centavos: marked Conf: med. A sharp photo of both sides would firm up the ID/value.",
+"created": "2026-09-15",
+"status": "open",
+"source": "auto",
+"priority": 6,
+"href": "#coin=NA-MX-001"
+},
+{
+"id": "auto:clearer-photo:T001",
+"coin_key": "T001",
+"ser": "EU-DE-060",
+"kind": "clearer photo",
+"text": "Germany ND Spielmarke “20” (GR): marked Conf: med. A sharp photo of both sides would firm up the ID/value.",
+"created": "2026-09-11",
+"status": "open",
+"source": "auto",
+"priority": 6,
+"href": "#coin=EU-DE-060"
+},
+{
+"id": "auto:clearer-photo:T002",
+"coin_key": "T002",
+"ser": "EU-DE-061",
+"kind": "clearer photo",
+"text": "Germany ND Spielmarke “20” (GR): marked Conf: med. A sharp photo of both sides would firm up the ID/value.",
+"created": "2026-09-11",
+"status": "open",
+"source": "auto",
+"priority": 6,
+"href": "#coin=EU-DE-061"
+},
+{
+"id": "auto:clearer-photo:T003",
+"coin_key": "T003",
+"ser": "NA-US-005",
+"kind": "clearer photo",
+"text": "USA ND ride token: marked Conf: med. A sharp photo of both sides would firm up the ID/value.",
+"created": "2026-09-11",
+"status": "open",
+"source": "auto",
+"priority": 6,
+"href": "#coin=NA-US-005"
+},
+{
+"id": "auto:clearer-photo:T004",
+"coin_key": "T004",
+"ser": "NA-US-006",
+"kind": "clearer photo",
+"text": "USA ca. 1970s none: marked Conf: med. A sharp photo of both sides would firm up the ID/value.",
+"created": "2026-09-15",
+"status": "open",
+"source": "auto",
+"priority": 6,
+"href": "#coin=NA-US-006"
+},
+{
+"id": "auto:clearer-photo:T005",
+"coin_key": "T005",
+"ser": "NA-US-004",
+"kind": "clearer photo",
+"text": "USA 2013 prop $1: marked Conf: med. A sharp photo of both sides would firm up the ID/value.",
+"created": "2026-09-15",
+"status": "open",
+"source": "auto",
+"priority": 6,
+"href": "#coin=NA-US-004"
+},
+{
+"id": "auto:clearer-photo:T006",
+"coin_key": "T006",
+"ser": "NA-US-003",
+"kind": "clearer photo",
+"text": "USA 2009 prop $50: marked Conf: med. A sharp photo of both sides would firm up the ID/value.",
+"created": "2026-09-15",
+"status": "open",
+"source": "auto",
+"priority": 6,
+"href": "#coin=NA-US-003"
+},
+{
+"id": "auto:reverse-needed:C023",
+"coin_key": "C023",
+"ser": "EU-DE-001",
+"kind": "reverse needed",
+"text": "Germany (Empire) 1918 20 Pfennig: mint mark not read on the shown side (Conf: med). Photograph the other side to settle the ID.",
+"created": "2026-09-11",
+"status": "open",
+"source": "auto",
+"priority": 7,
+"href": "#coin=EU-DE-001"
+}
+],
+"counts": {
+"flips": 273,
+"bullion": 21,
+"sets": 2,
+"housing": 4,
+"stamps": 1,
+"countries": 45,
+"vault": 1636,
+"albums_families": 62
+},
+"root": "/home/box/collection",
+"policy": "HOLD · do not sell",
+"precious": {
+"spot_ag": 60.585999,
+"spot_au": 4161.5,
+"flip_silver": {
+"oz": 0.3733,
+"n": 5,
+"unknown": [],
+"melt": 22.6168,
+"metals_json_oz": 0.3733
+},
+"flip_gold": {
+"oz": 0.0,
+"n": 0,
+"unknown": [],
+"melt": null
+},
+"bullion_silver": {
+"oz": 37.9997,
+"melt": 2302.2498
+},
+"bullion_gold": {
+"oz": 0.1322,
+"melt": 550.1503
+},
+"combined_silver": {
+"oz": 63.27,
+"melt": 3833.28,
+"note": "Board Ag from METALS.json (albums + bullion + flips + S001)"
+},
+"combined_gold": {
+"oz": 0.1322,
+"melt": 550.15
+}
+}
+},
+"issuer_legacy_name": {
+"DE-EMP": "Germany (Empire)",
+"MX-CHI": "Mexico (Chihuahua)",
+"VN-SOV": "Vietnam (State of Vietnam)"
+},
+"flip_precious": {
+"C235": {
+"melt": 4.9,
+"melt_raw": "4.90",
+"asw_source": "METALS.json"
+},
+"C223": {
+"melt": 9.55,
+"melt_raw": "9.55",
+"asw_source": "METALS.json"
+},
+"C263": {
+"melt": 2.04,
+"melt_raw": "2.04",
+"asw_source": "METALS.json"
+},
+"C088": {
+"melt": 4.59,
+"melt_raw": "4.59",
+"asw_source": "METALS.json"
+},
+"C031": {
+"melt": 2.66,
+"melt_raw": "2.66",
+"asw_source": "METALS.json"
+}
+},
+"lot_display": {
+"B001": {
+"asw_oz": 7.0,
+"label": "USA · Buffalo · 1 oz .999 ×7",
+"cat": "bullion · lot",
+"mint": "private / generic (not US Mint ASE)",
+"face": "n/a",
+"face_line": "n/a · Melt: $444.50 (@ $63.50/oz) · Est: $458.50 (+$2/oz generic product · not ASE year prem) · Conf: high",
+"continent": ""
+},
+"B002": {
+"label": "USA · 2019 · American Silver Eagle",
+"cat": "bullion · coin",
+"mint": "US Mint (bullion · no mintmark)",
+"face": "$1.00",
+"face_line": "$1.00 · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (common ASE +$4 · see SILVER.md) · Conf: high",
+"continent": ""
+},
+"B003": {
+"asw_oz": 10.0,
+"label": "Fine Mint · 10 oz · .999 Silver",
+"cat": "bullion · bar",
+"mint": "Fine Mint (private)",
+"face": "n/a",
+"face_line": "n/a · Melt: $635.00 (@ $63.50/oz) · Est: $647.50 (+$1.25/oz bar product · tighter than 1 oz rounds) · Conf: high",
+"continent": ""
+},
+"B004": {
+"label": "CAN · 2023 · 1 oz Silver Maple Leaf",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Canadian Mint · 2023",
+"face": "$5 CAD",
+"face_line": "$5 CAD · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 RCM product · ASE-like) · Conf: high",
+"continent": ""
+},
+"B005": {
+"label": "UK · 2023 · 1 oz Silver Britannia · Charles III",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Mint · 2023 · King Charles III obverse",
+"face": "£2",
+"face_line": "£2 · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 sovereign product · Maple/ASE-like) · Conf: high",
+"continent": ""
+},
+"B006": {
+"label": "UK · 2022 · 1 oz Silver Britannia · Elizabeth II",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Mint · 2022 · Elizabeth II (Jody Clark portrait)",
+"face": "£2",
+"face_line": "£2 · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 sovereign) · Conf: high",
+"continent": ""
+},
+"B007": {
+"label": "MEX · 2020 · 1 oz Silver Libertad",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Casa de Moneda de México · 2020 · Mo mintmark",
+"face": "n/a",
+"face_line": "n/a · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 sovereign · conservative) · Conf: high",
+"continent": ""
+},
+"B008": {
+"asw_oz": 2.5,
+"label": "GSM · 1/4 oz · Buffalo · ×10",
+"cat": "bullion · lot · fractional",
+"mint": "Golden State Mint (private)",
+"face": "n/a",
+"face_line": "n/a · Melt: $158.75 (@ $63.50/oz) · Est: $163.75 (+$2/oz generic · same rule as B001) · Conf: high",
+"continent": ""
+},
+"B009": {
+"asw_oz": 1.0,
+"label": "HM · 1/4 oz · Buffalo · ×4",
+"cat": "bullion · lot · fractional",
+"mint": "Highland Mint (HM mark) — smaller diameter than the GSM B008 stack",
+"face": "n/a",
+"face_line": "n/a · Melt: $63.50 (@ $63.50/oz) · Est: $65.50 (+$2/oz generic) · Conf: high",
+"continent": ""
+},
+"B010": {
+"agw_oz": 0.0322,
+"label": "PAMP · 1g · .9999 Gold · C001947",
+"cat": "bullion · gold · assay",
+"mint": "PAMP Suisse (Castel San Pietro) · Lady Fortuna / Suisse face",
+"face": "n/a",
+"face_line": "n/a · Melt: $139.86 (@ $4350/oz Au) · Est: $150.00 (melt + ~$10 sealed assay) · Conf: med-high",
+"continent": ""
+},
+"B011": {
+"agw_oz": 0.1,
+"label": "USA · 2023 · 1/10 oz American Gold Eagle",
+"cat": "bullion · gold · fractional coin",
+"mint": "US Mint · 2023 · Saint-Gaudens Liberty obverse",
+"face": "$5.00",
+"face_line": "$5.00 · Melt: $435.00 (@ $4350/oz Au) · Est: $470.00 (melt + ~$35 fractional AGE product) · Conf: med-high",
+"continent": ""
+},
+"B012": {
+"asw_oz": 2.0,
+"label": "USA · 1 oz Ag art bars · ×2",
+"cat": "bullion · lot · art bars",
+"mint": "private / art bar (prospector + pack mule · eagle / bird in flight)",
+"face": "n/a",
+"face_line": "n/a · Melt: $127.00 (@ $63.50/oz) · Est: $131.00 (+$2/oz generic) · Conf: high",
+"continent": ""
+},
+"B013": {
+"label": "AUS · 2023 · 1 oz Silver Kangaroo BU",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Perth Mint · 2023",
+"face": "$1 AUD",
+"face_line": "$1 AUD · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 sovereign product · Maple/Britannia-like) · Conf: high",
+"continent": ""
+},
+"B014": {
+"label": "UK · 2024 · 1 oz Silver Britannia · Charles III",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Mint · 2024 · King Charles III obverse",
+"face": "£2",
+"face_line": "£2 · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 sovereign product · Maple/ASE-like) · Conf: high",
+"continent": ""
+},
+"B015": {
+"label": "CAN · 2020 · 1 oz Silver Maple Leaf",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Canadian Mint · 2020 · Elizabeth II obverse (date on portrait side)",
+"face": "$5 CAD",
+"face_line": "$5 CAD · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 RCM product · ASE-like) · Conf: high",
+"continent": ""
+},
+"B016": {
+"label": "AUS · 2020 · 1 oz Silver Kangaroo BU",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Perth Mint · 2020",
+"face": "$1 AUD",
+"face_line": "$1 AUD · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 sovereign product · Maple/Britannia-like) · Conf: high",
+"continent": ""
+},
+"B017": {
+"label": "USA · Buffalo · 1 oz .999",
+"cat": "bullion · private mint round",
+"mint": "private / generic (not US Mint ASE)",
+"face": "n/a",
+"face_line": "n/a · Melt: $63.50 (@ $63.50/oz) · Est: $65.50 (+$2/oz generic product · not ASE year prem) · Conf: high",
+"continent": ""
+},
+"B018": {
+"label": "UK · 2021 · 1 oz Silver Britannia",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Mint · 2021 · Elizabeth II era (obverse not shown)",
+"face": "£2",
+"face_line": "£2 · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 sovereign product · Maple/ASE-like) · Conf: high",
+"continent": ""
+},
+"B019": {
+"label": "UK · 2022 · 1 oz Silver Britannia",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Mint · 2022 · Elizabeth II era (obverse not shown)",
+"face": "£2",
+"face_line": "£2 · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 sovereign product · Maple/ASE-like) · Conf: high",
+"continent": ""
+},
+"B020": {
+"label": "CAN · 2019 · 1 oz Silver Maple Leaf",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Canadian Mint · 2019 · Elizabeth II (Susanna Blunt)",
+"face": "$5 CAD",
+"face_line": "$5 CAD · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 RCM product · ASE-like) · Conf: high",
+"continent": ""
+},
+"B021": {
+"label": "CAN · 2021 · 1 oz Silver Maple Leaf",
+"cat": "bullion · sovereign 1 oz",
+"mint": "Royal Canadian Mint · 2021 · Elizabeth II",
+"face": "$5 CAD",
+"face_line": "$5 CAD · Melt: $63.50 (@ $63.50/oz) · Est: $67.50 (melt + +$4 RCM product · ASE-like) · Conf: high",
+"continent": ""
+},
+"S001": {
+"label": "USA · 2021-S · Silver Proof Set",
+"cat": "mint set · proof",
+"mint": "S · San Francisco",
+"face": "$2.16",
+"face_line": "$2.16 · Ag ASW: ~0.897 oz · Melt: ~$56.96 (@ $63.50/oz) · Est: $65.00 · Conf: high",
+"continent": "",
+"qty": "1 set (7 coins)"
+},
+"S002": {
+"label": "USA · 1979-S · Proof Set · Type I",
+"cat": "mint set · proof",
+"mint": "S · San Francisco · Type I filled/blob S (hand-labeled “TYPE I” on sleeve)",
+"face": "$1.91",
+"face_line": "$1.91 · Ag ASW: none · Est: $10.00 · Conf: high",
+"continent": "",
+"qty": "1 set (6 coins)"
+},
+"H001": {
+"label": "Housing · wood treasure chest · H001",
+"cat": "housing · static",
+"mint": "n/a",
+"face": "n/a",
+"face_line": "n/a · Est: $8.00 · Conf: med (static housing · low)",
+"continent": ""
+},
+"H002": {
+"label": "Tool · pocket scale · 1982 Cu/Zn · H002",
+"cat": "housing · tool · static",
+"mint": "n/a (novelty case + generic digital scale)",
+"face": "n/a",
+"face_line": "n/a · Est: $15.00 · Conf: med (static tool · low)",
+"continent": ""
+},
+"H003": {
+"label": "Housing · SentrySafe medium ×3 · H003",
+"cat": "housing · fire chest · lot",
+"mint": "SentrySafe",
+"face": "n/a",
+"face_line": "n/a · Est: $120.00 ($40 each · Joseph ask-floor · wouldn’t sell under) · Conf: high",
+"continent": ""
+},
+"H004": {
+"label": "Housing · SentrySafe small ×2 · H004",
+"cat": "housing · lockbox · lot",
+"mint": "SentrySafe",
+"face": "n/a",
+"face_line": "n/a · Est: $40.00 ($20 each · Joseph ask-floor · wouldn’t sell under) · Conf: high",
+"continent": ""
+},
+"P001": {
+"label": "USA · stamps ×3 · chest P001",
+"cat": "philately · lot",
+"mint": "USPS",
+"face": "$1.02",
+"face_line": "$1.02 · Est: $1.50 · Conf: med",
+"continent": "",
+"contents": "1. 94¢ airmail pictorial — St. John, U.S. Virgin Islands (beach / turquoise water · airplane icon)"
+}
+}
+}
