@@ -4257,11 +4257,11 @@
 
   function renderVault() {
     // Wing II is rendered by wings/vault.js (door + dashboard); the TR49 code below is the fallback.
-    if (window.TitanVault && typeof window.TitanVault.render === "function") {
+    if (window.TitanVaultWing && typeof window.TitanVaultWing.render === "function") {
       try {
-        window.TitanVault.render({ vault, open: (scan) => { dossierCtx = null; openDrawer(scan); }, active: !!$("#pane-vault")?.classList.contains("active") });
+        window.TitanVaultWing.render({ vault, open: (scan) => { dossierCtx = null; openDrawer(scan); }, active: !!$("#pane-vault")?.classList.contains("active") });
         return;
-      } catch (e) { console.warn("TitanVault.render failed; using fallback", e); }
+      } catch (e) { console.warn("TitanVaultWing.render failed; using fallback", e); }
     }
     const all = [
       ...(vault.bullion || []).map((x) => ({ ...x, _kind: "Bullion" })),

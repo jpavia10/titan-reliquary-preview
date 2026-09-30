@@ -383,8 +383,8 @@
 #pane-vault .vx-spot-name small { display: block; font-weight: 400; font-size: 0.85rem; color: var(--muted); }
 #pane-vault .vx-spot-price { font: 650 clamp(1.45rem, 3vw, 1.8rem)/1.1 var(--mono); color: var(--ink); }
 #pane-vault .vx-chg { font-size: 0.95rem; font-weight: 600; line-height: 1.35; }
-#pane-vault .vx-chg.up { color: var(--ok); }
-#pane-vault .vx-chg.down { color: var(--bad); }
+#pane-vault .vx-chg.up { color: color-mix(in srgb, var(--ok) 60%, var(--ink)); }
+#pane-vault .vx-chg.down { color: color-mix(in srgb, var(--bad) 55%, var(--ink)); }
 #pane-vault .vx-chg.flat { color: var(--muted); font-weight: 500; }
 #pane-vault .vx-chg-note { color: var(--muted); font-weight: 400; }
 #pane-vault .vx-spot-held {
@@ -511,7 +511,7 @@
 #pane-vault .vx-chip span { color: var(--muted); font-weight: 500; margin-left: 0.2rem; }
 #pane-vault .vx-chip:hover { border-color: var(--gold); }
 #pane-vault .vx-chip.on { background: var(--gold); border-color: var(--gold); color: var(--bg); }
-#pane-vault .vx-chip.on span { color: inherit; opacity: 0.75; }
+#pane-vault .vx-chip.on span { color: inherit; opacity: 1; }
 #pane-vault .vx-chip:focus-visible, #pane-vault .vx-btn:focus-visible, #pane-vault .vx-table th button:focus-visible {
   outline: 3px solid var(--gold);
   outline-offset: 2px;
@@ -835,8 +835,8 @@
 #pane-vault .vx-wi-card .v { font: 650 1.5rem var(--mono); color: var(--ink); }
 #pane-vault .vx-wi-card.main .v { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 2.6rem); color: var(--gold-soft); }
 #pane-vault .vx-wi-card .d { font-size: 0.98rem; font-weight: 600; color: var(--muted); }
-#pane-vault .vx-wi-card .d.up { color: var(--ok); }
-#pane-vault .vx-wi-card .d.down { color: var(--bad); }
+#pane-vault .vx-wi-card .d.up { color: color-mix(in srgb, var(--ok) 60%, var(--ink)); }
+#pane-vault .vx-wi-card .d.down { color: color-mix(in srgb, var(--bad) 55%, var(--ink)); }
 #pane-vault .vx-wi-split { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; font-size: 0.98rem; color: var(--muted); padding: 0 0.2rem; }
 
 #pane-vault .vx-foot { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--muted); text-align: center; }

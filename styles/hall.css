@@ -218,7 +218,7 @@
     gap: 0.35rem;
     overflow: visible;
   }
-  #pane-hall .term-tf-btn { min-height: 42px; border-color: var(--line); text-align: center; }
+  #pane-hall .term-tf-btn { min-height: 44px; border-color: var(--line); text-align: center; }
   #pane-hall .term-asset-btn, #pane-hall .term-mode-btn { min-height: 44px; font-size: 0.84rem; }
   #pane-hall .melt-legend { flex-direction: column; align-items: center; gap: 0.5rem; }
 }
@@ -256,3 +256,21 @@ html[data-atmo] #pane-hall :is(#market-ticker-tape, #exhibit, #hero-grand, .vaul
   padding: 0.1rem 0.55rem;
   border-radius: 999px;
 }
+
+/* Contrast fixes found by tools/themes/audit.js (were fixed colours on token backgrounds) */
+html[data-atmo] #pane-hall :is(.term-asset-btn, .term-mode-btn, .eyebrow-row .badge) {
+  --ink: inherit; --text: inherit; --muted: inherit; --gold: inherit; --gold-soft: inherit;
+}
+#pane-hall .ex-nav-btn { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
+#pane-hall .term-mode-btn.active { background: var(--gold); color: var(--surface); }
+#pane-hall .term-live-badge {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--gold) 16%, var(--surface));
+  border: 1px solid var(--line-strong);
+}
+#pane-hall .term-delta.up { color: color-mix(in srgb, #16a34a 55%, var(--ink)); }
+#pane-hall .term-delta.down { color: color-mix(in srgb, #dc2626 55%, var(--ink)); }
+#pane-hall .term-asset-btn.active { background-color: var(--gold); color: var(--surface); }
+#pane-hall .term-asset-btn.active .sym { color: var(--surface); }
+#pane-hall .note-card .k, #pane-hall .note-card .s { color: var(--muted) !important; }
+#pane-hall .lab-banner p { color: var(--ink); }

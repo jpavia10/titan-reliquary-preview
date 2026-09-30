@@ -1,8 +1,8 @@
 /* ==========================================================================
    Titan Reliquary · Wing II · THE VAULT
-   - window.TitanVault.render(ctx)  : builds the vault wing into #vault-body
-   - window.TitanVault.playDoor()   : cinematic strongroom door (once per session)
-   - window.TitanVault.replayDoor() : replay on demand (also ?vaultdoor=1)
+   - window.TitanVaultWing.render(ctx)  : builds the vault wing into #vault-body
+   - window.TitanVaultWing.playDoor()   : cinematic strongroom door (once per session)
+   - window.TitanVaultWing.replayDoor() : replay on demand (also ?vaultdoor=1)
    Pure vanilla, no network, no libraries. Door = canvas-2D painted steel on
    CSS 3D layers (thickness, parallax, hinge swing) + light, rays and dust.
    ========================================================================== */
@@ -1254,7 +1254,7 @@
     };
   }
 
-  window.TitanVault = {
+  window.TitanVaultWing = {
     render: render,
     playDoor: function () { playDoor({ force: true }); },
     replayDoor: function () {
