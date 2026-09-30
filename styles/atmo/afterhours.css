@@ -1,3 +1,417 @@
-/* Atmosphere: afterhours. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="afterhours"] { ...every token... }, body background, wordmark, .sw-afterhours swatch,
-   and any component overrides scoped under html[data-atmo="afterhours"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: AFTER HOURS  (owned by exactly one agent; loads after styles.css)
+
+   Concept: the museum after closing. The house lights are off. One spotlight
+   still burns over the wordmark, moonlight falls through a clerestory window
+   onto a polished black-marble floor, and the only warm things in the room are
+   the brass fittings: rails, plaques, the rims of the cases. Cool, quiet dark
+   against a single warm cone of light. Nothing moves except the visitor.
+
+   Palette rationale
+   - Dark is BLUE-black, not warm-black (moonlight), so the brass reads warm.
+   - Brass (#d6b86a) is the accent, champagne (#efe1b4) the highlight, and a
+     "moonlight" white-blue (#cfe0ff) is reserved for focus rings so keyboard
+     focus is never confused with a gold border.
+   - Every text token clears WCAG AA on every surface: ink 15-18:1,
+     muted 7.9-9.2:1, faint 4.9-5.7:1 (the old faint was 2.7:1).
+
+   Cost: all backgrounds are static CSS gradients on already-composited layers
+   (body::before, .hero-glow). No blur filters, no animated full-screen layers.
+   ============================================================================ */
+
+html[data-atmo="afterhours"] {
+  color-scheme: dark;
+
+  /* --- core surfaces (night gallery, blue-black) --- */
+  --bg: #07080d;
+  --bg2: #0b0d14;
+  --surface: #0f1219;
+  --surface2: #171b26;
+
+  /* --- text --- */
+  --ink: #eef1f6;
+  --muted: #a9b0c0;
+  --faint: #8089a0;
+  --cardmeta: #c6ccd8;
+
+  /* --- brass & champagne --- */
+  --gold: #d6b86a;
+  --gold-soft: #efe1b4;
+  --gold-deep: #7f6d3c;
+  --on-gold: #17130a;
+
+  /* --- moonlight (theme-local) --- */
+  --moon: #cfe0ff;
+  --moon-dim: rgba(160, 185, 235, 0.10);
+
+  /* --- hairlines: brass, not blue --- */
+  --line: rgba(214, 184, 106, 0.15);
+  --line-strong: rgba(214, 184, 106, 0.36);
+
+  /* --- status --- */
+  --ok: #84cf92;
+  --warn: #e3b73e;
+  --bad: #e8836f;
+
+  /* --- elevation recipes (marble slab: crisp contact shadow + soft ambient + brass top edge) --- */
+  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 1px 2px rgba(0, 0, 0, 0.5), 0 6px 16px rgba(0, 0, 0, 0.42);
+  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 4px rgba(0, 0, 0, 0.5), 0 14px 36px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(214, 184, 106, 0.14);
+  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 4px 8px rgba(0, 0, 0, 0.55), 0 28px 70px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(214, 184, 106, 0.22);
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 1px 2px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.6);
+
+  /* --- focus: moonlight, never brass --- */
+  --focus: #cfe0ff;
+
+  /* --- component tokens --- */
+  --th-bg: #0c0f16;
+  --tabgrad1: #1b2030;
+  --tabgrad2: #0c0f16;
+  --foot-bg: rgba(7, 8, 13, 0.92);
+  --ph-bg: #0a0c12;
+  --sel-bg: #121722;
+  --hold-bg: linear-gradient(135deg, #1b2030, #0c0f16);
+  --drawerbar-bg: rgba(15, 18, 25, 0.95);
+  --skeleton1: #171b26;
+  --skeleton2: #0b0d14;
+  --toastgrad1: #1b2030;
+  --toastgrad2: #0c0f16;
+  --row-hover: rgba(214, 184, 106, 0.07);
+
+  /* --- legacy aliases (kept in sync) --- */
+  --panel: var(--surface);
+  --text: var(--ink);
+  --gold-dim: var(--gold-deep);
+  --danger: var(--bad);
+  --chip: var(--surface2);
+  --missing: var(--faint);
+  --border: var(--line);
+
+  /* --- motion & texture --- */
+  --grain-op: 0.06;
+  --wing-dur: 0.6s;
+  --wing-rise: 14px;
+
+  /* scrollbar (Firefox) */
+  scrollbar-color: var(--gold-deep) var(--bg2);
+}
+
+/* ---------- Room: the fixed atmosphere layer (already GPU-composited in styles.css) ---------- */
+html[data-atmo="afterhours"] body {
+  background-color: var(--bg);
+  background-image: none;
+}
+html[data-atmo="afterhours"] body::before {
+  background-image:
+    /* the one spotlight left on, straight down from the ceiling */
+    radial-gradient(ellipse 34% 30% at 50% 0%, rgba(214, 184, 106, 0.16), rgba(214, 184, 106, 0.05) 50%, transparent 76%),
+    /* moonlight through the clerestory, upper left */
+    radial-gradient(ellipse 36% 28% at 10% 8%, rgba(160, 185, 235, 0.11), transparent 72%),
+    /* a second, fainter pane of moonlight */
+    radial-gradient(ellipse 22% 18% at 30% 4%, rgba(160, 185, 235, 0.05), transparent 72%),
+    /* polished floor: a low, cool sheen where the light lands */
+    linear-gradient(180deg, transparent 58%, rgba(150, 170, 210, 0.04) 80%, rgba(150, 170, 210, 0.015) 100%),
+    /* vignette: the gallery falls off into black at the edges */
+    radial-gradient(ellipse 110% 90% at 50% 45%, transparent 52%, rgba(0, 0, 0, 0.62) 100%);
+  animation: none;
+}
+
+/* ---------- Scrollbars (WebKit) ---------- */
+html[data-atmo="afterhours"]::-webkit-scrollbar { width: 11px; height: 11px; }
+html[data-atmo="afterhours"]::-webkit-scrollbar-track { background: var(--bg2); }
+html[data-atmo="afterhours"]::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8a7742, #5f5230);
+  border: 2px solid var(--bg2);
+  border-radius: 8px;
+}
+html[data-atmo="afterhours"]::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #a48d4f, #7f6d3c); }
+
+/* ---------- Selection & focus ---------- */
+html[data-atmo="afterhours"] ::selection { background: rgba(214, 184, 106, 0.45); color: #fffdf6; }
+html[data-atmo="afterhours"] :focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px rgba(207, 224, 255, 0.16);
+}
+
+/* ---------- Hero: spotlight on the wordmark ---------- */
+html[data-atmo="afterhours"] .hero::before {
+  background: radial-gradient(ellipse 88% 100% at 50% 28%, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+}
+html[data-atmo="afterhours"] .hero-glow {
+  top: -9rem;
+  height: 24rem;
+  background:
+    radial-gradient(ellipse 22% 46% at 50% 38%, rgba(239, 225, 180, 0.16), transparent 70%),
+    radial-gradient(ellipse 42% 60% at 50% 42%, rgba(214, 184, 106, 0.11), transparent 72%);
+  animation: none;
+}
+html[data-atmo="afterhours"] .wordmark {
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #fbf8ef 0%, #f1e8cf 55%, #dcc98f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold-soft);
+  text-shadow: none !important; /* the shared performance shield sets a shadow; gradient text cannot carry one */
+  animation: none !important;
+}
+html[data-atmo="afterhours"] .hero-grand {
+  background: linear-gradient(180deg, #fffaf0 0%, var(--gold-soft) 55%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+html[data-atmo="afterhours"] .sigil { color: var(--gold); text-shadow: 0 0 18px rgba(214, 184, 106, 0.45); }
+html[data-atmo="afterhours"] .hero-crest-watermark { opacity: 0.09; color: var(--gold); }
+html[data-atmo="afterhours"] .exhibit-crest-watermark { opacity: 0.07; }
+
+/* ---------- Wing heads: a thin brass rule under the title, warm glow behind it ---------- */
+html[data-atmo="afterhours"] .wing-head h2 { text-shadow: 0 2px 28px rgba(214, 184, 106, 0.22); }
+html[data-atmo="afterhours"] .sec-head { border-bottom: 1px solid var(--line); }
+html[data-atmo="afterhours"] .sec-head h2 { color: var(--ink); }
+
+/* ---------- Exhibit case: spot from above, moon from the corner ---------- */
+html[data-atmo="afterhours"] .exhibit {
+  border-color: var(--line-strong);
+  box-shadow: var(--elev-3);
+  background: linear-gradient(180deg, #11141c, var(--surface));
+}
+html[data-atmo="afterhours"] .exhibit-bg {
+  background:
+    radial-gradient(55% 80% at 50% 0%, rgba(214, 184, 106, 0.18), transparent 70%),
+    radial-gradient(40% 55% at 88% 96%, rgba(160, 185, 235, 0.12), transparent 70%);
+}
+html[data-atmo="afterhours"] .exhibit-lamp { background: var(--gold-soft); box-shadow: 0 0 10px var(--gold-soft), 0 0 22px rgba(214, 184, 106, 0.5); }
+
+/* ---------- Surfaces: black marble slabs with a brass top edge ---------- */
+html[data-atmo="afterhours"] .card,
+html[data-atmo="afterhours"] .tile,
+html[data-atmo="afterhours"] .metal-tile,
+html[data-atmo="afterhours"] .album-card,
+html[data-atmo="afterhours"] .latest-card,
+html[data-atmo="afterhours"] .piece-card,
+html[data-atmo="afterhours"] .vault-dash-card,
+html[data-atmo="afterhours"] .lab-card-pro,
+html[data-atmo="afterhours"] .sheet-card,
+html[data-atmo="afterhours"] .drawer-inner {
+  background-color: var(--surface);
+  background-image: linear-gradient(168deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.012) 38%, transparent 60%);
+  border-color: var(--line);
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="afterhours"] .sheet-card,
+html[data-atmo="afterhours"] .drawer-inner { box-shadow: var(--elev-3); }
+@media (hover: hover) {
+  html[data-atmo="afterhours"] .card:hover,
+  html[data-atmo="afterhours"] .tile:hover,
+  html[data-atmo="afterhours"] .metal-tile:hover,
+  html[data-atmo="afterhours"] .album-card:hover,
+  html[data-atmo="afterhours"] .latest-card:hover,
+  html[data-atmo="afterhours"] .piece-card:hover {
+    border-color: var(--line-strong);
+    box-shadow: var(--elev-2);
+  }
+}
+html[data-atmo="afterhours"] .tile::before {
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold) 45%, var(--gold-deep));
+  opacity: 1;
+}
+html[data-atmo="afterhours"] .card h3,
+html[data-atmo="afterhours"] .tile .k { color: var(--muted); }
+html[data-atmo="afterhours"] .card .val { color: var(--gold-soft); }
+
+/* ---------- Tabs: brass plaque for the active room ---------- */
+html[data-atmo="afterhours"] .tabs {
+  background: linear-gradient(180deg, var(--tabgrad1), var(--tabgrad2));
+  border-color: var(--line);
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="afterhours"] .tab { color: var(--muted); }
+html[data-atmo="afterhours"] .tab:hover { color: var(--ink); background: rgba(255, 255, 255, 0.05); }
+html[data-atmo="afterhours"] .tab:active { background: rgba(255, 255, 255, 0.08); }
+html[data-atmo="afterhours"] .tab.active {
+  background: linear-gradient(180deg, #f3e6bb 0%, #d9bc6f 60%, #c9ac5e 100%);
+  color: var(--on-gold);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(0, 0, 0, 0.15), 0 4px 14px rgba(214, 184, 106, 0.28);
+}
+html[data-atmo="afterhours"] .tab.active:hover { color: var(--on-gold); }
+html[data-atmo="afterhours"] .study-nav-pill.active,
+html[data-atmo="afterhours"] .vault-sort-pill.active,
+html[data-atmo="afterhours"] .gallery-mode-switch .active { color: var(--on-gold); }
+
+/* ---------- Buttons: brass-rimmed, pressable ---------- */
+html[data-atmo="afterhours"] .btn {
+  background: linear-gradient(180deg, #1c2130, #121620);
+  border: 1px solid rgba(214, 184, 106, 0.42);
+  color: var(--gold-soft);
+  box-shadow: var(--elev-1);
+  transition: border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+html[data-atmo="afterhours"] .btn:hover {
+  background: linear-gradient(180deg, #232a3c, #161b27);
+  border-color: var(--gold);
+  color: #fbf4de;
+  box-shadow: var(--elev-2);
+  transform: translateY(-1px);
+}
+html[data-atmo="afterhours"] .btn:active {
+  transform: translateY(0);
+  background: linear-gradient(180deg, #10141c, #161b27);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+html[data-atmo="afterhours"] .btn.primary,
+html[data-atmo="afterhours"] .btn.gold,
+html[data-atmo="afterhours"] .atmo-card-scene {
+  color: var(--gold);
+}
+html[data-atmo="afterhours"] .search-btn {
+  background: linear-gradient(180deg, #151a25, #0f1219);
+  border-color: var(--line-strong);
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="afterhours"] .search-btn:hover { border-color: var(--gold); box-shadow: var(--elev-2); }
+
+/* ---------- Inputs ---------- */
+html[data-atmo="afterhours"] input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+html[data-atmo="afterhours"] select,
+html[data-atmo="afterhours"] textarea {
+  background-color: var(--bg2);
+  color: var(--ink);
+  border-color: var(--line-strong);
+  caret-color: var(--gold-soft);
+}
+html[data-atmo="afterhours"] input::placeholder,
+html[data-atmo="afterhours"] textarea::placeholder { color: var(--faint); opacity: 1; }
+
+/* ---------- Tables: brass-rule header, marble rows ---------- */
+html[data-atmo="afterhours"] table.data th {
+  background: var(--th-bg);
+  color: var(--gold);
+  border-bottom: 1px solid var(--line-strong);
+  box-shadow: inset 0 -1px 0 rgba(214, 184, 106, 0.18);
+}
+html[data-atmo="afterhours"] table.data th:hover { color: var(--gold-soft); }
+html[data-atmo="afterhours"] table.data th.sorted { color: var(--gold-soft); }
+html[data-atmo="afterhours"] table.data td { border-bottom-color: rgba(214, 184, 106, 0.09); }
+html[data-atmo="afterhours"] table.data tbody tr:hover {
+  background: var(--row-hover);
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+html[data-atmo="afterhours"] table.data tbody tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.012); }
+html[data-atmo="afterhours"] table.data tbody tr:nth-child(even):hover { background-color: var(--row-hover); }
+
+/* ---------- Chips & badges ---------- */
+html[data-atmo="afterhours"] .chip {
+  background: linear-gradient(180deg, #1a1f2b, var(--surface2));
+  border-color: var(--line);
+  color: var(--ink);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 0.15s, background 0.15s;
+}
+html[data-atmo="afterhours"] .chip:hover { border-color: var(--line-strong); }
+html[data-atmo="afterhours"] .chip strong { color: var(--gold-soft); }
+html[data-atmo="afterhours"] .chip.ag strong { color: #d3dae6; }
+html[data-atmo="afterhours"] .badge-ag {
+  background: #1a2029;
+  border-color: #7f8ea3;
+  color: #d3dae6;
+}
+html[data-atmo="afterhours"] .badge-au {
+  background: #2a2410;
+  border-color: var(--gold);
+  color: var(--gold-soft);
+}
+html[data-atmo="afterhours"] .badge-kind,
+html[data-atmo="afterhours"] .badge-status {
+  background: var(--surface2);
+  border-color: var(--line);
+  color: var(--muted);
+}
+html[data-atmo="afterhours"] kbd {
+  background: var(--bg2);
+  border-color: var(--line-strong);
+  color: var(--gold-soft);
+}
+
+/* ---------- Atmosphere picker ---------- */
+html[data-atmo="afterhours"] .atmo-card {
+  background-color: var(--surface2);
+  background-image: linear-gradient(168deg, rgba(255, 255, 255, 0.04), transparent 50%);
+  border-color: var(--line);
+}
+html[data-atmo="afterhours"] .atmo-card:hover { border-color: var(--gold-deep); box-shadow: var(--elev-1); }
+html[data-atmo="afterhours"] .atmo-card.current { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), var(--elev-2); }
+
+/* The swatch is seen from EVERY atmosphere, so it is not scoped: a black room, one spotlight, a sliver of moon. */
+.sw-afterhours {
+  background:
+    radial-gradient(circle 7px at 82% 24%, rgba(207, 224, 255, 0.95) 0 55%, transparent 60%),
+    radial-gradient(circle 7px at 88% 20%, #0b0d14 0 58%, transparent 62%),
+    radial-gradient(ellipse 30% 70% at 50% 0%, rgba(239, 225, 180, 0.55), rgba(214, 184, 106, 0.18) 55%, transparent 80%),
+    radial-gradient(ellipse 34% 14% at 50% 96%, rgba(214, 184, 106, 0.32), transparent 100%),
+    linear-gradient(180deg, transparent 70%, rgba(150, 170, 210, 0.08) 100%),
+    linear-gradient(180deg, #0b0d14, #07080d);
+}
+
+/* ---------- Fixed bars: the shared performance shield paints these warm-black; retint to the room ---------- */
+html[data-atmo="afterhours"] .lofi-bar,
+html[data-atmo="afterhours"] .player-bar,
+html[data-atmo="afterhours"] .mobile-wing-dock {
+  background: rgba(12, 15, 22, 0.97) !important;
+  border-color: rgba(214, 184, 106, 0.32);
+}
+html[data-atmo="afterhours"] .foot {
+  background: var(--foot-bg);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.025);
+}
+html[data-atmo="afterhours"] .toast,
+html[data-atmo="afterhours"] .drawer-inner {
+  border-color: var(--line-strong);
+}
+
+/* ---------- Coin cards in the Gallery: each piece under its own small spot ---------- */
+html[data-atmo="afterhours"] .piece-card {
+  border-color: var(--line);
+}
+html[data-atmo="afterhours"] .pc-img {
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 30%, rgba(214, 184, 106, 0.10), transparent 72%),
+    var(--ph-bg);
+}
+html[data-atmo="afterhours"] .pc-ser { color: var(--gold-soft); }
+html[data-atmo="afterhours"] .pc-val { color: var(--gold); }
+html[data-atmo="afterhours"] .pc-conf { color: var(--faint); }
+html[data-atmo="afterhours"] .pc-mono,
+html[data-atmo="afterhours"] .pc-await { color: var(--muted); }
+
+/* ---------- Progress, skeletons, misc ---------- */
+html[data-atmo="afterhours"] .lab-progress,
+html[data-atmo="afterhours"] .ds-complete .bar { background: var(--bg2); border-color: var(--line); }
+html[data-atmo="afterhours"] .metal-glyph { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0, 0, 0, 0.5); }
+html[data-atmo="afterhours"] .dot-sep { color: var(--faint); }
+
+/* ---------- Reduced motion: the only motion this theme inherits (exhibit ken-burns, wing rise) stands down ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="afterhours"] .exhibit-bg,
+  html[data-atmo="afterhours"] .exhibit-lamp,
+  html[data-atmo="afterhours"] .pane.wing-enter { animation: none !important; }
+  html[data-atmo="afterhours"] .btn,
+  html[data-atmo="afterhours"] .card,
+  html[data-atmo="afterhours"] .tile,
+  html[data-atmo="afterhours"] .atmo-card { transition: none; }
+  html[data-atmo="afterhours"] .btn:hover,
+  html[data-atmo="afterhours"] .card:hover,
+  html[data-atmo="afterhours"] .tile:hover { transform: none; }
+}
+
+/* ---------- Phones: drop the vignette layer count a little; keep the spotlight ---------- */
+@media (max-width: 700px) {
+  html[data-atmo="afterhours"] body::before {
+    background-image:
+      radial-gradient(ellipse 60% 26% at 50% 0%, rgba(214, 184, 106, 0.15), transparent 74%),
+      radial-gradient(ellipse 50% 22% at 8% 6%, rgba(160, 185, 235, 0.10), transparent 72%),
+      radial-gradient(ellipse 120% 90% at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+  }
+}
