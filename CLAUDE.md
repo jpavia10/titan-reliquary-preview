@@ -38,6 +38,8 @@ Last verified: 2026-09-30 (build TR50).
 3. Phase 2: owner writes the new ID on the back, pro-scans front and back into a staging folder.
 4. AI pairs the photos using the notes, then crops to 2x2 and circle.
 
+**Phase 1.5 (added 2026-09-30):** the owner's numbering is 1 = initial chat photos, 1.5 = updated album scans, 2 = pro photos. Album volumes whose contents are only partly known (11 count-only + 12 partial in `schema/seed/ALBUMS_AUDIT.md`) are finalized by asking the owner for fresh scans of every album at Phase 1.5, not by guessing from `ALBUMS.md`.
+
 ## Owner's goals (as of 2026-09-28)
 1. Masterpiece desktop + mobile app; the owner's dad can view it (e.g. "which Silver Eagle year am I missing?"). Only the owner and dad will use it, so public GitHub Pages is acceptable.
 2. Photo workflow above, with AI-generated metadata from a photo (in-app scan is a later goal; a Drive inbox + watcher is the realistic first step). Pick the model by bake-off: ~30 coins already in the ledger, score each model against the known answers.
