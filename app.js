@@ -7279,7 +7279,7 @@
   // bar + status bar for Plaintext, hue-storm for Kaleidoscope, scanlines + sun for
   // Neon Vault, a compass rose for Odyssey, a glyph ring for Xenohold.
   // Everything is created on switch and torn down on the next switch.
-  const themeFx = { matrixTimer: 0, particleTimer: 0, termTimer: 0, termAbort: 0, matrixResize: null, customResize: null };
+  const themeFx = { matrixTimer: 0, particleTimer: 0, termTimer: 0, termAbort: 0, matrixResize: null, customResize: null, stops: [], canvases: [] };
   function clearThemeFx() {
     ["kaleido-fx", "matrix-rain", "construct-term", "notepad-bar", "notepad-status",
      "neon-scan", "neon-sun", "odyssey-compass", "xeno-ring",
@@ -7291,6 +7291,9 @@
     clearInterval(themeFx.matrixTimer); themeFx.matrixTimer = 0;
     clearInterval(themeFx.particleTimer); themeFx.particleTimer = 0;
     clearTimeout(themeFx.termTimer); themeFx.termTimer = 0;
+    // managed canvas loops (fxLoop): stop the rAF, drop the visibility listener, remove the canvas
+    themeFx.stops.splice(0).forEach((stop) => { try { stop(); } catch { /* ignore */ } });
+    themeFx.canvases.splice(0).forEach((c) => c.remove());
     if (themeFx.matrixResize) {
       window.removeEventListener("resize", themeFx.matrixResize);
       themeFx.matrixResize = null;
@@ -7302,48 +7305,79 @@
     themeFx.termAbort++;
   }
 
-  function startParticleCanvas(id, drawFn, count = 45) {
+  // Managed, fps-capped canvas loop for atmosphere FX. It never runs under
+  // prefers-reduced-motion, pauses while the tab is hidden (no rAF, no timers) and is torn
+  // down completely (rAF, visibility + resize listeners, canvas) by clearThemeFx().
+  // Canvas backing store is capped at devicePixelRatio 1.5 (1.0 on touch screens).
+  function fxCanvasLoop(id, fps, onSize, step) {
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return null;
     const c = document.createElement("canvas");
     c.id = id;
+    c.setAttribute("aria-hidden", "true");
     document.body.appendChild(c);
+    themeFx.canvases.push(c);
     const g = c.getContext("2d");
-    let w = 0, h = 0;
-    const resize = () => { c.width = window.innerWidth; c.height = window.innerHeight; w = c.width; h = c.height; };
-    resize();
-    window.addEventListener("resize", resize);
-    themeFx.customResize = resize;
-    const particles = Array.from({ length: count }, () => drawFn.init(w, h));
-    themeFx.particleTimer = setInterval(() => {
-      g.clearRect(0, 0, w, h);
-      drawFn.frame(g, particles, w, h);
-    }, 40);
+    const touch = "ontouchstart" in window || window.innerWidth < 768;
+    let dpr = 1, w = 0, h = 0;
+    const size = () => {
+      dpr = touch ? 1 : Math.min(1.5, window.devicePixelRatio || 1);
+      w = window.innerWidth; h = window.innerHeight;
+      c.width = Math.floor(w * dpr); c.height = Math.floor(h * dpr);
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (onSize) onSize(w, h, g);
+    };
+    size();
+    window.addEventListener("resize", size);
+    const gap = 1000 / fps;
+    let raf = 0, last = 0, stopped = false;
+    const frame = (t) => {
+      raf = 0;
+      if (stopped || document.hidden) return;
+      if (t - last >= gap) { last = t; step(g, w, h, t); }
+      raf = requestAnimationFrame(frame);
+    };
+    const onVis = () => {
+      if (stopped) return;
+      if (document.hidden) { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+      else if (!raf) raf = requestAnimationFrame(frame);
+    };
+    document.addEventListener("visibilitychange", onVis);
+    raf = requestAnimationFrame(frame);
+    themeFx.stops.push(() => {
+      stopped = true;
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+      document.removeEventListener("visibilitychange", onVis);
+      window.removeEventListener("resize", size);
+    });
+    return c;
+  }
+  // Exposed so atmospheres can build canvas FX that obey the same rules (and so it can be tested).
+  window.TitanFX = { canvasLoop: (...a) => fxCanvasLoop(...a), clear: () => clearThemeFx(), matrixRain: () => startMatrixRain(),
+    particles: (...a) => startParticleCanvas(...a), live: () => ({ stops: themeFx.stops.length, canvases: themeFx.canvases.length }) };
+  function startParticleCanvas(id, drawFn, count = 45) {
+    let particles = [];
+    fxCanvasLoop(id, 25, (w, h) => { particles = Array.from({ length: count }, () => drawFn.init(w, h)); },
+      (g, w, h) => { g.clearRect(0, 0, w, h); drawFn.frame(g, particles, w, h); });
   }
   function startMatrixRain() {
-    const c = document.createElement("canvas");
-    c.id = "matrix-rain";
-    document.body.appendChild(c);
-    const g = c.getContext("2d");
     const chars = "アイカサタナハマヤラワ0123456789$#+-*/ΞΦΨΩ";
     const fs = 15;
     let cols = 0, drops = [];
-    const size = () => {
-      c.width = window.innerWidth; c.height = window.innerHeight;
-      cols = Math.ceil(c.width / fs); drops = Array.from({ length: cols }, () => Math.random() * -40);
-    };
-    size();
-    themeFx.matrixResize = size;
-    window.addEventListener("resize", size);
-    themeFx.matrixTimer = setInterval(() => {
-      g.fillStyle = "rgba(0,0,0,0.08)"; g.fillRect(0, 0, c.width, c.height);
-      g.font = fs + "px monospace";
-      for (let i = 0; i < cols; i++) {
-        const ch = chars[(Math.random() * chars.length) | 0];
-        g.fillStyle = Math.random() < 0.06 ? "#d6ffe0" : "#33ff66";
-        g.fillText(ch, i * fs, drops[i] * fs);
-        if (drops[i] * fs > c.height && Math.random() > 0.976) drops[i] = 0;
-        drops[i]++;
-      }
-    }, 66);
+    fxCanvasLoop("matrix-rain", 15,
+      (w) => { cols = Math.ceil(w / fs); drops = Array.from({ length: cols }, () => Math.random() * -40); },
+      (g, w, h) => {
+        g.fillStyle = "rgba(0,0,0,0.08)"; g.fillRect(0, 0, w, h);
+        g.font = fs + "px monospace";
+        for (let i = 0; i < cols; i++) {
+          const ch = chars[(Math.random() * chars.length) | 0];
+          g.fillStyle = Math.random() < 0.06 ? "#d6ffe0" : "#33ff66";
+          g.fillText(ch, i * fs, drops[i] * fs);
+          if (drops[i] * fs > h && Math.random() > 0.976) drops[i] = 0;
+          drops[i]++;
+        }
+      });
   }
   const CX_SCRIPT = [
     ["PS C:\\titan-vault> ", "cx-prompt"],
@@ -7370,6 +7404,7 @@
     let li = 0, ci = 0, html = "";
     const tick = () => {
       if (myRun !== themeFx.termAbort) return; // theme changed: stop
+      if (document.hidden) { themeFx.termTimer = setTimeout(tick, 1500); return; } // idle while the tab is hidden
       if (li >= CX_SCRIPT.length) {
         themeFx.termTimer = setTimeout(() => {
           if (myRun === themeFx.termAbort) { li = 0; ci = 0; html = ""; tick(); }
@@ -7437,7 +7472,9 @@
     try { document.querySelector('meta[name="theme-color"]')?.setAttribute("content", ATMOS[atmo].themeColor); } catch { /* ignore */ }
     if (save) { try { localStorage.setItem(ATMO_KEY, atmo); } catch { /* ignore */ } }
     if (changed && flash) atmoFlash(atmo);
-    if (window.TitanAmbient) {
+    // Only when the atmosphere really changed: opening the picker calls setAtmo(current)
+    // just to refresh the "On display" marks and must not start or reset the soundscape.
+    if (changed && window.TitanAmbient) {
       try { window.TitanAmbient.applyPreset(ATMOS[atmo].preset); } catch (_) {}
     }
   }
