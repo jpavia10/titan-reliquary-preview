@@ -5,6 +5,13 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-09-30 PT] — Claude/Opus integrator (merges + live bug)
+* **Merged to main:** `wing-lab`, `wing-study`, `themes`, `splash-v2` (tr51). Splash Enter flight now capped at 2.6 s wall-clock (was frame-clock bound: 28 s measured in software GL).
+* **Live bug fixed:** `checkWebVersion()` reloaded the page every 30 s because `version.json.generated_at` is stamped ~1.5 s after `data/index.json.generated_at` in the same publish; now reloads only for a publish > 2 min newer. Grok: stamps may stay as they are.
+* **In flight (Sonnet agents, worktrees):** Gallery v2, Themes A (10), Themes B (10), Sound & FX. Wave 2 next: 3D Table, Hall+Vault polish, full-app QA sweep.
+
+---
+
 ### [2026-09-30 PT] — Claude (tr51: splash v2 "The Vault", merged to main)
 * **Changed:** `splash.js` rewritten as a real three.js scene: dark vault, four spotlights snap on (volumetric beams, dust that only shows in the light), brass safe-deposit walls, columns, round vault door, black drum pedestal the coin rises out of, glossy marble floor with a real planar reflection. Own post chain (HDR bloom, anamorphic streak, depth-of-field focus pull, chromatic aberration, vignette, ACES, grain). Enter spins the dial, swings the door open and flies the camera into the light. Coin ring lettering + a "Now presenting" line name a random real flip each visit.
 * **Also:** sound toggle (top-left, off by default, WebAudio synthesized, never starts before a gesture, remembered in `tr_splash_sound_v1`), tilt parallax on phones, vibrate on Enter, 5 quality tiers that step down on slow frames (`?splashq=0..4` forces one). Behaviour contract unchanged (`?nosplash`, `?splash=1`, deep links, Esc, once per session, reduced motion, no-WebGL fallback). Build stamps tr51.

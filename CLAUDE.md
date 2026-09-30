@@ -48,6 +48,7 @@ Last verified: 2026-09-30 (build TR50).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-09-30: All finished agent branches merged (lab, study, themes, splash-v2 = tr51). Fixed a live self-reload loop (every 30 s) in `checkWebVersion()`. Work now runs as an Opus integrator + Sonnet agents in git worktrees, max ~4 at a time (4-CPU box; each agent runs its own browser).
 - 2026-09-30: Honesty + wing pass on `main`: ledger-derived Hall ticker/terminal/Vault spot (no invented prices, grades or certs), Hall first-screen layout, Gallery handler/filter fixes, sw.js build sync, dark-panel contrast in light atmospheres. Agent branches `wing-lab`, `wing-study`, `themes`, `splash-v2` are now merged. Plans for hall/gallery/lab are in `notes/agents/` on their branches.
 - 2026-09-30: Schema v2 drafted (`schema/SCHEMA_V2.md`, `schema/v2/`, `tools/schema/`): type/specimen split, computed album holes, formatting rules, migration + validator. Not wired into the app; awaiting owner decisions (section 9 of the doc).
 - 2026-09-30: tr51 splash v2 "The Vault" (merged to `main`). Real 3D vault scene (spotlights, deposit-box walls, round vault door, pedestal, planar floor reflection), hand-written post (bloom, DOF focus pull, streak, ACES), featured real coin per visit, optional synthesized sound (off by default), tilt parallax, door-opening Enter. `?splashq=0..4` forces a quality tier. Same behaviour contract as tr50.
