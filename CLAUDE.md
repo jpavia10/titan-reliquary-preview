@@ -65,3 +65,6 @@ Last verified: 2026-09-30 (build TR50).
 - `pipeline/parse_vault.py` and `publish_all.sh` use Linux paths (`/home/box/collection`). The master `LEDGER.md` is not in this folder.
 - Deploy previously meant hand-syncing mirrors and bumping `?v=trXX` and `version.json`. See `README_CONTEXT_HANDOFF.md` on Drive.
 - GitHub Pages is publicly reachable; `noindex` only hides it from search.
+
+## Album data (2026-09-30)
+The album table hard-coded in `app.js` (`ALBUM_METADATA`) is wrong in places. The ledger's `ALBUMS.md` (Grok, rev 2026-09-22; on Drive in `Titan Reliquary Collection/`) is the better source. `schema/seed/albums.seed.json` transcribes it (evidence level per volume: enumerated / partial / count-only) and `schema/seed/ALBUMS_AUDIT.md` lists every disagreement. Example: A026 Silver Eagles 1986-2021 is missing 18 years, not the 6 the app shows, and the app wrongly lists 2008 and 2017 as missing. Rebuild with `python3 tools/albums/build_seed.py`.
