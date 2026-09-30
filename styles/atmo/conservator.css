@@ -1,3 +1,294 @@
-/* Atmosphere: conservator. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="conservator"] { ...every token... }, body background, wordmark, .sw-conservator swatch,
-   and any component overrides scoped under html[data-atmo="conservator"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: CONSERVATOR  ·  the conservator's desk by a north window.
+   Sensory identity
+   - Light: cool-warm daylight through a tall window; a slow band of sun crosses the page.
+   - Paper: tea-stained laid paper, ruled ledger lines, a double oxblood margin rule.
+   - Ink: iron-gall brown-black for text, oxblood rubber stamps for status, bronze for accent.
+   - Cased pieces (exhibit, tickers, slabs) keep a dark walnut-and-felt interior, like the
+     display case on the desk; museum labels inside them are paper again.
+   Contract + rules: notes/agents/themes.md.  Owned by Themes agent A.
+   ========================================================================== */
+
+/* 1. Tokens -------------------------------------------------------------- */
+html[data-atmo="conservator"] {
+  --scheme: light;
+  color-scheme: light;
+
+  --bg: #f1eadb;
+  --bg2: #e7ddc5;
+  --surface: #fbf7ee;
+  --surface2: #f0e6cf;
+
+  --ink: #221c12;
+  --muted: #5c4f3c;
+  --faint: #72654b;
+  --cardmeta: #43392c;
+
+  --gold: #7f5218;
+  --gold-soft: #7a2e2e;
+  --gold-deep: #a8894c;
+  --on-gold: #fffaf0;
+  --ink-soft: #43392c;
+
+  --line: rgba(122, 46, 46, 0.22);
+  --line-strong: rgba(122, 46, 46, 0.42);
+
+  --ok: #2f6b3a;
+  --warn: #8a5a00;
+  --bad: #a03024;
+
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 1px 2px rgba(60, 45, 20, 0.10), 0 14px 34px rgba(60, 45, 20, 0.14);
+  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 1px 2px rgba(60, 45, 20, 0.10), 0 3px 10px rgba(60, 45, 20, 0.08);
+  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 2px 4px rgba(60, 45, 20, 0.10), 0 12px 28px rgba(60, 45, 20, 0.16);
+  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 4px 10px rgba(60, 45, 20, 0.12), 0 28px 70px rgba(60, 45, 20, 0.24);
+  --scrim: rgba(40, 32, 20, 0.38);
+  --focus: #7a2e2e;
+
+  --th-bg: #ebe0c4;
+  --tabgrad1: #e6d7b4;
+  --tabgrad2: #d5c296;
+  --toastgrad1: #efe4cb;
+  --toastgrad2: #e2d4b0;
+  --foot-bg: rgba(244, 239, 228, 0.94);
+  --drawerbar-bg: rgba(251, 247, 238, 0.94);
+  --ph-bg: #e9dfc7;
+  --sel-bg: #e6d5ae;
+  --row-hover: rgba(122, 46, 46, 0.06);
+  --hold-bg: linear-gradient(135deg, #f2e8cf, #e0d0a8);
+  --skeleton1: #e2d7ba;
+  --skeleton2: #f0e9d6;
+  --grain-op: 0.05;
+
+  --wing-dur: 0.28s;
+  --wing-rise: 6px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* the display-case interior (dark walnut + felt) used by the cased panels below */
+  --case-bg: #17120b;
+  --case-bg2: #1f1810;
+  --case-surface: #211a11;
+  --case-surface2: #2d2418;
+}
+
+/* 2. Page: daylight, a drifting sun band, ruled ledger lines, foxing ------ */
+html[data-atmo="conservator"] body {
+  background-image:
+    linear-gradient(115deg, transparent 40%, rgba(255, 240, 190, 0.26) 50%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 27px, rgba(122, 46, 46, 0.05) 27px 28px),
+    radial-gradient(circle at 6% 14%, rgba(138, 90, 30, 0.07), transparent 7%),
+    radial-gradient(circle at 93% 61%, rgba(138, 90, 30, 0.06), transparent 6%),
+    radial-gradient(circle at 12% 88%, rgba(122, 46, 46, 0.045), transparent 8%);
+  background-size: 280% 100%, auto, auto, auto, auto;
+  animation: conservator-sunband 44s ease-in-out infinite alternate;
+}
+@keyframes conservator-sunband {
+  from { background-position: 115% 0, 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: -15% 0, 0 0, 0 0, 0 0, 0 0; }
+}
+/* the double oxblood margin rule of a ledger page, only where there is a free margin */
+@media (min-width: 1300px) {
+  html[data-atmo="conservator"] body {
+    background-image:
+      linear-gradient(90deg, rgba(122, 46, 46, 0.34) 0 1px, transparent 1px 4px, rgba(122, 46, 46, 0.34) 4px 5px),
+      linear-gradient(115deg, transparent 40%, rgba(255, 240, 190, 0.26) 50%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(122, 46, 46, 0.05) 27px 28px),
+      radial-gradient(circle at 6% 14%, rgba(138, 90, 30, 0.07), transparent 7%),
+      radial-gradient(circle at 93% 61%, rgba(138, 90, 30, 0.06), transparent 6%),
+      radial-gradient(circle at 12% 88%, rgba(122, 46, 46, 0.045), transparent 8%);
+    background-size: 5px 100%, 280% 100%, auto, auto, auto, auto;
+    background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat;
+    background-position: calc(50% - 640px) 0, 115% 0, 0 0, 0 0, 0 0, 0 0;
+    animation: conservator-sunband-wide 44s ease-in-out infinite alternate;
+  }
+  @keyframes conservator-sunband-wide {
+    from { background-position: calc(50% - 640px) 0, 115% 0, 0 0, 0 0, 0 0, 0 0; }
+    to { background-position: calc(50% - 640px) 0, -15% 0, 0 0, 0 0, 0 0, 0 0; }
+  }
+}
+html[data-atmo="conservator"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(190, 140, 60, 0.15), transparent 70%);
+  animation: cons-lamp 16s ease-in-out infinite;
+}
+html[data-atmo="conservator"] .exhibit-bg {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 26px, rgba(214, 178, 94, 0.07) 26px 27px),
+    radial-gradient(70% 100% at 50% 0%, rgba(214, 178, 94, 0.14), transparent 70%);
+}
+
+/* 3. Wordmark: letterpress iron-gall ink (static; no text-shadow animation) */
+html[data-atmo="conservator"] .wordmark {
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7), 0 -1px 0 rgba(60, 45, 20, 0.12);
+  animation: none;
+}
+
+/* 4. Picker swatch -------------------------------------------------------- */
+.sw-conservator {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(122, 46, 46, 0.22) 5px 6px),
+    linear-gradient(135deg, #fbf7ee 0%, #f1eadb 55%, #d9c79b 100%);
+  box-shadow: inset 0 0 0 2px #8a5a1e, inset 0 -14px 0 -8px #7a2e2e;
+}
+
+/* 5. Components ----------------------------------------------------------- */
+/* ledger section heads: double rule + dashed second rule */
+html[data-atmo="conservator"] .sec-head { border-bottom: 2px solid var(--line-strong); position: relative; }
+html[data-atmo="conservator"] .sec-head h2 { font-weight: 700; letter-spacing: 0.005em; color: var(--ink); }
+html[data-atmo="conservator"] .sec-head::after {
+  content: "";
+  display: block;
+  height: 3px;
+  margin-top: 0.35rem;
+  background: repeating-linear-gradient(90deg, var(--line-strong) 0 14px, transparent 14px 22px);
+  opacity: 0.7;
+}
+/* rubber-stamp badges keep their colour, on a paper ground */
+html[data-atmo="conservator"] .badge-status.st-verified { color: var(--ok); }
+html[data-atmo="conservator"] .badge-status.st-logged { color: var(--muted); }
+/* paper cards: laid-paper sheen + soft desk shadow */
+html[data-atmo="conservator"] .card,
+html[data-atmo="conservator"] .tile,
+html[data-atmo="conservator"] .album-card,
+html[data-atmo="conservator"] .latest-card {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent 42%);
+  border-color: var(--line);
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="conservator"] .tab.active { color: #fffaf0; }
+html[data-atmo="conservator"] .lab-badge { color: var(--on-gold); }
+
+/* The ambience toggle: hard-coded pale blue in styles.css fails on paper */
+html[data-atmo="conservator"] .rain-btn[aria-pressed="true"] { color: #1f4a66; border-color: #4f7d99; background: #dbe8ee; }
+html[data-atmo="conservator"] .rain-btn[aria-pressed="true"] .rain-label { color: #1f4a66; }
+
+/* 6. Cased pieces: dark walnut + felt interior, light type, bronze-gold accents.
+      Re-scopes every token AND the legacy aliases (--text, --panel ... are resolved on <html>,
+      so they must be re-declared here), so token-driven children stay legible. */
+html[data-atmo="conservator"] :is(#market-ticker-tape, #exhibit, .museum-slab, #gallery-coverflow-wrap,
+  .gallery-mode-switch, #vault-live-spot-ticker, .study-nav-pills, #atlas-svg-viewport, #atlas-coords-hud,
+  .cf-flip-badge, .staging-binder-card) {
+  --bg: var(--case-bg);
+  --bg2: var(--case-bg2);
+  --surface: var(--case-surface);
+  --surface2: var(--case-surface2);
+  --ink: #f4ecdb;
+  --ink-soft: #cfc6b0;
+  --muted: #c2b89f;
+  --faint: #a59b82;
+  --cardmeta: #ddd3bb;
+  --gold: #dcbc62;
+  --gold-soft: #efe0b0;
+  --gold-deep: #8a7238;
+  --on-gold: #1a1408;
+  --line: rgba(220, 188, 98, 0.20);
+  --line-strong: rgba(220, 188, 98, 0.40);
+  --focus: #efe0b0;
+  --ok: #86d296;
+  --warn: #e6b84a;
+  --bad: #f19a86;
+  --th-bg: #1a140c;
+  --sel-bg: #2a2114;
+  --ph-bg: #120e08;
+  --row-hover: rgba(220, 188, 98, 0.08);
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  color: var(--ink);
+}
+/* study nav: a solid walnut rail instead of a translucent grey wash */
+html[data-atmo="conservator"] .study-nav-pills {
+  background: #2a2118;
+  border-color: rgba(220, 188, 98, 0.25);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html[data-atmo="conservator"] .study-nav-pill.active { color: var(--on-gold); background: var(--gold); }
+html[data-atmo="conservator"] .study-nav-pill:hover { color: #fffaf0; }
+
+/* Paper again: the museum label inside the exhibit case, the tether bar, and the Study's
+   binder cards and the atlas card (styles/study.css paints those on --surface; the integrator's
+   dark-panel pin in styles.css would otherwise give them light ink). */
+html[data-atmo="conservator"] :is(#exhibit .ex-info-placard, #exhibit .ex-p2-tether-bar,
+  #pane-study .album-binder-card:not(.staging-binder-card), #pane-study #titan-world-atlas-wrap) {
+  --bg: #f1eadb;
+  --bg2: #e7ddc5;
+  --surface: #fbf7ee;
+  --surface2: #f0e6cf;
+  --ink: #221c12;
+  --ink-soft: #43392c;
+  --muted: #5c4f3c;
+  --faint: #72654b;
+  --cardmeta: #43392c;
+  --gold: #7f5218;
+  --gold-soft: #7a2e2e;
+  --gold-deep: #a8894c;
+  --on-gold: #fffaf0;
+  --line: rgba(122, 46, 46, 0.22);
+  --line-strong: rgba(122, 46, 46, 0.42);
+  --focus: #7a2e2e;
+  --ok: #2f6b3a;
+  --warn: #8a5a00;
+  --bad: #a03024;
+  --th-bg: #ebe0c4;
+  --sel-bg: #e6d5ae;
+  --ph-bg: #e9dfc7;
+  --row-hover: rgba(122, 46, 46, 0.06);
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  color: var(--ink);
+}
+/* the staging binder paints its own gold-to-navy gradient inline; make it a solid walnut case */
+html[data-atmo="conservator"] #pane-study .staging-binder-card {
+  background: linear-gradient(135deg, #2d2418 0%, #17120b 100%) !important;
+}
+/* the filename strip lies on the label: a paper tint, not a black wash */
+html[data-atmo="conservator"] #exhibit .ex-target-filename {
+  background: rgba(122, 46, 46, 0.08);
+  border-color: var(--line-strong);
+}
+/* the big dollar figure is ink-to-oxblood gradient text on paper */
+html[data-atmo="conservator"] #hero-grand {
+  --ink: #221c12; --text: #221c12; --muted: #5c4f3c; --gold: #7f5218; --gold-soft: #7a2e2e;
+}
+
+/* 7. Light-theme fixes for controls whose hard-coded colours assume a dark page --------- */
+/* solid accent fills: the accent is a dark bronze here, so the label is paper-white */
+html[data-atmo="conservator"] :is(.term-mode-btn.active, .study-nav-pill.active, .spatial-close-btn:hover,
+  .binder-btn-open:hover, .ex-ctrl-btn.active, .tray-tab.active) { color: var(--on-gold); }
+html[data-atmo="conservator"] :is(.atlas-cam-btn.active, .atlas-route-btn.active, .spatial-flip-btn) { color: var(--on-gold) !important; }
+html[data-atmo="conservator"] .term-mode-btn.active { background: var(--gold-soft); }
+/* terminal readouts: neon green / salmon are unreadable on cream */
+html[data-atmo="conservator"] .term-live-badge { color: var(--ok); background: rgba(47, 107, 58, 0.12); border-color: rgba(47, 107, 58, 0.45); }
+html[data-atmo="conservator"] .term-delta.up { color: var(--ok); }
+html[data-atmo="conservator"] .term-delta.down { color: var(--bad); }
+html[data-atmo="conservator"] .world-table-count { color: var(--gold-soft); }
+
+/* Walnut felt instead of hard-coded midnight navy, so cased pieces belong to the desk */
+html[data-atmo="conservator"] :is(.bullion-lot-card, .vault-dash-card, .vault-custody-metric) {
+  background: linear-gradient(145deg, #261d12, #16100a);
+  border-color: rgba(220, 188, 98, 0.24);
+}
+html[data-atmo="conservator"] .vault-scenario-panel { background: linear-gradient(145deg, #261d12, #120d08); }
+html[data-atmo="conservator"] .spot-ticker-card { background: #1b150d; border-color: rgba(220, 188, 98, 0.24); }
+html[data-atmo="conservator"] .market-ticker-tape { background: #17120b; border-color: rgba(220, 188, 98, 0.22); }
+
+/* Translucent-black panels made for dark pages turn to grey mud on paper: tint them with ink instead */
+html[data-atmo="conservator"] :is(.world-table-controls, .silver-stack-bar-wrap) {
+  background: rgba(122, 46, 46, 0.06);
+  border-color: var(--line);
+}
+html[data-atmo="conservator"] .silver-stack-bar { background: rgba(34, 28, 18, 0.06); }
+
+/* Inline-styled controls in app.js / atlas.js that pair a solid gold fill with near-black type,
+   and the atlas legend's neon route colours: fixed for paper. */
+html[data-atmo="conservator"] [style*="background:var(--gold)"][style*="color:#08090c"] { color: var(--on-gold) !important; }
+html[data-atmo="conservator"] .atlas-footer-bar strong[style*="#06b6d4"] { color: #0b6b7d !important; }
+html[data-atmo="conservator"] .atlas-footer-bar strong[style*="#f43f5e"] { color: #b81f43 !important; }
+html[data-atmo="conservator"] .atlas-footer-bar strong[style*="#10b981"] { color: #0a7a56 !important; }
+
+/* 8. Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="conservator"] body,
+  html[data-atmo="conservator"] .hero-glow,
+  html[data-atmo="conservator"] .wordmark { animation: none; }
+}
