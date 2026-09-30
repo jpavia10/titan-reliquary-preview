@@ -1,0 +1,3 @@
+/* Atmosphere: samadhi. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="samadhi"] { ...every token... }, body background, wordmark, .sw-samadhi swatch,
+   and any component overrides scoped under html[data-atmo="samadhi"]. This file loads after styles.css and overrides the old block. */

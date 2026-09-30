@@ -1,0 +1,3 @@
+/* Atmosphere: colossus. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="colossus"] { ...every token... }, body background, wordmark, .sw-colossus swatch,
+   and any component overrides scoped under html[data-atmo="colossus"]. This file loads after styles.css and overrides the old block. */

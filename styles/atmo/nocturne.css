@@ -1,0 +1,3 @@
+/* Atmosphere: nocturne. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="nocturne"] { ...every token... }, body background, wordmark, .sw-nocturne swatch,
+   and any component overrides scoped under html[data-atmo="nocturne"]. This file loads after styles.css and overrides the old block. */

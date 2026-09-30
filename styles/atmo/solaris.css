@@ -1,0 +1,3 @@
+/* Atmosphere: solaris. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="solaris"] { ...every token... }, body background, wordmark, .sw-solaris swatch,
+   and any component overrides scoped under html[data-atmo="solaris"]. This file loads after styles.css and overrides the old block. */

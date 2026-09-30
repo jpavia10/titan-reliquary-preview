@@ -1,0 +1,3 @@
+/* Atmosphere: conservator. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="conservator"] { ...every token... }, body background, wordmark, .sw-conservator swatch,
+   and any component overrides scoped under html[data-atmo="conservator"]. This file loads after styles.css and overrides the old block. */
