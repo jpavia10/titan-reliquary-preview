@@ -28,10 +28,30 @@
     if (!name || !markup) return;
     if (!apply(name, markup, viewBox)) pending.push([name, markup, viewBox]);
   };
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      var p = pending; pending = [];
-      p.forEach(function (a) { apply(a[0], a[1], a[2]); });
-    });
+  /* Atmosphere picker: each swatch also shows its crest, so the 20 cards read as
+     20 identities at a glance (colour: --sw-ink on the swatch, see styles/themes.css). */
+  function crestSwatches() {
+    var cards = document.querySelectorAll(".atmo-card[data-atmo-val] .atmo-swatch");
+    for (var i = 0; i < cards.length; i++) {
+      var sw = cards[i];
+      if (sw.querySelector(".atmo-swatch-crest")) continue;
+      var name = sw.closest(".atmo-card").getAttribute("data-atmo-val");
+      var svg = document.createElementNS(SVGNS, "svg");
+      svg.setAttribute("class", "atmo-swatch-crest");
+      svg.setAttribute("viewBox", "0 0 200 200");
+      svg.setAttribute("aria-hidden", "true");
+      svg.setAttribute("focusable", "false");
+      var use = document.createElementNS(SVGNS, "use");
+      use.setAttribute("href", "#crest-" + name);
+      svg.appendChild(use);
+      sw.appendChild(svg);
+    }
   }
+  function ready() {
+    var p = pending; pending = [];
+    p.forEach(function (a) { apply(a[0], a[1], a[2]); });
+    crestSwatches();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
+  else ready();
 })();

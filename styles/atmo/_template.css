@@ -92,6 +92,7 @@ html[data-atmo="NAME"] .wordmark {
 /* 4. Picker swatch (the only unscoped selector allowed) ------------------ */
 .sw-NAME {
   background: radial-gradient(circle at 35% 30%, #e8d9a8 0%, #c8a94a 30%, #151518 75%);
+  --sw-ink: #e8d9a8;   /* colour of the crest drawn on the right of the swatch */
 }
 
 /* 5. Extras: particle tint, hero glow, exhibit backdrop, badges ---------- */

@@ -60,7 +60,8 @@ Rules for per-atmosphere agents:
    hard-coded colours (`fill="#000"` breaks on light themes), no scripts, no external refs, < 4 KB.
    It is shown as a low-opacity watermark in the hero, the exhibit, and cover flow.
 5. Swatch `.sw-<name>`: a 1:1 miniature of the theme (its bg, surface, accent); it sits in a
-   rounded box in the Atmosphere sheet. It should read at 48px.
+   64px-tall rounded box in the Atmosphere sheet, with the theme's crest drawn over its right end
+   in `--sw-ink` (set it inside the `.sw-<name>` rule; keep the right end dark or light enough for it).
 6. Motion: transform/opacity/background-position only; add a `prefers-reduced-motion` block.
    Full-screen FX (canvases, particles, `themeFx` in `app.js`, `ambient.js`) belong to the FX agent:
    write requests in your notes instead.
