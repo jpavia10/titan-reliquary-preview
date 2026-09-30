@@ -1,0 +1,7 @@
+/* Atmosphere: Colossus (colossus)
+   Owner: the colossus atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy colossus rules in styles.css
+   (at build tr50: lines 2894, 2911, 2916, 2920-2925, 2931, 2938-2939, 3089, 3260-3262, 3605, 3619, 3624-3627, 3958, 3968, 3976, 3981, 4267-4268), which stay untouched.
+   Scope every rule to html[data-atmo="colossus"] (plus the swatch .sw-colossus).
+   Empty file = the legacy look is used. */

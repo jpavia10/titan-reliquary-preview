@@ -1,0 +1,7 @@
+/* Atmosphere: The Construct (construct)
+   Owner: the construct atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy construct rules in styles.css
+   (at build tr50: lines 3789, 3808, 3825-3826, 3890, 4201, 4208, 4213, 4278-4279), which stay untouched.
+   Scope every rule to html[data-atmo="construct"] (plus the swatch .sw-construct).
+   Empty file = the legacy look is used. */

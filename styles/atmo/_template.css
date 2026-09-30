@@ -1,0 +1,106 @@
+/* ============================================================================
+   ATMOSPHERE TEMPLATE  ·  copy to styles/atmo/<name>.css (the stub already exists)
+   Contract + rules: notes/agents/themes.md  ·  audit: tools/themes/audit.js
+   ----------------------------------------------------------------------------
+   Load order: styles.css → wing styles → styles/themes.css → styles/atmo/*.css
+   So a rule here with the SAME selector as the old block in styles.css wins.
+   Old blocks in styles.css stay in place (do not edit them); override them here.
+
+   HARD RULES
+   - Scope every rule to html[data-atmo="<name>"] (the swatch .sw-<name> is the
+     only exception). Never style another atmosphere or an unscoped selector.
+   - Define EVERY token in section 1 (required + semantic). No external assets,
+     no @import, no url(http...). data: URIs are fine but keep them small.
+   - Motion: transform / opacity / background-position only, and add a
+     prefers-reduced-motion block that turns it off (section 6).
+   - Legibility (older viewer): ink/bg >= 7:1, muted/bg >= 4.5:1,
+     gold/bg >= 4.5:1, faint/bg >= 3:1, on-gold/gold >= 4.5:1. Run the audit.
+   ========================================================================== */
+
+/* 1. Tokens -------------------------------------------------------------- */
+html[data-atmo="NAME"] {
+  /* scheme: "light" or "dark" (native controls, scrollbars, audit) */
+  --scheme: dark;
+  color-scheme: dark;
+
+  /* page + surfaces, from deepest to most raised */
+  --bg: #0b0b0c;          /* page */
+  --bg2: #111113;         /* page, secondary band */
+  --surface: #151518;     /* cards, panels */
+  --surface2: #1d1d21;    /* chips, inputs, raised rows */
+
+  /* text */
+  --ink: #f2efe8;         /* body text            (>= 7:1 on bg + surface) */
+  --muted: #b3ad9f;       /* secondary text       (>= 4.5:1 on bg + surface2) */
+  --faint: #7d786c;       /* hints, disabled, rules (>= 3:1 on bg) */
+  --cardmeta: #d6d0c2;    /* card meta lines      (>= 4.5:1 on surface) */
+
+  /* accent ("gold" is the historical name; it is the theme accent) */
+  --gold: #c8a94a;        /* accent text + fills  (>= 4.5:1 on bg + surface) */
+  --gold-soft: #e8d9a8;   /* soft accent text     (>= 4.5:1 on surface) */
+  --gold-deep: #7a6a35;   /* accent borders / deep fills (decorative) */
+  --on-gold: #0b0a08;     /* text on solid --gold (>= 4.5:1) */
+
+  /* lines */
+  --line: rgba(200, 169, 74, 0.14);
+  --line-strong: rgba(200, 169, 74, 0.32);
+
+  /* status (used as text on --surface: >= 4.5:1) */
+  --ok: #6bbf7a;
+  --warn: #d4a017;
+  --bad: #e0715e;
+
+  /* depth: resting card, hover/raised, overlay/sheet */
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 50px rgba(0, 0, 0, 0.7);
+  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 2px 8px rgba(0, 0, 0, 0.45);
+  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 12px 30px rgba(0, 0, 0, 0.55);
+  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 28px 80px rgba(0, 0, 0, 0.75);
+  --scrim: rgba(0, 0, 0, 0.62);   /* behind sheets / drawers */
+  --focus: #e8d9a8;               /* focus ring (>= 3:1 vs bg + surface) */
+
+  /* component tokens */
+  --th-bg: #121214;               /* table header */
+  --tabgrad1: #1e1c12; --tabgrad2: #100f08;       /* active tab / pill gradient */
+  --toastgrad1: #1e1c12; --toastgrad2: #100f08;   /* toast gradient */
+  --foot-bg: rgba(11, 11, 12, 0.92);              /* bottom nav glass */
+  --drawerbar-bg: rgba(14, 14, 16, 0.94);         /* drawer header glass */
+  --ph-bg: #0e0e10;                                /* image placeholder */
+  --sel-bg: #1c1a10;                               /* selected row */
+  --row-hover: rgba(200, 169, 74, 0.06);           /* hovered row */
+  --hold-bg: linear-gradient(135deg, #1e1808, #100c04); /* HOLD banner */
+  --skeleton1: #1c1c17; --skeleton2: #0b0b0a;     /* loading shimmer */
+  --grain-op: 0.05;                                /* film grain 0..0.1 */
+
+  /* motion personality for wing entrances */
+  --wing-dur: 0.55s;
+  --wing-rise: 18px;
+
+  /* optional: --font --serif --mono --radius --ease-out */
+}
+
+/* 2. Page background (keep it cheap: gradients only, no filters) --------- */
+html[data-atmo="NAME"] body {
+  background-image:
+    radial-gradient(80% 50% at 50% 0%, rgba(200, 169, 74, 0.10), transparent 72%);
+}
+
+/* 3. Wordmark ------------------------------------------------------------ */
+html[data-atmo="NAME"] .wordmark {
+  text-shadow: 0 0 30px rgba(200, 169, 74, 0.35);
+}
+
+/* 4. Picker swatch (the only unscoped selector allowed) ------------------ */
+.sw-NAME {
+  background: radial-gradient(circle at 35% 30%, #e8d9a8 0%, #c8a94a 30%, #151518 75%);
+}
+
+/* 5. Extras: particle tint, hero glow, exhibit backdrop, badges ---------- */
+/* html[data-atmo="NAME"] #dust-layer i { background: radial-gradient(circle, rgba(...), transparent 70%); } */
+/* html[data-atmo="NAME"] .hero-glow { background: radial-gradient(...); } */
+/* html[data-atmo="NAME"] .exhibit-bg { background: ...; } */
+
+/* 6. Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="NAME"] body,
+  html[data-atmo="NAME"] .wordmark { animation: none; }
+}

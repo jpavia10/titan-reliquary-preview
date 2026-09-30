@@ -1,0 +1,7 @@
+/* Atmosphere: Plaintext (notepad)
+   Owner: the notepad atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy notepad rules in styles.css
+   (at build tr50: lines 3743, 3763-3764, 3769-3778, 3889, 4197-4198), which stay untouched.
+   Scope every rule to html[data-atmo="notepad"] (plus the swatch .sw-notepad).
+   Empty file = the legacy look is used. */

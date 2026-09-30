@@ -1,0 +1,7 @@
+/* Atmosphere: Odyssey (odyssey)
+   Owner: the odyssey atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy odyssey rules in styles.css
+   (at build tr50: lines 2991, 3008, 3014-3024, 3091, 4010, 4027, 4056, 4064-4070, 4076-4083, 4271), which stay untouched.
+   Scope every rule to html[data-atmo="odyssey"] (plus the swatch .sw-odyssey).
+   Empty file = the legacy look is used. */

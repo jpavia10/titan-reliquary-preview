@@ -1,0 +1,7 @@
+/* Atmosphere: The Cursed Wing (cursedwing)
+   Owner: the cursedwing atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy cursedwing rules in styles.css
+   (at build tr50: lines 3031, 3048, 3053-3054, 3058-3059, 3064-3065, 3070-3071, 3084-3086, 3092, 3264-3265, 3493, 3498, 3518, 4086, 4099, 4272), which stay untouched.
+   Scope every rule to html[data-atmo="cursedwing"] (plus the swatch .sw-cursedwing).
+   Empty file = the legacy look is used. */

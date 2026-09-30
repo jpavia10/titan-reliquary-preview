@@ -1,0 +1,7 @@
+/* Atmosphere: Solar Observatory (solaris)
+   Owner: the solaris atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy solaris rules in styles.css
+   (at build tr50: lines 7137, 7152, 7157-7160), which stay untouched.
+   Scope every rule to html[data-atmo="solaris"] (plus the swatch .sw-solaris).
+   Empty file = the legacy look is used. */

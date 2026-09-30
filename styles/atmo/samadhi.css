@@ -1,0 +1,7 @@
+/* Atmosphere: Samadhi (samadhi)
+   Owner: the samadhi atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy samadhi rules in styles.css
+   (at build tr50: lines 7284, 7299, 7304-7307), which stay untouched.
+   Scope every rule to html[data-atmo="samadhi"] (plus the swatch .sw-samadhi).
+   Empty file = the legacy look is used. */

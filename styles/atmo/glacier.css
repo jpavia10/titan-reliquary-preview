@@ -1,0 +1,7 @@
+/* Atmosphere: Hyperborean Vault (glacier)
+   Owner: the glacier atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy glacier rules in styles.css
+   (at build tr50: lines 7186, 7201, 7206), which stay untouched.
+   Scope every rule to html[data-atmo="glacier"] (plus the swatch .sw-glacier).
+   Empty file = the legacy look is used. */

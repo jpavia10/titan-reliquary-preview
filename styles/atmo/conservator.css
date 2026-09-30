@@ -1,0 +1,7 @@
+/* Atmosphere: Conservator (conservator)
+   Owner: the conservator atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy conservator rules in styles.css
+   (at build tr50: lines 80, 117, 121, 125, 133-137, 146-150, 165, 374, 551, 624, 742, 1203, 1328, 1343, 1351, 2380, 2596, 2657, 2715, 2855, 3097, 3550, 3932, 3943, 3951, 4265-4266, 4306, 4323, 6638, 8817, 8943), which stay untouched.
+   Scope every rule to html[data-atmo="conservator"] (plus the swatch .sw-conservator).
+   Empty file = the legacy look is used. */

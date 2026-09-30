@@ -1,0 +1,7 @@
+/* Atmosphere: Gilded Armory (valhalla)
+   Owner: the valhalla atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy valhalla rules in styles.css
+   (at build tr50: lines 7209, 7224, 7229), which stay untouched.
+   Scope every rule to html[data-atmo="valhalla"] (plus the swatch .sw-valhalla).
+   Empty file = the legacy look is used. */

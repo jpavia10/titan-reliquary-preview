@@ -1,0 +1,7 @@
+/* Atmosphere: Dynasty (dynasty)
+   Owner: the dynasty atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy dynasty rules in styles.css
+   (at build tr50: lines 6655, 7232, 7247, 7252-7255), which stay untouched.
+   Scope every rule to html[data-atmo="dynasty"] (plus the swatch .sw-dynasty).
+   Empty file = the legacy look is used. */

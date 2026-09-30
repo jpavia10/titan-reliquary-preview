@@ -1,0 +1,7 @@
+/* Atmosphere: After Hours (afterhours)
+   Owner: the afterhours atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy afterhours rules in styles.css
+   (at build tr50: lines 350, 369, 623, 2681, 2708, 3096, 3583, 3597, 3602, 3906, 3917, 3922, 3927, 4263-4264), which stay untouched.
+   Scope every rule to html[data-atmo="afterhours"] (plus the swatch .sw-afterhours).
+   Empty file = the legacy look is used. */

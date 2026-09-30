@@ -1,0 +1,7 @@
+/* Atmosphere: Xenohold (xeno)
+   Owner: the xeno atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy xeno rules in styles.css
+   (at build tr50: lines 3831, 3847, 3859, 3865-3868, 3881-3882, 3891, 4238, 4250-4253, 4280), which stay untouched.
+   Scope every rule to html[data-atmo="xeno"] (plus the swatch .sw-xeno).
+   Empty file = the legacy look is used. */

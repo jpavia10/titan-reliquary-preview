@@ -1,0 +1,7 @@
+/* Atmosphere: Nocturne (nocturne)
+   Owner: the nocturne atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy nocturne rules in styles.css
+   (at build tr50: lines 2945, 2962, 2972-2973, 2977-2978, 2982, 2988, 3090, 3261-3263, 3986, 3993, 3998-4001, 4269-4270), which stay untouched.
+   Scope every rule to html[data-atmo="nocturne"] (plus the swatch .sw-nocturne).
+   Empty file = the legacy look is used. */

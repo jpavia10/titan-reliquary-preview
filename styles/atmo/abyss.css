@@ -1,0 +1,7 @@
+/* Atmosphere: Sunken Treasury (abyss)
+   Owner: the abyss atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy abyss rules in styles.css
+   (at build tr50: lines 3673, 3689, 3697-3701, 3882, 3887, 4125, 4132, 4144, 4148, 4274-4275), which stay untouched.
+   Scope every rule to html[data-atmo="abyss"] (plus the swatch .sw-abyss).
+   Empty file = the legacy look is used. */

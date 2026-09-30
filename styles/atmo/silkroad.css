@@ -1,0 +1,7 @@
+/* Atmosphere: Silk Road (silkroad)
+   Owner: the silkroad atmosphere agent. Start from styles/atmo/_template.css and the
+   token contract in notes/agents/themes.md. This file loads after styles.css and
+   styles/themes.css, so a rule here overrides the legacy silkroad rules in styles.css
+   (at build tr50: lines 7310, 7325, 7330-7333), which stay untouched.
+   Scope every rule to html[data-atmo="silkroad"] (plus the swatch .sw-silkroad).
+   Empty file = the legacy look is used. */
