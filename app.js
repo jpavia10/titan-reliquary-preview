@@ -1300,7 +1300,7 @@
     const denom = esc((f.denom || f.label || "SPECIMEN").toUpperCase());
     const purity = f.is_silver
       ? (f.asw_oz ? `${num(f.asw_oz, 2)} oz ASW Silver` : ".999 Fine Silver")
-      : (f.is_gold ? ".999 Fine Gold" : (f.km ? `KM# ${esc(f.km)}` : "Specimen Alloy"));
+      : (f.is_gold ? ".999 Fine Gold" : (f.km ? `KM# ${esc(f.km)}` : "Base metal"));
 
     const revPhoto = typeof photoOf === "function" ? photoOf(f, "rev") : null;
     const obvPhoto = typeof photoOf === "function" ? photoOf(f, "obv") : null;
@@ -1321,13 +1321,13 @@
         <!-- Holographic Archival Pedigree Header -->
         <div class="slab-pedigree-header">
           <div class="slab-pedigree-holo">
-            <span class="slab-holo-brand">${isRev ? "🏛️ PROVENANCE PEDIGREE SEAL" : "🏛️ TITAN ARCHIVAL REPOSITORY"}</span>
-            <span class="slab-holo-crest">${isRev ? "CERTIFIED" : "GEM PROOF"}</span>
+            <span class="slab-holo-brand">🏛️ TITAN ARCHIVAL REPOSITORY</span>
+            <span class="slab-holo-crest">${isRev ? "REVERSE" : "LEDGER"}</span>
           </div>
           <div class="slab-pedigree-body">
             <div class="slab-pedigree-title">
               <strong>${country} · ${isRev ? "REVERSE DIE" : year}</strong>
-              <span class="slab-pedigree-grade">${isMini ? `GEM MS · ${esc(f.ser || f.scan)}` : `GEM MS · ARCHIVE № ${esc(f.ser)}`}</span>
+              <span class="slab-pedigree-grade">${isMini ? `${esc(f.ser || f.scan)}` : `ARCHIVE № ${esc(f.ser || f.scan)}`}</span>
             </div>
             <div class="slab-pedigree-sub">
               <span>${denom}</span>
@@ -1336,7 +1336,7 @@
           </div>
           <div class="slab-barcode-strip">
             <span class="slab-barcode">||| | |||| | ||| || |||| |</span>
-            <span class="slab-cert-num">CERT #${esc(f.scan)}</span>
+            <span class="slab-cert-num">LEDGER #${esc(f.scan)}</span>
           </div>
         </div>
 
@@ -1353,10 +1353,10 @@
         <div class="slab-pedigree-footer">
           <div class="slab-footer-info">
             <span class="slab-footer-price">${f.est != null ? money(f.est) : "—"}</span>
-            <span class="slab-footer-melt">${f.is_silver && f.asw_oz != null && (vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz) ? `Melt ${money(Number(f.asw_oz) * Number(vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz))}` : (f.conf ? `Conf ${esc(f.conf)}` : "Verified")}</span>
+            <span class="slab-footer-melt">${f.is_silver && f.asw_oz != null && (vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz) ? `Melt ${money(Number(f.asw_oz) * Number(vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz))}` : (f.conf ? `Conf ${esc(f.conf)}` : "Logged")}</span>
           </div>
           <div class="slab-footer-seal">
-            <span class="slab-footer-seal-text">${isRev ? "CERTIFIED PROVENANCE" : "🏛️ TITAN ARCHIVE"}</span>
+            <span class="slab-footer-seal-text">🏛️ TITAN ARCHIVE</span>
           </div>
         </div>
 
@@ -6729,7 +6729,7 @@
                </div>
                <div class="ds-p2-notice">
                  <span class="p2-seal">🏛️ ARCHIVAL RELIQUARY SPECIMEN</span>
-                 <p class="p2-prompt"><strong>Physical RAW Macro Photography Pending.</strong> Specimen encapsulated in optical Lucite acrylic with holographic provenance pedigree seal and precision laser die calibration.</p>
+                 <p class="p2-prompt"><strong>Physical RAW Macro Photography Pending.</strong> The drawings above are illustrative renderings from the ledger record, not photographs. This coin is ungraded and uncertified; it awaits its Phase 2 scan.</p>
                </div>
              </div>`)
       : "";

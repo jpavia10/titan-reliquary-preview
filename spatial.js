@@ -594,7 +594,7 @@
     // Archival Pedigree
     ctx.fillStyle = "#c8a94a";
     ctx.font = "bold 34px 'Courier New', monospace";
-    ctx.fillText("🏛️ TITAN ARCHIVAL REPOSITORY · GEM PROOF CUSTODY", 48, 64);
+    ctx.fillText("🏛️ TITAN ARCHIVAL REPOSITORY · LEDGER RECORD", 48, 64);
 
     // Specimen Title
     ctx.fillStyle = "#ffffff";
@@ -606,7 +606,7 @@
     ctx.fillStyle = "#94a3b8";
     ctx.font = "600 32px 'Courier New', monospace";
     ctx.fillText(`SERIAL: ${f.ser || f.scan || 'EU-001'} · ASW: ${f.asw_oz ? f.asw_oz + ' oz Ag' : 'Pure Silver'}`, 48, 205);
-    ctx.fillText(`CERT # ${f.scan || 'C100'} · STATUS: ACTIVE VAULT CUSTODY`, 48, 260);
+    ctx.fillText(`LEDGER # ${f.scan || '—'} · ${String(f.status || 'Logged').toUpperCase()}`, 48, 260);
 
     // Barcode stripes (right-aligned)
     ctx.fillStyle = "#ffffff";
@@ -774,7 +774,7 @@
     ctx.font = "bold 30px 'JetBrains Mono', 'Courier New', monospace";
     const purity = f.is_silver
       ? (f.asw_oz ? `${f.asw_oz} oz ASW Silver` : ".999 Fine Silver")
-      : (f.is_gold ? ".999 Gold" : (f.km ? `KM# ${f.km}` : "Specimen Alloy"));
+      : (f.is_gold ? ".999 Gold" : (f.km ? `KM# ${f.km}` : "Base metal"));
     ctx.fillText(purity, 70, 968);
 
     if (isRev) {
@@ -1453,7 +1453,7 @@
 
     if (titleEl) titleEl.textContent = `${f.year || ''} ${f.country || 'Specimen'} ${f.denom || ''}`.trim();
     if (metaEl) metaEl.textContent = `SER: ${f.ser || f.scan || '—'} · Struck Planchet · Mint: ${f.mint || 'National Mint'}`;
-    if (badgeCert) badgeCert.textContent = `TITAN ${f.grade_est || 'GEM PROOF'}`;
+    if (badgeCert) badgeCert.textContent = `LEDGER ${f.scan || ''}`.trim();
     if (badgeIso) badgeIso.textContent = `${f.iso || 'GL'} · ${(f.country || 'GLOBAL').toUpperCase()}`;
     if (badgeAsw) badgeAsw.textContent = f.asw_oz ? `${f.asw_oz} oz ASW` : (f.is_silver ? "Constitutional Silver" : "Archival Alloy");
   }
