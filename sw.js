@@ -36,6 +36,7 @@ const WING_URLS = [
   "styles/atmo/zen.css?v=" + BUILD,
   "styles/lab.css?v=" + BUILD,
   "styles/study.css?v=" + BUILD,
+  "styles/themes.css?v=" + BUILD,
   "wings/albums-data.js?v=" + BUILD,
   "wings/atmo/abyss.js?v=" + BUILD,
   "wings/atmo/afterhours.js?v=" + BUILD,
@@ -59,7 +60,8 @@ const WING_URLS = [
   "wings/atmo/xeno.js?v=" + BUILD,
   "wings/atmo/zen.js?v=" + BUILD,
   "wings/lab.js?v=" + BUILD,
-  "wings/study.js?v=" + BUILD];
+  "wings/study.js?v=" + BUILD,
+  "wings/themes.js?v=" + BUILD];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => c.addAll([...SHELL_URLS, ...WING_URLS])).then(() => self.skipWaiting()));
