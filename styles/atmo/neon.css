@@ -1,3 +1,338 @@
-/* Atmosphere: neon. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="neon"] { ...every token... }, body background, wordmark, .sw-neon swatch,
-   and any component overrides scoped under html[data-atmo="neon"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: NEON VAULT (neon)
+   Midnight drive. A slatted sun sits on a neon horizon, a perspective grid runs
+   out under the page, and every panel is edged like a lit glass tube: cyan for
+   what you can act on, magenta for what is decorative. Text is never neon on
+   neon: body copy is near-white lavender on deep indigo (>= 15:1), glow lives
+   on edges and rules, not behind letters.
+
+   Loads after styles.css, so the same selector here wins over the legacy block
+   (styles.css "9. Neon Vault" + tr17). The global "Performance Shield" in
+   styles.css kills body/wordmark/hero-glow animation, so this theme is static
+   by design; the only motion is short hover transitions and the drifting sun,
+   all of which stand down under prefers-reduced-motion.
+
+   Contrast (computed, WCAG 2.x):
+     ink    #f5f0ff  17.9 bg / 16.7 surface / 15.3 surface2
+     muted  #cdc0ec  11.8 bg / 11.0 surface / 10.0 surface2
+     faint  #a896d0   7.6 bg /  7.1 surface
+     gold   #35e6ff  13.3 bg / 12.4 surface   (cyan accent)
+     pink   #ff5cbc   7.2 bg /  6.7 surface   (magenta accent, --neon-pink)
+     on-gold #05121a on gold 12.6
+   ========================================================================== */
+
+/* 1. Tokens -------------------------------------------------------------- */
+html[data-atmo="neon"] {
+  --scheme: dark;
+  color-scheme: dark;
+
+  /* own palette (used only inside this file) */
+  --neon-cyan: #35e6ff;
+  --neon-pink: #ff5cbc;
+  --neon-violet: #9b6bff;
+  --neon-sun1: #ffd24a;
+  --neon-cyan-rgb: 53, 230, 255;
+  --neon-pink-rgb: 255, 92, 188;
+
+  /* page + surfaces (indigo night, each step a little more lifted) */
+  --bg: #0a0614;
+  --bg2: #0e0a1c;
+  --surface: #150e28;
+  --surface2: #1f1638;
+
+  /* text */
+  --ink: #f5f0ff;
+  --muted: #cdc0ec;
+  --faint: #a896d0;
+  --cardmeta: #dcd0f5;
+
+  /* accent: cyan tube */
+  --gold: #35e6ff;
+  --gold-soft: #a6f3ff;
+  --gold-deep: #1a8fa6;
+  --on-gold: #05121a;
+
+  /* lines: cyan hairlines, magenta for strong edges */
+  --line: rgba(53, 230, 255, 0.16);
+  --line-strong: rgba(255, 92, 188, 0.5);
+
+  /* status */
+  --ok: #52f5a0;
+  --warn: #ffd24a;
+  --bad: #ff7a9c;
+
+  /* depth: dark drop + a faint coloured spill, like light on wet asphalt */
+  --shadow: inset 0 1px 0 rgba(53, 230, 255, 0.10), 0 0 0 1px rgba(53, 230, 255, 0.04), 0 16px 44px rgba(2, 0, 8, 0.78);
+  --elev-1: inset 0 1px 0 rgba(53, 230, 255, 0.10), 0 2px 10px rgba(2, 0, 8, 0.6);
+  --elev-2: inset 0 1px 0 rgba(53, 230, 255, 0.16), 0 0 22px rgba(53, 230, 255, 0.14), 0 14px 32px rgba(2, 0, 8, 0.72);
+  --elev-3: inset 0 1px 0 rgba(255, 92, 188, 0.18), 0 0 40px rgba(255, 92, 188, 0.12), 0 30px 80px rgba(0, 0, 0, 0.85);
+  --scrim: rgba(5, 2, 12, 0.74);
+  --focus: #ffe066;   /* amber ring: 3:1+ on every surface and distinct from the cyan accent */
+
+  /* components */
+  --th-bg: #120b22;
+  --tabgrad1: #26184a; --tabgrad2: #140c2a;
+  --toastgrad1: #2a1450; --toastgrad2: #150a2c;
+  --foot-bg: rgba(10, 6, 20, 0.94);
+  --drawerbar-bg: rgba(14, 9, 30, 0.95);
+  --ph-bg: #110a22;
+  --sel-bg: #251845;
+  --row-hover: rgba(53, 230, 255, 0.07);
+  --hold-bg: linear-gradient(135deg, #3a0f3f 0%, #1d0b36 60%, #0f1a3a 100%);
+  --skeleton1: #1f1638; --skeleton2: #120b22;
+  --grain-op: 0.03;
+
+  /* type + shape: geometric sans headings (system fonts only), tighter corners */
+  --serif: "Avenir Next", "Futura", "Century Gothic", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --radius: 12px;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --wing-dur: 0.4s;
+  --wing-rise: 12px;
+}
+
+/* 2. Page: night sky band, sun glow on the horizon, grid floor -------------- */
+html[data-atmo="neon"] body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(70% 38% at 50% 100%, rgba(255, 92, 188, 0.20), transparent 70%),
+    radial-gradient(60% 40% at 50% -6%, rgba(155, 107, 255, 0.16), transparent 70%),
+    linear-gradient(180deg, #0c0719 0%, #0a0614 55%, #120823 100%);
+  background-attachment: fixed;
+  animation: none;
+}
+/* The grid floor: a static perspective plane under the bottom third. */
+html[data-atmo="neon"] body::before {
+  inset: auto -30% -8% -30%;
+  width: auto;
+  height: 46vh;
+  background-image:
+    linear-gradient(0deg, rgba(var(--neon-pink-rgb), 0.34) 0 2px, transparent 2px),
+    linear-gradient(90deg, rgba(var(--neon-cyan-rgb), 0.26) 0 2px, transparent 2px);
+  background-size: 100% 44px, 64px 100%;
+  background-position: 0 0, 50% 0;
+  transform: perspective(320px) rotateX(58deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(0deg, #000 10%, transparent 85%);
+  mask-image: linear-gradient(0deg, #000 10%, transparent 85%);
+  opacity: 0.55;
+  animation: none;
+}
+html[data-atmo="neon"] ::selection { background: rgba(255, 92, 188, 0.45); color: #fff; }
+
+/* Scanlines (created by app.js): kept as a whisper, never over text contrast. */
+html[data-atmo="neon"] #neon-scan {
+  opacity: 0.12;
+  z-index: 4;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0 1px, transparent 1px 4px);
+}
+/* The slatted sun (created by app.js): sits low and dim behind the hero. */
+html[data-atmo="neon"] #neon-sun {
+  top: 2vh;
+  width: min(44vmin, 300px);
+  height: min(44vmin, 300px);
+  opacity: 0.32;
+  background: linear-gradient(180deg, #ffd24a 0%, #ff8a4d 32%, #ff5cbc 64%, #9b6bff 100%);
+  -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 18px, transparent 18px 24px);
+  mask-image: repeating-linear-gradient(180deg, #000 0 18px, transparent 18px 24px);
+  box-shadow: none;
+  animation: neon-sun-drift 14s ease-in-out infinite;
+}
+@keyframes neon-sun-drift {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+@media (max-width: 768px) {
+  html[data-atmo="neon"] #neon-sun { opacity: 0.22; animation: none; }
+  html[data-atmo="neon"] #neon-scan { display: none; }
+  html[data-atmo="neon"] body::before { height: 34vh; opacity: 0.45; }
+}
+
+/* 3. Wordmark: white-hot tube core, magenta halo (static) ------------------- */
+html[data-atmo="neon"] .wordmark {
+  font-family: var(--serif);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff4fb;
+  text-shadow: 0 0 2px #fff, 0 0 10px rgba(255, 92, 188, 0.9), 0 0 28px rgba(255, 92, 188, 0.55), 0 0 60px rgba(155, 107, 255, 0.35) !important;
+  animation: none !important;
+}
+html[data-atmo="neon"] .eyebrow {
+  color: var(--gold);
+  letter-spacing: 0.22em;
+}
+html[data-atmo="neon"] .sigil { color: var(--neon-pink); }
+html[data-atmo="neon"] .hero-glow {
+  background: radial-gradient(ellipse 55% 50% at 50% 40%, rgba(255, 92, 188, 0.14), transparent 70%);
+  animation: none;
+}
+html[data-atmo="neon"] .hero-crest-watermark { color: var(--neon-cyan); opacity: 0.09; }
+html[data-atmo="neon"] .exhibit-crest-watermark { color: var(--neon-pink); opacity: 0.07; }
+html[data-atmo="neon"] .hero-grand {
+  color: var(--gold-soft);
+  text-shadow: 0 0 18px rgba(53, 230, 255, 0.45), 0 2px 0 rgba(0, 0, 0, 0.5);
+}
+html[data-atmo="neon"] .hero-cap { color: var(--muted); letter-spacing: 0.12em; }
+html[data-atmo="neon"] .badge.hold {
+  background: var(--hold-bg);
+  color: #ffd6ee;
+  border: 1px solid rgba(255, 92, 188, 0.7);
+  box-shadow: 0 0 12px rgba(255, 92, 188, 0.35);
+}
+
+/* 4. Picker swatch (only unscoped selector) ------------------------------- */
+.sw-neon {
+  background:
+    linear-gradient(0deg, rgba(255, 92, 188, 0.85) 0 2px, transparent 2px) 0 60% / 100% 9px,
+    linear-gradient(180deg, transparent 0 18%, #ffd24a 18% 26%, transparent 26% 30%, #ff8a4d 30% 37%, transparent 37% 41%, #ff5cbc 41% 50%, transparent 50%) 50% 0 / 44% 100% no-repeat,
+    linear-gradient(180deg, #120823 0%, #1d0b36 50%, #0a0614 51%, #0a0614 100%);
+  box-shadow: inset 0 0 0 1px rgba(53, 230, 255, 0.55);
+}
+
+/* 5. Components ------------------------------------------------------------ */
+
+/* Wing heads: tube-lit headline with a gradient rule under it */
+html[data-atmo="neon"] .wing-head { border-bottom: 0; position: relative; }
+html[data-atmo="neon"] .wing-head::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan) 55%, transparent);
+  box-shadow: 0 0 10px rgba(255, 92, 188, 0.45);
+}
+html[data-atmo="neon"] .wing-head h2 {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 0 14px rgba(53, 230, 255, 0.45);
+}
+
+/* Cards + tiles: glass panels edged in cyan, magenta rail */
+html[data-atmo="neon"] .card,
+html[data-atmo="neon"] .tile {
+  background: linear-gradient(180deg, rgba(31, 22, 56, 0.96), rgba(21, 14, 40, 0.98));
+  border-color: rgba(53, 230, 255, 0.24);
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="neon"] .tile::before {
+  width: 3px;
+  background: linear-gradient(180deg, var(--neon-pink), var(--neon-violet));
+  box-shadow: 0 0 10px rgba(255, 92, 188, 0.6);
+  opacity: 1;
+}
+@media (hover: hover) {
+  html[data-atmo="neon"] .card:hover,
+  html[data-atmo="neon"] .tile:hover {
+    border-color: rgba(53, 230, 255, 0.6);
+    box-shadow: var(--elev-2);
+  }
+}
+html[data-atmo="neon"] .card h3,
+html[data-atmo="neon"] .tile .k { color: var(--muted); letter-spacing: 0.16em; }
+html[data-atmo="neon"] .card .val { color: var(--gold-soft); }
+
+/* Exhibit: a lit display case */
+html[data-atmo="neon"] .exhibit {
+  background:
+    radial-gradient(90% 70% at 50% 110%, rgba(255, 92, 188, 0.14), transparent 70%),
+    linear-gradient(180deg, #170f2c, #0f0920);
+  border-color: rgba(53, 230, 255, 0.4);
+  box-shadow: var(--elev-2);
+}
+html[data-atmo="neon"] .ex-ctrl-btn {
+  background: rgba(31, 22, 56, 0.9);
+  border-color: rgba(53, 230, 255, 0.3);
+  color: var(--ink);
+}
+html[data-atmo="neon"] .ex-ctrl-btn.active,
+html[data-atmo="neon"] .ex-ctrl-btn[aria-pressed="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--on-gold);
+}
+
+/* Buttons: outlined tubes; primary action fills cyan with dark text */
+html[data-atmo="neon"] .btn {
+  background: rgba(31, 22, 56, 0.92);
+  border-color: rgba(53, 230, 255, 0.5);
+  color: var(--gold-soft);
+}
+html[data-atmo="neon"] .btn:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 14px rgba(53, 230, 255, 0.35);
+}
+html[data-atmo="neon"] .btn.primary,
+html[data-atmo="neon"] .btn.gold {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--on-gold);
+}
+html[data-atmo="neon"] .chip {
+  border-color: rgba(53, 230, 255, 0.28);
+}
+html[data-atmo="neon"] .chip.active,
+html[data-atmo="neon"] .chip[aria-pressed="true"] {
+  background: rgba(53, 230, 255, 0.16);
+  border-color: var(--gold);
+  color: #fff;
+}
+html[data-atmo="neon"] .gallery-load-more-btn {
+  background: rgba(53, 230, 255, 0.10);
+  border-color: rgba(53, 230, 255, 0.5);
+  color: var(--gold-soft);
+}
+
+/* Bottom wing bar: dark glass, cyan active tube, magenta top edge */
+html[data-atmo="neon"] .wings {
+  background: rgba(10, 6, 20, 0.95);
+  border-top-color: rgba(255, 92, 188, 0.55);
+}
+@media (min-width: 768px) {
+  html[data-atmo="neon"] .wings {
+    border-color: rgba(255, 92, 188, 0.5);
+    box-shadow: 0 0 24px rgba(255, 92, 188, 0.18), 0 16px 44px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+}
+html[data-atmo="neon"] .wing { color: var(--muted); }
+html[data-atmo="neon"] .wing.active { color: #fff; }
+html[data-atmo="neon"] .wing.active svg { color: var(--gold); filter: drop-shadow(0 0 5px rgba(53, 230, 255, 0.7)); }
+html[data-atmo="neon"] .wing.active::before {
+  left: 18%; right: 18%; height: 3px;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold), 0 0 18px rgba(53, 230, 255, 0.6);
+}
+
+/* Market wire: a scrolling marquee sign */
+html[data-atmo="neon"] .market-ticker-tape {
+  background: rgba(10, 6, 20, 0.9);
+  border-color: rgba(255, 92, 188, 0.45);
+}
+
+/* Tables */
+html[data-atmo="neon"] th { color: var(--gold-soft); }
+
+/* Focus: amber ring, thick enough to see from the couch */
+html[data-atmo="neon"] :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(255, 224, 102, 0.18);
+}
+
+/* Particles (if the FX layer shows them) */
+html[data-atmo="neon"] #dust-layer i {
+  background: radial-gradient(circle, rgba(53, 230, 255, 0.7), transparent 70%);
+}
+
+/* 6. Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="neon"] #neon-sun,
+  html[data-atmo="neon"] body,
+  html[data-atmo="neon"] .wordmark,
+  html[data-atmo="neon"] .hero-glow { animation: none !important; }
+  html[data-atmo="neon"] #neon-scan { display: none; }
+  html[data-atmo="neon"] .card,
+  html[data-atmo="neon"] .tile,
+  html[data-atmo="neon"] .btn { transition: none; }
+  html[data-atmo="neon"] .card:hover,
+  html[data-atmo="neon"] .tile:hover,
+  html[data-atmo="neon"] .btn:hover { transform: none; }
+}
