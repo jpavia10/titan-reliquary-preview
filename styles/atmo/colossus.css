@@ -1,3 +1,147 @@
-/* Atmosphere: colossus. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="colossus"] { ...every token... }, body background, wordmark, .sw-colossus swatch,
-   and any component overrides scoped under html[data-atmo="colossus"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: COLOSSUS  ·  cast bronze, a furnace at the base of the plinth.
+   Sensory identity
+   - Light: furnace glow rising from below; hot amber on dark bronze; nothing cool.
+   - Mass: heavy top rules on cards, block-joint pillars in the wall, inscription capitals.
+   - Ink: warm parchment-cream on smelter brown; accent is molten amber.
+   - Motion: slow, heavy breathing of the fire; nothing quick.
+   Contract + rules: notes/agents/themes.md.  Owned by Themes agent A.
+   ========================================================================== */
+
+/* 1. Tokens -------------------------------------------------------------- */
+html[data-atmo="colossus"] {
+  --scheme: dark;
+  color-scheme: dark;
+
+  --bg: #170f06;
+  --bg2: #1f1409;
+  --surface: #251a0c;
+  --surface2: #32220f;
+
+  --ink: #fbeed4;
+  --muted: #c09a5e;
+  --faint: #ac8853;
+  --cardmeta: #e0c793;
+  --ink-soft: #ead9b4;
+
+  --gold: #f2a93b;
+  --gold-soft: #ffd98c;
+  --gold-deep: #9a651a;
+  --on-gold: #1a0f00;
+
+  --line: rgba(242, 169, 59, 0.20);
+  --line-strong: rgba(242, 169, 59, 0.48);
+
+  --ok: #7fbf6a;
+  --warn: #e0a93e;
+  --bad: #e8735a;
+
+  --shadow: inset 0 1px 0 rgba(255, 220, 150, 0.08), 0 22px 60px rgba(0, 0, 0, 0.75);
+  --elev-1: inset 0 1px 0 rgba(255, 220, 150, 0.07), 0 3px 12px rgba(0, 0, 0, 0.55);
+  --elev-2: inset 0 1px 0 rgba(255, 220, 150, 0.09), 0 16px 38px rgba(0, 0, 0, 0.68);
+  --elev-3: inset 0 1px 0 rgba(255, 220, 150, 0.10), 0 34px 90px rgba(0, 0, 0, 0.85);
+  --scrim: rgba(10, 5, 0, 0.7);
+  --focus: #ffd98c;
+
+  --th-bg: #1c1207;
+  --tabgrad1: #32220f;
+  --tabgrad2: #1a1005;
+  --toastgrad1: #32220f;
+  --toastgrad2: #1a1005;
+  --foot-bg: rgba(23, 15, 6, 0.94);
+  --drawerbar-bg: rgba(37, 26, 12, 0.95);
+  --ph-bg: #170f06;
+  --sel-bg: #2a1d0b;
+  --row-hover: rgba(242, 169, 59, 0.08);
+  --hold-bg: linear-gradient(135deg, #38260e, #1a1005);
+  --skeleton1: #32220f;
+  --skeleton2: #170f06;
+  --grain-op: 0.07;
+
+  --wing-dur: 0.7s;
+  --wing-rise: 26px;
+}
+
+/* 2. Page: furnace glow at the base (breathes), block-joint pillars, vignette */
+html[data-atmo="colossus"] body {
+  background-image:
+    radial-gradient(100% 55% at 50% 118%, rgba(255, 122, 26, 0.17), transparent 62%),
+    radial-gradient(80% 46% at 50% -8%, rgba(226, 169, 62, 0.10), transparent 70%),
+    repeating-linear-gradient(90deg, transparent 0 79px, rgba(226, 169, 62, 0.045) 79px 80px),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(8, 4, 1, 0.55) 100%);
+  animation: colossus-furnace 7s ease-in-out infinite alternate;
+}
+@keyframes colossus-furnace {
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 0 -5vh, 0 0, 0 0, 0 0; }
+}
+html[data-atmo="colossus"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(255, 150, 50, 0.17), transparent 70%);
+  animation: col-stoke 4.2s ease-in-out infinite;
+}
+html[data-atmo="colossus"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 10%, rgba(226, 169, 62, 0.22), transparent 70%),
+    radial-gradient(40% 60% at 80% 90%, rgba(138, 100, 32, 0.16), transparent 70%);
+}
+html[data-atmo="colossus"] #dust-layer i { background: radial-gradient(circle, rgba(255, 150, 60, 0.85), transparent 70%); }
+
+/* 3. Wordmark: heat halo, held still (the text-shadow pulse was not compositor-only) */
+html[data-atmo="colossus"] .wordmark {
+  animation: none;
+  text-shadow: 0 0 40px rgba(255, 150, 50, 0.55), 0 0 12px rgba(255, 190, 110, 0.28);
+}
+
+/* 4. Picker swatch: a bronze slab with the furnace below -------------------- */
+.sw-colossus {
+  background:
+    linear-gradient(0deg, rgba(255, 122, 26, 0.85) 0%, rgba(255, 122, 26, 0) 46%),
+    linear-gradient(135deg, #3a2a12, #b9832f 55%, #170f06);
+  box-shadow: inset 0 3px 0 #f2a93b;
+}
+
+/* 5. Components ----------------------------------------------------------- */
+/* inscription capitals for wing titles, heavy top rule on cast cards */
+html[data-atmo="colossus"] .wing-head h2 {
+  font-size: clamp(1.75rem, 6.2vw, 2.3rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 3px 26px rgba(226, 169, 62, 0.4);
+}
+html[data-atmo="colossus"] .sec-head h2 { letter-spacing: 0.03em; }
+html[data-atmo="colossus"] .sec-head { border-bottom: 2px solid var(--line-strong); }
+html[data-atmo="colossus"] :is(.card, .tile, .wing-card, .note-card) {
+  border-top: 2px solid var(--gold-deep);
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="colossus"] .exhibit { border-width: 2px; }
+html[data-atmo="colossus"] :is(.badge, .badge-kind, .badge-status) {
+  border-color: var(--gold-deep);
+  color: var(--gold-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+html[data-atmo="colossus"] .tray-tab.active .tray-count { color: var(--on-gold); background: rgba(26, 15, 0, 0.16); }
+/* strongroom cards: bronze-tinted instead of midnight navy */
+html[data-atmo="colossus"] :is(.bullion-lot-card, .vault-dash-card, .vault-custody-metric, .vault-scenario-panel,
+  .silver-stack-bar .ss-segment .ss-tooltip) {
+  --ink: #fbeed4;
+  --text: #fbeed4;
+  --muted: #cdb07a;
+  --ink-soft: #ead9b4;
+  --gold: #f2a93b;
+  --gold-soft: #ffd98c;
+  --line: rgba(242, 169, 59, 0.2);
+  background: linear-gradient(145deg, #2a1d0d, #170f06);
+  border-color: rgba(242, 169, 59, 0.28);
+}
+
+/* 6. Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="colossus"] body,
+  html[data-atmo="colossus"] .hero-glow,
+  html[data-atmo="colossus"] .exhibit-bg,
+  html[data-atmo="colossus"] .exhibit::after,
+  html[data-atmo="colossus"] .wordmark { animation: none; }
+}
