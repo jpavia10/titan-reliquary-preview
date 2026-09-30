@@ -1496,7 +1496,7 @@
 
   /** Interactive Precious Metals Stock Trading Terminal Engine */
   let termAsset = "vault";
-  let termTimeframe = "24h";
+  let termTimeframe = "live"; // "Now": prior snapshot -> current snapshot (real data)
   let termChartMode = "area";
   let termTickTimer = null;
   let termCrosshairX = null;
@@ -2252,8 +2252,12 @@
           a.isUp = d >= 0;
           a.delta = `${d >= 0 ? "+" : "-"}${unitFmt(Math.abs(d))} (${d >= 0 ? "+" : "-"}${Math.abs(pc).toFixed(2)}%)`;
         } else { a.isUp = true; a.delta = "snapshot"; }
-        const pts = a.rates?.live;
-        if (Array.isArray(pts) && pts.length) pts[pts.length - 1] = Number(Number(cur).toFixed(2));
+        if (a.rates) {
+          const when = mt.as_of_local || mt.as_of || "current";
+          a.rates.live = prev
+            ? [{ d: "Prior snapshot", c: Number(prev) }, { d: "Snapshot · " + when, c: Number(cur), note: mt.source ? "Source: " + mt.source : "" }]
+            : [{ d: "Snapshot · " + when, c: Number(cur) }, { d: "Snapshot · " + when, c: Number(cur) }];
+        }
       };
       const usd = (v) => "$" + num(v, 2);
       setHead(TERM_DATA.ag, ag, pAg, usd);
@@ -2286,7 +2290,7 @@
         if (pinEl) pinEl.style.left = (lo != null && hi != null ? Math.min(100, Math.max(0, ((at - lo) / (hi - lo || 1)) * 100)) : 50).toFixed(1) + "%";
       };
       const boxLbls = $$("#trading-terminal .term-stat-box > .ts-lbl");
-      if (boxLbls[0]) boxLbls[0].textContent = "Chart range · " + (termTimeframe === "all" ? "All" : termTimeframe.toUpperCase());
+      if (boxLbls[0]) boxLbls[0].textContent = "Chart range · " + (termTimeframe === "all" ? "All" : termTimeframe === "live" ? "Now" : termTimeframe.toUpperCase());
       setRange(low24El, high24El, pin24El, loS.length ? Math.min(...loS) : null, hiS.length ? Math.max(...hiS) : null, a.base);
       if (boxLbls[1]) boxLbls[1].textContent = a.prior ? "Prior snapshot → now" : "Snapshot";
       if (a.prior) setRange(low52El, high52El, pin52El, a.prior, a.base, a.base); // left = prior, right = now

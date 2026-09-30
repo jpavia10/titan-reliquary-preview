@@ -131,8 +131,8 @@
     }
     const mt = v.metals || {};
     const when = mt.as_of_local || mt.as_of;
-    n.textContent = (when ? `Current prices: metals snapshot of ${when}${mt.source ? " (" + mt.source + ")" : ""}; change is measured against the prior snapshot. ` : "")
-      + "Vault change counts metal price moves only. Chart history is illustrative, not recorded market data.";
+    n.textContent = `"Now" compares the prior and the current metals snapshot${when ? " (" + when + (mt.source ? ", " + mt.source : "") + ")" : ""}; `
+      + "vault change counts metal price moves only. Other timeframes show illustrative history, not recorded market data.";
   }
 
   let roStage = null, lastW = 0;
@@ -173,7 +173,7 @@
     markTickerDupes();
     watchChartSize();
     holdExhibitOnTouch();
-    requestAnimationFrame(fitMeltLabels);
+    fitMeltLabels();
     const pane = $("#pane-hall");
     if (pane) pane.classList.add("hall-ready");
   }
@@ -193,17 +193,16 @@
 
     // app.js re-renders the hero (and #hdr-stats) on every load/refresh: repaint our parts after it.
     if (stats && "MutationObserver" in window) {
-      new MutationObserver(() => requestAnimationFrame(paintAll)).observe(stats, { childList: true });
+      new MutationObserver(() => paintAll()).observe(stats, { childList: true }); // runs after renderAll finishes (microtask)
     }
     const bar = $("#melt-bar");
     if (bar && "MutationObserver" in window) {
-      let q = 0;
-      new MutationObserver(() => { cancelAnimationFrame(q); q = requestAnimationFrame(fitMeltLabels); })
+      new MutationObserver(fitMeltLabels)
         .observe(bar, { attributes: true, subtree: true, childList: true, characterData: true, attributeFilter: ["style"] });
     }
     const track = $("#ticker-marquee-track");
     if (track && "MutationObserver" in window) {
-      new MutationObserver(() => requestAnimationFrame(markTickerDupes)).observe(track, { childList: true });
+      new MutationObserver(markTickerDupes).observe(track, { childList: true });
     }
     window.addEventListener("resize", () => requestAnimationFrame(fitMeltLabels), { passive: true });
     if (stats && stats.childElementCount) paintAll();

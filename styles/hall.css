@@ -162,6 +162,14 @@
 #pane-hall .market-ticker-tape:focus-within .ticker-marquee-track { animation-play-state: paused; }
 
 /* ---------- Now Exhibiting: legible, big targets ---------- */
+/* The vitrine follows the atmosphere (it was hard-coded near-black, which hid its own labels in light rooms). */
+#pane-hall .exhibit {
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 40%, color-mix(in srgb, var(--gold) 9%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--surface2) 0%, var(--surface) 100%);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 color-mix(in srgb, var(--ink) 8%, transparent);
+}
+#pane-hall .exhibit:hover { transform: none; }
 #pane-hall .exhibit-kicker { color: var(--gold-soft); }
 #pane-hall .ex-ctrl-btn {
   min-height: 40px;
