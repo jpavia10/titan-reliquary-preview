@@ -316,7 +316,7 @@
       "properties": {
         "schema_version": { "type": "string" },
         "built_by": { "type": "string" },
-        "source": { "type": "object", "properties": { "ledger_version": { "type": "string" }, "generated_at": { "type": "string" }, "content_hash": { "type": ["string", "null"] }, "repo": { "type": "string" } }, "required": ["ledger_version", "generated_at"], "additionalProperties": true },
+        "source": { "type": "object", "properties": { "ledger_version": { "type": "string" }, "generated_at": { "type": "string" }, "content_hash": { "type": ["string", "null"] }, "ledger_repo": { "type": "string" } }, "required": ["ledger_version", "generated_at"], "additionalProperties": true },
         "counts": { "type": "object" },
         "totals": { "type": "object" },
         "content_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },

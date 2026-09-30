@@ -589,7 +589,7 @@ def main(src, out, force=False, report=None):
     w(f"{out}/SER_REASSIGN_PLAN.md", reassign_ser.render(out, reassign_ser.plan(out)))
     ver = ctx["ver"]
     mf.write(out, {"ledger_version": ver.get("ledger_version", ctx["idx"].get("ledger_version")), "generated_at": ver.get("generated_at", ctx["idx"].get("generated_at")),
-                   "content_hash": ver.get("content_hash", ctx["idx"].get("content_hash")), "repo": "https://github.com/jpavia10/titan-reliquary"})
+                   "content_hash": ver.get("content_hash", ctx["idx"].get("content_hash")), "ledger_repo": "https://github.com/jpavia10/titan-reliquary"})
     ctx["_out"] = out
     if report:
         w(report, json.dumps({"unparsed": ctx["unparsed"], "variants": [[k[0], k[1], v] for k, v in ctx["variants"].items()], "open": ctx["open"], "events": len(events)}, indent=1, ensure_ascii=False))

@@ -1,7 +1,7 @@
 # Titan Reliquary data schema v2 (DRAFT for owner review)
 
-Status: design + working migration, **not yet wired into the app**. The live app still reads v1. Everything here is additive: `schema/v2/`, `tools/schema/`.
-Tools: `migrate_v1_to_v2.py` (v1 → v2), `validate.py` (schema + cross-reference checks), `fmt.py` + `test_fmt.py` (display rules, 54 test cases).
+Status: **ADOPTED as the collection master (owner decision, 2026-09-30).** The canonical v2 data lives in `collection/` (bootstrapped from ledger v254); its contract for any agent is `collection/README.md`. The live app still reads the generated v1 `data/` view until a v2 adapter is wired in behind a flag.
+Tools: `tools/schema/migrate_v1_to_v2.py` (one-time bootstrap + curation, `tools/schema/curation.py`), `validate.py` (schema + references + manifest), `check_totals.py` (reconcile with a ledger export), `manifest.py`, `reassign_ser.py` (dry run), `fmt.py` + `test_fmt.py` (display rules, 54 cases), `tools/albums/build_slots.py` + `album_calc.py` (slot grids, computed holes).
 
 ## 1. Why change: what the audit of today's data found
 
@@ -36,7 +36,7 @@ Lot (bullion, sets, housing, stamps)
 |---|---|
 | `id` (permanent) | `C###` coin, `T###` token, `B###` bullion lot, `S###` set, `H###` housing, `P###` stamps. Never changes, never reused. Photos and history hang off it. |
 | `ser` (display, reassignable once) | `EU-CH-008`: continent-country-sequence. Reassigned once after Phase 1 (see `PHOTO_PROTOCOL.md`), then frozen. |
-| Type id | `{ISO}.{catalog}.{number}`, catalog priority KM > Y > Schön > JNDA; else `{ISO}.X.{denomination-slug}`. Deterministic, so re-running the migration gives the same ids. |
+| Type id | `{issuer}.{catalog}.{number}`, catalog priority KM > Y > Schön (`Sch`) > JNDA; else `{issuer}.X.{denomination-slug}`. `{issuer}` is the ISO code, or a historical issuer id from `ref/issuers.json` (`DE-EMP`, `MX-CHI`, `VN-SOV`). Deterministic, so re-running the migration gives the same ids. |
 | `TITAN-###` | Dropped (decision recorded in the photo protocol). |
 
 ## 4. Variables (Tier 1 is in `schema/v2/defs.schema.json` now; Tier 2 is planned nullable fields, added only when you want them)
@@ -101,9 +101,9 @@ See `defs.schema.json`. Highlights: **Photo** replaces today's 8 scattered photo
 
 **Honest reading:** the bytes are not the main win. Full records shrink only ~10% because the long free-text `notes` (avg 382 characters × 273) dominate. The wins are (1) a boot payload that is ~5x smaller so the first paint is faster, (2) records loaded one at a time when a coin is opened (a specimen record is about 1.2 KB raw) instead of whole-country shards, and above all (3) **correctness and queryability**: no conflicting copies, computed holes, typed fields you can sort, filter and chart.
 
-Layout: `boot.json` (columnar list data) · `types/{ISO}.json` · `specimens/{ISO}.json` · `lots.json` · `albums.json` · `photos/` · `valuations.jsonl` · `changes.jsonl` (append-only) · `ref/issuers.json` · `manifest.json` (schema version, counts, content hash). Deterministic key order so git diffs are small and the content hash is stable.
+Layout (`collection/`): `manifest.json` (schema version, source ledger, counts, totals, `content_hash`, and a `files` array of every other file with sha256 + bytes) · `boot.json` (columnar, string ids) · `types/{ISO}.json` · `specimens/{ISO}.json` · `lots.json` · `albums.json` (volumes with named slots) · `ref/issuers.json` · `photos.json` (empty) · `valuations.jsonl` and `changes.jsonl` (append-only) · `CURATION_OPEN.md` · `SER_REASSIGN_PLAN.md` · `README.md`. Records are one per line with sorted keys so git diffs and the content hash are stable. The Drive-only `_incoming/` drop zone is never in the manifest.
 
-## 7. What the migration proved (run on all 273 coins + 28 lots + 33 albums)
+## 7. What the migration proved (first draft run on the v252 export: 273 coins + 28 lots + 33 albums; the v254 bootstrap reproduced the same parse gaps and they are now resolved or listed in `collection/CURATION_OPEN.md`)
 - Parsed cleanly: year 273/273, denomination 261/273, weight 247/273, KM# 258/273, tender 271/273.
 - Everything that did not parse is **kept as raw text and listed** in `report.json` (12 denominations, 26 weights, 15 KM#, 2 tender, 25 type conflicts, 11 country-name variants, 26 inconsistent album volumes). None was guessed.
 - Result validates with **0 schema errors and 0 broken cross-references**; the validator was proven by injecting 5 faults, all caught.
@@ -258,15 +258,17 @@ Layout: `boot.json` (columnar list data) · `types/{ISO}.json` · `specimens/{IS
 }
 ```
 
-## 9. Decisions for the owner
-1. **Adopt v2 as the target?** (Nothing changes in the app until you say so; migration is additive.)
-2. **Album coins get IDs?** The 930 coins in binders are not itemized today. To answer "which years am I missing" reliably, each binder slot needs enumerating once (I can generate the slot grid from the series rule, and you confirm what is physically present). Itemized album coins would get `C###` keys from the same counter.
-3. **Which Tier 2 fields do you want?** I'd add them all as nullable; unused ones cost nothing.
-4. **Master file format:** today the source of truth is a 468 KB markdown ledger (`LEDGER.md`) parsed by a script on Grok's machine. v2 works best with structured JSON as the master, with the markdown generated for reading. That is a bigger change to Grok's pipeline and needs a plan before anyone edits.
-5. **Curation queue** (a one-time human/AI review): the 25 type conflicts, the 12 unparsed denominations, and the 3 issuer name variants (Germany, Mexico, Vietnam).
+## 9. Owner decisions (answered 2026-09-30)
+1. **Schema v2 is adopted**; all outdated metadata was migrated to it (ledger v254) and is now the master that any agent can read and update.
+2. **Album coins:** the slot grids exist (`albums.json`, 33 volumes); each slot carries `occupant_status` ledger / inferred / unknown. Itemizing the binder coins (`C###`) waits for the Phase 1.5 album scans (23 of 33 volumes need them).
+3. **Tier 2 fields:** all added as nullable (`null` until filled).
+4. **Master file format:** structured JSON in `collection/`. The ledger export is now an input for cross-checks (`check_totals.py`), not the master. The markdown ledger on Grok's machine must be regenerated from `collection/` or retired; this needs a plan with Grok before anyone edits the pipeline.
+5. **Curation queue:** resolved from the data where possible (every change is a `ChangeEvent`, `verified: false`); what the data could not settle is in `collection/CURATION_OPEN.md`.
+6. **Serials:** Phase 1 metadata for all coins, then a single reassignment with no bias to scan order (`SER_REASSIGN_PLAN.md`, dry run), then Phase 2 photos.
 
 ## 10. Next steps (in order)
-1. You answer the decisions above.
-2. Wire a v2 adapter in the app behind a flag (v1 keeps working).
-3. Itemize album slots; replace the hard-coded table in `app.js`.
-4. Fill Tier 2 fields as you choose; AI enrichment writes through `ChangeEvent` with provenance.
+1. Owner/Grok work through `collection/CURATION_OPEN.md` (physical checks, 4 catalog questions, 1.5 oz of silver the ledger counts but no record explains).
+2. Wire a v2 adapter in the app behind a flag (v1 keeps working); generate `data/` from `collection/` instead of the reverse.
+3. Phase 1.5 album scans finalize the 23 flagged volumes; itemize binder coins.
+4. After Phase 1 completes: apply the serial reassignment once, then Phase 2 photos.
+5. Fill Tier 2 fields as wanted; AI enrichment writes through `ChangeEvent` with provenance.

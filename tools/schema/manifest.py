@@ -59,7 +59,7 @@ def build(d, source=None):
     files = [{"path": p, "sha256": sha256_file(os.path.join(d, p)), "bytes": os.path.getsize(os.path.join(d, p))} for p in list_files(d)]
     cnt, tot = counts_and_totals(d)
     src = dict(old.get("source") or {}); src.update(source or {})
-    src.setdefault("repo", "https://github.com/jpavia10/titan-reliquary")
+    src.setdefault("ledger_repo", "https://github.com/jpavia10/titan-reliquary")
     h = hashlib.sha256("".join(f"{f['path']}:{f['sha256']}\n" for f in files).encode()).hexdigest()
     m = {"schema_version": SCHEMA_VERSION, "built_by": "tools/schema/manifest.py", "source": src, "counts": cnt, "totals": tot, "content_hash": h, "files": files}
     if old.get("ledger_reconciliation"): m["ledger_reconciliation"] = old["ledger_reconciliation"]
