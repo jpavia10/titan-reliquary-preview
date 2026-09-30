@@ -17,7 +17,7 @@
   "countries": 45,
   "photos": 0,
   "valuations": 301,
-  "changes": 122,
+  "changes": 123,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -43,7 +43,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "97941856d1dcd5d49fd3543079bb0af3c13b6bc80eb674a4a7c28de64c94069c",
+ "content_hash": "51d3e2f0c2f158355ab00d1c607681a4b883716ca3e2cbd909359efbd6436d21",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -77,8 +77,8 @@
   },
   {
    "path": "changes.jsonl",
-   "sha256": "2555cf4190a8a81bc30cfd70e6c9e304854b48ee8bc4886246f029e7917a7b78",
-   "bytes": 47843
+   "sha256": "c122895422ae93743bf5620345610462b56403b51dde308789358c2040fb93cb",
+   "bytes": 48121
   },
   {
    "path": "lots.json",
@@ -302,8 +302,8 @@
   },
   {
    "path": "specimens/US.json",
-   "sha256": "5a406f8c1df335d891bf29ef4c0278374c34d7898162deccd214cff50f90e634",
-   "bytes": 9334
+   "sha256": "192f2cb78dbc68fc32681d461051e719456ad92d384fa64c3db79957b54c1b65",
+   "bytes": 9348
   },
   {
    "path": "specimens/VA.json",
