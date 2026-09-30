@@ -450,7 +450,7 @@
   function shellHtml(list) {
     const mode = B.mode;
     return `
-    <div class="gf-root" id="gf-root">
+    <div class="gf-root" id="gf-root" data-mode="${esc(mode)}">
       <div class="gf-presets" id="gf-presets" role="group" aria-label="Quick views"></div>
       <div id="gf-cover">${B.coverFlowShellHtml(list)}</div>
       <section class="gf-finder" id="gf-finder" aria-label="Find coins">
@@ -514,7 +514,6 @@
       buildPanel();
       B.setupCoverFlowEvents();
       bindEvents(body);
-      bindTilt($("#main-gallery-grid"));
       observeMore();
     }
     return true;
@@ -672,23 +671,93 @@
   let wallLimit = 24;
   let wallSig = "";
 
-  function tileHtml(f) {
-    const neo = B.highlight && B.highlight.has(f.scan) ? " is-new" : "";
-    const label = (f.ser || f.scan) + " " + [f.country, f.year].filter(Boolean).join(" ");
-    const obv = B.renderMuseumSlab(f, { side: "obv" });
-    return `<div class="piece-card piece-card-3d${neo} mode-${B.mode}" role="button" tabindex="0" data-scan="${esc(f.scan)}" aria-label="${esc(label)}">
-      <div class="pc-flip-frame"><div class="pc-3d-flipper-stage" data-flipper-scan="${esc(f.scan)}"><div class="pc-3d-flipper">
-        <div class="pc-side pc-side-obv">${obv}<button type="button" class="cf-flip-badge pc-flip-action-btn" title="Flip to the reverse (Space or F)">🔄 3D Flip</button></div>
-        <div class="pc-side pc-side-rev" data-lazy-rev="1"></div>
-      </div></div></div>
-    </div>`;
+  /* The shared <svg> of planchet gradients in index.html is display:none, and gradients inside a
+     display:none SVG do not paint in Chromium, so every drawn coin rendered without its metal.
+     Hide it without display:none instead (no layout, still referenceable). */
+  (function fixSharedDefs() {
+    const defs = document.getElementById("grad-planchet-alloy")?.closest("svg");
+    if (defs && defs.style.display === "none") defs.style.cssText = "position:absolute;width:0;height:0;overflow:hidden;pointer-events:none";
+  })();
+
+  /* Wall tile: a museum placard (country, year + denomination, SER, value) under a drawn coin.
+     The coin is drawn from the ledger (no photographs exist yet); a real thumbnail replaces it when one does. */
+  function coinSvg(f, side, large) {
+    if (side === "rev") return revSvg(f);
+    if (typeof window.renderSpecimenBlueprint === "function") return window.renderSpecimenBlueprint(f, !!large, side);
+    return `<span class="gx-coin-blank" aria-hidden="true"></span>`;
   }
-  /* Tile markup is built once per (coin, mode, caliper state, detail loaded) and cloned afterwards. */
+  /** Planchet radius (of 100) used to crop and zoom the drawn face. A DRAWING size only: the ledger's mm when it has one, else a generic size; never shown as a fact. */
+  function planchetR(f) {
+    const dm = String(f.metal_cond || f.metal || "").match(/([\d.]+)\s*mm/i);
+    const diam = dm ? parseFloat(dm[1]) : ((f.is_silver || f.asw_oz) ? 26.5 : 22);
+    return Math.min(42, Math.max(22, ((Number.isFinite(diam) ? diam : 22) / 50.8) * 44));
+  }
+  /* A drawn reverse: the denomination set inside a beaded ring, sized to fit the planchet. */
+  let revUid = 0;
+  function revSvg(f) {
+    const metal = String(f.metal || "");
+    const silver = !!f.is_silver || !!f.asw_oz, gold = !!f.is_gold || /gold/i.test(metal), bronze = /bronze|copper|brass/i.test(metal);
+    const grad = gold ? "grad-planchet-gold" : bronze ? "grad-planchet-bronze" : silver ? "grad-planchet-silver" : "grad-planchet-alloy";
+    const ink = gold ? "#fef08a" : bronze ? "#fed7aa" : "#f8fafc";
+    const r = planchetR(f);
+    const denom = String(f.denom || f.label || "").split("·")[0].trim();
+    const m = denom.match(/^([\d.,/½¼¾]+)\s*(.*)$/);
+    const big = m ? m[1] : "";
+    const unit = (m ? m[2] : denom).replace(/\(.*?\)/g, "").trim().toUpperCase().slice(0, 18);
+    const bigSize = Math.min(r * 0.62, (r * 1.3) / Math.max(1, big.length * 0.62));
+    const unitSize = Math.min(r * 0.2, (r * 1.45) / Math.max(1, unit.length * 0.62));
+    const uid = "gxrev" + (++revUid);
+    const yearTxt = esc(String(f.year || "").slice(0, 14));
+    return `<svg class="specimen-medallion gx-rev-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reverse (drawn): ${esc(denom)}">
+      <defs><filter id="${uid}" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.6"/></filter></defs>
+      <rect width="100" height="100" fill="url(#grad-aperture-velvet)"/>
+      <circle cx="50" cy="50" r="${r.toFixed(1)}" fill="url(#${grad})" stroke="#050608" stroke-width="0.8" filter="url(#${uid})"/>
+      <circle cx="50" cy="50" r="${r.toFixed(1)}" fill="url(#grad-coin-luster)"/>
+      <circle cx="50" cy="50" r="${(r - 0.6).toFixed(1)}" fill="none" stroke="${ink}" stroke-width="0.9" opacity="0.85"/>
+      <circle cx="50" cy="50" r="${(r - 2.2).toFixed(1)}" fill="none" stroke="${ink}" stroke-width="0.7" stroke-dasharray="1 1.5" opacity="0.7"/>
+      <g fill="${ink}" text-anchor="middle" font-family="var(--serif), Georgia, serif" font-weight="800" style="paint-order:stroke" stroke="rgba(0,0,0,0.35)" stroke-width="0.25">
+        ${big ? `<text x="50" y="${(50 + bigSize * 0.2).toFixed(1)}" font-size="${bigSize.toFixed(1)}">${esc(big)}</text>` : ""}
+        ${unit ? `<text x="50" y="${(big ? 50 + bigSize * 0.2 + unitSize * 1.45 : 50 + unitSize * 0.35).toFixed(1)}" font-size="${unitSize.toFixed(1)}" letter-spacing="0.06em">${esc(unit)}</text>` : ""}
+        ${yearTxt && big ? `<text x="50" y="${(50 - r * 0.52).toFixed(1)}" font-size="${(r * 0.14).toFixed(1)}" letter-spacing="0.12em">${yearTxt}</text>` : ""}
+      </g>
+    </svg>`;
+  }
+
+  function tileHtml(f) {
+    const isNew = B.highlight && B.highlight.has(f.scan);
+    const denom = f.denom || f.label || "";
+    const year = f.year || "Undated";
+    const ag = f.is_silver ? `<span class="gx-badge gx-ag" title="Silver${f.asw_oz != null ? ": " + B.num(f.asw_oz, 4) + " oz pure" : ""}">Ag${f.asw_oz != null ? " " + B.num(f.asw_oz, 2) + " oz" : ""}</span>` : "";
+    const tok = f.kind === "token" ? `<span class="gx-badge gx-tok">Token</span>` : "";
+    const photo = f.thumb ? `<img class="gx-photo" data-src="${esc(f.thumb)}" alt="" loading="lazy" decoding="async" />` : "";
+    const label = `${f.country || "Unknown country"}, ${year}, ${denom}. ${f.ser || f.scan}. ${f.est != null ? "Estimated " + money(f.est) : "Estimate not recorded"}`;
+    return `<article class="gx-tile${isNew ? " is-new" : ""}" data-scan="${esc(f.scan)}">
+        <button type="button" class="gx-open" data-scan="${esc(f.scan)}" aria-label="${esc(label)}">
+          <span class="gx-stage" aria-hidden="true">
+            <span class="gx-frame"><span class="gx-clip">
+              <span class="gx-coin">
+                <span class="gx-face gx-obv" style="--r:${planchetR(f).toFixed(1)}">${photo || coinSvg(f, "obv")}</span>
+              </span>
+            </span></span>
+          </span>
+          <span class="gx-plac">
+            <span class="gx-country">${esc(f.country || "Unknown country")}</span>
+            <span class="gx-line"><span class="gx-year">${esc(year)}</span>${denom ? ` · ${esc(denom)}` : ""}</span>
+            <span class="gx-foot"><span class="gx-ser">${esc(f.ser || f.scan)}</span><span class="gx-val">${f.est != null ? money(f.est) : "not recorded"}</span></span>
+          </span>
+        </button>
+        <span class="gx-badges">${isNew ? `<span class="gx-badge gx-new">New</span>` : ""}${ag}${tok}</span>
+        <button type="button" class="gx-turn" data-scan="${esc(f.scan)}" aria-pressed="false" aria-label="Turn over ${esc((f.country || "") + " " + year)}" title="Turn over (F)">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5"/><path d="M20 3.5v5h-5"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.5"/><path d="M4 20.5v-5h5"/></svg>
+        </button>
+      </article>`;
+  }
+  /* Tile markup is built once per (coin, new-flag) and cloned afterwards. */
   const tileCache = new Map();
   let tileCacheVault = null;
   function makeTile(f) {
     if (tileCacheVault !== lastVault) { tileCache.clear(); tileCacheVault = lastVault; }
-    const key = `${f.scan}|${B.mode}|${B.caliperActive ? 1 : 0}|${f._full ? 1 : 0}|${B.highlight && B.highlight.has(f.scan) ? 1 : 0}`;
+    const key = `${f.scan}|${B.highlight && B.highlight.has(f.scan) ? 1 : 0}`;
     let proto = tileCache.get(key);
     if (!proto) {
       const t = document.createElement("template");
@@ -699,14 +768,18 @@
     }
     return proto.cloneNode(true);
   }
-  function fillReverse(card) {
-    const rev = $(".pc-side-rev", card);
-    if (!rev || !rev.dataset.lazyRev) return;
-    const f = B.findCard(card.dataset.scan);
-    if (!f) return;
-    delete rev.dataset.lazyRev;
-    rev.innerHTML = B.renderMuseumSlab(f, { side: "rev" }) + `<button type="button" class="cf-flip-badge pc-flip-action-btn" title="Flip to the obverse (Space or F)">🔄 3D Flip</button>`;
-    B.lazyThumbs(rev);
+  /** Turn a tile over; the drawn reverse is built the first time. */
+  function turnTile(tile) {
+    if (!tile) return;
+    const f = B.findCard(tile.dataset.scan);
+    const coin = $(".gx-coin", tile);
+    if (!f || !coin) return;
+    if (!$(".gx-rev", coin)) coin.insertAdjacentHTML("beforeend", `<span class="gx-face gx-rev" style="--r:${planchetR(f).toFixed(1)}">${coinSvg(f, "rev")}</span>`);
+    const on = !tile.classList.contains("is-turned");
+    tile.classList.toggle("is-turned", on);
+    const btn = $(".gx-turn", tile);
+    if (btn) btn.setAttribute("aria-pressed", String(on));
+    B.playStapleClick();
   }
 
   function renderWall(list, F, force) {
@@ -749,11 +822,24 @@
     void sig;
   }
 
+  /** Empty result: name the filters, and offer the one-tap removals that bring pieces back (with the exact count each gives). */
   function renderEmpty(el, F) {
     const chips = activeChips(F);
-    el.innerHTML = `<h3>No coins match these filters</h3>
-      <p>${chips.length ? "Nothing in the collection matches " + chips.map((c) => `<strong>${esc(c.text)}</strong>`).join(" and ") + "." : "There are no coins to show."}</p>
-      <button type="button" class="btn" data-act="clear">Clear all filters</button>`;
+    const fixes = [];
+    for (const c of chips) {
+      const n = countFor({ ...F, ...emptyPatch(c.key) });
+      if (n > 0) fixes.push({ c, n });
+    }
+    fixes.sort((a, b) => b.n - a.n);
+    const q = F.q.trim();
+    const wait = q && !B.searchIdx ? `<p>Still loading the notes index; results may appear in a moment.</p>` : "";
+    el.innerHTML = `<h3>${chips.length ? "No coins match these filters" : "There are no coins to show"}</h3>
+      <p>${chips.length ? "Nothing in the collection matches " + chips.map((c) => `<strong>${esc(c.text)}</strong>`).join(" and ") + "." : "The ledger has no flips."}</p>
+      ${wait}
+      <div class="gf-fixes">
+        ${fixes.slice(0, 4).map((x) => `<button type="button" class="btn" data-remove="${esc(x.c.key)}">Remove “${esc(x.c.text)}” → ${intFmt(x.n)} ${x.n === 1 ? "coin" : "coins"}</button>`).join("")}
+        ${chips.length ? `<button type="button" class="btn" data-act="clear">Show all ${intFmt(descs.length)} coins</button>` : ""}
+      </div>`;
   }
 
   /* wall: load the next batch when the button (or the sentinel) comes near the screen */
@@ -775,38 +861,6 @@
       const more = $("#gf-more");
       if (more && !more.hidden && more.getBoundingClientRect().top < window.innerHeight + 900) loadMore();
     });
-  }
-
-  /* hover tilt: one delegated listener for the whole wall (fine pointers only) */
-  function bindTilt(grid) {
-    if (!grid || !window.matchMedia || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    let cur = null, rect = null, raf = 0, lx = 0, ly = 0;
-    const reset = (card) => {
-      if (!card) return;
-      const fl = $(".pc-3d-flipper", card), st = $(".pc-3d-flipper-stage", card);
-      if (fl) fl.style.transform = st && st.classList.contains("is-flipped") ? "rotateY(180deg)" : "";
-    };
-    const apply = () => {
-      raf = 0;
-      if (!cur || !rect || !rect.width) return;
-      const hw = rect.width / 2, hh = rect.height / 2;
-      const nx = Math.max(-1, Math.min(1, (lx - (rect.left + hw)) / hw));
-      const ny = Math.max(-1, Math.min(1, (ly - (rect.top + hh)) / hh));
-      const fl = $(".pc-3d-flipper", cur), st = $(".pc-3d-flipper-stage", cur);
-      const flipped = st && st.classList.contains("is-flipped");
-      if (fl) fl.style.transform = `perspective(900px) rotateX(${(-ny * 10).toFixed(1)}deg) rotateY(${((flipped ? 180 : 0) + (flipped ? -nx : nx) * 12).toFixed(1)}deg) translateZ(8px)`;
-      cur.style.setProperty("--card-sheen-x", ((nx + 1) / 2 * 100).toFixed(1) + "%");
-      cur.style.setProperty("--card-sheen-y", ((ny + 1) / 2 * 100).toFixed(1) + "%");
-    };
-    grid.addEventListener("pointermove", (e) => {
-      if (REDUCED()) return;
-      const card = e.target.closest && e.target.closest(".piece-card");
-      if (card !== cur) { reset(cur); cur = card; rect = card ? card.getBoundingClientRect() : null; }
-      if (!card) return;
-      lx = e.clientX; ly = e.clientY;
-      if (!raf) raf = requestAnimationFrame(apply);
-    });
-    grid.addEventListener("pointerleave", () => { if (raf) { cancelAnimationFrame(raf); raf = 0; } reset(cur); cur = null; rect = null; });
   }
 
   /* ══════════════════════════ Cover Flow ══════════════════════════ */
@@ -872,17 +926,39 @@
   }
 
   /* ══════════════════════════ events ══════════════════════════ */
+  const RECENT_KEY = "tr_gallery_recent_v1";
+  function recentScans() { try { const r = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]"); return Array.isArray(r) ? r.filter((x) => typeof x === "string").slice(0, 6) : []; } catch (e) { return []; } }
+  function rememberRecent(scan) {
+    try { localStorage.setItem(RECENT_KEY, JSON.stringify([scan, ...recentScans().filter((x) => x !== scan)].slice(0, 6))); } catch (e) { /* private mode */ }
+  }
+  /* Arrow keys move between tiles, Home/End jump, F turns the focused piece over; Enter/Space open it (native button). */
+  function onGridKey(e) {
+    const tile = e.target.closest(".gx-tile");
+    if (!tile) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === "f" || e.key === "F") { if (e.target.closest(".gx-open, .gx-turn")) { e.preventDefault(); turnTile(tile); } return; }
+    const tiles = $$("#main-gallery-grid .gx-tile");
+    const i = tiles.indexOf(tile);
+    let j = -1;
+    const cols = (() => { const top = tiles[0] && tiles[0].offsetTop; let c = 0; for (const t of tiles) { if (t.offsetTop !== top) break; c++; } return Math.max(1, c); })();
+    if (e.key === "ArrowRight") j = i + 1;
+    else if (e.key === "ArrowLeft") j = i - 1;
+    else if (e.key === "ArrowDown") j = i + cols;
+    else if (e.key === "ArrowUp") j = i - cols;
+    else if (e.key === "Home") j = 0;
+    else if (e.key === "End") j = tiles.length - 1;
+    else return;
+    e.preventDefault();
+    if (j >= tiles.length && wallLimit < wallList.length) { loadMore(); }
+    const all = $$("#main-gallery-grid .gx-tile");
+    j = Math.max(0, Math.min(all.length - 1, j));
+    const target = $(".gx-open", all[j]);
+    if (target) { target.focus({ preventScroll: true }); target.scrollIntoView({ block: "nearest", behavior: REDUCED() ? "auto" : "smooth" }); }
+  }
   function openCard(scan) {
+    rememberRecent(scan);
     B.openDrawer(scan, { label: "Gallery", scans: wallList.map((f) => f.scan) });
   }
-  function toggleFlip(card) {
-    const stage = $(".pc-3d-flipper-stage", card);
-    if (!stage) return;
-    if (!stage.classList.contains("is-flipped")) fillReverse(card);
-    stage.classList.toggle("is-flipped");
-    B.playStapleClick();
-  }
-
   function bindEvents(body) {
     if (body.dataset.gfBound) return;
     body.dataset.gfBound = "1";
@@ -890,8 +966,8 @@
       if (B.broken) return;
       pendingView = null;
       const t = e.target;
-      const flipBtn = t.closest(".pc-flip-action-btn");
-      if (flipBtn) { e.stopPropagation(); e.preventDefault(); toggleFlip(flipBtn.closest(".piece-card")); return; }
+      const turn = t.closest(".gx-turn");
+      if (turn) { e.stopPropagation(); e.preventDefault(); turnTile(turn.closest(".gx-tile")); return; }
       const preset = t.closest("[data-preset]");
       if (preset) { applyPreset(preset.dataset.preset); return; }
       const chip = t.closest(".gf-chip[data-fk]");
@@ -910,21 +986,18 @@
         try { localStorage.setItem("tr_gallery_mode_v1", B.mode); } catch (_) { /* ignore */ }
         $$(".g-mode-btn").forEach((b) => { const on = b === gm; b.classList.toggle("active", on); b.setAttribute("aria-pressed", String(on)); });
         const sub = $("#gf-wall-sub"); if (sub) sub.textContent = subtitleFor(B.mode);
-        renderWall(wallList, readF(), true);
+        const root = $("#gf-root"); if (root) root.dataset.mode = B.mode; // the three looks are CSS frames around the same tile
         B.playStapleClick();
         return;
       }
       const act = t.closest("[data-act]");
       if (act) { doAction(act.dataset.act, act); return; }
-      const card = t.closest(".piece-card[data-scan]");
-      if (card) openCard(card.dataset.scan);
+      const open = t.closest(".gx-open");
+      if (open) openCard(open.dataset.scan);
     });
     body.addEventListener("keydown", (e) => {
       if (B.broken) return;
-      const card = e.target.closest && e.target.closest(".piece-card[data-scan]");
-      if (!card || e.target !== card) return;
-      if (e.key === "Enter") { e.preventDefault(); openCard(card.dataset.scan); }
-      else if (e.key === " " || e.key === "f" || e.key === "F") { e.preventDefault(); toggleFlip(card); }
+      if (e.target.closest && e.target.closest(".gx-tile")) onGridKey(e);
     });
     body.addEventListener("input", (e) => {
       pendingView = null;

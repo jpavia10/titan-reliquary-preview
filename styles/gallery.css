@@ -191,3 +191,198 @@
 @media print {
   .gf-presets, .gf-finder, .gf-more, .gf-wallhead-r, #gf-cover { display: none !important; }
 }
+
+
+/* ───────────── wall tile (museum placard) — from the B implementation, scoped to the finder root ───────────── */
+#pane-gallery .gf-root { --gx-r: 14px; --gx-gap: clamp(0.75rem, 1.6vw, 1.25rem); --gx-card: color-mix(in srgb, var(--gold-soft, #c8a94a) 14%, #efe8d8); }
+#pane-gallery .gf-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--gx-gap);
+}
+#pane-gallery .gf-root :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+#pane-gallery .gx-tile {
+  position: relative;
+  border-radius: var(--gx-r);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 4%, transparent), 0 10px 28px -14px rgba(0, 0, 0, 0.55);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 330px;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.25s;
+}
+#pane-gallery .gx-tile:hover,
+#pane-gallery .gx-tile:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 6%, transparent), 0 22px 40px -18px rgba(0, 0, 0, 0.65);
+}
+#pane-gallery .gx-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--gx-r);
+}
+#pane-gallery .gx-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  padding: 11%;
+  border-radius: var(--gx-r) var(--gx-r) 0 0;
+  background:
+    radial-gradient(120% 80% at 50% 0%, color-mix(in srgb, var(--gold) 16%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--surface2), var(--bg2));
+  overflow: hidden;
+  perspective: 900px;
+}
+#pane-gallery .gx-frame { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; }
+#pane-gallery .gx-clip { display: block; width: 100%; height: 100%; overflow: hidden; border-radius: inherit; perspective: 700px; }
+#pane-gallery .gx-coin {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s var(--ease-out);
+}
+#pane-gallery .gx-face {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+#pane-gallery .gx-face svg, #pane-gallery .gx-face img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* The drawn face puts a ~22 mm coin inside a 50.8 mm velvet window; zoom so the coin reads at tile size. */
+#pane-gallery .gx-face svg { transform: scale(var(--gx-zoom, calc(34 / var(--r, 22)))); }
+#pane-gallery .gx-rev { transform: rotateY(180deg); }
+#pane-gallery .gx-tile.is-turned .gx-coin { transform: rotateY(180deg); }
+
+/* Mode: slab (clear acrylic block) */
+#pane-gallery .gf-root[data-mode="slab"] .gx-frame {
+  padding: 7%;
+  border-radius: 12px;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.08) 38%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.22)),
+    color-mix(in srgb, var(--bg) 35%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18), inset 0 2px 10px rgba(255, 255, 255, 0.25), 0 14px 24px -12px rgba(0, 0, 0, 0.7);
+}
+#pane-gallery .gf-root[data-mode="slab"] .gx-clip { border-radius: 8px; }
+#pane-gallery .gf-root[data-mode="slab"] .gx-face { --gx-zoom: calc(34 / var(--r, 22)); }
+/* Mode: 2x2 cardboard flip with a round window (how the collection is actually housed) */
+#pane-gallery .gf-root[data-mode="flip"] .gx-frame {
+  padding: 9%;
+  border-radius: 3px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 45%),
+    var(--gx-card);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 12px 22px -12px rgba(0, 0, 0, 0.6);
+}
+#pane-gallery .gf-root[data-mode="flip"] .gx-frame::before,
+#pane-gallery .gf-root[data-mode="flip"] .gx-frame::after {
+  content: "";
+  position: absolute;
+  top: 4%;
+  width: 14%;
+  height: 2px;
+  background: linear-gradient(90deg, #8d8d8d, #e2e2e2, #8d8d8d);
+  border-radius: 1px;
+  left: 43%;
+}
+#pane-gallery .gf-root[data-mode="flip"] .gx-frame::after { top: auto; bottom: 4%; }
+#pane-gallery .gf-root[data-mode="flip"] .gx-clip { border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18); background: radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12) 60%); }
+#pane-gallery .gf-root[data-mode="flip"] .gx-face { --gx-zoom: calc(46 / (var(--r, 22) + 2.5)); }
+#pane-gallery .gf-root[data-mode="flip"] .gx-face svg { clip-path: circle(calc((var(--r, 22) + 2.5) * 1%) at 50% 50%); }
+/* Mode: bare coin */
+#pane-gallery .gf-root[data-mode="matrix"] .gx-stage { padding: 4%; }
+#pane-gallery .gf-root[data-mode="matrix"] .gx-face { --gx-zoom: calc(48 / (var(--r, 22) + 1.4)); filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.5)); }
+#pane-gallery .gf-root[data-mode="matrix"] .gx-face svg { clip-path: circle(calc((var(--r, 22) + 1.4) * 1%) at 50% 50%); }
+
+#pane-gallery .gx-plac {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.8rem 0.95rem 0.9rem;
+  border-top: 1px solid var(--line);
+}
+#pane-gallery .gx-country {
+  font-family: var(--serif);
+  font-size: 1.14rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+#pane-gallery .gx-line { font-size: 0.95rem; color: var(--ink); opacity: 0.86; line-height: 1.35; }
+#pane-gallery .gx-year { font-weight: 700; font-variant-numeric: tabular-nums; }
+#pane-gallery .gx-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+#pane-gallery .gx-ser { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.02em; }
+#pane-gallery .gx-val { font-weight: 700; font-size: 1rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+#pane-gallery .gx-badges { position: absolute; top: 10px; left: 10px; display: flex; gap: 0.3rem; pointer-events: none; }
+#pane-gallery .gx-badge {
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+#pane-gallery .gx-ag { background: linear-gradient(135deg, #f7f8fa, #b9bec7); color: #1d2026; }
+#pane-gallery .gx-tok { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); }
+#pane-gallery .gx-new { background: var(--gold); color: var(--bg); }
+#pane-gallery .gx-turn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  color: var(--ink);
+  cursor: pointer;
+  opacity: 1;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: opacity 0.2s, background-color 0.2s, transform 0.3s var(--ease-out);
+}
+#pane-gallery .gx-turn:hover { background: var(--gold); color: var(--bg); }
+#pane-gallery .gx-tile.is-turned .gx-turn { background: var(--gold); color: var(--bg); transform: rotate(180deg); }
+
+#pane-gallery .gx-coin-blank { display: block; width: 100%; height: 100%; }
+@media (max-width: 720px) {
+  #pane-gallery .gf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+  #pane-gallery .gx-plac { padding: 0.65rem 0.7rem 0.75rem; }
+  #pane-gallery .gx-country { font-size: 1.04rem; }
+  #pane-gallery .gx-line { font-size: 0.9rem; }
+  #pane-gallery .gx-foot { flex-wrap: wrap; gap: 0.1rem 0.5rem; }
+  #pane-gallery .gx-ser { font-size: 0.8125rem; }
+  /* the finder comes before the long carousel on a phone */
+  #pane-gallery .gf-root { display: flex; flex-direction: column; }
+  #pane-gallery .gf-presets { order: 0; }
+  #pane-gallery .gf-finder { order: 1; margin-top: 0; }
+  #pane-gallery #gf-cover { order: 2; }
+  #pane-gallery .gf-wallhead { order: 3; }
+  #pane-gallery .gf-wall { order: 4; }
+}
+@media (max-width: 360px) { #pane-gallery .gf-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) {
+  #pane-gallery .gx-tile, #pane-gallery .gx-coin, #pane-gallery .gx-turn { transition: none !important; }
+  #pane-gallery .gx-tile:hover, #pane-gallery .gx-tile:focus-within { transform: none; }
+}
