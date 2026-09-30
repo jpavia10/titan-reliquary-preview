@@ -1202,6 +1202,14 @@
     return f.is_silver ? 26.5 : 22.0;
   }
 
+  /** Where a diameter comes from: "measured" | "ledger" | "estimate" (drawing scale only, never a measurement). */
+  function getSpecimenDiameterSource(f) {
+    if (f.measured_mm && !isNaN(f.measured_mm)) return "measured";
+    if ((f.diameter_mm && !isNaN(f.diameter_mm)) || (f.dia_mm && !isNaN(f.dia_mm))) return "ledger";
+    if (/([\d.]+)\s*mm/i.test(String(f.metal_cond || f.metal || f.specs || ""))) return "ledger";
+    return "estimate";
+  }
+
   function getDieAlignment(f) {
     const s = String(f.specs || f.notes || "").toLowerCase();
     if (s.includes("medal")) return { type: "Medal Alignment", angle: 0, symbol: "↑↑ 0°" };
@@ -6744,7 +6752,9 @@
     // Precision Caliper scale
     const specMm = c.diameter_mm ? parseFloat(c.diameter_mm) : null;
     const measMm = c.measured_mm ? parseFloat(c.measured_mm) : null;
-    const activeDia = measMm || specMm || (c.is_silver ? 26.5 : 22.0);
+    const activeDia = measMm || specMm || getSpecimenDiameter(c);
+    const diaSrc = measMm ? "measured from photo" : getSpecimenDiameterSource(c) === "ledger" ? "from the ledger" : "estimated for the drawing, not in the ledger";
+    const alignKnown = !!(c.specs && /medal|coin\s*align/i.test(c.specs));
     const fillPct = Math.min(96, Math.max(24, Math.round((activeDia / 50.8) * 100)));
     const caliperHtml = `
       <div class="ds-caliper-box">
@@ -6758,10 +6768,10 @@
             <div class="ds-caliper-grid-rings"></div>
           </div>
           <div class="ds-caliper-metrics">
-            <div class="dcm-row"><span>Coin Diameter:</span><strong>${activeDia} mm</strong></div>
+            <div class="dcm-row"><span>Coin Diameter:</span><strong>${activeDia} mm <em style="font-weight:400;color:var(--muted)">(${diaSrc})</em></strong></div>
             <div class="dcm-row"><span>Cardboard Window:</span><strong>50.8 mm (2×2")</strong></div>
             <div class="dcm-row"><span>Window Fill Ratio:</span><strong>${fillPct}%</strong></div>
-            <div class="dcm-row"><span>Die Alignment:</span><strong>${c.specs && /medal/i.test(c.specs) ? "Medallic (↑↑ 0°)" : "Coin (↑↓ 180°)"}</strong></div>
+            <div class="dcm-row"><span>Die Alignment:</span><strong>${alignKnown ? (/medal/i.test(c.specs) ? "Medallic (↑↑ 0°)" : "Coin (↑↓ 180°)") : "not recorded"}</strong></div>
           </div>
         </div>
       </div>`;

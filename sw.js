@@ -12,9 +12,57 @@ const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "app.js?v=" + BUI
   "fonts/Fraunces-500.woff2", "fonts/Fraunces-600.woff2", "fonts/Fraunces-700.woff2",
   "js/three.min.js", "js/OrbitControls.js", "js/fflate.min.js", "js/USDZExporter.js", "js/qrcode.min.js", "js/openseadragon.min.js",
   "js/playlist.js?v=" + BUILD, "audio.js?v=" + BUILD, "ambient.js?v=" + BUILD];
+const WING_URLS = [
+  "styles/atmo/abyss.css?v=" + BUILD,
+  "styles/atmo/afterhours.css?v=" + BUILD,
+  "styles/atmo/alchemist.css?v=" + BUILD,
+  "styles/atmo/all.css?v=" + BUILD,
+  "styles/atmo/colossus.css?v=" + BUILD,
+  "styles/atmo/conservator.css?v=" + BUILD,
+  "styles/atmo/construct.css?v=" + BUILD,
+  "styles/atmo/cursedwing.css?v=" + BUILD,
+  "styles/atmo/dynasty.css?v=" + BUILD,
+  "styles/atmo/glacier.css?v=" + BUILD,
+  "styles/atmo/kaleido.css?v=" + BUILD,
+  "styles/atmo/neon.css?v=" + BUILD,
+  "styles/atmo/nocturne.css?v=" + BUILD,
+  "styles/atmo/notepad.css?v=" + BUILD,
+  "styles/atmo/odyssey.css?v=" + BUILD,
+  "styles/atmo/samadhi.css?v=" + BUILD,
+  "styles/atmo/silkroad.css?v=" + BUILD,
+  "styles/atmo/solaris.css?v=" + BUILD,
+  "styles/atmo/valhalla.css?v=" + BUILD,
+  "styles/atmo/xeno.css?v=" + BUILD,
+  "styles/atmo/zen.css?v=" + BUILD,
+  "styles/lab.css?v=" + BUILD,
+  "styles/study.css?v=" + BUILD,
+  "wings/albums-data.js?v=" + BUILD,
+  "wings/atmo/abyss.js?v=" + BUILD,
+  "wings/atmo/afterhours.js?v=" + BUILD,
+  "wings/atmo/alchemist.js?v=" + BUILD,
+  "wings/atmo/colossus.js?v=" + BUILD,
+  "wings/atmo/conservator.js?v=" + BUILD,
+  "wings/atmo/construct.js?v=" + BUILD,
+  "wings/atmo/core.js?v=" + BUILD,
+  "wings/atmo/cursedwing.js?v=" + BUILD,
+  "wings/atmo/dynasty.js?v=" + BUILD,
+  "wings/atmo/glacier.js?v=" + BUILD,
+  "wings/atmo/kaleido.js?v=" + BUILD,
+  "wings/atmo/neon.js?v=" + BUILD,
+  "wings/atmo/nocturne.js?v=" + BUILD,
+  "wings/atmo/notepad.js?v=" + BUILD,
+  "wings/atmo/odyssey.js?v=" + BUILD,
+  "wings/atmo/samadhi.js?v=" + BUILD,
+  "wings/atmo/silkroad.js?v=" + BUILD,
+  "wings/atmo/solaris.js?v=" + BUILD,
+  "wings/atmo/valhalla.js?v=" + BUILD,
+  "wings/atmo/xeno.js?v=" + BUILD,
+  "wings/atmo/zen.js?v=" + BUILD,
+  "wings/lab.js?v=" + BUILD,
+  "wings/study.js?v=" + BUILD];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(SHELL).then((c) => c.addAll(SHELL_URLS)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(SHELL).then((c) => c.addAll([...SHELL_URLS, ...WING_URLS])).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {
