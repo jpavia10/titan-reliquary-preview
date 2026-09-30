@@ -19,6 +19,10 @@
       Array.prototype.forEach.call(doc.documentElement.childNodes, function (n) { sym.appendChild(document.importNode(n, true)); });
     });
   };
+  /** Alias for the themes-branch API (wings/atmo/_template.js calls TitanAtmoCrest). wings/themes.js loads
+   *  AFTER the atmosphere files, so without this every crest set via TitanAtmoCrest was silently skipped. */
+  if (!window.TitanAtmoCrest) window.TitanAtmoCrest = function (name, markup, viewBox) { T.defineCrest(name, markup, viewBox); };
+
   /** Update the atmosphere-picker card copy: opts = { name, desc, pair }. */
   T.setCard = function (name, opts) {
     ready(function () {

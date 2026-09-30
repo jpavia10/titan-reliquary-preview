@@ -1005,7 +1005,8 @@
   function refreshChecksOnly() { renderAllButBench(true); }
 
   /* ---------- Intake ---------- */
-  const SER_RX = /\b([A-Z]{2}-[A-Z]{2,3}-\d{3})\b/i;
+  // Explicit boundaries, not \b: "_" is a word character, so \b never matched "EU-CH-008_front".
+  const SER_RX = /(?:^|[^A-Z0-9])([A-Z]{2}-[A-Z]{2,3}-\d{3})(?![0-9])/i;
   const KEY_RX = /(?:^|[^A-Z0-9])([CT]\d{3})(?![0-9])/i;
   function guessFromName(name) {
     const base = name.replace(/\.[a-z0-9]+$/i, "");

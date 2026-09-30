@@ -58,6 +58,13 @@ Last verified: 2026-09-30 (build TR50).
 - 2026-09-28: GitHub token removed from git remote URLs. It was not stored elsewhere; cloud sessions use the GitHub connection.
 - Not yet started: Drive consolidation (top level still holds older duplicate app files), ROADMAP checkbox cleanup, photo-doc reconciliation, model bake-off.
 
+## Cross-thread handoff (received 2026-09-30) — standing instructions
+Owner's standing instructions: don't ask permission; push finished work live after testing; resume the nearest-to-done work one at a time; then do a full improvement pass. Run ~4-6 agents at a time max (20 pushed load to 30-50 and caused stale screenshots). Use Opus to orchestrate and Sonnet for agents (Fable needs usage credits). Only ONE session integrates into `main` at a time.
+- Albums: `ALBUMS.md` on Drive is the only album source found. Fill slot details from the Whitman album model and mark each such value `"inferred"` (never present inferred slots as ledger fact).
+- A second thread (another machine) had UNPUSHED agent worktrees: a rewritten `ambient.js`, Vault/Table/Study/Hall/Gallery wing work, 11 paused themes. They are not on GitHub. To rescue them, in that thread run for each worktree: `git -C <worktree> push origin HEAD:refs/heads/claude/rescue-<name>`; the integrator then compares them with main before merging anything.
+- Resolved from that handoff: splash-v2 merge (done, tr51); 30 s reload bug (fixed); sw.js offline list (fixed); crest API mismatch (`TitanAtmoCrest` now aliased in `wings/atmo/core.js`); Lab `EU-CH-008_front.jpg` pairing (fixed, 1638/1638 test names pair).
+- **Owner decisions still open:** adopt schema v2 (`schema/SCHEMA_V2.md` section 9)?; when to freeze serial-number reassignment; what syncs into Drive `Titan Reliquary Collection/`; the phone-photo folder layout.
+
 ## Open questions for the owner
 1. Which photo protocol is current? Owner's plan above (pen label, unbiased IDs, back label, pro scan) versus the "Stage 1 bare coin" staging protocol.
 2. Which ID scheme wins: `EU-CH-008`, `TITAN-###`, or new?
