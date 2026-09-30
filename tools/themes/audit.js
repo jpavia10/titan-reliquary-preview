@@ -48,6 +48,9 @@ const VPS = String(opt("vps", "desktop,phone")).split(",").filter((v) => VPS_ALL
 const SHOTS = !opt("no-shots", false);
 const STATIC_ONLY = !!opt("static", false);
 const SCROLL = Number(opt("scroll", 0)) || 0;
+/* --block a,b: serve these same-origin path prefixes as empty files, e.g.
+   --block styles/themes.css,styles/atmo/,wings/themes.js,wings/atmo/  (= the tree before the themes work) */
+const BLOCK = String(opt("block", "") === true ? "" : opt("block", "")).split(",").filter(Boolean);
 
 /* ---------------- token contract (keep in sync with notes/agents/themes.md) --------------- */
 const CONTRACT = {
@@ -463,6 +466,15 @@ function settle() {
   for (const a of document.getAnimations()) { try { a.finish(); } catch (_) { try { a.cancel(); } catch (__) {} } }
 }
 
+/* force style + layout and wait for two animation frames (bounded) so the screenshot shows this state */
+async function freshFrame(page) {
+  await page.evaluate(() => new Promise((res) => {
+    void document.body.offsetHeight;
+    const t = setTimeout(res, 1500);
+    requestAnimationFrame(() => requestAnimationFrame(() => { clearTimeout(t); res(); }));
+  }));
+}
+
 /* ---------------- runtime audit ---------------- */
 async function runtimeAudit(st) {
   const { chromium } = require("playwright");
@@ -484,9 +496,17 @@ async function runtimeAudit(st) {
   }
   async function boot1(vp) {
     if (browser) { try { await browser.close(); } catch (_) {} }
-    browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium", args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] });
+    // Software compositing (no GL): WebGL panes are out of scope, and under heavy CPU load the
+    // swiftshader compositor hands back stale frames to screenshots.
+    browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium", args: ["--disable-gpu", "--disable-gpu-compositing", "--disable-webgl", "--disable-webgl2"] });
     ctx = await browser.newContext({ viewport: VPS_ALL[vp], deviceScaleFactor: 1, reducedMotion: "reduce", colorScheme: "dark" });
-    await ctx.route("**/*", (route) => { const u = route.request().url(); if (u.startsWith(origin) || u.startsWith("data:") || u.startsWith("blob:")) return route.continue(); return route.abort(); });
+    await ctx.route("**/*", (route) => {
+      const u = route.request().url();
+      const rel = u.startsWith(origin) ? u.slice(origin.length).replace(/^\/+/, "").split("?")[0] : "";
+      if (rel && BLOCK.some((b) => rel.startsWith(b))) return route.fulfill({ status: 200, contentType: rel.endsWith(".js") ? "text/javascript" : "text/css", body: "" });
+      if (u.startsWith(origin) || u.startsWith("data:") || u.startsWith("blob:")) return route.continue();
+      return route.abort();
+    });
     page = await ctx.newPage();
     page.on("console", (m) => { if (m.type() === "error" && !/ERR_TUNNEL|ERR_FAILED|net::ERR_/.test(m.text())) consoleErrors.push(m.text().slice(0, 240)); });
     page.on("pageerror", (e) => consoleErrors.push("pageerror: " + String(e).slice(0, 240)));
@@ -494,7 +514,7 @@ async function runtimeAudit(st) {
     await page.goto(BASE + "index.html?nosplash", { waitUntil: "domcontentloaded" });
     await page.waitForFunction(() => window.TitanSetAtmo && window.setWing && window.TitanVault && window.TitanVault(), null, { timeout: 45000 });
     await page.evaluate(() => document.fonts && document.fonts.ready);
-    await page.addStyleTag({ content: "*,*::before,*::after{transition:none!important;animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;caret-color:transparent!important}#toast,.toast{display:none!important}" });
+    await page.addStyleTag({ content: "*,*::before,*::after{transition:none!important;animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;caret-color:transparent!important}html body #toast,html body div.toast,html body div.toast:not([hidden]){display:none!important}" });
   }
   await boot(VPS[0]);
   const allTokens = [...CONTRACT.core, ...CONTRACT.component, ...CONTRACT.semantic, "--row-hover"];
@@ -539,6 +559,7 @@ async function runtimeAudit(st) {
       await page.evaluate(settle);
       const scan = await page.evaluate(pageScan, { wing: w, chrome, viewportOnly: false, track: vp === VPS[0] });
       if (SHOTS) {
+        await freshFrame(page);
         const ts = Date.now();
         await page.screenshot({ path: path.join(OUT, "shots", `${t}_${vp}_${w}.jpg`), type: "jpeg", quality: 62, timeout: 90000 });
         if (process.env.AUDIT_DEBUG) console.log(" shot", t, w, Date.now() - ts, "ms");

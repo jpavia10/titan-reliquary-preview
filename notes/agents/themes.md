@@ -31,7 +31,12 @@ What it measures:
 - **Registry**: swatch, crest, picker card, pre-paint list, `ATMOS` entry, token coverage.
 - Static lists of literal colours in `styles.css` (outside theme blocks) and `app.js`.
 
-The audit freezes animations (reduced motion + injected CSS, `getAnimations().finish()`), blocks
+`--block styles/themes.css,styles/atmo/,wings/themes.js,wings/atmo/` serves those files empty
+(= the tree before the atmosphere work), handy for before/after on the same checkout; e.g.
+`--block styles/atmo/glacier.css` shows the legacy look of one theme.
+
+The browser runs with software compositing (no GL); under heavy CPU load the GL compositor handed
+stale frames to screenshots. The audit freezes animations (reduced motion + injected CSS, `getAnimations().finish()`), blocks
 off-origin requests, and restarts the browser if another process kills it.
 
 ## 2. Per-atmosphere file convention (so 20 agents never touch the same lines)
