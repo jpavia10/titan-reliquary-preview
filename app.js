@@ -5462,7 +5462,7 @@
       .join("");
 
     $("#lab-body").innerHTML = `
-      ${shootingSec()}
+      ${window.TitanLab ? '<div id="lab-ws"></div>' : shootingSec()}
       <div class="sec-head reveal"><span class="eyebrow">Work orders</span><h2>Requests from Titan</h2><p class="sub">Small things you could do to firm up the data.</p></div>
       ${requestsModule()}
       <div class="grid two">
@@ -5476,7 +5476,7 @@
           </div>
         </div>
       </div>
-      ${renderLabProSuite()}
+      ${window.TitanLab ? '<div id="lab-bench"></div>' : renderLabProSuite()}
     `;
     // Session buttons open the Gallery pre-filtered to that country's shooting list.
     $$("#lab-body [data-session]").forEach((btn) => {
@@ -5497,7 +5497,7 @@
         if (href.startsWith("#")) { setWing(mapWing(href.replace(/^#/, ""))); window.scrollTo(0, 0); }
       });
     });
-    initLabProSuite();
+    if (window.TitanLab) window.TitanLab.mount({ openDrawer: (s) => openDrawer(s, true), showToast, playClick: playStapleClick }); else initLabProSuite();
     observeReveals($("#lab-body"));
   }
 
