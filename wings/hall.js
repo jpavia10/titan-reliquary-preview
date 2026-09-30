@@ -16,7 +16,7 @@
   const dec = (n, d) => (isNum(n) ? Number(n).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }) : "—");
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const getVault = () => {
-    try { return (window.TitanVault && window.TitanVault()) || window.vault || null; } catch (_) { return window.vault || null; }
+    return window.vault || null;
   };
 
   /* ---------- 1. Hero staging: value first, then the collection at a glance ---------- */
