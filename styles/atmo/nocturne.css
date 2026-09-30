@@ -1,3 +1,373 @@
-/* Atmosphere: nocturne. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="nocturne"] { ...every token... }, body background, wordmark, .sw-nocturne swatch,
-   and any component overrides scoped under html[data-atmo="nocturne"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: NOCTURNE. The cellar under the museum, after the gala.
+   Owned by exactly one agent. Loads after styles.css and replaces the old block.
+
+   Point of view
+   - Indigo-black lacquer, not navy. Every surface is a dark blue that has been
+     polished, so it shows a thin cool sheen along its top edge.
+   - Two light sources, both static: a low brass lamp (warm, lower-left) and
+     moonlight through the pavement grate (cool, upper-right). Warm brass is
+     for value, headings and calls to action; cool moonlight is for hover,
+     selection and keyboard focus, so the two never compete.
+   - Materials: brass inlay hairlines (deco double rules), scalloped deco
+     plaster texture at 3% (inline SVG tile, 48px, static), ivory type.
+   - Motion: none of its own. Everything ambient is a fixed composited layer
+     painted once; hover/pressed states are transform/shadow only.
+   ============================================================================ */
+
+html[data-atmo="nocturne"] {
+  color-scheme: dark;
+
+  /* ---- core palette ---- */
+  --bg: #070a13;            /* lacquer black-indigo */
+  --bg2: #0b0f1c;
+  --surface: #101625;       /* raised panel */
+  --surface2: #171e30;      /* chips, buttons, inner wells */
+  --ink: #efe9dc;           /* piano-key ivory      15.0:1 on surface */
+  --muted: #a1aac3;         /* moonlit grey-blue     7.0:1 on surface2 */
+  --faint: #8790aa;         /* still legible         5.2:1 on surface2 */
+
+  --gold: #d2ad62;          /* polished brass        8.8:1 on th-bg */
+  --gold-soft: #eed9a4;     /* brass highlight / ivory-brass */
+  --gold-deep: #9c7f48;     /* brass rim              4.8:1 on surface as text */
+  --noc-blue: #8fa9ee;      /* the lamp behind the grate: moonlight accent */
+  --noc-blue-soft: #b9c9f6;
+
+  --line: rgba(150, 168, 214, 0.15);
+  --line-strong: rgba(150, 168, 214, 0.34);
+  --brass-line: rgba(210, 173, 98, 0.34);
+  --brass-line-strong: rgba(210, 173, 98, 0.55);
+
+  --ok: #7ccd8a;   /* 8.6:1 on surface2 */
+  --warn: #e2b64a; /* 9.2:1 */
+  --bad: #e07b6a;  /* 5.7:1 */
+
+  /* ---- semantic tokens ---- */
+  --on-gold: #151322;       /* ink on brass buttons and the active tab: 8.8:1 */
+  --focus: #a9c0ff;         /* keyboard focus ring: moonlight, never brass */
+  --elev-1: inset 0 1px 0 rgba(190, 205, 255, 0.05), 0 1px 2px rgba(0, 0, 0, 0.5), 0 6px 18px rgba(1, 3, 10, 0.55);
+  --elev-2: inset 0 1px 0 rgba(190, 205, 255, 0.07), 0 2px 4px rgba(0, 0, 0, 0.5), 0 16px 44px rgba(1, 3, 10, 0.68);
+  --elev-3: inset 0 1px 0 rgba(190, 205, 255, 0.09), 0 4px 10px rgba(0, 0, 0, 0.55), 0 28px 80px rgba(1, 3, 10, 0.8), 0 0 0 1px rgba(210, 173, 98, 0.14);
+  --shadow: var(--elev-2);
+
+  /* ---- legacy/component tokens (every key the old block defined) ---- */
+  --th-bg: #0c1120;
+  --tabgrad1: #1b2338; --tabgrad2: #0c1120;
+  --foot-bg: rgba(7, 10, 19, 0.94);
+  --ph-bg: #0a0e1a;
+  --sel-bg: #172038;
+  --hold-bg: linear-gradient(135deg, #1b2338 0%, #0d1322 100%);
+  --drawerbar-bg: rgba(12, 17, 30, 0.94);
+  --cardmeta: #c9cfdf;
+  --skeleton1: #1b2338; --skeleton2: #0b0f1c;
+  --toastgrad1: #1b2338; --toastgrad2: #0c1120;
+  --row-hover: rgba(143, 169, 238, 0.09);
+  --grain-op: 0.06;
+  --wing-dur: 0.9s; --wing-rise: 10px;
+
+  scrollbar-color: #8a7040 #0b0f1c;
+}
+
+/* ---------- Room: floor, lamp, grate. All static, one composited layer. ---------- */
+html[data-atmo="nocturne"] body {
+  background-color: var(--bg);
+  /* deco scallop plaster, 48px tile, ~3% brass. Static texture, no filters. */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><g fill='none' stroke='%23d2ad62' stroke-width='0.7' stroke-opacity='0.11'><path d='M0 48a24 24 0 0 1 48 0'/><path d='M-24 24a24 24 0 0 1 48 0M24 24a24 24 0 0 1 48 0'/></g></svg>");
+  background-repeat: repeat;
+  background-attachment: scroll;
+}
+html[data-atmo="nocturne"] body::before {
+  background-image:
+    /* brass lamp, low left */
+    radial-gradient(55% 45% at 12% 96%, rgba(210, 173, 98, 0.16), transparent 70%),
+    /* moonlight through the grate, upper right */
+    radial-gradient(38% 34% at 86% 4%, rgba(143, 169, 238, 0.15), transparent 70%),
+    linear-gradient(196deg, rgba(143, 169, 238, 0.05) 0%, transparent 38%),
+    /* cellar vignette */
+    radial-gradient(120% 100% at 50% 50%, transparent 52%, rgba(2, 3, 9, 0.62) 100%);
+  animation: none !important;
+}
+
+/* ---------- Selection, focus, scrollbar ---------- */
+html[data-atmo="nocturne"] ::selection { background: rgba(143, 169, 238, 0.36); color: #ffffff; }
+html[data-atmo="nocturne"] :focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+html[data-atmo="nocturne"] ::-webkit-scrollbar { width: 10px; height: 10px; }
+html[data-atmo="nocturne"] ::-webkit-scrollbar-track { background: var(--bg2); }
+html[data-atmo="nocturne"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a6885a, #7a6339);
+  border: 2px solid var(--bg2);
+  border-radius: 6px;
+}
+html[data-atmo="nocturne"] ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #c2a06a, #8a7040); }
+html[data-atmo="nocturne"] .table-wrap { scrollbar-color: #8a7040 var(--bg2); }
+html[data-atmo="nocturne"] .table-wrap::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #a6885a, #7a6339); }
+
+/* ---------- Hero: marquee under one lamp ---------- */
+html[data-atmo="nocturne"] .hero::before {
+  content: "";
+  position: absolute; inset: -1rem -2rem; pointer-events: none;
+  background:
+    /* one static spotlight beam, from the lamp at upper-left toward the wordmark */
+    linear-gradient(112deg, transparent 34%, rgba(210, 173, 98, 0.07) 46%, rgba(143, 169, 238, 0.06) 54%, transparent 66%),
+    radial-gradient(ellipse 90% 100% at 50% 30%, transparent 55%, rgba(2, 3, 9, 0.55) 100%);
+  background-size: 100% 100%;
+  animation: none !important;
+}
+html[data-atmo="nocturne"] .hero-glow {
+  background:
+    radial-gradient(ellipse 30% 40% at 50% 40%, rgba(238, 217, 164, 0.13), transparent 70%),
+    radial-gradient(ellipse 58% 62% at 50% 46%, rgba(143, 169, 238, 0.10), transparent 72%);
+  animation: none !important;
+}
+html[data-atmo="nocturne"] .wordmark {
+  font-weight: 500;
+  letter-spacing: 0.035em;
+  color: var(--ink);
+  text-shadow: 0 0 30px rgba(143, 169, 238, 0.30), 0 2px 0 rgba(0, 0, 0, 0.55) !important;
+  animation: none !important;
+}
+/* brass marquee rule under the wordmark */
+html[data-atmo="nocturne"] .wordmark::after {
+  content: "";
+  display: block;
+  width: min(300px, 58%);
+  height: 1px;
+  margin: 0.6rem auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold-soft) 50%, var(--gold) 70%, transparent);
+  box-shadow: 0 0 12px rgba(210, 173, 98, 0.35);
+}
+html[data-atmo="nocturne"] .hero-grand {
+  background: linear-gradient(135deg, #fbf4e1 12%, var(--gold-soft) 52%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 34px rgba(143, 169, 238, 0.16);
+}
+html[data-atmo="nocturne"] .sigil { color: var(--gold); text-shadow: 0 0 22px rgba(210, 173, 98, 0.45); }
+html[data-atmo="nocturne"] .hero-crest-watermark { opacity: 0.10; color: var(--gold); }
+html[data-atmo="nocturne"] .exhibit-crest-watermark { opacity: 0.07; }
+html[data-atmo="nocturne"] .badge.hold {
+  border-color: var(--brass-line-strong);
+  border-radius: 999px;
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="nocturne"] .ledger-chip { border-color: var(--brass-line); }
+
+/* ---------- Headings: brass double rules (deco) ---------- */
+html[data-atmo="nocturne"] .sec-head { border-bottom: 3px double var(--brass-line); }
+html[data-atmo="nocturne"] .sec-head h2 { font-weight: 500; letter-spacing: 0.02em; }
+html[data-atmo="nocturne"] .wing-head {
+  position: relative;
+  border-bottom: 1px solid var(--line-strong);
+}
+html[data-atmo="nocturne"] .wing-head::after {
+  content: "";
+  position: absolute; left: 0; bottom: -1px;
+  width: 64px; height: 3px;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold-deep));
+  border-radius: 2px;
+}
+html[data-atmo="nocturne"] .wing-head h2 {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 28px rgba(143, 169, 238, 0.22);
+}
+
+/* ---------- Surfaces: lacquer with a cool sheen along the top edge ---------- */
+html[data-atmo="nocturne"] .card,
+html[data-atmo="nocturne"] .tile,
+html[data-atmo="nocturne"] .album-card,
+html[data-atmo="nocturne"] .metal-tile,
+html[data-atmo="nocturne"] .table-wrap,
+html[data-atmo="nocturne"] .exhibit {
+  background-image: linear-gradient(180deg, rgba(190, 205, 255, 0.035), transparent 34%);
+  background-color: var(--surface);
+  box-shadow: var(--elev-2);
+}
+html[data-atmo="nocturne"] .tile.hero-tile {
+  background-image:
+    radial-gradient(ellipse 90% 120% at 50% -30%, rgba(210, 173, 98, 0.13), transparent 70%),
+    linear-gradient(180deg, rgba(190, 205, 255, 0.035), transparent 34%);
+}
+@media (hover: hover) {
+  html[data-atmo="nocturne"] .card:hover,
+  html[data-atmo="nocturne"] .tile:hover,
+  html[data-atmo="nocturne"] .metal-tile:hover {
+    border-color: var(--brass-line);
+    box-shadow: var(--elev-2), 0 0 0 1px rgba(210, 173, 98, 0.18);
+  }
+  html[data-atmo="nocturne"] .album-card:hover {
+    border-color: var(--gold);
+    box-shadow: var(--elev-3);
+  }
+}
+html[data-atmo="nocturne"] .tile::before { background: linear-gradient(180deg, var(--gold-soft), var(--gold-deep)); opacity: 1; }
+html[data-atmo="nocturne"] .tile .bar-track { background: var(--bg); border-color: var(--line); }
+html[data-atmo="nocturne"] .sheet-card {
+  background: var(--surface);
+  border-color: var(--brass-line);
+  box-shadow: var(--elev-3);
+}
+html[data-atmo="nocturne"] .drawer-inner { box-shadow: var(--elev-3); }
+html[data-atmo="nocturne"] .vault-valuation-hub {
+  background: linear-gradient(180deg, rgba(23, 30, 48, 0.86) 0%, rgba(12, 17, 30, 0.97) 100%);
+  border-color: var(--brass-line);
+  box-shadow: var(--elev-3);
+}
+html[data-atmo="nocturne"] .lab-banner {
+  border-color: var(--brass-line-strong);
+  background: var(--hold-bg);
+  box-shadow: var(--elev-2);
+}
+
+/* ---------- Tables: brass-lettered heads, moonlit row hover ---------- */
+html[data-atmo="nocturne"] table.data th {
+  background: var(--th-bg);
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--brass-line-strong);
+  box-shadow: inset 0 -3px 0 var(--th-bg), inset 0 -4px 0 var(--brass-line);
+}
+html[data-atmo="nocturne"] table.data th.sorted { color: var(--gold-soft); }
+html[data-atmo="nocturne"] table.data td { border-bottom-color: var(--line); }
+html[data-atmo="nocturne"] table.data tbody tr:hover { background: var(--row-hover); box-shadow: inset 3px 0 0 var(--noc-blue); }
+html[data-atmo="nocturne"] #world-table tr.w-row.selected { background: var(--sel-bg); box-shadow: inset 3px 0 0 var(--gold); }
+html[data-atmo="nocturne"] .w-go { color: var(--gold); }
+html[data-atmo="nocturne"] .asw-cell { color: #c9d1de; }
+
+/* ---------- Buttons: brass-rimmed lacquer. Hover lifts, press sinks, focus is moonlight. ---------- */
+html[data-atmo="nocturne"] .btn,
+html[data-atmo="nocturne"] .nav-btn,
+html[data-atmo="nocturne"] .drawer-close,
+html[data-atmo="nocturne"] .lofi-btn {
+  background: linear-gradient(180deg, #1c2439, #121a2c);
+  border-color: var(--brass-line);
+  color: var(--gold-soft);
+  box-shadow: var(--elev-1);
+  transition: border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+html[data-atmo="nocturne"] .btn:hover,
+html[data-atmo="nocturne"] .nav-btn:hover:not(:disabled),
+html[data-atmo="nocturne"] .drawer-close:hover,
+html[data-atmo="nocturne"] .lofi-btn:hover {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, #222c45, #161e33);
+  box-shadow: var(--elev-1), 0 0 0 1px rgba(210, 173, 98, 0.22), 0 0 18px rgba(210, 173, 98, 0.12);
+}
+html[data-atmo="nocturne"] .btn:active,
+html[data-atmo="nocturne"] .nav-btn:active:not(:disabled),
+html[data-atmo="nocturne"] .drawer-close:active {
+  transform: translateY(0) scale(0.985);
+  background: linear-gradient(180deg, #0f1626, #131b2e);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.55);
+}
+html[data-atmo="nocturne"] .btn:disabled { opacity: 0.45; box-shadow: none; }
+html[data-atmo="nocturne"] .search-btn {
+  background: linear-gradient(180deg, #151d30, #0f1626);
+  border-color: var(--line-strong);
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="nocturne"] .search-btn:hover { border-color: var(--noc-blue); }
+html[data-atmo="nocturne"] .fab-search {
+  background: linear-gradient(180deg, #1c2439, #0f1626);
+  border-color: var(--brass-line-strong);
+  color: var(--gold-soft);
+  box-shadow: var(--elev-2);
+}
+html[data-atmo="nocturne"] .filter-ag.active { background: #1a2233; border-color: #8a9bb6; }
+
+/* ---------- Tabs (floating pill) ---------- */
+html[data-atmo="nocturne"] .tabs {
+  background: var(--drawerbar-bg);
+  border-color: var(--brass-line);
+  box-shadow: var(--elev-2);
+}
+html[data-atmo="nocturne"] .tab:hover { color: var(--ink); background: rgba(143, 169, 238, 0.08); }
+html[data-atmo="nocturne"] .tab.active {
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  color: var(--on-gold);
+  box-shadow: 0 4px 16px rgba(210, 173, 98, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+html[data-atmo="nocturne"] .tab.active:hover { color: var(--on-gold); }
+
+/* ---------- Chips and badges: deco pills with a brass hairline ---------- */
+html[data-atmo="nocturne"] .chip {
+  background: var(--surface2);
+  border-color: var(--brass-line);
+  color: var(--ink);
+}
+html[data-atmo="nocturne"] .chip strong { color: var(--gold-soft); }
+html[data-atmo="nocturne"] .chip.ag strong { color: #d3dae6; }
+html[data-atmo="nocturne"] .badge, html[data-atmo="nocturne"] .badge-kind,
+html[data-atmo="nocturne"] .badge-status, html[data-atmo="nocturne"] .badge-ag,
+html[data-atmo="nocturne"] .badge-au, html[data-atmo="nocturne"] .badge-review,
+html[data-atmo="nocturne"] .ph-badge {
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
+html[data-atmo="nocturne"] .badge-au { background: rgba(210, 173, 98, 0.14); border-color: var(--brass-line-strong); color: var(--gold-soft); }
+html[data-atmo="nocturne"] .badge-ag { background: #1a2233; border-color: #8a9bb6; color: #dde3ee; }
+html[data-atmo="nocturne"] .badge-kind { background: var(--surface2); border-color: var(--line-strong); color: var(--muted); }
+html[data-atmo="nocturne"] .badge-status { background: var(--surface2); border-color: var(--line-strong); color: var(--muted); }
+html[data-atmo="nocturne"] .badge-review, html[data-atmo="nocturne"] .ph-badge.review { background: rgba(224, 123, 106, 0.16); border-color: var(--bad); color: #f4c1b6; }
+
+/* ---------- Exhibit (gallery): the one blue lamp ---------- */
+html[data-atmo="nocturne"] .exhibit { border-color: var(--brass-line); }
+html[data-atmo="nocturne"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 8%, rgba(143, 169, 238, 0.16), transparent 70%),
+    radial-gradient(40% 60% at 84% 92%, rgba(210, 173, 98, 0.14), transparent 70%);
+  animation: none !important;
+}
+html[data-atmo="nocturne"] .exhibit-lamp { background: var(--noc-blue-soft); box-shadow: 0 0 10px var(--noc-blue); }
+html[data-atmo="nocturne"] .exhibit-dots button { background: var(--line-strong); }
+html[data-atmo="nocturne"] .exhibit-dots button.on { background: var(--gold-soft); box-shadow: 0 0 8px rgba(210, 173, 98, 0.5); }
+
+/* ---------- Fixed bars: the base forces a brown-black on these; retint to indigo ---------- */
+html[data-atmo="nocturne"] .lofi-bar,
+html[data-atmo="nocturne"] .player-bar,
+html[data-atmo="nocturne"] .mobile-wing-dock { background: rgba(11, 15, 28, 0.97) !important; }
+html[data-atmo="nocturne"] .lofi-bar { border-color: var(--brass-line); box-shadow: var(--elev-2); }
+html[data-atmo="nocturne"] .foot { background: var(--foot-bg); border-top-color: var(--brass-line); }
+html[data-atmo="nocturne"] .drawer-bar { background: var(--drawerbar-bg); border-bottom-color: var(--brass-line); }
+html[data-atmo="nocturne"] .wing.active::before { background: var(--gold); box-shadow: 0 0 12px rgba(210, 173, 98, 0.7); }
+html[data-atmo="nocturne"] .wing.wing-3d { background: linear-gradient(180deg, rgba(143, 169, 238, 0.10) 0%, transparent 100%); }
+html[data-atmo="nocturne"] .wing.wing-3d svg { color: var(--gold); filter: drop-shadow(0 0 6px rgba(210, 173, 98, 0.5)); }
+html[data-atmo="nocturne"] .wing.wing-3d:hover { color: var(--ink); background: linear-gradient(180deg, rgba(143, 169, 238, 0.18) 0%, transparent 100%); }
+
+/* ---------- Coin cards ---------- */
+html[data-atmo="nocturne"] .latest-card .id { color: var(--gold-soft); }
+html[data-atmo="nocturne"] .latest-card .meta { color: var(--cardmeta); }
+html[data-atmo="nocturne"] .latest-card:hover { filter: brightness(1.08) drop-shadow(0 10px 18px rgba(143, 169, 238, 0.12)); }
+html[data-atmo="nocturne"] .latest-card.is-new,
+html[data-atmo="nocturne"] tr.is-new { box-shadow: 0 0 0 1px var(--gold), 0 0 18px rgba(210, 173, 98, 0.3); }
+html[data-atmo="nocturne"] .row-thumb { border-color: var(--brass-line); background: var(--ph-bg); }
+
+/* ---------- Picker ---------- */
+html[data-atmo="nocturne"] .atmo-card { background: var(--surface2); box-shadow: var(--elev-1); }
+html[data-atmo="nocturne"] .atmo-card:hover { border-color: var(--brass-line-strong); }
+html[data-atmo="nocturne"] .atmo-card.current { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold), var(--elev-2); }
+/* The swatch must read correctly from inside every other theme's picker, so it is the one rule not scoped to data-atmo. */
+.sw-nocturne {
+  background:
+    radial-gradient(60% 75% at 18% 104%, rgba(210, 173, 98, 0.62), transparent 70%),
+    radial-gradient(30% 44% at 82% 14%, rgba(143, 169, 238, 0.62), transparent 70%),
+    linear-gradient(180deg, transparent 66%, rgba(210, 173, 98, 0.75) 66.5%, rgba(210, 173, 98, 0.75) 67.5%, transparent 68%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(2, 3, 9, 0.5) 100%),
+    linear-gradient(180deg, #0f1526, #070a13);
+  border-color: rgba(210, 173, 98, 0.45);
+}
+
+/* ---------- Stillness: this theme animates nothing, but be explicit ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="nocturne"] .btn:hover,
+  html[data-atmo="nocturne"] .card:hover,
+  html[data-atmo="nocturne"] .tile:hover,
+  html[data-atmo="nocturne"] .album-card:hover,
+  html[data-atmo="nocturne"] .atmo-card:hover { transform: none; }
+  html[data-atmo="nocturne"] .latest-card:hover { filter: none; }
+}
