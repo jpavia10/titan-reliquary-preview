@@ -1,0 +1,170 @@
+{
+ "_about": "Frozen snapshot of the descriptive fields (binder, denomination, metal) from the hand-typed ALBUM_METADATA table in app.js as of 2026-09-30. Slot counts and holes are NOT taken from here; ALBUMS.md (schema/seed/albums.seed.json) is the only album source.",
+ "volumes": {
+  "A001": {
+   "binder": "Whitman #9004 / #9030 Cents",
+   "denomination_text": "1¢ Wheat Cent",
+   "metal_text": "95% Copper Bronze"
+  },
+  "A002": {
+   "binder": "Whitman #9004 / #9030 Cents",
+   "denomination_text": "1¢ Lincoln",
+   "metal_text": "Bronze & Zinc Clad"
+  },
+  "A003": {
+   "binder": "Whitman #9029 / #9030 Archival",
+   "denomination_text": "10¢ Roosevelt",
+   "metal_text": "Cupronickel Clad"
+  },
+  "A004": {
+   "binder": "Whitman #9029 / #9030 Archival",
+   "denomination_text": "10¢ Roosevelt",
+   "metal_text": "Cupronickel Clad"
+  },
+  "A005": {
+   "binder": "Whitman #9029 / #9030 Archival",
+   "denomination_text": "10¢ 90% Silver",
+   "metal_text": "90% Silver (0.0723 oz ASW)"
+  },
+  "A006": {
+   "binder": "Whitman #9014 Mercury Head Dimes",
+   "denomination_text": "10¢ Winged Liberty",
+   "metal_text": "90% Silver (0.0723 oz ASW)"
+  },
+  "A007": {
+   "binder": "Dansco 7166 Archival Half Dollar",
+   "denomination_text": "50¢ Half Dollar",
+   "metal_text": "90% / 40% Silver & Clad"
+  },
+  "A008": {
+   "binder": "Dansco 7166 Archival Half Dollar",
+   "denomination_text": "50¢ Half Dollar",
+   "metal_text": "Clad Composition"
+  },
+  "A009": {
+   "binder": "Dansco 7166 Archival Half Dollar",
+   "denomination_text": "50¢ Half Dollar",
+   "metal_text": "Clad & Matte NIFC"
+  },
+  "A010": {
+   "binder": "Whitman Classic #9125",
+   "denomination_text": "25¢ Washington Quarter",
+   "metal_text": "Cupronickel Clad"
+  },
+  "A011": {
+   "binder": "Whitman Classic #9125",
+   "denomination_text": "25¢ Quarter",
+   "metal_text": "Clad Composition"
+  },
+  "A012": {
+   "binder": "Whitman Classic #9125",
+   "denomination_text": "25¢ 90% Silver",
+   "metal_text": "90% Silver (0.1808 oz ASW)"
+  },
+  "A013": {
+   "binder": "Whitman #9009 Jefferson Nickels",
+   "denomination_text": "5¢ Jefferson",
+   "metal_text": "Cupronickel"
+  },
+  "A014": {
+   "binder": "Whitman #9009 Jefferson Nickels",
+   "denomination_text": "5¢ Jefferson",
+   "metal_text": "Cupronickel"
+  },
+  "A015": {
+   "binder": "Whitman #9009 Jefferson Nickels",
+   "denomination_text": "5¢ Jefferson",
+   "metal_text": "Cupronickel & 35% Silver"
+  },
+  "A016": {
+   "binder": "Whitman #9004 / #9030 Cents",
+   "denomination_text": "1¢ Lincoln Cent",
+   "metal_text": "Copper / Copper-Plated Zinc"
+  },
+  "A017": {
+   "binder": "Whitman #9144 Presidential & Sacagawea",
+   "denomination_text": "$1 Coin",
+   "metal_text": "Dollar Alloy"
+  },
+  "A018": {
+   "binder": "Whitman #9144 Presidential & Sacagawea",
+   "denomination_text": "$1 Ike Dollar",
+   "metal_text": "Clad & 40% Silver"
+  },
+  "A019": {
+   "binder": "Whitman #9144 Presidential & Sacagawea",
+   "denomination_text": "$1 SBA",
+   "metal_text": "Cupronickel Clad"
+  },
+  "A020": {
+   "binder": "Whitman #9144 Presidential & Sacagawea",
+   "denomination_text": "$1 Sacagawea",
+   "metal_text": "Golden Manganese"
+  },
+  "A021": {
+   "binder": "Whitman Classic #9125",
+   "denomination_text": "25¢ State Quarter",
+   "metal_text": "Clad Composition"
+  },
+  "A022": {
+   "binder": "Whitman Deluxe #9003",
+   "denomination_text": "1¢ Indian Cent",
+   "metal_text": "Copper-Nickel & Bronze"
+  },
+  "A023": {
+   "binder": "Whitman #9004 / #9030 Cents",
+   "denomination_text": "1¢ Shield Cent",
+   "metal_text": "Copper-Plated Zinc"
+  },
+  "A024": {
+   "binder": "Whitman #9046 20th Century Type Set",
+   "denomination_text": "Type Set Specimen",
+   "metal_text": "Silver, Bronze, Clad & Steel"
+  },
+  "A025": {
+   "binder": "Whitman Deluxe Leatherette",
+   "denomination_text": "$1 Silver Eagle",
+   "metal_text": ".999 Silver (1 oz ASW)"
+  },
+  "A026": {
+   "binder": "Whitman Deluxe Leatherette",
+   "denomination_text": "$1 Silver Eagle",
+   "metal_text": ".999 Silver (1 oz ASW)"
+  },
+  "A027": {
+   "binder": "Whitman Classic #9125",
+   "denomination_text": "25¢ ATB Quarter",
+   "metal_text": "Clad & W-Mintmarks"
+  },
+  "A028": {
+   "binder": "Whitman Classic #9125",
+   "denomination_text": "25¢ AWQ",
+   "metal_text": "Clad Composition"
+  },
+  "A029": {
+   "binder": "Whitman Classic #9125",
+   "denomination_text": "25¢ Quarter",
+   "metal_text": "Clad Composition"
+  },
+  "A030": {
+   "binder": "Whitman #9144 Presidential & Sacagawea",
+   "denomination_text": "$1 Golden Dollar",
+   "metal_text": "Manganese Brass"
+  },
+  "A031": {
+   "binder": "Whitman #9007 Buffalo Nickels 1913–1938",
+   "denomination_text": "5¢ Indian Head / Bison",
+   "metal_text": "75% Copper / 25% Nickel"
+  },
+  "A032": {
+   "binder": "Whitman Canada Classic",
+   "denomination_text": "1 Cent Small Cent",
+   "metal_text": "Bronze / Copper-Plated Zinc"
+  },
+  "A033": {
+   "binder": "Whitman Canada Classic",
+   "denomination_text": "1 Cent George V/VI & Elizabeth II",
+   "metal_text": "98% Bronze"
+  }
+ }
+}
