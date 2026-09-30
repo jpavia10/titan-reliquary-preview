@@ -1,6 +1,8 @@
-/* Titan Reliquary · cinematic splash ("The Awakening")
+/* Titan Reliquary · cinematic splash v2 ("The Vault", tr51)
    Shown once per session on the Grand Hall. Everything is namespaced #tr-splash / .ts-*.
-   Layers, back to front: bg → rays → glow → WebGL coin + dust → vignette → grain → copy → flash. */
+   Layers, back to front: bg → rays → glow → WebGL vault scene → vignette → scrim → grain → copy → flash.
+   .ts-glon = the WebGL scene is rendering (it draws its own grain, vignette and light, so the CSS versions step aside).
+   .ts-nogl = no WebGL / reduced motion: CSS coin, light effects only. */
 
 html:not(.ts-on) #tr-splash { display: none; }
 html.ts-on { overflow: hidden; }
@@ -49,6 +51,17 @@ html.ts-on.ts-reveal #app { visibility: visible; }
   animation: tsGrain 1s steps(6) infinite;
 }
 
+/* When the 3D vault is running it supplies the light, grain and vignette itself */
+.ts-gl { opacity: 0; transition: opacity .5s ease; }
+#tr-splash.ts-glon .ts-gl { opacity: 1; }
+#tr-splash.ts-glon .ts-rays, #tr-splash.ts-glon .ts-glow, #tr-splash.ts-glon .ts-grain { display: none; }
+#tr-splash.ts-glon .ts-vig { opacity: .45; }
+/* keeps the copy legible over the lit scene */
+.ts-scrim { position: absolute; left: 0; right: 0; bottom: 0; height: 62%; pointer-events: none; opacity: 0; transition: opacity .6s ease;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .04) 8%, rgba(0, 0, 0, .15) 16%, rgba(0, 0, 0, .32) 26%, rgba(0, 0, 0, .52) 38%, rgba(0, 0, 0, .7) 52%, rgba(0, 0, 0, .8) 68%, rgba(0, 0, 0, .86) 100%); }
+#tr-splash.ts-glon .ts-scrim { opacity: 1; }
+#tr-splash.ts-entering .ts-scrim { opacity: 0; transition-duration: .45s; }
+
 /* CSS-only coin, used when WebGL is unavailable */
 .ts-fallback-coin {
   display: none; position: absolute; left: 50%; top: var(--ts-cy, 36%); width: var(--ts-coin, 260px); aspect-ratio: 1; margin: calc(var(--ts-coin, 260px) / -2) 0 0 calc(var(--ts-coin, 260px) / -2);
@@ -75,7 +88,7 @@ html.ts-on.ts-reveal #app { visibility: visible; }
   --ls: .8em; font-size: clamp(9px, 1.5vmin + 4px, 12px); letter-spacing: var(--ls); text-transform: uppercase; color: #a8925a; margin-bottom: 14px;
   opacity: 0; padding-left: var(--ls);
 }
-.ts-run .ts-eyebrow { animation: tsEyebrow 1.6s cubic-bezier(.2, .8, .2, 1) 1.2s forwards; }
+.ts-run .ts-eyebrow { animation: tsEyebrow 1.6s cubic-bezier(.2, .8, .2, 1) 1.9s forwards; }
 .ts-title { margin: 0; font-weight: 600; line-height: .96; display: flex; flex-direction: column; align-items: center; }
 .ts-line { display: block; white-space: nowrap; }
 .ts-line-1 { font-size: clamp(44px, 10.5vmin + 6px, 116px); letter-spacing: .16em; padding-left: .16em; }
@@ -88,17 +101,22 @@ html.ts-on.ts-reveal #app { visibility: visible; }
   filter: drop-shadow(0 2px 14px rgba(200, 150, 40, .35));
 }
 .ts-run .ts-l {
-  animation: tsLetter .95s cubic-bezier(.2, .8, .2, 1) calc(1.45s + var(--i) * .055s) forwards,
-             tsShimmer 5.5s ease-in-out calc(3.4s + var(--i) * .04s) infinite;
+  animation: tsLetter .95s cubic-bezier(.2, .8, .2, 1) calc(2.1s + var(--i) * .055s) forwards,
+             tsShimmer 5.5s ease-in-out calc(4.2s + var(--i) * .04s) infinite;
 }
 .ts-rule { position: relative; height: 1px; width: 0; margin: 20px 0 14px; background: linear-gradient(90deg, transparent, #c8a94a 30%, #f3dea0 50%, #c8a94a 70%, transparent); }
 .ts-rule::after { content: ""; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: #f3dea0; transform: rotate(45deg); box-shadow: 0 0 12px 2px rgba(243, 222, 160, .7); }
-.ts-run .ts-rule { animation: tsRule 1.4s cubic-bezier(.2, .8, .2, 1) 2.45s forwards; }
-.ts-tag { margin: 0 0 20px; font-size: clamp(12px, 1.6vmin + 5px, 16px); font-style: italic; letter-spacing: .12em; color: #c9b783; opacity: 0; }
-.ts-run .ts-tag { animation: tsUp .9s ease 2.75s forwards; }
+.ts-run .ts-rule { animation: tsRule 1.4s cubic-bezier(.2, .8, .2, 1) 3.05s forwards; }
+.ts-tag { margin: 0 0 10px; font-size: clamp(12px, 1.6vmin + 5px, 16px); font-style: italic; letter-spacing: .12em; color: #c9b783; opacity: 0; }
+.ts-run .ts-tag { animation: tsUp .9s ease 3.3s forwards; }
+.ts-feature { margin: 0 0 20px; min-height: 1.3em; display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: .1em .8em; opacity: 0; visibility: hidden; font-size: clamp(12px, 1.4vmin + 5px, 15px); color: #efe2bd; }
+.ts-feature.ts-has { visibility: visible; }
+.ts-feature-k { font-size: .72em; letter-spacing: .32em; text-transform: uppercase; color: #b39a5c; padding-left: .32em; }
+.ts-feature-v { letter-spacing: .06em; font-weight: 500; }
+.ts-run .ts-feature { animation: tsUp .9s ease 3.5s forwards; }
 
 .ts-stats { display: flex; gap: clamp(18px, 5vw, 46px); margin-bottom: 26px; opacity: 0; }
-.ts-run .ts-stats { animation: tsUp .9s ease 3s forwards; }
+.ts-run .ts-stats { animation: tsUp .9s ease 3.65s forwards; }
 .ts-stat { display: flex; flex-direction: column; align-items: center; min-width: 64px; }
 .ts-stat + .ts-stat { position: relative; }
 .ts-stat + .ts-stat::before { content: ""; position: absolute; left: calc(clamp(18px, 5vw, 46px) / -2); top: 12%; bottom: 12%; width: 1px; background: linear-gradient(transparent, rgba(200, 169, 74, .5), transparent); }
@@ -113,25 +131,37 @@ html.ts-on.ts-reveal #app { visibility: visible; }
   opacity: 0; transform: translateY(14px); overflow: hidden; display: inline-flex; align-items: center; gap: .9em;
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.ts-run .ts-enter { animation: tsEnterIn .9s cubic-bezier(.2, .8, .2, 1) 3.4s forwards, tsPulse 2.6s ease-in-out 4.4s infinite; }
-.ts-enter::before { content: ""; position: absolute; top: 0; bottom: 0; width: 46%; left: -60%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .75), transparent); transform: skewX(-18deg); animation: tsSweep 3.4s ease-in-out 4.6s infinite; }
+.ts-run .ts-enter { animation: tsEnterIn .9s cubic-bezier(.2, .8, .2, 1) 3.95s forwards, tsPulse 2.6s ease-in-out 5s infinite; }
+.ts-enter::before { content: ""; position: absolute; top: 0; bottom: 0; width: 46%; left: -60%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .75), transparent); transform: skewX(-18deg); animation: tsSweep 3.4s ease-in-out 5.2s infinite; }
 .ts-enter svg { width: 1.15em; height: 1.15em; flex: none; transition: transform .25s ease; }
 .ts-enter:hover, .ts-enter:focus-visible { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 0 1px rgba(255, 244, 200, .9), 0 14px 54px -6px rgba(255, 200, 70, .85), inset 0 1px 0 #fff, inset 0 -2px 6px rgba(110, 70, 10, .5); }
 .ts-enter:hover svg, .ts-enter:focus-visible svg { transform: translateX(4px); }
 .ts-enter:focus-visible { box-shadow: 0 0 0 3px #fff, 0 0 0 6px #c8a94a, 0 14px 54px -6px rgba(255, 200, 70, .85); }
 .ts-hint { margin-top: 14px; font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: #6f6140; opacity: 0; padding-left: .28em; }
-.ts-run .ts-hint { animation: tsUp .9s ease 4.2s forwards; }
+.ts-run .ts-hint { animation: tsUp .9s ease 4.8s forwards; }
 .ts-skip {
   position: absolute; top: max(16px, env(safe-area-inset-top)); right: 18px; z-index: 3; appearance: none; background: none; border: 1px solid rgba(200, 169, 74, .3); color: #a8925a;
   font: inherit; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; padding: 9px 14px 9px 17px; border-radius: 999px; cursor: pointer; opacity: 0; transition: color .2s, border-color .2s, background .2s;
 }
 .ts-run .ts-skip { animation: tsUp .8s ease 1s forwards; }
 .ts-skip:hover, .ts-skip:focus-visible { color: #fff2c4; border-color: #e0c56d; background: rgba(200, 169, 74, .12); outline: 0; }
+.ts-sound {
+  position: absolute; top: max(16px, env(safe-area-inset-top)); left: 18px; z-index: 3; appearance: none; width: 40px; height: 40px; padding: 0; display: grid; place-items: center;
+  background: none; border: 1px solid rgba(200, 169, 74, .3); border-radius: 50%; color: #a8925a; cursor: pointer; opacity: 0; transition: color .2s, border-color .2s, background .2s;
+}
+.ts-sound svg { width: 20px; height: 20px; }
+.ts-sound .ts-snd-waves { display: none; }
+.ts-sound.ts-snd-on .ts-snd-waves { display: inline; }
+.ts-sound.ts-snd-on .ts-snd-x { display: none; }
+.ts-sound.ts-snd-on { color: #f3dea0; border-color: rgba(224, 197, 109, .7); }
+.ts-run .ts-sound { animation: tsUp .8s ease 1s forwards; }
+.ts-sound:hover, .ts-sound:focus-visible { color: #fff2c4; border-color: #e0c56d; background: rgba(200, 169, 74, .12); outline: 0; }
+.ts-skip:focus-visible, .ts-sound:focus-visible { box-shadow: 0 0 0 2px #fff; }
 
 /* Enter transition */
 .ts-flash { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(circle at 50% 38%, #fffbe8 0%, #ffe28a 30%, #d99a2b 70%, #6b4510 100%); }
 #tr-splash.ts-entering .ts-copy { transition: opacity .35s ease, transform .5s ease; opacity: 0; transform: translateY(24px); pointer-events: none; }
-#tr-splash.ts-entering .ts-skip { opacity: 0; animation: none; }
+#tr-splash.ts-entering .ts-skip, #tr-splash.ts-entering .ts-sound { opacity: 0; animation: none; transition: opacity .3s ease; }
 
 @keyframes tsFadeIn { to { opacity: 1; } }
 @keyframes tsRays { to { transform: rotate(360deg); } }
@@ -154,6 +184,7 @@ html.ts-on.ts-reveal #app { visibility: visible; }
   .ts-rule { margin: 12px 0 8px; }
   .ts-tag { margin-bottom: 10px; }
   .ts-stats { margin-bottom: 14px; }
+  .ts-feature { margin-bottom: 10px; }
   .ts-enter { padding: 12px 26px 12px 30px; }
 }
 
@@ -161,7 +192,7 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 @media (prefers-reduced-motion: reduce) {
   #tr-splash .ts-rays, #tr-splash .ts-grain, #tr-splash .ts-fallback-coin, #tr-splash .ts-enter, #tr-splash .ts-enter::before, #tr-splash .ts-l { animation-iteration-count: 1 !important; }
   .ts-run .ts-l { animation: tsFadeIn .4s ease .2s forwards; }
-  .ts-run .ts-eyebrow, .ts-run .ts-tag, .ts-run .ts-stats, .ts-run .ts-hint, .ts-run .ts-skip { animation: tsFadeIn .4s ease .3s forwards; }
+  .ts-run .ts-eyebrow, .ts-run .ts-tag, .ts-run .ts-feature, .ts-run .ts-stats, .ts-run .ts-hint, .ts-run .ts-skip, .ts-run .ts-sound { animation: tsFadeIn .4s ease .3s forwards; }
   .ts-run .ts-enter { animation: tsFadeIn .4s ease .4s forwards; transform: none; }
   .ts-run .ts-rule { animation: tsRule .4s ease .3s forwards; }
   .ts-enter::before { display: none; }

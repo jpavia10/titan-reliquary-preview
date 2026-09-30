@@ -46,6 +46,7 @@ Last verified: 2026-09-30 (build TR50).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-09-30: tr51 splash v2 "The Vault" on branch `claude/splash-v2` (NOT merged; owner to review). Real 3D vault scene (spotlights, deposit-box walls, round vault door, pedestal, planar floor reflection), hand-written post (bloom, DOF focus pull, streak, ACES), featured real coin per visit, optional synthesized sound (off by default), tilt parallax, door-opening Enter. `?splashq=0..4` forces a quality tier. Same behaviour contract as tr50.
 - 2026-09-30: tr50 shipped "The Awakening" splash (`splash.js`, `splash.css`). Shows once per session on a plain load; `?nosplash` skips, `?splash=1` forces, `TitanSplash.replay()` replays. Also earlier: full-text search fixed (`data/search.json` + `tools/build_search.py`), photo-metadata bake-off kit in `tools/bakeoff/` (deferred), Drive consolidated.
 - 2026-09-29: Session moved to the cloud. Repo cloned from GitHub; `CLAUDE.md` restored from the Drive copy (the earlier local commit never reached GitHub).
 - 2026-09-28: Audit done. `CLAUDE.md` and corrected `README.md` written. All project files copied to Drive. Old local copies recycled; Desktop shortcut now points at the live preview site.
