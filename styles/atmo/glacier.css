@@ -1,0 +1,3 @@
+/* Atmosphere: glacier. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="glacier"] { ...every token... }, body background, wordmark, .sw-glacier swatch,
+   and any component overrides scoped under html[data-atmo="glacier"]. This file loads after styles.css and overrides the old block. */

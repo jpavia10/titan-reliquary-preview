@@ -1,0 +1,3 @@
+/* Atmosphere: notepad. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="notepad"] { ...every token... }, body background, wordmark, .sw-notepad swatch,
+   and any component overrides scoped under html[data-atmo="notepad"]. This file loads after styles.css and overrides the old block. */

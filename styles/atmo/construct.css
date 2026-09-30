@@ -1,0 +1,3 @@
+/* Atmosphere: construct. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="construct"] { ...every token... }, body background, wordmark, .sw-construct swatch,
+   and any component overrides scoped under html[data-atmo="construct"]. This file loads after styles.css and overrides the old block. */

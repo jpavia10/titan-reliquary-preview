@@ -1,0 +1,3 @@
+/* Atmosphere: odyssey. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="odyssey"] { ...every token... }, body background, wordmark, .sw-odyssey swatch,
+   and any component overrides scoped under html[data-atmo="odyssey"]. This file loads after styles.css and overrides the old block. */

@@ -30,9 +30,58 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
+  <!-- Splash gate: show "The Awakening" once per session on a plain load of the Grand Hall.
+       ?nosplash skips it, ?splash=1 forces it, deep links (#coin=..., #vault ...) skip it. Fails open after 7 s. -->
+  <script>
+    (function () {
+      try {
+        var q = location.search, h = location.hash;
+        var off = /[?&]nosplash\b/.test(q), force = /[?&]splash=1\b/.test(q);
+        var seen = false; try { seen = !!sessionStorage.getItem("tr_splash_v1"); } catch (e) {}
+        var plain = !h || h === "#" || h === "#hall";
+        if (!off && (force || (!seen && plain))) {
+          document.documentElement.classList.add("ts-on");
+          setTimeout(function () { if (!window.__tsReady) document.documentElement.classList.remove("ts-on"); }, 7000);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css?v=tr50" />
+  <link rel="stylesheet" href="splash.css?v=tr50" />
+  <link rel="stylesheet" href="styles/atmo/all.css?v=tr50" />
+  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr50" /> -->
+  <!--WS:hall-->
+  <!--WS:gallery-->
+  <!--WS:vault-->
+  <!--WS:study-->
+  <!--WS:lab-->
+  <!--WS:table-->
+  <!--WS:fx-->
+  <!--WS:themes-->
 </head>
 <body>
+  <!-- ══════════ SPLASH · THE AWAKENING (see splash.js) ══════════ -->
+  <div id="tr-splash" role="dialog" aria-modal="true" aria-label="Welcome to Titan Reliquary">
+    <div class="ts-bg"></div><div class="ts-rays"></div><div class="ts-glow"></div>
+    <div class="ts-fallback-coin" aria-hidden="true"></div>
+    <canvas class="ts-gl" aria-hidden="true"></canvas>
+    <div class="ts-vig"></div><div class="ts-grain"></div>
+    <button type="button" class="ts-skip">Skip</button>
+    <div class="ts-copy">
+      <div class="ts-eyebrow">A Private Numismatic Collection</div>
+      <h1 class="ts-title" aria-label="Titan Reliquary"><span class="ts-line ts-line-1">TITAN</span><span class="ts-line ts-line-2">RELIQUARY</span></h1>
+      <div class="ts-rule"></div>
+      <p class="ts-tag">Vault &amp; Museum</p>
+      <div class="ts-stats" aria-label="Collection at a glance">
+        <div class="ts-stat"><span class="ts-num" data-k="flips">273</span><span class="ts-lab">Specimens</span></div>
+        <div class="ts-stat"><span class="ts-num" data-k="countries">45</span><span class="ts-lab">Nations</span></div>
+        <div class="ts-stat"><span class="ts-num" data-k="value">$5,584</span><span class="ts-lab">In the Vault</span></div>
+      </div>
+      <button type="button" class="ts-enter"><span>Enter the Reliquary</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      <div class="ts-hint">Drag the coin to spin it</div>
+    </div>
+    <div class="ts-flash"></div>
+  </div>
   <!-- Shared SVG Definitions for Struck Specimen Medallions (Zero-Overhead GPU Caching) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <defs>
@@ -1168,6 +1217,7 @@
   </div>
   <script>window.TITAN_BUILD = "tr50";</script>
   <script src="js/three.min.js"></script>
+  <script src="splash.js?v=tr50"></script>
   <script src="js/OrbitControls.js"></script>
   <script src="js/fflate.min.js"></script>
   <script src="js/USDZExporter.js"></script>
@@ -1180,5 +1230,35 @@
   <script src="js/playlist.js?v=tr50"></script>
   <script src="audio.js?v=tr50"></script>
   <script src="ambient.js?v=tr50"></script>
+  <script src="wings/atmo/core.js?v=tr50"></script>
+  <script src="wings/atmo/afterhours.js?v=tr50"></script>
+  <script src="wings/atmo/conservator.js?v=tr50"></script>
+  <script src="wings/atmo/colossus.js?v=tr50"></script>
+  <script src="wings/atmo/nocturne.js?v=tr50"></script>
+  <script src="wings/atmo/odyssey.js?v=tr50"></script>
+  <script src="wings/atmo/cursedwing.js?v=tr50"></script>
+  <script src="wings/atmo/kaleido.js?v=tr50"></script>
+  <script src="wings/atmo/abyss.js?v=tr50"></script>
+  <script src="wings/atmo/neon.js?v=tr50"></script>
+  <script src="wings/atmo/notepad.js?v=tr50"></script>
+  <script src="wings/atmo/construct.js?v=tr50"></script>
+  <script src="wings/atmo/xeno.js?v=tr50"></script>
+  <script src="wings/atmo/solaris.js?v=tr50"></script>
+  <script src="wings/atmo/alchemist.js?v=tr50"></script>
+  <script src="wings/atmo/glacier.js?v=tr50"></script>
+  <script src="wings/atmo/valhalla.js?v=tr50"></script>
+  <script src="wings/atmo/dynasty.js?v=tr50"></script>
+  <script src="wings/atmo/zen.js?v=tr50"></script>
+  <script src="wings/atmo/samadhi.js?v=tr50"></script>
+  <script src="wings/atmo/silkroad.js?v=tr50"></script>
+  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr50"></script> -->
+  <!--WJ:hall-->
+  <!--WJ:gallery-->
+  <!--WJ:vault-->
+  <!--WJ:study-->
+  <!--WJ:lab-->
+  <!--WJ:table-->
+  <!--WJ:fx-->
+  <!--WJ:themes-->
 </body>
 </html>

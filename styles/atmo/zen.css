@@ -1,0 +1,3 @@
+/* Atmosphere: zen. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="zen"] { ...every token... }, body background, wordmark, .sw-zen swatch,
+   and any component overrides scoped under html[data-atmo="zen"]. This file loads after styles.css and overrides the old block. */

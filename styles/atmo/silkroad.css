@@ -1,0 +1,3 @@
+/* Atmosphere: silkroad. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="silkroad"] { ...every token... }, body background, wordmark, .sw-silkroad swatch,
+   and any component overrides scoped under html[data-atmo="silkroad"]. This file loads after styles.css and overrides the old block. */

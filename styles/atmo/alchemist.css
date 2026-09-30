@@ -1,0 +1,3 @@
+/* Atmosphere: alchemist. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="alchemist"] { ...every token... }, body background, wordmark, .sw-alchemist swatch,
+   and any component overrides scoped under html[data-atmo="alchemist"]. This file loads after styles.css and overrides the old block. */

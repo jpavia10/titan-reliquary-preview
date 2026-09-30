@@ -1,0 +1,3 @@
+/* Atmosphere: abyss. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="abyss"] { ...every token... }, body background, wordmark, .sw-abyss swatch,
+   and any component overrides scoped under html[data-atmo="abyss"]. This file loads after styles.css and overrides the old block. */

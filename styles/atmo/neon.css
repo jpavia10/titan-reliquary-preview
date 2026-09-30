@@ -1,0 +1,3 @@
+/* Atmosphere: neon. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="neon"] { ...every token... }, body background, wordmark, .sw-neon swatch,
+   and any component overrides scoped under html[data-atmo="neon"]. This file loads after styles.css and overrides the old block. */

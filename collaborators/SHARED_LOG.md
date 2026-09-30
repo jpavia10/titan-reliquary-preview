@@ -5,6 +5,18 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-09-30 PT] — Claude (schema v2 draft: design + migration + validator)
+* **Added (additive, app still on v1):** `schema/SCHEMA_V2.md` (audit + design), `schema/v2/defs.schema.json`, `schema/v2/format_cases.json`, `tools/schema/{migrate_v1_to_v2,validate,fmt,test_fmt}.py`. Migration of all 273 coins gives 156 types, validates clean, 54/54 format cases pass.
+* **Findings for Grok:** album volumes/holes live hard-coded in `app.js` (26 of 33 volumes have holes lists that disagree with slot counts); type facts are copied per coin (25 conflicts); `master_catalog.json` still carries the retired `TITAN-###` ids. Decisions pending with the owner before any pipeline change.
+
+### [2026-09-30 PT] — Claude (tr50: "The Awakening" splash)
+* **Added:** cinematic once-per-session splash on the Grand Hall. `splash.js` + `splash.css`, markup at the top of `<body>` in `index.html`, gate script in `<head>`. WebGL gold proof coin (procedural textures, env-map reflections, drag to spin), gold dust, god rays, live stats from `window.vault`, ENTER flies through the coin into the hall.
+* **Behavior:** shows on a plain load only (deep links `#coin=...`/`#vault` skip it). `?nosplash` skips, `?splash=1` forces, `TitanSplash.replay()`. Fails open after 7 s. CSS fallback coin without WebGL; reduced-motion gets a quick fade. Build stamps and `sw.js` bumped to tr50.
+
+### [2026-09-29 PT] — Claude (cloud session: full-text search fix)
+* **Fixed:** `data/search.json` was never committed, so `ensureSearch()` 404'd on every keystroke and notes search never worked on the live site. Added `tools/build_search.py` (builds it from `data/detail/*.json`, keeping only scans listed in `index.json`) and the generated `data/search.json` (273 entries).
+* **Note for Grok:** `data/detail/` still holds purged records C297-C300 (1914 5 Francs). Harmless (index is the authority) but the pipeline should stop emitting them and should emit `search.json` itself.
+
 ### [2026-09-26 18:35 PT] — Antigravity (tr36 Live Build: 3D Cover Flow Archival Carousel, 20-Theme Quality Elevation, Equal-Power Web Audio & Heraldic Crest Watermarks)
 * **Status:** **LIVE** on `origin/main` (`tr36`), mirrored to `app/`, local zip, and `G:\My Drive\Titan Reliquary\`.
 * **Deliverables:**

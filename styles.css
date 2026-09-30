@@ -3179,6 +3179,10 @@ body.curator-sees-you { animation: seeyou 0.8s linear; }
 .station-opt[data-station="alchemist"] .so-dot { background: #10b981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.6); }
 .station-opt[data-station="glacier"] .so-dot { background: #38bdf8; box-shadow: 0 0 6px rgba(56, 189, 248, 0.6); }
 .station-opt[data-station="valhalla"] .so-dot { background: #eab308; box-shadow: 0 0 6px rgba(234, 179, 8, 0.6); }
+.station-opt[data-station="dynasty"] .so-dot { background: #e11d48; box-shadow: 0 0 6px rgba(225, 29, 72, 0.6); }
+.station-opt[data-station="zen"] .so-dot { background: #84cc16; box-shadow: 0 0 6px rgba(132, 204, 22, 0.6); }
+.station-opt[data-station="samadhi"] .so-dot { background: #f97316; box-shadow: 0 0 6px rgba(249, 115, 22, 0.6); }
+.station-opt[data-station="silkroad"] .so-dot { background: #e2b340; box-shadow: 0 0 6px rgba(226, 179, 64, 0.6); }
 .station-opt .so-name { font-weight: 700; font-size: 0.9rem; }
 .station-opt .so-tag { margin-left: auto; font-size: 0.72rem; color: var(--muted); font-style: italic; }
 
@@ -3199,6 +3203,10 @@ body.curator-sees-you { animation: seeyou 0.8s linear; }
 .lofi-stationbtn[data-station="alchemist"] .ls-dot { background: #10b981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.6); }
 .lofi-stationbtn[data-station="glacier"] .ls-dot { background: #38bdf8; box-shadow: 0 0 6px rgba(56, 189, 248, 0.6); }
 .lofi-stationbtn[data-station="valhalla"] .ls-dot { background: #eab308; box-shadow: 0 0 6px rgba(234, 179, 8, 0.6); }
+.lofi-stationbtn[data-station="dynasty"] .ls-dot { background: #e11d48; box-shadow: 0 0 6px rgba(225, 29, 72, 0.6); }
+.lofi-stationbtn[data-station="zen"] .ls-dot { background: #84cc16; box-shadow: 0 0 6px rgba(132, 204, 22, 0.6); }
+.lofi-stationbtn[data-station="samadhi"] .ls-dot { background: #f97316; box-shadow: 0 0 6px rgba(249, 115, 22, 0.6); }
+.lofi-stationbtn[data-station="silkroad"] .ls-dot { background: #e2b340; box-shadow: 0 0 6px rgba(226, 179, 64, 0.6); }
 
 /* ---------- Ambient mixer depth UI ---------- */
 .amb-preset.active {

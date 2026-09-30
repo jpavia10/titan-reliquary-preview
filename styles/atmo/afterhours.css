@@ -1,0 +1,3 @@
+/* Atmosphere: afterhours. Owned by exactly one agent.
+   Write the COMPLETE theme here: html[data-atmo="afterhours"] { ...every token... }, body background, wordmark, .sw-afterhours swatch,
+   and any component overrides scoped under html[data-atmo="afterhours"]. This file loads after styles.css and overrides the old block. */
