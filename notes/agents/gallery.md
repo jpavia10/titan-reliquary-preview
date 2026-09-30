@@ -95,3 +95,11 @@ GEM / CERT text on slabs, caliper labels its diameter source).
 | Item | State | Commit |
 |---|---|---|
 | B Finder (search, facets with live counts, sorts, chips, Clear all, presets) | done | see git log |
+| A Performance (wall-only re-render, cached tiles, batches) | done | see git log |
+
+Measured (headless Chromium, software GL, shared 4-CPU box, so use the ratios): typing five characters in
+the search box cost 220-610 ms per key and produced 9-12 long tasks in the classic gallery; the Finder does
+2-50 ms of synchronous work per key (list 0.5-2 ms, facets 0.3-3 ms, wall 0.1-15 ms once tiles are cached)
+and moves the Cover Flow and the state save to 260-300 ms after the last change. Gallery DOM after boot:
+5,323 nodes (28 tiles, two full slabs each) -> 2,168 nodes (24 tiles, obverse only; the reverse slab is
+drawn the first time a tile is flipped) on desktop and 1,967 (12 tiles) on a phone.

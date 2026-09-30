@@ -23,7 +23,8 @@
   const REDUCED = () => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   /* ══════════════════════════ vocabulary ══════════════════════════ */
-  const BATCH = 24; // wall tiles added per batch
+  const PHONE = () => !!(window.matchMedia && window.matchMedia("(max-width: 700px)").matches);
+  const batchSize = () => (PHONE() ? 12 : 24); // wall tiles added per batch
   const FACETS = ["cont", "country", "era", "metal", "val", "type", "conf"];
   const FACET_LABEL = { cont: "Continent", country: "Country", era: "Decade", metal: "Metal", val: "Value", type: "Type", conf: "Confidence" };
   const STAGING = new Set(["C114", "C223", "C073", "C066", "C065"]); // the Phase 2 staging album (Lab)
@@ -205,6 +206,27 @@
   }
 
   /* ══════════════════════════ filtering, sorting, counting ══════════════════════════ */
+  /** Same rules as app.js flipQueryMatch (SER / scan / C### / every word anywhere in the record + notes), but the
+      normalised text of each coin is built once per snapshot, so a keystroke costs a few milliseconds. */
+  function blobOf(d) {
+    const key = epoch + "|" + (B.searchIdx ? 1 : 0);
+    if (d._bk !== key) {
+      const f = d.f;
+      d._blob = B.norm([f.scan, f.ser, f.country, f.year, f.denom, f.label, f.mint, f.iso, f.continent, f.status, f.location, f.conf].join(" "))
+        + " " + ((B.searchIdx && B.searchIdx[f.scan]) || "");
+      d._scanL = String(f.scan || "").toLowerCase();
+      d._serL = String(f.ser || "").toLowerCase();
+      d._bk = key;
+    }
+    return d._blob;
+  }
+  function matchQuery(d, q) {
+    const blob = blobOf(d);
+    const qNorm = q.replace(/^#/, "");
+    if (d._scanL.includes(qNorm) || d._serL.includes(qNorm)) return true;
+    if (/^c?\d+$/i.test(qNorm) && d._scanL.replace(/\D/g, "").includes(qNorm.replace(/\D/g, ""))) return true;
+    return q.split(" ").every((w) => blob.includes(w));
+  }
   let qCache = { key: "", set: null };
   function qSetFor(q) {
     const n = B.norm(q);
@@ -212,7 +234,7 @@
     const key = n + "|" + (B.searchIdx ? 1 : 0) + "|" + epoch;
     if (qCache.key === key) return qCache.set;
     const set = new Set();
-    for (const d of descs) if (B.flipQueryMatch(d.f, n)) set.add(d.scan);
+    for (const d of descs) if (matchQuery(d, n)) set.add(d.scan);
     qCache = { key, set };
     return set;
   }
@@ -563,7 +585,7 @@
 
   /* ══════════════════════════ wall ══════════════════════════ */
   let wallList = [];
-  let wallLimit = BATCH;
+  let wallLimit = 24;
   let wallSig = "";
 
   function tileHtml(f) {
@@ -577,10 +599,21 @@
       </div></div></div>
     </div>`;
   }
+  /* Tile markup is built once per (coin, mode, caliper state, detail loaded) and cloned afterwards. */
+  const tileCache = new Map();
+  let tileCacheVault = null;
   function makeTile(f) {
-    const t = document.createElement("template");
-    t.innerHTML = tileHtml(f);
-    return t.content.firstElementChild;
+    if (tileCacheVault !== lastVault) { tileCache.clear(); tileCacheVault = lastVault; }
+    const key = `${f.scan}|${B.mode}|${B.caliperActive ? 1 : 0}|${f._full ? 1 : 0}|${B.highlight && B.highlight.has(f.scan) ? 1 : 0}`;
+    let proto = tileCache.get(key);
+    if (!proto) {
+      const t = document.createElement("template");
+      t.innerHTML = tileHtml(f);
+      proto = t.content.firstElementChild;
+      if (tileCache.size > 600) tileCache.clear();
+      tileCache.set(key, proto);
+    }
+    return proto.cloneNode(true);
   }
   function fillReverse(card) {
     const rev = $(".pc-side-rev", card);
@@ -651,7 +684,7 @@
   }
   function loadMore() {
     if (wallLimit >= wallList.length) return;
-    wallLimit += BATCH;
+    wallLimit += batchSize();
     renderWall(wallList, readF());
     // the sentinel may still be in view after a short batch: check again on the next frame
     requestAnimationFrame(() => {
@@ -710,12 +743,18 @@
   }
 
   let lastListKey = "";
+  const timings = {};
   function update() {
     if (!ensureData() || !mount()) return;
+    const T0 = performance.now();
+    let tp = T0;
+    const lap = (name) => { const t = performance.now(); timings[name] = Math.round((t - tp) * 10) / 10; tp = t; };
     buildPanel();
     const F = readF(), sid = sortId();
     const list = currentList();
+    lap("list");
     const counts = computeFacets(F);
+    lap("facets");
     const chips = activeChips(F);
     renderPresets(F, sid, list);
     renderStatus(F, list, chips);
@@ -724,12 +763,28 @@
     if (sel && sel.value !== sid) sel.value = sid;
     const q = $("#flip-q");
     if (q && q.value !== F.q && document.activeElement !== q) q.value = F.q;
-    const listKey = list.length + ":" + (list[0] ? list[0].scan : "") + ":" + (list[list.length - 1] ? list[list.length - 1].scan : "") + ":" + sid + ":" + epoch;
+    lap("finder");
+    const listKey = list.length + ":" + sid + ":" + epoch + ":" + list.map((f) => f.scan).join(",");
     const changed = listKey !== lastListKey;
-    if (changed) { wallLimit = BATCH; lastListKey = listKey; }
+    if (changed) { wallLimit = batchSize(); lastListKey = listKey; }
     renderWall(list, F, false);
-    if (changed || !$(".cf-card", $("#gallery-coverflow-wrap") || document)) updateCover(list);
-    B.saveState();
+    lap("wall");
+    if (!$(".cf-card", $("#gallery-coverflow-wrap") || document)) updateCover(list);
+    else if (changed) coverSoon();
+    lap("cover");
+    persistSoon();
+    timings.total = Math.round((performance.now() - T0) * 10) / 10;
+  }
+
+  /* The Cover Flow (many slabs) and the state save (reads layout) run after the wall has painted. */
+  let coverTimer = 0, persistTimer = 0;
+  function coverSoon() {
+    if (coverTimer) clearTimeout(coverTimer);
+    coverTimer = setTimeout(() => { coverTimer = 0; if (mounted) updateCover(currentList()); }, 260);
+  }
+  function persistSoon() {
+    if (persistTimer) clearTimeout(persistTimer);
+    persistTimer = setTimeout(() => { persistTimer = 0; B.saveState(); }, 300);
   }
 
   /* ══════════════════════════ events ══════════════════════════ */
@@ -860,6 +915,8 @@
     list: () => currentList().map((f) => f.scan),
     facets: () => { const c = computeFacets(readF()); const o = {}; for (const k of FACETS) o[k] = Object.fromEntries(c[k]); return o; },
     metalState: () => metalState,
+    search: (q) => { const set = qSetFor(q); return set ? [...set] : null; },
+    timings,
     metalOf: (scan) => { const d = descs.find((x) => x.scan === scan); return d ? metalOf(d) : null; },
   };
 })();
