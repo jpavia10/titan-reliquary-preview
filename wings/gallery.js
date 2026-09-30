@@ -24,7 +24,7 @@
 
   /* ══════════════════════════ vocabulary ══════════════════════════ */
   const PHONE = () => !!(window.matchMedia && window.matchMedia("(max-width: 700px)").matches);
-  const batchSize = () => (PHONE() ? 12 : 24); // wall tiles added per batch
+  const batchSize = () => (PHONE() ? 8 : 24); // wall tiles added per batch
   const FACETS = ["cont", "country", "era", "metal", "val", "type", "conf"];
   const FACET_LABEL = { cont: "Continent", country: "Country", era: "Decade", metal: "Metal", val: "Value", type: "Type", conf: "Confidence" };
   const STAGING = new Set(["C114", "C223", "C073", "C066", "C065"]); // the Phase 2 staging album (Lab)
@@ -768,7 +768,7 @@
   /* Tile markup is built once per (coin, new-flag) and cloned afterwards. */
   const tileCache = new Map();
   let tileCacheVault = null;
-  function makeTile(f) {
+  function protoTile(f) {
     if (tileCacheVault !== lastVault) { tileCache.clear(); tileCacheVault = lastVault; }
     const key = `${f.scan}|${B.highlight && B.highlight.has(f.scan) ? 1 : 0}`;
     let proto = tileCache.get(key);
@@ -779,7 +779,22 @@
       if (tileCache.size > 600) tileCache.clear();
       tileCache.set(key, proto);
     }
-    return proto.cloneNode(true);
+    return proto;
+  }
+  function makeTile(f) { return protoTile(f).cloneNode(true); }
+  /* Idle time: parse the markup of the next batches so scrolling only has to clone and insert. */
+  let warmTimer = 0;
+  function warmNext() {
+    if (warmTimer) return;
+    const ric = window.requestIdleCallback || ((cb) => setTimeout(() => cb({ timeRemaining: () => 8 }), 60));
+    warmTimer = ric((dl) => {
+      warmTimer = 0;
+      const list = wallList || [];
+      let i = Math.min(wallLimit, list.length);
+      const stop = Math.min(list.length, wallLimit + batchSize() * 3);
+      while (i < stop && dl.timeRemaining() > 4) { protoTile(list[i]); i++; }
+      if (i < stop) warmNext();
+    }, { timeout: 1500 });
   }
   /** Turn a tile over; the drawn reverse is built the first time. */
   function turnTile(tile) {
@@ -817,6 +832,7 @@
     }
     for (const el of existing.values()) el.remove();
     if (added.length) B.lazyThumbs(grid);
+    warmNext();
     const remaining = list.length - want.length;
     const more = $("#gf-more"), moreBtn = $("#gf-more-btn");
     if (more) {

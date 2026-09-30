@@ -225,7 +225,8 @@
   }
 }
 @media (hover: none), (pointer: coarse) {
-  #pane-gallery .gx-tile { box-shadow: none; }
+  /* content-visibility re-lays-out tiles on every scroll step; on a phone a plain containment boundary scrolls on the compositor alone */
+  #pane-gallery .gx-tile { box-shadow: none; content-visibility: visible; contain: layout paint style; }
   #pane-gallery .gx-tile:focus-within { border-color: var(--line-strong); }
 }
 #pane-gallery .gx-open {
