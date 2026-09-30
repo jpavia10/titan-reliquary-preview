@@ -606,17 +606,17 @@
     const segNumis = $("#seg-numis");
     if (segAg) { segAg.style.width = agPct + "%"; segAg.title = `Silver Melt: ${num(agOz, 2)} oz Ag · ${money(agMelt)} (${agPct}%)`; }
     if (segAu) { segAu.style.width = auPct + "%"; segAu.title = `Gold Melt: ${num(auOz, 4)} oz Au · ${money(auMelt)} (${auPct}%)`; }
-    if (segNumis) { segNumis.style.width = numisPct + "%"; segNumis.title = `Numismatic Collector Premium: ${money(numisPremium)} (${numisPct}%)`; }
+    if (segNumis) { segNumis.style.width = numisPct + "%"; segNumis.title = `Beyond melt (albums, coins, sets, housing): ${money(numisPremium)} (${numisPct}%)`; }
     const lblAg = $("#lbl-ag"); if (lblAg) lblAg.textContent = `Ag Melt · ${money(agMelt)}`;
     const lblAu = $("#lbl-au"); if (lblAu) lblAu.textContent = `Au · ${money(auMelt)}`;
-    const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Premium · ${money(numisPremium)}`;
+    const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Beyond melt · ${money(numisPremium)}`;
 
     const legend = $("#melt-legend");
     if (legend) {
       legend.innerHTML = `
-        <span class="legend-item leg-ag"><i class="dot"></i> <strong>${num(agOz, 2)} oz Ag</strong> @ ${money(ag)}</span>
-        <span class="legend-item leg-au"><i class="dot"></i> <strong>${num(auOz, 2)} oz Au</strong> @ ${money(au)}</span>
-        <span class="legend-item leg-numis"><i class="dot"></i> <strong>Rarity Premium</strong> (${numisPct}%)</span>`;
+        <span class="legend-item leg-ag"><i class="dot"></i> <strong>Silver ${money(agMelt)}</strong> <span class="lg-sub">${num(agOz, 2)} oz @ ${money(ag)}</span></span>
+        <span class="legend-item leg-au"><i class="dot"></i> <strong>Gold ${money(auMelt)}</strong> <span class="lg-sub">${num(auOz, 4)} oz @ ${money(au)}</span></span>
+        <span class="legend-item leg-numis"><i class="dot"></i> <strong>Beyond melt ${money(numisPremium)}</strong> <span class="lg-sub">albums, coins, sets, housing</span></span>`;
     }
 
     const cap = $(".hero-cap");
@@ -683,7 +683,7 @@
       dynGrand.textContent = money(dynTotal);
       chipAg.textContent = `Ag Melt: ${money(dynAgMelt)}`;
       chipAu.textContent = `Au Melt: ${money(dynAuMelt)}`;
-      chipPrem.textContent = `Rarity Premium: ${money(fixedBaseValue)}`;
+      chipPrem.textContent = `Beyond melt (fixed): ${money(fixedBaseValue)}`;
 
       if (Math.abs(delta) < 0.5) {
         dynDelta.textContent = `±$0.00 (0.0%)`;
@@ -710,7 +710,7 @@
       if (segNumis) { segNumis.style.width = numisPct + "%"; }
       const lblAg = $("#lbl-ag"); if (lblAg) lblAg.textContent = `Ag Melt · ${money(dynAgMelt)}`;
       const lblAu = $("#lbl-au"); if (lblAu) lblAu.textContent = `Au · ${money(dynAuMelt)}`;
-      const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Premium · ${money(fixedBaseValue)}`;
+      const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Beyond melt · ${money(fixedBaseValue)}`;
     };
 
     agRange.oninput = updateSim;
@@ -1404,24 +1404,32 @@
   function renderMarketTickerTape() {
     const track = $("#ticker-marquee-track");
     if (!track || !vault) return;
-    const spotAg = vault.metals?.spot?.ag_usd_oz ?? vault.precious?.spot_ag ?? 63.38;
-    const spotAu = vault.metals?.spot?.au_usd_oz ?? vault.precious?.spot_au ?? 4252.90;
-    const ratio = (spotAu / (spotAg || 1)).toFixed(2);
-    const grandVal = money(vault.grand ?? 5584.11);
+    // Every figure below comes from window.vault (ledger + metals snapshot); nothing is invented.
+    const mt = vault.metals || {};
+    const spotAg = mt.spot?.ag_usd_oz ?? vault.precious?.spot_ag;
+    const spotAu = mt.spot?.au_usd_oz ?? vault.precious?.spot_au;
+    const prevAg = mt.prior_spot?.ag_usd_oz, prevAu = mt.prior_spot?.au_usd_oz;
+    const pctChg = (cur, prev) => (cur != null && prev ? ((cur - prev) / prev) * 100 : null);
+    const chgTag = (p) => (p == null ? { chg: "SNAPSHOT", up: null } : { chg: (p >= 0 ? "+" : "") + p.toFixed(2) + "%", up: Math.abs(p) < 0.005 ? null : p > 0 });
+    const ratioNow = spotAg ? spotAu / spotAg : null;
+    const ratioPrev = prevAg ? prevAu / prevAg : null;
+    const agOzT = vault.precious?.combined_silver?.oz ?? mt.oz?.ag;
+    const auOzT = vault.precious?.combined_gold?.oz ?? mt.oz?.au;
+    const asOf = mt.as_of_local || mt.as_of || "";
     const items = [
-      { sym: "TITAN VAULT TOTAL", price: grandVal, chg: "+$142.80 (+2.6%)", up: true, action: "hub", title: "Collection Net Worth · Click to view Valuation Hub" },
-      { sym: "VAULT AG ASW", price: "63.27 oz", chg: "100% PHYSICAL", up: null, action: "seg-ag", title: "63.27 oz Physical Silver ASW · Click to view Allocation Breakdown" },
-      { sym: "CH 1969 1-FRANC", price: "$12.50", chg: "+8.2%", up: true, action: "dossier", scan: "C001", title: "Switzerland 1969 1 Franc · Click to inspect Specimen Dossier" },
-      { sym: "US 1976 BICENTENNIAL", price: "$2.40", chg: "+3.1%", up: true, action: "dossier", scan: "C073", title: "USA 1976 Bicentennial Quarter · Click to inspect Specimen Dossier" },
-      { sym: "MEXICO 1914 5¢", price: "$125.00", chg: "+14.2%", up: true, action: "dossier", scan: "C114", title: "Mexico 1914 Chihuahua · Click to inspect Specimen Dossier" },
-      { sym: "NETHERLANDS 1967 GULDEN", price: "$16.50", chg: "+6.8%", up: true, action: "dossier", scan: "C223", title: "Netherlands 1967 Silver 1 Gulden · Click to inspect Specimen Dossier" },
-      { sym: "AG SPOT", price: `$${num(spotAg, 2)}/oz`, chg: "+3.24%", up: true, action: "terminal", asset: "ag", title: "Silver Spot · Click to inspect Live Silver Desk" },
-      { sym: "AU SPOT", price: `$${intFmt(Math.round(spotAu))}/oz`, chg: "+1.18%", up: true, action: "terminal", asset: "au", title: "Gold Spot · Click to inspect Live Gold Desk" },
-      { sym: "AU/AG RATIO", price: ratio, chg: "-1.95%", up: false, action: "terminal", asset: "ratio", title: "Gold/Silver Ratio · Click to inspect Macro Compression" },
-      { sym: "COMEX REGISTERED", price: "31.42M oz", chg: "HISTORIC LOW", up: false, action: "sim", title: "COMEX Physical Low · Click to open Market Sensitivity Simulator" },
-      { sym: "INFLATION-ADJ PEAK", price: "$148.20/oz", chg: "+133% SQUEEZE GAP", up: true, action: "sim", title: "1980 Inflation Peak Gap · Click to open Market Sensitivity Simulator" },
-      { sym: "BULLION RESERVES", price: "21 Ingots", chg: "$3,011.74", up: true, action: "vault-reserves", title: "Titan Bullion Ingots & Sets · Click to explore Vault Reserves Wing" },
-    ];
+      { sym: "TITAN VAULT", price: money(vault.board?.grand), chg: "EST. TOTAL", up: null, action: "hub", title: "Estimated collection value · open the valuation" },
+      spotAg != null && { sym: "SILVER SPOT", price: `$${num(spotAg, 2)}/oz`, ...chgTag(pctChg(spotAg, prevAg)), action: "terminal", asset: "ag", title: `Silver spot${asOf ? " as of " + asOf : ""}, change vs prior snapshot` },
+      spotAu != null && { sym: "GOLD SPOT", price: `$${intFmt(Math.round(spotAu))}/oz`, ...chgTag(pctChg(spotAu, prevAu)), action: "terminal", asset: "au", title: `Gold spot${asOf ? " as of " + asOf : ""}, change vs prior snapshot` },
+      ratioNow && { sym: "AU/AG RATIO", price: num(ratioNow, 1), ...chgTag(pctChg(ratioNow, ratioPrev)), action: "terminal", asset: "ratio", title: "Gold/silver ratio from the spot snapshot" },
+      agOzT != null && { sym: "VAULT SILVER", price: `${num(agOzT, 2)} oz`, chg: "MELT " + money(vault.precious?.combined_silver?.melt), up: null, action: "seg-ag", title: "Physical silver in the vault · open the melt breakdown" },
+      auOzT != null && { sym: "VAULT GOLD", price: `${num(auOzT, 4)} oz`, chg: "MELT " + money(vault.precious?.combined_gold?.melt), up: null, action: "seg-ag", title: "Physical gold in the vault · open the melt breakdown" },
+      vault.board?.bullion?.usd != null && { sym: "BULLION", price: `${intFmt(vault.counts?.bullion ?? vault.board.bullion.cards)} lots`, chg: money(vault.board.bullion.usd), up: null, action: "vault-reserves", title: "Bullion reserves · open the Vault wing" },
+      ...(vault.flips || []).filter((f) => f.status !== "Removed" && (f.est ?? 0) > 0)
+        .sort((a, b) => (b.est ?? 0) - (a.est ?? 0)).slice(0, 4)
+        .map((f) => ({ sym: esc([f.country, f.year, f.denom].filter(Boolean).join(" ").toUpperCase()), price: money(f.est), chg: "LEDGER EST.", up: null, action: "dossier", scan: esc(f.scan), title: esc((f.label || f.scan) + " · open the dossier") })),
+      { sym: "COUNTRIES", price: intFmt(vault.counts?.countries), chg: intFmt(vault.counts?.flips) + " FLIPS", up: null, action: "hub", title: "Countries represented in the flips" },
+      asOf && { sym: "SPOT AS OF", price: esc(asOf), chg: esc(String(mt.source || "SNAPSHOT").toUpperCase()), up: null, action: "terminal", asset: "ag", title: "When the metals prices were last fetched" },
+    ].filter(Boolean);
     // Double array to create seamless continuous marquee loop
     const fullItems = [...items, ...items];
     track.innerHTML = fullItems.map((it) => `
@@ -2058,7 +2066,13 @@
     const getO = (p, i) => (typeof p === "object" && p.o != null ? p.o : (i > 0 ? getC(points[i - 1]) : getC(p)));
     const getH = (p, i) => (typeof p === "object" && p.h != null ? p.h : Math.max(getC(p), getO(p, i)));
     const getL = (p, i) => (typeof p === "object" && p.l != null ? p.l : Math.min(getC(p), getO(p, i)));
-    const getV = (p) => (typeof p === "object" && p.v ? (parseFloat(p.v) || 1) : 1);
+    const getV = (p) => (typeof p === "object" && p.v ? (parseFloat(p.v) || 0) : 0);
+    // Theme tokens so grid/labels stay legible in light atmospheres too.
+    const cs = getComputedStyle(canvas);
+    const tokMuted = (cs.getPropertyValue("--muted") || "").trim() || "rgba(255,255,255,0.6)";
+    const tokLine = (cs.getPropertyValue("--line") || "").trim() || "rgba(255,255,255,0.08)";
+    const tokGold = (cs.getPropertyValue("--gold") || "").trim() || "#c8a94a";
+    const tokInk = (cs.getPropertyValue("--ink") || "").trim() || "#ffffff";
 
     const closes = points.map(getC);
     const highs = points.map((p, i) => getH(p, i));
@@ -2075,30 +2089,31 @@
     const padX = 32, padTop = 24, padBottom = 34;
     const plotW = w - padX * 2;
     const plotH = h - padTop - padBottom;
-    const volH = plotH * 0.20;
-    const priceH = plotH * 0.80;
+    const hasVol = vols.some((v) => v > 0);
+    const volH = hasVol ? plotH * 0.20 : 0;
+    const priceH = hasVol ? plotH * 0.80 : plotH;
 
     const getX = (i) => padX + (i / (n - 1)) * plotW;
     const getY = (val) => padTop + priceH - ((val - min) / (max - min || 1)) * priceH;
 
     // Grid lines with right-axis price labels
     g.lineWidth = 1;
-    g.font = "10px monospace";
+    g.font = "600 12px ui-monospace, SFMono-Regular, Menlo, monospace";
     g.textAlign = "right";
     g.textBaseline = "middle";
     for (let r = 0; r <= 4; r++) {
       const y = padTop + (r / 4) * priceH;
-      g.strokeStyle = "rgba(255, 255, 255, 0.05)";
+      g.strokeStyle = tokLine;
       g.beginPath(); g.moveTo(padX, y); g.lineTo(padX + plotW, y); g.stroke();
 
       const labelVal = max - (r / 4) * (max - min);
-      g.fillStyle = "rgba(255, 255, 255, 0.28)";
+      g.fillStyle = tokMuted;
       g.fillText((termAsset === "ratio" ? "" : "$") + num(labelVal, termAsset === "au" ? 0 : 2), padX + plotW - 4, y - 6);
     }
 
     // Volume histogram at the base
     const barW = Math.max(2, (plotW / n) * 0.65);
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; hasVol && i < n; i++) {
       const cX = getX(i);
       const open = getO(points[i], i);
       const close = getC(points[i]);
@@ -2150,7 +2165,7 @@
           else { g.lineTo(getX(i), getY(ma)); }
         }
         g.setLineDash([3, 3]);
-        g.strokeStyle = "rgba(200, 169, 74, 0.55)";
+        g.strokeStyle = tokGold;
         g.lineWidth = 1.2;
         g.stroke();
         g.setLineDash([]);
@@ -2195,13 +2210,13 @@
       const ptY = getY(ptVal);
 
       g.setLineDash([4, 4]);
-      g.strokeStyle = "rgba(200, 169, 74, 0.6)";
+      g.strokeStyle = tokGold;
       g.lineWidth = 1;
       g.beginPath(); g.moveTo(termCrosshairX, padTop); g.lineTo(termCrosshairX, padTop + plotH); g.stroke();
       g.beginPath(); g.moveTo(padX, ptY); g.lineTo(padX + plotW, ptY); g.stroke();
       g.setLineDash([]);
 
-      g.fillStyle = "#ffffff";
+      g.fillStyle = tokInk;
       g.beginPath(); g.arc(termCrosshairX, ptY, 4, 0, Math.PI * 2); g.fill();
     }
   }
@@ -2221,6 +2236,36 @@
     const bidEl = $("#ts-bid");
     const askEl = $("#ts-ask");
 
+    // Headline figures come from the metals snapshot in window.vault (the stored series are illustrative history).
+    (function syncTermHeadlines() {
+      const mt = vault?.metals || {};
+      const ag = mt.spot?.ag_usd_oz, au = mt.spot?.au_usd_oz;
+      const pAg = mt.prior_spot?.ag_usd_oz, pAu = mt.prior_spot?.au_usd_oz;
+      const agOz = Number(vault?.precious?.combined_silver?.oz ?? mt.oz?.ag ?? 0);
+      const auOz = Number(vault?.precious?.combined_gold?.oz ?? mt.oz?.au ?? 0);
+      const setHead = (a, cur, prev, unitFmt) => {
+        if (!a || cur == null) return;
+        a.base = Number(cur);
+        a.prior = prev || null;
+        if (prev) {
+          const d = cur - prev, pc = (d / prev) * 100;
+          a.isUp = d >= 0;
+          a.delta = `${d >= 0 ? "+" : "-"}${unitFmt(Math.abs(d))} (${d >= 0 ? "+" : "-"}${Math.abs(pc).toFixed(2)}%)`;
+        } else { a.isUp = true; a.delta = "snapshot"; }
+        const pts = a.rates?.live;
+        if (Array.isArray(pts) && pts.length) pts[pts.length - 1] = Number(Number(cur).toFixed(2));
+      };
+      const usd = (v) => "$" + num(v, 2);
+      setHead(TERM_DATA.ag, ag, pAg, usd);
+      setHead(TERM_DATA.au, au, pAu, usd);
+      if (ag && au) setHead(TERM_DATA.ratio, au / ag, pAg && pAu ? pAu / pAg : null, (v) => num(v, 2));
+      const grand = vault?.board?.grand;
+      if (grand != null) {
+        const prevGrand = (pAg && pAu) ? grand - agOz * (ag - pAg) - auOz * (au - pAu) : null;
+        setHead(TERM_DATA.vault, grand, prevGrand, usd);
+      }
+    })();
+
     const updateTerminalView = () => {
       const a = TERM_DATA[termAsset];
       if (priceEl) {
@@ -2230,18 +2275,22 @@
         deltaEl.textContent = (a.isUp ? "▲ " : "▼ ") + a.delta;
         deltaEl.className = "term-delta " + (a.isUp ? "up" : "down");
       }
-      if (low24El) low24El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.low24, 2);
-      if (high24El) high24El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.high24, 2);
-      if (pin24El) {
-        const pct = Math.min(100, Math.max(0, ((a.base - a.low24) / (a.high24 - a.low24 || 1)) * 100));
-        pin24El.style.left = pct.toFixed(1) + "%";
-      }
-      if (low52El) low52El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.low52, 2);
-      if (high52El) high52El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.high52, 2);
-      if (pin52El) {
-        const pct = Math.min(100, Math.max(0, ((a.base - a.low52) / (a.high52 - a.low52 || 1)) * 100));
-        pin52El.style.left = pct.toFixed(1) + "%";
-      }
+      // Box 1: the range of the series on screen. Box 2: prior snapshot -> current snapshot (real data).
+      const pre = termAsset === "ratio" ? "" : "$";
+      const ser = a.rates[termTimeframe] || a.rates["24h"] || [];
+      const hiS = ser.map((p) => (typeof p === "object" ? (p.h ?? p.c) : p)).filter((x) => x > 0);
+      const loS = ser.map((p) => (typeof p === "object" ? (p.l ?? p.c) : p)).filter((x) => x > 0);
+      const setRange = (loEl, hiEl, pinEl, lo, hi, at) => {
+        if (loEl) loEl.textContent = lo != null ? pre + num(lo, 2) : "—";
+        if (hiEl) hiEl.textContent = hi != null ? pre + num(hi, 2) : "—";
+        if (pinEl) pinEl.style.left = (lo != null && hi != null ? Math.min(100, Math.max(0, ((at - lo) / (hi - lo || 1)) * 100)) : 50).toFixed(1) + "%";
+      };
+      const boxLbls = $$("#trading-terminal .term-stat-box > .ts-lbl");
+      if (boxLbls[0]) boxLbls[0].textContent = "Chart range · " + (termTimeframe === "all" ? "All" : termTimeframe.toUpperCase());
+      setRange(low24El, high24El, pin24El, loS.length ? Math.min(...loS) : null, hiS.length ? Math.max(...hiS) : null, a.base);
+      if (boxLbls[1]) boxLbls[1].textContent = a.prior ? "Prior snapshot → now" : "Snapshot";
+      if (a.prior) setRange(low52El, high52El, pin52El, a.prior, a.base, a.base); // left = prior, right = now
+      else setRange(low52El, high52El, pin52El, a.base, a.base, a.base);
       if (bidEl) bidEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.bid, 2);
       if (askEl) askEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.ask, 2);
 
@@ -2250,43 +2299,44 @@
       const custodyLbl = $("#ts-custody-lbl");
       const custodyVal = $("#ts-custody-val");
 
-      const totalEst = vault?.stats?.total_est ?? 5584.11;
-      const totalPieces = (vault?.flips || []).filter((f) => f.status !== "Removed").length || 273;
-      const spotAg = vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz ?? 31.76;
-      const totalAsw = vault?.precious?.total_asw_oz ?? 63.27;
-      const meltVal = totalAsw * spotAg;
+      const totalEst = Number(vault?.board?.grand ?? 0);
+      const totalPieces = vault?.counts?.vault ?? (vault?.flips || []).filter((f) => f.status !== "Removed").length;
+      const spotAg = vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz ?? 0;
+      const totalAsw = Number(vault?.precious?.combined_silver?.oz ?? vault?.metals?.oz?.ag ?? 0);
+      const totalAu = Number(vault?.precious?.combined_gold?.oz ?? vault?.metals?.oz?.au ?? 0);
+      const meltVal = Number(vault?.precious?.combined_silver?.melt ?? totalAsw * spotAg) + Number(vault?.precious?.combined_gold?.melt ?? 0);
       const premVal = Math.max(0, totalEst - meltVal);
-      const premPct = meltVal > 0 ? ((premVal / meltVal) * 100).toFixed(0) : "178";
+      const premPct = totalEst > 0 ? ((premVal / totalEst) * 100).toFixed(0) : "0";
 
       if (metricLbl && metricVal) {
         if (termAsset === "vault") {
-          metricLbl.textContent = "Numismatic Premium";
-          metricVal.innerHTML = `<span id="ts-val-main">+$${num(premVal, 2)}</span> <em class="ts-spread-delta">(+${premPct}% over spot melt)</em>`;
+          metricLbl.textContent = "Value beyond metal";
+          metricVal.innerHTML = `<span id="ts-val-main">${money(premVal)}</span> <em class="ts-spread-delta">(${premPct}% of total · not melt)</em>`;
         } else if (termAsset === "ag") {
-          metricLbl.textContent = "Wholesale Spot Spread";
-          metricVal.innerHTML = `<span id="ts-val-main">$${num(a.bid, 2)} / $${num(a.ask, 2)}</span> <em class="ts-spread-delta">(COMEX Active)</em>`;
+          metricLbl.textContent = "Vault silver melt";
+          metricVal.innerHTML = `<span id="ts-val-main">${money(totalAsw * a.base)}</span> <em class="ts-spread-delta">(${num(totalAsw, 2)} oz × spot)</em>`;
         } else if (termAsset === "au") {
-          metricLbl.textContent = "LBMA Spot Spread";
-          metricVal.innerHTML = `<span id="ts-val-main">$${num(a.bid, 2)} / $${num(a.ask, 2)}</span> <em class="ts-spread-delta">(P.M. Fix)</em>`;
+          metricLbl.textContent = "Vault gold melt";
+          metricVal.innerHTML = `<span id="ts-val-main">${money(totalAu * a.base)}</span> <em class="ts-spread-delta">(${num(totalAu, 4)} oz × spot)</em>`;
         } else {
           metricLbl.textContent = "Gold/Silver Equivalence";
-          metricVal.innerHTML = `<span id="ts-val-main">${num(a.base, 1)} oz Ag = 1 oz Au</span> <em class="ts-spread-delta">(Historical median: 60:1)</em>`;
+          metricVal.innerHTML = `<span id="ts-val-main">${num(a.base, 1)} oz Ag = 1 oz Au</span> <em class="ts-spread-delta">(at snapshot spot)</em>`;
         }
       }
 
       if (custodyLbl && custodyVal) {
         if (termAsset === "vault") {
           custodyLbl.textContent = "Physical Custody";
-          custodyVal.innerHTML = `<strong id="ts-custody-txt">${num(totalAsw, 2)} oz ASW · ${totalPieces} Pieces</strong> · Unencumbered`;
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">${num(totalAsw, 2)} oz Ag · ${num(totalAu, 4)} oz Au</strong> · ${intFmt(totalPieces)} pieces · HOLD`;
         } else if (termAsset === "ag") {
-          custodyLbl.textContent = "Vault Delta Exposure";
-          custodyVal.innerHTML = `<strong id="ts-custody-txt">+$${num(totalAsw, 2)}</strong> per +$1.00 Spot Move`;
+          custodyLbl.textContent = "Silver sensitivity";
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">±${money(totalAsw)}</strong> per $1.00 spot move`;
         } else if (termAsset === "au") {
-          custodyLbl.textContent = "Vault Gold Allocation";
-          custodyVal.innerHTML = `<strong id="ts-custody-txt">0.00 oz Au</strong> · Target Acquisition Allocation`;
+          custodyLbl.textContent = "Gold sensitivity";
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">±${money(totalAu * 100)}</strong> per $100 spot move`;
         } else {
-          custodyLbl.textContent = "Rebalance Indicator";
-          custodyVal.innerHTML = `<strong id="ts-custody-txt">Accumulate Silver</strong> · Historic Discount`;
+          custodyLbl.textContent = "Vault metal mix";
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">${num(totalAsw, 2)} oz Ag : ${num(totalAu, 4)} oz Au</strong> · by weight`;
         }
       }
 
@@ -2424,22 +2474,8 @@
     }
 
     clearInterval(termTickTimer);
-    termTickTimer = setInterval(() => {
-      if (termTimeframe !== "live" || document.hidden) return;
-      const a = TERM_DATA[termAsset];
-      const delta = (Math.random() - 0.48) * (a.base > 1000 ? 0.8 : 0.04);
-      a.base = Math.max(0.1, a.base + delta);
-      a.rates.live.shift();
-      a.rates.live.push(Number(a.base.toFixed(2)));
-      if (priceEl) {
-        priceEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.base, 2);
-        priceEl.classList.remove("flash-up", "flash-down");
-        requestAnimationFrame(() => {
-          priceEl.classList.add(delta >= 0 ? "flash-up" : "flash-down");
-        });
-      }
-      renderTerminalChart();
-    }, 2800);
+    // No simulated ticks: prices change only when a new metals snapshot is published.
+    window.TitanHallChart = renderTerminalChart;
 
     updateTerminalView();
   }
@@ -2489,15 +2525,15 @@
           </div>
           <div class="ex-info-placard">
             <div class="placard-kicker">
-              <span class="placard-seal">🏛️ CABINET MASTERPIECE</span>
-              <span class="placard-pos">${i + 1} of ${exhibitMasters.length}</span>
+              <span class="placard-seal">Collection highlight</span>
+              <span class="placard-pos">No. ${i + 1} of ${exhibitMasters.length} by value</span>
             </div>
             <h3 class="placard-title">${country} · ${year}</h3>
             <div class="placard-denom">${denom}</div>
             
             <div class="placard-metrics">
               <div class="pl-metric">
-                <span class="pl-lbl">Appraised Value</span>
+                <span class="pl-lbl">Ledger estimate</span>
                 <span class="pl-val gold">${money(f.est)}</span>
               </div>
               <div class="pl-metric">
@@ -2505,8 +2541,8 @@
                 <span class="pl-val">${meltVal ? money(meltVal) : (isGold ? "Gold" : "Base Alloy")}</span>
               </div>
               <div class="pl-metric">
-                <span class="pl-lbl">Valuation Multiple</span>
-                <span class="pl-val">${multiplier || (f.conf ? "Conf " + esc(f.conf) : "Archive Verified")}</span>
+                <span class="pl-lbl">${multiplier ? "Value vs melt" : "Confidence"}</span>
+                <span class="pl-val">${multiplier || (f.conf ? esc(f.conf.charAt(0).toUpperCase() + f.conf.slice(1)) : "—")}</span>
               </div>
             </div>
 
@@ -2740,6 +2776,9 @@
       exhibitTimer = setInterval(() => {
         if (!document.body.contains(frame)) { clearInterval(exhibitTimer); return; }
         if (document.hidden) return;
+        // Hold the piece while someone is reading, touching or inspecting it, or when the Hall is out of view.
+        if (box && (box.matches(":hover, :focus-within") || box.dataset.hold === "1")) return;
+        if (!frame.offsetParent || frame.getBoundingClientRect().bottom < 0 || frame.getBoundingClientRect().top > innerHeight) return;
         go(exhibitIdx + 1);
       }, 10000);
     }
