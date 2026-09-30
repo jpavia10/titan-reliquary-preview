@@ -125,8 +125,12 @@ def denom_slug(t, s):
 def photo_stem(s, t):
     ser = s.get("ser") or s["id"]
     yr = s["year_raw"] if s["year_raw"].isdigit() else "ND"
-    return f"{ser}_{yr}_{STEM_DENOM.get(denom_slug(t, s), denom_slug(t, s))}"
+    slug = denom_slug(t, s)
+    m = re.match(r"^(\d+)(DeutscheMark|Pfennig|Francs?|Kopecks)$", slug)
+    if m and slug not in STEM_DENOM: slug = m.group(1) + STEM_SUFFIX[m.group(2)]     # ledger stem spellings: 10Pf, 5DM, 10Fr, 3Kopeks
+    return f"{ser}_{yr}_{STEM_DENOM.get(slug, slug)}"
 
+STEM_SUFFIX = {"DeutscheMark": "DM", "Pfennig": "Pf", "Franc": "Fr", "Francs": "Fr", "Kopecks": "Kopeks"}
 STEM_DENOM = {"HalfFranc": "HalfFr", "HalfFrancs": "HalfFr", "1Franc": "1Fr", "2Francs": "2Fr", "5Francs": "5Fr", "5Rappen": "5Rp", "10Rappen": "10Rp", "20Rappen": "20Rp"}
 
 def type_issue(t, s):
@@ -141,13 +145,12 @@ def year_line(s, t=None):
     mt = i.get("mint_text")
     return f"{yr} · Mint: {mt}" if mt else yr
 
+
 def label(col, s, t):
     yr = s["year_raw"]
     mm = s["issue"].get("mint_marks") or []
     ctry = issuer_name(col, t)
     den = title_words(denom_raw(t).split(" · ")[0])
-    if len(mm) == 1 and t["country"] in ("DE", "IT", "CH") and yr.isdigit() and int(yr) >= 1982 and (t["nominal"].get("edge") is not None or True):
-        pass
     return f"{ctry} · {yr} · {den}"
 
 def mintage_txt(i):
@@ -164,6 +167,10 @@ def specimen_detail(col, s, t):
     dl = denom_line(t, s)
     stem = photo_stem(s, t)
     tok = is_token(t)
+    lt = s.get("ledger_text") or {}          # ledger wording kept verbatim where it cannot be derived (schema: Specimen.ledger_text)
+    if "denom" in lt: dl = lt["denom"]
+    if "photo_stem" in lt: stem = lt["photo_stem"]
+    if "face" in lt: face = lt["face"]
     d = {"kind": "token" if tok else "flip", "scan": s["id"], "ser": ser, "country": iss, "year": s["year_raw"], "denom": dl,
          "scan_note": f"{s['id']} (temporary · renumber after reorg)", "added": s["acquisition"]["logged_at"],
          "cat": "token / exonumia (not legal tender)" if tok else "coin",
@@ -174,6 +181,9 @@ def specimen_detail(col, s, t):
          "photo": f"pending pro rescan · target {stem}_{{obv|rev}}.jpg", "parked": s["housing"].get("text"), "notes": s.get("notes") or "",
          "status": s["lifecycle"]["status"], "continent": cont, "iso": iso, "mint": mint_first(s["issue"].get("mint_text")), "face": face,
          "est": est, "est_raw": est_txt, "conf": conf, "qty_n": s.get("quantity") or 1}
+    for k in ("label", "metal", "refs", "specs", "cat", "mint"):
+        if k in lt: d[k] = lt[k]
+    if lt.get("specs_tail") and "specs" not in lt: d["specs"] = f"{d['specs']} · {lt['specs_tail']}"     # the ledger's free-text remark after thickness/alignment
     asw = t["precious"].get("asw_oz"); agw = t["precious"].get("agw_oz")
     d["is_silver"] = bool(asw); d["is_gold"] = bool(agw)
     n = t["nominal"]; dm = n.get("diameter_mm") if n.get("diameter_mm") is not None else n.get("diameter_max_mm")
