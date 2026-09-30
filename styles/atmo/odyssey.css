@@ -1,3 +1,133 @@
-/* Atmosphere: odyssey. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="odyssey"] { ...every token... }, body background, wordmark, .sw-odyssey swatch,
-   and any component overrides scoped under html[data-atmo="odyssey"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: ODYSSEY  ·  the night watch on the deck of a long voyage.
+   Sensory identity
+   - Light: deep teal sea under a low amber lantern on the horizon; salt-haze cloud bands drift.
+   - Instruments: brass hairlines, a compass rose turning very slowly behind the hero.
+   - Ink: warm parchment cream on ink-blue; accent is lantern amber, never gold-yellow.
+   - Motion: slow and tidal (drift, breathe); nothing snaps.
+   Contract + rules: notes/agents/themes.md.  Owned by Themes agent A.
+   ========================================================================== */
+
+/* 1. Tokens -------------------------------------------------------------- */
+html[data-atmo="odyssey"] {
+  --scheme: dark;
+  color-scheme: dark;
+
+  --bg: #04121a;
+  --bg2: #071a24;
+  --surface: #0a2230;
+  --surface2: #0f2c3d;
+
+  --ink: #f2e8d5;
+  --muted: #9db3b8;
+  --faint: #7f99a3;
+  --cardmeta: #c8d8d4;
+  --ink-soft: #cddbd8;
+
+  --gold: #ffb347;
+  --gold-soft: #ffd9a0;
+  --gold-deep: #8a5a1e;
+  --on-gold: #1a0f00;
+
+  --line: rgba(255, 179, 71, 0.20);
+  --line-strong: rgba(255, 179, 71, 0.45);
+
+  --ok: #7fd6a0;
+  --warn: #ffb347;
+  --bad: #ff7a6b;
+
+  --shadow: inset 0 1px 0 rgba(255, 200, 120, 0.08), 0 18px 55px rgba(0, 8, 14, 0.85);
+  --elev-1: inset 0 1px 0 rgba(255, 200, 120, 0.07), 0 2px 10px rgba(0, 8, 14, 0.55);
+  --elev-2: inset 0 1px 0 rgba(255, 200, 120, 0.09), 0 14px 34px rgba(0, 8, 14, 0.65);
+  --elev-3: inset 0 1px 0 rgba(255, 200, 120, 0.10), 0 30px 80px rgba(0, 6, 10, 0.85);
+  --scrim: rgba(0, 8, 14, 0.66);
+  --focus: #ffd9a0;
+
+  --th-bg: #081820;
+  --tabgrad1: #0f2c3d;
+  --tabgrad2: #04121a;
+  --toastgrad1: #0f2c3d;
+  --toastgrad2: #071a24;
+  --foot-bg: rgba(4, 18, 26, 0.94);
+  --drawerbar-bg: rgba(10, 34, 48, 0.95);
+  --ph-bg: #050f16;
+  --sel-bg: #0d2431;
+  --row-hover: rgba(255, 179, 71, 0.08);
+  --hold-bg: linear-gradient(135deg, #123242, #04121a);
+  --skeleton1: #0f2c3d;
+  --skeleton2: #050f16;
+  --grain-op: 0.06;
+
+  --wing-dur: 0.45s;
+  --wing-rise: 14px;
+}
+
+/* 2. Page: horizon lantern, drifting haze, vignette (background-position drift only) */
+html[data-atmo="odyssey"] body {
+  background-image:
+    radial-gradient(90% 26% at 50% 112%, rgba(255, 150, 60, 0.30), transparent 70%),
+    radial-gradient(35% 14% at 12% 78%, rgba(140, 200, 220, 0.10), transparent 70%),
+    radial-gradient(30% 12% at 78% 70%, rgba(140, 200, 220, 0.08), transparent 70%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(1, 6, 10, 0.6) 100%);
+  animation: ody-voyage 30s ease-in-out infinite alternate;
+}
+html[data-atmo="odyssey"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(255, 170, 80, 0.20), transparent 70%);
+  animation: ody-sunbreathe 10s ease-in-out infinite;
+}
+html[data-atmo="odyssey"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 10%, rgba(255, 179, 71, 0.14), transparent 70%),
+    radial-gradient(40% 60% at 80% 90%, rgba(60, 140, 170, 0.16), transparent 70%);
+}
+html[data-atmo="odyssey"] #dust-layer i { background: radial-gradient(circle, rgba(255, 200, 130, 0.75), transparent 70%); }
+html[data-atmo="odyssey"] .exhibit-lamp { background: #ffcf7a; box-shadow: 0 0 12px #ffcf7a; }
+
+/* 3. Wordmark: lantern-lit cream */
+html[data-atmo="odyssey"] .wordmark {
+  color: #ffe9c9;
+  text-shadow: 0 0 30px rgba(255, 170, 80, 0.45), 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* 4. Picker swatch: the lantern on the horizon, ringed in brass ------------ */
+.sw-odyssey {
+  background: radial-gradient(circle at 50% 118%, #ffb347 0%, #ffb347 14%, #0a2230 62%, #04121a 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 179, 71, 0.55);
+}
+
+/* 5. Components ----------------------------------------------------------- */
+/* brass-rimmed instrument cards */
+html[data-atmo="odyssey"] :is(.card, .tile, .wing-card, .note-card, .album-card, .latest-card) {
+  border-style: solid;
+  border-color: var(--line);
+  box-shadow: var(--elev-1);
+}
+/* section heads: a brass rule that fades toward the horizon */
+html[data-atmo="odyssey"] .sec-head {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, var(--line-strong), rgba(255, 179, 71, 0.04)) 1;
+}
+html[data-atmo="odyssey"] .sec-head h2 { letter-spacing: 0.03em; }
+html[data-atmo="odyssey"] .filter-ag.active { background: #7a4d16; border-color: #ffb347; color: #ffe9c9; }
+/* selected tab: the count chip sits on a solid amber fill */
+html[data-atmo="odyssey"] .tray-tab.active .tray-count { color: var(--on-gold); background: rgba(26, 15, 0, 0.16); }
+
+/* The integrator pins champagne-gold ink on the cased panels; here they use the voyage palette */
+html[data-atmo="odyssey"] :is(#market-ticker-tape, #exhibit, .museum-slab, #vault-live-spot-ticker, #titan-world-atlas-wrap) {
+  --ink: #f2e8d5;
+  --text: #f2e8d5;
+  --muted: #a9bdc1;
+  --gold: #ffb347;
+  --gold-soft: #ffd9a0;
+  color: var(--ink);
+}
+/* legend colours that fall under 4.5:1 on the deep-sea cards */
+html[data-atmo="odyssey"] .atlas-footer-bar strong[style*="#f43f5e"] { color: #ff6b86 !important; }
+
+/* 6. Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="odyssey"] body,
+  html[data-atmo="odyssey"] .hero-glow,
+  html[data-atmo="odyssey"] #odyssey-compass,
+  html[data-atmo="odyssey"] .exhibit-bg { animation: none; }
+}
