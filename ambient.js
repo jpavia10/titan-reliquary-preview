@@ -14,7 +14,23 @@
      Aurora Borealis wave curtains, procedural branching forked lightning,
      refractive sunrays & aquatic caustics.
    - Binaural brainwave entrainment (Alpha 10Hz, Theta 6Hz, Delta 2.5Hz).
-   - Stereo panning drift and sleep fadeout timer. */
+   - Stereo panning drift and sleep fadeout timer.
+
+   v6 (FX & Sound pass) — engine health:
+   - Silent boot: nothing that was on last visit is audible/visible now, and the state
+     says so (volumes, EQ, reverb, master and mute still persist).
+   - The AudioContext is only created after a user gesture; a programmatic
+     applyPreset() before the first gesture is deferred to it.
+   - Tab hidden: the master ramps to silence, timer-driven synth voices are stopped
+     (their setTimeout schedulers are throttled/pile up in background tabs), media loops
+     pause, the context is suspended and the canvas stops. Everything comes back on return.
+   - Recorded loops try CORS + Web Audio first; if the host sends no CORS headers they
+     fall back to a plain <audio> element (no reverb/EQ) instead of going silent; a loop
+     that is really unavailable is switched off with one note in the mixer, not retried
+     for five minutes.
+   - Global mute (shared with audio.js through the "titan:mute" event) persists.
+   - Canvas FX pause under prefers-reduced-motion (live), while the tab is hidden and
+     while the opaque 3D museum modal covers the page. DPR is capped at 1.5 (1.0 on touch). */
 (() => {
   "use strict";
 
@@ -192,7 +208,12 @@
   ];
 
   const KEY = "tr_ambient_v3";
-  const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const MUTE_KEY = "tr_mute_v1";
+  const rmQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  let reducedMotion = !!(rmQuery && rmQuery.matches);   // live: follows the OS setting
+  let muted = false;
+  try { muted = localStorage.getItem(MUTE_KEY) === "1"; } catch { /* ignore */ }
+  const outLevel = () => (muted ? 0 : state.master);
 
   // ---- state ---------------------------------------------------------------
   const state = {
@@ -239,6 +260,12 @@
     }
   } catch { /* fresh */ }
 
+  // Boot is silent by design (autoplay policy, "pill-first" player): whatever was on last
+  // visit is neither audible nor visible now, so the state and the mixer UI must say "off".
+  for (const id of LAYER_IDS) state.layers[id].on = false;
+  for (const k of Object.keys(state.fx)) state.fx[k] = false;
+  state.preset = null;
+
   function writeState() {
     try {
       localStorage.setItem(KEY, JSON.stringify({
@@ -252,7 +279,21 @@
   }
 
   // ---- audio graph ----------------------------------------------------------
-  let ctx = null, masterGain = null, noiseBuf = null, analyser = null;
+  let ctx = null, masterGain = null, noiseBuf = null, analyser = null, fftBuf = null;
+  let hiddenSuspended = false, hideTimer = 0;
+  let deferredPreset = null;
+  let gestureSeen = false;
+  const GESTURES = ["pointerdown", "keydown", "touchend", "click"];
+  function onFirstGesture() {
+    gestureSeen = true;
+    GESTURES.forEach((t) => document.removeEventListener(t, onFirstGesture, true));
+    if (deferredPreset) { const d = deferredPreset; deferredPreset = null; applyPreset(d); }
+  }
+  GESTURES.forEach((t) => document.addEventListener(t, onFirstGesture, { capture: true, passive: true }));
+  function userActive() {
+    try { if (navigator.userActivation) return navigator.userActivation.hasBeenActive; } catch { /* ignore */ }
+    return gestureSeen;
+  }
   let dryBus = null, convolverNode = null, reverbGain = null;
   let masterLimiter = null, eqBass = null, eqMid = null, eqAir = null;
   const nodes = {}; // id -> { gain, pan, el?, synth?, src? }
@@ -291,7 +332,12 @@
   }
 
   function ensureCtx() {
-    if (ctx) { if (ctx.state === "suspended") ctx.resume().catch(() => {}); return true; }
+    if (ctx) {
+      if (hiddenSuspended) { if (!document.hidden) resumeEngine(); }
+      else if (ctx.state === "suspended" || ctx.state === "interrupted") ctx.resume().catch(() => {});
+      return true;
+    }
+    if (!userActive()) return false;   // autoplay policy: never create a context before a gesture
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return false;
     ctx = new AC();
@@ -327,7 +373,7 @@
 
     // 4. Master Output Gain
     masterGain = ctx.createGain();
-    masterGain.gain.value = state.master;
+    masterGain.gain.value = outLevel();
 
     // 5. Algorithmic Acoustic Reverb Convolver
     convolverNode = ctx.createConvolver();
@@ -354,6 +400,7 @@
     analyser = ctx.createAnalyser();
     analyser.fftSize = 64;
     masterGain.connect(analyser);
+    fftBuf = new Uint8Array(analyser.frequencyBinCount);
 
     // shared 2s white-noise buffer for procedural synths
     const len = ctx.sampleRate * 2;
@@ -368,18 +415,19 @@
       if (pan) pan.connect(dryBus);
       nodes[id] = { gain, pan, el: null, synth: null };
     }
-    startPanDrift();
     return true;
   }
 
   // ---- Binaural Beats Generator (Brainwave Entrainment) ----
-  let bbLeftOsc = null, bbRightOsc = null, bbGain = null, activeBinaural = "off";
+  let bbLeftOsc = null, bbRightOsc = null, bbGain = null, bbMerger = null, activeBinaural = "off";
   function setBinaural(type) {
     activeBinaural = type || "off";
     if (bbLeftOsc) {
       try { bbLeftOsc.stop(); bbRightOsc.stop(); } catch (_) {}
       bbLeftOsc = null; bbRightOsc = null;
     }
+    if (bbMerger) { try { bbMerger.disconnect(); } catch (_) {} bbMerger = null; }
+    if (bbGain) { try { bbGain.disconnect(); } catch (_) {} bbGain = null; }
     if (activeBinaural === "off" || !activeBinaural) {
       panel.querySelectorAll(".amb-bb-btn").forEach((b) => b.classList.toggle("active", b.dataset.bb === "off"));
       return;
@@ -390,7 +438,7 @@
     if (type === "alpha") delta = 10;   // 10Hz Focus
     if (type === "theta") delta = 6;    // 6Hz Zen
     if (type === "delta") delta = 2.5;  // 2.5Hz Deep Stillness
-    const merger = ctx.createChannelMerger(2);
+    const merger = bbMerger = ctx.createChannelMerger(2);
     bbGain = ctx.createGain();
     bbGain.gain.value = 0.08;
     bbLeftOsc = ctx.createOscillator();
@@ -409,9 +457,19 @@
   }
 
   // ---- Sleep & Fadeout Timer ----
-  let sleepTimer = null, sleepTarget = 0;
+  let sleepTimer = null, sleepTarget = 0, sleepRestore = 0;
+  // Put master (and the music duck) back after a fade so the NEXT preset is audible again.
+  function restoreLevels() {
+    clearTimeout(sleepRestore); sleepRestore = 0;
+    if (ctx && masterGain) {
+      const t = ctx.currentTime;
+      masterGain.gain.cancelScheduledValues(t);
+      masterGain.gain.setValueAtTime(outLevel(), t);
+    }
+    try { window.TitanLofi?.setDuck(1); } catch { /* player not ready */ }
+  }
   function setSleepTimer(mins) {
-    if (sleepTimer) { clearInterval(sleepTimer); sleepTimer = null; }
+    if (sleepTimer) { clearInterval(sleepTimer); sleepTimer = null; restoreLevels(); }
     const cd = panel.querySelector("#amb-timer-countdown");
     if (!mins || mins <= 0) {
       if (cd) cd.textContent = "";
@@ -423,14 +481,19 @@
     sleepTimer = setInterval(() => {
       const rem = Math.max(0, Math.round((sleepTarget - Date.now()) / 1000));
       if (cd) cd.textContent = `${Math.floor(rem / 60)}:${String(rem % 60).padStart(2, "0")}`;
-      if (rem <= 25 && ctx) {
+      if (rem <= 25) {
         const frac = rem / 25;
-        masterGain.gain.value = state.master * frac;
+        if (ctx && masterGain) masterGain.gain.value = outLevel() * frac;
+        try { window.TitanLofi?.setDuck(frac); } catch { /* player not ready */ }
       }
       if (rem <= 0) {
         clearInterval(sleepTimer);
         sleepTimer = null;
         applyPreset("off");
+        setBinaural("off");
+        try { window.TitanLofi?.pause(); } catch { /* player not ready */ }
+        sleepRestore = setTimeout(restoreLevels, 1600);   // after the 1.2 s layer fades
+        panel.querySelectorAll(".amb-timer-btn").forEach((b) => b.classList.toggle("active", b.dataset.timer === "0"));
         if (cd) cd.textContent = "Fadeout complete";
       }
     }, 1000);
@@ -444,6 +507,7 @@
     if (!ctx) return;
     const n = nodes[id];
     if (!n) return;
+    if (n.direct && n.el) { fadeDirect(id, targetVol, duration); return; }
     const g = n.gain.gain;
     const now = ctx.currentTime;
 
@@ -453,8 +517,10 @@
       delete pendingStopTimers[id];
     }
 
-    g.cancelScheduledValues(now);
+    // Read the live level BEFORE cancelling: cancelling an automation in flight reverts the
+    // param to its pre-automation value, which clicked when presets were switched quickly.
     const curVal = Math.max(0.0001, g.value);
+    g.cancelScheduledValues(now);
     g.setValueAtTime(curVal, now);
 
     const steps = 32;
@@ -521,6 +587,7 @@
     wander();
     driftTimer = setInterval(wander, 9000);
   }
+  function stopPanDrift() { if (driftTimer) { clearInterval(driftTimer); driftTimer = null; } }
 
   // ---- Synthesizer Builders (12 Web Audio Generative Layers) ----
   function lfo(param, rate, depth, base) {
@@ -1082,17 +1149,94 @@
   };
 
   // ---- Layer control ----
+  // Recorded loops. First choice: CORS-mode element routed through Web Audio (gets the reverb,
+  // EQ, limiter and fades). If the host sends no CORS headers that load fails, so retry as a
+  // plain element whose volume we fade ourselves. If that fails too the loop is unavailable:
+  // switch it off, note it once in the mixer, and do not retry for RECORDED_RETRY_MS.
+  const RECORDED_RETRY_MS = 5 * 60 * 1000;
+  const unavailable = new Set();
+  function noteUnavailable() {
+    const el = panel.querySelector("#amb-note");
+    if (!el) return;
+    if (!unavailable.size) { el.hidden = true; el.textContent = ""; return; }
+    const names = [...unavailable].map((id) => RECORDED[id].label).join(", ");
+    el.textContent = `Unavailable right now: ${names} (recorded loops need a connection). The synthesized layers still work.`;
+    el.hidden = false;
+  }
+  function directLevel(v) { return Math.min(1, Math.max(0, v * outLevel())); }
+  function fadeDirect(id, target, dur) {
+    const n = nodes[id], el = n && n.el;
+    if (!el) return;
+    clearInterval(n.fadeT); n.fadeT = 0;
+    const from = el.volume, to = directLevel(target), t0 = performance.now();
+    const done = () => {
+      clearInterval(n.fadeT); n.fadeT = 0;
+      if (to === 0 && !state.layers[id].on) { try { el.pause(); el.currentTime = 0; } catch (_) {} }
+    };
+    if (dur <= 0 || from === to) { el.volume = to; done(); return; }
+    n.fadeT = setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / (dur * 1000));
+      el.volume = from + (to - from) * k;
+      if (k >= 1) done();
+    }, 50);
+  }
+  function syncDirect() {
+    for (const id of Object.keys(RECORDED)) {
+      const n = nodes[id];
+      if (!n || !n.el || !n.direct) continue;
+      n.el.muted = muted;
+      if (state.layers[id].on && !n.fadeT) n.el.volume = directLevel(eff(id));
+    }
+  }
+  function attachRecorded(id, viaGraph) {
+    const n = nodes[id];
+    const el = new Audio();
+    el.loop = true; el.preload = "auto";
+    if (viaGraph) el.crossOrigin = "anonymous";
+    el.src = RECORDED[id].url;
+    if (viaGraph) {
+      try { n.mes = ctx.createMediaElementSource(el); n.mes.connect(n.gain); }
+      catch (_) { return attachRecorded(id, false); }
+    } else {
+      el.volume = 0; el.muted = muted;
+    }
+    n.el = el; n.direct = !viaGraph;
+    el.addEventListener("error", () => onRecordedError(id, el));
+  }
+  function playRecorded(id) {
+    const el = nodes[id].el;
+    if (!el) return;
+    const p = el.play();
+    if (p && p.catch) p.catch((e) => { if (e && e.name === "NotAllowedError") setOn(id, false); });
+  }
+  function onRecordedError(id, el) {
+    const n = nodes[id];
+    if (!n || n.el !== el || !el.getAttribute("src")) return;
+    const code = el.error && el.error.code;
+    if (code === 1) return; // aborted by us
+    el.removeAttribute("src"); try { el.load(); } catch (_) {}
+    if (n.mes) { try { n.mes.disconnect(); } catch (_) {} n.mes = null; }
+    clearInterval(n.fadeT); n.fadeT = 0;
+    n.el = null;
+    if (!n.direct) {                       // CORS-mode failed: retry once as a plain element
+      attachRecorded(id, false);
+      if (state.layers[id].on) { playRecorded(id); fadeDirect(id, eff(id), 0.9); }
+      return;
+    }
+    n.direct = false;                      // really unavailable
+    n.failedAt = Date.now();
+    unavailable.add(id);
+    if (state.layers[id].on) { state.layers[id].on = false; writeState(); syncUi(); }
+    noteUnavailable();
+  }
+  // Returns false when the loop cannot be started (recently failed).
   function startRecorded(id) {
     const n = nodes[id];
-    if (!n.el) {
-      const el = new Audio();
-      el.loop = true; el.preload = "auto"; el.crossOrigin = "anonymous";
-      el.src = RECORDED[id].url;
-      const src = ctx.createMediaElementSource(el);
-      src.connect(n.gain);
-      n.el = el;
-    }
-    n.el.play().catch(() => { setOn(id, false); });
+    if (n.failedAt && Date.now() - n.failedAt < RECORDED_RETRY_MS) return false;
+    if (n.failedAt) { n.failedAt = 0; unavailable.delete(id); noteUnavailable(); }
+    if (!n.el) attachRecorded(id, true);
+    playRecorded(id);
+    return true;
   }
 
   function setOn(id, on) {
@@ -1101,8 +1245,9 @@
     if (on && !ensureCtx()) { state.layers[id].on = false; syncUi(); return; }
     const n = nodes[id];
     if (on) {
-      if (RECORDED[id]) startRecorded(id);
-      else if (!n.synth) n.synth = synthBuilders[id](n);
+      if (RECORDED[id]) {
+        if (!startRecorded(id)) { state.layers[id].on = false; noteUnavailable(); syncUi(); return; }
+      } else if (!n.synth && !hiddenSuspended) n.synth = synthBuilders[id](n);
       crossfadeLayer(id, eff(id), 0.9);
     } else {
       crossfadeLayer(id, 0, 0.9);
@@ -1141,6 +1286,7 @@
   function applyPreset(name) {
     if (!PRESETS[name]) return;
     if (name === "off") {
+      deferredPreset = null;
       for (const id of LAYER_IDS) {
         if (state.layers[id].on) {
           state.layers[id].on = false;
@@ -1152,6 +1298,9 @@
       checkCanvasState();
       return;
     }
+    if (!userActive()) { deferredPreset = name; return; }   // wait for the first gesture
+    deferredPreset = null;
+    if (state.preset === name && ctx && LAYER_IDS.some((id) => state.layers[id].on)) return;   // already playing it
     if (!ensureCtx()) return;
     const p = PRESETS[name];
 
@@ -1171,8 +1320,9 @@
       state.layers[id].on = true;
       const n = nodes[id];
       if (wasOff) {
-        if (RECORDED[id]) startRecorded(id);
-        else if (!n.synth) n.synth = synthBuilders[id](n);
+        if (RECORDED[id]) {
+          if (!startRecorded(id)) { state.layers[id].on = false; continue; }   // unavailable: skip it
+        } else if (!n.synth && !hiddenSuspended) n.synth = synthBuilders[id](n);
       }
       crossfadeLayer(id, eff(id), FADE_DUR);
     }
@@ -1185,6 +1335,7 @@
     state.preset = name;
     markPreset(name); writeState(); syncUi();
     checkCanvasState();
+    if (!state.fx.lightning && !state.layers.thunder.on) clearTimeout(boltTimer);
   }
 
   // ---- Atmospheric Multi-Layer Canvas Engine ----
@@ -1344,8 +1495,7 @@
 
     // Real-time Audio Reactivity FFT Energy
     let audioEnergy = 0;
-    if (analyser && state.preset !== "off") {
-      const fftBuf = new Uint8Array(analyser.frequencyBinCount);
+    if (analyser && fftBuf && state.preset !== "off") {
       analyser.getByteFrequencyData(fftBuf);
       let sum = 0;
       for (let i = 0; i < fftBuf.length; i++) sum += fftBuf[i];
@@ -1739,31 +1889,126 @@
     raf = requestAnimationFrame(renderVisuals);
   }
 
+  // The opaque 3D museum modal covers the whole page: nothing behind it is visible.
+  const spatialModal = document.getElementById("spatial-museum-modal");
+  const isOccluded = () => !!(spatialModal && !spatialModal.hidden);
+  if (spatialModal && window.MutationObserver) {
+    new MutationObserver(() => checkCanvasState()).observe(spatialModal, { attributes: true, attributeFilter: ["hidden"] });
+  }
+
+  let resizeT = 0;
+  function onResize() {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(() => { sizeCanvas(); initParticles(); }, 120);   // fit columns/streams to the new size
+  }
   function checkCanvasState() {
     const anyFx = Object.values(state.fx).some(Boolean);
-    if (anyFx && !reducedMotion) {
-      sizeCanvas();
+    if (anyFx && !reducedMotion && !document.hidden && !isOccluded()) {
+      if (canvas.hidden) {
+        sizeCanvas();
+        t0 = performance.now();
+        canvas.hidden = false;
+        window.addEventListener("resize", onResize);
+        window.addEventListener("orientationchange", onResize);
+      }
       if (!drops.length) initParticles();
-      t0 = performance.now();
-      canvas.hidden = false;
       if (raf == null) raf = requestAnimationFrame(renderVisuals);
-      window.addEventListener("resize", sizeCanvas);
-      window.addEventListener("orientationchange", sizeCanvas);
     } else {
       if (raf != null) { cancelAnimationFrame(raf); raf = null; }
-      window.removeEventListener("resize", sizeCanvas);
-      window.removeEventListener("orientationchange", sizeCanvas);
-      canvas.hidden = true;
-      if (ctx2d) ctx2d.clearRect(0, 0, canvas.width, canvas.height);
+      clearTimeout(resizeT); resizeT = 0;
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("orientationchange", onResize);
+      if (!canvas.hidden) {
+        canvas.hidden = true;
+        if (ctx2d) ctx2d.clearRect(0, 0, canvas.width, canvas.height);
+      }
     }
+  }
+
+  // ---- Engine suspend / resume (tab hidden) -------------------------------------
+  function stopSynths() {
+    for (const id of Object.keys(SYNTH)) {
+      const n = nodes[id];
+      if (n && n.synth) { try { n.synth.stop(); } catch (_) {} n.synth = null; }
+    }
+  }
+  function rebuildSynths() {
+    for (const id of Object.keys(SYNTH)) {
+      const n = nodes[id];
+      if (n && state.layers[id].on && !n.synth) n.synth = synthBuilders[id](n);
+    }
+  }
+  function eachRecorded(fn) {
+    for (const id of Object.keys(RECORDED)) { const n = nodes[id]; if (n && n.el) fn(id, n); }
+  }
+  function suspendEngine() {
+    if (!ctx || hiddenSuspended || ctx.state !== "running") return;
+    hiddenSuspended = true;
+    const t = ctx.currentTime;
+    masterGain.gain.cancelScheduledValues(t);
+    masterGain.gain.setValueAtTime(masterGain.gain.value, t);
+    masterGain.gain.linearRampToValueAtTime(0, t + 0.12);
+    hideTimer = setTimeout(() => {
+      hideTimer = 0;
+      if (!hiddenSuspended || !ctx) return;
+      stopSynths();                                   // their setTimeout schedulers would be throttled and pile up
+      eachRecorded((id, n) => { try { n.el.pause(); } catch (_) {} });
+      stopPanDrift();
+      ctx.suspend().catch(() => {});
+    }, 160);
+  }
+  function resumeEngine() {
+    if (!hiddenSuspended) return;
+    hiddenSuspended = false;
+    clearTimeout(hideTimer); hideTimer = 0;
+    if (!ctx) return;
+    ctx.resume().catch(() => {});
+    rebuildSynths();
+    eachRecorded((id, n) => { if (state.layers[id].on) playRecorded(id); });
+    if (LAYER_IDS.some((id) => state.layers[id].on)) startPanDrift();
+    const t = ctx.currentTime;
+    masterGain.gain.cancelScheduledValues(t);
+    masterGain.gain.setValueAtTime(masterGain.gain.value, t);
+    masterGain.gain.linearRampToValueAtTime(outLevel(), t + 0.35);
   }
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
-      if (raf != null) { cancelAnimationFrame(raf); raf = null; }
+      lightningBolt = null;
+      clearTimeout(boltTimer);
+      checkCanvasState();       // stops the rAF loop and hides the canvas
+      suspendEngine();
     } else {
+      resumeEngine();
       checkCanvasState();
+      if (state.fx.lightning || (state.layers.thunder && state.layers.thunder.on)) scheduleBolt();
     }
+  });
+  if (rmQuery) {
+    const onRm = () => { reducedMotion = rmQuery.matches; checkCanvasState(); updateFireFx(); if (reducedMotion) { clearTimeout(boltTimer); lightningBolt = null; } else scheduleBolt(); };
+    if (rmQuery.addEventListener) rmQuery.addEventListener("change", onRm);
+    else if (rmQuery.addListener) rmQuery.addListener(onRm);
+  }
+
+  // ---- Global mute (shared with audio.js) -----------------------------------------
+  function applyMute() {
+    if (ctx && masterGain && !hiddenSuspended) {
+      const t = ctx.currentTime;
+      masterGain.gain.cancelScheduledValues(t);
+      masterGain.gain.setValueAtTime(masterGain.gain.value, t);
+      masterGain.gain.linearRampToValueAtTime(outLevel(), t + 0.15);
+    }
+    syncDirect();
+  }
+  function setMuted(m) {
+    muted = !!m;
+    try { localStorage.setItem(MUTE_KEY, muted ? "1" : "0"); } catch { /* ignore */ }
+    applyMute();
+    window.dispatchEvent(new CustomEvent("titan:mute", { detail: { muted } }));
+  }
+  window.addEventListener("titan:mute", (e) => {
+    const m = !!(e.detail && e.detail.muted);
+    if (m !== muted) { muted = m; applyMute(); }
   });
 
   // ---- Lightning Flash Screen Bloom ----
@@ -1786,8 +2031,10 @@
 
   function scheduleBolt() {
     clearTimeout(boltTimer);
-    if ((!state.layers.thunder.on && !state.fx.lightning) || reducedMotion) return;
+    if ((!state.layers.thunder.on && !state.fx.lightning) || reducedMotion || document.hidden) return;
     boltTimer = setTimeout(() => {
+      // re-check: the preset may have changed (or the tab been hidden) since this was scheduled
+      if ((!state.layers.thunder.on && !state.fx.lightning) || reducedMotion || document.hidden) return;
       triggerForkedLightning();
       if (Math.random() < 0.35) setTimeout(triggerForkedLightning, 650 + Math.random() * 800);
       scheduleBolt();
@@ -1860,6 +2107,8 @@
       ${PRESET_ORDER.map((p) => `<button type="button" class="amb-preset" data-preset="${p}"><span>${PRESETS[p].name}</span></button>`).join("")}
     </div>
     <div class="amb-preset-desc" id="amb-preset-desc">Layers fade in smoothly and drift across the stereo field. Tap any theme preset to instantly activate its matching soundscape and atmospheric visual phenomenon.</div>
+
+    <div class="amb-preset-desc" id="amb-note" role="status" hidden></div>
 
     <div class="amb-secname">Atmospheric Visual FX</div>
     <div class="amb-fx-bar">
@@ -1964,6 +2213,7 @@
     syncVolUi();
     syncFxUi();
     syncReverbUi();
+    if (ctx && !hiddenSuspended) { if (LAYER_IDS.some((id) => state.layers[id].on)) startPanDrift(); else stopPanDrift(); }
     if (btn) btn.setAttribute("aria-pressed", String(LAYER_IDS.some((id) => state.layers[id].on) || Object.values(state.fx).some(Boolean)));
     markPreset(state.preset);
     updateFireFx();
@@ -2040,8 +2290,9 @@
       const t = ctx.currentTime;
       masterGain.gain.cancelScheduledValues(t);
       masterGain.gain.setValueAtTime(masterGain.gain.value, t);
-      masterGain.gain.linearRampToValueAtTime(state.master, t + 0.3);
+      masterGain.gain.linearRampToValueAtTime(outLevel(), t + 0.3);
     }
+    syncDirect();
     writeState();
   });
 
@@ -2076,7 +2327,7 @@
       const cv = panel.querySelector("#amb-fft-canvas");
       if (cv) {
         const g = cv.getContext("2d");
-        const data = new Uint8Array(analyser.frequencyBinCount);
+        const data = fftBuf || (fftBuf = new Uint8Array(analyser.frequencyBinCount));
         analyser.getByteFrequencyData(data);
         g.clearRect(0, 0, cv.width, cv.height);
         const bars = 16;
@@ -2124,16 +2375,15 @@
     closeMixer,
     applyPreset,
     toggleFx: setFx,
-    setMaster: (v) => { state.master = v; if (masterGain) masterGain.gain.value = v; writeState(); },
+    setMaster: (v) => { state.master = Math.min(1, Math.max(0, v)); if (masterGain) masterGain.gain.value = outLevel(); syncDirect(); writeState(); },
+    setMuted,
+    isMuted: () => muted,
     setVol,
     setOn,
     isActive: () => LAYER_IDS.some((id) => state.layers[id].on) || Object.values(state.fx).some(Boolean),
     presets: () => PRESET_ORDER.map((k) => ({ key: k, name: PRESETS[k].name, desc: PRESETS[k].desc }))
   };
 
-  // Auto-init on boot if user had active preset
-  if (state.preset && PRESETS[state.preset] && state.preset !== "off") {
-    // Keep dormant until user interacts to comply with autoplay policy
-    markPreset(state.preset);
-  }
+  // Boot is silent: the mixer opens showing everything off (see "Silent boot" above).
+  markPreset(null);
 })();

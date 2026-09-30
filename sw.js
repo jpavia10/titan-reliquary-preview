@@ -34,6 +34,7 @@ const WING_URLS = [
   "styles/atmo/valhalla.css?v=" + BUILD,
   "styles/atmo/xeno.css?v=" + BUILD,
   "styles/atmo/zen.css?v=" + BUILD,
+  "styles/fx.css?v=" + BUILD,
   "styles/gallery.css?v=" + BUILD,
   "styles/hall.css?v=" + BUILD,
   "styles/lab.css?v=" + BUILD,
