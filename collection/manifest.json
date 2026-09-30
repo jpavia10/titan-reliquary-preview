@@ -43,17 +43,17 @@
    "total": 0.1322
   }
  },
- "content_hash": "48a9605517aa86e7049b9f29483554f0fa55573429b65f19d528e9a7791a544c",
+ "content_hash": "97941856d1dcd5d49fd3543079bb0af3c13b6bc80eb674a4a7c28de64c94069c",
  "files": [
   {
    "path": "CURATION_OPEN.md",
-   "sha256": "9574c8ab2b499ca12b935f95ae9683fe0b1ad8ebd33caf9d6c32fb6c1a095d6a",
-   "bytes": 8751
+   "sha256": "09f32993de179f18ee63fef3808a645c0ca35412aeee81e83c830718df27ba48",
+   "bytes": 9584
   },
   {
    "path": "README.md",
-   "sha256": "605071233f18b50180cba47e0a61a5532b2388cc4454200a330f3c945d990c7c",
-   "bytes": 9068
+   "sha256": "ee2d81b3bb0f0a07c5933c64299618739d28a109ed75279a07332d3f7bbcac59",
+   "bytes": 10727
   },
   {
    "path": "SER_REASSIGN_PLAN.md",
@@ -64,6 +64,11 @@
    "path": "albums.json",
    "sha256": "3ed87f3be39e46893db4d6bc6d102eb72618e9ee1d19cfaa6486204714229877",
    "bytes": 244143
+  },
+  {
+   "path": "board.json",
+   "sha256": "c8e8ece23cd74246f35c3290bf6f583a8d283f06f8bbf8d8e77e16c01e2a9515",
+   "bytes": 41019
   },
   {
    "path": "boot.json",
@@ -314,6 +319,21 @@
    "path": "specimens/YU.json",
    "sha256": "afa4ea5598a6e5067f8261a03657a7db31ab0d50d97847a31dd2a6386eed2774",
    "bytes": 3218
+  },
+  {
+   "path": "templates/INSTRUCTIONS.md",
+   "sha256": "36c5ecfbcbb577bb18e65dd0fa3c07a69f08a50b95a411336921b64ad1da7712",
+   "bytes": 4111
+  },
+  {
+   "path": "templates/phase1_template.jsonl",
+   "sha256": "e50157197f1623e8bbff642849a2a014cd5efdcc24f5458d3eea7b38b7d0b535",
+   "bytes": 1199
+  },
+  {
+   "path": "templates/phase2_template.jsonl",
+   "sha256": "5fdd74832dacf2acdddbe97f0106de198b76a165594d326e2b6e239de925b7f0",
+   "bytes": 2061
   },
   {
    "path": "types/AU.json",

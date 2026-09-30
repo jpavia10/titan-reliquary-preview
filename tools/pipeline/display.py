@@ -129,7 +129,14 @@ def photo_stem(s, t):
 
 STEM_DENOM = {"HalfFranc": "HalfFr", "HalfFrancs": "HalfFr", "1Franc": "1Fr", "2Francs": "2Fr", "5Francs": "5Fr", "5Rappen": "5Rp", "10Rappen": "10Rp", "20Rappen": "20Rp"}
 
-def year_line(s):
+def type_issue(t, s):
+    """The Type's own record of this year/mint (the master), falling back to the specimen's copy."""
+    marks = s["issue"].get("mint_marks") or []
+    for i in t["issues"]:
+        if i["year"] == s["issue"].get("year") and (i.get("mint_marks") or []) == marks and i.get("qualifier") == s["issue"].get("qualifier"): return i
+    return s["issue"]
+
+def year_line(s, t=None):
     i = s["issue"]; yr = s["year_raw"]
     mt = i.get("mint_text")
     return f"{yr} · Mint: {mt}" if mt else yr
@@ -142,6 +149,10 @@ def label(col, s, t):
     if len(mm) == 1 and t["country"] in ("DE", "IT", "CH") and yr.isdigit() and int(yr) >= 1982 and (t["nominal"].get("edge") is not None or True):
         pass
     return f"{ctry} · {yr} · {den}"
+
+def mintage_txt(i):
+    if i.get("mintage_text"): return i["mintage_text"]
+    return f"{i['mintage']:,}" if i.get("mintage") else "unknown"
 
 def specimen_detail(col, s, t):
     iss = issuer_name(col, t); cont = continent_of(col, t); iso = t["country"]
@@ -156,8 +167,8 @@ def specimen_detail(col, s, t):
     d = {"kind": "token" if tok else "flip", "scan": s["id"], "ser": ser, "country": iss, "year": s["year_raw"], "denom": dl,
          "scan_note": f"{s['id']} (temporary · renumber after reorg)", "added": s["acquisition"]["logged_at"],
          "cat": "token / exonumia (not legal tender)" if tok else "coin",
-         "continent_line": f"{cont} · Country: {iss} · ISO: {iso}", "year_line": year_line(s), "denom_line": dl,
-         "refs": refs_text(t), "metal": metal_text(t, s), "specs": specs_text(t), "mintage": s["issue"].get("mintage_text") or "unknown",
+         "continent_line": f"{cont} · Country: {iss} · ISO: {iso}", "year_line": year_line(s, t), "denom_line": dl,
+         "refs": refs_text(t), "metal": metal_text(t, s), "specs": specs_text(t), "mintage": mintage_txt(s["issue"]),
          "design": t["design"]["text"], "tender": t["legal_tender"].get("text") or "", "qty": str(s.get("quantity") or 1),
          "face_line": f"{face} · Est: ${est_txt} · Conf: {conf}", "label": label(col, s, t),
          "photo": f"pending pro rescan · target {stem}_{{obv|rev}}.jpg", "parked": s["housing"].get("text"), "notes": s.get("notes") or "",

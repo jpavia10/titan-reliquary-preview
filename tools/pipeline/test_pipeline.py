@@ -1,0 +1,174 @@
+#!/usr/bin/env python3
+"""End-to-end tests for the contribution pipeline (python3 tools/pipeline/test_pipeline.py). Needs jsonschema. Works on temp copies only.
+
+  - the collection writer round-trips byte for byte
+  - parity: building from collection/ reproduces the golden data/ (test_parity.py)
+  - the two templates apply (Phase 1 creates a coin, Phase 2 edits it), publish rebuilds data/, the new coin is in index.json and the edit shows
+  - re-applying is a no-op; every kind of bad contribution is rejected and changes nothing
+  - publish refuses to publish a collection that does not validate
+"""
+import warnings; warnings.simplefilter("ignore")
+import pathlib, glob, hashlib, json, os, shutil, subprocess, sys, tempfile, unittest
+
+HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
+sys.path.insert(0, HERE)
+import collection_io as C
+
+PY = sys.executable
+T1 = os.path.join(ROOT, "collection", "templates", "phase1_template.jsonl")
+T2 = os.path.join(ROOT, "collection", "templates", "phase2_template.jsonl")
+
+def tree_hash(d):
+    h = hashlib.sha256()
+    for root, dirs, files in os.walk(d):
+        dirs.sort()
+        for f in sorted(files):
+            p = os.path.join(root, f); h.update(os.path.relpath(p, d).encode()); h.update(pathlib.Path(p).read_bytes())
+    return h.hexdigest()
+
+def run(*args, **kw):
+    return subprocess.run([PY, *args], capture_output=True, text=True, cwd=ROOT, **kw)
+
+def sandbox():
+    tmp = tempfile.mkdtemp(prefix="pipe-test-")
+    shutil.copytree(os.path.join(ROOT, "collection"), os.path.join(tmp, "collection"), ignore=shutil.ignore_patterns("_incoming"))
+    shutil.copytree(os.path.join(ROOT, "data"), os.path.join(tmp, "data"))
+    shutil.copyfile(os.path.join(ROOT, "version.json"), os.path.join(tmp, "version.json"))
+    return tmp
+
+def write_events(tmp, name, events):
+    p = os.path.join(tmp, name)
+    with open(p, "w", encoding="utf-8") as f:
+        for e in events: f.write(json.dumps(e, ensure_ascii=False) + "\n")
+    return p
+
+def ev(**kw):
+    e = {"ts": "2026-10-03T10:00:00Z", "by": "model:test", "source": "test fixture", "verified": False}
+    e.update(kw); return e
+
+class Pipeline(unittest.TestCase):
+    def apply(self, tmp, *files):
+        return run(os.path.join(HERE, "apply_changes.py"), "--collection", os.path.join(tmp, "collection"), *files)
+
+    def publish(self, tmp, *extra):
+        return run(os.path.join(HERE, "publish.py"), "--collection", os.path.join(tmp, "collection"), "--out", os.path.join(tmp, "data"),
+                   "--version", os.path.join(tmp, "version.json"), "--now", "2026-10-09T12:00:00Z", *extra)
+
+    def test_roundtrip_is_byte_identical(self):
+        tmp = sandbox(); before = tree_hash(os.path.join(tmp, "collection"))
+        C.Collection(os.path.join(tmp, "collection")).save()
+        self.assertEqual(before, tree_hash(os.path.join(tmp, "collection")))
+
+    def test_parity_with_golden(self):
+        r = run(os.path.join(HERE, "test_parity.py"))
+        self.assertEqual(r.returncode, 0, r.stdout[-2500:])
+        self.assertIn("UNEXPLAINED 0", r.stdout)
+
+    def test_templates_end_to_end(self):
+        tmp = sandbox()
+        r = self.apply(tmp, T1, T2)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertIn("APPLIED phase1_template.jsonl", r.stdout); self.assertIn("APPLIED phase2_template.jsonl", r.stdout)
+        p = self.publish(tmp)
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        idx = json.load(open(os.path.join(tmp, "data", "index.json"), encoding="utf-8"))
+        row = next(f for f in idx["flips"] if f["scan"] == "C272")                      # the new coin is in the index
+        self.assertEqual((row["country"], row["year"], row["status"], row["kind"]), ("Canada", "1978", "Logged", "flip"))
+        self.assertEqual(len(idx["flips"]), 274); self.assertEqual(idx["counts"]["flips"], 274)
+        self.assertEqual(row["est"], 0.15)                                               # Phase 2 changed the estimate 0.10 -> 0.15
+        det = json.load(open(os.path.join(tmp, "data", "detail", "CA.json"), encoding="utf-8"))["C272"]
+        self.assertIn("900,000,000", det["mintage"])                                     # Phase 2 mintage reached the detail view
+        self.assertIn("2.80 g", det["metal"]); self.assertIn("19.05 mm", det["metal"])   # Phase 2 nominal weight + diameter
+        self.assertEqual(det["refs"], "KM#59.2")                                         # Phase 2 catalog number
+        self.assertAlmostEqual(idx["board"]["flips"]["usd"], 183.82 + 0.15, 2)           # the board moves by exactly the new coin's value
+        self.assertEqual(idx["board"]["flips"]["cards"], 268)
+        self.assertAlmostEqual(idx["board"]["grand"], 5393.70 + 0.15, 2)
+        self.assertEqual(idx["board"]["silver"]["oz"], 63.27); self.assertEqual(idx["board"]["gold"]["oz"], 0.1322)   # board metals stay authoritative
+        self.assertTrue(json.load(open(os.path.join(tmp, "data", "search.json")))["C272"])
+        ver = json.load(open(os.path.join(tmp, "version.json")))
+        self.assertTrue(ver["ledger_version"].startswith("v2:")); self.assertEqual(ver["generated_at"], "2026-10-09T12:00:00Z"); self.assertEqual(ver["newest_flip"], "C272")
+        log = [json.loads(ln) for ln in open(os.path.join(tmp, "collection", "changes.jsonl"), encoding="utf-8") if ln.strip()]
+        self.assertTrue(any(e["id"] == "C272" and e["field"] == "value.est_usd" and e["old"] == 0.1 and e["new"] == 0.15 and e["verified"] is False for e in log))
+        # the validator is happy with the result
+        v = run(os.path.join(ROOT, "tools", "schema", "validate.py"), os.path.join(tmp, "collection"))
+        self.assertEqual(v.returncode, 0, v.stdout)
+
+    def test_reapply_is_a_noop(self):
+        tmp = sandbox(); self.apply(tmp, T1, T2)
+        h = tree_hash(os.path.join(tmp, "collection"))
+        r = self.apply(tmp, T1, T2)
+        self.assertEqual(r.returncode, 0); self.assertIn("nothing to do", r.stdout)
+        self.assertEqual(h, tree_hash(os.path.join(tmp, "collection")))
+
+    def test_incoming_drop_zone(self):
+        tmp = sandbox(); inc = os.path.join(tmp, "collection", "_incoming"); os.makedirs(inc)
+        shutil.copyfile(T1, os.path.join(inc, "changes_claude_20261002-1830.jsonl"))
+        r = self.publish(tmp)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertTrue(os.path.exists(os.path.join(inc, "applied", "changes_claude_20261002-1830.jsonl")))
+        self.assertIn("C272", open(os.path.join(tmp, "data", "search.json"), encoding="utf-8").read())
+
+    def reject(self, events, expect, setup=None):
+        tmp = sandbox()
+        if setup: setup(tmp)
+        before = tree_hash(os.path.join(tmp, "collection"))
+        f = write_events(tmp, "changes_bad.jsonl", events)
+        r = self.apply(tmp, f)
+        self.assertEqual(r.returncode, 1, r.stdout)
+        self.assertIn("REJECTED", r.stdout); self.assertIn(expect, r.stdout)
+        self.assertEqual(before, tree_hash(os.path.join(tmp, "collection")), "a rejected file must change nothing")
+
+    def test_rejections(self):
+        self.reject([ev(entity="specimen", id="C001", field="condition.grade", new="MS-70", verified=True)], "only the owner")
+        self.reject([ev(entity="specimen", id="C001", field="condition.nope.deeper", new=1)], "no field")
+        self.reject([ev(entity="specimen", id="C999", field="notes", new="x")], "does not exist")
+        self.reject([ev(entity="specimen", id="C001", field="id", new="C002")], "permanent")
+        self.reject([ev(entity="specimen", id="C001", field="ser", new="EU-CH-099")], "reassignment")
+        self.reject([ev(entity="specimen", id="C001", field="story", new="lovely")], "owner's own words")
+        self.reject([ev(entity="specimen", id="C001", field="notes", new="x", old="not the current value")], "stale edit")
+        self.reject([ev(entity="specimen", id="C001", field="notes", new="x", source=None)], "real 'source'")
+        self.reject([ev(entity="specimen", id="C001", field="condition.cleaned", new="maybe")], "validation")          # schema violation
+        self.reject([ev(entity="specimen", id="C001", field="bogus_key", new=1)], "validation")                         # unknown leaf: the schema rejects it
+        self.reject([{"ts": "2026-10-03T10:00:00Z", "by": "model:t", "entity": "specimen", "id": "C001", "field": "notes", "new": "x", "source": "s", "surprise": 1}], "unknown key")
+        self.reject([ev(entity="specimen", id="C301", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "counter")      # next is C272
+        self.reject([ev(entity="specimen", id="C297", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "retired")
+        self.reject([ev(entity="specimen", id="NEW-1", op="create", field="(new record)", new={"type": "XX.KM.1", "year_raw": "1969"})], "does not exist")
+        self.reject([ev(entity="type", id="C001", op="create", field="(new record)", new={})], "type id")
+        self.reject([ev(entity="album", id="A099", op="create", field="(new record)", new={})], "albums are created")
+        self.reject([ev(entity="specimen", id="C001", op="create", field="(new record)", new={})], "already exists")
+
+    def test_verified_fields_are_protected(self):
+        tmp = sandbox(); cdir = os.path.join(tmp, "collection")
+        owner = ev(ts="2026-10-03T09:00:00Z", by="owner", entity="specimen", id="C001", field="condition.grade", new="AU-55", verified=True, source="owner checked the coin")
+        self.assertEqual(self.apply(tmp, write_events(tmp, "changes_owner.jsonl", [owner])).returncode, 0)
+        h = tree_hash(cdir)
+        r = self.apply(tmp, write_events(tmp, "changes_ai.jsonl", [ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition.grade", new="VF-20")]))
+        self.assertEqual(r.returncode, 1); self.assertIn("VERIFIED by owner", r.stdout); self.assertEqual(h, tree_hash(cdir))
+        bad = ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition", new={"text": "x", "grade": "F", "grader": None, "cert": None, "strike": None, "luster": None, "toning": None, "cleaned": None, "damage": []})
+        self.assertEqual(self.apply(tmp, write_events(tmp, "changes_ai2.jsonl", [bad])).returncode, 1)              # a parent edit cannot sneak past it either
+        ok = ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition.grade", new="VF-20", supersedes="2026-10-03T09:00:00Z", source="re-graded from pro photo")
+        r = self.apply(tmp, write_events(tmp, "changes_ai3.jsonl", [ok]))
+        self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("SUPERSEDED", r.stdout)
+
+    def test_placeholder_ids_and_two_coins_in_one_file(self):
+        tmp = sandbox()
+        spec = lambda n: ev(entity="specimen", id=f"NEW-{n}", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969", "issue": {"year": 1969, "mint_marks": ["B"]}, "notes": f"coin {n}"})
+        r = self.apply(tmp, write_events(tmp, "changes_two.jsonl", [spec(1), ev(ts="2026-10-03T10:00:01Z", entity="specimen", id="NEW-2", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969", "issue": {"year": 1969, "mint_marks": ["B"]}, "notes": "coin 2"}),
+                                                                ev(ts="2026-10-03T10:00:02Z", entity="specimen", id="NEW-2", field="notes", new="coin 2 edited")]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+        specs = C.Collection(os.path.join(tmp, "collection")).specs
+        self.assertEqual(specs["C272"]["notes"], "coin 1"); self.assertEqual(specs["C273"]["notes"], "coin 2 edited")
+        self.assertEqual(self.apply(tmp, os.path.join(tmp, "changes_two.jsonl")).returncode, 0)                      # idempotent even with placeholders
+        self.assertEqual(len(C.Collection(os.path.join(tmp, "collection")).specs), 275)
+
+    def test_publish_refuses_a_broken_collection(self):
+        tmp = sandbox()
+        p = os.path.join(tmp, "collection", "specimens", "CH.json"); s = open(p, encoding="utf-8").read()
+        open(p, "w", encoding="utf-8").write(s.replace('"type":"CH.KM.24a.1"', '"type":"CH.KM.NOPE"', 1))              # dangling type reference
+        data_before = tree_hash(os.path.join(tmp, "data")); ver_before = open(os.path.join(tmp, "version.json")).read()
+        r = self.publish(tmp)
+        self.assertEqual(r.returncode, 1); self.assertIn("PUBLISH REFUSED", r.stderr)
+        self.assertEqual(data_before, tree_hash(os.path.join(tmp, "data"))); self.assertEqual(ver_before, open(os.path.join(tmp, "version.json")).read())
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2, warnings="ignore")
