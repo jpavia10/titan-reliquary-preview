@@ -348,6 +348,13 @@
     location.replace(url.pathname + url.search + (url.hash || location.hash || ""));
   }
 
+  /** True when `remote` is a later publish than `current` (more than 2 minutes newer). */
+  function isNewerPublish(remote, current) {
+    const r = Date.parse(remote), c = Date.parse(current);
+    if (Number.isFinite(r) && Number.isFinite(c)) return r - c > 120000;
+    return remote !== current; // unparseable stamps: fall back to the old behaviour
+  }
+
   async function checkWebVersion() {
     if (webCheckInFlight) return;
     webCheckInFlight = true;
@@ -359,7 +366,9 @@
       applyDrip(ver);
       const current = vault && (vault.generated_at || vault.generated_at_pt || "");
       const remote = ver.generated_at || ver.generated_at_pt || "";
-      if (remote && current && remote !== current) bustReload();
+      // The pipeline stamps version.json a second or two after data/index.json in the SAME publish,
+      // so an exact string compare reloaded the page on every poll. Reload only for a genuinely newer publish.
+      if (remote && current && isNewerPublish(remote, current)) bustReload();
     } catch (_e) {
       lastCheckAt = Date.now();
     } finally {
