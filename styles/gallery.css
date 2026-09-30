@@ -1,0 +1,193 @@
+/* Titan Reliquary · Gallery wing styles (Finder, wall, empty states, palette v2, dossier v2).
+   Loaded after styles.css and the atmosphere files. Colours come from theme tokens only (--ink, --muted,
+   --surface, --surface2, --gold, --on-gold, --line, --focus); nothing here sets a dark background
+   without also setting its own text colour. Notes: notes/agents/gallery.md */
+
+.gf-root [hidden] { display: none !important; }
+.gf-sr {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ───────────── quick views (the old cabinet trays) ───────────── */
+.gf-presets {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin: 0 0 1.1rem;
+}
+.gf-preset {
+  appearance: none; cursor: pointer; font: inherit; text-align: left;
+  display: inline-flex; align-items: baseline; gap: 0.55rem;
+  min-height: 44px; padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--surface2); color: var(--ink);
+  border: 1px solid var(--line-strong, var(--line));
+  font-size: 0.95rem; font-weight: 700;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+.gf-preset:hover { border-color: var(--gold); transform: translateY(-1px); }
+.gf-preset .gf-pn {
+  font-family: var(--mono); font-size: 0.8125rem; font-weight: 600;
+  color: var(--muted); font-variant-numeric: tabular-nums;
+}
+.gf-preset.on { background: var(--gold); border-color: var(--gold); color: var(--on-gold, #0b0a08); box-shadow: var(--elev-1, none); }
+.gf-preset.on .gf-pn { color: inherit; opacity: 0.85; }
+
+/* ───────────── the finder card ───────────── */
+.gf-finder {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius, 16px);
+  padding: 0.9rem 1rem 0.8rem;
+  margin: 1.4rem 0 0.4rem;
+  color: var(--ink);
+  box-shadow: var(--elev-1, none);
+}
+.gf-bar { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: stretch; }
+.gf-search { position: relative; flex: 1 1 260px; display: flex; min-width: 0; }
+.gf-search input {
+  flex: 1 1 auto; width: 100%; min-width: 0; min-height: 48px;
+  padding: 0.6rem 3.4rem 0.6rem 0.9rem;
+  font: inherit; font-size: 1rem;
+  background: var(--bg2, var(--surface)); color: var(--ink);
+  border: 1px solid var(--line-strong, var(--line)); border-radius: 12px;
+}
+.gf-search input::placeholder { color: var(--muted); opacity: 1; }
+.gf-search kbd {
+  position: absolute; right: 0.7rem; top: 50%; transform: translateY(-50%);
+  font-family: var(--font); font-size: 0.75rem; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 6px; padding: 0.1rem 0.4rem; background: var(--surface2);
+  pointer-events: none;
+}
+.gf-field { display: flex; flex-direction: column; justify-content: flex-end; gap: 0.2rem; min-width: 0; color: var(--muted); font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.04em; }
+.gf-country { flex: 0 1 210px; }
+.gf-sort { flex: 0 1 200px; }
+.gf-field select, .gf-panel input[type="text"] {
+  min-height: 48px; padding: 0.5rem 0.8rem; font: inherit; font-size: 1rem;
+  background: var(--bg2, var(--surface)); color: var(--ink);
+  border: 1px solid var(--line-strong, var(--line)); border-radius: 12px; min-width: 0;
+}
+.gf-field select { width: 100%; max-width: 100%; }
+.gf-filters-btn { min-height: 48px; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; color: var(--ink); }
+.gf-filters-btn.active { border-color: var(--gold); }
+.gf-caret { display: inline-block; transition: transform 0.15s; font-size: 0.9em; }
+.gf-filters-btn.active .gf-caret { transform: rotate(180deg); }
+.gf-badge {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 1.5rem; height: 1.5rem; padding: 0 0.4rem;
+  border-radius: 999px; background: var(--gold); color: var(--on-gold, #0b0a08);
+  font-size: 0.8125rem; font-weight: 800; font-variant-numeric: tabular-nums;
+}
+
+.gf-status { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; margin-top: 0.75rem; }
+.gf-count { margin: 0; font-size: 1rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+.gf-count strong { font-size: 1.15rem; }
+.gf-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; flex: 1 1 auto; min-width: 0; }
+.gf-fchip {
+  appearance: none; cursor: pointer; font: inherit; font-size: 0.9rem; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 0.5rem; max-width: 100%;
+  min-height: 40px; padding: 0.3rem 0.5rem 0.3rem 0.85rem;
+  background: var(--sel-bg, var(--surface2)); color: var(--ink);
+  border: 1px solid var(--gold); border-radius: 999px;
+}
+.gf-fchip span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gf-fchip .gf-x {
+  display: inline-flex; align-items: center; justify-content: center; width: 1.6rem; height: 1.6rem;
+  border-radius: 50%; background: var(--surface2); color: var(--ink); font-size: 1.1rem; line-height: 1; border: 1px solid var(--line);
+}
+.gf-fchip:hover .gf-x { background: var(--gold); color: var(--on-gold, #0b0a08); }
+.gf-actions { display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; align-items: center; margin-left: auto; }
+.gf-link {
+  appearance: none; background: none; border: 0; cursor: pointer; font: inherit; font-size: 0.9rem; font-weight: 700;
+  color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--gold);
+  min-height: 44px; padding: 0.2rem 0.15rem;
+}
+.gf-link:hover { text-decoration-thickness: 2px; }
+
+/* ───────────── facets ───────────── */
+.gf-panel { display: none; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--line); }
+.gf-panel.open {
+  display: grid; gap: 1.1rem 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+@media (min-width: 1000px) {
+  .gf-panel.open { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-flow: dense; }
+  .gf-panel .gf-col-era, .gf-panel .gf-group[data-facet="metal"] { grid-column: span 2; }
+}
+.gf-col { display: grid; gap: 1.1rem; align-content: start; min-width: 0; }
+.gf-group { margin: 0; padding: 0; border: 0; min-width: 0; }
+.gf-group legend, .gf-legend {
+  display: block; padding: 0; margin: 0 0 0.4rem;
+  font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+}
+.gf-chipset { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.gf-chip {
+  appearance: none; cursor: pointer; font: inherit; font-size: 0.9rem; font-weight: 600;
+  display: inline-flex; align-items: baseline; gap: 0.4rem;
+  min-height: 40px; padding: 0.35rem 0.8rem;
+  background: var(--surface2); color: var(--ink);
+  border: 1px solid var(--line-strong, var(--line)); border-radius: 999px;
+  transition: background 0.12s, border-color 0.12s;
+}
+.gf-chip:hover { border-color: var(--gold); }
+.gf-chip .gf-n { color: var(--muted); font-size: 0.85rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.gf-chip.on { background: var(--gold); border-color: var(--gold); color: var(--on-gold, #0b0a08); }
+.gf-chip.on .gf-n { color: inherit; opacity: 0.9; }
+.gf-panel input[type="text"] { width: 100%; }
+.gf-note { margin: 0.4rem 0 0; font-size: 0.8125rem; color: var(--muted); line-height: 1.4; }
+.gf-panel-foot { grid-column: 1 / -1; display: none; }
+.gf-apply { width: 100%; justify-content: center; color: var(--on-gold, #0b0a08); background: var(--gold); border-color: var(--gold); font-size: 1rem; }
+.gf-apply:hover { filter: brightness(1.05); }
+
+/* ───────────── the wall ───────────── */
+.gf-wallhead {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 0.75rem;
+  margin: 1.8rem 0 0.4rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line);
+}
+.gf-wallhead h2 { margin: 0.25rem 0 0; font-family: var(--serif); font-weight: 600; font-size: 1.6rem; color: var(--ink); }
+.gf-wallhead .sub { margin: 0.2rem 0 0; font-size: 0.875rem; color: var(--muted); }
+.gf-wallhead-r { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.8rem; }
+.gf-grid { margin-top: 1.1rem; }
+.gf-more { display: flex; justify-content: center; margin: 1.5rem 0 1rem; }
+.gf-more .btn { min-height: 48px; font-size: 0.95rem; color: var(--ink); }
+
+.gf-empty {
+  margin: 1.2rem 0; padding: 1.6rem 1.4rem; text-align: center;
+  background: var(--surface); color: var(--ink);
+  border: 1px dashed var(--line-strong, var(--line)); border-radius: var(--radius, 16px);
+}
+.gf-empty h3 { margin: 0 0 0.5rem; font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--ink); }
+.gf-empty p { margin: 0 auto 1rem; max-width: 46ch; font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.gf-empty strong { color: var(--ink); }
+.gf-fixes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin: 0.4rem 0 0; }
+.gf-fixes .btn { color: var(--ink); }
+
+/* ───────────── phones ───────────── */
+@media (max-width: 700px) {
+  .gf-finder { padding: 0.8rem 0.8rem 0.7rem; }
+  .gf-presets { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .gf-preset { flex-direction: column; align-items: flex-start; gap: 0.1rem; border-radius: 14px; padding: 0.5rem 0.9rem; font-size: 0.95rem; }
+  .gf-bar { gap: 0.5rem; }
+  .gf-search { flex: 1 1 100%; }
+  .gf-search kbd { display: none; }
+  .gf-search input { padding-right: 0.9rem; }
+  .gf-country, .gf-sort { flex: 1 1 calc(50% - 0.25rem); }
+  .gf-field select { padding: 0.5rem 0.5rem; font-size: 0.95rem; }
+  .gf-filters-btn { flex: 1 1 100%; justify-content: center; }
+  .gf-chip { min-height: 44px; padding: 0.4rem 0.9rem; }
+  .gf-fchip { min-height: 44px; }
+  .gf-actions { margin-left: 0; width: 100%; }
+  .gf-panel.open { grid-template-columns: 1fr; }
+  .gf-panel-foot { display: block; }
+  .gf-wallhead h2 { font-size: 1.4rem; }
+  .g-mode-btn, .gf-root .pc-flip-action-btn, #gallery-coverflow-wrap .cf-header-actions .btn { min-height: 44px; }
+  .gf-root .pc-flip-action-btn { min-width: 44px; }
+  .gf-wallhead-r { width: 100%; justify-content: space-between; }
+}
+
+/* ───────────── motion, print ───────────── */
+@media (prefers-reduced-motion: reduce) {
+  .gf-preset, .gf-chip, .gf-caret { transition: none; }
+  .gf-preset:hover { transform: none; }
+}
+@media print {
+  .gf-presets, .gf-finder, .gf-more, .gf-wallhead-r, #gf-cover { display: none !important; }
+}
