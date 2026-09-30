@@ -550,6 +550,20 @@
       ],
     },
   };
+  // A track can be retired without deleting its line: add `off: "reason"` to it (e.g.
+  // M("Title", "File.mp3") then t.off = ...) or list it in DISABLED below. Retired tracks
+  // are removed from playback and kept in TITAN_DISABLED_TRACKS for the notes.
+  // Verify the lists with TitanLofi.audit() in a browser (see notes/agents/fx.md).
+  const DISABLED = {}; // { "<station>": ["Exact track title", ...] }
+  window.TITAN_DISABLED_TRACKS = [];
+  Object.keys(window.TITAN_STATIONS).forEach((k) => {
+    const off = DISABLED[k] || [];
+    const st = window.TITAN_STATIONS[k];
+    st.tracks = st.tracks.filter((t) => {
+      if (t.off || off.indexOf(t.title) >= 0) { window.TITAN_DISABLED_TRACKS.push({ station: k, title: t.title, url: t.url, reason: t.off || "disabled" }); return false; }
+      return true;
+    });
+  });
   window.TITAN_PLAYLIST = window.TITAN_STATIONS.lofi.tracks;
   window.TITAN_STATION_ORDER = [
     "lofi", "classical", "epic", "jazz", "adventure", "dark", "psych",

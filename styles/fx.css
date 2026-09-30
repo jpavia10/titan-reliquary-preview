@@ -1,0 +1,14 @@
+/* Sound & FX pass: the floating music bar is ALWAYS a dark panel (styles.css forces
+   rgba(18,16,12,.94) !important) but its text used the theme ink, which is dark in the
+   light atmospheres (Conservator, Plaintext...): title, artist and credit vanished.
+   Keep bar text light; the station menu has its own themed surface and keeps theme ink. */
+html .lofi-bar { color: #f3ead4; }
+html .lofi-bar .lofi-now .t { color: #f7efdb; }
+html .lofi-bar .lofi-now .a,
+html .lofi-bar .lofi-meta,
+html .lofi-bar .lofi-credit,
+html .lofi-bar #lofi-count { color: #cdbf9c; }
+html .lofi-bar .station-menu { color: var(--ink); }
+html .lofi-bar.radio-down .lofi-now .a,
+html .lofi-bar.radio-down .lofi-credit { color: #ffd479; font-weight: 600; }
+.lofi-mute:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 8px; }
