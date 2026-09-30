@@ -229,6 +229,7 @@
         "slots_filled_claimed": { "type": ["integer", "null"], "description": "Filled count stated by the ledger (owner-verified)." },
         "evidence": { "enum": ["enumerated", "partial", "count-only"], "description": "How much of the per-slot picture the ledger contains." },
         "grid_source": { "enum": ["ledger", "whitman-model", "ledger+whitman-model", "none"], "description": "Where the slot names come from." },
+        "asw_oz_per_slot": { "type": ["number", "null"], "description": "Troy oz of pure silver per filled slot when every coin in the volume is the same bullion piece (American Silver Eagles = 1.0); null otherwise." },
         "needs_scan": { "type": "boolean", "description": "true = finalize with the owner's fresh album scans at Phase 1.5." },
         "note": { "type": ["string", "null"] },
         "slots": { "type": "array", "items": { "$ref": "#/$defs/Slot" } }
