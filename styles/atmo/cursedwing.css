@@ -1,3 +1,149 @@
-/* Atmosphere: cursedwing. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="cursedwing"] { ...every token... }, body background, wordmark, .sw-cursedwing swatch,
-   and any component overrides scoped under html[data-atmo="cursedwing"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: THE CURSED WING  ·  the wing that is kept locked, and has a pulse.
+   Sensory identity
+   - Light: a failing bulb; blood-red glow pooling at the floor; mist rolling through.
+   - Texture: worn film, faint vertical scratches, heavy grain, cold pink-white ink.
+   - Marks: slanted evidence-stamp badges, letter-spaced capitals, a title that flickers.
+   - Motion: a slow heartbeat in the hero glow, a rare one-frame glitch on the exhibit.
+   Contract + rules: notes/agents/themes.md.  Owned by Themes agent A.
+   ========================================================================== */
+
+/* 1. Tokens -------------------------------------------------------------- */
+html[data-atmo="cursedwing"] {
+  --scheme: dark;
+  color-scheme: dark;
+
+  --bg: #090404;
+  --bg2: #100707;
+  --surface: #140909;
+  --surface2: #200e0e;
+
+  --ink: #ecd9d9;
+  --muted: #b58f8f;
+  --faint: #9a7373;
+  --cardmeta: #cfa9a9;
+  --ink-soft: #d8bcbc;
+
+  --gold: #f2504a;          /* arterial red: accent text + fills */
+  --gold-soft: #ff8a7c;
+  --gold-deep: #7d1d1d;
+  --on-gold: #0b0505;
+
+  --line: rgba(242, 80, 74, 0.18);
+  --line-strong: rgba(242, 80, 74, 0.45);
+
+  --ok: #7fa05a;
+  --warn: #d4a017;
+  --bad: #ff5a5a;
+
+  --shadow: inset 0 1px 0 rgba(255, 90, 90, 0.05), 0 18px 55px rgba(0, 0, 0, 0.88);
+  --elev-1: inset 0 1px 0 rgba(255, 90, 90, 0.05), 0 2px 10px rgba(0, 0, 0, 0.6);
+  --elev-2: inset 0 1px 0 rgba(255, 90, 90, 0.07), 0 14px 34px rgba(0, 0, 0, 0.72);
+  --elev-3: inset 0 1px 0 rgba(255, 90, 90, 0.08), 0 30px 80px rgba(0, 0, 0, 0.88);
+  --scrim: rgba(6, 0, 0, 0.72);
+  --focus: #ff9a8c;
+
+  --th-bg: #160a0a;
+  --tabgrad1: #240f0f;
+  --tabgrad2: #100707;
+  --toastgrad1: #240f0f;
+  --toastgrad2: #100707;
+  --foot-bg: rgba(9, 4, 4, 0.94);
+  --drawerbar-bg: rgba(20, 9, 9, 0.95);
+  --ph-bg: #0c0606;
+  --sel-bg: #1e0c0c;
+  --row-hover: rgba(242, 80, 74, 0.08);
+  --hold-bg: linear-gradient(135deg, #220e0e, #100606);
+  --skeleton1: #200e0e;
+  --skeleton2: #0c0606;
+  --grain-op: 0.09;
+
+  --wing-dur: 0.4s;
+  --wing-rise: 0px;
+}
+
+/* 2. Page: red glow pooled at the floor, worn-film scratches, vignette (static) */
+html[data-atmo="cursedwing"] body {
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 137px, rgba(255, 255, 255, 0.018) 137px 138px, transparent 138px 311px, rgba(255, 255, 255, 0.024) 311px 312px, transparent 312px 509px),
+    radial-gradient(90% 40% at 50% 115%, rgba(242, 80, 74, 0.15), transparent 70%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.6) 100%);
+  animation: none;
+}
+html[data-atmo="cursedwing"] .hero-glow {
+  background: radial-gradient(ellipse 50% 55% at 50% 45%, rgba(190, 34, 34, 0.18), transparent 70%);
+  animation: cursed-breathe 5.5s ease-in-out infinite;
+}
+html[data-atmo="cursedwing"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 10%, rgba(242, 80, 74, 0.14), transparent 70%),
+    radial-gradient(40% 60% at 80% 90%, rgba(90, 10, 10, 0.28), transparent 70%);
+}
+html[data-atmo="cursedwing"] .exhibit-lamp { background: #ff4d4d; box-shadow: 0 0 12px #ff4d4d; }
+html[data-atmo="cursedwing"] #dust-layer i { background: radial-gradient(circle, rgba(255, 84, 84, 0.55), transparent 70%); }
+/* the old one-frame glitch also used filter (hue-rotate/invert); keep the jolt, transform only */
+html[data-atmo="cursedwing"] .exhibit-slide.on { animation: cursed-glitch 9s steps(1) infinite; }
+@keyframes cursed-glitch {
+  0%, 91%, 94%, 100% { transform: none; }
+  92% { transform: translateX(-7px) skewX(2deg); }
+  93% { transform: translateX(5px); }
+}
+
+/* 3. Wordmark: dry-blood glow, the title flickers like a bad bulb (opacity only) */
+html[data-atmo="cursedwing"] .wordmark {
+  color: #f6e4e4;
+  text-shadow: 0 0 28px rgba(242, 80, 74, 0.5), 0 1px 0 rgba(0, 0, 0, 0.6);
+  animation: cursed-flicker 6s linear infinite;
+}
+
+/* 4. Picker swatch: a red bulb at the end of a dark corridor ------------------ */
+.sw-cursedwing {
+  background:
+    radial-gradient(circle at 50% 108%, #f2504a 0%, #f2504a 12%, rgba(242, 80, 74, 0) 52%),
+    radial-gradient(circle at 50% 50%, #1a0808 0%, #090404 80%);
+  box-shadow: inset 0 0 0 1px rgba(242, 80, 74, 0.5);
+}
+
+/* 5. Components ----------------------------------------------------------- */
+html[data-atmo="cursedwing"] .wing-head h2 { font-size: clamp(1.7rem, 6vw, 2.1rem); letter-spacing: 0.06em; text-shadow: 0 0 24px rgba(242, 80, 74, 0.55); }
+html[data-atmo="cursedwing"] .sec-head { border-bottom: 2px solid var(--line-strong); }
+html[data-atmo="cursedwing"] :is(.card, .tile, .wing-card, .note-card, .album-card, .latest-card) {
+  border-color: var(--line);
+  box-shadow: var(--elev-1);
+}
+html[data-atmo="cursedwing"] .exhibit { border-color: var(--gold-deep); }
+/* the slanted evidence stamps */
+html[data-atmo="cursedwing"] :is(.badge, .badge-kind, .badge-status) {
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: rotate(1.2deg);
+  opacity: 0.96;
+}
+html[data-atmo="cursedwing"] .tray-tab.active .tray-count { color: var(--on-gold); background: rgba(11, 5, 5, 0.18); }
+/* solid red fills: the near-black label from styles.css is < 4.5:1 on the arterial red; use --on-gold */
+html[data-atmo="cursedwing"] [style*="background:var(--gold)"][style*="color:#08090c"] { color: var(--on-gold) !important; }
+html[data-atmo="cursedwing"] .atlas-footer-bar strong[style*="#f43f5e"] { color: #ff6b86 !important; }
+/* strongroom cards: blood-tinted black instead of the pinned warm cream on navy */
+html[data-atmo="cursedwing"] :is(.bullion-lot-card, .vault-dash-card, .vault-custody-metric, .vault-scenario-panel,
+  .silver-stack-bar .ss-segment .ss-tooltip) {
+  --ink: #ecd9d9;
+  --text: #ecd9d9;
+  --muted: #bd9797;
+  --ink-soft: #d8bcbc;
+  --gold: #f2504a;
+  --gold-soft: #ff8a7c;
+  --line: rgba(242, 80, 74, 0.2);
+  background: linear-gradient(145deg, #1d0d0d, #0d0505);
+  border-color: rgba(242, 80, 74, 0.28);
+}
+
+/* 6. Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="cursedwing"] body,
+  html[data-atmo="cursedwing"] .hero::before,
+  html[data-atmo="cursedwing"] .hero-glow,
+  html[data-atmo="cursedwing"] .exhibit-slide.on,
+  html[data-atmo="cursedwing"] .wordmark { animation: none; }
+}
