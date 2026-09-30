@@ -2,6 +2,7 @@
 
 Private coin and precious-metals collection viewer for Joseph Pavia (`jpavia10`).
 Read this file first, then `collaborators/SHARED_LOG.md` (newest entries at the top).
+**Processing coin photos or adding/correcting coin data? Read `AI_START_HERE.md` and follow only that.**
 Last verified: 2026-09-30 (build TR50).
 
 ## What it is
@@ -74,7 +75,7 @@ Owner's standing instructions: don't ask permission; push finished work live aft
 - **`collection/` (schema v2) is the master for metadata**; `data/` stays the app's generated view (from Grok's pipeline) until the app reads v2. Built from ledger **v254** (the preview's `data/` is still v252: refreshing it was blocked by the permission check, owner to decide).
 - Open for the owner/Grok (`collection/CURATION_OPEN.md`): 1.4997 oz bullion silver in the ledger board that no B### record accounts for; album value $2,059.39 is not itemized; 5 type conflicts to check physically; EC code clash (Ecuador vs East Caribbean).
 - Drive: `tools/drive/sync_to_drive.gs` (install once) mirrors `collection/` and a daily site zip into Drive `Titan Reliquary/`. Photo layout: `docs/PHOTO_FOLDERS.md` (one photo home: Grok's `Titan Reliquary Collection/photos/`).
-- The dad-facing "TAP HERE" doc opens Grok's original site `jpavia10.github.io/titan-reliquary`, not this preview.
+- Drive `Titan Reliquary/` is the one home: `OPEN TITAN RELIQUARY (the app)` shortcut, `AI_START_HERE`, `STAGING (drop coin photos here)`, `collection-incoming (AI change files)`, `site-backups/`, `_archive/` (old copies). The old TAP HERE doc was retired (trashed) 2026-09-30.
 
 ## Open questions for the owner
 1. Which photo protocol is current? Owner's plan above (pen label, unbiased IDs, back label, pro scan) versus the "Stage 1 bare coin" staging protocol.
