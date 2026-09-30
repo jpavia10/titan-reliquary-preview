@@ -3062,6 +3062,12 @@
   }
 
   function filteredFlips() {
+    // Gallery Finder (wings/gallery.js) owns the facets + sorts; Cover Flow, dossier prev/next and the
+    // 3D table all read the same list through this hook. Legacy code below runs if it is absent or fails.
+    const gb = window.__galleryBridge;
+    if (gb && gb.filtered && !gb.broken) {
+      try { return gb.filtered(); } catch (e) { gb.broken = true; console.warn("Gallery finder failed; using the classic filters.", e); }
+    }
     let rows = vault.flips || [];
     const q = norm(flipFilter.q);
 
@@ -3360,9 +3366,12 @@
     });
 
     // Remove nodes that are no longer in the window
+    // (a node is also stale when the list changed under it: same index, different coin)
     existingMap.forEach((card, idx) => {
-      if (!needed.some((n) => n.index === idx)) {
+      const want = needed.find((n) => n.index === idx);
+      if (!want || want.flip.scan !== card.dataset.scan) {
         card.remove();
+        existingMap.delete(idx);
       }
     });
 
@@ -3514,7 +3523,7 @@
         if (!cfDragging) {
           // Pointer-driven 3D tilt & sheen tracking on center card
           const centerCard = stage.querySelector(".cf-card-center");
-          if (centerCard && !cfLoupeActive && !cfCaliperActive) {
+          if (centerCard && !cfLoupeActive && !caliperActive) {
             const cardRect = centerCard.getBoundingClientRect();
             const nx = (e.clientX - (cardRect.left + cardRect.width / 2)) / (cardRect.width / 2);
             const ny = (e.clientY - (cardRect.top + cardRect.height / 2)) / (cardRect.height / 2);
@@ -3666,12 +3675,87 @@
   window.getCoverFlowFlipped = () => cfIsFlipped;
   window.toggleCoverFlowFlip = toggleCoverFlowFlip;
 
+  /** Markup of the Cover Flow shell (header actions, stage, placard, scrubber). Shared by the classic
+      renderGallery and the Gallery Finder (wings/gallery.js). Events are bound by setupCoverFlowEvents(). */
+  function coverFlowShellHtml(rows) {
+    return `
+      <div class="gallery-coverflow-wrap" id="gallery-coverflow-wrap" aria-label="3D Cover Flow Archival Carousel">
+        <div class="cf-crest-watermark" aria-hidden="true"><svg class="crest-svg" viewBox="0 0 200 200"><use href="#crest-${currentAtmo()}"></use></svg></div>
+        <div class="cf-header">
+          <div class="cf-header-left">
+            <span class="eyebrow"><span class="exhibit-lamp" aria-hidden="true"></span>Archival Carousel · 3D Cover Flow</span>
+            <h3 class="cf-title">Specimen Showcase</h3>
+          </div>
+          <div class="cf-header-actions">
+            <button type="button" class="btn small${cfIsFlipped ? ' active' : ''}" id="cf-btn-flip" title="3D Flip Obverse / Reverse (Space or F)">🔄 3D Flip</button>
+            <button type="button" class="btn small${cfLoupeActive ? ' active' : ''}" id="cf-btn-loupe" title="Toggle 10× Macro Jeweler's Loupe">🔬 10× Loupe</button>
+            <button type="button" class="btn small${caliperActive ? ' active' : ''}" id="cf-btn-caliper" title="Toggle Digital Numismatic Calipers">📏 Calipers</button>
+            <button type="button" class="btn small" id="cf-btn-spatial" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 3D Spatial Museum Table (WebXR / Three.js)">🏛️ 3D Museum Room</button>
+            <button type="button" class="btn small" id="cf-btn-deepzoom" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 40× Gigapixel Forensic Variety Station">🔬 40× Forensic</button>
+          </div>
+        </div>
+        <div class="cf-viewport" id="cf-viewport" tabindex="0" aria-label="Cover Flow 3D Stage (Use Arrow Keys, Drag, or Scroll)">
+          <div class="cf-stage"></div>
+        </div>
+        <div class="cf-placard" id="cf-placard"></div>
+        <div class="cf-controls">
+          <button type="button" class="cf-nav-btn cf-prev" id="cf-btn-prev" aria-label="Previous Specimen" title="Previous (←)">‹</button>
+          <div class="cf-scrubber-wrap">
+            <input type="range" class="cf-scrubber" id="cf-scrubber" min="0" max="${Math.max(0, rows.length - 1)}" value="${cfCurrentIndex}" aria-label="Cover Flow Scrubber" />
+          </div>
+          <button type="button" class="cf-nav-btn cf-next" id="cf-btn-next" aria-label="Next Specimen" title="Next (→)">›</button>
+          <span class="cf-counter" id="cf-counter">${rows.length ? cfCurrentIndex + 1 : 0} of ${rows.length}</span>
+        </div>
+      </div>`;
+  }
+
+  /* Bridge for wings/gallery.js (Finder, faceted wall, palette v2, dossier v2). That file fills in
+     render / filtered / palette / dossier; while they are absent, or after one throws (broken = true),
+     the classic code in this file runs unchanged. */
+  window.__galleryBridge = {
+    v: 1,
+    broken: false, paletteBroken: false, dossierBroken: false,
+    get vault() { return vault; },
+    get filter() { return flipFilter; }, set filter(v) { flipFilter = v; },
+    get sort() { return flipSort; }, set sort(v) { flipSort = v; },
+    get tray() { return cabinetTray; }, set tray(v) { cabinetTray = v; },
+    get mode() { return galleryMode; }, set mode(v) { galleryMode = v; },
+    get restoring() { return restoring; },
+    get searchIdx() { return searchIdx; },
+    get details() { return details; },
+    get highlight() { return highlightScans; },
+    get caliperActive() { return caliperActive; },
+    get cfIndex() { return cfCurrentIndex; },
+    get cfItems() { return cfItems; },
+    get dossierScan() { return currentDrawerScan; },
+    esc: (s) => esc(s), money: (n) => money(n), num: (...a) => num(...a), intFmt: (n) => intFmt(n), norm: (s) => norm(s),
+    scanNum: (s) => scanNum(s), isoName: (i) => isoName(i), has: (v) => has(v),
+    fetchJson: (u) => fetchJson(u), ensureSearch: () => ensureSearch(), ensureDetail: (s) => ensureDetail(s),
+    flipQueryMatch: (f, q) => flipQueryMatch(f, q), yearMatches: (f, y) => yearMatches(f, y), isAwaitingPhase2: (f) => isAwaitingPhase2(f),
+    renderMuseumSlab: (f, o) => renderMuseumSlab(f, o), coverFlowShellHtml: (r) => coverFlowShellHtml(r),
+    setupCoverFlowEvents: () => setupCoverFlowEvents(), renderCoverFlow: (i) => renderCoverFlow(i),
+    lazyThumbs: (r) => lazyThumbs(r), observeReveals: (r) => observeReveals(r),
+    saveState: () => saveState(), markTyping: () => markTyping(), playStapleClick: () => playStapleClick(),
+    showToast: (m) => showToast(m), setWing: (n, p) => setWing(n, p), findCard: (s) => findCard(s),
+    photoOf: (c, r) => photoOf(c, r), photoSlot: (c, r) => photoSlot(c, r), meltLive: (f) => meltLive(f), aswFmt: (o) => aswFmt(o),
+    getSpecimenDiameterSource: (f) => getSpecimenDiameterSource(f),
+    openDrawer: (scan, ctx) => { dossierCtx = ctx || null; return openDrawer(scan); },
+    openAtmoSheet: () => openAtmoSheet(), openKeysSheet: () => openKeysSheet(),
+    launchSpatial: () => launchSpatialTable(),
+    closePalette: () => closePalette(),
+    render: null, filtered: null, palette: null, dossier: null,
+  };
+
   let galleryScrollListener = null;
   let galleryRows = [];
   let galleryResizeListener = null;
 
   function renderGallery() {
     if (!vault || !vault.flips) return;
+    const gb = window.__galleryBridge;
+    if (gb && gb.render && !gb.broken) {
+      try { if (gb.render() !== false) return; } catch (e) { gb.broken = true; console.warn("Gallery finder failed; using the classic gallery.", e); }
+    }
     galleryRendered = true;
     if (galleryScrollListener) {
       window.removeEventListener("scroll", galleryScrollListener);
@@ -3794,35 +3878,7 @@
       ? 'Archival Lucite Acrylic Slabs · Holographic Pedigree Standards'
       : (galleryMode === 'matrix' ? 'Struck Planchet Medallions · Ambient Directional Lighting' : 'Authentic 2×2 Archival Flips · Specimen Blueprints');
 
-    const coverFlowHtml = `
-      <div class="gallery-coverflow-wrap" id="gallery-coverflow-wrap" aria-label="3D Cover Flow Archival Carousel">
-        <div class="cf-crest-watermark" aria-hidden="true"><svg class="crest-svg" viewBox="0 0 200 200"><use href="#crest-${currentAtmo()}"></use></svg></div>
-        <div class="cf-header">
-          <div class="cf-header-left">
-            <span class="eyebrow"><span class="exhibit-lamp" aria-hidden="true"></span>Archival Carousel · 3D Cover Flow</span>
-            <h3 class="cf-title">Specimen Showcase</h3>
-          </div>
-          <div class="cf-header-actions">
-            <button type="button" class="btn small${cfIsFlipped ? ' active' : ''}" id="cf-btn-flip" title="3D Flip Obverse / Reverse (Space or F)">🔄 3D Flip</button>
-            <button type="button" class="btn small${cfLoupeActive ? ' active' : ''}" id="cf-btn-loupe" title="Toggle 10× Macro Jeweler's Loupe">🔬 10× Loupe</button>
-            <button type="button" class="btn small${caliperActive ? ' active' : ''}" id="cf-btn-caliper" title="Toggle Digital Numismatic Calipers">📏 Calipers</button>
-            <button type="button" class="btn small" id="cf-btn-spatial" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 3D Spatial Museum Table (WebXR / Three.js)">🏛️ 3D Museum Room</button>
-            <button type="button" class="btn small" id="cf-btn-deepzoom" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)" title="Inspect on 40× Gigapixel Forensic Variety Station">🔬 40× Forensic</button>
-          </div>
-        </div>
-        <div class="cf-viewport" id="cf-viewport" tabindex="0" aria-label="Cover Flow 3D Stage (Use Arrow Keys, Drag, or Scroll)">
-          <div class="cf-stage"></div>
-        </div>
-        <div class="cf-placard" id="cf-placard"></div>
-        <div class="cf-controls">
-          <button type="button" class="cf-nav-btn cf-prev" id="cf-btn-prev" aria-label="Previous Specimen" title="Previous (←)">‹</button>
-          <div class="cf-scrubber-wrap">
-            <input type="range" class="cf-scrubber" id="cf-scrubber" min="0" max="${Math.max(0, rows.length - 1)}" value="${cfCurrentIndex}" aria-label="Cover Flow Scrubber" />
-          </div>
-          <button type="button" class="cf-nav-btn cf-next" id="cf-btn-next" aria-label="Next Specimen" title="Next (→)">›</button>
-          <span class="cf-counter" id="cf-counter">${rows.length ? cfCurrentIndex + 1 : 0} of ${rows.length}</span>
-        </div>
-      </div>`;
+    const coverFlowHtml = coverFlowShellHtml(rows);
 
     $("#gallery-body").innerHTML = `
       ${trayNavHtml}
@@ -6853,7 +6909,13 @@
         </div>
       </section>` : "";
 
-    $("#drawer-body").innerHTML = `
+    // Flip dossier v2 (wings/gallery.js) replaces the body for flips and tokens; classic template below otherwise.
+    let gbBody = null;
+    const gbr = window.__galleryBridge;
+    if (isFlip && gbr && gbr.dossier && !gbr.dossierBroken) {
+      try { gbBody = gbr.dossier(c); } catch (e) { gbr.dossierBroken = true; console.warn("Dossier v2 failed; using the classic dossier.", e); }
+    }
+    $("#drawer-body").innerHTML = gbBody || `
       ${stage}
       <header class="ds-head">
         <div class="ds-ser">${esc(primary)}${agTag}${auTag}${tokTag}${stTag}</div>
@@ -7585,6 +7647,10 @@
     restoreFocus();
   }
   function renderPalette(qRaw) {
+    const gb = window.__galleryBridge;
+    if (gb && gb.palette && !gb.paletteBroken) {
+      try { if (gb.palette(qRaw) !== false) return; } catch (e) { gb.paletteBroken = true; console.warn("Palette v2 failed; using the classic palette.", e); }
+    }
     const q = norm(qRaw || "");
     const box = $("#palette-results");
     if (!q) {
