@@ -62,6 +62,8 @@
     if (!denom || /^\d{4}/.test(denom)) denom = String(f.denom).replace(/\b\w/g, function (c) { return c.toUpperCase(); });
     featured = { country: country, year: String(f.year), denom: denom, scan: f.scan || "" };
     if (featV) featV.textContent = country + " · " + featured.year + " · " + denom;
+    var fb = root.querySelector(".ts-fb-ring");             // the fallback coin carries the same lettering
+    if (fb) { var w = (country + " · " + featured.year + " · " + denom).toUpperCase() + " · "; fb.textContent = w.length < 30 ? w + "TITAN RELIQUARY · " : w; }
     if (featEl) featEl.classList.add("ts-has");
     if (gl && gl.setFeatured) gl.setFeatured();
   }
@@ -99,8 +101,8 @@
       if (statEls[key]) statEls[key].textContent = fmt[key](shown[key]);
     }
   }
-  later(function () { countStart = performance.now(); }, 3700);
-  if (reduce) { countStart = 1; }
+  if (reduce) countStart = 1;                                  // reduced motion: final numbers at once, no count-up
+  else later(function () { countStart = performance.now(); }, 3700);
   // without the WebGL scene (fallback coin) the stats still need to count up
   var statTimer = setInterval(function () { if (!gl) tickStats(performance.now()); if (state === "done") clearInterval(statTimer); }, 50);
 
@@ -494,6 +496,7 @@
     })();
     var coin = new THREE.Group(); coin.rotation.order = "YXZ";
     var coinMats = [new THREE.MeshStandardMaterial({ map: edgeTex, metalness: 1, roughness: 0.32, envMapIntensity: 1.3 }), faceMaterial(obv), faceMaterial(rev)];
+    coinMats[1].roughness = coinMats[2].roughness = 0.85;   // deeper mirror fields = more contrast against the frosted relief
     var body = new THREE.Mesh(new THREE.CylinderGeometry(RAD, RAD, HALF * 2, 160, 1), coinMats);
     body.rotation.x = Math.PI / 2;
     coin.add(body);
@@ -1019,7 +1022,7 @@
       camera.aspect = w / h;
       var coinPx = m.coinPx * (w / h < 0.75 ? 0.84 : 0.77);
       rig.D = (RAD * 2 * h / coinPx) / (2 * Math.tan(THREE.MathUtils.degToRad(35 / 2)));
-      rig.offY = Math.round(h / 2 - (m.cy - coinPx * 0.13));   // sit a touch high so the pedestal clears the copy
+      rig.offY = Math.round(h / 2 - (m.cy - coinPx * (w / h < 0.75 ? 0.13 : 0.2)));   // sit a touch high so the pedestal clears the copy
       rig.w = w; rig.h = h; rig.cy = m.cy;
       compU.uAspect.value = w / h;
       dustU.uPx.value = h * dpr * 0.06;
@@ -1124,7 +1127,7 @@
       var sw = clamp((t - TL.sweep) / TL.sweepDur, 0, 1);
       sweep.position.set(lerp(-10, 10, easeInOut(sw)), 2.5 + Math.sin(sw * Math.PI) * 1.2, 10);
       sweep.intensity = Math.sin(sw * Math.PI) * 4.2;
-      fill.intensity = 1.4 * smooth((t - TL.sweep - 0.4) / 1.4) * (1 + 0.03 * Math.sin(t * 0.9));
+      fill.intensity = 0.8 * smooth((t - TL.sweep - 0.4) / 1.4) * (1 + 0.03 * Math.sin(t * 0.9));
       rimL.intensity = 1.6 * smooth((t - TL.land + 0.4) / 1.2);
       dustU.uApex.value[4].copy(sweep.position); dustU.uDir.value[4].copy(v3.copy(sweep.target.position).sub(sweep.position).normalize()); dustU.uBeam.value[4].set(Math.cos(0.2), sweep.intensity * 0.12, 25);
 

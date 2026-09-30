@@ -65,13 +65,17 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 /* CSS-only coin, used when WebGL is unavailable */
 .ts-fallback-coin {
   display: none; position: absolute; left: 50%; top: var(--ts-cy, 36%); width: var(--ts-coin, 260px); aspect-ratio: 1; margin: calc(var(--ts-coin, 260px) / -2) 0 0 calc(var(--ts-coin, 260px) / -2);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #fff3c4 0%, #e6c063 22%, #b8892b 55%, #6d4f14 100%);
-  box-shadow: inset 0 0 0 6px rgba(255, 240, 190, .35), inset 0 0 0 14px rgba(110, 76, 16, .55), 0 0 90px rgba(230, 170, 60, .45);
-  animation: tsCoinSpin 6s linear infinite;
+  border-radius: 50%; overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 236, 170, .25), 0 18px 60px -10px rgba(0, 0, 0, .9), 0 0 110px rgba(230, 170, 60, .4);
+  animation: tsCoinTilt 7s ease-in-out infinite alternate;
 }
+.ts-fallback-coin svg { display: block; width: 100%; height: 100%; }
+/* a slow light sweep across the struck face (no 3D needed) */
+.ts-fb-sheen { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; mix-blend-mode: screen;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 250, 225, .55) 46%, transparent 60%) no-repeat; background-size: 260% 100%; background-position: 120% 0;
+  animation: tsFbSheen 5.5s ease-in-out 1.2s infinite; }
 #tr-splash.ts-nogl .ts-fallback-coin { display: block; }
-.ts-fallback-coin::after { content: "T"; position: absolute; inset: 0; display: grid; place-items: center; font: 600 calc(var(--ts-coin, 260px) * .44) / 1 "Fraunces", Georgia, serif; color: rgba(96, 62, 10, .78); text-shadow: 0 1px 0 rgba(255, 240, 190, .75), 0 -1px 0 rgba(70, 44, 6, .5); }
+#tr-splash.ts-nogl .ts-hint { visibility: hidden; }   /* the fallback coin cannot be dragged */
 #tr-splash.ts-nogl .ts-gl { display: none; }
 /* fallback path = weak/no GPU or reduced motion: keep it light (no giant rotating layer, no grain, no blend modes) */
 #tr-splash.ts-nogl .ts-rays, #tr-splash.ts-nogl .ts-grain { display: none; }
@@ -174,7 +178,8 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 @keyframes tsEnterIn { from { opacity: 0; transform: translateY(14px) scale(.94); } to { opacity: 1; transform: none; } }
 @keyframes tsPulse { 0%, 100% { box-shadow: 0 0 0 1px rgba(255, 236, 170, .55), 0 10px 40px -8px rgba(230, 170, 50, .55), inset 0 1px 0 rgba(255, 255, 255, .7), inset 0 -2px 6px rgba(110, 70, 10, .5); } 50% { box-shadow: 0 0 0 1px rgba(255, 244, 200, .85), 0 12px 60px -4px rgba(255, 196, 70, .95), inset 0 1px 0 rgba(255, 255, 255, .8), inset 0 -2px 6px rgba(110, 70, 10, .5); } }
 @keyframes tsSweep { 0% { left: -60%; } 40%, 100% { left: 130%; } }
-@keyframes tsCoinSpin { from { transform: perspective(900px) rotateY(0deg); } to { transform: perspective(900px) rotateY(360deg); } }
+@keyframes tsCoinTilt { from { transform: perspective(900px) rotateY(-16deg) rotateX(4deg); } to { transform: perspective(900px) rotateY(16deg) rotateX(-3deg); } }
+@keyframes tsFbSheen { 0%, 20% { background-position: 120% 0; } 70%, 100% { background-position: -30% 0; } }
 
 @media (max-width: 480px) { .ts-eyebrow { --ls: .36em; } .ts-lab { letter-spacing: .2em; } .ts-line-2 { letter-spacing: .5em; padding-left: .5em; } }
 
@@ -190,11 +195,12 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 
 /* Reduced motion: no loop animation, no spin, quick fades */
 @media (prefers-reduced-motion: reduce) {
-  #tr-splash .ts-rays, #tr-splash .ts-grain, #tr-splash .ts-fallback-coin, #tr-splash .ts-enter, #tr-splash .ts-enter::before, #tr-splash .ts-l { animation-iteration-count: 1 !important; }
+  #tr-splash .ts-rays, #tr-splash .ts-grain, #tr-splash .ts-fb-sheen, #tr-splash .ts-enter, #tr-splash .ts-enter::before, #tr-splash .ts-l { animation-iteration-count: 1 !important; }
   .ts-run .ts-l { animation: tsFadeIn .4s ease .2s forwards; }
   .ts-run .ts-eyebrow, .ts-run .ts-tag, .ts-run .ts-feature, .ts-run .ts-stats, .ts-run .ts-hint, .ts-run .ts-skip, .ts-run .ts-sound { animation: tsFadeIn .4s ease .3s forwards; }
   .ts-run .ts-enter { animation: tsFadeIn .4s ease .4s forwards; transform: none; }
   .ts-run .ts-rule { animation: tsRule .4s ease .3s forwards; }
   .ts-enter::before { display: none; }
+  #tr-splash .ts-fallback-coin { animation: none; transform: none; }
   #tr-splash { transition-duration: .25s; }
 }
