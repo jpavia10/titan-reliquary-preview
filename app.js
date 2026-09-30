@@ -2423,23 +2423,8 @@
       }, { passive: true });
     }
 
+    // The "live" view holds at the published ledger spot — no simulated ticks that drift the price.
     clearInterval(termTickTimer);
-    termTickTimer = setInterval(() => {
-      if (termTimeframe !== "live" || document.hidden) return;
-      const a = TERM_DATA[termAsset];
-      const delta = (Math.random() - 0.48) * (a.base > 1000 ? 0.8 : 0.04);
-      a.base = Math.max(0.1, a.base + delta);
-      a.rates.live.shift();
-      a.rates.live.push(Number(a.base.toFixed(2)));
-      if (priceEl) {
-        priceEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.base, 2);
-        priceEl.classList.remove("flash-up", "flash-down");
-        requestAnimationFrame(() => {
-          priceEl.classList.add(delta >= 0 ? "flash-up" : "flash-down");
-        });
-      }
-      renderTerminalChart();
-    }, 2800);
 
     updateTerminalView();
   }
@@ -4168,32 +4153,6 @@
       </div>`;
   }
 
-  /** Generate sparkline SVG polyline points from an array of values */
-  function sparklinePoints(values, width, height) {
-    if (!values.length) return "";
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-    const range = max - min || 1;
-    return values.map((v, i) => {
-      const x = (i / (values.length - 1)) * width;
-      const y = height - ((v - min) / range) * height;
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    }).join(" ");
-  }
-
-  /** Generate fake 24h sparkline data centered around a price */
-  function fakeSparkline(center, volatilityPct) {
-    const pts = [];
-    let v = center * (1 - volatilityPct * 0.5);
-    for (let i = 0; i < 24; i++) {
-      v += (Math.random() - 0.48) * center * volatilityPct * 0.15;
-      v = Math.max(center * (1 - volatilityPct), Math.min(center * (1 + volatilityPct), v));
-      pts.push(v);
-    }
-    pts.push(center); // end at current price
-    return pts;
-  }
-
   function renderVault() {
     const all = [
       ...(vault.bullion || []).map((x) => ({ ...x, _kind: "Bullion" })),
@@ -4209,7 +4168,6 @@
     const bg = prec.bullion_gold || {};
     const spotAg = Number((vault.board || {}).spot_ag) || 63.38;
     const spotAu = Number((vault.board || {}).spot_au) || 4252.90;
-    const spotPt = 1380.50;
     const gsRatio = spotAu && spotAg ? (spotAu / spotAg).toFixed(1) : "67.1";
     const totalAgOz = Number(cs.oz) || 63.27;
     const totalAuOz = Number(bg.oz) || 0.1322;
@@ -4256,24 +4214,33 @@
     }).join("");
 
     // --- Spot Ticker with Sparklines ---
-    const agSpark = fakeSparkline(spotAg, 0.03);
-    const auSpark = fakeSparkline(spotAu, 0.015);
-    const ptSpark = fakeSparkline(spotPt, 0.02);
-    const ratioSpark = fakeSparkline(parseFloat(gsRatio), 0.02);
+    // Spot tiles are drawn only from the published quote (metals.spot / metals.prior_spot):
+    // the delta and the trend line compare the prior quote to the current one — nothing simulated.
+    const metals = vault.metals || {};
+    const priorSpot = metals.prior_spot || {};
+    const priorAg = Number(priorSpot.ag_usd_oz) || 0;
+    const priorAu = Number(priorSpot.au_usd_oz) || 0;
+    const priorRatio = priorAg && priorAu ? priorAu / priorAg : 0;
+    const spotAsOf = metals.as_of_local || metals.as_of || "";
+    const spotSource = metals.source || "";
+    const bullionDelta = Number((metals.board_delta || {}).d_bullion);
 
-    function spotTileHtml(label, badge, badgeStyle, price, priceFmt, delta, deltaDir, sparkData, sparkClass, low52, high52) {
-      const pts = sparklinePoints(sparkData, 120, 24);
-      const currentPct = high52 !== low52 ? ((price - low52) / (high52 - low52) * 100).toFixed(1) : "50";
+    function spotTileHtml(label, badge, badgeStyle, price, priceFmt, prior, fmt, sparkClass) {
+      const hasPrior = prior > 0 && price > 0;
+      const pct = hasPrior ? ((price - prior) / prior) * 100 : 0;
+      const dir = !hasPrior || Math.abs(pct) < 0.005 ? "flat" : pct > 0 ? "up" : "down";
+      const delta = hasPrior
+        ? `${dir === "up" ? "▲ +" : dir === "down" ? "▼ " : "■ "}${pct.toFixed(2)}% vs prior quote`
+        : "No prior quote published";
+      const trend = hasPrior
+        ? `<svg class="spot-sparkline-svg" viewBox="0 0 120 24" preserveAspectRatio="none" aria-hidden="true"><polyline class="${sparkClass}" points="${dir === "flat" ? "0,12 120,12" : dir === "up" ? "0,20 120,4" : "0,4 120,20"}" /></svg>`
+        : "";
       return `<div class="spot-metal-tile">
         <div class="spot-metal-label"><span>${label}</span><span class="badge" style="${badgeStyle}">${badge}</span></div>
         <div class="spot-metal-price">${priceFmt}</div>
-        <div class="spot-metal-delta ${deltaDir}">${delta}</div>
-        <svg class="spot-sparkline-svg" viewBox="0 0 120 24" preserveAspectRatio="none"><polyline class="${sparkClass}" points="${pts}" /></svg>
-        <div class="spot-range-bar">
-          <div class="spot-range-fill" style="left:0;width:100%;background:rgba(255,255,255,0.08)"></div>
-          <div class="spot-range-marker" style="left:${currentPct}%"></div>
-        </div>
-        <div class="spot-range-labels"><span>52w Low $${low52.toFixed(0)}</span><span>52w High $${high52.toFixed(0)}</span></div>
+        <div class="spot-metal-delta ${dir}">${delta}</div>
+        ${trend}
+        ${hasPrior ? `<div class="spot-range-labels"><span>Prior ${fmt(prior)}</span><span>Now ${fmt(price)}</span></div>` : ""}
       </div>`;
     }
 
@@ -4281,18 +4248,22 @@
       <div class="spot-ticker-card reveal" id="vault-live-spot-ticker">
         <div class="spot-ticker-head">
           <div style="display:flex;align-items:center;gap:0.6rem">
-            <span class="spot-live-pill"><span class="spot-live-dot"></span> LIVE SPOT FEED</span>
-            <span style="font-size:0.8rem;color:var(--muted);font-family:var(--mono)">MARKET BENCHMARK · GLOBAL COMMODITY DESK</span>
+            <span class="spot-live-pill"><span class="spot-live-dot"></span> SPOT QUOTE</span>
+            <span style="font-size:0.8rem;color:var(--muted);font-family:var(--mono)">${esc([spotSource, spotAsOf && "as of " + spotAsOf].filter(Boolean).join(" · ").toUpperCase() || "PUBLISHED WITH THE LEDGER")}</span>
           </div>
           <div style="font-size:0.75rem;color:var(--gold-soft);font-family:var(--mono)">
             SYNCED WITH ACTIVE PHYSICAL VAULT RESERVES
           </div>
         </div>
         <div class="spot-ticker-grid">
-          ${spotTileHtml("SILVER (XAG/OZ)", "PRIMARY", "background:rgba(200,169,74,0.15);color:var(--gold);font-size:0.65rem", spotAg, "$" + spotAg.toFixed(2), "▲ +1.42%", "up", agSpark, "ag-spark", 22.0, 72.0)}
-          ${spotTileHtml("GOLD (XAU/OZ)", "RESERVE", "background:rgba(234,179,8,0.15);color:#eab308;font-size:0.65rem", spotAu, "$" + spotAu.toFixed(2), "▲ +0.65%", "up", auSpark, "au-spark", 1820, 4500)}
-          ${spotTileHtml("GOLD / SILVER RATIO", "GSR", "background:rgba(6,182,212,0.15);color:#06b6d4;font-size:0.65rem", parseFloat(gsRatio), gsRatio + ":1", "▼ -0.76%", "down", ratioSpark, "ratio-spark", 55, 90)}
-          ${spotTileHtml("PLATINUM (XPT/OZ)", "NOBLE", "background:rgba(16,185,129,0.15);color:#10b981;font-size:0.65rem", spotPt, "$" + spotPt.toFixed(2), "▲ +0.32%", "up", ptSpark, "pt-spark", 850, 1500)}
+          ${spotTileHtml("SILVER (XAG/OZ)", "PRIMARY", "background:rgba(200,169,74,0.15);color:var(--gold);font-size:0.65rem", spotAg, "$" + spotAg.toFixed(2), priorAg, v => "$" + v.toFixed(2), "ag-spark")}
+          ${spotTileHtml("GOLD (XAU/OZ)", "RESERVE", "background:rgba(234,179,8,0.15);color:#eab308;font-size:0.65rem", spotAu, "$" + spotAu.toFixed(2), priorAu, v => "$" + v.toFixed(2), "au-spark")}
+          ${spotTileHtml("GOLD / SILVER RATIO", "GSR", "background:rgba(6,182,212,0.15);color:#06b6d4;font-size:0.65rem", parseFloat(gsRatio), gsRatio + ":1", priorRatio, v => v.toFixed(1) + ":1", "ratio-spark")}
+          <div class="spot-metal-tile">
+            <div class="spot-metal-label"><span>BULLION BOARD Δ</span><span class="badge" style="background:rgba(16,185,129,0.15);color:#10b981;font-size:0.65rem">LEDGER</span></div>
+            <div class="spot-metal-price">${Number.isFinite(bullionDelta) ? (bullionDelta >= 0 ? "+" : "−") + money(Math.abs(bullionDelta)) : "—"}</div>
+            <div class="spot-metal-delta ${!Number.isFinite(bullionDelta) || bullionDelta === 0 ? "flat" : bullionDelta > 0 ? "up" : "down"}">Bullion value move since prior quote</div>
+          </div>
         </div>
         <div class="spot-recalc-banner">
           <div>
@@ -4300,7 +4271,7 @@
             <div style="font-family:var(--mono);font-size:1.35rem;font-weight:700;color:var(--gold-soft)">${money(totalPhysicalMelt)}</div>
           </div>
           <div style="font-size:0.8rem;color:var(--ink-soft);max-width:480px;line-height:1.4">
-            Directly custodying <strong style="color:var(--gold)">${num(totalAgOz, 2)} oz pure silver</strong> and <strong style="color:#eab308">${num(totalAuOz, 4)} oz fine gold</strong>. Real-time valuation updates against current bullion spot ticks.
+            Directly custodying <strong style="color:var(--gold)">${num(totalAgOz, 2)} oz pure silver</strong> and <strong style="color:#eab308">${num(totalAuOz, 4)} oz fine gold</strong>. Valued at the published spot quote${spotAsOf ? " of " + esc(spotAsOf) : ""}.
           </div>
         </div>
       </div>`;
@@ -4483,7 +4454,7 @@
       </div>`;
 
     // --- Event Wiring ---
-    bindVaultEvents(totalAgOz, totalAuOz, spotAg, totalEst);
+    bindVaultEvents(totalAgOz, totalAuOz, spotAu, totalEst);
     observeReveals($("#vault-body"));
 
     // Vault door animation - appended directly to document.body for true viewport centering
@@ -4511,7 +4482,7 @@
   }
 
   /** Wire vault interactive events. Called by renderVault. */
-  function bindVaultEvents(totalAgOz, totalAuOz, spotAg, totalEst) {
+  function bindVaultEvents(totalAgOz, totalAuOz, spotAu, totalEst) {
     // Bullion lot card clicks
     $$("#vault-body .bullion-lot-card[data-scan]").forEach(card => {
       card.addEventListener("click", () => { dossierCtx = null; openDrawer(card.dataset.scan); });
@@ -4626,7 +4597,7 @@
       const spread = parseInt(spreadSlider.value) / 100;
       const premCapture = parseInt(premSlider.value) / 100;
 
-      const scenarioMelt = (totalAgOz * scenarioAg) + (totalAuOz * 4252.90);
+      const scenarioMelt = (totalAgOz * scenarioAg) + (totalAuOz * spotAu);
       const scenarioDealer = scenarioMelt * spread;
       const scenarioMarket = totalEst * premCapture * 0.87;
       const scenarioOptimal = Math.max(scenarioMelt, scenarioMarket);
@@ -4639,16 +4610,19 @@
       if (marketEl) marketEl.textContent = money(scenarioMarket);
       if (optimalEl) optimalEl.textContent = money(scenarioOptimal);
 
-      // Highlight best option
+      // Highlight the single winning channel; the Optimal card names it.
       const cards = $$("#vault-scenario-results .scenario-card");
-      const vals = [scenarioMelt, scenarioDealer, scenarioMarket, scenarioOptimal];
-      const maxVal = Math.max(...vals);
-      cards.forEach((c, i) => c.classList.toggle("best", vals[i] === maxVal));
+      const channels = [scenarioMelt, scenarioDealer, scenarioMarket];
+      const bestIdx = channels.indexOf(Math.max(...channels));
+      cards.forEach((c, i) => c.classList.toggle("best", i === bestIdx || i === 3));
+      const optDetail = cards[3]?.querySelector(".sc-detail");
+      if (optDetail) optDetail.textContent = "Via " + (cards[bestIdx]?.querySelector(".sc-name")?.textContent || "best channel");
     };
 
     [agSlider, spreadSlider, premSlider].forEach(el => {
       el?.addEventListener("input", recalcScenario);
     });
+    recalcScenario();
 
     // Apply 3D hover tilt to bullion cards (reuse gallery card tilt system)
     const canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
