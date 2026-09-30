@@ -623,9 +623,9 @@
     const legend = $("#melt-legend");
     if (legend) {
       legend.innerHTML = `
-        <span class="legend-item leg-ag"><i class="dot"></i> <strong>${num(agOz, 2)} oz Ag</strong> @ ${money(ag)}</span>
-        <span class="legend-item leg-au"><i class="dot"></i> <strong>${num(auOz, 4)} oz Au</strong> @ ${money(au)}</span>
-        <span class="legend-item leg-numis"><i class="dot"></i> <strong>Value above melt</strong> (${numisPct}%)</span>`;
+        <span class="legend-item leg-ag"><i class="dot"></i> <strong>Silver ${money(agMelt)}</strong> <span class="lg-sub">${num(agOz, 2)} oz @ ${money(ag)}</span></span>
+        <span class="legend-item leg-au"><i class="dot"></i> <strong>Gold ${money(auMelt)}</strong> <span class="lg-sub">${num(auOz, 4)} oz @ ${money(au)}</span></span>
+        <span class="legend-item leg-numis"><i class="dot"></i> <strong>Value above melt ${money(numisPremium)}</strong> <span class="lg-sub">${numisPct}% · albums, sets, housing, coins</span></span>`;
     }
 
     const cap = $(".hero-cap");
@@ -2095,7 +2095,7 @@
     const getO = (p, i) => (typeof p === "object" && p.o != null ? p.o : (i > 0 ? getC(points[i - 1]) : getC(p)));
     const getH = (p, i) => (typeof p === "object" && p.h != null ? p.h : Math.max(getC(p), getO(p, i)));
     const getL = (p, i) => (typeof p === "object" && p.l != null ? p.l : Math.min(getC(p), getO(p, i)));
-    const getV = (p) => (typeof p === "object" && p.v ? (parseFloat(p.v) || 1) : 1);
+    const getV = (p) => (typeof p === "object" && p.v ? (parseFloat(p.v) || 0) : 0);
 
     const closes = points.map(getC);
     const highs = points.map((p, i) => getH(p, i));
@@ -2109,33 +2109,41 @@
     const min = Math.max(0, minVal - spread * 0.05);
     const max = maxVal + spread * 0.05;
 
+    // Theme tokens so grid, labels and crosshair stay legible in light atmospheres too.
+    const cs = getComputedStyle(canvas);
+    const tokMuted = (cs.getPropertyValue("--muted") || "").trim() || "rgba(255,255,255,0.7)";
+    const tokLine = (cs.getPropertyValue("--line") || "").trim() || "rgba(255,255,255,0.08)";
+    const tokGold = (cs.getPropertyValue("--gold") || "").trim() || "#c8a94a";
+    const tokInk = (cs.getPropertyValue("--ink") || "").trim() || "#ffffff";
+    const hasVol = vols.some((v) => v > 0); // no fake full-height volume bars when the series has no volume
+
     const padX = 32, padTop = 24, padBottom = 34;
     const plotW = w - padX * 2;
     const plotH = h - padTop - padBottom;
-    const volH = plotH * 0.20;
-    const priceH = plotH * 0.80;
+    const volH = hasVol ? plotH * 0.20 : 0;
+    const priceH = hasVol ? plotH * 0.80 : plotH;
 
     const getX = (i) => padX + (i / (n - 1)) * plotW;
     const getY = (val) => padTop + priceH - ((val - min) / (max - min || 1)) * priceH;
 
     // Grid lines with right-axis price labels
     g.lineWidth = 1;
-    g.font = "10px monospace";
+    g.font = "600 12px ui-monospace, SFMono-Regular, Menlo, monospace";
     g.textAlign = "right";
     g.textBaseline = "middle";
     for (let r = 0; r <= 4; r++) {
       const y = padTop + (r / 4) * priceH;
-      g.strokeStyle = "rgba(255, 255, 255, 0.05)";
+      g.strokeStyle = tokLine;
       g.beginPath(); g.moveTo(padX, y); g.lineTo(padX + plotW, y); g.stroke();
 
       const labelVal = max - (r / 4) * (max - min);
-      g.fillStyle = "rgba(255, 255, 255, 0.28)";
+      g.fillStyle = tokMuted;
       g.fillText((termAsset === "ratio" ? "" : "$") + num(labelVal, termAsset === "au" ? 0 : 2), padX + plotW - 4, y - 6);
     }
 
     // Volume histogram at the base
     const barW = Math.max(2, (plotW / n) * 0.65);
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; hasVol && i < n; i++) {
       const cX = getX(i);
       const open = getO(points[i], i);
       const close = getC(points[i]);
@@ -2187,7 +2195,7 @@
           else { g.lineTo(getX(i), getY(ma)); }
         }
         g.setLineDash([3, 3]);
-        g.strokeStyle = "rgba(200, 169, 74, 0.55)";
+        g.strokeStyle = tokGold;
         g.lineWidth = 1.2;
         g.stroke();
         g.setLineDash([]);
@@ -2232,17 +2240,18 @@
       const ptY = getY(ptVal);
 
       g.setLineDash([4, 4]);
-      g.strokeStyle = "rgba(200, 169, 74, 0.6)";
+      g.strokeStyle = tokGold;
       g.lineWidth = 1;
       g.beginPath(); g.moveTo(termCrosshairX, padTop); g.lineTo(termCrosshairX, padTop + plotH); g.stroke();
       g.beginPath(); g.moveTo(padX, ptY); g.lineTo(padX + plotW, ptY); g.stroke();
       g.setLineDash([]);
 
-      g.fillStyle = "#ffffff";
+      g.fillStyle = tokInk;
       g.beginPath(); g.arc(termCrosshairX, ptY, 4, 0, Math.PI * 2); g.fill();
     }
   }
 
+  window.TitanHallChart = () => renderTerminalChart(); // lets wings/hall.js redraw on resize/rotation
   function initTradingTerminal() {
     const hub = $("#trading-terminal");
     if (!hub) return;
@@ -2545,7 +2554,7 @@
             
             <div class="placard-metrics">
               <div class="pl-metric">
-                <span class="pl-lbl">Appraised Value</span>
+                <span class="pl-lbl">Ledger estimate</span>
                 <span class="pl-val gold">${money(f.est)}</span>
               </div>
               <div class="pl-metric">
@@ -2555,17 +2564,6 @@
               <div class="pl-metric">
                 <span class="pl-lbl">${multiplier ? "Over melt" : "Ledger confidence"}</span>
                 <span class="pl-val">${multiplier || (f.conf ? esc(String(f.conf).toUpperCase()) : "—")}</span>
-              </div>
-            </div>
-
-            <!-- Phase 2 Macro Photography Tether Guide -->
-            <div class="ex-p2-tether-bar">
-              <div class="ex-target-filename">
-                <span><strong>Target RAW:</strong> <code id="fn-txt-${esc(f.scan)}">${targetFilenameObv}</code></span>
-                <button type="button" class="ex-copy-fn-btn" data-copyfn="${targetFilenameObv}" title="Copy expected filename to clipboard">📋 Copy</button>
-              </div>
-              <div class="p2-prompt" style="font-size:0.75rem;margin:0">
-                Phase 2 status: <strong>Awaiting Physical RAW Macro Capture</strong>.
               </div>
             </div>
 
@@ -4258,6 +4256,13 @@
   }
 
   function renderVault() {
+    // Wing II is rendered by wings/vault.js (door + dashboard); the TR49 code below is the fallback.
+    if (window.TitanVaultWing && typeof window.TitanVaultWing.render === "function") {
+      try {
+        window.TitanVaultWing.render({ vault, open: (scan) => { dossierCtx = null; openDrawer(scan); }, active: !!$("#pane-vault")?.classList.contains("active") });
+        return;
+      } catch (e) { console.warn("TitanVaultWing.render failed; using fallback", e); }
+    }
     const all = [
       ...(vault.bullion || []).map((x) => ({ ...x, _kind: "Bullion" })),
       ...(vault.sets || []).map((x) => ({ ...x, _kind: "Set" })),
