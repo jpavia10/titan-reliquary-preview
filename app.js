@@ -3030,32 +3030,46 @@
 
   let cabinetTray = "all"; // 'crown' | 'silver' | 'world' | 'timeline' | 'all'
 
+  /** One rule for "awaiting Phase 2", used by both the filter and its count. */
+  function isAwaitingPhase2(f) {
+    return f.awaiting_phase2 !== false && f.status !== "Removed" && !f.phase2_done;
+  }
+
+  /** Year box: "1969" / "196" match by prefix, "1960-1979" is a range; anything else is a substring. */
+  function yearMatches(f, raw) {
+    const y = String(raw || "").trim();
+    if (!y) return true;
+    const fy = String(f.year || "");
+    const range = y.match(/^(\d{4})\s*[-–]\s*(\d{4})$/);
+    if (range) { const n = parseInt(fy, 10); return n >= +range[1] && n <= +range[2]; }
+    if (/^\d{1,4}$/.test(y)) return fy.startsWith(y);
+    return fy.toLowerCase().includes(y.toLowerCase());
+  }
+
   function filteredFlips() {
     let rows = vault.flips || [];
     const q = norm(flipFilter.q);
 
-    // Filter by active Cabinet Tray
-    if (cabinetTray === "crown") {
-      rows = rows.filter((f) => f.status !== "Removed" && (f.est ?? 0) > 0)
-        .sort((a, b) => (b.est ?? 0) - (a.est ?? 0))
-        .slice(0, 12);
-      return rows;
-    } else if (cabinetTray === "silver") {
+    // Filter by active Cabinet Tray (Crown Jewels is applied last so it respects every other filter)
+    if (cabinetTray === "silver") {
       rows = rows.filter((f) => f.is_silver);
     }
 
     const STAGING_SCANS = new Set(["C114", "C223", "C073", "C066", "C065"]);
     if (flipFilter.staging) rows = rows.filter((f) => STAGING_SCANS.has(f.scan) || STAGING_SCANS.has(f.ser));
     if (flipFilter.silverOnly) rows = rows.filter((f) => f.is_silver);
-    if (flipFilter.phase2) rows = rows.filter((f) => f.awaiting_phase2 !== false && f.status !== "Removed" && !f.phase2_done);
+    if (flipFilter.phase2) rows = rows.filter(isAwaitingPhase2);
     if (flipFilter.country) rows = rows.filter((f) => f.country === flipFilter.country);
     if (flipFilter.iso) rows = rows.filter((f) => f.iso === flipFilter.iso);
-    if (flipFilter.year) {
-      const y = flipFilter.year.trim();
-      rows = rows.filter((f) => String(f.year || "").includes(y));
-    }
+    if (flipFilter.year) rows = rows.filter((f) => yearMatches(f, flipFilter.year));
     if (q) {
       rows = rows.filter((f) => flipQueryMatch(f, q));
+    }
+
+    if (cabinetTray === "crown") {
+      return rows.filter((f) => f.status !== "Removed" && (f.est ?? 0) > 0)
+        .sort((a, b) => (b.est ?? 0) - (a.est ?? 0))
+        .slice(0, 12);
     }
 
     if (cabinetTray === "silver") {
@@ -3390,6 +3404,11 @@
 
     const galleryPane = $("#pane-gallery");
     if (!galleryPane || !galleryPane.classList.contains("active")) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    // Only steer the carousel when focus is on the page itself or inside the carousel;
+    // a focused button, chip or card keeps Space / arrows for itself.
+    const fa = document.activeElement;
+    if (fa && fa !== document.body && !fa.closest("#gallery-coverflow-wrap")) return;
 
     if (e.key === "ArrowLeft") {
       e.preventDefault();
@@ -3633,6 +3652,7 @@
   window.toggleCoverFlowFlip = toggleCoverFlowFlip;
 
   let galleryScrollListener = null;
+  let galleryRows = [];
   let galleryResizeListener = null;
 
   function renderGallery() {
@@ -3652,7 +3672,7 @@
     const countries = flipCountries();
     const rows = filteredFlips();
     const agCount = (vault.flips || []).filter((f) => f.is_silver).length;
-    const p2Count = (vault.flips || []).filter((f) => f.status !== "Removed" && !f.phase2_done).length;
+    const p2Count = (vault.flips || []).filter(isAwaitingPhase2).length;
     const opts = countries
       .map(([c, n]) => `<option value="${esc(c)}" ${flipFilter.country === c ? "selected" : ""}>${esc(c)} (${n})</option>`)
       .join("");
@@ -4006,8 +4026,13 @@
       });
     });
 
-    // Event delegation for cards: one single handler for all cards (including dynamic batches)
-    $("#gallery-body").addEventListener("click", (e) => {
+    // Event delegation for cards: bound ONCE on the persistent container; it reads the rows of the
+    // latest render (re-binding on every render made one tap fire once per past render).
+    galleryRows = rows;
+    const gBodyEl = $("#gallery-body");
+    if (!gBodyEl.dataset.delegated) {
+    gBodyEl.dataset.delegated = "1";
+    gBodyEl.addEventListener("click", (e) => {
       const flipBtn = e.target.closest(".pc-3d-flip-trigger, .pc-flip-action-btn");
       if (flipBtn) {
         e.stopPropagation();
@@ -4021,17 +4046,17 @@
       }
       const card = e.target.closest(".piece-card[data-scan], .latest-card[data-scan]");
       if (card) {
-        dossierCtx = { label: "Gallery", scans: rows.map((f) => f.scan) };
+        dossierCtx = { label: "Gallery", scans: galleryRows.map((f) => f.scan) };
         openDrawer(card.dataset.scan);
       }
     });
 
-    $("#gallery-body").addEventListener("keydown", (e) => {
+    gBodyEl.addEventListener("keydown", (e) => {
       const card = e.target.closest(".piece-card[data-scan]");
       if (!card) return;
       if (e.key === "Enter") {
         e.preventDefault();
-        dossierCtx = { label: "Gallery", scans: rows.map((f) => f.scan) };
+        dossierCtx = { label: "Gallery", scans: galleryRows.map((f) => f.scan) };
         openDrawer(card.dataset.scan);
       } else if (e.key === " " || e.key === "f" || e.key === "F") {
         e.preventDefault();
@@ -4042,6 +4067,7 @@
         }
       }
     });
+    }
 
     // Wire apex 3D Museum Room Banner Launch Button
     $("#btn-gallery-launch-spatial")?.addEventListener("click", (e) => {
