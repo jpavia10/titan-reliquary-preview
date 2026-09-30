@@ -67,11 +67,11 @@ const PAIRS = [
   ["--ink", "--surface", 7, "body text on cards"],
   ["--ink", "--surface2", 4.5, "text on raised surface"],
   ["--ink", "--th-bg", 7, "table header text"],
-  ["--muted", "--bg", 4.5, "secondary text on page"],
-  ["--muted", "--surface", 4.5, "secondary text on cards"],
+  ["--muted", "--bg", 6, "secondary text on page (small labels; older viewer)"],
+  ["--muted", "--surface", 6, "secondary text on cards"],
   ["--muted", "--surface2", 4.5, "secondary text on chips"],
-  ["--faint", "--bg", 3, "hint text / disabled (non-body)"],
-  ["--faint", "--surface", 3, "hint text on cards"],
+  ["--faint", "--bg", 4.5, "hint text (used as small text in 18 rules)"],
+  ["--faint", "--surface", 4.5, "hint text on cards"],
   ["--gold", "--bg", 4.5, "accent text on page"],
   ["--gold", "--surface", 4.5, "accent text on cards"],
   ["--gold-soft", "--surface", 4.5, "soft accent on cards"],
@@ -427,9 +427,9 @@ function pageSources(ids) {
       if (r.cssRules && !r.selectorText) { try { walk(r.cssRules, href); } catch (_) {} continue; }
       if (!r.selectorText || !r.style) continue;
       const fg = r.style.getPropertyValue("color") || r.style.getPropertyValue("-webkit-text-fill-color");
-      const bg = r.style.getPropertyValue("background-color") || r.style.getPropertyValue("background-image") || r.style.getPropertyValue("background");
       const fgLit = fg && lit.test(fg) && !/var\(/.test(fg) ? fg : "";
-      const bgLit = bg && lit.test(bg) && !/var\(/.test(bg) ? bg : "";
+      const bgLit = ["background-color", "background-image", "background"].map((p) => r.style.getPropertyValue(p))
+        .find((v) => v && lit.test(v) && !/var\(/.test(v)) || "";
       if (fgLit || bgLit) rules.push({ sel: r.selectorText, href, fg: fgLit, bg: bgLit });
     }
   };

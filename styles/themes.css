@@ -44,3 +44,34 @@ html[data-atmo="notepad"] {
 
 /* Native controls, scrollbars and form fields follow the atmosphere */
 html[data-atmo] { color-scheme: var(--scheme); }
+
+/* ---------------------------------------------------------------------------
+   2. Keyboard focus: one visible ring in every atmosphere, 3px so an older
+      viewer can find it; the 2px offset keeps a gap of page colour between the
+      ring and accent-coloured controls. (Component shadows are left alone.)
+   ------------------------------------------------------------------------- */
+html[data-atmo] :focus-visible {
+  outline: 3px solid var(--focus, var(--gold));
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   3. Text on solid accent fills follows --on-gold. These components paint
+      background: var(--gold) with a hard-coded near-black label, which fails on
+      atmospheres whose accent is dark (Conservator, Plaintext).
+   ------------------------------------------------------------------------- */
+html[data-atmo] :is(.lofi-bar.collapsed .lofi-play, .hero-spatial-launcher .hsl-pill, .lab-badge,
+  .ex-nav-btn:hover, .placard-inspect-btn:hover, .tray-tab.active, .term-asset-btn.active,
+  .ex-ctrl-btn.active, .ex-ctrl-btn.flip-btn:hover) {
+  color: var(--on-gold);
+}
+
+/* ---------------------------------------------------------------------------
+   4. Atmosphere cross-fade: styles.css eases background/border/text colour on
+      the main surfaces when the atmosphere changes; stand it down for reduced
+      motion (it was unguarded).
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  body, .card, .tile, .metal-tile, .album-card, .latest-card, .sheet-card,
+  .drawer-inner, .foot, .tabs, .lofi-bar, .ambient-panel { transition: none; }
+}

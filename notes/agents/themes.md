@@ -75,8 +75,8 @@ Every atmosphere defines (`html[data-atmo="<name>"] { ... }`):
 | `--bg`, `--bg2` | page background (primary, secondary band) | |
 | `--surface`, `--surface2` | cards/panels; chips/inputs/raised rows | visibly distinct from `--bg` |
 | `--ink` | body text | 7:1 on `--bg`, `--surface`, `--th-bg`; 4.5:1 on `--surface2` |
-| `--muted` | secondary text | 4.5:1 on `--bg`, `--surface`, `--surface2` |
-| `--faint` | hints, disabled, rules | 3:1 on `--bg`, `--surface` (never for body text) |
+| `--muted` | secondary text (often 10-12px labels) | 6:1 on `--bg`, `--surface`; 4.5:1 on `--surface2` |
+| `--faint` | hints, placeholders, "missing" values (styles.css uses it as small TEXT in ~18 rules) | 4.5:1 on `--bg`, `--surface` |
 | `--cardmeta` | card meta lines | 4.5:1 on `--surface` |
 | `--gold` | the theme accent (historical name): accent text, fills, active states | 4.5:1 on `--bg`, `--surface` |
 | `--gold-soft` | soft accent text | 4.5:1 on `--bg`, `--surface` |

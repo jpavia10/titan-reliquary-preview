@@ -13,8 +13,8 @@
      no @import, no url(http...). data: URIs are fine but keep them small.
    - Motion: transform / opacity / background-position only, and add a
      prefers-reduced-motion block that turns it off (section 6).
-   - Legibility (older viewer): ink/bg >= 7:1, muted/bg >= 4.5:1,
-     gold/bg >= 4.5:1, faint/bg >= 3:1, on-gold/gold >= 4.5:1. Run the audit.
+   - Legibility (older viewer): ink/bg >= 7:1, muted/bg >= 6:1, faint/bg >= 4.5:1
+     (faint is used as small text), gold/bg >= 4.5:1, on-gold/gold >= 4.5:1. Run the audit.
    ========================================================================== */
 
 /* 1. Tokens -------------------------------------------------------------- */
@@ -31,8 +31,8 @@ html[data-atmo="NAME"] {
 
   /* text */
   --ink: #f2efe8;         /* body text            (>= 7:1 on bg + surface) */
-  --muted: #b3ad9f;       /* secondary text       (>= 4.5:1 on bg + surface2) */
-  --faint: #7d786c;       /* hints, disabled, rules (>= 3:1 on bg) */
+  --muted: #b3ad9f;       /* secondary text       (>= 6:1 on bg + surface, 4.5:1 on surface2) */
+  --faint: #8f8a7d;       /* hints, placeholders; used as small text (>= 4.5:1 on bg + surface) */
   --cardmeta: #d6d0c2;    /* card meta lines      (>= 4.5:1 on surface) */
 
   /* accent ("gold" is the historical name; it is the theme accent) */
