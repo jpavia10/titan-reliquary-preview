@@ -133,7 +133,7 @@
   grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
   gap: 0.75rem;
 }
-#pane-gallery .gx-facets .gx-range { min-width: 190px; }
+#pane-gallery .gx-facets .gx-range { grid-column: span 2; }
 #pane-gallery .gx-ftoggle { display: none; }
 
 #pane-gallery .gx-quick { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -340,7 +340,7 @@
 }
 #pane-gallery .gx-face svg, #pane-gallery .gx-face img { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* The drawn face puts a ~22 mm coin inside a 50.8 mm velvet window; zoom so the coin reads at tile size. */
-#pane-gallery .gx-face svg { transform: scale(var(--gx-zoom, 1.6)); }
+#pane-gallery .gx-face svg { transform: scale(var(--gx-zoom, calc(34 / var(--r, 22)))); }
 #pane-gallery .gx-rev { transform: rotateY(180deg); }
 #pane-gallery .gx-tile.is-turned .gx-coin { transform: rotateY(180deg); }
 
@@ -355,7 +355,7 @@
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18), inset 0 2px 10px rgba(255, 255, 255, 0.25), 0 14px 24px -12px rgba(0, 0, 0, 0.7);
 }
 #pane-gallery .gx[data-mode="slab"] .gx-clip { border-radius: 8px; }
-#pane-gallery .gx[data-mode="slab"] .gx-face { --gx-zoom: 1.55; }
+#pane-gallery .gx[data-mode="slab"] .gx-face { --gx-zoom: calc(34 / var(--r, 22)); }
 /* Mode: 2x2 cardboard flip with a round window (how the collection is actually housed) */
 #pane-gallery .gx[data-mode="flip"] .gx-frame {
   padding: 9%;
@@ -378,12 +378,12 @@
 }
 #pane-gallery .gx[data-mode="flip"] .gx-frame::after { top: auto; bottom: 4%; }
 #pane-gallery .gx[data-mode="flip"] .gx-clip { border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.18); background: radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.12) 60%); }
-#pane-gallery .gx[data-mode="flip"] .gx-face { --gx-zoom: 1.9; }
-#pane-gallery .gx[data-mode="flip"] .gx-face svg { clip-path: circle(24.5% at 50% 50%); }
+#pane-gallery .gx[data-mode="flip"] .gx-face { --gx-zoom: calc(46 / (var(--r, 22) + 2.5)); }
+#pane-gallery .gx[data-mode="flip"] .gx-face svg { clip-path: circle(calc((var(--r, 22) + 2.5) * 1%) at 50% 50%); }
 /* Mode: bare coin */
 #pane-gallery .gx[data-mode="matrix"] .gx-stage { padding: 4%; }
-#pane-gallery .gx[data-mode="matrix"] .gx-face { --gx-zoom: 2.05; filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.5)); }
-#pane-gallery .gx[data-mode="matrix"] .gx-face svg { clip-path: circle(23.4% at 50% 50%); }
+#pane-gallery .gx[data-mode="matrix"] .gx-face { --gx-zoom: calc(48 / (var(--r, 22) + 1.4)); filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.5)); }
+#pane-gallery .gx[data-mode="matrix"] .gx-face svg { clip-path: circle(calc((var(--r, 22) + 1.4) * 1%) at 50% 50%); }
 
 #pane-gallery .gx-plac {
   display: flex;
@@ -620,8 +620,9 @@
 }
 #drawer-body .gxd-faces { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.75rem, 3vw, 1.5rem); max-width: 560px; margin: 0 auto; }
 #drawer-body .gxd-face { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
-#drawer-body .gxd-coin { display: block; width: 100%; aspect-ratio: 1 / 1; }
-#drawer-body .gxd-coin svg { display: block; width: 100%; height: 100%; clip-path: circle(47% at 50% 50%); filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.45)); }
+#drawer-body .gxd-coin { display: block; width: 100%; aspect-ratio: 1 / 1; filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.45)); }
+/* The drawn face is a ~22 mm coin in a 50.8 mm window: crop to the coin and show it large. */
+#drawer-body .gxd-coin svg { display: block; width: 100%; height: 100%; clip-path: circle(calc((var(--r, 22) + 2.2) * 1%) at 50% 50%); transform: scale(calc(48 / (var(--r, 22) + 2.2))); }
 #drawer-body .gxd-face figcaption { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 #drawer-body .gxd-pending { margin: 1rem auto 0; max-width: 560px; font-size: 0.9rem; line-height: 1.5; color: var(--muted); text-align: center; }
 #drawer-body .gxd-pending code { font-family: var(--mono); font-size: 0.8rem; color: var(--ink); cursor: copy; overflow-wrap: anywhere; }

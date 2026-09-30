@@ -282,8 +282,46 @@
   /* ------------------------------------------------------------------ tiles */
   const tileCache = new Map();
   function coinSvg(f, side, large) {
+    if (side === "rev") return revSvg(f);
     if (typeof window.renderSpecimenBlueprint === "function") return window.renderSpecimenBlueprint(f, !!large, side);
     return `<span class="gx-coin-blank" aria-hidden="true"></span>`;
+  }
+  /** Planchet radius (of 100) the shared blueprint draws for this coin; used to crop and zoom the drawn face. */
+  function planchetR(f) {
+    const dm = String(f.metal_cond || f.metal || "").match(/([\d.]+)\s*mm/i);
+    const diam = dm ? parseFloat(dm[1]) : ((f.is_silver || f.asw_oz) ? 26.5 : 22);
+    return Math.min(42, Math.max(22, ((Number.isFinite(diam) ? diam : 22) / 50.8) * 44));
+  }
+  /* A drawn reverse: the denomination set inside a beaded ring, sized to fit the planchet.
+     Same planchet geometry and metal gradients as the shared obverse blueprint. */
+  let revUid = 0;
+  function revSvg(f) {
+    const metal = String(f.metal || "");
+    const silver = !!f.is_silver || !!f.asw_oz, gold = !!f.is_gold || /gold/i.test(metal), bronze = /bronze|copper|brass/i.test(metal);
+    const grad = gold ? "grad-planchet-gold" : bronze ? "grad-planchet-bronze" : silver ? "grad-planchet-silver" : "grad-planchet-alloy";
+    const ink = gold ? "#fef08a" : bronze ? "#fed7aa" : "#f8fafc";
+    const r = planchetR(f);
+    const denom = String(f.denom || f.label || "").split("·")[0].trim();
+    const m = denom.match(/^([\d.,/½¼¾]+)\s*(.*)$/);
+    const big = m ? m[1] : "";
+    const unit = (m ? m[2] : denom).replace(/\(.*?\)/g, "").trim().toUpperCase().slice(0, 18);
+    const bigSize = Math.min(r * 0.62, (r * 1.3) / Math.max(1, big.length * 0.62));
+    const unitSize = Math.min(r * 0.2, (r * 1.45) / Math.max(1, unit.length * 0.62));
+    const uid = "gxrev" + (++revUid);
+    const yearTxt = esc(String(f.year || "").slice(0, 14));
+    return `<svg class="specimen-medallion gx-rev-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reverse (drawn): ${esc(denom)}">
+      <defs><filter id="${uid}" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.6"/></filter></defs>
+      <rect width="100" height="100" fill="url(#grad-aperture-velvet)"/>
+      <circle cx="50" cy="50" r="${r.toFixed(1)}" fill="url(#${grad})" stroke="#050608" stroke-width="0.8" filter="url(#${uid})"/>
+      <circle cx="50" cy="50" r="${r.toFixed(1)}" fill="url(#grad-coin-luster)"/>
+      <circle cx="50" cy="50" r="${(r - 0.6).toFixed(1)}" fill="none" stroke="${ink}" stroke-width="0.9" opacity="0.85"/>
+      <circle cx="50" cy="50" r="${(r - 2.2).toFixed(1)}" fill="none" stroke="${ink}" stroke-width="0.7" stroke-dasharray="1 1.5" opacity="0.7"/>
+      <g fill="${ink}" text-anchor="middle" font-family="var(--serif), Georgia, serif" font-weight="800" style="paint-order:stroke" stroke="rgba(0,0,0,0.35)" stroke-width="0.25">
+        ${big ? `<text x="50" y="${(50 + bigSize * 0.2).toFixed(1)}" font-size="${bigSize.toFixed(1)}">${esc(big)}</text>` : ""}
+        ${unit ? `<text x="50" y="${(big ? 50 + bigSize * 0.2 + unitSize * 1.45 : 50 + unitSize * 0.35).toFixed(1)}" font-size="${unitSize.toFixed(1)}" letter-spacing="0.06em">${esc(unit)}</text>` : ""}
+        ${yearTxt && big ? `<text x="50" y="${(50 - r * 0.52).toFixed(1)}" font-size="${(r * 0.14).toFixed(1)}" letter-spacing="0.12em">${yearTxt}</text>` : ""}
+      </g>
+    </svg>`;
   }
   function tileHtml(f) {
     const isNew = B.highlight && B.highlight.has(f.scan);
@@ -302,7 +340,7 @@
           <span class="gx-stage" aria-hidden="true">
             <span class="gx-frame"><span class="gx-clip">
               <span class="gx-coin">
-                <span class="gx-face gx-obv">${photo || coinSvg(f, "obv")}</span>
+                <span class="gx-face gx-obv" style="--r:${planchetR(f).toFixed(1)}">${photo || coinSvg(f, "obv")}</span>
               </span>
             </span></span>
           </span>
@@ -326,7 +364,7 @@
     const f = flips().find((x) => x.scan === tile.dataset.scan);
     const coin = $(".gx-coin", tile);
     if (!f || !coin) return;
-    if (!$(".gx-rev", coin)) coin.insertAdjacentHTML("beforeend", `<span class="gx-face gx-rev">${coinSvg(f, "rev")}</span>`);
+    if (!$(".gx-rev", coin)) coin.insertAdjacentHTML("beforeend", `<span class="gx-face gx-rev" style="--r:${planchetR(f).toFixed(1)}">${coinSvg(f, "rev")}</span>`);
     const on = !tile.classList.contains("is-turned");
     tile.classList.toggle("is-turned", on);
     $(".gx-turn", tile)?.setAttribute("aria-pressed", String(on));
@@ -939,6 +977,8 @@
       run: () => { clearAll(false); F().cont = c; goGallery(true); } }));
     [...ctry].filter(([c]) => wordsMatch(norm(c), q)).slice(0, 4).forEach(([c, n]) => push("place", { t: esc(c), s: `${n} ${n === 1 ? "piece" : "pieces"}`, head: "Places",
       run: () => { clearAll(false); F().country = c; goGallery(true); } }));
+    // Actions whose name matches come before the long lists
+    palActions().filter((a) => wordsMatch(norm(`${a.t} ${a.k}`), q)).slice(0, 3).forEach((a) => push("act", { t: a.t, s: a.s, head: "Actions", run: a.run }));
     // Flips
     const hits = flips().filter((f) => B.flipQueryMatch(f, q));
     hits.slice(0, 6).forEach((f) => push("piece", { ...flipItem(f), head: `Pieces · ${hits.length}` }));
@@ -962,7 +1002,6 @@
     }));
     // Wings + actions
     WINGS.filter(([w, t, s]) => wordsMatch(norm(`${w} ${t} ${s} wing room`), q)).forEach(([w, t, s]) => push("wing", { t, s, head: "Go to", run: () => B.setWing(w) }));
-    palActions().filter((a) => wordsMatch(norm(`${a.t} ${a.k}`), q)).slice(0, 4).forEach((a) => push("act", { t: a.t, s: a.s, head: "Actions", run: a.run }));
     return items;
   }
 
@@ -1055,7 +1094,7 @@
     const hasObv = photos.some((p) => p.role === "obv"), hasRev = photos.some((p) => p.role === "rev");
     const face = (side) => {
       if ((side === "obv" && hasObv) || (side === "rev" && hasRev)) return B.photoSlot(c, side);
-      return `<figure class="gxd-face"><span class="gxd-coin">${coinSvg(c, side, true)}</span><figcaption>${side === "obv" ? "Obverse" : "Reverse"}</figcaption></figure>`;
+      return `<figure class="gxd-face"><span class="gxd-coin" style="--r:${planchetR(c).toFixed(1)}">${coinSvg(c, side, true)}</span><figcaption>${side === "obv" ? "Obverse" : "Reverse"}</figcaption></figure>`;
     };
     const drawn = !(hasObv && hasRev);
     const target = c.photo_stem ? `${c.photo_stem}_obv.jpg` : "";
