@@ -169,7 +169,7 @@
   function median(arr) { if (!arr.length) return 0; const a = Float32Array.from(arr).sort(); return a[a.length >> 1]; }
 
   /** Largest connected foreground component inside a rectangle. */
-  function largestBlob(L, W, Hh, rect) {
+  function largestBlob(L, T, W, Hh, rect) {
     const { x0, y0, x1, y1 } = rect;
     const rw = x1 - x0, rh = y1 - y0;
     // background = median of the rectangle's border ring
@@ -179,17 +179,19 @@
       if (x - x0 < bw || x1 - x <= bw || y - y0 < bw || y1 - y <= bw) ring.push(L[y * W + x]);
     }
     const bg = median(ring);
-    const hist = new Uint32Array(256); let tot = 0;
-    for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) { hist[L[y * W + x] | 0]++; tot++; }
-    let t = otsu(hist, tot);
-    // guard: the threshold must sit clearly away from the background level
-    if (Math.abs(t - bg) < 12) t = bg < 128 ? bg + 24 : bg - 24;
-    const hiFg = bg < t;
-    const mask = new Uint8Array(rw * rh);
+    // feature = difference from the background level + local texture (engraving)
+    const F = new Float32Array(rw * rh);
+    const hist = new Uint32Array(256);
     for (let y = 0; y < rh; y++) for (let x = 0; x < rw; x++) {
-      const v = L[(y + y0) * W + x + x0];
-      mask[y * rw + x] = hiFg ? (v > t ? 1 : 0) : (v < t ? 1 : 0);
+      const i = (y + y0) * W + x + x0;
+      const v = Math.min(255, Math.abs(L[i] - bg) + 2.5 * T[i]);
+      F[y * rw + x] = v; hist[v | 0]++;
     }
+    let t = otsu(hist, rw * rh);
+    if (t < 14) t = 14; // flat, noise-level differences are background
+    const mask = new Uint8Array(rw * rh);
+    for (let k = 0; k < F.length; k++) mask[k] = F[k] > t ? 1 : 0;
+    const hiFg = true;
     const lab = new Int32Array(rw * rh);
     const q = new Int32Array(rw * rh);
     let best = null, id = 0;
@@ -226,8 +228,11 @@
     const mean = rays.reduce((a, b) => a + b, 0) / rays.length;
     const sd = Math.sqrt(rays.reduce((a, b) => a + (b - mean) * (b - mean), 0) / rays.length);
     const bbw = best.maxx - best.minx + 1, bbh = best.maxy - best.miny + 1;
+    // square vs circle: rays at 45° are ~1.41x the axis rays for a square, ~1x for a circle
+    const axis = (rays[0] + rays[18] + rays[36] + rays[54]) / 4;
+    const diag = (rays[9] + rays[27] + rays[45] + rays[63]) / 4;
     return {
-      n: best.n, bg, t, hiFg,
+      n: best.n, bg, t, hiFg, corner: axis ? diag / axis : 1,
       x: best.minx + x0, y: best.miny + y0, w: bbw, h: bbh,
       cx: bx + x0, cy: by + y0, r: mean, cv: mean ? sd / mean : 1,
       aspect: Math.min(bbw, bbh) / Math.max(bbw, bbh),
@@ -238,9 +243,37 @@
   }
 
   /** Find the coin (circle) and the flip (square) in analysis-pixel coordinates. */
-  function detect(L, W, Hh) {
+  function boxBlur(L, W, Hh, r) {
+    const tmp = new Float32Array(L.length), out = new Float32Array(L.length);
+    for (let y = 0; y < Hh; y++) {
+      let acc = 0; const row = y * W;
+      for (let x = -r; x <= r; x++) acc += L[row + clamp(x, 0, W - 1)];
+      for (let x = 0; x < W; x++) {
+        tmp[row + x] = acc / (2 * r + 1);
+        acc += L[row + Math.min(W - 1, x + r + 1)] - L[row + Math.max(0, x - r)];
+      }
+    }
+    for (let x = 0; x < W; x++) {
+      let acc = 0;
+      for (let y = -r; y <= r; y++) acc += tmp[clamp(y, 0, Hh - 1) * W + x];
+      for (let y = 0; y < Hh; y++) {
+        out[y * W + x] = acc / (2 * r + 1);
+        acc += tmp[Math.min(Hh - 1, y + r + 1) * W + x] - tmp[Math.max(0, y - r) * W + x];
+      }
+    }
+    return out;
+  }
+
+  function detect(L0, W, Hh) {
+    // smooth away engraving/texture so the coin separates from its background as one shape
+    const rad = Math.max(2, Math.round(Math.min(W, Hh) * 0.012));
+    const L = boxBlur(L0, W, Hh, rad);
+    const fine = boxBlur(L0, W, Hh, 1);
+    const E = new Float32Array(L0.length);
+    for (let i = 0; i < E.length; i++) E[i] = Math.abs(L0[i] - fine[i]);
+    const T = boxBlur(E, W, Hh, rad);
     const full = { x0: 0, y0: 0, x1: W, y1: Hh };
-    const b = largestBlob(L, W, Hh, full);
+    const b = largestBlob(L, T, W, Hh, full);
     const short = Math.min(W, Hh);
     const out = { found: false, kind: "none", coin: null, flip: null, touches: false, cv: 1, aspect: 0 };
     if (!b || b.areaFrac < 0.01) {
@@ -248,13 +281,13 @@
       out.flip = { x: W / 2 - short * 0.48, y: Hh / 2 - short * 0.48, s: short * 0.96 };
       return out;
     }
-    const squareish = b.aspect > 0.9 && b.fill > 0.86 && b.cv > 0.05;
+    const squareish = b.aspect > 0.9 && b.corner > 1.25;
     if (squareish) {
       // A flip: look for the coin inside its central window.
       const s = (b.w + b.h) / 2;
       const inset = s * 0.14;
       const rect = { x0: Math.round(b.x + inset), y0: Math.round(b.y + inset), x1: Math.round(b.x + b.w - inset), y1: Math.round(b.y + b.h - inset) };
-      const c = largestBlob(L, W, Hh, rect);
+      const c = largestBlob(L, T, W, Hh, rect);
       out.kind = "flip";
       out.flip = { x: b.x, y: b.y, s };
       if (c && c.areaFrac > 0.05) {
@@ -328,8 +361,8 @@
 
   /** Mean RGB of a neutral reference: a tapped point, or the background outside the coin/flip. */
   function neutralSample(data, L, W, Hh, geo, wb) {
-    let r = 0, g = 0, b = 0, n = 0;
-    const add = (i) => { const j = i * 4; if (L[i] < 20 || L[i] > 245) return; r += data[j]; g += data[j + 1]; b += data[j + 2]; n++; };
+    let r = 0, g = 0, b = 0, n = 0, seen = 0;
+    const add = (i) => { const j = i * 4; seen++; if (L[i] < 20 || L[i] > 245) return; r += data[j]; g += data[j + 1]; b += data[j + 2]; n++; };
     if (wb) {
       const cx = wb.x * W, cy = wb.y * Hh, rad = Math.max(4, Math.min(W, Hh) * 0.015);
       for (let y = Math.max(0, cy - rad | 0); y < Math.min(Hh, cy + rad); y++) for (let x = Math.max(0, cx - rad | 0); x < Math.min(W, cx + rad); x++) add(y * W + x);
@@ -341,6 +374,7 @@
       const dx = x - c.cx, dy = y - c.cy; if (dx * dx + dy * dy < rr) continue;
       add(y * W + x);
     }
+    if (n < seen * 0.5) n = 0; // mostly black/clipped: no usable neutral background
     return { n, r, g, b, src: "background" };
   }
 
@@ -420,8 +454,9 @@
     // 6. White balance vs a neutral reference
     {
       const s = neutralSample(data, L, W, Hh, geo, im.wb);
-      if (s.n < 30) {
-        checks.push({ id: "color", label: "Colour balance", level: "info", value: "No neutral area to measure", advice: "Put a grey or white card in the shot and tap it here to check the colour." });
+      const M0 = s.n ? (s.r + s.g + s.b) / (3 * s.n) : 0;
+      if (s.n < 30 || M0 < 45) {
+        checks.push({ id: "color", label: "Colour balance", level: "info", value: s.n < 30 ? "No neutral area to measure" : "Background too dark to judge colour", advice: "Put a grey or white card in the shot and tap it here to check the colour." });
       } else {
         const R = s.r / s.n, G = s.g / s.n, B = s.b / s.n, M = (R + G + B) / 3;
         const dev = Math.max(Math.abs(R - M), Math.abs(G - M), Math.abs(B - M)) / Math.max(1, M);
