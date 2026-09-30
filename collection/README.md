@@ -17,11 +17,20 @@ Bootstrapped 2026-09-30 from ledger **v254** (Grok's pipeline output, generated 
 | `photos.json` | photo records (Phase 1 / 1.5 / 2). **Empty: 0 photos exist yet.** |
 | `valuations.jsonl` | append-only, one dated value per specimen/lot (v254: 301 lines) |
 | `changes.jsonl` | append-only audit log: one **ChangeEvent** per fact changed since the ledger |
+| `board.json` | snapshot of the ledger v254 board Grok computed (totals, metals/spot, age, moments, flags, requests, per-lot display text). Authoritative for silver/gold/value totals (owner 2026-09-30). Written once by `tools/pipeline/snapshot_board.py`; edit only the spot/requests/moments by hand. |
+| `templates/` | `INSTRUCTIONS.md` (the one file any AI follows) and two worked examples, `phase1_template.jsonl`, `phase2_template.jsonl`. |
 | `CURATION_OPEN.md` | what the data could not settle; raw values were kept. Owner/Grok checklist. |
 | `SER_REASSIGN_PLAN.md` | dry-run plan for the one-time serial reassignment. **Not applied.** |
 | `_incoming/` | Drive-only drop zone (not in git) for agents without GitHub access, see below |
 
 Records are one per line (sorted keys), so `git diff` shows exactly which record changed. The schema is `schema/v2/defs.schema.json` (entity definitions; Tier 2 fields are present and `null` until someone fills them).
+
+## Contributing (any AI: Claude, Gemini, Grok, Muse ...)
+Do not edit the records by hand. Write a **contribution file** and let the pipeline merge it:
+1. Read `templates/INSTRUCTIONS.md` (one page) and copy the matching template: `templates/phase1_template.jsonl` (quick pass: identify a coin from a photo) or `templates/phase2_template.jsonl` (critical analysis: correct and fill a record).
+2. Save it as `changes_{agent}_{YYYYMMDD-HHMM}.jsonl` (repo: `collection/_incoming/` or hand it to the integrator; no GitHub access: drop it in the Drive folder `Titan Reliquary/collection/_incoming/`).
+3. The integrator (or a scheduled job) runs `python3 tools/pipeline/publish.py`. That runs `tools/pipeline/apply_changes.py` (checks every event, applies it, appends it to `changes.jsonl`, validates; **a file with any problem is rejected whole with a readable report and changes nothing; re-applying is a no-op**), rebuilds the app's `data/` and `version.json`, runs the totals checks, and prints a summary. It never pushes; the caller commits.
+Tests: `python3 tools/pipeline/test_pipeline.py` (templates end to end) and `python3 tools/pipeline/test_parity.py` (this folder still reproduces the ledger v254 app data).
 
 ## Identity rules
 - `id` is permanent and never reused: `C###` coin, `T###` token/prop/novelty, `B###` bullion lot, `S###` set, `H###` housing, `P###` stamps, `A###` album volume. Photos, history and valuations hang off it. Retired ids: **`C297`-`C300`** (an earlier agent invented four "1914 France 5 Francs" records that are not in the ledger; they must never appear).
