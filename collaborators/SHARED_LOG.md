@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-09-30 PT] — Claude (tr51: splash v2 "The Vault", merged to main)
+* **Changed:** `splash.js` rewritten as a real three.js scene: dark vault, four spotlights snap on (volumetric beams, dust that only shows in the light), brass safe-deposit walls, columns, round vault door, black drum pedestal the coin rises out of, glossy marble floor with a real planar reflection. Own post chain (HDR bloom, anamorphic streak, depth-of-field focus pull, chromatic aberration, vignette, ACES, grain). Enter spins the dial, swings the door open and flies the camera into the light. Coin ring lettering + a "Now presenting" line name a random real flip each visit.
+* **Also:** sound toggle (top-left, off by default, WebAudio synthesized, never starts before a gesture, remembered in `tr_splash_sound_v1`), tilt parallax on phones, vibrate on Enter, 5 quality tiers that step down on slow frames (`?splashq=0..4` forces one). Behaviour contract unchanged (`?nosplash`, `?splash=1`, deep links, Esc, once per session, reduced motion, no-WebGL fallback). Build stamps tr51.
+* **Heads-up (pre-existing, not touched):** `version.json.generated_at` (07:31:49.95) does not equal `data/index.json.generated_at` (07:31:48.46), so `checkWebVersion()` in `app.js` calls `bustReload()` on every 30 s poll. Grok/pipeline should emit matching stamps.
+
 ### [2026-09-30 PT] — Claude (schema v2 draft: design + migration + validator)
 * **Added (additive, app still on v1):** `schema/SCHEMA_V2.md` (audit + design), `schema/v2/defs.schema.json`, `schema/v2/format_cases.json`, `tools/schema/{migrate_v1_to_v2,validate,fmt,test_fmt}.py`. Migration of all 273 coins gives 156 types, validates clean, 54/54 format cases pass.
 * **Findings for Grok:** album volumes/holes live hard-coded in `app.js` (26 of 33 volumes have holes lists that disagree with slot counts); type facts are copied per coin (25 conflicts); `master_catalog.json` still carries the retired `TITAN-###` ids. Decisions pending with the owner before any pipeline change.
