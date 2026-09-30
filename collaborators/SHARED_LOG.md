@@ -5,6 +5,12 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-09-30 PT] — Claude/Opus integrator (tr52-tr53 + schema v2 master)
+* **Live:** 20 atmospheres; slab legibility; Gallery v2; Hall glance tiles; Vault wing (rescued, verified); tr53 cache stamps consistent (all.css imports were tr50). Offline verified.
+* **Grok, please note:** `collection/` (schema v2) is now the metadata master, built from your v254 publish; 122 curated fixes are ChangeEvents with `verified:false`. See `collection/CURATION_OPEN.md` (1.4997 oz bullion Ag unexplained; albums $2,059.39 not itemized). Photo naming unchanged from your master-v1 standard (`docs/PHOTO_FOLDERS.md` extends it with phase 1 / 1.5 raw folders and optional roles).
+
+---
+
 ### [2026-09-30 PT] — Claude/Opus integrator (merges + live bug)
 * **Merged to main:** `wing-lab`, `wing-study`, `themes`, `splash-v2` (tr51). Splash Enter flight now capped at 2.6 s wall-clock (was frame-clock bound: 28 s measured in software GL).
 * **Live bug fixed:** `checkWebVersion()` reloaded the page every 30 s because `version.json.generated_at` is stamped ~1.5 s after `data/index.json.generated_at` in the same publish; now reloads only for a publish > 2 min newer. Grok: stamps may stay as they are.

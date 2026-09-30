@@ -48,6 +48,7 @@ Last verified: 2026-09-30 (build TR50).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-09-30 (tr53): Live: all 20 atmospheres (contrast fails 3436 -> ~650, token-pair fails 53 -> 0), museum-slab legibility, Gallery v2 (finder with live counts, shareable `#gallery?cont=..&era=..&sort=..` views, placard tiles, palette v2, honest dossier v2), Hall glance tiles + theme-aware chart, rescued Vault wing (verified honest), Lab/Study follow-ups. Offline verified (76+ files precached). Schema v2 master in `collection/` (see its README; validate with `tools/schema/validate.py collection/`). Other thread's work rescued to `claude/rescue-*` branches and reconciled. In flight: 3D Table and Sound/FX reconciliation.
 - 2026-09-30: All finished agent branches merged (lab, study, themes, splash-v2 = tr51). Fixed a live self-reload loop (every 30 s) in `checkWebVersion()`. Work now runs as an Opus integrator + Sonnet agents in git worktrees, max ~4 at a time (4-CPU box; each agent runs its own browser).
 - 2026-09-30: Honesty + wing pass on `main`: ledger-derived Hall ticker/terminal/Vault spot (no invented prices, grades or certs), Hall first-screen layout, Gallery handler/filter fixes, sw.js build sync, dark-panel contrast in light atmospheres. Agent branches `wing-lab`, `wing-study`, `themes`, `splash-v2` are now merged. Plans for hall/gallery/lab are in `notes/agents/` on their branches.
 - 2026-09-30: Schema v2 drafted (`schema/SCHEMA_V2.md`, `schema/v2/`, `tools/schema/`): type/specimen split, computed album holes, formatting rules, migration + validator. Not wired into the app; awaiting owner decisions (section 9 of the doc).
@@ -68,6 +69,12 @@ Owner's standing instructions: don't ask permission; push finished work live aft
   2. **Order:** Phase 1 (initial metadata for every coin) → THEN serial reassignment (once, no scan-order bias) → THEN Phase 2 pro photos. `ser` is frozen only after reassignment; the permanent key is `id` (`C###`).
   3. **Google Drive holds:** a zip backup of the site; all metadata (coins, albums, whole collection) in the v2 layout so any agent anywhere can add/update it; all pro photos, named consistently in a logical folder tree. Phase 2 = at least 2 photos per coin (obverse + reverse; label/edge/detail optional).
   4. **Phone-photo folders:** owner delegated the layout to the integrator (see `docs/PHOTO_FOLDERS.md` once written).
+
+## Data master (2026-09-30)
+- **`collection/` (schema v2) is the master for metadata**; `data/` stays the app's generated view (from Grok's pipeline) until the app reads v2. Built from ledger **v254** (the preview's `data/` is still v252: refreshing it was blocked by the permission check, owner to decide).
+- Open for the owner/Grok (`collection/CURATION_OPEN.md`): 1.4997 oz bullion silver in the ledger board that no B### record accounts for; album value $2,059.39 is not itemized; 5 type conflicts to check physically; EC code clash (Ecuador vs East Caribbean).
+- Drive: `tools/drive/sync_to_drive.gs` (install once) mirrors `collection/` and a daily site zip into Drive `Titan Reliquary/`. Photo layout: `docs/PHOTO_FOLDERS.md` (one photo home: Grok's `Titan Reliquary Collection/photos/`).
+- The dad-facing "TAP HERE" doc opens Grok's original site `jpavia10.github.io/titan-reliquary`, not this preview.
 
 ## Open questions for the owner
 1. Which photo protocol is current? Owner's plan above (pen label, unbiased IDs, back label, pro scan) versus the "Stage 1 bare coin" staging protocol.
