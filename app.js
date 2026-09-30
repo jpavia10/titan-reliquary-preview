@@ -248,7 +248,10 @@
 
     // 4. Wing entrances: the room "opens" with a quick rise-and-settle each time
     const pane = $("#pane-" + name);
-    if (pane) {
+    if (pane && cfLite()) {
+      // phones: no entrance animation (and no forced layout of the whole new pane inside the tap handler)
+      pane.classList.remove("wing-enter");
+    } else if (pane) {
       pane.classList.remove("wing-enter");
       void pane.offsetWidth; // restart the animation
       pane.classList.add("wing-enter");
