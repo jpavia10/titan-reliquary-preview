@@ -253,6 +253,51 @@ label.study-check input { width: 22px; height: 22px; accent-color: var(--gold); 
 #pane-study .album-shelf-views .btn { min-height: 44px; }
 @media (max-width: 640px) { #pane-study .album-shelf-grid { grid-template-columns: 1fr; } }
 
+#pane-study .staging-binder-card { background: linear-gradient(135deg, color-mix(in srgb, var(--gold) 22%, var(--surface)), var(--surface)) !important; }
+#pane-study .staging-binder-card .binder-card-sub,
+#pane-study .staging-binder-card .binder-progress-meta span { color: var(--ink) !important; }
+
+/* ═════════════ Binder inspector + old want list shell: theme surfaces ═════════════
+   The binder page keeps its physical look (dark coin cavities, velvet board), but the chrome and
+   text follow the atmosphere so nothing is dark-on-dark in light themes. */
+#album-inspector-modal .album-modal-backdrop,
+#album-wantlist-modal .album-modal-backdrop { background: color-mix(in srgb, var(--bg) 82%, transparent); }
+#album-inspector-modal .album-binder-shell,
+#album-wantlist-modal .wantlist-shell { background: var(--surface); color: var(--ink); border-color: var(--line-strong); box-shadow: var(--shadow); }
+#album-inspector-modal .album-binder-header,
+#album-wantlist-modal .wantlist-header { background: linear-gradient(180deg, color-mix(in srgb, var(--gold) 9%, var(--surface)), var(--surface)); border-bottom-color: var(--line-strong); }
+#album-wantlist-modal .wantlist-body { background: var(--surface); }
+#album-inspector-modal .album-title, #album-wantlist-modal .album-title { color: var(--ink); }
+#album-inspector-modal .album-series-meta, #album-wantlist-modal .album-series-meta { color: var(--ink); }
+#album-inspector-modal .album-header-badges .badge { color: var(--ink) !important; background: color-mix(in srgb, var(--ink) 8%, transparent) !important; }
+#album-inspector-modal #album-badge-id { color: var(--bg) !important; background: var(--gold) !important; }
+#album-inspector-modal .album-controls-bar { background: var(--surface2); border-color: var(--line); }
+#album-inspector-modal .album-tab-btn,
+#album-inspector-modal .album-filter-pill,
+#album-inspector-modal .album-flip-page-btn { color: var(--ink); border-color: var(--line-strong); background: color-mix(in srgb, var(--ink) 4%, transparent); min-height: 44px; font-size: 0.9rem; }
+#album-inspector-modal .album-tab-btn.active,
+#album-inspector-modal .album-filter-pill.active,
+#album-inspector-modal .album-tab-btn:hover,
+#album-inspector-modal .album-filter-pill:hover,
+#album-inspector-modal .album-flip-page-btn:hover { color: var(--ink); border-color: var(--gold); background: color-mix(in srgb, var(--gold) 18%, transparent); }
+#album-inspector-modal .album-page-nav-wrap { background: color-mix(in srgb, var(--ink) 4%, transparent); border-color: var(--line); }
+#album-inspector-modal .album-page-indicator, #album-inspector-modal .album-page-badge { color: var(--ink); }
+#album-inspector-modal .album-page-face-label { color: var(--muted); }
+#album-inspector-modal .album-progress-wrap { background: color-mix(in srgb, var(--ink) 10%, transparent); }
+#album-inspector-modal .album-progress-bar { background: linear-gradient(90deg, var(--gold-deep, var(--gold)), var(--gold)); }
+#album-inspector-modal .album-board { background: radial-gradient(circle at center, var(--surface2) 0%, color-mix(in srgb, var(--bg) 85%, var(--ink)) 100%); }
+#album-inspector-modal .album-page-container { background: linear-gradient(145deg, var(--surface2), var(--surface)); border-color: var(--line-strong); }
+#album-inspector-modal .album-slot-card { background: var(--surface); border-color: var(--line-strong); }
+#album-inspector-modal .album-slot-card.is-filled { background: color-mix(in srgb, var(--study-ok) 8%, var(--surface)); }
+#album-inspector-modal .album-slot-card.is-missing { background: color-mix(in srgb, var(--ink) 3%, var(--surface)); }
+#album-inspector-modal .slot-year-tag { color: var(--ink) !important; font-size: 1.15rem; }
+#album-inspector-modal .slot-denom-tag { color: var(--muted) !important; font-size: 0.8rem; }
+#album-inspector-modal .slot-status-pill { font-size: 0.75rem; }
+#album-inspector-modal .slot-status-pill.filled { color: var(--study-ok); background: color-mix(in srgb, var(--study-ok) 14%, transparent); border-color: var(--study-ok); }
+#album-inspector-modal .slot-status-pill.missing { color: var(--study-bad); background: color-mix(in srgb, var(--study-bad) 12%, transparent); border-color: var(--study-bad); }
+#album-inspector-modal .slot-status-pill.key-date { color: var(--ink); background: color-mix(in srgb, var(--gold) 22%, transparent); border-color: var(--gold); }
+#album-inspector-modal .album-header-actions .btn { min-height: 44px; }
+
 /* ═════════════ Binder inspector: provenance banner + unchecked slots ═════════════ */
 .study-inspector-banner { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: center; margin-top: 0.6rem; }
 #album-inspector-modal .study-gold { color: var(--gold); }
@@ -290,6 +335,12 @@ label.study-check input { width: 22px; height: 22px; accent-color: var(--gold); 
   opacity: 0; transition: opacity 0.25s ease;
 }
 .atlas-map-gesture-hint.show { opacity: 1; }
+#pane-study .atlas-hint-touch { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  #pane-study .atlas-hint-fine { display: none; }
+  #pane-study .atlas-hint-touch { display: inline; }
+}
+#pane-study .atlas-node.hovered .atlas-node-core { stroke: var(--ink); stroke-width: 2; }
 
 /* ═════════════ Print: only the checklist, paper colors ═════════════ */
 #study-print-sheet { display: none; }

@@ -910,6 +910,7 @@
   }
 
   function animateToViewBox(nx, ny, nw, nh, duration = 400) {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) duration = 1;
     const [sx, sy, sw, sh] = currentVb;
     const startTime = performance.now();
     cancelAnimationFrame(animFrameId);
@@ -1218,7 +1219,7 @@
             <span><strong style="color:#10b981">Green:</strong> Latin Monetary Union</span>
           </div>
           <div class="atlas-hint" style="font-size:0.75rem;color:var(--gold)">
-            Click any sovereign node or route stop to inspect · Drag to pan · Wheel to zoom
+            <span class="atlas-hint-fine">Click a nation to open its dossier (click again for Cover Flow) · Drag to pan · Ctrl + wheel or + / − to zoom</span><span class="atlas-hint-touch">Tap a nation to open its dossier · Pinch with two fingers to zoom · + / − buttons also zoom</span>
           </div>
         </div>
       </div>
@@ -1227,6 +1228,12 @@
 
   function bindAtlasEvents(container, onSelectCountry) {
     if (!container) return;
+    // Re-binding (route filter, Study re-render) must not stack window listeners from old markup.
+    if (container._atlasAbort) container._atlasAbort.abort();
+    const abort = typeof AbortController === "function" ? new AbortController() : null;
+    container._atlasAbort = abort;
+    const sig = abort ? { signal: abort.signal } : undefined;
+    let lastPointerType = "mouse";
 
     const activeCallback = onSelectCountry || window.TitanWorldFilterCallback;
 
@@ -1396,6 +1403,21 @@
     }
 
     // Pan & Zoom gestures
+    let dragMoved = false;
+    let hintTimer = null;
+    function showGestureHint(text) {
+      if (!vp) return;
+      let h = vp.querySelector(".atlas-map-gesture-hint");
+      if (!h) { h = document.createElement("div"); h.className = "atlas-map-gesture-hint"; h.setAttribute("aria-hidden", "true"); vp.appendChild(h); }
+      h.textContent = text;
+      h.classList.add("show");
+      clearTimeout(hintTimer);
+      hintTimer = setTimeout(() => h.classList.remove("show"), 1400);
+    }
+    function clientToSvg(cx, cy) {
+      const rect = svgEl.getBoundingClientRect();
+      return [currentVb[0] + ((cx - rect.left) / rect.width) * currentVb[2], currentVb[1] + ((cy - rect.top) / rect.height) * currentVb[3], rect];
+    }
     let isPanning = false;
     let panStartX = 0;
     let panStartY = 0;
@@ -1405,6 +1427,8 @@
     if (vp) {
       vp.addEventListener("mousedown", (e) => {
         if (e.target.closest(".atlas-node") || e.target.closest(".atlas-waypoint")) return;
+        vp.classList.add("atlas-engaged");
+        dragMoved = false;
         isPanning = true;
         panStartX = e.clientX;
         panStartY = e.clientY;
@@ -1416,6 +1440,7 @@
         if (!isPanning) return;
         const dx = e.clientX - panStartX;
         const dy = e.clientY - panStartY;
+        if (Math.abs(dx) + Math.abs(dy) > 5) dragMoved = true;
         const rect = vp.getBoundingClientRect();
         const scaleX = currentVb[2] / rect.width;
         const scaleY = currentVb[3] / rect.height;
@@ -1424,16 +1449,23 @@
         currentVb[0] = nx;
         currentVb[1] = ny;
         if (svgEl) svgEl.setAttribute("viewBox", currentVb.map(v => v.toFixed(2)).join(" "));
-      });
+      }, sig);
 
       window.addEventListener("mouseup", () => {
         if (isPanning) {
           isPanning = false;
           if (vp) vp.style.cursor = "crosshair";
         }
-      });
+      }, sig);
 
+      // Wheel zooms only when asked (Ctrl/Cmd + wheel, or after clicking into the map), so scrolling
+      // the page past the atlas never gets captured by it.
+      vp.addEventListener("mouseleave", () => vp.classList.remove("atlas-engaged"));
       vp.addEventListener("wheel", (e) => {
+        if (!e.ctrlKey && !e.metaKey && !vp.classList.contains("atlas-engaged")) {
+          showGestureHint("Hold Ctrl and scroll to zoom the map");
+          return;
+        }
         e.preventDefault();
         const factor = e.deltaY < 0 ? 0.85 : 1.18;
         const rect = vp.getBoundingClientRect();
@@ -1446,6 +1478,56 @@
         const ny = y + (h - nh) * ry;
         animateToViewBox(nx, ny, nw, nh, 200);
       }, { passive: false });
+
+      // Touch: one finger scrolls the page as usual; two fingers pan + pinch-zoom the map.
+      let pinch = null;
+      vp.addEventListener("touchstart", (e) => {
+        lastPointerType = "touch";
+        if (e.touches.length === 2 && svgEl) {
+          const [a, b] = [e.touches[0], e.touches[1]];
+          pinch = { d: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY) || 1, cx: (a.clientX + b.clientX) / 2, cy: (a.clientY + b.clientY) / 2, vb: [...currentVb] };
+          cancelAnimationFrame(animFrameId);
+          hideTooltip(true);
+        }
+      }, { passive: true });
+      vp.addEventListener("touchmove", (e) => {
+        if (e.touches.length === 1 && !pinch) {
+          if (currentVb[2] < 999) showGestureHint("Use two fingers to move the map");
+          return;
+        }
+        if (e.touches.length !== 2 || !pinch || !svgEl) return;
+        e.preventDefault();
+        dragMoved = true;
+        const [a, b] = [e.touches[0], e.touches[1]];
+        const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY) || 1;
+        const cx = (a.clientX + b.clientX) / 2, cy = (a.clientY + b.clientY) / 2;
+        const rect = svgEl.getBoundingClientRect();
+        const nw = Math.max(100, Math.min(1200, pinch.vb[2] * (pinch.d / d)));
+        const nh = nw / 2;
+        // keep the map point under the starting midpoint under the fingers
+        const fx = (pinch.cx - rect.left) / rect.width, fy = (pinch.cy - rect.top) / rect.height;
+        const px = pinch.vb[0] + fx * pinch.vb[2], py = pinch.vb[1] + fy * pinch.vb[3];
+        const gx = (cx - rect.left) / rect.width, gy = (cy - rect.top) / rect.height;
+        currentVb = [Math.max(-100, Math.min(1000, px - gx * nw)), Math.max(-50, Math.min(500, py - gy * nh)), nw, nh];
+        svgEl.setAttribute("viewBox", currentVb.map(v => v.toFixed(2)).join(" "));
+      }, { passive: false });
+      const endPinch = (e) => { if (!e.touches || e.touches.length < 2) pinch = null; };
+      vp.addEventListener("touchend", endPinch, { passive: true });
+      vp.addEventListener("touchcancel", endPinch, { passive: true });
+
+      // A click/tap that misses the small nodes picks the nearest nation within ~26 px.
+      vp.addEventListener("click", (e) => {
+        if (dragMoved) { dragMoved = false; return; }
+        if (!svgEl || e.target.closest(".atlas-node") || e.target.closest(".atlas-waypoint") || e.target.closest(".atlas-coords-hud")) return;
+        const [sx, sy, rect] = clientToSvg(e.clientX, e.clientY);
+        const pxPerUnit = rect.width / currentVb[2];
+        let best = null, bestD = Infinity;
+        for (const c of getDynamicCountries()) {
+          const dpx = Math.hypot(c.x - sx, c.y - sy) * pxPerUnit;
+          if (dpx < bestD) { bestD = dpx; best = c; }
+        }
+        if (best && bestD <= 26) selectCountry(best.iso, false);
+      });
     }
 
     // Country node events
@@ -1455,11 +1537,10 @@
       const c = countries.find(x => x.iso === iso);
       if (!c) return;
 
+      node.addEventListener("pointerdown", (e) => { lastPointerType = e.pointerType || "mouse"; });
       node.addEventListener("mouseenter", () => {
-        // Bring hovered node to the top of the SVG DOM to avoid overlap clipping
-        if (node.parentNode) {
-          node.parentNode.appendChild(node);
-        }
+        if (lastPointerType === "touch") return;
+        node.classList.add("hovered");
         const html = `
           <div class="atlas-hud-card">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;border-bottom:1px solid rgba(200,169,74,0.2);padding-bottom:4px;margin-bottom:6px">
@@ -1476,7 +1557,7 @@
               <span style="color:var(--gold)">Notable:</span> ${c.notable}
             </div>
             <div style="font-size:0.72rem;color:var(--gold-soft);font-weight:600">
-              ⚡ Click to inspect &amp; filter 3D Cover Flow
+              ${c.iso === activeCountryIso ? "Click again to open in 3D Cover Flow" : "Click to open the dossier"}
             </div>
           </div>
         `;
@@ -1484,30 +1565,28 @@
       });
 
       node.addEventListener("mouseleave", () => {
+        node.classList.remove("hovered");
         hideTooltip(false);
       });
 
-      node.addEventListener("click", (e) => {
-        e.stopPropagation();
+      // First click selects the nation and opens its dossier under the map; clicking the selected
+      // nation again (or the dossier's gold button) goes to the Cover Flow. Before, every click left
+      // the Study at once, so the dossier could not be reached from the map (worst on touch).
+      const activate = () => {
         hideTooltip(true);
         const cb = activeCallback || window.TitanWorldFilterCallback;
-        if (typeof cb === "function") {
-          cb(c);
-        } else {
-          selectCountry(c.iso, false);
-        }
+        if (activeCountryIso === c.iso && typeof cb === "function") cb(c);
+        else selectCountry(c.iso, false);
+      };
+      node.addEventListener("click", (e) => {
+        e.stopPropagation();
+        activate();
       });
 
       node.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          hideTooltip(true);
-          const cb = activeCallback || window.TitanWorldFilterCallback;
-          if (typeof cb === "function") {
-            cb(c);
-          } else {
-            selectCountry(c.iso, false);
-          }
+          activate();
         }
       });
     });
