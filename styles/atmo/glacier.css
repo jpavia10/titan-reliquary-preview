@@ -1,3 +1,155 @@
-/* Atmosphere: glacier. Owned by exactly one agent.
-   Write the COMPLETE theme here: html[data-atmo="glacier"] { ...every token... }, body background, wordmark, .sw-glacier swatch,
-   and any component overrides scoped under html[data-atmo="glacier"]. This file loads after styles.css and overrides the old block. */
+/* ============================================================================
+   Atmosphere: HYPERBOREAN VAULT  ·  a sub-zero bullion reserve in Svalbard bedrock.
+   Identity: blue-black permafrost, ice-white ink, one glacial cyan, and an
+   aurora that is green (never purple) drifting slowly over the top of every
+   page. Sharp 4px crystal corners, a lit upper-left edge on every panel, thin
+   airy lettering, a cracked-ice hairline under each wing title.
+   Legibility: ice ink 16:1, cyan accent 10:1, muted/faint >= contract.
+   Legacy rules overridden: styles.css "15. Hyperborean Vault".
+   ========================================================================== */
+
+/* 1. Tokens -------------------------------------------------------------- */
+html[data-atmo="glacier"] {
+  --scheme: dark;
+  color-scheme: dark;
+
+  --bg: #050b12;
+  --bg2: #0a1420;
+  --surface: #0b1724;      /* wet slate */
+  --surface2: #172a3d;
+
+  --ink: #eef8fd;          /* ice white */
+  --muted: #b7cee0;
+  --faint: #8ea9c0;
+  --cardmeta: #cbe0ee;
+
+  --gold: #7fdcff;         /* glacial cyan (the accent) */
+  --gold-soft: #cbf1ff;
+  --gold-deep: #2c86b0;
+  --on-gold: #04121c;
+  --focus: #ffffff;
+
+  --line: rgba(127, 220, 255, 0.16);
+  --line-strong: rgba(127, 220, 255, 0.4);
+
+  --ok: #62ecb0;           /* aurora green */
+  --warn: #ffcf6a;
+  --bad: #ff8f8f;
+
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --serif: "Segoe UI Light", "Segoe UI", "Helvetica Neue", "Avenir Next", system-ui, sans-serif;
+  --radius: 4px;
+
+  --shadow: inset 0 1px 0 rgba(203, 241, 255, 0.12), 0 16px 44px rgba(0, 4, 10, 0.85);
+  --elev-1: inset 0 1px 0 rgba(203, 241, 255, 0.10), 0 2px 8px rgba(0, 4, 10, 0.6);
+  --elev-2: inset 0 1px 0 rgba(203, 241, 255, 0.14), 0 0 22px rgba(127, 220, 255, 0.08), 0 12px 30px rgba(0, 4, 10, 0.75);
+  --elev-3: inset 0 1px 0 rgba(203, 241, 255, 0.16), 0 0 40px rgba(127, 220, 255, 0.10), 0 28px 76px rgba(0, 4, 10, 0.88);
+  --scrim: rgba(2, 6, 12, 0.76);
+
+  --th-bg: #0b1724;
+  --tabgrad1: #17384f; --tabgrad2: #0a1622;
+  --toastgrad1: #17384f; --toastgrad2: #0a1622;
+  --foot-bg: rgba(5, 11, 18, 0.95);
+  --drawerbar-bg: rgba(13, 26, 40, 0.96);
+  --ph-bg: #08121c;
+  --sel-bg: #153049;
+  --row-hover: rgba(127, 220, 255, 0.08);
+  --hold-bg: linear-gradient(135deg, #17384f, #0a1622);
+  --skeleton1: #172a3d; --skeleton2: #08121c;
+  --grain-op: 0.04;
+
+  --wing-dur: 0.5s;
+  --wing-rise: 8px;
+
+  scrollbar-color: #2c86b0 #050b12;
+}
+
+/* 2. Sky: an aurora curtain over the top of the page, fading into the dark ------ */
+html[data-atmo="glacier"] body {
+  background-image:
+    radial-gradient(90% 40% at 78% 0%, rgba(98, 236, 176, 0.07), transparent 72%),
+    radial-gradient(120% 60% at 50% 100%, rgba(127, 220, 255, 0.05), transparent 70%);
+}
+html[data-atmo="glacier"] body::before {
+  /* curtain rays (green + cyan) that fade out by mid-screen; drifts a few px, opacity-only shimmer */
+  background-image:
+    repeating-linear-gradient(97deg, transparent 0 46px, rgba(98, 236, 176, 0.075) 58px, transparent 74px 128px),
+    repeating-linear-gradient(83deg, transparent 0 70px, rgba(127, 220, 255, 0.05) 90px, transparent 112px 190px),
+    linear-gradient(180deg, rgba(98, 236, 176, 0.12), rgba(127, 220, 255, 0.04) 30%, transparent 55%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.55) 35%, transparent 62%);
+  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.55) 35%, transparent 62%);
+  animation: glc-aurora 16s ease-in-out infinite alternate !important;
+}
+@keyframes glc-aurora {
+  from { opacity: 0.65; transform: translate3d(-1.5%, 0, 0); }
+  to   { opacity: 1;    transform: translate3d(1.5%, 0, 0); }
+}
+html[data-atmo="glacier"] ::selection { background: var(--gold); color: var(--on-gold); }
+
+/* 3. Wordmark: thin, tracked, lit from above -------------------------------------- */
+html[data-atmo="glacier"] .wordmark {
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #f6fcff;
+  text-shadow: 0 0 22px rgba(127, 220, 255, 0.5), 0 0 60px rgba(98, 236, 176, 0.18) !important;
+}
+html[data-atmo="glacier"] .wing-head h2 { font-weight: 300; letter-spacing: 0.06em; text-shadow: none; }
+html[data-atmo="glacier"] .hero-grand {
+  font-weight: 400;
+  background-image: linear-gradient(135deg, #ffffff 15%, var(--gold-soft) 55%, var(--gold) 100%);
+  text-shadow: none;
+  filter: drop-shadow(0 0 14px rgba(127, 220, 255, 0.3));
+}
+html[data-atmo="glacier"] .hero-glow {
+  background:
+    radial-gradient(ellipse 40% 45% at 50% 42%, rgba(203, 241, 255, 0.13), transparent 70%),
+    radial-gradient(ellipse 60% 55% at 50% 45%, rgba(98, 236, 176, 0.07), transparent 72%);
+}
+/* A hairline crack in the ice under each wing title, fading to nothing. */
+html[data-atmo="glacier"] .wing-head { position: relative; border-bottom-color: transparent; }
+html[data-atmo="glacier"] .wing-head::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; pointer-events: none;
+  background: linear-gradient(90deg, rgba(127, 220, 255, 0.6), rgba(127, 220, 255, 0.06) 70%, transparent);
+}
+
+/* 4. Picker swatch ---------------------------------------------------------- */
+.sw-glacier {
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.55) 0 8%, transparent 8% 100%),
+    linear-gradient(180deg, rgba(98, 236, 176, 0.75) 0%, rgba(127, 220, 255, 0.4) 34%, transparent 60%),
+    linear-gradient(180deg, #16344a, #050b12);
+}
+
+/* 5. Components ------------------------------------------------------------- */
+/* Crystal panels: a lit upper edge and a faint diagonal sheen, like light on ice. */
+html[data-atmo="glacier"] :is(.card, .tile, .exhibit, .album-card, .latest-card, .sheet-card) {
+  border-color: var(--line-strong);
+  border-top-color: rgba(203, 241, 255, 0.5);
+}
+html[data-atmo="glacier"] :is(.card, .tile) {
+  background-image: linear-gradient(115deg, rgba(203, 241, 255, 0.035) 0%, transparent 38%);
+}
+html[data-atmo="glacier"] .tile::before { width: 2px; background: linear-gradient(180deg, var(--gold-soft), var(--gold-deep)); }
+html[data-atmo="glacier"] :is(.card h3, .tile .k, .hero-cap) { letter-spacing: 0.18em; }
+html[data-atmo="glacier"] .tab.active { box-shadow: 0 2px 16px rgba(127, 220, 255, 0.35); }
+html[data-atmo="glacier"] .tray-tab.active .tray-count { color: var(--on-gold); background: rgba(4, 18, 28, 0.16); }  /* styles.css hard-codes #fff */
+html[data-atmo="glacier"] .wing.active::before { box-shadow: 0 0 12px var(--gold); }
+html[data-atmo="glacier"] :is(.lofi-bar, .player-bar, .mobile-wing-dock) { background: rgba(8, 18, 29, 0.97) !important; }
+html[data-atmo="glacier"] .exhibit-bg {
+  background:
+    radial-gradient(60% 90% at 50% 0%, rgba(127, 220, 255, 0.13), transparent 70%),
+    radial-gradient(40% 60% at 85% 100%, rgba(98, 236, 176, 0.07), transparent 70%);
+}
+/* styles.css paints these panels warm/navy black in every atmosphere: retint to slate. */
+html[data-atmo="glacier"] .exhibit { background: linear-gradient(180deg, #102236 0%, #060d16 100%); box-shadow: var(--elev-3); }
+html[data-atmo="glacier"] .exhibit:hover { box-shadow: var(--elev-3), 0 0 30px rgba(127, 220, 255, 0.16); }
+html[data-atmo="glacier"] .vault-valuation-hub { background: linear-gradient(180deg, rgba(18, 38, 58, 0.9), rgba(8, 18, 29, 0.96)); }
+html[data-atmo="glacier"] .market-ticker-tape { background: #060d16; border-color: var(--line); }
+html[data-atmo="glacier"] .ticker-badge { background: #0b1724; }
+html[data-atmo="glacier"] :is(.study-nav-pills, .gallery-mode-switch) { background: rgba(13, 26, 40, 0.88); border-color: var(--line-strong); }
+html[data-atmo="glacier"] .album-binder-card { background: #0a1723; border-color: var(--line-strong); }
+
+/* 6. Reduced motion ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="glacier"] body::before { animation: none !important; opacity: 0.9; }
+}
