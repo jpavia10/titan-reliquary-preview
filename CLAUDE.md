@@ -63,7 +63,11 @@ Owner's standing instructions: don't ask permission; push finished work live aft
 - Albums: `ALBUMS.md` on Drive is the only album source found. Fill slot details from the Whitman album model and mark each such value `"inferred"` (never present inferred slots as ledger fact).
 - A second thread (another machine) had UNPUSHED agent worktrees: a rewritten `ambient.js`, Vault/Table/Study/Hall/Gallery wing work, 11 paused themes. They are not on GitHub. To rescue them, in that thread run for each worktree: `git -C <worktree> push origin HEAD:refs/heads/claude/rescue-<name>`; the integrator then compares them with main before merging anything.
 - Resolved from that handoff: splash-v2 merge (done, tr51); 30 s reload bug (fixed); sw.js offline list (fixed); crest API mismatch (`TitanAtmoCrest` now aliased in `wings/atmo/core.js`); Lab `EU-CH-008_front.jpg` pairing (fixed, 1638/1638 test names pair).
-- **Owner decisions still open:** adopt schema v2 (`schema/SCHEMA_V2.md` section 9)?; when to freeze serial-number reassignment; what syncs into Drive `Titan Reliquary Collection/`; the phone-photo folder layout.
+- **Owner decisions (answered 2026-09-30):**
+  1. **Schema v2 is adopted** (it is more complete: one copy per fact, computed album holes, provenance). Migrate and update ALL outdated metadata to v2. v2 JSON becomes the master that any agent can read and update; Tier 2 fields are added as nullable.
+  2. **Order:** Phase 1 (initial metadata for every coin) → THEN serial reassignment (once, no scan-order bias) → THEN Phase 2 pro photos. `ser` is frozen only after reassignment; the permanent key is `id` (`C###`).
+  3. **Google Drive holds:** a zip backup of the site; all metadata (coins, albums, whole collection) in the v2 layout so any agent anywhere can add/update it; all pro photos, named consistently in a logical folder tree. Phase 2 = at least 2 photos per coin (obverse + reverse; label/edge/detail optional).
+  4. **Phone-photo folders:** owner delegated the layout to the integrator (see `docs/PHOTO_FOLDERS.md` once written).
 
 ## Open questions for the owner
 1. Which photo protocol is current? Owner's plan above (pen label, unbiased IDs, back label, pro scan) versus the "Stage 1 bare coin" staging protocol.
