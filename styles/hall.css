@@ -236,3 +236,23 @@
   #pane-hall .ticker-item.tk-dup { display: none; }
   #pane-hall .hg-tile { transition: none; }
 }
+
+/* ---------- TR51 Hall: one token system for the Hall panels ----------
+   styles.css pins dark "instrument" tokens on the ticker, exhibit, hero figure and valuation hub in
+   light atmospheres. The Hall now paints those surfaces from the atmosphere's own tokens, so they take
+   the parent's tokens back (custom-property `inherit`). Result: dark ink on paper in light rooms,
+   light ink on dark in dark rooms, never the mismatch. The museum slab keeps its own pinned tokens. */
+html[data-atmo] #pane-hall :is(#market-ticker-tape, #exhibit, #hero-grand, .vault-valuation-hub) {
+  --ink: inherit; --text: inherit; --muted: inherit; --gold: inherit; --gold-soft: inherit;
+}
+#pane-hall .ticker-item .tk-sym { color: var(--gold-soft); }
+#pane-hall .ticker-item .tk-price { color: var(--ink); }
+
+/* Melt-bar labels: solid dark pill so they read on every bar colour (was white on pale indigo, 1.6:1) */
+#pane-hall .melt-seg .seg-label {
+  background: rgba(10, 10, 14, 0.82);
+  color: #fff;
+  text-shadow: none;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+}
