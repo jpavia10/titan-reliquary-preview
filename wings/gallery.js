@@ -937,7 +937,7 @@
     lap("finder");
     const listKey = list.length + ":" + sid + ":" + epoch + ":" + list.map((f) => f.scan).join(",");
     const changed = listKey !== lastListKey;
-    if (changed) { wallLimit = batchSize(); lastListKey = listKey; }
+    if (changed) { wallLimit = firstPaintDone ? batchSize() : (PHONE() ? 4 : batchSize()); lastListKey = listKey; }
     if (!firstPaintDone) {
       /* First open: paint the finder, then build the wall, then the Cover Flow, each in its own task (no single long task). */
       firstPaintDone = true;
@@ -949,7 +949,7 @@
           if (!mounted) return;
           if (!$(".cf-card", $("#gallery-coverflow-wrap") || document)) updateCover(currentList());
           persistSoon();
-        }, 0);
+        }, 120);
       }, 0);
       return;
     }

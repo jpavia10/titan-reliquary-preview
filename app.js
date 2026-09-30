@@ -260,7 +260,9 @@
       const next = "#" + name;
       if (location.hash !== next) history.replaceState(null, "", next);
     }
-    saveState();
+    // saveState reads scrollY (a forced layout): do it after the new wing has painted, not inside the tap
+    clearTimeout(setWing._save);
+    setWing._save = setTimeout(saveState, 500);
   }
   window.setWing = setWing;
 
