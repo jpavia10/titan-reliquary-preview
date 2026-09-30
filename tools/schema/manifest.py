@@ -43,8 +43,9 @@ def counts_and_totals(d):
            "lots_by_kind": {k: sum(1 for l in lots if l["kind"] == k) for k in sorted({l["kind"] for l in lots})},
            "album_slots_total": sum(a["slots_total"] or 0 for a in albums), "album_slots_filled_claimed": sum(a["slots_filled_claimed"] or 0 for a in albums)}
     spec_est = sum(s["value"]["est_usd"] or 0 for s in specs.values())
-    spec_asw = sum((types[s["type"]]["precious"].get("asw_oz") or 0) * (s.get("quantity") or 1) for s in specs.values())
-    spec_agw = sum((types[s["type"]]["precious"].get("agw_oz") or 0) * (s.get("quantity") or 1) for s in specs.values())
+    prec = lambda s, k: (types.get(s["type"], {}).get("precious", {}).get(k) or 0) * (s.get("quantity") or 1)   # a bad type ref is reported by validate.py, not here
+    spec_asw = sum(prec(s, "asw_oz") for s in specs.values())
+    spec_agw = sum(prec(s, "agw_oz") for s in specs.values())
     alb_asw = sum((a.get("asw_oz_per_slot") or 0) * a["slots_filled_claimed"] for a in albums if a.get("asw_oz_per_slot"))
     tot = {"specimens_est_usd": round(spec_est, 2), "lots_est_usd": round(sum(l["est_usd"] or 0 for l in lots), 2),
            "records_est_usd": round(spec_est + sum(l["est_usd"] or 0 for l in lots), 2),
