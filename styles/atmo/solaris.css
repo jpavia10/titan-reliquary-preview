@@ -99,14 +99,14 @@ html[data-atmo="solaris"] .hero-grand {
   text-shadow: none;
   filter: drop-shadow(0 0 16px rgba(255, 181, 46, 0.35));
 }
-/* Degree scale along the foot of the hero, like a mount's setting circle. */
+/* Degree scale across the top of the Hall header (.hero spans the whole header), like a mount's setting circle. */
 html[data-atmo="solaris"] .hero::after {
   content: "";
-  position: absolute; left: 0; right: 0; bottom: 0; height: 9px;
+  position: absolute; left: 0; right: 0; top: 0; height: 10px;
   pointer-events: none;
   background:
-    repeating-linear-gradient(90deg, rgba(255, 181, 46, 0.7) 0 1px, transparent 1px 60px) bottom / 100% 9px no-repeat,
-    repeating-linear-gradient(90deg, rgba(255, 181, 46, 0.4) 0 1px, transparent 1px 12px) bottom / 100% 5px no-repeat;
+    repeating-linear-gradient(90deg, rgba(255, 181, 46, 0.75) 0 1px, transparent 1px 60px) top / 100% 10px no-repeat,
+    repeating-linear-gradient(90deg, rgba(255, 181, 46, 0.42) 0 1px, transparent 1px 12px) top / 100% 5px no-repeat;
 }
 
 /* 4. Picker swatch ---------------------------------------------------------- */
