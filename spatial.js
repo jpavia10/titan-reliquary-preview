@@ -1426,6 +1426,7 @@
     if (rec.agw_oz) meta.push(rec.agw_oz + " oz gold");
     if (rec.est != null) meta.push("Est. $" + Number(rec.est).toFixed(2));
     if (rec.status) meta.push(rec.status);
+    meta.push("A drawing from the record, not a photo");
     $("trt-meta").textContent = meta.join(" · ");
     var seg = $("trt-format"); seg.hidden = k !== "flip";
     [].forEach.call(seg.querySelectorAll("[data-format]"), function (b) { var onF = b.getAttribute("data-format") === ST.format; b.setAttribute("aria-checked", String(onF)); b.tabIndex = onF ? 0 : -1; });
@@ -1565,7 +1566,7 @@
     } catch (e) { return false; }
     ST.renderer = renderer;
     ST.maxAniso = renderer.capabilities.getMaxAnisotropy ? renderer.capabilities.getMaxAnisotropy() : 1;
-    ST.dpr = Math.min(window.devicePixelRatio || 1, small ? 2 : 1.75);
+    ST.dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     ST.dprMin = small ? 1 : 0.85;
     ST.perf = []; ST.perfDone = false; ST.perfLast = 0;
     renderer.setPixelRatio(ST.dpr);
@@ -1788,7 +1789,7 @@
       document.body.classList.remove("trt-open");
       window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
       var lf = ST.lastFocus; ST.lastFocus = null;
-      if (lf && lf.focus && document.contains(lf)) { try { lf.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+      if (lf && lf.focus && document.contains(lf)) { var refocus = function () { try { lf.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }; refocus(); setTimeout(function () { if (!ST.open && (document.activeElement === document.body || !document.activeElement)) refocus(); }, 60); }
     },
 
     setSpecimen: function (rec) { if (rec) { if (ST.scene) inspect(rec); else ST.rec = rec; } },
