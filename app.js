@@ -6104,9 +6104,11 @@
     }
 
     // Generate slots
+    // Study wing (wings/study.js): ledger + owner-checked slots replace the guessed layout when available.
+    const studyVol = (window.TitanStudy && typeof window.TitanStudy.inspectorVolume === "function") ? window.TitanStudy.inspectorVolume(activeAlbumId, activeAlbumFamily) : null;
     const startYear = vol.startYear || 1986;
     const endYear = vol.endYear || 2024;
-    const totalSlots = vol.totalSlots || 36;
+    const totalSlots = studyVol ? studyVol.slots.length : (vol.totalSlots || 36);
     const filledCount = vol.filled || 0;
     const namedHoles = (vol.holes || []).map(String);
     const flips = vault?.flips || [];
@@ -6114,7 +6116,8 @@
     const slots = [];
     let curYear = startYear;
     for (let i = 0; i < totalSlots; i++) {
-      const yearStr = String(curYear);
+      const studySlot = studyVol ? studyVol.slots[i] : null;
+      const yearStr = studySlot ? String(studySlot.year || "") : String(curYear);
       let isHole = false;
       let holeLabel = "";
       for (const h of namedHoles) {
@@ -6126,6 +6129,10 @@
       }
       if (!isHole && i >= filledCount) {
         isHole = true;
+      }
+      if (studySlot) {
+        isHole = studySlot.state !== "filled";
+        holeLabel = isHole ? studySlot.label : "";
       }
       const isFilled = !isHole;
 
@@ -6142,8 +6149,8 @@
         return false;
       });
 
-      const isPastYears = (curYear >= endYear && i >= (endYear - startYear + 1));
-      const displayYear = isPastYears ? "—" : yearStr;
+      const isPastYears = !studySlot && (curYear >= endYear && i >= (endYear - startYear + 1));
+      const displayYear = studySlot ? studySlot.label : (isPastYears ? "—" : yearStr);
       const displayLabel = holeLabel || (isPastYears ? `Future Reserve Slot #${i + 1}` : yearStr);
       const safeYearSlug = String(displayYear).replace(/[^a-zA-Z0-9]/g, "") || `S${i + 1}`;
       const slotScan = matchedFlip?.scan || `ALBUM-${activeAlbumId}-S${String(i + 1).padStart(2, "0")}-${safeYearSlug}`;
@@ -6171,14 +6178,14 @@
         is_silver: isSilver,
         is_gold: isGold,
         asw_oz: aswVal,
-        est: isFilled ? (activeAlbumFamily.includes("Silver Eagles") ? 38.00 : (isSilver ? 15.00 : 2.50)) : 0.0,
-        conf: isFilled ? "high" : "target",
+        est: null,
+        conf: null,
         status: isFilled ? "Album Specimen (Encapsulated in Binder)" : "Target Acquisition (Missing Hole in Binder)",
         location: `${activeAlbumFamily} (${activeAlbumId}) · Slot #${i + 1}`,
-        mintage: isFilled ? `Official striking for ${displayYear}` : `Key/Target striking for ${displayLabel}`,
+        mintage: null,
         notes: isFilled
-          ? `Specimen residing in ${meta.binderType}, Album ID ${activeAlbumId}, Slot #${i + 1}. Volume: ${vol.title}. Authenticated collection specimen.`
-          : `Missing target hole in ${meta.binderType} (${activeAlbumId}), Slot #${i + 1} [${displayLabel}]. Priority acquisition target.`,
+          ? `Album slot record (${activeAlbumId}, slot #${i + 1}). No specimen details (grade, value, photo) have been logged for this coin yet.`
+          : `Open slot in ${activeAlbumId} (slot #${i + 1}): ${displayLabel}. No coin logged here.`,
         specs: `${vol.denom} · Composition: ${vol.metal} · Physical slot #${i + 1} of ${totalSlots}`,
         design: `${vol.title} archival series strike`,
         tender: activeAlbumFamily.includes("Canada") ? "Canadian Legal Tender" : "United States Legal Tender",
@@ -6191,7 +6198,7 @@
 
       albumCoinDossiers.set(slotScan, slotDossier);
 
-      const isKey = /key/i.test(displayLabel) || /1996|1909-S|1914-D|1916-D|1932-D|1932-S|1950-D/i.test(displayLabel);
+      const isKey = studySlot ? Boolean(studySlot.key) : (/key/i.test(displayLabel) || /1996|1909-S|1914-D|1916-D|1932-D|1932-S|1950-D/i.test(displayLabel));
       slots.push({
         idx: i + 1,
         year: displayYear,
