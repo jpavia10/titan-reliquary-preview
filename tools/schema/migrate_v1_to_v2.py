@@ -15,7 +15,7 @@ each question the data cannot settle is listed in CURATION_OPEN.md. Display stri
 face_line, label) are NOT migrated; fmt.py derives them. Nothing parsed from a description is stored as a measurement:
 specimen.measured stays null until someone measures the piece.
 """
-import collections, glob, json, os, re, sys
+import collections, glob, json, os, re, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -29,6 +29,18 @@ import reassign_ser
 ENC = dict(ensure_ascii=False, sort_keys=True)
 SCHEMA_VERSION = "2.0.0"
 J = lambda o: json.dumps(o, separators=(",", ":"), **ENC)
+
+# kept for tools/albums/build_seed.py (compares the ledger with the hand-typed table in app.js); the migration itself does not use it
+def load_albums():
+    src = open("app.js", encoding="utf-8").read()
+    i = src.index("const ALBUM_METADATA = {"); j = src.index("{", i); d = 0
+    for k in range(j, len(src)):
+        d += (src[k] == "{") - (src[k] == "}")
+        if d == 0: break
+    js = src[j:k + 1]
+    code = "console.log(JSON.stringify(" + "(" + js + ")" + "))"
+    return json.loads(subprocess.run(["node", "-e", code], capture_output=True, text=True, check=True).stdout)
+
 
 # ---------- writers (one record per line: small, readable git diffs) ----------
 def w(path, text):
