@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jpavia10.github.io/titan-reliquary-preview/schema/v2/defs.schema.json",
+  "title": "Titan Reliquary data schema v2 (draft)",
+  "description": "Entity definitions. Validate a record against '#/$defs/<Name>'. Unit conventions: mass g / oz (troy), lengths mm, money USD unless a currency is named, dates ISO-8601, ids ASCII. null means 'not known / not recorded', never an empty string.",
+  "$defs": {
+    "Date": { "type": "string", "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$" },
+    "Instant": { "type": "string", "format": "date-time" },
+    "Iso2": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "Currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "Confidence": { "enum": ["low", "med", "high"] },
+
+    "Measurement": {
+      "description": "A physical quantity that may be exact, approximate, or a range. Unit is implied by the field name (_g, _mm, _oz).",
+      "type": "object",
+      "properties": {
+        "value": { "type": ["number", "null"] },
+        "min": { "type": ["number", "null"] },
+        "max": { "type": ["number", "null"] },
+        "approx": { "type": "boolean" },
+        "basis": { "enum": ["spec", "measured", "estimated"] }
+      },
+      "additionalProperties": false
+    },
+
+    "Denomination": {
+      "type": "object",
+      "properties": {
+        "value": { "type": ["number", "null"], "description": "Decimal face amount, 0.5 for a half. null when the coin has no numeric value (a named token)." },
+        "unit": { "type": "string", "description": "Unit word as struck/commonly named: 'franc', 'euro cent', 'øre', '¢'." },
+        "currency": { "oneOf": [{ "$ref": "#/$defs/Currency" }, { "type": "null" }] },
+        "named": { "type": ["string", "null"], "description": "Popular name when it differs: 'Roosevelt', 'threepence', 'Balanza'." },
+        "display": { "type": ["string", "null"], "description": "Manual override when the auto-formatter cannot express it. Use sparingly; every use is reported." }
+      },
+      "required": ["value", "unit"],
+      "additionalProperties": false
+    },
+
+    "CatalogRef": {
+      "type": "object",
+      "properties": {
+        "system": { "type": "string", "description": "KM (Krause), Y (Yeoman), Schön, JNDA, Sp (Spink), N (Numista), PCGS, CoinFacts ..." },
+        "number": { "type": "string" },
+        "edition": { "type": ["string", "null"] },
+        "url": { "type": ["string", "null"] }
+      },
+      "required": ["system", "number"],
+      "additionalProperties": false
+    },
+
+    "Issue": {
+      "description": "One year (and mint) of a Type. Mintage and varieties live here, not on the specimen.",
+      "type": "object",
+      "properties": {
+        "year": { "type": ["integer", "null"] },
+        "qualifier": { "enum": [null, "circa", "ND", "unparsed"] },
+        "decade": { "type": "boolean" },
+        "calendar": { "type": "string", "description": "Non-Gregorian calendar the coin is dated in: AH, SE, BE, ROC ..." },
+        "calendar_year": { "type": "integer" },
+        "mint_marks": { "type": "array", "items": { "type": "string" } },
+        "mint_text": { "type": ["string", "null"], "description": "Mint name / location / where the mark sits. Free text until the mint table is curated." },
+        "mintage": { "type": ["integer", "null"] },
+        "mintage_text": { "type": ["string", "null"] },
+        "varieties": { "type": "array", "items": { "type": "object", "properties": { "code": { "type": "string" }, "desc": { "type": "string" }, "key": { "type": "boolean" } }, "required": ["code"], "additionalProperties": false } }
+      },
+      "required": ["year", "mint_marks"],
+      "additionalProperties": false
+    },
+
+    "Type": {
+      "description": "What a coin IS: the catalogue type. Written once, shared by every specimen of it.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Z]{2}(-[A-Z0-9]+)?\\.[A-Za-z]+\\.[\\w.\\-]+$", "description": "{ISSUER}.{catalog system}.{number}, e.g. CH.KM.24a.1; fallback ISO.X.denomination-slug" },
+        "country": { "$ref": "#/$defs/Iso2" },
+        "issuer": { "type": ["string", "null"], "description": "Issuer id when it is not simply the country (see ref/issuers)." },
+        "class": { "enum": ["coin", "token", "medal", "prop", "note", "stamp", "other"] },
+        "denomination": { "$ref": "#/$defs/Denomination" },
+        "catalogs": { "type": "array", "items": { "$ref": "#/$defs/CatalogRef" } },
+        "composition": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string" },
+            "metal_class": { "enum": ["gold", "silver", "platinum", "palladium", "copper", "bronze", "brass", "nickel", "cupronickel", "aluminum", "steel", "plated steel", "zinc", "iron", "clad", "bimetallic", "other"] },
+            "fineness": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+          },
+          "required": ["text", "metal_class"],
+          "additionalProperties": false
+        },
+        "nominal": {
+          "description": "Catalogue specification. Measured values on a real piece live on the specimen.",
+          "type": "object",
+          "properties": {
+            "weight_g": { "type": ["number", "null"] },
+            "weight_approx": { "type": "boolean" },
+            "diameter_mm": { "type": ["number", "null"] },
+            "diameter_approx": { "type": "boolean" },
+            "thickness_mm": { "type": ["number", "null"] },
+            "edge": { "type": ["string", "null"] },
+            "shape": { "type": ["string", "null"] },
+            "alignment": { "enum": [null, "coin", "medal"] }
+          },
+          "additionalProperties": false
+        },
+        "precious": { "type": "object", "properties": { "asw_oz": { "type": ["number", "null"] }, "agw_oz": { "type": ["number", "null"] } }, "additionalProperties": false },
+        "design": { "type": "object", "properties": { "text": { "type": "string" }, "obverse": { "type": ["string", "null"] }, "reverse": { "type": ["string", "null"] }, "designers": { "type": "array", "items": { "type": "string" } }, "legend": { "type": ["string", "null"] } }, "additionalProperties": false },
+        "legal_tender": { "type": "object", "properties": { "status": { "enum": ["current", "demonetized", "withdrawn", "superseded", "none", "unknown"] }, "until": { "oneOf": [{ "$ref": "#/$defs/Date" }, { "type": "null" }] }, "text": { "type": "string" } }, "required": ["status"], "additionalProperties": false },
+        "issues": { "type": "array", "items": { "$ref": "#/$defs/Issue" } },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["id", "country", "class", "denomination", "composition", "issues"],
+      "additionalProperties": false
+    },
+
+    "Condition": {
+      "type": "object",
+      "properties": {
+        "text": { "type": ["string", "null"], "description": "Plain-language state as recorded ('circulated', 'toned')." },
+        "grade": { "type": ["string", "null"], "description": "Sheldon or descriptive: 'MS-65', 'VF-30', 'AU'." },
+        "grader": { "enum": [null, "self", "PCGS", "NGC", "ANACS", "ICG", "CACG", "other"] },
+        "cert": { "type": ["string", "null"], "description": "Third-party certification number." },
+        "strike": { "type": ["string", "null"] },
+        "luster": { "type": ["string", "null"] },
+        "toning": { "type": ["string", "null"] },
+        "cleaned": { "type": ["boolean", "null"] },
+        "damage": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+
+    "Specimen": {
+      "description": "One physical piece the owner holds. Permanent key `id` never changes; `ser` is the reassignable display ID.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Z]\\d{3,}$" },
+        "ser": { "type": ["string", "null"], "pattern": "^(AF|AN|AS|EU|NA|OC|SA)-[A-Z0-9]{2,3}-\\d{3}$" },
+        "type": { "type": "string" },
+        "issue": { "$ref": "#/$defs/Issue" },
+        "year_raw": { "type": "string", "description": "The year exactly as recorded, kept for audit." },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "condition": { "$ref": "#/$defs/Condition" },
+        "measured": { "type": "object", "properties": { "weight_g": { "type": ["number", "null"] }, "diameter_mm": { "type": ["number", "null"] }, "thickness_mm": { "type": ["number", "null"] }, "magnetic": { "type": ["boolean", "null"] } }, "additionalProperties": false },
+        "housing": { "type": "object", "properties": { "kind": { "enum": [null, "flip_2x2", "slab", "tube", "album", "capsule", "box", "pouch", "loose", "other"] }, "text": { "type": ["string", "null"] }, "location": { "type": ["object", "null"], "properties": { "container": { "type": "string" }, "page": { "type": ["integer", "null"] }, "slot": { "type": ["string", "null"] } }, "additionalProperties": false } }, "additionalProperties": false },
+        "acquisition": { "type": "object", "properties": { "logged_at": { "$ref": "#/$defs/Date" }, "acquired_on": { "oneOf": [{ "$ref": "#/$defs/Date" }, { "type": "null" }] }, "source": { "type": ["string", "null"] }, "price_paid_usd": { "type": ["number", "null"] }, "family": { "type": ["string", "null"], "description": "Who it came from or is associated with (family attribution)." } }, "required": ["logged_at"], "additionalProperties": false },
+        "value": {
+          "type": "object",
+          "properties": {
+            "est_usd": { "type": ["number", "null"], "minimum": 0 },
+            "confidence": { "$ref": "#/$defs/Confidence" },
+            "face": { "type": "object", "properties": { "amount": { "type": ["number", "null"] }, "currency": { "oneOf": [{ "$ref": "#/$defs/Currency" }, { "type": "null" }] } }, "additionalProperties": false }
+          },
+          "additionalProperties": false
+        },
+        "lifecycle": { "type": "object", "properties": { "status": { "enum": ["Logged", "Photographed", "Verified", "Removed"] }, "removed_on": { "oneOf": [{ "$ref": "#/$defs/Date" }, { "type": "null" }] }, "removed_reason": { "enum": [null, "sold", "traded", "gifted", "culled", "lost"] } }, "required": ["status"], "additionalProperties": false },
+        "story": { "type": ["string", "null"], "description": "The owner's narrative for this piece. Never AI-written." },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" },
+        "photos": { "type": "array", "items": { "type": "string" }, "description": "Photo ids (see Photo)." }
+      },
+      "required": ["id", "type", "issue", "acquisition", "lifecycle"],
+      "additionalProperties": false
+    },
+
+    "Lot": {
+      "description": "Bullion lots, sets, housing supplies, stamps: things held as a group.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Z]\\d{3,}$" },
+        "kind": { "enum": ["bullion", "set", "housing", "stamp"] },
+        "country": { "type": ["string", "null"] },
+        "year_raw": { "type": ["string", "null"] },
+        "denom_text": { "type": ["string", "null"] },
+        "composition_text": { "type": ["string", "null"] },
+        "qty": { "type": ["integer", "null"] },
+        "asw_oz": { "type": ["number", "null"] },
+        "agw_oz": { "type": ["number", "null"] },
+        "est_usd": { "type": ["number", "null"] },
+        "melt_usd": { "type": ["number", "null"] },
+        "confidence": { "oneOf": [{ "$ref": "#/$defs/Confidence" }, { "type": "null" }] },
+        "storage_text": { "type": ["string", "null"] },
+        "notes": { "type": "string" },
+        "logged_at": { "type": ["string", "null"] }
+      },
+      "required": ["id", "kind"],
+      "additionalProperties": false
+    },
+
+    "AlbumVolume": {
+      "description": "A binder volume. Holes are COMPUTED from slots (state != filled); they are never typed in. `audit` records the v1 inconsistency until slots are itemized.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^A\\d{3}$" },
+        "family": { "type": "string" },
+        "binder": { "type": ["string", "null"] },
+        "title": { "type": "string" },
+        "denomination_text": { "type": ["string", "null"] },
+        "metal_text": { "type": ["string", "null"] },
+        "year_start": { "type": ["integer", "null"] },
+        "year_end": { "type": ["integer", "null"] },
+        "slots_total": { "type": "integer" },
+        "slots_filled_claimed": { "type": "integer" },
+        "holes_listed": { "type": "array", "items": { "type": "string" } },
+        "audit": { "type": "object", "properties": { "missing_by_count": { "type": "integer" }, "holes_listed": { "type": "integer" }, "consistent": { "type": "boolean" } }, "additionalProperties": false },
+        "slots": { "type": "array", "items": { "$ref": "#/$defs/Slot" } }
+      },
+      "required": ["id", "family", "title", "slots_total"],
+      "additionalProperties": false
+    },
+
+    "Slot": {
+      "type": "object",
+      "properties": {
+        "slot": { "type": "string", "description": "Stable slot id within the volume, e.g. 'p03-r2-c4'." },
+        "year": { "type": ["integer", "null"] },
+        "mint": { "type": ["string", "null"] },
+        "variety": { "type": ["string", "null"] },
+        "key": { "type": "boolean", "description": "Key/semi-key date." },
+        "state": { "enum": ["filled", "empty", "wanted", "not_applicable"] },
+        "occupant": { "type": ["string", "null"], "description": "Specimen id when filled." }
+      },
+      "required": ["slot", "state"],
+      "additionalProperties": false
+    },
+
+    "Photo": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "specimen": { "type": "string" },
+        "side": { "enum": ["obv", "rev", "edge", "label"] },
+        "phase": { "enum": [1, 2] },
+        "kind": { "enum": ["raw", "master", "crop_2x2", "crop_circle", "thumb"] },
+        "path": { "type": "string" },
+        "sha256": { "type": ["string", "null"] },
+        "width": { "type": ["integer", "null"] },
+        "height": { "type": ["integer", "null"] },
+        "captured_at": { "oneOf": [{ "$ref": "#/$defs/Instant" }, { "type": "null" }] },
+        "review": { "type": "object", "properties": { "status": { "enum": ["pending", "approved", "rejected", "reshoot"] }, "reason": { "type": ["string", "null"] } }, "additionalProperties": false },
+        "superseded_by": { "type": ["string", "null"] }
+      },
+      "required": ["id", "specimen", "side", "kind", "path"],
+      "additionalProperties": false
+    },
+
+    "ChangeEvent": {
+      "description": "Append-only audit line: who set which field to what, from where, and whether a human has verified it. This is how AI-filled facts stay traceable.",
+      "type": "object",
+      "properties": {
+        "ts": { "$ref": "#/$defs/Instant" },
+        "actor": { "type": "string", "description": "owner | model:<id> | script:<name>" },
+        "entity": { "enum": ["type", "specimen", "lot", "album", "photo"] },
+        "id": { "type": "string" },
+        "field": { "type": "string", "description": "Dotted path, e.g. issue.mintage" },
+        "old": {},
+        "new": {},
+        "source": { "type": ["string", "null"] },
+        "verified": { "type": "boolean" }
+      },
+      "required": ["ts", "actor", "entity", "id", "field", "new"],
+      "additionalProperties": false
+    },
+
+    "Valuation": {
+      "description": "Append-only price history for a specimen or lot, so value can be charted over time.",
+      "type": "object",
+      "properties": { "id": { "type": "string" }, "at": { "$ref": "#/$defs/Date" }, "est_usd": { "type": "number" }, "method": { "enum": ["melt", "comps", "dealer", "owner", "ai"] }, "spot_ag": { "type": ["number", "null"] }, "spot_au": { "type": ["number", "null"] }, "source": { "type": ["string", "null"] } },
+      "required": ["id", "at", "est_usd", "method"],
+      "additionalProperties": false
+    },
+
+    "Issuer": {
+      "description": "Who issued the coin. Needed because ISO country codes cannot express historical issuers ('Germany (Empire)', 'Mexico (Chihuahua)').",
+      "type": "object",
+      "properties": { "id": { "type": "string" }, "name": { "type": "string" }, "iso": { "$ref": "#/$defs/Iso2" }, "continent": { "enum": ["Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"] }, "from": { "type": ["integer", "null"] }, "to": { "type": ["integer", "null"] }, "successor": { "type": ["string", "null"] } },
+      "required": ["id", "name", "iso", "continent"],
+      "additionalProperties": false
+    }
+  }
+}
