@@ -1400,27 +1400,47 @@
       </div>`;
   }
 
-  /** CNN / Bloomberg-Style Breaking Live Marquee Stock Ticker Tape */
+  /** Ledger ticker: every item is read from the published snapshot (no invented prices or moves). */
   function renderMarketTickerTape() {
     const track = $("#ticker-marquee-track");
     if (!track || !vault) return;
-    const spotAg = vault.metals?.spot?.ag_usd_oz ?? vault.precious?.spot_ag ?? 63.38;
-    const spotAu = vault.metals?.spot?.au_usd_oz ?? vault.precious?.spot_au ?? 4252.90;
-    const ratio = (spotAu / (spotAg || 1)).toFixed(2);
-    const grandVal = money(vault.grand ?? 5584.11);
+    // Every figure below is read from the published ledger snapshot; nothing is simulated.
+    const m = vault.metals || {};
+    const spotAg = Number(m.spot?.ag_usd_oz ?? vault.board?.spot_ag) || 0;
+    const spotAu = Number(m.spot?.au_usd_oz ?? vault.board?.spot_au) || 0;
+    const priorAg = Number(m.prior_spot?.ag_usd_oz) || 0;
+    const priorAu = Number(m.prior_spot?.au_usd_oz) || 0;
+    const ratio = spotAg ? spotAu / spotAg : 0;
+    const priorRatio = priorAg ? priorAu / priorAg : 0;
+    const pct = (now, was) => (was > 0 && now > 0 ? ((now - was) / was) * 100 : null);
+    const chgOf = (p, suffix = "vs prior quote") => p === null
+      ? { chg: "no prior quote", up: null }
+      : { chg: `${Math.abs(p).toFixed(2)}% ${suffix}`, up: Math.abs(p) < 0.005 ? null : p > 0 };
+    const grand = Number(vault.value?.estimated_total ?? vault.board?.grand ?? m.board?.grand) || 0;
+    const c = vault.counts || {};
+    const agOz = Number(m.oz?.ag) || 0;
+    const auOz = Number(m.oz?.au) || 0;
+    const melt = (Number(m.melt?.ag_usd) || 0) + (Number(m.melt?.au_usd) || 0);
+    const bullionEst = Number(m.board?.bullion) || 0;
+    const top = (vault.flips || [])
+      .filter((f) => f.status !== "Removed" && (Number(f.est) || 0) > 0)
+      .sort((x, y) => (Number(y.est) || 0) - (Number(x.est) || 0))
+      .slice(0, 3);
+    const asOf = m.as_of_local || m.as_of || "";
     const items = [
-      { sym: "TITAN VAULT TOTAL", price: grandVal, chg: "+$142.80 (+2.6%)", up: true, action: "hub", title: "Collection Net Worth · Click to view Valuation Hub" },
-      { sym: "VAULT AG ASW", price: "63.27 oz", chg: "100% PHYSICAL", up: null, action: "seg-ag", title: "63.27 oz Physical Silver ASW · Click to view Allocation Breakdown" },
-      { sym: "CH 1969 1-FRANC", price: "$12.50", chg: "+8.2%", up: true, action: "dossier", scan: "C001", title: "Switzerland 1969 1 Franc · Click to inspect Specimen Dossier" },
-      { sym: "US 1976 BICENTENNIAL", price: "$2.40", chg: "+3.1%", up: true, action: "dossier", scan: "C073", title: "USA 1976 Bicentennial Quarter · Click to inspect Specimen Dossier" },
-      { sym: "MEXICO 1914 5¢", price: "$125.00", chg: "+14.2%", up: true, action: "dossier", scan: "C114", title: "Mexico 1914 Chihuahua · Click to inspect Specimen Dossier" },
-      { sym: "NETHERLANDS 1967 GULDEN", price: "$16.50", chg: "+6.8%", up: true, action: "dossier", scan: "C223", title: "Netherlands 1967 Silver 1 Gulden · Click to inspect Specimen Dossier" },
-      { sym: "AG SPOT", price: `$${num(spotAg, 2)}/oz`, chg: "+3.24%", up: true, action: "terminal", asset: "ag", title: "Silver Spot · Click to inspect Live Silver Desk" },
-      { sym: "AU SPOT", price: `$${intFmt(Math.round(spotAu))}/oz`, chg: "+1.18%", up: true, action: "terminal", asset: "au", title: "Gold Spot · Click to inspect Live Gold Desk" },
-      { sym: "AU/AG RATIO", price: ratio, chg: "-1.95%", up: false, action: "terminal", asset: "ratio", title: "Gold/Silver Ratio · Click to inspect Macro Compression" },
-      { sym: "COMEX REGISTERED", price: "31.42M oz", chg: "HISTORIC LOW", up: false, action: "sim", title: "COMEX Physical Low · Click to open Market Sensitivity Simulator" },
-      { sym: "INFLATION-ADJ PEAK", price: "$148.20/oz", chg: "+133% SQUEEZE GAP", up: true, action: "sim", title: "1980 Inflation Peak Gap · Click to open Market Sensitivity Simulator" },
-      { sym: "BULLION RESERVES", price: "21 Ingots", chg: "$3,011.74", up: true, action: "vault-reserves", title: "Titan Bullion Ingots & Sets · Click to explore Vault Reserves Wing" },
+      { sym: "TITAN VAULT TOTAL", price: money(grand), chg: "ledger estimate", up: null, action: "hub", title: "Collection estimate from the ledger · Click to view the valuation hub" },
+      { sym: "METAL MELT", price: money(melt), chg: `${num(agOz, 2)} oz Ag · ${num(auOz, 4)} oz Au`, up: null, action: "seg-ag", title: "Melt value of physical silver and gold at the published spot · Click to view the allocation" },
+      ...top.map((f) => ({
+        sym: `${f.country || ""} ${f.year || ""} ${f.denom || ""}`.trim().toUpperCase(),
+        price: money(f.est), chg: `${String(f.conf || "").toUpperCase() || "—"} CONF`, up: null,
+        action: "dossier", scan: f.scan, title: `${f.label || f.scan} · Click to inspect the dossier`,
+      })),
+      { sym: "AG SPOT", price: `$${num(spotAg, 2)}/oz`, ...chgOf(pct(spotAg, priorAg)), action: "terminal", asset: "ag", title: "Silver spot · Click to open the silver desk" },
+      { sym: "AU SPOT", price: `$${intFmt(Math.round(spotAu))}/oz`, ...chgOf(pct(spotAu, priorAu)), action: "terminal", asset: "au", title: "Gold spot · Click to open the gold desk" },
+      { sym: "AU/AG RATIO", price: ratio.toFixed(2), ...chgOf(pct(ratio, priorRatio)), action: "terminal", asset: "ratio", title: "Gold/silver ratio · Click to open the ratio desk" },
+      { sym: "BULLION", price: `${intFmt(c.bullion || 0)} lots`, chg: bullionEst ? money(bullionEst) : "—", up: null, action: "vault-reserves", title: "Bullion lots · Click to open the Vault" },
+      { sym: "COLLECTION", price: `${intFmt(c.flips || 0)} flips`, chg: `${intFmt(c.countries || 0)} countries · ${intFmt(c.vault || 0)} pieces`, up: null, action: "vault-reserves", title: "Collection size from the ledger" },
+      ...(asOf ? [{ sym: "SPOT AS OF", price: asOf, chg: m.source || "", up: null, action: "terminal", asset: "ag", title: "When and where the spot quote came from" }] : []),
     ];
     // Double array to create seamless continuous marquee loop
     const fullItems = [...items, ...items];
@@ -2221,7 +2241,35 @@
     const bidEl = $("#ts-bid");
     const askEl = $("#ts-ask");
 
+    // Current figures come from the ledger snapshot (metals.spot / prior_spot / board); the chart
+    // history behind the timeframes is illustrative and is labelled as such below the chart.
+    const syncTermToLedger = () => {
+      const m = vault?.metals || {};
+      const now = { ag: Number(m.spot?.ag_usd_oz) || 0, au: Number(m.spot?.au_usd_oz) || 0 };
+      const was = { ag: Number(m.prior_spot?.ag_usd_oz) || 0, au: Number(m.prior_spot?.au_usd_oz) || 0 };
+      const grand = Number(vault?.value?.estimated_total ?? m.board?.grand) || 0;
+      const prevGrand = grand - (Number(m.board_delta?.d_grand) || 0);
+      const cur = { ag: now.ag, au: now.au, ratio: now.ag ? now.au / now.ag : 0, vault: grand };
+      const prev = { ag: was.ag, au: was.au, ratio: was.ag ? was.au / was.ag : 0, vault: prevGrand };
+      for (const k of Object.keys(TERM_DATA)) {
+        const a = TERM_DATA[k];
+        if (!(cur[k] > 0)) continue;
+        a.base = cur[k];
+        if (a.rates?.live?.length) a.rates.live[a.rates.live.length - 1] = Number(cur[k].toFixed(2));
+        const d = cur[k] - prev[k];
+        if (prev[k] > 0) {
+          const sign = d >= 0 ? "+" : "−";
+          const money0 = k === "ratio" ? "" : "$";
+          a.delta = `${sign}${money0}${num(Math.abs(d), 2)} (${sign}${Math.abs((d / prev[k]) * 100).toFixed(2)}%) vs prior quote`;
+          a.isUp = d >= 0;
+        } else { a.delta = "no prior quote published"; a.isUp = true; }
+        a.low24 = Math.min(cur[k], prev[k] > 0 ? prev[k] : cur[k]);
+        a.high24 = Math.max(cur[k], prev[k] > 0 ? prev[k] : cur[k]);
+      }
+    };
+
     const updateTerminalView = () => {
+      syncTermToLedger();
       const a = TERM_DATA[termAsset];
       if (priceEl) {
         priceEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.base, 2) + (a.unit ? " " + a.unit : "");
@@ -2236,57 +2284,55 @@
         const pct = Math.min(100, Math.max(0, ((a.base - a.low24) / (a.high24 - a.low24 || 1)) * 100));
         pin24El.style.left = pct.toFixed(1) + "%";
       }
-      if (low52El) low52El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.low52, 2);
-      if (high52El) high52El.textContent = (termAsset === "ratio" ? "" : "$") + num(a.high52, 2);
-      if (pin52El) {
-        const pct = Math.min(100, Math.max(0, ((a.base - a.low52) / (a.high52 - a.low52 || 1)) * 100));
-        pin52El.style.left = pct.toFixed(1) + "%";
-      }
-      if (bidEl) bidEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.bid, 2);
-      if (askEl) askEl.textContent = (termAsset === "ratio" ? "" : "$") + num(a.ask, 2);
+      // The ledger publishes no 52-week range, so that box is hidden rather than invented.
+      const box52 = pin52El?.closest(".term-stat-box");
+      if (box52) box52.hidden = true;
+      const lbl24 = low24El?.closest(".term-stat-box")?.querySelector(".ts-lbl");
+      if (lbl24) lbl24.textContent = "Prior & current quote";
 
       const metricLbl = $("#ts-metric-lbl");
       const metricVal = $("#ts-metric-val");
       const custodyLbl = $("#ts-custody-lbl");
       const custodyVal = $("#ts-custody-val");
 
-      const totalEst = vault?.stats?.total_est ?? 5584.11;
-      const totalPieces = (vault?.flips || []).filter((f) => f.status !== "Removed").length || 273;
-      const spotAg = vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz ?? 31.76;
-      const totalAsw = vault?.precious?.total_asw_oz ?? 63.27;
-      const meltVal = totalAsw * spotAg;
+      const lm = vault?.metals || {};
+      const totalEst = Number(vault?.value?.estimated_total ?? lm.board?.grand) || 0;
+      const totalPieces = Number(vault?.counts?.vault) || (vault?.flips || []).filter((f) => f.status !== "Removed").length;
+      const totalAsw = Number(lm.oz?.ag) || 0;
+      const totalAu = Number(lm.oz?.au) || 0;
+      const meltVal = (Number(lm.melt?.ag_usd) || 0) + (Number(lm.melt?.au_usd) || 0);
       const premVal = Math.max(0, totalEst - meltVal);
-      const premPct = meltVal > 0 ? ((premVal / meltVal) * 100).toFixed(0) : "178";
+      const premPct = meltVal > 0 ? ((premVal / meltVal) * 100).toFixed(0) : "0";
 
       if (metricLbl && metricVal) {
         if (termAsset === "vault") {
-          metricLbl.textContent = "Numismatic Premium";
-          metricVal.innerHTML = `<span id="ts-val-main">+$${num(premVal, 2)}</span> <em class="ts-spread-delta">(+${premPct}% over spot melt)</em>`;
+          metricLbl.textContent = "Value above metal melt";
+          metricVal.innerHTML = `<span id="ts-val-main">+$${num(premVal, 2)}</span> <em class="ts-spread-delta">(+${premPct}% over melt; includes albums, sets, housing)</em>`;
         } else if (termAsset === "ag") {
-          metricLbl.textContent = "Wholesale Spot Spread";
-          metricVal.innerHTML = `<span id="ts-val-main">$${num(a.bid, 2)} / $${num(a.ask, 2)}</span> <em class="ts-spread-delta">(COMEX Active)</em>`;
+          metricLbl.textContent = "Silver melt in the vault";
+          metricVal.innerHTML = `<span id="ts-val-main">$${num(Number(lm.melt?.ag_usd) || 0, 2)}</span> <em class="ts-spread-delta">(${num(totalAsw, 2)} oz × $${num(a.base, 2)})</em>`;
         } else if (termAsset === "au") {
-          metricLbl.textContent = "LBMA Spot Spread";
-          metricVal.innerHTML = `<span id="ts-val-main">$${num(a.bid, 2)} / $${num(a.ask, 2)}</span> <em class="ts-spread-delta">(P.M. Fix)</em>`;
+          metricLbl.textContent = "Gold melt in the vault";
+          metricVal.innerHTML = `<span id="ts-val-main">$${num(Number(lm.melt?.au_usd) || 0, 2)}</span> <em class="ts-spread-delta">(${num(totalAu, 4)} oz × $${num(a.base, 2)})</em>`;
         } else {
           metricLbl.textContent = "Gold/Silver Equivalence";
-          metricVal.innerHTML = `<span id="ts-val-main">${num(a.base, 1)} oz Ag = 1 oz Au</span> <em class="ts-spread-delta">(Historical median: 60:1)</em>`;
+          metricVal.innerHTML = `<span id="ts-val-main">${num(a.base, 1)} oz Ag = 1 oz Au</span> <em class="ts-spread-delta">(from the published spot quote)</em>`;
         }
       }
 
       if (custodyLbl && custodyVal) {
         if (termAsset === "vault") {
           custodyLbl.textContent = "Physical Custody";
-          custodyVal.innerHTML = `<strong id="ts-custody-txt">${num(totalAsw, 2)} oz ASW · ${totalPieces} Pieces</strong> · Unencumbered`;
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">${num(totalAsw, 2)} oz Ag · ${num(totalAu, 4)} oz Au · ${intFmt(totalPieces)} pieces</strong>`;
         } else if (termAsset === "ag") {
           custodyLbl.textContent = "Vault Delta Exposure";
           custodyVal.innerHTML = `<strong id="ts-custody-txt">+$${num(totalAsw, 2)}</strong> per +$1.00 Spot Move`;
         } else if (termAsset === "au") {
           custodyLbl.textContent = "Vault Gold Allocation";
-          custodyVal.innerHTML = `<strong id="ts-custody-txt">0.00 oz Au</strong> · Target Acquisition Allocation`;
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">${num(totalAu, 4)} oz Au</strong> · fine gold held`;
         } else {
-          custodyLbl.textContent = "Rebalance Indicator";
-          custodyVal.innerHTML = `<strong id="ts-custody-txt">Accumulate Silver</strong> · Historic Discount`;
+          custodyLbl.textContent = "Vault metal";
+          custodyVal.innerHTML = `<strong id="ts-custody-txt">${num(totalAsw, 2)} oz Ag · ${num(totalAu, 4)} oz Au</strong>`;
         }
       }
 

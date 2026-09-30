@@ -11513,3 +11513,5 @@ html[data-atmo="odyssey"] :is(#market-ticker-tape, #exhibit, .museum-slab, #vaul
   --gold-soft: #e8d9a8;
   color: var(--ink);
 }
+
+.term-honesty { margin: 0.6rem 0 0.2rem; font-size: 0.8rem; line-height: 1.45; color: var(--muted); }

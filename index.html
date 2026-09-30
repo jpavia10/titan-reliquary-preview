@@ -558,7 +558,7 @@
               <div class="term-title-block">
                 <div class="term-eyebrow-row">
                   <span class="eyebrow">Market Desk</span>
-                  <span class="term-live-badge"><span class="term-live-dot" aria-hidden="true"></span>STREAMING</span>
+                  <span class="term-live-badge"><span class="term-live-dot" aria-hidden="true"></span>SNAPSHOT</span>
                 </div>
                 <h2 class="term-title">Precious Metals Terminal</h2>
                 <div class="term-live-rate">
@@ -586,7 +586,7 @@
               <!-- Timeframe Selection -->
               <div class="term-time-bar" role="tablist" aria-label="Chart Timeframes">
                 <div class="term-timeframes-row">
-                  <button type="button" class="term-tf-btn" data-tf="live" title="Real-Time Tick Stream">Live</button>
+                  <button type="button" class="term-tf-btn" data-tf="live" title="Latest published quote">Latest</button>
                   <button type="button" class="term-tf-btn" data-tf="1h" title="Past 1 Hour">1H</button>
                   <button type="button" class="term-tf-btn active" data-tf="24h" title="Past 24 Hours">24H</button>
                   <button type="button" class="term-tf-btn" data-tf="7d" title="Past 7 Days">7D</button>
@@ -612,6 +612,8 @@
                 <span class="hud-range" id="hud-range">—</span>
               </div>
             </div>
+
+            <p class="term-honesty" id="term-honesty">Current prices, changes and melt values come from the ledger's published spot quote. The chart history behind the timeframes is illustrative; the ledger holds no price history.</p>
 
             <!-- Trading Statistics & Liquidity Bar -->
             <div class="term-stats-grid">
