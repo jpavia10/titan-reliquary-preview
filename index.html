@@ -444,32 +444,14 @@
           <h1 class="wordmark">Titan Reliquary</h1>
 
           <!-- CNN / Bloomberg-Style Live Breaking Commodities & Vault Wire -->
-          <div class="market-ticker-tape" id="market-ticker-tape" role="region" aria-label="Precious metals live market wire">
+          <div class="market-ticker-tape" id="market-ticker-tape" role="region" aria-label="Ledger and published spot quote wire">
             <div class="ticker-badge">
               <span class="ticker-live-pulse" aria-hidden="true"></span>
-              <span class="ticker-live-lbl">LIVE WIRE</span>
+              <span class="ticker-live-lbl">LEDGER</span>
             </div>
             <div class="ticker-marquee-track" id="ticker-marquee-track">
               <!-- Dynamically populated and looped with live market feeds -->
             </div>
-          </div>
-
-          <!-- Rotating exhibition: Studio Stage with 3D Flip & Phase 2 Capture Anticipation -->
-          <div class="exhibit" id="exhibit">
-            <div class="exhibit-crest-watermark" aria-hidden="true"><svg class="crest-svg" viewBox="0 0 200 200"><use href="#crest-afterhours"></use></svg></div>
-            <div class="exhibit-top-bar">
-              <p class="eyebrow exhibit-kicker"><span class="exhibit-lamp" aria-hidden="true"></span>Now exhibiting</p>
-              <div class="exhibit-view-controls">
-                <button type="button" class="ex-ctrl-btn active" id="btn-ex-obv" title="Inspect Obverse (Front)">Obverse</button>
-                <button type="button" class="ex-ctrl-btn" id="btn-ex-rev" title="Inspect Reverse (Back)">Reverse</button>
-                <button type="button" class="ex-ctrl-btn flip-btn" id="btn-ex-flip" title="Flip 3D Specimen (Spacebar)">⟲ 3D Flip</button>
-                <button type="button" class="ex-ctrl-btn spatial-launch-btn" id="btn-ex-spatial" title="Inspect on 3D Museum Table (Physical Shadows &amp; 360° Drag)">🏛️ 3D Table</button>
-                <button type="button" class="ex-ctrl-btn" id="btn-ex-reticle" title="Toggle Precision Digital Caliper &amp; Die Reticle">📏 Calipers</button>
-                <button type="button" class="ex-ctrl-btn" id="btn-ex-loupe" title="Toggle Forensic 10× Macro Loupe (Sub-millimeter inspection)">🔬 10× Loupe</button>
-              </div>
-            </div>
-            <div class="exhibit-frame" id="exhibit-frame" aria-live="polite"></div>
-            <div class="exhibit-dots" id="exhibit-dots" aria-hidden="true"></div>
           </div>
 
           <div class="vault-valuation-hub">
@@ -492,7 +474,7 @@
             <div class="melt-legend" id="melt-legend">
               <span class="legend-item leg-ag"><i class="dot"></i> <strong>63.27 oz Ag</strong> @ $63.38</span>
               <span class="legend-item leg-au"><i class="dot"></i> <strong>0.13 oz Au</strong> @ $4,253</span>
-              <span class="legend-item leg-numis"><i class="dot"></i> <strong>Collector Premium</strong> (18.1%)</span>
+              <span class="legend-item leg-numis"><i class="dot"></i> <strong>Value above melt</strong> (18.1%)</span>
             </div>
 
             <!-- Interactive Market Sensitivity Simulator -->
@@ -543,13 +525,31 @@
                     <div class="sim-breakdown-chips">
                       <span class="sim-chip" id="sim-chip-ag">Ag Melt: $4,010</span>
                       <span class="sim-chip" id="sim-chip-au">Au Melt: $562</span>
-                      <span class="sim-chip" id="sim-chip-prem">Rarity Premium: $1,012</span>
+                      <span class="sim-chip" id="sim-chip-prem">Above melt: $1,012</span>
                     </div>
                     <button type="button" class="btn small" id="sim-btn-reset">↺ Reset to Spot</button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- Rotating exhibition: Studio Stage with 3D Flip & Phase 2 Capture Anticipation -->
+          <div class="exhibit" id="exhibit">
+            <div class="exhibit-crest-watermark" aria-hidden="true"><svg class="crest-svg" viewBox="0 0 200 200"><use href="#crest-afterhours"></use></svg></div>
+            <div class="exhibit-top-bar">
+              <p class="eyebrow exhibit-kicker"><span class="exhibit-lamp" aria-hidden="true"></span>Now exhibiting</p>
+              <div class="exhibit-view-controls">
+                <button type="button" class="ex-ctrl-btn active" id="btn-ex-obv" title="Inspect Obverse (Front)">Obverse</button>
+                <button type="button" class="ex-ctrl-btn" id="btn-ex-rev" title="Inspect Reverse (Back)">Reverse</button>
+                <button type="button" class="ex-ctrl-btn flip-btn" id="btn-ex-flip" title="Flip 3D Specimen (Spacebar)">⟲ 3D Flip</button>
+                <button type="button" class="ex-ctrl-btn spatial-launch-btn" id="btn-ex-spatial" title="Inspect on 3D Museum Table (Physical Shadows &amp; 360° Drag)">🏛️ 3D Table</button>
+                <button type="button" class="ex-ctrl-btn" id="btn-ex-reticle" title="Toggle Precision Digital Caliper &amp; Die Reticle">📏 Calipers</button>
+                <button type="button" class="ex-ctrl-btn" id="btn-ex-loupe" title="Toggle Forensic 10× Macro Loupe (Sub-millimeter inspection)">🔬 10× Loupe</button>
+              </div>
+            </div>
+            <div class="exhibit-frame" id="exhibit-frame" aria-live="polite"></div>
+            <div class="exhibit-dots" id="exhibit-dots" aria-hidden="true"></div>
           </div>
 
           <!-- Interactive Precious Metals Stock Trading Terminal -->

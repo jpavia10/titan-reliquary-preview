@@ -606,17 +606,17 @@
     const segNumis = $("#seg-numis");
     if (segAg) { segAg.style.width = agPct + "%"; segAg.title = `Silver Melt: ${num(agOz, 2)} oz Ag · ${money(agMelt)} (${agPct}%)`; }
     if (segAu) { segAu.style.width = auPct + "%"; segAu.title = `Gold Melt: ${num(auOz, 4)} oz Au · ${money(auMelt)} (${auPct}%)`; }
-    if (segNumis) { segNumis.style.width = numisPct + "%"; segNumis.title = `Numismatic Collector Premium: ${money(numisPremium)} (${numisPct}%)`; }
+    if (segNumis) { segNumis.style.width = numisPct + "%"; segNumis.title = `Value above metal melt (albums, sets, housing, collector premium): ${money(numisPremium)} (${numisPct}%)`; }
     const lblAg = $("#lbl-ag"); if (lblAg) lblAg.textContent = `Ag Melt · ${money(agMelt)}`;
     const lblAu = $("#lbl-au"); if (lblAu) lblAu.textContent = `Au · ${money(auMelt)}`;
-    const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Premium · ${money(numisPremium)}`;
+    const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Above melt · ${money(numisPremium)}`;
 
     const legend = $("#melt-legend");
     if (legend) {
       legend.innerHTML = `
         <span class="legend-item leg-ag"><i class="dot"></i> <strong>${num(agOz, 2)} oz Ag</strong> @ ${money(ag)}</span>
-        <span class="legend-item leg-au"><i class="dot"></i> <strong>${num(auOz, 2)} oz Au</strong> @ ${money(au)}</span>
-        <span class="legend-item leg-numis"><i class="dot"></i> <strong>Rarity Premium</strong> (${numisPct}%)</span>`;
+        <span class="legend-item leg-au"><i class="dot"></i> <strong>${num(auOz, 4)} oz Au</strong> @ ${money(au)}</span>
+        <span class="legend-item leg-numis"><i class="dot"></i> <strong>Value above melt</strong> (${numisPct}%)</span>`;
     }
 
     const cap = $(".hero-cap");
@@ -683,7 +683,7 @@
       dynGrand.textContent = money(dynTotal);
       chipAg.textContent = `Ag Melt: ${money(dynAgMelt)}`;
       chipAu.textContent = `Au Melt: ${money(dynAuMelt)}`;
-      chipPrem.textContent = `Rarity Premium: ${money(fixedBaseValue)}`;
+      chipPrem.textContent = `Above melt: ${money(fixedBaseValue)}`;
 
       if (Math.abs(delta) < 0.5) {
         dynDelta.textContent = `±$0.00 (0.0%)`;
@@ -2520,7 +2520,7 @@
           </div>
           <div class="ex-info-placard">
             <div class="placard-kicker">
-              <span class="placard-seal">🏛️ CABINET MASTERPIECE</span>
+              <span class="placard-seal">🏛️ FROM THE VAULT · TOP VALUE</span>
               <span class="placard-pos">${i + 1} of ${exhibitMasters.length}</span>
             </div>
             <h3 class="placard-title">${country} · ${year}</h3>
@@ -2536,8 +2536,8 @@
                 <span class="pl-val">${meltVal ? money(meltVal) : (isGold ? "Gold" : "Base Alloy")}</span>
               </div>
               <div class="pl-metric">
-                <span class="pl-lbl">Valuation Multiple</span>
-                <span class="pl-val">${multiplier || (f.conf ? "Conf " + esc(f.conf) : "Archive Verified")}</span>
+                <span class="pl-lbl">${multiplier ? "Over melt" : "Ledger confidence"}</span>
+                <span class="pl-val">${multiplier || (f.conf ? esc(String(f.conf).toUpperCase()) : "—")}</span>
               </div>
             </div>
 
@@ -2767,10 +2767,25 @@
       paint();
     };
 
+    // Rotation pauses while the visitor is reading (hover, focus, touch), when the tab is hidden,
+    // when the Hall is not the active wing, and when the exhibit is scrolled off-screen.
+    let exhibitHold = false;
+    let exhibitVisible = true;
+    if (box) {
+      const hold = () => { exhibitHold = true; };
+      const release = () => { exhibitHold = false; };
+      ["mouseenter", "focusin", "touchstart", "pointerdown"].forEach((ev) => box.addEventListener(ev, hold, { passive: true }));
+      ["mouseleave", "focusout"].forEach((ev) => box.addEventListener(ev, release));
+      box.addEventListener("touchend", () => setTimeout(release, 6000), { passive: true });
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver((es) => { exhibitVisible = es.some((e) => e.isIntersecting); }, { threshold: 0.25 }).observe(box);
+      }
+    }
     if (!reduced && exhibitMasters.length > 1) {
       exhibitTimer = setInterval(() => {
         if (!document.body.contains(frame)) { clearInterval(exhibitTimer); return; }
-        if (document.hidden) return;
+        if (document.hidden || exhibitHold || !exhibitVisible) return;
+        if (!$("#pane-hall")?.classList.contains("active")) return;
         go(exhibitIdx + 1);
       }, 10000);
     }
@@ -4372,7 +4387,7 @@
             </div>
             <div style="text-align:center">
               <div style="font-family:var(--mono);font-size:1.2rem;font-weight:700;color:#10b981">+${money(Math.max(0, totalEst - totalPhysicalMelt))}</div>
-              <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase">Collector Premium</div>
+              <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase">Value above melt</div>
             </div>
           </div>
           <div style="height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;display:flex">

@@ -11515,3 +11515,13 @@ html[data-atmo="odyssey"] :is(#market-ticker-tape, #exhibit, .museum-slab, #vaul
 }
 
 .term-honesty { margin: 0.6rem 0 0.2rem; font-size: 0.8rem; line-height: 1.45; color: var(--muted); }
+
+/* TR51 Hall: phone controls are grids with 44px targets instead of sideways-scrolling strips. */
+@media (max-width: 640px) {
+  .exhibit-view-controls { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; gap: 0.4rem; }
+  .ex-ctrl-btn { min-height: 44px; font-size: 0.82rem; padding: 0.4rem 0.35rem; white-space: normal; text-align: center; }
+  .term-timeframes-row { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; overflow: visible !important; }
+  .term-tf-btn { min-height: 44px; font-size: 0.85rem; }
+  .term-mode-btn, .term-asset-btn { min-height: 44px; font-size: 0.85rem; }
+  .melt-allocation-bar .seg-label { display: none; }
+}
