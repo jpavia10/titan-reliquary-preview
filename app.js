@@ -3011,6 +3011,12 @@
     if (q) {
       rows = rows.filter((f) => flipQueryMatch(f, q));
     }
+    // Gallery wing (wings/gallery.js): extra facets + its own sort; null falls through to the legacy sort.
+    if (window.TitanGalleryWing && cabinetTray === "all") {
+      rows = window.TitanGalleryWing.refine(rows, flipFilter);
+      const sorted = window.TitanGalleryWing.sort(rows, flipSort);
+      if (sorted) return sorted;
+    }
 
     if (cabinetTray === "silver") {
       rows = [...rows].sort((a, b) => (b.asw_oz ?? 0) - (a.asw_oz ?? 0));
@@ -3589,9 +3595,42 @@
   let galleryScrollListener = null;
   let galleryResizeListener = null;
 
+  /* Gallery wing bridge: wings/gallery.js renders the wing, the ⌘K palette and the flip dossier
+     through this. If that file is missing (e.g. offline before it is cached) the legacy code below runs. */
+  window.__galleryBridge = {
+    get vault() { return vault; },
+    get filter() { return flipFilter; },
+    get sort() { return flipSort; }, set sort(v) { flipSort = v; },
+    get tray() { return cabinetTray; }, set tray(v) { cabinetTray = v; },
+    get mode() { return galleryMode; },
+    set mode(v) { galleryMode = v; try { localStorage.setItem("tr_gallery_mode_v1", v); } catch (_) {} },
+    get searchReady() { return !!searchIdx; },
+    get restoring() { return restoring; },
+    get cfIndex() { return cfCurrentIndex; },
+    get drawerScan() { return currentDrawerScan; },
+    get highlight() { return highlightScans; },
+    filteredFlips: () => filteredFlips(),
+    flipQueryMatch: (f, q) => flipQueryMatch(f, q),
+    renderCoverFlow: (i) => renderCoverFlow(i),
+    setupCoverFlowEvents: () => setupCoverFlowEvents(),
+    openDrawer: (scan, ctx) => { dossierCtx = ctx || null; return openDrawer(scan); },
+    closePalette: () => closePalette(),
+    openAtmoSheet: () => openAtmoSheet(),
+    openKeysSheet: () => openKeysSheet(),
+    launchSpatial: () => launchSpatialTable(),
+    photoSlot: (c, role) => photoSlot(c, role),
+    photoOf: (c, role) => photoOf(c, role),
+    isoName: (iso) => isoName(iso),
+    currentAtmo: () => currentAtmo(),
+    ensureSearch, markTyping, saveState, setWing, norm, esc, money, num, intFmt, lazyThumbs,
+    observeReveals: (root) => observeReveals(root),
+    playStapleClick, playCoinChime,
+  };
+
   function renderGallery() {
     if (!vault || !vault.flips) return;
     galleryRendered = true;
+    if (window.TitanGalleryWing && window.TitanGalleryWing.render()) return;
     if (galleryScrollListener) {
       window.removeEventListener("scroll", galleryScrollListener);
       galleryScrollListener = null;
@@ -6761,7 +6800,7 @@
         </div>
       </section>` : "";
 
-    $("#drawer-body").innerHTML = `
+    $("#drawer-body").innerHTML = (isFlip && window.TitanGalleryWing && window.TitanGalleryWing.dossierHtml(c)) || `
       ${stage}
       <header class="ds-head">
         <div class="ds-ser">${esc(primary)}${agTag}${auTag}${tokTag}${stTag}</div>
@@ -7493,6 +7532,7 @@
     restoreFocus();
   }
   function renderPalette(qRaw) {
+    if (window.TitanGalleryWing && window.TitanGalleryWing.renderPalette(qRaw)) return;
     const q = norm(qRaw || "");
     const box = $("#palette-results");
     if (!q) {
