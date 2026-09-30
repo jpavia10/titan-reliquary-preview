@@ -1,0 +1,20 @@
+/* Museum slab legibility (integrator, 2026-09-30).
+   The Lucite slab is a fixed dark object in every atmosphere, but its labels inherited theme tokens
+   (--gold, --gold-soft turn oxblood/brown in light atmospheres) or used faint fixed colours, and several
+   were 7.7-9.6 px. The themes audit counted ~75 failing labels per page in all 20 atmospheres.
+   Colours below are fixed light-on-dark values that pass WCAG AA on the slab's own dark surfaces.
+   Sizes grow only slightly: the 68 px header height is fixed on purpose (it keeps the coin centred). */
+.museum-slab .slab-pedigree-holo { background: #0b1a33; }
+.museum-slab .slab-holo-brand,
+.museum-slab .slab-holo-crest { background: #0b1a33; color: #e8eefc; font-size: 0.56rem; letter-spacing: 0.06em; }
+.museum-slab .slab-pedigree-title strong { color: #f2ead8; }
+.museum-slab .slab-pedigree-grade { color: #e8d9a8; font-size: 0.64rem; opacity: 1; }
+.museum-slab .slab-pedigree-sub span { color: #c9d1dc; opacity: 1; }
+.museum-slab .slab-pedigree-metal { color: #a9cffd; opacity: 1; }
+.museum-slab .slab-barcode { color: #8a93a3; opacity: 1; }
+.museum-slab .slab-cert-num { color: #c9d1dc; opacity: 1; font-size: 0.6rem; }
+.museum-slab .slab-footer-price { color: #efd27a; }
+.museum-slab .slab-footer-melt { color: #c3ccd8; font-size: 0.7rem; }
+.museum-slab .slab-footer-seal-text { color: #e8d9a8; font-size: 0.6rem; }
+.slab-mini .slab-holo-brand,
+.slab-mini .slab-holo-crest { font-size: 0.5rem; }
