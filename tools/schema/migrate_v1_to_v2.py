@@ -131,7 +131,8 @@ def load_albums():
     code = "console.log(JSON.stringify(" + "(" + js + ")" + "))"
     return json.loads(subprocess.run(["node", "-e", code], capture_output=True, text=True, check=True).stdout)
 
-def main(out):
+def main(out, src=None):
+    V1 = src or "data"
     idx = json.load(open(f"{V1}/index.json", encoding="utf-8"))
     det = {}
     for p in sorted(glob.glob(f"{V1}/detail/*.json")): det.update(json.load(open(p, encoding="utf-8")))
@@ -262,4 +263,4 @@ def main(out):
     print("unparsed:", {k: len(v) for k, v in rep["unparsed"].items()}, "| conflicts:", len(rep["conflicts"]))
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "build/v2")
+    main(sys.argv[2] if len(sys.argv) > 2 else "build/v2", sys.argv[1] if len(sys.argv) > 1 else None)
