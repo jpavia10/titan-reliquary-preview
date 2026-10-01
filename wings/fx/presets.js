@@ -353,7 +353,7 @@
       "  for (int i=0;i<3;i++){",
       "    if (i>=2 && uQ<1.) break;",
       "    float fi = float(i);",
-      "    float x = p.x*(1.05+fi*.4) + t*(.012+fi*.006)*(mod(fi,2.)<.5?1.:-1.);",
+      "    float x = p.x*max(1., 1.2/a)*(1.05+fi*.4) + t*(.012+fi*.006)*(mod(fi,2.)<.5?1.:-1.);",
       "    float wave = vn(vec2(x*1.3, t*.045+fi*7.))*1.6 + vn(vec2(x*3.1, -t*.06+fi*3.))*.5;",
       "    float base = .06 + fi*.07 + (wave-1.)*.22;",
       "    float d = p.y - base;",
