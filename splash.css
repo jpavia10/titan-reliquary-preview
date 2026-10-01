@@ -40,7 +40,7 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 #tr-splash.ts-stillon .ts-still { opacity: 1; }
 
 /* Copy: small, quiet, only at the end */
-.ts-copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 20px calc(max(30px, env(safe-area-inset-bottom)) + 4vh);
+.ts-copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 20px calc(max(24px, env(safe-area-inset-bottom)) + 1.5vh);
   display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none; }
 .ts-feature { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; will-change: opacity, transform; }
 .ts-f-country { font-size: clamp(11px, 1.2vmin + 7px, 15px); font-weight: 500; letter-spacing: .46em; padding-left: .46em; text-transform: uppercase; color: #ece8e1; text-shadow: 0 1px 14px rgba(0, 0, 0, .8); }

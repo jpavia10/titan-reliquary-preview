@@ -326,6 +326,7 @@
     })();
     if (!hdr && tier < 4) { tier = 4; Q = TIERS[4]; }
     renderer.setClearColor(0x000000, 1);
+    renderer.debug.checkShaderErrors = false;          // no synchronous link-status stall: programs finish compiling in parallel
     renderer.physicallyCorrectLights = true;
     renderer.shadowMap.enabled = Q.shadow > 0;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -366,7 +367,7 @@
     }
     // engine-turned rosette (guilloche) for the door's inner field: a drawn height field -> normal map (planar, centred)
     function guillocheTexture() {
-      var N = 1024, c = canvasEl(N), g = c.getContext("2d"), cx = N / 2;
+      var N = 1024, c = canvasEl(N), g = c.getContext("2d", { willReadFrequently: true }), cx = N / 2;
       g.fillStyle = "#808080"; g.fillRect(0, 0, N, N);
       g.lineWidth = 3.2;
       for (var ring = 0; ring < 3; ring++) {
@@ -420,14 +421,16 @@
     scene.background = new THREE.Color(0x000000);
     var camera = new THREE.PerspectiveCamera(36, 1, 0.1, 60);
     scene.add(camera);
-    var envTex = buildEnvironment();
+    var tb0 = performance.now(), bootM = {}, bootLast = tb0;
+    function bootMark(n) { var x = performance.now(); bootM[n] = Math.round(x - bootLast); bootLast = x; }
+    var envTex = buildEnvironment(); var tbEnv = performance.now() - tb0;
     scene.environment = envTex;
 
     var DOOR_R = 1.14, HOLE_R = 1.0, HINGE_X = -1.27, DZ = 0.13, WALL_T = 1.1, FLOOR_Y = -2.0, CH_FLOOR = -1.0;
     var COIN_Z = -6.0, COIN_Y = -0.69, COIN_R = 0.27, COIN_T = 0.042;
 
-    var plateTex = plateTexture(), turnedTex = turnedTexture(), guilTex = guillocheTexture();
-    plateTex.repeat.set(0.5, 0.5);
+    var tq0 = performance.now(), plateTex = plateTexture(), tq1 = performance.now(), turnedTex = turnedTexture(), tq2 = performance.now(), guilTex = guillocheTexture(), tq3 = performance.now();
+    plateTex.repeat.set(0.5, 0.5); var tbTex = performance.now() - tb0 - tbEnv;
 
     var mSteel = mat({ color: 0x1b1c1f, metalness: 0.72, roughness: 0.46, roughnessMap: plateTex, clearcoat: 0.25, clearcoatRoughness: 0.35, envMapIntensity: 0.2 });
     var mWall = mat({ color: 0x151618, metalness: 0.7, roughness: 0.62, roughnessMap: plateTex, envMapIntensity: 0.18 });
@@ -470,6 +473,7 @@
       ticks.castShadow = false; ticks.receiveShadow = true; scene.add(ticks);
     })();
 
+    bootMark("wall");
     // --- the door (pivot at the hinge, body offset so its centre sits on the opening) ---
     var doorPivot = new THREE.Group(); doorPivot.position.set(HINGE_X, 0, 0); scene.add(doorPivot);
     var door = new THREE.Group(); door.position.set(-HINGE_X, 0, DZ); doorPivot.add(door);
@@ -487,7 +491,7 @@
       add(door, lathe([[0.30, 0.335], [0.315, 0.335], [0.315, 0.345], [0.30, 0.345], [0.30, 0.335]], 96), mSilverB);
       // hinge barrels on the left outside the door
       for (var i = -1; i <= 1; i++) {
-        var hb = new THREE.CylinderGeometry(0.085, 0.085, 0.3, 32); hb.rotateX(Math.PI / 2);
+        var hb = new THREE.CylinderGeometry(0.085, 0.085, 0.34, 32);
         var m1 = add(doorPivot, hb, mSilverB, 0, i * 0.62, 0.28); m1.scale.set(1, 1, 1);
         add(doorPivot, new THREE.BoxGeometry(0.2, 0.2, 0.05), mSteel, 0.06, i * 0.62, 0.15);
       }
@@ -501,6 +505,7 @@
         var kb = add(wheel, kn, mSilver, Math.cos(a) * 0.62, Math.sin(a) * 0.62, 0); kb.rotation.z = a; kb.scale.set(1, 1, 1);
       }
     })();
+    bootMark("door");
     // --- twelve bolts in housings on the wall ---
     var BOLTS = 12, bolts = [];
     (function () {
@@ -518,6 +523,7 @@
       }
     })();
 
+    bootMark("bolts");
     // --- the chamber behind the door ---
     var chamber = new THREE.Group(); scene.add(chamber);
     var backdropMat;
@@ -555,6 +561,7 @@
       }
     })();
 
+    bootMark("chamber");
     // --- the coin ---
     var coin = new THREE.Group(), coinMesh = new THREE.Group(), coinMirror = new THREE.Group();
     var faceMats = [], coinReady = false, coinMats = [];
@@ -566,7 +573,7 @@
       for (var x = 0; x < 64; x++) { nx = Math.sin(x / 64 * Math.PI * 2); eg.fillStyle = "rgb(" + Math.round(128 + nx * 100) + ",128,235)"; eg.fillRect(x, 0, 1, 8); }
       var edgeN = ctexture(edgeC, { repeat: 1 }); edgeN.repeat.set(150, 1);
       var sideM = new THREE.MeshPhysicalMaterial({ color: 0xcfd0d3, metalness: 1, roughness: 0.3, normalMap: edgeN, normalScale: new THREE.Vector2(1.2, 1.2), envMapIntensity: 1.3 });
-      var faceO = new THREE.MeshPhysicalMaterial({ color: 0xe2e3e6, metalness: 1, roughness: 1, envMapIntensity: 1.5 });
+      var faceO = new THREE.MeshPhysicalMaterial({ color: 0xd9dadd, metalness: 1, roughness: 1, envMapIntensity: 1.0 });
       var faceR = faceO.clone();
       coinMats = [sideM, faceO, faceR]; faceMats = [faceO, faceR]; mats.push(sideM, faceO, faceR);
       function build(parent) {
@@ -615,8 +622,8 @@
     }
     function drawObverse(g, N, f) {
       var o = drawCommon(g, N, 150), R = o.R;
-      arcText(g, f.country.toUpperCase(), R, R, R * 0.775, 0, false, R * 0.092, 215);
-      arcText(g, f.year, R, R, R * 0.775, 0, true, R * 0.105, 215);
+      arcText(g, f.country.toUpperCase(), R, R, R * 0.775, 0, false, R * 0.115, 215);
+      arcText(g, f.year, R, R, R * 0.775, 0, true, R * 0.125, 215);
       // the owl, frontal, in the manner of the old Athenian tetradrachm
       g.save(); g.translate(R, R * 1.0); var s = R * 0.62; g.scale(s, s);
       function E(x, y, rx, ry, rot, v) { g.fillStyle = gray(v); g.beginPath(); g.ellipse(x, y, rx, ry, rot || 0, 0, 7); g.fill(); }
@@ -661,7 +668,7 @@
     }
     // height -> blurred height -> normal map + roughness map; chunked so no task blocks the main thread
     function makeFaceMaps(draw, N, f, done) {
-      var c = canvasEl(N), g = c.getContext("2d");
+      var c = canvasEl(N), g = c.getContext("2d", { willReadFrequently: true });
       draw(g, N, f);
       var src = g.getImageData(0, 0, N, N).data, h = new Float32Array(N * N), tmp = new Float32Array(N * N), i;
       for (i = 0; i < N * N; i++) h[i] = src[i * 4] / 255;
@@ -713,6 +720,7 @@
       (function run() { if (!alive) return; var s = performance.now(); try { q[idx++](); } catch (e) { if (window.console) console.warn("coin step", e); } if (idx < q.length) setTimeout(run, 0); })();
     }
 
+    bootMark("coin");
     /* ================= lights ================= */
     var key = new THREE.SpotLight(0xffd6a8, 0, 0, 0.34, 0.85, 2);       // warm tungsten key, upper left
     key.position.set(-3.6, 4.6, 7.4); key.target.position.set(0.1, -0.1, 0.2); scene.add(key, key.target);
@@ -728,6 +736,7 @@
     var coinFill = new THREE.PointLight(0xfff4e8, 0, 0, 2);
     coinFill.position.set(-1.6, 0.4, COIN_Z + 2.6); scene.add(coinFill);
 
+    bootMark("lights");
     /* ================= volumetrics: cone-shader light shafts + GPU dust ================= */
     var NOISE_GLSL = [
       "float h21(vec2 p){ p = fract(p*vec2(123.34,456.21)); p += dot(p,p+45.32); return fract(p.x*p.y); }",
@@ -791,6 +800,7 @@
       dust = new THREE.Points(g, dustMat); dust.frustumCulled = false; dust.renderOrder = 6; scene.add(dust);
     })();
 
+    bootMark("vol");
     /* ================= post-processing ================= */
     var quadGeo = new THREE.BufferGeometry();
     quadGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0]), 3));
@@ -914,6 +924,7 @@
       if (renderer.outputEncoding !== enc || renderer.toneMapping !== tm) { renderer.outputEncoding = enc; renderer.toneMapping = tm; renderer.toneMappingExposure = 1.0; mats.forEach(function (m) { m.needsUpdate = true; }); }
     }
 
+    bootMark("post");
     /* ================= layout ================= */
     var rig = { zD: 7, dEnd: 3, shift: 0.14, aspect: 1 };
     function layout() {
@@ -951,7 +962,7 @@
       var zD = rig.zD, zEnd = COIN_Z + rig.dEnd;
       // --- lamp strike: relay flicker, then a warm-up ---
       var s = t - TL.strike, lamp = s < 0 ? 0 : s < 0.07 ? 0.16 : s < 0.13 ? 0.02 : s < 0.2 ? 0.5 : s < 0.25 ? 0.12 : 0.5 + 0.5 * smooth((s - 0.25) / 1.2);
-      key.intensity = 300 * lamp; bKey.k = 0.14 * lamp; rimL.intensity = 40 * smooth((t - 0.9) / 1.2);
+      key.intensity = 300 * lamp; bKey.k = 0.3 * lamp; rimL.intensity = 40 * smooth((t - 0.9) / 1.2);
       var envK = smooth((t - 0.38) / 1.3);
       for (var i = 0; i < envMats.length; i++) envMats[i].envMapIntensity = envBase[i] * envK;
       // --- wheel + bolts ---
@@ -975,7 +986,7 @@
       // --- light pouring out + the chamber coming alive ---
       var open = smooth((t - 2.95) / 1.5), cl = smooth((t - TL.coinLight) / 1.2);
       spill.intensity = 220 * open; bSpill.k = 0.22 * open;
-      coinKey.intensity = 45 * cl; bCoin.k = 0.2 * cl; coinRim.intensity = 45 * cl; coinFill.intensity = 5 * cl;
+      coinKey.intensity = 34 * cl; bCoin.k = 0.2 * cl; coinRim.intensity = 40 * cl; coinFill.intensity = 1.5 * cl;
       backdropMat.uniforms.uK.value = 0.34 * cl;
       // --- the coin ---
       var rev = smooth((t - 4.2) / 1.0);
@@ -1006,8 +1017,8 @@
       compU.uAperture.value = t < 3.3 ? 0.75 : 1.3;
       compU.uDof.value = Q.dof ? 1 : 0;
       // --- exposure, bloom, fade ---
-      var ex = curve([[0, 1.0], [3.5, 1.0], [4.1, 1.35], [4.5, 1.7], [5.1, 1.0], [5.6, 0.95], [6.0, 1.3], [6.5, 1.6]], t);
-      compU.uExposure.value = ex; compU.uBloom.value = curve([[0, 0.12], [3.4, 0.14], [4.4, 0.28], [5.2, 0.16], [6.0, 0.3], [6.5, 0.4]], t);
+      var ex = curve([[0, 1.0], [3.5, 1.0], [4.1, 1.35], [4.5, 1.7], [5.1, 0.95], [5.6, 0.9], [5.95, 2.4], [6.5, 2.6]], t);
+      compU.uExposure.value = ex; compU.uBloom.value = curve([[0, 0.12], [3.4, 0.14], [4.4, 0.26], [5.2, 0.09], [5.6, 0.1], [6.0, 0.3], [6.5, 0.4]], t);
       compU.uFade.value = smooth(t / 0.45) ; compU.uTime.value = t; compU.uVig.value = 0.5;
       dustMat.uniforms.uTime.value = t; backdropMat.uniforms.uTime.value = t;
       var dk = Q.vol >= 1 ? 1 : 0; beamDefs.forEach(function (bd, ii) { bd.mat.uniforms.uK.value = bd.k * dk; bd.mat.uniforms.uTime.value = t; bd.mat.uniforms.uNoise.value = Q.vol >= 2 ? 1 : 0; bd.mesh.visible = dk > 0 && bd.k > 0.001; dustMat.uniforms.uK.value[ii] = bd.k * 2.4 + (ii === 0 && t > TL.clunk && t < TL.clunk + 0.8 ? 1.1 * (1 - (t - TL.clunk) / 0.8) : 0); });
@@ -1018,10 +1029,10 @@
       // --- hand-off: the coin dissolves in light, the app appears underneath ---
       if (t >= TL.hand0) {
         if (!handoffOn) { handoffOn = true; state = "handoff"; root.classList.add("ts-handoff"); root.classList.remove("ts-show", "ts-show-mark"); root.classList.add("ts-hide"); html.classList.add("ts-reveal"); }
-        var hp = clamp((t - TL.hand0) / (TL.hand1 - TL.hand0), 0, 1), he = easeInOut(hp);
+        var hp = clamp((t - TL.hand0) / (TL.hand1 - TL.hand0), 0, 1), he = easeInOut(clamp((hp - 0.18) / 0.82, 0, 1));
         v3.copy(coin.position).project(camera); compU.uIrisC.value.set(v3.x * 0.5 + 0.5, v3.y * 0.5 + 0.5);
         var asp = viewW / viewH, icx = compU.uIrisC.value.x * asp, icy = compU.uIrisC.value.y, rmax = Math.hypot(Math.max(icx, asp - icx), Math.max(icy, 1 - icy)), fth = lerp(0.3, 0.6, he);
-        compU.uIris.value = lerp(0.0, rmax + fth, he); compU.uIrisF.value = fth; compU.uRing.value = Math.sin(Math.min(hp * 1.15, 1) * Math.PI) * 1.0;
+        compU.uIris.value = lerp(0.0, rmax + fth, he); compU.uIrisF.value = fth; compU.uRing.value = Math.sin(Math.min(he * 1.1, 1) * Math.PI) * 1.0;
       } else compU.uIris.value = -1;
     }
     var v3 = new THREE.Vector3();
@@ -1041,8 +1052,11 @@
       raf = requestAnimationFrame(frame);
       if (state === "done") return;
       if (hold && manual === null) return;
-      if (!t0) t0 = now;
-      var t = manual !== null ? manual : (now - t0) / 1000, dt = Math.min(0.05, Math.max(0, t - lastT)); lastT = t;
+      if (!t0) {                                        // warm-up frame: draws black (compiles every program), THEN the clock starts
+        try { update(0, 0.016); renderFrame(); } catch (err) { if (window.console) console.warn("splash frame", err); alive = false; finish(true, 0.3); return; }
+        t0 = performance.now(); last = t0; frames = 1; return;
+      }
+      var t = manual !== null ? manual : Math.max(0, (now - t0) / 1000), dt = Math.min(0.05, Math.max(0, t - lastT)); lastT = t;
       // pick the tier from the frame time of the first ~500 ms (still dark, so a change is invisible); allow one more step down later
       if (!forced && manual === null) {
         if (frames > 2 && t < 0.5) probe.push(now - last);
@@ -1057,11 +1071,11 @@
         if (slow.length === 24 && !stepped && slow.reduce(function (a, b) { return a + b; }, 0) / 24 > 38) { stepped = true; applyTier(tier + 1); slow = []; }
       }
       last = now; frames++;
-      try { update(t, dt); renderFrame(); } catch (err) { if (window.console) console.warn("splash frame", err); alive = false; root.classList.remove("ts-glon"); finish(true, 0.3); return; }
+      var pa = performance.now(); try { update(t, dt); renderFrame(); var pd = performance.now() - pa; perf.n++; perf.sum += pd; if (pd > perf.max) perf.max = pd; if (pd > 40 && perf.big.length < 40) perf.big.push([+t.toFixed(2), Math.round(pd)]); } catch (err) { if (window.console) console.warn("splash frame", err); alive = false; root.classList.remove("ts-glon"); finish(true, 0.3); return; }
       if (frames === 2) { root.classList.add("ts-glon"); }
       if (t >= TL.hand1 && manual === null) { finish(false); }
     }
-    var slow = [], stepped = false, coinStarted = false;
+    var slow = [], stepped = false, coinStarted = false, perf = { n: 0, sum: 0, max: 0, big: [], boot: {} };
     function coinTex() { if (coinStarted) return; coinStarted = true; var go = function () { loadFonts(function () { buildCoin(); }); }; whenFeatured(go); }
     function loadFonts(cb) {
       var done = false, fin = function () { if (!done) { done = true; cb(); } };
@@ -1075,13 +1089,16 @@
     dust.geometry.setDrawRange(0, Q.dust);
     layout();
     update(0, 0.016);
+    var tb1 = performance.now();
     try { renderer.compile(scene, camera); } catch (e) {}
+    perf.boot = { marks: bootM, plate: Math.round(tq1 - tq0), turned: Math.round(tq2 - tq1), guil: Math.round(tq3 - tq2), env: Math.round(tbEnv), textures: Math.round(tbTex), build: Math.round(tb1 - tb0), compile: Math.round(performance.now() - tb1) };
     raf = requestAnimationFrame(frame);
 
     gl = {
       layout: layout,
       dispose: function () {
         alive = false; cancelAnimationFrame(raf);
+        try { window.__tsPerfLast = window.TitanSplash._debug.perf(); } catch (e) {}
         freeTargets();
         scene.traverse(function (o) {
           if (o.geometry) o.geometry.dispose();
@@ -1105,6 +1122,7 @@
         update(tt, 0.016); renderFrame(); if (!root.classList.contains("ts-glon")) root.classList.add("ts-glon"); return true;
       },
       free: function () { manual = null; },
+      perf: function () { return { frames: perf.n, avgMs: perf.n ? +(perf.sum / perf.n).toFixed(2) : 0, maxMs: +perf.max.toFixed(1), big: perf.big, boot: perf.boot }; },
       info: function () { return { tier: tier, hdr: hdr, webgl2: caps.isWebGL2, dpr: dpr, coinReady: coinReady, featured: featured, frames: frames, size: [viewW, viewH], cam: camera.position.toArray() }; },
       tier: function (n) { forced = true; applyTier(n); }
     };
