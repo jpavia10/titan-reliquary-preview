@@ -7542,6 +7542,7 @@
   // Kept for older callers: lighting only. Sound is chosen in the Scene Studio (wings/scene.js).
   function setTheScene(a) { setAtmo(a); }
   window.setTheScene = setTheScene;
+  window.showToast = showToast;   // the one toast: spatial.js, Lab and Study call this
   window.TitanSetWing = setWing;
   window.TitanSetAtmo = setAtmo;
   window.TitanRenderCoverFlow = renderCoverFlow;

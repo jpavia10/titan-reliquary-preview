@@ -234,7 +234,74 @@
     return g;
   }
 
-  /* short noise burst through a band filter with an exponential decay */
+  /* Pre-rendered textures. Rain drops, fire pops, crickets, clock ticks and the beat are synthesized
+     ONCE into short looping buffers (a few ms of JS), so playing them costs the main thread nothing. */
+  function mkTex(key, sec, fn) {
+    E.tex = E.tex || {};
+    if (E.tex[key]) return E.tex[key];
+    const ctx = E.ctx, sr = ctx.sampleRate, n = Math.floor(sr * sec), buf = ctx.createBuffer(2, n, sr);
+    fn(buf.getChannelData(0), buf.getChannelData(1), sr, n);
+    E.tex[key] = buf; return buf;
+  }
+  function stampNoise(L, R, sr, n, t, o) {          // o: f, q, peak, dur, pan, hp
+    const len = Math.floor(o.dur * sr), s0 = Math.floor(t * sr), atk = Math.max(2, Math.floor(0.0015 * sr));
+    const pan = o.pan || 0, gl = pan > 0 ? 1 - pan : 1, gr = pan < 0 ? 1 + pan : 1;
+    let b0, b2, a1, a2, a0, hpa, x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    if (o.hp) hpa = Math.exp(-2 * Math.PI * o.f / sr);
+    else { const w0 = 2 * Math.PI * o.f / sr, al = Math.sin(w0) / (2 * o.q); b0 = al; b2 = -al; a0 = 1 + al; a1 = -2 * Math.cos(w0); a2 = 1 - al; }
+    const tail = len + Math.floor(0.004 * sr);
+    for (let i = 0; i < tail; i++) {
+      const x = Math.random() * 2 - 1; let y;
+      if (o.hp) { y = hpa * (y1 + x - x1); x1 = x; y1 = y; }
+      else { y = (b0 * x + b2 * x2 - a1 * y1 - a2 * y2) / a0; x2 = x1; x1 = x; y2 = y1; y1 = y; y *= 2.2; }
+      const env = (i < atk ? i / atk : Math.exp(-5.5 * (i - atk) / len)) * o.peak;
+      const k = (s0 + i) % n, v = y * env; L[k] += v * gl; R[k] += v * gr;
+    }
+  }
+  function stampKick(L, R, sr, n, t, peak) {
+    const s0 = Math.floor(t * sr), len = Math.floor(0.36 * sr); let ph = 0;
+    for (let i = 0; i < len; i++) {
+      const tt = i / sr; ph += 2 * Math.PI * (42 + 88 * Math.exp(-tt * 24)) / sr;
+      const v = Math.sin(ph) * Math.exp(-tt * 10) * Math.min(1, tt / 0.004) * peak, k = (s0 + i) % n; L[k] += v; R[k] += v;
+    }
+  }
+  const poisson = (rate) => -Math.log(1 - Math.random()) / rate;
+  function texRain() { return mkTex("rain", 9, (L, R, sr, n) => { for (let t = 0.05; t < 8.95; t += poisson(13)) stampNoise(L, R, sr, n, t, { f: rnd(1800, 6500), q: rnd(3, 8), peak: rnd(0.04, 0.2), dur: rnd(0.015, 0.04), pan: rnd(-0.8, 0.8) }); }); }
+  function texFire() { return mkTex("fire", 11, (L, R, sr, n) => { for (let t = 0.05; t < 10.9; t += poisson(9)) { const big = Math.random() < 0.08; stampNoise(L, R, sr, n, t, { f: rnd(700, 4800), q: rnd(1, 3), peak: big ? rnd(0.3, 0.5) : Math.pow(Math.random(), 2) * 0.28 + 0.02, dur: big ? rnd(0.03, 0.07) : rnd(0.008, 0.03), pan: rnd(-0.5, 0.5) }); } }); }
+  function texVinyl() { return mkTex("vinyl", 8, (L, R, sr, n) => { for (let t = 0.1; t < 7.9; t += poisson(3.5)) stampNoise(L, R, sr, n, t, { f: rnd(1500, 6000), q: 1.5, peak: rnd(0.04, 0.2), dur: rnd(0.004, 0.015), pan: rnd(-0.4, 0.4) }); }); }
+  function texClock() { return mkTex("clock", 2, (L, R, sr, n) => { [[0, 2300, 760], [1, 1500, 520]].forEach(([t, f1, f2]) => { stampNoise(L, R, sr, n, t, { f: f1, q: 7, peak: 0.34, dur: 0.028 }); stampNoise(L, R, sr, n, t, { f: f2, q: 3, peak: 0.16, dur: 0.05 }); }); }); }
+  function texCrickets() {
+    return mkTex("crickets", 12, (L, R, sr, n) => {
+      [4100, 4380, 4720].forEach((f, vi) => {
+        const pan = (vi - 1) * 0.6, gl = pan > 0 ? 1 - pan : 1, gr = pan < 0 ? 1 + pan : 1;
+        for (let t = rnd(0.2, 2); t < 11.2; t += rnd(1.4, 4.2)) {
+          const pulses = 3 + Math.floor(Math.random() * 3), sp = rnd(0.065, 0.085);
+          for (let k = 0; k < pulses; k++) {
+            const s0 = Math.floor((t + k * sp) * sr), len = Math.floor(0.032 * sr);
+            for (let i = 0; i < len; i++) { const e = Math.sin(Math.PI * i / len), v = Math.sin(2 * Math.PI * f * i / sr) * e * 0.05, j = (s0 + i) % n; L[j] += v * gl; R[j] += v * gr; }
+          }
+        }
+      });
+    });
+  }
+  function texBeat(bpm) {
+    return mkTex("beat" + bpm, 60 / bpm * 8, (L, R, sr, n) => {
+      const sd = 60 / bpm / 4;
+      for (let step = 0; step < 32; step++) {
+        const st = step % 16, t = step * sd + ((st % 2) ? sd * 0.2 : 0);
+        if (st === 0 || st === 10 || (st === 7 && step < 16) || (st === 14 && step >= 16)) stampKick(L, R, sr, n, t, 0.46);
+        if (st === 4 || st === 12) { stampNoise(L, R, sr, n, t, { f: 1900, q: 0.7, peak: 0.26, dur: 0.17 }); stampNoise(L, R, sr, n, t, { f: 190, q: 2, peak: 0.12, dur: 0.1 }); }
+        if (st % 2 === 0) stampNoise(L, R, sr, n, t, { hp: 1, f: 7500, peak: (st % 4 === 0 ? 0.07 : 0.045) * (0.7 + Math.random() * 0.5), dur: 0.045, pan: 0.2 });
+        else if (Math.random() < 0.3) stampNoise(L, R, sr, n, t, { hp: 1, f: 8200, peak: 0.03, dur: 0.03, pan: -0.2 });
+      }
+    });
+  }
+  function loopTex(g, buf, out, gain, at) {
+    const s = g.src(E.ctx.createBufferSource()); s.buffer = buf; s.loop = true;
+    const v = g.gain(gain); s.connect(v); v.connect(out); s.start(at || 0, at ? 0 : Math.random() * (buf.duration - 0.5)); return s;
+  }
+
+  /* short noise burst through a band filter with an exponential decay (used only for rare events) */
   function burst(out, t, o) {
     const ctx = E.ctx, s = ctx.createBufferSource(); s.buffer = E.white;
     const f = ctx.createBiquadFilter(); f.type = o.type || "bandpass"; f.frequency.value = o.f; f.Q.value = o.q || 1;
@@ -258,7 +325,7 @@
       const n2 = g.noise("pink"), bp = g.filter("bandpass", 2600, 0.6), v2 = g.gain(0.12 * L);
       n2.connect(bp); bp.connect(v2); v2.connect(o);
       lfo(g, 0.09, 0.05 * L, v2.gain);
-      g.every(0.1, () => rnd(0.07, 0.2), (t) => burst(o, t, { f: rnd(1800, 6500), q: rnd(3, 8), peak: rnd(0.05, 0.22) * L, dur: rnd(0.015, 0.04), pan: rnd(-0.8, 0.8) }));
+      loopTex(g, texRain(), o, 0.9 * L);
     },
     thunder(g, L) {
       const o = g.bed;
@@ -275,10 +342,7 @@
       const o = g.bed, n = g.noise("brown"), lp = g.filter("lowpass", 520), v = g.gain(0.55 * L);
       n.connect(lp); lp.connect(v); v.connect(o); lfo(g, 0.35, 0.18 * L, v.gain);
       const n2 = g.noise("pink"), bp = g.filter("bandpass", 1500, 0.7), v2 = g.gain(0.03 * L); n2.connect(bp); bp.connect(v2); v2.connect(o);
-      g.every(0.1, () => -Math.log(1 - Math.random()) / 9, (t) => {
-        const big = Math.random() < 0.08;
-        burst(o, t, { f: rnd(700, 4800), q: rnd(1, 3), peak: (big ? rnd(0.3, 0.5) : Math.pow(Math.random(), 2) * 0.28 + 0.02) * L, dur: big ? rnd(0.03, 0.07) : rnd(0.008, 0.03), pan: rnd(-0.5, 0.5) });
-      });
+      loopTex(g, texFire(), o, 0.9 * L);
     },
     room(g, L) {
       const o = g.bed, n = g.noise("brown"), lp = g.filter("lowpass", 260), v = g.gain(0.4 * L);
@@ -291,18 +355,8 @@
       lfo(g, 0.07, 260, bp.frequency); lfo(g, 0.11, 0.3 * L, v.gain);
     },
     insects(g, L) {
-      const o = g.bed, ctx = E.ctx;
-      [4100, 4380, 4720].forEach((f, i) => {
-        const osc = g.osc("sine", f), v = g.gain(0); osc.connect(v); v.connect(o);
-        const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-        if (pan) { pan.pan.value = (i - 1) * 0.6; v.disconnect(); v.connect(pan); pan.connect(o); }
-        g.every(rnd(0.2, 2.5), () => rnd(1.4, 4.2), (t) => {
-          const pulses = 3 + Math.floor(Math.random() * 3), sp = rnd(0.065, 0.085);
-          for (let k = 0; k < pulses; k++) {
-            const s = t + k * sp; v.gain.setValueAtTime(0, s); v.gain.linearRampToValueAtTime(0.045 * L, s + 0.008); v.gain.linearRampToValueAtTime(0, s + 0.03);
-          }
-        });
-      });
+      const o = g.bed;
+      loopTex(g, texCrickets(), o, L);
       const n = g.noise("pink"), bp = g.filter("bandpass", 380, 0.8), v = g.gain(0.03 * L); n.connect(bp); bp.connect(v); v.connect(o);
     },
     hum(g, L) {
@@ -313,17 +367,12 @@
       const n = g.noise("brown"), nl = g.filter("lowpass", 150), nv = g.gain(0.3 * L); n.connect(nl); nl.connect(nv); nv.connect(o);
     },
     clock(g, L) {
-      const o = g.bed; let k = 0;
-      g.every(0.3, () => 1.0, (t) => {
-        const tock = (k++ % 2) === 1;
-        burst(o, t, { f: tock ? 1500 : 2300, q: 7, peak: 0.34 * L, dur: 0.028, atk: 0.001 });
-        burst(o, t, { f: tock ? 520 : 760, q: 3, peak: 0.16 * L, dur: 0.05, atk: 0.001 });
-      });
+      loopTex(g, texClock(), g.bed, L, g.t0 + 0.3);
     },
     vinyl(g, L) {
       const o = g.bed, n = g.noise("pink"), hp = g.filter("highpass", 3200), v = g.gain(0.05 * L);
       n.connect(hp); hp.connect(v); v.connect(o);
-      g.every(0.2, () => -Math.log(1 - Math.random()) / 3.5, (t) => burst(o, t, { f: rnd(1500, 6000), q: 1.5, peak: rnd(0.04, 0.2) * L, dur: rnd(0.004, 0.015) }));
+      loopTex(g, texVinyl(), o, 0.9 * L);
     }
   };
 
@@ -422,24 +471,8 @@
         lastIdx = idx;
       });
     }
-    // lo-fi beat on a 16-step grid, swung, anchored to the group start
-    if (m.beat) {
-      const sd = beat / 4; let step = 0, base = g.t0 + 0.1;
-      g.tickers.push((t0, t1) => {
-        for (;;) {
-          const st = step % 16, t = base + step * sd + ((st % 2) ? sd * 0.2 : 0);
-          if (t >= t1) break; step++;
-          if (t < t0 - 0.05) continue;
-          if (st === 0 || st === 10 || (st === 7 && Math.random() < 0.45) || (st === 14 && Math.random() < 0.25)) kick(g, t, 0.46);
-          if (st === 4 || st === 12) {
-            burst(g.beat, t, { f: 1900, q: 0.7, peak: 0.26, dur: 0.17, atk: 0.002 });
-            burst(g.beat, t, { type: "bandpass", f: 190, q: 2, peak: 0.12, dur: 0.1 });
-          }
-          if (st % 2 === 0) burst(g.beat, t, { type: "highpass", f: 7500, q: 0.5, peak: (st % 4 === 0 ? 0.07 : 0.045) * (0.7 + Math.random() * 0.5), dur: 0.045, pan: 0.2 });
-          else if (Math.random() < 0.18) burst(g.beat, t, { type: "highpass", f: 8200, q: 0.5, peak: 0.03, dur: 0.03, pan: -0.2 });
-        }
-      });
-    }
+    // lo-fi beat: one pre-rendered two-bar loop, aligned to the chord changes
+    if (m.beat) loopTex(g, texBeat(bpm), g.beat, 1, g.t0 + 0.1);
   }
 
   /* ---------- public control ---------- */
@@ -543,6 +576,7 @@
     isActive: () => E.playing,
     ctxState: () => (E.ctx ? E.ctx.state : "none"),
     route: () => E.via,
+    texCheck() { const bad = []; for (const k of Object.keys(E.tex || {})) { const d = E.tex[k].getChannelData(0); for (let i = 0; i < d.length; i += 7) if (!(Math.abs(d[i]) < 4)) { bad.push(k); break; } } return bad; },
     level() { if (!E.an) return 0; E.an.getFloatTimeDomainData(E.anBuf); let s = 0; for (let i = 0; i < E.anBuf.length; i++) s += E.anBuf[i] * E.anBuf[i]; return Math.sqrt(s / E.anBuf.length); },
     stats: () => ({ groups: E.groups.length, sources: E.groups.reduce((n, g) => n + g.srcs.length, 0), killed: E.killedSources, ctx: E.ctx ? E.ctx.state : "none", via: E.via })
   };
