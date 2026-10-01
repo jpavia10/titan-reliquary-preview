@@ -256,13 +256,12 @@
     const sat = ctx.createWaveShaper(); sat.curve = tapeCurve(1.6); try { sat.oversample = "2x"; } catch (e) { /* ignore */ }
     const musMake = ctx.createGain(); musMake.gain.value = 0.7;
     E.musBus.connect(musTone); musTone.connect(musDrive); musDrive.connect(sat); sat.connect(musMake); musMake.connect(bus);
-    // Reverb: a long dark hall tail for the music; only a faint short room for the recordings (they carry their own space).
+    // Reverb: a long dark hall tail for the music only (the recordings carry their own space; a second convolver cost frames on phones).
     const verbM = ctx.createConvolver(); verbM.buffer = mkHall(ctx, 4.8, 0.03);
-    const verbA = ctx.createConvolver(); verbA.buffer = mkHall(ctx, 1.4, 0.012);
-    const musSend = ctx.createGain(), ambSend = ctx.createGain(), wetM = ctx.createGain(), wetA = ctx.createGain();
-    musSend.gain.value = 0.55; ambSend.gain.value = 0.05; wetM.gain.value = 0.85; wetA.gain.value = 0.8;
-    E.musBus.connect(musSend); E.ambBus.connect(ambSend);
-    musSend.connect(verbM); verbM.connect(wetM); wetM.connect(bus); ambSend.connect(verbA); verbA.connect(wetA); wetA.connect(bus);
+    const musSend = ctx.createGain(), wetM = ctx.createGain();
+    musSend.gain.value = 0.55; wetM.gain.value = 0.85;
+    E.musBus.connect(musSend);
+    musSend.connect(verbM); verbM.connect(wetM); wetM.connect(bus);
     const lo = ctx.createBiquadFilter(); lo.type = "lowshelf"; lo.frequency.value = 140;
     const mid = ctx.createBiquadFilter(); mid.type = "peaking"; mid.frequency.value = 1100; mid.Q.value = 0.7;
     const hi = ctx.createBiquadFilter(); hi.type = "highshelf"; hi.frequency.value = 4500;
