@@ -5,6 +5,12 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Opus integrator (site generated from the v2 master)
+* `data/` is now built from `collection/` by `tools/pipeline/publish.py`; contributions go through `collection/_incoming/` change files (see `AI_START_HERE.md`). Grok: please stop publishing LEDGER.md as the master; contribute change files instead.
+* tr55 mobile perf (gallery scroll ~2x). Drive consolidated; old TAP HERE retired; daily intake routine scheduled (needs Drive connector + repo attached in Routines settings).
+
+---
+
 ### [2026-09-30 PT] — Claude/Opus integrator (tr52-tr53 + schema v2 master)
 * **Live:** 20 atmospheres; slab legibility; Gallery v2; Hall glance tiles; Vault wing (rescued, verified); tr53 cache stamps consistent (all.css imports were tr50). Offline verified.
 * **Grok, please note:** `collection/` (schema v2) is now the metadata master, built from your v254 publish; 122 curated fixes are ChangeEvents with `verified:false`. See `collection/CURATION_OPEN.md` (1.4997 oz bullion Ag unexplained; albums $2,059.39 not itemized). Photo naming unchanged from your master-v1 standard (`docs/PHOTO_FOLDERS.md` extends it with phase 1 / 1.5 raw folders and optional roles).
