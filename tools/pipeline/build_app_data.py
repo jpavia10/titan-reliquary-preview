@@ -32,6 +32,8 @@ def load_collection(d):
            "photos": load(f"{d}/photos.json"), "manifest": load(f"{d}/manifest.json")}
     bp = f"{d}/board.json"
     col["board"] = load(bp) if os.path.exists(bp) else None
+    vp = f"{d}/valuations.jsonl"
+    col["valuations"] = [json.loads(l) for l in open(vp, encoding="utf-8") if l.strip()] if os.path.exists(vp) else []
     return col
 
 def dump(path, obj):
@@ -83,6 +85,15 @@ def build_lots(col):
     return out["bullion"], out["set"], out["housing"], out["stamp"]
 
 # ------------------------------------------------------------------------------------------------ index
+def valuation_history(col):
+    """Real dated valuation entries from collection/valuations.jsonl, summed per date: [{at, usd, n}] (n = items valued that day).
+    The app plots these as-is; it never invents points between them."""
+    by = {}
+    for r in col["valuations"]:
+        if r.get("at") and r.get("est_usd") is not None:
+            d = by.setdefault(r["at"], [0.0, 0]); d[0] += r["est_usd"]; d[1] += 1
+    return [{"at": k, "usd": round(v[0], 2), "n": v[1]} for k, v in sorted(by.items())]
+
 def build_index(col, flips, lots, version):
     b = col["board"]
     if b is None: raise SystemExit("collection/board.json is missing (snapshot of the ledger board; see tools/pipeline/snapshot_board.py)")
@@ -108,7 +119,8 @@ def build_index(col, flips, lots, version):
     idx["flips"] = flips
     idx["schema"] = 2
     idx["content_hash"] = col["manifest"]["content_hash"][:16]
-    idx["value"] = {"estimated_total": idx["board"]["grand"], "status": from_board["value"].get("status"), "policy": from_board["value"].get("policy")}
+    idx["value"] = {"estimated_total": idx["board"]["grand"], "status": from_board["value"].get("status"), "policy": from_board["value"].get("policy"),
+                    "history": valuation_history(col)}
     drip_block(col, idx)
     return idx
 

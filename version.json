@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-01T17:26:31Z",
-  "generated_at_pt": "2026-10-01 10:26 PT",
-  "generated_at_iso": "2026-10-01T10:26:31-07:00",
+  "generated_at": "2026-10-01T17:48:02Z",
+  "generated_at_pt": "2026-10-01 10:48 PT",
+  "generated_at_iso": "2026-10-01T10:48:02-07:00",
   "content_hash": "a68c479c390a6217",
   "ledger_version": "v3:a68c479c390a6217",
   "flips": 273,
@@ -15,5 +15,5 @@
   },
   "drip_active": false,
   "drip_until": null,
-  "build": "tr64"
+  "build": "tr65"
 }

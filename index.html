@@ -46,22 +46,33 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr64" />
-  <link rel="stylesheet" href="splash.css?v=tr64" />
-  <link rel="stylesheet" href="styles/themes.css?v=tr64" />
-  <link rel="stylesheet" href="styles/atmo/all.css?v=tr64" />
-  <link rel="stylesheet" href="styles/slab-legibility.css?v=tr64" />
-  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr64" /> -->
-  <link rel="stylesheet" href="styles/hall.css?v=tr64" />
-  <link rel="stylesheet" href="styles/gallery.css?v=tr64" />
-  <link rel="stylesheet" href="styles/vault.css?v=tr64" />
-  <link rel="stylesheet" href="styles/study.css?v=tr64" />
-  <link rel="stylesheet" href="styles/wants.css?v=tr64" />
-  <link rel="stylesheet" href="styles/lab.css?v=tr64" />
-  <link rel="stylesheet" href="styles/table.css?v=tr64" />
-  <link rel="stylesheet" href="styles/fx.css?v=tr64" />
-  <link rel="stylesheet" href="styles/scene.css?v=tr64" />
-  <link rel="stylesheet" href="styles/worlds.css?v=tr64" />
+  <link rel="stylesheet" href="styles.css?v=tr65" />
+  <link rel="stylesheet" href="splash.css?v=tr65" />
+  <link rel="stylesheet" href="styles/themes.css?v=tr65" />
+  <!-- Only the ACTIVE atmosphere's stylesheet loads (written here so it still blocks first paint: no flash of the wrong theme).
+       Switching later is app.js (atmoCss loader): the new sheet loads first, then data-atmo flips and the old sheet is removed.
+       sw.js precaches all 20 so switching works offline. styles/atmo/all.css is no longer linked. -->
+  <script>
+    (function () {
+      var a = document.documentElement.getAttribute("data-atmo") || "afterhours";
+      var l = document.querySelector('link[href^="styles.css"]'), q = l ? (l.getAttribute("href").split("?")[1] || "") : "";
+      window.__trAtmoQ = q ? "?" + q : "";
+      document.write('<link rel="stylesheet" id="atmo-css" data-atmo-css="' + a + '" href="styles/atmo/' + a + '.css' + window.__trAtmoQ + '">');
+    })();
+  </script>
+  <noscript><link rel="stylesheet" href="styles/atmo/afterhours.css?v=tr65" /></noscript>
+  <link rel="stylesheet" href="styles/slab-legibility.css?v=tr65" />
+  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr65" /> -->
+  <link rel="stylesheet" href="styles/hall.css?v=tr65" />
+  <link rel="stylesheet" href="styles/gallery.css?v=tr65" />
+  <link rel="stylesheet" href="styles/vault.css?v=tr65" />
+  <link rel="stylesheet" href="styles/study.css?v=tr65" />
+  <link rel="stylesheet" href="styles/wants.css?v=tr65" />
+  <link rel="stylesheet" href="styles/lab.css?v=tr65" />
+  <link rel="stylesheet" href="styles/table.css?v=tr65" />
+  <link rel="stylesheet" href="styles/fx.css?v=tr65" />
+  <link rel="stylesheet" href="styles/scene.css?v=tr65" />
+  <link rel="stylesheet" href="styles/worlds.css?v=tr65" />
   <!--WS:themes: shared atmosphere system + one stylesheet per atmosphere (notes/agents/themes.md)-->
 </head>
 <body>
@@ -480,7 +491,7 @@
             <div class="melt-allocation-bar" id="melt-bar" title="Vault Metal & Rarity Allocation">
               <div class="melt-seg seg-ag" id="seg-ag" style="width: 71.8%" title="Silver Melt (71.8%)">
                 <span class="seg-glow"></span>
-                <span class="seg-label" id="lbl-ag">Ag Melt · $4,010</span>
+                <span class="seg-label" id="lbl-ag">Ag Melt · —</span>
               </div>
               <div class="melt-seg seg-au" id="seg-au" style="width: 10.1%" title="Gold Melt (10.1%)">
                 <span class="seg-glow"></span>
@@ -488,12 +499,12 @@
               </div>
               <div class="melt-seg seg-numis" id="seg-numis" style="width: 18.1%" title="Numismatic Premium (18.1%)">
                 <span class="seg-glow"></span>
-                <span class="seg-label" id="lbl-numis">Rarity · $1,012</span>
+                <span class="seg-label" id="lbl-numis">Rarity · —</span>
               </div>
             </div>
             <div class="melt-legend" id="melt-legend">
-              <span class="legend-item leg-ag"><i class="dot"></i> <strong>63.27 oz Ag</strong> @ $63.38</span>
-              <span class="legend-item leg-au"><i class="dot"></i> <strong>0.13 oz Au</strong> @ $4,253</span>
+              <span class="legend-item leg-ag"><i class="dot"></i> <strong>— oz Ag</strong></span>
+              <span class="legend-item leg-au"><i class="dot"></i> <strong>— oz Au</strong></span>
               <span class="legend-item leg-numis"><i class="dot"></i> <strong>Value above melt</strong> (18.1%)</span>
             </div>
 
@@ -512,7 +523,7 @@
                     <p class="sim-instruction">Simulate real-time vault valuation under fluctuating gold &amp; silver spot prices.</p>
                     <div class="sim-stat-callout">
                       <span class="sim-stat-label">Simulated Grand Total</span>
-                      <span class="sim-stat-val" id="sim-dyn-grand">$5,584.11</span>
+                      <span class="sim-stat-val" id="sim-dyn-grand">—</span>
                       <span class="sim-stat-delta" id="sim-dyn-delta">±$0.00 (0.0%)</span>
                     </div>
                   </div>
@@ -521,31 +532,31 @@
                     <div class="sim-slider-row">
                       <div class="sim-slider-head">
                         <label for="sim-ag-range">🥈 Silver Spot (63.27 oz Ag in Vault)</label>
-                        <span class="sim-slider-val" id="sim-ag-val">$63.38 / oz</span>
+                        <span class="sim-slider-val" id="sim-ag-val">—</span>
                       </div>
                       <input type="range" id="sim-ag-range" min="30" max="120" step="0.5" value="63.38" class="sim-range range-ag" />
                       <div class="sim-range-marks">
-                        <span>$30</span><span>$50</span><span class="live-mark">$63.38 (spot)</span><span>$80</span><span>$100</span><span>$120</span>
+                        <span>$30</span><span>$50</span><span class="live-mark">spot</span><span>$80</span><span>$100</span><span>$120</span>
                       </div>
                     </div>
 
                     <div class="sim-slider-row">
                       <div class="sim-slider-head">
                         <label for="sim-au-range">🥇 Gold Spot (0.1322 oz Au in Vault)</label>
-                        <span class="sim-slider-val" id="sim-au-val">$4,252.90 / oz</span>
+                        <span class="sim-slider-val" id="sim-au-val">—</span>
                       </div>
                       <input type="range" id="sim-au-range" min="2500" max="6000" step="25" value="4252.9" class="sim-range range-au" />
                       <div class="sim-range-marks">
-                        <span>$2,500</span><span>$3,500</span><span class="live-mark">$4,253 (spot)</span><span>$5,000</span><span>$6,000</span>
+                        <span>$2,500</span><span>$3,500</span><span class="live-mark">spot</span><span>$5,000</span><span>$6,000</span>
                       </div>
                     </div>
                   </div>
 
                   <div class="sim-drawer-foot">
                     <div class="sim-breakdown-chips">
-                      <span class="sim-chip" id="sim-chip-ag">Ag Melt: $4,010</span>
+                      <span class="sim-chip" id="sim-chip-ag">Ag Melt: —</span>
                       <span class="sim-chip" id="sim-chip-au">Au Melt: $562</span>
-                      <span class="sim-chip" id="sim-chip-prem">Above melt: $1,012</span>
+                      <span class="sim-chip" id="sim-chip-prem">Above melt: —</span>
                     </div>
                     <button type="button" class="btn small" id="sim-btn-reset">↺ Reset to Spot</button>
                   </div>
@@ -582,86 +593,29 @@
                 </div>
                 <h2 class="term-title">Precious Metals Terminal</h2>
                 <div class="term-live-rate">
-                  <span class="term-price" id="term-price">$5,584.11</span>
-                  <span class="term-delta up" id="term-delta">▲ +$142.80 (+2.62%)</span>
-                </div>
-              </div>
-
-              <!-- Asset Selection -->
-              <div class="term-asset-pills" role="tablist" aria-label="Commodity Assets">
-                <button type="button" class="term-asset-btn active" data-asset="vault" role="tab" aria-selected="true">
-                  <span class="sym">🏛️</span> Vault Equity
-                </button>
-                <button type="button" class="term-asset-btn" data-asset="ag" role="tab" aria-selected="false">
-                  <span class="sym">Ag</span> Silver Spot
-                </button>
-                <button type="button" class="term-asset-btn" data-asset="au" role="tab" aria-selected="false">
-                  <span class="sym">Au</span> Gold Spot
-                </button>
-                <button type="button" class="term-asset-btn" data-asset="ratio" role="tab" aria-selected="false">
-                  <span class="sym">Au/Ag</span> Ratio
-                </button>
-              </div>
-
-              <!-- Timeframe Selection -->
-              <div class="term-time-bar" role="tablist" aria-label="Chart Timeframes">
-                <div class="term-timeframes-row">
-                  <button type="button" class="term-tf-btn" data-tf="live" title="Latest published quote">Latest</button>
-                  <button type="button" class="term-tf-btn" data-tf="1h" title="Past 1 Hour">1H</button>
-                  <button type="button" class="term-tf-btn active" data-tf="24h" title="Past 24 Hours">24H</button>
-                  <button type="button" class="term-tf-btn" data-tf="7d" title="Past 7 Days">7D</button>
-                  <button type="button" class="term-tf-btn" data-tf="30d" title="Past 30 Days">30D</button>
-                  <button type="button" class="term-tf-btn" data-tf="1y" title="Past 1 Year">1Y</button>
-                  <button type="button" class="term-tf-btn" data-tf="5y" title="Past 5 Years">5Y</button>
-                  <button type="button" class="term-tf-btn" data-tf="all" title="All-Time Historical Cycle">ALL</button>
-                </div>
-                <div class="term-type-toggle">
-                  <button type="button" class="term-mode-btn active" id="term-mode-area" title="Area Trend Curve">📈 Area</button>
-                  <button type="button" class="term-mode-btn" id="term-mode-candles" title="Japanese Candlestick OHLC">🕯️ Candles</button>
+                  <span class="term-price" id="term-price">—</span>
+                  <span class="term-delta" id="term-delta"></span>
                 </div>
               </div>
             </div>
 
-            <!-- Terminal Chart Stage -->
+            <!-- Terminal Chart Stage: real dated valuation entries only (or an honest message) -->
             <div class="term-chart-stage" id="term-chart-stage">
-              <canvas id="term-chart-canvas" width="900" height="340" aria-label="Interactive stock price chart"></canvas>
+              <canvas id="term-chart-canvas" width="900" height="340" aria-label="Chart of the collection's dated valuation entries"></canvas>
+              <p class="term-empty" id="term-empty">History starts with the next published quote.</p>
               <div class="term-hud" id="term-hud" hidden>
                 <span class="hud-date" id="hud-date">—</span>
                 <span class="hud-val" id="hud-val">—</span>
-                <span class="hud-chg" id="hud-chg">—</span>
+                <span class="hud-chg" id="hud-chg"></span>
                 <span class="hud-range" id="hud-range">—</span>
               </div>
             </div>
+            <p class="term-honesty" id="term-chart-cap" hidden></p>
 
-            <p class="term-honesty" id="term-honesty">Current prices, changes and melt values come from the ledger's published spot quote. The chart history behind the timeframes is illustrative; the ledger holds no price history.</p>
+            <p class="term-honesty" id="term-honesty">Latest quote from the ledger. The ledger keeps no price history, so no past prices are shown.</p>
 
             <!-- Trading Statistics & Liquidity Bar -->
-            <div class="term-stats-grid">
-              <div class="term-stat-box">
-                <span class="ts-lbl">24H Range</span>
-                <div class="ts-range-bar">
-                  <span class="ts-low" id="ts-24h-low">$5,441.00</span>
-                  <div class="ts-track"><span class="ts-cur" id="ts-24h-pin" style="left:80%"></span></div>
-                  <span class="ts-high" id="ts-24h-high">$5,620.00</span>
-                </div>
-              </div>
-              <div class="term-stat-box">
-                <span class="ts-lbl">52-Week Range</span>
-                <div class="ts-range-bar">
-                  <span class="ts-low" id="ts-52w-low">$0.00</span>
-                  <div class="ts-track"><span class="ts-cur" id="ts-52w-pin" style="left:99%"></span></div>
-                  <span class="ts-high" id="ts-52w-high">$5,620.00</span>
-                </div>
-              </div>
-              <div class="term-stat-box" id="term-stat-box-metric">
-                <span class="ts-lbl" id="ts-metric-lbl">Numismatic Premium</span>
-                <div class="ts-spread-val" id="ts-metric-val"><span id="ts-val-main">+$3,574.66</span> <em class="ts-spread-delta" id="ts-val-sub">(+178% over spot melt)</em></div>
-              </div>
-              <div class="term-stat-box" id="term-stat-box-custody">
-                <span class="ts-lbl" id="ts-custody-lbl">Physical Custody</span>
-                <div class="ts-leverage-val" id="ts-custody-val"><strong id="ts-custody-txt">63.27 oz ASW · 273 Pieces</strong> · Unencumbered</div>
-              </div>
-            </div>
+            <div class="term-stats-grid" id="term-stats-grid"></div>
           </section>
 
           <div class="hero-stats" id="hdr-stats" aria-label="Vault totals"></div>
@@ -982,7 +936,7 @@
               <span class="badge" style="background:rgba(255,255,255,0.08);color:var(--ink-soft)" id="album-badge-spec">WHITMAN STANDARD</span>
             </div>
             <h2 class="album-title" id="album-inspector-title">American Silver Eagles (1986–2021)</h2>
-            <div class="album-series-meta" id="album-inspector-meta">18 of 24 Slots Filled · 75% Complete · Melt &amp; Premium: $1,630.05</div>
+            <div class="album-series-meta" id="album-inspector-meta">—</div>
           </div>
           <div class="album-header-actions">
             <button type="button" class="btn small" id="album-btn-wantlist" title="Generate Missing Holes &amp; Want List" style="border-color:rgba(200,169,74,0.5);color:var(--gold-soft);background:rgba(200,169,74,0.12)">📑 Want List</button>
@@ -1222,56 +1176,56 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr64";</script>
+  <script>window.TITAN_BUILD = "tr65";</script>
   <script src="js/three.min.js"></script>
-  <script src="splash.js?v=tr64"></script>
+  <script src="splash.js?v=tr65"></script>
   <script src="js/OrbitControls.js"></script>
   <script src="js/fflate.min.js"></script>
   <script src="js/USDZExporter.js"></script>
   <script src="js/qrcode.min.js"></script>
   <script src="js/openseadragon.min.js"></script>
-  <script src="spatial.js?v=tr64"></script>
-  <script src="deepzoom.js?v=tr64"></script>
-  <script src="atlas.js?v=tr64"></script>
-  <script src="app.js?v=tr64"></script>
-  <script src="js/playlist.js?v=tr64"></script>
-  <script src="audio.js?v=tr64"></script>
-  <script src="ambient.js?v=tr64"></script>
-  <script src="wings/atmo/core.js?v=tr64"></script>
-  <script src="wings/atmo/afterhours.js?v=tr64"></script>
-  <script src="wings/atmo/conservator.js?v=tr64"></script>
-  <script src="wings/atmo/colossus.js?v=tr64"></script>
-  <script src="wings/atmo/nocturne.js?v=tr64"></script>
-  <script src="wings/atmo/odyssey.js?v=tr64"></script>
-  <script src="wings/atmo/cursedwing.js?v=tr64"></script>
-  <script src="wings/atmo/kaleido.js?v=tr64"></script>
-  <script src="wings/atmo/abyss.js?v=tr64"></script>
-  <script src="wings/atmo/neon.js?v=tr64"></script>
-  <script src="wings/atmo/notepad.js?v=tr64"></script>
-  <script src="wings/atmo/construct.js?v=tr64"></script>
-  <script src="wings/atmo/xeno.js?v=tr64"></script>
-  <script src="wings/atmo/solaris.js?v=tr64"></script>
-  <script src="wings/atmo/alchemist.js?v=tr64"></script>
-  <script src="wings/atmo/glacier.js?v=tr64"></script>
-  <script src="wings/atmo/valhalla.js?v=tr64"></script>
-  <script src="wings/atmo/dynasty.js?v=tr64"></script>
-  <script src="wings/atmo/zen.js?v=tr64"></script>
-  <script src="wings/atmo/samadhi.js?v=tr64"></script>
-  <script src="wings/atmo/silkroad.js?v=tr64"></script>
-  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr64"></script> -->
-  <script src="wings/hall.js?v=tr64"></script>
-  <script src="wings/gallery.js?v=tr64"></script>
-  <script src="wings/vault.js?v=tr64"></script>
-  <script src="wings/albums-data.js?v=tr64"></script><script src="wings/study.js?v=tr64"></script>
-  <script src="wings/wants.js?v=tr64"></script>
-  <script src="wings/lab.js?v=tr64"></script>
+  <script src="spatial.js?v=tr65"></script>
+  <script src="deepzoom.js?v=tr65"></script>
+  <script src="atlas.js?v=tr65"></script>
+  <script src="app.js?v=tr65"></script>
+  <script src="js/playlist.js?v=tr65"></script>
+  <script src="audio.js?v=tr65"></script>
+  <script src="ambient.js?v=tr65"></script>
+  <script src="wings/atmo/core.js?v=tr65"></script>
+  <script src="wings/atmo/afterhours.js?v=tr65"></script>
+  <script src="wings/atmo/conservator.js?v=tr65"></script>
+  <script src="wings/atmo/colossus.js?v=tr65"></script>
+  <script src="wings/atmo/nocturne.js?v=tr65"></script>
+  <script src="wings/atmo/odyssey.js?v=tr65"></script>
+  <script src="wings/atmo/cursedwing.js?v=tr65"></script>
+  <script src="wings/atmo/kaleido.js?v=tr65"></script>
+  <script src="wings/atmo/abyss.js?v=tr65"></script>
+  <script src="wings/atmo/neon.js?v=tr65"></script>
+  <script src="wings/atmo/notepad.js?v=tr65"></script>
+  <script src="wings/atmo/construct.js?v=tr65"></script>
+  <script src="wings/atmo/xeno.js?v=tr65"></script>
+  <script src="wings/atmo/solaris.js?v=tr65"></script>
+  <script src="wings/atmo/alchemist.js?v=tr65"></script>
+  <script src="wings/atmo/glacier.js?v=tr65"></script>
+  <script src="wings/atmo/valhalla.js?v=tr65"></script>
+  <script src="wings/atmo/dynasty.js?v=tr65"></script>
+  <script src="wings/atmo/zen.js?v=tr65"></script>
+  <script src="wings/atmo/samadhi.js?v=tr65"></script>
+  <script src="wings/atmo/silkroad.js?v=tr65"></script>
+  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr65"></script> -->
+  <script src="wings/hall.js?v=tr65"></script>
+  <script src="wings/gallery.js?v=tr65"></script>
+  <script src="wings/vault.js?v=tr65"></script>
+  <script src="wings/albums-data.js?v=tr65"></script><script src="wings/study.js?v=tr65"></script>
+  <script src="wings/wants.js?v=tr65"></script>
+  <script src="wings/lab.js?v=tr65"></script>
   <!--WJ:table-->
-  <script src="wings/fx/engine.js?v=tr64"></script><script src="wings/fx/presets.js?v=tr64"></script><script src="wings/fx/ui.js?v=tr64"></script>
-  <script src="wings/themes/manifest.js?v=tr64"></script>
-  <script src="wings/themes/worlds.js?v=tr64"></script>
-  <script src="wings/scene-engine.js?v=tr64"></script>
-  <script src="wings/scene.js?v=tr64"></script>
+  <script src="wings/fx/engine.js?v=tr65"></script><script src="wings/fx/presets.js?v=tr65"></script><script src="wings/fx/ui.js?v=tr65"></script>
+  <script src="wings/themes/manifest.js?v=tr65"></script>
+  <script src="wings/themes/worlds.js?v=tr65"></script>
+  <script src="wings/scene-engine.js?v=tr65"></script>
+  <script src="wings/scene.js?v=tr65"></script>
   <!--WJ:themes: crest registry + one crest file per atmosphere-->
-  <script src="wings/themes.js?v=tr64"></script>
+  <script src="wings/themes.js?v=tr65"></script>
 </body>
 </html>
