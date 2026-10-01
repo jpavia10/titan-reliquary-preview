@@ -43,7 +43,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "8a2fe23ba6459f0d12d96f28675660a1739740c4d6783262691b8cb89d7e0e8e",
+ "content_hash": "7d1203a10e180a28b98933b0a049b040f347bf9de50da414d8f74cf606aa8013",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -319,6 +319,11 @@
    "path": "specimens/YU.json",
    "sha256": "0ea5405b7e2e9c2b17eb4c1ae3ab50f0d64af9f294892d2577bb8e96cac6b41b",
    "bytes": 3486
+  },
+  {
+   "path": "templates/FIELDS.md",
+   "sha256": "d081f7acfa8b0a91f08bd0e176de3424158b149fdf9b7fe7399ed935d1aa19d6",
+   "bytes": 17268
   },
   {
    "path": "templates/INSTRUCTIONS.md",

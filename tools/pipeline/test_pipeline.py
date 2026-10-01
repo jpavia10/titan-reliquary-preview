@@ -192,6 +192,20 @@ class Pipeline(unittest.TestCase):
         tmp = sandbox()                                                                                                                         # clearing a judgement needs no photo
         self.assertEqual(self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [ev(entity="specimen", id="C001", field="condition.grade", new=None, source="owner asked to clear")])).returncode, 0)
 
+    def test_field_reference_is_current(self):
+        r = run(os.path.join(HERE, "field_reference.py"), "--check")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+
+    def test_album_slot_event_and_dry_run(self):
+        tmp = sandbox(); a = C.Collection(os.path.join(tmp, "collection")).album("A026")
+        e = ev(entity="album", id="A026", field="slots.0.state", new="filled", phase=1.5, source="album scan A026_p01_20261010.jpg")
+        r = run(os.path.join(HERE, "apply_changes.py"), "--collection", os.path.join(tmp, "collection"), "--dry-run", write_events(tmp, "changes_album.jsonl", [e]))
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("dry run", r.stdout)
+        self.assertEqual(C.Collection(os.path.join(tmp, "collection")).album("A026")["slots"][0]["state"], a["slots"][0]["state"])   # a dry run writes nothing
+        bad = ev(entity="album", id="A026", field="slots.0.state", new="full", phase=1.5, source="album scan A026_p01_20261010.jpg")
+        r = run(os.path.join(HERE, "apply_changes.py"), "--collection", os.path.join(tmp, "collection"), write_events(tmp, "changes_album_bad.jsonl", [bad]))
+        self.assertEqual(r.returncode, 1); self.assertIn("fails schema validation", r.stdout)
+
     def test_publish_refuses_a_broken_collection(self):
         tmp = sandbox()
         p = os.path.join(tmp, "collection", "specimens", "CH.json"); s = open(p, encoding="utf-8").read()
