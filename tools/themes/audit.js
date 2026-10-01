@@ -525,7 +525,7 @@ async function runtimeAudit(st) {
   const t0 = Date.now();
   for (const t of list) result.themes[t] = { tokens: null, pairs: [], states: {}, fails: 0, failSigs: {}, checked: 0, smallTight: 0, runtime: {} };
   async function themeVp(t, vp) {
-    await page.evaluate((a) => window.TitanSetAtmo(a, false, false), t);
+    await page.evaluate((a) => { window.TitanSetAtmo(a, false, false); return window.TitanAtmoReady ? window.TitanAtmoReady() : null; }, t);
     await page.waitForTimeout(120);
     await page.evaluate(settle);
     const T = result.themes[t];

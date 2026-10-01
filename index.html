@@ -49,7 +49,18 @@
   <link rel="stylesheet" href="styles.css?v=tr63" />
   <link rel="stylesheet" href="splash.css?v=tr63" />
   <link rel="stylesheet" href="styles/themes.css?v=tr63" />
-  <link rel="stylesheet" href="styles/atmo/all.css?v=tr63" />
+  <!-- Only the ACTIVE atmosphere's stylesheet loads (written here so it still blocks first paint: no flash of the wrong theme).
+       Switching later is app.js (atmoCss loader): the new sheet loads first, then data-atmo flips and the old sheet is removed.
+       sw.js precaches all 20 so switching works offline. styles/atmo/all.css is no longer linked. -->
+  <script>
+    (function () {
+      var a = document.documentElement.getAttribute("data-atmo") || "afterhours";
+      var l = document.querySelector('link[href^="styles.css"]'), q = l ? (l.getAttribute("href").split("?")[1] || "") : "";
+      window.__trAtmoQ = q ? "?" + q : "";
+      document.write('<link rel="stylesheet" id="atmo-css" data-atmo-css="' + a + '" href="styles/atmo/' + a + '.css' + window.__trAtmoQ + '">');
+    })();
+  </script>
+  <noscript><link rel="stylesheet" href="styles/atmo/afterhours.css?v=tr63" /></noscript>
   <link rel="stylesheet" href="styles/slab-legibility.css?v=tr63" />
   <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr63" /> -->
   <link rel="stylesheet" href="styles/hall.css?v=tr63" />

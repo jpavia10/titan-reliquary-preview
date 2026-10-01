@@ -6745,7 +6745,42 @@
     }
     if (atmo === "construct" && !reduced) { startConstructTerm(); }
   }
+  /* ===== ATMO CSS LOADER (perf): only the active atmosphere's stylesheet is in the document =====
+     index.html writes the saved atmosphere's <link id="atmo-css"> before first paint. A later switch loads the new sheet
+     next to the old one (same cascade slot, every rule is scoped to its own html[data-atmo]), flips data-atmo once it
+     is ready, then drops the old sheet. Already-loaded = synchronous, as before. window.TitanAtmoReady() resolves when
+     the last requested switch has been applied. */
+  const atmoCss = { name: (document.getElementById("atmo-css") || {}).dataset?.atmoCss || document.documentElement.getAttribute("data-atmo") || "afterhours", tok: 0, ready: Promise.resolve() };
+  function loadAtmoCss(name) {
+    const prev = document.querySelector("link[data-atmo-css]");
+    const link = document.createElement("link");
+    link.rel = "stylesheet"; link.dataset.atmoCss = name;
+    link.href = `styles/atmo/${name}.css${window.__trAtmoQ || ""}`;
+    return new Promise((res) => {
+      link.onload = () => res(true);
+      link.onerror = () => res(false);
+      if (prev) prev.after(link); else document.head.appendChild(link);
+    });
+  }
+  function dropOtherAtmoCss(name) {
+    let kept = false;
+    document.querySelectorAll("link[data-atmo-css]").forEach((l) => {
+      if (l.dataset.atmoCss === name && !kept) kept = true; else l.remove();
+    });
+    atmoCss.name = name;
+  }
+  window.TitanAtmoReady = () => atmoCss.ready;
   function setAtmo(a, save = true, flash = true) {
+    const want = ATMOS[a] ? a : "afterhours";
+    if (atmoCss.name === want) { atmoCss.tok++; atmoCss.ready = Promise.resolve(); dropOtherAtmoCss(want); return applyAtmo(want, save, flash); }
+    const tok = ++atmoCss.tok;
+    atmoCss.ready = loadAtmoCss(want).then(() => {
+      if (tok !== atmoCss.tok) return;          // a newer request superseded this one
+      applyAtmo(want, save, flash);
+      dropOtherAtmoCss(want);
+    });
+  }
+  function applyAtmo(a, save, flash) {
     const atmo = ATMOS[a] ? a : "afterhours";
     const changed = document.documentElement.getAttribute("data-atmo") !== atmo;
     document.documentElement.setAttribute("data-atmo", atmo);
