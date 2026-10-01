@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "4817d7f051dd01afbc55dac653e51bb555383bf3ff9d4e621bd371eab9b59ed0",
+ "content_hash": "77b1577769d0b7e82cb32ba839decbf6c63dfc25779e167499b7fee8959484ea",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -93,13 +93,13 @@
   },
   {
    "path": "prices/latest.json",
-   "sha256": "7abf8b3b5ba5fd387a1dbcf1058e86dad79cf95a0e8d39a50f1b8d87813334db",
-   "bytes": 140
+   "sha256": "32c91e582511ee06b9d8513b98e2f6111e5ebc9703242e656236f89a7fde1cf9",
+   "bytes": 148
   },
   {
    "path": "prices/spot_daily.jsonl",
-   "sha256": "fb32cf43481b6f331174c2f488ca9e45d81c7fc824333e958512c83ae819d8e9",
-   "bytes": 3557
+   "sha256": "d30036a5e279031b5a92bec5cb8ae1a1c5aeefb938943aba7d5914c4c017bb4b",
+   "bytes": 3559
   },
   {
    "path": "ref/issuers.json",
