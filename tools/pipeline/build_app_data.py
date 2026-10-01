@@ -46,8 +46,25 @@ def norm(s):
     s = s.replace("ø", "o").replace("æ", "ae").replace("ß", "ss")
     return re.sub(r"\s+", " ", s).strip()
 
-SEARCH_FIELDS = ["scan_note", "continent_line", "year_line", "denom_line", "refs", "metal", "specs",
-                 "mintage", "design", "tender", "face_line", "label", "parked", "photo", "notes"]   # same list as tools/build_search.py
+# the ledger v254 search text: these detail fields, in this order, joined with ' · ', an 'unknown' mint left out (verified: 269/273
+# v254 entries are reproduced exactly, the rest differ in Devanagari vowel signs, which Grok's normaliser stripped and norm() keeps)
+SEARCH_FIELDS = ["denom_line", "label", "notes", "design", "refs", "mint", "metal", "specs", "mintage", "tender", "face", "parked", "cat", "continent", "added", "scan_note"]
+
+def number_spellings(text):
+    """'4.00' also as '4' / '4.0', '27.4' also as '27.40': the ledger spelled the same weight/size differently from record to record, and a search for any spelling must still hit."""
+    out = []
+    for m in re.finditer(r"(?<![\w.])(~?)(\d+(?:\.\d+)?)(?![\w.])", text):
+        x = float(m.group(2))
+        for v in (f"{x:g}", f"{x:.1f}", f"{x:.2f}"):
+            v = m.group(1) + v
+            if v != m.group() and v not in out: out.append(v)
+    return out
+
+def search_text(r):
+    parts = [str(r[k]) for k in SEARCH_FIELDS if r.get(k) and not (k == "mint" and r[k] == "unknown")]
+    text = norm(" · ".join(parts))
+    extra = number_spellings(" ".join(str(r.get(k) or "") for k in ("metal", "specs")))
+    return text + (" · " + " ".join(extra) if extra else "")
 
 # ------------------------------------------------------------------------------------------------ specimens
 def build_specimens(col):
@@ -114,7 +131,7 @@ def main(argv):
     for recs in detail.values():
         for sid, r in recs.items():
             if sid in live:
-                text = norm(" ".join(str(r[k]) for k in SEARCH_FIELDS if r.get(k)))
+                text = search_text(r)
                 if text: srch[sid] = text
     dump(f"{out}/search.json", srch)
     print(f"built {out}/: {len(flips)} flips, {sum(len(x) for x in lots)} lots, {len(detail)} detail files, {len(srch)} search entries")

@@ -10,15 +10,19 @@ data/ (ledger v254 publish) and writes ONE event per specimen (only when its led
 (curated): the curated value wins. The exception is photo_stem: Drive master photo names were built from the v254
 stem, so it is always frozen to the golden spelling.
 """
-import datetime, glob, json, os, sys
+import datetime, glob, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE)
 import build_app_data as B
 from test_parity import curated_map, norm
 
-EXEMPT_ALWAYS = {"label", "refs", "denom", "face", "cat"}     # a deliberate curation event changed the fact behind these: the curated value wins
+EXEMPT_ALWAYS = {"label", "refs", "denom", "cat"}     # a deliberate curation event changed the fact behind these: the curated value wins
 FIELDS = ("label", "face", "metal", "refs", "specs", "denom", "cat", "photo_stem", "mint")
+
+def _amount(txt):
+    m = re.search(r"\d+(?:\.\d+)?", txt or "")
+    return float(m.group()) if m else None
 
 def main(argv):
     coll = argv[0] if argv else os.path.join(ROOT, "collection"); gold = argv[1] if len(argv) > 1 else os.path.join(ROOT, "data")
@@ -35,15 +39,17 @@ def main(argv):
             why = cur.get((sid, f)) or (f == "denom" and cur.get((sid, "denom_line")))
             if f == "specs":
                 segs = B.split_segs(gv)
-                if why and segs[0].startswith("thickness"):       # curated thickness/alignment: keep only the ledger's remark after them
+                if why:       # curated thickness/alignment: keep only the ledger's remark after them
                     ai = next((i for i, x in enumerate(segs) if "alignment" in x), 0)
                     tail = " · ".join(segs[ai + 1:])
                     if tail: lt["specs_tail"] = tail
                     continue
-                if why: continue
             elif f == "photo_stem": pass
+            elif f == "face" and why and _amount(gv) is not None and _amount(dv) is not None and _amount(gv) != _amount(dv): continue      # the face amount itself was corrected
             elif why and (f in EXEMPT_ALWAYS or any(w in why for w in ("composition", "weight_g", "thickness"))): continue
             lt[f] = gv
+        fl = B.specimen_detail(col, {**s, "ledger_text": lt}, col["types"][s["type"]]).get("face_line")      # face_line follows face; keep its own text only when the ledger added more (Melt ...)
+        if fl != g.get("face_line") and norm(fl) != norm(g.get("face_line")) and not ((sid, "face_line") in cur and "face" not in lt and (sid, "face") in cur): lt["face_line"] = g["face_line"]
         if lt == (had or {}): continue
         n += 1
         print(json.dumps({"ts": ts, "by": "model:sonnet-5.5", "entity": "specimen", "id": sid, "field": "ledger_text", "old": had, "new": lt or None,

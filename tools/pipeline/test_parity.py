@@ -20,12 +20,9 @@ IGNORE_TOP = {"generated_at", "generated_at_pt", "generated_at_iso", "ledger_ver
 IGNORE_NESTED = {("board", "ledger_version")}
 # display strings re-derived from structured facts (the ledger wording that v2 dropped is not recoverable)
 DISPLAY_FIELDS = {"label", "face", "face_line", "year_line", "metal", "specs", "refs", "denom", "denom_line", "photo", "photo_stem", "cat", "mint", "continent_line", "country"}
-# (record id, field): documented migration gaps, with the reason
-KNOWN = {
-    ("C073", "qty"): "migration dropped quantity (ledger: a tube of 26 bicentennial quarters); fix with a change file: specimen C073 field quantity -> 26",
-    ("C073", "qty_n"): "same as above",
-    ("C146", "mint"): "ledger took the tail of a parenthesised mint note; v2 keeps the full text in issue.mint_text",
-}
+# (record id, field): documented migration gaps, with the reason. All former gaps are closed (C073 quantity 26 and the C146 mint text
+# went in as ChangeEvents), so this is empty; add an entry only with a reason.
+KNOWN = {}
 # which detail/index fields a ChangeEvent field explains
 TYPE_FIELD_MAP = {"design": {"design"}, "legal_tender": {"tender", "face", "face_line"}, "denomination": {"denom", "denom_line", "label", "photo", "photo_stem", "face", "face_line"},
                   "nominal": {"metal", "specs", "diameter_mm"}, "catalogs": {"refs"}, "composition": {"metal"}, "precious": {"asw_oz", "is_silver", "metal"},
@@ -104,7 +101,14 @@ def run(coll, gold):
     gs, ns = load(f"{gold}/search.json"), load(f"{tmp}/search.json")
     if set(gs) != set(ns): fails.append("search.json covers different ids")
     same = sum(1 for k in gs if ns.get(k) == gs[k])
-    return stats, ex, fails, (same, len(gs)), tmp
+    # search coverage: every word the v254 text had must still be searchable, unless a curation event rewrote that coin's wording
+    touched = {sid for (sid, _f) in curated}; lost = {}
+    for k in gs:
+        miss = set(gs[k].split()) - set(ns.get(k, "").split())
+        if miss:
+            lost[k] = miss
+            if k not in touched: fails.append(f"search.json {k} lost words {sorted(miss)[:5]} without a curation event")
+    return stats, ex, fails, (same, len(gs), len(lost)), tmp
 
 def main(argv):
     nex = 2; a = []; it = iter(argv); quiet = False
@@ -125,7 +129,7 @@ def main(argv):
                 print(f"     [{cls}] {sid}: golden {str(g)[:95]!r}\n              built  {str(n_)[:95]!r}")
     cmp_ = sum(tot.values())
     print(f"\nfield comparisons {cmp_}: exact {tot['exact']} + normalised {tot['normalised']}, curated {tot['curated']}, derived {tot['derived']}, known {tot['KNOWN']}, UNEXPLAINED {tot['DIFF']}")
-    print(f"search.json: {srch[0]}/{srch[1]} entries identical (the rest differ through derived display strings)")
+    print(f"search.json: same coverage ({srch[1]} entries); {srch[0]} byte-identical (number-spelling aliases are appended), {srch[2]} entries lack some v254 word, all on coins whose wording a curation event rewrote")
     for f in fails[:40]: print("FAIL:", f)
     print("RESULT:", "PARITY OK (headline totals, all index blocks and every app-logic field reproduced; listed differences are explained)" if not fails else f"FAIL ({len(fails)})")
     return 0 if not fails else 1

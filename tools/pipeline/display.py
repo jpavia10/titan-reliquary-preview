@@ -94,15 +94,19 @@ def specs_text(t):
     if n.get("alignment"): parts.append(f"{n['alignment']} alignment")
     return " · ".join(parts)
 
+def money2(a):
+    """2 decimals, but never round away a real fraction of a cent/penny (½p = 0.005, not 0.01)."""
+    return f"{a:.2f}" if abs(a * 100 - round(a * 100)) < 1e-9 else f"{a:.3f}".rstrip("0")
+
 def face_txt(s, t):
     f = (s["value"].get("face") or {}); a = f.get("amount"); cur = f.get("currency")
     if a is None: return "none"
     sym = {"GBP": "£", "EUR": "€"}.get(cur)
-    if sym: return f"{sym}{a:.2f}"
-    if cur == "USD" or (cur == "CAD" and t["country"] == "CA"): return f"${a:.2f}"
+    if sym: return f"{sym}{money2(a)}"
+    if cur == "USD" or (cur == "CAD" and t["country"] == "CA"): return f"${money2(a)}"
     whole = abs(a - round(a)) < 1e-9
     if cur in ("KRW", "JPY", "ITL", "GRD", "CLP", "COP", "VND", "TWD", "INR", "CRC", "YUD", "MXP", "HUF", "VAL", "SUR"): txt = str(int(round(a))) if whole else f"{a:g}"
-    else: txt = f"{a:.2f}"
+    else: txt = money2(a)
     return f"{txt} {cur}" if cur else txt
 
 DEAD_CCY = {"FRF", "DEM", "NLG", "ITL", "GRD", "SUR", "YUD", "MXP", "VAL", "ESP", "PTE", "IEP"}
@@ -181,7 +185,7 @@ def specimen_detail(col, s, t):
          "photo": f"pending pro rescan · target {stem}_{{obv|rev}}.jpg", "parked": s["housing"].get("text"), "notes": s.get("notes") or "",
          "status": s["lifecycle"]["status"], "continent": cont, "iso": iso, "mint": mint_first(s["issue"].get("mint_text")), "face": face,
          "est": est, "est_raw": est_txt, "conf": conf, "qty_n": s.get("quantity") or 1}
-    for k in ("label", "metal", "refs", "specs", "cat", "mint"):
+    for k in ("label", "metal", "refs", "specs", "cat", "mint", "face_line"):
         if k in lt: d[k] = lt[k]
     if lt.get("specs_tail") and "specs" not in lt: d["specs"] = f"{d['specs']} · {lt['specs_tail']}"     # the ledger's free-text remark after thickness/alignment
     asw = t["precious"].get("asw_oz"); agw = t["precious"].get("agw_oz")
