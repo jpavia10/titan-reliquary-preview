@@ -1253,23 +1253,32 @@
     return "estimate";
   }
 
+  /** Die alignment only when the record states it; otherwise null ("not recorded"). */
   function getDieAlignment(f) {
-    const s = String(f.specs || f.notes || "").toLowerCase();
-    if (s.includes("medal")) return { type: "Medal Alignment", angle: 0, symbol: "↑↑ 0°" };
-    return { type: "Coin Alignment", angle: 180, symbol: "↑↓ 180°" };
+    const v = String(f.die_alignment || "").toLowerCase();
+    if (!v) return null;
+    if (v.includes("medal")) return { type: "Medal Alignment", angle: 0, symbol: "↑↑ 0°" };
+    if (v.includes("coin")) return { type: "Coin Alignment", angle: 180, symbol: "↑↓ 180°" };
+    return null;
   }
 
+  /** Thickness only when recorded (never derived from diameter). */
   function getSpecimenThickness(f) {
-    if (f.thickness_mm) return Number(f.thickness_mm);
-    const dia = getSpecimenDiameter(f);
-    return Math.max(1.1, Math.min(3.2, Number((dia / 14.5).toFixed(2))));
+    if (f.thickness_mm && !isNaN(f.thickness_mm)) return Number(f.thickness_mm);
+    return null;
+  }
+
+  function diameterSourceLabel(src) {
+    if (src === "measured") return "measured from photo";
+    if (src === "ledger") return "spec (ledger)";
+    return "approx. (typical for this coin type, not measured)";
   }
 
   function renderOpticalReticle(f, side = "obv") {
     const dia = getSpecimenDiameter(f);
     const isRev = side === "rev";
     const dieAlign = getDieAlignment(f);
-    const angleText = isRev ? dieAlign.symbol : "0° (OBV)";
+    const angleText = isRev ? (dieAlign ? dieAlign.symbol : "REV") : "0° (OBV)";
     const planchetPct = Math.min(94, Math.max(30, Math.round((dia / 50.8) * 100)));
     return `
       <div class="ex-optical-reticle${caliperActive ? ' active' : ''}" id="reticle-${side}-${esc(f.scan)}">
@@ -1278,7 +1287,7 @@
         <div class="ret-ring ret-ring-10" title="10 mm reference ring"></div>
         <div class="ret-ring ret-ring-20" title="20 mm reference ring"></div>
         <div class="ret-ring ret-ring-30" title="30 mm reference ring"></div>
-        <div class="ret-ring-planchet" style="width: ${planchetPct}%; height: ${planchetPct}%;" title="Planchet Outer Rim: ${dia} mm"></div>
+        <div class="ret-ring-planchet" style="width: ${planchetPct}%; height: ${planchetPct}%;" title="Planchet outer rim: ${dia} mm, ${diameterSourceLabel(getSpecimenDiameterSource(f))}"></div>
         <span class="ret-axis-lbl ret-axis-n">${angleText}</span>
         <span class="ret-axis-lbl ret-axis-e">90°</span>
         <span class="ret-axis-lbl ret-axis-s">${isRev ? "REV" : "180°"}</span>
@@ -1289,32 +1298,35 @@
 
   function renderCaliperHud(f) {
     const dia = getSpecimenDiameter(f);
+    const src = getSpecimenDiameterSource(f);
+    const srcLbl = diameterSourceLabel(src);
     const thk = getSpecimenThickness(f);
     const dieAlign = getDieAlignment(f);
     const fillPct = Math.min(94, Math.max(30, Math.round((dia / 50.8) * 100)));
+    const approx = src === "estimate";
     return `
       <div class="ex-caliper-hud${caliperActive ? ' active' : ''}" id="caliper-hud-${esc(f.scan)}">
         <div class="caliper-hud-header">
           <div class="caliper-hud-title">
             <span class="caliper-hud-dot"></span>
-            Digital Vernier Caliper · Forensic Metrology
+            Caliper view · ${esc(src === "measured" ? "measured" : src === "ledger" ? "ledger spec" : "approximate size")}
           </div>
           <span style="opacity:0.8;font-family:var(--mono)">1:1 Aperture (50.8mm)</span>
         </div>
         <div class="caliper-scale-bar">
           <div class="cal-ticks"></div>
-          <div class="cal-lcd-readout" title="Measured Physical Coin Planchet Diameter">
+          <div class="cal-lcd-readout" title="Diameter: ${esc(srcLbl)}">
             <span class="cal-lcd-sym">⌀</span>
-            <span class="cal-lcd-val">${dia.toFixed(2)}</span>
+            <span class="cal-lcd-val">${approx ? "≈ " : ""}${approx ? dia.toFixed(0) : dia.toFixed(2)}</span>
             <span class="cal-lcd-unit">mm</span>
           </div>
         </div>
         <div class="caliper-metrics-strip">
-          <span class="cm-tag gold" title="Planchet Outer Diameter">⌀ ${dia.toFixed(1)} mm</span>
-          <span class="cm-tag" title="Standard Planchet Thickness">↕ ${thk.toFixed(2)} mm</span>
-          <span class="cm-tag" title="Die Clock Orientation">${dieAlign.symbol} (${dieAlign.type})</span>
-          <span class="cm-tag" title="Ratio of Coin to 2x2 Mount Aperture">${fillPct}% Mount Fill</span>
-          <button type="button" class="cm-info-btn" data-act="caliper-info" title="What are Numismatic Calipers? Click for explanation">ⓘ Forensic Guide</button>
+          <span class="cm-tag gold" title="Diameter source">⌀ ${approx ? "≈ " : ""}${dia.toFixed(1)} mm · ${esc(srcLbl)}</span>
+          ${thk != null ? `<span class="cm-tag" title="Thickness (from record)">↕ ${thk.toFixed(2)} mm · spec (ledger)</span>` : ""}
+          <span class="cm-tag" title="Die alignment">${dieAlign ? `${dieAlign.symbol} (${dieAlign.type})` : "Die alignment: not recorded"}</span>
+          <span class="cm-tag" title="Ratio of coin to 2x2 mount aperture">${fillPct}% mount fill${approx ? " (approx.)" : ""}</span>
+          <button type="button" class="cm-info-btn" data-act="caliper-info" title="What are calipers? Click for explanation">ⓘ About calipers</button>
         </div>
       </div>`;
   }
