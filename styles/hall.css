@@ -21,14 +21,15 @@
 #pane-hall .hero-cap {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
-  color: var(--muted);
+  /* "TOTAL ESTIMATED VALUATION" sat at 4.53:1 on afterhours (below AA once effects overlay it): lift --muted toward --ink */
+  color: color-mix(in srgb, var(--muted) 68%, var(--ink));
   margin-bottom: 0.35rem;
 }
 #pane-hall .hall-asof {
   margin: 0 0 1.1rem;
   font-family: var(--mono);
   font-size: 0.78rem;
-  color: var(--muted);
+  color: color-mix(in srgb, var(--muted) 68%, var(--ink));
   letter-spacing: 0.02em;
 }
 
@@ -244,6 +245,14 @@
    light ink on dark in dark rooms, never the mismatch. The museum slab keeps its own pinned tokens. */
 html[data-atmo] #pane-hall :is(#market-ticker-tape, #exhibit, #hero-grand, .vault-valuation-hub) {
   --ink: inherit; --text: inherit; --muted: inherit; --gold: inherit; --gold-soft: inherit;
+}
+/* Light atmospheres whose ticker / exhibit / valuation cases are dark or inverse: the reset above would leave
+   dark paper ink on a dark case (1.0 to 1.9:1). Keep the atmosphere's own light case tokens there. */
+html[data-atmo="conservator"] #pane-hall :is(#market-ticker-tape, #exhibit) {
+  --ink: #f4ecdb; --text: #f4ecdb; --muted: #c2b89f; --gold: #dcbc62; --gold-soft: #efe0b0;
+}
+html[data-atmo="notepad"] #pane-hall :is(#market-ticker-tape, #exhibit, .vault-valuation-hub) {
+  --ink: #ffffff; --text: #ffffff; --muted: #d4d4d4; --gold: #ffffff; --gold-soft: #ffff8a;
 }
 #pane-hall .ticker-item .tk-sym { color: var(--gold-soft); }
 #pane-hall .ticker-item .tk-price { color: var(--ink); }

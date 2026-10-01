@@ -387,7 +387,8 @@
         </div>
         <div class="study-answer" id="study-answer" aria-live="polite">${answerHtml(fam)}</div>
         <div class="study-answer-actions">
-          <button type="button" class="study-btn primary" data-study-act="print">🖨 Print checklist</button>
+          <button type="button" class="study-btn primary" data-open-wants>What's missing: full list &amp; print</button>
+          <button type="button" class="study-btn" data-study-act="print">🖨 Print checklist</button>
           <button type="button" class="study-btn" data-study-act="copy">📋 Copy as text</button>
           <button type="button" class="study-btn" data-study-act="share">↗ Share / save</button>
           <button type="button" class="study-btn" data-study-act="data">⇅ Export / import checks</button>

@@ -1,0 +1,101 @@
+/* Titan Reliquary · "What's missing" view (wings/wants.js). Self-contained: every rule is scoped to #wants-view,
+   .hall-wants-entry or the print sheet. Colours come ONLY from the atmosphere tokens (--bg --surface --ink --line-strong --gold),
+   and text is always --ink on --surface/--bg (or the inverse), so contrast follows the theme. Status is shown by TEXT plus
+   border style plus inverse fill, never by colour alone. Restyle by editing this file only. */
+
+.wants-view {
+  position: fixed; inset: 0; z-index: 100200; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font); font-size: 18px; line-height: 1.5;
+}
+.wants-view[hidden] { display: none; }
+.wants-view *, .wants-view *::before, .wants-view *::after { box-sizing: border-box; }
+.wants-shell { max-width: 1100px; margin: 0 auto; padding: 16px 16px 48px; }
+
+.wants-top { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+.wants-eyebrow { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.wants-view h1 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.1; color: var(--ink); }
+.wants-view h1:focus { outline: none; }
+.wants-lede { margin: 6px 0 0; max-width: 40em; color: var(--ink); }
+
+.wants-btn {
+  min-height: 52px; min-width: 52px; padding: 10px 22px; border-radius: 12px; cursor: pointer;
+  font: inherit; font-weight: 700; font-size: 18px; color: var(--ink); background: var(--surface); border: 2px solid var(--ink);
+}
+.wants-btn:hover { background: var(--surface2, var(--surface)); }
+.wants-btn:focus-visible, .wants-view input:focus-visible, .wants-view select:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.wants-print-btn { background: var(--ink); color: var(--bg); font-size: 20px; padding: 12px 28px; align-self: end; }
+.wants-print-btn:hover { background: var(--ink); filter: brightness(1.08); }
+
+.wants-tools { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: end; padding: 14px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 14px; }
+.wants-field { display: flex; flex-direction: column; gap: 4px; flex: 1 1 240px; font-weight: 700; }
+.wants-field input, .wants-field select {
+  min-height: 52px; padding: 8px 12px; font: inherit; font-weight: 400; font-size: 18px; color: var(--ink);
+  background: var(--bg); border: 2px solid var(--ink); border-radius: 10px; width: 100%;
+}
+.wants-check { display: flex; align-items: center; gap: 10px; min-height: 52px; font-weight: 700; flex: 1 1 260px; cursor: pointer; }
+.wants-check input { width: 28px; height: 28px; accent-color: var(--ink); flex: none; }
+.wants-summary { margin: 14px 0 18px; font-weight: 700; }
+
+.wants-family { margin: 0 0 28px; }
+.wants-family-name { margin: 0 0 12px; padding-bottom: 6px; font-family: var(--serif); font-size: clamp(1.5rem, 4.5vw, 2rem); border-bottom: 3px solid var(--ink); color: var(--ink); }
+.wants-family-name small { display: block; font-family: var(--font); font-size: 18px; font-weight: 400; margin-top: 2px; }
+
+.wants-card { margin: 0 0 18px; padding: 16px; background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); border-left: 6px solid var(--ink); border-radius: 14px; }
+.wants-card.is-complete { border-left-style: double; }
+.wants-card-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; align-items: baseline; }
+.wants-album-id { font-family: var(--mono); font-size: 18px; font-weight: 700; }
+.wants-card h3 { margin: 0; font-size: 1.35rem; line-height: 1.25; color: var(--ink); }
+.wants-count { margin: 0; font-size: 1.35rem; color: var(--ink); }
+.wants-meta { margin: 6px 0 0; }
+.wants-caveat { margin: 10px 0 0; padding: 10px 12px; border: 2px dashed var(--ink); border-radius: 10px; font-weight: 600; }
+
+.wants-grid { list-style: none; margin: 14px 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; }
+.wants-cell { display: flex; flex-direction: column; justify-content: center; min-height: 72px; padding: 8px 10px; border-radius: 10px; border: 2px solid var(--ink); background: var(--bg); color: var(--ink); }
+.wants-year { font-size: 1.5rem; font-weight: 800; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.wants-state { font-size: 18px; font-weight: 600; line-height: 1.25; }
+.wants-cell.is-missing { background: var(--ink); color: var(--bg); border-width: 4px; border-style: solid; }
+.wants-cell.is-missing .wants-state { font-weight: 800; letter-spacing: .04em; }
+.wants-cell.is-have { border-width: 1px; border-style: solid; }
+.wants-cell.is-probably { border-style: dashed; }
+.wants-cell.is-unknown { border-style: dotted; border-width: 3px; }
+.wants-legend { margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 8px 16px; font-weight: 600; }
+.wants-key { padding: 2px 8px; border: 2px solid var(--ink); border-radius: 8px; }
+.wants-key.is-missing { background: var(--ink); color: var(--bg); font-weight: 800; }
+.wants-key.is-probably { border-style: dashed; }
+.wants-key.is-unknown { border-style: dotted; }
+.wants-empty { padding: 24px; border: 2px dashed var(--ink); border-radius: 12px; font-weight: 700; }
+.wants-foot { margin-top: 24px; }
+
+/* Hall entry: one tile under the four wing cards, built from the card tokens */
+.hall-wants-entry {
+  display: flex; flex-direction: column; gap: 4px; width: 100%; min-height: 72px; margin: 14px 0 0; padding: 16px 18px; text-align: left; cursor: pointer;
+  font: inherit; font-size: 18px; color: var(--ink); background: var(--surface); border: 2px solid var(--line-strong); border-left: 6px solid var(--gold); border-radius: 14px;
+}
+.hall-wants-entry .hw-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; }
+.hall-wants-entry .hw-go { font-weight: 700; }
+.hall-wants-entry:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* ---- print: only the want list, black on white, one column, 18pt+ ---- */
+#wants-print { display: none; }
+@media print {
+  body.wants-printing > *:not(#wants-print) { display: none !important; }
+  body.wants-printing { background: #fff !important; overflow: visible !important; }
+  body.wants-printing #wants-print {
+    display: block !important; position: static; background: #fff; color: #000; font-family: Georgia, "Times New Roman", serif;
+    font-size: 18pt; line-height: 1.35; padding: 0 0 22mm; max-width: none;
+  }
+  #wants-print h1 { font-size: 28pt; margin: 0 0 2pt; color: #000; }
+  #wants-print .wp-sub { margin: 0 0 14pt; font-size: 18pt; }
+  #wants-print h2 { font-size: 24pt; margin: 18pt 0 6pt; padding-bottom: 3pt; border-bottom: 2pt solid #000; break-after: avoid; color: #000; }
+  #wants-print h3 { font-size: 20pt; margin: 12pt 0 4pt; break-after: avoid; color: #000; }
+  #wants-print h3 span { font-weight: 400; }
+  #wants-print ul { list-style: none; margin: 0; padding: 0; }
+  #wants-print li { display: flex; gap: 14pt; padding: 3pt 0; border-bottom: .5pt solid #000; break-inside: avoid; }
+  #wants-print li::before { content: ""; flex: none; width: 14pt; height: 14pt; margin-top: 6pt; border: 1.5pt solid #000; }
+  #wants-print .wp-year { font-weight: 700; min-width: 3.2em; }
+  #wants-print .wp-mint { min-width: 5.5em; }
+  #wants-print .wp-note { margin: 4pt 0 8pt; font-style: italic; }
+  #wants-print .wp-foot { position: fixed; bottom: 0; left: 0; right: 0; font-size: 18pt; border-top: 1pt solid #000; padding-top: 4pt; background: #fff; }
+  @page { margin: 14mm; }
+}

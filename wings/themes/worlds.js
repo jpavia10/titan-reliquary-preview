@@ -27,7 +27,14 @@
 
   function apply(id) {
     if (!by[id] || !window.TitanSetAtmo) return;
-    var go = function () { window.TitanSetAtmo(id); sync(id); };
+    /* app.js loads an atmosphere's stylesheet on demand: TitanSetAtmo applies it once the sheet is ready, so the
+       view transition / fade waits on TitanAtmoReady() (a resolved promise when the sheet was already loaded) */
+    var go = function () {
+      window.TitanSetAtmo(id);
+      var rd = window.TitanAtmoReady ? window.TitanAtmoReady() : null;
+      if (rd && rd.then) return rd.then(function () { sync(id); });
+      sync(id);
+    };
     if (root.getAttribute("data-atmo") === id) { sync(id); return; }
     if (reduced()) { go(); return; }
     if (document.startViewTransition) {
@@ -35,7 +42,7 @@
       vt.finished.then(function () {}, function () {});
     } else {
       root.classList.add("world-fade");
-      setTimeout(function () { go(); requestAnimationFrame(function () { root.classList.remove("world-fade"); }); }, 170);
+      setTimeout(function () { Promise.resolve(go()).then(function () { requestAnimationFrame(function () { root.classList.remove("world-fade"); }); }); }, 170);
     }
   }
 

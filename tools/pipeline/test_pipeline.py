@@ -239,6 +239,31 @@ class Pipeline(unittest.TestCase):
         r = run(os.path.join(HERE, "apply_changes.py"), "--collection", os.path.join(tmp, "collection"), write_events(tmp, "changes_album_bad.jsonl", [bad]))
         self.assertEqual(r.returncode, 1); self.assertIn("fails schema validation", r.stdout)
 
+    def test_wants_json_matches_album_calc_and_is_generated(self):
+        sys.path.insert(0, os.path.join(ROOT, "tools", "albums"))
+        import album_calc, build_wants
+        albums = json.load(open(os.path.join(ROOT, "collection", "albums.json"), encoding="utf-8"))
+        w = json.load(open(os.path.join(ROOT, "data", "wants.json"), encoding="utf-8"))
+        self.assertEqual({v["id"] for v in w["volumes"]}, {a["id"] for a in albums})
+        for a in albums:                                  # every number equals album_calc's
+            c = album_calc.summary(a); v = next(x for x in w["volumes"] if x["id"] == a["id"])
+            self.assertEqual((v["slots_total"], v["filled"], v["missing"]), (c["total"], c["filled_claimed"], c["missing"]), a["id"])
+            self.assertEqual([x["label"] for x in v["missing_named"]], c["missing_named"], a["id"])
+            if a["evidence"] == "count-only": self.assertEqual(v["missing_named"], [], a["id"])
+            self.assertFalse(any(x["state"] != "empty" for x in v["missing_named"]), a["id"])   # an unknown/inferred slot is never listed as missing
+        a26 = next(v for v in w["volumes"] if v["id"] == "A026")
+        self.assertEqual(a26["missing"], 18); self.assertEqual(len(a26["missing_named"]), 18)
+        self.assertEqual([x["year"] for x in a26["missing_named"]], [1988, 1989, 1990, 1991, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2003, 2004, 2009, 2010, 2011, 2012])
+        self.assertTrue(all(x["state"] == "filled" for x in a26["have_named"]))
+        # no hand edits: the committed file is exactly what the master builds (generated_at is the publish stamp, so compare the rest)
+        fresh = build_wants.build(albums, w["generated_at"])
+        self.assertEqual(json.dumps(fresh, ensure_ascii=False, separators=(",", ":")), open(os.path.join(ROOT, "data", "wants.json"), encoding="utf-8").read())
+
+    def test_publish_writes_wants_json(self):
+        tmp = sandbox(); os.remove(os.path.join(tmp, "data", "wants.json")) if os.path.exists(os.path.join(tmp, "data", "wants.json")) else None
+        r = self.publish(tmp); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual(json.load(open(os.path.join(tmp, "data", "wants.json")))["generated_at"], json.load(open(os.path.join(tmp, "version.json")))["generated_at"])
+
     def test_publish_refuses_a_broken_collection(self):
         tmp = sandbox()
         p = os.path.join(tmp, "collection", "specimens", "CH.json"); s = open(p, encoding="utf-8").read()

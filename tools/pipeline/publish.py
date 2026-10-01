@@ -23,6 +23,7 @@ sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "tools", "schema
 import apply_changes as A
 import build_app_data as B
 import display as D
+import build_wants as W
 
 def fail(msg):
     print(f"\nPUBLISH REFUSED: {msg}\n(data/ and version.json were not changed)", file=sys.stderr)
@@ -98,6 +99,7 @@ def main(argv):
     r = subprocess.run([sys.executable, os.path.join(HERE, "build_app_data.py"), coll, outuse, "--version-json", vuse], capture_output=True, text=True)
     if r.returncode != 0: print(r.stdout, r.stderr); return fail("build_app_data.py failed")
     print(r.stdout.strip().replace(outuse, out))
+    with open(f"{outuse}/wants.json", "w", encoding="utf-8", newline="\n") as f: json.dump(W.build(col["albums"], ver["generated_at"]), f, ensure_ascii=False, separators=(",", ":"))
     # 5. checks
     problems = check_outputs(col, outuse, col["board"])
     if "--parity" in argv:
@@ -112,7 +114,7 @@ def main(argv):
         os.makedirs(os.path.join(out, "detail"), exist_ok=True)
         for f in glob.glob(os.path.join(out, "detail", "*.json")): os.remove(f)
         for f in glob.glob(os.path.join(outuse, "detail", "*.json")): shutil.copyfile(f, os.path.join(out, "detail", os.path.basename(f)))
-        for n in ("index.json", "search.json"): shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n))
+        for n in ("index.json", "search.json", "wants.json"): shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n))
         shutil.copyfile(vuse, vpath)
     idx = B.load(f"{outuse}/index.json"); b = idx["board"]; snap = col["board"]["index"]["board"]
     print("\n==== publish summary" + (" (DRY RUN: nothing written)" if dry else "") + " ====")
