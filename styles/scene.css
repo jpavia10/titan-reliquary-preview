@@ -120,3 +120,18 @@
 /* overflow-x:hidden on html+body makes position:sticky useless; clip keeps the no-sideways-scroll guarantee without a scroll container. */
 html, body { overflow-x: clip; }
 html[data-atmo="notepad"] .scene-bar { top: 49px; }
+
+/* ---------- Mixer rows ("Build your own") ---------- */
+.ss-gh { margin: 16px 0 6px; font-size: 16px; font-weight: 800; color: var(--ss-gold); letter-spacing: 0.02em; }
+.ss-mrow { display: grid; grid-template-columns: 52px 1fr 3ch; grid-template-areas: "i l n" "i s s"; column-gap: 10px; align-items: center; padding: 6px 0; border-top: 1px solid rgba(90, 74, 42, 0.45); }
+.ss-mi { grid-area: i; width: 52px; height: 52px; border-radius: 14px; border: 1.5px solid var(--ss-line); background: var(--ss-bg); color: var(--ss-ink); font-size: 28px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0.8; }
+.ss-mrow.on .ss-mi { background: var(--ss-gold); border-color: #fff3cf; opacity: 1; }
+.ss-ml { grid-area: l; font-size: 16px; font-weight: 700; color: var(--ss-ink); min-height: 24px; display: flex; flex-direction: column; justify-content: center; }
+.ss-ml small { font-size: 13px; font-weight: 600; color: var(--ss-dim); }
+.ss-mrow input[type=range] { grid-area: s; width: 100%; min-height: 44px; margin: 0; }
+.ss-mn { grid-area: n; font-weight: 800; font-size: 15px; text-align: right; color: var(--ss-gold); }
+.ss-savebox { display: flex; gap: 8px; margin-bottom: 10px; }
+.ss-savebox input[type=text] { flex: 1; min-width: 0; min-height: 48px; font: inherit; font-size: 16px; color: var(--ss-ink); background: var(--ss-bg); border: 1.5px solid var(--ss-line); border-radius: 10px; padding: 0 12px; }
+.ss-savebox .ss-btn { flex: 0 0 auto; padding: 0 14px; }
+.ss-mine-item { display: flex; flex-direction: column; gap: 6px; }
+.ss-del { min-height: 44px; border-radius: 10px; border: 1.5px solid #c25a5a; background: transparent; color: #ffd9d9; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
