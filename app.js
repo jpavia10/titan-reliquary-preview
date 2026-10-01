@@ -696,6 +696,12 @@
     const agOz = Number(vault.precious?.combined_silver?.oz ?? 63.27);
     const auOz = Number(vault.precious?.combined_gold?.oz ?? 0.1322);
     const baseGrand = Number(vault.board?.grand ?? 5584.11);
+    const spotDate = vault.metals?.as_of || "";
+    const spotLabel = spotDate ? `Spot as of ${spotDate}` : "Spot (dated snapshot)";
+    badge.textContent = spotLabel;
+    const lm = $$(".sim-range-marks .live-mark");
+    if (lm[0]) lm[0].textContent = `${money(baseSpotAg)} (spot${spotDate ? " " + spotDate : ""})`;
+    if (lm[1]) lm[1].textContent = `${money(baseSpotAu)} (spot${spotDate ? " " + spotDate : ""})`;
     
     // Baseline non-metal value (albums, housing, collector premium, stamps, etc.)
     const baseAgMelt = agOz * baseSpotAg;
@@ -731,7 +737,7 @@
       if (Math.abs(delta) < 0.5) {
         dynDelta.textContent = `±$0.00 (0.0%)`;
         dynDelta.className = "sim-stat-delta";
-        badge.textContent = "Live Market Baseline";
+        badge.textContent = spotLabel;
         badge.className = "sim-toggle-badge";
       } else {
         const sign = delta >= 0 ? "+" : "";
@@ -6286,7 +6292,7 @@
         country: activeAlbumFamily.includes("Canada") ? "Canada" : "United States",
         iso: activeAlbumFamily.includes("Canada") ? "CA" : "US",
         continent: "North America",
-        year: displayYear !== "—" ? displayYear : String(startYear + i),
+        year: displayYear === "—" ? "not recorded" : (studySlot ? displayYear : `${displayYear} (inferred)`),
         denom: vol.denom,
         metal: vol.metal,
         is_silver: isSilver,
@@ -6294,18 +6300,18 @@
         asw_oz: aswVal,
         est: null,
         conf: null,
-        status: isFilled ? "Album Specimen (Encapsulated in Binder)" : "Target Acquisition (Missing Hole in Binder)",
+        status: isFilled ? "Album slot: filled (contents not itemized; inferred from the Whitman model)" : "Album slot: open (inferred from the Whitman model)",
         location: `${activeAlbumFamily} (${activeAlbumId}) · Slot #${i + 1}`,
         mintage: null,
         notes: isFilled
           ? `Album slot record (${activeAlbumId}, slot #${i + 1}). No specimen details (grade, value, photo) have been logged for this coin yet.`
           : `Open slot in ${activeAlbumId} (slot #${i + 1}): ${displayLabel}. No coin logged here.`,
         specs: `${vol.denom} · Composition: ${vol.metal} · Physical slot #${i + 1} of ${totalSlots}`,
-        design: `${vol.title} archival series strike`,
-        tender: activeAlbumFamily.includes("Canada") ? "Canadian Legal Tender" : "United States Legal Tender",
+        design: null,
+        tender: "not recorded",
+        _album: true,
         qty_n: 1,
         label: `${activeAlbumFamily.includes("Canada") ? "Canada" : "USA"} · ${displayYear} · ${vol.denom}`,
-        diameter_mm: activeAlbumFamily.includes("Silver Eagles") ? 40.6 : (/half/i.test(vol.denom) ? 30.6 : (/quarter/i.test(vol.denom) ? 24.3 : (/dime/i.test(vol.denom) ? 17.9 : (/nickel|5¢/i.test(vol.denom) ? 21.2 : 19.0)))),
         _full: true,
         photos: []
       };
@@ -6755,7 +6761,7 @@
     const lblPhoto = phList.find((x) => x.label_text || x.label_check);
     const labelText = c.label_text || lblPhoto?.label_text;
     const labelCheck = c.label_check || lblPhoto?.label_check;
-    const dia = c.diameter_mm != null ? `${num(c.diameter_mm, 2, 0)} mm` : "";
+    const dia = c.diameter_mm != null ? `${num(c.diameter_mm, 2, 0)} mm` : (c._album ? "not recorded" : "");
     const meas = c.measured_mm != null
       ? `${num(c.measured_mm, 2)} mm${c.diameter_delta_pct != null ? ` (${c.diameter_delta_pct > 0 ? "+" : ""}${num(c.diameter_delta_pct, 1)}% vs spec)` : ""}${c.diameter_flag ? " · mismatch >8%" : ""}`
       : "";

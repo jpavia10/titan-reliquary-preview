@@ -59,8 +59,8 @@
     const agOz = pr.combined_silver?.oz ?? mt.oz?.ag;
     const auOz = pr.combined_gold?.oz ?? mt.oz?.au;
     const tiles = [];
-    if (isNum(c.vault)) tiles.push({ k: "Pieces", v: int(c.vault), s: "in the vault", go: "gallery", aria: `${int(c.vault)} pieces in the vault. Open the Gallery` });
-    if (isNum(c.flips)) tiles.push({ k: "Flips", v: int(c.flips), s: b.flips?.usd != null ? money0(b.flips.usd) + " est." : "in 2×2 flips", go: "gallery", aria: `${int(c.flips)} flips. Open the Gallery` });
+    if (isNum(c.vault)) tiles.push({ k: "Pieces", v: int(c.vault), s: isNum(b.albums?.coins) ? `as the ledger counts them, incl. ~${int(b.albums.coins)} album coins` : "as the ledger counts them", go: "gallery", aria: `${int(c.vault)} pieces in the vault. Open the Gallery` });
+    if (isNum(c.flips)) tiles.push({ k: "Flips", v: int(c.flips), s: b.flips?.usd != null ? money0(b.flips.usd) + " est." + (isNum(b.flips.cards) && b.flips.cards !== c.flips ? ` · ${int(b.flips.cards)} of ${int(c.flips)} in the ledger total (${int(c.flips - b.flips.cards)} not yet included)` : "") : "in 2×2 flips", go: "gallery", aria: `${int(c.flips)} flips. Open the Gallery` });
     if (isNum(c.countries)) tiles.push({ k: "Countries", v: int(c.countries), s: continents ? `on ${continents} continents` : "represented", go: "study", aria: `${int(c.countries)} countries. Open the Curator's Study` });
     if (b.albums && isNum(b.albums.folders)) tiles.push({ k: "Albums", v: int(b.albums.folders), s: (isNum(b.albums.coins) ? "~" + int(b.albums.coins) + " coins · " : "") + money0(b.albums.usd), go: "study", aria: `${int(b.albums.folders)} albums. Open the Curator's Study` });
     if (isNum(agOz)) tiles.push({ k: "Silver", v: `${dec(agOz, 2)}<small> oz</small>`, s: "melt " + money0(pr.combined_silver?.melt), go: "vault", aria: `${dec(agOz, 2)} ounces of silver. Open the Vault` });
