@@ -575,6 +575,10 @@
       var edgeN = ctexture(edgeC, { repeat: 1 }); edgeN.repeat.set(150, 1);
       var sideM = new THREE.MeshPhysicalMaterial({ color: 0xcfd0d3, metalness: 1, roughness: 0.3, normalMap: edgeN, normalScale: new THREE.Vector2(1.2, 1.2), envMapIntensity: 1.3 });
       var faceO = new THREE.MeshPhysicalMaterial({ color: 0xd9dadd, metalness: 1, roughness: 1, envMapIntensity: 1.0 });
+      // 1x1 placeholder maps so the final program variant is compiled in the warm-up frame; the real maps swap in later with no recompile
+      var dn = canvasEl(2, 2), dg = dn.getContext("2d"); dg.fillStyle = "rgb(128,128,255)"; dg.fillRect(0, 0, 2, 2);
+      var dr = canvasEl(2, 2), dg2 = dr.getContext("2d"); dg2.fillStyle = "rgb(0,40,0)"; dg2.fillRect(0, 0, 2, 2);
+      faceO.normalMap = ctexture(dn); faceO.roughnessMap = ctexture(dr);
       var faceR = faceO.clone();
       coinMats = [sideM, faceO, faceR]; faceMats = [faceO, faceR]; mats.push(sideM, faceO, faceR);
       function build(parent) {
@@ -594,7 +598,7 @@
     function arcText(g, text, R, cy, radius, angle, bottom, size, val) {
       g.save(); g.translate(R, cy); g.fillStyle = gray(val); g.textAlign = "center"; g.textBaseline = "middle";
       g.font = "600 " + size + 'px "Fraunces", Georgia, serif';
-      var chars = text.split(""), widths = chars.map(function (ch) { return g.measureText(ch).width + size * 0.16; }), total = widths.reduce(function (a, b) { return a + b; }, 0);
+      var chars = text.split(""), widths = chars.map(function (ch) { return g.measureText(ch).width + size * 0.3; }), total = widths.reduce(function (a, b) { return a + b; }, 0);
       var span = total / radius, a0 = bottom ? Math.PI + span / 2 : -span / 2, acc = 0;
       chars.forEach(function (ch, i) {
         var w = widths[i], a = bottom ? a0 - (acc + w / 2) / radius : a0 + (acc + w / 2) / radius; acc += w;
@@ -623,7 +627,7 @@
     }
     function drawObverse(g, N, f) {
       var o = drawCommon(g, N, 150), R = o.R;
-      arcText(g, f.country.toUpperCase(), R, R, R * 0.775, 0, false, R * 0.115, 215);
+      arcText(g, f.country.toUpperCase(), R, R, R * 0.775, 0, false, R * 0.1, 215);
       arcText(g, f.year, R, R, R * 0.775, 0, true, R * 0.125, 215);
       // the owl, frontal, in the manner of the old Athenian tetradrachm
       g.save(); g.translate(R, R * 1.0); var s = R * 0.62; g.scale(s, s);
@@ -714,8 +718,8 @@
     function buildCoin(then) {
       if (coinBuildStarted) return; coinBuildStarted = true;
       var N = Q.tex, f = featured || FALLBACK[0];
-      var a = makeFaceMaps(drawObverse, N, f, function (m) { faceO.normalMap = m.n; faceO.roughnessMap = m.r; faceO.normalScale.set(1, 1); faceO.needsUpdate = true; });
-      var b = makeFaceMaps(drawReverse, N, f, function (m) { faceR.normalMap = m.n; faceR.roughnessMap = m.r; faceR.normalScale.set(1, 1); faceR.needsUpdate = true; });
+      var a = makeFaceMaps(drawObverse, N, f, function (m) { faceO.normalMap = m.n; faceO.roughnessMap = m.r; faceO.normalScale.set(1, 1); });
+      var b = makeFaceMaps(drawReverse, N, f, function (m) { faceR.normalMap = m.n; faceR.roughnessMap = m.r; faceR.normalScale.set(1, 1); });
       var q = a.concat(b); q.push(function () { coinReady = true; coin.visible = true; if (then) then(); });
       var faceO = faceMats[0], faceR = faceMats[1], idx = 0;
       (function run() { if (!alive) return; var s = performance.now(); try { q[idx++](); } catch (e) { if (window.console) console.warn("coin step", e); } if (idx < q.length) setTimeout(run, 0); })();
