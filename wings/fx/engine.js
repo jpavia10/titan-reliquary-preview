@@ -54,10 +54,12 @@
   var want = null;            // {id, intensity, film, tint} last request (survives context loss)
   var raf = 0, running = false, lastDraw = 0, tStart = 0, tPause = 0, frozenT = 0;
   var scaleStep = 0, cal = null, wd = { n: 0, sum: 0, t: 0 };
-  var live = { programs: 0, created: 0, deleted: 0 };
+  var live = { programs: 0, created: 0, deleted: 0, tex: 0 };
   var flash = { t0: -9, strokes: null, x: 0, seed: 0 }, extThunder = 0, thunderTimer = 0, boltTimer = 0;
   var theme = { bg: [0.1, 0.09, 0.08], ink: [0.9, 0.85, 0.75], acc: [0.8, 0.65, 0.3], light: 0 };
   var videoEl = null, videoMap = {};
+  var SAFE_K = 0.72;                       // how much the effect is attenuated over text (0 = off)
+  var safe = { tex: null, cv: null, cx: null, nodes: [], scanAt: 0, dirty: true, t: 0, built: 0, mut: null };
   var fadeMs = 1400, forced = null;
 
   /* ---------- theme colours (read from the CSS tokens of the active atmosphere/World) ---------- */
@@ -90,9 +92,10 @@
     "float fbmQ(vec2 p, int n){ float a=.5, s=0.; for(int i=0;i<6;i++){ if(i>=n) break; s+=a*vn(p); p=p*2.03+vec2(17.1,9.2); a*=.5; } return s; }\n" +
     "vec3 hsv(float h, float s, float v){ vec3 k=clamp(abs(fract(h+vec3(0.,2./3.,1./3.))*6.-3.)-1.,0.,1.); return v*mix(vec3(1.),k,s); }\n";
   var VS_FULL = "#version 300 es\nvoid main(){ vec2 p=vec2(float((gl_VertexID<<1)&2), float(gl_VertexID&2)); gl_Position=vec4(p*2.-1.,0.,1.); }\n";
-  var FS_MAIN = "\nout vec4 outColor;\nvoid main(){ outColor = fx(gl_FragCoord.xy) * uFade; }\n";
-  var FS_MAIN_I = "\nout vec4 outColor;\nvoid main(){ outColor = fxi() * uFade; }\n";
-  var FS_HEAD_I = "#version 300 es\nprecision highp float;\nuniform float uFade, uLight, uInt, uQ, uTime, uFlash; uniform vec3 uBg, uInk, uAcc, uTint;\nin vec4 vA; in vec2 vQ;\n";
+  var FS_SAFE = "uniform sampler2D uSafe; uniform float uSafeK;\n";
+  var FS_MAIN = "\n" + FS_SAFE + "out vec4 outColor;\nvoid main(){ vec4 c = fx(gl_FragCoord.xy) * uFade; float s = texture(uSafe, gl_FragCoord.xy / uRes).r; outColor = c * (1. - uSafeK * s); }\n";
+  var FS_MAIN_I = "\n" + FS_SAFE + "out vec4 outColor;\nvoid main(){ vec4 c = fxi() * uFade; float s = texture(uSafe, gl_FragCoord.xy / uRes).r; outColor = c * (1. - uSafeK * s); }\n";
+  var FS_HEAD_I = "#version 300 es\nprecision highp float;\nuniform vec2 uRes; uniform float uFade, uLight, uInt, uQ, uTime, uFlash; uniform vec3 uBg, uInk, uAcc, uTint;\nin vec4 vA; in vec2 vQ;\n";
 
   function compile(type, src, label) {
     var s = gl.createShader(type);
@@ -158,6 +161,65 @@
     return out.slice(0, 3);     // at most 3 stacked presets: each is a full-screen pass
   }
 
+  /* ---------- text-safe mask: the overlay is attenuated over text so WCAG AA holds whatever the layout is ---------- */
+  var SKIP = "script,style,svg,canvas,video,#titan-fx,#scene-sheet,#tr-splash,[aria-hidden='true']";
+  function scanSafe() {
+    var out = [], w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n, c = 0;
+    while ((n = w.nextNode()) && c < 3000) {
+      var t = n.nodeValue; if (!t || t.length < 2 || !/\S/.test(t)) continue;
+      var e = n.parentElement; if (!e || (e.closest && e.closest(SKIP))) continue;
+      out.push(n); c++;
+    }
+    safe.nodes = out; safe.scanAt = performance.now();
+  }
+  function buildSafe() {
+    if (!gl || !safe.tex || SAFE_K <= 0) return;
+    var vw = window.innerWidth, vh = window.innerHeight, S = 4, W = Math.max(2, Math.ceil(vw / S)), H = Math.max(2, Math.ceil(vh / S));
+    if (!safe.cv) { safe.cv = document.createElement("canvas"); safe.cx = safe.cv.getContext("2d"); }
+    if (safe.cv.width !== W || safe.cv.height !== H) { safe.cv.width = W; safe.cv.height = H; }
+    var cx = safe.cx; cx.fillStyle = "#000"; cx.fillRect(0, 0, W, H); cx.fillStyle = "#fff";
+    var r = document.createRange(), pad = 5;
+    for (var i = 0; i < safe.nodes.length; i++) {
+      var nd = safe.nodes[i]; if (!nd.isConnected) continue;
+      try { r.selectNodeContents(nd); } catch (e) { continue; }
+      var b = r.getBoundingClientRect();
+      if (b.width < 2 || b.height < 2 || b.bottom < -pad || b.top > vh + pad || b.right < -pad || b.left > vw + pad) continue;
+      cx.fillRect((b.left - pad) / S, (b.top - pad) / S, (b.width + 2 * pad) / S, (b.height + 2 * pad) / S);
+    }
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, safe.tex);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, safe.cv);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+    safe.dirty = false; safe.built = performance.now();
+  }
+  function markSafe(delayMs) {
+    safe.dirty = true;
+    if (safe.t) return;
+    safe.t = setTimeout(function () {
+      safe.t = 0;
+      if (!gl) return;
+      if (performance.now() - safe.scanAt > 2500 || safe.mutDirty) { scanSafe(); safe.mutDirty = false; }
+      buildSafe();
+      if (reduced && gl) drawOnce();
+    }, delayMs == null ? 160 : delayMs);
+  }
+  function startSafe() {
+    if (SAFE_K <= 0) return;
+    scanSafe(); buildSafe();
+    if (!safe.listen) {
+      safe.listen = true;
+      window.addEventListener("scroll", function () { if (gl) markSafe(120); }, { passive: true, capture: true });
+      window.addEventListener("resize", function () { if (gl) markSafe(200); });
+      window.addEventListener("hashchange", function () { if (gl) { safe.mutDirty = true; markSafe(350); } });
+      window.addEventListener("titan:atmo", function () { if (gl) { safe.mutDirty = true; markSafe(500); } });
+      if (window.MutationObserver) {
+        var mo = new MutationObserver(function () { safe.mutDirty = true; if (gl) markSafe(700); });
+        mo.observe(document.body, { childList: true, subtree: true });
+      }
+      setInterval(function () { if (gl && running && !document.hidden) markSafe(0); }, 1500);   // catches layout changes nothing else announces (animations, lazy content)
+    }
+  }
+
   /* ---------- canvas / context ---------- */
   function ensureGL() {
     if (gl && !gl.isContextLost()) return true;
@@ -166,7 +228,7 @@
       canvas = document.createElement("canvas");
       canvas.id = "titan-fx"; canvas.setAttribute("aria-hidden", "true");
       canvas.style.cssText = "position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:7;opacity:0;transition:opacity .6s ease;contain:strict";
-      canvas.addEventListener("webglcontextlost", function (e) { e.preventDefault(); if (e.target !== canvas) return; stopLoop(); layers.forEach(function (l) { l.passes = []; }); layers = []; filmLayer = null; live.programs = 0; gl = null; });
+      canvas.addEventListener("webglcontextlost", function (e) { e.preventDefault(); if (e.target !== canvas) return; stopLoop(); layers.forEach(function (l) { l.passes = []; }); layers = []; filmLayer = null; live.programs = 0; gl = null; safe.tex = null; live.tex = 0; });
       canvas.addEventListener("webglcontextrestored", function () { /* handled by ensure on next play */ });
       document.body.appendChild(canvas);
     }
@@ -179,6 +241,11 @@
     gl.disable(gl.DEPTH_TEST); gl.disable(gl.DITHER); gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.clearColor(0, 0, 0, 0);
+    safe.tex = gl.createTexture(); live.tex++; safe.built = 0;
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, safe.tex);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 255]));
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     return true;
   }
   function lostRecover() {
@@ -249,6 +316,7 @@
     var a = tint || theme.acc; set3("uAcc", a[0], a[1], a[2]);
     set3("uTint", a[0], a[1], a[2]);
     set3("uBolt", flash.x, fl[1], flash.seed);
+    set1("uSafeK", SAFE_K); var us = uloc(rec, "uSafe"); if (us !== null) gl.uniform1i(us, 0);
   }
   function drawLayer(l, tNow, fl) {
     var ready = true;
@@ -281,6 +349,7 @@
     var fl = reduced ? [0, 0] : flashValue(now / 1000);
     gl.viewport(0, 0, cw, ch);
     gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, safe.tex);
     var t0 = performance.now(), drawn = false;
     for (var i = 0; i < layers.length; i++) { if (drawLayer(layers[i], tNow, fl)) drawn = true; }
     if (filmLayer) { filmLayer.film = filmAmount(); filmLayer.intensity = 1; if (drawLayer(filmLayer, tNow, fl)) drawn = true; }
@@ -338,6 +407,7 @@
   function releaseGL() {
     if (!gl) return;
     if (vao) { try { gl.deleteVertexArray(vao); } catch (e) { /* ignore */ } vao = null; }
+    if (safe.tex) { try { gl.deleteTexture(safe.tex); } catch (e) { /* ignore */ } safe.tex = null; live.tex--; }
     var ext = null; try { ext = gl.getExtension("WEBGL_lose_context"); } catch (e) { /* ignore */ }
     if (ext) { try { ext.loseContext(); } catch (e) { /* ignore */ } }
     gl = null;
@@ -412,6 +482,7 @@
     if (presets.film && !filmLayer) { filmLayer = makeLayer(presets.film, 1); }
     if (filmLayer) filmLayer.target = filmAmount() > 0 ? 1 : 0;
     sizeCanvas();
+    if (!safe.built || !safe.tex || performance.now() - safe.built > 5000 || safe.dirty) startSafe();
     canvas.style.zIndex = parts[0].def.layer === "back" ? "0" : "7";
     canvas.style.mixBlendMode = "";
     canvas.style.opacity = "1";
@@ -480,7 +551,7 @@
     get supported() { return probe(); },
     owns: function () { return probe(); },              // when true, ambient.js leaves its 2D canvas weather off
     thunder: function (d) { window.dispatchEvent(new CustomEvent("titan:thunder", { detail: d || {} })); },
-    stats: function () { return { programs: live.programs, created: live.created, deleted: live.deleted, layers: layers.length, running: running, scale: LADDER[scaleStep][0], quality: LADDER[scaleStep][1], cost: frameCost.length ? frameCost[frameCost.length - 1] : null, canvas: canvas ? [cw, ch] : null, hasGL: !!gl }; },
+    stats: function () { return { programs: live.programs, textures: live.tex, created: live.created, deleted: live.deleted, layers: layers.length, running: running, scale: LADDER[scaleStep][0], quality: LADDER[scaleStep][1], cost: frameCost.length ? frameCost[frameCost.length - 1] : null, canvas: canvas ? [cw, ch] : null, hasGL: !!gl }; },
     state: function () { return { level: cfg.level, intensity: cfg.intensity, film: cfg.film, reduced: reduced, playing: want ? want.id : null }; },
     setQuality: function (step) { forced = step == null ? null : Math.max(0, Math.min(LADDER.length - 1, step | 0)); if (forced != null) { scaleStep = forced; cal = null; sizeCanvas(); } },
     _lost: lostRecover
