@@ -222,6 +222,7 @@
       b.tabIndex = on ? 0 : -1;
     });
     $$(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + name));
+    if (name === "study" || name === "lab") ensureWingRendered(name);
 
     // 3. Render gallery or study if entering wing and not yet rendered or if body is empty
     if (name === "gallery") {
@@ -242,6 +243,7 @@
       }
     } else if (name === "vault") {
       if (vault) {
+        pendingWings.delete("vault");
         renderVault();
       }
     }
@@ -505,7 +507,7 @@
       renderGallery();
       galleryRendered = true;
     }
-    renderStudy();
+    ensureWingRendered("study");
     if (st && st.drawerScan && !hash.startsWith("coin=")) {
       openDrawer(st.drawerScan, false);
       requestAnimationFrame(() => {
@@ -532,6 +534,32 @@
     updateLiveStatus();
   }
 
+  const pendingWings = new Set();
+  function ensureWingRendered(name) {
+    if (!name || !pendingWings.has(name) || !vault) return;
+    pendingWings.delete(name);
+    if (name === "vault") renderVault();
+    else if (name === "study") renderStudy();
+    else if (name === "lab") renderLab();
+    lazyThumbs();
+    observeReveals();
+  }
+  let deferredWingTimer = 0;
+  function scheduleDeferredWings() {
+    if (deferredWingTimer) return;
+    const ric = window.requestIdleCallback ? (cb) => window.requestIdleCallback(cb, { timeout: 4000 }) : (cb) => setTimeout(cb, 600);
+    const step = () => {
+      deferredWingTimer = 0;
+      const next = ["vault", "study", "lab"].find((w) => pendingWings.has(w));
+      if (!next) return;
+      ensureWingRendered(next);
+      deferredWingTimer = 1;
+      ric(step);
+    };
+    deferredWingTimer = 1;
+    setTimeout(() => ric(step), 800);
+  }
+
   function renderAll() {
     renderHero();
     renderHall();
@@ -542,9 +570,10 @@
       renderGallery();
       galleryRendered = true;
     }
-    renderVault();
-    renderStudy();
-    renderLab();
+    // Vault / Study / Lab are not on screen at boot: build them in idle time (or the moment their wing is opened)
+    ["vault", "study", "lab"].forEach((w) => pendingWings.add(w));
+    ensureWingRendered($(".wing.active")?.dataset.wing || activeWing);
+    scheduleDeferredWings();
     $("#foot-path").innerHTML = `<span class="ft-brand">Titan Reliquary</span><span class="ft-sep" aria-hidden="true"> · </span>Ledger ${esc(vault.ledger_version || "—")} · snapshot ${esc(snapshotLabel())}`;
     const refresh = $("#btn-refresh");
     if (refresh) { refresh.textContent = "↻ Refresh"; refresh.title = "Check for a newer published snapshot and reload"; }
