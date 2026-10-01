@@ -1,0 +1,49 @@
+{
+  "description": "Schema v3 phase tiers. Who may write each field path. Longest matching prefix wins; '*' stands for a list index. Tiers: phase1 = Phase 1 quick pass from a staging photo (also allowed in Phase 2); phase1_5 = Phase 1.5 album scans; phase2 = Phase 2 critical analysis (pro photos + cited sources); owner = only by: owner (or person:<name>); system = only the pipeline (by: script:*). Enforced by tools/pipeline/apply_changes.py for every by: model:* event.",
+  "tiers": {
+    "specimen": {
+      "id": "system", "ser": "system", "photos": "system", "research": "system", "research.open_questions": "phase2", "ledger_text": "system",
+      "type": "phase1", "year_raw": "phase1", "quantity": "phase1", "story": "phase1", "notes": "phase1",
+      "issue": "phase2", "issue.year": "phase1", "issue.mint_marks": "phase1", "issue.mint_text": "phase1", "issue.qualifier": "phase1",
+      "condition": "phase2", "measured": "phase2", "value": "phase2", "housing": "phase2", "housing.location": "owner", "variety": "phase2",
+      "authenticity": "phase2", "provenance_chain": "phase2", "related_specimens": "phase2", "serial_number": "phase2", "tags": "phase2",
+      "acquisition": "owner", "lifecycle": "owner", "insurance": "owner", "invoice_ref": "owner", "seller_type": "owner", "tax_lot": "owner",
+      "disposal_plan": "owner", "sentimental": "owner", "want_priority": "owner", "featured": "owner", "sort_weight": "owner", "storage_env": "owner"
+    },
+    "type": {
+      "id": "system", "country": "system", "issuer": "system",
+      "class": "phase1", "denomination": "phase1",
+      "issues": "phase2", "issues.*.year": "phase1", "issues.*.mint_marks": "phase1", "issues.*.mint_text": "phase1", "issues.*.qualifier": "phase1",
+      "catalogs": "phase2", "composition": "phase2", "nominal": "phase2", "precious": "phase2", "design": "phase2", "legal_tender": "phase2",
+      "tags": "phase2", "series": "phase2", "population": "phase2", "price_guide": "phase2", "die_variety": "phase2", "error_type": "phase2",
+      "rarity_scale": "phase2", "related_types": "phase2", "image_ref": "phase2", "period": "phase2", "ruler": "phase2", "commemorates": "phase2"
+    },
+    "lot": {
+      "id": "system", "logged_at": "system", "melt_usd": "system",
+      "kind": "phase1", "country": "phase1", "year_raw": "phase1", "denom_text": "phase1", "qty": "phase1", "notes": "phase1",
+      "composition_text": "phase2", "asw_oz": "phase2", "agw_oz": "phase2", "est_usd": "phase2", "confidence": "phase2",
+      "storage_text": "owner"
+    },
+    "album": {
+      "slots": "phase1_5", "slots.*.state": "phase1_5", "slots.*.occupant_status": "phase1_5", "slots.*.label": "phase1_5", "slots.*.provenance": "phase1_5",
+      "slots.*.occupant": "phase2",
+      "slots_total": "owner", "slots_filled_claimed": "owner",
+      "id": "system", "family": "system", "binder": "system", "title": "system", "whitman": "system", "denomination_text": "system", "metal_text": "system",
+      "year_start": "system", "year_end": "system", "slots_total_approx": "system", "evidence": "system", "grid_source": "system",
+      "asw_oz_per_slot": "system", "needs_scan": "system", "note": "phase2"
+    },
+    "issuer": {
+      "id": "phase1", "name": "phase1", "iso": "phase1", "continent": "phase1", "from": "phase2", "to": "phase2", "successor": "phase2", "note": "phase2"
+    },
+    "photo": {
+      "": "system"
+    }
+  },
+  "phase1_never": [
+    "ser (serial numbers are assigned by the pipeline and reassigned once after Phase 1)",
+    "condition.* (no grade, strike, luster, toning, cleaned or damage judgement)",
+    "type catalog numbers (catalogs, or a type id with a catalog number: a Phase 1 type id is always {ISO}.X.{denomination-slug})",
+    "value.* and any price (est_usd, price_paid_usd, melt)",
+    "mintage, composition, weights and sizes, design descriptions (Phase 2, with a cited source)"
+  ]
+}

@@ -360,7 +360,7 @@ def drip_block(col, idx):
 def make_version(col, vpath):
     """Version block for index.json. With a version.json (publish.py writes it first) its stamps are used; otherwise derived from the manifest's source time."""
     import os, datetime
-    m = col["manifest"]; ledger = "v2:" + m["content_hash"][:16]
+    m = col["manifest"]; ledger = "v3:" + m["content_hash"][:16]
     if vpath and os.path.exists(vpath):
         v = json.load(open(vpath, encoding="utf-8"))
         return {"generated_at": v["generated_at"], "generated_at_pt": v.get("generated_at_pt", ""), "generated_at_iso": v.get("generated_at_iso", v["generated_at"]), "ledger_version": v.get("ledger_version", ledger)}

@@ -8,8 +8,7 @@ board snapshot). It writes exactly the shape the app read from the v254 Grok pub
 
 Where v2 deliberately dropped a ledger display string (year_line, face_line FX text, label flourishes, free-text tails of
 refs/specs) it is re-derived by the rules below; tools/pipeline/test_parity.py reports every remaining difference.
-Only the Python 3 standard library is used. data/master_catalog.json is NOT generated here (the app does not read it
-from v2; leave the file untouched).
+Only the Python 3 standard library is used. (data/master_catalog.json, a stale v1 file the app never read, was deleted 2026-10-01.)
 """
 import glob, hashlib, json, os, re, sys, unicodedata
 
