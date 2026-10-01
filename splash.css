@@ -1,8 +1,7 @@
-/* Titan Reliquary · cinematic splash v2 ("The Vault", tr51)
-   Shown once per session on the Grand Hall. Everything is namespaced #tr-splash / .ts-*.
-   Layers, back to front: bg → rays → glow → WebGL vault scene → vignette → scrim → grain → copy → flash.
-   .ts-glon = the WebGL scene is rendering (it draws its own grain, vignette and light, so the CSS versions step aside).
-   .ts-nogl = no WebGL / reduced motion: CSS coin, light effects only. */
+/* Titan Reliquary · cinematic splash v3 ("Vault Door")
+   Shown once per session on a plain load. Everything is namespaced #tr-splash / .ts-*.
+   Layers: still (CSS fallback frame) → WebGL canvas (alpha: the final iris wipe is transparent pixels, so the app shows through) → copy → controls.
+   Palette is deliberately neutral: blackened steel, polished silver, one warm tungsten light. No navy, no gold, no neon. */
 
 html:not(.ts-on) #tr-splash { display: none; }
 html.ts-on { overflow: hidden; }
@@ -11,196 +10,64 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 
 #tr-splash {
   position: fixed; inset: 0; z-index: 99999; overflow: hidden;
-  background: #030302; color: #f2ead8;
+  background: #020202; color: #e9e6e0;
   font-family: "Fraunces", Georgia, "Times New Roman", serif;
   -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
-  touch-action: none; overscroll-behavior: none;
-  opacity: 1; transition: opacity .7s ease;
+  touch-action: none; overscroll-behavior: none; cursor: pointer;
+  opacity: 1;
 }
-#tr-splash.ts-out { opacity: 0; pointer-events: none; }
+#tr-splash.ts-handoff { background: transparent; }       /* the canvas now carries the wipe */
+#tr-splash.ts-out { opacity: 0; pointer-events: none; transition: opacity var(--ts-out, .5s) cubic-bezier(.4, 0, .2, 1); }
 #tr-splash * { box-sizing: border-box; }
 
-.ts-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 70% 55% at 50% 36%, rgba(120, 88, 26, .55) 0%, rgba(58, 40, 12, .42) 34%, rgba(10, 7, 3, 0) 70%),
-    radial-gradient(ellipse 120% 90% at 50% 110%, #1d1508 0%, #060503 55%, #020201 100%);
-}
-.ts-rays {
-  position: absolute; left: 50%; top: var(--ts-cy, 36%); width: 170vmax; height: 170vmax; margin: -85vmax 0 0 -85vmax;
-  background: repeating-conic-gradient(from 0deg, rgba(232, 200, 110, .10) 0deg 3deg, rgba(232, 200, 110, 0) 3deg 11deg);
-  -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, .55) 14%, transparent 42%);
-  mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, .55) 14%, transparent 42%);
-  opacity: 0; animation: tsRays 60s linear infinite, tsFadeIn 2.4s ease 1s forwards;
-  mix-blend-mode: screen; will-change: transform;
-}
-.ts-glow {
-  position: absolute; left: 50%; top: var(--ts-cy, 36%); width: 90vmin; height: 90vmin; margin: -45vmin 0 0 -45vmin; border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 214, 120, .55) 0%, rgba(230, 170, 60, .22) 30%, rgba(200, 140, 40, 0) 68%);
-  opacity: 0; mix-blend-mode: screen; will-change: opacity, transform;
-}
-.ts-gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; }
-.ts-gl:active { cursor: grabbing; }
-.ts-vig {
-  position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse 85% 75% at 50% 44%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, .78) 100%);
-}
-.ts-grain {
-  position: absolute; inset: -50%; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  animation: tsGrain 1s steps(6) infinite;
-}
-
-/* When the 3D vault is running it supplies the light, grain and vignette itself */
-.ts-gl { opacity: 0; transition: opacity .5s ease; }
+.ts-gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity .35s ease; }
 #tr-splash.ts-glon .ts-gl { opacity: 1; }
-#tr-splash.ts-glon .ts-rays, #tr-splash.ts-glon .ts-glow, #tr-splash.ts-glon .ts-grain { display: none; }
-#tr-splash.ts-glon .ts-vig { opacity: .45; }
-/* keeps the copy legible over the lit scene */
-.ts-scrim { position: absolute; left: 0; right: 0; bottom: 0; height: 62%; pointer-events: none; opacity: 0; transition: opacity .6s ease;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .04) 8%, rgba(0, 0, 0, .15) 16%, rgba(0, 0, 0, .32) 26%, rgba(0, 0, 0, .52) 38%, rgba(0, 0, 0, .7) 52%, rgba(0, 0, 0, .8) 68%, rgba(0, 0, 0, .86) 100%); }
-#tr-splash.ts-glon .ts-scrim { opacity: 1; }
-#tr-splash.ts-entering .ts-scrim { opacity: 0; transition-duration: .45s; }
 
-/* CSS-only coin, used when WebGL is unavailable */
-.ts-fallback-coin {
-  display: none; position: absolute; left: 50%; top: var(--ts-cy, 36%); width: var(--ts-coin, 260px); aspect-ratio: 1; margin: calc(var(--ts-coin, 260px) / -2) 0 0 calc(var(--ts-coin, 260px) / -2);
-  border-radius: 50%; overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(255, 236, 170, .25), 0 18px 60px -10px rgba(0, 0, 0, .9), 0 0 110px rgba(230, 170, 60, .4);
-  animation: tsCoinTilt 7s ease-in-out infinite alternate;
-}
-.ts-fallback-coin svg { display: block; width: 100%; height: 100%; }
-/* a slow light sweep across the struck face (no 3D needed) */
-.ts-fb-sheen { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; mix-blend-mode: screen;
-  background: linear-gradient(115deg, transparent 30%, rgba(255, 250, 225, .55) 46%, transparent 60%) no-repeat; background-size: 260% 100%; background-position: 120% 0;
-  animation: tsFbSheen 5.5s ease-in-out 1.2s infinite; }
-#tr-splash.ts-nogl .ts-fallback-coin { display: block; }
-#tr-splash.ts-nogl .ts-hint { visibility: hidden; }   /* the fallback coin cannot be dragged */
-#tr-splash.ts-nogl .ts-gl { display: none; }
-/* fallback path = weak/no GPU or reduced motion: keep it light (no giant rotating layer, no grain, no blend modes) */
-#tr-splash.ts-nogl .ts-rays, #tr-splash.ts-nogl .ts-grain { display: none; }
-#tr-splash.ts-nogl .ts-glow { mix-blend-mode: normal; }
-#tr-splash.ts-nogl .ts-l { filter: none; }
+/* Fallback / reduced-motion still frame: lit steel, one silver coin, nothing else */
+.ts-still { display: none; position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease;
+  background:
+    radial-gradient(ellipse 60% 46% at 50% 40%, rgba(255, 236, 205, .20) 0%, rgba(120, 112, 100, .10) 40%, rgba(0, 0, 0, 0) 74%),
+    radial-gradient(ellipse 130% 100% at 50% 40%, #121211 0%, #060606 60%, #010101 100%); }
+.ts-still-coin { position: absolute; left: 50%; top: 40%; width: min(52vmin, 300px); aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%;
+  background:
+    conic-gradient(from 200deg, #6c6d70, #e9eaec 14%, #8b8c90 28%, #f6f6f7 40%, #77787c 56%, #d9dadd 70%, #8d8e92 84%, #6c6d70),
+    #888;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, .35), inset 0 0 0 9px rgba(60, 60, 64, .55), inset 0 0 0 11px rgba(255, 255, 255, .22), 0 22px 60px -10px rgba(0, 0, 0, .9), 0 0 120px rgba(255, 224, 180, .10); }
+.ts-still-coin::after { content: ""; position: absolute; inset: 14%; border-radius: 50%;
+  background: radial-gradient(circle at 36% 30%, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 55%), repeating-radial-gradient(circle, rgba(0, 0, 0, .06) 0 1px, transparent 1px 4px); mix-blend-mode: soft-light; }
+#tr-splash.ts-nogl .ts-still, #tr-splash.ts-reduced .ts-still { display: block; }
+#tr-splash.ts-nogl .ts-gl, #tr-splash.ts-reduced .ts-gl { display: none; }
+#tr-splash.ts-stillon .ts-still { opacity: 1; }
 
-/* Copy block */
-.ts-copy {
-  position: absolute; left: 0; right: 0; bottom: 0; padding: 0 20px max(26px, env(safe-area-inset-bottom));
-  display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none;
-}
-.ts-copy > * { pointer-events: auto; }
-.ts-eyebrow {
-  --ls: .8em; font-size: clamp(9px, 1.5vmin + 4px, 12px); letter-spacing: var(--ls); text-transform: uppercase; color: #a8925a; margin-bottom: 14px;
-  opacity: 0; padding-left: var(--ls);
-}
-.ts-run .ts-eyebrow { animation: tsEyebrow 1.6s cubic-bezier(.2, .8, .2, 1) 1.9s forwards; }
-.ts-title { margin: 0; font-weight: 600; line-height: .96; display: flex; flex-direction: column; align-items: center; }
-.ts-line { display: block; white-space: nowrap; }
-.ts-line-1 { font-size: clamp(44px, 10.5vmin + 6px, 116px); letter-spacing: .16em; padding-left: .16em; }
-.ts-line-2 { font-size: clamp(15px, 3.2vmin + 3px, 34px); letter-spacing: .62em; padding-left: .62em; margin-top: .55em; font-weight: 500; }
-.ts-l {
-  display: inline-block; opacity: 0;
-  background: linear-gradient(100deg, #6d5a2a 0%, #d9c17a 30%, #fff7da 46%, #e2bd55 60%, #6d5a2a 100%);
-  background-size: 260% 100%; background-position: 100% 0;
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
-  filter: drop-shadow(0 2px 14px rgba(200, 150, 40, .35));
-}
-.ts-run .ts-l {
-  animation: tsLetter .95s cubic-bezier(.2, .8, .2, 1) calc(2.1s + var(--i) * .055s) forwards,
-             tsShimmer 5.5s ease-in-out calc(4.2s + var(--i) * .04s) infinite;
-}
-.ts-rule { position: relative; height: 1px; width: 0; margin: 20px 0 14px; background: linear-gradient(90deg, transparent, #c8a94a 30%, #f3dea0 50%, #c8a94a 70%, transparent); }
-.ts-rule::after { content: ""; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: #f3dea0; transform: rotate(45deg); box-shadow: 0 0 12px 2px rgba(243, 222, 160, .7); }
-.ts-run .ts-rule { animation: tsRule 1.4s cubic-bezier(.2, .8, .2, 1) 3.05s forwards; }
-.ts-tag { margin: 0 0 10px; font-size: clamp(12px, 1.6vmin + 5px, 16px); font-style: italic; letter-spacing: .12em; color: #c9b783; opacity: 0; }
-.ts-run .ts-tag { animation: tsUp .9s ease 3.3s forwards; }
-.ts-feature { margin: 0 0 20px; min-height: 1.3em; display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: .1em .8em; opacity: 0; visibility: hidden; font-size: clamp(12px, 1.4vmin + 5px, 15px); color: #efe2bd; }
-.ts-feature.ts-has { visibility: visible; }
-.ts-feature-k { font-size: .72em; letter-spacing: .32em; text-transform: uppercase; color: #b39a5c; padding-left: .32em; }
-.ts-feature-v { letter-spacing: .06em; font-weight: 500; }
-.ts-run .ts-feature { animation: tsUp .9s ease 3.5s forwards; }
+/* Copy: small, quiet, only at the end */
+.ts-copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 20px calc(max(24px, env(safe-area-inset-bottom)) + 1.5vh);
+  display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none; }
+.ts-feature { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; will-change: opacity, transform; }
+.ts-f-country { font-size: clamp(11px, 1.2vmin + 7px, 15px); font-weight: 500; letter-spacing: .46em; padding-left: .46em; text-transform: uppercase; color: #ece8e1; text-shadow: 0 1px 14px rgba(0, 0, 0, .8); }
+.ts-f-meta { font-size: clamp(11px, 1.1vmin + 6px, 14px); font-weight: 400; font-style: italic; letter-spacing: .14em; color: #b5b1a9; text-shadow: 0 1px 12px rgba(0, 0, 0, .8); }
+.ts-f-meta::before { content: ""; display: block; width: 42px; height: 1px; margin: 0 auto 12px; background: linear-gradient(90deg, transparent, rgba(236, 232, 225, .6), transparent); }
+.ts-mark { margin-top: 22px; font-size: 10px; letter-spacing: .62em; padding-left: .62em; text-transform: uppercase; color: #8d8982; opacity: 0; }
 
-.ts-stats { display: flex; gap: clamp(18px, 5vw, 46px); margin-bottom: 26px; opacity: 0; }
-.ts-run .ts-stats { animation: tsUp .9s ease 3.65s forwards; }
-.ts-stat { display: flex; flex-direction: column; align-items: center; min-width: 64px; }
-.ts-stat + .ts-stat { position: relative; }
-.ts-stat + .ts-stat::before { content: ""; position: absolute; left: calc(clamp(18px, 5vw, 46px) / -2); top: 12%; bottom: 12%; width: 1px; background: linear-gradient(transparent, rgba(200, 169, 74, .5), transparent); }
-.ts-num { font-size: clamp(22px, 3.4vmin + 8px, 38px); font-weight: 600; font-variant-numeric: tabular-nums; color: #f6e7b4; letter-spacing: .02em; }
-.ts-lab { margin-top: 4px; font-size: 10px; letter-spacing: .32em; text-transform: uppercase; color: #8d7a48; padding-left: .32em; }
-
-.ts-enter {
-  position: relative; appearance: none; cursor: pointer; border: 0; outline: 0; color: #1a1305; font: inherit;
-  font-size: clamp(12px, 1.5vmin + 5px, 15px); font-weight: 700; letter-spacing: .34em; text-transform: uppercase; padding: 17px 34px 17px 38px;
-  border-radius: 999px; background: linear-gradient(180deg, #f8e7ac 0%, #e0b94f 52%, #b8892b 100%);
-  box-shadow: 0 0 0 1px rgba(255, 236, 170, .55), 0 10px 40px -8px rgba(230, 170, 50, .6), inset 0 1px 0 rgba(255, 255, 255, .7), inset 0 -2px 6px rgba(110, 70, 10, .5);
-  opacity: 0; transform: translateY(14px); overflow: hidden; display: inline-flex; align-items: center; gap: .9em;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-.ts-run .ts-enter { animation: tsEnterIn .9s cubic-bezier(.2, .8, .2, 1) 3.95s forwards, tsPulse 2.6s ease-in-out 5s infinite; }
-.ts-enter::before { content: ""; position: absolute; top: 0; bottom: 0; width: 46%; left: -60%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .75), transparent); transform: skewX(-18deg); animation: tsSweep 3.4s ease-in-out 5.2s infinite; }
-.ts-enter svg { width: 1.15em; height: 1.15em; flex: none; transition: transform .25s ease; }
-.ts-enter:hover, .ts-enter:focus-visible { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 0 1px rgba(255, 244, 200, .9), 0 14px 54px -6px rgba(255, 200, 70, .85), inset 0 1px 0 #fff, inset 0 -2px 6px rgba(110, 70, 10, .5); }
-.ts-enter:hover svg, .ts-enter:focus-visible svg { transform: translateX(4px); }
-.ts-enter:focus-visible { box-shadow: 0 0 0 3px #fff, 0 0 0 6px #c8a94a, 0 14px 54px -6px rgba(255, 200, 70, .85); }
-.ts-hint { margin-top: 14px; font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: #6f6140; opacity: 0; padding-left: .28em; }
-.ts-run .ts-hint { animation: tsUp .9s ease 4.8s forwards; }
-.ts-skip {
-  position: absolute; top: max(16px, env(safe-area-inset-top)); right: 18px; z-index: 3; appearance: none; background: none; border: 1px solid rgba(200, 169, 74, .3); color: #a8925a;
-  font: inherit; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; padding: 9px 14px 9px 17px; border-radius: 999px; cursor: pointer; opacity: 0; transition: color .2s, border-color .2s, background .2s;
-}
-.ts-run .ts-skip { animation: tsUp .8s ease 1s forwards; }
-.ts-skip:hover, .ts-skip:focus-visible { color: #fff2c4; border-color: #e0c56d; background: rgba(200, 169, 74, .12); outline: 0; }
-.ts-sound {
-  position: absolute; top: max(16px, env(safe-area-inset-top)); left: 18px; z-index: 3; appearance: none; width: 40px; height: 40px; padding: 0; display: grid; place-items: center;
-  background: none; border: 1px solid rgba(200, 169, 74, .3); border-radius: 50%; color: #a8925a; cursor: pointer; opacity: 0; transition: color .2s, border-color .2s, background .2s;
-}
+.ts-skip, .ts-sound { position: absolute; top: max(16px, env(safe-area-inset-top)); z-index: 3; appearance: none; background: rgba(8, 8, 8, .35); color: #b9b5ad; cursor: pointer;
+  border: 1px solid rgba(220, 216, 208, .22); opacity: 0; transition: color .2s, border-color .2s, background .2s; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.ts-skip { right: 18px; font: inherit; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; padding: 10px 14px 10px 17px; border-radius: 999px; }
+.ts-sound { left: 18px; width: 40px; height: 40px; padding: 0; display: grid; place-items: center; border-radius: 50%; }
 .ts-sound svg { width: 20px; height: 20px; }
 .ts-sound .ts-snd-waves { display: none; }
 .ts-sound.ts-snd-on .ts-snd-waves { display: inline; }
 .ts-sound.ts-snd-on .ts-snd-x { display: none; }
-.ts-sound.ts-snd-on { color: #f3dea0; border-color: rgba(224, 197, 109, .7); }
-.ts-run .ts-sound { animation: tsUp .8s ease 1s forwards; }
-.ts-sound:hover, .ts-sound:focus-visible { color: #fff2c4; border-color: #e0c56d; background: rgba(200, 169, 74, .12); outline: 0; }
+.ts-sound.ts-snd-on { color: #f1efe9; border-color: rgba(240, 236, 228, .6); }
+.ts-run .ts-skip, .ts-run .ts-sound { animation: tsFade .8s ease 1.1s forwards; }
+.ts-skip:hover, .ts-skip:focus-visible, .ts-sound:hover, .ts-sound:focus-visible { color: #fff; border-color: rgba(255, 255, 255, .7); background: rgba(255, 255, 255, .1); outline: 0; }
 .ts-skip:focus-visible, .ts-sound:focus-visible { box-shadow: 0 0 0 2px #fff; }
+#tr-splash.ts-handoff .ts-skip, #tr-splash.ts-handoff .ts-sound { opacity: 0; animation: none; transition: opacity .25s ease; }
 
-/* Enter transition */
-.ts-flash { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(circle at 50% 38%, #fffbe8 0%, #ffe28a 30%, #d99a2b 70%, #6b4510 100%); }
-#tr-splash.ts-entering .ts-copy { transition: opacity .35s ease, transform .5s ease; opacity: 0; transform: translateY(24px); pointer-events: none; }
-#tr-splash.ts-entering .ts-skip, #tr-splash.ts-entering .ts-sound { opacity: 0; animation: none; transition: opacity .3s ease; }
+@keyframes tsFade { to { opacity: 1; } }
+@media (max-height: 520px) { .ts-copy { padding-bottom: 18px; } .ts-mark { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ts-skip, .ts-sound { animation-duration: .3s !important; animation-delay: .2s !important; } }
 
-@keyframes tsFadeIn { to { opacity: 1; } }
-@keyframes tsRays { to { transform: rotate(360deg); } }
-@keyframes tsGrain { 0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); } 60% { transform: translate(-2%, -1%); } 80% { transform: translate(3%, 3%); } 100% { transform: translate(0, 0); } }
-@keyframes tsEyebrow { from { opacity: 0; letter-spacing: calc(var(--ls) * 1.6); } to { opacity: 1; letter-spacing: var(--ls); } }
-@keyframes tsLetter { 0% { opacity: 0; transform: translateY(.4em) scale(1.12); filter: blur(12px) drop-shadow(0 2px 14px rgba(200, 150, 40, .35)); } 100% { opacity: 1; transform: none; filter: blur(0) drop-shadow(0 2px 14px rgba(200, 150, 40, .35)); } }
-@keyframes tsShimmer { 0%, 55% { background-position: 100% 0; } 100% { background-position: -60% 0; } }
-@keyframes tsRule { to { width: min(340px, 64vw); } }
-@keyframes tsUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-@keyframes tsEnterIn { from { opacity: 0; transform: translateY(14px) scale(.94); } to { opacity: 1; transform: none; } }
-@keyframes tsPulse { 0%, 100% { box-shadow: 0 0 0 1px rgba(255, 236, 170, .55), 0 10px 40px -8px rgba(230, 170, 50, .55), inset 0 1px 0 rgba(255, 255, 255, .7), inset 0 -2px 6px rgba(110, 70, 10, .5); } 50% { box-shadow: 0 0 0 1px rgba(255, 244, 200, .85), 0 12px 60px -4px rgba(255, 196, 70, .95), inset 0 1px 0 rgba(255, 255, 255, .8), inset 0 -2px 6px rgba(110, 70, 10, .5); } }
-@keyframes tsSweep { 0% { left: -60%; } 40%, 100% { left: 130%; } }
-@keyframes tsCoinTilt { from { transform: perspective(900px) rotateY(-16deg) rotateX(4deg); } to { transform: perspective(900px) rotateY(16deg) rotateX(-3deg); } }
-@keyframes tsFbSheen { 0%, 20% { background-position: 120% 0; } 70%, 100% { background-position: -30% 0; } }
-
-@media (max-width: 480px) { .ts-eyebrow { --ls: .36em; } .ts-lab { letter-spacing: .2em; } .ts-line-2 { letter-spacing: .5em; padding-left: .5em; } }
-
-/* Short landscape phones: tighten so the button always fits */
-@media (max-height: 560px) {
-  .ts-eyebrow, .ts-hint { display: none; }
-  .ts-rule { margin: 12px 0 8px; }
-  .ts-tag { margin-bottom: 10px; }
-  .ts-stats { margin-bottom: 14px; }
-  .ts-feature { margin-bottom: 10px; }
-  .ts-enter { padding: 12px 26px 12px 30px; }
-}
-
-/* Reduced motion: no loop animation, no spin, quick fades */
-@media (prefers-reduced-motion: reduce) {
-  #tr-splash .ts-rays, #tr-splash .ts-grain, #tr-splash .ts-fb-sheen, #tr-splash .ts-enter, #tr-splash .ts-enter::before, #tr-splash .ts-l { animation-iteration-count: 1 !important; }
-  .ts-run .ts-l { animation: tsFadeIn .4s ease .2s forwards; }
-  .ts-run .ts-eyebrow, .ts-run .ts-tag, .ts-run .ts-feature, .ts-run .ts-stats, .ts-run .ts-hint, .ts-run .ts-skip, .ts-run .ts-sound { animation: tsFadeIn .4s ease .3s forwards; }
-  .ts-run .ts-enter { animation: tsFadeIn .4s ease .4s forwards; transform: none; }
-  .ts-run .ts-rule { animation: tsRule .4s ease .3s forwards; }
-  .ts-enter::before { display: none; }
-  #tr-splash .ts-fallback-coin { animation: none; transform: none; }
-  #tr-splash { transition-duration: .25s; }
-}
+/* End-of-sequence type: opacity, lift and tracking are driven per frame by splash.js from the timeline (deterministic, frame-drop safe) */
+.ts-feature { transform: translateY(10px); }
+.ts-f-country { letter-spacing: .62em; padding-left: .62em; }
+.ts-f-kicker { font-size: 10px; letter-spacing: .5em; padding-left: .5em; text-transform: uppercase; font-style: normal; color: #9a968e; margin-bottom: 2px; text-shadow: 0 1px 10px rgba(0, 0, 0, .8); }
+.ts-f-country { margin-top: 2px; }
