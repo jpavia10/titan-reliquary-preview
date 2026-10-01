@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Opus integrator (one art queue; tr70 art)
+* Art queue consolidated: Grok makes images AND video with sound. One Drive queue `art-requests (Grok: images + video)/` -> `art-incoming (AI images + video)/`, rules doc `ART_START_HERE (for Grok: images + video)`, command "Titan: process the art requests". Deliver every file under 9 MB (add `_web` 720p copies of videos).
+* tr70 live: Grok v2 theme art (take1 for Prism, Midnight Gallery, The Mint, Shipwreck, Fireside Den). Splash clips are pending `artreq_20261001-2010_splash-film-web` (the originals are 11-17 MB, over the 10 MB download cap).
+
 ### [2026-10-01 PT] — Claude/Sonnet (price history + portfolio value, see notes/agents/prices.md)
 * New `collection/prices/` (spot_daily.jsonl, latest.json; written only by `tools/prices/fetch_prices.py`, run daily by `.github/workflows/prices.yml`), `value.portfolio_daily` + `data/prices.json`, Hall terminal defaults to Portfolio value with live quote. Committed prices hold only the two known ledger quotes; the first Action run backfills from 2026-09-11. Commit the workflow via the GitHub connector if a push is refused.
 
