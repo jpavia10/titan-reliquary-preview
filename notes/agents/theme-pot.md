@@ -13,6 +13,19 @@ consolidate, rename, re-vibe, take creative liberty. Rebuild one at a time ("pul
 5. **Stable ids.** Keep the old `data-atmo` id when a World descends from an old theme, so saved preferences carry over.
 6. **One utility theme.** "Clear" (from notepad): maximum contrast, no effects, large type. Dad's daytime default. Not a World.
 
+## Signature standard (owner rule, 2026-10-01): every NEW World ships as Signature, never as Classic
+"Classic" exists only for the old 20 while they wait in the pot. A new or rebuilt World is not merged until it passes all of this:
+1. **Manifest only:** tokens (CSS custom properties) + art + fx + scene ids. No structural/layout overrides, no per-page selector hacks,
+   no `!important` wars. It must work unchanged on any wing and survive a base-layout redesign.
+2. **Art:** photoreal hero (`art/themes/{id}.webp`, 1600x1000, <=250 KB) and card (`{id}-card.webp`, 640x400, <=60 KB) from
+   `tools/art/render_themes.py` (re-runnable), self-reviewed: no plasticky, flat-lit, noisy or "cheap CG" frames.
+3. **Effect:** a TitanFX preset (or explicitly none), adaptive quality, pauses when hidden, reduced-motion respected.
+4. **Ambience:** a TitanGen scene built on real recordings; sound keeps playing in the background unless the user opted out.
+5. **Readability:** WCAG AA on every wing (`tools/themes/audit.js` = 0 token-pair fails), body text >= 16 px, Dad-readable.
+6. **Performance:** Pixel 7 emulation at 4x CPU: Hall scroll >= 50 fps with the World's FX + ambience running; only the active
+   World's assets load at boot; no page errors; no leaks across 20 World switches.
+7. **Proof:** phone + desktop screenshots of 3 wings in `notes/agents/worlds/{id}/`, and a notes entry. The integrator checks it before merging.
+
 ## Audit of the 20 → the new pot
 | Old (id) | Problem | New World | Vibe / hero render | FX | Ambience |
 |---|---|---|---|---|---|

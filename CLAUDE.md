@@ -33,6 +33,7 @@ Last verified: 2026-10-01 (build tr55).
 4. Keep Dad-readable (high contrast, large type) and offline PWA working.
 5. Never print, copy, or commit any GitHub token. Cloud sessions use the GitHub connection.
 6. Anything worth keeping gets backed up to the Drive folder above.
+7. **Themes ("Worlds"):** every new or rebuilt theme ships at the Signature standard in `notes/agents/theme-pot.md` (manifest-only tokens, photoreal art, GPU effect, real-recording ambience, AA contrast, perf budget). Never add a theme the old "Classic" way.
 
 ## Photo workflow (owner's intent, confirmed in chat 2026-09-28)
 1. Phase 1: photo each coin; owner pen-labels one side with country, year, denomination. AI generates metadata from the photo.
