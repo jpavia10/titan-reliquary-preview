@@ -192,6 +192,19 @@ class Pipeline(unittest.TestCase):
         tmp = sandbox()                                                                                                                         # clearing a judgement needs no photo
         self.assertEqual(self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [ev(entity="specimen", id="C001", field="condition.grade", new=None, source="owner asked to clear")])).returncode, 0)
 
+    def test_no_private_paths_in_collection_or_docs(self):
+        import re
+        bad = re.compile(r"/home/\w+|/Users/\w+|C:\\Users|ghp_[A-Za-z0-9]{20}|github_pat_|[\w.]+@gmail\.com")
+        hits = []
+        for top in ("collection", "docs"):
+            for root, dirs, files in os.walk(os.path.join(ROOT, top)):
+                dirs[:] = [d for d in dirs if d != "_incoming"]
+                for f in files:
+                    if f.endswith((".json", ".jsonl", ".md", ".txt")):
+                        for n, ln in enumerate(open(os.path.join(root, f), encoding="utf-8", errors="replace"), 1):
+                            if bad.search(ln): hits.append(f"{os.path.relpath(os.path.join(root, f), ROOT)}:{n}")
+        self.assertEqual(hits, [])
+
     def test_field_reference_is_current(self):
         r = run(os.path.join(HERE, "field_reference.py"), "--check")
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)

@@ -15,6 +15,7 @@ import build_app_data as B
 import display as D
 
 CARRY = ("board", "metals", "age", "drip", "value", "moments", "flags", "world", "albums_glance", "photos", "requests", "counts", "root", "policy", "precious")
+NEUTRAL_ROOT = "Titan Reliquary ledger"          # the ledger index carried a local machine path here; it is private and unused by the app, so it is never copied
 LOT_EXTRA = ("asw_oz", "agw_oz", "label", "cat", "mint", "face", "face_line", "continent", "contents", "qty")
 
 def main(data, coll, force=False):
@@ -41,7 +42,7 @@ def main(data, coll, force=False):
     fp = {sid: {k: r[k] for k in ("melt", "melt_raw", "asw_source") if k in r} for sid, r in det.items() if "asw_source" in r or "melt" in r}
     board = {"source": "ledger v254 (Grok)", "snapshot_of": {"ledger_version": idx["ledger_version"], "generated_at": idx["generated_at"], "content_hash": idx["content_hash"]},
              "authority": "Board totals (Ag oz, Au oz, grand total, album value) are authoritative per owner 2026-09-30: 'all silver is logged from Grok, use that info'. They are not recomputed from itemized records; records only move them by their own change since this snapshot (see basis).",
-             "basis": basis, "index": {k: idx[k] for k in CARRY}, "issuer_legacy_name": legacy, "flip_precious": fp, "lot_display": disp}
+             "basis": basis, "index": {**{k: idx[k] for k in CARRY}, "root": NEUTRAL_ROOT}, "issuer_legacy_name": legacy, "flip_precious": fp, "lot_display": disp}
     with open(out, "w", encoding="utf-8", newline="\n") as f:
         json.dump(board, f, ensure_ascii=False, sort_keys=False, indent=0, separators=(",", ": ")); f.write("\n")
     print(f"wrote {out}: basis {basis}")
