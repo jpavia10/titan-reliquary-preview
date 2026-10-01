@@ -10,10 +10,17 @@
   const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const clone = (o) => JSON.parse(JSON.stringify(o));
 
-  const DEF = { scene: "off", mix: null, vol: 0.55, mus: 0.9, amb: 0.9, bass: 0, mid: 0, treble: 0, motion: null, bgPause: false };
+  const DEF = { scene: "off", mix: null, mine: [], vol: 0.55, mus: 0.9, amb: 0.9, bass: 0, mid: 0, treble: 0, motion: null, bgPause: false };
   let st = clone(DEF);
   try { Object.assign(st, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) { /* storage blocked */ }
-  if (st.scene !== "off" && st.scene !== "custom" && !G.SCENES[st.scene]) st.scene = "off";
+  if (G.ALIASES && G.ALIASES[st.scene]) st.scene = G.ALIASES[st.scene];
+  if (!Array.isArray(st.mine)) st.mine = [];
+  const userScene = (id) => st.mine.find((u) => u.id === id);
+  if (st.scene !== "off" && st.scene !== "custom" && !G.SCENES[st.scene] && !userScene(st.scene)) st.scene = "off";
+  /* "My mix": the mixer's current layers, saved on every change under its own key */
+  const MYKEY = "titan.mymix.v1";
+  const saveMine = () => { try { if (st.mix) localStorage.setItem(MYKEY, JSON.stringify(st.mix)); } catch (e) { /* ignore */ } };
+  const loadMine = () => { try { return JSON.parse(localStorage.getItem(MYKEY) || "null"); } catch (e) { return null; } };
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) { /* ignore */ } };
 
   window.TITAN_BG_PAUSE = !!st.bgPause;
@@ -21,7 +28,9 @@
   G.setVolume(st.vol); G.setLevels(st.mus, st.amb); G.setTone(st.bass, st.mid, st.treble);
   if (st.motion != null && window.TitanAmbient && window.TitanAmbient.setVisualEnabled) window.TitanAmbient.setVisualEnabled(!!st.motion);
 
-  const sceneName = () => (st.scene === "custom" ? "Custom mix" : st.scene === "off" ? "" : G.SCENES[st.scene].name);
+  const sceneName = () => (st.scene === "custom" ? "My mix" : st.scene === "off" ? "" : userScene(st.scene) ? userScene(st.scene).name : (G.SCENES[st.scene] || { name: "" }).name);
+  const sceneBtn = (id, s) => `<button type="button" class="ss-scene" data-scene="${id}" aria-pressed="false"><span class="i" aria-hidden="true">${s.icon}</span><span class="n">${esc(s.name)}</span><span class="d">${esc(s.desc)}</span></button>`;
+  const mixRow = (id) => { const b = G.BEDS[id]; return `<div class="ss-mrow" data-row="${id}"><button type="button" class="ss-mi" data-bed="${id}" aria-pressed="false" aria-label="${esc(b.label)} on or off"><span aria-hidden="true">${b.icon}</span></button><label class="ss-ml" for="ss-m-${id}">${esc(b.label)}${b.kind === "event" ? '<small>now and then</small>' : ""}</label><input type="range" id="ss-m-${id}" data-level="${id}" min="0" max="1" step="0.01" aria-label="${esc(b.label)} level"><span class="ss-mn" aria-hidden="true"></span></div>`; };
 
   /* ---------- markup ---------- */
   const sheet = document.createElement("div");
@@ -34,25 +43,42 @@
   <div class="ss-card" role="dialog" aria-modal="true" aria-labelledby="ss-title">
     <div class="ss-top">
       <div class="ss-head"><h2 class="ss-title" id="ss-title">Scene Studio</h2><button type="button" class="ss-x" id="ss-close" aria-label="Close Scene Studio">×</button></div>
+      <!-- THEMES-TABS:begin -->
+      <div class="ss-tabs" role="tablist" aria-label="Scene Studio sections">
+        <button type="button" class="ss-tab" role="tab" id="ss-tab-scenes" data-tab="scenes" aria-controls="ss-p-scenes" aria-selected="false">Scenes</button>
+        <button type="button" class="ss-tab" role="tab" id="ss-tab-themes" data-tab="themes" aria-controls="ss-p-themes" aria-selected="true">Themes</button>
+        <button type="button" class="ss-tab" role="tab" id="ss-tab-sound" data-tab="sound" aria-controls="ss-p-sound" aria-selected="false">Sound</button>
+      </div>
+      <!-- THEMES-TABS:end -->
       <p class="ss-status" id="ss-status" role="status" aria-live="polite"></p>
       <div class="ss-master"><label for="ss-vol">Volume</label><input type="range" id="ss-vol" min="0" max="1" step="0.01" aria-label="Master volume"><span class="ss-vol-n" id="ss-vol-n"></span></div>
       <div class="ss-btnrow"><button type="button" class="ss-btn primary" id="ss-play">▶ Play</button><button type="button" class="ss-btn off" id="ss-off">■ Off</button></div>
     </div>
-    <h3 class="ss-h">Pick a scene</h3>
-    <p class="ss-sub">One tap sets the lighting, the sounds and the music together.</p>
-    <div class="ss-scenes" id="ss-scenes">${G.SCENE_ORDER.map((id) => { const s = G.SCENES[id]; return `<button type="button" class="ss-scene" data-scene="${id}" aria-pressed="false"><span class="i" aria-hidden="true">${s.icon}</span><span class="n">${esc(s.name)}</span><span class="d">${esc(s.desc)}</span></button>`; }).join("")}</div>
-    <h3 class="ss-h">Lighting</h3>
-    <div class="ss-chips" id="ss-atmos">${atmoCards.map((a) => `<button type="button" class="ss-chip" data-atmo="${a.val}" aria-pressed="false"><span class="sw ${a.sw}" aria-hidden="true"></span>${esc(a.name)}</button>`).join("")}</div>
-    <details class="ss-details" id="ss-build"><summary>Build your own sound</summary><div class="in">
-      <p class="ss-sub">Tap to switch each sound on or off.</p>
-      <div class="ss-chips" id="ss-beds">${G.BED_ORDER.map((id) => `<button type="button" class="ss-chip" data-bed="${id}" aria-pressed="false"><span aria-hidden="true">${G.BEDS[id].icon}</span>${esc(G.BEDS[id].label)}</button>`).join("")}</div>
-      <h3 class="ss-h">Music (made live, never downloaded)</h3>
+    <!-- THEMES-TABS:panel-scenes --><div class="ss-panel" id="ss-p-scenes" role="tabpanel" aria-labelledby="ss-tab-scenes" hidden>
+    <h3 class="ss-h">Sound scenes</h3>
+    <p class="ss-sub">Real recordings, layered, with soft music underneath. One tap sets the sound and the lighting.</p>
+    <div class="ss-scenes" id="ss-scenes">${G.SCENE_ORDER.map((id) => sceneBtn(id, G.SCENES[id])).join("")}</div>
+    <div id="ss-mine-wrap" hidden><h3 class="ss-h">My scenes</h3><div class="ss-scenes" id="ss-mine"></div></div>
+    <details class="ss-details" id="ss-worlds"><summary>Sounds of the Worlds</summary><div class="in">
+      <p class="ss-sub">The sound each World plays by default. Tap one to hear it on its own.</p>
+      <div class="ss-scenes">${G.WORLD_ORDER.map((id) => sceneBtn(id, G.SCENES[id])).join("")}</div></div></details>
+    </div><!-- /scenes panel -->
+    <!-- THEMES-TABS:panel-themes --><div class="ss-panel" id="ss-p-themes" role="tabpanel" aria-labelledby="ss-tab-themes"><div id="ss-themes"></div></div>
+    <!-- THEMES-TABS:panel-sound --><div class="ss-panel" id="ss-p-sound" role="tabpanel" aria-labelledby="ss-tab-sound" hidden>
+    <details class="ss-details" id="ss-build"><summary>Build your own</summary><div class="in">
+      <p class="ss-sub">Layer any recordings. Drag a slider up to add a sound; all the way down removes it. Saved automatically as My mix.</p>
+      ${G.BED_GROUPS.map((grp) => `<h4 class="ss-gh">${esc(grp)}</h4>` + G.BED_ORDER.filter((id) => G.BEDS[id].group === grp).map(mixRow).join("")).join("")}
+      <h4 class="ss-gh">Music (made live, never downloaded)</h4>
       <div class="ss-chips" id="ss-music">
         <button type="button" class="ss-chip" data-mus="pad" aria-pressed="false">Soft pads</button>
         <button type="button" class="ss-chip" data-mus="piano" aria-pressed="false">Piano</button>
         <button type="button" class="ss-chip" data-mus="bells" aria-pressed="false">Bells</button>
         <button type="button" class="ss-chip" data-mus="beat" aria-pressed="false">Lo-fi beat</button>
-      </div></div></details>
+      </div>
+      <h4 class="ss-gh">Keep this mix</h4>
+      <div class="ss-savebox"><input type="text" id="ss-savename" maxlength="30" placeholder="Name this scene" aria-label="Name for the new scene"><button type="button" class="ss-btn" id="ss-save">Save as a scene</button></div>
+      <div class="ss-btnrow"><button type="button" class="ss-btn" id="ss-loadmine">Load My mix</button><button type="button" class="ss-btn" id="ss-clearmix">Clear all</button></div>
+      <p class="ss-note" id="ss-savemsg" role="status" aria-live="polite"></p></div></details>
     <details class="ss-details"><summary>Mix and tone</summary><div class="in">
       <div class="ss-row"><span>Music</span><input type="range" id="ss-mus" min="0" max="1" step="0.01" aria-label="Music level"></div>
       <div class="ss-row"><span>Ambience</span><input type="range" id="ss-amb" min="0" max="1" step="0.01" aria-label="Ambience level"></div>
@@ -70,6 +96,7 @@
       <label class="ss-check"><input type="checkbox" id="ss-bg"><span>Pause sound when the app is in the background</span></label>
       <p class="ss-note">By default sound keeps playing when you switch apps or lock the phone.</p>
       <div id="ss-moved"></div></div></details>
+    </div><!-- /sound panel -->
   </div>`;
   document.body.appendChild(sheet);
   /* TitanFX hook (effects control in Settings) */ if (window.TitanFXUI) window.TitanFXUI.mount(sheet);
@@ -98,7 +125,14 @@
     sheet.querySelectorAll(".ss-scene").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.scene === st.scene)));
     sheet.querySelectorAll("[data-atmo]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.atmo === lastAtmo)));
     const m = st.mix || {};
-    sheet.querySelectorAll("[data-bed]").forEach((b) => b.setAttribute("aria-pressed", String(!!(m.beds && m.beds[b.dataset.bed] > 0))));
+    sheet.querySelectorAll(".ss-mrow").forEach((r) => {
+      const id = r.dataset.row, v = (m.beds && m.beds[id]) || 0, inp = r.querySelector("input"), on = v > 0;
+      r.classList.toggle("on", on); r.querySelector("[data-bed]").setAttribute("aria-pressed", String(on));
+      if (document.activeElement !== inp) inp.value = v;
+      r.querySelector(".ss-mn").textContent = on ? Math.round(v * 100) : "";
+    });
+    const mine = $("#ss-mine", sheet); $("#ss-mine-wrap", sheet).hidden = !st.mine.length;
+    mine.innerHTML = st.mine.map((u) => `<div class="ss-mine-item">${sceneBtn(u.id, { icon: "★", name: u.name, desc: "Your scene" })}<button type="button" class="ss-del" data-del="${u.id}" aria-label="Remove ${esc(u.name)}">Remove</button></div>`).join("");
     sheet.querySelectorAll("[data-mus]").forEach((b) => { const k = b.dataset.mus; b.setAttribute("aria-pressed", String(k === "pad" ? m.pad > 0 : !!m[k])); });
     $("#ss-mus", sheet).value = st.mus; $("#ss-amb", sheet).value = st.amb;
     $("#ss-bass", sheet).value = st.bass; $("#ss-mid", sheet).value = st.mid; $("#ss-treble", sheet).value = st.treble;
@@ -108,7 +142,7 @@
     if (barName) barName.textContent = (playing || paused) && nm ? nm : (document.documentElement.getAttribute("data-atmo") ? atmoName(lastAtmo) : "Lighting");
     if (barBtn) barBtn.setAttribute("aria-label", `Scene Studio. ${playing ? "Playing " + nm : "Silent"}. Lighting: ${atmoName(lastAtmo)}`);
   }
-  function atmoName(v) { const a = atmoCards.find((c) => c.val === v); return a ? a.name : v; }
+  function atmoName(v) { const w = window.TitanWorlds && window.TitanWorlds.byId(v); if (w) return w.name; const a = atmoCards.find((c) => c.val === v); return a ? a.name : v; }
 
   function start(fade) {
     if (!st.mix) return;
@@ -118,14 +152,35 @@
     st.wasPlaying = true; save(); render();
   }
   function pickScene(id) {
+    if (G.ALIASES && G.ALIASES[id]) id = G.ALIASES[id];
+    const u = userScene(id);
+    if (u) { st.scene = id; st.mix = clone(u.mix); if (u.atmo && window.TitanSetAtmo) window.TitanSetAtmo(u.atmo); saveMine(); start(2.5); return; }
     const s = G.SCENES[id]; if (!s) return;
     st.scene = id; st.mix = { beds: clone(s.beds), pad: s.pad, piano: s.piano, bells: s.bells, beat: s.beat, root: s.root, mode: s.mode, prog: s.prog, chordSec: s.chordSec, gap: s.gap, bpm: s.bpm };
-    if (window.TitanSetAtmo && s.atmo) window.TitanSetAtmo(s.atmo);
-    start(3);
+    if (window.TitanSetAtmo && s.atmo && !s.world) window.TitanSetAtmo(s.atmo);   // World scenes are sound only here: the World manifest owns the lighting
+    saveMine(); start(2.5);
   }
   function customise(fn) {
     if (!st.mix) st.mix = { beds: {}, pad: 0, piano: false, bells: false, beat: false, root: "D", mode: "dorian", prog: [0, 4, 3, 1], chordSec: 14, gap: [5, 10], bpm: 74 };
-    fn(st.mix); st.scene = "custom"; start(1.2);
+    fn(st.mix); st.scene = "custom"; saveMine(); start(1.5);
+  }
+  function msg(t) { const e = $("#ss-savemsg", sheet); if (e) e.textContent = t; }
+  /* mixer slider / icon: change one bed's level live; only rebuild the scene when a bed has to be added */
+  function setLevel(id, v) {
+    if (!st.mix) st.mix = { beds: {}, pad: 0, piano: false, bells: false, beat: false, root: "D", mode: "dorian", prog: [0, 4, 3, 1], chordSec: 14, gap: [5, 10], bpm: 74 };
+    st.mix.beds = st.mix.beds || {};
+    const had = st.mix.beds[id] > 0;
+    if (v > 0) st.mix.beds[id] = v; else delete st.mix.beds[id];
+    st.scene = "custom"; saveMine(); save();
+    if (G.isActive() && (had || v <= 0) && G.setBedLevel(id, v)) { render(); return; }
+    if (v > 0) start(1.5); else render();
+  }
+  function saveScene() {
+    const name = ($("#ss-savename", sheet).value || "").trim();
+    if (!st.mix || !Object.keys(st.mix.beds || {}).length) { msg("Add at least one sound first."); return; }
+    if (!name) { msg("Type a name first."); return; }
+    st.mine.push({ id: "u" + Date.now().toString(36), name: name.slice(0, 30), mix: clone(st.mix), atmo: lastAtmo });
+    $("#ss-savename", sheet).value = ""; save(); render(); msg(`Saved "${name}" under My scenes.`);
   }
   function stopAll() { G.stop(0.8); st.wasPlaying = false; st.scene = st.scene; save(); render(); }
 
@@ -154,10 +209,40 @@
   selSt.addEventListener("change", () => { try { radio.setStation(selSt.value); } catch (e) { /* ignore */ } });
   window.addEventListener("titan:radio", () => { renderRadio(); const s = radio.status(); if (!s.playing && !s.wantPlay && radioOn) { radioOn = false; G.setMusicDuck(false); } });
 
+  /* THEMES-TABS:js begin ---------- tabs + Themes picker (see wings/themes/worlds.js) ---------- */
+  const TAB_KEY = "titan.scene.tab";
+  const card = $(".ss-card", sheet), themesEl = $("#ss-themes", sheet);
+  let tab = "themes";
+  try { const t = localStorage.getItem(TAB_KEY); if (t === "scenes" || t === "sound") tab = t; } catch (e) { /* ignore */ }
+  function setTab(t, focus) {
+    if (t !== "scenes" && t !== "themes" && t !== "sound") t = "themes";
+    tab = t; card.dataset.tab = t;
+    sheet.querySelectorAll(".ss-tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
+    sheet.querySelectorAll(".ss-panel").forEach((p) => { p.hidden = p.id !== "ss-p-" + t; });
+    if (t === "themes" && window.TitanWorlds) { if (!themesEl.firstChild) window.TitanWorlds.render(themesEl); else window.TitanWorlds.mark(themesEl); }
+    try { localStorage.setItem(TAB_KEY, t); } catch (e) { /* ignore */ }
+    if (focus) { const b = $("#ss-tab-" + t, sheet); if (b) b.focus(); }
+  }
+  sheet.querySelector(".ss-tabs").addEventListener("click", (e) => { const b = e.target.closest(".ss-tab"); if (b) setTab(b.dataset.tab); });
+  sheet.querySelector(".ss-tabs").addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    const order = ["scenes", "themes", "sound"], i = order.indexOf(tab);
+    setTab(order[(i + (e.key === "ArrowRight" ? 1 : 2)) % 3], true); e.preventDefault();
+  });
+  themesEl.addEventListener("click", (e) => {
+    const b = e.target.closest(".th-card"); if (!b || !window.TitanWorlds) return;
+    lastAtmo = b.dataset.world; window.TitanWorlds.apply(b.dataset.world);
+    themesEl.querySelectorAll(".th-card").forEach((c) => c.setAttribute("aria-pressed", String(c === b)));
+    render();
+  });
+  window.addEventListener("titan:atmo", () => { if (window.TitanWorlds && themesEl.firstChild) window.TitanWorlds.mark(themesEl); });
+  /* THEMES-TABS:js end */
+
   /* ---------- events ---------- */
   let last = null;
-  function open() {
-    if (!sheet.hidden) return;
+  function open(which) {
+    if (!sheet.hidden) { if (which) setTab(which); return; }
+    setTab(which || tab);
     last = document.activeElement;
     renderRadio(); render();
     sheet.hidden = false;
@@ -188,9 +273,14 @@
     const b = e.target.closest("button"); if (!b) return;
     if (b.dataset.scene) pickScene(b.dataset.scene);
     else if (b.dataset.atmo) { if (window.TitanSetAtmo) window.TitanSetAtmo(b.dataset.atmo); lastAtmo = b.dataset.atmo; render(); }
-    else if (b.dataset.bed) customise((m) => { m.beds = m.beds || {}; const id = b.dataset.bed; if (m.beds[id] > 0) delete m.beds[id]; else m.beds[id] = G.BEDS[id].level; });
+    else if (b.dataset.bed) setLevel(b.dataset.bed, ((st.mix && st.mix.beds && st.mix.beds[b.dataset.bed]) > 0) ? 0 : G.BEDS[b.dataset.bed].level);
+    else if (b.dataset.del) { st.mine = st.mine.filter((u) => u.id !== b.dataset.del); if (st.scene === b.dataset.del) st.scene = "custom"; save(); render(); }
+    else if (b.id === "ss-save") saveScene();
+    else if (b.id === "ss-loadmine") { const m = loadMine(); if (m) { st.mix = m; st.scene = "custom"; start(2); } else msg("No saved mix yet."); }
+    else if (b.id === "ss-clearmix") { st.mix = { beds: {}, pad: 0, piano: false, bells: false, beat: false, root: "D", mode: "dorian", prog: [0, 4, 3, 1], chordSec: 14, gap: [5, 10], bpm: 74 }; st.scene = "custom"; saveMine(); G.stop(0.8); st.wasPlaying = false; save(); render(); }
     else if (b.dataset.mus) customise((m) => { const k = b.dataset.mus; if (k === "pad") m.pad = m.pad > 0 ? 0 : 0.6; else { m[k] = !m[k]; if (k === "beat" && m.beat && !m.bpm) m.bpm = 74; } });
   });
+  sheet.addEventListener("input", (e) => { const t = e.target; if (t.dataset && t.dataset.level) { setLevel(t.dataset.level, +t.value); const n = t.parentNode.querySelector(".ss-mn"); if (n) n.textContent = +t.value > 0 ? Math.round(t.value * 100) : ""; } });
   $("#ss-motion", sheet).addEventListener("change", (e) => { st.motion = e.target.checked; save(); if (window.TitanAmbient && window.TitanAmbient.setVisualEnabled) window.TitanAmbient.setVisualEnabled(st.motion); });
   $("#ss-bg", sheet).addEventListener("change", (e) => { st.bgPause = e.target.checked; window.TITAN_BG_PAUSE = st.bgPause; G.setBackgroundPause(st.bgPause); save(); });
   window.addEventListener("titan:atmo", (e) => { lastAtmo = e.detail.atmo; render(); });
@@ -198,8 +288,9 @@
 
   // The bar button opens the studio (app.js binds #btn-atmo -> openAtmoSheet -> TitanScene.open).
   window.TitanScene = {
-    open, close, isOpen: () => !sheet.hidden, stop: stopAll,
-    state: () => clone(st), play: pickScene, scenes: () => G.SCENE_ORDER.slice()
+    open, close, setTab, openThemes: () => open("themes"), isOpen: () => !sheet.hidden, stop: stopAll,
+    state: () => clone(st), play: pickScene, scenes: () => G.SCENE_ORDER.slice(), worlds: () => G.WORLD_ORDER.slice()
   };
+  if (!st.mix && st.scene === "custom") { const m = loadMine(); if (m) st.mix = m; }
   render();
 })();

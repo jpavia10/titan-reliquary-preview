@@ -9,7 +9,7 @@ Steps (stops with exit code 1 at the first failure, leaving data/ and version.js
   1. apply every pending collection/_incoming/changes_*.jsonl (apply_changes.py; processed files move to _incoming/applied/ or
      _incoming/rejected/ with a .report.txt; a rejected file never blocks the others and never changes anything)
   2. validate collection/ (tools/schema/validate.py, refreshes manifest.json)  -> must be CLEAN or nothing is published
-  3. write version.json: generated_at = now, ledger_version = "v2:" + first 16 hex of the manifest content hash, counts refreshed
+  3. write version.json: generated_at = now, ledger_version = "v3:" + first 16 hex of the manifest content hash, counts refreshed
   4. rebuild data/ (index.json, detail/*.json, search.json) with build_app_data.py
   5. checks: board arithmetic, silver/gold oz against the board, every specimen has an index row + detail record + search entry,
      id counters; with --parity also runs test_parity.py against the golden data
@@ -59,7 +59,7 @@ def write_version(vpath, col, now, manifest):
     specs = col["specs"]
     coins = sorted((s for s in specs.values() if s["id"].startswith("C")), key=lambda s: int(s["id"][1:]))
     v = dict(old)
-    v.update({"generated_at": utc, "generated_at_pt": pt, "generated_at_iso": iso, "content_hash": manifest["content_hash"][:16], "ledger_version": "v2:" + manifest["content_hash"][:16], "flips": len(specs)})
+    v.update({"generated_at": utc, "generated_at_pt": pt, "generated_at_iso": iso, "content_hash": manifest["content_hash"][:16], "ledger_version": "v3:" + manifest["content_hash"][:16], "flips": len(specs)})
     if coins: v["newest_flip"] = coins[-1]["id"]; v["newest_ser"] = coins[-1].get("ser")
     ph = col["photos"]
     v["photos"] = {"images": len(ph), "coins_with_photos": len({x["specimen"] for x in ph}), "phase2_done": old.get("photos", {}).get("phase2_done", 0), "photographed": old.get("photos", {}).get("photographed", 0)}

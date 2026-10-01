@@ -346,11 +346,12 @@ def drip_block(col, idx):
     d = idx["drip"]; specs = col["specs"]
     def nxt(prefix, ids, width=3):
         n = max([int(i[1:]) for i in ids if i[:1] == prefix] or [0]) + 1
+        if prefix == "C": n = max(n, 297)          # same floor as apply_changes.COIN_FLOOR: next coins are C297-C300
         return f"{prefix}{n:0{width}d}"
     ids = list(specs) + [l["id"] for l in col["lots"]]
-    # the ledger may hold ids that are not in the collection yet (requests, e.g. C272); never hand out one below the ledger's counter
+    # the ledger may hold ids that are not in the collection yet (requests); never hand out one below the ledger's counter
     led = d["next_ids"]
-    d["next_ids"] = {k: max(led[k], nxt(pfx, ids)) for k, pfx in (("flip", "C"), ("token", "T"), ("bullion", "B"), ("housing", "H"), ("set", "S"), ("stamp", "P"))}
+    d["next_ids"] = {k: (nxt(pfx, ids) if k == "flip" else max(led[k], nxt(pfx, ids))) for k, pfx in (("flip", "C"), ("token", "T"), ("bullion", "B"), ("housing", "H"), ("set", "S"), ("stamp", "P"))}
     d["board_snapshot"]["grand"] = idx["board"]["grand"]
     d["board_snapshot"]["flips_cards"] = len(specs)
     d["board_snapshot"]["countries"] = idx["counts"]["countries"]
@@ -360,7 +361,7 @@ def drip_block(col, idx):
 def make_version(col, vpath):
     """Version block for index.json. With a version.json (publish.py writes it first) its stamps are used; otherwise derived from the manifest's source time."""
     import os, datetime
-    m = col["manifest"]; ledger = "v2:" + m["content_hash"][:16]
+    m = col["manifest"]; ledger = "v3:" + m["content_hash"][:16]
     if vpath and os.path.exists(vpath):
         v = json.load(open(vpath, encoding="utf-8"))
         return {"generated_at": v["generated_at"], "generated_at_pt": v.get("generated_at_pt", ""), "generated_at_iso": v.get("generated_at_iso", v["generated_at"]), "ledger_version": v.get("ledger_version", ledger)}

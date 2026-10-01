@@ -1,0 +1,42 @@
+{
+  "project": "Titan Reliquary (private coin & precious-metals collection app)",
+  "task": "Generate each image in `images` below, one at a time, at the highest quality you can. Use each item's exact `file_name` when saving. Put every finished image in the Google Drive folder `Titan Reliquary/art-incoming (AI images)/`. If you cannot write to Drive yourself, show each image with its file name so the owner can save it there. Do not add text, logos, watermarks or borders to any image.",
+  "drive_folder": "Titan Reliquary/art-incoming (AI images)/",
+  "global_style": "Photorealistic, shot like a high-end editorial or luxury-watch campaign: full-frame camera, 85-100 mm macro lens, shallow depth of field, physically accurate materials (polished and toned silver, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich but natural colour grading, fine film grain, 8K detail. The subject is always real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Leave the top-left third of the frame quiet and darker (UI text sits there).",
+  "negative": "no text, no letters, no numbers, no logos, no watermark, no frame, no people's faces, no hands, no cartoon, no illustration, no 3D-render look, no plastic, no oversaturation, no HDR halos, no fantasy glow orbs, no duplicate coins melting into each other, no warped or unreadable coin designs",
+  "coin_rule": "Coins must look like real circulated or uncirculated world coins (a generic portrait or eagle or crest design is fine); never invent a legible inscription.",
+  "images": [
+    {"file_name": "world_prism_hero.png", "aspect_ratio": "16:10", "world": "Prism (Otherworld)",
+     "prompt": "A single silver crown-size coin resting on a faceted optical-crystal block inside a jeweller's light box. White light enters from one side and splits into clean rainbow dispersion that fans across the glass facets and the coin's rim. Deep black background, crisp caustics on a black glass surface, tiny prismatic flares. Luxurious, precise, quietly psychedelic."},
+    {"file_name": "world_prism_card.png", "aspect_ratio": "16:10", "world": "Prism",
+     "prompt": "Close-up of the rim of a silver coin seen through a faceted crystal prism, rainbow spectral bands crossing it, black background, macro, extremely sharp."},
+
+    {"file_name": "world_midnight_gallery_hero.png", "aspect_ratio": "16:10", "world": "Midnight Gallery (Museum, the default world)",
+     "prompt": "A private coin museum after closing time. Cold blue moonlight falls through a high skylight onto a polished black-marble floor. In the middle stands one museum display case with a single warm spotlight on three silver coins on dark velvet. Brass label rails, long soft reflections, faint dust in the light shaft, everything else in deep shadow."},
+    {"file_name": "world_midnight_gallery_card.png", "aspect_ratio": "16:10", "world": "Midnight Gallery",
+     "prompt": "Three silver coins on navy velvet under one warm museum spotlight, black marble reflection, moonlit blue ambience, shallow depth of field."},
+
+    {"file_name": "world_fireside_den_hero.png", "aspect_ratio": "16:10", "world": "Fireside Den (Moods, the cozy sound-machine world)",
+     "prompt": "A cozy wood-panelled study at night. A stone fireplace with a real crackling fire on the right, a worn leather armchair, and a low walnut table in front with an open coin album and a few silver coins catching the firelight. Through a window on the left, snow falls in blue night light. Warm amber versus cool blue, very inviting."},
+    {"file_name": "world_fireside_den_card.png", "aspect_ratio": "16:10", "world": "Fireside Den",
+     "prompt": "Silver coins on a walnut table lit by firelight, blurred fireplace glow behind, snow-blue window light on the left edge, macro."},
+
+    {"file_name": "world_shipwreck_hero.png", "aspect_ratio": "16:10", "world": "Shipwreck (Treasure)",
+     "prompt": "Forty metres down on the sea floor beside the broken timbers of an old Spanish galleon. A scattered pile of encrusted silver cob coins and a few gleaming ones half buried in pale sand. God rays from the surface, drifting particles, rippling caustic light on the coins, deep teal to black water."},
+    {"file_name": "world_shipwreck_card.png", "aspect_ratio": "16:10", "world": "Shipwreck",
+     "prompt": "Silver cob coins in sand underwater, caustic light ripples, god rays, teal water, macro."},
+
+    {"file_name": "world_the_mint_hero.png", "aspect_ratio": "16:10", "world": "The Mint (Treasure)",
+     "prompt": "Inside a historic coin mint at night. Molten silver pours from a crucible into an ingot mould in a shower of sparks; behind it a heavy iron screw press and a tray of freshly struck, bright silver coins. Ember light, smoke, dark brick and steel, cinematic."},
+    {"file_name": "world_the_mint_card.png", "aspect_ratio": "16:10", "world": "The Mint",
+     "prompt": "Freshly struck bright silver coins on a steel tray, sparks and ember light behind, macro."},
+
+    {"file_name": "app_icon_concept_A.png", "aspect_ratio": "1:1", "world": "App icon",
+     "prompt": "App icon artwork: one perfectly lit polished silver coin seen at a slight angle on a pure deep-ink background, a single soft rim highlight, centred, filling 60 percent of the square, no text, no border. Must still read clearly at 48 pixels."},
+    {"file_name": "app_icon_concept_B.png", "aspect_ratio": "1:1", "world": "App icon",
+     "prompt": "App icon artwork: a stack of three coins (silver, gold, silver) photographed from slightly above on warm ivory, crisp shadow, centred, filling 60 percent of the square, no text, no border, readable at 48 pixels."},
+    {"file_name": "splash_key_art.png", "aspect_ratio": "9:16", "world": "Splash screen (phone, portrait)",
+     "prompt": "Portrait, cinematic: a heavy round steel vault door slightly open, a beam of warm light spilling out across a dark polished floor, inside a glimpse of silver coins and bullion bars glowing softly. Moody, expensive, restrained, lots of dark negative space at the top and bottom."}
+  ],
+  "after": "When the images are in the Drive folder, tell Claude: \"Titan: import the art\". Claude compresses them (WebP/AVIF), checks quality, and wires each one into its World."
+}

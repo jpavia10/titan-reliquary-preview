@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Merge contribution files into the v2 master (collection/).
+"""Merge contribution files into the v3 master (collection/).
 
 usage (repo root):
     python3 tools/pipeline/apply_changes.py [--collection collection/] [--dry-run] [--archive] changes_{agent}_{YYYYMMDD-HHMM}.jsonl [...]
@@ -18,7 +18,10 @@ Event fields
     verified                                       default false. true only for by=owner (or person:<name>); models never verify
     op                                             "set" (default) or "create" (new specimen / type / lot / photo / issuer with its record in `new`)
     supersedes                                     ts of the verified event being deliberately overwritten (required to change a verified field)
-    phase, confidence                              optional notes (1 | 1.5 | 2; low | med | high); stored inside `source` in the audit log
+    phase                                          REQUIRED for by=model:* (1 | 1.5 | 2). Schema v3 phase tiers (schema/v3/field_tiers.json):
+                                                   Phase 1 may write only phase1 fields, Phase 1.5 only album slot fields, Phase 2 phase1 + phase2 fields;
+                                                   models never write owner or system fields. Stored inside `source` in the audit log.
+    confidence                                     optional (low | med | high); stored inside `source` in the audit log
 """
 import contextlib, copy, datetime, io, json, os, re, shutil, sys, tempfile
 
@@ -26,12 +29,13 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "tools", "schema"))
 import collection_io as C
 
-RETIRED = {"C297", "C298", "C299", "C300"}          # never reuse (collection/README.md, identity rules)
 ENTITIES = ("type", "specimen", "lot", "album", "issuer", "photo")
 ALLOWED = {"ts", "by", "entity", "id", "field", "new", "old", "source", "verified", "op", "supersedes", "phase", "confidence"}
 TS = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$")
 CONT_OF = {"Africa": "AF", "Antarctica": "AN", "Asia": "AS", "Europe": "EU", "North America": "NA", "Oceania": "OC", "South America": "SA"}
 LOT_PREFIX = {"bullion": "B", "set": "S", "housing": "H", "stamp": "P"}
+
+COIN_FLOOR = 297   # the ledger's item sequence ran to 296; C297-C300 (once held by four invented records, now purged) go to the next four real coins
 
 class Reject(Exception): pass
 
@@ -41,6 +45,37 @@ JUNK_SOURCES = {"n/a", "na", "unknown", "ai", "none", "null", "nil", "test", "tb
 PHOTO_FILE = re.compile(r"[\w\-. ()]+\.(?:jpe?g|png|tiff?|heic|webp)\b", re.I)
 REFERENCE = re.compile(r"https?://|\bN#\s*\d|\bKM#?\s*\d|\b(?:Numista|Krause|PCGS|NGC|CoinFacts|Red Book|Colnect|ucoin)\b", re.I)
 PHOTO_FIELDS = ("condition.grade", "condition.strike", "condition.luster", "condition.toning", "condition.cleaned", "condition.damage")   # judged by eye: need a photo or a cited reference
+
+TIERS = json.load(open(os.path.join(ROOT, "schema", "v3", "field_tiers.json"), encoding="utf-8"))["tiers"]
+PHASE_TIERS = {1: {"phase1"}, 1.5: {"phase1_5"}, 2: {"phase1", "phase1_5", "phase2"}}
+TIER_WORDS = {"phase1": "Phase 1", "phase1_5": "Phase 1.5 (album scans)", "phase2": "Phase 2", "owner": "the owner only", "system": "the pipeline only"}
+
+def tier_of(entity, field):
+    """Tier of a dotted field path: the longest matching prefix in field_tiers.json ('*' = any list index)."""
+    table = TIERS.get(entity, {}); parts = field.split(".") if field else []
+    norm = ["*" if p.isdigit() else p for p in parts]
+    for n in range(len(norm), -1, -1):
+        key = ".".join(norm[:n])
+        if key in table: return table[key]
+    return "phase2"
+
+def sys_msg(entity, f):
+    why = {"id": "an id is permanent and cannot be changed", "ser": "ser is changed only by the one-time reassignment (tools/schema/reassign_ser.py), never by a contribution",
+           "research": "research progress is kept by the pipeline from your events", "photos": "photo records are created by the photo pipeline; cite photo file names in `source` instead"}
+    return f"{entity} field '{f}' is maintained by the pipeline only: {why.get(f.split('.')[0], 'it is derived from other records')}"
+
+def leaves(prefix, v):
+    """Dotted paths this value writes (dicts and lists of dicts are walked; anything else is a leaf)."""
+    if isinstance(v, dict) and v:
+        return [x for k, val in v.items() for x in leaves(f"{prefix}.{k}" if prefix else k, val)]
+    if isinstance(v, list) and v and all(isinstance(i, dict) for i in v):
+        return [x for i, val in enumerate(v) for x in leaves(f"{prefix}.{i}" if prefix else str(i), val)]
+    return [prefix] if prefix else []
+
+def touched_fields(e):
+    if e.get("op", "set") == "create" and isinstance(e.get("new"), dict):
+        return [f for f in leaves("", {k: v for k, v in e["new"].items() if k != "id"}) if f]
+    return leaves(e["field"], e["new"]) or [e["field"]]
 
 def junk_source(src):
     t = (src or "").strip().lower().strip(" .!?-_*")
@@ -64,7 +99,7 @@ def skeleton_specimen():
     return {"acquisition": {"acquired_on": None, "family": None, "logged_at": None, "price_paid_usd": None, "source": None}, "authenticity": None,
             "condition": {"cert": None, "cleaned": None, "damage": [], "grade": None, "grader": None, "luster": None, "strike": None, "text": None, "toning": None},
             "disposal_plan": None, "featured": None, "housing": {"kind": None, "location": None, "text": None}, "id": None, "insurance": None, "invoice_ref": None,
-            "issue": None, "lifecycle": {"removed_on": None, "removed_reason": None, "status": "Logged"}, "measured": {"diameter_mm": None, "magnetic": None, "thickness_mm": None, "weight_g": None},
+            "issue": None, "research": {"phase": 0, "phase1_at": None, "phase1_by": None, "phase2_at": None, "phase2_by": None, "open_questions": []}, "variety": None, "lifecycle": {"removed_on": None, "removed_reason": None, "status": "Logged"}, "measured": {"die_axis_deg": None, "diameter_mm": None, "magnetic": None, "thickness_mm": None, "weight_g": None},
             "notes": "", "photos": [], "provenance_chain": None, "related_specimens": None, "seller_type": None, "sentimental": None, "ser": None, "serial_number": None,
             "sort_weight": None, "storage_env": None, "story": None, "tags": [], "tax_lot": None, "type": None,
             "value": {"confidence": "low", "est_usd": None, "face": {"amount": None, "currency": None}}, "want_priority": None, "year_raw": None}
@@ -79,7 +114,7 @@ def skeleton_type():
             "issuer": None, "issues": [], "legal_tender": {"status": "unknown", "text": "", "until": None},
             "nominal": {"alignment": None, "diameter_approx": False, "diameter_max_mm": None, "diameter_min_mm": None, "diameter_mm": None, "edge": None, "shape": None, "thickness_mm": None,
                         "weight_approx": False, "weight_g": None, "weight_max_g": None, "weight_min_g": None},
-            "population": None, "precious": {"agw_oz": None, "asw_oz": None}, "price_guide": None, "rarity_scale": None, "related_types": None, "series": None, "tags": []}
+            "period": None, "ruler": None, "commemorates": None, "population": None, "precious": {"agw_oz": None, "asw_oz": None}, "price_guide": None, "rarity_scale": None, "related_types": None, "series": None, "tags": []}
 
 def skeleton_lot():
     return {"id": None, "kind": None, "country": None, "year_raw": None, "denom_text": None, "composition_text": None, "qty": 1, "asw_oz": None, "agw_oz": None,
@@ -131,7 +166,7 @@ def overlap(a, b):
 def next_number(ids, prefix):
     nums = [int(i[1:]) for i in ids if i[:1] == prefix and i[1:].isdigit()]
     n = (max(nums) if nums else 0) + 1
-    while f"{prefix}{n:03d}" in RETIRED: n += 1
+    if prefix == "C": n = max(n, COIN_FLOOR)            # owner decision 2026-10-01: the next real coins take C297-C300, then C301 ...
     return f"{prefix}{n:03d}"
 
 # ------------------------------------------------------------------------------------------------ one event
@@ -140,7 +175,7 @@ class Applier:
         self.c = col
         self.done = {event_key(e) for e in col.changes}
         self.done_create = {create_key(e): e["id"] for e in col.changes if e["field"] == "(new record)"}
-        self.ph = {}                                         # NEW-1 -> C272 (placeholder ids allocated in this file)
+        self.ph = {}                                         # NEW-1 -> C297 (placeholder ids allocated in this file)
         self.verified = {}                                   # (entity,id,field) -> latest verified event
         for e in col.changes:
             if e.get("verified"): self.verified[(e["entity"], e["id"], e["field"])] = e
@@ -178,8 +213,37 @@ class Applier:
                 elif not (PHOTO_FILE.search(src) or REFERENCE.search(src) or any(p["id"] in src for p in self.c.photos)):
                     errs.append(f"{f} is judged from the coin, so its source must name at least one photo file (e.g. 'C042_obv.jpg + C042_rev.jpg') or a cited reference (Numista N#..., KM#..., URL); got {src!r}")
         if "phase" in e and e["phase"] not in (1, 1.5, 2): errs.append("phase must be 1, 1.5 or 2")
+        if e["entity"] in ENTITIES and isinstance(e.get("field"), str): errs += self.check_tiers(e)
         if "confidence" in e and e["confidence"] not in ("low", "med", "high"): errs.append("confidence must be low, med or high")
         return errs
+
+    def check_tiers(self, e):
+        """Schema v3 phase tiers: who may write which field (schema/v3/field_tiers.json)."""
+        by = e["by"]; errs = []
+        if by.startswith("script:"): return errs
+        fields = touched_fields(e)
+        if by == "owner" or by.startswith("person:"):
+            return [sys_msg(e["entity"], f) for f in fields if tier_of(e["entity"], f) == "system"]
+        if "phase" not in e:
+            return ["a model's event needs \"phase\": 1 (quick pass from a staging photo), 1.5 (album scans) or 2 (critical analysis with pro photos and sources)"]
+        ok = PHASE_TIERS.get(e["phase"], set())
+        for f in fields:
+            t = tier_of(e["entity"], f)
+            if t == "system": errs.append(sys_msg(e["entity"], f))
+            elif t not in ok:
+                errs.append(f"{e['entity']} field '{f}' is a {TIER_WORDS.get(t, t)} field; a phase {e['phase']} contribution may not write it (see collection/templates/FIELDS.md)")
+        if e["phase"] == 1 and e["entity"] == "type" and e.get("op") == "create" and ".X." not in str(e["id"]):
+            errs.append(f"type id {e['id']}: a Phase 1 type never carries a catalog number; use {{ISO}}.X.{{denomination-slug}} (e.g. CA.X.1-cent); Phase 2 adds the catalog reference in `catalogs`")
+        return errs[:6]
+
+    def note_research(self, e, rid):
+        """Keep specimen.research (system) in step with model contributions."""
+        if e["entity"] != "specimen" or not e["by"].startswith("model:") or e.get("phase") not in (1, 2): return
+        rec = self.c.specs.get(rid)
+        if rec is None: return
+        r = rec.get("research") or {"phase": 0, "phase1_at": None, "phase1_by": None, "phase2_at": None, "phase2_by": None, "open_questions": []}
+        p = int(e["phase"]); r[f"phase{p}_at"], r[f"phase{p}_by"] = e["ts"], e["by"]; r["phase"] = max(r["phase"], p)
+        rec["research"] = r
 
     def log_event(self, e, old, new=None):
         src = e.get("source")
@@ -201,12 +265,13 @@ class Applier:
         if event_key(e) in self.done:
             self.log.append(f"already applied: {e['entity']} {e['id']} {e['field']}"); return "skipped"
         (self.create if op == "create" else self.set)(e)
+        self.note_research(e, e["id"])
         self.check_schema(e)
         self.done.add(event_key(e))
         return "applied"
 
     def check_schema(self, e):
-        """Validate the touched record against schema/v2 right now, so a wrong-typed value is reported on its own line."""
+        """Validate the touched record against schema/v3 right now, so a wrong-typed value is reported on its own line."""
         import validate as V
         name = {"type": "Type", "specimen": "Specimen", "lot": "Lot", "album": "AlbumVolume", "issuer": "Issuer", "photo": "Photo"}[e["entity"]]
         rec = next((p for p in self.c.photos if p["id"] == e["id"]), None) if e["entity"] == "photo" else self.record(e["entity"], e["id"])
@@ -226,7 +291,10 @@ class Applier:
         if rec is None: raise Reject(f"{ent} {rid} does not exist (use op: create to add it)")
         if field in ("id",) or field.startswith("id."): raise Reject("an id is permanent and cannot be changed")
         if ent == "specimen" and field == "ser": raise Reject("ser is changed only by the one-time reassignment (tools/schema/reassign_ser.py), never by a contribution")
-        if field == "story" and e["by"] != "owner": raise Reject("story is the owner's own words; only by: owner may set it")
+        if field == "story" and not e["by"].startswith(("owner", "person:")) and not e.get("supersedes"):
+            last = next((x for x in reversed(self.c.changes) if x["entity"] == ent and x["id"] == rid and x["field"] == "story"), None)
+            if last and (last["by"] == "owner" or last["by"].startswith("person:")):
+                raise Reject(f"the story of {ent} {rid} was written by {last['by']} ({last['ts']}); the owner's words win. To replace it add \"supersedes\": \"{last['ts']}\" and say why in 'source'")
         path = parse_path(field)
         try: old = copy.deepcopy(get_at(rec, path))
         except KeyError:
@@ -317,8 +385,7 @@ class Applier:
 
     def expect_counter(self, rid, prefix, ids):
         want = next_number(ids, prefix)
-        if rid in RETIRED: raise Reject(f"{rid} is a retired id and must never appear")
-        if rid != want: raise Reject(f"new id {rid} does not follow the counter: the next free '{prefix}' id is {want} (highest existing + 1; retired ids are skipped)")
+        if rid != want: raise Reject(f"new id {rid} does not follow the counter: the next free '{prefix}' id is {want} (highest existing + 1)")
 
     def create_specimen(self, e, rid, new):
         c = self.c

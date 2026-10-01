@@ -2,13 +2,14 @@
 
 Private coin and precious-metals collection viewer for Joseph Pavia (`jpavia10`).
 Read this file first, then `collaborators/SHARED_LOG.md` (newest entries at the top).
-**Processing coin photos or adding/correcting coin data? Read `AI_START_HERE.md` and follow only that.**
+**Processing coin photos or adding/correcting coin data? Read `AI_START_HERE.md` and follow only that.** Follow `AI_START_HERE.md` and the change-file contract (`collection/templates/INSTRUCTIONS.md`), not any hand-edit steps left in older docs (`DRIVE_ANALYSIS.md`, `FRAMEWORK_BRIEF.md`, old ledger notes); those still describe Grok owning GitHub and the old `LEDGER.md` and are superseded.
+**Contract:** Grok (and any other contributor) does not edit GitHub or the Drive mirror. It only drops `changes_{agent}_{YYYYMMDD-HHMM}.jsonl` in Drive `Titan Reliquary/collection-incoming (AI change files)/`. Claude merges that (`tools/pipeline/publish.py`) and owns the site.
 Last verified: 2026-10-01 (build tr55).
 
 ## What it is
 - Zero-build PWA: vanilla HTML/CSS/ES6 (Three.js for the 3D table). No npm, no bundler.
 - Live code (repo root): `index.html`, `app.js` (~7.5k lines), `styles.css` (~11.5k lines), `atlas.js`, `spatial.js`, `deepzoom.js`, `audio.js`, `ambient.js`, `sw.js`, `version.json`.
-- Data (read-only to the app): `data/index.json` (boot index), `search.json`, `master_catalog.json`, `detail/{ISO}.json`.
+- Data (read-only to the app): `data/index.json` (boot index), `search.json`, `detail/{ISO}.json`.
 - Data pipeline (Python) is in this repo: `tools/pipeline/` (`publish.py`, `apply_changes.py`, tests), `tools/schema/` (validator). It builds `data/` from `collection/`. Needs `pip install jsonschema`. Run `python3 tools/pipeline/test_pipeline.py` and `test_parity.py` after touching it.
 - Local server: `python -m http.server 8000`
 
@@ -28,7 +29,7 @@ Last verified: 2026-10-01 (build tr55).
 ## Rules
 0. **Deploying:** GitHub Pages does NOT rebuild for pushes made by the Claude GitHub app (the live site silently stayed at aa45918 for ~30 pushes on 2026-09-30). After pushing to `main`, trigger the build by updating `DEPLOY_STAMP.txt` through the GitHub connector (acts as the owner's account), then confirm a new "pages build and deployment" run for that commit finishes `success`. Never report "live" before that run succeeds.
 1. Check `SHARED_LOG.md`, do your work, append a 2-3 line entry.
-2. Ownership: Grok = data/pipeline, Sebastian/Muse = look and feel, Antigravity = QA/release. Coordinate in the log.
+2. Ownership: Claude = integrator (repo, pipeline, site, merges every change file). Grok, Gemini, Muse and other AIs contribute data only as change files in the Drive drop folder. Coordinate in the log.
 3. Never edit generated files in `data/` by hand.
 4. Keep Dad-readable (high contrast, large type) and offline PWA working.
 5. Never print, copy, or commit any GitHub token. Cloud sessions use the GitHub connection.
@@ -51,6 +52,8 @@ Last verified: 2026-10-01 (build tr55).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-10-01: **Design direction PAUSED by the owner.** He will combine elements from the three prototypes (`/prototypes/`) or ask for new options. Until then: no layout/visual redesign, splash or icon changes; only work that is independent of layout (data/pipeline, ambience engine, FX engine, theme art assets, perf). tr60 = ambience v3 (real recordings).
+- 2026-10-01: **Schema v3** (`schema/v3/`, `schema/SCHEMA_V3.md`): phase tiers per field (`schema/v3/field_tiers.json`) enforced by `apply_changes.py`. Phase 1 is thin (match or `NEW-n`; country, year, denomination, mint mark, class) plus a short `story`; no serial, grade, catalog number, price. Phase 2 fills the rest from pro photos + cited sources. Models must send `phase`. New nullable fields: `specimen.research` (pipeline-kept progress), `variety`, `measured.die_axis_deg`, `type.period/ruler/commemorates`. `FIELDS.md` shows who writes each field; the Phase 1 field list is in `INSTRUCTIONS.md` + `FIELDS.md`. C297-C300 leftovers purged. Contract: contributors only drop change files; Claude merges and owns the site.
 - 2026-10-01 (tr58, tr59): perf pass 2 on all wings (notes/agents/perf.md); Scene Studio = sticky top bar + offline generative audio engine `wings/scene-engine.js`; background playback is the default, pausing in background is an opt-in setting (owner request). Remaining perf misses: Gallery scroll ~47 fps, Study ~42 fps (style recalc from ~3,000 CSS rules; load only the active atmosphere CSS next).
 - 2026-10-01: Pipeline guards + docs: `apply_changes.py` now checks every event against the schema type (a wrong-typed value is a line-numbered rejection, never a traceback), rejects junk sources (< 8 chars, "n/a", "AI"...) and any condition judgement (grade, strike, luster, toning, cleaned, damage) without a photo file or cited reference in `source`. New `collection/templates/FIELDS.md` (generated by `tools/pipeline/field_reference.py`), `AI_START_HERE.md` + `collection/templates/INSTRUCTIONS.md` rewritten (Phase 1.5 album slot events, `op: create`, self-check). `collection/board.json` no longer carries a local machine path.
 - 2026-10-01 (tr55): **The site is now generated from the v2 master** (`python3 tools/pipeline/publish.py`: apply `collection/_incoming/` change files -> validate -> rebuild `data/`). Parity vs Grok's v254: 0 unexplained differences; headline $5,393.70 / Ag 63.27 oz / Au 0.1322 oz unchanged. Grok's LEDGER.md publish is no longer the site's source. Mobile perf pass: gallery scroll 24-28 -> 48-49 fps (Pixel 7, 6x CPU). Drive consolidated (one home `Titan Reliquary/`). Routine "Titan daily intake" (06:56 PT daily, trig_01YRZeFHBmSJWHyxt43nQ5nc) created WITHOUT the Drive connector or repo attached: add both in the claude.ai Routines settings, or just say "Titan: process the staging folder" in any session.
@@ -77,7 +80,7 @@ Owner's standing instructions: don't ask permission; push finished work live aft
   4. **Phone-photo folders:** owner delegated the layout to the integrator (see `docs/PHOTO_FOLDERS.md` once written).
 
 ## Data master (2026-09-30)
-- **`collection/` (schema v2) is the master for metadata**; `data/` is generated from it by `tools/pipeline/publish.py` (never edit `data/` by hand). Imported from ledger v254 (Grok, 2026-09-30 08:12 PT), the last Grok-generated snapshot.
+- **`collection/` (schema v3, `schema/v3/` + `schema/SCHEMA_V3.md`) is the master for metadata**; `data/` is generated from it by `tools/pipeline/publish.py` (never edit `data/` by hand). Imported from ledger v254 (Grok, 2026-09-30 08:12 PT), the last Grok-generated snapshot.
 - Owner decision: the ledger board totals (Grok's logged silver/gold/value) are authoritative (`collection/board.json`). Still open in `collection/CURATION_OPEN.md`: 5 type conflicts to check physically; EC code clash (Ecuador vs East Caribbean).
 - Drive: `tools/drive/sync_to_drive.gs` (install once) mirrors `collection/` and a daily site zip into Drive `Titan Reliquary/`. Photo layout: `docs/PHOTO_FOLDERS.md` (one photo home: Grok's `Titan Reliquary Collection/photos/`).
 - Drive `Titan Reliquary/` is the one home: `OPEN TITAN RELIQUARY (the app)` shortcut, `AI_START_HERE`, `STAGING (drop coin photos here)`, `collection-incoming (AI change files)`, `site-backups/`, `_archive/` (old copies). The old TAP HERE doc was retired (trashed) 2026-09-30.
@@ -87,10 +90,9 @@ Owner's standing instructions: don't ask permission; push finished work live aft
 - Still open (`collection/CURATION_OPEN.md`): 5 type conflicts to check physically; the `EC` code clash (Ecuador vs East Caribbean); which photo-model wins the bake-off (`tools/bakeoff/`, deferred).
 - Caveat: GitHub Pages is publicly reachable; `noindex` only hides it from search.
 
-## Cleanup candidates (dead weight, not deleted yet; owner/integrator decides)
-- `stage/` (INSPECTION_DIFF.html and two `TITAN-299`/`TITAN-300` inspection JPGs, about 436 KB): the invented "1914 France 5 Francs" records C297-C300 / TITAN-299/300 are retired and must never reappear.
-- `photos/` (`agent_cropped/` and `thumbs/` hold only the two `TITAN-299`/`TITAN-300` webp files; `phase2_pro_staging/README.md`): no real photos exist. Real photos go in the Drive tree in `docs/PHOTO_FOLDERS.md`.
-- `DRIVE_ANALYSIS.md` (2026-09-25 analysis of the old Drive/pipeline) and `FRAMEWORK_BRIEF.md` (v3 reskin brief): historical, written before the v2 master; do not treat as current.
+## Cleanup (2026-10-01)
+- Deleted: `stage/`, `photos/` (the invented "1914 France 5 Francs" TITAN-299/300 images), and the stale `data/master_catalog.json` (v1, held the fake C297-C300 records; the app never read it). The fake France records are gone everywhere. Owner decision: the next four real coins take **C297, C298, C299, C300** (closing the gap the four purged fake records left in the old 1-296 item sequence), then C301 onward. The pending request R001 (German 1 euro cent, year to confirm) becomes C297.
+- `DRIVE_ANALYSIS.md` and `FRAMEWORK_BRIEF.md` are historical (banner at the top); do not follow them.
 
 ## Album data (2026-09-30)
 The album table hard-coded in `app.js` (`ALBUM_METADATA`) is wrong in places. The ledger's `ALBUMS.md` (Grok, rev 2026-09-22; on Drive in `Titan Reliquary Collection/`) is the better source. `schema/seed/albums.seed.json` transcribes it (evidence level per volume: enumerated / partial / count-only) and `schema/seed/ALBUMS_AUDIT.md` lists every disagreement. Example: A026 Silver Eagles 1986-2021 is missing 18 years, not the 6 the app shows, and the app wrongly lists 2008 and 2017 as missing. Rebuild with `python3 tools/albums/build_seed.py`.

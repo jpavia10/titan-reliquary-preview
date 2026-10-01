@@ -1,12 +1,14 @@
-/* Titan Reliquary service worker · build tr59
+/* Titan Reliquary service worker · build tr61
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback
+   - audio/ambience/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr59";
+const BUILD = "tr61";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
+const AMB = "titan-ambience-v1"; // real recordings: cached on first play (too big to precache), kept across builds
 const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "app.js?v=" + BUILD, "spatial.js?v=" + BUILD, "deepzoom.js?v=" + BUILD, "styles.css?v=" + BUILD, "splash.js?v=" + BUILD, "splash.css?v=" + BUILD, "manifest.webmanifest",
   "icons/icon-192.png", "icons/apple-touch-icon.png", "icons/favicon-32.png", "favicon.svg",
   "fonts/Fraunces-500.woff2", "fonts/Fraunces-600.woff2", "fonts/Fraunces-700.woff2",
@@ -39,6 +41,7 @@ const WING_URLS = [
   "styles/hall.css?v=" + BUILD,
   "styles/lab.css?v=" + BUILD,
   "styles/scene.css?v=" + BUILD,
+  "styles/worlds.css?v=" + BUILD,
   "styles/slab-legibility.css?v=" + BUILD,
   "styles/study.css?v=" + BUILD,
   "styles/table.css?v=" + BUILD,
@@ -76,6 +79,8 @@ const WING_URLS = [
   "wings/scene.js?v=" + BUILD,
   "wings/study.js?v=" + BUILD,
   "wings/themes.js?v=" + BUILD,
+  "wings/themes/manifest.js?v=" + BUILD,
+  "wings/themes/worlds.js?v=" + BUILD,
   "wings/vault.js?v=" + BUILD,
 ];
 
@@ -86,7 +91,7 @@ self.addEventListener("install", (e) => {
 self.addEventListener("activate", (e) => {
   e.waitUntil((async () => {
     for (const k of await caches.keys()) {
-      if (k !== SHELL && k !== DATA && k !== IMG) await caches.delete(k);
+      if (k !== SHELL && k !== DATA && k !== IMG && k !== AMB) await caches.delete(k);
     }
     await self.clients.claim();
   })());
@@ -122,8 +127,10 @@ self.addEventListener("fetch", (e) => {
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA));
-  } else if (path.includes("/thumbs/")) {
+  } else if (path.includes("/thumbs/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
     e.respondWith(cacheFirst(req, IMG));
+  } else if (path.includes("/audio/ambience/")) {
+    e.respondWith(cacheFirst(req, AMB));
   } else if (req.mode === "navigate") {
     e.respondWith(networkFirst(req, SHELL).catch(() => caches.match("index.html", { ignoreSearch: true })));
   } else {

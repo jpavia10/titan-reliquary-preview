@@ -6,7 +6,7 @@ usage (repo root):  python3 tools/schema/check_totals.py SRC COLLECTION_DIR
 
 HARD checks (must match exactly / within rounding; a failure means the master lost or invented something):
   * every ledger flip and lot id appears exactly once in collection/, and collection/ holds no id the ledger does not have
-    (this is what keeps the invented C297-C300 France records out)
+    (catches any record the ledger does not have)
   * counts per kind, per-record est_usd, sum of est_usd per kind (records vs the ledger's own record lists)
   * silver / gold troy oz for flips, sets, gold lots and the American Silver Eagle albums vs the ledger's METALS inventory
 KNOWN DELTAS (printed, allowed only at the exact amount recorded here; any other difference fails):
@@ -40,7 +40,7 @@ def run(src, d):
     hard("each id appears exactly once", not dup, f"duplicates: {dup}" if dup else f"{len(specs)} specimens + {len(lots)} lots, no duplicates")
     miss = sorted(set(flips) - set(specs)) + sorted(set(lot_src) - set(lots)); extra = sorted(set(specs) - set(flips)) + sorted(set(lots) - set(lot_src))
     hard("no ledger id missing", not miss, f"missing: {miss}" if miss else "0 missing")
-    hard("no id the ledger does not have", not extra, f"extra: {extra}" if extra else "0 extra (C297-C300 absent)" if not any(x in specs for x in ("C297", "C298", "C299", "C300")) else "C297-C300 present!")
+    hard("no id the ledger does not have", not extra, f"extra: {extra}" if extra else "0 extra")
     c = idx["counts"]
     hard("count: flips", len(specs) == c["flips"] == len(flips), f"collection {len(specs)} / ledger index {len(flips)} / counts.flips {c['flips']}")
     for k, label in (("bullion", "bullion"), ("set", "sets"), ("housing", "housing"), ("stamp", "stamps")):

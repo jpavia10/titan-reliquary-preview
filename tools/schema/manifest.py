@@ -10,7 +10,7 @@ generated_at) is kept from the existing manifest unless overridden on the comman
 """
 import glob, hashlib, json, os, re, sys
 
-SCHEMA_VERSION = "2.0.0"
+SCHEMA_VERSION = "3.0.0"
 SKIP_DIRS = {"_incoming"}        # Drive drop zone; never part of the repo master
 
 def sha256_file(p):

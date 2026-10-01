@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a v2 collection: JSON Schema per record + referential integrity + manifest integrity.
+"""Validate a v3 collection: JSON Schema per record + referential integrity + manifest integrity.
 
 usage (repo root):  python3 tools/schema/validate.py collection/ [--update-manifest]
     exit code 0 = clean.  --update-manifest first rewrites manifest.json (hashes, counts, totals) so a normal edit is:
@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, "..", "albums"))
 import manifest as mf
-DEFS = json.load(open(os.path.join(HERE, "..", "..", "schema", "v2", "defs.schema.json"), encoding="utf-8"))
+DEFS = json.load(open(os.path.join(HERE, "..", "..", "schema", "v3", "defs.schema.json"), encoding="utf-8"))
 _V = {}
 
 def validator(name):

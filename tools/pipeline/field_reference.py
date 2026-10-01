@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate collection/templates/FIELDS.md (every writable field path per entity, with type and units) from schema/v2/defs.schema.json.
+"""Generate collection/templates/FIELDS.md (every writable field path per entity, with type and units) from schema/v3/defs.schema.json + schema/v3/field_tiers.json.
 
 usage (repo root):  python3 tools/pipeline/field_reference.py [--check]
     --check   exit 1 if collection/templates/FIELDS.md is out of date (used by test_pipeline.py)
@@ -8,7 +8,9 @@ After regenerating, run: python3 tools/schema/validate.py collection/ --update-m
 import json, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-SCHEMA = os.path.join(ROOT, "schema", "v2", "defs.schema.json")
+SCHEMA = os.path.join(ROOT, "schema", "v3", "defs.schema.json")
+sys.path.insert(0, HERE)
+import apply_changes as AC
 OUT = os.path.join(ROOT, "collection", "templates", "FIELDS.md")
 ENTITIES = [("specimen", "Specimen", "one physical piece the owner holds (`C###` coin, `T###` token/medal/prop)"),
             ("type", "Type", "what a coin IS; shared by all its specimens (`CH.KM.24a.1`, `CA.X.1-cent`)"),
@@ -84,27 +86,46 @@ def walk(s, path, rows, depth=0):
 def required(s):
     return set(resolve(s).get("required", []))
 
+WHO = {"phase1": "**Phase 1**", "phase1_5": "Phase 1.5", "phase2": "Phase 2", "owner": "owner only", "system": "pipeline only"}
+
+def tier(ent, path):
+    return AC.tier_of(ent, path.replace(".N.", ".0."))
+
+def phase1_list():
+    T = json.load(open(os.path.join(ROOT, "schema", "v3", "field_tiers.json"), encoding="utf-8"))
+    L = ["## Phase 1 at a glance (quick pass from a staging photo)", "",
+         "A Phase 1 file creates or matches the coin and records only these fields (plus `notes`). Everything else waits for Phase 2.", "",
+         "| entity | Phase 1 fields |", "|---|---|"]
+    for ent in ("type", "specimen", "lot", "issuer"):
+        fs = [k.replace("*", "N") for k, v in T["tiers"][ent].items() if v == "phase1"]
+        L.append(f"| `{ent}` | " + ", ".join(f"`{f}`" for f in fs) + " |")
+    L += ["", "Phase 1 never writes: " + "; ".join(T["phase1_never"]) + ".", "",
+          "Phase 2 (after the pro photos) fills every other **Phase 2** field below that the photos and cited sources support, and may refine the Phase 1 fields and the story. "
+          "`owner only` fields are written only by the owner; `pipeline only` fields are never written by a contribution.", ""]
+    return L
+
 def build():
     L = ["# Field reference (generated: do not edit)", "",
-         "Every field path you can write in a change event, per entity. Generated from `schema/v2/defs.schema.json` by `python3 tools/pipeline/field_reference.py`.", "",
+         "Every field path you can write in a change event, per entity, and **who may write it** (schema v3 phase tiers). Generated from `schema/v3/defs.schema.json` + `schema/v3/field_tiers.json` by `python3 tools/pipeline/field_reference.py`.", "",
          "How to read it: `field` in your event is the **path** below. `N` is a list position starting at 0 (`issues.0.mintage`). "
          "`null` means \"not known\" and is always allowed where the type lists `null`. Types: `string`, `number` (decimal), `integer` (whole), `boolean` (`true`/`false`), `array` (JSON list), `object`. "
          "A path that names a whole object or list replaces all of it; prefer the leaf path (one event per fact). "
          "Units are in the field name: `_g` grams, `_mm` millimetres, `_oz` troy ounces, `_usd` US dollars. "
-         "`id` and `ser` can never be written by a contribution; `story` is only the owner's.", "",
-         "A value of the wrong type rejects your whole file with a line-numbered report (nothing is changed). Check yourself first: `python3 tools/pipeline/apply_changes.py --dry-run <file>`.", ""]
+         "`id`, `ser` and `research` are written by the pipeline only. A story the owner wrote is never overwritten without `supersedes`.", "",
+         "A value of the wrong type, or a field your phase may not write, rejects your whole file with a line-numbered report (nothing is changed). Check yourself first: `python3 tools/pipeline/apply_changes.py --dry-run <file>`.", ""]
+    L += phase1_list()
     for ent, name, blurb in ENTITIES:
         sch = resolve(DEFS[name]); rows = []
         walk(sch, "", rows)
         req = sorted(required(sch))
         L += [f"## entity `{ent}`: {blurb}", ""]
         if req: L += [f"Required keys of a whole record: {', '.join('`'+r+'`' for r in req)}.", ""]
-        L += ["| field path | type | units | meaning |", "|---|---|---|---|"]
+        L += ["| field path | who writes it | type | units | meaning |", "|---|---|---|---|---|"]
         for path, ty, un, desc in rows:
             if not path: continue
             d = " ".join(desc.split()).replace("|", "/")
             ty = ty.replace("|", "\\|")
-            L.append(f"| `{path}` | {ty} | {un} | {d} |")
+            L.append(f"| `{path}` | {WHO.get(tier(ent, path), '')} | {ty} | {un} | {d} |")
         L.append("")
     return "\n".join(L).rstrip() + "\n"
 
