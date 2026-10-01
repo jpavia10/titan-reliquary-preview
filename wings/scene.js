@@ -34,15 +34,24 @@
   <div class="ss-card" role="dialog" aria-modal="true" aria-labelledby="ss-title">
     <div class="ss-top">
       <div class="ss-head"><h2 class="ss-title" id="ss-title">Scene Studio</h2><button type="button" class="ss-x" id="ss-close" aria-label="Close Scene Studio">×</button></div>
+      <!-- THEMES-TABS:begin -->
+      <div class="ss-tabs" role="tablist" aria-label="Scene Studio sections">
+        <button type="button" class="ss-tab" role="tab" id="ss-tab-scenes" data-tab="scenes" aria-controls="ss-p-scenes" aria-selected="false">Scenes</button>
+        <button type="button" class="ss-tab" role="tab" id="ss-tab-themes" data-tab="themes" aria-controls="ss-p-themes" aria-selected="true">Themes</button>
+        <button type="button" class="ss-tab" role="tab" id="ss-tab-sound" data-tab="sound" aria-controls="ss-p-sound" aria-selected="false">Sound</button>
+      </div>
+      <!-- THEMES-TABS:end -->
       <p class="ss-status" id="ss-status" role="status" aria-live="polite"></p>
       <div class="ss-master"><label for="ss-vol">Volume</label><input type="range" id="ss-vol" min="0" max="1" step="0.01" aria-label="Master volume"><span class="ss-vol-n" id="ss-vol-n"></span></div>
       <div class="ss-btnrow"><button type="button" class="ss-btn primary" id="ss-play">▶ Play</button><button type="button" class="ss-btn off" id="ss-off">■ Off</button></div>
     </div>
+    <!-- THEMES-TABS:panel-scenes --><div class="ss-panel" id="ss-p-scenes" role="tabpanel" aria-labelledby="ss-tab-scenes" hidden>
     <h3 class="ss-h">Pick a scene</h3>
     <p class="ss-sub">One tap sets the lighting, the sounds and the music together.</p>
     <div class="ss-scenes" id="ss-scenes">${G.SCENE_ORDER.map((id) => { const s = G.SCENES[id]; return `<button type="button" class="ss-scene" data-scene="${id}" aria-pressed="false"><span class="i" aria-hidden="true">${s.icon}</span><span class="n">${esc(s.name)}</span><span class="d">${esc(s.desc)}</span></button>`; }).join("")}</div>
-    <h3 class="ss-h">Lighting</h3>
-    <div class="ss-chips" id="ss-atmos">${atmoCards.map((a) => `<button type="button" class="ss-chip" data-atmo="${a.val}" aria-pressed="false"><span class="sw ${a.sw}" aria-hidden="true"></span>${esc(a.name)}</button>`).join("")}</div>
+    </div><!-- /scenes panel -->
+    <!-- THEMES-TABS:panel-themes --><div class="ss-panel" id="ss-p-themes" role="tabpanel" aria-labelledby="ss-tab-themes"><div id="ss-themes"></div></div>
+    <!-- THEMES-TABS:panel-sound --><div class="ss-panel" id="ss-p-sound" role="tabpanel" aria-labelledby="ss-tab-sound" hidden>
     <details class="ss-details" id="ss-build"><summary>Build your own sound</summary><div class="in">
       <p class="ss-sub">Tap to switch each sound on or off.</p>
       <div class="ss-chips" id="ss-beds">${G.BED_ORDER.map((id) => `<button type="button" class="ss-chip" data-bed="${id}" aria-pressed="false"><span aria-hidden="true">${G.BEDS[id].icon}</span>${esc(G.BEDS[id].label)}</button>`).join("")}</div>
@@ -70,6 +79,7 @@
       <label class="ss-check"><input type="checkbox" id="ss-bg"><span>Pause sound when the app is in the background</span></label>
       <p class="ss-note">By default sound keeps playing when you switch apps or lock the phone.</p>
       <div id="ss-moved"></div></div></details>
+    </div><!-- /sound panel -->
   </div>`;
   document.body.appendChild(sheet);
 
@@ -107,7 +117,7 @@
     if (barName) barName.textContent = (playing || paused) && nm ? nm : (document.documentElement.getAttribute("data-atmo") ? atmoName(lastAtmo) : "Lighting");
     if (barBtn) barBtn.setAttribute("aria-label", `Scene Studio. ${playing ? "Playing " + nm : "Silent"}. Lighting: ${atmoName(lastAtmo)}`);
   }
-  function atmoName(v) { const a = atmoCards.find((c) => c.val === v); return a ? a.name : v; }
+  function atmoName(v) { const w = window.TitanWorlds && window.TitanWorlds.byId(v); if (w) return w.name; const a = atmoCards.find((c) => c.val === v); return a ? a.name : v; }
 
   function start(fade) {
     if (!st.mix) return;
@@ -153,10 +163,40 @@
   selSt.addEventListener("change", () => { try { radio.setStation(selSt.value); } catch (e) { /* ignore */ } });
   window.addEventListener("titan:radio", () => { renderRadio(); const s = radio.status(); if (!s.playing && !s.wantPlay && radioOn) { radioOn = false; G.setMusicDuck(false); } });
 
+  /* THEMES-TABS:js begin ---------- tabs + Themes picker (see wings/themes/worlds.js) ---------- */
+  const TAB_KEY = "titan.scene.tab";
+  const card = $(".ss-card", sheet), themesEl = $("#ss-themes", sheet);
+  let tab = "themes";
+  try { const t = localStorage.getItem(TAB_KEY); if (t === "scenes" || t === "sound") tab = t; } catch (e) { /* ignore */ }
+  function setTab(t, focus) {
+    if (t !== "scenes" && t !== "themes" && t !== "sound") t = "themes";
+    tab = t; card.dataset.tab = t;
+    sheet.querySelectorAll(".ss-tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
+    sheet.querySelectorAll(".ss-panel").forEach((p) => { p.hidden = p.id !== "ss-p-" + t; });
+    if (t === "themes" && window.TitanWorlds) { if (!themesEl.firstChild) window.TitanWorlds.render(themesEl); else window.TitanWorlds.mark(themesEl); }
+    try { localStorage.setItem(TAB_KEY, t); } catch (e) { /* ignore */ }
+    if (focus) { const b = $("#ss-tab-" + t, sheet); if (b) b.focus(); }
+  }
+  sheet.querySelector(".ss-tabs").addEventListener("click", (e) => { const b = e.target.closest(".ss-tab"); if (b) setTab(b.dataset.tab); });
+  sheet.querySelector(".ss-tabs").addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    const order = ["scenes", "themes", "sound"], i = order.indexOf(tab);
+    setTab(order[(i + (e.key === "ArrowRight" ? 1 : 2)) % 3], true); e.preventDefault();
+  });
+  themesEl.addEventListener("click", (e) => {
+    const b = e.target.closest(".th-card"); if (!b || !window.TitanWorlds) return;
+    lastAtmo = b.dataset.world; window.TitanWorlds.apply(b.dataset.world);
+    themesEl.querySelectorAll(".th-card").forEach((c) => c.setAttribute("aria-pressed", String(c === b)));
+    render();
+  });
+  window.addEventListener("titan:atmo", () => { if (window.TitanWorlds && themesEl.firstChild) window.TitanWorlds.mark(themesEl); });
+  /* THEMES-TABS:js end */
+
   /* ---------- events ---------- */
   let last = null;
-  function open() {
-    if (!sheet.hidden) return;
+  function open(which) {
+    if (!sheet.hidden) { if (which) setTab(which); return; }
+    setTab(which || tab);
     last = document.activeElement;
     renderRadio(); render();
     sheet.hidden = false;
@@ -197,7 +237,7 @@
 
   // The bar button opens the studio (app.js binds #btn-atmo -> openAtmoSheet -> TitanScene.open).
   window.TitanScene = {
-    open, close, isOpen: () => !sheet.hidden, stop: stopAll,
+    open, close, setTab, openThemes: () => open("themes"), isOpen: () => !sheet.hidden, stop: stopAll,
     state: () => clone(st), play: pickScene, scenes: () => G.SCENE_ORDER.slice()
   };
   render();

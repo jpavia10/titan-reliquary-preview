@@ -39,6 +39,7 @@ const WING_URLS = [
   "styles/hall.css?v=" + BUILD,
   "styles/lab.css?v=" + BUILD,
   "styles/scene.css?v=" + BUILD,
+  "styles/worlds.css?v=" + BUILD,
   "styles/slab-legibility.css?v=" + BUILD,
   "styles/study.css?v=" + BUILD,
   "styles/table.css?v=" + BUILD,
@@ -73,6 +74,8 @@ const WING_URLS = [
   "wings/scene.js?v=" + BUILD,
   "wings/study.js?v=" + BUILD,
   "wings/themes.js?v=" + BUILD,
+  "wings/themes/manifest.js?v=" + BUILD,
+  "wings/themes/worlds.js?v=" + BUILD,
   "wings/vault.js?v=" + BUILD,
 ];
 
@@ -119,7 +122,7 @@ self.addEventListener("fetch", (e) => {
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA));
-  } else if (path.includes("/thumbs/")) {
+  } else if (path.includes("/thumbs/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
     e.respondWith(cacheFirst(req, IMG));
   } else if (req.mode === "navigate") {
     e.respondWith(networkFirst(req, SHELL).catch(() => caches.match("index.html", { ignoreSearch: true })));

@@ -7316,7 +7316,7 @@
     nocturne:    { name: "Nocturne",       themeColor: "#070b16", preset: "nocturne",    station: "jazz",      pair: "Midnight Rain + Jazz" },
     odyssey:     { name: "Odyssey",        themeColor: "#04121a", preset: "odyssey",     station: "adventure", pair: "Ocean Surf + Expeditionary" },
     cursedwing:  { name: "The Cursed Wing", themeColor: "#0a0505", preset: "cursedwing", station: "dark",      pair: "Abyss Drone + Oppressive Gloom" },
-    kaleido:     { name: "Kaleidoscope",    themeColor: "#0d0218", preset: "kaleido",    station: "psych",     pair: "Singing Bowl + Psych Voyage" },
+    kaleido:     { name: "Prism"       ,    themeColor: "#0d0218", preset: "kaleido",    station: "psych",     pair: "Singing Bowl + Psych Voyage" },
     abyss:       { name: "Sunken Treasury", themeColor: "#02101c", preset: "abyss",      station: "abyss",     pair: "Ocean Depths + Pressure Hymns" },
     neon:        { name: "Neon Vault",      themeColor: "#0d0118", preset: "neon",       station: "synthwave", pair: "Grid Pulse + Midnight Drive" },
     notepad:     { name: "Plaintext",       themeColor: "#ffffff", preset: "notepad",    station: "quiet",     pair: "Room Tone + Long Notes" },
@@ -7578,7 +7578,7 @@
     lastFocus = null;
   }
   function openAtmoSheet() {
-    if (window.TitanScene && window.TitanScene.open) { window.TitanScene.open(); return; }
+    if (window.TitanScene && window.TitanScene.open) { window.TitanScene.open("themes"); return; }
     rememberFocus();
     setAtmo(currentAtmo(), false); // refresh the "On display" marks
     $("#atmo-sheet").hidden = false;
