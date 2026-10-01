@@ -89,10 +89,11 @@
     var kk = $(".ts-f-kicker"); if (kk) kk.textContent = "From the collection";
   }
 
-  /* ---------- sound: synthesized, off until the visitor turns it on (same stored preference as v2) ---------- */
+  /* ---------- sound: synthesized, ON by default (owner, 2026-10-01); the sound button turns it off and that choice is remembered.
+     Browsers allow sound before a tap only for installed apps / engaged sites; if blocked, the first tap turns sound on instead of skipping. */
   var Sfx = (function () {
-    var KEY = "tr_splash_sound_v1", on = false, ctx = null, out = null, noise = null, verb = null, room = null;
-    try { on = localStorage.getItem(KEY) === "1"; } catch (e) {}
+    var KEY = "tr_splash_sound_v2", on = true, ctx = null, out = null, noise = null, verb = null, room = null;
+    try { on = localStorage.getItem(KEY) !== "0"; } catch (e) {}
     function ensure() {
       if (!on) return null;
       try {
@@ -135,6 +136,7 @@
         if (on) ensure(); else api.stop(0.2);
       },
       gesture: function () { if (on) ensure(); },
+      blocked: function () { return !!(on && (!ctx || ctx.state !== "running")); },
       strike: function () {                         // the tungsten lamp warms up: relay tick, transformer hum
         if (!ctx) return; var t = ctx.currentTime + 0.01;
         burst(t, 0.3, 0.05, "bandpass", 3200, 5, 0, 0.002, 0.2); tone("sine", 95, t, 0.4, 0.3, 48);
@@ -197,6 +199,22 @@
     btnSound.classList.toggle("ts-snd-on", on);
   }
   syncSound();
+  /* try sound right away; if the browser holds it back, offer one tap to turn it on */
+  var soundHint = null, soundUnlocked = false;
+  if (Sfx.isOn()) {
+    Sfx.gesture();
+    later(function () {
+      if (state === "done" || !Sfx.isOn() || !Sfx.blocked()) { soundUnlocked = true; return; }
+      soundHint = document.createElement("button"); soundHint.type = "button"; soundHint.className = "ts-sound-hint"; soundHint.textContent = "Tap for sound";
+      soundHint.style.cssText = "position:absolute;left:50%;bottom:calc(14% + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:6;padding:12px 22px;min-height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(10,10,10,.55);color:#f3efe6;font:600 16px/1 system-ui,sans-serif;letter-spacing:.04em;backdrop-filter:blur(6px)";
+      root.appendChild(soundHint);
+    }, 350);
+  }
+  function unlockSound() {
+    soundUnlocked = true; Sfx.gesture();
+    var v = root.querySelector(".ts-film"); if (v) { try { v.muted = false; } catch (e) {} }
+    if (soundHint) { soundHint.remove(); soundHint = null; }
+  }
   if (btnSound) {
     btnSound.addEventListener("pointerdown", function (e) { e.stopPropagation(); });
     btnSound.addEventListener("click", function (e) { e.stopPropagation(); Sfx.set(!Sfx.isOn()); syncSound(); });
@@ -219,7 +237,11 @@
     if (k === "Tab" || k === "Shift" || k === "Control" || k === "Alt" || k === "Meta") return;
     e.preventDefault(); e.stopPropagation(); skip();                                                                 // any other key skips
   }
-  function onPointer(e) { if (state === "done") return; e.preventDefault(); Sfx.gesture(); skip(); }
+  function onPointer(e) {
+    if (state === "done") return; e.preventDefault();
+    if (Sfx.isOn() && !soundUnlocked && e.target !== btnSkip) { unlockSound(); return; }   // first tap = sound on (when the browser blocked it), not skip
+    Sfx.gesture(); skip();
+  }
   window.addEventListener("keydown", onKey, true);
   root.addEventListener("pointerdown", onPointer);
   if (btnSkip) btnSkip.addEventListener("click", function (e) { e.stopPropagation(); skip(); });
@@ -315,7 +337,9 @@
     v.addEventListener("error", function () { if (!started) { clearTimeout(fallback); v.remove(); root.classList.remove("ts-filmon"); runGL(); } });
     var snd = $(".ts-sound");
     if (snd) snd.addEventListener("click", function () { try { v.muted = !v.muted; } catch (e) {} });
-    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    if (Sfx.isOn()) { v.muted = false; }
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { v.muted = true; var p2 = v.play(); if (p2 && p2.catch) p2.catch(function () {}); });   // sound blocked: play muted, "Tap for sound" unmutes
     return true;
   }
   runGL();

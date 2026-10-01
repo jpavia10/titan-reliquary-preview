@@ -6777,14 +6777,14 @@
      (lighting, texture, motion language) with its own music station and ambient
      preset. "Set the scene" applies all three at once. --- */
   const ATMOS = {
-    afterhours:  { name: "After Hours",    themeColor: "#060605", preset: "afterhours",  station: "lofi",      pair: "Rain + Ultralounge" },
+    afterhours:  { name: "Midnight Gallery", themeColor: "#060605", preset: "afterhours",  station: "lofi",      pair: "Rain + Ultralounge" },
     conservator: { name: "Conservator",    themeColor: "#f4efe4", preset: "conservator", station: "classical", pair: "Clockwork + Classical" },
-    colossus:    { name: "Colossus",       themeColor: "#14100a", preset: "colossus",    station: "epic",      pair: "Foundry + Five Armies" },
+    colossus:    { name: "The Mint",       themeColor: "#14100a", preset: "colossus",    station: "epic",      pair: "Foundry + Five Armies" },
     nocturne:    { name: "Nocturne",       themeColor: "#070b16", preset: "nocturne",    station: "jazz",      pair: "Midnight Rain + Jazz" },
     odyssey:     { name: "Odyssey",        themeColor: "#04121a", preset: "odyssey",     station: "adventure", pair: "Ocean Surf + Expeditionary" },
     cursedwing:  { name: "The Cursed Wing", themeColor: "#0a0505", preset: "cursedwing", station: "dark",      pair: "Abyss Drone + Oppressive Gloom" },
     kaleido:     { name: "Prism"       ,    themeColor: "#0d0218", preset: "kaleido",    station: "psych",     pair: "Singing Bowl + Psych Voyage" },
-    abyss:       { name: "Sunken Treasury", themeColor: "#02101c", preset: "abyss",      station: "abyss",     pair: "Ocean Depths + Pressure Hymns" },
+    abyss:       { name: "Shipwreck", themeColor: "#02101c", preset: "abyss",      station: "abyss",     pair: "Ocean Depths + Pressure Hymns" },
     neon:        { name: "Neon Vault",      themeColor: "#0d0118", preset: "neon",       station: "synthwave", pair: "Grid Pulse + Midnight Drive" },
     notepad:     { name: "Plaintext",       themeColor: "#ffffff", preset: "notepad",    station: "quiet",     pair: "Room Tone + Long Notes" },
     construct:   { name: "The Construct",   themeColor: "#000000", preset: "construct",  station: "construct", pair: "Machine Code + Data Relays" },

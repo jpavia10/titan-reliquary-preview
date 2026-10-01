@@ -3,7 +3,7 @@
    - id: the data-atmo id (kept stable so saved choices carry over).
    - tier "signature": tokens (CSS custom properties only) + art + fx + scene; no layout overrides.
      tier "classic": an old atmosphere that still has its own stylesheet (styles/atmo/<id>.css).
-   - art: filenames under art/themes/ made by tools/art/render_themes.py. null = no photoreal art yet (the picker shows the swatch).
+   - art: filenames under art/themes/ (2026-10-01: from the Grok image queue, docs/art/requests/; kaleido re-done from Grok). null = no photoreal art yet (the picker shows the swatch).
    - tokens: custom properties applied inline on <html> for signature worlds.
    - fx / scene: TitanFX preset id and TitanGen scene id (null until those exist). */
 (function () {
@@ -11,20 +11,20 @@
   var A = function (id) { return { hero: id + ".webp", card: id + "-card.webp" }; };
   var worlds = [
     { id: "kaleido", name: "Prism", collection: "Otherworld", tier: "classic", art: A("kaleido"),
-      mood: "A white beam, a crystal prism, a silver dollar in the rainbow.", fx: null, scene: null, tokens: {} },
-    { id: "afterhours", name: "After Hours", collection: "Museum", tier: "classic", art: null,
+      mood: "A silver coin on cut crystal, splitting light into rainbows.", fx: null, scene: null, tokens: {} },
+    { id: "afterhours", name: "Midnight Gallery", collection: "Museum", tier: "classic", art: A("afterhours"),
       mood: "Cold moonlight on black marble, the gallery after midnight.", fx: null, scene: "afterhours", tokens: {} },
     { id: "conservator", name: "Conservator", collection: "Museum", tier: "classic", art: null,
       mood: "Archival paper and ledger lines, the conservator's desk at noon.", fx: null, scene: "conservator", tokens: {} },
-    { id: "colossus", name: "Colossus", collection: "Treasure", tier: "classic", art: null,
-      mood: "Furnace room: molten bronze and ember light.", fx: null, scene: null, tokens: {} },
+    { id: "colossus", name: "The Mint", collection: "Treasure", tier: "classic", art: A("colossus"),
+      mood: "Molten silver, the coining press, ember light.", fx: null, scene: null, tokens: {} },
     { id: "nocturne", name: "Nocturne", collection: "Moods", tier: "classic", art: null,
       mood: "A smoky jazz cellar: deep blue, brass, art deco.", fx: null, scene: "nocturne", tokens: {} },
     { id: "odyssey", name: "Odyssey", collection: "Journeys", tier: "classic", art: null,
       mood: "A night voyage toward an amber dawn.", fx: null, scene: "odyssey", tokens: {} },
     { id: "cursedwing", name: "The Cursed Wing", collection: "Otherworld", tier: "classic", art: null,
       mood: "Black wax, blood-red seals, something in the walls.", fx: null, scene: null, tokens: {} },
-    { id: "abyss", name: "Sunken Treasury", collection: "Treasure", tier: "classic", art: null,
+    { id: "abyss", name: "Shipwreck", collection: "Treasure", tier: "classic", art: A("abyss"),
       mood: "Forty fathoms down, god rays on a wreck.", fx: null, scene: null, tokens: {} },
     { id: "neon", name: "Neon Vault", collection: "Otherworld", tier: "classic", art: null,
       mood: "Chrome midnight, hot-pink horizon, wet streets.", fx: null, scene: "neon", tokens: {} },
