@@ -177,6 +177,14 @@
     }
   }
   document.body.appendChild(bar);
+  // Mirror the bar state on <html data-lofi="open|collapsed"> so CSS needs no body:has(...) selector
+  // (a :has() on <body> is re-evaluated on every DOM change anywhere and cost ~150 ms at boot on phones).
+  const syncLofiState = () => {
+    const v = bar.hidden ? "" : (bar.classList.contains("collapsed") ? "collapsed" : "open");
+    if (v) document.documentElement.setAttribute("data-lofi", v); else document.documentElement.removeAttribute("data-lofi");
+  };
+  new MutationObserver(syncLofiState).observe(bar, { attributes: true, attributeFilter: ["hidden", "class"] });
+  syncLofiState();
 
   const pill = document.createElement("button");
   pill.type = "button";

@@ -274,3 +274,9 @@ html[data-atmo] #pane-hall :is(.term-asset-btn, .term-mode-btn, .eyebrow-row .ba
 #pane-hall .term-asset-btn.active .sym { color: var(--surface); }
 #pane-hall .note-card .k, #pane-hall .note-card .s { color: var(--muted) !important; }
 #pane-hall .lab-banner p { color: var(--ink); }
+
+/* Perf (pass 2, phones/touch): only the showing exhibit slide is styled, laid out and painted.
+   The other four are ~175 nodes each of 3D flipper + placard that nobody sees until they swipe. */
+@media (max-width: 700px), (hover: none) and (pointer: coarse) {
+  #pane-hall .exhibit-slide:not(.on) { content-visibility: hidden; contain-intrinsic-size: auto 720px; }
+}
