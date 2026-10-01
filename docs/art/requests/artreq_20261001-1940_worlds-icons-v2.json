@@ -1,0 +1,111 @@
+{
+ "request_id": "artreq_20261001-1940_worlds-icons-v2",
+ "status": "open",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-01T19:40:00Z",
+ "supersedes": "artreq_20261001-1845_worlds-icons-splash (do NOT make that one; this replaces it)",
+ "instructions": "Follow Titan Reliquary/ART_START_HERE (for image AIs). Make every image below with your best image model at the highest resolution it offers. Each image has a `takes` count: when it is 3, make 3 versions with different seeds and slight angle variations, named with _take1/_take2/_take3 before the extension (e.g. world_prism_hero_take1.png); when it is 1, use the file name as is. Save to Titan Reliquary/art-incoming (AI images)/artreq_20261001-1940_worlds-icons-v2/ with the exact file names, then create artreq_20261001-1940_worlds-icons-v2.DONE.txt in Titan Reliquary/art-requests (AI image jobs)/ (one line per file: ok or skipped: reason; then your model name and date).",
+ "deliverable_spec": {
+  "hero": "16:10, at least 2560x1600, PNG",
+  "card": "16:10, at least 1280x800, PNG",
+  "icon": "1:1, 1024x1024, PNG, no transparency",
+  "splash": "9:16, at least 1080x1920, PNG",
+  "safe_area": "heroes: keep the top-left third darker and free of detail (UI text sits there)"
+ },
+ "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, natural lens behaviour, true reflections, physically accurate materials (polished and toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light with physically correct falloff, rich but natural colour grading, fine film grain. The subject is always real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Leave the top-left third of the frame quiet and darker (UI text sits there).",
+ "negative": "no text, no letters, no numbers, no logos, no watermark, no frame, no people's faces, no hands, no cartoon, no illustration, no 3D-render look, no plastic, no oversaturation, no HDR halos, no fantasy glow orbs, no duplicate coins melting into each other, no warped or unreadable coin designs",
+ "coin_rule": "Coins must look like real circulated or uncirculated world coins (a generic portrait or eagle or crest design is fine); never invent a legible inscription.",
+ "images": [
+  {
+   "file_name": "world_prism_hero.png",
+   "takes": 3,
+   "aspect_ratio": "16:10",
+   "world": "Prism (Otherworld)",
+   "prompt": "Camera: 100 mm macro, f/4, eye level with the coin, slight 10-degree downward tilt. Subject: a single silver crown-size coin standing on edge, leaning against a large faceted optical-crystal prism (K9 glass, razor-sharp facets) on a black polished obsidian slab. One narrow beam of pure white light enters from frame-left, passes through the prism and fans into a clean, physically correct rainbow spectrum (red to violet) that lands across the coin's face and rim; secondary caustics sparkle on the obsidian. Background: pure black. Composition: coin at the right third, prism at centre-left, the top-left third left dark for UI text."
+  },
+  {
+   "file_name": "world_prism_card.png",
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Prism",
+   "prompt": "Extreme macro (2:1) of the reeded rim and edge of a silver coin seen through one facet of a crystal prism; three crisp spectral bands cross it diagonally; black background; ultra sharp, no bokeh balls."
+  },
+  {
+   "file_name": "world_midnight_gallery_hero.png",
+   "takes": 3,
+   "aspect_ratio": "16:10",
+   "world": "Midnight Gallery (Museum, the default world)",
+   "prompt": "Camera: 35 mm, f/2.8, low and wide, 1.2 m off the floor. A private coin museum after closing: double-height room, black Nero Marquina marble floor polished to a mirror, a high glass skylight letting in cold moonlight (5600 K, soft beams with faint dust). In the centre, one bronze-framed glass vitrine on a dark plinth; inside, three silver coins on navy velvet under a single warm 3000 K pin spot. Brass label rail on the plinth (no readable text). The rest of the room falls into deep shadow with long soft reflections on the floor. Top-left third dark."
+  },
+  {
+   "file_name": "world_midnight_gallery_card.png",
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Midnight Gallery",
+   "prompt": "Close-up, 85 mm, f/2: three silver coins fanned on navy velvet under one warm pin spot, cool moonlit blue rim on the vitrine glass edge, black marble reflection below, shallow depth of field."
+  },
+  {
+   "file_name": "world_fireside_den_hero.png",
+   "takes": 3,
+   "aspect_ratio": "16:10",
+   "world": "Fireside Den (Moods, the cozy sound-machine world)",
+   "prompt": "Camera: 35 mm, f/2.8, seated eye height. A wood-panelled private study at night: a stone fireplace frame-right with a real oak-log fire (warm 1900-2200 K flicker), a worn cognac leather wingback armchair, and a low walnut table in the foreground with an open coin album (round coin slots, some filled with silver coins) and three loose silver coins catching the firelight. A tall window frame-left with snow falling outside in cool blue night light. Warm amber versus cool blue. Top-left third (the window area) stays darker."
+  },
+  {
+   "file_name": "world_fireside_den_card.png",
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Fireside Den",
+   "prompt": "85 mm macro, f/2: three silver coins on a walnut tabletop lit by firelight, a soft orange fireplace glow behind them, a cool blue window-light rim on the left edge, shallow depth of field."
+  },
+  {
+   "file_name": "world_shipwreck_hero.png",
+   "takes": 3,
+   "aspect_ratio": "16:10",
+   "world": "Shipwreck (Treasure)",
+   "prompt": "Underwater, 24 mm, f/5.6, 40 m deep, natural light only. The broken oak ribs of an old Spanish galleon frame-left, half buried in pale sand; in the foreground a scattered heap of irregular silver 'cob' coins, some black-encrusted and some gleaming where the sand has worn them, and a small brass-bound chest lid. God rays fall from the surface, rippling caustic light plays over the coins, fine particles drift. Colour: deep teal to black. Top-left third dark water."
+  },
+  {
+   "file_name": "world_shipwreck_card.png",
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Shipwreck",
+   "prompt": "Macro, 60 mm: four silver cob coins in pale sand, caustic light ripples across them, teal water, a few particles, shallow depth of field."
+  },
+  {
+   "file_name": "world_the_mint_hero.png",
+   "takes": 3,
+   "aspect_ratio": "16:10",
+   "world": "The Mint (Treasure)",
+   "prompt": "Camera: 50 mm, f/2.8. Inside an 18th-century coin mint at night: frame-right, a thin stream of molten silver pours from a graphite crucible into an iron ingot mould with a few real sparks; centre-back, a massive iron screw coining press with a long weighted arm; foreground, a steel tray of freshly struck, mirror-bright silver coins. Ember light, light smoke, dark brick walls, warm 2000 K only. Top-left third in shadow."
+  },
+  {
+   "file_name": "world_the_mint_card.png",
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "The Mint",
+   "prompt": "Macro, 100 mm: freshly struck bright silver coins stacked on a steel tray, a soft out-of-focus ember glow and two sparks behind, shallow depth of field."
+  },
+  {
+   "file_name": "app_icon_concept_A.png",
+   "takes": 1,
+   "aspect_ratio": "1:1",
+   "world": "App icon",
+   "prompt": "Square 1024x1024. One perfectly lit polished silver coin (generic portrait relief, no readable lettering) seen at a 20-degree angle, centred, filling 62% of the square, on a deep ink-black background with a very subtle radial falloff; one soft white rim highlight on the upper-left edge and a faint reflection below. Must read clearly at 48 px: strong silhouette, high contrast, nothing small. No text, no border, no rounded-corner mask (the phone adds it)."
+  },
+  {
+   "file_name": "app_icon_concept_B.png",
+   "takes": 1,
+   "aspect_ratio": "1:1",
+   "world": "App icon",
+   "prompt": "Square 1024x1024. A neat stack of three coins (silver, gold, silver; generic designs, no readable text) photographed from slightly above on a warm ivory background, crisp soft shadow, centred, filling 60%. High contrast at 48 px. No text, no border, no mask."
+  },
+  {
+   "file_name": "splash_key_art.png",
+   "takes": 3,
+   "aspect_ratio": "9:16",
+   "world": "Splash screen (phone, portrait)",
+   "prompt": "Portrait 1080x1920 (9:16). A massive round steel vault door, half open, seen straight on and slightly from below; a blade of warm light spills from inside across a polished black floor; inside, a glimpse of a single silver coin on black velvet and two silver bars, softly glowing. The top 15% and bottom 20% are near-black empty space (for the app's caption and buttons). Moody, restrained, expensive."
+  }
+ ]
+}
