@@ -1,21 +1,22 @@
-# Titan Reliquary · art request queues (split 2026-10-01: Grok = stills, Gemini Veo = video)
+# Titan Reliquary · art request queue (one queue, Grok: images + video with sound; consolidated 2026-10-01)
 
-Claude (the integrator) writes requests into two Drive queues. A scheduled AI processes each queue; the owner does nothing.
+Claude (the integrator) writes requests into one Drive queue. Grok processes it on a schedule; the owner does nothing.
 
 | Queue (Drive, `Titan Reliquary/`) | Who processes it | Rules doc on Drive | Output folder | Command |
 |---|---|---|---|---|
-| `art-requests-images (Grok)/` | Grok (or any image AI) - **still images only** | `IMAGE_START_HERE (for Grok)` | `art-incoming (AI images)/{request id}/` | "Titan: process the image requests" |
-| `art-requests-video (Gemini Veo)/` | Gemini with Veo - **video only, with native audio** | `VIDEO_START_HERE (for Gemini Veo)` | `art-incoming-video (Gemini Veo clips)/{request id}/` | "Titan: process the video requests" |
+| `art-requests (Grok: images + video)/` | Grok (Grok Imagine for stills, Grok Imagine Video with native audio for clips) | `ART_START_HERE (for Grok: images + video)` | `art-incoming (AI images + video)/{request id}/` | "Titan: process the art requests" |
 
-Grok never takes video jobs (its video/audio is weaker than Veo's); Gemini never takes the image queue unless Claude reassigns a job by copying it there.
+Grok's video model makes 8 s clips at 24 fps with sound (H.264 + AAC, 1088x1920 / 1920x1088) plus `_silent` copies, so the earlier Gemini Veo queue was retired.
+Claude may still reassign a job to another model (for example Gemini Veo) by naming it in `assigned_to`; the folders stay the same.
 
 ## Request files
 `artreq_{YYYYMMDD-HHMM}_{slug}.json` with `request_id`, `status`, `assigned_to`, `instructions`, `deliverable_spec`, `global_style`, `negative`, `coin_rule`,
 `images` (each with `file_name`, `aspect_ratio`, `takes` or `type: video` + `duration_s` + `shot`) and, for video, `shots` (timed shot lists).
-A request is open until a `{request id}.DONE.txt` or `.FAILED.txt` sits next to it. Repo copies: `docs/art/requests/`.
+A request is open until a `{request id}.DONE.txt` or `.FAILED.txt` sits next to it. Repo copies: `docs/art/requests/` (older copies name the retired
+split folders; their deliveries were moved into the single output folder).
 
 ## Claude's side
-- New need: write `docs/art/requests/{id}.json`, commit, upload it to the right queue folder. Never ask the owner to copy and paste prompts.
+- New need: write `docs/art/requests/{id}.json`, commit, upload it to the queue folder. Never ask the owner to copy and paste prompts.
 - "Titan: import the art": download from the output folder, review every file, compress (WebP heroes 1600x1000 <=250 KB, cards 640x400 <=60 KB; video H.264/VP9 <=4 MB for the splash), wire in (splash: set `FILM` in splash.js), record `docs/art/requests/{id}.result.md`.
 
 ## Review loop (owner rule, 2026-10-01)

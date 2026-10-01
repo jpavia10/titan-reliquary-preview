@@ -1,7 +1,7 @@
 {
   "project": "Titan Reliquary (private coin & precious-metals collection app)",
   "task": "Generate each image in `images` below, one at a time, at the highest quality you can. Use each item's exact `file_name` when saving. Put every finished image in the Google Drive folder `Titan Reliquary/art-incoming (AI images)/`. If you cannot write to Drive yourself, show each image with its file name so the owner can save it there. Do not add text, logos, watermarks or borders to any image.",
-  "drive_folder": "Titan Reliquary/art-incoming (AI images)/",
+  "drive_folder": "Titan Reliquary/art-incoming (AI images + video)/",
   "global_style": "Photorealistic, shot like a high-end editorial or luxury-watch campaign: full-frame camera, 85-100 mm macro lens, shallow depth of field, physically accurate materials (polished and toned silver, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich but natural colour grading, fine film grain, 8K detail. The subject is always real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Leave the top-left third of the frame quiet and darker (UI text sits there).",
   "negative": "no text, no letters, no numbers, no logos, no watermark, no frame, no people's faces, no hands, no cartoon, no illustration, no 3D-render look, no plastic, no oversaturation, no HDR halos, no fantasy glow orbs, no duplicate coins melting into each other, no warped or unreadable coin designs",
   "coin_rule": "Coins must look like real circulated or uncirculated world coins (a generic portrait or eagle or crest design is fine); never invent a legible inscription.",
