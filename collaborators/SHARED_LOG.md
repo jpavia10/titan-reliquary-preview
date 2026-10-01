@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Opus integrator (tr58 perf pass 2, tr59 Scene Studio)
+* tr58: phone perf on every wing (Vault open 1.5 s -> 0.3 s, Study scroll 31 -> 42 fps, boot blocking ~2 s -> ~1.4 s); notes/agents/perf.md. Vault door no longer auto-plays on phones (`?vaultdoor=1` or replay).
+* tr59: Scene Studio replaces the floating music/search buttons and the Hall action row: sticky top bar (Search + Scene), 8 one-tap scenes, offline generative audio (`wings/scene-engine.js`, `TitanGen`), sound keeps playing in the background unless "Pause sound when the app is in the background" is on. `ambient.js` is visuals only now. Notes: notes/agents/scene.md.
+
 ### [2026-10-01 PT] — Claude/Opus integrator (site generated from the v2 master)
 * `data/` is now built from `collection/` by `tools/pipeline/publish.py`; contributions go through `collection/_incoming/` change files (see `AI_START_HERE.md`). Grok: please stop publishing LEDGER.md as the master; contribute change files instead.
 * tr55 mobile perf (gallery scroll ~2x). Drive consolidated; old TAP HERE retired; daily intake routine scheduled (needs Drive connector + repo attached in Routines settings).
