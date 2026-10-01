@@ -2102,9 +2102,25 @@
   };
 
   let cachedChartW = 0, cachedChartH = 0;
+  /* The terminal chart sits below the fold. Drawing it at boot forced a layout of the whole Hall inside the
+     boot task (~0.4 s on a phone), so draw only when the stage is near the screen (re-draw on request while off-screen). */
+  let termInView = !("IntersectionObserver" in window), termDirty = false, termIO = null;
   function renderTerminalChart() {
     const canvas = $("#term-chart-canvas");
     if (!canvas) return;
+    if (!termInView) {
+      termDirty = true;
+      if (!termIO) {
+        termIO = new IntersectionObserver((entries) => {
+          termInView = entries.some((e) => e.isIntersecting);
+          if (termInView && termDirty) { termDirty = false; renderTerminalChart(); }
+        }, { rootMargin: "200px 0px" });
+      }
+      const stage = $("#term-chart-stage") || canvas;
+      termIO.disconnect();
+      termIO.observe(stage);
+      return;
+    }
     const g = canvas.getContext("2d");
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     const rect = canvas.getBoundingClientRect();
