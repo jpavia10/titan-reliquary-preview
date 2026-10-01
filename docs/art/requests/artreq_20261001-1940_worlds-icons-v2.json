@@ -4,7 +4,7 @@
  "requested_by": "Claude (integrator)",
  "created": "2026-10-01T19:40:00Z",
  "supersedes": "artreq_20261001-1845_worlds-icons-splash (do NOT make that one; this replaces it)",
- "instructions": "Follow Titan Reliquary/ART_START_HERE (for image AIs). Make every image below with your best image model at the highest resolution it offers. Each image has a `takes` count: when it is 3, make 3 versions with different seeds and slight angle variations, named with _take1/_take2/_take3 before the extension (e.g. world_prism_hero_take1.png); when it is 1, use the file name as is. Save to Titan Reliquary/art-incoming (AI images)/artreq_20261001-1940_worlds-icons-v2/ with the exact file names, then create artreq_20261001-1940_worlds-icons-v2.DONE.txt in Titan Reliquary/art-requests (AI image jobs)/ (one line per file: ok or skipped: reason; then your model name and date).",
+ "instructions": "You are Grok (or any image AI). Follow the Drive doc 'Titan Reliquary/IMAGE_START_HERE (for Grok)'. Make every image below with your best image model at the highest resolution it offers. Each image has a `takes` count: when it is 3, make 3 versions with different seeds and slight angle variations, named with _take1/_take2/_take3 before the extension (e.g. world_prism_hero_take1.png); when it is 1, use the file name as is. Save to Titan Reliquary/art-incoming (AI images)/artreq_20261001-1940_worlds-icons-v2/ with the exact file names, then create artreq_20261001-1940_worlds-icons-v2.DONE.txt in Titan Reliquary/art-requests-images (Grok)/ (one line per file: ok or skipped: reason; then your model name and date).",
  "deliverable_spec": {
   "hero": "16:10, at least 2560x1600, PNG",
   "card": "16:10, at least 1280x800, PNG",
@@ -107,5 +107,6 @@
    "world": "Splash screen (phone, portrait)",
    "prompt": "Portrait 1080x1920 (9:16). A massive round steel vault door, half open, seen straight on and slightly from below; a blade of warm light spills from inside across a polished black floor; inside, a glimpse of a single silver coin on black velvet and two silver bars, softly glowing. The top 15% and bottom 20% are near-black empty space (for the app's caption and buttons). Moody, restrained, expensive."
   }
- ]
+ ],
+ "assigned_to": "Grok (images only)"
 }
