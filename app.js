@@ -181,9 +181,16 @@
     if (cm && vault) {
       const key = decodeURIComponent(cm[1]).toUpperCase();
       const pools = [vault.flips, vault.bullion, vault.sets, vault.housing, vault.stamps];
+      let found = false;
       for (const pool of pools) {
         const hit = (pool || []).find((c) => String(c.ser || "").toUpperCase() === key || String(c.scan || "").toUpperCase() === key);
-        if (hit) { dossierCtx = null; setWing(hit.kind === "flip" || hit.kind === "token" ? "gallery" : "vault", false); openDrawer(hit.scan, false); break; }
+        if (hit) { dossierCtx = null; setWing(hit.kind === "flip" || hit.kind === "token" ? "gallery" : "vault", false); openDrawer(hit.scan, false); found = true; break; }
+      }
+      if (!found) {
+        // Friendly message instead of silently ignoring a bad link.
+        history.replaceState(null, "", "#hall");
+        setWing("hall", false);
+        showToast(`Coin "${decodeURIComponent(cm[1])}" was not found in the collection. Showing the Hall instead.`);
       }
       return;
     }
@@ -260,7 +267,9 @@
     }
     if (pushHash) {
       const next = "#" + name;
-      if (location.hash !== next) history.replaceState(null, "", next);
+      // One history entry per wing change (Back returns to the previous wing); filters inside a wing never push.
+      const curBase = (location.hash || "").split("?")[0];
+      if (curBase !== next) history.pushState(null, "", next);
     }
     // saveState reads scrollY (a forced layout): do it after the new wing has painted, not inside the tap
     clearTimeout(setWing._save);
@@ -7245,7 +7254,7 @@
   }
 
   window.addEventListener("beforeunload", saveState);
-  window.addEventListener("hashchange", applyHashTab);
+  window.addEventListener("hashchange", () => { if (!location.hash || location.hash === "#") setWing("hall", false); else applyHashTab(); });
 
   // PWA: service worker (versioned caches; network-first for version.json + data).
   if ("serviceWorker" in navigator && location.protocol === "https:") {

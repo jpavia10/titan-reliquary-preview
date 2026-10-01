@@ -23,3 +23,16 @@
 .museum-slab.slab-mini .slab-pedigree-sub span:first-child { max-width: none; }
 .museum-slab .slab-footer-price { font-size: 13px; }
 .museum-slab .slab-footer-info { min-width: 0; overflow: hidden; white-space: nowrap; }
+
+/* QA fix 2026-10-01 (phone overlap): the music pill and search button become two small round
+   buttons docked at the bottom corners, and the page gets extra bottom room so nothing is hidden. */
+@media (max-width: 600px) {
+  .lofi-pill {
+    left: 0.75rem; transform: none; animation: none;
+    width: 48px; height: 48px; min-height: 48px; padding: 0; justify-content: center;
+    bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 0.75rem);
+  }
+  .lofi-pill #music-pill-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .fab-search { right: 0.75rem; width: 48px; height: 48px; bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 0.75rem); }
+  main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 4.5rem); }
+}
