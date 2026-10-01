@@ -300,3 +300,6 @@ html[data-atmo] #pane-hall :is(.term-asset-btn, .term-mode-btn, .eyebrow-row .ba
   #pane-hall .term-timeframes-row.tf5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   #pane-hall .term-time-bar { gap: 0.5rem; }
 }
+/* HUD stays a dark instrument panel in every atmosphere: fixed light text so the readout is legible on light themes too */
+#pane-hall .term-hud .hud-date, #pane-hall .term-hud .hud-range { color: #c9cfda; font-size: 0.72rem; }
+#pane-hall .term-hud .hud-val { color: #f2ead8; }

@@ -152,7 +152,7 @@ def live_quote(fetch, log):
     try:
         ag, at1 = parse_goldapi(fetch(GOLDAPI.format(sym="XAG"))); au, at2 = parse_goldapi(fetch(GOLDAPI.format(sym="XAU")))
         if not (valid("xag_usd", ag) and valid("xau_usd", au)): log(f"gold-api: implausible quote Ag {ag} Au {au}: ignored"); return None
-        return {"xag_usd": ag, "xau_usd": au, "at": max(x for x in (at1, at2) if x) if (at1 or at2) else None, "source": SRC_LIVE + " (api.gold-api.com XAG, XAU)"}
+        return {"xag_usd": ag, "xau_usd": au, "at": max(x for x in (at1, at2) if x) if (at1 or at2) else None, "source": SRC_LIVE + " (api.gold-api.com XAG + XAU)"}
     except Exception as e:
         log(f"gold-api FAILED: {type(e).__name__}: {str(e)[:120]}"); return None
 

@@ -1783,7 +1783,7 @@
     for (let r = 0; r <= 4; r++) {
       const y = padTop + (r / 4) * plotH;
       g.strokeStyle = tokLine; g.beginPath(); g.moveTo(padX, y); g.lineTo(padX + plotW, y); g.stroke();
-      g.fillStyle = tokMuted; g.fillText(termFmtAxis(max - (r / 4) * (max - min)), padX + 4, y - 7);
+      g.fillStyle = tokMuted; g.textAlign = "right"; g.fillText(termFmtAxis(max - (r / 4) * (max - min)), padX + plotW - 2, y - 7); g.textAlign = "left";
     }
     g.textBaseline = "alphabetic";
     // date ticks: first, last, and evenly spaced real dates between when there is room
@@ -1796,14 +1796,11 @@
 
     if (!candle) {
       // straight segments between real daily values only (no smoothing: a curve would imply values in between)
-      const grad = g.createLinearGradient(0, padTop, 0, padTop + plotH);
-      grad.addColorStop(0, tokGold + "55"); grad.addColorStop(1, tokGold + "05");
       g.beginPath(); g.moveTo(X(t[0]), Y(pts[0].v));
       for (let i = 1; i < pts.length; i++) g.lineTo(X(t[i]), Y(pts[i].v));
       g.strokeStyle = tokGold; g.lineWidth = 2.4; g.lineJoin = "round"; g.stroke();
       g.lineTo(X(t[t.length - 1]), padTop + plotH); g.lineTo(X(t[0]), padTop + plotH); g.closePath();
-      try { g.fillStyle = grad; } catch (_) { g.fillStyle = "rgba(200,169,74,0.12)"; }
-      g.fill();
+      g.save(); g.globalAlpha = 0.16; g.fillStyle = tokGold; g.fill(); g.restore();
       if (pts.length <= 45) { g.fillStyle = tokGold; for (let i = 0; i < pts.length; i++) { g.beginPath(); g.arc(X(t[i]), Y(pts[i].v), 3.4, 0, Math.PI * 2); g.fill(); } }
       // the live point is drawn hollow so it reads as "now", not as a closed day
       const lp = pts[pts.length - 1];
