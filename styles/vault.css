@@ -883,3 +883,9 @@
   #pane-vault .vx.vx-arrive .vx-sec, #pane-vault .vx.vx-arrive .vx-comp-fill { animation: none; }
   #pane-vault .vx-lot { transition: none; transform: none; }
 }
+
+/* Perf (pass 2, phones): lay out only the lot cards near the screen (inventory is ~540 nodes); per-card
+   containment keeps the work incremental while scrolling instead of one big layout. */
+@media (max-width: 700px), (hover: none) and (pointer: coarse) {
+  #pane-vault .vx-lot { content-visibility: auto; contain-intrinsic-size: auto 150px; }
+}
