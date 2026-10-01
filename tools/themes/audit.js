@@ -48,6 +48,7 @@ const VPS = String(opt("vps", "desktop,phone")).split(",").filter((v) => VPS_ALL
 const SHOTS = !opt("no-shots", false);
 const STATIC_ONLY = !!opt("static", false);
 const SCROLL = Number(opt("scroll", 0)) || 0;
+const AA_MIN = Number(opt("aa", 0)) || 0; // --aa 4.8 = require a margin over WCAG AA for small text
 /* --block a,b: serve these same-origin path prefixes as empty files, e.g.
    --block styles/themes.css,styles/atmo/,wings/themes.js,wings/atmo/  (= the tree before the themes work) */
 const BLOCK = String(opt("block", "") === true ? "" : opt("block", "")).split(",").filter(Boolean);
@@ -402,7 +403,7 @@ function pageScan(opts) {
       for (const b of bg.c) { const rr = R(over(fg, b), b); if (rr < worst) { worst = rr; worstBg = b; } }
       const size = parseFloat(s.fontSize), weight = parseInt(s.fontWeight, 10) || 400;
       const large = size >= 24 || (size >= 18.66 && weight >= 700);
-      const need = large ? 3 : 4.5;
+      const need = large ? 3 : (window.__AA_MIN || 4.5);
       if (worst < minRatio) minRatio = worst;
       let id = A.ids.get(el);
       if (!id) { id = A.next++; A.ids.set(el, id); A.refs.set(id, new WeakRef(el)); }
@@ -511,6 +512,7 @@ async function runtimeAudit(st) {
     page.on("console", (m) => { if (m.type() === "error" && !/ERR_TUNNEL|ERR_FAILED|net::ERR_/.test(m.text())) consoleErrors.push(m.text().slice(0, 240)); });
     page.on("pageerror", (e) => consoleErrors.push("pageerror: " + String(e).slice(0, 240)));
     await page.addInitScript(() => { try { localStorage.setItem("tr_atmo_v1", "afterhours"); } catch (_) {} });
+    if (AA_MIN) await page.addInitScript((v) => { window.__AA_MIN = v; }, AA_MIN);
     await page.goto(BASE + "index.html?nosplash", { waitUntil: "domcontentloaded" });
     await page.waitForFunction(() => window.TitanSetAtmo && window.setWing && window.TitanVault && window.TitanVault(), null, { timeout: 45000 });
     await page.evaluate(() => document.fonts && document.fonts.ready);
