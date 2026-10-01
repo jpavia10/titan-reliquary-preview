@@ -1,10 +1,10 @@
-/* Titan Reliquary service worker · build tr60
+/* Titan Reliquary service worker · build tr61
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback
    - audio/ambience/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr60";
+const BUILD = "tr61";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
@@ -41,6 +41,7 @@ const WING_URLS = [
   "styles/hall.css?v=" + BUILD,
   "styles/lab.css?v=" + BUILD,
   "styles/scene.css?v=" + BUILD,
+  "styles/worlds.css?v=" + BUILD,
   "styles/slab-legibility.css?v=" + BUILD,
   "styles/study.css?v=" + BUILD,
   "styles/table.css?v=" + BUILD,
@@ -75,6 +76,8 @@ const WING_URLS = [
   "wings/scene.js?v=" + BUILD,
   "wings/study.js?v=" + BUILD,
   "wings/themes.js?v=" + BUILD,
+  "wings/themes/manifest.js?v=" + BUILD,
+  "wings/themes/worlds.js?v=" + BUILD,
   "wings/vault.js?v=" + BUILD,
 ];
 
@@ -121,7 +124,7 @@ self.addEventListener("fetch", (e) => {
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA));
-  } else if (path.includes("/thumbs/")) {
+  } else if (path.includes("/thumbs/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
     e.respondWith(cacheFirst(req, IMG));
   } else if (path.includes("/audio/ambience/")) {
     e.respondWith(cacheFirst(req, AMB));
