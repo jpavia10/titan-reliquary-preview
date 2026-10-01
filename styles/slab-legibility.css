@@ -5,16 +5,34 @@
    Colours below are fixed light-on-dark values that pass WCAG AA on the slab's own dark surfaces.
    Sizes grow only slightly: the 68 px header height is fixed on purpose (it keeps the coin centred). */
 .museum-slab .slab-pedigree-holo { background: #0b1a33; }
-.museum-slab .slab-holo-brand,
-.museum-slab .slab-holo-crest { background: #0b1a33; color: #e8eefc; font-size: 0.56rem; letter-spacing: 0.06em; }
 .museum-slab .slab-pedigree-title strong { color: #f2ead8; }
-.museum-slab .slab-pedigree-grade { color: #e8d9a8; font-size: 0.64rem; opacity: 1; }
+.museum-slab .slab-pedigree-grade { color: #e8d9a8; font-size: 12px; opacity: 1; }
 .museum-slab .slab-pedigree-sub span { color: #c9d1dc; opacity: 1; }
 .museum-slab .slab-pedigree-metal { color: #a9cffd; opacity: 1; }
-.museum-slab .slab-barcode { color: #8a93a3; opacity: 1; }
-.museum-slab .slab-cert-num { color: #c9d1dc; opacity: 1; font-size: 0.6rem; }
 .museum-slab .slab-footer-price { color: #efd27a; }
-.museum-slab .slab-footer-melt { color: #c3ccd8; font-size: 0.7rem; }
-.museum-slab .slab-footer-seal-text { color: #e8d9a8; font-size: 0.6rem; }
-.slab-mini .slab-holo-brand,
-.slab-mini .slab-holo-crest { font-size: 0.5rem; }
+.museum-slab .slab-footer-melt { color: #c3ccd8; font-size: 12px; text-transform: none; letter-spacing: 0; }
+
+/* Plain-label slab (QA fix, 2026-10-01): no certificate styling; text >= 12px. Header stays 68px (52px mini). */
+.museum-slab .slab-pedigree-body { height: 46px; padding: 4px 8px; gap: 2px; justify-content: center; background: #0f172a; }
+.museum-slab .slab-pedigree-title { font-size: 13px; line-height: 1.2; }
+.museum-slab .slab-pedigree-sub { font-size: 12px; line-height: 1.2; }
+.museum-slab .slab-id-strip { height: 20px; box-sizing: border-box; padding: 0 8px; display: flex; align-items: center; background: #0b1220; color: #c9d1dc; font-family: var(--mono); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.museum-slab.slab-mini .slab-pedigree-body { height: 52px; padding: 4px 6px; }
+.museum-slab.slab-mini .slab-pedigree-title strong { font-size: 12px; max-width: none; }
+.museum-slab.slab-mini .slab-pedigree-sub { font-size: 12px; }
+.museum-slab.slab-mini .slab-pedigree-sub span:first-child { max-width: none; }
+.museum-slab .slab-footer-price { font-size: 13px; }
+.museum-slab .slab-footer-info { min-width: 0; overflow: hidden; white-space: nowrap; }
+
+/* QA fix 2026-10-01 (phone overlap): the music pill and search button become two small round
+   buttons docked at the bottom corners, and the page gets extra bottom room so nothing is hidden. */
+@media (max-width: 600px) {
+  .lofi-pill {
+    left: 0.75rem; transform: none; animation: none;
+    width: 48px; height: 48px; min-height: 48px; padding: 0; justify-content: center;
+    bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 0.75rem);
+  }
+  .lofi-pill #music-pill-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .fab-search { right: 0.75rem; width: 48px; height: 48px; bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 0.75rem); }
+  main { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 4.5rem); }
+}

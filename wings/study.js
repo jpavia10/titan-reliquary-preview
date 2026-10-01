@@ -216,7 +216,11 @@
     const unnamedOpen = vols.reduce((n, b) => n + (b.remEmpty || 0), 0);
     const unknownVols = vols.filter((b) => !b.listComplete && !(b.counts.filled === 0 && b.remFilled === 0 && b.rem === b.total));
     const needs = vols.filter((b) => b.status === "needs").length;
-    return { fam, vols, named, unnamedOpen, needs, complete: unknownVols.length === 0 };
+    const ev = { enumerated: 0, partial: 0, "count-only": 0, confirmed: 0 };
+    vols.forEach((b) => { if (b.status === "confirmed") ev.confirmed++; else ev[b.v.evidence] = (ev[b.v.evidence] || 0) + 1; });
+    // "Complete" only when every binder is ledger-enumerated (or checked by the owner) and nothing is unnamed.
+    const allConfirmed = vols.every((b) => b.status === "confirmed" || b.v.evidence === "enumerated");
+    return { fam, vols, named, unnamedOpen, needs, ev, complete: unknownVols.length === 0 && allConfirmed };
   }
 
   function volumeAnswerHtml(b, opts) {
@@ -232,7 +236,7 @@
     const allOpen = b.total && b.filledCount === 0;
     const head = b.missing.length
       ? `<strong class="study-vol-count">${b.missing.length}</strong> missing`
-      : (allOpen ? `<strong class="study-vol-count">Empty binder</strong>` : (b.listComplete ? `<strong class="study-vol-count ok">Complete</strong>` : `<strong class="study-vol-count">None named yet</strong>`));
+      : (allOpen ? `<strong class="study-vol-count">Empty binder</strong>` : (b.listComplete && (b.status === "confirmed" || b.v.evidence === "enumerated") ? `<strong class="study-vol-count ok">Complete</strong>` : `<strong class="study-vol-count">None named yet</strong>`));
     return `
       <article class="study-vol-answer${big ? " big" : ""}" data-vol="${esc(b.id)}">
         <header>
@@ -269,12 +273,19 @@
       ? `<span class="n">${a.named}</span> <span class="w">${a.fam === "American Silver Eagles" ? (a.named === 1 ? "year" : "years") : (a.named === 1 ? "coin" : "coins")} missing</span>`
       : `<span class="w">${a.complete ? "Nothing missing" : "No missing dates named yet"}</span>`;
     const sub = a.complete
-      ? `This list is complete: every slot in ${a.vols.length === 1 ? "this binder" : `these ${a.vols.length} binders`} is accounted for.`
+      ? `Every slot in ${a.vols.length === 1 ? "this binder" : `these ${a.vols.length} binders`} is accounted for in the ledger.`
       : `${a.needs ? `${plural(a.needs, "binder")} ${a.needs === 1 ? "needs" : "need"} a slot-by-slot check, so this list may be incomplete.` : "Some slots are not itemized, so this list may be incomplete."}${a.unnamedOpen ? ` At least ${a.unnamedOpen} more open ${a.unnamedOpen === 1 ? "slot is" : "slots are"} not yet named.` : ""}`;
+    const evParts = [];
+    if (a.ev.confirmed) evParts.push(`${a.ev.confirmed} checked by you`);
+    if (a.ev.enumerated) evParts.push(`${a.ev.enumerated} listed slot by slot in the ledger`);
+    if (a.ev.partial) evParts.push(`${a.ev.partial} only partly listed (inferred, needs a scan)`);
+    if (a.ev["count-only"]) evParts.push(`${a.ev["count-only"]} with a coin count only (no slots listed)`);
+    const evLine = `Evidence for ${plural(a.vols.length, "binder")}: ${evParts.join(", ")}.`;
     return `
       <div class="study-answer-head">
         <div class="study-answer-big">${headline}</div>
         <p class="study-answer-sub">${esc(sub)}</p>
+        <p class="study-answer-sub study-evidence-line"><strong>${esc(evLine)}</strong></p>
       </div>
       ${a.vols.map((b) => volumeAnswerHtml(b, { big: true })).join("")}`;
   }
@@ -293,7 +304,7 @@
           if (checklist) b.missing.forEach((s) => out.push(`    [ ] ${s.label}${s.keyDate ? "  ★ key date" : ""}`));
           else out.push(`    ${b.missing.map((s) => s.label + (s.keyDate ? "★" : "")).join(", ")}`);
         } else if (fam !== "__all") {
-          out.push(`  ${head}: ${b.listComplete ? "complete" : "none named yet"}`);
+          out.push(`  ${head}: ${b.listComplete && (b.status === "confirmed" || b.v.evidence === "enumerated") ? "complete" : "none named yet"}`);
         }
         if (b.aggregates.length) out.push(`    also (ledger): ${b.aggregates.map((x) => x.label).join("; ")}`);
         if (b.remEmpty) out.push(`    + ${b.approx ? "about " : ""}${b.remEmpty} open slot(s) not named yet`);
@@ -428,6 +439,9 @@
       });
       nav.prepend(pill);
     }
+    // Missing Years is the first thing shown: highlight its pill, not "World Atlas".
+    const mp = nav && nav.querySelector(".study-nav-missing");
+    if (mp) $$(".study-nav-pill", nav).forEach((p) => p.classList.toggle("active", p === mp));
   }
   function refreshHero() {
     const sec = document.getElementById("sec-missing");
@@ -474,7 +488,7 @@
       truth.className = "study-truth";
       truth.innerHTML = built.map((b) => {
         const cls = b.status === "confirmed" ? "ok" : b.status === "ledger" ? "ledger" : "needs";
-        const txt = b.missing.length ? `${b.missing.length} missing` : (b.total && b.filledCount === 0 ? "empty" : (b.listComplete ? "complete" : "unknown"));
+        const txt = b.missing.length ? `${b.missing.length} missing` : (b.total && b.filledCount === 0 ? "empty" : (b.listComplete && (b.status === "confirmed" || b.v.evidence === "enumerated") ? "complete" : "unknown"));
         return `<span class="study-truth-chip study-ev-${cls}" title="${esc(b.v.title)} · ${esc(b.statusText)}"><b>${esc(b.id)}</b> ${esc(txt)} ${cls === "needs" ? "⚠" : cls === "ok" ? "✓" : ""}</span>`;
       }).join("");
       const actions = card.querySelector(".binder-actions-row");

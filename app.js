@@ -181,9 +181,16 @@
     if (cm && vault) {
       const key = decodeURIComponent(cm[1]).toUpperCase();
       const pools = [vault.flips, vault.bullion, vault.sets, vault.housing, vault.stamps];
+      let found = false;
       for (const pool of pools) {
         const hit = (pool || []).find((c) => String(c.ser || "").toUpperCase() === key || String(c.scan || "").toUpperCase() === key);
-        if (hit) { dossierCtx = null; setWing(hit.kind === "flip" || hit.kind === "token" ? "gallery" : "vault", false); openDrawer(hit.scan, false); break; }
+        if (hit) { dossierCtx = null; setWing(hit.kind === "flip" || hit.kind === "token" ? "gallery" : "vault", false); openDrawer(hit.scan, false); found = true; break; }
+      }
+      if (!found) {
+        // Friendly message instead of silently ignoring a bad link.
+        history.replaceState(null, "", "#hall");
+        setWing("hall", false);
+        showToast(`Coin "${decodeURIComponent(cm[1])}" was not found in the collection. Showing the Hall instead.`);
       }
       return;
     }
@@ -260,7 +267,9 @@
     }
     if (pushHash) {
       const next = "#" + name;
-      if (location.hash !== next) history.replaceState(null, "", next);
+      // One history entry per wing change (Back returns to the previous wing); filters inside a wing never push.
+      const curBase = (location.hash || "").split("?")[0];
+      if (curBase !== next) history.pushState(null, "", next);
     }
     // saveState reads scrollY (a forced layout): do it after the new wing has painted, not inside the tap
     clearTimeout(setWing._save);
@@ -696,6 +705,12 @@
     const agOz = Number(vault.precious?.combined_silver?.oz ?? 63.27);
     const auOz = Number(vault.precious?.combined_gold?.oz ?? 0.1322);
     const baseGrand = Number(vault.board?.grand ?? 5584.11);
+    const spotDate = vault.metals?.as_of || "";
+    const spotLabel = spotDate ? `Spot as of ${spotDate}` : "Spot (dated snapshot)";
+    badge.textContent = spotLabel;
+    const lm = $$(".sim-range-marks .live-mark");
+    if (lm[0]) lm[0].textContent = `${money(baseSpotAg)} (spot${spotDate ? " " + spotDate : ""})`;
+    if (lm[1]) lm[1].textContent = `${money(baseSpotAu)} (spot${spotDate ? " " + spotDate : ""})`;
     
     // Baseline non-metal value (albums, housing, collector premium, stamps, etc.)
     const baseAgMelt = agOz * baseSpotAg;
@@ -731,7 +746,7 @@
       if (Math.abs(delta) < 0.5) {
         dynDelta.textContent = `±$0.00 (0.0%)`;
         dynDelta.className = "sim-stat-delta";
-        badge.textContent = "Live Market Baseline";
+        badge.textContent = spotLabel;
         badge.className = "sim-toggle-badge";
       } else {
         const sign = delta >= 0 ? "+" : "";
@@ -1218,12 +1233,6 @@
         <!-- Prismatic Optic Glare Sheen -->
         <div class="slab-optic-glare"></div>
 
-        ${isRev ? `
-        <!-- Iridescent Holographic Foil Security Seal on Reverse -->
-        <div class="flip-holo-seal">
-          <div class="flip-holo-pattern"></div>
-          <span class="flip-holo-text">★ TITAN SECURE ARCHIVE · ${esc(f.ser || f.scan)} ★</span>
-        </div>` : ''}
       </div>`;
   }
 
@@ -1253,23 +1262,32 @@
     return "estimate";
   }
 
+  /** Die alignment only when the record states it; otherwise null ("not recorded"). */
   function getDieAlignment(f) {
-    const s = String(f.specs || f.notes || "").toLowerCase();
-    if (s.includes("medal")) return { type: "Medal Alignment", angle: 0, symbol: "↑↑ 0°" };
-    return { type: "Coin Alignment", angle: 180, symbol: "↑↓ 180°" };
+    const v = String(f.die_alignment || "").toLowerCase();
+    if (!v) return null;
+    if (v.includes("medal")) return { type: "Medal Alignment", angle: 0, symbol: "↑↑ 0°" };
+    if (v.includes("coin")) return { type: "Coin Alignment", angle: 180, symbol: "↑↓ 180°" };
+    return null;
   }
 
+  /** Thickness only when recorded (never derived from diameter). */
   function getSpecimenThickness(f) {
-    if (f.thickness_mm) return Number(f.thickness_mm);
-    const dia = getSpecimenDiameter(f);
-    return Math.max(1.1, Math.min(3.2, Number((dia / 14.5).toFixed(2))));
+    if (f.thickness_mm && !isNaN(f.thickness_mm)) return Number(f.thickness_mm);
+    return null;
+  }
+
+  function diameterSourceLabel(src) {
+    if (src === "measured") return "measured from photo";
+    if (src === "ledger") return "spec (ledger)";
+    return "approx. (typical for this coin type, not measured)";
   }
 
   function renderOpticalReticle(f, side = "obv") {
     const dia = getSpecimenDiameter(f);
     const isRev = side === "rev";
     const dieAlign = getDieAlignment(f);
-    const angleText = isRev ? dieAlign.symbol : "0° (OBV)";
+    const angleText = isRev ? (dieAlign ? dieAlign.symbol : "REV") : "0° (OBV)";
     const planchetPct = Math.min(94, Math.max(30, Math.round((dia / 50.8) * 100)));
     return `
       <div class="ex-optical-reticle${caliperActive ? ' active' : ''}" id="reticle-${side}-${esc(f.scan)}">
@@ -1278,7 +1296,7 @@
         <div class="ret-ring ret-ring-10" title="10 mm reference ring"></div>
         <div class="ret-ring ret-ring-20" title="20 mm reference ring"></div>
         <div class="ret-ring ret-ring-30" title="30 mm reference ring"></div>
-        <div class="ret-ring-planchet" style="width: ${planchetPct}%; height: ${planchetPct}%;" title="Planchet Outer Rim: ${dia} mm"></div>
+        <div class="ret-ring-planchet" style="width: ${planchetPct}%; height: ${planchetPct}%;" title="Planchet outer rim: ${dia} mm, ${diameterSourceLabel(getSpecimenDiameterSource(f))}"></div>
         <span class="ret-axis-lbl ret-axis-n">${angleText}</span>
         <span class="ret-axis-lbl ret-axis-e">90°</span>
         <span class="ret-axis-lbl ret-axis-s">${isRev ? "REV" : "180°"}</span>
@@ -1289,32 +1307,35 @@
 
   function renderCaliperHud(f) {
     const dia = getSpecimenDiameter(f);
+    const src = getSpecimenDiameterSource(f);
+    const srcLbl = diameterSourceLabel(src);
     const thk = getSpecimenThickness(f);
     const dieAlign = getDieAlignment(f);
     const fillPct = Math.min(94, Math.max(30, Math.round((dia / 50.8) * 100)));
+    const approx = src === "estimate";
     return `
       <div class="ex-caliper-hud${caliperActive ? ' active' : ''}" id="caliper-hud-${esc(f.scan)}">
         <div class="caliper-hud-header">
           <div class="caliper-hud-title">
             <span class="caliper-hud-dot"></span>
-            Digital Vernier Caliper · Forensic Metrology
+            Caliper view · ${esc(src === "measured" ? "measured" : src === "ledger" ? "ledger spec" : "approximate size")}
           </div>
           <span style="opacity:0.8;font-family:var(--mono)">1:1 Aperture (50.8mm)</span>
         </div>
         <div class="caliper-scale-bar">
           <div class="cal-ticks"></div>
-          <div class="cal-lcd-readout" title="Measured Physical Coin Planchet Diameter">
+          <div class="cal-lcd-readout" title="Diameter: ${esc(srcLbl)}">
             <span class="cal-lcd-sym">⌀</span>
-            <span class="cal-lcd-val">${dia.toFixed(2)}</span>
+            <span class="cal-lcd-val">${approx ? "≈ " : ""}${approx ? dia.toFixed(0) : dia.toFixed(2)}</span>
             <span class="cal-lcd-unit">mm</span>
           </div>
         </div>
         <div class="caliper-metrics-strip">
-          <span class="cm-tag gold" title="Planchet Outer Diameter">⌀ ${dia.toFixed(1)} mm</span>
-          <span class="cm-tag" title="Standard Planchet Thickness">↕ ${thk.toFixed(2)} mm</span>
-          <span class="cm-tag" title="Die Clock Orientation">${dieAlign.symbol} (${dieAlign.type})</span>
-          <span class="cm-tag" title="Ratio of Coin to 2x2 Mount Aperture">${fillPct}% Mount Fill</span>
-          <button type="button" class="cm-info-btn" data-act="caliper-info" title="What are Numismatic Calipers? Click for explanation">ⓘ Forensic Guide</button>
+          <span class="cm-tag gold" title="Diameter source">⌀ ${approx ? "≈ " : ""}${dia.toFixed(1)} mm · ${esc(srcLbl)}</span>
+          ${thk != null ? `<span class="cm-tag" title="Thickness (from record)">↕ ${thk.toFixed(2)} mm · spec (ledger)</span>` : ""}
+          <span class="cm-tag" title="Die alignment">${dieAlign ? `${dieAlign.symbol} (${dieAlign.type})` : "Die alignment: not recorded"}</span>
+          <span class="cm-tag" title="Ratio of coin to 2x2 mount aperture">${fillPct}% mount fill${approx ? " (approx.)" : ""}</span>
+          <button type="button" class="cm-info-btn" data-act="caliper-info" title="What are calipers? Click for explanation">ⓘ About calipers</button>
         </div>
       </div>`;
   }
@@ -1369,26 +1390,21 @@
         <div class="slab-rivet bl"></div>
         <div class="slab-rivet br"></div>
         
-        <!-- Holographic Archival Pedigree Header -->
+        <!-- Plain label: country, year, denomination, collection id. Ref no. is provisional until the one-time serial reassignment. -->
         <div class="slab-pedigree-header">
-          <div class="slab-pedigree-holo">
-            <span class="slab-holo-brand">🏛️ TITAN ARCHIVAL REPOSITORY</span>
-            <span class="slab-holo-crest">${isRev ? "REVERSE" : "LEDGER"}</span>
-          </div>
           <div class="slab-pedigree-body">
             <div class="slab-pedigree-title">
-              <strong>${country} · ${isRev ? "REVERSE DIE" : year}</strong>
-              <span class="slab-pedigree-grade">${isMini ? `${esc(f.ser || f.scan)}` : `ARCHIVE № ${esc(f.ser || f.scan)}`}</span>
+              <strong>${country} · ${isRev ? "REVERSE" : year}</strong>
+              ${isMini ? "" : `<span class="slab-pedigree-grade">${esc(f.scan)}</span>`}
             </div>
             <div class="slab-pedigree-sub">
               <span>${denom}</span>
               <span class="slab-pedigree-metal">${purity}</span>
             </div>
           </div>
-          <div class="slab-barcode-strip">
-            <span class="slab-barcode">||| | |||| | ||| || |||| |</span>
-            <span class="slab-cert-num">LEDGER #${esc(f.scan)}</span>
-          </div>
+          ${isMini ? "" : `<div class="slab-id-strip">
+            <span>Ref ${esc(f.ser || f.scan)} (provisional)</span>
+          </div>`}
         </div>
 
         <!-- Frosted Silicone Core Gasket with Coin Aperture, Cartwheel Luster & Laser Optical Reticle -->
@@ -1400,14 +1416,11 @@
           </div>
         </div>
 
-        <!-- Archival Pedigree Footer: Valuation, Melt Multiplier & Security Hallmark -->
+        <!-- Footer: estimated value with confidence -->
         <div class="slab-pedigree-footer">
           <div class="slab-footer-info">
-            <span class="slab-footer-price">${f.est != null ? money(f.est) : "—"}</span>
-            <span class="slab-footer-melt">${f.is_silver && f.asw_oz != null && (vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz) ? `Melt ${money(Number(f.asw_oz) * Number(vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz))}` : (f.conf ? `Conf ${esc(f.conf)}` : "Logged")}</span>
-          </div>
-          <div class="slab-footer-seal">
-            <span class="slab-footer-seal-text">🏛️ TITAN ARCHIVE</span>
+            <span class="slab-footer-price">${f.est != null ? `est. ${money(f.est)}` : "not yet valued"}</span>
+            <span class="slab-footer-melt">${f.conf ? `confidence ${esc(f.conf)}` : ""}${f.is_silver && f.asw_oz != null && (vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz) ? `${f.conf ? " · " : ""}melt ${money(Number(f.asw_oz) * Number(vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz))}` : ""}</span>
           </div>
         </div>
 
@@ -6288,7 +6301,7 @@
         country: activeAlbumFamily.includes("Canada") ? "Canada" : "United States",
         iso: activeAlbumFamily.includes("Canada") ? "CA" : "US",
         continent: "North America",
-        year: displayYear !== "—" ? displayYear : String(startYear + i),
+        year: displayYear === "—" ? "not recorded" : (studySlot ? displayYear : `${displayYear} (inferred)`),
         denom: vol.denom,
         metal: vol.metal,
         is_silver: isSilver,
@@ -6296,18 +6309,18 @@
         asw_oz: aswVal,
         est: null,
         conf: null,
-        status: isFilled ? "Album Specimen (Encapsulated in Binder)" : "Target Acquisition (Missing Hole in Binder)",
+        status: isFilled ? "Album slot: filled (contents not itemized; inferred from the Whitman model)" : "Album slot: open (inferred from the Whitman model)",
         location: `${activeAlbumFamily} (${activeAlbumId}) · Slot #${i + 1}`,
         mintage: null,
         notes: isFilled
           ? `Album slot record (${activeAlbumId}, slot #${i + 1}). No specimen details (grade, value, photo) have been logged for this coin yet.`
           : `Open slot in ${activeAlbumId} (slot #${i + 1}): ${displayLabel}. No coin logged here.`,
         specs: `${vol.denom} · Composition: ${vol.metal} · Physical slot #${i + 1} of ${totalSlots}`,
-        design: `${vol.title} archival series strike`,
-        tender: activeAlbumFamily.includes("Canada") ? "Canadian Legal Tender" : "United States Legal Tender",
+        design: null,
+        tender: "not recorded",
+        _album: true,
         qty_n: 1,
         label: `${activeAlbumFamily.includes("Canada") ? "Canada" : "USA"} · ${displayYear} · ${vol.denom}`,
-        diameter_mm: activeAlbumFamily.includes("Silver Eagles") ? 40.6 : (/half/i.test(vol.denom) ? 30.6 : (/quarter/i.test(vol.denom) ? 24.3 : (/dime/i.test(vol.denom) ? 17.9 : (/nickel|5¢/i.test(vol.denom) ? 21.2 : 19.0)))),
         _full: true,
         photos: []
       };
@@ -6757,7 +6770,7 @@
     const lblPhoto = phList.find((x) => x.label_text || x.label_check);
     const labelText = c.label_text || lblPhoto?.label_text;
     const labelCheck = c.label_check || lblPhoto?.label_check;
-    const dia = c.diameter_mm != null ? `${num(c.diameter_mm, 2, 0)} mm` : "";
+    const dia = c.diameter_mm != null ? `${num(c.diameter_mm, 2, 0)} mm` : (c._album ? "not recorded" : "");
     const meas = c.measured_mm != null
       ? `${num(c.measured_mm, 2)} mm${c.diameter_delta_pct != null ? ` (${c.diameter_delta_pct > 0 ? "+" : ""}${num(c.diameter_delta_pct, 1)}% vs spec)` : ""}${c.diameter_flag ? " · mismatch >8%" : ""}`
       : "";
@@ -7241,7 +7254,7 @@
   }
 
   window.addEventListener("beforeunload", saveState);
-  window.addEventListener("hashchange", applyHashTab);
+  window.addEventListener("hashchange", () => { if (!location.hash || location.hash === "#") setWing("hall", false); else applyHashTab(); });
 
   // PWA: service worker (versioned caches; network-first for version.json + data).
   if ("serviceWorker" in navigator && location.protocol === "https:") {

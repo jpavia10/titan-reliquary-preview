@@ -364,3 +364,6 @@ label.study-check input { width: 22px; height: 22px; accent-color: var(--gold); 
   .study-btn, .study-slot, .study-brush, .atlas-map-gesture-hint { transition: none !important; }
   .study-slot:active, .study-btn:active { transform: none !important; }
 }
+
+/* QA fix 2026-10-01: Study section pills are the wing's main navigation; keep them thumb-sized. */
+.study-nav-pill { min-height: 44px; font-size: 0.9rem; }
