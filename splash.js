@@ -298,7 +298,7 @@
     Sfx.stop(1.6);
     lockApp(false);
     html.classList.remove("ts-on", "ts-reveal", "ts-film-reveal");
-    try { sessionStorage.setItem("tr_splash_v1", "1"); } catch (e) {}
+    try { sessionStorage.setItem("tr_splash_v1", "1"); sessionStorage.removeItem("tr_splash_film_resume"); } catch (e) {}
     if (root.parentNode) root.parentNode.removeChild(root);
     try { window.dispatchEvent(new CustomEvent("titan:splash-done")); } catch (e) {}
   }
@@ -353,10 +353,16 @@
   }
   function filmPath() {
     var portrait = (window.innerHeight || 1) >= (window.innerWidth || 1);
-    var src = pickFilm((portrait ? FILM.portrait : FILM.landscape) || FILM.portrait || FILM.landscape);
+    // One clip per launch: if the page reloaded mid-film (tab restore, manual refresh), resume the SAME clip where it was.
+    var resume = null;
+    try { resume = JSON.parse(sessionStorage.getItem("tr_splash_film_resume") || "null"); } catch (e) {}
+    if (resume && !(resume.src && Date.now() - resume.at < 90000)) resume = null;
+    var src = resume ? resume.src : pickFilm((portrait ? FILM.portrait : FILM.landscape) || FILM.portrait || FILM.landscape);
     if (!src) return false;
     var v = document.createElement("video");
-    src += v.canPlayType('video/webm; codecs="vp9, opus"') ? ".webm" : ".mp4";
+    if (!resume) src += v.canPlayType('video/webm; codecs="vp9, opus"') ? ".webm" : ".mp4";
+    if (resume && resume.t > 0.5) v.addEventListener("loadedmetadata", function () { try { v.currentTime = Math.min(resume.t, (v.duration || 99) - 2); } catch (e) {} }, { once: true });
+    var lastSave = 0;
     v.className = "ts-film"; v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.setAttribute("muted", "");
     v.preload = "auto"; v.src = src;
     v.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;background:#000;z-index:1";
@@ -370,6 +376,7 @@
     var EXIT = FILM.exit || 1.6;                        // seconds: the zoom-through starts this long before the last frame
     v.addEventListener("timeupdate", function () {
       if (v.duration && v.currentTime > v.duration - EXIT) filmExit(EXIT);
+      if (performance.now() - lastSave > 500) { lastSave = performance.now(); try { sessionStorage.setItem("tr_splash_film_resume", JSON.stringify({ src: src, t: v.currentTime, at: Date.now() })); } catch (e) {} }
       if (!shown && v.duration && v.currentTime > v.duration - tail - 1.2) {
         shown = true;
         whenFeatured(function () { if (state === "done") return; showFeatureText(); var f = $(".ts-feature"); if (f) { f.style.transition = "opacity .6s ease"; f.style.opacity = "1"; } });

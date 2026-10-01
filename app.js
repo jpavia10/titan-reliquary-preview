@@ -369,7 +369,20 @@
   let reloadAccum = 0;
   let webCheckInFlight = false;
 
+  /* Never reload while the opening film is playing (it restarted mid-clip when a deploy or a price publish landed).
+     The reload waits until the app is backgrounded, so it is invisible and never interrupts the intro's hand-off. */
+  let deferredReload = null;
+  function reloadWhenSafe(fn) {
+    if (!document.documentElement.classList.contains("ts-on")) return fn();
+    if (deferredReload) return;
+    deferredReload = fn;
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && deferredReload) { const f = deferredReload; deferredReload = null; f(); }
+    });
+  }
   function bustReload() {
+    if (document.documentElement.classList.contains("ts-on")) return reloadWhenSafe(bustReload);
+    if (deferredReload) return;   // a reload is already queued for the next time the app is backgrounded
     saveState();
     const url = new URL(location.href);
     url.searchParams.set("v", Date.now().toString(36));
@@ -6767,8 +6780,11 @@
       navigator.serviceWorker.addEventListener("controllerchange", () => {
         if (!hadController || reloaded) return;
         reloaded = true;
-        showToast("New version available — refreshing…");
-        setTimeout(() => window.location.reload(), 900);
+        reloadWhenSafe(() => {
+          if (document.hidden) { window.location.reload(); return; }
+          showToast("New version available — refreshing…");
+          setTimeout(() => window.location.reload(), 900);
+        });
       });
     }).catch(() => {});
   }
