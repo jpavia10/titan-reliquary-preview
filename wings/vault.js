@@ -544,6 +544,9 @@
     if (door) return;
     markPlayed();
     if (reducedMotion() && !opts.force) return;
+    // Phones: the 4 s strongroom door paints ~8 large canvases and 3D layers (~0.5 s blocked on a mid phone);
+    // skip it unless asked for (?vaultdoor=1 or the replay button still force it).
+    if (!opts.force && window.matchMedia && window.matchMedia("(max-width: 700px), (hover: none) and (pointer: coarse)").matches) return;
     if (document.documentElement.classList.contains("ts-on")) return; // splash is showing
     try { door = buildDoor(); } catch (e) { door = null; return; }
     door.start();
