@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Opus integrator (schema v3)
+* **Schema v3 live** (`schema/SCHEMA_V3.md`): every field has a tier (Phase 1 / 1.5 / 2 / owner / pipeline), enforced by `apply_changes.py`. Phase 1 = match or `NEW-n` + country, year, denomination, mint mark, class + short story. No serial, grade, catalog number or price until Phase 2. Model events must carry `phase`.
+* **Contract:** Grok and every other AI only drop `changes_{agent}_{YYYYMMDD-HHMM}.jsonl` in Drive `Titan Reliquary/collection-incoming (AI change files)/`; Claude merges and owns the site. Grok no longer publishes LEDGER.md or edits GitHub/Drive mirror.
+* Fake C297-C300 France records purged everywhere; the next four real coins take C297-C300, then C301.
+
 ### [2026-10-01 PT] — Claude/Opus integrator (tr58 perf pass 2, tr59 Scene Studio)
 * tr58: phone perf on every wing (Vault open 1.5 s -> 0.3 s, Study scroll 31 -> 42 fps, boot blocking ~2 s -> ~1.4 s); notes/agents/perf.md. Vault door no longer auto-plays on phones (`?vaultdoor=1` or replay).
 * tr59: Scene Studio replaces the floating music/search buttons and the Hall action row: sticky top bar (Search + Scene), 8 one-tap scenes, offline generative audio (`wings/scene-engine.js`, `TitanGen`), sound keeps playing in the background unless "Pause sound when the app is in the background" is on. `ambient.js` is visuals only now. Notes: notes/agents/scene.md.
