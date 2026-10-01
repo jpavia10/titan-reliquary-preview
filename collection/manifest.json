@@ -43,7 +43,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "613cfbca159d564a85dd34afc663d400f0d3743079614589b104740b334741e2",
+ "content_hash": "dc654dd67d0e8f05646438854fd3c006c7528a723a65bdf98ea3b1a2dfd0bfc7",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -52,8 +52,8 @@
   },
   {
    "path": "README.md",
-   "sha256": "ee2d81b3bb0f0a07c5933c64299618739d28a109ed75279a07332d3f7bbcac59",
-   "bytes": 10727
+   "sha256": "49bb4a693b7f859faad5630e94b5dea927b79030dfb1ec5bee9119e7784ea73e",
+   "bytes": 11145
   },
   {
    "path": "SER_REASSIGN_PLAN.md",
@@ -67,8 +67,8 @@
   },
   {
    "path": "board.json",
-   "sha256": "c8e8ece23cd74246f35c3290bf6f583a8d283f06f8bbf8d8e77e16c01e2a9515",
-   "bytes": 41019
+   "sha256": "7cd0cc5c5c0bd4ae16fa4dd6ddbda28b8f882fa6967436341c3ce1992ab68e4e",
+   "bytes": 41021
   },
   {
    "path": "boot.json",
@@ -321,9 +321,14 @@
    "bytes": 3486
   },
   {
+   "path": "templates/FIELDS.md",
+   "sha256": "d081f7acfa8b0a91f08bd0e176de3424158b149fdf9b7fe7399ed935d1aa19d6",
+   "bytes": 17268
+  },
+  {
    "path": "templates/INSTRUCTIONS.md",
-   "sha256": "36c5ecfbcbb577bb18e65dd0fa3c07a69f08a50b95a411336921b64ad1da7712",
-   "bytes": 4111
+   "sha256": "ade649f5216854a49c78c7a4c3d2f86b3daeadcfc46f0eca20e62d3ccb4087cf",
+   "bytes": 10393
   },
   {
    "path": "templates/phase1_template.jsonl",
@@ -332,8 +337,8 @@
   },
   {
    "path": "templates/phase2_template.jsonl",
-   "sha256": "5fdd74832dacf2acdddbe97f0106de198b76a165594d326e2b6e239de925b7f0",
-   "bytes": 2061
+   "sha256": "1e46af4af772ef9e568720dbd7d2750725faaf4cb3c5bce75feebd11f52ee3e2",
+   "bytes": 2069
   },
   {
    "path": "types/AU.json",

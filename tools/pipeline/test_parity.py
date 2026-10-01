@@ -16,7 +16,7 @@ Exit 0 when there is no unexplained difference and every index block (board, met
 import collections, glob, json, os, re, subprocess, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-IGNORE_TOP = {"generated_at", "generated_at_pt", "generated_at_iso", "ledger_version", "content_hash", "schema"}
+IGNORE_TOP = {"generated_at", "generated_at_pt", "generated_at_iso", "ledger_version", "content_hash", "schema", "root"}   # root: the ledger's local machine path is deliberately replaced by a neutral label (privacy)
 IGNORE_NESTED = {("board", "ledger_version")}
 # display strings re-derived from structured facts (the ledger wording that v2 dropped is not recoverable)
 DISPLAY_FIELDS = {"label", "face", "face_line", "year_line", "metal", "specs", "refs", "denom", "denom_line", "photo", "photo_stem", "cat", "mint", "continent_line", "country"}

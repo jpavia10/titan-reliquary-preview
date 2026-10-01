@@ -13,6 +13,7 @@ creating a second one. There is exactly **one** photo home on Drive: `Titan Reli
 | 2 | Pro photos: owner writes the final `ser` on the flip, scans **at least 2 photos per coin** (obverse + reverse) | Masters (after the QC gate + approval) |
 
 ## Drive tree (`Titan Reliquary Collection/`)
+The owner's drop spot is `Titan Reliquary/STAGING (drop coin photos here)/` (listed at the bottom of this page). The pipeline files its contents into this tree; `Inbox/` below is the pipeline's own intake and the owner does not need to use it.
 ```
 Inbox/                                  ← drop EVERYTHING here from the phone or scanner (any file name works;
   _processed/                              good names pair automatically, see below). Titan files them.
@@ -47,6 +48,8 @@ They held no photos. Nothing was deleted.
 ```
 site-backups/   titan-reliquary-site_{YYYY-MM-DD}_{build}.zip   (daily, last 14 kept)   ← tools/drive/sync_to_drive.gs
 collection/     mirror of the repo's v2 master collection/ (coins, types, albums, lots, valuations, changes)
-  _incoming/    any agent without GitHub access drops change files here: changes_{agent}_{YYYYMMDD-HHMM}.jsonl
-                (same ChangeEvent format as collection/changes.jsonl); the integrator validates and merges them
+  _incoming/    older name of the change-file drop (still created by the sync script)
+STAGING (drop coin photos here)/        <- the owner drops Phase 1 / 1.5 photos here; an AI reads them from here ("Titan: process the staging folder")
+collection-incoming (AI change files)/  <- an AI without repo access saves its change file here: changes_{agent}_{YYYYMMDD-HHMM}.jsonl
+                                          (format: collection/templates/INSTRUCTIONS.md); the integrator validates and merges it
 ```
