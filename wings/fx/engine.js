@@ -58,7 +58,7 @@
   var flash = { t0: -9, strokes: null, x: 0, seed: 0 }, extThunder = 0, thunderTimer = 0, boltTimer = 0;
   var theme = { bg: [0.1, 0.09, 0.08], ink: [0.9, 0.85, 0.75], acc: [0.8, 0.65, 0.3], light: 0 };
   var videoEl = null, videoMap = {};
-  var SAFE_K = 0.72;                       // how much the effect is attenuated over text (0 = off)
+  var SAFE_K = 0.7;                       // how much the effect is attenuated over text (0 = off)
   var safe = { tex: null, cv: null, cx: null, nodes: [], scanAt: 0, dirty: true, t: 0, built: 0, mut: null };
   var fadeMs = 1400, forced = null;
 
@@ -177,8 +177,8 @@
     var vw = window.innerWidth, vh = window.innerHeight, S = 4, W = Math.max(2, Math.ceil(vw / S)), H = Math.max(2, Math.ceil(vh / S));
     if (!safe.cv) { safe.cv = document.createElement("canvas"); safe.cx = safe.cv.getContext("2d"); }
     if (safe.cv.width !== W || safe.cv.height !== H) { safe.cv.width = W; safe.cv.height = H; }
-    var cx = safe.cx; cx.fillStyle = "#000"; cx.fillRect(0, 0, W, H); cx.fillStyle = "#fff";
-    var r = document.createRange(), pad = 5;
+    var cx = safe.cx; cx.shadowBlur = 0; cx.fillStyle = "#000"; cx.fillRect(0, 0, W, H); cx.fillStyle = "#fff"; cx.shadowColor = "#fff"; cx.shadowBlur = 5;   // soft edges: no visible boxes around text
+    var r = document.createRange(), pad = 3;
     for (var i = 0; i < safe.nodes.length; i++) {
       var nd = safe.nodes[i]; if (!nd.isConnected) continue;
       try { r.selectNodeContents(nd); } catch (e) { continue; }
