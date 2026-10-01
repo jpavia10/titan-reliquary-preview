@@ -3007,7 +3007,12 @@
           <span class="wc-desc">Photo QC — every flip, shot and verified.</span>
           <span class="wc-stat">${pct}% photographed</span>
         </button>
-      </div>`;
+      </div>
+      <button type="button" class="hall-wants-entry reveal" data-open-wants>
+        <span class="hw-name">What's missing</span>
+        <span class="hw-desc">Which years each album still needs, with a printable want list for a coin show.</span>
+        <span class="hw-go">Open the list →</span>
+      </button>`;
 
     // ---- Curator's notes ----
     const notes = `
@@ -5822,7 +5827,7 @@
       if (meta && meta.volumes) {
         for (const v of Object.values(meta.volumes)) {
           totalCap += (v.totalSlots || 0);
-          totalHoles += (v.holes ? v.holes.length : Math.max(0, (v.totalSlots || 0) - (v.filled || 0)));
+          totalHoles += (v.masterMissing != null ? v.masterMissing : (v.holes ? v.holes.length : Math.max(0, (v.totalSlots || 0) - (v.filled || 0))));
         }
       }
       if (totalCap === 0) totalCap = Math.max(g.coins, 30);
@@ -6052,6 +6057,37 @@
     }
   };
 
+  /* ---- BEGIN what's-missing master data (wings/wants.js, data/wants.json) ----
+     ALBUM_METADATA above is hand-typed and wrong in places (A026 listed 6 holes, the master says 18). Once data/wants.json
+     (generated from collection/albums.json) is loaded, its numbers and named holes replace the typed ones; family/ids/binder
+     stay. holes[] = only the holes the master NAMES; masterMissing = the master's count (null when the ledger gives no total). */
+  function applyMasterAlbumData(w) {
+    if (!w || !Array.isArray(w.volumes)) return;
+    for (const mv of w.volumes) {
+      const fam = ALBUM_METADATA[mv.family];
+      const v = fam && fam.volumes && fam.volumes[mv.id];
+      if (!v) continue;
+      v.title = mv.title;
+      v.totalSlots = mv.slots_total;
+      v.filled = mv.filled;
+      v.masterMissing = mv.missing;
+      v.masterEvidence = mv.evidence;
+      v.holes = mv.missing_named.map((s) => s.label);
+      if (mv.year_start) v.startYear = mv.year_start;
+      if (mv.year_end) v.endYear = mv.year_end;
+      if (mv.denomination) v.denom = mv.denomination;
+      if (mv.metal) v.metal = mv.metal;
+    }
+    masterAlbumData = true;
+  }
+  let masterAlbumData = false;
+  window.addEventListener("titan:wants", (e) => {
+    applyMasterAlbumData(e.detail);
+    try { if (document.querySelector(".album-binder-card")) renderStudy(); } catch (err) { /* study not rendered yet */ }
+  });
+  if (window.TitanWants && window.TitanWants.data) applyMasterAlbumData(window.TitanWants.data);
+  /* ---- END what's-missing master data ---- */
+
   const ALBUM_FAMILIES_ORDER = [
     "American Silver Eagles",
     "Kennedy halves",
@@ -6105,6 +6141,8 @@
   }
 
   function openWantListModal(targetFamily = null) {
+    // The old modal below invented its holes and prices; the master-driven view (wings/wants.js) replaces it.
+    if (window.TitanWants && typeof window.TitanWants.open === "function") { closeAlbumInspector(); window.TitanWants.open({ family: targetFamily }); return; }
     const modal = $("#album-wantlist-modal");
     if (!modal) return;
     const listBody = $("#wantlist-body");
@@ -6238,7 +6276,8 @@
     if (aTitle) aTitle.textContent = `${activeAlbumFamily} · ${vol.title}`;
 
     const pct = vol.totalSlots > 0 ? Math.round((vol.filled / vol.totalSlots) * 100) : 0;
-    if (aMeta) aMeta.innerHTML = `<strong>${vol.filled}</strong> of <strong>${vol.totalSlots}</strong> Slots Filled · <span style="color:var(--gold)">${pct}% Complete</span> · Series Spec: ${vol.metal}`;
+    if (aMeta && vol.totalSlots == null) aMeta.innerHTML = `<strong>${vol.filled}</strong> coins filled · slot total not yet known (needs the album scan) · Series Spec: ${esc(vol.metal)}`;
+    else if (aMeta) aMeta.innerHTML = `<strong>${vol.filled}</strong> of <strong>${vol.totalSlots}</strong> Slots Filled · <span style="color:var(--gold)">${pct}% Complete</span> · Series Spec: ${vol.metal}`;
     if (aBar) aBar.style.width = `${pct}%`;
 
     // Tabs for volumes in this family
@@ -6265,7 +6304,7 @@
     const studyVol = (window.TitanStudy && typeof window.TitanStudy.inspectorVolume === "function") ? window.TitanStudy.inspectorVolume(activeAlbumId, activeAlbumFamily) : null;
     const startYear = vol.startYear || 1986;
     const endYear = vol.endYear || 2024;
-    const totalSlots = studyVol ? studyVol.slots.length : (vol.totalSlots || 36);
+    const totalSlots = studyVol ? studyVol.slots.length : (vol.totalSlots || vol.filled || 36);
     const filledCount = vol.filled || 0;
     const namedHoles = (vol.holes || []).map(String);
     const flips = vault?.flips || [];
