@@ -59,6 +59,7 @@
   <link rel="stylesheet" href="styles/lab.css?v=tr57" />
   <link rel="stylesheet" href="styles/table.css?v=tr57" />
   <link rel="stylesheet" href="styles/fx.css?v=tr57" />
+  <link rel="stylesheet" href="styles/scene.css?v=tr57" />
   <!--WS:themes: shared atmosphere system + one stylesheet per atmosphere (notes/agents/themes.md)-->
 </head>
 <body>
@@ -432,6 +433,19 @@
       </symbol>
     </defs>
   </svg>
+  <!-- Scene bar: the same slim bar on every wing. Search + Scene Studio live here, in the page flow, so nothing floats over content. -->
+  <div id="scene-bar" class="scene-bar" role="toolbar" aria-label="Search and Scene Studio">
+    <span class="sb-brand" aria-hidden="true"><span class="sb-sigil">◉</span><span class="sb-name">Titan Reliquary</span></span>
+    <button type="button" id="btn-search" class="sb-btn sb-search" title="Search the vault (Ctrl/⌘K)" aria-label="Search the vault">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+      <span class="sb-lbl">Search</span>
+    </button>
+    <button type="button" id="btn-atmo" class="sb-btn sb-scene" aria-haspopup="dialog" aria-label="Scene Studio: lighting, ambient sound and music" title="Scene Studio: lighting, ambient sound and music">
+      <span class="sb-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="sb-lbl">Scene</span>
+      <span class="sb-sub" id="atmo-name">After Hours</span>
+    </button>
+  </div>
   <div id="app">
     <main>
       <!-- ══════════ GRAND HALL ══════════ -->
@@ -649,18 +663,8 @@
           </section>
 
           <div class="hero-stats" id="hdr-stats" aria-label="Vault totals"></div>
-          <div class="hero-actions">
-            <button type="button" id="btn-search" class="search-btn" title="Search the vault (Ctrl/⌘K)">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
-              <span>Search</span><kbd>⌘K</kbd>
-            </button>
-            <button type="button" id="btn-atmo" class="atmo-btn" title="Exhibition atmosphere — lighting, sound and music">
-              <span class="atmo-dot" aria-hidden="true"></span>
-              <span class="atmo-lbl">Atmosphere</span>
-              <span class="atmo-sep" aria-hidden="true">·</span>
-              <span id="atmo-name">After Hours</span>
-            </button>
-            <button type="button" id="btn-rain" class="rain-btn" aria-pressed="false" title="Ambient sounds — rain, fire, storms and more">
+          <div class="hero-actions" id="hero-actions">
+            <button type="button" id="btn-rain" hidden class="rain-btn" aria-pressed="false" title="Ambient sounds — rain, fire, storms and more">
               <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                 <line x1="6" y1="3" x2="6" y2="21" />
                 <line x1="12" y1="3" x2="12" y2="21" />
@@ -725,11 +729,6 @@
         <div id="lab-body"></div>
       </section>
     </main>
-
-    <!-- Floating search: reachable from every wing -->
-    <button type="button" id="fab-search" class="fab-search" title="Search the vault (Ctrl/⌘K)" aria-label="Search the vault">
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
-    </button>
 
     <!-- Bottom wing navigation -->
     <nav class="wings" aria-label="Museum wings">
@@ -1264,7 +1263,8 @@
   <script src="wings/albums-data.js?v=tr57"></script><script src="wings/study.js?v=tr57"></script>
   <script src="wings/lab.js?v=tr57"></script>
   <!--WJ:table-->
-  <!--WJ:fx-->
+  <script src="wings/scene-engine.js?v=tr57"></script>
+  <script src="wings/scene.js?v=tr57"></script>
   <!--WJ:themes: crest registry + one crest file per atmosphere-->
   <script src="wings/themes.js?v=tr57"></script>
 </body>

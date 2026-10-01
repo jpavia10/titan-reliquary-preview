@@ -185,17 +185,24 @@
   pill.innerHTML = `<span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="music-pill-label">Set the scene</span>`;
   document.body.appendChild(pill);
 
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.hidden = true;
-  toast.setAttribute("role", "status");
-  document.body.appendChild(toast);
-  let toastT = null;
-  function say(msg) {
-    toast.textContent = msg;
-    toast.hidden = false;
-    clearTimeout(toastT);
-    toastT = setTimeout(() => { toast.hidden = true; }, 3500);
+  // No toasts from the radio: notes go to the Scene Studio's inline status line (event "titan:radio").
+  let lastNote = "";
+  function say(msg) { lastNote = msg; emitRadio(); }
+  function emitRadio() {
+    try { window.dispatchEvent(new CustomEvent("titan:radio", { detail: radioStatus() })); } catch { /* ignore */ }
+  }
+  function radioStatus() {
+    const t = tracks()[idx] || {};
+    return { playing, wantPlay, down: radioDown, station: stationKey, stationName: stationName(), title: t.title || "", artist: t.artist || "", note: radioDown ? DOWN_MSG[radioDown].replace("⚠ ", "") : lastNote };
+  }
+  function setMediaSession() {
+    if (!("mediaSession" in navigator)) return;
+    try {
+      const t = tracks()[idx] || {};
+      navigator.mediaSession.metadata = new MediaMetadata({ title: t.title || "Internet radio", artist: t.artist || "Titan Reliquary", album: stationName(), artwork: [{ src: "icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }] });
+      navigator.mediaSession.setActionHandler("play", () => { play(); });
+      navigator.mediaSession.setActionHandler("pause", () => { pause(); });
+    } catch { /* unsupported */ }
   }
 
   const btnPlay = bar.querySelector('[data-act="play"]');
@@ -281,6 +288,7 @@
     if (stBtn) stBtn.setAttribute("data-station", stationKey);
     updateMuteUi();
     updatePill();
+    emitRadio();
   }
 
   // ---- playback ----------------------------------------------------------
@@ -409,7 +417,7 @@
   function onPlaying() {
     clearWatchdog();
     const first = !playing;
-    playing = true; wantPlay = true; everPlayed = true;
+    playing = true; wantPlay = true; everPlayed = true; setMediaSession();
     // Something played, so the network is fine: the earlier failures are real dead links.
     if (pendingDead.length) {
       const now = Date.now();
@@ -608,6 +616,9 @@
     playStation,
     setStation: (k) => setStation(k, wantPlay),
     station: () => stationKey,
+    status: radioStatus,
+    setVolume: (v) => { vol = Math.min(1, Math.max(0, v)); applyVolume(); try { localStorage.setItem(VOL_KEY, String(vol)); } catch { /* ignore */ } },
+    getVolume: () => vol,
     stations: () => valid.map((k) => ({ key: k, name: stations[k].name, tag: stations[k].tag })),
     setMuted: (m) => setMuted(m),
     isMuted: () => muted,

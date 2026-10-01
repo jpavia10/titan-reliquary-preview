@@ -203,7 +203,7 @@
       return;
     }
     if (h === "atmo") { openAtmoSheet(); return; }
-    if (h === "ambient") { window.TitanAmbient?.openMixer(); return; }
+    if (h === "ambient") { window.TitanScene?.open(); return; }
     if (h === "3d" || h === "table" || h === "spatial" || h === "museum") {
       const rows = filteredFlips ? filteredFlips() : (vault ? vault.flips : []);
       const cur = (rows && rows[0]) ? rows[0] : null;
@@ -291,7 +291,7 @@
     el.textContent = msg;
     el.hidden = false;
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { el.hidden = true; }, 4500);
+    toastTimer = setTimeout(() => { el.hidden = true; }, 3200);
   }
 
   function detectNewFlips() {
@@ -7531,6 +7531,7 @@
     try { document.querySelector('meta[name="theme-color"]')?.setAttribute("content", ATMOS[atmo].themeColor); } catch { /* ignore */ }
     if (save) { try { localStorage.setItem(ATMO_KEY, atmo); } catch { /* ignore */ } }
     if (changed && flash) atmoFlash(atmo);
+    try { window.dispatchEvent(new CustomEvent("titan:atmo", { detail: { atmo, name: ATMOS[atmo].name } })); } catch { /* ignore */ }
     // Only when the atmosphere really changed: opening the picker calls setAtmo(current)
     // just to refresh the "On display" marks and must not start or reset the soundscape.
     if (changed && window.TitanAmbient) {
@@ -7538,12 +7539,8 @@
     }
   }
   // "Set the scene": the atmosphere plus its paired ambience and music station, all at once.
-  function setTheScene(a) {
-    setAtmo(a);
-    try { window.TitanAmbient?.applyPreset(ATMOS[a].preset); } catch { /* ambience not ready */ }
-    try { window.TitanLofi?.playStation(ATMOS[a].station); } catch { /* player not ready */ }
-    showToast("Scene set: " + ATMOS[a].name + " · " + ATMOS[a].pair);
-  }
+  // Kept for older callers: lighting only. Sound is chosen in the Scene Studio (wings/scene.js).
+  function setTheScene(a) { setAtmo(a); }
   window.setTheScene = setTheScene;
   window.TitanSetWing = setWing;
   window.TitanSetAtmo = setAtmo;
@@ -7560,6 +7557,7 @@
     lastFocus = null;
   }
   function openAtmoSheet() {
+    if (window.TitanScene && window.TitanScene.open) { window.TitanScene.open(); return; }
     rememberFocus();
     setAtmo(currentAtmo(), false); // refresh the "On display" marks
     $("#atmo-sheet").hidden = false;
@@ -7599,7 +7597,7 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
   function topOverlayEl() {
-    const order = ["#lightbox", "#palette", "#atmo-sheet", "#keys-sheet", ".ambient-panel", "#drawer"];
+    const order = ["#lightbox", "#palette", "#scene-sheet", "#atmo-sheet", "#keys-sheet", ".ambient-panel", "#drawer"];
     for (const sel of order) {
       const el = sel === ".ambient-panel" ? document.querySelector(sel) : $(sel);
       if (el && !el.hidden) return el;
@@ -7611,6 +7609,7 @@
     if (!top) return false;
     if (top.id === "lightbox") closeLightbox();
     else if (top.id === "palette") closePalette();
+    else if (top.id === "scene-sheet") window.TitanScene?.close();
     else if (top.id === "atmo-sheet") closeAtmoSheet();
     else if (top.id === "keys-sheet") closeKeysSheet();
     else if (top.classList.contains("ambient-panel")) { top.hidden = true; restoreFocus(); }
