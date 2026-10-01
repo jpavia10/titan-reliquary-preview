@@ -560,7 +560,11 @@
   document.addEventListener("pointerdown", () => {
     if (E.ctx && E.playing && !E.paused && E.ctx.state !== "running") { E.ctx.resume().catch(() => {}); if (E.el && E.el.paused) { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); } }
   }, { passive: true, capture: true });
-  window.addEventListener("titan:mute", (e) => { if (e.detail && e.detail.muted && E.playing && !E.paused) pause(); });
+  window.addEventListener("titan:mute", (e) => {
+    const m = !!(e.detail && e.detail.muted);
+    if (m && E.playing && !E.paused) { E.muteHeld = true; pause(); }
+    else if (!m && E.muteHeld) { E.muteHeld = false; resume(); }
+  });
 
   window.TitanGen = {
     BEDS, BED_ORDER, SCENES, SCENE_ORDER,

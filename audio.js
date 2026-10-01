@@ -241,8 +241,8 @@
   });
 
   const DOWN_MSG = {
-    offline: "⚠ Radio unavailable offline — reconnect, then tap ▶",
-    unreachable: "⚠ Radio unavailable right now — tap ▶ to retry",
+    offline: "⚠ Radio unavailable offline. Reconnect, then tap Play radio.",
+    unreachable: "⚠ Radio unavailable right now. Tap Play radio to retry.",
   };
 
   function updatePill() {

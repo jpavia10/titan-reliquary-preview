@@ -76,7 +76,7 @@
   // Auto-refresh toggle and the "checked 23s ago" line live in Settings now (same elements, same ids).
   const moved = $("#ss-moved", sheet);
   const autoLbl = document.querySelector(".hero-actions .auto-toggle"), liveSt = document.getElementById("live-status");
-  if (autoLbl) moved.appendChild(autoLbl);
+  if (autoLbl) { const sp = autoLbl.querySelector("span"); if (sp) sp.textContent = "Check for updates automatically"; moved.appendChild(autoLbl); }
   if (liveSt) moved.appendChild(liveSt);
   const ha = document.getElementById("hero-actions"); if (ha) ha.hidden = true;
 

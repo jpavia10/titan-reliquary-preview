@@ -116,3 +116,7 @@
 .ss-card .live-status * { color: inherit; }
 .ss-card button:focus-visible, .ss-card summary:focus-visible, .ss-card select:focus-visible, .ss-card input:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
 @media (min-width: 560px) { .ss-scenes { grid-template-columns: repeat(2, 1fr); } }
+
+/* overflow-x:hidden on html+body makes position:sticky useless; clip keeps the no-sideways-scroll guarantee without a scroll container. */
+html, body { overflow-x: clip; }
+html[data-atmo="notepad"] .scene-bar { top: 49px; }
