@@ -127,7 +127,7 @@ class Pipeline(unittest.TestCase):
         self.reject([ev(entity="specimen", id="C001", field="story", new="lovely")], "owner's own words")
         self.reject([ev(entity="specimen", id="C001", field="notes", new="x", old="not the current value")], "stale edit")
         self.reject([ev(entity="specimen", id="C001", field="notes", new="x", source=None)], "real 'source'")
-        self.reject([ev(entity="specimen", id="C001", field="condition.cleaned", new="maybe")], "validation")          # schema violation
+        self.reject([ev(entity="specimen", id="C001", field="condition.cleaned", new="maybe", source="pro photo C001_obv.jpg")], "validation")          # schema violation
         self.reject([ev(entity="specimen", id="C001", field="bogus_key", new=1)], "validation")                         # unknown leaf: the schema rejects it
         self.reject([{"ts": "2026-10-03T10:00:00Z", "by": "model:t", "entity": "specimen", "id": "C001", "field": "notes", "new": "x", "source": "s", "surprise": 1}], "unknown key")
         self.reject([ev(entity="specimen", id="C301", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "counter")      # next is C272
@@ -142,11 +142,11 @@ class Pipeline(unittest.TestCase):
         owner = ev(ts="2026-10-03T09:00:00Z", by="owner", entity="specimen", id="C001", field="condition.grade", new="AU-55", verified=True, source="owner checked the coin")
         self.assertEqual(self.apply(tmp, write_events(tmp, "changes_owner.jsonl", [owner])).returncode, 0)
         h = tree_hash(cdir)
-        r = self.apply(tmp, write_events(tmp, "changes_ai.jsonl", [ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition.grade", new="VF-20")]))
+        r = self.apply(tmp, write_events(tmp, "changes_ai.jsonl", [ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition.grade", new="VF-20", source="pro photo C001_obv.jpg")]))
         self.assertEqual(r.returncode, 1); self.assertIn("VERIFIED by owner", r.stdout); self.assertEqual(h, tree_hash(cdir))
-        bad = ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition", new={"text": "x", "grade": "F", "grader": None, "cert": None, "strike": None, "luster": None, "toning": None, "cleaned": None, "damage": []})
+        bad = ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition", new={"text": "x", "grade": "F", "grader": None, "cert": None, "strike": None, "luster": None, "toning": None, "cleaned": None, "damage": []}, source="pro photo C001_obv.jpg")
         self.assertEqual(self.apply(tmp, write_events(tmp, "changes_ai2.jsonl", [bad])).returncode, 1)              # a parent edit cannot sneak past it either
-        ok = ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition.grade", new="VF-20", supersedes="2026-10-03T09:00:00Z", source="re-graded from pro photo")
+        ok = ev(ts="2026-10-04T09:00:00Z", entity="specimen", id="C001", field="condition.grade", new="VF-20", supersedes="2026-10-03T09:00:00Z", source="re-graded from pro photo C001_obv.jpg")
         r = self.apply(tmp, write_events(tmp, "changes_ai3.jsonl", [ok]))
         self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("SUPERSEDED", r.stdout)
 
@@ -160,6 +160,37 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(specs["C272"]["notes"], "coin 1"); self.assertEqual(specs["C273"]["notes"], "coin 2 edited")
         self.assertEqual(self.apply(tmp, os.path.join(tmp, "changes_two.jsonl")).returncode, 0)                      # idempotent even with placeholders
         self.assertEqual(len(C.Collection(os.path.join(tmp, "collection")).specs), 275)
+
+    def test_wrong_typed_values_are_a_readable_rejection(self):
+        for field, val in (("value.est_usd", "lots"), ("value.est_usd", -5), ("measured.weight_g", "heavy"), ("housing.kind", "shoebox")):
+            tmp = sandbox(); f = write_events(tmp, "changes_bad.jsonl", [ev(entity="specimen", id="C001", field=field, new=val)])
+            r = self.apply(tmp, f)
+            self.assertEqual(r.returncode, 1, r.stdout + r.stderr)
+            self.assertNotIn("Traceback", r.stderr); self.assertIn("line 1:", r.stdout); self.assertIn("fails schema validation", r.stdout)
+        tmp = sandbox(); f = write_events(tmp, "changes_bad.jsonl", [ev(entity="specimen", id="C001", field="issue.mint_marks", new="D")])        # string where a list belongs
+        r = self.apply(tmp, f); self.assertEqual(r.returncode, 1); self.assertNotIn("Traceback", r.stderr); self.assertIn("line 1:", r.stdout)
+        tmp = sandbox(); f = write_events(tmp, "changes_bad.jsonl", [ev(entity="specimen", id="C001", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": 1969})])
+        r = self.apply(tmp, f); self.assertEqual(r.returncode, 1); self.assertNotIn("Traceback", r.stderr)                                       # year_raw must be a string
+
+    def test_junk_sources_rejected(self):
+        for src in ("n/a", "unknown", "AI", "short", "None", "ai estimate", "   "):
+            self.reject([ev(entity="specimen", id="C001", field="notes", new="x", source=src)], "source")
+        tmp = sandbox()                                                                                                                         # a real source passes
+        self.assertEqual(self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [ev(entity="specimen", id="C001", field="notes", new="x", source="Numista N#1234")])).returncode, 0)
+
+    def test_condition_judgement_needs_a_photo_or_reference(self):
+        self.reject([ev(entity="specimen", id="C001", field="condition.grade", new="MS-70", phase=2, source="looks good to me")], "photo file")
+        self.reject([ev(entity="specimen", id="C001", field="condition.grade", new="MS-70", phase=2, source="from the Phase 2 pro photos")], "photo file")
+        self.reject([ev(entity="specimen", id="C001", field="condition.toning", new="even brown", phase=2, source="visual inspection")], "photo file")
+        self.reject([ev(entity="specimen", id="C001", field="condition.grade", new="VF-20", phase=1, source="photo IMG_0412.jpg")], "Phase 1 never")
+        self.reject([ev(entity="specimen", id="C001", field="condition", phase=2, source="seems fine to me",
+                        new={"text": "x", "grade": "F", "grader": None, "cert": None, "strike": None, "luster": None, "toning": None, "cleaned": None, "damage": []})], "photo file")
+        for src in ("pro photos C001_obv.jpg + C001_rev.jpg", "Numista N#1234 plus photo", "https://en.numista.com/1234"):
+            tmp = sandbox()
+            r = self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [ev(entity="specimen", id="C001", field="condition.grade", new="VF-20", phase=2, source=src)]))
+            self.assertEqual(r.returncode, 0, r.stdout)
+        tmp = sandbox()                                                                                                                         # clearing a judgement needs no photo
+        self.assertEqual(self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [ev(entity="specimen", id="C001", field="condition.grade", new=None, source="owner asked to clear")])).returncode, 0)
 
     def test_publish_refuses_a_broken_collection(self):
         tmp = sandbox()

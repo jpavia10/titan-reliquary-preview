@@ -35,6 +35,30 @@ LOT_PREFIX = {"bullion": "B", "set": "S", "housing": "H", "stamp": "P"}
 
 class Reject(Exception): pass
 
+# ------------------------------------------------------------------------------------------------ source quality + photo-dependent fields
+JUNK_SOURCES = {"n/a", "na", "unknown", "ai", "none", "null", "nil", "test", "tbd", "todo", "source", "photo", "model", "llm", "guess", "estimate", "unsure", "gemini", "grok", "claude",
+                "chatgpt", "gpt", "muse", "see above", "ai estimate", "ai generated", "ai guess", "not applicable", "no source", "unknown source", "trust me", "from memory", "from the photo", "from photo"}
+PHOTO_FILE = re.compile(r"[\w\-. ()]+\.(?:jpe?g|png|tiff?|heic|webp)\b", re.I)
+REFERENCE = re.compile(r"https?://|\bN#\s*\d|\bKM#?\s*\d|\b(?:Numista|Krause|PCGS|NGC|CoinFacts|Red Book|Colnect|ucoin)\b", re.I)
+PHOTO_FIELDS = ("condition.grade", "condition.strike", "condition.luster", "condition.toning", "condition.cleaned", "condition.damage")   # judged by eye: need a photo or a cited reference
+
+def junk_source(src):
+    t = (src or "").strip().lower().strip(" .!?-_*")
+    return len(t) < 8 or t in JUNK_SOURCES
+
+def photo_values(e):
+    """[(dotted field, value)] this event writes into photo-dependent condition fields (non-empty values only)."""
+    if e["entity"] != "specimen": return []
+    out = []
+    def walk(prefix, v):
+        if prefix in PHOTO_FIELDS:
+            if v not in (None, "", []): out.append((prefix, v))
+        elif isinstance(v, dict):
+            for k, x in v.items(): walk(f"{prefix}.{k}" if prefix else k, x)
+    if e.get("op", "set") == "create" and isinstance(e.get("new"), dict): walk("", e["new"])
+    elif isinstance(e.get("field"), str): walk(e["field"], e["new"])
+    return out
+
 # ------------------------------------------------------------------------------------------------ skeletons
 def skeleton_specimen():
     return {"acquisition": {"acquired_on": None, "family": None, "logged_at": None, "price_paid_usd": None, "source": None}, "authenticity": None,
@@ -145,7 +169,14 @@ class Applier:
         if e.get("op", "set") not in ("set", "create"): errs.append(f"op '{e.get('op')}' must be 'set' or 'create'")
         if not isinstance(e["by"], str) or not re.match(r"^(owner|model:[\w.\-]+|script:[\w.\-]+|person:[\w.\- ]+)$", e["by"]): errs.append(f"by '{e['by']}' must be owner, model:<id>, script:<name> or person:<name>")
         if e.get("verified") and not (e["by"] == "owner" or e["by"].startswith("person:")): errs.append("only the owner (by: owner / person:<name>) can set verified: true; an AI never verifies its own work")
-        if e["by"].startswith("model:") and not (e.get("source") or "").strip(): errs.append("a model's fact needs a real 'source' (photo file, catalog, URL, reference)")
+        if e["by"].startswith("model:"):
+            if not (e.get("source") or "").strip(): errs.append("a model's fact needs a real 'source' (photo file, catalog, URL, reference)")
+            elif junk_source(e["source"]): errs.append(f"source {e['source']!r} is empty or junk (fewer than 8 characters, or 'n/a', 'unknown', 'AI', ...): name the photo file, catalog + number, or URL")
+            for f, _ in photo_values(e):
+                src = e.get("source") or ""
+                if e.get("phase") == 1: errs.append(f"{f}: Phase 1 never records a condition judgement (grade, strike, luster, toning, cleaned, damage); leave it null until the Phase 2 pro photos")
+                elif not (PHOTO_FILE.search(src) or REFERENCE.search(src) or any(p["id"] in src for p in self.c.photos)):
+                    errs.append(f"{f} is judged from the coin, so its source must name at least one photo file (e.g. 'C042_obv.jpg + C042_rev.jpg') or a cited reference (Numista N#..., KM#..., URL); got {src!r}")
         if "phase" in e and e["phase"] not in (1, 1.5, 2): errs.append("phase must be 1, 1.5 or 2")
         if "confidence" in e and e["confidence"] not in ("low", "med", "high"): errs.append("confidence must be low, med or high")
         return errs
@@ -170,8 +201,23 @@ class Applier:
         if event_key(e) in self.done:
             self.log.append(f"already applied: {e['entity']} {e['id']} {e['field']}"); return "skipped"
         (self.create if op == "create" else self.set)(e)
+        self.check_schema(e)
         self.done.add(event_key(e))
         return "applied"
+
+    def check_schema(self, e):
+        """Validate the touched record against schema/v2 right now, so a wrong-typed value is reported on its own line."""
+        import validate as V
+        name = {"type": "Type", "specimen": "Specimen", "lot": "Lot", "album": "AlbumVolume", "issuer": "Issuer", "photo": "Photo"}[e["entity"]]
+        rec = next((p for p in self.c.photos if p["id"] == e["id"]), None) if e["entity"] == "photo" else self.record(e["entity"], e["id"])
+        if rec is None: return
+        bad = []
+        for er in V.validator(name).iter_errors(rec):
+            where = "/".join(str(x) for x in er.absolute_path) or "(whole record)"
+            bad.append(f"{where}: {er.message[:120]}")
+        if bad:
+            what = "the new record" if e.get("op") == "create" else f"value {j(e['new'])[:60]} for '{e['field']}'"
+            raise Reject(f"{what} fails schema validation on {e['entity']} {e['id']} (check the type and units; see collection/templates/FIELDS.md): " + "; ".join(bad[:3]))
 
     def set(self, e):
         ent, rid, field = e["entity"], e["id"], e["field"]
@@ -387,13 +433,16 @@ def apply_file(path, coll, dry_run=False):
         try: results.append(ap.apply(e))
         except Reject as r: problems.append(f"line {n}: {r}")
         except KeyError as r: problems.append(f"line {n}: unknown field path {r} in {e.get('entity')} {e.get('id')} {e.get('field')}")
+        except Exception as r: problems.append(f"line {n}: could not apply this event ({type(r).__name__}: {str(r)[:150]}); check the field path and that `new` has the right type (see collection/templates/FIELDS.md)")
     if not problems and results and all(r == "skipped" for r in results):
         shutil.rmtree(work, ignore_errors=True)
         return "already-applied", [f"{name}: every event is already in changes.jsonl; nothing to do"], []
     if not problems:
-        col.save()
-        try: rc, out = validate_dir(wdir)
+        try:
+            col.save()
+            rc, out = validate_dir(wdir)
         except ImportError: rc, out = 1, "the 'jsonschema' package is missing: pip install jsonschema"
+        except Exception as x: rc, out = 1, f"the merged collection could not be written ({type(x).__name__}: {str(x)[:150]}); an event probably carries a wrong-typed value"
         if rc != 0: problems += ["validation of the merged collection failed:"] + ["    " + ln for ln in out.strip().splitlines()[-25:]]
     if problems:
         shutil.rmtree(work, ignore_errors=True)
