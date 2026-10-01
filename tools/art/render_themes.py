@@ -33,7 +33,6 @@ def theme(name, **post):
 
 
 # --------------------------------------------------------------------------- kaleido
-@theme("kaleido", bloom=0.35, bloom_r=0.01, grain=0.010, vignette=0.34, ca=2.2)
 def _backlight_mat():
     m, nt = K._new_mat("backlight")
     tc = K.tex_coord(nt)
@@ -47,7 +46,8 @@ def _backlight_mat():
     return m
 
 
-def kaleido(scene):
+@theme("kaleidoscope", bloom=0.35, bloom_r=0.01, grain=0.010, vignette=0.34, ca=2.2)
+def kaleidoscope(scene):
     """Looking into a Victorian brass kaleidoscope: three first-surface mirrors, jewel-glass chips and a silver
     dollar in the object cell, lit from behind; everything else is the aubergine optician's parlour."""
     import bmesh
@@ -114,10 +114,73 @@ def kaleido(scene):
     K.camera((0, 0, -4.15), (0, 0, 3.0), lens=85, fstop=9.0, focus=4.4)
 
 
+# --------------------------------------------------------------------------- kaleido = "Prism"
+def _spectrum(t):
+    """t in 0..1 (red -> violet) to a saturated linear RGB colour."""
+    import colorsys
+    h = (1 - t) * 0.78            # 0.78 = violet, 0 = red
+    r, g, b = colorsys.hsv_to_rgb(h, 1.0, 1.0)
+    return (r, g, b)
+
+
+@theme("kaleido", bloom=0.5, bloom_r=0.012, grain=0.011, vignette=0.38, ca=2.6)
+def prism(scene):
+    """A jeweler's light-box: a white beam enters a crystal prism, fans into a spectrum and lands on a silver dollar
+    standing on black obsidian. Beams are real spot lights in a thin haze, so the shafts are physically lit."""
+    import bmesh
+    rg = K.rng(5)
+    K.world(top=hexc("#030208"), horizon=hexc("#0a0614"), strength=0.35)
+    # obsidian floor (polished, slightly warm black) + faint micro-scratches
+    floor = K.plane("floor", 60, loc=(0, 0, 0), mat=K.textured("obsidian", hexc("#07060a"), rough=0.05, metal=0.0, rvar=0.03,
+                                                              scale=3, bump_str=0.05, bump_scale=300, specular_ior_level=0.9))
+    # crystal prism: equilateral triangle, side 1.7, height 2.3, bevelled
+    bm = bmesh.new()
+    side, h = 1.7, 2.3
+    R = side / math.sqrt(3)
+    pts = [(R * math.cos(math.radians(90 + 120 * i)), R * math.sin(math.radians(90 + 120 * i))) for i in range(3)]
+    b0 = [bm.verts.new((x, y, 0)) for x, y in pts]
+    b1 = [bm.verts.new((x, y, h)) for x, y in pts]
+    bm.faces.new(b0[::-1])
+    bm.faces.new(b1)
+    for i in range(3):
+        bm.faces.new((b0[i], b0[(i + 1) % 3], b1[(i + 1) % 3], b1[i]))
+    bmesh.ops.recalc_face_normals(bm, faces=list(bm.faces))
+    bmesh.ops.bevel(bm, geom=list(bm.edges), offset=0.018, segments=3, profile=0.6, affect="EDGES")
+    pr = K.from_bm("prism", bm, smooth=False)
+    pr.location = (-0.3, 0.2, 0.0)
+    pr.rotation_euler = (0, 0, math.radians(0))
+    gm = K.glass("crystal", (0.97, 0.99, 1.0, 1), ior=1.55, rough=0.0, fake_shadow=False)
+    K.assign(pr, gm)
+    # beam geometry: entry from the left at height 1.15, aimed so the exit fan goes +X toward the coin
+    zb = 1.15
+    exit_pt = (0.38, 0.2, zb)
+    coin_x = 6.3
+    fan = [(-12 + 24 * i / 12.0) for i in range(13)]          # degrees, red -> violet, deliberately exaggerated
+    K.fog_box((2.5, 0.0, 2.0), (22, 12, 5.5), density=0.045, anisotropy=0.55)
+    K.spot("beam_in", (-6.5, 0.2, zb), (-0.9, 0.2, zb), 2600, color=(1, 0.98, 0.94), angle=3.2, blend=0.15, radius=0.012)
+    for i, ang in enumerate(fan):
+        t = i / (len(fan) - 1)
+        c = _spectrum(t)
+        tgt = (exit_pt[0] + math.cos(math.radians(ang)) * 6.0, exit_pt[1] + math.sin(math.radians(ang)) * 6.0, zb - 0.02 * i)
+        K.spot(f"band{i}", exit_pt, tgt, 4200, color=c, angle=2.8, blend=0.25, radius=0.010)
+    # silver dollar standing on its edge, face turned toward the prism and a little toward the camera
+    K.make_coin("coin", K.m_silver("silver", 1.15, rough=0.3), radius=1.05, thick=0.14, relief=0.04, year="1921", seed=4,
+                loc=(coin_x, 0.2, 1.06), rot=(90, 0, 90 + 28), rings=300, segs=800, hres=2048, wear=0.7)
+    # soft strips for glass edge highlights and coin sheen
+    K.area("stripL", (-4.5, -5.5, 3.2), (0, 0.2, 1.2), 0.25, 2200, color=(0.85, 0.9, 1.0), size_y=3.0)
+    K.area("stripR", (7.5, -4.8, 2.8), (coin_x, 0.2, 1.2), 0.3, 900, color=(1.0, 0.9, 0.8), size_y=2.2)
+    K.area("top", (2.5, -1.0, 6.0), (2.5, 0.2, 0.0), 1.5, 120, color=(0.7, 0.75, 1.0), size_y=6)
+    # bokeh dust motes / distant lamps far behind
+    for i in range(40):
+        K.sphere(f"bk{i}", rg.uniform(0.08, 0.3), loc=(rg.uniform(-12, 18), rg.uniform(10, 24), rg.uniform(0.5, 7)),
+                 mat=K.emissive(f"bk{i}", _spectrum(rg.random()) + (1,), rg.uniform(0.8, 3.5)), segs=32)
+    K.camera((2.6, -10.5, 2.35), (2.6, 0.2, 1.0), lens=42, fstop=2.8, focus=10.6)
+
+
 # --------------------------------------------------------------------------- driver
 def render(name, res, samples, draft=False):
     scene = K.reset()
-    K.setup_render(res=res, samples=samples, bounces=24 if name == "kaleido" else 12)
+    K.setup_render(res=res, samples=samples, bounces=24 if name in ("kaleido", "kaleidoscope") else 12)
     THEMES[name](scene)
     mdir = os.path.join(ROOT, "art", "_masters")
     os.makedirs(mdir, exist_ok=True)
