@@ -6,7 +6,7 @@ html.world-fade body { opacity: 0; transition: opacity 0.17s ease-in; }
 html:not(.world-fade) body { transition: opacity 0.18s ease-out; }
 @media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
 
-/* ---------- hero art backdrop (Hall): a dark gradient over the render keeps text AA ---------- */
+/* ---------- OPTIONAL hero art backdrop (Hall), only when TITAN_WORLD_BACKDROP = true. Delete this block to remove. A dark gradient over the render keeps text AA ---------- */
 html[data-world-art] .hero {
   background-image:
     linear-gradient(180deg, color-mix(in srgb, var(--bg) 66%, transparent) 0%, color-mix(in srgb, var(--bg) 82%, transparent) 55%, var(--bg) 100%),

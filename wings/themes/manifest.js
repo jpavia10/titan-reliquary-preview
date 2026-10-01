@@ -52,5 +52,6 @@
       mood: "Desert caravanserai, lapis tiles, starlight.", fx: null, scene: null, tokens: {} }
   ];
   window.TITAN_WORLDS = worlds;
+  window.TITAN_WORLD_BACKDROP = false;   // true = use the active World's hero art as the Hall hero backdrop (styles/worlds.css); easily removable
   window.TITAN_WORLD_COLLECTIONS = ["Museum", "Treasure", "Journeys", "Moods", "Otherworld", "Utility"];
 })();

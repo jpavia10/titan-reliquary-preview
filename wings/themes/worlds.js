@@ -18,7 +18,7 @@
     if (!w) return;
     if (w.tokens) Object.keys(w.tokens).forEach(function (k) { root.style.setProperty(k, w.tokens[k]); applied.push(k); });
     root.setAttribute("data-world-tier", w.tier);
-    if (w.art) {
+    if (w.art && window.TITAN_WORLD_BACKDROP) {   // optional hook, off by default (layout is being redesigned)
       var small = Math.max(window.innerWidth || 0, 1) * (window.devicePixelRatio || 1) <= 900;
       root.style.setProperty("--world-hero", 'url("' + art(small ? w.art.card : w.art.hero) + '")');
       root.setAttribute("data-world-art", "1");
