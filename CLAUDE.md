@@ -26,6 +26,7 @@ Last verified: 2026-09-30 (build TR50).
 | Photo shard sites | `titan-photos-{as,eu,na}` GitHub Pages repos |
 
 ## Rules
+0. **Deploying:** GitHub Pages does NOT rebuild for pushes made by the Claude GitHub app (the live site silently stayed at aa45918 for ~30 pushes on 2026-09-30). After pushing to `main`, trigger the build by updating `DEPLOY_STAMP.txt` through the GitHub connector (acts as the owner's account), then confirm a new "pages build and deployment" run for that commit finishes `success`. Never report "live" before that run succeeds.
 1. Check `SHARED_LOG.md`, do your work, append a 2-3 line entry.
 2. Ownership: Grok = data/pipeline, Sebastian/Muse = look and feel, Antigravity = QA/release. Coordinate in the log.
 3. Never edit generated files in `data/` by hand.
