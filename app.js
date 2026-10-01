@@ -7751,6 +7751,22 @@
     });
   }
 
+  /* Mirror the music bar's state on <html data-lofi="open|collapsed">, so CSS needs no `body:has(.lofi-bar…)`
+     (a :has() on <body> is re-evaluated on every DOM change anywhere; it cost ~150 ms at boot on a phone).
+     Read-only observer: the player code itself (audio.js) is untouched. */
+  const watchLofiBar = () => {
+    const bar = document.querySelector(".lofi-bar");
+    if (!bar) return;
+    const sync = () => {
+      const v = bar.hidden ? "" : (bar.classList.contains("collapsed") ? "collapsed" : "open");
+      if (v) document.documentElement.setAttribute("data-lofi", v); else document.documentElement.removeAttribute("data-lofi");
+    };
+    new MutationObserver(sync).observe(bar, { attributes: true, attributeFilter: ["hidden", "class"] });
+    sync();
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", watchLofiBar, { once: true });
+  else watchLofiBar();
+
   loadVault();
   scheduleReload();
 })();
