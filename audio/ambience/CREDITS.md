@@ -15,7 +15,7 @@ the sounds must be re-verified or replaced; this is the one open item. Because b
 
 Processing (`tools/ambience/encode.py`): trimmed to the most stationary 10-40 s region, tail crossfaded into the head (equal power, 1.5-3 s) for a seamless loop, loudness-normalised to about -20 LUFS
 (boost capped at +20 dB, peak limiter at -1 dBFS), written as Opus in WebM (80 kbps stereo / 48 mono) and AAC in M4A (64 / 40) for Safari.
-One-shot sounds (thunder, owl, pages, bowl) are several short segments joined into one file; the segment table is in `manifest.json`.
+One-shot sounds (thunder, owl, pages, bowl, creak, clank, whale) are several short segments joined into one file; the segment table is in `manifest.json`.
 
 | id | kind | upstream file | length | size (webm + m4a) |
 |---|---|---|---|---|
