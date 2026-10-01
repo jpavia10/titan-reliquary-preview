@@ -309,7 +309,8 @@
       var save = navigator.connection && navigator.connection.saveData;
       if (save || cores <= 2 || mem <= 1) return 3;
       if (cores <= 4 || mem <= 2) return small ? 2 : 1;
-      return small ? 1 : 0;           // flagship phones start at 1 (1.5x) and are promoted to 0 by the frame-time probe
+      if (cores >= 8 && mem >= 6) return 0;      // flagship class: full quality, demoted by the frame-time probe if it cannot hold ~50 fps
+      return 1;
     })();
     var Q = TIERS[tier];
 
@@ -1027,6 +1028,7 @@
       if (t >= TL.type && !cueFired.type) { cueFired.type = 1; whenFeatured(function () { showFeatureText(); root.classList.add("ts-show"); }); }
       if (t >= TL.mark && !cueFired.mark) { cueFired.mark = 1; root.classList.add("ts-show-mark"); }
       // --- hand-off: the coin dissolves in light, the app appears underneath ---
+      if (t >= TL.hand0 && !Q.post) { if (!cueFired.t4) { cueFired.t4 = 1; root.classList.remove("ts-show", "ts-show-mark"); root.classList.add("ts-hide"); finish(true, 0.8); } return; }   // no-post tier: plain cross-fade
       if (t >= TL.hand0) {
         if (!handoffOn) { handoffOn = true; state = "handoff"; root.classList.add("ts-handoff"); root.classList.remove("ts-show", "ts-show-mark"); root.classList.add("ts-hide"); html.classList.add("ts-reveal"); }
         var hp = clamp((t - TL.hand0) / (TL.hand1 - TL.hand0), 0, 1), he = easeInOut(clamp((hp - 0.18) / 0.82, 0, 1));
@@ -1041,7 +1043,7 @@
     var alive = true, raf = 0, t0 = 0, last = 0, frames = 0, probe = [], probed = false, manual = null, lastT = 0;
     function applyTier(n) {
       if (n === tier) return; tier = n; Q = TIERS[n];
-      renderer.shadowMap.enabled = Q.shadow > 0;
+      var wasShadow = renderer.shadowMap.enabled; renderer.shadowMap.enabled = Q.shadow > 0; if (wasShadow !== renderer.shadowMap.enabled) mats.forEach(function (m) { m.needsUpdate = true; });
       if (Q.shadow > 0 && key.shadow.map) { key.shadow.map.dispose(); key.shadow.map = null; }
       key.shadow.mapSize.set(Q.shadow || 512, Q.shadow || 512); key.castShadow = Q.shadow > 0;
       dust.geometry.setDrawRange(0, Q.dust);
@@ -1062,7 +1064,7 @@
         if (frames > 2 && t < 0.5) probe.push(now - last);
         else if (!probed && t >= 0.5) {
           probed = true; var avg = probe.length ? probe.reduce(function (a, b) { return a + b; }, 0) / probe.length : 16;
-          var base = tier, nt = avg > 60 ? 4 : avg > 34 ? Math.max(tier, 3) : avg > 22 ? tier + 1 : avg < 9.5 && tier > 0 ? tier - 1 : tier;
+          var nt = avg > 60 ? 4 : avg > 34 ? Math.max(tier, 3) : avg > 20.5 ? tier + 1 : tier;
           applyTier(clamp(nt, 0, 4)); coinTex();
         }
       } else if (!probed && t >= 0.45) { probed = true; coinTex(); }
