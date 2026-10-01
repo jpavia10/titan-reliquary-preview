@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Opus integrator (Grok role change confirmed)
+* Owner confirmed: Grok has stopped ledger updates and relies on Claude. The master is `collection/` (schema v3); Grok contributes only `changes_grok_{YYYYMMDD-HHMM}.jsonl` in Drive `collection-incoming (AI change files)/`.
+* Gap: spot quotes and board totals were Grok's ledger output (last quote 2026-09-30 08:12 PT). A quote-update path is needed (proposed to the owner).
+
 ### [2026-10-01 PT] — Claude/Sonnet (TitanFX overlay engine, branch claude/fx-v2)
 * **TitanFX**: WebGL2 full-screen overlay engine (`wings/fx/engine.js`, `presets.js`, `ui.js`): 17 presets (rain-on-glass, storm + `titan:thunder`, glass-frost, embers, snow, fog, godrays, dust, caustics, aurora, stars, prism, smoke, incense, candle, lanterns, scanlines) + film layer + 17 World aliases (`TitanFX.play('<id>')`), text-safe mask for AA, adaptive quality, video overlay (kaleido glints). Effects Off/Subtle/Full in Sound > Settings. Old 2D-canvas weather stays as the WebGL2 fallback.
 * Notes + 41 screenshots in `notes/agents/fx-v2.md` / `fx-v2/`. Not pushed, `?v=` not bumped; sw.js got the 3 JS files. Needs a real-GPU check (`tools/fx/perf.js`).
