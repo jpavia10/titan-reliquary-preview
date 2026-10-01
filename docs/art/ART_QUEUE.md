@@ -1,10 +1,11 @@
-# Titan Reliquary · art request queue (one queue, Grok: images + video with sound; consolidated 2026-10-01)
+# Titan Reliquary · art request queue (one queue for ANY AI: images + video with sound; 2026-10-01)
 
-Claude (the integrator) writes requests into one Drive queue. Grok processes it on a schedule; the owner does nothing.
+Claude (the integrator) writes requests into one Drive queue. Any AI with an image or video model (Grok, Gemini/Veo, Muse...) processes it on a schedule; the owner does nothing.
+Each AI first writes `{request id}.CLAIMED-{model}.txt` (a claim younger than 24 h means skip), and honours `assigned_to` (`any` or a named model).
 
 | Queue (Drive, `Titan Reliquary/`) | Who processes it | Rules doc on Drive | Output folder | Command |
 |---|---|---|---|---|
-| `art-requests (Grok: images + video)/` | Grok (Grok Imagine for stills, Grok Imagine Video with native audio for clips) | `ART_START_HERE (for Grok: images + video)` | `art-incoming (AI images + video)/{request id}/` | "Titan: process the art requests" |
+| `art-requests (any AI: images + video)/` | any image/video AI (Grok Imagine, Gemini Veo, Muse...) | `ART_START_HERE (any AI: images + video)` | `art-incoming (AI images + video)/{request id}/` | "Titan: process the art requests" |
 
 Grok's video model makes 8 s clips at 24 fps with sound (H.264 + AAC, 1088x1920 / 1920x1088) plus `_silent` copies, so the earlier Gemini Veo queue was retired.
 Deliver at FULL native quality, no size limit (owner, 2026-10-01: beyond Full HD; never let download limits constrain the art). Large files reach the repo through

@@ -7,7 +7,7 @@ The owner says one of these in chat, or a scheduled task says it:
 - **"Titan: process the staging folder as a batch"** → same work, one change file for the whole batch (section 2).
 - **"Titan: Phase 2 review of C### (or: of the whole collection)"** → critical analysis (section 4).
 - **"Titan: process the album scans"** → Phase 1.5 (section 5).
-- **"Titan: process the art requests"** (Grok: still images and video with sound) → Drive `art-requests (Grok: images + video)`, rules `ART_START_HERE (for Grok: images + video)`, output `art-incoming (AI images + video)`. See `docs/art/ART_QUEUE.md`.
+- **"Titan: process the art requests"** (any image/video AI: Grok, Gemini Veo, Muse; still images and video with sound) → Drive `art-requests (any AI: images + video)`, rules `ART_START_HERE (any AI: images + video)`, output `art-incoming (AI images + video)`. See `docs/art/ART_QUEUE.md`.
 
 You never edit code, the website, GitHub, the Drive mirror, or the collection files directly. You read the master, look at photos, and write **one change file**, which you drop in Drive `Titan Reliquary/collection-incoming (AI change files)/`. Claude (the integrator) merges it with the pipeline and owns the site. This holds for Grok too: Grok no longer publishes a ledger and does not edit GitHub or the Drive mirror. If any older document (`collection/README.md` hand-edit steps, `DRIVE_ANALYSIS.md`, old ledger notes) says otherwise, it is out of date; follow this page and `collection/templates/INSTRUCTIONS.md`.
 

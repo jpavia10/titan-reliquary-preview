@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Opus integrator (art queue open to any AI)
+* Drive queue renamed `art-requests (any AI: images + video)`, rules doc `ART_START_HERE (any AI: images + video)` (Grok, Gemini Veo, Muse...). Each AI writes `{id}.CLAIMED-{model}.txt` first; a claim under 24 h means skip. The open splash v3 request was re-uploaded model-neutral.
+
 ### [2026-10-01 PT] — Claude/Opus integrator (splash film v3 = maximal; full-res intake)
 * Owner rejected the v2 splash clips as too simple: new request `artreq_20261001-2045_splash-film-v3-maximal` (blockbuster transforming-mech CGI, explosions, fireworks, psychedelic infinite zoom; 3 chained shots + 2 wildcards; 4K if offered, full native quality, big sound). v2 + the `_web` request are superseded.
 * Full-res intake: `.github/workflows/art-intake.yml` downloads from Drive on a GitHub runner into branch `art-intake` (the container cannot reach Drive and the connector caps downloads at 10 MB). Needs `art-incoming (AI images + video)` shared "Anyone with the link: Viewer".
