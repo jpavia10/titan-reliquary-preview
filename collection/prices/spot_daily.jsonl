@@ -1,0 +1,2 @@
+{"date":"2026-09-29","xag_usd":61.104,"xau_usd":4160.5,"source":"ledger prior quote (Grok board.json metals.prior_spot; the ledger did not record its date, 2026-09-29 is assumed)","fetched_at":"2026-09-30T15:12:46Z","provisional":true}
+{"date":"2026-09-30","xag_usd":60.585999,"xau_usd":4161.5,"source":"gold-api.com quote 2026-09-30 15:12Z via ledger v254 (board.json metals.spot)","fetched_at":"2026-09-30T15:12:17Z"}

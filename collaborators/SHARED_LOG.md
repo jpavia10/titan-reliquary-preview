@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Sonnet (price history + portfolio value, see notes/agents/prices.md)
+* New `collection/prices/` (spot_daily.jsonl, latest.json; written only by `tools/prices/fetch_prices.py`, run daily by `.github/workflows/prices.yml`), `value.portfolio_daily` + `data/prices.json`, Hall terminal defaults to Portfolio value with live quote. Committed prices hold only the two known ledger quotes; the first Action run backfills from 2026-09-11. Commit the workflow via the GitHub connector if a push is refused.
+
 ### [2026-10-01 PT] — Claude/Opus integrator (Grok role change confirmed)
 * Owner confirmed: Grok has stopped ledger updates and relies on Claude. The master is `collection/` (schema v3); Grok contributes only `changes_grok_{YYYYMMDD-HHMM}.jsonl` in Drive `collection-incoming (AI change files)/`.
 * Gap: spot quotes and board totals were Grok's ledger output (last quote 2026-09-30 08:12 PT). A quote-update path is needed (proposed to the owner).

@@ -39,7 +39,7 @@ def counts_and_totals(d):
     n_lines = lambda p: sum(1 for ln in open(p, encoding="utf-8") if ln.strip()) if os.path.exists(p) else 0
     cnt = {"specimens": len(specs), "types": len(types), "lots": len(lots), "albums": len(albums), "issuers": len(load(f"{d}/ref/issuers.json")),
            "countries": len({t["country"] for t in types.values()}), "photos": len(load(f"{d}/photos.json")),
-           "valuations": n_lines(f"{d}/valuations.jsonl"), "changes": n_lines(f"{d}/changes.jsonl"),
+           "valuations": n_lines(f"{d}/valuations.jsonl"), "spot_days": n_lines(f"{d}/prices/spot_daily.jsonl"), "changes": n_lines(f"{d}/changes.jsonl"),
            "lots_by_kind": {k: sum(1 for l in lots if l["kind"] == k) for k in sorted({l["kind"] for l in lots})},
            "album_slots_total": sum(a["slots_total"] or 0 for a in albums), "album_slots_filled_claimed": sum(a["slots_filled_claimed"] or 0 for a in albums)}
     spec_est = sum(s["value"]["est_usd"] or 0 for s in specs.values())

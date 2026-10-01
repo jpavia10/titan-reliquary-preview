@@ -1582,17 +1582,139 @@
     };
   }
 
-  /** Precious Metals Terminal. Real data only: the ledger's latest and prior quote (metals.spot / prior_spot / board_delta),
-      the dated valuation entries (value.history, built from collection/valuations.jsonl) and the melt/board totals.
-      The ledger holds no price history, so nothing here is simulated, interpolated or sampled. */
-  let termCrosshairX = null;
-  let termHitIdx = null;
+  /** Precious Metals Terminal. Every number is real and carries its as-of:
+      - Portfolio value (the default view) = data/index.json value.portfolio_daily (tools/pipeline/value_history.py: metal oz x that day's spot + each
+        item's ledger premium, counted from the day it was added; calibrated to the ledger board total).
+      - Silver / Gold / Au:Ag ratio = data/prices.json (collection/prices/spot_daily.jsonl, filled daily by the GitHub Action).
+      - Live quote: gold-api.com fetched by the page (4 s timeout); falls back to the latest quote the price script saw, then to the ledger board quote.
+      Nothing is simulated or interpolated; candles are built only from the real daily values. */
+  const TERM_TF = { "7D": 7, "30D": 30, "90D": 90, "1Y": 365, ALL: Infinity };
+  const term = { series: "portfolio", tf: "ALL", mode: "area", prices: null, pricesTried: false, live: null, liveTried: false, hit: null, cx: null, pts: [], candles: [] };
+  try {
+    const s = JSON.parse(localStorage.getItem("tr_term_v1") || "{}");
+    if (["portfolio", "ag", "au", "ratio"].includes(s.series)) term.series = s.series;
+    if (TERM_TF[s.tf]) term.tf = s.tf;
+    if (s.mode === "candle") term.mode = "candle";
+  } catch (_) {}
+  const termSave = () => { try { localStorage.setItem("tr_term_v1", JSON.stringify({ series: term.series, tf: term.tf, mode: term.mode })); } catch (_) {} };
 
-  const termHistory = () => (vault?.value?.history || []).filter((p) => p && p.at && Number(p.usd) > 0);
   const termDate = (iso) => {
-    const d = new Date(iso + "T12:00:00");
+    const d = new Date(String(iso).slice(0, 10) + "T12:00:00");
     return Number.isNaN(d.getTime()) ? String(iso) : d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   };
+  const termShort = (iso) => {
+    const d = new Date(String(iso).slice(0, 10) + "T12:00:00");
+    return Number.isNaN(d.getTime()) ? String(iso) : d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  };
+  const termClock = (d) => d.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+  const termStamp = (d) => d.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const termTodayUTC = () => new Date().toISOString().slice(0, 10);
+  const termDayMs = (iso) => Date.parse(String(iso).slice(0, 10) + "T12:00:00Z");
+
+  /** The quote the page is currently using, with its as-of text. Live > latest price-script quote > ledger board quote. */
+  function termQuote() {
+    const m = vault?.metals || {};
+    const board = { ag: Number(m.spot?.ag_usd_oz), au: Number(m.spot?.au_usd_oz), kind: "board", at: m.source_updated_at ? new Date(m.source_updated_at) : null, src: m.source || "ledger" };
+    board.asOf = `ledger quote${m.as_of_local ? " as of " + m.as_of_local : (m.as_of ? " as of " + m.as_of : "")}`;
+    let q = board;
+    const L = term.prices?.latest;
+    if (L && Number(L.xag_usd) > 0 && Number(L.xau_usd) > 0 && L.at && (!board.at || new Date(L.at) >= board.at)) {
+      q = { ag: Number(L.xag_usd), au: Number(L.xau_usd), kind: "latest", at: new Date(L.at), src: L.source };
+      q.asOf = `last quote ${termStamp(q.at)}`;
+    }
+    if (term.live) q = { ag: term.live.ag, au: term.live.au, kind: "live", at: term.live.at, src: "gold-api.com", asOf: `live ${termClock(term.live.at)}` };
+    return q;
+  }
+
+  /** Ounces and the non-metal part (premiums + the ledger bucket) so a quote can reprice the whole portfolio. */
+  function termBasis() {
+    const m = vault?.metals || {}, p = term.prices;
+    if (p && p.oz && p.oz.ag != null && p.nonmetal_usd != null) return { ag: Number(p.oz.ag), au: Number(p.oz.au) || 0, nonmetal: Number(p.nonmetal_usd), exact: true };
+    const ag = Number(m.oz?.ag) || 0, au = Number(m.oz?.au) || 0, grand = Number(vault?.value?.estimated_total) || 0;
+    return { ag, au, nonmetal: Math.max(0, grand - (Number(m.melt?.ag_usd) || 0) - (Number(m.melt?.au_usd) || 0)), exact: false };
+  }
+
+  async function termFetchLive() {
+    if (term.liveTried) return;
+    term.liveTried = true;
+    if (typeof navigator !== "undefined" && navigator.onLine === false) return;
+    const ctl = typeof AbortController === "function" ? new AbortController() : null;
+    const timer = setTimeout(() => { try { ctl && ctl.abort(); } catch (_) {} }, 4000);
+    try {
+      const get = (sym) => Promise.race([
+        fetch("https://api.gold-api.com/price/" + sym, { cache: "no-store", signal: ctl ? ctl.signal : undefined }).then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }),
+        new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), 4000)),
+      ]);
+      const [a, b] = await Promise.all([get("XAG"), get("XAU")]);
+      const ag = Number(a?.price), au = Number(b?.price);
+      const ref = termQuote();
+      const ok = ag > 5 && ag < 500 && au > 500 && au < 20000 && (!(ref.ag > 0) || Math.abs(ag / ref.ag - 1) < 0.15) && (!(ref.au > 0) || Math.abs(au / ref.au - 1) < 0.15);
+      if (ok) term.live = { ag, au, at: new Date() };
+    } catch (_) { /* offline / blocked / slow: the latest published quote stays, labelled with its as-of */ }
+    finally { clearTimeout(timer); }
+  }
+
+  async function termLoadPrices() {
+    if (term.pricesTried) return;
+    term.pricesTried = true;
+    try { term.prices = await fetchJson("data/prices.json"); } catch (_) { term.prices = null; }
+  }
+
+  /** The points for the selected series: [{d, v, k, n?, added?, ag?, au?}] from real daily values (+ one live point). */
+  function termSeries() {
+    const pf = vault?.value?.portfolio_daily;
+    const q = termQuote(), today = termTodayUTC(), pts = [];
+    const spotRows = term.prices?.spot?.rows || [];
+    if (term.series === "portfolio") {
+      for (const r of pf?.rows || []) pts.push({ d: r[0], v: r[1], ag: r[2], au: r[3], prem: r[4], n: r[5], added: r[6], k: r[7] });
+      if (q.kind !== "board" && pts.length) {
+        const qd = q.kind === "live" ? today : q.at.toISOString().slice(0, 10), last = pts[pts.length - 1];
+        const b = termBasis(), v = Math.round((b.ag * q.ag + b.au * q.au + b.nonmetal) * 100) / 100;
+        const live = { d: qd, v, ag: b.ag * q.ag, au: b.au * q.au, prem: b.nonmetal, n: last.n, added: 0, k: q.kind === "live" ? "L" : "q" };
+        if (last.d === qd) pts[pts.length - 1] = Object.assign({}, last, live, { added: last.added });
+        else if (last.d < qd) pts.push(live);
+      }
+    } else {
+      const col = term.series === "ag" ? 1 : 2;
+      for (const r of spotRows) pts.push({ d: r[0], v: term.series === "ratio" ? r[2] / r[1] : r[col], k: r[3] });
+      const hasToday = pts.length && pts[pts.length - 1].d === today;
+      if (pts.length && q.kind === "live") {
+        const v = term.series === "ratio" ? q.au / q.ag : (term.series === "ag" ? q.ag : q.au);
+        const p = { d: today, v, k: "L" };
+        if (hasToday) pts[pts.length - 1] = p; else pts.push(p);
+      }
+    }
+    return pts;
+  }
+
+  /** Timeframe window over the real series; candles = real daily values aggregated into N-day bars (open = previous bar's close). */
+  function termWindow(all) {
+    if (!all.length) return { pts: [], bucket: 1, short: false };
+    const span = TERM_TF[term.tf];
+    const lastMs = termDayMs(all[all.length - 1].d);
+    const pts = span === Infinity ? all.slice() : all.filter((p) => termDayMs(p.d) >= lastMs - (span - 1) * 86400000);
+    const days = pts.length > 1 ? Math.round((termDayMs(pts[pts.length - 1].d) - termDayMs(pts[0].d)) / 86400000) + 1 : 1;
+    const bucket = term.tf === "7D" || term.tf === "30D" ? 1 : (term.tf === "ALL" ? (days <= 45 ? 1 : days <= 400 ? 7 : 30) : 7);
+    const short = span !== Infinity && days < span && all.length === pts.length;
+    return { pts, bucket, short, days };
+  }
+
+  function termCandles(pts, bucket) {
+    const out = []; if (!pts.length) return out;
+    const t0 = termDayMs(pts[0].d); let prevClose = null;
+    const groups = new Map();
+    for (const p of pts) { const g = Math.floor((termDayMs(p.d) - t0) / 86400000 / bucket); if (!groups.has(g)) groups.set(g, []); groups.get(g).push(p); }
+    for (const [, ps] of groups) {
+      const vs = ps.map((p) => p.v), close = vs[vs.length - 1], open = prevClose != null ? prevClose : vs[0];
+      out.push({ d0: ps[0].d, d1: ps[ps.length - 1].d, open, close, high: Math.max(open, ...vs), low: Math.min(open, ...vs), n: ps.length, added: ps.reduce((s, p) => s + (p.added || 0), 0), pts: ps });
+      prevClose = close;
+    }
+    return out;
+  }
+
+  const termFmtVal = (v) => term.series === "ratio" ? num(v, 2) : (term.series === "portfolio" ? "$" + num(v, 2) : "$" + num(v, 2));
+  const termFmtAxis = (v) => term.series === "ratio" ? num(v, 1) : (term.series === "ag" ? "$" + num(v, 2) : "$" + num(v, 0));
+  const termKindText = (k) => k === "c" ? "carried (no market price that day)" : k === "p" ? "provisional quote" : k === "L" ? "live quote" : k === "q" ? "latest quote" : "";
 
   /* The chart sits below the fold; draw only when the stage is near the screen (re-draw on request while off-screen). */
   let termInView = !("IntersectionObserver" in window), termDirty = false, termIO = null;
@@ -1600,12 +1722,19 @@
     const canvas = $("#term-chart-canvas");
     if (!canvas) return;
     const stage = $("#term-chart-stage") || canvas;
-    const pts = termHistory();
-    const real = pts.length >= 2;
+    const all = termSeries();
+    const win = termWindow(all);
+    const real = win.pts.length >= 2;
     stage.classList.toggle("term-stage-empty", !real);
     canvas.style.display = real ? "" : "none";
     const empty = $("#term-empty");
-    if (empty) empty.hidden = real;
+    if (empty) {
+      empty.hidden = real;
+      if (!real) empty.textContent = term.series === "portfolio"
+        ? "Portfolio history needs at least two priced days. The daily price job fills it in; nothing is estimated in the meantime."
+        : (term.prices ? "Spot history needs at least two days; the daily price job fills it in." : "Spot history is not loaded (offline, and not cached yet). The latest quote above is still shown with its as-of.");
+    }
+    term.pts = win.pts; term.candles = []; term.hit = null;
     if (!real) return;
     if (!termInView) {
       termDirty = true;
@@ -1633,15 +1762,20 @@
     const tok = (n, d) => (cs.getPropertyValue(n) || "").trim() || d;
     const tokMuted = tok("--muted", "#b8bcc6"), tokLine = tok("--line", "rgba(255,255,255,0.12)");
     const tokGold = tok("--gold", "#c8a94a"), tokInk = tok("--ink", "#ffffff");
+    const UP = "#4ade80", DOWN = "#f87171";
 
-    const t = pts.map((p) => new Date(p.at + "T12:00:00").getTime());
-    const v = pts.map((p) => Number(p.usd));
+    const pts = win.pts, candle = term.mode === "candle";
+    const cds = candle ? termCandles(pts, win.bucket) : [];
+    term.candles = cds;
+    const t = pts.map((p) => termDayMs(p.d));
     const t0 = t[0], t1 = t[t.length - 1];
-    const lo = Math.min(...v), hi = Math.max(...v), sp = (hi - lo) || hi * 0.1 || 1;
-    const min = Math.max(0, lo - sp * 0.15), max = hi + sp * 0.15;
-    const padX = 40, padTop = 22, padBottom = 30;
-    const plotW = w - padX * 2, plotH = h - padTop - padBottom;
-    const X = (i) => padX + (t1 === t0 ? 0.5 : (t[i] - t0) / (t1 - t0)) * plotW;
+    const vals = candle ? cds.flatMap((c) => [c.high, c.low]) : pts.map((p) => p.v);
+    const lo = Math.min(...vals), hi = Math.max(...vals), sp = (hi - lo) || hi * 0.02 || 1;
+    const min = Math.max(0, lo - sp * 0.15), max = hi + sp * 0.18;
+    const padX = 14, padTop = 24, padBottom = 30, padR = 6;
+    const plotW = w - padX - padR, plotH = h - padTop - padBottom;
+    const inset = candle ? 16 : 0;
+    const X = (ms) => padX + inset + (t1 === t0 ? 0.5 * (plotW - 2 * inset) : (ms - t0) / (t1 - t0) * (plotW - 2 * inset));
     const Y = (val) => padTop + plotH - ((val - min) / (max - min)) * plotH;
 
     g.lineWidth = 1; g.font = "600 12px ui-monospace, SFMono-Regular, Menlo, monospace";
@@ -1649,102 +1783,176 @@
     for (let r = 0; r <= 4; r++) {
       const y = padTop + (r / 4) * plotH;
       g.strokeStyle = tokLine; g.beginPath(); g.moveTo(padX, y); g.lineTo(padX + plotW, y); g.stroke();
-      g.fillStyle = tokMuted; g.fillText("$" + num(max - (r / 4) * (max - min), 0), padX + 4, y - 7);
+      g.fillStyle = tokMuted; g.textAlign = "right"; g.fillText(termFmtAxis(max - (r / 4) * (max - min)), padX + plotW - 2, y - 7); g.textAlign = "left";
     }
     g.textBaseline = "alphabetic";
-    g.textAlign = "left"; g.fillStyle = tokMuted; g.fillText(termDate(pts[0].at), padX, h - 9);
-    g.textAlign = "right"; g.fillText(termDate(pts[pts.length - 1].at), padX + plotW, h - 9);
+    // date ticks: first, last, and evenly spaced real dates between when there is room
+    const ticks = Math.max(2, Math.min(5, Math.floor(plotW / 110)));
+    for (let k = 0; k < ticks; k++) {
+      const i = Math.round((k / (ticks - 1)) * (pts.length - 1));
+      g.textAlign = k === 0 ? "left" : (k === ticks - 1 ? "right" : "center"); g.fillStyle = tokMuted;
+      g.fillText(termShort(pts[i].d), k === 0 ? padX : (k === ticks - 1 ? padX + plotW : X(t[i])), h - 9);
+    }
 
-    // straight segments between real points only (no smoothing: a curve would imply values in between)
-    g.beginPath(); g.moveTo(X(0), Y(v[0]));
-    for (let i = 1; i < v.length; i++) g.lineTo(X(i), Y(v[i]));
-    g.strokeStyle = tokGold; g.lineWidth = 2.4; g.stroke();
-    g.fillStyle = tokGold;
-    for (let i = 0; i < v.length; i++) { g.beginPath(); g.arc(X(i), Y(v[i]), 4.5, 0, Math.PI * 2); g.fill(); }
+    if (!candle) {
+      // straight segments between real daily values only (no smoothing: a curve would imply values in between)
+      g.beginPath(); g.moveTo(X(t[0]), Y(pts[0].v));
+      for (let i = 1; i < pts.length; i++) g.lineTo(X(t[i]), Y(pts[i].v));
+      g.strokeStyle = tokGold; g.lineWidth = 2.4; g.lineJoin = "round"; g.stroke();
+      g.lineTo(X(t[t.length - 1]), padTop + plotH); g.lineTo(X(t[0]), padTop + plotH); g.closePath();
+      g.save(); g.globalAlpha = 0.16; g.fillStyle = tokGold; g.fill(); g.restore();
+      if (pts.length <= 45) { g.fillStyle = tokGold; for (let i = 0; i < pts.length; i++) { g.beginPath(); g.arc(X(t[i]), Y(pts[i].v), 3.4, 0, Math.PI * 2); g.fill(); } }
+      // the live point is drawn hollow so it reads as "now", not as a closed day
+      const lp = pts[pts.length - 1];
+      if (lp.k === "L" || lp.k === "q") { g.strokeStyle = tokGold; g.lineWidth = 2; g.fillStyle = tokInk; g.beginPath(); g.arc(X(t[t.length - 1]), Y(lp.v), 5, 0, Math.PI * 2); g.fill(); g.stroke(); }
+    } else {
+      const slot = cds.length > 1 ? (plotW - 2 * inset) / (cds.length - 1) : 40;
+      const bw = Math.max(3, Math.min(26, slot * 0.6));
+      for (const c of cds) {
+        const x = X(termDayMs(c.pts[Math.floor(c.pts.length / 2)].d));
+        const up = c.close >= c.open, col = up ? UP : DOWN;
+        g.strokeStyle = col; g.fillStyle = col; g.lineWidth = 1.5;
+        g.beginPath(); g.moveTo(x, Y(c.high)); g.lineTo(x, Y(c.low)); g.stroke();
+        const y1 = Y(Math.max(c.open, c.close)), y2 = Y(Math.min(c.open, c.close));
+        g.fillRect(x - bw / 2, y1, bw, Math.max(2, y2 - y1));
+        c._x = x;
+      }
+    }
 
-    termHitIdx = null;
-    if (termCrosshairX !== null && termCrosshairX >= padX && termCrosshairX <= padX + plotW) {
-      let best = 0;
-      for (let i = 1; i < v.length; i++) if (Math.abs(X(i) - termCrosshairX) < Math.abs(X(best) - termCrosshairX)) best = i;
-      termHitIdx = best;
+    // markers on the days items were added ("+75 items"), portfolio series only
+    if (term.series === "portfolio") {
+      let lastLabelX = -1e9;
+      g.font = "700 11px ui-monospace, SFMono-Regular, Menlo, monospace"; g.textAlign = "center";
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i]; if (!(p.added > 0)) continue;
+        const x = candle ? (cds.find((c) => c.pts.includes(p))?._x ?? X(t[i])) : X(t[i]);
+        g.strokeStyle = tokGold; g.globalAlpha = 0.55; g.setLineDash([2, 3]);
+        g.beginPath(); g.moveTo(x, padTop + 12); g.lineTo(x, padTop + plotH); g.stroke(); g.setLineDash([]); g.globalAlpha = 1;
+        g.fillStyle = tokGold; g.beginPath(); g.moveTo(x - 4, padTop + 4); g.lineTo(x + 4, padTop + 4); g.lineTo(x, padTop + 11); g.closePath(); g.fill();
+        if (x - lastLabelX > 52) { g.fillStyle = tokInk; g.fillText("+" + p.added, x, padTop - 4 + 1); lastLabelX = x; }
+      }
+    }
+
+    if (term.cx !== null && term.cx >= padX && term.cx <= padX + plotW) {
+      let best = 0, bx = Infinity;
+      const xs = candle ? cds.map((c) => c._x) : t.map(X);
+      for (let i = 0; i < xs.length; i++) if (Math.abs(xs[i] - term.cx) < bx) { bx = Math.abs(xs[i] - term.cx); best = i; }
+      term.hit = candle ? { c: cds[best], i: best } : { p: pts[best], prev: pts[best - 1] || null, i: best };
       g.setLineDash([4, 4]); g.strokeStyle = tokGold; g.lineWidth = 1;
-      g.beginPath(); g.moveTo(X(best), padTop); g.lineTo(X(best), padTop + plotH); g.stroke();
+      g.beginPath(); g.moveTo(xs[best], padTop); g.lineTo(xs[best], padTop + plotH); g.stroke();
       g.setLineDash([]);
-      g.fillStyle = tokInk; g.beginPath(); g.arc(X(best), Y(v[best]), 5.5, 0, Math.PI * 2); g.fill();
+      if (!candle) { g.fillStyle = tokInk; g.beginPath(); g.arc(xs[best], Y(pts[best].v), 5.5, 0, Math.PI * 2); g.fill(); }
     }
   }
 
   window.TitanHallChart = () => renderTerminalChart(); // lets wings/hall.js redraw on resize/rotation
-  function initTradingTerminal() {
-    const hub = $("#trading-terminal");
-    if (!hub) return;
-    const m = vault?.metals || {};
-    const spot = m.spot || {}, prior = m.prior_spot || {};
-    const grand = Number(vault?.value?.estimated_total ?? m.board?.grand) || 0;
-    const dGrand = Number(m.board_delta?.d_grand);
-    const sgn = (d) => (d >= 0 ? "+" : "−");
-    const chg = (now, was) => {
-      if (!(now > 0) || !(was > 0)) return { txt: "no prior quote published" };
-      const d = now - was;
-      return { txt: `${sgn(d)}$${num(Math.abs(d), 2)} (${sgn(d)}${Math.abs((d / was) * 100).toFixed(2)}%) vs prior quote` };
-    };
 
-    // headline: the vault's estimated total and its change vs the prior published quote
+  /** Headline, badge, as-of line, composition and quote tiles: everything that depends on the current quote. */
+  function renderTerminalHead() {
+    const m = vault?.metals || {};
+    const q = termQuote(), b = termBasis();
+    const total = b.ag * q.ag + b.au * q.au + b.nonmetal;
+    const agMelt = b.ag * q.ag, auMelt = b.au * q.au, above = Math.max(0, total - agMelt - auMelt);
+    const todayStr = termTodayUTC();
+    const pf = vault?.value?.portfolio_daily?.rows || [];
+    const base = [...pf].reverse().find((r) => r[0] < todayStr);
     const priceEl = $("#term-price"), deltaEl = $("#term-delta");
-    if (priceEl) priceEl.textContent = grand > 0 ? money(grand) : "—";
+    if (priceEl) priceEl.textContent = total > 0 ? money(total) : "—";
     if (deltaEl) {
-      if (Number.isFinite(dGrand) && grand - dGrand > 0) {
-        const was = grand - dGrand;
-        deltaEl.textContent = `${dGrand >= 0 ? "▲" : "▼"} ${sgn(dGrand)}$${num(Math.abs(dGrand), 2)} (${sgn(dGrand)}${Math.abs((dGrand / was) * 100).toFixed(2)}%) vs prior quote`;
-        deltaEl.className = "term-delta " + (dGrand >= 0 ? "up" : "down");
-      } else { deltaEl.textContent = "no prior quote published"; deltaEl.className = "term-delta"; }
+      if (base && base[1] > 0 && total > 0) {
+        const d = total - base[1], pct = (d / base[1]) * 100;
+        deltaEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}$${num(Math.abs(d), 2)} (${d >= 0 ? "+" : "−"}${Math.abs(pct).toFixed(2)}%) vs ${termDate(base[0])}`;
+        deltaEl.className = "term-delta " + (d >= 0 ? "up" : "down");
+      } else { deltaEl.textContent = "no earlier day to compare"; deltaEl.className = "term-delta"; }
+    }
+    const badge = $("#term-badge");
+    if (badge) {
+      badge.textContent = q.kind === "live" ? `LIVE · ${termClock(q.at)}` : (q.kind === "latest" ? `LAST QUOTE · ${termStamp(q.at)}` : "LEDGER QUOTE");
+      if (badge.parentElement) badge.parentElement.classList.toggle("term-badge-stale", q.kind !== "live");
     }
     const honest = $("#term-honesty");
     if (honest) {
-      const asOf = m.as_of_local || m.as_of || "";
-      honest.textContent = `Latest quote${asOf ? " as of " + asOf : ""}${m.source ? " (" + m.source + ")" : ""}. Changes compare with the previous published quote. The ledger keeps no price history, so no past prices are shown.`;
+      const src = q.kind === "live" ? "gold-api.com, fetched just now" : (q.src || "");
+      honest.textContent = `Total repriced with the ${q.asOf}${src ? " (" + src + ")" : ""}: ${num(b.ag, 2)} oz Ag at $${num(q.ag, 2)} and ${num(b.au, 4)} oz Au at $${num(q.au, 2)}, plus ${money(b.nonmetal)} of non-metal value from the ledger (premiums, albums, sets, housing).`
+        + (q.kind !== "live" ? " The live price could not be reached, so the last known quote is shown." : "")
+        + (b.exact ? "" : " Price history file not loaded: using the ledger's own totals.");
     }
-
-    // latest quote, value composition, custody (all from the ledger snapshot)
     const grid = $("#term-stats-grid");
     if (grid) {
-      const quoteBox = (lbl, now, was) => {
-        const c = chg(now, was);
+      const spotRows = term.prices?.spot?.rows || [];
+      const prevDay = [...spotRows].reverse().find((r) => r[0] < todayStr && r[3] !== "c") || null;
+      const prior = m.prior_spot || {};
+      const quoteBox = (lbl, now, wasDay, wasLedger) => {
+        const was = wasDay != null ? wasDay : wasLedger, wl = wasDay != null ? "vs " + termDate(prevDay[0]) : "vs prior ledger quote";
+        let txt = "no earlier price to compare";
+        if (now > 0 && was > 0) { const d = now - was; txt = `${d >= 0 ? "+" : "−"}$${num(Math.abs(d), 2)} (${d >= 0 ? "+" : "−"}${Math.abs((d / was) * 100).toFixed(2)}%) ${wl}`; }
         return `<div class="term-stat-box"><span class="ts-lbl">${lbl}</span>
           <div class="ts-spread-val">${now > 0 ? "$" + num(now, 2) + " / oz" : "—"}</div>
-          <em class="ts-spread-delta">${esc(c.txt)}${was > 0 ? " ($" + num(was, 2) + ")" : ""}</em></div>`;
+          <em class="ts-spread-delta">${esc(txt)} · ${esc(q.asOf)}</em></div>`;
       };
-      const agMelt = Number(m.melt?.ag_usd) || 0, auMelt = Number(m.melt?.au_usd) || 0;
-      const above = Math.max(0, grand - agMelt - auMelt);
-      const pct = (x) => (grand > 0 ? Math.round((x / grand) * 100) : 0);
-      const asw = Number(m.oz?.ag) || 0, au = Number(m.oz?.au) || 0;
+      const pct = (x) => (total > 0 ? Math.round((x / total) * 100) : 0);
       const pieces = Number(vault?.counts?.vault) || (vault?.flips || []).filter((f) => f.status !== "Removed").length;
       const seg = (x, col) => `<span style="flex:${Math.max(x, 0)} 1 0;background:${col};min-width:${x > 0 ? 2 : 0}px"></span>`;
       grid.innerHTML =
-        quoteBox("Silver spot (latest quote)", Number(spot.ag_usd_oz), Number(prior.ag_usd_oz)) +
-        quoteBox("Gold spot (latest quote)", Number(spot.au_usd_oz), Number(prior.au_usd_oz)) +
-        `<div class="term-stat-box"><span class="ts-lbl">Value composition</span>
+        quoteBox("Silver spot", q.ag, prevDay ? prevDay[1] : null, Number(prior.ag_usd_oz)) +
+        quoteBox("Gold spot", q.au, prevDay ? prevDay[2] : null, Number(prior.au_usd_oz)) +
+        `<div class="term-stat-box"><span class="ts-lbl">Value composition · ${esc(q.asOf)}</span>
           <div class="ts-comp-bar" aria-hidden="true">${seg(agMelt, "#b8c2cc")}${seg(auMelt, "#e0b83c")}${seg(above, "#7a8a9e")}</div>
           <div class="ts-spread-val">Silver melt $${num(agMelt, 2)} <em class="ts-spread-delta">(${pct(agMelt)}%)</em></div>
           <div class="ts-spread-val">Gold melt $${num(auMelt, 2)} <em class="ts-spread-delta">(${pct(auMelt)}%)</em></div>
           <div class="ts-spread-val">Above melt $${num(above, 2)} <em class="ts-spread-delta">(${pct(above)}%; albums, sets, housing, numismatic value)</em></div></div>` +
         `<div class="term-stat-box"><span class="ts-lbl">Physical custody</span>
-          <div class="ts-leverage-val"><strong>${num(asw, 2)} oz Ag · ${num(au, 4)} oz Au · ${intFmt(pieces)} pieces</strong> · Unencumbered</div></div>`;
+          <div class="ts-leverage-val"><strong>${num(b.ag, 2)} oz Ag · ${num(b.au, 4)} oz Au · ${intFmt(pieces)} pieces</strong> · Unencumbered</div></div>`;
     }
+  }
 
-    // valuation history: real dated entries only
-    const pts = termHistory();
-    const empty = $("#term-empty");
-    if (empty) {
-      empty.textContent = pts.length === 1
-        ? `One valuation date on record so far (${termDate(pts[0].at)}: $${num(pts[0].usd, 2)} across ${intFmt(pts[0].n)} valued items). A history chart appears once a second dated valuation is published.`
-        : "No dated valuations on record yet. History starts with the next published quote.";
-    }
+  function renderTerminalCaption() {
     const cap = $("#term-chart-cap");
-    if (cap) {
-      cap.textContent = pts.length >= 2 ? "Itemized valuation entries on record, summed per date. Each point is a real dated entry; the number of valued items can differ between dates." : "";
-      cap.hidden = pts.length < 2;
+    if (!cap) return;
+    const pf = vault?.value?.portfolio_daily || {};
+    const win = termWindow(termSeries());
+    const parts = [];
+    if (term.series === "portfolio") {
+      parts.push(pf.caption || "Portfolio value = metal content x that day's spot + each item's ledger premium, counted from the day it was added.");
+      if (pf.priced_from && pf.day0 && pf.priced_from > pf.day0) parts.push(`Spot prices before ${termDate(pf.priced_from)} have not been fetched yet, so the chart starts there; the daily price job backfills back to ${termDate(pf.day0)}.`);
+      parts.push("Dashed ticks with a number mark days items were added.");
+    } else {
+      parts.push(`Daily ${term.series === "ratio" ? "gold ÷ silver spot ratio" : (term.series === "ag" ? "silver spot" : "gold spot")} from the collection's price history (${term.prices?.sources?.length ? term.prices.sources.map((s) => s.split(" (")[0]).join("; ") : "daily price job"}). Weekends and holidays repeat the previous close and are marked "carried".`);
     }
+    if (term.mode === "candle") parts.push(`Candles: each bar is ${win.bucket === 1 ? "one day (open = the previous day's value, close = that day's value)" : win.bucket + " days (open = previous bar's close; high and low from the daily values inside it)"}; built only from real daily values.`);
+    if (win.short) parts.push(`Only ${win.days} day(s) of history exist so far, so ${term.tf} shows all of it.`);
+    cap.textContent = parts.join(" ");
+    cap.hidden = false;
+  }
+
+  function termSyncButtons() {
+    $$("#trading-terminal [data-series]").forEach((b) => { const on = b.dataset.series === term.series; b.classList.toggle("active", on); b.setAttribute("aria-pressed", on ? "true" : "false"); });
+    $$("#trading-terminal [data-tf]").forEach((b) => { const on = b.dataset.tf === term.tf; b.classList.toggle("active", on); b.setAttribute("aria-pressed", on ? "true" : "false"); });
+    $$("#trading-terminal [data-mode]").forEach((b) => { const on = b.dataset.mode === term.mode; b.classList.toggle("active", on); b.setAttribute("aria-pressed", on ? "true" : "false"); });
+  }
+
+  function termRefresh() { termSyncButtons(); renderTerminalHead(); renderTerminalCaption(); renderTerminalChart(); }
+
+  function initTradingTerminal() {
+    const hub = $("#trading-terminal");
+    if (!hub) return;
+    if (!hub.dataset.wired) {
+      hub.dataset.wired = "1";
+      hub.addEventListener("click", (e) => {
+        const s = e.target.closest("[data-series], [data-asset]"), tf = e.target.closest("[data-tf]"), md = e.target.closest("[data-mode]");
+        if (s) { term.series = s.dataset.series || s.dataset.asset; if (!["portfolio", "ag", "au", "ratio"].includes(term.series)) term.series = "portfolio"; }
+        else if (tf) term.tf = tf.dataset.tf;
+        else if (md) term.mode = md.dataset.mode === "candle" ? "candle" : "area";
+        else return;
+        termSave(); term.cx = null; const hud = $("#term-hud"); if (hud) hud.hidden = true;
+        termRefresh();
+      });
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible" && term.live && Date.now() - term.live.at.getTime() > 120000) { term.liveTried = false; termFetchLive().then(termRefresh); }
+      });
+    }
+    termRefresh();                                    // first paint from what is already on the page (ledger quote, portfolio series)
+    termLoadPrices().then(() => { termRefresh(); return termFetchLive(); }).then(termRefresh);   // spot history first (same origin), then the live quote
 
     const stage = $("#term-chart-stage"), hud = $("#term-hud");
     if (stage && !stage.dataset.wired) {
@@ -1752,28 +1960,41 @@
       let rect = null, raf = null;
       const upd = () => { rect = stage.getBoundingClientRect(); };
       window.addEventListener("resize", upd, { passive: true });
+      const show = () => {
+        const h = term.hit; if (!hud || !h) return;
+        hud.hidden = false;
+        hud.style.left = term.cx > rect.width * 0.52 ? "12px" : "auto";
+        hud.style.right = term.cx > rect.width * 0.52 ? "auto" : "12px";
+        const dEl = $("#hud-date"), vEl = $("#hud-val"), cEl = $("#hud-chg"), rEl = $("#hud-range");
+        cEl.className = "hud-chg";
+        if (h.c) {
+          const c = h.c, d = c.close - c.open;
+          dEl.textContent = c.d0 === c.d1 ? termDate(c.d0) : `${termShort(c.d0)} – ${termDate(c.d1)}`;
+          vEl.textContent = termFmtVal(c.close);
+          cEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}${term.series === "ratio" ? num(Math.abs(d), 2) : "$" + num(Math.abs(d), 2)}`; cEl.classList.add(d >= 0 ? "up" : "down");
+          rEl.textContent = `O ${termFmtVal(c.open)} · H ${termFmtVal(c.high)} · L ${termFmtVal(c.low)}${c.added ? " · +" + c.added + " items" : ""}`;
+        } else {
+          const p = h.p, pv = h.prev;
+          dEl.textContent = termDate(p.d) + (p.k === "L" ? " · live" : "");
+          vEl.textContent = termFmtVal(p.v);
+          if (pv && pv.v > 0) { const d = p.v - pv.v; cEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}${term.series === "ratio" ? num(Math.abs(d), 2) : "$" + num(Math.abs(d), 2)} (${((d / pv.v) * 100).toFixed(2)}%) vs ${termShort(pv.d)}`; cEl.classList.add(d >= 0 ? "up" : "down"); }
+          else cEl.textContent = "first day shown";
+          const bits = [];
+          if (term.series === "portfolio") { if (p.added > 0) bits.push(`+${intFmt(p.added)} items added`); if (p.n != null) bits.push(`${intFmt(p.n)} items counted`); }
+          const kt = termKindText(p.k); if (kt) bits.push(kt);
+          rEl.textContent = bits.join(" · ") || "closing price";
+        }
+      };
       const move = (e) => {
-        if (termHistory().length < 2) return;
+        if (term.pts.length < 2) return;
         if (!rect) upd();
         const cx = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
         if (cx == null) return;
-        termCrosshairX = Math.max(0, Math.min(rect.width, cx - rect.left));
+        term.cx = Math.max(0, Math.min(rect.width, cx - rect.left));
         if (raf) return;
-        raf = requestAnimationFrame(() => {
-          raf = null;
-          renderTerminalChart();
-          const hp = termHistory()[termHitIdx];
-          if (!hud || !hp) return;
-          hud.hidden = false;
-          hud.style.left = termCrosshairX > rect.width * 0.52 ? "12px" : "auto";
-          hud.style.right = termCrosshairX > rect.width * 0.52 ? "auto" : "12px";
-          $("#hud-date").textContent = termDate(hp.at);
-          $("#hud-val").textContent = "$" + num(hp.usd, 2);
-          const c = $("#hud-chg"); if (c) { c.textContent = ""; c.className = "hud-chg"; }
-          const r = $("#hud-range"); if (r) r.textContent = `${intFmt(hp.n)} valued items`;
-        });
+        raf = requestAnimationFrame(() => { raf = null; renderTerminalChart(); show(); });
       };
-      const leave = () => { termCrosshairX = null; if (hud) hud.hidden = true; renderTerminalChart(); };
+      const leave = () => { term.cx = null; if (hud) hud.hidden = true; renderTerminalChart(); };
       stage.addEventListener("mouseenter", upd, { passive: true });
       stage.addEventListener("mousemove", move, { passive: true });
       stage.addEventListener("mouseleave", leave);
@@ -1781,7 +2002,6 @@
       stage.addEventListener("touchmove", move, { passive: true });
       stage.addEventListener("touchend", leave, { passive: true });
     }
-    renderTerminalChart();
   }
 
   /** The exhibition: Studio Stage with 3D Flip & Phase 2 Capture Anticipation. */

@@ -1925,6 +1925,74 @@
         "files"
       ],
       "additionalProperties": true
+    },
+    "SpotDaily": {
+      "description": "One line of collection/prices/spot_daily.jsonl: the gold and silver spot price for one UTC date. Written ONLY by tools/prices/fetch_prices.py (tier: system), never by hand or by a change file. `source` says where the numbers came from (a history source, futures closes labelled as such, a gold-api.com quote, a ledger quote, or 'carried from <date>' for weekends/holidays). `provisional` rows (a same-day quote, or a ledger quote whose date was not recorded) may be replaced by a real daily close on a later run; all other rows are never overwritten unless --refresh is used.",
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "xag_usd": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "xau_usd": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "source": {
+          "type": "string",
+          "minLength": 8
+        },
+        "fetched_at": {
+          "$ref": "#/$defs/Instant"
+        },
+        "carried": {
+          "type": "boolean",
+          "description": "true = no market price existed for this date (weekend/holiday); the previous close is repeated"
+        },
+        "provisional": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "date",
+        "xag_usd",
+        "xau_usd",
+        "source",
+        "fetched_at"
+      ],
+      "additionalProperties": false
+    },
+    "LatestSpot": {
+      "description": "collection/prices/latest.json: the most recent live quote the price script saw (gold-api.com). Written ONLY by tools/prices/fetch_prices.py.",
+      "type": "object",
+      "properties": {
+        "xag_usd": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "xau_usd": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "at": {
+          "$ref": "#/$defs/Instant"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 8
+        }
+      },
+      "required": [
+        "xag_usd",
+        "xau_usd",
+        "at",
+        "source"
+      ],
+      "additionalProperties": false
     }
   }
 }

@@ -93,6 +93,26 @@ class Pipeline(unittest.TestCase):
         v = run(os.path.join(ROOT, "tools", "schema", "validate.py"), os.path.join(tmp, "collection"))
         self.assertEqual(v.returncode, 0, v.stdout)
 
+    def test_new_coin_enters_the_portfolio_series_from_its_logged_date(self):
+        tmp = sandbox()
+        spot = os.path.join(tmp, "collection", "prices", "spot_daily.jsonl")
+        days = ["2026-09-%02d" % n for n in range(11, 31)] + ["2026-10-%02d" % n for n in range(1, 10)]
+        with open(spot, "w", encoding="utf-8") as f:                                     # synthetic flat prices for the sandbox only
+            for d in days: f.write(json.dumps({"date": d, "xag_usd": 60.585999, "xau_usd": 4161.5, "source": "synthetic test row", "fetched_at": "2026-10-09T00:00:00Z"}) + "\n")
+        self.assertEqual(self.apply(tmp, T1, T2).returncode, 0)
+        p = self.publish(tmp); self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        spec = json.load(open(os.path.join(tmp, "collection", "specimens", "CA.json"), encoding="utf-8"))["C297"]
+        self.assertEqual(spec["acquisition"]["logged_at"], "2026-10-02")                 # logged_at defaults to the creating event's date
+        idx = json.load(open(os.path.join(tmp, "data", "index.json"), encoding="utf-8")); pf = idx["value"]["portfolio_daily"]
+        rows = {r[0]: r for r in pf["rows"]}
+        self.assertEqual(rows["2026-10-01"][5], 301); self.assertEqual(rows["2026-10-02"][5], 302)       # not before its date, from it onward
+        self.assertEqual(rows["2026-10-09"][5], 302)
+        self.assertAlmostEqual(rows["2026-10-02"][1] - rows["2026-10-01"][1], 0.15, places=2)           # flat prices: the step is exactly the coin
+        self.assertEqual(rows["2026-10-02"][6], 1)
+        self.assertEqual(pf["markers"][-1], {"d": "2026-10-02", "n": 1})
+        px = json.load(open(os.path.join(tmp, "data", "prices.json"), encoding="utf-8"))
+        self.assertEqual(px["spot"]["rows"][0][0], "2026-09-11"); self.assertEqual(px["spot"]["rows"][-1][0], "2026-10-09")
+
     def test_reapply_is_a_noop(self):
         tmp = sandbox(); self.apply(tmp, T1, T2)
         h = tree_hash(os.path.join(tmp, "collection"))

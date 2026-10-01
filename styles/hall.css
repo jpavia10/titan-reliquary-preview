@@ -289,3 +289,17 @@ html[data-atmo] #pane-hall :is(.term-asset-btn, .term-mode-btn, .eyebrow-row .ba
 @media (max-width: 700px), (hover: none) and (pointer: coarse) {
   #pane-hall .exhibit-slide:not(.on) { content-visibility: hidden; contain-intrinsic-size: auto 720px; }
 }
+
+/* Market desk v2: series pills + 5 timeframes + area/candle toggle over real daily data (no layout redesign; same classes as before). */
+#pane-hall .term-asset-pills { margin-top: 0.9rem; }
+#pane-hall .term-time-bar { margin-top: 0.6rem; }
+#pane-hall #term-chart-cap { font-size: 0.8rem; }
+#pane-hall .term-live-badge.term-badge-stale { color: var(--muted); background: transparent; border-color: var(--line); }
+#pane-hall .term-live-badge.term-badge-stale .term-live-dot { background: var(--muted); box-shadow: none; animation: none; }
+@media (max-width: 640px) {
+  #pane-hall .term-timeframes-row.tf5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  #pane-hall .term-time-bar { gap: 0.5rem; }
+}
+/* HUD stays a dark instrument panel in every atmosphere: fixed light text so the readout is legible on light themes too */
+#pane-hall .term-hud .hud-date, #pane-hall .term-hud .hud-range { color: #c9cfda; font-size: 0.72rem; }
+#pane-hall .term-hud .hud-val { color: #f2ead8; }

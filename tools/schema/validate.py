@@ -129,6 +129,18 @@ def main(d, update_manifest=False):
         check("ChangeEvent", f"line {n}", e)
         pool = {"type": types, "specimen": specs, "lot": lots, "album": albums, "issuer": issuers}.get(e.get("entity"), {})
         if e.get("id") not in pool and e.get("entity") != "photo": errs["ref"].append(f"changes line {n}: {e.get('entity')} {e.get('id')} does not exist")
+    # prices (tier "system": written only by tools/prices/fetch_prices.py)
+    sp = f"{d}/prices/spot_daily.jsonl"; prev = None; nspot = 0
+    if os.path.exists(sp):
+        for n, r in jsonl(sp):
+            if "__bad__" in r: errs["jsonl"].append(f"spot_daily line {n}: {r['__bad__']}"); continue
+            nspot += 1; check("SpotDaily", f"spot_daily line {n}", r)
+            if prev is not None and r.get("date", "") <= prev: errs["ref"].append(f"spot_daily line {n}: date {r.get('date')} is not after {prev} (one line per date, ascending)")
+            prev = r.get("date", prev)
+            if isinstance(r.get("xag_usd"), (int, float)) and not 1 <= r["xag_usd"] <= 1000: errs["ref"].append(f"spot_daily line {n}: xag_usd {r['xag_usd']} outside 1..1000")
+            if isinstance(r.get("xau_usd"), (int, float)) and not 100 <= r["xau_usd"] <= 100000: errs["ref"].append(f"spot_daily line {n}: xau_usd {r['xau_usd']} outside 100..100000")
+    lp = f"{d}/prices/latest.json"
+    if os.path.exists(lp): check("LatestSpot", "prices/latest.json", load(lp))
     # manifest
     mp = f"{d}/manifest.json"
     if not os.path.exists(mp): errs["manifest"].append("manifest.json is missing")
@@ -151,7 +163,7 @@ def main(d, update_manifest=False):
         cnt, _ = mf.counts_and_totals(d)
         if m.get("counts") != cnt: errs["manifest"].append("counts in the manifest are stale")
         if errs["manifest"]: errs["manifest"].append("fix: python3 tools/schema/validate.py %s --update-manifest" % d)
-    print(f"checked: {len(issuers)} issuers, {len(types)} types, {len(specs)} specimens, {len(lots)} lots, {len(albums)} albums, {len(photos)} photos, {nchg} change events, boot rows {len(boot['rows'])}")
+    print(f"checked: {len(issuers)} issuers, {len(types)} types, {len(specs)} specimens, {len(lots)} lots, {len(albums)} albums, {len(photos)} photos, {nchg} change events, {nspot} spot days, boot rows {len(boot['rows'])}")
     total = sum(len(v) for k, v in errs.items())
     for k, v in errs.items():
         print(f"\n{k}: {len(v)} problem(s)")
