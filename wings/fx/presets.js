@@ -108,6 +108,7 @@
     "    fogA = (.012+.03*haze + edge*(.08 + .5*pow(crys,5.)*fr))*smoothstep(0.,.7,I);",
     "    fogA *= 1. - smoothstep(0.,.05,bh);",
     "  }",
+    "  fogA *= mix(1., .4, uLight);",
     "  vec3 fogc = mix(vec3(.74,.82,.92), vec3(.3,.36,.45), uLight*.7);",
     "  col += fogc*fogA; al += fogA;",
     "  if (bh > .002) {",
