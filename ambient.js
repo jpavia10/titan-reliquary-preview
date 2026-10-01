@@ -1283,6 +1283,11 @@
     }
   }
 
+  // Sound now comes from the generative Scene Studio engine; the recorded/synth mixer below is dormant.
+  const SCENE_OWNS_AUDIO = true;
+  let sceneVisual = !("ontouchstart" in window) && !(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+  let visualPreset = null;
+  function setVisualEnabled(on) { sceneVisual = !!on; if (visualPreset) applyPreset(visualPreset); }
   function applyPreset(name) {
     if (!PRESETS[name]) return;
     if (name === "off") {
@@ -1300,6 +1305,14 @@
     }
     if (!userActive()) { deferredPreset = name; return; }   // wait for the first gesture
     deferredPreset = null;
+    if (SCENE_OWNS_AUDIO) {                                  // Scene Studio (wings/scene-engine.js) makes the sound; this file only draws the weather
+      visualPreset = name;
+      const pv = PRESETS[name];
+      for (const k of Object.keys(state.fx)) state.fx[k] = !!(sceneVisual && pv.fx && pv.fx[k]);
+      if (state.fx.lightning) scheduleBolt(); else clearTimeout(boltTimer);
+      state.preset = name; checkCanvasState();
+      return;
+    }
     if (state.preset === name && ctx && LAYER_IDS.some((id) => state.layers[id].on)) return;   // already playing it
     if (!ensureCtx()) return;
     const p = PRESETS[name];
@@ -1977,7 +1990,7 @@
       lightningBolt = null;
       clearTimeout(boltTimer);
       checkCanvasState();       // stops the rAF loop and hides the canvas
-      suspendEngine();
+      if (window.TITAN_BG_PAUSE) suspendEngine();   // sound keeps playing in the background unless the owner opts in
     } else {
       resumeEngine();
       checkCanvasState();
@@ -2360,6 +2373,7 @@
   });
 
   function openMixer() {
+    if (window.TitanScene && window.TitanScene.open) { window.TitanScene.open(); return; }
     panel.hidden = false;
     panel.scrollTop = 0;
     startFft();
@@ -2375,6 +2389,8 @@
     closeMixer,
     applyPreset,
     toggleFx: setFx,
+    setVisualEnabled,
+    visualEnabled: () => sceneVisual,
     setMaster: (v) => { state.master = Math.min(1, Math.max(0, v)); if (masterGain) masterGain.gain.value = outLevel(); syncDirect(); writeState(); },
     setMuted,
     isMuted: () => muted,

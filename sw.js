@@ -1,9 +1,9 @@
-/* Titan Reliquary service worker · build tr58
+/* Titan Reliquary service worker · build tr59
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr58";
+const BUILD = "tr59";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
@@ -38,6 +38,7 @@ const WING_URLS = [
   "styles/gallery.css?v=" + BUILD,
   "styles/hall.css?v=" + BUILD,
   "styles/lab.css?v=" + BUILD,
+  "styles/scene.css?v=" + BUILD,
   "styles/slab-legibility.css?v=" + BUILD,
   "styles/study.css?v=" + BUILD,
   "styles/table.css?v=" + BUILD,
@@ -68,9 +69,12 @@ const WING_URLS = [
   "wings/gallery.js?v=" + BUILD,
   "wings/hall.js?v=" + BUILD,
   "wings/lab.js?v=" + BUILD,
+  "wings/scene-engine.js?v=" + BUILD,
+  "wings/scene.js?v=" + BUILD,
   "wings/study.js?v=" + BUILD,
   "wings/themes.js?v=" + BUILD,
-  "wings/vault.js?v=" + BUILD];
+  "wings/vault.js?v=" + BUILD,
+];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => c.addAll([...SHELL_URLS, ...WING_URLS])).then(() => self.skipWaiting()));
