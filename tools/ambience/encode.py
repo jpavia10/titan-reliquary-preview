@@ -20,7 +20,7 @@ OUT = os.path.join(os.path.dirname(__file__), "..", "..", "audio", "ambience")
 SR = 48000
 TARGET_LUFS = -20.0
 MAX_BOOST_DB = 20.0
-LOOP_SEC = 48.0
+LOOP_SEC = 40.0
 
 # id: (source path in the Moodist repo, loop seconds or None=auto, crossfade seconds, extra)
 LOOPS = {
@@ -28,7 +28,7 @@ LOOPS = {
     "rainHeavy":    ("rain/heavy-rain.mp3",          None,     2.0, {}),
     "rainWindow":   ("rain/rain-on-window.mp3",      None,     2.0, {}),
     "rainUmbrella": ("rain/rain-on-umbrella.mp3",    None,     2.0, {}),
-    "rainTent":     ("rain/rain-on-tent.mp3",        LOOP_SEC, 3.0, {}),
+    "leaves":       ("rain/rain-on-leaves.mp3",      LOOP_SEC, 3.0, {}),
     "wind":         ("nature/wind.mp3",              LOOP_SEC, 3.0, {}),
     "windHowl":     ("nature/howling-wind.mp3",      LOOP_SEC, 3.0, {}),
     "windTrees":    ("nature/wind-in-trees.mp3",     LOOP_SEC, 3.0, {}),
@@ -48,7 +48,18 @@ LOOPS = {
     "clock":        ("things/clock.mp3",             14.0,     0.0, {"start": 0.0, "exact": True}),
     "vinyl":        ("things/vinyl-effect.mp3",      LOOP_SEC, 3.0, {}),
     "keys":         ("things/keyboard.mp3",          None,     1.5, {}),
-    "typewriter":   ("things/typewriter.mp3",        None,     2.0, {}),
+    "chimes":       ("things/wind-chimes.mp3",       LOOP_SEC, 3.0, {}),
+    "roomTone":     ("things/ceiling-fan.mp3",       None,     2.0, {}),
+    "labHum":       ("places/laboratory.mp3",        None,     2.0, {}),
+    "telemetry":    ("things/morse-code.mp3",        LOOP_SEC, 3.0, {}),
+    "temple":       ("places/temple.mp3",            LOOP_SEC, 3.0, {}),
+    "crowd":        ("urban/crowd.mp3",              LOOP_SEC, 3.0, {}),
+    "club":         ("places/crowded-bar.mp3",       LOOP_SEC, 3.0, {}),
+    "city":         ("urban/busy-street.mp3",        LOOP_SEC, 3.0, {}),
+    "underwater":   ("places/underwater.mp3",        LOOP_SEC, 3.0, {}),
+    "drips":        ("nature/droplets.mp3",          LOOP_SEC, 3.0, {}),
+    "waterfall":    ("nature/waterfall.mp3",         None,     2.0, {}),
+    "ship":         ("transport/sailboat.mp3",       LOOP_SEC, 3.0, {}),
     "brown":        ("noise/brown-noise.wav",        None,     1.5, {}),
     "pink":         ("noise/pink-noise.wav",         None,     1.5, {}),
 }
@@ -58,6 +69,10 @@ EVENTS = {
     "owl":     ("animals/owl.mp3",          [(3.0, 3.4, 0.4), (9.6, 3.2, 0.2)],                          0.0),
     "pages":   ("things/paper.mp3",         [(0.6, 3.2, 0.3), (5.6, 3.2, 0.3), (10.6, 3.4, 0.3)],        0.0),
     "bowl":    ("things/singing-bowl.mp3",  [(0.0, 26.0, 5.0)],                                           0.0),
+    # hull/timber creaks cut around the strongest onsets of the sailboat recording; clunks = the slide-projector's mechanical change
+    "creak":   ("transport/sailboat.mp3",  [(82.8, 3.6, 1.2), (108.0, 3.6, 1.2), (128.3, 3.6, 1.2), (132.1, 3.6, 1.2), (148.8, 3.6, 1.2)], 0.0),
+    "clank":   ("things/slide-projector.mp3", [(2.2, 2.6, 1.2), (12.3, 2.6, 1.2), (22.2, 2.6, 1.2), (42.3, 2.6, 1.2)], 0.0),
+    "whale":   ("animals/whale.mp3",       [(0.0, 26.0, 6.0)],                                            0.0),
 }
 PAD = 0.5  # seconds of silence between concatenated event segments
 
@@ -143,8 +158,8 @@ def encode(x, ch, name, gain_db):
     raw = y.tobytes()
     base = os.path.join(OUT, name)
     common = [FF, "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", str(ch), "-i", "-", "-af", "alimiter=limit=0.89:attack=5:release=50"]
-    br_opus = "96k" if ch == 2 else "56k"
-    br_aac = "72k" if ch == 2 else "48k"
+    br_opus = "80k" if ch == 2 else "48k"
+    br_aac = "64k" if ch == 2 else "40k"
     sh(common + ["-c:a", "libopus", "-b:a", br_opus, "-vbr", "on", "-application", "audio", base + ".webm"], input=raw)
     sh(common + ["-c:a", "aac", "-b:a", br_aac, "-movflags", "+faststart", base + ".m4a"], input=raw)
     return os.path.getsize(base + ".webm"), os.path.getsize(base + ".m4a")
@@ -165,6 +180,12 @@ def main():
     only = set(filter(None, a.only.split(",")))
     os.makedirs(a.raw, exist_ok=True); os.makedirs(OUT, exist_ok=True)
     mpath = os.path.join(OUT, "manifest.json")
+    keep = set(LOOPS) | set(EVENTS)
+    if not only:                      # drop files of beds that are no longer in the spec
+        for fn in os.listdir(OUT):
+            if fn.rsplit(".", 1)[0] not in keep and fn.endswith((".webm", ".m4a")):
+                os.remove(os.path.join(OUT, fn))
+        if os.path.exists(mpath): os.remove(mpath)
     man = json.load(open(mpath)) if os.path.exists(mpath) else {"loops": {}, "events": {}}
     tot = 0
     for bid, (src, L, X, ex) in LOOPS.items():
