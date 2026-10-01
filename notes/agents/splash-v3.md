@@ -76,7 +76,29 @@ Test hooks (harmless in production): `?splashhold` (no cap, no auto-render), `Ti
 
 ## Proof (this folder)
 
-PROOF_PLACEHOLDER
+`notes/agents/splash-v3/`: `desk_splash_v3.webm` (1366x820, 909 KB) and `pixel_splash_v3.webm` (Pixel 7 viewport 412x915, 642 KB), 20 fps, 6.5 s, plus six key frames per device
+(`desk_key1..6_*.webp`, `pixel_key1..6_*.webp`: t = 0.45 ignition, 2.0 bolts, 3.35 door open + rack focus, 4.6 chamber, 5.4 product shot with type, 6.1 hand-off).
+Key frames are tier 0 (MSAA, DOF, 6-level bloom; desktop at dpr 1, Pixel at dpr 1.5); the clips are tier 1.
+
+**How they were made, and the caveat.** The container has only SwiftShader (software GL), 4 shared CPUs and no ffmpeg image2 demuxer, so a real-time `recordVideo` would be a slideshow.
+The page is loaded with `?splashhold` (no cap, no auto-render), every frame is rendered deterministically with `TitanSplash._debug.seek(t)` at 1/20 s steps, screenshotted with Playwright,
+and the JPEGs are piped into Playwright's bundled ffmpeg (VP8 webm). The timeline, easing, light and type are exactly what runs live (the type is timeline-driven, not CSS-timed, for this reason).
+Scripts were in the agent scratchpad (`shots.py`, `capture.py`, `encode.py`, `behave.py`, `perf3.py`); they are small and can be re-created from this description.
+
+**Behaviour checks (Playwright, chromium, SwiftShader; main thread was heavily contended so times are inflated):**
+once per session (first plain load shows it, reload and `#vault` deep link do not, `?splash=1` forces); `?nosplash` skips; tap and key skip (fade 0.42 s then cleanup);
+reduced-motion shows the still frame and finishes; WebGL disabled (`--disable-3d-apis`) fades straight to the app (only three's own console error, no page error); wall-clock cap fires
+at 7.4 s of script time; after the splash all five wings (`#hall #gallery #vault #study #lab`) load with **0 page errors**; the splash context is lost (`forceContextLoss`) and `#tr-splash` is removed.
+Also merged `origin/main` (tr65) cleanly. v3 has no hard-coded counters or numbers: the only data shown is one real silver flip's country / year / denomination.
+
+**Performance, honestly.** Real GPU numbers are not available here. What was measured: main-thread JS cost to build and submit one frame (software GL leaves submission cheap), 1366x820, median per
+frame: tier 4 2 ms, tier 3 2 ms, tier 2 2 ms, tier 1 3 ms, tier 0 4 ms (draw-call count ~120, 3 cone shaders, 1 dust draw, 12 post passes at tier 0). Boot: scene construction ~0.4 s
+(wall plates 0.4 s mostly geometry, rosette normal map ~150-250 ms, PMREM ~0.1-0.3 s) happens before the first frame; shader compile is hidden behind a warm-up frame (clock starts after it), with
+`renderer.debug.checkShaderErrors = false` so link status is not polled synchronously, and the coin faces carry 1x1 placeholder maps so swapping in the real 1536 px maps never recompiles.
+Coin map generation is chunked (draw, 2 blurs, 8 normal bands per face), each step a separate task. At Pixel 7 emulation with 4x CPU throttle on SwiftShader every task is dominated by the
+software rasteriser (seconds per frame), so the requested "no long task over 200 ms after the first frame" cannot be demonstrated here and I am not claiming it. Expect the real check on an S24 Ultra
+via chrome://inspect (Performance panel, look for the 8 coin-map tasks and the first-frame compile). The design target is 60 fps at tier 0/1 (dpr 2 / 1.5 on a 1440x3120 panel = 1.5 MP / 0.85 MP of shading, one MSAA 4x HDR target).
+
 
 ## What I would do next
 
