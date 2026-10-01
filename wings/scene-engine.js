@@ -566,6 +566,10 @@
       a.gain.setValueAtTime(0.0001, t); a.gain.linearRampToValueAtTime(rnd(0.75, 1), t + 0.04);     // the file itself carries the fade-out
       s.connect(a); panned(ctx, a, rnd(-0.6, 0.6)).connect(lvl);
       s.start(t, sg[0], sg[1]);
+      if (id === "thunder") {             // TitanFX: flash the lightning just before the roll is heard (light travels faster than sound)
+        const ms = Math.max(0, (t - ctx.currentTime) * 1000 - 400);
+        setTimeout(() => { try { window.dispatchEvent(new CustomEvent("titan:thunder", { detail: { delay: 0, strength: Math.min(1, 0.5 + L) } })); } catch (e) {} }, ms);
+      }
     });
   }
   /* live level change from the mixer sliders (no rebuild); false if that bed is not in the playing scene */
