@@ -1,0 +1,70 @@
+name: art-intake
+
+# Pulls full-resolution art (video or images) from the Drive output folder into the `art-intake` branch.
+# Why: the Claude cloud container cannot reach Drive's download hosts and its Drive connector caps downloads at 10 MB.
+# GitHub runners can. Needs the Drive folder `Titan Reliquary/art-incoming (AI images + video)` shared as
+# "Anyone with the link: Viewer" (one-time owner step; new files inherit it). See docs/art/ART_QUEUE.md.
+on:
+  workflow_dispatch:
+    inputs:
+      request_id:
+        description: "Request id (folder name under intake/), e.g. artreq_20261001-2045_splash-film-v3-maximal"
+        required: true
+      files:
+        description: 'JSON list of Drive files: [{"id":"...","name":"..."}]'
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: art-intake
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Switch to the art-intake branch
+        run: |
+          if git ls-remote --exit-code --heads origin art-intake >/dev/null; then
+            git fetch --depth 1 origin art-intake && git checkout -B art-intake FETCH_HEAD
+          else
+            git checkout --orphan art-intake && git rm -rfq . && echo "Full-resolution art pulled from Drive by .github/workflows/art-intake.yml. Not deployed." > README.md
+          fi
+      - name: Download
+        env:
+          REQ: ${{ github.event.inputs.request_id }}
+          FILES: ${{ github.event.inputs.files }}
+        run: |
+          set -euo pipefail
+          sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
+          case "$REQ" in *[!A-Za-z0-9_.-]*|"") echo "bad request_id"; exit 1;; esac
+          mkdir -p "intake/$REQ"
+          echo "$FILES" | jq -c '.[]' | while read -r f; do
+            id=$(echo "$f" | jq -r .id); name=$(echo "$f" | jq -r .name)
+            case "$id$name" in *[!A-Za-z0-9_.-]*) echo "skip unsafe: $name"; continue;; esac
+            out="intake/$REQ/$name"
+            curl -sSL --fail -o "$out" "https://drive.usercontent.google.com/download?id=$id&export=download&confirm=t"
+            if head -c 512 "$out" | grep -qi '<html'; then
+              echo "::error::$name: Drive returned a web page, not the file. Share the art-incoming folder as 'Anyone with the link: Viewer'."
+              rm -f "$out"; exit 1
+            fi
+            size=$(stat -c %s "$out")
+            if [ "$size" -gt 99000000 ]; then echo "::warning::$name is $size bytes (> GitHub's 100 MB file cap), skipped"; rm -f "$out"; continue; fi
+            echo "$name | $size bytes | $(ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,r_frame_rate:format=duration -of compact=p=0:nk=1 "$out" | tr '\n' ' ')" | tee -a "intake/$REQ/MANIFEST.txt"
+          done
+      - name: Commit
+        env:
+          REQ: ${{ github.event.inputs.request_id }}
+        run: |
+          git config user.name "titan-art-intake"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A intake README.md 2>/dev/null || git add -A intake
+          git diff --cached --quiet && { echo "nothing new"; exit 0; }
+          git commit -qm "art-intake: $REQ"
+          git push origin HEAD:art-intake
