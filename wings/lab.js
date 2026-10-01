@@ -117,7 +117,8 @@
   const flipBy = (k) => (k ? flipIndex.get(String(k).toUpperCase()) : null);
   const serOf = (f) => (f && (f.ser || f.scan)) || "";
   const coinLine = (f) => [f.country, f.year, f.denom].filter(Boolean).join(" · ");
-  const bySer = (a, b) => String(a.ser || a.scan).localeCompare(String(b.ser || b.scan), undefined, { numeric: true });
+  const SER_COLLATOR = new Intl.Collator(undefined, { numeric: true }); // one shared collator: localeCompare(…, options) builds a new one per call
+  const bySer = (a, b) => SER_COLLATOR.compare(String(a.ser || a.scan), String(b.ser || b.scan));
 
   /* =======================================================================
      IMAGE ANALYSIS (deterministic)

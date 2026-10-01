@@ -10,10 +10,14 @@
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const reduced = () => !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const isNum = (n) => n != null && n !== "" && !Number.isNaN(Number(n));
-  const money = (n) => (isNum(n) ? "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "—");
-  const money0 = (n) => (isNum(n) ? "$" + Math.round(Number(n)).toLocaleString("en-US") : "—");
-  const int = (n) => (isNum(n) ? Number(n).toLocaleString("en-US") : "—");
-  const dec = (n, d) => (isNum(n) ? Number(n).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }) : "—");
+  // shared Intl.NumberFormat instances (toLocaleString(locale, options) builds a new one per call)
+  const NF2 = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const NF0 = new Intl.NumberFormat("en-US");
+  const NFD = {};
+  const money = (n) => (isNum(n) ? "$" + NF2.format(Number(n)) : "—");
+  const money0 = (n) => (isNum(n) ? "$" + NF0.format(Math.round(Number(n))) : "—");
+  const int = (n) => (isNum(n) ? NF0.format(Number(n)) : "—");
+  const dec = (n, d) => (isNum(n) ? (NFD[d] || (NFD[d] = new Intl.NumberFormat("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }))).format(Number(n)) : "—");
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const getVault = () => {
     return window.vault || null;

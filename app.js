@@ -66,12 +66,19 @@
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
 
+  /* Number.prototype.toLocaleString(locale, options) builds a new Intl.NumberFormat on every call (slow on phones);
+     share formatters instead. Output is identical. */
+  const NF = new Map();
+  function nf(min, max) {
+    const k = min + "," + max;
+    let f = NF.get(k);
+    if (!f) { f = new Intl.NumberFormat("en-US", { minimumFractionDigits: min, maximumFractionDigits: max }); NF.set(k, f); }
+    return f;
+  }
+  const NF_INT = new Intl.NumberFormat("en-US");
   function money(n) {
     if (n == null || Number.isNaN(Number(n))) return "—";
-    return "$" + Number(n).toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+    return "$" + nf(2, 2).format(Number(n));
   }
   function esc(s) {
     return String(s ?? "")
@@ -84,14 +91,11 @@
     if (n == null || Number.isNaN(Number(n))) return "—";
     const max = d;
     const min = minD != null ? minD : d;
-    return Number(n).toLocaleString("en-US", {
-      minimumFractionDigits: min,
-      maximumFractionDigits: max,
-    });
+    return nf(min, max).format(Number(n));
   }
   function intFmt(n) {
     if (n == null || Number.isNaN(Number(n))) return "—";
-    return Number(n).toLocaleString("en-US");
+    return NF_INT.format(Number(n));
   }
   /** High-precision fixed decimals without thousands separators (years / ages). */
   function precise(n, d = 6) {
