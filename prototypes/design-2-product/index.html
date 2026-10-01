@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="icon.png" type="image/png"><link rel="apple-touch-icon" href="icon.png">
+<title>Titan Reliquary · Product Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --s1:#0d0d0f; --s2:#161618; --line:rgba(255,255,255,.14);
+  --fg:#f5f5f7; --mute:#a6a6ac; --amber:#f2b552; --amber-d:#c8902f;
+  --silver:linear-gradient(180deg,#fff 0%,#c9cbd1 55%,#8e9098 100%);
+  --disp:"Inter Tight","SF Pro Display",system-ui,-apple-system,sans-serif;
+  --text:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gut:max(20px,env(safe-area-inset-left)); --nav:56px;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%;background:#000}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.55 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.grad{background:var(--silver);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* global nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--nav) + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);background:rgba(0,0,0,.72);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{height:var(--nav);display:flex;align-items:center;justify-content:space-between}
+.nav b{font:600 17px/1 var(--disp);letter-spacing:-.01em;display:flex;gap:10px;align-items:center}
+.nav b i{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 34% 28%,#fff,#b9bbc2 55%,#6d6f77);display:block;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+.nav .t{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;font:500 15px/1 var(--text);color:var(--fg);background:rgba(255,255,255,.1);transition:background .2s,transform .2s}
+.pill:hover{background:rgba(255,255,255,.18)}.pill:active{transform:scale(.97)}
+.pill:focus-visible,.card:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.pill svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7}
+@media(max-width:420px){.pill span{display:none}.pill{padding:0 13px}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(var(--nav) + 44px + env(safe-area-inset-top)) var(--gut) 0;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 46% at 50% 76%,rgba(242,181,82,.20),transparent 70%),radial-gradient(90% 60% at 50% 100%,#1a1612,transparent 70%)}
+.eyebrow{font:600 15px/1.2 var(--text);letter-spacing:.02em;color:var(--amber)}
+.hero h1{font:700 clamp(56px,20.5vw,184px)/.95 var(--disp);letter-spacing:-.045em;margin:14px 0 16px;white-space:nowrap}
+.hero h1 small{font-size:.42em;letter-spacing:-.02em;margin-left:.02em;color:#9a9ca3;-webkit-text-fill-color:#9a9ca3}
+.hero .sub{font:500 clamp(20px,2.8vw,30px)/1.25 var(--disp);letter-spacing:-.015em;color:var(--mute);max-width:28ch}
+.hero .sub b{color:var(--fg);font-weight:600}
+.coin-stage{position:relative;margin-top:auto;width:min(104vw,60vh,760px);aspect-ratio:1;transform:translateY(12%);margin-top:24px;perspective:1400px;flex:none}
+.coin-stage canvas,.coin-stage img{position:absolute;inset:0;width:100%;height:100%;display:block;transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg)) scale(var(--sc,1));will-change:transform;object-fit:contain}
+.coin-stage img{display:none}
+.cue{position:absolute;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom));font:500 14px/1 var(--text);color:var(--mute);letter-spacing:.04em}
+
+/* section scaffold */
+section{position:relative}
+.sh{position:sticky;top:calc(var(--nav) + env(safe-area-inset-top));z-index:30;background:rgba(0,0,0,.86);border-bottom:1px solid var(--line);}
+.sh .wrap{height:48px;display:flex;align-items:center;gap:12px;font:600 14px/1 var(--text);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.sh .wrap b{color:var(--amber);font-weight:600}
+.sh .wrap span:last-child{margin-left:auto;text-transform:none;letter-spacing:0;font-weight:500}
+.sec{padding:clamp(72px,12vw,160px) 0}
+h2{font:700 clamp(40px,8.6vw,104px)/.98 var(--disp);letter-spacing:-.032em;max-width:14ch}
+.lede{font:500 clamp(19px,2.4vw,26px)/1.35 var(--disp);letter-spacing:-.01em;color:var(--mute);max-width:34ch;margin-top:22px}
+.lede b{color:var(--fg);font-weight:600}
+.rv{opacity:0;transform:translateY(34px) scale(.985);transition:opacity 1s cubic-bezier(.2,.7,.1,1),transform 1s cubic-bezier(.2,.7,.1,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* value */
+.stackbar{display:flex;height:clamp(52px,9vw,96px);border-radius:20px;overflow:hidden;gap:3px;margin:56px 0 28px;transform-origin:left;clip-path:inset(0 100% 0 0 round 20px);transition:clip-path 1.4s cubic-bezier(.2,.7,.1,1)}
+.in .stackbar,.stackbar.in{clip-path:inset(0 0 0 0 round 20px)}
+.stackbar i{display:block;min-width:3px}
+.legend{list-style:none;padding:0;display:grid;gap:0}
+.legend li{display:grid;grid-template-columns:18px 1fr auto;gap:14px;align-items:center;padding:18px 0;border-top:1px solid var(--line);font:500 clamp(20px,2.6vw,26px)/1.2 var(--disp);letter-spacing:-.01em}
+.legend li:last-child{border-bottom:1px solid var(--line)}
+.legend i{width:16px;height:16px;border-radius:5px;display:block}
+.legend em{font-style:normal;color:var(--mute);font:500 16px/1 var(--text);display:block;margin-top:5px}
+@media(min-width:900px){.legend{grid-template-columns:1fr 1fr;column-gap:64px}.legend li:nth-last-child(2){border-bottom:1px solid var(--line)}}
+
+/* metals */
+.metal{padding:clamp(36px,6vw,72px) 0;border-top:1px solid var(--line)}
+.metal .big{font:700 clamp(84px,25vw,260px)/.9 var(--disp);letter-spacing:-.05em}
+.metal .big small{font-size:.26em;letter-spacing:-.02em;margin-left:.1em;color:#9a9ca3;-webkit-text-fill-color:#9a9ca3}
+.metal.au .big{background:linear-gradient(180deg,#fff3cf,#f2b552 55%,#a8731a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.metal .melt{font:500 clamp(19px,2.4vw,26px)/1.3 var(--disp);color:var(--mute);margin-top:18px}
+.metal .melt b{color:var(--fg)}
+.dots{display:grid;grid-template-columns:repeat(16,1fr);gap:clamp(4px,1vw,10px);margin:36px 0 22px;max-width:760px}
+.dot{aspect-ratio:1;border-radius:50%;background:#26262a;position:relative;overflow:hidden;transform:scale(.4);opacity:0;transition:transform .6s cubic-bezier(.2,.7,.1,1),opacity .6s}
+.dots.in .dot{transform:none;opacity:1}
+.dot i{position:absolute;inset:0;display:block;transform-origin:left}
+.parts{display:flex;flex-wrap:wrap;gap:12px 28px;font:500 16px/1.3 var(--text);color:var(--mute)}
+.parts span{display:inline-flex;align-items:center;gap:9px}.parts i{width:12px;height:12px;border-radius:50%;display:block}
+.au-dot{width:min(40vw,200px);aspect-ratio:1;border-radius:50%;background:#26262a;position:relative;overflow:hidden;margin:36px 0 12px}
+.au-dot i{position:absolute;inset:0;background:linear-gradient(135deg,#fff3cf,#f2b552 55%,#a8731a);transform-origin:left;transform:scaleX(.1322)}
+.note{font:400 15.5px/1.5 var(--text);color:var(--mute);max-width:64ch}
+.duo{display:grid;gap:0}
+@media(min-width:900px){.duo{grid-template-columns:1.5fr 1fr;column-gap:96px}.metal.au{border-left:0}}
+
+/* map */
+.mapwrap{overflow-x:auto;margin:48px calc(var(--gut) * -1) 0;padding:0 var(--gut);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.mapwrap::-webkit-scrollbar{display:none}
+#map{display:block;width:760px;height:auto}
+@media(min-width:900px){#map{width:100%}}
+.hint{font:500 14px/1 var(--text);color:var(--mute);margin-top:14px}
+@media(min-width:900px){.hint{display:none}}
+.rank{list-style:none;padding:0;margin-top:44px;display:grid;gap:0 64px}
+@media(min-width:900px){.rank{grid-template-columns:1fr 1fr}}
+.rank li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:16px 0 15px;border-top:1px solid var(--line);font:500 20px/1.2 var(--disp);position:relative}
+.rank li span:last-child{color:var(--mute)}
+.rank li i{grid-column:1/3;height:3px;border-radius:2px;background:var(--amber);transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.2,.7,.1,1);margin-top:10px;opacity:.9}
+.in .rank li i,.rank.in li i{transform:scaleX(var(--w))}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:54px;border-top:1px solid var(--line)}
+.kpis div{padding:24px 0 0}
+.kpis b{display:block;font:700 clamp(40px,8vw,84px)/1 var(--disp);letter-spacing:-.04em}
+.kpis span{font:500 15px/1.3 var(--text);color:var(--mute);display:block;margin-top:8px}
+
+/* missing */
+.huge{font:700 clamp(180px,58vw,560px)/.78 var(--disp);letter-spacing:-.07em;background:linear-gradient(180deg,#ffe3a6,var(--amber) 50%,#8a5a12);-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0 18px -.04em}
+.timeline{display:grid;grid-template-columns:repeat(36,1fr);gap:clamp(2px,.5vw,6px);align-items:end;height:clamp(110px,22vw,200px);margin:50px 0 12px}
+.timeline i{display:block;border-radius:4px 4px 2px 2px;height:100%;transform-origin:bottom;transform:scaleY(.05);opacity:0;transition:transform .8s cubic-bezier(.2,.7,.1,1),opacity .5s}
+.timeline.in i{transform:scaleY(1);opacity:1}
+.timeline i.h{background:linear-gradient(180deg,#e9eaee,#7e8088)}
+.timeline i.m{background:rgba(242,181,82,.12);border:2px solid var(--amber);height:36%}
+.axis{display:flex;justify-content:space-between;font:500 14px/1 var(--text);color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chip{padding:11px 16px;border-radius:999px;border:1px solid rgba(242,181,82,.5);color:var(--amber);font:600 17px/1 var(--disp);letter-spacing:-.005em;font-variant-numeric:tabular-nums}
+.k2{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;font:500 16px/1 var(--text);color:var(--mute)}
+.k2 span{display:inline-flex;gap:9px;align-items:center}.k2 i{width:18px;height:14px;border-radius:3px;display:block}
+
+/* photos */
+.ringwrap{display:grid;gap:40px;align-items:center;margin-top:50px}
+@media(min-width:800px){.ringwrap{grid-template-columns:auto 1fr;gap:96px}}
+.ring{position:relative;width:min(78vw,380px);aspect-ratio:1}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9}
+.ring .bg{stroke:#232326}
+.ring .fg{stroke:var(--amber);stroke-linecap:round;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.7,.1,1)}
+.ring div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring b{font:700 clamp(72px,20vw,120px)/.9 var(--disp);letter-spacing:-.05em}
+.ring span{font:500 18px/1.2 var(--text);color:var(--mute);margin-top:10px}
+.steps{list-style:none;padding:0;counter-reset:s;display:grid;gap:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line);font:500 clamp(19px,2.3vw,24px)/1.3 var(--disp);letter-spacing:-.01em}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);font:600 18px/1 var(--text);color:var(--amber);padding-top:5px}
+.steps li small{display:block;font:400 16px/1.45 var(--text);color:var(--mute);margin-top:4px;letter-spacing:0}
+
+/* wings */
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:50px calc(var(--gut) * -1) 0;padding:0 var(--gut) 8px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 min(76vw,320px);height:min(104vw,430px);border-radius:28px;scroll-snap-align:start;scroll-margin-left:var(--gut);padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;isolation:isolate;transition:transform .5s cubic-bezier(.2,.7,.1,1)}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--g)}
+.card:hover{transform:translateY(-6px)}
+.card .ic{width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.14);display:grid;place-items:center}
+.card .ic svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.5}
+.card h3{font:700 clamp(32px,5vw,40px)/1 var(--disp);letter-spacing:-.035em;margin-bottom:10px}
+.card p{font:500 17px/1.35 var(--text);opacity:.86}
+.card .go{position:absolute;right:22px;top:26px;width:44px;height:44px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font:600 22px/1 var(--text)}
+@media(min-width:900px){.rail{display:grid;grid-template-columns:repeat(5,1fr);overflow:visible;margin:60px 0 0;padding:0}.card{flex:none;height:440px;padding:22px}.card h3{font-size:34px}}
+
+footer{padding:56px 0 calc(48px + env(safe-area-inset-bottom));color:var(--mute);font:400 15px/1.5 var(--text);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 40px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <b><i></i>Titan Reliquary</b>
+    <nav class="t" aria-label="Tools">
+      <a class="pill" href="../../#gallery" aria-label="Search the collection"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Search</span></a>
+      <a class="pill" href="../../#scene" aria-label="Choose a scene"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 15l5-4 4 3 3-2 6 5"/></svg><span>Scene</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero" id="hero">
+  <div class="eyebrow">Estimated value</div>
+  <h1 class="grad num" id="heroNum">$5,393.70</h1>
+  <p class="sub" id="heroSub"></p>
+  <div class="coin-stage" id="stage" aria-hidden="true">
+    <canvas id="coin" width="900" height="900"></canvas>
+    <img id="heroImg" src="art/hero.webp" alt="" decoding="async">
+  </div>
+</div>
+
+<section id="value">
+  <div class="sh"><div class="wrap"><b>01</b><span>Value</span><span id="shVal"></span></div></div>
+  <div class="sec"><div class="wrap">
+    <h2 class="rv">Six holdings. One number.</h2>
+    <p class="lede rv" id="valLede"></p>
+    <div class="rv" id="valWrap"><div class="stackbar" id="bar"></div><ul class="legend" id="legend"></ul></div>
+  </div></div>
+</section>
+
+<section id="metals">
+  <div class="sh"><div class="wrap"><b>02</b><span>Metals</span><span id="shMetal"></span></div></div>
+  <div class="sec"><div class="wrap">
+    <h2 class="rv">Weighed, not guessed.</h2>
+    <p class="lede rv">Fine metal in troy ounces, straight from the ledger. Melt value is a reference, not a sale price.</p>
+    <div class="duo" style="margin-top:56px">
+      <div class="metal ag rv">
+        <div class="eyebrow">Silver</div>
+        <div class="big grad num" id="agBig"></div>
+        <div class="dots" id="dots" aria-label="Each circle is one troy ounce of silver"></div>
+        <div class="parts" id="agParts"></div>
+        <p class="melt" id="agMelt"></p>
+      </div>
+      <div class="metal au rv">
+        <div class="eyebrow">Gold</div>
+        <div class="big num" id="auBig"></div>
+        <div class="au-dot" aria-hidden="true"><i></i></div>
+        <p class="note">One full circle is a troy ounce. This is how much of one the gold fills.</p>
+        <p class="melt" id="auMelt"></p>
+      </div>
+    </div>
+    <p class="note rv" id="spotNote" style="margin-top:36px"></p>
+  </div></div>
+</section>
+
+<section id="countries">
+  <div class="sh"><div class="wrap"><b>03</b><span>Countries</span><span id="shC"></span></div></div>
+  <div class="sec"><div class="wrap">
+    <h2 class="rv">Forty-five countries. One collection.</h2>
+    <p class="lede rv" id="cLede"></p>
+    <div class="mapwrap rv" id="mapwrap"><canvas id="map"></canvas></div>
+    <div class="hint">Swipe the map to look around</div>
+    <div class="kpis rv" id="kpis"></div>
+    <ul class="rank rv" id="rank"></ul>
+  </div></div>
+</section>
+
+<section id="missing">
+  <div class="sh"><div class="wrap"><b>04</b><span>Albums</span><span>What&rsquo;s missing</span></div></div>
+  <div class="sec"><div class="wrap">
+    <div class="eyebrow rv">Silver Eagles, 1986 to 2021</div>
+    <div class="huge num rv" id="missN">18</div>
+    <h2 class="rv" style="max-width:16ch">years still to find.</h2>
+    <p class="lede rv" id="missLede"></p>
+    <div class="timeline" id="tl" role="img" aria-label="36 years; 18 in the album, 18 missing"></div>
+    <div class="axis"><span>1986</span><span>1995</span><span>2004</span><span>2013</span><span>2021</span></div>
+    <div class="k2"><span><i style="background:linear-gradient(180deg,#e9eaee,#7e8088)"></i>In the album</span><span><i style="border:2px solid var(--amber);background:rgba(242,181,82,.12)"></i>Missing</span></div>
+    <div class="chips" id="chips"></div>
+  </div></div>
+</section>
+
+<section id="photos">
+  <div class="sh"><div class="wrap"><b>05</b><span>Photography</span><span>Phase 1 of 3</span></div></div>
+  <div class="sec"><div class="wrap">
+    <h2 class="rv">Every coin deserves a portrait.</h2>
+    <div class="ringwrap rv">
+      <div class="ring"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" id="ringFg" cx="50" cy="50" r="44" stroke-dasharray="276.46" stroke-dashoffset="276.46"/></svg><div><b class="num" id="phN">0</b><span id="phOf">of 273 photographed</span></div></div>
+      <ol class="steps">
+        <li><div>Photograph and label<small>One side is pen-labelled with country, year and denomination.</small></div></li>
+        <li><div>Reassign serial numbers<small>Once, with no bias toward the order they were scanned.</small></div></li>
+        <li><div>Pro scans, front and back<small>Paired by the notes, then cropped square and round.</small></div></li>
+      </ol>
+    </div>
+  </div></div>
+</section>
+
+<section id="wings">
+  <div class="sh"><div class="wrap"><b>06</b><span>Explore</span><span>Five wings</span></div></div>
+  <div class="sec"><div class="wrap">
+    <h2 class="rv">Step inside.</h2>
+    <div class="rail rv">
+      <a class="card" href="../../#gallery" style="--g:linear-gradient(160deg,#3a6df0,#1b2f7a 70%,#0c1230)"><span class="go" aria-hidden="true">&rsaquo;</span><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg></span><div><h3>Gallery</h3><p>Every piece, by country and year.</p></div></a>
+      <a class="card" href="../../#vault" style="--g:linear-gradient(160deg,#c78a2a,#6b4311 70%,#241505)"><span class="go" aria-hidden="true">&rsaquo;</span><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M12 8v8M8 12h8"/></svg></span><div><h3>Vault</h3><p>Bullion, metals and melt value.</p></div></a>
+      <a class="card" href="../../#study" style="--g:linear-gradient(160deg,#2f9d78,#12503d 70%,#07241b)"><span class="go" aria-hidden="true">&rsaquo;</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5.5C7 4 9.5 4.3 12 6c2.5-1.7 5-2 8-.5V19c-3-1.5-5.5-1.2-8 .5-2.5-1.7-5-2-8-.5z"/><path d="M12 6v13.5"/></svg></span><div><h3>Study</h3><p>Albums, sets and what each is missing.</p></div></a>
+      <a class="card" href="../../#lab" style="--g:linear-gradient(160deg,#8b5bd6,#3d2379 70%,#150c2e)"><span class="go" aria-hidden="true">&rsaquo;</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5.5 9.5A2 2 0 006.2 21h11.6a2 2 0 001.7-2.5L14 9V3"/><path d="M7.5 15h9"/></svg></span><div><h3>Lab</h3><p>Condition, photography and data checks.</p></div></a>
+      <a class="card" href="../../#table" style="--g:linear-gradient(160deg,#6c7482,#323843 70%,#101216)"><span class="go" aria-hidden="true">&rsaquo;</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></svg></span><div><h3>3D Table</h3><p>Lay it all out and look around.</p></div></a>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer><div class="wrap"><span><b style="color:var(--fg);font-weight:500">Policy:</b> Hold. Do not sell.</span><span>Private collection of Joseph Pavia</span></div></footer>
+
+<script>
+//#shared
+/* Shared data layer. SNAP is a snapshot of data/index.json (ledger v2:dc654dd67d0e8f05, 2026-09-30)
+   so the page also opens from a file or offline; when ../../data/index.json is reachable it replaces the snapshot. */
+const SNAP = {"asOf":"2026-09-30","asOfLocal":"2026-09-30 08:12 PT","total":5393.7,"comp":[["Albums",2059.39],["Bullion",2893.6],["Flips",183.82],["Housing",183.0],["Sets",72.39],["Stamps",1.5]],"ag":{"oz":63.27,"melt":3833.28,"spot":60.59,"prior":61.1,"parts":[["Bullion",37.9997],["Album Silver Eagles",24.0],["2021 proof set",0.897],["Flips",0.3733]]},"au":{"oz":0.1322,"melt":550.15,"spot":4161.5,"prior":4160.5},"pieces":1636,"flips":273,"bullion":21,"sets":2,"countries":45,"albums":33,"albumCoins":930,"oldest":1883,"newest":2024,"world":[["Germany","DE",61],["United Kingdom","GB",50],["France","FR",33],["Switzerland","CH",24],["Italy","IT",10],["Netherlands","NL",10],["Mexico","MX",10],["USA","US",6],["Cayman Islands","KY",5],["Jamaica","JM",4],["USSR","SU",4],["Australia","AU",3],["Ireland","IE",3],["Japan","JP",4],["Malta","MT",3],["Spain","ES",3],["Greece","GR",2],["Guatemala","GT",2],["Philippines","PH",2],["Singapore","SG",2],["South Korea","KR",4],["Trinidad and Tobago","TT",2],["Vietnam","VN",2],["Yugoslavia","YU",2],["Brazil","BR",1],["Canada","CA",1],["Chile","CL",1],["Colombia","CO",1],["Costa Rica","CR",1],["Cuba","CU",1],["East Caribbean States","EC",1],["Eritrea","ER",1],["Hong Kong","HK",1],["Hungary","HU",1],["India","IN",1],["Nigeria","NG",1],["Norway","NO",2],["Portugal","PT",1],["Saudi Arabia","SA",1],["Slovakia","SK",1],["Sweden","SE",1],["Taiwan (ROC)","TW",1],["Thailand","TH",1],["Turkey","TR",1],["Vatican City","VA",1]],"continents":{"Europe":213,"North America":33,"Oceania":3,"South America":3,"Asia":19,"Africa":2},"photos":{"done":0,"total":273},"a026":{"title":"American Silver Eagles 1986-2021","slots":36,"filled":18,"missing":[1988,1989,1990,1991,1993,1994,1995,1996,1997,1998,1999,2000,2003,2004,2009,2010,2011,2012],"filledYears":[1986,1987,1992,2001,2002,2005,2006,2007,2008,2013,2014,2015,2016,2017,2018,2019,2020,2021]},"policy":"HOLD"};
+const WING_URL = { gallery: '../../#gallery', vault: '../../#vault', study: '../../#study', lab: '../../#lab', table: '../../#table', search: '../../#gallery', scene: '../../#scene' };
+function normalize(d) {
+  try {
+    const b = d.board, m = d.metals, inv = m.inventory.ag, cont = {};
+    d.flips.forEach(f => { cont[f.continent] = (cont[f.continent] || 0) + 1; });
+    return Object.assign({}, SNAP, {
+      asOf: m.as_of, asOfLocal: m.as_of_local, total: b.grand,
+      comp: [['Albums', b.albums.usd], ['Bullion', b.bullion.usd], ['Flips', b.flips.usd], ['Housing', b.housing.usd], ['Sets', b.sets.usd], ['Stamps', b.stamps.usd]],
+      ag: { oz: b.silver.oz, melt: b.silver.melt, spot: +m.spot.ag_usd_oz.toFixed(2), prior: +m.prior_spot.ag_usd_oz.toFixed(2),
+        parts: [['Bullion', inv.bullion.oz], ['Album Silver Eagles', inv.ase_albums.oz], ['2021 proof set', inv.s001_proof.oz], ['Flips', inv.junk_flips.oz]] },
+      au: { oz: b.gold.oz, melt: b.gold.melt, spot: m.spot.au_usd_oz, prior: m.prior_spot.au_usd_oz },
+      pieces: d.counts.vault, flips: d.counts.flips, bullion: d.counts.bullion, sets: d.counts.sets, countries: d.counts.countries,
+      albums: b.albums.folders, albumCoins: b.albums.coins, oldest: d.age.flips_other.oldest, newest: d.age.flips_other.newest,
+      world: d.world.map(w => [w.country, w.iso, w.count]), continents: cont,
+      photos: { done: d.photos.coins_with_photos, total: d.photos.total_active }
+    });
+  } catch (e) { return SNAP; }
+}
+function loadData() {
+  return fetch('../../data/index.json').then(r => { if (!r.ok) throw 0; return r.json(); }).then(normalize).catch(() => SNAP);
+}
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const nf = (n, d = 0) => Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+const money = (n, d = 2) => '$' + nf(n, d);
+function ranges(ys) {
+  const out = []; let s = ys[0], p = ys[0];
+  for (let i = 1; i <= ys.length; i++) {
+    if (ys[i] !== p + 1) { out.push(s === p ? '' + s : s + '–' + p); s = ys[i]; }
+    p = ys[i];
+  }
+  return out.join(', ');
+}
+function longDate(iso) { const [y, m, d] = iso.split('-').map(Number); return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }); }
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+//#endshared
+//#land
+const LAND_B64="AAAAAAAAf8Af/AAAAAAAAAAAAAAAAAAAAAAAA//////+AAAABgAADgAAAAAAAAAAAAN//////4AB/AAAAAB8AAAAAAAAAABxC34////wAAYAAAEAAPgAAAAAAAAAAPm/wAf//wAAAAADgAf/4AHAAAAAAAH8338AP//gAAAAAMBD///8DAAAgDwACfw3/gP//gAAA4AMH///////wAAf////79n4H/+AAAP/gB//////////8P//////h+H/gAAAf/7///////////M///////n8D8A+AB+/f///////////AP/////4g8D4AAAH9/////////////Af/////gHgA4AAAP5///////////P4AHgP///gH0AAAAAH4//////////2MAADQB///8H+AAAAGCx/////////8A8AAIAA////v/gAAAPDr/////////wA4AAAAAf///v/wAAAbv///////////AwAAAAAP/////wAAAH////////////AAAAAAAH////8YAAAD///////////9AAAAAAAD////8MAAAB///////////9AAAAAAAD////+AAAAB//7/f//////5AAAAAAAD////gAAAAf5vwPP//////jgAAAAAAD////gAAAAfi///v/////+CAAAAAAAD///+AAAAAfCLf/n////+MCAAAAAAAB///8AAAAAOeRP///////mOAAAAAAAB///8AAAAAH/AA///////G8AAAAAAAAf//wAAAAAf/gB///////hgAAAAAAAAP//wAAAAAf//////////gAAAAAAAAAP/owAAAAA/////f/////gAAAAAAAAAF/AQAAAAB///+/v/////AAAAAAAAAAC+AAAAAAD/////2/////gAAAAAAAAAAeAwAAAAD////f/D///8gAAAAAAAAAAfGGAAAAH////v/B/z/wAAAAAAAAAAAPMBwAAAD////v+A/h+gAAAAAAAAAAAH8AAAAAD////38A+B/AgAAAAAAAAAAAfAAAAAH////3wAcAfggAAAAAAAAAAAHAAAAAH////+AAcAfgwAAAAAAAAAAABD4AAAD////9wAMAXAYAAAAAAAAAAAA//AAAB/////gAOAQAYAAAAAAAAAAAAH/gAAA/////gACAIAYAAAAAAAAAAAAH/8AAAfH///AAAAsGAAAAAAAAAAAAAH/+AAAAB///AAAA8OAAAAAAAAAAAAAP/+AAAAD//8AAAAc+wAAAAAAAAAAAAf//gAAAD//4AAAAMeggAAAAAAAAAAAP//8AAAB//wAAAAGdg+AAAAAAAAAAAf///AAAA//wAAAACAQPkAAAAAAAAAAP///gAAA//wAAAABwAHwAAAAAAAAAAP///gAAA//wAAAAAAoDYAAAAAAAAAAH///AAAAf/wAAAAAAAAAAAAAAAAAAAH//+AAAA//4gAAAAABxAAAAAAAAAAAD//+AAAA//xgAAAAAPxgAAAAAAAAAAA//+AAAA//zgAAAAAf/gAAAAAAAAAAAf/8AAAA//DgAAAAA//wAAAAAAAAAAAf/8AAAAf/DAAAAAD//4CAAAAAAAAAAf/4AAAAf/DAAAAAH//8AAAAAAAAAAAf/AAAAAf+DAAAAAH//8AAAAAAAAAAA//AAAAAf+AAAAAAH//+AAAAAAAAAAA//AAAAAP8AAAAAAH//+AAAAAAAAAAA/+AAAAAH4AAAAAAH//+AAAAAAAAAAA/8AAAAAHwAAAAAAD4f8AAAAAAAAAAA/4AAAAAAAAAAAAACAH8AAAAAAAAAAB/wAAAAAAAAAAAAAAAD4AEAAAAAAAAB/AAAAAAAAAAAAAAAABAAGAAAAAAAAB+AAAAAAAAAAAAAAAAAwAMAAAAAAAAB8AAAAAAAAAAAAAAAAAQAYAAAAAAAAB4AAAAAAAAAAAAAAAAAABwAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AAAAAAAAAACAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+//#endland
+
+const COORDS = {DE:[51,10],GB:[54,-2],FR:[46.5,2.5],CH:[46.8,8.2],IT:[42.8,12.5],NL:[52.2,5.3],MX:[23.6,-102.5],US:[39.5,-98.5],KY:[19.3,-81.2],JM:[18.1,-77.3],SU:[58,60],AU:[-25,134],IE:[53.2,-8],JP:[36,138],MT:[35.9,14.4],ES:[40,-3.7],GR:[39,22],GT:[15.5,-90.3],PH:[12.9,122],SG:[1.35,103.8],KR:[36.5,127.9],TT:[10.5,-61.3],VN:[16,106],YU:[44,20.8],BR:[-10,-52],CA:[56,-106],CL:[-33,-71],CO:[4.6,-74],CR:[9.9,-84],CU:[21.5,-79.5],EC:[13.2,-61.2],ER:[15.2,39.8],HK:[22.3,114.2],HU:[47,19.5],IN:[22,79],NG:[9.1,8.7],NO:[61,9],PT:[39.6,-8],SA:[24,45],SK:[48.7,19.7],SE:[62,15],TW:[23.7,121],TH:[15.8,101],TR:[39,35],VA:[41.9,12.45]};
+const COLORS = ['#f2b552','#b9bbc2','#6f9bff','#4fd1a1','#b58cff','#ff8a7a'];
+let DATA = SNAP;
+
+function render(D){
+  DATA = D;
+  const hn = money(D.total).split('.');
+  $('#heroNum').innerHTML = hn[0] + '<small>.' + hn[1] + '</small>';
+  $('#heroSub').innerHTML = `<b>${nf(D.pieces)} pieces</b> from ${D.countries} countries. Held, not for sale.`;
+  $('#shVal').textContent = longDate(D.asOf);
+  const comp = D.comp.slice().sort((a,b)=>b[1]-a[1]);
+  $('#valLede').innerHTML = `<b>${money(D.total)}</b> across albums, bullion, flips, sets, housing and stamps, as of ${longDate(D.asOf)}.`;
+  $('#bar').innerHTML = comp.map((c,i)=>`<i style="flex:${c[1]};background:${COLORS[i]}"></i>`).join('');
+  $('#legend').innerHTML = comp.map((c,i)=>`<li><i style="background:${COLORS[i]}"></i><span>${c[0]}<em>${nf(c[1]/D.total*100,1)}% of the total</em></span><span class="num">${money(c[1])}</span></li>`).join('');
+
+  $('#shMetal').textContent = 'Spot of ' + longDate(D.asOf);
+  $('#agBig').innerHTML = nf(D.ag.oz,2) + '<small>oz</small>';
+  $('#auBig').innerHTML = nf(D.au.oz,4) + '<small>oz</small>';
+  const pc = ['#e9eaee','#6f9bff','#f2b552','#8e9098'];
+  // one circle per troy ounce, filled in order by source
+  let cells = [], ci = 0; const parts = D.ag.parts;
+  parts.forEach((p,i)=>{ let left = p[1]; while (left > 1e-6) { let c = cells[cells.length-1]; if (!c || c.f >= 1 - 1e-6) { c = {f:0, seg:[]}; cells.push(c); } const t = Math.min(left, 1 - c.f); c.seg.push([c.f, t, pc[i]]); c.f += t; left -= t; } });
+  while (cells.length < 64) cells.push({f:0, seg:[]});
+  $('#dots').innerHTML = cells.map(c=>`<span class="dot">${c.seg.map(s=>`<i style="left:${s[0]*100}%;width:${s[1]*100}%;background:${s[2]};right:auto"></i>`).join('')}</span>`).join('');
+  $('#agParts').innerHTML = parts.map((p,i)=>`<span><i style="background:${pc[i]}"></i>${p[0]} ${nf(p[1], p[1]<1?3:2)} oz</span>`).join('');
+  $('#agMelt').innerHTML = `Melt value <b>${money(D.ag.melt)}</b> at ${money(D.ag.spot)} per ounce.`;
+  $('#auMelt').innerHTML = `Melt value <b>${money(D.au.melt)}</b> at ${money(D.au.spot)} per ounce.`;
+  $('#spotNote').textContent = 'The ledger stores spot prices for ' + longDate(D.asOf) + ' only. It has no price history, so there is no chart of change over time.';
+
+  $('#shC').textContent = D.oldest + ' to ' + D.newest;
+  const cont = Object.entries(D.continents).sort((a,b)=>b[1]-a[1]);
+  $('#cLede').innerHTML = `Flips from <b>${D.oldest}</b> to <b>${D.newest}</b>. ${cont[0][0]} leads with ${cont[0][1]} of ${D.flips}.`;
+  $('#kpis').innerHTML = `<div><b class="num">${D.countries}</b><span>countries</span></div><div><b class="num">${cont.length}</b><span>continents</span></div><div><b class="num">${D.flips}</b><span>flips</span></div>`;
+  const w = D.world.slice().sort((a,b)=>b[2]-a[2]), max = w[0][2];
+  $('#rank').innerHTML = w.slice(0,8).map(r=>`<li style="--w:${r[2]/max}"><span>${r[0]}</span><span class="num">${r[2]}</span><i></i></li>`).join('');
+  drawMap();
+
+  const A = D.a026, have = new Set(A.filledYears);
+  $('#missN').textContent = A.missing.length;
+  $('#missLede').innerHTML = `Your Whitman album has <b>${A.slots} slots</b>. ${A.filled} are filled.`;
+  let t=''; for (let y=1986;y<=2021;y++) t += `<i class="${have.has(y)?'h':'m'}" style="transition-delay:${(y-1986)*22}ms" title="${y}"></i>`;
+  $('#tl').innerHTML = t;
+  $('#chips').innerHTML = ranges(A.missing).split(', ').map(r=>`<span class="chip">${r}</span>`).join('');
+
+  const done = D.photos.done, tot = D.photos.total;
+  $('#phN').textContent = done; $('#phOf').textContent = `of ${tot} photographed`;
+  $('#ringFg').style.strokeDashoffset = 276.46 * (1 - done/tot);
+  if (done === 0) $('#ringFg').style.display = 'none';
+  observe();
+}
+
+/* ---------- dot-matrix map ---------- */
+function landBits(){
+  const bin = atob(LAND_B64), W = 180, H = 71, bits = new Uint8Array(W*H);
+  for (let i=0;i<W*H;i++) bits[i] = (bin.charCodeAt(i>>3) >> (7-(i&7))) & 1;
+  return {bits,W,H};
+}
+function drawMap(){
+  const cv = $('#map'), L = landBits();
+  const cssW = cv.clientWidth || 760, dpr = Math.min(devicePixelRatio||1, 2.5);
+  const rowA = 4, rows = 60, stride = cssW < 900 ? 2 : 1;
+  const cw = cssW / (L.W/stride), cssH = cw * (rows/stride);
+  cv.style.height = cssH + 'px'; cv.width = cssW*dpr; cv.height = cssH*dpr;
+  const g = cv.getContext('2d'); g.scale(dpr,dpr); g.clearRect(0,0,cssW,cssH);
+  g.fillStyle = '#3a3a40';
+  for (let r=0;r<rows/stride;r++) for (let c=0;c<L.W/stride;c++){
+    let n=0; for (let a=0;a<stride;a++) for (let b=0;b<stride;b++) n += L.bits[(rowA + r*stride + a)*L.W + c*stride + b];
+    if (n >= (stride*stride+1)>>1 && n>0){ g.beginPath(); g.arc((c+.5)*cw,(r+.5)*cw,cw*.3,0,6.2832); g.fill(); }
+  }
+  const px = lon => (lon+180)/360*cssW, py = lat => (84 - lat)/2/stride*cw - rowA/stride*cw;
+  DATA.world.slice().sort((a,b)=>b[2]-a[2]).forEach(w=>{
+    const p = COORDS[w[1]]; if(!p) return;
+    const x = px(p[1]), y = py(p[0]), r = 5 + Math.sqrt(w[2])*(cssW<900?1.5:2.4);
+    const grd = g.createRadialGradient(x,y,0,x,y,r*2.2); grd.addColorStop(0,'rgba(242,181,82,.34)'); grd.addColorStop(1,'rgba(242,181,82,0)');
+    g.fillStyle = grd; g.beginPath(); g.arc(x,y,r*2.2,0,6.2832); g.fill();
+    g.fillStyle = 'rgba(242,181,82,.9)'; g.beginPath(); g.arc(x,y,Math.max(3,r*.38),0,6.2832); g.fill();
+    g.strokeStyle = 'rgba(242,181,82,.55)'; g.lineWidth = 1.2; g.beginPath(); g.arc(x,y,r,0,6.2832); g.stroke();
+  });
+  const mw = $('#mapwrap'); if (!mw._c && mw.scrollWidth > mw.clientWidth){ mw.scrollLeft = (px(10) - mw.clientWidth/2); mw._c = 1; }
+}
+let rzT; addEventListener('resize', ()=>{ clearTimeout(rzT); rzT = setTimeout(drawMap, 200); });
+
+/* ---------- coin: height map lit in WebGL; art/hero.webp replaces it when present ---------- */
+function buildHeight(S){
+  const h = document.createElement('canvas'); h.width = h.height = S; const c = h.getContext('2d'), C = S/2, R = S*.488;
+  c.fillStyle = '#6a6a6a'; c.fillRect(0,0,S,S);
+  let g = c.createRadialGradient(C,C,R*.86,C,C,R);
+  g.addColorStop(0,'#6a6a6a'); g.addColorStop(.22,'#cfcfcf'); g.addColorStop(.8,'#f0f0f0'); g.addColorStop(1,'#707070');
+  c.fillStyle = g; c.beginPath(); c.arc(C,C,R,0,7); c.fill();
+  c.fillStyle = '#6a6a6a'; c.beginPath(); c.arc(C,C,R*.865,0,7); c.fill();
+  // beads
+  c.shadowColor = '#fff'; c.shadowBlur = 3; c.fillStyle = '#d8d8d8';
+  for (let i=0;i<96;i++){ const a=i/96*6.2832; c.beginPath(); c.arc(C+Math.cos(a)*R*.835,C+Math.sin(a)*R*.835,S*.0062,0,7); c.fill(); }
+  // inscription
+  c.shadowBlur = 5; c.font = '600 ' + (S*.056) + 'px Fraunces, Georgia, serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = '#e4e4e4';
+  const txt = 'TITAN · RELIQUARY · PRIVATE COLLECTION · MMXXVI · ', n = txt.length, rr = R*.72;
+  c.save(); c.translate(C,C); c.rotate(-1.5708);
+  for (let i=0;i<n;i++){ c.save(); c.rotate((i+.5)/n*6.2832); c.translate(0,-rr); c.fillText(txt[i],0,0); c.restore(); }
+  c.restore();
+  // inner ring and monogram
+  c.shadowBlur = 6; c.strokeStyle = '#e0e0e0'; c.lineWidth = S*.011; c.beginPath(); c.arc(C,C,R*.6,0,7); c.stroke();
+  c.lineWidth = S*.004; c.beginPath(); c.arc(C,C,R*.55,0,7); c.stroke();
+  c.font = '600 ' + (S*.46) + 'px Fraunces, Georgia, serif'; c.fillStyle = '#ececec'; c.shadowBlur = 8; c.fillText('T',C,C+S*.02);
+  return h;
+}
+const VS = 'attribute vec2 p;varying vec2 uv;void main(){uv=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
+const FS = `precision highp float;varying vec2 uv;uniform sampler2D H;uniform vec2 L;uniform vec2 T;uniform float E;
+float h(vec2 q){return texture2D(H,q).r;}
+vec3 env(vec3 r){r=normalize(r);float a=smoothstep(.15,.95,dot(r,normalize(vec3(-.55+L.x,.7+L.y,.55))));float b=smoothstep(.55,.97,dot(r,normalize(vec3(.75,-.1,.45))));float c=smoothstep(.7,.99,dot(r,normalize(vec3(.1,-.8,.5))));float sky=.10+.22*smoothstep(-.3,1.,r.y);return vec3(sky)+a*vec3(1.,.975,.94)*1.55+b*vec3(1.,.8,.55)*.75+c*vec3(.6,.7,1.)*.35;}
+void main(){vec2 d=uv*2.-1.;float rad=length(d);float R=.976;if(rad>R+.01)discard;
+ vec2 q=uv;float e=1.6/1024.;float dx=h(q+vec2(e,0.))-h(q-vec2(e,0.));float dy=h(q+vec2(0.,e))-h(q-vec2(0.,e));
+ vec3 n=normalize(vec3(-dx*E,-dy*E,1.));
+ vec3 v=normalize(vec3(T.x,T.y,1.));vec3 r=reflect(-v,n);
+ float hh=h(q);float cav=mix(.72,1.,smoothstep(.35,.8,hh));
+ vec3 alb=vec3(.86,.87,.9);vec3 col=alb*env(r)*cav;
+ float spec=pow(max(dot(normalize(r),normalize(vec3(-.5+L.x,.7+L.y,.6))),0.),38.);col+=spec*.45;
+ float fr=pow(1.-max(n.z,0.),2.);col+=fr*.25*vec3(1.,.9,.75);
+ col=col/(1.+col*.35);col=pow(col,vec3(.95));
+ float a=smoothstep(R+.01,R-.004,rad);gl_FragColor=vec4(col*a,a);}`;
+let GL = null;
+function initCoin(){
+  const cv = $('#coin');
+  const gl = cv.getContext('webgl', {premultipliedAlpha:true, antialias:true, alpha:true});
+  if (!gl) { fallbackCoin(cv); return; }
+  const sh = (t,s)=>{ const o = gl.createShader(t); gl.shaderSource(o,s); gl.compileShader(o); if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(o)); return o; };
+  try {
+    const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER,VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER,FS)); gl.linkProgram(pr); gl.useProgram(pr);
+    const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,b); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(pr,'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    const tx = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D,tx);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,buildHeight(1024));
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+    gl.enable(gl.BLEND); gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+    const uL = gl.getUniformLocation(pr,'L'), uT = gl.getUniformLocation(pr,'T'), uE = gl.getUniformLocation(pr,'E');
+    GL = { draw(lx,ly,tx_,ty_){ gl.viewport(0,0,cv.width,cv.height); gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT); gl.uniform2f(uL,lx,ly); gl.uniform2f(uT,tx_,ty_); gl.uniform1f(uE,7.5); gl.drawArrays(gl.TRIANGLE_STRIP,0,4); } };
+  } catch (e) { fallbackCoin(cv); return; }
+  coinFrame();
+}
+function fallbackCoin(cv){
+  const g = cv.getContext('2d'), S = cv.width, C = S/2;
+  const gr = g.createRadialGradient(C*.75,C*.7,S*.04,C,C,C); gr.addColorStop(0,'#fafafa'); gr.addColorStop(.55,'#b4b6bc'); gr.addColorStop(1,'#62646c');
+  g.fillStyle = gr; g.beginPath(); g.arc(C,C,C*.97,0,7); g.fill();
+  g.strokeStyle = 'rgba(255,255,255,.5)'; g.lineWidth = 6; g.beginPath(); g.arc(C,C,C*.86,0,7); g.stroke();
+  g.fillStyle = '#6b6d75'; g.font = '600 ' + S*.42 + 'px Fraunces, Georgia, serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('T',C,C+S*.02);
+}
+const P = { px:0, py:0, tx:0, ty:0, p:0, dirty:true, raf:0 };
+function coinCss(){
+  const stage = $('#stage'), hero = $('#hero');
+  const p = Math.min(1, Math.max(0, scrollY / (hero.offsetHeight * .85))); P.p = p;
+  stage.style.setProperty('--ry', (P.px*14 + p*46).toFixed(2)+'deg'); stage.style.setProperty('--rx', (-P.py*10).toFixed(2)+'deg'); stage.style.setProperty('--sc', (1 - p*.14).toFixed(3));
+}
+function coinGL(){ if (GL) GL.draw(P.px*.35 + P.p*.5, P.py*.25 - P.p*.15, P.px*.18 + P.p*.35, P.py*.14); }
+function coinFrame(){ P.raf = 0; coinCss(); coinGL(); }
+let glT = 0;
+function onScroll(){
+  if (scrollY > innerHeight*1.6) return;
+  if (!P.raf) P.raf = requestAnimationFrame(()=>{ P.raf = 0; coinCss(); });   // compositor-only while moving
+  clearTimeout(glT); glT = setTimeout(coinGL, 90);                                // re-light when scrolling settles
+}
+function kick(){ if (!P.raf && scrollY < innerHeight*1.6) P.raf = requestAnimationFrame(coinFrame); }
+addEventListener('scroll', onScroll, {passive:true});
+addEventListener('pointermove', e=>{ if (e.pointerType==='touch') return; P.px = e.clientX/innerWidth*2-1; P.py = e.clientY/innerHeight*2-1; kick(); }, {passive:true});
+addEventListener('deviceorientation', e=>{ if (e.gamma==null) return; P.px = Math.max(-1,Math.min(1,e.gamma/30)); P.py = Math.max(-1,Math.min(1,(e.beta-50)/30)); kick(); }, {passive:true});
+
+// real render replaces the generated coin when art/hero.webp exists
+(function(){ const im = $('#heroImg'); const ok = ()=>{ if (im.naturalWidth) { im.style.display='block'; $('#coin').style.display='none'; GL = null; } }; if (im.complete) ok(); else im.addEventListener('load', ok); im.addEventListener('error', ()=>im.remove()); })();
+
+/* ---------- reveals ---------- */
+let IO;
+function observe(){
+  const els = $$('.rv:not(.in), .dots:not(.in), .timeline:not(.in), .stackbar:not(.in), .rank:not(.in), .metal:not(.in)');
+  if (REDUCED || !('IntersectionObserver' in window)) { els.forEach(e=>e.classList.add('in')); return; }
+  IO = IO || new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); IO.unobserve(e.target); } }), {rootMargin:'0px 0px -10% 0px', threshold:.1});
+  els.forEach(e=>IO.observe(e));
+}
+render(SNAP);
+document.fonts.ready.then(()=>{ initCoin(); });
+loadData().then(d=>{ if (d !== SNAP) render(d); });
+</script>
+</body>
+</html>
