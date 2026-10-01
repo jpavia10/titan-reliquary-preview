@@ -263,7 +263,7 @@
   function onResize() { if (gl && state !== "done") gl.layout(); }
   window.addEventListener("resize", onResize);
   var hold = /[?&]splashhold/.test(location.search);       // test/capture only: no cap, no auto-render (frames come from _debug.seek)
-  if (!hold) later(function () { finish(true, 0.4); }, CAP_MS);       // wall-clock cap, whatever the GPU is doing
+  if (!hold) later(function () { if (window.__tsFilmUntil && performance.now() < window.__tsFilmUntil) return; finish(true, 0.4); }, CAP_MS);       // wall-clock cap, whatever the GPU is doing
 
   window.TitanSplash = {
     replay: function () {
@@ -285,11 +285,47 @@
     });
   }
   if (reduce) { stillPath("reduced"); return; }
+
+  /* ---------- FILM path (2026-10-01): a photoreal AI-generated opening film, when one has been imported ----------
+     FILM is set by the integrator on "Titan: import the art" (art/splash/*.mp4, from the Drive art queue, docs/art/ART_QUEUE.md).
+     null = no film yet, so the real-time 3D scene below runs. If the film cannot start within 2.5 s, the 3D scene runs instead. */
+  var FILM = null;   // e.g. { portrait: "art/splash/splash_A_9x16.mp4", landscape: "art/splash/splash_A_16x9.mp4", tail: 1.4 }
+  if (FILM && !/[?&]splashgl\b/.test(location.search) && filmPath()) return;
+  function filmPath() {
+    var portrait = (window.innerHeight || 1) >= (window.innerWidth || 1);
+    var src = (portrait ? FILM.portrait : FILM.landscape) || FILM.portrait || FILM.landscape;
+    if (!src) return false;
+    var v = document.createElement("video");
+    v.className = "ts-film"; v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.setAttribute("muted", "");
+    v.preload = "auto"; v.src = src;
+    v.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;background:#000;z-index:1";
+    root.insertBefore(v, root.firstChild);
+    root.classList.add("ts-filmon");
+    window.__tsFilmUntil = performance.now() + 11000; later(function () { finish(true, 0.5); }, 11000);   // a film may run ~8-10 s; its own hard cap
+    var started = false, tail = FILM.tail || 1.4, shown = false;
+    var fallback = later(function () { if (started || state === "done") return; v.remove(); root.classList.remove("ts-filmon"); runGL(); }, 2500);
+    v.addEventListener("playing", function () { started = true; clearTimeout(fallback); v.style.opacity = "1"; });
+    v.addEventListener("timeupdate", function () {
+      if (!shown && v.duration && v.currentTime > v.duration - tail - 1.2) {
+        shown = true;
+        whenFeatured(function () { if (state === "done") return; showFeatureText(); var f = $(".ts-feature"); if (f) { f.style.transition = "opacity .6s ease"; f.style.opacity = "1"; } });
+      }
+    });
+    v.addEventListener("ended", function () { finish(true, 0.6); });
+    v.addEventListener("error", function () { if (!started) { clearTimeout(fallback); v.remove(); root.classList.remove("ts-filmon"); runGL(); } });
+    var snd = $(".ts-sound");
+    if (snd) snd.addEventListener("click", function () { try { v.muted = !v.muted; } catch (e) {} });
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    return true;
+  }
+  runGL();
+  function runGL() {
   if (!window.THREE) { stillPath("nogl"); finish(true, 0.25); return; }
   try { initGL(); } catch (err) {
     if (window.console) console.warn("splash gl", err);
     if (gl && gl.dispose) { try { gl.dispose(); } catch (e) {} } gl = null;
     root.classList.remove("ts-glon"); finish(true, 0.25);          // WebGL failed: instant fade to the app
+  }
   }
 
   /* =====================================================================================================

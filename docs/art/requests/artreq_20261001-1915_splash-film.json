@@ -1,0 +1,41 @@
+{
+  "request_id": "artreq_20261001-1915_splash-film",
+  "status": "open",
+  "requested_by": "Claude (integrator)",
+  "created": "2026-10-01T19:15:00Z",
+  "instructions": "Follow Titan Reliquary/ART_START_HERE (for image AIs). These are VIDEO requests: use your video model (Gemini: Veo; Grok: Imagine). Save each clip to Titan Reliquary/art-incoming (AI images)/artreq_20261001-1915_splash-film/ with the exact file_name (MP4, highest resolution you can, at least 1080p), then create artreq_20261001-1915_splash-film.DONE.txt in Titan Reliquary/art-requests (AI image jobs)/. If your tool cannot make video, write artreq_20261001-1915_splash-film.FAILED.txt saying so.",
+  "project": "Titan Reliquary (private coin & precious-metals collection app): opening film shown once per session when the app opens",
+  "global_style": "Photoreal cinematic film footage, shot on ARRI Alexa 65 with anamorphic primes, 24 fps, shallow depth of field, physically real light and materials, slow deliberate camera moves, rich blacks, subtle film grain, no CGI look. Mood: a private Swiss vault at night: quiet, expensive, precise. Palette: blackened steel, polished silver, warm tungsten light; no neon, no blue sci-fi glow, no gold-and-navy branding.",
+  "negative": "no text, no titles, no logos, no watermark, no people, no hands, no faces, no cartoon, no video-game render look, no lens-flare spam, no camera shake, no fast cuts, no morphing or melting objects, no warped or invented coin inscriptions",
+  "coin_rule": "Coins must look like real world coins with a generic portrait/eagle/crest design; never invent a legible inscription.",
+  "images": [
+    {
+      "file_name": "splash_A_vaultdoor_9x16.mp4",
+      "type": "video",
+      "aspect_ratio": "9:16",
+      "duration_s": 8,
+      "prompt": "Total darkness. A single warm tungsten light clicks on and rakes across the machined face of a colossal round bank-vault door (brushed steel, polished chrome bolts, engraved guilloché centre). The spoked wheel turns; a ring of thick chrome bolts retracts one after another with weight. The door swings slowly open on huge hinges; warm light and fine dust spill out across a polished black floor. The camera glides forward through the opening toward a single silver coin resting on black velvet in a pool of light. Final 1.5 seconds: the light gently dims to near-black (clean end frame for a fade)."
+    },
+    {
+      "file_name": "splash_A_vaultdoor_16x9.mp4",
+      "type": "video",
+      "aspect_ratio": "16:9",
+      "duration_s": 8,
+      "prompt": "Same shot as splash_A_vaultdoor_9x16 but framed for landscape: darkness, a tungsten light rakes across a colossal round vault door, bolts retract, the door swings open, warm light and dust spill out, the camera glides through toward one silver coin on black velvet, then the light dims to near-black for the last 1.5 seconds."
+    },
+    {
+      "file_name": "splash_B_coinmacro_9x16.mp4",
+      "type": "video",
+      "aspect_ratio": "9:16",
+      "duration_s": 8,
+      "prompt": "Extreme macro product film of a single silver crown coin (generic portrait relief, no readable lettering) slowly rotating on a black mirror surface. A thin line of light sweeps across the relief, revealing frost and mirror fields like a luxury watch commercial; tiny dust motes drift in the beam; a slow rack focus from the reeded edge to the face. Ends with the coin in a perfect rim-lit silhouette, then fades to near-black over the last second."
+    },
+    {
+      "file_name": "splash_C_pour_9x16.mp4",
+      "type": "video",
+      "aspect_ratio": "9:16",
+      "duration_s": 8,
+      "prompt": "Slow-motion macro: molten silver pours from a crucible into a mould in a dark foundry, glowing sparks drifting; match-cut feel as the cooled surface becomes a gleaming polished silver bar, then a coin being struck by a press in a burst of light. Restrained, elegant, dark, warm light only. Final second fades to near-black."
+    }
+  ]
+}

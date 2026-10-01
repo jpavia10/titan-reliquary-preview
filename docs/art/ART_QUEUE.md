@@ -12,7 +12,7 @@ and saves them where Claude collects them. The owner does nothing.
 
 ## If you are the image AI ("Titan: process the art requests")
 1. Open `Titan Reliquary/art-requests (AI image jobs)/`. A request is **open** when its `.json` file has no matching `.DONE.txt` or `.FAILED.txt` file next to it. Skip anything that is not open.
-2. For each open request, oldest first, read the JSON. Apply its `global_style`, `negative` and `coin_rule` to every image, and make each entry in `images` at the given `aspect_ratio`, as photorealistic and high quality as you can. Never add text, logos, watermarks or borders.
+2. For each open request, oldest first, read the JSON. Entries with `"type": "video"` are video clips (use your video model, e.g. Veo or Imagine; MP4, ≥1080p, the given `duration_s`); everything else is a still image. Apply its `global_style`, `negative` and `coin_rule` to every image, and make each entry in `images` at the given `aspect_ratio`, as photorealistic and high quality as you can. Never add text, logos, watermarks or borders.
 3. Save each image to `Titan Reliquary/art-incoming (AI images)/{request id}/` using its exact `file_name` (PNG or JPG, the largest size you can make). Create the subfolder if it is missing.
 4. When the request is complete, create `{request id}.DONE.txt` in `art-requests (AI image jobs)/`. Write one line per image: `file_name | ok` or `file_name | skipped: reason`, then a last line with your model name and the date. If you could make none of them, create `{request id}.FAILED.txt` with the reason instead.
 5. Never edit or delete a request file, and never touch any other Titan Reliquary folder.
