@@ -146,12 +146,16 @@
   }
 
   function resolve(id) {
-    var spec = aliases[id] || id, out = [];
-    String(spec).split("+").forEach(function (part) {
-      var m = part.trim().split("*"), pid = m[0].trim(), w = m[1] ? parseFloat(m[1]) : 1;
-      if (presets[pid]) out.push({ def: presets[pid], w: isFinite(w) ? w : 1 });
-    });
-    return out;
+    var out = [];
+    (function expand(spec, w, depth) {
+      String(spec).split("+").forEach(function (part) {
+        var m = part.trim().split("*"), pid = m[0].trim(), ww = (m[1] ? parseFloat(m[1]) : 1) * w;
+        if (!isFinite(ww)) ww = w;
+        if (presets[pid]) out.push({ def: presets[pid], w: ww });
+        else if (aliases[pid] && depth < 3) expand(aliases[pid], ww, depth + 1);
+      });
+    })(aliases[id] || id, 1, 0);
+    return out.slice(0, 3);     // at most 3 stacked presets: each is a full-screen pass
   }
 
   /* ---------- canvas / context ---------- */

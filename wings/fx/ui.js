@@ -20,7 +20,7 @@
     prism: ["prism", 0.9], "night-city": ["night-city", 0.85], "black-site": ["black-site", 0.8], "forbidden-wing": ["candle*1+fog*0.5", 0.9],
     observatory: ["observatory", 0.85], "alchemists-study": ["alchemist", 0.85], "polar-vault": ["polar", 0.85],
     "imperial-treasury": ["lanterns", 0.8], "temple-garden": ["temple", 0.8], caravanserai: ["caravanserai", 0.85],
-    "fireside-den": ["hearth*1+snow-on-glass*0.8", 0.9], "roman-treasury": ["torch", 0.8], "private-bank": [null, 0]
+    "fireside-den": ["embers*0.9+glass-frost*0.7+snow*0.5", 0.9], "roman-treasury": ["torch", 0.8], "private-bank": [null, 0]
   };
   /* Scene Studio scene (by display name, see wings/scene-engine.js SCENES) -> [preset, intensity] */
   var SCENE = {
