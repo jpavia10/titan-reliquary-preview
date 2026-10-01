@@ -92,7 +92,7 @@
     "vec4 rainFx(vec2 fc){",
     "  vec2 p = P(fc); float a = asp();",
     "  float I = clamp(uInt, 0., 1.3);",
-    "  float dens = mix(.2, 1., min(I,1.)) ;",
+    "  float dens = mix(.2, 1., min(I,1.)) * mix(1., .3, FROSTV);",
     "  float bh = 0.; vec2 bn = vec2(0.); float trail = 0.;",
     "  if (FROSTV < .5) sliders(p, floor(a*14.), dens*.9, bh, bn, trail);",
     "  if (uQ > .5) beads(p, 26., 1.3, dens*.38, bh, bn);",
@@ -267,16 +267,16 @@
     "  rr = smoothstep(.38,.85, rr);",
     "  vec2 q = p*1.5 + vec2(t*.02, 0.);",
     "  float w = fbmQ(q + fbmQ(q*1.3 - t*.03, 2), uQ>1.5?5:3);",
-    "  float fogA = smoothstep(.3,.85,w)*(.12+.14*smoothstep(.4,-.5,p.y));",
+    "  float fogA = smoothstep(.22,.8,w)*(.2+.22*smoothstep(.4,-.5,p.y));",
     "  float fall = exp(-r*.95);",
     "  float dust = .55+.9*fbmQ(p*2.4+vec2(t*.04,-t*.02), 2);",
-    "  float la = rr*fall*dust*rays*(.22+fogA*2.);",
+    "  float la = rr*fall*dust*rays*(.3+fogA*2.4);",
     "  vec3 lc = mix(vec3(1.,.86,.62), uAcc*1.35+vec3(.2,.15,.05), warm);",
     "  vec3 fc2 = mix(vec3(.66,.72,.8), uBg*.55+vec3(.18,.17,.16), .35);",
     "  fc2 = mix(fc2, mix(vec3(.55,.5,.45), uInk*.5, .4), uLight*.7);",
     "  float fa = fogA*I*mix(.55,.9,uLight);",
-    "  vec3 col = fc2*fa + lc*la*I*.3;",
-    "  return vec4(col, fa*.85 + la*I*.03);",
+    "  vec3 col = fc2*fa + lc*la*I*.75;",
+    "  return vec4(col, fa*.85 + la*I*.04);",
     "}"
   ].join("\n") + "\n";
   FX.register("fog", { layer: "front", still: 17, glsl: FOGLIB, passes: [{ frag: "vec4 fx(vec2 fc){ return fogRays(fc, 1., .4); }" }] });
@@ -438,7 +438,7 @@
       "  acc += gc*star*tw*on*.9*(uQ>.5?1.:0.);",
       "  float vig = smoothstep(.2,.9,length(p*vec2(.7,1.)));",
       "  acc *= .55+.6*vig;",
-      "  vec3 c = acc*I*.34;",
+      "  vec3 c = acc*I*.5;",
       "  float al = max(max(c.r,c.g),c.b)*.12*mix(1.,2.,uLight);",
       "  return vec4(c, al);",
       "}"].join("\n") }]
