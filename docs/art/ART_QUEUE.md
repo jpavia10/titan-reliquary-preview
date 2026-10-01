@@ -7,6 +7,7 @@ Claude (the integrator) writes requests into one Drive queue. Grok processes it 
 | `art-requests (Grok: images + video)/` | Grok (Grok Imagine for stills, Grok Imagine Video with native audio for clips) | `ART_START_HERE (for Grok: images + video)` | `art-incoming (AI images + video)/{request id}/` | "Titan: process the art requests" |
 
 Grok's video model makes 8 s clips at 24 fps with sound (H.264 + AAC, 1088x1920 / 1920x1088) plus `_silent` copies, so the earlier Gemini Veo queue was retired.
+Every delivered file must be under 9 MB (Claude's Drive download limit is 10 MB): for video, add a `_web` copy (720p H.264 + AAC) next to any larger original.
 Claude may still reassign a job to another model (for example Gemini Veo) by naming it in `assigned_to`; the folders stay the same.
 
 ## Request files
