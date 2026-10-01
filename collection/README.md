@@ -33,7 +33,7 @@ Do not edit the records by hand. Write a **contribution file** and let the pipel
 Tests: `python3 tools/pipeline/test_pipeline.py` (templates end to end) and `python3 tools/pipeline/test_parity.py` (this folder still reproduces the ledger v254 app data).
 
 ## Identity rules
-- `id` is permanent and never reused: `C###` coin, `T###` token/prop/novelty, `B###` bullion lot, `S###` set, `H###` housing, `P###` stamps, `A###` album volume. Photos, history and valuations hang off it. New coins take the next number (highest `C###` + 1); the pipeline allocates it from a `NEW-n` placeholder.
+- `id` is permanent and never reused: `C###` coin, `T###` token/prop/novelty, `B###` bullion lot, `S###` set, `H###` housing, `P###` stamps, `A###` album volume. Photos, history and valuations hang off it. New coins: the next four real coins take **C297, C298, C299, C300** (closing the gap the four purged fake records left in the old 1-296 item sequence), then C301 onward; the pipeline allocates it from a `NEW-n` placeholder (`python3 tools/pipeline/apply_changes.py --next-ids` shows the next ids).
 - `ser` (e.g. `EU-CH-008`) is the display serial. It stays as the ledger has it until the **one-time reassignment** (Phase 1 metadata for all coins, then reassign with no bias to scan order, then Phase 2 pro photos). Do not edit `ser` by hand; see `SER_REASSIGN_PLAN.md`.
 - Type id: `{issuer}.{catalog}.{number}` with catalog priority KM > Y > Schön (`Sch`) > JNDA, e.g. `CH.KM.24a.1`, `SU.Y.126a`; with no catalog number: `{issuer}.X.{denomination-slug}`. `{issuer}` is the ISO code, or a historical issuer id from `ref/issuers.json` (`MX-CHI.KM.612`). `TITAN-###` ids are dropped.
 

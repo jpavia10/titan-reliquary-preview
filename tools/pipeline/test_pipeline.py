@@ -72,11 +72,11 @@ class Pipeline(unittest.TestCase):
         p = self.publish(tmp)
         self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
         idx = json.load(open(os.path.join(tmp, "data", "index.json"), encoding="utf-8"))
-        row = next(f for f in idx["flips"] if f["scan"] == "C272")                      # the new coin is in the index
+        row = next(f for f in idx["flips"] if f["scan"] == "C297")                      # the new coin is in the index
         self.assertEqual((row["country"], row["year"], row["status"], row["kind"]), ("Canada", "1978", "Logged", "flip"))
         self.assertEqual(len(idx["flips"]), 274); self.assertEqual(idx["counts"]["flips"], 274)
         self.assertEqual(row["est"], 0.15)                                               # Phase 1 never prices; Phase 2 set the estimate to 0.15
-        det = json.load(open(os.path.join(tmp, "data", "detail", "CA.json"), encoding="utf-8"))["C272"]
+        det = json.load(open(os.path.join(tmp, "data", "detail", "CA.json"), encoding="utf-8"))["C297"]
         self.assertIn("900,000,000", det["mintage"])                                     # Phase 2 mintage reached the detail view
         self.assertIn("2.80 g", det["metal"]); self.assertIn("19.05 mm", det["metal"])   # Phase 2 nominal weight + diameter
         self.assertEqual(det["refs"], "KM#59.2")                                         # Phase 2 catalog number
@@ -84,11 +84,11 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(idx["board"]["flips"]["cards"], 268)
         self.assertAlmostEqual(idx["board"]["grand"], 5393.70 + 0.15, 2)
         self.assertEqual(idx["board"]["silver"]["oz"], 63.27); self.assertEqual(idx["board"]["gold"]["oz"], 0.1322)   # board metals stay authoritative
-        self.assertTrue(json.load(open(os.path.join(tmp, "data", "search.json")))["C272"])
+        self.assertTrue(json.load(open(os.path.join(tmp, "data", "search.json")))["C297"])
         ver = json.load(open(os.path.join(tmp, "version.json")))
-        self.assertTrue(ver["ledger_version"].startswith("v3:")); self.assertEqual(ver["generated_at"], "2026-10-09T12:00:00Z"); self.assertEqual(ver["newest_flip"], "C272")
+        self.assertTrue(ver["ledger_version"].startswith("v3:")); self.assertEqual(ver["generated_at"], "2026-10-09T12:00:00Z"); self.assertEqual(ver["newest_flip"], "C297")
         log = [json.loads(ln) for ln in open(os.path.join(tmp, "collection", "changes.jsonl"), encoding="utf-8") if ln.strip()]
-        self.assertTrue(any(e["id"] == "C272" and e["field"] == "value.est_usd" and e["old"] is None and e["new"] == 0.15 and e["verified"] is False for e in log))
+        self.assertTrue(any(e["id"] == "C297" and e["field"] == "value.est_usd" and e["old"] is None and e["new"] == 0.15 and e["verified"] is False for e in log))
         # the validator is happy with the result
         v = run(os.path.join(ROOT, "tools", "schema", "validate.py"), os.path.join(tmp, "collection"))
         self.assertEqual(v.returncode, 0, v.stdout)
@@ -106,7 +106,7 @@ class Pipeline(unittest.TestCase):
         r = self.publish(tmp)
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertTrue(os.path.exists(os.path.join(inc, "applied", "changes_claude_20261002-1830.jsonl")))
-        self.assertIn("C272", open(os.path.join(tmp, "data", "search.json"), encoding="utf-8").read())
+        self.assertIn("C297", open(os.path.join(tmp, "data", "search.json"), encoding="utf-8").read())
 
     def reject(self, events, expect, setup=None):
         tmp = sandbox()
@@ -133,8 +133,7 @@ class Pipeline(unittest.TestCase):
         self.reject([ev(entity="specimen", id="C001", field="condition.cleaned", new="maybe", source="pro photo C001_obv.jpg")], "validation")          # schema violation
         self.reject([ev(entity="specimen", id="C001", field="bogus_key", new=1)], "validation")                         # unknown leaf: the schema rejects it
         self.reject([{"ts": "2026-10-03T10:00:00Z", "by": "model:t", "entity": "specimen", "id": "C001", "field": "notes", "new": "x", "source": "s", "surprise": 1}], "unknown key")
-        self.reject([ev(entity="specimen", id="C301", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "counter")      # next is C272
-        self.reject([ev(entity="specimen", id="C297", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "next free 'C' id is C272")   # C297-C300 are ordinary future ids now
+        self.reject([ev(entity="specimen", id="C272", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "next free 'C' id is C297")      # the next coins are C297-C300 (owner decision), then C301
         self.reject([ev(entity="specimen", id="NEW-1", op="create", field="(new record)", new={"type": "XX.KM.1", "year_raw": "1969"})], "does not exist")
         self.reject([ev(entity="type", id="C001", op="create", field="(new record)", new={})], "type id")
         self.reject([ev(entity="album", id="A099", op="create", field="(new record)", new={})], "albums are created")
@@ -178,7 +177,7 @@ class Pipeline(unittest.TestCase):
                                                                 ev(ts="2026-10-03T10:00:02Z", entity="specimen", id="NEW-2", field="notes", new="coin 2 edited")]))
         self.assertEqual(r.returncode, 0, r.stdout)
         specs = C.Collection(os.path.join(tmp, "collection")).specs
-        self.assertEqual(specs["C272"]["notes"], "coin 1"); self.assertEqual(specs["C273"]["notes"], "coin 2 edited")
+        self.assertEqual(specs["C297"]["notes"], "coin 1"); self.assertEqual(specs["C298"]["notes"], "coin 2 edited")
         self.assertEqual(self.apply(tmp, os.path.join(tmp, "changes_two.jsonl")).returncode, 0)                      # idempotent even with placeholders
         self.assertEqual(len(C.Collection(os.path.join(tmp, "collection")).specs), 275)
 

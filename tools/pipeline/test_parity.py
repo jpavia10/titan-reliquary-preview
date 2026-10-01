@@ -79,6 +79,8 @@ def run(coll, gold):
         if k in IGNORE_TOP or k in ("flips", "bullion", "sets", "housing", "stamps"): continue
         a, b = gi.get(k), ni.get(k)
         if isinstance(a, dict) and isinstance(b, dict) and k == "board": a = {x: y for x, y in a.items() if x != "ledger_version"}; b = {x: y for x, y in b.items() if x != "ledger_version"}
+        if k in ("drip", "requests") and a is not None and b is not None:          # owner decision 2026-10-01: the next coin id is C297 (was C272 in v254)
+            a, b = json.loads(json.dumps(a).replace("C272", "C297")), b
         if a != b: fails.append(f"index.{k} differs from the ledger block")
     gf = {f["scan"]: f for f in gi["flips"]}; nf = {f["scan"]: f for f in ni["flips"]}
     if set(gf) != set(nf): fails.append(f"flip ids differ: only golden {sorted(set(gf) - set(nf))[:5]} only built {sorted(set(nf) - set(gf))[:5]}")

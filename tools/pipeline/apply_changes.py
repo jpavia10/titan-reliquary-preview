@@ -35,6 +35,8 @@ TS = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$")
 CONT_OF = {"Africa": "AF", "Antarctica": "AN", "Asia": "AS", "Europe": "EU", "North America": "NA", "Oceania": "OC", "South America": "SA"}
 LOT_PREFIX = {"bullion": "B", "set": "S", "housing": "H", "stamp": "P"}
 
+COIN_FLOOR = 297   # the ledger's item sequence ran to 296; C297-C300 (once held by four invented records, now purged) go to the next four real coins
+
 class Reject(Exception): pass
 
 # ------------------------------------------------------------------------------------------------ source quality + photo-dependent fields
@@ -164,6 +166,7 @@ def overlap(a, b):
 def next_number(ids, prefix):
     nums = [int(i[1:]) for i in ids if i[:1] == prefix and i[1:].isdigit()]
     n = (max(nums) if nums else 0) + 1
+    if prefix == "C": n = max(n, COIN_FLOOR)            # owner decision 2026-10-01: the next real coins take C297-C300, then C301 ...
     return f"{prefix}{n:03d}"
 
 # ------------------------------------------------------------------------------------------------ one event
@@ -172,7 +175,7 @@ class Applier:
         self.c = col
         self.done = {event_key(e) for e in col.changes}
         self.done_create = {create_key(e): e["id"] for e in col.changes if e["field"] == "(new record)"}
-        self.ph = {}                                         # NEW-1 -> C272 (placeholder ids allocated in this file)
+        self.ph = {}                                         # NEW-1 -> C297 (placeholder ids allocated in this file)
         self.verified = {}                                   # (entity,id,field) -> latest verified event
         for e in col.changes:
             if e.get("verified"): self.verified[(e["entity"], e["id"], e["field"])] = e

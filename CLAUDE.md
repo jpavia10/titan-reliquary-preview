@@ -90,7 +90,7 @@ Owner's standing instructions: don't ask permission; push finished work live aft
 - Caveat: GitHub Pages is publicly reachable; `noindex` only hides it from search.
 
 ## Cleanup (2026-10-01)
-- Deleted: `stage/`, `photos/` (the invented "1914 France 5 Francs" TITAN-299/300 images), and the stale `data/master_catalog.json` (v1, held the fake C297-C300 records; the app never read it). The fake France records are gone everywhere. C297-C300 are ordinary future ids again (new coins take the highest `C###` + 1; today that is C272).
+- Deleted: `stage/`, `photos/` (the invented "1914 France 5 Francs" TITAN-299/300 images), and the stale `data/master_catalog.json` (v1, held the fake C297-C300 records; the app never read it). The fake France records are gone everywhere. Owner decision: the next four real coins take **C297, C298, C299, C300** (closing the gap the four purged fake records left in the old 1-296 item sequence), then C301 onward. The pending request R001 (German 1 euro cent, year to confirm) becomes C297.
 - `DRIVE_ANALYSIS.md` and `FRAMEWORK_BRIEF.md` are historical (banner at the top); do not follow them.
 
 ## Album data (2026-09-30)

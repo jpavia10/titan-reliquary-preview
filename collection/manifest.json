@@ -43,7 +43,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "7a8616a1836fdbcdf58c380095dfd5a610eb6030c5ed2701b2f9363a1c00e9e4",
+ "content_hash": "a68c479c390a62173521a1c8764255d0616273ec912accdfa05ad1834315fd8b",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -52,8 +52,8 @@
   },
   {
    "path": "README.md",
-   "sha256": "a77df460e8df8622ef15ae644cb2227cc8729b3873bb94b911798b1857316744",
-   "bytes": 9862
+   "sha256": "8f4a7b762c71cc627c2b043637045c8db8287e0d24f3666b2829c0e5bcaf9cc9",
+   "bytes": 10053
   },
   {
    "path": "SER_REASSIGN_PLAN.md",
@@ -67,7 +67,7 @@
   },
   {
    "path": "board.json",
-   "sha256": "7cd0cc5c5c0bd4ae16fa4dd6ddbda28b8f882fa6967436341c3ce1992ab68e4e",
+   "sha256": "c3a7a9cbfda77420c193412b1669324bb248958d4f274bdf6c05f229c580fb71",
    "bytes": 41021
   },
   {
@@ -327,8 +327,8 @@
   },
   {
    "path": "templates/INSTRUCTIONS.md",
-   "sha256": "eac555a28568c032b9238d89e2c38d5835d8b320458005c434dcb1a6b16cb98b",
-   "bytes": 12593
+   "sha256": "38e0c8eb1556bf921ced03148c5c71d91f713a35b2f946b446b9e70cb4b83956",
+   "bytes": 12711
   },
   {
    "path": "templates/phase1_template.jsonl",
@@ -337,7 +337,7 @@
   },
   {
    "path": "templates/phase2_template.jsonl",
-   "sha256": "e96337ff52dfb2a838aab63a79391a96d5a07a968e70ac9ecc87e08aeceed4cb",
+   "sha256": "0c4209e3001a207bdf71427d61fec961a7852df7930c692a91cf0bce4cff81b8",
    "bytes": 3390
   },
   {

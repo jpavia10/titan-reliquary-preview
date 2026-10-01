@@ -26,7 +26,7 @@ Rules the pipeline adds in v3 (`tools/pipeline/apply_changes.py`):
 - `story` is allowed from Phase 1. A story last written by the owner can only be replaced with `supersedes` (the owner's words win).
 - The pipeline keeps `specimen.research` (`phase` 0/1/2, who and when) in step with model events. All 273 ledger specimens start at phase 0
   (the 2026-09-30 bootstrap curation was ledger clean-up, not the owner's Phase 2).
-- Ids: the next coin is the highest `C###` + 1. The old "C297-C300 are retired" rule is gone with the fake records it guarded against.
+- Ids: the next four real coins take **C297, C298, C299, C300** (closing the gap the four purged fake records left in the old 1-296 item sequence), then C301 onward (`COIN_FLOOR` in apply_changes.py). The old "C297-C300 are retired" rule is gone with the fake records it guarded against.
 
 ## New fields (all nullable, Phase 2 unless noted)
 - `specimen.research` (system): `{phase, phase1_at, phase1_by, phase2_at, phase2_by, open_questions[]}`; `open_questions` is Phase 2.
