@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Opus integrator (splash film v3 = maximal; full-res intake)
+* Owner rejected the v2 splash clips as too simple: new request `artreq_20261001-2045_splash-film-v3-maximal` (blockbuster transforming-mech CGI, explosions, fireworks, psychedelic infinite zoom; 3 chained shots + 2 wildcards; 4K if offered, full native quality, big sound). v2 + the `_web` request are superseded.
+* Full-res intake: `.github/workflows/art-intake.yml` downloads from Drive on a GitHub runner into branch `art-intake` (the container cannot reach Drive and the connector caps downloads at 10 MB). Needs `art-incoming (AI images + video)` shared "Anyone with the link: Viewer".
+
 ### [2026-10-01 PT] — Claude/Opus integrator (one art queue; tr70 art)
 * Art queue consolidated: Grok makes images AND video with sound. One Drive queue `art-requests (Grok: images + video)/` -> `art-incoming (AI images + video)/`, rules doc `ART_START_HERE (for Grok: images + video)`, command "Titan: process the art requests". Deliver every file under 9 MB (add `_web` 720p copies of videos).
 * tr70 live: Grok v2 theme art (take1 for Prism, Midnight Gallery, The Mint, Shipwreck, Fireside Den). Splash clips are pending `artreq_20261001-2010_splash-film-web` (the originals are 11-17 MB, over the 10 MB download cap).
