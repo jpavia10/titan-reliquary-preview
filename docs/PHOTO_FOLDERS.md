@@ -1,8 +1,9 @@
 # Photo folders and file names (owner-approved layout, 2026-09-30)
 
 The owner delegated this layout to the integrator. It **extends Grok's existing photo system** (Drive
-`Titan Reliquary Collection/photos/README.md`, standard `master-v1`, manifest `PHOTOS.json`) instead of
-creating a second one. There is exactly **one** photo home on Drive: `Titan Reliquary Collection/`.
+`photos/README.md`, standard `master-v1`) instead of creating a second one. There is exactly **one** photo home on Drive:
+`Titan Reliquary/` (2026-10-01: `photos/` and `_raw_capture/` were moved there from the retired `Titan Reliquary Collection`, which is now
+`Titan Reliquary/_archive/grok-ledger-v254 (...)` together with Grok's old LEDGER.md, ALBUMS.md and scripts).
 
 ## Phases (owner's numbering)
 | Phase | What | Photos kept as |
@@ -12,7 +13,7 @@ creating a second one. There is exactly **one** photo home on Drive: `Titan Reli
 | 1.5 | Fresh scans of every album page, to finalize album slots | Raw reference only |
 | 2 | Pro photos: owner writes the final `ser` on the flip, scans **at least 2 photos per coin** (obverse + reverse) | Masters (after the QC gate + approval) |
 
-## Drive tree (`Titan Reliquary Collection/`)
+## Drive tree (`Titan Reliquary/`)
 The owner's drop spot is `Titan Reliquary/STAGING (drop coin photos here)/` (listed at the bottom of this page). The pipeline files its contents into this tree; `Inbox/` below is the pipeline's own intake and the owner does not need to use it.
 ```
 Inbox/                                  ← drop EVERYTHING here from the phone or scanner (any file name works;
