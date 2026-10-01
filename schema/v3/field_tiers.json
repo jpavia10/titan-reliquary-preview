@@ -39,6 +39,7 @@
       "": "system"
     }
   },
+  "files": {"prices/spot_daily.jsonl": "system", "prices/latest.json": "system", "_note": "Whole-file tiers: written only by tools/prices/fetch_prices.py (by: script:prices). No change file or model may write them."},
   "phase1_never": [
     "ser (serial numbers are assigned by the pipeline and reassigned once after Phase 1)",
     "condition.* (no grade, strike, luster, toning, cleaned or damage judgement)",
