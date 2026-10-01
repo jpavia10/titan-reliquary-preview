@@ -254,14 +254,14 @@
     var ready = true;
     for (var i = 0; i < l.passes.length; i++) if (progStatus(l.passes[i]) === null) { ready = false; break; }
     if (!ready) return false;
-    var eff = l.intensity * userGain() * (l.def.gain || 1);
+    var eff = l.intensity * userGain() * (l.def.gain || 1) * (1 - 0.3 * theme.light);   // light atmospheres: dark text on a pale ground has little contrast to spare
     for (i = 0; i < l.passes.length; i++) {
       var rec = l.passes[i];
       if (!rec.ok) continue;
       gl.useProgram(rec.p);
       setCommon(rec, l, tNow, Math.max(0, Math.min(1, l.fade)), fl);
       var ui = uloc(rec, "uInt"); if (ui !== null) gl.uniform1f(ui, eff);
-      var uf = uloc(rec, "uFilm"); if (uf !== null) gl.uniform1f(uf, l.film == null ? 0 : l.film);
+      var uf = uloc(rec, "uFilm"); if (uf !== null) gl.uniform1f(uf, (l.film == null ? 0 : l.film) * (1 - 0.55 * theme.light));
       var ps = rec.pass;
       if (ps.vert) {
         var q = LADDER[Math.min(scaleStep, LADDER.length - 1)][1];
