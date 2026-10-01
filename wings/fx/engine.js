@@ -17,7 +17,8 @@
    (> 12 ms -> step down). Pauses (visual only) when the tab is hidden; reduced motion = one static frame. */
 (function () {
   "use strict";
-  if (window.TitanFX) return;
+  if (window.TitanFX && window.TitanFX.register) return;
+  var prevFX = window.TitanFX;   // app.js already exposes a TitanFX object (canvasLoop, clear, matrixRain...): extend it, never replace it
 
   var LS = "titan.fx.v1", LSQ = "titan.fx.q.v1";
   var BUDGET_MS = 12, CAL_MS = 2000, FPS_CAP = 62;
@@ -57,7 +58,7 @@
   var flash = { t0: -9, strokes: null, x: 0, seed: 0 }, extThunder = 0, thunderTimer = 0, boltTimer = 0;
   var theme = { bg: [0.1, 0.09, 0.08], ink: [0.9, 0.85, 0.75], acc: [0.8, 0.65, 0.3], light: 0 };
   var videoEl = null, videoMap = {};
-  var fadeMs = 1400;
+  var fadeMs = 1400, forced = null;
 
   /* ---------- theme colours (read from the CSS tokens of the active atmosphere/World) ---------- */
   var probeEl = null;
@@ -282,7 +283,7 @@
     if (measure && drawn) {
       var px = new Uint8Array(4);
       gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);   // forces the GPU to finish: honest per-frame cost
-      frameCost.push(performance.now() - t0);
+      if (cal && cal.skip) cal.skip--; else frameCost.push(performance.now() - t0);
     }
     return drawn;
   }
@@ -290,15 +291,15 @@
   function startCal() { cal = { t0: performance.now(), win: performance.now() }; frameCost = []; }
   function evalCal(now) {
     if (!cal) return;
-    if (now - cal.win < 380 || frameCost.length < 4) { if (now - cal.t0 > CAL_MS + 400) cal = null; return; }
+    var n = frameCost.length;
+    var slow = n && frameCost[n - 1] > BUDGET_MS * 6;      // one very slow frame is enough to act (software GL, old phones)
+    if (!slow && (now - cal.win < 380 || n < 4)) { if (now - cal.t0 > CAL_MS + 1500 && n) finishCal(); return; }
     var s = frameCost.slice().sort(function (a, b) { return a - b; }), med = s[s.length >> 1];
     frameCost = []; cal.win = now;
-    if (med > BUDGET_MS && scaleStep < LADDER.length - 1) { scaleStep++; sizeCanvas(); }
-    else if (now - cal.t0 >= CAL_MS - 200 || med <= BUDGET_MS) {
-      if (want) { qMem[want.id] = scaleStep; saveQ(); }
-      cal = null;
-    }
+    if (med > BUDGET_MS && scaleStep < LADDER.length - 1) { scaleStep++; sizeCanvas(); frameCost = []; cal.skip = 1; }
+    else finishCal();
   }
+  function finishCal() { if (want) { qMem[want.id] = scaleStep; saveQ(); } cal = null; }
   function watchdog(dt) {
     wd.n++; wd.sum += dt; wd.t += dt;
     if (wd.t > 2500) {
@@ -400,7 +401,7 @@
       parts.forEach(function (p) { layers.push(makeLayer(p.def, base * p.w, opts.tint)); });
       scaleStep = qMem[key] != null ? Math.min(qMem[key], LADDER.length - 1) : (qMem[parts[0].def.id] != null ? Math.min(qMem[parts[0].def.id], LADDER.length - 1) : 0);
       want.id = key;
-      if (qMem[key] == null) startCal(); else cal = null;
+      if (forced != null) { scaleStep = forced; cal = null; } else if (qMem[key] == null) startCal(); else cal = null;
     }
     var fa = opts.film != null ? opts.film : null;
     if (fa !== null) cfg.film = fa;
@@ -465,7 +466,7 @@
   }
   function stopVideo() { if (videoEl) { try { videoEl.pause(); videoEl.removeAttribute("src"); videoEl.load(); } catch (e) { /* ignore */ } videoEl.remove(); videoEl = null; } }
 
-  window.TitanFX = {
+  var api = {
     play: play, stop: stop, setIntensity: setIntensity, setLevel: setLevel, setFilm: setFilm, setDprCap: setDprCap,
     playVideo: playVideo, stopVideo: stopVideo,
     setVideoMap: function (m) { videoMap = m || {}; },
@@ -477,6 +478,10 @@
     thunder: function (d) { window.dispatchEvent(new CustomEvent("titan:thunder", { detail: d || {} })); },
     stats: function () { return { programs: live.programs, created: live.created, deleted: live.deleted, layers: layers.length, running: running, scale: LADDER[scaleStep][0], quality: LADDER[scaleStep][1], cost: frameCost.length ? frameCost[frameCost.length - 1] : null, canvas: canvas ? [cw, ch] : null, hasGL: !!gl }; },
     state: function () { return { level: cfg.level, intensity: cfg.intensity, film: cfg.film, reduced: reduced, playing: want ? want.id : null }; },
+    setQuality: function (step) { forced = step == null ? null : Math.max(0, Math.min(LADDER.length - 1, step | 0)); if (forced != null) { scaleStep = forced; cal = null; sizeCanvas(); } },
     _lost: lostRecover
   };
+  var target = prevFX || {};
+  Object.keys(api).forEach(function (k) { Object.defineProperty(target, k, Object.getOwnPropertyDescriptor(api, k)); });
+  window.TitanFX = target;
 })();
