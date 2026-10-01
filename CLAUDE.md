@@ -53,6 +53,7 @@ Last verified: 2026-10-01 (build tr55).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-10-01 (tr72): splash film exit is a zoom-through (`filmExit()` in splash.js + `.ts-film-exit` / `tsAppRise` in splash.css): the film scales/blooms/blurs away while the app rises in. Film v4 requested (`artreq_20261001-2230_splash-film-v4`, every clip ends with THE LANDING); no `_silent` copies (the app mutes).
 - 2026-10-01 (tr71): maximal splash films live: 5 Grok clips (1080p, 15 s, sound) in `art/splash/` (`.webm` VP9 + `.mp4` H.264), one at random per launch (`FILM` in splash.js; `?film=N` forces one; SW skips `art/splash/`). B/C shots re-queued (`artreq_20261001-2200_splash-film-v3-BC`).
 - 2026-10-01: splash film v3 requested MAXIMAL (owner: blockbuster CGI, explosions, fireworks, psychedelic infinite zoom, beyond Full HD; `docs/art/requests/artreq_20261001-2045_splash-film-v3-maximal.json`). Full-res art comes in through `.github/workflows/art-intake.yml` (Drive -> branch `art-intake`), never through the 10 MB connector download.
 - 2026-10-01 (tr70): one art queue (Grok does images + video with sound; `docs/art/ART_QUEUE.md`); Grok v2 theme art live (take1 for each world, `docs/art/requests/artreq_20261001-1940_worlds-icons-v2.result.md`). Splash film import waits on `_web` copies (Drive connector download cap is 10 MB; request `artreq_20261001-2010_splash-film-web`).

@@ -71,3 +71,24 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 .ts-f-country { letter-spacing: .62em; padding-left: .62em; }
 .ts-f-kicker { font-size: 10px; letter-spacing: .5em; padding-left: .5em; text-transform: uppercase; font-style: normal; color: #9a968e; margin-bottom: 2px; text-shadow: 0 1px 10px rgba(0, 0, 0, .8); }
 .ts-f-country { margin-top: 2px; }
+
+/* Film exit (tr72): zoom-through hand-off from the opening film to the app (see filmExit in splash.js) */
+#tr-splash.ts-film-exit { background: transparent; pointer-events: none; }
+#tr-splash.ts-film-exit > :not(.ts-film) { opacity: 0 !important; transition: opacity .35s ease !important; }
+#tr-splash.ts-film-exit .ts-film {
+  transform: scale(2.6); filter: blur(22px) brightness(1.9) saturate(1.5); opacity: 0 !important;
+  transition: transform var(--ts-exit, 1.6s) cubic-bezier(.55, 0, .9, .45),
+              filter var(--ts-exit, 1.6s) cubic-bezier(.5, 0, .8, .5),
+              opacity calc(var(--ts-exit, 1.6s) * .62) cubic-bezier(.4, 0, .6, 1) calc(var(--ts-exit, 1.6s) * .38) !important;
+  will-change: transform, filter, opacity;
+}
+html.ts-film-reveal #app { animation: tsAppRise var(--ts-exit, 1.6s) cubic-bezier(.16, .84, .3, 1) both; transform-origin: 50% 42%; }
+@keyframes tsAppRise {
+  0%   { opacity: 0; transform: scale(.86); filter: blur(14px) brightness(1.5); }
+  35%  { opacity: 0; }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #tr-splash.ts-film-exit .ts-film { transform: none; filter: none; }
+  html.ts-film-reveal #app { animation-name: none; }
+}

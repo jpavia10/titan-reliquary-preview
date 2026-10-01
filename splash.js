@@ -253,8 +253,11 @@
   }
   var finished = false;
   // quick = fade the whole splash out over a short time; otherwise the canvas is already transparent and we just clean up
+  var filmEl = null;                                  // the playing opening film, if any (FILM path)
   function finish(quick, ms) {
-    if (finished) return; finished = true;
+    if (finished) return;
+    if (filmEl && quick) return filmExit(Math.max(ms || 0, 0.9));   // skip, cap or end: always the zoom-through, never a hard cut
+    finished = true;
     html.classList.add("ts-reveal");                  // the app becomes visible under whatever is left of the splash
     if (quick) {
       root.style.setProperty("--ts-out", (ms || 0.42) + "s");
@@ -262,6 +265,25 @@
       Sfx.stop(0.5);
       later(cleanup, (ms || 0.42) * 1000 + 80);
     } else cleanup();
+  }
+  /* Film exit (tr72): the camera keeps flying forward. The film zooms past the viewer (scale up, light bloom, blur, fade)
+     while the app rises out of it (scale .88 -> 1, blur -> sharp, fade in) and the film's sound fades with it. */
+  function filmExit(sec) {
+    if (finished) return; finished = true;
+    var v = filmEl;
+    root.style.setProperty("--ts-exit", sec + "s");
+    html.style.setProperty("--ts-exit", sec + "s");
+    html.classList.add("ts-reveal", "ts-film-reveal");
+    root.classList.add("ts-film-exit");
+    var v0 = v ? v.volume : 0, t0 = performance.now();
+    (function fade() {
+      if (!v || state === "done") return;
+      var k = Math.min(1, (performance.now() - t0) / (sec * 1000));
+      try { v.volume = v0 * (1 - k) * (1 - k); } catch (e) {}
+      if (k < 1) requestAnimationFrame(fade);
+    })();
+    Sfx.stop(0.5);
+    later(cleanup, sec * 1000 + 120);
   }
   function cleanup() {
     if (state === "done") return;
@@ -275,7 +297,7 @@
     gl = null;
     Sfx.stop(1.6);
     lockApp(false);
-    html.classList.remove("ts-on", "ts-reveal");
+    html.classList.remove("ts-on", "ts-reveal", "ts-film-reveal");
     try { sessionStorage.setItem("tr_splash_v1", "1"); } catch (e) {}
     if (root.parentNode) root.parentNode.removeChild(root);
     try { window.dispatchEvent(new CustomEvent("titan:splash-done")); } catch (e) {}
@@ -314,7 +336,8 @@
   var FILM = {     // tr71: Grok Imagine Video 1.5 clips (artreq_20261001-2045_splash-film-v3-maximal), 1080p + sound; one picked at random per launch, never the same twice in a row
     portrait:  ["art/splash/zoom1_9x16", "art/splash/zoom2_9x16", "art/splash/titan_9x16", "art/splash/dragon_9x16"],
     landscape: ["art/splash/zoom1_16x9"],     // base names: .webm (VP9 + Opus, 8 Mbps) where supported, else .mp4 (H.264 + AAC, 12 Mbps)
-    tail: 1.4
+    tail: 1.4,
+    exit: 1.6
   };
   if (FILM && !/[?&]splashgl\b/.test(location.search) && filmPath()) return;
   function pickFilm(list) {
@@ -339,18 +362,21 @@
     v.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;background:#000;z-index:1";
     root.insertBefore(v, root.firstChild);
     root.classList.add("ts-filmon");
+    filmEl = v;
     window.__tsFilmUntil = performance.now() + 20000; later(function () { finish(true, 0.5); }, 20000);   // clips run ~15 s; the film's own hard cap
     var started = false, tail = FILM.tail || 1.4, shown = false;
-    var fallback = later(function () { if (started || state === "done") return; v.remove(); root.classList.remove("ts-filmon"); window.__tsFilmUntil = 0; runGL(); }, 5000);
+    var fallback = later(function () { if (started || state === "done") return; filmEl = null; v.remove(); root.classList.remove("ts-filmon"); window.__tsFilmUntil = 0; runGL(); }, 5000);
     v.addEventListener("playing", function () { started = true; clearTimeout(fallback); v.style.opacity = "1"; });
+    var EXIT = FILM.exit || 1.6;                        // seconds: the zoom-through starts this long before the last frame
     v.addEventListener("timeupdate", function () {
+      if (v.duration && v.currentTime > v.duration - EXIT) filmExit(EXIT);
       if (!shown && v.duration && v.currentTime > v.duration - tail - 1.2) {
         shown = true;
         whenFeatured(function () { if (state === "done") return; showFeatureText(); var f = $(".ts-feature"); if (f) { f.style.transition = "opacity .6s ease"; f.style.opacity = "1"; } });
       }
     });
     v.addEventListener("ended", function () { finish(true, 0.6); });
-    v.addEventListener("error", function () { if (!started) { clearTimeout(fallback); v.remove(); root.classList.remove("ts-filmon"); runGL(); } });
+    v.addEventListener("error", function () { if (!started) { clearTimeout(fallback); filmEl = null; v.remove(); root.classList.remove("ts-filmon"); runGL(); } });
     var snd = $(".ts-sound");
     if (snd) snd.addEventListener("click", function () { try { v.muted = !v.muted; } catch (e) {} });
     if (Sfx.isOn()) { v.muted = false; }

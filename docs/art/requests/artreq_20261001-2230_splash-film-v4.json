@@ -1,0 +1,72 @@
+{
+ "request_id": "artreq_20261001-2230_splash-film-v4",
+ "status": "open",
+ "requested_by": "Claude (integrator), owner feedback round 2",
+ "created": "2026-10-01T22:30:00Z",
+ "assigned_to": "any video AI with sound (Grok Imagine Video, Gemini Veo, ...). Highest resolution wins: use 4K if your tool has it.",
+ "supersedes": "artreq_20261001-2200_splash-film-v3-BC (do NOT make that one)",
+ "owner_feedback": "The owner rated the v3 clips 6/10: great energy, but they still feel like placeholders, and the end of the video did not flow into the app. Every clip must now (1) hit harder and look more expensive, and (2) END WITH 'THE LANDING' below, so the app can zoom straight out of the last frame.",
+ "how_to_prompt": "Video models follow short, concrete, time-coded direction better than long adjective lists. For each clip, send your model the clip's `beats` as written (they are already time-coded), plus `look` and `the_landing`. Keep every beat a single continuous camera move: no cuts unless a beat says CUT. Generate with sound ON.",
+ "instructions": "Follow 'Titan Reliquary/ART_START_HERE (any AI: images + video)', including the CLAIM step. Make the clips in `clips` IN ORDER (they are ranked by priority); if your credits run out, stop and list the rest as 'skipped: credits' in the DONE file, and the next AI continues. Save each at full native quality to Titan Reliquary/art-incoming (AI images + video)/artreq_20261001-2230_splash-film-v4/ with the exact file_name. ONE file per clip, WITH sound. Do NOT make _silent or muted copies (the app mutes on its side). Then write artreq_20261001-2230_splash-film-v4.DONE.txt in art-requests (any AI: images + video)/.",
+ "deliverable_spec": {
+  "resolution": "highest your tool offers (4K preferred; never below 1080x1920 portrait / 1920x1080 landscape). A built-in AI upscale to 4K is fine.",
+  "duration": "the longest single generation your model allows, ideally 15 s (minimum 8 s)",
+  "frame_rate": "24 fps or higher",
+  "audio": "REQUIRED, one mixed track: cinematic, punchy, synced to the beats (listed per clip). No voices, no lyrics, no existing music.",
+  "format": "MP4, highest quality setting"
+ },
+ "look": "A blockbuster movie trailer, not a screensaver: hyper-detailed photoreal CGI at the level of a big-budget sci-fi film (transforming machines with thousands of moving parts, real physics, heavy motion blur on fast moves, volumetric light, sparks and debris that bounce and scatter, true reflections in polished silver and gold), mixed with psychedelic infinite-zoom colour (fractals, kaleidoscopes, neon portals). The camera is always moving and always pushing FORWARD. Strong contrast, rich colour, one clear subject at a time. Silver and gold coins are the hero everywhere. Original designs only: no existing robots, characters, logos or brands; no text, numbers or legible inscriptions; no people or faces.",
+ "the_landing": "THE LANDING (the last 2 seconds of EVERY clip, required): the camera rushes straight forward into the exact centre of the frame, faster and faster, as if diving through it. Everything stretches into radial light streaks (warp-speed zoom blur) and the centre blooms into a soft, smooth, bright glow that fills the whole frame by the final frame (the final frame is almost a plain bright soft glow with no detail). Sound: a rising whoosh into one deep cinematic impact on the very last frame, with a shimmering ring tail. Do NOT fade to black and do NOT cut away: the app takes over by continuing the same forward zoom.",
+ "opening": "Every clip starts instantly on its first beat (no fade-in from black, no slow establishing shot).",
+ "clips": [
+  {
+   "file_name": "splash4_vaultprime_9x16.mp4",
+   "aspect_ratio": "9:16",
+   "title": "Vault Prime",
+   "beats": "0-3 s: extreme close-up of a gigantic round bank-vault door floating in space among exploding stars; its locking bolts fire outward one after another with sparks. 3-8 s: the whole door TRANSFORMS into a towering chrome-and-gold guardian robot: thousands of gears, plates and pistons fold, rotate and lock into place, gold coins pour out of the seams, the camera circles it in a fast low-angle orbit. 8-13 s: the robot raises its fist; behind it a planet-sized explosion sends a ring-shaped shockwave of fire and gold coins toward the camera in slow motion, then snaps to full speed. 13-15 s: THE LANDING through the glowing coin-shaped core in the robot's chest.",
+   "sound": "bolt clanks with sparks, deep servo whines and metal-on-metal locking hits, a bass boom on the explosion, then THE LANDING whoosh and impact."
+  },
+  {
+   "file_name": "splash4_jackpot_9x16.mp4",
+   "aspect_ratio": "9:16",
+   "title": "Jackpot Supernova",
+   "beats": "0-4 s: a single silver coin spins on its edge on black glass; a crack of rainbow light opens across its face. 4-9 s: the coin explodes into a supernova of fireworks: huge chrysanthemum bursts of molten silver and gold, rainbow rockets, thousands of coins raining toward the camera in slow motion. 9-13 s: the fireworks swirl into a kaleidoscope tunnel of coins that breathes and mirrors itself, colours cycling through magenta, cyan, green and gold. 13-15 s: THE LANDING into the tunnel's bright centre.",
+   "sound": "a crystalline ring, a huge bass drop on the explosion, firework crackles and whistles, coin-shower jingles, then THE LANDING."
+  },
+  {
+   "file_name": "splash4_blackhole_9x16.mp4",
+   "aspect_ratio": "9:16",
+   "title": "Coin Black Hole",
+   "beats": "0-4 s: in deep space, a colossal gold coin the size of a moon begins to spin faster and faster. 4-9 s: it collapses into a black hole; a glowing accretion disc made of millions of tiny silver and gold coins forms, light bends around it, stars stretch into arcs. 9-13 s: the camera falls into the disc, through rivers of coins and lightning-blue gravitational lensing. 13-15 s: THE LANDING into the brilliant white singularity.",
+   "sound": "a low rumble building, a gravitational 'sucking' whoosh, glassy coin chimes in the disc, then THE LANDING."
+  },
+  {
+   "file_name": "splash4_forge_9x16.mp4",
+   "aspect_ratio": "9:16",
+   "title": "Star Forge",
+   "beats": "0-4 s: a giant mechanical mint floating on the surface of a star; arms the size of skyscrapers pour rivers of molten silver. 4-9 s: an enormous coin press slams down with a shockwave of sparks; freshly struck mirror-bright silver coins fly out by the thousands and arc across the frame. 9-13 s: the coins assemble mid-air into a spinning ring-shaped portal of silver. 13-15 s: THE LANDING through the portal.",
+   "sound": "roaring furnace, molten pour hiss, a massive press SLAM with metallic ring, sparks, then THE LANDING."
+  },
+  {
+   "file_name": "splash4_hyperspace_9x16.mp4",
+   "aspect_ratio": "9:16",
+   "title": "Coin Hyperspace",
+   "beats": "0-4 s: a sleek silver starship shaped like a stack of coins races through a canyon made of stacked gold bars. 4-9 s: it fires its engines and jumps to hyperspace: the canyon stretches into neon rainbow streaks, coins spiral past the camera. 9-13 s: it bursts into a psychedelic nebula filled with fractal coin galaxies and fireworks. 13-15 s: THE LANDING into the brightest galaxy.",
+   "sound": "engine roar and doppler fly-bys, a hyperspace BOOM, a shimmering synth riser, then THE LANDING."
+  },
+  {
+   "file_name": "splash4_vaultprime_16x9.mp4",
+   "aspect_ratio": "16:9",
+   "title": "Vault Prime (desktop)",
+   "beats": "Same beats and sound as splash4_vaultprime_9x16, framed for a widescreen desktop.",
+   "sound": "same as the 9:16 version"
+  },
+  {
+   "file_name": "splash4_jackpot_16x9.mp4",
+   "aspect_ratio": "16:9",
+   "title": "Jackpot Supernova (desktop)",
+   "beats": "Same beats and sound as splash4_jackpot_9x16, framed for a widescreen desktop.",
+   "sound": "same as the 9:16 version"
+  }
+ ]
+}

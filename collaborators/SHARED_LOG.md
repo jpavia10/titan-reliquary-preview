@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Opus integrator (tr72: zoom-through film exit; splash film v4 request)
+* Owner: v3 films 6/10, the end-of-video hand-off was abrupt. `filmExit()` in splash.js now zooms the film past the viewer while the app rises out of it (also on Skip); film audio fades with it.
+* New `artreq_20261001-2230_splash-film-v4` (5 phone + 2 desktop clips, time-coded beats, every clip ends with THE LANDING); v3-BC superseded. No `_silent` copies any more (ART_START_HERE rewritten).
+
 ### [2026-10-01 PT] — Claude/Opus integrator (tr71: maximal splash films live)
 * Grok's v3 clips (shot A x3, wildcards titan + dragon; 1080p, 15 s, sound) pulled full-res via the art-intake Action and shipped as a random pool in `splash.js` (`FILM.portrait/landscape`, WebM VP9 or MP4 H.264). Notes: `docs/art/requests/artreq_20261001-2045_splash-film-v3-maximal.result.md`.
 * Shots B/C (credits ran out) re-queued as `artreq_20261001-2200_splash-film-v3-BC` for any video AI.
