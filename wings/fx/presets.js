@@ -275,7 +275,7 @@
     "  vec3 fc2 = mix(vec3(.66,.72,.8), uBg*.55+vec3(.18,.17,.16), .35);",
     "  fc2 = mix(fc2, mix(vec3(.55,.5,.45), uInk*.5, .4), uLight*.7);",
     "  float fa = fogA*I*mix(1.5,1.1,uLight);",
-    "  vec3 col = fc2*fa + lc*la*I*.75;",
+    "  vec3 col = fc2*fa + lc*la*I*.55;",
     "  return vec4(col, fa*.85 + la*I*.04);",
     "}"
   ].join("\n") + "\n";
