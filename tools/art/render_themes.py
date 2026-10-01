@@ -244,6 +244,65 @@ def prism(scene):
     K.camera((2.3, -9.5, 4.9), (2.4, 0.2, 0.95), lens=40, fstop=3.2, focus=10.4)
 
 
+# --------------------------------------------------------------------------- afterhours = "Midnight Gallery"
+@theme("afterhours", bloom=0.35, bloom_r=0.012, grain=0.012, vignette=0.4, ca=1.6)
+def midnight_gallery(scene):
+    """The museum after closing: moonlight through a mullioned skylight onto black marble, one spotlit coin in a vitrine."""
+    rg = K.rng(9)
+    K.world(top=hexc("#04060c"), horizon=hexc("#070a14"), strength=0.25)
+    floor = K.plane("floor", 60, mat=K.m_marble("blackmarble", hexc("#020206"), hexc("#07080d"), vein=hexc("#3a4054"), rough=0.04, scale=1.1))
+    # columns + back wall
+    stone = K.m_marble("colstone", hexc("#1a1c24"), hexc("#2a2d38"), vein=hexc("#8a90a4"), rough=0.2, scale=1.4)
+    for x, y in ((-3.6, 5.0), (-0.5, 7.5), (3.4, 5.5), (7.0, 7.0)):
+        K.cylinder(f"col{x}", 0.42, 9.0, loc=(x, y, 4.5), mat=stone, segs=64)
+    K.plane("wall", 60, loc=(0, 12, 4), rot=(90, 0, 0), mat=K.simple("wallpaint", hexc("#0b0d14"), rough=0.7))
+    # pedestal + vitrine
+    ped = K.box("pedestal", (0.9, 0.9, 1.05), loc=(0, 0, 0.525), mat=K.m_marble("pedstone", hexc("#d8d6d0"), hexc("#a9a7a2"), vein=hexc("#6e6c68"), rough=0.25, scale=2.0), bevel=0.012)
+    brass = K.m_brass("casebrass", rough=0.2)
+    K.box("plinth", (0.96, 0.96, 0.05), loc=(0, 0, 1.075), mat=brass, bevel=0.008)
+    K.cylinder("cushion", 0.26, 0.05, loc=(0, 0, 1.125), mat=K.m_velvet("cushion", hexc("#3a0f1a")), segs=64)
+    K.make_coin("coin", K.m_silver("silver", 1.2, rough=0.22, tarnish=0.35), radius=0.15, thick=0.02, relief=0.006, year="1921", seed=8,
+                loc=(0, 0.02, 1.31), rot=(90 - 14, 0, 12), rings=240, segs=640, hres=2048, wear=0.6)
+    K.box("easel", (0.03, 0.012, 0.1), loc=(0, 0.075, 1.185), rot=(-20, 0, 0), mat=brass)
+    cw, ch = 0.82, 0.62
+    gl = K.glass("vitrine", (0.97, 0.99, 1.0, 1), ior=1.45, fake_shadow=True)
+    for nm, sz, loc in (("gF", (cw, 0.01, ch), (0, -cw / 2, 1.1 + ch / 2)), ):
+        K.box(nm, sz, loc=loc, mat=gl)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            K.box("post", (0.02, 0.02, ch), loc=(sx * cw / 2, sy * cw / 2, 1.1 + ch / 2), mat=brass, bevel=0.004)
+    K.box("cap", (cw + 0.03, cw + 0.03, 0.025), loc=(0, 0, 1.1 + ch + 0.013), mat=brass, bevel=0.006)
+    # spotlight on the coin, narrow and warm-white
+    K.spot("spot", (0.5, -1.2, 3.8), (0, 0.02, 1.28), 700, color=(1.0, 0.93, 0.82), angle=16, blend=0.5, radius=0.06)
+    K.area("coinfill", (-1.6, -2.2, 1.7), (0, 0, 1.25), 0.6, 70, color=(0.8, 0.85, 1.0))
+    # moonlight through a mullioned skylight (frame casts a window pattern on the floor)
+    mp = (-4.5, 3.5, 7.5)
+    K.area("moon", mp, (1.2, -0.5, 0.0), 5.0, 30000, color=(0.62, 0.72, 1.0), spread=30, visible_cam=False)
+    dirv = (V((1.2, -0.5, 0.0)) - V(mp)).normalized()
+    c = V(mp) + dirv * 2.4
+    R = dirv.to_track_quat("-Z", "Y").to_matrix()
+    rot = R.to_euler()
+    black = K.simple("mullion", (0, 0, 0, 1), rough=1.0)
+    for k in range(-3, 4):
+        for horiz in (True, False):
+            sz = (7.0, 0.07, 0.07) if horiz else (0.07, 7.0, 0.07)
+            off = V((0, k * 1.0, 0)) if horiz else V((k * 1.0, 0, 0))
+            o = K.box(f"mull{k}{horiz}", sz, loc=tuple(c + R @ off), mat=black)
+            o.rotation_euler = rot
+            o.visible_camera = False
+    K.camera((3.4, -4.6, 1.55), (0.0, 0.0, 1.22), lens=50, fstop=2.8, focus=5.6)
+
+
+def bpy_objs():
+    import bpy
+    return list(bpy.data.objects)
+
+
+def k_of(o):
+    import re
+    return int(re.search(r"mull(-?\d+)", o.name).group(1))
+
+
 # --------------------------------------------------------------------------- driver
 def render(name, res, samples, draft=False):
     scene = K.reset()

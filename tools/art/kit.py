@@ -315,15 +315,12 @@ def m_marble(name, c1, c2, vein=hexc("#8a8a90"), rough=0.12, scale=2.2):
     p = principled(nt, Roughness=rough, Specular_IOR_Level=0.6)
     tc = tex_coord(nt)
     n = noise(nt, scale=scale, detail=12, rough=0.62, coord=tc, dist=1.2)
-    wv = nt.nodes.new("ShaderNodeTexWave")
-    wv.wave_type = "BANDS"
-    wv.bands_direction = "DIAGONAL"
-    wv.inputs["Scale"].default_value = 2.0
-    wv.inputs["Distortion"].default_value = 9.0
-    wv.inputs["Detail"].default_value = 6
-    nt.links.new(tc.outputs["Object"], wv.inputs["Vector"])
-    nt.links.new(n.outputs["Fac"], wv.inputs["Phase Offset"]) if "Phase Offset" in wv.inputs else None
-    vr = maprange(nt, wv.outputs["Fac"], 0.55, 0.9, 0.0, 1.0)
+    n2 = noise(nt, scale=scale * 1.3, detail=14, rough=0.6, coord=tc, dist=2.5)
+    ab = nt.nodes.new("ShaderNodeMath"); ab.operation = "SUBTRACT"; ab.inputs[1].default_value = 0.5
+    nt.links.new(n2.outputs["Fac"], ab.inputs[0])
+    ab2 = nt.nodes.new("ShaderNodeMath"); ab2.operation = "ABSOLUTE"
+    nt.links.new(ab.outputs["Value"], ab2.inputs[0])
+    vr = maprange(nt, ab2.outputs["Value"], 0.0, 0.025, 1.0, 0.0)   # thin veins where |n-0.5| ~ 0
     base = mix_rgb(nt, n.outputs["Fac"], c1, c2)
     col = mix_rgb(nt, vr.outputs["Result"], base.outputs["Result"], vein)
     nt.links.new(col.outputs["Result"], p.inputs["Base Color"])
