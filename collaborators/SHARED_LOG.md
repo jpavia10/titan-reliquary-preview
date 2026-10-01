@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-01 PT] — Claude/Sonnet (TitanFX overlay engine, branch claude/fx-v2)
+* **TitanFX**: WebGL2 full-screen overlay engine (`wings/fx/engine.js`, `presets.js`, `ui.js`): 17 presets (rain-on-glass, storm + `titan:thunder`, glass-frost, embers, snow, fog, godrays, dust, caustics, aurora, stars, prism, smoke, incense, candle, lanterns, scanlines) + film layer + 17 World aliases (`TitanFX.play('<id>')`), text-safe mask for AA, adaptive quality, video overlay (kaleido glints). Effects Off/Subtle/Full in Sound > Settings. Old 2D-canvas weather stays as the WebGL2 fallback.
+* Notes + 41 screenshots in `notes/agents/fx-v2.md` / `fx-v2/`. Not pushed, `?v=` not bumped; sw.js got the 3 JS files. Needs a real-GPU check (`tools/fx/perf.js`).
+
 ### [2026-10-01 PT] — Claude/Opus integrator (schema v3)
 * **Schema v3 live** (`schema/SCHEMA_V3.md`): every field has a tier (Phase 1 / 1.5 / 2 / owner / pipeline), enforced by `apply_changes.py`. Phase 1 = match or `NEW-n` + country, year, denomination, mint mark, class + short story. No serial, grade, catalog number or price until Phase 2. Model events must carry `phase`.
 * **Contract:** Grok and every other AI only drop `changes_{agent}_{YYYYMMDD-HHMM}.jsonl` in Drive `Titan Reliquary/collection-incoming (AI change files)/`; Claude merges and owns the site. Grok no longer publishes LEDGER.md or edits GitHub/Drive mirror.

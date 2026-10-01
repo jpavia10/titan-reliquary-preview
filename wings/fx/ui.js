@@ -28,10 +28,16 @@
     "Lo-fi evening": ["night-city", 0.6], "Night garden": ["stars*1+fog*0.3", 0.7], "Snowed in": ["snow-on-glass", 0.9], "Thunderstorm": ["storm", 1]
   };
 
+  /* Optional pre-rendered overlay art (webm, black background, blended with screen). Played through TitanFX.playVideo; a missing file is a silent no-op. */
+  var VIDEO = { kaleido: "art/fx/kaleido-glints.webm", prism: "art/fx/kaleido-glints.webm" };
+
   var atmo = document.documentElement.getAttribute("data-atmo") || "afterhours";
   var sceneName = null, sceneAtmo = null, world = null;
 
+  function manifestWorld() { try { return window.TitanWorlds && window.TitanWorlds.byId ? window.TitanWorlds.byId(atmo) : null; } catch (e) { return null; } }
   function pick() {
+    var mw = manifestWorld();
+    if (!world && mw && mw.fx && !(sceneName && sceneAtmo === atmo)) return [mw.fx, mw.fxIntensity == null ? 0.8 : mw.fxIntensity];   // a World manifest's own fx wins over the table
     if (world && world.fx) return [world.fx, world.intensity == null ? 0.8 : world.intensity];
     if (sceneName && SCENE[sceneName] && sceneAtmo === atmo) return SCENE[sceneName];
     return ATMO[atmo] || ["fog", 0.5];
@@ -39,7 +45,8 @@
   function apply() {
     var m = pick();
     if (!m[0]) { if (FX.state().playing) FX.stop(1); return; }
-    FX.play(m[0], { intensity: m[1] });
+    var mw = manifestWorld(), vid = (world && world.video) || (mw && mw.fxVideo) || VIDEO[atmo] || null;
+    FX.play(m[0], { intensity: m[1], video: vid });
   }
   window.addEventListener("titan:atmo", function (e) {
     atmo = (e.detail && e.detail.atmo) || atmo;

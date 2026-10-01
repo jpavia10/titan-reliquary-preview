@@ -490,7 +490,8 @@
     scheduleSelf();
     if (!tStart) tStart = performance.now();
     if (reduced) { frozenT = parts[0].def.still || 14; drawOnce(); } else startLoop();
-    if (opts.video !== undefined || videoMap[parts[0].def.id]) playVideo(opts.video || videoMap[parts[0].def.id]);
+    var vsrc = opts.video !== undefined ? opts.video : videoMap[parts[0].def.id];
+    if (vsrc) { if (!videoEl || videoEl.getAttribute('data-src') !== vsrc) playVideo(vsrc, opts.videoOpts); } else if (videoEl) stopVideo();
     emit("play");
     return true;
   }
@@ -534,7 +535,7 @@
     v.style.cssText = "position:fixed;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:7;opacity:0;transition:opacity 1s ease;mix-blend-mode:" + (o.blend || "screen");
     v.addEventListener("error", function () { if (videoEl === v) stopVideo(); });
     v.addEventListener("canplay", function () { v.style.opacity = String(o.opacity == null ? 0.55 * (cfg.level === "subtle" ? 0.6 : 1) : o.opacity); });
-    v.src = src;
+    v.src = src; v.setAttribute("data-src", src);
     document.body.appendChild(v); videoEl = v;
     try { var pr = v.play(); if (pr && pr.catch) pr.catch(function () { if (videoEl === v) stopVideo(); }); } catch (e) { stopVideo(); }
     return true;
