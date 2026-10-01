@@ -105,7 +105,7 @@
     "  if (FROSTV > .5) {",
     "    float fr = fbmQ(p*9.+vec2(3.,1.), uQ > 1.5 ? 4 : 3); float edge = smoothstep(.1,.62, length(p*vec2(.62,1.)));",
     "    float crys = 1.-abs(2.*vn(p*34.+fr*3.)-1.);",
-    "    fogA = (.06+.1*haze + edge*(.1 + .22*pow(crys,3.)*fr))*smoothstep(0.,.7,I);",
+    "    fogA = (.015+.035*haze + edge*(.05 + .34*pow(crys,4.)*fr))*smoothstep(0.,.7,I);",
     "    fogA *= 1. - smoothstep(0.,.05,bh);",
     "  }",
     "  vec3 fogc = mix(vec3(.74,.82,.92), vec3(.3,.36,.45), uLight*.7);",
@@ -274,7 +274,7 @@
     "  vec3 lc = mix(vec3(1.,.86,.62), uAcc*1.35+vec3(.2,.15,.05), warm);",
     "  vec3 fc2 = mix(vec3(.66,.72,.8), uBg*.55+vec3(.18,.17,.16), .35);",
     "  fc2 = mix(fc2, mix(vec3(.55,.5,.45), uInk*.5, .4), uLight*.7);",
-    "  float fa = fogA*I*mix(.55,.9,uLight);",
+    "  float fa = fogA*I*mix(1.5,1.1,uLight);",
     "  vec3 col = fc2*fa + lc*la*I*.75;",
     "  return vec4(col, fa*.85 + la*I*.04);",
     "}"
