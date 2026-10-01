@@ -44,3 +44,10 @@ img.th-img { background: #0b0a0e; }
 .th-now { position: absolute; top: 8px; left: 8px; display: none; padding: 4px 10px; border-radius: 999px; background: var(--ss-gold); color: #1a1408; font-size: 14px; font-weight: 800; }
 .th-card[aria-pressed=true] { border-color: var(--ss-gold); box-shadow: 0 0 0 2px var(--ss-gold); }
 .th-card[aria-pressed=true] .th-now { display: block; }
+
+/* Owner feedback 2026-10-01: switching tabs resized the sheet (the short Sound tab collapsed it to the bottom), so the UI jumped.
+   One fixed size for every tab; content scrolls inside. Same width on desktop for all tabs. */
+.ss-card { height: 88vh; height: 88dvh; max-height: none; }
+@media (min-width: 768px) {
+  .ss-card, .ss-card[data-tab=themes] { width: 520px; height: calc(100vh - 2.5rem); height: calc(100dvh - 2.5rem); }
+}

@@ -35,6 +35,7 @@ Last verified: 2026-10-01 (build tr55).
 5. Never print, copy, or commit any GitHub token. Cloud sessions use the GitHub connection.
 6. Anything worth keeping gets backed up to the Drive folder above.
 7. **Themes ("Worlds"):** every new or rebuilt theme ships at the Signature standard in `notes/agents/theme-pot.md` (manifest-only tokens, photoreal art, GPU effect, real-recording ambience, AA contrast, perf budget). Never add a theme the old "Classic" way.
+8. **Images (owner rule, 2026-10-01):** never render still images (theme art, icons, splash) with Blender or code in the container (it took ~20 min of rendering for one mediocre image). When an image is needed, ask the owner: give him a copy-paste JSON prompt pack for SuperGrok/Gemini (template `docs/art/IMAGE_PROMPTS.json`) that saves to Drive `Titan Reliquary/art-incoming (AI images)/`, then import on "Titan: import the art". Blender only for short animated loops, if at all.
 
 ## Photo workflow (owner's intent, confirmed in chat 2026-09-28)
 1. Phase 1: photo each coin; owner pen-labels one side with country, year, denomination. AI generates metadata from the photo.
