@@ -135,6 +135,14 @@
       return String(isoOrPt);
     }
   }
+  /** Plain-language "updated" label for people (the internal ledger/version hash is not shown). */
+  function updatedLabel() {
+    const iso = vault?.generated_at_iso || vault?.generated_at;
+    const d = iso ? new Date(iso) : null;
+    if (!d || isNaN(d)) return "Collection";
+    return "Updated " + d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+
   function snapshotLabel() {
     return vault?.generated_at_pt || formatPT(vault?.generated_at_iso || vault?.generated_at);
   }
@@ -583,7 +591,7 @@
     ["vault", "study", "lab"].forEach((w) => pendingWings.add(w));
     ensureWingRendered($(".wing.active")?.dataset.wing || activeWing);
     scheduleDeferredWings();
-    $("#foot-path").innerHTML = `<span class="ft-brand">Titan Reliquary</span><span class="ft-sep" aria-hidden="true"> · </span>Ledger ${esc(vault.ledger_version || "—")} · snapshot ${esc(snapshotLabel())}`;
+    $("#foot-path").innerHTML = `<span class="ft-brand">Titan Reliquary</span><span class="ft-sep" aria-hidden="true"> · </span>${esc(updatedLabel())} · ${esc(snapshotLabel())}`;
     const refresh = $("#btn-refresh");
     if (refresh) { refresh.textContent = "↻ Refresh"; refresh.title = "Check for a newer published snapshot and reload"; }
     lazyThumbs();
@@ -624,7 +632,7 @@
     const photoPct = flipsTotal ? Math.round(100 * (phN.coins_with_photos ?? 0) / flipsTotal) : 0;
 
     const chip = $("#ledger-chip");
-    if (chip) chip.textContent = "Ledger " + (vault.ledger_version || "—");
+    if (chip) { chip.textContent = updatedLabel(); chip.title = "Collection record " + (vault.ledger_version || ""); }
 
     const stats = [
       ["pieces", intFmt(vault.counts?.vault)],

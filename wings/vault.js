@@ -165,7 +165,7 @@
       lotsHtml(v, m) +
       flipsHtml(v, m) +
       whatIfHtml(m) +
-      '<p class="vx-foot">Ledger ' + esc(m.ledger) + " · spot recorded " + esc(m.asOf) +
+      '<p class="vx-foot">Spot recorded ' + esc(m.asOf) +
       (m.source ? " (" + esc(m.source) + ")" : "") + ". Melt = fine weight × recorded spot. Estimates are the ledger’s.</p>" +
       "</div>";
 

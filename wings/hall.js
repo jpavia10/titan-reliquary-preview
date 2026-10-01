@@ -82,7 +82,6 @@
     }
     const mt = v.metals || {};
     const bits = [];
-    if (v.ledger_version) bits.push("Ledger " + v.ledger_version);
     if (mt.as_of_local || mt.as_of) bits.push("spot as of " + (mt.as_of_local || mt.as_of));
     if (mt.spot?.ag_usd_oz != null) bits.push("Ag " + money(mt.spot.ag_usd_oz));
     if (mt.spot?.au_usd_oz != null) bits.push("Au " + money(mt.spot.au_usd_oz));
