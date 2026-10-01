@@ -405,7 +405,7 @@
       box(7, 3.6, 0, 4.3, 0, Math.PI / 2, 0, W, 5.5);                 // big overhead softbox
       box(0.9, 6.0, -7.6, 0.6, 0.5, 0, Math.PI / 2, N, 2.4);           // left strip
       box(0.7, 6.0, 7.6, 0.6, -1.5, 0, Math.PI / 2, N, 1.7);           // right strip
-      box(6.5, 3.6, 0.5, 0.9, 7.6, 0, Math.PI, N, 1.1, gtex);        // front fill (behind the camera) with falloff
+      box(10, 6, 0.3, 1.0, 7.6, 0, Math.PI, N, 0.6, gtex);        // front fill (behind the camera) with falloff
       box(5, 0.5, 0, 1.2, -7.6, 0, 0, W, 1.6);                         // back kicker
       box(1.2, 1.2, 4.2, 3.0, 3.2, Math.PI / 2 + 0.5, 0.3, N, 5);   // small hot spot for sparkle
       var pm = new THREE.PMREMGenerator(renderer);
@@ -424,7 +424,7 @@
     scene.environment = envTex;
 
     var DOOR_R = 1.14, HOLE_R = 1.0, HINGE_X = -1.27, DZ = 0.13, WALL_T = 1.1, FLOOR_Y = -2.0, CH_FLOOR = -1.0;
-    var COIN_Z = -6.0, COIN_Y = -0.15, COIN_R = 0.27, COIN_T = 0.042;
+    var COIN_Z = -6.0, COIN_Y = -0.69, COIN_R = 0.27, COIN_T = 0.042;
 
     var plateTex = plateTexture(), turnedTex = turnedTexture(), guilTex = guillocheTexture();
     plateTex.repeat.set(0.5, 0.5);
@@ -504,16 +504,16 @@
     // --- twelve bolts in housings on the wall ---
     var BOLTS = 12, bolts = [];
     (function () {
-      var bg = new THREE.BoxGeometry(0.58, 0.15, 0.115, 1, 1, 1), cap = new THREE.CylinderGeometry(0.058, 0.058, 0.15, 24); cap.rotateX(Math.PI / 2); cap.rotateZ(Math.PI / 2); cap.rotateY(0);
+      var bg = lathe([[0, 0], [0.05, 0], [0.073, 0.035], [0.078, 0.07], [0.078, 0.5], [0.07, 0.56], [0.0, 0.575]], 40); bg.rotateY(Math.PI / 2); bg.translate(1.02, 0, 0);
+      var cap = new THREE.CylinderGeometry(0.1, 0.1, 0.05, 32); cap.rotateZ(Math.PI / 2);
       var hb = new THREE.BoxGeometry(0.64, 0.30, 0.31), ch = new THREE.BoxGeometry(0.64, 0.05, 0.19);
       for (var i = 0; i < BOLTS; i++) {
         var a = (i / BOLTS) * Math.PI * 2 + Math.PI / 12, g = new THREE.Group(); g.rotation.z = a; scene.add(g);
         add(g, hb, mSteel, 1.45, 0, 0.155);                       // housing block on the wall
         add(g, ch, mSteel, 1.45, 0.17, 0.35); add(g, ch, mSteel, 1.45, -0.17, 0.35);   // cheeks
         var b = new THREE.Group(); g.add(b);
-        add(b, bg, mSilver, 1.31, 0, 0.51);                       // the bolt bar (engaged: its tip rests over the door rim)
-        var tip = add(b, new THREE.CylinderGeometry(0.075, 0.075, 0.14, 24), mSilver, 1.02, 0, 0.51); tip.rotation.x = Math.PI / 2; tip.scale.set(1, 1, 0.9);
-        var sc = add(b, cap, mSilverB, 1.62, 0, 0.51);
+        add(b, bg, mSilver, 0, 0, 0.51);                       // the bolt bar (engaged: its tip rests over the door rim)
+                var sc = add(b, cap, mSilverB, 1.6, 0, 0.51);
         bolts.push(b);
       }
     })();
@@ -529,16 +529,21 @@
       pl(L, H, W / 2, CH_FLOOR + H / 2, zc, 0, -Math.PI / 2);
       pl(W, L, 0, CH_FLOOR + H, zc, Math.PI / 2, 0);
       // glossy chamber floor: a dark, partly transparent plane over a mirrored coin = cheap, convincing reflection
-      var fl = new THREE.Mesh(new THREE.PlaneGeometry(W, L), new THREE.MeshPhysicalMaterial({ color: 0x050506, metalness: 0.3, roughness: 0.3, envMapIntensity: 0.55, transparent: true, opacity: 0.6, depthWrite: true }));
+      var fl = new THREE.Mesh(new THREE.PlaneGeometry(W, L), new THREE.MeshPhysicalMaterial({ color: 0x050506, metalness: 0.3, roughness: 0.22, envMapIntensity: 0.22, transparent: true, opacity: 0.72, depthWrite: true }));
       fl.rotation.x = -Math.PI / 2; fl.position.set(0, CH_FLOOR, zc); fl.receiveShadow = true; chamber.add(fl); mats.push(fl.material); chamber.userData.floor = fl;
+      // the far floor sinks into black so the horizon never reads as a hard line
+      var fade = new THREE.Mesh(new THREE.PlaneGeometry(W, 6.4), new THREE.ShaderMaterial({ transparent: true, depthWrite: false, uniforms: {},
+        vertexShader: "varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }",
+        fragmentShader: "varying vec2 vUv; void main(){ float a = smoothstep(0.62, 1.0, vUv.y) * 0.97; float s = smoothstep(0.0, 0.18, vUv.x) * smoothstep(1.0, 0.82, vUv.x); gl_FragColor = vec4(0.0, 0.0, 0.0, a); }" }));
+      fade.rotation.x = -Math.PI / 2; fade.position.set(0, CH_FLOOR + 0.004, -WALL_T - L + 3.2); fade.renderOrder = 2; chamber.add(fade);
       // cyclorama backdrop: a soft warm-grey glow behind the coin, falling to black
       backdropMat = new THREE.ShaderMaterial({
         uniforms: { uK: { value: 0 }, uTime: { value: 0 } },
         vertexShader: "varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }",
         fragmentShader: ["uniform float uK, uTime; varying vec2 vUv;",
-          "void main(){ vec2 p = (vUv - vec2(0.5, 0.52)) * vec2(1.0, 1.35);",
-          " float d = length(p); float g = exp(-d*d*6.5)*0.9 + exp(-d*d*28.0)*0.5;",
-          " float s = 0.5 + 0.5*sin(vUv.x*220.0 + sin(vUv.y*9.0)*2.0); g *= 0.94 + 0.06*s;",
+          "void main(){ vec2 p = (vUv - vec2(0.5, 0.2)) * vec2(1.0, 1.5);",
+          " float d = length(p); float g = (exp(-d*d*7.0)*0.8 + exp(-d*d*30.0)*0.5) * smoothstep(0.0, 0.2, vUv.y);",
+          "",
           " vec3 c = mix(vec3(0.55,0.53,0.50), vec3(0.95,0.90,0.82), exp(-d*d*30.0)) * g * uK;",
           " gl_FragColor = vec4(c, 1.0); }"].join("\n"),
         depthWrite: true });
@@ -555,7 +560,8 @@
     var faceMats = [], coinReady = false, coinMats = [];
     (function () {
       var rim = new THREE.CylinderGeometry(COIN_R, COIN_R, COIN_T, 192, 1, true); rim.rotateX(Math.PI / 2);
-      var circ = new THREE.CircleGeometry(COIN_R * 0.999, 192);
+      var circ = new THREE.RingGeometry(0.0004, COIN_R * 0.999, 192, 28);       // a very slightly dished field: the mirror then sweeps a gradient as the coin turns
+      (function () { var p = circ.attributes.position; for (var i = 0; i < p.count; i++) { var x = p.getX(i), y = p.getY(i), r = Math.sqrt(x * x + y * y) / COIN_R; p.setZ(i, 0.0075 * (1 - r * r)); } circ.computeVertexNormals(); })();
       var edgeC = canvasEl(64, 8), eg = edgeC.getContext("2d"), nx;
       for (var x = 0; x < 64; x++) { nx = Math.sin(x / 64 * Math.PI * 2); eg.fillStyle = "rgb(" + Math.round(128 + nx * 100) + ",128,235)"; eg.fillRect(x, 0, 1, 8); }
       var edgeN = ctexture(edgeC, { repeat: 1 }); edgeN.repeat.set(150, 1);
@@ -581,7 +587,7 @@
       g.save(); g.translate(R, cy); g.fillStyle = gray(val); g.textAlign = "center"; g.textBaseline = "middle";
       g.font = "600 " + size + 'px "Fraunces", Georgia, serif';
       var chars = text.split(""), widths = chars.map(function (ch) { return g.measureText(ch).width + size * 0.16; }), total = widths.reduce(function (a, b) { return a + b; }, 0);
-      var span = total / radius, a0 = bottom ? Math.PI / 2 + span / 2 : -Math.PI / 2 - span / 2, acc = 0;
+      var span = total / radius, a0 = bottom ? Math.PI + span / 2 : -span / 2, acc = 0;
       chars.forEach(function (ch, i) {
         var w = widths[i], a = bottom ? a0 - (acc + w / 2) / radius : a0 + (acc + w / 2) / radius; acc += w;
         g.save(); g.rotate(a); g.translate(0, bottom ? radius : -radius); g.rotate(bottom ? Math.PI : 0); g.fillText(ch, 0, 0); g.restore();
@@ -825,7 +831,7 @@
       "vec3 toSRGB(vec3 c){ return mix(c*12.92, 1.055*pow(c, vec3(1.0/2.4)) - 0.055, step(0.0031308, c)); }",
       "void main(){",
       " vec2 uv = vUv; vec2 cc = uv - 0.5;",
-      " vec2 ca = cc*0.0007*length(cc)*2.0;",
+      " vec2 ca = cc*0.0004*length(cc)*2.0;",
       " vec3 sharp = vec3(texture2D(tScene, uv + ca).r, texture2D(tScene, uv).g, texture2D(tScene, uv - ca).b);",
       " vec3 col = sharp;",
       " if (uDof > 0.5) {",
@@ -921,14 +927,14 @@
       var tanD = Math.tan(THREE.MathUtils.degToRad(36 / 2));
       rig.zD = Math.max(2.9 / (2 * tanD * asp), 5.9);                    // door (with bolts) fills the width on a phone, the height on a monitor
       var tanC = Math.tan(THREE.MathUtils.degToRad(27 / 2)), cw = COIN_R * 2 * 1.06;
-      rig.dEnd = Math.max(cw / (0.5 * 2 * tanC), cw / (0.66 * 2 * tanC * asp));   // coin: at most 44% of the height, 62% of the width
-      rig.shift = asp < 0.8 ? 0.2 : 0.13;
+      rig.dEnd = Math.max(cw / (0.4 * 2 * tanC), cw / (0.6 * 2 * tanC * asp));   // coin: at most 44% of the height, 62% of the width
+      rig.shift = asp < 0.8 ? 0.2 : 0.26;
       dustMat.uniforms.uPx.value = h * dpr / (2 * tanD);
       applyEncoding(); camera.updateProjectionMatrix();
     }
 
     /* ================= timeline ================= */
-    var TL = { strike: 0.34, wheel0: 1.2, wheel1: 2.5, bolt0: 1.45, boltStep: 0.058, boltDur: 0.34, clunk: 2.6, door0: 2.8, door1: 5.0, coinLight: 2.9, type: 5.05, mark: 5.5, hand0: 5.6, hand1: 6.5 };
+    var TL = { strike: 0.34, wheel0: 1.2, wheel1: 2.5, bolt0: 1.45, boltStep: 0.058, boltDur: 0.34, clunk: 2.5, door0: 2.65, door1: 3.95, coinLight: 2.9, type: 5.05, mark: 5.5, hand0: 5.6, hand1: 6.5 };
     function curve(k, t) {                                    // monotone cubic Hermite through [time, value] keys
       var n = k.length; if (t <= k[0][0]) return k[0][1]; if (t >= k[n - 1][0]) return k[n - 1][1];
       var i = 0; while (t > k[i + 1][0]) i++;
@@ -969,24 +975,23 @@
       // --- light pouring out + the chamber coming alive ---
       var open = smooth((t - 2.95) / 1.5), cl = smooth((t - TL.coinLight) / 1.2);
       spill.intensity = 220 * open; bSpill.k = 0.22 * open;
-      coinKey.intensity = 70 * cl; bCoin.k = 0.2 * cl; coinRim.intensity = 45 * cl; coinFill.intensity = 5 * cl;
-      backdropMat.uniforms.uK.value = 0.55 * cl;
+      coinKey.intensity = 45 * cl; bCoin.k = 0.2 * cl; coinRim.intensity = 45 * cl; coinFill.intensity = 5 * cl;
+      backdropMat.uniforms.uK.value = 0.34 * cl;
       // --- the coin ---
       var rev = smooth((t - 4.2) / 1.0);
-      var yaw = -2.1 + 0.62 * (t - 3.0) + 0.0, tilt = 0.05 * Math.sin(t * 0.9);
+      var yaw = -2.7 * (1 - easeOut3((t - 3.0) / 3.9)) + 0.15 * Math.sin(t * 1.15), tilt = 0.04 * Math.sin(t * 0.9 + 0.5);
       coinMesh.rotation.set(tilt, yaw, 0); coinMirror.rotation.set(tilt, yaw, 0);
-      coinMirror.position.y = 2 * (CH_FLOOR - COIN_Y);
-      coin.position.y = COIN_Y + 0.012 * Math.sin(t * 1.3);
+            coin.position.y = COIN_Y + 0.014 * Math.sin(t * 1.3);
       coinMirror.position.y = 2 * (CH_FLOOR - coin.position.y) ;
       
       // --- camera ---
-      var zK = [[0, zD * 1.2], [1.5, zD * 1.02], [3.2, zD * 0.56], [3.8, 1.5], [4.4, -1.6], [5.5, zEnd], [7, zEnd - 0.12]];
+      var zK = [[0, zD * 1.2], [1.5, zD * 1.02], [3.3, zD * 0.6], [3.9, 1.8], [4.55, -1.7], [5.6, zEnd], [7, zEnd - 0.12]];
       var cz = curve(zK, t);
-      var cx = curve([[0, -0.4], [1.6, -0.18], [3.2, 0.0], [3.7, 0.0], [5.2, 0.0], [6.6, 0.1]], t), cy = curve([[0, -0.3], [1.6, -0.12], [3.2, 0.02], [3.7, 0.0], [5.5, -0.02]], t);
+      var cx = curve([[0, -0.4], [1.6, -0.18], [3.2, 0.0], [3.7, 0.0], [5.2, 0.0], [6.6, 0.1]], t), cy = curve([[0, -0.3], [1.6, -0.12], [3.2, 0.02], [3.7, 0.0], [4.5, -0.1], [5.6, COIN_Y + 0.1]], t);
       var fov = curve([[0, 38], [3.2, 36], [4.2, 31], [5.6, 27], [7, 27]], t);
       camPos.set(cx, cy, cz);
       var lookZ = curve([[0, 0.2], [3.3, -0.2], [3.9, -2.2], [4.5, -4.0], [5.2, COIN_Z]], t);
-      var lookY = curve([[0, 0.05], [3.6, 0.0], [4.5, COIN_Y - 0.0], [5.4, COIN_Y - rig.dEnd * Math.tan(THREE.MathUtils.degToRad(13.5)) * rig.shift * 1.1]], t);
+      var lookY = curve([[0, 0.05], [3.6, 0.0], [4.5, COIN_Y], [5.4, COIN_Y - rig.dEnd * Math.tan(THREE.MathUtils.degToRad(13.5)) * rig.shift * 1.1]], t);
       var lookX = curve([[0, 0.0], [3.6, 0.0], [5.2, 0.0]], t);
       // a living hand: slow drift, no jitter on the final product shot
       var drift = 1 - smooth((t - 4.6) / 0.8) * 0.9;
@@ -1001,7 +1006,7 @@
       compU.uAperture.value = t < 3.3 ? 0.75 : 1.3;
       compU.uDof.value = Q.dof ? 1 : 0;
       // --- exposure, bloom, fade ---
-      var ex = curve([[0, 1.0], [3.4, 1.0], [4.0, 1.5], [4.45, 1.9], [5.0, 1.05], [5.6, 1.0], [6.0, 1.5], [6.5, 1.8]], t);
+      var ex = curve([[0, 1.0], [3.5, 1.0], [4.1, 1.35], [4.5, 1.7], [5.1, 1.0], [5.6, 0.95], [6.0, 1.3], [6.5, 1.6]], t);
       compU.uExposure.value = ex; compU.uBloom.value = curve([[0, 0.12], [3.4, 0.14], [4.4, 0.28], [5.2, 0.16], [6.0, 0.3], [6.5, 0.4]], t);
       compU.uFade.value = smooth(t / 0.45) ; compU.uTime.value = t; compU.uVig.value = 0.5;
       dustMat.uniforms.uTime.value = t; backdropMat.uniforms.uTime.value = t;
@@ -1015,7 +1020,8 @@
         if (!handoffOn) { handoffOn = true; state = "handoff"; root.classList.add("ts-handoff"); root.classList.remove("ts-show", "ts-show-mark"); root.classList.add("ts-hide"); html.classList.add("ts-reveal"); }
         var hp = clamp((t - TL.hand0) / (TL.hand1 - TL.hand0), 0, 1), he = easeInOut(hp);
         v3.copy(coin.position).project(camera); compU.uIrisC.value.set(v3.x * 0.5 + 0.5, v3.y * 0.5 + 0.5);
-        compU.uIris.value = lerp(0.0, 1.9, he) ; compU.uIrisF.value = lerp(0.35, 0.75, he); compU.uRing.value = Math.sin(Math.min(hp * 1.15, 1) * Math.PI) * 1.0;
+        var asp = viewW / viewH, icx = compU.uIrisC.value.x * asp, icy = compU.uIrisC.value.y, rmax = Math.hypot(Math.max(icx, asp - icx), Math.max(icy, 1 - icy)), fth = lerp(0.3, 0.6, he);
+        compU.uIris.value = lerp(0.0, rmax + fth, he); compU.uIrisF.value = fth; compU.uRing.value = Math.sin(Math.min(hp * 1.15, 1) * Math.PI) * 1.0;
       } else compU.uIris.value = -1;
     }
     var v3 = new THREE.Vector3();
