@@ -24,7 +24,7 @@
 
   /* ══════════════════════════ vocabulary ══════════════════════════ */
   const PHONE = () => !!(window.matchMedia && window.matchMedia("(max-width: 700px)").matches);
-  const batchSize = () => (PHONE() ? 12 : 24); // wall tiles added per batch
+  const batchSize = () => (PHONE() ? 8 : 24); // wall tiles added per batch
   const FACETS = ["cont", "country", "era", "metal", "val", "type", "conf"];
   const FACET_LABEL = { cont: "Continent", country: "Country", era: "Decade", metal: "Metal", val: "Value", type: "Type", conf: "Confidence" };
   const STAGING = new Set(["C114", "C223", "C073", "C066", "C065"]); // the Phase 2 staging album (Lab)
@@ -353,7 +353,9 @@
     if (b == null) return -1;
     return (a - b) * dir;
   };
-  const cmpStr = (a, b) => String(a || "").localeCompare(String(b || ""), undefined, { numeric: true, sensitivity: "base" });
+  /* One shared collator: String.localeCompare with options builds a new one on every call (about 80 ms per sort on a phone). */
+  const COLLATOR = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+  const cmpStr = (a, b) => COLLATOR.compare(String(a || ""), String(b || ""));
   function sortDescs(arr, id) {
     const s = SORTS.find((x) => x.id === id) || SORTS[0];
     const byScan = (a, b) => a.sn - b.sn;
@@ -681,9 +683,22 @@
 
   /* Wall tile: a museum placard (country, year + denomination, SER, value) under a drawn coin.
      The coin is drawn from the ledger (no photographs exist yet); a real thumbnail replaces it when one does. */
+  /* Phones / touch: the wall draws ~12-48 coins at ~150 px; drop the parts nobody can see at that size
+     (SVG drop-shadow filter, the curved legend and the tiny year line). The placard under the coin says the same. */
+  const LITE = () => !!(window.matchMedia && window.matchMedia("(max-width: 700px), (hover: none) and (pointer: coarse)").matches);
+  function liteSvg(svg) {
+    return svg
+      .replace(/<filter[\s\S]*?<\/filter>/g, "")
+      .replace(/ filter="url\(#[^)]*\)"/g, "")
+      .replace(/<path id="arc-top-[^>]*>/g, "")
+      .replace(/<text\b[^>]*class="coin-legend-(?:top|bot)"[\s\S]*?<\/text>/g, "");
+  }
   function coinSvg(f, side, large) {
     if (side === "rev") return revSvg(f);
-    if (typeof window.renderSpecimenBlueprint === "function") return window.renderSpecimenBlueprint(f, !!large, side);
+    if (typeof window.renderSpecimenBlueprint === "function") {
+      const svg = window.renderSpecimenBlueprint(f, !!large, side);
+      return large || !LITE() ? svg : liteSvg(svg);
+    }
     return `<span class="gx-coin-blank" aria-hidden="true"></span>`;
   }
   /** Planchet radius (of 100) used to crop and zoom the drawn face. A DRAWING size only: the ledger's mm when it has one, else a generic size; never shown as a fact. */
@@ -755,7 +770,7 @@
   /* Tile markup is built once per (coin, new-flag) and cloned afterwards. */
   const tileCache = new Map();
   let tileCacheVault = null;
-  function makeTile(f) {
+  function protoTile(f) {
     if (tileCacheVault !== lastVault) { tileCache.clear(); tileCacheVault = lastVault; }
     const key = `${f.scan}|${B.highlight && B.highlight.has(f.scan) ? 1 : 0}`;
     let proto = tileCache.get(key);
@@ -766,7 +781,22 @@
       if (tileCache.size > 600) tileCache.clear();
       tileCache.set(key, proto);
     }
-    return proto.cloneNode(true);
+    return proto;
+  }
+  function makeTile(f) { return protoTile(f).cloneNode(true); }
+  /* Idle time: parse the markup of the next batches so scrolling only has to clone and insert. */
+  let warmTimer = 0;
+  function warmNext() {
+    if (warmTimer) return;
+    const ric = window.requestIdleCallback || ((cb) => setTimeout(() => cb({ timeRemaining: () => 8 }), 60));
+    warmTimer = ric((dl) => {
+      warmTimer = 0;
+      const list = wallList || [];
+      let i = Math.min(wallLimit, list.length);
+      const stop = Math.min(list.length, wallLimit + batchSize() * 3);
+      while (i < stop && dl.timeRemaining() > 4) { protoTile(list[i]); i++; }
+      if (i < stop) warmNext();
+    }, { timeout: 1500 });
   }
   /** Turn a tile over; the drawn reverse is built the first time. */
   function turnTile(tile) {
@@ -776,6 +806,8 @@
     if (!f || !coin) return;
     if (!$(".gx-rev", coin)) coin.insertAdjacentHTML("beforeend", `<span class="gx-face gx-rev" style="--r:${planchetR(f).toFixed(1)}">${coinSvg(f, "rev")}</span>`);
     const on = !tile.classList.contains("is-turned");
+    tile.classList.add("gx-3d");
+    void tile.offsetWidth; // let the 3D styles apply before the flip starts
     tile.classList.toggle("is-turned", on);
     const btn = $(".gx-turn", tile);
     if (btn) btn.setAttribute("aria-pressed", String(on));
@@ -802,6 +834,7 @@
     }
     for (const el of existing.values()) el.remove();
     if (added.length) B.lazyThumbs(grid);
+    warmNext();
     const remaining = list.length - want.length;
     const more = $("#gf-more"), moreBtn = $("#gf-more-btn");
     if (more) {
@@ -904,7 +937,22 @@
     lap("finder");
     const listKey = list.length + ":" + sid + ":" + epoch + ":" + list.map((f) => f.scan).join(",");
     const changed = listKey !== lastListKey;
-    if (changed) { wallLimit = batchSize(); lastListKey = listKey; }
+    if (changed) { wallLimit = firstPaintDone ? batchSize() : (PHONE() ? 4 : batchSize()); lastListKey = listKey; }
+    if (!firstPaintDone) {
+      /* First open: paint the finder, then build the wall, then the Cover Flow, each in its own task (no single long task). */
+      firstPaintDone = true;
+      timings.total = Math.round((performance.now() - T0) * 10) / 10;
+      setTimeout(() => {
+        if (!mounted) return;
+        renderWall(currentList(), readF(), false);
+        setTimeout(() => {
+          if (!mounted) return;
+          if (!$(".cf-card", $("#gallery-coverflow-wrap") || document)) updateCover(currentList());
+          persistSoon();
+        }, 120);
+      }, 0);
+      return;
+    }
     renderWall(list, F, false);
     lap("wall");
     if (!$(".cf-card", $("#gallery-coverflow-wrap") || document)) updateCover(list);
@@ -913,6 +961,7 @@
     persistSoon();
     timings.total = Math.round((performance.now() - T0) * 10) / 10;
   }
+  let firstPaintDone = false;
 
   /* The Cover Flow (many slabs) and the state save (reads layout) run after the wall has painted. */
   let coverTimer = 0, persistTimer = 0;

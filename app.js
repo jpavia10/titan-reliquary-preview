@@ -222,6 +222,7 @@
       b.tabIndex = on ? 0 : -1;
     });
     $$(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + name));
+    if (name === "study" || name === "lab") ensureWingRendered(name);
 
     // 3. Render gallery or study if entering wing and not yet rendered or if body is empty
     if (name === "gallery") {
@@ -242,13 +243,17 @@
       }
     } else if (name === "vault") {
       if (vault) {
+        pendingWings.delete("vault");
         renderVault();
       }
     }
 
     // 4. Wing entrances: the room "opens" with a quick rise-and-settle each time
     const pane = $("#pane-" + name);
-    if (pane) {
+    if (pane && cfLite()) {
+      // phones: no entrance animation (and no forced layout of the whole new pane inside the tap handler)
+      pane.classList.remove("wing-enter");
+    } else if (pane) {
       pane.classList.remove("wing-enter");
       void pane.offsetWidth; // restart the animation
       pane.classList.add("wing-enter");
@@ -257,7 +262,9 @@
       const next = "#" + name;
       if (location.hash !== next) history.replaceState(null, "", next);
     }
-    saveState();
+    // saveState reads scrollY (a forced layout): do it after the new wing has painted, not inside the tap
+    clearTimeout(setWing._save);
+    setWing._save = setTimeout(saveState, 500);
   }
   window.setWing = setWing;
 
@@ -500,7 +507,7 @@
       renderGallery();
       galleryRendered = true;
     }
-    renderStudy();
+    ensureWingRendered("study");
     if (st && st.drawerScan && !hash.startsWith("coin=")) {
       openDrawer(st.drawerScan, false);
       requestAnimationFrame(() => {
@@ -527,6 +534,32 @@
     updateLiveStatus();
   }
 
+  const pendingWings = new Set();
+  function ensureWingRendered(name) {
+    if (!name || !pendingWings.has(name) || !vault) return;
+    pendingWings.delete(name);
+    if (name === "vault") renderVault();
+    else if (name === "study") renderStudy();
+    else if (name === "lab") renderLab();
+    lazyThumbs();
+    observeReveals();
+  }
+  let deferredWingTimer = 0;
+  function scheduleDeferredWings() {
+    if (deferredWingTimer) return;
+    const ric = window.requestIdleCallback ? (cb) => window.requestIdleCallback(cb, { timeout: 4000 }) : (cb) => setTimeout(cb, 600);
+    const step = () => {
+      deferredWingTimer = 0;
+      const next = ["vault", "study", "lab"].find((w) => pendingWings.has(w));
+      if (!next) return;
+      ensureWingRendered(next);
+      deferredWingTimer = 1;
+      ric(step);
+    };
+    deferredWingTimer = 1;
+    setTimeout(() => ric(step), 800);
+  }
+
   function renderAll() {
     renderHero();
     renderHall();
@@ -537,9 +570,10 @@
       renderGallery();
       galleryRendered = true;
     }
-    renderVault();
-    renderStudy();
-    renderLab();
+    // Vault / Study / Lab are not on screen at boot: build them in idle time (or the moment their wing is opened)
+    ["vault", "study", "lab"].forEach((w) => pendingWings.add(w));
+    ensureWingRendered($(".wing.active")?.dataset.wing || activeWing);
+    scheduleDeferredWings();
     $("#foot-path").innerHTML = `<span class="ft-brand">Titan Reliquary</span><span class="ft-sep" aria-hidden="true"> · </span>Ledger ${esc(vault.ledger_version || "—")} · snapshot ${esc(snapshotLabel())}`;
     const refresh = $("#btn-refresh");
     if (refresh) { refresh.textContent = "↻ Refresh"; refresh.title = "Check for a newer published snapshot and reload"; }
@@ -3149,10 +3183,13 @@
   let cfItems = [];
   let cfKeyBound = false;
 
+  /* Phones / touch: a lighter Cover Flow (5 cards, no mirrored reflection). Purely decorative parts are dropped. */
+  const cfLite = () => !!(window.matchMedia && window.matchMedia("(max-width: 700px), (hover: none) and (pointer: coarse)").matches);
   function buildCoverFlowCardInner(f, isCenter) {
+    const lite = cfLite();
     const obvHtml = renderMuseumSlab(f, { side: "obv" });
     const revHtml = isCenter ? renderMuseumSlab(f, { side: "rev" }) : "";
-    const reflHtml = renderMuseumSlab(f, { side: "obv" });
+    const reflHtml = lite ? "" : renderMuseumSlab(f, { side: "obv" });
 
     const loupeHtml = isCenter ? `
       <div class="forensic-loupe" id="cf-loupe-${esc(f.scan)}" hidden>
@@ -3188,13 +3225,13 @@
           ${flipBadgeHtml}
         </div>` : ''}
       </div>
-      <div class="cf-reflection" aria-hidden="true">
+      ${lite ? "" : `<div class="cf-reflection" aria-hidden="true">
         <div class="cf-card-inner">
           <div class="cf-face cf-face-obv">
             ${reflHtml}
           </div>
         </div>
-      </div>
+      </div>`}
     `;
   }
 
@@ -3349,9 +3386,10 @@
       cfCurrentIndex = Math.max(0, Math.min(rows.length - 1, cfCurrentIndex));
     }
 
-    // 11-node virtual sliding window: d from -5 to +5
+    // virtual sliding window: d from -5 to +5 (-2 to +2 on phones, where the rest is off-screen)
     const needed = [];
-    for (let d = -5; d <= 5; d++) {
+    const span = cfLite() ? 2 : 5;
+    for (let d = -span; d <= span; d++) {
       const idx = cfCurrentIndex + d;
       if (idx >= 0 && idx < rows.length) {
         needed.push({ index: idx, offset: d, flip: rows[idx] });
