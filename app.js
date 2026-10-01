@@ -1218,12 +1218,6 @@
         <!-- Prismatic Optic Glare Sheen -->
         <div class="slab-optic-glare"></div>
 
-        ${isRev ? `
-        <!-- Iridescent Holographic Foil Security Seal on Reverse -->
-        <div class="flip-holo-seal">
-          <div class="flip-holo-pattern"></div>
-          <span class="flip-holo-text">★ TITAN SECURE ARCHIVE · ${esc(f.ser || f.scan)} ★</span>
-        </div>` : ''}
       </div>`;
   }
 
@@ -1381,26 +1375,21 @@
         <div class="slab-rivet bl"></div>
         <div class="slab-rivet br"></div>
         
-        <!-- Holographic Archival Pedigree Header -->
+        <!-- Plain label: country, year, denomination, collection id. Ref no. is provisional until the one-time serial reassignment. -->
         <div class="slab-pedigree-header">
-          <div class="slab-pedigree-holo">
-            <span class="slab-holo-brand">🏛️ TITAN ARCHIVAL REPOSITORY</span>
-            <span class="slab-holo-crest">${isRev ? "REVERSE" : "LEDGER"}</span>
-          </div>
           <div class="slab-pedigree-body">
             <div class="slab-pedigree-title">
-              <strong>${country} · ${isRev ? "REVERSE DIE" : year}</strong>
-              <span class="slab-pedigree-grade">${isMini ? `${esc(f.ser || f.scan)}` : `ARCHIVE № ${esc(f.ser || f.scan)}`}</span>
+              <strong>${country} · ${isRev ? "REVERSE" : year}</strong>
+              ${isMini ? "" : `<span class="slab-pedigree-grade">${esc(f.scan)}</span>`}
             </div>
             <div class="slab-pedigree-sub">
               <span>${denom}</span>
               <span class="slab-pedigree-metal">${purity}</span>
             </div>
           </div>
-          <div class="slab-barcode-strip">
-            <span class="slab-barcode">||| | |||| | ||| || |||| |</span>
-            <span class="slab-cert-num">LEDGER #${esc(f.scan)}</span>
-          </div>
+          ${isMini ? "" : `<div class="slab-id-strip">
+            <span>Ref ${esc(f.ser || f.scan)} (provisional)</span>
+          </div>`}
         </div>
 
         <!-- Frosted Silicone Core Gasket with Coin Aperture, Cartwheel Luster & Laser Optical Reticle -->
@@ -1412,14 +1401,11 @@
           </div>
         </div>
 
-        <!-- Archival Pedigree Footer: Valuation, Melt Multiplier & Security Hallmark -->
+        <!-- Footer: estimated value with confidence -->
         <div class="slab-pedigree-footer">
           <div class="slab-footer-info">
-            <span class="slab-footer-price">${f.est != null ? money(f.est) : "—"}</span>
-            <span class="slab-footer-melt">${f.is_silver && f.asw_oz != null && (vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz) ? `Melt ${money(Number(f.asw_oz) * Number(vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz))}` : (f.conf ? `Conf ${esc(f.conf)}` : "Logged")}</span>
-          </div>
-          <div class="slab-footer-seal">
-            <span class="slab-footer-seal-text">🏛️ TITAN ARCHIVE</span>
+            <span class="slab-footer-price">${f.est != null ? `est. ${money(f.est)}` : "not yet valued"}</span>
+            <span class="slab-footer-melt">${f.conf ? `confidence ${esc(f.conf)}` : ""}${f.is_silver && f.asw_oz != null && (vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz) ? `${f.conf ? " · " : ""}melt ${money(Number(f.asw_oz) * Number(vault?.precious?.spot_ag ?? vault?.metals?.spot?.ag_usd_oz))}` : ""}</span>
           </div>
         </div>
 
