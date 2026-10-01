@@ -550,7 +550,7 @@
         breathe(g, bg.gain, rnd(2, 3), [20, 60]);
       }
       const t = ctx.currentTime;
-      lvl.gain.cancelScheduledValues(t); lvl.gain.setValueAtTime(0, t); lvl.gain.linearRampToValueAtTime(rec.want, t + 1.8);
+      lvl.gain.cancelScheduledValues(t); lvl.gain.setValueAtTime(0, t); lvl.gain.linearRampToValueAtTime(rec.want, t + 1.2);
     });
   }
   function recEvent(g, id, L) {
