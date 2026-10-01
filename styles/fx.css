@@ -12,3 +12,11 @@ html .lofi-bar .station-menu { color: var(--ink); }
 html .lofi-bar.radio-down .lofi-now .a,
 html .lofi-bar.radio-down .lofi-credit { color: #ffd479; font-weight: 600; }
 .lofi-mute:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 8px; }
+
+/* TitanFX (WebGL overlays) replaces the 2D-canvas weather, the DOM flash and the DOM embers when it is running. */
+html[data-titanfx="on"] #rain-canvas, html[data-titanfx="on"] #lightning-flash, html[data-titanfx="on"] #ember-layer { display: none !important; }
+#titan-fx { contain: strict; }
+.ss-fx { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--ss-line); }
+.ss-fx-h { font-weight: 700; margin-bottom: 8px; }
+.ss-fx .ss-chips { margin-bottom: 8px; }
+.ss-fx .ss-chip[aria-checked="true"] { background: var(--ss-gold); color: #1a1408; border-color: var(--ss-gold); }

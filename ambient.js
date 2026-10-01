@@ -1915,7 +1915,7 @@
     resizeT = setTimeout(() => { sizeCanvas(); initParticles(); }, 120);   // fit columns/streams to the new size
   }
   function checkCanvasState() {
-    const anyFx = Object.values(state.fx).some(Boolean);
+    const anyFx = Object.values(state.fx).some(Boolean) && !(window.TitanFX && window.TitanFX.owns && window.TitanFX.owns());   // TitanFX (WebGL) draws the weather when available
     if (anyFx && !reducedMotion && !document.hidden && !isOccluded()) {
       if (canvas.hidden) {
         sizeCanvas();
