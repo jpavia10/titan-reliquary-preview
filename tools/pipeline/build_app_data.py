@@ -15,6 +15,7 @@ import glob, hashlib, json, os, re, sys, unicodedata
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from display import *   # noqa: F401,F403  (pure string-rendering rules, see display.py)
+import value_history as VH
 
 def load(p):
     with open(p, encoding="utf-8") as f: return json.load(f)
@@ -34,6 +35,13 @@ def load_collection(d):
     col["board"] = load(bp) if os.path.exists(bp) else None
     vp = f"{d}/valuations.jsonl"
     col["valuations"] = [json.loads(l) for l in open(vp, encoding="utf-8") if l.strip()] if os.path.exists(vp) else []
+    sp = f"{d}/prices/spot_daily.jsonl"
+    col["spot"] = {}
+    if os.path.exists(sp):
+        for l in open(sp, encoding="utf-8"):
+            if l.strip(): r = json.loads(l); col["spot"][r["date"]] = r
+    lp = f"{d}/prices/latest.json"
+    col["spot_latest"] = load(lp) if os.path.exists(lp) else None
     return col
 
 def dump(path, obj):
@@ -94,6 +102,17 @@ def valuation_history(col):
             d = by.setdefault(r["at"], [0.0, 0]); d[0] += r["est_usd"]; d[1] += 1
     return [{"at": k, "usd": round(v[0], 2), "n": v[1]} for k, v in sorted(by.items())]
 
+def prices_file(col, pf, version):
+    """data/prices.json: the spot history for the terminal's Silver / Gold / ratio series, the latest quote, and what the app needs to reprice the portfolio with a live quote."""
+    rows = [[d, r["xag_usd"], r["xau_usd"], "c" if r.get("carried") else ("p" if r.get("provisional") else "")] for d, r in sorted(col["spot"].items())]
+    srcs = sorted({r["source"] for r in col["spot"].values() if not r.get("carried")})
+    nonmetal = None
+    if pf["rows"]:
+        last = pf["rows"][-1]; nonmetal = last[4]
+    return {"spot": {"cols": ["d", "xag_usd", "xau_usd", "k"], "rows": rows}, "sources": srcs, "latest": col["spot_latest"], "board_quote": pf["board_quote"],
+            "oz": {"ag": pf.get("ag_oz"), "au": pf.get("au_oz")}, "nonmetal_usd": nonmetal, "bucket": pf["bucket"], "residual_usd": pf["residual_usd"],
+            "day0": pf["day0"], "generated_at": version["generated_at"]}
+
 def build_index(col, flips, lots, version):
     b = col["board"]
     if b is None: raise SystemExit("collection/board.json is missing (snapshot of the ledger board; see tools/pipeline/snapshot_board.py)")
@@ -122,6 +141,8 @@ def build_index(col, flips, lots, version):
     idx["value"] = {"estimated_total": idx["board"]["grand"], "status": from_board["value"].get("status"), "policy": from_board["value"].get("policy"),
                     "history": valuation_history(col)}
     drip_block(col, idx)
+    pf = VH.portfolio(col, col["spot"], today=version["generated_at"][:10])
+    idx["value"]["portfolio_daily"] = pf
     return idx
 
 def main(argv):
@@ -138,6 +159,7 @@ def main(argv):
     for p in glob.glob(f"{out}/detail/*.json"):
         if os.path.basename(p)[:-5] not in detail: os.remove(p)
     dump(f"{out}/index.json", idx)
+    dump(f"{out}/prices.json", prices_file(col, idx["value"]["portfolio_daily"], version))
     live = {f["scan"] for f in flips}; srch = {}
     for recs in detail.values():
         for sid, r in recs.items():

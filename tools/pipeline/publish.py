@@ -114,7 +114,7 @@ def main(argv):
         os.makedirs(os.path.join(out, "detail"), exist_ok=True)
         for f in glob.glob(os.path.join(out, "detail", "*.json")): os.remove(f)
         for f in glob.glob(os.path.join(outuse, "detail", "*.json")): shutil.copyfile(f, os.path.join(out, "detail", os.path.basename(f)))
-        for n in ("index.json", "search.json", "wants.json"): shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n))
+        for n in ("index.json", "search.json", "wants.json", "prices.json"): shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n))
         shutil.copyfile(vuse, vpath)
     idx = B.load(f"{outuse}/index.json"); b = idx["board"]; snap = col["board"]["index"]["board"]
     print("\n==== publish summary" + (" (DRY RUN: nothing written)" if dry else "") + " ====")
