@@ -1,0 +1,76 @@
+{
+ "request_id": "artreq_20261001-2200_splash-film-v3-BC",
+ "status": "open",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-01T22:00:00Z",
+ "assigned_to": "any (video with sound). Grok ran out of xAI video credits on the v3 request; Gemini Veo (4K if offered) is welcome to take this.",
+ "continues": "artreq_20261001-2045_splash-film-v3-maximal (shot A and two wildcards were delivered and are LIVE in the app; finish the chain)",
+ "owner_brief": "The owner is the main user and wants a ridiculous amount of dopamine every time the app opens. Overwhelming, extremely detailed, maximal: Michael Bay transforming-robot CGI, explosions, fireworks, psychedelic colour, super-trippy adult-animation-portal energy, infinite-zoom fractals. It does not have to make sense. Do NOT play it safe, do NOT make it minimal or tasteful, do NOT make anything a 3D-hobbyist render could make. Push your model to its absolute limit.",
+ "instructions": "You are the AI processing this queue. Follow 'Titan Reliquary/ART_START_HERE (any AI: images + video)', including the CLAIM step. For each B clip, take the LAST FRAME of the named A clip in Titan Reliquary/art-incoming (AI images + video)/artreq_20261001-2045_splash-film-v3-maximal/ and generate B from it (image-to-video); then generate C from the last frame of your B. Save to Titan Reliquary/art-incoming (AI images + video)/artreq_20261001-2200_splash-film-v3-BC/ with the exact file names, full native quality, then write artreq_20261001-2200_splash-film-v3-BC.DONE.txt in art-requests (any AI: images + video)/ as usual. If you have no video credits, do not write FAILED; leave the request open and do not claim it.",
+ "deliverable_spec": {
+  "resolution": "The HIGHEST your tool offers, beyond Full HD whenever possible: 4K (2160x3840 portrait, 3840x2160 landscape) if available; your tool's own built-in AI upscale to 4K is allowed and preferred over 1080p. Never below 1080x1920 / 1920x1080. Save the un-upscaled original too, with _native added before .mp4, if you upscaled.",
+  "duration": "The longest your model allows in one generation (8 to 15 s per shot). The _full chained clip may be 20-45 s.",
+  "frame_rate": "24, 30 or 60 fps (60 preferred if offered)",
+  "container": "MP4, H.264 or H.265 video + AAC or Opus audio. Highest bitrate/quality setting.",
+  "audio": "REQUIRED, huge cinematic sound design: deep sub-bass hits and booms on every explosion, metallic transformer servo whirs and clanks, a rising synth riser into a massive bass drop, firework crackles and whistles, sparkling coin jingles, a final cinematic BRAAAM hit, then a ringing coin tone fading out. No voice, no lyrics, no existing songs. Also save a _silent copy if your tool can.",
+  "safe_area": "keep the main action inside the central 80% of the frame (phones crop the edges)",
+  "end": "Only the very end of shot C (last ~1 s) fades to near-black (the app fades in over it). Everything before that should be at full intensity."
+ },
+ "global_style": "Hollywood blockbuster VFX at the highest level: Michael Bay / Industrial Light & Magic transforming-robot CGI with tens of thousands of intricate interlocking mechanical parts, chrome, gunmetal, polished gold and silver, glowing seams; hyper-detailed particle simulation (sparks, embers, debris, smoke, shockwaves, volumetric god rays, lens flares, anamorphic streaks, heat haze, chromatic aberration); slow-motion speed ramps into real-time impacts; sweeping 360-degree orbit shots, low-angle hero shots, crash zooms; mixed with psychedelic, trippy, infinite-fractal adult-cartoon-portal energy: neon rainbow colour cycling, kaleidoscopic mirroring, melting and breathing geometry, swirling green-and-magenta portals, impossible M.C. Escher spaces. Maximum detail in every frame. Coins (silver and gold, generic designs) are the recurring motif everywhere: coin galaxies, coin storms, coin fireworks, coin fractals.",
+ "negative": "no minimalism, no plain black backgrounds for long, no slow empty moments, no simple single-object product shots; no text, no letters, no numbers, no logos, no watermark, no UI; no existing characters, franchises, robots or logos from any film, show or game (original designs only); no real people or faces; no legible coin inscriptions; no gore",
+ "shots": {
+  "B": "SHOT B 'Vault Prime' (starts from the last frame of A). The colossal vault door TRANSFORMS, Michael Bay style: thousands of gears, plates, pistons and locking bolts unfold, rotate and reassemble with servo whines and clanks, sparks showering, gold coins spilling out of the seams, into a towering ornate chrome-and-gold guardian mech (original design) with a glowing coin-shaped core in its chest; the camera does a sweeping low-angle 360-degree orbit; behind it a planet-sized explosion sends a shockwave ring of fire and gold coins across space in slow motion, then snaps to real time; the mech raises its fist.",
+  "C": "SHOT C 'Jackpot' (starts from the last frame of B). The mech slams its fist; a supernova of fireworks erupts: chrysanthemum bursts of molten silver and gold, rainbow coin rockets, psychedelic kaleidoscope portals spinning open everywhere, a storm of thousands of coins raining at the camera in slow motion; everything swirls into a vortex and implodes into ONE single silver coin spinning on edge at the centre, ringing; a final blinding flash, then (last ~1 s) a fast fade to near-black."
+ },
+ "images": [
+  {
+   "file_name": "splash3_B_vaultprime_9x16_take1.mp4",
+   "type": "video",
+   "aspect_ratio": "9:16",
+   "shot": "B",
+   "start_frame": "last frame of splash3_A_zoom_9x16_take1.mp4"
+  },
+  {
+   "file_name": "splash3_C_jackpot_9x16_take1.mp4",
+   "type": "video",
+   "aspect_ratio": "9:16",
+   "shot": "C",
+   "start_frame": "last frame of splash3_B_vaultprime_9x16_take1.mp4"
+  },
+  {
+   "file_name": "splash3_B_vaultprime_9x16_take2.mp4",
+   "type": "video",
+   "aspect_ratio": "9:16",
+   "shot": "B",
+   "start_frame": "last frame of splash3_A_zoom_9x16_take2.mp4"
+  },
+  {
+   "file_name": "splash3_C_jackpot_9x16_take2.mp4",
+   "type": "video",
+   "aspect_ratio": "9:16",
+   "shot": "C",
+   "start_frame": "last frame of splash3_B_vaultprime_9x16_take2.mp4"
+  },
+  {
+   "file_name": "splash3_B_vaultprime_16x9_take1.mp4",
+   "type": "video",
+   "aspect_ratio": "16:9",
+   "shot": "B",
+   "start_frame": "last frame of splash3_A_zoom_16x9_take1.mp4"
+  },
+  {
+   "file_name": "splash3_C_jackpot_16x9_take1.mp4",
+   "type": "video",
+   "aspect_ratio": "16:9",
+   "shot": "C",
+   "start_frame": "last frame of splash3_B_vaultprime_16x9_take1.mp4"
+  },
+  {
+   "file_name": "splash3_W3_wildcard_16x9.mp4",
+   "type": "video",
+   "aspect_ratio": "16:9",
+   "shot": "wildcard",
+   "prompt": "A desktop (16:9) wildcard: your most insane coin-themed blockbuster/psychedelic idea, different from the delivered titan and dragon wildcards."
+  }
+ ]
+}

@@ -310,22 +310,38 @@
 
   /* ---------- FILM path (2026-10-01): a photoreal AI-generated opening film, when one has been imported ----------
      FILM is set by the integrator on "Titan: import the art" (art/splash/*.mp4, from the Drive art queue, docs/art/ART_QUEUE.md).
-     null = no film yet, so the real-time 3D scene below runs. If the film cannot start within 2.5 s, the 3D scene runs instead. */
-  var FILM = null;   // e.g. { portrait: "art/splash/splash_A_9x16.mp4", landscape: "art/splash/splash_A_16x9.mp4", tail: 1.4 }
+     null = no film yet, so the real-time 3D scene below runs. If the film cannot start within 5 s (or the codec is unsupported), the 3D scene runs instead. */
+  var FILM = {     // tr71: Grok Imagine Video 1.5 clips (artreq_20261001-2045_splash-film-v3-maximal), 1080p + sound; one picked at random per launch, never the same twice in a row
+    portrait:  ["art/splash/zoom1_9x16", "art/splash/zoom2_9x16", "art/splash/titan_9x16", "art/splash/dragon_9x16"],
+    landscape: ["art/splash/zoom1_16x9"],     // base names: .webm (VP9 + Opus, 8 Mbps) where supported, else .mp4 (H.264 + AAC, 12 Mbps)
+    tail: 1.4
+  };
   if (FILM && !/[?&]splashgl\b/.test(location.search) && filmPath()) return;
+  function pickFilm(list) {
+    if (!list || !list.length) return null;
+    if (typeof list === "string") return list;
+    var forced = /[?&]film=(\d+)/.exec(location.search);
+    if (forced) return list[clamp(+forced[1], 0, list.length - 1)];
+    var last = null; try { last = localStorage.getItem("tr_splash_film_last"); } catch (e) {}
+    var pool = list.length > 1 ? list.filter(function (f) { return f !== last; }) : list;
+    var pick = pool[Math.floor(Math.random() * pool.length)];
+    try { localStorage.setItem("tr_splash_film_last", pick); } catch (e) {}
+    return pick;
+  }
   function filmPath() {
     var portrait = (window.innerHeight || 1) >= (window.innerWidth || 1);
-    var src = (portrait ? FILM.portrait : FILM.landscape) || FILM.portrait || FILM.landscape;
+    var src = pickFilm((portrait ? FILM.portrait : FILM.landscape) || FILM.portrait || FILM.landscape);
     if (!src) return false;
     var v = document.createElement("video");
+    src += v.canPlayType('video/webm; codecs="vp9, opus"') ? ".webm" : ".mp4";
     v.className = "ts-film"; v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.setAttribute("muted", "");
     v.preload = "auto"; v.src = src;
     v.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;background:#000;z-index:1";
     root.insertBefore(v, root.firstChild);
     root.classList.add("ts-filmon");
-    window.__tsFilmUntil = performance.now() + 11000; later(function () { finish(true, 0.5); }, 11000);   // a film may run ~8-10 s; its own hard cap
+    window.__tsFilmUntil = performance.now() + 20000; later(function () { finish(true, 0.5); }, 20000);   // clips run ~15 s; the film's own hard cap
     var started = false, tail = FILM.tail || 1.4, shown = false;
-    var fallback = later(function () { if (started || state === "done") return; v.remove(); root.classList.remove("ts-filmon"); runGL(); }, 2500);
+    var fallback = later(function () { if (started || state === "done") return; v.remove(); root.classList.remove("ts-filmon"); window.__tsFilmUntil = 0; runGL(); }, 5000);
     v.addEventListener("playing", function () { started = true; clearTimeout(fallback); v.style.opacity = "1"; });
     v.addEventListener("timeupdate", function () {
       if (!shown && v.duration && v.currentTime > v.duration - tail - 1.2) {
