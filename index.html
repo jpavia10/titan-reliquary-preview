@@ -576,7 +576,7 @@
               <div class="term-title-block">
                 <div class="term-eyebrow-row">
                   <span class="eyebrow">Market Desk</span>
-                  <span class="term-live-badge"><span class="term-live-dot" aria-hidden="true"></span>SNAPSHOT</span>
+                  <span class="term-live-badge"><span class="term-live-dot" aria-hidden="true"></span><span id="term-badge">LEDGER QUOTE</span></span>
                 </div>
                 <h2 class="term-title">Precious Metals Terminal</h2>
                 <div class="term-live-rate">
@@ -586,10 +586,31 @@
               </div>
             </div>
 
-            <!-- Terminal Chart Stage: real dated valuation entries only (or an honest message) -->
+            <!-- Series, timeframe and chart type: all over real daily data (Portfolio value is the default) -->
+            <div class="term-asset-pills" id="term-series" role="group" aria-label="Chart series">
+              <button type="button" class="term-asset-btn active" data-series="portfolio" data-asset="portfolio" aria-pressed="true">Portfolio value</button>
+              <button type="button" class="term-asset-btn" data-series="ag" data-asset="ag" aria-pressed="false">Silver spot</button>
+              <button type="button" class="term-asset-btn" data-series="au" data-asset="au" aria-pressed="false">Gold spot</button>
+              <button type="button" class="term-asset-btn" data-series="ratio" data-asset="ratio" aria-pressed="false">Au/Ag ratio</button>
+            </div>
+            <div class="term-time-bar">
+              <div class="term-timeframes-row tf5" id="term-tf" role="group" aria-label="Timeframe">
+                <button type="button" class="term-tf-btn" data-tf="7D" aria-pressed="false">7D</button>
+                <button type="button" class="term-tf-btn" data-tf="30D" aria-pressed="false">30D</button>
+                <button type="button" class="term-tf-btn" data-tf="90D" aria-pressed="false">90D</button>
+                <button type="button" class="term-tf-btn" data-tf="1Y" aria-pressed="false">1Y</button>
+                <button type="button" class="term-tf-btn active" data-tf="ALL" aria-pressed="true">ALL</button>
+              </div>
+              <div class="term-type-toggle" id="term-mode-area" role="group" aria-label="Chart type">
+                <button type="button" class="term-mode-btn active" data-mode="area" aria-pressed="true">Area</button>
+                <button type="button" class="term-mode-btn" data-mode="candle" aria-pressed="false">Candles</button>
+              </div>
+            </div>
+
+            <!-- Terminal Chart Stage: real daily values only (or an honest message) -->
             <div class="term-chart-stage" id="term-chart-stage">
-              <canvas id="term-chart-canvas" width="900" height="340" aria-label="Chart of the collection's dated valuation entries"></canvas>
-              <p class="term-empty" id="term-empty">History starts with the next published quote.</p>
+              <canvas id="term-chart-canvas" width="900" height="340" aria-label="Chart of the portfolio value or spot price by day"></canvas>
+              <p class="term-empty" id="term-empty">Loading price history…</p>
               <div class="term-hud" id="term-hud" hidden>
                 <span class="hud-date" id="hud-date">—</span>
                 <span class="hud-val" id="hud-val">—</span>
@@ -599,7 +620,7 @@
             </div>
             <p class="term-honesty" id="term-chart-cap" hidden></p>
 
-            <p class="term-honesty" id="term-honesty">Latest quote from the ledger. The ledger keeps no price history, so no past prices are shown.</p>
+            <p class="term-honesty" id="term-honesty">Loading the latest quote…</p>
 
             <!-- Trading Statistics & Liquidity Bar -->
             <div class="term-stats-grid" id="term-stats-grid"></div>
