@@ -25,54 +25,172 @@
   const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
   const rnd = (a, b) => a + Math.random() * (b - a);
   const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
-
-  /* Ambient beds. `label` is shown in the studio. */
-  const BEDS = {
-    rain:    { label: "Rain on glass",   icon: "🌧", level: 0.7 },
-    thunder: { label: "Distant thunder", icon: "⛈", level: 0.6 },
-    fire:    { label: "Fireplace",       icon: "🔥", level: 0.7 },
-    room:    { label: "Quiet room",      icon: "🏛", level: 0.6 },
-    wind:    { label: "Wind",            icon: "🍃", level: 0.6 },
-    insects: { label: "Night insects",   icon: "🌙", level: 0.6 },
-    hum:     { label: "Vault hum",       icon: "🔒", level: 0.6 },
-    clock:   { label: "Clock tick",      icon: "⏱", level: 0.5 },
-    vinyl:   { label: "Vinyl crackle",   icon: "💿", level: 0.5 }
+  /* ---------- real recordings (audio/ambience/*.webm|.m4a, see CREDITS.md) ----------
+     Files are normalised to about -20 LUFS, so `trim` sets how loud a bed naturally sits against the others.
+     kind "loop": a seamless loop (random start, breathing gain, 2 voices when short).
+     kind "event": short one-shots at random intervals (`every` seconds) from `segs` = [offset, length] inside the file.
+     fb = the synthesized bed used only if the recording cannot be fetched or decoded. */
+  const REC = {
+    rainLight:    { kind: "loop", group: "Rain", label: "Light rain",        icon: "🌦", trim: 0.55, pan: 0,     fb: "rain",   level: 0.7 },
+    rainWindow:   { kind: "loop", group: "Rain", label: "Rain on window",    icon: "🪟", trim: 0.5,  pan: 0,     fb: "rain",   level: 0.7 },
+    rainHeavy:    { kind: "loop", group: "Rain", label: "Heavy rain",        icon: "🌧", trim: 0.5,  pan: 0,     fb: "rain",   level: 0.8 },
+    rainUmbrella: { kind: "loop", group: "Rain", label: "Rain on umbrella",  icon: "☂", trim: 0.45, pan: 0,     fb: "rain",   level: 0.7 },
+    thunder:      { kind: "event", group: "Rain", label: "Thunder rolls",    icon: "⛈", trim: 0.7,  fb: "thunder", level: 0.6,
+                    every: [30, 80], first: [9, 22], segs: [[0, 15], [15.5, 15], [31, 15]] },
+    wind:         { kind: "loop", group: "Wind and water", label: "Wind",            icon: "🍃", trim: 0.4,  pan: 0,     fb: "wind",   level: 0.6 },
+    windTrees:    { kind: "loop", group: "Wind and water", label: "Wind in trees",   icon: "🌲", trim: 0.4,  pan: 0,     fb: "wind",   level: 0.6 },
+    windHowl:     { kind: "loop", group: "Wind and water", label: "Howling wind",    icon: "❄", trim: 0.4,  pan: 0,     fb: "wind",   level: 0.6 },
+    river:        { kind: "loop", group: "Wind and water", label: "River",           icon: "🏞", trim: 0.45, pan: 0,     fb: "wind",   level: 0.6 },
+    waves:        { kind: "loop", group: "Wind and water", label: "Ocean waves",     icon: "🌊", trim: 0.5,  pan: 0,     fb: "wind",   level: 0.6 },
+    fire:         { kind: "loop", group: "Warmth", label: "Campfire",                icon: "🔥", trim: 0.55, pan: 0,     fb: "fire",   level: 0.8 },
+    crickets:     { kind: "loop", group: "Night and animals", label: "Night crickets", icon: "🌙", trim: 0.4,  pan: 0,   fb: "insects", level: 0.7 },
+    frogs:        { kind: "loop", group: "Night and animals", label: "Night frogs",    icon: "🐸", trim: 0.35, pan: 0.15, fb: "insects", level: 0.5 },
+    village:      { kind: "loop", group: "Night and animals", label: "Night village",  icon: "🏘", trim: 0.45, pan: 0,   fb: "room",   level: 0.6 },
+    birds:        { kind: "loop", group: "Night and animals", label: "Birdsong",       icon: "🐦", trim: 0.4,  pan: 0,   fb: null,     level: 0.6 },
+    gulls:        { kind: "loop", group: "Night and animals", label: "Seagulls",       icon: "🕊", trim: 0.3,  pan: 0.2, fb: null,     level: 0.5 },
+    owl:          { kind: "event", group: "Night and animals", label: "Owl calls",     icon: "🦉", trim: 0.6,  fb: null, level: 0.6,
+                    every: [35, 90], first: [8, 18], segs: [[0, 3.4], [3.9, 3.2]] },
+    library:      { kind: "loop", group: "Places", label: "Library hush",            icon: "📚", trim: 0.55, pan: 0,     fb: "room",   level: 0.7 },
+    cafe:         { kind: "loop", group: "Places", label: "Café murmur",             icon: "☕", trim: 0.4,  pan: 0,     fb: "room",   level: 0.6 },
+    hall:         { kind: "loop", group: "Places", label: "Stone hall",              icon: "🏛", trim: 0.5,  pan: 0,     fb: "hum",    level: 0.6 },
+    trainIn:      { kind: "loop", group: "Places", label: "Inside a train",          icon: "🚆", trim: 0.45, pan: 0,     fb: "hum",    level: 0.7 },
+    train:        { kind: "loop", group: "Places", label: "Train passing",           icon: "🚉", trim: 0.35, pan: 0,     fb: "hum",    level: 0.5 },
+    clock:        { kind: "loop", group: "Things", label: "Clock ticking",           icon: "⏱", trim: 0.3,  pan: 0,     fb: "clock",  level: 0.6 },
+    vinyl:        { kind: "loop", group: "Things", label: "Vinyl crackle",           icon: "💿", trim: 0.4,  pan: 0,     fb: "vinyl",  level: 0.6 },
+    keys:         { kind: "loop", group: "Things", label: "Keyboard typing",         icon: "⌨", trim: 0.35, pan: 0,     fb: null,     level: 0.5 },
+    pages:        { kind: "event", group: "Things", label: "Turning pages",          icon: "📖", trim: 0.55, fb: null, level: 0.6,
+                    every: [20, 60], first: [6, 14], segs: [[0, 3.2], [3.7, 3.2], [7.4, 3.4]] },
+    bowl:         { kind: "event", group: "Things", label: "Singing bowl",           icon: "🔔", trim: 0.45, fb: null, level: 0.6,
+                    every: [50, 90], first: [10, 20], segs: [[0, 26]] },
+    brown:        { kind: "loop", group: "Noise", label: "Brown noise",              icon: "🟤", trim: 0.3,  pan: 0,     fb: "hum",    level: 0.5 },
+    leaves:       { kind: "loop", group: "Rain", label: "Rain on leaves",      icon: "🍃", trim: 0.45, pan: 0, fb: "rain",   level: 0.7 },
+    underwater:   { kind: "loop", group: "Wind and water", label: "Underwater rumble", icon: "🫧", trim: 0.5, pan: 0, fb: "hum", level: 0.7 },
+    drips:        { kind: "loop", group: "Wind and water", label: "Slow drips",    icon: "💧", trim: 0.3,  pan: 0, fb: null, level: 0.5 },
+    waterfall:    { kind: "loop", group: "Wind and water", label: "Waterfall",     icon: "🏞", trim: 0.35, pan: 0, fb: "wind", level: 0.5 },
+    ship:         { kind: "loop", group: "Wind and water", label: "Ship at anchor", icon: "⛵", trim: 0.5, pan: 0, fb: "wind", level: 0.6 },
+    whale:        { kind: "event", group: "Night and animals", label: "Distant whale", icon: "🐋", trim: 0.5, fb: null, level: 0.6,
+                    every: [60, 90], first: [12, 24], segs: [[0, 26]] },
+    roomTone:     { kind: "loop", group: "Places", label: "Quiet room tone",       icon: "🏠", trim: 0.5,  pan: 0, fb: "room", level: 0.7 },
+    labHum:       { kind: "loop", group: "Places", label: "Air handling hum",      icon: "🌀", trim: 0.4,  pan: 0, fb: "hum",  level: 0.6 },
+    temple:       { kind: "loop", group: "Places", label: "Temple echo",           icon: "🛕", trim: 0.4,  pan: 0, fb: "hum",  level: 0.6 },
+    crowd:        { kind: "loop", group: "Places", label: "Distant crowd",         icon: "👥", trim: 0.35, pan: 0, fb: "room", level: 0.5 },
+    club:         { kind: "loop", group: "Places", label: "Club murmur",           icon: "🎷", trim: 0.45, pan: 0, fb: "room", level: 0.6 },
+    city:         { kind: "loop", group: "Places", label: "City street",           icon: "🌆", trim: 0.4,  pan: 0, fb: "room", level: 0.6 },
+    chimes:       { kind: "loop", group: "Things", label: "Wind chimes",           icon: "🎐", trim: 0.3,  pan: 0, fb: null, level: 0.5 },
+    telemetry:    { kind: "loop", group: "Things", label: "Faint telemetry",       icon: "📡", trim: 0.15, pan: 0, fb: null, level: 0.5 },
+    creak:        { kind: "event", group: "Things", label: "Timber creaks",        icon: "🪵", trim: 0.6, fb: null, level: 0.6,
+                    every: [25, 70], first: [8, 18], segs: [[0, 3.6], [4.1, 3.6], [8.2, 3.6], [12.3, 3.6], [16.4, 3.6]] },
+    clank:        { kind: "event", group: "Things", label: "Distant clunks",       icon: "🔩", trim: 0.45, fb: null, level: 0.6,
+                    every: [20, 60], first: [8, 16], segs: [[0, 2.6], [3.1, 2.6], [6.2, 2.6], [9.3, 2.6]] },
+    pink:         { kind: "loop", group: "Noise", label: "Pink noise",               icon: "🌸", trim: 0.25, pan: 0,     fb: "wind",   level: 0.5 }
   };
-  const BED_ORDER = ["rain", "thunder", "fire", "room", "wind", "insects", "hum", "clock", "vinyl"];
+  /* Beds saved by earlier builds (synth names) map onto the real recordings. */
+  const LEGACY = { rain: "rainWindow", thunder: "thunder", fire: "fire", room: "library", wind: "wind", insects: "crickets", hum: "hall", clock: "clock", vinyl: "vinyl" };
+  const BED_ORDER = Object.keys(REC);
+  const BEDS = {}; BED_ORDER.forEach((id) => { const r = REC[id]; BEDS[id] = { label: r.label, icon: r.icon, level: r.level, kind: r.kind, group: r.group }; });
+  const BED_GROUPS = []; BED_ORDER.forEach((id) => { const g = REC[id].group; if (BED_GROUPS.indexOf(g) < 0) BED_GROUPS.push(g); });
 
-  /* One-tap scenes. beds: id -> level 0..1; music flags below. */
+  /* One-tap scenes. beds: id -> level 0..1 (loops and events); music flags below.
+     Music sits under the ambience: soft pads, a little felt piano, music-box bells, never bright. */
   const SCENES = {
-    study:   { name: "Quiet study", icon: "📖", desc: "Soft pads, a little piano, a quiet room.", atmo: "conservator",
-               beds: { room: 0.7, wind: 0.15 }, pad: 0.7, piano: true, bells: false, beat: false,
-               root: "D", mode: "lydian", prog: [0, 4, 3, 1], chordSec: 14, gap: [5, 11], vol: 0.55 },
-    rainy:   { name: "Rainy archive", icon: "🌧", desc: "Rain on the skylight, far thunder, slow lo-fi beat.", atmo: "afterhours",
-               beds: { rain: 0.8, thunder: 0.5, room: 0.3 }, pad: 0.55, piano: true, bells: false, beat: true,
-               root: "A", mode: "dorian", prog: [0, 3, 5, 4], chordSec: 0, gap: [4, 9], bpm: 70, vol: 0.55 },
-    vault:   { name: "Midnight vault", icon: "🔒", desc: "Deep hum, a slow clock, a distant bell.", atmo: "nocturne",
-               beds: { hum: 0.8, clock: 0.55, room: 0.2 }, pad: 0.45, piano: false, bells: true, beat: false,
-               root: "E", mode: "phrygian", prog: [0, 0, 5, 3], chordSec: 18, gap: [9, 18], vol: 0.5 },
-    hearth:  { name: "Hearth", icon: "🔥", desc: "Crackling fire, warm pads, gentle piano.", atmo: "valhalla",
-               beds: { fire: 0.85, room: 0.35, wind: 0.12 }, pad: 0.65, piano: true, bells: false, beat: false,
-               root: "F", mode: "major", prog: [0, 5, 3, 4], chordSec: 13, gap: [6, 13], vol: 0.55 },
-    lofi:    { name: "Lo-fi evening", icon: "🎧", desc: "Laid-back beat, vinyl crackle, soft keys.", atmo: "neon",
-               beds: { vinyl: 0.7, rain: 0.25 }, pad: 0.5, piano: true, bells: true, beat: true,
-               root: "C", mode: "dorian", prog: [1, 4, 0, 5], chordSec: 0, gap: [3, 7], bpm: 78, vol: 0.55 },
-    garden:  { name: "Night garden", icon: "🌙", desc: "Crickets, a light breeze, slow bells.", atmo: "zen",
-               beds: { insects: 0.8, wind: 0.35 }, pad: 0.4, piano: false, bells: true, beat: false,
-               root: "G", mode: "pent", prog: [0, 2, 1, 3], chordSec: 15, gap: [5, 10], vol: 0.5 },
-    snow:    { name: "Snowed in", icon: "❄", desc: "Soft wind, a glassy pad, very quiet.", atmo: "glacier",
-               beds: { wind: 0.7, room: 0.2 }, pad: 0.7, piano: false, bells: true, beat: false,
-               root: "Bb", mode: "lydian", prog: [0, 1, 4, 1], chordSec: 17, gap: [8, 16], vol: 0.5 },
+    rainy:   { name: "Rainy archive", icon: "🌧", desc: "Rain on the skylight, far thunder, a slow lo-fi beat.", atmo: "afterhours",
+               beds: { rainWindow: 0.85, thunder: 0.5, library: 0.3 }, pad: 0.5, piano: true, bells: false, beat: true,
+               root: "A", mode: "dorian", prog: [0, 3, 5, 4], chordSec: 0, gap: [5, 10], bpm: 68, vol: 0.55 },
+    vault:   { name: "Midnight vault", icon: "🔒", desc: "A stone hall at night, a slow clock, a far bowl.", atmo: "nocturne",
+               beds: { hall: 0.85, clock: 0.45, bowl: 0.6 }, pad: 0.4, piano: false, bells: true, beat: false,
+               root: "E", mode: "phrygian", prog: [0, 0, 5, 3], chordSec: 18, gap: [10, 20], vol: 0.5 },
+    lofi:    { name: "Lo-fi evening", icon: "🎧", desc: "A laid-back beat, vinyl crackle, soft keys, light rain.", atmo: "neon",
+               beds: { vinyl: 0.75, rainLight: 0.3 }, pad: 0.45, piano: true, bells: true, beat: true,
+               root: "C", mode: "dorian", prog: [1, 4, 0, 5], chordSec: 0, gap: [3, 7], bpm: 76, vol: 0.55 },
+    garden:  { name: "Night garden", icon: "🌙", desc: "Crickets, a far owl, a light breeze, slow bells.", atmo: "zen",
+               beds: { crickets: 0.8, frogs: 0.3, owl: 0.7, wind: 0.2 }, pad: 0.35, piano: false, bells: true, beat: false,
+               root: "G", mode: "pent", prog: [0, 2, 1, 3], chordSec: 15, gap: [7, 13], vol: 0.5 },
     storm:   { name: "Thunderstorm", icon: "⛈", desc: "Heavy rain and rolling thunder, no music.", atmo: "odyssey",
-               beds: { rain: 1, thunder: 0.9, wind: 0.4 }, pad: 0, piano: false, bells: false, beat: false,
-               root: "D", mode: "minor", prog: [0], chordSec: 12, gap: [8, 12], vol: 0.55 }
+               beds: { rainHeavy: 0.9, thunder: 1, windTrees: 0.35 }, pad: 0, piano: false, bells: false, beat: false,
+               root: "D", mode: "minor", prog: [0], chordSec: 12, gap: [8, 12], vol: 0.55 },
+    "midnight-gallery": { world: true, name: "Midnight Gallery", icon: "🏛", desc: "Room tone, far rain on the skylight, a slow clock.", atmo: "afterhours",
+               beds: { roomTone: 0.55, rainWindow: 0.25, clock: 0.4 }, pad: 0.45, piano: true, bells: false, beat: false,
+               root: "A", mode: "dorian", prog: [0, 3, 5, 4], chordSec: 15, gap: [8, 15], bpm: 70, vol: 0.5 },
+    "conservator": { world: true, name: "Conservator's Bench", icon: "🔎", desc: "A hushed library, turning pages, a quiet clock.", atmo: "conservator",
+               beds: { library: 0.8, pages: 0.65, clock: 0.3 }, pad: 0.55, piano: true, bells: false, beat: false,
+               root: "D", mode: "lydian", prog: [0, 4, 3, 1], chordSec: 14, gap: [7, 14], bpm: 70, vol: 0.55 },
+    "mint": { world: true, name: "The Mint", icon: "⚒", desc: "A furnace fire and distant metal clunks.", atmo: "colossus",
+               beds: { fire: 0.75, clank: 0.75, roomTone: 0.2 }, pad: 0.35, piano: false, bells: true, beat: false,
+               root: "D", mode: "minor", prog: [0, 0, 3, 4], chordSec: 18, gap: [10, 20], bpm: 70, vol: 0.5 },
+    "hoard": { world: true, name: "Hoard Hall", icon: "🛡", desc: "Hearth fire, wind in the timbers, a creaking beam.", atmo: "valhalla",
+               beds: { fire: 0.8, windTrees: 0.3, creak: 0.6 }, pad: 0.5, piano: false, bells: true, beat: false,
+               root: "E", mode: "phrygian", prog: [0, 5, 3, 0], chordSec: 17, gap: [9, 18], bpm: 70, vol: 0.5 },
+    "bluenote": { world: true, name: "Blue Note", icon: "🎷", desc: "Club murmur, vinyl crackle, rain outside, soft piano.", atmo: "nocturne",
+               beds: { club: 0.6, vinyl: 0.4, rainWindow: 0.25 }, pad: 0.3, piano: true, bells: false, beat: false,
+               root: "C", mode: "dorian", prog: [1, 4, 0, 5], chordSec: 14, gap: [4, 9], bpm: 70, vol: 0.5 },
+    "cabin": { world: true, name: "Captain's Cabin", icon: "⚓", desc: "Waves on the hull, creaking timber, gulls.", atmo: "odyssey",
+               beds: { waves: 0.6, ship: 0.35, creak: 0.6, gulls: 0.3 }, pad: 0.4, piano: false, bells: true, beat: false,
+               root: "G", mode: "major", prog: [0, 3, 4, 0], chordSec: 16, gap: [9, 18], bpm: 70, vol: 0.5 },
+    "shipwreck": { world: true, name: "Shipwreck", icon: "🌊", desc: "Deep underwater rumble and a distant whale.", atmo: "abyss",
+               beds: { underwater: 0.85, whale: 0.6 }, pad: 0.55, piano: false, bells: true, beat: false,
+               root: "Bb", mode: "lydian", prog: [0, 1, 4, 1], chordSec: 18, gap: [10, 20], bpm: 70, vol: 0.5 },
+    "prism": { world: true, name: "Prism", icon: "🔮", desc: "Glassy pads and soft wind chimes.", atmo: "kaleido",
+               beds: { chimes: 0.6, wind: 0.12 }, pad: 0.6, piano: false, bells: true, beat: false,
+               root: "F", mode: "lydian", prog: [0, 4, 1, 3], chordSec: 16, gap: [6, 12], bpm: 70, vol: 0.5 },
+    "nightcity": { world: true, name: "Night City", icon: "🌃", desc: "Rain on wet glass, traffic far below.", atmo: "neon",
+               beds: { rainWindow: 0.65, city: 0.5 }, pad: 0.4, piano: true, bells: true, beat: true,
+               root: "C", mode: "dorian", prog: [1, 4, 0, 5], chordSec: 0, gap: [4, 8], bpm: 74, vol: 0.5 },
+    "blacksite": { world: true, name: "Black Site", icon: "🛰", desc: "Air handling hum and faint telemetry.", atmo: "construct",
+               beds: { labHum: 0.65, roomTone: 0.3, telemetry: 0.6 }, pad: 0.3, piano: false, bells: false, beat: false,
+               root: "E", mode: "minor", prog: [0, 0, 5, 3], chordSec: 20, gap: [10, 20], bpm: 70, vol: 0.45 },
+    "crypt": { world: true, name: "Forbidden Wing", icon: "🕯", desc: "Slow drips, a cold draught, a far bell.", atmo: "cursedwing",
+               beds: { drips: 0.6, windHowl: 0.3, hall: 0.4, bowl: 0.45 }, pad: 0.35, piano: false, bells: true, beat: false,
+               root: "E", mode: "phrygian", prog: [0, 1, 0, 5], chordSec: 19, gap: [10, 20], bpm: 70, vol: 0.45 },
+    "observatory": { world: true, name: "Observatory", icon: "🔭", desc: "Night crickets, a thin wind, clockwork ticking.", atmo: "solaris",
+               beds: { crickets: 0.55, wind: 0.25, clock: 0.35 }, pad: 0.5, piano: false, bells: true, beat: false,
+               root: "G", mode: "pent", prog: [0, 2, 1, 3], chordSec: 16, gap: [7, 14], bpm: 70, vol: 0.5 },
+    "alchemist": { world: true, name: "Alchemist's Study", icon: "⚗", desc: "A low fire, turning pages, a still room.", atmo: "alchemist",
+               beds: { fire: 0.5, pages: 0.55, roomTone: 0.25 }, pad: 0.45, piano: true, bells: false, beat: false,
+               root: "A", mode: "minor", prog: [0, 5, 2, 4], chordSec: 16, gap: [8, 16], bpm: 70, vol: 0.5 },
+    "polar": { world: true, name: "Polar Vault", icon: "❄", desc: "Howling wind over ice and a deep stillness.", atmo: "glacier",
+               beds: { windHowl: 0.7, wind: 0.3, roomTone: 0.2 }, pad: 0.65, piano: false, bells: true, beat: false,
+               root: "Bb", mode: "lydian", prog: [0, 1, 4, 1], chordSec: 17, gap: [9, 18], bpm: 70, vol: 0.5 },
+    "imperial": { world: true, name: "Imperial Treasury", icon: "🏮", desc: "Wind chimes, a light breeze, water far away.", atmo: "dynasty",
+               beds: { chimes: 0.55, wind: 0.2, waterfall: 0.15 }, pad: 0.4, piano: false, bells: true, beat: false,
+               root: "D", mode: "pent", prog: [0, 2, 1, 3], chordSec: 15, gap: [6, 12], bpm: 70, vol: 0.5 },
+    "temple": { world: true, name: "Temple Garden", icon: "⛩", desc: "Rain on leaves, water, a singing bowl.", atmo: "zen",
+               beds: { leaves: 0.65, waterfall: 0.3, drips: 0.2, bowl: 0.7 }, pad: 0.3, piano: false, bells: true, beat: false,
+               root: "G", mode: "pent", prog: [0, 2, 1, 3], chordSec: 16, gap: [8, 16], bpm: 70, vol: 0.5 },
+    "caravanserai": { world: true, name: "Caravanserai", icon: "🐪", desc: "Desert wind, a small fire, soft chimes (no camel bells in the library).", atmo: "silkroad",
+               beds: { wind: 0.45, fire: 0.4, chimes: 0.15, crickets: 0.3 }, pad: 0.45, piano: false, bells: true, beat: false,
+               root: "D", mode: "dorian", prog: [0, 3, 0, 4], chordSec: 18, gap: [9, 18], bpm: 70, vol: 0.5 },
+    "fireside": { world: true, name: "Fireside Den", icon: "🛋", desc: "A crackling fire, snow wind at the window, a clock.", atmo: null,
+               beds: { fire: 0.9, windHowl: 0.2, clock: 0.25 }, pad: 0.55, piano: true, bells: false, beat: false,
+               root: "F", mode: "major", prog: [0, 5, 3, 4], chordSec: 13, gap: [7, 14], bpm: 70, vol: 0.55 },
+    "roman": { world: true, name: "Roman Treasury", icon: "🏺", desc: "Temple echo and a far crowd.", atmo: null,
+               beds: { temple: 0.6, crowd: 0.25, hall: 0.2 }, pad: 0.4, piano: false, bells: true, beat: false,
+               root: "D", mode: "minor", prog: [0, 3, 4, 0], chordSec: 18, gap: [10, 20], bpm: 70, vol: 0.5 },
+    "privatebank": { world: true, name: "Private Bank", icon: "🏦", desc: "Quiet room tone, nothing else.", atmo: null,
+               beds: { roomTone: 0.65 }, pad: 0.35, piano: true, bells: false, beat: false,
+               root: "C", mode: "major", prog: [0, 4, 3, 4], chordSec: 16, gap: [10, 18], bpm: 70, vol: 0.45 },
+    coast:   { name: "Coastal reading room", icon: "🌊", desc: "Waves below the window, gulls, turning pages, soft keys.", atmo: "abyss",
+               beds: { waves: 0.8, gulls: 0.35, pages: 0.6, wind: 0.15 }, pad: 0.5, piano: true, bells: false, beat: false,
+               root: "G", mode: "lydian", prog: [0, 4, 1, 3], chordSec: 15, gap: [8, 15], vol: 0.55 },
+    closing: { name: "Library at closing", icon: "🕯", desc: "Rain on the glass, a ticking clock, the last pages turning.", atmo: "alchemist",
+               beds: { library: 0.6, rainWindow: 0.35, clock: 0.4, pages: 0.8 }, pad: 0.45, piano: true, bells: false, beat: false,
+               root: "A", mode: "minor", prog: [0, 5, 2, 4], chordSec: 16, gap: [8, 16], vol: 0.5 },
+    train:   { name: "Train through the night", icon: "🚆", desc: "The rhythm of the rails, rain on the window, a slow pad.", atmo: "silkroad",
+               beds: { trainIn: 0.85, rainWindow: 0.3 }, pad: 0.55, piano: false, bells: true, beat: false,
+               root: "D", mode: "dorian", prog: [0, 3, 0, 4], chordSec: 18, gap: [10, 20], vol: 0.5 },
+    cafe:    { name: "Café on the corner", icon: "☕", desc: "Quiet chatter, rain on the umbrellas, soft piano.", atmo: "dynasty",
+               beds: { cafe: 0.75, rainUmbrella: 0.3, vinyl: 0.25 }, pad: 0.4, piano: true, bells: false, beat: false,
+               root: "F", mode: "major", prog: [0, 3, 4, 3], chordSec: 14, gap: [5, 10], vol: 0.5 }
   };
-  const SCENE_ORDER = ["study", "rainy", "vault", "hearth", "lofi", "garden", "snow", "storm"];
+  const SOUND_ORDER = ["rainy", "vault", "lofi", "garden", "storm", "coast", "closing", "train", "cafe"];
+  const WORLD_ORDER = ["midnight-gallery", "conservator", "mint", "hoard", "bluenote", "cabin", "shipwreck", "prism", "nightcity", "blacksite", "crypt", "observatory", "alchemist", "polar", "imperial", "temple", "caravanserai", "fireside", "roman", "privatebank"];
+  const SCENE_ORDER = SOUND_ORDER;                 // the one-tap "Sound only" presets; World scenes are SCENES[id] for id in WORLD_ORDER
+  const ALIASES = { study: "conservator", hearth: "fireside", snow: "polar" };   // scene ids saved by earlier builds
 
   const E = {
     ctx: null, groups: [], playing: false, paused: false, mix: null, name: "",
     vol: 0.6, musLevel: 0.9, ambLevel: 0.9, bass: 0, mid: 0, treble: 0, duck: false,
-    bgPause: false, worker: null, timer: 0, msd: null, el: null, via: "none", killedSources: 0
+    bgPause: false, worker: null, timer: 0, msd: null, el: null, via: "none", killedSources: 0,
+    bufs: {}, sweepAt: 0, decoded: 0, released: 0, fallbacks: 0
   };
 
   function emit(type) { try { window.dispatchEvent(new CustomEvent("titan:gen", { detail: { type, playing: E.playing, paused: E.paused, name: E.name } })); } catch (e) { /* ignore */ } }
@@ -98,17 +216,24 @@
     for (let i = 0; i < F; i++) { const a = i / F; d[i] = (tmp[i] * a + tmp[n + i] * (1 - a)) * g; }
     return buf;
   }
-  function mkImpulse(ctx, sec) {
-    const sr = ctx.sampleRate, n = Math.floor(sr * sec), buf = ctx.createBuffer(2, n, sr);
+  /* Hall impulse: pre-delay, sparse early reflections, then a diffuse tail that gets darker as it decays (RT60 = rt60). */
+  function mkHall(ctx, rt60, pre) {
+    const sr = ctx.sampleRate, p = Math.floor(pre * sr), n = Math.floor(sr * (rt60 * 1.15)) + p, buf = ctx.createBuffer(2, n, sr);
     for (let c = 0; c < 2; c++) {
-      const d = buf.getChannelData(c); let lp = 0;
-      for (let i = 0; i < n; i++) {
-        const t = i / n;
-        lp += ((Math.random() * 2 - 1) - lp) * (0.55 - 0.45 * t);   // darker as it decays
-        d[i] = lp * Math.pow(1 - t, 3.2) * 1.6;
+      const d = buf.getChannelData(c); let lp = 0, lp2 = 0;
+      for (let k = 0; k < 10; k++) { const t = p + Math.floor(sr * (0.004 + 0.075 * Math.pow(Math.random(), 1.3))); if (t < n) d[t] += (Math.random() < 0.5 ? -1 : 1) * 0.55 * Math.pow(0.82, k); }
+      for (let i = p; i < n; i++) {
+        const t = (i - p) / sr, env = Math.exp(-6.91 * t / rt60) * Math.min(1, t / 0.04), coef = 0.62 - 0.52 * Math.min(1, t / (rt60 * 0.8));
+        lp += ((Math.random() * 2 - 1) - lp) * coef; lp2 += (lp - lp2) * 0.7;
+        d[i] += lp2 * env * 0.9;
       }
     }
     return buf;
+  }
+  function tapeCurve(k) {
+    const n = 1024, c = new Float32Array(n), th = Math.tanh(k);
+    for (let i = 0; i < n; i++) { const x = i / (n - 1) * 2 - 1; c[i] = Math.tanh(k * x) / th; }
+    return c;
   }
 
   /* ---------- engine bring-up (must be called from a user gesture) ---------- */
@@ -124,11 +249,19 @@
     E.white = mkNoise(ctx, "white", 0.6);
     const bus = ctx.createGain();
     E.ambBus = ctx.createGain(); E.musBus = ctx.createGain();
-    E.ambBus.connect(bus); E.musBus.connect(bus);
-    const verb = ctx.createConvolver(); verb.buffer = mkImpulse(ctx, 1.7);
-    const ambSend = ctx.createGain(), musSend = ctx.createGain(), wet = ctx.createGain();
-    ambSend.gain.value = 0.16; musSend.gain.value = 0.42; wet.gain.value = 0.9;
-    E.ambBus.connect(ambSend); E.musBus.connect(musSend); ambSend.connect(verb); musSend.connect(verb); verb.connect(wet); wet.connect(bus);
+    E.ambBus.connect(bus);
+    // Music gets a little tape colour (gentle high cut + soft tanh saturation) before the bus.
+    const musTone = ctx.createBiquadFilter(); musTone.type = "lowpass"; musTone.frequency.value = 6800; musTone.Q.value = 0.4;
+    const musDrive = ctx.createGain(); musDrive.gain.value = 1.5;
+    const sat = ctx.createWaveShaper(); sat.curve = tapeCurve(1.6); try { sat.oversample = "2x"; } catch (e) { /* ignore */ }
+    const musMake = ctx.createGain(); musMake.gain.value = 0.7;
+    E.musBus.connect(musTone); musTone.connect(musDrive); musDrive.connect(sat); sat.connect(musMake); musMake.connect(bus);
+    // Reverb: a long dark hall tail for the music only (the recordings carry their own space; a second convolver cost frames on phones).
+    const verbM = ctx.createConvolver(); verbM.buffer = mkHall(ctx, 4.8, 0.03);
+    const musSend = ctx.createGain(), wetM = ctx.createGain();
+    musSend.gain.value = 0.55; wetM.gain.value = 0.85;
+    E.musBus.connect(musSend);
+    musSend.connect(verbM); verbM.connect(wetM); wetM.connect(bus);
     const lo = ctx.createBiquadFilter(); lo.type = "lowshelf"; lo.frequency.value = 140;
     const mid = ctx.createBiquadFilter(); mid.type = "peaking"; mid.frequency.value = 1100; mid.Q.value = 0.7;
     const hi = ctx.createBiquadFilter(); hi.type = "highshelf"; hi.frequency.value = 4500;
@@ -186,7 +319,10 @@
   }
   function tick() {
     const ctx = E.ctx;
-    if (!ctx || ctx.state !== "running") return;
+    if (!ctx) return;
+    const now = performance.now();
+    if (now > E.sweepAt) { E.sweepAt = now + 5000; releaseIdle(IDLE_MS); }
+    if (ctx.state !== "running") return;
     const t0 = ctx.currentTime, t1 = t0 + LOOKAHEAD;
     for (const g of E.groups) { if (g.dead) continue; for (const fn of g.tickers) { try { fn(t0, t1); } catch (e) { /* keep going */ } } }
   }
@@ -207,18 +343,28 @@
   /* ---------- group (one scene's sources) ---------- */
   function mkGroup() {
     const ctx = E.ctx;
-    const g = { dead: false, srcs: [], tickers: [], bed: ctx.createGain(), mus: ctx.createGain(), bedOut: ctx.createGain(), musOut: ctx.createGain(), t0: ctx.currentTime + 0.05 };
+    const g = { dead: false, srcs: [], tickers: [], rel: [], lv: {}, fell: {}, born: ctx.currentTime, fadeSec: 0, bed: ctx.createGain(), mus: ctx.createGain(), bedOut: ctx.createGain(), musOut: ctx.createGain(), t0: ctx.currentTime + 0.05 };
     g.bed.connect(g.bedOut); g.mus.connect(g.musOut); g.bedOut.connect(E.ambBus); g.musOut.connect(E.musBus);
     g.bedOut.gain.value = 0; g.musOut.gain.value = 0;
     g.src = (s) => { g.srcs.push(s); s.onended = () => { const i = g.srcs.indexOf(s); if (i >= 0) g.srcs.splice(i, 1); try { s.disconnect(); } catch (e) { /* ignore */ } }; return s; };
+    /* equal-power crossfade (sin in / cos out) so two scenes never dip in the middle; linear ramp as a fallback */
     g.fade = (to, sec) => {
-      const t = ctx.currentTime;
-      for (const p of [g.bedOut.gain, g.musOut.gain]) { p.cancelScheduledValues(t); p.setValueAtTime(p.value, t); p.linearRampToValueAtTime(to, t + Math.max(0.05, sec)); }
+      const t = ctx.currentTime; sec = Math.max(0.05, sec); g.fadeSec = sec; g.fadeAt = t;
+      for (const p of [g.bedOut.gain, g.musOut.gain]) {
+        const v = p.value; p.cancelScheduledValues(t); p.setValueAtTime(v, t);
+        if (Math.abs(to - v) < 1e-4) continue;
+        try {
+          const n = 48, c = new Float32Array(n), up = to > v;
+          for (let i = 0; i < n; i++) { const x = Math.PI / 2 * i / (n - 1); c[i] = up ? v + (to - v) * Math.sin(x) : to + (v - to) * Math.cos(x); }
+          p.setValueCurveAtTime(c, t + 0.001, sec);
+        } catch (e) { p.linearRampToValueAtTime(to, t + sec); }
+      }
     };
     g.kill = () => {
       if (g.dead) return; g.dead = true; g.tickers.length = 0;
       for (const s of g.srcs.slice()) { try { s.onended = null; s.stop(); } catch (e) { /* ignore */ } try { s.disconnect(); } catch (e) { /* ignore */ } E.killedSources++; }
       g.srcs.length = 0;
+      for (const fn of g.rel.splice(0)) { try { fn(); } catch (e) { /* ignore */ } }
       for (const n of [g.bed, g.mus, g.bedOut, g.musOut]) { try { n.disconnect(); } catch (e) { /* ignore */ } }
       const i = E.groups.indexOf(g); if (i >= 0) E.groups.splice(i, 1);
     };
@@ -317,7 +463,123 @@
     const o = g.osc("sine", rate), d = g.gain(depth); o.connect(d); d.connect(target); return o;
   }
 
-  /* ---------- ambient beds ---------- */
+  /* ---------- recorded beds: fetch + decode once (lazily), loop with random offsets, breathe, place in the stereo field ---------- */
+  const AMB_URL = (() => { try { return new URL("audio/ambience/", document.baseURI).href; } catch (e) { return "audio/ambience/"; } })();
+  const EXTS = (() => {
+    const ua = navigator.userAgent || "";
+    const ios = /iP(hone|ad|od)/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    const safari = /Safari/.test(ua) && !/Chrome|Chromium|CriOS|FxiOS|Android|Edg|OPR/.test(ua);
+    return (ios || safari) ? ["m4a", "webm"] : ["webm", "m4a"];     // Opus/WebM first, AAC/M4A for Safari
+  })();
+  const fromDb = (db) => Math.pow(10, db / 20);
+  const IDLE_MS = 120000;           // a decoded buffer nobody has used for this long is released
+
+  function loadBuf(id) {
+    const ctx = E.ctx; if (!ctx || !REC[id]) return Promise.resolve(null);
+    let r = E.bufs[id];
+    if (r) { r.last = performance.now(); return r.p; }
+    r = E.bufs[id] = { buf: null, uses: 0, last: performance.now(), p: null };
+    const me = r;
+    r.p = (async () => {
+      for (const x of EXTS) {
+        try {
+          const res = await fetch(AMB_URL + id + "." + x);
+          if (!res.ok) continue;
+          const ab = await res.arrayBuffer();
+          const buf = await new Promise((ok, no) => { const q = ctx.decodeAudioData(ab, ok, no); if (q && q.catch) q.catch(no); });
+          me.buf = buf; E.decoded++; return buf;
+        } catch (e) { /* try the other codec */ }
+      }
+      if (E.bufs[id] === me) delete E.bufs[id];      // allow a retry later (a network blip must not stick)
+      return null;
+    })();
+    return r.p;
+  }
+  /* A group "holds" the buffers it plays; they are released 2 minutes after the last holder is gone. */
+  function holdBuf(g, id) {
+    const r = E.bufs[id]; if (!r) return;
+    r.uses++;
+    g.rel.push(() => { r.uses = Math.max(0, r.uses - 1); r.last = performance.now(); });
+  }
+  function releaseIdle(maxAge) {
+    const now = performance.now(); let n = 0;
+    for (const id of Object.keys(E.bufs)) {
+      const r = E.bufs[id];
+      if (r.buf && r.uses === 0 && now - r.last > maxAge) { delete E.bufs[id]; n++; E.released++; }
+    }
+    return n;
+  }
+  function fallback(g, id, L) {            // recording unavailable: use the synthesized bed (once per kind)
+    E.fallbacks++;
+    const fb = REC[id].fb;
+    if (!fb || g.fell[fb] || g.dead || !BUILD[fb]) return;
+    g.fell[fb] = 1;
+    try { BUILD[fb](g, L * 0.8); } catch (e) { /* ignore */ }
+  }
+  /* slow random gain drift (+-depthDb over per[0]..per[1] s) so a loop never feels static */
+  function breathe(g, param, depthDb, per) {
+    let T = E.ctx.currentTime, v = 1;
+    g.tickers.push((t0, t1) => {
+      if (T < t0) T = t0;
+      while (T < t1) {
+        const dur = rnd(per[0], per[1]), to = fromDb(rnd(-depthDb, depthDb));
+        param.setValueAtTime(v, T); param.linearRampToValueAtTime(to, T + dur); T += dur; v = to;
+      }
+    });
+  }
+  function panned(ctx, node, p) {
+    if (!p || !ctx.createStereoPanner) return node;
+    const sp = ctx.createStereoPanner(); sp.pan.value = Math.max(-1, Math.min(1, p)); node.connect(sp); return sp;
+  }
+  function recLoop(g, id, L) {
+    const R = REC[id], ctx = E.ctx, pr = loadBuf(id);
+    holdBuf(g, id);
+    const lvl = g.gain(0); lvl.connect(g.bed);
+    const rec = g.lv[id] = { param: lvl.gain, trim: R.trim, want: L * R.trim };
+    pr.then((buf) => {
+      if (g.dead) return;
+      if (!buf) { fallback(g, id, L); return; }
+      const dur = buf.duration, voices = dur < 32 ? 2 : 1, o0 = rnd(0, dur);
+      for (let v = 0; v < voices; v++) {                   // short loops run as two voices half a loop apart, panned apart
+        const s = g.src(ctx.createBufferSource()); s.buffer = buf; s.loop = true;
+        const bg = ctx.createGain(), vg = g.gain(voices === 2 ? 0.72 : 1);
+        s.connect(bg);
+        panned(ctx, bg, (R.pan || 0) + (voices === 2 ? (v ? 0.35 : -0.35) : 0)).connect(vg); vg.connect(lvl);
+        s.start(0, (o0 + v * dur / 2) % dur);
+        breathe(g, bg.gain, rnd(2, 3), [20, 60]);
+      }
+      const t = ctx.currentTime;
+      lvl.gain.cancelScheduledValues(t); lvl.gain.setValueAtTime(0, t); lvl.gain.linearRampToValueAtTime(rec.want, t + 1.2);
+    });
+  }
+  function recEvent(g, id, L) {
+    const R = REC[id], ctx = E.ctx, pr = loadBuf(id);
+    holdBuf(g, id);
+    const lvl = g.gain(L * R.trim); lvl.connect(g.bed);
+    g.lv[id] = { param: lvl.gain, trim: R.trim, want: L * R.trim };
+    let buf = null;
+    pr.then((b) => { if (g.dead) return; if (b) buf = b; else fallback(g, id, L); });
+    g.every(rnd(R.first[0], R.first[1]), () => rnd(R.every[0], R.every[1]), (t) => {
+      if (!buf || g.dead) return;
+      const sg = pick(R.segs), s = g.src(ctx.createBufferSource()), a = ctx.createGain();
+      s.buffer = buf;
+      a.gain.setValueAtTime(0.0001, t); a.gain.linearRampToValueAtTime(rnd(0.75, 1), t + 0.04);     // the file itself carries the fade-out
+      s.connect(a); panned(ctx, a, rnd(-0.6, 0.6)).connect(lvl);
+      s.start(t, sg[0], sg[1]);
+    });
+  }
+  /* live level change from the mixer sliders (no rebuild); false if that bed is not in the playing scene */
+  function setBedLevel(id, L) {
+    id = LEGACY[id] || id; let ok = false;
+    for (const g of E.groups) {
+      const o = g.lv[id]; if (g.dead || g.retiring || !o) continue;
+      o.want = Math.max(0, L) * o.trim; ok = true;
+      try { o.param.cancelScheduledValues(E.ctx.currentTime); o.param.setTargetAtTime(o.want, E.ctx.currentTime, 0.12); } catch (e) { /* ignore */ }
+    }
+    return ok;
+  }
+
+  /* ---------- synthesized beds: FALLBACK ONLY (used when a recording cannot be fetched or decoded) ---------- */
   const BUILD = {
     rain(g, L) {
       const o = g.bed, n = g.noise("pink"), hp = g.filter("highpass", 500), lp = g.filter("lowpass", 6500), v = g.gain(0.38 * L);
@@ -390,38 +652,52 @@
   }
   const idxMidi = (S, i) => S.root + S.sc[((i % S.sc.length) + S.sc.length) % S.sc.length] + 12 * Math.floor(i / S.sc.length);
 
+  /* Music is deliberately soft: slow detuned pads (sine + a little triangle through a closed low-pass), a felt
+     piano built from detuned partials with a slow filter close, and music-box bells that never ring bright.
+     It runs through tape colour (tanh + high cut) and a long dark hall tail (see ensure()). */
   function padChord(g, t, dur, midis, lvl, flt) {
-    const ctx = E.ctx, att = Math.min(3.2, dur * 0.3), rel = Math.min(4.5, dur * 0.4);
+    const ctx = E.ctx, att = Math.min(3.6, dur * 0.3), rel = Math.min(5, dur * 0.42);
     const per = lvl * 0.2 / Math.sqrt(midis.length);
     midis.forEach((m, i) => {
-      const f = mtof(m);
-      [["triangle", 0, 0.55], ["sine", 4, 0.45]].forEach(([type, det, w]) => {
-        const o = g.src(ctx.createOscillator()); o.type = type; o.frequency.value = f; o.detune.value = det + rnd(-5, 5);
+      const f = mtof(m), w = per * (i === 0 ? 0.7 : 1);
+      [["sine", -7, 0.42], ["sine", 7, 0.42], ["triangle", rnd(-2, 2), 0.2]].forEach(([type, det, k]) => {
+        const o = g.src(ctx.createOscillator()); o.type = type; o.frequency.value = f; o.detune.value = det + rnd(-3, 3);
         const v = ctx.createGain();
-        v.gain.setValueAtTime(0, t); v.gain.linearRampToValueAtTime(per * w * (i === 0 ? 0.7 : 1), t + att);
-        v.gain.setValueAtTime(per * w * (i === 0 ? 0.7 : 1), t + dur); v.gain.linearRampToValueAtTime(0, t + dur + rel);
+        v.gain.setValueAtTime(0, t); v.gain.linearRampToValueAtTime(w * k, t + att);
+        v.gain.setValueAtTime(w * k, t + dur); v.gain.linearRampToValueAtTime(0, t + dur + rel);
         o.connect(v); v.connect(flt); o.start(t); o.stop(t + dur + rel + 0.1);
       });
     });
   }
   function voicePiano(g, t, midi, lvl) {
-    const ctx = E.ctx, f = mtof(midi), dur = 2.6 + (84 - midi) * 0.04;
-    const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = Math.min(5000, f * 5);
-    const v = ctx.createGain(); v.gain.setValueAtTime(0, t); v.gain.linearRampToValueAtTime(lvl * 0.2, t + 0.006); v.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    [["triangle", 1, 1], ["sine", 2, 0.28], ["sine", 3.01, 0.08]].forEach(([type, mul, w]) => {
-      const o = g.src(ctx.createOscillator()); o.type = type; o.frequency.value = f * mul; o.detune.value = rnd(-3, 3);
-      const wv = ctx.createGain(); wv.gain.value = w; o.connect(wv); wv.connect(lp); o.start(t); o.stop(t + dur + 0.1);
+    const ctx = E.ctx, f = mtof(midi), dur = 3.6 + (84 - midi) * 0.05, vel = Math.min(1, lvl);
+    // the filter starts bright for the hammer, then closes: the felt-piano "bloom and fade"
+    const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.Q.value = 0.3;
+    lp.frequency.setValueAtTime(Math.min(5200, f * (3.5 + vel * 3)), t); lp.frequency.exponentialRampToValueAtTime(Math.max(420, f * 1.5), t + dur * 0.7);
+    const v = ctx.createGain(); v.gain.setValueAtTime(0, t); v.gain.linearRampToValueAtTime(vel * 0.19, t + 0.02); v.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    // slightly inharmonic partials, each as a detuned pair; upper partials die faster
+    [[1, 1], [2.003, 0.34], [3.01, 0.12], [4.03, 0.05]].forEach(([mul, w], k) => {
+      for (const det of [-4.5, 4.5]) {
+        const o = g.src(ctx.createOscillator()); o.type = "sine"; o.frequency.value = f * mul; o.detune.value = det + rnd(-1.5, 1.5);
+        const a = ctx.createGain(); a.gain.setValueAtTime(w * 0.5, t); a.gain.exponentialRampToValueAtTime(0.0008, t + Math.max(0.6, dur * (k ? 0.9 / (1 + k * 0.7) : 1)));
+        o.connect(a); a.connect(lp); o.start(t); o.stop(t + dur + 0.1);
+      }
     });
+    const b = g.src(ctx.createOscillator()); b.type = "triangle"; b.frequency.value = f; const bg = ctx.createGain();
+    bg.gain.setValueAtTime(0.22, t); bg.gain.exponentialRampToValueAtTime(0.0008, t + dur * 0.5); b.connect(bg); bg.connect(lp); b.start(t); b.stop(t + dur * 0.5 + 0.1);
+    burst(lp, t, { type: "lowpass", f: 700, q: 0.7, peak: 0.05 * vel, dur: 0.05, atk: 0.004 });          // felt thump
     lp.connect(v); v.connect(g.mus);
   }
-  function voiceBell(g, t, midi, lvl) {
-    const ctx = E.ctx, f = mtof(midi), dur = 4.5;
-    const c = g.src(ctx.createOscillator()), m = g.src(ctx.createOscillator()), mg = ctx.createGain(), v = ctx.createGain();
-    c.type = "sine"; c.frequency.value = f; m.type = "sine"; m.frequency.value = f * 3.5;
-    mg.gain.setValueAtTime(f * 1.4, t); mg.gain.exponentialRampToValueAtTime(f * 0.02, t + dur * 0.7);
-    v.gain.setValueAtTime(0, t); v.gain.linearRampToValueAtTime(lvl * 0.16, t + 0.005); v.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    m.connect(mg); mg.connect(c.frequency); c.connect(v); v.connect(g.mus);
-    c.start(t); m.start(t); c.stop(t + dur + 0.1); m.stop(t + dur + 0.1);
+  function voiceBell(g, t, midi, lvl) {          // music-box / celesta: soft attack, a few pure partials
+    const ctx = E.ctx, f = mtof(midi + 12), dur = 4.2;
+    const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 3600; lp.Q.value = 0.3;
+    const v = ctx.createGain(); v.gain.setValueAtTime(0, t); v.gain.linearRampToValueAtTime(lvl * 0.13, t + 0.012); v.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    [[1, 1, 1], [2, 0.3, 0.55], [3.0, 0.1, 0.3], [4.17, 0.04, 0.18]].forEach(([mul, w, dm]) => {
+      const o = g.src(ctx.createOscillator()); o.type = "sine"; o.frequency.value = f * mul; o.detune.value = rnd(-4, 4);
+      const a = ctx.createGain(); a.gain.setValueAtTime(w, t); a.gain.exponentialRampToValueAtTime(0.001, t + dur * dm);
+      o.connect(a); a.connect(lp); o.start(t); o.stop(t + dur + 0.1);
+    });
+    lp.connect(v); v.connect(g.mus);
   }
   function kick(g, t, lvl) {
     const ctx = E.ctx, o = g.src(ctx.createOscillator()), v = ctx.createGain();
@@ -433,9 +709,9 @@
   function buildMusic(g, m) {
     const ctx = E.ctx, S = scaleOf(m), prog = m.prog && m.prog.length ? m.prog : [0];
     const bpm = m.bpm || 72, beat = 60 / bpm, chordSec = m.beat ? beat * 8 : (m.chordSec || 14);
-    g.beat = ctx.createBiquadFilter(); g.beat.type = "lowpass"; g.beat.frequency.value = 3400; g.beat.connect(g.mus);
-    const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.frequency.value = 1500; flt.Q.value = 0.4; flt.connect(g.mus);
-    lfo(g, 0.045, 500, flt.frequency);
+    g.beat = ctx.createBiquadFilter(); g.beat.type = "lowpass"; g.beat.frequency.value = 2600; g.beat.connect(g.mus);
+    const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.frequency.value = 1100; flt.Q.value = 0.3; flt.connect(g.mus);
+    lfo(g, 0.045, 380, flt.frequency);
     let ci = 0, chordAt = g.t0 + 0.1, curDeg = prog[0], lastIdx = null;
     if (m.pad > 0 || m.beat) {
       g.tickers.push((t0, t1) => {
@@ -478,7 +754,9 @@
   /* ---------- public control ---------- */
   function buildGroup(mix) {
     const g = mkGroup();
-    for (const id of BED_ORDER) { const L = mix.beds && mix.beds[id]; if (L > 0 && BUILD[id]) BUILD[id](g, L); }
+    const beds = {};
+    for (const k of Object.keys(mix.beds || {})) { const id = LEGACY[k] || k, L = mix.beds[k]; if (L > 0 && REC[id]) beds[id] = Math.max(beds[id] || 0, L); }
+    for (const id of BED_ORDER) { const L = beds[id]; if (L > 0) (REC[id].kind === "event" ? recEvent : recLoop)(g, id, L); }
     if ((mix.pad > 0) || mix.piano || mix.bells || mix.beat) buildMusic(g, mix);
     return g;
   }
@@ -489,11 +767,19 @@
     E.mix = mix; E.name = opts.name || E.name || ""; E.playing = true; E.paused = false; E.userStopped = false;
     if (ctx.state !== "running") ctx.resume().catch(() => {});
     if (E.el && E.el.paused) { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); }
-    const fade = opts.fade == null ? 3 : opts.fade;
-    for (const g of E.groups) { if (g.dead) continue; g.fade(0, fade); const dead = g; setTimeout(() => dead.kill(), fade * 1000 + 400); }
+    const fade = Math.max(0.3, opts.fade == null ? 2.5 : opts.fade);
+    for (const g of E.groups) {
+      if (g.dead || g.retiring) continue;
+      g.retiring = true;
+      // A scene that was only just started (rapid tapping) was barely audible: retire it quickly instead of letting it ring through a long fade.
+      const young = g.fadeSec && (ctx.currentTime - g.born) < g.fadeSec * 0.35, sec = young ? 0.15 : fade;
+      g.fade(0, sec); const dead = g; setTimeout(() => dead.kill(), sec * 1000 + 300);
+    }
     const g = buildGroup(mix);
     E.groups.push(g);
     g.fade(1, fade);
+    const live = E.groups.filter((x) => !x.dead);
+    for (let i = 0; live.length - i > 3; i++) { if (live[i] !== g) live[i].kill(); }   // hard cap: never more than 3 scenes alive at once
     applyMaster(0.2);
     setMeta();
     emit("play");
@@ -567,7 +853,8 @@
   });
 
   window.TitanGen = {
-    BEDS, BED_ORDER, SCENES, SCENE_ORDER,
+    BEDS, BED_ORDER, BED_GROUPS, SCENES, SCENE_ORDER, SOUND_ORDER, WORLD_ORDER, ALIASES, REC,
+    setBedLevel, releaseIdle, loaded: () => Object.keys(E.bufs).filter((k) => E.bufs[k].buf),
     ensure, play, stop, pause, resume,
     setVolume(v) { E.vol = Math.min(1, Math.max(0, v)); applyMaster(0.08); },
     getVolume: () => E.vol,
@@ -581,7 +868,8 @@
     ctxState: () => (E.ctx ? E.ctx.state : "none"),
     route: () => E.via,
     texCheck() { const bad = []; for (const k of Object.keys(E.tex || {})) { const d = E.tex[k].getChannelData(0); for (let i = 0; i < d.length; i += 7) if (!(Math.abs(d[i]) < 4)) { bad.push(k); break; } } return bad; },
+    debugMaster: () => E.master,
     level() { if (!E.an) return 0; E.an.getFloatTimeDomainData(E.anBuf); let s = 0; for (let i = 0; i < E.anBuf.length; i++) s += E.anBuf[i] * E.anBuf[i]; return Math.sqrt(s / E.anBuf.length); },
-    stats: () => ({ groups: E.groups.length, sources: E.groups.reduce((n, g) => n + g.srcs.length, 0), killed: E.killedSources, ctx: E.ctx ? E.ctx.state : "none", via: E.via })
+    stats: () => ({ buffers: Object.keys(E.bufs).filter((k) => E.bufs[k].buf).length, decoded: E.decoded, released: E.released, fallbacks: E.fallbacks, groups: E.groups.length, sources: E.groups.reduce((n, g) => n + g.srcs.length, 0), killed: E.killedSources, ctx: E.ctx ? E.ctx.state : "none", via: E.via })
   };
 })();
