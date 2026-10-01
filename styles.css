@@ -2616,27 +2616,27 @@ html[data-atmo="conservator"] .lab-badge { color: #faf6ec; }
 .fab-search:active { transform: scale(0.93); }
 /* When the music bar is open it sits over the FAB's spot — slide the FAB above it.
    The expanded bar is tall; the collapsed chip is short. */
-body:has(.lofi-bar:not([hidden]):not(.collapsed)) .fab-search {
+html[data-lofi="open"] .fab-search {
   bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 7.4rem);
 }
-body:has(.lofi-bar.collapsed:not([hidden])) .fab-search {
+html[data-lofi="collapsed"] .fab-search {
   bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 4.4rem);
 }
 /* tr14: the open bar is two rows tall on phones — lift the FAB clear of it. */
 @media (max-width: 480px) {
-  body:has(.lofi-bar:not([hidden]):not(.collapsed)) .fab-search {
+  html[data-lofi="open"] .fab-search {
     bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 10rem);
   }
 }
 /* tr14: keep page content from sliding under the open music bar. */
-body:has(.lofi-bar:not([hidden]):not(.collapsed)) main {
+html[data-lofi="open"] main {
   padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 7.5rem);
 }
-body:has(.lofi-bar.collapsed:not([hidden])) main {
+html[data-lofi="collapsed"] main {
   padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 4rem);
 }
 @media (max-width: 480px) {
-  body:has(.lofi-bar:not([hidden]):not(.collapsed)) main {
+  html[data-lofi="open"] main {
     padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 10rem);
   }
 }

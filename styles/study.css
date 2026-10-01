@@ -367,3 +367,18 @@ label.study-check input { width: 22px; height: 22px; accent-color: var(--gold); 
 
 /* QA fix 2026-10-01: Study section pills are the wing's main navigation; keep them thumb-sized. */
 .study-nav-pill { min-height: 44px; font-size: 0.9rem; }
+/* Perf (pass 2): on phones/touch the atlas waypoint pulses animate SVG geometry (`r`) on the main thread,
+   which re-laid-out the whole Study ~60 times a second, and the dashed route flow repainted continuously.
+   Keep both as static marks (the ring still shows, nothing moves). */
+@media (max-width: 700px), (hover: none) and (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .atlas-pulse, .atlas-route-path { animation: none !important; }
+  .atlas-pulse { opacity: 0.55; }
+}
+
+/* Perf (pass 2): the album shelf is ~58 binder cards / 1,650 nodes inside one `.card`; when that card
+   neared the viewport the browser laid out all of it in one 350 ms+ task. Per-binder containment makes
+   it incremental (only the binders near the screen are laid out). */
+#pane-study .album-binder-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 480px;
+}

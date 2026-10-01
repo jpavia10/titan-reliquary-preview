@@ -14,10 +14,15 @@
 
   /* ---------------- formatting ---------------- */
   function isNum(n) { return n != null && n !== "" && !Number.isNaN(Number(n)); }
+  var NFC = {};
+  function fmtN(v, min, max) { // shared Intl.NumberFormat (toLocaleString(locale, options) builds a new one per call)
+    var k = min + "," + max;
+    return (NFC[k] || (NFC[k] = new Intl.NumberFormat("en-US", { minimumFractionDigits: min, maximumFractionDigits: max }))).format(v);
+  }
   function money(n, dec) {
     if (!isNum(n)) return "—";
     var d = dec == null ? 2 : dec;
-    var s = Math.abs(Number(n)).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+    var s = fmtN(Math.abs(Number(n)), d, d);
     return (Number(n) < 0 ? "−$" : "$") + s;
   }
   function moneyBig(n) {
@@ -29,7 +34,7 @@
   }
   function oz(n, d) {
     if (!isNum(n)) return "—";
-    return Number(n).toLocaleString("en-US", { minimumFractionDigits: d == null ? 2 : d, maximumFractionDigits: d == null ? 4 : d }) + " oz";
+    return fmtN(Number(n), d == null ? 2 : d, d == null ? 4 : d) + " oz";
   }
   function pct(n, d) {
     if (!isNum(n)) return "—";
@@ -544,6 +549,9 @@
     if (door) return;
     markPlayed();
     if (reducedMotion() && !opts.force) return;
+    // Phones: the 4 s strongroom door paints ~8 large canvases and 3D layers (~0.5 s blocked on a mid phone);
+    // skip it unless asked for (?vaultdoor=1 or the replay button still force it).
+    if (!opts.force && window.matchMedia && window.matchMedia("(max-width: 700px), (hover: none) and (pointer: coarse)").matches) return;
     if (document.documentElement.classList.contains("ts-on")) return; // splash is showing
     try { door = buildDoor(); } catch (e) { door = null; return; }
     door.start();

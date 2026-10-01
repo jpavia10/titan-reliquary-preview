@@ -24,7 +24,7 @@
 
   /* ══════════════════════════ vocabulary ══════════════════════════ */
   const PHONE = () => !!(window.matchMedia && window.matchMedia("(max-width: 700px)").matches);
-  const batchSize = () => (PHONE() ? 8 : 24); // wall tiles added per batch
+  const batchSize = () => (PHONE() ? 4 : 24); // wall tiles added per batch
   const FACETS = ["cont", "country", "era", "metal", "val", "type", "conf"];
   const FACET_LABEL = { cont: "Continent", country: "Country", era: "Decade", metal: "Metal", val: "Value", type: "Type", conf: "Confidence" };
   const STAGING = new Set(["C114", "C223", "C073", "C066", "C065"]); // the Phase 2 staging album (Lab)

@@ -66,12 +66,19 @@
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
 
+  /* Number.prototype.toLocaleString(locale, options) builds a new Intl.NumberFormat on every call (slow on phones);
+     share formatters instead. Output is identical. */
+  const NF = new Map();
+  function nf(min, max) {
+    const k = min + "," + max;
+    let f = NF.get(k);
+    if (!f) { f = new Intl.NumberFormat("en-US", { minimumFractionDigits: min, maximumFractionDigits: max }); NF.set(k, f); }
+    return f;
+  }
+  const NF_INT = new Intl.NumberFormat("en-US");
   function money(n) {
     if (n == null || Number.isNaN(Number(n))) return "—";
-    return "$" + Number(n).toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+    return "$" + nf(2, 2).format(Number(n));
   }
   function esc(s) {
     return String(s ?? "")
@@ -84,14 +91,11 @@
     if (n == null || Number.isNaN(Number(n))) return "—";
     const max = d;
     const min = minD != null ? minD : d;
-    return Number(n).toLocaleString("en-US", {
-      minimumFractionDigits: min,
-      maximumFractionDigits: max,
-    });
+    return nf(min, max).format(Number(n));
   }
   function intFmt(n) {
     if (n == null || Number.isNaN(Number(n))) return "—";
-    return Number(n).toLocaleString("en-US");
+    return NF_INT.format(Number(n));
   }
   /** High-precision fixed decimals without thousands separators (years / ages). */
   function precise(n, d = 6) {
@@ -2123,9 +2127,25 @@
   };
 
   let cachedChartW = 0, cachedChartH = 0;
+  /* The terminal chart sits below the fold. Drawing it at boot forced a layout of the whole Hall inside the
+     boot task (~0.4 s on a phone), so draw only when the stage is near the screen (re-draw on request while off-screen). */
+  let termInView = !("IntersectionObserver" in window), termDirty = false, termIO = null;
   function renderTerminalChart() {
     const canvas = $("#term-chart-canvas");
     if (!canvas) return;
+    if (!termInView) {
+      termDirty = true;
+      if (!termIO) {
+        termIO = new IntersectionObserver((entries) => {
+          termInView = entries.some((e) => e.isIntersecting);
+          if (termInView && termDirty) { termDirty = false; renderTerminalChart(); }
+        }, { rootMargin: "200px 0px" });
+      }
+      const stage = $("#term-chart-stage") || canvas;
+      termIO.disconnect();
+      termIO.observe(stage);
+      return;
+    }
     const g = canvas.getContext("2d");
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     const rect = canvas.getBoundingClientRect();
@@ -7771,6 +7791,22 @@
       });
     });
   }
+
+  /* Mirror the music bar's state on <html data-lofi="open|collapsed">, so CSS needs no `body:has(.lofi-bar…)`
+     (a :has() on <body> is re-evaluated on every DOM change anywhere; it cost ~150 ms at boot on a phone).
+     Read-only observer: the player code itself (audio.js) is untouched. */
+  const watchLofiBar = () => {
+    const bar = document.querySelector(".lofi-bar");
+    if (!bar) return;
+    const sync = () => {
+      const v = bar.hidden ? "" : (bar.classList.contains("collapsed") ? "collapsed" : "open");
+      if (v) document.documentElement.setAttribute("data-lofi", v); else document.documentElement.removeAttribute("data-lofi");
+    };
+    new MutationObserver(sync).observe(bar, { attributes: true, attributeFilter: ["hidden", "class"] });
+    sync();
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", watchLofiBar, { once: true });
+  else watchLofiBar();
 
   loadVault();
   scheduleReload();
