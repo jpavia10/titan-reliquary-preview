@@ -69,3 +69,5 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 /* End-of-sequence type: opacity, lift and tracking are driven per frame by splash.js from the timeline (deterministic, frame-drop safe) */
 .ts-feature { transform: translateY(10px); }
 .ts-f-country { letter-spacing: .62em; padding-left: .62em; }
+.ts-f-kicker { font-size: 10px; letter-spacing: .5em; padding-left: .5em; text-transform: uppercase; font-style: normal; color: #9a968e; margin-bottom: 2px; text-shadow: 0 1px 10px rgba(0, 0, 0, .8); }
+.ts-f-country { margin-top: 2px; }

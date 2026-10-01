@@ -26,8 +26,7 @@ The featured coin is a real silver flip: those the ledger counts as silver (`met
 C031 Australia 1943 threepence, C088 USA 1957 Roosevelt dime, C223 Netherlands 1967 gulden, C235 Guatemala 1934 10 centavos,
 C263 Mexico 1950 25 centavos), a different one per visit (remembered in `localStorage tr_splash_feat_v3`). If `window.vault` is late
 (900 ms), a built-in fallback list of the same five is used. The coin's own lettering carries the country and year (obverse legend) and
-the denomination (reverse); there is no per-coin artwork yet (0 photos exist), so the design is a generic "owl of Athena" obverse and
-laurel reverse, clearly a motif and not a claim about the real coin.
+the denomination (reverse); the coin face is an abstract engine-turned (guilloche) medallion with a beaded rim, a polished mirror centre and a reeded edge: no design, no lettering, obviously not a replica. The caption reads "From the collection / COUNTRY / year · denomination". Hook: if a flip in `data/index.json` has `photos.obv` (URL), that flip is preferred and its real obverse photo replaces the medallion face (circle-cropped, `splash.js` buildCoin).
 
 ## Techniques
 
@@ -36,7 +35,7 @@ laurel reverse, clearly a motif and not a claim about the real coin.
   alias under bump derivatives were avoided on purpose (no bump maps; the rosette is a pre-baked normal map; seams/rivets are real geometry).
 - **IBL**: `PMREMGenerator.fromScene` of a procedural RoomEnvironment-style studio (overhead tungsten softbox, neutral side strips, a gradient front fill,
   a back kicker, a hot spot for sparkle). Built at runtime, nothing shipped. Material `envMapIntensity` ramps with the light reveal, so the intro is lit by the lamp, not the room.
-- **Coin**: a height map drawn on a canvas (rim, dentils, arc legend, owl with feather scallops / laurel wreath, denomination), box-blurred, turned into a **normal map** and a
+- **Coin**: a height map drawn on a canvas (rim, dentils, arc legend, concentric sine-modulated guilloche bands, radial sunburst, spirograph rosette on the back), box-blurred, turned into a **normal map** and a
   **roughness map** (polished mirror field, frosted relief) in 8 row-bands so no task is long; reeded edge from a tiled normal map; the faces are slightly dished so the mirror
   sweeps a gradient as it turns. Texture size 1536 (tier 0), 1024 (1-2), 768/512 below.
 - **Light**: five `SpotLight`s + one point light with `physicallyCorrectLights`, PCF-soft shadows from the key (2048/1024/512 by tier).
@@ -108,3 +107,7 @@ via chrome://inspect (Performance panel, look for the 8 coin-map tasks and the f
 4. Convolution hits for the groan from a recorded impulse (real-recording ambience is the project direction), and haptics on each bolt on Android (`navigator.vibrate`).
 5. Depth-aware volumetric softening (fade the cones where they meet geometry) and a second, deeper light-shaft pass at tier 0 only.
 6. A "tilt to look" parallax on the product shot (v2 had it), and a drag-to-spin for the coin during the last 1.5 s.
+
+
+## Revision (integrator review): honest coin
+Owl, laurel and all coin lettering removed (v3 first cut invented a design under a real caption). Stronger rim light (85 cd) and a travelling spot that sweeps a polish highlight across the field (4.6-6.1 s), plus faint satin roughness sectors. Highlights are clamped (6.0) in the composite so specular glints cannot produce NaN/hot pixels. Key frames re-rendered for both devices; the two webm clips still show the first cut (owl) and must be re-encoded, so delete or regenerate them before relying on them.

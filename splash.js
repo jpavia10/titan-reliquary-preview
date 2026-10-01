@@ -52,7 +52,8 @@
     var country = String(f.country).replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim();
     var denom = f.label ? String(f.label).split(" · ").slice(2).join(" · ") : "";
     if (!denom || /^\d{4}/.test(denom)) denom = titleCase(String(f.denom));
-    return { country: country, year: String(f.year), denom: denom, scan: f.scan || "" };
+    var ph = f.photos && f.photos.obv ? String(f.photos.obv) : (f.photo_obv ? String(f.photo_obv) : "");   // hook: once Phase 2 photos exist, the real obverse becomes the coin face
+    return { country: country, year: String(f.year), denom: denom, scan: f.scan || "", photo: ph };
   }
   function pickFeatured(v) {
     if (featured) return true;
@@ -60,6 +61,8 @@
     var pieces = null;
     try { pieces = v.metals.inventory.ag.junk_flips.pieces; } catch (e) {}
     var list = v.flips.filter(function (f) { return f && f.country && f.year && f.denom && pieces && pieces[f.scan]; });
+    var withPhoto = v.flips.filter(function (f) { return f && f.country && f.year && f.denom && f.photos && f.photos.obv; });
+    if (withPhoto.length) list = withPhoto;
     if (!list.length) return false;
     var last = null; try { last = localStorage.getItem("tr_splash_feat_v3"); } catch (e) {}
     var f, tries = 0;
@@ -83,6 +86,7 @@
     var c = $(".ts-f-country"), m = $(".ts-f-meta");
     if (!featured || !c) return;
     c.textContent = featured.country; m.textContent = featured.year + "  ·  " + featured.denom;
+    var kk = $(".ts-f-kicker"); if (kk) kk.textContent = "From the collection";
   }
 
   /* ---------- sound: synthesized, off until the visitor turns it on (same stored preference as v2) ---------- */
@@ -625,51 +629,33 @@
       for (var i = 0; i < 112; i++) { var a = i / 112 * Math.PI * 2; g.fillStyle = gray(140); g.beginPath(); g.arc(R + Math.cos(a) * R * 0.885, R + Math.sin(a) * R * 0.885, R * 0.0105, 0, 7); g.fill(); }
       return { R: R, S: S };
     }
-    function drawObverse(g, N, f) {
-      var o = drawCommon(g, N, 150), R = o.R;
-      arcText(g, f.country.toUpperCase(), R, R, R * 0.775, 0, false, R * 0.1, 215);
-      arcText(g, f.year, R, R, R * 0.775, 0, true, R * 0.125, 215);
-      // the owl, frontal, in the manner of the old Athenian tetradrachm
-      g.save(); g.translate(R, R * 1.0); var s = R * 0.62; g.scale(s, s);
-      function E(x, y, rx, ry, rot, v) { g.fillStyle = gray(v); g.beginPath(); g.ellipse(x, y, rx, ry, rot || 0, 0, 7); g.fill(); }
-      function Ln(w, v) { g.lineWidth = w; g.strokeStyle = gray(v); g.lineCap = "round"; }
-      E(0, 0.2, 0.34, 0.62, 0, 112);                                   // body
-      E(-0.32, 0.22, 0.12, 0.54, 0.09, 150); E(0.32, 0.22, 0.12, 0.54, -0.09, 150);   // folded wings
-      Ln(0.012, 90); for (var w = 0; w < 2; w++) for (var r = 0; r < 8; r++) { var sx = w ? 1 : -1; g.beginPath(); g.arc(sx * 0.32, -0.12 + r * 0.095, 0.1, w ? 0.1 : Math.PI * 0.4 - 0.1, w ? Math.PI * 0.6 : Math.PI + 0.1, false); g.stroke(); }
-      Ln(0.014, 205);                                                  // breast feathers: rows of small scallops
-      for (r = 0; r < 8; r++) for (var c = -3; c <= 3; c++) { var cx = c * 0.078 + (r % 2 ? 0.039 : 0), cy = 0.0 + r * 0.082; if (Math.abs(cx) > 0.2 - Math.abs(r - 3) * 0.004) continue; g.beginPath(); g.arc(cx, cy, 0.04, 0.2, Math.PI - 0.2); g.stroke(); }
-      E(0, -0.42, 0.4, 0.26, 0, 160);                                  // head
-      g.fillStyle = gray(160); g.beginPath(); g.moveTo(-0.38, -0.5); g.lineTo(-0.28, -0.78); g.lineTo(-0.1, -0.62); g.fill(); g.beginPath(); g.moveTo(0.38, -0.5); g.lineTo(0.28, -0.78); g.lineTo(0.1, -0.62); g.fill();
-      E(-0.15, -0.4, 0.17, 0.165, 0, 190); E(0.15, -0.4, 0.17, 0.165, 0, 190);          // facial discs
-      E(-0.15, -0.4, 0.12, 0.12, 0, 90); E(0.15, -0.4, 0.12, 0.12, 0, 90);               // eye sockets
-      E(-0.15, -0.4, 0.092, 0.092, 0, 235); E(0.15, -0.4, 0.092, 0.092, 0, 235);        // eyes
-      E(-0.15, -0.4, 0.04, 0.04, 0, 70); E(0.15, -0.4, 0.04, 0.04, 0, 70);              // pupils
-      g.fillStyle = gray(240); g.beginPath(); g.moveTo(0, -0.4); g.quadraticCurveTo(0.05, -0.3, 0, -0.17); g.quadraticCurveTo(-0.05, -0.3, 0, -0.4); g.fill();    // beak
-      Ln(0.02, 215); g.beginPath(); g.arc(-0.15, -0.46, 0.17, Math.PI * 1.15, Math.PI * 1.85); g.stroke(); g.beginPath(); g.arc(0.15, -0.46, 0.17, Math.PI * 1.15, Math.PI * 1.85); g.stroke();
-      Ln(0.026, 200);                                                  // feet
-      for (var ft = -1; ft <= 1; ft += 2) for (var t = -1; t <= 1; t++) { g.beginPath(); g.moveTo(ft * 0.15, 0.78); g.lineTo(ft * 0.15 + t * 0.07 + ft * 0.01, 0.9); g.stroke(); }
-      Ln(0.03, 175); g.beginPath(); g.moveTo(-0.55, 0.92); g.quadraticCurveTo(0, 0.86, 0.55, 0.93); g.stroke();   // perch
-      for (var lf = 0; lf < 5; lf++) drawLeaf(g, -0.5 + lf * 0.06, 0.92 - lf * 0.015, -2.5 + lf * 0.08 - (lf % 2) * 0.5, 0.2, 0.05, 190, 0.006);
-      g.restore();
-    }
-    function drawReverse(g, N, f) {
-      var o = drawCommon(g, N, 150), R = o.R;
-      arcText(g, "TITAN · RELIQUARY", R, R, R * 0.775, 0, false, R * 0.085, 210);
-      arcText(g, "· .999 SILVER ·", R, R, R * 0.775, 0, true, R * 0.075, 190);
-      // laurel wreath
-      for (var side = -1; side <= 1; side += 2) for (var i = 0; i < 15; i++) {
-        var u = i / 14, a = Math.PI / 2 + side * (0.25 + u * 2.4), rr = R * 0.64;
-        var x = R + Math.cos(a) * rr, y = R + Math.sin(a) * rr, tang = a + side * Math.PI / 2;
-        drawLeaf(g, x, y, tang + side * 0.5, R * 0.17, R * 0.045, 200); drawLeaf(g, x, y, tang - side * 0.62 + Math.PI * 0.0, R * 0.13, R * 0.035, 175);
+    // Abstract engine-turned medallion faces (no design, no lettering: obviously not a replica of any coin)
+    function lineW(g, w, v) { g.lineWidth = w; g.strokeStyle = gray(v); g.lineCap = "round"; }
+    function drawObverse(g, N) {
+      var o = drawCommon(g, N, 150), R = o.R, i, k;
+      lineW(g, R * 0.0042, 150);
+      for (k = 0; k < 46; k++) {                        // concentric rosette bands: rings modulated by a slow sine, the classic guilloche weave
+        var r0 = R * (0.30 + k * 0.0105), amp = R * 0.016 * (1 + Math.sin(k * 0.35)), n = 14 + (k % 3) * 2, ph = k * 0.21;
+        g.beginPath(); for (i = 0; i <= 360; i++) { var a = i / 360 * Math.PI * 2, rr = r0 + amp * Math.sin(n * a + ph); i ? g.lineTo(R + Math.cos(a) * rr, R + Math.sin(a) * rr) : g.moveTo(R + Math.cos(a) * rr, R + Math.sin(a) * rr); } g.stroke();
       }
-      g.strokeStyle = gray(165); g.lineWidth = R * 0.016; g.beginPath(); g.arc(R, R, R * 0.64, Math.PI * 0.55, Math.PI * 1.45, false); g.stroke(); g.beginPath(); g.arc(R, R, R * 0.64, -Math.PI * 0.45, Math.PI * 0.45, false); g.stroke();
-      // denomination
-      var words = f.denom.toUpperCase().replace(/\s*·\s*/g, " ").split(" "), lines = [];
-      if (words.length > 2) { var half = Math.ceil(words.length / 2); lines = [words.slice(0, half).join(" "), words.slice(half).join(" ")]; } else lines = words.length === 2 ? words : [words[0]];
-      var sz = R * 0.34; lines.forEach(function (ln) { sz = Math.min(sz, fitText(g, ln, R * 0.9, sz, 600)); });
-      g.textAlign = "center"; g.textBaseline = "middle"; g.fillStyle = gray(225);
-      lines.forEach(function (ln, i) { g.font = "600 " + sz + 'px "Fraunces", Georgia, serif'; g.fillText(ln, R, R + (i - (lines.length - 1) / 2) * sz * 1.05); });
-      g.fillStyle = gray(190); [-1, 1].forEach(function (sx) { g.beginPath(); g.moveTo(R + sx * R * 0.42, R - sz * (lines.length * 0.55 + 0.4)); for (var k = 0; k < 5; k++) { var an = -Math.PI / 2 + k * 2 * Math.PI / 5 * 2; g.lineTo(R + sx * R * 0.42 + Math.cos(an) * R * 0.04, R - sz * (lines.length * 0.55 + 0.4) + Math.sin(an) * R * 0.04); } g.fill(); });
+      lineW(g, R * 0.0036, 140);                        // radial sunburst on the outer band
+      for (i = 0; i < 220; i++) { var b = i / 220 * Math.PI * 2; g.beginPath(); g.moveTo(R + Math.cos(b) * R * 0.79, R + Math.sin(b) * R * 0.79); g.lineTo(R + Math.cos(b) * R * 0.855, R + Math.sin(b) * R * 0.855); g.stroke(); }
+      lineW(g, R * 0.012, 175); g.beginPath(); g.arc(R, R, R * 0.775, 0, 7); g.stroke(); g.beginPath(); g.arc(R, R, R * 0.285, 0, 7); g.stroke();
+      g.fillStyle = gray(44); g.beginPath(); g.arc(R, R, R * 0.27, 0, 7); g.fill();       // polished mirror centre
+      lineW(g, R * 0.006, 165); g.beginPath(); g.arc(R, R, R * 0.12, 0, 7); g.stroke();
+    }
+    function drawReverse(g, N) {
+      var o = drawCommon(g, N, 150), R = o.R, i, k;
+      lineW(g, R * 0.0042, 150);
+      for (k = 0; k < 40; k++) {                        // overlapping-circle rosette (spirograph) like a watch dial
+        var a = k / 40 * Math.PI * 2; g.beginPath(); g.arc(R + Math.cos(a) * R * 0.26, R + Math.sin(a) * R * 0.26, R * 0.34, 0, 7); g.stroke();
+      }
+      lineW(g, R * 0.0036, 140);
+      for (i = 0; i < 160; i++) { var b = i / 160 * Math.PI * 2; g.beginPath(); g.moveTo(R + Math.cos(b) * R * 0.66, R + Math.sin(b) * R * 0.66); g.lineTo(R + Math.cos(b) * R * 0.85, R + Math.sin(b) * R * 0.85); g.stroke(); }
+      g.fillStyle = gray(44); g.beginPath(); g.arc(R, R, R * 0.6, 0, 7); g.fill();          // mirror disc over the rosette core...
+      lineW(g, R * 0.0042, 150);
+      for (k = 0; k < 28; k++) { var a2 = k / 28 * Math.PI * 2; g.beginPath(); g.arc(R + Math.cos(a2) * R * 0.17, R + Math.sin(a2) * R * 0.17, R * 0.2, 0, 7); g.stroke(); }
+      lineW(g, R * 0.012, 175); g.beginPath(); g.arc(R, R, R * 0.6, 0, 7); g.stroke();
     }
     // height -> blurred height -> normal map + roughness map; chunked so no task blocks the main thread
     function makeFaceMaps(draw, N, f, done) {
@@ -703,7 +689,7 @@
             var dx = (h[y * N + xp] - h[y * N + xm]) * 0.5 * k, dy = (h[yp * N + x] - h[ym * N + x]) * 0.5 * k, il = 1 / Math.sqrt(dx * dx + dy * dy + 1), p = (y * N + x) * 4;
             nImg.data[p] = (-dx * il * 0.5 + 0.5) * 255; nImg.data[p + 1] = (dy * il * 0.5 + 0.5) * 255; nImg.data[p + 2] = (il * 0.5 + 0.5) * 255; nImg.data[p + 3] = 255;
             var hv = h[y * N + x], fr = smooth((hv - 0.22) / 0.2);        // field = polished mirror, relief = frosted
-            var ro = 0.1 + 0.46 * fr + (rr() - 0.5) * 0.07; rImg.data[p] = 0; rImg.data[p + 1] = clamp(ro, 0, 1) * 255; rImg.data[p + 2] = 0; rImg.data[p + 3] = 255;
+            var ro = 0.1 + 0.46 * fr + (rr() - 0.5) * 0.05 + 0.03 * (0.5 + 0.5 * Math.cos(Math.atan2(y - N / 2, x - N / 2) * 3)) * (1 - fr);   // faint satin sectors = polish that sweeps rImg.data[p] = 0; rImg.data[p + 1] = clamp(ro, 0, 1) * 255; rImg.data[p + 2] = 0; rImg.data[p + 3] = 255;
           }
         });
       })(b);
@@ -718,9 +704,15 @@
     function buildCoin(then) {
       if (coinBuildStarted) return; coinBuildStarted = true;
       var N = Q.tex, f = featured || FALLBACK[0];
-      var a = makeFaceMaps(drawObverse, N, f, function (m) { faceO.normalMap = m.n; faceO.roughnessMap = m.r; faceO.normalScale.set(1, 1); });
-      var b = makeFaceMaps(drawReverse, N, f, function (m) { faceR.normalMap = m.n; faceR.roughnessMap = m.r; faceR.normalScale.set(1, 1); });
-      var q = a.concat(b); q.push(function () { coinReady = true; coin.visible = true; if (then) then(); });
+      var a = makeFaceMaps(drawObverse, N, f, function (m) { faceO.normalMap = m.n; faceO.roughnessMap = m.r; faceO.normalScale.set(0.5, 0.5); });
+      var b = makeFaceMaps(drawReverse, N, f, function (m) { faceR.normalMap = m.n; faceR.roughnessMap = m.r; faceR.normalScale.set(0.5, 0.5); });
+      var q = a.concat(b);
+      if (f.photo) q.push(function () {                      // real obverse photo (Phase 2) replaces the medallion face
+        var im = new Image(); im.crossOrigin = "anonymous";
+        im.onload = function () { if (!alive) return; try { var S = 1024, c = canvasEl(S), g = c.getContext("2d"); g.beginPath(); g.arc(S / 2, S / 2, S / 2, 0, 7); g.clip(); var m = Math.min(im.width, im.height); g.drawImage(im, (im.width - m) / 2, (im.height - m) / 2, m, m, 0, 0, S, S); var t = ctexture(c, { srgb: true }); faceMats[0].map = t; faceMats[0].color.set(0xffffff); faceMats[0].normalMap = null; faceMats[0].roughness = 0.35; faceMats[0].roughnessMap = null; faceMats[0].needsUpdate = true; } catch (e) {} };
+        im.src = f.photo;
+      });
+      q.push(function () { coinReady = true; coin.visible = true; if (then) then(); });
       var faceO = faceMats[0], faceR = faceMats[1], idx = 0;
       (function run() { if (!alive) return; var s = performance.now(); try { q[idx++](); } catch (e) { if (window.console) console.warn("coin step", e); } if (idx < q.length) setTimeout(run, 0); })();
     }
@@ -738,6 +730,8 @@
     coinKey.position.set(0.9, 3.0, COIN_Z + 2.4); coinKey.target.position.set(0, COIN_Y, COIN_Z); scene.add(coinKey, coinKey.target);
     var coinRim = new THREE.SpotLight(0xdfe6f2, 0, 0, 0.34, 0.9, 2);    // back-right kicker for the reeded edge
     coinRim.position.set(2.4, 0.9, COIN_Z - 2.6); coinRim.target.position.set(0, COIN_Y, COIN_Z); scene.add(coinRim, coinRim.target);
+    var sweep = new THREE.SpotLight(0xfff1dc, 0, 0, 0.17, 0.9, 2);    // a travelling polish highlight that glides across the field as the medallion turns
+    sweep.position.set(-0.6, COIN_Y + 0.2, COIN_Z + 1.4); sweep.target.position.set(0, COIN_Y, COIN_Z); scene.add(sweep, sweep.target);
     var coinFill = new THREE.PointLight(0xfff4e8, 0, 0, 2);
     coinFill.position.set(-1.6, 0.4, COIN_Z + 2.6); scene.add(coinFill);
 
@@ -817,7 +811,7 @@
     var pmats = [];
     function pmat(fs, uni) { var m = new THREE.ShaderMaterial({ uniforms: uni, vertexShader: VS, fragmentShader: fs, depthTest: false, depthWrite: false, toneMapped: false }); pmats.push(m); return m; }
     var mPre = pmat(["uniform sampler2D tSrc; uniform vec2 uTexel; uniform float uTh; varying vec2 vUv;",
-      "vec3 s(vec2 o){ return min(texture2D(tSrc, vUv + o*uTexel).rgb, vec3(60.0)); }",
+      "vec3 s(vec2 o){ return min(texture2D(tSrc, vUv + o*uTexel).rgb, vec3(8.0)); }",
       "void main(){",
       " vec3 c = (s(vec2(-1.0,-1.0)) + s(vec2(1.0,-1.0)) + s(vec2(-1.0,1.0)) + s(vec2(1.0,1.0)))*0.25;",
       " float l = max(c.r, max(c.g, c.b)); float k = smoothstep(uTh*0.55, uTh*1.6, l);",
@@ -848,6 +842,7 @@
       " vec2 uv = vUv; vec2 cc = uv - 0.5;",
       " vec2 ca = cc*0.0004*length(cc)*2.0;",
       " vec3 sharp = vec3(texture2D(tScene, uv + ca).r, texture2D(tScene, uv).g, texture2D(tScene, uv - ca).b);",
+      " sharp = clamp(sharp, vec3(0.0), vec3(6.0)); if (!(sharp.r >= 0.0 && sharp.g >= 0.0 && sharp.b >= 0.0)) sharp = vec3(0.0);",
       " vec3 col = sharp;",
       " if (uDof > 0.5) {",
       "  float z = texture2D(tDepth, uv).r;",
@@ -991,7 +986,8 @@
       // --- light pouring out + the chamber coming alive ---
       var open = smooth((t - 2.95) / 1.5), cl = smooth((t - TL.coinLight) / 1.2);
       spill.intensity = 220 * open; bSpill.k = 0.22 * open;
-      coinKey.intensity = 34 * cl; bCoin.k = 0.2 * cl; coinRim.intensity = 40 * cl; coinFill.intensity = 1.5 * cl;
+      coinKey.intensity = 34 * cl; bCoin.k = 0.2 * cl; coinRim.intensity = 85 * cl; coinFill.intensity = 1.5 * cl;
+      var sw = smooth((t - 4.6) / 0.6) * (1 - smooth((t - 6.1) / 0.4)); sweep.intensity = 5 * sw; sweep.position.x = lerp(-0.7, 0.7, easeInOutSine((t - 4.6) / 1.9)); sweep.position.y = COIN_Y + 0.12 + 0.1 * Math.sin(t * 1.4);
       backdropMat.uniforms.uK.value = 0.34 * cl;
       // --- the coin ---
       var rev = smooth((t - 4.2) / 1.0);
