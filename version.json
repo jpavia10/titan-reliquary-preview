@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-01T17:48:02Z",
-  "generated_at_pt": "2026-10-01 10:48 PT",
-  "generated_at_iso": "2026-10-01T10:48:02-07:00",
-  "content_hash": "a68c479c390a6217",
-  "ledger_version": "v3:a68c479c390a6217",
+  "generated_at": "2026-10-01T19:10:03Z",
+  "generated_at_pt": "2026-10-01 12:10 PT",
+  "generated_at_iso": "2026-10-01T12:10:03-07:00",
+  "content_hash": "f6bfffcdd634e850",
+  "ledger_version": "v3:f6bfffcdd634e850",
   "flips": 273,
   "newest_flip": "C271",
   "newest_ser": "NA-MX-010",
@@ -15,5 +15,5 @@
   },
   "drip_active": false,
   "drip_until": null,
-  "build": "tr67"
+  "build": "tr68"
 }
