@@ -66,11 +66,6 @@ html.ts-on.ts-reveal #app { visibility: visible; }
 @media (max-height: 520px) { .ts-copy { padding-bottom: 18px; } .ts-mark { display: none; } }
 @media (prefers-reduced-motion: reduce) { .ts-skip, .ts-sound { animation-duration: .3s !important; animation-delay: .2s !important; } }
 
-/* End-of-sequence type: appears with the product shot, leaves before the hand-off */
-.ts-feature { transform: translateY(10px); transition: opacity 1.3s ease, transform 1.5s cubic-bezier(.2, .7, .2, 1); }
-.ts-f-country { transition: letter-spacing 1.8s cubic-bezier(.2, .7, .2, 1); letter-spacing: .62em; padding-left: .62em; }
-.ts-show .ts-feature { opacity: 1; transform: none; }
-.ts-show .ts-f-country { letter-spacing: .46em; padding-left: .46em; }
-.ts-mark { transition: opacity 1.4s ease; }
-.ts-show-mark .ts-mark { opacity: .85; }
-#tr-splash.ts-hide .ts-feature, #tr-splash.ts-hide .ts-mark { opacity: 0; transition-duration: .35s; }
+/* End-of-sequence type: opacity, lift and tracking are driven per frame by splash.js from the timeline (deterministic, frame-drop safe) */
+.ts-feature { transform: translateY(10px); }
+.ts-f-country { letter-spacing: .62em; padding-left: .62em; }

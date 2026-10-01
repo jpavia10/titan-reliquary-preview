@@ -957,7 +957,7 @@
     var cueFired = {}, boltFired = [], wheelTicks = 0;
     function cue(name, t, at, fn) { if (t >= at && !cueFired[name]) { cueFired[name] = 1; fn(); } }
     var camPos = new THREE.Vector3(), camLook = new THREE.Vector3(), shake = 0, lastBoltsDone = 0;
-    var featEl = $(".ts-feature"), markEl = $(".ts-mark"), handoffOn = false, revealed = false;
+    var featEl = $(".ts-feature"), markEl = $(".ts-mark"), handoffOn = false, typeA = -1, typeM = -1;
 
     function update(t, dt) {
       var zD = rig.zD, zEnd = COIN_Z + rig.dEnd;
@@ -1025,12 +1025,14 @@
       var dk = Q.vol >= 1 ? 1 : 0; beamDefs.forEach(function (bd, ii) { bd.mat.uniforms.uK.value = bd.k * dk; bd.mat.uniforms.uTime.value = t; bd.mat.uniforms.uNoise.value = Q.vol >= 2 ? 1 : 0; bd.mesh.visible = dk > 0 && bd.k > 0.001; dustMat.uniforms.uK.value[ii] = bd.k * 2.4 + (ii === 0 && t > TL.clunk && t < TL.clunk + 0.8 ? 1.1 * (1 - (t - TL.clunk) / 0.8) : 0); });
       dustMat.uniforms.uAll.value = Q.dust > 0 ? 1 : 0;
       // --- type ---
-      if (t >= TL.type && !cueFired.type) { cueFired.type = 1; whenFeatured(function () { showFeatureText(); root.classList.add("ts-show"); }); }
-      if (t >= TL.mark && !cueFired.mark) { cueFired.mark = 1; root.classList.add("ts-show-mark"); }
+      if (t >= TL.type && !cueFired.type) { cueFired.type = 1; whenFeatured(showFeatureText); }
+      var outk = 1 - smooth((t - TL.hand0) / 0.3), ta = smooth((t - TL.type) / 1.3) * outk, tm = smooth((t - TL.mark) / 1.3) * outk * 0.85;
+      if (featEl && Math.abs(ta - typeA) > 0.003) { typeA = ta; featEl.style.opacity = ta; featEl.style.transform = "translateY(" + ((1 - ta) * 10).toFixed(1) + "px)"; var cl = featEl.firstChild; if (cl) { var ls = (0.62 - 0.16 * easeOut3((t - TL.type) / 1.8)).toFixed(3) + "em"; cl.style.letterSpacing = ls; cl.style.paddingLeft = ls; } }
+      if (markEl && Math.abs(tm - typeM) > 0.003) { typeM = tm; markEl.style.opacity = tm; }
       // --- hand-off: the coin dissolves in light, the app appears underneath ---
-      if (t >= TL.hand0 && !Q.post) { if (!cueFired.t4) { cueFired.t4 = 1; root.classList.remove("ts-show", "ts-show-mark"); root.classList.add("ts-hide"); finish(true, 0.8); } return; }   // no-post tier: plain cross-fade
+      if (t >= TL.hand0 && !Q.post) { if (!cueFired.t4) { cueFired.t4 = 1; finish(true, 0.8); } return; }   // no-post tier: plain cross-fade
       if (t >= TL.hand0) {
-        if (!handoffOn) { handoffOn = true; state = "handoff"; root.classList.add("ts-handoff"); root.classList.remove("ts-show", "ts-show-mark"); root.classList.add("ts-hide"); html.classList.add("ts-reveal"); }
+        if (!handoffOn) { handoffOn = true; state = "handoff"; root.classList.add("ts-handoff"); html.classList.add("ts-reveal"); }
         var hp = clamp((t - TL.hand0) / (TL.hand1 - TL.hand0), 0, 1), he = easeInOut(clamp((hp - 0.18) / 0.82, 0, 1));
         v3.copy(coin.position).project(camera); compU.uIrisC.value.set(v3.x * 0.5 + 0.5, v3.y * 0.5 + 0.5);
         var asp = viewW / viewH, icx = compU.uIrisC.value.x * asp, icy = compU.uIrisC.value.y, rmax = Math.hypot(Math.max(icx, asp - icx), Math.max(icy, 1 - icy)), fth = lerp(0.3, 0.6, he);
