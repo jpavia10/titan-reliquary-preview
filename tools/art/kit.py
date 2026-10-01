@@ -239,9 +239,9 @@ def assign(obj, mat, slot=None):
 
 
 # --- named materials used by many themes
-def m_silver(name="silver", tone=1.0, rough=0.26, metal=1.0):
+def m_silver(name="silver", tone=1.0, rough=0.26, metal=1.0, tarnish=0.55):
     c = (0.78 * tone, 0.78 * tone, 0.76 * tone, 1)
-    return coin_material(name, c, (0.20, 0.17, 0.13, 1), rough=rough, tarnish=0.55, metal=metal)
+    return coin_material(name, c, (0.20, 0.17, 0.13, 1), rough=rough, tarnish=tarnish, metal=metal)
 
 
 def m_gold(name="gold"):
@@ -261,7 +261,7 @@ def coin_material(name, base, dark, rough=0.25, tarnish=0.5, metal=1.0):
     ao.samples = 8
     ao.inputs["Color"].default_value = (1, 1, 1, 1)
     r = maprange(nt, ao.outputs["AO"], 0.25, 0.95, 1.0, 0.0)  # 1 where occluded
-    nz = noise(nt, scale=9, detail=7, rough=0.6)
+    nz = noise(nt, scale=30, detail=7, rough=0.6)
     mixf = nt.nodes.new("ShaderNodeMath")
     mixf.operation = "MULTIPLY"
     nt.links.new(r.outputs["Result"], mixf.inputs[0])
@@ -273,7 +273,7 @@ def coin_material(name, base, dark, rough=0.25, tarnish=0.5, metal=1.0):
     mixf2.use_clamp = True
     col = mix_rgb(nt, mixf2.outputs["Value"], base, dark)
     nt.links.new(col.outputs["Result"], p.inputs["Base Color"])
-    n2 = noise(nt, scale=5, detail=6, rough=0.5)
+    n2 = noise(nt, scale=22, detail=6, rough=0.5)
     rr = maprange(nt, n2.outputs["Fac"], 0.3, 0.7, rough * 0.7, rough * 1.5)
     # tarnished (occluded) areas are rougher
     ra = nt.nodes.new("ShaderNodeMath")

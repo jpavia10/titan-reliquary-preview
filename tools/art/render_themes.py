@@ -123,13 +123,74 @@ def _spectrum(t):
     return (r, g, b)
 
 
+def _fan(o, length, spread, zb, n_a=96, n_r=30):
+    """Spectrum light-sheet: a flat fan from the prism exit, rainbow across the angle, fading with distance."""
+    import bmesh
+    bm = bmesh.new()
+    grid = []
+    for r in range(n_r + 1):
+        row = []
+        for a in range(n_a + 1):
+            ang = math.radians(-spread / 2 + spread * a / n_a)
+            d = length * r / n_r
+            row.append(bm.verts.new((o[0] + d * math.cos(ang), o[1] + d * math.sin(ang), zb - 0.015 * (a / n_a))))
+        grid.append(row)
+    for r in range(n_r):
+        for a in range(n_a):
+            bm.faces.new((grid[r][a], grid[r][a + 1], grid[r + 1][a + 1], grid[r + 1][a]))
+    uv = bm.loops.layers.uv.new("UVMap")
+    for f in bm.faces:
+        for l in f.loops:
+            v = l.vert
+            ang = math.atan2(v.co.y - o[1], v.co.x - o[0])
+            l[uv].uv = ((math.degrees(ang) + spread / 2) / spread, math.hypot(v.co.x - o[0], v.co.y - o[1]) / length)
+    ob = K.from_bm("fan", bm, smooth=False)
+    m, nt = K._new_mat("fan")
+    tcn = nt.nodes.new("ShaderNodeTexCoord")
+    sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(tcn.outputs["UV"], sep.inputs["Vector"])
+    ramp = nt.nodes.new("ShaderNodeValToRGB")
+    els = ramp.color_ramp.elements
+    els[0].position, els[0].color = 0.0, K.hexc("#ff2a1a")
+    for pos, col in ((0.18, "#ff9a1a"), (0.36, "#ffe83a"), (0.55, "#2fe060"), (0.72, "#1ab4ff"), (0.88, "#4a3cff")):
+        e = els.new(pos); e.color = K.hexc(col)
+    els[len(els) - 1].position, els[len(els) - 1].color = 1.0, K.hexc("#a23cff")
+    nt.links.new(sep.outputs["X"], ramp.inputs["Fac"])
+    # alpha: bright at the prism, fading out; soft side edges
+    fall = nt.nodes.new("ShaderNodeMath"); fall.operation = "POWER"; fall.inputs[1].default_value = 0.9
+    inv = nt.nodes.new("ShaderNodeMath"); inv.operation = "SUBTRACT"; inv.inputs[0].default_value = 1.0
+    nt.links.new(sep.outputs["Y"], inv.inputs[1]); nt.links.new(inv.outputs["Value"], fall.inputs[0])
+    edge = nt.nodes.new("ShaderNodeMath"); edge.operation = "PINGPONG"; edge.inputs[1].default_value = 0.5
+    nt.links.new(sep.outputs["X"], edge.inputs[0])
+    em = K.maprange(nt, edge.outputs["Value"], 0.0, 0.12, 0.0, 1.0)
+    al = nt.nodes.new("ShaderNodeMath"); al.operation = "MULTIPLY"
+    nt.links.new(fall.outputs["Value"], al.inputs[0]); nt.links.new(em.outputs["Result"], al.inputs[1])
+    ems = nt.nodes.new("ShaderNodeEmission"); ems.inputs["Strength"].default_value = 3.2
+    nt.links.new(ramp.outputs["Color"], ems.inputs["Color"])
+    tr = nt.nodes.new("ShaderNodeBsdfTransparent")
+    mx = nt.nodes.new("ShaderNodeMixShader")
+    a2 = nt.nodes.new("ShaderNodeMath"); a2.operation = "MULTIPLY"; a2.inputs[1].default_value = 0.55
+    nt.links.new(al.outputs["Value"], a2.inputs[0]); nt.links.new(a2.outputs["Value"], mx.inputs["Fac"])
+    nt.links.new(tr.outputs["BSDF"], mx.inputs[1]); nt.links.new(ems.outputs["Emission"], mx.inputs[2])
+    K.finish(nt, mx.outputs["Shader"])
+    K.assign(ob, m)
+    ob.visible_shadow = False
+    return ob
+
+
+def _beam_in(a, b, w=0.05):
+    ob = K.box("beam_strip", (b[0] - a[0], w, 0.012), loc=((a[0] + b[0]) / 2, a[1], a[2]), mat=K.emissive("bw", (1, 0.97, 0.92, 1), 14))
+    ob.visible_shadow = False
+    return ob
+
+
 @theme("kaleido", bloom=0.5, bloom_r=0.012, grain=0.011, vignette=0.38, ca=2.6)
 def prism(scene):
     """A jeweler's light-box: a white beam enters a crystal prism, fans into a spectrum and lands on a silver dollar
     standing on black obsidian. Beams are real spot lights in a thin haze, so the shafts are physically lit."""
     import bmesh
     rg = K.rng(5)
-    K.world(top=hexc("#030208"), horizon=hexc("#0a0614"), strength=0.35)
+    K.world(top=hexc("#030208"), horizon=hexc("#0a0614"), strength=0.05)
     # obsidian floor (polished, slightly warm black) + faint micro-scratches
     floor = K.plane("floor", 60, loc=(0, 0, 0), mat=K.textured("obsidian", hexc("#07060a"), rough=0.05, metal=0.0, rvar=0.03,
                                                               scale=3, bump_str=0.05, bump_scale=300, specular_ior_level=0.9))
@@ -148,33 +209,39 @@ def prism(scene):
     bmesh.ops.bevel(bm, geom=list(bm.edges), offset=0.018, segments=3, profile=0.6, affect="EDGES")
     pr = K.from_bm("prism", bm, smooth=False)
     pr.location = (-0.3, 0.2, 0.0)
-    pr.rotation_euler = (0, 0, math.radians(0))
+    pr.rotation_euler = (0, 0, math.radians(-30))
     gm = K.glass("crystal", (0.97, 0.99, 1.0, 1), ior=1.55, rough=0.0, fake_shadow=False)
     K.assign(pr, gm)
-    # beam geometry: entry from the left at height 1.15, aimed so the exit fan goes +X toward the coin
     zb = 1.15
-    exit_pt = (0.38, 0.2, zb)
-    coin_x = 6.3
-    fan = [(-12 + 24 * i / 12.0) for i in range(13)]          # degrees, red -> violet, deliberately exaggerated
-    K.fog_box((2.5, 0.0, 2.0), (22, 12, 5.5), density=0.045, anisotropy=0.55)
-    K.spot("beam_in", (-6.5, 0.2, zb), (-0.9, 0.2, zb), 2600, color=(1, 0.98, 0.94), angle=3.2, blend=0.15, radius=0.012)
-    for i, ang in enumerate(fan):
-        t = i / (len(fan) - 1)
-        c = _spectrum(t)
-        tgt = (exit_pt[0] + math.cos(math.radians(ang)) * 6.0, exit_pt[1] + math.sin(math.radians(ang)) * 6.0, zb - 0.02 * i)
-        K.spot(f"band{i}", exit_pt, tgt, 4200, color=c, angle=2.8, blend=0.25, radius=0.010)
+    exit_pt = (0.30, 0.15, zb)
+    coin_x = 5.4
+    K.fog_box((2.5, 0.0, 2.0), (22, 12, 5.5), density=0.006, anisotropy=0.6)
+    _fan(exit_pt, length=5.0, spread=26, zb=zb)
+    _beam_in((-7.0, 0.2, zb), (-0.75, 0.2, zb))
+    K.spot("beam_in", (-6.5, 0.2, zb), (-0.9, 0.2, zb), 6000, color=(1, 0.98, 0.94), angle=3.2, blend=0.15, radius=0.012)
+    for i in range(13):
+        t = i / 12.0
+        ang = -13 + 26 * t
+        tgt = (exit_pt[0] + math.cos(math.radians(ang)) * 5.0, exit_pt[1] + math.sin(math.radians(ang)) * 5.0, zb - 0.02 * i)
+        K.spot(f"band{i}", exit_pt, tgt, 9000, color=_spectrum(t), angle=3.0, blend=0.3, radius=0.010)
+    # light-box backdrop so the crystal has something to refract
+    lb = K.plane("lightbox", 1, loc=(-0.6, 3.2, 1.9), rot=(90, 0, 0), sx=0.8, sy=1.0,
+                 mat=K.emissive("lb", hexc("#b9a8ff"), 2.6))
+    lb.visible_camera = False
+    lb.visible_glossy = True
     # silver dollar standing on its edge, face turned toward the prism and a little toward the camera
-    K.make_coin("coin", K.m_silver("silver", 1.15, rough=0.3), radius=1.05, thick=0.14, relief=0.04, year="1921", seed=4,
-                loc=(coin_x, 0.2, 1.06), rot=(90, 0, 90 + 28), rings=300, segs=800, hres=2048, wear=0.7)
+    K.make_coin("coin", K.m_silver("silver", 1.25, rough=0.24, tarnish=0.22), radius=1.05, thick=0.14, relief=0.04, year="1921", seed=4,
+                loc=(coin_x, 0.2, 1.06), rot=(90, 0, -48), rings=300, segs=800, hres=2048, wear=0.7)
     # soft strips for glass edge highlights and coin sheen
-    K.area("stripL", (-4.5, -5.5, 3.2), (0, 0.2, 1.2), 0.25, 2200, color=(0.85, 0.9, 1.0), size_y=3.0)
-    K.area("stripR", (7.5, -4.8, 2.8), (coin_x, 0.2, 1.2), 0.3, 900, color=(1.0, 0.9, 0.8), size_y=2.2)
-    K.area("top", (2.5, -1.0, 6.0), (2.5, 0.2, 0.0), 1.5, 120, color=(0.7, 0.75, 1.0), size_y=6)
+    K.area("stripL", (-4.5, -5.5, 3.2), (0, 0.2, 1.2), 0.25, 1500, color=(0.85, 0.9, 1.0), size_y=3.0)
+    K.area("stripR", (8.5, -5.8, 3.4), (coin_x, 0.2, 1.2), 1.4, 1800, color=(1.0, 0.92, 0.82), size_y=2.4)
+    K.area("coinkey", (2.0, -7.5, 3.0), (coin_x, 0.2, 1.1), 1.0, 700, color=(1.0, 0.95, 0.88), size_y=1.4)
+    K.area("top", (2.5, -1.0, 6.0), (2.5, 0.2, 0.0), 1.5, 40, color=(0.7, 0.75, 1.0), size_y=6)
     # bokeh dust motes / distant lamps far behind
     for i in range(40):
         K.sphere(f"bk{i}", rg.uniform(0.08, 0.3), loc=(rg.uniform(-12, 18), rg.uniform(10, 24), rg.uniform(0.5, 7)),
                  mat=K.emissive(f"bk{i}", _spectrum(rg.random()) + (1,), rg.uniform(0.8, 3.5)), segs=32)
-    K.camera((2.6, -10.5, 2.35), (2.6, 0.2, 1.0), lens=42, fstop=2.8, focus=10.6)
+    K.camera((2.3, -9.5, 4.9), (2.4, 0.2, 0.95), lens=40, fstop=3.2, focus=10.4)
 
 
 # --------------------------------------------------------------------------- driver
