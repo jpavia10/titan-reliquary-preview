@@ -991,22 +991,6 @@
    "chat_idx": null
   },
   {
-   "file": "NOID_USA_ND_Free-Pony-Ride-token.jpeg",
-   "asset": "NOID",
-   "kind": "no id yet (Phase 1 chat photo)",
-   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/unidentified",
-   "drive_id": "1YwU-f16AMPcRHYGGklXTqyhsBrGa-c5N",
-   "chat_idx": null
-  },
-  {
-   "file": "NOID_USA_ND_Meijer-token.jpeg",
-   "asset": "NOID",
-   "kind": "no id yet (Phase 1 chat photo)",
-   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/unidentified",
-   "drive_id": "1O2RCmdZ2UAfYYoZopUOMH4M9boN-tC-Y",
-   "chat_idx": null
-  },
-  {
    "file": "NOID_USSR_1961_5Kopecks.jpeg",
    "asset": "NOID",
    "kind": "no id yet (Phase 1 chat photo)",
@@ -1031,6 +1015,24 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/sets",
    "drive_id": "1kxQrC0a-v6LN-RZAitMyeRX8A03O5VlD",
    "chat_idx": null
+  },
+  {
+   "file": "T003_USA_ND_Meijer-Pony-Ride-token.jpeg",
+   "asset": "T003",
+   "kind": "token (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
+   "drive_id": "1O2RCmdZ2UAfYYoZopUOMH4M9boN-tC-Y",
+   "chat_idx": null,
+   "note": "Grok named it NOID_USA_ND_Meijer-token.jpeg (NOID); owner 2026-10-02: the Meijer token IS the pony-ride token = T003"
+  },
+  {
+   "file": "T003_USA_ND_Meijer-Pony-Ride-token_angle2.jpeg",
+   "asset": "T003",
+   "kind": "token (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
+   "drive_id": "1YwU-f16AMPcRHYGGklXTqyhsBrGa-c5N",
+   "chat_idx": null,
+   "note": "Grok named it NOID_USA_ND_Free-Pony-Ride-token.jpeg (NOID); owner 2026-10-02: the Meijer token IS the pony-ride token = T003"
   }
  ],
  "still_unidentified": "Grok's third pass (2026-10-01 22:45 PT) reviewed every chat image: 73 of 318 held images named; 245 still held (134 identity not unique/readable, 63 not a catalog specimen, 23 several objects in frame, 18 unreadable, 7 same side as a coin already named)."
