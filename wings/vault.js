@@ -394,7 +394,7 @@
   }
   function slider(id, label, min, max, step, val, shown) {
     return '<div class="vx-slider"><label for="' + id + '"><span>' + esc(label) + '</span><output id="' + id + '-o" for="' + id + '">' + esc(shown) + "</output></label>" +
-      '<input type="range" id="' + id + '" min="' + min + '" max="' + max + '" step="' + step + '" value="' + val + '" /></div>';
+      '<input type="range" id="' + id + '" min="' + min + '" max="' + max + '" step="' + step + '" value="' + val + '" aria-valuetext="' + esc(shown) + '" /></div>';
   }
 
   /* ---------------- behaviour ---------------- */
@@ -465,6 +465,7 @@
         $o("vx-wi-ag-o").textContent = money(a);
         $o("vx-wi-au-o").textContent = money(g, 0);
         $o("vx-wi-bid-o").textContent = Math.round(p * 100) + "%";
+        ag.setAttribute("aria-valuetext", money(a) + " per ounce"); au.setAttribute("aria-valuetext", money(g, 0) + " per ounce"); bid.setAttribute("aria-valuetext", Math.round(p * 100) + " percent of melt");
         $o("vx-wi-melt").textContent = money(tot);
         $o("vx-wi-dealer").textContent = money(tot * p);
         $o("vx-wi-agv").textContent = "Silver " + money(agv);

@@ -346,7 +346,6 @@ def drip_block(col, idx):
     d = idx["drip"]; specs = col["specs"]
     def nxt(prefix, ids, width=3):
         n = max([int(i[1:]) for i in ids if i[:1] == prefix] or [0]) + 1
-        if prefix == "C": n = max(n, 297)          # same floor as apply_changes.COIN_FLOOR: next coins are C297-C300
         return f"{prefix}{n:0{width}d}"
     ids = list(specs) + [l["id"] for l in col["lots"]]
     # the ledger may hold ids that are not in the collection yet (requests); never hand out one below the ledger's counter

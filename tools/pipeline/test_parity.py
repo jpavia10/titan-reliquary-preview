@@ -79,8 +79,6 @@ def run(coll, gold):
         if k in IGNORE_TOP or k in ("flips", "bullion", "sets", "housing", "stamps"): continue
         a, b = gi.get(k), ni.get(k)
         if isinstance(a, dict) and isinstance(b, dict) and k == "board": a = {x: y for x, y in a.items() if x != "ledger_version"}; b = {x: y for x, y in b.items() if x != "ledger_version"}
-        if k in ("drip", "requests") and a is not None and b is not None:          # owner decision 2026-10-01: the next coin id is C297 (was C272 in v254)
-            a, b = json.loads(json.dumps(a).replace("C272", "C297")), b
         if k == "value" and isinstance(a, dict) and isinstance(b, dict):      # explained exception: value.portfolio_daily is NEW (price history; its last day depends on the build date), not part of the v254 ledger; the ledger fields beside it must still match
             a = {x: y for x, y in a.items() if x != "portfolio_daily"}; b = {x: y for x, y in b.items() if x != "portfolio_daily"}
         if a != b: fails.append(f"index.{k} differs from the ledger block")

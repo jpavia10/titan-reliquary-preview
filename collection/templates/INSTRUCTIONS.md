@@ -55,7 +55,7 @@ Entity `album`, `id` = the volume (`A026`), default `op` (`set`). The volume's `
 
 ## 6. Rules the checker enforces
 - A field the owner verified cannot be overwritten, unless your event carries `"supersedes": "<ts of the verified event>"` and a `source` saying why.
-- `id`s are permanent and never reused; new ids follow the counters (`NEW-n` placeholders do this for you: the next real coins take **C297, C298, C299, C300** (closing the gap the four purged fake records left in the old 1-296 item sequence; C297 = Austria 1925 2 groschen, 2026-10-02), then C301 onward. Example files use the placeholder `C000`, which never exists: never copy it into a real file).
+- `id`s are permanent and never reused; new ids follow the counters (`NEW-n` placeholders do this for you: new coins number straight on from the highest existing `C` id (C271, then C272 Austria 1925, C273 Germany 2005, C274 next; owner decision 2026-10-02, replacing the old C297-C300 rule). Example files use the placeholder `C000`, which never exists: never copy it into a real file).
 - Each event's fields must belong to its `phase` (schema v3 tiers in `FIELDS.md`). `owner only` and `pipeline only` fields are never written by a model.
 - Whole file or nothing: one bad event rejects the file with a line-numbered report (`_incoming/rejected/*.report.txt`); fix it and resubmit. A wrong-typed value (text where a number belongs, a value outside the allowed words) is reported on its own line, never a crash. Submitting the same file twice is harmless.
 - Model events need a real `source` (section 2) and condition judgements need a photo file or cited reference (section 4).

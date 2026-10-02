@@ -9,7 +9,7 @@
   "ledger_repo": "https://github.com/jpavia10/titan-reliquary"
  },
  "counts": {
-  "specimens": 274,
+  "specimens": 275,
   "types": 157,
   "lots": 28,
   "albums": 33,
@@ -18,7 +18,7 @@
   "photos": 0,
   "valuations": 301,
   "spot_days": 21,
-  "changes": 414,
+  "changes": 416,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "317e6dddeb2299949376c3ec0dd5cf9cf4e008d383a210f124ffa4ec061cd612",
+ "content_hash": "35864813cbcec92d2a475f17fa044a764b1be2ad2a627404d2806dc5d89fafbf",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -68,18 +68,18 @@
   },
   {
    "path": "board.json",
-   "sha256": "0425453d1594513eb121710e8ab5229d8bf3e817236591464e066b35a2b6d194",
-   "bytes": 41088
+   "sha256": "ae83f5a2998100b6f1fde0ea7e64db3b4178c2b1d4edfe41c482d4a64eec0244",
+   "bytes": 41005
   },
   {
    "path": "boot.json",
-   "sha256": "b69caa846ee527603fc8f1aa4617c5c60e48b8d456e01eb75e5ae157b5eadbd0",
-   "bytes": 17025
+   "sha256": "1b2ad67fce946fb0961d21e8693681963dc54cee2a0ad8d76411419dd276e99f",
+   "bytes": 17074
   },
   {
    "path": "changes.jsonl",
-   "sha256": "35b77fffdb229c962e3430ca6ff53053d517cfd38d62410493e205d22a669819",
-   "bytes": 182852
+   "sha256": "63d8c0d9da6be921b6011d2bd75679d18c94cdce19f37ee610a69f2419fa493b",
+   "bytes": 186111
   },
   {
    "path": "lots.json",
@@ -108,7 +108,7 @@
   },
   {
    "path": "specimens/AT.json",
-   "sha256": "fb0622270c77c11834d703f38a6488c73a9cc117b41c614860bb85ec331faa3c",
+   "sha256": "fbab73e59d09a9928b23874997ffe215428c480564bf271e1900cdc58bb2b040",
    "bytes": 1574
   },
   {
@@ -153,8 +153,8 @@
   },
   {
    "path": "specimens/DE.json",
-   "sha256": "78e7e2e1c1e16c3ddabeee40ebd14b69be226ff89f5d55442d6ef9bcec54b10c",
-   "bytes": 101519
+   "sha256": "c5bcbb34c486a9f906f258d45300a0a8ef12934088661ee2dfd322ad3c00f0b7",
+   "bytes": 103174
   },
   {
    "path": "specimens/EC.json",
@@ -403,8 +403,8 @@
   },
   {
    "path": "types/DE.json",
-   "sha256": "5ab8ea18a87debf3d2210863d8cba684cdbe452a07543fed81a2daeda74900c0",
-   "bytes": 30499
+   "sha256": "2f19c9975567d43cb95dd5a1364bf5cc83a2011770c578001e9a122776a24828",
+   "bytes": 30676
   },
   {
    "path": "types/EC.json",

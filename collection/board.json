@@ -289,7 +289,7 @@
 },
 "drip": {
 "next_ids": {
-"flip": "C297",
+"flip": "C272",
 "token": "T007",
 "bullion": "B022",
 "housing": "H005",
@@ -1481,12 +1481,12 @@
 "requests": [
 {
 "id": "R001",
-"coin_key": null,
+"coin_key": "C273",
 "ser": "EU-DE-062",
 "kind": "confirm year",
-"text": "German 1 Euro Cent, mint J (Hamburg), year 200? - last digit not readable yet. Send a sharp close-up of the date to log it (it takes the next free coin id; C297 went to the Austria 1925 2 groschen on 2026-10-02).",
+"text": "German 1 Euro Cent, mint J (Hamburg): year read as 2005 from the owner's close-up on 2026-10-02 and logged as C273 / EU-DE-062.",
 "created": "2026-09-24",
-"status": "open",
+"status": "done",
 "href": null,
 "source": "manual",
 "priority": 0

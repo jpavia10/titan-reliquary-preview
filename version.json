@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-02T02:38:29Z",
-  "generated_at_pt": "2026-10-01 19:38 PT",
-  "generated_at_iso": "2026-10-01T19:38:29-07:00",
-  "content_hash": "317e6dddeb229994",
-  "ledger_version": "v3:317e6dddeb229994",
-  "flips": 274,
-  "newest_flip": "C297",
-  "newest_ser": "EU-AT-001",
+  "generated_at": "2026-10-02T02:44:46Z",
+  "generated_at_pt": "2026-10-01 19:44 PT",
+  "generated_at_iso": "2026-10-01T19:44:46-07:00",
+  "content_hash": "35864813cbcec92d",
+  "ledger_version": "v3:35864813cbcec92d",
+  "flips": 275,
+  "newest_flip": "C273",
+  "newest_ser": "EU-DE-062",
   "photos": {
     "images": 0,
     "coins_with_photos": 0,
@@ -15,5 +15,5 @@
   },
   "drip_active": false,
   "drip_until": null,
-  "build": "tr74"
+  "build": "tr75"
 }

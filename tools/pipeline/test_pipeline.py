@@ -22,7 +22,7 @@ def _base():
     """The live collection the sandboxes copy: tests derive ids and counts from it, so real coins arriving never break them."""
     col = C.Collection(os.path.join(ROOT, "collection"))
     nums = [int(k[1:]) for k in col.specs if k[:1] == "C" and k[1:].isdigit()]
-    return col, max([296] + nums) + 1          # owner decision: new coins start at C297
+    return col, max([0] + nums) + 1            # new coins number straight on from the highest existing C id
 BASE, _NEXT_N = _base()
 NEXT, NEXT2 = "C%03d" % _NEXT_N, "C%03d" % (_NEXT_N + 1)
 BOARD = json.load(open(os.path.join(ROOT, "data", "index.json"), encoding="utf-8"))["board"]   # the live board the sandbox starts from
@@ -174,7 +174,7 @@ class Pipeline(unittest.TestCase):
         self.reject([ev(entity="specimen", id="C001", field="condition.cleaned", new="maybe", source="pro photo C001_obv.jpg")], "validation")          # schema violation
         self.reject([ev(entity="specimen", id="C001", field="bogus_key", new=1)], "validation")                         # unknown leaf: the schema rejects it
         self.reject([{"ts": "2026-10-03T10:00:00Z", "by": "model:t", "entity": "specimen", "id": "C001", "field": "notes", "new": "x", "source": "s", "surprise": 1}], "unknown key")
-        self.reject([ev(entity="specimen", id="C272", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "next free 'C' id is " + NEXT)      # the next coins are C297-C300 (owner decision), then C301
+        self.reject([ev(entity="specimen", id="C%03d" % (_NEXT_N + 5), op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "next free 'C' id is " + NEXT)      
         self.reject([ev(entity="specimen", id="NEW-1", op="create", field="(new record)", new={"type": "XX.KM.1", "year_raw": "1969"})], "does not exist")
         self.reject([ev(entity="type", id="C001", op="create", field="(new record)", new={})], "type id")
         self.reject([ev(entity="album", id="A099", op="create", field="(new record)", new={})], "albums are created")

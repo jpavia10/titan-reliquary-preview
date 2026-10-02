@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (sequential coin ids; C272 + C273)
+* Owner retired the C297-C300 rule: coins number straight on. Austria 1925 2 groschen is now **C272** (was C297 for a few hours), German 2005 1 euro cent (R001) logged as **C273** / EU-DE-062. Next new coin: C274. Use `NEW-n` placeholders; never hard-code an id.
+
 ### [2026-10-02 PT] — Claude/Opus integrator (C297 check)
 * Owner flagged C297. It follows the 2026-10-01 rule (purged fake C297-C300 ids reused), but request R001 (German 1 euro cent) had been earmarked C297: R001 now takes the next free id (C298) when logged. Coin ids are not a count: C001-C271 plus C297 (gaps 74, 85-87, 272-296 are the old ledger sequence).
 
