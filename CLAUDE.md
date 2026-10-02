@@ -83,6 +83,11 @@ Last verified: 2026-10-01 (build tr55).
 - 2026-09-28: GitHub token removed from git remote URLs. It was not stored elsewhere; cloud sessions use the GitHub connection.
 - Not yet started: ROADMAP checkbox cleanup, model bake-off. (Drive consolidation and photo-doc reconciliation are done.)
 
+## How to work with the owner (2026-10-02)
+- Clear, small or obvious asks: just do them (standing "don't ask permission" still holds).
+- Ambiguous or larger asks: ask questions strategically and one step at a time until ~95% sure what he means; then say what made you confident, give a 2-line plan, and wait for his go before starting. Not a script: use judgment, never stall clear work.
+- Verify before stating facts (e.g. read a coin date from the actual pixels at full zoom; say "unclear" instead of guessing).
+
 ## Cross-thread handoff (received 2026-09-30) — standing instructions
 Owner's standing instructions: don't ask permission; push finished work live after testing; resume the nearest-to-done work one at a time; then do a full improvement pass. Run ~4-6 agents at a time max (20 pushed load to 30-50 and caused stale screenshots). Use Opus to orchestrate and Sonnet for agents (Fable needs usage credits). Only ONE session integrates into `main` at a time.
 - Albums: `ALBUMS.md` on Drive is the only album source found. Fill slot details from the Whitman album model and mark each such value `"inferred"` (never present inferred slots as ledger fact).
