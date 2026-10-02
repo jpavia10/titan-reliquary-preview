@@ -1481,10 +1481,10 @@
 "requests": [
 {
 "id": "R001",
-"coin_key": "C297",
+"coin_key": null,
 "ser": "EU-DE-062",
 "kind": "confirm year",
-"text": "German 1 Euro Cent, mint J (Hamburg), year 200? - last digit not readable yet. Send a sharp close-up of the date to log it as C297 / EU-DE-062.",
+"text": "German 1 Euro Cent, mint J (Hamburg), year 200? - last digit not readable yet. Send a sharp close-up of the date to log it (it takes the next free coin id; C297 went to the Austria 1925 2 groschen on 2026-10-02).",
 "created": "2026-09-24",
 "status": "open",
 "href": null,

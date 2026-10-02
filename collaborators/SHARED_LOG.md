@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (C297 check)
+* Owner flagged C297. It follows the 2026-10-01 rule (purged fake C297-C300 ids reused), but request R001 (German 1 euro cent) had been earmarked C297: R001 now takes the next free id (C298) when logged. Coin ids are not a count: C001-C271 plus C297 (gaps 74, 85-87, 272-296 are the old ledger sequence).
+
 ### [2026-10-02 PT] — Claude/Opus integrator (first Grok coin merged)
 * `changes_grok_20261001-1821.jsonl` merged: **C297** Austria 1925 2 groschen (EU-AT-001 provisional), Austria added as issuer. Clean validation, parity OK, 19/19 pipeline tests. Grok's note about a "Swiss 2 rappen" mis-call was corrected (no such record ever existed).
 * Rule: processed change files are deleted from the Drive drop folder (archive: `collection/_incoming/applied/`); rejections leave a `.REJECTED.txt`. Template example id is now `C000` (never a real coin).

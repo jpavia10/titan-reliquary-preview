@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "6e6b1fbeb150c096b58a87d8fc22849c5b3144cdf1eecce8c4c3c8a57ae5542e",
+ "content_hash": "317e6dddeb2299949376c3ec0dd5cf9cf4e008d383a210f124ffa4ec061cd612",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -68,8 +68,8 @@
   },
   {
    "path": "board.json",
-   "sha256": "c3a7a9cbfda77420c193412b1669324bb248958d4f274bdf6c05f229c580fb71",
-   "bytes": 41021
+   "sha256": "0425453d1594513eb121710e8ab5229d8bf3e817236591464e066b35a2b6d194",
+   "bytes": 41088
   },
   {
    "path": "boot.json",
@@ -343,8 +343,8 @@
   },
   {
    "path": "templates/INSTRUCTIONS.md",
-   "sha256": "38e0c8eb1556bf921ced03148c5c71d91f713a35b2f946b446b9e70cb4b83956",
-   "bytes": 12711
+   "sha256": "3924e3ceec47e0c454131da9111b6b8a1f0d919e09c569af221468cc3e6f306b",
+   "bytes": 13198
   },
   {
    "path": "templates/phase1_template.jsonl",
