@@ -1681,6 +1681,10 @@
     if (term.series === "growth") {
       // Collection growth: every day valued at ONE fixed quote (value_history "fixed" column), so it only moves when items are added.
       for (const r of pf?.rows || []) if (r[8] != null) pts.push({ d: r[0], v: r[8], n: r[5], added: r[6], k: r[7] });
+      if (pts.length) {        // it starts from $0: the day before the first item was logged
+        const d0 = new Date(termDayMs(pts[0].d) - 86400000).toISOString().slice(0, 10);
+        pts.unshift({ d: d0, v: 0, n: 0, added: 0, k: "" });
+      }
     } else if (term.series === "portfolio") {
       for (const r of pf?.rows || []) pts.push({ d: r[0], v: r[1], ag: r[2], au: r[3], prem: r[4], n: r[5], added: r[6], k: r[7] });
       if (q.kind !== "board" && pts.length) {
@@ -1875,9 +1879,9 @@
     const priceEl = $("#term-price"), deltaEl = $("#term-delta");
     const gRows = term.series === "growth" ? pf.filter((r) => r[8] != null) : [];
     if (gRows.length) {        // Growth: the fixed-price total and how much the collection has grown since day 0 (items only, no price moves)
-      const last = gRows[gRows.length - 1], first = gRows[0], d = last[8] - first[8];
+      const last = gRows[gRows.length - 1], first = gRows[0], d = last[8];
       if (priceEl) priceEl.textContent = money(last[8]);
-      if (deltaEl) { deltaEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}$${num(Math.abs(d), 2)} since ${termDate(first[0])} · items added, at fixed prices`; deltaEl.className = "term-delta " + (d >= 0 ? "up" : "down"); }
+      if (deltaEl) { deltaEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}$${num(Math.abs(d), 2)} built from $0 since ${termDate(first[0])} · at fixed prices`; deltaEl.className = "term-delta " + (d >= 0 ? "up" : "down"); }
     } else {
     if (priceEl) priceEl.textContent = total > 0 ? money(total) : "—";
     if (deltaEl) {
