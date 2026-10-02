@@ -7,7 +7,7 @@ Read `AI_START_HERE.md` (repo root) first for the job and the folders. This page
 ## 1. Your file
 - Name: `changes_{agent}_{YYYYMMDD-HHMM}.jsonl`, for example `changes_gemini_20261002-1830.jsonl`.
 - Format: JSON Lines. One event per line, each line a complete JSON object, no comments, no trailing commas, no blank-line separated pretty-printing. Copy `phase1_template.jsonl` or `phase2_template.jsonl` and change the values (the `EXAMPLE ONLY` words in the templates' `source` are yours to replace).
-- Where it goes: Drive `Titan Reliquary/collection-incoming (AI change files)/`. If you can commit to the repo, `collection/_incoming/`. In plain chat: print the file in one code block and tell the owner to save it under that name in the Drive folder.
+- Where it goes: Drive `Titan Reliquary/collection-incoming (AI change files)/`. After processing, Claude deletes your change file from the Drive drop folder (the archived copy lives in the repo at `collection/_incoming/applied/`). A file that has disappeared was merged. If it was rejected, Claude leaves `{your file name}.REJECTED.txt` in the drop folder with the line-numbered reasons: fix them and drop a NEW file (new timestamp). If you can commit to the repo, `collection/_incoming/`. In plain chat: print the file in one code block and tell the owner to save it under that name in the Drive folder.
 
 ## 2. The event
 ```
@@ -55,7 +55,7 @@ Entity `album`, `id` = the volume (`A026`), default `op` (`set`). The volume's `
 
 ## 6. Rules the checker enforces
 - A field the owner verified cannot be overwritten, unless your event carries `"supersedes": "<ts of the verified event>"` and a `source` saying why.
-- `id`s are permanent and never reused; new ids follow the counters (`NEW-n` placeholders do this for you: the next four real coins take **C297, C298, C299, C300** (closing the gap the four purged fake records left in the old 1-296 item sequence), then C301 onward).
+- `id`s are permanent and never reused; new ids follow the counters (`NEW-n` placeholders do this for you: the next real coins take **C297, C298, C299, C300** (closing the gap the four purged fake records left in the old 1-296 item sequence; C297 = Austria 1925 2 groschen, 2026-10-02), then C301 onward. Example files use the placeholder `C000`, which never exists: never copy it into a real file).
 - Each event's fields must belong to its `phase` (schema v3 tiers in `FIELDS.md`). `owner only` and `pipeline only` fields are never written by a model.
 - Whole file or nothing: one bad event rejects the file with a line-numbered report (`_incoming/rejected/*.report.txt`); fix it and resubmit. A wrong-typed value (text where a number belongs, a value outside the allowed words) is reported on its own line, never a crash. Submitting the same file twice is harmless.
 - Model events need a real `source` (section 2) and condition judgements need a photo file or cited reference (section 4).

@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (first Grok coin merged)
+* `changes_grok_20261001-1821.jsonl` merged: **C297** Austria 1925 2 groschen (EU-AT-001 provisional), Austria added as issuer. Clean validation, parity OK, 19/19 pipeline tests. Grok's note about a "Swiss 2 rappen" mis-call was corrected (no such record ever existed).
+* Rule: processed change files are deleted from the Drive drop folder (archive: `collection/_incoming/applied/`); rejections leave a `.REJECTED.txt`. Template example id is now `C000` (never a real coin).
+
 ### [2026-10-02 PT] — Claude/Opus integrator (art generation paused)
 * Owner paused image/video generation until SuperGrok/Antigravity credits return. No new art requests; v4 film request stays open; current splash clips stay live.
 

@@ -18,6 +18,25 @@ PY = sys.executable
 T1 = os.path.join(ROOT, "collection", "templates", "phase1_template.jsonl")
 T2 = os.path.join(ROOT, "collection", "templates", "phase2_template.jsonl")
 
+def _base():
+    """The live collection the sandboxes copy: tests derive ids and counts from it, so real coins arriving never break them."""
+    col = C.Collection(os.path.join(ROOT, "collection"))
+    nums = [int(k[1:]) for k in col.specs if k[:1] == "C" and k[1:].isdigit()]
+    return col, max([296] + nums) + 1          # owner decision: new coins start at C297
+BASE, _NEXT_N = _base()
+NEXT, NEXT2 = "C%03d" % _NEXT_N, "C%03d" % (_NEXT_N + 1)
+BOARD = json.load(open(os.path.join(ROOT, "data", "index.json"), encoding="utf-8"))["board"]   # the live board the sandbox starts from
+def logged_on(day):
+    """Existing specimens logged on `day` and their summed estimate (the portfolio test compares against a real baseline)."""
+    hits = [x for x in BASE.specs.values() if (x.get("acquisition") or {}).get("logged_at") == day]
+    return len(hits), sum(((x.get("value") or {}).get("est_usd") or 0) for x in hits)
+
+def t2(tmp):
+    """The Phase 2 template edits the placeholder C000 (so an AI copying it never edits a real coin); the tests point it at the coin Phase 1 creates."""
+    out = os.path.join(tmp, "phase2_template.jsonl")
+    with open(T2, encoding="utf-8") as f, open(out, "w", encoding="utf-8") as g: g.write(f.read().replace('"C000"', '"%s"' % NEXT).replace("C000_", NEXT + "_"))
+    return out
+
 def tree_hash(d):
     h = hashlib.sha256()
     for root, dirs, files in os.walk(d):
@@ -66,29 +85,30 @@ class Pipeline(unittest.TestCase):
 
     def test_templates_end_to_end(self):
         tmp = sandbox()
-        r = self.apply(tmp, T1, T2)
+        r = self.apply(tmp, T1, t2(tmp))
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertIn("APPLIED phase1_template.jsonl", r.stdout); self.assertIn("APPLIED phase2_template.jsonl", r.stdout)
         p = self.publish(tmp)
         self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
         idx = json.load(open(os.path.join(tmp, "data", "index.json"), encoding="utf-8"))
-        row = next(f for f in idx["flips"] if f["scan"] == "C297")                      # the new coin is in the index
+        row = next(f for f in idx["flips"] if f["scan"] == NEXT)                      # the new coin is in the index
         self.assertEqual((row["country"], row["year"], row["status"], row["kind"]), ("Canada", "1978", "Logged", "flip"))
-        self.assertEqual(len(idx["flips"]), 274); self.assertEqual(idx["counts"]["flips"], 274)
+        nflips = sum(1 for x in BASE.specs.values() if (x.get("lifecycle") or {}).get("status") != "Removed") + 1
+        self.assertEqual(len(idx["flips"]), nflips); self.assertEqual(idx["counts"]["flips"], nflips)
         self.assertEqual(row["est"], 0.15)                                               # Phase 1 never prices; Phase 2 set the estimate to 0.15
-        det = json.load(open(os.path.join(tmp, "data", "detail", "CA.json"), encoding="utf-8"))["C297"]
+        det = json.load(open(os.path.join(tmp, "data", "detail", "CA.json"), encoding="utf-8"))[NEXT]
         self.assertIn("900,000,000", det["mintage"])                                     # Phase 2 mintage reached the detail view
         self.assertIn("2.80 g", det["metal"]); self.assertIn("19.05 mm", det["metal"])   # Phase 2 nominal weight + diameter
         self.assertEqual(det["refs"], "KM#59.2")                                         # Phase 2 catalog number
-        self.assertAlmostEqual(idx["board"]["flips"]["usd"], 183.82 + 0.15, 2)           # the board moves by exactly the new coin's value
-        self.assertEqual(idx["board"]["flips"]["cards"], 268)
-        self.assertAlmostEqual(idx["board"]["grand"], 5393.70 + 0.15, 2)
+        self.assertAlmostEqual(idx["board"]["flips"]["usd"], BOARD["flips"]["usd"] + 0.15, 2)   # the board moves by exactly the new coin's value
+        self.assertEqual(idx["board"]["flips"]["cards"], BOARD["flips"]["cards"] + 1)
+        self.assertAlmostEqual(idx["board"]["grand"], BOARD["grand"] + 0.15, 2)
         self.assertEqual(idx["board"]["silver"]["oz"], 63.27); self.assertEqual(idx["board"]["gold"]["oz"], 0.1322)   # board metals stay authoritative
-        self.assertTrue(json.load(open(os.path.join(tmp, "data", "search.json")))["C297"])
+        self.assertTrue(json.load(open(os.path.join(tmp, "data", "search.json")))[NEXT])
         ver = json.load(open(os.path.join(tmp, "version.json")))
-        self.assertTrue(ver["ledger_version"].startswith("v3:")); self.assertEqual(ver["generated_at"], "2026-10-09T12:00:00Z"); self.assertEqual(ver["newest_flip"], "C297")
+        self.assertTrue(ver["ledger_version"].startswith("v3:")); self.assertEqual(ver["generated_at"], "2026-10-09T12:00:00Z"); self.assertEqual(ver["newest_flip"], NEXT)
         log = [json.loads(ln) for ln in open(os.path.join(tmp, "collection", "changes.jsonl"), encoding="utf-8") if ln.strip()]
-        self.assertTrue(any(e["id"] == "C297" and e["field"] == "value.est_usd" and e["old"] is None and e["new"] == 0.15 and e["verified"] is False for e in log))
+        self.assertTrue(any(e["id"] == NEXT and e["field"] == "value.est_usd" and e["old"] is None and e["new"] == 0.15 and e["verified"] is False for e in log))
         # the validator is happy with the result
         v = run(os.path.join(ROOT, "tools", "schema", "validate.py"), os.path.join(tmp, "collection"))
         self.assertEqual(v.returncode, 0, v.stdout)
@@ -99,24 +119,25 @@ class Pipeline(unittest.TestCase):
         days = ["2026-09-%02d" % n for n in range(11, 31)] + ["2026-10-%02d" % n for n in range(1, 10)]
         with open(spot, "w", encoding="utf-8") as f:                                     # synthetic flat prices for the sandbox only
             for d in days: f.write(json.dumps({"date": d, "xag_usd": 60.585999, "xau_usd": 4161.5, "source": "synthetic test row", "fetched_at": "2026-10-09T00:00:00Z"}) + "\n")
-        self.assertEqual(self.apply(tmp, T1, T2).returncode, 0)
+        self.assertEqual(self.apply(tmp, T1, t2(tmp)).returncode, 0)
         p = self.publish(tmp); self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
-        spec = json.load(open(os.path.join(tmp, "collection", "specimens", "CA.json"), encoding="utf-8"))["C297"]
+        spec = json.load(open(os.path.join(tmp, "collection", "specimens", "CA.json"), encoding="utf-8"))[NEXT]
         self.assertEqual(spec["acquisition"]["logged_at"], "2026-10-02")                 # logged_at defaults to the creating event's date
         idx = json.load(open(os.path.join(tmp, "data", "index.json"), encoding="utf-8")); pf = idx["value"]["portfolio_daily"]
         rows = {r[0]: r for r in pf["rows"]}
-        self.assertEqual(rows["2026-10-01"][5], 301); self.assertEqual(rows["2026-10-02"][5], 302)       # not before its date, from it onward
-        self.assertEqual(rows["2026-10-09"][5], 302)
-        self.assertAlmostEqual(rows["2026-10-02"][1] - rows["2026-10-01"][1], 0.15, places=2)           # flat prices: the step is exactly the coin
-        self.assertEqual(rows["2026-10-02"][6], 1)
-        self.assertEqual(pf["markers"][-1], {"d": "2026-10-02", "n": 1})
+        k, kusd = logged_on("2026-10-02")                                                # real coins already logged that day
+        self.assertEqual(rows["2026-10-02"][5], rows["2026-10-01"][5] + 1 + k)                         # not before its date, from it onward
+        self.assertGreaterEqual(rows["2026-10-09"][5], rows["2026-10-02"][5])
+        self.assertAlmostEqual(rows["2026-10-02"][1] - rows["2026-10-01"][1], 0.15 + kusd, places=2)    # flat prices: the step is exactly the new coins
+        self.assertEqual(rows["2026-10-02"][6], 1 + k)
+        self.assertIn({"d": "2026-10-02", "n": 1 + k}, pf["markers"])
         px = json.load(open(os.path.join(tmp, "data", "prices.json"), encoding="utf-8"))
         self.assertEqual(px["spot"]["rows"][0][0], "2026-09-11"); self.assertEqual(px["spot"]["rows"][-1][0], "2026-10-09")
 
     def test_reapply_is_a_noop(self):
-        tmp = sandbox(); self.apply(tmp, T1, T2)
+        tmp = sandbox(); self.apply(tmp, T1, t2(tmp))
         h = tree_hash(os.path.join(tmp, "collection"))
-        r = self.apply(tmp, T1, T2)
+        r = self.apply(tmp, T1, t2(tmp))
         self.assertEqual(r.returncode, 0); self.assertIn("nothing to do", r.stdout)
         self.assertEqual(h, tree_hash(os.path.join(tmp, "collection")))
 
@@ -126,7 +147,7 @@ class Pipeline(unittest.TestCase):
         r = self.publish(tmp)
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertTrue(os.path.exists(os.path.join(inc, "applied", "changes_claude_20261002-1830.jsonl")))
-        self.assertIn("C297", open(os.path.join(tmp, "data", "search.json"), encoding="utf-8").read())
+        self.assertIn(NEXT, open(os.path.join(tmp, "data", "search.json"), encoding="utf-8").read())
 
     def reject(self, events, expect, setup=None):
         tmp = sandbox()
@@ -153,7 +174,7 @@ class Pipeline(unittest.TestCase):
         self.reject([ev(entity="specimen", id="C001", field="condition.cleaned", new="maybe", source="pro photo C001_obv.jpg")], "validation")          # schema violation
         self.reject([ev(entity="specimen", id="C001", field="bogus_key", new=1)], "validation")                         # unknown leaf: the schema rejects it
         self.reject([{"ts": "2026-10-03T10:00:00Z", "by": "model:t", "entity": "specimen", "id": "C001", "field": "notes", "new": "x", "source": "s", "surprise": 1}], "unknown key")
-        self.reject([ev(entity="specimen", id="C272", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "next free 'C' id is C297")      # the next coins are C297-C300 (owner decision), then C301
+        self.reject([ev(entity="specimen", id="C272", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969"})], "next free 'C' id is " + NEXT)      # the next coins are C297-C300 (owner decision), then C301
         self.reject([ev(entity="specimen", id="NEW-1", op="create", field="(new record)", new={"type": "XX.KM.1", "year_raw": "1969"})], "does not exist")
         self.reject([ev(entity="type", id="C001", op="create", field="(new record)", new={})], "type id")
         self.reject([ev(entity="album", id="A099", op="create", field="(new record)", new={})], "albums are created")
@@ -197,9 +218,9 @@ class Pipeline(unittest.TestCase):
                                                                 ev(ts="2026-10-03T10:00:02Z", entity="specimen", id="NEW-2", field="notes", new="coin 2 edited")]))
         self.assertEqual(r.returncode, 0, r.stdout)
         specs = C.Collection(os.path.join(tmp, "collection")).specs
-        self.assertEqual(specs["C297"]["notes"], "coin 1"); self.assertEqual(specs["C298"]["notes"], "coin 2 edited")
+        self.assertEqual(specs[NEXT]["notes"], "coin 1"); self.assertEqual(specs[NEXT2]["notes"], "coin 2 edited")
         self.assertEqual(self.apply(tmp, os.path.join(tmp, "changes_two.jsonl")).returncode, 0)                      # idempotent even with placeholders
-        self.assertEqual(len(C.Collection(os.path.join(tmp, "collection")).specs), 275)
+        self.assertEqual(len(C.Collection(os.path.join(tmp, "collection")).specs), len(BASE.specs) + 2)
 
     def test_wrong_typed_values_are_a_readable_rejection(self):
         for field, val in (("value.est_usd", "lots"), ("value.est_usd", -5), ("measured.weight_g", "heavy"), ("housing.kind", "shoebox")):

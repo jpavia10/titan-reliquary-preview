@@ -9,16 +9,16 @@
   "ledger_repo": "https://github.com/jpavia10/titan-reliquary"
  },
  "counts": {
-  "specimens": 273,
-  "types": 156,
+  "specimens": 274,
+  "types": 157,
   "lots": 28,
   "albums": 33,
-  "issuers": 48,
-  "countries": 45,
+  "issuers": 49,
+  "countries": 46,
   "photos": 0,
   "valuations": 301,
   "spot_days": 21,
-  "changes": 410,
+  "changes": 414,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "77b1577769d0b7e82cb32ba839decbf6c63dfc25779e167499b7fee8959484ea",
+ "content_hash": "6e6b1fbeb150c096b58a87d8fc22849c5b3144cdf1eecce8c4c3c8a57ae5542e",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -73,13 +73,13 @@
   },
   {
    "path": "boot.json",
-   "sha256": "a357ee8e52f93c386aa545bb70a0b97acae53fb944b19720a20f2d3ed129eba0",
-   "bytes": 16941
+   "sha256": "b69caa846ee527603fc8f1aa4617c5c60e48b8d456e01eb75e5ae157b5eadbd0",
+   "bytes": 17025
   },
   {
    "path": "changes.jsonl",
-   "sha256": "78c5f497ba2ec682c626e29a22c2218d6e8fb3fc55923f515cdfeab41983acc8",
-   "bytes": 180722
+   "sha256": "35b77fffdb229c962e3430ca6ff53053d517cfd38d62410493e205d22a669819",
+   "bytes": 182852
   },
   {
    "path": "lots.json",
@@ -103,8 +103,13 @@
   },
   {
    "path": "ref/issuers.json",
-   "sha256": "5df5e7022da8f1e4b94066aab6e19b30b0e4a3c4eca434291d345d176bc1dfa8",
-   "bytes": 5859
+   "sha256": "d82cb1c644e6a635851af59b0627b04b08cb584f689061333201ec08f361134f",
+   "bytes": 5972
+  },
+  {
+   "path": "specimens/AT.json",
+   "sha256": "fb0622270c77c11834d703f38a6488c73a9cc117b41c614860bb85ec331faa3c",
+   "bytes": 1574
   },
   {
    "path": "specimens/AU.json",
@@ -348,8 +353,13 @@
   },
   {
    "path": "templates/phase2_template.jsonl",
-   "sha256": "0c4209e3001a207bdf71427d61fec961a7852df7930c692a91cf0bce4cff81b8",
+   "sha256": "3fae974c0c59ed753e4bb36b977736c1b8c64662d6f95a7779d4f6c64a5044a5",
    "bytes": 3390
+  },
+  {
+   "path": "types/AT.json",
+   "sha256": "b4e270910cff70dc7e5d5cae46d91346cd3c68eb7838c53e5b05642bfd064d9b",
+   "bytes": 1011
   },
   {
    "path": "types/AU.json",

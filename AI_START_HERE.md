@@ -18,7 +18,7 @@ Schema: **v3** (`schema/v3/`). Every field has a tier: Phase 1, Phase 1.5, Phase
 |---|---|
 | The master (read this) | GitHub repo `jpavia10/titan-reliquary-preview`, folder `collection/`: coins = `specimens/{ISO}.json`, what a coin IS = `types/{ISO}.json`, binder volumes = `albums.json`, bullion/sets = `lots.json`. Read-only mirror on Drive: `Titan Reliquary/collection/` |
 | Photos to process | Drive `Titan Reliquary/STAGING (drop coin photos here)/` |
-| Where your change file goes | Drive `Titan Reliquary/collection-incoming (AI change files)/`. If you can commit to the repo instead, `collection/_incoming/` there. If you can do neither (plain chat), print the whole file in a code block and tell the owner to save it under its file name in the Drive folder above. |
+| Where your change file goes | Drive `Titan Reliquary/collection-incoming (AI change files)/`. After processing, Claude deletes your change file from the Drive drop folder (the archived copy lives in the repo at `collection/_incoming/applied/`). A file that has disappeared was merged. If it was rejected, Claude leaves `{your file name}.REJECTED.txt` in the drop folder with the line-numbered reasons: fix them and drop a NEW file (new timestamp). If you can commit to the repo instead, `collection/_incoming/` there. If you can do neither (plain chat), print the whole file in a code block and tell the owner to save it under its file name in the Drive folder above. |
 | The exact change-file format + rules | `collection/templates/INSTRUCTIONS.md`, worked examples `collection/templates/phase1_template.jsonl`, `phase2_template.jsonl` |
 | Every writable field, type and unit | `collection/templates/FIELDS.md` |
 | Photo naming and folders | `docs/PHOTO_FOLDERS.md` |
