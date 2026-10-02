@@ -18,7 +18,7 @@
   "photos": 0,
   "valuations": 304,
   "spot_days": 21,
-  "changes": 663,
+  "changes": 665,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "17f3ff826813347e8cf960168537bb7a8cc927d42c7a71417614df434d557d1b",
+ "content_hash": "923888f753615d3f64fc7fbe343b993c9335abc660577f63a80b4c5aa2659333",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -63,8 +63,8 @@
   },
   {
    "path": "albums.json",
-   "sha256": "ae32b5f1b436ad9d5ec051f3d5e7bf5af9755bdab856377a24476d3f2419ab52",
-   "bytes": 366455
+   "sha256": "6eec7ab5139fc64d158952575080339e8fac190134b6d19992f7faee7e151c27",
+   "bytes": 369811
   },
   {
    "path": "board.json",
@@ -78,8 +78,8 @@
   },
   {
    "path": "changes.jsonl",
-   "sha256": "19b7394b758a2b91166cd4127876731c5c37557a27b3ff4cbac2ac318d71e925",
-   "bytes": 424897
+   "sha256": "398f344d561eb66ff7bffcfdf748221a6ab9aa3fd810e86e027bcd08b1b820c6",
+   "bytes": 440541
   },
   {
    "path": "lots.json",
