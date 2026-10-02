@@ -32,11 +32,12 @@ class ValueModel(unittest.TestCase):
         self.assertTrue(all(b >= a - 0.005 for a, b in zip(tot, tot[1:])), "flat prices: the series never falls")
         for prev, cur in zip(rows, rows[1:]):
             if cur[6] == 0: self.assertAlmostEqual(cur[1], prev[1], delta=0.005, msg=cur[0])      # no item added: no step
-            else: self.assertGreater(cur[1], prev[1])                                              # items added: a step up
-        self.assertEqual([m["d"] for m in pf["markers"]], ["2026-09-11", "2026-09-12", "2026-09-13", "2026-09-15", "2026-09-16", "2026-09-17", "2026-09-18", "2026-09-22", "2026-09-24"])
+            else: self.assertGreaterEqual(cur[1], prev[1] - 0.005)                                 # items added: a step up (or flat for a Phase 1 coin with no estimate yet)
+        self.assertEqual([m["d"] for m in pf["markers"]][:9], ["2026-09-11", "2026-09-12", "2026-09-13", "2026-09-15", "2026-09-16", "2026-09-17", "2026-09-18", "2026-09-22", "2026-09-24"])   # the v254 ledger days (later coins add more)
         self.assertEqual(pf["markers"][0]["n"], 75)
         first = rows[0]; self.assertGreater(first[1], 1000)                                         # albums + residual are there from day 0
-        self.assertEqual(rows[-1][5], 301)                                                          # every specimen + lot present at the end
+        self.assertEqual(rows[-1][5], sum(1 for i in V.items(COL) if i["kind"] != "album"))      # every specimen + lot present at the end
+        fx = [r[8] for r in rows]; self.assertTrue(all(b >= a - 0.005 for a, b in zip(fx, fx[1:])), "the fixed-price growth line never falls")
 
     def test_undated_albums_are_counted_from_day_0(self):
         pf = V.portfolio(COL, flat("2026-09-11", "2026-09-12"))
@@ -64,9 +65,9 @@ class ValueModel(unittest.TestCase):
         spec = col["specs"]["C001"]; spec = copy.deepcopy(spec); spec["id"] = "C999"; spec["acquisition"]["logged_at"] = "2026-10-03"; spec["value"]["est_usd"] = 12.5
         col["specs"]["C999"] = spec
         pf = V.portfolio(col, flat("2026-09-29", "2026-10-05"), today="2026-10-05"); rows = {r[0]: r for r in pf["rows"]}
-        self.assertEqual(rows["2026-10-02"][5], 301); self.assertEqual(rows["2026-10-03"][5], 302)
+        self.assertEqual(rows["2026-10-03"][5], rows["2026-10-02"][5] + 1)
         self.assertAlmostEqual(rows["2026-10-03"][1] - rows["2026-10-02"][1], 12.5, delta=0.005)
-        self.assertEqual(rows["2026-10-03"][6], 1); self.assertEqual(rows["2026-10-02"][6], 0)
+        self.assertEqual(rows["2026-10-03"][6], 1); self.assertEqual(rows["2026-10-02"][6], sum(1 for i in V.items(COL) if i["start"] == "2026-10-02" and i["kind"] != "album"))   # only the real coins logged that day
 
     def test_series_extends_to_today_with_the_last_price_marked_carried(self):
         pf = V.portfolio(COL, flat("2026-09-29", "2026-09-30"), today="2026-10-02")

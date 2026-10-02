@@ -1605,7 +1605,7 @@
   const term = { series: "portfolio", tf: "ALL", mode: "area", prices: null, pricesTried: false, live: null, liveTried: false, hit: null, cx: null, pts: [], candles: [] };
   try {
     const s = JSON.parse(localStorage.getItem("tr_term_v1") || "{}");
-    if (["portfolio", "ag", "au", "ratio"].includes(s.series)) term.series = s.series;
+    if (["portfolio", "growth", "ag", "au", "ratio"].includes(s.series)) term.series = s.series;
     if (TERM_TF[s.tf]) term.tf = s.tf;
     if (s.mode === "candle") term.mode = "candle";
   } catch (_) {}
@@ -1678,7 +1678,10 @@
     const pf = vault?.value?.portfolio_daily;
     const q = termQuote(), today = termTodayUTC(), pts = [];
     const spotRows = term.prices?.spot?.rows || [];
-    if (term.series === "portfolio") {
+    if (term.series === "growth") {
+      // Collection growth: every day valued at ONE fixed quote (value_history "fixed" column), so it only moves when items are added.
+      for (const r of pf?.rows || []) if (r[8] != null) pts.push({ d: r[0], v: r[8], n: r[5], added: r[6], k: r[7] });
+    } else if (term.series === "portfolio") {
       for (const r of pf?.rows || []) pts.push({ d: r[0], v: r[1], ag: r[2], au: r[3], prem: r[4], n: r[5], added: r[6], k: r[7] });
       if (q.kind !== "board" && pts.length) {
         const qd = q.kind === "live" ? today : q.at.toISOString().slice(0, 10), last = pts[pts.length - 1];
@@ -1743,7 +1746,7 @@
     const empty = $("#term-empty");
     if (empty) {
       empty.hidden = real;
-      if (!real) empty.textContent = term.series === "portfolio"
+      if (!real) empty.textContent = (term.series === "portfolio" || term.series === "growth")
         ? "Portfolio history needs at least two priced days. The daily price job fills it in; nothing is estimated in the meantime."
         : (term.prices ? "Spot history needs at least two days; the daily price job fills it in." : "Spot history is not loaded (offline, and not cached yet). The latest quote above is still shown with its as-of.");
     }
@@ -1832,8 +1835,8 @@
       }
     }
 
-    // markers on the days items were added ("+75 items"), portfolio series only
-    if (term.series === "portfolio") {
+    // markers on the days items were added ("+75 items"), portfolio and growth series
+    if (term.series === "portfolio" || term.series === "growth") {
       let lastLabelX = -1e9;
       g.font = "700 11px ui-monospace, SFMono-Regular, Menlo, monospace"; g.textAlign = "center";
       for (let i = 0; i < pts.length; i++) {
@@ -1870,6 +1873,12 @@
     const pf = vault?.value?.portfolio_daily?.rows || [];
     const base = [...pf].reverse().find((r) => r[0] < todayStr);
     const priceEl = $("#term-price"), deltaEl = $("#term-delta");
+    const gRows = term.series === "growth" ? pf.filter((r) => r[8] != null) : [];
+    if (gRows.length) {        // Growth: the fixed-price total and how much the collection has grown since day 0 (items only, no price moves)
+      const last = gRows[gRows.length - 1], first = gRows[0], d = last[8] - first[8];
+      if (priceEl) priceEl.textContent = money(last[8]);
+      if (deltaEl) { deltaEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}$${num(Math.abs(d), 2)} since ${termDate(first[0])} · items added, at fixed prices`; deltaEl.className = "term-delta " + (d >= 0 ? "up" : "down"); }
+    } else {
     if (priceEl) priceEl.textContent = total > 0 ? money(total) : "—";
     if (deltaEl) {
       if (base && base[1] > 0 && total > 0) {
@@ -1877,6 +1886,7 @@
         deltaEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}$${num(Math.abs(d), 2)} (${d >= 0 ? "+" : "−"}${Math.abs(pct).toFixed(2)}%) vs ${termDate(base[0])}`;
         deltaEl.className = "term-delta " + (d >= 0 ? "up" : "down");
       } else { deltaEl.textContent = "no earlier day to compare"; deltaEl.className = "term-delta"; }
+    }
     }
     const badge = $("#term-badge");
     if (badge) {
@@ -1925,7 +1935,11 @@
     const pf = vault?.value?.portfolio_daily || {};
     const win = termWindow(termSeries());
     const parts = [];
-    if (term.series === "portfolio") {
+    if (term.series === "growth") {
+      const fq = pf.fixed_quote || pf.board_quote || {};
+      parts.push(`Collection growth = the same items as Portfolio value, but every day is priced at one fixed quote (silver $${num(fq.xag_usd, 2)}, gold $${num(fq.xau_usd, 2)}, the ${fq.date ? termDate(fq.date) : "ledger"} board quote), so metal price swings are removed and the line moves only when items are added (or removed). Item values are the ledger's static estimates; live coin prices are a later step.`);
+      parts.push("Dashed ticks with a number mark days items were added.");
+    } else if (term.series === "portfolio") {
       parts.push(pf.caption || "Portfolio value = metal content x that day's spot + each item's ledger premium, counted from the day it was added.");
       if (pf.priced_from && pf.day0 && pf.priced_from > pf.day0) parts.push(`Spot prices before ${termDate(pf.priced_from)} have not been fetched yet, so the chart starts there; the daily price job backfills back to ${termDate(pf.day0)}.`);
       parts.push("Dashed ticks with a number mark days items were added.");
@@ -1953,7 +1967,7 @@
       hub.dataset.wired = "1";
       hub.addEventListener("click", (e) => {
         const s = e.target.closest("[data-series], [data-asset]"), tf = e.target.closest("[data-tf]"), md = e.target.closest("[data-mode]");
-        if (s) { term.series = s.dataset.series || s.dataset.asset; if (!["portfolio", "ag", "au", "ratio"].includes(term.series)) term.series = "portfolio"; }
+        if (s) { term.series = s.dataset.series || s.dataset.asset; if (!["portfolio", "growth", "ag", "au", "ratio"].includes(term.series)) term.series = "portfolio"; }
         else if (tf) term.tf = tf.dataset.tf;
         else if (md) term.mode = md.dataset.mode === "candle" ? "candle" : "area";
         else return;
@@ -1993,7 +2007,7 @@
           if (pv && pv.v > 0) { const d = p.v - pv.v; cEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}${term.series === "ratio" ? num(Math.abs(d), 2) : "$" + num(Math.abs(d), 2)} (${((d / pv.v) * 100).toFixed(2)}%) vs ${termShort(pv.d)}`; cEl.classList.add(d >= 0 ? "up" : "down"); }
           else cEl.textContent = "first day shown";
           const bits = [];
-          if (term.series === "portfolio") { if (p.added > 0) bits.push(`+${intFmt(p.added)} items added`); if (p.n != null) bits.push(`${intFmt(p.n)} items counted`); }
+          if (term.series === "portfolio" || term.series === "growth") { if (p.added > 0) bits.push(`+${intFmt(p.added)} items added`); if (p.n != null) bits.push(`${intFmt(p.n)} items counted`); }
           const kt = termKindText(p.k); if (kt) bits.push(kt);
           rEl.textContent = bits.join(" · ") || "closing price";
         }

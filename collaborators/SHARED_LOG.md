@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (tr76: Growth line)
+* Hall terminal has a **Growth** tab: portfolio at fixed metal prices (2026-09-30 board quote), so it only steps up when items are added; header shows "+$X since Sep 11". Data: `value.portfolio_daily.rows[i][8]` ("fixed").
+
 ### [2026-10-02 PT] — Claude/Opus integrator (sequential coin ids; C272 + C273)
 * Owner retired the C297-C300 rule: coins number straight on. Austria 1925 2 groschen is now **C272** (was C297 for a few hours), German 2005 1 euro cent (R001) logged as **C273** / EU-DE-062. Next new coin: C274. Use `NEW-n` placeholders; never hard-code an id.
 

@@ -95,7 +95,9 @@ def portfolio(col, spot_rows, today=None):
     its = items(col); cal = calibration(col, its); bq = cal["board"]; d0 = day0(its) or bq["date"]
     last_spot = max(spot_rows) if spot_rows else None
     through = max([x for x in (last_spot, today) if x]) if (last_spot or today) else None
-    out = {"cols": ["d", "total", "ag_melt", "au_melt", "premium", "n", "added", "k"], "rows": [], "markers": []}
+    # "fixed" = the same items valued at ONE fixed quote (the ledger board quote), so it moves only when items are added or removed:
+    # the collection-growth line that ignores metal price swings (owner request 2026-10-02). Item values are the ledger's static estimates.
+    out = {"cols": ["d", "total", "ag_melt", "au_melt", "premium", "n", "added", "k", "fixed"], "rows": [], "markers": []}
     if not spot_rows or not through:
         out.update(meta(col, its, cal, d0, None, None, spot_rows)); return out
     f = spot_lookup(spot_rows, through)
@@ -108,7 +110,8 @@ def portfolio(col, spot_rows, today=None):
         pres = [i for i in its if present(i, d, d0)]
         s = f(d); ag_oz = sum(i["ag"] for i in pres) + unag; au_oz = sum(i["au"] for i in pres) + unau
         agm = ag_oz * s[0]; aum = au_oz * s[1]; prem = sum(i["premium"] for i in pres) + res
-        out["rows"].append([d, round(agm + aum + prem, 2), round(agm, 2), round(aum, 2), round(prem, 2), sum(1 for i in pres if i["kind"] != "album"), added.get(d, 0), s[2]])
+        fixed = ag_oz * bq["xag_usd"] + au_oz * bq["xau_usd"] + prem
+        out["rows"].append([d, round(agm + aum + prem, 2), round(agm, 2), round(aum, 2), round(prem, 2), sum(1 for i in pres if i["kind"] != "album"), added.get(d, 0), s[2], round(fixed, 2)])
     out["markers"] = [{"d": d, "n": n} for d, n in sorted(added.items()) if first and d >= first]
     out.update(meta(col, its, cal, d0, first, through, spot_rows))
     out["ag_oz"] = round(sum(i["ag"] for i in its if present(i, through or d0, d0)) + unag, 4)
@@ -125,7 +128,8 @@ def meta(col, its, cal, d0, first, through, spot_rows):
     return {"method": "metal oz x spot(d) + premium; calibrated to the board total at the board quote date", "day0": d0, "priced_from": first, "through": through,
             "last_price_date": max(spot_rows) if spot_rows else None, "bucket": BUCKET, "residual_usd": cal["residual_usd"],
             "unitemised_oz": {"ag": cal["unitemised_ag_oz"], "au": cal["unitemised_au_oz"]}, "itemised_oz": {"ag": cal["itemised_ag_oz"], "au": cal["itemised_au_oz"]},
-            "board_quote": {k: bq[k] for k in ("date", "xag_usd", "xau_usd", "source", "at", "total_usd")}, "undated_albums": nd, "caption": cap}
+            "board_quote": {k: bq[k] for k in ("date", "xag_usd", "xau_usd", "source", "at", "total_usd")},
+            "fixed_quote": {"date": bq["date"], "xag_usd": bq["xag_usd"], "xau_usd": bq["xau_usd"]}, "undated_albums": nd, "caption": cap}
 
 def model_at(col, d, ag_spot, au_spot, its=None):
     """Value on date d at the given spots (used by tests and the calibration check)."""
