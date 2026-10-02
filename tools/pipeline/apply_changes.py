@@ -47,8 +47,8 @@ REFERENCE = re.compile(r"https?://|\bN#\s*\d|\bKM#?\s*\d|\b(?:Numista|Krause|PCG
 PHOTO_FIELDS = ("condition.grade", "condition.strike", "condition.luster", "condition.toning", "condition.cleaned", "condition.damage")   # judged by eye: need a photo or a cited reference
 
 TIERS = json.load(open(os.path.join(ROOT, "schema", "v3", "field_tiers.json"), encoding="utf-8"))["tiers"]
-PHASE_TIERS = {1: {"phase1"}, 1.5: {"phase1_5"}, 2: {"phase1", "phase1_5", "phase2"}}
-TIER_WORDS = {"phase1": "Phase 1", "phase1_5": "Phase 1.5 (album scans)", "phase2": "Phase 2", "owner": "the owner only", "system": "the pipeline only"}
+PHASE_TIERS = {1: {"phase1"}, 1.5: {"phase1_5", "phase1_5_raise"}, 2: {"phase1", "phase1_5", "phase1_5_raise", "phase2"}}
+TIER_WORDS = {"phase1": "Phase 1", "phase1_5": "Phase 1.5 (album scans)", "phase1_5_raise": "Phase 1.5 (album scans; raise only, photo-backed)", "phase2": "Phase 2", "owner": "the owner only", "system": "the pipeline only"}
 
 def tier_of(entity, field):
     """Tier of a dotted field path: the longest matching prefix in field_tiers.json ('*' = any list index)."""
@@ -245,6 +245,17 @@ class Applier:
             if t == "system": errs.append(sys_msg(e["entity"], f))
             elif t not in ok:
                 errs.append(f"{e['entity']} field '{f}' is a {TIER_WORDS.get(t, t)} field; a phase {e['phase']} contribution may not write it (see collection/templates/FIELDS.md)")
+        for f in fields:
+            if tier_of(e["entity"], f) != "phase1_5_raise" or tier_of(e["entity"], f) not in ok: continue
+            # Schema v4 (owner, 2026-10-02): a photo of the page may RAISE an album's printed hole count or fill count, never lower it.
+            src = e.get("source") or ""
+            try: nv = get_at(e["new"], parse_path(f[len(e["field"]) + 1:])) if f != e["field"] else e["new"]
+            except (KeyError, TypeError): nv = None
+            try: cv = get_at(rec, parse_path(f)) if rec is not None else None
+            except (KeyError, TypeError): cv = None
+            if not PHOTO_FILE.search(src): errs.append(f"album {f} may only change from a photo of the page: name the photo file in `source` (e.g. 'A012_idx076.jpeg'); got {src!r}")
+            elif not (isinstance(nv, int) and not isinstance(nv, bool) and nv > 0): errs.append(f"album {f} must be a whole number of holes/coins counted on the photo; got {nv!r}")
+            elif isinstance(cv, int) and nv < cv: errs.append(f"album {f}: a scan may raise the stored count ({cv}) but never lower it ({nv}); a lower count goes to the owner as a question")
         if e["phase"] == 1 and e["entity"] == "type" and e.get("op") == "create" and ".X." not in str(e["id"]):
             errs.append(f"type id {e['id']}: a Phase 1 type never carries a catalog number; use {{ISO}}.X.{{denomination-slug}} (e.g. CA.X.1-cent); Phase 2 adds the catalog reference in `catalogs`")
         return errs[:6]

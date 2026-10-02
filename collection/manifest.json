@@ -9,29 +9,29 @@
   "ledger_repo": "https://github.com/jpavia10/titan-reliquary"
  },
  "counts": {
-  "specimens": 275,
-  "types": 157,
+  "specimens": 276,
+  "types": 158,
   "lots": 28,
   "albums": 33,
   "issuers": 49,
   "countries": 46,
   "photos": 0,
-  "valuations": 303,
+  "valuations": 304,
   "spot_days": 21,
-  "changes": 635,
+  "changes": 662,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
    "set": 2,
    "stamp": 1
   },
-  "album_slots_total": 1565,
-  "album_slots_filled_claimed": 927
+  "album_slots_total": 1642,
+  "album_slots_filled_claimed": 926
  },
  "totals": {
-  "specimens_est_usd": 187.5,
+  "specimens_est_usd": 187.65,
   "lots_est_usd": 3288.75,
-  "records_est_usd": 3476.25,
+  "records_est_usd": 3476.4,
   "silver_oz": {
    "specimens": 0.3733,
    "lots": 37.397,
@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "c4fcab20ce7581f7fa6e99f8ba14023ca90f27c1701e20469488396cc1c5f0e8",
+ "content_hash": "fd678767a5d6bb23a53cebe90f36a247955dbce4e56ddc3a38883d68cd2f5203",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -63,8 +63,8 @@
   },
   {
    "path": "albums.json",
-   "sha256": "d5df16e2bdb628b1928505092bfec3d23983ac469a7dde3c46f5e6c4827f1aab",
-   "bytes": 320037
+   "sha256": "ae32b5f1b436ad9d5ec051f3d5e7bf5af9755bdab856377a24476d3f2419ab52",
+   "bytes": 366455
   },
   {
    "path": "board.json",
@@ -73,13 +73,13 @@
   },
   {
    "path": "boot.json",
-   "sha256": "d40ab834ef103dd994dbe3fa067bc25bc1ba8e4a621147e050a8b90ba55614fa",
-   "bytes": 17076
+   "sha256": "8e53c960333a01d35e542a76dc4fa5fae910a351effd06ea3d59966ac3a72a44",
+   "bytes": 17145
   },
   {
    "path": "changes.jsonl",
-   "sha256": "f8fe1725ca7e346295582a57919bf263d617b239ed2adc7ed1525deec4ab57bf",
-   "bytes": 349372
+   "sha256": "5c7153f02db5bc07e646b9cff6fc1464085da2d263e28b56ab8ba4d7305d8973",
+   "bytes": 424385
   },
   {
    "path": "lots.json",
@@ -243,8 +243,8 @@
   },
   {
    "path": "specimens/MX.json",
-   "sha256": "b7ed6bda7ce6ed76429a3970c8e4ae1d5820a6819d92dd9af710215fde08c997",
-   "bytes": 20983
+   "sha256": "f2c247212c5b21fd5e9be0caf08c5f0b26e8aa400a1cf22003afbc0cb56f2684",
+   "bytes": 22814
   },
   {
    "path": "specimens/NG.json",
@@ -338,13 +338,13 @@
   },
   {
    "path": "templates/FIELDS.md",
-   "sha256": "f68e52d974a148258b4bd13951be1f709296e01046f750abb3215e15f5b0cd6c",
-   "bytes": 23541
+   "sha256": "999d7b4a6f308d0485f0b9c2a8ff1b9181c1245aa448ce032355e2491448cc60",
+   "bytes": 23694
   },
   {
    "path": "templates/INSTRUCTIONS.md",
-   "sha256": "a435d58f2e114678074ec1090c8522dea255b30842c90ab890caf5239fdd4126",
-   "bytes": 13931
+   "sha256": "a2e0357cca9884fc51ed834996b77f7e2c90aab1fad121576abf3f67e5938284",
+   "bytes": 14066
   },
   {
    "path": "templates/phase1_template.jsonl",
@@ -493,8 +493,8 @@
   },
   {
    "path": "types/MX.json",
-   "sha256": "1953dd6038f4bc13218e065060a44bc318fe797f65c621375a15e1bcaf831b3e",
-   "bytes": 11445
+   "sha256": "1f4550caf81a31851262e91ee863a1a19f80c4e6718968ebadc0b335a9f2ac30",
+   "bytes": 12466
   },
   {
    "path": "types/NG.json",
@@ -588,8 +588,8 @@
   },
   {
    "path": "valuations.jsonl",
-   "sha256": "7018b279bba512e23018d73f76ac6310634d2d3d355c91b9ee555a30f419de97",
-   "bytes": 45730
+   "sha256": "a95cff96eb43e872ea8c8723afd4cf5cd96e70f48ffe23ea0e2e0f7e0c812619",
+   "bytes": 46201
   }
  ]
 }

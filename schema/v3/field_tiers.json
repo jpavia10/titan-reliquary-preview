@@ -27,7 +27,7 @@
     "album": {
       "slots": "phase1_5", "slots.*.state": "phase1_5", "slots.*.occupant_status": "phase1_5", "slots.*.label": "phase1_5", "slots.*.provenance": "phase1_5",
       "slots.*.occupant": "phase2",
-      "slots_total": "owner", "slots_filled_claimed": "owner",
+      "slots_total": "phase1_5_raise", "slots_filled_claimed": "phase1_5_raise",
       "id": "system", "family": "system", "binder": "system", "title": "system", "whitman": "system", "denomination_text": "system", "metal_text": "system",
       "year_start": "system", "year_end": "system", "slots_total_approx": "system", "evidence": "system", "grid_source": "system",
       "asw_oz_per_slot": "system", "needs_scan": "system", "note": "phase2"

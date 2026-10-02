@@ -93,6 +93,7 @@ def main(d, update_manifest=False):
         if a["slots_total"] is not None and a["slots_filled_claimed"] is not None and ne > a["slots_total"] - a["slots_filled_claimed"]: errs["ref"].append(f"album {a['id']}: {ne} slots empty but only {a['slots_total'] - a['slots_filled_claimed']} are missing by count")
         for s in a["slots"]:
             if s["occupant_status"] == "inferred" and not (s.get("provenance") or "").startswith("inferred:"): errs["ref"].append(f"album {a['id']} {s['slot']}: inferred slot needs provenance 'inferred: ...'")
+            if s["occupant_status"] == "photo" and not re.search(r"\.(?:jpe?g|png|tiff?|heic|webp)\b", s.get("provenance") or "", re.I): errs["ref"].append(f"album {a['id']} {s['slot']}: a photo-read slot needs provenance naming the photo file")
             if s["state"] == "unknown" and s["occupant_status"] != "unknown": errs["ref"].append(f"album {a['id']} {s['slot']}: state unknown must have occupant_status unknown")
             if s["state"] in ("filled", "empty") and s["occupant_status"] == "unknown": errs["ref"].append(f"album {a['id']} {s['slot']}: a {s['state']} slot cannot have occupant_status unknown")
             if s.get("occupant") and s["occupant"] not in specs: errs["ref"].append(f"album {a['id']} {s['slot']}: unknown occupant {s['occupant']}")

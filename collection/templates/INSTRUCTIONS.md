@@ -51,7 +51,7 @@ Entity `album`, `id` = the volume (`A026`), default `op` (`set`). The volume's `
 ```
 - `occupant_status`: `ledger` = the owner's own ledger (`ALBUMS.md`) states this slot (**you never write `ledger`**); `inferred` = you read it off a scan or from the Whitman layout, and then `provenance` must say so; `unknown` = not known. Never present `inferred` as fact.
 - To add a slot we could not name before, set the whole `slots` list (read the current list first, append, keep every old entry unchanged, give the new one the next `s###` id; pass `old` to guard).
-- Do not change `slots_total` or `slots_filled_claimed` (owner-verified counts) or `id`. The checker cross-checks them: the number of slots marked `empty` may not exceed `slots_total - slots_filled_claimed`, otherwise the file is rejected ("N slots empty but only M are missing by count"). If a scan contradicts the owner's counts, do not force it: leave those slots `unknown` and say so in chat. Setting `needs_scan` to `false` is for the owner.
+- `slots_total` and `slots_filled_claimed` (schema v4): you may RAISE them when the page photo shows more printed holes or more coins than stored; name the photo file in `source`. Never lower them and never invent holes; if a photo shows FEWER, leave the counts, mark the doubtful slots `unknown` and say so in chat. The checker cross-checks: `empty` slots may not exceed `slots_total - slots_filled_claimed`. A slot read slot by slot from a photo may use `occupant_status: "photo"` with `provenance` naming the file. Setting `needs_scan` to `false` is for the owner or integrator.
 - `occupant` (a specimen id) only if you are sure which `C###` sits in the slot; otherwise leave it `null`.
 
 ## 6. Rules the checker enforces

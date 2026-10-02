@@ -1475,6 +1475,7 @@
             "ledger",
             "whitman-model",
             "ledger+whitman-model",
+            "photo",
             "none"
           ],
           "description": "Where the slot names come from."
@@ -1564,10 +1565,11 @@
         "occupant_status": {
           "enum": [
             "ledger",
+            "photo",
             "inferred",
             "unknown"
           ],
-          "description": "ledger = ALBUMS.md enumerates this slot's state; inferred = from the Whitman layout / slot arithmetic only; unknown = not known."
+          "description": "ledger = ALBUMS.md enumerates this slot's state; photo = read slot by slot from a photo of the page (provenance names the photo file; schema v4); inferred = from the Whitman layout / slot arithmetic only; unknown = not known."
         },
         "provenance": {
           "type": [

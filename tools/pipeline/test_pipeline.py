@@ -193,7 +193,7 @@ class Pipeline(unittest.TestCase):
         self.reject([ev(entity="type", id="CH.KM.24a.1", field="catalogs", new=[{"system": "KM", "number": "24a.1"}], **p1)], "Phase 2 field")
         self.reject([ev(entity="specimen", id="C001", field="acquisition.price_paid_usd", new=5.0)], "the owner only")
         self.reject([ev(entity="specimen", id="C001", field="research.phase", new=2)], "pipeline only")
-        self.reject([ev(entity="album", id="A026", field="slots_total", new=40, phase=1.5, source="scan A026_p01_20261010.jpg")], "the owner only")
+        self.reject([ev(entity="album", id="A026", field="year_start", new=1985, phase=1.5, source="scan A026_p01_20261010.jpg")], "pipeline only")
         # allowed: Phase 1 story + notes, and the pipeline records research progress
         tmp = sandbox()
         f = write_events(tmp, "ok.jsonl", [ev(entity="specimen", id="C001", field="story", new="A Swiss franc from 1969, struck in Bern.", **p1)])
@@ -224,6 +224,16 @@ class Pipeline(unittest.TestCase):
         def seed(tmp):                                                                  # an occupant already recorded ...
             col = C.Collection(os.path.join(tmp, "collection")); col.album("A014")["slots"] = slots("C001"); col.save()
         self.reject([a15(None)], "slots.0.occupant' is a Phase 2 field", setup=seed)  # ... cannot be erased by Phase 1.5 either
+
+    def test_album_scan_may_raise_counts_from_a_photo_but_never_lower_them(self):
+        cur = BASE.album("A012")["slots_total"]
+        cnt = lambda n, src="album page photo A012_idx076.jpeg, every hole counted", phase=1.5: ev(entity="album", id="A012", field="slots_total", new=n, phase=phase, source=src)
+        tmp = sandbox(); r = self.apply(tmp, write_events(tmp, "changes_raise.jsonl", [cnt(cur + 1)]))
+        self.assertEqual(r.returncode, 0, r.stdout)                                     # schema v4: a photo of the page may raise the hole count
+        self.assertEqual(C.Collection(os.path.join(tmp, "collection")).album("A012")["slots_total"], cur + 1)
+        self.reject([cnt(cur - 1)], "never lower it")                                   # ... but never lower it
+        self.reject([cnt(cur + 1, src="counted the holes in the album")], "photo of the page")
+        self.reject([cnt(cur + 1, phase=1)], "may not write it")                        # Phase 1 never touches album counts
 
     def test_placeholder_ids_and_two_coins_in_one_file(self):
         tmp = sandbox()

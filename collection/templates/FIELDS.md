@@ -250,11 +250,11 @@ Required keys of a whole record: `evidence`, `family`, `grid_source`, `id`, `nee
 | `metal_text` | pipeline only | string or null |  |  |
 | `year_start` | pipeline only | integer or null |  |  |
 | `year_end` | pipeline only | integer or null |  |  |
-| `slots_total` | owner only | integer or null |  |  |
+| `slots_total` | Phase 1.5 (raise only, photo) | integer or null |  |  |
 | `slots_total_approx` | pipeline only | boolean |  | true when the ledger gives only an approximate slot count. |
-| `slots_filled_claimed` | owner only | integer or null |  | Filled count stated by the ledger (owner-verified). |
+| `slots_filled_claimed` | Phase 1.5 (raise only, photo) | integer or null |  | Filled count stated by the ledger (owner-verified). |
 | `evidence` | pipeline only | one of `enumerated`, `partial`, `count-only` |  | How much of the per-slot picture the ledger contains. |
-| `grid_source` | pipeline only | one of `ledger`, `whitman-model`, `ledger+whitman-model`, `none` |  | Where the slot names come from. |
+| `grid_source` | pipeline only | one of `ledger`, `whitman-model`, `ledger+whitman-model`, `photo`, `none` |  | Where the slot names come from. |
 | `asw_oz_per_slot` | pipeline only | number or null |  | Troy oz of pure silver per filled slot when every coin in the volume is the same bullion piece (American Silver Eagles = 1.0); null otherwise. |
 | `needs_scan` | pipeline only | boolean |  | true = finalize with the owner's fresh album scans at Phase 1.5. |
 | `note` | Phase 2 | string or null |  |  |
@@ -266,7 +266,7 @@ Required keys of a whole record: `evidence`, `family`, `grid_source`, `id`, `nee
 | `slots.N.variety` | Phase 1.5 | string or null |  |  |
 | `slots.N.key` | Phase 1.5 | boolean |  | Key/semi-key date. |
 | `slots.N.state` | Phase 1.5 | one of `filled`, `empty`, `unknown`, `wanted`, `not_applicable` |  | unknown = slot exists but the ledger does not say whether it is filled. |
-| `slots.N.occupant_status` | Phase 1.5 | one of `ledger`, `inferred`, `unknown` |  | ledger = ALBUMS.md enumerates this slot's state; inferred = from the Whitman layout / slot arithmetic only; unknown = not known. |
+| `slots.N.occupant_status` | Phase 1.5 | one of `ledger`, `photo`, `inferred`, `unknown` |  | ledger = ALBUMS.md enumerates this slot's state; photo = read slot by slot from a photo of the page (provenance names the photo file; schema v4); inferred = from the Whitman layout / slot arithmetic only; unknown = not known. |
 | `slots.N.provenance` | Phase 1.5 | string or null |  | Required when occupant_status is 'inferred' (e.g. 'inferred: Whitman 9034 layout'). |
 | `slots.N.occupant` | Phase 2 | string or null |  | Specimen id once album coins are itemized (none yet). |
 

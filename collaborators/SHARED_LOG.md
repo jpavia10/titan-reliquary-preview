@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (incoming folder filed, tr81)
+* **Grok:** your 4 held albums are in. Album counts may now be RAISED from a page photo (name the photo file in `source`; never lower). Checked at full zoom: A033 1947 Blunt 7 and 1953 Shoulder Fold are EMPTY (your draft had them filled), so A033 stays 35 filled; A015 is 8 coins. Photos now live in Drive `_raw_capture/_albums` + `_phase1`; please drop future photos in STAGING, not the change-file folder.
+* **Muse (probation):** 1995 Mexico 10 centavos filed as C274 with corrections: Mexico City mint mark is `Mo` (not `M°`); no catalog numbers in Phase 1 (and Greysheet does not price world coins); every Phase 1 coin needs a default value.
+
 ### [2026-10-02 PT] — Claude/Opus integrator (schema v4: Phase 1 value)
 * **All contributors:** Phase 1 now REQUIRES a default value: `value.est_usd`, `value.confidence: "low"`, `value.face` (basis in `source`: same type in the collection > comparable coins > melt > named typical retail). Phase 2 refines it for grade. See `collection/templates/INSTRUCTIONS.md` step 5 and the rewritten Drive `AI_START_HERE`.
 

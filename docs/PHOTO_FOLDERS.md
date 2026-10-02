@@ -19,8 +19,9 @@ The owner's drop spot is `Titan Reliquary/STAGING (drop coin photos here)/` (lis
 Inbox/                                  ← drop EVERYTHING here from the phone or scanner (any file name works;
   _processed/                              good names pair automatically, see below). Titan files them.
 _raw_capture/                           ← private, never published, never deleted
-  _phase1/{CONT}/{ISO}/                    Phase 1 phone photos       {id}_p1_{YYYYMMDD-HHMM}.jpg
-  _albums/{A###}/                          Phase 1.5 album page scans {A###}_p{NN}_{YYYYMMDD}.jpg
+  _phase1/                                 Phase 1 phone/chat photos  {id}_... (flat; the name starts with the id)
+  _albums/                                 Phase 1.5 album pages      {A###}_... (flat; the name starts with the volume)
+                                           index of both: docs/photos/raw_capture_index.json (file -> Drive id)
   {CONT}/{ISO}/                            Phase 2 untouched originals (as today)
   _test_only/                              test fixtures (as today)
 photos/                                 ← Phase 2 approved masters only (master-v1: 2600 px, no EXIF)

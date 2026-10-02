@@ -86,7 +86,7 @@ def walk(s, path, rows, depth=0):
 def required(s):
     return set(resolve(s).get("required", []))
 
-WHO = {"phase1": "**Phase 1**", "phase1_5": "Phase 1.5", "phase2": "Phase 2", "owner": "owner only", "system": "pipeline only"}
+WHO = {"phase1": "**Phase 1**", "phase1_5": "Phase 1.5", "phase1_5_raise": "Phase 1.5 (raise only, photo)", "phase2": "Phase 2", "owner": "owner only", "system": "pipeline only"}
 
 def tier(ent, path):
     return AC.tier_of(ent, path.replace(".N.", ".0."))
