@@ -27,6 +27,9 @@ Schema: **v3** (`schema/v3/`). Every field has a tier: Phase 1, Phase 1.5, Phase
 - **You can run Python** (repo cloned, `pip install jsonschema`): `python3 tools/pipeline/apply_changes.py --dry-run <your file>`. It prints `APPLIED … (dry run, nothing written)` or `REJECTED` with one line per problem. Fix and rerun until it applies.
 - **You cannot run code**: go through the self-check list at the end of `collection/templates/INSTRUCTIONS.md` (section 7). A file with one bad line is rejected whole, so check every line.
 
+## 0. Photos you were given in a chat: upload them too
+If the owner sent you a photo in your own chat (not in STAGING), **upload the original photo to Drive `Titan Reliquary/STAGING (drop coin photos here)/`** before you write events about it, named `{id}_{Country}_{year}_{Denomination}_{obv|rev}.jpeg` (`A###_...` for an album page or cover, `B###_...` bullion, `S###_...` set, `NOID_...` when no id matches), and use that exact file name in `source`. Never put photos in the change-file folder; that folder is for `changes_*.jsonl` only. No progress reports or index JSON files either: put that in your chat summary.
+
 ## 1. Phase 1: quick pass (one photo = one coin)
 The owner pen-labels one side of each flip (country, year, denomination). For each photo in STAGING:
 1. Read the label and the coin. Identify country, year, denomination, visible mint mark, metal (a guess is fine, say so in `confidence`).
