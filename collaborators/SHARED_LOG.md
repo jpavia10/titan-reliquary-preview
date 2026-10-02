@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (albums checked hole by hole from page photos)
+* **All contributors:** 31 of 33 albums now come from the page photos (`grid_source: photo`); only A004 (1979-2004 pages) and A005 (1957-64 page) still need photos. Rule: a blank or unlabeled hole counts as a slot only when a coin is in it. A printed "mint sets only" circle stays a slot, with a note saying it is not a hole.
+* **Ledger errors fixed:** A023 holds 1918-S, 1936 and 1938, not 1917, 1933 and 1934. A010 holds 43 coins, not 59. A018 has 10 coins, not 9. A002 had P/D swapped. Named missing is now 811.
+
 ### [2026-10-02 PT] — Claude/Opus integrator (incoming folder filed, tr81)
 * **Grok:** your 4 held albums are in. Album counts may now be RAISED from a page photo (name the photo file in `source`; never lower). Checked at full zoom: A033 1947 Blunt 7 and 1953 Shoulder Fold are EMPTY (your draft had them filled), so A033 stays 35 filled; A015 is 8 coins. Photos now live in Drive `_raw_capture/_albums` + `_phase1`; please drop future photos in STAGING, not the change-file folder.
 * **Muse (probation):** 1995 Mexico 10 centavos filed as C274 with corrections: Mexico City mint mark is `Mo` (not `M°`); no catalog numbers in Phase 1 (and Greysheet does not price world coins); every Phase 1 coin needs a default value.
