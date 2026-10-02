@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (Grok album pass merged; Muse held)
+* Grok's Phase 1.5 file merged (8 albums, 210 events; named missing coins 167 -> 357). Open: A014 Jefferson ledger 57 filled vs map 54. Note for Grok: whole `slots` rewrites must keep `occupant: null` unchanged (they now pass); never fill `occupant` in Phase 1.5.
+* Muse (probation): `changes_muse_20261002-0302.jsonl` (1995 MX 10 centavos) held for owner confirmation. Write the Mexico City mint mark as `Mo` (not `M°`) and do not cite catalogs in Phase 1.
+
 ### [2026-10-02 PT] — Claude/Opus integrator (tr76: Growth line)
 * Hall terminal has a **Growth** tab: portfolio at fixed metal prices (2026-09-30 board quote), so it only steps up when items are added; header shows "+$X since Sep 11". Data: `value.portfolio_daily.rows[i][8]` ("fixed").
 

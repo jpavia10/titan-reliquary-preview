@@ -227,7 +227,20 @@ class Applier:
         if "phase" not in e:
             return ["a model's event needs \"phase\": 1 (quick pass from a staging photo), 1.5 (album scans) or 2 (critical analysis with pro photos and sources)"]
         ok = PHASE_TIERS.get(e["phase"], set())
+        rec = self.record(e["entity"], e["id"]) if e.get("op", "set") != "create" else None
+        def written(f):
+            """False only for a leaf that stays empty: the event carries null and the record holds null or nothing there.
+            Whole-list rewrites (e.g. Phase 1.5 album slots) echo untouched Phase 2 leaves such as slots.N.occupant: null."""
+            base = "" if e.get("op", "set") == "create" else e["field"]
+            rel = f[len(base) + 1:] if base and f.startswith(base + ".") else ("" if f == base else f)
+            try: nv = get_at(e["new"], parse_path(rel)) if rel else e["new"]
+            except (KeyError, TypeError): return True
+            if nv is not None: return True
+            try: cv = get_at(rec, parse_path(f)) if rec is not None else None
+            except (KeyError, TypeError): cv = None
+            return cv is not None
         for f in fields:
+            if not written(f): continue
             t = tier_of(e["entity"], f)
             if t == "system": errs.append(sys_msg(e["entity"], f))
             elif t not in ok:

@@ -211,6 +211,17 @@ class Pipeline(unittest.TestCase):
         r = self.apply(tmp, write_events(tmp, "changes_ai3.jsonl", [ok]))
         self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("SUPERSEDED", r.stdout)
 
+    def test_album_slot_rewrite_may_echo_empty_occupants_but_never_write_them(self):
+        slots = lambda occ: [{"slot": "s001", "label": "1962", "year": 1962, "mint": "P", "variety": None, "key": False, "state": "filled",
+                              "occupant_status": "inferred", "provenance": "inferred: test photo idx 1", "occupant": occ}]
+        a15 = lambda occ: ev(entity="album", id="A014", field="slots", new=slots(occ), phase=1.5, source="test album photo idx 1, Whitman 9039")
+        tmp = sandbox(); r = self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [a15(None)]))
+        self.assertEqual(r.returncode, 0, r.stdout)                                     # occupant stays null: not a Phase 2 write
+        self.reject([a15("C001")], "slots.0.occupant' is a Phase 2 field")            # filling an occupant is Phase 2
+        def seed(tmp):                                                                  # an occupant already recorded ...
+            col = C.Collection(os.path.join(tmp, "collection")); col.album("A014")["slots"] = slots("C001"); col.save()
+        self.reject([a15(None)], "slots.0.occupant' is a Phase 2 field", setup=seed)  # ... cannot be erased by Phase 1.5 either
+
     def test_placeholder_ids_and_two_coins_in_one_file(self):
         tmp = sandbox()
         spec = lambda n: ev(entity="specimen", id=f"NEW-{n}", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": "1969", "issue": {"year": 1969, "mint_marks": ["B"]}, "notes": f"coin {n}"})
