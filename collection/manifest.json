@@ -18,7 +18,7 @@
   "photos": 0,
   "valuations": 304,
   "spot_days": 21,
-  "changes": 672,
+  "changes": 681,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -26,7 +26,7 @@
    "stamp": 1
   },
   "album_slots_total": 1707,
-  "album_slots_filled_claimed": 923
+  "album_slots_filled_claimed": 922
  },
  "totals": {
   "specimens_est_usd": 187.65,
@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "f3c71e6926ea1e6b6ff233960833058e11327e7742935f16a8e9e1e6c543ab78",
+ "content_hash": "a61833bfa6af134ff48d39965e93b625edf75273317b481780782c5e917e5ef9",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -63,8 +63,8 @@
   },
   {
    "path": "albums.json",
-   "sha256": "1204dcbb087abe0466295e035b729595307f84e55bc2479fa2c0053766c3177d",
-   "bytes": 371372
+   "sha256": "d49bc4a639806ec227869a8e5a459e388356e64efc1a767a057363b926dda447",
+   "bytes": 374201
   },
   {
    "path": "board.json",
@@ -78,8 +78,8 @@
   },
   {
    "path": "changes.jsonl",
-   "sha256": "d4fe6ad6db92c70f06060f91ef6364930f23c6d77dd049f650caa63d926c952c",
-   "bytes": 475229
+   "sha256": "dd146444c788edd3315548b2e57cbd58dd610874a83919bc35ab76fb88e27026",
+   "bytes": 504763
   },
   {
    "path": "lots.json",
