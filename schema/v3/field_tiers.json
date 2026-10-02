@@ -5,7 +5,7 @@
       "id": "system", "ser": "system", "photos": "system", "research": "system", "research.open_questions": "phase2", "ledger_text": "system",
       "type": "phase1", "year_raw": "phase1", "quantity": "phase1", "story": "phase1", "notes": "phase1",
       "issue": "phase2", "issue.year": "phase1", "issue.mint_marks": "phase1", "issue.mint_text": "phase1", "issue.qualifier": "phase1",
-      "condition": "phase2", "measured": "phase2", "value": "phase2", "housing": "phase2", "housing.location": "owner", "variety": "phase2",
+      "condition": "phase2", "measured": "phase2", "value": "phase2", "value.est_usd": "phase1", "value.confidence": "phase1", "value.face": "phase1", "housing": "phase2", "housing.location": "owner", "variety": "phase2",
       "authenticity": "phase2", "provenance_chain": "phase2", "related_specimens": "phase2", "serial_number": "phase2", "tags": "phase2",
       "acquisition": "owner", "lifecycle": "owner", "insurance": "owner", "invoice_ref": "owner", "seller_type": "owner", "tax_lot": "owner",
       "disposal_plan": "owner", "sentimental": "owner", "want_priority": "owner", "featured": "owner", "sort_weight": "owner", "storage_env": "owner"
@@ -44,7 +44,7 @@
     "ser (serial numbers are assigned by the pipeline and reassigned once after Phase 1)",
     "condition.* (no grade, strike, luster, toning, cleaned or damage judgement)",
     "type catalog numbers (catalogs, or a type id with a catalog number: a Phase 1 type id is always {ISO}.X.{denomination-slug})",
-    "value.* and any price (est_usd, price_paid_usd, melt)",
+    "price_paid_usd and melt (owner / pipeline); value.est_usd IS Phase 1 since schema v4: a default estimate with confidence low, refined in Phase 2",
     "mintage, composition, weights and sizes, design descriptions (Phase 2, with a cited source)"
   ]
 }

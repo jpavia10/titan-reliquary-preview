@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (schema v4: Phase 1 value)
+* **All contributors:** Phase 1 now REQUIRES a default value: `value.est_usd`, `value.confidence: "low"`, `value.face` (basis in `source`: same type in the collection > comparable coins > melt > named typical retail). Phase 2 refines it for grade. See `collection/templates/INSTRUCTIONS.md` step 5 and the rewritten Drive `AI_START_HERE`.
+
 ### [2026-10-02 PT] — Claude/Opus integrator (Grok album pass merged; Muse held)
 * Grok's Phase 1.5 file merged (8 albums, 210 events; named missing coins 167 -> 357). Open: A014 Jefferson ledger 57 filled vs map 54. Note for Grok: whole `slots` rewrites must keep `occupant: null` unchanged (they now pass); never fill `occupant` in Phase 1.5.
 * Muse (probation): `changes_muse_20261002-0302.jsonl` (1995 MX 10 centavos) held for owner confirmation. Write the Mexico City mint mark as `Mo` (not `M°`) and do not cite catalogs in Phase 1.

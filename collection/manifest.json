@@ -16,9 +16,9 @@
   "issuers": 49,
   "countries": 46,
   "photos": 0,
-  "valuations": 301,
+  "valuations": 303,
   "spot_days": 21,
-  "changes": 626,
+  "changes": 635,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -29,9 +29,9 @@
   "album_slots_filled_claimed": 927
  },
  "totals": {
-  "specimens_est_usd": 186.9,
+  "specimens_est_usd": 187.5,
   "lots_est_usd": 3288.75,
-  "records_est_usd": 3475.65,
+  "records_est_usd": 3476.25,
   "silver_oz": {
    "specimens": 0.3733,
    "lots": 37.397,
@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "1eb5deec40366aba8a9a26b50fcff58e9b4f45131fd01df066b8302187ee57b6",
+ "content_hash": "c4fcab20ce7581f7fa6e99f8ba14023ca90f27c1701e20469488396cc1c5f0e8",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -63,8 +63,8 @@
   },
   {
    "path": "albums.json",
-   "sha256": "6d0455ebf87e8b08471d729a5f0fa348437538ed33ce31bbf0f673b3b6b19bd4",
-   "bytes": 320031
+   "sha256": "d5df16e2bdb628b1928505092bfec3d23983ac469a7dde3c46f5e6c4827f1aab",
+   "bytes": 320037
   },
   {
    "path": "board.json",
@@ -73,13 +73,13 @@
   },
   {
    "path": "boot.json",
-   "sha256": "1b2ad67fce946fb0961d21e8693681963dc54cee2a0ad8d76411419dd276e99f",
-   "bytes": 17074
+   "sha256": "d40ab834ef103dd994dbe3fa067bc25bc1ba8e4a621147e050a8b90ba55614fa",
+   "bytes": 17076
   },
   {
    "path": "changes.jsonl",
-   "sha256": "e6200005ebc645ab7ab2976715af23bda37e2e2c02af03e4341cc6071b26ca6e",
-   "bytes": 346091
+   "sha256": "f8fe1725ca7e346295582a57919bf263d617b239ed2adc7ed1525deec4ab57bf",
+   "bytes": 349372
   },
   {
    "path": "lots.json",
@@ -108,7 +108,7 @@
   },
   {
    "path": "specimens/AT.json",
-   "sha256": "fbab73e59d09a9928b23874997ffe215428c480564bf271e1900cdc58bb2b040",
+   "sha256": "accc28c691b1e129992fa406e43d90e1449b39be7382a51c50c976f11f7efd16",
    "bytes": 1574
   },
   {
@@ -153,7 +153,7 @@
   },
   {
    "path": "specimens/DE.json",
-   "sha256": "c5bcbb34c486a9f906f258d45300a0a8ef12934088661ee2dfd322ad3c00f0b7",
+   "sha256": "aebdbe7d7a4c9946a94c63e8fac295a222a2e7b602bf5ffe50f12002ffa11bc4",
    "bytes": 103174
   },
   {
@@ -338,22 +338,22 @@
   },
   {
    "path": "templates/FIELDS.md",
-   "sha256": "92172a5135b7e0a9af1783e2b44d9e2c671ad7a949332b1ad7c7f809e2beaa95",
-   "bytes": 23383
+   "sha256": "f68e52d974a148258b4bd13951be1f709296e01046f750abb3215e15f5b0cd6c",
+   "bytes": 23541
   },
   {
    "path": "templates/INSTRUCTIONS.md",
-   "sha256": "be90504b65501a9f94b3d8213f781d68d04c3fe5944f10f03e41bc2508e49960",
-   "bytes": 13185
+   "sha256": "a435d58f2e114678074ec1090c8522dea255b30842c90ab890caf5239fdd4126",
+   "bytes": 13931
   },
   {
    "path": "templates/phase1_template.jsonl",
-   "sha256": "0b4805a29998ec8d285192a96b97f6b98e82050f4e07f4ac19a3a2b51283d0b1",
-   "bytes": 1014
+   "sha256": "203a74f4a1907c32e895d6d3a851b39b26e260e54f787aef710b6e369d8e0cd7",
+   "bytes": 1181
   },
   {
    "path": "templates/phase2_template.jsonl",
-   "sha256": "3fae974c0c59ed753e4bb36b977736c1b8c64662d6f95a7779d4f6c64a5044a5",
+   "sha256": "dc76f7f20b5ef1303d4ee1f18771cceaa6a524a1d86086f9d7b84e47393ea60e",
    "bytes": 3390
   },
   {
@@ -588,8 +588,8 @@
   },
   {
    "path": "valuations.jsonl",
-   "sha256": "de4a4fd28b5c5fb2e971bbdde30b39ed08d0c750679ecd733bb3ac47e2d90876",
-   "bytes": 45278
+   "sha256": "7018b279bba512e23018d73f76ac6310634d2d3d355c91b9ee555a30f419de97",
+   "bytes": 45730
   }
  ]
 }

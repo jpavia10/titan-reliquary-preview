@@ -13,11 +13,11 @@ A Phase 1 file creates or matches the coin and records only these fields (plus `
 | entity | Phase 1 fields |
 |---|---|
 | `type` | `class`, `denomination`, `issues.N.year`, `issues.N.mint_marks`, `issues.N.mint_text`, `issues.N.qualifier` |
-| `specimen` | `type`, `year_raw`, `quantity`, `story`, `notes`, `issue.year`, `issue.mint_marks`, `issue.mint_text`, `issue.qualifier` |
+| `specimen` | `type`, `year_raw`, `quantity`, `story`, `notes`, `issue.year`, `issue.mint_marks`, `issue.mint_text`, `issue.qualifier`, `value.est_usd`, `value.confidence`, `value.face` |
 | `lot` | `kind`, `country`, `year_raw`, `denom_text`, `qty`, `notes` |
 | `issuer` | `id`, `name`, `iso`, `continent` |
 
-Phase 1 never writes: ser (serial numbers are assigned by the pipeline and reassigned once after Phase 1); condition.* (no grade, strike, luster, toning, cleaned or damage judgement); type catalog numbers (catalogs, or a type id with a catalog number: a Phase 1 type id is always {ISO}.X.{denomination-slug}); value.* and any price (est_usd, price_paid_usd, melt); mintage, composition, weights and sizes, design descriptions (Phase 2, with a cited source).
+Phase 1 never writes: ser (serial numbers are assigned by the pipeline and reassigned once after Phase 1); condition.* (no grade, strike, luster, toning, cleaned or damage judgement); type catalog numbers (catalogs, or a type id with a catalog number: a Phase 1 type id is always {ISO}.X.{denomination-slug}); price_paid_usd and melt (owner / pipeline); value.est_usd IS Phase 1 since schema v4: a default estimate with confidence low, refined in Phase 2; mintage, composition, weights and sizes, design descriptions (Phase 2, with a cited source).
 
 Phase 2 (after the pro photos) fills every other **Phase 2** field below that the photos and cited sources support, and may refine the Phase 1 fields and the story. `owner only` fields are written only by the owner; `pipeline only` fields are never written by a contribution.
 
@@ -70,10 +70,10 @@ Required keys of a whole record: `acquisition`, `id`, `issue`, `lifecycle`, `typ
 | `acquisition.source` | owner only | string or null |  |  |
 | `acquisition.price_paid_usd` | owner only | number or null | US dollars |  |
 | `acquisition.family` | owner only | string or null |  | Who it came from or is associated with (family attribution). |
-| `value.est_usd` | Phase 2 | number or null, >= 0 | US dollars |  |
-| `value.confidence` | Phase 2 | one of `low`, `med`, `high` |  |  |
-| `value.face.amount` | Phase 2 | number or null |  |  |
-| `value.face.currency` | Phase 2 | string (ISO 4217 code, e.g. USD) or null |  |  |
+| `value.est_usd` | **Phase 1** | number or null, >= 0 | US dollars |  |
+| `value.confidence` | **Phase 1** | one of `low`, `med`, `high` |  |  |
+| `value.face.amount` | **Phase 1** | number or null |  |  |
+| `value.face.currency` | **Phase 1** | string (ISO 4217 code, e.g. USD) or null |  |  |
 | `lifecycle.status` | owner only | one of `Logged`, `Photographed`, `Verified`, `Removed` |  |  |
 | `lifecycle.removed_on` | owner only | string (YYYY, YYYY-MM or YYYY-MM-DD) or null |  |  |
 | `lifecycle.removed_reason` | owner only | one of null, `sold`, `traded`, `gifted`, `culled`, `lost` |  |  |

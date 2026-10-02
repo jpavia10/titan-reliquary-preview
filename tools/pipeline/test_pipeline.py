@@ -95,7 +95,7 @@ class Pipeline(unittest.TestCase):
         self.assertEqual((row["country"], row["year"], row["status"], row["kind"]), ("Canada", "1978", "Logged", "flip"))
         nflips = sum(1 for x in BASE.specs.values() if (x.get("lifecycle") or {}).get("status") != "Removed") + 1
         self.assertEqual(len(idx["flips"]), nflips); self.assertEqual(idx["counts"]["flips"], nflips)
-        self.assertEqual(row["est"], 0.15)                                               # Phase 1 never prices; Phase 2 set the estimate to 0.15
+        self.assertEqual(row["est"], 0.15)                                               # Phase 1 set a default 0.05 (low); Phase 2 refined it to 0.15
         det = json.load(open(os.path.join(tmp, "data", "detail", "CA.json"), encoding="utf-8"))[NEXT]
         self.assertIn("900,000,000", det["mintage"])                                     # Phase 2 mintage reached the detail view
         self.assertIn("2.80 g", det["metal"]); self.assertIn("19.05 mm", det["metal"])   # Phase 2 nominal weight + diameter
@@ -108,7 +108,7 @@ class Pipeline(unittest.TestCase):
         ver = json.load(open(os.path.join(tmp, "version.json")))
         self.assertTrue(ver["ledger_version"].startswith("v3:")); self.assertEqual(ver["generated_at"], "2026-10-09T12:00:00Z"); self.assertEqual(ver["newest_flip"], NEXT)
         log = [json.loads(ln) for ln in open(os.path.join(tmp, "collection", "changes.jsonl"), encoding="utf-8") if ln.strip()]
-        self.assertTrue(any(e["id"] == NEXT and e["field"] == "value.est_usd" and e["old"] is None and e["new"] == 0.15 and e["verified"] is False for e in log))
+        self.assertTrue(any(e["id"] == NEXT and e["field"] == "value.est_usd" and e["old"] == 0.05 and e["new"] == 0.15 and e["verified"] is False for e in log))
         # the validator is happy with the result
         v = run(os.path.join(ROOT, "tools", "schema", "validate.py"), os.path.join(tmp, "collection"))
         self.assertEqual(v.returncode, 0, v.stdout)
@@ -184,7 +184,10 @@ class Pipeline(unittest.TestCase):
         p1 = dict(phase=1, source="photo IMG_0412.jpg (pen label)")
         e = ev(entity="specimen", id="C001", field="notes", new="x"); e.pop("phase")
         self.reject([e], 'needs "phase"')
-        self.reject([ev(entity="specimen", id="C001", field="value.est_usd", new=1.0, **p1)], "Phase 2 field")
+        tmp = sandbox()                                                                   # schema v4: Phase 1 sets a default value
+        r = self.apply(tmp, write_events(tmp, "changes_v.jsonl", [ev(entity="specimen", id="C001", field="value.est_usd", new=1.0, **p1), ev(entity="specimen", id="C001", field="value.confidence", new="low", **p1)]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+        self.reject([ev(entity="specimen", id="C001", field="measured.weight_g", new=2.5, **p1)], "Phase 2 field")
         self.reject([ev(entity="specimen", id="C001", field="condition.text", new="circulated", **p1)], "Phase 2 field")
         self.reject([ev(entity="type", id="CA.KM.59.2", op="create", field="(new record)", new={"class": "coin", "denomination": {"value": 1, "unit": "cent", "currency": "CAD"}}, **p1)], "never carries a catalog number")
         self.reject([ev(entity="type", id="CH.KM.24a.1", field="catalogs", new=[{"system": "KM", "number": "24a.1"}], **p1)], "Phase 2 field")

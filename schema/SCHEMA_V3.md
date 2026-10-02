@@ -38,3 +38,8 @@ Rules the pipeline adds in v3 (`tools/pipeline/apply_changes.py`):
 Contributors (Grok, Gemini, Muse, any AI) never edit GitHub, the Drive mirror or the records. They drop
 `changes_{agent}_{YYYYMMDD-HHMM}.jsonl` in Drive `Titan Reliquary/collection-incoming (AI change files)/`. Claude merges with
 `python3 tools/pipeline/publish.py` (apply, validate, rebuild `data/`) and owns the site.
+
+## Schema v4 (2026-10-02, owner): Phase 1 includes a default value
+- `specimen.value.est_usd`, `value.confidence` and `value.face` move from Phase 2 to Phase 1 (`schema/v3/field_tiers.json`). Every Phase 1 coin carries a default estimate (confidence `low`) so it counts in the portfolio and the Growth line from the day it is logged.
+- Picking the default: same type in the collection > comparable coins in the collection > melt (precious metal) > a named typical retail price. Phase 2 refines it for grade, variety and condition with a cited source.
+- File layout is unchanged (still `schema/v3/`); only the tier rules moved.
