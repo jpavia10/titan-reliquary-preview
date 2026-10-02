@@ -291,6 +291,8 @@
     timers.forEach(clearTimeout);
     window.removeEventListener("keydown", onKey, true);
     window.removeEventListener("resize", onResize);
+    window.removeEventListener("hashchange", onNav);
+    window.removeEventListener("popstate", onNav);
     document.removeEventListener("visibilitychange", onVis);
     root.removeEventListener("pointerdown", onPointer);
     if (gl) { try { gl.dispose(); } catch (e) {} }
@@ -305,6 +307,10 @@
   function onVis() { if (!document.hidden && performance.now() - tStart > CAP_MS) finish(true, 0.2); }
   document.addEventListener("visibilitychange", onVis);
   function onResize() { if (gl && state !== "done") gl.layout(); }
+  // Any navigation (a wing link, a #hash, back/forward) ends the intro: it must never linger over a wing.
+  function onNav() { finish(true, 0.5); }
+  window.addEventListener("hashchange", onNav);
+  window.addEventListener("popstate", onNav);
   window.addEventListener("resize", onResize);
   var hold = /[?&]splashhold/.test(location.search);       // test/capture only: no cap, no auto-render (frames come from _debug.seek)
   if (!hold) later(function () { if (window.__tsFilmUntil && performance.now() < window.__tsFilmUntil) return; finish(true, 0.4); }, CAP_MS);       // wall-clock cap, whatever the GPU is doing

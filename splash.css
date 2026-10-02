@@ -9,7 +9,7 @@ html.ts-on #app { visibility: hidden; }
 html.ts-on.ts-reveal #app { visibility: visible; }
 
 #tr-splash {
-  position: fixed; inset: 0; z-index: 99999; overflow: hidden;
+  position: fixed; inset: 0; z-index: 100300; overflow: hidden;   /* above the wing dock (100100) and the Vault door (100200): nothing behind the intro is tappable */
   background: #020202; color: #e9e6e0;
   font-family: "Fraunces", Georgia, "Times New Roman", serif;
   -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;

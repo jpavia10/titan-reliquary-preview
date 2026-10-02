@@ -304,6 +304,7 @@ body, body::before {
   padding: 0 1.25rem 5rem;
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-x: clip;   /* clip, not hidden: "hidden" made #app a scroll box that cut off the last ~120px (content under the dock) */
 }
 
 button { font: inherit; }

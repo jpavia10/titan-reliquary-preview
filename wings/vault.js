@@ -471,7 +471,7 @@
         $o("vx-wi-auv").textContent = "Gold " + money(auv);
         var dl = $o("vx-wi-delta");
         if (Math.abs(d) < 0.005) { dl.textContent = "same as today"; dl.className = "d"; }
-        else { dl.textContent = signed(d, money) + " (" + signed(d / m.melt * 100, function (x) { return x.toFixed(1) + "%"; }) + ") vs today"; dl.className = "d " + (d > 0 ? "up" : "down"); }
+        else { dl.textContent = "if prices moved: " + signed(d, money) + " (" + signed(d / m.melt * 100, function (x) { return x.toFixed(1) + "%"; }) + ") vs today's melt"; dl.className = "d " + (d > 0 ? "up" : "down"); }
         [ag, au, bid].forEach(function (el) {
           var f = (Number(el.value) - Number(el.min)) / (Number(el.max) - Number(el.min)) * 100;
           el.style.setProperty("--fill", f.toFixed(2) + "%");
