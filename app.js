@@ -1680,7 +1680,13 @@
     const spotRows = term.prices?.spot?.rows || [];
     if (term.series === "growth") {
       // Collection growth: every day valued at ONE fixed quote (value_history "fixed" column), so it only moves when items are added.
-      for (const r of pf?.rows || []) if (r[8] != null) pts.push({ d: r[0], v: r[8], n: r[5], added: r[6], k: r[7] });
+      // Each day = what was owned that day (its ounces + its static premiums), all priced at the CURRENT quote (the same one as
+      // Portfolio value). Price swings are removed, it only steps up when items are added, and its last point equals Portfolio value.
+      const gq = termQuote();
+      for (const r of pf?.rows || []) {
+        const v = r[9] != null && gq.ag > 0 ? r[9] * gq.ag + r[10] * gq.au + r[4] : r[8];
+        if (v != null) pts.push({ d: r[0], v: Math.round(v * 100) / 100, n: r[5], added: r[6], k: r[7] });
+      }
       if (pts.length) {        // it starts from $0: the day before the first item was logged
         const d0 = new Date(termDayMs(pts[0].d) - 86400000).toISOString().slice(0, 10);
         pts.unshift({ d: d0, v: 0, n: 0, added: 0, k: "" });
@@ -1878,10 +1884,10 @@
     const base = [...pf].reverse().find((r) => r[0] < todayStr);
     const priceEl = $("#term-price"), deltaEl = $("#term-delta");
     const gRows = term.series === "growth" ? pf.filter((r) => r[8] != null) : [];
-    if (gRows.length) {        // Growth: the fixed-price total and how much the collection has grown since day 0 (items only, no price moves)
-      const last = gRows[gRows.length - 1], first = gRows[0], d = last[8];
-      if (priceEl) priceEl.textContent = money(last[8]);
-      if (deltaEl) { deltaEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}$${num(Math.abs(d), 2)} built from $0 since ${termDate(first[0])} · at fixed prices`; deltaEl.className = "term-delta " + (d >= 0 ? "up" : "down"); }
+    if (gRows.length) {        // Growth: same headline as Portfolio value (today's value at today's quote), framed as built up from $0
+      const first = gRows[0], d = total;
+      if (priceEl) priceEl.textContent = total > 0 ? money(total) : "—";
+      if (deltaEl) { deltaEl.textContent = `${d >= 0 ? "▲ +" : "▼ −"}$${num(Math.abs(d), 2)} built from $0 since ${termDate(first[0])} · at today's prices`; deltaEl.className = "term-delta " + (d >= 0 ? "up" : "down"); }
     } else {
     if (priceEl) priceEl.textContent = total > 0 ? money(total) : "—";
     if (deltaEl) {
@@ -1940,8 +1946,8 @@
     const win = termWindow(termSeries());
     const parts = [];
     if (term.series === "growth") {
-      const fq = pf.fixed_quote || pf.board_quote || {};
-      parts.push(`Collection growth = the same items as Portfolio value, but every day is priced at one fixed quote (silver $${num(fq.xag_usd, 2)}, gold $${num(fq.xau_usd, 2)}, the ${fq.date ? termDate(fq.date) : "ledger"} board quote), so metal price swings are removed and the line moves only when items are added (or removed). Item values are the ledger's static estimates; live coin prices are a later step.`);
+      const gq = termQuote();
+      parts.push(`Collection growth = what you owned each day, all priced at today's quote (silver $${num(gq.ag, 2)}, gold $${num(gq.au, 2)}, ${gq.asOf}), so metal price swings are removed: the line moves only when items are added (or removed), and it ends on the same value as Portfolio value. Item values are the ledger's static estimates; live coin prices are a later step.`);
       parts.push("Dashed ticks with a number mark days items were added.");
     } else if (term.series === "portfolio") {
       parts.push(pf.caption || "Portfolio value = metal content x that day's spot + each item's ledger premium, counted from the day it was added.");

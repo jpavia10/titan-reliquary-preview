@@ -97,7 +97,8 @@ def portfolio(col, spot_rows, today=None):
     through = max([x for x in (last_spot, today) if x]) if (last_spot or today) else None
     # "fixed" = the same items valued at ONE fixed quote (the ledger board quote), so it moves only when items are added or removed:
     # the collection-growth line that ignores metal price swings (owner request 2026-10-02). Item values are the ledger's static estimates.
-    out = {"cols": ["d", "total", "ag_melt", "au_melt", "premium", "n", "added", "k", "fixed"], "rows": [], "markers": []}
+    # ag_oz / au_oz per day let the app price the Growth line at the CURRENT quote, so it ends exactly on today's portfolio value.
+    out = {"cols": ["d", "total", "ag_melt", "au_melt", "premium", "n", "added", "k", "fixed", "ag_oz", "au_oz"], "rows": [], "markers": []}
     if not spot_rows or not through:
         out.update(meta(col, its, cal, d0, None, None, spot_rows)); return out
     f = spot_lookup(spot_rows, through)
@@ -111,7 +112,7 @@ def portfolio(col, spot_rows, today=None):
         s = f(d); ag_oz = sum(i["ag"] for i in pres) + unag; au_oz = sum(i["au"] for i in pres) + unau
         agm = ag_oz * s[0]; aum = au_oz * s[1]; prem = sum(i["premium"] for i in pres) + res
         fixed = ag_oz * bq["xag_usd"] + au_oz * bq["xau_usd"] + prem
-        out["rows"].append([d, round(agm + aum + prem, 2), round(agm, 2), round(aum, 2), round(prem, 2), sum(1 for i in pres if i["kind"] != "album"), added.get(d, 0), s[2], round(fixed, 2)])
+        out["rows"].append([d, round(agm + aum + prem, 2), round(agm, 2), round(aum, 2), round(prem, 2), sum(1 for i in pres if i["kind"] != "album"), added.get(d, 0), s[2], round(fixed, 2), round(ag_oz, 4), round(au_oz, 6)])
     out["markers"] = [{"d": d, "n": n} for d, n in sorted(added.items()) if first and d >= first]
     out.update(meta(col, its, cal, d0, first, through, spot_rows))
     out["ag_oz"] = round(sum(i["ag"] for i in its if present(i, through or d0, d0)) + unag, 4)
