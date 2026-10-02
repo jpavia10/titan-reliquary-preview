@@ -53,6 +53,7 @@ Last verified: 2026-10-01 (build tr55).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-10-02: **Art generation PAUSED by the owner** (SuperGrok and Antigravity credits low; Gemini needs troubleshooting to cut manual steps). Do not write new art requests or nudge the owner about them; `artreq_20261001-2230_splash-film-v4` stays open in the queue for whenever it resumes. The 5 tr71 clips stay live.
 - 2026-10-02 (tr74): intro is above the dock (z 100300) and ends on any navigation; Vault what-if delta labelled hypothetical; `#app` overflow-x: clip. Review items still open (design pause): Gallery side cards show backs, Vault voice, Study "0 of 0" chips, affordances.
 - 2026-10-01 (tr73): the intro plays one clip, once, to the end: auto-reloads (SW update, newer publish) wait while the splash is on (`reloadWhenSafe()` in app.js, runs when the app is backgrounded); a mid-film reload resumes the same clip where it was (splash.js). Film v4 now Gemini-only.
 - 2026-10-01 (tr72): splash film exit is a zoom-through (`filmExit()` in splash.js + `.ts-film-exit` / `tsAppRise` in splash.css): the film scales/blooms/blurs away while the app rises in. Film v4 requested (`artreq_20261001-2230_splash-film-v4`, every clip ends with THE LANDING); no `_silent` copies (the app mutes).

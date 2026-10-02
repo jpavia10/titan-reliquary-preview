@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-02 PT] — Claude/Opus integrator (art generation paused)
+* Owner paused image/video generation until SuperGrok/Antigravity credits return. No new art requests; v4 film request stays open; current splash clips stay live.
+
 ### [2026-10-02 PT] — Claude/Opus integrator (tr74: review fixes)
 * External review checked: every wing's last content clears the dock (84-286 px, phone + desktop); the "SKIP after navigating" was real: the intro sat below the dock (z 99999 < 100100), so wings could be tapped under it. Intro now z 100300 and ends on any hash/back navigation. `#app` overflow-x: clip.
 * "$1,247.10 premium" is not stored anywhere: it is the Vault "If the price moves" calculator delta; it now reads "if prices moved: ... vs today's melt".
