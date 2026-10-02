@@ -32,3 +32,15 @@ Numbers vary +-15% between runs (other agents share the 4 CPUs).
 - Boot target 1.2 s: median 1.33 s. Remaining: ~340 ms of first-paint layouts during HTML parse, DOMContentLoaded work (hall.js init 77, study.js init 89 forced `fitMeltLabels`/`enhanceStudy`), and the idle prebuild of Vault/Study/Lab (~170-460 ms in 2-3 long tasks). Removing the prebuild would meet the boot target but pushes Study/Lab open to ~550-600 ms; slicing `renderStudy`/`renderLab` into sub-50 ms chunks is the real fix.
 - Gallery scroll is capped near 47-52 fps by style recalc of inserted tiles (3,000 CSS rules; atmosphere rules such as `html[data-atmo="notepad"] *` are tested on every element). Loading only the active atmosphere's stylesheet would help every wing.
 - Study scroll 42 fps: atlas card (400 nodes) and `.card` containment relayouts.
+
+
+## tr82 (2026-10-02): the real scroll cap was the FX layer, not CSS
+Idle box, Pixel 7 emulation, 4x CPU, median of 3 (`scratchpad fps82.js`: open the wing, 25 scroll steps of 300 px):
+| wing | FX Full (before) | FX off | FX Full, tr82 |
+|---|---|---|---|
+| Gallery | 28-37 | 56-57 | 55-57 |
+| Study | 30-33 | - | 57-58 |
+| Hall | 38-40 | 58-60 | 54-55 |
+| Vault | 35-37 | - | 58-59 |
+| Lab | 36-39 | - | 58-59 |
+Cause: `wings/fx/engine.js` kept rendering every frame during a scroll and rebuilt the text-safe mask every ~120 ms of scrolling. Fix: while a scroll is moving (160 ms settle) the loop skips rendering (the last frame stays on screen, the quality watchdog ignores the gap) and the mask is rebuilt once when it settles. Verified with a drawArrays counter: ~120 draws/s idle, ~0 mid-scroll, ~120 again after.

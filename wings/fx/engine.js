@@ -59,6 +59,7 @@
   var theme = { bg: [0.1, 0.09, 0.08], ink: [0.9, 0.85, 0.75], acc: [0.8, 0.65, 0.3], light: 0 };
   var videoEl = null, videoMap = {};
   var SAFE_K = 0.7;                       // how much the effect is attenuated over text (0 = off)
+  var scrolling = false, scrollT = 0, SCROLL_SETTLE_MS = 160;   // perf (tr82): no rendering or re-masking mid-scroll (Pixel 7 4x CPU: Gallery 33 -> ~57 fps)
   var safe = { tex: null, cv: null, cx: null, nodes: [], scanAt: 0, dirty: true, t: 0, built: 0, mut: null };
   var fadeMs = 1400, forced = null;
 
@@ -208,7 +209,11 @@
     scanSafe(); buildSafe();
     if (!safe.listen) {
       safe.listen = true;
-      window.addEventListener("scroll", function () { if (gl) markSafe(120); }, { passive: true, capture: true });
+      window.addEventListener("scroll", function () {   // hold the effect still while a scroll is moving; re-mask once it settles
+        scrolling = true;
+        if (scrollT) clearTimeout(scrollT);
+        scrollT = setTimeout(function () { scrollT = 0; scrolling = false; if (gl) markSafe(0); }, SCROLL_SETTLE_MS);
+      }, { passive: true, capture: true });
       window.addEventListener("resize", function () { if (gl) markSafe(200); });
       window.addEventListener("hashchange", function () { if (gl) { safe.mutDirty = true; markSafe(350); } });
       window.addEventListener("titan:atmo", function () { if (gl) { safe.mutDirty = true; markSafe(500); } });
@@ -385,6 +390,7 @@
     raf = requestAnimationFrame(frame);
     var dt = now - lastDraw;
     if (dt < 1000 / FPS_CAP - 1.5) return;
+    if (scrolling) { lastDraw = now; wd.n = 0; wd.sum = 0; wd.t = 0; return; }   // the last frame stays on screen; the watchdog ignores the gap
     lastDraw = now;
     if (dt < 250) watchdog(dt); else { wd.n = 0; wd.sum = 0; wd.t = 0; }
     var step = dt / 1000 / (fadeMs / 1000);
