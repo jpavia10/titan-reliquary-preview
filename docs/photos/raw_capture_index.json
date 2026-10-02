@@ -1,43 +1,52 @@
 {
- "about": "Owner's original chat photos, filed 2026-10-02 from Grok's upload (collection-incoming) into the Drive raw-capture tree. Raw reference only, never masters. chat_idx = the photo's index in the Titan Reliquary chat.",
+ "about": "Owner's Phase 1 photos (original chat photos), named by Grok and filed by Claude from the drop folder into Drive _raw_capture/_phase1/{albums,coins,bullion}. Raw reference only, never masters.",
  "photos": [
   {
    "file": "A001_Lincoln_1941-1950_idx021.jpeg",
    "asset": "A001",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1CsMYavFxomYLtbDe8cQOJlV_3h_VQDAJ",
    "chat_idx": 21
   },
   {
    "file": "A001_Lincoln_1951-1963_idx008.jpeg",
    "asset": "A001",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "14s2IUDw7kHg1nv3vx-s2NQZlKsG3xLQy",
    "chat_idx": 8
   },
   {
    "file": "A001_Lincoln_1963-1974_idx054.jpeg",
    "asset": "A001",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1LkkO-4hSJliEFYYSXneKPhLbs53NDY6l",
    "chat_idx": 54
   },
   {
    "file": "A002_Lincoln_2014-2024_idx107.jpeg",
    "asset": "A002",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "19cfuzFq_Dbz0EhZA6Qnr7T9WxT1dUSQp",
    "chat_idx": 107
   },
   {
+   "file": "A003_Roosevelt_2005-2024_page.jpeg",
+   "asset": "A003",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1qP3NEQ48exowRxcIrvqY0PvX6sGxhuXh",
+   "chat_idx": null,
+   "note": "Grok: Roosevelt dimes Collection Starting 2005 Number Three, the only A003."
+  },
+  {
    "file": "A004_Roosevelt_1979-1991_idx030.jpeg",
    "asset": "A004",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1Jbs6BSmPFQ5uRDD-B-0nl8PBM1Mbhuxw",
    "chat_idx": 30,
    "note": "partial page"
@@ -45,40 +54,48 @@
   {
    "file": "A005_Roosevelt_1946-1950_idx065.jpeg",
    "asset": "A005",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1sVqsM9bT0THwuuvgan7hu_h0ra8aNY-G",
    "chat_idx": 65
   },
   {
+   "file": "A005_Roosevelt_1946-1964_cover.jpeg",
+   "asset": "A005",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1bRLj9m6cRcwenx3FRdxz34nmRfl1speL",
+   "chat_idx": null
+  },
+  {
    "file": "A005_Roosevelt_1950-1956_idx110.jpeg",
    "asset": "A005",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1y-Fzw5DmH85F8QDXbNQetAi1_nWIo-tB",
    "chat_idx": 110
   },
   {
    "file": "A006_Mercury_1916-1936_idx176.jpeg",
    "asset": "A006",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1tOK6nEhvWQQgV9dZ_qjVnKvenj9ryKWb",
    "chat_idx": 176
   },
   {
    "file": "A006_Mercury_1937-1945_idx048.jpeg",
    "asset": "A006",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "10q-NFVIDHM4mjeT1z-LAgo9BkZ2Bhqyt",
    "chat_idx": 48
   },
   {
    "file": "A007_Kennedy_1964-1985_idx194.jpeg",
    "asset": "A007",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1Jp9N0jliNQ2TMHiEKrOSZevSn9LP7VQh",
    "chat_idx": 194,
    "note": "two photos conflict on the read; both kept"
@@ -86,25 +103,50 @@
   {
    "file": "A007_Kennedy_1965-1978_idx167.jpeg",
    "asset": "A007",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1S5ianrlFM1rKL1wFdKFtbfVaxbcXSKoD",
    "chat_idx": 167,
    "note": "two photos conflict on the read; both kept"
   },
   {
+   "file": "A008_Kennedy_1986-2003_cover.jpeg",
+   "asset": "A008",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1ei4ad79tFa8dxtjUi9cuunbOxZL3Vssh",
+   "chat_idx": null
+  },
+  {
    "file": "A008_Kennedy_1986-2003_idx069.jpeg",
    "asset": "A008",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1-MNEl0NLjvHCRzIPh2qj_GmYp9-s-a5w",
    "chat_idx": 69
   },
   {
+   "file": "A009_Kennedy_2004-2021_page.jpeg",
+   "asset": "A009",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1Kj_zbCdNrwl_QSKjkRNRkwTKQ28gnh6a",
+   "chat_idx": null,
+   "note": "Grok: Kennedy half folder 2004-2021, the only A009."
+  },
+  {
+   "file": "A010_Washington_1965-1987_cover.jpeg",
+   "asset": "A010",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1cu7eQx_S7UjICBFuSNmclJ1Hx9ouHLQD",
+   "chat_idx": null
+  },
+  {
    "file": "A010_Washington_1965-1987_idx133.jpeg",
    "asset": "A010",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1lnGIYO2392xou9iuzKpHhTvzNa0wrKWV",
    "chat_idx": 133,
    "note": "partial page"
@@ -112,122 +154,293 @@
   {
    "file": "A012_idx076.jpeg",
    "asset": "A012",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1Y1-BBMxRaX8N93lSfqVFAFMVsjptPR0K",
    "chat_idx": 76,
    "note": "slot map read from this photo and checked by Claude (2026-10-02)"
   },
   {
+   "file": "A013_Jefferson_1996-2024_page.jpeg",
+   "asset": "A013",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1AqrX3-rJxMyJy7ZdGVDTISjjxPR2uSew",
+   "chat_idx": null,
+   "note": "Grok: Jefferson nickel folder 1996-2024, the only A013, nothing of A013 uploaded before."
+  },
+  {
+   "file": "A014_Jefferson_1962-1995_cover.jpeg",
+   "asset": "A014",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1xP6SWU6aGRq3YFcZ_KzlRDg1u37YSquu",
+   "chat_idx": null
+  },
+  {
    "file": "A014_Jefferson_1962-1995_idx002.jpeg",
    "asset": "A014",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1UMcSofqxhpmQLAn1UWTR7b-N6mXUQh9R",
    "chat_idx": 2
   },
   {
+   "file": "A015_Jefferson_1938-1961_cover.jpeg",
+   "asset": "A015",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1w_UhjrtLzpTuwbh2VP_xOfllpcR5h5qG",
+   "chat_idx": null
+  },
+  {
    "file": "A015_idx168.jpeg",
    "asset": "A015",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1Jt4_2XX15fT4OWxlqSvHTwoMLgUsyNvm",
    "chat_idx": 168,
    "note": "slot map read from this photo and checked by Claude (2026-10-02)"
   },
   {
+   "file": "A016_Lincoln_1975-2013_page.jpeg",
+   "asset": "A016",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1ZHsjeDx5snjwgRNVNAL2t2SF_iYjFIFd",
+   "chat_idx": null
+  },
+  {
+   "file": "A017_Innovation-dollars_2018-2023_cover.jpeg",
+   "asset": "A017",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1u0wHZRnlbva53-GU3wQUHlx9VbJ0_sWP",
+   "chat_idx": null
+  },
+  {
    "file": "A017_Innovation-dollars_2018-2023_idx091.jpeg",
    "asset": "A017",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1cfoEjap6ace1NuIw_weqmUC-_9dTWaqq",
    "chat_idx": 91
   },
   {
+   "file": "A018_Eisenhower-Anthony_1971-1999_page.jpeg",
+   "asset": "A018",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1qtMfZr2piBICi3UNCAQ7JJovJ32ccwGw",
+   "chat_idx": null,
+   "note": "Grok: Open folder is Eisenhower 1971-1978 and Anthony dollars, the only A018."
+  },
+  {
+   "file": "A019_Native-American-dollars_Starting-2009_cover.jpeg",
+   "asset": "A019",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1LrktVuR5A6BXKE1T41zY4odgfdhYo-8R",
+   "chat_idx": null,
+   "note": "Grok: Whitman 3163 cover reads Native American Dollars Starting 2009, the only A019."
+  },
+  {
+   "file": "A020_Sacagawea_2000-2008_cover.jpeg",
+   "asset": "A020",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1SnGdq4OVeJOp-eeTzBZhHO43hyA0D-ah",
+   "chat_idx": null
+  },
+  {
    "file": "A020_Sacagawea_2000-2008_idx142.jpeg",
    "asset": "A020",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1_c0_jno3JvacU6XZs7ItmDNlaEiN_fh4",
    "chat_idx": 142
   },
   {
    "file": "A021_Washington_2002-2004_idx153.jpeg",
    "asset": "A021",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1pq_QkAGQjLPcLWAQY07rbI30QS94mJvS",
    "chat_idx": 153
   },
   {
+   "file": "A021_Washington_2005-2008_page.jpeg",
+   "asset": "A021",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1-aYroZvkzKhgAX_-_vuMHR9QcERzCxs2",
+   "chat_idx": null
+  },
+  {
    "file": "A021_Washington_2008-2009_idx039.jpeg",
    "asset": "A021",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1QzURs92GB0va_x71WK6s6CUm6Rh2OaPf",
    "chat_idx": 39
   },
   {
    "file": "A022_Indian-cents_1857-1909_idx100.jpeg",
    "asset": "A022",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1nf2yZPkgbpmGUgsKgbp9v5e8FChEKkgq",
    "chat_idx": 100
   },
   {
+   "file": "A023_Lincoln_1909-1940_cover.jpeg",
+   "asset": "A023",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "112enLripTGFeX7CpSevTFs0h1zP9bk-N",
+   "chat_idx": null,
+   "note": "Grok: Cover reads Lincoln Cents Collection 1909 to 1940 Number One, the only A023."
+  },
+  {
    "file": "A024_Type-set_type-set_idx132.jpeg",
    "asset": "A024",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1nRaqq-vN4EQqDLAt1dCI9oquUyCXgair",
    "chat_idx": 132
   },
   {
+   "file": "A025_Silver-Eagles_2022-2024_page.jpeg",
+   "asset": "A025",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1FyNWTCblCMMdNr5H1SHlHPYeWaZaQwat",
+   "chat_idx": null,
+   "note": "Grok: American Silver Eagles page with 2022-2024 slots, only A025."
+  },
+  {
+   "file": "A025_Silver-Eagles_Starting-2021_cover.jpeg",
+   "asset": "A025",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1oyQmHrKPpPRPSLZEmZX0mKWgQKi6t5kF",
+   "chat_idx": null,
+   "note": "Grok: Cover reads American Silver Eagles Starting 2021, the only A025 album."
+  },
+  {
+   "file": "A026_Silver-Eagles_1986-1994_page.jpeg",
+   "asset": "A026",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1IKKGlJFOfnOdTv4S119ufuvi6URNDdSL",
+   "chat_idx": null,
+   "note": "Grok: American Silver Eagles page 1986-1994; does not overlap the other A026 pages."
+  },
+  {
+   "file": "A026_Silver-Eagles_1986-2021_cover.jpeg",
+   "asset": "A026",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1CS4nKv_c1VDiw4rH-HMXSsYt6yM1sVbN",
+   "chat_idx": null,
+   "note": "Grok: Cover reads American Silver Eagles 1986-2021, the only A026 album."
+  },
+  {
+   "file": "A026_Silver-Eagles_1995-2003_page.jpeg",
+   "asset": "A026",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1xTlJ-nB72HtmLdG4FRADufD_Fz0SKtgH",
+   "chat_idx": null,
+   "note": "Grok: American Silver Eagles page 1995-2003; does not overlap the other A026 pages."
+  },
+  {
+   "file": "A026_Silver-Eagles_2005-2011_page.jpeg",
+   "asset": "A026",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1vKIlZ5iWo9F8oHJrsRpH6MG7FgqbY4y_",
+   "chat_idx": null,
+   "note": "Grok: American Silver Eagles page 2005-2011; does not overlap the other A026 pages."
+  },
+  {
+   "file": "A027_National-Park-quarters_2010-2021_cover.jpeg",
+   "asset": "A027",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1z2qA7gd7J0Wmuc1mdN4cD48c0qDUOsK5",
+   "chat_idx": null
+  },
+  {
+   "file": "A027_Washington_2010-2015_page.jpeg",
+   "asset": "A027",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1GcZrPZEvcZzOI7qR3-73MCXCLOAlZkxJ",
+   "chat_idx": null,
+   "note": "Grok: National Park quarter page 2010-2015; does not overlap uploaded A027 2016-2021."
+  },
+  {
    "file": "A027_Washington_2016-2021_idx115.jpeg",
    "asset": "A027",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "18bS72z42bEe83s2lrx0_HbyrP-6luen9",
    "chat_idx": 115
   },
   {
    "file": "A028_Washington_2022-2025_idx117.jpeg",
    "asset": "A028",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1VmGb9NObCEFySuMQjxY3ht45a9F1JqJV",
    "chat_idx": 117
   },
   {
+   "file": "A029_Washington_1932-1947_cover.jpeg",
+   "asset": "A029",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "1hhrH9I3yK7Nn1vs3Yos-saJiU4Jk31NH",
+   "chat_idx": null
+  },
+  {
    "file": "A029_Washington_1932-1947_idx053.jpeg",
    "asset": "A029",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1u0zUXwx2TpAxJwbIV70dRfiiTK6ZVlLj",
    "chat_idx": 53
   },
   {
+   "file": "A030_Presidential-dollars_2007-2016_Philadelphia-page.jpeg",
+   "asset": "A030",
+   "kind": "album (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
+   "drive_id": "126KtxwKnUgotShBBx4hYNKoOj_TMawWD",
+   "chat_idx": null
+  },
+  {
    "file": "A030_Presidential-dollars_2007-2016_idx063.jpeg",
    "asset": "A030",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1X_xXQXUmw8x2nssPcjTFslyUE_R0OhgK",
    "chat_idx": 63
   },
   {
    "file": "A031_Buffalo-nickels_1913-1938_idx148.jpeg",
    "asset": "A031",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1wt6Df5ULiQWvvKbo5fJrv469-ebcR71W",
    "chat_idx": 148
   },
   {
    "file": "A032_idx122.jpeg",
    "asset": "A032",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1JYzy-2rta4bpLnQlxs3g-0eEBMG6NKvq",
    "chat_idx": 122,
    "note": "slot map read from this photo and checked by Claude (2026-10-02)"
@@ -235,17 +448,76 @@
   {
    "file": "A033_idx112.jpeg",
    "asset": "A033",
-   "kind": "album page",
-   "drive_folder": "Titan Reliquary/_raw_capture/_albums",
+   "kind": "album page (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1hR_vSXNmnAlaRn9q2vMLYLSJXbxZdYN8",
    "chat_idx": 112,
    "note": "slot map read from this photo and checked by Claude (2026-10-02)"
   },
   {
+   "file": "B004_Canada_2023_1oz-Silver-Maple-Leaf.jpeg",
+   "asset": "B004",
+   "kind": "bullion lot (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/bullion",
+   "drive_id": "1lh4oKnziSGQt-AyUrS_yUnHTXzuUvh5j",
+   "chat_idx": null,
+   "note": "Grok: APMEX label 2023 Canada 1 oz Silver Maple Leaf BU matches only B004."
+  },
+  {
+   "file": "B005_United-Kingdom_2023_1oz-Silver-Britannia.jpeg",
+   "asset": "B005",
+   "kind": "bullion lot (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/bullion",
+   "drive_id": "17-eK6C-yGQa-F62rQd-ugK596uS_vd10",
+   "chat_idx": null,
+   "note": "Grok: APMEX label 2023 Great Britain Britannia BU King Charles III matches only B005."
+  },
+  {
+   "file": "B013_Australia_2023_1oz-Silver-Kangaroo.jpeg",
+   "asset": "B013",
+   "kind": "bullion lot (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/bullion",
+   "drive_id": "1LDZSvpo0vQn0mdx2HL2dF-4NrC99llrG",
+   "chat_idx": null,
+   "note": "Grok: APMEX label 2023 Australia 1 oz Silver Kangaroo BU barcode 262566 matches only B013."
+  },
+  {
+   "file": "C019_Germany_1981_10Pfennig_rev.jpeg",
+   "asset": "C019",
+   "kind": "coin (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
+   "drive_id": "14SvgEsGPeSi7BQ_5S_vfY-rykd7cDdxv",
+   "chat_idx": null
+  },
+  {
+   "file": "C145_Chile_1996_50Pesos_obv.jpeg",
+   "asset": "C145",
+   "kind": "coin (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
+   "drive_id": "17yPoGq9n3lKPec-s9LUlShJj4XLt4U6_",
+   "chat_idx": null
+  },
+  {
+   "file": "C201_Nigeria_1976_10Kobo_rev.jpeg",
+   "asset": "C201",
+   "kind": "coin (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
+   "drive_id": "1XLMN37OvxvhWhWoqk7oiWjVXkBmxeebI",
+   "chat_idx": null
+  },
+  {
+   "file": "C223_Netherlands_1967_1Gulden_rev.jpeg",
+   "asset": "C223",
+   "kind": "coin (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
+   "drive_id": "1gQ6-9974cihJ-u9v5pVv66og-FpOtyeg",
+   "chat_idx": null
+  },
+  {
    "file": "C267_South-Korea_2013_10Won_obv_idx093.jpg",
    "asset": "C267",
    "kind": "coin (Phase 1 chat photo)",
-   "drive_folder": "Titan Reliquary/_raw_capture/_phase1",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1p-KCYY_QZjdLQurvpskN3LrAtpSXX1AB",
    "chat_idx": 93
   },
@@ -253,7 +525,7 @@
    "file": "C268_Norway_2000_50Ore_rev_idx120.jpg",
    "asset": "C268",
    "kind": "coin (Phase 1 chat photo)",
-   "drive_folder": "Titan Reliquary/_raw_capture/_phase1",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ar7a-mIYM6hvx0lSuRmIFtaoS1ym4twT",
    "chat_idx": 120
   },
@@ -261,7 +533,7 @@
    "file": "C269_Cayman-Islands_1990_1Cent_obv_idx228.jpg",
    "asset": "C269",
    "kind": "coin (Phase 1 chat photo)",
-   "drive_folder": "Titan Reliquary/_raw_capture/_phase1",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "14WhTWVSkkIwzNgmkjEbzIiDOjJ0vhftQ",
    "chat_idx": 228
   },
@@ -269,7 +541,7 @@
    "file": "C270_Japan_1988_10Yen_rev_idx282.jpg",
    "asset": "C270",
    "kind": "coin (Phase 1 chat photo)",
-   "drive_folder": "Titan Reliquary/_raw_capture/_phase1",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1LhbeyfUR6Gw3qzn7xFqfpQ-H-whIdD6D",
    "chat_idx": 282
   },
@@ -277,10 +549,10 @@
    "file": "C271_Mexico_2013_50Centavos_obv_idx289.jpg",
    "asset": "C271",
    "kind": "coin (Phase 1 chat photo)",
-   "drive_folder": "Titan Reliquary/_raw_capture/_phase1",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1b_sDHItIRdPq9jCR3E2yyE1xzCy_CBYi",
    "chat_idx": 289
   }
  ],
- "still_unidentified": "Grok reports 334 more image attachments in the Titan Reliquary chat that carry no coin/album id (no chat text to match them); not uploaded."
+ "still_unidentified": "Grok's second pass (2026-10-01 21:58 PT) still holds 318 chat images it could not name with confidence (256 unreadable, 43 not a coin, 19 ambiguous); its later uploads keep arriving."
 }
