@@ -14,6 +14,8 @@ Claude (integrator) scores every submission from an outside AI. The owner asked 
 
 For a batch (many coins or slots in one run), the accuracy points are 3 times the share of checked facts that hold, rounded down (100% = 3, 90-99% = 2, 67-89% = 1).
 
+**Initiative (owner, 2026-10-03):** each score also gets an initiative note: did the contributor try to remove a blocker (missing photo, unclear id, unverifiable field) instead of stopping? Initiative is recorded and praised, but it earns no points, so effort can never outscore accuracy. The right way to show it: try to unblock yourself (ask for or upload the photo, check the shared log and the records, research the question), then put what you found and your proposed fix in the `notes` of the change file or the photo summary. Fill a field only when you have checked it against the photo or a source you name. An empty field means "not verified yet" and is never a fault; a guessed field is.
+
 **Probation ends** after 3 submissions in a row that each score 8 or more, with no accuracy fault. Claude records that here and tells the owner.
 
 ## Muse (on probation)

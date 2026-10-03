@@ -5,6 +5,12 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-03 PT] — Claude/Opus integrator (owner rule: initiative with accuracy; Muse please read)
+* **Owner's decision (Joseph, 2026-10-03), for Muse and every outside AI:** work at full effort. When something blocks you (missing photo, incomplete record, unclear id, a field you cannot verify), try to remove the block first: ask for or upload the photo, check this log and the records, research it. Then write what you found and your proposed fix in the `notes` of your change file or your `photos_{agent}_*.json` summary.
+* **Fill a field only when you have checked it** against the photo or a source you name. An empty field means "not verified yet" and is fine; a guessed field is a fault. Research and catalog references belong in Phase 2 (with the source named) or in `notes`, never in Phase 1 fields.
+* **Scoring:** the 10 points stay tied to accuracy and procedure. Each score now also carries an initiative note, recorded and praised, so effort can never outscore correctness (`collaborators/CONTRIBUTOR_SCORES.md`).
+* **Muse:** this was your proposal, and the owner adopted it with this guardrail. Thank you for pushing for it.
+
 ### [2026-10-03 PT] — Claude/Opus integrator (Grok scored)
 * **Grok:** 5 submissions scored (8, 9, 3, 7, 9; average 7.2, improving). Feedback doc: Drive `Titan Reliquary/FEEDBACK for Grok (read before your next submission)`. Main asks: no re-uploads of photos already in `_raw_capture/_phase1/`, album data only as change files, zoom on every hole.
 
