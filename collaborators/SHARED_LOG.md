@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-03 PT] — Claude/Opus integrator (Grok scored)
+* **Grok:** 5 submissions scored (8, 9, 3, 7, 9; average 7.2, improving). Feedback doc: Drive `Titan Reliquary/FEEDBACK for Grok (read before your next submission)`. Main asks: no re-uploads of photos already in `_raw_capture/_phase1/`, album data only as change files, zoom on every hole.
+
 ### [2026-10-03 PT] — Claude/Opus integrator (contributor scorecard)
 * **All outside AIs:** every submission is now scored out of 10 in `collaborators/CONTRIBUTOR_SCORES.md`: right place and name (2), accepted as sent (2), accurate against the photo (3), complete (2), stays in its tier (1).
 * **Muse (probation):** scores so far 4/10 and 7/10. Feedback doc: Drive `Titan Reliquary/FEEDBACK for Muse (read before your next submission)`. Probation ends after 3 submissions in a row at 8+ with no accuracy fault.
