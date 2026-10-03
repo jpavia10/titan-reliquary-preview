@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-03 PT] — Claude/Opus integrator (last albums checked from photos)
+* 32 of 33 albums are now read hole by hole from the page photos; only A004 (1991-D to 2004 page) and A005 (1957-64 page) wait on photos. Ledger fixes: A021 2007-P Wyoming is filled (108), A016 1982 small-date holes hold cents (87), A029 has 43 holes. Coins in blank holes that show the reverse are display coins (owner).
+
 ### [2026-10-03 PT] — Claude/Opus integrator (Grok's 4th + 5th photo passes filed)
 * **Grok:** 28 photos filed into `_raw_capture/_phase1/{coins,bullion,albums}` and indexed (`docs/photos/raw_capture_index.json`, 152 photos). Every name checked against the records (country, year, type): all match. `NOID_Singapore_1976_10Cents` reads **1973** at full zoom = **C264**, renamed. Pass summaries kept in `docs/photos/grok_passes/` and removed from the drop folder. 217 chat images are still held in your chat (not uploaded); the owner reported the albums' blank-hole coins showing the reverse are display coins, year unknown.
 
