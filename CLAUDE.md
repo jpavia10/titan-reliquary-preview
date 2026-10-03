@@ -29,13 +29,14 @@ Last verified: 2026-10-01 (build tr55).
 ## Rules
 0. **Deploying:** GitHub Pages does NOT rebuild for pushes made by the Claude GitHub app (the live site silently stayed at aa45918 for ~30 pushes on 2026-09-30). After pushing to `main`, trigger the build by updating `DEPLOY_STAMP.txt` through the GitHub connector (acts as the owner's account), then confirm a new "pages build and deployment" run for that commit finishes `success`. Never report "live" before that run succeeds.
 1. Check `SHARED_LOG.md`, do your work, append a 2-3 line entry.
-2. Ownership: Claude = integrator (repo, pipeline, site, merges every change file). Grok, Gemini, Muse and other AIs contribute data only as change files in the Drive drop folder. Coordinate in the log.
-3. Never edit generated files in `data/` by hand.
-4. Keep Dad-readable (high contrast, large type) and offline PWA working.
-5. Never print, copy, or commit any GitHub token. Cloud sessions use the GitHub connection.
-6. Anything worth keeping gets backed up to the Drive folder above.
-7. **Themes ("Worlds"):** every new or rebuilt theme ships at the Signature standard in `notes/agents/theme-pot.md` (manifest-only tokens, photoreal art, GPU effect, real-recording ambience, AA contrast, perf budget). Never add a theme the old "Classic" way.
-8. **Images and video (owner rule, 2026-10-01):** never render stills with Blender or code in the container, and never ask the owner to copy and paste prompts. Write requests into the one art queue (`docs/art/ART_QUEUE.md`): Drive `art-requests (any AI: images + video)/`, processed by any image/video AI (Grok, Gemini Veo, Muse; each claims a job first; rules `ART_START_HERE (any AI: images + video)`), output in `art-incoming (AI images + video)/`; keep a repo copy in `docs/art/requests/`. On "Titan: import the art" review every file; weak results are rejected and re-requested automatically (review loop). Blender only for short animated loops, if at all.
+2. **Score every outside-AI submission** in `collaborators/CONTRIBUTOR_SCORES.md` (owner, 2026-10-03; rubric at the top) and tell the contributor in its Drive `FEEDBACK for {agent}` doc, with praise for what it did right as well as faults. Muse is on probation until 3 submissions in a row score 8+.
+3. Ownership: Claude = integrator (repo, pipeline, site, merges every change file). Grok, Gemini, Muse and other AIs contribute data only as change files in the Drive drop folder. Coordinate in the log.
+4. Never edit generated files in `data/` by hand.
+5. Keep Dad-readable (high contrast, large type) and offline PWA working.
+6. Never print, copy, or commit any GitHub token. Cloud sessions use the GitHub connection.
+7. Anything worth keeping gets backed up to the Drive folder above.
+8. **Themes ("Worlds"):** every new or rebuilt theme ships at the Signature standard in `notes/agents/theme-pot.md` (manifest-only tokens, photoreal art, GPU effect, real-recording ambience, AA contrast, perf budget). Never add a theme the old "Classic" way.
+9. **Images and video (owner rule, 2026-10-01):** never render stills with Blender or code in the container, and never ask the owner to copy and paste prompts. Write requests into the one art queue (`docs/art/ART_QUEUE.md`): Drive `art-requests (any AI: images + video)/`, processed by any image/video AI (Grok, Gemini Veo, Muse; each claims a job first; rules `ART_START_HERE (any AI: images + video)`), output in `art-incoming (AI images + video)/`; keep a repo copy in `docs/art/requests/`. On "Titan: import the art" review every file; weak results are rejected and re-requested automatically (review loop). Blender only for short animated loops, if at all.
 
 ## Photo workflow (owner's intent, confirmed in chat 2026-09-28)
 1. Phase 1: photo each coin; owner pen-labels one side with country, year, denomination. AI generates metadata from the photo.
