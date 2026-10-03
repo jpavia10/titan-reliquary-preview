@@ -161,13 +161,13 @@
    "note": "Grok: Washington quarter page 1995-1998. Only A011."
   },
   {
-   "file": "A012_Washington_1948-1964_page.jpeg",
-   "asset": "A012",
-   "kind": "album (Phase 1 chat photo)",
+   "file": "A005_Roosevelt_1957-1964_page.jpeg",
+   "asset": "A005",
+   "kind": "album page (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/albums",
    "drive_id": "1Pa0YegeTSTFP2Uqz6s1Z9vweT3G6ckh-",
    "chat_idx": null,
-   "note": "Grok: Washington quarters page dated 1960-1962. Another page of A012, 1948-1964."
+   "note": "was filed as A012_Washington_1948-1964_page.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give A005"
   },
   {
    "file": "A012_idx076.jpeg",
@@ -625,12 +625,13 @@
    "note": "Grok: Switzerland 1971 1/2 franc reverse. Only C015."
   },
   {
-   "file": "C019_Germany_1981_10Pfennig_rev.jpeg",
-   "asset": "C019",
+   "file": "C018_Germany_1983_2Pfennig_rev.jpeg",
+   "asset": "C018",
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "14SvgEsGPeSi7BQ_5S_vfY-rykd7cDdxv",
-   "chat_idx": null
+   "chat_idx": null,
+   "note": "was filed as C019_Germany_1981_10Pfennig_rev.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C018"
   },
   {
    "file": "C024_United-Kingdom_1977_2Pence_obv.jpeg",
@@ -968,12 +969,13 @@
    "chat_idx": null
   },
   {
-   "file": "NOID_Italy_1969_2Lire_rev.jpeg",
-   "asset": "NOID",
-   "kind": "no id yet (Phase 1 chat photo)",
-   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/unidentified",
+   "file": "C033_France_1969_HalfFranc_rev.jpeg",
+   "asset": "C033",
+   "kind": "coin (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1B1LfjibrFVPKc_booZqBYqcJyzaMl8H_",
-   "chat_idx": null
+   "chat_idx": null,
+   "note": "was filed as NOID_Italy_1969_2Lire_rev.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C033"
   },
   {
    "file": "NOID_Mexico_1924_10Centavos_rev.jpeg",
@@ -1037,12 +1039,13 @@
    "note": "Grok named it NOID_USA_ND_Free-Pony-Ride-token.jpeg (NOID); owner 2026-10-02: the Meijer token IS the pony-ride token = T003"
   },
   {
-   "file": "C131_Germany_2002_20EuroCent_obv.jpeg",
-   "asset": "C131",
+   "file": "C053_Germany_2011-J_20EuroCent_rev.jpeg",
+   "asset": "C053",
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1XTQ52oaxj491yv-w_EfJlwp-c6jKO59l",
-   "chat_idx": null
+   "chat_idx": null,
+   "note": "was filed as C131_Germany_2002_20EuroCent_obv.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C053"
   },
   {
    "file": "C084_Italy_2002_1Euro_obv.jpeg",
@@ -1142,40 +1145,40 @@
    "note": "Grok named it NOID_Singapore_1976_10Cents.jpeg; Claude read the date at full zoom 2026-10-02: 1973 = C264 (owner: NOIDs are probably misreads)"
   },
   {
-   "file": "C019_Germany_1981_10Pfennig_rev_angle2.jpeg",
-   "asset": "C019",
+   "file": "C051_Germany_1986_10Pfennig_rev.jpeg",
+   "asset": "C051",
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1_Y6DXJlTne3vqJTfjotsMi_AKrXPpfGy",
    "chat_idx": null,
-   "note": "another photo of the same side (Grok: angle, not a new coin)"
+   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle2.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C051"
   },
   {
-   "file": "C019_Germany_1981_10Pfennig_rev_angle3.jpeg",
-   "asset": "C019",
+   "file": "C030_Germany_1982_10Pfennig_rev.jpeg",
+   "asset": "C030",
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Y1HgLbLDQfDlI7jmmziKsvV9aNM0qfHt",
    "chat_idx": null,
-   "note": "another photo of the same side (Grok: angle, not a new coin)"
+   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle3.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C030"
   },
   {
-   "file": "C019_Germany_1981_10Pfennig_rev_angle4.jpeg",
-   "asset": "C019",
+   "file": "C022_Germany_1989_10Pfennig_rev.jpeg",
+   "asset": "C022",
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "18FLPAB2tD3AeMba53SiyHcDT_cqQuDk0",
    "chat_idx": null,
-   "note": "another photo of the same side (Grok: angle, not a new coin)"
+   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle4.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C022"
   },
   {
-   "file": "C006_Germany_1984_1DeutscheMark_angle2.jpeg",
-   "asset": "C006",
+   "file": "C050_Germany_1982_1DeutscheMark_rev.jpeg",
+   "asset": "C050",
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-",
    "chat_idx": null,
-   "note": "another photo of the same side (Grok: angle, not a new coin)"
+   "note": "was filed as C006_Germany_1984_1DeutscheMark_angle2.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C050"
   },
   {
    "file": "C077_Switzerland_1991_2Francs_rev_angle2.jpeg",

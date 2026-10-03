@@ -1,0 +1,1112 @@
+{
+  "written": "2026-10-01T23:06 America/Los_Angeles",
+  "timezone": "America/Los_Angeles",
+  "staging_folder_id": "1_g6H2V9GZ0TkXISVASNtxSeQ25bJbEqH",
+  "staging_folder": "Titan Reliquary/STAGING (drop coin photos here)",
+  "started_with": 217,
+  "of": 235,
+  "named_this_run": 3,
+  "still_unnamed": 214,
+  "note": "EXIF DateTimeOriginal, not file mtime. Photos within 60 seconds were grouped. A group was named only when one shot was readable and the others were the same coin. No change file. A033 1947 Blunt 7 and 1953 Shoulder Fold were not marked filled.",
+  "files": [
+    {
+      "filename": "C238_Germany_1973_2DeutscheMark_rev.jpeg",
+      "id": "C238",
+      "source_hash": "05199bb913598a0d5c9d76abb075dbb9c8fa1f0fa77bd540e72ebffc55e6379b",
+      "exif": "2026:09:18 21:44:40",
+      "exif_subsec": "774",
+      "exif_offset": "-07:00",
+      "why": "Eagle side reads BUNDESREPUBLIK DEUTSCHLAND, 1973, and 2 DEUTSCHE MARK. Only C238. Earlier pass had misread the date as 1975."
+    },
+    {
+      "filename": "C198_Netherlands_1948_1Cent_obv.jpeg",
+      "id": "C198",
+      "source_hash": "172acc1065729989e5882336810413cca1d416833dfb83118038cc5cc76edbb0",
+      "exif": "2026:09:15 13:31:14",
+      "exif_subsec": "382",
+      "exif_offset": "-07:00",
+      "why": "Wilhelmina obverse, 8 seconds after the already filed C198 1948 1 cent reverse. Same 60-second group, so this is the other side."
+    },
+    {
+      "filename": "C258_Vietnam_1953_20Su_rev.jpeg",
+      "id": "C258",
+      "source_hash": "7992892420fd2477280724e794f0ed5939eb6c7d59c582a90aa5d53ab4ed23f5",
+      "exif": "2026:09:22 14:18:24",
+      "exif_subsec": "241",
+      "exif_offset": "-07:00",
+      "why": "Reverse reads VIET-NAM and 20 SU with three rice stalks. Only C258. Earlier pass had misread it as a French 10."
+    }
+  ],
+  "could_not_name": [
+    {
+      "source_hash": "dc8a2308538fa83daa9d5293ec1b86fc8017ca934c562087e3fd88acbcad7e8e",
+      "exif": "2026:09:11 00:09:46",
+      "why": "Swiss portrait side. Denomination is not on this side, and more than one free id shares the year."
+    },
+    {
+      "source_hash": "2ddb4450759ec35ba97898d975e5240cd375e9dbd520824c439e7647896fb79e",
+      "exif": "2026:09:11 00:13:03",
+      "why": "Switzerland 1968 2 francs. Both C003 and C115, not told apart."
+    },
+    {
+      "source_hash": "951ec5ea154e1395c726b8c32b0ff8d109e033ab57e093928d7d1e27e2901712",
+      "exif": "2026:09:11 00:15:21",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "d5b2b1042eef1ce5183097a5bf1188a78c4c2aaccdab6331478df62f783b8bf4",
+      "exif": "2026:09:11 00:25:29",
+      "why": "Spielmarke, 20 in a wreath, with a 1984 1 DM in the background. T001 and T002 are the same token type and cannot be told apart."
+    },
+    {
+      "source_hash": "9a40550d5566465eb40575e480b0939b7f540ee75c02130ae8849c6479b1c767",
+      "exif": "2026:09:11 00:25:42",
+      "why": "Other side of that Spielmarke (GR monogram and stars), 13 seconds later. T001 and T002 still cannot be told apart."
+    },
+    {
+      "source_hash": "49a0d350a1136d3335ad77cbcbe7ddd88513bd68991e6c64267b4086f496b481",
+      "exif": "2026:09:11 00:34:05",
+      "why": "German eagle 1971; denomination not locked. No 1971 5 DM id."
+    },
+    {
+      "source_hash": "fea5adc7a042554beba73eae8ab0e7e3984e4f2f358cfd07aa425d5dbbe99263",
+      "exif": "2026:09:11 00:37:23",
+      "why": "Netherlands 25 cent 1996, grid side. Nine seconds from the Beatrix side. Both C010 and C104 match, so neither assigned."
+    },
+    {
+      "source_hash": "a3a84a8803c8ca9b01137dccc74a3efc11929aaafc826a54dbc6b5e8274a1080",
+      "exif": "2026:09:11 00:37:32",
+      "why": "Beatrix side of that same 1996 25 cent. Both C010 and C104 match, so neither assigned."
+    },
+    {
+      "source_hash": "498a15d4424860a362420a2bbe884763da096b60f5c1f994a64670658278e4b4",
+      "exif": "2026:09:11 00:42:29",
+      "why": "France 1 franc, olive branch. Date may be 1962 (only C012) but it also reads like 1969, whose only id is C033 half franc. Not assigned."
+    },
+    {
+      "source_hash": "d86eacd18e5c7790e079bbf848d0408f6de0be93db74a05ceabef14b1be8965f",
+      "exif": "2026:09:11 00:44:39",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "ef38d3c4403f081e6ce0cd3bcbbd9ce3193f161d240a29065788e8ced69ea2e9",
+      "exif": "2026:09:11 00:54:59",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "bc2bbeff048df3cd61d13595566e313f24c8fda602030b3b2c4a9fe5c137387d",
+      "exif": "2026:09:11 01:04:08",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "95ca6033c86df49fad77a0b7e841cad8d81e6369c7f23e0c4f1ccda375c52c1e",
+      "exif": "2026:09:11 01:08:53",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "a680f878344bac9b07f3f5f587d4e02632d24920bbf9fcfd57c7dfffac057df8",
+      "exif": "2026:09:11 01:13:46",
+      "why": "Jefferson page 1982-2004 crosses A014 and A013."
+    },
+    {
+      "source_hash": "d90b84f28e2ce7a95c65618a6c1c5657cdf07689d15d79468f1204e3def2a6d1",
+      "exif": "2026:09:11 01:21:07",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "9ee7d788ee8a08994c5e0896f02624c75b535bebcc8b9dddd7f08dd0beba1825",
+      "exif": "2026:09:11 01:29:52",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "e77a308b0385c9672a8fb41ff74a06eddc3edfd737684d6a21374eca7b8611fd",
+      "exif": "2026:09:11 01:34:42",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "b339fdfa9a038ce90cc4afa7fe5e8b1a26dbaf7d05dc271421220331c75d1cfc",
+      "exif": "2026:09:11 01:40:45",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "3e17f5213babff63487611d86354be3e444fc1e84ffe798a78ac5ed574f75683",
+      "exif": "2026:09:11 08:08:43",
+      "why": "France 1 franc, olive branch. Year not readable on this shot."
+    },
+    {
+      "source_hash": "73e11c468188505edea82b44a7c221ead1a1bb304ab978f109146fa371e79735",
+      "exif": "2026:09:11 09:49:37",
+      "why": "Germany 1961 oak leaves. No Germany 1961 id."
+    },
+    {
+      "source_hash": "7911edfb22c752e3499c595de3ee25536552bb254c568a813b01eb15b92c1367",
+      "exif": "2026:09:11 09:52:41",
+      "why": "UK bronze Elizabeth II obverse. Year and denomination not readable, so not assigned to C020 (1973 halfpenny)."
+    },
+    {
+      "source_hash": "65b843e5635cb3fff13a9800439bea63123cd00821dedf32f4e9988867dd58a0",
+      "exif": "2026:09:11 09:54:04",
+      "why": "Unreadable through the loupe."
+    },
+    {
+      "source_hash": "b782f714c3f8b399cc634e99608870c5a2a2a211f2de2936a8cacbcd9fc26a2f",
+      "exif": "2026:09:11 09:57:52",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "bf11e4f93fb36312f96d222d0924d5b27d0fc994383f344e4d916b2a17f678c6",
+      "exif": "2026:09:11 11:13:47",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "86d4e1b8a7a268a5ad015dbe6e4c96f2b9c37fdd1a1bff84db3550cca7eabd34",
+      "exif": "2026:09:11 11:16:49",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "a72e2927dd001b638ef562b33ba47442aadbe279b0e821532ab469f3e6040f93",
+      "exif": "2026:09:11 11:22:38",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "89f4906da76ff01719e5b1ffaf32061b7cf9a654d645af0439da5111f03b0b3c",
+      "exif": "2026:09:11 11:24:30",
+      "why": "Same Spielmarke type, 20 in a wreath, photographed later the same day. Not a 50 euro cent. Still T001 or T002, not told apart."
+    },
+    {
+      "source_hash": "3e3f9754ffab9053fff683491419155d2be2ff04d1d7a2da22208b1caba714c9",
+      "exif": "2026:09:11 11:24:37",
+      "why": "Other side, GR monogram and 13 stars. Spielmarke, not a 50 euro cent. T001 or T002, not told apart."
+    },
+    {
+      "source_hash": "8bff4ed735f221b509cebebb46ca86b041f918108c84ed42420324ebc52469ec",
+      "exif": "2026:09:11 11:50:42",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "ef36919f12d2892c0d1a0e2a07110cdff952109bef0741b31f7e7e863467dc73",
+      "exif": "2026:09:11 11:50:59",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "d0f07d3906461dd1146c114f7a5cf30bef8d33a3d473d5d18db328f50ce5afe4",
+      "exif": "2026:09:11 12:00:08",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "18ffc7b32e7b23bdf85040033af171b0a484f2b58b16c28192bc5f79df4f9c3d",
+      "exif": "2026:09:11 13:04:22",
+      "why": "5 euro cent common side; country not shown, so no single id."
+    },
+    {
+      "source_hash": "a35997a0b411113260f94e65cc8cee655ecbe471ac0e712b099543cd9f4a21c0",
+      "exif": "2026:09:11 13:08:02",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "82029660ec57441c7ffbee97d12ab55567e51fe5ad7b80e0e1a440369bc3fc70",
+      "exif": "2026:09:11 13:08:33",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "751b99015d7906b70ca928d159e1c578f9fd88fe05d01ad64037228236e80242",
+      "exif": "2026:09:11 13:08:55",
+      "why": "Partial coin, legend not readable."
+    },
+    {
+      "source_hash": "0a86532bd5ce6a1fbb9b1b3b065ed0462484553838cc91c72e4611a176163ae2",
+      "exif": "2026:09:11 13:26:11",
+      "why": "20 euro cent common side. Country not shown."
+    },
+    {
+      "source_hash": "84ad9228ea3bb261b3ef08a5fa05434b86cbbe081a3193036616204a9f212c38",
+      "exif": "2026:09:11 13:29:09",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "c9cd6b3fef32a46330626d8218ed34e080f85ab75c5521adddc4ba9ab3141c47",
+      "exif": "2026:09:11 13:41:24",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "2dce55e72fad61610dcf45abe00070d9ee792bf3730f9b51c4e8e4f862eaf07d",
+      "exif": "2026:09:11 13:47:00",
+      "why": "Netherlands 2-unit euro piece. Not the 2 euro C070, and no 2 euro cent id."
+    },
+    {
+      "source_hash": "bcd3d65bd455e85e3339bbfc211c9b874d10e4af66c88d6e60b8bc557820e9de",
+      "exif": "2026:09:11 13:56:10",
+      "why": "CCCP arms, 18 seconds before the 1 kopek date side. Not assigned until the date is settled. Nearest C042 (1962) or C044 (1974)."
+    },
+    {
+      "source_hash": "c70ee43f7e672aa47f98bf0fa02e5034723d5668f7f9986dd4f533737d5c44ed",
+      "exif": "2026:09:11 13:56:28",
+      "why": "Small copper reading 1 kopek and a date like 1902, 18 seconds after a CCCP arms side. 1902 cannot be Soviet, so not assigned. Nearest is C042, USSR 1962 1 kopek, if the date is a worn 1962."
+    },
+    {
+      "source_hash": "f97719775ef02b16ce0201557a88a43ff82344d207dc0ba5d6d35d42284a5c05",
+      "exif": "2026:09:11 14:01:02",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "d0c17b64864ef295aae85484b3845291f373c9c7d700f5f0ddcb577d999d0a51",
+      "exif": "2026:09:11 14:05:56",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "c750d8c471137fa27d485a1a9ab82cba2128b03daac2901cdc0a5273ef4dae9a",
+      "exif": "2026:09:11 14:08:52",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "0c0e039702c96d9b62d8ad13af7b4f2ac51b49379aa784bbac2697e96bd45b77",
+      "exif": "2026:09:11 14:13:24",
+      "why": "10 euro cent common side. Country not shown."
+    },
+    {
+      "source_hash": "f690627b5316043a62a71b9a3ea0e4ef950de34cbd63e2921ea60932a346ef5c",
+      "exif": "2026:09:11 14:17:42",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "40005b01fa6b158cbf23fbc7056c01b3a19d97cd3d9a2ae1d87dfa6305b3c2f7",
+      "exif": "2026:09:11 14:17:52",
+      "why": "Brazil; year not readable. Not assigned to C047."
+    },
+    {
+      "source_hash": "bfc390ab3c5391c88fdf004753771620ef927afa04c046c173d1d4fc86fbefb0",
+      "exif": "2026:09:11 14:25:33",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "9c313cc859dd4937290631099de23ff2f3430af632f98e0639426556cc7f97d1",
+      "exif": "2026:09:11 14:40:23",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "a0ba7f99ae55cf353792707b0421aff7b4200b61bb8315f5d40be7107bec00eb",
+      "exif": "2026:09:11 14:46:46",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "2c1ee3567cd64209c608ba8acb046aad5461f557163e0157cf5c0d01630011d4",
+      "exif": "2026:09:11 15:10:24",
+      "why": "50 euro cent common side. Country not shown."
+    },
+    {
+      "source_hash": "bbf21d801cbb572fd2e6c1e894b47190f7719b8df5b9d69ed4c1e52809b1ec06",
+      "exif": "2026:09:11 15:12:27",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "d3e23cd843ea5817ceec6246149b46ff89f3918495e1581d50a8ad150f1ee8bc",
+      "exif": "2026:09:11 15:17:23",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "9f34c1d0f5ec755fe9b065551dbf7dacf4fca1646efc0d44b311c1ea00d707c8",
+      "exif": "2026:09:11 15:18:55",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "c6bd5e7b81e696aaf5e58d6514cdb862f51def1417860ed9bfb5cb26177e2dd3",
+      "exif": "2026:09:11 15:20:51",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "a3212de680fc265c4cf00b0abe4f6ae1582d724bfb656f539601909f35b5ca9c",
+      "exif": "2026:09:11 15:23:41",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "4a1244c8c2cf5d3e7bb988f9f5bcc0e7e817615eefb5e7a1006395f9f5ddc401",
+      "exif": "2026:09:11 15:49:07",
+      "why": "Swiss shield 1976; denomination not locked and no 1976 Switzerland id."
+    },
+    {
+      "source_hash": "17b1aa23b9bb5c5ed5ebf6fe3924a1b19716b36052fb8894cab470d51f7b2c3d",
+      "exif": "2026:09:11 15:55:07",
+      "why": "Swiss Helvetia, date looks like 1968 or 1988. Denomination is not on this side. 1968 is C003, C115, and C008."
+    },
+    {
+      "source_hash": "94abe1d9b05d9ab145310aa9da54b3b42855211ae6f6dc00e74df58bdb73ea65",
+      "exif": "2026:09:11 16:14:59",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "0edaace757d0fc449e29cda8f5db76053ede4053d2b829541e9248971d8f1581",
+      "exif": "2026:09:11 17:11:23",
+      "why": "Tube of coins, not one id."
+    },
+    {
+      "source_hash": "5f375389500e3260a8f93d55b71e81e2232426a5be5d2328414675eac5c064f4",
+      "exif": "2026:09:11 17:14:37",
+      "why": "2021 proof case with a Kennedy. Not clearly the whole S001 silver proof set."
+    },
+    {
+      "source_hash": "ebd9bba3031c6dc296c58483cfc582e22890ebe99b6d14bd410f98fc0939ade7",
+      "exif": "2026:09:11 17:18:00",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "3a90afdb10874175d890f3ecad06161f59d1b9f4fb90d966bd678b4314f99eef",
+      "exif": "2026:09:11 19:29:01",
+      "why": "Swiss Helvetia 1981. Denomination not locked, and 1981 2 francs is both C067 and C116."
+    },
+    {
+      "source_hash": "c3434508ad618a0b8ebf9f9f78591d95676ab140a1d199487ad6d54cb85bfebb",
+      "exif": "2026:09:11 19:31:25",
+      "why": "Swiss Helvetia dated 1989, 58 seconds before the already filed C077 1991 2 francs, so not that coin. No 1989 Helvetia franc id. C076 is 1989 20 rappen Libertas, a different type."
+    },
+    {
+      "source_hash": "81ab55e64ae43d5f4a522c746b056b1e5d952c14971978b954ae310e43a15a72",
+      "exif": "2026:09:11 19:34:53",
+      "why": "Swiss portrait side. Denomination is not on this side, and more than one free id shares the year."
+    },
+    {
+      "source_hash": "baf6a3725e826bf4d63a8512829465de0471f8692fd2b1f35e5ed2f5cde739fc",
+      "exif": "2026:09:11 19:36:10",
+      "why": "Swiss portrait side. Denomination is not on this side, and more than one free id shares the year."
+    },
+    {
+      "source_hash": "c656172f55f6303d6cfda33710a9954a62c00ef5634a825b5b934e53ce695627",
+      "exif": "2026:09:11 22:22:21",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "b8225c1a9db9deea4e16693e5fa6c0354e4d5460a6c410e62ddc78d7c94c31e0",
+      "exif": "2026:09:11 22:26:11",
+      "why": "Swiss portrait side. Denomination is not on this side, and more than one free id shares the year."
+    },
+    {
+      "source_hash": "4f0a8dd6ee9a006acb652efd35d7bc2cfb09a62993a4c2d2d1ffde8777d33f1f",
+      "exif": "2026:09:11 22:27:27",
+      "why": "Swiss Helvetia 1981; could be C083 10 rappen or the 2 franc pair C067 and C116."
+    },
+    {
+      "source_hash": "4bb2a9defbc4ca3ed042495aa88c16c092cc2fb32e6eba2987da0274bd4b643f",
+      "exif": "2026:09:12 00:03:56",
+      "why": "Stack of 1 oz buffalo rounds. Not one coin and not clearly the B001 lot."
+    },
+    {
+      "source_hash": "cdc5ec71080d7bf199d556d08c1c2272cd8534b0a139672abb557dbdb547c397",
+      "exif": "2026:09:12 00:05:04",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "f6ccdce2586cbeba4d571b1dca8267abb21cd39bf0e03a0d9255c1b97de13311",
+      "exif": "2026:09:12 01:23:33",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "bf279289fe47b08d113a9123c5b41db3b584eaf6ff123d14b07914b5a2d7f85a",
+      "exif": "2026:09:12 01:33:38",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "391b44e73524fca025c55abd37d84150fe0d80cd13ae04ecb147aefa385dd5d4",
+      "exif": "2026:09:12 01:34:35",
+      "why": "Glare on a folder. Title not readable."
+    },
+    {
+      "source_hash": "ae2e957f7a6eb00edb59ac4951a7a76d6c679e3e948754555dbff57ae7cde917",
+      "exif": "2026:09:12 16:07:54",
+      "why": "More than one coin or object in the frame."
+    },
+    {
+      "source_hash": "76af19d4041b36b58a58ba97149f75b8b015b0e743883074a6701443caea8548",
+      "exif": "2026:09:12 16:08:14",
+      "why": "Mexico eagle, Estados Unidos Mexicanos; year and denomination not locked."
+    },
+    {
+      "source_hash": "22a0f6f30946525b65be0a827659db8ea60779982a261bdb6439f952a78b4cad",
+      "exif": "2026:09:12 21:37:00",
+      "why": "Several GSM 1/4 oz buffalo rounds, not one coin and not clearly the B008 lot of 10."
+    },
+    {
+      "source_hash": "3b835c743590fe104f9a231102b05c54b457634851ffd756189ce785a0a944a1",
+      "exif": "2026:09:12 21:38:10",
+      "why": "Several 1 oz pieces in one hand. Not one id."
+    },
+    {
+      "source_hash": "bef5a497ac6f764a2f4695a5d2fceb7690d4b8703fcd0ea15f138b27fed425fe",
+      "exif": "2026:09:12 22:03:01",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "d75f92ad82056b9594b2c748cea46eb8c08698330a34ed23cfc56349773c674f",
+      "exif": "2026:09:12 22:03:36",
+      "why": "Two silver bars. Not clearly the B012 pair."
+    },
+    {
+      "source_hash": "1f755df3da52f8f9e621e763ad8f9e7e810bf734a8795218269a9346369f0fda",
+      "exif": "2026:09:12 22:05:35",
+      "why": "Not a coin. US postage stamp."
+    },
+    {
+      "source_hash": "d531d94f65956bc68890fadc77960f94cf4a655739831fd686c5952ab63af22e",
+      "exif": "2026:09:12 22:05:42",
+      "why": "Two US 4-cent stamps. P001 is a different lot of three stamps."
+    },
+    {
+      "source_hash": "3649035ebf7d8cfd396422ea88355baefeaedf16a8898adb47e677d4aa6a9a12",
+      "exif": "2026:09:12 22:05:59",
+      "why": "Not a coin. Wooden box."
+    },
+    {
+      "source_hash": "af37c8806a7dc42d73036f6d8b21944a32b30609b44d89ac89b912d7d7df7490",
+      "exif": "2026:09:12 23:24:37",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "4e295664d9d0a697359d1c9ce4fc42a788d0d3ed21e1fee50c709f4e548ab7ef",
+      "exif": "2026:09:12 23:24:45",
+      "why": "Not a coin; skull box."
+    },
+    {
+      "source_hash": "9e31682c7eb5077846e9c8e41e1457a151b1d83aeb5f737925469b167ac83c51",
+      "exif": "2026:09:14 21:03:46",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "8169b04cf94abd099c73df1a53871d9eb64c9edd2073e4613cc7ea941567e5df",
+      "exif": "2026:09:14 21:04:46",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "d3b25fe99c8bd308e8882b6290aada7d9750297b590f4b10d4ca9faa9217c5bb",
+      "exif": "2026:09:14 21:06:23",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "ad1b746a90de51c92921f43b77a005c11fb0fa129467b267433231309f9b38fb",
+      "exif": "2026:09:14 21:10:37",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "af7fabcc65f495514e51f208e4536ee5d986e03b2cace3a4a53051b8ebc413f8",
+      "exif": "2026:09:14 21:14:49",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "4d49517898f6a6418ff6f45c96af3bd4818835bfa2a45553020e1b6211921b5b",
+      "exif": "2026:09:14 21:16:48",
+      "why": "Ireland harp; year not shown. Could be C101, C120, or C143."
+    },
+    {
+      "source_hash": "6f9c100b569a3285be4095cf811bfbe74e3144bc7c41e29d163abe05e005e873",
+      "exif": "2026:09:14 21:19:08",
+      "why": "Germany 1 Deutsche Mark dated 1982. Both C050 and C103 match, so neither assigned."
+    },
+    {
+      "source_hash": "9a0504e2ba7f825199c70e1e40b07d7b5a0937f3a2af9fca23a75d209489a8ba",
+      "exif": "2026:09:14 22:15:14",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "647e224d77906f2d210d04feb8b155417a12cf1d3273abe646762970e928e3dc",
+      "exif": "2026:09:14 22:17:55",
+      "why": "Small German oak; year not locked."
+    },
+    {
+      "source_hash": "6a61e85e569a8ba60d7f6b5a386e1daa1515ad10cdd8f2db7d91452e7d777b7c",
+      "exif": "2026:09:14 22:21:40",
+      "why": "Two different coins in one frame."
+    },
+    {
+      "source_hash": "be4db4cc3ef86d145dbf391e284367d98d4a59ab6beaf202cde5b8b209dfec56",
+      "exif": "2026:09:14 22:25:01",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "edbf5fba0f2f890e90add88bfcb978154915874cb9bd79430cfd2cb6b5567fe4",
+      "exif": "2026:09:14 22:26:23",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "d4903b423a68f9b0f05f6f3fc1f2b331d6d78142fb0ab9c2834f733730f11cf3",
+      "exif": "2026:09:14 22:39:48",
+      "why": "More than one coin or object in the frame."
+    },
+    {
+      "source_hash": "d67a2071f110df9ad95294d72fa564125fcc0901f2fed3b4ea69234e3c9f4385",
+      "exif": "2026:09:14 22:44:16",
+      "why": "More than one coin or object in the frame."
+    },
+    {
+      "source_hash": "7fad5a0568481f49393d11e7d9161179b26b05a75bd27c452c6e5fe0715c8585",
+      "exif": "2026:09:14 22:48:40",
+      "why": "Several flips in one frame. Not one id."
+    },
+    {
+      "source_hash": "c2f13149706781e03e2300e680f3a46976ccd98cd72688ca6832f24c934c2bb6",
+      "exif": "2026:09:14 22:56:23",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "074aff1ab3192d00411260f245f21f452f1ebd5d3588c754869255370af298dc",
+      "exif": "2026:09:14 23:02:17",
+      "why": "1998 piece reading ONE DOLLAR with Korean text. No catalog id."
+    },
+    {
+      "source_hash": "3a4f70d1c648eb7b505e0283c658a7846f853bd8c72910adad8e3c880e59e5b9",
+      "exif": "2026:09:14 23:14:41",
+      "why": "Three Elizabeth II coins in one frame. Not one id."
+    },
+    {
+      "source_hash": "af18b1a9d97b7fbdaada61ba875a6f2219427bafc6d1ce6ff36b94d36d697f94",
+      "exif": "2026:09:14 23:23:18",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "56dd1771fd99a7b73f89e9a023ec9fc9f5ee290350dbfc2ced7d6294c34e261e",
+      "exif": "2026:09:14 23:28:15",
+      "why": "10 centavos; year not readable."
+    },
+    {
+      "source_hash": "58380bfd68c2da33b2ac543543fa57811095c5e417a31b00a6819fb7b07587d9",
+      "exif": "2026:09:14 23:31:16",
+      "why": "Thailand 1 baht, temple side. Thai year not locked to C162 (2006, BE 2549)."
+    },
+    {
+      "source_hash": "44204b6175fa86e7d4d94cdd858e5b1f7bbaa3f051a2928fa766e23e6e0f9bad",
+      "exif": "2026:09:14 23:31:29",
+      "why": "Portrait side 13 seconds later, same Thai 1 baht. Year still not locked to C162."
+    },
+    {
+      "source_hash": "a8fe6bcf5a3d42b5335b72af8a4f049bb6ebcd4e9c3244f20200a8bd621f41b4",
+      "exif": "2026:09:14 23:34:39",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "206599942280c8f181fdc291b8aeb28e308c416b6f75aec122ebbe389374ae94",
+      "exif": "2026:09:14 23:53:44",
+      "why": "Not a coin. SentrySafe."
+    },
+    {
+      "source_hash": "8e3b3ce429a557cd318b4806d9b9b98eb3cbecb9148fe3c6330f5d31cb62518d",
+      "exif": "2026:09:14 23:54:20",
+      "why": "Sentry safe. Not a catalog coin."
+    },
+    {
+      "source_hash": "e803a7288444e250553bffaec2d367bbb18a3d351f86cd1dc4af43dfdd8a214e",
+      "exif": "2026:09:14 23:58:03",
+      "why": "Novelty cent card. Not a catalog album page."
+    },
+    {
+      "source_hash": "f626cac1a8aaed3b998df0559503a61ed1f9410e0d518bc4d7f0b4bed44ac266",
+      "exif": "2026:09:15 00:00:11",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "f71e5ef3b1210ff6b89df9e2c2fdea7f4dc20485b508a8b032d7d5b562fe3d12",
+      "exif": "2026:09:15 00:03:47",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "a82c4113c2508865eae340ae9f32f62c13067fa7e7a67f26f1c7df15b17c27a1",
+      "exif": "2026:09:15 00:08:06",
+      "why": "More than one coin or object in the frame."
+    },
+    {
+      "source_hash": "a9984809b05944a4d3ffad2bff498070d442e9d63ae55a92c1af551f2b6b3b6b",
+      "exif": "2026:09:15 00:15:09",
+      "why": "More than one coin or object in the frame."
+    },
+    {
+      "source_hash": "2758cedfd0978b7e388847f76252bcdda45e69d524bc4e8c9f40f71263236817",
+      "exif": "2026:09:15 00:21:40",
+      "why": "Canada 1999. Denomination not readable and no Canada 1999 id."
+    },
+    {
+      "source_hash": "2b0c8a1f6ca08e215d5289b02b977d0aa575113d8968a66d79c01ca48dfdcc00",
+      "exif": "2026:09:15 00:25:38",
+      "why": "Australia silver Elizabeth. Year not readable, so not B013 or B016."
+    },
+    {
+      "source_hash": "98c04d02f7f2721a3cef76d872d8ab73b14e235d13dd7ac92f99aa41079dc535",
+      "exif": "2026:09:15 00:28:08",
+      "why": "Novelty one-dollar note. Not a catalog coin."
+    },
+    {
+      "source_hash": "684b21ffe8f4b7d66e96754ea35ecba0de1a2d20137afcc150be2cd6a4a5413d",
+      "exif": "2026:09:15 00:30:16",
+      "why": "US 50 dollar Federal Reserve note, not a coin."
+    },
+    {
+      "source_hash": "e131542a2e5d47691af74a17ea29bb1ec5c943734d1c913a3040546ce5e482a6",
+      "exif": "2026:09:15 00:39:21",
+      "why": "More than one coin or object in the frame."
+    },
+    {
+      "source_hash": "cd6e0f1ad054ae1b3028b05475f84ceb18d3d1da9eb6e5e1877c2bef573f0e86",
+      "exif": "2026:09:15 12:00:08",
+      "why": "More than one coin or object in the frame."
+    },
+    {
+      "source_hash": "fa1d8341fd9865db0fd6acfa8bd4c7921096a398586cdec916fd0d0fdb37a6d5",
+      "exif": "2026:09:15 13:06:04",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "5e9e16f3f343c29cb20050d31635cb7ce5c7810f6c950b2a071b40f429c571bf",
+      "exif": "2026:09:15 13:19:49",
+      "why": "German oak sprig, date may be 1987. Denomination is not on this side, so not locked to C196 (1987 5 pfennig)."
+    },
+    {
+      "source_hash": "3fab941a3ba511f61b0554a7ae1cddc21c45694bbd8c3be109284bf05441c78f",
+      "exif": "2026:09:15 14:09:22",
+      "why": "Denomination 50 and a figure; country and year not locked."
+    },
+    {
+      "source_hash": "787a0c40ed14af0c67248a24a3ddf392d0b68f43fdfec72a42277dec1dec34ac",
+      "exif": "2026:09:15 14:12:51",
+      "why": "Non-Latin legend; country and year not locked."
+    },
+    {
+      "source_hash": "1a08a22194786837016d4c5eb4c7ec750b095e778512c1c763891ccf30df371e",
+      "exif": "2026:09:15 14:41:21",
+      "why": "France 10 and 1999. Could be C017 or C095."
+    },
+    {
+      "source_hash": "6d18aac897de40b96dd05760250a7e03f98bf1894987451a2c972bfbe4d5ccf6",
+      "exif": "2026:09:15 14:45:58",
+      "why": "Mexico; year and denomination not locked."
+    },
+    {
+      "source_hash": "fffe373256b73ceda61b111e01ce6e993a13645f6ab9341cd2cf1e8bffc35a7b",
+      "exif": "2026:09:15 14:53:19",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "a2a1b8456bd8a9d81ad23caadefeda1a17e9c67f0c87f8c07452975f2b9707df",
+      "exif": "2026:09:15 14:58:01",
+      "why": "Japan 1 yen, date side. Not locked to C222 (Showa 40 / 1965) or C206 (Showa 51 / 1976)."
+    },
+    {
+      "source_hash": "c76b69749b9973adce65c223e0252db7f1d2ae850e222e8ed5c363ff2ee21a02",
+      "exif": "2026:09:15 14:58:08",
+      "why": "Japan 1 yen, young-tree side, 7 seconds after the date side. Same coin, year still not locked."
+    },
+    {
+      "source_hash": "a672256209f900975cde47175aca1d1c7800d622495ed5325c555ec0a06510b5",
+      "exif": "2026:09:15 15:23:16",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "fecd71ed39e7d90d11f301e1cd17fc6a3e8b29d00f147a1da13ca6f6095b2de8",
+      "exif": "2026:09:15 16:13:47",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "0baf9fc2807f6d3c65f6e0e9da1d4aad5cc32767d868ac8ed123a2f4bd7df89e",
+      "exif": "2026:09:15 16:19:18",
+      "why": "Japan 100 yen. Year not locked and no 100 yen id."
+    },
+    {
+      "source_hash": "aaa60b9001f912d23fcd88e1b7f45056bd398ca98aff1963cd318891e8013fec",
+      "exif": "2026:09:15 19:54:20",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "c4fcf993778e7ea3b6898e059c462ee4cb824919d86e74d07e975200e11d925a",
+      "exif": "2026:09:15 20:04:06",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "bd099de53b936bf4d022e263efa61bf0ddf87fc3380fadd0f5475d15ed66ce43",
+      "exif": "2026:09:15 20:17:50",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "8bcd361d3cf7329186f6c6a3b836bb267ed1ebbe92ea6b68749d9edaf90bb1a9",
+      "exif": "2026:09:15 20:20:27",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "29b93a292eea14549986562ccf6a7f0ca152d78f6f1e9c2b02abec25122ad56f",
+      "exif": "2026:09:15 20:39:57",
+      "why": "USA 2024 quarter obverse only. Reverse not shown."
+    },
+    {
+      "source_hash": "93b819286b3b523c20a49a3b4ddd88006388c29528c32d122f11e9b1d1e1434c",
+      "exif": "2026:09:15 20:47:22",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "4ec31b83ef4c5941a13e5c72adb9050772f4c80debabe05d8c32206dc212aac5",
+      "exif": "2026:09:17 01:16:01",
+      "why": "Arabic legend; year and denomination not locked."
+    },
+    {
+      "source_hash": "c5d1a76f72802979d8584a79587048cdf882709786ee52a2aebad65f90afb426",
+      "exif": "2026:09:17 16:19:49",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "b23f7c61f5cd036a6960cb08c3d6374c68c54d0ded16de3908611057659da2a8",
+      "exif": "2026:09:17 16:24:17",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "c9d829f0af4c48f8d46c57da9d8ba8b4486532d68b7a3dc3d84f2ac79a24465f",
+      "exif": "2026:09:17 16:26:38",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "db7914aa50990b72a5cb9f4d1e7a1bb1f3caf27f3cf7dcdb296c0049000fb0a9",
+      "exif": "2026:09:18 11:59:40",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "baa6c781a33ec570d7ce69a6e6cae0dececb4ad87dd73f22993a6ed5004b9b0f",
+      "exif": "2026:09:18 21:40:09",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "ae601b648fc86c86bc52b57c7a15f8437c9eb93127d876b4a18b33379e742bf2",
+      "exif": "2026:09:18 21:43:03",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "10c07c49f700c6fee88e7e19e1cf0c5b722b4eb8721126817ec7e52be0288a63",
+      "exif": "2026:09:18 21:47:38",
+      "why": "Too dark. Spain only partly visible."
+    },
+    {
+      "source_hash": "a1a234405957607320984ce9386dd353e244961f3cac9304a043f322e71aaca5",
+      "exif": "2026:09:18 22:52:04",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "390e29fd09737076875daa1327173a452575c4fce331f0c0f7d54a2dbd628bf4",
+      "exif": "2026:09:22 12:27:34",
+      "why": "5 centavos. Country and year not readable."
+    },
+    {
+      "source_hash": "98f2d4bf46b3dc643756003bc00f2324aa9736108f351f9bea7e1045d0077220",
+      "exif": "2026:09:22 12:34:49",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "c841e15b69b7f4218554582fbdbda7a799002e95f63276fb7d34651fdfcbed95",
+      "exif": "2026:09:22 12:37:54",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "59c7d87b2aeffcfd6b1f9cfa8f7507d5d6b25bc0f2a282ae04f679f174ba138f",
+      "exif": "2026:09:22 12:53:23",
+      "why": "Korea 10 won flower side; year not shown. C266 reverse and C267 obverse are already named."
+    },
+    {
+      "source_hash": "f12204a9732051ab40b01a04db97c63eb924bfcbc99bb9adef384249a71a3112",
+      "exif": "2026:09:22 13:03:34",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "746373e01e2730b70f091db57b2dd0cdd62ed536643163976c53eaa27f277a4d",
+      "exif": "2026:09:22 13:42:45",
+      "why": "Yugoslavia 1984 1 dinar. Both C251 and C262 still free, so neither assigned."
+    },
+    {
+      "source_hash": "7f3a131a84e17f01116edbf388d49b791126547c428fa4d94c716caf266943b4",
+      "exif": "2026:09:22 13:47:17",
+      "why": "Jamaica; year does not lock to a single free id."
+    },
+    {
+      "source_hash": "a26564155c67a6c56313a6d0400d4be26463e91dbffeae57835c9e0dfb049e79",
+      "exif": "2026:09:22 13:51:48",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "72561ff2b9661819609d90032f39a65dc38a0ffa00f811dab4b561a87d0ede20",
+      "exif": "2026:09:22 13:56:19",
+      "why": "Netherlands lion; year not locked. C198 is already used."
+    },
+    {
+      "source_hash": "61df8be0046993788af293dcaa52599c10105fc2b919452a865b40deda26dfa3",
+      "exif": "2026:09:22 14:01:03",
+      "why": "Swiss Helvetia 1967. No Switzerland 1967 id."
+    },
+    {
+      "source_hash": "2e34c6e86188b6c3a3efb0485e3337cf4a51bfa6c9640004d46eb0f69505cacc",
+      "exif": "2026:09:22 14:20:53",
+      "why": "USSR 1940 kopek. Denomination numeral not readable and no 1940 id."
+    },
+    {
+      "source_hash": "b65cb9874e8a766d14926631f77ad1de7fa54a162485c1b6d62e4669c4f75377",
+      "exif": "2026:09:22 14:29:19",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "4723a4f050acc800f8b486a61b1de4dd66e4802c9cdb04fffa0a5aba233e7848",
+      "exif": "2026:09:22 14:31:32",
+      "why": "Yugoslavia 1984 1 dinar. Both C251 and C262 match, so neither assigned."
+    },
+    {
+      "source_hash": "f376241c75d9dbb53ebad776c54a82153c9354c779b887c0d5002d295047cd0d",
+      "exif": "2026:09:22 14:35:38",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "fb63d21118f24aecec9f587d4d63cfe9a1797dcbfa37f02d97efb6a1f354fa37",
+      "exif": "2026:09:22 14:40:59",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "6012e6b0cbc4ae3d1a2abec16850ee20bb4249a66da979ff2a21000cde83dccc",
+      "exif": "2026:09:24 11:44:42",
+      "why": "Too dark to read."
+    },
+    {
+      "source_hash": "506de6153e353f8ccfde8f6dcd00c99759d52c0478fcba6920d761b5c05c6684",
+      "exif": "2026:09:24 11:49:45",
+      "why": "Worn; legend not readable."
+    },
+    {
+      "source_hash": "49ea556e07185b1e651236831d56a50a17720063a32c3e00371f7eb27d0a1be3",
+      "exif": "2026:09:24 11:49:51",
+      "why": "Worn; legend not readable."
+    },
+    {
+      "source_hash": "a880bacc29d753e7084a40ee87cb4e938f7edba49c1be2c85c3fec00bf5bfef2",
+      "exif": "2026:09:24 11:49:55",
+      "why": "Not readable, or not a coin (safe, scale, blank, or a cover edge)."
+    },
+    {
+      "source_hash": "30036bef82ebb9a48ff440a696c6cd5bc609075c51fc6c1d4c78f58a7172dd46",
+      "exif": "2026:09:24 11:50:43",
+      "why": "Worn center. Country, year, and denomination not readable."
+    },
+    {
+      "source_hash": "9e1677cae72e7fbae07478d05f5c718a77151f6eae84278bb973dba20f58c09a",
+      "exif": "2026:10:01 18:17:39",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "c23dd17174a4da2ec0061e8365664a6060f735534e981f6cc9842b9d9d29037c",
+      "exif": "2026:10:01 18:20:21",
+      "why": "Looked. Country, year, or denomination does not lock to one free id."
+    },
+    {
+      "source_hash": "09fa1482291f21a44b545defcd4627fafe9d92092994437b6f5a29aae62f5221",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "0a1997653f61a524494739faed389da9c30dc7ef8953ef82cb126b94a86c5ceb",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "0e32febc925b018d109844015fabb821b5af3753a3540afbc7be077ac5597cff",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "165e1d2847ae0ee075045bff1c3d13c94e625648be090db89163d60b8211e4f9",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "16c24ac545e87e57db029069ee07e2e98eb7eba5191fcee9b792cde113259b93",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "1e16367b0e79db087c1a10ce04ce9bac29ef3b5aced0d73e2974d53ec8bb699f",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "1e7c27418ae09853b709e5e3ef3267110e7ae4a83883f61f7f27a97b6eec62f2",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "250e0fbf448a52594aae2f0cbbec76105a42d23392f9ce07c7e329a9ef7858ee",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "29f37a25d457cd9025d7e0d5e8da3dc29cea30b10c5b9468f9d3d9ae8d676951",
+      "exif": null,
+      "why": "Three French 1-franc coins, 1960, 1965, and 1971, in one frame. Not one id."
+    },
+    {
+      "source_hash": "2a810df321f970bbf21981cf653832222cdeae5b93d8a583c4166537ea9374cb",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "392051708ce2a1df16e64134eeea1e9a1522fee0694c61502ce55720593f1bb1",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "42e048602038fa54ede77416dd44aedba76e47b7b47d9bf2f16da0933e84ddc2",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "49b427077118d3616b7945697fb6d868228ef0a64d0ec0e897e066ca2330b08e",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "5158d907d4619adcf2a92e5d2c6efe95c7a75dd0c7003281629a6cbc055cfcf3",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "52a1736b981fb8079642af81af9da9f20012c7f0b71b84d23ca88f0286e18acc",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "5987f94d78681c3917fcca8ec07c4e1621012d2e4677dc0b4f04a6d8c744ed10",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "5b57688c7f7cf254299cb724617daedcc7dc0173cf0b0eded0437c52276351d3",
+      "exif": null,
+      "why": "Several coins in one frame. Not one id."
+    },
+    {
+      "source_hash": "5d29aaff633b80d6ee6ac5e6386bfc3c511354eb28434e566c2258b221e95253",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "625e975062576dc61220f86f3da412383a2f350327d627104a33a9ca203d0907",
+      "exif": null,
+      "why": "Several coins in one frame. Not one id."
+    },
+    {
+      "source_hash": "6aad6ccb125810eb71494489e561e41ad342a051ef75fc8d60865ed2572ca6ef",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "6d11a1dd9f06f81083de60b036c419bd58cba7e74568f38721d7bda482eed547",
+      "exif": null,
+      "why": "Two Swiss 2-franc coins, 1968 and 1981, in one frame. Not one id."
+    },
+    {
+      "source_hash": "6f7a30e2bf0a8cf619a42884526aaf0f1fc6e5b27bbade244711e052d0a434f6",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "7b032280a750520711c7131c1e6b0f048fc4e8a14d9ff85f603bc8e971eb53d6",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "7b5a1240a3dc0881fc4aa42661258eb90bedba25ce951df5c78b8b59441c83c8",
+      "exif": null,
+      "why": "Several coins in one frame. Not one id."
+    },
+    {
+      "source_hash": "97c6f4f2ae05f876802aab1c63a281c2d644121f8dbd43babff16728b6727983",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "9cee551c979588ace0d37bbbf82f6134d6412b61f78c990b79d6a971b3292af6",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "9fa53f89f8123677ed6b3c40ec599d17c4555cfb8c2576d93fc09b75b56171f4",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "a6489465e444a0b44984f370b77cfd8a704b81a57da9b975c1f0a949175dc26f",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "ab065383e8293f184549dfb57b0bf011d4af0ca91d00667697bad3ae70e9b336",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "ae4af0d09754c7ea3d48bf92d11b478a516ece6ecd55a6bbb18976da5166d24a",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "b1ee1e600167007e44d62c6aca9dcf52df955975872c3fe056e6932e4f4317bd",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "b304442ab837e7b96895249f445eac83ca8c701dddca43deee110d921afc3cd4",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "b6b5537077430a8d27192055f71afe84e2b12025100cbe2c0022151cd2c7bc90",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "bc8bea7ecf17a5bddd0a5ef595772c0094cf6522461b774865235da48f537ede",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "c1e7cfad9c613ea03efbef5c47db3c6c46ed3ef6a31018b2d4d02a8a136047d8",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "ca6079e87646c249c64627bd071b6040f48761836b39bd583024c72294d284f4",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "cf1a0e553a84ec4b157adca04a4598c25d2c22bfa6c854d1ec864e6fc9487b2d",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "d335683ba2eaead136b7a769d97e63797a5cf58e081d3ae4a8ecd3b4735cc344",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "d3a1bb9944dce6a0b874415662090a6e72bcee18ad5b13724c57eefc7246206a",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "dd61c6042c771c3321f2649bbf8aa8bb20b4cf560c6a3f553f92fbb4eddac9ac",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "dfd52232ffdfb003e18cdbe84d81c55c188cb9ef90277d1520957634c6930fe8",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "e52d5a1ca87fa9aa175c73c7cd1d7a78c8b97a5238cf2974b10566b182a75a8e",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    },
+    {
+      "source_hash": "f28f02284d7ea536691a6ab5ff5ad291bdace2df9a621942e053561d62108b88",
+      "exif": null,
+      "why": "Not a coin. Full-image text reads Titan Reliquary, the gallery, or a master-QC sheet."
+    },
+    {
+      "source_hash": "ff499270eb46d4cc8118a27b50e89b8d4ac19fea286fdeada1ee86f5ed7d1861",
+      "exif": null,
+      "why": "Screenshot, stock render, or app screen. Not a collection specimen."
+    }
+  ]
+}
