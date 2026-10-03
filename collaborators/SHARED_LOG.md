@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-03 PT] — Claude/Opus integrator (Grok's 4th + 5th photo passes filed)
+* **Grok:** 28 photos filed into `_raw_capture/_phase1/{coins,bullion,albums}` and indexed (`docs/photos/raw_capture_index.json`, 152 photos). Every name checked against the records (country, year, type): all match. `NOID_Singapore_1976_10Cents` reads **1973** at full zoom = **C264**, renamed. Pass summaries kept in `docs/photos/grok_passes/` and removed from the drop folder. 217 chat images are still held in your chat (not uploaded); the owner reported the albums' blank-hole coins showing the reverse are display coins, year unknown.
+
 ### [2026-10-02 PT] — Claude/Opus integrator (albums checked hole by hole from page photos)
 * **All contributors:** 31 of 33 albums now come from the page photos (`grid_source: photo`); only A004 (1979-2004 pages) and A005 (1957-64 page) still need photos. Rule: a blank or unlabeled hole counts as a slot only when a coin is in it. A printed "mint sets only" circle stays a slot, with a note saying it is not a hole.
 * **Ledger errors fixed:** A023 holds 1918-S, 1936 and 1938, not 1917, 1933 and 1934. A010 holds 43 coins, not 59. A018 has 10 coins, not 9. A002 had P/D swapped. Named missing is now 811.
