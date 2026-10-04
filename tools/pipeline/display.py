@@ -211,7 +211,10 @@ def specimen_detail(col, s, t):
     if t.get("series"): d["series"] = ", ".join(t["series"]) if isinstance(t["series"], list) else t["series"]
     oq = (s.get("research") or {}).get("open_questions") or []
     if oq: d["open_questions"] = list(oq)
-    d["phase2_done"] = False; d["awaiting_phase2"] = s["lifecycle"]["status"] == "Logged"; d["thumb"] = None
+    d["phase2_done"] = False; d["awaiting_phase2"] = s["lifecycle"]["status"] == "Logged"
+    tp = next((p for p in d["photos"] if p["role"] == "obv"), None) or next((p for p in d["photos"] if p["role"] == "rev"), None)
+    d["thumb"] = tp["url"] if tp else None                # list/tile picture: the obverse photo, else the reverse
+    if tp: d["thumb_side"] = tp["role"]
     if asw:
         d["asw_oz"] = asw
         d.update(((col.get("board") or {}).get("flip_precious") or {}).get(s["id"], {}))
@@ -225,6 +228,7 @@ def specimen_index_row(col, s, t, det):
     r["denom"] = denom_raw(t)
     r["d"] = col["spec_file"][s["id"]]
     if "asw_oz" in det: r["is_silver"] = True; r["asw_oz"] = det["asw_oz"]; r["melt_live"] = det["melt_live"]
+    if det.get("thumb"): r["thumb"] = det["thumb"]; r["thumb_side"] = det["thumb_side"]   # gallery tiles show the photo before the detail loads
     return r
 
 # ---------------------------------------------------------------------------------- lots

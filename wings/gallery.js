@@ -444,9 +444,9 @@
   let mounted = false;
 
   function subtitleFor(mode) {
-    return mode === "slab" ? "Lucite slab presentation · drawings from the ledger, no photographs yet"
-      : mode === "matrix" ? "Struck planchet presentation · drawings from the ledger, no photographs yet"
-      : "2×2 flip presentation · drawings from the ledger, no photographs yet";
+    return mode === "slab" ? "Lucite slab presentation · phone photos where we have them, drawings for the rest"
+      : mode === "matrix" ? "Struck planchet presentation · phone photos where we have them, drawings for the rest"
+      : "2×2 flip presentation · phone photos where we have them, drawings for the rest";
   }
 
   function shellHtml(list) {
@@ -804,7 +804,12 @@
     const f = B.findCard(tile.dataset.scan);
     const coin = $(".gx-coin", tile);
     if (!f || !coin) return;
-    if (!$(".gx-rev", coin)) coin.insertAdjacentHTML("beforeend", `<span class="gx-face gx-rev" style="--r:${planchetR(f).toFixed(1)}">${coinSvg(f, "rev")}</span>`);
+    if (!$(".gx-rev", coin)) {
+      // back-only photo: it sits on the front, so the flip shows the drawn obverse; a reverse photo (detail loaded) beats the drawing
+      const backOnly = f.thumb && f.thumb_side === "rev";
+      const rp = backOnly ? null : (f.photos || []).find((p) => p.role === "rev" && p.url);
+      coin.insertAdjacentHTML("beforeend", `<span class="gx-face gx-rev" style="--r:${planchetR(f).toFixed(1)}">${rp ? `<img class="gx-photo" src="${esc(rp.url)}" alt="" decoding="async" />` : coinSvg(f, backOnly ? "obv" : "rev")}</span>`);
+    }
     const on = !tile.classList.contains("is-turned");
     tile.classList.add("gx-3d");
     void tile.offsetWidth; // let the 3D styles apply before the flip starts

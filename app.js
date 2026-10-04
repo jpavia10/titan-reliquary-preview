@@ -1210,7 +1210,8 @@
 
     const revPhoto = typeof photoOf === "function" ? photoOf(f, "rev") : null;
     const obvPhoto = typeof photoOf === "function" ? photoOf(f, "obv") : null;
-    const imgUrl = isRev ? (revPhoto?.url || null) : (f.thumb || obvPhoto?.url || null);
+    const thumbRev = f.thumb_side === "rev" ? f.thumb : null, thumbObv = f.thumb_side === "rev" ? null : f.thumb;
+    const imgUrl = isRev ? (revPhoto?.url || thumbRev || null) : (thumbObv || obvPhoto?.url || null);
 
     const visual = imgUrl
       ? `<img class="pc-photo" data-src="${esc(imgUrl)}" loading="lazy" decoding="async" alt="${esc((f.denom || 'Coin') + (isRev ? ' Reverse' : ' Obverse'))}" />`
@@ -1401,7 +1402,8 @@
 
     const revPhoto = typeof photoOf === "function" ? photoOf(f, "rev") : null;
     const obvPhoto = typeof photoOf === "function" ? photoOf(f, "obv") : null;
-    const imgUrl = isRev ? (revPhoto?.url || null) : (f.thumb || obvPhoto?.url || null);
+    const thumbRev = f.thumb_side === "rev" ? f.thumb : null, thumbObv = f.thumb_side === "rev" ? null : f.thumb;
+    const imgUrl = isRev ? (revPhoto?.url || thumbRev || null) : (thumbObv || obvPhoto?.url || null);
 
     const visual = imgUrl
       ? `<img class="pc-photo slab-coin-img" data-src="${esc(imgUrl)}" loading="lazy" decoding="async" alt="${esc((f.denom || 'Coin') + (isRev ? ' Reverse' : ' Obverse'))}" />`
@@ -5949,7 +5951,7 @@
       grid.innerHTML = displaySlots.map(s => {
         if (s.isFilled) {
           const coinObj = s.coin;
-          const obvVisual = coinObj.thumb
+          const obvVisual = coinObj.thumb && coinObj.thumb_side !== "rev"
             ? `<img class="slot-coin-disc" src="${esc(coinObj.thumb)}" loading="lazy" decoding="async" alt="${esc(s.year)} Obverse" />`
             : renderSpecimenBlueprint(coinObj, false, "obv");
 
