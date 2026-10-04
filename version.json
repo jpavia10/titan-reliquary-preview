@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-10-04T20:27:10Z",
-  "generated_at_pt": "2026-10-04 13:27 PT",
-  "generated_at_iso": "2026-10-04T13:27:10-07:00",
-  "content_hash": "2d4d13d55482b0e0",
-  "ledger_version": "v3:2d4d13d55482b0e0",
+  "generated_at": "2026-10-04T23:30:13Z",
+  "generated_at_pt": "2026-10-04 16:30 PT",
+  "generated_at_iso": "2026-10-04T16:30:13-07:00",
+  "content_hash": "79560cc192f9d249",
+  "ledger_version": "v3:79560cc192f9d249",
   "flips": 282,
   "newest_flip": "C280",
   "newest_ser": "NA-BZ-001",
   "photos": {
-    "images": 201,
-    "coins_with_photos": 188,
+    "images": 219,
+    "coins_with_photos": 205,
     "phase2_done": 0,
     "photographed": 0
   },
   "drip_active": false,
   "drip_until": null,
-  "build": "tr87"
+  "build": "tr88"
 }

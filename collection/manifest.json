@@ -15,10 +15,10 @@
   "albums": 33,
   "issuers": 52,
   "countries": 49,
-  "photos": 201,
+  "photos": 219,
   "valuations": 310,
   "spot_days": 24,
-  "changes": 1843,
+  "changes": 1861,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -44,7 +44,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "2d4d13d55482b0e0eb3afb288e8ea9359e9f2632259f8ffa891dc6fac3d46cf6",
+ "content_hash": "79560cc192f9d249de35d46b939c1a76cd1d707e9d5805f7c40032f19a3d262c",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -73,13 +73,13 @@
   },
   {
    "path": "boot.json",
-   "sha256": "c2bed8b67908b14f5906395ef72d4a75f127fbe940f6392a06b0de49fc2ecbcf",
+   "sha256": "f91cd4b3a2933dce2394c3b9d1236465b10a9cc778779c5fee29af1d07c01cbe",
    "bytes": 17589
   },
   {
    "path": "changes.jsonl",
-   "sha256": "0c0bc814fe8959e2f04b381b51178b53ddcde880ab9f11511ae5dae9783a49d4",
-   "bytes": 1838516
+   "sha256": "eb26c931e9dbe42d662788be4419ce5dc5a7ab735c2266177fa58910b7cb841f",
+   "bytes": 1850183
   },
   {
    "path": "lots.json",
@@ -88,8 +88,8 @@
   },
   {
    "path": "photos.json",
-   "sha256": "6b1d7adef04fdc6d976dfc6674eb12dda31c83d2d3f382194ebec7f12158c9b9",
-   "bytes": 76423
+   "sha256": "a86356ba2519b2050a4bc13116177a5dd40c04443f364c9fa9f0f81669c27e68",
+   "bytes": 83263
   },
   {
    "path": "prices/latest.json",
@@ -113,8 +113,8 @@
   },
   {
    "path": "specimens/AU.json",
-   "sha256": "a7fceb3399063af68aebbb6da9bb5595d00c90202c35b0fe29621c7b8d76cf71",
-   "bytes": 6433
+   "sha256": "8b65d264d7d7f2759a57be9595ffd59c932426ea543d2366c9e0e3c276b1d671",
+   "bytes": 6446
   },
   {
    "path": "specimens/BM.json",
@@ -133,8 +133,8 @@
   },
   {
    "path": "specimens/BZ.json",
-   "sha256": "7361917d6c68e60fc8eb9eec5818cdfd22261cec30bcbabe0428863e00682203",
-   "bytes": 1493
+   "sha256": "ea0e3c68dfd7e3dcbb4ba35f784cf1fc367895cc37ece55a989a61b587ed9f0c",
+   "bytes": 1506
   },
   {
    "path": "specimens/CA.json",
@@ -168,8 +168,8 @@
   },
   {
    "path": "specimens/DE.json",
-   "sha256": "b29e68624590356ae9152e7e1bd29df2986f7e01f6124b88cbd76415ed2a63f6",
-   "bytes": 120488
+   "sha256": "371b031408f015679dd3a2677cd99a984ef147a057847a72c46b275f520705c9",
+   "bytes": 120579
   },
   {
    "path": "specimens/EC.json",
@@ -233,8 +233,8 @@
   },
   {
    "path": "specimens/JM.json",
-   "sha256": "4380604fc10a972064e91654a5ddd7d7142cdd2235c53e6d110cb86726ab6d61",
-   "bytes": 8042
+   "sha256": "6b53ae84da541eee84e462c7681582c25ecf9e017ec3e2b47eda857da63df8b5",
+   "bytes": 8055
   },
   {
    "path": "specimens/JP.json",
@@ -243,8 +243,8 @@
   },
   {
    "path": "specimens/KR.json",
-   "sha256": "e060a2da84e77461fabd4653a8739ee63a9eecc26b3a742e86ebc27da9181956",
-   "bytes": 8914
+   "sha256": "dc565caa8119a9cd931be38130e327b423e34e7c357c9fc12b7a0589549014fe",
+   "bytes": 8928
   },
   {
    "path": "specimens/KY.json",
@@ -258,8 +258,8 @@
   },
   {
    "path": "specimens/MX.json",
-   "sha256": "b0eb5b44505cd764b6e4f93f6eba0d6604105901cec50cbb7fb88bca8938eed5",
-   "bytes": 25440
+   "sha256": "1b01e5bccee9780d89fb68189bf69b0b2d2b2f8d498da22fb1d66f23cb68428c",
+   "bytes": 25466
   },
   {
    "path": "specimens/NG.json",
@@ -278,8 +278,8 @@
   },
   {
    "path": "specimens/PH.json",
-   "sha256": "e048789b362c023fe738dad68b296ddafdbe35fda364a6461d345ba6d46b4b14",
-   "bytes": 5705
+   "sha256": "0c59ab08c767c7bc449fb78acf9bfbe7c0a7f59c067fe13958c3b6eabd971399",
+   "bytes": 5731
   },
   {
    "path": "specimens/PT.json",
@@ -308,8 +308,8 @@
   },
   {
    "path": "specimens/SU.json",
-   "sha256": "5668217c9df4bf360a57e827a0788bff08645d602825b818facbec5ef57edbdf",
-   "bytes": 8092
+   "sha256": "c1ce3b244644906894779fd123e1af70e8a528585ec95cedd291f49fa1965461",
+   "bytes": 8105
   },
   {
    "path": "specimens/TH.json",
@@ -348,8 +348,8 @@
   },
   {
    "path": "specimens/YU.json",
-   "sha256": "1d8a926ddfe621617ff50fe1790ba82b154c120a71ea950998aaeb7cc71fa79d",
-   "bytes": 4262
+   "sha256": "e83f9da3fa2e7dc54d90fd57b64dfc7d7402ef5bae44c6ff8120d5d88fd3d46d",
+   "bytes": 4288
   },
   {
    "path": "templates/FIELDS.md",
