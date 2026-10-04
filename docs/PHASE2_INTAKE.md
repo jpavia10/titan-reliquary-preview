@@ -22,7 +22,7 @@
 |---|---|---|
 | Round cut-out, 1200 px WebP | `photos/p2/C042_obv.webp` | `C042-obv-p2` |
 | 2x2 flip square, 1600 px WebP | `photos/p2/C042_obv_2x2.webp` | `C042-obv-p2-2x2` |
-| Full scan (optional master) | `photos/p2/C042_obv_master.jpg` | `C042-obv-p2-master` |
+| Full scan (master) | stays on Drive only (`Titan Reliquary/photos/`), not in the site repo: full scans are too big for GitHub Pages | none |
 | A re-scan (second take) | `..._t2` in the names | `C042-obv-p2t2`, ... |
 
 Phase 1 phone cut-outs stay in `photos/p1/`. When a Phase 2 photo of the same coin, side and kind arrives, the Phase 1 one is marked

@@ -39,7 +39,7 @@ Paths (P = a scratch working folder, e.g. your session scratchpad + /p2; the int
      It prints JSON: `method` (detected | diameter | explicit), `warn`, `off_photo_px`. If `warn` is set or the green square is wrong, fix it:
      `--box BX BY SIDE` (centre and side in photo pixels, read from the check image) or `--diameter-mm D`. If the flip is cut off by the photo edge, the
      2x2 is `unusable` (still cut the circle if the coin is whole, and say so).
-   - Keep the full scan as-is for the integrator: say in the result line if it is a clean scan worth keeping as a master (`out_master` = the file name you copied to `P/out/`; leave it out otherwise).
+   - Do NOT copy the full scan into the site: masters stay on Drive only (integrator decision 2026-10-04; ask the owner before changing it). Leave `out_master` null.
 7. **Two takes of one coin+side**: name the second `ID_SIDE_t2.webp` / `ID_SIDE_t2_2x2.webp`, set `"take": 2` and say which is better (`best`: false on the weaker). Do not overwrite.
 8. **Unusable** (blurry, glare over the design, coin mostly hidden): `status: "unusable"` + reason; do not cut.
 

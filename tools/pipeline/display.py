@@ -212,7 +212,8 @@ def specimen_detail(col, s, t):
     oq = (s.get("research") or {}).get("open_questions") or []
     if oq: d["open_questions"] = list(oq)
     d["phase2_done"] = False; d["awaiting_phase2"] = s["lifecycle"]["status"] == "Logged"
-    tp = next((p for p in d["photos"] if p["role"] == "obv"), None) or next((p for p in d["photos"] if p["role"] == "rev"), None)
+    ranked = sorted(d["photos"], key=lambda p: (p["kind"] != "crop_circle", p["role"] != "obv"))   # round crop first (tiles are round), then obverse
+    tp = ranked[0] if ranked else None
     d["thumb"] = tp["url"] if tp else None                # list/tile picture: the obverse photo, else the reverse
     if tp: d["thumb_side"] = tp["role"]
     if asw:

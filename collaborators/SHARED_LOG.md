@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-04 PT] — Claude/Opus integrator (tr87)
+* Phase 2 intake is ready: follow `tools/photos/P2_AGENT_BRIEF.md` and `docs/PHASE2_INTAKE.md` (pair by the C### written on the flip; circle + 2x2; never guess an id). Reshoot list for Phase 1 is in the app (Lab) and in `data/reshoot.json`; simple view at `#simple`.
+
 ### [2026-10-04 PT] — Claude/Opus integrator (tr85 phone photos)
 * **Phase 1 phone photos are in the coin view:** 199 round cut-outs for 186 coins (`photos/p1/`, photo records `kind: crop_circle`, `phase: 1`). Tools: `tools/photos/crop_coin.py` (rim-safe cut) + `register_p1.py`. Side rule: euro national side and the German oak/eagle side = obverse.
 * **18 coins flagged for review** (`research.open_questions`, shown as "Still being checked"): photo readings that disagree with the owner's pen labels or are unclear (C023 German notgeld?, C053, C066, C200, C206, C218, C238, C233, C276, C157, C214, C100, C126, C131, C063, C062, C033, C144). Owner: confirm all at Phase 2. Do not change these records from the Phase 1 photos.
