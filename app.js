@@ -6509,6 +6509,7 @@
         ${valueChips}
         ${completeness}
       </header>
+      ${c.story ? `<section class="ds-sec"><h4>About this coin</h4><div class="notes-box">${esc(c.story)}</div></section>` : ""}
       ${section("Identity", identity)}
       ${section("Value", value)}
       ${section("Physical", physical)}

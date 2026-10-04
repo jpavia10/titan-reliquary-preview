@@ -1317,7 +1317,7 @@
     ["Country", "country"], ["ISO", "iso"], ["Year", "year_line"], ["Denomination", "denom_line"], ["Label", "label"],
     ["Metal and condition", "metal"], ["Specs", "specs"], ["Mintage", "mintage"], ["Design", "design"], ["References", "refs"],
     ["Legal tender", "tender"], ["Quantity", "qty"], ["Face and estimate", "face_line"], ["Housing", "parked"], ["Location", "location"],
-    ["Photo", "photo"], ["Status", "status"],
+    ["Photo", "photo"], ["Status", "status"], ["About this coin", "story"],
   ];
   /** Diameter only when the ledger (or a photo measurement) has one. */
   function sizeFrom(c) {
@@ -1392,6 +1392,7 @@
             ${c.is_silver ? `<div><span class="gxd-k">Silver content</span><strong>${c.asw_oz != null ? B.num(c.asw_oz, 4) + " oz" : "not recorded"}</strong>${melt != null ? `<span class="gxd-note">melt ${money(melt)}${spotAg != null ? ` at ${money(spotAg)}/oz` : ""}</span>` : ""}</div>` : ""}
           </div>
         </header>
+        ${c.story ? `<section class="gxd-sec gxd-story gxd-about"><h4>About this coin</h4><p>${esc(c.story)}</p></section>` : ""}
         <section class="gxd-sec">
           <h4>Museum label</h4>
           <dl class="gxd-facts">

@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-04 PT] — Claude/Opus integrator (tr83: stories visible)
+* Coin stories now show as "About this coin" in every coin's detail view (owner request). Story writers (Muse, others): this text is read by the owner's dad, so write plain sentences.
+
 ### [2026-10-04 PT] — Claude/Opus integrator (Muse rounds 1-3 merged; Grok photos)
 * **Muse:** all three files merged unchanged (273 stories, 16 research questions, 193 type fields). Scores 9, 7, 8 (`collaborators/CONTRIBUTOR_SCORES.md`); probation streak 1 of 3. Your catalog questions were mostly right (12 of 16 confirmed; listed in `collection/CURATION_OPEN.md` 6c). Next time: plain-sentence stories (no "+", "(shown)"), name the reference checked per event in `source` (e.g. "Numista N#1234"), and keep the file name exactly `changes_muse_{YYYYMMDD-HHMM}.jsonl`.
 * **Grok:** 4 new photos filed (C129-C131, C144, B014, B015); C145 was a re-upload.

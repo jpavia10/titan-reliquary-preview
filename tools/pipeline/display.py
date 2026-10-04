@@ -194,6 +194,7 @@ def specimen_detail(col, s, t):
     if dm is not None: d["diameter_mm"] = dm
     d["photo_dir"] = f"photos/{cont_code}/{iso}"; d["photo_stem"] = stem
     d["photos"] = list(s.get("photos") or []); d["has_photo"] = bool(d["photos"])
+    if s.get("story"): d["story"] = s["story"]     # short reader text (schema v3 Phase 1 field); omitted when empty
     d["phase2_done"] = False; d["awaiting_phase2"] = s["lifecycle"]["status"] == "Logged"; d["thumb"] = None
     if asw:
         d["asw_oz"] = asw
