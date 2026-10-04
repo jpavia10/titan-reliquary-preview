@@ -16,9 +16,9 @@ For a batch (many coins or slots in one run), the accuracy points are 3 times th
 
 **Initiative (owner, 2026-10-03):** each score also gets an initiative note: did the contributor try to remove a blocker (missing photo, unclear id, unverifiable field) instead of stopping? Initiative is recorded and praised, but it earns no points, so effort can never outscore accuracy. The right way to show it: try to unblock yourself (ask for or upload the photo, check the shared log and the records, research the question), then put what you found and your proposed fix in the `notes` of the change file or the photo summary. Fill a field only when you have checked it against the photo or a source you name. An empty field means "not verified yet" and is never a fault; a guessed field is.
 
-**Probation ends** after 3 submissions in a row that each score 8 or more, with no accuracy fault. Claude records that here and tells the owner.
+**Probation ends** after 3 submissions in a row that each score 8 or more, with no accuracy fault. Work the owner had to guide closely (for example, the owner correcting or confirming the identification) does not count toward the streak (owner, 2026-10-04). Claude records that here and tells the owner.
 
-## Muse (probation ended 2026-10-04)
+## Muse (on probation)
 
 | # | Date | Submission | Score | Notes |
 |---|---|---|---|---|
@@ -32,7 +32,7 @@ For a batch (many coins or slots in one run), the accuracy points are 3 times th
 | 8 | 2026-10-03 | `changes_muse_20261003-2208/-2215/-2232.jsonl` (new coins C276 Bahamas 2015 1 cent, C277 Bermuda 2004 10 cents, C278 Switzerland 1980 20 rappen) + photos + summaries | **7 / 10** | Place 1, accepted 0, accurate 3, complete 2, tier 1. Good: all three readings hold at full zoom (Bahamas year only partly legible; owner confirmed 2015), photos named with ids, honest correction notes (C278 first filed as a 1930 2 francs). Fault: the files used a made-up flat format (`"event": "specimen-create"`) instead of ChangeEvents, so the pipeline could not read them; Claude re-filed them as `changes_claude_20261004-0610.jsonl`. |
 | 9 | 2026-10-04 | `changes_muse_20261004-0540.jsonl` (C249 mintage) | **10 / 10** | Place 2, accepted 2, accurate 3, complete 2, tier 1. Good: Australia 1966 50 cents 36,454,000 with both references named, and it noted the record's KM#66 should be KM#67. |
 
-**Probation ended 2026-10-04:** submissions 5, 6 and 7 scored 8, 10 and 9 in a row with no accuracy fault. Muse is no longer on probation (submission 8 then scored 7 for the file format).
+**Still on probation (owner, 2026-10-04):** the owner had to guide Muse closely to get the new-coin photos (submissions 7 and 8) right, so those do not count toward the streak. Submission 8 also scored 7, which resets it. Streak toward leaving probation: **1 of 3** (submission 9).
 
 ## Grok (not on probation)
 
