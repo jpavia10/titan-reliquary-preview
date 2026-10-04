@@ -5074,6 +5074,30 @@
   }
 
   /** The Conservation Lab: Phase-2 photo QC command center. */
+  /* Phase 1 reshoot list (data/reshoot.json from tools/pipeline/build_reshoot.py): coins with no usable phone photo, and why. */
+  let reshootData = null;
+  async function renderReshoot() {
+    const el = $("#reshoot"); if (!el) return;
+    try { reshootData = reshootData || await fetchJson("data/reshoot.json"); } catch (e) { el.hidden = true; return; }
+    const d = reshootData, order = ["none", "together", "unusable", "too_big", "not_round"];
+    const head = { none: "Not photographed yet", together: "Photograph on its own (group photo of look-alikes)", unusable: "Retake (blurry, glare or cut off)", too_big: "Re-upload a smaller copy (file too big)", not_round: "Nothing to do (Claude will crop these)" };
+    const groups = order.filter((k) => d.counts[k]).map((k) => {
+      const rows = d.items.filter((i) => i.reason === k).map((i) => `<li><button type="button" class="rs-coin" data-scan="${esc(i.id)}"><strong>${esc(i.id)}</strong> ${esc(i.country || "")} ${esc(i.year || "")} · ${esc(String(i.denom || "").split(" · ")[0])}</button></li>`).join("");
+      return `<details class="rs-group"${k === "together" || k === "too_big" ? " open" : ""}><summary><span class="rs-n">${intFmt(d.counts[k])}</span> ${esc(head[k])}</summary><p class="rs-why">${esc(d.reasons[k])}</p><ul class="rs-list">${rows}</ul></details>`;
+    }).join("");
+    const todo = d.total - (d.counts.not_round || 0);
+    el.innerHTML = `<div class="sec-head"><span class="eyebrow">Phase 1</span><h2 id="reshoot-h">Phone photos still needed</h2>
+      <p class="sub">${todo ? `${intFmt(todo)} flips still need a phone photo (one side, with your pen label showing). Drop them in Drive STAGING.` : "Every flip has a phone photo."}</p>
+      <button type="button" class="btn small" id="rs-print">Print this list</button></div>${groups}`;
+    $$("#reshoot .rs-coin").forEach((b) => b.addEventListener("click", () => openDrawer(b.dataset.scan)));
+    $("#rs-print")?.addEventListener("click", () => {
+      $$("#reshoot details").forEach((x) => (x.open = true));
+      document.body.classList.add("print-reshoot");
+      window.addEventListener("afterprint", () => document.body.classList.remove("print-reshoot"), { once: true });
+      window.print();
+    });
+  }
+
   function renderLab() {
     const { live, queue, done } = shootingData();
     const pct = live.length ? Math.round((done / live.length) * 100) : 0;
@@ -5091,6 +5115,7 @@
       .join("");
 
     $("#lab-body").innerHTML = `
+      <section id="reshoot" class="reshoot" aria-labelledby="reshoot-h"></section>
       ${window.TitanLab ? '<div id="lab-ws"></div>' : shootingSec()}
       <div class="sec-head reveal"><span class="eyebrow">Work orders</span><h2>Requests from Titan</h2><p class="sub">Small things you could do to firm up the data.</p></div>
       ${requestsModule()}
@@ -5107,6 +5132,7 @@
       </div>
       ${window.TitanLab ? '<div id="lab-bench"></div>' : renderLabProSuite()}
     `;
+    renderReshoot();
     // Session buttons open the Gallery pre-filtered to that country's shooting list.
     $$("#lab-body [data-session]").forEach((btn) => {
       btn.addEventListener("click", () => {
