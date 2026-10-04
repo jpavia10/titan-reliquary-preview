@@ -158,8 +158,9 @@ def label(col, s, t):
     return f"{ctry} · {yr} · {den}"
 
 def mintage_txt(i):
-    if i.get("mintage_text"): return i["mintage_text"]
-    return f"{i['mintage']:,}" if i.get("mintage") else "unknown"
+    txt = i.get("mintage_text")
+    if txt and not (i.get("mintage") and txt.strip().lower().startswith("unknown")): return txt
+    return f"{i['mintage']:,}" if i.get("mintage") else "unknown"     # a researched number beats an older "unknown" text
 
 def specimen_detail(col, s, t):
     iss = issuer_name(col, t); cont = continent_of(col, t); iso = t["country"]
@@ -195,6 +196,11 @@ def specimen_detail(col, s, t):
     d["photo_dir"] = f"photos/{cont_code}/{iso}"; d["photo_stem"] = stem
     d["photos"] = list(s.get("photos") or []); d["has_photo"] = bool(d["photos"])
     if s.get("story"): d["story"] = s["story"]     # short reader text (schema v3 Phase 1 field); omitted when empty
+    for k in ("ruler", "period", "commemorates"):      # Phase 2 context on the type; omitted when empty
+        if t.get(k): d[k] = t[k]
+    if t.get("series"): d["series"] = ", ".join(t["series"]) if isinstance(t["series"], list) else t["series"]
+    oq = (s.get("research") or {}).get("open_questions") or []
+    if oq: d["open_questions"] = list(oq)
     d["phase2_done"] = False; d["awaiting_phase2"] = s["lifecycle"]["status"] == "Logged"; d["thumb"] = None
     if asw:
         d["asw_oz"] = asw

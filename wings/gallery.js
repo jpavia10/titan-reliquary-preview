@@ -1397,6 +1397,7 @@
           <h4>Museum label</h4>
           <dl class="gxd-facts">
             ${fact("Country", c.country)}${fact("Continent", c.continent)}${fact("Year", c.year_line || c.year)}
+            ${fact("Ruler", c.ruler)}${fact("Era", c.period)}${fact("Series", c.series)}${fact("Commemorates", c.commemorates)}
             ${fact("Denomination", c.denom_line || c.denom)}${fact("Metal and condition", c.metal)}${fact("Mintage", c.mintage)}
             ${fact("References", c.refs)}${fact("Legal tender", c.tender)}${fact("Die alignment", align)}${fact("Housing", c.parked)}
             ${fact("Identification", c.conf ? `${c.conf} confidence` : "")}${fact("Added to the ledger", c.added)}
@@ -1404,6 +1405,7 @@
         </section>
         ${c.design ? `<section class="gxd-sec gxd-story"><h4>Design</h4><p>${esc(c.design)}</p></section>` : ""}
         ${c.notes ? `<section class="gxd-sec gxd-story"><h4>Curator's notes</h4><p>${esc(c.notes)}</p></section>` : ""}
+        ${(c.open_questions || []).length ? `<section class="gxd-sec gxd-story gxd-open"><h4>Still being checked</h4><ul>${c.open_questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul></section>` : ""}
         ${gauge}
         <section class="gxd-sec gxd-acts" aria-label="Related">
           ${c.country ? `<button type="button" class="gxd-act" data-gxd="country" data-v="${esc(c.country)}">More from ${esc(c.country)}</button>` : ""}
