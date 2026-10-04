@@ -2,14 +2,18 @@
  * Titan Reliquary · GitHub → Google Drive sync (Google Apps Script). Install once; runs daily.
  *
  * What it does (into the Drive folder "Titan Reliquary", id ROOT_FOLDER_ID):
- *  1. site-backups/  : saves a zip of the whole site (the repo's main branch) as
- *                      titan-reliquary-site_{YYYY-MM-DD}_{build}.zip, once per day; keeps the newest KEEP_ZIPS.
+ *  1. site-backups/  : saves a zip of the site as titan-reliquary-site_{YYYY-MM-DD}_{build}.zip, once per day;
+ *                      keeps the newest KEEP_ZIPS. The zip is the "site-backup" release asset built by
+ *                      .github/workflows/backup-zip.yml (whole repo minus the splash films and ambience recordings:
+ *                      the full repo is ~250 MB, over Apps Script's 50 MB fetch limit).
  *  2. collection/    : mirrors every file listed in the repo's collection/manifest.json (the v2 master:
  *                      coins, types, albums, lots, valuations, change log). Unchanged files (same sha256,
  *                      stored in the Drive file's description) are skipped; changed files are updated IN PLACE,
  *                      so Drive ids and links stay stable.
  *  3. collection/_incoming/ : created if missing. Agents without GitHub access drop ChangeEvent files here
  *                      (changes_{agent}_{YYYYMMDD-HHMM}.jsonl); the integrator validates and merges them.
+ *  3b. photos/_cutouts/ : mirrors every coin photo the site serves (paths from collection/photos.json, e.g.
+ *                      photos/p1/C042_obv.webp -> photos/_cutouts/p1/C042_obv.webp); unchanged files (same sha256) skipped.
  *  4. collection/_SYNC_STATUS.json : when it last ran, which build, what changed, any errors.
  * It never deletes files. Old zips beyond KEEP_ZIPS go to the Drive trash (recoverable for 30 days).
  *
@@ -40,13 +44,15 @@ function uninstall() {
 
 function syncAll() {
   var status = { started_at: new Date().toISOString(), repo: REPO, branch: BRANCH, build: null,
-                 zip: null, collection: { updated: [], created: [], unchanged: 0 }, errors: [] };
+                 zip: null, collection: { updated: [], created: [], unchanged: 0 },
+                 photos: { updated: [], created: [], unchanged: 0 }, errors: [] };
   var root = DriveApp.getFolderById(ROOT_FOLDER_ID);
   try { status.build = fetchJson_(raw_("version.json")).build || null; } catch (e) { status.errors.push("version.json: " + e); }
   try { status.zip = backupSite_(root, status.build); } catch (e) { status.errors.push("zip: " + e); }
   var coll = folder_(root, "collection");
   folder_(coll, "_incoming");
   try { mirrorCollection_(coll, status.collection); } catch (e) { status.errors.push("collection: " + e); }
+  try { mirrorPhotos_(folder_(folder_(root, "photos"), "_cutouts"), status.photos); } catch (e) { status.errors.push("photos: " + e); }
   status.finished_at = new Date().toISOString();
   upsertText_(coll, "_SYNC_STATUS.json", JSON.stringify(status, null, 2), "application/json", null);
   Logger.log(JSON.stringify(status));
@@ -59,7 +65,7 @@ function backupSite_(root, build) {
   var day = Utilities.formatDate(new Date(), TZ, "yyyy-MM-dd");
   var name = "titan-reliquary-site_" + day + "_" + (build || "build") + ".zip";
   if (dir.getFilesByName(name).hasNext()) return name + " (already saved today)";
-  var res = UrlFetchApp.fetch("https://github.com/" + REPO + "/archive/refs/heads/" + BRANCH + ".zip",
+  var res = UrlFetchApp.fetch("https://github.com/" + REPO + "/releases/download/site-backup/titan-reliquary-site.zip",
                               { muteHttpExceptions: true, followRedirects: true });
   if (res.getResponseCode() !== 200) throw new Error("HTTP " + res.getResponseCode());
   dir.createFile(res.getBlob().setName(name)).setDescription("Daily site backup from " + REPO + "@" + BRANCH);
@@ -89,6 +95,24 @@ function mirrorCollection_(coll, out) {
     (file ? out.updated : out.created).push(entry.path);
   });
   upsertText_(coll, "manifest.json", manifestText, "application/json", null); // last, so it never points at missing files
+}
+
+/* ---------- 3b. photo mirror ---------- */
+function mirrorPhotos_(dir, out) {
+  var photos = fetchJson_(raw_("collection/photos.json"));
+  photos.forEach(function (p) {
+    if (!p.path || p.superseded_by) return;
+    var parts = String(p.path).replace(/^photos\//, "").split("/");
+    var name = parts.pop(), d = dir;
+    parts.forEach(function (x) { d = folder_(d, x); });
+    var it = d.getFilesByName(name), file = it.hasNext() ? it.next() : null;
+    if (file && p.sha256 && file.getDescription() === p.sha256) { out.unchanged++; return; }
+    var res = UrlFetchApp.fetch(raw_(p.path), { muteHttpExceptions: true, followRedirects: true });
+    if (res.getResponseCode() !== 200) throw new Error("HTTP " + res.getResponseCode() + " for " + p.path);
+    if (file) file.setTrashed(true);   // binary files cannot be overwritten in place; the old copy stays in the trash for 30 days
+    d.createFile(res.getBlob().setName(name)).setDescription(p.sha256 || "");
+    (file ? out.updated : out.created).push(p.path);
+  });
 }
 
 /* ---------- helpers ---------- */

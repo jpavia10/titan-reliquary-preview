@@ -1,0 +1,46 @@
+name: backup-zip
+
+# A compact daily site backup for Google Drive: the whole repo (code, data, collection, photos) WITHOUT the large
+# splash films (art/splash) and ambience recordings (audio), which stay in git. The full repo is ~250 MB, more than
+# Apps Script can fetch (50 MB), so tools/drive/sync_to_drive.gs downloads this asset instead:
+#   https://github.com/jpavia10/titan-reliquary-preview/releases/download/site-backup/titan-reliquary-site.zip
+on:
+  schedule:
+    - cron: "20 9 * * *"         # 09:20 UTC, before the Drive sync (~03:00 PT)
+  push:
+    branches: [main]
+    paths: ["collection/**", "data/**", "photos/**", "version.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backup-zip
+  cancel-in-progress: true
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build the zip
+        run: |
+          set -euo pipefail
+          git archive --format=zip --prefix=titan-reliquary-preview/ -o titan-reliquary-site.zip HEAD -- . ':(exclude)art/splash' ':(exclude)audio'
+          ls -l titan-reliquary-site.zip
+          size=$(stat -c %s titan-reliquary-site.zip)
+          if [ "$size" -gt 48000000 ]; then echo "::error::backup zip is $size bytes (> 48 MB, too big for the Drive sync)"; exit 1; fi
+      - name: Publish as the site-backup release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          build=$(jq -r .build version.json)
+          gh release view site-backup >/dev/null 2>&1 || gh release create site-backup --title "Site backup (latest)" \
+            --notes "Rolling backup used by tools/drive/sync_to_drive.gs. Not a release." --prerelease
+          gh release upload site-backup titan-reliquary-site.zip --clobber
+          gh release edit site-backup --notes "Rolling backup used by tools/drive/sync_to_drive.gs. Not a release. Last: $(date -u +%FT%TZ), build $build, commit ${GITHUB_SHA::7}."
