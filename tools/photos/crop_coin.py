@@ -3,14 +3,23 @@
 
   detect:  crop_coin.py detect RAW.jpg OUT_DIR            -> OUT_DIR/{stem}.detect.jpg (numbered candidate circles) + JSON on stdout
   check:   crop_coin.py check RAW.jpg OUT_DIR cx cy r [rot] -> OUT_DIR/{stem}.check.jpg (circle on the photo + edge zoom strips)
-  cut:     crop_coin.py cut RAW.jpg OUT.webp cx cy r [rot]  -> 512 px WebP, transparent outside the circle
+  cut:     crop_coin.py cut RAW.jpg OUT.webp cx cy r [rot] [--size N]  -> N px WebP (default 512), transparent outside the circle
+                                                              (Phase 2 circles: --size 1200)
+  cut2x2:  crop_coin.py cut2x2 RAW.jpg OUT.webp cx cy r [rot] [--size 1600] [--id C001 | --diameter-mm D] [--box CX CY SIDE]
+                                                           -> square crop of the whole 2x2 flip (WebP or JPEG by the extension),
+                                                              levelled by the same rot; also OUT.2x2check.jpg + JSON on stdout
 
 cx, cy, r are in ORIGINAL photo pixels (EXIF orientation applied). r is the radius of the coin's OUTER EDGE (the
 rim's outside). `cut` adds RIM_PAD (3 %) of extra radius so the rim is never clipped; a thin ring of the flip
 background is fine, a clipped rim is not. rot (degrees, counter-clockwise) turns the coin upright.
+cut2x2 looks for the flip's cardboard square (a near-square outline around the coin; if the flip leans a few degrees off
+the coin's upright, the square is levelled and rot is nudged to match). If none is found it uses a square centred on the
+coin with side = 2r * 50.8 / diameter_mm (a 2x2 flip is 50.8 mm; diameter from --diameter-mm or the record via --id).
+With neither a square nor a diameter it stops and asks for --box CX CY SIDE (centre and side in photo pixels).
+"method" in the JSON says which was used (detected | diameter | explicit); always look at OUT.2x2check.jpg.
 Needs: pillow, numpy, opencv-python-headless.
 """
-import json, os, sys
+import json, math, os, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageEnhance, ImageOps, ImageFont
 
@@ -89,16 +98,102 @@ def draw_check(im, cx, cy, r, rot, out):
     ImageDraw.Draw(sheet).text((1210, 460), "final cut (rot %g)" % rot, fill=(255, 255, 255), font=font(20))
     sheet.save(out, quality=90)
 
-def cut_img(im, cx, cy, r, rot=0):
+def cut_img(im, cx, cy, r, rot=0, size=SIZE):
     R = r * RIM_PAD
-    c = im.crop((round(cx - R), round(cy - R), round(cx + R), round(cy + R))).resize((SIZE, SIZE), Image.LANCZOS)
+    c = im.crop((round(cx - R), round(cy - R), round(cx + R), round(cy + R))).resize((size, size), Image.LANCZOS)
     if rot: c = c.rotate(rot, resample=Image.BICUBIC)
     c = ImageEnhance.Contrast(c).enhance(1.06)
-    big = Image.new("L", (SIZE * 4, SIZE * 4), 0); ImageDraw.Draw(big).ellipse((0, 0, SIZE * 4 - 1, SIZE * 4 - 1), fill=255)
-    o = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0)); o.paste(c, (0, 0), big.resize((SIZE, SIZE), Image.LANCZOS))
+    big = Image.new("L", (size * 4, size * 4), 0); ImageDraw.Draw(big).ellipse((0, 0, size * 4 - 1, size * 4 - 1), fill=255)
+    o = Image.new("RGBA", (size, size), (0, 0, 0, 0)); o.paste(c, (0, 0), big.resize((size, size), Image.LANCZOS))
     return o
 
+# ---------------------------------------------------------------------------------------------- 2x2 flip square
+FLIP_MM = 50.8
+
+def diameter_of(cid):
+    """Coin diameter (mm) from the collection record of specimen `cid`, or None."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    sys.path.insert(0, os.path.join(here, "..", "pipeline"))
+    import collection_io
+    col = collection_io.Collection(os.path.join(here, "..", "..", "collection"))
+    sp = col.specs.get(cid)
+    if not sp: return None
+    n = (col.types.get(sp["type"]) or {}).get("nominal") or {}
+    return n.get("diameter_mm") if n.get("diameter_mm") is not None else n.get("diameter_max_mm")
+
+def find_flip(im, cx, cy, r, expect_side=None):
+    """The cardboard square around the coin: {cx, cy, side, tilt, quad} in photo pixels, or None.
+    tilt = counter-clockwise degrees (in [-45, 45]) that level the square. Candidates are near-square, well-filled outlines that
+    contain the whole coin; with expect_side (from the diameter) the one closest to that size wins, else the biggest plausible one."""
+    import cv2
+    W, H = im.size; sc = 1400 / max(W, H) if max(W, H) > 1400 else 1.0
+    small = np.array(im.resize((round(W * sc), round(H * sc)), Image.LANCZOS)) if sc != 1.0 else np.array(im)
+    g = cv2.GaussianBlur(cv2.cvtColor(small, cv2.COLOR_RGB2GRAY), (5, 5), 0)
+    ccx, ccy, cr = cx * sc, cy * sc, r * sc
+    cands = []
+    for lo in (25, 50, 90):
+        m = cv2.dilate(cv2.Canny(g, lo, lo * 3), np.ones((3, 3), np.uint8), iterations=1)
+        cs, _ = cv2.findContours(m, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        for c in cs:
+            if len(c) < 40: continue
+            rect = cv2.minAreaRect(c); (rx, ry), (w, h), _ = rect
+            if min(w, h) < 1: continue
+            side = (w + h) / 2; asp = min(w, h) / max(w, h)
+            if asp < 0.9 or side < 2 * cr * 1.25 or side > 2 * cr * 5.2: continue
+            fill = cv2.contourArea(cv2.convexHull(c)) / (w * h)
+            if fill < 0.88: continue
+            off = math.hypot(rx - ccx, ry - ccy)
+            if off > 0.22 * side or side < 2 * cr * 1.1 + 2 * off: continue          # roughly centred, and the coin fits inside
+            pts = cv2.boxPoints(rect); dx, dy = pts[1] - pts[0]
+            phi = math.degrees(math.atan2(-dy, dx)); tilt = -((phi + 45) % 90 - 45)
+            cands.append(dict(cx=rx / sc, cy=ry / sc, side=side / sc, tilt=round(tilt, 2), fill=round(fill, 3), quad=(pts / sc).round(1).tolist()))
+    if not cands: return None
+    if expect_side:
+        good = [c for c in cands if abs(c["side"] - expect_side) <= 0.2 * expect_side]
+        return min(good, key=lambda c: abs(c["side"] - expect_side) + 200 * (1 - c["fill"])) if good else None
+    return max(cands, key=lambda c: c["side"] * c["fill"] ** 4)
+
+def cut2x2_img(im, bx, by, side, rot, size=1600):
+    """Square of `side` px centred on (bx, by), rotated ccw by rot, resized to size x size. Area off the photo is white."""
+    half = side * 0.75
+    c = im.crop((round(bx - half), round(by - half), round(bx + half), round(by + half)))
+    if rot: c = c.rotate(rot, resample=Image.BICUBIC, fillcolor=(255, 255, 255))
+    lo = (c.size[0] - side) / 2
+    return c.crop((round(lo), round(lo), round(lo + side), round(lo + side))).resize((size, size), Image.LANCZOS)
+
+def plan_2x2(im, cx, cy, r, rot, diameter_mm=None, box=None):
+    """-> (bx, by, side, rot_used, method); exits with a clear message when it cannot decide."""
+    if box: return box[0], box[1], box[2], rot, "explicit"
+    expect = 2 * r * FLIP_MM / diameter_mm if diameter_mm else None
+    f = find_flip(im, cx, cy, r, expect)
+    if f:
+        cand = f["tilt"] + 90 * round((rot - f["tilt"]) / 90)
+        return f["cx"], f["cy"], f["side"], round(cand if abs(cand - rot) <= 10 else rot, 2), "detected"   # level the square only when that barely moves the coin's upright
+    if expect: return cx, cy, expect, rot, "diameter"
+    sys.exit("cut2x2: no cardboard square found and the record has no diameter. Pass --diameter-mm D, --id C### (diameter from the collection) or --box CX CY SIDE.")
+
+def draw_2x2_check(im, cx, cy, r, bx, by, side, rot, method, crop, out):
+    """Left: the photo with the kept square (green) and the coin (red). Right: the result."""
+    W, H = im.size; s = 900 / max(W, H)
+    v = im.resize((round(W * s), round(H * s))); d = ImageDraw.Draw(v)
+    a = math.radians(rot); h = side / 2          # a rot-ccw turn of the photo puts the square upright, so the square sits rot-cw in the photo
+    pts = [(bx + x * math.cos(a) - y * math.sin(a), by + x * math.sin(a) + y * math.cos(a)) for x, y in ((-h, -h), (h, -h), (h, h), (-h, h))]
+    d.line([(x * s, y * s) for x, y in pts + [pts[0]]], fill=(0, 220, 0), width=3)
+    d.ellipse(((cx - r) * s, (cy - r) * s, (cx + r) * s, (cy + r) * s), outline=(255, 0, 0), width=2)
+    d.text((8, 6), method, fill=(255, 255, 0), font=font(26), stroke_width=2, stroke_fill=(0, 0, 0))
+    sheet = Image.new("RGB", (v.size[0] + 700, max(v.size[1], 700)), (60, 60, 60)); sheet.paste(v, (0, 0)); sheet.paste(crop.resize((700, 700), Image.LANCZOS), (v.size[0], 0))
+    sheet.save(out, quality=88)
+
+def opt(a, name, n=1, cast=float):
+    """Pop `--name v1 [v2 ...]` from the argument list; returns the value (n=1) or list, or None."""
+    if name not in a: return None
+    i = a.index(name); vals = [cast(x) for x in a[i + 1:i + 1 + n]]; del a[i:i + 1 + n]
+    return vals[0] if n == 1 else vals
+
 def main(a):
+    a = list(a)
+    size = opt(a, "--size"); size = int(size) if size else None
+    dmm = opt(a, "--diameter-mm"); cid = opt(a, "--id", cast=str); box = opt(a, "--box", n=3)
     cmd, raw = a[0], a[1]; stem = os.path.splitext(os.path.basename(raw))[0]
     if cmd == "detect":
         im, cands = detect(raw); os.makedirs(a[2], exist_ok=True)
@@ -108,9 +203,21 @@ def main(a):
         cx, cy, r = map(float, a[3:6]); rot = float(a[6]) if len(a) > 6 else 0
         os.makedirs(a[2], exist_ok=True); draw_check(load(raw), cx, cy, r, rot, os.path.join(a[2], stem + ".check.jpg"))
     elif cmd == "cut":
-        cx, cy, r = map(float, a[3:6]); rot = float(a[6]) if len(a) > 6 else 0
-        c = cut_img(load(raw), cx, cy, r, rot); c.save(a[2], "WEBP", quality=82, method=6)
-        pv = Image.new("RGB", (SIZE, SIZE), (60, 60, 60)); pv.paste(c, (0, 0), c); pv.save(os.path.splitext(a[2])[0] + ".preview.jpg", quality=88)
+        cx, cy, r = map(float, a[3:6]); rot = float(a[6]) if len(a) > 6 else 0; n = size or SIZE
+        c = cut_img(load(raw), cx, cy, r, rot, n); c.save(a[2], "WEBP", quality=82, method=6)
+        pv = Image.new("RGB", (n, n), (60, 60, 60)); pv.paste(c, (0, 0), c); pv.resize((SIZE, SIZE), Image.LANCZOS).save(os.path.splitext(a[2])[0] + ".preview.jpg", quality=88)
+    elif cmd == "cut2x2":
+        cx, cy, r = map(float, a[3:6]); rot = float(a[6]) if len(a) > 6 else 0; n = size or 1600
+        im = load(raw); dmm = dmm or (diameter_of(cid) if cid else None)
+        bx, by, side, used, method = plan_2x2(im, cx, cy, r, rot, dmm, box)
+        W, H = im.size; off = max(0, side / 2 - bx, bx + side / 2 - W, side / 2 - by, by + side / 2 - H)
+        c = cut2x2_img(im, bx, by, side, used, n)
+        if os.path.splitext(a[2])[1].lower() in (".jpg", ".jpeg"): c.save(a[2], "JPEG", quality=90)
+        else: c.save(a[2], "WEBP", quality=85, method=6)
+        draw_2x2_check(im, cx, cy, r, bx, by, side, used, method, c, os.path.splitext(a[2])[0] + ".2x2check.jpg")
+        print(json.dumps({"method": method, "box_cx": round(bx, 1), "box_cy": round(by, 1), "side": round(side, 1), "rot": used, "size": n, "diameter_mm": dmm,
+                          "coin_fraction": round(2 * r / side, 3), "off_photo_px": round(off),
+                          "warn": "square reaches outside the photo: check the 2x2check image" if off > 0.03 * side else ""}))
     else: sys.exit(__doc__)
 
 if __name__ == "__main__":
