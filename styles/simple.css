@@ -1,0 +1,83 @@
+/* Titan Reliquary · Simple view for Dad (wings/simple.js). Self-contained: every rule is scoped to #simple-view or
+   .hall-simple-entry. Own high-contrast palette (light or dark, picked by simple.js from the active atmosphere), so it
+   stays readable in every World. Base type 22px, headings 32px+, tap targets 56px+, no hover-only affordances,
+   status is always TEXT (Yes / Missing / Not yet), never colour alone. No animation. */
+.simple-view {
+  --sv-bg: #ffffff; --sv-ink: #111111; --sv-soft: #f1ede3; --sv-line: #111111; --sv-btn: #0b3d82; --sv-btn-ink: #ffffff;
+  --sv-yes: #0a5c1e; --sv-no: #8a1010; --sv-maybe: #6b4a00;
+  position: fixed; inset: 0; z-index: 100200; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  background: var(--sv-bg); color: var(--sv-ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; font-size: 22px; line-height: 1.5;
+}
+.simple-view[data-tone="dark"] {
+  --sv-bg: #0a0a0a; --sv-ink: #ffffff; --sv-soft: #1b1b1b; --sv-line: #ffffff; --sv-btn: #ffd34d; --sv-btn-ink: #111111;
+  --sv-yes: #7be495; --sv-no: #ff9d9d; --sv-maybe: #ffd34d;
+}
+.simple-view[hidden] { display: none; }
+.simple-view *, .simple-view *::before, .simple-view *::after { box-sizing: border-box; }
+.sv-shell { max-width: 900px; margin: 0 auto; padding: 16px 16px 56px; }
+.simple-view h1 { margin: 0; font-size: 2.2rem; line-height: 1.15; }
+.simple-view h2 { margin: 40px 0 12px; font-size: 2rem; line-height: 1.2; border-bottom: 3px solid var(--sv-line); padding-bottom: 6px; }
+.simple-view h3 { margin: 16px 0 8px; font-size: 1.5rem; line-height: 1.25; }
+.simple-view h4 { margin: 0 0 6px; font-size: 1.3rem; line-height: 1.3; }
+.simple-view :focus-visible { outline: 4px solid var(--sv-btn); outline-offset: 3px; }
+.simple-view[data-tone="dark"] :focus-visible { outline-color: #ffffff; }
+.simple-view h1:focus, .simple-view h2:focus { outline: none; }
+.sv-top { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
+.sv-big { margin: 10px 0; font-size: 1.1rem; }
+.sv-note { margin: 8px 0; font-size: 1rem; }
+.sv-label { margin: 10px 0 4px; font-weight: 700; }
+.sv-id { font-weight: 400; font-size: 1rem; }
+.sv-foot { margin-top: 40px; font-size: 1rem; }
+
+.sv-btn, .sv-eg-btn, .sv-fam {
+  font: inherit; font-weight: 700; min-height: 56px; min-width: 56px; padding: 10px 22px; border-radius: 12px; cursor: pointer;
+  color: var(--sv-ink); background: var(--sv-bg); border: 3px solid var(--sv-line); text-align: center;
+}
+.sv-primary { background: var(--sv-btn); color: var(--sv-btn-ink); border-color: var(--sv-btn); }
+.sv-wide { width: 100%; text-align: left; }
+.sv-jump { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
+.sv-jump a { display: inline-flex; align-items: center; min-height: 56px; padding: 8px 18px; border: 3px solid var(--sv-line); border-radius: 12px; color: var(--sv-ink); font-weight: 700; text-decoration: none; }
+
+#sv-form label { display: block; font-weight: 700; margin-bottom: 8px; }
+.sv-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.sv-row input { flex: 1 1 260px; min-width: 0; min-height: 64px; font: inherit; font-size: 1.3rem; padding: 10px 16px; border-radius: 12px; border: 3px solid var(--sv-line); background: var(--sv-bg); color: var(--sv-ink); }
+.sv-row input::placeholder { color: var(--sv-ink); opacity: .65; }
+.sv-eg { margin: 12px 0 0; font-size: 1rem; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.sv-eg-btn { font-weight: 600; padding: 8px 16px; }
+
+.sv-out { margin-top: 16px; }
+.sv-tag { display: inline-block; padding: 0 12px; margin-right: 6px; border-radius: 8px; font-weight: 800; border: 3px solid currentColor; line-height: 1.4; }
+.sv-yes { color: var(--sv-yes); } .sv-no { color: var(--sv-no); } .sv-maybe { color: var(--sv-maybe); }
+
+.sv-fams { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 8px 0 16px; }
+.sv-fam { display: flex; flex-direction: column; justify-content: center; gap: 2px; min-height: 72px; }
+.sv-fam small { font-weight: 400; font-size: .85rem; }
+.sv-fam[aria-pressed="true"] { background: var(--sv-btn); color: var(--sv-btn-ink); border-color: var(--sv-btn); }
+.sv-card { margin: 14px 0; padding: 14px 16px; background: var(--sv-soft); border: 3px solid var(--sv-line); border-radius: 14px; }
+.sv-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.sv-chips li { font-size: 1.5rem; font-weight: 700; padding: 2px 12px; border: 3px solid var(--sv-line); border-radius: 10px; background: var(--sv-bg); font-variant-numeric: tabular-nums; }
+
+.sv-flips, .sv-sums, .sv-glance { list-style: none; margin: 8px 0; padding: 0; }
+.sv-flips li, .sv-sums li { margin: 10px 0; }
+.sv-flip { display: flex; align-items: center; gap: 14px; min-height: 96px; padding: 8px; border: 3px solid var(--sv-line); border-radius: 14px; background: var(--sv-soft); color: var(--sv-ink); text-decoration: none; }
+.sv-flip img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex: none; background: var(--sv-bg); }
+.sv-noimg { width: 88px; height: 88px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; text-align: center; font-size: .8rem; line-height: 1.2; border: 3px dashed var(--sv-line); padding: 6px; }
+.sv-flip-t { display: flex; flex-direction: column; font-size: 1rem; }
+.sv-flip-t strong { font-size: 1.2rem; text-decoration: underline; text-underline-offset: 3px; }
+.sv-glance li { margin: 12px 0; padding: 12px 16px; border-left: 8px solid var(--sv-line); background: var(--sv-soft); border-radius: 6px; }
+
+/* the one entry button in the Hall (uses the Hall's own theme tokens, like the What's missing tile) */
+.hall-simple-entry {
+  display: flex; flex-direction: column; gap: 4px; width: 100%; margin: 0 0 14px; padding: 18px 20px; min-height: 72px; cursor: pointer;
+  text-align: left; font: inherit; color: var(--ink); background: var(--surface); border: 3px solid var(--ink); border-radius: 14px; text-decoration: none;
+}
+.hall-simple-entry .hs-name { font-size: 1.75rem; font-weight: 800; line-height: 1.2; }
+.hall-simple-entry .hs-desc { font-size: 1.15rem; }
+.hall-simple-entry .hs-go { font-weight: 800; font-size: 1.15rem; }
+
+@media (max-width: 480px) {
+  .simple-view h1 { font-size: 2rem; } .simple-view h2 { font-size: 1.85rem; }
+  .sv-fams { grid-template-columns: 1fr 1fr; }
+  .sv-fam { padding: 8px 10px; }
+}
