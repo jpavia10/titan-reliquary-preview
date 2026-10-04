@@ -2475,6 +2475,11 @@
           <span class="wc-stat">${pct}% photographed</span>
         </button>
       </div>
+      <a class="hall-simple-entry reveal" href="#simple">
+        <span class="hs-name">Simple view</span>
+        <span class="hs-desc">Big letters, plain answers: what is missing, and do I have a coin.</span>
+        <span class="hs-go">Open the simple view →</span>
+      </a>
       <button type="button" class="hall-wants-entry reveal" data-open-wants>
         <span class="hw-name">What's missing</span>
         <span class="hw-desc">Which years each album still needs, with a printable want list for a coin show.</span>
