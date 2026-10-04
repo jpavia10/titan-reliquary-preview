@@ -109,6 +109,7 @@ def cut_img(im, cx, cy, r, rot=0, size=SIZE):
 
 # ---------------------------------------------------------------------------------------------- 2x2 flip square
 FLIP_MM = 50.8
+LAST = {}      # side information from plan_2x2 for the JSON line
 
 def diameter_of(cid):
     """Coin diameter (mm) from the collection record of specimen `cid`, or None."""
@@ -167,7 +168,7 @@ def plan_2x2(im, cx, cy, r, rot, diameter_mm=None, box=None):
     expect = 2 * r * FLIP_MM / diameter_mm if diameter_mm else None
     f = find_flip(im, cx, cy, r, expect)
     if f:
-        cand = f["tilt"] + 90 * round((rot - f["tilt"]) / 90)
+        cand = f["tilt"] + 90 * round((rot - f["tilt"]) / 90); LAST["card_tilt_off"] = round(abs(cand - rot), 1)
         return f["cx"], f["cy"], f["side"], round(cand if abs(cand - rot) <= 10 else rot, 2), "detected"   # level the square only when that barely moves the coin's upright
     if expect: return cx, cy, expect, rot, "diameter"
     sys.exit("cut2x2: no cardboard square found and the record has no diameter. Pass --diameter-mm D, --id C### (diameter from the collection) or --box CX CY SIDE.")
@@ -216,8 +217,8 @@ def main(a):
         else: c.save(a[2], "WEBP", quality=85, method=6)
         draw_2x2_check(im, cx, cy, r, bx, by, side, used, method, c, os.path.splitext(a[2])[0] + ".2x2check.jpg")
         print(json.dumps({"method": method, "box_cx": round(bx, 1), "box_cy": round(by, 1), "side": round(side, 1), "rot": used, "size": n, "diameter_mm": dmm,
-                          "coin_fraction": round(2 * r / side, 3), "off_photo_px": round(off),
-                          "warn": "square reaches outside the photo: check the 2x2check image" if off > 0.03 * side else ""}))
+                          "coin_fraction": round(2 * r / side, 3), "off_photo_px": round(off), "card_vs_coin_upright_deg": LAST.get("card_tilt_off"),
+                          "warn": ("square reaches outside the photo: check the 2x2check image; " if off > 0.03 * side else "") + ("the card leans %s deg off the coin's upright; the coin's rot was used: check the 2x2check image" % LAST["card_tilt_off"] if (LAST.get("card_tilt_off") or 0) > 10 else "")}))
     else: sys.exit(__doc__)
 
 if __name__ == "__main__":
