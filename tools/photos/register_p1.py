@@ -4,7 +4,7 @@
   register_p1.py RESULTS_DIR [--dry]
 
 RESULTS_DIR holds `results_*.jsonl` (one line per crop, written by the crop agents; see tools/photos/crop_coin.py)
-and `out/` (the WebP cut-outs). Every line with status "ok" and best != false becomes:
+and `out/` (the WebP cut-outs). Every line with status "ok" or "mismatch" (the coin in that flip, whose record disagrees; listed in CURATION_OPEN) and best != false becomes:
   - photos/p1/{ID}_{side}.webp in the site (served next to the app, cached by sw.js on first view)
   - a photo record via collection/_incoming/changes_script_{stamp}-photos-p1.jsonl (entity photo, op create,
     id {ID}-{side}-p1, kind crop_circle, phase 1), merged by `python3 tools/pipeline/publish.py`.
@@ -23,7 +23,7 @@ def main(src, dry=False):
     now = datetime.datetime.now(datetime.timezone.utc); ts = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     events, skipped, seen = [], [], set()
     for r in rows:
-        if r.get("status") != "ok" or r.get("best") is False or not r.get("out"): continue
+        if r.get("status") not in ("ok", "mismatch") or r.get("best") is False or not r.get("out"): continue
         cid, side = r["id"], r["side"]; pid = f"{cid}-{side}-p1"
         if cid not in specs: skipped.append((pid, "no such specimen")); continue
         if pid in have or pid in seen: skipped.append((pid, "already registered")); continue
