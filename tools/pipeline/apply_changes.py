@@ -310,7 +310,7 @@ class Applier:
 
     def set(self, e):
         ent, rid, field = e["entity"], e["id"], e["field"]
-        if ent == "photo": raise Reject("photo events must use op: create")
+        if ent == "photo": return self.set_photo(e)
         rec = self.record(ent, rid)
         if rec is None: raise Reject(f"{ent} {rid} does not exist (use op: create to add it)")
         if field in ("id",) or field.startswith("id."): raise Reject("an id is permanent and cannot be changed")
@@ -337,6 +337,23 @@ class Applier:
             try: set_at(sp["issue"], path[2:], copy.deepcopy(e["new"]))
             except KeyError: pass
         self.after_set(e, rec, copies)
+
+    def set_photo(self, e):
+        """The only edit a photo record allows: `superseded_by` (a Phase 2 photo replaces the Phase 1 one of the same coin and side)."""
+        rid, c = e["id"], self.c
+        if e["field"] != "superseded_by": raise Reject("a photo record can only be changed through op set on 'superseded_by' (everything else: create a new photo id)")
+        rec = next((p for p in c.photos if p["id"] == rid), None)
+        if rec is None: raise Reject(f"photo {rid} does not exist")
+        new = e["new"]
+        if new is not None:
+            nxt = next((p for p in c.photos if p["id"] == new), None)
+            if nxt is None: raise Reject(f"photo {rid}: superseded_by {new!r} is not a photo record (create it first)")
+            if (nxt["specimen"], nxt["side"]) != (rec["specimen"], rec["side"]): raise Reject(f"photo {rid}: {new} is a different coin or side; a photo is superseded only by one of the same coin and side")
+            if new == rid: raise Reject("a photo cannot supersede itself")
+        old = rec.get("superseded_by")
+        if old == new: self.log.append(f"no change (value already set): photo {rid} superseded_by"); return
+        rec["superseded_by"] = new
+        self.log_event(e, old)
 
     def check_verified(self, e, old):
         hit = [ev for (en, i, f), ev in self.verified.items() if en == e["entity"] and i == e["id"] and overlap(f, e["field"])]

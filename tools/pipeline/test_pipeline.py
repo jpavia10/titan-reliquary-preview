@@ -329,6 +329,30 @@ class Pipeline(unittest.TestCase):
         r = self.publish(tmp); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertEqual(json.load(open(os.path.join(tmp, "data", "wants.json")))["generated_at"], json.load(open(os.path.join(tmp, "version.json")))["generated_at"])
 
+    def test_phase2_photo_supersedes_the_phase1_photo(self):
+        tmp = sandbox()
+        p1 = next(p for p in BASE.photos if p["phase"] == 1 and p["kind"] == "crop_circle" and p["side"] == "obv")
+        cid = p1["specimen"]; pid = f"{cid}-obv-p2"
+        new = {"specimen": cid, "side": "obv", "phase": 2, "kind": "crop_circle", "path": f"photos/p2/{cid}_obv.webp", "sha256": "ab" * 32, "width": 1200, "height": 1200, "captured_at": None,
+               "review": {"status": "approved", "reason": "test"}}
+        mk = lambda **kw: ev(by="script:photo_crop_p2", entity="photo", **kw)
+        create = mk(id=pid, op="create", field="(new record)", new=new)
+        sup = lambda a, b: mk(id=a, op="set", field="superseded_by", new=b)
+        self.reject([sup(p1["id"], "NOPE-obv-p2")], "not a photo record", setup=None)
+        r = self.apply(tmp, write_events(tmp, "changes_script_x.jsonl", [create, sup(p1["id"], pid)]))
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        photos = {p["id"]: p for p in C.Collection(os.path.join(tmp, "collection")).photos}
+        self.assertEqual(photos[p1["id"]]["superseded_by"], pid)
+        r = self.publish(tmp); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        iso = next(s for s in BASE.specs.values() if s["id"] == cid)["type"].split(".")[0]
+        det = json.load(open(os.path.join(tmp, "data", "detail", iso + ".json"), encoding="utf-8"))[cid]
+        obv = [p for p in det["photos"] if p["role"] == "obv"]
+        self.assertEqual([p["id"] for p in obv], [pid]); self.assertEqual(obv[0]["phase"], 2)
+
+    def test_photo_edits_other_than_superseded_by_are_rejected(self):
+        p1 = next(p for p in BASE.photos if p["phase"] == 1)
+        self.reject([ev(by="script:photo_crop_p2", entity="photo", id=p1["id"], op="set", field="path", new="photos/x.webp")], "superseded_by", setup=None)
+
     def test_publish_refuses_a_broken_collection(self):
         tmp = sandbox()
         p = os.path.join(tmp, "collection", "specimens", "CH.json"); s = open(p, encoding="utf-8").read()
