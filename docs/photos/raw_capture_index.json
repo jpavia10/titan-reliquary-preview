@@ -816,6 +816,22 @@
    "note": "Grok: APMEX label 2023 Australia 1 oz Silver Kangaroo BU barcode 262566 matches only B013."
   },
   {
+   "file": "B014_United-Kingdom_2024_1oz-Silver-Britannia.jpeg",
+   "asset": "B014",
+   "kind": "bullion / holdings photo (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/bullion",
+   "drive_id": "1jlR25PdseZOK7htUIlCdALARfJL5JZ2R",
+   "source": "Grok STAGING runs 2026-10-03 18:44 + 18:55 PT"
+  },
+  {
+   "file": "B015_Canada_ND_1oz-Silver-Maple-Leaf_rev.jpeg",
+   "asset": "B015",
+   "kind": "bullion / holdings photo (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/bullion",
+   "drive_id": "1JB0a9sfLQ0qUtI4lATVdEuytHQidvfLp",
+   "source": "Grok STAGING runs 2026-10-03 18:44 + 18:55 PT"
+  },
+  {
    "file": "B017_USA_ND_1oz-buffalo-round.jpeg",
    "asset": "B017",
    "kind": "bullion lot (Phase 1 chat photo)",
@@ -1760,6 +1776,27 @@
     "C127",
     "C128"
    ]
+  },
+  {
+   "file": "C129_C130_C131_France-Germany_20EuroCent_rev.jpeg",
+   "asset": "C129",
+   "kind": "coin photo (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
+   "drive_id": "1dDIlK9QjkJHY60kWaQHUYXMKmXQGV0pq",
+   "source": "Grok STAGING runs 2026-10-03 18:44 + 18:55 PT",
+   "assets": [
+    "C129",
+    "C130",
+    "C131"
+   ]
+  },
+  {
+   "file": "C144_Norway_1998_50Ore_obv.jpeg",
+   "asset": "C144",
+   "kind": "coin photo (Phase 1 chat photo)",
+   "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
+   "drive_id": "12p2oRLzcUmmrWYpRfckX-TZBOkwiqENm",
+   "source": "Grok STAGING runs 2026-10-03 18:44 + 18:55 PT"
   },
   {
    "file": "C145_Chile_1996_50Pesos_obv.jpeg",

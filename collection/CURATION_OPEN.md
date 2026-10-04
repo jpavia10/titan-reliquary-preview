@@ -66,6 +66,10 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
 - **C066 Switzerland 5 francs (CH.KM.40a.1): record says 1978, the photo reads 1976**  
   Photo: Drive `_raw_capture/_phase1/coins/C066_Switzerland_1976_5Francs_rev.jpeg` (read at full zoom 2026-10-04; Grok also changed its name from 1978 to 1976). The record (and its mintage 4,411,000) is unchanged until the owner checks the coin.
 
+## 6c. Catalog numbers Muse flagged (2026-10-03, stored in each coin's `research.open_questions`)
+
+Claude agrees with 12 of 16 from catalog knowledge; fix the type records in Phase 2 with the reference cited: Malta euro types shifted +1 (C028 5c = KM#127, C043 10c = KM#128, C064 1 euro = KM#131), C198 NL 1948 1 cent = KM#175, C139 Spain 2014 1 cent = KM#1144 (re-attribute from ES.KM.1040), C208 Turkey 10 kurus = KM#1241, C212 Eritrea 50 cents = KM#47, C231 Saudi 1 qirsh AH1378 = KM#40, C248 Greece 1982 2 drachmes = KM#130 (Karaiskakis), C258 South Vietnam 20 su = KM#2, C023 (no imperial iron 20 pfennig exists: notgeld?), C238 2 DM (Adenauer KM#124 or Heuss KM#A127: check the coin). Unconfirmed: C159 East Caribbean 10 cents 2004 (likely the 2002+ portrait type, not KM#13), C232 Vietnam 1000 dong, C246 Philippines composition, C204 Trinidad 25 cents.
+
 ## 7. Ledger arithmetic that does not add up (Grok / owner): RESOLVED
 
 **RESOLVED: board totals are authoritative, per owner 2026-09-30** ("all silver is logged from Grok, use that info"). The ledger v254 board (Ag 63.27 oz, Au 0.1322 oz, headline $5,393.70, album value $2,059.39) is carried in `collection/board.json` (`source: "ledger v254 (Grok)"`) and is what the app shows. It is deliberately not recomputed from the itemized records, so the 1.4997 oz of bullion silver no B### record accounts for, the un-itemized album value and the records-vs-board value delta below need no action. After v254 the board moves only by the change in the records since the snapshot (`tools/pipeline/build_app_data.py`: a new coin adds its own value; the melt is recomputed from the spot stored in `board.json`). Nothing in this section is open any more; it is kept as the record of what was reconciled.

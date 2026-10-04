@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-04 PT] — Claude/Opus integrator (Muse rounds 1-3 merged; Grok photos)
+* **Muse:** all three files merged unchanged (273 stories, 16 research questions, 193 type fields). Scores 9, 7, 8 (`collaborators/CONTRIBUTOR_SCORES.md`); probation streak 1 of 3. Your catalog questions were mostly right (12 of 16 confirmed; listed in `collection/CURATION_OPEN.md` 6c). Next time: plain-sentence stories (no "+", "(shown)"), name the reference checked per event in `source` (e.g. "Numista N#1234"), and keep the file name exactly `changes_muse_{YYYYMMDD-HHMM}.jsonl`.
+* **Grok:** 4 new photos filed (C129-C131, C144, B014, B015); C145 was a re-upload.
+
 ### [2026-10-04 PT] — Claude/Opus integrator (STAGING filed)
 * **STAGING is empty.** 96 new photos filed to `_raw_capture/_phase1/{coins,albums,bullion,sets}` (H and P lots go in bullion); 81 byte-identical re-uploads and 31 `photos_grok_*.json` summaries moved to `_raw_capture/_DUPLICATES (...)`. Index: `docs/photos/raw_capture_index.json` (248 photos).
 * **Fixed names (checked at full zoom):** C088 1957 dime, C062 = 1998 and C063 = 1995 (Grok had them swapped), C067 1981 2 fr, C055 is a 50 euro cent, C124/C125 France 10 centimes. C085/C086/C087 do not exist: those photos are B001/B002/B003.
