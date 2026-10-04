@@ -18,7 +18,7 @@
   "photos": 199,
   "valuations": 308,
   "spot_days": 24,
-  "changes": 1717,
+  "changes": 1724,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -44,12 +44,12 @@
    "total": 0.1322
   }
  },
- "content_hash": "8db88881d10bc5baf6a1b729819679ea67b3648517b470abd4f7ce2aa89c1d93",
+ "content_hash": "338b5b96c56f4cced94b2a10196a0276c53b2858adbdb9465947f4b64162f1fc",
  "files": [
   {
    "path": "CURATION_OPEN.md",
-   "sha256": "8b340f37e49c2efd210478cf11464c1f35db6086c42535431883d151ca95ca45",
-   "bytes": 11231
+   "sha256": "d770aa4817154f7e4e043c315e01d62a473d88e16cbeacf3e92902e6f4452212",
+   "bytes": 12216
   },
   {
    "path": "README.md",
@@ -78,8 +78,8 @@
   },
   {
    "path": "changes.jsonl",
-   "sha256": "b8fe98edb571ca1e73a23afcc853f53856bdc70bdc3986838f41a4de1628af61",
-   "bytes": 1755983
+   "sha256": "224e0390f888b06a94945b002a53e3343a0eb1525f8ac263a3b992dfafdea2c6",
+   "bytes": 1761554
   },
   {
    "path": "lots.json",
@@ -138,8 +138,8 @@
   },
   {
    "path": "specimens/CH.json",
-   "sha256": "89ecc066014a10ea44fc5c47aba6eb8986fb1a48d488bf39472e92c763478e34",
-   "bytes": 50546
+   "sha256": "cad22e3dac4dbc22adc5fc3f63894425d8e6bb750b1763caa2dcee1d141455be",
+   "bytes": 50683
   },
   {
    "path": "specimens/CL.json",
@@ -163,8 +163,8 @@
   },
   {
    "path": "specimens/DE.json",
-   "sha256": "eea3a6c67ccbe0944b63568a6900567ea7e33652f83335d1b01656ee3f6f7e8c",
-   "bytes": 119315
+   "sha256": "63c1f11f7d9574c102b30f98caac8bda3cbecac91e99d134e16cb669c1dfd97c",
+   "bytes": 119856
   },
   {
    "path": "specimens/EC.json",
@@ -188,8 +188,8 @@
   },
   {
    "path": "specimens/GB.json",
-   "sha256": "a20626b3a05b4983f686299dce66b6c7060d8523f43457af7df837444987cb46",
-   "bytes": 110469
+   "sha256": "df91f6b7040248eef89dceb8ae06fd8cf974327c904cae51bd90a491919c2533",
+   "bytes": 110616
   },
   {
    "path": "specimens/GR.json",
@@ -233,8 +233,8 @@
   },
   {
    "path": "specimens/JP.json",
-   "sha256": "a7cc5403493a419b5239b9c73ffc06deefbdcdd80a2fa9cabbcc011afb224df6",
-   "bytes": 8579
+   "sha256": "916a39337a2dca488453392f54b67b1bd63367dc8c706128070703fe14f6d809",
+   "bytes": 8779
   },
   {
    "path": "specimens/KR.json",
@@ -323,8 +323,8 @@
   },
   {
    "path": "specimens/TW.json",
-   "sha256": "56cd52be722f9192d03834475f37416f958c60f4c11b4e047ab5bbcd718297b8",
-   "bytes": 2278
+   "sha256": "aaf92da82e61ad1b94058be372a5e9a3eb09b4744edd152948bf6de4977c31cb",
+   "bytes": 2508
   },
   {
    "path": "specimens/US.json",

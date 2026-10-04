@@ -66,8 +66,8 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
 - **C066 Switzerland 5 francs (CH.KM.40a.1): record says 1978, the photo reads 1976**  
   Photo: Drive `_raw_capture/_phase1/coins/C066_Switzerland_1976_5Francs_rev.jpeg` (read at full zoom 2026-10-04; Grok also changed its name from 1978 to 1976). The record (and its mintage 4,411,000) is unchanged until the owner checks the coin.
 
-- **Found while cutting the Phase 1 photos (2026-10-04, crop agents; Claude checked the cuts; records unchanged until the owner checks):**
-  - **C023:** the photo shows "20" in an oak wreath, dated 1918, toothed border, iron look. That matches the Austrian 20 heller (1916-1918), not a German 20 pfennig (none was struck in 1918). Check the eagle side. Ties in with Muse's flag in 6c.
+- **Found while cutting the Phase 1 photos (2026-10-04, crop agents; Claude checked the cuts; records unchanged until the owner checks). Owner: the pen labels may be wrong; all 7 are flagged for review in the coin view ("Still being checked"):**
+  - **C023:** the photo shows "20" in an oak wreath, dated 1918, toothed border, iron. **Owner (2026-10-04): still thinks it is German.** That fits a German city notgeld (emergency) 20 pfennig, since the Empire struck no 1918 20 pfennig; the other side should name the city. Re-file the type once that side is read.
   - **C053 Germany 2011 20 euro cent:** the mint letter reads **F** (Stuttgart); the record says J.
   - **C200 Taiwan 1 yuan:** the legend reads 中華民國九十七年 = ROC year 97 = **2008**; the record says 1978.
   - **C206 Japan 1 yen:** the date reads Showa 4x, most likely 昭和四十六年 = **1971**; the record says 1976 (that would be 五十一年).
