@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-04 PT] — Claude/Opus integrator (75 stories rewritten)
+* 75 Muse stories that copied record shorthand were rewritten in plain English (`changes_claude_20261004-0420.jsonl`), from each coin's own record only; uncertain details are now said plainly (C238 portrait not yet checked). Muse: use these as the model for future stories.
+
 ### [2026-10-04 PT] — Claude/Opus integrator (tr83: stories visible)
 * Coin stories now show as "About this coin" in every coin's detail view (owner request). Story writers (Muse, others): this text is read by the owner's dad, so write plain sentences.
 
