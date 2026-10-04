@@ -29,7 +29,7 @@ Last verified: 2026-10-01 (build tr55).
 ## Rules
 0. **Deploying:** GitHub Pages does NOT rebuild for pushes made by the Claude GitHub app (the live site silently stayed at aa45918 for ~30 pushes on 2026-09-30). After pushing to `main`, trigger the build by updating `DEPLOY_STAMP.txt` through the GitHub connector (acts as the owner's account), then confirm a new "pages build and deployment" run for that commit finishes `success`. Never report "live" before that run succeeds.
 1. Check `SHARED_LOG.md`, do your work, append a 2-3 line entry.
-2. **Score every outside-AI submission** in `collaborators/CONTRIBUTOR_SCORES.md` (owner, 2026-10-03; rubric at the top) and tell the contributor in its Drive `FEEDBACK for {agent}` doc, with praise for what it did right as well as faults. Muse is on probation until 3 submissions in a row score 8+.
+2. **Score every outside-AI submission** in `collaborators/CONTRIBUTOR_SCORES.md` (owner, 2026-10-03; rubric at the top) and tell the contributor in its Drive `FEEDBACK for {agent}` doc, with praise for what it did right as well as faults. Muse's probation ended 2026-10-04 (scores 8, 10, 9 in a row).
 3. Ownership: Claude = integrator (repo, pipeline, site, merges every change file). Grok, Gemini, Muse and other AIs contribute data only as change files in the Drive drop folder. Coordinate in the log.
 4. Never edit generated files in `data/` by hand.
 5. Keep Dad-readable (high contrast, large type) and offline PWA working.
@@ -54,6 +54,7 @@ Last verified: 2026-10-01 (build tr55).
 5. Work in small steps; do obvious fixes first; no big changes until the owner confirms.
 
 ## Status log (newest first)
+- 2026-10-04 (intake 2): **Muse off probation.** Merged Muse's 122 mintage/research events, C249 mintage, and 4 new coins: C275 UK 1992 5p (Muse file), C276 Bahamas 2015 1c, C277 Bermuda 2004 10c, C278 Switzerland 1980 20r (Muse's off-contract files re-filed as `changes_claude_20261004-0610.jsonl`; new issuers BS, BM). 280 coins, 48 countries. Grok: 47 new photos filed (index 302); its run fixed 5 of Claude's wrong filings (C235, C213, C164, B018, B019); its "C238" photo is C239 (Australia 1944 penny). Next coin: C279.
 - 2026-10-04 (tr83): **Stories shown in the coin detail view** (owner): `specimen.story` goes into `data/detail/*.json` (`display.py`) and shows as "About this coin" right under the value boxes in dossier v2 (`wings/gallery.js`), in the classic dossier (`app.js`) and in the full record. All 276 coins have one (Muse round 1).
 - 2026-10-04 (muse): **Muse rounds 1-3 merged** (273 Phase 1 stories, 16 `research.open_questions`, 193 type period/ruler/series fields); scores 9/7/8, probation streak 1 of 3. 12 of its 16 catalog-number flags confirmed (`collection/CURATION_OPEN.md` 6c). Grok: 4 more photos filed (index 252).
 - 2026-10-04 (staging): **STAGING filed and empty.** 96 new Grok photos filed (index 248); 81 re-uploads + 31 summaries in `_raw_capture/_DUPLICATES`. Name fixes after full-zoom checks: C088, C062/C063 (swapped), C067, C055, C124/C125; Grok's C085-C087 are B001-B003. Open: C066 photo reads 1976 vs record 1978 (owner). Drive moves are one call per file (no batch move).
@@ -123,7 +124,7 @@ Owner's standing instructions: don't ask permission; push finished work live aft
 - Caveat: GitHub Pages is publicly reachable; `noindex` only hides it from search.
 
 ## Cleanup (2026-10-01)
-- Deleted: `stage/`, `photos/` (the invented "1914 France 5 Francs" TITAN-299/300 images), and the stale `data/master_catalog.json` (v1, held the fake C297-C300 records; the app never read it). The fake France records are gone everywhere. **Superseded 2026-10-02 (owner):** the C297-C300 rule is gone. Coins number straight on from the highest existing id: C272 Austria 1925 2 groschen, C273 Germany 2005 1 euro cent (R001, done), C274 Mexico 1995 10 centavos (Muse), next C275.
+- Deleted: `stage/`, `photos/` (the invented "1914 France 5 Francs" TITAN-299/300 images), and the stale `data/master_catalog.json` (v1, held the fake C297-C300 records; the app never read it). The fake France records are gone everywhere. **Superseded 2026-10-02 (owner):** the C297-C300 rule is gone. Coins number straight on from the highest existing id: C272 Austria 1925 2 groschen, C273 Germany 2005 1 euro cent (R001, done), C274 Mexico 1995 10 centavos (Muse), C275-C278 (Muse, 2026-10-04), next C279.
 - `DRIVE_ANALYSIS.md` and `FRAMEWORK_BRIEF.md` are historical (banner at the top); do not follow them.
 
 ## Album data (2026-09-30)
