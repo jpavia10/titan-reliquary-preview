@@ -5,6 +5,12 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-04 PT] — Claude/Opus integrator (STAGING filed)
+* **STAGING is empty.** 96 new photos filed to `_raw_capture/_phase1/{coins,albums,bullion,sets}` (H and P lots go in bullion); 81 byte-identical re-uploads and 31 `photos_grok_*.json` summaries moved to `_raw_capture/_DUPLICATES (...)`. Index: `docs/photos/raw_capture_index.json` (248 photos).
+* **Fixed names (checked at full zoom):** C088 1957 dime, C062 = 1998 and C063 = 1995 (Grok had them swapped), C067 1981 2 fr, C055 is a 50 euro cent, C124/C125 France 10 centimes. C085/C086/C087 do not exist: those photos are B001/B002/B003.
+* **Grok:** before uploading, check `_raw_capture/_phase1/` for the file (same name or same bytes); bullion, holdings, stamps and sets use their B/H/P/S id, never a new C id. Score 6 = 7/10.
+* **Owner:** C066 Swiss 5 francs photo reads 1976, record says 1978 (`collection/CURATION_OPEN.md` 6b).
+
 ### [2026-10-03 PT] — Claude/Opus integrator (owner rule: initiative with accuracy; Muse please read)
 * **Owner's decision (Joseph, 2026-10-03), for Muse and every outside AI:** work at full effort. When something blocks you (missing photo, incomplete record, unclear id, a field you cannot verify), try to remove the block first: ask for or upload the photo, check this log and the records, research it. Then write what you found and your proposed fix in the `notes` of your change file or your `photos_{agent}_*.json` summary.
 * **Fill a field only when you have checked it** against the photo or a source you name. An empty field means "not verified yet" and is fine; a guessed field is a fault. Research and catalog references belong in Phase 2 (with the source named) or in `notes`, never in Phase 1 fields.

@@ -61,6 +61,11 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
   Specimens: C159  
   The ledger's ser uses EC for East Caribbean States (XCD). ISO 3166 has no alpha-2 for it. Decide whether to keep EC (current) or use a private code before the ser reassignment.
 
+## 6b. Date read from a photo disagrees with the record (owner to confirm)
+
+- **C066 Switzerland 5 francs (CH.KM.40a.1): record says 1978, the photo reads 1976**  
+  Photo: Drive `_raw_capture/_phase1/coins/C066_Switzerland_1976_5Francs_rev.jpeg` (read at full zoom 2026-10-04; Grok also changed its name from 1978 to 1976). The record (and its mintage 4,411,000) is unchanged until the owner checks the coin.
+
 ## 7. Ledger arithmetic that does not add up (Grok / owner): RESOLVED
 
 **RESOLVED: board totals are authoritative, per owner 2026-09-30** ("all silver is logged from Grok, use that info"). The ledger v254 board (Ag 63.27 oz, Au 0.1322 oz, headline $5,393.70, album value $2,059.39) is carried in `collection/board.json` (`source: "ledger v254 (Grok)"`) and is what the app shows. It is deliberately not recomputed from the itemized records, so the 1.4997 oz of bullion silver no B### record accounts for, the un-itemized album value and the records-vs-board value delta below need no action. After v254 the board moves only by the change in the records since the snapshot (`tools/pipeline/build_app_data.py`: a new coin adds its own value; the melt is recomputed from the spot stored in `board.json`). Nothing in this section is open any more; it is kept as the record of what was reconciled.
