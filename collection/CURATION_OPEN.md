@@ -66,6 +66,14 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
 - **C066 Switzerland 5 francs (CH.KM.40a.1): record says 1978, the photo reads 1976**  
   Photo: Drive `_raw_capture/_phase1/coins/C066_Switzerland_1976_5Francs_rev.jpeg` (read at full zoom 2026-10-04; Grok also changed its name from 1978 to 1976). The record (and its mintage 4,411,000) is unchanged until the owner checks the coin.
 
+- **Found while cutting the Phase 1 photos (2026-10-04, crop agents; Claude checked the cuts; records unchanged until the owner checks):**
+  - **C023:** the photo shows "20" in an oak wreath, dated 1918, toothed border, iron look. That matches the Austrian 20 heller (1916-1918), not a German 20 pfennig (none was struck in 1918). Check the eagle side. Ties in with Muse's flag in 6c.
+  - **C053 Germany 2011 20 euro cent:** the mint letter reads **F** (Stuttgart); the record says J.
+  - **C200 Taiwan 1 yuan:** the legend reads 中華民國九十七年 = ROC year 97 = **2008**; the record says 1978.
+  - **C206 Japan 1 yen:** the date reads Showa 4x, most likely 昭和四十六年 = **1971**; the record says 1976 (that would be 五十一年).
+  - **C238 Germany 2 DM:** the small mint letter looks more like **J** than D (blurry).
+  - **C218 UK 2010 1p:** cut from the C217 photo (the second coin reads 2010, which matches the C218 record); confirm there is no other UK 2010 1p.
+
 ## 6b2. Dates not legible in the Phase 1 photos (check the coin)
 
 - **C233 Colombia 50 pesos:** record says 2016; Grok named the photo 2013; the photo's date is not clearly legible.

@@ -1451,6 +1451,10 @@ body.drawer-open { overflow: hidden; }
 }
 .ph-open img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .ph-open:hover { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold-deep); }
+/* Phase 1 phone photos: the coin is cut out as a circle (transparent corners), so show it bare and round like the drawn faces */
+.ph-slot.is-round .ph-open { border: 0; background: none; border-radius: 50%; overflow: visible; }
+.ph-slot.is-round .ph-open img { border-radius: 50%; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35)); }
+.ph-slot.is-round .ph-open:hover, .ph-slot.is-round .ph-open:focus-visible { box-shadow: 0 0 0 3px var(--gold); }
 .ph-empty {
   aspect-ratio: 1 / 1; width: 100%;
   border: 1px dashed var(--faint); border-radius: var(--radius);

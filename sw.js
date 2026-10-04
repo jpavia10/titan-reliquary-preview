@@ -1,10 +1,10 @@
-/* Titan Reliquary service worker · build tr84
+/* Titan Reliquary service worker · build tr85
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback
    - audio/ambience/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr84";
+const BUILD = "tr85";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
@@ -130,7 +130,7 @@ self.addEventListener("fetch", (e) => {
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA));
-  } else if (path.includes("/thumbs/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
+  } else if (path.includes("/thumbs/") || path.includes("/photos/p1/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
     e.respondWith(cacheFirst(req, IMG));
   } else if (path.includes("/audio/ambience/")) {
     e.respondWith(cacheFirst(req, AMB));

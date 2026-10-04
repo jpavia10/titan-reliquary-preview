@@ -1347,6 +1347,7 @@
       return `<figure class="gxd-face"><span class="gxd-coin" style="--r:${planchetR(c).toFixed(1)}">${coinSvg(c, side, true)}</span><figcaption>${side === "obv" ? "Obverse (drawn)" : "Reverse (drawn)"}</figcaption></figure>`;
     };
     const drawn = !(hasObv && hasRev);
+    const phoneOnly = photos.length > 0 && photos.every((p) => p.phase === 1);
     const target = c.photo_stem ? `${c.photo_stem}_obv.jpg` : "";
     const photoNote = !target && has(c.photo) ? ` <span class="gxd-photo-note">Ledger: ${esc(c.photo)}</span>` : "";
     const spotAg = B.vault.precious?.spot_ag ?? B.vault.metals?.spot?.ag_usd_oz;
@@ -1380,7 +1381,8 @@
       <div class="gxd">
         <div class="gxd-stage${drawn ? " is-drawn" : ""}">
           <div class="gxd-faces">${face("obv")}${face("rev")}</div>
-          ${drawn ? `<p class="gxd-pending"><span class="gxd-dot" aria-hidden="true"></span>Photographs pending (Phase 2). These faces are drawn from the ledger, not photographed.${target ? ` Target file: <code class="ph-file" data-copy="${esc(target)}" title="Tap to copy">${esc(target)}</code>` : photoNote}</p>` : `<p class="ph-hint">Tap a photo for full size.</p>`}
+          ${!photos.length ? `<p class="gxd-pending"><span class="gxd-dot" aria-hidden="true"></span>Photographs pending (Phase 2). These faces are drawn from the ledger, not photographed.${target ? ` Target file: <code class="ph-file" data-copy="${esc(target)}" title="Tap to copy">${esc(target)}</code>` : photoNote}</p>`
+            : `<p class="gxd-pending">${phoneOnly ? "Quick phone photo from Phase 1; the pro photos come in Phase 2. " : ""}${drawn ? `The ${hasObv ? "reverse" : "obverse"} is drawn until it is photographed. ` : ""}Tap a photo for full size.</p>`}
         </div>
         <header class="gxd-head">
           <div class="gxd-ids"><span class="gxd-ser">${esc(c.ser || c.scan)}</span>${c.ser ? `<span class="gxd-scan">${esc(c.scan)}</span>` : ""}${badges}</div>
