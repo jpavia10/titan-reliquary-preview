@@ -6256,12 +6256,12 @@
       </div>`;
     if (ph) {
       return `
-      <figure class="ph-slot has" data-role="${role}">
+      <figure class="ph-slot has${ph.kind === "crop_circle" ? " is-round" : ""}" data-role="${role}">
         <button type="button" class="ph-open" data-role="${role}" aria-label="Open ${esc(label)} full size">
           <img loading="lazy" src="${esc(ph.url)}" alt="${esc((c.ser || c.scan) + " " + label)}" />
         </button>
         <div class="ph-fallback" hidden>${empty}</div>
-        <figcaption>${esc(label)}${ph.original ? ` · <a class="ph-orig" href="${esc(ph.original)}" target="_blank" rel="noopener">View master</a>` : ""}</figcaption>
+        <figcaption>${esc(label)}${ph.phase === 1 ? " · phone photo" : ""}${ph.original ? ` · <a class="ph-orig" href="${esc(ph.original)}" target="_blank" rel="noopener">View master</a>` : ""}</figcaption>
       </figure>`;
     }
     return `
@@ -6294,7 +6294,7 @@
     const phList = c.photos || [];
     const roleNote = (r) => {
       const p = phList.find((x) => x.role === r);
-      return p ? `${r} ✓` : `${r} awaiting`;
+      return p ? `${r} ✓${p.phase === 1 ? " (phone photo)" : ""}` : `${r} awaiting`;
     };
     const photoStatus = phList.length
       ? ["obv", "rev"].map(roleNote).join(" · ")
@@ -6349,7 +6349,7 @@
 
     const present = SER_SCHEMA.filter(([k]) => has(c[k]) || (k === "est" && c.est != null));
     const missing = SER_SCHEMA.filter(([k]) => !(has(c[k]) || (k === "est" && c.est != null))).map(([, l]) => l);
-    const p2Roles = [["obv", "Obverse"], ["rev", "Reverse"]].map(([r, lbl]) => ({ r, lbl, got: !!photoOf(c, r) }));
+    const p2Roles = [["obv", "Obverse"], ["rev", "Reverse"]].map(([r, lbl]) => ({ r, lbl, got: (c.photos || []).some((p) => p.role === r && p.url && p.phase === 2) }));
     const p2Got = p2Roles.filter((x) => x.got).length;
     const pct = Math.round((present.length / SER_SCHEMA.length) * 100);
     const completeness = isFlip
@@ -6487,8 +6487,8 @@
           ${p2Field("Provenance", c.provenance)}
           ${p2Field("Source", c.acquired_from || c.acquired)}
           ${p2Field("Weight", c.weight_g != null ? num(c.weight_g, 2) + " g" : (c.weight || ""))}
-          ${p2Field("Obverse photo", photoOf(c, "obv") ? "On file" : "")}
-          ${p2Field("Reverse photo", photoOf(c, "rev") ? "On file" : "")}
+          ${p2Field("Obverse photo", (c.photos || []).some((p) => p.role === "obv" && p.phase === 2) ? "On file" : "")}
+          ${p2Field("Reverse photo", (c.photos || []).some((p) => p.role === "rev" && p.phase === 2) ? "On file" : "")}
         </div>
       </section>` : "";
 

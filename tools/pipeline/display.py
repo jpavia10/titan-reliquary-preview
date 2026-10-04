@@ -162,6 +162,16 @@ def mintage_txt(i):
     if txt and not (i.get("mintage") and txt.strip().lower().startswith("unknown")): return txt
     return f"{i['mintage']:,}" if i.get("mintage") else "unknown"     # a researched number beats an older "unknown" text
 
+def photo_list(col, s):
+    """The specimen's live photos as the app reads them: [{role, url, phase, kind}], Phase 2 first, then by id."""
+    by_id = {p["id"]: p for p in col.get("photos") or []}
+    out = []
+    for pid in s.get("photos") or []:
+        p = by_id.get(pid)
+        if not p or p.get("superseded_by") or (p.get("review") or {}).get("status") in ("rejected", "reshoot"): continue
+        out.append({"id": pid, "role": p["side"], "url": p["path"] + (f"?v={p['sha256'][:8]}" if p.get("sha256") else ""), "phase": p.get("phase"), "kind": p["kind"]})
+    return sorted(out, key=lambda x: (-(x["phase"] or 0), x["id"]))
+
 def specimen_detail(col, s, t):
     iss = issuer_name(col, t); cont = continent_of(col, t); iso = t["country"]
     ser = s.get("ser"); est = s["value"].get("est_usd")
@@ -194,7 +204,7 @@ def specimen_detail(col, s, t):
     n = t["nominal"]; dm = n.get("diameter_mm") if n.get("diameter_mm") is not None else n.get("diameter_max_mm")
     if dm is not None: d["diameter_mm"] = dm
     d["photo_dir"] = f"photos/{cont_code}/{iso}"; d["photo_stem"] = stem
-    d["photos"] = list(s.get("photos") or []); d["has_photo"] = bool(d["photos"])
+    d["photos"] = photo_list(col, s); d["has_photo"] = bool(d["photos"])
     if s.get("story"): d["story"] = s["story"]     # short reader text (schema v3 Phase 1 field); omitted when empty
     for k in ("ruler", "period", "commemorates"):      # Phase 2 context on the type; omitted when empty
         if t.get(k): d[k] = t[k]

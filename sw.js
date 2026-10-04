@@ -130,7 +130,7 @@ self.addEventListener("fetch", (e) => {
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA));
-  } else if (path.includes("/thumbs/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
+  } else if (path.includes("/thumbs/") || path.includes("/photos/p1/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
     e.respondWith(cacheFirst(req, IMG));
   } else if (path.includes("/audio/ambience/")) {
     e.respondWith(cacheFirst(req, AMB));
