@@ -1,0 +1,7 @@
+changes_muse_20261004-1018.jsonl and -1138.jsonl used a made-up format ({"event": "specimen-create", ...}) instead of ChangeEvents.
+Claude re-filed both as changes_claude_20261004-2040.jsonl after reading each photo:
+  Philippines 1997 1 piso -> C279 (Muse named the photo C280: the next free id was C279)
+  Belize 2007 25 cents    -> C280 (Muse named the photo C281), new issuer BZ
+Values set from comparable coins in the collection ($0.50 each), not face value.
+changes_muse_20261004-0620.jsonl: the two "period" events were dropped (Muse put "Commonwealth of The Bahamas" /
+"British Overseas Territory" in type.period, which is an era field); the other 8 events applied unchanged.
