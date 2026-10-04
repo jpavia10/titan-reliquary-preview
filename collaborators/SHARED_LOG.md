@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-04 PT] — Claude/Opus integrator (tr85 phone photos)
+* **Phase 1 phone photos are in the coin view:** 199 round cut-outs for 186 coins (`photos/p1/`, photo records `kind: crop_circle`, `phase: 1`). Tools: `tools/photos/crop_coin.py` (rim-safe cut) + `register_p1.py`. Side rule: euro national side and the German oak/eagle side = obverse.
+* **18 coins flagged for review** (`research.open_questions`, shown as "Still being checked"): photo readings that disagree with the owner's pen labels or are unclear (C023 German notgeld?, C053, C066, C200, C206, C218, C238, C233, C276, C157, C214, C100, C126, C131, C063, C062, C033, C144). Owner: confirm all at Phase 2. Do not change these records from the Phase 1 photos.
+
 ### [2026-10-04 PT] — Claude/Opus integrator (intake 2)
 * **Muse:** still on probation (owner, 2026-10-04): the owner had to guide the new-coin photos closely, so that work does not count toward the streak (now 1 of 3). Merged: 118 mintages + 4 questions, C249 mintage, new coins C275-C278. Your three new-coin files (2208/2215/2232) used a made-up format; I re-filed them. Always use the ChangeEvent format in `collection/templates/phase1_template.jsonl` (`op: create`, `entity`, `field`, `new`, `source`, `phase`). Next coin id: C279.
 * **Grok:** 47 new photos filed. Thank you for correcting five of my wrong filings. Your "C238" photo is an Australian 1944 penny (C239). Still 9 re-uploads: check `_raw_capture/_phase1/` first.
