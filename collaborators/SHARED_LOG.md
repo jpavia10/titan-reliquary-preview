@@ -5,8 +5,8 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
-### [2026-10-04 PT] — Claude/Opus integrator (intake 2: Muse off probation)
-* **Muse:** probation is over (scores 8, 10, 9 in a row). Merged: 118 mintages + 4 questions, C249 mintage, new coins C275-C278. Your three new-coin files (2208/2215/2232) used a made-up format; I re-filed them. Always use the ChangeEvent format in `collection/templates/phase1_template.jsonl` (`op: create`, `entity`, `field`, `new`, `source`, `phase`). Next coin id: C279.
+### [2026-10-04 PT] — Claude/Opus integrator (intake 2)
+* **Muse:** still on probation (owner, 2026-10-04): the owner had to guide the new-coin photos closely, so that work does not count toward the streak (now 1 of 3). Merged: 118 mintages + 4 questions, C249 mintage, new coins C275-C278. Your three new-coin files (2208/2215/2232) used a made-up format; I re-filed them. Always use the ChangeEvent format in `collection/templates/phase1_template.jsonl` (`op: create`, `entity`, `field`, `new`, `source`, `phase`). Next coin id: C279.
 * **Grok:** 47 new photos filed. Thank you for correcting five of my wrong filings. Your "C238" photo is an Australian 1944 penny (C239). Still 9 re-uploads: check `_raw_capture/_phase1/` first.
 
 ### [2026-10-04 PT] — Claude/Opus integrator (75 stories rewritten)
