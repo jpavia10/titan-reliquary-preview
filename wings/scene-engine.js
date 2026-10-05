@@ -11,7 +11,34 @@
    <audio> element, so phones treat it as media playback (lock-screen controls via mediaSession,
    not throttled like a bare AudioContext). Pausing in the background is an option, OFF by default.
    Scheduling: a look-ahead scheduler (Worker-driven tick, 2.5 s ahead on the audio clock) so a
-   throttled 1 s timer never causes gaps. */
+   throttled 1 s timer never causes gaps.
+
+   v4 (ambience upgrade, see notes/agents/ambience-v4.md):
+     - Loops are never looped: a granular scheduler plays overlapping 4-12 s chunks from anywhere in the recording
+       (equal-power 1-3 s crossfades, <= 2 live sources per bed, start regions never reused back to back).
+     - Weather arcs: each bed's level drifts over 3-10 min (storm approaches and recedes, gusts, swells), bounded to
+       0.35x .. +4 dB of the scene's base. Optional per-scene `arc` spec (see ARC notes below); defaults need no tuning.
+     - 3D sound: events and some loop chunks sit in space (PannerNode HRTF, or equal-power / StereoPanner on phones),
+       distance = level + air-absorption low-pass. Wide beds (rain, wind...) stay stereo.
+     - Time of day (local clock, default on): dawn adds birdsong to outdoor scenes, night lowers crowd beds, lifts crickets/owl.
+     - Measured loudness: every decoded buffer gets a K-weighted (BS.1770-style, gated) loudness once; per-bed `norm`
+       brings it to -20 LUFS (clamped), `trim` stays the relative artistic offset.
+     - Master safety: a soft clipper after the compressor keeps the summed output below 0 dBFS.
+
+   API CONTRACT FOR OTHER MODULES (music-engine.js, ui-sounds.js):
+     TitanGen.duck(amountDb, ms)  smoothly lowers ambience + music by amountDb (positive number, e.g. 6) for ms, then
+                                  restores (80 ms attack, 250 ms release). Overlapping calls keep the deepest amount and the
+                                  latest end. UI sounds are NOT ducked. No-op without a context.
+     TitanGen.uiBus()             -> { ctx, input, volume(), wake() } or null if no AudioContext exists yet.
+                                  `input` is a GainNode feeding the master safety limiter AFTER the ambience/music buses, the
+                                  EQ and the compressor, and after the scene master gain, so UI sounds are audible with no scene
+                                  playing and travel the same output route (hidden <audio> via MediaStream = background play).
+                                  Scale your own level (volume() returns the user's master volume 0..1). wake() resumes a
+                                  suspended context (and re-parks it ~4 s after the last wake when no scene plays).
+     TitanGen.musicBus()          -> { ctx, input } (creates the context if needed; call from a user gesture) where `input` is
+                                  the music bus (tape colour + hall reverb, user "music" level, ducked by duck()).
+     Also: setSpatial('off'|'stereo'|'3d'), getSpatial(), setTimeAware(bool), setArcs(bool), loudness(), debugSpeed(n),
+           debugHour(h), debugLog(on), stats(). */
 (() => {
   "use strict";
 
@@ -94,7 +121,7 @@
      Music sits under the ambience: soft pads, a little felt piano, music-box bells, never bright. */
   const SCENES = {
     rainy:   { name: "Rainy archive", icon: "🌧", desc: "Rain on the skylight, far thunder, a slow lo-fi beat.", atmo: "afterhours",
-               beds: { rainWindow: 0.85, thunder: 0.5, library: 0.3 }, pad: 0.5, piano: true, bells: false, beat: true,
+               beds: { rainWindow: 0.85, thunder: 0.5, library: 0.3 }, arc: { period: [300, 480], depth: 0.8 }, pad: 0.5, piano: true, bells: false, beat: true,
                root: "A", mode: "dorian", prog: [0, 3, 5, 4], chordSec: 0, gap: [5, 10], bpm: 68, vol: 0.55 },
     vault:   { name: "Midnight vault", icon: "🔒", desc: "A stone hall at night, a slow clock, a far bowl.", atmo: "nocturne",
                beds: { hall: 0.85, clock: 0.45, bowl: 0.6 }, pad: 0.4, piano: false, bells: true, beat: false,
@@ -103,10 +130,10 @@
                beds: { vinyl: 0.75, rainLight: 0.3 }, pad: 0.45, piano: true, bells: true, beat: true,
                root: "C", mode: "dorian", prog: [1, 4, 0, 5], chordSec: 0, gap: [3, 7], bpm: 76, vol: 0.55 },
     garden:  { name: "Night garden", icon: "🌙", desc: "Crickets, a far owl, a light breeze, slow bells.", atmo: "zen",
-               beds: { crickets: 0.8, frogs: 0.3, owl: 0.7, wind: 0.2 }, pad: 0.35, piano: false, bells: true, beat: false,
+               beds: { crickets: 0.8, frogs: 0.3, owl: 0.7, wind: 0.2 }, arc: { depth: 0.8 }, pad: 0.35, piano: false, bells: true, beat: false,
                root: "G", mode: "pent", prog: [0, 2, 1, 3], chordSec: 15, gap: [7, 13], vol: 0.5 },
     storm:   { name: "Thunderstorm", icon: "⛈", desc: "Heavy rain and rolling thunder, no music.", atmo: "odyssey",
-               beds: { rainHeavy: 0.9, thunder: 1, windTrees: 0.35 }, pad: 0, piano: false, bells: false, beat: false,
+               beds: { rainHeavy: 0.9, thunder: 1, windTrees: 0.35 }, arc: { period: [360, 540] }, pad: 0, piano: false, bells: false, beat: false,
                root: "D", mode: "minor", prog: [0], chordSec: 12, gap: [8, 12], vol: 0.55 },
     "midnight-gallery": { world: true, name: "Midnight Gallery", icon: "🏛", desc: "Room tone, far rain on the skylight, a slow clock.", atmo: "afterhours",
                beds: { roomTone: 0.55, rainWindow: 0.25, clock: 0.4 }, pad: 0.45, piano: true, bells: false, beat: false,
@@ -190,8 +217,13 @@
     ctx: null, groups: [], playing: false, paused: false, mix: null, name: "",
     vol: 0.6, musLevel: 0.9, ambLevel: 0.9, bass: 0, mid: 0, treble: 0, duck: false,
     bgPause: false, worker: null, timer: 0, msd: null, el: null, via: "none", killedSources: 0,
-    bufs: {}, sweepAt: 0, decoded: 0, released: 0, fallbacks: 0
+    bufs: {}, sweepAt: 0, decoded: 0, released: 0, fallbacks: 0,
+    spatial: "3d", timeAware: true, arcs: true, speed: 1, hour: null, hrtf: 0, chunks: 0, maxBed: 0, log: null, duckDb: 0, duckEnd: 0
   };
+  /* spatial default: 3D on desktop, plain stereo on touch devices (HRTF convolution costs CPU) */
+  try { if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) E.spatial = "stereo"; } catch (e) { /* ignore */ }
+  const LOW_END = (navigator.hardwareConcurrency || 4) <= 2;
+  const HRTF_CAP = 5;               // live HRTF panners at once; more fall back to equal-power
 
   function emit(type) { try { window.dispatchEvent(new CustomEvent("titan:gen", { detail: { type, playing: E.playing, paused: E.paused, name: E.name } })); } catch (e) { /* ignore */ } }
 
@@ -229,6 +261,12 @@
       }
     }
     return buf;
+  }
+  /* identity up to 0.8, then a smooth tanh knee that tops out at 0.99: the summed output can never clip */
+  function safetyCurve() {
+    const n = 4097, c = new Float32Array(n);
+    for (let i = 0; i < n; i++) { const x = i / (n - 1) * 2 - 1, a = Math.abs(x); c[i] = Math.sign(x) * (a <= 0.8 ? a : 0.8 + 0.19 * Math.tanh((a - 0.8) / 0.19)); }
+    return c;
   }
   function tapeCurve(k) {
     const n = 1024, c = new Float32Array(n), th = Math.tanh(k);
@@ -269,9 +307,14 @@
     const comp = ctx.createDynamicsCompressor();
     comp.threshold.value = -16; comp.knee.value = 10; comp.ratio.value = 10; comp.attack.value = 0.006; comp.release.value = 0.3;
     const master = ctx.createGain(); master.gain.value = 0;
-    const an = ctx.createAnalyser(); an.fftSize = 512;
-    bus.connect(hp); hp.connect(lo); lo.connect(mid); mid.connect(hi); hi.connect(comp); comp.connect(master); master.connect(an);
-    E.bus = bus; E.eq = { lo, mid, hi }; E.master = master; E.an = an; E.anBuf = new Float32Array(an.fftSize);
+    // v4: duck stage after the summing bus; soft safety clipper + UI input after the scene master gain; `out` is the final node.
+    const duckG = ctx.createGain();
+    const safety = ctx.createWaveShaper(); safety.curve = safetyCurve();
+    const out = ctx.createGain(), uiIn = ctx.createGain();
+    const an = ctx.createAnalyser(); an.fftSize = 2048;
+    bus.connect(duckG); duckG.connect(hp); hp.connect(lo); lo.connect(mid); mid.connect(hi); hi.connect(comp); comp.connect(master);
+    master.connect(safety); uiIn.connect(safety); safety.connect(out); out.connect(an);
+    E.bus = bus; E.duckG = duckG; E.eq = { lo, mid, hi }; E.master = master; E.safety = safety; E.out = out; E.uiIn = uiIn; E.an = an; E.anBuf = new Float32Array(an.fftSize);
     // Route to a hidden <audio> via MediaStream so mobile OSes keep it alive in the background.
     let routed = false;
     try {
@@ -283,7 +326,7 @@
         document.body.appendChild(el);
         const pr = el.play();
         if (pr && pr.then) pr.then(() => { E.via = "media"; }).catch(() => { fallbackDirect(); });
-        master.connect(msd);
+        out.connect(msd);
         E.msd = msd; E.el = el; routed = true; E.via = "media";
       }
     } catch (e) { routed = false; }
@@ -295,10 +338,10 @@
   }
   function fallbackDirect() {
     if (!E.ctx || E.via === "direct") return;
-    try { E.master.disconnect(E.msd); } catch (e) { /* ignore */ }
+    try { E.out.disconnect(E.msd); } catch (e) { /* ignore */ }
     try { if (E.el) { E.el.pause(); E.el.srcObject = null; E.el.remove(); } } catch (e) { /* ignore */ }
     E.el = null; E.msd = null;
-    try { E.master.connect(E.ctx.destination); } catch (e) { /* ignore */ }
+    try { E.out.connect(E.ctx.destination); } catch (e) { /* ignore */ }
     E.via = "direct";
   }
 
@@ -343,10 +386,14 @@
   /* ---------- group (one scene's sources) ---------- */
   function mkGroup() {
     const ctx = E.ctx;
-    const g = { dead: false, srcs: [], tickers: [], rel: [], lv: {}, fell: {}, born: ctx.currentTime, fadeSec: 0, bed: ctx.createGain(), mus: ctx.createGain(), bedOut: ctx.createGain(), musOut: ctx.createGain(), t0: ctx.currentTime + 0.05 };
+    const g = { dead: false, srcs: [], tickers: [], rel: [], lv: {}, beds: {}, fell: {}, born: ctx.currentTime, fadeSec: 0, bed: ctx.createGain(), mus: ctx.createGain(), bedOut: ctx.createGain(), musOut: ctx.createGain(), t0: ctx.currentTime + 0.05 };
     g.bed.connect(g.bedOut); g.mus.connect(g.musOut); g.bedOut.connect(E.ambBus); g.musOut.connect(E.musBus);
     g.bedOut.gain.value = 0; g.musOut.gain.value = 0;
-    g.src = (s) => { g.srcs.push(s); s.onended = () => { const i = g.srcs.indexOf(s); if (i >= 0) g.srcs.splice(i, 1); try { s.disconnect(); } catch (e) { /* ignore */ } }; return s; };
+    g.src = (s, extra) => {
+      g.srcs.push(s); if (extra) s._x = extra;
+      s.onended = () => { const i = g.srcs.indexOf(s); if (i >= 0) g.srcs.splice(i, 1); try { s.disconnect(); } catch (e) { /* ignore */ } if (s._x) freeNodes(s._x); if (s._done) s._done(); };
+      return s;
+    };
     /* equal-power crossfade (sin in / cos out) so two scenes never dip in the middle; linear ramp as a fallback */
     g.fade = (to, sec) => {
       const t = ctx.currentTime; sec = Math.max(0.05, sec); g.fadeSec = sec; g.fadeAt = t;
@@ -362,7 +409,7 @@
     };
     g.kill = () => {
       if (g.dead) return; g.dead = true; g.tickers.length = 0;
-      for (const s of g.srcs.slice()) { try { s.onended = null; s.stop(); } catch (e) { /* ignore */ } try { s.disconnect(); } catch (e) { /* ignore */ } E.killedSources++; }
+      for (const s of g.srcs.slice()) { try { s.onended = null; s.stop(); } catch (e) { /* ignore */ } try { s.disconnect(); } catch (e) { /* ignore */ } if (s._x) freeNodes(s._x); E.killedSources++; }
       g.srcs.length = 0;
       for (const fn of g.rel.splice(0)) { try { fn(); } catch (e) { /* ignore */ } }
       for (const n of [g.bed, g.mus, g.bedOut, g.musOut]) { try { n.disconnect(); } catch (e) { /* ignore */ } }
@@ -487,7 +534,7 @@
           if (!res.ok) continue;
           const ab = await res.arrayBuffer();
           const buf = await new Promise((ok, no) => { const q = ctx.decodeAudioData(ab, ok, no); if (q && q.catch) q.catch(no); });
-          me.buf = buf; E.decoded++; return buf;
+          me.buf = buf; E.decoded++; try { me.lufs = measureLufs(buf); } catch (e) { me.lufs = null; } me.norm = normFor(id, me.lufs); return buf;
         } catch (e) { /* try the other codec */ }
       }
       if (E.bufs[id] === me) delete E.bufs[id];      // allow a retry later (a network blip must not stick)
@@ -531,44 +578,313 @@
     if (!p || !ctx.createStereoPanner) return node;
     const sp = ctx.createStereoPanner(); sp.pan.value = Math.max(-1, Math.min(1, p)); node.connect(sp); return sp;
   }
+  /* ---------- v4: measured loudness (BS.1770-style K-weighting, gated) ---------- */
+  const TARGET_LUFS = -20;
+  const SPARSE = { clock: 1, drips: 1, chimes: 1, keys: 1, vinyl: 1, telemetry: 1, thunder: 1, owl: 1, pages: 1, bowl: 1, creak: 1, clank: 1, whale: 1 };
+  function kCoefs(fs) {
+    const f1 = 1681.974450955533, G = 3.999843853973347, Q1 = 0.7071752369554196;
+    let K = Math.tan(Math.PI * f1 / fs); const Vh = Math.pow(10, G / 20), Vb = Math.pow(Vh, 0.4996667741545416);
+    let a0 = 1 + K / Q1 + K * K;
+    const s1 = { b0: (Vh + Vb * K / Q1 + K * K) / a0, b1: 2 * (K * K - Vh) / a0, b2: (Vh - Vb * K / Q1 + K * K) / a0, a1: 2 * (K * K - 1) / a0, a2: (1 - K / Q1 + K * K) / a0 };
+    const f2 = 38.13547087602444, Q2 = 0.5003270373238773; K = Math.tan(Math.PI * f2 / fs); a0 = 1 + K / Q2 + K * K;
+    const s2 = { b0: 1, b1: -2, b2: 1, a1: 2 * (K * K - 1) / a0, a2: (1 - K / Q2 + K * K) / a0 };
+    return [s1, s2];
+  }
+  /* integrated loudness (LUFS) of a decoded buffer: whole buffer when <= 24 s, else 8 windows of 3 s spread across it. null if silent. */
+  function measureLufs(buf) {
+    const fs = buf.sampleRate, n = buf.length, blk = Math.max(256, Math.floor(0.4 * fs)), cs = kCoefs(fs), wins = [];
+    if (n <= 24 * fs) wins.push([0, n]); else { const w = 3 * fs; for (let i = 0; i < 8; i++) wins.push([Math.floor((n - w) * i / 7), w]); }
+    const en = [];
+    for (const [w0, wl] of wins) {
+      const nb = Math.floor(wl / blk); if (nb < 1) continue;
+      const acc = new Float64Array(nb);
+      for (let c = 0; c < buf.numberOfChannels; c++) {
+        const d = buf.getChannelData(c); let x1 = 0, x2 = 0, y1 = 0, y2 = 0, u1 = 0, u2 = 0, v1 = 0, v2 = 0;
+        for (let b = 0; b < nb; b++) {
+          let sum = 0;
+          for (let i = w0 + b * blk, e = i + blk; i < e; i++) {
+            const x = d[i];
+            const y = cs[0].b0 * x + cs[0].b1 * x1 + cs[0].b2 * x2 - cs[0].a1 * y1 - cs[0].a2 * y2; x2 = x1; x1 = x; y2 = y1; y1 = y;
+            const v = cs[1].b0 * y + cs[1].b1 * u1 + cs[1].b2 * u2 - cs[1].a1 * v1 - cs[1].a2 * v2; u2 = u1; u1 = y; v2 = v1; v1 = v;
+            sum += v * v;
+          }
+          acc[b] += sum / blk;
+        }
+      }
+      for (let b = 0; b < nb; b++) en.push(acc[b]);
+    }
+    const lu = (e) => -0.691 + 10 * Math.log10(e);
+    const a = en.filter((e) => e > 0 && lu(e) > -70); if (!a.length) return null;
+    const m1 = a.reduce((x, y) => x + y, 0) / a.length, gate = lu(m1) - 10;
+    const b = a.filter((e) => lu(e) > gate); if (!b.length) return null;
+    return lu(b.reduce((x, y) => x + y, 0) / b.length);
+  }
+  function normFor(id, lufs) {
+    if (lufs == null || !isFinite(lufs)) return 1;
+    const hi = SPARSE[id] ? 3 : 4.5, lo = SPARSE[id] ? -3 : -6;     // sparse/impulsive beds measure low by nature: correct them less
+    return fromDb(Math.max(lo, Math.min(hi, TARGET_LUFS - lufs)));
+  }
+
+  /* ---------- v4: 3D placement ---------- */
+  /* Position convention: listener at the origin facing -z; az in degrees (0 = front, + = right, 180 = behind), d in metres, y up. */
+  const xyz = (p) => { const a = p.az * Math.PI / 180; return [p.d * Math.sin(a), p.y || 0, -p.d * Math.cos(a)]; };
+  const airHz = (d) => Math.max(1800, 18000 / (1 + 0.3 * Math.max(0, d - 1)));      // air absorption: far = duller
+  const dGain = (d) => 2 / (2 + 0.35 * Math.max(0, d - 2));                            // same law as the panner (inverse, ref 2, rolloff 0.35)
+  const lerp = (a, b, k) => a + (b - a) * k;
+  const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+  function freeNodes(nodes) {
+    if (!nodes || nodes.freed) return; nodes.freed = true;
+    for (const n of nodes) { try { n.disconnect(); } catch (e) { /* ignore */ } }
+    if (nodes.hr) E.hrtf = Math.max(0, E.hrtf - 1);
+  }
+  /* inp -> low-pass (air) -> panner -> makeup -> out. pts = [A, (M,) B] reached at t, t+dur/2, t+dur. Returns the created nodes.
+     'off': straight to out. 'stereo': StereoPanner + distance gain (cheap). '3d': PannerNode, HRTF while under HRTF_CAP. */
+  function place(inp, out, t, dur, pts, mk) {
+    const ctx = E.ctx, mode = E.spatial, nodes = [];
+    if (mode === "off" || !pts || !pts.length) { inp.connect(out); return nodes; }
+    const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.Q.value = 0.5;
+    const post = ctx.createGain(); post.gain.value = mk || 1;
+    nodes.push(lp, post); inp.connect(lp);
+    const at = (i) => t + (pts.length < 2 ? 0 : dur * i / (pts.length - 1));
+    lp.frequency.value = airHz(pts[0].d);
+    pts.forEach((p, i) => { if (i) lp.frequency.linearRampToValueAtTime(airHz(p.d), at(i)); });
+    if (mode === "3d") {
+      const hr = !LOW_END && E.hrtf < HRTF_CAP, pn = ctx.createPanner();
+      pn.panningModel = hr ? "HRTF" : "equalpower"; if (hr) { E.hrtf++; nodes.hr = true; }
+      pn.distanceModel = "inverse"; pn.refDistance = 2; pn.rolloffFactor = 0.35; pn.maxDistance = 10000;
+      const P = pts.map(xyz);
+      if (pn.positionX) {
+        [pn.positionX, pn.positionY, pn.positionZ].forEach((prm, k) => { prm.value = P[0][k]; P.forEach((q, i) => { if (i) prm.linearRampToValueAtTime(q[k], at(i)); }); });
+      } else if (pn.setPosition) pn.setPosition(P[0][0], P[0][1], P[0][2]);
+      lp.connect(pn); pn.connect(post); nodes.push(pn);
+    } else if (ctx.createStereoPanner) {
+      const sp = ctx.createStereoPanner(), dg = ctx.createGain(), pan = (p) => clamp(Math.sin(p.az * Math.PI / 180) * 0.9, -1, 1);
+      sp.pan.value = pan(pts[0]); dg.gain.value = dGain(pts[0].d);
+      pts.forEach((p, i) => { if (i) { sp.pan.linearRampToValueAtTime(pan(p), at(i)); dg.gain.linearRampToValueAtTime(dGain(p.d), at(i)); } });
+      lp.connect(dg); dg.connect(sp); sp.connect(post); nodes.push(dg, sp);
+    } else { const dg = ctx.createGain(); dg.gain.value = dGain(pts[0].d); lp.connect(dg); dg.connect(post); nodes.push(dg); }
+    post.connect(out);
+    return nodes;
+  }
+
+  /* Where each event sits. Each returns { pts, mk } (mk = makeup for far sounds). c.storm = 0..1 storm intensity or null. */
+  const ESPAT = {
+    thunder: (c) => { const d = c.storm == null ? 16 : lerp(26, 9, c.storm), a0 = rnd(-80, 80), a1 = -a0 * rnd(0.4, 0.9); return { pts: [{ az: a0, d: d * rnd(1.05, 1.25), y: 2 }, { az: a1, d: d * rnd(0.8, 0.95), y: 2.5 }], mk: 2.2 }; },
+    owl: () => ({ pts: [{ az: rnd(-110, 110), d: rnd(5, 12), y: rnd(3, 6) }], mk: 1.5 }),
+    pages: () => ({ pts: [{ az: rnd(-45, 45), d: rnd(0.8, 1.6), y: -0.4 }], mk: 1 }),
+    bowl: () => ({ pts: [{ az: rnd(-30, 30), d: rnd(2, 3.5), y: 0 }], mk: 1 }),
+    creak: () => ({ pts: [{ az: rnd(-150, 150), d: rnd(2, 5), y: rnd(0, 2.5) }], mk: 1.1 }),
+    clank: () => ({ pts: [{ az: (Math.random() < 0.5 ? -1 : 1) * rnd(100, 170), d: rnd(7, 14), y: rnd(0, 2) }], mk: 1.5 }),
+    whale: () => { const a0 = rnd(-100, 100); return { pts: [{ az: a0, d: 20, y: -3 }, { az: a0 + rnd(-35, 35), d: 28, y: -3 }], mk: 2.4 }; }
+  };
+  /* Loop beds that become point sources (everything else stays stereo-wide): fly = crosses overhead each chunk, spot = a new nearby spot per chunk,
+     fixed = one place for the whole scene, pass = a train pass left to right with a Doppler-like pitch drop. */
+  const LSPAT = {
+    birds: { k: "fly", d: [8, 16], y: [3, 7] }, gulls: { k: "fly", d: [10, 20], y: [5, 9] },
+    chimes: { k: "spot", d: [3, 6], y: [1, 3] }, drips: { k: "spot", d: [2, 4], y: [-1, 0.5] },
+    clock: { k: "fixed", az: 35, d: 2.5, y: 0 }, keys: { k: "fixed", az: -25, d: 1.2, y: -0.4 }, train: { k: "pass" }
+  };
+  const TEXTURE = { rainLight: 1, rainWindow: 1, rainHeavy: 1, rainUmbrella: 1, leaves: 1, wind: 1, windTrees: 1, windHowl: 1, river: 1, waves: 1, waterfall: 1, brown: 1, pink: 1, underwater: 1 };   // +-2.5 % rate variation allowed
+  const TIGHT = { clock: 1, keys: 1, vinyl: 1, drips: 1, train: 1 };   // rhythmic/impulsive: 40-120 ms crossfades so two tick streams are never heard together
+
+  /* ---------- v4: weather arcs + time of day ---------- */
+  /* Per bed kind: multiplier moves between lo..hi (1 = the scene's base level) with a slow period. Whole range is clamped to 0.35x .. +4 dB.
+     Scene override: SCENES[id].arc = { depth: 0..1.5 (scale the swings), period: [min,max] s (storm cycle), storm: true|false, off: true,
+       beds: { bedId: { lo, hi, per: [min,max] } } }. A scene with a thunder bed (or arc.storm) gets a storm that builds and recedes. */
+  const ARCK = {
+    rain: { lo: 0.6, hi: 1.4, per: [240, 600] }, wind: { lo: 0.65, hi: 1.35, per: [90, 220], gust: 0.25 }, water: { lo: 0.75, hi: 1.3, per: [180, 420] },
+    crowd: { lo: 0.6, hi: 1.35, per: [120, 300] }, fire: { lo: 0.85, hi: 1.2, per: [150, 400] }, animal: { lo: 0.6, hi: 1.3, per: [100, 250] },
+    still: { lo: 0.85, hi: 1.15, per: [200, 500] }
+  };
+  const ARC_OF = {}; (() => {
+    const m = { rain: ["rainLight", "rainWindow", "rainHeavy", "rainUmbrella", "leaves"], wind: ["wind", "windTrees", "windHowl"], water: ["river", "waves", "waterfall", "underwater"],
+      crowd: ["crowd", "cafe", "club", "city"], fire: ["fire"], animal: ["crickets", "frogs", "birds", "gulls", "village"] };
+    for (const k of Object.keys(m)) m[k].forEach((id) => { ARC_OF[id] = k; });
+  })();
+  const OUTDOOR = { rainLight: 1, rainWindow: 1, rainHeavy: 1, rainUmbrella: 1, leaves: 1, wind: 1, windTrees: 1, windHowl: 1, waves: 1, river: 1, waterfall: 1, crickets: 1, frogs: 1, gulls: 1, village: 1 };
+  const CROWDISH = { crowd: 1, cafe: 1, club: 1, city: 1 }, NIGHTLIFE = { crickets: 1, frogs: 1, owl: 1, village: 1 }, DAYLIFE = { birds: 1, gulls: 1 };
+  const hourNow = () => { if (E.hour != null) return E.hour; const d = new Date(); return d.getHours() + d.getMinutes() / 60; };
+  const nightness = (h) => (h >= 22.5 || h < 4.5) ? 1 : h >= 21.5 ? h - 21.5 : h < 5.5 ? 5.5 - h : 0;
+  const dawnness = (h) => (h < 5 || h >= 8) ? 0 : Math.min(1, (h - 5) / 0.5, 8 - h);
+  function todMul(id) {
+    if (!E.timeAware) return 1;
+    const h = hourNow(), n = nightness(h), d = dawnness(h);
+    if (CROWDISH[id]) return 1 - 0.45 * n;
+    if (NIGHTLIFE[id]) return 1 + 0.4 * n;
+    if (DAYLIFE[id]) return 1 - 0.5 * n + (id === "birds" ? 0.3 * d : 0);
+    return 1;
+  }
+  const TWO_PI = Math.PI * 2;
+  function mkArc(g, mix, beds) {
+    const spec = (mix && mix.arc) || {}, depth = spec.depth == null ? 1 : spec.depth, P = spec.period || [360, 540];
+    const a = { spec, depth, off: spec.off === true, bed: {}, hasStorm: (beds.thunder > 0 || spec.storm === true) && spec.storm !== false };
+    a.P = Array.isArray(P) ? rnd(P[0], P[1]) : P; a.phi = rnd(0.05, 0.3) * a.P;              // starts calm, builds
+    a.storm = (tau) => { const x = Math.sin(Math.PI * (tau + a.phi) / a.P); return Math.pow(x * x, 1.2); };
+    a.p = (id) => {
+      if (a.bed[id]) return a.bed[id];
+      const kind = REC[id].kind === "event" ? "still" : (ARC_OF[id] || "still"), k = Object.assign({}, ARCK[kind], spec.beds && spec.beds[id]);
+      return (a.bed[id] = { kind, k, per: rnd(k.per[0], k.per[1]), ph: rnd(0, TWO_PI), gp: rnd(25, 50), gph: rnd(0, TWO_PI) });
+    };
+    a.value = (id, tau) => {
+      if (!E.arcs || a.off) return 1;
+      const b = a.p(id), k = b.k;
+      if (REC[id].kind === "event") {
+        if (id === "thunder" && a.hasStorm) return clamp(1 + (0.55 + 0.95 * a.storm(tau) - 1) * depth, 0.35, 1.5);
+        return clamp(1 + (lerp(k.lo, k.hi, 0.5 + 0.5 * Math.sin(TWO_PI * tau / b.per + b.ph)) - 1) * depth, 0.35, 1.585);
+      }
+      let w = 0.5 + 0.5 * Math.sin(TWO_PI * tau / b.per + b.ph);
+      if (a.hasStorm && (b.kind === "rain" || b.kind === "wind")) w = Math.min(1, 0.1 + 0.82 * a.storm(tau) + 0.08 * (0.5 + 0.5 * Math.sin(TWO_PI * tau / 53 + b.ph)));
+      let m = lerp(k.lo, k.hi, w);
+      if (k.gust) m += k.gust * Math.pow(Math.max(0, Math.sin(TWO_PI * tau / b.gp + b.gph)), 4);      // wind gusts
+      return clamp(1 + (m - 1) * depth, 0.35, 1.585);
+    };
+    a.evRate = (id, tau) => {
+      let r = 1;
+      if (E.arcs && !a.off) {
+        if (id === "thunder" && a.hasStorm) r = 0.6 + 1.3 * a.storm(tau);
+        else { const b = a.p(id); r = 0.75 + 0.5 * (0.5 + 0.5 * Math.sin(TWO_PI * tau / b.per + b.ph)); }
+      }
+      if (E.timeAware && id === "owl") r *= 1 + 0.6 * nightness(hourNow());
+      return r;
+    };
+    a.stormAt = (tau) => (a.hasStorm && E.arcs && !a.off ? a.storm(tau) : null);
+    return a;
+  }
+  /* one ticker per group: ramps every bed's arc gain 1.5 s ahead of the audio clock (linear ramps, never a step) */
+  function arcTicker(g) {
+    const ctx = E.ctx, STEP = 1.5; let at = ctx.currentTime;
+    const val = (id, tau) => clamp(g.arc.value(id, tau) * todMul(id), 0.25, 1.585);
+    for (const id of Object.keys(g.beds)) { const b = g.beds[id], v0 = val(id, g.tau(at)); b.arcG.gain.value = v0; b.arcLast = v0; }
+    g.tickers.push((t0, t1) => {
+      if (at < t0 - 3) at = t0;
+      while (at < t1) {
+        const te = at + STEP, tau = g.tau(te);
+        for (const id of Object.keys(g.beds)) {
+          const b = g.beds[id], v = val(id, tau);
+          b.arcG.gain.setValueAtTime(b.arcLast, at); b.arcG.gain.linearRampToValueAtTime(v, te); b.arcLast = v;
+        }
+        at = te;
+      }
+    });
+  }
+
+  /* ---------- recorded beds ---------- */
+  function mkBed(g, id, L) {
+    const R = REC[id], lvl = g.gain(0), arcG = g.gain(1), mix = g.gain(1);
+    mix.connect(arcG); arcG.connect(lvl); lvl.connect(g.bed);
+    const o = g.lv[id] = { param: lvl.gain, L, trim: R.trim, want: L * R.trim };
+    return (g.beds[id] = { id, R, lvl, arcG, mix, o, live: 0, arcLast: 1 });
+  }
+  const SIN_C = new Float32Array(48), COS_C = new Float32Array(48);
+  for (let i = 0; i < 48; i++) { const x = Math.PI / 2 * i / 47; SIN_C[i] = Math.sin(x); COS_C[i] = Math.cos(x); }
+  /* choose where in the recording the next chunk starts: best of 12 candidates by distance (circular) from the last two starts;
+     never close to the previous one (so the same region is not heard twice in a row) */
+  function pickStart(st, dur, span) {
+    const need1 = Math.min(span, dur * 0.3), need2 = Math.min(span * 0.5, dur * 0.15), r = st.recent, l1 = r[r.length - 1], l2 = r[r.length - 2];
+    const cd = (a, b) => { const d = Math.abs(a - b); return Math.min(d, dur - d); };
+    let best = Math.random() * dur, bs = -1;
+    for (let i = 0; i < 12; i++) {
+      const c = Math.random() * dur; let sc = 1e9;
+      if (l1 != null) sc = Math.min(sc, cd(c, l1) / need1);
+      if (l2 != null) sc = Math.min(sc, cd(c, l2) / need2);
+      if (sc > bs) { bs = sc; best = c; }
+      if (sc >= 1.5) break;
+    }
+    if (l1 != null && cd(best, l1) < Math.min(need1, 1.5)) best = (l1 + dur * rnd(0.35, 0.65)) % dur;
+    r.push(best); if (r.length > 3) r.shift();
+    return best;
+  }
+  /* Granular bed: overlapping chunks, equal-power crossfades. Chunk n+1 starts xfOut(n) before chunk n ends, and len >= xfIn + xfOut + 0.5,
+     so at most two sources per bed are ever sounding (3 counting one scheduled in the look-ahead). */
+  function grain(g, bed, buf) {
+    const ctx = E.ctx, id = bed.id, R = bed.R, dur = buf.duration, mono = buf.numberOfChannels === 1, P = LSPAT[id];
+    const tex = !!TEXTURE[id], tight = !!TIGHT[id];
+    const st = bed.gr = { next: ctx.currentTime + 0.03, xfOut: 0.25, recent: [], n: 0, flip: Math.random() < 0.5 };
+    const fixedPos = P && P.k === "fixed" ? [{ az: P.az, d: P.d, y: P.y }] : null;
+    g.tickers.push((t0, t1) => {
+      if (g.dead) return;
+      if (st.next < t0) { st.next = t0; st.xfOut = 0.25; }
+      while (st.next < t1) {
+        const T = Math.max(st.next, ctx.currentTime + 0.02), xfIn = st.n ? st.xfOut : 0.25, pass = P && P.k === "pass";
+        const xfOut = pass ? 1.5 : tight ? rnd(0.04, 0.12) : rnd(1, 3);
+        let len = pass ? rnd(12, 18) : tight ? rnd(8, 16) : rnd(4, 12);
+        len = Math.max(Math.min(len, Math.max(3, dur * 0.9)), xfIn + xfOut + 0.5);
+        const rate = tex ? rnd(0.975, 1.025) : 1, off = pickStart(st, dur, len * rate);
+        const s = ctx.createBufferSource(); s.buffer = buf; s.loop = true; s.playbackRate.value = rate;   // loop=true only so a chunk may run past the (seamless) file end
+        const env = ctx.createGain(); env.gain.value = 0;
+        try { env.gain.setValueCurveAtTime(SIN_C, T, xfIn); env.gain.setValueAtTime(1, T + xfIn); env.gain.setValueCurveAtTime(COS_C, T + len - xfOut, xfOut); }
+        catch (e) { env.gain.cancelScheduledValues(0); env.gain.setValueAtTime(0, T); env.gain.linearRampToValueAtTime(1, T + xfIn); env.gain.setValueAtTime(1, T + len - xfOut); env.gain.linearRampToValueAtTime(0, T + len); }
+        s.connect(env);
+        let nodes;
+        if (P && E.spatial !== "off") {
+          let pts, mk = 1;
+          if (P.k === "fly") { const a0 = (Math.random() < 0.5 ? -1 : 1) * rnd(55, 85), d = rnd(P.d[0], P.d[1]), y = rnd(P.y[0], P.y[1]); pts = [{ az: a0, d, y }, { az: -a0 * rnd(0.6, 1), d: d * rnd(0.8, 1.2), y: y + rnd(-1, 1) }]; mk = 1.6; }
+          else if (P.k === "spot") pts = [{ az: rnd(-150, 150), d: rnd(P.d[0], P.d[1]), y: rnd(P.y[0], P.y[1]) }];
+          else if (P.k === "fixed") pts = fixedPos;
+          else { const sgn = Math.random() < 0.5 ? -1 : 1; pts = [{ az: -80 * sgn, d: 18, y: 0.5 }, { az: 0, d: 5, y: 0.5 }, { az: 80 * sgn, d: 18, y: 0.5 }]; mk = 2; }
+          nodes = place(env, bed.mix, T, len, pts, mk); nodes.push(env);
+          if (pass) { s.playbackRate.setValueAtTime(1.04, T); s.playbackRate.linearRampToValueAtTime(1.04, T + len * 0.42); s.playbackRate.linearRampToValueAtTime(0.955, T + len * 0.58); }
+        } else {
+          nodes = [env];
+          let out = env;
+          const p = (R.pan || 0) + (mono && !P ? ((st.flip = !st.flip) ? 0.35 : -0.35) : 0);      // a mono wide bed is spread by alternating chunks left/right
+          if (p && ctx.createStereoPanner) { const sp = ctx.createStereoPanner(); sp.pan.value = clamp(p, -1, 1); env.connect(sp); nodes.push(sp); out = sp; }
+          out.connect(bed.mix);
+        }
+        g.src(s, nodes); bed.live++; E.chunks++; if (bed.live > E.maxBed) E.maxBed = bed.live;
+        s._done = () => { bed.live--; };
+        s.start(T, off); s.stop(T + len + 0.05);
+        if (E.log) E.log.push({ t: T, bed: id, start: off, len, dur, rate, n: st.n });
+        st.n++; st.xfOut = xfOut;
+        st.next = pass ? T + len + rnd(4, 12) : T + len - xfOut;
+      }
+    });
+  }
   function recLoop(g, id, L) {
-    const R = REC[id], ctx = E.ctx, pr = loadBuf(id);
+    const ctx = E.ctx, pr = loadBuf(id);
     holdBuf(g, id);
-    const lvl = g.gain(0); lvl.connect(g.bed);
-    const rec = g.lv[id] = { param: lvl.gain, trim: R.trim, want: L * R.trim };
+    const bed = mkBed(g, id, L);
     pr.then((buf) => {
       if (g.dead) return;
       if (!buf) { fallback(g, id, L); return; }
-      const dur = buf.duration, voices = dur < 32 ? 2 : 1, o0 = rnd(0, dur);
-      for (let v = 0; v < voices; v++) {                   // short loops run as two voices half a loop apart, panned apart
-        const s = g.src(ctx.createBufferSource()); s.buffer = buf; s.loop = true;
-        const bg = ctx.createGain(), vg = g.gain(voices === 2 ? 0.72 : 1);
-        s.connect(bg);
-        panned(ctx, bg, (R.pan || 0) + (voices === 2 ? (v ? 0.35 : -0.35) : 0)).connect(vg); vg.connect(lvl);
-        s.start(0, (o0 + v * dur / 2) % dur);
-        breathe(g, bg.gain, rnd(2, 3), [20, 60]);
-      }
+      const r = E.bufs[id], o = bed.o;
+      o.trim = bed.R.trim * ((r && r.norm) || 1); o.want = o.L * o.trim;
+      grain(g, bed, buf);
       const t = ctx.currentTime;
-      lvl.gain.cancelScheduledValues(t); lvl.gain.setValueAtTime(0, t); lvl.gain.linearRampToValueAtTime(rec.want, t + 1.2);
+      o.param.cancelScheduledValues(t); o.param.setValueAtTime(0, t); o.param.linearRampToValueAtTime(o.want, t + 1.2);
     });
   }
   function recEvent(g, id, L) {
     const R = REC[id], ctx = E.ctx, pr = loadBuf(id);
     holdBuf(g, id);
-    const lvl = g.gain(L * R.trim); lvl.connect(g.bed);
-    g.lv[id] = { param: lvl.gain, trim: R.trim, want: L * R.trim };
-    let buf = null;
-    pr.then((b) => { if (g.dead) return; if (b) buf = b; else fallback(g, id, L); });
-    g.every(rnd(R.first[0], R.first[1]), () => rnd(R.every[0], R.every[1]), (t) => {
+    const bed = mkBed(g, id, L), o = bed.o;
+    o.param.value = o.want;
+    let buf = null; const recentSeg = [];
+    pr.then((b) => {
+      if (g.dead) return;
+      if (b) { buf = b; const r = E.bufs[id]; o.trim = R.trim * ((r && r.norm) || 1); o.want = o.L * o.trim; o.param.cancelScheduledValues(ctx.currentTime); o.param.setTargetAtTime(o.want, ctx.currentTime, 0.1); }
+      else fallback(g, id, L);
+    });
+    const rate = (t) => g.arc.evRate(id, g.tau(t)) * E.speed;
+    g.every(rnd(R.first[0], R.first[1]) / E.speed, () => rnd(R.every[0], R.every[1]) / rate(ctx.currentTime + 1), (t) => {
       if (!buf || g.dead) return;
-      const sg = pick(R.segs), s = g.src(ctx.createBufferSource()), a = ctx.createGain();
+      // avoid replaying the same segment back to back (or the last two when there are many)
+      const ids = R.segs.map((_, i) => i), keep = Math.min(2, R.segs.length - 1), cand = ids.filter((i) => recentSeg.indexOf(i) < 0 || keep === 0);
+      const si = pick(cand.length ? cand : ids); recentSeg.push(si); if (recentSeg.length > keep) recentSeg.shift();
+      const sg = R.segs[si], s = ctx.createBufferSource(), a = ctx.createGain(), sp = ESPAT[id];
       s.buffer = buf;
       a.gain.setValueAtTime(0.0001, t); a.gain.linearRampToValueAtTime(rnd(0.75, 1), t + 0.04);     // the file itself carries the fade-out
-      s.connect(a); panned(ctx, a, rnd(-0.6, 0.6)).connect(lvl);
+      s.connect(a);
+      const tau = g.tau(t), storm = g.arc.stormAt(tau);
+      let nodes;
+      if (sp && E.spatial !== "off") { const q = sp({ storm }); nodes = place(a, bed.mix, t, Math.min(sg[1], 14), q.pts, q.mk); nodes.push(a); }
+      else { nodes = [a]; a.connect(bed.mix); }
+      g.src(s, nodes); bed.live++; s._done = () => { bed.live--; };
       s.start(t, sg[0], sg[1]);
+      if (E.log) E.log.push({ t, bed: id, seg: si, storm });
       if (id === "thunder") {             // TitanFX: flash the lightning just before the roll is heard (light travels faster than sound)
-        const ms = Math.max(0, (t - ctx.currentTime) * 1000 - 400);
-        setTimeout(() => { try { window.dispatchEvent(new CustomEvent("titan:thunder", { detail: { delay: 0, strength: Math.min(1, 0.5 + L) } })); } catch (e) {} }, ms);
+        const ms = Math.max(0, (t - ctx.currentTime) * 1000 - 400), str = storm == null ? Math.min(1, 0.5 + L) : Math.min(1, 0.4 + 0.6 * storm * Math.min(1, 0.5 + L));
+        setTimeout(() => { try { window.dispatchEvent(new CustomEvent("titan:thunder", { detail: { delay: 0, strength: str } })); } catch (e) {} }, ms);
       }
     });
   }
@@ -577,7 +893,7 @@
     id = LEGACY[id] || id; let ok = false;
     for (const g of E.groups) {
       const o = g.lv[id]; if (g.dead || g.retiring || !o) continue;
-      o.want = Math.max(0, L) * o.trim; ok = true;
+      o.L = Math.max(0, L); o.want = o.L * o.trim; ok = true;
       try { o.param.cancelScheduledValues(E.ctx.currentTime); o.param.setTargetAtTime(o.want, E.ctx.currentTime, 0.12); } catch (e) { /* ignore */ }
     }
     return ok;
@@ -760,7 +1076,12 @@
     const g = mkGroup();
     const beds = {};
     for (const k of Object.keys(mix.beds || {})) { const id = LEGACY[k] || k, L = mix.beds[k]; if (L > 0 && REC[id]) beds[id] = Math.max(beds[id] || 0, L); }
+    // time of day: at dawn an outdoor scene gets birdsong (never added to a scene with no outdoor bed)
+    if (E.timeAware && !beds.birds && dawnness(hourNow()) > 0.05 && Object.keys(beds).some((id) => OUTDOOR[id])) beds.birds = 0.4;
+    g.arc = mkArc(g, mix, beds); g.arcOff = 0;
+    g.tau = (t) => (t - g.t0) * E.speed + g.arcOff;
     for (const id of BED_ORDER) { const L = beds[id]; if (L > 0) (REC[id].kind === "event" ? recEvent : recLoop)(g, id, L); }
+    arcTicker(g);
     if ((mix.pad > 0) || mix.piano || mix.bells || mix.beat) buildMusic(g, mix);
     return g;
   }
@@ -856,6 +1177,32 @@
     else if (!m && E.muteHeld) { E.muteHeld = false; resume(); }
   });
 
+  /* ---------- v4 API: duck, buses, spatial, time-aware ---------- */
+  function duck(amountDb, ms) {
+    const ctx = E.ctx; if (!ctx || !E.duckG) return;
+    const t = ctx.currentTime, amt = Math.max(0, Math.min(36, +amountDb || 0)), hold = Math.max(0, +ms || 0) / 1000;
+    const cur = t < E.duckEnd ? E.duckDb : 0;
+    E.duckDb = Math.max(cur, amt); E.duckEnd = Math.max(E.duckEnd, t + hold);
+    const p = E.duckG.gain;
+    try {
+      p.cancelScheduledValues(t); p.setValueAtTime(p.value, t);
+      p.setTargetAtTime(fromDb(-E.duckDb), t, 0.03);                    // ~80 ms to reach the depth
+      p.setTargetAtTime(1, E.duckEnd, 0.08);                            // ~250 ms back up, scheduled on the audio clock (survives background throttling)
+    } catch (e) { /* ignore */ }
+  }
+  function uiBus() {
+    if (!E.ctx) return null;
+    const ctx = E.ctx;
+    return { ctx, input: E.uiIn, volume: () => E.vol, wake() {
+      if (ctx.state !== "running") ctx.resume().catch(() => {});
+      if (E.el && E.el.paused) { const pr = E.el.play(); if (pr && pr.catch) pr.catch(() => {}); }
+      clearTimeout(E.uiParkT);
+      E.uiParkT = setTimeout(() => { if (!E.playing && E.ctx) { try { if (E.el) E.el.pause(); } catch (e) { /* ignore */ } E.ctx.suspend().catch(() => {}); } }, 4000);
+    } };
+  }
+  function musicBus() { const ctx = ensure(); return ctx ? { ctx, input: E.musBus } : null; }
+  function loudness() { const o = {}; for (const id of Object.keys(E.bufs)) { const r = E.bufs[id]; if (r.buf) o[id] = { lufs: r.lufs == null ? null : +r.lufs.toFixed(2), normDb: +(20 * Math.log10(r.norm || 1)).toFixed(2) }; } return o; }
+
   window.TitanGen = {
     BEDS, BED_ORDER, BED_GROUPS, SCENES, SCENE_ORDER, SOUND_ORDER, WORLD_ORDER, ALIASES, REC,
     setBedLevel, releaseIdle, loaded: () => Object.keys(E.bufs).filter((k) => E.bufs[k].buf),
@@ -872,8 +1219,18 @@
     ctxState: () => (E.ctx ? E.ctx.state : "none"),
     route: () => E.via,
     texCheck() { const bad = []; for (const k of Object.keys(E.tex || {})) { const d = E.tex[k].getChannelData(0); for (let i = 0; i < d.length; i += 7) if (!(Math.abs(d[i]) < 4)) { bad.push(k); break; } } return bad; },
-    debugMaster: () => E.master,
+    duck, uiBus, musicBus, loudness,
+    setSpatial(m) { if (m === "off" || m === "stereo" || m === "3d") E.spatial = m; return E.spatial; },
+    getSpatial: () => E.spatial,
+    setTimeAware(on) { E.timeAware = !!on; },
+    getTimeAware: () => E.timeAware,
+    setArcs(on) { E.arcs = !!on; },
+    debugSpeed(n) { E.speed = Math.max(1, +n || 1); return E.speed; },
+    debugHour(h) { E.hour = h == null ? null : +h; },
+    debugLog(on) { E.log = on ? [] : null; return E.log; },
+    debugGroups: () => E.groups,
+    debugMaster: () => E.out,
     level() { if (!E.an) return 0; E.an.getFloatTimeDomainData(E.anBuf); let s = 0; for (let i = 0; i < E.anBuf.length; i++) s += E.anBuf[i] * E.anBuf[i]; return Math.sqrt(s / E.anBuf.length); },
-    stats: () => ({ buffers: Object.keys(E.bufs).filter((k) => E.bufs[k].buf).length, decoded: E.decoded, released: E.released, fallbacks: E.fallbacks, groups: E.groups.length, sources: E.groups.reduce((n, g) => n + g.srcs.length, 0), killed: E.killedSources, ctx: E.ctx ? E.ctx.state : "none", via: E.via })
+    stats: () => ({ buffers: Object.keys(E.bufs).filter((k) => E.bufs[k].buf).length, decoded: E.decoded, released: E.released, fallbacks: E.fallbacks, groups: E.groups.length, sources: E.groups.reduce((n, g) => n + g.srcs.length, 0), killed: E.killedSources, chunks: E.chunks, maxBedLive: E.maxBed, hrtf: E.hrtf, spatial: E.spatial, ctx: E.ctx ? E.ctx.state : "none", via: E.via })
   };
 })();

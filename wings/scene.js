@@ -10,7 +10,7 @@
   const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const clone = (o) => JSON.parse(JSON.stringify(o));
 
-  const DEF = { scene: "off", mix: null, mine: [], vol: 0.55, mus: 0.9, amb: 0.9, bass: 0, mid: 0, treble: 0, motion: null, bgPause: false };
+  const DEF = { scene: "off", mix: null, mine: [], vol: 0.55, mus: 0.9, amb: 0.9, bass: 0, mid: 0, treble: 0, motion: null, bgPause: false, spatial: null, timeAware: true };
   let st = clone(DEF);
   try { Object.assign(st, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) { /* storage blocked */ }
   if (G.ALIASES && G.ALIASES[st.scene]) st.scene = G.ALIASES[st.scene];
@@ -25,6 +25,8 @@
 
   window.TITAN_BG_PAUSE = !!st.bgPause;
   G.setBackgroundPause(st.bgPause);
+  if (st.spatial) G.setSpatial(st.spatial);
+  G.setTimeAware(st.timeAware !== false);
   G.setVolume(st.vol); G.setLevels(st.mus, st.amb); G.setTone(st.bass, st.mid, st.treble);
   if (st.motion != null && window.TitanAmbient && window.TitanAmbient.setVisualEnabled) window.TitanAmbient.setVisualEnabled(!!st.motion);
 
@@ -95,6 +97,8 @@
       <label class="ss-check"><input type="checkbox" id="ss-motion"><span>Show falling rain, embers and sparks on screen</span></label>
       <label class="ss-check"><input type="checkbox" id="ss-bg"><span>Pause sound when the app is in the background</span></label>
       <p class="ss-note">By default sound keeps playing when you switch apps or lock the phone.</p>
+      <label class="ss-check"><input type="checkbox" id="ss-tod"><span>Shift the sounds with the time of day (birds at dawn, quieter crowds at night)</span></label>
+      <label class="ss-check"><span>Sound space</span> <select id="ss-spatial"><option value="3d">3D (headphones are best)</option><option value="stereo">Stereo</option><option value="off">Off</option></select></label>
       <div id="ss-moved"></div></div></details>
     </div><!-- /sound panel -->
   </div>`;
@@ -138,6 +142,7 @@
     $("#ss-bass", sheet).value = st.bass; $("#ss-mid", sheet).value = st.mid; $("#ss-treble", sheet).value = st.treble;
     const mo = $("#ss-motion", sheet); mo.checked = st.motion == null ? !!(window.TitanAmbient && window.TitanAmbient.visualEnabled && window.TitanAmbient.visualEnabled()) : !!st.motion;
     $("#ss-bg", sheet).checked = !!st.bgPause;
+    $("#ss-tod", sheet).checked = st.timeAware !== false; $("#ss-spatial", sheet).value = G.getSpatial();
     if (barBtn) { barBtn.classList.toggle("is-playing", playing); }
     if (barName) barName.textContent = (playing || paused) && nm ? nm : (document.documentElement.getAttribute("data-atmo") ? atmoName(lastAtmo) : "Lighting");
     if (barBtn) barBtn.setAttribute("aria-label", `Scene Studio. ${playing ? "Playing " + nm : "Silent"}. Lighting: ${atmoName(lastAtmo)}`);
@@ -156,7 +161,7 @@
     const u = userScene(id);
     if (u) { st.scene = id; st.mix = clone(u.mix); if (u.atmo && window.TitanSetAtmo) window.TitanSetAtmo(u.atmo); saveMine(); start(2.5); return; }
     const s = G.SCENES[id]; if (!s) return;
-    st.scene = id; st.mix = { beds: clone(s.beds), pad: s.pad, piano: s.piano, bells: s.bells, beat: s.beat, root: s.root, mode: s.mode, prog: s.prog, chordSec: s.chordSec, gap: s.gap, bpm: s.bpm };
+    st.scene = id; st.mix = { beds: clone(s.beds), pad: s.pad, piano: s.piano, bells: s.bells, beat: s.beat, root: s.root, mode: s.mode, prog: s.prog, chordSec: s.chordSec, gap: s.gap, bpm: s.bpm, arc: s.arc };
     if (window.TitanSetAtmo && s.atmo && !s.world) window.TitanSetAtmo(s.atmo);   // World scenes are sound only here: the World manifest owns the lighting
     saveMine(); start(2.5);
   }
@@ -282,6 +287,8 @@
   });
   sheet.addEventListener("input", (e) => { const t = e.target; if (t.dataset && t.dataset.level) { setLevel(t.dataset.level, +t.value); const n = t.parentNode.querySelector(".ss-mn"); if (n) n.textContent = +t.value > 0 ? Math.round(t.value * 100) : ""; } });
   $("#ss-motion", sheet).addEventListener("change", (e) => { st.motion = e.target.checked; save(); if (window.TitanAmbient && window.TitanAmbient.setVisualEnabled) window.TitanAmbient.setVisualEnabled(st.motion); });
+  $("#ss-tod", sheet).addEventListener("change", (e) => { st.timeAware = e.target.checked; G.setTimeAware(st.timeAware); save(); });
+  $("#ss-spatial", sheet).addEventListener("change", (e) => { st.spatial = e.target.value; G.setSpatial(st.spatial); save(); });
   $("#ss-bg", sheet).addEventListener("change", (e) => { st.bgPause = e.target.checked; window.TITAN_BG_PAUSE = st.bgPause; G.setBackgroundPause(st.bgPause); save(); });
   window.addEventListener("titan:atmo", (e) => { lastAtmo = e.detail.atmo; render(); });
   window.addEventListener("titan:gen", () => { render(); });
