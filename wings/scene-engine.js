@@ -563,7 +563,7 @@
           let buf;
           try { buf = await new Promise((ok, no) => { const q = ctx.decodeAudioData(ab, ok, no); if (q && q.catch) q.catch(no); }); } finally { decodeDone(); }
           me.buf = buf; E.decoded++; if (E.log) E.log.push({ bed: id, ev: "decoded", ms: performance.now() });
-          if (CUT_CHECK[id]) { try { me.cuts = findCuts(buf); } catch (e) { me.cuts = []; } }
+          me.cuts = CUTS[id] || [];
           measureLufs(buf).then((l) => { me.lufs = l; me.norm = normFor(id, l); applyNorm(id); }).catch(() => {});
           return buf;
         } catch (e) { /* try the other codec */ }
@@ -656,7 +656,7 @@
   }
   /* Sustained level steps inside a recording (an edit seam baked into the file): a 12 ms window differs from the one before it by >= 6 dB
      AND the following 250 ms differ from the preceding 250 ms by >= 6 dB in the same direction. Drop onsets and pops do not satisfy the second test.
-     Returns the times (s) of the steps. Run only on stationary beds (CUT_CHECK). */
+     Returns the times (s) of the steps. Dev tool only (see CUTS). */
   function findCuts(buf) {
     const fs = buf.sampleRate, W = Math.floor(0.004 * fs), nw = Math.floor(buf.length / W), e = new Float64Array(nw);
     for (let c = 0; c < buf.numberOfChannels; c++) { const d = buf.getChannelData(c); for (let i = 0; i < nw; i++) { let sum = 0; for (let j = i * W, k = j + W; j < k; j++) sum += d[j] * d[j]; e[i] += sum; } }
@@ -673,11 +673,14 @@
     }
     return out.map((x) => x.t);
   }
-  const CUT_CHECK = { rainLight: 1, rainWindow: 1, rainHeavy: 1, rainUmbrella: 1, leaves: 1, wind: 1, windTrees: 1, windHowl: 1, river: 1, waves: 1, waterfall: 1, underwater: 1, brown: 1, pink: 1,
-    hall: 1, library: 1, cafe: 1, city: 1, crowd: 1, club: 1, temple: 1, roomTone: 1, ship: 1, village: 1 };
+  /* Level steps found by findCuts() on the shipped recordings (webm decode; baked in so no analysis runs on a phone). Regenerate with TitanGen.debugCuts(id)
+     after re-encoding audio/ambience. Run on the stationary beds only; impulsive beds (rain on umbrella excepted) are full of legitimate onsets. */
+  const CUTS = { rainUmbrella: [9.63], leaves: [35.13], windTrees: [12.04, 14.19, 19.29], brown: [2.22], library: [9.97, 33.51], cafe: [6.82, 7.14], labHum: [1.59, 5.8, 9.5, 10.23, 11.1, 13.11, 14.42],
+    ship: [6.48], trainIn: [7.47, 7.89, 11.18, 11.59, 13.37, 23.37, 27.18], village: [12.12] };
   /* usable [from, to] spans of a decoded loop: never the first/last EDGE s (AAC priming/padding and the file seam), never across a level step */
   function segsFor(r, dur) {
-    const EDGE = 0.15, PAD = 0.05, MIN = 4.5; let a0 = EDGE, segs = [];
+    const EDGE = 0.15, PAD = 0.1, MIN = 4.5;      /* PAD covers the few ms the AAC and Opus decodes differ by */
+    let a0 = EDGE, segs = [];
     for (const c of ((r && r.cuts) || [])) { if (c - PAD - a0 >= MIN) segs.push([a0, c - PAD]); a0 = Math.max(a0, c + PAD); }
     if (dur - EDGE - a0 >= MIN) segs.push([a0, dur - EDGE]);
     const tot = segs.reduce((x, q) => x + q[1] - q[0], 0);
@@ -1319,6 +1322,7 @@
     route: () => E.via,
     texCheck() { const bad = []; for (const k of Object.keys(E.tex || {})) { const d = E.tex[k].getChannelData(0); for (let i = 0; i < d.length; i += 7) if (!(Math.abs(d[i]) < 4)) { bad.push(k); break; } } return bad; },
     duck, uiBus, musicBus, loudness,
+    debugCuts(id) { const r = E.bufs[id]; return r && r.buf ? findCuts(r.buf) : null; },
     setSpatial(m) { if (m === "off" || m === "stereo" || m === "3d") E.spatial = m; return E.spatial; },
     getSpatial: () => E.spatial,
     setTimeAware(on) { E.timeAware = !!on; },
