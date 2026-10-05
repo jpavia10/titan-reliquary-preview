@@ -287,7 +287,7 @@
         const bus = S.bus("strings"), att = Math.min(3.2, dur * 0.3), rel = Math.min(4, dur * 0.36);
         midis.forEach((m, i) => {
           if (!S.budget(LITE ? 1 : 2, 0)) return;
-          const g = ctx.createGain(), V = S.voice([g]), f = mtof(m), w = lvl * 0.062 / Math.sqrt(midis.length) * (i === 0 ? 0.8 : 1);
+          const g = ctx.createGain(), V = S.voice([g]), f = mtof(m), w = lvl * 0.17 / Math.sqrt(midis.length) * (i === 0 ? 0.8 : 1);
           g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(w, t + att); g.gain.setValueAtTime(w, t + dur); g.gain.linearRampToValueAtTime(0, t + dur + rel);
           for (const det of LITE ? [rnd(-4, 4)] : [-8 + rnd(-3, 3), 8 + rnd(-3, 3)]) { const o = V.osc("sawtooth", f, det); o.connect(g); o.start(t); o.stop(t + dur + rel + 0.1); }
           g.connect(bus.in);
@@ -329,16 +329,18 @@
           g.connect(bus.in);
         });
       },
-      piano(t, midi, vel) {
-        if (!S.budget(LITE ? 4 : 7, 0)) return;
+      piano(t, midi, vel, light) {
+        if (!S.budget(light || LITE ? 3 : 7, 0)) return;
         const f = mtof(midi), dur = clamp(3.4 + (84 - midi) * 0.05, 2.2, 5.6), lp = S.filt("lowpass", 1000, 0.3), v = ctx.createGain(), pn = S.pan((midi - 62) / 40);
         const V = S.voice([lp, v, pn].filter(Boolean));
-        lp.frequency.setValueAtTime(Math.min(5200, f * (3.2 + vel * 3.6)), t); lp.frequency.exponentialRampToValueAtTime(Math.max(420, f * 1.5), t + dur * 0.7);
+        // melody notes get the closing filter (the felt-piano bloom and fade); soft comping chords keep a static filter (an automated biquad costs a coefficient update every block)
+        if (light) lp.frequency.value = Math.min(3600, f * 3.2);
+        else { lp.frequency.setValueAtTime(Math.min(5200, f * (3.2 + vel * 3.6)), t); lp.frequency.exponentialRampToValueAtTime(Math.max(420, f * 1.5), t + dur * 0.7); }
         v.gain.setValueAtTime(0, t); v.gain.linearRampToValueAtTime(vel * 0.2, t + 0.018); v.gain.exponentialRampToValueAtTime(0.0001, t + dur);
         [[1, 1, 2], [2.003, 0.34, 1], [3.01, 0.12, 1], [4.03, 0.05, 1]].forEach(([mul, w, nOsc], k) => {
-          if (LITE && k > 2) return;
-          const a = ctx.createGain(); a.gain.setValueAtTime(w * 0.5, t); a.gain.exponentialRampToValueAtTime(0.0008, t + Math.max(0.6, dur * (k ? 0.9 / (1 + k * 0.7) : 1))); a.connect(lp);
-          for (const det of nOsc === 2 && !LITE ? [-4.5, 4.5] : [rnd(-3, 3)]) { const o = V.osc("sine", f * mul, det + rnd(-1.5, 1.5)); o.connect(a); o.start(t); o.stop(t + dur + 0.1); }
+          if ((LITE || light) && k > 2) return;
+          const pd = Math.max(0.6, dur * (k ? 0.9 / (1 + k * 0.7) : 1)), a = ctx.createGain(); a.gain.setValueAtTime(w * 0.5, t); a.gain.exponentialRampToValueAtTime(0.0008, t + pd); a.connect(lp);
+          for (const det of nOsc === 2 && !LITE && !light ? [-4.5, 4.5] : [rnd(-3, 3)]) { const o = V.osc("sine", f * mul, det + rnd(-1.5, 1.5)); o.connect(a); o.start(t); o.stop(t + pd + 0.05); }
           V.keep(a);
         });
         const b = V.osc("triangle", f), bg = ctx.createGain(); bg.gain.setValueAtTime(0.22, t); bg.gain.exponentialRampToValueAtTime(0.0008, t + dur * 0.5); b.connect(bg); bg.connect(lp); b.start(t); b.stop(t + dur * 0.5 + 0.1);
@@ -405,7 +407,7 @@
       const forms = spec.forms || (spec.B ? [["A", "A", "B", "A"], ["A", "B", "A", "B"], ["A", "A", "B"], ["A", "B", "B", "A"]] : [["A", "A"]]);
       S.forms = pick(forms).slice();
       if (S.cycles > 1 && S.cycles % 3 === 0) mutateMotif();
-      if (spec.mod !== false && S.cycles > 1 && S.cycles % (spec.modEvery || 4) === 0) {
+      if (spec.mod !== false && S.cycles > 1 && S.cycles % (spec.modEvery || 3) === 0) {
         const nt = S.trans === 0 ? pick([2, 5, 7, -2, -5]) : (R() < 0.6 ? 0 : pick([2, 5, 7, -2].filter((x) => x !== S.trans)));
         S.trans = nt; S.mods++; S.lastMod = S.cycles;
         if (!spec.noPivot && (S.mode === "major" || S.mode === "minor" || S.mode === "dorian")) S.secChords.push({ sym: "V7*", rs: 7, tones: [0, 4, 7, 10], ess: [0, 1, 3], beats: Math.max(4, Math.round((spec.chordBeats || 12) / 2)) });
@@ -558,7 +560,7 @@
         hitsAt.forEach((bt, hi) => {
           if (hi && R() < 0.35) return;
           const tt = t0 + bt * beat + (hi ? beat * 0.12 : 0), v = (hi ? 0.34 : 0.46) * inst.piano.lvl;
-          cn.forEach((m, i) => { const t2 = tt + i * rnd(0.035, 0.07) + rnd(0, 0.012); S.at(t2, () => I_.piano(t2, m, v * rnd(0.85, 1.05))); });
+          cn.forEach((m, i) => { const t2 = tt + i * rnd(0.035, 0.07) + rnd(0, 0.012); S.at(t2, () => I_.piano(t2, m, v * rnd(0.85, 1.05), true)); });
         });
       }
       // harp arpeggios
@@ -732,7 +734,9 @@
     cafe: { mood: "corner cafe, brushes, piano", key: "F", mode: "major", bpm: 72, chordBeats: 8, A: ["I", "IV", "V", "IV"], B: ["vi", "ii7", "V7", "I"], voicing: "shell", comp: "sync", walk: true, swing: 0.2, ext: 0.12,
       inst: { pad: ["strings", 0.12], piano: 0.58, bass: ["upright", 0.36], drums: ["brush", 0.22] }, melody: { inst: ["piano"], density: 0.45 } }
   };
-  for (const k of Object.keys(SPECS)) if (SPECS[k]) SPECS[k].id = k;
+  /* Scene loudness trims: offline RMS of 70 s of each scene (two seeds) measured, then scaled to a common 0.058 (clamped 0.55-1.7). */
+  const VOL = {rainy: 0.85, vault: 0.69, lofi: 0.86, garden: 1.7, "midnight-gallery": 0.78, conservator: 1.68, mint: 0.55, hoard: 0.68, bluenote: 0.74, cabin: 1.3, shipwreck: 0.55, prism: 1.18, nightcity: 0.89, blacksite: 0.76, crypt: 0.71, observatory: 1.7, alchemist: 1.5, polar: 0.9, imperial: 1.7, temple: 1.7, caravanserai: 0.81, fireside: 1.15, roman: 0.67, privatebank: 1.46, coast: 1.7, closing: 1.61, train: 0.77, cafe: 0.99};
+  for (const k of Object.keys(SPECS)) if (SPECS[k]) { SPECS[k].id = k; if (VOL[k]) SPECS[k].vol = VOL[k]; }
 
   /* ---------- from a TitanGen mix to a spec ---------- */
   function legacySpec(mix) {
@@ -777,7 +781,7 @@
       if (!spec) return null;
       const o = resolveBus(opts);
       if (o.exclusive !== false) for (const s of ACTIVE()) s.stop(o.stopFade == null ? 2.5 : o.stopFade);
-      const S = mkSession(spec, o);
+      const S = mkSession(spec, Object.assign({ id: spec.id }, o));
       S.tempo = globalTempo; SESS.add(S);
       const fi = o.fadeIn == null ? (o.exclusive === false ? 0.05 : 2.5) : o.fadeIn;
       if (fi > 0.06) { S.out.gain.setValueAtTime(0, o.ctx.currentTime); S.out.gain.linearRampToValueAtTime(S.level * globalLevel * (spec.vol == null ? 1 : spec.vol) * TRIM, o.ctx.currentTime + fi); }
