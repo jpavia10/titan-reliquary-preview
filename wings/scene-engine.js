@@ -257,6 +257,8 @@
     return buf;
   }
   /* Hall impulse: pre-delay, sparse early reflections, then a diffuse tail that gets darker as it decays (RT60 = rt60). */
+  /* noise buffers are built on first use (fallback synth, felt-piano thump), never on the first-tap path */
+  function noiseBuf(type) { if (!E[type]) E[type] = mkNoise(E.ctx, type, type === "white" ? 0.6 : 4); return E[type]; }
   function mkHall(ctx, rt60, pre) {
     const sr = ctx.sampleRate, p = Math.floor(pre * sr), n = Math.floor(sr * (rt60 * 1.15)) + p, buf = ctx.createBuffer(2, n, sr);
     for (let c = 0; c < 2; c++) {
@@ -290,9 +292,6 @@
     let ctx;
     try { ctx = new AC({ latencyHint: "playback" }); } catch (e) { try { ctx = new AC(); } catch (e2) { return null; } }
     E.ctx = ctx;
-    E.pink = mkNoise(ctx, "pink", 4);
-    E.brown = mkNoise(ctx, "brown", 4);
-    E.white = mkNoise(ctx, "white", 0.6);
     const bus = ctx.createGain();
     E.ambBus = ctx.createGain(); E.musBus = ctx.createGain();
     E.ambBus.connect(bus);
@@ -303,7 +302,8 @@
     const musMake = ctx.createGain(); musMake.gain.value = 0.7;
     E.musBus.connect(musTone); musTone.connect(musDrive); musDrive.connect(sat); sat.connect(musMake); musMake.connect(bus);
     // Reverb: a long dark hall tail for the music only (the recordings carry their own space; a second convolver cost frames on phones).
-    const verbM = ctx.createConvolver(); verbM.buffer = mkHall(ctx, 4.8, 0.03);
+    const verbM = ctx.createConvolver();
+    setTimeout(() => { try { verbM.buffer = mkHall(ctx, 4.8, 0.03); } catch (e) { /* ignore */ } }, 1500);     // the IR costs tens of ms: built after the first sounds are already running
     const musSend = ctx.createGain(), wetM = ctx.createGain();
     musSend.gain.value = 0.55; wetM.gain.value = 0.85;
     E.musBus.connect(musSend);
@@ -423,7 +423,7 @@
       for (const n of [g.bed, g.mus, g.bedOut, g.musOut]) { try { n.disconnect(); } catch (e) { /* ignore */ } }
       const i = E.groups.indexOf(g); if (i >= 0) E.groups.splice(i, 1);
     };
-    g.noise = (type, off) => { const s = g.src(ctx.createBufferSource()); s.buffer = E[type]; s.loop = true; s.start(0, off == null ? Math.random() * 3 : off); return s; };
+    g.noise = (type, off) => { const s = g.src(ctx.createBufferSource()); s.buffer = noiseBuf(type); s.loop = true; s.start(0, off == null ? Math.random() * 3 : off); return s; };
     g.filter = (type, f, q) => { const n = ctx.createBiquadFilter(); n.type = type; n.frequency.value = f; if (q != null) n.Q.value = q; return n; };
     g.gain = (v) => { const n = ctx.createGain(); n.gain.value = v; return n; };
     g.osc = (type, f, detune) => { const o = g.src(ctx.createOscillator()); o.type = type; o.frequency.value = f; if (detune) o.detune.value = detune; o.start(); return o; };
@@ -504,7 +504,7 @@
 
   /* short noise burst through a band filter with an exponential decay (used only for rare events) */
   function burst(out, t, o) {
-    const ctx = E.ctx, s = ctx.createBufferSource(); s.buffer = E.white;
+    const ctx = E.ctx, s = ctx.createBufferSource(); s.buffer = noiseBuf("white");
     const f = ctx.createBiquadFilter(); f.type = o.type || "bandpass"; f.frequency.value = o.f; f.Q.value = o.q || 1;
     const a = ctx.createGain();
     a.gain.setValueAtTime(0, t); a.gain.linearRampToValueAtTime(o.peak, t + (o.atk || 0.002)); a.gain.exponentialRampToValueAtTime(0.0001, t + o.dur);
@@ -529,20 +529,43 @@
   const fromDb = (db) => Math.pow(10, db / 20);
   const IDLE_MS = 120000;           // a decoded buffer nobody has used for this long is released
 
+  /* at most 2 decodeAudioData calls at once: several 40 s decodes in parallel starve the main thread on phones */
+  const DQ = { n: 0, q: [], seq: 0, max: E.spatial === "stereo" ? 1 : 2 };      // touch devices (spatial default 'stereo'): one at a time
+  const decodeSlot = (seq) => new Promise((res) => { if (DQ.n < DQ.max) { DQ.n++; res(); } else DQ.q.push({ seq, res }); });
+  const decodeDone = () => {                                                       // the next decode is the one requested FIRST (the scene's loudest loop bed)
+    if (!DQ.q.length) { DQ.n--; return; }
+    let bi = 0; for (let i = 1; i < DQ.q.length; i++) if (DQ.q[i].seq < DQ.q[bi].seq) bi = i;
+    DQ.q.splice(bi, 1)[0].res();
+  };
+  function applyNorm(id) {            // a measured loudness arrived after the bed started: ease to it (never a step)
+    const r = E.bufs[id]; if (!r || !E.ctx) return;
+    for (const g of E.groups) { const o = g.lv[id]; if (g.dead || !o) continue; o.trim = REC[id].trim * r.norm; o.want = o.L * o.trim; setLvl(o, o.want, 0.5); }
+  }
+  /* move a bed's level without ever cancelling a fade-in that is still running */
+  function setLvl(o, want, tc) {
+    const ctx = E.ctx, t = Math.max(ctx.currentTime, o.rampEnd || 0);
+    try { o.param.cancelScheduledValues(t); o.param.setTargetAtTime(want, t, tc); } catch (e) { /* ignore */ }
+  }
   function loadBuf(id) {
     const ctx = E.ctx; if (!ctx || !REC[id]) return Promise.resolve(null);
     let r = E.bufs[id];
     if (r) { r.last = performance.now(); return r.p; }
-    r = E.bufs[id] = { buf: null, uses: 0, last: performance.now(), p: null };
-    const me = r;
+    r = E.bufs[id] = { buf: null, uses: 0, last: performance.now(), p: null, norm: 1, cuts: [] };
+    const me = r, seq = ++DQ.seq;
     r.p = (async () => {
       for (const x of EXTS) {
         try {
           const res = await fetch(AMB_URL + id + "." + x);
           if (!res.ok) continue;
           const ab = await res.arrayBuffer();
-          const buf = await new Promise((ok, no) => { const q = ctx.decodeAudioData(ab, ok, no); if (q && q.catch) q.catch(no); });
-          me.buf = buf; E.decoded++; try { me.lufs = measureLufs(buf); } catch (e) { me.lufs = null; } me.norm = normFor(id, me.lufs); return buf;
+          if (E.log) E.log.push({ bed: id, ev: "fetched", ms: performance.now() });
+          await decodeSlot(seq);
+          let buf;
+          try { buf = await new Promise((ok, no) => { const q = ctx.decodeAudioData(ab, ok, no); if (q && q.catch) q.catch(no); }); } finally { decodeDone(); }
+          me.buf = buf; E.decoded++; if (E.log) E.log.push({ bed: id, ev: "decoded", ms: performance.now() });
+          if (CUT_CHECK[id]) { try { me.cuts = findCuts(buf); } catch (e) { me.cuts = []; } }
+          measureLufs(buf).then((l) => { me.lufs = l; me.norm = normFor(id, l); applyNorm(id); }).catch(() => {});
+          return buf;
         } catch (e) { /* try the other codec */ }
       }
       if (E.bufs[id] === me) delete E.bufs[id];      // allow a retry later (a network blip must not stick)
@@ -598,10 +621,13 @@
     const s2 = { b0: 1, b1: -2, b2: 1, a1: 2 * (K * K - 1) / a0, a2: (1 - K / Q2 + K * K) / a0 };
     return [s1, s2];
   }
-  /* integrated loudness (LUFS) of a decoded buffer: whole buffer when <= 24 s, else 8 windows of 3 s spread across it. null if silent. */
-  function measureLufs(buf) {
+  /* integrated loudness (LUFS) of a decoded buffer (async, one 3 s slice per task): the whole buffer when <= 24 s, else 8 slices spread across it. null if silent. */
+  const yieldMain = () => new Promise((r) => setTimeout(r, 0));
+  async function measureLufs(buf) {
     const fs = buf.sampleRate, n = buf.length, blk = Math.max(256, Math.floor(0.4 * fs)), cs = kCoefs(fs), wins = [];
-    if (n <= 24 * fs) wins.push([0, n]); else { const w = 3 * fs; for (let i = 0; i < 8; i++) wins.push([Math.floor((n - w) * i / 7), w]); }
+    const w3 = 3 * fs;
+    if (n <= 24 * fs) { if (n < w3) wins.push([0, n]); else for (let o = 0; o + w3 <= n; o += w3) wins.push([o, w3]); }      // contiguous 3 s slices, one task each
+    else for (let i = 0; i < 8; i++) wins.push([Math.floor((n - w3) * i / 7), w3]);
     const en = [];
     for (const [w0, wl] of wins) {
       const nb = Math.floor(wl / blk); if (nb < 1) continue;
@@ -620,12 +646,42 @@
         }
       }
       for (let b = 0; b < nb; b++) en.push(acc[b]);
+      await yieldMain();                       // keep the main thread free for taps and scrolling
     }
     const lu = (e) => -0.691 + 10 * Math.log10(e);
     const a = en.filter((e) => e > 0 && lu(e) > -70); if (!a.length) return null;
     const m1 = a.reduce((x, y) => x + y, 0) / a.length, gate = lu(m1) - 10;
     const b = a.filter((e) => lu(e) > gate); if (!b.length) return null;
     return lu(b.reduce((x, y) => x + y, 0) / b.length);
+  }
+  /* Sustained level steps inside a recording (an edit seam baked into the file): a 12 ms window differs from the one before it by >= 6 dB
+     AND the following 250 ms differ from the preceding 250 ms by >= 6 dB in the same direction. Drop onsets and pops do not satisfy the second test.
+     Returns the times (s) of the steps. Run only on stationary beds (CUT_CHECK). */
+  function findCuts(buf) {
+    const fs = buf.sampleRate, W = Math.floor(0.004 * fs), nw = Math.floor(buf.length / W), e = new Float64Array(nw);
+    for (let c = 0; c < buf.numberOfChannels; c++) { const d = buf.getChannelData(c); for (let i = 0; i < nw; i++) { let sum = 0; for (let j = i * W, k = j + W; j < k; j++) sum += d[j] * d[j]; e[i] += sum; } }
+    const P = new Float64Array(nw + 1); for (let i = 0; i < nw; i++) P[i + 1] = P[i] + e[i];
+    const K1 = 3, K2 = 62, out = [];
+    for (let i = K2; i <= nw - K2; i++) {
+      const a = P[i] - P[i - K1], b = P[i + K1] - P[i], A = P[i] - P[i - K2], B = P[i + K2] - P[i];
+      if (a <= 1e-12 || b <= 1e-12 || A <= 1e-12 || B <= 1e-12) continue;
+      const db = 10 * Math.log10(b / a), dl = 10 * Math.log10(B / A);
+      if (Math.abs(db) >= 6 && Math.abs(dl) >= 6 && (db > 0) === (dl > 0)) {
+        const t = i * W / fs, l = out[out.length - 1];
+        if (l && t - l.t < 0.3) { if (Math.abs(db) > l.db) { l.t = t; l.db = Math.abs(db); } } else out.push({ t, db: Math.abs(db) });
+      }
+    }
+    return out.map((x) => x.t);
+  }
+  const CUT_CHECK = { rainLight: 1, rainWindow: 1, rainHeavy: 1, rainUmbrella: 1, leaves: 1, wind: 1, windTrees: 1, windHowl: 1, river: 1, waves: 1, waterfall: 1, underwater: 1, brown: 1, pink: 1,
+    hall: 1, library: 1, cafe: 1, city: 1, crowd: 1, club: 1, temple: 1, roomTone: 1, ship: 1, village: 1 };
+  /* usable [from, to] spans of a decoded loop: never the first/last EDGE s (AAC priming/padding and the file seam), never across a level step */
+  function segsFor(r, dur) {
+    const EDGE = 0.15, PAD = 0.05, MIN = 4.5; let a0 = EDGE, segs = [];
+    for (const c of ((r && r.cuts) || [])) { if (c - PAD - a0 >= MIN) segs.push([a0, c - PAD]); a0 = Math.max(a0, c + PAD); }
+    if (dur - EDGE - a0 >= MIN) segs.push([a0, dur - EDGE]);
+    const tot = segs.reduce((x, q) => x + q[1] - q[0], 0);
+    return (tot < (dur - 2 * EDGE) * 0.5 || !segs.length) ? [[EDGE, Math.max(EDGE + 1, dur - EDGE)]] : segs;
   }
   function normFor(id, lufs) {
     if (lufs == null || !isFinite(lufs)) return 1;
@@ -786,81 +842,114 @@
   }
   const SIN_C = new Float32Array(48), COS_C = new Float32Array(48);
   for (let i = 0; i < 48; i++) { const x = Math.PI / 2 * i / 47; SIN_C[i] = Math.sin(x); COS_C[i] = Math.cos(x); }
-  /* choose where in the recording the next chunk starts: best of 12 candidates by distance (circular) from the last two starts;
-     never close to the previous one (so the same region is not heard twice in a row) */
-  function pickStart(st, dur, span) {
-    const need1 = Math.min(span, dur * 0.3), need2 = Math.min(span * 0.5, dur * 0.15), r = st.recent, l1 = r[r.length - 1], l2 = r[r.length - 2];
-    const cd = (a, b) => { const d = Math.abs(a - b); return Math.min(d, dur - d); };
-    let best = Math.random() * dur, bs = -1;
-    for (let i = 0; i < 12; i++) {
-      const c = Math.random() * dur; let sc = 1e9;
-      if (l1 != null) sc = Math.min(sc, cd(c, l1) / need1);
-      if (l2 != null) sc = Math.min(sc, cd(c, l2) / need2);
-      if (sc > bs) { bs = sc; best = c; }
-      if (sc >= 1.5) break;
+  /* Where the next chunk starts. Candidates come from the usable spans (segs); a candidate must keep a distance from the last two starts
+     (never the same region back to back) and among those the one whose bins were played LONGEST AGO wins (least-recently-used coverage,
+     so every part of a short file is heard once before any part repeats). Returns { c, span } (buffer seconds). */
+  const BIN = 0.5;
+  function pickStart(st, segs, T, want, minAvail) {
+    const usable = segs.reduce((x, q) => x + q[1] - q[0], 0), r = st.recent, l1 = r[r.length - 1], l2 = r[r.length - 2];
+    const ok = segs.filter((q) => q[1] - q[0] >= minAvail), pool = ok.length ? ok : segs, wsum = pool.reduce((x, q) => x + q[1] - q[0], 0);
+    let best = null, bs = -1;
+    for (let i = 0; i < 14; i++) {
+      let x = Math.random() * wsum, q = pool[pool.length - 1]; for (const z of pool) { x -= z[1] - z[0]; if (x <= 0) { q = z; break; } }
+      const span = Math.min(want, q[1] - q[0]), c = q[0] + Math.random() * (q[1] - q[0] - span);
+      const need1 = Math.min(span, usable * 0.3), need2 = Math.min(span * 0.5, usable * 0.15);
+      let good = 1, d1 = 1e9;
+      if (l1 != null) { d1 = Math.abs(c - l1); if (d1 < need1) good = 0; }
+      if (l2 != null && Math.abs(c - l2) < need2) good = 0;
+      let age = 0, nb = 0;
+      for (let k = Math.floor(c / BIN), e = Math.floor((c + span) / BIN); k <= e; k++) { age += T - (st.used[k] == null ? -1e4 : st.used[k]); nb++; }
+      const score = good * 1e6 + Math.min(1e5, age / nb) + (good ? 0 : Math.min(d1, 1e3));
+      if (score > bs) { bs = score; best = { c, span }; }
     }
-    if (l1 != null && cd(best, l1) < Math.min(need1, 1.5)) best = (l1 + dur * rnd(0.35, 0.65)) % dur;
-    r.push(best); if (r.length > 3) r.shift();
+    r.push(best.c); if (r.length > 3) r.shift();
+    for (let k = Math.floor(best.c / BIN), e = Math.floor((best.c + best.span) / BIN); k <= e; k++) st.used[k] = T;
     return best;
   }
-  /* Granular bed: overlapping chunks, equal-power crossfades. Chunk n+1 starts xfOut(n) before chunk n ends, and len >= xfIn + xfOut + 0.5,
-     so at most two sources per bed are ever sounding (3 counting one scheduled in the look-ahead). */
+  /* Granular bed: overlapping chunks, equal-power crossfades. Chunk n+1 starts xfOut(n) before chunk n ends, so at most two sources per bed
+     sound at once (3 counting one scheduled in the look-ahead). Chunks play straight through (no looping): they stay inside the usable spans of the
+     file, 0.15 s clear of both ends (encoder padding / seam) and never across a baked-in level step. */
+  const REV = { rainHeavy: 1, waterfall: 1, brown: 1, pink: 1 };       // dense, directionless textures from SHORT files: every other chunk plays backwards (doubles the material)
+  function revBuf(id, buf) {
+    const r = E.bufs[id]; if (r && r.rbuf) return r.rbuf;
+    const rb = E.ctx.createBuffer(buf.numberOfChannels, buf.length, buf.sampleRate);
+    for (let c = 0; c < buf.numberOfChannels; c++) { const a = buf.getChannelData(c), b = rb.getChannelData(c); for (let i = 0, n = a.length; i < n; i++) b[i] = a[n - 1 - i]; }
+    if (r) r.rbuf = rb; return rb;
+  }
   function grain(g, bed, buf) {
     const ctx = E.ctx, id = bed.id, R = bed.R, dur = buf.duration, mono = buf.numberOfChannels === 1, P = (g.spat && g.spat[id]) || LSPAT[id];
-    const tex = !!TEXTURE[id], tight = !!TIGHT[id];
-    const st = bed.gr = { next: ctx.currentTime + 0.03, xfOut: 0.25, recent: [], n: 0, flip: Math.random() < 0.5 };
+    const tex = !!TEXTURE[id], tight = !!TIGHT[id], segs = segsFor(E.bufs[id], dur), shortTex = tex && dur < 45, usable = segs.reduce((x, q) => x + q[1] - q[0], 0);
+    const rbuf = REV[id] && dur < 25 ? revBuf(id, buf) : null;
+    const sub = [{ recent: [], used: [] }, { recent: [], used: [] }], st = bed.gr = { next: ctx.currentTime + 0.03, xfOut: 0.25, n: 0, flip: Math.random() < 0.5, dir: Math.random() < 0.5 ? 1 : 0 };
     const fixedPos = P && P.k === "fixed" ? [{ az: P.az, d: P.d, y: P.y }] : null;
     g.tickers.push((t0, t1) => {
       if (g.dead) return;
       if (st.next < t0) { st.next = t0; st.xfOut = 0.25; }
       while (st.next < t1) {
         const T = Math.max(st.next, ctx.currentTime + 0.02), xfIn = st.n ? st.xfOut : 0.25, pass = P && P.k === "pass", pl = (pass && P.len) || [12, 18];
-        const xfOut = pass ? 1.5 : tight ? rnd(0.04, 0.12) : rnd(1, 3);
-        let len = pass ? rnd(pl[0], pl[1]) : tight ? rnd(8, 16) : rnd(4, 12);
-        len = Math.max(Math.min(len, Math.max(3, dur * 0.9)), xfIn + xfOut + 0.5);
-        const rate = tex ? rnd(0.975, 1.025) : 1, off = pickStart(st, dur, len * rate);
-        const s = ctx.createBufferSource(); s.buffer = buf; s.loop = true; s.playbackRate.value = rate;   // loop=true only so a chunk may run past the (seamless) file end
+        const rate = pass ? 1 : tex ? (shortTex ? rnd(0.955, 1.045) : rnd(0.975, 1.025)) : 1, rEff = pass ? 1.045 : rate;
+        let want = pass ? rnd(pl[0], pl[1]) : tight ? rnd(8, 16) : rnd(4, 12);
+        want = Math.max(Math.min(want, Math.max(4, usable * 0.3)), xfIn + 1.2);      // chunks <= 30 % of the usable file so a short file is walked through before any part returns
+        const back = rbuf && (st.dir = 1 - st.dir) === 1, pk = pickStart(sub[back ? 1 : 0], segs, T, want * rEff, (xfIn + 1.2) * rEff), off = back ? dur - pk.c - pk.span : pk.c;
+        const len = Math.max(xfIn + 0.8, pk.span / rEff);                                   // wall-clock length of the chunk
+        const xfOut = Math.max(0.04, Math.min(pass ? 1.5 : tight ? rnd(0.04, 0.12) : rnd(1, 3), len - xfIn - 0.4));
+        const s = ctx.createBufferSource(); s.buffer = back ? rbuf : buf; s.playbackRate.value = rate;
         const env = ctx.createGain(); env.gain.value = 0;
         try { env.gain.setValueCurveAtTime(SIN_C, T, xfIn); env.gain.setValueAtTime(1, T + xfIn); env.gain.setValueCurveAtTime(COS_C, T + len - xfOut, xfOut); }
         catch (e) { env.gain.cancelScheduledValues(0); env.gain.setValueAtTime(0, T); env.gain.linearRampToValueAtTime(1, T + xfIn); env.gain.setValueAtTime(1, T + len - xfOut); env.gain.linearRampToValueAtTime(0, T + len); }
         s.connect(env);
-        let nodes;
+        let nodes, src = env;
+        if (shortTex) {                       // short texture files repeat sooner: every chunk also gets its own slight tilt, so the same rain is never quite the same twice
+          const sh = ctx.createBiquadFilter(); sh.type = "highshelf"; sh.frequency.value = 2800; sh.gain.value = rnd(-2.5, 2.5); env.connect(sh); src = sh;
+        }
         if (P && E.spatial !== "off") {
           let pts, mk = 1;
           if (P.k === "fly") { const a0 = (Math.random() < 0.5 ? -1 : 1) * rnd(55, 85), d = rnd(P.d[0], P.d[1]), y = rnd(P.y[0], P.y[1]); pts = [{ az: a0, d, y }, { az: -a0 * rnd(0.6, 1), d: d * rnd(0.8, 1.2), y: y + rnd(-1, 1) }]; mk = 1.6; }
           else if (P.k === "spot") pts = [{ az: rnd(-150, 150), d: rnd(P.d[0], P.d[1]), y: rnd(P.y[0], P.y[1]) }];
           else if (P.k === "fixed") pts = fixedPos;
-          else { const sgn = Math.random() < 0.5 ? -1 : 1; const dd = P.d || [18, 5]; pts = [{ az: -80 * sgn, d: dd[0], y: 0.5 }, { az: 0, d: dd[1], y: 0.5 }, { az: 80 * sgn, d: dd[0], y: 0.5 }]; mk = 2; }
-          nodes = place(env, bed.mix, T, len, pts, mk); nodes.push(env);
+          else { const sgn = Math.random() < 0.5 ? -1 : 1, dd = P.d || [18, 5]; pts = [{ az: -80 * sgn, d: dd[0], y: 0.5 }, { az: 0, d: dd[1], y: 0.5 }, { az: 80 * sgn, d: dd[0], y: 0.5 }]; mk = 2; }
+          nodes = place(src, bed.mix, T, len, pts, mk); nodes.push(env); if (src !== env) nodes.push(src);
           if (pass) { s.playbackRate.setValueAtTime(1.04, T); s.playbackRate.linearRampToValueAtTime(1.04, T + len * 0.42); s.playbackRate.linearRampToValueAtTime(0.955, T + len * 0.58); }
         } else {
-          nodes = [env];
-          let out = env;
-          const p = (R.pan || 0) + (mono && !P ? ((st.flip = !st.flip) ? 0.35 : -0.35) : 0);      // a mono wide bed is spread by alternating chunks left/right
-          if (p && ctx.createStereoPanner) { const sp = ctx.createStereoPanner(); sp.pan.value = clamp(p, -1, 1); env.connect(sp); nodes.push(sp); out = sp; }
+          nodes = [env]; if (src !== env) nodes.push(src);
+          let out = src;
+          const p = (R.pan || 0) + (mono && !P ? ((st.flip = !st.flip) ? 0.35 : -0.35) : 0) + (shortTex ? rnd(-0.2, 0.2) : 0);      // a mono wide bed is spread by alternating chunks left/right
+          if (p && ctx.createStereoPanner) { const sp = ctx.createStereoPanner(); sp.pan.value = clamp(p, -1, 1); src.connect(sp); nodes.push(sp); out = sp; }
           out.connect(bed.mix);
         }
         g.src(s, nodes); bed.live++; E.chunks++; if (bed.live > E.maxBed) E.maxBed = bed.live;
         s._done = () => { bed.live--; };
-        s.start(T, off); s.stop(T + len + 0.05);
-        if (E.log) E.log.push({ t: T, bed: id, start: off, len, dur, rate, n: st.n });
+        s.start(T, off, pk.span); s.stop(T + len + 0.05);
+        if (E.log) E.log.push({ t: T, bed: id, back: !!back, start: back ? pk.c : off, span: pk.span, len, dur, rate, n: st.n, xfIn, xfOut });
         st.n++; st.xfOut = xfOut;
         st.next = pass ? T + len + rnd((P.gap || [4, 12])[0], (P.gap || [4, 12])[1]) : T + len - xfOut;
       }
     });
   }
   function recLoop(g, id, L) {
-    const ctx = E.ctx, pr = loadBuf(id);
+    const ctx = E.ctx, pr = loadBuf(id), R = REC[id];
     holdBuf(g, id);
     const bed = mkBed(g, id, L);
+    // Slow load (cold network / slow decode): after 0.4 s a quiet synthesized bridge fades in, then crossfades out when the recording is ready.
+    let bridge = null, ready = false, to = 0;
+    if (R.fb && BUILD[R.fb]) {
+      to = setTimeout(() => {
+        if (ready || g.dead || g.retiring) return;
+        bridge = mkGroup(); E.groups.push(bridge);
+        try { bridge.bedOut.disconnect(); bridge.bedOut.connect(g.bed); BUILD[R.fb](bridge, L * 0.45); bridge.fade(1, 0.8); } catch (e) { /* ignore */ }
+      }, 400);
+      g.rel.push(() => { clearTimeout(to); if (bridge) bridge.kill(); });
+    }
     pr.then((buf) => {
+      ready = true; clearTimeout(to);
+      if (bridge) { const b2 = bridge; bridge = null; b2.fade(0, 1.6); setTimeout(() => b2.kill(), 2000); }
       if (g.dead) return;
       if (!buf) { fallback(g, id, L); return; }
       const r = E.bufs[id], o = bed.o;
-      o.trim = bed.R.trim * ((r && r.norm) || 1); o.want = o.L * o.trim;
+      o.trim = R.trim * ((r && r.norm) || 1); o.want = o.L * o.trim;
       grain(g, bed, buf);
       const t = ctx.currentTime;
-      o.param.cancelScheduledValues(t); o.param.setValueAtTime(0, t); o.param.linearRampToValueAtTime(o.want, t + 1.2);
+      o.param.cancelScheduledValues(t); o.param.setValueAtTime(0, t); o.param.linearRampToValueAtTime(o.want, t + 1.2); o.rampEnd = t + 1.2;
     });
   }
   function recEvent(g, id, L) {
@@ -871,7 +960,7 @@
     let buf = null; const recentSeg = [];
     pr.then((b) => {
       if (g.dead) return;
-      if (b) { buf = b; const r = E.bufs[id]; o.trim = R.trim * ((r && r.norm) || 1); o.want = o.L * o.trim; o.param.cancelScheduledValues(ctx.currentTime); o.param.setTargetAtTime(o.want, ctx.currentTime, 0.1); }
+      if (b) { buf = b; const r = E.bufs[id]; o.trim = R.trim * ((r && r.norm) || 1); o.want = o.L * o.trim; setLvl(o, o.want, 0.1); }
       else fallback(g, id, L);
     });
     const rate = (t) => g.arc.evRate(id, g.tau(t)) * E.speed;
@@ -902,8 +991,7 @@
     id = LEGACY[id] || id; let ok = false;
     for (const g of E.groups) {
       const o = g.lv[id]; if (g.dead || g.retiring || !o) continue;
-      o.L = Math.max(0, L); o.want = o.L * o.trim; ok = true;
-      try { o.param.cancelScheduledValues(E.ctx.currentTime); o.param.setTargetAtTime(o.want, E.ctx.currentTime, 0.12); } catch (e) { /* ignore */ }
+      o.L = Math.max(0, L); o.want = o.L * o.trim; ok = true; setLvl(o, o.want, 0.12);
     }
     return ok;
   }
@@ -921,7 +1009,7 @@
     thunder(g, L) {
       const o = g.bed;
       g.every(rnd(5, 12), () => rnd(24, 58), (t) => {
-        const ctx = E.ctx, s = ctx.createBufferSource(); s.buffer = E.brown;
+        const ctx = E.ctx, s = ctx.createBufferSource(); s.buffer = noiseBuf("brown");
         const f = ctx.createBiquadFilter(); f.type = "lowpass"; f.frequency.setValueAtTime(rnd(160, 320), t); f.frequency.exponentialRampToValueAtTime(60, t + 5);
         const a = ctx.createGain(), d = rnd(4, 7), pk = rnd(0.55, 1) * L;
         a.gain.setValueAtTime(0, t); a.gain.linearRampToValueAtTime(pk * 0.5, t + 0.4); a.gain.linearRampToValueAtTime(pk, t + rnd(0.9, 1.6)); a.gain.exponentialRampToValueAtTime(0.0001, t + d);
@@ -1089,7 +1177,9 @@
     if (E.timeAware && !beds.birds && dawnness(hourNow()) > 0.05 && Object.keys(beds).some((id) => OUTDOOR[id])) beds.birds = 0.4;
     g.arc = mkArc(g, mix, beds); g.arcOff = 0; g.spat = mix.spat || null;
     g.tau = (t) => (t - g.t0) * E.speed + g.arcOff;
-    for (const id of BED_ORDER) { const L = beds[id]; if (L > 0) (REC[id].kind === "event" ? recEvent : recLoop)(g, id, L); }
+    // loops first, loudest first: the first decode slot goes to the bed that matters most
+    const order = BED_ORDER.filter((id) => beds[id] > 0).sort((x, y) => (REC[x].kind === "event") - (REC[y].kind === "event") || beds[y] * REC[y].trim - beds[x] * REC[x].trim);
+    for (const id of order) (REC[id].kind === "event" ? recEvent : recLoop)(g, id, beds[id]);
     arcTicker(g);
     if ((mix.pad > 0) || mix.piano || mix.bells || mix.beat) buildMusic(g, mix);
     return g;
