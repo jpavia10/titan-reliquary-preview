@@ -8,25 +8,23 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
 
 - **DE.X.spielmarke-20-gr design.text**  
   Specimens: T001, T002  
-  T001 says '13 stars', T002 says 'ring of stars'. Count the stars on both tokens; if the counts differ these are two different varieties and need two types.
+  T001 says '13 stars', T002 says 'ring of stars'. Count the stars on both tokens; if the counts differ these are two different varieties and need two types.  
+  **2026-10-05:** T002's phone photo (GR side) shows **15** stars. T001 has no photo yet, so its "13" is unchecked: count T001's stars.
 - **ES.KM.1040 design.text**  
   Specimens: C139, C140  
   Confirm the KM# for Spain 1 euro cent: C140 (2008) and C139 (2014) share KM#1040 in the ledger, but the Spanish design changed again in 2010 and Krause may give 2010+ a different number. Also check the common side on C140.
-- **GB.KM.1109d design.text**  
-  Specimens: C180, C181, C182, C183  
-  C183 (2015 5 pence): ledger lists KM#1109d (Rank-Broadley portrait) and KM#1334 (Jody Clark portrait, 2015+). Check the obverse portrait. If Clark, move C183 to type GB.KM.1334.
+- ~~GB.KM.1109d / C183~~ **Settled 2026-10-05 (Claude, from the phone photo):** the obverse legend reads ELIZABETH II DEI GRA REG FID DEF 2015 with the diadem portrait = Jody Clark. C183 moved to GB.KM.1334 (`changes_claude_20261005-1700.jsonl`). Owner to confirm at Phase 2.
 - **GB.KM.989 design.text**  
   Specimens: C152, C153  
   C153 (2008 10 pence): the ledger says 'lion or Royal Shield segment (transition year)' and lists both KM#989 and KM#1110. Look at the reverse. If it is the Shield (Matthew Dent) design, move C153 to type GB.KM.1110.
 - **NO.KM.460 design.text**  
   Specimens: C144, C268  
-  Schön# differs between the two records (C144 Schön#76, C268 Schön#107). Check which Schön number belongs to KM#460. Also confirm the NORGE/NOREG alternation by year.
+  Schön# differs between the two records (C144 Schön#76, C268 Schön#107). Check which Schön number belongs to KM#460. Also confirm the NORGE/NOREG alternation by year.  
+  **2026-10-05:** both phone photos read **NOREG** (C144 1998, C268 2000), so both fit KM#460's NOREG years. The Schön number still needs a catalog (Phase 2).
 
 ## 2. Legal-tender status
 
-- **SE.KM.826a legal tender**  
-  Specimens: C165  
-  Sweden: is the 1973 Gustaf VI Adolf 1 krona still accepted at the Riksbank / in shops, or demonetized? Ledger wording is ambiguous ('still SEK system').
+- ~~SE.KM.826a legal tender~~ **Settled 2026-10-05:** demonetized; the old 1, 2 and 5 krona coins stopped being legal tender after 30 June 2017 (Riksbank coin changeover). Set in `changes_claude_20261005-1700.jsonl`.
 
 ## 3. Catalog numbers
 
@@ -64,7 +62,7 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
 ## 6b. Date read from a photo disagrees with the record (owner to confirm)
 
 - **C066 Switzerland 5 francs (CH.KM.40a.1): record says 1978, the photo reads 1976**  
-  Photo: Drive `_raw_capture/_phase1/coins/C066_Switzerland_1976_5Francs_rev.jpeg` (read at full zoom 2026-10-04; Grok also changed its name from 1978 to 1976). The record (and its mintage 4,411,000) is unchanged until the owner checks the coin.
+  Photo: Drive `_raw_capture/_phase1/coins/C066_Switzerland_1976_5Francs_rev.jpeg` (read at full zoom 2026-10-04; Grok also changed its name from 1978 to 1976). Re-checked 2026-10-05 on the 512 px cut-out: the last digit is unclear there (6 or 8), so only the coin itself can settle it. The record (and its mintage 4,411,000) is unchanged until the owner checks the coin.
 
 - **Found while cutting the Phase 1 photos (2026-10-04, crop agents; Claude checked the cuts; records unchanged until the owner checks). Owner: the pen labels may be wrong; flag every doubt and confirm at Phase 2. 18 coins are flagged in the coin view ("Still being checked"): these 7 plus C233, C276, C157, C214, C100, C126, C131, C063, C062, C033, C144:**
   - **C023:** the photo shows "20" in an oak wreath, dated 1918, toothed border, iron. **Owner (2026-10-04): still thinks it is German.** That fits a German city notgeld (emergency) 20 pfennig, since the Empire struck no 1918 20 pfennig; the other side should name the city. Re-file the type once that side is read.

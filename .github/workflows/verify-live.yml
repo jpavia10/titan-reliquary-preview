@@ -1,0 +1,63 @@
+name: verify-live
+
+# "Published" means the live site serves what main holds, not that a push succeeded (fix-list #7).
+# Runs after every GitHub Pages deployment: fetches the live version.json + data/status.json (no cache) and compares
+# build, collection hash and publish time with the same files in the deployed commit. A mismatch fails the job,
+# which GitHub reports to the owner. Pages' CDN can lag a few minutes, so it retries for up to ~10 minutes.
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          fetch-depth: 1
+      - name: Compare the live site with the deployed commit
+        env:
+          SITE: https://jpavia10.github.io/titan-reliquary-preview
+          SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, sys, time, urllib.request
+          site, sha = os.environ["SITE"], os.environ["SHA"][:7]
+          def local(p):
+              try: return json.load(open(p, encoding="utf-8"))
+              except FileNotFoundError: return None
+          def live(p):
+              req = urllib.request.Request(f"{site}/{p}?nocache={time.time()}", headers={"Cache-Control": "no-cache"})
+              with urllib.request.urlopen(req, timeout=20) as r: return json.load(r)
+          want_v, want_s = local("version.json"), local("data/status.json")
+          keys_v = ("build", "ledger_version", "generated_at")
+          keys_s = ("build", "collection_hash", "generated_at")
+          last = ""
+          for attempt in range(20):
+              try:
+                  got_v = live("version.json")
+                  got_s = live("data/status.json") if want_s else None
+                  diff = [f"version.json {k}: live {got_v.get(k)!r} vs repo {want_v.get(k)!r}" for k in keys_v if got_v.get(k) != want_v.get(k)]
+                  if want_s: diff += [f"status.json {k}: live {got_s.get(k)!r} vs repo {want_s.get(k)!r}" for k in keys_s if got_s.get(k) != want_s.get(k)]
+              except Exception as e:
+                  diff = [f"could not fetch the live site: {e}"]
+              if not diff: break
+              last = "\n".join(diff); print(f"attempt {attempt + 1}: not live yet\n{last}"); time.sleep(30)
+          summ = open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8")
+          if diff:
+              summ.write(f"## Live site does NOT match {sha}\n\n```\n{last}\n```\n")
+              print(f"LIVE MISMATCH after ~10 minutes for {sha}:\n{last}"); sys.exit(1)
+          s = want_s or {}
+          line = f"build {want_v.get('build')}, data {want_v.get('ledger_version')}, published {want_v.get('generated_at')}"
+          extra = f", {s['specimens']['total']} specimens, integrity problems {s['integrity']['problems']}" if s else ""
+          summ.write(f"## Live site matches {sha}\n\n{line}{extra}\n")
+          print(f"LIVE OK for {sha}: {line}{extra}")
+          EOF

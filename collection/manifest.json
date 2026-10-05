@@ -19,7 +19,7 @@
   "photos": 219,
   "valuations": 310,
   "spot_days": 24,
-  "changes": 1861,
+  "changes": 1866,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "bdf60631294be4209115316b0fc3fbcbb45ba78ea813bd25d910e1d39909f3b0",
+ "content_hash": "4764617d78079971140cf7e6912c9072933e99049e6c8a03938a978da176980d",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -54,8 +54,8 @@
   },
   {
    "path": "README.md",
-   "sha256": "19e9213331343aa090541fec3de839b2658d869bc8b5e14a5567ffb1bbc68a17",
-   "bytes": 10701
+   "sha256": "e2667b567443d04f8460fd3c4c9cb1b4f15e8bec6803c1a2e09be95e907e1832",
+   "bytes": 10713
   },
   {
    "path": "SER_REASSIGN_PLAN.md",
@@ -74,13 +74,13 @@
   },
   {
    "path": "boot.json",
-   "sha256": "f91cd4b3a2933dce2394c3b9d1236465b10a9cc778779c5fee29af1d07c01cbe",
+   "sha256": "f274f82988ad651ed4368b327f76bf6792b7cfe73d8dc586c1287aad45d34c0b",
    "bytes": 17589
   },
   {
    "path": "changes.jsonl",
-   "sha256": "eb26c931e9dbe42d662788be4419ce5dc5a7ab735c2266177fa58910b7cb841f",
-   "bytes": 1850183
+   "sha256": "7fb44b44b79663a3744d7488ef8dbbe9a7d4fc37eeba2ab5d6a4079cc0c9b0f9",
+   "bytes": 1852538
   },
   {
    "path": "lots.json",
@@ -194,8 +194,8 @@
   },
   {
    "path": "specimens/GB.json",
-   "sha256": "1a448c184b1e51a73038e99092f2b3da093fb45b662e85620c02ebdccf432517",
-   "bytes": 110897
+   "sha256": "bddd98e08d8a77d528268bee116e2e7513ce7895f39c99108631efab20a6e60e",
+   "bytes": 110892
   },
   {
    "path": "specimens/GR.json",
@@ -359,8 +359,8 @@
   },
   {
    "path": "templates/INSTRUCTIONS.md",
-   "sha256": "452915714f59c747520e5d1e41ad16d958d207b1cd3252002826dcb3a7038bb4",
-   "bytes": 14221
+   "sha256": "a07fb9fd6fe0b944ac525325f8cdfffdc4a1b95c3cd04ca2be43f372b08b40ea",
+   "bytes": 14292
   },
   {
    "path": "templates/phase1_template.jsonl",
@@ -459,8 +459,8 @@
   },
   {
    "path": "types/GB.json",
-   "sha256": "ee332de4d8d8e40648083beac43da82fdac67584162e41f890f62ab37ca69c8e",
-   "bytes": 31330
+   "sha256": "e6664396ce8da0aff1fea9c6447135ff151f85629006d6adfde293d93eb76cfb",
+   "bytes": 31482
   },
   {
    "path": "types/GR.json",
@@ -559,8 +559,8 @@
   },
   {
    "path": "types/SE.json",
-   "sha256": "7bb2a2d68d13a38440611ce3f2d63cd273bf42e6e5f0f41655ad6c78b35bffe4",
-   "bytes": 1312
+   "sha256": "6d04e8b381550a1f1839dbd6aa10e2a217acc5c0c88011464440acf34bb6772b",
+   "bytes": 1417
   },
   {
    "path": "types/SG.json",
