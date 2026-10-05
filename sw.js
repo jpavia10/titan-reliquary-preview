@@ -48,6 +48,7 @@ const WING_URLS = [
   "styles/themes.css?v=" + BUILD,
   "styles/vault.css?v=" + BUILD,
   "styles/simple.css?v=" + BUILD,
+  "styles/health.css?v=" + BUILD,
   "styles/wants.css?v=" + BUILD,
   "wings/albums-data.js?v=" + BUILD,
   "wings/atmo/abyss.js?v=" + BUILD,
@@ -87,6 +88,7 @@ const WING_URLS = [
   "wings/themes/worlds.js?v=" + BUILD,
   "wings/vault.js?v=" + BUILD,
   "wings/simple.js?v=" + BUILD,
+  "wings/health.js?v=" + BUILD,
   "wings/wants.js?v=" + BUILD,
 ];
 
@@ -111,7 +113,10 @@ async function networkFirst(req, cacheName) {
     return fresh;
   } catch (err) {
     const hit = await cache.match(req.url.split("?")[0]);
-    if (hit) return hit;
+    if (hit) {   // offline: say so in a header, so the page never mistakes this saved copy for a fresh answer
+      const h = new Headers(hit.headers); h.set("x-titan-from-cache", "1");
+      return new Response(await hit.blob(), { status: hit.status, statusText: hit.statusText, headers: h });
+    }
     throw err;
   }
 }
@@ -124,6 +129,17 @@ async function cacheFirst(req, cacheName) {
   if (res && res.ok) cache.put(req, res.clone());
   return res;
 }
+
+/* Health view: reply with the build and the cache names so the page can show what is really running. */
+self.addEventListener("message", (e) => {
+  if (!e.data || e.data.type !== "titan:sw-info") return;
+  const port = e.ports && e.ports[0], src = port || e.source;
+  e.waitUntil((async () => {
+    let names = [];
+    try { names = await caches.keys(); } catch (_e) { /* ignore */ }
+    if (src) src.postMessage({ type: "titan:sw-info", build: BUILD, caches: names });
+  })());
+});
 
 self.addEventListener("fetch", (e) => {
   const req = e.request;
