@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-05T16:58:43Z",
-  "generated_at_pt": "2026-10-05 09:58 PT",
-  "generated_at_iso": "2026-10-05T09:58:43-07:00",
-  "content_hash": "4764617d78079971",
-  "ledger_version": "v3:4764617d78079971",
+  "generated_at": "2026-10-05T17:07:00Z",
+  "generated_at_pt": "2026-10-05 10:07 PT",
+  "generated_at_iso": "2026-10-05T10:07:00-07:00",
+  "content_hash": "d0342d8b58d6f864",
+  "ledger_version": "v3:d0342d8b58d6f864",
   "flips": 282,
   "newest_flip": "C280",
   "newest_ser": "NA-BZ-001",
@@ -15,5 +15,5 @@
   },
   "drip_active": false,
   "drip_until": null,
-  "build": "tr91"
+  "build": "tr92"
 }
