@@ -77,6 +77,7 @@ const WING_URLS = [
   "wings/fx/engine.js?v=" + BUILD,
   "wings/fx/presets.js?v=" + BUILD,
   "wings/fx/ui.js?v=" + BUILD,
+  "wings/music-engine.js?v=" + BUILD,
   "wings/scene-engine.js?v=" + BUILD,
   "wings/scene.js?v=" + BUILD,
   "wings/study.js?v=" + BUILD,

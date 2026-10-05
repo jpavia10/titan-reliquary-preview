@@ -755,13 +755,34 @@
     if (m.beat) loopTex(g, texBeat(bpm), g.beat, 1, g.t0 + 0.1);
   }
 
+  /* ---------- TitanMusic bridge (wings/music-engine.js) ----------
+     The session feeds this group's music gain (g.mus), so the scene crossfade, kill and every level control work unchanged.
+     If the beds work adds TitanGen.musicBus() ({ ctx, input }), it is the fallback when a group has no g.mus. */
+  function musicStart(g, mix) {
+    const r = window.TitanMusic.forMix(mix, E.name);
+    if (!r) return false;                                   // engine declined: use the old music path
+    if (!r.spec) return true;                               // this scene has no music (e.g. storm)
+    let ctx = E.ctx, input = g.mus;
+    if (!input) { const mb = musicBusOf(); if (mb) { ctx = mb.ctx; input = mb.input; } }
+    if (!input) input = E.musBus;
+    const sess = window.TitanMusic.start(r.spec, { ctx, input, exclusive: false, fadeIn: 0.05 });
+    if (!sess) return false;
+    g.musicSession = sess; g.rel.push(() => sess.stop(0));
+    return true;
+  }
+  function musicBusOf() { return (window.TitanGen && typeof window.TitanGen.musicBus === "function") ? window.TitanGen.musicBus() : null; }
+
   /* ---------- public control ---------- */
   function buildGroup(mix) {
     const g = mkGroup();
     const beds = {};
     for (const k of Object.keys(mix.beds || {})) { const id = LEGACY[k] || k, L = mix.beds[k]; if (L > 0 && REC[id]) beds[id] = Math.max(beds[id] || 0, L); }
     for (const id of BED_ORDER) { const L = beds[id]; if (L > 0) (REC[id].kind === "event" ? recEvent : recLoop)(g, id, L); }
-    if ((mix.pad > 0) || mix.piano || mix.bells || mix.beat) buildMusic(g, mix);
+    // >>> TitanMusic integration (wings/music-engine.js): when present it plays the music; otherwise the old buildMusic path below runs.
+    let musicDone = false;
+    if (window.TitanMusic && window.TitanMusic.supported) { try { musicDone = musicStart(g, mix); } catch (e) { musicDone = false; } }
+    // <<< end TitanMusic integration
+    if (!musicDone && ((mix.pad > 0) || mix.piano || mix.bells || mix.beat)) buildMusic(g, mix);
     return g;
   }
 
@@ -876,4 +897,7 @@
     level() { if (!E.an) return 0; E.an.getFloatTimeDomainData(E.anBuf); let s = 0; for (let i = 0; i < E.anBuf.length; i++) s += E.anBuf[i] * E.anBuf[i]; return Math.sqrt(s / E.anBuf.length); },
     stats: () => ({ buffers: Object.keys(E.bufs).filter((k) => E.bufs[k].buf).length, decoded: E.decoded, released: E.released, fallbacks: E.fallbacks, groups: E.groups.length, sources: E.groups.reduce((n, g) => n + g.srcs.length, 0), killed: E.killedSources, ctx: E.ctx ? E.ctx.state : "none", via: E.via })
   };
+  // >>> TitanMusic integration: tempo trim for the new music layer (no-op without wings/music-engine.js)
+  window.TitanGen.setMusicTempo = (x) => { if (window.TitanMusic) window.TitanMusic.setTempoScale(x); };
+  // <<< end TitanMusic integration
 })();
