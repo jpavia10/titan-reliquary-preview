@@ -30,7 +30,10 @@
   };
 
   /* Optional pre-rendered overlay art (webm, black background, blended with screen). Played through TitanFX.playVideo; a missing file is a silent no-op. */
-  var VIDEO = { kaleido: "art/fx/kaleido-glints.webm", prism: "art/fx/kaleido-glints.webm" };
+  /* fx-v3: the video is NOT covered by the text-safe mask (it is a plain <video> over the page) and at Full it dropped body-text contrast
+     in Prism below AA (min ratio 0.6 in tools measurements); the new `prismatic` preset draws its own glints/flares, so nothing is auto-played.
+     A manifest can still opt in with `fxVideo` (and should use a low `opacity`). */
+  var VIDEO = {};
 
   var atmo = document.documentElement.getAttribute("data-atmo") || "afterhours";
   var sceneName = null, sceneAtmo = null, world = null;

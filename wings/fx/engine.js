@@ -250,6 +250,17 @@
     if (!safe.cv) { safe.cv = document.createElement("canvas"); safe.cx = safe.cv.getContext("2d"); }
     if (safe.cv.width !== W || safe.cv.height !== H) { safe.cv.width = W; safe.cv.height = H; }
     var cx = safe.cx; cx.shadowBlur = 0; cx.fillStyle = "#000"; cx.fillRect(0, 0, W, H); cx.fillStyle = "#fff"; cx.shadowColor = "#fff"; cx.shadowBlur = 5;   // soft edges: no visible boxes around text
+    // text drawn into a <canvas> (the Hall terminal prompt, charts) is not in the DOM: treat modest-size canvases as one soft block
+    var cvs = document.querySelectorAll("canvas"), ci;
+    cx.fillStyle = "rgba(255,255,255,.92)";
+    for (ci = 0; ci < cvs.length && ci < 24; ci++) {
+      var cv = cvs[ci]; if (cv.id === "titan-fx" || cv.getAttribute("aria-hidden") === "true" && cv.closest("#tr-splash")) continue;
+      var cb = cv.getBoundingClientRect();
+      if (cb.width < 40 || cb.height < 24 || cb.width * cb.height > 0.6 * vw * vh || cb.bottom < 0 || cb.top > vh || cb.right < 0 || cb.left > vw) continue;
+      if (cv.closest && cv.closest("#scene-sheet")) continue;
+      cx.fillRect(cb.left / S, cb.top / S, cb.width / S, cb.height / S);
+    }
+    cx.fillStyle = "#fff";
     var r = document.createRange(), pad = 3;
     for (var i = 0; i < safe.nodes.length; i++) {
       var nd = safe.nodes[i]; if (!nd.isConnected) continue;
@@ -776,6 +787,7 @@
     state: function () { return { light: theme.light, level: cfg.level, intensity: cfg.intensity, film: cfg.film, reduced: reduced, playing: want ? want.id : null }; },
     vhead: VHEAD3,
     moment: forceMoment,
+    safeCanvas: function () { return safe.cv; },   // debug: the text-safe mask (1/4 resolution)
     benchmark: function (n) {   // synchronous frame-cost probe (1x1 readPixels forces the GPU to finish): {median, p90} in ms at the current quality step
       if (!gl || gl.isContextLost() || !layers.length) return null;
       var a = [], px = new Uint8Array(4); n = n || 12;

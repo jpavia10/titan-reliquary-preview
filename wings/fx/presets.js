@@ -641,7 +641,7 @@
 
   /* ---------- 1. kaleido / Prism: refracting caustic lattice with chromatic split, spectrum sweep, glint flares ---------- */
   FX.register("prismatic", T3({
-    still: 11, safe: 0.92, tap: true, glsl: G3,
+    still: 11, safe: 0.97, tap: true, glsl: G3,
     front: { rate: 0.5, size: 0.13, alpha: 0.1, kind: 1, color: [0.75, 0.88, 1.0] },
     moments: [{ name: "spectrum-sweep", every: [28, 65], dur: 9 }, { name: "flare", every: [28, 65], dur: 4 }],
     passes: [
@@ -662,7 +662,7 @@
         "      c += (hsv(fract(rr*4.-t*.2), .7, 1.)*exp(-pow((rr-.15-k*.25)/.03,2.))*.9 + (exp(-abs(f.x)*16.)*exp(-abs(f.y)*3.)+exp(-abs(f.y)*16.)*exp(-abs(f.x)*3.))*.9 + exp(-rr*rr*60.))*env; }",
         "  }",
         "  float edge = .55+.6*smoothstep(.2,.9,length(p*vec2(.7,1.)));",
-        "  c *= edge*I*.55;",
+        "  c *= edge*I*.47;",
         "  return fin(c, max(max(c.r,c.g),c.b)*.1);",
         "}"].join("\n") },
       { count: [26, 50, 80, 110], glow: 0.9, vert: PV({ speed: 0.03, sway: 0.06, swf: 0.3, s0: 4, s1: 9, dens: 0.2, fin: 0.2, fout: 0.8, flk: 0.95, ff: 2.6, bmin: 0.25 }),
@@ -1143,7 +1143,7 @@
 
   /* ---------- 14. alchemist / The Alchemist: emerald vapour, a slowly turning hermetic ring with runic ticks, sparks; transmutation moment ---------- */
   FX.register("athanor", T3({
-    still: 8, safe: 0.88, tap: true, glsl: G3,
+    still: 8, safe: 0.93, tap: true, glsl: G3,
     front: { rate: 0.4, size: 0.13, alpha: 0.1, kind: 0, color: [0.2, 0.95, 0.55] },
     moments: [{ name: "transmutation", every: [28, 70], dur: 8 }],
     passes: [
@@ -1327,7 +1327,7 @@
 
   /* ---------- 19. samadhi: two curling saffron incense columns, slow golden motes, a singing-bowl ring that radiates ---------- */
   FX.register("incense-curl", T3({
-    still: 10, safe: 0.88, tap: true, glsl: G3,
+    still: 10, safe: 0.93, tap: true, glsl: G3,
     front: { rate: 0.3, size: 0.15, alpha: 0.09, kind: 0, color: [1.0, 0.72, 0.3] },
     moments: [{ name: "singing-bowl", every: [30, 75], dur: 9 }],
     passes: [
