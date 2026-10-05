@@ -578,13 +578,13 @@
     }
     function planDrums(t0, D, beat) {
       const dr = inst.drums, lofi = dr.type === "lofi", sw = spec.swing == null ? (lofi ? 0.2 : 0.14) : spec.swing, bars = Math.max(1, Math.round(D / (beat * 4))), L = dr.lvl;
-      const hit = (kind, tt, v, jit) => { const t = tt + rnd(-jit, jit); S.at(t, () => I_.drum(kind, Math.max(t, ctx.currentTime), v)); };
+      const hit = (kind, tt, v, jit) => { const t = tt + rnd(-jit, jit); S.at(t, () => I_.drum(kind, t, v)); };
       for (let b = 0; b < bars; b++) {
         const base = t0 + b * 4 * beat;
-        for (let e = 0; e < 8; e++) {
-          if (R() < (lofi ? 0.14 : 0.3)) continue;
+        for (let e = 0; e < 8; e++) {                       // hats on the off-beat eighths, and the main beats now and then (fewer nodes than every eighth)
+          if (e % 2 ? R() < (lofi ? 0.12 : 0.3) : R() < 0.6) continue;
           const off = e % 2 ? sw * beat * 0.5 : 0;
-          hit("hat", base + (e * 0.5) * beat + off, (e % 2 ? 0.26 : 0.4) * L * rnd(0.7, 1.15), 0.008);
+          hit("hat", base + (e * 0.5) * beat + off, (e % 2 ? 0.28 : 0.38) * L * rnd(0.7, 1.15), 0.008);
         }
         hit("kick", base, 0.85 * L, 0.006);
         if (R() < (lofi ? 0.55 : 0.3)) hit("kick", base + 2.5 * beat + sw * beat * 0.25, 0.6 * L, 0.01);
@@ -602,13 +602,16 @@
       if (S.nextAt === 0) S.nextAt = t0 + 0.1;
       else if (!S.manual && S.nextAt < t0 - 0.4) { S.q.length = 0; S.phrase.length = 0; S.nextAt = t0 + 0.1; S.melAt = t0; }   // resumed after a long suspension
       let guard = 0;
+      const tp0 = performance.now();
       while (S.nextAt < t1 && guard++ < 6) planChord();
+      const tp1 = performance.now(); if (tp1 - tp0 > (S.maxPlan || 0)) S.maxPlan = tp1 - tp0;
       let n = 0;
-      while (S.q.length && S.q[0].t < t1) {
+      while (S.q.length && S.q[0].t < t1 && (S.manual || n < 12)) {      // at most 12 events per tick on the main thread; the rest follow on the next tick (the look-ahead has slack)
         const e = S.q.shift();
-        if (!S.manual && e.t < t0 - 0.3) { S.dropped++; continue; }
+        if (!S.manual && e.t < t0 - 0.5) { S.dropped++; continue; }
         try { e.fn(); n++; } catch (err) { S.err = err; }
       }
+      const te = performance.now() - tp1; if (te > (S.maxEv || 0)) S.maxEv = te;
       S.live = S.ends.length;
       if (S.live > S.peakLive || S.peakLive == null) S.peakLive = S.live;
     };
@@ -633,7 +636,7 @@
       for (const n of colourNodes) { try { n.disconnect(); } catch (e) { /* ignore */ } }
       SESS.delete(S); if (!SESS.size) stopTimer();
     };
-    S.stats = () => ({ id: S.id, voices: S.srcs.size, scheduled: S.ends.length, queued: S.q.length, peakScheduled: S.peakLive || 0, chords: S.chordsPlayed, section: S.section, cycles: S.cycles, trans: S.trans, mods: S.mods, melNotes: S.notesMel, dropped: S.dropped, tempo: S.tempo });
+    S.stats = () => ({ id: S.id, voices: S.srcs.size, scheduled: S.ends.length, queued: S.q.length, peakScheduled: S.peakLive || 0, chords: S.chordsPlayed, section: S.section, cycles: S.cycles, trans: S.trans, mods: S.mods, melNotes: S.notesMel, dropped: S.dropped, tempo: S.tempo, maxPlanMs: Math.round(S.maxPlan || 0), maxEvMs: Math.round(S.maxEv || 0) });
     return S;
   }
   const TRIM = 1;
@@ -693,7 +696,7 @@
       inst: { pad: ["strings", 0.34], bells: ["celesta", 0.3], harp: 0.2, bass: ["sub", 0.38] }, melody: { inst: ["bells"], density: 0.28 } },
     hoard: { mood: "hall of timbers, a lyre", key: "E", mode: "phrygian", bpm: 54, chordBeats: 14, A: ["i", "VI", "iv", "i"], B: ["i", "II", "vii", "i"], voicing: "open",
       inst: { pad: ["strings", 0.38], harp: 0.4, bells: ["box", 0.2], bass: ["sub", 0.3] }, melody: { inst: [["harp", 3], ["bells", 1]], density: 0.3 } },
-    bluenote: { mood: "late club, brushes, walking bass", key: "C", mode: "dorian", bpm: 72, chordBeats: 8, A: ["i7", "IV7", "i7", "IV7"], B: ["ii7", "v7", "i7", "i7"], voicing: "shell", comp: "sync", walk: true, swing: 0.3, ext: 0.1,
+    bluenote: { mood: "late club, brushes, walking bass", key: "C", mode: "dorian", bpm: 72, chordBeats: 8, A: ["i7", "IV7", "III", "VII"], B: ["ii7", "v7", "i7", "IV7"], voicing: "shell", comp: "sync", walk: true, swing: 0.3, ext: 0.1,
       inst: { pad: ["strings", 0.14], piano: 0.62, bass: ["upright", 0.5], drums: ["brush", 0.28] }, melody: { inst: ["piano"], density: 0.5 } },
     cabin: { mood: "calm sea, harp and strings", key: "G", mode: "major", bpm: 60, chordBeats: 12, A: ["I", "IV", "I", "V"], B: ["vi", "IV", "I", "V"], voicing: "open",
       inst: { pad: ["strings", 0.36], harp: 0.4, bells: ["box", 0.2], bass: ["upright", 0.24] }, melody: { inst: [["harp", 3], ["bells", 1]], density: 0.35 } },
