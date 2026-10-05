@@ -816,7 +816,7 @@
     tile.classList.toggle("is-turned", on);
     const btn = $(".gx-turn", tile);
     if (btn) btn.setAttribute("aria-pressed", String(on));
-    B.playStapleClick();
+    if (window.TitanUISounds) window.TitanUISounds.play("flip"); else B.playStapleClick();
   }
 
   function renderWall(list, F, force) {
