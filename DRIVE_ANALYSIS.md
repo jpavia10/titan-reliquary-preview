@@ -1,3 +1,4 @@
+<!-- doc-status: historical; normative: no; superseded-by: CLAUDE.md, AI_START_HERE.md -->
 > **HISTORICAL (2026-09-25). Superseded; do not follow.** This describes the old Grok ledger pipeline (`LEDGER.md`, Grok publishing to GitHub). Since 2026-10-01 the master is `collection/` (schema v3) in this repo; contributors, Grok included, only drop change files in Drive `Titan Reliquary/collection-incoming (AI change files)/`, and Claude merges them and owns the site. Follow `AI_START_HERE.md` and `collection/templates/INSTRUCTIONS.md`.
 
 # Titan Reliquary — Drive & Pipeline Analysis

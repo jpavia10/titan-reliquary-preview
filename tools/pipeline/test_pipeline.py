@@ -7,7 +7,7 @@
   - re-applying is a no-op; every kind of bad contribution is rejected and changes nothing
   - publish refuses to publish a collection that does not validate
 """
-import warnings; warnings.simplefilter("ignore")
+import copy, warnings; warnings.simplefilter("ignore")
 import pathlib, glob, hashlib, json, os, shutil, subprocess, sys, tempfile, unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -324,6 +324,25 @@ class Pipeline(unittest.TestCase):
         fresh = build_wants.build(albums, w["generated_at"])
         self.assertEqual(json.dumps(fresh, ensure_ascii=False, separators=(",", ":")), open(os.path.join(ROOT, "data", "wants.json"), encoding="utf-8").read())
 
+    def test_integrity_catches_orphans(self):
+        import integrity as I, build_app_data as B
+        col = B.load_collection(os.path.join(ROOT, "collection"))
+        self.assertEqual(I.problems(col, os.path.join(ROOT, "data")), [])
+        bad = copy.deepcopy(col); sid = next(iter(bad["specs"]))
+        bad["specs"][sid]["type"] = "XX.NOPE"
+        bad["photos"].append(dict(bad["photos"][0], id="ZZ-obv-p1", specimen="C999"))
+        bad["photos"].append(dict(bad["photos"][0], id="ZZ-rev-p1", superseded_by="NOPE"))
+        other = next(k for k in bad["specs"] if k != sid); bad["specs"][other]["ser"] = bad["specs"][sid]["ser"]
+        msg = "\n".join(I.problems(bad))
+        for want in ("type XX.NOPE does not exist", "specimen C999 does not exist", "superseded_by NOPE does not exist", "is used by 2 specimens"):
+            self.assertIn(want, msg)
+
+    def test_publish_writes_status_json(self):
+        tmp = sandbox(); r = self.publish(tmp); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        st = json.load(open(os.path.join(tmp, "data", "status.json")))
+        self.assertEqual(st["specimens"]["total"], len(BASE.specs)); self.assertEqual(st["specimens"]["coins"] + st["specimens"]["tokens"], st["specimens"]["total"])
+        self.assertEqual(st["integrity"]["problems"], 0)
+
     def test_publish_writes_wants_json(self):
         tmp = sandbox(); os.remove(os.path.join(tmp, "data", "wants.json")) if os.path.exists(os.path.join(tmp, "data", "wants.json")) else None
         r = self.publish(tmp); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
@@ -343,6 +362,8 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         photos = {p["id"]: p for p in C.Collection(os.path.join(tmp, "collection")).photos}
         self.assertEqual(photos[p1["id"]]["superseded_by"], pid)
+        r = self.publish(tmp); self.assertNotEqual(r.returncode, 0); self.assertIn("is missing", r.stdout + r.stderr)   # a live photo needs its file
+        os.makedirs(os.path.join(tmp, "photos", "p2"), exist_ok=True); open(os.path.join(tmp, new["path"]), "wb").write(b"RIFF")
         r = self.publish(tmp); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         iso = next(s for s in BASE.specs.values() if s["id"] == cid)["type"].split(".")[0]
         det = json.load(open(os.path.join(tmp, "data", "detail", iso + ".json"), encoding="utf-8"))[cid]

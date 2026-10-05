@@ -1,3 +1,4 @@
+<!-- doc-status: historical; normative: no; superseded-by: CLAUDE.md, AI_START_HERE.md -->
 > **HISTORICAL (2026-09-25 reskin brief). Superseded; do not follow its data/pipeline notes.** Data now lives in `collection/` (schema v3) and is merged only from change files (`AI_START_HERE.md`).
 
 # Titan Reliquary — Framework Expansion Brief ("take it all the way home")

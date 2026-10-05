@@ -1,3 +1,4 @@
+<!-- doc-status: historical; normative: no; superseded-by: schema/SCHEMA_V3.md; numbers are as of the 2026-09-30 migration -->
 # Titan Reliquary data schema v2 (DRAFT for owner review)
 
 Status: **ADOPTED as the collection master (owner decision, 2026-09-30).** The canonical v2 data lives in `collection/` (bootstrapped from ledger v254); its contract for any agent is `collection/README.md`. The live app still reads the generated v1 `data/` view until a v2 adapter is wired in behind a flag.

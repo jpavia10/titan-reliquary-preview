@@ -5,8 +5,9 @@
   "ledger_version": "v254",
   "generated_at": "2026-09-30T15:12:46Z",
   "content_hash": "ce9ece4795560e9e",
-  "repo": "https://github.com/jpavia10/titan-reliquary",
-  "ledger_repo": "https://github.com/jpavia10/titan-reliquary"
+  "ledger_repo": "https://github.com/jpavia10/titan-reliquary",
+  "note": "import origin of the v2 master (ledger v254); the master now lives in master_repo",
+  "master_repo": "https://github.com/jpavia10/titan-reliquary-preview"
  },
  "counts": {
   "specimens": 282,

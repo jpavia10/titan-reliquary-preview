@@ -14,7 +14,7 @@ Bootstrapped 2026-09-30 from ledger **v254** (Grok's pipeline output, generated 
 | `lots.json` | bullion lots `B###`, sets `S###`, housing `H###`, stamps `P###` (held as a group) |
 | `albums.json` | the 33 binder volumes `A###` and their **slot grids**. Holes are computed (see below). |
 | `ref/issuers.json` | who issued (45 countries + 3 historical issuers: `DE-EMP`, `MX-CHI`, `VN-SOV`) |
-| `photos.json` | photo records (Phase 1 / 1.5 / 2). **Empty: 0 photos exist yet.** |
+| `photos.json` | photo records (Phase 1 / 1.5 / 2); counts by phase are in `data/status.json`. |
 | `prices/spot_daily.jsonl` | daily gold + silver spot history, one line per UTC date `{date, xag_usd, xau_usd, source, fetched_at}` from day 0 (2026-09-11) onward. Written ONLY by `tools/prices/fetch_prices.py` (tier `system`; run daily by the GitHub Action `.github/workflows/prices.yml`), never by hand or change file. Weekend/holiday dates repeat the previous close with `carried: true`. `prices/latest.json` = the latest live quote (gold-api.com). Feeds the portfolio-value history (`data/index.json` `value.portfolio_daily`, `data/prices.json`). See `notes/agents/prices.md`. |
 | `valuations.jsonl` | append-only, one dated value per specimen/lot (v254: 301 lines) |
 | `changes.jsonl` | append-only audit log: one **ChangeEvent** per fact changed since the ledger |

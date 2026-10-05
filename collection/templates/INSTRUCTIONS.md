@@ -1,3 +1,4 @@
+<!-- doc-status: current; normative: yes; the change-file contract -->
 # How to contribute to the Titan Reliquary collection (any AI, one page) · schema v3
 
 **The contract (2026-10-01):** contributors (Grok, Gemini, Muse, any AI) never edit GitHub, the website, the Drive mirror or the collection files. You write **one change file** `changes_{agent}_{YYYYMMDD-HHMM}.jsonl` and drop it in Drive `Titan Reliquary/collection-incoming (AI change files)/`. Claude (the integrator) merges it with the pipeline and owns the site. If any other document (old README steps, `DRIVE_ANALYSIS.md`, old ledger notes) tells you to hand-edit records or says Grok owns GitHub or `LEDGER.md`, it is out of date: follow this page and `AI_START_HERE.md`.

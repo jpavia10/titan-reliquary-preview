@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-05 PT] — Claude/Opus integrator (audit fixes)
+* **Counts are generated now:** read `data/status.json` (specimens = coins + tokens, lots, albums, photos by phase, open questions, integrity). Never type counts into docs. Docs with `<!-- doc-status: ... normative: no -->` are not instructions.
+* Publish now refuses on any broken reference or orphan (`tools/pipeline/integrity.py`) and needs 100 % search coverage. Triage of the external audit: `notes/agents/audit-2026-10-05.md`.
+
 ### [2026-10-05 PT] — Claude/Opus integrator (tr91 effects)
 * Every theme has its own GPU effect with rare "moments" (whale, press strike, shooting star, lantern release...). Table: `notes/agents/fx-v3.md`. Effects follow the theme; sound follows too (tr90).
 

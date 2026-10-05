@@ -60,6 +60,11 @@ def build(d, source=None):
     cnt, tot = counts_and_totals(d)
     src = dict(old.get("source") or {}); src.update(source or {})
     src.setdefault("ledger_repo", "https://github.com/jpavia10/titan-reliquary")
+    # `source` describes where the master was IMPORTED from (Grok's ledger v254 in the retired repo); the master itself lives in
+    # the official repo. The old ambiguous `repo` key said the retired repo and read as "this collection lives there".
+    src.pop("repo", None)
+    src["note"] = "import origin of the v2 master (ledger v254); the master now lives in master_repo"
+    src["master_repo"] = "https://github.com/jpavia10/titan-reliquary-preview"
     h = hashlib.sha256("".join(f"{f['path']}:{f['sha256']}\n" for f in files).encode()).hexdigest()
     m = {"schema_version": SCHEMA_VERSION, "built_by": "tools/schema/manifest.py", "source": src, "counts": cnt, "totals": tot, "content_hash": h, "files": files}
     if old.get("ledger_reconciliation"): m["ledger_reconciliation"] = old["ledger_reconciliation"]

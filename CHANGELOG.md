@@ -1,3 +1,4 @@
+<!-- doc-status: historical; normative: no; the 2026-09-24 theme-refresh branch log; current history is the CLAUDE.md status log and git -->
 # CHANGELOG — theme-refresh branch
 
 **Branch:** `theme-refresh` (local only — never pushed; Joseph decides about merging)

@@ -1,3 +1,4 @@
+<!-- doc-status: current; normative: yes; the data schema -->
 # Schema v3 (2026-10-01)
 
 v3 is v2 (`SCHEMA_V2.md`: type/specimen split, one copy per fact, computed album holes, provenance in `changes.jsonl`) plus **phase tiers**:
