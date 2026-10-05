@@ -1,13 +1,11 @@
 name: verify-live
 
 # "Published" means the live site serves what main holds, not that a push succeeded (fix-list #7).
-# Runs after every GitHub Pages deployment: fetches the live version.json + data/status.json (no cache) and compares
+# Runs after every successful GitHub Pages deployment (deployment_status): fetches the live version.json + data/status.json (no cache) and compares
 # build, collection hash and publish time with the same files in the deployed commit. A mismatch fails the job,
 # which GitHub reports to the owner. Pages' CDN can lag a few minutes, so it retries for up to ~10 minutes.
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  deployment_status:          # GitHub Pages reports each deployment here (environment github-pages); workflow_run does not fire for the built-in Pages workflow
   workflow_dispatch:
 
 permissions:
@@ -15,18 +13,18 @@ permissions:
 
 jobs:
   verify:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'github-pages')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.event.deployment.sha || github.sha }}
           fetch-depth: 1
       - name: Compare the live site with the deployed commit
         env:
           SITE: https://jpavia10.github.io/titan-reliquary-preview
-          SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+          SHA: ${{ github.event.deployment.sha || github.sha }}
         run: |
           python3 - <<'EOF'
           import json, os, sys, time, urllib.request
