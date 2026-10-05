@@ -11,7 +11,7 @@
   var A = function (id) { return { hero: id + ".webp", card: id + "-card.webp" }; };
   var worlds = [
     { id: "kaleido", name: "Prism", collection: "Otherworld", tier: "classic", art: A("kaleido"),
-      mood: "A silver coin on cut crystal, splitting light into rainbows.", fx: "prismatic", fxIntensity: 0.9, scene: null, tokens: {} },
+      mood: "A silver coin on cut crystal, splitting light into rainbows.", fx: "prismatic", fxIntensity: 0.75, scene: null, tokens: {} },
     { id: "afterhours", name: "Midnight Gallery", collection: "Museum", tier: "classic", art: A("afterhours"),
       mood: "Cold moonlight on black marble, the gallery after midnight.", fx: "moonlit", fxIntensity: 0.85, scene: "afterhours", tokens: {} },
     { id: "conservator", name: "Conservator", collection: "Museum", tier: "classic", art: null,
@@ -31,7 +31,7 @@
     { id: "notepad", name: "Plaintext", collection: "Utility", tier: "classic", art: null,
       mood: "Black on white. Just the coins.", fx: "paperink", fxIntensity: 0.6, scene: null, tokens: {} },
     { id: "construct", name: "The Construct", collection: "Otherworld", tier: "classic", art: null,
-      mood: "Green phosphor and falling code.", fx: "phosphor", fxIntensity: 0.8, scene: null, tokens: {} },
+      mood: "Green phosphor and falling code.", fx: "phosphor", fxIntensity: 0.7, scene: null, tokens: {} },
     { id: "xeno", name: "Xenohold", collection: "Otherworld", tier: "classic", art: null,
       mood: "Bioluminescent containment for strange artifacts.", fx: "spores", fxIntensity: 0.85, scene: null, tokens: {} },
     { id: "solaris", name: "Solar Observatory", collection: "Journeys", tier: "classic", art: null,

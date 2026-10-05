@@ -64,7 +64,7 @@
   var flash = { t0: -9, strokes: null, x: 0, seed: 0 }, extThunder = 0, thunderTimer = 0, boltTimer = 0;
   var theme = { bg: [0.1, 0.09, 0.08], ink: [0.9, 0.85, 0.75], acc: [0.8, 0.65, 0.3], light: 0 };
   var videoEl = null, videoMap = {};
-  var SAFE_K = 0.7;                       // how much the effect is attenuated over text (0 = off)
+  var SAFE_K = 0.85;                       // how much the effect is attenuated over text (0 = off)
   var scrolling = false, scrollT = 0, SCROLL_SETTLE_MS = 160;   // perf (tr82): no rendering or re-masking mid-scroll (Pixel 7 4x CPU: Gallery 33 -> ~57 fps)
   var safe = { tex: null, cv: null, cx: null, nodes: [], scanAt: 0, dirty: true, t: 0, built: 0, mut: null };
   var fadeMs = 1400, forced = null;
@@ -393,7 +393,7 @@
     var a = tint || theme.acc; set3("uAcc", a[0], a[1], a[2]);
     set3("uTint", a[0], a[1], a[2]);
     set3("uBolt", flash.x, fl[1], flash.seed);
-    set1("uSafeK", glowDraw ? 0 : SAFE_K); var us = uloc(rec, "uSafe"); if (us !== null) gl.uniform1i(us, 0);
+    set1("uSafeK", glowDraw ? 0 : Math.max(SAFE_K, (def && def.safe) || 0)); var us = uloc(rec, "uSafe"); if (us !== null) gl.uniform1i(us, 0);
     // fx-v3
     var tapOn = def && def.tap ? 1 : 0, nowS = performance.now() / 1000, age = tap.t0 > -50 ? nowS - tap.t0 : 99;
     set2("uPar", reduced ? 0 : (par.x * dz), reduced ? 0 : ((par.y + drift.v) * dz)); set2("uPtr", ptr.x, ptr.y);
@@ -479,7 +479,7 @@
     var set = function (n, f) { var u = uloc(rec, n); if (u !== null) f(u); };
     set("uRes", function (u) { gl.uniform2f(u, cw, ch); }); set("uTexel", function (u) { gl.uniform2f(u, 1 / glow.w, 1 / glow.h); });
     set("uK", function (u) { gl.uniform1f(u, 1.25 * (1 - 0.7 * theme.light)); }); set("uFade", function (u) { var f = 0; layers.forEach(function (l) { f = Math.max(f, Math.min(1, l.fade)); }); gl.uniform1f(u, f); });
-    set("uSafeK", function (u) { gl.uniform1f(u, SAFE_K); }); set("uSafe", function (u) { gl.uniform1i(u, 0); }); set("uGlow", function (u) { gl.uniform1i(u, 1); });
+    set("uSafeK", function (u) { var k = SAFE_K; layers.forEach(function (l) { k = Math.max(k, l.def.safe || 0); }); gl.uniform1f(u, k); }); set("uSafe", function (u) { gl.uniform1i(u, 0); }); set("uGlow", function (u) { gl.uniform1i(u, 1); });
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, glow.tex); gl.activeTexture(gl.TEXTURE0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
@@ -776,6 +776,13 @@
     state: function () { return { light: theme.light, level: cfg.level, intensity: cfg.intensity, film: cfg.film, reduced: reduced, playing: want ? want.id : null }; },
     vhead: VHEAD3,
     moment: forceMoment,
+    benchmark: function (n) {   // synchronous frame-cost probe (1x1 readPixels forces the GPU to finish): {median, p90} in ms at the current quality step
+      if (!gl || gl.isContextLost() || !layers.length) return null;
+      var a = [], px = new Uint8Array(4); n = n || 12;
+      for (var i = 0; i < n + 2; i++) { var t0 = performance.now(); render(performance.now(), false); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); if (i >= 2) a.push(performance.now() - t0); }
+      a.sort(function (x, y) { return x - y; });
+      return { median: +a[a.length >> 1].toFixed(2), p90: +a[Math.floor(a.length * 0.9)].toFixed(2), scale: LADDER[scaleStep][0], quality: LADDER[scaleStep][1] };
+    },
     setTextSafe: function (v) { SAFE_K = Math.max(0, Math.min(0.95, +v || 0)); markSafe(0); if (gl && reduced) drawOnce(); },
     refreshSafe: function () { safe.mutDirty = true; markSafe(0); },
     pulse: function () { if (!reduced) pulseT0 = performance.now() / 1000; },

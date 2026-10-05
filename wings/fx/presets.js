@@ -641,7 +641,7 @@
 
   /* ---------- 1. kaleido / Prism: refracting caustic lattice with chromatic split, spectrum sweep, glint flares ---------- */
   FX.register("prismatic", T3({
-    still: 11, tap: true, glsl: G3,
+    still: 11, safe: 0.92, tap: true, glsl: G3,
     front: { rate: 0.5, size: 0.13, alpha: 0.1, kind: 1, color: [0.75, 0.88, 1.0] },
     moments: [{ name: "spectrum-sweep", every: [28, 65], dur: 9 }, { name: "flare", every: [28, 65], dur: 4 }],
     passes: [
@@ -797,7 +797,7 @@
 
   /* ---------- 5. nocturne / Blue Note: blue smoke, a swinging spotlight cone, art-deco sunburst glints ---------- */
   FX.register("bluenote", T3({
-    still: 13, tap: "warp", glsl: G3,
+    still: 13, safe: 0.88, tap: "warp", glsl: G3,
     front: { rate: 0.4, size: 0.15, alpha: 0.09, kind: 0, color: [1.0, 0.82, 0.5] },
     moments: [{ name: "spotlight-swing", every: [28, 70], dur: 10 }, { name: "brass-glint", every: [28, 70], dur: 3.2 }],
     passes: [
@@ -811,7 +811,7 @@
         "  float cone = smoothstep(.3,.04,abs(ang-axis))*exp(-length(d)*.42);",
         "  float vol = cone*(.22+sm.a*2.4);",
         "  vec2 gp = A + vec2(sin(axis), -cos(axis))*1.05; float pool = exp(-dot((p-gp)*vec2(1.,2.4),(p-gp)*vec2(1.,2.4))*5.)*.14;",
-        "  vec3 c = sm.rgb*sm.a*.14 + vec3(1.,.88,.62)*(vol*.3*(1.+env*.7) + pool*(1.+env));",
+        "  vec3 c = sm.rgb*sm.a*.14 + vec3(1.,.88,.62)*(vol*.3*(1.+env*.35) + pool*(1.+env*.5));",
         "  vec2 B = vec2(0.,-.82); vec2 e = p-B; float ae = atan(e.x, e.y); float re = length(e);",
         "  float rays = pow(abs(sin(ae*13.)), 14.)*smoothstep(.25,.5,re)*smoothstep(1.3,.6,re);",
         "  float shimmer = .35+.65*pow(.5+.5*sin(re*7.-t*.7+ae*3.), 3.);",
@@ -830,7 +830,7 @@
 
   /* ---------- 6. odyssey / Captain's Cabin: swaying lantern, rolling-horizon tint, sea spray, rogue-wave moment ---------- */
   FX.register("voyage", T3({
-    still: 7, tap: true, glsl: G3,
+    still: 7, safe: 0.86, tap: true, glsl: G3,
     front: { rate: 0.5, size: 0.1, alpha: 0.12, kind: 0, color: [0.8, 0.9, 1.0] },
     moments: [{ name: "wave-crest", every: [25, 65], dur: 8 }],
     passes: [
@@ -905,7 +905,7 @@
   /* ---------- 8. abyss / Shipwreck: caustic light from above, marine snow in two depths, a whale passing in the haze ---------- */
   var MSNOW = PO + "vec4 fxi(){ float d = length(vQ); float e = exp(-d*d*4.5)*vA.y*uInt; vec3 c = vec3(.7,.9,1.); return pout(c, e, .22); }";
   FX.register("deepsea", T3({
-    still: 6, tap: true, glsl: G3,
+    still: 6, safe: 0.86, tap: true, glsl: G3,
     front: { rate: 0.35, size: 0.1, alpha: 0.1, kind: 0, color: [0.6, 0.9, 1.0] },
     moments: [{ name: "whale", every: [35, 90], dur: 22 }],
     passes: [
@@ -974,7 +974,7 @@
     "}"].join("\n").replace("sin(PI*kk)", "sin(3.14159*kk)");
   var CARF = PO + "vec4 fxi(){ float d = length(vQ); float e = (exp(-d*d*3.)*.9 + smoothstep(1.,.8,d)*.25)*vA.y*uInt; vec3 c = vA.x < .5 ? vec3(1.,.93,.78) : vec3(1.,.15,.12); return pout(c, e, .3); }";
   FX.register("nightcity", {
-    layer: "front", still: 20, tap: true, depth: 1,
+    layer: "front", still: 20, safe: 0.9, tap: true, depth: 1,
     glsl: "#define STORMV 0.\n#define FROSTV 0.\n#define NEONV 1.\n" + RAIN,
     front: { rate: 0.5, size: 0.14, alpha: 0.13, kind: 1, color: [1.0, 0.25, 0.65] },
     moments: [{ name: "headlights", every: [22, 55], dur: 6 }, { name: "sign-flicker", every: [30, 75], dur: 3.2 }],
@@ -1034,7 +1034,7 @@
     "  return vec2(bit*inner*(body+head*1.5) + halo*.5, head*bit*inner);",
     "}"].join("\n") + "\n";
   FX.register("phosphor", T3({
-    still: 7, tap: true, glsl: CODELIB,
+    still: 7, safe: 0.94, tap: true, glsl: CODELIB,
     moments: [{ name: "glitch", every: [22, 55], dur: 2.6 }],
     passes: [{ frag: [
       "vec4 fx(vec2 fc){",
@@ -1143,7 +1143,7 @@
 
   /* ---------- 14. alchemist / The Alchemist: emerald vapour, a slowly turning hermetic ring with runic ticks, sparks; transmutation moment ---------- */
   FX.register("athanor", T3({
-    still: 8, tap: true, glsl: G3,
+    still: 8, safe: 0.88, tap: true, glsl: G3,
     front: { rate: 0.4, size: 0.13, alpha: 0.1, kind: 0, color: [0.2, 0.95, 0.55] },
     moments: [{ name: "transmutation", every: [28, 70], dur: 8 }],
     passes: [
@@ -1179,7 +1179,7 @@
 
   /* ---------- 15. glacier / Polar Vault: aurora curtains, frost creeping in from the edges, diamond dust; aurora-flare moment ---------- */
   FX.register("polar-ice", T3({
-    still: 30, tap: true, glsl: G3,
+    still: 30, safe: 0.9, tap: true, glsl: G3,
     front: { rate: 0.35, size: 0.12, alpha: 0.09, kind: 1, color: [0.7, 0.9, 1.0] },
     moments: [{ name: "aurora-flare", every: [28, 75], dur: 11 }],
     passes: [
@@ -1201,7 +1201,7 @@
         "    vec3 g = vec3(.15,1.,.55), te = vec3(.1,.8,.8), vi = vec3(.62,.28,.95);",
         "    vec3 col = mix(mix(g, te, smoothstep(0.,.2,d)), vi, smoothstep(.18,.5,d));",
         "    col = mix(col, vec3(1.,.3,.62), env*.55*smoothstep(.1,.4,d));",
-        "    acc += col*v*(.62-fi*.12)*(1.+1.5*env);",
+        "    acc += col*v*(.62-fi*.12)*(1.+1.0*env);",
         "  }",
         "  float sky = smoothstep(-.3,.5,p.y);",
         "  vec2 g2 = fc/uScale/9.; vec2 id = floor(g2); float sr = h21(id);",
@@ -1270,7 +1270,7 @@
     "  emit(vec2(x,y), vec2(px, px*1.18), corner, vec4(1., fade, r2, r3));",
     "}"].join("\n");
   FX.register("lantern-feast", T3({
-    still: 14, tap: true, glsl: G3,
+    still: 14, safe: 0.86, tap: true, glsl: G3,
     front: { rate: 0.4, size: 0.13, alpha: 0.12, kind: 0, color: [1.0, 0.35, 0.18] },
     moments: [{ name: "lantern-release", every: [30, 70], dur: 14 }],
     passes: [
@@ -1327,7 +1327,7 @@
 
   /* ---------- 19. samadhi: two curling saffron incense columns, slow golden motes, a singing-bowl ring that radiates ---------- */
   FX.register("incense-curl", T3({
-    still: 10, tap: true, glsl: G3,
+    still: 10, safe: 0.88, tap: true, glsl: G3,
     front: { rate: 0.3, size: 0.15, alpha: 0.09, kind: 0, color: [1.0, 0.72, 0.3] },
     moments: [{ name: "singing-bowl", every: [30, 75], dur: 9 }],
     passes: [

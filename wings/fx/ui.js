@@ -11,14 +11,14 @@
   var ATMO = {
     /* fx-v3: every atmosphere has its own signature preset (wings/fx/presets.js, section fx-v3); the manifest's `fx` says the same */
     afterhours: ["moonlit", 0.85], nocturne: ["bluenote", 0.85], conservator: ["loupe", 0.6], colossus: ["mint-forge", 0.9],
-    odyssey: ["voyage", 0.85], cursedwing: ["crypt", 0.9], kaleido: ["prismatic", 0.9], abyss: ["deepsea", 0.9],
-    neon: ["nightcity", 0.85], notepad: ["paperink", 0.6], construct: ["phosphor", 0.8], xeno: ["spores", 0.85],
+    odyssey: ["voyage", 0.85], cursedwing: ["crypt", 0.9], kaleido: ["prismatic", 0.75], abyss: ["deepsea", 0.9],
+    neon: ["nightcity", 0.85], notepad: ["paperink", 0.6], construct: ["phosphor", 0.7], xeno: ["spores", 0.85],
     solaris: ["coronagraph", 0.85], alchemist: ["athanor", 0.85], glacier: ["polar-ice", 0.85], valhalla: ["mead-hall", 0.9],
     dynasty: ["lantern-feast", 0.85], zen: ["garden", 0.85], samadhi: ["incense-curl", 0.85], silkroad: ["dunes", 0.85],
     /* World ids from notes/agents/theme-pot.md (each descends from one of the atmospheres above) */
     "midnight-gallery": ["moonlit", 0.85], "conservators-bench": ["loupe", 0.6], clear: [null, 0], "the-mint": ["mint-forge", 0.9],
     "hoard-hall": ["mead-hall", 0.9], "blue-note": ["bluenote", 0.85], "captains-cabin": ["voyage", 0.85], shipwreck: ["deepsea", 0.9],
-    prism: ["prismatic", 0.9], "night-city": ["nightcity", 0.85], "black-site": ["phosphor", 0.8], "forbidden-wing": ["crypt", 0.9],
+    prism: ["prismatic", 0.75], "night-city": ["nightcity", 0.85], "black-site": ["phosphor", 0.7], "forbidden-wing": ["crypt", 0.9],
     observatory: ["coronagraph", 0.85], "alchemists-study": ["athanor", 0.85], "polar-vault": ["polar-ice", 0.85],
     "imperial-treasury": ["lantern-feast", 0.85], "temple-garden": ["garden", 0.85], caravanserai: ["dunes", 0.85],
     "fireside-den": ["embers*0.9+glass-frost*0.7+snow*0.5", 0.9], "roman-treasury": ["torch", 0.8], "private-bank": [null, 0]
