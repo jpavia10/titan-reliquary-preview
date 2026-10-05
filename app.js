@@ -404,6 +404,7 @@
       const r = await fetch("version.json?t=" + Date.now(), { cache: "no-store" });
       lastCheckAt = Date.now();
       if (!r.ok) return;
+      try { localStorage.setItem("titan.lastVersionCheck", String(lastCheckAt)); } catch (_e) { /* storage blocked */ }
       const ver = await r.json();
       applyDrip(ver);
       const current = vault && (vault.generated_at || vault.generated_at_pt || "");
@@ -6781,7 +6782,10 @@
     }, { passive: true });
   }
 
-  $("#btn-refresh").addEventListener("click", () => { checkWebVersion().then(() => bustReload()); });
+  window.TitanReload = bustReload;   // used by wings/health.js (Refresh result message + "Update now")
+  $("#btn-refresh").addEventListener("click", () => {
+    if (window.TitanHealth) window.TitanHealth.refresh(); else checkWebVersion().then(() => bustReload());
+  });
 
   // Search palette (⌘K)
   $("#btn-search").addEventListener("click", openPalette);

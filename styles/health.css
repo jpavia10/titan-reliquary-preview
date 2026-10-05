@@ -1,0 +1,46 @@
+/* Titan Reliquary · Health view (wings/health.js). Self-contained, own high-contrast palette (light or dark from the
+   active atmosphere), base type 22px, tap targets 56px, status is always text. No animation. */
+.health-view {
+  --hv-bg: #ffffff; --hv-ink: #111111; --hv-soft: #f1ede3; --hv-line: #111111; --hv-btn: #0b3d82; --hv-btn-ink: #ffffff;
+  --hv-ok: #0a5c1e; --hv-bad: #8a1010; --hv-warn: #6b4a00;
+  position: fixed; inset: 0; z-index: 100200; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  background: var(--hv-bg); color: var(--hv-ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; font-size: 22px; line-height: 1.5;
+}
+.health-view[data-tone="dark"] {
+  --hv-bg: #0a0a0a; --hv-ink: #ffffff; --hv-soft: #1b1b1b; --hv-line: #ffffff; --hv-btn: #ffd34d; --hv-btn-ink: #111111;
+  --hv-ok: #7be495; --hv-bad: #ff9d9d; --hv-warn: #ffd34d;
+}
+.health-view[hidden], .health-toast[hidden] { display: none; }
+.health-view *, .health-view *::before, .health-view *::after { box-sizing: border-box; }
+.hv-shell { max-width: 820px; margin: 0 auto; padding: 16px 16px 56px; }
+.health-view h1 { margin: 0; font-size: 2.2rem; line-height: 1.15; }
+.health-view h1:focus { outline: none; }
+.health-view h2 { margin: 36px 0 10px; font-size: 1.8rem; line-height: 1.2; border-bottom: 3px solid var(--hv-line); padding-bottom: 6px; }
+.health-view :focus-visible { outline: 4px solid var(--hv-btn); outline-offset: 3px; }
+.health-view[data-tone="dark"] :focus-visible { outline-color: #fff; }
+.hv-top { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
+.hv-sub, .health-view dd small { font-size: 1rem; }
+.hv-sub { margin: 8px 0; }
+.health-view dl { margin: 0; }
+.hv-row { padding: 10px 0; border-bottom: 1px solid var(--hv-line); }
+.health-view dt { font-weight: 700; }
+.health-view dd { margin: 0; overflow-wrap: anywhere; }
+.health-view dd small { display: block; opacity: 0.85; }
+.hv-label { margin: 14px 0 4px; font-weight: 700; }
+.hv-list { margin: 0; padding-left: 1.2em; font-size: 1rem; overflow-wrap: anywhere; }
+.hv-status { margin: 12px 0; font-weight: 700; }
+.hv-ok { color: var(--hv-ok); } .hv-bad { color: var(--hv-bad); } .hv-warn { color: var(--hv-warn); }
+.hv-btn {
+  font: inherit; font-weight: 700; min-height: 56px; min-width: 56px; padding: 10px 22px; border-radius: 12px; cursor: pointer;
+  color: var(--hv-ink); background: var(--hv-bg); border: 3px solid var(--hv-line); text-align: center;
+}
+.hv-btn:disabled { opacity: 0.6; cursor: default; }
+.hv-primary { background: var(--hv-btn); color: var(--hv-btn-ink); border-color: var(--hv-btn); }
+.hv-report { width: 100%; font: 0.8rem/1.4 ui-monospace, Menlo, Consolas, monospace; background: var(--hv-soft); color: var(--hv-ink); border: 2px solid var(--hv-line); border-radius: 8px; padding: 8px; }
+.health-toast {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 100300;
+  width: min(92vw, 640px); padding: 16px 20px; border-radius: 14px; border: 3px solid #fff;
+  background: #111; color: #fff; font: 700 1.1rem/1.4 "Segoe UI", system-ui, Arial, sans-serif; text-align: center;
+}
+#btn-health { text-decoration: none; display: inline-flex; align-items: center; }
