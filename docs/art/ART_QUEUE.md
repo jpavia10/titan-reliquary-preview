@@ -14,6 +14,12 @@ Deliver at FULL native quality, no size limit (owner, 2026-10-01: beyond Full HD
 Art direction is the owner's: for the splash he wants maximal blockbuster/psychedelic spectacle, not restraint (`artreq_20261001-2045_splash-film-v3-maximal`).
 Claude may still reassign a job to another model (for example Gemini Veo) by naming it in `assigned_to`; the folders stay the same.
 
+## Spending rules (owner, 2026-10-05)
+A Grok run spent about $52 of credit and saved only 2 of 14 clips: it submitted all jobs at once and the downloads failed when xAI's spending limit hit.
+Now (also in Drive `ART_START_HERE`): ONE job at a time (submit, wait, save to Drive, confirm, then the next); at most 4 video clips per run unless the
+request names a number; stop at the first failure, blocked download or credit warning; check remaining credit before starting. Claude keeps video
+requests small (2-4 clips each) instead of one big list.
+
 ## Request files
 `artreq_{YYYYMMDD-HHMM}_{slug}.json` with `request_id`, `status`, `assigned_to`, `instructions`, `deliverable_spec`, `global_style`, `negative`, `coin_rule`,
 `images` (each with `file_name`, `aspect_ratio`, `takes` or `type: video` + `duration_s` + `shot`) and, for video, `shots` (timed shot lists).
