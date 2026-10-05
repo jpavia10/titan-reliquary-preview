@@ -5,9 +5,9 @@
  "created": "2026-10-05T09:00:00Z",
  "assigned_to": "Grok (SuperGrok, Grok Imagine video) FIRST. If Grok is out of credits, any other video AI (e.g. Gemini Veo) may continue with the clips still missing.",
  "supersedes": "artreq_20261001-2230_splash-film-v4 (do NOT make v4; v5 replaces it)",
- "owner_feedback": "The owner wants better, more elaborate and over-the-top splash films than the five live ones (v3, rated 6/10: great energy but they felt like placeholders and did not flow into the app). Go bigger: more spectacle, more detail, more colour, more motion, more sound. Every clip must end with THE LANDING so the app can zoom straight out of the last frame.",
+ "owner_feedback": "The owner wants better, more elaborate and over-the-top splash films than the five live ones (v3, rated 6/10: great energy but they felt like placeholders and did not flow into the app). Go bigger: more spectacle, more detail, more colour, more motion, more sound. Every clip must end with THE LANDING so the app can zoom straight out of the last frame. The owner also asked Grok to make 2 films of its own choice first, in its edgier, more mature style.",
  "how_to_prompt": "Video models follow short, concrete, time-coded direction better than long adjective lists. For each clip, send your model the clip's `beats` as written (they are already time-coded), plus `look` and `the_landing`. Keep every beat a single continuous camera move: no cuts unless a beat says CUT. Generate with sound ON.",
- "instructions": "Follow 'Titan Reliquary/ART_START_HERE (any AI: images + video)', including the CLAIM step (write artreq_20261005-0900_splash-film-v5-overthetop.CLAIMED-grok.txt in art-requests (any AI: images + video)/ first). Make the clips in `clips` IN ORDER (ranked by priority); make 2 takes of each of the first three if credits allow (file names _take1/_take2 before .mp4). If credits run out, stop and list the rest as 'skipped: credits' in the DONE file. Save each at full native quality to Titan Reliquary/art-incoming (AI images + video)/artreq_20261005-0900_splash-film-v5-overthetop/ with the exact file_name. ONE file per clip, WITH sound; no _silent copies. Then write artreq_20261005-0900_splash-film-v5-overthetop.DONE.txt in art-requests (any AI: images + video)/ listing every file you made.",
+ "instructions": "Follow 'Titan Reliquary/ART_START_HERE (any AI: images + video)', including the CLAIM step (write artreq_20261005-0900_splash-film-v5-overthetop.CLAIMED-grok.txt in art-requests (any AI: images + video)/ first). FIRST make the 2 films in `grok_originals` (your own ideas). THEN make the clips in `clips` IN ORDER (ranked by priority); make 2 takes of each of the first three if credits allow (file names _take1/_take2 before .mp4). If credits run out, stop and list the rest as 'skipped: credits' in the DONE file. Save each at full native quality to Titan Reliquary/art-incoming (AI images + video)/artreq_20261005-0900_splash-film-v5-overthetop/ with the exact file_name. ONE file per clip, WITH sound; no _silent copies. Then write artreq_20261005-0900_splash-film-v5-overthetop.DONE.txt in art-requests (any AI: images + video)/ listing every file you made.",
  "deliverable_spec": {
   "resolution": "highest your tool offers: 4K if available (Veo/Flow upscale is fine), else 1080p; never 720p if 1080p is offered.",
   "duration": "15 s (Grok Imagine maximum). If your model's maximum is shorter, compress the beats proportionally and keep THE LANDING as the last ~2 s.",
@@ -76,5 +76,14 @@
    "beats": "Same beats and sound as splash5_dragonhoard_9x16, framed for a widescreen desktop.",
    "sound": "same as the 9:16 version"
   }
- ]
+ ],
+ "grok_originals": {
+  "make_these_first": true,
+  "count": 2,
+  "file_names": [
+   "splash5_grok_original1_9x16.mp4",
+   "splash5_grok_original2_9x16.mp4"
+  ],
+  "brief": "Owner request (2026-10-05): BEFORE the listed clips, make 2 films of YOUR OWN invention. You have creative freedom: the owner likes Grok's edgier, more mature style, so go darker, wilder and more intense than our list if you want (menace, danger, heavy-metal energy, villains, chaos, destruction on an epic scale). Pitch each idea in one line in the DONE file. Keep only these hard rules: silver and gold coins (or bullion) are the hero; 9:16, 15 s, with sound; starts instantly; ends with THE LANDING; no text, numbers or logos; no real people or existing characters or brands; no nudity and no gore (the owner's dad watches the app too). If credits allow, also make a 16:9 desktop version of the better one (splash5_grok_originalN_16x9.mp4)."
+ }
 }
