@@ -92,6 +92,7 @@
       <div class="ss-btnrow"><button type="button" class="ss-btn" id="ss-radio-play">▶ Play radio</button></div>
       <p class="ss-radio-status" id="ss-radio-status" role="status" aria-live="polite"></p></div></details>
     <details class="ss-details"><summary>Settings</summary><div class="in">
+      <label class="ss-check"><input type="checkbox" id="ss-follow"><span>Sound follows the theme (each World has its own mix)</span></label>
       <label class="ss-check"><input type="checkbox" id="ss-motion"><span>Show falling rain, embers and sparks on screen</span></label>
       <label class="ss-check"><input type="checkbox" id="ss-bg"><span>Pause sound when the app is in the background</span></label>
       <p class="ss-note">By default sound keeps playing when you switch apps or lock the phone.</p>
@@ -138,6 +139,7 @@
     $("#ss-bass", sheet).value = st.bass; $("#ss-mid", sheet).value = st.mid; $("#ss-treble", sheet).value = st.treble;
     const mo = $("#ss-motion", sheet); mo.checked = st.motion == null ? !!(window.TitanAmbient && window.TitanAmbient.visualEnabled && window.TitanAmbient.visualEnabled()) : !!st.motion;
     $("#ss-bg", sheet).checked = !!st.bgPause;
+    $("#ss-follow", sheet).checked = st.follow !== false;
     if (barBtn) { barBtn.classList.toggle("is-playing", playing); }
     if (barName) barName.textContent = (playing || paused) && nm ? nm : (document.documentElement.getAttribute("data-atmo") ? atmoName(lastAtmo) : "Lighting");
     if (barBtn) barBtn.setAttribute("aria-label", `Scene Studio. ${playing ? "Playing " + nm : "Silent"}. Lighting: ${atmoName(lastAtmo)}`);
@@ -283,7 +285,15 @@
   sheet.addEventListener("input", (e) => { const t = e.target; if (t.dataset && t.dataset.level) { setLevel(t.dataset.level, +t.value); const n = t.parentNode.querySelector(".ss-mn"); if (n) n.textContent = +t.value > 0 ? Math.round(t.value * 100) : ""; } });
   $("#ss-motion", sheet).addEventListener("change", (e) => { st.motion = e.target.checked; save(); if (window.TitanAmbient && window.TitanAmbient.setVisualEnabled) window.TitanAmbient.setVisualEnabled(st.motion); });
   $("#ss-bg", sheet).addEventListener("change", (e) => { st.bgPause = e.target.checked; window.TITAN_BG_PAUSE = st.bgPause; G.setBackgroundPause(st.bgPause); save(); });
-  window.addEventListener("titan:atmo", (e) => { lastAtmo = e.detail.atmo; render(); });
+  window.addEventListener("titan:atmo", (e) => { lastAtmo = e.detail.atmo; followTheme(e.detail.atmo); render(); });
+  /* each World has its own sound scene (manifest `scene`): while sound plays, a theme change crossfades to that World's mix */
+  function followTheme(atmo) {
+    if (st.follow === false || radioOn || !G.isPlaying()) return;
+    const w = window.TitanWorlds && window.TitanWorlds.byId(atmo);
+    const id = w && w.scene && (G.ALIASES && G.ALIASES[w.scene] || w.scene);
+    if (id && G.SCENES[id] && st.scene !== id) pickScene(id);
+  }
+  $("#ss-follow", sheet).addEventListener("change", (e) => { st.follow = e.target.checked; save(); if (st.follow) followTheme(lastAtmo); });
   window.addEventListener("titan:gen", () => { render(); });
 
   // The bar button opens the studio (app.js binds #btn-atmo -> openAtmoSheet -> TitanScene.open).
