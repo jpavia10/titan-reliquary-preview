@@ -558,11 +558,13 @@
     var vw = window.innerWidth || 1, vh = window.innerHeight || 1;
     tap.x = (e.clientX - vw / 2) / vh; tap.y = -(e.clientY - vh / 2) / vh; tap.t0 = performance.now() / 1000; tap.s = 1;
   }
+  var scrollPos = window.WeakMap ? new WeakMap() : null;
   function onScrollDrift(e) {
     if (reduced) return;
-    var t = e && e.target, st = (t && t !== document && t.scrollTop != null) ? t.scrollTop : (window.scrollY || 0);
-    if (drift.last !== null) { var d = st - drift.last; if (Math.abs(d) < 900) drift.imp = Math.max(-DRIFT_MAX, Math.min(DRIFT_MAX, drift.imp + d * 0.00006)); }
-    drift.last = st;
+    var t = e && e.target, el = (!t || t === document) ? (document.scrollingElement || document.documentElement) : t;
+    var st = el.scrollTop || 0, last = scrollPos && scrollPos.has(el) ? scrollPos.get(el) : 0;
+    var d = st - last; if (scrollPos) scrollPos.set(el, st);
+    if (Math.abs(d) < 1600) drift.imp = Math.max(-DRIFT_MAX, Math.min(DRIFT_MAX, drift.imp + d * 0.00006));
   }
   function tickMoments(tNow) {
     if (reduced) return;

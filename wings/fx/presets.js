@@ -577,7 +577,6 @@
       "}"].join("\n") }]
   });
 
-/*@@PART1@@*/
   /* =====================================================================================================================
      fx-v3: one signature preset per theme. Each declares `moments` (rare events, see engine.js), `front` (sparse large
      out-of-focus layer), `tap` (ripple / push on click or touch) and, for bright particle passes, `glow` (cheap bloom).
@@ -826,7 +825,6 @@
         ifrag: F_SOFT("vec3(1.,.9,.65)", 0.1, 4) }
     ]
   }));
-/*@@PART2@@*/
 
   /* ---------- 6. odyssey / Captain's Cabin: swaying lantern, rolling-horizon tint, sea spray, rogue-wave moment ---------- */
   FX.register("voyage", T3({
@@ -1092,7 +1090,6 @@
         ifrag: PO + "vec4 fxi(){ float d = length(vQ); vec3 c = vA.z < .2 ? vec3(.5,1.,.3) : (vA.z > .75 ? vec3(.95,.25,.95) : vec3(.1,.9,1.)); float e = (exp(-d*d*9.) + exp(-d*3.)*.35 + smoothstep(.95,.7,d)*smoothstep(.45,.8,d)*.25)*vA.y*uInt; return pout(c, e, .3); }" }
     ]
   }));
-/*@@PART3@@*/
 
   /* ---------- 13. solaris / Solar Observatory: coronagraph glow, slowly turning stars, shooting star + prominence moments ---------- */
   FX.register("coronagraph", T3({
@@ -1143,7 +1140,7 @@
 
   /* ---------- 14. alchemist / The Alchemist: emerald vapour, a slowly turning hermetic ring with runic ticks, sparks; transmutation moment ---------- */
   FX.register("athanor", T3({
-    still: 8, safe: 0.93, tap: true, glsl: G3,
+    still: 8, safe: 0.96, tap: true, glsl: G3,
     front: { rate: 0.4, size: 0.13, alpha: 0.1, kind: 0, color: [0.2, 0.95, 0.55] },
     moments: [{ name: "transmutation", every: [28, 70], dur: 8 }],
     passes: [
