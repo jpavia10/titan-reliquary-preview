@@ -1304,6 +1304,11 @@
   function duck(amountDb, ms) {
     const ctx = E.ctx; if (!ctx || !E.duckG) return;
     const t = ctx.currentTime, amt = Math.max(0, Math.min(36, +amountDb || 0)), hold = Math.max(0, +ms || 0) / 1000;
+    if (amt === 0) {                                                    // duck(0, ms) = release now (ui-sounds ends a reading-mode hold this way)
+      E.duckDb = 0; E.duckEnd = t;
+      try { const p0 = E.duckG.gain; p0.cancelScheduledValues(t); p0.setValueAtTime(p0.value, t); p0.setTargetAtTime(1, t, Math.max(0.02, hold / 3)); } catch (e) { /* ignore */ }
+      return;
+    }
     const cur = t < E.duckEnd ? E.duckDb : 0;
     E.duckDb = Math.max(cur, amt); E.duckEnd = Math.max(E.duckEnd, t + hold);
     const p = E.duckG.gain;

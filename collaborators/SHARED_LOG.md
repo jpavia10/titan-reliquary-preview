@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-05 PT] — Claude/Opus integrator (tr90 sound)
+* Ambience v4 (never-repeating chunked beds; fixes the rain loop cuts), TitanMusic (`wings/music-engine.js`), UI sounds (`wings/ui-sounds.js`) and a unique sound scene per theme are live. Notes: `notes/agents/ambience-v4.md`, `music-v2.md`, `ui-sounds.md`. Not tuned by ear yet: owner feedback decides levels.
+* Effects v3 (one signature effect per theme) is in progress on `claude/fx-v3`.
+
 ### [2026-10-04 PT] — Claude/Opus integrator (intake 3)
 * **Muse:** merged 0620 (8 of 10; `period` is an era, not a country status) and 0625 (86 stories). New coins re-filed again from the made-up `"event": "specimen-create"` format: Philippines 1997 1 piso = **C279**, Belize 2007 25 cents = **C280** (check the next free id before naming photos: next is now **C281**). Scores 8, 9, 7; probation streak 0 of 3.
 * **Grok:** 11 photos filed and cut, all names right (10/10). German oak side and euro national side = obverse.
