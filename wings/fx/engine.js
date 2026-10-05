@@ -114,12 +114,12 @@
     "  float ring = exp(-pow((d-age*.5)/(.03+age*.02),2.))*exp(-age*1.7)*uTap.w;\n" +
     "  vec3 rc = mix(uAcc, vec3(1.), .35);\n" +
     "  return vec4(rc*ring*.2*(1.-uLight), ring*.07*uLight); }\n";
-  var FS_MAIN = "\n" + FS_SAFE + RING + "out vec4 outColor;\nvoid main(){ vec4 c = fx(gl_FragCoord.xy) * uFade; c += tapRing()*uFade; c *= 1. + .35*uPulse; float s = texture(uSafe, gl_FragCoord.xy / uRes).r; outColor = c * (1. - uSafeK * s); }\n";
-  var FS_MAIN_I = "\n" + FS_SAFE + "out vec4 outColor;\nvoid main(){ vec4 c = fxi() * uFade; c *= 1. + .35*uPulse; float s = texture(uSafe, gl_FragCoord.xy / uRes).r; outColor = c * (1. - uSafeK * s); }\n";
+  var FS_MAIN = "\n" + FS_SAFE + RING + "out vec4 outColor;\nvoid main(){ vec4 c = fx(gl_FragCoord.xy) * uFade; c += tapRing()*uFade; c *= 1. + .35*uPulse + .22*uAudio; float s = texture(uSafe, gl_FragCoord.xy / uRes).r; outColor = c * (1. - uSafeK * s); }\n";
+  var FS_MAIN_I = "\n" + FS_SAFE + "out vec4 outColor;\nvoid main(){ vec4 c = fxi() * uFade; c *= 1. + .35*uPulse + .22*uAudio; float s = texture(uSafe, gl_FragCoord.xy / uRes).r; outColor = c * (1. - uSafeK * s); }\n";
   var FS_HEAD_I = "#version 300 es\nprecision highp float;\nuniform vec2 uRes, uPar, uPtr; uniform vec4 uMoment, uTap; uniform float uFade, uLight, uInt, uQ, uTime, uFlash, uAudio, uPulse, uScale; uniform vec3 uBg, uInk, uAcc, uTint; uniform vec3 uFrontC;\nin vec4 vA; in vec2 vQ;\nfloat mK(){ return uMoment.z > 0. ? uMoment.x / uMoment.z : -1.; }\nfloat mEnv(){ float k = mK(); return k < 0. ? 0. : smoothstep(0.,.12,k)*(1.-smoothstep(.62,1.,k)); }\n";
 
   /* fx-v3 front layer: a few large out-of-focus particles drifting past the camera (sparse: most cycles are skipped) */
-  var VHEAD3 = "#version 300 es\nprecision highp float;\nuniform vec2 uRes, uPar, uPtr; uniform vec4 uTap, uMoment; uniform float uTime, uInt, uQ, uScale, uLight, uFlash, uTapOn, uAudio, uPulse;\nout vec4 vA; out vec2 vQ;\n" +
+  var VHEAD3 = "#version 300 es\nprecision highp float;\n#define PI 3.14159265\nuniform vec2 uRes, uPar, uPtr; uniform vec4 uTap, uMoment; uniform float uTime, uInt, uQ, uScale, uLight, uFlash, uTapOn, uAudio, uPulse;\nout vec4 vA; out vec2 vQ;\n" +
     "float h11(float p){ return fract(sin(p*127.1+31.7)*43758.5453); }\n" +
     "float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7)))*43758.5453); }\n" +
     "vec2 rot2(vec2 v, float a){ float c=cos(a), s=sin(a); return vec2(c*v.x-s*v.y, s*v.x+c*v.y); }\n" +
@@ -399,7 +399,7 @@
     set2("uPar", reduced ? 0 : (par.x * dz), reduced ? 0 : ((par.y + drift.v) * dz)); set2("uPtr", ptr.x, ptr.y);
     var u4 = uloc(rec, "uTap"); if (u4 !== null) gl.uniform4f(u4, tap.x, tap.y, age, (tapOn && !reduced && age < 2.6) ? tap.s : 0);
     set1("uTapOn", tapOn); set1("uRing", (first && def && def.tap === true) ? 1 : 0);
-    var mo = l && l.mo && l.mo.cur, um = uloc(rec, "uMoment");
+    var mo = !reduced && l && l.mo && l.mo.cur, um = uloc(rec, "uMoment");
     if (um !== null) { if (mo) gl.uniform4f(um, tNow - mo.t0, mo.seed, mo.dur, mo.idx); else gl.uniform4f(um, -1, 0, 1, 0); }
     set1("uAudio", reduced ? 0 : audioV); set1("uPulse", reduced ? 0 : pulseValue(nowS));
     var pf = rec.pass && rec.pass.front;
@@ -569,6 +569,7 @@
     return true;
   }
   function forceMoment(name) {
+    if (reduced) return false;
     var tNow = (performance.now() - (tStart || performance.now())) / 1000;
     for (var i = 0; i < layers.length; i++) {
       var l = layers[i]; if (!l.def.moments || l.target === 0) continue;
@@ -771,10 +772,12 @@
     get supported() { return probe(); },
     owns: function () { return probe(); },              // when true, ambient.js leaves its 2D canvas weather off
     thunder: function (d) { window.dispatchEvent(new CustomEvent("titan:thunder", { detail: d || {} })); },
-    stats: function () { return { programs: live.programs, textures: live.tex, created: live.created, deleted: live.deleted, layers: layers.length, running: running, scale: LADDER[scaleStep][0], quality: LADDER[scaleStep][1], cost: frameCost.length ? frameCost[frameCost.length - 1] : null, canvas: canvas ? [cw, ch] : null, hasGL: !!gl, bloom: !!glow.tex, audio: audioV, moments: layers.map(function (l) { return l.mo && l.mo.cur ? l.mo.cur.name : null; }) }; },
-    state: function () { return { level: cfg.level, intensity: cfg.intensity, film: cfg.film, reduced: reduced, playing: want ? want.id : null }; },
+    stats: function () { return { programs: live.programs, textures: live.tex, created: live.created, deleted: live.deleted, layers: layers.length, running: running, scale: LADDER[scaleStep][0], quality: LADDER[scaleStep][1], cost: frameCost.length ? frameCost[frameCost.length - 1] : null, canvas: canvas ? [cw, ch] : null, hasGL: !!gl, bloom: !!glow.tex, par: [+par.x.toFixed(4), +(par.y + drift.v).toFixed(4)], pulse: +pulseValue(performance.now() / 1000).toFixed(3), tapAge: tap.t0 > -50 ? +(performance.now() / 1000 - tap.t0).toFixed(2) : null, audio: audioV, moments: layers.map(function (l) { return l.mo && l.mo.cur ? l.mo.cur.name : null; }) }; },
+    state: function () { return { light: theme.light, level: cfg.level, intensity: cfg.intensity, film: cfg.film, reduced: reduced, playing: want ? want.id : null }; },
     vhead: VHEAD3,
     moment: forceMoment,
+    setTextSafe: function (v) { SAFE_K = Math.max(0, Math.min(0.95, +v || 0)); markSafe(0); if (gl && reduced) drawOnce(); },
+    refreshSafe: function () { safe.mutDirty = true; markSafe(0); },
     pulse: function () { if (!reduced) pulseT0 = performance.now() / 1000; },
     setPointerParallax: function (v) { PAR_MAX = Math.max(0, Math.min(0.03, +v || 0)); },
     setQuality: function (step) { forced = step == null ? null : Math.max(0, Math.min(LADDER.length - 1, step | 0)); if (forced != null) { scaleStep = forced; cal = null; sizeCanvas(); } },

@@ -6317,6 +6317,7 @@
       try { c = (await ensureDetail(scan)) || c; } catch (e) { showToast("Could not load details: " + e.message); }
     }
     currentDrawerScan = scan;
+    try { window.dispatchEvent(new CustomEvent("titan:coin", { detail: { id: c.id || scan } })); } catch { /* ignore */ }   // TitanFX accent pulse
     const isFlip = c.kind === "flip" || c.kind === "token";
     const spotAg = vault.precious?.spot_ag ?? vault.metals?.spot?.ag_usd_oz;
     const spotAu = vault.precious?.spot_au ?? vault.metals?.spot?.au_usd_oz;
