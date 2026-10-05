@@ -1,3 +1,5 @@
+> Superseded in part by `fx-v3.md` (engine v3 and one signature preset per theme; the theme table below is replaced there).
+
 # TitanFX: GPU overlay engine (fx-v2)
 
 Owner feedback: "Effects are super basic... other ways to render more intense and higher quality overlays?" This replaces the 2D-canvas
