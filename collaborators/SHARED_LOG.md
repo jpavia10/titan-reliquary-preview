@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-05 PT] — Claude/Opus integrator (tr91 effects)
+* Every theme has its own GPU effect with rare "moments" (whale, press strike, shooting star, lantern release...). Table: `notes/agents/fx-v3.md`. Effects follow the theme; sound follows too (tr90).
+
 ### [2026-10-05 PT] — Claude/Opus integrator (tr90 sound)
 * Ambience v4 (never-repeating chunked beds; fixes the rain loop cuts), TitanMusic (`wings/music-engine.js`), UI sounds (`wings/ui-sounds.js`) and a unique sound scene per theme are live. Notes: `notes/agents/ambience-v4.md`, `music-v2.md`, `ui-sounds.md`. Not tuned by ear yet: owner feedback decides levels.
 * Effects v3 (one signature effect per theme) is in progress on `claude/fx-v3`.
