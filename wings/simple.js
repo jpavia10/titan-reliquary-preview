@@ -269,6 +269,7 @@
     applyTone();
     root.hidden = false;
     document.body.classList.add("simple-open");
+    window.dispatchEvent(new CustomEvent("titan:ui", { detail: { kind: "simple-open" } }));
     document.body.style.overflow = "hidden";
     root.scrollTop = 0;
     root.querySelector("#sv-title").focus({ preventScroll: true });
@@ -284,6 +285,7 @@
     if (!root || root.hidden) return;
     root.hidden = true;
     document.body.classList.remove("simple-open");
+    window.dispatchEvent(new CustomEvent("titan:ui", { detail: { kind: "simple-close" } }));
     document.body.style.overflow = "";
     if (navigate && /^#simple/i.test(location.hash)) location.hash = "hall";
     if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) { /* gone */ } }

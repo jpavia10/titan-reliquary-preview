@@ -100,6 +100,7 @@
   </div>`;
   document.body.appendChild(sheet);
   /* TitanFX hook (effects control in Settings) */ if (window.TitanFXUI) window.TitanFXUI.mount(sheet);
+  /* TitanUISounds hook (interface sounds toggle + volume) */ if (window.TitanUISounds) window.TitanUISounds.mount(sheet);
 
   // Auto-refresh toggle and the "checked 23s ago" line live in Settings now (same elements, same ids).
   const moved = $("#ss-moved", sheet);

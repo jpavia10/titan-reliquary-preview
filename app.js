@@ -232,6 +232,7 @@
     if (typeof closeKeysSheet === "function") closeKeysSheet();
     if (typeof closeAtmoSheet === "function") closeAtmoSheet();
     document.body.style.overflow = "";
+    window.dispatchEvent(new CustomEvent("titan:ui", { detail: { kind: "wing", wing: name } }));
 
     // 2. Set active classes on wing buttons and panes so layout geometry exists
     $$(".wing").forEach((b) => {
@@ -6578,7 +6579,7 @@
     $("#drawer").hidden = false;
     $("#drawer-backdrop").hidden = false;
     document.body.classList.add("drawer-open");
-    if (wasHidden) $("#drawer-close").focus();
+    if (wasHidden) { $("#drawer-close").focus(); window.dispatchEvent(new CustomEvent("titan:ui", { detail: { kind: "coin-open" } })); }
     window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
     lazyThumbs($("#drawer-body"));
     if (persist && wasHidden === false) $("#drawer-inner").scrollTop = 0;
@@ -6634,6 +6635,7 @@
   function closeDrawer() {
     if ($("#drawer").hidden) return;
     currentDrawerScan = null;
+    window.dispatchEvent(new CustomEvent("titan:ui", { detail: { kind: "coin-close" } }));
     document.body.classList.remove("drawer-open");
     window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
     $("#drawer").hidden = true;
@@ -7325,6 +7327,7 @@
     rememberFocus();
     $("#palette").hidden = false;
     paletteOpen = true;
+    window.dispatchEvent(new CustomEvent("titan:ui", { detail: { kind: "search" } }));
     renderPalette("");
     window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
     const q = $("#palette-q");
