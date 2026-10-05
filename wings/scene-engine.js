@@ -47,7 +47,7 @@
   const NOTE = { C: 0, "C#": 1, D: 2, Eb: 3, E: 4, F: 5, "F#": 6, G: 7, Ab: 8, A: 9, Bb: 10, B: 11 };
   const MODES = {
     major: [0, 2, 4, 5, 7, 9, 11], lydian: [0, 2, 4, 6, 7, 9, 11], dorian: [0, 2, 3, 5, 7, 9, 10],
-    minor: [0, 2, 3, 5, 7, 8, 10], phrygian: [0, 1, 3, 5, 7, 8, 10], pent: [0, 2, 4, 7, 9], minpent: [0, 3, 5, 7, 10]
+    minor: [0, 2, 3, 5, 7, 8, 10], phrygian: [0, 1, 3, 5, 7, 8, 10], pent: [0, 2, 4, 7, 9], minpent: [0, 3, 5, 7, 10], whole: [0, 2, 4, 6, 8, 10]
   };
   const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
   const rnd = (a, b) => a + Math.random() * (b - a);
@@ -154,19 +154,19 @@
                beds: { waves: 0.6, ship: 0.35, creak: 0.6, gulls: 0.3 }, pad: 0.4, piano: false, bells: true, beat: false,
                root: "G", mode: "major", prog: [0, 3, 4, 0], chordSec: 16, gap: [9, 18], bpm: 70, vol: 0.5 },
     "shipwreck": { world: true, name: "Shipwreck", icon: "🌊", desc: "Deep underwater rumble and a distant whale.", atmo: "abyss",
-               beds: { underwater: 0.85, whale: 0.6 }, pad: 0.55, piano: false, bells: true, beat: false,
+               beds: { underwater: 0.85, whale: 0.6 }, arc: { depth: 1.1, beds: { whale: { lo: 0.6, hi: 1.5, per: [150, 300] } } }, pad: 0.55, piano: false, bells: true, beat: false,
                root: "Bb", mode: "lydian", prog: [0, 1, 4, 1], chordSec: 18, gap: [10, 20], bpm: 70, vol: 0.5 },
     "prism": { world: true, name: "Prism", icon: "🔮", desc: "Glassy pads and soft wind chimes.", atmo: "kaleido",
                beds: { chimes: 0.6, wind: 0.12 }, pad: 0.6, piano: false, bells: true, beat: false,
                root: "F", mode: "lydian", prog: [0, 4, 1, 3], chordSec: 16, gap: [6, 12], bpm: 70, vol: 0.5 },
     "nightcity": { world: true, name: "Night City", icon: "🌃", desc: "Rain on wet glass, traffic far below.", atmo: "neon",
-               beds: { rainWindow: 0.65, city: 0.5 }, pad: 0.4, piano: true, bells: true, beat: true,
+               beds: { rainWindow: 0.65, city: 0.5 }, spat: { city: { k: "pass", d: [28, 6], gap: [0.5, 3], len: [9, 15] } }, arc: { depth: 0.9 }, pad: 0.4, piano: true, bells: true, beat: true,
                root: "C", mode: "dorian", prog: [1, 4, 0, 5], chordSec: 0, gap: [4, 8], bpm: 74, vol: 0.5 },
     "blacksite": { world: true, name: "Black Site", icon: "🛰", desc: "Air handling hum and faint telemetry.", atmo: "construct",
-               beds: { labHum: 0.65, roomTone: 0.3, telemetry: 0.6 }, pad: 0.3, piano: false, bells: false, beat: false,
+               beds: { labHum: 0.65, roomTone: 0.3, telemetry: 0.6 }, spat: { telemetry: { k: "fixed", az: -50, d: 3, y: 0.5 } }, arc: { depth: 0.5 }, pad: 0.3, piano: false, bells: false, beat: false,
                root: "E", mode: "minor", prog: [0, 0, 5, 3], chordSec: 20, gap: [10, 20], bpm: 70, vol: 0.45 },
     "crypt": { world: true, name: "Forbidden Wing", icon: "🕯", desc: "Slow drips, a cold draught, a far bell.", atmo: "cursedwing",
-               beds: { drips: 0.6, windHowl: 0.3, hall: 0.4, bowl: 0.45 }, pad: 0.35, piano: false, bells: true, beat: false,
+               beds: { drips: 0.6, windHowl: 0.3, hall: 0.4, bowl: 0.45 }, spat: { drips: { k: "spot", d: [1.2, 3], y: [-1, 1.2] } }, arc: { beds: { windHowl: { lo: 0.4, hi: 1.5, per: [60, 140] } } }, pad: 0.35, piano: false, bells: true, beat: false,
                root: "E", mode: "phrygian", prog: [0, 1, 0, 5], chordSec: 19, gap: [10, 20], bpm: 70, vol: 0.45 },
     "observatory": { world: true, name: "Observatory", icon: "🔭", desc: "Night crickets, a thin wind, clockwork ticking.", atmo: "solaris",
                beds: { crickets: 0.55, wind: 0.25, clock: 0.35 }, pad: 0.5, piano: false, bells: true, beat: false,
@@ -175,7 +175,7 @@
                beds: { fire: 0.5, pages: 0.55, roomTone: 0.25 }, pad: 0.45, piano: true, bells: false, beat: false,
                root: "A", mode: "minor", prog: [0, 5, 2, 4], chordSec: 16, gap: [8, 16], bpm: 70, vol: 0.5 },
     "polar": { world: true, name: "Polar Vault", icon: "❄", desc: "Howling wind over ice and a deep stillness.", atmo: "glacier",
-               beds: { windHowl: 0.7, wind: 0.3, roomTone: 0.2 }, pad: 0.65, piano: false, bells: true, beat: false,
+               beds: { windHowl: 0.7, wind: 0.3, roomTone: 0.2 }, arc: { depth: 1.2, beds: { windHowl: { lo: 0.55, hi: 1.5, per: [60, 150] } } }, pad: 0.65, piano: false, bells: true, beat: false,
                root: "Bb", mode: "lydian", prog: [0, 1, 4, 1], chordSec: 17, gap: [9, 18], bpm: 70, vol: 0.5 },
     "imperial": { world: true, name: "Imperial Treasury", icon: "🏮", desc: "Wind chimes, a light breeze, water far away.", atmo: "dynasty",
                beds: { chimes: 0.55, wind: 0.2, waterfall: 0.15 }, pad: 0.4, piano: false, bells: true, beat: false,
@@ -195,6 +195,14 @@
     "privatebank": { world: true, name: "Private Bank", icon: "🏦", desc: "Quiet room tone, nothing else.", atmo: null,
                beds: { roomTone: 0.65 }, pad: 0.35, piano: true, bells: false, beat: false,
                root: "C", mode: "major", prog: [0, 4, 3, 4], chordSec: 16, gap: [10, 18], bpm: 70, vol: 0.45 },
+    "xenohold": { world: true, name: "Xenohold", icon: "🧫", desc: "Slow drips in a flooded chamber, a deep hum, faint telemetry, glassy pads.", atmo: null,
+               beds: { underwater: 0.55, drips: 0.55, labHum: 0.28, telemetry: 0.5 }, pad: 0.6, piano: false, bells: true, beat: false,
+               spat: { telemetry: { k: "spot", d: [4, 9], y: [0, 2.5] }, drips: { k: "spot", d: [1.5, 5], y: [-1.5, 1.5] } }, arc: { depth: 1.2, beds: { underwater: { lo: 0.6, hi: 1.4, per: [90, 200] } } },
+               root: "F#", mode: "whole", prog: [0, 2, 4, 1], chordSec: 20, gap: [9, 18], bpm: 70, vol: 0.45 },
+    "samadhi": { world: true, name: "Samadhi", icon: "🏔", desc: "High mountain wind, a singing bowl, soft chimes and birds at dawn over a slow drone.", atmo: null,
+               beds: { windHowl: 0.32, bowl: 0.8, chimes: 0.35, birds: 0.45 }, pad: 0.6, piano: false, bells: true, beat: false,
+               arc: { beds: { windHowl: { lo: 0.5, hi: 1.4, per: [70, 160] }, birds: { lo: 0.5, hi: 1.35, per: [120, 260] } } },
+               root: "D", mode: "pent", prog: [0, 0, 1, 0], chordSec: 26, gap: [11, 22], bpm: 70, vol: 0.5 },
     coast:   { name: "Coastal reading room", icon: "🌊", desc: "Waves below the window, gulls, turning pages, soft keys.", atmo: "abyss",
                beds: { waves: 0.8, gulls: 0.35, pages: 0.6, wind: 0.15 }, pad: 0.5, piano: true, bells: false, beat: false,
                root: "G", mode: "lydian", prog: [0, 4, 1, 3], chordSec: 15, gap: [8, 15], vol: 0.55 },
@@ -209,7 +217,7 @@
                root: "F", mode: "major", prog: [0, 3, 4, 3], chordSec: 14, gap: [5, 10], vol: 0.5 }
   };
   const SOUND_ORDER = ["rainy", "vault", "lofi", "garden", "storm", "coast", "closing", "train", "cafe"];
-  const WORLD_ORDER = ["midnight-gallery", "conservator", "mint", "hoard", "bluenote", "cabin", "shipwreck", "prism", "nightcity", "blacksite", "crypt", "observatory", "alchemist", "polar", "imperial", "temple", "caravanserai", "fireside", "roman", "privatebank"];
+  const WORLD_ORDER = ["midnight-gallery", "conservator", "mint", "hoard", "bluenote", "cabin", "shipwreck", "prism", "nightcity", "blacksite", "crypt", "observatory", "alchemist", "polar", "imperial", "temple", "caravanserai", "fireside", "roman", "privatebank", "xenohold", "samadhi"];
   const SCENE_ORDER = SOUND_ORDER;                 // the one-tap "Sound only" presets; World scenes are SCENES[id] for id in WORLD_ORDER
   const ALIASES = { study: "conservator", hearth: "fireside", snow: "polar" };   // scene ids saved by earlier builds
 
@@ -684,6 +692,7 @@
     chimes: { k: "spot", d: [3, 6], y: [1, 3] }, drips: { k: "spot", d: [2, 4], y: [-1, 0.5] },
     clock: { k: "fixed", az: 35, d: 2.5, y: 0 }, keys: { k: "fixed", az: -25, d: 1.2, y: -0.4 }, train: { k: "pass" }
   };
+  /* A scene can re-place a bed: SCENES[id].spat = { bedId: { k: "spot"|"fixed"|"fly"|"pass", d, y, az, gap, len } } (same kinds as LSPAT). */
   const TEXTURE = { rainLight: 1, rainWindow: 1, rainHeavy: 1, rainUmbrella: 1, leaves: 1, wind: 1, windTrees: 1, windHowl: 1, river: 1, waves: 1, waterfall: 1, brown: 1, pink: 1, underwater: 1 };   // +-2.5 % rate variation allowed
   const TIGHT = { clock: 1, keys: 1, vinyl: 1, drips: 1, train: 1 };   // rhythmic/impulsive: 40-120 ms crossfades so two tick streams are never heard together
 
@@ -797,7 +806,7 @@
   /* Granular bed: overlapping chunks, equal-power crossfades. Chunk n+1 starts xfOut(n) before chunk n ends, and len >= xfIn + xfOut + 0.5,
      so at most two sources per bed are ever sounding (3 counting one scheduled in the look-ahead). */
   function grain(g, bed, buf) {
-    const ctx = E.ctx, id = bed.id, R = bed.R, dur = buf.duration, mono = buf.numberOfChannels === 1, P = LSPAT[id];
+    const ctx = E.ctx, id = bed.id, R = bed.R, dur = buf.duration, mono = buf.numberOfChannels === 1, P = (g.spat && g.spat[id]) || LSPAT[id];
     const tex = !!TEXTURE[id], tight = !!TIGHT[id];
     const st = bed.gr = { next: ctx.currentTime + 0.03, xfOut: 0.25, recent: [], n: 0, flip: Math.random() < 0.5 };
     const fixedPos = P && P.k === "fixed" ? [{ az: P.az, d: P.d, y: P.y }] : null;
@@ -805,9 +814,9 @@
       if (g.dead) return;
       if (st.next < t0) { st.next = t0; st.xfOut = 0.25; }
       while (st.next < t1) {
-        const T = Math.max(st.next, ctx.currentTime + 0.02), xfIn = st.n ? st.xfOut : 0.25, pass = P && P.k === "pass";
+        const T = Math.max(st.next, ctx.currentTime + 0.02), xfIn = st.n ? st.xfOut : 0.25, pass = P && P.k === "pass", pl = (pass && P.len) || [12, 18];
         const xfOut = pass ? 1.5 : tight ? rnd(0.04, 0.12) : rnd(1, 3);
-        let len = pass ? rnd(12, 18) : tight ? rnd(8, 16) : rnd(4, 12);
+        let len = pass ? rnd(pl[0], pl[1]) : tight ? rnd(8, 16) : rnd(4, 12);
         len = Math.max(Math.min(len, Math.max(3, dur * 0.9)), xfIn + xfOut + 0.5);
         const rate = tex ? rnd(0.975, 1.025) : 1, off = pickStart(st, dur, len * rate);
         const s = ctx.createBufferSource(); s.buffer = buf; s.loop = true; s.playbackRate.value = rate;   // loop=true only so a chunk may run past the (seamless) file end
@@ -821,7 +830,7 @@
           if (P.k === "fly") { const a0 = (Math.random() < 0.5 ? -1 : 1) * rnd(55, 85), d = rnd(P.d[0], P.d[1]), y = rnd(P.y[0], P.y[1]); pts = [{ az: a0, d, y }, { az: -a0 * rnd(0.6, 1), d: d * rnd(0.8, 1.2), y: y + rnd(-1, 1) }]; mk = 1.6; }
           else if (P.k === "spot") pts = [{ az: rnd(-150, 150), d: rnd(P.d[0], P.d[1]), y: rnd(P.y[0], P.y[1]) }];
           else if (P.k === "fixed") pts = fixedPos;
-          else { const sgn = Math.random() < 0.5 ? -1 : 1; pts = [{ az: -80 * sgn, d: 18, y: 0.5 }, { az: 0, d: 5, y: 0.5 }, { az: 80 * sgn, d: 18, y: 0.5 }]; mk = 2; }
+          else { const sgn = Math.random() < 0.5 ? -1 : 1; const dd = P.d || [18, 5]; pts = [{ az: -80 * sgn, d: dd[0], y: 0.5 }, { az: 0, d: dd[1], y: 0.5 }, { az: 80 * sgn, d: dd[0], y: 0.5 }]; mk = 2; }
           nodes = place(env, bed.mix, T, len, pts, mk); nodes.push(env);
           if (pass) { s.playbackRate.setValueAtTime(1.04, T); s.playbackRate.linearRampToValueAtTime(1.04, T + len * 0.42); s.playbackRate.linearRampToValueAtTime(0.955, T + len * 0.58); }
         } else {
@@ -836,7 +845,7 @@
         s.start(T, off); s.stop(T + len + 0.05);
         if (E.log) E.log.push({ t: T, bed: id, start: off, len, dur, rate, n: st.n });
         st.n++; st.xfOut = xfOut;
-        st.next = pass ? T + len + rnd(4, 12) : T + len - xfOut;
+        st.next = pass ? T + len + rnd((P.gap || [4, 12])[0], (P.gap || [4, 12])[1]) : T + len - xfOut;
       }
     });
   }
@@ -868,8 +877,8 @@
     const rate = (t) => g.arc.evRate(id, g.tau(t)) * E.speed;
     g.every(rnd(R.first[0], R.first[1]) / E.speed, () => rnd(R.every[0], R.every[1]) / rate(ctx.currentTime + 1), (t) => {
       if (!buf || g.dead) return;
-      // avoid replaying the same segment back to back (or the last two when there are many)
-      const ids = R.segs.map((_, i) => i), keep = Math.min(2, R.segs.length - 1), cand = ids.filter((i) => recentSeg.indexOf(i) < 0 || keep === 0);
+      // never the same segment twice in a row (and not the last two either when there are more than 4)
+      const ids = R.segs.map((_, i) => i), keep = R.segs.length > 4 ? 2 : Math.min(1, R.segs.length - 1), cand = ids.filter((i) => recentSeg.indexOf(i) < 0 || keep === 0);
       const si = pick(cand.length ? cand : ids); recentSeg.push(si); if (recentSeg.length > keep) recentSeg.shift();
       const sg = R.segs[si], s = ctx.createBufferSource(), a = ctx.createGain(), sp = ESPAT[id];
       s.buffer = buf;
@@ -1078,7 +1087,7 @@
     for (const k of Object.keys(mix.beds || {})) { const id = LEGACY[k] || k, L = mix.beds[k]; if (L > 0 && REC[id]) beds[id] = Math.max(beds[id] || 0, L); }
     // time of day: at dawn an outdoor scene gets birdsong (never added to a scene with no outdoor bed)
     if (E.timeAware && !beds.birds && dawnness(hourNow()) > 0.05 && Object.keys(beds).some((id) => OUTDOOR[id])) beds.birds = 0.4;
-    g.arc = mkArc(g, mix, beds); g.arcOff = 0;
+    g.arc = mkArc(g, mix, beds); g.arcOff = 0; g.spat = mix.spat || null;
     g.tau = (t) => (t - g.t0) * E.speed + g.arcOff;
     for (const id of BED_ORDER) { const L = beds[id]; if (L > 0) (REC[id].kind === "event" ? recEvent : recLoop)(g, id, L); }
     arcTicker(g);
@@ -1227,7 +1236,7 @@
     setArcs(on) { E.arcs = !!on; },
     debugSpeed(n) { E.speed = Math.max(1, +n || 1); return E.speed; },
     debugHour(h) { E.hour = h == null ? null : +h; },
-    debugLog(on) { E.log = on ? [] : null; return E.log; },
+    debugLog(on) { if (on !== undefined) E.log = on ? (E.log || []) : null; return E.log; },
     debugGroups: () => E.groups,
     debugMaster: () => E.out,
     level() { if (!E.an) return 0; E.an.getFloatTimeDomainData(E.anBuf); let s = 0; for (let i = 0; i < E.anBuf.length; i++) s += E.anBuf[i] * E.anBuf[i]; return Math.sqrt(s / E.anBuf.length); },

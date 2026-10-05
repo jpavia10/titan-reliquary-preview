@@ -161,7 +161,7 @@
     const u = userScene(id);
     if (u) { st.scene = id; st.mix = clone(u.mix); if (u.atmo && window.TitanSetAtmo) window.TitanSetAtmo(u.atmo); saveMine(); start(2.5); return; }
     const s = G.SCENES[id]; if (!s) return;
-    st.scene = id; st.mix = { beds: clone(s.beds), pad: s.pad, piano: s.piano, bells: s.bells, beat: s.beat, root: s.root, mode: s.mode, prog: s.prog, chordSec: s.chordSec, gap: s.gap, bpm: s.bpm, arc: s.arc };
+    st.scene = id; st.mix = { beds: clone(s.beds), pad: s.pad, piano: s.piano, bells: s.bells, beat: s.beat, root: s.root, mode: s.mode, prog: s.prog, chordSec: s.chordSec, gap: s.gap, bpm: s.bpm, arc: s.arc, spat: s.spat };
     if (window.TitanSetAtmo && s.atmo && !s.world) window.TitanSetAtmo(s.atmo);   // World scenes are sound only here: the World manifest owns the lighting
     saveMine(); start(2.5);
   }
