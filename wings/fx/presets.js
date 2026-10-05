@@ -8,7 +8,7 @@
   var FX = window.TitanFX;
   if (!FX) return;
 
-  var P = "vec2 P(vec2 fc){ return (fc-.5*uRes)/uRes.y; }\nfloat asp(){ return uRes.x/uRes.y; }\n";
+  var P = "vec2 P(vec2 fc){ return (fc-.5*uRes)/uRes.y - uPar; }\nfloat asp(){ return uRes.x/uRes.y; }\n";   // uPar = pointer parallax + scroll drift (fx-v3)
   // fixed-size-in-CSS-px helper: 1 CSS px expressed in screen-height units
   var PX = "float cssPx(){ return uScale/uRes.y; }\n";
 
@@ -157,11 +157,7 @@
 
   /* ===================== instanced particle vertex shaders ===================== */
   // Shared header for instanced passes: attribute-less quad from gl_VertexID, per-instance hashes from gl_InstanceID.
-  var VHEAD = "#version 300 es\nprecision highp float;\nuniform vec2 uRes; uniform float uTime, uInt, uQ, uScale, uLight, uFlash;\nout vec4 vA; out vec2 vQ;\n" +
-    "float h11(float p){ return fract(sin(p*127.1+31.7)*43758.5453); }\n" +
-    "void emit(vec2 ndc, vec2 halfPx, vec2 corner, vec4 a){\n" +
-    "  gl_Position = vec4(ndc + corner*halfPx*2./uRes, 0., 1.); vQ = corner; vA = a; }\n" +
-    "void cull(){ gl_Position = vec4(2.,2.,2.,1.); vQ = vec2(0.); vA = vec4(0.); }\n";
+  var VHEAD = FX.vhead;   // engine-owned: uniforms, h11/h21/rot2, mEnv(), warp() (parallax + tap push), emit(), cull()
 
   /* ===================== embers: instanced sparks + heat shimmer ===================== */
   FX.register("embers", {
@@ -515,7 +511,7 @@
     "  float fade = smoothstep(0.,.1,age)*(1.-smoothstep(.85,1.,age));",
     "  float rot = lantern ? 0. : uTime*(.4+r2)+r1*6.;",
     "  vec2 cr = lantern ? corner : vec2(corner.x*cos(rot)-corner.y*sin(rot), (corner.x*sin(rot)+corner.y*cos(rot))*.55);",
-    "  gl_Position = vec4(vec2(x,y) + cr*px*2./uRes, 0., 1.);",
+    "  gl_Position = vec4(warp(vec2(x,y),1.) + cr*px*2./uRes, 0., 1.);",
     "  vQ = corner; vA = vec4(lantern?1.:0., fade*(lantern ? .9+.1*sin(uTime*3.+r1*20.) : .7), r4, r2);",
     "}"].join("\n");
   FX.register("lanterns", {
