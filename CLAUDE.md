@@ -33,6 +33,7 @@ Current build, counts and collection hash: `data/status.json` (generated on ever
 | Drive | Google Drive folder `Titan Reliquary` is the one home (consolidated; contents under "Data master" below) |
 | Old/original app | `jpavia10.github.io/titan-reliquary` (Grok's): retired as the source; this repo is the official app |
 | Photo shard sites | `titan-photos-{as,eu,na}` GitHub Pages repos |
+| Claude's Corner | Drive folder `Claude's Corner` (root, owner gift 2026-10-06): Claude's own space for breaks and small requests to the owner. Read its `START HERE` doc when the owner mentions a break or the Corner; add to it, never start over. |
 
 ## Rules
 0. **Deploying:** GitHub Pages does NOT rebuild for pushes made by the Claude GitHub app (the live site silently stayed at aa45918 for ~30 pushes on 2026-09-30). After pushing to `main`, trigger the build by updating `DEPLOY_STAMP.txt` through the GitHub connector (acts as the owner's account), then confirm a new "pages build and deployment" run for that commit finishes `success`. Never report "live" before that run succeeds.
