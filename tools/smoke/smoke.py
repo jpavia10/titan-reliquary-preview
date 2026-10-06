@@ -144,6 +144,8 @@ def main(argv):
         browser.close()
     if httpd: httpd.shutdown()
     print("SMOKE: " + ("ALL GOOD" if not total_fail else f"{len(total_fail)} FAILED\n  " + "\n  ".join(total_fail)))
+    if os.environ.get("GITHUB_ACTIONS"):          # one annotation per failure, so the run page (and the API) says what broke
+        for f in total_fail: print("::error title=smoke::" + f.replace("\n", " ")[:300])
     return 1 if total_fail else 0
 
 
