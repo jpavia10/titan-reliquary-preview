@@ -1,8 +1,12 @@
 # Contributor scorecard
 
+**Two separate scores (fix-list #16, 2026-10-05).** They measure different things and are never added together:
+1. **Operational reliability** (this page, below): did the contributor follow the contract? Right place and name, accepted as sent, facts that hold on the checked sample, complete, stays in its tier. A high score means "easy and safe to merge", not "good at coins".
+2. **Numismatic accuracy** (`collaborators/MODEL_ACCURACY.md`): how often a model identifies coins correctly, measured on a test set with known answers (the photo-model bake-off, fix-list #4, then the locked benchmark, #19). Scored per question type (country, year, mint mark, variety, catalog number), with confidence calibration and the false-confidence rate.
+
 Claude (integrator) scores every submission from an outside AI. The owner asked for this on 2026-10-03 so that Muse can earn its way off probation. Grok and others can be scored the same way.
 
-## How a submission is scored (10 points)
+## Operational reliability: how a submission is scored (10 points)
 
 | Part | Points | Full marks means |
 |---|---|---|

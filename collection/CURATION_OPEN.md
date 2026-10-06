@@ -92,6 +92,14 @@ Claude agrees with 12 of 16 from catalog knowledge; fix the type records in Phas
 - **Albums are not itemized.** The ledger's album value ($2,059.39 on the board) and the ~930 binder coins are not specimen records; only the slot grids exist. The v254 headline ($5,393.70) therefore cannot be rebuilt from `collection/` alone.
 - **Silver in binders is not counted.** The ledger's 63.27 oz counts only the American Silver Eagles in A025/A026 (24 oz). Older silver in albums (Mercury dimes A006, pre-1965 Roosevelt A005, 1964 Kennedy A007, pre-1965 Washington quarters A012/A029, war nickels A015) is in no total. The Phase 1.5 album scans will show how much there is.
 
+## 7b. Where the 1.5 oz of unrecorded bullion silver came from (2026-10-05, fix-list #38): owner to answer
+
+Grok's notes carry a running "Vault Ag ~X → ~Y" total on every record. Replayed in order, the chain is clean from B003 (2026-09-12) to C263: every step equals the record's own silver. The whole 1.4997 oz sits in the **starting figure, 34.438 oz**, which Grok wrote before its first chained record.
+- What the records explain at that point: 24 Silver Eagles in A025/A026 (24.0) + B001 seven 1 oz Buffalo rounds (7.0) + B002 extra 2019 Eagle (1.0) + S001 2021 silver proof set (0.897: .999 dime, two quarters, half) + C031 Australia threepence (0.0419) = **32.939 oz**.
+- Gap: 34.438 − 32.939 = **1.499 oz**: something Grok counted before 2026-09-12 that never got a record.
+- It is not the album silver: the pre-1965 / 40 % coins in the albums (A005 1951 + 1964 dimes, A006 1943 Mercury, A007 1964 + 1966 + 1967 halves, A012 1964 quarter) add up to **1.055 oz**, and they are not in any total either (fix-list #37).
+- **Question for the owner:** did you have about 1.5 oz of silver before Sept 12 that has no B record? It would be about 1.5 oz in one or more pieces, such as 1/2 oz rounds, 1/4 oz rounds or a 1.5 oz piece. If yes, it gets a lot record. If not, the board total drops by 1.4997 oz.
+
 ## 8. Album volumes that need the owner's fresh scans (Phase 1.5): 23 of 33
 
 Computed holes are exact only for volumes the ledger enumerates; the rest stay flagged until each album is re-scanned. `python3 tools/albums/album_calc.py collection/` prints the table.
