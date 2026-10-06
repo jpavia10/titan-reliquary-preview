@@ -16,7 +16,7 @@ Steps (stops with exit code 1 at the first failure, leaving data/ and version.js
   6. print a summary (what changed, headline totals, rejected files)
 Needs python3 + jsonschema.
 """
-import contextlib, datetime, glob, hashlib, io, json, os, re, shutil, subprocess, sys, tempfile
+import atexit, contextlib, datetime, glob, hashlib, io, json, os, re, shutil, subprocess, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "tools", "schema"))
@@ -118,7 +118,8 @@ def main(argv):
     col = B.load_collection(coll)
     if col["board"] is None: return fail("collection/board.json is missing")
     # 3. version + 4. rebuild: always into a scratch folder first, so a failing check leaves data/ and version.json untouched
-    tmpd = tempfile.mkdtemp(prefix="publish-"); vuse = os.path.join(tmpd, "version.json"); outuse = os.path.join(tmpd, "data")
+    tmpd = tempfile.mkdtemp(prefix="publish-"); atexit.register(shutil.rmtree, tmpd, True)   # never leave scratch builds in /tmp (they once filled it)
+    vuse = os.path.join(tmpd, "version.json"); outuse = os.path.join(tmpd, "data")
     if os.path.exists(vpath): shutil.copyfile(vpath, vuse)
     ver = write_version(vuse, col, now, col["manifest"])
     r = subprocess.run([sys.executable, os.path.join(HERE, "build_app_data.py"), coll, outuse, "--version-json", vuse], capture_output=True, text=True)
