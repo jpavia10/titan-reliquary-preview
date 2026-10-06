@@ -28,9 +28,7 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
 
 ## 3. Catalog numbers
 
-- **Swiss 1 franc: C001 is KM#24a.1, C093/C094 are KM#24a (types CH.KM.24a.1 and CH.KM.24a)**  
-  Specimens: C001, C093, C094  
-  C093's own notes say it is the same type as C001. Confirm whether '.1' is only a sub-number of the same type; if yes merge the two types.
+- ~~Swiss 1 franc C001 / C093 / C094~~ **Settled 2026-10-06 (Claude, from NGC's price guide):** the cupronickel franc has three Krause numbers by year: KM#24a.1 = 1968-1981, KM#24a.2 = 1982, KM#24a.3 = 1983 onward (23 stars). C001 (1969) and C093 (1970) are KM#24a.1; C094 (1986) moved to the new type CH.KM.24a.3 (`changes_claude_20261006-0900.jsonl`). The old catch-all type CH.KM.24a is now unused.
 - **German Empire 20 Pfennig 1918 iron: no catalog number in the ledger**  
   Specimens: C023  
   Ledger: 'no standard imperial iron 20 Pf KM; wartime iron Notgeld / ID soft'. Look up in Jaeger (J.) / Kahnt, or confirm it is Notgeld rather than a Reichsmünze.
