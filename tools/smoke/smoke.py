@@ -29,10 +29,10 @@ class Run:
     def __init__(self, page, base, name, shots):
         self.p, self.base, self.name, self.shots = page, base, name, shots
         self.fails, self.passes = [], 0
-        self.errors, self.bad = [], []
+        self.errors, self.bad, self.offline = [], [], False
         page.on("pageerror", lambda e: self.errors.append(str(e)[:200]))
         # ERR_ABORTED = the page itself cancelled the request (e.g. the splash film when the intro ends): not a failure
-        page.on("requestfailed", lambda r: r.url.startswith(base) and "ERR_ABORTED" not in str(r.failure) and self.bad.append(f"{r.url[len(base):]} ({r.failure})"))
+        page.on("requestfailed", lambda r: r.url.startswith(base) and not self.offline and "ERR_ABORTED" not in str(r.failure) and self.bad.append(f"{r.url[len(base):]} ({r.failure})"))
         page.on("response", lambda r: r.url.startswith(base) and r.status >= 400 and self.bad.append(f"{r.url[len(base):]} -> {r.status}"))
 
     def check(self, label, ok, detail=""):
@@ -108,12 +108,12 @@ def scenario(r):
         p.wait_for_timeout(1000); p.reload(); p.wait_for_timeout(500)
     r.check("service worker controls the page", ok)
     if ok:
-        p.context.set_offline(True)
+        p.context.set_offline(True); r.offline = True      # fresh-only fetches (version checks, ?t= data) are expected to fail offline
         try:
             p.reload(); p.wait_for_timeout(3500)
             hero = r.visible_text("#hero-grand"); r.check("works offline (Hall value shows)", hero.startswith("$") and hero != "$0.00", hero)
         finally:
-            p.context.set_offline(False)
+            p.context.set_offline(False); p.wait_for_timeout(500); r.offline = False
 
 
 def main(argv):
