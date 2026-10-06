@@ -1,0 +1,6 @@
+changes_muse_20261004-2045/-2050/-2110.jsonl used the made-up {"event": "specimen-create", ...} format again, with no provenance.
+Claude re-filed them as changes_claude_20261006-0300.jsonl after reading each photo:
+  France 1994 5 francs        -> C281 (Muse named the photo C282; next free id was C281); new type FR.X.5-francs
+  Yugoslavia 1965 50 para     -> C282 (Muse: C283); new type YU.X.50-para
+  Germany 2002 10 cent, D     -> C283 (Muse: C284); existing type DE.KM.210 (denomination per owner via Muse; Phase 2 to confirm)
+Values from comparable coins in the collection ($1.00 / $0.25 / $0.25), not Muse's face-value guesses.

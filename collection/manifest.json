@@ -10,16 +10,16 @@
   "master_repo": "https://github.com/jpavia10/titan-reliquary-preview"
  },
  "counts": {
-  "specimens": 282,
-  "types": 163,
+  "specimens": 285,
+  "types": 165,
   "lots": 28,
   "albums": 33,
   "issuers": 52,
   "countries": 49,
-  "photos": 219,
-  "valuations": 310,
+  "photos": 222,
+  "valuations": 313,
   "spot_days": 24,
-  "changes": 2087,
+  "changes": 2096,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -30,9 +30,9 @@
   "album_slots_filled_claimed": 917
  },
  "totals": {
-  "specimens_est_usd": 189.05,
+  "specimens_est_usd": 190.55,
   "lots_est_usd": 3288.75,
-  "records_est_usd": 3477.8,
+  "records_est_usd": 3479.3,
   "silver_oz": {
    "specimens": 0.3733,
    "lots": 37.397,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "17b5c8aebca619719baeb448fc15a63f9d180ce43727bdab2964f4f52495507c",
+ "content_hash": "617e5d5145fae6221162da2128011e35b9f04594db9ed8d397d820aa91f7c357",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -74,13 +74,13 @@
   },
   {
    "path": "boot.json",
-   "sha256": "23a3faf8524699421af1a5ed7f70893b99092a4228124330b75c20b37e83142d",
-   "bytes": 17604
+   "sha256": "6c313c59e62266fefcc8a794e19a0268c26311a77296fdcaea6e2b232171ce9c",
+   "bytes": 17796
   },
   {
    "path": "changes.jsonl",
-   "sha256": "342cbfcdd52b4875610e661f8003da9819eba70c2a39d0e26666afd9f2722d55",
-   "bytes": 1999572
+   "sha256": "ec579cd8bcb7d627f77d5707d90f979fb5157c3802959b3895f5ff388d51817a",
+   "bytes": 2009267
   },
   {
    "path": "lots.json",
@@ -89,8 +89,8 @@
   },
   {
    "path": "photos.json",
-   "sha256": "c2aab207693369f80c0b8588ff0ab716e28ddc92c26c8c6e886096c8fcff7b4b",
-   "bytes": 131495
+   "sha256": "29c4cd68504c423cee11c4530f7183c87452fbb83246823d85b7752690fcfcfd",
+   "bytes": 133517
   },
   {
    "path": "prices/latest.json",
@@ -169,8 +169,8 @@
   },
   {
    "path": "specimens/DE.json",
-   "sha256": "371b031408f015679dd3a2677cd99a984ef147a057847a72c46b275f520705c9",
-   "bytes": 120579
+   "sha256": "802447e8f390ba65077c8fea9ba56304617b1e9458256dd7a63a14ef93f353aa",
+   "bytes": 122200
   },
   {
    "path": "specimens/EC.json",
@@ -189,8 +189,8 @@
   },
   {
    "path": "specimens/FR.json",
-   "sha256": "39cad1c5ea34ec5295f1dca8d93afb458303818608d4ad55d8a3c8f6453672a3",
-   "bytes": 70440
+   "sha256": "5c8906effb63b67a830a69630686de46d25be62c470ca71f13b474eb69acb6c4",
+   "bytes": 71924
   },
   {
    "path": "specimens/GB.json",
@@ -349,8 +349,8 @@
   },
   {
    "path": "specimens/YU.json",
-   "sha256": "e83f9da3fa2e7dc54d90fd57b64dfc7d7402ef5bae44c6ff8120d5d88fd3d46d",
-   "bytes": 4288
+   "sha256": "8cdd80acaccbbef5fd20ab83eef6b919f7e70b0d9a2104cd704998ef5e34e346",
+   "bytes": 5791
   },
   {
    "path": "templates/FIELDS.md",
@@ -434,8 +434,8 @@
   },
   {
    "path": "types/DE.json",
-   "sha256": "2b9e748bc87fe0c9cf1ebec78be3fbf82c0c08fc2e69f1e31e0179975a902900",
-   "bytes": 30955
+   "sha256": "4341ac4e36e5152533c7b5b60d69de26fa3c0c14601bef79241f0beea85ed505",
+   "bytes": 31066
   },
   {
    "path": "types/EC.json",
@@ -454,8 +454,8 @@
   },
   {
    "path": "types/FR.json",
-   "sha256": "654ce3422233f49f018cc9ef1076eaaceb7c4ba53d4e0b5af36cd75edde8c695",
-   "bytes": 20396
+   "sha256": "3f0daf921cd625e57dda86f1e14b3f7543624bc1a9dd56abf23ffb4e132dead7",
+   "bytes": 21398
   },
   {
    "path": "types/GB.json",
@@ -614,13 +614,13 @@
   },
   {
    "path": "types/YU.json",
-   "sha256": "1f0fe91c2e1f7b5ae121323abffed4ff611b7eec95f5f0df3ee084f4b2986054",
-   "bytes": 1238
+   "sha256": "4e2fbbbe0d1b9f1d7f6361399f863f654472bc77de469989ef64bdb6f346c87b",
+   "bytes": 2237
   },
   {
    "path": "valuations.jsonl",
-   "sha256": "0f52f27625df89cce904fe363063e8f6d9a6d0f8e0817c58c90c523f11cc6a0d",
-   "bytes": 48558
+   "sha256": "5c60d753cf828aea1878691b375dabf6f6785afdfa7adc0fc0484cf8bcd66e3d",
+   "bytes": 50060
   }
  ]
 }
