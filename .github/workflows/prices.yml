@@ -61,12 +61,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add collection data version.json
+          git add collection data version.json CLAUDE.md AI_START_HERE.md   # publish also rewrites the status block in these docs
           if git diff --cached --quiet; then
             echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "prices: daily spot update $(date -u +%F)"
-            git pull --rebase origin main
+            git pull --rebase --autostash origin main   # --autostash: a stray working-tree change must never block the daily push (it did on 2026-10-05)
             git push origin HEAD:main
             echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi

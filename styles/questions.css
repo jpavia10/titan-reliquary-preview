@@ -1,0 +1,24 @@
+/* Titan Reliquary · Questions view (wings/questions.js). Builds on styles/health.css (.health-view palette, 22px type, 56px targets). */
+.questions-view .qv-list { list-style: none; margin: 18px 0 0; padding: 0; }
+.questions-view .qv-q { padding: 18px 0 22px; border-bottom: 2px solid var(--hv-line); }
+.questions-view .qv-ask { margin: 0 0 6px; font-weight: 700; font-size: 1.15em; }
+.questions-view .qv-why { margin: 0 0 8px; font-size: 1rem; }
+.questions-view .qv-coin { margin: 0 0 10px; font-size: 1rem; }
+.questions-view .qv-coin a { color: var(--hv-ink); text-decoration: underline; text-underline-offset: 3px; }
+.questions-view .qv-opts { display: flex; flex-wrap: wrap; gap: 10px; }
+.questions-view .qv-opt.is-on { background: var(--hv-btn); color: var(--hv-btn-ink); border-color: var(--hv-btn); }
+.questions-view .qv-opt.is-on::before { content: "✓ "; }
+.questions-view .qv-free { display: block; margin-top: 12px; font-size: 1rem; font-weight: 700; }
+.questions-view .qv-free input { display: block; width: 100%; margin-top: 6px; min-height: 56px; font: inherit; font-size: 22px; padding: 8px 12px;
+  color: var(--hv-ink); background: var(--hv-soft); border: 3px solid var(--hv-line); border-radius: 10px; }
+.questions-view .qv-saved { margin: 10px 0 0; font-size: 1rem; color: var(--hv-ok); }
+.questions-view .qv-conf { padding-left: 1.2em; }
+.questions-view .qv-conf li { margin: 8px 0; }
+.questions-view .qv-undo { font: inherit; font-size: 1rem; margin-left: 10px; min-height: 44px; padding: 4px 14px; border-radius: 10px;
+  background: var(--hv-bg); color: var(--hv-ink); border: 2px solid var(--hv-line); cursor: pointer; }
+.questions-view .qv-send { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.questions-view .qv-say { font-weight: 700; color: var(--hv-ok); }
+/* "Confirm" inside a certainty label's explanation (coin view, wings/gallery.js) */
+#drawer-body .gxd-confirm { display: inline-block; margin: 0.35rem 0 0.1rem; min-height: 40px; padding: 0.3rem 0.8rem; border-radius: 999px; cursor: pointer;
+  font: 600 0.9rem/1.2 inherit; color: var(--ink); background: color-mix(in srgb, var(--gold) 16%, transparent); border: 2px solid var(--gold); }
+#drawer-body .gxd-confirm:disabled { cursor: default; border-style: dashed; }

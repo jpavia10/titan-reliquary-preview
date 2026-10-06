@@ -10,7 +10,7 @@
   const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const clone = (o) => JSON.parse(JSON.stringify(o));
 
-  const DEF = { scene: "off", mix: null, mine: [], vol: 0.55, mus: 0.9, amb: 0.9, bass: 0, mid: 0, treble: 0, motion: null, bgPause: false, spatial: null, timeAware: true };
+  const DEF = { scene: "off", mix: null, mine: [], vol: 0.55, mus: 0.9, amb: 0.9, bass: 0, mid: 0, treble: 0, tempo: 1, motion: null, bgPause: false, spatial: null, timeAware: true };
   let st = clone(DEF);
   try { Object.assign(st, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) { /* storage blocked */ }
   if (G.ALIASES && G.ALIASES[st.scene]) st.scene = G.ALIASES[st.scene];
@@ -28,6 +28,7 @@
   if (st.spatial) G.setSpatial(st.spatial);
   G.setTimeAware(st.timeAware !== false);
   G.setVolume(st.vol); G.setLevels(st.mus, st.amb); G.setTone(st.bass, st.mid, st.treble);
+  if (G.setMusicTempo && st.tempo && st.tempo !== 1) G.setMusicTempo(st.tempo);
   if (st.motion != null && window.TitanAmbient && window.TitanAmbient.setVisualEnabled) window.TitanAmbient.setVisualEnabled(!!st.motion);
 
   const sceneName = () => (st.scene === "custom" ? "My mix" : st.scene === "off" ? "" : userScene(st.scene) ? userScene(st.scene).name : (G.SCENES[st.scene] || { name: "" }).name);
@@ -83,6 +84,7 @@
       <p class="ss-note" id="ss-savemsg" role="status" aria-live="polite"></p></div></details>
     <details class="ss-details"><summary>Mix and tone</summary><div class="in">
       <div class="ss-row"><span>Music</span><input type="range" id="ss-mus" min="0" max="1" step="0.01" aria-label="Music level"></div>
+      <div class="ss-row"><span>Tempo</span><input type="range" id="ss-tempo" min="0.7" max="1.4" step="0.05" aria-label="Music tempo (slower to faster)"><span class="ss-tempo-n" id="ss-tempo-n" aria-hidden="true"></span></div>
       <div class="ss-row"><span>Ambience</span><input type="range" id="ss-amb" min="0" max="1" step="0.01" aria-label="Ambience level"></div>
       <div class="ss-row"><span>Bass</span><input type="range" id="ss-bass" min="-8" max="8" step="1" aria-label="Bass"></div>
       <div class="ss-row"><span>Mid</span><input type="range" id="ss-mid" min="-8" max="8" step="1" aria-label="Mid tones"></div>
@@ -140,7 +142,7 @@
     const mine = $("#ss-mine", sheet); $("#ss-mine-wrap", sheet).hidden = !st.mine.length;
     mine.innerHTML = st.mine.map((u) => `<div class="ss-mine-item">${sceneBtn(u.id, { icon: "★", name: u.name, desc: "Your scene" })}<button type="button" class="ss-del" data-del="${u.id}" aria-label="Remove ${esc(u.name)}">Remove</button></div>`).join("");
     sheet.querySelectorAll("[data-mus]").forEach((b) => { const k = b.dataset.mus; b.setAttribute("aria-pressed", String(k === "pad" ? m.pad > 0 : !!m[k])); });
-    $("#ss-mus", sheet).value = st.mus; $("#ss-amb", sheet).value = st.amb;
+    $("#ss-mus", sheet).value = st.mus; $("#ss-tempo", sheet).value = st.tempo || 1; $("#ss-tempo-n", sheet).textContent = Math.round((st.tempo || 1) * 100) + "%"; $("#ss-amb", sheet).value = st.amb;
     $("#ss-bass", sheet).value = st.bass; $("#ss-mid", sheet).value = st.mid; $("#ss-treble", sheet).value = st.treble;
     const mo = $("#ss-motion", sheet); mo.checked = st.motion == null ? !!(window.TitanAmbient && window.TitanAmbient.visualEnabled && window.TitanAmbient.visualEnabled()) : !!st.motion;
     $("#ss-bg", sheet).checked = !!st.bgPause;
@@ -274,6 +276,7 @@
   el.vol.addEventListener("input", () => { st.vol = +el.vol.value; G.setVolume(st.vol); el.volN.textContent = Math.round(st.vol * 100) + "%"; if (radioOn) { try { radio.setVolume(st.vol); } catch (e) { /* ignore */ } } save(); });
   const bind = (id, fn) => $(id, sheet).addEventListener("input", (e) => { fn(+e.target.value); save(); });
   bind("#ss-mus", (v) => { st.mus = v; G.setLevels(v, null); });
+  bind("#ss-tempo", (v) => { st.tempo = v; $("#ss-tempo-n", sheet).textContent = Math.round(v * 100) + "%"; if (G.setMusicTempo) G.setMusicTempo(v); });
   bind("#ss-amb", (v) => { st.amb = v; G.setLevels(null, v); });
   const tone = () => G.setTone(st.bass, st.mid, st.treble);
   bind("#ss-bass", (v) => { st.bass = v; tone(); }); bind("#ss-mid", (v) => { st.mid = v; tone(); }); bind("#ss-treble", (v) => { st.treble = v; tone(); });

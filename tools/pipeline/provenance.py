@@ -21,13 +21,13 @@ TAIL_RE = re.compile(r"\s*\[phase \d[^\]]*\]\s*$")
 
 # fact -> (specimen-event field prefixes, type-event field prefixes); a prefix matches the field itself or "prefix." / "prefix/..." children
 FACTS = {
-    "country":      ((), ("issuer",)),
-    "year":         (("year", "date"), ()),
+    "country":      ((), ("issuer", "country")),
+    "year":         (("year", "date", "issue.year"), ()),
     "denomination": ((), ("denomination",)),
-    "mint":         (("issue.mint",), ("issues.0.mint",)),
+    "mint":         (("issue.mint", "issue.mint_marks", "issue.mint_text"), ("issues.0.mint",)),
     "catalog":      ((), ("catalogs",)),
     "composition":  ((), ("composition",)),
-    "weight":       ((), ("nominal.weight",)),
+    "weight":       ((), ("nominal.weight", "nominal.weight_g")),
     "mintage":      (("issue.mintage",), ("issues",)),
     "value":        (("value",), ()),
     "story":        (("story",), ()),

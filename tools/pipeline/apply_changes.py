@@ -343,6 +343,10 @@ class Applier:
             old = None          # a new optional leaf (e.g. quantity); the schema check rejects a misspelt name
         if "old" in e and e["old"] != old: raise Reject(f"stale edit: {ent} {rid} {field} is now {j(old)[:80]}, the contribution expected {j(e['old'])[:80]} (re-read the record and resubmit)")
         if old == e["new"]:
+            if e.get("verified") and (e["by"] == "owner" or e["by"].startswith("person:")):
+                # the owner confirming a value as it stands (the app's "Confirm", fix list #43): nothing changes, but the log keeps the
+                # verified event so the certainty label becomes "Verified" (tools/pipeline/provenance.py)
+                self.log_event(e, old); self.log.append(f"confirmed by the owner (value unchanged): {ent} {rid} {field}"); return
             self.log.append(f"no change (value already set): {ent} {rid} {field}"); return
         self.check_verified(e, old)
         copies = self.issue_copies(rec, path) if ent == "type" else []

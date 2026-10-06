@@ -1,0 +1,74 @@
+{
+  "about": "Questions only the owner can settle (fix list #36). Curated by Claude; shown in the app at #questions (data/questions.json, open ones only). The owner's answers come back as an answers file from the app and tools/pipeline/owner_answers.py turns them into verified owner change events (effect 'set') or a follow-up list for Claude (effect 'followup'). A question is closed once collection/owner_answers.jsonl holds an answer for its id.",
+  "questions": [
+    {
+      "id": "q-c066-date", "coin": "C066", "ask": "Look at the date on C066, the Swiss 5 francs. Does it end in 6 or in 8?",
+      "why": "The phone photo reads 1976 but the record says 1978. Only the coin can settle it.",
+      "options": [
+        { "label": "1976", "effect": [{ "set": { "entity": "specimen", "id": "C066", "field": "issue.year", "new": 1976 } }, { "set": { "entity": "specimen", "id": "C066", "field": "year_raw", "new": "1976" } }],
+          "followup": "C066 is 1976: update its mintage (4,411,000 is the 1978 figure) and clear the open question." },
+        { "label": "1978", "effect": [{ "confirm": { "scan": "C066", "fact": "year" } }], "followup": "C066 is 1978: clear the open question." },
+        { "label": "I can't tell", "effect": [], "followup": "C066 date still unclear to the owner: settle at Phase 2 with the pro scan." }
+      ]
+    },
+    {
+      "id": "q-t001-stars", "coin": "T001", "ask": "How many stars are on token T001 (the 20 play token with GR)?",
+      "why": "Its record says 13 stars; its twin T002 has 15. If they differ they are two different kinds.",
+      "options": [
+        { "label": "13", "effect": [], "followup": "T001 has 13 stars, T002 has 15: split DE.X.spielmarke-20-gr into two types." },
+        { "label": "15", "effect": [], "followup": "T001 has 15 stars like T002: fix T001's notes (13 -> 15); one type is right." },
+        { "label": "Another number", "effect": [], "free": "How many?", "followup": "T001 star count from the owner (see the answer text): fix the notes; split the type if it is not 15." }
+      ]
+    },
+    {
+      "id": "q-c153-reverse", "coin": "C153", "ask": "Turn over C153, the 2008 UK 10 pence. Does the back show a crowned lion, or a piece of the Royal Shield?",
+      "why": "2008 had both designs. The record lists the lion type.",
+      "options": [
+        { "label": "Crowned lion", "effect": [{ "confirm": { "scan": "C153", "fact": "design" } }], "followup": "C153 is the lion (KM#989): clear the curation item." },
+        { "label": "Part of a shield", "effect": [{ "set": { "entity": "specimen", "id": "C153", "field": "type", "new": "GB.KM.1110" } }], "followup": "C153 moved to GB.KM.1110 (Dent shield): fix its mintage text and value." }
+      ]
+    },
+    {
+      "id": "q-ec-code", "coin": "C159", "ask": "East Caribbean coins are filed under the code EC, which is really Ecuador's code. Switch East Caribbean to XC?",
+      "why": "It only changes the short code in serial numbers (EC-... to XC-...), before the one-time serial renumbering.",
+      "options": [
+        { "label": "Yes, use XC", "effect": [], "followup": "Owner: East Caribbean -> XC. Re-key issuer EC (East Caribbean) to XC before the serial reassignment; Ecuador keeps EC." },
+        { "label": "No, keep EC", "effect": [], "followup": "Owner: keep EC for East Caribbean. Note it in the serial plan." }
+      ]
+    },
+    {
+      "id": "q-silver-1-5oz", "coin": null, "ask": "Before your first bullion buy on Sept 12, did you already have about 1.5 oz of silver with no record? (For example a 1/2 oz round, 1/4 oz rounds, or a 1.5 oz piece.)",
+      "why": "The silver total includes 1.5 oz that no bullion record explains.",
+      "options": [
+        { "label": "Yes", "effect": [], "free": "What is it? (optional)", "followup": "Owner had ~1.5 oz before 2026-09-12: add a bullion lot record for it (ask what pieces if the answer text is empty)." },
+        { "label": "No", "effect": [], "followup": "Owner had no such silver: lower the board silver by 1.4997 oz (board.json) and note it in CURATION_OPEN 7b." },
+        { "label": "Not sure", "effect": [], "followup": "Owner not sure about the 1.5 oz: leave the board as is." }
+      ]
+    },
+    {
+      "id": "q-a006-holes", "coin": null, "album": "A006", "ask": "Your Mercury dime album (A006): from your page photos it has 77 holes, but the record says about 80. Is 77 right?",
+      "why": "The 80 was an estimate. Only you can lower a count.",
+      "options": [
+        { "label": "Yes, 77", "effect": [{ "set": { "entity": "album", "id": "A006", "field": "slots_total", "new": 77 } }], "followup": "A006 slots_total 77 (owner): clear slots_total_approx." },
+        { "label": "No", "effect": [], "free": "How many holes?", "followup": "A006 hole count from the owner (see answer text)." }
+      ]
+    },
+    {
+      "id": "q-uk-5p-1992", "coin": "C275", "ask": "Do you have two UK 5 pence coins dated 1992?",
+      "why": "C169 (from the ledger) and C275 (added later from a photo) are both 1992 5p. They may be the same coin logged twice.",
+      "options": [
+        { "label": "Yes, two", "effect": [], "followup": "Owner has two 1992 5p: C169 and C275 are both real; nothing to merge." },
+        { "label": "No, only one", "effect": [], "followup": "C169 and C275 are the same coin: retire one record (keep C275's photo on the survivor)." },
+        { "label": "Not sure", "effect": [], "followup": "Owner unsure about two 1992 5p: check at Phase 2." }
+      ]
+    },
+    {
+      "id": "q-c140-photo", "coin": "C140", "ask": "Please take a phone photo of C140's map side (Spain 2008 1 cent) and drop it in the STAGING folder.",
+      "why": "Spain's 1 cent changed design in 2010; the map side helps confirm the catalog number.",
+      "options": [
+        { "label": "Done, photo sent", "effect": [], "followup": "Owner says the C140 map-side photo is in STAGING: file and read it." },
+        { "label": "Later", "effect": [], "keep_open": true }
+      ]
+    }
+  ]
+}

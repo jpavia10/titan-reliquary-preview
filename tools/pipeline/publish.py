@@ -25,6 +25,8 @@ import build_app_data as B
 import display as D
 import build_wants as W
 import build_reshoot as R
+import dupes as DUP
+import owner_answers as OA
 import integrity as I
 
 def fail(msg):
@@ -127,6 +129,12 @@ def main(argv):
     print(r.stdout.strip().replace(outuse, out))
     with open(f"{outuse}/wants.json", "w", encoding="utf-8", newline="\n") as f: json.dump(W.build(col["albums"], ver["generated_at"]), f, ensure_ascii=False, separators=(",", ":"))
     with open(f"{outuse}/reshoot.json", "w", encoding="utf-8", newline="\n") as f: json.dump(R.build(col, ver["generated_at"]), f, ensure_ascii=False, separators=(",", ":"))
+    qs = OA.load_questions(coll); done = OA.answered_ids(coll)
+    with open(f"{outuse}/questions.json", "w", encoding="utf-8", newline="\n") as f:
+        json.dump({"generated_at": ver["generated_at"], "questions": [dict({k: q[k] for k in ("id", "coin", "ask", "why") if k in q}, options=[{k: o[k] for k in ("label", "free") if k in o} for o in q["options"]]) for q in qs.values() if q["id"] not in done]}, f, ensure_ascii=False, separators=(",", ":"))
+    dg = DUP.find(coll)
+    with open(f"{outuse}/dupes.json", "w", encoding="utf-8", newline="\n") as f: json.dump({"generated_at": ver["generated_at"], "groups": dg}, f, ensure_ascii=False, separators=(",", ":"))
+    if any(g["kind"] != "multiple" for g in dg): print("dupes: " + "; ".join(f"{g['kind']} {', '.join(g['ids'])}" for g in dg if g["kind"] != "multiple") + " (possible double entries; data/dupes.json)")
     with open(f"{outuse}/status.json", "w", encoding="utf-8", newline="\n") as f: json.dump(I.status(col, outuse, ver.get("build"), ver["generated_at"], os.path.dirname(os.path.abspath(coll))), f, ensure_ascii=False, indent=1)
     # 5. checks
     problems = check_outputs(col, outuse, col["board"], os.path.dirname(os.path.abspath(coll)))
@@ -142,7 +150,7 @@ def main(argv):
         os.makedirs(os.path.join(out, "detail"), exist_ok=True)
         for f in glob.glob(os.path.join(out, "detail", "*.json")): os.remove(f)
         for f in glob.glob(os.path.join(outuse, "detail", "*.json")): shutil.copyfile(f, os.path.join(out, "detail", os.path.basename(f)))
-        for n in ("index.json", "search.json", "wants.json", "reshoot.json", "prices.json", "status.json"): shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n))
+        for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "prices.json", "status.json"): shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n))
         shutil.copyfile(vuse, vpath)
         if os.path.abspath(out) == os.path.join(ROOT, "data"): sync_docs(B.load(os.path.join(out, "status.json")))   # only the real publish rewrites the docs
     idx = B.load(f"{outuse}/index.json"); b = idx["board"]; snap = col["board"]["index"]["board"]

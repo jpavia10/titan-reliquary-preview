@@ -478,7 +478,7 @@
       // Replace the old guessed meter with ledger/owner numbers.
       const meta = card.querySelector(".binder-progress-meta");
       if (meta) {
-        meta.innerHTML = `<span>${totalKnown ? `${approx ? "≈" : ""}${filled} of ${total} slots filled` : `${filled} coins · some slot totals unknown`}</span><span class="study-meta-holes">${named} named ${named === 1 ? "hole" : "holes"}</span>`;
+        meta.innerHTML = `<span>${totalKnown ? `${approx ? "≈" : ""}${filled} of ${total} slots filled` : `${filled} coins · some slot totals unknown`}</span><span class="study-meta-tracked" title="Album coins are counted slot by slot; only flip coins have a full record each">tracked, not catalogued</span><span class="study-meta-holes">${named} named ${named === 1 ? "hole" : "holes"}</span>`;
       }
       const fill = card.querySelector(".binder-fill");
       if (fill) fill.style.width = `${pct == null ? 0 : pct}%`;
@@ -534,7 +534,7 @@
     const meta = document.getElementById("album-inspector-meta");
     if (meta) {
       const pct = b.total ? Math.round((b.filledCount / b.total) * 100) : null;
-      meta.innerHTML = `<strong>${b.total != null ? `${b.approx ? "≈" : ""}${b.filledCount}` : (b.v.filled_count ?? "?")}</strong> of <strong>${b.total ?? "?"}</strong> slots filled${pct != null ? ` · <span class="study-gold">${pct}%</span>` : ""} · ${esc(b.statusText)}`;
+      meta.innerHTML = `<strong>${b.total != null ? `${b.approx ? "≈" : ""}${b.filledCount}` : (b.v.filled_count ?? "?")}</strong> of <strong>${b.total ?? "?"}</strong> slots filled${pct != null ? ` · <span class="study-gold">${pct}%</span>` : ""} · ${esc(b.statusText)} · <span class="study-meta-tracked" title="Album coins are counted slot by slot; only flip coins have a full record each">tracked, not catalogued</span>`;
       const bar = document.getElementById("album-progress-bar");
       if (bar) bar.style.width = `${pct || 0}%`;
     }

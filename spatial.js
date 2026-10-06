@@ -1335,6 +1335,7 @@
           '<div class="trt-kicker"><span id="trt-kind"></span><span class="trt-ser" id="trt-ser"></span></div>' +
           '<h2 class="trt-title" id="trt-title"></h2>' +
           '<div class="trt-meta" id="trt-meta"></div>' +
+          '<button type="button" class="trt-record" id="trt-record" hidden title="Leave the table and open this coin\'s full record: how sure we are of each fact, sources and history">How sure we are · full record ›</button>' +
         '</div>' +
         '<div class="trt-actions">' +
           '<button type="button" class="trt-btn trt-btn-pill" id="trt-browse" aria-haspopup="dialog" aria-controls="trt-drawer" title="Choose pieces (B)">' + icon("browse") + '<span>Collection</span></button>' +
@@ -1383,6 +1384,12 @@
         '<button type="button" class="trt-btn trt-btn-pill" id="trt-usdz">Download .usdz model</button></div></div>';
 
     $("trt-exit").addEventListener("click", function () { api.close(); });
+    // #44: the table draws the piece; how sure we are of each fact lives in the coin view (certainty labels + history)
+    $("trt-record").addEventListener("click", function () {
+      var rec = ST.rec, B = window.__galleryBridge; if (!rec || !rec.scan || !B) return;
+      api.close();
+      try { B.setWing("gallery", false); B.openDrawer(rec.scan); } catch (e) { /* ignore */ }
+    });
     $("trt-prev").addEventListener("click", function () { api.prev(); });
     $("trt-next").addEventListener("click", function () { api.next(); });
     $("trt-flip").addEventListener("click", flip180);
@@ -1428,6 +1435,7 @@
     if (rec.status) meta.push(rec.status);
     meta.push("A drawing from the record, not a photo");
     $("trt-meta").textContent = meta.join(" · ");
+    var recBtn = $("trt-record"); if (recBtn) recBtn.hidden = k !== "flip" || !rec.scan || !(window.__galleryBridge && window.__galleryBridge.openDrawer);
     var seg = $("trt-format"); seg.hidden = k !== "flip";
     [].forEach.call(seg.querySelectorAll("[data-format]"), function (b) { var onF = b.getAttribute("data-format") === ST.format; b.setAttribute("aria-checked", String(onF)); b.tabIndex = onF ? 0 : -1; });
     $("trt-light-name").textContent = LIGHT_NAMES[ST.lighting] || "Warm";

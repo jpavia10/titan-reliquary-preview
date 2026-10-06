@@ -385,3 +385,6 @@ body.trt-open .wings { visibility: hidden; }
   .trt .trt-veil, .trt .trt-hint { transition: none; }
 }
 #spatial-museum-modal.trt:focus { outline: none; }
+.trt .trt-record { margin-top: 0.45rem; padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--gold, #d4af37) 70%, transparent);
+  background: color-mix(in srgb, var(--gold, #d4af37) 14%, transparent); color: var(--ink, #f5f1e6); font: 600 0.82rem/1.2 inherit; cursor: pointer; min-height: 36px; }
+.trt .trt-record:hover, .trt .trt-record:focus-visible { background: color-mix(in srgb, var(--gold, #d4af37) 28%, transparent); }

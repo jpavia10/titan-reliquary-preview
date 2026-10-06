@@ -63,7 +63,7 @@
     const agOz = pr.combined_silver?.oz ?? mt.oz?.ag;
     const auOz = pr.combined_gold?.oz ?? mt.oz?.au;
     const tiles = [];
-    if (isNum(c.vault)) tiles.push({ k: "Pieces", v: int(c.vault), s: isNum(b.albums?.coins) ? `as the ledger counts them, incl. ~${int(b.albums.coins)} album coins` : "as the ledger counts them", go: "gallery", aria: `${int(c.vault)} pieces in the vault. Open the Gallery` });
+    if (isNum(c.vault)) tiles.push({ k: "Pieces", v: int(c.vault), s: isNum(b.albums?.coins) ? `as the ledger counts them, incl. ~${int(b.albums.coins)} album coins (counted, not catalogued one by one)` : "as the ledger counts them", go: "gallery", aria: `${int(c.vault)} pieces in the vault. Open the Gallery` });
     if (isNum(c.flips)) tiles.push({ k: "Flips", v: int(c.flips), s: b.flips?.usd != null ? money0(b.flips.usd) + " est." + (isNum(b.flips.cards) && b.flips.cards !== c.flips ? ` · ${int(b.flips.cards)} of ${int(c.flips)} in the ledger total (${int(c.flips - b.flips.cards)} not yet included)` : "") : "in 2×2 flips", go: "gallery", aria: `${int(c.flips)} flips. Open the Gallery` });
     if (isNum(c.countries)) tiles.push({ k: "Countries", v: int(c.countries), s: continents ? `on ${continents} continents` : "represented", go: "study", aria: `${int(c.countries)} countries. Open the Curator's Study` });
     if (b.albums && isNum(b.albums.folders)) tiles.push({ k: "Albums", v: int(b.albums.folders), s: (isNum(b.albums.coins) ? "~" + int(b.albums.coins) + " coins · " : "") + money0(b.albums.usd), go: "study", aria: `${int(b.albums.folders)} albums. Open the Curator's Study` });
@@ -86,10 +86,39 @@
     }
     const mt = v.metals || {};
     const bits = [];
-    if (mt.as_of_local || mt.as_of) bits.push("spot as of " + (mt.as_of_local || mt.as_of));
-    if (mt.spot?.ag_usd_oz != null) bits.push("Ag " + money(mt.spot.ag_usd_oz));
-    if (mt.spot?.au_usd_oz != null) bits.push("Au " + money(mt.spot.au_usd_oz));
+    const L = prices && prices.latest;
+    const at = L && L.at ? new Date(L.at) : null;
+    if (at && !isNaN(at) && Number(L.xag_usd) > 0) {
+      // the daily price job's latest quote (data/prices.json); the ledger board quote is only the fallback
+      bits.push("spot as of " + at.toLocaleDateString("en-US", { month: "short", day: "numeric" }));
+      bits.push("Ag " + money(L.xag_usd));
+      if (Number(L.xau_usd) > 0) bits.push("Au " + money(L.xau_usd));
+    } else {
+      if (mt.as_of_local || mt.as_of) bits.push("spot as of " + (mt.as_of_local || mt.as_of));
+      if (mt.spot?.ag_usd_oz != null) bits.push("Ag " + money(mt.spot.ag_usd_oz));
+      if (mt.spot?.au_usd_oz != null) bits.push("Au " + money(mt.spot.au_usd_oz));
+    }
     p.textContent = bits.join(" · ");
+    // #42: never show an old price as current. The job runs daily at 22:15 UTC; past 36 h it has missed a run.
+    const ageH = at && !isNaN(at) ? (Date.now() - at.getTime()) / 36e5 : null;
+    if (ageH != null && ageH > 36) {
+      const w = document.createElement("span");
+      w.className = "hall-stale";
+      const days = Math.floor(ageH / 24);
+      w.textContent = ` · ⚠ price not updated for ${days} day${days === 1 ? "" : "s"}; values use this older price`;
+      p.appendChild(w);
+    }
+  }
+  let prices = null, pricesTried = false;
+  function loadPrices() {
+    if (pricesTried) return;
+    pricesTried = true;
+    fetch("data/prices.json").then((r) => (r.ok ? r.json() : null)).then((d) => {
+      if (!d) return;
+      prices = d;
+      const v = getVault();
+      if (v) renderAsOf(v);
+    }).catch(() => {});
   }
 
   /* ---------- 2. Melt bar: labels only where they fit; the legend carries the numbers ---------- */
@@ -144,6 +173,7 @@
     stageHero();
     renderGlance(v);
     renderAsOf(v);
+    loadPrices();
     markTickerDupes();
     watchChartSize();
     fitMeltLabels();

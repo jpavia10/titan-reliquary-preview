@@ -49,6 +49,7 @@ const WING_URLS = [
   "styles/vault.css?v=" + BUILD,
   "styles/simple.css?v=" + BUILD,
   "styles/health.css?v=" + BUILD,
+  "styles/questions.css?v=" + BUILD,
   "styles/wants.css?v=" + BUILD,
   "wings/albums-data.js?v=" + BUILD,
   "wings/atmo/abyss.js?v=" + BUILD,
@@ -89,6 +90,7 @@ const WING_URLS = [
   "wings/vault.js?v=" + BUILD,
   "wings/simple.js?v=" + BUILD,
   "wings/health.js?v=" + BUILD,
+  "wings/questions.js?v=" + BUILD,
   "wings/wants.js?v=" + BUILD,
 ];
 

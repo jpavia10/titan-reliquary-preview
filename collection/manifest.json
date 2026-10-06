@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "617e5d5145fae6221162da2128011e35b9f04594db9ed8d397d820aa91f7c357",
+ "content_hash": "0b1087f44b64f8b316fb547f1530ba443ea5b376969fe80af97b9a9ff267b3b5",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -86,6 +86,11 @@
    "path": "lots.json",
    "sha256": "2851f9e1f2a2633ef1c3e95ec123f1e77ca960daf8b9419e8cbc48e1404b779b",
    "bytes": 19892
+  },
+  {
+   "path": "owner_questions.json",
+   "sha256": "519a49bccc2ff737d9f08e6e4ceef3e4994d5c5c5ed3f61886bbfd5ab45f76f0",
+   "bytes": 5997
   },
   {
    "path": "photos.json",

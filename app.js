@@ -700,7 +700,11 @@
 
     const cap = $(".hero-cap");
     if (cap) {
-      cap.textContent = `total estimated valuation · melt ${money(pureMelt)} (${Math.round((pureMelt/grandVal)*100)}%)`;
+      // #12: say which part is firm (metal at spot) and which part is an estimate (premiums over melt, albums, sets, housing)
+      const est = Math.max(0, grandVal - pureMelt);
+      const k = (n) => "$" + (n >= 1000 ? (n / 1000).toFixed(n >= 1e4 ? 0 : 1) + "k" : Math.round(n));
+      cap.textContent = `about ${k(grandVal)}: melt ${money(pureMelt)} (firm, metal at spot) plus about ${k(est)} collector premium (estimate)`;
+      cap.title = `Melt value moves with silver and gold prices and is reliable. The rest (${money(est)}) is the ledger's estimate of what coins, albums, sets and housing are worth above their metal, and could be off either way.`;
     }
 
     setupSpotSimulator();
@@ -1405,11 +1409,14 @@
     const revPhoto = typeof photoOf === "function" ? photoOf(f, "rev") : null;
     const obvPhoto = typeof photoOf === "function" ? photoOf(f, "obv") : null;
     const thumbRev = f.thumb_side === "rev" ? f.thumb : null, thumbObv = f.thumb_side === "rev" ? null : f.thumb;
-    const imgUrl = isRev ? (revPhoto?.url || thumbRev || null) : (thumbObv || obvPhoto?.url || null);
+    // #26 (same rule as the gallery tiles, tr86): a coin photographed only on its back shows that photo on the slab front,
+    // and the flip side then shows the drawn obverse, so a side card in the carousel is never a placeholder drawing.
+    const backOnly = !thumbObv && !obvPhoto?.url && !!(thumbRev || revPhoto?.url);
+    const imgUrl = isRev ? (backOnly ? null : (revPhoto?.url || thumbRev || null)) : (thumbObv || obvPhoto?.url || (backOnly ? (thumbRev || revPhoto.url) : null));
 
     const visual = imgUrl
-      ? `<img class="pc-photo slab-coin-img" data-src="${esc(imgUrl)}" loading="lazy" decoding="async" alt="${esc((f.denom || 'Coin') + (isRev ? ' Reverse' : ' Obverse'))}" />`
-      : renderSpecimenBlueprint(f, !isMini, options.side || "obv");
+      ? `<img class="pc-photo slab-coin-img" data-src="${esc(imgUrl)}" loading="lazy" decoding="async" alt="${esc((f.denom || 'Coin') + (isRev || backOnly ? ' Reverse' : ' Obverse'))}" />`
+      : renderSpecimenBlueprint(f, !isMini, backOnly ? "obv" : (options.side || "obv"));
 
     return `
       <div class="museum-slab${isMini ? ' slab-mini' : ''}${isRev ? ' slab-rev' : ' slab-obv'}">
@@ -1638,6 +1645,12 @@
     if (L && Number(L.xag_usd) > 0 && Number(L.xau_usd) > 0 && L.at && (!board.at || new Date(L.at) >= board.at)) {
       q = { ag: Number(L.xag_usd), au: Number(L.xau_usd), kind: "latest", at: new Date(L.at), src: L.source };
       q.asOf = `last quote ${termStamp(q.at)}`;
+    }
+    // #42: a quote older than 36 h means the daily price job missed a run; say so instead of passing it off as current
+    if (q.kind !== "live" && q.at && !isNaN(q.at) && (Date.now() - q.at.getTime()) > 36 * 36e5) {
+      const days = Math.floor((Date.now() - q.at.getTime()) / 864e5);
+      q.stale = true;
+      q.asOf += ` (⚠ ${days} day${days === 1 ? "" : "s"} old)`;
     }
     if (term.live) q = { ag: term.live.ag, au: term.live.au, kind: "live", at: term.live.at, src: "gold-api.com", asOf: `live ${termClock(term.live.at)}` };
     return q;

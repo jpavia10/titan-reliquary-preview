@@ -32,6 +32,7 @@
   color: color-mix(in srgb, var(--muted) 68%, var(--ink));
   letter-spacing: 0.02em;
 }
+#pane-hall .hall-asof .hall-stale { color: var(--warn, #b45309); font-weight: 600; }
 
 /* Melt bar: taller, labels only where they fit (hall.js adds .hg-narrow) */
 #pane-hall .melt-allocation-bar { height: 28px; }

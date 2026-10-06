@@ -136,3 +136,4 @@ html[data-atmo="notepad"] .scene-bar { top: 49px; }
 .ss-mine-item { display: flex; flex-direction: column; gap: 6px; }
 .ss-del { min-height: 44px; border-radius: 10px; border: 1.5px solid #c25a5a; background: transparent; color: #ffd9d9; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
 .ss-check select { min-height: 44px; font-size: 16px; font-weight: 600; margin-left: auto; max-width: 60%; }
+.ss-tempo-n { flex: 0 0 3em; text-align: right; font-variant-numeric: tabular-nums; }

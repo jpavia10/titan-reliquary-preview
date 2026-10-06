@@ -159,6 +159,21 @@ class Pipeline(unittest.TestCase):
         self.assertIn("REJECTED", r.stdout); self.assertIn(expect, r.stdout)
         self.assertEqual(before, tree_hash(os.path.join(tmp, "collection")), "a rejected file must change nothing")
 
+    def test_owner_answers_become_verified_events(self):
+        """#36/#43: an answers file from the app -> owner events; a confirm of an unchanged value is still logged as verified."""
+        sys.path.insert(0, HERE)
+        import collection_io as CIO, owner_answers as OA
+        tmp = sandbox(); coll = os.path.join(tmp, "collection")
+        col = CIO.Collection(coll); sid = sorted(col.specs)[0]; year = col.specs[sid]["issue"]["year"]
+        qs = {"q-test": {"id": "q-test", "ask": "?", "options": [{"label": "Yes", "effect": [{"confirm": {"scan": sid, "fact": "year"}}], "followup": "do X"}]}}
+        evs, log, follow, probs = OA.convert([{"q": "q-test", "choice": "Yes"}, {"confirm": {"scan": sid, "fact": "story"}}, {"q": "q-nope", "choice": "x"}], col, qs, "2026-10-09T11:00:00Z")
+        self.assertEqual([e["field"] for e in evs], ["issue.year", "story"]); self.assertTrue(all(e["by"] == "owner" and e["verified"] for e in evs))
+        self.assertEqual(evs[0]["new"], year); self.assertEqual(follow, ["q-test: do X"]); self.assertEqual(len(probs), 1); self.assertEqual(len(log), 2)
+        r = self.apply(tmp, write_events(tmp, "changes_owner_20261009-1100.jsonl", evs))
+        self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("confirmed by the owner (value unchanged)", r.stdout)
+        logged = [json.loads(l) for l in open(os.path.join(coll, "changes.jsonl"), encoding="utf-8") if '"2026-10-09T11:00:00Z"' in l]
+        self.assertEqual(len(logged), 2)
+
     def test_rejections(self):
         self.reject([ev(entity="specimen", id="C001", field="condition.grade", new="MS-70", verified=True)], "only the owner")
         self.reject([ev(entity="specimen", id="C001", field="condition.nope.deeper", new=1)], "no field")

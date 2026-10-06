@@ -1359,7 +1359,10 @@
     if (!c.certainty) return "";
     const e = certOf(c, fact), L = CERT[e.level] || CERT.imported;
     const why = e.level === "imported" ? "Imported from Grok's ledger (2026-09-30)" : [e.by, e.ts, e.source].filter(Boolean).join(" · ");
-    return `<button type="button" class="gxd-cert" data-lv="${esc(e.level)}" title="${esc(L[1] + ". " + why)}" aria-label="${esc(L[0].replace(/^\S+ (?=\S)/, "") + ": " + why)}">${esc(L[0])}</button><span class="gxd-cert-why" hidden>${esc(L[1])}: ${esc(why)}</span>`;
+    // #43: the owner can confirm any fact that is not verified yet; it waits in Questions until sent (wings/questions.js)
+    const Q = window.TitanQuestions, queued = Q && Q.isQueuedConfirm(c.scan, fact);
+    const conf = e.level === "verified" || !Q ? "" : `<br><button type="button" class="gxd-confirm" data-scan="${esc(c.scan)}" data-fact="${esc(fact)}"${queued ? " disabled" : ""}>${queued ? "✓ Confirmed: send it from Questions" : "I checked the coin: this is right"}</button>`;
+    return `<button type="button" class="gxd-cert" data-lv="${esc(e.level)}" title="${esc(L[1] + ". " + why)}" aria-label="${esc(L[0].replace(/^\S+ (?=\S)/, "") + ": " + why)}">${esc(L[0])}</button><span class="gxd-cert-why" hidden>${esc(L[1])}: ${esc(why)}${conf}</span>`;
   }
   function historyHtml(c) {
     const h = c.history || [];
@@ -1456,6 +1459,14 @@
     const body = $("#drawer-body");
     if (!body) return;
     body.addEventListener("click", async (e) => {
+      const cf = e.target.closest(".gxd-confirm");
+      if (cf) {
+        const Q = window.TitanQuestions; if (!Q || cf.disabled) return;
+        const row = cf.closest("dd, li, p, div"), label = row ? (row.textContent || "").split("I checked")[0].replace(/\s+/g, " ").trim().slice(0, 80) : "";
+        Q.queueConfirm(cf.dataset.scan, cf.dataset.fact, label);
+        cf.disabled = true; cf.textContent = "✓ Confirmed: send it from Questions";
+        return;
+      }
       const chip = e.target.closest(".gxd-cert");
       if (chip) { const w = chip.nextElementSibling; if (w && w.classList.contains("gxd-cert-why")) w.hidden = !w.hidden; return; }
       const b = e.target.closest("[data-gxd]");

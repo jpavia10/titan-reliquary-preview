@@ -199,7 +199,7 @@
     const ag = pr.combined_silver && pr.combined_silver.oz, au = pr.combined_gold && pr.combined_gold.oz;
     const facts = [
       `You have <strong>${fmtInt(c.flips || 0)}</strong> coins and tokens in flips, from <strong>${fmtInt(c.countries || 0)}</strong> countries.`,
-      `Your ${wants.volumes.length} albums hold <strong>${fmtInt(filled)}</strong> coins, with <strong>${fmtInt(miss)}</strong> empty spots still to fill.`,
+      `Your ${wants.volumes.length} albums hold <strong>${fmtInt(filled)}</strong> coins, with <strong>${fmtInt(miss)}</strong> empty spots still to fill. These are counted by album slot, not given a full record each like the coins in flips.`,
     ];
     if (ag != null) facts.push(`You own about <strong>${(+ag).toFixed(1)} troy ounces</strong> of silver${au ? ` and <strong>${(+au).toFixed(2)}</strong> of gold` : ""}.`);
     if (b.grand) facts.push(`The whole collection is worth about <strong>${money0(b.grand)}</strong>. It is on HOLD, not for sale.`);
