@@ -16,7 +16,7 @@ ENTITIES = [("specimen", "Specimen", "one physical piece the owner holds (`C###`
             ("type", "Type", "what a coin IS; shared by all its specimens (`CH.KM.24a.1`, `CA.X.1-cent`)"),
             ("lot", "Lot", "bullion `B###`, set `S###`, housing `H###`, stamps `P###`"),
             ("album", "AlbumVolume", "a binder volume `A###` and its slot grid (Phase 1.5)"),
-            ("photo", "Photo", "one photo record (`op: create`; the one later edit is `op: set` on `superseded_by`)"),
+            ("photo", "Photo", "one photo record (`op: create`; created by the photo scripts only; later edits: `op: set` on `superseded_by`, and once on `crop` (how the image was cut, written by the scripts, never overwritten))"),
             ("issuer", "Issuer", "who issued (country or historical issuer; create only)")]
 UNITS = [("_g", "grams"), ("_mm", "millimetres"), ("_oz", "troy ounces"), ("_usd", "US dollars"), ("_cents", "cents")]
 
@@ -111,7 +111,7 @@ def build():
          "`null` means \"not known\" and is always allowed where the type lists `null`. Types: `string`, `number` (decimal), `integer` (whole), `boolean` (`true`/`false`), `array` (JSON list), `object`. "
          "A path that names a whole object or list replaces all of it; prefer the leaf path (one event per fact). "
          "Units are in the field name: `_g` grams, `_mm` millimetres, `_oz` troy ounces, `_usd` US dollars. "
-         "`id`, `ser` and `research` are written by the pipeline only. A story the owner wrote is never overwritten without `supersedes`.", "",
+         "`id`, `ser` and `research` are written by the pipeline only. Besides the field paths, every event may carry the optional event keys `phase`, `confidence` and `provenance` (model, prompt_version, workflow, inputs, run_id, tokens, cost_usd, raw: see INSTRUCTIONS.md section 2). A story the owner wrote is never overwritten without `supersedes`.", "",
          "A value of the wrong type, or a field your phase may not write, rejects your whole file with a line-numbered report (nothing is changed). Check yourself first: `python3 tools/pipeline/apply_changes.py --dry-run <file>`.", ""]
     L += phase1_list()
     for ent, name, blurb in ENTITIES:

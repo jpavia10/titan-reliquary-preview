@@ -13,7 +13,7 @@ Every differing field is classified:
   DIFF        unexplained: fails the test
 Exit 0 when there is no unexplained difference and every index block (board, metals, age, ...) matches.
 """
-import collections, glob, json, os, re, subprocess, sys, tempfile
+import shutil, atexit, collections, glob, json, os, re, subprocess, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 IGNORE_TOP = {"generated_at", "generated_at_pt", "generated_at_iso", "ledger_version", "content_hash", "schema", "root"}   # root: the ledger's local machine path is deliberately replaced by a neutral label (privacy)
@@ -70,7 +70,7 @@ def compare_records(name, gold, new, stats, ex, curated, fails):
         if len(ex[(name, k, cls)]) < 2: ex[(name, k, cls)].append((sid, g, n))
 
 def run(coll, gold):
-    tmp = tempfile.mkdtemp(prefix="parity-")
+    tmp = tempfile.mkdtemp(prefix="parity-"); atexit.register(shutil.rmtree, tmp, True)
     subprocess.run([sys.executable, os.path.join(HERE, "build_app_data.py"), coll, tmp], check=True, capture_output=True)
     stats = collections.defaultdict(collections.Counter); ex = collections.defaultdict(list); fails = []
     curated = curated_map(coll)

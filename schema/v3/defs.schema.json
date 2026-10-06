@@ -1681,6 +1681,16 @@
             "string",
             "null"
           ]
+        },
+        "crop": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Crop"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": [
@@ -1730,6 +1740,9 @@
         },
         "verified": {
           "type": "boolean"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
         }
       },
       "required": [
@@ -1993,6 +2006,169 @@
         "xau_usd",
         "at",
         "source"
+      ],
+      "additionalProperties": false
+    },
+    "Provenance": {
+      "description": "Which AI run produced an event: model, prompt, workflow, the photo files it looked at. All optional; unknown keys are rejected.",
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string",
+          "description": "exact model id/version as the contributor knows it"
+        },
+        "prompt_version": {
+          "type": "string",
+          "description": "e.g. AI_START_HERE@2026-10-05 or a template name + date"
+        },
+        "workflow": {
+          "type": "string",
+          "description": "e.g. phase1-photo, phase2-research, album-read, phase1-crop"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "file": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "file"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "run_id": {
+          "type": "string",
+          "description": "groups the events of one AI run"
+        },
+        "tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "cost_usd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "raw": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 600,
+          "description": "short verbatim AI answer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Crop": {
+      "description": "How a photo record's image was cut from its source photo (crop_coin.py settings), so crops can be compared and redone.",
+      "type": "object",
+      "properties": {
+        "source_file": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "method": {
+          "type": "string"
+        },
+        "tool_version": {
+          "type": "string"
+        },
+        "cx": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "cy": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "r": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "pad_pct": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "rotation_deg": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "out_px": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "box_cx": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "box_cy": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "box_side": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "box_method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ts": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Instant"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source_file",
+        "method",
+        "tool_version"
       ],
       "additionalProperties": false
     }

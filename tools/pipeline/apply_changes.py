@@ -22,15 +22,18 @@ Event fields
                                                    Phase 1 may write only phase1 fields, Phase 1.5 only album slot fields, Phase 2 phase1 + phase2 fields;
                                                    models never write owner or system fields. Stored inside `source` in the audit log.
     confidence                                     optional (low | med | high); stored inside `source` in the audit log
+    provenance                                     optional object (schema Provenance): which AI run made the event. Keys model, prompt_version, workflow,
+                                                   inputs [{file, sha256?}], run_id, tokens, cost_usd, raw (<= 500 chars). Unknown keys are rejected.
+                                                   Stored with the event in changes.jsonl. A model file with no provenance still merges, with a WARNING line.
 """
-import contextlib, copy, datetime, io, json, os, re, shutil, sys, tempfile
+import atexit, contextlib, copy, datetime, io, json, os, re, shutil, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "tools", "schema"))
 import collection_io as C
 
 ENTITIES = ("type", "specimen", "lot", "album", "issuer", "photo")
-ALLOWED = {"ts", "by", "entity", "id", "field", "new", "old", "source", "verified", "op", "supersedes", "phase", "confidence"}
+ALLOWED = {"ts", "by", "entity", "id", "field", "new", "old", "source", "verified", "op", "supersedes", "phase", "confidence", "provenance"}
 TS = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$")
 CONT_OF = {"Africa": "AF", "Antarctica": "AN", "Asia": "AS", "Europe": "EU", "North America": "NA", "Oceania": "OC", "South America": "SA"}
 LOT_PREFIX = {"bullion": "B", "set": "S", "housing": "H", "stamp": "P"}
@@ -215,6 +218,17 @@ class Applier:
         if "phase" in e and e["phase"] not in (1, 1.5, 2): errs.append("phase must be 1, 1.5 or 2")
         if e["entity"] in ENTITIES and isinstance(e.get("field"), str): errs += self.check_tiers(e)
         if "confidence" in e and e["confidence"] not in ("low", "med", "high"): errs.append("confidence must be low, med or high")
+        if "provenance" in e: errs += self.check_provenance(e["provenance"])
+        return errs
+
+    def check_provenance(self, pv):
+        import validate as V
+        if not isinstance(pv, dict): return ["provenance must be an object (model, prompt_version, workflow, inputs, run_id, tokens, cost_usd, raw)"]
+        errs = []
+        for er in V.validator("Provenance").iter_errors(pv):
+            where = ".".join(str(x) for x in er.absolute_path)
+            errs.append(f"provenance{('.' + where) if where else ''}: {er.message[:140]}")
+        if isinstance(pv.get("raw"), str) and len(pv["raw"]) > 500: errs.append("provenance.raw is longer than 500 characters; keep a short verbatim excerpt")
         return errs
 
     def check_tiers(self, e):
@@ -274,6 +288,7 @@ class Applier:
         notes = [f"phase {e['phase']}" for _ in [0] if "phase" in e] + ([f"confidence {e['confidence']}"] if "confidence" in e else [])
         if notes: src = ((src + " ") if src else "") + "[" + "; ".join(notes) + "]"
         ev = {"ts": e["ts"], "by": e["by"], "entity": e["entity"], "id": e["id"], "field": e["field"], "old": old, "new": e["new"] if new is None else new, "source": src, "verified": bool(e.get("verified", False))}
+        if e.get("provenance"): ev["provenance"] = e["provenance"]
         self.c.changes.append(ev); self.new_events.append(ev)
         if ev["verified"]: self.verified[(ev["entity"], ev["id"], ev["field"])] = ev
 
@@ -341,10 +356,18 @@ class Applier:
     def set_photo(self, e):
         """The only edit a photo record allows: `superseded_by` (a Phase 2 photo replaces the Phase 1 one of the same coin and side)."""
         rid, c = e["id"], self.c
-        if e["field"] != "superseded_by": raise Reject("a photo record can only be changed through op set on 'superseded_by' (everything else: create a new photo id)")
+        if e["field"] not in ("superseded_by", "crop"): raise Reject("a photo record can only be changed through op set on 'superseded_by' or 'crop' (everything else: create a new photo id)")
         rec = next((p for p in c.photos if p["id"] == rid), None)
         if rec is None: raise Reject(f"photo {rid} does not exist")
         new = e["new"]
+        if e["field"] == "crop":
+            if not e["by"].startswith("script:"): raise Reject("a photo's crop settings are written by the photo scripts only")
+            old = rec.get("crop")
+            if old is not None and old != new: raise Reject(f"photo {rid} already has crop settings; they are never overwritten")
+            if old == new: self.log.append(f"no change (value already set): photo {rid} crop"); return
+            rec["crop"] = new
+            self.log_event(e, old)
+            return
         if new is not None:
             nxt = next((p for p in c.photos if p["id"] == new), None)
             if nxt is None: raise Reject(f"photo {rid}: superseded_by {new!r} is not a photo record (create it first)")
@@ -532,7 +555,7 @@ def apply_file(path, coll, dry_run=False):
     name = os.path.basename(path)
     events, problems = read_events(path)
     if not events and not problems: problems.append("the file has no events")
-    work = tempfile.mkdtemp(prefix="apply-"); wdir = os.path.join(work, "collection")
+    work = tempfile.mkdtemp(prefix="apply-"); atexit.register(shutil.rmtree, work, True); wdir = os.path.join(work, "collection")
     shutil.copytree(coll, wdir, ignore=shutil.ignore_patterns("_incoming"))
     col = C.Collection(wdir); ap = Applier(col); results = []
     for n, e in events:
@@ -557,7 +580,10 @@ def apply_file(path, coll, dry_run=False):
         return "rejected", [f"REJECTED {name}: {len(problems)} problem(s); nothing was changed"] + ["  " + p for p in problems] + (["  notes: " + m for m in ap.log] if ap.log else []), []
     changed = [] if dry_run else tree_sync(wdir, coll)
     shutil.rmtree(work, ignore_errors=True)
-    rep = [f"APPLIED {name}: {sum(1 for r in results if r == 'applied')} event(s) merged" + (" (dry run, nothing written)" if dry_run else f", {len(changed)} file(s) updated")] + ["  " + m for m in ap.log]
+    warn = []
+    if any(e.get("by", "").startswith("model:") and not e.get("provenance") for _, e in events):
+        warn = [f"WARNING {name}: no provenance on {sum(1 for _, e in events if e.get('by', '').startswith('model:') and not e.get('provenance'))} model event(s). Please add a `provenance` object (model, prompt_version, workflow, inputs, run_id): see collection/templates/INSTRUCTIONS.md"]
+    rep = warn + [f"APPLIED {name}: {sum(1 for r in results if r == 'applied')} event(s) merged" + (" (dry run, nothing written)" if dry_run else f", {len(changed)} file(s) updated")] + ["  " + m for m in ap.log]
     return "applied", rep, ap.new_events
 
 def main(argv):
