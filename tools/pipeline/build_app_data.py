@@ -16,6 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from display import *   # noqa: F401,F403  (pure string-rendering rules, see display.py)
 import value_history as VH
+import provenance as PV
 
 def load(p):
     with open(p, encoding="utf-8") as f: return json.load(f)
@@ -34,6 +35,7 @@ def load_collection(d):
     bp = f"{d}/board.json"
     col["board"] = load(bp) if os.path.exists(bp) else None
     vp = f"{d}/valuations.jsonl"
+    col["events"] = PV.load_events(d)
     col["valuations"] = [json.loads(l) for l in open(vp, encoding="utf-8") if l.strip()] if os.path.exists(vp) else []
     sp = f"{d}/prices/spot_daily.jsonl"
     col["spot"] = {}
@@ -84,6 +86,7 @@ def build_specimens(col):
         det = specimen_detail(col, s, t)
         flips.append(specimen_index_row(col, s, t, det))
         detail.setdefault(col["spec_file"][sid], {})[sid] = det
+    PV.build(col, {sid: d for recs in detail.values() for sid, d in recs.items()})    # certainty labels + history (provenance.py), added in place
     return flips, detail
 
 def build_lots(col):

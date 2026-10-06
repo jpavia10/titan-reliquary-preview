@@ -383,5 +383,81 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(r.returncode, 1); self.assertIn("PUBLISH REFUSED", r.stderr)
         self.assertEqual(data_before, tree_hash(os.path.join(tmp, "data"))); self.assertEqual(ver_before, open(os.path.join(tmp, "version.json")).read())
 
+class Provenance(unittest.TestCase):
+    """Certainty labels + history (tools/pipeline/provenance.py)."""
+    import provenance as P
+
+    def E(self, **k):
+        d = {"ts": "2026-10-03T10:00:00Z", "by": "model:muse-spark", "entity": "specimen", "id": "C900", "field": "story", "old": None, "new": "x", "source": "composed from the record", "verified": False}
+        d.update(k); return d
+
+    def cert(self, events, fact="story", questions=(), tokens=None):
+        ix = self.P.index_events(events)
+        return self.P.certainty("C900", "XX.KM.1", ix, [fact], questions, tokens).get(fact)
+
+    def test_level_precedence(self):
+        P = self.P
+        self.assertEqual(P.classify(self.E(by="owner", verified=True)), "verified")
+        self.assertEqual(P.classify(self.E(by="owner")), "owner")
+        self.assertEqual(P.classify(self.E(source="listed as KM#31 in Krause; photos/p1/C900_obv.webp")), "reference")      # reference beats photo
+        self.assertEqual(P.classify(self.E(source="read from photos/p1/C900_obv.webp")), "photo")
+        self.assertEqual(P.classify(self.E(source="gut feeling")), "ai")
+        self.assertEqual(P.classify(self.E(by="model:sonnet-5.5", source="ledger v254 wording")), "imported")
+        # last event wins, an owner confirmation after an AI guess is the answer, and review overrides everything but "verified"
+        evs = [self.E(ts="2026-10-03T10:00:00Z"), self.E(ts="2026-10-04T10:00:00Z", by="owner", source="owner said so")]
+        self.assertEqual(self.cert(evs)["level"], "owner")
+        evs = [self.E(ts="2026-10-05T10:00:00Z", by="owner", source="owner"), self.E(ts="2026-10-04T10:00:00Z")]
+        self.assertEqual(self.cert(evs)["level"], "owner")
+        self.assertEqual(self.cert([self.E()], questions=["The story reads oddly."])["level"], "review")
+        self.assertEqual(self.cert([self.E(by="owner", verified=True)], questions=["The story reads oddly."])["level"], "verified")
+        self.assertEqual(self.cert([], fact="mint")["level"], "review")              # no event at all
+        self.assertIsNone(self.cert([self.E(entity="specimen", field="ledger_text", by="model:sonnet-5.5", source="ledger v254")], fact="mint"))   # imported = no entry
+        # a type event counts for a type fact, and a long source is truncated
+        te = self.E(entity="type", id="XX.KM.1", field="ruler", source="Numista N#6319 " + "y" * 300)
+        c = self.cert([te], fact="ruler"); self.assertEqual(c["level"], "reference"); self.assertLessEqual(len(c["source"]), 140)
+
+    def test_reference_regex_vs_generic_numista(self):
+        P = self.P
+        for hit in ("Numista N#6319", "KM#31", "Schön#75a", "Jaeger 123", "https://en.numista.com/1", "Royal Mint", "US Mint", "Riksbank", "per catalog"):
+            self.assertEqual(P.classify(self.E(source=hit)), "reference", hit)
+        for miss in ("Round 3 research (Numista/NGC/Krause-verified)", "Numista says so", "catalogued type record GB.KM.1109d"):
+            self.assertEqual(P.classify(self.E(source=miss)), "ai", miss)
+
+    def test_history_grouping(self):
+        P = self.P
+        evs = [self.E(field="story", ts="2026-10-03T10:00:00Z"), self.E(entity="type", id="XX.KM.1", field="ruler", ts="2026-10-03T10:00:01Z"),
+               self.E(entity="type", id="XX.KM.1", field="series", ts="2026-10-03T10:00:02Z"), self.E(field="issue.mintage", ts="2026-10-03T10:00:03Z"),
+               self.E(by="model:claude", field="type", old="XX.KM.0", new="XX.KM.1", ts="2026-10-05T10:00:00Z", source="phone photo photos/p1/C900_obv.webp: legend reads X"),
+               self.E(by="model:claude", field="research.open_questions", new=["Mint letter reads F (Stuttgart) on the Phase 1 photo; the record says J. Confirm."], ts="2026-10-04T10:00:00Z"),
+               self.E(by="model:sonnet-5.5", field="ledger_text", ts="2026-09-30T00:00:00Z", source="ledger v254 wording"),
+               self.E(by="owner", field="notes", ts="2026-10-02T05:00:00Z", source="owner confirmed: year is 2005")]
+        photos = [{"ts": "2026-10-04T09:00:00Z", "by": "script:photo_crop_p1", "phase": 1, "side": "rev"}]
+        h = P.history("C900", "XX.KM.1", evs, photos)
+        self.assertEqual(h, P.history("C900", "XX.KM.1", list(evs), photos))        # deterministic
+        whats = [r["what"] for r in h]
+        self.assertEqual(whats[0], "Claude moved it to type XX.KM.1 (from the photo legend)")
+        self.assertIn("Photo shows mint F, record says J: flagged for review", whats)
+        self.assertIn("Phone photo added (reverse)", whats)
+        self.assertIn("Muse wrote the story; added ruler, series and mintage", whats)   # three same-day Muse events -> one line
+        self.assertEqual(sum(1 for w in whats if w.startswith("Muse")), 1)
+        self.assertEqual(whats[-1], "Imported from Grok's ledger")
+        self.assertEqual([r["ts"] for r in h[:-1]], sorted([r["ts"] for r in h[:-1]], reverse=True))
+        many = [self.E(by="model:claude", field="type", new="T%d" % i, ts="2026-10-%02dT10:00:00Z" % (i + 1)) for i in range(20)]
+        self.assertLessEqual(len(P.history("C900", "XX.KM.1", many)), 12)
+
+    def test_detail_json_carries_certainty_and_history(self):
+        n = 0; size = 0
+        for f in glob.glob(os.path.join(ROOT, "data", "detail", "*.json")):
+            with open(f, encoding="utf-8") as fh: raw = fh.read()
+            for sid, d in json.loads(raw).items():
+                n += 1
+                self.assertIsInstance(d.get("certainty"), dict, sid); self.assertIsInstance(d.get("history"), list, sid)
+                self.assertTrue(d["history"], sid)
+                for fact, e in d["certainty"].items():
+                    self.assertIn(fact, self.P.FACTS); self.assertIn(e["level"], self.P.LEVELS, sid)
+                    if "like" in e: self.assertIn(e["like"], d["certainty"])
+                    else: self.assertLessEqual(len(e.get("source", "")), 140)
+        self.assertEqual(n, len(BASE.specs))
+
 if __name__ == "__main__":
     unittest.main(verbosity=2, warnings="ignore")
