@@ -6546,6 +6546,7 @@
         ${completeness}
       </header>
       ${c.story ? `<section class="ds-sec"><h4>About this coin</h4><div class="notes-box">${esc(c.story)}</div></section>` : ""}
+      ${(c.history || []).length ? `<details class="ds-sec ds-history"><summary><strong>History</strong></summary><ul class="notes-box">${c.history.map((r) => `<li>${esc(r.ts)} · ${esc(r.what)}</li>`).join("")}</ul></details>` : ""}
       ${section("Identity", identity)}
       ${section("Value", value)}
       ${section("Physical", physical)}

@@ -593,3 +593,28 @@
 @media (max-width: 700px) {
   #pane-gallery .gf-root .cf-header-actions #cf-btn-loupe, #pane-gallery .gf-root .cf-header-actions #cf-btn-caliper, #pane-gallery .gf-root .cf-header-actions #cf-btn-deepzoom { display: none; }
 }
+
+/* Certainty chips + history (fix-list #9/#10). Word + symbol, never colour alone; text is always --ink so every atmosphere keeps AA. */
+#drawer-body .gxd-legend { margin: 0 0 0.6rem; font-size: 0.9rem; color: var(--muted); }
+#drawer-body .gxd-cert {
+  display: inline-block; margin: 0 0 0 0.35rem; padding: 0.1rem 0.5rem; min-height: 24px; vertical-align: middle;
+  font: 700 0.75rem/1.3 var(--sans, inherit); letter-spacing: 0.02em; text-transform: none; color: var(--ink);
+  background: transparent; border: 1px solid var(--line-strong); border-radius: 999px; cursor: pointer;
+}
+#drawer-body .gxd-cert[data-lv="verified"], #drawer-body .gxd-cert[data-lv="owner"] { border-width: 2px; border-color: var(--gold); }
+#drawer-body .gxd-cert[data-lv="reference"] { border-color: var(--gold); }
+#drawer-body .gxd-cert[data-lv="ai"], #drawer-body .gxd-cert[data-lv="photo"] { border-style: dashed; }
+#drawer-body .gxd-cert[data-lv="imported"] { border-style: dotted; }
+#drawer-body .gxd-cert[data-lv="review"] { border-width: 2px; border-style: double; border-color: var(--warn, #b45309); background: color-mix(in srgb, var(--warn, #b45309) 14%, transparent); }
+#drawer-body .gxd-cert:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+#drawer-body .gxd-cert-why { display: block; margin-top: 0.25rem; font-size: 0.86rem; line-height: 1.4; color: var(--muted); overflow-wrap: anywhere; }
+#drawer-body .gxd-cert-why[hidden] { display: none; }
+#drawer-body .gxd-history { border: 1px solid var(--line); border-radius: 14px; padding: 0 1rem; background: var(--surface); }
+#drawer-body .gxd-history summary { min-height: 46px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; font-weight: 700; color: var(--ink); list-style: none; }
+#drawer-body .gxd-history summary::-webkit-details-marker { display: none; }
+#drawer-body .gxd-history summary::after { content: "+"; font-size: 1.3rem; color: var(--gold); }
+#drawer-body .gxd-history[open] summary::after { content: "\2212"; }
+#drawer-body .gxd-history summary span { margin-left: auto; font-weight: 500; font-size: 0.86rem; color: var(--muted); }
+#drawer-body .gxd-history ol { margin: 0 0 1rem; padding: 0; list-style: none; border-left: 2px solid var(--line-strong); }
+#drawer-body .gxd-history li { padding: 0.3rem 0 0.3rem 0.9rem; font-size: 0.95rem; line-height: 1.45; color: var(--ink); }
+#drawer-body .gxd-history time { font-variant-numeric: tabular-nums; color: var(--muted); }

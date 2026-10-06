@@ -1343,6 +1343,30 @@
     return "";
   }
 
+  /* Certainty labels + history (data/detail certainty / history, built by tools/pipeline/provenance.py). A displayed fact with no entry is "imported". */
+  const CERT = {
+    verified: ["✓ Verified", "Confirmed by the owner"], owner: ["Owner", "Stated by the owner, not yet re-checked"], reference: ["Reference", "Backed by a catalog number, publication or web source"],
+    photo: ["Photo", "Read from a photo, not yet confirmed"], ai: ["AI guess", "Written by an AI without a catalog source"], imported: ["From ledger", "Carried over from the original ledger"],
+    review: ["⚠ Needs review", "Questioned: see Still being checked"],
+  };
+  function certOf(c, fact) {
+    const m = c.certainty || {};
+    let e = m[fact] || { level: "imported" };
+    if (e.like && m[e.like]) e = Object.assign({}, m[e.like], { level: e.level });
+    return e;
+  }
+  function certChip(c, fact) {
+    if (!c.certainty) return "";
+    const e = certOf(c, fact), L = CERT[e.level] || CERT.imported;
+    const why = e.level === "imported" ? "Imported from Grok's ledger (2026-09-30)" : [e.by, e.ts, e.source].filter(Boolean).join(" · ");
+    return `<button type="button" class="gxd-cert" data-lv="${esc(e.level)}" title="${esc(L[1] + ". " + why)}" aria-label="${esc(L[0].replace(/^\S+ (?=\S)/, "") + ": " + why)}">${esc(L[0])}</button><span class="gxd-cert-why" hidden>${esc(L[1])}: ${esc(why)}</span>`;
+  }
+  function historyHtml(c) {
+    const h = c.history || [];
+    if (!h.length) return "";
+    return `<details class="gxd-sec gxd-history"><summary>History <span>${h.length} ${h.length === 1 ? "entry" : "entries"}</span></summary><ol>${h.map((r) => `<li><time>${esc(r.ts)}</time> · ${esc(r.what)}</li>`).join("")}</ol></details>`;
+  }
+
   function dossierHtml(c) {
     if (!c || !flipsAll().some((f) => f.scan === c.scan)) return null; // only real ledger flips (not album slots)
     const photos = (c.photos || []).filter((p) => p.url);
@@ -1368,7 +1392,7 @@
       c.kind === "token" ? `<span class="gxd-badge">Token</span>` : "",
       c.conf && c.conf !== "high" ? `<span class="gxd-badge warn" title="Identification confidence">Confidence: ${esc(c.conf)}</span>` : "",
     ].join("");
-    const fact = (k, v) => has(v) ? `<div class="gxd-fact"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>` : "";
+    const fact = (k, v, cf) => has(v) ? `<div class="gxd-fact"><dt>${esc(k)}</dt><dd>${esc(v)}${cf ? " " + certChip(c, cf) : ""}</dd></div>` : "";
     const gauge = size ? (() => {
       const pct = Math.max(20, Math.min(96, (size.mm / 50.8) * 100));
       return `<section class="gxd-sec gxd-size" aria-label="Actual size">
@@ -1394,23 +1418,25 @@
           <h2>${esc(title)}</h2>
           ${sub ? `<p class="gxd-sub">${esc(sub)}</p>` : ""}
           <div class="gxd-value">
-            <div><span class="gxd-k">Estimated value</span><strong class="gxd-est">${c.est != null ? money(c.est) : "not recorded"}</strong></div>
+            <div><span class="gxd-k">Estimated value</span><strong class="gxd-est">${c.est != null ? money(c.est) : "not recorded"}</strong>${c.est != null ? certChip(c, "value") : ""}</div>
             ${c.face ? `<div><span class="gxd-k">Face value</span><strong>${esc(c.face)}</strong></div>` : ""}
             ${c.is_silver ? `<div><span class="gxd-k">Silver content</span><strong>${c.asw_oz != null ? B.num(c.asw_oz, 4) + " oz" : "not recorded"}</strong>${melt != null ? `<span class="gxd-note">melt ${money(melt)}${spotAg != null ? ` at ${money(spotAg)}/oz` : ""}</span>` : ""}</div>` : ""}
           </div>
         </header>
-        ${c.story ? `<section class="gxd-sec gxd-story gxd-about"><h4>About this coin</h4><p>${esc(c.story)}</p></section>` : ""}
+        ${c.story ? `<section class="gxd-sec gxd-story gxd-about"><h4>About this coin ${certChip(c, "story")}</h4><p>${esc(c.story)}</p></section>` : ""}
+        ${historyHtml(c)}
         <section class="gxd-sec">
           <h4>Museum label</h4>
+          ${c.certainty ? `<p class="gxd-legend">Labels show how sure we are of each fact.</p>` : ""}
           <dl class="gxd-facts">
-            ${fact("Country", c.country)}${fact("Continent", c.continent)}${fact("Year", c.year_line || c.year)}
-            ${fact("Ruler", c.ruler)}${fact("Era", c.period)}${fact("Series", c.series)}${fact("Commemorates", c.commemorates)}
-            ${fact("Denomination", c.denom_line || c.denom)}${fact("Metal and condition", c.metal)}${fact("Mintage", c.mintage)}
-            ${fact("References", c.refs)}${fact("Legal tender", c.tender)}${fact("Die alignment", align)}${fact("Housing", c.parked)}
+            ${fact("Country", c.country, "country")}${fact("Continent", c.continent)}${fact("Year", c.year_line || c.year, "year")}
+            ${fact("Ruler", c.ruler, "ruler")}${fact("Era", c.period, "period")}${fact("Series", c.series, "series")}${fact("Commemorates", c.commemorates)}
+            ${fact("Denomination", c.denom_line || c.denom, "denomination")}${fact("Metal and condition", c.metal, "composition")}${fact("Mintage", c.mintage, "mintage")}
+            ${c.mint ? fact("Mint mark", c.mint, "mint") : ""}${fact("References", c.refs, "catalog")}${fact("Legal tender", c.tender)}${fact("Die alignment", align)}${fact("Housing", c.parked)}
             ${fact("Identification", c.conf ? `${c.conf} confidence` : "")}${fact("Added to the ledger", c.added)}
           </dl>
         </section>
-        ${c.design ? `<section class="gxd-sec gxd-story"><h4>Design</h4><p>${esc(c.design)}</p></section>` : ""}
+        ${c.design ? `<section class="gxd-sec gxd-story"><h4>Design ${certChip(c, "design")}</h4><p>${esc(c.design)}</p></section>` : ""}
         ${c.notes ? `<section class="gxd-sec gxd-story"><h4>Curator's notes</h4><p>${esc(c.notes)}</p></section>` : ""}
         ${(c.open_questions || []).length ? `<section class="gxd-sec gxd-story gxd-open"><h4>Still being checked</h4><ul>${c.open_questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul></section>` : ""}
         ${gauge}
@@ -1430,6 +1456,8 @@
     const body = $("#drawer-body");
     if (!body) return;
     body.addEventListener("click", async (e) => {
+      const chip = e.target.closest(".gxd-cert");
+      if (chip) { const w = chip.nextElementSibling; if (w && w.classList.contains("gxd-cert-why")) w.hidden = !w.hidden; return; }
       const b = e.target.closest("[data-gxd]");
       if (!b) return;
       const act = b.dataset.gxd, v = b.dataset.v;
