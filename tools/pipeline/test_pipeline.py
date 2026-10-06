@@ -174,6 +174,16 @@ class Pipeline(unittest.TestCase):
         logged = [json.loads(l) for l in open(os.path.join(coll, "changes.jsonl"), encoding="utf-8") if '"2026-10-09T11:00:00Z"' in l]
         self.assertEqual(len(logged), 2)
 
+    def test_reference_facts_need_the_exact_entry(self):
+        """#17: 'Numista' or 'PCGS/NGC agree' is not a source for a catalogue fact; 'Numista N#12345' is."""
+        sys.path.insert(0, HERE)
+        import collection_io as CIO
+        tid = sorted(CIO.Collection(os.path.join(ROOT, "collection")).types)[0]
+        self.reject([ev(entity="type", id=tid, field="nominal.weight_g", new=4.4, source="Numista and PCGS agree on the weight")], "names a catalogue or site but not the entry")
+        tmp = sandbox()
+        r = self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [ev(entity="type", id=tid, field="nominal.weight_g", new=4.4, source="Numista N#12345 (weight 4.4 g)")]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+
     def test_rejections(self):
         self.reject([ev(entity="specimen", id="C001", field="condition.grade", new="MS-70", verified=True)], "only the owner")
         self.reject([ev(entity="specimen", id="C001", field="condition.nope.deeper", new=1)], "no field")

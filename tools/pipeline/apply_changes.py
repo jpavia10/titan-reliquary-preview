@@ -47,6 +47,10 @@ JUNK_SOURCES = {"n/a", "na", "unknown", "ai", "none", "null", "nil", "test", "tb
                 "chatgpt", "gpt", "muse", "see above", "ai estimate", "ai generated", "ai guess", "not applicable", "no source", "unknown source", "trust me", "from memory", "from the photo", "from photo"}
 PHOTO_FILE = re.compile(r"[\w\-. ()]+\.(?:jpe?g|png|tiff?|heic|webp)\b", re.I)
 REFERENCE = re.compile(r"https?://|\bN#\s*\d|\bKM#?\s*\d|\b(?:Numista|Krause|PCGS|NGC|CoinFacts|Red Book|Colnect|ucoin)\b", re.I)
+# Fix list #17: a catalogue fact must point at the exact entry a person can open, not just name a publisher.
+EXACT_REF = re.compile(r"https?://|\bN#\s*\d|\bNumista\s*(?:no\.?|#|N#|N°)?\s*\d|\bKM#?\s*[A-Z]?\d|\bY#\s*\d|\bSch[öo]n\s*#?\s*\d|\bJ(?:aeger)?\.?\s*#?\s*\d"
+                       r"|\bPCGS\s*#\s*\d|\b(?:p\.|page|pp\.)\s*\d", re.I)
+REF_FIELDS = ("catalogs", "composition", "nominal", "issues", "issue.mintage", "issue.mintage_text", "legal_tender", "precious")
 PHOTO_FIELDS = ("condition.grade", "condition.strike", "condition.luster", "condition.toning", "condition.cleaned", "condition.damage")   # judged by eye: need a photo or a cited reference
 
 TIERS = json.load(open(os.path.join(ROOT, "schema", "v3", "field_tiers.json"), encoding="utf-8"))["tiers"]
@@ -210,6 +214,10 @@ class Applier:
         if e["by"].startswith("model:"):
             if not (e.get("source") or "").strip(): errs.append("a model's fact needs a real 'source' (photo file, catalog, URL, reference)")
             elif junk_source(e["source"]): errs.append(f"source {e['source']!r} is empty or junk (fewer than 8 characters, or 'n/a', 'unknown', 'AI', ...): name the photo file, catalog + number, or URL")
+            if (REFERENCE.search(e.get("source") or "") and not EXACT_REF.search(e.get("source") or "") and not PHOTO_FILE.search(e.get("source") or "")
+                    and any(f == p or f.startswith(p + ".") for f in touched_fields(e) for p in REF_FIELDS)):
+                errs.append(f"source {e['source'][:90]!r} names a catalogue or site but not the entry: cite it exactly (Numista N#12345, KM#24a.1, "
+                            "Schön#76, a URL, or the book + page), so anyone can open it and check")
             for f, _ in photo_values(e):
                 src = e.get("source") or ""
                 if e.get("phase") == 1: errs.append(f"{f}: Phase 1 never records a condition judgement (grade, strike, luster, toning, cleaned, damage); leave it null until the Phase 2 pro photos")

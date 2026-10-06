@@ -1,0 +1,30 @@
+name: smoke
+
+# Whole-app smoke test (fix list #31): every wing, search, coin view, 3D table, Scene Studio and offline, phone + desktop.
+# Same script as local runs: python3 tools/smoke/smoke.py (serves the repo itself). A red run means a wing broke.
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["collection/prices/**", "**.md"]
+  workflow_dispatch:
+
+concurrency:
+  group: smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install playwright && python -m playwright install --with-deps chromium
+      - run: python tools/smoke/smoke.py --shots smoke-shots
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-shots
+          path: smoke-shots

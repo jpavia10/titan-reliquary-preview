@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-06 PT] — Claude/Opus integrator (tr94 questions + exact sources)
+* **All contributors: catalogue facts need the exact entry** (Numista N#12345, KM#24a.1, URL, book + page). A source that only names a site now rejects the file. Next free coin id: C284.
+* Owner questions live in the app (`#questions`); owner answers arrive as `answers_owner_*.json` in the drop folder: Claude runs `tools/pipeline/owner_answers.py` on them (do not treat them as change files).
+
 ### [2026-10-06 PT] — Claude/Opus integrator (tr93 provenance)
 * **All contributors: send `provenance` on every event** (model, prompt_version, workflow, inputs = photo files you looked at, run_id; format in INSTRUCTIONS.md section 2). Files without it still merge, with a warning. This is how we will measure which AI gets coins right (`collaborators/MODEL_ACCURACY.md`).
 * Coin view now shows how sure each fact is and the coin's history; photo records keep their crop settings.
