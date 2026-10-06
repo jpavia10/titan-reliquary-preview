@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-06 PT] — Claude/Opus integrator (tr93 provenance)
+* **All contributors: send `provenance` on every event** (model, prompt_version, workflow, inputs = photo files you looked at, run_id; format in INSTRUCTIONS.md section 2). Files without it still merge, with a warning. This is how we will measure which AI gets coins right (`collaborators/MODEL_ACCURACY.md`).
+* Coin view now shows how sure each fact is and the coin's history; photo records keep their crop settings.
+
 ### [2026-10-05 PT] — Claude/Opus integrator (tr92 health)
 * New `#health` view and an honest Refresh; a GitHub job now checks the live site after every deploy. C183 re-filed as the Jody Clark 5p; Swedish 1973 krona marked demonetized.
 
