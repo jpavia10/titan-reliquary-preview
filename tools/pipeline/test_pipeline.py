@@ -370,6 +370,39 @@ class Pipeline(unittest.TestCase):
         obv = [p for p in det["photos"] if p["role"] == "obv"]
         self.assertEqual([p["id"] for p in obv], [pid]); self.assertEqual(obv[0]["phase"], 2)
 
+    def test_provenance_is_validated_stored_and_missing_one_warns(self):
+        good = {"model": "gemini-2.5-pro", "prompt_version": "AI_START_HERE@2026-10-05", "workflow": "phase2-research", "inputs": [{"file": "C001_obv.jpg", "sha256": "ab" * 32}],
+                "run_id": "run-1", "tokens": 1200, "cost_usd": 0.01, "raw": "1 franc 1969"}
+        for bad, text in (({**good, "surprise": 1}, "provenance"), ({**good, "tokens": "many"}, "provenance.tokens"), ({**good, "inputs": [{"sha256": "x"}]}, "provenance.inputs"),
+                          ({**good, "raw": "x" * 501}, "provenance.raw"), ("grok", "must be an object")):
+            self.reject([ev(entity="specimen", id="C001", field="notes", new="x", provenance=bad)], text)
+        tmp = sandbox()
+        r = self.apply(tmp, write_events(tmp, "changes_x_1.jsonl", [ev(entity="specimen", id="C001", field="notes", new="with provenance", provenance=good)]))
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertNotIn("WARNING", r.stdout)
+        last = C.Collection(os.path.join(tmp, "collection")).changes[-1]
+        self.assertEqual((last["field"], last["provenance"]), ("notes", good))
+        r = self.apply(tmp, write_events(tmp, "changes_x_2.jsonl", [ev(entity="specimen", id="C001", field="notes", new="without provenance")]))
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("WARNING changes_x_2.jsonl: no provenance", r.stdout)
+
+    def test_photo_crop_is_script_only_and_never_overwritten(self):
+        p1 = next(p for p in BASE.photos if p["phase"] == 1 and p["kind"] == "crop_circle")
+        crop = {"source_file": "x.jpeg", "method": "crop_coin.py circle v1", "tool_version": "1", "cx": 1, "cy": 2, "r": 3, "pad_pct": 3.0, "rotation_deg": 0, "out_px": 512}
+        mk = lambda by, new: ev(by=by, entity="photo", id=p1["id"], op="set", field="crop", new=new)
+        self.reject([mk("owner", crop)], "maintained by the pipeline only", setup=None)
+        self.reject([mk("script:t", {**crop, "surprise": 1})], "never overwritten", setup=None)
+        tmp = sandbox(); pid = f"{p1['specimen']}-obv-p2"
+        new = {"specimen": p1["specimen"], "side": "obv", "phase": 2, "kind": "crop_circle", "path": f"photos/p2/{p1['specimen']}_obv.webp", "sha256": "ab" * 32, "width": 1200, "height": 1200,
+               "captured_at": None, "review": {"status": "approved", "reason": "test"}}
+        create = ev(by="script:t", entity="photo", id=pid, op="create", field="(new record)", new=new)
+        setc = lambda new_crop: ev(by="script:t", entity="photo", id=pid, op="set", field="crop", new=new_crop)
+        r = self.apply(tmp, write_events(tmp, "changes_script_1.jsonl", [create, setc(crop)])); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual({p["id"]: p for p in C.Collection(os.path.join(tmp, "collection")).photos}[pid]["crop"], crop)
+        r = self.apply(tmp, write_events(tmp, "changes_script_2.jsonl", [setc({**crop, "r": 4})])); self.assertNotEqual(r.returncode, 0); self.assertIn("never overwritten", r.stdout)
+
+    def test_every_live_cut_photo_but_the_hand_cut_notes_has_crop_settings(self):
+        missing = [p["id"] for p in BASE.photos if p["kind"] == "crop_circle" and not p.get("superseded_by") and not p.get("crop")]
+        self.assertEqual(missing, [])
+
     def test_photo_edits_other_than_superseded_by_are_rejected(self):
         p1 = next(p for p in BASE.photos if p["phase"] == 1)
         self.reject([ev(by="script:photo_crop_p2", entity="photo", id=p1["id"], op="set", field="path", new="photos/x.webp")], "superseded_by", setup=None)

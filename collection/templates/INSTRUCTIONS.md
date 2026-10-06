@@ -28,6 +28,7 @@ Read `AI_START_HERE.md` (repo root) first for the job and the folders. This page
 | `verified` | always `false`. Only the owner verifies. |
 | `phase` | **required**: `1` (quick pass from a staging photo), `1.5` (album scans) or `2` (critical analysis with the pro photos and cited sources). Each phase may write only its own fields (schema v3 tiers, column "who writes it" in `FIELDS.md`); anything else rejects the file. |
 | `confidence` | `low` / `med` / `high`. Optional but please give it. |
+| `provenance` | **please send on every model event** (a file without it still merges, with a WARNING): which run made this fact, so a later correction can show what went wrong and who got it right. An object: `model` (exact model id/version), `prompt_version` (e.g. `AI_START_HERE@2026-10-05`), `workflow` (`phase1-photo`, `phase2-research`, `album-read`, ...), `inputs` (list of `{"file": "C042_obv.jpg"}`, the photo files you looked at; `sha256` optional), `run_id` (one short id shared by all events of this run), optional `tokens`, `cost_usd`, and `raw` (a short verbatim excerpt of your answer, 500 characters at most). Any other key rejects the file. Put the same object on every line of your file. |
 | `supersedes` | only to overwrite an owner-verified field: the `ts` of that verified event, plus a `source` saying why (section 6) |
 
 ## 3. Phase 1: quick pass (thin, plus a story)

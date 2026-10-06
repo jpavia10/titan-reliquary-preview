@@ -19,7 +19,7 @@
   "photos": 219,
   "valuations": 310,
   "spot_days": 24,
-  "changes": 1866,
+  "changes": 2083,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "d0342d8b58d6f864d24fc91ee326aa797ab5f95390ef67c2facc35ee7d279896",
+ "content_hash": "e1aa3759d675db7cc229e1bb60eb17e4648a2dada1cbe32dea0a2c6fcaf61df9",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -79,8 +79,8 @@
   },
   {
    "path": "changes.jsonl",
-   "sha256": "7fb44b44b79663a3744d7488ef8dbbe9a7d4fc37eeba2ab5d6a4079cc0c9b0f9",
-   "bytes": 1852538
+   "sha256": "30bf587928558e81963ddb1b9149b87b75e0d1a07f5224a1db31f556206ebcc7",
+   "bytes": 1996417
   },
   {
    "path": "lots.json",
@@ -89,8 +89,8 @@
   },
   {
    "path": "photos.json",
-   "sha256": "a86356ba2519b2050a4bc13116177a5dd40c04443f364c9fa9f0f81669c27e68",
-   "bytes": 83263
+   "sha256": "c2aab207693369f80c0b8588ff0ab716e28ddc92c26c8c6e886096c8fcff7b4b",
+   "bytes": 131495
   },
   {
    "path": "prices/latest.json",
@@ -354,23 +354,23 @@
   },
   {
    "path": "templates/FIELDS.md",
-   "sha256": "a1132f3ed23466dcd769e7e4ab6a2657fd3ef831feb9be4ab106da7d07a2e221",
-   "bytes": 23733
+   "sha256": "f17cce3bc9b25f9ac873b06ff3fc8c2679f0ef5605deb5d55b943e1f6df77843",
+   "bytes": 24919
   },
   {
    "path": "templates/INSTRUCTIONS.md",
-   "sha256": "a07fb9fd6fe0b944ac525325f8cdfffdc4a1b95c3cd04ca2be43f372b08b40ea",
-   "bytes": 14292
+   "sha256": "59e9007aff144d634bbdb4b044c1047241f6563e88472528714a5d165897cab4",
+   "bytes": 15000
   },
   {
    "path": "templates/phase1_template.jsonl",
-   "sha256": "203a74f4a1907c32e895d6d3a851b39b26e260e54f787aef710b6e369d8e0cd7",
-   "bytes": 1181
+   "sha256": "3cf3d85c1440cec98919e2df002d0dea4555e295f0a1f80fecc22bf63b31b7dd",
+   "bytes": 1573
   },
   {
    "path": "templates/phase2_template.jsonl",
-   "sha256": "dc76f7f20b5ef1303d4ee1f18771cceaa6a524a1d86086f9d7b84e47393ea60e",
-   "bytes": 3390
+   "sha256": "7c874478dfec1892a1a0ce3580aadbe409129bfc9f340297afdeed97533db629",
+   "bytes": 5579
   },
   {
    "path": "types/AT.json",

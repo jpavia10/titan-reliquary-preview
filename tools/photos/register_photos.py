@@ -9,6 +9,8 @@ tools/photos/P2_AGENT_BRIEF.md) and `out/` (the cut images the lines name). Colu
   out          round cut-out, WebP                           (kind crop_circle)
   out2x2       square 2x2-flip crop, WebP or JPEG            (kind crop_2x2; Phase 2)
   out_master   full-resolution scan, kept as is              (kind master; Phase 2, optional)
+  box_cx, box_cy, box_side, box_method   the 2x2 flip square from `cut2x2` (optional; stored on the 2x2 photo's `crop`)
+  source_sha256  sha256 of the source photo (optional)
   take         2, 3, ... for a re-scan of a coin+side that already has a Phase 2 photo (optional)
 
 Phase 1: status ok or mismatch (the coin in the flip disagrees with its record; listed in CURATION_OPEN); circle only, 512 px.
@@ -18,6 +20,7 @@ Phase 2: status ok only (a mismatch, ambiguous or unusable scan is never registe
   photo ids {ID}-{side}-p2, {ID}-{side}-p2-2x2, {ID}-{side}-p2-master (re-scan: ...-p2t2 etc.).
   Each new photo then supersedes the live photo of the same coin + side + kind (a circle replaces the Phase 1 circle;
   a 2x2 with no circle replaces it too), via `op: set` on `superseded_by`, so the app shows only the newest.
+Every cut photo record carries `crop` (source file, cx, cy, r, pad, rotation, output px, tool version; see crop_coin.crop_record).
 Both write one change file, collection/_incoming/changes_script_{stamp}-photos-p{N}.jsonl, merged by
 `python3 tools/pipeline/publish.py`. A photo id is never reused: an id that already exists is skipped.
 --root DIR points the tool at another repo copy (dry runs); default is this repo.
@@ -26,6 +29,8 @@ import datetime, glob, hashlib, io, json, os, sys
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import crop_coin
 KIND_SUFFIX = {"crop_circle": "", "crop_2x2": "-2x2", "master": "-master"}
 NAME_SUFFIX = {"crop_circle": "", "crop_2x2": "_2x2", "master": "_master"}
 
@@ -83,10 +88,14 @@ def main(src, phase, dry=False, root=None):
                     "master": "full-resolution scan as dropped by the owner"}[kind]
             src_txt = (f"Phase 1 chat photo {r['file']} (Drive Titan Reliquary/_raw_capture/_phase1/coins); cut cx={r['cx']} cy={r['cy']} r={r['r']} rot={r['rot']}" if phase == 1 else
                        f"Phase 2 pro scan {r['file']} (Drive Titan Reliquary/STAGING (drop coin photos here)); id {cid} read from the flip; cut cx={r['cx']} cy={r['cy']} r={r['r']} rot={r['rot']}")
-            creates.append({"ts": ts, "by": by, "entity": "photo", "id": pid, "op": "create", "field": "(new record)",
-                            "new": {"specimen": cid, "side": side, "phase": phase, "kind": kind, "path": f"photos/p{phase}/{name}", "sha256": hashlib.sha256(blob).hexdigest(),
-                                    "width": w, "height": h, "captured_at": None, "review": {"status": "approved", "reason": note}},
-                            "source": src_txt})
+            new = {"specimen": cid, "side": side, "phase": phase, "kind": kind, "path": f"photos/p{phase}/{name}", "sha256": hashlib.sha256(blob).hexdigest(),
+                   "width": w, "height": h, "captured_at": None, "review": {"status": "approved", "reason": note}}
+            if kind != "master" and all(r.get(k) is not None for k in ("cx", "cy", "r")):       # a master is the scan itself: nothing was cut
+                box = (r["box_cx"], r["box_cy"], r["box_side"]) if kind == "crop_2x2" and all(r.get(k) is not None for k in ("box_cx", "box_cy", "box_side")) else None
+                new["crop"] = crop_coin.crop_record("circle" if kind == "crop_circle" else "2x2", r["file"], r["cx"], r["cy"], r["r"], r.get("rot") or 0, w, ts=ts,
+                                                    source_sha256=r.get("source_sha256"), box=box, box_method=r.get("box_method") or r.get("method"))
+            creates.append({"ts": ts, "by": by, "entity": "photo", "id": pid, "op": "create", "field": "(new record)", "new": new, "source": src_txt,
+                            "provenance": {"workflow": f"phase{phase}-crop", "prompt_version": f"{'P1' if phase == 1 else 'P2'}_AGENT_BRIEF", "inputs": [{"file": r["file"]}]}})
         # newest photo replaces the live one of the same coin + side + kind; a 2x2 with no circle also replaces the circle
         for kind, pid in made.items():
             if phase == 1: continue

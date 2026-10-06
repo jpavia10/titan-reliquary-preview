@@ -69,6 +69,8 @@ def warnings(col):
     used_iss = {t.get("issuer") or t.get("country") for t in col["types"].values()} | {s.get("issuer") for s in col["specs"].values()}
     w = [f"type {t} has no specimen or lot" for t in sorted(set(col["types"]) - used_types)]
     w += [f"issuer {i} has no type" for i in sorted(set(col["issuers"]) - used_iss)]
+    nocrop = [ph["id"] for ph in col["photos"] if _live(ph) and ph.get("kind") in ("crop_circle", "crop_2x2") and not ph.get("crop")]
+    if nocrop: w.append(f"{len(nocrop)} live cropped photo(s) have no crop settings (`crop`): {', '.join(nocrop[:5])}{' ...' if len(nocrop) > 5 else ''}")
     return w
 
 

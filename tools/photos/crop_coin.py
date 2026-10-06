@@ -9,6 +9,9 @@
                                                            -> square crop of the whole 2x2 flip (WebP or JPEG by the extension),
                                                               levelled by the same rot; also OUT.2x2check.jpg + JSON on stdout
 
+Both `cut` and `cut2x2` print a JSON line {"crop": {...}}: the settings (source file, centre, radius, pad, rotation, output size, tool version)
+that register_photos.py stores on the photo record (`crop`, schema Crop) so any cut can be compared or redone.
+
 cx, cy, r are in ORIGINAL photo pixels (EXIF orientation applied). r is the radius of the coin's OUTER EDGE (the
 rim's outside). `cut` adds RIM_PAD (3 %) of extra radius so the rim is never clipped; a thin ring of the flip
 background is fine, a clipped rim is not. rot (degrees, counter-clockwise) turns the coin upright.
@@ -25,6 +28,15 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageOps, ImageFont
 
 RIM_PAD = 1.03
 SIZE = 512
+TOOL_VERSION = "1"      # bump when cut_img / cut2x2_img / RIM_PAD change in a way that alters the pixels; stored on every photo record's `crop`
+
+def crop_record(kind, source_file, cx, cy, r, rot, out_px, ts=None, source_sha256=None, box=None, box_method=None):
+    """The `crop` object of a photo record (schema Crop): every setting needed to redo or compare this cut.
+    kind: "circle" (cut) or "2x2" (cut2x2); box = (box_cx, box_cy, box_side) for a 2x2."""
+    rec = {"source_file": source_file, "source_sha256": source_sha256, "method": f"crop_coin.py {'circle' if kind == 'circle' else '2x2'} v{TOOL_VERSION}", "tool_version": TOOL_VERSION,
+           "cx": cx, "cy": cy, "r": r, "pad_pct": round((RIM_PAD - 1) * 100, 2), "rotation_deg": rot or 0, "out_px": out_px, "ts": ts}
+    if box: rec.update(box_cx=round(box[0], 1), box_cy=round(box[1], 1), box_side=round(box[2], 1), box_method=box_method)
+    return rec
 
 def load(path):
     return ImageOps.exif_transpose(Image.open(path)).convert("RGB")
@@ -206,6 +218,7 @@ def main(a):
     elif cmd == "cut":
         cx, cy, r = map(float, a[3:6]); rot = float(a[6]) if len(a) > 6 else 0; n = size or SIZE
         c = cut_img(load(raw), cx, cy, r, rot, n); c.save(a[2], "WEBP", quality=82, method=6)
+        print(json.dumps({"crop": crop_record("circle", os.path.basename(raw), cx, cy, r, rot, n)}))
         pv = Image.new("RGB", (n, n), (60, 60, 60)); pv.paste(c, (0, 0), c); pv.resize((SIZE, SIZE), Image.LANCZOS).save(os.path.splitext(a[2])[0] + ".preview.jpg", quality=88)
     elif cmd == "cut2x2":
         cx, cy, r = map(float, a[3:6]); rot = float(a[6]) if len(a) > 6 else 0; n = size or 1600
@@ -216,6 +229,7 @@ def main(a):
         if os.path.splitext(a[2])[1].lower() in (".jpg", ".jpeg"): c.save(a[2], "JPEG", quality=90)
         else: c.save(a[2], "WEBP", quality=85, method=6)
         draw_2x2_check(im, cx, cy, r, bx, by, side, used, method, c, os.path.splitext(a[2])[0] + ".2x2check.jpg")
+        print(json.dumps({"crop": crop_record("2x2", os.path.basename(raw), cx, cy, r, used, n, box=(bx, by, side), box_method=method)}))
         print(json.dumps({"method": method, "box_cx": round(bx, 1), "box_cy": round(by, 1), "side": round(side, 1), "rot": used, "size": n, "diameter_mm": dmm,
                           "coin_fraction": round(2 * r / side, 3), "off_photo_px": round(off), "card_vs_coin_upright_deg": LAST.get("card_tilt_off"),
                           "warn": ("square reaches outside the photo: check the 2x2check image; " if off > 0.03 * side else "") + ("the card leans %s deg off the coin's upright; the coin's rot was used: check the 2x2check image" % LAST["card_tilt_off"] if (LAST.get("card_tilt_off") or 0) > 10 else "")}))

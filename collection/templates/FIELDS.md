@@ -2,7 +2,7 @@
 
 Every field path you can write in a change event, per entity, and **who may write it** (schema v3 phase tiers). Generated from `schema/v3/defs.schema.json` + `schema/v3/field_tiers.json` by `python3 tools/pipeline/field_reference.py`.
 
-How to read it: `field` in your event is the **path** below. `N` is a list position starting at 0 (`issues.0.mintage`). `null` means "not known" and is always allowed where the type lists `null`. Types: `string`, `number` (decimal), `integer` (whole), `boolean` (`true`/`false`), `array` (JSON list), `object`. A path that names a whole object or list replaces all of it; prefer the leaf path (one event per fact). Units are in the field name: `_g` grams, `_mm` millimetres, `_oz` troy ounces, `_usd` US dollars. `id`, `ser` and `research` are written by the pipeline only. A story the owner wrote is never overwritten without `supersedes`.
+How to read it: `field` in your event is the **path** below. `N` is a list position starting at 0 (`issues.0.mintage`). `null` means "not known" and is always allowed where the type lists `null`. Types: `string`, `number` (decimal), `integer` (whole), `boolean` (`true`/`false`), `array` (JSON list), `object`. A path that names a whole object or list replaces all of it; prefer the leaf path (one event per fact). Units are in the field name: `_g` grams, `_mm` millimetres, `_oz` troy ounces, `_usd` US dollars. `id`, `ser` and `research` are written by the pipeline only. Besides the field paths, every event may carry the optional event keys `phase`, `confidence` and `provenance` (model, prompt_version, workflow, inputs, run_id, tokens, cost_usd, raw: see INSTRUCTIONS.md section 2). A story the owner wrote is never overwritten without `supersedes`.
 
 A value of the wrong type, or a field your phase may not write, rejects your whole file with a line-numbered report (nothing is changed). Check yourself first: `python3 tools/pipeline/apply_changes.py --dry-run <file>`.
 
@@ -270,7 +270,7 @@ Required keys of a whole record: `evidence`, `family`, `grid_source`, `id`, `nee
 | `slots.N.provenance` | Phase 1.5 | string or null |  | Required when occupant_status is 'inferred' (e.g. 'inferred: Whitman 9034 layout'). |
 | `slots.N.occupant` | Phase 2 | string or null |  | Specimen id once album coins are itemized (none yet). |
 
-## entity `photo`: one photo record (`op: create`; the one later edit is `op: set` on `superseded_by`)
+## entity `photo`: one photo record (`op: create`; created by the photo scripts only; later edits: `op: set` on `superseded_by`, and once on `crop` (how the image was cut, written by the scripts, never overwritten))
 
 Required keys of a whole record: `id`, `kind`, `path`, `side`, `specimen`.
 
@@ -289,6 +289,21 @@ Required keys of a whole record: `id`, `kind`, `path`, `side`, `specimen`.
 | `review.status` | pipeline only | one of `pending`, `approved`, `rejected`, `reshoot` |  |  |
 | `review.reason` | pipeline only | string or null |  |  |
 | `superseded_by` | pipeline only | string or null |  |  |
+| `crop.source_file` | pipeline only | string |  |  |
+| `crop.source_sha256` | pipeline only | string or null |  |  |
+| `crop.method` | pipeline only | string |  |  |
+| `crop.tool_version` | pipeline only | string |  |  |
+| `crop.cx` | pipeline only | number or null |  |  |
+| `crop.cy` | pipeline only | number or null |  |  |
+| `crop.r` | pipeline only | number or null |  |  |
+| `crop.pad_pct` | pipeline only | number or null |  |  |
+| `crop.rotation_deg` | pipeline only | number or null |  |  |
+| `crop.out_px` | pipeline only | integer or null |  |  |
+| `crop.box_cx` | pipeline only | number or null |  |  |
+| `crop.box_cy` | pipeline only | number or null |  |  |
+| `crop.box_side` | pipeline only | number or null |  |  |
+| `crop.box_method` | pipeline only | string or null |  |  |
+| `crop.ts` | pipeline only | string (date-time) or null |  |  |
 
 ## entity `issuer`: who issued (country or historical issuer; create only)
 
