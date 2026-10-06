@@ -103,7 +103,7 @@ class Pipeline(unittest.TestCase):
         self.assertAlmostEqual(idx["board"]["flips"]["usd"], BOARD["flips"]["usd"] + 0.15, 2)   # the board moves by exactly the new coin's value
         self.assertEqual(idx["board"]["flips"]["cards"], BOARD["flips"]["cards"] + 1)
         self.assertAlmostEqual(idx["board"]["grand"], BOARD["grand"] + 0.15, 2)
-        self.assertEqual(idx["board"]["silver"]["oz"], 63.27); self.assertEqual(idx["board"]["gold"]["oz"], 0.1322)   # board metals stay authoritative
+        self.assertEqual(idx["board"]["silver"]["oz"], BOARD["silver"]["oz"]); self.assertEqual(idx["board"]["gold"]["oz"], BOARD["gold"]["oz"])   # board metals stay authoritative
         self.assertTrue(json.load(open(os.path.join(tmp, "data", "search.json")))[NEXT])
         ver = json.load(open(os.path.join(tmp, "version.json")))
         self.assertTrue(ver["ledger_version"].startswith("v3:")); self.assertEqual(ver["generated_at"], "2026-10-09T12:00:00Z"); self.assertEqual(ver["newest_flip"], NEXT)

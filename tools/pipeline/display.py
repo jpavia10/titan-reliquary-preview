@@ -282,9 +282,25 @@ def _rerender_raw(raw, usd, cards=None):
     if cards is not None: raw = re.sub(r"(\d+)( cards)", lambda m: f"{cards}{m.group(2)}", raw, count=1)
     return raw
 
+def corrected_index(bd):
+    """The ledger board snapshot with its documented corrections applied (collection/board.json `corrections`): evidence-backed
+    fixes to Grok's own estimates (e.g. an album's silver mix read from the page photo). Each moves silver oz, album value and the grand total."""
+    idx = json.loads(json.dumps(bd["index"]))
+    for c in bd.get("corrections") or []:
+        dag = float(c.get("ag_oz") or 0); dalb = float(c.get("albums_usd") or 0)
+        b = idx["board"]
+        if dag:
+            b["silver"]["oz"] = round(b["silver"]["oz"] + dag, 4)
+            if "oz" in idx["metals"]: idx["metals"]["oz"]["ag"] = b["silver"]["oz"]
+        if dalb:
+            b["albums"]["usd"] = round(b["albums"]["usd"] + dalb, 2)
+            b["albums"]["raw"] = re.sub(r"^\$[\d,]+\.\d\d", _money(b["albums"]["usd"]), b["albums"]["raw"])
+            b["grand"] = round(b["grand"] + dalb, 2); b["grand_raw"] = _money(b["grand"])
+    return idx
+
 def board_totals(col, flips, lots, version):
     bd = col["board"]; cur = basis(col); base = bd["basis"]
-    b = json.loads(json.dumps(bd["index"]["board"]))
+    b = corrected_index(bd)["board"]
     def upd(key, cur_usd, base_usd, cur_n, base_n, has_cards):
         d = round(cur_usd - base_usd, 2); dn = cur_n - base_n
         if abs(d) < 0.005 and dn == 0: return 0.0
@@ -316,7 +332,7 @@ def board_totals(col, flips, lots, version):
     return b
 
 def metals_block(col, board):
-    m = json.loads(json.dumps(col["board"]["index"]["metals"]))
+    m = corrected_index(col["board"])["metals"]
     m["oz"] = {"ag": board["silver"]["oz"], "au": board["gold"]["oz"]}
     m["melt"] = {"ag_usd": board["silver"]["melt"], "au_usd": board["gold"]["melt"]}
     m["board"] = {"flips": board["flips"]["usd"], "bullion": board["bullion"]["usd"], "sets": board["sets"]["usd"], "albums": board["albums"]["usd"],

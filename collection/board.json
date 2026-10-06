@@ -1936,5 +1936,15 @@
 "continent": "",
 "contents": "1. 94¢ airmail pictorial — St. John, U.S. Virgin Islands (beach / turquoise water · airplane icon)"
 }
+},
+"corrections": [
+{
+"date": "2026-10-06",
+"by": "model:claude",
+"ag_oz": -0.4435,
+"albums_usd": -28.16,
+"why": "A007 Kennedy halves: Grok's board counted an estimated 1x90% + 5x40% mix (1.1010 oz Ag, $69.91, SILVER.md 'est. mix matching $82.92'). The page photo read hole by hole (2026-10-02, grid_source photo) shows only 1964 (90%, 0.3617 oz) and 1966 + 1967 (40%, 0.1479 oz each) filled; 1964-D, 1965, 1968-D, 1969-D and 1970-D are empty. Real 0.6575 oz -> -0.4435 oz; value at Grok's own $63.50 melt rate $41.75 -> -$28.16.",
+"source": "Drive _archive/grok-ledger-v254 SILVER.md ('Other silver' table, A007 row) + collection/albums.json A007 slots (photo); fix list #38"
 }
+]
 }

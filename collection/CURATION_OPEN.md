@@ -10,7 +10,8 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
   Specimens: T001, T002  
   T001 says '13 stars', T002 says 'ring of stars'. Count the stars on both tokens; if the counts differ these are two different varieties and need two types.  
   **2026-10-05:** T002's phone photo (GR side) shows **15** stars. T001 has no photo yet, so its "13" is unchecked: count T001's stars.
-- **ES.KM.1040 design.text**  
+- ~~ES.KM.1040 / C139~~ **Settled 2026-10-06 (Claude):** C139 (2014) moved to the new type ES.KM.1144 (Numista N#10856, 2010 onward); C140 (2008) stays KM#1040 (1999-2009). Still open: a photo of C140's common side.
+- **ES.KM.1040 design.text** (history)  
   Specimens: C139, C140  
   Confirm the KM# for Spain 1 euro cent: C140 (2008) and C139 (2014) share KM#1040 in the ledger, but the Spanish design changed again in 2010 and Krause may give 2010+ a different number. Also check the common side on C140.
 - ~~GB.KM.1109d / C183~~ **Settled 2026-10-05 (Claude, from the phone photo):** the obverse legend reads ELIZABETH II DEI GRA REG FID DEF 2015 with the diadem portrait = Jody Clark. C183 moved to GB.KM.1334 (`changes_claude_20261005-1700.jsonl`). Owner to confirm at Phase 2.
@@ -20,7 +21,8 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
 - **NO.KM.460 design.text**  
   Specimens: C144, C268  
   Schön# differs between the two records (C144 Schön#76, C268 Schön#107). Check which Schön number belongs to KM#460. Also confirm the NORGE/NOREG alternation by year.  
-  **2026-10-05:** both phone photos read **NOREG** (C144 1998, C268 2000), so both fit KM#460's NOREG years. The Schön number still needs a catalog (Phase 2).
+  **2026-10-05:** both phone photos read **NOREG** (C144 1998, C268 2000), so both fit KM#460's NOREG years. The Schön number still needs a catalog (Phase 2).  
+  **2026-10-06:** Numista N#1442 added to the type. Neither NGC nor Numista gives a Schön number; it needs a Schön catalogue.
 
 ## 2. Legal-tender status
 
@@ -46,6 +48,8 @@ When you settle an item: edit the record, append a ChangeEvent with `verified: t
   Stored as weight_min_g/weight_max_g, weight_g null. Replace with the catalogue weight (Krause/Numista) or a scale reading. Not guessed.
 
 ## 5. Composition (alloy) is ambiguous
+
+**2026-10-06 (Claude, `changes_claude_20261006-1725.jsonl`): settled for MX.KM.424 (brass Cu 95 Zn 5, Numista N#3136), SU.Y.93 (aluminum-bronze, NGC Y#93), TT.KM.31 (copper-nickel; 2016 is before the plated-steel KM#31b), TW.KM.551 (aluminum-bronze, NGC Y#551) and TR (C208 moved to TR.KM.1241, brass, NGC KM#1241; KM#1240 is the 5 kurus). Still open: the tokens (DE.X.spielmarke-20-gr, US.X.none).**
 
 - **Composition text is ambiguous or not an alloy (types DE.X.spielmarke-20-gr, MX.KM.424, SU.Y.93, TR.KM.1240, TT.KM.31, TW.KM.551, US.X.none)**  
   Specimens: T001, T002, C166, C260, C208, C207, C200, T004  
@@ -90,7 +94,11 @@ Claude agrees with 12 of 16 from catalog knowledge; fix the type records in Phas
 - **Albums are not itemized.** The ledger's album value ($2,059.39 on the board) and the ~930 binder coins are not specimen records; only the slot grids exist. The v254 headline ($5,393.70) therefore cannot be rebuilt from `collection/` alone.
 - **Silver in binders is not counted.** The ledger's 63.27 oz counts only the American Silver Eagles in A025/A026 (24 oz). Older silver in albums (Mercury dimes A006, pre-1965 Roosevelt A005, 1964 Kennedy A007, pre-1965 Washington quarters A012/A029, war nickels A015) is in no total. The Phase 1.5 album scans will show how much there is.
 
-## 7b. Where the 1.5 oz of unrecorded bullion silver came from (2026-10-05, fix-list #38): owner to answer
+## 7b. Where the 1.5 oz of unrecorded bullion silver came from: RESOLVED 2026-10-06 (fix-list #38)
+
+**Answer (Claude, from Grok's own SILVER.md in the Drive ledger archive):** the 1.4997 oz is the **album silver**. Grok's early figure "~26.438 oz" was ASE 24 + album junk silver + S001 + C031, and its "Other silver" table counts album silver as A007 1.1010 + A005 0.1447 + A006 0.0723 + A012 0.1808 = 1.4988 oz. So album silver IS in the 63.27 oz board total (the note below that said it was in no total was wrong). One estimate in it was off: Grok assumed A007 holds 1x90% + 5x40% halves; the page photo shows only 1964 (90%) + 1966 + 1967 (40%) = 0.6575 oz. `collection/board.json` `corrections` now lowers the board by 0.4435 oz and $28.16 (album value at Grok's own melt rate). Board silver 62.83 oz. Album silver now: A005 0.1447, A006 0.0723, A007 0.6575, A012 0.1808 = 1.0553 oz. No owner question left.
+
+### (history) 7b as written 2026-10-05
 
 Grok's notes carry a running "Vault Ag ~X → ~Y" total on every record. Replayed in order, the chain is clean from B003 (2026-09-12) to C263: every step equals the record's own silver. The whole 1.4997 oz sits in the **starting figure, 34.438 oz**, which Grok wrote before its first chained record.
 - What the records explain at that point: 24 Silver Eagles in A025/A026 (24.0) + B001 seven 1 oz Buffalo rounds (7.0) + B002 extra 2019 Eagle (1.0) + S001 2021 silver proof set (0.897: .999 dime, two quarters, half) + C031 Australia threepence (0.0419) = **32.939 oz**.

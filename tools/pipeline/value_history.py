@@ -64,10 +64,11 @@ def drange(a, b):
     while d <= e: yield d.isoformat(); d += datetime.timedelta(days=1)
 
 def board_quote(col):
-    m = col["board"]["index"]["metals"]
+    from display import corrected_index           # the board snapshot plus its documented corrections (collection/board.json)
+    ix = corrected_index(col["board"]); m = ix["metals"]
     return {"date": m["as_of"], "xag_usd": m["spot"]["ag_usd_oz"], "xau_usd": m["spot"]["au_usd_oz"], "source": m.get("source"), "at": m.get("source_updated_at"),
-            "total_usd": col["board"]["index"]["board"]["grand"], "oz_ag": m["oz"]["ag"] if "oz" in m else col["board"]["index"]["board"]["silver"]["oz"],
-            "oz_au": col["board"]["index"]["board"]["gold"]["oz"]}
+            "total_usd": ix["board"]["grand"], "oz_ag": m["oz"]["ag"] if "oz" in m else ix["board"]["silver"]["oz"],
+            "oz_au": ix["board"]["gold"]["oz"]}
 
 def calibration(col, its=None):
     """-> dict(unitemised_ag_oz, unitemised_au_oz, residual_usd, model_at_board_usd, ...) so that model(board date, board quote) == board total."""

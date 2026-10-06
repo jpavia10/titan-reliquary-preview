@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-06 PT] — Claude/Opus integrator (tr95 silver + curation)
+* The 1.5 oz silver gap was album silver all along (Grok's SILVER.md); A007 corrected from a photo (board silver 62.83 oz). Board corrections now live in `collection/board.json` `corrections` (never edit the snapshot itself).
+* Re-typed: C139 ES.KM.1144, C208 TR.KM.1241; C200 is 2008 (photo). TR.KM.1240 and CH.KM.24a now have no coins but stay (history points at them).
+
 ### [2026-10-06 PT] — Claude/Opus integrator (tr94 questions + exact sources)
 * **All contributors: catalogue facts need the exact entry** (Numista N#12345, KM#24a.1, URL, book + page). A source that only names a site now rejects the file. Next free coin id: C284.
 * Owner questions live in the app (`#questions`); owner answers arrive as `answers_owner_*.json` in the drop folder: Claude runs `tools/pipeline/owner_answers.py` on them (do not treat them as change files).

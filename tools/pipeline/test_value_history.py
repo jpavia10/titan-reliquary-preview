@@ -18,12 +18,12 @@ def flat(a, b, ag=BQ["xag_usd"], au=BQ["xau_usd"]):
 class ValueModel(unittest.TestCase):
     def test_board_date_calibration_within_a_dollar(self):
         v = V.model_at(COL, BQ["date"], BQ["xag_usd"], BQ["xau_usd"])
-        self.assertAlmostEqual(v, 5393.70, delta=1.0)
+        self.assertAlmostEqual(v, BQ["total_usd"], delta=1.0)                           # the board total (v254 snapshot + its documented corrections)
         pf = V.portfolio(COL, flat("2026-09-11", "2026-10-02"))
         row = next(r for r in pf["rows"] if r[0] == BQ["date"])
         self.assertAlmostEqual(row[1], BQ["total_usd"], delta=1.0)
         # melt split matches the board's own melt lines
-        self.assertAlmostEqual(row[2], 3833.28, delta=1.0); self.assertAlmostEqual(row[3], 550.15, delta=1.0)
+        self.assertAlmostEqual(row[2], BQ["oz_ag"] * BQ["xag_usd"], delta=1.0); self.assertAlmostEqual(row[3], 550.15, delta=1.0)
 
     def test_monotone_step_at_logged_dates_when_prices_are_flat(self):
         pf = V.portfolio(COL, flat("2026-09-11", "2026-10-02")); rows = pf["rows"]
@@ -36,7 +36,7 @@ class ValueModel(unittest.TestCase):
         self.assertEqual([m["d"] for m in pf["markers"]][:9], ["2026-09-11", "2026-09-12", "2026-09-13", "2026-09-15", "2026-09-16", "2026-09-17", "2026-09-18", "2026-09-22", "2026-09-24"])   # the v254 ledger days (later coins add more)
         self.assertEqual(pf["markers"][0]["n"], 75)
         first = rows[0]; self.assertGreater(first[1], 1000)                                         # albums + residual are there from day 0
-        self.assertEqual(rows[-1][5], sum(1 for i in V.items(COL) if i["kind"] != "album"))      # every specimen + lot present at the end
+        self.assertEqual(rows[-1][5], sum(1 for i in V.items(COL) if i["kind"] != "album" and V.present(i, rows[-1][0], rows[0][0])))      # every specimen + lot logged by the last day is present
         fx = [r[8] for r in rows]; self.assertTrue(all(b >= a - 0.005 for a, b in zip(fx, fx[1:])), "the fixed-price growth line never falls")
 
     def test_undated_albums_are_counted_from_day_0(self):
@@ -50,7 +50,7 @@ class ValueModel(unittest.TestCase):
         lo = V.portfolio(COL, flat("2026-09-29", "2026-09-30", ag=50.0, au=4000.0))["rows"][-1]
         hi = V.portfolio(COL, flat("2026-09-29", "2026-09-30", ag=60.0, au=4000.0))["rows"][-1]
         self.assertAlmostEqual(hi[4], lo[4], delta=0.005)                                           # premium bucket identical
-        oz = 63.27; self.assertAlmostEqual(hi[2] - lo[2], 10 * oz, delta=0.5)                       # silver melt moves by $10 x board ounces
+        oz = BQ["oz_ag"]; self.assertAlmostEqual(hi[2] - lo[2], 10 * oz, delta=0.5)                       # silver melt moves by $10 x board ounces
 
     def test_removed_specimen_stops_counting_after_its_date(self):
         col = copy.deepcopy(COL); sid = "C001"
@@ -78,7 +78,7 @@ class ValueModel(unittest.TestCase):
 
     def test_calibration_numbers_are_stable(self):
         c = V.calibration(COL)
-        self.assertEqual(c["unitemised_au_oz"], 0.0); self.assertAlmostEqual(c["unitemised_ag_oz"], 1.4997, places=3)
+        self.assertEqual(c["unitemised_au_oz"], 0.0); self.assertAlmostEqual(c["unitemised_ag_oz"], round(1.4997 + sum(x.get("ag_oz") or 0 for x in COL["board"].get("corrections") or []), 4), places=3)   # album silver (1.4997 as Grok counted it, minus the A007 correction)
         self.assertGreater(c["residual_usd"], 0); self.assertLess(c["residual_usd"], 1000)
 
 if __name__ == "__main__":
