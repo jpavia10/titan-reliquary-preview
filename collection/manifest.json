@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "025dd976d02315b941d7f1abfff3183f91fd84b06f137f222f29d171bfbb31ba",
+ "content_hash": "11c57b41827b9c8e0f59ee07eade323f36ff4d7075926ea0eefd0483562f64c5",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -111,6 +111,11 @@
    "path": "ref/issuers.json",
    "sha256": "7ac958bde3d4bcc090022dc6c04aabb085f2b7a58b5371b9bfa5100f9a2d892b",
    "bytes": 6331
+  },
+  {
+   "path": "ref/unit_aliases.json",
+   "sha256": "9ef9e88fc9631e0d33b79fae6e9b52ad4f5532b7a1e33ebcb419220382e2fcd9",
+   "bytes": 1047
   },
   {
    "path": "specimens/AT.json",
@@ -364,8 +369,8 @@
   },
   {
    "path": "templates/INSTRUCTIONS.md",
-   "sha256": "b630daf0055f066c2cc653551e29ac3ee8c982ee0326eb6d9c1e0b4b2315e2e9",
-   "bytes": 15319
+   "sha256": "27590585caaa27fc2d8d7cd97a214046a6f8579ddeac189793f48ea236f36e49",
+   "bytes": 15840
   },
   {
    "path": "templates/phase1_template.jsonl",

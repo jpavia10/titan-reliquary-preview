@@ -22,9 +22,9 @@ Event fields
                                                    Phase 1 may write only phase1 fields, Phase 1.5 only album slot fields, Phase 2 phase1 + phase2 fields;
                                                    models never write owner or system fields. Stored inside `source` in the audit log.
     confidence                                     optional (low | med | high); stored inside `source` in the audit log
-    provenance                                     optional object (schema Provenance): which AI run made the event. Keys model, prompt_version, workflow,
+    provenance                                     object (schema Provenance): which AI run made the event. Keys model, prompt_version, workflow,
                                                    inputs [{file, sha256?}], run_id, tokens, cost_usd, raw (<= 500 chars). Unknown keys are rejected.
-                                                   Stored with the event in changes.jsonl. A model file with no provenance still merges, with a WARNING line.
+                                                   Stored with the event in changes.jsonl. A model event without it merges with a WARNING until 2026-10-20 and is REJECTED from 2026-10-21 (PROVENANCE_REQUIRED_FROM).
 """
 import atexit, contextlib, copy, datetime, io, json, os, re, shutil, sys, tempfile
 
@@ -42,9 +42,14 @@ COIN_FLOOR = 0     # owner decision 2026-10-02: new coins number straight on fro
 
 class Reject(Exception): pass
 
+# Owner, 2026-10-07: a 2-week grace period, then a model event without provenance is rejected, not just warned about.
+PROVENANCE_REQUIRED_FROM = "2026-10-21"
+
 # ------------------------------------------------------------------------------------------------ source quality + photo-dependent fields
 JUNK_SOURCES = {"n/a", "na", "unknown", "ai", "none", "null", "nil", "test", "tbd", "todo", "source", "photo", "model", "llm", "guess", "estimate", "unsure", "gemini", "grok", "claude",
                 "chatgpt", "gpt", "muse", "see above", "ai estimate", "ai generated", "ai guess", "not applicable", "no source", "unknown source", "trust me", "from memory", "from the photo", "from photo"}
+# euphemisms for "no source" that a blocklist of whole strings misses (Muse's audit #12): rejected wherever they make up the whole source
+JUNK_PHRASES = re.compile(r"^\W*(?:my |the )?(?:training(?: data)?|general knowledge|common knowledge|memory|vibes?|intuition|best guess|i think|i believe|probably|likely|knowledge cutoff|internal knowledge|model knowledge)\W*$", re.I)
 PHOTO_FILE = re.compile(r"[\w\-. ()]+\.(?:jpe?g|png|tiff?|heic|webp)\b", re.I)
 REFERENCE = re.compile(r"https?://|\bN#\s*\d|\bKM#?\s*\d|\b(?:Numista|Krause|PCGS|NGC|CoinFacts|Red Book|Colnect|ucoin)\b", re.I)
 # Fix list #17: a catalogue fact must point at the exact entry a person can open, not just name a publisher.
@@ -86,7 +91,7 @@ def touched_fields(e):
 
 def junk_source(src):
     t = (src or "").strip().lower().strip(" .!?-_*")
-    return len(t) < 8 or t in JUNK_SOURCES
+    return len(t) < 8 or t in JUNK_SOURCES or bool(JUNK_PHRASES.match(t))
 
 def photo_values(e):
     """[(dotted field, value)] this event writes into photo-dependent condition fields (non-empty values only)."""
@@ -227,6 +232,9 @@ class Applier:
         if e["entity"] in ENTITIES and isinstance(e.get("field"), str): errs += self.check_tiers(e)
         if "confidence" in e and e["confidence"] not in ("low", "med", "high"): errs.append("confidence must be low, med or high")
         if "provenance" in e: errs += self.check_provenance(e["provenance"])
+        elif str(e.get("by", "")).startswith("model:") and str(e.get("ts", "")) >= PROVENANCE_REQUIRED_FROM:
+            errs.append(f"model events dated {PROVENANCE_REQUIRED_FROM} or later need a `provenance` object (model, prompt_version, workflow, inputs, run_id; "
+                        "tokens/cost_usd may be null): see collection/templates/INSTRUCTIONS.md section 2")
         return errs
 
     def check_provenance(self, pv):
@@ -449,6 +457,15 @@ class Applier:
         self.new_events.append(self.c.changes[-1])
 
     # -- create
+    def warn_double(self, rid):
+        """Muse's audit #3: a new coin with the same type, year and mint mark as one already in the master is probably the same coin
+        photographed again (C169/C275). Not a rejection (people do own two of a coin): a WARNING in the report for Claude to settle."""
+        s = self.c.specs.get(rid) or {}
+        key = lambda x: (x.get("type"), (x.get("issue") or {}).get("year"), tuple((x.get("issue") or {}).get("mint_marks") or []))
+        same = sorted(k for k, x in self.c.specs.items() if k != rid and key(x) == key(s) and (x.get("lifecycle") or {}).get("status") != "Removed")
+        if same: self.log.append(f"WARNING possible double entry: new {rid} is {s.get('type')} {key(s)[1]}{' ' + '/'.join(key(s)[2]) if key(s)[2] else ''}, "
+                                 f"like {', '.join(same)}; check the photos before publishing (two of the same coin is fine, the same coin twice is not)")
+
     def create(self, e):
         ent, rid, c = e["entity"], e["id"], self.c
         orig = copy.deepcopy(e)
@@ -460,6 +477,7 @@ class Applier:
         if "id" in new and new["id"] != rid: raise Reject(f"record id {new['id']} differs from event id {rid}")
         rid = getattr(self, "create_" + ent)(e, rid, new) or rid
         e["id"] = rid
+        if ent == "specimen": self.warn_double(rid)
         self.done_create[create_key(orig)] = rid
         self.log_event(e, None)
 
@@ -547,7 +565,7 @@ def read_events(path):
             except ValueError as x: errs.append(f"line {n}: not valid JSON ({x})"); continue
             if not isinstance(e, dict): errs.append(f"line {n}: each line must be a JSON object"); continue
             if e.get("event") == "specimen-create":      # Muse's own format (fix list #47)
-                errs.append(f"line {n}: this is Muse's own new-coin format, not a ChangeEvent: run python3 tools/pipeline/muse_convert.py on the file, check its CHECK list against the photo, then publish"); continue
+                errs.append(f"line {n}: this is not a ChangeEvent ({{\"event\": \"specimen-create\"}} is a made-up format). Rewrite it as ChangeEvents: copy collection/templates/phase1_template.jsonl, use id NEW-1, NEW-2, ... and resubmit under a new file name"); continue
             events.append((n, e))
     return events, errs
 

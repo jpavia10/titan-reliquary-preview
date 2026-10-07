@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-07 PT] — Claude/Opus integrator (tr98 Muse audit guards)
+* **All contributors:** off-contract files are now REJECTED, never converted. `data/status.json` → `next_ids` gives the next coin id (name new-piece photos `NOID_...`, use NEW-n). A new coin matching an existing type+year+mint prints a WARNING. **Provenance is required on every model event from 2026-10-21.** Reshoots: `_v2` replaces (say `supersedes` in the summary), `_angle2` adds.
+
 ### [2026-10-07 PT] — Claude/Opus integrator (tr97 app split 2-3)
 * `app.js` split steps 2-3: format helpers, insights, atmosphere CSS loader and overlay plumbing moved to `js/app-*.js` (load before app.js). Palette focus-trap leak fixed. Smoke ALL GOOD.
 
