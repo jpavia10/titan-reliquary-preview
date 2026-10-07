@@ -193,6 +193,122 @@
           "keep_open": true
         }
       ]
+    },
+    {
+      "id": "q-c053-mint",
+      "coin": "C053",
+      "ask": "Look under the date on C053, the 2011 German 20 cent. Is the small letter an F or a J?",
+      "why": "The record says J (Hamburg); the phone photo looks more like F (Stuttgart).",
+      "options": [
+        {
+          "label": "F",
+          "effect": [
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C053",
+                "field": "issue.mint_marks",
+                "new": [
+                  "F"
+                ]
+              }
+            },
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C053",
+                "field": "issue.mint_text",
+                "new": "F · Stuttgart"
+              }
+            }
+          ],
+          "followup": "C053 is 2011 F: update its mintage to the F figure."
+        },
+        {
+          "label": "J",
+          "effect": [
+            {
+              "confirm": {
+                "scan": "C053",
+                "fact": "mint"
+              }
+            }
+          ],
+          "followup": "C053 is J: clear the curation note."
+        },
+        {
+          "label": "I can't tell",
+          "effect": [],
+          "followup": "C053 mint letter unclear to the owner: settle at Phase 2."
+        }
+      ]
+    },
+    {
+      "id": "q-c206-date",
+      "coin": "C206",
+      "ask": "On C206, the Japanese 1 yen, read the date characters at the bottom. Is it 四十六 (46) or 五十一 (51)?",
+      "why": "The record says 1976 (Showa 51); the photo looks like Showa 46 (1971).",
+      "options": [
+        {
+          "label": "四十六 (46 = 1971)",
+          "effect": [
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C206",
+                "field": "issue.year",
+                "new": 1971
+              }
+            },
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C206",
+                "field": "year_raw",
+                "new": "1971"
+              }
+            }
+          ],
+          "followup": "C206 is 1971: update its mintage (928,800,000 is the 1976 figure)."
+        },
+        {
+          "label": "五十一 (51 = 1976)",
+          "effect": [
+            {
+              "confirm": {
+                "scan": "C206",
+                "fact": "year"
+              }
+            }
+          ],
+          "followup": "C206 is 1976: clear the curation note."
+        },
+        {
+          "label": "Something else",
+          "effect": [],
+          "free": "What does it say?",
+          "followup": "C206 date from the owner (see the answer text)."
+        }
+      ]
+    },
+    {
+      "id": "q-c023-back",
+      "coin": "C023",
+      "ask": "Turn over C023, the 1918 iron 20 with the oak wreath. What words are on the other side?",
+      "why": "No German Empire 20 pfennig was struck in 1918, so it is probably a city's emergency money; the other side should name the city.",
+      "options": [
+        {
+          "label": "I'll type them",
+          "effect": [],
+          "free": "Words on the other side",
+          "followup": "C023 other-side text from the owner (see the answer text): re-file it as the right notgeld type."
+        },
+        {
+          "label": "I'll send a photo",
+          "effect": [],
+          "followup": "Owner will drop a photo of C023's other side in STAGING."
+        }
+      ]
     }
   ]
 }

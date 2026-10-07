@@ -184,6 +184,36 @@ class Pipeline(unittest.TestCase):
         r = self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [ev(entity="type", id=tid, field="nominal.weight_g", new=4.4, source="Numista N#12345 (weight 4.4 g)")]))
         self.assertEqual(r.returncode, 0, r.stdout)
 
+    def test_muse_off_contract_files_convert_and_apply(self):
+        """#47: Muse's {"event": "specimen-create"} lines become ChangeEvents that the pipeline accepts."""
+        sys.path.insert(0, HERE)
+        import collection_io as CIO, muse_convert as MC
+        tmp = sandbox(); coll = os.path.join(tmp, "collection"); col = CIO.Collection(coll)
+        src = os.path.join(HERE, "fixtures", "muse_offcontract", "changes_muse_20261004-2045.jsonl")
+        lines = [json.loads(l) for l in open(src, encoding="utf-8") if l.strip()]
+        evs, checks, probs = MC.convert(lines, col, "2026-10-09T11:00:00Z", "fixture")
+        self.assertEqual(probs, []); self.assertEqual([e["entity"] for e in evs], ["specimen"] * 3)          # all three types already exist
+        self.assertEqual([e["new"]["type"] for e in evs], ["FR.X.5-francs", "YU.X.50-para", "DE.KM.210"])
+        self.assertTrue(all(e["by"] == "model:muse-spark" and e["phase"] == 1 and e.get("provenance") for e in evs))
+        self.assertTrue(any("same coin twice" in c for c in checks))                                        # they are already C281-C283
+        n0 = len(col.specs)
+        r = self.apply(tmp, write_events(tmp, "changes_muse_20261009-1100.jsonl", evs))
+        self.assertEqual(r.returncode, 0, r.stdout); self.assertEqual(len(CIO.Collection(coll).specs), n0 + 3)
+        _, _, probs = MC.convert([dict(lines[0], country="Freedonia")], col, "2026-10-09T11:00:00Z", "fixture")
+        self.assertIn("not in the issuer list", probs[0])
+
+    def test_recitation_with_exact_source_is_logged(self):
+        """#48: a model re-stating an existing value with an exact catalogue entry is kept in the log (no value change)."""
+        sys.path.insert(0, HERE)
+        import collection_io as CIO
+        tmp = sandbox(); coll = os.path.join(tmp, "collection"); col = CIO.Collection(coll)
+        sid, s = next((k, v) for k, v in sorted(col.specs.items()) if (v.get("issue") or {}).get("mintage"))
+        e = ev(entity="specimen", id=sid, field="issue.mintage", new=s["issue"]["mintage"], source="Numista N#1234, mintage row for the year")
+        r = self.apply(tmp, write_events(tmp, "changes_test_20261009-1100.jsonl", [e]))
+        self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("re-cited", r.stdout)
+        logged = [json.loads(l) for l in open(os.path.join(coll, "changes.jsonl"), encoding="utf-8") if "N#1234" in l]
+        self.assertEqual(len(logged), 1)
+
     def test_rejections(self):
         self.reject([ev(entity="specimen", id="C001", field="condition.grade", new="MS-70", verified=True)], "only the owner")
         self.reject([ev(entity="specimen", id="C001", field="condition.nope.deeper", new=1)], "no field")

@@ -137,14 +137,44 @@
     } catch (e) { /* no cache API */ }
     return out;
   }
+  /* ---------- background jobs (fix list #49): the repo's GitHub Actions, read from the public API (no sign-in, 60 requests/hour) ---------- */
+  const REPO = "jpavia10/titan-reliquary-preview";
+  const JOBS = [
+    { name: "prices", label: "Daily gold and silver price", what: "Fetches today's price every evening" },
+    { name: "pages build and deployment", label: "Publishing the app", what: "Puts each new version online" },
+    { name: "verify-live", label: "Live check after publishing", what: "Checks the online copy matches what was published" },
+    { name: "smoke", label: "Whole-app test", what: "Opens every part of the app after each change" },
+    { name: "backup-zip", label: "Site backup", what: "Builds the backup copy for Drive" },
+  ];
+  function jobRuns() {
+    const ctl = typeof AbortController === "function" ? new AbortController() : null;
+    const t = setTimeout(() => { try { ctl && ctl.abort(); } catch (e) { /* ignore */ } }, 6000);
+    return fetch(`https://api.github.com/repos/${REPO}/actions/runs?per_page=60`, { cache: "no-store", signal: ctl ? ctl.signal : undefined })
+      .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then((d) => JOBS.map((j) => {
+        const runs = (d.workflow_runs || []).filter((x) => x.name === j.name && x.status === "completed" && x.conclusion !== "cancelled" && x.conclusion !== "skipped");
+        const last = runs[0];
+        return Object.assign({}, j, last ? { conclusion: last.conclusion, at: last.updated_at || last.created_at, url: last.html_url } : { conclusion: null });
+      }))
+      .finally(() => clearTimeout(t));
+  }
+  function markHealthButton(jobs) {
+    const b = document.getElementById("btn-health");
+    if (!b || !jobs) return;
+    const bad = jobs.filter((j) => j.conclusion && j.conclusion !== "success").length;
+    b.textContent = bad ? `Health ⚠ ${bad}` : "Health";
+    b.title = bad ? `${bad} background job${bad === 1 ? "" : "s"} failed: open Health` : "";
+  }
+
   async function gather() {
     const g = { app: appBuild(), publish: runningPublish(), online: navigator.onLine !== false, lastCheck: lastCheck() };
-    const [sw, cc, status, remote] = await Promise.all([
+    const [sw, cc, status, remote, jobs] = await Promise.all([
       swInfo(), cacheCounts(),
       getJSON("data/status.json").catch(() => null),
       getJSON("version.json", true).then((v) => { noteCheck(); g.lastCheck = Date.now(); return v; }).catch(() => null),
+      g.online ? jobRuns().catch(() => null) : Promise.resolve(null),
     ]);
-    g.sw = sw; g.caches = cc; g.status = status; g.remote = remote;
+    g.sw = sw; g.caches = cc; g.status = status; g.remote = remote; g.jobs = jobs; markHealthButton(jobs);
     g.cmp = remote ? compare(remote) : null;
     if (!g.publish && status) g.publish = status.generated_at;
     return g;
@@ -204,6 +234,19 @@
         "Phone photo: " + n(p.specimens_with_any) + " of " + n(sp.total) + " (" + n(p.still_needed) + " need one; Phase 2: " + n(p.phase2_specimens) + ")",
         "Open research questions: " + n(r.open_questions) + " on " + n(r.specimens_with_open_questions) + " coins",
         "Integrity: " + (probs ? probs + " problems" : "no problems") + ", " + n(ig.warnings || 0) + " warnings");
+    }
+    // Background jobs (#49)
+    if (!g.jobs) {
+      out.push(`<section class="hv-sec" aria-labelledby="hv-h-jobs"><h2 id="hv-h-jobs">Background jobs</h2><p class="hv-status hv-warn">Can't check right now${g.online ? "" : ": you are offline"}.</p></section>`);
+      L.push("", "BACKGROUND JOBS", "Can't check right now");
+    } else {
+      const bad = g.jobs.filter((j) => j.conclusion && j.conclusion !== "success");
+      const word = (j) => (!j.conclusion ? "No run yet" : j.conclusion === "success" ? "Worked" : "FAILED");
+      out.push(`<section class="hv-sec" aria-labelledby="hv-h-jobs"><h2 id="hv-h-jobs">Background jobs</h2>
+        <p class="hv-status ${bad.length ? "hv-bad" : "hv-ok"}">${bad.length ? `${bad.length} job${bad.length === 1 ? "" : "s"} failed last time. Tell Claude.` : "All working"}</p><dl>
+        ${g.jobs.map((j) => row(j.label, `<span class="${!j.conclusion ? "" : j.conclusion === "success" ? "hv-ok" : "hv-bad"}">${word(j)}</span>${j.at ? " &middot; " + esc(when(j.at)) : ""}`, j.what)).join("")}
+      </dl></section>`);
+      L.push("", "BACKGROUND JOBS", ...g.jobs.map((j) => j.label + ": " + word(j) + (j.at ? " (" + j.at + ")" : "") + (j.conclusion && j.conclusion !== "success" && j.url ? " " + j.url : "")));
     }
     // Speed
     out.push(`<section class="hv-sec" aria-labelledby="hv-h-spd"><h2 id="hv-h-spd">Speed</h2>
@@ -297,6 +340,11 @@
   window.TitanHealth = { open, close, refresh, report: () => lastReport, _compare: compare };
   function boot() {
     route();
+    // one quiet background-jobs check per session, so the Hall's Health button can show a warning (#49)
+    let cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem("titan.jobs") || "null"); } catch (e) { /* storage blocked */ }
+    if (cached) markHealthButton(cached);
+    else if (navigator.onLine !== false) setTimeout(() => jobRuns().then((j) => { markHealthButton(j); try { sessionStorage.setItem("titan.jobs", JSON.stringify(j)); } catch (e) { /* ignore */ } }).catch(() => {}), 4000);
     // vault (data/index.json) loads after this script: wait for it so "data published" is the real one
     let tries = 0;
     (function wait() { if (window.vault || ++tries > 40) showAfterReload(); else setTimeout(wait, 250); })();

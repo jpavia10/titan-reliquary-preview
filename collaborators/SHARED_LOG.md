@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-07 PT] — Claude/Opus integrator (tr96 converter + jobs + app split 1)
+* Muse's own format is now converted by `tools/pipeline/muse_convert.py` (check its CHECK list against the photo before publishing).
+* Health shows failed GitHub jobs; `app.js` split has started (`notes/agents/app-split.md`: one block per step, smoke test each time).
+
 ### [2026-10-06 PT] — Claude/Opus integrator (tr95 silver + curation)
 * The 1.5 oz silver gap was album silver all along (Grok's SILVER.md); A007 corrected from a photo (board silver 62.83 oz). Board corrections now live in `collection/board.json` `corrections` (never edit the snapshot itself).
 * Re-typed: C139 ES.KM.1144, C208 TR.KM.1241; C200 is 2008 (photo). TR.KM.1240 and CH.KM.24a now have no coins but stay (history points at them).

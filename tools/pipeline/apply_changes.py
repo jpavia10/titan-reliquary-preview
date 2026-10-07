@@ -355,6 +355,10 @@ class Applier:
                 # the owner confirming a value as it stands (the app's "Confirm", fix list #43): nothing changes, but the log keeps the
                 # verified event so the certainty label becomes "Verified" (tools/pipeline/provenance.py)
                 self.log_event(e, old); self.log.append(f"confirmed by the owner (value unchanged): {ent} {rid} {field}"); return
+            if e["by"].startswith("model:") and EXACT_REF.search(e.get("source") or ""):
+                # the same value re-stated with the exact entry it comes from (fix list #48): nothing changes, but the log keeps the
+                # better citation so the certainty label can move from "AI guess" to "Reference"
+                self.log_event(e, old); self.log.append(f"re-cited (value unchanged, exact source added): {ent} {rid} {field}"); return
             self.log.append(f"no change (value already set): {ent} {rid} {field}"); return
         self.check_verified(e, old)
         copies = self.issue_copies(rec, path) if ent == "type" else []
@@ -542,6 +546,8 @@ def read_events(path):
             try: e = json.loads(ln)
             except ValueError as x: errs.append(f"line {n}: not valid JSON ({x})"); continue
             if not isinstance(e, dict): errs.append(f"line {n}: each line must be a JSON object"); continue
+            if e.get("event") == "specimen-create":      # Muse's own format (fix list #47)
+                errs.append(f"line {n}: this is Muse's own new-coin format, not a ChangeEvent: run python3 tools/pipeline/muse_convert.py on the file, check its CHECK list against the photo, then publish"); continue
             events.append((n, e))
     return events, errs
 
