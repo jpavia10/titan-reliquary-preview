@@ -5,6 +5,8 @@
 (() => {
   "use strict";
 
+  /* Formatting + DOM helpers live in js/app-format.js (fix list #32, step 2); one copy for app.js and the split-out modules. */
+  const { $, $$, nf, NF_INT, money, esc, num, intFmt, precise } = window.TitanFormat;
   /* Small UI helpers live in js/app-ui.js (fix list #32, step 1 of splitting app.js; loaded just before this file). */
   const UI = window.TitanAppUI || {};
   const goldDust = UI.goldDust || (() => {});
@@ -54,45 +56,6 @@
     }
   } catch { /* ignore */ }
 
-  const $ = (sel, el = document) => el.querySelector(sel);
-  const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
-
-  /* Number.prototype.toLocaleString(locale, options) builds a new Intl.NumberFormat on every call (slow on phones);
-     share formatters instead. Output is identical. */
-  const NF = new Map();
-  function nf(min, max) {
-    const k = min + "," + max;
-    let f = NF.get(k);
-    if (!f) { f = new Intl.NumberFormat("en-US", { minimumFractionDigits: min, maximumFractionDigits: max }); NF.set(k, f); }
-    return f;
-  }
-  const NF_INT = new Intl.NumberFormat("en-US");
-  function money(n) {
-    if (n == null || Number.isNaN(Number(n))) return "—";
-    return "$" + nf(2, 2).format(Number(n));
-  }
-  function esc(s) {
-    return String(s ?? "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
-  function num(n, d = 2, minD) {
-    if (n == null || Number.isNaN(Number(n))) return "—";
-    const max = d;
-    const min = minD != null ? minD : d;
-    return nf(min, max).format(Number(n));
-  }
-  function intFmt(n) {
-    if (n == null || Number.isNaN(Number(n))) return "—";
-    return NF_INT.format(Number(n));
-  }
-  /** High-precision fixed decimals without thousands separators (years / ages). */
-  function precise(n, d = 6) {
-    if (n == null || Number.isNaN(Number(n))) return "—";
-    return Number(n).toFixed(d);
-  }
 
   function aswFmt(oz) {
     if (oz == null || Number.isNaN(Number(oz))) return "ASW unknown";
@@ -834,138 +797,13 @@
     return out;
   }
 
-  /* --- Collection intelligence (WS4): computed from real flip fields only. --- */
-  function flipInsights() {
-    const flips = (vault.flips || []).filter((f) => f.status !== "Removed");
-    const valued = flips.map((f) => ({ f, v: f.est ?? 0 })).filter((x) => x.v > 0).sort((a, b) => b.v - a.v);
-    const total = valued.reduce((sum, x) => sum + x.v, 0);
-    const topN = valued.slice(0, 10);
-    const decades = {};
-    for (const f of flips) {
-      const y = parseInt(f.year, 10);
-      if (!Number.isFinite(y)) continue;
-      const d = Math.floor(y / 10) * 10;
-      decades[d] = (decades[d] || 0) + 1;
-    }
-    const decadeRows = Object.entries(decades).sort((a, b) => a[0] - b[0]);
-    const dMax = Math.max(1, ...decadeRows.map(([, n]) => n));
-    const byCountry = {};
-    for (const f of flips) {
-      const c = f.country || "Unknown";
-      byCountry[c] = byCountry[c] || { n: 0, v: 0 };
-      byCountry[c].n += 1;
-      byCountry[c].v += f.est ?? 0;
-    }
-    const topCountries = Object.entries(byCountry).sort((a, b) => b[1].n - a[1].n).slice(0, 5);
-    const cMax = Math.max(1, ...topCountries.map(([, x]) => x.n));
-    const gems = flips
-      .filter((f) => (f.est ?? 0) >= 5 && String(f.conf || "").toLowerCase() !== "high")
-      .sort((a, b) => (b.est ?? 0) - (a.est ?? 0))
-      .slice(0, 5);
-    const agN = flips.filter((f) => f.is_silver).length;
-    return { flips, valued, total, topN, decadeRows, dMax, topCountries, cMax, gems, agN };
-  }
-  function insightsSec() {
-    const { total, topN, decadeRows, dMax, topCountries, cMax, gems, agN, flips } = flipInsights();
-    if (!flips.length) return "";
-    const top10 = topN.slice(0, 10);
-    const share = total ? top10.reduce((sum, x) => sum + x.v, 0) / total : 0;
-    const concCard = `
-      <div class="insight-card reveal">
-        <h3>Value concentration</h3>
-        <p class="lede">Where the money actually sits.</p>
-        <div class="conc-lbl">Top 10 flips hold <strong>${Math.round(share * 100)}%</strong> of flip value</div>
-        <div class="conc-bar" role="img" aria-label="Top 10 flips hold ${Math.round(share * 100)} percent of flip value"><span style="width:${Math.round(share * 100)}%"></span></div>
-        <div class="conc-lbl">${topN.slice(0, 3).map((x) => esc(x.f.ser || x.f.scan)).join(" · ")} lead the cabinet</div>
-      </div>`;
-    const decadeCard = `
-      <div class="insight-card reveal">
-        <h3>Age map</h3>
-        <p class="lede">A century of pocket change, by decade (tap to filter gallery).</p>
-        <div class="decade-bars">
-          ${decadeRows.map(([d, n]) => `
-            <div class="decade-row interactive-decade" data-decade="${d}" style="cursor:pointer" title="Click to filter gallery to ${d}s">
-              <span class="dk">${d}s</span>
-              <span class="dt"><span style="width:${Math.round((n / dMax) * 100)}%"></span></span>
-              <span class="dv">${intFmt(n)}</span>
-            </div>`).join("")}
-        </div>
-      </div>`;
-    const spreadCard = `
-      <div class="insight-card reveal">
-        <h3>Country spread</h3>
-        <p class="lede">The cabinet's passports, ranked (tap to filter gallery).</p>
-        <div class="country-spread">
-          ${topCountries.map(([c, x]) => `
-            <div class="spread-row interactive-country-spread" data-country="${esc(c)}" style="cursor:pointer" title="Click to filter gallery to ${esc(c)}">
-              <span class="sc">${esc(c)}</span>
-              <span class="sv">${intFmt(x.n)} flips · ${money(x.v)}</span>
-              <span class="st"><span style="width:${Math.round((x.n / cMax) * 100)}%"></span></span>
-            </div>`).join("")}
-        </div>
-      </div>`;
-    const gemCard = `
-      <div class="insight-card reveal">
-        <h3>Hidden gems</h3>
-        <p class="lede">Worth real money, confidence still soft — verify these first.</p>
-        ${gems.length ? gems.map((f) => `
-          <div class="gem-row"><button type="button" data-scan="${esc(f.scan)}" title="Open the dossier">
-            <span>
-              ${f.thumb ? `<img src="${esc(f.thumb)}" alt="" style="width:24px;height:24px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;border:1px solid rgba(200,169,74,0.4)" />` : ""}
-              <span class="g-id">${esc(f.ser || f.scan)}</span>
-              <span class="g-why">${esc([f.country, f.year, f.denom].filter(Boolean).join(" · "))} · conf ${esc(f.conf || "—")}</span>
-            </span>
-            <span class="g-val">${money(f.est)}</span>
-          </button></div>`).join("") : '<p class="empty">Nothing flagged — every valued flip reads high confidence.</p>'}
-      </div>`;
-    return `
-      <div class="sec-head reveal" id="sec-intelligence"><span class="eyebrow">Collection intelligence</span><h2>The vault, thinking</h2>
-      <p class="sub">Computed from the ledger — ${intFmt(flips.length)} flips · ${intFmt(agN)} silver · ${money(total)} in flips.</p></div>
-      <div class="insight-grid">${concCard}${decadeCard}${spreadCard}${gemCard}</div>`;
-  }
 
-  /* --- Shooting sessions (WS3): the Phase-2 photo mission board. --- */
-  function shootingData() {
-    const live = (vault.flips || []).filter((f) => f.status !== "Removed");
-    const queue = live.filter((f) => !f.phase2_done);
-    const done = live.length - queue.length;
-    const byCountry = {};
-    for (const f of queue) {
-      const c = f.country || "Unknown";
-      (byCountry[c] = byCountry[c] || []).push(f);
-    }
-    const groups = Object.entries(byCountry)
-      .map(([country, arr]) => ({
-        country, n: arr.length,
-        value: arr.reduce((sum, f) => sum + (f.est ?? 0), 0),
-        silver: arr.filter((f) => f.is_silver).length,
-      }))
-      .sort((a, b) => b.n - a.n);
-    return { live, queue, done, groups };
-  }
-  function shootingSec() {
-    const { live, queue, done, groups } = shootingData();
-    if (!live.length) return "";
-    const pct = live.length ? Math.round((done / live.length) * 100) : 0;
-    const top = groups.slice(0, 6);
-    return `
-      <div class="sec-head reveal"><span class="eyebrow">Photo lab</span><h2>Shooting sessions</h2>
-      <p class="sub">Phase 2, one country at a time — highest count first.</p></div>
-      <div class="shoot-progress reveal">
-        <div class="sp-top"><h3>The archive so far</h3>
-        <span class="sp-n">${intFmt(done)} of ${intFmt(live.length)} flips photographed · ${pct}%</span></div>
-        <div class="shoot-bar" role="img" aria-label="${pct} percent photographed"><span style="width:${pct}%"></span></div>
-        ${done === 0 ? '<p class="sub" style="margin:0.6rem 0 0">The archive is empty — Phase 2 begins the shoot. Pick a country below to start a session.</p>' : ""}
-      </div>
-      <div class="shoot-grid">
-        ${top.map((g) => `
-          <div class="shoot-card reveal">
-            <div class="sh-c">${esc(g.country)}</div>
-            <div class="sh-n"><strong>${intFmt(g.n)}</strong> awaiting · ${money(g.value)} on the table${g.silver ? ` · ${g.silver} silver` : ""}</div>
-            <button type="button" class="btn small" data-session="${esc(g.country)}">Start session →</button>
-          </div>`).join("")}
-      </div>`;
-  }
+  /* Collection intelligence + shooting sessions live in js/app-insights.js (fix list #32, step 2); they read the flip list only. */
+  const flipsLive = () => vault.flips || [];
+  const flipInsights = () => window.TitanInsights.flipInsights(flipsLive());
+  const insightsSec = () => window.TitanInsights.insightsSec(flipsLive());
+  const shootingData = () => window.TitanInsights.shootingData(flipsLive());
+  const shootingSec = () => window.TitanInsights.shootingSec(flipsLive());
 
   let exhibitTimer = null; // "Now exhibiting" rotation interval
   let exhibitMasters = [];
@@ -7075,26 +6913,8 @@
      next to the old one (same cascade slot, every rule is scoped to its own html[data-atmo]), flips data-atmo once it
      is ready, then drops the old sheet. Already-loaded = synchronous, as before. window.TitanAtmoReady() resolves when
      the last requested switch has been applied. */
-  const atmoCss = { name: (document.getElementById("atmo-css") || {}).dataset?.atmoCss || document.documentElement.getAttribute("data-atmo") || "afterhours", tok: 0, ready: Promise.resolve() };
-  function loadAtmoCss(name) {
-    const prev = document.querySelector("link[data-atmo-css]");
-    const link = document.createElement("link");
-    link.rel = "stylesheet"; link.dataset.atmoCss = name;
-    link.href = `styles/atmo/${name}.css${window.__trAtmoQ || ""}`;
-    return new Promise((res) => {
-      link.onload = () => res(true);
-      link.onerror = () => res(false);
-      if (prev) prev.after(link); else document.head.appendChild(link);
-    });
-  }
-  function dropOtherAtmoCss(name) {
-    let kept = false;
-    document.querySelectorAll("link[data-atmo-css]").forEach((l) => {
-      if (l.dataset.atmoCss === name && !kept) kept = true; else l.remove();
-    });
-    atmoCss.name = name;
-  }
-  window.TitanAtmoReady = () => atmoCss.ready;
+  // the stylesheet swap itself lives in js/app-atmo-css.js (fix list #32, step 3)
+  const { state: atmoCss, load: loadAtmoCss, dropOthers: dropOtherAtmoCss } = window.TitanAtmoCss;
   function setAtmo(a, save = true, flash = true) {
     const want = ATMOS[a] ? a : "afterhours";
     if (atmoCss.name === want) { atmoCss.tok++; atmoCss.ready = Promise.resolve(); dropOtherAtmoCss(want); return applyAtmo(want, save, flash); }
@@ -7138,13 +6958,9 @@
   window.vault = vault;
   setAtmo(document.documentElement.getAttribute("data-atmo") || "afterhours", false, false);
 
-  /* --- Overlay manager: Esc closes the topmost layer; focus is trapped & restored. --- */
-  let lastFocus = null;
-  function rememberFocus() { lastFocus = document.activeElement; }
-  function restoreFocus() {
-    if (lastFocus && document.contains(lastFocus) && lastFocus.focus) lastFocus.focus();
-    lastFocus = null;
-  }
+  /* --- Overlay manager: Esc closes the topmost layer; focus is trapped & restored.
+     Focus memory, the Tab trap, topOverlayEl() and the offline banner live in js/app-overlay.js (fix list #32, step 3). --- */
+  const { rememberFocus, restoreFocus, topOverlayEl } = window.TitanOverlay;
   function openAtmoSheet() {
     if (window.TitanScene && window.TitanScene.open) { window.TitanScene.open("themes"); return; }
     rememberFocus();
@@ -7173,26 +6989,6 @@
   }
   $("#keys-close")?.addEventListener("click", closeKeysSheet);
   $("#keys-sheet")?.addEventListener("click", (e) => { if (e.target.id === "keys-sheet") closeKeysSheet(); });
-  // Focus trap: Tab cycles inside the topmost open overlay.
-  const FOCUSABLE = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  document.addEventListener("keydown", (e) => {
-    if (e.key !== "Tab") return;
-    const top = topOverlayEl();
-    if (!top) return;
-    const f = [...top.querySelectorAll(FOCUSABLE)].filter((el) => !el.disabled && el.offsetParent !== null);
-    if (!f.length) { e.preventDefault(); return; }
-    const first = f[0], last = f[f.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  });
-  function topOverlayEl() {
-    const order = ["#lightbox", "#palette", "#scene-sheet", "#atmo-sheet", "#keys-sheet", ".ambient-panel", "#drawer"];
-    for (const sel of order) {
-      const el = sel === ".ambient-panel" ? document.querySelector(sel) : $(sel);
-      if (el && !el.hidden) return el;
-    }
-    return null;
-  }
   function closeTopOverlay() {
     const top = topOverlayEl();
     if (!top) return false;
@@ -7217,12 +7013,6 @@
     tabs[i].focus();
     setWing(tabs[i].dataset.wing);
   });
-  // Offline honesty: a slim banner when the network drops.
-  const offBanner = $("#offline-banner");
-  function syncOffline() { if (offBanner) offBanner.hidden = navigator.onLine !== false; }
-  window.addEventListener("online", syncOffline);
-  window.addEventListener("offline", syncOffline);
-  syncOffline();
   // Print buttons: dossier record + flips inventory.
   $("#dossier-print")?.addEventListener("click", () => window.print());
   $("#dossier-spatial")?.addEventListener("click", () => {

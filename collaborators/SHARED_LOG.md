@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-07 PT] — Claude/Opus integrator (tr97 app split 2-3)
+* `app.js` split steps 2-3: format helpers, insights, atmosphere CSS loader and overlay plumbing moved to `js/app-*.js` (load before app.js). Palette focus-trap leak fixed. Smoke ALL GOOD.
+
 ### [2026-10-07 PT] — Claude/Opus integrator (tr96 converter + jobs + app split 1)
 * Muse's own format is now converted by `tools/pipeline/muse_convert.py` (check its CHECK list against the photo before publishing).
 * Health shows failed GitHub jobs; `app.js` split has started (`notes/agents/app-split.md`: one block per step, smoke test each time).
