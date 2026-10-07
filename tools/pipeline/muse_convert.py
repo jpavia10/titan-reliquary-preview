@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Convert Muse's own new-coin format into proper change files (fix list #47).
 
+OWNER-REQUEST ONLY since 2026-10-07: an off-contract file is now REJECTED at intake (the contributor rewrites it and resubmits;
+Muse's audit #2). Run this only when the owner asks to rescue a specific file.
+
 Muse keeps sending one line per coin as {"event": "specimen-create", "id": "NEW-n", "country", "year", "denomination", "mint_mark",
 "class", "story", "confidence", "source", "value": {"amount", "currency", "confidence", "basis"}, "photo_sha256", "notes"}.
 The pipeline cannot read that, so Claude re-filed it by hand three times. This does the mechanical part:
@@ -24,12 +27,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
 import collection_io as C  # noqa: E402
 
-UNIT_ALIASES = {"cent": "cent", "cents": "cent", "centavo": "centavo", "centavos": "centavo", "centime": "centime", "centimes": "centime",
-                "franc": "franc", "francs": "franc", "penny": "penny", "pence": "penny", "new pence": "penny", "new penny": "penny",
-                "para": "para", "pare": "para", "rappen": "rappen", "piso": "piso", "peso": "peso", "pesos": "peso", "dollar": "dollar",
-                "dollars": "dollar", "kopek": "kopek", "kopeks": "kopek", "kopecks": "kopek", "øre": "øre", "ore": "øre", "krona": "krona",
-                "kronor": "krona", "kuruş": "kurus", "kurus": "kurus", "yen": "yen", "won": "won", "lire": "lira", "lira": "lira", "euro": "euro",
-                "euro cent": "cent", "dinar": "dinar", "pfennig": "pfennig", "groschen": "groschen", "sentimo": "sentimo", "sentimos": "sentimo"}
+UNIT_ALIASES = json.load(open(os.path.join(ROOT, "collection", "ref", "unit_aliases.json"), encoding="utf-8"))["aliases"]   # data, not code (Muse's audit #11)
 
 
 def unit_key(u):

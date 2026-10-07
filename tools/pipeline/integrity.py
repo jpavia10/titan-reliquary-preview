@@ -74,6 +74,16 @@ def warnings(col):
     return w
 
 
+def _next_ids(specs):
+    """Muse's audit #1: the id the pipeline will give the next new coin / token (ids are never reused, removed ones count)."""
+    def nxt(prefix):
+        nums = [int(k[1:]) for k in specs if k[:1] == prefix and k[1:].isdigit()]
+        return f"{prefix}{(max(nums) if nums else 0) + 1:03d}"
+    return {"coin": nxt("C"), "token": nxt("T"),
+            "note": "Name photos of a new piece NOID_... and use NEW-1, NEW-2 in change files; the pipeline assigns these ids in order. "
+                    "Only another contributor's file merged first can take them."}
+
+
 def status(col, out, build, now, root=None):
     import display as D
     specs = col["specs"]
@@ -102,6 +112,7 @@ def status(col, out, build, now, root=None):
                    "slots": sum(len(a.get("slots") or []) for a in albums),
                    "slots_filled": sum(1 for a in albums for s in a.get("slots") or [] if s.get("state") == "filled"),
                    "note": "album slots are tracked occupants, not catalogued specimens"},
+        "next_ids": _next_ids(specs),
         "countries": len({col["types"][s["type"]].get("country") for s in active.values()}),
         "photos": {"records": len(col["photos"]), "live": len(live),
                    "specimens_with_any": len(sides), "specimens_with_both_sides": sum(1 for v in sides.values() if {"obv", "rev"} <= v),

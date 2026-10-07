@@ -199,8 +199,26 @@ class Pipeline(unittest.TestCase):
         n0 = len(col.specs)
         r = self.apply(tmp, write_events(tmp, "changes_muse_20261009-1100.jsonl", evs))
         self.assertEqual(r.returncode, 0, r.stdout); self.assertEqual(len(CIO.Collection(coll).specs), n0 + 3)
+        self.assertEqual(r.stdout.count("WARNING possible double entry"), 3, r.stdout)                    # Muse's audit #3: intake warns too
         _, _, probs = MC.convert([dict(lines[0], country="Freedonia")], col, "2026-10-09T11:00:00Z", "fixture")
         self.assertIn("not in the issuer list", probs[0])
+
+    def test_muse_audit_guards(self):
+        """Muse's audit 2026-10-06: off-contract lines reject (no hand conversion), provenance becomes required on 2026-10-21,
+        'no source' euphemisms reject, and status.json says which ids the next new pieces get."""
+        tmp = sandbox(); before = tree_hash(os.path.join(tmp, "collection"))
+        p = os.path.join(tmp, "changes_muse_20261009-1200.jsonl")
+        open(p, "w", encoding="utf-8").write(json.dumps({"event": "specimen-create", "id": "NEW-1", "country": "France"}) + "\n")
+        r = self.apply(tmp, p)
+        self.assertEqual(r.returncode, 1, r.stdout); self.assertIn("not a ChangeEvent", r.stdout); self.assertIn("phase1_template.jsonl", r.stdout)
+        self.assertNotIn("muse_convert", r.stdout)
+        self.assertEqual(before, tree_hash(os.path.join(tmp, "collection")))
+        self.reject([ev(ts="2026-10-21T00:00:00Z", entity="specimen", id="C001", field="notes", new="x")], "need a `provenance` object")
+        for junk in ("my training data", "General knowledge.", "vibes"):
+            self.reject([ev(entity="specimen", id="C001", field="notes", new="x", source=junk)], "source")
+        sys.path.insert(0, HERE)
+        import integrity as IG
+        self.assertEqual({k: v for k, v in IG._next_ids({"C001": {}, "C284": {}, "T006": {}, "B001": {}}).items() if k != "note"}, {"coin": "C285", "token": "T007"})
 
     def test_recitation_with_exact_source_is_logged(self):
         """#48: a model re-stating an existing value with an exact catalogue entry is kept in the log (no value change)."""

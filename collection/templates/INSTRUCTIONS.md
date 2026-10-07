@@ -28,7 +28,7 @@ Read `AI_START_HERE.md` (repo root) first for the job and the folders. This page
 | `verified` | always `false`. Only the owner verifies. |
 | `phase` | **required**: `1` (quick pass from a staging photo), `1.5` (album scans) or `2` (critical analysis with the pro photos and cited sources). Each phase may write only its own fields (schema v3 tiers, column "who writes it" in `FIELDS.md`); anything else rejects the file. |
 | `confidence` | `low` / `med` / `high`. Optional but please give it. |
-| `provenance` | **please send on every model event** (a file without it still merges, with a WARNING): which run made this fact, so a later correction can show what went wrong and who got it right. An object: `model` (exact model id/version), `prompt_version` (e.g. `AI_START_HERE@2026-10-05`), `workflow` (`phase1-photo`, `phase2-research`, `album-read`, ...), `inputs` (list of `{"file": "C042_obv.jpg"}`, the photo files you looked at; `sha256` optional), `run_id` (one short id shared by all events of this run), optional `tokens`, `cost_usd`, and `raw` (a short verbatim excerpt of your answer, 500 characters at most). Any other key rejects the file. Put the same object on every line of your file. |
+| `provenance` | **required on every model event from 2026-10-21** (until then a file without it merges with a WARNING; from that date the file is rejected; send `tokens`/`cost_usd` as `null` when you cannot see them, never leave the object out): which run made this fact, so a later correction can show what went wrong and who got it right. An object: `model` (exact model id/version), `prompt_version` (e.g. `AI_START_HERE@2026-10-05`), `workflow` (`phase1-photo`, `phase2-research`, `album-read`, ...), `inputs` (list of `{"file": "C042_obv.jpg"}`, the photo files you looked at; `sha256` optional), `run_id` (one short id shared by all events of this run), optional `tokens`, `cost_usd`, and `raw` (a short verbatim excerpt of your answer, 500 characters at most). Any other key rejects the file. Put the same object on every line of your file. |
 | `supersedes` | only to overwrite an owner-verified field: the `ts` of that verified event, plus a `source` saying why (section 6) |
 
 ## 3. Phase 1: quick pass (thin, plus a story)
@@ -76,6 +76,8 @@ Entity `album`, `id` = the volume (`A026`), default `op` (`set`). The volume's `
 6. A type is created *before* any specimen that uses it; `NEW-n` placeholders are unique.
 7. Phase 1 lines touch only Phase 1 fields (type: class, denomination, issues; specimen: type, year_raw, issue, story, notes). Any condition judgement is Phase 2 and names a photo file or reference in `source`.
 8. Unknown values are `null`, not `""`/"unknown".
+9. Every model line carries a `provenance` object (required from 2026-10-21) and `op` is `set` (or left out) or `create`; nothing else exists.
+10. A new specimen: you searched the master for the same type + year + mint mark first. A match usually means the coin is already there (only a photo beyond the owned count is a new piece); the pipeline prints a WARNING for any match.
 
 ## 8. What happens next
 `python3 tools/pipeline/publish.py` applies pending files, validates, rebuilds the website data and prints a summary. The owner sees the result on the site; everything you changed is in `collection/changes.jsonl` with your name, source and `verified: false` until the owner checks it.
