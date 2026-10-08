@@ -229,12 +229,14 @@
         ${row("Coins and tokens", n(sp.coins) + " coins, " + n(sp.tokens) + " tokens", n(sp.total) + " in all, from " + n(s.countries) + " countries.")}
         ${row("Phone photos", n(p.specimens_with_any) + " of " + n(sp.total), n(p.still_needed) + " still need a phone photo. Pro photos (Phase 2): " + n(p.phase2_specimens) + ".")}
         ${row("Open questions", n(r.open_questions), "On " + n(r.specimens_with_open_questions) + " coins, still being checked.")}
+        ${s.truth ? row("Contradictions to check", n(s.truth.total), s.truth.total ? "Records that disagree with each other or claim more than their evidence: " + Object.entries(s.truth.by_rule || {}).map(([k, c]) => c + " " + k.replace(/_/g, " ")).join(", ") + "." : "None found.") : ""}
       </dl><p class="hv-status ${probs ? "hv-bad" : "hv-ok"}">${probs ? n(probs) + " problem" + (probs === 1 ? "" : "s") + " found" : "No problems found"}</p>
       ${ig.warnings ? `<p class="hv-sub">${n(ig.warnings)} minor warning${ig.warnings === 1 ? "" : "s"}.</p>` : ""}</section>`);
       L.push("", "COLLECTION", n(sp.coins) + " coins, " + n(sp.tokens) + " tokens, " + n(s.countries) + " countries",
         "Phone photo: " + n(p.specimens_with_any) + " of " + n(sp.total) + " (" + n(p.still_needed) + " need one; Phase 2: " + n(p.phase2_specimens) + ")",
         "Open research questions: " + n(r.open_questions) + " on " + n(r.specimens_with_open_questions) + " coins",
-        "Integrity: " + (probs ? probs + " problems" : "no problems") + ", " + n(ig.warnings || 0) + " warnings");
+        "Integrity: " + (probs ? probs + " problems" : "no problems") + ", " + n(ig.warnings || 0) + " warnings",
+        "Contradictions to check: " + (s.truth ? s.truth.total + " " + JSON.stringify(s.truth.by_rule || {}) : "not published"));
     }
     // Background jobs (#49)
     if (!g.jobs) {

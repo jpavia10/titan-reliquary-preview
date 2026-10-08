@@ -141,6 +141,9 @@ def main(argv):
     dg = DUP.find(coll)
     with open(f"{outuse}/dupes.json", "w", encoding="utf-8", newline="\n") as f: json.dump({"generated_at": ver["generated_at"], "groups": dg}, f, ensure_ascii=False, separators=(",", ":"))
     if any(g["kind"] != "multiple" for g in dg): print("dupes: " + "; ".join(f"{g['kind']} {', '.join(g['ids'])}" for g in dg if g["kind"] != "multiple") + " (possible double entries; data/dupes.json)")
+    import truth_checks as TC
+    with open(f"{outuse}/truth.json", "w", encoding="utf-8", newline="\n") as f:
+        json.dump({"generated_at": ver["generated_at"], "summary": TC.summary(TC.findings(col)), "findings": TC.findings(col)}, f, ensure_ascii=False, indent=0)
     with open(f"{outuse}/status.json", "w", encoding="utf-8", newline="\n") as f: json.dump(I.status(col, outuse, ver.get("build"), ver["generated_at"], os.path.dirname(os.path.abspath(coll))), f, ensure_ascii=False, indent=1)
     # 5. checks
     problems = check_outputs(col, outuse, col["board"], os.path.dirname(os.path.abspath(coll)))
@@ -161,7 +164,7 @@ def main(argv):
         shutil.copytree(os.path.join(outuse, "detail"), stage)
         if os.path.isdir(os.path.join(out, "detail")): os.replace(os.path.join(out, "detail"), old_dir)
         os.replace(stage, os.path.join(out, "detail")); shutil.rmtree(old_dir, ignore_errors=True)
-        for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "prices.json", "status.json"):
+        for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "prices.json", "truth.json", "status.json"):
             shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n + ".new")); os.replace(os.path.join(out, n + ".new"), os.path.join(out, n))
         shutil.copyfile(vuse, vpath)
         if os.path.abspath(out) == os.path.join(ROOT, "data"): sync_docs(B.load(os.path.join(out, "status.json")))   # only the real publish rewrites the docs

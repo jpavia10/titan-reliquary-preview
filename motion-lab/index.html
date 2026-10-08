@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Motion Lab · Gold dust study (#56)</title>
+<!-- Titan Reliquary · Motion Lab study for fix-list #56 ("gold and silver dust that forms your real coins as you scroll,
+     then the 49 countries, then an album page; your finger stirs it"). Written by Grok Bot (Titan Reliquary agent), 2026-10-07.
+     Lives in its own folder one level below the repo root (e.g. motion-lab/index.html) so ../js/three.min.js (r128, global THREE),
+     ../data/index.json, ../atlas.js, ../collection/albums.json and ../photos/p1/*.webp resolve on the same origin.
+     No network beyond those same-origin files, no CDN, no build. Opened from file:// or with the data missing, it falls back to a
+     procedural coin, a banded country layout and the A001 counts noted below, and says so on screen.
+     Motion: OS "reduce motion" = Still (one frame per section, no animation loop). Otherwise Calm by default; Full is opt-in. -->
+<style>
+  :root { --ink: #f3efe6; --muted: #c9c2b3; --bg: #07070a; --gold: #e9c46a; --line: rgba(243,239,230,.28); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  #stage { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; touch-action: pan-y; }
+  #fallback { position: fixed; inset: 0; display: none; place-items: center; text-align: center; padding: 24px; }
+  #fallback img { width: min(60vw, 320px); border-radius: 50%; display: block; margin: 0 auto 16px; }
+  main { position: relative; z-index: 1; pointer-events: none; }
+  section { min-height: 100vh; display: flex; align-items: flex-end; padding: 0 20px calc(28px + env(safe-area-inset-bottom)); }
+  .card { pointer-events: auto; max-width: 34rem; background: rgba(7,7,10,.72); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .card h2 { margin: 0 0 6px; font-size: 1.35rem; line-height: 1.25; color: var(--gold); }
+  .card p { margin: 0; color: var(--muted); }
+  #hud { position: fixed; z-index: 3; top: max(12px, env(safe-area-inset-top)); left: 12px; right: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  #hud button { min-height: 48px; min-width: 48px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(7,7,10,.78); color: var(--ink); font: 600 16px/1 system-ui, sans-serif; cursor: pointer; }
+  #hud button[aria-pressed="true"] { background: var(--gold); color: #111; border-color: var(--gold); }
+  #hud button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  #fps { margin-left: auto; font: 600 14px/1.2 ui-monospace, Menlo, Consolas, monospace; color: var(--ink); background: rgba(7,7,10,.78); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; min-width: 9.5rem; text-align: right; }
+  #note { position: fixed; z-index: 3; left: 12px; bottom: calc(8px + env(safe-area-inset-bottom)); font-size: 13px; color: var(--muted); max-width: 70vw; }
+  section[hidden] { display: none; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="fallback" role="img" aria-label="Still picture of a coin from the collection"><div><img id="fbimg" alt=""><p>This phone cannot draw the 3D dust, so here is the coin as a still picture.</p></div></div>
+<div id="hud" role="toolbar" aria-label="Motion settings">
+  <button type="button" data-mode="still" aria-pressed="false">Still</button>
+  <button type="button" data-mode="calm" aria-pressed="true">Calm</button>
+  <button type="button" data-mode="full" aria-pressed="false">Full</button>
+  <button type="button" id="next" aria-label="Show the next coin">Next coin</button>
+  <span id="fps" aria-live="off">-- fps</span>
+</div>
+<main>
+  <section data-stage="0"><div class="card"><h2>Dust</h2><p>Gold and silver dust. Scroll down and it gathers into one of your coins. Touch the screen to stir it.</p></div></section>
+  <section data-stage="1"><div class="card"><h2 id="coinTitle">Your coin</h2><p id="coinText">Every grain of dust takes its colour from the real photo of this coin.</p></div></section>
+  <section data-stage="2"><div class="card"><h2 id="mapTitle">49 countries</h2><p id="mapText">The dust spreads into the countries your coins come from. Brighter, bigger clusters mean more coins.</p></div></section>
+  <section data-stage="3"><div class="card"><h2 id="albumTitle">An album page</h2><p id="albumText">Then it settles into an album: lit holes have a coin, dim rings are still empty.</p></div></section>
+</main>
+<div id="note"></div>
+<script src="../js/three.min.js"></script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s) { return document.querySelector(s); };
+  var note = $("#note"), fpsEl = $("#fps");
+  var notes = [];
+  function say(msg) { notes.push(msg); note.textContent = notes.join(" · "); }
+
+  /* ---------------- motion preference: Still / Calm / Full ---------------- */
+  var rmq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  var mode = (rmq && rmq.matches) ? "still" : "calm";
+  try { var saved = localStorage.getItem("motionlab_mode"); if (saved && !(rmq && rmq.matches)) mode = saved; } catch (e) {}
+  function setMode(m) {
+    mode = m;
+    Array.prototype.forEach.call(document.querySelectorAll("#hud [data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-mode") === m)); });
+    try { localStorage.setItem("motionlab_mode", m); } catch (e) {}
+    if (m === "still") { stir = 0; renderOnce(); fpsEl.textContent = "still · no animation"; } else kick();
+  }
+  if (rmq && rmq.addEventListener) rmq.addEventListener("change", function () { if (rmq.matches) setMode("still"); });
+
+  /* ---------------- WebGL + tier ---------------- */
+  var canvas = $("#stage");
+  if (typeof THREE === "undefined") { noGL("three.min.js did not load"); return; }
+  var renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: false, powerPreference: "high-performance" }); }
+  catch (e) { noGL("WebGL unavailable"); return; }
+  var cores = navigator.hardwareConcurrency || 4, mem = navigator.deviceMemory || 4;
+  var small = Math.min(screen.width, screen.height) < 500;
+  var TIERS = [60000, 32000, 16000, 8000];
+  var tier = (cores >= 8 && mem >= 8 && !small) ? 0 : (cores >= 6 && mem >= 4) ? 1 : (cores >= 4) ? 2 : 3;
+  var N = TIERS[0];                         // buffers are built once at the top size; lower tiers just draw fewer points
+  var dprCap = [2, 1.75, 1.5, 1][tier];
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, dprCap));
+  renderer.setClearColor(0x07070a, 1);
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+  camera.position.set(0, 0, 5.2);
+
+  /* ---------------- deterministic random ---------------- */
+  var rs = 1234567;
+  function rnd() { rs = (rs * 1103515245 + 12345) & 0x7fffffff; return rs / 0x7fffffff; }
+  function gauss() { var u = rnd() || 1e-6, v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(6.2831853 * v); }
+
+  /* ---------------- buffers ---------------- */
+  var pCloud = new Float32Array(N * 3), pCoin = new Float32Array(N * 3), pMap = new Float32Array(N * 3), pAlbum = new Float32Array(N * 3);
+  var cCoin = new Float32Array(N * 3), cMap = new Float32Array(N * 3), cAlbum = new Float32Array(N * 3), seed = new Float32Array(N);
+  var GOLD = [0.91, 0.74, 0.38], SILVER = [0.82, 0.84, 0.88], COPPER = [0.85, 0.52, 0.34];
+  for (var i = 0; i < N; i++) {
+    var r = 2.6 * Math.cbrt(rnd()), th = rnd() * 6.2831853, ph = Math.acos(2 * rnd() - 1);
+    pCloud[i * 3] = r * Math.sin(ph) * Math.cos(th) * 1.4; pCloud[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th); pCloud[i * 3 + 2] = r * Math.cos(ph) * 0.8;
+    seed[i] = rnd();
+  }
+  var geo = new THREE.BufferGeometry();
+  function attr(name, arr, n) { var a = new THREE.BufferAttribute(arr, n); geo.setAttribute(name, a); return a; }
+  attr("position", pCloud, 3);
+  var aCoin = attr("pCoin", pCoin, 3), aMap = attr("pMap", pMap, 3), aAlbum = attr("pAlbum", pAlbum, 3);
+  var aCCoin = attr("cCoin", cCoin, 3), aCMap = attr("cMap", cMap, 3), aCAlbum = attr("cAlbum", cAlbum, 3);
+  attr("aSeed", seed, 1);
+  geo.setDrawRange(0, TIERS[tier]);
+
+  var uniforms = {
+    uStage: { value: 0 }, uTime: { value: 0 }, uPx: { value: 1 }, uSize: { value: 26 }, uStir: { value: 0 },
+    uPtr: { value: new THREE.Vector3(9, 9, 0) }, uFlow: { value: 0.35 }, uSpark: { value: 0 }, uGain: { value: 0.55 }
+  };
+  var mat = new THREE.ShaderMaterial({
+    uniforms: uniforms, transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending,
+    vertexShader: [
+      "attribute vec3 pCoin; attribute vec3 pMap; attribute vec3 pAlbum;",
+      "attribute vec3 cCoin; attribute vec3 cMap; attribute vec3 cAlbum; attribute float aSeed;",
+      "uniform float uStage, uTime, uPx, uSize, uStir, uFlow, uSpark; uniform vec3 uPtr;",
+      "varying vec3 vCol; varying float vA;",
+      // divergence-free flow: each component ignores its own axis, so the field neither piles dust up nor tears holes in it
+      "vec3 flow(vec3 p, float t) {",
+      "  return vec3(sin(p.y * 1.7 + t) + 0.6 * cos(p.z * 2.3 - t * 0.7),",
+      "              sin(p.z * 1.3 - t * 0.8) + 0.6 * cos(p.x * 1.9 + t * 0.5),",
+      "              sin(p.x * 1.5 + t * 0.6) + 0.6 * cos(p.y * 2.1 - t * 0.9));",
+      "}",
+      "void main() {",
+      "  float st = clamp(uStage, 0.0, 3.0), si = min(floor(st), 2.0), sf = st - si;",
+      "  float s = si + clamp((sf - aSeed * 0.3) / 0.7, 0.0, 1.0);",              // per-grain stagger: each grain leaves at its own moment, all arrive exactly
+      "  float w0 = clamp(1.0 - s, 0.0, 1.0), w1 = clamp(1.0 - abs(s - 1.0), 0.0, 1.0);",
+      "  float w2 = clamp(1.0 - abs(s - 2.0), 0.0, 1.0), w3 = clamp(s - 2.0, 0.0, 1.0);",
+      "  w0 = w0 * w0 * (3.0 - 2.0 * w0); w1 = w1 * w1 * (3.0 - 2.0 * w1); w2 = w2 * w2 * (3.0 - 2.0 * w2); w3 = w3 * w3 * (3.0 - 2.0 * w3);",
+      "  float ws = max(w0 + w1 + w2 + w3, 1e-4);",
+      "  vec3 p = (position * w0 + pCoin * w1 + pMap * w2 + pAlbum * w3) / ws;",
+      "  vec3 cloudCol = mix(vec3(0.91, 0.74, 0.38), vec3(0.82, 0.84, 0.88), step(0.62, aSeed));",
+      "  vCol = (cloudCol * 0.55 * w0 + cCoin * w1 + cMap * w2 + cAlbum * w3) / ws;",
+      "  float between = 1.0 - max(max(w0, w1), max(w2, w3)) / ws;",            // 0 on a form, up to ~0.5 half way between two
+      "  float t = uTime * 0.35 + aSeed * 6.2831853;",
+      "  p += flow(p * 0.9 + aSeed, uTime * 0.25) * (between * 0.9 + w0 * 0.25 + 0.012) * uFlow;",
+      "  vec2 d = p.xy - uPtr.xy; float r2 = dot(d, d); float f = uStir * exp(-r2 / 0.28);",
+      "  p.xy += vec2(-d.y, d.x) * f * 0.85 + d * f * 0.18; p.z += f * 0.35 * sin(aSeed * 40.0 + uTime * 3.0);",
+      "  vec4 mv = modelViewMatrix * vec4(p, 1.0);",
+      "  gl_Position = projectionMatrix * mv;",
+      "  float tw = 1.0 + uSpark * 0.9 * pow(max(0.0, sin(t * 3.0 + aSeed * 50.0)), 24.0);",
+      "  float fine = 1.0 - 0.45 * w1 / ws;",                                   // finer grains on the coin so its relief resolves
+      "  gl_PointSize = uSize * uPx * fine * (0.55 + aSeed * 0.9) * tw / max(0.5, -mv.z);",
+      "  vA = 0.55 + 0.45 * tw - between * 0.25;",
+      "}"
+    ].join("\n"),
+    fragmentShader: [
+      "precision mediump float;",
+      "uniform float uGain; varying vec3 vCol; varying float vA;",
+      "void main() {",
+      "  vec2 q = gl_PointCoord - 0.5; float d = dot(q, q);",
+      "  if (d > 0.25) discard;",
+      "  float a = exp(-d * 18.0);",
+      "  gl_FragColor = vec4(vCol * a * vA * uGain, 1.0);",
+      "}"
+    ].join("\n")
+  });
+  var points = new THREE.Points(geo, mat);
+  points.frustumCulled = false;
+  scene.add(points);
+
+  /* ---------------- data (same origin) ---------------- */
+  function getJSON(u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }); }
+  function getText(u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(u + " " + r.status); return r.text(); }); }
+  function loadImage(u) {
+    return new Promise(function (res, rej) { var im = new Image(); im.decoding = "async"; im.onload = function () { res(im); }; im.onerror = function () { rej(new Error("image " + u)); }; im.src = u; });
+  }
+
+  /* coin: sample a real photo; brightness decides where grains land and how high they stand */
+  var coins = [], coinIx = 0;
+  function sampleCoin(img, label) {
+    var S = 256, cv = document.createElement("canvas"); cv.width = cv.height = S;
+    var g = cv.getContext("2d", { willReadFrequently: true }); g.drawImage(img, 0, 0, S, S);
+    var px = g.getImageData(0, 0, S, S).data;              // throws on a cross-origin / file:// image: caller falls back
+    var sat = 0, n = 0;
+    for (var k = 0; k < px.length; k += 64) { var mx = Math.max(px[k], px[k + 1], px[k + 2]), mn = Math.min(px[k], px[k + 1], px[k + 2]); if (px[k + 3] > 128 && mx > 30) { sat += (mx - mn) / mx; n++; } }
+    var metal = (n && sat / n > 0.22) ? GOLD : SILVER;
+    // weight each pixel by its local contrast (relief edges, lettering, rim) plus a little base so the field still shows,
+    // then draw grains from the cumulative weights: every grain lands, and detail gets the most grains
+    var lum = new Float32Array(S * S), blur = new Float32Array(S * S), cdf = new Float32Array(S * S), det = new Float32Array(S * S);
+    for (var y = 0; y < S; y++) for (var x = 0; x < S; x++) { var o = (y * S + x) * 4; lum[y * S + x] = (0.2126 * px[o] + 0.7152 * px[o + 1] + 0.0722 * px[o + 2]) / 255; }
+    var R2 = 3;
+    for (var y2 = 0; y2 < S; y2++) for (var x2 = 0; x2 < S; x2++) {
+      var acc = 0, cnt = 0;
+      for (var dy = -R2; dy <= R2; dy += 1) { var yy = y2 + dy; if (yy < 0 || yy >= S) continue; for (var dx = -R2; dx <= R2; dx += 2) { var xx = x2 + dx; if (xx < 0 || xx >= S) continue; acc += lum[yy * S + xx]; cnt++; } }
+      blur[y2 * S + x2] = acc / cnt;
+    }
+    var tot = 0;
+    for (var k2 = 0; k2 < S * S; k2++) {
+      var xk = (k2 % S) / (S - 1) * 2 - 1, yk = Math.floor(k2 / S) / (S - 1) * 2 - 1;
+      var inside = (xk * xk + yk * yk <= 0.97) && px[k2 * 4 + 3] > 100;
+      det[k2] = Math.abs(lum[k2] - blur[k2]);
+      var e = det[k2] * 6; tot += inside ? 0.03 + Math.min(1.5, e * e) + 0.25 * lum[k2] * lum[k2] : 0; cdf[k2] = tot;
+    }
+    fillCoin(function () {
+      var t = rnd() * tot, lo = 0, hi = S * S - 1;
+      while (lo < hi) { var mid = (lo + hi) >> 1; if (cdf[mid] < t) lo = mid + 1; else hi = mid; }
+      var x = ((lo % S) + rnd()) / S * 2 - 1, y = (Math.floor(lo / S) + rnd()) / S * 2 - 1, o = lo * 4;
+      var l = Math.min(1, 0.1 + Math.pow(lum[lo], 1.5) * 0.9 + det[lo] * 2.5);
+      return [x, -y, l, px[o] / 255, px[o + 1] / 255, px[o + 2] / 255];
+    }, metal);
+    $("#coinTitle").textContent = label;
+  }
+  function proceduralCoin() {                             // fallback only: rim, field and relief rings, no fake legend
+    fillCoin(function () {
+      var a = rnd() * 6.2831853, rr = Math.sqrt(rnd()) * 0.97, rim = rr > 0.86 ? 1 : 0, ring = Math.abs(Math.sin(rr * 18.0)) > 0.92 ? 1 : 0;
+      var l = 0.35 + 0.5 * rim + 0.3 * ring; return [Math.cos(a) * rr, Math.sin(a) * rr, l, l, l, l];
+    }, GOLD);
+    $("#coinTitle").textContent = "A coin (procedural stand-in)";
+  }
+  function fillCoin(pick, metal) {
+    var R = 1.45;
+    for (var i = 0; i < N; i++) {
+      var s = pick() || [gauss() * 0.02, gauss() * 0.02, 0.3, 0.3, 0.3, 0.3];
+      pCoin[i * 3] = s[0] * R; pCoin[i * 3 + 1] = s[1] * R; pCoin[i * 3 + 2] = (s[2] - 0.5) * 0.12;
+      var lit = 0.15 + Math.pow(s[2], 1.4) * 1.4;
+      cCoin[i * 3] = (metal[0] * 0.7 + s[3] * 0.3) * lit; cCoin[i * 3 + 1] = (metal[1] * 0.7 + s[4] * 0.3) * lit; cCoin[i * 3 + 2] = (metal[2] * 0.7 + s[5] * 0.3) * lit;
+    }
+    aCoin.needsUpdate = true; aCCoin.needsUpdate = true; renderOnce();
+  }
+
+  /* map: land from atlas.js's continent outline, countries from its coordinates, weighted by real coin counts */
+  function buildMap(world, coords, landPath) {
+    var W = 4.8, H = 2.4, land = [];
+    if (landPath && window.Path2D) {
+      var cv = document.createElement("canvas"); cv.width = 400; cv.height = 200;
+      var g = cv.getContext("2d", { willReadFrequently: true }); g.scale(0.4, 0.4); g.fillStyle = "#fff"; g.fill(new Path2D(landPath));
+      var d = g.getImageData(0, 0, 400, 200).data;
+      for (var y = 0; y < 200; y += 1) for (var x = 0; x < 400; x += 1) if (d[(y * 400 + x) * 4 + 3] > 128) land.push([x / 400, y / 200]);
+    }
+    var pts = [], total = 0;
+    world.forEach(function (w, k) {
+      var c = coords && coords[w.iso], u, v;
+      if (c) { u = (c.lon + 180) / 360; v = (90 - c.lat) / 180; }
+      else { u = 0.08 + (k % 10) * 0.092; v = 0.25 + Math.floor(k / 10) * 0.12; }   // no coordinates: a plain banded layout
+      var wt = Math.sqrt(w.count); pts.push({ u: u, v: v, wt: wt, n: w.count }); total += wt;
+    });
+    var landShare = land.length ? 0.55 : 0;
+    for (var i = 0; i < N; i++) {
+      var u, v, col, z = 0;
+      if (rnd() < landShare) {
+        var L = land[Math.floor(rnd() * land.length)]; u = L[0] + (rnd() - 0.5) / 400; v = L[1] + (rnd() - 0.5) / 200; col = [0.30, 0.25, 0.15];
+      } else {
+        var t = rnd() * total, p = pts[0];
+        for (var k = 0; k < pts.length; k++) { t -= pts[k].wt; if (t <= 0) { p = pts[k]; break; } }
+        var spread = 0.004 + 0.0016 * Math.sqrt(p.n);
+        u = p.u + gauss() * spread; v = p.v + gauss() * spread * 1.6; z = Math.abs(gauss()) * 0.05 * Math.sqrt(p.n) / 3;
+        var b = 0.7 + Math.min(1, p.n / 30) * 0.6; col = [GOLD[0] * b, GOLD[1] * b, GOLD[2] * b];
+      }
+      pMap[i * 3] = (u - 0.5) * W; pMap[i * 3 + 1] = (0.5 - v) * H; pMap[i * 3 + 2] = z;
+      cMap[i * 3] = col[0]; cMap[i * 3 + 1] = col[1]; cMap[i * 3 + 2] = col[2];
+    }
+    aMap.needsUpdate = true; aCMap.needsUpdate = true;
+    $("#mapTitle").textContent = world.length + " countries";
+  }
+
+  /* album: one real album's slot list (filled = lit disc, empty = dim ring) */
+  function buildAlbum(album) {
+    var slots = album.slots, n = slots.length, cols = Math.ceil(Math.sqrt(n * 1.8)), rows = Math.ceil(n / cols);
+    var cell = Math.min(4.4 / cols, 2.6 / rows), hole = cell * 0.36;
+    var tint = /copper|bronze|cent/i.test((album.metal_text || "") + " " + (album.denomination_text || "")) ? COPPER : /silver/i.test(album.metal_text || "") ? SILVER : GOLD;
+    for (var i = 0; i < N; i++) {
+      var k = Math.floor(rnd() * n), sl = slots[k], cx = ((k % cols) - (cols - 1) / 2) * cell, cy = ((rows - 1) / 2 - Math.floor(k / cols)) * cell;
+      var filled = sl.state === "filled", a = rnd() * 6.2831853, rr = filled ? Math.sqrt(rnd()) * hole : hole * (1.0 + gauss() * 0.04);
+      pAlbum[i * 3] = cx + Math.cos(a) * rr; pAlbum[i * 3 + 1] = cy + Math.sin(a) * rr; pAlbum[i * 3 + 2] = filled ? 0.03 : 0;
+      var b = filled ? 0.85 + 0.35 * (1 - rr / hole) : 0.28;
+      var c = filled ? tint : [0.55, 0.55, 0.6];
+      cAlbum[i * 3] = c[0] * b; cAlbum[i * 3 + 1] = c[1] * b; cAlbum[i * 3 + 2] = c[2] * b;
+    }
+    aAlbum.needsUpdate = true; aCAlbum.needsUpdate = true;
+    var filledN = slots.filter(function (s) { return s.state === "filled"; }).length;
+    $("#albumTitle").textContent = album.id + " · " + (album.title || album.family || "album");
+    $("#albumText").textContent = filledN + " of " + n + " holes have a coin (" + (album.family || "") + "). Lit holes have a coin, dim rings are still empty.";
+  }
+
+  // Offline / file:// fallback for the album only: the A001 COUNTS from collection/albums.json on 2026-10-07 (89 holes, 77 filled).
+  // Which holes are empty is not known offline, so the 12 empty rings are simply drawn last; the screen says this is a fallback.
+  var A001_FALLBACK = { id: "A001", title: "Whitman 9030 · Lincoln 1941-1974 #2", family: "Lincoln cents", metal_text: "95% Copper Bronze", denomination_text: "1¢ Wheat Cent", slots: [] };
+  for (var q = 0; q < 89; q++) A001_FALLBACK.slots.push({ state: q < 77 ? "filled" : "empty" });
+
+  function nextCoin() {
+    if (!coins.length) return;
+    coinIx = (coinIx + 1) % coins.length; var c = coins[coinIx];
+    loadImage("../" + c.thumb).then(function (im) { sampleCoin(im, c.label); }).catch(function () { say("photo " + c.scan + " did not load"); });
+  }
+  $("#next").addEventListener("click", nextCoin);
+  Array.prototype.forEach.call(document.querySelectorAll("#hud [data-mode]"), function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); }); });
+
+  var index = getJSON("../data/index.json").catch(function () { return null; });
+  var atlas = getText("../atlas.js").catch(function () { return null; });
+  var albums = getJSON("../collection/albums.json").catch(function () { return null; });
+
+  index.then(function (ix) {
+    if (ix && ix.flips) {
+      coins = ix.flips.filter(function (f) { return f.thumb && f.status !== "Removed"; });
+      coins.sort(function (a, b) { return (b.est || 0) - (a.est || 0); });       // most valuable photographed coins first
+      coinIx = -1; if (coins.length) nextCoin(); else proceduralCoin();
+    } else { proceduralCoin(); say("offline: data/index.json not reachable, procedural coin"); }
+    return atlas.then(function (src) {
+      var coords = null, land = null;
+      if (src) {
+        try { var m = /const COUNTRY_COORDS = (\{[\s\S]*?\n\});/.exec(src); if (m) coords = JSON.parse(m[1]); } catch (e) { coords = null; }
+        var p = /const CONTINENT_PATHS = "([^"]+)"/.exec(src); if (p) land = p[1];
+      }
+      if (!coords) say("map coordinates unavailable, banded layout");
+      var world = (ix && ix.world) || [];
+      if (!world.length) { world = []; for (var k = 0; k < 49; k++) world.push({ iso: "", count: 1 }); say("country counts unavailable"); }
+      buildMap(world, coords, land);
+    });
+  }).then(function () {
+    return albums.then(function (al) {
+      var a = al && (Array.isArray(al) ? al : al.albums || []).filter(function (x) { return x.slots && x.slots.length; });
+      if (a && a.length) buildAlbum(a[0]); else { buildAlbum(A001_FALLBACK); say("album list unavailable, A001 counts from 2026-10-07"); }
+      document.documentElement.setAttribute("data-ready", "1"); renderOnce();
+    });
+  }).catch(function (e) { say("load problem: " + e.message); });
+
+  // the coin photo could fail to sample (file://): catch the SecurityError once and fall back
+  var _sample = sampleCoin;
+  sampleCoin = function (img, label) { try { _sample(img, label); } catch (e) { proceduralCoin(); say("photo pixels unreadable here (open over http), procedural coin"); } };
+
+  /* ---------------- scroll -> stage ---------------- */
+  var target = 0, stage = 0, pinned = false;
+  function readScroll() {
+    if (pinned) { if (mode === "still") renderOnce(); else kick(); return; }
+    var secs = document.querySelectorAll("main section"), vh = window.innerHeight, best = 0;
+    var max = Math.max(1, document.documentElement.scrollHeight - vh);
+    best = (window.scrollY / max) * (secs.length - 1);
+    target = Math.max(0, Math.min(3, best));
+    if (mode === "still") { stage = Math.round(target); renderOnce(); } else kick();
+  }
+  window.addEventListener("scroll", readScroll, { passive: true });
+
+  /* ---------------- pointer stir (Calm: gentle, Full: strong; Still: off) ---------------- */
+  var stir = 0, ptrWorld = new THREE.Vector3(9, 9, 0), ray = new THREE.Vector3();
+  function onPtr(e) {
+    if (mode === "still") return;
+    var x = (e.clientX / window.innerWidth) * 2 - 1, y = -(e.clientY / window.innerHeight) * 2 + 1;
+    ray.set(x, y, 0.5).unproject(camera).sub(camera.position).normalize();
+    var t = -camera.position.z / ray.z; ptrWorld.copy(camera.position).addScaledVector(ray, t);
+    stir = Math.min(1, stir + (mode === "full" ? 0.35 : 0.15)); kick();
+  }
+  window.addEventListener("pointermove", onPtr, { passive: true });
+  window.addEventListener("pointerdown", onPtr, { passive: true });
+
+  /* ---------------- render loop with fps meter and automatic step-down ---------------- */
+  var running = false, last = 0, t0 = performance.now(), frames = 0, fpsT = 0, slow = 0, idle = 0;
+  function resize() {
+    var w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w, h, false); camera.aspect = w / h;
+    // pull back until the 4.8-unit-wide map and album fit the width (portrait phones), never closer than 5.2
+    var fit = 2.6 / (Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.aspect);
+    camera.position.z = Math.max(5.2, fit);
+    camera.updateProjectionMatrix(); uniforms.uPx.value = renderer.getPixelRatio() * (h / 900) * (camera.position.z / 5.2);
+    setGain();
+    renderOnce();
+  }
+  window.addEventListener("resize", resize);
+  function draw(now) {
+    uniforms.uTime.value = (now - t0) / 1000;
+    uniforms.uStage.value = stage;
+    uniforms.uStir.value = stir;
+    uniforms.uPtr.value.copy(ptrWorld);
+    uniforms.uFlow.value = mode === "full" ? 0.55 : mode === "calm" ? 0.3 : 0.0;
+    uniforms.uSpark.value = mode === "full" ? 1 : 0;
+    renderer.render(scene, camera);
+  }
+  // additive dust saturates to white when many grains overlap: dim each grain as the grain count rises
+  function setGain() { uniforms.uGain.value = 0.55 * Math.min(1, Math.sqrt(12000 / geo.drawRange.count)); }
+  function renderOnce() { if (!running) draw(performance.now()); }
+  function kick() { if (mode === "still" || running || document.hidden) return; running = true; last = performance.now(); requestAnimationFrame(loop); }
+  function loop(now) {
+    var dt = Math.min(0.05, (now - last) / 1000); last = now;
+    var speed = mode === "full" ? 3.2 : 1.6;               // Calm morphs at half speed
+    stage += (target - stage) * Math.min(1, dt * speed);
+    stir *= Math.pow(0.12, dt);
+    draw(now);
+    frames++; fpsT += dt;
+    if (fpsT >= 0.5) {
+      var fps = frames / fpsT; fpsEl.textContent = fps.toFixed(0) + " fps · " + (geo.drawRange.count / 1000).toFixed(0) + "k";
+      if (fps < 45 && tier < TIERS.length - 1) { if (++slow >= 4) { tier++; geo.setDrawRange(0, TIERS[tier]); setGain(); slow = 0; say("stepped down to " + TIERS[tier] / 1000 + "k grains"); } } else slow = 0;
+      frames = 0; fpsT = 0;
+    }
+    // stop the loop when nothing moves (Calm keeps a slow drift for 6 s after the last input, then rests)
+    var settled = Math.abs(target - stage) < 0.002 && stir < 0.01;
+    idle = settled ? idle + dt : 0;
+    if (mode === "still" || document.hidden || (idle > (mode === "full" ? 1e9 : 6))) { running = false; fpsEl.textContent = "resting · " + (geo.drawRange.count / 1000).toFixed(0) + "k"; return; }
+    requestAnimationFrame(loop);
+  }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) kick(); });
+
+  function noGL(why) {
+    $("#stage").style.display = "none"; $("#fallback").style.display = "grid"; fpsEl.textContent = "no WebGL";
+    getJSON("../data/index.json").then(function (ix) { var f = (ix.flips || []).filter(function (x) { return x.thumb; })[0]; if (f) { $("#fbimg").src = "../" + f.thumb; $("#fbimg").alt = f.label; } }).catch(function () {});
+    say(why); document.documentElement.setAttribute("data-ready", "1");
+  }
+
+  // deep link to one study: #stage=0..3 pins that form (scrolling no longer morphs); remove the hash to scroll through all four
+  var hs = /stage=([0-3])/.exec(location.hash);
+  if (hs) {
+    pinned = true; stage = target = +hs[1];
+    Array.prototype.forEach.call(document.querySelectorAll("main section"), function (sec, k) { if (k !== +hs[1]) sec.hidden = true; });
+  }
+  resize(); setMode(mode); readScroll();
+})();
+</script>
+</body>
+</html>

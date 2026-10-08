@@ -1,0 +1,200 @@
+{
+"generated_at": "2026-10-08T05:14:47Z",
+"summary": {
+"total": 31,
+"by_rule": {
+"copy_differs": 1,
+"issue_disagrees": 1,
+"mint_unknown": 28,
+"two_numbers": 1
+}
+},
+"findings": [
+{
+"rule": "issue_disagrees",
+"id": "C003,C115",
+"field": "issue.mintage",
+"detail": "CH.KM.21a 1968: C003 10,000,000, C115 31,588,000"
+},
+{
+"rule": "mint_unknown",
+"id": "C006",
+"field": "issue.mintage",
+"detail": "DE 1984: mint not read (unknown); 32,400,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C019",
+"field": "issue.mintage",
+"detail": "DE 1981: mint not read (unknown (not readable on oak reverse photo (check ); 460,410,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C030",
+"field": "issue.mintage",
+"detail": "DE 1982: mint not read (unknown (not clear on oak reverse photo (value sid); 291,290,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C035",
+"field": "issue.mintage",
+"detail": "DE 1971: mint not read (unknown (not read (mark on value side; photos show); 92,739,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C037",
+"field": "issue.mintage",
+"detail": "DE 2002: mint not read (unknown (photo unclear · A Berlin or J Hamburg)); 3,509,935,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C050",
+"field": "issue.mintage",
+"detail": "DE 1982: mint not read (unknown (letter under date unclear (soft D/G candi); 70,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C051",
+"field": "issue.mintage",
+"detail": "DE 1986: mint not read (unknown (letter above date unclear)); 160,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C057",
+"field": "issue.mintage",
+"detail": "DE 1982: mint not read (unknown (letter not on this reverse (oak-planter s); 87,360,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C058",
+"field": "issue.mintage",
+"detail": "DE 1985: mint not read (unknown (letter not on this reverse (oak-planter s); 60,200,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C089",
+"field": "issue.mintage",
+"detail": "DE 1995: mint not read (unknown (not on oak reverse (value side carries A/); 549,500,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C091",
+"field": "issue.mintage",
+"detail": "DE 1982: mint not read (unknown (letter under oak stem soft · near D/Munic); 291,290,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C092",
+"field": "issue.mintage",
+"detail": "DE 1982: mint not read (unknown (letter under oak stem unclear on photo (v); 291,290,000 must be the all-mints total"
+},
+{
+"rule": "copy_differs",
+"id": "C115",
+"field": "issue.mintage",
+"detail": "coin 31588000 vs type CH.KM.21a 10000000"
+},
+{
+"rule": "mint_unknown",
+"id": "C126",
+"field": "issue.mintage",
+"detail": "DE 2002: mint not read (unknown (letter not on shown common reverse (A/D/F); 2,082,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C131",
+"field": "issue.mintage",
+"detail": "DE 2002: mint not read (unknown (letter not clear on photo (A/D/F/G/J by t); 1,859,645,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C132",
+"field": "issue.mintage",
+"detail": "DE 2002: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 4,000,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C133",
+"field": "issue.mintage",
+"detail": "DE 2002: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 4,000,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C134",
+"field": "issue.mintage",
+"detail": "DE 2002: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 4,000,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C135",
+"field": "issue.mintage",
+"detail": "DE 2008: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 506,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C136",
+"field": "issue.mintage",
+"detail": "DE 2009: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 500,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C137",
+"field": "issue.mintage",
+"detail": "DE 2012: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 521,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C138",
+"field": "issue.mintage",
+"detail": "DE 2015: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 431,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C187",
+"field": "issue.mintage",
+"detail": "DE 1985: mint not read (unknown (not clear on shown side)); 75,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C188",
+"field": "issue.mintage",
+"detail": "DE 1985: mint not read (unknown (not clear on shown side)); 75,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C189",
+"field": "issue.mintage",
+"detail": "DE 1985: mint not read (unknown (not clear on shown side)); 75,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C190",
+"field": "issue.mintage",
+"detail": "DE 1985: mint not read (unknown (not clear on shown side)); 75,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C191",
+"field": "issue.mintage",
+"detail": "DE 1986: mint not read (unknown (not clear on shown side)); 150,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C192",
+"field": "issue.mintage",
+"detail": "DE 1991: mint not read (unknown (not clear on shown side)); 1,300,000,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C265",
+"field": "issue.mintage",
+"detail": "DE 1950: mint not read (unknown (letter soft / not locked (between oak lea); 1,100,617,000 must be the all-mints total"
+},
+{
+"rule": "two_numbers",
+"id": "DE.KM.124",
+"field": "catalogs",
+"detail": "2 KM numbers: 124, A127"
+}
+]
+}

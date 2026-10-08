@@ -74,6 +74,12 @@ def warnings(col):
     return w
 
 
+def _truth(col):
+    """Contradictions inside the records (tools/pipeline/truth_checks.py); integrity above only checks that the graph is well formed."""
+    import truth_checks as TC
+    return dict(TC.summary(TC.findings(col)), note="contradictions and over-specific claims; list in data/truth.json")
+
+
 def _next_ids(specs):
     """Muse's audit #1: the id the pipeline will give the next new coin / token (ids are never reused, removed ones count)."""
     def nxt(prefix):
@@ -120,6 +126,7 @@ def status(col, out, build, now, root=None):
                    "still_needed": (_load(resh)["total"] if os.path.exists(resh) else None)},
         "research": {"open_questions": oq, "specimens_with_open_questions": oq_specs},
         "integrity": {"problems": len(problems(col, out, root)), "warnings": warnings(col)},
+        "truth": _truth(col),
     }
 
 

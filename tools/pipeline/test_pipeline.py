@@ -261,6 +261,20 @@ class Pipeline(unittest.TestCase):
         c4 = CIO.Collection(os.path.join(tmp, "collection"))
         self.assertEqual(c4.specs[a]["issue"]["mintage"], 123456789 + 7)
 
+    def test_truth_checks(self):
+        """Truth checks find contradictions; their mechanical fixes apply cleanly and are idempotent (nothing left to fix afterwards)."""
+        sys.path.insert(0, HERE)
+        import truth_checks as TC, build_app_data as BA
+        tmp = sandbox(); coll = os.path.join(tmp, "collection")
+        fs = TC.findings(BA.load_collection(coll))
+        self.assertTrue(all({"rule", "id", "field", "detail"} <= set(f) for f in fs))
+        ev = TC.fix_events(coll, "2026-10-09T12:00:00Z")
+        if ev:
+            r = self.apply(tmp, write_events(tmp, "changes_script_20261009-1200-truth.jsonl", ev)); self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertEqual(TC.fix_events(coll, "2026-10-09T12:01:00Z"), [])
+        left = TC.summary(TC.findings(BA.load_collection(coll)))["by_rule"]
+        self.assertNotIn("number_but_unknown", left)
+
     def test_recitation_with_exact_source_is_logged(self):
         """#48: a model re-stating an existing value with an exact catalogue entry is kept in the log (no value change)."""
         sys.path.insert(0, HERE)
@@ -562,6 +576,13 @@ class Provenance(unittest.TestCase):
         # a type event counts for a type fact, and a long source is truncated
         te = self.E(entity="type", id="XX.KM.1", field="ruler", source="Numista N#6319 " + "y" * 300)
         c = self.cert([te], fact="ruler"); self.assertEqual(c["level"], "reference"); self.assertLessEqual(len(c["source"]), 140)
+
+    def test_bookkeeping_copies_never_decide_certainty(self):
+        """A mintage backfilled to the type by the truth checks (or mirrored by the pipeline) keeps the certainty of the event that brought it in."""
+        evs = [self.E(field="issue.mintage", new=15000000, source="Numista N#5904 mintage row", ts="2026-10-08T02:30:00Z"),
+               self.E(by="script:truth-checks", entity="type", id="XX.KM.1", field="issues.0.mintage", new=15000000,
+                      source="one issue, one number: backfilled from coin C900", ts="2026-10-08T05:05:00Z")]
+        self.assertEqual(self.cert(evs, "mintage")["level"], "reference")
 
     def test_reference_regex_vs_generic_numista(self):
         P = self.P

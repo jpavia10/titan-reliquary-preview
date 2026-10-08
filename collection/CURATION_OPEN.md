@@ -92,7 +92,7 @@ Claude agrees with 12 of 16 from catalog knowledge; fix the type records in Phas
 - **silver oz, all buckets**: collection 61.7703 vs ledger 63.27 (delta 1.4997, all from bullion)  | same cause
 - **estimated value (records vs board)**: collection records $3,475.65 vs ledger board excl. albums $3,334.31 (delta $141.34); ledger headline $5,393.70 = board + albums $2,059.39, albums not itemized  | ledger board is re-priced at spot $60.59; the B###/S### estimates were made at $63.50/oz, flips/housing/stamps at their own dates
 - **Albums are not itemized.** The ledger's album value ($2,059.39 on the board) and the ~930 binder coins are not specimen records; only the slot grids exist. The v254 headline ($5,393.70) therefore cannot be rebuilt from `collection/` alone.
-- **Silver in binders is not counted.** The ledger's 63.27 oz counts only the American Silver Eagles in A025/A026 (24 oz). Older silver in albums (Mercury dimes A006, pre-1965 Roosevelt A005, 1964 Kennedy A007, pre-1965 Washington quarters A012/A029, war nickels A015) is in no total. The Phase 1.5 album scans will show how much there is.
+- ~~**Silver in binders is not counted.**~~ Superseded by 7b (2026-10-06): album silver IS in the board total. The ledger's 63.27 oz counts only the American Silver Eagles in A025/A026 (24 oz). Older silver in albums (Mercury dimes A006, pre-1965 Roosevelt A005, 1964 Kennedy A007, pre-1965 Washington quarters A012/A029, war nickels A015) is in no total. The Phase 1.5 album scans will show how much there is.
 
 ## 7b. Where the 1.5 oz of unrecorded bullion silver came from: RESOLVED 2026-10-06 (fix-list #38)
 
@@ -106,33 +106,18 @@ Grok's notes carry a running "Vault Ag ~X → ~Y" total on every record. Replaye
 - It is not the album silver: the pre-1965 / 40 % coins in the albums (A005 1951 + 1964 dimes, A006 1943 Mercury, A007 1964 + 1966 + 1967 halves, A012 1964 quarter) add up to **1.055 oz**, and they are not in any total either (fix-list #37).
 - **Question for the owner:** did you have about 1.5 oz of silver before Sept 12 that has no B record? It would be about 1.5 oz in one or more pieces, such as 1/2 oz rounds, 1/4 oz rounds or a 1.5 oz piece. If yes, it gets a lot record. If not, the board total drops by 1.4997 oz.
 
-## 8. Album volumes that need the owner's fresh scans (Phase 1.5): 23 of 33
+## 8. Album volumes that needed fresh scans (Phase 1.5): RESOLVED 2026-10-03
 
-Computed holes are exact only for volumes the ledger enumerates; the rest stay flagged until each album is re-scanned. `python3 tools/albums/album_calc.py collection/` prints the table.
+All 33 albums were read hole by hole from the owner's page photos (`needs_scan` 0 in `collection/albums.json`; CLAUDE.md status log 2026-10-02/03). The only open album item is A006 (77 holes vs the estimated 80), which is an owner question in the app.
 
-- **A002** Whitman 4304 · Lincoln Starting 2014 #4: 17 filled of 24; partial (some slots named)
-- **A003** Whitman 1939 · Roosevelt Starting 2005 #3: 39 filled of 40; count-only (the ledger gives only the fill count)
-- **A004** Whitman 9034 · Roosevelt 1965-2004 #2: 74 filled of 78; count-only (the ledger gives only the fill count)
-- **A005** Whitman 9029 · Roosevelt 1946-1964 #1: 2 filled of 48~; count-only (the ledger gives only the fill count)
-- **A006** Whitman 9014 · Mercury 1916-1945: 1 filled of 80~; count-only (the ledger gives only the fill count)
-- **A007** Whitman · Kennedy Halves 1964-1985 #1: 32 filled of 36; count-only (the ledger gives only the fill count)
-- **A008** Whitman · Kennedy Halves 1986-2003 #2: 32 filled of 36; count-only (the ledger gives only the fill count)
-- **A010** Whitman 9040 · Washington Quarters 1965-1987 #3: 59 filled of ?~; count-only (the ledger gives only the fill count)
-- **A011** Whitman 9032 · Washington Quarters 1988-1998 #4: 25 filled of 42~; count-only (the ledger gives only the fill count)
-- **A012** Whitman · Washington Quarters 1948-1964 #2: 1 filled of 36~; count-only (the ledger gives only the fill count)
-- **A013** Whitman 9035 · Jefferson Nickels Starting 1996 #3: 56 filled of ?~; count-only (the ledger gives only the fill count)
-- **A014** Whitman 9039 · Jefferson Nickels 1962-1995 #2: 57 filled of ?~; count-only (the ledger gives only the fill count)
-- **A015** Whitman 9009 · Jefferson Nickels 1938-1961 #1: 9 filled of ?~; partial (some slots named)
-- **A018** Whitman 9023 · Eisenhower-Anthony $1 1971-81, 1999: 9 filled of 30; partial (some slots named)
-- **A019** Whitman 3163 · Native American $1 Starting 2009: 2 filled of 36; partial (some slots named)
-- **A020** Whitman 8060 · Sacagawea $1 2000-2008: 8 filled of 18~; partial (some slots named)
-- **A022** Whitman 9003 · Indian Head / Flying Eagle 1857-1909: 1 filled of 58~; partial (some slots named)
-- **A023** Whitman 9004 · Lincoln Cents 1909-1940 #1: 7 filled of 90~; partial (some slots named)
-- **A024** Whitman 9046 · 20th Century Type Coins: 10 filled of 37~; partial (some slots named)
-- **A028** Whitman 4950 · Crossing Delaware / American Women 2021-2025: 13 filled of 46; partial (some slots named)
-- **A031** Whitman 9008 · Buffalo Nickels 1913-1938: 1 filled of 65; partial (some slots named)
-- **A032** Whitman 4049 · Canada Small Cents #2 1989-2012: 7 filled of 36; partial (some slots named)
-- **A033** Whitman 2479 · Canada Small Cents #1 1920-1988: 35 filled of 75; partial (some slots named)
+## 9. Deep review round 1 (Grok, Muse, ChatGPT, Gemini; merged 2026-10-08)
+
+Merged: Grok's 32 catalogue/mintage events, Muse's 11 (EC, SA, CU, TH, US.KM.204), the Swiss 2 francs split (C077 1991 → CH.KM.21a.3), the C248 story (Karaiskakis), and the truth-check fixes (one mintage per issue: 114 type issues backfilled, 111 "unknown" texts cleared). Still open:
+- **CH.KM.21a 1968 B mintage:** C003 / the type say 10,000,000 (ledger, "~"; Foronum agrees), C115 says 31,588,000 (Muse Round 4; Grok saw it in a Numista snippet). One of them is wrong; needs Numista N#189's 1968 B row read directly.
+- **C238 portrait** (Adenauer KM#124 or Heuss KM#A127), **C088 mint mark**, **C064 F mark**, **C202 magnet** (KM#277.6 copper-nickel or KM#277.6a steel), **C073 tube**: owner questions in the app.
+- **28 coins from the US and Germany with no readable mint mark but a mintage:** the figure must be the all-mints total (`data/truth.json`, rule `mint_unknown`).
+- **Malta Schön numbers** (MT.KM.128/129/132 carry Schön numbers equal to the old wrong KM numbers): unchecked (Grok).
+- **CH.KM.26c / CH.KM.29a** may also have `.3` sub-numbers for 1983+ issues (Muse, unverified).
 
 ## What was changed automatically (for reference)
 

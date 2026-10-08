@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   smoke:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest moves to Ubuntu 26 on 2026-10-19 and the Playwright browser deps may lag (fix list #51)
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4

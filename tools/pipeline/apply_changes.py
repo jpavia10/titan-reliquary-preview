@@ -380,6 +380,7 @@ class Applier:
             self.log.append(f"no change (value already set): {ent} {rid} {field}"); return
         self.check_verified(e, old)
         copies = self.issue_copies(rec, path) if ent == "type" else []
+        if ent == "type" and field == "issues": e = dict(e, _old_issues=copy.deepcopy(old))
         set_at(rec, path, copy.deepcopy(e["new"]))
         self.log_event(e, old)
         for sp in copies:                                   # specimens carry a copy of their issue; keep it in step with the type (the type event is the audit record)
@@ -423,14 +424,18 @@ class Applier:
         if not (e.get("source") or "").strip(): raise Reject("overwriting a verified fact needs a 'source'")
         self.log.append(f"SUPERSEDED verified fact: {e['entity']} {e['id']} {e['field']} (was verified by {newest['by']} {newest['ts']})")
 
-    def resync_issue_copies(self, t):
-        """After a whole-list `issues` write (Muse's review MUS-3-01): every specimen of the type takes its issue copy from the matching new issue."""
+    def resync_issue_copies(self, t, old_issues):
+        """After a whole-list `issues` write (Muse's review MUS-3-01): a value the write CHANGED in a type issue reaches every specimen of that
+        issue. A value the write left alone is not pushed over a coin's own differing figure (that is an open conflict for a person to settle)."""
+        k3 = lambda i: (i["year"], tuple(i["mint_marks"]), i.get("qualifier"))
+        before = {k3(i): i for i in (old_issues or []) if isinstance(i, dict) and "year" in i}
         for s in self.c.specs.values():
             if s["type"] != t["id"]: continue
-            i = next((i for i in t["issues"] if i["year"] == s["issue"]["year"] and i["mint_marks"] == s["issue"]["mint_marks"] and i.get("qualifier") == s["issue"].get("qualifier")), None)
-            if i is not None:
-                for k in ("mintage", "mintage_text", "mint_text"):
-                    if k in i and i[k] is not None: s["issue"][k] = copy.deepcopy(i[k])
+            i = next((i for i in t["issues"] if k3(i) == k3(s["issue"])), None)
+            if i is None: continue
+            was = before.get(k3(i), {})
+            for k in ("mintage", "mintage_text", "mint_text"):
+                if k in i and i[k] is not None and (i[k] != was.get(k) or s["issue"].get(k) is None): s["issue"][k] = copy.deepcopy(i[k])
 
     def issue_copies(self, t, path):
         """Specimens whose issue copy belongs to the type issue that `path` (issues.N.<leaf>) edits."""
@@ -443,7 +448,7 @@ class Applier:
         if e["entity"] == "specimen" and overlap(e["field"], "value.est_usd") and e["field"] in ("value.est_usd", "value"):
             est = rec["value"]["est_usd"]
             if est is not None: self.upsert_valuation(rec["id"], e["ts"][:10], est, e)
-        if e["entity"] == "type" and e["field"] == "issues": self.resync_issue_copies(rec)
+        if e["entity"] == "type" and e["field"] == "issues": self.resync_issue_copies(rec, e.get("_old_issues"))
         if e["entity"] == "specimen" and e["field"].startswith("issue"): self.ensure_issue(rec, e)
         if e["entity"] == "specimen" and e["field"] in ("issue.mintage", "issue") : self.mirror_mintage(rec, e)
         m = re.match(r"^issues\.(\d+)\.mintage$", e["field"]) if e["entity"] == "type" else None

@@ -127,6 +127,25 @@ def scenario(r):
             p.context.set_offline(False); p.wait_for_timeout(500); r.offline = False
 
 
+def static_checks():
+    """ChatGPT's review worried the service worker could drift from the page (an old BUILD, missing new modules). Prove it cannot ship:
+    every script and stylesheet index.html loads is in sw.js, and sw.js, index.html and version.json carry the same build."""
+    import json, re
+    idx = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read(); sw = open(os.path.join(ROOT, "sw.js"), encoding="utf-8").read()
+    build = json.load(open(os.path.join(ROOT, "version.json"), encoding="utf-8")).get("build")
+    fails = []
+    m = re.search(r'const BUILD = "([^"]+)"', sw)
+    if not m or m.group(1) != build: fails.append(f"sw.js BUILD {m.group(1) if m else '?'} != version.json build {build}")
+    for ref in sorted(set(re.findall(r'(?:src|href)="([^"?#]+\.(?:js|css))(?:\?v=([^"]+))?"', idx))):
+        path, v = ref
+        if path.startswith("http") or "NAME" in path: continue
+        if path not in sw: fails.append(f"{path} is loaded by index.html but not cached by sw.js")
+        if v and v != build: fails.append(f"index.html loads {path}?v={v}, not the current build {build}")
+    for f in fails: print("  [static] FAIL", f)
+    print(f"  [static] {'ok  ' if not fails else 'FAIL'} offline shell matches the page (build {build})")
+    return fails
+
+
 def main(argv):
     from playwright.sync_api import sync_playwright
     url = argv[argv.index("--url") + 1] if "--url" in argv else None
@@ -135,7 +154,7 @@ def main(argv):
     if shots: os.makedirs(shots, exist_ok=True)
     httpd = None
     if not url: url, httpd = serve()
-    total_fail = []
+    total_fail = ["static: " + f for f in static_checks()]
     with sync_playwright() as pw:
         kw = {"executable_path": CHROMIUM} if os.path.exists(CHROMIUM) else {}
         browser = pw.chromium.launch(args=["--use-gl=swiftshader", "--enable-webgl", "--ignore-gpu-blocklist"], **kw)

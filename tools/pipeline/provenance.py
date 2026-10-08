@@ -80,6 +80,13 @@ def _question_hit(fact, questions, tokens):
     rx = re.compile(Q_WORDS[fact], re.I)
     return any(rx.search(q) or any(t and t in q for t in tokens) for q in questions)
 
+def _derived(e):
+    """Bookkeeping copies the pipeline writes (one issue, one number; cleared 'unknown' text; an issue added for a coin). They move a value
+    that some other event already established, so they never decide how sure we are: the event that brought the fact in does."""
+    by, src = _s(e.get("by")), _s(e.get("source"))
+    return (by in ("script:truth-checks", "script:pipeline") or src.startswith(("cleared:", "mirrored from", "one issue, one number"))
+            or bool(re.match(r"issue \d{4}\S*(?: \S+)? added because specimen", src)))
+
 def certainty(sid, type_id, ix, facts, questions=(), tokens=None, legacy=False):
     """-> {fact: entry} for the given facts. `ix` = {(entity, id): [(file order, event)]}.
     The LAST event (by ts, then file order) that set the fact, on the specimen or on its type, decides the level. With no event, the specimen's ledger import,
@@ -93,6 +100,7 @@ def certainty(sid, type_id, ix, facts, questions=(), tokens=None, legacy=False):
         cand = [(_s(e.get("ts")), i, e) for i, e in spec_ev if _match(e.get("field"), sp)]
         cand += [(_s(e.get("ts")), i, e) for i, e in type_ev if _match(e.get("field"), ty)]
         if fact in RETYPE_FACTS: cand += [(_s(e.get("ts")), i, e) for i, e in spec_ev if e.get("field") == "type"]
+        cand = [c for c in cand if not _derived(c[2])]
         if fact == "year":   # an owner note that confirms the year
             cand += [(_s(e.get("ts")), i, e) for i, e in spec_ev if e.get("field") == "notes" and _s(e.get("by")).startswith("owner") and re.search(r"\b(year|date)\b", _s(e.get("source")), re.I)]
         ev = max(cand, key=lambda c: (c[0], c[1]))[2] if cand else None
