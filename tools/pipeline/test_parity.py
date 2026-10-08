@@ -83,7 +83,9 @@ def run(coll, gold):
             a = {x: y for x, y in a.items() if x != "portfolio_daily"}; b = {x: y for x, y in b.items() if x != "portfolio_daily"}
         if a != b: fails.append(f"index.{k} differs from the ledger block")
     gf = {f["scan"]: f for f in gi["flips"]}; nf = {f["scan"]: f for f in ni["flips"]}
-    if set(gf) != set(nf): fails.append(f"flip ids differ: only golden {sorted(set(gf) - set(nf))[:5]} only built {sorted(set(nf) - set(gf))[:5]}")
+    # Muse's review MUS-3-05: a flip in the golden data that the build lost is a failure; a flip the build ADDED (a new coin) is not
+    if set(gf) - set(nf): fails.append(f"flip ids lost: only golden {sorted(set(gf) - set(nf))[:5]}")
+    if set(nf) - set(gf): print(f"info: {len(set(nf) - set(gf))} new flip(s) since the golden data: {sorted(set(nf) - set(gf))[:8]}")
     for s in gf:
         if s in nf: compare_records("index.flip", gf[s], nf[s], stats, ex, curated, fails)
     for kind in ("bullion", "sets", "housing", "stamps"):

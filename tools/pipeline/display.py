@@ -242,7 +242,7 @@ def lot_row(col, l):
          "parked": l["storage_text"], "notes": l["notes"]}
     if kind == "stamp" and disp.get("contents") is not None: r["contents"] = disp["contents"]
     r["mint"] = disp.get("mint", ""); r["continent"] = disp.get("continent", ""); r["face"] = disp.get("face", "")
-    r["est"] = est; r["est_raw"] = f"{est:.2f}"; r["conf"] = l["confidence"]
+    r["est"] = est; r["est_raw"] = f"{est:.2f}" if est is not None else None; r["conf"] = l["confidence"]   # MUS-3-06: est_usd is nullable
     if kind in ("bullion", "set"):
         r["melt"] = melt; r["melt_raw"] = f"{melt:.2f}" if melt is not None else None
     r["qty_n"] = l["qty"]

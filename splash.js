@@ -217,7 +217,7 @@
   }
   if (btnSound) {
     btnSound.addEventListener("pointerdown", function (e) { e.stopPropagation(); });
-    btnSound.addEventListener("click", function (e) { e.stopPropagation(); Sfx.set(!Sfx.isOn()); syncSound(); });
+    btnSound.addEventListener("click", function (e) { e.stopPropagation(); Sfx.set(!Sfx.isOn()); syncSound(); if (Sfx.isOn()) unlockSound(); });
   }
 
   /* ---------- lifecycle ---------- */
@@ -239,7 +239,8 @@
   }
   function onPointer(e) {
     if (state === "done") return; e.preventDefault();
-    if (Sfx.isOn() && !soundUnlocked && e.target !== btnSkip) { unlockSound(); return; }   // first tap = sound on (when the browser blocked it), not skip
+    // Grok's review GRK-3-06: a tap anywhere skips (the dad flow: tap to get past the film). Sound comes on only from "Tap for sound" or the sound button.
+    if (soundHint && e.target && e.target.closest && e.target.closest(".ts-sound-hint")) { unlockSound(); return; }
     Sfx.gesture(); skip();
   }
   window.addEventListener("keydown", onKey, true);

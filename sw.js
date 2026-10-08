@@ -1,10 +1,10 @@
-/* Titan Reliquary service worker · build tr98
+/* Titan Reliquary service worker · build tr99
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback
    - audio/ambience/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr98";
+const BUILD = "tr99";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
@@ -128,12 +128,55 @@ async function cacheFirst(req, cacheName) {
   const hit = await cache.match(req);
   if (hit) return hit;
   const res = await fetch(req);
-  if (res && res.ok) cache.put(req, res.clone());
+  if (res && res.ok) {
+    if (cacheName === IMG) {   // Grok's review GRK-3-10: a re-cut photo has a new ?v=; drop the old copies of the same file so the cache never grows forever
+      const path = new URL(req.url).pathname;
+      for (const k of await cache.keys()) { const u = new URL(k.url); if (u.pathname === path && u.search !== new URL(req.url).search) await cache.delete(k); }
+    }
+    cache.put(req, res.clone());
+  }
   return res;
+}
+
+/* Grok's review GRK-3-01: offline used to cover only the Hall. After each new data build the page asks for "titan:warm" and every coin-detail
+   file, search and the owner questions are saved, so any coin opens offline, not only the ones viewed before. Missing files only; a new
+   data build (index generated_at) refreshes them all. Photos stay "saved when first seen" unless the owner saves them all from Health. */
+async function warmData(withPhotos) {
+  const cache = await caches.open(DATA), scope = self.registration.scope;
+  const abs = (u) => new URL(u, scope).href;
+  let idx;
+  try { const r = await fetch(abs("data/index.json"), { cache: "no-store" }); if (!r.ok) return { ok: false }; idx = await r.clone().json(); await cache.put(abs("data/index.json"), r); }
+  catch (_e) { return { ok: false }; }
+  const mark = abs("data/.warm-" + String(idx.generated_at || idx.ledger_version || "x").replace(/[^\w.-]/g, ""));
+  const fresh = !(await cache.match(mark));
+  const urls = ["data/search.json", "data/questions.json", "data/prices.json", "data/status.json", "data/wants.json"];
+  for (const f of idx.flips || []) urls.push("data/detail/" + encodeURIComponent(f.d || "_misc") + ".json");
+  let n = 0;
+  for (const u of [...new Set(urls)]) {
+    if (!fresh && await cache.match(abs(u))) continue;
+    try { const r = await fetch(abs(u), { cache: "no-store" }); if (r.ok) { await cache.put(abs(u), r); n++; } } catch (_e) { /* offline again: keep what we have */ }
+  }
+  await cache.put(mark, new Response("1"));
+  let p = 0;
+  if (withPhotos) {
+    const img = await caches.open(IMG);
+    for (const f of idx.flips || []) {
+      if (!f.thumb) continue;
+      const u = abs(f.thumb);
+      if (await img.match(u)) continue;
+      try { const r = await fetch(u); if (r.ok) { await img.put(u, r); p++; } } catch (_e) { /* skip */ }
+    }
+  }
+  return { ok: true, data: n, photos: p };
 }
 
 /* Health view: reply with the build and the cache names so the page can show what is really running. */
 self.addEventListener("message", (e) => {
+  if (e.data && (e.data.type === "titan:warm" || e.data.type === "titan:warm-photos")) {
+    const port = e.ports && e.ports[0];
+    e.waitUntil(warmData(e.data.type === "titan:warm-photos").then((r) => { if (port) port.postMessage(Object.assign({ type: e.data.type }, r)); }));
+    return;
+  }
   if (!e.data || e.data.type !== "titan:sw-info") return;
   const port = e.ports && e.ports[0], src = port || e.source;
   e.waitUntil((async () => {
@@ -152,7 +195,7 @@ self.addEventListener("fetch", (e) => {
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA));
-  } else if (path.includes("/thumbs/") || path.includes("/photos/p1/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
+  } else if (path.includes("/thumbs/") || path.includes("/photos/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
     e.respondWith(cacheFirst(req, IMG));
   } else if (path.includes("/audio/ambience/")) {
     e.respondWith(cacheFirst(req, AMB));

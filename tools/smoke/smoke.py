@@ -60,6 +60,8 @@ def scenario(r):
     r.check("splash skipped with ?nosplash", not p.evaluate("[...document.querySelectorAll('[class*=splash]')].some(e => e.offsetParent && getComputedStyle(e).opacity > 0.5 && e.getBoundingClientRect().height > innerHeight * 0.8)"))
     hero = r.visible_text("#hero-grand"); r.check("Hall shows the collection value", hero.startswith("$") and hero != "$0.00", hero)
     r.check("Hall shows the spot as-of line", "spot as of" in r.visible_text("#hall-asof"))
+    cap = r.visible_text(".hero-cap").lower()
+    r.check("headline caption names the price date", " prices)" in cap or "at spot" in cap, cap[:120])
     r.shot("hall")
     r.go("gallery", 3500)
     r.check("Gallery carousel has cards", p.evaluate("document.querySelectorAll('#gallery-coverflow-wrap .cf-card').length") > 0)
@@ -108,10 +110,19 @@ def scenario(r):
         p.wait_for_timeout(1000); p.reload(); p.wait_for_timeout(500)
     r.check("service worker controls the page", ok)
     if ok:
+        # Grok's review GRK-3-01/02/11: offline must cover more than the Hall. Save the data the way the app does when idle, then go offline
+        # and open a coin that was never opened online, and the Questions page (cards or an honest "can't load", never "No open questions").
+        warm = p.evaluate("window.TitanWarm ? window.TitanWarm(false) : null")
+        r.check("data saved for offline", bool(warm and warm.get("ok")), str(warm))
         p.context.set_offline(True); r.offline = True      # fresh-only fetches (version checks, ?t= data) are expected to fail offline
         try:
             p.reload(); p.wait_for_timeout(3500)
             hero = r.visible_text("#hero-grand"); r.check("works offline (Hall value shows)", hero.startswith("$") and hero != "$0.00", hero)
+            p.goto(r.base + "?nosplash#coin=C258"); p.wait_for_timeout(3500)
+            r.check("offline: a coin never opened before still opens", p.evaluate("document.querySelectorAll('.gxd-cert').length") >= 3)
+            p.goto(r.base + "?nosplash#questions"); p.wait_for_timeout(2500)
+            qt = r.visible_text("#questions-view")
+            r.check("offline: Questions never claims there are none", "No open questions" not in qt and (p.evaluate("document.querySelectorAll('.qv-q').length") > 0 or "Can't load" in qt), qt[:120])
         finally:
             p.context.set_offline(False); p.wait_for_timeout(500); r.offline = False
 

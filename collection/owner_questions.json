@@ -309,6 +309,129 @@
           "followup": "Owner will drop a photo of C023's other side in STAGING."
         }
       ]
+    },
+    {
+      "id": "q-c202-magnet",
+      "coin": "C202",
+      "ask": "Hold a magnet to C202, the Guatemala 2010 10 centavos. Does it stick?",
+      "why": "From 2009 Guatemala struck this coin in two metals: magnetic steel (KM#277.6a, 2.42 g) and non-magnetic copper-nickel. The record's catalogue number (KM#277.1) is the 1970s coin, so the magnet decides which one yours is.",
+      "options": [
+        {
+          "label": "Yes, it sticks",
+          "effect": [],
+          "followup": "C202 is the steel KM#277.6a (Numista N#42670): set catalogs, composition 'stainless steel (magnetic)', weight 2.42 g."
+        },
+        {
+          "label": "No",
+          "effect": [],
+          "followup": "C202 is copper-nickel: find the KM#277.6 entry with its weight and set catalogs and nominal."
+        },
+        {
+          "label": "No magnet handy",
+          "effect": [],
+          "keep_open": true
+        }
+      ]
+    },
+    {
+      "id": "q-c238-portrait",
+      "coin": "C238",
+      "ask": "On C238, the 1973 D West German 2 mark, whose name is written next to the portrait: KONRAD ADENAUER or THEODOR HEUSS?",
+      "why": "They are two different coins (KM#124 Adenauer, KM#A127 Heuss) with different mintages; the record lists both.",
+      "options": [
+        {
+          "label": "Konrad Adenauer",
+          "effect": [],
+          "followup": "C238 is KM#124 (Numista N#844): drop KM#A127 from DE.KM.124; 1973 D mintage 10,393,000 stays."
+        },
+        {
+          "label": "Theodor Heuss",
+          "effect": [],
+          "followup": "C238 is KM#A127 (Numista N#1935): new type DE.KM.A127, move C238, 1973 D mintage 10,379,000."
+        },
+        {
+          "label": "I'll send a photo",
+          "effect": [],
+          "followup": "Owner will drop a photo of C238's portrait side in STAGING."
+        }
+      ]
+    },
+    {
+      "id": "q-c088-mint",
+      "coin": "C088",
+      "ask": "On C088, the 1957 dime, look on the torch side, left of the torch near the bottom. Is there a small D?",
+      "why": "No letter means Philadelphia (160,160,000 struck); D means Denver (113,354,330). The record can't tell yet.",
+      "options": [
+        {
+          "label": "Yes, a D",
+          "effect": [
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C088",
+                "field": "issue.mint_marks",
+                "new": [
+                  "D"
+                ]
+              }
+            }
+          ],
+          "followup": "C088 is 1957-D: set mintage 113,354,330 (PCGS #5115)."
+        },
+        {
+          "label": "No letter",
+          "effect": [],
+          "followup": "C088 is 1957 Philadelphia: set mintage 160,160,000 with a PCGS citation."
+        }
+      ]
+    },
+    {
+      "id": "q-c064-mint",
+      "coin": "C064",
+      "ask": "On C064, the Malta 2008 1 euro, is there a small F on the Maltese (cross) side?",
+      "why": "Catalogues list the 2008 Maltese 1 euro as struck in Paris with an F mint mark.",
+      "options": [
+        {
+          "label": "Yes, an F",
+          "effect": [
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C064",
+                "field": "issue.mint_marks",
+                "new": [
+                  "F"
+                ]
+              }
+            }
+          ],
+          "followup": "C064 mint mark F (Paris) recorded: tidy the mint text."
+        },
+        {
+          "label": "No letter",
+          "effect": [],
+          "followup": "C064 has no visible F: note it in the record."
+        }
+      ]
+    },
+    {
+      "id": "q-c073-sort",
+      "coin": "C073",
+      "ask": "C073 is a tube of 26 1976 quarters. Keep it as one mixed lot, or sort it into no-letter and D piles?",
+      "why": "Philadelphia and Denver struck different numbers (809,784,016 and 860,118,839), so one mintage can't describe a mixed tube.",
+      "options": [
+        {
+          "label": "Keep it as one lot",
+          "effect": [],
+          "followup": "C073 stays one mixed lot; mintage stays empty with both figures in the text."
+        },
+        {
+          "label": "I'll sort it",
+          "free": "How many with D, how many without?",
+          "effect": [],
+          "followup": "Split C073 into two lots by mint (see the answer text)."
+        }
+      ]
     }
   ]
 }

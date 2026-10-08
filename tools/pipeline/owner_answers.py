@@ -104,8 +104,10 @@ def main(argv):
     for f in follow: print("FOLLOW-UP", f)
     if dry: return 0
     if events:
-        out = os.path.join(coll, "_incoming", f"changes_owner_{stamp}.jsonl")
-        with open(out, "w", encoding="utf-8", newline="\n") as fh:
+        out = os.path.join(coll, "_incoming", f"changes_owner_{stamp}.jsonl"); n = 2
+        while os.path.exists(out):   # Muse's review MUS-3-03: a second run in the same minute must never overwrite unpublished owner answers
+            out = os.path.join(coll, "_incoming", f"changes_owner_{stamp}-{n}.jsonl"); n += 1
+        with open(out, "x", encoding="utf-8", newline="\n") as fh:
             for e in events: fh.write(json.dumps(e, ensure_ascii=False) + "\n")
         print("wrote", os.path.relpath(out, ROOT), "(run tools/pipeline/publish.py)")
     if log:

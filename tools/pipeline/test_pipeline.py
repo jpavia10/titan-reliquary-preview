@@ -179,7 +179,9 @@ class Pipeline(unittest.TestCase):
         sys.path.insert(0, HERE)
         import collection_io as CIO
         tid = sorted(CIO.Collection(os.path.join(ROOT, "collection")).types)[0]
-        self.reject([ev(entity="type", id=tid, field="nominal.weight_g", new=4.4, source="Numista and PCGS agree on the weight")], "names a catalogue or site but not the entry")
+        self.reject([ev(entity="type", id=tid, field="nominal.weight_g", new=4.4, source="Numista and PCGS agree on the weight")], "does not cite the exact entry")
+        # Grok's review GRK-3-04: a source naming no site at all used to pass; it must cite the entry too. Clearing a claim (null) is exempt.
+        self.reject([ev(entity="type", id=tid, field="nominal.weight_g", new=4.4, source="my own careful research notes 2026")], "does not cite the exact entry")
         tmp = sandbox()
         r = self.apply(tmp, write_events(tmp, "changes_ok.jsonl", [ev(entity="type", id=tid, field="nominal.weight_g", new=4.4, source="Numista N#12345 (weight 4.4 g)")]))
         self.assertEqual(r.returncode, 0, r.stdout)
@@ -219,6 +221,45 @@ class Pipeline(unittest.TestCase):
         sys.path.insert(0, HERE)
         import integrity as IG
         self.assertEqual({k: v for k, v in IG._next_ids({"C001": {}, "C284": {}, "T006": {}, "B001": {}}).items() if k != "note"}, {"coin": "C285", "token": "T007"})
+
+    def test_deep_review_round1_fixes(self):
+        """Deep review round 1 (Grok, Muse): the provenance deadline goes by the merge day, a future ts is refused, a specimen mintage
+        reaches its type issue and siblings, a whole-list issues write re-syncs the copies, and a removed claim needs no catalogue entry."""
+        sys.path.insert(0, HERE)
+        import collection_io as CIO
+        # GRK-3-03: a back-dated ts no longer dodges the 2026-10-21 deadline when the merge happens after it
+        bad = [ev(ts="2025-01-01T00:00:00Z", entity="specimen", id="C001", field="notes", new="x", source="photo C001_obv.jpg read")]
+        tmp = sandbox(); r = run(os.path.join(HERE, "apply_changes.py"), "--collection", os.path.join(tmp, "collection"), write_events(tmp, "changes_x_1.jsonl", bad),
+                                 env=dict(os.environ, TITAN_TODAY="2026-10-22"))
+        self.assertEqual(r.returncode, 1, r.stdout); self.assertIn("need a `provenance` object", r.stdout)
+        self.reject([ev(ts="2031-01-01T00:00:00Z", entity="specimen", id="C001", field="notes", new="x")], "is in the future")
+        # GRK-3-05: one issue, one number. Find two specimens of the same issue and write a mintage on one of them.
+        col = CIO.Collection(os.path.join(ROOT, "collection"))
+        key = lambda x: (x["type"], x["issue"]["year"], tuple(x["issue"]["mint_marks"]), x["issue"].get("qualifier"))
+        groups = {}
+        for x in col.specs.values(): groups.setdefault(key(x), []).append(x["id"])
+        a, b = next(v for v in groups.values() if len(v) >= 2)[:2]
+        tmp = sandbox()
+        r = self.apply(tmp, write_events(tmp, "changes_x_2.jsonl", [ev(entity="specimen", id=a, field="issue.mintage", new=123456789, source="Numista N#99999 mintage row")]))
+        self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("mintage mirrored", r.stdout)
+        c2 = CIO.Collection(os.path.join(tmp, "collection")); sa = c2.specs[a]; t = c2.types[sa["type"]]
+        iss = next(i for i in t["issues"] if i["year"] == sa["issue"]["year"] and i["mint_marks"] == sa["issue"]["mint_marks"])
+        self.assertEqual((iss["mintage"], c2.specs[b]["issue"]["mintage"]), (123456789, 123456789))
+        # clearing one coin's number (a mixed tube) needs no catalogue entry and never erases the type's figure
+        r = self.apply(tmp, write_events(tmp, "changes_x_3.jsonl", [ev(entity="specimen", id=b, field="issue.mintage", new=None, source="mixed tube: the mint is not known for this lot")]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+        c3 = CIO.Collection(os.path.join(tmp, "collection")); t3 = c3.types[sa["type"]]
+        self.assertEqual(next(i for i in t3["issues"] if i["year"] == sa["issue"]["year"] and i["mint_marks"] == sa["issue"]["mint_marks"])["mintage"], 123456789)
+        # dropping a bogus entry from a list (Muse: the made-up KM#A204) asserts nothing new, so it needs no catalogue entry
+        tid2, t2 = next((k, v) for k, v in sorted(c3.types.items()) if len(v.get("catalogs") or []) >= 2)
+        r = self.apply(tmp, write_events(tmp, "changes_x_3b.jsonl", [ev(entity="type", id=tid2, field="catalogs", old=t2["catalogs"], new=t2["catalogs"][:1], source="the second number names a different coin")]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+        # MUS-3-01: a whole-list issues write re-syncs every specimen's copy
+        new_issues = [dict(i, mintage=(i.get("mintage") or 0) + 7) for i in t3["issues"]]
+        r = self.apply(tmp, write_events(tmp, "changes_x_4.jsonl", [ev(entity="type", id=t3["id"], field="issues", new=new_issues, source="Numista N#99999 mintage table")]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+        c4 = CIO.Collection(os.path.join(tmp, "collection"))
+        self.assertEqual(c4.specs[a]["issue"]["mintage"], 123456789 + 7)
 
     def test_recitation_with_exact_source_is_logged(self):
         """#48: a model re-stating an existing value with an exact catalogue entry is kept in the log (no value change)."""
@@ -524,9 +565,9 @@ class Provenance(unittest.TestCase):
 
     def test_reference_regex_vs_generic_numista(self):
         P = self.P
-        for hit in ("Numista N#6319", "KM#31", "Schön#75a", "Jaeger 123", "https://en.numista.com/1", "Royal Mint", "US Mint", "Riksbank", "per catalog"):
+        for hit in ("Numista N#6319", "KM#31", "Schön#75a", "Jaeger 123", "https://en.numista.com/1", "PCGS #5897", "Krause p. 412"):
             self.assertEqual(P.classify(self.E(source=hit)), "reference", hit)
-        for miss in ("Round 3 research (Numista/NGC/Krause-verified)", "Numista says so", "catalogued type record GB.KM.1109d"):
+        for miss in ("Round 3 research (Numista/NGC/Krause-verified)", "Numista says so", "catalogued type record GB.KM.1109d", "Royal Mint", "per catalog"):
             self.assertEqual(P.classify(self.E(source=miss)), "ai", miss)
 
     def test_history_grouping(self):

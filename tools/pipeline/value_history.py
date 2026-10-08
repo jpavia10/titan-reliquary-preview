@@ -32,21 +32,31 @@ def valuation_spots(col):
 
 def _day(x): return x[:10] if x else None
 
+def own_spots(col):
+    """id -> (spot_ag, spot_au) of the item's latest valuation that recorded its metal prices (Muse's review MUS-3-04); ledger lines keep the mode."""
+    out = {}
+    for v in sorted(col.get("valuations", []), key=lambda v: v.get("at") or ""):
+        a, u = v.get("spot_ag"), v.get("spot_au")
+        if a is not None and a > 1000: a, u = None, a          # the ledger stored the gold figure in spot_ag on 2 lines
+        if a is not None or u is not None: out[v["id"]] = (a, u)
+    return out
+
 def items(col):
     """-> list of {id, kind, start, end, ag, au, premium}; start None = undated (counted from day 0)."""
-    vag, vau = valuation_spots(col); out = []
-    def prem(est, ag, au):
+    vag0, vau0 = valuation_spots(col); own = own_spots(col); out = []
+    def prem(est, ag, au, iid):
         est = est or 0.0
         if not ag and not au: return max(0.0, est)
-        return est - ag * vag - au * vau
+        a, u = own.get(iid, (None, None))
+        return est - ag * (a if a is not None else vag0) - au * (u if u is not None else vau0)
     for sid, s in col["specs"].items():
         t = col["types"][s["type"]]; q = s.get("quantity") or 1; p = t.get("precious") or {}
         ag = (p.get("asw_oz") or 0) * q; au = (p.get("agw_oz") or 0) * q
         out.append({"id": sid, "kind": "specimen", "start": _day((s.get("acquisition") or {}).get("logged_at")), "end": _day((s.get("lifecycle") or {}).get("removed_on")),
-                    "ag": ag, "au": au, "premium": prem((s.get("value") or {}).get("est_usd"), ag, au)})
+                    "ag": ag, "au": au, "premium": prem((s.get("value") or {}).get("est_usd"), ag, au, sid)})
     for l in col["lots"]:
         ag = l.get("asw_oz") or 0; au = l.get("agw_oz") or 0
-        out.append({"id": l["id"], "kind": l["kind"], "start": _day(l.get("logged_at")), "end": _day(l.get("removed_on")), "ag": ag, "au": au, "premium": prem(l.get("est_usd"), ag, au)})
+        out.append({"id": l["id"], "kind": l["kind"], "start": _day(l.get("logged_at")), "end": _day(l.get("removed_on")), "ag": ag, "au": au, "premium": prem(l.get("est_usd"), ag, au, l["id"])})
     for a in col["albums"]:
         ag = (a.get("asw_oz_per_slot") or 0) * (a.get("slots_filled_claimed") or 0)
         out.append({"id": a["id"], "kind": "album", "start": None, "end": None, "ag": ag, "au": 0.0, "premium": 0.0})

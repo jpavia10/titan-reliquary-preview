@@ -214,7 +214,8 @@
     out.push(`<section class="hv-sec" aria-labelledby="hv-h-off"><h2 id="hv-h-off">Offline copy</h2><dl>
       ${row("Connection", g.online ? "Online" : "Offline", g.online ? "" : "Showing the saved copy.")}
       ${row("Last successful check", g.lastCheck ? esc(when(new Date(g.lastCheck).toISOString())) : "never", "When this device last asked for the newest version.")}
-    </dl><p class="hv-label">Saved copies on this device</p><ul class="hv-list">${cl}</ul></section>`);
+    </dl><p class="hv-label">Saved copies on this device</p><ul class="hv-list">${cl}</ul>
+      ${window.TitanWarm ? `<button type="button" class="hv-btn" data-warm>Save all coin photos for offline (about 10 MB)</button><p class="hv-status" id="hv-warm" aria-live="polite">Coin details and search are saved automatically; photos are saved when first seen, or all at once with this button.</p>` : ""}</section>`);
     L.push("", "OFFLINE COPY", "Online: " + (g.online ? "yes" : "no"), "Last version check: " + (g.lastCheck ? when(new Date(g.lastCheck).toISOString()) : "never"),
       ...g.caches.map((c) => "Cache " + c.name + ": " + c.count + " entries"));
     // Collection
@@ -316,6 +317,10 @@
       if (t.closest("[data-close]")) return close(true);
       if (t.closest("[data-speed]")) return measure();
       if (t.closest("[data-copy]")) return copy();
+      if (t.closest("[data-warm]")) {
+        const o = root.querySelector("#hv-warm"), b = t.closest("[data-warm]"); b.disabled = true; if (o) o.textContent = "Saving… keep this screen open.";
+        return window.TitanWarm(true).then((r) => { b.disabled = false; if (o) o.textContent = r && r.ok ? `Done: ${r.photos} new photo(s) and ${r.data} data file(s) saved. Everything opens offline now.` : "Could not save right now (offline?). Try again when online."; });
+      }
       if (t.closest("[data-update]")) { say("Updating…", true); return applyUpdate(root._g && root._g.cmp); }
     });
     root.addEventListener("keydown", (e) => { if (e.key === "Escape") close(true); });

@@ -14,8 +14,9 @@ LEDGER_DAY = "2026-09-30"      # the v254 ledger import; coins logged on or befo
 MAX_HISTORY = 12
 
 # A catalogue / publication / URL the reader could look up. A bare "Numista/NGC/Krause" (no number) deliberately does NOT match.
-REF_RE = re.compile(r"KM\s?#\s?[A-Za-z]?\d|\bN#\s?\d|Numista\s+(?:no\.?|#)\s*\d|Sch[öo]n\s?#?\s?[A-Za-z]?\d|Jaeger\s?(?:#|no\.?)?\s?[A-Za-z]?\d"
-                    r"|\bY#\s?\d|https?://|\briksbank\b|Royal Mint|\bUS Mint\b|\bU\.S\. Mint\b|\bcatalog(?:ue)?\b", re.I)
+# Grok's review GRK-3-14: the same test as the merge rule (#17), so "Reference" never accepts a bare publisher name ("catalog", "Royal Mint").
+REF_RE = re.compile(r"KM\s?#\s?[A-Za-z]?\d|\bN#\s?\d|Numista\s+(?:no\.?|#|N#|N°)?\s*\d|Sch[öo]n\s?#?\s?[A-Za-z]?\d|Jaeger\s?(?:#|no\.?)?\s?[A-Za-z]?\d"
+                    r"|\bY#\s?\d|https?://|\bPCGS\s*#\s*\d|\b(?:p\.|page|pp\.)\s*\d", re.I)
 PHOTO_RE = re.compile(r"\bphotos?/|\.(?:webp|jpe?g|png)\b|\b(?:phone|page) photo\b", re.I)
 TAIL_RE = re.compile(r"\s*\[phase \d[^\]]*\]\s*$")
 

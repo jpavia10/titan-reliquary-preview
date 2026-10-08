@@ -19,7 +19,9 @@
 
   function load() {
     if (data) return Promise.resolve(data);
-    if (!loading) loading = fetch("data/questions.json").then((r) => (r.ok ? r.json() : { questions: [] })).catch(() => ({ questions: [] })).then((d) => (data = d));
+    // Grok's review GRK-3-02: a failed load (offline, not saved yet) is NOT "no questions": never remember it, and say so
+    if (!loading) loading = fetch("data/questions.json").then((r) => { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then((d) => (data = d)).catch(() => { loading = null; return { questions: [], error: true }; });
     return loading;
   }
   function openCount() {
@@ -92,8 +94,13 @@
     } catch (e) { /* keep dark */ }
     root.dataset.tone = dark ? "dark" : "light";
   }
-  function render() {
+  function render(failed) {
     const body = root.querySelector("#qv-body");
+    if (failed && !data) {   // GRK-3-02: say it could not load; never "No open questions"
+      body.innerHTML = `<p class="hv-status hv-warn">Can't load the questions right now (no connection, and they aren't saved on this device yet).</p>
+        <button type="button" class="hv-btn hv-primary" data-retry>Try again</button>`;
+      return;
+    }
     const q = queue(), mine = Object.fromEntries(q.filter((a) => a.q).map((a) => [a.q, a]));
     const qs = (data && data.questions) || [];
     const card = (x) => {
@@ -135,6 +142,7 @@
     root.addEventListener("click", (e) => {
       const t = e.target;
       if (t.closest("[data-close]")) return close(true);
+      if (t.closest("[data-retry]")) { const b = t.closest("[data-retry]"); b.disabled = true; b.textContent = "Trying…"; return load().then((d) => { render(d && d.error); badge(); }); }
       const opt = t.closest(".qv-opt");
       if (opt) {
         const x = data.questions.find((qq) => qq.id === opt.dataset.q), o = x && x.options[+opt.dataset.i];
@@ -161,7 +169,7 @@
     lastFocus = document.activeElement; applyTone();
     root.hidden = false; document.body.style.overflow = "hidden"; root.scrollTop = 0;
     root.querySelector("#qv-title").focus({ preventScroll: true });
-    load().then(() => { if (!root.hidden) render(); badge(); });
+    load().then((d) => { if (!root.hidden) render(d && d.error); badge(); });
   }
   function close(navigate) {
     if (!root || root.hidden) return;
@@ -171,6 +179,7 @@
   }
   function route() { if (/^#questions(\b|$)/i.test(location.hash)) open(); else close(false); }
   window.addEventListener("hashchange", route);
+  window.addEventListener("online", () => { if (!data) load().then((d) => { if (root && !root.hidden) render(d && d.error); badge(); }); });
   window.addEventListener("titan:atmo", applyTone);
   window.TitanQuestions = { open, close, queueConfirm, isQueuedConfirm, pending: () => queue().length };
   const boot = () => { route(); load().then(badge); };

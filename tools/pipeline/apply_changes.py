@@ -43,7 +43,10 @@ COIN_FLOOR = 0     # owner decision 2026-10-02: new coins number straight on fro
 class Reject(Exception): pass
 
 # Owner, 2026-10-07: a 2-week grace period, then a model event without provenance is rejected, not just warned about.
+# The deadline goes by the day of the merge (Grok's review GRK-3-03: a contributor's own ts can be back-dated or come from a wrong clock).
 PROVENANCE_REQUIRED_FROM = "2026-10-21"
+def merge_day():
+    return os.environ.get("TITAN_TODAY") or datetime.datetime.now(datetime.timezone.utc).date().isoformat()   # TITAN_TODAY: tests only
 
 # ------------------------------------------------------------------------------------------------ source quality + photo-dependent fields
 JUNK_SOURCES = {"n/a", "na", "unknown", "ai", "none", "null", "nil", "test", "tbd", "todo", "source", "photo", "model", "llm", "guess", "estimate", "unsure", "gemini", "grok", "claude",
@@ -212,6 +215,8 @@ class Applier:
         extra = sorted(set(e) - ALLOWED)
         if extra: errs.append(f"unknown key(s) {extra} (allowed: {sorted(ALLOWED)})")
         if not (isinstance(e["ts"], str) and TS.match(e["ts"])): errs.append(f"ts '{e['ts']}' must look like 2026-10-02T18:30:00Z")
+        elif e["ts"][:10] > (datetime.date.fromisoformat(merge_day()) + datetime.timedelta(days=2)).isoformat():
+            errs.append(f"ts '{e['ts']}' is in the future (today is {merge_day()}): use the real time in UTC")
         if e["entity"] not in ENTITIES: errs.append(f"entity '{e['entity']}' must be one of {ENTITIES}")
         if e.get("op", "set") not in ("set", "create"): errs.append(f"op '{e.get('op')}' must be 'set' or 'create'")
         if not isinstance(e["by"], str) or not re.match(r"^(owner|model:[\w.\-]+|script:[\w.\-]+|person:[\w.\- ]+)$", e["by"]): errs.append(f"by '{e['by']}' must be owner, model:<id>, script:<name> or person:<name>")
@@ -219,10 +224,15 @@ class Applier:
         if e["by"].startswith("model:"):
             if not (e.get("source") or "").strip(): errs.append("a model's fact needs a real 'source' (photo file, catalog, URL, reference)")
             elif junk_source(e["source"]): errs.append(f"source {e['source']!r} is empty or junk (fewer than 8 characters, or 'n/a', 'unknown', 'AI', ...): name the photo file, catalog + number, or URL")
-            if (REFERENCE.search(e.get("source") or "") and not EXACT_REF.search(e.get("source") or "") and not PHOTO_FILE.search(e.get("source") or "")
+            src = e.get("source") or ""
+            # #17 + Grok's review GRK-3-04: a model's catalogue fact must cite the exact entry or a photo, whether or not the source names a site
+            # ("my careful research notes" used to pass while "Numista says so" failed). Clearing a claim (new = null) asserts nothing and is exempt.
+            removes_only = (e["new"] is None or (isinstance(e["new"], list) and isinstance(e.get("old"), list) and len(e["new"]) < len(e["old"])
+                                                  and all(x in e["old"] for x in e["new"])))      # dropping entries from a list asserts nothing new
+            if (not removes_only and not EXACT_REF.search(src) and not PHOTO_FILE.search(src)
                     and any(f == p or f.startswith(p + ".") for f in touched_fields(e) for p in REF_FIELDS)):
-                errs.append(f"source {e['source'][:90]!r} names a catalogue or site but not the entry: cite it exactly (Numista N#12345, KM#24a.1, "
-                            "Schön#76, a URL, or the book + page), so anyone can open it and check")
+                errs.append(f"source {src[:90]!r} does not cite the exact entry: a catalogue fact needs Numista N#12345, KM#24a.1, "
+                            "Schön#76, a URL, the book + page, or the photo file it was read from, so anyone can open it and check")
             for f, _ in photo_values(e):
                 src = e.get("source") or ""
                 if e.get("phase") == 1: errs.append(f"{f}: Phase 1 never records a condition judgement (grade, strike, luster, toning, cleaned, damage); leave it null until the Phase 2 pro photos")
@@ -232,7 +242,7 @@ class Applier:
         if e["entity"] in ENTITIES and isinstance(e.get("field"), str): errs += self.check_tiers(e)
         if "confidence" in e and e["confidence"] not in ("low", "med", "high"): errs.append("confidence must be low, med or high")
         if "provenance" in e: errs += self.check_provenance(e["provenance"])
-        elif str(e.get("by", "")).startswith("model:") and str(e.get("ts", "")) >= PROVENANCE_REQUIRED_FROM:
+        elif str(e.get("by", "")).startswith("model:") and max(str(e.get("ts", ""))[:10], merge_day()) >= PROVENANCE_REQUIRED_FROM:
             errs.append(f"model events dated {PROVENANCE_REQUIRED_FROM} or later need a `provenance` object (model, prompt_version, workflow, inputs, run_id; "
                         "tokens/cost_usd may be null): see collection/templates/INSTRUCTIONS.md section 2")
         return errs
@@ -413,6 +423,15 @@ class Applier:
         if not (e.get("source") or "").strip(): raise Reject("overwriting a verified fact needs a 'source'")
         self.log.append(f"SUPERSEDED verified fact: {e['entity']} {e['id']} {e['field']} (was verified by {newest['by']} {newest['ts']})")
 
+    def resync_issue_copies(self, t):
+        """After a whole-list `issues` write (Muse's review MUS-3-01): every specimen of the type takes its issue copy from the matching new issue."""
+        for s in self.c.specs.values():
+            if s["type"] != t["id"]: continue
+            i = next((i for i in t["issues"] if i["year"] == s["issue"]["year"] and i["mint_marks"] == s["issue"]["mint_marks"] and i.get("qualifier") == s["issue"].get("qualifier")), None)
+            if i is not None:
+                for k in ("mintage", "mintage_text", "mint_text"):
+                    if k in i and i[k] is not None: s["issue"][k] = copy.deepcopy(i[k])
+
     def issue_copies(self, t, path):
         """Specimens whose issue copy belongs to the type issue that `path` (issues.N.<leaf>) edits."""
         if len(path) < 3 or path[0] != "issues" or not isinstance(path[1], int) or path[1] >= len(t["issues"]): return []
@@ -424,7 +443,9 @@ class Applier:
         if e["entity"] == "specimen" and overlap(e["field"], "value.est_usd") and e["field"] in ("value.est_usd", "value"):
             est = rec["value"]["est_usd"]
             if est is not None: self.upsert_valuation(rec["id"], e["ts"][:10], est, e)
+        if e["entity"] == "type" and e["field"] == "issues": self.resync_issue_copies(rec)
         if e["entity"] == "specimen" and e["field"].startswith("issue"): self.ensure_issue(rec, e)
+        if e["entity"] == "specimen" and e["field"] in ("issue.mintage", "issue") : self.mirror_mintage(rec, e)
         m = re.match(r"^issues\.(\d+)\.mintage$", e["field"]) if e["entity"] == "type" else None
         if m and e["new"] is not None:
             iss = rec["issues"][int(m.group(1))]
@@ -436,9 +457,36 @@ class Applier:
                 self.c.changes.append(ev); self.new_events.append(ev)
         if e["entity"] == "lot" and e["field"] == "est_usd" and rec["est_usd"] is not None: self.upsert_valuation(rec["id"], e["ts"][:10], rec["est_usd"], e)
 
+    def mirror_mintage(self, spec, e):
+        """Grok's review GRK-3-05: a mintage has one home, the type issue. A specimen-level write is mirrored to the matching type issue and to every
+        other specimen of that issue (one issue, one number), and a 'mintage unknown' text that the number contradicts is cleared."""
+        t = self.c.types.get(spec["type"]); si = spec["issue"]; mt = si.get("mintage")
+        if t is None or mt is None: return       # clearing one coin's unsupported number (a mixed tube, an unknown mint) never erases the type's figure
+        iss = next((i for i in t["issues"] if i["year"] == si["year"] and i["mint_marks"] == si["mint_marks"] and i.get("qualifier") == si.get("qualifier")), None)
+        if iss is None: return
+        txt_bad = lambda x: bool(x) and mt is not None and f"{mt:,}" not in x and re.search(r"unknown|not (?:yet )?(?:known|found)|n/?a\b", x, re.I)
+        if txt_bad(si.get("mintage_text")): si["mintage_text"] = None
+        if iss.get("mintage") == mt and not txt_bad(iss.get("mintage_text")): return
+        old_m, old_t = iss.get("mintage"), iss.get("mintage_text")
+        iss["mintage"] = mt
+        if txt_bad(old_t): iss["mintage_text"] = None
+        for s in self.c.specs.values():
+            if s is not spec and s["type"] == t["id"] and s["issue"]["year"] == si["year"] and s["issue"]["mint_marks"] == si["mint_marks"] and s["issue"].get("qualifier") == si.get("qualifier"):
+                s["issue"]["mintage"] = mt
+                if txt_bad(s["issue"].get("mintage_text")): s["issue"]["mintage_text"] = None
+        n = t["issues"].index(iss)
+        ev = {"ts": e["ts"], "by": "script:pipeline", "entity": "type", "id": t["id"], "field": f"issues.{n}.mintage", "old": old_m, "new": mt,
+              "source": f"mirrored from specimen {spec['id']} ({e['by']}: {(e.get('source') or '')[:120]})", "verified": False}
+        self.c.changes.append(ev); self.new_events.append(ev)
+        self.log.append(f"mintage mirrored to {t['id']} issue {si['year']}{' ' + '/'.join(si['mint_marks']) if si['mint_marks'] else ''}: {old_m} -> {mt}")
+
     def upsert_valuation(self, rid, at, est, e):
         method = "owner" if e["by"] == "owner" else ("ai" if e["by"].startswith("model:") else "comps")
-        line = {"id": rid, "at": at, "est_usd": est, "method": method, "spot_ag": None, "spot_au": None, "source": e.get("source")}
+        # Muse's review MUS-3-04: record the metal prices the estimate was made at, so the value history splits metal from premium correctly
+        sp = {}
+        try: sp = json.load(open(os.path.join(self.c.d, "prices", "latest.json"), encoding="utf-8"))
+        except (OSError, ValueError): pass
+        line = {"id": rid, "at": at, "est_usd": est, "method": method, "spot_ag": sp.get("xag_usd"), "spot_au": sp.get("xau_usd"), "source": e.get("source")}
         vs = self.c.valuations
         for i, v in enumerate(vs):
             if v["id"] == rid and v["at"] == at: vs[i] = line; return
@@ -589,6 +637,8 @@ def tree_sync(src, dst):
 def apply_file(path, coll, dry_run=False):
     """-> (status, report lines, list of new events).  status: applied | already-applied | rejected"""
     name = os.path.basename(path)
+    try: import jsonschema  # noqa: F401  (Grok's review GRK-3-13: say it once, not once per event)
+    except ImportError: return "rejected", [f"REJECTED {name}: the 'jsonschema' package is missing: pip install jsonschema (nothing was changed)"], []
     events, problems = read_events(path)
     if not events and not problems: problems.append("the file has no events")
     work = tempfile.mkdtemp(prefix="apply-"); atexit.register(shutil.rmtree, work, True); wdir = os.path.join(work, "collection")

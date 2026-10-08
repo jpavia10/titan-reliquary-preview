@@ -29,8 +29,12 @@ import dupes as DUP
 import owner_answers as OA
 import integrity as I
 
+STEP1_CHANGED = False      # set once pending change files were merged into collection/ (step 1)
 def fail(msg):
     print(f"\nPUBLISH REFUSED: {msg}\n(data/ and version.json were not changed)", file=sys.stderr)
+    if STEP1_CHANGED:   # Grok's review GRK-3-12: collection/ already took the merged files, so say loudly that the site data is now behind it
+        print("WARNING: collection/ WAS changed (pending change files were merged and moved to _incoming/applied/), but data/ was NOT rebuilt.\n"
+              "Fix the problem above, then run: python3 tools/pipeline/publish.py --no-incoming", file=sys.stderr)
     return 1
 
 def arg(argv, name, default):
@@ -106,7 +110,9 @@ def main(argv):
             status, rep, ev = A.apply_file(f, coll, dry_run=dry)
             print("\n".join(rep))
             if status == "rejected": rejected.append(os.path.basename(f))
-            if status == "applied": applied_events += len(ev)
+            if status == "applied":
+                applied_events += len(ev)
+                if not dry: globals()["STEP1_CHANGED"] = True
             if not dry:
                 dest = os.path.join(incoming, "rejected" if status == "rejected" else "applied"); os.makedirs(dest, exist_ok=True)
                 if status == "rejected": open(os.path.join(dest, os.path.basename(f) + ".report.txt"), "w", encoding="utf-8").write("\n".join(rep) + "\n")
@@ -147,10 +153,16 @@ def main(argv):
         return fail("post-build checks failed")
     # 6. install (only now) and summary
     if not dry:
-        os.makedirs(os.path.join(out, "detail"), exist_ok=True)
-        for f in glob.glob(os.path.join(out, "detail", "*.json")): os.remove(f)
-        for f in glob.glob(os.path.join(outuse, "detail", "*.json")): shutil.copyfile(f, os.path.join(out, "detail", os.path.basename(f)))
-        for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "prices.json", "status.json"): shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n))
+        # Muse MUS-3-02 / Grok GRK-3-12: install atomically. The new detail folder is complete before it replaces the old one, and each
+        # top-level file lands with os.replace, so a crash or a full disk never leaves the app with an empty or half-written data/.
+        os.makedirs(out, exist_ok=True)
+        stage = os.path.join(out, ".detail.new"); old_dir = os.path.join(out, ".detail.old")
+        for d in (stage, old_dir): shutil.rmtree(d, ignore_errors=True)
+        shutil.copytree(os.path.join(outuse, "detail"), stage)
+        if os.path.isdir(os.path.join(out, "detail")): os.replace(os.path.join(out, "detail"), old_dir)
+        os.replace(stage, os.path.join(out, "detail")); shutil.rmtree(old_dir, ignore_errors=True)
+        for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "prices.json", "status.json"):
+            shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n + ".new")); os.replace(os.path.join(out, n + ".new"), os.path.join(out, n))
         shutil.copyfile(vuse, vpath)
         if os.path.abspath(out) == os.path.join(ROOT, "data"): sync_docs(B.load(os.path.join(out, "status.json")))   # only the real publish rewrites the docs
     idx = B.load(f"{outuse}/index.json"); b = idx["board"]; snap = col["board"]["index"]["board"]

@@ -573,13 +573,25 @@
 
 
   /** Cinematic hero: wordmark, count-up grand, stat row, action cluster. */
+  /* Muse MUS-1-01 / Grok GRK-1-10: the headline used to be the frozen Sept 30 board total. It is now the latest day of the value history
+     (the same items, metal priced at that day's prices: the "Portfolio value" line), so the big number moves with silver and gold and
+     matches the chart. Falls back to the board total when no price history was published. */
+  function liveValue() {
+    const pd = vault.value && vault.value.portfolio_daily, cols = (pd && pd.cols) || [], rows = (pd && pd.rows) || [];
+    const last = rows.length ? Object.fromEntries(cols.map((c, i) => [c, rows[rows.length - 1][i]])) : null;
+    if (!last || !(Number(last.total) > 0)) return null;
+    return { total: Number(last.total), agMelt: Number(last.ag_melt) || 0, auMelt: Number(last.au_melt) || 0, agOz: Number(last.ag_oz) || 0, auOz: Number(last.au_oz) || 0,
+             date: last.d, provisional: last.k === "p" };
+  }
+
   function renderHero() {
     const b = vault.board || {};
     const m = vault.metals || {};
     const p = vault.precious || {};
     const spot = m.spot || {};
-    const ag = spot.ag_usd_oz ?? b.spot_ag ?? b.silver?.spot;
-    const au = spot.au_usd_oz ?? b.spot_au ?? b.gold?.spot;
+    const LV = liveValue();
+    const ag = LV && LV.agOz ? LV.agMelt / LV.agOz : (spot.ag_usd_oz ?? b.spot_ag ?? b.silver?.spot);
+    const au = LV && LV.auOz ? LV.auMelt / LV.auOz : (spot.au_usd_oz ?? b.spot_au ?? b.gold?.spot);
     const phN = vault.photos || {};
     const flipsTotal = vault.counts?.flips || 0;
     const photoPct = flipsTotal ? Math.round(100 * (phN.coins_with_photos ?? 0) / flipsTotal) : 0;
@@ -599,15 +611,16 @@
       .join("");
 
     const grand = $("#hero-grand");
-    grand.setAttribute("aria-label", "Estimated collection value " + money(b.grand));
-    countUp(grand, b.grand, money);
+    const headline = LV ? LV.total : b.grand;
+    grand.setAttribute("aria-label", "Estimated collection value " + money(headline));
+    countUp(grand, headline, money);
 
     // Live melt breakdown calculation
-    const agOz = p.combined_silver?.oz ?? 63.27;
-    const agMelt = p.combined_silver?.melt ?? (ag != null ? agOz * ag : 0);
-    const auOz = p.combined_gold?.oz ?? 0.1322;
-    const auMelt = p.combined_gold?.melt ?? (au != null ? auOz * au : 0);
-    const grandVal = Number(b.grand || 0);
+    const agOz = LV ? LV.agOz : (p.combined_silver?.oz ?? 63.27);
+    const agMelt = LV ? LV.agMelt : (p.combined_silver?.melt ?? (ag != null ? agOz * ag : 0));
+    const auOz = LV ? LV.auOz : (p.combined_gold?.oz ?? 0.1322);
+    const auMelt = LV ? LV.auMelt : (p.combined_gold?.melt ?? (au != null ? auOz * au : 0));
+    const grandVal = Number(headline || 0);
     const pureMelt = agMelt + auMelt;
     const numisPremium = Math.max(0, grandVal - pureMelt);
     const agPct = grandVal > 0 ? Math.round((agMelt / grandVal) * 1000) / 10 : 0;
@@ -637,7 +650,8 @@
       // #12: say which part is firm (metal at spot) and which part is an estimate (premiums over melt, albums, sets, housing)
       const est = Math.max(0, grandVal - pureMelt);
       const k = (n) => "$" + (n >= 1000 ? (n / 1000).toFixed(n >= 1e4 ? 0 : 1) + "k" : Math.round(n));
-      cap.textContent = `about ${k(grandVal)}: melt ${money(pureMelt)} (firm, metal at spot) plus about ${k(est)} collector premium (estimate)`;
+      const when = LV && LV.date ? new Date(LV.date + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
+      cap.textContent = `about ${k(grandVal)}: melt ${money(pureMelt)} (firm, metal${when ? " at " + when + " prices" : " at spot"}) plus about ${k(est)} collector premium (estimate)`;
       cap.title = `Melt value moves with silver and gold prices and is reliable. The rest (${money(est)}) is the ledger's estimate of what coins, albums, sets and housing are worth above their metal, and could be off either way.`;
     }
 
@@ -1325,7 +1339,8 @@
     const chgOf = (p, suffix = "vs prior quote") => p === null
       ? { chg: "no prior quote", up: null }
       : { chg: `${Math.abs(p).toFixed(2)}% ${suffix}`, up: Math.abs(p) < 0.005 ? null : p > 0 };
-    const grand = Number(vault.value?.estimated_total ?? vault.board?.grand ?? m.board?.grand) || 0;
+    const LVt = liveValue();
+    const grand = Number(LVt ? LVt.total : (vault.value?.estimated_total ?? vault.board?.grand ?? m.board?.grand)) || 0;
     const c = vault.counts || {};
     const agOz = Number(m.oz?.ag) || 0;
     const auOz = Number(m.oz?.au) || 0;
@@ -5006,7 +5021,7 @@
       <div class="sec-head reveal" id="sec-metals"><span class="eyebrow">The ledger</span><h2>Precious metal</h2>
       <p class="sub">Live spot when online · ${esc(m.as_of_local || m.as_of || "—")}</p></div>
       <div class="grid">
-        <div class="card reveal"><h3>Grand</h3><div class="val">${money(b.grand)}</div><div class="hint">${esc(vault.policy || "HOLD")}</div></div>
+        <div class="card reveal"><h3>Ledger board total</h3><div class="val">${money(b.grand)}</div><div class="hint">at the ${esc(m.as_of || "ledger")} board prices · ${esc(vault.policy || "HOLD")}</div></div>
         <div class="card reveal"><h3>Vault pieces</h3><div class="val">${esc(intFmt(vaultN))}</div>
           <div class="hint">Next soft beat ${esc(intFmt(next))}</div>
           <div class="progress-wrap"><div class="progress" title="${vaultN} / ${next}"><span style="width:${pct}%"></span></div></div>
@@ -6675,6 +6690,18 @@
         });
       });
     }).catch(() => {});
+  }
+  if ("serviceWorker" in navigator) {
+    // Grok's review GRK-3-01: save every coin's detail, search and the questions for offline use once the app is idle (missing files only;
+    // a new data build refreshes them). window.TitanWarm(true) also saves all coin photos (Health's "Save photos for offline").
+    window.TitanWarm = (withPhotos) => navigator.serviceWorker.ready.then((reg) => new Promise((res) => {
+      if (!reg.active) return res({ ok: false });
+      const ch = new MessageChannel(); ch.port1.onmessage = (ev) => res(ev.data || { ok: false });
+      reg.active.postMessage({ type: withPhotos ? "titan:warm-photos" : "titan:warm" }, [ch.port2]);
+      setTimeout(() => res({ ok: false, timeout: true }), 120000);
+    }));
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 4000));
+    window.addEventListener("load", () => idle(() => { if (navigator.onLine && navigator.serviceWorker.controller) window.TitanWarm(false).catch(() => {}); }), { once: true });
   }
 
   /* --- Atmosphere system: twelve exhibition lightings, each a full sensory identity
