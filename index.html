@@ -31,7 +31,7 @@
     } catch (e) { /* private mode */ }
   </script>
   <!-- One motion setting + haptics (fix list #59): must run before every other script and before the first paint -->
-  <script src="js/app-motion.js?v=tr100"></script>
+  <script src="js/app-motion.js?v=tr101"></script>
   <!-- Splash gate: show the cinematic vault-door opening (splash v3) once per session on a plain load of the Grand Hall.
        ?nosplash skips it, ?splash=1 forces it, deep links (#coin=..., #vault ...) skip it, Motion "Off" skips it. Fails open after 7 s. -->
   <script>
@@ -48,9 +48,9 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr100" />
-  <link rel="stylesheet" href="splash.css?v=tr100" />
-  <link rel="stylesheet" href="styles/themes.css?v=tr100" />
+  <link rel="stylesheet" href="styles.css?v=tr101" />
+  <link rel="stylesheet" href="splash.css?v=tr101" />
+  <link rel="stylesheet" href="styles/themes.css?v=tr101" />
   <!-- Only the ACTIVE atmosphere's stylesheet loads (written here so it still blocks first paint: no flash of the wrong theme).
        Switching later is app.js (atmoCss loader): the new sheet loads first, then data-atmo flips and the old sheet is removed.
        sw.js precaches all 20 so switching works offline. styles/atmo/all.css is no longer linked. -->
@@ -62,22 +62,22 @@
       document.write('<link rel="stylesheet" id="atmo-css" data-atmo-css="' + a + '" href="styles/atmo/' + a + '.css' + window.__trAtmoQ + '">');
     })();
   </script>
-  <noscript><link rel="stylesheet" href="styles/atmo/afterhours.css?v=tr100" /></noscript>
-  <link rel="stylesheet" href="styles/slab-legibility.css?v=tr100" />
-  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr100" /> -->
-  <link rel="stylesheet" href="styles/hall.css?v=tr100" />
-  <link rel="stylesheet" href="styles/gallery.css?v=tr100" />
-  <link rel="stylesheet" href="styles/vault.css?v=tr100" />
-  <link rel="stylesheet" href="styles/study.css?v=tr100" />
-  <link rel="stylesheet" href="styles/wants.css?v=tr100" />
-  <link rel="stylesheet" href="styles/simple.css?v=tr100" />
-  <link rel="stylesheet" href="styles/health.css?v=tr100" />
-  <link rel="stylesheet" href="styles/questions.css?v=tr100" />
-  <link rel="stylesheet" href="styles/lab.css?v=tr100" />
-  <link rel="stylesheet" href="styles/table.css?v=tr100" />
-  <link rel="stylesheet" href="styles/fx.css?v=tr100" />
-  <link rel="stylesheet" href="styles/scene.css?v=tr100" />
-  <link rel="stylesheet" href="styles/worlds.css?v=tr100" />
+  <noscript><link rel="stylesheet" href="styles/atmo/afterhours.css?v=tr101" /></noscript>
+  <link rel="stylesheet" href="styles/slab-legibility.css?v=tr101" />
+  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr101" /> -->
+  <link rel="stylesheet" href="styles/hall.css?v=tr101" />
+  <link rel="stylesheet" href="styles/gallery.css?v=tr101" />
+  <link rel="stylesheet" href="styles/vault.css?v=tr101" />
+  <link rel="stylesheet" href="styles/study.css?v=tr101" />
+  <link rel="stylesheet" href="styles/wants.css?v=tr101" />
+  <link rel="stylesheet" href="styles/simple.css?v=tr101" />
+  <link rel="stylesheet" href="styles/health.css?v=tr101" />
+  <link rel="stylesheet" href="styles/questions.css?v=tr101" />
+  <link rel="stylesheet" href="styles/lab.css?v=tr101" />
+  <link rel="stylesheet" href="styles/table.css?v=tr101" />
+  <link rel="stylesheet" href="styles/fx.css?v=tr101" />
+  <link rel="stylesheet" href="styles/scene.css?v=tr101" />
+  <link rel="stylesheet" href="styles/worlds.css?v=tr101" />
   <!--WS:themes: shared atmosphere system + one stylesheet per atmosphere (notes/agents/themes.md)-->
 </head>
 <body>
@@ -1190,67 +1190,68 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr100";</script>
+  <script>window.TITAN_BUILD = "tr101";</script>
   <script src="js/three.min.js"></script>
-  <script src="splash.js?v=tr100"></script>
+  <script src="splash.js?v=tr101"></script>
   <script src="js/OrbitControls.js"></script>
   <script src="js/fflate.min.js"></script>
   <script src="js/USDZExporter.js"></script>
   <script src="js/qrcode.min.js"></script>
   <script src="js/openseadragon.min.js"></script>
-  <script src="spatial.js?v=tr100"></script>
-  <script src="deepzoom.js?v=tr100"></script>
-  <script src="atlas.js?v=tr100"></script>
-  <script src="js/app-format.js?v=tr100"></script>
-  <script src="js/app-insights.js?v=tr100"></script>
-  <script src="js/app-overlay.js?v=tr100"></script>
-  <script src="js/app-atmo-css.js?v=tr100"></script>
-  <script src="js/app-ui.js?v=tr100"></script>
-  <script src="js/app-palette.js?v=tr100"></script>
-  <script src="app.js?v=tr100"></script>
-  <script src="js/playlist.js?v=tr100"></script>
-  <script src="audio.js?v=tr100"></script>
-  <script src="ambient.js?v=tr100"></script>
-  <script src="wings/atmo/core.js?v=tr100"></script>
-  <script src="wings/atmo/afterhours.js?v=tr100"></script>
-  <script src="wings/atmo/conservator.js?v=tr100"></script>
-  <script src="wings/atmo/colossus.js?v=tr100"></script>
-  <script src="wings/atmo/nocturne.js?v=tr100"></script>
-  <script src="wings/atmo/odyssey.js?v=tr100"></script>
-  <script src="wings/atmo/cursedwing.js?v=tr100"></script>
-  <script src="wings/atmo/kaleido.js?v=tr100"></script>
-  <script src="wings/atmo/abyss.js?v=tr100"></script>
-  <script src="wings/atmo/neon.js?v=tr100"></script>
-  <script src="wings/atmo/notepad.js?v=tr100"></script>
-  <script src="wings/atmo/construct.js?v=tr100"></script>
-  <script src="wings/atmo/xeno.js?v=tr100"></script>
-  <script src="wings/atmo/solaris.js?v=tr100"></script>
-  <script src="wings/atmo/alchemist.js?v=tr100"></script>
-  <script src="wings/atmo/glacier.js?v=tr100"></script>
-  <script src="wings/atmo/valhalla.js?v=tr100"></script>
-  <script src="wings/atmo/dynasty.js?v=tr100"></script>
-  <script src="wings/atmo/zen.js?v=tr100"></script>
-  <script src="wings/atmo/samadhi.js?v=tr100"></script>
-  <script src="wings/atmo/silkroad.js?v=tr100"></script>
-  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr100"></script> -->
-  <script src="wings/hall.js?v=tr100"></script>
-  <script src="wings/gallery.js?v=tr100"></script>
-  <script src="wings/vault.js?v=tr100"></script>
-  <script src="wings/albums-data.js?v=tr100"></script><script src="wings/study.js?v=tr100"></script>
-  <script src="wings/wants.js?v=tr100"></script>
-  <script src="wings/simple.js?v=tr100"></script>
-  <script src="wings/health.js?v=tr100"></script>
-  <script src="wings/questions.js?v=tr100"></script>
-  <script src="wings/lab.js?v=tr100"></script>
+  <script src="spatial.js?v=tr101"></script>
+  <script src="deepzoom.js?v=tr101"></script>
+  <script src="atlas.js?v=tr101"></script>
+  <script src="js/app-format.js?v=tr101"></script>
+  <script src="js/app-insights.js?v=tr101"></script>
+  <script src="js/app-overlay.js?v=tr101"></script>
+  <script src="js/app-atmo-css.js?v=tr101"></script>
+  <script src="js/app-ui.js?v=tr101"></script>
+  <script src="js/app-palette.js?v=tr101"></script>
+  <script src="app.js?v=tr101"></script>
+  <script src="js/playlist.js?v=tr101"></script>
+  <script src="audio.js?v=tr101"></script>
+  <script src="ambient.js?v=tr101"></script>
+  <script src="wings/atmo/core.js?v=tr101"></script>
+  <script src="wings/atmo/afterhours.js?v=tr101"></script>
+  <script src="wings/atmo/conservator.js?v=tr101"></script>
+  <script src="wings/atmo/colossus.js?v=tr101"></script>
+  <script src="wings/atmo/nocturne.js?v=tr101"></script>
+  <script src="wings/atmo/odyssey.js?v=tr101"></script>
+  <script src="wings/atmo/cursedwing.js?v=tr101"></script>
+  <script src="wings/atmo/kaleido.js?v=tr101"></script>
+  <script src="wings/atmo/abyss.js?v=tr101"></script>
+  <script src="wings/atmo/neon.js?v=tr101"></script>
+  <script src="wings/atmo/notepad.js?v=tr101"></script>
+  <script src="wings/atmo/construct.js?v=tr101"></script>
+  <script src="wings/atmo/xeno.js?v=tr101"></script>
+  <script src="wings/atmo/solaris.js?v=tr101"></script>
+  <script src="wings/atmo/alchemist.js?v=tr101"></script>
+  <script src="wings/atmo/glacier.js?v=tr101"></script>
+  <script src="wings/atmo/valhalla.js?v=tr101"></script>
+  <script src="wings/atmo/dynasty.js?v=tr101"></script>
+  <script src="wings/atmo/zen.js?v=tr101"></script>
+  <script src="wings/atmo/samadhi.js?v=tr101"></script>
+  <script src="wings/atmo/silkroad.js?v=tr101"></script>
+  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr101"></script> -->
+  <script src="wings/hall.js?v=tr101"></script>
+  <script src="wings/gallery.js?v=tr101"></script>
+  <script src="wings/vault.js?v=tr101"></script>
+  <script src="wings/albums-data.js?v=tr101"></script><script src="wings/study.js?v=tr101"></script>
+  <script src="wings/wants.js?v=tr101"></script>
+  <script src="wings/simple.js?v=tr101"></script>
+  <script src="wings/health.js?v=tr101"></script>
+  <script src="wings/questions.js?v=tr101"></script>
+  <script src="wings/lab.js?v=tr101"></script>
   <!--WJ:table-->
-  <script src="wings/fx/engine.js?v=tr100"></script><script src="wings/fx/presets.js?v=tr100"></script><script src="wings/fx/ui.js?v=tr100"></script>
-  <script src="wings/themes/manifest.js?v=tr100"></script>
-  <script src="wings/themes/worlds.js?v=tr100"></script>
-  <script src="wings/music-engine.js?v=tr100"></script>
-  <script src="wings/scene-engine.js?v=tr100"></script>
-  <script src="wings/ui-sounds.js?v=tr100"></script>
-  <script src="wings/scene.js?v=tr100"></script>
+  <script src="wings/fx/engine.js?v=tr101"></script><script src="wings/fx/presets.js?v=tr101"></script><script src="wings/fx/ui.js?v=tr101"></script>
+  <script src="wings/themes/manifest.js?v=tr101"></script>
+  <script src="wings/themes/worlds.js?v=tr101"></script>
+  <script src="wings/music-recorded.js?v=tr101"></script>
+  <script src="wings/music-engine.js?v=tr101"></script>
+  <script src="wings/scene-engine.js?v=tr101"></script>
+  <script src="wings/ui-sounds.js?v=tr101"></script>
+  <script src="wings/scene.js?v=tr101"></script>
   <!--WJ:themes: crest registry + one crest file per atmosphere-->
-  <script src="wings/themes.js?v=tr100"></script>
+  <script src="wings/themes.js?v=tr101"></script>
 </body>
 </html>

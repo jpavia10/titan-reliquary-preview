@@ -54,6 +54,7 @@
       </div>
       <!-- THEMES-TABS:end -->
       <p class="ss-status" id="ss-status" role="status" aria-live="polite"></p>
+      <p class="ss-now" id="ss-now" hidden></p>
       <div class="ss-master"><label for="ss-vol">Volume</label><input type="range" id="ss-vol" min="0" max="1" step="0.01" aria-label="Master volume"><span class="ss-vol-n" id="ss-vol-n"></span></div>
       <div class="ss-btnrow"><button type="button" class="ss-btn primary" id="ss-play">▶ Play</button><button type="button" class="ss-btn off" id="ss-off">■ Off</button></div>
     </div>
@@ -319,6 +320,12 @@
   }
   $("#ss-follow", sheet).addEventListener("change", (e) => { st.follow = e.target.checked; save(); if (st.follow) followTheme(lastAtmo); });
   window.addEventListener("titan:gen", () => { render(); });
+  /* the recording now playing (wings/music-recorded.js): piece, composer, performer and license, so every recording is credited */
+  window.addEventListener("titan:music", (e) => {
+    const t = e.detail, n = $("#ss-now", sheet); if (!n) return;
+    n.hidden = !t;
+    if (t) n.textContent = `♪ ${t.title} · ${t.composer}${t.performer && t.performer !== "see source page" ? " · " + t.performer : ""} (${t.license})`;
+  });
 
   // The bar button opens the studio (app.js binds #btn-atmo -> openAtmoSheet -> TitanScene.open).
   window.TitanScene = {
