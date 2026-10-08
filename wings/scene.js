@@ -59,11 +59,11 @@
     </div>
     <!-- THEMES-TABS:panel-scenes --><div class="ss-panel" id="ss-p-scenes" role="tabpanel" aria-labelledby="ss-tab-scenes" hidden>
     <h3 class="ss-h">Sound scenes</h3>
-    <p class="ss-sub">Real recordings, layered, with soft music underneath. One tap sets the sound and the lighting.</p>
+    <p class="ss-sub">Real recordings, layered, with music underneath. One tap sets the sound, the music, the lighting and its effect. Sound starts on its own with your first tap in the app; Off keeps it quiet next time too.</p>
     <div class="ss-scenes" id="ss-scenes">${G.SCENE_ORDER.map((id) => sceneBtn(id, G.SCENES[id])).join("")}</div>
     <div id="ss-mine-wrap" hidden><h3 class="ss-h">My scenes</h3><div class="ss-scenes" id="ss-mine"></div></div>
     <details class="ss-details" id="ss-worlds"><summary>Sounds of the Worlds</summary><div class="in">
-      <p class="ss-sub">The sound each World plays by default. Tap one to hear it on its own.</p>
+      <p class="ss-sub">Each World's own scene. One tap brings its sound, music, lighting and effect.</p>
       <div class="ss-scenes">${G.WORLD_ORDER.map((id) => sceneBtn(id, G.SCENES[id])).join("")}</div></div></details>
     </div><!-- /scenes panel -->
     <!-- THEMES-TABS:panel-themes --><div class="ss-panel" id="ss-p-themes" role="tabpanel" aria-labelledby="ss-tab-themes"><div id="ss-themes"></div></div>
@@ -160,16 +160,24 @@
     if (radioOn) stopRadio();
     const ok = G.play(mixNow(), { name: sceneName(), fade: fade == null ? 2.5 : fade });
     if (!ok) el.status.textContent = "This browser cannot make sound.";
-    st.wasPlaying = true; save(); render();
+    st.wasPlaying = true; st.userOff = false; save(); render();
   }
-  function pickScene(id) {
+  /* the World whose manifest names this sound scene (theme id = atmosphere id) */
+  const worldOfScene = (id) => { const W = (window.TitanWorlds && window.TitanWorlds.worlds) || []; const w = W.find((x) => x.scene === id); return w ? w.id : null; };
+  /* One tap = the whole scene (owner 2026-10-08: "when I click a scene it should also load effects and sound and music"): the sound and
+     its music start first, then the lighting and its effect follow (World scenes switch to their World). opts.visual === false keeps the
+     current look (auto-start, theme clicks that already switched it). */
+  function pickScene(id, opts) {
+    opts = opts || {};
     if (G.ALIASES && G.ALIASES[id]) id = G.ALIASES[id];
     const u = userScene(id);
-    if (u) { st.scene = id; st.mix = clone(u.mix); if (u.atmo && window.TitanSetAtmo) window.TitanSetAtmo(u.atmo); saveMine(); start(2.5); return; }
+    if (u) { st.scene = id; st.mix = clone(u.mix); saveMine(); start(opts.fade || 2.5); if (opts.visual !== false && u.atmo && window.TitanSetAtmo) window.TitanSetAtmo(u.atmo); return; }
     const s = G.SCENES[id]; if (!s) return;
-    st.scene = id; st.mix = { beds: clone(s.beds), pad: s.pad, piano: s.piano, bells: s.bells, beat: s.beat, root: s.root, mode: s.mode, prog: s.prog, chordSec: s.chordSec, gap: s.gap, bpm: s.bpm, arc: s.arc, spat: s.spat };
-    if (window.TitanSetAtmo && s.atmo && !s.world) window.TitanSetAtmo(s.atmo);   // World scenes are sound only here: the World manifest owns the lighting
-    saveMine(); start(2.5);
+    st.scene = id; st.mix = { beds: clone(s.beds), pad: s.pad, piano: s.piano, bells: s.bells, beat: s.beat, root: s.root, mode: s.mode, prog: s.prog, chordSec: s.chordSec, gap: s.gap, bpm: s.bpm, arc: s.arc, spat: s.spat, rec: s.rec };
+    saveMine(); start(opts.fade || 2.5);
+    if (opts.visual === false) return;
+    if (s.world) { const wid = worldOfScene(id); if (wid && wid !== lastAtmo && window.TitanWorlds) { lastAtmo = wid; window.TitanWorlds.apply(wid); } }
+    else if (window.TitanSetAtmo && s.atmo) window.TitanSetAtmo(s.atmo);
   }
   function customise(fn) {
     if (!st.mix) st.mix = { beds: {}, pad: 0, piano: false, bells: false, beat: false, root: "D", mode: "dorian", prog: [0, 4, 3, 1], chordSec: 14, gap: [5, 10], bpm: 74 };
@@ -193,7 +201,7 @@
     st.mine.push({ id: "u" + Date.now().toString(36), name: name.slice(0, 30), mix: clone(st.mix), atmo: lastAtmo });
     $("#ss-savename", sheet).value = ""; save(); render(); msg(`Saved "${name}" under My scenes.`);
   }
-  function stopAll() { G.stop(0.8); st.wasPlaying = false; st.scene = st.scene; save(); render(); }
+  function stopAll() { G.stop(0.8); st.wasPlaying = false; st.userOff = true; save(); render(); }      // Off is remembered: no auto-start next visit
 
   /* ---------- radio ---------- */
   const radio = window.TitanLofi;
@@ -242,7 +250,11 @@
   });
   themesEl.addEventListener("click", (e) => {
     const b = e.target.closest(".th-card"); if (!b || !window.TitanWorlds) return;
-    lastAtmo = b.dataset.world; window.TitanWorlds.apply(b.dataset.world);
+    const wid = b.dataset.world, w = window.TitanWorlds.byId(wid);
+    let sid = w && w.scene; if (sid && G.ALIASES && G.ALIASES[sid]) sid = G.ALIASES[sid];
+    // the World's sound + music start in the same tap (unless "Sound follows the theme" is off or the radio is playing)
+    if (st.follow !== false && !radioOn && sid && G.SCENES[sid] && !(G.isPlaying() && st.scene === sid)) pickScene(sid, { visual: false });
+    lastAtmo = wid; window.TitanWorlds.apply(wid);
     themesEl.querySelectorAll(".th-card").forEach((c) => c.setAttribute("aria-pressed", String(c === b)));
     render();
   });
@@ -303,7 +315,7 @@
     if (st.follow === false || radioOn || !G.isPlaying()) return;
     const w = window.TitanWorlds && window.TitanWorlds.byId(atmo);
     const id = w && w.scene && (G.ALIASES && G.ALIASES[w.scene] || w.scene);
-    if (id && G.SCENES[id] && st.scene !== id) pickScene(id);
+    if (id && G.SCENES[id] && st.scene !== id) pickScene(id, { visual: false });
   }
   $("#ss-follow", sheet).addEventListener("change", (e) => { st.follow = e.target.checked; save(); if (st.follow) followTheme(lastAtmo); });
   window.addEventListener("titan:gen", () => { render(); });
@@ -315,4 +327,28 @@
   };
   if (!st.mix && st.scene === "custom") { const m = loadMine(); if (m) st.mix = m; }
   render();
+
+  /* Sound on by default (owner 2026-10-08: "it isn't on by default"). Browsers allow sound only after a tap, so the first tap anywhere
+     starts the current theme's scene (its recordings and music) with a slow fade. Not when the owner pressed Off last time (remembered),
+     not over the radio, and not when the tap was on the opening film's own sound button (the film is playing its sound then). */
+  function autoStart(e) {
+    const t = e && e.target;
+    if (t && t.closest && t.closest(".ts-sound-hint, .ts-sound, #scene-sheet, [data-no-autosound]")) return;   // the film's sound button, or the studio itself
+    off();
+    if (st.userOff || G.isActive() || radioOn) return;
+    // Unlock the audio inside the tap itself (iOS needs that), but start the scene only after the tap has finished: starting it renames
+    // the Scene button, and a bar that shifts between press and release swallowed the very tap that started it (smoke test, Search).
+    try { const c = G.ensure(); if (c && c.state !== "running") c.resume().catch(() => {}); } catch (err) { /* ignore */ }
+    setTimeout(() => {
+      if (st.userOff || G.isActive() || radioOn) return;
+      const w = window.TitanWorlds && window.TitanWorlds.byId(lastAtmo);
+      let id = w && w.scene; if (id && G.ALIASES && G.ALIASES[id]) id = G.ALIASES[id];
+      if (!(id && G.SCENES[id])) id = st.scene !== "off" && st.scene !== "custom" && (G.SCENES[st.scene] || userScene(st.scene)) ? st.scene : "midnight-gallery";
+      pickScene(id, { visual: false, fade: 4 });
+    }, 450);
+  }
+  const GEST = ["pointerdown", "keydown"];
+  function off() { GEST.forEach((g) => document.removeEventListener(g, autoStart, true)); }
+  if (!st.userOff) GEST.forEach((g) => document.addEventListener(g, autoStart, true));
+  window.TitanScene.autoStartArmed = () => !st.userOff;
 })();
