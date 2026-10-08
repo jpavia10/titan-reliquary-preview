@@ -57,6 +57,12 @@ Serial numbers (`ser`) are NOT yours: they are assigned automatically and reassi
 ## 2. Batches
 "Batch" = the same work for every photo, written as **one** file `changes_{agent}_{YYYYMMDD-HHMM}.jsonl` (e.g. `changes_gemini_20261002-1830.jsonl`). Order matters inside the file: create a type *before* the specimens that use it. Finish with a short summary in chat: how many photos, how many new coins, how many skipped (already in the master), every possible duplicate, and every photo you could not read. Do not move or delete the photos; the pipeline files them.
 
+## 2b. Blind double read (Muse and Grok, the next 10 new coins; fix list #55)
+For new coins (NOID photos in STAGING after 2026-10-08) both Muse and Grok read the same photo. **Do not open the other AI's file, summary or FEEDBACK about those coins until yours is in the drop folder**, and put the photo file name in `provenance.inputs` on every line. Claude compares the two reads (`tools/pipeline/double_read.py`) before merging: agreed facts merge, each disagreement becomes a question for Joseph. Full rules: `docs/protocols/DOUBLE_READ.md`.
+
+## 2c. Blind photo test and the `_locked` folder
+The photo test (fix list #4) uses photos named `BK-xxxx.webp` in `docs/bakeoff/`. If Joseph gives you that test, answer only from the photos, as its `PROMPT.md` says. **Never open Drive `_locked (answer keys: Claude only)`**: a model that has seen a key cannot be scored, and its results are thrown out.
+
 ## 3. What happens after you hand the file over
 The integrator (or the scheduled job) runs `python3 tools/pipeline/publish.py`: it applies your file, validates, and rebuilds the site. A file with any problem (including any format that is not a ChangeEvent line) is rejected whole with a report, never converted for you, (`rejected/*.report.txt` next to the drop folder); nothing changes. Fix the reported lines and submit the file again under a new name. Submitting a file twice is harmless.
 

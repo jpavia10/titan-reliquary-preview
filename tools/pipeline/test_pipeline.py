@@ -674,6 +674,16 @@ class ShootListAndFinishLine(unittest.TestCase):
         self.assertTrue(self.P1.mint_read({"mint_marks": [], "mint_text": "Monnaie de Paris"}))
         self.assertTrue(self.P1.mint_read({"mint_marks": ["D"], "mint_text": None}))
 
+    def test_double_read_pairs_by_photo_and_flags_the_disagreement(self):
+        import double_read as DR, build_app_data as B
+        fx = os.path.join(HERE, "fixtures", "double_read")
+        r = DR.compare(os.path.join(fx, "changes_muse-a.jsonl"), os.path.join(fx, "changes_grok-b.jsonl"), self.col)
+        self.assertEqual(len(r["pairs"]), 2)
+        by = {p["photo"]: p for p in r["pairs"]}
+        self.assertEqual(by["NOID_Canada_1978_1-cent_obv.jpg"]["disagree"], [])
+        self.assertEqual(by["NOID_Swiss_2fr_rev.jpg"]["disagree"], ["year"])      # 1974 vs 1977; the value 2.25 vs 2.50 is the same estimate
+        self.assertFalse(r["only_a"] or r["only_b"])
+
     def test_trust_meter_counts_every_shown_fact(self):
         st = json.load(open(os.path.join(ROOT, "data", "status.json"), encoding="utf-8"))
         tr = st["trust"]
