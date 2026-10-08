@@ -10,9 +10,10 @@ Contribution quality (follows the rules) is scored in `CONTRIBUTOR_SCORES.md`; a
 
 | contributor | files | events | kept | verified | reported cost | cost per kept fact |
 |---|---:|---:|---:|---:|---:|---:|
-| claude | 22 | 340 | 312 | 0 | - | - |
+| claude | 25 | 361 | 333 | 0 | - | - |
 | grok | 2 | 213 | 212 | 0 | - | - |
-| muse | 11 | 712 | 704 | 0 | - | - |
+| grok-bot | 1 | 32 | 32 | 0 | - | - |
+| muse | 12 | 723 | 715 | 0 | - | - |
 | opus | 1 | 1 | 1 | 0 | - | - |
 
 ## Every run
@@ -55,3 +56,8 @@ Contribution quality (follows the rules) is scored in `CONTRIBUTOR_SCORES.md`; a
 | 2026-10-05 | `changes_claude_20261005-1700.jsonl` | claude | model:claude | 5 | 5 | 0 | 0 | - | - |
 | 2026-10-06 | `changes_claude_20261006-0300.jsonl` | muse (re-filed by Claude) | model:claude | 5 | 2 | 0 | 5 | - | - |
 | 2026-10-06 | `changes_claude_20261006-0900.jsonl` | claude | model:claude | 4 | 4 | 0 | 0 | - | - |
+| 2026-10-06 | `changes_claude_20261006-1725.jsonl` | claude | model:claude | 16 | 16 | 0 | 16 | - | - |
+| 2026-10-07 | `changes_grok-bot_20261007-1908.jsonl` | grok-bot | model:grok-bot | 32 | 32 | 0 | 32 | - | - |
+| 2026-10-07 | `changes_muse_20261007-1915.jsonl` | muse | model:muse | 11 | 11 | 0 | 11 | - | - |
+| 2026-10-08 | `changes_claude_20261008-0400.jsonl` | claude | model:claude | 1 | 1 | 0 | 1 | - | - |
+| 2026-10-08 | `changes_claude_20261008-0520.jsonl` | claude | model:claude | 4 | 4 | 0 | 4 | - | - |

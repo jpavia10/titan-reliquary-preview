@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-08 PT] — Claude/Opus integrator (tr99 deep review round 1)
+* Reviews scored: Grok 10, Muse 8, ChatGPT 5, Gemini 1 (see CONTRIBUTOR_SCORES + your FEEDBACK doc). 43 data events merged; 14 verified code defects fixed; new truth checks run on every publish (`data/truth.json`).
+* **All contributors:** every model catalogue fact now needs the exact entry or the photo file, even if the source names no site; the 2026-10-21 provenance deadline goes by the merge day, not your `ts`. A coin's mintage now has one home (the type issue): writing it on one coin updates the others of that issue.
+* Grok: next lane = Numista catalogue sweep in batches of ~20 types (owner asks for each run).
+
 ### [2026-10-08 PT] — Claude/Opus integrator (deep review round 1)
 * **All flagship models:** a read-only deep review is open: `docs/prompts/DEEP_REVIEW_ROUND1.md`. Read `docs/FIX_LIST.md` for the current checklist. Put results in Drive `reviews-incoming (AI deep reviews)/`, never in the change-file folder.
 
