@@ -91,7 +91,7 @@ def _next_ids(specs):
 
 
 def status(col, out, build, now, root=None):
-    import display as D
+    import display as D, phase1 as P1
     specs = col["specs"]
     active = {k: s for k, s in specs.items() if (s.get("lifecycle") or {}).get("status") != "Removed"}
     tok = {k for k, s in active.items() if D.is_token(col["types"][s["type"]])}
@@ -127,6 +127,8 @@ def status(col, out, build, now, root=None):
         "research": {"open_questions": oq, "specimens_with_open_questions": oq_specs},
         "integrity": {"problems": len(problems(col, out, root)), "warnings": warnings(col)},
         "truth": _truth(col),
+        "phase1": P1.summary(col),
+        "trust": P1.trust(P1.details_from(out) if os.path.isdir(os.path.join(out, "detail")) else {}),
     }
 
 

@@ -31,7 +31,7 @@ def load_collection(d):
     col = {"types": types, "specs": specs, "spec_file": spec_file,
            "lots": load(f"{d}/lots.json"), "albums": load(f"{d}/albums.json"),
            "issuers": {r["id"]: r for r in load(f"{d}/ref/issuers.json")},
-           "photos": load(f"{d}/photos.json"), "manifest": load(f"{d}/manifest.json")}
+           "photos": load(f"{d}/photos.json"), "manifest": load(f"{d}/manifest.json"), "dir": d}
     bp = f"{d}/board.json"
     col["board"] = load(bp) if os.path.exists(bp) else None
     vp = f"{d}/valuations.jsonl"

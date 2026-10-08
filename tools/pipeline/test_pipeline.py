@@ -627,5 +627,59 @@ class Provenance(unittest.TestCase):
                     else: self.assertLessEqual(len(e.get("source", "")), 140)
         self.assertEqual(n, len(BASE.specs))
 
+
+class ShootListAndFinishLine(unittest.TestCase):
+    """Fix list #54 (order), #78 (facts to confirm), #57 (Phase 1 finish line), #75 (trust meter)."""
+    @classmethod
+    def setUpClass(cls):
+        import build_app_data as B, build_reshoot as R, phase1 as P1
+        cls.B, cls.R, cls.P1 = B, R, P1
+        cls.col = B.load_collection(os.path.join(ROOT, "collection"))
+        cls.d = R.build(cls.col, "2026-10-08T00:00:00Z")
+
+    def test_photos_that_settle_a_fact_come_first(self):
+        for lst in (self.d["items"], self.d["other_side"]["items"]):
+            ranks = [min((self.R.SETTLE_RANK[x["kind"]] for x in r["settles"]), default=9) for r in lst]
+            self.assertEqual(ranks, sorted(ranks), "a coin whose photo settles nothing is ahead of one that settles a fact")
+            self.assertEqual([r["rank"] for r in lst], list(range(1, len(lst) + 1)))
+        qcoins = {q["coin"] for q in json.load(open(os.path.join(ROOT, "data", "questions.json"), encoding="utf-8"))["questions"] if q.get("coin")}
+        top = [r["id"] for r in self.d["other_side"]["items"] if any(x["kind"] == "question" for x in r["settles"])]
+        self.assertTrue(top and set(top) <= qcoins)
+
+    def test_other_side_batch_is_every_one_sided_coin(self):
+        live = [p for p in self.col["photos"] if not p.get("superseded_by") and (p.get("review") or {}).get("status") not in ("rejected", "reshoot")]
+        sides = {}
+        for p in live: sides.setdefault(p["specimen"], set()).add(p.get("side"))
+        one = {k for k, v in sides.items() if not {"obv", "rev"} <= v and self.col["specs"][k]["lifecycle"]["status"] != "Removed"}
+        got = self.d["other_side"]["items"]
+        self.assertEqual({r["id"] for r in got}, one)
+        for r in got: self.assertNotIn(r["side"], sides[r["id"]])
+
+    def test_confirm_facts_are_in_hand_facts_and_confirmable(self):
+        import owner_answers as OA
+        for r in self.d["items"] + self.d["other_side"]["items"]:
+            self.assertLessEqual(len(r["confirm"]), 3)
+            for c in r["confirm"]:
+                self.assertIn(c["fact"], self.R.IN_HAND); self.assertIn(c["fact"], OA.CONFIRM)
+                self.assertNotIn(c["level"], ("owner", "verified"))
+                if c["fact"] == "mint": self.assertTrue(self.col["specs"][r["id"]]["issue"]["mint_marks"])
+
+    def test_phase1_finish_line_definition_is_frozen(self):
+        self.assertEqual(self.P1.FIELDS, ("photo", "country", "year", "denomination", "mint", "story", "value"))
+        sm = self.P1.summary(self.col)
+        self.assertEqual(sm["done"] + len(self.d["phase1"]["items"]), sm["total"])
+        self.assertEqual(sm["missing"]["photo"], self.d["total"])           # no photo = on the shoot list
+        self.assertFalse(self.P1.mint_read({"mint_marks": [], "mint_text": "not on shown arms side"}))
+        self.assertFalse(self.P1.mint_read({"mint_marks": [], "mint_text": "unknown (letter not clear on photo)"}))
+        self.assertTrue(self.P1.mint_read({"mint_marks": [], "mint_text": "Monnaie de Paris"}))
+        self.assertTrue(self.P1.mint_read({"mint_marks": ["D"], "mint_text": None}))
+
+    def test_trust_meter_counts_every_shown_fact(self):
+        st = json.load(open(os.path.join(ROOT, "data", "status.json"), encoding="utf-8"))
+        tr = st["trust"]
+        self.assertEqual(sum(tr["by_level"].values()), tr["facts"])
+        self.assertEqual(tr["cited_or_confirmed"], tr["by_level"]["verified"] + tr["by_level"]["owner"] + tr["by_level"]["reference"])
+        self.assertEqual(st["phase1"]["total"], st["specimens"]["total"])
+
 if __name__ == "__main__":
     unittest.main(verbosity=2, warnings="ignore")
