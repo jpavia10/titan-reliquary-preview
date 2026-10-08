@@ -9,7 +9,7 @@ const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
 const AMB = "titan-ambience-v1"; // real recordings: cached on first play (too big to precache), kept across builds
-const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "js/app-motion.js?v=" + BUILD, "js/app-format.js?v=" + BUILD, "js/app-insights.js?v=" + BUILD, "js/app-overlay.js?v=" + BUILD, "js/app-atmo-css.js?v=" + BUILD, "js/app-ui.js?v=" + BUILD, "app.js?v=" + BUILD, "spatial.js?v=" + BUILD, "deepzoom.js?v=" + BUILD, "styles.css?v=" + BUILD, "splash.js?v=" + BUILD, "splash.css?v=" + BUILD, "manifest.webmanifest",
+const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "js/app-motion.js?v=" + BUILD, "js/app-format.js?v=" + BUILD, "js/app-insights.js?v=" + BUILD, "js/app-overlay.js?v=" + BUILD, "js/app-atmo-css.js?v=" + BUILD, "js/app-ui.js?v=" + BUILD, "js/app-palette.js?v=" + BUILD, "app.js?v=" + BUILD, "spatial.js?v=" + BUILD, "deepzoom.js?v=" + BUILD, "styles.css?v=" + BUILD, "splash.js?v=" + BUILD, "splash.css?v=" + BUILD, "manifest.webmanifest",
   "icons/icon-192.png", "icons/apple-touch-icon.png", "icons/favicon-32.png", "favicon.svg",
   "fonts/Fraunces-500.woff2", "fonts/Fraunces-600.woff2", "fonts/Fraunces-700.woff2",
   "js/three.min.js", "js/OrbitControls.js", "js/fflate.min.js", "js/USDZExporter.js", "js/qrcode.min.js", "js/openseadragon.min.js",

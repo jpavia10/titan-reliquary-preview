@@ -6621,7 +6621,7 @@
     // Command palette beats everything.
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();
-      if (paletteOpen) closePalette(); else openPalette();
+      PAL.toggle();
       return;
     }
     const albumModal = $("#album-inspector-modal");
@@ -6685,27 +6685,10 @@
     if (window.TitanHealth) window.TitanHealth.refresh(); else checkWebVersion().then(() => bustReload());
   });
 
-  // Search palette (⌘K)
-  $("#btn-search").addEventListener("click", openPalette);
-  $("#fab-search")?.addEventListener("click", openPalette);
-  $("#palette-q").addEventListener("input", (e) => { markTyping(); renderPalette(e.target.value); });
-  $("#palette-q").addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      // Take the first result straight to its dossier. preventDefault + stopPropagation
-      // keep the keydown from bubbling into the document-level handler or triggering
-      // any default action; call the open path directly instead of via synthetic click.
-      e.preventDefault();
-      e.stopPropagation();
-      const first = $("#palette-results .pal-row");
-      if (first) {
-        const scan = first.dataset.scan;
-        closePalette();
-        dossierCtx = null;
-        openDrawer(scan);
-      }
-    }
-  });
-  $("#palette").addEventListener("click", (e) => { if (e.target.id === "palette") closePalette(); });
+  // Search palette (⌘K): js/app-palette.js owns it (fix list #32 step 4); app.js only supplies what it knows
+  const PAL = window.TitanPalette.create({ ensureSearch, flips: () => vault.flips || [], match: flipQueryMatch, norm, markTyping,
+    openCoin: (scan) => { dossierCtx = null; openDrawer(scan); } });
+  const openPalette = PAL.open, closePalette = PAL.close;
 
   const autoBox = $("#auto-refresh");
   if (autoBox) {
@@ -7133,57 +7116,6 @@
 
 
 
-
-  /* --- Search palette: Ctrl/⌘K command-K over the flips --- */
-  let paletteOpen = false;
-  function openPalette() {
-    ensureSearch();
-    rememberFocus();
-    $("#palette").hidden = false;
-    paletteOpen = true;
-    window.dispatchEvent(new CustomEvent("titan:ui", { detail: { kind: "search" } }));
-    renderPalette("");
-    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
-    const q = $("#palette-q");
-    q.value = "";
-    requestAnimationFrame(() => q.focus());
-  }
-  function closePalette() {
-    if (!paletteOpen) return;
-    $("#palette").hidden = true;
-    paletteOpen = false;
-    window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: false } }));
-    restoreFocus();
-  }
-  function renderPalette(qRaw) {
-    const gb = window.__galleryBridge;
-    if (gb && gb.palette && !gb.paletteBroken) {
-      try { if (gb.palette(qRaw) !== false) return; } catch (e) { gb.paletteBroken = true; console.warn("Palette v2 failed; using the classic palette.", e); }
-    }
-    const q = norm(qRaw || "");
-    const box = $("#palette-results");
-    if (!q) {
-      box.innerHTML = `<div class="pal-empty">Type to search ${esc(intFmt((vault.flips || []).length))} flips — SER, scan, country, year, denom.</div>`;
-      return;
-    }
-    const hits = (vault.flips || []).filter((f) => flipQueryMatch(f, q)).slice(0, 8);
-    box.innerHTML = hits.length
-      ? hits.map((f, i) => `
-        <button type="button" class="pal-row${i === 0 ? " sel" : ""}" data-scan="${esc(f.scan)}" role="option">
-          <span class="pal-ser">${esc(f.ser || f.scan)}<span class="pal-scan">${esc(f.scan)}</span></span>
-          <span class="pal-meta">${esc([f.country, f.year, f.denom || f.label].filter(Boolean).join(" · "))}</span>
-          <span class="pal-est">${f.est != null ? money(f.est) : "—"}</span>
-        </button>`).join("")
-      : `<div class="pal-empty">No matches for “${esc(qRaw)}”.</div>`;
-    $$(".pal-row", box).forEach((row) => {
-      row.addEventListener("click", () => {
-        const scan = row.dataset.scan;
-        closePalette();
-        dossierCtx = null;
-        openDrawer(scan);
-      });
-    });
-  }
 
   /* Mirror the music bar's state on <html data-lofi="open|collapsed">, so CSS needs no `body:has(.lofi-bar…)`
      (a :has() on <body> is re-evaluated on every DOM change anywhere; it cost ~150 ms at boot on a phone).
