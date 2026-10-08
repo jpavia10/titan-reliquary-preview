@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Smoke test of the whole app (fix list #31): every wing and the main features, in a real browser, phone and desktop.
 
-  python3 tools/smoke/smoke.py [--url http://localhost:8766/] [--only phone|desktop] [--shots DIR]
+  python3 tools/smoke/smoke.py [--url http://localhost:8766/] [--only phone|desktop] [--shots DIR] [--allow-missing art/splash/,audio/]
+  (--allow-missing: a 404 under these paths is reported, not failed; the restore drill uses it because the compact backup leaves out the
+  opening films and the ambience recordings by design)
 
 Without --url it serves this repo on a free local port. Needs playwright (Chromium). Checks, per viewport:
   splash (forced, then skipped), Hall (value + as-of line), Gallery (carousel + tiles), search (palette finds a coin),
@@ -151,6 +153,7 @@ def main(argv):
     url = argv[argv.index("--url") + 1] if "--url" in argv else None
     only = argv[argv.index("--only") + 1] if "--only" in argv else None
     shots = argv[argv.index("--shots") + 1] if "--shots" in argv else None
+    allow = [x for x in (argv[argv.index("--allow-missing") + 1] if "--allow-missing" in argv else "").split(",") if x]
     if shots: os.makedirs(shots, exist_ok=True)
     httpd = None
     if not url: url, httpd = serve()
@@ -167,7 +170,10 @@ def main(argv):
             try: scenario(r)
             except Exception as e: r.check("scenario finished", False, f"{type(e).__name__}: {str(e)[:160]}")
             r.check("no page errors", not r.errors, "; ".join(dict.fromkeys(r.errors))[:400])
-            r.check("no failed requests", not r.bad, "; ".join(dict.fromkeys(r.bad))[:400])
+            allowed = [b for b in r.bad if any(b.startswith(p) and b.endswith("-> 404") for p in allow)]
+            if allowed: print(f"  [{name}] info  missing as expected (not in this copy): " + "; ".join(dict.fromkeys(allowed))[:300])
+            bad = [b for b in r.bad if b not in allowed]
+            r.check("no failed requests", not bad, "; ".join(dict.fromkeys(bad))[:400])
             print(f"  [{name}] {r.passes} passed, {len(r.fails)} failed in {time.time() - t0:.0f}s")
             total_fail += [f"{name}: {f}" for f in r.fails]
             ctx.close()

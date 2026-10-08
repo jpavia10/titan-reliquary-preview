@@ -1,0 +1,28 @@
+name: restore-drill
+
+# Restore drill (fix list #58): once a month, prove the backup works. Downloads the rolling site-backup zip (the file the Drive sync
+# copies), rebuilds the site from it in an empty folder, checks the rebuilt data matches, and runs the smoke test on the restored copy.
+# tools/backup/restore_drill.py; result in the run log and docs/RESTORE_DRILL.md (last manual run).
+on:
+  schedule:
+    - cron: "40 10 3 * *"      # the 3rd of every month, 10:40 UTC (after the 09:20 backup)
+  workflow_dispatch:
+
+jobs:
+  drill:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4      # only for the drill and smoke scripts; the site under test comes from the zip
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema pillow playwright && python -m playwright install --with-deps chromium
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/backup/restore_drill.py --work "$RUNNER_TEMP/drill" --report restore-drill.txt
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: restore-drill
+          path: restore-drill.txt
