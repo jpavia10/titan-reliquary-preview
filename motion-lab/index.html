@@ -62,8 +62,11 @@
 
   /* ---------------- motion preference: Still / Calm / Full ---------------- */
   var rmq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
-  var mode = (rmq && rmq.matches) ? "still" : "calm";
-  try { var saved = localStorage.getItem("motionlab_mode"); if (saved && !(rmq && rmq.matches)) mode = saved; } catch (e) {}
+  // the app's one motion setting (fix list #59, localStorage titan.motion) caps this page too: Off = Still, Calm = at most Calm
+  var appMo = null; try { appMo = localStorage.getItem("titan.motion"); } catch (e) {}
+  var still0 = appMo === "off" || (appMo !== "full" && appMo !== "calm" && rmq && rmq.matches);
+  var mode = still0 ? "still" : "calm";
+  try { var saved = localStorage.getItem("motionlab_mode"); if (saved && !still0 && !(appMo === "calm" && saved === "full")) mode = saved; } catch (e) {}
   function setMode(m) {
     mode = m;
     Array.prototype.forEach.call(document.querySelectorAll("#hud [data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-mode") === m)); });

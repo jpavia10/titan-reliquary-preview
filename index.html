@@ -30,13 +30,15 @@
       document.documentElement.setAttribute("data-atmo", __tr_a);
     } catch (e) { /* private mode */ }
   </script>
+  <!-- One motion setting + haptics (fix list #59): must run before every other script and before the first paint -->
+  <script src="js/app-motion.js?v=tr99"></script>
   <!-- Splash gate: show the cinematic vault-door opening (splash v3) once per session on a plain load of the Grand Hall.
-       ?nosplash skips it, ?splash=1 forces it, deep links (#coin=..., #vault ...) skip it. Fails open after 7 s. -->
+       ?nosplash skips it, ?splash=1 forces it, deep links (#coin=..., #vault ...) skip it, Motion "Off" skips it. Fails open after 7 s. -->
   <script>
     (function () {
       try {
         var q = location.search, h = location.hash;
-        var off = /[?&]nosplash\b/.test(q), force = /[?&]splash=1\b/.test(q);
+        var off = /[?&]nosplash\b/.test(q) || !!(window.TitanMotion && window.TitanMotion.level() === "off"), force = /[?&]splash=1\b/.test(q);
         var seen = false; try { seen = !!sessionStorage.getItem("tr_splash_v1"); } catch (e) {}
         var plain = !h || h === "#" || h === "#hall";
         if (!off && (force || (!seen && plain))) {

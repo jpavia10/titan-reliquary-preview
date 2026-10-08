@@ -11574,3 +11574,11 @@ html[data-atmo="odyssey"] :is(#market-ticker-tape, #exhibit, .museum-slab, #vaul
   color: var(--ink); text-decoration: none; background: color-mix(in srgb, var(--bg, #000) 70%, transparent); }
 .hero-trust .ht-q { border-color: var(--gold, #d4af37); font-weight: 700; }
 .hero-trust .ht-link:hover, .hero-trust .ht-link:focus-visible { text-decoration: underline; }
+
+/* One motion setting (fix list #59, js/app-motion.js). Off = nothing moves; the reduced-motion rules are also copied under
+   html[data-motion=calm|off] at runtime. Durations go to ~0 instead of "none" so an animation's end state (fill: forwards) still applies. */
+html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after {
+  animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
+}
+html[data-motion="off"] #titan-fx { display: none !important; }

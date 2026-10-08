@@ -217,10 +217,12 @@
     const cl = g.caches.length ? g.caches.map((c) => `<li>${esc(c.name)}: ${n(c.count)} items</li>`).join("") : "<li>No saved copy yet</li>";
     out.push(`<section class="hv-sec" aria-labelledby="hv-h-off"><h2 id="hv-h-off">Offline copy</h2><dl>
       ${row("Connection", g.online ? "Online" : "Offline", g.online ? "" : "Showing the saved copy.")}
+      ${window.TitanMotion ? row("Motion", esc({ full: "Full", calm: "Calm", off: "Off" }[window.TitanMotion.level()] || "?") + (window.TitanMotion.choice() ? "" : " (following this phone's setting)"), "Change it in Scene Studio, Settings.") : ""}
+      ${window.TitanHaptics && window.TitanHaptics.supported() ? row("Vibrate on taps", window.TitanHaptics.enabled() ? "On" : "Off", "Change it in Scene Studio, Settings.") : ""}
       ${row("Last successful check", g.lastCheck ? esc(when(new Date(g.lastCheck).toISOString())) : "never", "When this device last asked for the newest version.")}
     </dl><p class="hv-label">Saved copies on this device</p><ul class="hv-list">${cl}</ul>
       ${window.TitanWarm ? `<button type="button" class="hv-btn" data-warm>Save all coin photos for offline (about 10 MB)</button><p class="hv-status" id="hv-warm" aria-live="polite">Coin details and search are saved automatically; photos are saved when first seen, or all at once with this button.</p>` : ""}</section>`);
-    L.push("", "OFFLINE COPY", "Online: " + (g.online ? "yes" : "no"), "Last version check: " + (g.lastCheck ? when(new Date(g.lastCheck).toISOString()) : "never"),
+    L.push("", "OFFLINE COPY", "Online: " + (g.online ? "yes" : "no"), "Motion: " + (window.TitanMotion ? window.TitanMotion.level() + (window.TitanMotion.choice() ? "" : " (phone setting)") : "?") + ", haptics " + (window.TitanHaptics ? (window.TitanHaptics.supported() ? (window.TitanHaptics.enabled() ? "on" : "off") : "not supported") : "?"), "Last version check: " + (g.lastCheck ? when(new Date(g.lastCheck).toISOString()) : "never"),
       ...g.caches.map((c) => "Cache " + c.name + ": " + c.count + " entries"));
     // Collection
     if (!s) {
