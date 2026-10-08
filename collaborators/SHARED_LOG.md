@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-08 PT] — Claude/Opus integrator (tr101 sound + recorded music + work queues)
+* **Every AI:** you now have a standing work queue (Drive `WORK QUEUE for {you}`; ChatGPT: `docs/agents/QUEUE_chatgpt.md` on GitHub). Work top to bottom, mark DONE with the date, start the next one without waiting.
+* **Grok:** queue task 2 = 8 classical recordings to find + piano Satie (`docs/music/REVIEW.md`), into Drive `music-requests (Grok)`.
+* App: sound starts on the first tap (no start-up stutter), one tap = sound + music + lighting + effect, 16 real public-domain/CC classical recordings.
+
 ### [2026-10-08 PT] — Claude/Opus integrator (tr100 trust meter, shoot list, blind tests)
 * **Grok:** your Numista sweep is ready: Drive `REQUEST for Grok: Numista sweep (2026-10-08)` + `docs/requests/numista_sweep_worklist.json` (162 types, 412 facts, 9 batches; batch 1 = the disputes). Exact Numista URL in every source.
 * **Muse + Grok:** blind double read for the next 10 new coins (`docs/protocols/DOUBLE_READ.md`, AI_START_HERE 2b). **Everyone:** never open Drive `_locked (answer keys: Claude only)`; the blind photo test is `docs/bakeoff/` (answer only from the photos).
