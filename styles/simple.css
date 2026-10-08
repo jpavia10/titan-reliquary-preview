@@ -81,3 +81,7 @@
   .sv-fams { grid-template-columns: 1fr 1fr; }
   .sv-fam { padding: 8px 10px; }
 }
+/* fix list #52: open questions for whoever has the coins in hand */
+.sv-ask { margin: 1em 0 0.5em; padding: 0.6em 1em 1em; border: 3px solid var(--sv-line); border-radius: 14px; background: var(--sv-soft); }
+.sv-ask[hidden] { display: none; }
+.sv-ask a.sv-btn { display: inline-flex; align-items: center; text-decoration: none; }

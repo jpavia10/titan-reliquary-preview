@@ -656,6 +656,21 @@
     }
 
     setupSpotSimulator();
+    renderTrust();
+  }
+
+  /* Fix list #75 + #52: one honest trust number (data/status.json `trust`, computed by tools/pipeline/phase1.py from every fact's certainty
+     label) and the open-question count, so whoever has the coins in hand can answer. */
+  let statusData = null;
+  async function renderTrust() {
+    const el = $("#hero-trust"); if (!el) return;
+    try { statusData = statusData || await fetchJson("data/status.json"); } catch (e) { return; }
+    const t = statusData && statusData.trust; if (!t || !t.facts) return;
+    const nq = window.TitanQuestions && window.TitanQuestions.count ? await window.TitanQuestions.count().catch(() => null) : null;
+    el.innerHTML = `<a href="#health" class="ht-link">How sure we are: <strong>${esc(String(t.pct_cited))} %</strong> of ${intFmt(t.facts)} facts cited or confirmed</a>`
+      + (nq ? ` <a href="#questions" class="ht-link ht-q">${intFmt(nq)} question${nq === 1 ? "" : "s"} only the coin can answer</a>` : "");
+    el.title = `${intFmt(t.cited_or_confirmed)} facts have an exact source or the owner's check; ${t.pct_photo} % were read from a photo, ${t.pct_ai} % are an AI's word without a source yet, ${t.pct_ledger} % came from the original ledger unchecked.`;
+    el.hidden = false;
   }
 
   let simAgSpot = null;
@@ -4918,22 +4933,67 @@
   }
 
   /** The Conservation Lab: Phase-2 photo QC command center. */
-  /* Phase 1 reshoot list (data/reshoot.json from tools/pipeline/build_reshoot.py): coins with no usable phone photo, and why. */
+  /* Phase 1 shoot list (data/reshoot.json from tools/pipeline/build_reshoot.py), fix list #54 #78 #57:
+     the finish line, "start here" (photos that settle an open fact), the coins with no usable phone photo by reason, then the "other side"
+     batch. Every list is already in the right order (settles a fact, then value x doubt, then oldest). Each row offers up to 3 facts to
+     confirm while the coin is in hand; Confirm queues them for the Questions page (TitanQuestions.queueConfirm). */
   let reshootData = null;
+  const RS_SIDE = { obv: "front (obverse)", rev: "back (reverse)" };
+  function rsRow(i, extra) {
+    const Q = window.TitanQuestions;
+    const conf = Q && i.confirm && i.confirm.length ? `<div class="rs-confirm" role="group" aria-label="Check these on ${esc(i.id)} while you hold it">${i.confirm.map((c) => {
+      const done = Q.isQueuedConfirm && Q.isQueuedConfirm(i.id, c.fact);
+      return `<button type="button" class="rs-cf" data-scan="${esc(i.id)}" data-fact="${esc(c.fact)}" data-label="${esc(c.label)}"${done ? " disabled" : ""}>${done ? "✓ " : "Right? "}${esc(c.label)}</button>`;
+    }).join("")}</div>` : "";
+    const why = i.settles && i.settles.length ? `<p class="rs-settles">Settles: ${esc(i.settles[0].text)}${i.settles.length > 1 ? ` <span class="rs-more">(+${i.settles.length - 1} more)</span>` : ""}</p>` : "";
+    return `<li class="rs-item"><button type="button" class="rs-coin" data-scan="${esc(i.id)}"><strong>${esc(i.id)}</strong> ${esc(i.country || "")} ${esc(i.year || "")} · ${esc(String(i.denom || "").split(" · ")[0])}${extra ? ` <span class="rs-side">${extra}</span>` : ""}</button>${why}${conf}</li>`;
+  }
   async function renderReshoot() {
     const el = $("#reshoot"); if (!el) return;
     try { reshootData = reshootData || await fetchJson("data/reshoot.json"); } catch (e) { el.hidden = true; return; }
     const d = reshootData, order = ["none", "together", "unusable", "too_big", "not_round"];
     const head = { none: "Not photographed yet", together: "Photograph on its own (group photo of look-alikes)", unusable: "Retake (blurry, glare or cut off)", too_big: "Re-upload a smaller copy (file too big)", not_round: "Nothing to do (Claude will crop these)" };
+    const os = d.other_side || { items: [], total: 0 }, p1 = d.phase1 || { items: [] };
+    const sideTxt = (i) => "photo the " + (RS_SIDE[i.side] || "other side");
+    // start here: a photo that settles an owner question or a research question (mint-only ones stay in their batch)
+    const big = (i) => (i.settles || []).some((x) => x.kind !== "mint");
+    const first = d.items.filter(big).map((i) => [i, "no photo yet"]).concat(os.items.filter(big).map((i) => [i, sideTxt(i)]))
+      .sort((x, y) => (x[0].settles[0].kind === "question" ? 0 : 1) - (y[0].settles[0].kind === "question" ? 0 : 1) || y[0].score - x[0].score).slice(0, 12);
     const groups = order.filter((k) => d.counts[k]).map((k) => {
-      const rows = d.items.filter((i) => i.reason === k).map((i) => `<li><button type="button" class="rs-coin" data-scan="${esc(i.id)}"><strong>${esc(i.id)}</strong> ${esc(i.country || "")} ${esc(i.year || "")} · ${esc(String(i.denom || "").split(" · ")[0])}</button></li>`).join("");
-      return `<details class="rs-group"${k === "together" || k === "too_big" ? " open" : ""}><summary><span class="rs-n">${intFmt(d.counts[k])}</span> ${esc(head[k])}</summary><p class="rs-why">${esc(d.reasons[k])}</p><ul class="rs-list">${rows}</ul></details>`;
+      const rows = d.items.filter((i) => i.reason === k).map((i) => rsRow(i)).join("");
+      return `<details class="rs-group"><summary><span class="rs-n">${intFmt(d.counts[k])}</span> ${esc(head[k])}</summary><p class="rs-why">${esc(d.reasons[k])}</p><ul class="rs-list">${rows}</ul></details>`;
     }).join("");
+    const other = os.total ? `<details class="rs-group rs-other"><summary><span class="rs-n">${intFmt(os.total)}</span> Other side still needed (one side photographed)</summary>
+      <p class="rs-why">Their phone photo shows one side only. Same order: the ${intFmt(os.settles || 0)} whose other side settles something come first.</p>
+      <ul class="rs-list">${os.items.map((i) => rsRow(i, sideTxt(i))).join("")}</ul></details>` : "";
+    const P1W = { photo: "phone photo", country: "country", year: "year", denomination: "denomination", mint: "mint mark", story: "story", value: "value" };
+    const p1Total = (vault.counts && vault.counts.flips) || (p1.items.length);
+    const p1Done = Math.max(0, p1Total - p1.items.length), p1Pct = p1Total ? Math.round((1000 * p1Done) / p1Total) / 10 : 0;
+    const miss = {}; p1.items.forEach((r) => r.lacks.forEach((f) => (miss[f] = (miss[f] || 0) + 1)));
+    const finish = `<div class="rs-finish"><h3 id="rs-finish-h">Phase 1 finish line</h3>
+      <div class="rs-bar" role="progressbar" aria-labelledby="rs-finish-h" aria-valuemin="0" aria-valuemax="${p1Total}" aria-valuenow="${p1Done}" aria-valuetext="${p1Done} of ${p1Total} pieces"><i style="width:${p1Pct}%"></i></div>
+      <p class="rs-big"><strong>${intFmt(p1Done)} of ${intFmt(p1Total)}</strong> pieces are through Phase 1 (${p1Pct} %).</p>
+      <p class="sub">Through = phone photo, country, year, denomination, mint mark read, story and default value. Left: ${Object.entries(miss).map(([k, c]) => `${intFmt(c)} need the ${esc(P1W[k] || k)}`).join(", ") || "nothing"}.</p>
+      ${p1.items.length ? `<details class="rs-group"><summary>What each piece still lacks (${intFmt(p1.items.length)})</summary><ul class="rs-list">${p1.items.map((r) => `<li><button type="button" class="rs-coin" data-scan="${esc(r.id)}"><strong>${esc(r.id)}</strong> ${r.lacks.map((f) => esc(P1W[f] || f)).join(", ")}</button></li>`).join("")}</ul></details>` : ""}</div>`;
     const todo = d.total - (d.counts.not_round || 0);
-    el.innerHTML = `<div class="sec-head"><span class="eyebrow">Phase 1</span><h2 id="reshoot-h">Phone photos still needed</h2>
-      <p class="sub">${todo ? `${intFmt(todo)} flips still need a phone photo (one side, with your pen label showing). Drop them in Drive STAGING.` : "Every flip has a phone photo."}</p>
-      <button type="button" class="btn small" id="rs-print">Print this list</button></div>${groups}`;
-    $$("#reshoot .rs-coin").forEach((b) => b.addEventListener("click", () => openDrawer(b.dataset.scan)));
+    el.innerHTML = `<div class="sec-head"><span class="eyebrow">Phase 1</span><h2 id="reshoot-h">Shoot list</h2>
+      <p class="sub">${todo ? `${intFmt(todo)} flips still need a phone photo (one side, with your pen label showing), and ${intFmt(os.total)} need their other side. Drop them in Drive STAGING.` : "Every flip has a phone photo."} While a coin is in your hand, tap “Right?” on what it says to confirm it.</p>
+      <button type="button" class="btn small" id="rs-print">Print this list</button></div>
+      ${finish}
+      ${first.length ? `<div class="rs-first"><h3>Start here: these photos settle an open question</h3><ol class="rs-list rs-ol">${first.map(([i, x]) => rsRow(i, x)).join("")}</ol></div>` : ""}
+      ${groups}${other}`;
+    el.onclick = (e) => {
+      const cf = e.target.closest(".rs-cf");
+      if (cf) {
+        const Q = window.TitanQuestions; if (!Q || cf.disabled) return;
+        Q.queueConfirm(cf.dataset.scan, cf.dataset.fact, cf.dataset.label);
+        $$(`#reshoot .rs-cf[data-scan="${cf.dataset.scan}"][data-fact="${cf.dataset.fact}"]`).forEach((b) => { b.disabled = true; b.textContent = "✓ " + b.dataset.label; });
+        showToast(`Confirmed ${cf.dataset.scan}: ${cf.dataset.label}. Send it from Questions.`);
+        return;
+      }
+      const b = e.target.closest(".rs-coin");
+      if (b) openDrawer(b.dataset.scan);
+    };
     $("#rs-print")?.addEventListener("click", () => {
       $$("#reshoot details").forEach((x) => (x.open = true));
       document.body.classList.add("print-reshoot");

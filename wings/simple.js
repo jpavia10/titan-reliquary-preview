@@ -202,8 +202,27 @@
       `Your ${wants.volumes.length} albums hold <strong>${fmtInt(filled)}</strong> coins, with <strong>${fmtInt(miss)}</strong> empty spots still to fill. These are counted by album slot, not given a full record each like the coins in flips.`,
     ];
     if (ag != null) facts.push(`You own about <strong>${(+ag).toFixed(1)} troy ounces</strong> of silver${au ? ` and <strong>${(+au).toFixed(2)}</strong> of gold` : ""}.`);
-    if (b.grand) facts.push(`The whole collection is worth about <strong>${money0(b.grand)}</strong>. It is on HOLD, not for sale.`);
+    // the same number as the Hall headline: the latest day of the value history (metal at that day's prices), else the board total
+    const pd = idx.value && idx.value.portfolio_daily, rows = (pd && pd.rows) || [], ti = pd && pd.cols ? pd.cols.indexOf("total") : -1;
+    const worth = rows.length && ti >= 0 && Number(rows[rows.length - 1][ti]) > 0 ? Number(rows[rows.length - 1][ti]) : b.grand;
+    if (worth) facts.push(`The whole collection is worth about <strong>${money0(worth)}</strong>. It is on HOLD, not for sale.`);
     root.querySelector("#sv-glance-list").innerHTML = facts.map((f) => `<li class="sv-big">${f}</li>`).join("");
+    getJSON("data/status.json").then((st) => {
+      const t = st && st.trust; if (!t || !t.facts || !root) return;
+      const per100 = Math.round(t.pct_cited);
+      const li = document.createElement("li"); li.className = "sv-big";
+      li.innerHTML = `How sure are we? About <strong>${per100 < 1 ? "1" : per100} in 100</strong> facts here have an exact source or a check with the coin in hand. The rest are AI readings or come from the original list, so they could be wrong.`;
+      root.querySelector("#sv-glance-list").appendChild(li);
+    }).catch(() => {});
+  }
+  /* Fix list #52: the open-question count, so whoever has the coins in hand can answer */
+  function renderAsk() {
+    const el = root.querySelector("#sv-ask"), Q = window.TitanQuestions;
+    if (!el || !Q || !Q.count) return;
+    Q.count().then((n) => {
+      el.hidden = !n;
+      if (n) el.innerHTML = `<p class="sv-big"><strong>${fmtInt(n)} question${n === 1 ? "" : "s"}</strong> only the coin${n === 1 ? "" : "s"} can answer. Have them handy?</p><a class="sv-btn sv-primary" href="#questions">Answer the questions</a>`;
+    }).catch(() => { el.hidden = true; });
   }
 
   /* ---------- shell ---------- */
@@ -217,6 +236,7 @@
           <h1 id="sv-title" tabindex="-1">Simple view</h1>
           <button type="button" class="sv-btn" data-close>Back to the collection</button>
         </div>
+        <section id="sv-ask" class="sv-ask" aria-label="Questions" hidden></section>
         <nav class="sv-jump" aria-label="Sections"><a href="#sv-sec-find" data-jump="sv-sec-find">Do I have…?</a><a href="#sv-sec-missing" data-jump="sv-sec-missing">What's missing?</a><a href="#sv-sec-glance" data-jump="sv-sec-glance">At a glance</a></nav>
         <section id="sv-sec-find" aria-labelledby="sv-h-find">
           <h2 id="sv-h-find">Do I have…?</h2>
@@ -275,7 +295,7 @@
     root.querySelector("#sv-title").focus({ preventScroll: true });
     load().then(() => {
       if (root.hidden) return;
-      renderGlance(); renderMissing();
+      renderGlance(); renderMissing(); renderAsk();
       const q = root.querySelector("#sv-q").value; if (q) renderAnswer(q);
     }).catch(() => {
       root.querySelector("#sv-missing-out").innerHTML = `<p class="sv-big">The collection list could not be loaded. Open the app once while online, then it also works offline.</p>`;

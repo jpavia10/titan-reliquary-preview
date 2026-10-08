@@ -44,3 +44,5 @@
   background: #111; color: #fff; font: 700 1.1rem/1.4 "Segoe UI", system-ui, Arial, sans-serif; text-align: center;
 }
 #btn-health { text-decoration: none; display: inline-flex; align-items: center; }
+.hv-bar { display: block; height: 18px; margin: 6px 0 4px; border: 2px solid var(--hv-line); border-radius: 9px; overflow: hidden; background: var(--hv-soft); }
+.hv-bar > i { display: block; height: 100%; background: var(--hv-ok); }
