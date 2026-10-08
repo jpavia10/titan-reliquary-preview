@@ -57,10 +57,14 @@
     if (sceneAtmo && sceneAtmo !== atmo) { sceneName = null; sceneAtmo = null; }
     apply();
   });
+  /* a sound scene's effect waits until its first sounds are running: compiling an effect while the recordings decode made the sound
+     stutter at the start on phones (owner 2026-10-08) */
+  var genT = 0;
   window.addEventListener("titan:gen", function (e) {
     var d = e.detail || {};
-    if (d.type === "play" && d.playing && d.name && SCENE[d.name]) { sceneName = d.name; sceneAtmo = atmo; apply(); }
-    else if (d.type === "stop" && sceneName) { sceneName = null; sceneAtmo = null; apply(); }
+    clearTimeout(genT);
+    if (d.type === "play" && d.playing && d.name && SCENE[d.name]) { sceneName = d.name; sceneAtmo = atmo; genT = setTimeout(apply, 1800); }
+    else if (d.type === "stop" && sceneName) { sceneName = null; sceneAtmo = null; genT = setTimeout(apply, 600); }
   });
   function boot() { if (FX.supported) apply(); }
   if (document.readyState === "complete") setTimeout(boot, 0); else window.addEventListener("load", function () { setTimeout(boot, 50); });

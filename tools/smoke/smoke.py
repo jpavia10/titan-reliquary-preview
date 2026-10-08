@@ -105,6 +105,8 @@ def scenario(r):
     p.click("#btn-search"); p.wait_for_timeout(400); p.fill("#palette-q", "Switzerland"); p.wait_for_timeout(900)
     n = p.evaluate("document.querySelectorAll('#palette-results [role=option], #palette-results button, #palette-results a').length")
     r.check("search finds coins", n > 0, f"{n} results"); p.keyboard.press("Escape"); p.wait_for_timeout(300)
+    # sound on by default (owner 2026-10-08): the first tap in the app started the theme's scene, and that tap still did its own job
+    r.check("sound started with the first tap", p.evaluate("!!(window.TitanGen && TitanGen.isPlaying())"))
     # coin view
     r.go("coin=C094", 3500)
     r.check("coin view has certainty labels", p.evaluate("document.querySelectorAll('.gxd-cert').length") >= 3)

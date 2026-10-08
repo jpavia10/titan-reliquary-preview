@@ -1,0 +1,41 @@
+name: music-intake
+
+# Recorded classical music (owner 2026-10-08). The site's build container cannot reach Wikimedia, so this runner does the fetching:
+# tools/music/fetch_classical.py reads docs/music/wanted.json, keeps only Public Domain / CC0 / CC BY(-SA) recordings by real performers,
+# normalises loudness, encodes AAC, and pushes audio/music/ + docs/music/intake_report.json to the branch `music-intake`.
+# Claude reviews the report (license, performer, the right piece) before anything reaches main.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["docs/music/wanted.json", "tools/music/fetch_classical.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: music-intake
+  cancel-in-progress: true
+
+jobs:
+  fetch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && ffmpeg -version | head -1
+      - name: Fetch and encode
+        run: python3 tools/music/fetch_classical.py docs/music/wanted.json --out audio/music --report docs/music/intake_report.json
+      - name: Push to the music-intake branch
+        run: |
+          set -euo pipefail
+          git config user.name "titan-music-intake"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout -B music-intake
+          git add audio/music docs/music/intake_report.json
+          git commit -m "Music intake $(date -u +%FT%TZ) from ${GITHUB_SHA::7}" || { echo "nothing new"; exit 0; }
+          git push -f origin music-intake
+          du -sh audio/music

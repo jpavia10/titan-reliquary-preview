@@ -230,6 +230,8 @@
   };
   /* spatial default: 3D on desktop, plain stereo on touch devices (HRTF convolution costs CPU) */
   try { if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) E.spatial = "stereo"; } catch (e) { /* ignore */ }
+  const TOUCH = E.spatial === "stereo";
+  const IOS = (() => { const ua = navigator.userAgent || ""; return /iP(hone|ad|od)/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1); })();
   const LOW_END = (navigator.hardwareConcurrency || 4) <= 2;
   const HRTF_CAP = 5;               // live HRTF panners at once; more fall back to equal-power
 
@@ -272,6 +274,23 @@
     }
     return buf;
   }
+  /* The same hall, computed in a throwaway Worker so its ~150 ms (several hundred on a phone) never lands on the main thread while a scene
+     starts (owner 2026-10-08: "the sound stutters at first"). Falls back to mkHall where Workers are unavailable. */
+  function hallAsync(ctx, rt60, pre) {
+    return new Promise((ok) => {
+      let w = null;
+      try {
+        const src = "onmessage=function(e){var sr=e.data[0],rt60=e.data[1],pre=e.data[2],p=Math.floor(pre*sr),n=Math.floor(sr*(rt60*1.15))+p,out=[];" +
+          "for(var c=0;c<2;c++){var d=new Float32Array(n),lp=0,lp2=0;for(var k=0;k<10;k++){var t=p+Math.floor(sr*(0.004+0.075*Math.pow(Math.random(),1.3)));if(t<n)d[t]+=(Math.random()<0.5?-1:1)*0.55*Math.pow(0.82,k);}" +
+          "for(var i=p;i<n;i++){var tt=(i-p)/sr,env=Math.exp(-6.91*tt/rt60)*Math.min(1,tt/0.04),coef=0.62-0.52*Math.min(1,tt/(rt60*0.8));lp+=((Math.random()*2-1)-lp)*coef;lp2+=(lp-lp2)*0.7;d[i]+=lp2*env*0.9;}out.push(d);}" +
+          "postMessage(out,[out[0].buffer,out[1].buffer]);};";
+        w = new Worker(URL.createObjectURL(new Blob([src], { type: "text/javascript" })));
+        w.onmessage = (e) => { try { const [L, R] = e.data, b = ctx.createBuffer(2, L.length, ctx.sampleRate); b.copyToChannel(L, 0); b.copyToChannel(R, 1); ok(b); } catch (err) { ok(mkHall(ctx, rt60, pre)); } w.terminate(); };
+        w.onerror = () => { try { w.terminate(); } catch (e) { /* ignore */ } ok(mkHall(ctx, rt60, pre)); };
+        w.postMessage([ctx.sampleRate, rt60, pre]);
+      } catch (e) { if (w) try { w.terminate(); } catch (e2) { /* ignore */ } ok(mkHall(ctx, rt60, pre)); }
+    });
+  }
   /* identity up to 0.8, then a smooth tanh knee that tops out at 0.99: the summed output can never clip */
   function safetyCurve() {
     const n = 4097, c = new Float32Array(n);
@@ -298,12 +317,14 @@
     // Music gets a little tape colour (gentle high cut + soft tanh saturation) before the bus.
     const musTone = ctx.createBiquadFilter(); musTone.type = "lowpass"; musTone.frequency.value = 6800; musTone.Q.value = 0.4;
     const musDrive = ctx.createGain(); musDrive.gain.value = 1.5;
-    const sat = ctx.createWaveShaper(); sat.curve = tapeCurve(1.6); try { sat.oversample = "2x"; } catch (e) { /* ignore */ }
+    const sat = ctx.createWaveShaper(); sat.curve = tapeCurve(1.6); try { sat.oversample = TOUCH ? "none" : "2x"; } catch (e) { /* ignore */ }   // phones: spare the audio thread
     const musMake = ctx.createGain(); musMake.gain.value = 0.7;
     E.musBus.connect(musTone); musTone.connect(musDrive); musDrive.connect(sat); sat.connect(musMake); musMake.connect(bus);
     // Reverb: a long dark hall tail for the music only (the recordings carry their own space; a second convolver cost frames on phones).
     const verbM = ctx.createConvolver();
-    setTimeout(() => { try { verbM.buffer = mkHall(ctx, 4.8, 0.03); } catch (e) { /* ignore */ } }, 1500);     // the IR costs tens of ms: built after the first sounds are already running
+    // the IR is computed off the main thread and attached once the first sounds have settled (setting it still costs a short FFT setup)
+    setTimeout(() => { hallAsync(ctx, 4.2, 0.03).then((b) => { const put = () => { try { verbM.buffer = b; } catch (e) { /* ignore */ } };
+      if (window.requestIdleCallback) requestIdleCallback(put, { timeout: 3000 }); else put(); }); }, 3500);
     const musSend = ctx.createGain(), wetM = ctx.createGain();
     musSend.gain.value = 0.55; wetM.gain.value = 0.85;
     E.musBus.connect(musSend);
@@ -323,7 +344,10 @@
     bus.connect(duckG); duckG.connect(hp); hp.connect(lo); lo.connect(mid); mid.connect(hi); hi.connect(comp); comp.connect(master);
     master.connect(safety); uiIn.connect(safety); safety.connect(out); out.connect(an);
     E.bus = bus; E.duckG = duckG; E.eq = { lo, mid, hi }; E.master = master; E.safety = safety; E.out = out; E.uiIn = uiIn; E.an = an; E.anBuf = new Float32Array(an.fftSize);
-    // Route to a hidden <audio> via MediaStream so mobile OSes keep it alive in the background.
+    // Route to a hidden <audio> via MediaStream so mobile OSes keep it alive in the background. That route adds a jitter buffer that
+    // underruns while the page is busy (owner 2026-10-08: "the sound stutters at first"), so only iOS (which needs it from the first tap)
+    // uses it all the time; everywhere else the sound goes straight to the speakers and moves to the <audio> route only while the page is
+    // hidden (setRoute, on visibilitychange), when keeping it alive matters and nothing else competes for the main thread.
     let routed = false;
     try {
       if (ctx.createMediaStreamDestination) {
@@ -332,10 +356,12 @@
         el.setAttribute("playsinline", ""); el.setAttribute("aria-hidden", "true"); el.hidden = true; el.loop = false;
         el.srcObject = msd.stream;
         document.body.appendChild(el);
-        const pr = el.play();
-        if (pr && pr.then) pr.then(() => { E.via = "media"; }).catch(() => { fallbackDirect(); });
-        out.connect(msd);
-        E.msd = msd; E.el = el; routed = true; E.via = "media";
+        E.msd = msd; E.el = el;
+        if (IOS) {
+          const pr = el.play();
+          if (pr && pr.then) pr.then(() => { E.via = "media"; }).catch(() => { fallbackDirect(); });
+          out.connect(msd); routed = true; E.via = "media";
+        } else { out.connect(ctx.destination); routed = true; E.via = "direct"; E.mediaReady = true; }
       }
     } catch (e) { routed = false; }
     if (!routed) fallbackDirect();
@@ -343,6 +369,22 @@
     ctx.onstatechange = () => emit("state");
     startTimer();
     return ctx;
+  }
+  /* non-iOS: "media" while hidden (background keep-alive), "direct" while visible (no jitter buffer) */
+  function setRoute(want) {
+    if (IOS || !E.ctx || !E.msd || !E.el || !E.mediaReady || E.via === want) return;
+    const out = E.out, ctx = E.ctx;
+    if (want === "media") {
+      try { out.connect(E.msd); } catch (e) { return; }
+      const pr = E.el.play();
+      const done = () => { try { out.disconnect(ctx.destination); } catch (e) { /* ignore */ } E.via = "media"; };
+      if (pr && pr.then) pr.then(done).catch(() => { try { out.disconnect(E.msd); } catch (e) { /* ignore */ } }); else done();
+    } else {
+      try { out.connect(ctx.destination); } catch (e) { return; }
+      try { out.disconnect(E.msd); } catch (e) { /* ignore */ }
+      try { E.el.pause(); } catch (e) { /* ignore */ }
+      E.via = "direct";
+    }
   }
   function fallbackDirect() {
     if (!E.ctx || E.via === "direct") return;
@@ -564,7 +606,8 @@
           try { buf = await new Promise((ok, no) => { const q = ctx.decodeAudioData(ab, ok, no); if (q && q.catch) q.catch(no); }); } finally { decodeDone(); }
           me.buf = buf; E.decoded++; if (E.log) E.log.push({ bed: id, ev: "decoded", ms: performance.now() });
           me.cuts = CUTS[id] || [];
-          measureLufs(buf).then((l) => { me.lufs = l; me.norm = normFor(id, l); applyNorm(id); }).catch(() => {});
+          if (LUFS[id] != null) { me.lufs = LUFS[id]; me.norm = normFor(id, LUFS[id]); }       // baked: no analysis on the phone, the bed starts at its final level
+          else measureLufs(buf).then((l) => { me.lufs = l; me.norm = normFor(id, l); applyNorm(id); }).catch(() => {});
           return buf;
         } catch (e) { /* try the other codec */ }
       }
@@ -677,6 +720,10 @@
      after re-encoding audio/ambience. Run on the stationary beds only; impulsive beds (rain on umbrella excepted) are full of legitimate onsets. */
   const CUTS = { rainUmbrella: [9.63], leaves: [35.13], windTrees: [12.04, 14.19, 19.29], brown: [2.22], library: [9.97, 33.51], cafe: [6.82, 7.14], labHum: [1.59, 5.8, 9.5, 10.23, 11.1, 13.11, 14.42],
     ship: [6.48], trainIn: [7.47, 7.89, 11.18, 11.59, 13.37, 23.37, 27.18], village: [12.12] };
+  /* Measured loudness (LUFS) of every shipped recording, baked 2026-10-08 with measureLufs() on the webm decode (owner: "the sound stutters at
+     first"): measuring on the phone cost ~160 ms of main thread per scene start and moved each bed's level after it had started. Regenerate with
+     TitanGen.debugLoad(id) + TitanGen.debugMeasure(id) after re-encoding audio/ambience; a bed missing here is measured live as before. */
+  const LUFS = { rainLight: -19.01, rainWindow: -18.95, rainHeavy: -19.01, rainUmbrella: -19.9, thunder: -17.74, wind: -19.78, windTrees: -19.1, windHowl: -20.74, river: -19.1, waves: -19.87, fire: -24.28, crickets: -21.5, frogs: -19.47, village: -18.97, birds: -19.89, gulls: -19.72, owl: -19.48, library: -22.69, cafe: -18.87, hall: -20.19, trainIn: -18.84, train: -18.96, clock: -19.16, vinyl: -20.3, keys: -21.19, pages: -20.33, bowl: -18.87, brown: -19.79, leaves: -22.68, underwater: -19.04, drips: -18.78, waterfall: -18.9, ship: -23.72, whale: -18.96, roomTone: -24.54, labHum: -19.2, temple: -18.75, crowd: -18.98, club: -18.62, city: -19.07, chimes: -19.52, telemetry: -19.94, creak: -19.95, clank: -23.48, pink: -18.96 };
   /* usable [from, to] spans of a decoded loop: never the first/last EDGE s (AAC priming/padding and the file seam), never across a level step */
   function segsFor(r, dur) {
     const EDGE = 0.15, PAD = 0.1, MIN = 4.5;      /* PAD covers the few ms the AAC and Opus decodes differ by */
@@ -1214,7 +1261,7 @@
     const ctx = ensure(); if (!ctx) return false;
     E.mix = mix; E.name = opts.name || E.name || ""; E.playing = true; E.paused = false; E.userStopped = false;
     if (ctx.state !== "running") ctx.resume().catch(() => {});
-    if (E.el && E.el.paused) { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); }
+    if (E.el && E.el.paused && E.via === "media") { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); }
     const fade = Math.max(0.3, opts.fade == null ? 2.5 : opts.fade);
     for (const g of E.groups) {
       if (g.dead || g.retiring) continue;
@@ -1256,7 +1303,7 @@
     clearTimeout(E.parkT);
     E.paused = false;
     E.ctx.resume().catch(() => {});
-    if (E.el && E.el.paused) { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); }
+    if (E.el && E.el.paused && E.via === "media") { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); }
     applyMaster(0.2);
     if ("mediaSession" in navigator) navigator.mediaSession.playbackState = "playing";
     emit("play");
@@ -1285,14 +1332,16 @@
     const ctx = E.ctx; if (!ctx) return;
     if (document.hidden) {
       if (E.bgPause && E.playing && !E.paused) { E.bgPaused = true; pause(); }
+      else if (E.playing && !E.paused) setRoute("media");          // background keep-alive (non-iOS; iOS is always on the media route)
     } else {
+      setRoute("direct");
       if (E.bgPaused) { E.bgPaused = false; resume(); }
-      else if (E.playing && !E.paused && ctx.state !== "running") { ctx.resume().catch(() => {}); if (E.el && E.el.paused) { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); } }
+      else if (E.playing && !E.paused && ctx.state !== "running") { ctx.resume().catch(() => {}); if (E.el && E.el.paused && E.via === "media") { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); } }
     }
   });
   // If the OS interrupted the context (call, Siri) and the user had sound on, come back on the next touch.
   document.addEventListener("pointerdown", () => {
-    if (E.ctx && E.playing && !E.paused && E.ctx.state !== "running") { E.ctx.resume().catch(() => {}); if (E.el && E.el.paused) { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); } }
+    if (E.ctx && E.playing && !E.paused && E.ctx.state !== "running") { E.ctx.resume().catch(() => {}); if (E.el && E.el.paused && E.via === "media") { const p = E.el.play(); if (p && p.catch) p.catch(() => {}); } }
   }, { passive: true, capture: true });
   window.addEventListener("titan:mute", (e) => {
     const m = !!(e.detail && e.detail.muted);
@@ -1323,7 +1372,7 @@
     const ctx = E.ctx;
     return { ctx, input: E.uiIn, volume: () => E.vol, wake() {
       if (ctx.state !== "running") ctx.resume().catch(() => {});
-      if (E.el && E.el.paused) { const pr = E.el.play(); if (pr && pr.catch) pr.catch(() => {}); }
+      if (E.el && E.el.paused && E.via === "media") { const pr = E.el.play(); if (pr && pr.catch) pr.catch(() => {}); }
       clearTimeout(E.uiParkT);
       E.uiParkT = setTimeout(() => { if (!E.playing && E.ctx) { try { if (E.el) E.el.pause(); } catch (e) { /* ignore */ } E.ctx.suspend().catch(() => {}); } }, 4000);
     } };
@@ -1349,6 +1398,8 @@
     texCheck() { const bad = []; for (const k of Object.keys(E.tex || {})) { const d = E.tex[k].getChannelData(0); for (let i = 0; i < d.length; i += 7) if (!(Math.abs(d[i]) < 4)) { bad.push(k); break; } } return bad; },
     duck, uiBus, musicBus, loudness,
     debugCuts(id) { const r = E.bufs[id]; return r && r.buf ? findCuts(r.buf) : null; },
+    debugLoad(id) { if (!ensure()) return Promise.resolve(null); return loadBuf(id); },          // dev tool: decode one recording (to re-measure LUFS / CUTS)
+    debugMeasure(id) { const r = E.bufs[id]; return r && r.buf ? measureLufs(r.buf) : Promise.resolve(null); },
     setSpatial(m) { if (m === "off" || m === "stereo" || m === "3d") E.spatial = m; return E.spatial; },
     getSpatial: () => E.spatial,
     setTimeAware(on) { E.timeAware = !!on; },
