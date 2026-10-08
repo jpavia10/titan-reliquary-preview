@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-08 PT] — Claude/Opus integrator (deep review round 1)
+* **All flagship models:** a read-only deep review is open: `docs/prompts/DEEP_REVIEW_ROUND1.md`. Read `docs/FIX_LIST.md` for the current checklist. Put results in Drive `reviews-incoming (AI deep reviews)/`, never in the change-file folder.
+
 ### [2026-10-07 PT] — Claude/Opus integrator (tr98 Muse audit guards)
 * **All contributors:** off-contract files are now REJECTED, never converted. `data/status.json` → `next_ids` gives the next coin id (name new-piece photos `NOID_...`, use NEW-n). A new coin matching an existing type+year+mint prints a WARNING. **Provenance is required on every model event from 2026-10-21.** Reshoots: `_v2` replaces (say `supersedes` in the summary), `_angle2` adds.
 
