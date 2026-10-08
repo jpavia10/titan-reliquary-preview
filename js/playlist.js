@@ -1,6 +1,6 @@
 /* Titan Reliquary — music stations (static, outside data/ so publish_all.sh cannot clobber it).
-   Tracks are royalty-free mp3s (Kevin MacLeod, Jason Shaw, Musopen classical masters — CC-BY / Public Domain).
-   Every station features at least 20 diverse tracks across multiple composers and artists.
+   Tracks are royalty-free mp3s (Kevin MacLeod, Jason Shaw: CC-BY) and, for Classical, the site's own public-domain / CC recordings.
+   Every station has at least 16 tracks across several composers and artists.
    TITAN_PLAYLIST is kept as an alias of the lofi station for back-compat. */
 (function () {
   "use strict";
@@ -26,6 +26,16 @@
     url: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/" + file,
     license: "Public Domain / CC",
     credit: `“${title}” by ${composer}, performed by ${performer}`,
+  });
+
+  /* Classical: the recordings in audio/music/ (Wikimedia Commons, every license checked: audio/music/CREDITS.md). Same files as the
+     scenes' recorded music, served from this site, so they never depend on another host. */
+  const L = (title, composer, file, performer, license) => ({
+    title,
+    artist: composer,
+    url: "audio/music/" + file,
+    license,
+    credit: `“${title}” by ${composer}, performed by ${performer} (${license}, Wikimedia Commons)`,
   });
 
   window.TITAN_STATIONS = {
@@ -57,28 +67,24 @@
     },
     classical: {
       name: "Classical",
-      tag: "the conservator's desk & masters",
+      tag: "real recordings, all public domain or free to share",
       tracks: [
-        M("Gymnopedie No 1", "Gymnopedie%20No%201.mp3"),
-        M("Meditation Impromptu 01", "Meditation%20Impromptu%2001.mp3"),
-        M("Meditation Impromptu 02", "Meditation%20Impromptu%2002.mp3"),
-        M("Meditation Impromptu 03", "Meditation%20Impromptu%2003.mp3"),
-        M("Thinking Music", "Thinking%20Music.mp3"),
-        M("Agnus Dei X", "Agnus%20Dei%20X.mp3"),
-        M("Gymnopedie No 2", "Gymnopedie%20No%202.mp3"),
-        M("Gymnopedie No 3", "Gymnopedie%20No%203.mp3"),
-        M("Canon in D Major", "Canon%20in%20D%20Major.mp3"),
-        M("Air on the G String", "Air%20on%20the%20G%20String.mp3"),
-        M("Brandenburg Concerto No 4", "Brandenburg%20Concerto%20No4-1%20BWV1049.mp3"),
-        M("Clair de Lune", "Clair%20de%20Lune.mp3"),
-        M("Moonlight Sonata", "Moonlight%20Sonata.mp3"),
-        M("Fur Elise", "Fur%20Elise.mp3"),
-        M("Prelude in C Major", "Prelude%20in%20C%20Major.mp3"),
-        M("Nocturne in E-flat Major", "Nocturne%20in%20E%20Flat%20Major.mp3"),
-        M("Spring - Vivaldi", "Spring%20Four%20Seasons.mp3"),
-        M("Autumn - Vivaldi", "Autumn%20Four%20Seasons.mp3"),
-        M("Pavane", "Pavane.mp3"),
-        M("Adagio in G Minor", "Adagio%20in%20G%20Minor.mp3"),
+        L("Gymnopédie No. 1", "Erik Satie", "satie-gymnopedie-1.m4a", "Michael Laucke (guitar)", "Public domain"),
+        L("Gymnopédie No. 3", "Erik Satie", "satie-gymnopedie-3.m4a", "Michael Laucke (guitar)", "Public domain"),
+        L("Gnossienne No. 1", "Erik Satie", "satie-gnossienne-1.m4a", "La Pianista (piano)", "Public domain"),
+        L("Clair de lune", "Claude Debussy", "debussy-clair-de-lune.m4a", "Laurens Goedhart (piano, 2011)", "Public domain"),
+        L("Nocturne in E-flat major, Op. 9 No. 2", "Frédéric Chopin", "chopin-nocturne-op9-2.m4a", "Musopen (piano)", "CC0"),
+        L("Prelude in D-flat major, Op. 28 No. 15 (Raindrop)", "Frédéric Chopin", "chopin-prelude-op28-15.m4a", "eldüendesüarez (piano)", "CC BY-SA 4.0"),
+        L("Nocturne in D-flat major, Op. 27 No. 2", "Frédéric Chopin", "chopin-nocturne-op27-2.m4a", "Frank Lévy (piano)", "Public domain"),
+        L("Prelude in C major, BWV 846", "Johann Sebastian Bach", "bach-prelude-bwv846.m4a", "Kimiko Ishizaka (piano, Open Well-Tempered Clavier)", "CC0"),
+        L("Goldberg Variations: Aria", "Johann Sebastian Bach", "bach-goldberg-aria.m4a", "Kimiko Ishizaka (piano, Open Goldberg Variations)", "CC0"),
+        L("Piano Sonata No. 14 'Moonlight': I. Adagio sostenuto", "Ludwig van Beethoven", "beethoven-moonlight-1.m4a", "Paul Pitman for Musopen (piano)", "Public domain"),
+        L("Träumerei, Op. 15 No. 7", "Robert Schumann", "schumann-traumerei.m4a", "Edgar Monteiro (guitar)", "CC BY-SA 3.0"),
+        L("Morning Mood (Peer Gynt)", "Edvard Grieg", "grieg-morning-mood.m4a", "Musopen Symphony", "Public domain"),
+        L("The Swan (The Carnival of the Animals)", "Camille Saint-Saëns", "saint-saens-swan.m4a", "Alisa Weilerstein (cello) and Jason Yoder (piano), White House, 2009", "Public domain"),
+        L("Cello Suite No. 1: Prelude", "Johann Sebastian Bach", "bach-cello-suite-1-prelude.m4a", "Chris (cello)", "CC0"),
+        L("Eine kleine Nachtmusik: II. Romanze", "Wolfgang Amadeus Mozart", "mozart-eine-kleine-romanze.m4a", "Musopen (strings)", "Public domain"),
+        L("The Four Seasons, Winter: II. Largo", "Antonio Vivaldi", "vivaldi-winter-largo.m4a", "John Harrison (violin), Wiedemann Recital", "CC BY-SA 4.0"),
       ],
     },
     epic: {

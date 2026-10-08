@@ -22,7 +22,13 @@ API = "https://commons.wikimedia.org/w/api.php"
 UA = "TitanReliquaryMusicIntake/1.0 (https://github.com/jpavia10/titan-reliquary-preview; private collection app; GitHub Actions)"
 OK_LIC = re.compile(r"^\s*(public domain|pd\b|pd-|cc0|cc-zero|cc[ -]by(-sa)?[ -][1-4](\.[05])?)", re.I)
 BAD = re.compile(r"\bmidi\b|\.mid\b|synth|musescore|sibelius|finale\b|8-?bit|chiptune|ringtone|karaoke|lilypond|timidity|fluidsynth|soundfont|"
-                 r"virtual piano|computer[- ]generated|rendered|vocaloid|music box|ocarina|whistl|kazoo|ukulele|harmonica|recorder", re.I)
+                 r"virtual piano|computer[- ]generated|rendered|vocaloid|music box|ocarina|whistl|kazoo|ukulele|harmonica|recorder|"
+                 r"sintetizzatore|virtuale|gigasampler|sampler|parody|ragtime|howitzer|remix|mashup", re.I)
+# Category signals (Claude's review of the first intake, 2026-10-08): a source Commons cannot vouch for, or a recording that is public domain
+# in Europe only. A historical transfer (Public Domain Project / Swiss foundation, 78 rpm) is accepted only when recorded in 1925 or earlier:
+# US sound recordings from 1923-1946 stay protected for 100 years after publication.
+BAD_CATS = re.compile(r"Template Unknown \(source\)|PD EU Audio|PD-EU", re.I)
+HISTORIC = re.compile(r"PDP-CH|Swiss Foundation Public Domain|publicdomainproject|78 ?rpm|HMV|Columbia Records", re.I)
 GOOD = re.compile(r"musopen|ishizaka|marine band|army band|navy band|air force band|orchestra|philharmon|symphon|quartet|ensemble|pianist|"
                   r"performed by|played by|concert", re.I)
 MIMES = {"application/ogg", "audio/ogg", "audio/webm", "video/webm", "audio/flac", "audio/x-flac", "audio/mpeg", "audio/wav", "audio/x-wav", "audio/mp3"}
@@ -85,7 +91,14 @@ def judge(c, w):
     ft = fold(text)
     if not c["license"] or not OK_LIC.search(c["license"]): return None, f"license not allowed: {c['license']!r}"
     if c["mime"] not in MIMES: return None, f"not an audio file: {c['mime']}"
-    if BAD.search(text): return None, "MIDI / synth / toy-instrument rendering"
+    if BAD.search(text): return None, "MIDI / synth / toy-instrument rendering, or a parody / medley"
+    if c["file"] in set(w.get("reject") or []): return None, "rejected in Claude's review"
+    if BAD_CATS.search(c["cats"]): return None, "source unknown, or public domain in Europe only"
+    if HISTORIC.search(text):
+        # the RECORDING's year (release / recording date, the 'Music in YYYY' category), never a composer's or arranger's life dates
+        src = c["desc"] + " | " + c["cats"]
+        yrs = [int(y) for y in re.findall(r"(?:release date|recording date|recorded)[^0-9|]{0,20}(\d{4})|Music in (\d{4})|(\d{4})s music", src) for y in y if y]
+        if not yrs or max(yrs) > 1925: return None, "historical recording after 1925 (or undated): still protected in the US"
     must = [fold(m) for m in w.get("must", [])]
     hit = [m for m in must if m in ft]
     if must and ((w.get("any") and not hit) or (not w.get("any") and len(hit) < len(must))): return None, "not this piece (" + ", ".join(must) + ")"

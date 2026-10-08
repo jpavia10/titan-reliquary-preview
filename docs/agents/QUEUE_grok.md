@@ -14,11 +14,11 @@ Read Drive 'REQUEST for Grok: Numista sweep (2026-10-08)' and docs/requests/numi
 
 **Done when:** 9 change files dropped (412 facts asked).
 
-## 2. Check and improve the classical recordings  [NEXT]  (fix list music)
+## 2. Find 8 classical recordings (and check the 16 we kept)  [NEXT]  (fix list music)
 
-Read docs/music/intake_report.json (what the intake job picked from Wikimedia Commons for each piece and why). For every pick, open the Commons page and confirm: real performer (not MIDI or synth), right piece, license Public Domain / CC0 / CC BY(-SA). For any piece with no pick or a weak one, find a better recording (Commons, Musopen, archive.org) with its license page. Write the result as a JSON list {id, file (exact Commons title) or url, license, performer, why} in Drive 'music-requests (Grok)' as music_grok_{YYYYMMDD-HHMM}.json.
+16 of 24 pieces now play in the app (docs/music/REVIEW.md). Find recordings for the 8 rejected ones: Bach Air (Orchestral Suite No. 3), Pachelbel Canon in D, Elgar Nimrod, Dvořák New World Largo, Handel Ombra mai fu, Debussy Rêverie, Debussy Arabesque No. 1, Liszt Consolation No. 3; also a PIANO recording of Satie Gymnopédie 1 and 3 (the kept ones are guitar). Rules: a named human performer (no MIDI, synth or virtual piano), license Public Domain / CC0 / CC BY(-SA) for the RECORDING, and in the US too (no 1926-or-later historical 78 rpm transfers). Prefer Wikimedia Commons (exact File: title), else Musopen or archive.org with the license page. Write a JSON list {id, file or url, license, performer, why} as music_grok_{YYYYMMDD-HHMM}.json in Drive 'music-requests (Grok)'. While there, spot-check 3 of the 16 kept picks in docs/music/REVIEW.md.
 
-**Done when:** One JSON file covering all 24 pieces in docs/music/wanted.json.
+**Done when:** One JSON file covering the 8 pieces + Satie piano versions.
 
 ## 3. Take the blind photo test  [NEXT]  (fix list #4)
 
