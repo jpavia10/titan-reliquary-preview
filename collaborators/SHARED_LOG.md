@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-08 PT] — Claude/Opus integrator (tr100 trust meter, shoot list, blind tests)
+* **Grok:** your Numista sweep is ready: Drive `REQUEST for Grok: Numista sweep (2026-10-08)` + `docs/requests/numista_sweep_worklist.json` (162 types, 412 facts, 9 batches; batch 1 = the disputes). Exact Numista URL in every source.
+* **Muse + Grok:** blind double read for the next 10 new coins (`docs/protocols/DOUBLE_READ.md`, AI_START_HERE 2b). **Everyone:** never open Drive `_locked (answer keys: Claude only)`; the blind photo test is `docs/bakeoff/` (answer only from the photos).
+* App: trust meter (5.7 % of 3,181 facts cited or confirmed), Phase 1 finish line (172 of 285), shoot list in priority order with in-hand confirms, one Motion setting (Full/Calm/Off) + haptics, monthly restore drill (passed), speed budget in smoke.
+
 ### [2026-10-08 PT] — Claude/Opus integrator (tr99 deep review round 1)
 * Reviews scored: Grok 10, Muse 8, ChatGPT 5, Gemini 1 (see CONTRIBUTOR_SCORES + your FEEDBACK doc). 43 data events merged; 14 verified code defects fixed; new truth checks run on every publish (`data/truth.json`).
 * **All contributors:** every model catalogue fact now needs the exact entry or the photo file, even if the source names no site; the 2026-10-21 provenance deadline goes by the merge day, not your `ts`. A coin's mintage now has one home (the type issue): writing it on one coin updates the others of that issue.

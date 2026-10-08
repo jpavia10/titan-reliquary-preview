@@ -4,7 +4,7 @@
    answers_owner_{YYYYMMDD-HHMM}.json, dropped in Drive "collection-incoming (AI change files)" (or pasted to Claude).
    tools/pipeline/owner_answers.py turns that file into verified owner change events. Nothing here changes the collection by itself.
    Reuses the Health view's high-contrast look (styles/health.css) plus styles/questions.css.
-   API: TitanQuestions.open(), .close(), .queueConfirm(scan, fact, label), .pending() */
+   API: TitanQuestions.open(), .close(), .queueConfirm(scan, fact, label), .pending(), .count() (a promise: open questions, null when they can't load) */
 (function () {
   "use strict";
   if (window.TitanQuestions) return;
@@ -181,7 +181,7 @@
   window.addEventListener("hashchange", route);
   window.addEventListener("online", () => { if (!data) load().then((d) => { if (root && !root.hidden) render(d && d.error); badge(); }); });
   window.addEventListener("titan:atmo", applyTone);
-  window.TitanQuestions = { open, close, queueConfirm, isQueuedConfirm, pending: () => queue().length };
+  window.TitanQuestions = { open, close, queueConfirm, isQueuedConfirm, pending: () => queue().length, count: () => load().then((d) => (d && d.error ? null : openCount())) };
   const boot = () => { route(); load().then(badge); };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 })();

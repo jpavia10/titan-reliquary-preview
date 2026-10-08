@@ -90,6 +90,8 @@ def sync_docs(st):
            f"  Photos: {ph['live']} live photo records; {ph['specimens_with_any']} specimens have a photo ({ph['phase1_specimens']} Phase 1, {ph['phase2_specimens']} Phase 2), "
            f"{ph['specimens_with_both_sides']} have both sides; {ph['still_needed']} still need a phone photo.\n"
            f"  Open research questions: {st['research']['open_questions']} on {st['research']['specimens_with_open_questions']} specimens. Integrity problems: {st['integrity']['problems']}.\n"
+           + (f"  Phase 1 finish line: {st['phase1']['done']} of {st['phase1']['total']} pieces through ({st['phase1']['pct']} %). "
+              f"Trust: {st['trust']['cited_or_confirmed']:,} of {st['trust']['facts']:,} facts cited or confirmed ({st['trust']['pct_cited']} %).\n" if st.get("phase1") and st.get("trust") else "") +
            f"<!-- status:end -->")
     for n in DOCS:
         p = os.path.join(ROOT, n)
@@ -134,7 +136,8 @@ def main(argv):
     if r.returncode != 0: print(r.stdout, r.stderr); return fail("build_app_data.py failed")
     print(r.stdout.strip().replace(outuse, out))
     with open(f"{outuse}/wants.json", "w", encoding="utf-8", newline="\n") as f: json.dump(W.build(col["albums"], ver["generated_at"]), f, ensure_ascii=False, separators=(",", ":"))
-    with open(f"{outuse}/reshoot.json", "w", encoding="utf-8", newline="\n") as f: json.dump(R.build(col, ver["generated_at"]), f, ensure_ascii=False, separators=(",", ":"))
+    import phase1 as P1
+    with open(f"{outuse}/reshoot.json", "w", encoding="utf-8", newline="\n") as f: json.dump(R.build(col, ver["generated_at"], details=P1.details_from(outuse)), f, ensure_ascii=False, separators=(",", ":"))
     qs = OA.load_questions(coll); done = OA.answered_ids(coll)
     with open(f"{outuse}/questions.json", "w", encoding="utf-8", newline="\n") as f:
         json.dump({"generated_at": ver["generated_at"], "questions": [dict({k: q[k] for k in ("id", "coin", "ask", "why") if k in q}, options=[{k: o[k] for k in ("label", "free") if k in o} for o in q["options"]]) for q in qs.values() if q["id"] not in done]}, f, ensure_ascii=False, separators=(",", ":"))

@@ -9,6 +9,11 @@ What this measures: how well each AI model reads and identifies **these** coins,
 - **Weight the hard cases.** The locked set leans on worn coins, look-alike varieties, poor photos, unusual countries, conflicting references, wrong pen labels (the 18 "Still being checked" coins are candidates) and past disagreements between models.
 - **Same inputs for everyone.** Every model gets the same photo files (same crop version: photo `crop.method`/`tool_version`, fix-list #15) and the same prompt version. Record both with every run (event `provenance`, fix-list #14).
 
+## The packs (2026-10-08, fix list #4 and #19)
+- **main**: 30 blind photos of coins whose answers we trust. **locked**: 15 blind photos of hard coins with known answers (corrected after logging, the only coin of its country, look-alike variety types). Both in `docs/bakeoff/`; how to run and score: `tools/bakeoff/README.md`.
+- Answer keys: Drive `_locked (answer keys: Claude only)`, sha256 committed in `tools/bakeoff/commitments.jsonl`. The locked set's coin ids are written nowhere else.
+- Bar for doing Phase 2 research: core accuracy ≥ 95 %, invented rate ≤ 1 %, false confidence ≤ 5 %.
+
 ## Measured per run
 | Field | Meaning |
 |---|---|

@@ -11545,9 +11545,40 @@ html[data-atmo="odyssey"] :is(#market-ticker-tape, #exhibit, .museum-slab, #vaul
 .reshoot .rs-list { list-style: none; margin: 0 0 0.8rem; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.3rem 1rem; }
 .reshoot .rs-coin { appearance: none; background: none; border: 0; padding: 0.45rem 0.2rem; min-height: 44px; text-align: left; font: inherit; color: var(--ink); cursor: pointer; width: 100%; }
 .reshoot .rs-coin:hover, .reshoot .rs-coin:focus-visible { text-decoration: underline; }
+.reshoot .rs-side { font-weight: 700; color: var(--ink); }
+.reshoot .rs-side::before { content: "→ "; }
+.reshoot .rs-item { padding-bottom: 0.4rem; border-bottom: 1px solid var(--line); }
+.reshoot .rs-settles { margin: 0 0 0.3rem 0.2rem; font-size: 0.95rem; color: var(--ink); }
+.reshoot .rs-more { color: var(--muted); }
+.reshoot .rs-confirm { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.2rem 0 0.3rem 0.2rem; }
+.reshoot .rs-cf { appearance: none; font: inherit; font-size: 0.95rem; min-height: 44px; padding: 0.3rem 0.8rem; border-radius: 999px; cursor: pointer;
+  border: 2px solid var(--ink); background: transparent; color: var(--ink); }
+.reshoot .rs-cf:disabled { border-style: dashed; cursor: default; opacity: 0.85; }
+.reshoot .rs-cf:focus-visible { outline: 3px solid var(--gold, #d4af37); outline-offset: 2px; }
+.reshoot .rs-finish, .reshoot .rs-first { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card, transparent); margin: 0.6rem 0 1rem; padding: 0.6rem 1rem 0.8rem; }
+.reshoot .rs-finish h3, .reshoot .rs-first h3 { margin: 0.2rem 0 0.5rem; font-size: 1.15rem; color: var(--ink); }
+.reshoot .rs-big { font-size: 1.15rem; margin: 0.4rem 0; color: var(--ink); }
+.reshoot .rs-bar { height: 16px; border: 2px solid var(--ink); border-radius: 8px; overflow: hidden; background: transparent; }
+.reshoot .rs-bar > i { display: block; height: 100%; background: var(--gold-deep, #7a5c12); }
+.reshoot .rs-ol { grid-template-columns: 1fr; }
 @media print {
   body.print-reshoot * { visibility: hidden !important; }
   body.print-reshoot #reshoot, body.print-reshoot #reshoot * { visibility: visible !important; color: #000 !important; background: none !important; }
   body.print-reshoot #reshoot { position: absolute; left: 0; top: 0; width: 100%; }
   body.print-reshoot #rs-print { display: none !important; }
 }
+
+/* Hall trust line + question count (fix list #75, #52) */
+.hero-trust { margin: 0.35rem 0 0.6rem; display: flex; flex-wrap: wrap; gap: 0.4rem 0.8rem; justify-content: center; font-size: 1rem; }
+.hero-trust .ht-link { display: inline-block; min-height: 44px; padding: 0.55rem 0.9rem; line-height: 1.3; border-radius: 22px; border: 1px solid var(--line); text-align: center;
+  color: var(--ink); text-decoration: none; background: color-mix(in srgb, var(--bg, #000) 70%, transparent); }
+.hero-trust .ht-q { border-color: var(--gold, #d4af37); font-weight: 700; }
+.hero-trust .ht-link:hover, .hero-trust .ht-link:focus-visible { text-decoration: underline; }
+
+/* One motion setting (fix list #59, js/app-motion.js). Off = nothing moves; the reduced-motion rules are also copied under
+   html[data-motion=calm|off] at runtime. Durations go to ~0 instead of "none" so an animation's end state (fill: forwards) still applies. */
+html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after {
+  animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
+}
+html[data-motion="off"] #titan-fx { display: none !important; }

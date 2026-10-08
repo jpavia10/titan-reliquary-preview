@@ -181,6 +181,10 @@
   }
 
   /* ---------- rendering ---------- */
+  /* a plain progress bar: the text next to it always says the number (#57, #75) */
+  function bar(a, b) { const pc = b ? Math.max(0, Math.min(100, (100 * a) / b)) : 0; return `<span class="hv-bar" role="img" aria-hidden="true"><i style="width:${pc.toFixed(1)}%"></i></span>`; }
+  const P1_WORDS = { photo: "a phone photo", country: "the country", year: "the year", denomination: "the denomination", mint: "the mint mark read", story: "a story", value: "a default value" };
+  function p1left(p) { const m = Object.entries(p.missing || {}).filter(([, c]) => c); return m.length ? m.map(([k, c]) => n(c) + " need " + (P1_WORDS[k] || k)).join(", ") : "nothing"; }
   function row(k, v, sub) { return `<div class="hv-row"><dt>${esc(k)}</dt><dd>${v}${sub ? `<small>${esc(sub)}</small>` : ""}</dd></div>`; }
   function render(g) {
     const s = g.status, L = [];   // L = plain-text report lines
@@ -213,10 +217,12 @@
     const cl = g.caches.length ? g.caches.map((c) => `<li>${esc(c.name)}: ${n(c.count)} items</li>`).join("") : "<li>No saved copy yet</li>";
     out.push(`<section class="hv-sec" aria-labelledby="hv-h-off"><h2 id="hv-h-off">Offline copy</h2><dl>
       ${row("Connection", g.online ? "Online" : "Offline", g.online ? "" : "Showing the saved copy.")}
+      ${window.TitanMotion ? row("Motion", esc({ full: "Full", calm: "Calm", off: "Off" }[window.TitanMotion.level()] || "?") + (window.TitanMotion.choice() ? "" : " (following this phone's setting)"), "Change it in Scene Studio, Settings.") : ""}
+      ${window.TitanHaptics && window.TitanHaptics.supported() ? row("Vibrate on taps", window.TitanHaptics.enabled() ? "On" : "Off", "Change it in Scene Studio, Settings.") : ""}
       ${row("Last successful check", g.lastCheck ? esc(when(new Date(g.lastCheck).toISOString())) : "never", "When this device last asked for the newest version.")}
     </dl><p class="hv-label">Saved copies on this device</p><ul class="hv-list">${cl}</ul>
       ${window.TitanWarm ? `<button type="button" class="hv-btn" data-warm>Save all coin photos for offline (about 10 MB)</button><p class="hv-status" id="hv-warm" aria-live="polite">Coin details and search are saved automatically; photos are saved when first seen, or all at once with this button.</p>` : ""}</section>`);
-    L.push("", "OFFLINE COPY", "Online: " + (g.online ? "yes" : "no"), "Last version check: " + (g.lastCheck ? when(new Date(g.lastCheck).toISOString()) : "never"),
+    L.push("", "OFFLINE COPY", "Online: " + (g.online ? "yes" : "no"), "Motion: " + (window.TitanMotion ? window.TitanMotion.level() + (window.TitanMotion.choice() ? "" : " (phone setting)") : "?") + ", haptics " + (window.TitanHaptics ? (window.TitanHaptics.supported() ? (window.TitanHaptics.enabled() ? "on" : "off") : "not supported") : "?"), "Last version check: " + (g.lastCheck ? when(new Date(g.lastCheck).toISOString()) : "never"),
       ...g.caches.map((c) => "Cache " + c.name + ": " + c.count + " entries"));
     // Collection
     if (!s) {
@@ -229,6 +235,8 @@
         ${row("Coins and tokens", n(sp.coins) + " coins, " + n(sp.tokens) + " tokens", n(sp.total) + " in all, from " + n(s.countries) + " countries.")}
         ${row("Phone photos", n(p.specimens_with_any) + " of " + n(sp.total), n(p.still_needed) + " still need a phone photo. Pro photos (Phase 2): " + n(p.phase2_specimens) + ".")}
         ${row("Open questions", n(r.open_questions), "On " + n(r.specimens_with_open_questions) + " coins, still being checked.")}
+        ${s.phase1 ? row("Phase 1 finish line", bar(s.phase1.done, s.phase1.total) + n(s.phase1.done) + " of " + n(s.phase1.total) + " pieces (" + s.phase1.pct + " %)", "Through Phase 1 = photo, country, year, denomination, mint mark read, story and default value. Still to do: " + p1left(s.phase1) + ". The Lab lists each piece.") : ""}
+        ${s.trust ? row("How sure we are", bar(s.trust.cited_or_confirmed, s.trust.facts) + s.trust.pct_cited + " % cited or confirmed", n(s.trust.cited_or_confirmed) + " of " + n(s.trust.facts) + " facts have an exact source or your confirmation; " + s.trust.pct_photo + " % were read from a photo, " + s.trust.pct_ai + " % an AI said without a source yet, " + s.trust.pct_ledger + " % came from the original ledger unchecked, " + s.trust.pct_review + " % are being checked.") : ""}
         ${s.truth ? row("Contradictions to check", n(s.truth.total), s.truth.total ? "Records that disagree with each other or claim more than their evidence: " + Object.entries(s.truth.by_rule || {}).map(([k, c]) => c + " " + k.replace(/_/g, " ")).join(", ") + "." : "None found.") : ""}
       </dl><p class="hv-status ${probs ? "hv-bad" : "hv-ok"}">${probs ? n(probs) + " problem" + (probs === 1 ? "" : "s") + " found" : "No problems found"}</p>
       ${ig.warnings ? `<p class="hv-sub">${n(ig.warnings)} minor warning${ig.warnings === 1 ? "" : "s"}.</p>` : ""}</section>`);
@@ -236,6 +244,8 @@
         "Phone photo: " + n(p.specimens_with_any) + " of " + n(sp.total) + " (" + n(p.still_needed) + " need one; Phase 2: " + n(p.phase2_specimens) + ")",
         "Open research questions: " + n(r.open_questions) + " on " + n(r.specimens_with_open_questions) + " coins",
         "Integrity: " + (probs ? probs + " problems" : "no problems") + ", " + n(ig.warnings || 0) + " warnings",
+        "Phase 1 finish line: " + (s.phase1 ? s.phase1.done + " of " + s.phase1.total + " (" + s.phase1.pct + " %); left: " + p1left(s.phase1) : "not published"),
+        "Trust: " + (s.trust ? s.trust.cited_or_confirmed + " of " + s.trust.facts + " facts cited or confirmed (" + s.trust.pct_cited + " %) " + JSON.stringify(s.trust.by_level || {}) : "not published"),
         "Contradictions to check: " + (s.truth ? s.truth.total + " " + JSON.stringify(s.truth.by_rule || {}) : "not published"));
     }
     // Background jobs (#49)
