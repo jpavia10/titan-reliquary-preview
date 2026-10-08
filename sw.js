@@ -79,6 +79,7 @@ const WING_URLS = [
   "wings/fx/engine.js?v=" + BUILD,
   "wings/fx/presets.js?v=" + BUILD,
   "wings/fx/ui.js?v=" + BUILD,
+  "wings/music-recorded.js?v=" + BUILD,
   "wings/music-engine.js?v=" + BUILD,
   "wings/scene-engine.js?v=" + BUILD,
   "wings/ui-sounds.js?v=" + BUILD,
@@ -192,6 +193,7 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(req.url);
   if (url.origin !== location.origin) return; // shard images: browser HTTP cache
   if (url.pathname.includes("/art/splash/")) return;   // splash films: native range requests, never cached by the SW
+  if (url.pathname.includes("/audio/music/") && !url.pathname.endsWith("manifest.json")) return;   // recorded music streams (range requests); offline = generated music
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA));

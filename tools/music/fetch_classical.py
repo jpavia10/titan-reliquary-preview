@@ -121,7 +121,7 @@ def main(argv):
     os.makedirs(out, exist_ok=True)
     report, tracks = [], []
     for w in wanted["pieces"]:
-        titles = []
+        titles = list(w.get("files") or [])        # exact Commons file titles (e.g. from Grok's music check) are tried first, same checks apply
         for q in [w["query"], w["query"] + " " + w["composer"].split()[-1], w["title"]]:
             for t in search(q):
                 if t not in titles: titles.append(t)
@@ -131,6 +131,9 @@ def main(argv):
         for c in cands:
             sc, why = judge(c, w)
             rows.append(dict(c, score=sc, why=why))
+        exact = set(w.get("files") or [])
+        for r in rows:
+            if r["file"] in exact and r["score"] is not None: r["score"] += 100      # a reviewed exact pick wins when it passes the checks
         ok = sorted([r for r in rows if r["score"] is not None], key=lambda r: -r["score"])
         pick = None
         for r in ok[:3]:
