@@ -53,8 +53,37 @@ class Run:
         return el.inner_text() if el and el.is_visible() else ""
 
 
+# Speed budget (fix list #25): fixed limits checked on every deploy, from a cold first load of the Hall. They guard against regressions on
+# the CI runner (software GL, shared CPU), so they sit well above today's numbers (2026-10-08, local: first load 3.95 MB, 94 requests,
+# DOM 10.2k nodes on a phone, a real value on screen at ~1.6-2.1 s, longest task 0.3-0.4 s). A real phone number is separate (Health ->
+# Measure speed). Films and ambience recordings are not counted: they stream after the opening.
+BUDGET = {"bytes": 5_500_000, "dom": 13_000, "value_ms": 8_000, "longest_task_ms": 1_500, "long_tasks_ms": 8_000}
+LONGTASKS = "window.__lt=[]; try { new PerformanceObserver((l) => l.getEntries().forEach((e) => window.__lt.push(e.duration))).observe({ type: 'longtask', buffered: true }); } catch (e) {}"
+MEASURE = """() => { const r = performance.getEntriesByType('resource'), n = performance.getEntriesByType('navigation')[0];
+  const skip = (u) => /\\/art\\/splash\\/|\\/audio\\//.test(u);
+  const bytes = r.filter((e) => !skip(e.name)).reduce((a, e) => a + (e.transferSize || e.encodedBodySize || 0), 0) + (n ? (n.transferSize || n.encodedBodySize || 0) : 0);
+  return { bytes, dom: document.getElementsByTagName('*').length, longest: Math.round(Math.max(0, ...window.__lt)), total: Math.round(window.__lt.reduce((a, b) => a + b, 0)) }; }"""
+
+
+def speed_budget(r):
+    p = r.p
+    p.goto(r.base + "?nosplash#hall")
+    try:
+        p.wait_for_function("(() => { const g = document.getElementById('hero-grand'); return !!g && /\\$[1-9]/.test(g.textContent); })()", timeout=30000)
+        t = p.evaluate("Math.round(performance.now())")
+    except Exception: t = 99_999
+    p.wait_for_timeout(3000)
+    m = p.evaluate(MEASURE)
+    r.check(f"speed: first load {m['bytes'] / 1e6:.2f} MB (budget {BUDGET['bytes'] / 1e6:.1f})", m["bytes"] <= BUDGET["bytes"])
+    r.check(f"speed: {m['dom']:,} page elements (budget {BUDGET['dom']:,})", m["dom"] <= BUDGET["dom"])
+    r.check(f"speed: a real value on screen at {t / 1000:.1f} s (budget {BUDGET['value_ms'] / 1000:.0f})", t <= BUDGET["value_ms"])
+    r.check(f"speed: longest freeze {m['longest']} ms, {m['total']} ms in all (budget {BUDGET['longest_task_ms']} / {BUDGET['long_tasks_ms']})",
+            m["longest"] <= BUDGET["longest_task_ms"] and m["total"] <= BUDGET["long_tasks_ms"])
+
+
 def scenario(r):
     p = r.p
+    speed_budget(r)
     # splash: forced once, then a plain ?nosplash load must not show it
     p.goto(r.base + "?splash=1"); p.wait_for_timeout(900)
     r.check("splash shows when forced", p.evaluate("document.documentElement.classList.contains('ts-on') || sessionStorage.getItem('tr_splash_v1') === '1'"))
@@ -64,6 +93,8 @@ def scenario(r):
     r.check("Hall shows the spot as-of line", "spot as of" in r.visible_text("#hall-asof"))
     cap = r.visible_text(".hero-cap").lower()
     r.check("headline caption names the price date", " prices)" in cap or "at spot" in cap, cap[:120])
+    tl = r.visible_text("#hero-trust"); r.check("Hall shows the trust number (fix list #75)", "%" in tl and "facts" in tl, tl[:80])
+    r.check("motion setting applied before paint (#59)", p.evaluate("['full','calm','off'].includes(document.documentElement.dataset.motion)"))
     r.shot("hall")
     r.go("gallery", 3500)
     r.check("Gallery carousel has cards", p.evaluate("document.querySelectorAll('#gallery-coverflow-wrap .cf-card').length") > 0)
@@ -83,6 +114,9 @@ def scenario(r):
         r.go(wing, 3000)
         txt = r.visible_text(sel)
         r.check(f"{wing.capitalize()} renders", len(txt) > 200, f"{len(txt)} chars")
+        if wing == "lab":
+            r.check("Lab shoot list: finish line, start-here list and confirm buttons (#54 #57 #78)",
+                    p.evaluate("!!document.querySelector('#reshoot .rs-finish .rs-bar') && document.querySelectorAll('#reshoot .rs-first .rs-item').length > 0 && document.querySelectorAll('#reshoot .rs-cf').length > 0"))
         r.shot(wing)
     # 3D table
     r.go("gallery", 2500)
@@ -102,6 +136,10 @@ def scenario(r):
     if tab: tab.click(); p.wait_for_timeout(400)
     r.check("Scene Studio Sound tab has the tempo slider", p.evaluate("!!document.querySelector('#ss-tempo')"))
     p.keyboard.press("Escape")
+    # one motion setting (#59): Off skips the opening film and stops effects; the reduced-motion query answers from the setting
+    p.evaluate("TitanMotion.set('off')"); p.goto(r.base + "#hall"); p.wait_for_timeout(1500)
+    r.check("Motion Off: no opening film, reduced motion reported", p.evaluate("!document.documentElement.classList.contains('ts-on') && matchMedia('(prefers-reduced-motion: reduce)').matches && document.documentElement.dataset.motion === 'off'"))
+    p.evaluate("TitanMotion.set(null)")
     # offline: wait for the service worker, then reload without network
     r.go("hall", 1500)
     # the app registers sw.js only on https (GitHub Pages); register it here so offline is tested locally too
@@ -164,6 +202,7 @@ def main(argv):
         for name, vp, mobile in (("phone", {"width": 412, "height": 900}, True), ("desktop", {"width": 1400, "height": 900}, False)):
             if only and only != name: continue
             ctx = browser.new_context(viewport=vp, is_mobile=mobile, has_touch=mobile)
+            ctx.add_init_script(LONGTASKS)
             r = Run(ctx.new_page(), url, name, shots)
             print(f"{name} {vp['width']}x{vp['height']}")
             t0 = time.time()
