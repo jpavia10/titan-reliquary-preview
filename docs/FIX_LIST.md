@@ -8,7 +8,7 @@ Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection. Every fact shows where it came from, which AI or person said it, and how sure we are, and the owner can confirm it with one tap. Nobody does this for a private collection, and Titan already does most of it.
 
 - **290** pieces in flips (284 coins, 6 tokens), 50 countries: Muse's 5 new coins are in (C284 to C288)
-- **$5,319** headline value at the latest daily metal prices
+- **$5,300** headline value at the Oct 8 metal prices (silver $59.51, gold $4,138)
 - **213** pieces with a phone photo; 77 still need one, 14 have both sides
 - **175 / 290** pieces through Phase 1 (60 %): 77 need a photo, 57 a mint mark read
 - **917 / 1775** album slots filled, all 33 albums read from your page photos
