@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-08)
+# WORK QUEUE for Gemini (updated 2026-10-09)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom. When a task is done, mark it DONE with the date (in your Drive queue doc, or say so in chat) and start the next one straight away; do not wait to be asked.
 

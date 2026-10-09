@@ -311,29 +311,6 @@
       ]
     },
     {
-      "id": "q-c202-magnet",
-      "coin": "C202",
-      "ask": "Hold a magnet to C202, the Guatemala 2010 10 centavos. Does it stick?",
-      "why": "From 2009 Guatemala struck this coin in two metals: magnetic steel (KM#277.6a, 2.42 g) and non-magnetic copper-nickel. The record's catalogue number (KM#277.1) is the 1970s coin, so the magnet decides which one yours is.",
-      "options": [
-        {
-          "label": "Yes, it sticks",
-          "effect": [],
-          "followup": "C202 is the steel KM#277.6a (Numista N#42670): set catalogs, composition 'stainless steel (magnetic)', weight 2.42 g."
-        },
-        {
-          "label": "No",
-          "effect": [],
-          "followup": "C202 is copper-nickel: find the KM#277.6 entry with its weight and set catalogs and nominal."
-        },
-        {
-          "label": "No magnet handy",
-          "effect": [],
-          "keep_open": true
-        }
-      ]
-    },
-    {
       "id": "q-c238-portrait",
       "coin": "C238",
       "ask": "On C238, the 1973 D West German 2 mark, whose name is written next to the portrait: KONRAD ADENAUER or THEODOR HEUSS?",

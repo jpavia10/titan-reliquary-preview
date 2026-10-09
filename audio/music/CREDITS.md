@@ -7,9 +7,9 @@ Every recording comes from Wikimedia Commons under the license shown (the compos
 |---|---|---|---|---|
 | Gymnopédie No. 1 | Erik Satie | Michael Laucke (guitar) | Public domain | https://commons.wikimedia.org/wiki/File%3ASatie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac |
 | Gymnopédie No. 3 | Erik Satie | Michael Laucke (guitar) | Public domain | https://commons.wikimedia.org/wiki/File%3ASatie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac |
-| Gnossienne No. 1 | Erik Satie | La Pianista (piano) | Public domain | https://commons.wikimedia.org/wiki/File%3ASatie_-_Gnossienne_1.ogg |
-| Clair de lune | Claude Debussy | Laurens Goedhart (piano, 2011) | Public domain | https://commons.wikimedia.org/wiki/File%3AClair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg |
-| Nocturne in E-flat major, Op. 9 No. 2 | Frédéric Chopin | Musopen (piano) | CC0 | https://commons.wikimedia.org/wiki/File%3ANocturne_Op._9_no._2_in_E_flat_major.mp3 |
+| Gnossienne No. 1 | Erik Satie | La Pianista (piano, 2010) | CC BY-SA 3.0 (recording); composition public domain | https://commons.wikimedia.org/wiki/File%3ASatie_-_Gnossienne_1.ogg |
+| Clair de lune | Claude Debussy | Laurens Goedhart (piano, 2011) | CC BY 3.0 (recording); composition public domain | https://commons.wikimedia.org/wiki/File%3AClair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg |
+| Nocturne in E-flat major, Op. 9 No. 2 | Frédéric Chopin | Musopen (pianist not named) | CC0 | https://commons.wikimedia.org/wiki/File%3ANocturne_Op._9_no._2_in_E_flat_major.mp3 |
 | Prelude in D-flat major, Op. 28 No. 15 (Raindrop) | Frédéric Chopin | eldüendesüarez (piano) | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File%3AChopin_-_Prelude_in_D-flat_Op-28_No-15_%28Raindrop%29_%28Piano_Performance_by_eld%C3%BCendes%C3%BCarez%29.wav |
 | Nocturne in D-flat major, Op. 27 No. 2 | Frédéric Chopin | Frank Lévy (piano) | Public domain | https://commons.wikimedia.org/wiki/File%3AChopin_-_Nocturne_No._8_in_D-flat_major%2C_Op._27_No._2_%28Frank_Levy%29.flac |
 | Prelude in C major, BWV 846 | Johann Sebastian Bach | Kimiko Ishizaka (piano, Open Well-Tempered Clavier) | CC0 | https://commons.wikimedia.org/wiki/File%3AKimiko_Ishizaka_-_Bach_-_Well-Tempered_Clavier%2C_Book_1_-_01_Prelude_No._1_in_C_major%2C_BWV_846.ogg |

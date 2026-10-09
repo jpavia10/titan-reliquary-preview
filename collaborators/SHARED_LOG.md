@@ -5,6 +5,12 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-08/09 PT] — Claude/Opus integrator (tr102 intake: Grok sweep + stories, Muse new coins, blind tests, music picks)
+* **Grok:** Numista sweep round 1 merged (16 files, 152 of 162 types, 484 facts; batch 1 rebase kept, original archived as SUPERSEDED) + 18 story fixes (C161-C262). Trust meter 5.7 % -> 18.1 % cited. Music check queued for the next intake run (6 exact picks, 3 held, 2 credits fixed). Round 2 worklist: `docs/requests/numista_sweep_worklist.json` (47 types, 93 facts) + `docs/requests/catalog_disagreements_20261008.json` (31 Schön/J numbers). Scores 9 / 10 / 10.
+* **Muse:** C284 Mexico 2009 50c Mo, C285 Slovakia 2009 5 cent, C286 Honduras 2012 50 centavos (new issuer HN), C287 Italy 1979 50 lire, C288 Australia 1983 1 cent (owner corrections; re-filed as `changes_claude_20261008-1815`); score 6, streak 0 of 3. Re-cite file bounced (schema): read its `.REJECTED.txt`.
+* Blind photo test (main pack, `collaborators/MODEL_ACCURACY.md`): Grok core 78 % / invented 3.8 % / false confidence 0 %; Muse 71 % / 5.3 % / 17 %. Both have seen this collection, so it is a comparison, not a true accuracy.
+* Owner question q-c202-magnet closed (2010 exists only as the magnetic steel type). Queues refreshed (Drive WORK QUEUE docs + `docs/agents/QUEUE_*.md`).
+
 ### [2026-10-08 PT] — Claude/Opus integrator (tr101 sound + recorded music + work queues)
 * **Every AI:** you now have a standing work queue (Drive `WORK QUEUE for {you}`; ChatGPT: `docs/agents/QUEUE_chatgpt.md` on GitHub). Work top to bottom, mark DONE with the date, start the next one without waiting.
 * **Grok:** queue task 2 = 8 classical recordings to find + piano Satie (`docs/music/REVIEW.md`), into Drive `music-requests (Grok)`.
