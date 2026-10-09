@@ -23,7 +23,7 @@ UA = "TitanReliquaryMusicIntake/1.0 (https://github.com/jpavia10/titan-reliquary
 OK_LIC = re.compile(r"^\s*(public domain|pd\b|pd-|cc0|cc-zero|cc[ -]by(-sa)?[ -][1-4](\.[05])?)", re.I)
 BAD = re.compile(r"\bmidi\b|\.mid\b|synth|musescore|sibelius|finale\b|8-?bit|chiptune|ringtone|karaoke|lilypond|timidity|fluidsynth|soundfont|"
                  r"virtual piano|computer[- ]generated|rendered|vocaloid|music box|ocarina|whistl|kazoo|ukulele|harmonica|recorder|"
-                 r"sintetizzatore|virtuale|gigasampler|sampler|parody|ragtime|howitzer|remix|mashup", re.I)
+                 r"sintetizzatore|virtuale|gigasampler|sampler|parody|ragtime|howitzer|remix|mashup|incompetech|kevin macleod", re.I)
 # Category signals (Claude's review of the first intake, 2026-10-08): a source Commons cannot vouch for, or a recording that is public domain
 # in Europe only. A historical transfer (Public Domain Project / Swiss foundation, 78 rpm) is accepted only when recorded in 1925 or earlier:
 # US sound recordings from 1923-1946 stay protected for 100 years after publication.
@@ -120,7 +120,7 @@ def encode(src, dst):
     cut = []
     if dur > MAX_SEC:
         af += f",afade=t=out:st={MAX_SEC - 8}:d=8"; cut = ["-t", str(MAX_SEC)]
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", src, *cut, "-af", af, "-ac", "2", "-ar", "44100", "-c:a", "aac", "-b:a", "96k",
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", src, *cut, "-map", "0:a:0", "-vn", "-af", af,   # audio only: an mp3's cover art cannot go in .m4a "-ac", "2", "-ar", "44100", "-c:a", "aac", "-b:a", "96k",
                     "-movflags", "+faststart", dst], check=True)
     return min(dur, MAX_SEC)
 

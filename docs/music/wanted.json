@@ -41,14 +41,17 @@
     "piano"
    ],
    "files": [
-    "File:Satie Gymnopédie n.1 DariaBaiocchi.wav"
+    "File:Satie Gymnopèdie n.1 DariaBaiocchi.wav"
    ],
    "credit": {
-    "File:Satie Gymnopédie n.1 DariaBaiocchi.wav": {
+    "File:Satie Gymnopèdie n.1 DariaBaiocchi.wav": {
      "performer": "Daria Baiocchi (piano, Steinway B, 2021)",
      "license": "CC BY-SA 4.0"
     }
-   }
+   },
+   "reject": [
+    "File:Satie Gymnopedie No 1 performed by Michael Laucke.flac"
+   ]
   },
   {
    "id": "satie-gymnopedie-3",
@@ -398,7 +401,10 @@
      "performer": "The Air Force Strings, United States Air Force Band (cond. 1st Lt Keith H. Bland, 2000)",
      "license": "Public domain (US Air Force work)"
     }
-   }
+   },
+   "reject": [
+    "File:Bach - Orchestral Suite No. 3 in D major, BWV 1068 - Air (Menuhin).flac"
+   ]
   },
   {
    "id": "pachelbel-canon",
@@ -415,7 +421,8 @@
     "orchestra"
    ],
    "reject": [
-    "File:Pachelbel's Howitzer.wav"
+    "File:Pachelbel's Howitzer.wav",
+    "File:Canon in D Major (ISRC USUAN1100301).mp3"
    ],
    "files": [
     "File:Canon (2004) - Strolling Strings - United States Air Force Band.mp3"
