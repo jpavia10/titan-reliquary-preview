@@ -1,5 +1,5 @@
 {
- "about": "Recorded classical music for the app (owner 2026-10-08: 'at minimum the classical music'). tools/music/fetch_classical.py looks each piece up on Wikimedia Commons, keeps only Public Domain / CC0 / CC BY(-SA) recordings by real performers (no MIDI or synth renderings), and writes audio/music/. Compositions are all long out of copyright; the license that matters is the RECORDING's, and the script checks it per file. moods: piano = calm rooms (Conservator, Midnight Gallery, Private Bank, Fireside, Alchemist, Observatory, Library at closing, Cafe, Coastal reading room); orchestra = grand rooms (Midnight vault, Roman Treasury, Hoard Hall, Captain's Cabin).",
+ "about": "Recorded classical music for the app (owner 2026-10-08: 'at minimum the classical music'). tools/music/fetch_classical.py looks each piece up on Wikimedia Commons, keeps only Public Domain / CC0 / CC BY(-SA) recordings by real performers (no MIDI or synth renderings), and writes audio/music/. Compositions are all long out of copyright; the license that matters is the RECORDING's, and the script checks it per file. moods: piano = calm rooms (Conservator, Midnight Gallery, Private Bank, Fireside, Alchemist, Observatory, Library at closing, Cafe, Coastal reading room); orchestra = grand rooms (Midnight vault, Roman Treasury, Hoard Hall, Captain's Cabin). 2026-10-09: exact picks + reviewed credits from Grok's music check (music_grok_20261008-1107.json); `hold` parks a piece, `credit` fixes the license line Commons gets wrong (the composition's PD template comes first).",
  "pieces": [
   {
    "id": "satie-gymnopedie-1",
@@ -15,7 +15,40 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Satie Gymnopedie No 1 performed by Michael Laucke.flac"
+   ],
+   "credit": {
+    "File:Satie Gymnopedie No 1 performed by Michael Laucke.flac": {
+     "performer": "Michael Laucke (guitar)",
+     "license": "Public domain"
+    }
+   }
+  },
+  {
+   "id": "satie-gymnopedie-1-piano",
+   "title": "Gymnopédie No. 1 (piano)",
+   "composer": "Erik Satie",
+   "query": "Satie Gymnopedie 1 piano",
+   "must": [
+    "gymnop"
+   ],
+   "prefer": [
+    "1"
+   ],
+   "moods": [
+    "piano"
+   ],
+   "files": [
+    "File:Satie Gymnopédie n.1 DariaBaiocchi.wav"
+   ],
+   "credit": {
+    "File:Satie Gymnopédie n.1 DariaBaiocchi.wav": {
+     "performer": "Daria Baiocchi (piano, Steinway B, 2021)",
+     "license": "CC BY-SA 4.0"
+    }
+   }
   },
   {
    "id": "satie-gymnopedie-3",
@@ -31,7 +64,17 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Satie Gymnopedie No 3 performed by Michael Laucke.flac"
+   ],
+   "credit": {
+    "File:Satie Gymnopedie No 3 performed by Michael Laucke.flac": {
+     "performer": "Michael Laucke (guitar)",
+     "license": "Public domain"
+    }
+   },
+   "note": "no qualifying piano recording yet (Grok, 2026-10-08); the guitar version stays"
   },
   {
    "id": "satie-gnossienne-1",
@@ -46,7 +89,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Satie - Gnossienne 1.ogg"
+   ],
+   "credit": {
+    "File:Satie - Gnossienne 1.ogg": {
+     "performer": "La Pianista (piano, 2010)",
+     "license": "CC BY-SA 3.0 (recording); composition public domain"
+    }
+   }
   },
   {
    "id": "debussy-clair-de-lune",
@@ -61,7 +113,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Clair de lune (Claude Debussy) Suite bergamasque.ogg"
+   ],
+   "credit": {
+    "File:Clair de lune (Claude Debussy) Suite bergamasque.ogg": {
+     "performer": "Laurens Goedhart (piano, 2011)",
+     "license": "CC BY 3.0 (recording); composition public domain"
+    }
+   }
   },
   {
    "id": "debussy-reverie",
@@ -79,7 +140,8 @@
    ],
    "reject": [
     "File:Reverie.ogg"
-   ]
+   ],
+   "hold": "only a saxophone + piano arrangement qualifies (Grok, 2026-10-08); not used in the piano rooms"
   },
   {
    "id": "debussy-arabesque-1",
@@ -97,7 +159,16 @@
    ],
    "reject": [
     "File:Claude Debussy - 2nd Arabic Suite (Arabesque) - Spring Butterfly, Performer JMC, Han.wav"
-   ]
+   ],
+   "files": [
+    "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg"
+   ],
+   "credit": {
+    "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg": {
+     "performer": "Patrizia Prati (piano, live, Madrid 2016)",
+     "license": "CC BY-SA 4.0 (VRTS permission)"
+    }
+   }
   },
   {
    "id": "chopin-nocturne-op9-2",
@@ -116,7 +187,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Nocturne Op. 9 no. 2 in E flat major.mp3"
+   ],
+   "credit": {
+    "File:Nocturne Op. 9 no. 2 in E flat major.mp3": {
+     "performer": "Musopen (pianist not named)",
+     "license": "CC0"
+    }
+   }
   },
   {
    "id": "chopin-prelude-op28-15",
@@ -132,7 +212,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Chopin - Prelude in D-flat Op-28 No-15 (Raindrop) (Piano Performance by eldüendesüarez).wav"
+   ],
+   "credit": {
+    "File:Chopin - Prelude in D-flat Op-28 No-15 (Raindrop) (Piano Performance by eldüendesüarez).wav": {
+     "performer": "eldüendesüarez (piano)",
+     "license": "CC BY-SA 4.0"
+    }
+   }
   },
   {
    "id": "chopin-nocturne-op27-2",
@@ -147,7 +236,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Chopin - Nocturne No. 8 in D-flat major, Op. 27 No. 2 (Frank Levy).flac"
+   ],
+   "credit": {
+    "File:Chopin - Nocturne No. 8 in D-flat major, Op. 27 No. 2 (Frank Levy).flac": {
+     "performer": "Frank Lévy (piano)",
+     "license": "Public domain"
+    }
+   }
   },
   {
    "id": "bach-prelude-bwv846",
@@ -163,7 +261,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Kimiko Ishizaka - Bach - Well-Tempered Clavier, Book 1 - 01 Prelude No. 1 in C major, BWV 846.ogg"
+   ],
+   "credit": {
+    "File:Kimiko Ishizaka - Bach - Well-Tempered Clavier, Book 1 - 01 Prelude No. 1 in C major, BWV 846.ogg": {
+     "performer": "Kimiko Ishizaka (piano, Open Well-Tempered Clavier)",
+     "license": "CC0"
+    }
+   }
   },
   {
    "id": "bach-goldberg-aria",
@@ -179,7 +286,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Goldberg Variations BWV 988 01 Aria.flac"
+   ],
+   "credit": {
+    "File:Goldberg Variations BWV 988 01 Aria.flac": {
+     "performer": "Kimiko Ishizaka (piano, Open Goldberg Variations)",
+     "license": "CC0"
+    }
+   }
   },
   {
    "id": "beethoven-moonlight-1",
@@ -197,7 +313,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Ludwig van Beethoven - sonata no. 14 in c sharp minor 'moonlight', op. 27 no. 2 - i. adagio sostenuto.ogg"
+   ],
+   "credit": {
+    "File:Ludwig van Beethoven - sonata no. 14 in c sharp minor 'moonlight', op. 27 no. 2 - i. adagio sostenuto.ogg": {
+     "performer": "Paul Pitman for Musopen (piano)",
+     "license": "Public domain"
+    }
+   }
   },
   {
    "id": "schumann-traumerei",
@@ -212,7 +337,16 @@
    ],
    "moods": [
     "piano"
-   ]
+   ],
+   "files": [
+    "File:Träumerei (Kinderszenen, Op 15 No 7) - Robert Schumann.wav"
+   ],
+   "credit": {
+    "File:Träumerei (Kinderszenen, Op 15 No 7) - Robert Schumann.wav": {
+     "performer": "Edgar Monteiro (guitar)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
   },
   {
    "id": "liszt-consolation-3",
@@ -230,7 +364,16 @@
    ],
    "reject": [
     "File:Franz Liszt - Consolation 3.ogg"
-   ]
+   ],
+   "files": [
+    "File:Franz Liszt - Consolation No. 3, Lento placido.ogg"
+   ],
+   "credit": {
+    "File:Franz Liszt - Consolation No. 3, Lento placido.ogg": {
+     "performer": "Benedict Kramer (piano, 2005)",
+     "license": "CC BY-SA 4.0 (VRTS permission)"
+    }
+   }
   },
   {
    "id": "bach-air",
@@ -246,7 +389,16 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "files": [
+    "File:Air - Air Force Strings - United States Air Force Band.mp3"
+   ],
+   "credit": {
+    "File:Air - Air Force Strings - United States Air Force Band.mp3": {
+     "performer": "The Air Force Strings, United States Air Force Band (cond. 1st Lt Keith H. Bland, 2000)",
+     "license": "Public domain (US Air Force work)"
+    }
+   }
   },
   {
    "id": "pachelbel-canon",
@@ -264,7 +416,16 @@
    ],
    "reject": [
     "File:Pachelbel's Howitzer.wav"
-   ]
+   ],
+   "files": [
+    "File:Canon (2004) - Strolling Strings - United States Air Force Band.mp3"
+   ],
+   "credit": {
+    "File:Canon (2004) - Strolling Strings - United States Air Force Band.mp3": {
+     "performer": "The Strolling Strings, United States Air Force Band (arr. Frank Hudson, 2004)",
+     "license": "Public domain (US Air Force work)"
+    }
+   }
   },
   {
    "id": "grieg-morning-mood",
@@ -279,7 +440,16 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "files": [
+    "File:Grieg - Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood (Musopen Symphony).flac"
+   ],
+   "credit": {
+    "File:Grieg - Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood (Musopen Symphony).flac": {
+     "performer": "Musopen Symphony",
+     "license": "Public domain"
+    }
+   }
   },
   {
    "id": "elgar-nimrod",
@@ -294,7 +464,8 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "hold": "no recording that is both by a named performer and free in the US (Grok, 2026-10-08)"
   },
   {
    "id": "dvorak-new-world-largo",
@@ -310,7 +481,16 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "files": [
+    "File:Antonin Dvorak - symphony no. 9 in e minor 'from the new world', op. 95 - ii. largo.ogg"
+   ],
+   "credit": {
+    "File:Antonin Dvorak - symphony no. 9 in e minor 'from the new world', op. 95 - ii. largo.ogg": {
+     "performer": "Musopen (orchestra not named)",
+     "license": "Public domain (Musopen)"
+    }
+   }
   },
   {
    "id": "saint-saens-swan",
@@ -327,7 +507,16 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "files": [
+    "File:20091104 Alisa Weilerstein and Jason Yoder - Saint Saëns' The Swan.ogg"
+   ],
+   "credit": {
+    "File:20091104 Alisa Weilerstein and Jason Yoder - Saint Saëns' The Swan.ogg": {
+     "performer": "Alisa Weilerstein (cello) and Jason Yoder (piano), White House, 2009",
+     "license": "Public domain"
+    }
+   }
   },
   {
    "id": "bach-cello-suite-1-prelude",
@@ -343,7 +532,16 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "files": [
+    "File:Bach Cello Suite 1 Prelude (BWV 1007) Played by Chris.ogg"
+   ],
+   "credit": {
+    "File:Bach Cello Suite 1 Prelude (BWV 1007) Played by Chris.ogg": {
+     "performer": "Chris (cello)",
+     "license": "CC0"
+    }
+   }
   },
   {
    "id": "handel-largo",
@@ -362,7 +560,8 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "hold": "the qualifying pick is Caruso's 1920 acoustic recording (public domain in the US); held for the owner's ear"
   },
   {
    "id": "mozart-eine-kleine-romanze",
@@ -379,7 +578,16 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "files": [
+    "File:Mozart - Serenade No. 13 for strings in G major, K. 525 - Romanze.ogg"
+   ],
+   "credit": {
+    "File:Mozart - Serenade No. 13 for strings in G major, K. 525 - Romanze.ogg": {
+     "performer": "Musopen (strings)",
+     "license": "Public domain"
+    }
+   }
   },
   {
    "id": "vivaldi-winter-largo",
@@ -396,7 +604,16 @@
    ],
    "moods": [
     "orchestra"
-   ]
+   ],
+   "files": [
+    "File:11 - Vivaldi Winter mvt 2 Largo - John Harrison violin.ogg"
+   ],
+   "credit": {
+    "File:11 - Vivaldi Winter mvt 2 Largo - John Harrison violin.ogg": {
+     "performer": "John Harrison (violin), Wiedemann Recital",
+     "license": "CC BY-SA 4.0"
+    }
+   }
   }
  ]
 }

@@ -1,13 +1,13 @@
 <!-- doc-status: current; normative: yes -->
-# The other AIs: standing work queues (updated 2026-10-08)
+# The other AIs: standing work queues (updated 2026-10-09)
 
 Standing work queues for the other AIs (owner 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Claude keeps every active queue at 3 or more open tasks and refreshes it at every intake. Each AI works top to bottom: when one task is done it writes DONE and the date under it in its Drive queue doc (or says so in chat) and starts the next one without waiting. Rendered by tools/agents/render_queues.py into docs/agents/QUEUE_{agent}.md, the agent's Drive doc and the fix list.
 
 ## Grok (active)
-Now: Fact-check the coin stories, C151 to C283. Queued: Find 8 classical recordings (and check the 16 we kept); Take the blind photo test; Numista sweep, round 2 (3 batches + catalogue numbers); Motion Lab study 2: the coin flip; Read new coin photos (with Muse, blind). Page: `docs/agents/QUEUE_grok.md`.
+Now: Fact-check the coin stories, C151 to C283. Queued: Numista sweep, round 2 (3 batches + catalogue numbers); Collector values for the 25 most valuable coins; Motion Lab study 2: the coin flip; Read new coin photos (with Muse, blind). Page: `docs/agents/QUEUE_grok.md`.
 
 ## Muse (active)
-Now: Re-cite your 26 vague sources. Queued: Take the blind photo test; Read new coin photos (with Grok, blind). Page: `docs/agents/QUEUE_muse.md`.
+Now: Re-cite your 26 vague sources. Queued: Plain-English stories: 53 still carry shorthand; Read new coin photos (with Grok, blind). Page: `docs/agents/QUEUE_muse.md`.
 
 ## ChatGPT (active)
 Now: Fact-check the coin stories, C001 to C150. Queued: Review two new modules; Dad's one-page guide. Page: `docs/agents/QUEUE_chatgpt.md`.

@@ -134,6 +134,9 @@ def main(argv):
     os.makedirs(out, exist_ok=True)
     report, tracks = [], []
     for w in wanted["pieces"]:
+        if w.get("hold"):                          # reviewed and parked (no qualifying recording yet, or waiting on the owner's ear)
+            report.append({"id": w["id"], "title": w["title"], "picked": None, "hold": w["hold"], "candidates": []})
+            print(f"{w['id']:<28} held: {w['hold']}", flush=True); continue
         titles = list(w.get("files") or [])        # exact Commons file titles (e.g. from Grok's music check) are tried first, same checks apply
         for q in [w["query"], w["query"] + " " + w["composer"].split()[-1], w["title"]]:
             for t in search(q):
@@ -164,7 +167,10 @@ def main(argv):
         report.append({"id": w["id"], "title": w["title"], "picked": pick and pick["file"], "candidates": rows})
         if pick:
             perf = pick["artist"] or pick["credit"] or "see source page"
-            tracks.append({"id": w["id"], "title": w["title"], "composer": w["composer"], "performer": perf[:160], "license": pick["license"],
+            lic = pick["license"]
+            ov = (w.get("credit") or {}).get(pick["file"]) or {}     # reviewed credit for an exact pick (Commons' first license template
+            perf, lic = ov.get("performer", perf), ov.get("license", lic)   # can be the composition's PD, not the recording's CC BY)
+            tracks.append({"id": w["id"], "title": w["title"], "composer": w["composer"], "performer": perf[:160], "license": lic,
                            "source": pick["page"], "file": w["id"] + ".m4a", "duration": pick.get("encoded_sec") or pick["duration"], "moods": w["moods"]})
         print(f"{w['id']:<28} {'PICK ' + pick['file'] if pick else 'none'}  ({len(ok)} ok of {len(rows)})", flush=True)
         time.sleep(1)

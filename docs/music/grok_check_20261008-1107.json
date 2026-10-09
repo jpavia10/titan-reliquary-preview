@@ -1,0 +1,321 @@
+{
+ "made": "20261008-1107 PT",
+ "by": "Grok Bot (model:grok-bot), WORK QUEUE task 2",
+ "method": "Every Commons file was opened through the Commons API (action=query&prop=imageinfo|revisions, extmetadata + full wikitext). archive.org items were checked through archive.org/metadata/<id>. Rule applied: named human performer; the RECORDING's license must be PD, CC0, CC BY or CC BY-SA and valid in the US; historic transfers only if recorded and issued before 1926.",
+ "summary": {
+  "found": [
+   "bach-air",
+   "pachelbel-canon",
+   "handel-largo",
+   "debussy-arabesque-1",
+   "liszt-consolation-3",
+   "satie-gymnopedie-1 (piano)"
+  ],
+  "found_medium": [
+   "dvorak-new-world-largo"
+  ],
+  "arrangement_only": [
+   "debussy-reverie"
+  ],
+  "not_found": [
+   "elgar-nimrod",
+   "satie-gymnopedie-3 (piano)"
+  ]
+ },
+ "picks": [
+  {
+   "id": "bach-air",
+   "status": "found",
+   "file": "File:Air - Air Force Strings - United States Air Force Band.mp3",
+   "page": "https://commons.wikimedia.org/wiki/File:Air_-_Air_Force_Strings_-_United_States_Air_Force_Band.mp3",
+   "license": "Public domain (US federal government work: PD-USGov-Military-Air Force for performance and recording)",
+   "license_url": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
+   "performer": "The Air Force Strings of the United States Air Force Band, conducted by 1st Lt Keith H. Bland",
+   "recorded": "18-26 May 2000, USAF Band Recording Facility, Bolling AFB, Washington DC (album Collage, BOL-0006)",
+   "duration_s": 183,
+   "why": "Real string orchestra (7+5 violins, 4 violas, 3 cellos, bass, accordion per the liner notes cited on File:Air.ogg). Recording made by US military musicians on duty, so public domain in the US. Same recording as File:Air.ogg (lower bitrate); the mp3 is the better source.",
+   "alternates": [
+    {
+     "file": "File:Air (Bach).ogg",
+     "license": "Public domain (1920 recording; pre-1923 US recordings PD since 2022-01-01)",
+     "performer": "Joel Belov (violin), Robert Gayler (piano)",
+     "recorded": "1920 (UCSB cylinder cusb-cyl1089)",
+     "note": "historic, violin+piano arrangement, acoustic sound"
+    }
+   ],
+   "rejected_checked": [
+    "File:Wiki naxos 8.550194 01 13.ogg (CC BY-SA 3.0, Naxos track, uploader not the label; weaker chain)",
+    "File:Bach - Orchestral Suite No. 3 in D major, BWV 1068 - Air (Menuhin).flac (1948 film audio, PD-US-not-renewed: plausible but older and a film extraction)",
+    "PDP-CH Busch 1937 and Melachrino 1947 transfers (US-protected)"
+   ]
+  },
+  {
+   "id": "pachelbel-canon",
+   "status": "found",
+   "file": "File:Canon (2004) - Strolling Strings - United States Air Force Band.mp3",
+   "page": "https://commons.wikimedia.org/wiki/File:Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3",
+   "license": "Public domain (PD-USGov-Military-Air Force for arrangement, performance and recording)",
+   "license_url": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
+   "performer": "The Strolling Strings of the United States Air Force Band (arr. Frank Hudson)",
+   "recorded": "2004 (album The Strolling Strings 50th Anniversary, track 22)",
+   "duration_s": 229,
+   "why": "Live string ensemble, the real Canon (not a medley). The arrangement is also a USAF work, so the whole chain is US public domain.",
+   "alternates": [
+    {
+     "file": "File:Pachelbel's Canon.ogg",
+     "license": "CC BY-SA 3.0 (migrated from GFDL; permission e-mail from the pianist quoted on the file page, 2004)",
+     "performer": "Lee Galloway (piano transcription)",
+     "recorded": "before 2004 (originally on mp3.com)",
+     "note": "piano version if a calm-room piano Canon is wanted"
+    },
+    {
+     "file": "File:Pachelbel - Canon in D major, P. 37 (Guitar).ogg",
+     "license": "CC BY-SA 4.0",
+     "performer": "Aitua (guitar, via Free Music Archive)",
+     "recorded": "2017-01-20",
+     "note": "guitar"
+    }
+   ],
+   "rejected_checked": [
+    "File:Johann Pachelbel Canon P 37 1694.mp3 and File:Pachelbel Canon 1694 arrangement.mp3 (LilyPond synthesized, CC BY 4.0)",
+    "File:Canon and Gigue in D.ogg (synth)",
+    "File:Canon.flac (synth)",
+    "File:Pachelbel's Canon per 3 violini e basso.ogg (Mutopia source, no performer evidence)",
+    "Kevin MacLeod / Incompetech files (sample-library renderings)",
+    "File:Pachelbel's Canon 01.wav (65 s, no performer)"
+   ]
+  },
+  {
+   "id": "elgar-nimrod",
+   "status": "not_found",
+   "file": null,
+   "license": null,
+   "license_url": null,
+   "performer": null,
+   "recorded": null,
+   "why": "No recording I could find is both by a named performer and free in the US. Commons has only the Barbirolli/Halle 1947 transfer (PD-EU-audio; US-protected). archive.org has Barbirolli 1947/1962, BBC SO/Boult, Toscanini 1951, Monteux 1958, Bernstein 1982, A. Davis 1991 with no license; the only CC-tagged item (Kirchenkonzert Marienborn 2012) is CC BY-NC-ND. US Marine Band (Patterson transcription, 26 Aug 2021) has no released download; US Army Field Band's track has spoken narration over it and is a commercial Altissimo release.",
+   "lead": "Elgar's own acoustic recording (Royal Albert Hall Orchestra, HMV, Nimrod cut Feb 1920) and Henry Wood/New Queen's Hall Orchestra (Columbia, 1924) are pre-1926 and so PD in the US, but I found no free, licensed transfer online (only commercial remasters: SOMM Ariadne 5046, Pristine PASC313). Nimrod is heavily abridged in the 1920 set. Elgar's 1926 electrical remake becomes US-PD on 2027-01-01 only if published in 1926.",
+   "checked": [
+    "Commons search 'Nimrod Elgar', 'Enigma Variations' and Category:Enigma Variations (only the 1947 Barbirolli set)",
+    "archive.org advancedsearch nimrod/elgar/enigma incl. collection:78rpm",
+    "marineband.marines.mil album pages (Music from the Land of Hope and Glory has Crown of India, not Nimrod)"
+   ]
+  },
+  {
+   "id": "dvorak-new-world-largo",
+   "status": "found_medium_confidence",
+   "url": "https://archive.org/download/Dvorak_Symphony_9/02.Largo.mp3",
+   "page": "https://archive.org/details/Dvorak_Symphony_9",
+   "license": "Public domain dedication (archive.org licenseurl http://creativecommons.org/licenses/publicdomain/)",
+   "license_url": "http://creativecommons.org/licenses/publicdomain/",
+   "performer": "Columbia University Orchestra",
+   "recorded": "2002-12-08",
+   "duration_s": 685,
+   "why": "Live student orchestra, named ensemble, full Largo (11:25). Medium confidence: the PD dedication was set by the uploader (angelchen1111@...), and the page does not say they speak for the orchestra. Claude should decide if that is enough.",
+   "alternates": [
+    {
+     "file": "File:Antonin Dvorak - symphony no. 9 in e minor 'from the new world', op. 95 - ii. largo.ogg",
+     "license": "Public domain (PD-author Musopen, VRTS ticket 2008012110017088)",
+     "performer": "not named on the file page ('see Musopen'); MusicBrainz lists Musopen's release as 'Musopen Symphony Orchestra' but I could not match it to this 2008 file, and musopen.org was behind a Cloudflare check",
+     "recorded": "unknown",
+     "note": "cleanest license, but fails the named-performer rule as written"
+    }
+   ],
+   "rejected_checked": [
+    "File:Dvorak S9M2 100501.ogg (Garritan sample-library rendering)",
+    "File:Symphony No.9, Op.95 – Antonín Dvořák.oga (MuseScore 4 MuseSounds)",
+    "PDP-CH Royal Albert Hall Orchestra/Landon Ronald 1927 (US-protected to 2028)",
+    "archive.org Stokowski/Philadelphia 1925 (Largo sides recut 8 Dec 1925, issue date 1925 vs 1926 uncertain per DAHR CVE-33291/33292; not safe)",
+    "Stokowski 1927, Szell 1937, Iturbi 1941 transfers (US-protected)",
+    "archive.org dso20120212 DuPage Symphony 2012 (CC BY-SA 3.0 US but the notes say the orchestra did not sponsor or endorse the recording)",
+    "USAF Band 'Goin' Home' (concert band song arrangement, not the Largo)"
+   ]
+  },
+  {
+   "id": "handel-largo",
+   "status": "found",
+   "file": "File:Enrico Caruso, George Frideric Handel, Ombra mai fu (Serse).ogg",
+   "page": "https://commons.wikimedia.org/wiki/File:Enrico_Caruso,_George_Frideric_Handel,_Ombra_mai_fu_(Serse).ogg",
+   "license": "Public domain in the US (PD-US: recorded and issued 1920, pre-1923 recordings PD since 2022-01-01); restoration PD-retouched-user (Adam Cuerden)",
+   "license_url": "https://commons.wikimedia.org/wiki/Template:PD-US",
+   "performer": "Enrico Caruso (tenor), with orchestra",
+   "recorded": "29 January 1920 (Victor matrix C-23714, Victor 88617)",
+   "duration_s": 256,
+   "why": "Named singer, recorded well before 1926, so it meets the US rule. A Featured Sound on English Wikipedia, hiss and clicks removed. It is a 1920 acoustic recording, so it sounds old.",
+   "alternates": [
+    {
+     "file": "File:Les Arts Florissants - Handel's Serse, HWV 40 - Ombra mai fu.ogg",
+     "license": "CC BY 3.0 (YouTube CC-BY, video oTn7zI74Qf4)",
+     "performer": "Lea Desandre (mezzo-soprano) and Les Arts Florissants",
+     "recorded": "2020-07-12",
+     "note": "modern sound, but the file page has no completed license review and I could not confirm the YouTube channel is the ensemble's own; use only after that check"
+    },
+    {
+     "file": "File:Victor-16525a-b249.ogg",
+     "license": "Public domain (recorded 30 Dec 1909, issued Aug 1910)",
+     "performer": "Sousa's Band, cond. John Philip Sousa",
+     "recorded": "1909-12-30",
+     "note": "instrumental band version, acoustic"
+    }
+   ],
+   "rejected_checked": [
+    "PDP-CH Jo Vincent 1930 (US-protected to 2031)",
+    "File:Largo (Händel).mid (MIDI)",
+    "File:Ombra Mai Fu - Rebecca Evans.ogg (30 s clip)"
+   ]
+  },
+  {
+   "id": "debussy-reverie",
+   "status": "found_arrangement_only",
+   "file": "File:Claude Debussy - Rêverie - Arr for Soprano saxophone and piano - David Hernando Vitores.ogg",
+   "page": "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_Rêverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg",
+   "license": "CC BY-SA 4.0 (VRTS permission ticket 2015112110000385)",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "performer": "David Hernando Vitores (soprano saxophone); the pianist is not named",
+   "recorded": "2015-11-17",
+   "duration_s": 281,
+   "why": "No qualifying solo-piano Rêverie exists on Commons or archive.org. This saxophone and piano arrangement is the only one with a named performer and a free license. Use it only if an arrangement is OK in a piano room. Otherwise treat as not found.",
+   "rejected_checked": [
+    "File:Reverie.ogg (source unknown; category names Carlos Fuentes Peñafiel but no permission)",
+    "archive.org Ravel-DebussyPianoPieces (E. Robert Schmitz, RCA Victor 78 c.1940: US-protected)",
+    "archive.org jamendo-638850 'Felted Classics' (CC BY 3.0 but no human performer named, 'felt piano' production album)",
+    "archive.org DebussyReverie, Carlos Carty, Abydos Music, OnClassical (all NC and/or ND)"
+   ]
+  },
+  {
+   "id": "debussy-arabesque-1",
+   "status": "found",
+   "file": "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg",
+   "page": "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_Première_Arabesque_-_Patrizia_Prati.ogg",
+   "license": "CC BY-SA 4.0 (VRTS permission ticket 2015120610013684)",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "performer": "Patrizia Prati (piano)",
+   "recorded": "2016-05-17, live, Museo del Romanticismo, Madrid",
+   "duration_s": 293,
+   "why": "The right piece (Arabesque I, Wikidata Q1206599 'Arabesque I'), real live piano, and the performer's permission is on file with VRTS.",
+   "alternates": [
+    {
+     "file": "File:Debussy - Arabesque No-1 in E (Piano Performance by eldüendesüarez).wav",
+     "license": "CC BY-SA 4.0",
+     "performer": "eldüendesüarez (piano; same pianist as the kept Raindrop Prelude)",
+     "recorded": "2023-12-10",
+     "note": "no 'own work' or permission on the page (author field says 'Debussy')"
+    },
+    {
+     "url": "https://archive.org/details/debussy-first-arabesque-ada-sassoli",
+     "license": "Public Domain Mark (Victor, 1920)",
+     "performer": "Ada Sassoli (harp)",
+     "recorded": "1920",
+     "note": "harp, historic"
+    }
+   ],
+   "rejected_checked": [
+    "File:Claude Debussy - 2nd Arabic Suite (Arabesque) - Spring Butterfly, Performer JMC, Han.wav and File:Claude Debussy - 2nd Arabesque (JMC, Han).oga (Arabesque No. 2)",
+    "File:Debussy Premiere Arabesque melody and chords.mid (MIDI)",
+    "Marguerite Long Columbia LF 55 (1930s, US-protected)"
+   ]
+  },
+  {
+   "id": "liszt-consolation-3",
+   "status": "found",
+   "file": "File:Franz Liszt - Consolation No. 3, Lento placido.ogg",
+   "page": "https://commons.wikimedia.org/wiki/File:Franz_Liszt_-_Consolation_No._3,_Lento_placido.ogg",
+   "license": "CC BY-SA 4.0 (VRTS permission ticket 2016032110014115)",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "performer": "Benedict Kramer (piano, aged 17); recording by Tobias Lohner",
+   "recorded": "May 2005 (private recording)",
+   "duration_s": 226,
+   "why": "Real pianist named on the page, permission confirmed by VRTS, Commons Media of the Day on 2024-08-17. Replaces the rejected GigaSampler file.",
+   "rejected_checked": [
+    "File:Franz Liszt - Consolation 3.ogg (virtual piano, already rejected)",
+    "File:Liszt-ConsolationNo4.ogg / No5.ogg (Constantin Stephan, wrong numbers)",
+    "archive.org Abydos Music Consolation 3 (CC BY-NC-ND)"
+   ]
+  },
+  {
+   "id": "satie-gymnopedie-1",
+   "status": "found",
+   "variant": "piano (in addition to or instead of the kept Laucke guitar)",
+   "file": "File:Satie Gymnopèdie n.1 DariaBaiocchi.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopèdie_n.1_DariaBaiocchi.wav",
+   "license": "CC BY-SA 4.0 (self, own work)",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "performer": "Daria Baiocchi (piano, Steinway model B)",
+   "recorded": "2021-07-30",
+   "duration_s": 191,
+   "why": "Real piano, the performer is the uploader (User:Daisy78 credited as Daria Baiocchi), and the instrument is named.",
+   "alternates": [
+    {
+     "file": "File:Erik Satie - gymnopedies - la 1 ere. lent et douloureux.ogg",
+     "license": "Public domain (PD-author, via Musopen)",
+     "performer": "Robin Alciatore (piano)",
+     "recorded": "c. 2008",
+     "note": "public domain, no share-alike; Alciatore is a real pianist (IUMA bio on archive.org iuma-robin_alciatore)"
+    },
+    {
+     "url": "https://archive.org/details/satie_gymnopedieI_20251213",
+     "license": "CC BY-SA 4.0",
+     "performer": "Gregor Horvath (Bösendorfer 180, 1919)",
+     "recorded": "2025-12-13",
+     "note": "archive.org, uploader is the performer's own domain"
+    }
+   ],
+   "rejected_checked": [
+    "File:Gymnopedie No. 1..ogg (Teknopazzo, CC0: no performer name or instrument stated)",
+    "Kevin MacLeod / Incompetech (sample-library)",
+    "archive.org satie-gnossienne-gymnopedie (Gregory Tait: tagged 'synthesizer'; Jamendo copy says BY-NC-ND)"
+   ]
+  },
+  {
+   "id": "satie-gymnopedie-3",
+   "status": "not_found",
+   "variant": "piano",
+   "file": null,
+   "license": null,
+   "license_url": null,
+   "performer": null,
+   "recorded": null,
+   "why": "I found no solo-piano Gymnopédie No. 3 that has a named human performer and a PD/CC0/CC BY(-SA) license.",
+   "lead": "File:Gymnopédie no.3.ogg (CC0, 156 s) by User:Teknopazzo: the page names no performer or instrument (only 'own work', and the description is boilerplate), so I can't tell if it's a real piano. Usable only if someone listens and confirms.",
+   "checked": [
+    "Category:Gymnopédie lent et grave (9 files)",
+    "Category:Audio files of music by Erik Satie",
+    "Commons search 'Gymnopédie 3', 'Gymnopedie piano'",
+    "archive.org (Felted Classics: no named performer; Gregory Tait: synthesizer; Madì, Abydos: NC-ND; Rafi Simcha and Gregor Horvath: No. 1 only)",
+    "File:Satie Gymnopedie No. 3 for piano solo 01.wav (30 s, unnamed)"
+   ]
+  }
+ ],
+ "spot_check": [
+  {
+   "id": "debussy-clair-de-lune",
+   "file": "File:Clair de lune (Claude Debussy) Suite bergamasque.ogg",
+   "page": "https://commons.wikimedia.org/wiki/File:Clair_de_lune_(Claude_Debussy)_Suite_bergamasque.ogg",
+   "performer_ok": true,
+   "piece_ok": true,
+   "real_performer": "Laurens Goedhart (piano), 2011-08-20, from his SoundCloud",
+   "license_on_page": "Recording CC BY 3.0 ({{Copyright information|recording={{cc-by-3.0}}}}); composition PD",
+   "verdict": "KEEP, but fix the credit. audio/music/CREDITS.md and docs/music/REVIEW.md say 'Public domain' / 'PD mark'. The recording is CC BY 3.0, so it needs attribution (the extmetadata LicenseShortName shows 'Public domain' because the composition template comes first). Credit: 'Laurens Goedhart, CC BY 3.0'."
+  },
+  {
+   "id": "satie-gnossienne-1",
+   "file": "File:Satie - Gnossienne 1.ogg",
+   "page": "https://commons.wikimedia.org/wiki/File:Satie_-_Gnossienne_1.ogg",
+   "performer_ok": true,
+   "piece_ok": true,
+   "real_performer": "La Pianista (Commons user name, a pseudonym), performed 2010-11-16",
+   "license_on_page": "Performance: {{self|cc-by-sa-3.0|GFDL}}; composition PD-old",
+   "verdict": "KEEP, but fix the credit. CREDITS.md says 'Public domain'. The performance is CC BY-SA 3.0 (or GFDL), so it needs attribution and share-alike. Credit: 'La Pianista, CC BY-SA 3.0'."
+  },
+  {
+   "id": "chopin-nocturne-op9-2",
+   "file": "File:Nocturne Op. 9 no. 2 in E flat major.mp3",
+   "page": "https://commons.wikimedia.org/wiki/File:Nocturne_Op._9_no._2_in_E_flat_major.mp3",
+   "performer_ok": false,
+   "piece_ok": true,
+   "real_performer": "not named: the Commons page credits only Chopin and Musopen (source archive.org/details/musopen-chopin, creator 'Aaron Dunn', the Musopen founder). The file has no artist tag there either",
+   "license_on_page": "CC0 (Commons) / CC0 (archive.org item licenseurl)",
+   "verdict": "LICENSE OK, PERFORMER UNNAMED. It sounds like a real piano recording (Musopen's Chopin project), but it doesn't meet the 'named human performer' bar as written. Keep it if Claude accepts 'Musopen' as the performer credit, as for the Grieg and Mozart picks; otherwise replace."
+  }
+ ]
+}
