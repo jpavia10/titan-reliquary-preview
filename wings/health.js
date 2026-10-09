@@ -184,6 +184,12 @@
   /* a plain progress bar: the text next to it always says the number (#57, #75) */
   function bar(a, b) { const pc = b ? Math.max(0, Math.min(100, (100 * a) / b)) : 0; return `<span class="hv-bar" role="img" aria-hidden="true"><i style="width:${pc.toFixed(1)}%"></i></span>`; }
   const P1_WORDS = { photo: "a phone photo", country: "the country", year: "the year", denomination: "the denomination", mint: "the mint mark read", story: "a story", value: "a default value" };
+  const AI_NAMES = { grok: "Grok", muse: "Muse", gemini: "Gemini", chatgpt: "ChatGPT", claude: "Claude" };
+  function loopText(l) {
+    const open = Object.entries(l.open_assignments || {}).filter(([, c]) => c).map(([a, c]) => (AI_NAMES[a] || a) + " " + c).join(", ");
+    const chk = Object.entries(l.checked_by_another || {}).map(([a, r]) => (AI_NAMES[a] || a) + ": " + n(r.checked) + " of its facts checked by another AI, " + n(r.wrong) + " wrong").join("; ");
+    return "Homework is handed out from the data after every update: " + (open || "none open") + ". Every AI fact is checked by a different AI." + (chk ? " " + chk + "." : "");
+  }
   function p1left(p) { const m = Object.entries(p.missing || {}).filter(([, c]) => c); return m.length ? m.map(([k, c]) => n(c) + " need " + (P1_WORDS[k] || k)).join(", ") : "nothing"; }
   function row(k, v, sub) { return `<div class="hv-row"><dt>${esc(k)}</dt><dd>${v}${sub ? `<small>${esc(sub)}</small>` : ""}</dd></div>`; }
   function render(g) {
@@ -236,7 +242,9 @@
         ${row("Phone photos", n(p.specimens_with_any) + " of " + n(sp.total), n(p.still_needed) + " still need a phone photo. Pro photos (Phase 2): " + n(p.phase2_specimens) + ".")}
         ${row("Open questions", n(r.open_questions), "On " + n(r.specimens_with_open_questions) + " coins, still being checked.")}
         ${s.phase1 ? row("Phase 1 finish line", bar(s.phase1.done, s.phase1.total) + n(s.phase1.done) + " of " + n(s.phase1.total) + " pieces (" + s.phase1.pct + " %)", "Through Phase 1 = photo, country, year, denomination, mint mark read, story and default value. Still to do: " + p1left(s.phase1) + ". The Lab lists each piece.") : ""}
-        ${s.trust ? row("How sure we are", bar(s.trust.cited_or_confirmed, s.trust.facts) + s.trust.pct_cited + " % cited or confirmed", n(s.trust.cited_or_confirmed) + " of " + n(s.trust.facts) + " facts have an exact source or your confirmation; " + s.trust.pct_photo + " % were read from a photo, " + s.trust.pct_ai + " % an AI said without a source yet, " + s.trust.pct_ledger + " % came from the original ledger unchecked, " + s.trust.pct_review + " % are being checked.") : ""}
+        ${s.trust ? row("How sure we are", bar(s.trust.cited_or_confirmed, s.trust.facts) + s.trust.pct_cited + " % cited or confirmed", n(s.trust.cited_or_confirmed) + " of " + n(s.trust.facts) + " facts have an exact source or your confirmation" + (s.trust.pct_checked ? " (" + s.trust.pct_checked + " % checked by two independent sources)" : "") + "; " + s.trust.pct_photo + " % were read from a photo, " + s.trust.pct_ai + " % an AI said without a source yet, " + s.trust.pct_ledger + " % came from the original ledger unchecked, " + s.trust.pct_review + " % are being checked.") : ""}
+        ${s.loop ? row("The other AIs at work", n(Object.values(s.loop.open_assignments || {}).reduce((x, y) => x + y, 0)) + " homework assignments open", loopText(s.loop)) : ""}
+        ${s.chain ? row("Change history", n(s.chain.lines) + " changes, sealed", "Every change is chained to the one before it (fingerprint " + String(s.chain.tip || "").slice(0, 12) + "), so the history cannot be quietly rewritten: a correction is always a new line.") : ""}
         ${s.truth ? row("Contradictions to check", n(s.truth.total), s.truth.total ? "Records that disagree with each other or claim more than their evidence: " + Object.entries(s.truth.by_rule || {}).map(([k, c]) => c + " " + k.replace(/_/g, " ")).join(", ") + "." : "None found.") : ""}
       </dl><p class="hv-status ${probs ? "hv-bad" : "hv-ok"}">${probs ? n(probs) + " problem" + (probs === 1 ? "" : "s") + " found" : "No problems found"}</p>
       ${ig.warnings ? `<p class="hv-sub">${n(ig.warnings)} minor warning${ig.warnings === 1 ? "" : "s"}.</p>` : ""}</section>`);
@@ -246,7 +254,9 @@
         "Integrity: " + (probs ? probs + " problems" : "no problems") + ", " + n(ig.warnings || 0) + " warnings",
         "Phase 1 finish line: " + (s.phase1 ? s.phase1.done + " of " + s.phase1.total + " (" + s.phase1.pct + " %); left: " + p1left(s.phase1) : "not published"),
         "Trust: " + (s.trust ? s.trust.cited_or_confirmed + " of " + s.trust.facts + " facts cited or confirmed (" + s.trust.pct_cited + " %) " + JSON.stringify(s.trust.by_level || {}) : "not published"),
-        "Contradictions to check: " + (s.truth ? s.truth.total + " " + JSON.stringify(s.truth.by_rule || {}) : "not published"));
+        "Contradictions to check: " + (s.truth ? s.truth.total + " " + JSON.stringify(s.truth.by_rule || {}) : "not published"),
+        "Research loop: " + (s.loop ? JSON.stringify(s.loop.open_assignments || {}) + " open; pools " + JSON.stringify(s.loop.pools || {}) : "not published"),
+        "Change history: " + (s.chain ? s.chain.lines + " lines, tip " + s.chain.tip : "not chained"));
     }
     // Background jobs (#49)
     if (!g.jobs) {

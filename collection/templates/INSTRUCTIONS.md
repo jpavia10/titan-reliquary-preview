@@ -28,8 +28,22 @@ Read `AI_START_HERE.md` (repo root) first for the job and the folders. This page
 | `verified` | always `false`. Only the owner verifies. |
 | `phase` | **required**: `1` (quick pass from a staging photo), `1.5` (album scans) or `2` (critical analysis with the pro photos and cited sources). Each phase may write only its own fields (schema v3 tiers, column "who writes it" in `FIELDS.md`); anything else rejects the file. |
 | `confidence` | `low` / `med` / `high`. Optional but please give it. |
-| `provenance` | **required on every model event from 2026-10-21** (until then a file without it merges with a WARNING; from that date the file is rejected; send `tokens`/`cost_usd` as `null` when you cannot see them, never leave the object out): which run made this fact, so a later correction can show what went wrong and who got it right. An object: `model` (exact model id/version), `prompt_version` (e.g. `AI_START_HERE@2026-10-05`), `workflow` (`phase1-photo`, `phase2-research`, `album-read`, ...), `inputs` (list of `{"file": "C042_obv.jpg"}`, the photo files you looked at; `sha256` optional), `run_id` (one short id shared by all events of this run), optional `tokens`, `cost_usd`, and `raw` (a short verbatim excerpt of your answer, 500 characters at most). Any other key rejects the file. Put the same object on every line of your file. |
+| `provenance` | **required on every model event from 2026-10-21** (until then a file without it merges with a WARNING; from that date the file is rejected; send `tokens`/`cost_usd` as `null` when you cannot see them, never leave the object out): which run made this fact, so a later correction can show what went wrong and who got it right. An object: `model` (exact model id/version), `prompt_version` (e.g. `AI_START_HERE@2026-10-05`), `workflow` (`phase1-photo`, `phase2-research`, `album-read`, ...), `inputs` (list of `{"file": "C042_obv.jpg"}`, the photo files you looked at; `sha256` optional), `run_id` (one short id shared by all events of this run), optional `tokens`, `cost_usd`, `raw` (a short verbatim excerpt of your answer, 500 characters at most) and `assignment` (the homework id `HW-...` when the line answers an assignment, section 2b). Any other key rejects the file. Put the same object on every line of your file. |
 | `supersedes` | only to overwrite an owner-verified field: the `ts` of that verified event, plus a `source` saying why (section 6) |
+
+## 2b. Homework assignments (the research loop, `docs/agents/RESEARCH_LOOP.md`)
+Most work now comes as homework in your Drive doc `WORK QUEUE for {you}` (the same page is `docs/agents/QUEUE_{you}.md`). Each assignment has
+an id (`HW-grok-cite-20261009-1`) and a pre-filled **answer sheet** (`docs/agents/homework/sheets/{id}.jsonl`): ordinary event lines with
+`old` = the record now and `provenance.assignment` = the id.
+- Change only `new` (when the record is wrong), `source` (your exact source) and `ts` (now, UTC). Keep `provenance.assignment`.
+- A line whose `source` still starts with `FILL` counts as **left out**: no error, the item goes back to the pool for another AI or Joseph.
+  Never guess to fill a line.
+- A homework line whose `old` no longer matches the record is skipped as **stale** (the record changed meanwhile), not a rejection.
+- **Verify** assignments never overwrite: send the same value with YOUR own exact source when you agree (the fact becomes "Checked":
+  two independent sources); put your value in `new` when you disagree (it is filed as a disagreement for a third reader, not applied).
+  Blind lines (photo readings) have no `old` and `new: null`: write what you read; leave `null` if you cannot read it.
+- You are never given your own facts to check. One assignment per change file.
+- A mintage or a catalogue number can never be read off a photo: they always need the exact entry (Numista N# + row, KM#, URL, book + page).
 
 ## 3. Phase 1: quick pass (thin, plus a story)
 Look at the photo of the pen-labelled coin. Phase 1 records **only**: match an existing specimen or create `NEW-n`; country, year, denomination, mint mark, class; and a short **story**. Nothing else (see the "Phase 1 at a glance" table in `FIELDS.md`).
@@ -76,7 +90,7 @@ Entity `album`, `id` = the volume (`A026`), default `op` (`set`). The volume's `
 6. A type is created *before* any specimen that uses it; `NEW-n` placeholders are unique.
 7. Phase 1 lines touch only Phase 1 fields (type: class, denomination, issues; specimen: type, year_raw, issue, story, notes). Any condition judgement is Phase 2 and names a photo file or reference in `source`.
 8. Unknown values are `null`, not `""`/"unknown".
-9. Every model line carries a `provenance` object (required from 2026-10-21) and `op` is `set` (or left out) or `create`; nothing else exists.
+9. Every model line carries a `provenance` object (required from 2026-10-21) and `op` is `set` (or left out) or `create`; nothing else exists. A homework line keeps its `provenance.assignment`.
 10. A new specimen: you searched the master for the same type + year + mint mark first. A match usually means the coin is already there (only a photo beyond the owned count is a new piece); the pipeline prints a WARNING for any match.
 
 ## 8. What happens next

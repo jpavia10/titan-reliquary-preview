@@ -1345,7 +1345,8 @@
 
   /* Certainty labels + history (data/detail certainty / history, built by tools/pipeline/provenance.py). A displayed fact with no entry is "imported". */
   const CERT = {
-    verified: ["✓ Verified", "Confirmed by the owner"], owner: ["Owner", "Stated by the owner, not yet re-checked"], reference: ["Reference", "Backed by a catalog number, publication or web source"],
+    verified: ["✓ Verified", "Confirmed by the owner"], owner: ["Owner", "Stated by the owner, not yet re-checked"],
+    checked: ["✓ Checked", "Two independent sources agree (two different AIs, each with its own exact source)"], reference: ["Reference", "Backed by a catalog number, publication or web source"],
     photo: ["Photo", "Read from a photo, not yet confirmed"], ai: ["AI guess", "Written by an AI without a catalog source"], imported: ["From ledger", "Carried over from the original ledger"],
     review: ["⚠ Needs review", "Questioned: see Still being checked"],
   };
@@ -1362,7 +1363,15 @@
     // #43: the owner can confirm any fact that is not verified yet; it waits in Questions until sent (wings/questions.js)
     const Q = window.TitanQuestions, queued = Q && Q.isQueuedConfirm(c.scan, fact);
     const conf = e.level === "verified" || !Q ? "" : `<br><button type="button" class="gxd-confirm" data-scan="${esc(c.scan)}" data-fact="${esc(fact)}"${queued ? " disabled" : ""}>${queued ? "✓ Confirmed: send it from Questions" : "I checked the coin: this is right"}</button>`;
-    return `<button type="button" class="gxd-cert" data-lv="${esc(e.level)}" title="${esc(L[1] + ". " + why)}" aria-label="${esc(L[0].replace(/^\S+ (?=\S)/, "") + ": " + why)}">${esc(L[0])}</button><span class="gxd-cert-why" hidden>${esc(L[1])}: ${esc(why)}${conf}</span>`;
+    // #74: the exact entry the fact came from, one tap away ("right number, wrong coin" shows at a glance). Only http(s) links are ever rendered.
+    const links = (e.links || []).filter((u) => /^https?:\/\//i.test(u)).slice(0, 3)
+      .map((u) => `<a class="gxd-src" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(srcLabel(u))} ↗</a>`).join(" ");
+    return `<button type="button" class="gxd-cert" data-lv="${esc(e.level)}" title="${esc(L[1] + ". " + why)}" aria-label="${esc(L[0].replace(/^\S+ (?=\S)/, "") + ": " + why)}">${esc(L[0])}</button><span class="gxd-cert-why" hidden>${esc(L[1])}: ${esc(why)}${links ? `<br>Open the source: ${links}` : ""}${conf}</span>`;
+  }
+  function srcLabel(u) {
+    const m = /numista\.com\/catalogue\/pieces(\d+)/i.exec(u);
+    if (m) return "Numista N#" + m[1];
+    try { return new URL(u).hostname.replace(/^www\./, ""); } catch (_) { return "source"; }
   }
   function historyHtml(c) {
     const h = c.history || [];

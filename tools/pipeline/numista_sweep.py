@@ -18,12 +18,9 @@ sys.path.insert(0, HERE)
 
 BATCH = 20
 WEAK = ("ai", "imported", "review")
-NOTES = {   # disputes found in review (fix list numbers in brackets)
-    "ER.KM.46": "C212 Eritrea 1997 50 cents: now KM#47 / Numista N#2403 (fixed 2026-10-08 from a search summary of the entry [#39]). Open the entry and confirm KM#47, 7.8 g, 25 mm, nickel-clad steel; also the design text (the record says arms / camel on the obverse, Numista shows soldiers with a flag) and the 1997 mintage.",
-    "CH.KM.21a": "1968 B: coin C003 says 10,000,000 and coin C115 says 31,588,000 for the same issue [#71]. Numista N#189 says London struck 10,000,000 pieces dated 1968 without a mint mark, so 31,588,000 may be the 1968 total (Bern + London). Read the 1968 B row of N#189 and send the Bern (B) number only.",
-    "MT.KM.128": "Check the Schön number: the record pairs KM 127 with Schön 128. Send the Schön number the Numista entry lists.",
-    "MT.KM.129": "Check the Schön number: the record pairs KM 128 with Schön 129. Send the Schön number the Numista entry lists.",
-    "MT.KM.132": "Check the Schön number: the record pairs KM 131 with Schön 132. Send the Schön number the Numista entry lists.",
+NOTES = {   # disputes found in review, asked of the sweep (fix list numbers in brackets). Round 1 (2026-10-08) settled ER.KM.46 (KM#47), CH.KM.21a
+            # (1968 B = 31,588,000, Numista's Bern row) and found no Schön number for the Malta euro types; what is still open lives on as research
+            # questions on the coins (C212 design, C028/C043/C064 Schön), which tools/agents/homework.py hands out.
 }
 
 

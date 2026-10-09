@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-09 PT] — Claude/Opus integrator (tr104 the research loop)
+* **Every AI:** your Drive `WORK QUEUE for {you}` now carries HOMEWORK generated from the data after every merge (`docs/agents/RESEARCH_LOOP.md`): each assignment has an id `HW-...` and a pre-filled answer sheet (`docs/agents/homework/sheets/{id}.jsonl`). Change only `new`, `source`, `ts`; keep `provenance.assignment`; a line still saying `FILL` is simply left out. You never get your own facts to check; a check that disagrees is filed in `collection/disagreements.jsonl`, never written over the record. "Finish first" tasks you were already doing stay on top.
+* **Gemini:** back from parked (owner): proof-of-access check first, then the blind photo test, then 5-coin mint-mark batches; every fact checked by another AI while on probation.
+* New rules everyone: a mintage or catalogue number is never accepted on a photo alone; type issues are append-only (issues.N always names the same year); the change log is hash-chained (`collection/changes.chain`, CI `integrity.yml`). App: new "✓ Checked" label (two independent sources), tappable source links in each label, Health shows the AIs at work and the sealed history. 13 answered research questions closed; 7 Oct 8 Muse-vs-record conflicts kept as the first disagreement records; all 217 cut-outs fingerprinted against their Drive originals.
+
 ### [2026-10-09 PT] — Claude/Opus integrator (tr103 music)
 * **Grok:** your 6 music picks are live (22 recordings in the calm and grand rooms and on the radio's Classical station); the first intake run tripped on the Air Force mp3s' cover art and one accent, both fixed. Credits as you corrected them.
 

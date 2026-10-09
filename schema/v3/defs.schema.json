@@ -2071,6 +2071,11 @@
           ],
           "maxLength": 600,
           "description": "short verbatim AI answer"
+        },
+        "assignment": {
+          "type": "string",
+          "pattern": "^HW-[a-z0-9]+-[a-z0-9-]+-\\d{8}-\\d+$",
+          "description": "the homework assignment this event answers (docs/agents/homework/assignments.json), e.g. HW-grok-cite-20261009-1; lines of a verify assignment that disagree with the record are filed as disagreements, never applied"
         }
       },
       "additionalProperties": false
@@ -2169,6 +2174,219 @@
         "source_file",
         "method",
         "tool_version"
+      ],
+      "additionalProperties": false
+    },
+    "Disagreement": {
+      "description": "Two contributors disagree about one fact (fix list #18). Both claims are kept with their sources; the record keeps its value until a third reader, the owner or a cited source settles it. collection/disagreements.jsonl, one per line.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^D\\d{4}$"
+        },
+        "opened": {
+          "$ref": "#/$defs/Instant"
+        },
+        "entity": {
+          "enum": [
+            "type",
+            "specimen",
+            "lot",
+            "album",
+            "issuer"
+          ]
+        },
+        "rid": {
+          "type": "string"
+        },
+        "field": {
+          "type": "string",
+          "description": "dotted path the two claims are about"
+        },
+        "coins": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "specimens the fact is shown on"
+        },
+        "record": {
+          "type": "object",
+          "properties": {
+            "value": {},
+            "by": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "ts": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "assignment": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/Provenance"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "by",
+            "source",
+            "ts"
+          ],
+          "additionalProperties": false,
+          "description": "what the record says (and who put it there) when the disagreement was opened"
+        },
+        "claim": {
+          "type": "object",
+          "properties": {
+            "value": {},
+            "by": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "ts": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "assignment": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/Provenance"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "by",
+            "source",
+            "ts"
+          ],
+          "additionalProperties": false,
+          "description": "the other contributor's value and source"
+        },
+        "how": {
+          "enum": [
+            "verify",
+            "double-read",
+            "intake",
+            "review",
+            "manual"
+          ],
+          "description": "how it came to light"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "resolved"
+          ]
+        },
+        "resolution": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "ts": {
+                  "$ref": "#/$defs/Instant"
+                },
+                "by": {
+                  "type": "string"
+                },
+                "value": {},
+                "winner": {
+                  "enum": [
+                    "record",
+                    "claim",
+                    "neither",
+                    "sources-disagree"
+                  ]
+                },
+                "source": {
+                  "type": "string"
+                },
+                "error_by": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "contributor counted as wrong (null when the sources themselves disagree)"
+                }
+              },
+              "required": [
+                "ts",
+                "by",
+                "value",
+                "winner",
+                "source",
+                "error_by"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "opened",
+        "entity",
+        "rid",
+        "field",
+        "record",
+        "claim",
+        "how",
+        "status",
+        "resolution"
       ],
       "additionalProperties": false
     }

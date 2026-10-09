@@ -1,0 +1,39 @@
+name: integrity
+
+# The data's safety net on every push to main (fix list #76, #85): the change log only ever grew (hash chain), the master validates,
+# and the pipeline + research-loop tests pass. A red run means a push rewrote history or broke the merge rules: fix before anything else.
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["collection/prices/**"]
+  workflow_dispatch:
+
+concurrency:
+  group: integrity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  integrity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema
+      - name: change log only grew since the previous main
+        run: |
+          BEFORE="${{ github.event.before }}"
+          if [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] && git cat-file -e "$BEFORE" 2>/dev/null; then
+            python tools/pipeline/chain.py verify collection --against "$BEFORE"
+          else
+            python tools/pipeline/chain.py verify collection
+          fi
+      - run: python tools/schema/validate.py collection/
+      - run: python tools/agents/homework.py --check
+      - run: python tools/agents/test_homework.py
+      - run: python tools/pipeline/test_migrations.py
+      - run: python tools/pipeline/test_pipeline.py

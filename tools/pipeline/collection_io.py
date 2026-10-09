@@ -40,6 +40,7 @@ class Collection:
         self.lots = read_json(f"{d}/lots.json"); self.albums = read_json(f"{d}/albums.json")
         self.issuers = read_json(f"{d}/ref/issuers.json"); self.photos = read_json(f"{d}/photos.json")
         self.valuations = read_jsonl(f"{d}/valuations.jsonl"); self.changes = read_jsonl(f"{d}/changes.jsonl")
+        self.disagreements = read_jsonl(f"{d}/disagreements.jsonl")    # fix list #18: kept AI disagreements (one record per line)
         self.boot = read_json(f"{d}/boot.json")
 
     # -- lookups
@@ -60,7 +61,16 @@ class Collection:
         dump_list(f"{d}/lots.json", self.lots); dump_albums(f"{d}/albums.json", self.albums)
         dump_list(f"{d}/ref/issuers.json", sorted(self.issuers, key=lambda i: i["id"]))
         dump_list(f"{d}/photos.json", self.photos)
+        import chain                                                   # fix list #76: refuse to rewrite chained history (raises chain.HistoryRewritten)
+        old_changes = f"{d}/changes.jsonl"
+        if os.path.exists(f"{d}/changes.chain") and os.path.exists(old_changes):
+            new_text = "".join(J(r) + "\n" for r in self.changes).encode()
+            stored = chain._lines(old_changes); new_lines = [ln for ln in new_text.split(b"\n") if ln.strip()]
+            if new_lines[: len(stored)] != stored:
+                raise chain.HistoryRewritten("changes.jsonl: an existing line would change; the change log is append-only (a correction is a new line)")
         dump_jsonl(f"{d}/valuations.jsonl", self.valuations); dump_jsonl(f"{d}/changes.jsonl", self.changes)
+        chain.update(d)
+        if self.disagreements or os.path.exists(f"{d}/disagreements.jsonl"): dump_jsonl(f"{d}/disagreements.jsonl", self.disagreements)
         self.rebuild_boot()
         write_boot(f"{d}/boot.json", self.boot)
 

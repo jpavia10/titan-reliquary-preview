@@ -25,12 +25,18 @@ Event fields
     provenance                                     object (schema Provenance): which AI run made the event. Keys model, prompt_version, workflow,
                                                    inputs [{file, sha256?}], run_id, tokens, cost_usd, raw (<= 500 chars). Unknown keys are rejected.
                                                    Stored with the event in changes.jsonl. A model event without it merges with a WARNING until 2026-10-20 and is REJECTED from 2026-10-21 (PROVENANCE_REQUIRED_FROM).
+                                                   provenance.assignment names the homework assignment the line answers (docs/agents/homework/assignments.json,
+                                                   docs/agents/RESEARCH_LOOP.md). A line outside its assignment's items is applied by the normal rules and reported.
+                                                   A line of a VERIFY assignment never changes data: the same value = a logged re-citation (a second, independent
+                                                   source); a different value = a disagreement filed in collection/disagreements.jsonl for a third reader or the owner;
+                                                   a stale `old` (the record changed since the assignment was issued) = skipped and reported, never a rejection.
 """
-import atexit, contextlib, copy, datetime, io, json, os, re, shutil, sys, tempfile
+import atexit, contextlib, copy, datetime, filecmp, io, json, os, re, shutil, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "tools", "schema"))
 import collection_io as C
+import provenance as PV
 
 ENTITIES = ("type", "specimen", "lot", "album", "issuer", "photo")
 ALLOWED = {"ts", "by", "entity", "id", "field", "new", "old", "source", "verified", "op", "supersedes", "phase", "confidence", "provenance"}
@@ -38,9 +44,22 @@ TS = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$")
 CONT_OF = {"Africa": "AF", "Antarctica": "AN", "Asia": "AS", "Europe": "EU", "North America": "NA", "Oceania": "OC", "South America": "SA"}
 LOT_PREFIX = {"bullion": "B", "set": "S", "housing": "H", "stamp": "P"}
 
+ASSIGNMENTS = os.path.join(ROOT, "docs", "agents", "homework", "assignments.json")
+DIVERT_KINDS = {"verify"}          # assignment kinds whose lines check a fact: a different value is filed as a disagreement, never applied
+
+def load_assignments(path=None):
+    """{assignment id: record} from docs/agents/homework/assignments.json (TITAN_ASSIGNMENTS overrides the path: tests only)."""
+    p = path or os.environ.get("TITAN_ASSIGNMENTS") or ASSIGNMENTS
+    if not os.path.exists(p): return {}
+    try:
+        with open(p, encoding="utf-8") as fh: data = json.load(fh)
+    except ValueError: return {}
+    return {a["id"]: a for a in data.get("assignments", []) if isinstance(a, dict) and a.get("id")}
+
 COIN_FLOOR = 0     # owner decision 2026-10-02: new coins number straight on from the highest existing C id (C272 Austria 1925, C273 Germany 2005, ...); the old C297-C300 rule is gone
 
 class Reject(Exception): pass
+class Stale(Exception): pass       # a homework line whose `old` no longer matches: skipped and reported, never a rejection
 
 # Owner, 2026-10-07: a 2-week grace period, then a model event without provenance is rejected, not just warned about.
 # The deadline goes by the day of the merge (Grok's review GRK-3-03: a contributor's own ts can be back-dated or come from a wrong clock).
@@ -59,6 +78,22 @@ REFERENCE = re.compile(r"https?://|\bN#\s*\d|\bKM#?\s*\d|\b(?:Numista|Krause|PCG
 EXACT_REF = re.compile(r"https?://|\bN#\s*\d|\bNumista\s*(?:no\.?|#|N#|N°)?\s*\d|\bKM#?\s*[A-Z]?\d|\bY#\s*\d|\bSch[öo]n\s*#?\s*\d|\bJ(?:aeger)?\.?\s*#?\s*\d"
                        r"|\bPCGS\s*#\s*\d|\b(?:p\.|page|pp\.)\s*\d", re.I)
 REF_FIELDS = ("catalogs", "composition", "nominal", "issues", "issue.mintage", "issue.mintage_text", "legal_tender", "precious")
+NOT_FROM_PHOTO = re.compile(r"^(?:catalogs(?:\.\d+(?:\.\w+)?)?|issue\.mintage(?:_text)?|issues\.\d+\.mintage(?:_text)?)$")   # nobody reads these off a coin
+
+def stated_values(e):
+    """[(dotted path, value)] for every non-empty leaf this event writes (whole records and lists walked)."""
+    out = []
+    def walk(prefix, v):
+        if isinstance(v, dict) and v:
+            for k, x in v.items(): walk(f"{prefix}.{k}" if prefix else k, x)
+        elif isinstance(v, list) and v and all(isinstance(i, dict) for i in v):
+            if prefix == "catalogs" or prefix.endswith(".catalogs"): out.append((prefix, v)); return
+            for n, x in enumerate(v): walk(f"{prefix}.{n}" if prefix else str(n), x)
+        elif v not in (None, "", []): out.append((prefix, v))
+    if e.get("op", "set") == "create" and isinstance(e.get("new"), dict): walk("", {k: v for k, v in e["new"].items() if k != "id"})
+    elif isinstance(e.get("field"), str): walk(e["field"], e.get("new"))
+    return out
+
 PHOTO_FIELDS = ("condition.grade", "condition.strike", "condition.luster", "condition.toning", "condition.cleaned", "condition.damage")   # judged by eye: need a photo or a cited reference
 
 TIERS = json.load(open(os.path.join(ROOT, "schema", "v3", "field_tiers.json"), encoding="utf-8"))["tiers"]
@@ -186,8 +221,10 @@ def next_number(ids, prefix):
 
 # ------------------------------------------------------------------------------------------------ one event
 class Applier:
-    def __init__(self, col):
+    def __init__(self, col, assignments=None):
         self.c = col
+        self.assignments = load_assignments() if assignments is None else assignments
+        self.new_disagreements = []
         self.done = {event_key(e) for e in col.changes}
         self.done_create = {create_key(e): e["id"] for e in col.changes if e["field"] == "(new record)"}
         self.ph = {}                                         # NEW-1 -> next free id (placeholder ids allocated in this file)
@@ -233,6 +270,12 @@ class Applier:
                     and any(f == p or f.startswith(p + ".") for f in touched_fields(e) for p in REF_FIELDS)):
                 errs.append(f"source {src[:90]!r} does not cite the exact entry: a catalogue fact needs Numista N#12345, KM#24a.1, "
                             "Schön#76, a URL, the book + page, or the photo file it was read from, so anyone can open it and check")
+            # 2026-10-09: a mintage or a catalog number cannot be read off a coin, so a photo file alone never backs one (C287's mintage once did)
+            if not removes_only and not EXACT_REF.search(src) and PHOTO_FILE.search(src):    # (no source at all is reported just above)
+                bad = sorted({f for f, v in stated_values(e) if NOT_FROM_PHOTO.match(f)})
+                if bad and any(f == p or f.startswith(p + ".") for f in touched_fields(e) for p in REF_FIELDS):
+                    errs.append(f"{', '.join(bad)[:80]}: a mintage or catalog number cannot be read from a photo; cite the exact entry it comes from "
+                                "(Numista N#12345 + the row, KM#24a.1, a URL, or the book + page)")
             for f, _ in photo_values(e):
                 src = e.get("source") or ""
                 if e.get("phase") == 1: errs.append(f"{f}: Phase 1 never records a condition judgement (grade, strike, luster, toning, cleaned, damage); leave it null until the Phase 2 pro photos")
@@ -329,11 +372,67 @@ class Applier:
         if isinstance(e.get("new"), dict) and e["new"].get("specimen") in self.ph: e["new"]["specimen"] = self.ph[e["new"]["specimen"]]
         if event_key(e) in self.done:
             self.log.append(f"already applied: {e['entity']} {e['id']} {e['field']}"); return "skipped"
-        (self.create if op == "create" else self.set)(e)
+        asg = self.assignment_of(e)
+        if asg is not None:
+            if not any(t.get("entity") == e["entity"] and t.get("id") == e["id"] and (not t.get("field") or overlap(t["field"], e["field"])) for t in asg.get("items") or []):
+                self.log.append(f"outside assignment {asg['id']}: {e['entity']} {e['id']} {e['field']} (applied by the normal rules)")
+            if asg.get("kind") in DIVERT_KINDS and op == "set" and e["entity"] != "photo":
+                r = self.divert(e, asg)
+                if r: self.done.add(event_key(e)); return r
+        try: (self.create if op == "create" else self.set)(e)
+        except Stale as x:
+            self.log.append(str(x)); self.done.add(event_key(e)); return "stale"
         self.note_research(e, e["id"])
         self.check_schema(e)
         self.done.add(event_key(e))
         return "applied"
+
+    # -- homework assignments (docs/agents/RESEARCH_LOOP.md)
+    def assignment_of(self, e):
+        aid = (e.get("provenance") or {}).get("assignment") if isinstance(e.get("provenance"), dict) else None
+        if not aid: return None
+        a = self.assignments.get(aid)
+        if a is None: self.log.append(f"unknown assignment {aid} (line applied by the normal rules)")
+        return a
+
+    def last_setter(self, ent, rid, field):
+        """The event that put the current value at `field` there: the newest event on that field or a parent of it, bookkeeping copies skipped."""
+        for x in reversed(self.c.changes):
+            if x["entity"] != ent or x["id"] != rid or PV._derived(x): continue
+            f = x["field"]
+            if f == field or field.startswith(f + ".") or f == "(new record)": return x
+        return None
+
+    def divert(self, e, asg):
+        """A verify line: same value -> None (set() logs the re-citation); stale -> "stale"; different value -> a disagreement, not applied."""
+        ent, rid, field = e["entity"], e["id"], e["field"]
+        rec = self.record(ent, rid)
+        if rec is None: raise Reject(f"{ent} {rid} does not exist")
+        try: cur = copy.deepcopy(get_at(rec, parse_path(field)))
+        except KeyError: cur = None
+        if e["new"] is None:
+            self.log.append(f"left out (no value given): {ent} {rid} {field}"); return "left"
+        if "old" in e and e["old"] != cur:
+            self.log.append(f"stale, not counted: {ent} {rid} {field} changed after assignment {asg['id']} was issued (now {j(cur)[:60]}); nothing written")
+            return "stale"
+        setter = self.last_setter(ent, rid, field)
+        if cur == e["new"]:
+            if setter is not None and PV.agent_of(setter.get("by")) == PV.agent_of(e["by"]):
+                self.log.append(f"own fact re-stated (a citation, not a cross-check): {ent} {rid} {field}")
+            return None
+        for d in self.c.disagreements:
+            if (d["entity"], d["rid"], d["field"]) == (ent, rid, field) and d["claim"]["by"] == e["by"] and d["claim"]["value"] == e["new"]:
+                self.log.append(f"already filed as disagreement {d['id']}: {ent} {rid} {field}"); return "skipped"
+        n = max([int(d["id"][1:]) for d in self.c.disagreements] or [0]) + 1
+        coins = [rid] if ent == "specimen" else sorted(k for k, sp in self.c.specs.items() if sp["type"] == rid and (sp.get("lifecycle") or {}).get("status") != "Removed") if ent == "type" else []
+        side = lambda by, src, ts, val: {"value": val, "by": by, "source": src, "ts": ts}
+        d = {"id": f"D{n:04d}", "opened": e["ts"], "entity": ent, "rid": rid, "field": field, "coins": coins,
+             "record": side(setter.get("by") if setter else None, (setter.get("source") if setter else None), (setter.get("ts") if setter else None), cur),
+             "claim": dict(side(e["by"], e.get("source"), e["ts"], copy.deepcopy(e["new"])), assignment=asg["id"], provenance=e.get("provenance")),
+             "how": "verify", "status": "open", "resolution": None, "note": None}
+        self.c.disagreements.append(d); self.new_disagreements.append(d)
+        self.log.append(f"disagreement {d['id']} filed, NOT applied: {ent} {rid} {field} record {j(cur)[:50]} vs {PV.friendly(e['by'])} {j(e['new'])[:50]}")
+        return "diverted"
 
     def check_schema(self, e):
         """Validate the touched record against schema/v3 right now, so a wrong-typed value is reported on its own line."""
@@ -367,7 +466,10 @@ class Applier:
             except KeyError: parent = None
             if not isinstance(parent, dict): raise Reject(f"{ent} {rid} has no field '{field}' (check the spelling; fields are dotted paths like condition.grade)")
             old = None          # a new optional leaf (e.g. quantity); the schema check rejects a misspelt name
-        if "old" in e and e["old"] != old: raise Reject(f"stale edit: {ent} {rid} {field} is now {j(old)[:80]}, the contribution expected {j(e['old'])[:80]} (re-read the record and resubmit)")
+        if "old" in e and e["old"] != old:
+            if self.assignment_of(e) is not None:
+                raise Stale(f"stale, not counted: {ent} {rid} {field} changed after the assignment was written (now {j(old)[:60]}); nothing written")
+            raise Reject(f"stale edit: {ent} {rid} {field} is now {j(old)[:80]}, the contribution expected {j(e['old'])[:80]} (re-read the record and resubmit)")
         if old == e["new"]:
             if e.get("verified") and (e["by"] == "owner" or e["by"].startswith("person:")):
                 # the owner confirming a value as it stands (the app's "Confirm", fix list #43): nothing changes, but the log keeps the
@@ -375,8 +477,11 @@ class Applier:
                 self.log_event(e, old); self.log.append(f"confirmed by the owner (value unchanged): {ent} {rid} {field}"); return
             if e["by"].startswith("model:") and EXACT_REF.search(e.get("source") or ""):
                 # the same value re-stated with the exact entry it comes from (fix list #48): nothing changes, but the log keeps the
-                # better citation so the certainty label can move from "AI guess" to "Reference"
+                # better citation so the certainty label can move from "AI guess" to "Reference" (or to "Checked" when it is a second contributor)
                 self.log_event(e, old); self.log.append(f"re-cited (value unchanged, exact source added): {ent} {rid} {field}"); return
+            if e["by"].startswith("model:") and PHOTO_FILE.search(e.get("source") or ""):
+                # a second reader of the same photo agrees (double read, fix list #55): logged so two independent reads show as "Checked"
+                self.log_event(e, old); self.log.append(f"re-read from the photo (value unchanged): {ent} {rid} {field}"); return
             self.log.append(f"no change (value already set): {ent} {rid} {field}"); return
         self.check_verified(e, old)
         copies = self.issue_copies(rec, path) if ent == "type" else []
@@ -391,7 +496,17 @@ class Applier:
     def set_photo(self, e):
         """The only edit a photo record allows: `superseded_by` (a Phase 2 photo replaces the Phase 1 one of the same coin and side)."""
         rid, c = e["id"], self.c
-        if e["field"] not in ("superseded_by", "crop"): raise Reject("a photo record can only be changed through op set on 'superseded_by' or 'crop' (everything else: create a new photo id)")
+        if e["field"] == "crop.source_sha256":     # fix list #79: a missing fingerprint of the original may be filled in once, by a photo script
+            rec = next((p for p in c.photos if p["id"] == rid), None)
+            if rec is None: raise Reject(f"photo {rid} does not exist")
+            if not e["by"].startswith("script:"): raise Reject("a photo's fingerprint is written by the photo scripts only")
+            if not (isinstance(e["new"], str) and re.fullmatch(r"[0-9a-f]{64}", e["new"])): raise Reject("crop.source_sha256 must be 64 lowercase hex characters")
+            if not isinstance(rec.get("crop"), dict): raise Reject(f"photo {rid} has no crop settings to fingerprint")
+            old = rec["crop"].get("source_sha256")
+            if old == e["new"]: self.log.append(f"no change (value already set): photo {rid} crop.source_sha256"); return
+            if old is not None: raise Reject(f"photo {rid} already has a different source fingerprint ({old[:12]}...): the original changed, so cut a new photo record")
+            rec["crop"]["source_sha256"] = e["new"]; self.log_event(e, old); return
+        if e["field"] not in ("superseded_by", "crop"): raise Reject("a photo record can only be changed through op set on 'superseded_by', 'crop' or 'crop.source_sha256' (everything else: create a new photo id)")
         rec = next((p for p in c.photos if p["id"] == rid), None)
         if rec is None: raise Reject(f"photo {rid} does not exist")
         new = e["new"]
@@ -503,8 +618,9 @@ class Applier:
         marks = spec["issue"]["mint_marks"]; year = spec["issue"]["year"]
         if any(i["year"] == year and i["mint_marks"] == marks for i in t["issues"]): return
         iss = merge(skeleton_issue(), {k: v for k, v in spec["issue"].items()})
+        # append-only, never re-sorted: issues.N must keep naming the same year for every change file already written against it
+        # (a sort here once shifted the indexes, so a pending "issues.3.mintage" could land on a different year whose old value matched)
         old = copy.deepcopy(t["issues"]); t["issues"].append(iss)
-        t["issues"].sort(key=lambda i: (i["year"] or 0, i["mint_text"] or ""))
         self.c.changes.append({"ts": e["ts"], "by": e["by"], "entity": "type", "id": t["id"], "field": "issues", "old": old, "new": copy.deepcopy(t["issues"]),
                                "source": f"issue {year}{''.join(marks) and ' ' + '/'.join(marks)} added because specimen {spec['id']} needs it" + (f"; {e['source']}" if e.get("source") else ""), "verified": False})
         self.new_events.append(self.c.changes[-1])
@@ -635,11 +751,11 @@ def tree_sync(src, dst):
         dirs[:] = [x for x in dirs if x != "_incoming"]
         for f in files:
             a = os.path.join(root, f); b = os.path.join(dst, os.path.relpath(a, src))
-            if not os.path.exists(b) or open(a, "rb").read() != open(b, "rb").read():
+            if not os.path.exists(b) or not filecmp.cmp(a, b, shallow=False):
                 os.makedirs(os.path.dirname(b), exist_ok=True); shutil.copyfile(a, b); changed.append(os.path.relpath(a, src))
     return changed
 
-def apply_file(path, coll, dry_run=False):
+def apply_file(path, coll, dry_run=False, assignments=None):
     """-> (status, report lines, list of new events).  status: applied | already-applied | rejected"""
     name = os.path.basename(path)
     try: import jsonschema  # noqa: F401  (Grok's review GRK-3-13: say it once, not once per event)
@@ -648,17 +764,22 @@ def apply_file(path, coll, dry_run=False):
     if not events and not problems: problems.append("the file has no events")
     work = tempfile.mkdtemp(prefix="apply-"); atexit.register(shutil.rmtree, work, True); wdir = os.path.join(work, "collection")
     shutil.copytree(coll, wdir, ignore=shutil.ignore_patterns("_incoming"))
-    col = C.Collection(wdir); ap = Applier(col); results = []
+    col = C.Collection(wdir); ap = Applier(col, assignments); results = []
     for n, e in events:
+        pv = e.get("provenance") if isinstance(e.get("provenance"), dict) else {}
+        if pv.get("assignment") and str(e.get("source") or "").lstrip().upper().startswith("FILL"):
+            ap.log.append(f"line {n}: left out (answer-sheet line not filled in): {e.get('entity')} {e.get('id')} {e.get('field')}"); results.append("left"); continue
         errs = ap.check_event(e)
         if errs: problems += [f"line {n}: {m}" for m in errs]; continue
         try: results.append(ap.apply(e))
         except Reject as r: problems.append(f"line {n}: {r}")
         except KeyError as r: problems.append(f"line {n}: unknown field path {r} in {e.get('entity')} {e.get('id')} {e.get('field')}")
         except Exception as r: problems.append(f"line {n}: could not apply this event ({type(r).__name__}: {str(r)[:150]}); check the field path and that `new` has the right type (see collection/templates/FIELDS.md)")
-    if not problems and results and all(r == "skipped" for r in results):
+    if not problems and results and all(r in ("skipped", "stale", "left") for r in results):
         shutil.rmtree(work, ignore_errors=True)
-        return "already-applied", [f"{name}: every event is already in changes.jsonl; nothing to do"], []
+        msg = "every event is already in changes.jsonl; nothing to do" if all(r == "skipped" for r in results) else \
+              "nothing to merge: " + ", ".join(f"{sum(1 for r in results if r == k)} {w}" for k, w in (("left", "left out"), ("stale", "stale"), ("skipped", "already applied")) if k in results)
+        return "already-applied", [f"{name}: {msg}"] + ["  " + m for m in ap.log], []
     if not problems:
         try:
             col.save()
@@ -674,7 +795,8 @@ def apply_file(path, coll, dry_run=False):
     warn = []
     if any(e.get("by", "").startswith("model:") and not e.get("provenance") for _, e in events):
         warn = [f"WARNING {name}: no provenance on {sum(1 for _, e in events if e.get('by', '').startswith('model:') and not e.get('provenance'))} model event(s). Please add a `provenance` object (model, prompt_version, workflow, inputs, run_id): see collection/templates/INSTRUCTIONS.md"]
-    rep = warn + [f"APPLIED {name}: {sum(1 for r in results if r == 'applied')} event(s) merged" + (" (dry run, nothing written)" if dry_run else f", {len(changed)} file(s) updated")] + ["  " + m for m in ap.log]
+    extra = "".join(f", {sum(1 for r in results if r == k)} {w}" for k, w in (("diverted", "filed as disagreements"), ("stale", "stale (not counted)"), ("left", "left out")) if k in results)
+    rep = warn + [f"APPLIED {name}: {sum(1 for r in results if r == 'applied')} event(s) merged{extra}" + (" (dry run, nothing written)" if dry_run else f", {len(changed)} file(s) updated")] + ["  " + m for m in ap.log]
     return "applied", rep, ap.new_events
 
 def main(argv):

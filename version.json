@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-09T05:51:15Z",
-  "generated_at_pt": "2026-10-08 22:51 PT",
-  "generated_at_iso": "2026-10-08T22:51:15-07:00",
-  "content_hash": "c721b88eb286e14a",
-  "ledger_version": "v3:c721b88eb286e14a",
+  "generated_at": "2026-10-09T14:54:33Z",
+  "generated_at_pt": "2026-10-09 07:54 PT",
+  "generated_at_iso": "2026-10-09T07:54:33-07:00",
+  "content_hash": "3804d456d9b543bf",
+  "ledger_version": "v3:3804d456d9b543bf",
   "flips": 290,
   "newest_flip": "C288",
   "newest_ser": "OC-AU-004",
@@ -15,5 +15,5 @@
   },
   "drip_active": false,
   "drip_until": null,
-  "build": "tr103"
+  "build": "tr104"
 }

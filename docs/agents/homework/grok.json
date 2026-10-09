@@ -1,0 +1,3162 @@
+{
+ "agent": "grok",
+ "updated": "2026-10-09T14:54:33Z",
+ "assignments": [
+  {
+   "id": "HW-grok-cite-20261009-1",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-09T14:42:02Z",
+   "lease_until": "2026-10-16T14:42:02Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:DE.KM.124",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": null
+    },
+    {
+     "item": "cite:AU.X.1-cent",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": null
+    },
+    {
+     "item": "cite:HN.X.50-centavos",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.50-centavos",
+     "entity": "type",
+     "id": "MX.X.50-centavos",
+     "field": null
+    },
+    {
+     "item": "cite:SK.X.5-euro-cent",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": null
+    },
+    {
+     "item": "cite:BS.X.1-cent",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": null
+    },
+    {
+     "item": "cite:DE-EMP.X.20-pfennig",
+     "entity": "type",
+     "id": "DE-EMP.X.20-pfennig",
+     "field": null
+    },
+    {
+     "item": "cite:JM.KM.191",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": null
+    },
+    {
+     "item": "cite:MX-CHI.KM.612",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": null
+    },
+    {
+     "item": "cite:FR.KM.888b.1",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": null
+    },
+    {
+     "item": "cite:FR.KM.1283",
+     "entity": "type",
+     "id": "FR.KM.1283",
+     "field": null
+    },
+    {
+     "item": "cite:FR.KM.931.1",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": null
+    },
+    {
+     "item": "cite:FR.KM.1285",
+     "entity": "type",
+     "id": "FR.KM.1285",
+     "field": null
+    },
+    {
+     "item": "cite:FR.KM.1410",
+     "entity": "type",
+     "id": "FR.KM.1410",
+     "field": null
+    },
+    {
+     "item": "cite:GB.KM.1109d",
+     "entity": "type",
+     "id": "GB.KM.1109d",
+     "field": null
+    },
+    {
+     "item": "cite:GB.KM.1110d",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": null
+    },
+    {
+     "item": "cite:SU.Y.126a",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": null
+    },
+    {
+     "item": "cite:BZ.X.25-cents",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.21a.3",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.23a",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:DE.KM.124",
+     "kind": "cite",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": null,
+     "coins": [
+      "C238"
+     ],
+     "label": "DE 2 Deutsche Mark (DE.KM.124)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1973,
+        "mint_marks": [
+         "D"
+        ],
+        "coins": [
+         "C238"
+        ],
+        "mintage": 10393000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "124"
+       },
+       {
+        "system": "KM",
+        "number": "A127"
+       }
+      ],
+      "weight_g": 7.0,
+      "diameter_mm": 26.75,
+      "composition": "copper-nickel clad nickel",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}"
+      ],
+      "note": "The type carries two numbers in one catalogue (2 KM numbers: 124, A127): say which one this coin is."
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:AU.X.1-cent",
+     "kind": "cite",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": null,
+     "coins": [
+      "C288"
+     ],
+     "label": "AU 1 cent (AU.X.1-cent)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1983,
+        "mint_marks": [],
+        "coins": [
+         "C288"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1983"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:HN.X.50-centavos",
+     "kind": "cite",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": null,
+     "coins": [
+      "C286"
+     ],
+     "label": "HN 50 centavos (HN.X.50-centavos)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2012,
+        "mint_marks": [],
+        "coins": [
+         "C286"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 2012"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:MX.X.50-centavos",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX.X.50-centavos",
+     "field": null,
+     "coins": [
+      "C284"
+     ],
+     "label": "MX 50 centavos (MX.X.50-centavos)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2009,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C284"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 2009 Mo"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:SK.X.5-euro-cent",
+     "kind": "cite",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": null,
+     "coins": [
+      "C285"
+     ],
+     "label": "SK 5 euro cent (SK.X.5-euro-cent)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2009,
+        "mint_marks": [],
+        "coins": [
+         "C285"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 2009"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:BS.X.1-cent",
+     "kind": "cite",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": null,
+     "coins": [
+      "C276"
+     ],
+     "label": "BS 1 cent (BS.X.1-cent)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2015,
+        "mint_marks": [],
+        "coins": [
+         "C276"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "Copper plated steel",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "issues.0.mintage: 2015"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:DE-EMP.X.20-pfennig",
+     "kind": "cite",
+     "entity": "type",
+     "id": "DE-EMP.X.20-pfennig",
+     "field": null,
+     "coins": [
+      "C023"
+     ],
+     "label": "DE 20 Pfennig (DE-EMP.X.20-pfennig)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1918,
+        "mint_marks": [],
+        "coins": [
+         "C023"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "iron (WWI-era emergency / Notgeld family)",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "issues.0.mintage: 1918"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:JM.KM.191",
+     "kind": "cite",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": null,
+     "coins": [
+      "C230"
+     ],
+     "label": "JM 10 dollars (JM.KM.191)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2015,
+        "mint_marks": [],
+        "coins": [
+         "C230"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "191"
+       }
+      ],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "nickel-plated steel",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "issues.0.mintage: 2015"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:MX-CHI.KM.612",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": null,
+     "coins": [
+      "C114"
+     ],
+     "label": "MX 5 centavos (MX-CHI.KM.612)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1914,
+        "mint_marks": [],
+        "coins": [
+         "C114"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "612"
+       }
+      ],
+      "weight_g": null,
+      "diameter_mm": 25.0,
+      "composition": "copper",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "issues.0.mintage: 1914"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:FR.KM.888b.1",
+     "kind": "cite",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": null,
+     "coins": [
+      "C243"
+     ],
+     "label": "FR 5 francs (FR.KM.888b.1)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1946,
+        "mint_marks": [],
+        "coins": [
+         "C243"
+        ],
+        "mintage": 61332000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "888b.1"
+       },
+       {
+        "system": "Schön",
+        "number": "203b"
+       },
+       {
+        "system": "Numista",
+        "number": "1190"
+       }
+      ],
+      "weight_g": 3.75,
+      "diameter_mm": 31.0,
+      "composition": "aluminum",
+      "ask": [
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:FR.KM.1283",
+     "kind": "cite",
+     "entity": "type",
+     "id": "FR.KM.1283",
+     "field": null,
+     "coins": [
+      "C034",
+      "C127",
+      "C128"
+     ],
+     "label": "FR 2 euro cent (FR.KM.1283)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2009,
+        "mint_marks": [],
+        "coins": [
+         "C034"
+        ],
+        "mintage": 343176600,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 2010,
+        "mint_marks": [],
+        "coins": [
+         "C127"
+        ],
+        "mintage": 277099918,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 2017,
+        "mint_marks": [],
+        "coins": [
+         "C128"
+        ],
+        "mintage": 199998000,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "1283"
+       },
+       {
+        "system": "Schön",
+        "number": "652"
+       },
+       {
+        "system": "Numista",
+        "number": "98"
+       }
+      ],
+      "weight_g": 3.06,
+      "diameter_mm": 18.75,
+      "composition": "copper-plated steel",
+      "ask": [
+       "issues.0.mintage: 2009",
+       "issues.1.mintage: 2010",
+       "issues.2.mintage: 2017"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:FR.KM.931.1",
+     "kind": "cite",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": null,
+     "coins": [
+      "C033",
+      "C060",
+      "C221"
+     ],
+     "label": "FR 0.5 franc (FR.KM.931.1)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1969,
+        "mint_marks": [],
+        "coins": [
+         "C033"
+        ],
+        "mintage": 47144000,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1971,
+        "mint_marks": [],
+        "coins": [
+         "C060"
+        ],
+        "mintage": 36068000,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1986,
+        "mint_marks": [],
+        "coins": [
+         "C221"
+        ],
+        "mintage": 109988000,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "931.1"
+       },
+       {
+        "system": "Schön",
+        "number": "232"
+       },
+       {
+        "system": "Numista",
+        "number": "5"
+       }
+      ],
+      "weight_g": 4.5,
+      "diameter_mm": 19.5,
+      "composition": "nickel",
+      "ask": [
+       "issues.0.mintage: 1969",
+       "issues.1.mintage: 1971",
+       "issues.2.mintage: 1986"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:FR.KM.1285",
+     "kind": "cite",
+     "entity": "type",
+     "id": "FR.KM.1285",
+     "field": null,
+     "coins": [
+      "C095",
+      "C096"
+     ],
+     "label": "FR 10 euro cent (FR.KM.1285)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1999,
+        "mint_marks": [],
+        "coins": [
+         "C095"
+        ],
+        "mintage": 447299600,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 2002,
+        "mint_marks": [],
+        "coins": [
+         "C096"
+        ],
+        "mintage": 206832743,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "1285"
+       },
+       {
+        "system": "Schön",
+        "number": "654"
+       },
+       {
+        "system": "Numista",
+        "number": "100"
+       }
+      ],
+      "weight_g": 4.1,
+      "diameter_mm": 19.75,
+      "composition": "Nordic gold (CuAlZnSn)",
+      "ask": [
+       "issues.0.mintage: 1999",
+       "issues.1.mintage: 2002"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:FR.KM.1410",
+     "kind": "cite",
+     "entity": "type",
+     "id": "FR.KM.1410",
+     "field": null,
+     "coins": [
+      "C054",
+      "C097"
+     ],
+     "label": "FR 10 euro cent (FR.KM.1410)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2010,
+        "mint_marks": [],
+        "coins": [
+         "C054"
+        ],
+        "mintage": 76211918,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 2015,
+        "mint_marks": [],
+        "coins": [
+         "C097"
+        ],
+        "mintage": 71025500,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "1410"
+       },
+       {
+        "system": "Schön",
+        "number": "880"
+       },
+       {
+        "system": "Numista",
+        "number": "3510"
+       }
+      ],
+      "weight_g": 4.1,
+      "diameter_mm": 19.75,
+      "composition": "Nordic gold (CuAlZnSn)",
+      "ask": [
+       "issues.0.mintage: 2010",
+       "issues.1.mintage: 2015"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:GB.KM.1109d",
+     "kind": "cite",
+     "entity": "type",
+     "id": "GB.KM.1109d",
+     "field": null,
+     "coins": [
+      "C180",
+      "C181",
+      "C182"
+     ],
+     "label": "GB 5 pence (GB.KM.1109d)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2012,
+        "mint_marks": [],
+        "coins": [
+         "C180"
+        ],
+        "mintage": 339802000,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 2014,
+        "mint_marks": [],
+        "coins": [
+         "C181",
+         "C182"
+        ],
+        "mintage": 885005000,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "1109d"
+       },
+       {
+        "system": "Numista",
+        "number": "25766"
+       }
+      ],
+      "weight_g": 3.25,
+      "diameter_mm": 18.0,
+      "composition": "nickel-plated steel",
+      "ask": [
+       "issues.0.mintage: 2012",
+       "issues.1.mintage: 2014"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:GB.KM.1110d",
+     "kind": "cite",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": null,
+     "coins": [
+      "C155",
+      "C156",
+      "C157"
+     ],
+     "label": "GB 10 pence (GB.KM.1110d)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2013,
+        "mint_marks": [],
+        "coins": [
+         "C155",
+         "C156"
+        ],
+        "mintage": 320201000,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 2014,
+        "mint_marks": [],
+        "coins": [
+         "C157"
+        ],
+        "mintage": 490202000,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "1110d"
+       },
+       {
+        "system": "Numista",
+        "number": "25746"
+       }
+      ],
+      "weight_g": 6.5,
+      "diameter_mm": 24.5,
+      "composition": "nickel-plated steel",
+      "ask": [
+       "issues.0.mintage: 2013",
+       "issues.1.mintage: 2014"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:SU.Y.126a",
+     "kind": "cite",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": null,
+     "coins": [
+      "C042",
+      "C044"
+     ],
+     "label": "SU 1 kopek (SU.Y.126a)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1962,
+        "mint_marks": [],
+        "coins": [
+         "C042"
+        ],
+        "mintage": 750000000,
+        "mintage_label": "ai",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1974,
+        "mint_marks": [],
+        "coins": [
+         "C044"
+        ],
+        "mintage": 780000000,
+        "mintage_label": "ai",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "Y",
+        "number": "126a"
+       },
+       {
+        "system": "Schön",
+        "number": "75a"
+       },
+       {
+        "system": "Numista",
+        "number": "767"
+       }
+      ],
+      "weight_g": 1.0,
+      "diameter_mm": 15.0,
+      "composition": "manganese brass",
+      "ask": [
+       "issues.0.mintage: 1962",
+       "issues.1.mintage: 1974"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:BZ.X.25-cents",
+     "kind": "cite",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": null,
+     "coins": [
+      "C280"
+     ],
+     "label": "BZ 25 cents (BZ.X.25-cents)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2007,
+        "mint_marks": [],
+        "coins": [
+         "C280"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "36"
+       },
+       {
+        "system": "Schön",
+        "number": "6"
+       },
+       {
+        "system": "Numista",
+        "number": "2238"
+       }
+      ],
+      "weight_g": 5.66,
+      "diameter_mm": 23.6,
+      "composition": "copper-nickel (75% copper, 25% nickel)",
+      "ask": [
+       "issues.0.mintage: 2007"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:CH.KM.21a.3",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": null,
+     "coins": [
+      "C077"
+     ],
+     "label": "CH 2 francs (CH.KM.21a.3)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1991,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C077"
+        ],
+        "mintage": 12026100,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "21a.3"
+       },
+       {
+        "system": "Schön",
+        "number": "29a"
+       },
+       {
+        "system": "Numista",
+        "number": "189"
+       }
+      ],
+      "weight_g": 8.8,
+      "diameter_mm": 27.4,
+      "composition": "CuNi 75/25",
+      "ask": [
+       "issues.0.mintage: 1991 B"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:CH.KM.23a",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": null,
+     "coins": [
+      "C008",
+      "C015"
+     ],
+     "label": "CH 0.5 franc (CH.KM.23a)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1968,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C008"
+        ],
+        "mintage": 20000000,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1971,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C015"
+        ],
+        "mintage": 34472000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "23a"
+       },
+       {
+        "system": "Schön",
+        "number": "27a"
+       },
+       {
+        "system": "Numista",
+        "number": "181"
+       }
+      ],
+      "weight_g": 2.2,
+      "diameter_mm": 18.2,
+      "composition": "CuNi 75/25",
+      "ask": [
+       "issues.0.mintage: 1968 B"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-catno-20261009-1",
+   "agent": "grok",
+   "kind": "catno",
+   "issued": "2026-10-09T14:42:02Z",
+   "lease_until": "2026-10-16T14:42:02Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "catno:DE.KM.105",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.107",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.109.1",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.109.2",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.110",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.140.1",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.207",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.208",
+     "entity": "type",
+     "id": "DE.KM.208",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.209",
+     "entity": "type",
+     "id": "DE.KM.209",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.210",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.211",
+     "entity": "type",
+     "id": "DE.KM.211",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.212",
+     "entity": "type",
+     "id": "DE.KM.212",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:DE.KM.214",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:GR.KM.90",
+     "entity": "type",
+     "id": "GR.KM.90",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:HU.KM.575",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:IE.KM.34",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:IT.KM.111",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:IT.KM.211",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:IT.KM.213",
+     "entity": "type",
+     "id": "IT.KM.213",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:IT.KM.214",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:IT.KM.215",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:IT.KM.216",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:NL.KM.204",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:NL.KM.234",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:NL.KM.236",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:NL.KM.241",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:PT.KM.744",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:SE.KM.826a",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "catalogs"
+    },
+    {
+     "item": "catno:SK.KM.96",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": "catalogs"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "catno:DE.KM.105",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "catalogs",
+     "coins": [
+      "C029",
+      "C187",
+      "C188",
+      "C189",
+      "C190",
+      "C191",
+      "C192"
+     ],
+     "label": "DE.KM.105",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "105"
+        ],
+        "numista_says": "103",
+        "numista": "854",
+        "url": "https://en.numista.com/catalogue/pieces854.html"
+       },
+       {
+        "system": "J",
+        "record": [
+         "381"
+        ],
+        "numista_says": "380",
+        "numista": "854",
+        "url": "https://en.numista.com/catalogue/pieces854.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.107",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": "catalogs",
+     "coins": [
+      "C195",
+      "C196",
+      "C197",
+      "C237",
+      "C265"
+     ],
+     "label": "DE.KM.107",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "107"
+        ],
+        "numista_says": "105",
+        "numista": "658",
+        "url": "https://en.numista.com/catalogue/pieces658.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.109.1",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": "catalogs",
+     "coins": [
+      "C035"
+     ],
+     "label": "DE.KM.109.1",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "109"
+        ],
+        "numista_says": "107",
+        "numista": "847",
+        "url": "https://en.numista.com/catalogue/pieces847.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.109.2",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "catalogs",
+     "coins": [
+      "C057",
+      "C058"
+     ],
+     "label": "DE.KM.109.2",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "109"
+        ],
+        "numista_says": "107",
+        "numista": "847",
+        "url": "https://en.numista.com/catalogue/pieces847.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.110",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "catalogs",
+     "coins": [
+      "C006",
+      "C048",
+      "C050",
+      "C103"
+     ],
+     "label": "DE.KM.110",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "110"
+        ],
+        "numista_says": "108",
+        "numista": "846",
+        "url": "https://en.numista.com/catalogue/pieces846.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.140.1",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "catalogs",
+     "coins": [
+      "C009"
+     ],
+     "label": "DE.KM.140.1",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "140"
+        ],
+        "numista_says": "139",
+        "numista": "843",
+        "url": "https://en.numista.com/catalogue/pieces843.html"
+       },
+       {
+        "system": "J",
+        "record": [
+         "413"
+        ],
+        "numista_says": "415",
+        "numista": "843",
+        "url": "https://en.numista.com/catalogue/pieces843.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.207",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "catalogs",
+     "coins": [
+      "C132",
+      "C133",
+      "C134",
+      "C135",
+      "C136",
+      "C137",
+      "C138",
+      "C273"
+     ],
+     "label": "DE.KM.207",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "J",
+        "record": [
+         "481"
+        ],
+        "numista_says": "482",
+        "numista": "105",
+        "url": "https://en.numista.com/catalogue/pieces105.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.208",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.208",
+     "field": "catalogs",
+     "coins": [
+      "C046",
+      "C100",
+      "C126"
+     ],
+     "label": "DE.KM.208",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "J",
+        "record": [
+         "482"
+        ],
+        "numista_says": "483",
+        "numista": "106",
+        "url": "https://en.numista.com/catalogue/pieces106.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.209",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.209",
+     "field": "catalogs",
+     "coins": [
+      "C099",
+      "C121"
+     ],
+     "label": "DE.KM.209",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "J",
+        "record": [
+         "483"
+        ],
+        "numista_says": "484",
+        "numista": "107",
+        "url": "https://en.numista.com/catalogue/pieces107.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.210",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": "catalogs",
+     "coins": [
+      "C037",
+      "C283"
+     ],
+     "label": "DE.KM.210",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "J",
+        "record": [
+         "484"
+        ],
+        "numista_says": "485",
+        "numista": "108",
+        "url": "https://en.numista.com/catalogue/pieces108.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.211",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.211",
+     "field": "catalogs",
+     "coins": [
+      "C131"
+     ],
+     "label": "DE.KM.211",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "J",
+        "record": [
+         "485"
+        ],
+        "numista_says": "486",
+        "numista": "109",
+        "url": "https://en.numista.com/catalogue/pieces109.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.212",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.212",
+     "field": "catalogs",
+     "coins": [
+      "C026"
+     ],
+     "label": "DE.KM.212",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "J",
+        "record": [
+         "486"
+        ],
+        "numista_says": "487",
+        "numista": "110",
+        "url": "https://en.numista.com/catalogue/pieces110.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:DE.KM.214",
+     "kind": "catno",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "catalogs",
+     "coins": [
+      "C071"
+     ],
+     "label": "DE.KM.214",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "J",
+        "record": [
+         "488"
+        ],
+        "numista_says": "489",
+        "numista": "112",
+        "url": "https://en.numista.com/catalogue/pieces112.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:GR.KM.90",
+     "kind": "catno",
+     "entity": "type",
+     "id": "GR.KM.90",
+     "field": "catalogs",
+     "coins": [
+      "C245"
+     ],
+     "label": "GR.KM.90",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "19"
+        ],
+        "numista_says": "90",
+        "numista": "545",
+        "url": "https://en.numista.com/catalogue/pieces545.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:HU.KM.575",
+     "kind": "catno",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": "catalogs",
+     "coins": [
+      "C032"
+     ],
+     "label": "HU.KM.575",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "75"
+        ],
+        "numista_says": "59a",
+        "numista": "1124",
+        "url": "https://en.numista.com/catalogue/pieces1124.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:IE.KM.34",
+     "kind": "catno",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": "catalogs",
+     "coins": [
+      "C120"
+     ],
+     "label": "IE.KM.34",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "34"
+        ],
+        "numista_says": "33",
+        "numista": "123",
+        "url": "https://en.numista.com/catalogue/pieces123.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:IT.KM.111",
+     "kind": "catno",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "catalogs",
+     "coins": [
+      "C211"
+     ],
+     "label": "IT.KM.111",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "111"
+        ],
+        "numista_says": "110",
+        "numista": "302",
+        "url": "https://en.numista.com/catalogue/pieces302.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:IT.KM.211",
+     "kind": "catno",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": "catalogs",
+     "coins": [
+      "C039"
+     ],
+     "label": "IT.KM.211",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "211"
+        ],
+        "numista_says": "229",
+        "numista": "130",
+        "url": "https://en.numista.com/catalogue/pieces130.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:IT.KM.213",
+     "kind": "catno",
+     "entity": "type",
+     "id": "IT.KM.213",
+     "field": "catalogs",
+     "coins": [
+      "C036"
+     ],
+     "label": "IT.KM.213",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "213"
+        ],
+        "numista_says": "231",
+        "numista": "132",
+        "url": "https://en.numista.com/catalogue/pieces132.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:IT.KM.214",
+     "kind": "catno",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "catalogs",
+     "coins": [
+      "C027",
+      "C061"
+     ],
+     "label": "IT.KM.214",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "214"
+        ],
+        "numista_says": "232",
+        "numista": "133",
+        "url": "https://en.numista.com/catalogue/pieces133.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:IT.KM.215",
+     "kind": "catno",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": "catalogs",
+     "coins": [
+      "C055"
+     ],
+     "label": "IT.KM.215",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "215"
+        ],
+        "numista_says": "233",
+        "numista": "134",
+        "url": "https://en.numista.com/catalogue/pieces134.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:IT.KM.216",
+     "kind": "catno",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "catalogs",
+     "coins": [
+      "C084"
+     ],
+     "label": "IT.KM.216",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "216"
+        ],
+        "numista_says": "234",
+        "numista": "135",
+        "url": "https://en.numista.com/catalogue/pieces135.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:NL.KM.204",
+     "kind": "catno",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": "catalogs",
+     "coins": [
+      "C010",
+      "C104"
+     ],
+     "label": "NL.KM.204",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "89"
+        ],
+        "numista_says": "84",
+        "numista": "731",
+        "url": "https://en.numista.com/catalogue/pieces731.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:NL.KM.234",
+     "kind": "catno",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "catalogs",
+     "coins": [
+      "C142"
+     ],
+     "label": "NL.KM.234",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "110"
+        ],
+        "numista_says": "117",
+        "numista": "145",
+        "url": "https://en.numista.com/catalogue/pieces145.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:NL.KM.236",
+     "kind": "catno",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "catalogs",
+     "coins": [
+      "C004"
+     ],
+     "label": "NL.KM.236",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "112"
+        ],
+        "numista_says": "119",
+        "numista": "147",
+        "url": "https://en.numista.com/catalogue/pieces147.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:NL.KM.241",
+     "kind": "catno",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "catalogs",
+     "coins": [
+      "C070"
+     ],
+     "label": "NL.KM.241",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "117"
+        ],
+        "numista_says": "124",
+        "numista": "152",
+        "url": "https://en.numista.com/catalogue/pieces152.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:PT.KM.744",
+     "kind": "catno",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "catalogs",
+     "coins": [
+      "C056"
+     ],
+     "label": "PT.KM.744",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "174"
+        ],
+        "numista_says": "245",
+        "numista": "157",
+        "url": "https://en.numista.com/catalogue/pieces157.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:SE.KM.826a",
+     "kind": "catno",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "catalogs",
+     "coins": [
+      "C165"
+     ],
+     "label": "SE.KM.826a",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "62a"
+        ],
+        "numista_says": "64",
+        "numista": "1516",
+        "url": "https://en.numista.com/catalogue/pieces1516.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "catno:SK.KM.96",
+     "kind": "catno",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": "catalogs",
+     "coins": [
+      "C038"
+     ],
+     "label": "SK.KM.96",
+     "authors": [],
+     "payload": {
+      "disputes": [
+       {
+        "system": "Schön",
+        "record": [
+         "96"
+        ],
+        "numista_says": "94",
+        "numista": "5085",
+        "url": "https://en.numista.com/catalogue/pieces5085.html"
+       }
+      ]
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-story-check-20261009-1",
+   "agent": "grok",
+   "kind": "story-check",
+   "issued": "2026-10-09T14:42:02Z",
+   "lease_until": "2026-10-16T14:42:02Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C001",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "story"
+    },
+    {
+     "item": "story:C002",
+     "entity": "specimen",
+     "id": "C002",
+     "field": "story"
+    },
+    {
+     "item": "story:C003",
+     "entity": "specimen",
+     "id": "C003",
+     "field": "story"
+    },
+    {
+     "item": "story:C004",
+     "entity": "specimen",
+     "id": "C004",
+     "field": "story"
+    },
+    {
+     "item": "story:C005",
+     "entity": "specimen",
+     "id": "C005",
+     "field": "story"
+    },
+    {
+     "item": "story:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "story"
+    },
+    {
+     "item": "story:C007",
+     "entity": "specimen",
+     "id": "C007",
+     "field": "story"
+    },
+    {
+     "item": "story:C008",
+     "entity": "specimen",
+     "id": "C008",
+     "field": "story"
+    },
+    {
+     "item": "story:C009",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "story"
+    },
+    {
+     "item": "story:C010",
+     "entity": "specimen",
+     "id": "C010",
+     "field": "story"
+    },
+    {
+     "item": "story:C011",
+     "entity": "specimen",
+     "id": "C011",
+     "field": "story"
+    },
+    {
+     "item": "story:C012",
+     "entity": "specimen",
+     "id": "C012",
+     "field": "story"
+    },
+    {
+     "item": "story:C013",
+     "entity": "specimen",
+     "id": "C013",
+     "field": "story"
+    },
+    {
+     "item": "story:C014",
+     "entity": "specimen",
+     "id": "C014",
+     "field": "story"
+    },
+    {
+     "item": "story:C015",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "story"
+    },
+    {
+     "item": "story:C016",
+     "entity": "specimen",
+     "id": "C016",
+     "field": "story"
+    },
+    {
+     "item": "story:C017",
+     "entity": "specimen",
+     "id": "C017",
+     "field": "story"
+    },
+    {
+     "item": "story:C018",
+     "entity": "specimen",
+     "id": "C018",
+     "field": "story"
+    },
+    {
+     "item": "story:C019",
+     "entity": "specimen",
+     "id": "C019",
+     "field": "story"
+    },
+    {
+     "item": "story:C020",
+     "entity": "specimen",
+     "id": "C020",
+     "field": "story"
+    },
+    {
+     "item": "story:C021",
+     "entity": "specimen",
+     "id": "C021",
+     "field": "story"
+    },
+    {
+     "item": "story:C022",
+     "entity": "specimen",
+     "id": "C022",
+     "field": "story"
+    },
+    {
+     "item": "story:C023",
+     "entity": "specimen",
+     "id": "C023",
+     "field": "story"
+    },
+    {
+     "item": "story:C024",
+     "entity": "specimen",
+     "id": "C024",
+     "field": "story"
+    },
+    {
+     "item": "story:C025",
+     "entity": "specimen",
+     "id": "C025",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C001",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "story",
+     "coins": [
+      "C001"
+     ],
+     "label": "C001 · Switzerland · 1969 · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1969 1 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy, Albert Walch, and Fr. Fisch. Struck in CuNi 75/25.",
+      "record": {
+       "country": "Switzerland",
+       "year": "1969",
+       "denom": "1 franc · CHF",
+       "mint": "B",
+       "refs": "KM#24a.1 · Numista#185",
+       "metal": "CuNi 75/25 · 4.40 g · 23.2 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.55 mm · coin alignment",
+       "mintage": "37,598,000 (17,688,000 Bern + 19,910,000 London; both B)",
+       "design": "standing Helvetia (obv) · value in wreath (rev) · engravers Antoine Bovy / Albert Walch / Fr. Fisch",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C002",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C002",
+     "field": "story",
+     "coins": [
+      "C002"
+     ],
+     "label": "C002 · Switzerland · 1963 · 5 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1963 5 rappen from Switzerland. Libertas right on the obverse, 5 in grapevine wreath on the reverse, engravers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.",
+      "record": {
+       "country": "Switzerland",
+       "year": "1963",
+       "denom": "5 rappen · CHF",
+       "mint": "B",
+       "refs": "KM#26 · Schön#24 · Y#23 · Numista#168",
+       "metal": "CuNi 75/25 · 2.00 g · 17.15 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.25 mm · medal alignment · type specs shared with CuNi 5 Rp 1879–1980 (KM#26)",
+       "mintage": "29,730,000 Bern B",
+       "design": "Libertas right (obv) · 5 in grapevine wreath (rev) · engravers Karl Schwenzer / Carl Friedrich Voigt",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C003",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C003",
+     "field": "story",
+     "coins": [
+      "C003"
+     ],
+     "label": "C003 · Switzerland · 1968 · 2 francs · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1968 Swiss 2-franc coin. The front shows Helvetia, the figure of Switzerland, standing with a spear and shield; the back shows the value inside a wreath of oak and alpine flowers. Engraved by Antoine Bovy and Albert Walch, and struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "Switzerland",
+       "year": "1968",
+       "denom": "2 francs · CHF",
+       "mint": "B",
+       "refs": "KM#21a.1 · Numista#189",
+       "metal": "CuNi 75/25 · 8.80 g · 27.4 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 2.15 mm · coin alignment · type specs shared with CuNi 2 Fr from 1968 (KM#21a)",
+       "mintage": "31,588,000",
+       "design": "standing Helvetia (obv) · 2 Fr. in oak + alpine wreath (rev) · engravers Antoine Bovy / Albert Walch",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C004",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C004",
+     "field": "story",
+     "coins": [
+      "C004"
+     ],
+     "label": "C004 · Netherlands · 2000 · 5 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 2000 Dutch 5-euro-cent coin. The Dutch side shows a portrait of Queen Beatrix with the words BEATRIX KONINGIN DER NEDERLANDEN (Beatrix, Queen of the Netherlands). The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel.",
+      "record": {
+       "country": "Netherlands",
+       "year": "2000",
+       "denom": "5 euro cent · EUR",
+       "mint": "Utrecht (caduceus)",
+       "refs": "KM#236 · Schön#112 · Numista#147",
+       "metal": "copper-plated steel · 3.92 g · 21.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment · Beatrix national type",
+       "mintage": "184,200,000",
+       "design": "national Beatrix portrait + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C005",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C005",
+     "field": "story",
+     "coins": [
+      "C005"
+     ],
+     "label": "C005 · France · 1986 · 20 centimes · FRF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1986 French 20-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze.",
+      "record": {
+       "country": "France",
+       "year": "1986",
+       "denom": "20 centimes · FRF",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#930 · Schön#230 · Numista#4",
+       "metal": "aluminum-bronze (Cu 92 / Al 6 / Ni 2) · 4.00 g · 23.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.4 mm · coin alignment · type specs shared with Al-bronze 20c 1962–2001 (KM#930)",
+       "mintage": "40,000,011 (circulation · Monnaie de Paris)",
+       "design": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 20 CENTIMES · olive + wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C006",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "story",
+     "coins": [
+      "C006"
+     ],
+     "label": "C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1984 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.",
+      "record": {
+       "country": "Germany",
+       "year": "1984",
+       "denom": "1 Deutsche Mark · DEM",
+       "mint": "unknown",
+       "refs": "KM#110 · Schön#110 · J#385 · Numista#846",
+       "metal": "CuNi · 5.50 g · 23.5 mm · ornamented (arabesque) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.75 mm · medal alignment",
+       "mintage": "32,400,000",
+       "design": "Bundesadler · value 1 between oak sprigs / DEUTSCHE MARK (Josef Bernhart)",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C007",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C007",
+     "field": "story",
+     "coins": [
+      "C007"
+     ],
+     "label": "C007 · France · 1963 · 10 centimes · FRF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1963 French 10-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze.",
+      "record": {
+       "country": "France",
+       "year": "1963",
+       "denom": "10 centimes · FRF",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#929 · Schön#229 · Numista#3",
+       "metal": "aluminum-bronze (Cu 92 / Al 6 / Ni 2) · 3.00 g · 20 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.41 mm · coin alignment · type specs shared with Al-bronze 10c 1962–2001 (KM#929)",
+       "mintage": "217,601,000 (circulation · Monnaie de Paris)",
+       "design": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 10 CENTIMES · olive + wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C008",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C008",
+     "field": "story",
+     "coins": [
+      "C008"
+     ],
+     "label": "C008 · Switzerland · 1968 · 1/2 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1968 0.5 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy and Albert Walch. Struck in CuNi 75/25.",
+      "record": {
+       "country": "Switzerland",
+       "year": "1968",
+       "denom": "1/2 franc · CHF",
+       "mint": "B",
+       "refs": "KM#23a · Schön#27a · Numista#181",
+       "metal": "CuNi 75/25 · 2.20 g · 18.2 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.25 mm · coin alignment · type specs shared with CuNi ½ Fr from 1968 (KM#23a)",
+       "mintage": "20,000,000 (+ separate Bern B variety ~44.9M reported)",
+       "design": "standing Helvetia (obv) · value in wreath (rev) · engravers Antoine Bovy / Albert Walch",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C009",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "story",
+     "coins": [
+      "C009"
+     ],
+     "label": "C009 · Germany · 1987 · 5 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1987 5 Deutsche Mark from Germany. Bundesadler reverse, value, DEUTSCHE MARK obverse (circulation Magnimat, not Ag commemorative). Struck in CuNi clad nickel (Magnimat).",
+      "record": {
+       "country": "Germany",
+       "year": "1987",
+       "denom": "5 Deutsche Mark · DEM",
+       "mint": "J",
+       "refs": "KM#140.1 · Schön#140 · J#413 (Magnimat circulation)",
+       "metal": "CuNi clad nickel (Magnimat) · 10.00 g · 29 mm · lettered EINIGKEIT UND RECHT UND FREIHEIT · circulated · white 2×2 staple flip",
+       "specs": "thickness 2.07 mm · medal alignment",
+       "mintage": "~6,940,000 (1987-J circulation; +~45k proof)",
+       "design": "Bundesadler reverse · value / DEUTSCHE MARK obverse (circulation Magnimat, not Ag commemorative)",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C010",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C010",
+     "field": "story",
+     "coins": [
+      "C010"
+     ],
+     "label": "C010 · Netherlands · 1996 · 25 cents · NLG",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1996 25 cents from Netherlands. The obverse shows Beatrix portrait; the reverse shows squared grid field with large 25; ct, date. Struck in nickel.",
+      "record": {
+       "country": "Netherlands",
+       "year": "1996",
+       "denom": "25 cents · NLG",
+       "mint": "Utrecht (caduceus)",
+       "refs": "KM#204 · Schön#89 · Numista#731",
+       "metal": "nickel · 3.00 g · 19 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness unknown · coin alignment · Beatrix kwartje type",
+       "mintage": "24,840,000",
+       "design": "obverse Beatrix portrait · reverse squared grid field with large 25 · ct · date",
+       "ruler": "Beatrix",
+       "period": "Kingdom of the Netherlands"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C011",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C011",
+     "field": "story",
+     "coins": [
+      "C011"
+     ],
+     "label": "C011 · Italy · 1970 · 50 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1970 50 lire from Italy. The obverse shows head of Italia as the Republic, oak-crowned (Romagnoli); the reverse shows Vulcan at anvil with hammer; L.50, date, R (Giampaoli). Struck in Acmonital stainless steel.",
+      "record": {
+       "country": "Italy",
+       "year": "1970",
+       "denom": "50 lire · ITL",
+       "mint": "R",
+       "refs": "KM#95.1 · Schön#95 · Numista#724",
+       "metal": "Acmonital stainless steel · 6.25 g · 24.8 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.95 mm · coin alignment · Vulcan large type 1954–89",
+       "mintage": "21,411,000 (1970-R circulation)",
+       "design": "obverse Italia / Republic head oak-crowned (Romagnoli) · reverse Vulcan at anvil with hammer · L.50 · date · R (Giampaoli)",
+       "period": "Italian Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C012",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C012",
+     "field": "story",
+     "coins": [
+      "C012"
+     ],
+     "label": "C012 · France · 1962 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1962 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "record": {
+       "country": "France",
+       "year": "1962",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "14,014,136 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C013",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C013",
+     "field": "story",
+     "coins": [
+      "C013"
+     ],
+     "label": "C013 · United Kingdom · 1971 · 2 new pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1971 2 new pence from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows Plume of ostrich feathers in coronet; NEW PENCE (Ironside). Struck in bronze (97 Cu / 2.5 Zn / 0.5 Sn).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1971",
+       "denom": "2 new pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#916 · Schön#403 · Numista#664",
+       "metal": "bronze (97 Cu / 2.5 Zn / 0.5 Sn) · 7.12 g · 25.9 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.85 mm · medal alignment · type specs shared with decimal 2p family · bronze era (pre–Sep 1992)",
+       "mintage": "1,454,856,250 (circulation · Royal Mint)",
+       "design": "obverse Arnold Machin Elizabeth II · reverse Plume of ostrich feathers in coronet · NEW PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C014",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C014",
+     "field": "story",
+     "coins": [
+      "C014"
+     ],
+     "label": "C014 · Switzerland · 1974 · 2 francs · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1974 Swiss 2-franc coin. The front shows Helvetia, the figure of Switzerland, standing with a spear and shield; the back shows the value inside a wreath of oak and alpine flowers. Engraved by Antoine Bovy and Albert Walch, and struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "Switzerland",
+       "year": "1974",
+       "denom": "2 francs · CHF",
+       "mint": "B",
+       "refs": "KM#21a.1 · Numista#189",
+       "metal": "CuNi 75/25 · 8.80 g · 27.4 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 2.15 mm · coin alignment · type specs shared with CuNi 2 Fr (KM#21a)",
+       "mintage": "15,007,000",
+       "design": "standing Helvetia (obv) · 2 Fr. in oak + alpine wreath (rev) · engravers Antoine Bovy / Albert Walch",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C015",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "story",
+     "coins": [
+      "C015"
+     ],
+     "label": "C015 · Switzerland · 1971 · 1/2 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1971 0.5 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy and Albert Walch. Struck in CuNi 75/25.",
+      "record": {
+       "country": "Switzerland",
+       "year": "1971",
+       "denom": "1/2 franc · CHF",
+       "mint": "B",
+       "refs": "KM#23a · Schön#27a · Numista#181",
+       "metal": "CuNi 75/25 · 2.20 g · 18.2 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.25 mm · coin alignment · type specs shared with CuNi ½ Fr (KM#23a)",
+       "mintage": "34,472,000",
+       "design": "standing Helvetia (obv) · value in wreath (rev) · engravers Antoine Bovy / Albert Walch",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C016",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C016",
+     "field": "story",
+     "coins": [
+      "C016"
+     ],
+     "label": "C016 · Costa Rica · 1985 · 5 colones · CRC",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1985 Costa Rican 5-colón coin. The front shows the national coat of arms inside a seven-sided frame; the back shows the value with a large ship, a coffee branch, the words AMERICA CENTRAL and B.C.C.R. (the central bank), and the value in Braille for blind users. Struck in stainless steel.",
+      "record": {
+       "country": "Costa Rica",
+       "year": "1985",
+       "denom": "5 colones · CRC",
+       "mint": "Casa da Moeda do Brasil / Rio de Janeiro (large-ship type)",
+       "refs": "KM#214.2 · Schön#78a · Numista#69",
+       "metal": "stainless steel · 7.25 g · 26 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.92 mm · coin alignment · large ships · letters incuse on ribbon",
+       "mintage": "25,000,000 (1985)",
+       "design": "obverse national arms in heptagon · AMERICA CENTRAL · large ship · reverse 5 COLONES · B.C.C.R. · coffee + Braille"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C017",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C017",
+     "field": "story",
+     "coins": [
+      "C017"
+     ],
+     "label": "C017 · France · 1999 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1999 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "record": {
+       "country": "France",
+       "year": "1999",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6 g · 24 mm · reeded · nice circulated / clean · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "80,457,513 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C018",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C018",
+     "field": "story",
+     "coins": [
+      "C018"
+     ],
+     "label": "C018 · Germany · 1983 · 2 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1983 2 Pfennig from Germany. Oak seedling reverse (Adolf Jäger), value, PFENNIG, BUNDESREPUBLIK DEUTSCHLAND obverse. Struck in copper-plated steel.",
+      "record": {
+       "country": "Germany",
+       "year": "1983",
+       "denom": "2 Pfennig · DEM",
+       "mint": "G",
+       "refs": "KM#106a · Schön#104a · J#381a · Numista#1937",
+       "metal": "copper-plated steel · 2.90 g · 19.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.52 mm · medal alignment",
+       "mintage": "47,575,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C019",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C019",
+     "field": "story",
+     "coins": [
+      "C019"
+     ],
+     "label": "C019 · Germany · 1981 · 10 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1981 10 Pfennig from Germany. Oak seedling reverse (Adolf Jäger), value between rye ears, PFENNIG obverse. Struck in brass-plated steel.",
+      "record": {
+       "country": "Germany",
+       "year": "1981",
+       "denom": "10 Pfennig · DEM",
+       "mint": "unknown (not readable on oak reverse photo (check value side if you care — D/F/G/J))",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-plated steel · 4.00 g · 21.5 mm · plain · circulated / toned/circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "460,410,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C020",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C020",
+     "field": "story",
+     "coins": [
+      "C020"
+     ],
+     "label": "C020 · United Kingdom · 1973 · ½ new penny · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1973 half new penny from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows crowned St Edward's Crown (Christopher Ironside); NEW HALF PENNY, NEW PENNY era. Struck in bronze (97% copper, 2.5% zinc, 0.5% tin).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1973",
+       "denom": "½ new penny · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#914 · Numista#856",
+       "metal": "bronze (97 Cu / 2.5 Zn / 0.5 Sn) · 1.78 g · 17.14 mm · plain · circulated / toned · white 2×2 staple flip",
+       "specs": "thickness ~1.0 mm · medal alignment · type specs shared with decimal ½p 1971–1984 (KM#914)",
+       "mintage": "365,680,000 (circulation · Royal Mint)",
+       "design": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW HALF PENNY / NEW PENNY era",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C021",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C021",
+     "field": "story",
+     "coins": [
+      "C021"
+     ],
+     "label": "C021 · Germany · 1970 · 10 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1970 10 Pfennig from Germany. Oak seedling reverse (Adolf Jäger), value between rye ears, PFENNIG obverse. Struck in brass-plated steel.",
+      "record": {
+       "country": "Germany",
+       "year": "1970",
+       "denom": "10 Pfennig · DEM",
+       "mint": "J",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-plated steel · 4.00 g · 21.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "40,115,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C022",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C022",
+     "field": "story",
+     "coins": [
+      "C022"
+     ],
+     "label": "C022 · Germany · 1989 · 10 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1989 10 Pfennig from Germany. Oak seedling reverse (Adolf Jäger), value between rye ears, PFENNIG obverse. Struck in brass-plated steel.",
+      "record": {
+       "country": "Germany",
+       "year": "1989",
+       "denom": "10 Pfennig · DEM",
+       "mint": "G",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-plated steel · 4.00 g · 21.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "79,580,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C023",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C023",
+     "field": "story",
+     "coins": [
+      "C023"
+     ],
+     "label": "C023 · Germany (Empire) · 1918 · 20 Pfennig · German Empire Mark system",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1918 20 Pfennig from Germany. Large 20 in oak wreath, date 1918 (eagle or obverse mint letter often on the other side). Struck in iron (WWI-era emergency Notgeld family).",
+      "record": {
+       "country": "Germany (Empire)",
+       "year": "1918",
+       "denom": "20 Pfennig · German Empire Mark system",
+       "mint": "unknown (not on this wreath side (often on eagle/obverse))",
+       "refs": "unknown (no standard imperial iron 20 Pf KM; wartime iron Notgeld / ID soft)",
+       "metal": "iron (WWI-era emergency / Notgeld family) · dark brown-grey patina / oxidized · circulated · white 2×2 staple flip",
+       "specs": "unknown · alignment unknown",
+       "mintage": "unknown",
+       "design": "large 20 in oak wreath · date 1918 (eagle/obverse mint letter often on other side)"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C024",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C024",
+     "field": "story",
+     "coins": [
+      "C024"
+     ],
+     "label": "C024 · United Kingdom · 1977 · 2 new pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1977 2 new pence from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows Plume of ostrich feathers in coronet; NEW PENCE (Ironside). Struck in bronze (97 Cu / 2.5 Zn / 0.5 Sn).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1977",
+       "denom": "2 new pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#916 · Schön#403 · Numista#664",
+       "metal": "bronze (97 Cu / 2.5 Zn / 0.5 Sn) · 7.12 g · 25.9 mm · plain · dark brown circulated · white 2×2 staple flip",
+       "specs": "thickness 1.85 mm · medal alignment · type specs shared with decimal 2p family · bronze era (pre–Sep 1992)",
+       "mintage": "109,281,000 (circulation · Royal Mint)",
+       "design": "obverse Arnold Machin Elizabeth II · reverse Plume of ostrich feathers in coronet · NEW PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C025",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C025",
+     "field": "story",
+     "coins": [
+      "C025"
+     ],
+     "label": "C025 · France · 1965 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1965 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "record": {
+       "country": "France",
+       "year": "1965",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "44,286,591 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  }
+ ]
+}

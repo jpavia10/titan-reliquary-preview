@@ -130,6 +130,21 @@ def main(d, update_manifest=False):
         check("ChangeEvent", f"line {n}", e)
         pool = {"type": types, "specimen": specs, "lot": lots, "album": albums, "issuer": issuers}.get(e.get("entity"), {})
         if e.get("id") not in pool and e.get("entity") != "photo": errs["ref"].append(f"changes line {n}: {e.get('entity')} {e.get('id')} does not exist")
+    # the change log's hash chain (fix list #76): when present it must describe changes.jsonl exactly
+    sys.path.insert(0, os.path.join(HERE, "..", "pipeline"))
+    import chain as CH
+    errs["ref"] += CH.problems(d)
+    # disagreements (fix list #18): one record per line, unique D#### ids, about a record that exists
+    dp = f"{d}/disagreements.jsonl"; dseen = set()
+    if os.path.exists(dp):
+        for n, r in jsonl(dp):
+            if "__bad__" in r: errs["jsonl"].append(f"disagreements line {n}: {r['__bad__']}"); continue
+            check("Disagreement", f"disagreements line {n}", r)
+            if r.get("id") in dseen: errs["ref"].append(f"disagreements line {n}: id {r.get('id')} appears twice")
+            dseen.add(r.get("id"))
+            pool = {"type": types, "specimen": specs, "lot": lots, "album": albums, "issuer": issuers}.get(r.get("entity"), {})
+            if r.get("rid") not in pool: errs["ref"].append(f"disagreements line {n}: {r.get('entity')} {r.get('rid')} does not exist")
+            if (r.get("status") == "resolved") != bool(r.get("resolution")): errs["ref"].append(f"disagreements line {n}: status {r.get('status')!r} and resolution do not match")
     # prices (tier "system": written only by tools/prices/fetch_prices.py)
     sp = f"{d}/prices/spot_daily.jsonl"; prev = None; nspot = 0
     if os.path.exists(sp):

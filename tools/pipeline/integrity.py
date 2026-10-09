@@ -71,6 +71,9 @@ def warnings(col):
     w += [f"issuer {i} has no type" for i in sorted(set(col["issuers"]) - used_iss)]
     nocrop = [ph["id"] for ph in col["photos"] if _live(ph) and ph.get("kind") in ("crop_circle", "crop_2x2") and not ph.get("crop")]
     if nocrop: w.append(f"{len(nocrop)} live cropped photo(s) have no crop settings (`crop`): {', '.join(nocrop[:5])}{' ...' if len(nocrop) > 5 else ''}")
+    # fix list #79: a cut-out whose original has no fingerprint could be a silently swapped photo (tools/photos/fingerprint_sources.py fills them in)
+    nofp = [ph["id"] for ph in col["photos"] if _live(ph) and (ph.get("crop") or {}).get("source_file") and not (ph.get("crop") or {}).get("source_sha256")]
+    if nofp: w.append(f"{len(nofp)} live photo(s) have no fingerprint of their original (`crop.source_sha256`): {', '.join(nofp[:5])}{' ...' if len(nofp) > 5 else ''}")
     return w
 
 
@@ -89,6 +92,14 @@ def _next_ids(specs):
             "note": "Name photos of a new piece NOID_... and use NEW-1, NEW-2 in change files; the pipeline assigns these ids in order. "
                     "Only another contributor's file merged first can take them."}
 
+
+def _chain(col):
+    """The change log's hash-chain tip (fix list #76): any copy of status.json pins the history up to that day."""
+    import chain as CH
+    d = col.get("dir")
+    if not d or not os.path.exists(os.path.join(d, "changes.chain")): return None
+    t = CH.tip(d)
+    return {"lines": t["lines"], "tip": t["tip"], "note": "sha256 chain over collection/changes.jsonl (tools/pipeline/chain.py); the log is append-only"}
 
 def status(col, out, build, now, root=None):
     import display as D, phase1 as P1
@@ -119,6 +130,7 @@ def status(col, out, build, now, root=None):
                    "slots_filled": sum(1 for a in albums for s in a.get("slots") or [] if s.get("state") == "filled"),
                    "note": "album slots are tracked occupants, not catalogued specimens"},
         "next_ids": _next_ids(specs),
+        "chain": _chain(col),
         "countries": len({col["types"][s["type"]].get("country") for s in active.values()}),
         "photos": {"records": len(col["photos"]), "live": len(live),
                    "specimens_with_any": len(sides), "specimens_with_both_sides": sum(1 for v in sides.values() if {"obv", "rev"} <= v),

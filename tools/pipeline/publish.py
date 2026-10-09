@@ -14,6 +14,8 @@ Steps (stops with exit code 1 at the first failure, leaving data/ and version.js
   5. checks: board arithmetic, silver/gold oz against the board, every specimen has an index row + detail record + search entry,
      id counters; with --parity also runs test_parity.py against the golden data
   6. print a summary (what changed, headline totals, rejected files)
+  7. (real publish only) turn the research loop: tools/agents/homework.py closes answered homework, settles disagreements, hands out
+     new assignments and rewrites docs/agents/QUEUE_*.md; its summary goes into data/status.json `loop`
 Needs python3 + jsonschema.
 """
 import atexit, contextlib, datetime, glob, hashlib, io, json, os, re, shutil, subprocess, sys, tempfile
@@ -100,6 +102,21 @@ def sync_docs(st):
         s2 = re.sub(r"<!-- status:begin.*?<!-- status:end -->", lambda m: txt, s, flags=re.S)
         if s2 != s: open(p, "w", encoding="utf-8", newline="\n").write(s2)
 
+def research_loop(now):
+    """Step 7 (docs/agents/RESEARCH_LOOP.md): close answered assignments, settle disagreements, hand out new homework, rewrite every AI's page.
+    -> the small `loop` block for data/status.json, or None when the loop could not run (the publish itself still stands)."""
+    try:
+        sys.path.insert(0, os.path.join(ROOT, "tools", "agents"))
+        import homework as HW
+        r = HW.run(ROOT, now)
+        print("research loop: " + ("; ".join(r["log"]) or "no change"))
+        bad = HW.check(r["roles"], r["queues"], r["state"])
+        if bad: print("research loop WARNING: " + "; ".join(bad))
+        return HW.summary(r["state"], r["pool"], r["metrics"], r["roles"])
+    except Exception as x:          # never let the homework pages block a publish of good data
+        print(f"research loop FAILED ({type(x).__name__}: {x}); data/ is published, the AI pages are not refreshed: run python3 tools/agents/homework.py")
+        return None
+
 def main(argv):
     coll = arg(argv, "--collection", os.path.join(ROOT, "collection")); out = arg(argv, "--out", os.path.join(ROOT, "data"))
     vpath = arg(argv, "--version", os.path.join(ROOT, "version.json")); incoming = arg(argv, "--incoming", os.path.join(coll, "_incoming"))
@@ -170,7 +187,12 @@ def main(argv):
         for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "prices.json", "truth.json", "status.json"):
             shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n + ".new")); os.replace(os.path.join(out, n + ".new"), os.path.join(out, n))
         shutil.copyfile(vuse, vpath)
-        if os.path.abspath(out) == os.path.join(ROOT, "data"): sync_docs(B.load(os.path.join(out, "status.json")))   # only the real publish rewrites the docs
+        if os.path.abspath(out) == os.path.join(ROOT, "data"):     # only the real publish turns the research loop and rewrites the docs
+            loop_summary = research_loop(now)
+            if loop_summary is not None:
+                st = B.load(os.path.join(out, "status.json")); st["loop"] = loop_summary
+                with open(os.path.join(out, "status.json"), "w", encoding="utf-8", newline="\n") as f: json.dump(st, f, ensure_ascii=False, indent=1)
+            sync_docs(B.load(os.path.join(out, "status.json")))
     idx = B.load(f"{outuse}/index.json"); b = idx["board"]; snap = col["board"]["index"]["board"]
     print("\n==== publish summary" + (" (DRY RUN: nothing written)" if dry else "") + " ====")
     print(f"ledger_version  {ver['ledger_version']}   generated {ver['generated_at']}")

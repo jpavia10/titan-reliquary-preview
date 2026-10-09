@@ -1,0 +1,608 @@
+{
+ "agent": "gemini",
+ "updated": "2026-10-09T14:54:33Z",
+ "assignments": [
+  {
+   "id": "HW-gemini-read-mint-20261009-1",
+   "agent": "gemini",
+   "kind": "read-mint",
+   "issued": "2026-10-09T14:42:02Z",
+   "lease_until": "2026-10-16T14:42:02Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C088",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C023",
+     "entity": "specimen",
+     "id": "C023",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C212",
+     "entity": "specimen",
+     "id": "C212",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C219",
+     "entity": "specimen",
+     "id": "C219",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C230",
+     "entity": "specimen",
+     "id": "C230",
+     "field": "issue"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "mint:C088",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue",
+     "coins": [
+      "C088"
+     ],
+     "label": "C088 · USA · 1957 · 10¢ Roosevelt",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C088_obv.webp",
+        "file": "C088_obv.webp",
+        "original": "C088_USA_1957_Dime_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1CFp6DDPmszLTtmOAh_FkBTHRahIaQLYH/view"
+       }
+      ],
+      "hint": "US mint marks: P (Philadelphia; most coins before 1980 carry none), D (Denver), S (San Francisco), W (West Point). On modern coins the mark is on the obverse near the date; on older ones often on the reverse.",
+      "mint_text_now": "1957 · mintmark not on obverse (1946–1964 mark is reverse — not shown)"
+     },
+     "blind": false,
+     "inputs": [
+      "C088_obv.webp"
+     ]
+    },
+    {
+     "item": "mint:C023",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C023",
+     "field": "issue",
+     "coins": [
+      "C023"
+     ],
+     "label": "C023 · Germany (Empire) · 1918 · 20 Pfennig · German Empire Mark system",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C023_rev.webp",
+        "file": "C023_rev.webp",
+        "original": "C023_Germany_1918_20Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1AvM21rocsNxH3aDzEmOFa5QZqFXsVwwP/view"
+       }
+      ],
+      "hint": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
+      "mint_text_now": "unknown (not on this wreath side (often on eagle/obverse))"
+     },
+     "blind": false,
+     "inputs": [
+      "C023_rev.webp"
+     ]
+    },
+    {
+     "item": "mint:C212",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C212",
+     "field": "issue",
+     "coins": [
+      "C212"
+     ],
+     "label": "C212 · Eritrea · 1997 · 50 cents · ERN (nakfa)",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C212_rev.webp",
+        "file": "C212_rev.webp",
+        "original": "C212_Eritrea_1997_50Cents_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1lJ_hnOHicDrl48_DINrCEKsLoNLYLjio/view"
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not on shown reverse (Asmara / Royal Mint era typical)"
+     },
+     "blind": false,
+     "inputs": [
+      "C212_rev.webp"
+     ]
+    },
+    {
+     "item": "mint:C219",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C219",
+     "field": "issue",
+     "coins": [
+      "C219"
+     ],
+     "label": "C219 · Jamaica · 2015 · 1 dollar · JMD",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C219_rev.webp",
+        "file": "C219_rev.webp",
+        "original": "C219_Jamaica_2015_1Dollar_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/17lWYcKIqJMMukdXfOkNIHAFQHvDR6kvt/view"
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not on shown reverse"
+     },
+     "blind": false,
+     "inputs": [
+      "C219_rev.webp"
+     ]
+    },
+    {
+     "item": "mint:C230",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C230",
+     "field": "issue",
+     "coins": [
+      "C230"
+     ],
+     "label": "C230 · Jamaica · 2015 · 10 dollars · JMD",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C230_rev.webp",
+        "file": "C230_rev.webp",
+        "original": "C230_Jamaica_2015_10Dollars_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/15yFngSl6ciHYgZNxpIruxqZUmnHtF1gz/view"
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not on shown arms side"
+     },
+     "blind": false,
+     "inputs": [
+      "C230_rev.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261009-1",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-10-09T14:42:02Z",
+   "lease_until": "2026-10-16T14:42:02Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:DE.KM.214:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:NL.KM.241:issues.0.mintage",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:MX.KM.443:issues.0.mintage",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:IT.KM.111:issues.0.mintage",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.124:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:IT.KM.216:issues.0.mintage",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:GB.KM.837:catalogs",
+     "entity": "type",
+     "id": "GB.KM.837",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CA.KM.33:issues.0.mintage",
+     "entity": "type",
+     "id": "CA.KM.33",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.110:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.110:issues.1.mintage",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.110:issues.2.mintage",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.110:issues.3.mintage",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "issues.3.mintage"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:DE.KM.214:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C071"
+     ],
+     "label": "mintage of C071 · Germany · 2003 · 2 euro · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 20475000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 2 euro Germany (1st map, N#112), 2003-A circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2.html",
+       "https://en.numista.com/catalogue/pieces112.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.241:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C070"
+     ],
+     "label": "mintage of C070 · Netherlands · 2002 · 2 euro · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 37200000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista, NL 2 euro 2002 (KM#241))",
+      "links": [],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.443:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C263"
+     ],
+     "label": "mintage of C263 · Mexico · 1950 · 25 centavos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 77060000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista, MX 25c 1950 Mo balanza (KM#443); NGC and heritcoin agree)",
+      "links": [],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.111:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C211"
+     ],
+     "label": "mintage of C211 · Italy · 1987 · 500 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 200000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista, IT 500 lire 1987 R (KM#111) circulation; proof 10000 excluded)",
+      "links": [],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.124:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C238"
+     ],
+     "label": "mintage of C238 · Germany · 1973 · 2 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 10393000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#844 (DE.KM.124, 2 DM Adenauer), 1973-D circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces844.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.216:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C084"
+     ],
+     "label": "mintage of C084 · Italy · 2002 · 1 euro · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 965725300,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista, IT 1 euro 2002 R (KM#216) circulation; BU 150000 excluded)",
+      "links": [],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.KM.837:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.KM.837",
+     "field": "catalogs",
+     "coins": [
+      "C164"
+     ],
+     "label": "catalog of C164 · United Kingdom · 1932 · ½ penny · GBP",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "837",
+        "system": "KM"
+       },
+       {
+        "number": "4004",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces4004.html"
+       }
+      ],
+      "their_source": "Numista N#4004 (https://en.numista.com/catalogue/pieces4004.html) references: KM# 837, Sp# 4058, Schön# 15c; Numista also lists Spink 4058 a",
+      "links": [
+       "https://en.numista.com/catalogue/pieces4004.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CA.KM.33:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CA.KM.33",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C160"
+     ],
+     "label": "mintage of C160 · Canada · 1939 · 5 cents · CAD",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 5661123,
+      "their_source": "Numista N#413 (https://en.numista.com/catalogue/pieces413.html): mintage table row '1939' = 5 661 123 (re-cite; matches the record)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces413.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.110:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C103"
+     ],
+     "label": "mintage of C103 · Germany · 1982 · 1 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 11520000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#846, 1982-J circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces846.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.110:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C050"
+     ],
+     "label": "mintage of C050 · Germany · 1982 · 1 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 70000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#846, 1982 year total; no mint mark recorded)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces846.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.110:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C006"
+     ],
+     "label": "mintage of C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 32400000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#846 (DE.KM.110, 1 DM), 1984 year total; no mint mark recorded)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces846.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.110:issues.3.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "issues.3.mintage",
+     "coins": [
+      "C048"
+     ],
+     "label": "mintage of C048 · Germany · 1993 · 1 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 8400000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#846, 1993-D circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces846.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  }
+ ]
+}

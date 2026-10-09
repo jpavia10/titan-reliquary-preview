@@ -866,7 +866,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ZzTL53CBLAi0JGZyEE1GErfUsw_geLhu",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "738bef5a7bd11101c89b75620b4e204eda20c2e2a0dfb8d782a78e818a35fc10"
   },
   {
    "file": "C004_Netherlands_2000_5EuroCent_obv.jpeg",
@@ -874,7 +875,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "16pEAeY7N2MOgIerAb5cwBrAdQFqzY60g",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "951ec5ea154e1395c726b8c32b0ff8d109e033ab57e093928d7d1e27e2901712"
   },
   {
    "file": "C005_France_1986_20Centimes.jpeg",
@@ -882,7 +884,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1vKuBeS6qfPB3GjhurnfXnwrU8Q-kp5qa",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "7db5ab4ad70b4583295ffdb4cdce37745735623942fc110761ef40ff2ecc8133"
   },
   {
    "file": "C006_Germany_1984_1DeutscheMark.jpeg",
@@ -891,7 +894,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1WBYI3D2tv7ia4-2_WlLns9pgPiSY-Kv5",
    "chat_idx": null,
-   "note": "Grok: Germany 1984 1 Deutsche Mark. C227 is 10 pfennig."
+   "note": "Grok: Germany 1984 1 Deutsche Mark. C227 is 10 pfennig.",
+   "sha256": "a3daac5f0dea10dd6ef2550315b675b557a1a188560741794ec8bb6168917445"
   },
   {
    "file": "C007_France_1963_10Centimes_rev.jpeg",
@@ -899,7 +903,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1dTeQC36lzLq4BYAaYh3GBOqJ51YtTZFM",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "948429bc7690fea4e599b0fd1bb043faeb010f14d8a104d3e92d0195951aa017"
   },
   {
    "file": "C008_Switzerland_1968_HalfFranc_rev.jpeg",
@@ -908,7 +913,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1RAPm6O4iw5sx09U8sUwtL7qQ45I7_TiJ",
    "chat_idx": null,
-   "note": "Grok: Switzerland 1968 1/2 franc reverse. C003 and C115 are 2 francs."
+   "note": "Grok: Switzerland 1968 1/2 franc reverse. C003 and C115 are 2 francs.",
+   "sha256": "d39d1dbcc4be2ad82dfb14eea8e17fd940aefe421d7207fdc677c95afcc4c518"
   },
   {
    "file": "C009_Germany_1987_5DeutscheMark_rev.jpeg",
@@ -916,7 +922,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Y-HEpScTGz2hQzIHB7We8M11XyHebF-O",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "49a0d350a1136d3335ad77cbcbe7ddd88513bd68991e6c64267b4086f496b481"
   },
   {
    "file": "C010_Netherlands_1996_25Cents_obv.jpeg",
@@ -924,7 +931,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1awN-VzDj0nI5yGTtYNSwNaFuFnYowmLY",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "a3a84a8803c8ca9b01137dccc74a3efc11929aaafc826a54dbc6b5e8274a1080"
   },
   {
    "file": "C010_Netherlands_1996_25Cents_rev.jpeg",
@@ -932,7 +940,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1FyIOBDrVk-socCQyRHwdg-XzK4JOBCjO",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "fea5adc7a042554beba73eae8ab0e7e3984e4f2f358cfd07aa425d5dbbe99263"
   },
   {
    "file": "C011_Italy_1970_50Lire_rev.jpeg",
@@ -940,7 +949,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1QlzMuGznkB5QiwZZNo47yahgAXy_HBMN",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "d00a3be66cb9b1dfd21de24f2c308474cf56625e6b0257961d6193f4b51bf86f"
   },
   {
    "file": "C012_France_1962_1Franc_rev.jpeg",
@@ -948,7 +958,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Fc0I2utIKeEonyDSDce5MyOHRJVNOHB8",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "498a15d4424860a362420a2bbe884763da096b60f5c1f994a64670658278e4b4"
   },
   {
    "file": "C013_UK_1971_2NewPence_obv.jpeg",
@@ -956,7 +967,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1x14S9jZ6wL4OpWc-JVM4bxwxduQaUWUQ",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "d86eacd18e5c7790e079bbf848d0408f6de0be93db74a05ceabef14b1be8965f"
   },
   {
    "file": "C014_Switzerland_1974_2Francs_rev.jpeg",
@@ -965,7 +977,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1DS567aqaAsMN6t3n_W6DBbLIHDzuroq1",
    "chat_idx": null,
-   "note": "Grok: Switzerland 1974 2 francs reverse. Only C014."
+   "note": "Grok: Switzerland 1974 2 francs reverse. Only C014.",
+   "sha256": "a0c710b302ef5625852dcaf57e4b8a85012c2e19bd5d153675373beecec9405d"
   },
   {
    "file": "C015_Switzerland_1971_HalfFranc_rev.jpeg",
@@ -974,7 +987,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1DoPJqvCEo5jMYFZ5WLwxk5-Ih-oTJNCA",
    "chat_idx": null,
-   "note": "Grok: Switzerland 1971 1/2 franc reverse. Only C015."
+   "note": "Grok: Switzerland 1971 1/2 franc reverse. Only C015.",
+   "sha256": "b9113d5e883fcb749b88606300ee7b15c0c3c5c34dcc762b11e85ea3fa5297ae"
   },
   {
    "file": "C016_CostaRica_1985_5Colones_obv.jpeg",
@@ -982,7 +996,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1tpraCFpEWGTWK_DlFLymoia9cWTWYCGL",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "ef38d3c4403f081e6ce0cd3bcbbd9ce3193f161d240a29065788e8ced69ea2e9"
   },
   {
    "file": "C018_Germany_1983_2Pfennig_rev.jpeg",
@@ -991,7 +1006,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "14SvgEsGPeSi7BQ_5S_vfY-rykd7cDdxv",
    "chat_idx": null,
-   "note": "was filed as C019_Germany_1981_10Pfennig_rev.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C018"
+   "note": "was filed as C019_Germany_1981_10Pfennig_rev.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C018",
+   "sha256": "b027638b05b6008730606d91caedb075c9dd8c2f07a01a2b979d192480e01f64"
   },
   {
    "file": "C019_Germany_1981_10Pfennig_rev.jpeg",
@@ -999,7 +1015,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1KgkQJAI4bRpwo-X8t2zG2OypETwJbCfb",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "73e11c468188505edea82b44a7c221ead1a1bb304ab978f109146fa371e79735"
   },
   {
    "file": "C020_UK_1973_HalfNewPenny_obv.jpeg",
@@ -1007,7 +1024,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1xfHRoaD4HqzKepApxmfac0kvj9qUDcQj",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "7911edfb22c752e3499c595de3ee25536552bb254c568a813b01eb15b92c1367"
   },
   {
    "file": "C020_UK_1973_HalfNewPenny_obv_angle2.jpeg",
@@ -1023,7 +1041,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1T-eAAAOmjAJI4oOl5L7YCG_5xZ4Sc_QL",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "b782f714c3f8b399cc634e99608870c5a2a2a211f2de2936a8cacbcd9fc26a2f"
   },
   {
    "file": "C022_Germany_1989_10Pfennig_rev.jpeg",
@@ -1032,7 +1051,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "18FLPAB2tD3AeMba53SiyHcDT_cqQuDk0",
    "chat_idx": null,
-   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle4.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C022"
+   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle4.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C022",
+   "sha256": "a64f727ba22948b1539c9ab597bc6c75a3cc79db1e4b0221a63ddf0b1b7dcdeb"
   },
   {
    "file": "C023_Germany_1918_20Pfennig_rev.jpeg",
@@ -1040,7 +1060,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1AvM21rocsNxH3aDzEmOFa5QZqFXsVwwP",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "8e192a1988686b1b04eea693fad145cae1b8dc5929de1487f95ee449b31df2a7"
   },
   {
    "file": "C024_United-Kingdom_1977_2Pence_obv.jpeg",
@@ -1048,7 +1069,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1tnO1ihrNENaU6PS10Tc6a6Fmv-LOghBd",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "27aa8c76301c32e4d1b39e9782b2699f5891f1535f722ac097638f6fa0126ff2"
   },
   {
    "file": "C025_France_1965_1Franc_rev.jpeg",
@@ -1057,7 +1079,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1b27Rl88HQxwvdi359bbxFiuCYl-bdm-D",
    "chat_idx": null,
-   "note": "Grok: France 1965 1 franc reverse. Only C025."
+   "note": "Grok: France 1965 1 franc reverse. Only C025.",
+   "sha256": "be40b00a9bf4266036fcbac14b32b2941c27f839e2c8077dcb933ce1fca2c9c6"
   },
   {
    "file": "C026_Germany_2002_50EuroCent_rev.jpeg",
@@ -1065,7 +1088,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1WvR7EjBQlA63zlyAp5AhkNOFsh8INtzd",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "bf11e4f93fb36312f96d222d0924d5b27d0fc994383f344e4d916b2a17f678c6"
   },
   {
    "file": "C027_Italy_2002_20EuroCent_rev.jpeg",
@@ -1073,7 +1097,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "13HykleBYFloYpOerdaoy2fMfFTmHOtAa",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "86d4e1b8a7a268a5ad015dbe6e4c96f2b9c37fdd1a1bff84db3550cca7eabd34"
   },
   {
    "file": "C028_Malta_2013_5EuroCent_obv.jpeg",
@@ -1081,7 +1106,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1R8VSWobJ74drFM5NtzFjvdwRyFDw382c",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "2fd97ffdfaf5b10c6f72d4da7c4f9e6de5096f5b2337cd5d43dbb4bb7af6b9b4"
   },
   {
    "file": "C029_Germany_1972_1Pfennig_rev.jpeg",
@@ -1089,7 +1115,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "17FIyti-w13y1rPG-dXhNBq35LumfI_km",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "a72e2927dd001b638ef562b33ba47442aadbe279b0e821532ab469f3e6040f93"
   },
   {
    "file": "C030_Germany_1982_10Pfennig_rev.jpeg",
@@ -1098,7 +1125,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Y1HgLbLDQfDlI7jmmziKsvV9aNM0qfHt",
    "chat_idx": null,
-   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle3.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C030"
+   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle3.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C030",
+   "sha256": "59fcca8cc7b8f573830ba4e2c612e84617a5bd3a70ebcaa9bc4a4e914751792d"
   },
   {
    "file": "C031_Australia_1943_Threepence_obv.jpeg",
@@ -1106,7 +1134,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1D2qXgqAFhvlHDHJd-nHrrzVFVoSGr4dC",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "8bff4ed735f221b509cebebb46ca86b041f918108c84ed42420324ebc52469ec"
   },
   {
    "file": "C031_Australia_1943_Threepence_rev.jpeg",
@@ -1114,7 +1143,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1N28t8LVi9jImV6k4wfS3rKlcdNrfbyLk",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "ef36919f12d2892c0d1a0e2a07110cdff952109bef0741b31f7e7e863467dc73"
   },
   {
    "file": "C032_Hungary_1967_1Forint_obv.jpeg",
@@ -1122,7 +1152,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1oYFanGPlCWG1b0ly7zBaeO14dypFawNA",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "5d7791098efdea7848fd068a9f7193a47e16c1c77074e9080b1c19e989760368"
   },
   {
    "file": "C032_Hungary_1967_1Forint_obv_angle2.jpeg",
@@ -1138,7 +1169,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1YHzKg4z6oyqnzymFVTvL8SbVs0Ti6UA1",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "2bd8414064e987336873c26b1446e1828ad5d0817c7a3c352c7e9d79df548613"
   },
   {
    "file": "C033_France_1969_HalfFranc_rev.jpeg",
@@ -1147,7 +1179,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1B1LfjibrFVPKc_booZqBYqcJyzaMl8H_",
    "chat_idx": null,
-   "note": "was filed as NOID_Italy_1969_2Lire_rev.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C033"
+   "note": "was filed as NOID_Italy_1969_2Lire_rev.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C033",
+   "sha256": "33253714513ec5116bd22c14eac1d1529ceec6ac64436065cb76b31f96c80814"
   },
   {
    "file": "C034_France_2009_2EuroCent_rev.jpeg",
@@ -1155,7 +1188,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1gUGQK0fF0c87XwviHklvgfSiDQczBSGA",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "18ffc7b32e7b23bdf85040033af171b0a484f2b58b16c28192bc5f79df4f9c3d"
   },
   {
    "file": "C035_Germany_1971_50Pfennig_rev.jpeg",
@@ -1163,7 +1197,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1nPNyKSgqZhl2EC0rS8ksTOj4WanqZP0a",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "a35997a0b411113260f94e65cc8cee655ecbe471ac0e712b099543cd9f4a21c0"
   },
   {
    "file": "C035_Germany_1971_50Pfennig_rev_angle2.jpeg",
@@ -1187,7 +1222,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1TIXtas_8Sb2NpyQ-ILaDRbfv9bTjJ8Cv",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "0a86532bd5ce6a1fbb9b1b3b065ed0462484553838cc91c72e4611a176163ae2"
   },
   {
    "file": "C037_Germany_2002_10EuroCent_rev.jpeg",
@@ -1195,7 +1231,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1eeusgrv1o7ZzUa7myUQdAsjt32YBEr0c",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "84ad9228ea3bb261b3ef08a5fa05434b86cbbe081a3193036616204a9f212c38"
   },
   {
    "file": "C038_Slovakia_2009_2EuroCent_obv.jpeg",
@@ -1203,7 +1240,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1-J40n876XBxhepLtEMS11KWT6EoXiwU_",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "4aa17865876a23f1553105f5569c10ea970b516a0e4362c33a455421e81fbd56"
   },
   {
    "file": "C039_Italy_2010_2EuroCent_rev.jpeg",
@@ -1211,7 +1249,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1F_wQd_kXySCiS8R_jfRT0qbmsvTPvd5_",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "c9cd6b3fef32a46330626d8218ed34e080f85ab75c5521adddc4ba9ab3141c47"
   },
   {
    "file": "C040_Netherlands_2001_20EuroCent_rev.jpeg",
@@ -1219,7 +1258,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1r6Th7Zhgg1zXk1PEng1o7or6olp0dgl8",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "2dce55e72fad61610dcf45abe00070d9ee792bf3730f9b51c4e8e4f862eaf07d"
   },
   {
    "file": "C041_France_1974_20Centimes.jpeg",
@@ -1227,7 +1267,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1b4BPIRDBeeQRK6rpfohSWRPE3Rr1qdWB",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "69d87107ca3b30b6774eecf0365ccb09d3755bdf396ee95df89d8e89b178d2e8"
   },
   {
    "file": "C042_USSR_1962_1Kopek_obv.jpeg",
@@ -1235,7 +1276,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1yitG_oo9tf_45J0wmgibqRjbMgWtEerI",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "bcd3d65bd455e85e3339bbfc211c9b874d10e4af66c88d6e60b8bc557820e9de"
   },
   {
    "file": "C042_USSR_1962_1Kopek_rev.jpeg",
@@ -1243,7 +1285,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1oMc1IVXPPMNjnfDN-EU2yxmL4ukmdEQ9",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "c70ee43f7e672aa47f98bf0fa02e5034723d5668f7f9986dd4f533737d5c44ed"
   },
   {
    "file": "C043_Malta_2008_10EuroCent_rev.jpeg",
@@ -1251,7 +1294,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1784wyegQTSqDSp8UI4yt-VYwlagC_sUH",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "f97719775ef02b16ce0201557a88a43ff82344d207dc0ba5d6d35d42284a5c05"
   },
   {
    "file": "C044_USSR_1974_1Kopek_rev.jpeg",
@@ -1259,7 +1303,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1lqTnPgOd1Q2MQGhN5R2cQOoF1ysf8vfH",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "d0c17b64864ef295aae85484b3845291f373c9c7d700f5f0ddcb577d999d0a51"
   },
   {
    "file": "C045_Netherlands_2014_5EuroCent_rev.jpeg",
@@ -1267,7 +1312,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1BVJrFFeD5us0ktxfgeUJk3C-bQQZaWBf",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "c750d8c471137fa27d485a1a9ab82cba2128b03daac2901cdc0a5273ef4dae9a"
   },
   {
    "file": "C046_Germany_2010_2EuroCent_rev.jpeg",
@@ -1275,7 +1321,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1DsbuKFpxH7Ogkjy9SHV3GAq5YaqVrLmo",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "0c0e039702c96d9b62d8ad13af7b4f2ac51b49379aa784bbac2697e96bd45b77"
   },
   {
    "file": "C047_Brazil_2006_5Centavos_obv.jpeg",
@@ -1283,7 +1330,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1E17ZrK0Lsvb-3AACaLNSz7S46GZiKG_a",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "40005b01fa6b158cbf23fbc7056c01b3a19d97cd3d9a2ae1d87dfa6305b3c2f7"
   },
   {
    "file": "C047_Brazil_2006_5Centavos_rev.jpeg",
@@ -1291,7 +1339,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1_y_UN1BVoFy5X308Qg2O4qJ4kqE5saOL",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "f690627b5316043a62a71b9a3ea0e4ef950de34cbd63e2921ea60932a346ef5c"
   },
   {
    "file": "C048_Germany_1993_1DeutscheMark_rev.jpeg",
@@ -1299,7 +1348,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1s4ckMR_nKH2SzhLHa_JdFYYOVew8QsWp",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "bfc390ab3c5391c88fdf004753771620ef927afa04c046c173d1d4fc86fbefb0"
   },
   {
    "file": "C049_France_1989_10Francs_rev.jpeg",
@@ -1307,7 +1357,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1cp5IhbyI864JNi2MLaVU53AQ4PeugAGU",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "3b176858366bac33593cd567387e99981ee72a0591dfc902595e4fa9791b9117"
   },
   {
    "file": "C050_Germany_1982_1DeutscheMark_rev.jpeg",
@@ -1316,7 +1367,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-",
    "chat_idx": null,
-   "note": "was filed as C006_Germany_1984_1DeutscheMark_angle2.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C050"
+   "note": "was filed as C006_Germany_1984_1DeutscheMark_angle2.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C050",
+   "sha256": "bae7aeb0b6cb2b216100d352622a48f153923b16db7a4c9895a09e0b1ccee053"
   },
   {
    "file": "C051_Germany_1986_10Pfennig_rev.jpeg",
@@ -1325,7 +1377,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1_Y6DXJlTne3vqJTfjotsMi_AKrXPpfGy",
    "chat_idx": null,
-   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle2.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C051"
+   "note": "was filed as C019_Germany_1981_10Pfennig_rev_angle2.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C051",
+   "sha256": "3661fbbc08886853a6dec1328409399e5993b48d0037983585225d3eb0a17ab3"
   },
   {
    "file": "C052_France_2009_5EuroCent_rev.jpeg",
@@ -1333,7 +1386,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1E4jkK0EbBzrkbcOQbcIHLQZRVCOKbHEX",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "9c313cc859dd4937290631099de23ff2f3430af632f98e0639426556cc7f97d1"
   },
   {
    "file": "C053_Germany_2011-J_20EuroCent_rev.jpeg",
@@ -1342,7 +1396,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1XTQ52oaxj491yv-w_EfJlwp-c6jKO59l",
    "chat_idx": null,
-   "note": "was filed as C131_Germany_2002_20EuroCent_obv.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C053"
+   "note": "was filed as C131_Germany_2002_20EuroCent_obv.jpeg; Grok's later pass and Claude's own read of the date (2026-10-03) give C053",
+   "sha256": "a567c07fa703bc8601c8efaf0945c1ebc881022034a3afe156da1aff8ac27c5a"
   },
   {
    "file": "C054_France_2010_10EuroCent_rev.jpeg",
@@ -1350,7 +1405,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1StU-n3mv9Ux059V-Y1fU5RoaDKn2lpD3",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "a0ba7f99ae55cf353792707b0421aff7b4200b61bb8315f5d40be7107bec00eb"
   },
   {
    "file": "C055_Italy_2002_50EuroCent_rev.jpeg",
@@ -1359,7 +1415,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1kN_oaQHq3m6aews6nT-DcWxM98afhFvw",
    "chat_idx": null,
-   "note": "was C084_Italy_2002_1Euro_obv; coin is a 50 euro cent (Campidoglio)"
+   "note": "was C084_Italy_2002_1Euro_obv; coin is a 50 euro cent (Campidoglio)",
+   "sha256": "c703bd59da20d088229102621c5854afbfc81a695a56e8fd466a84b7b9f9ce5b"
   },
   {
    "file": "C056_Portugal_2002_20EuroCent_rev.jpeg",
@@ -1367,7 +1424,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1lEfFNu8FlfKw3MvuzvEnD0RjyaOcBXGW",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "2c1ee3567cd64209c608ba8acb046aad5461f557163e0157cf5c0d01630011d4"
   },
   {
    "file": "C057_Germany_1982_50Pfennig_rev.jpeg",
@@ -1375,7 +1433,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1g56B0N9maAERq4XGAtiP6NU3GLkO8nKw",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "bbf21d801cbb572fd2e6c1e894b47190f7719b8df5b9d69ed4c1e52809b1ec06"
   },
   {
    "file": "C058_Germany_1985_50Pfennig_rev.jpeg",
@@ -1383,7 +1442,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1k0Xkr2HdmExUjMDFmvw1NQWRyr_90Jrb",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "d3e23cd843ea5817ceec6246149b46ff89f3918495e1581d50a8ad150f1ee8bc"
   },
   {
    "file": "C059_France_1960_1Franc_rev.jpeg",
@@ -1391,7 +1451,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1QPmiHvoieP6E5QMb955NuYXTVXQRgcrt",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "9f34c1d0f5ec755fe9b065551dbf7dacf4fca1646efc0d44b311c1ea00d707c8"
   },
   {
    "file": "C060_France_1971_HalfFranc_rev.jpeg",
@@ -1399,7 +1460,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1k9Pz32M82KqRF29CflXo3ihkzmhbQAwY",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "c6bd5e7b81e696aaf5e58d6514cdb862f51def1417860ed9bfb5cb26177e2dd3"
   },
   {
    "file": "C061_Italy_2002_20EuroCent_rev.jpeg",
@@ -1407,7 +1469,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1XP0BiKbMBuyS5xKdoQ4eqTCzQtpXy_FL",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "a3212de680fc265c4cf00b0abe4f6ae1582d724bfb656f539601909f35b5ca9c"
   },
   {
    "file": "C062_France_1998_10Centimes_rev.jpeg",
@@ -1416,7 +1479,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1eWj5WsE_nldvAObmdlh2kEps4WFUbenk",
    "chat_idx": null,
-   "note": "was NOID_France_1966_10Centimes; date reads 1998 at full zoom (Grok named this C063: swapped)"
+   "note": "was NOID_France_1966_10Centimes; date reads 1998 at full zoom (Grok named this C063: swapped)",
+   "sha256": "450c56ebdc8a076ea0f7d3718aba8fbbe19c8e98a9cda40d7f917a56d799b1f1"
   },
   {
    "file": "C063_France_1995_10Centimes_rev.jpeg",
@@ -1425,7 +1489,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "144YgFcFwZ-Tjyak9l9IabwhSstj_Dejf",
    "chat_idx": null,
-   "note": "was NOID_France_1964_20Centimes; it is a 10 centimes dated 199x (Grok named this C062: swapped)"
+   "note": "was NOID_France_1964_20Centimes; it is a 10 centimes dated 199x (Grok named this C062: swapped)",
+   "sha256": "1846d592d319fcb6bb85c8e79c17b07c4dc3dce1dce3ea20febc0c88b010200c"
   },
   {
    "file": "C064_Malta_2008_1Euro_obv.jpeg",
@@ -1434,7 +1499,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1_75blm0dl9ZeUZOut3ltdpoUyP64ZDvK",
    "chat_idx": null,
-   "note": "Grok: Malta 2008 1 euro, Maltese cross, gold outer ring. C043 is the 10 cent."
+   "note": "Grok: Malta 2008 1 euro, Maltese cross, gold outer ring. C043 is the 10 cent.",
+   "sha256": "a9535044816c7fba214634958785a4c439c3521a7beb27170541189bc7ef56b3"
   },
   {
    "file": "C065_Switzerland_2014_5Francs_rev.jpeg",
@@ -1442,7 +1508,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1idPGzKgtbs-jaPURao9nZbIKtzVI-PgS",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "508e9b697cea1fd6b968d0587bdec540319100a7a1385afc4025256252483a6a"
   },
   {
    "file": "C066_Switzerland_1976_5Francs_rev.jpeg",
@@ -1451,7 +1518,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1GL8L4rsuiQ6mkcqsCVGLcTzTrJP0AjtU",
    "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
-   "note": "photo date reads 1976; record says 1978 (owner to confirm, CURATION_OPEN)"
+   "note": "photo date reads 1976; record says 1978 (owner to confirm, CURATION_OPEN)",
+   "sha256": "4a1244c8c2cf5d3e7bb988f9f5bcc0e7e817615eefb5e7a1006395f9f5ddc401"
   },
   {
    "file": "C067_Switzerland_1981_2Francs_rev.jpeg",
@@ -1460,7 +1528,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1h0ACoiqW28AImqjI2_sk08TW8DbPGJOu",
    "chat_idx": null,
-   "note": "was C077_..._1991_angle2; date reads 1981 at full zoom"
+   "note": "was C077_..._1991_angle2; date reads 1981 at full zoom",
+   "sha256": "ddd2ea19d130cdd1d81b978d88a126ccef697c0a7ea49e46d277bd204505036a"
   },
   {
    "file": "C068_Switzerland_1963_20Rappen_obv.jpeg",
@@ -1468,7 +1537,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Z9W3YbOSzCC5qdeQOHdDRzFdcGOlBfMD",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "17b1aa23b9bb5c5ed5ebf6fe3924a1b19716b36052fb8894cab470d51f7b2c3d"
   },
   {
    "file": "C069_Jamaica_1975_50Cents_rev.jpeg",
@@ -1476,7 +1546,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1kIGxJQIeyKGGSttkuGtY7pMCnJ1Gl1MA",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "430aeb625c20fda0c41e2363dad2be37407e1e729617dbbf66c8e0e25258c63a"
   },
   {
    "file": "C070_Netherlands_2002_2Euro_obv.jpeg",
@@ -1484,7 +1555,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1D8kHrH-4_LVuz8T6T3gAt6tE8NG-t6JU",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "567031ec15ef52d54be6ff3f26a850d9b5d355d3a771ab5f06221b8f22684443"
   },
   {
    "file": "C071_Germany_2003_2Euro_obv.jpeg",
@@ -1493,7 +1565,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1fpIQ1h9s4t5gKN2t-d_fqmooIXfs70SX",
    "chat_idx": null,
-   "note": "Grok: Germany 2003 2 euro, eagle, gold center and silver ring. Only C071."
+   "note": "Grok: Germany 2003 2 euro, eagle, gold center and silver ring. Only C071.",
+   "sha256": "b9f1c4c1b78599f024e4f4442703ed5c012490f70a43b699e95b83b60fafcc65"
   },
   {
    "file": "C072_France_2000_2Euro_rev.jpeg",
@@ -1501,7 +1574,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1QUjRnMpglnekiqg4hwmiV1DKvj0xeGIo",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "94abe1d9b05d9ab145310aa9da54b3b42855211ae6f6dc00e74df58bdb73ea65"
   },
   {
    "file": "C073_USA_1976_BicentennialQuarter_x26.jpeg",
@@ -1517,7 +1591,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1RSpRgWBWzwLxzrqVz4XKYRC94SC7V1cP",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "3a90afdb10874175d890f3ecad06161f59d1b9f4fb90d966bd678b4314f99eef"
   },
   {
    "file": "C076_Switzerland_1989_20Rappen_obv.jpeg",
@@ -1525,7 +1600,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1__5E3wSeMlaByKFjm131nDWBf8lBL2ps",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "c3434508ad618a0b8ebf9f9f78591d95676ab140a1d199487ad6d54cb85bfebb"
   },
   {
    "file": "C077_Switzerland_1991_2Francs_rev.jpeg",
@@ -1534,7 +1610,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1nakw8IFckD6_awAXYk871p0U0RKANv9i",
    "chat_idx": null,
-   "note": "Grok: Switzerland 1991 2 francs reverse. C079 is 20 rappen."
+   "note": "Grok: Switzerland 1991 2 francs reverse. C079 is 20 rappen.",
+   "sha256": "c6157312b126c1cd216cf327157fdc05acbc0f373928582723b7eb1659af9683"
   },
   {
    "file": "C078_Switzerland_1969_20Rappen_obv.jpeg",
@@ -1542,7 +1619,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1NBBKww5p8WQrxtPOxkxoWxRBGn57Numb",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "81ab55e64ae43d5f4a522c746b056b1e5d952c14971978b954ae310e43a15a72"
   },
   {
    "file": "C079_Switzerland_1991_20Rappen_obv.jpeg",
@@ -1550,7 +1628,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1UW9Fg9zqMqTI4CUG4HQaVYCb3_3QUDn4",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "baf6a3725e826bf4d63a8512829465de0471f8692fd2b1f35e5ed2f5cde739fc"
   },
   {
    "file": "C080_Germany_2002_1Euro_rev.jpeg",
@@ -1558,7 +1637,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "15dYOJ5urpYAsjxpEqs9N88-DDCPmTL-X",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "c656172f55f6303d6cfda33710a9954a62c00ef5634a825b5b934e53ce695627"
   },
   {
    "file": "C081_Switzerland_1983_5Rappen_obv.jpeg",
@@ -1566,7 +1646,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "19S6oYsrQyzTfaJ9qnKuqXvbc6IhGWBwi",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "01d65cec0cb595a8828a93b26303371786bf0f97451e911b82e512f8483f7fdf"
   },
   {
    "file": "C082_Switzerland_1979_10Rappen_obv.jpeg",
@@ -1574,7 +1655,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1VHjj9b0jZ-AhMm5XmsByEfjRdzFQZ89x",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "b8225c1a9db9deea4e16693e5fa6c0354e4d5460a6c410e62ddc78d7c94c31e0"
   },
   {
    "file": "C083_Switzerland_1981_10Rappen_obv.jpeg",
@@ -1582,7 +1664,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1u0vOsrPfU_US59FMP_d4TZ5oGz5C09Q7",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "4f0a8dd6ee9a006acb652efd35d7bc2cfb09a62993a4c2d2d1ffde8777d33f1f"
   },
   {
    "file": "C084_Italy_2002_1Euro_obv.jpeg",
@@ -1590,7 +1673,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "10DtPevd7nGRtkajmVP7rPl3pOzj2Ekb-",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "66f4688bba439907b5e6f393b95024a8cb41c0c0e232e519535e8c4d383240d0"
   },
   {
    "file": "C088_USA_1957_Dime_obv.jpeg",
@@ -1599,7 +1683,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1CFp6DDPmszLTtmOAh_FkBTHRahIaQLYH",
    "chat_idx": null,
-   "note": "was NOID_USA_1964_10Cents_obv; date reads 1957 at full zoom"
+   "note": "was NOID_USA_1964_10Cents_obv; date reads 1957 at full zoom",
+   "sha256": "1f274628e64ae1cf2bbe0bbd74e98b58ae516c92f298ec89fed2008cd8fd95a3"
   },
   {
    "file": "C089_Germany_1995_10Pfennig_rev.jpeg",
@@ -1607,7 +1692,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ogEnbBDAKXFKnnpC6-74i5s-Ewyehb_E",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "9e31682c7eb5077846e9c8e41e1457a151b1d83aeb5f737925469b167ac83c51"
   },
   {
    "file": "C090_Germany_1982_10Pfennig_rev.jpeg",
@@ -1615,7 +1701,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Xd5yilZN12obFa5EuqkL1s39t0OAYE9F",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "8169b04cf94abd099c73df1a53871d9eb64c9edd2073e4613cc7ea941567e5df"
   },
   {
    "file": "C091_C092_Germany_1982_10Pfennig.jpeg",
@@ -1635,7 +1722,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1cmJc3e5j6rovb_E3YhMsTOsKa6XpD9xZ",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "8ca57db0536c8ada56a3f9016459e087e92c5f0272ef5f910f1237e93d14aaac"
   },
   {
    "file": "C094_Switzerland_1986_1Franc_rev.jpeg",
@@ -1643,7 +1731,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1nbr-edHwfl1bPrHIC7bTHv7IethMua_8",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "d1e74211724e7799affc53d973d4f3ee223d8ce77d3d26f313f75eacc58b0bde"
   },
   {
    "file": "C095_C096_C097_France_10EuroCent_rev.jpeg",
@@ -1656,7 +1745,8 @@
     "C095",
     "C096",
     "C097"
-   ]
+   ],
+   "sha256": "ad1b746a90de51c92921f43b77a005c11fb0fa129467b267433231309f9b38fb"
   },
   {
    "file": "C098_C099_Spain-Germany_5EuroCent_rev.jpeg",
@@ -1668,7 +1758,8 @@
    "assets": [
     "C098",
     "C099"
-   ]
+   ],
+   "sha256": "af7fabcc65f495514e51f208e4536ee5d986e03b2cace3a4a53051b8ebc413f8"
   },
   {
    "file": "C100_C101_Germany-Ireland_2002_rev.jpeg",
@@ -1680,7 +1771,8 @@
    "assets": [
     "C100",
     "C101"
-   ]
+   ],
+   "sha256": "4d49517898f6a6418ff6f45c96af3bd4818835bfa2a45553020e1b6211921b5b"
   },
   {
    "file": "C102_C103_C104_Germany-Netherlands.jpeg",
@@ -1693,7 +1785,8 @@
     "C102",
     "C103",
     "C104"
-   ]
+   ],
+   "sha256": "6f9c100b569a3285be4095cf811bfbe74e3144bc7c41e29d163abe05e005e873"
   },
   {
    "file": "C105_C106_C107_C108_C109_C110_C111_C112_C113_United-Kingdom_1Penny_obv.jpg",
@@ -1757,7 +1850,8 @@
    "assets": [
     "C120",
     "C121"
-   ]
+   ],
+   "sha256": "9a0504e2ba7f825199c70e1e40b07d7b5a0937f3a2af9fca23a75d209489a8ba"
   },
   {
    "file": "C122_C123_Germany_2Pfennig_rev.jpeg",
@@ -1769,7 +1863,8 @@
    "assets": [
     "C122",
     "C123"
-   ]
+   ],
+   "sha256": "647e224d77906f2d210d04feb8b155417a12cf1d3273abe646762970e928e3dc"
   },
   {
    "file": "C124_C125_France_10Centimes_rev.jpeg",
@@ -1782,7 +1877,8 @@
    "assets": [
     "C124",
     "C125"
-   ]
+   ],
+   "sha256": "bf4a6a685306f8ea7251755db6601e10fe70a01ed8a448f1005f78066406020e"
   },
   {
    "file": "C126_C127_C128_Germany-France_2EuroCent_rev.jpeg",
@@ -1795,7 +1891,8 @@
     "C126",
     "C127",
     "C128"
-   ]
+   ],
+   "sha256": "6a61e85e569a8ba60d7f6b5a386e1daa1515ad10cdd8f2db7d91452e7d777b7c"
   },
   {
    "file": "C129_C130_C131_France-Germany_20EuroCent_rev.jpeg",
@@ -1808,7 +1905,8 @@
     "C129",
     "C130",
     "C131"
-   ]
+   ],
+   "sha256": "d4903b423a68f9b0f05f6f3fc1f2b331d6d78142fb0ab9c2834f733730f11cf3"
   },
   {
    "file": "C144_Norway_1998_50Ore_obv.jpeg",
@@ -1816,7 +1914,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "12p2oRLzcUmmrWYpRfckX-TZBOkwiqENm",
-   "source": "Grok STAGING runs 2026-10-03 18:44 + 18:55 PT"
+   "source": "Grok STAGING runs 2026-10-03 18:44 + 18:55 PT",
+   "sha256": "c2f13149706781e03e2300e680f3a46976ccd98cd72688ca6832f24c934c2bb6"
   },
   {
    "file": "C145_Chile_1996_50Pesos_obv.jpeg",
@@ -1824,7 +1923,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "17yPoGq9n3lKPec-s9LUlShJj4XLt4U6_",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "aca5887c3503506caef5f532ea66d6c587a981e62fe8d6099513f46fd163198a"
   },
   {
    "file": "C146_Hong-Kong_1998_1Dollar_rev.jpeg",
@@ -1832,7 +1932,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Qb6DLnwboUxC8zNRKwxxZhVKidPvcA9g",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "074aff1ab3192d00411260f245f21f452f1ebd5d3588c754869255370af298dc"
   },
   {
    "file": "C147_C148_C149_C150_C151_C152_C153_C154_C155_C156_C157_C158_United-Kingdom_10Pence_obv.jpeg",
@@ -1854,7 +1955,8 @@
     "C156",
     "C157",
     "C158"
-   ]
+   ],
+   "sha256": "3a4f70d1c648eb7b505e0283c658a7846f853bd8c72910adad8e3c880e59e5b9"
   },
   {
    "file": "C159_East-Caribbean-States_ND_10Cents_rev.jpeg",
@@ -1862,7 +1964,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1d62TIVD3GhtC7WXRWNlNjsGUrcdyOc6T",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "af18b1a9d97b7fbdaada61ba875a6f2219427bafc6d1ce6ff36b94d36d697f94"
   },
   {
    "file": "C160_Canada_1939_5Cents_rev.jpeg",
@@ -1870,7 +1973,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1VNGXSwYqcvRphYLNmVLKMsxG_9W6Yro-",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "11fbc554ad542a19698979986dea79ad3cf89706baceb5b84ffcd880b47b2933"
   },
   {
    "file": "C161_Mexico_1945_10Centavos_rev.jpeg",
@@ -1886,7 +1990,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1bDx5EvtEB1JLAwWOC1Qg4mgukzAEn8K4",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "58380bfd68c2da33b2ac543543fa57811095c5e417a31b00a6819fb7b07587d9"
   },
   {
    "file": "C162_Thailand_ND_1Baht_obv.jpeg",
@@ -1894,7 +1999,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "15bleUAMnnuCnM9if7TCmUNu6RfKqlnHn",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "44204b6175fa86e7d4d94cdd858e5b1f7bbaa3f051a2928fa766e23e6e0f9bad"
   },
   {
    "file": "C163_Philippines_ND_50Sentimo_rev.jpeg",
@@ -1902,7 +2008,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1w3suHnJuMJsCIIFMZyZuSWKgN6XcQnCy",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "a8fe6bcf5a3d42b5335b72af8a4f049bb6ebcd4e9c3244f20200a8bd621f41b4"
   },
   {
    "file": "C164_United-Kingdom_1932_Halfpenny_rev.jpeg",
@@ -1911,7 +2018,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1FMzq_6HHS07SL7ZEPlJf93D0i-sA3KcM",
    "chat_idx": null,
-   "note": "was NOID_UK_1982_Halfpenny; date reads 1932 (Grok id confirmed)"
+   "note": "was NOID_UK_1982_Halfpenny; date reads 1932 (Grok id confirmed)",
+   "sha256": "96cdd52458435af476aad0aeae9f67cc7288f1845c93d336680f3d74cbed2a88"
   },
   {
    "file": "C165_C166_UK-5Pence_labeled.jpeg",
@@ -1932,7 +2040,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1prFkfrDasGCbxUSN08zkqVe6JzJHoGEa",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "f626cac1a8aaed3b998df0559503a61ed1f9410e0d518bc4d7f0b4bed44ac266"
   },
   {
    "file": "C166_Mexico_1944_5Centavos_obv.jpeg",
@@ -1940,7 +2049,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1f4-Cj8s68KrvRTuUhaKQKa2dbE__oExE",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "f71e5ef3b1210ff6b89df9e2c2fdea7f4dc20485b508a8b032d7d5b562fe3d12"
   },
   {
    "file": "C167_C168_C169_C170_C171_C172_C173_C174_C175_C176_C177_C178_C179_C180_C181_C182_C183_C184_United-Kingdom_5Pence_obv.jpeg",
@@ -1968,7 +2078,8 @@
     "C182",
     "C183",
     "C184"
-   ]
+   ],
+   "sha256": "a82c4113c2508865eae340ae9f32f62c13067fa7e7a67f26f1c7df15b17c27a1"
   },
   {
    "file": "C185_Cayman-Islands_1996_5Cents_obv.jpeg",
@@ -1976,7 +2087,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1YFIOCYsDrQ_o8CorrAGNnoJ3Uu4TeQxV",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "2758cedfd0978b7e388847f76252bcdda45e69d524bc4e8c9f40f71263236817"
   },
   {
    "file": "C187_C188_C189_C190_C191_C192_Germany_1Pfennig.jpeg",
@@ -2004,7 +2116,8 @@
    "assets": [
     "C193",
     "C194"
-   ]
+   ],
+   "sha256": "fa1d8341fd9865db0fd6acfa8bd4c7921096a398586cdec916fd0d0fdb37a6d5"
   },
   {
    "file": "C195_C196_C197_Germany_5Pfennig_rev.jpeg",
@@ -2017,7 +2130,8 @@
     "C195",
     "C196",
     "C197"
-   ]
+   ],
+   "sha256": "5e9e16f3f343c29cb20050d31635cb7ce5c7810f6c950b2a071b40f429c571bf"
   },
   {
    "file": "C198_Netherlands_1948_1Cent_obv.jpeg",
@@ -2025,7 +2139,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1vl7MMrXQNlW2ihvAeGWC2LZwUytOehUs",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "172acc1065729989e5882336810413cca1d416833dfb83118038cc5cc76edbb0"
   },
   {
    "file": "C198_Netherlands_1948_1Cent_rev.jpeg",
@@ -2033,7 +2148,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1pIzuIC2jdjxQNSmXevpiOyfWx2pf7rKN",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "21846fb631204486ec80dfb66d67aa72ddc61e7bff96e2c630099ba446f80da6"
   },
   {
    "file": "C199_Italy_1978_50Lire_rev.jpeg",
@@ -2041,7 +2157,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1WrxIDNhz9GAoI8y6lsSVg7mrV7qGqPUe",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "3fab941a3ba511f61b0554a7ae1cddc21c45694bbd8c3be109284bf05441c78f"
   },
   {
    "file": "C200_Taiwan_1978_1Yuan_obv.jpeg",
@@ -2049,7 +2166,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1wDDaXHfpfkbmCQUo5v1uyQ9vW4ZcA0gO",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "0005076d066de0a6b328d03e400006683a026763fc081d636d1e793ebe346e6a"
   },
   {
    "file": "C200_Taiwan_ND_1Yuan_rev.jpeg",
@@ -2057,7 +2175,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1GhmbW1ZtSvyPXMAlkNIwI5-VThH5purO",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "787a0c40ed14af0c67248a24a3ddf392d0b68f43fdfec72a42277dec1dec34ac"
   },
   {
    "file": "C201_Nigeria_1976_10Kobo_rev.jpeg",
@@ -2065,7 +2184,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1XLMN37OvxvhWhWoqk7oiWjVXkBmxeebI",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "08c34e3ca62db52dfa10359a943f0c3699c9aba6886b08aac9ee9a45bddf8791"
   },
   {
    "file": "C202_Guatemala_2010_10Centavos_rev.jpeg",
@@ -2073,7 +2193,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "14EUPS609595wCSAS84tA8zb4Na4TQG1s",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "24d3db548a8cdd37a3978d99a2cc16c4d509fb880a128a51d1c7a8c9ec84c60d"
   },
   {
    "file": "C203_India_2001_1Rupee_rev.jpeg",
@@ -2081,7 +2202,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ZZKQlbeRon6mQ-4qkq3FQEHUVOt85Duz",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "1a08a22194786837016d4c5eb4c7ec750b095e778512c1c763891ccf30df371e"
   },
   {
    "file": "C204_Trinidad-and-Tobago_2014_25Cents_obv.jpeg",
@@ -2089,7 +2211,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1jqTzD0HBpIzIjJlwSfv9ZwbtbaQ-ahEU",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "6d18aac897de40b96dd05760250a7e03f98bf1894987451a2c972bfbe4d5ccf6"
   },
   {
    "file": "C205_United-Kingdom_1982_20Pence_rev.jpeg",
@@ -2097,7 +2220,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1-nxjqq7UJWCWbIaFIG5MaiAnml6bUn7s",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "fffe373256b73ceda61b111e01ce6e993a13645f6ab9341cd2cf1e8bffc35a7b"
   },
   {
    "file": "C206_Japan_1976_1Yen_obv.jpeg",
@@ -2105,7 +2229,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1zBW48zRQ6apEGo7SM3yvj56Y3IN_dVQP",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "a2a1b8456bd8a9d81ad23caadefeda1a17e9c67f0c87f8c07452975f2b9707df"
   },
   {
    "file": "C206_Japan_ND_1Yen_rev.jpeg",
@@ -2113,7 +2238,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Ywh7hmsBa7-iyC38my3a8u65znlqZG5X",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "c76b69749b9973adce65c223e0252db7f1d2ae850e222e8ed5c363ff2ee21a02"
   },
   {
    "file": "C207_Trinidad-and-Tobago_2016_10Cents_obv.jpeg",
@@ -2121,7 +2247,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1AIEgGtZg-rnaPmGFS9IICZMZKqCkfcK2",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "44ce6e6729e7a754bc156e11fd81179586f1d808f95d26dfad709fbe65465b60"
   },
   {
    "file": "C208_Turkey_2011_10Kurus_rev.jpeg",
@@ -2129,7 +2256,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1u2NoFbq0jFU-gxQ4vPN59C-9IrCY6St6",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "a672256209f900975cde47175aca1d1c7800d622495ed5325c555ec0a06510b5"
   },
   {
    "file": "C209_Mexico_1987_5Pesos_rev.jpeg",
@@ -2137,7 +2265,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ZoATqIulCHcZa93fPIdfpNdo-E4WzQcx",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "fecd71ed39e7d90d11f301e1cd17fc6a3e8b29d00f147a1da13ca6f6095b2de8"
   },
   {
    "file": "C210_South-Korea_2000_100Won_rev.jpeg",
@@ -2145,7 +2274,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1NrDFcHend33O90cOD0GPiMPOXH2dUKLU",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "0baf9fc2807f6d3c65f6e0e9da1d4aad5cc32767d868ac8ed123a2f4bd7df89e"
   },
   {
    "file": "C211_Italy_1987_500Lire_rev.jpeg",
@@ -2153,7 +2283,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1tGRVQxZSmykDNl2rASe59nFLvMW3XGs2",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "d37ccc771dd2a316a99ef218c2e4defa9af1ddaa2348b44b924242ec23b80d99"
   },
   {
    "file": "C212_Eritrea_1997_50Cents_rev.jpeg",
@@ -2161,7 +2292,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1lJ_hnOHicDrl48_DINrCEKsLoNLYLjio",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "aaa60b9001f912d23fcd88e1b7f45056bd398ca98aff1963cd318891e8013fec"
   },
   {
    "file": "C213_United-Kingdom_1991_2Pence_obv.jpeg",
@@ -2170,7 +2302,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1MNpRNU4oPl3fcFFihztgA_qpNSPujaTu",
    "chat_idx": null,
-   "note": "was NOID_Canada_1991_1Cent; legend D.G.REG.F.D 1991 ELIZABETH II is British (Grok id confirmed)"
+   "note": "was NOID_Canada_1991_1Cent; legend D.G.REG.F.D 1991 ELIZABETH II is British (Grok id confirmed)",
+   "sha256": "8f6b7c2eca241a18d18f7ee486220496c30c62557a264ad588d3e4746edaa96e"
   },
   {
    "file": "C214_C215_Cayman-Islands_5Cents_obv.jpeg",
@@ -2182,7 +2315,8 @@
    "assets": [
     "C214",
     "C215"
-   ]
+   ],
+   "sha256": "c4fcf993778e7ea3b6898e059c462ee4cb824919d86e74d07e975200e11d925a"
   },
   {
    "file": "C217_United-Kingdom_1998_1Penny_obv.jpeg",
@@ -2190,7 +2324,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "16UGRaIPUaf2xhs3Pr_soR3LGrGCjAclF",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "14f095b44cd1636a627be608b6afafdf7b7327ca362162b58f424b3823abe8aa"
   },
   {
    "file": "C219_Jamaica_2015_1Dollar_rev.jpeg",
@@ -2198,7 +2333,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "17lWYcKIqJMMukdXfOkNIHAFQHvDR6kvt",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "bd099de53b936bf4d022e263efa61bf0ddf87fc3380fadd0f5475d15ed66ce43"
   },
   {
    "file": "C220_Japan_1982_10Yen_rev.jpeg",
@@ -2206,7 +2342,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1BrB1q-McMnGiYY1oDceA7UKGEVq8xKfp",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "8bcd361d3cf7329186f6c6a3b836bb267ed1ebbe92ea6b68749d9edaf90bb1a9"
   },
   {
    "file": "C221_France_1986_1-2Franc_rev.jpeg",
@@ -2214,7 +2351,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1WPbtSoJxu4yWCRuBjuaHAZqQvWAE8xQu",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "29b93a292eea14549986562ccf6a7f0ca152d78f6f1e9c2b02abec25122ad56f"
   },
   {
    "file": "C222_Japan_1965_1Yen_rev.jpeg",
@@ -2222,7 +2360,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "15-zLaCNLyJ6epdlZH7iPAFUJaNFbEuKc",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "93b819286b3b523c20a49a3b4ddd88006388c29528c32d122f11e9b1d1e1434c"
   },
   {
    "file": "C223_Netherlands_1967_1Gulden_rev.jpeg",
@@ -2230,7 +2369,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1gQ6-9974cihJ-u9v5pVv66og-FpOtyeg",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "25d84e6872ab0114c08a6c7c5141f7400d42d177ff832c3248ca61f5a4b74178"
   },
   {
    "file": "C230_Jamaica_2015_10Dollars_rev.jpeg",
@@ -2238,7 +2378,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "15yFngSl6ciHYgZNxpIruxqZUmnHtF1gz",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "5311a0b92bb51bd2300749f433731840e8d9d197a0d6d4b3b4d00c6213f5f83b"
   },
   {
    "file": "C232_Vietnam_2003_1000Dong_obv.jpeg",
@@ -2246,7 +2387,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1gXRrUJfHDaV6JmuE7pjeblP9oZfsjEVl",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "c5d1a76f72802979d8584a79587048cdf882709786ee52a2aebad65f90afb426"
   },
   {
    "file": "C233_Colombia_50Pesos_rev.jpeg",
@@ -2255,7 +2397,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "13_eMph9E4mf0-XiC33duonI6e1g8tb8r",
    "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
-   "note": "Grok named this 2013; record says 2016; the date is not clearly legible"
+   "note": "Grok named this 2013; record says 2016; the date is not clearly legible",
+   "sha256": "b23f7c61f5cd036a6960cb08c3d6374c68c54d0ded16de3908611057659da2a8"
   },
   {
    "file": "C233_Colombia_ND_50Pesos_obv.jpeg",
@@ -2263,7 +2406,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1dZsEsJgq_i1cwRAUShNLRuN-qmNZ6ujh",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "c9d829f0af4c48f8d46c57da9d8ba8b4486532d68b7a3dc3d84f2ac79a24465f"
   },
   {
    "file": "C234_United-Kingdom_1968_10Pence_obv.jpeg",
@@ -2271,7 +2415,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1a2rZfktKiDD9JREiMQeYF6k2wFLcIRw1",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "36a18e075fca3461a897e708ee7262c0a09aedf010195cd6cfff95120855c490"
   },
   {
    "file": "C235_Guatemala_10Centavos_rev.jpeg",
@@ -2280,7 +2425,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1rPTr6fxdbqNKyr2e0Yaivwwa8ueI3ge4",
    "chat_idx": null,
-   "note": "was NOID_Mexico_1924; legend LEY DE 26 DE NOVIEMBRE DE 1924 is the Guatemalan monetary law (Grok id confirmed)"
+   "note": "was NOID_Mexico_1924; legend LEY DE 26 DE NOVIEMBRE DE 1924 is the Guatemalan monetary law (Grok id confirmed)",
+   "sha256": "9b0990d518fac677e99829d4fe7dfbfd807a0a82005175bb778ce4afb530d762"
   },
   {
    "file": "C235_Guatemala_1934_10Centavos_obv.jpeg",
@@ -2288,7 +2434,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Yb8vQQVMdQbiXQ_e6kKvraG-GINAzEbq",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "db7914aa50990b72a5cb9f4d1e7a1bb1f3caf27f3cf7dcdb296c0049000fb0a9"
   },
   {
    "file": "C236_Mexico_2010_2Pesos_rev.jpeg",
@@ -2296,7 +2443,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1XscsOv-0C6E9G04EOOcJjBlMZv4ybj7s",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "baa6c781a33ec570d7ce69a6e6cae0dececb4ad87dd73f22993a6ed5004b9b0f"
   },
   {
    "file": "C237_Germany_1971_5Pfennig_rev.jpeg",
@@ -2304,7 +2452,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1j9rBvi1gK3V5uwezphayj_dT8ZulysWk",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "ae601b648fc86c86bc52b57c7a15f8437c9eb93127d876b4a18b33379e742bf2"
   },
   {
    "file": "C238_Germany_1973_2DeutscheMark_rev.jpeg",
@@ -2312,7 +2461,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1S8iWh5DT_LaRX65ueQYHjLUCbBSpVm4V",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "05199bb913598a0d5c9d76abb075dbb9c8fa1f0fa77bd540e72ebffc55e6379b"
   },
   {
    "file": "C239_Australia_1944_Penny_rev.jpeg",
@@ -2321,7 +2471,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1nHy6dBJXr5mtYouoNr8BEpWa8Dh_cdjN",
    "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
-   "note": "Grok named this C238 (a 1973 2 DM); the photo is an Australian 1944 penny = C239"
+   "note": "Grok named this C238 (a 1973 2 DM); the photo is an Australian 1944 penny = C239",
+   "sha256": "10c07c49f700c6fee88e7e19e1cf0c5b722b4eb8721126817ec7e52be0288a63"
   },
   {
    "file": "C240_Italy_1965_100Lire_rev.jpeg",
@@ -2329,7 +2480,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1EYCNaNZjAuuVbxcSucl3igc3w6KiU3yR",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "60265a35ce890835794189a30f313767716e756fadf222071e2d10a039137411"
   },
   {
    "file": "C242_Switzerland_1883_10Rappen_obv.jpeg",
@@ -2337,7 +2489,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1LC2WNkQ3wzrTuEa9rROc3wlYmulQKrVU",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "0d3a0173d0eb2d8f96580ed4275d833c311290450dbbe79b31e51458f47928f4"
   },
   {
    "file": "C243_France_1946_5Francs_rev.jpeg",
@@ -2345,7 +2498,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1munRx6X3lipx6Vw7eKAJIwqAQE5XDuJA",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "c57cbcb4e8dba75ec622bec35d989889092f8aacd1bb81604c6ac9bc9ed710ce"
   },
   {
    "file": "C247_South-Korea_1966_1Won_rev.jpeg",
@@ -2353,7 +2507,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "12k8x9N8Wg2Wm68iNUP0VaTIYg6y0b2LU",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "08e81b2bb2d9f95de2892f09c80449dc136b186a6a721df5a3fd0252a346db91"
   },
   {
    "file": "C248_Greece_1982_2Drachmes_rev.jpeg",
@@ -2361,7 +2516,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1dcT9bZAorCwDbVJmAxtzKXdKJShhl3QB",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "c7082ac39c98b994fa603768eaa1fe4a6af8940151a00c10911f2dc3ac591855"
   },
   {
    "file": "C250_Singapore_1967_20Cents_rev.jpeg",
@@ -2369,7 +2525,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1kZJD-LO-4HQiy8gC6g3rbBTyvT6TjhZU",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "38100f84a548016b418e4ed3db4315ae6f551bf5e1511b6075862732b4b19a95"
   },
   {
    "file": "C252_Cuba_1962_20Centavos_rev.jpeg",
@@ -2377,7 +2534,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1by4HlQjS2cf2bpNQboDadY_YGOXL-KD-",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "5f684b98ce002c1da00e9125fbe587341cffbc7bad75a974869c1543e9b88667"
   },
   {
    "file": "C257_Mexico_1967_20Centavos.jpeg",
@@ -2386,7 +2544,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1vuFmYeWLZMd8zEeACX1YAU6GVVMPH-Qy",
    "chat_idx": null,
-   "note": "Grok: Mexico 1967 20 centavos. Only C257."
+   "note": "Grok: Mexico 1967 20 centavos. Only C257.",
+   "sha256": "b180fa57e01528f4f263bc8dae31d4c6c06e41b57046845dd566dd3ecfb49b62"
   },
   {
    "file": "C258_Vietnam_1953_20Su_rev.jpeg",
@@ -2394,7 +2553,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1o4n0uJ97jgKfpfReNjsRCmkBr1XmQzhU",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "7992892420fd2477280724e794f0ed5939eb6c7d59c582a90aa5d53ab4ed23f5"
   },
   {
    "file": "C259_Mexico_1940_1Centavo_rev.jpeg",
@@ -2402,7 +2562,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1oOWBo4WCfMDCGmRD-TqFnw3MXQF_MizV",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "2e34c6e86188b6c3a3efb0485e3337cf4a51bfa6c9640004d46eb0f69505cacc"
   },
   {
    "file": "C260_USSR_1931_3Kopeks_rev.jpeg",
@@ -2410,7 +2571,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1rF--BlpRpgVd1pJ2lX7G-lhKDo6d0bMu",
-   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT"
+   "source": "Grok STAGING runs 2026-10-03 19:52-22:30 PT",
+   "sha256": "f6432f947da41faebb749703e1ca261bddef4e7217a9db5abe99961ba7047aec"
   },
   {
    "file": "C264_Singapore_1973_10Cents_rev.jpeg",
@@ -2419,7 +2581,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Tg6SW1JcJFKJ2I750yJp6vVtevRsIu1Y",
    "chat_idx": null,
-   "note": "Grok named it NOID_Singapore_1976_10Cents.jpeg; Claude read the date at full zoom 2026-10-02: 1973 = C264 (owner: NOIDs are probably misreads)"
+   "note": "Grok named it NOID_Singapore_1976_10Cents.jpeg; Claude read the date at full zoom 2026-10-02: 1973 = C264 (owner: NOIDs are probably misreads)",
+   "sha256": "f5e63e3d73487e002945cbc8f0117f9f5872f30d9ae177f4d2e37dd61ffd465c"
   },
   {
    "file": "C266_South-Korea_2012_10Won_rev.jpeg",
@@ -2427,7 +2590,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1mY1YOtx_D648_GbqrLJKbjsTCWXjmNPd",
-   "chat_idx": null
+   "chat_idx": null,
+   "sha256": "cf95a844577159bd2b56cca4e840031f30993c471d77a9d95755e497802e01ec"
   },
   {
    "file": "C267_South-Korea_2013_10Won_obv_idx093.jpg",
@@ -2435,7 +2599,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1p-KCYY_QZjdLQurvpskN3LrAtpSXX1AB",
-   "chat_idx": 93
+   "chat_idx": 93,
+   "sha256": "493a6639064f05b8ed2c2a15ed6f9521639305909d292d399b4a13c58fa1d386"
   },
   {
    "file": "C268_Norway_2000_50Ore_rev_idx120.jpg",
@@ -2443,7 +2608,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ar7a-mIYM6hvx0lSuRmIFtaoS1ym4twT",
-   "chat_idx": 120
+   "chat_idx": 120,
+   "sha256": "57915983aea58e2e7fad8720176ec38243ae66fdeb463c453bcd47a6ec73fa22"
   },
   {
    "file": "C269_Cayman-Islands_1990_1Cent_obv_idx228.jpg",
@@ -2451,7 +2617,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "14WhTWVSkkIwzNgmkjEbzIiDOjJ0vhftQ",
-   "chat_idx": 228
+   "chat_idx": 228,
+   "sha256": "a7f3179e27eedb899ddf0e9c92240a05e1796c8f4516278b82241ec6eb737a29"
   },
   {
    "file": "C270_Japan_1988_10Yen_rev_idx282.jpg",
@@ -2459,7 +2626,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1LhbeyfUR6Gw3qzn7xFqfpQ-H-whIdD6D",
-   "chat_idx": 282
+   "chat_idx": 282,
+   "sha256": "c347e6c5944e242ee398a7a3bdd9c5c678496efb067be24e5d66fddade098b2d"
   },
   {
    "file": "C271_Mexico_2013_50Centavos_obv_idx289.jpg",
@@ -2467,7 +2635,8 @@
    "kind": "coin (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1b_sDHItIRdPq9jCR3E2yyE1xzCy_CBYi",
-   "chat_idx": 289
+   "chat_idx": 289,
+   "sha256": "c6dd318a5cb8c6747200a6b2a9a8084702eade4c3be26e06ccf63f1ebe8ced5d"
   },
   {
    "file": "C275_United-Kingdom_1992_5Pence_obv.jpeg",
@@ -2475,7 +2644,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1QC7cwjs3PoBJsVZVpkg5O2FNKSiBANMh",
-   "source": "Muse STAGING run 2026-10-03/04"
+   "source": "Muse STAGING run 2026-10-03/04",
+   "sha256": "6e5dae86fd45c06b6002444fadd4daf8702c6048ce402a8068623d49bee8f919"
   },
   {
    "file": "C276_Bahamas_2015_1Cent_obv.jpg",
@@ -2483,7 +2653,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1fYbHTlHEK4SsezEMoXvpTft6rwcUdNhM",
-   "source": "Muse STAGING run 2026-10-03/04"
+   "source": "Muse STAGING run 2026-10-03/04",
+   "sha256": "b870ff6acca0c1caa88199fb3dc694089709805eb5b9013ccfe9033df3666b1b"
   },
   {
    "file": "C277_Bermuda_2004_10Cents_rev.jpg",
@@ -2491,7 +2662,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1i0vuKGaG1N_EBOkGXHh1KskR4R4NBk2F",
-   "source": "Muse STAGING run 2026-10-03/04"
+   "source": "Muse STAGING run 2026-10-03/04",
+   "sha256": "2bbd84e38ee2aa2a563679a868b83fe8b7b777bc5941ea034e971a7b43236baf"
   },
   {
    "file": "C278_Switzerland_1980_20Rappen_obv.jpg",
@@ -2499,7 +2671,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "156t0SXqETAPrz8Oq6yzyosS1fir_Wuz9",
-   "source": "Muse STAGING run 2026-10-03/04"
+   "source": "Muse STAGING run 2026-10-03/04",
+   "sha256": "7995427c72ff1e465f2eb1bf50357ace7dbd899c11f2c6f0d4292443ea6f522a"
   },
   {
    "file": "H001_WoodChest.jpeg",
@@ -2572,7 +2745,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1sN6fgWvi9vvC41dvmLsvv7lfUA4-gapM",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "3e3f9754ffab9053fff683491419155d2be2ff04d1d7a2da22208b1caba714c9"
   },
   {
    "file": "T002_Germany_ND_Spielmarke20_rev.jpeg",
@@ -2580,7 +2754,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1dCGkS88GGIKPqhGrZInZSDDJB5WbW9__",
-   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)"
+   "source": "Grok STAGING runs 2026-10-02/03 (photos_grok_*.json)",
+   "sha256": "89f4906da76ff01719e5b1ffaf32061b7cf9a654d645af0439da5111f03b0b3c"
   },
   {
    "file": "T003_USA_ND_Meijer-Pony-Ride-token.jpeg",
@@ -2589,7 +2764,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1O2RCmdZ2UAfYYoZopUOMH4M9boN-tC-Y",
    "chat_idx": null,
-   "note": "Grok named it NOID_USA_ND_Meijer-token.jpeg (NOID); owner 2026-10-02: the Meijer token IS the pony-ride token = T003"
+   "note": "Grok named it NOID_USA_ND_Meijer-token.jpeg (NOID); owner 2026-10-02: the Meijer token IS the pony-ride token = T003",
+   "sha256": "04aae619b01062ed9785ab381c6df1c185a874cdac7e5894cd36bb89f82f2e77"
   },
   {
    "file": "T003_USA_ND_Meijer-Pony-Ride-token_angle2.jpeg",
@@ -2598,7 +2774,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1YwU-f16AMPcRHYGGklXTqyhsBrGa-c5N",
    "chat_idx": null,
-   "note": "Grok named it NOID_USA_ND_Free-Pony-Ride-token.jpeg (NOID); owner 2026-10-02: the Meijer token IS the pony-ride token = T003"
+   "note": "Grok named it NOID_USA_ND_Free-Pony-Ride-token.jpeg (NOID); owner 2026-10-02: the Meijer token IS the pony-ride token = T003",
+   "sha256": "48c395bb0c6bd9cc22afbf3eb446b6a43517e5e754513645dba5995e6fb67304"
   },
   {
    "file": "T004_USA_ND_Nixon-Penny.jpeg",
@@ -2630,7 +2807,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1ohMbmn0D3BVAb9z7yjDXflai_YWoH4L_",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "fb63d21118f24aecec9f587d4d63cfe9a1797dcbfa37f02d97efb6a1f354fa37"
   },
   {
    "file": "C263_Mexico_1950_25Centavos_rev.jpeg",
@@ -2638,7 +2816,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1JkTOJKExd_o6XF_Q11xaHVSH4v4eh3_1",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "f376241c75d9dbb53ebad776c54a82153c9354c779b887c0d5002d295047cd0d"
   },
   {
    "file": "C262_Yugoslavia_1984_1Dinar_rev.jpeg",
@@ -2646,7 +2825,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1HGMXG8kEMhJvhIZ7_yjFRlCif-9lMMsF",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "4723a4f050acc800f8b486a61b1de4dd66e4802c9cdb04fffa0a5aba233e7848"
   },
   {
    "file": "C261_USSR_1932_15Kopeks_rev.jpeg",
@@ -2654,7 +2834,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "11InoGPUHiUELctXXxrgjsHwPTW6hPZeC",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "b65cb9874e8a766d14926631f77ad1de7fa54a162485c1b6d62e4669c4f75377"
   },
   {
    "file": "C253_Jamaica_1993_10Cents_obv.jpeg",
@@ -2662,7 +2843,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "10vTD-h_lsUNFHDEkFdx7-NBgBiRs_eX5",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "7f3a131a84e17f01116edbf388d49b791126547c428fa4d94c716caf266943b4"
   },
   {
    "file": "C251_Yugoslavia_1984_1Dinar_rev.jpeg",
@@ -2670,7 +2852,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1rAjoW5oAM1oCBl6sFXfN2lMqZeBhB7-D",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "746373e01e2730b70f091db57b2dd0cdd62ed536643163976c53eaa27f277a4d"
   },
   {
    "file": "C249_Australia_ND_20Cents_rev.jpeg",
@@ -2678,7 +2861,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1WzTovyBqhDXHV8rZEE9UFvxPwe4SRUYH",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "f12204a9732051ab40b01a04db97c63eb924bfcbc99bb9adef384249a71a3112"
   },
   {
    "file": "C247_South-Korea_ND_1Won_obv.jpeg",
@@ -2686,7 +2870,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1kjWyVFjuRBVogmYV-i82AkYzE6V5PxiH",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "59c7d87b2aeffcfd6b1f9cfa8f7507d5d6b25bc0f2a282ae04f679f174ba138f"
   },
   {
    "file": "C246_Philippines_ND_10Sentimos_obv.jpeg",
@@ -2694,7 +2879,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1Ixbs84zzxGmoczfCLfvybNjZEZvDG6pk",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "c841e15b69b7f4218554582fbdbda7a799002e95f63276fb7d34651fdfcbed95"
   },
   {
    "file": "C244_Mexico_1964_20Centavos_rev.jpeg",
@@ -2702,7 +2888,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1uW_45e9r21AxxRKTcGTosKV6UcsWeR5t",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "390e29fd09737076875daa1327173a452575c4fce331f0c0f7d54a2dbd628bf4"
   },
   {
    "file": "C224_C225_C226_C227_C228_C229_Germany_10Pfennig_rev.jpeg",
@@ -2710,7 +2897,8 @@
    "kind": "coin photo (Phase 1 chat photo)",
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ",
-   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)"
+   "source": "Grok STAGING run photos_grok_20261003-2342.json (uploaded 2026-10-04 06:41 UTC)",
+   "sha256": "b6ef6f677241f93f17bcec201ede8541f04f9bfa6f3ac4f5ae340e82a1bbcd38"
   },
   {
    "file": "C279_Philippines_1997_1Piso_obv.jpg",
@@ -2719,7 +2907,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "14uWrMmIqcKF8huVcbxbsUM1gKcx6SQLP",
    "source": "Muse photos_muse_20261004-1018.json",
-   "note": "Muse named it C280; the coin is C279"
+   "note": "Muse named it C280; the coin is C279",
+   "sha256": "05b6000b8844b02741a0ba821187828312cd162046f72427034c81677587d8b7"
   },
   {
    "file": "C280_Belize_2007_25Cents_rev.jpg",
@@ -2728,7 +2917,8 @@
    "drive_folder": "Titan Reliquary/_raw_capture/_phase1/coins",
    "drive_id": "1JADQaeTYRkAINbK7VsOIykoB7-AeRgx_",
    "source": "Muse photos_muse_20261004-1138.json",
-   "note": "Muse named it C281; the coin is C280"
+   "note": "Muse named it C281; the coin is C280",
+   "sha256": "cdd01a5ebc8a436bfea108d3a098f726fed1d7d733a0050e63d7a4cbdd3d04ac"
   },
   {
    "file": "C284_Mexico_2009_50Centavos_rev.jpg",

@@ -1,0 +1,1619 @@
+{
+ "agent": "muse",
+ "updated": "2026-10-09T14:54:33Z",
+ "assignments": [
+  {
+   "id": "HW-muse-verify-20261009-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-10-09T14:42:02Z",
+   "lease_until": "2026-10-16T14:42:02Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:US.KM.204:catalogs",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.4:catalogs",
+     "entity": "type",
+     "id": "CH.KM.40a.4",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.1:issues.0.mintage",
+     "entity": "type",
+     "id": "CH.KM.40a.1",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:US.KM.195:issues.0.mintage",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:catalogs",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.27:catalogs",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.21a:issues.0.mintage",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.27:issues.1.mintage",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:FR.KM.1289:catalogs",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.KM.443:catalogs",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:catalogs",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:DE.KM.213:catalogs",
+     "entity": "type",
+     "id": "DE.KM.213",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MT.KM.132:issues.0.mintage",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.124:composition.text",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.KM.888b.1:catalogs",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:catalogs",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:IT.KM.96.1:catalogs",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:catalogs",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:catalogs",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:FR.KM.888b.1:issues.0.mintage",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:issues.0.mintage",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:IT.KM.96.1:issues.0.mintage",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:issues.0.mintage",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:JM.KM.189:composition.text",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:AU.KM.36:catalogs",
+     "entity": "type",
+     "id": "AU.KM.36",
+     "field": "catalogs"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:US.KM.204:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "catalogs",
+     "coins": [
+      "C073"
+     ],
+     "label": "catalog of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "204",
+        "system": "KM"
+       },
+       {
+        "number": "205",
+        "system": "Schön"
+       },
+       {
+        "number": "56",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces56.html"
+       }
+      ],
+      "their_source": "Numista N#56 (https://en.numista.com/catalogue/pieces56.html) references: KM# 204, Schön# 205",
+      "links": [
+       "https://en.numista.com/catalogue/pieces56.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.40a.4:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.40a.4",
+     "field": "catalogs",
+     "coins": [
+      "C065"
+     ],
+     "label": "catalog of C065 · Switzerland · 2014 · 5 francs · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "40a.4",
+        "system": "KM"
+       },
+       {
+        "number": "36a",
+        "system": "Schön"
+       },
+       {
+        "number": "195",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces195.html"
+       }
+      ],
+      "their_source": "Numista N#195 (https://en.numista.com/catalogue/pieces195.html) references: KM# 40a.4, Schön# 36a; the entry covers KM# 40a; its 1994-2018 r",
+      "links": [
+       "https://en.numista.com/catalogue/pieces195.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.40a.1:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.40a.1",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C066"
+     ],
+     "label": "mintage of C066 · Switzerland · 1978 · 5 francs · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 4411000,
+      "their_source": "Numista N#195 (https://en.numista.com/catalogue/pieces195.html): mintage table row '1978' = 4 411 000 (re-cite; matches the record); circula",
+      "links": [
+       "https://en.numista.com/catalogue/pieces195.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:US.KM.195:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C088"
+     ],
+     "label": "mintage of C088 · USA · 1957 · 10¢ Roosevelt",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 275200000,
+      "their_source": "Numista N#52 (https://en.numista.com/catalogue/pieces52.html): mintage table row '1957 (161 400 000) + 1957 D (113 800 000)' = 275 200 000; ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces52.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "catalogs",
+     "coins": [
+      "C077"
+     ],
+     "label": "catalog of C077 · Switzerland · 1991 · 2 francs · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "21a.3",
+        "system": "KM"
+       },
+       {
+        "number": "29a",
+        "system": "Schön"
+       },
+       {
+        "number": "189",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces189.html"
+       }
+      ],
+      "their_source": "Numista N#189 (https://en.numista.com/catalogue/pieces189.html) references: KM# 21a.3, Schön# 29a; the entry covers KM# 21a; its 1983-2018 r",
+      "links": [
+       "https://en.numista.com/catalogue/pieces189.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.27:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "catalogs",
+     "coins": [
+      "C082",
+      "C083",
+      "C242"
+     ],
+     "label": "catalog of C082 · Switzerland · 1979 · 10 rappen · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "27",
+        "system": "KM"
+       },
+       {
+        "number": "25",
+        "system": "Schön"
+       },
+       {
+        "number": "24",
+        "system": "Y"
+       },
+       {
+        "number": "173",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces173.html"
+       }
+      ],
+      "their_source": "Numista N#173 (https://en.numista.com/catalogue/pieces173.html) references: KM# 27, Schön# 25, Y# 24",
+      "links": [
+       "https://en.numista.com/catalogue/pieces173.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.21a:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C003"
+     ],
+     "label": "mintage of C003 · Switzerland · 1968 · 2 francs · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 31588000,
+      "their_source": "Numista N#189 (https://en.numista.com/catalogue/pieces189.html): mintage table row '1968 B' = 31 588 000 (record had 10 000 000; corrected);",
+      "links": [
+       "https://en.numista.com/catalogue/pieces189.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.27:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C082"
+     ],
+     "label": "mintage of C082 · Switzerland · 1979 · 10 rappen · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 18000000,
+      "their_source": "Numista N#173 (https://en.numista.com/catalogue/pieces173.html): mintage table row '1979' = 18 000 000 (record had 18 010 000; corrected); c",
+      "links": [
+       "https://en.numista.com/catalogue/pieces173.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.1289:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": "catalogs",
+     "coins": [
+      "C072"
+     ],
+     "label": "catalog of C072 · France · 2000 · 2 euro · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "1289",
+        "system": "KM"
+       },
+       {
+        "number": "658",
+        "system": "Schön"
+       },
+       {
+        "number": "104",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces104.html"
+       }
+      ],
+      "their_source": "Numista N#104 (https://en.numista.com/catalogue/pieces104.html) references: KM# 1289, Schön# 658, Gad 1789# 8, Gad Euro# 801.0 etc.; Numista",
+      "links": [
+       "https://en.numista.com/catalogue/pieces104.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.443:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "catalogs",
+     "coins": [
+      "C263"
+     ],
+     "label": "catalog of C263 · Mexico · 1950 · 25 centavos · MXN",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "443",
+        "system": "KM"
+       },
+       {
+        "number": "43",
+        "system": "Schön"
+       },
+       {
+        "number": "972",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces972.html"
+       }
+      ],
+      "their_source": "Numista N#972 (https://en.numista.com/catalogue/pieces972.html) references: KM# 443, Schön# 43",
+      "links": [
+       "https://en.numista.com/catalogue/pieces972.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "catalogs",
+     "coins": [
+      "C094"
+     ],
+     "label": "catalog of C094 · Switzerland · 1986 · 1 franc · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "24a.3",
+        "system": "KM"
+       },
+       {
+        "number": "28a",
+        "system": "Schön"
+       },
+       {
+        "number": "185",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces185.html"
+       }
+      ],
+      "their_source": "Numista N#185 (https://en.numista.com/catalogue/pieces185.html) references: KM# 24a.3, Schön# 28a; the entry covers KM# 24a; its 1983-2018 r",
+      "links": [
+       "https://en.numista.com/catalogue/pieces185.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.213:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.213",
+     "field": "catalogs",
+     "coins": [
+      "C080"
+     ],
+     "label": "catalog of C080 · Germany · 2002 · 1 euro · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "213",
+        "system": "KM"
+       },
+       {
+        "number": "212",
+        "system": "Schön"
+       },
+       {
+        "number": "111",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces111.html"
+       }
+      ],
+      "their_source": "Numista N#111 (https://en.numista.com/catalogue/pieces111.html) references: KM# 213, J# 488, Schön# 212, AKS# K2; Numista also lists J# 488,",
+      "links": [
+       "https://en.numista.com/catalogue/pieces111.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MT.KM.132:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C064"
+     ],
+     "label": "mintage of C064 · Malta · 2008 · 1 euro · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 14000000,
+      "their_source": "Numista N#2187 (https://en.numista.com/catalogue/pieces2187.html): mintage table row '2008 F' = 14 000 000 (re-cite; matches the record); ci",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2187.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.124:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": "composition.text",
+     "coins": [
+      "C238"
+     ],
+     "label": "composition of C238 · Germany · 1973 · 2 Deutsche Mark · DEM",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Grok",
+      "value": "copper-nickel clad nickel",
+      "their_source": "Numista N#844 (https://en.numista.com/catalogue/pieces844.html) and N#1935 (https://en.numista.com/catalogue/pieces1935.html): both 2 Mark 1",
+      "links": [
+       "https://en.numista.com/catalogue/pieces844.html",
+       "https://en.numista.com/catalogue/pieces1935.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.888b.1:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": "catalogs",
+     "coins": [
+      "C243"
+     ],
+     "label": "catalog of C243 · France · 1946 · 5 francs · FRF (old franc · pre-nouveau)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "888b.1",
+        "system": "KM"
+       },
+       {
+        "number": "203b",
+        "system": "Schön"
+       },
+       {
+        "number": "1190",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces1190.html"
+       }
+      ],
+      "their_source": "Numista N#1190 (https://en.numista.com/catalogue/pieces1190.html) references: KM# 888b.1, Schön# 203b; the entry lists KM# 888b; its 1946 (P",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1190.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "catalogs",
+     "coins": [
+      "C281"
+     ],
+     "label": "catalog of C281 · France · 1994 · 5 francs · FRF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "926a.1",
+        "system": "KM"
+       },
+       {
+        "number": "235a",
+        "system": "Schön"
+       },
+       {
+        "number": "8",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces8.html"
+       }
+      ],
+      "their_source": "Numista N#8 (https://en.numista.com/catalogue/pieces8.html) references: KM# 926a.1, Schön# 235a",
+      "links": [
+       "https://en.numista.com/catalogue/pieces8.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.96.1:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": "catalogs",
+     "coins": [
+      "C240"
+     ],
+     "label": "catalog of C240 · Italy · 1965 · 100 lire · ITL",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "96.1",
+        "system": "KM"
+       },
+       {
+        "number": "96",
+        "system": "Schön"
+       },
+       {
+        "number": "304",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces304.html"
+       }
+      ],
+      "their_source": "Numista N#304 (https://en.numista.com/catalogue/pieces304.html) references: KM# 96.1, Schön# 96",
+      "links": [
+       "https://en.numista.com/catalogue/pieces304.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "catalogs",
+     "coins": [
+      "C255"
+     ],
+     "label": "catalog of C255 · Netherlands · 1892 · 1 cent · NLG",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "107.2",
+        "system": "KM"
+       },
+       {
+        "number": "963",
+        "system": "Sch"
+       },
+       {
+        "number": "1070",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces1070.html"
+       }
+      ],
+      "their_source": "Numista N#1070 (https://en.numista.com/catalogue/pieces1070.html) references: KM# 107, Sch# 695-701, 963-968; N#1070 is the shared page for ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1070.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "catalogs",
+     "coins": [
+      "C258"
+     ],
+     "label": "catalog of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "2",
+        "system": "KM"
+       },
+       {
+        "number": "36",
+        "system": "Schön"
+       },
+       {
+        "number": "5904",
+        "system": "Numista"
+       }
+      ],
+      "their_source": "Numista N#5904 (https://en.numista.com/catalogue/pieces5904.html): 20 Xu 1953 State of Vietnam, references KM# 2, Schön# 36; KM#1 is the 10 ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5904.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.888b.1:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C243"
+     ],
+     "label": "mintage of C243 · France · 1946 · 5 francs · FRF (old franc · pre-nouveau)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 61332000,
+      "their_source": "Numista N#1190 (https://en.numista.com/catalogue/pieces1190.html): mintage table row '1946' = 61 332 000 (re-cite; matches the record); Pari",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1190.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C281"
+     ],
+     "label": "mintage of C281 · France · 1994 · 5 francs · FRF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 9973818,
+      "their_source": "Numista N#8 (https://en.numista.com/catalogue/pieces8.html): mintage table has two 1994 rows, 3 973 818 (Franc 2014# 341/30) and 6 000 000 (",
+      "links": [
+       "https://en.numista.com/catalogue/pieces8.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.96.1:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C240"
+     ],
+     "label": "mintage of C240 · Italy · 1965 · 100 lire · ITL",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 36440000,
+      "their_source": "Numista N#304 (https://en.numista.com/catalogue/pieces304.html): mintage table row '1965 R' = 36 440 000 (re-cite; matches the record)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces304.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C255"
+     ],
+     "label": "mintage of C255 · Netherlands · 1892 · 1 cent · NLG",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 5000000,
+      "their_source": "Numista N#1070 (https://en.numista.com/catalogue/pieces1070.html): mintage table row '1892 (KM# 107.2, Sch# 963)' = 5 000 000 (re-cite; matc",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1070.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.189:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "composition.text",
+     "coins": [
+      "C219"
+     ],
+     "label": "composition of C219 · Jamaica · 2015 · 1 dollar · JMD",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Grok",
+      "value": "nickel clad steel",
+      "their_source": "Numista N#14369 (https://en.numista.com/catalogue/pieces14369.html): composition nickel clad steel -> metal_class clad",
+      "links": [
+       "https://en.numista.com/catalogue/pieces14369.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.KM.36:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.KM.36",
+     "field": "catalogs",
+     "coins": [
+      "C239"
+     ],
+     "label": "catalog of C239 · Australia · 1944 · 1 penny · AUD (pre-decimal)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "36",
+        "system": "KM"
+       },
+       {
+        "number": "23",
+        "system": "Schön"
+       },
+       {
+        "number": "5788",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces5788.html"
+       }
+      ],
+      "their_source": "Numista N#5788 (https://en.numista.com/catalogue/pieces5788.html) references: KM# 36, Schön# 23",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5788.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-plain-story-20261009-1",
+   "agent": "muse",
+   "kind": "plain-story",
+   "issued": "2026-10-09T14:42:50Z",
+   "lease_until": "2026-10-16T14:42:50Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "plain:C001",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "story"
+    },
+    {
+     "item": "plain:C002",
+     "entity": "specimen",
+     "id": "C002",
+     "field": "story"
+    },
+    {
+     "item": "plain:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "story"
+    },
+    {
+     "item": "plain:C008",
+     "entity": "specimen",
+     "id": "C008",
+     "field": "story"
+    },
+    {
+     "item": "plain:C009",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "story"
+    },
+    {
+     "item": "plain:C012",
+     "entity": "specimen",
+     "id": "C012",
+     "field": "story"
+    },
+    {
+     "item": "plain:C015",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "story"
+    },
+    {
+     "item": "plain:C017",
+     "entity": "specimen",
+     "id": "C017",
+     "field": "story"
+    },
+    {
+     "item": "plain:C025",
+     "entity": "specimen",
+     "id": "C025",
+     "field": "story"
+    },
+    {
+     "item": "plain:C031",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "story"
+    },
+    {
+     "item": "plain:C033",
+     "entity": "specimen",
+     "id": "C033",
+     "field": "story"
+    },
+    {
+     "item": "plain:C035",
+     "entity": "specimen",
+     "id": "C035",
+     "field": "story"
+    },
+    {
+     "item": "plain:C045",
+     "entity": "specimen",
+     "id": "C045",
+     "field": "story"
+    },
+    {
+     "item": "plain:C048",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "story"
+    },
+    {
+     "item": "plain:C049",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "plain:C001",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "story",
+     "coins": [
+      "C001"
+     ],
+     "label": "C001 · Switzerland · 1969 · 1 franc · CHF",
+     "authors": [],
+     "payload": {
+      "story": "A 1969 1 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy, Albert Walch, and Fr. Fisch. Struck in CuNi 75/25.",
+      "shorthand": "Standing Helvetia on the obverse, value "
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C002",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C002",
+     "field": "story",
+     "coins": [
+      "C002"
+     ],
+     "label": "C002 · Switzerland · 1963 · 5 rappen · CHF",
+     "authors": [],
+     "payload": {
+      "story": "A 1963 5 rappen from Switzerland. Libertas right on the obverse, 5 in grapevine wreath on the reverse, engravers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C006",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "story",
+     "coins": [
+      "C006"
+     ],
+     "label": "C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1984 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C008",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C008",
+     "field": "story",
+     "coins": [
+      "C008"
+     ],
+     "label": "C008 · Switzerland · 1968 · 1/2 franc · CHF",
+     "authors": [],
+     "payload": {
+      "story": "A 1968 0.5 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy and Albert Walch. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C009",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "story",
+     "coins": [
+      "C009"
+     ],
+     "label": "C009 · Germany · 1987 · 5 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1987 5 Deutsche Mark from Germany. Bundesadler reverse, value, DEUTSCHE MARK obverse (circulation Magnimat, not Ag commemorative). Struck in CuNi clad nickel (Magnimat).",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C012",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C012",
+     "field": "story",
+     "coins": [
+      "C012"
+     ],
+     "label": "C012 · France · 1962 · 1 franc · FRF (nouveau franc)",
+     "authors": [],
+     "payload": {
+      "story": "A 1962 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "shorthand": "REPUBLIQUE FRANÇAISE, olive sprig, LIBER"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C015",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "story",
+     "coins": [
+      "C015"
+     ],
+     "label": "C015 · Switzerland · 1971 · 1/2 franc · CHF",
+     "authors": [],
+     "payload": {
+      "story": "A 1971 0.5 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy and Albert Walch. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C017",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C017",
+     "field": "story",
+     "coins": [
+      "C017"
+     ],
+     "label": "C017 · France · 1999 · 1 franc · FRF (nouveau franc)",
+     "authors": [],
+     "payload": {
+      "story": "A 1999 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "shorthand": "REPUBLIQUE FRANÇAISE, olive sprig, LIBER"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C025",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C025",
+     "field": "story",
+     "coins": [
+      "C025"
+     ],
+     "label": "C025 · France · 1965 · 1 franc · FRF (nouveau franc)",
+     "authors": [],
+     "payload": {
+      "story": "A 1965 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "shorthand": "REPUBLIQUE FRANÇAISE, olive sprig, LIBER"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C031",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "story",
+     "coins": [
+      "C031"
+     ],
+     "label": "C031 · Australia · 1943 · Threepence (3d) · AUD",
+     "authors": [],
+     "payload": {
+      "story": "A 1943 3 pence from Australia. The obverse shows George VI; the reverse shows three wheat stalks; IND:IMP still in legend, AUSTRALIA, THREE PENCE, 1943, S. Struck in .925 sterling silver.",
+      "shorthand": "IND:IMP still in legend, AUSTRALIA, THRE"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C033",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C033",
+     "field": "story",
+     "coins": [
+      "C033"
+     ],
+     "label": "C033 · France · 1969 · 1/2 franc · FRF",
+     "authors": [],
+     "payload": {
+      "story": "A 1969 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "shorthand": "olive sprig, LIBERTE, EGALITE, FRATERNIT"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C035",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C035",
+     "field": "story",
+     "coins": [
+      "C035"
+     ],
+     "label": "C035 · Germany · 1971 · 50 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1971 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C045",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C045",
+     "field": "story",
+     "coins": [
+      "C045"
+     ],
+     "label": "C045 · Netherlands · 2014 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "story": "A 2014 5 euro cent from Netherlands. National Willem-Alexander right-facing portrait, Willem-Alexander Koning der Nederlanden (vertical), date, 12 stars, common Europe map side (Luc Luycx). Struck in copper-plated steel.",
+      "shorthand": "National Willem-Alexander right-facing p"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C048",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "story",
+     "coins": [
+      "C048"
+     ],
+     "label": "C048 · Germany · 1993 · 1 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1993 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C049",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "story",
+     "coins": [
+      "C049"
+     ],
+     "label": "C049 · France · 1989 · 10 francs · FRF",
+     "authors": [],
+     "payload": {
+      "story": "A 1989 10 francs from France. The obverse shows Génie de la Liberté (after François Rude; the reverse shows 10 F; Bastille column), LIBERTE, EGALITE, FRATERNITE, date, RF. Struck in bimetallic (nickel center with an aluminum-bronze ring).",
+      "shorthand": "Bastille column), LIBERTE, EGALITE, FRAT"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-research-20261009-1",
+   "agent": "muse",
+   "kind": "research",
+   "issued": "2026-10-09T14:42:50Z",
+   "lease_until": "2026-10-19T14:42:50Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "research:C028:cfea3825",
+     "entity": "specimen",
+     "id": "C028",
+     "field": null
+    },
+    {
+     "item": "research:C043:651e6d1b",
+     "entity": "specimen",
+     "id": "C043",
+     "field": null
+    },
+    {
+     "item": "research:C204:1c7682e0",
+     "entity": "specimen",
+     "id": "C204",
+     "field": null
+    },
+    {
+     "item": "research:C212:b63560ca",
+     "entity": "specimen",
+     "id": "C212",
+     "field": null
+    },
+    {
+     "item": "research:C232:9e444d5b",
+     "entity": "specimen",
+     "id": "C232",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "research:C028:cfea3825",
+     "kind": "research",
+     "entity": "specimen",
+     "id": "C028",
+     "field": null,
+     "coins": [
+      "C028"
+     ],
+     "label": "C028 · Malta · 2013 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "question": "The Schön number 128 may be a copy of the old, wrong KM number (KM was 128, now 127); Numista N#2183 lists no Schön number. Find the Schön Euro catalogue entry for the Malta 5 cent, or the number should be removed.",
+      "record": {
+       "country": "Malta",
+       "year": "2013",
+       "denom": "5 euro cent · EUR",
+       "mint": "Malta euro issue (temple national)",
+       "refs": "KM#127 · Schön#128 · Numista#2183",
+       "metal": "copper-plated steel · 3.92 g · 21.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "10,000,000",
+       "design": "national Mnajdra Temple altar/trilithon + MALTA · date · 12 EU stars · common Europe map side (Luc Luycx)",
+       "period": "Eurozone"
+      },
+      "type": "MT.KM.128",
+      "remove_with": []
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "research:C043:651e6d1b",
+     "kind": "research",
+     "entity": "specimen",
+     "id": "C043",
+     "field": null,
+     "coins": [
+      "C043"
+     ],
+     "label": "C043 · Malta · 2008 · 10 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "question": "The Schön number 129 may be a copy of the old, wrong KM number (KM was 129, now 128); Numista N#2184 lists no Schön number. Find the Schön Euro catalogue entry for the Malta 10 cent, or the number should be removed.",
+      "record": {
+       "country": "Malta",
+       "year": "2008",
+       "denom": "10 euro cent · EUR",
+       "mint": "Malta euro issue (first year)",
+       "refs": "KM#128 · Schön#129 · Numista#2184",
+       "metal": "Nordic gold (Cu 89 / Al 5 / Zn 5 / Sn 1) · 4.10 g · 19.75 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.93 mm · medal alignment",
+       "mintage": "41,000,000",
+       "design": "national Arms of Malta (flag shield · mural crown · olive & palm) + MALTA · date · 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      },
+      "type": "MT.KM.129",
+      "remove_with": []
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "research:C204:1c7682e0",
+     "kind": "research",
+     "entity": "specimen",
+     "id": "C204",
+     "field": null,
+     "coins": [
+      "C204"
+     ],
+     "label": "C204 · Trinidad and Tobago · 2014 · 25 cents · TTD",
+     "authors": [],
+     "payload": {
+      "question": "Cosmetic: the design note describes the Scarlet Ibis and Cocrico (the coat-of-arms supporters on the obverse) but omits the actual reverse motif, which references give as the Chaconia flower. Fix when the record is next touched.",
+      "record": {
+       "country": "Trinidad and Tobago",
+       "year": "2014",
+       "denom": "25 cents · TTD",
+       "mint": "not on shown arms side",
+       "refs": "KM#32 · Schön#31 · Numista#1159",
+       "metal": "cupronickel · 3.53 g · 20 mm · reeded · circulated / bright · white 2×2 staple flip",
+       "specs": "thickness unknown · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse arms · Scarlet Ibis + Cocrico · REPUBLIC OF TRINIDAD AND TOBAGO · 2014 · denom on reverse",
+       "period": "Republic of Trinidad and Tobago"
+      },
+      "type": "TT.KM.33",
+      "remove_with": []
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "research:C212:b63560ca",
+     "kind": "research",
+     "entity": "specimen",
+     "id": "C212",
+     "field": null,
+     "coins": [
+      "C212"
+     ],
+     "label": "C212 · Eritrea · 1997 · 50 cents · ERN (nakfa)",
+     "authors": [],
+     "payload": {
+      "question": "The design note says the obverse shows the State of Eritrea arms / a camel, but the Numista entry (N#2403) shows soldiers with a flag on the common side. Which is right? Check the design note against the entry and the photo.",
+      "record": {
+       "country": "Eritrea",
+       "year": "1997",
+       "denom": "50 cents · ERN (nakfa)",
+       "mint": "not on shown reverse (Asmara / Royal Mint era typical)",
+       "refs": "KM#47 · Schön#47 · Numista#2403",
+       "metal": "nickel-clad steel · 7.80 g · 25 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 2 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse State of Eritrea arms / camel · reverse greater kudu left · STATE OF ERITREA · 1997 · 50 · FIFTY CENTS"
+      },
+      "type": "ER.KM.46",
+      "remove_with": []
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "research:C232:9e444d5b",
+     "kind": "research",
+     "entity": "specimen",
+     "id": "C232",
+     "field": null,
+     "coins": [
+      "C232"
+     ],
+     "label": "C232 · Vietnam · 2003 · 1000 đồng · VND",
+     "authors": [],
+     "payload": {
+      "question": "References describe a reverse motif (the One Pillar Pagoda) that the design note omits; the catalogue number is settled (KM# 72, Numista N#2104). Check the design note against the coin or the Numista entry.",
+      "record": {
+       "country": "Vietnam",
+       "year": "2003",
+       "denom": "1000 đồng · VND",
+       "mint": "not on shown emblem side",
+       "refs": "KM#72 · Schön#144 · Numista#2104",
+       "metal": "brass plated steel · 3.80 g · 19 mm · reeded · circulated bright · white 2×2 staple flip",
+       "specs": "thickness unknown · medal alignment",
+       "mintage": "250,000,000",
+       "design": "emblem side star · cog · rice wreath · CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM · 2003 · value 1000 ĐỒNG reverse",
+       "period": "Socialist Republic of Vietnam"
+      },
+      "type": "VN.KM.71",
+      "remove_with": []
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  }
+ ]
+}

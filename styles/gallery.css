@@ -603,6 +603,8 @@
 }
 #drawer-body .gxd-cert[data-lv="verified"], #drawer-body .gxd-cert[data-lv="owner"] { border-width: 2px; border-color: var(--gold); }
 #drawer-body .gxd-cert[data-lv="reference"] { border-color: var(--gold); }
+#drawer-body .gxd-cert[data-lv="checked"] { border-width: 2px; border-color: var(--gold); }
+#drawer-body .gxd-cert-why .gxd-src { color: inherit; text-decoration: underline; text-underline-offset: 2px; display: inline-block; min-height: 44px; line-height: 44px; margin-right: .6em; }
 #drawer-body .gxd-cert[data-lv="ai"], #drawer-body .gxd-cert[data-lv="photo"] { border-style: dashed; }
 #drawer-body .gxd-cert[data-lv="imported"] { border-style: dotted; }
 #drawer-body .gxd-cert[data-lv="review"] { border-width: 2px; border-style: double; border-color: var(--warn, #b45309); background: color-mix(in srgb, var(--warn, #b45309) 14%, transparent); }

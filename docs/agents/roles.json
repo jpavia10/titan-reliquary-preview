@@ -1,0 +1,219 @@
+{
+  "schema": "titan-roles/1",
+  "about": "Who does which homework (docs/agents/RESEARCH_LOOP.md). tools/agents/homework.py reads this file at every publish: it hands each active AI new assignments from the open work pools in the order of its `kinds` list, never gives an AI its own facts to check, and never lets one AI hold more than `capacity` open assignments. Claude edits this file when the owner changes who is active, or when the measured numbers say an AI should do more or less of a kind.",
+  "updated": "2026-10-09",
+  "agents": {
+    "grok": {
+      "name": "Grok",
+      "status": "active",
+      "probation": false,
+      "by": [
+        "model:grok-bot",
+        "model:grok"
+      ],
+      "model": "grok-bot",
+      "caps": [
+        "web",
+        "numista",
+        "drive",
+        "vision",
+        "code"
+      ],
+      "capacity": 3,
+      "kinds": [
+        "cite",
+        "catno",
+        "story-check",
+        "value",
+        "research",
+        "arbitrate",
+        "verify",
+        "read-mint"
+      ],
+      "strength": "Strongest outside contributor (Numista sweep 9/10, story fixes 10/10, best blind photo test so far): opens Numista, careful exact sources, flags what it cannot settle.",
+      "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files)."
+    },
+    "muse": {
+      "name": "Muse",
+      "status": "active",
+      "probation": true,
+      "by": [
+        "model:muse-spark",
+        "model:muse"
+      ],
+      "model": "muse-spark",
+      "caps": [
+        "web",
+        "drive",
+        "vision"
+      ],
+      "capacity": 3,
+      "kinds": [
+        "verify",
+        "plain-story",
+        "research",
+        "arbitrate",
+        "cite",
+        "story-check"
+      ],
+      "strength": "Good researcher and writer (scores 8, then 6; probation streak 0 of 3): second reader for Grok's catalogue facts, plain-English stories for Joseph's dad.",
+      "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files)."
+    },
+    "gemini": {
+      "name": "Gemini",
+      "status": "active",
+      "probation": true,
+      "onboarding": true,
+      "by": [
+        "model:gemini"
+      ],
+      "model": "gemini",
+      "caps": [
+        "drive",
+        "vision",
+        "web"
+      ],
+      "capacity": 2,
+      "kinds": [
+        "read-mint",
+        "verify"
+      ],
+      "strength": "Vision (and Veo video). Back from parked on 2026-10-09: starts with a proof-of-access check, the blind photo test and small photo-reading batches; every fact it writes is checked by another AI until it has 3 good submissions in a row.",
+      "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.",
+      "inline_sheets": true
+    },
+    "chatgpt": {
+      "name": "ChatGPT",
+      "status": "occasional",
+      "probation": false,
+      "by": [
+        "model:chatgpt",
+        "model:gpt"
+      ],
+      "model": "chatgpt",
+      "caps": [
+        "web",
+        "code"
+      ],
+      "capacity": 0,
+      "kinds": [],
+      "strength": "Strong reasoning and code review; no Drive access, so everything goes through chat. Takes part less often than the others (owner, 2026-10-09): projects only, no generated homework.",
+      "reach": "Joseph pastes https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; the answer is pasted back to Claude."
+    }
+  },
+  "kinds": {
+    "cite": {
+      "role": "Cataloguer",
+      "title": "Cite the catalogue facts of {n} coin types",
+      "batch": 20,
+      "lease_days": 7,
+      "needs": [
+        "numista"
+      ],
+      "fix": "#72",
+      "what": "For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).",
+      "done_when": "One change file answering this assignment; everything you left out goes back to the pool."
+    },
+    "catno": {
+      "role": "Cataloguer",
+      "title": "Settle {n} catalogue numbers that disagree with Numista",
+      "batch": 40,
+      "lease_days": 7,
+      "needs": [
+        "numista"
+      ],
+      "fix": "#74",
+      "what": "Each row is a catalogue number (Schön, Jaeger) where the record and the Numista entry disagree. Open the entry, and send the type's whole `catalogs` list with the corrected number (or the same list when the record is right), with the entry URL in `source`.",
+      "done_when": "One change file; a row you could not settle is left out."
+    },
+    "verify": {
+      "role": "Second reader",
+      "title": "Check {n} facts another AI wrote",
+      "batch": 25,
+      "lease_days": 7,
+      "needs": [],
+      "fix": "#18",
+      "what": "Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.",
+      "done_when": "One change file; a fact you could not check is left out."
+    },
+    "read-mint": {
+      "role": "Photo reader",
+      "title": "Read the mint mark on {n} coins from their photos",
+      "batch": 10,
+      "lease_days": 7,
+      "needs": [
+        "vision"
+      ],
+      "fix": "#57",
+      "what": "Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. [\"D\"]) and `issue.mint_text` (e.g. \"D (Denver), left of the date\", or \"no mint mark (Philadelphia)\") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.",
+      "done_when": "One change file; unreadable coins left out."
+    },
+    "story-check": {
+      "role": "Fact-checker",
+      "title": "Fact-check {n} coin stories",
+      "batch": 25,
+      "lease_days": 7,
+      "needs": [
+        "web"
+      ],
+      "fix": "#73",
+      "what": "Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.",
+      "done_when": "One change file covering every story you could check."
+    },
+    "plain-story": {
+      "role": "Writer",
+      "title": "Rewrite {n} stories in plain English",
+      "batch": 15,
+      "lease_days": 7,
+      "needs": [],
+      "fix": "#60",
+      "what": "Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.",
+      "done_when": "One change file; the stories pass the plain-English check."
+    },
+    "research": {
+      "role": "Researcher",
+      "title": "Answer {n} open research questions",
+      "batch": 8,
+      "lease_days": 10,
+      "needs": [
+        "web"
+      ],
+      "fix": "#3",
+      "what": "Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.",
+      "done_when": "One change file; questions you could not settle left out."
+    },
+    "value": {
+      "role": "Appraiser",
+      "title": "Cite collector values for {n} coins",
+      "batch": 25,
+      "lease_days": 10,
+      "needs": [
+        "web"
+      ],
+      "fix": "#62",
+      "what": "For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.",
+      "done_when": "One change file; coins without a price page left out."
+    },
+    "arbitrate": {
+      "role": "Arbiter",
+      "title": "Settle {n} disagreements between two AIs",
+      "batch": 10,
+      "lease_days": 7,
+      "needs": [
+        "web"
+      ],
+      "fix": "#18",
+      "what": "Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.",
+      "done_when": "One change file; unsettled items left out."
+    }
+  },
+  "audit": {
+    "about": "How much of each author's work is checked first (the verify pool is ordered by it). Probation: everything. New (fewer than new_until_checks checked facts): new_rate. After that: twice the measured error rate plus 10 %, between min_rate and 1. An AI stops getting fact-writing kinds (it still checks others and rewords stories) when, after demote_min_checks checks, even the LOW end of the 95 % range of its error rate is above demote_error_rate: a few unlucky checks never demote anyone.",
+    "probation_rate": 1.0,
+    "new_rate": 0.5,
+    "new_until_checks": 20,
+    "min_rate": 0.15,
+    "demote_error_rate": 0.15,
+    "demote_min_checks": 10
+  }
+}

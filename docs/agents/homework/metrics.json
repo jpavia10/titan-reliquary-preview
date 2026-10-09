@@ -1,0 +1,58 @@
+{
+ "updated": "2026-10-09T14:54:33Z",
+ "pools": {
+  "cite": 44,
+  "catno": 29,
+  "story-check": 157,
+  "plain-story": 41,
+  "research": 5,
+  "value": 290,
+  "read-mint": 38,
+  "verify": 371
+ },
+ "agents": {
+  "claude": {
+   "confirmed": 2,
+   "wrong": 0,
+   "checks_done": 0,
+   "disagreements_open": 0,
+   "checked_n": 2,
+   "error_rate": 0.0,
+   "error_ci95": [
+    0.0,
+    0.658
+   ]
+  },
+  "grok": {
+   "confirmed": 19,
+   "wrong": 0,
+   "checks_done": 0,
+   "disagreements_open": 0,
+   "checked_n": 19,
+   "error_rate": 0.0,
+   "error_ci95": [
+    0.0,
+    0.168
+   ]
+  },
+  "muse": {
+   "confirmed": 13,
+   "wrong": 4,
+   "checks_done": 0,
+   "disagreements_open": 0,
+   "checked_n": 17,
+   "error_rate": 0.235,
+   "error_ci95": [
+    0.096,
+    0.473
+   ]
+  }
+ },
+ "parked": [],
+ "open_assignments": {
+  "grok": 3,
+  "muse": 3,
+  "gemini": 2,
+  "chatgpt": 0
+ }
+}

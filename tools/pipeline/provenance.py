@@ -2,13 +2,26 @@
 """Certainty labels and a short history for every specimen (fix-list #9 and #10). Pure functions over collection/changes.jsonl; deterministic.
 
 build(col, details) adds to each specimen's detail record:
-  certainty {fact: {level, by, ts, source}}   level in LEVELS. A displayed fact with NO entry is "imported" (from the original ledger): that is the
-                                              default for ~65 % of facts and leaving it out keeps the detail files small. Use level_of(cert, fact).
+  certainty {fact: {level, by, ts, source, links?, n?}}   level in LEVELS. A displayed fact with NO entry is "imported" (from the original ledger): the
+                                              default for most facts, and leaving it out keeps the detail files small. Use level_of(cert, fact).
   history   [{ts, who, what}]                  newest first, at most 12, same-day events by one contributor merged
+
+How sure we are (2026-10-09, the research loop, docs/agents/RESEARCH_LOOP.md): every event that states the fact's CURRENT value supports it, not only the
+last one, and the strongest supporter decides. "checked" = at least two different contributors (two AIs, or an AI and Claude) each stated the current
+value with their own exact source or photo; an AI never checks itself. The mintage of a coin is decided only by events about its own issue (year +
+mint), not by edits to other years of the same type.
 """
 import re, json, os
 
-LEVELS = ("verified", "owner", "reference", "photo", "ai", "imported", "review")
+LEVELS = ("verified", "owner", "checked", "reference", "photo", "ai", "imported", "review")
+CITED = ("verified", "owner", "checked", "reference")     # the trust meter's "cited or confirmed"
+SOURCED = ("reference", "photo")                          # levels that count towards "checked"
+NOT_FROM_PHOTO = {"mintage", "catalog"}                   # nobody can read these off a coin: a photo-only source makes them an AI guess
+NOT_A_READER = {"ledger"}                                 # the v254 import's own notes are not an independent reader
+# who wrote an event -> one contributor id (two ids of one AI are one contributor: Grok's chat and its bot are not two independent readers)
+AGENT_OF = {"model:grok": "grok", "model:grok-bot": "grok", "model:muse-spark": "muse", "model:muse": "muse", "model:claude": "claude", "model:opus-5.5": "claude",
+            "model:sonnet-5.5": "ledger", "model:gemini": "gemini", "model:chatgpt": "chatgpt", "model:gpt": "chatgpt", "script:integrator": "claude"}
+NAMES = {"grok": "Grok", "muse": "Muse", "claude": "Claude", "gemini": "Gemini", "chatgpt": "ChatGPT", "ledger": "Ledger import", "owner": "Owner"}
 SRC_MAX = 140
 LEDGER_DAY = "2026-09-30"      # the v254 ledger import; coins logged on or before it came with it
 MAX_HISTORY = 12
@@ -52,11 +65,24 @@ def load_events(coll_dir):
     if not os.path.exists(p): return []
     with open(p, encoding="utf-8") as f: return [json.loads(l) for l in f if l.strip()]
 
+def agent_of(by):
+    """'model:grok-bot' -> 'grok'; 'owner' / 'person:...' -> 'owner'; an unknown model -> its own name; a script -> the script id."""
+    by = _s(by)
+    if by.startswith(("owner", "person:")): return "owner"
+    if by in AGENT_OF: return AGENT_OF[by]
+    if by.startswith("model:"):
+        m = by[6:].lower()
+        for k, a in (("grok", "grok"), ("muse", "muse"), ("claude", "claude"), ("gemini", "gemini"), ("chatgpt", "chatgpt"), ("gpt", "chatgpt")):
+            if k in m: return a
+        return m
+    return by
+
 def friendly(by):
     by = _s(by)
     if by.startswith("owner"): return "Owner"
-    return {"model:muse-spark": "Muse", "model:grok": "Grok", "model:claude": "Claude", "model:opus-5.5": "Claude", "model:sonnet-5.5": "Ledger import",
-            "script:photo_crop_p1": "Photo tool", "script:integrator": "Claude"}.get(by, by.split(":")[-1].capitalize() or "Unknown")
+    if by == "script:photo_crop_p1": return "Photo tool"
+    a = agent_of(by)
+    return NAMES.get(a) or (by.split(":")[-1].capitalize() or "Unknown")
 
 def classify(ev):
     """One event -> its certainty level. Owner first, then the evidence its source cites."""
@@ -67,14 +93,93 @@ def classify(ev):
     if PHOTO_RE.search(src): return "photo"
     return "ai"
 
+def level_for(ev, fact):
+    """classify(), except that a mintage or catalog number backed only by a photo is an AI guess (fix 2026-10-09)."""
+    lv = classify(ev)
+    return "ai" if lv == "photo" and fact in NOT_FROM_PHOTO else lv
+
 def _match(field, prefixes):
     field = _s(field)
     return any(field == p or field.startswith(p + ".") or field.startswith(p + "/") for p in prefixes)
 
-def _entry(ev):
-    level = classify(ev)
+def _entry(ev, fact=None):
+    level = level_for(ev, fact) if fact else classify(ev)
     if level == "imported": return None
     return {"level": level, "by": friendly(ev.get("by")), "ts": _s(ev.get("ts"))[:10], "source": TAIL_RE.sub("", _s(ev.get("source")))[:SRC_MAX]}
+
+# ---------------------------------------------------------------------------------------------- what an event claims about a fact
+_MISSING = object()
+CLAIM_PATHS = {   # fact -> leaf paths whose value IS the fact (an event on a parent path is read down to the leaf)
+    "country": ("country",), "year": ("issue.year", "year"), "denomination": ("denomination",), "mint": ("issue.mint_marks", "issue.mint_text", "issue.mint"),
+    "composition": ("composition.text",), "weight": ("nominal.weight_g", "nominal.weight"), "value": ("value.est_usd",), "story": ("story",),
+    "design": ("design.text",), "series": ("series",), "ruler": ("ruler",), "period": ("period",)}
+
+def _descend(v, parts):
+    for p in parts:
+        if isinstance(v, dict) and p in v: v = v[p]
+        elif isinstance(v, list) and p.isdigit() and int(p) < len(v): v = v[int(p)]
+        else: return _MISSING
+    return v
+
+def _canon(v): return json.dumps(v, sort_keys=True, ensure_ascii=False)
+
+def _cat_key(cats):
+    """The catalog number a reader would check first: KM, else Y, else the first non-Numista entry (a url added later is not a new claim)."""
+    if not isinstance(cats, list): return None
+    rows = [(str(c.get("system")), str(c.get("number"))) for c in cats if isinstance(c, dict) and c.get("number") not in (None, "")]
+    for want in ("KM", "Y"):
+        hit = [r for r in rows if r[0] == want]
+        if hit: return hit[0]
+    rows = [r for r in rows if r[0] not in ("N", "Numista")]
+    return rows[0] if rows else None
+
+def _issue_key(i): return (i.get("year"), tuple(i.get("mint_marks") or []), i.get("qualifier")) if isinstance(i, dict) else None
+
+def issue_index_map(type_events, current_issues):
+    """{file order of an issues.N.* event: the (year, mint_marks, qualifier) issue it addressed}: replays the type's whole-list writes, so an
+    old index still names the issue it meant even if the list changed since."""
+    state = None
+    for _, e in type_events:
+        if e.get("field") == "(new record)" and isinstance(e.get("new"), dict) and isinstance(e["new"].get("issues"), list): state = e["new"]["issues"]; break
+        if e.get("field") == "issues" and isinstance(e.get("old"), list): state = e["old"]; break
+    if state is None: state = current_issues or []
+    out = {}
+    for i, e in type_events:
+        f = _s(e.get("field"))
+        if f == "issues" and isinstance(e.get("new"), list): state = e["new"]
+        elif f == "(new record)" and isinstance(e.get("new"), dict) and isinstance(e["new"].get("issues"), list): state = e["new"]["issues"]
+        elif f.startswith("issues."):
+            n = f.split(".")[1]
+            if n.isdigit() and int(n) < len(state): out[i] = _issue_key(state[int(n)])
+    return out
+
+def claim(i, e, fact, ctx):
+    """-> the (path, value) this event states about the fact on this coin, or None when it states nothing comparable.
+    ctx: {"issue": the coin's issue key, "imap": issue_index_map(...) for its type, "year": the coin's year}."""
+    f = _s(e.get("field")); new = e.get("new")
+    if fact == "mintage":
+        if f in ("issue.mintage",): return ("mintage", _canon(new)) if new is not None else None
+        if f == "issue" and isinstance(new, dict): return ("mintage", _canon(new["mintage"])) if new.get("mintage") is not None else None
+        if f == "issues" and isinstance(new, list):
+            hit = next((x for x in new if _issue_key(x) == ctx.get("issue")), None)
+            return ("mintage", _canon(hit["mintage"])) if hit and hit.get("mintage") is not None else None
+        if f.startswith("issues.") and (ctx.get("imap") or {}).get(i) == ctx.get("issue"):
+            rest = f.split(".")[2:]
+            v = new if rest == ["mintage"] else _descend(new, ["mintage"]) if not rest else _MISSING
+            return ("mintage", _canon(v)) if v is not _MISSING and v is not None else None
+        return None
+    if fact == "catalog":
+        if f == "catalogs": k = _cat_key(new); return ("catalogs", k) if k else None
+        if f == "type": return ("type", _s(new))
+        return None
+    if fact == "year" and f == "notes" and _s(e.get("by")).startswith("owner"): return ("issue.year", _canon(ctx.get("year")))   # the owner's "year confirmed" note
+    for t in CLAIM_PATHS.get(fact, ()):
+        if f == t: return (t, _canon(new))
+        if t.startswith(f + "."):
+            v = _descend(new, t[len(f) + 1:].split("."))
+            if v is not _MISSING: return (t, _canon(v))
+        if f.startswith(t + "."): return (f, _canon(new))        # a write inside the fact (e.g. denomination.value): agrees only with the same path
+    return None
 
 def _question_hit(fact, questions, tokens):
     rx = re.compile(Q_WORDS[fact], re.I)
@@ -87,12 +192,28 @@ def _derived(e):
     return (by in ("script:truth-checks", "script:pipeline") or src.startswith(("cleared:", "mirrored from", "one issue, one number"))
             or bool(re.match(r"issue \d{4}\S*(?: \S+)? added because specimen", src)))
 
-def certainty(sid, type_id, ix, facts, questions=(), tokens=None, legacy=False):
-    """-> {fact: entry} for the given facts. `ix` = {(entity, id): [(file order, event)]}.
-    The LAST event (by ts, then file order) that set the fact, on the specimen or on its type, decides the level. With no event, the specimen's ledger import,
-    then the record's own creation event, stand in; with neither the fact is 'review'. An open question about the fact (or its value) puts it under review
-    unless the owner verified it."""
-    tokens = tokens or {}
+LINK_RE = re.compile(r"https?://[^\s,;)\]>\"']+")
+NUMISTA_RE = re.compile(r"\bN#\s?(\d{1,7})\b|\bNumista\s+(?:no\.?|#|N#|N°)?\s*(\d{1,7})\b", re.I)
+
+def links(*sources, max_n=3):
+    """Openable sources (fix list #74): every URL, and Numista N#1234 as its catalogue page, from the FULL source text (before it is shortened)."""
+    out = []
+    for src in sources:
+        src = _s(src)
+        for u in LINK_RE.findall(src): out.append(u.rstrip(".:"))
+        for a, b in NUMISTA_RE.findall(src): out.append(f"https://en.numista.com/catalogue/pieces{a or b}.html")
+    seen = []
+    for u in out:
+        if u not in seen: seen.append(u)
+    return seen[:max_n]
+
+def certainty(sid, type_id, ix, facts, questions=(), tokens=None, legacy=False, ctx=None):
+    """-> {fact: entry} for the given facts. `ix` = {(entity, id): [(file order, event)]}; `ctx` (claim()) names the coin's issue.
+    Every event on the specimen or its type that states the fact's CURRENT value (the value the last event stated) supports it; the strongest
+    supporter's level stands (verified > owner > reference > photo > ai > imported), and two different contributors with sources make it "checked".
+    With no event, the specimen's ledger import, then the record's own creation event, stand in; with neither the fact is 'review'. An open question
+    about the fact (or its value) puts it under review unless the owner verified it."""
+    tokens = tokens or {}; ctx = ctx or {}
     spec_ev = ix.get(("specimen", sid), []); type_ev = ix.get(("type", type_id), [])
     out = {}
     for fact in facts:
@@ -103,11 +224,31 @@ def certainty(sid, type_id, ix, facts, questions=(), tokens=None, legacy=False):
         cand = [c for c in cand if not _derived(c[2])]
         if fact == "year":   # an owner note that confirms the year
             cand += [(_s(e.get("ts")), i, e) for i, e in spec_ev if e.get("field") == "notes" and _s(e.get("by")).startswith("owner") and re.search(r"\b(year|date)\b", _s(e.get("source")), re.I)]
-        ev = max(cand, key=lambda c: (c[0], c[1]))[2] if cand else None
-        if ev is None:
-            ev = next((e for _, e in spec_ev if e.get("field") == "ledger_text"), None) or next((e for _, e in spec_ev if e.get("field") == "(new record)"), None)
-            if ev is None and fact in RETYPE_FACTS: ev = next((e for _, e in type_ev if e.get("field") == "(new record)"), None)
-        ent = _entry(ev) if ev else (None if legacy else {"level": "review"})      # None = from the ledger import
+        if fact == "mintage":   # only events about this coin's own issue (year + mint), not other years of the type
+            cand = [c for c in cand if claim(c[1], c[2], fact, ctx) is not None or not _s(c[2].get("field")).startswith("issues")]
+        ent = None; ev = max(cand, key=lambda c: (c[0], c[1])) if cand else None
+        if ev is not None:
+            cur = claim(ev[1], ev[2], fact, ctx)
+            support = [c for c in cand if cur is not None and claim(c[1], c[2], fact, ctx) == cur] or [ev]
+            top = min(LEVELS.index(level_for(c[2], fact)) for c in support)
+            best = max((c for c in support if LEVELS.index(level_for(c[2], fact)) == top), key=lambda c: (c[0], c[1]))     # the newest of the strongest
+            ent = _entry(best[2], fact)
+            if ent is not None:
+                ent["links"] = links(best[2].get("source"))
+                srcd = [c for c in support if level_for(c[2], fact) in SOURCED and agent_of(c[2].get("by")) not in NOT_A_READER and not _s(c[2].get("by")).startswith("script:")]
+                who = sorted({agent_of(c[2].get("by")) for c in srcd})
+                if ent["level"] in SOURCED and len(who) >= 2:
+                    last = max(srcd, key=lambda c: (c[0], c[1]))[2]
+                    ent.update({"level": "checked", "by": " + ".join(NAMES.get(a, a.capitalize()) for a in who), "n": len(who), "ts": _s(last.get("ts"))[:10],
+                                "source": TAIL_RE.sub("", _s(last.get("source")))[:SRC_MAX], "links": links(*[c[2].get("source") for c in sorted(srcd, key=lambda c: (c[0], c[1]), reverse=True)])})
+                if not ent["links"]: del ent["links"]
+        else:
+            evx = next((e for _, e in spec_ev if e.get("field") == "ledger_text"), None) or next((e for _, e in spec_ev if e.get("field") == "(new record)"), None)
+            if evx is None and fact in RETYPE_FACTS: evx = next((e for _, e in type_ev if e.get("field") == "(new record)"), None)
+            ent = _entry(evx, fact) if evx else (None if legacy else {"level": "review"})      # None = from the ledger import
+            if ent is not None and "source" in ent:
+                lk = links(evx.get("source"))
+                if lk: ent["links"] = lk
         if (ent is None or ent["level"] != "verified") and _question_hit(fact, questions, tokens.get(fact, ())):
             ent = {"level": "review", **{k: ent[k] for k in ("by", "ts", "source") if ent and k in ent}}
         if ent is not None: out[fact] = ent
@@ -184,7 +325,7 @@ def share(cert):
     seen = {}
     for fact, e in cert.items():
         if "source" not in e: continue
-        k = (e["level"], e["by"], e["ts"], e["source"])
+        k = (e["level"], e["by"], e["ts"], e["source"], tuple(e.get("links") or ()), e.get("n"))
         if k in seen: cert[fact] = {"level": e["level"], "like": seen[k]}
         else: seen[k] = fact
     return cert
@@ -220,10 +361,14 @@ def build(col, details):
         n = e.get("new")
         if e.get("entity") == "photo" and e.get("field") == "(new record)" and isinstance(n, dict):
             photo_ev.setdefault(n.get("specimen"), []).append({"ts": e.get("ts"), "by": e.get("by"), "phase": n.get("phase"), "side": n.get("side")})
+    imaps = {}
     for sid, det in details.items():
         s = col["specs"][sid]; tid = s["type"]
         cat = [re.sub(r"\s", "", m) for m in re.findall(r"KM#\s?[A-Za-z]?\d+[a-z]?", det.get("refs") or "")]
         toks = {"year": [str(det["year"])] if re.fullmatch(r"\d{4}", str(det.get("year") or "")) else [], "catalog": cat}
-        det["certainty"] = share(certainty(sid, tid, ix, facts_present(det), (s.get("research") or {}).get("open_questions") or [], toks, legacy=_s(det.get("added")) <= LEDGER_DAY))
+        if tid not in imaps: imaps[tid] = issue_index_map(ix.get(("type", tid), []), (col["types"].get(tid) or {}).get("issues"))
+        ctx = {"issue": _issue_key(s.get("issue")), "imap": imaps[tid], "year": (s.get("issue") or {}).get("year")}
+        det["certainty"] = share(certainty(sid, tid, ix, facts_present(det), (s.get("research") or {}).get("open_questions") or [], toks,
+                                           legacy=_s(det.get("added")) <= LEDGER_DAY, ctx=ctx))
         det["history"] = history(sid, tid, [e for _, e in ix.get(("specimen", sid), []) + ix.get(("type", tid), [])], photo_ev.get(sid, []))
     return details

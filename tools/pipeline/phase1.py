@@ -12,7 +12,7 @@ Phase 1 is done for a piece when it has all 7 of these (definition frozen 2026-1
   value         a default value (value.est_usd)
 
 The trust meter counts every fact the coin view shows (provenance.facts_present) by its certainty label (provenance.LEVELS):
-  cited or confirmed = verified + owner + reference;  photo = read from a photo;  ai = an AI said it, no exact source yet;
+  cited or confirmed = verified + owner + checked (two independent sources) + reference;  photo = read from a photo;  ai = an AI said it, no exact source yet;
   imported = from the original ledger (never cited);  review = under question.
     python3 tools/pipeline/phase1.py [collection/]     prints both
 """
@@ -27,7 +27,7 @@ FIELDS = ("photo", "country", "year", "denomination", "mint", "story", "value")
 LABEL = {"photo": "phone photo", "country": "country", "year": "year", "denomination": "denomination", "mint": "mint mark read from the coin",
          "story": "story", "value": "default value"}
 MINT_NOT_READ = re.compile(MINT_UNSEEN.pattern + r"|not (?:yet )?read|unclear|not clear", re.I)
-CITED = ("verified", "owner", "reference")
+CITED = PV.CITED       # verified + owner + checked + reference
 
 
 def live_photo_ids(col):
@@ -86,7 +86,8 @@ def trust(details):
     cited = sum(lv[k] for k in CITED)
     return {"facts": n, "by_level": {k: lv.get(k, 0) for k in PV.LEVELS}, "cited_or_confirmed": cited, "pct_cited": pct(cited),
             "pct_photo": pct(lv["photo"]), "pct_ai": pct(lv["ai"]), "pct_ledger": pct(lv["imported"]), "pct_review": pct(lv["review"]),
-            "note": "every fact the coin view shows, by its certainty label; cited or confirmed = verified + owner + reference"}
+            "pct_checked": pct(lv["checked"]),
+            "note": "every fact the coin view shows, by its certainty label; cited or confirmed = verified + owner + checked + reference; checked = two independent contributors with sources agree"}
 
 
 if __name__ == "__main__":

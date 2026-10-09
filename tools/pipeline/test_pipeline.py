@@ -577,6 +577,32 @@ class Provenance(unittest.TestCase):
         te = self.E(entity="type", id="XX.KM.1", field="ruler", source="Numista N#6319 " + "y" * 300)
         c = self.cert([te], fact="ruler"); self.assertEqual(c["level"], "reference"); self.assertLessEqual(len(c["source"]), 140)
 
+    def test_checked_needs_two_contributors(self):
+        """The research loop (2026-10-09): "checked" = two DIFFERENT contributors stated the current value, each with a source."""
+        ref = lambda by, ts, new="x", src="Numista N#6319 row": self.E(by=by, ts=ts, new=new, source=src)
+        self.assertEqual(self.cert([ref("model:grok-bot", "2026-10-03T10:00:00Z"), ref("model:grok", "2026-10-04T10:00:00Z")])["level"], "reference")   # one AI, two ids
+        c = self.cert([ref("model:grok-bot", "2026-10-03T10:00:00Z"), ref("model:muse-spark", "2026-10-04T10:00:00Z", src="https://www.ngccoin.com/x")])
+        self.assertEqual((c["level"], c["by"], c["n"]), ("checked", "Grok + Muse", 2))
+        self.assertIn("https://www.ngccoin.com/x", c["links"])
+        self.assertEqual(self.cert([ref("model:grok-bot", "2026-10-03T10:00:00Z"), ref("model:muse-spark", "2026-10-04T10:00:00Z", new="y")])["level"], "reference")  # they disagree: the last value, one source
+        self.assertEqual(self.cert([ref("model:grok-bot", "2026-10-03T10:00:00Z"), self.E(by="model:sonnet-5.5", ts="2026-09-30T00:00:00Z", source="KM#1 note")])["level"], "reference")  # the import is no reader
+        # an owner confirmation earlier than a later AI re-citation of the same value still stands
+        self.assertEqual(self.cert([self.E(by="owner", verified=True, ts="2026-10-03T10:00:00Z"), ref("model:grok-bot", "2026-10-05T10:00:00Z")])["level"], "verified")
+
+    def test_mintage_is_about_the_coins_own_issue(self):
+        P = self.P
+        iss = [{"year": 1968, "mint_marks": ["B"], "qualifier": None, "mintage": 1}, {"year": 1969, "mint_marks": ["B"], "qualifier": None, "mintage": 2}]
+        create = self.E(entity="type", id="XX.KM.1", field="(new record)", op="create", new={"issues": iss}, ts="2026-10-01T00:00:00Z", by="model:claude", source="x")
+        other = self.E(entity="type", id="XX.KM.1", field="issues.0.mintage", new=1, ts="2026-10-06T00:00:00Z", by="model:grok-bot", source="Numista N#189 row 1968 B")
+        mine = self.E(entity="type", id="XX.KM.1", field="issues.1.mintage", new=2, ts="2026-10-05T00:00:00Z", by="model:muse-spark", source="vague research note")
+        ix = P.index_events([create, mine, other])
+        ctx = {"issue": (1969, ("B",), None), "imap": P.issue_index_map(ix[("type", "XX.KM.1")], iss), "year": 1969}
+        c = P.certainty("C900", "XX.KM.1", ix, ["mintage"], ctx=ctx)["mintage"]
+        self.assertEqual(c["level"], "ai", "the newer 1968 event must not decide the 1969 coin's mintage")
+        photo = self.E(entity="type", id="XX.KM.1", field="issues.1.mintage", new=2, ts="2026-10-07T00:00:00Z", by="model:grok-bot", source="read from photos/p1/C900_obv.webp")
+        ix = P.index_events([create, photo])
+        self.assertEqual(P.certainty("C900", "XX.KM.1", ix, ["mintage"], ctx=dict(ctx, imap=P.issue_index_map(ix[("type", "XX.KM.1")], iss)))["mintage"]["level"], "ai")   # never from a photo
+
     def test_bookkeeping_copies_never_decide_certainty(self):
         """A mintage backfilled to the type by the truth checks (or mirrored by the pipeline) keeps the certainty of the event that brought it in."""
         evs = [self.E(field="issue.mintage", new=15000000, source="Numista N#5904 mintage row", ts="2026-10-08T02:30:00Z"),
@@ -688,7 +714,7 @@ class ShootListAndFinishLine(unittest.TestCase):
         st = json.load(open(os.path.join(ROOT, "data", "status.json"), encoding="utf-8"))
         tr = st["trust"]
         self.assertEqual(sum(tr["by_level"].values()), tr["facts"])
-        self.assertEqual(tr["cited_or_confirmed"], tr["by_level"]["verified"] + tr["by_level"]["owner"] + tr["by_level"]["reference"])
+        self.assertEqual(tr["cited_or_confirmed"], sum(tr["by_level"][k] for k in ("verified", "owner", "checked", "reference")))
         self.assertEqual(st["phase1"]["total"], st["specimens"]["total"])
 
 if __name__ == "__main__":
