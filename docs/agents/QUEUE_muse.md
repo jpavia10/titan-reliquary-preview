@@ -14,11 +14,11 @@ The list is in your FEEDBACK doc. For each, send the same value again with the e
 
 **Done when:** 26 lines re-cited (they move from 'AI guess' to 'Reference' and raise the trust meter).
 
-## 2. Second reader on Grok's Numista batches  [NEXT]  (fix list #72)
+## 2. Second reader on Grok's Numista batches  [NOW]  (fix list #72)
 
-When a Grok sweep batch has been merged (SHARED_LOG says so), spot-check 5 of its facts against the cited URL. Report agreements and disagreements in your FEEDBACK doc; send a correction only with its own exact source.
+All 9 of Grok's sweep batches were merged on 2026-10-08 (files collection/_incoming/applied/changes_grok-bot_20261008-0002.jsonl to -0513.jsonl). Spot-check 5 facts from each batch (45 in all) against the exact Numista URL in its source: right entry, right row, right number. Report agreements and disagreements in your FEEDBACK doc; send a correction only with its own exact source.
 
-**Done when:** Each merged batch spot-checked.
+**Done when:** 45 facts checked, 5 per batch, listed in your FEEDBACK doc.
 
 ## 3. Take the blind photo test  [NEXT]  (fix list #4)
 

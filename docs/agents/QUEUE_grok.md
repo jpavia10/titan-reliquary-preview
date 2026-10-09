@@ -8,11 +8,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
-## 1. Numista sweep, batches 1 to 9  [NOW]  (fix list #72 #71 #40)
+## 1. Fact-check the coin stories, C151 to C283  [NOW]  (fix list #73)
 
-Read Drive 'REQUEST for Grok: Numista sweep (2026-10-08)' and docs/requests/numista_sweep_worklist.json. One change file per batch in collection-incoming (AI change files); exact Numista URL in every source; provenance on every line. Do all 9 batches back to back.
+Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are merged: every one checked out. Carry on through C283 the same way: check each story against its own record and the cited Numista entry; where a claim is wrong, send a corrected story (source = the exact entry; say what was wrong; change only the wrong sentence).
 
-**Done when:** 9 change files dropped (412 facts asked).
+**Done when:** Every story from C151 to C283 checked; a list of the ones you changed and why (in your FEEDBACK doc note).
 
 ## 2. Find 8 classical recordings (and check the 16 we kept)  [NEXT]  (fix list music)
 
@@ -26,11 +26,11 @@ Open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-202
 
 **Done when:** One JSON answer file with 30 entries.
 
-## 4. Fact-check the coin stories, C151 to C283  [LATER]  (fix list #73)
+## 4. Numista sweep, round 2 (3 batches + catalogue numbers)  [NEXT]  (fix list #72)
 
-Each coin's story (collection/specimens/*.json, field story) makes catalogue claims. Check each against its own record and the cited Numista entry; where a claim is wrong, send a corrected story as a change file (source = the exact entry; say what was wrong). Muse wrote the stories, so you check them.
+Round 1 is merged (152 of 162 types, 484 facts; the trust meter went from 5.7 % to 18.1 %). docs/requests/numista_sweep_worklist.json is regenerated: 47 types, 93 facts, 3 batches (the 5 new coins C284 to C288, the 10 types round 1 left out, and facts Numista did not give last time; for a token or prop with no Numista entry, say so once in your note and skip it). Also docs/requests/catalog_disagreements_20261008.json: the 31 Schön / J numbers you flagged as DISAGREEMENT; send Numista's number for each (the record numbers came from the old ledger: several are copies of the KM number and the German J numbers are off by one).
 
-**Done when:** Every story from C151 to C283 checked; a list of the ones you changed and why.
+**Done when:** 3 batch files and 1 catalogue-number file dropped.
 
 ## 5. Motion Lab study 2: the coin flip  [LATER]  (fix list #56)
 

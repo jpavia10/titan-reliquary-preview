@@ -1,21 +1,13 @@
 {
-"generated_at": "2026-10-08T15:01:31Z",
+"generated_at": "2026-10-08T18:17:51Z",
 "summary": {
 "total": 31,
 "by_rule": {
-"copy_differs": 1,
-"issue_disagrees": 1,
-"mint_unknown": 28,
+"mint_unknown": 30,
 "two_numbers": 1
 }
 },
 "findings": [
-{
-"rule": "issue_disagrees",
-"id": "C003,C115",
-"field": "issue.mintage",
-"detail": "CH.KM.21a 1968: C003 10,000,000, C115 31,588,000"
-},
 {
 "rule": "mint_unknown",
 "id": "C006",
@@ -72,6 +64,18 @@
 },
 {
 "rule": "mint_unknown",
+"id": "C073",
+"field": "issue.mintage",
+"detail": "US 1976: mint not read (mixed P/D likely (not sorted in tube) · no silver ); 1,669,902,855 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
+"id": "C088",
+"field": "issue.mintage",
+"detail": "US 1957: mint not read (1957 · mintmark not on obverse (1946–1964 mark is ); 275,200,000 must be the all-mints total"
+},
+{
+"rule": "mint_unknown",
 "id": "C089",
 "field": "issue.mintage",
 "detail": "DE 1995: mint not read (unknown (not on oak reverse (value side carries A/); 549,500,000 must be the all-mints total"
@@ -87,12 +91,6 @@
 "id": "C092",
 "field": "issue.mintage",
 "detail": "DE 1982: mint not read (unknown (letter under oak stem unclear on photo (v); 291,290,000 must be the all-mints total"
-},
-{
-"rule": "copy_differs",
-"id": "C115",
-"field": "issue.mintage",
-"detail": "coin 31588000 vs type CH.KM.21a 10000000"
 },
 {
 "rule": "mint_unknown",

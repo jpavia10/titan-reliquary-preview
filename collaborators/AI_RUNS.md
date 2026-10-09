@@ -10,9 +10,9 @@ Contribution quality (follows the rules) is scored in `CONTRIBUTOR_SCORES.md`; a
 
 | contributor | files | events | kept | verified | reported cost | cost per kept fact |
 |---|---:|---:|---:|---:|---:|---:|
-| claude | 25 | 361 | 333 | 0 | - | - |
+| claude | 28 | 379 | 346 | 0 | - | - |
 | grok | 2 | 213 | 212 | 0 | - | - |
-| grok-bot | 1 | 32 | 32 | 0 | - | - |
+| grok-bot | 21 | 529 | 529 | 0 | - | - |
 | muse | 12 | 723 | 715 | 0 | - | - |
 | opus | 1 | 1 | 1 | 0 | - | - |
 
@@ -61,3 +61,26 @@ Contribution quality (follows the rules) is scored in `CONTRIBUTOR_SCORES.md`; a
 | 2026-10-07 | `changes_muse_20261007-1915.jsonl` | muse | model:muse | 11 | 11 | 0 | 11 | - | - |
 | 2026-10-08 | `changes_claude_20261008-0400.jsonl` | claude | model:claude | 1 | 1 | 0 | 1 | - | - |
 | 2026-10-08 | `changes_claude_20261008-0520.jsonl` | claude | model:claude | 4 | 4 | 0 | 4 | - | - |
+| 2026-10-08 | `changes_claude_20261008-0620.jsonl` | claude | model:claude | 7 | 7 | 0 | 7 | - | - |
+| 2026-10-08 | `changes_claude_20261008-1815.jsonl` | claude | model:claude | 10 | 5 | 0 | 10 | - | - |
+| 2026-10-08 | `changes_claude_20261008-1820.jsonl` | claude | model:claude | 1 | 1 | 0 | 1 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0002.jsonl` | grok-bot | model:grok-bot | 89 | 89 | 0 | 89 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0035.jsonl` | grok-bot | model:grok-bot | 94 | 94 | 0 | 94 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0125.jsonl` | grok-bot | model:grok-bot | 111 | 111 | 0 | 111 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0221.jsonl` | grok-bot | model:grok-bot | 53 | 53 | 0 | 53 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0240.jsonl` | grok-bot | model:grok-bot | 24 | 24 | 0 | 24 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0301.jsonl` | grok-bot | model:grok-bot | 16 | 16 | 0 | 16 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0305.jsonl` | grok-bot | model:grok-bot | 4 | 4 | 0 | 4 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0322.jsonl` | grok-bot | model:grok-bot | 17 | 17 | 0 | 17 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0334.jsonl` | grok-bot | model:grok-bot | 8 | 8 | 0 | 8 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0400.jsonl` | grok-bot | model:grok-bot | 10 | 10 | 0 | 10 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0403.jsonl` | grok-bot | model:grok-bot | 3 | 3 | 0 | 3 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0424.jsonl` | grok-bot | model:grok-bot | 11 | 11 | 0 | 11 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0434.jsonl` | grok-bot | model:grok-bot | 6 | 6 | 0 | 6 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0448.jsonl` | grok-bot | model:grok-bot | 9 | 9 | 0 | 9 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0459.jsonl` | grok-bot | model:grok-bot | 10 | 10 | 0 | 10 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0504.jsonl` | grok-bot | model:grok-bot | 4 | 4 | 0 | 4 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-0513.jsonl` | grok-bot | model:grok-bot | 10 | 10 | 0 | 10 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-1101.jsonl` | grok-bot | model:grok-bot | 4 | 4 | 0 | 4 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-1102.jsonl` | grok-bot | model:grok-bot | 7 | 7 | 0 | 7 | - | - |
+| 2026-10-08 | `changes_grok-bot_20261008-1103.jsonl` | grok-bot | model:grok-bot | 7 | 7 | 0 | 7 | - | - |

@@ -1,162 +1,162 @@
 {
- "about": "Standing work queues for the other AIs (owner 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Claude keeps every active queue at 3 or more open tasks and refreshes it at every intake. Each AI works top to bottom: when one task is done it writes DONE and the date under it in its Drive queue doc (or says so in chat) and starts the next one without waiting. Rendered by tools/agents/render_queues.py into docs/agents/QUEUE_{agent}.md, the agent's Drive doc and the fix list.",
- "updated": "2026-10-08",
- "agents": [
-  {
-   "id": "grok",
-   "name": "Grok",
-   "status": "active",
-   "strength": "Strongest outside contributor (10/10 last review): web + Drive access, opens Numista, careful sources.",
-   "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ + this repo (raw GitHub URLs)",
-   "tasks": [
+  "about": "Standing work queues for the other AIs (owner 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Claude keeps every active queue at 3 or more open tasks and refreshes it at every intake. Each AI works top to bottom: when one task is done it writes DONE and the date under it in its Drive queue doc (or says so in chat) and starts the next one without waiting. Rendered by tools/agents/render_queues.py into docs/agents/QUEUE_{agent}.md, the agent's Drive doc and the fix list.",
+  "updated": "2026-10-08",
+  "agents": [
     {
-     "n": 1,
-     "title": "Numista sweep, batches 1 to 9",
-     "fix": "#72 #71 #40",
-     "state": "now",
-     "what": "Read Drive 'REQUEST for Grok: Numista sweep (2026-10-08)' and docs/requests/numista_sweep_worklist.json. One change file per batch in collection-incoming (AI change files); exact Numista URL in every source; provenance on every line. Do all 9 batches back to back.",
-     "done_when": "9 change files dropped (412 facts asked)."
+      "id": "grok",
+      "name": "Grok",
+      "status": "active",
+      "strength": "Strongest outside contributor (10/10 last review): web + Drive access, opens Numista, careful sources.",
+      "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ + this repo (raw GitHub URLs)",
+      "tasks": [
+        {
+          "n": 1,
+          "title": "Fact-check the coin stories, C151 to C283",
+          "fix": "#73",
+          "state": "now",
+          "what": "Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are merged: every one checked out. Carry on through C283 the same way: check each story against its own record and the cited Numista entry; where a claim is wrong, send a corrected story (source = the exact entry; say what was wrong; change only the wrong sentence).",
+          "done_when": "Every story from C151 to C283 checked; a list of the ones you changed and why (in your FEEDBACK doc note)."
+        },
+        {
+          "n": 2,
+          "title": "Find 8 classical recordings (and check the 16 we kept)",
+          "fix": "music",
+          "state": "next",
+          "what": "16 of 24 pieces now play in the app (docs/music/REVIEW.md). Find recordings for the 8 rejected ones: Bach Air (Orchestral Suite No. 3), Pachelbel Canon in D, Elgar Nimrod, Dvořák New World Largo, Handel Ombra mai fu, Debussy Rêverie, Debussy Arabesque No. 1, Liszt Consolation No. 3; also a PIANO recording of Satie Gymnopédie 1 and 3 (the kept ones are guitar). Rules: a named human performer (no MIDI, synth or virtual piano), license Public Domain / CC0 / CC BY(-SA) for the RECORDING, and in the US too (no 1926-or-later historical 78 rpm transfers). Prefer Wikimedia Commons (exact File: title), else Musopen or archive.org with the license page. Write a JSON list {id, file or url, license, performer, why} as music_grok_{YYYYMMDD-HHMM}.json in Drive 'music-requests (Grok)'. While there, spot-check 3 of the 16 kept picks in docs/music/REVIEW.md.",
+          "done_when": "One JSON file covering the 8 pieces + Satie piano versions."
+        },
+        {
+          "n": 3,
+          "title": "Take the blind photo test",
+          "fix": "#4",
+          "state": "next",
+          "what": "Open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main and follow its PROMPT.md exactly: answer only from the 30 photos, null when unsure. Save bakeoff_grok_{YYYYMMDD-HHMM}.json in Drive 'bakeoff (blind photo test)'. Never open '_locked'.",
+          "done_when": "One JSON answer file with 30 entries."
+        },
+        {
+          "title": "Numista sweep, round 2 (3 batches + catalogue numbers)",
+          "fix": "#72",
+          "state": "next",
+          "what": "Round 1 is merged (152 of 162 types, 484 facts; the trust meter went from 5.7 % to 18.1 %). docs/requests/numista_sweep_worklist.json is regenerated: 47 types, 93 facts, 3 batches (the 5 new coins C284 to C288, the 10 types round 1 left out, and facts Numista did not give last time; for a token or prop with no Numista entry, say so once in your note and skip it). Also docs/requests/catalog_disagreements_20261008.json: the 31 Schön / J numbers you flagged as DISAGREEMENT; send Numista's number for each (the record numbers came from the old ledger: several are copies of the KM number and the German J numbers are off by one).",
+          "done_when": "3 batch files and 1 catalogue-number file dropped.",
+          "n": 4
+        },
+        {
+          "n": 5,
+          "title": "Motion Lab study 2: the coin flip",
+          "fix": "#56",
+          "state": "later",
+          "what": "Like your gold-dust study: one self-contained HTML file using ../js/three.min.js and a real coin's two photos (photos/p1/ coins with both sides), the coin flips with a moving rim light; Still / Calm / Full; must follow the app's Motion setting (localStorage titan.motion). Put it in Drive 'motion-lab-incoming'.",
+          "done_when": "One HTML file Claude can drop into /motion-lab/."
+        },
+        {
+          "n": 6,
+          "title": "Read new coin photos (with Muse, blind)",
+          "fix": "#55",
+          "state": "always",
+          "what": "Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Muse's read first (AI_START_HERE 2b).",
+          "done_when": "Ongoing."
+        }
+      ]
     },
     {
-     "n": 2,
-     "title": "Find 8 classical recordings (and check the 16 we kept)",
-     "fix": "music",
-     "state": "next",
-     "what": "16 of 24 pieces now play in the app (docs/music/REVIEW.md). Find recordings for the 8 rejected ones: Bach Air (Orchestral Suite No. 3), Pachelbel Canon in D, Elgar Nimrod, Dvořák New World Largo, Handel Ombra mai fu, Debussy Rêverie, Debussy Arabesque No. 1, Liszt Consolation No. 3; also a PIANO recording of Satie Gymnopédie 1 and 3 (the kept ones are guitar). Rules: a named human performer (no MIDI, synth or virtual piano), license Public Domain / CC0 / CC BY(-SA) for the RECORDING, and in the US too (no 1926-or-later historical 78 rpm transfers). Prefer Wikimedia Commons (exact File: title), else Musopen or archive.org with the license page. Write a JSON list {id, file or url, license, performer, why} as music_grok_{YYYYMMDD-HHMM}.json in Drive 'music-requests (Grok)'. While there, spot-check 3 of the 16 kept picks in docs/music/REVIEW.md.",
-     "done_when": "One JSON file covering the 8 pieces + Satie piano versions."
+      "id": "muse",
+      "name": "Muse",
+      "status": "active",
+      "strength": "Good researcher and writer (8/10, probation streak 1 of 3); Drive access.",
+      "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/",
+      "tasks": [
+        {
+          "n": 1,
+          "title": "Re-cite your 26 vague sources",
+          "fix": "#48",
+          "state": "now",
+          "what": "The list is in your FEEDBACK doc. For each, send the same value again with the exact entry (Numista N#, KM#, a page URL) in source. One change file.",
+          "done_when": "26 lines re-cited (they move from 'AI guess' to 'Reference' and raise the trust meter)."
+        },
+        {
+          "n": 2,
+          "title": "Second reader on Grok's Numista batches",
+          "fix": "#72",
+          "state": "now",
+          "what": "All 9 of Grok's sweep batches were merged on 2026-10-08 (files collection/_incoming/applied/changes_grok-bot_20261008-0002.jsonl to -0513.jsonl). Spot-check 5 facts from each batch (45 in all) against the exact Numista URL in its source: right entry, right row, right number. Report agreements and disagreements in your FEEDBACK doc; send a correction only with its own exact source.",
+          "done_when": "45 facts checked, 5 per batch, listed in your FEEDBACK doc."
+        },
+        {
+          "n": 3,
+          "title": "Take the blind photo test",
+          "fix": "#4",
+          "state": "next",
+          "what": "Open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main, follow its PROMPT.md, answer only from the photos. Save bakeoff_muse_{YYYYMMDD-HHMM}.json in Drive 'bakeoff (blind photo test)'. Never open '_locked'.",
+          "done_when": "One JSON answer file with 30 entries."
+        },
+        {
+          "n": 4,
+          "title": "Read new coin photos (with Grok, blind)",
+          "fix": "#55",
+          "state": "always",
+          "what": "Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Grok's read first (AI_START_HERE 2b).",
+          "done_when": "Ongoing."
+        }
+      ]
     },
     {
-     "n": 3,
-     "title": "Take the blind photo test",
-     "fix": "#4",
-     "state": "next",
-     "what": "Open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main and follow its PROMPT.md exactly: answer only from the 30 photos, null when unsure. Save bakeoff_grok_{YYYYMMDD-HHMM}.json in Drive 'bakeoff (blind photo test)'. Never open '_locked'.",
-     "done_when": "One JSON answer file with 30 entries."
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "status": "active",
+      "strength": "Strong reasoning and code review; no Drive access, so everything goes through chat (Joseph pastes) and raw GitHub links. Last review read a stale copy: always open the exact links below.",
+      "reach": "Joseph pastes the link https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; ChatGPT's answer is pasted back to Claude.",
+      "tasks": [
+        {
+          "n": 1,
+          "title": "Fact-check the coin stories, C001 to C150",
+          "fix": "#73",
+          "state": "now",
+          "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/ (one file per country, e.g. CH.json) and the matching collection/types/ file. For each coin from C001 to C150, check its story against its own record (type, year, mint, composition, catalogue number). List every claim that the record contradicts or that is not supported, as change-file lines (collection/templates/INSTRUCTIONS.md) with by 'model:chatgpt', phase 2, an exact source. Reply with one jsonl block.",
+          "done_when": "One reply covering C001 to C150."
+        },
+        {
+          "n": 2,
+          "title": "Review two new modules",
+          "fix": "#32",
+          "state": "next",
+          "what": "Review https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/app-motion.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/music-recorded.js for real bugs only (what breaks, how to reproduce, the smallest fix, file:line). No style notes.",
+          "done_when": "One reply; Claude verifies each claim before fixing."
+        },
+        {
+          "n": 3,
+          "title": "Dad's one-page guide",
+          "fix": "#60",
+          "state": "later",
+          "what": "Write a one-page plain-English guide for Joseph's dad to the Simple view (Do I have...?, What's missing?, At a glance, Questions): big words, short sentences, what to tap. Read the live app at https://jpavia10.github.io/titan-reliquary-preview/#simple first.",
+          "done_when": "One reply with the text."
+        }
+      ]
     },
     {
-     "n": 4,
-     "title": "Fact-check the coin stories, C151 to C283",
-     "fix": "#73",
-     "state": "later",
-     "what": "Each coin's story (collection/specimens/*.json, field story) makes catalogue claims. Check each against its own record and the cited Numista entry; where a claim is wrong, send a corrected story as a change file (source = the exact entry; say what was wrong). Muse wrote the stories, so you check them.",
-     "done_when": "Every story from C151 to C283 checked; a list of the ones you changed and why."
-    },
-    {
-     "n": 5,
-     "title": "Motion Lab study 2: the coin flip",
-     "fix": "#56",
-     "state": "later",
-     "what": "Like your gold-dust study: one self-contained HTML file using ../js/three.min.js and a real coin's two photos (photos/p1/ coins with both sides), the coin flips with a moving rim light; Still / Calm / Full; must follow the app's Motion setting (localStorage titan.motion). Put it in Drive 'motion-lab-incoming'.",
-     "done_when": "One HTML file Claude can drop into /motion-lab/."
-    },
-    {
-     "n": 6,
-     "title": "Read new coin photos (with Muse, blind)",
-     "fix": "#55",
-     "state": "always",
-     "what": "Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Muse's read first (AI_START_HERE 2b).",
-     "done_when": "Ongoing."
+      "id": "gemini",
+      "name": "Gemini",
+      "status": "parked",
+      "strength": "Vision and video (Veo); currently unreliable (invented its last review). Parked until Joseph fixes it.",
+      "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/",
+      "tasks": [
+        {
+          "n": 1,
+          "title": "Take the blind photo test",
+          "fix": "#4",
+          "state": "next",
+          "what": "When Joseph says Gemini is working again: open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main, follow its PROMPT.md, answer only from the photos. Save bakeoff_gemini_{YYYYMMDD-HHMM}.json in Drive 'bakeoff (blind photo test)'.",
+          "done_when": "One JSON answer file with 30 entries."
+        },
+        {
+          "n": 2,
+          "title": "Open art and video jobs",
+          "fix": "#35",
+          "state": "later",
+          "what": "The art queue (ART_START_HERE in Drive): claim a job before starting. Paused while video credits are low.",
+          "done_when": "When credits allow."
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "muse",
-   "name": "Muse",
-   "status": "active",
-   "strength": "Good researcher and writer (8/10, probation streak 1 of 3); Drive access.",
-   "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/",
-   "tasks": [
-    {
-     "n": 1,
-     "title": "Re-cite your 26 vague sources",
-     "fix": "#48",
-     "state": "now",
-     "what": "The list is in your FEEDBACK doc. For each, send the same value again with the exact entry (Numista N#, KM#, a page URL) in source. One change file.",
-     "done_when": "26 lines re-cited (they move from 'AI guess' to 'Reference' and raise the trust meter)."
-    },
-    {
-     "n": 2,
-     "title": "Second reader on Grok's Numista batches",
-     "fix": "#72",
-     "state": "next",
-     "what": "When a Grok sweep batch has been merged (SHARED_LOG says so), spot-check 5 of its facts against the cited URL. Report agreements and disagreements in your FEEDBACK doc; send a correction only with its own exact source.",
-     "done_when": "Each merged batch spot-checked."
-    },
-    {
-     "n": 3,
-     "title": "Take the blind photo test",
-     "fix": "#4",
-     "state": "next",
-     "what": "Open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main, follow its PROMPT.md, answer only from the photos. Save bakeoff_muse_{YYYYMMDD-HHMM}.json in Drive 'bakeoff (blind photo test)'. Never open '_locked'.",
-     "done_when": "One JSON answer file with 30 entries."
-    },
-    {
-     "n": 4,
-     "title": "Read new coin photos (with Grok, blind)",
-     "fix": "#55",
-     "state": "always",
-     "what": "Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Grok's read first (AI_START_HERE 2b).",
-     "done_when": "Ongoing."
-    }
-   ]
-  },
-  {
-   "id": "chatgpt",
-   "name": "ChatGPT",
-   "status": "active",
-   "strength": "Strong reasoning and code review; no Drive access, so everything goes through chat (Joseph pastes) and raw GitHub links. Last review read a stale copy: always open the exact links below.",
-   "reach": "Joseph pastes the link https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; ChatGPT's answer is pasted back to Claude.",
-   "tasks": [
-    {
-     "n": 1,
-     "title": "Fact-check the coin stories, C001 to C150",
-     "fix": "#73",
-     "state": "now",
-     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/ (one file per country, e.g. CH.json) and the matching collection/types/ file. For each coin from C001 to C150, check its story against its own record (type, year, mint, composition, catalogue number). List every claim that the record contradicts or that is not supported, as change-file lines (collection/templates/INSTRUCTIONS.md) with by 'model:chatgpt', phase 2, an exact source. Reply with one jsonl block.",
-     "done_when": "One reply covering C001 to C150."
-    },
-    {
-     "n": 2,
-     "title": "Review two new modules",
-     "fix": "#32",
-     "state": "next",
-     "what": "Review https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/app-motion.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/music-recorded.js for real bugs only (what breaks, how to reproduce, the smallest fix, file:line). No style notes.",
-     "done_when": "One reply; Claude verifies each claim before fixing."
-    },
-    {
-     "n": 3,
-     "title": "Dad's one-page guide",
-     "fix": "#60",
-     "state": "later",
-     "what": "Write a one-page plain-English guide for Joseph's dad to the Simple view (Do I have...?, What's missing?, At a glance, Questions): big words, short sentences, what to tap. Read the live app at https://jpavia10.github.io/titan-reliquary-preview/#simple first.",
-     "done_when": "One reply with the text."
-    }
-   ]
-  },
-  {
-   "id": "gemini",
-   "name": "Gemini",
-   "status": "parked",
-   "strength": "Vision and video (Veo); currently unreliable (invented its last review). Parked until Joseph fixes it.",
-   "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/",
-   "tasks": [
-    {
-     "n": 1,
-     "title": "Take the blind photo test",
-     "fix": "#4",
-     "state": "next",
-     "what": "When Joseph says Gemini is working again: open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main, follow its PROMPT.md, answer only from the photos. Save bakeoff_gemini_{YYYYMMDD-HHMM}.json in Drive 'bakeoff (blind photo test)'.",
-     "done_when": "One JSON answer file with 30 entries."
-    },
-    {
-     "n": 2,
-     "title": "Open art and video jobs",
-     "fix": "#35",
-     "state": "later",
-     "what": "The art queue (ART_START_HERE in Drive): claim a job before starting. Paused while video credits are low.",
-     "done_when": "When credits allow."
-    }
-   ]
-  }
- ]
+  ]
 }
