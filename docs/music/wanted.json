@@ -80,6 +80,27 @@
    "note": "no qualifying piano recording yet (Grok, 2026-10-08); the guitar version stays"
   },
   {
+   "id": "satie-gymnopedie-3-piano",
+   "title": "Gymnopédie No. 3 (piano)",
+   "composer": "Erik Satie",
+   "query": "Satie Gymnopedie 3 piano",
+   "must": [
+    "gymnop"
+   ],
+   "prefer": [
+    "piano",
+    "3",
+    "trois"
+   ],
+   "moods": [
+    "piano"
+   ],
+   "reject": [
+    "File:Satie Gymnopedie No 3 performed by Michael Laucke.flac"
+   ],
+   "hold": "no qualifying piano recording yet (Grok, 2026-10-08): searched on every run, used only after review"
+  },
+  {
    "id": "satie-gnossienne-1",
    "title": "Gnossienne No. 1",
    "composer": "Erik Satie",
@@ -467,7 +488,9 @@
     "nimrod"
    ],
    "prefer": [
-    "enigma"
+    "enigma",
+    "variation ix",
+    "orchestra"
    ],
    "moods": [
     "orchestra"

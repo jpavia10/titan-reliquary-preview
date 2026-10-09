@@ -120,8 +120,10 @@ def encode(src, dst):
     cut = []
     if dur > MAX_SEC:
         af += f",afade=t=out:st={MAX_SEC - 8}:d=8"; cut = ["-t", str(MAX_SEC)]
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", src, *cut, "-map", "0:a:0", "-vn", "-af", af,   # audio only: an mp3's cover art cannot go in .m4a "-ac", "2", "-ar", "44100", "-c:a", "aac", "-b:a", "96k",
-                    "-movflags", "+faststart", dst], check=True)
+    # audio only (-map 0:a:0 -vn): an mp3's cover art cannot go in .m4a. (2026-10-09: a comment on this line used to swallow the codec
+    # arguments, so the 2026-10-09 files were encoded at ffmpeg's defaults; the next run re-encodes them at 96 kb/s stereo 44.1 kHz.)
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", src, *cut, "-map", "0:a:0", "-vn", "-af", af,
+                    "-ac", "2", "-ar", "44100", "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", dst], check=True)
     return min(dur, MAX_SEC)
 
 
@@ -134,9 +136,6 @@ def main(argv):
     os.makedirs(out, exist_ok=True)
     report, tracks = [], []
     for w in wanted["pieces"]:
-        if w.get("hold"):                          # reviewed and parked (no qualifying recording yet, or waiting on the owner's ear)
-            report.append({"id": w["id"], "title": w["title"], "picked": None, "hold": w["hold"], "candidates": []})
-            print(f"{w['id']:<28} held: {w['hold']}", flush=True); continue
         titles = list(w.get("files") or [])        # exact Commons file titles (e.g. from Grok's music check) are tried first, same checks apply
         for q in [w["query"], w["query"] + " " + w["composer"].split()[-1], w["title"]]:
             for t in search(q):
@@ -151,6 +150,11 @@ def main(argv):
         for r in rows:
             if r["file"] in exact and r["score"] is not None: r["score"] += 100      # a reviewed exact pick wins when it passes the checks
         ok = sorted([r for r in rows if r["score"] is not None], key=lambda r: -r["score"])
+        if w.get("hold"):      # parked (no qualifying recording yet, or waiting on the owner's ear): still searched on every run, never used,
+            # so a new upload on Commons shows up in the report by itself (#83); Claude lifts the hold after reviewing `would_pick`
+            report.append({"id": w["id"], "title": w["title"], "picked": None, "hold": w["hold"], "would_pick": ok[0]["file"] if ok else None, "candidates": rows})
+            print(f"{w['id']:<28} held: {w['hold']}  (would pick: {ok[0]['file'] if ok else 'none'}; {len(ok)} ok of {len(rows)})", flush=True)
+            time.sleep(1); continue
         pick = None
         for r in ok[:3]:
             if dry: pick = r; break
