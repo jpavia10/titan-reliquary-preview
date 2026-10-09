@@ -1,0 +1,27 @@
+<script>
+(function () {
+  var KEY = "titan-fix-list-v1";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type=checkbox]'));
+  var saved = [];
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { saved = []; }
+  boxes.forEach(function (b) { if (saved.indexOf(b.dataset.n) >= 0) b.checked = true; });
+  function picks() { return boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.dataset.n; }); }
+  function line() { var p = picks(); return p.length ? "Fix: " + p.join(", ") : ""; }
+  function render() {
+    var p = picks();
+    boxes.forEach(function (b) { b.closest("li").classList.toggle("on", b.checked); });
+    document.getElementById("count").textContent = p.length + " picked";
+    document.getElementById("picked").textContent = p.length ? line() : "Tick items above.";
+    try { localStorage.setItem(KEY, JSON.stringify(p)); } catch (e) { /* storage blocked */ }
+  }
+  boxes.forEach(function (b) { b.addEventListener("change", render); });
+  document.getElementById("clear").addEventListener("click", function () { boxes.forEach(function (b) { b.checked = false; }); render(); });
+  document.getElementById("copy").addEventListener("click", function () {
+    var t = line() || "Fix: nothing yet", ok = document.getElementById("copied");
+    function done() { ok.hidden = false; setTimeout(function () { ok.hidden = true; }, 1800); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(document.getElementById("picked")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    try { navigator.clipboard.writeText(t).then(done, fallback); } catch (e) { fallback(); }
+  });
+  render();
+})();
+</script>

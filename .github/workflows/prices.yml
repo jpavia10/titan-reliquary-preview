@@ -61,7 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add collection data version.json CLAUDE.md AI_START_HERE.md   # publish also rewrites the status block in these docs
+          git add collection data version.json CLAUDE.md AI_START_HERE.md docs/agents   # publish also rewrites the status block in these docs and turns the research loop (docs/agents)
           if git diff --cached --quiet; then
             echo "pushed=false" >> "$GITHUB_OUTPUT"
           else

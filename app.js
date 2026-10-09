@@ -22,7 +22,9 @@
   const REFRESH_MS_WEB = 30000;
   const REQ_OPEN_KEY = "tr_req_open_v1";
   let dripUntil = 0; // ms epoch; drip polling only while now < dripUntil
-  const details = new Map(); // detail bucket -> {scan: fullCard}
+  // The data layer (fetchJson + the per-country detail cache) lives in js/app-data.js (fix list #32, step 5).
+  const detailStore = window.TitanData.details(() => vault && vault.flips);
+  const details = detailStore.map; // detail bucket -> {scan: fullCard} (the Gallery bridge reads it)
 
   let vault = null;
   let flipSort = { key: "scan", dir: -1 }; // newest first by default
@@ -389,11 +391,7 @@
     }, 1000);
   }
 
-  async function fetchJson(url) {
-    const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" });
-    if (!r.ok) throw new Error("HTTP " + r.status + " " + url);
-    return r.json();
-  }
+  function fetchJson(url) { return window.TitanData.fetchJson(url); }
 
   /** Lowercase, accent-free, single-spaced text for matching ("Øre" ~ "ore", "Shōwa" ~ "showa"). */
   function norm(s) {
@@ -415,7 +413,7 @@
     try {
       vault = await fetchJson("data/index.json");
       window.vault = vault;
-      details.clear();
+      detailStore.clear();
       searchIdx = null; searchLoading = null;
       loadedAt = Date.now();
       lastCheckAt = Date.now();
@@ -431,16 +429,8 @@
     }
   }
 
-  /** Full card for a flip (per-country detail JSON, fetched on tap and cached). */
-  async function ensureDetail(scan) {
-    const lean = (vault.flips || []).find((f) => f.scan === scan);
-    if (!lean || lean._full) return lean;
-    const bucket = lean.d || "_misc";
-    if (!details.has(bucket)) details.set(bucket, await fetchJson(`data/detail/${encodeURIComponent(bucket)}.json`));
-    const full = details.get(bucket)[scan];
-    if (full) Object.assign(lean, full, { _full: true });
-    return lean;
-  }
+  /** Full card for a flip (per-country detail JSON, fetched on tap and cached): js/app-data.js. */
+  function ensureDetail(scan) { return detailStore.ensure(scan); }
 
   // Lazy thumbnails: <img data-src> swapped in when scrolled near the viewport.
   const thumbObserver = "IntersectionObserver" in window
@@ -4978,7 +4968,7 @@
     const todo = d.total - (d.counts.not_round || 0);
     el.innerHTML = `<div class="sec-head"><span class="eyebrow">Phase 1</span><h2 id="reshoot-h">Shoot list</h2>
       <p class="sub">${todo ? `${intFmt(todo)} flips still need a phone photo (one side, with your pen label showing), and ${intFmt(os.total)} need their other side. Drop them in Drive STAGING.` : "Every flip has a phone photo."} While a coin is in your hand, tap “Right?” on what it says to confirm it.</p>
-      <button type="button" class="btn small" id="rs-print">Print this list</button></div>
+      <a href="#scan" class="btn small" id="rs-scan">Scan with the camera</a> <button type="button" class="btn small" id="rs-print">Print this list</button></div>
       ${finish}
       ${first.length ? `<div class="rs-first"><h3>Start here: these photos settle an open question</h3><ol class="rs-list rs-ol">${first.map(([i, x]) => rsRow(i, x)).join("")}</ol></div>` : ""}
       ${groups}${other}`;

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-09 14:54 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-09 15:21 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -13,6 +13,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 Three checks, answered in one short reply. (a) In this doc, find your first homework assignment below: give its id (it starts HW-gemini-) and how many items it has. (b) Open the first item's photo by its Drive link (the 'original' link) or its GitHub link: give the file name and say which side of the coin it shows and the year you can read. (c) Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/roles.json and give the value of "updated". If you cannot open something, say exactly which link failed and stop there: never describe a file you could not open (your last review was scored 1/10 for that). Save the reply as access_gemini_{YYYYMMDD-HHMM}.txt in Drive collection-incoming (AI change files), or reply in chat and Joseph pastes it to Claude.
 
 **Done when:** Claude confirms all three answers against the files; then the homework below is yours.
+
+## Calibration test due: the main photo pack (30 coins)  (fix list #4)
+
+Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-main/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_gemini_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack.
+
+**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
 
 ## Homework (generated from the data)
 
@@ -69,8 +75,8 @@ Items:
 - **mintage of C211 · Italy · 1987 · 500 lire · ITL** `type IT.KM.111 issues.0.mintage` = `200000000` (written by Muse: Titan Round 4 mintage research 2026-10-03 (Numista, IT 500 lire 1987 R (KM#111) circulation; proof 10000 excluded)) [audit sample]
 - **mintage of C238 · Germany · 1973 · 2 Deutsche Mark · DEM** `type DE.KM.124 issues.0.mintage` = `10393000` (written by Muse: Titan Round 4 mintage research 2026-10-03 (Numista N#844 (DE.KM.124, 2 DM Adenauer), 1973-D circulation)) [audit sample]
 - **mintage of C084 · Italy · 2002 · 1 euro · EUR** `type IT.KM.216 issues.0.mintage` = `965725300` (written by Muse: Titan Round 4 mintage research 2026-10-03 (Numista, IT 1 euro 2002 R (KM#216) circulation; BU 150000 excluded)) [audit sample]
-- **catalog of C164 · United Kingdom · 1932 · ½ penny · GBP** `type GB.KM.837 catalogs` = `[{"number": "837", "system": "KM"}, {"number": "4004", "system": "Numista", "url": "https…` (written by Grok: Numista N#4004 (https://en.numista.com/catalogue/pieces4004.html) references: KM# 837, Sp# 4058, Schön# 15c; Numista also lists Spink 4058 a) [audit sample]
-- **mintage of C160 · Canada · 1939 · 5 cents · CAD** `type CA.KM.33 issues.0.mintage` = `5661123` (written by Grok: Numista N#413 (https://en.numista.com/catalogue/pieces413.html): mintage table row '1939' = 5 661 123 (re-cite; matches the record)) [audit sample]
+- **catalog of C164 · United Kingdom · 1932 · ½ penny · GBP** `type GB.KM.837 catalogs` = `[{"number": "837", "system": "KM"}, {"number": "4004", "system": "Numista", "url": "https…` (written by Grok: Numista N#4004 (https://en.numista.com/catalogue/pieces4004.html) references: KM# 837, Sp# 4058, Schön# 15c; Numista also lists Spink 4058 a)
+- **mintage of C160 · Canada · 1939 · 5 cents · CAD** `type CA.KM.33 issues.0.mintage` = `5661123` (written by Grok: Numista N#413 (https://en.numista.com/catalogue/pieces413.html): mintage table row '1939' = 5 661 123 (re-cite; matches the record))
 - **mintage of C103 · Germany · 1982 · 1 Deutsche Mark · DEM** `type DE.KM.110 issues.0.mintage` = `11520000` (written by Muse: Titan Round 4 mintage research 2026-10-03 (Numista N#846, 1982-J circulation)) [audit sample]
 - **mintage of C050 · Germany · 1982 · 1 Deutsche Mark · DEM** `type DE.KM.110 issues.1.mintage` = `70000000` (written by Muse: Titan Round 4 mintage research 2026-10-03 (Numista N#846, 1982 year total; no mint mark recorded)) [audit sample]
 - **mintage of C006 · Germany · 1984 · 1 Deutsche Mark · DEM** `type DE.KM.110 issues.2.mintage` = `32400000` (written by Muse: Titan Round 4 mintage research 2026-10-03 (Numista N#846 (DE.KM.110, 1 DM), 1984 year total; no mint mark recorded)) [audit sample]
@@ -94,12 +100,6 @@ Answer sheet (the same as the link):
 ```
 
 ## Projects (after the homework)
-
-### Take the blind photo test  [NEXT]  (fix list #4)
-
-Open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main, follow its PROMPT.md and answer only from the photos (30 coins). If you could not open GitHub in the access check, say so: Claude will put the pack in Drive 'bakeoff (blind photo test)'. Save bakeoff_gemini_{YYYYMMDD-HHMM}.json there.
-
-**Done when:** One JSON answer file with 30 entries.
 
 ### Read new coin photos as the third blind reader  [ALWAYS]  (fix list #55)
 

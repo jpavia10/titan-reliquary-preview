@@ -188,6 +188,7 @@ def specimen_detail(col, s, t):
     if "face" in lt: face = lt["face"]
     d = {"kind": "token" if tok else "flip", "scan": s["id"], "ser": ser, "country": iss, "year": s["year_raw"], "denom": dl,
          "scan_note": f"{s['id']} (temporary · renumber after reorg)", "added": s["acquisition"]["logged_at"],
+         **({"origin": s["acquisition"]["source"]} if (s.get("acquisition") or {}).get("source") else {}),      # fix list #77, the owner's own words
          "cat": "token / exonumia (not legal tender)" if tok else "coin",
          "continent_line": f"{cont} · Country: {iss} · ISO: {iso}", "year_line": year_line(s, t), "denom_line": dl,
          "refs": refs_text(t), "metal": metal_text(t, s), "specs": specs_text(t), "mintage": mintage_txt(s["issue"]),

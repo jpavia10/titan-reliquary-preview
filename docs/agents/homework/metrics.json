@@ -1,38 +1,38 @@
 {
- "updated": "2026-10-09T14:54:33Z",
+ "updated": "2026-10-09T15:21:08Z",
  "pools": {
-  "cite": 44,
+  "cite": 43,
   "catno": 29,
   "story-check": 157,
   "plain-story": 41,
   "research": 5,
   "value": 290,
   "read-mint": 38,
-  "verify": 371
+  "verify": 395
  },
  "agents": {
   "claude": {
-   "confirmed": 2,
+   "confirmed": 6,
    "wrong": 0,
    "checks_done": 0,
    "disagreements_open": 0,
-   "checked_n": 2,
+   "checked_n": 6,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.658
+    0.39
    ]
   },
   "grok": {
-   "confirmed": 19,
+   "confirmed": 23,
    "wrong": 0,
    "checks_done": 0,
    "disagreements_open": 0,
-   "checked_n": 19,
+   "checked_n": 23,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.168
+    0.143
    ]
   },
   "muse": {
@@ -50,7 +50,7 @@
  },
  "parked": [],
  "open_assignments": {
-  "grok": 3,
+  "grok": 4,
   "muse": 3,
   "gemini": 2,
   "chatgpt": 0

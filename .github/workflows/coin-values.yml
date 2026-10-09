@@ -1,0 +1,43 @@
+name: coin-values
+
+# Collector values from Numista's price estimates (fix list #62), weekly. Dormant until the repository secret NUMISTA_API_KEY exists
+# (a free key from numista.com > API). Writes collection/prices/numista_values.json only; a coin's value changes only through a cited
+# change file (the research loop shows these rows to the appraiser). GitHub's machines can reach Numista; the Claude container cannot.
+on:
+  schedule:
+    - cron: "40 23 * * 1"        # Mondays 23:40 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prices
+  cancel-in-progress: false
+
+jobs:
+  values:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema
+      - name: Fetch Numista price estimates
+        env:
+          NUMISTA_API_KEY: ${{ secrets.NUMISTA_API_KEY }}
+        run: python tools/prices/fetch_numista_values.py --max-requests 400
+      - name: Commit and push
+        run: |
+          if git diff --quiet -- collection/prices; then echo "nothing new"; exit 0; fi
+          python tools/schema/validate.py collection/ --update-manifest
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add collection/prices collection/manifest.json
+          git commit -m "coin values: Numista price estimates $(date -u +%F)"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main

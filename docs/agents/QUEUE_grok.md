@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-09 14:54 UTC)
+# WORK QUEUE for Grok (updated 2026-10-09 15:21 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -14,6 +14,12 @@ Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are
 
 **Done when:** Every story from C151 to C283 checked; a list of the ones you changed and why (in your FEEDBACK doc note).
 
+## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
+
+Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-locked and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-locked/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_grok_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack. Its coin ids exist only in Claude's locked key; it decides which AI reads the Phase 2 pro photos.
+
+**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
+
 ## Homework (generated from the data)
 
 How homework works (read once):
@@ -24,7 +30,7 @@ How homework works (read once):
 5. Finish within the lease (the date on each assignment); after it the items go back to the pool.
 6. When you finish, start the next assignment straight away. New assignments appear here after every merge.
 
-### 1. HW-grok-cite-20261009-1 · Cataloguer · Cite the catalogue facts of 20 coin types · due 2026-10-16  (fix list #72)
+### 1. HW-grok-cite-20261009-1 · Cataloguer · Cite the catalogue facts of 19 coin types · due 2026-10-16  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -51,7 +57,6 @@ Items:
 - **GB 10 pence (GB.KM.1110d)** coins C155, C156, C157. Ask: issues.0.mintage: 2013; issues.1.mintage: 2014
 - **SU 1 kopek (SU.Y.126a)** coins C042, C044. Ask: issues.0.mintage: 1962; issues.1.mintage: 1974
 - **BZ 25 cents (BZ.X.25-cents)** coins C280. Ask: issues.0.mintage: 2007
-- **CH 2 francs (CH.KM.21a.3)** coins C077. Ask: issues.0.mintage: 1991 B
 - **CH 0.5 franc (CH.KM.23a)** coins C008, C015. Ask: issues.0.mintage: 1968 B
 
 ### 2. HW-grok-catno-20261009-1 · Cataloguer · Settle 29 catalogue numbers that disagree with Numista · due 2026-10-16  (fix list #74)
@@ -128,6 +133,41 @@ Items:
 - **C024 · United Kingdom · 1977 · 2 new pence · GBP**: “A 1977 2 new pence from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows Plume of ostrich feathers in coronet; NEW PENCE (Ironside). Struck in bronze (97 Cu / 2.5 Zn / 0.5 Sn).” Record: {"country": "United Kingdom", "year": "1977", "denom": "2 new pence · GBP", "mint": "Royal Mint", "refs": "KM#916 · Schön#403 · Numista#664", "metal": "bronze (97 Cu / 2.5 Zn / 0.5 Sn) · 7.12 g · 25.9 mm · plain · dark brown circulated · white 2×2 staple flip", "specs": "thickness 1.85 mm · medal alignment · type specs shared with decimal 2p family · bronze era (pre–Sep 1992)", "mintage": "109,28…
 - **C025 · France · 1965 · 1 franc · FRF (nouveau franc)**: “A 1965 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.” Record: {"country": "France", "year": "1965", "denom": "1 franc · FRF (nouveau franc)", "mint": "Monnaie de Paris", "refs": "KM#925.1 · Schön#233 · Numista#6", "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)", "mintage": "44,286,591 (circu…
 
+### 4. HW-grok-value-20261009-1 · Appraiser · Cite collector values for 25 coins · due 2026-10-19  (fix list #62)
+
+For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
+
+**Done when:** One change file; coins without a price page left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261009-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)**: now $12.00 (med)
+- **C223 · Netherlands · 1967 · 1 gulden · NLG**: now $9.55 (high); silver 0.15 oz = melt $8.93. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C223_rev.webp
+- **C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)**: now $6.50 (high)
+- **C065 · Switzerland · 2014 · 5 francs · CHF**: now $6.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C065_rev.webp
+- **C066 · Switzerland · 1978 · 5 francs · CHF**: now $6.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C066_rev.webp
+- **T004 · USA · ca. 1970s · Miniature “penny” in printed cardboard flap**: now $5.00 (med)
+- **C235 · Guatemala · 1934 · 10 centavos · GTQ**: now $4.90 (high); silver 0.077 oz = melt $4.58. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C235_rev.webp
+- **C088 · USA · 1957 · 10¢ Roosevelt**: now $4.59 (high); silver 0.0723 oz = melt $4.30. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C088_obv.webp
+- **C009 · Germany · 1987 · 5 Deutsche Mark · DEM**: now $3.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C009_obv.webp
+- **C031 · Australia · 1943 · Threepence (3d) · AUD**: now $2.66 (high); silver 0.0419 oz = melt $2.49. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C031_obv.webp
+- **C003 · Switzerland · 1968 · 2 francs · CHF**: now $2.50 (high)
+- **C014 · Switzerland · 1974 · 2 francs · CHF**: now $2.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C014_rev.webp
+- **C067 · Switzerland · 1981 · 2 francs · CHF**: now $2.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C067_rev.webp
+- **C077 · Switzerland · 1991 · 2 francs · CHF**: now $2.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C077_rev.webp
+- **C115 · Switzerland · 1968 · 2 francs · CHF**: now $2.50 (high)
+- **C116 · Switzerland · 1981 · 2 francs · CHF**: now $2.50 (high)
+- **C242 · Switzerland · 1883 · 10 rappen · CHF**: now $2.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C242_obv.webp
+- **C070 · Netherlands · 2002 · 2 euro · EUR**: now $2.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C070_obv.webp
+- **C071 · Germany · 2003 · 2 euro · EUR**: now $2.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C071_obv.webp
+- **C072 · France · 2000 · 2 euro · EUR**: now $2.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C072_obv.webp
+- **C263 · Mexico · 1950 · 25 centavos · MXN**: now $2.00 (high); silver 0.0321 oz = melt $1.91. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C263_rev.webp
+- **C049 · France · 1989 · 10 francs · FRF**: now $1.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C049_rev.webp
+- **C211 · Italy · 1987 · 500 lire · ITL**: now $1.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C211_rev.webp
+- **T003 · USA · ND · Ride token (Sandy the Pony · Meijer)**: now $1.50 (med). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_obv.webp
+- **C001 · Switzerland · 1969 · 1 franc · CHF**: now $1.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C001_rev.webp
+
 ## Projects (after the homework)
 
 ### Music: a recording for each of the 4 held pieces  [LATER]  (fix list #83)
@@ -151,5 +191,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 0; expired: 0.
-- Your facts checked by another contributor: 19 (19 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-17 %). Checks you did for others: 0. Open disagreements you are part of: 0.
-- Share of your new facts that get checked first: 50 %.
+- Your facts checked by another contributor: 23 (23 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-14 %). Checks you did for others: 0. Open disagreements you are part of: 0.
+- Share of your new facts that get checked first: 15 %.

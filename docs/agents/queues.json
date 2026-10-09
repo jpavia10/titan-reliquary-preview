@@ -267,14 +267,6 @@
         },
         {
           "n": 2,
-          "title": "Take the blind photo test",
-          "fix": "#4",
-          "state": "next",
-          "what": "Open github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main, follow its PROMPT.md and answer only from the photos (30 coins). If you could not open GitHub in the access check, say so: Claude will put the pack in Drive 'bakeoff (blind photo test)'. Save bakeoff_gemini_{YYYYMMDD-HHMM}.json there.",
-          "done_when": "One JSON answer file with 30 entries."
-        },
-        {
-          "n": 3,
           "title": "Read new coin photos as the third blind reader",
           "fix": "#55",
           "state": "always",
@@ -282,7 +274,7 @@
           "done_when": "Ongoing."
         },
         {
-          "n": 4,
+          "n": 3,
           "title": "Open art and video jobs",
           "fix": "#35",
           "state": "later",

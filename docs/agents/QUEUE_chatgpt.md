@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for ChatGPT) -->
-# WORK QUEUE for ChatGPT (updated 2026-10-09 14:54 UTC)
+# WORK QUEUE for ChatGPT (updated 2026-10-09 15:21 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -13,6 +13,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 Review https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/app-motion.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/music-recorded.js for real bugs only (what breaks, how to reproduce, the smallest fix, file:line). No style notes.
 
 **Done when:** One reply; Claude verifies each claim before fixing.
+
+## Calibration test due: the main photo pack (30 coins)  (fix list #4)
+
+Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-main/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_chatgpt_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack.
+
+**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
 
 ## Projects (after the homework)
 

@@ -1445,7 +1445,7 @@
             ${fact("Ruler", c.ruler, "ruler")}${fact("Era", c.period, "period")}${fact("Series", c.series, "series")}${fact("Commemorates", c.commemorates)}
             ${fact("Denomination", c.denom_line || c.denom, "denomination")}${fact("Metal and condition", c.metal, "composition")}${fact("Mintage", c.mintage, "mintage")}
             ${c.mint ? fact("Mint mark", c.mint, "mint") : ""}${fact("References", c.refs, "catalog")}${fact("Legal tender", c.tender)}${fact("Die alignment", align)}${fact("Housing", c.parked)}
-            ${fact("Identification", c.conf ? `${c.conf} confidence` : "")}${fact("Added to the ledger", c.added)}
+            ${fact("Where it came from", c.origin)}${fact("Identification", c.conf ? `${c.conf} confidence` : "")}${fact("Added to the ledger", c.added)}
           </dl>
         </section>
         ${c.design ? `<section class="gxd-sec gxd-story"><h4>Design ${certChip(c, "design")}</h4><p>${esc(c.design)}</p></section>` : ""}

@@ -275,13 +275,41 @@
     out.push(`<section class="hv-sec" aria-labelledby="hv-h-spd"><h2 id="hv-h-spd">Speed</h2>
       <p class="hv-sub">Press the button, then leave the screen alone for 3 seconds. Smooth is 55 or more.</p>
       <button type="button" class="hv-btn" data-speed>Measure speed</button>
-      <p class="hv-status" id="hv-speed" aria-live="polite">${speed ? esc(speedText(speed)) : "Not measured yet"}</p></section>`);
+      <p class="hv-status" id="hv-speed" aria-live="polite">${speed ? esc(speedText(speed)) : "Not measured yet"}</p>
+      <p class="hv-sub" id="hv-speed-more">${phone ? esc(phoneText(phone)) : ""}</p>
+      <button type="button" class="hv-btn" data-speed-send${phone && window.TitanQuestions ? "" : " hidden"}>Add this speed report to my answers file</button></section>`);
+    // Fix list #64: the printable inventory, rebuilt on every publish (tools/pipeline/inventory.py)
+    out.push(`<section class="hv-sec" aria-labelledby="hv-h-inv"><h2 id="hv-h-inv">Printable inventory</h2>
+      <p class="hv-sub">Every piece with its photo, where it came from and how sure we are, for insurance or the family. Open it, then Print.</p>
+      <p><a class="hv-btn" href="data/inventory.html" target="_blank" rel="noopener">With values (insurance copy)</a>
+      <a class="hv-btn" href="data/inventory-family.html" target="_blank" rel="noopener">Without values (family copy)</a></p></section>`);
     out.push(`<section class="hv-sec"><button type="button" class="hv-btn hv-primary" data-copy>Copy report</button>
       <p class="hv-status" id="hv-copied" aria-live="polite"></p>
       <textarea id="hv-report" class="hv-report" readonly rows="10" aria-label="Plain text report" hidden></textarea></section>`);
     lastReport = L.join("\n");
     root.querySelector("#hv-body").innerHTML = out.join("");
     updateSpeedInReport();
+  }
+  /* Fix list #25: the speed of THIS phone, the number the smoke test can only guess. Load time, the longest freeze since the app opened
+     (where the phone reports it), smoothness; it rides in the Questions answers file to docs/perf/phone_reports.jsonl. */
+  let phone = null, lt = { longest: 0, total: 0, n: 0, ok: false };
+  try {
+    new PerformanceObserver((list) => { for (const e of list.getEntries()) { lt.n++; lt.total += e.duration; if (e.duration > lt.longest) lt.longest = e.duration; } })
+      .observe({ type: "longtask", buffered: true });
+    lt.ok = true;
+  } catch (e) { /* this browser does not report long tasks (Safari) */ }
+  function phoneReport(fps) {
+    const nav = (performance.getEntriesByType && performance.getEntriesByType("navigation")[0]) || {};
+    const lcp = (performance.getEntriesByType && performance.getEntriesByType("largest-contentful-paint") || []).slice(-1)[0];
+    const r = (x) => (x == null ? null : Math.round(x));
+    return { fps: Math.round(fps), ready_ms: r(nav.domContentLoadedEventEnd), load_ms: r(nav.loadEventEnd), lcp_ms: r(lcp && lcp.startTime),
+      longest_freeze_ms: lt.ok ? r(lt.longest) : null, freezes_ms: lt.ok ? r(lt.total) : null, transfer_kb: r((nav.transferSize || 0) / 1024),
+      cores: navigator.hardwareConcurrency || null, memory_gb: navigator.deviceMemory || null, screen: `${screen.width}x${screen.height}@${window.devicePixelRatio || 1}`,
+      ua: navigator.userAgent.slice(0, 160), build: appBuild(), at: new Date().toISOString() };
+  }
+  function phoneText(p) {
+    return "Opened in " + (p.ready_ms != null ? (p.ready_ms / 1000).toFixed(1) + " s" : "?") + (p.longest_freeze_ms != null ? "; longest freeze " + (p.longest_freeze_ms / 1000).toFixed(1) + " s" : "")
+      + (p.cores ? "; " + p.cores + " cores" : "") + (p.memory_gb ? ", " + p.memory_gb + " GB" : "") + ".";
   }
   function speedWord(f) { return f >= 55 ? "smooth" : f >= 40 ? "a bit slow" : "slow"; }
   function speedText(f) { return Math.round(f) + " frames per second: " + speedWord(f); }
@@ -297,6 +325,10 @@
       if (t - t0 < 3000) return requestAnimationFrame(tick);
       speed = frames / ((t - t0) / 1000);
       out.textContent = speedText(speed); btn.disabled = false; updateSpeedInReport();
+      phone = phoneReport(speed);
+      const more = root.querySelector("#hv-speed-more"), snd = root.querySelector("[data-speed-send]");
+      if (more) more.textContent = phoneText(phone);
+      if (snd && window.TitanQuestions) snd.hidden = false;
     }
     requestAnimationFrame(tick);
   }
@@ -338,6 +370,10 @@
       const t = e.target;
       if (t.closest("[data-close]")) return close(true);
       if (t.closest("[data-speed]")) return measure();
+      if (t.closest("[data-speed-send]") && phone && window.TitanQuestions) {
+        window.TitanQuestions.queueNote("speed", "phone", { report: phone }, "Speed report from this phone: " + Math.round(phone.fps) + " fps, " + phoneText(phone));
+        const b = t.closest("[data-speed-send]"); b.textContent = "Added: send it from Questions"; b.disabled = true; return;
+      }
       if (t.closest("[data-copy]")) return copy();
       if (t.closest("[data-warm]")) {
         const o = root.querySelector("#hv-warm"), b = t.closest("[data-warm]"); b.disabled = true; if (o) o.textContent = "Saving… keep this screen open.";

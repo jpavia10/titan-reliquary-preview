@@ -19,12 +19,12 @@
         "vision",
         "code"
       ],
-      "capacity": 3,
+      "capacity": 4,
       "kinds": [
         "cite",
         "catno",
-        "story-check",
         "value",
+        "story-check",
         "research",
         "arbitrate",
         "verify",
@@ -215,5 +215,23 @@
     "min_rate": 0.15,
     "demote_error_rate": 0.15,
     "demote_min_checks": 10
+  },
+  "calibration": {
+    "about": "Every active AI takes each blind photo pack on this cadence (fix list #4 bake-off, #19 locked test). tools/agents/homework.py puts a due test at the top of the AI's page; Claude scores it (tools/bakeoff/score.py --key ... --record ... --agent ID), which logs it in docs/agents/homework/calibration.jsonl. The main pack compares AIs; the locked pack (its coin ids exist only in the Drive _locked key) decides who reads Phase 2, so it is taken only after the main pack.",
+    "packs": [
+      {
+        "id": "main",
+        "dir": "docs/bakeoff/pack-20261008-main",
+        "photos": 30,
+        "every_days": 180
+      },
+      {
+        "id": "locked",
+        "dir": "docs/bakeoff/pack-20261008-locked",
+        "photos": 15,
+        "every_days": 90,
+        "after": "main"
+      }
+    ]
   }
 }

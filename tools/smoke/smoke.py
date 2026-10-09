@@ -127,9 +127,16 @@ def scenario(r):
     r.shot("table")
     p.keyboard.press("Escape"); p.wait_for_timeout(800)
     r.check("3D table closes", p.evaluate("document.getElementById('spatial-museum-modal').hidden"))
-    for h, sel, words in (("simple", "body", "Do I have"), ("health", "#health-view", "About this copy"), ("questions", "#questions-view", "Questions for you")):
+    for h, sel, words in (("simple", "body", "Do I have"), ("health", "#health-view", "About this copy"), ("questions", "#questions-view", "Questions for you"),
+                          ("scan", "#scan-view", "Which coin?")):
         r.go(h, 3000)
         r.check(f"{h} view opens", words in r.visible_text(sel))
+    # #65 the scan page's photo check finds a coin: a 600 px grey disc on black must read as found, about 600 px across, sharp edges
+    got = p.evaluate("""() => new Promise((res) => { const c = document.createElement('canvas'); c.width = 1200; c.height = 900; const g = c.getContext('2d');
+        g.fillStyle = '#000'; g.fillRect(0, 0, 1200, 900); g.fillStyle = '#9a9a9a'; g.beginPath(); g.arc(600, 450, 300, 0, 7); g.fill();
+        g.strokeStyle = '#fff'; for (let i = 0; i < 40; i++) { g.beginPath(); g.arc(600, 450, 20 + i * 7, 0, 7); g.stroke(); }
+        const im = new Image(); im.onload = () => res(window.TitanScan.analyse(im)); im.src = c.toDataURL(); })""")
+    r.check(f"scan: the photo check finds the coin ({got.get('coinPx')} px)", got.get("found") and 520 <= got.get("coinPx", 0) <= 680, str(got)[:120])
     # Scene Studio
     r.go("hall", 2500)
     p.click("#btn-atmo"); p.wait_for_timeout(1000)

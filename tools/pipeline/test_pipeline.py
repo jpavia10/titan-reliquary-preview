@@ -173,6 +173,15 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("confirmed by the owner (value unchanged)", r.stdout)
         logged = [json.loads(l) for l in open(os.path.join(coll, "changes.jsonl"), encoding="utf-8") if '"2026-10-09T11:00:00Z"' in l]
         self.assertEqual(len(logged), 2)
+        # notes (2026-10-09): where coins came from (#77) become owner acquisition records; a speed report (#25) is collected, not an event
+        speed = []
+        evs, log, follow, probs = OA.convert([{"note": {"kind": "origin", "coins": [sid], "how": "Inherited", "who": "Dad", "when": "1995"}},
+                                              {"note": {"kind": "speed", "report": {"fps": 58}}}], col, qs, "2026-10-09T12:00:00Z", speed)
+        self.assertEqual(sorted(e["field"] for e in evs), ["acquisition.family", "acquisition.source"])
+        self.assertEqual(next(e["new"] for e in evs if e["field"] == "acquisition.source"), "Inherited, from Dad, 1995")
+        self.assertEqual(speed[0]["fps"], 58); self.assertEqual(probs, [])
+        r = self.apply(tmp, write_events(tmp, "changes_owner_20261009-1200.jsonl", evs))
+        self.assertEqual(r.returncode, 0, r.stdout)
 
     def test_reference_facts_need_the_exact_entry(self):
         """#17: 'Numista' or 'PCGS/NGC agree' is not a source for a catalogue fact; 'Numista N#12345' is."""

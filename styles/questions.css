@@ -22,3 +22,21 @@
 #drawer-body .gxd-confirm { display: inline-block; margin: 0.35rem 0 0.1rem; min-height: 40px; padding: 0.3rem 0.8rem; border-radius: 999px; cursor: pointer;
   font: 600 0.9rem/1.2 inherit; color: var(--ink); background: color-mix(in srgb, var(--gold) 16%, transparent); border: 2px solid var(--gold); }
 #drawer-body .gxd-confirm:disabled { cursor: default; border-style: dashed; }
+/* #77 where coins came from */
+.questions-view .qv-select { display: block; width: 100%; margin-top: 6px; min-height: 56px; font: inherit; font-size: 22px; padding: 8px 12px;
+  color: var(--hv-ink); background: var(--hv-soft); border: 3px solid var(--hv-line); border-radius: 10px; }
+.questions-view .qv-picks { list-style: none; margin: 8px 0; padding: 0; max-height: 60vh; overflow: auto; border: 2px solid var(--hv-line); border-radius: 10px; }
+.questions-view .qv-picks li { border-bottom: 1px solid var(--hv-line); }
+.questions-view .qv-picks label { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 6px 12px; font-size: 1rem; cursor: pointer; }
+.questions-view .qv-picks input { width: 28px; height: 28px; flex: none; }
+/* #65 Scan a coin (wings/scan.js) */
+.scan-view .sc-list { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 8px; }
+.scan-view .sc-pick { width: 100%; text-align: left; font-weight: 400; }
+.scan-view .sc-pick b { margin-right: 6px; } .scan-view .sc-pick span { font-size: 0.85em; }
+.scan-view .sc-pick.is-on { background: var(--hv-btn); color: var(--hv-btn-ink); border-color: var(--hv-btn); }
+.scan-view .sc-cam { display: inline-flex; align-items: center; justify-content: center; }
+.scan-view .sc-prev { position: relative; margin: 14px 0; max-width: 520px; }
+.scan-view .sc-prev img { display: block; width: 100%; height: auto; border: 3px solid var(--hv-line); border-radius: 10px; }
+.scan-view .sc-ring { position: absolute; transform: translate(-50%, -50%); border: 3px dashed var(--hv-btn); border-radius: 50%; pointer-events: none; }
+.scan-view .sc-checks { list-style: none; padding: 0; margin: 8px 0; font-size: 1rem; } .scan-view .sc-checks li { margin: 6px 0; font-weight: 700; }
+.scan-view code { font-size: 0.85em; word-break: break-all; }

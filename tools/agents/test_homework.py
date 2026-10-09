@@ -144,6 +144,29 @@ class Loop(unittest.TestCase):
         after = [PV._issue_key(i) for i in col.types[s["type"]]["issues"]]
         self.assertEqual(after[: len(before)], before, "an existing issue moved: issues.N would point at a different year")
 
+    def test_9_blind_second_read_makes_a_new_coin_checked(self):
+        """#55: a second AI reading the photo blind and agreeing makes the first reading 'Checked'; disagreeing files a disagreement."""
+        tmp = sandbox(); r = run_refresh(tmp, NOW)
+        it = next(v for v in r["pool"].values() if v["kind"] == "verify" and v["field"] == "denomination.value" and v["blind"])
+        self.assertIsNone(it["payload"]["value"], "a blind item must not show the first reading")
+        author = it["authors"][0]
+        reader = next(a for a in ("grok", "muse", "gemini") if a != author)
+        aid = "HW-%s-verify-20261009-9" % reader
+        st = json.load(open(os.path.join(tmp, "docs", "agents", "homework", "assignments.json"), encoding="utf-8"))
+        st["assignments"].append({"id": aid, "agent": reader, "kind": "verify", "issued": NOW, "lease_until": "2026-10-16T09:30:00Z", "status": "open",
+                                  "closed": None, "result": None, "items": [{"item": it["item"], "entity": it["entity"], "id": it["id"], "field": it["field"]}]})
+        json.dump(st, open(os.path.join(tmp, "docs", "agents", "homework", "assignments.json"), "w", encoding="utf-8"))
+        import collection_io as C
+        cur = HW.get_path(C.Collection(os.path.join(tmp, "collection")).types[it["id"]], "denomination.value")
+        by = json.load(open(os.path.join(ROOT, "docs", "agents", "roles.json"), encoding="utf-8"))["agents"][reader]["by"][0]
+        ln = {"ts": LATER, "by": by, "entity": "type", "id": it["id"], "op": "set", "field": "denomination.value", "new": cur,
+              "source": f"read blind from photo {it['inputs'][0] if it['inputs'] else 'C000_obv.webp'}", "verified": False, "phase": 2,
+              "provenance": {"model": reader, "assignment": aid, "run_id": aid, "inputs": []}}
+        status, rep, _ = apply(tmp, [ln], f"changes_{reader}_20261009-1300.jsonl")
+        self.assertEqual(status, "applied", rep); self.assertIn("re-read from the photo", "\n".join(rep))
+        ctx = HW.load_context(tmp)
+        self.assertEqual(PV.level_of(ctx["details"][it["coins"][0]]["certainty"], "denomination"), "checked")
+
     def test_8_demotion_needs_certainty(self):
         roles = json.load(open(os.path.join(ROOT, "docs", "agents", "roles.json"), encoding="utf-8"))
         def m(wrong, n):

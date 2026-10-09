@@ -110,7 +110,7 @@ def _entry(ev, fact=None):
 # ---------------------------------------------------------------------------------------------- what an event claims about a fact
 _MISSING = object()
 CLAIM_PATHS = {   # fact -> leaf paths whose value IS the fact (an event on a parent path is read down to the leaf)
-    "country": ("country",), "year": ("issue.year", "year"), "denomination": ("denomination",), "mint": ("issue.mint_marks", "issue.mint_text", "issue.mint"),
+    "country": ("country",), "year": ("issue.year", "year"), "denomination": ("denomination.value",), "mint": ("issue.mint_marks", "issue.mint_text", "issue.mint"),
     "composition": ("composition.text",), "weight": ("nominal.weight_g", "nominal.weight"), "value": ("value.est_usd",), "story": ("story",),
     "design": ("design.text",), "series": ("series",), "ruler": ("ruler",), "period": ("period",)}
 
@@ -157,6 +157,17 @@ def claim(i, e, fact, ctx):
     """-> the (path, value) this event states about the fact on this coin, or None when it states nothing comparable.
     ctx: {"issue": the coin's issue key, "imap": issue_index_map(...) for its type, "year": the coin's year}."""
     f = _s(e.get("field")); new = e.get("new")
+    if f == "(new record)":      # a record's creation states its first values (fix list #55: a matching second reading makes it "checked")
+        if not isinstance(new, dict): return None
+        if fact == "mintage":
+            hit = next((x for x in new.get("issues") or [] if _issue_key(x) == ctx.get("issue")), None) if "issues" in new else (new.get("issue") or {})
+            return ("mintage", _canon(hit["mintage"])) if hit and hit.get("mintage") is not None else None
+        if fact == "catalog":
+            k = _cat_key(new.get("catalogs")); return ("catalogs", k) if k else None
+        for t in CLAIM_PATHS.get(fact, ()):
+            v = _descend(new, t.split("."))
+            if v is not _MISSING and v is not None: return (t, _canon(v))
+        return None
     if fact == "mintage":
         if f in ("issue.mintage",): return ("mintage", _canon(new)) if new is not None else None
         if f == "issue" and isinstance(new, dict): return ("mintage", _canon(new["mintage"])) if new.get("mintage") is not None else None
@@ -221,6 +232,10 @@ def certainty(sid, type_id, ix, facts, questions=(), tokens=None, legacy=False, 
         cand = [(_s(e.get("ts")), i, e) for i, e in spec_ev if _match(e.get("field"), sp)]
         cand += [(_s(e.get("ts")), i, e) for i, e in type_ev if _match(e.get("field"), ty)]
         if fact in RETYPE_FACTS: cand += [(_s(e.get("ts")), i, e) for i, e in spec_ev if e.get("field") == "type"]
+        made = [(_s(e.get("ts")), i, e) for i, e in (type_ev if FACTS[fact][1] and not FACTS[fact][0] else spec_ev) if e.get("field") == "(new record)"]
+        if fact in ("mint", "mintage", "year"): made = [(_s(e.get("ts")), i, e) for i, e in spec_ev if e.get("field") == "(new record)"] + \
+                                                     ([(_s(e.get("ts")), i, e) for i, e in type_ev if e.get("field") == "(new record)"] if fact == "mintage" else [])
+        cand += [c for c in made if claim(c[1], c[2], fact, ctx) is not None]
         cand = [c for c in cand if not _derived(c[2])]
         if fact == "year":   # an owner note that confirms the year
             cand += [(_s(e.get("ts")), i, e) for i, e in spec_ev if e.get("field") == "notes" and _s(e.get("by")).startswith("owner") and re.search(r"\b(year|date)\b", _s(e.get("source")), re.I)]

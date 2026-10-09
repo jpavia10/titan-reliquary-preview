@@ -22,7 +22,12 @@ and must pass `python3 tools/smoke/smoke.py` (phone + desktop, offline included)
    palette v2 (wings/gallery.js) still draws the results when present. app.js 7,119 -> 7,138 lines (the tr100 batch added ~70 lines of
    shoot list and trust code first). Also new and loaded first in <head>: `js/app-motion.js` (one motion setting + haptics, fix list #59).
 
+5. **2026-10-09 (tr105): `js/app-data.js`** (`window.TitanData`: `fetchJson` and `details(getFlips)`, the per-country coin-detail cache with
+   `.ensure(scan)` / `.clear()` / `.map`; two taps on one country now fetch it once). app.js keeps `fetchJson` / `ensureDetail` as one-line
+   function declarations (hoisted, so earlier callers still work). The classic coin view stays: it only runs when dossier v2 fails.
+
 ## Next candidates (smallest dependency surface first)
-5. Atmosphere system (~230 lines): theme switching; touches Scene Studio; move after 3.
+5. Atmosphere system (~230 lines): theme switching + per-theme canvas effects; careful: it defines `window.TitanFX.canvasLoop/clear/matrixRain`,
+   the same global name as the GPU engine (wings/fx/engine.js), so move it together with a check of which file owns which keys.
 6. Collection intelligence + shooting sessions (~140 lines): pure functions of the flip list.
 7. The big blocks last, one at a time, each behind its own smoke check: slabs and coin drawings (~1,700 lines), the cover-flow carousel (~1,100), the Vault (~1,650), the album binders (~110) and the rest of the wings and dossier (~1,270).

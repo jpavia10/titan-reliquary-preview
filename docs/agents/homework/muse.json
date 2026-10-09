@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-09T14:54:33Z",
+ "updated": "2026-10-09T15:21:08Z",
  "assignments": [
   {
    "id": "HW-muse-verify-20261009-1",
@@ -200,7 +200,7 @@
        "https://en.numista.com/catalogue/pieces56.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -268,7 +268,7 @@
        "https://en.numista.com/catalogue/pieces195.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -295,48 +295,7 @@
        "https://en.numista.com/catalogue/pieces52.html"
       ],
       "photos": [],
-      "audit": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.21a.3:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.21a.3",
-     "field": "catalogs",
-     "coins": [
-      "C077"
-     ],
-     "label": "catalog of C077 · Switzerland · 1991 · 2 francs · CHF",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Grok",
-      "value": [
-       {
-        "number": "21a.3",
-        "system": "KM"
-       },
-       {
-        "number": "29a",
-        "system": "Schön"
-       },
-       {
-        "number": "189",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces189.html"
-       }
-      ],
-      "their_source": "Numista N#189 (https://en.numista.com/catalogue/pieces189.html) references: KM# 21a.3, Schön# 29a; the entry covers KM# 21a; its 1983-2018 r",
-      "links": [
-       "https://en.numista.com/catalogue/pieces189.html"
-      ],
-      "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -383,7 +342,7 @@
        "https://en.numista.com/catalogue/pieces173.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -437,7 +396,7 @@
        "https://en.numista.com/catalogue/pieces173.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -478,7 +437,7 @@
        "https://en.numista.com/catalogue/pieces104.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -525,47 +484,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:CH.KM.24a.3:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.24a.3",
-     "field": "catalogs",
-     "coins": [
-      "C094"
-     ],
-     "label": "catalog of C094 · Switzerland · 1986 · 1 franc · CHF",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Grok",
-      "value": [
-       {
-        "number": "24a.3",
-        "system": "KM"
-       },
-       {
-        "number": "28a",
-        "system": "Schön"
-       },
-       {
-        "number": "185",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces185.html"
-       }
-      ],
-      "their_source": "Numista N#185 (https://en.numista.com/catalogue/pieces185.html) references: KM# 24a.3, Schön# 28a; the entry covers KM# 24a; its 1983-2018 r",
-      "links": [
-       "https://en.numista.com/catalogue/pieces185.html"
-      ],
-      "photos": [],
-      "audit": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:DE.KM.213:catalogs",
      "kind": "verify",
      "entity": "type",
@@ -601,7 +519,7 @@
        "https://en.numista.com/catalogue/pieces111.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -628,7 +546,7 @@
        "https://en.numista.com/catalogue/pieces2187.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -738,7 +656,7 @@
        "https://en.numista.com/catalogue/pieces8.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -779,7 +697,7 @@
        "https://en.numista.com/catalogue/pieces304.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -860,7 +778,7 @@
        "https://en.numista.com/catalogue/pieces5904.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -887,7 +805,7 @@
        "https://en.numista.com/catalogue/pieces1190.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -914,7 +832,7 @@
        "https://en.numista.com/catalogue/pieces8.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -968,7 +886,7 @@
        "https://en.numista.com/catalogue/pieces1070.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -995,7 +913,7 @@
        "https://en.numista.com/catalogue/pieces14369.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []

@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-09T14:54:33Z",
+ "updated": "2026-10-09T15:21:08Z",
  "assignments": [
   {
    "id": "HW-grok-cite-20261009-1",
@@ -1075,58 +1075,6 @@
       "composition": "copper-nickel (75% copper, 25% nickel)",
       "ask": [
        "issues.0.mintage: 2007"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "cite:CH.KM.21a.3",
-     "kind": "cite",
-     "entity": "type",
-     "id": "CH.KM.21a.3",
-     "field": null,
-     "coins": [
-      "C077"
-     ],
-     "label": "CH 2 francs (CH.KM.21a.3)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1991,
-        "mint_marks": [
-         "B"
-        ],
-        "coins": [
-         "C077"
-        ],
-        "mintage": 12026100,
-        "mintage_label": "imported",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "21a.3"
-       },
-       {
-        "system": "Schön",
-        "number": "29a"
-       },
-       {
-        "system": "Numista",
-        "number": "189"
-       }
-      ],
-      "weight_g": 8.8,
-      "diameter_mm": 27.4,
-      "composition": "CuNi 75/25",
-      "ask": [
-       "issues.0.mintage: 1991 B"
       ],
       "note": null
      },
@@ -3152,6 +3100,943 @@
        "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
        "period": "Fifth Republic"
       }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-value-20261009-1",
+   "agent": "grok",
+   "kind": "value",
+   "issued": "2026-10-09T15:21:08Z",
+   "lease_until": "2026-10-19T15:21:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C114",
+     "entity": "specimen",
+     "id": "C114",
+     "field": "value"
+    },
+    {
+     "item": "value:C223",
+     "entity": "specimen",
+     "id": "C223",
+     "field": "value"
+    },
+    {
+     "item": "value:C073",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "value"
+    },
+    {
+     "item": "value:C065",
+     "entity": "specimen",
+     "id": "C065",
+     "field": "value"
+    },
+    {
+     "item": "value:C066",
+     "entity": "specimen",
+     "id": "C066",
+     "field": "value"
+    },
+    {
+     "item": "value:T004",
+     "entity": "specimen",
+     "id": "T004",
+     "field": "value"
+    },
+    {
+     "item": "value:C235",
+     "entity": "specimen",
+     "id": "C235",
+     "field": "value"
+    },
+    {
+     "item": "value:C088",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "value"
+    },
+    {
+     "item": "value:C009",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "value"
+    },
+    {
+     "item": "value:C031",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "value"
+    },
+    {
+     "item": "value:C003",
+     "entity": "specimen",
+     "id": "C003",
+     "field": "value"
+    },
+    {
+     "item": "value:C014",
+     "entity": "specimen",
+     "id": "C014",
+     "field": "value"
+    },
+    {
+     "item": "value:C067",
+     "entity": "specimen",
+     "id": "C067",
+     "field": "value"
+    },
+    {
+     "item": "value:C077",
+     "entity": "specimen",
+     "id": "C077",
+     "field": "value"
+    },
+    {
+     "item": "value:C115",
+     "entity": "specimen",
+     "id": "C115",
+     "field": "value"
+    },
+    {
+     "item": "value:C116",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "value"
+    },
+    {
+     "item": "value:C242",
+     "entity": "specimen",
+     "id": "C242",
+     "field": "value"
+    },
+    {
+     "item": "value:C070",
+     "entity": "specimen",
+     "id": "C070",
+     "field": "value"
+    },
+    {
+     "item": "value:C071",
+     "entity": "specimen",
+     "id": "C071",
+     "field": "value"
+    },
+    {
+     "item": "value:C072",
+     "entity": "specimen",
+     "id": "C072",
+     "field": "value"
+    },
+    {
+     "item": "value:C263",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "value"
+    },
+    {
+     "item": "value:C049",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "value"
+    },
+    {
+     "item": "value:C211",
+     "entity": "specimen",
+     "id": "C211",
+     "field": "value"
+    },
+    {
+     "item": "value:T003",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "value"
+    },
+    {
+     "item": "value:C001",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "value"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "value:C114",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C114",
+     "field": "value",
+     "coins": [
+      "C114"
+     ],
+     "label": "C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+     "authors": [],
+     "payload": {
+      "est_usd": 12.0,
+      "confidence": "med",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C223",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C223",
+     "field": "value",
+     "coins": [
+      "C223"
+     ],
+     "label": "C223 · Netherlands · 1967 · 1 gulden · NLG",
+     "authors": [],
+     "payload": {
+      "est_usd": 9.55,
+      "confidence": "high",
+      "silver_oz": 0.15,
+      "melt_usd": 8.93,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C223_rev.webp",
+        "file": "C223_rev.webp",
+        "original": "C223_Netherlands_1967_1Gulden_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1gQ6-9974cihJ-u9v5pVv66og-FpOtyeg/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C073",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "value",
+     "coins": [
+      "C073"
+     ],
+     "label": "C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)",
+     "authors": [],
+     "payload": {
+      "est_usd": 6.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C065",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C065",
+     "field": "value",
+     "coins": [
+      "C065"
+     ],
+     "label": "C065 · Switzerland · 2014 · 5 francs · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 6.25,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C065_rev.webp",
+        "file": "C065_rev.webp",
+        "original": "C065_Switzerland_2014_5Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1idPGzKgtbs-jaPURao9nZbIKtzVI-PgS/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C066",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C066",
+     "field": "value",
+     "coins": [
+      "C066"
+     ],
+     "label": "C066 · Switzerland · 1978 · 5 francs · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 6.25,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C066_rev.webp",
+        "file": "C066_rev.webp",
+        "original": "C066_Switzerland_1976_5Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1GL8L4rsuiQ6mkcqsCVGLcTzTrJP0AjtU/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:T004",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "T004",
+     "field": "value",
+     "coins": [
+      "T004"
+     ],
+     "label": "T004 · USA · ca. 1970s · Miniature “penny” in printed cardboard flap",
+     "authors": [],
+     "payload": {
+      "est_usd": 5.0,
+      "confidence": "med",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C235",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C235",
+     "field": "value",
+     "coins": [
+      "C235"
+     ],
+     "label": "C235 · Guatemala · 1934 · 10 centavos · GTQ",
+     "authors": [],
+     "payload": {
+      "est_usd": 4.9,
+      "confidence": "high",
+      "silver_oz": 0.077,
+      "melt_usd": 4.58,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C235_rev.webp",
+        "file": "C235_rev.webp",
+        "original": "C235_Guatemala_10Centavos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1rPTr6fxdbqNKyr2e0Yaivwwa8ueI3ge4/view"
+       },
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C235_obv.webp",
+        "file": "C235_obv.webp",
+        "original": "C235_Guatemala_1934_10Centavos_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1Yb8vQQVMdQbiXQ_e6kKvraG-GINAzEbq/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C088",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "value",
+     "coins": [
+      "C088"
+     ],
+     "label": "C088 · USA · 1957 · 10¢ Roosevelt",
+     "authors": [],
+     "payload": {
+      "est_usd": 4.59,
+      "confidence": "high",
+      "silver_oz": 0.0723,
+      "melt_usd": 4.3,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C088_obv.webp",
+        "file": "C088_obv.webp",
+        "original": "C088_USA_1957_Dime_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1CFp6DDPmszLTtmOAh_FkBTHRahIaQLYH/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C009",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "value",
+     "coins": [
+      "C009"
+     ],
+     "label": "C009 · Germany · 1987 · 5 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 3.25,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C009_obv.webp",
+        "file": "C009_obv.webp",
+        "original": "C009_Germany_1987_5DeutscheMark_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Y-HEpScTGz2hQzIHB7We8M11XyHebF-O/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C031",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "value",
+     "coins": [
+      "C031"
+     ],
+     "label": "C031 · Australia · 1943 · Threepence (3d) · AUD",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.66,
+      "confidence": "high",
+      "silver_oz": 0.0419,
+      "melt_usd": 2.49,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C031_obv.webp",
+        "file": "C031_obv.webp",
+        "original": "C031_Australia_1943_Threepence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1D2qXgqAFhvlHDHJd-nHrrzVFVoSGr4dC/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C031_rev.webp",
+        "file": "C031_rev.webp",
+        "original": "C031_Australia_1943_Threepence_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1N28t8LVi9jImV6k4wfS3rKlcdNrfbyLk/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C003",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C003",
+     "field": "value",
+     "coins": [
+      "C003"
+     ],
+     "label": "C003 · Switzerland · 1968 · 2 francs · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C014",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C014",
+     "field": "value",
+     "coins": [
+      "C014"
+     ],
+     "label": "C014 · Switzerland · 1974 · 2 francs · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C014_rev.webp",
+        "file": "C014_rev.webp",
+        "original": "C014_Switzerland_1974_2Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1DS567aqaAsMN6t3n_W6DBbLIHDzuroq1/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C067",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C067",
+     "field": "value",
+     "coins": [
+      "C067"
+     ],
+     "label": "C067 · Switzerland · 1981 · 2 francs · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C067_rev.webp",
+        "file": "C067_rev.webp",
+        "original": "C067_Switzerland_1981_2Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1h0ACoiqW28AImqjI2_sk08TW8DbPGJOu/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C077",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C077",
+     "field": "value",
+     "coins": [
+      "C077"
+     ],
+     "label": "C077 · Switzerland · 1991 · 2 francs · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C077_rev.webp",
+        "file": "C077_rev.webp",
+        "original": "C077_Switzerland_1991_2Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1nakw8IFckD6_awAXYk871p0U0RKANv9i/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C115",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C115",
+     "field": "value",
+     "coins": [
+      "C115"
+     ],
+     "label": "C115 · Switzerland · 1968 · 2 francs · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C116",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "value",
+     "coins": [
+      "C116"
+     ],
+     "label": "C116 · Switzerland · 1981 · 2 francs · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C242",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C242",
+     "field": "value",
+     "coins": [
+      "C242"
+     ],
+     "label": "C242 · Switzerland · 1883 · 10 rappen · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C242_obv.webp",
+        "file": "C242_obv.webp",
+        "original": "C242_Switzerland_1883_10Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1LC2WNkQ3wzrTuEa9rROc3wlYmulQKrVU/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C070",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C070",
+     "field": "value",
+     "coins": [
+      "C070"
+     ],
+     "label": "C070 · Netherlands · 2002 · 2 euro · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.25,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C070_obv.webp",
+        "file": "C070_obv.webp",
+        "original": "C070_Netherlands_2002_2Euro_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1D8kHrH-4_LVuz8T6T3gAt6tE8NG-t6JU/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C071",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C071",
+     "field": "value",
+     "coins": [
+      "C071"
+     ],
+     "label": "C071 · Germany · 2003 · 2 euro · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.25,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C071_obv.webp",
+        "file": "C071_obv.webp",
+        "original": "C071_Germany_2003_2Euro_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1fpIQ1h9s4t5gKN2t-d_fqmooIXfs70SX/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C072",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C072",
+     "field": "value",
+     "coins": [
+      "C072"
+     ],
+     "label": "C072 · France · 2000 · 2 euro · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.25,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C072_obv.webp",
+        "file": "C072_obv.webp",
+        "original": "C072_France_2000_2Euro_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1QUjRnMpglnekiqg4hwmiV1DKvj0xeGIo/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C263",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "value",
+     "coins": [
+      "C263"
+     ],
+     "label": "C263 · Mexico · 1950 · 25 centavos · MXN",
+     "authors": [],
+     "payload": {
+      "est_usd": 2.0,
+      "confidence": "high",
+      "silver_oz": 0.0321,
+      "melt_usd": 1.91,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C263_rev.webp",
+        "file": "C263_rev.webp",
+        "original": "C263_Mexico_1950_25Centavos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1JkTOJKExd_o6XF_Q11xaHVSH4v4eh3_1/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C049",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "value",
+     "coins": [
+      "C049"
+     ],
+     "label": "C049 · France · 1989 · 10 francs · FRF",
+     "authors": [],
+     "payload": {
+      "est_usd": 1.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C049_rev.webp",
+        "file": "C049_rev.webp",
+        "original": "C049_France_1989_10Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1cp5IhbyI864JNi2MLaVU53AQ4PeugAGU/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C211",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C211",
+     "field": "value",
+     "coins": [
+      "C211"
+     ],
+     "label": "C211 · Italy · 1987 · 500 lire · ITL",
+     "authors": [],
+     "payload": {
+      "est_usd": 1.5,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C211_rev.webp",
+        "file": "C211_rev.webp",
+        "original": "C211_Italy_1987_500Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1tGRVQxZSmykDNl2rASe59nFLvMW3XGs2/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:T003",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "value",
+     "coins": [
+      "T003"
+     ],
+     "label": "T003 · USA · ND · Ride token (Sandy the Pony · Meijer)",
+     "authors": [],
+     "payload": {
+      "est_usd": 1.5,
+      "confidence": "med",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_obv.webp",
+        "file": "T003_obv.webp",
+        "original": "T003_USA_ND_Meijer-Pony-Ride-token.jpeg",
+        "drive": "https://drive.google.com/file/d/1O2RCmdZ2UAfYYoZopUOMH4M9boN-tC-Y/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_rev.webp",
+        "file": "T003_rev.webp",
+        "original": "T003_USA_ND_Meijer-Pony-Ride-token_angle2.jpeg",
+        "drive": "https://drive.google.com/file/d/1YwU-f16AMPcRHYGGklXTqyhsBrGa-c5N/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C001",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "value",
+     "coins": [
+      "C001"
+     ],
+     "label": "C001 · Switzerland · 1969 · 1 franc · CHF",
+     "authors": [],
+     "payload": {
+      "est_usd": 1.25,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C001_rev.webp",
+        "file": "C001_rev.webp",
+        "original": "C001_Switzerland_1969_1Franc_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1ZzTL53CBLAi0JGZyEE1GErfUsw_geLhu/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
      },
      "blind": false,
      "inputs": []

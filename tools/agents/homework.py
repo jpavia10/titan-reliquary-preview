@@ -38,8 +38,11 @@ STORY_LINT = re.compile(r"·|\s\+\s|&|\(shown\)|\btypical\b|\bCu-?Ni\b|\bCu\s?\d
 NOT_RESEARCH = re.compile(r"Confirm at Phase 2|pro photos|physical coin|in hand|the owner", re.I)
 VERIFY_FACTS = (("catalog", "type", "catalogs"), ("mintage", "type", "issues.{N}.mintage"), ("composition", "type", "composition.text"),
                 ("weight", "type", "nominal.weight_g"), ("design", "type", "design.text"), ("ruler", "type", "ruler"), ("series", "type", "series"),
-                ("period", "type", "period"), ("year", "specimen", "issue.year"), ("mint", "specimen", "issue.mint_marks"))
-BLIND = {"year", "mint"}          # photo readings: the second reader must not see the first reading
+                ("period", "type", "period"), ("year", "specimen", "issue.year"), ("mint", "specimen", "issue.mint_marks"),
+                ("denomination", "type", "denomination.value"))      # (country is derived from the type id: a second reader's different country is caught by double_read.py)
+BLIND = {"year", "mint", "denomination"}     # photo readings (fix list #55): the second reader must not see the first reading
+BLIND_HOW = {"year": "the year as a number (the Western year: convert a Hijri, Showa or ROC date)", "mint": 'the mint letters as a list, e.g. ["D"], or [] when the coin has none',
+             "country": "the issuing country as its 2-letter code, e.g. MX, DE, GB", "denomination": "the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc"}
 MINT_HINT = {
     "US": "US mint marks: P (Philadelphia; most coins before 1980 carry none), D (Denver), S (San Francisco), W (West Point). On modern coins the mark is on the obverse near the date; on older ones often on the reverse.",
     "DE": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
@@ -286,20 +289,35 @@ def pool_research(ctx):
     return out
 
 
-def pool_value(ctx):
-    out = []
+VALUE_STALE_DAYS = 365     # a cited collector value is re-appraised after a year (metal moves daily on its own: data/prices.json)
+
+
+def numista_values(root):
+    p = os.path.join(root, "collection", "prices", "numista_values.json")
+    return (_load(p, {}) or {}).get("types", {})
+
+
+def pool_value(ctx, now=None):
+    out = []; nv = numista_values(ctx["root"])
     spot = (ctx["col"].get("spot_latest") or {})
+    today = (now or now_utc())[:10]
     for sid, s in ctx["live"].items():
         est = (s.get("value") or {}).get("est_usd")
         if est is None: continue
-        lv = PV.level_of((ctx["details"].get(sid) or {}).get("certainty") or {}, "value")
-        if lv in PV.CITED: continue
+        ent = PV.resolve((ctx["details"].get(sid) or {}).get("certainty") or {}, "value")
+        stale = False
+        if ent.get("level") in PV.CITED:
+            ts = ent.get("ts") or ""
+            stale = bool(ts) and (datetime.date.fromisoformat(today) - datetime.date.fromisoformat(ts[:10])).days > VALUE_STALE_DAYS
+            if not stale: continue
         t = ctx["col"]["types"].get(s["type"]) or {}
         asw = (t.get("precious") or {}).get("asw_oz") or 0
         melt = round(asw * (spot.get("xag_usd") or 0), 2) if asw else None
         out.append((-est, sid, _item("value", f"value:{sid}", "specimen", sid, "value", [sid], coin_line(ctx, sid), (-est, sid),
                                      payload={"est_usd": est, "confidence": (s.get("value") or {}).get("confidence"), "silver_oz": asw or None, "melt_usd": melt,
-                                              "photos": photos_of(ctx, sid)},
+                                              "photos": photos_of(ctx, sid), "stale_since": ent.get("ts") if stale else None,
+                                              "numista_prices": ((nv.get(s["type"]) or {}).get("issues") or {}).get(f"{s['issue'].get('year')} {''.join(s['issue'].get('mint_marks') or [])}".strip()),
+                                              "numista_url": (nv.get(s["type"]) or {}).get("url")},
                                      lines=[("specimen", sid, "value.est_usd", est), ("specimen", sid, "value.confidence", (s.get("value") or {}).get("confidence"))])))
     return {it["item"]: it for _, _, it in sorted(out)}
 
@@ -349,7 +367,7 @@ def pools(ctx, roles, queues, metrics=None):
     rate = lambda a: audit_rate(a, roles, metrics or {})
     out = {}
     for f in (pool_cite(ctx), pool_catno(ctx), pool_story(ctx, reserved), pool_plain(ctx, reserved), pool_research(ctx),
-              pool_value(ctx), pool_read_mint(ctx), pool_arbitrate(ctx)):
+              pool_value(ctx, ctx.get("now")), pool_read_mint(ctx), pool_arbitrate(ctx)):
         out.update(f)
     # a fact another job is about to change is not handed out to be checked at the same time (it would only go stale)
     busy = {(e, i, f) for it in out.values() for e, i, f, _ in it["lines"]}
@@ -458,7 +476,7 @@ def eligible(agent, item, roles, state, metrics):
 
 
 def refresh(ctx, roles, queues, state, now, log=None):
-    log = log if log is not None else []
+    log = log if log is not None else []; ctx["now"] = now
     for i in settle(ctx, now): log.append(f"disagreement {i} settled")
     metrics = measure(ctx)
     pool = pools(ctx, roles, queues, metrics)
@@ -508,6 +526,25 @@ def new_assignment(state, agent, kind, items, now, kd):
     return a
 
 
+def calibration_due(roles, root, agent, now):
+    """-> the blind photo packs this AI should take now (roles.json `calibration`; log docs/agents/homework/calibration.jsonl)."""
+    cal = roles.get("calibration") or {}
+    p = os.path.join(root, "docs", "agents", "homework", "calibration.jsonl")
+    runs = []
+    if os.path.exists(p):
+        with open(p, encoding="utf-8") as fh: runs = [json.loads(l) for l in fh if l.strip()]
+    last = {}
+    for r in runs:
+        if r.get("agent") == agent: last[r["pack"]] = max(last.get(r["pack"], ""), r.get("date") or "")
+    due = []
+    for pk in cal.get("packs", []):
+        if pk.get("after") and pk["after"] not in last: continue          # the locked pack only after the main one
+        d = last.get(pk["id"])
+        if not d or (datetime.date.fromisoformat(now[:10]) - datetime.date.fromisoformat(d)).days >= pk.get("every_days", 90):
+            due.append(dict(pk, last=d))
+    return due
+
+
 def empty_state():
     return {"schema": "titan-homework/1", "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). "
             "Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
@@ -548,7 +585,7 @@ def item_md(it):
     if k == "verify":
         if it["blind"]:
             ph = "; ".join(f"{x['side']}: {x['url']}" + (f" (original: {x['drive']})" if x.get("drive") else "") for x in p["photos"])
-            return f"- **{it['label']}** (blind: read it yourself) `{it['entity']} {it['id']} {it['field']}`. Photos: {ph or 'none'}"
+            return f"- **{it['label']}** (blind: read it yourself; `new` = {BLIND_HOW.get(p['fact'], 'what you read')}) `{it['entity']} {it['id']} {it['field']}`. Photos: {ph or 'none'}"
         return (f"- **{it['label']}** `{it['entity']} {it['id']} {it['field']}` = `{_fmt(p['value'])}` (written by {p['author']}: {_fmt(p['their_source'], 140)})"
                 + (" [audit sample]" if p.get("audit") else ""))
     if k == "read-mint":
@@ -560,7 +597,9 @@ def item_md(it):
     if k == "research":
         return f"- **{it['label']}** ({p['type']}): {p['question']} Record: {_fmt(p['record'], 300)}"
     if k == "value":
-        return f"- **{it['label']}**: now ${p['est_usd']:,.2f} ({p.get('confidence') or 'low'})" + (f"; silver {p['silver_oz']} oz = melt ${p['melt_usd']:,.2f}" if p.get("melt_usd") else "") + (f". Photo: {p['photos'][0]['url']}" if p.get("photos") else "")
+        np_ = (p.get("numista_prices") or {}).get("prices") or {}
+        return (f"- **{it['label']}**: now ${p['est_usd']:,.2f} ({p.get('confidence') or 'low'}" + (f"; cited {p['stale_since']}, over a year ago: re-appraise" if p.get("stale_since") else "") + ")"
+                + (f"; Numista estimates (USD) {', '.join(f'{g.upper()} {v}' for g, v in np_.items())} at {p['numista_url']}" if np_ else "")) + (f"; silver {p['silver_oz']} oz = melt ${p['melt_usd']:,.2f}" if p.get("melt_usd") else "") + (f". Photo: {p['photos'][0]['url']}" if p.get("photos") else "")
     if k == "arbitrate":
         return (f"- **{it['label']}**: record `{_fmt(p['record']['value'])}` ({p['record'].get('by')}: {_fmt(p['record'].get('source'), 120)}) vs claim "
                 f"`{_fmt(p['claim']['value'])}` ({p['claim'].get('by')}: {_fmt(p['claim'].get('source'), 120)})")
@@ -593,6 +632,15 @@ def agent_page(agent, roles, queues, state, pool, metrics, now):
     if first:
         L += ["## Finish first", ""]
         for t in first: L += [f"### {t['title']}  (fix list {t['fix']})", "", t["what"], "", f"**Done when:** {t['done_when']}", ""]
+    for pk in calibration_due(roles, P_ROOT[0], agent, now):
+        L += [f"## Calibration test due: the {pk['id']} photo pack ({pk['photos']} coins)  (fix list {'#19' if pk['id'] == 'locked' else '#4'})", "",
+              f"Open {PAGES.replace('jpavia10.github.io/titan-reliquary-preview/', 'github.com/jpavia10/titan-reliquary-preview/tree/main/')}{pk['dir']} and follow its PROMPT.md "
+              f"(raw: {RAW}{pk['dir']}/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. "
+              f"Save `bakeoff_{agent}_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). "
+              + ("Last taken " + pk["last"] + "; it is retaken every " + str(pk["every_days"]) + " days, so the numbers show whether you are getting better." if pk.get("last")
+                 else "This is your first time with this pack.") +
+              (" Its coin ids exist only in Claude's locked key; it decides which AI reads the Phase 2 pro photos." if pk["id"] == "locked" else ""), "",
+              "**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.", ""]
     mine = [a for a in state["assignments"] if a["agent"] == agent and a["status"] == "open"]
     if mine:
         L += ["## Homework (generated from the data)", "", HOW, ""]
@@ -682,18 +730,22 @@ def summary(state, pool, metrics, roles):
             "checked_by_another": {a: {"checked": r["checked_n"], "wrong": r["wrong"]} for a, r in metrics.items() if r["checked_n"]}}
 
 
-def check(roles, queues, state):
+def check(roles, queues, state, root=None, now=None):
     bad = []
     for agent, ag in roles["agents"].items():
         if ag.get("status") != "active": continue
         q = next((x for x in queues.get("agents", []) if x["id"] == agent), {"tasks": []})
         n = sum(1 for a in state["assignments"] if a["agent"] == agent and a["status"] == "open") + sum(1 for t in q.get("tasks", []) if t["state"] in STATES_OPEN)
+        n += len(calibration_due(roles, root or P_ROOT[0], agent, now or now_utc()))
         if n < MIN_OPEN: bad.append(f"{ag['name']}: only {n} open tasks (keep {MIN_OPEN}+)")
     return bad
 
 
+P_ROOT = [ROOT]      # the repo root the pages are rendered for (tests run on copies)
+
+
 def run(root=ROOT, now=None, dry=False, coll=None, ctx=None, log=None):
-    now = now or now_utc(); P = paths(root); log = log if log is not None else []
+    now = now or now_utc(); P = paths(root); log = log if log is not None else []; P_ROOT[0] = root
     roles = _load(P["roles"]); queues = _load(P["queues"], {"agents": []}); state = _load(P["state"]) or empty_state()
     ctx = ctx or load_context(root, coll)
     before = json.dumps(ctx["disagreements"], sort_keys=True)
@@ -708,7 +760,7 @@ def main(argv):
     now = argv[argv.index("--now") + 1] if "--now" in argv else None
     P = paths(root)
     if "--check" in argv:
-        bad = check(_load(P["roles"]), _load(P["queues"], {"agents": []}), _load(P["state"]) or empty_state())
+        bad = check(_load(P["roles"]), _load(P["queues"], {"agents": []}), _load(P["state"]) or empty_state(), root)
         print("\n".join(bad) or "every active AI has work queued"); return 1 if bad else 0
     if "--pool" in argv:
         i = argv.index("--pool"); kind = argv[i + 1] if i + 1 < len(argv) and not argv[i + 1].startswith("--") else None

@@ -8,6 +8,8 @@ KEY.json      the pack's answer key from Drive `_locked (answer keys: Claude onl
 ANSWERS.json  the model's reply: {"BK-0a1b": {"country": ..., "year": ..., "denom": ..., "mint": ..., "km": ..., "confidence": ...}, ...}
               A field the model is unsure of is null / "" / "unknown": never counted as wrong.
 --record      appends one row to collaborators/MODEL_ACCURACY.md (totals only: never a coin id or an answer, so the set stays blind).
+--agent ID    (with --record) also logs the run in docs/agents/homework/calibration.jsonl, so the research loop knows when this AI is due again
+              (docs/agents/roles.json `calibration`: every AI retakes each pack on a cadence; the locked pack decides who reads Phase 2).
 
 Per field: correct, wrong (a confident value that does not match = an invented value), abstained.
   core accuracy      correct / scored over country, year, denomination, plus mint where the key has a mint mark
@@ -99,7 +101,7 @@ def record(model, prompt_version, which, s, cost, made):
 
 
 if __name__ == "__main__":
-    argv, args, VAL = sys.argv[1:], [], ("--key", "--record", "--cost")
+    argv, args, VAL = sys.argv[1:], [], ("--key", "--record", "--cost", "--agent")
     i = 0
     while i < len(argv):
         if argv[i] in VAL: i += 2; continue
@@ -120,3 +122,11 @@ if __name__ == "__main__":
     if "--record" in sys.argv:
         cost = sys.argv[sys.argv.index("--cost") + 1] if "--cost" in sys.argv else None
         record(sys.argv[sys.argv.index("--record") + 1], key["prompt_version"], key["set"], s, cost, key["made"])
+        if "--agent" in sys.argv:
+            cal = os.path.join(ROOT, "docs", "agents", "homework", "calibration.jsonl")
+            os.makedirs(os.path.dirname(cal), exist_ok=True)
+            with open(cal, "a", encoding="utf-8", newline="\n") as fh:
+                fh.write(json.dumps({"agent": sys.argv[sys.argv.index("--agent") + 1], "pack": key["set"], "made": key["made"][:10], "date": datetime.date.today().isoformat(),
+                                     "core_accuracy": round(s["core_accuracy"], 3), "invented_rate": round(s["invented_rate"], 3),
+                                     "false_confidence": round(s["false_confidence"], 3), "answered": s["answered"], "photos": s["photos"]}) + "\n")
+            print("logged in docs/agents/homework/calibration.jsonl")

@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-09T14:54:33Z",
+ "updated": "2026-10-09T15:21:08Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -10,7 +10,8 @@
   "gemini-read-mint-20261009": 1,
   "gemini-verify-20261009": 1,
   "muse-plain-story-20261009": 1,
-  "muse-research-20261009": 1
+  "muse-research-20261009": 1,
+  "grok-value-20261009": 1
  },
  "assignments": [
   {
@@ -922,6 +923,168 @@
      "entity": "specimen",
      "id": "C232",
      "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-value-20261009-1",
+   "agent": "grok",
+   "kind": "value",
+   "issued": "2026-10-09T15:21:08Z",
+   "lease_until": "2026-10-19T15:21:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C114",
+     "entity": "specimen",
+     "id": "C114",
+     "field": "value"
+    },
+    {
+     "item": "value:C223",
+     "entity": "specimen",
+     "id": "C223",
+     "field": "value"
+    },
+    {
+     "item": "value:C073",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "value"
+    },
+    {
+     "item": "value:C065",
+     "entity": "specimen",
+     "id": "C065",
+     "field": "value"
+    },
+    {
+     "item": "value:C066",
+     "entity": "specimen",
+     "id": "C066",
+     "field": "value"
+    },
+    {
+     "item": "value:T004",
+     "entity": "specimen",
+     "id": "T004",
+     "field": "value"
+    },
+    {
+     "item": "value:C235",
+     "entity": "specimen",
+     "id": "C235",
+     "field": "value"
+    },
+    {
+     "item": "value:C088",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "value"
+    },
+    {
+     "item": "value:C009",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "value"
+    },
+    {
+     "item": "value:C031",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "value"
+    },
+    {
+     "item": "value:C003",
+     "entity": "specimen",
+     "id": "C003",
+     "field": "value"
+    },
+    {
+     "item": "value:C014",
+     "entity": "specimen",
+     "id": "C014",
+     "field": "value"
+    },
+    {
+     "item": "value:C067",
+     "entity": "specimen",
+     "id": "C067",
+     "field": "value"
+    },
+    {
+     "item": "value:C077",
+     "entity": "specimen",
+     "id": "C077",
+     "field": "value"
+    },
+    {
+     "item": "value:C115",
+     "entity": "specimen",
+     "id": "C115",
+     "field": "value"
+    },
+    {
+     "item": "value:C116",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "value"
+    },
+    {
+     "item": "value:C242",
+     "entity": "specimen",
+     "id": "C242",
+     "field": "value"
+    },
+    {
+     "item": "value:C070",
+     "entity": "specimen",
+     "id": "C070",
+     "field": "value"
+    },
+    {
+     "item": "value:C071",
+     "entity": "specimen",
+     "id": "C071",
+     "field": "value"
+    },
+    {
+     "item": "value:C072",
+     "entity": "specimen",
+     "id": "C072",
+     "field": "value"
+    },
+    {
+     "item": "value:C263",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "value"
+    },
+    {
+     "item": "value:C049",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "value"
+    },
+    {
+     "item": "value:C211",
+     "entity": "specimen",
+     "id": "C211",
+     "field": "value"
+    },
+    {
+     "item": "value:T003",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "value"
+    },
+    {
+     "item": "value:C001",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "value"
     }
    ]
   }

@@ -4,7 +4,9 @@
 The app (wings/questions.js) saves an answers file, `answers_owner_{YYYYMMDD-HHMM}.json`:
   {"kind": "owner-answers", "made": "<ISO time>", "answers": [
      {"q": "q-c066-date", "choice": "1976", "text": "optional free text"},      # a question from collection/owner_questions.json
-     {"confirm": {"scan": "C094", "fact": "year"}}                              # "Confirm" on a certainty label in the coin view
+     {"confirm": {"scan": "C094", "fact": "year"}},                             # "Confirm" on a certainty label in the coin view
+     {"note": {"kind": "origin", "coins": ["C001", ...], "how": "Inherited", "who": "Dad", "when": "1995"}},   # #77 where coins came from
+     {"note": {"kind": "speed", "report": {...}}}                                # #25 Health's speed report from the owner's phone
   ]}
 
   python3 tools/pipeline/owner_answers.py ANSWERS.json [--dry]
@@ -12,7 +14,10 @@ The app (wings/questions.js) saves an answers file, `answers_owner_{YYYYMMDD-HHM
 writes collection/_incoming/changes_owner_{stamp}.jsonl (by: owner, verified: true; merged by publish.py), appends every answer to
 collection/owner_answers.jsonl (closes the question in the app) and prints the follow-ups Claude still has to do by hand.
 A confirm re-states the fact's CURRENT value with verified: true, so the certainty label becomes "Verified" (tools/pipeline/provenance.py).
+An origin note sets the coins' acquisition (owner tier: `acquisition.source` = how + from whom + when, `acquisition.family` = from whom when
+inherited or a gift, `acquisition.acquired_on` only for an exact date). A speed note is appended to docs/perf/phone_reports.jsonl (fix list #25).
 """
+import re
 import datetime, json, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -48,9 +53,10 @@ def answered_ids(coll):
     return {a.get("q") for a in C.read_jsonl(p)} if os.path.exists(p) else set()
 
 
-def convert(answers, col, questions, ts):
-    """-> (events, log_rows, followups, problems)"""
+def convert(answers, col, questions, ts, speed_out=None):
+    """-> (events, log_rows, followups, problems); speed reports go into the optional list `speed_out`."""
     events, log, follow, problems = [], [], [], []
+    notes = speed_out if speed_out is not None else []
     src = "owner answer in the app"
 
     def ev(entity, rid, field, new, why):
@@ -69,6 +75,22 @@ def convert(answers, col, questions, ts):
         return True
 
     for a in answers:
+        if "note" in a:
+            n = a.get("note") or {}
+            if n.get("kind") == "origin":
+                how = str(n.get("how") or "").strip(); who = str(n.get("who") or "").strip(); when = str(n.get("when") or "").strip()
+                if not how: problems.append("origin note without 'how'"); continue
+                text = how + (f", from {who}" if who else "") + (f", {when}" if when else "")
+                for sid in n.get("coins") or []:
+                    if sid not in col.specs: problems.append(f"origin: unknown coin {sid}"); continue
+                    ev("specimen", sid, "acquisition.source", text[:200], f"where it came from: {text}")
+                    if who and how in ("Inherited", "A gift"): ev("specimen", sid, "acquisition.family", who[:120], f"where it came from: {text}")
+                    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", when): ev("specimen", sid, "acquisition.acquired_on", when, f"where it came from: {text}")
+                log.append({"ts": ts, "note": "origin", "coins": n.get("coins") or [], "text": text})
+            elif n.get("kind") == "speed":
+                notes.append(dict(n.get("report") or {}, received=ts))
+            else: problems.append(f"unknown note kind {n.get('kind')!r}")
+            continue
         if "confirm" in a:
             c = a["confirm"] or {}
             if confirm(c.get("scan"), c.get("fact")): log.append({"ts": ts, "confirm": {"scan": c.get("scan"), "fact": c.get("fact")}})
@@ -97,9 +119,15 @@ def main(argv):
     col = C.Collection(coll)
     made = data.get("made") or datetime.datetime.now(datetime.timezone.utc).isoformat()
     ts = made[:19].replace(" ", "T") + "Z" if not made.endswith("Z") else made[:19] + "Z"
-    events, log, follow, problems = convert(data.get("answers") or [], col, load_questions(coll), ts)
+    speed = []
+    events, log, follow, problems = convert(data.get("answers") or [], col, load_questions(coll), ts, speed)
     stamp = ts[:16].replace("-", "").replace(":", "").replace("T", "-")
     for p in problems: print("SKIPPED", p)
+    if speed and not dry:
+        pp = os.path.join(ROOT, "docs", "perf", "phone_reports.jsonl"); os.makedirs(os.path.dirname(pp), exist_ok=True)
+        with open(pp, "a", encoding="utf-8", newline="\n") as fh:
+            for r in speed: fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+        print(f"{len(speed)} speed report(s) -> docs/perf/phone_reports.jsonl (fix list #25)")
     print(f"{len(events)} change event(s), {len(log)} answer(s) recorded, {len(follow)} follow-up(s)")
     for f in follow: print("FOLLOW-UP", f)
     if dry: return 0

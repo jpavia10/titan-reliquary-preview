@@ -46,3 +46,4 @@
 #btn-health { text-decoration: none; display: inline-flex; align-items: center; }
 .hv-bar { display: block; height: 18px; margin: 6px 0 4px; border: 2px solid var(--hv-line); border-radius: 9px; overflow: hidden; background: var(--hv-soft); }
 .hv-bar > i { display: block; height: 100%; background: var(--hv-ok); }
+.health-view a.hv-btn { display: inline-flex; align-items: center; text-decoration: none; margin: 0 10px 10px 0; }

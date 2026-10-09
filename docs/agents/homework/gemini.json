@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-09T14:54:33Z",
+ "updated": "2026-10-09T15:21:08Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261009-1",
@@ -462,7 +462,7 @@
        "https://en.numista.com/catalogue/pieces4004.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
@@ -489,7 +489,7 @@
        "https://en.numista.com/catalogue/pieces413.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": false
      },
      "blind": false,
      "inputs": []
