@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-09 19:33 UTC)
+# WORK QUEUE for Grok (updated 2026-10-09 22:31 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -143,15 +143,15 @@ For each coin, find the retail value for its type, date and mint in the grade it
 
 Items:
 - **C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)**: now $12.00 (med)
-- **C223 · Netherlands · 1967 · 1 gulden · NLG**: now $9.55 (high); silver 0.15 oz = melt $8.93. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C223_rev.webp
+- **C223 · Netherlands · 1967 · 1 gulden · NLG**: now $9.55 (high); silver 0.15 oz = melt $9.14. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C223_rev.webp
 - **C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)**: now $6.50 (high)
 - **C065 · Switzerland · 2014 · 5 francs · CHF**: now $6.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C065_rev.webp
 - **C066 · Switzerland · 1978 · 5 francs · CHF**: now $6.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C066_rev.webp
 - **T004 · USA · ca. 1970s · Miniature “penny” in printed cardboard flap**: now $5.00 (med)
-- **C235 · Guatemala · 1934 · 10 centavos · GTQ**: now $4.90 (high); silver 0.077 oz = melt $4.58. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C235_rev.webp
-- **C088 · USA · 1957 · 10¢ Roosevelt**: now $4.59 (high); silver 0.0723 oz = melt $4.30. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C088_obv.webp
+- **C235 · Guatemala · 1934 · 10 centavos · GTQ**: now $4.90 (high); silver 0.077 oz = melt $4.69. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C235_rev.webp
+- **C088 · USA · 1957 · 10¢ Roosevelt**: now $4.59 (high); silver 0.0723 oz = melt $4.41. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C088_obv.webp
 - **C009 · Germany · 1987 · 5 Deutsche Mark · DEM**: now $3.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C009_obv.webp
-- **C031 · Australia · 1943 · Threepence (3d) · AUD**: now $2.66 (high); silver 0.0419 oz = melt $2.49. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C031_obv.webp
+- **C031 · Australia · 1943 · Threepence (3d) · AUD**: now $2.66 (high); silver 0.0419 oz = melt $2.55. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C031_obv.webp
 - **C003 · Switzerland · 1968 · 2 francs · CHF**: now $2.50 (high)
 - **C014 · Switzerland · 1974 · 2 francs · CHF**: now $2.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C014_rev.webp
 - **C067 · Switzerland · 1981 · 2 francs · CHF**: now $2.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C067_rev.webp
@@ -162,7 +162,7 @@ Items:
 - **C070 · Netherlands · 2002 · 2 euro · EUR**: now $2.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C070_obv.webp
 - **C071 · Germany · 2003 · 2 euro · EUR**: now $2.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C071_obv.webp
 - **C072 · France · 2000 · 2 euro · EUR**: now $2.25 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C072_obv.webp
-- **C263 · Mexico · 1950 · 25 centavos · MXN**: now $2.00 (high); silver 0.0321 oz = melt $1.91. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C263_rev.webp
+- **C263 · Mexico · 1950 · 25 centavos · MXN**: now $2.00 (high); silver 0.0321 oz = melt $1.96. Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C263_rev.webp
 - **C049 · France · 1989 · 10 francs · FRF**: now $1.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C049_rev.webp
 - **C211 · Italy · 1987 · 500 lire · ITL**: now $1.50 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C211_rev.webp
 - **T003 · USA · ND · Ride token (Sandy the Pony · Meijer)**: now $1.50 (med). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_obv.webp
