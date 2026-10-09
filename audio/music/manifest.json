@@ -1,8 +1,7 @@
 {
  "schema": "music/1",
- "made": "2026-10-08T14:57:04Z",
- "reviewed": "2026-10-08 by Claude: license, performer and piece checked on every file; 8 picks rejected (docs/music/REVIEW.md)",
- "note": "Recorded classical music (tools/music/fetch_classical.py). Every recording is Public Domain, CC0 or CC BY-SA; credits in CREDITS.md and in the app's Scene Studio.",
+ "made": "2026-10-09T05:50:09Z",
+ "note": "Recorded classical music (tools/music/fetch_classical.py). Every recording is Public Domain, CC0 or CC BY(-SA); credits in CREDITS.md and in the app's Scene Studio.",
  "tracks": [
   {
    "id": "satie-gymnopedie-1",
@@ -13,6 +12,19 @@
    "source": "https://commons.wikimedia.org/wiki/File%3ASatie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
    "file": "satie-gymnopedie-1.m4a",
    "duration": 171.9,
+   "moods": [
+    "piano"
+   ]
+  },
+  {
+   "id": "satie-gymnopedie-1-piano",
+   "title": "Gymnopédie No. 1 (piano)",
+   "composer": "Erik Satie",
+   "performer": "Daria Baiocchi (piano, Steinway B, 2021)",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3ASatie_Gymnop%C3%A8die_n.1_DariaBaiocchi.wav",
+   "file": "satie-gymnopedie-1-piano.m4a",
+   "duration": 191.2,
    "moods": [
     "piano"
    ]
@@ -52,6 +64,19 @@
    "source": "https://commons.wikimedia.org/wiki/File%3AClair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg",
    "file": "debussy-clair-de-lune.m4a",
    "duration": 304.1,
+   "moods": [
+    "piano"
+   ]
+  },
+  {
+   "id": "debussy-arabesque-1",
+   "title": "Arabesque No. 1",
+   "composer": "Claude Debussy",
+   "performer": "Patrizia Prati (piano, live, Madrid 2016)",
+   "license": "CC BY-SA 4.0 (VRTS permission)",
+   "source": "https://commons.wikimedia.org/wiki/File%3AClaude_Debussy_-_Premi%C3%A8re_Arabesque_-_Patrizia_Prati.ogg",
+   "file": "debussy-arabesque-1.m4a",
+   "duration": 293.0,
    "moods": [
     "piano"
    ]
@@ -148,6 +173,45 @@
    ]
   },
   {
+   "id": "liszt-consolation-3",
+   "title": "Consolation No. 3",
+   "composer": "Franz Liszt",
+   "performer": "Benedict Kramer (piano, 2005)",
+   "license": "CC BY-SA 4.0 (VRTS permission)",
+   "source": "https://commons.wikimedia.org/wiki/File%3AFranz_Liszt_-_Consolation_No._3%2C_Lento_placido.ogg",
+   "file": "liszt-consolation-3.m4a",
+   "duration": 226.4,
+   "moods": [
+    "piano"
+   ]
+  },
+  {
+   "id": "bach-air",
+   "title": "Air (Orchestral Suite No. 3, BWV 1068)",
+   "composer": "Johann Sebastian Bach",
+   "performer": "The Air Force Strings, United States Air Force Band (cond. 1st Lt Keith H. Bland, 2000)",
+   "license": "Public domain (US Air Force work)",
+   "source": "https://commons.wikimedia.org/wiki/File%3AAir_-_Air_Force_Strings_-_United_States_Air_Force_Band.mp3",
+   "file": "bach-air.m4a",
+   "duration": 183.3,
+   "moods": [
+    "orchestra"
+   ]
+  },
+  {
+   "id": "pachelbel-canon",
+   "title": "Canon in D",
+   "composer": "Johann Pachelbel",
+   "performer": "The Strolling Strings, United States Air Force Band (arr. Frank Hudson, 2004)",
+   "license": "Public domain (US Air Force work)",
+   "source": "https://commons.wikimedia.org/wiki/File%3ACanon_%282004%29_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3",
+   "file": "pachelbel-canon.m4a",
+   "duration": 228.8,
+   "moods": [
+    "orchestra"
+   ]
+  },
+  {
    "id": "grieg-morning-mood",
    "title": "Morning Mood (Peer Gynt)",
    "composer": "Edvard Grieg",
@@ -156,6 +220,19 @@
    "source": "https://commons.wikimedia.org/wiki/File%3AGrieg_-_Peer_Gynt_Suite_No._1%2C_Op._46_-_I._Morning_Mood_%28Musopen_Symphony%29.flac",
    "file": "grieg-morning-mood.m4a",
    "duration": 229.2,
+   "moods": [
+    "orchestra"
+   ]
+  },
+  {
+   "id": "dvorak-new-world-largo",
+   "title": "Symphony No. 9 'From the New World': II. Largo",
+   "composer": "Antonín Dvořák",
+   "performer": "Musopen (orchestra not named)",
+   "license": "Public domain (Musopen)",
+   "source": "https://commons.wikimedia.org/wiki/File%3AAntonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27%2C_op._95_-_ii._largo.ogg",
+   "file": "dvorak-new-world-largo.m4a",
+   "duration": 420,
    "moods": [
     "orchestra"
    ]
