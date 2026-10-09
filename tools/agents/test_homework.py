@@ -60,6 +60,23 @@ class Loop(unittest.TestCase):
         busy = [it["item"] for a in st["assignments"] if a["status"] == "open" for it in a["items"]]
         self.assertEqual(len(busy), len(set(busy)), "an item is in two open assignments")
 
+    def test_1b_no_two_assignments_write_one_field(self):
+        st, pool = self.r1["state"], self.r1["pool"]
+        taken = {}
+        for a in st["assignments"]:
+            if a["status"] != "open": continue
+            for it in a["items"]:
+                p = pool.get(it["item"])
+                if p is None: continue
+                self.assertFalse(HW._clashes(taken, p), f"{a['id']} {it['item']} writes a field another open assignment writes")
+                HW._take(taken, p)
+        # a withdrawn assignment frees its fields and is not counted as answered or expired
+        tmp = sandbox(); r = run_refresh(tmp, NOW)
+        a = next(x for x in r["state"]["assignments"] if x["status"] == "open")
+        HW.withdraw(r["state"], a["id"], NOW, "test")
+        self.assertEqual(a["status"], "withdrawn")
+        self.assertRaises(SystemExit, HW.withdraw, r["state"], a["id"], NOW, "twice")
+
     def test_2_deterministic(self):
         other = sandbox(); r = run_refresh(other, NOW)
         self.assertEqual(json.dumps(r["state"], sort_keys=True), json.dumps(self.r1["state"], sort_keys=True))

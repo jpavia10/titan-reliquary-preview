@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-09 15:21 UTC)
+# WORK QUEUE for Muse (updated 2026-10-09 19:33 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -69,32 +69,7 @@ Items:
 - **composition of C219 · Jamaica · 2015 · 1 dollar · JMD** `type JM.KM.189 composition.text` = `nickel clad steel` (written by Grok: Numista N#14369 (https://en.numista.com/catalogue/pieces14369.html): composition nickel clad steel -> metal_class clad)
 - **catalog of C239 · Australia · 1944 · 1 penny · AUD (pre-decimal)** `type AU.KM.36 catalogs` = `[{"number": "36", "system": "KM"}, {"number": "23", "system": "Schön"}, {"number": "5788"…` (written by Grok: Numista N#5788 (https://en.numista.com/catalogue/pieces5788.html) references: KM# 36, Schön# 23) [audit sample]
 
-### 2. HW-muse-plain-story-20261009-1 · Writer · Rewrite 15 stories in plain English · due 2026-10-16  (fix list #60)
-
-Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
-
-**Done when:** One change file; the stories pass the plain-English check.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-plain-story-20261009-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C001 · Switzerland · 1969 · 1 franc · CHF**: “A 1969 1 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy, Albert Walch, and Fr. Fisch. Struck in CuNi 75/25.” (shorthand: `Standing Helvetia on the obverse, value `)
-- **C002 · Switzerland · 1963 · 5 rappen · CHF**: “A 1963 5 rappen from Switzerland. Libertas right on the obverse, 5 in grapevine wreath on the reverse, engravers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.” (shorthand: `CuNi`)
-- **C006 · Germany · 1984 · 1 Deutsche Mark · DEM**: “A 1984 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.” (shorthand: `CuNi`)
-- **C008 · Switzerland · 1968 · 1/2 franc · CHF**: “A 1968 0.5 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy and Albert Walch. Struck in CuNi 75/25.” (shorthand: `CuNi`)
-- **C009 · Germany · 1987 · 5 Deutsche Mark · DEM**: “A 1987 5 Deutsche Mark from Germany. Bundesadler reverse, value, DEUTSCHE MARK obverse (circulation Magnimat, not Ag commemorative). Struck in CuNi clad nickel (Magnimat).” (shorthand: `CuNi`)
-- **C012 · France · 1962 · 1 franc · FRF (nouveau franc)**: “A 1962 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.” (shorthand: `REPUBLIQUE FRANÇAISE, olive sprig, LIBER`)
-- **C015 · Switzerland · 1971 · 1/2 franc · CHF**: “A 1971 0.5 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy and Albert Walch. Struck in CuNi 75/25.” (shorthand: `CuNi`)
-- **C017 · France · 1999 · 1 franc · FRF (nouveau franc)**: “A 1999 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.” (shorthand: `REPUBLIQUE FRANÇAISE, olive sprig, LIBER`)
-- **C025 · France · 1965 · 1 franc · FRF (nouveau franc)**: “A 1965 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.” (shorthand: `REPUBLIQUE FRANÇAISE, olive sprig, LIBER`)
-- **C031 · Australia · 1943 · Threepence (3d) · AUD**: “A 1943 3 pence from Australia. The obverse shows George VI; the reverse shows three wheat stalks; IND:IMP still in legend, AUSTRALIA, THREE PENCE, 1943, S. Struck in .925 sterling silver.” (shorthand: `IND:IMP still in legend, AUSTRALIA, THRE`)
-- **C033 · France · 1969 · 1/2 franc · FRF**: “A 1969 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.” (shorthand: `olive sprig, LIBERTE, EGALITE, FRATERNIT`)
-- **C035 · Germany · 1971 · 50 Pfennig · DEM**: “A 1971 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.” (shorthand: `CuNi`)
-- **C045 · Netherlands · 2014 · 5 euro cent · EUR**: “A 2014 5 euro cent from Netherlands. National Willem-Alexander right-facing portrait, Willem-Alexander Koning der Nederlanden (vertical), date, 12 stars, common Europe map side (Luc Luycx). Struck in copper-plated steel.” (shorthand: `National Willem-Alexander right-facing p`)
-- **C048 · Germany · 1993 · 1 Deutsche Mark · DEM**: “A 1993 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.” (shorthand: `CuNi`)
-- **C049 · France · 1989 · 10 francs · FRF**: “A 1989 10 francs from France. The obverse shows Génie de la Liberté (after François Rude; the reverse shows 10 F; Bastille column), LIBERTE, EGALITE, FRATERNITE, date, RF. Struck in bimetallic (nickel center with an aluminum-bronze ring).” (shorthand: `Bastille column), LIBERTE, EGALITE, FRAT`)
-
-### 3. HW-muse-research-20261009-1 · Researcher · Answer 5 open research questions · due 2026-10-19  (fix list #3)
+### 2. HW-muse-research-20261009-1 · Researcher · Answer 5 open research questions · due 2026-10-19  (fix list #3)
 
 Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.
 
@@ -108,6 +83,31 @@ Items:
 - **C204 · Trinidad and Tobago · 2014 · 25 cents · TTD** (TT.KM.33): Cosmetic: the design note describes the Scarlet Ibis and Cocrico (the coat-of-arms supporters on the obverse) but omits the actual reverse motif, which references give as the Chaconia flower. Fix when the record is next touched. Record: {"country": "Trinidad and Tobago", "year": "2014", "denom": "25 cents · TTD", "mint": "not on shown arms side", "refs": "KM#32 · Schön#31 · Numista#1159", "metal": "cupronickel · 3.53 g · 20 mm · reeded · circulated / bright · white 2×2 staple flip", "specs": "thickness unknown · medal alignment", …
 - **C212 · Eritrea · 1997 · 50 cents · ERN (nakfa)** (ER.KM.46): The design note says the obverse shows the State of Eritrea arms / a camel, but the Numista entry (N#2403) shows soldiers with a flag on the common side. Which is right? Check the design note against the entry and the photo. Record: {"country": "Eritrea", "year": "1997", "denom": "50 cents · ERN (nakfa)", "mint": "not on shown reverse (Asmara / Royal Mint era typical)", "refs": "KM#47 · Schön#47 · Numista#2403", "metal": "nickel-clad steel · 7.80 g · 25 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness 2 m…
 - **C232 · Vietnam · 2003 · 1000 đồng · VND** (VN.KM.71): References describe a reverse motif (the One Pillar Pagoda) that the design note omits; the catalogue number is settled (KM# 72, Numista N#2104). Check the design note against the coin or the Numista entry. Record: {"country": "Vietnam", "year": "2003", "denom": "1000 đồng · VND", "mint": "not on shown emblem side", "refs": "KM#72 · Schön#144 · Numista#2104", "metal": "brass plated steel · 3.80 g · 19 mm · reeded · circulated bright · white 2×2 staple flip", "specs": "thickness unknown · medal alignment", "mi…
+
+### 3. HW-muse-plain-story-20261009-2 · Writer · Rewrite 15 stories in plain English · due 2026-10-16  (fix list #60)
+
+Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
+
+**Done when:** One change file; the stories pass the plain-English check.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-plain-story-20261009-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C031 · Australia · 1943 · Threepence (3d) · AUD**: “A 1943 3 pence from Australia. The obverse shows George VI; the reverse shows three wheat stalks; IND:IMP still in legend, AUSTRALIA, THREE PENCE, 1943, S. Struck in .925 sterling silver.” (shorthand: `IND:IMP still in legend, AUSTRALIA, THRE`)
+- **C033 · France · 1969 · 1/2 franc · FRF**: “A 1969 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.” (shorthand: `olive sprig, LIBERTE, EGALITE, FRATERNIT`)
+- **C035 · Germany · 1971 · 50 Pfennig · DEM**: “A 1971 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.” (shorthand: `CuNi`)
+- **C045 · Netherlands · 2014 · 5 euro cent · EUR**: “A 2014 5 euro cent from Netherlands. National Willem-Alexander right-facing portrait, Willem-Alexander Koning der Nederlanden (vertical), date, 12 stars, common Europe map side (Luc Luycx). Struck in copper-plated steel.” (shorthand: `National Willem-Alexander right-facing p`)
+- **C048 · Germany · 1993 · 1 Deutsche Mark · DEM**: “A 1993 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.” (shorthand: `CuNi`)
+- **C049 · France · 1989 · 10 francs · FRF**: “A 1989 10 francs from France. The obverse shows Génie de la Liberté (after François Rude; the reverse shows 10 F; Bastille column), LIBERTE, EGALITE, FRATERNITE, date, RF. Struck in bimetallic (nickel center with an aluminum-bronze ring).” (shorthand: `Bastille column), LIBERTE, EGALITE, FRAT`)
+- **C050 · Germany · 1982 · 1 Deutsche Mark · DEM**: “A 1982 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.” (shorthand: `CuNi`)
+- **C057 · Germany · 1982 · 50 Pfennig · DEM**: “A 1982 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.” (shorthand: `CuNi`)
+- **C058 · Germany · 1985 · 50 Pfennig · DEM**: “A 1985 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.” (shorthand: `CuNi`)
+- **C059 · France · 1960 · 1 franc · FRF (nouveau franc)**: “A 1960 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.” (shorthand: `REPUBLIQUE FRANÇAISE, olive sprig, LIBER`)
+- **C060 · France · 1971 · 1/2 franc · FRF**: “A 1971 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.” (shorthand: `olive sprig, LIBERTE, EGALITE, FRATERNIT`)
+- **C068 · Switzerland · 1963 · 20 rappen · CHF**: “A 1963 20 rappen from Switzerland. Libertas right on the obverse, 20 in wreath on the reverse, engravers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.” (shorthand: `CuNi`)
+- **C069 · Jamaica · 1975 · 50 cents · JMD**: “A 1975 50 cents from Jamaica. Arms, crocodile, Taino supporters, OUT OF MANY, ONE PEOPLE, JAMAICA, FIFTY CENTS, 1975. Struck in cupronickel.” (shorthand: `Arms, crocodile, Taino supporters, OUT O`)
+- **C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)**: “A 1976 25 cents from USA. The obverse shows Washington; the reverse shows drummer boy (Jack L. Ahr); dual-date 1776–1976, E PLURIBUS UNUM, QUARTER DOLLAR. Struck in Cu-Ni clad (copper core visible on reeded edges).” (shorthand: `Cu-Ni`)
+- **C076 · Switzerland · 1989 · 20 rappen · CHF**: “A 1989 20 rappen from Switzerland. Libertas right on the obverse, 20 in wreath on the reverse, engravers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.” (shorthand: `CuNi`)
 
 ## Projects (after the homework)
 

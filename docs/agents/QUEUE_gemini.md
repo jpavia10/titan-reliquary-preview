@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-09 15:21 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-09 19:33 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 

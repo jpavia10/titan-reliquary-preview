@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-09 15:21 UTC)
+# WORK QUEUE for Grok (updated 2026-10-09 19:33 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -170,9 +170,9 @@ Items:
 
 ## Projects (after the homework)
 
-### Music: a recording for each of the 4 held pieces  [LATER]  (fix list #83)
+### Music: a recording for each of the 3 held pieces  [LATER]  (fix list #83)
 
-Held in docs/music/wanted.json: Elgar Nimrod, Debussy Rêverie, Satie Gymnopédie 3 on piano (and Handel's Largo, where the 1920 Caruso recording waits on Joseph's ear). For each, find one Wikimedia Commons file that is a real performance of exactly that piece (not a synth or MIDI render), public domain or CC BY / CC BY-SA, with the performer named; give the exact Commons file title, the license and the performer, the same way as your 2026-10-08 music check. Save it as music_grok_{YYYYMMDD-HHMM}.json in Drive 'music-requests'.
+Held in docs/music/wanted.json: Elgar Nimrod, Debussy Rêverie (only a saxophone arrangement found so far), Satie Gymnopédie 3 on piano (the search keeps finding No. 1). Handel's Largo is done: Lea Desandre with Les Arts Florissants (CC BY 3.0) is live since 2026-10-09. For each held piece, find one Wikimedia Commons file that is a real performance of exactly that piece (not a synth or MIDI render), public domain or CC BY / CC BY-SA, with the performer named; give the exact Commons file title, the license and the performer, the same way as your 2026-10-08 music check. Save it as music_grok_{YYYYMMDD-HHMM}.json in Drive 'music-requests'.
 
 **Done when:** One JSON file with an exact Commons title (or 'none found' and why) for each held piece.
 

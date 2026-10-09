@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-09T15:21:08Z",
+ "updated": "2026-10-09T19:33:52Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -9,7 +9,7 @@
   "muse-verify-20261009": 1,
   "gemini-read-mint-20261009": 1,
   "gemini-verify-20261009": 1,
-  "muse-plain-story-20261009": 1,
+  "muse-plain-story-20261009": 2,
   "muse-research-20261009": 1,
   "grok-value-20261009": 1
  },
@@ -788,9 +788,14 @@
    "kind": "plain-story",
    "issued": "2026-10-09T14:42:50Z",
    "lease_until": "2026-10-16T14:42:50Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-10-09T19:25:56Z",
+   "result": {
+    "items": 15,
+    "closed": 0,
+    "left": 15,
+    "reason": "clashed with Grok's story fact-check (9 of the same stories); reissued without them"
+   },
    "items": [
     {
      "item": "plain:C001",
@@ -1085,6 +1090,108 @@
      "entity": "specimen",
      "id": "C001",
      "field": "value"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-plain-story-20261009-2",
+   "agent": "muse",
+   "kind": "plain-story",
+   "issued": "2026-10-09T19:25:56Z",
+   "lease_until": "2026-10-16T19:25:56Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "plain:C031",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "story"
+    },
+    {
+     "item": "plain:C033",
+     "entity": "specimen",
+     "id": "C033",
+     "field": "story"
+    },
+    {
+     "item": "plain:C035",
+     "entity": "specimen",
+     "id": "C035",
+     "field": "story"
+    },
+    {
+     "item": "plain:C045",
+     "entity": "specimen",
+     "id": "C045",
+     "field": "story"
+    },
+    {
+     "item": "plain:C048",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "story"
+    },
+    {
+     "item": "plain:C049",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "story"
+    },
+    {
+     "item": "plain:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "story"
+    },
+    {
+     "item": "plain:C057",
+     "entity": "specimen",
+     "id": "C057",
+     "field": "story"
+    },
+    {
+     "item": "plain:C058",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "story"
+    },
+    {
+     "item": "plain:C059",
+     "entity": "specimen",
+     "id": "C059",
+     "field": "story"
+    },
+    {
+     "item": "plain:C060",
+     "entity": "specimen",
+     "id": "C060",
+     "field": "story"
+    },
+    {
+     "item": "plain:C068",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "story"
+    },
+    {
+     "item": "plain:C069",
+     "entity": "specimen",
+     "id": "C069",
+     "field": "story"
+    },
+    {
+     "item": "plain:C073",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "story"
+    },
+    {
+     "item": "plain:C076",
+     "entity": "specimen",
+     "id": "C076",
+     "field": "story"
     }
    ]
   }

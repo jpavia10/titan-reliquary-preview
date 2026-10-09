@@ -496,6 +496,8 @@ def refresh(ctx, roles, queues, state, now, log=None):
             a.update(status="expired", closed=now, result={"items": len(a["items"]), "closed": len(a["items"]) - len(left), "left": len(left)})
             log.append(f"{a['id']} expired ({len(left)} items back to the pool)")
     busy = {it["item"] for a in state["assignments"] if a["status"] == "open" for it in a["items"]}
+    taken = {}                     # (entity, id) -> fields an open assignment will write: two assignments never write the same field
+    for i in busy: _take(taken, pool.get(i))
     parked = {i for i, tr in state["tried"].items() if len({t["agent"] for t in tr}) >= 2}
     for agent, ag in roles["agents"].items():
         if ag.get("status") != "active": continue
@@ -507,13 +509,40 @@ def refresh(ctx, roles, queues, state, now, log=None):
             kd = roles["kinds"][kind]
             cand = sorted((it for it in pool.values() if it["kind"] == kind and it["item"] not in busy and it["item"] not in parked
                            and eligible(agent, it, roles, state, metrics)), key=lambda it: it["prio"])
-            if not cand: continue
-            batch = cand[: max(1, kd["batch"] // 2) if ag.get("onboarding") else kd["batch"]]
+            size = max(1, kd["batch"] // 2) if ag.get("onboarding") else kd["batch"]
+            batch = []
+            for it in cand:                # e.g. a story out for a fact-check is not also handed out for a plain-English rewrite
+                if len(batch) >= size: break
+                if _clashes(taken, it): continue
+                batch.append(it); _take(taken, it)
+            if not batch: continue
             a = new_assignment(state, agent, kind, batch, now, kd)
             mine.append(a); busy.update(it["item"] for it in batch)
             log.append(f"issued {a['id']}: {len(batch)} item(s)")
     state["updated"] = now
     return pool, metrics, parked
+
+
+def _take(taken, item):
+    for e, i, f, _ in (item or {}).get("lines", []): taken.setdefault((e, i), set()).add(f)
+
+
+def _clashes(taken, item):
+    """True when the item writes a field (or a parent or child of one) that an open assignment already writes."""
+    for e, i, f, _ in item.get("lines", []):
+        for g in taken.get((e, i), ()):
+            if f == g or f.startswith(g + ".") or g.startswith(f + "."): return True
+    return False
+
+
+def withdraw(state, aid, now, reason):
+    """Take back an open assignment before it is answered (e.g. it clashed with another one); the next run issues a replacement.
+    Not counted as answered or expired for the AI."""
+    for a in state["assignments"]:
+        if a["id"] == aid and a["status"] == "open":
+            a.update(status="withdrawn", closed=now, result={"items": len(a["items"]), "closed": 0, "left": len(a["items"]), "reason": reason})
+            return a
+    raise SystemExit(f"no open assignment {aid}")
 
 
 def new_assignment(state, agent, kind, items, now, kd):
@@ -768,6 +797,11 @@ def main(argv):
         for it in sorted(r["pool"].values(), key=lambda x: (x["kind"], x["prio"])):
             if kind is None or it["kind"] == kind: print(f"{it['kind']:<12} {it['item']:<48} {it['label'][:70]}")
         return 0
+    if "--withdraw" in argv:          # --withdraw HW-... "why": take an open assignment back; this run issues its replacement
+        i = argv.index("--withdraw"); aid = argv[i + 1]
+        reason = argv[i + 2] if i + 2 < len(argv) and not argv[i + 2].startswith("--") else "withdrawn by Claude"
+        state = _load(P["state"]) or empty_state(); withdraw(state, aid, now or now_utc(), reason)
+        _write(P["state"], json.dumps(state, ensure_ascii=False, indent=1) + "\n"); print(f"{aid} withdrawn: {reason}")
     r = run(root, now, dry="--dry-run" in argv)
     print("\n".join(r["log"]) or "no change")
     from collections import Counter

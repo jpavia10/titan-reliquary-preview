@@ -89,6 +89,7 @@
         L("Symphony No. 9 'From the New World': II. Largo", "Antonín Dvořák", "dvorak-new-world-largo.m4a", "Musopen (orchestra not named)", "Public domain"),
         L("The Swan (The Carnival of the Animals)", "Camille Saint-Saëns", "saint-saens-swan.m4a", "Alisa Weilerstein (cello) and Jason Yoder (piano), White House, 2009", "Public domain"),
         L("Cello Suite No. 1: Prelude", "Johann Sebastian Bach", "bach-cello-suite-1-prelude.m4a", "Chris (cello)", "CC0"),
+        L("Largo ('Ombra mai fu', Serse)", "George Frideric Handel", "handel-largo.m4a", "Lea Desandre (mezzo-soprano) and Les Arts Florissants", "CC BY 3.0"),
         L("Eine kleine Nachtmusik: II. Romanze", "Wolfgang Amadeus Mozart", "mozart-eine-kleine-romanze.m4a", "Musopen (strings)", "Public domain"),
         L("The Four Seasons, Winter: II. Largo", "Antonio Vivaldi", "vivaldi-winter-largo.m4a", "John Harrison (violin), Wiedemann Recital", "CC BY-SA 4.0"),
       ],

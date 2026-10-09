@@ -59,7 +59,14 @@ Hand-written work that cannot be computed (work in progress, code reviews, guide
 4. An assignment is answered when a merged line names it (`provenance.assignment`). Items it left out go back to the pool, marked as tried by that AI; when two different AIs could not do an item it is parked (listed in QUEUES.md for Claude or Joseph).
 5. **Checks first where they matter most:** the verify pool is ordered by an audit sample (every fact of an AI on probation; half of a new AI's; then twice its measured error rate plus 10 %), then by the coin's value.
 6. **Demotion:** an AI stops getting fact-writing kinds when, after 10 checks, even the low end of the 95 % range of its error rate is above 15 % (we are sure it is often wrong, not unlucky); it can still check others and reword stories.
-7. A fact another job is about to change is not handed out for checking at the same time.
+7. A fact another job is about to change is not handed out for checking at the same time, and **no two open assignments write the same
+   field** (or a parent or child of it): a story out for a fact-check is not also out for a plain-English rewrite (`_clashes`, test 1b).
+8. **Withdrawing:** `python3 tools/agents/homework.py --withdraw HW-... "why"` takes back an open assignment nobody has started (status
+   `withdrawn`, not counted as answered or expired for the AI) and issues its replacement in the same run; its sheet is removed. Say so in
+   the AI's WORK QUEUE doc. First used 2026-10-09: HW-muse-plain-story-20261009-1 shared 9 stories with Grok's story check.
+9. **Calibration** (`roles.json` `calibration`): each AI takes the main blind photo pack every 180 days and the locked pack every 90 days,
+   the locked one only after the main one; due tests head its page. `tools/bakeoff/score.py --agent` logs each scored test in
+   `docs/agents/homework/calibration.jsonl` and MODEL_ACCURACY.md.
 
 ## 4. The answer sheet and the gate (tools/pipeline/apply_changes.py)
 

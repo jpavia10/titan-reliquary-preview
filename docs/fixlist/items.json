@@ -1,0 +1,1697 @@
+{
+ "version": 20,
+ "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most: the system that researches the collection by itself first, then truth and safety, polish last. Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
+ "sotu": {
+  "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
+  "strong": [
+   [
+    "A research system that runs itself.",
+    "Since Oct 9 every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Grok, Muse and Gemini have assignments now; the blind photo tests recur on their own."
+   ],
+   [
+    "Trust machinery.",
+    "Every fact has a certainty label, a history and now a link to its exact source; “Checked” means two independent sources agree. The change history is sealed (a correction is a new line, never an edit), and every photo is fingerprinted against its original."
+   ],
+   [
+    "One pipeline, one master, tested on every update.",
+    "Any AI drops a change file; one script checks it, merges it and rebuilds the site. 48 pipeline tests, 10 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup."
+   ],
+   [
+    "Never silently broken.",
+    "Daily prices, live-site check, smoke and integrity checks and a daily backup zip run on GitHub; Health warns when any fails."
+   ],
+   [
+    "Dad-readable, and printable.",
+    "The Simple view answers “Do I have…?” in big type, the app works offline, and there is now a printable inventory with photos."
+   ]
+  ],
+  "holding": [
+   [
+    "Most facts are still not proven.",
+    "Of 3,233 facts on screen, 602 are cited or confirmed (18.6 %), 25 of them Checked by two sources; 1,870 still come from the original ledger unchecked and 631 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs."
+   ],
+   [
+    "The loop needs me to turn it.",
+    "AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) removes that bottleneck and needs a one-time install from you."
+   ],
+   [
+    "Only two AIs research today.",
+    "Gemini is relaunching through its access check; until a third AI is proven, disagreements between Grok and Muse wait for me (#101)."
+   ],
+   [
+    "Photos are the bottleneck.",
+    "77 coins have no photo, 194 only one side, none have pro photos. The new Scan page makes each one a few taps; Phase 2 cannot start before them."
+   ],
+   [
+    "The look is not decided.",
+    "The design pause continues (#30): polish comes after the foundation, as you said."
+   ]
+  ],
+  "next": [
+   [
+    "1. Turn guesses into facts.",
+    "Answer the 14 questions and the new “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand."
+   ],
+   [
+    "2. Let the loop run.",
+    "Give Gemini its WORK QUEUE doc (it starts with a 3-question access check), add the free Numista key, and when I hand you the Drive script for #92, install it once."
+   ],
+   [
+    "3. Measure, then decide.",
+    "The locked test (Grok, Muse) and the main test (Gemini, ChatGPT) decide who reads Phase 2; then pick the look (#30)."
+   ]
+  ]
+ },
+ "chains": [
+  [
+   "The loop running without a chat (#92)",
+   "needs you to install one Drive script with a GitHub key (I write both) ← nothing else: the loop, the gates and the tests are built"
+  ],
+  [
+   "Phase 2 pro photos (#61)",
+   "needs serial numbers (#5) ← Phase 1 at 100 % (now 175 of 290: Scan a coin) ← the missing photos and mint marks + your answers (#3)"
+  ],
+  [
+   "Which AI reads Phase 2 (#19)",
+   "needs the locked test from Grok and Muse (due on their pages now) ← the main test from Gemini and ChatGPT (#4)"
+  ],
+  [
+   "Reading a coin inside the app (#65 next step)",
+   "needs the winner of #19 ← a key kept outside the public site (#92's machinery)"
+  ],
+  [
+   "Disagreements settled without me (#101)",
+   "needs a third research AI through the onboarding (#97: Gemini first)"
+  ],
+  [
+   "Real collector values for every coin (#62)",
+   "needs Grok's appraisal homework (running) + your free Numista API key (the weekly price job)"
+  ],
+  [
+   "Motion and the gold dust in the app (#63)",
+   "needs design direction (#30) + app split (#32) + your phone speed number (#25) + your picks from the Motion Lab (#56)"
+  ],
+  [
+   "Buttons that look tappable (#29)",
+   "needs design direction (#30) + the Dad test (#60)"
+  ]
+ ],
+ "you": [
+  [
+   "Answer the 14 questions in the app",
+   "(Hall footer → Questions), and the new “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77)."
+  ],
+  [
+   "Photograph the missing coins with Scan a coin",
+   "(Hall footer, or Lab → Shoot list → Scan with the camera): it checks each photo, names it and sends it to Drive STAGING. Unlocks Phase 1 at 100 %."
+  ],
+  [
+   "Start Gemini:",
+   "paste the link to its Drive doc “WORK QUEUE for Gemini” and say “do the first task”. It begins with a 3-question access check, then the photo test."
+  ],
+  [
+   "Give ChatGPT the photo test and its queue:",
+   "“Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md and do the next task”, then paste its answer back to me."
+  ],
+  [
+   "Get a free Numista API key",
+   "(numista.com → your account → API) and add it in GitHub: the repository → Settings → Secrets and variables → Actions → New secret, name NUMISTA_API_KEY. The weekly price job then fills in collector values (#62). Never paste the key in a chat."
+  ],
+  [
+   "Measure your phone's speed:",
+   "Health → Measure speed → Add this speed report to my answers file, then send the answers file (#25)."
+  ],
+  [
+   "Decide who gets which inventory copy:",
+   "Health → Printable inventory (with values for the insurer, without for the family) (#64)."
+  ],
+  [
+   "Install the Drive backup script once",
+   "at script.google.com (sync_to_drive.gs); the only Drive backup is from Sept 28 (#103)."
+  ],
+  [
+   "Add Google Drive to the “Titan daily intake” routine",
+   "in claude.ai Routines settings (#50), until #92 replaces it."
+  ],
+  [
+   "Decide: does every coin need both sides photographed?",
+   "Or can the common side of common coins be shared from one good photo? It sets the size of the “other side” batch (194 coins) and #61."
+  ],
+  [
+   "Decide: should the opening film play once a day",
+   "instead of every time the app opens?"
+  ],
+  [
+   "Re-upload 4 photos smaller than 7 MB:",
+   "C105–C113, C114, C115/116, C117–C119."
+  ],
+  [
+   "Try the Motion Lab and listen:",
+   "jpavia10.github.io/titan-reliquary-preview/motion-lab/ (tell me the meter's number), and what sounds or feels off (#22)."
+  ]
+ ],
+ "sections": [
+  {
+   "title": "Tier 0 · The research system that runs itself",
+   "sub": "the foundation for everything else: facts found, checked and measured as homework over time",
+   "cls": "par",
+   "groups": [
+    {
+     "label": "Make it run without a chat",
+     "items": [
+      92,
+      93,
+      91,
+      50
+     ]
+    },
+    {
+     "label": "Make it trustworthy at scale",
+     "items": [
+      99,
+      102,
+      94,
+      95,
+      98
+     ]
+    },
+    {
+     "label": "Grow the team",
+     "items": [
+      97,
+      101,
+      100,
+      96
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Tier 1 · Truth and measurement",
+   "sub": "turn guesses into facts and measure who is right",
+   "cls": "",
+   "groups": [
+    {
+     "label": "Truth",
+     "items": [
+      3,
+      73,
+      48,
+      62
+     ]
+    },
+    {
+     "label": "Measure the AIs",
+     "items": [
+      4,
+      19
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Tier 1 · Safety net",
+   "sub": "nothing is lost, nothing is quietly changed",
+   "cls": "",
+   "groups": [
+    {
+     "label": null,
+     "items": [
+      103,
+      104,
+      105,
+      106
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Tier 1 · Gates for design and motion",
+   "sub": "needed before any visual work",
+   "cls": "",
+   "groups": [
+    {
+     "label": null,
+     "items": [
+      60,
+      30,
+      32,
+      25
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Parallel track · Motion",
+   "sub": "wanted, kept off the critical path",
+   "cls": "par",
+   "groups": [
+    {
+     "label": null,
+     "items": [
+      56,
+      63
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Tier 2 · Capabilities on the foundation",
+   "sub": "each one names what it waits on",
+   "cls": "",
+   "groups": [
+    {
+     "label": "Phase 2 and photos",
+     "items": [
+      61,
+      5,
+      65
+     ]
+    },
+    {
+     "label": "Value and family",
+     "items": [
+      77,
+      107,
+      108,
+      109
+     ]
+    },
+    {
+     "label": "Music",
+     "items": [
+      83
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Always on",
+   "sub": "routine collection work, done as drops arrive",
+   "cls": "",
+   "groups": [
+    {
+     "label": null,
+     "items": [
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Tier 3 · Polish",
+   "sub": "never ahead of Tiers 0 to 2. No new themes.",
+   "cls": "",
+   "groups": [
+    {
+     "label": null,
+     "items": [
+      29,
+      23,
+      22,
+      21,
+      28,
+      35
+     ]
+    }
+   ]
+  }
+ ],
+ "done_order": [
+  85,
+  86,
+  87,
+  88,
+  89,
+  90,
+  55,
+  18,
+  74,
+  76,
+  79,
+  64,
+  72,
+  71,
+  40,
+  82,
+  84,
+  75,
+  57,
+  54,
+  78,
+  52,
+  59,
+  81,
+  58,
+  39,
+  66,
+  67,
+  68,
+  69,
+  70,
+  80,
+  51,
+  11,
+  53,
+  49,
+  47,
+  37,
+  38,
+  46,
+  1,
+  12,
+  13,
+  17,
+  20,
+  24,
+  26,
+  27,
+  31,
+  36,
+  41,
+  42,
+  43,
+  44,
+  45,
+  9,
+  10,
+  14,
+  15,
+  16,
+  33,
+  34,
+  6,
+  7,
+  8
+ ],
+ "items": {
+  "1": {
+   "title": "Process new drops from Grok and Muse",
+   "desc": "Muse's 3 coins filed as C281 France 1994 5 francs, C282 Yugoslavia 1965 50 para, C283 Germany 2002 10 cent; photos cut; Muse scored 7/10.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "2": {
+   "title": "Fix album A006 hole count (80 → 77)",
+   "desc": "Mercury dime album: the 80 was an estimate; your page photos show 77 holes. It is a question in the app, because only you can lower a count.",
+   "needs": "your answer in Questions",
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "3": {
+   "title": "Settle the open curation questions",
+   "desc": "14 questions wait in the app (Hall footer → Questions), plus the new “Where did they come from?” section (#77). With the coin in hand each takes seconds. The research loop no longer leaves answered questions open: 13 stale research questions were closed on Oct 9.",
+   "needs": "you, with the coins",
+   "unlocks": "Phase 1 at 100 %, #5",
+   "size": "medium",
+   "you": true,
+   "new": false,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "4": {
+   "title": "Photo-model bake-off",
+   "desc": "Grok and Muse took the main 30-coin test on Oct 8 (Grok 78 % right, 3.8 % invented, never wrong when sure; Muse 71 %, 5.3 %, 17 %). The test now recurs by itself: it is on Gemini's and ChatGPT's pages as due, and every AI retakes it every 6 months so we see who improves.",
+   "needs": "ChatGPT's reply (you paste) and Gemini's access check",
+   "unlocks": "#19, which AI does Phase 2 research",
+   "size": "medium",
+   "you": true,
+   "new": false,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "5": {
+   "title": "Plan the serial reassignment",
+   "desc": "New display serials with no scan-order bias, done once. Decide first: should the numbers mean something (grouped by country) or carry no pattern?",
+   "needs": "#57 at 100 % and your East Caribbean code answer (#3)",
+   "unlocks": "#61 (you write the new id on each coin’s back)",
+   "size": "large",
+   "you": true,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "6": {
+   "title": "Health screen in the app",
+   "desc": "Shows which build and data version you are seeing, offline cache state, photo coverage, problems found.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "7": {
+   "title": "Automatic live-site check after each deploy",
+   "desc": "A GitHub job confirms the live site really serves the new build and data.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "8": {
+   "title": "Refresh button says what happened",
+   "desc": "\"Updated to tr92\" or \"Already current\", never a silent reload.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "9": {
+   "title": "Certainty labels in the coin view",
+   "desc": "Each fact marked Verified, Owner-confirmed, Reference-backed, AI guess or Needs review.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "10": {
+   "title": "Coin history in the coin view",
+   "desc": "A short timeline: logged, story added, photo found a mismatch, corrected.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "11": {
+   "title": "“Why do we believe this?” per fact",
+   "desc": "Already there since tr93: tap any certainty label in a coin’s view to see who said it, when, the source, and whether it was checked; History shows every change.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "12": {
+   "title": "Show value with its uncertainty",
+   "desc": "The Hall headline now reads: about $5.4k = melt $4,383 (firm) plus about $1.0k collector premium (estimate).",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "13": {
+   "title": "Label album slots as tracked, not catalogued",
+   "desc": "Album counts now say \"tracked, not catalogued\" in the Hall, Study and Simple view.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "14": {
+   "title": "Record which AI, prompt and photo produced each fact",
+   "desc": "So a later correction shows what went wrong and who got it right.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "15": {
+   "title": "Keep crop settings with every photo",
+   "desc": "Cheap now and impossible to recover later. Lets us test whether better crops make the AIs read coins better.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "16": {
+   "title": "Split the AI scorecard in two",
+   "desc": "\"Follows the rules\" (today's score) vs \"gets coins right\" (new, measured).",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "17": {
+   "title": "Exact sources per fact",
+   "desc": "Catalogue facts from an AI must cite the exact entry (Numista N#…, KM#…, URL, page); a bare \"Numista\" now rejects the file.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "18": {
+   "title": "Keep AI disagreements as records",
+   "desc": "Oct 9 (tr104): every disagreement between two contributors is kept in collection/disagreements.jsonl with both values, both sources, who said what and how it was settled. A check that disagrees is filed there and never overwrites the record; a third reader (or you) settles it, and the loser is counted wrong. The first 7 are the Oct 8 Muse-vs-record conflicts.",
+   "needs": "#55",
+   "unlocks": "a stronger #19",
+   "size": "large",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "19": {
+   "title": "Locked coin test for scoring AIs over time",
+   "desc": "The 15-coin locked test is now due on Grok's and Muse's pages (it opens only after the main test, then every 90 days). Its coin ids exist only in my locked key; it decides which AI reads the Phase 2 pro photos.",
+   "needs": "Grok's and Muse's answers",
+   "unlocks": "#65, fair scores over time",
+   "size": "large",
+   "you": false,
+   "new": false,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "20": {
+   "title": "Track AI cost against facts produced",
+   "desc": "New collaborators/AI_RUNS.md: one line per AI file (events, kept, verified, cost). Costs fill in once AIs report them.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "21": {
+   "title": "Sounds for the effect moments",
+   "desc": "A whale call when the whale passes, a clang when the press strikes, a whoosh for the shooting star. Grok suggests parking this until #63 (calm by default).",
+   "needs": "nothing",
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "22": {
+   "title": "Tune sound and music from your listening",
+   "desc": "Levels, rain, 3D placement, choir, drums: fix what you report.",
+   "needs": "your listening notes",
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "23": {
+   "title": "Black Site terminal readability",
+   "desc": "The one theme where text contrast is borderline with effects on.",
+   "needs": "nothing (reviewers: defer until #30)",
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "24": {
+   "title": "Music tempo slider in Scene Studio",
+   "desc": "Tempo slider (70–140 %) in Scene Studio → Sound, remembered between visits.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "25": {
+   "title": "Speed budget and phone check",
+   "desc": "Fixed limits are checked on every deploy (first load, page size, time to a real value, longest freeze). Now one tap brings your phone's real numbers: Health → Measure speed → Add this speed report to my answers file.",
+   "needs": "your phone report",
+   "unlocks": "#63, effects tuning",
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "26": {
+   "title": "Gallery side cards show the coin backs",
+   "desc": "Side cards now show the coin's photo even when only the back was photographed (same rule as the tiles).",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "27": {
+   "title": "Study \"0 of 0\" chips",
+   "desc": "No longer happens: every album now has a known slot total.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "28": {
+   "title": "Vault narration voice",
+   "desc": "Review the spoken voice in the Vault wing. Grok suggests parking it.",
+   "needs": "your ears",
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "29": {
+   "title": "Make buttons look tappable",
+   "desc": "Some controls do not look clickable, which is hardest on your dad.",
+   "needs": "#30 and #60",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "30": {
+   "title": "Pick the final design direction",
+   "desc": "Combine the three prototypes or ask for new options. This ends the design pause; every visual change waits on it.",
+   "needs": "#60 (recommended)",
+   "unlocks": "#29, #63, splash and icon",
+   "size": "large",
+   "you": true,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "31": {
+   "title": "Automatic smoke test of the whole app",
+   "desc": "23 checks on phone and desktop (every wing, search, coin view, 3D table, offline) run on every deploy.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "32": {
+   "title": "Split app.js into modules",
+   "desc": "Steps 1–5 done (tr96–tr105; step 5 = the data layer, js/app-data.js). Next: the theme system and its effects (it shares a global name with the GPU effects, so it moves with a check), then the big wings one at a time, each smoke-tested.",
+   "needs": "nothing",
+   "unlocks": "#63, the redesign after #30",
+   "size": "large",
+   "you": false,
+   "new": false,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "33": {
+   "title": "Schema upgrade tests",
+   "desc": "Prove each data-format upgrade keeps every fact.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "34": {
+   "title": "Update the Drive \"AI_START_HERE\" doc",
+   "desc": "Make the Drive copy match the repo so outside AIs see the current counts and rules.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "35": {
+   "title": "Finish the 12 missing splash films",
+   "desc": "Any video AI, max 4 clips per run. Grok and Muse both suggest cutting this until the design is chosen (#30): about $52 bought 2 clips.",
+   "needs": "a video AI with credits, and #30",
+   "unlocks": null,
+   "size": "medium",
+   "you": true,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "36": {
+   "title": "Questions for you, answered in the app",
+   "desc": "Questions page in the app (Hall footer → Questions): tap answers, then send them as one file.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "37": {
+   "title": "Count the silver already sitting in your albums",
+   "desc": "Your albums hold 1.06 oz of silver (1964 Kennedy, 1966 and 1967 40% halves, two Roosevelt dimes, a Mercury dime, a 1964 quarter), and it is in the silver total.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "38": {
+   "title": "Explain the 1.5 oz of bullion silver no record accounts for",
+   "desc": "Solved from Grok's own notes: the 1.5 oz is the silver in your albums, counted from day one. One album was over-estimated (Kennedy A007: the photo shows 3 silver halves, not 6), so silver is now 62.83 oz and the total $28 lower.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "39": {
+   "title": "Fix the catalog numbers Muse flagged",
+   "desc": "Oct 6–8: 11 of 12 fixed, Eritrea last (C212 is KM#47, Numista N#2403, 7.8 g, 25 mm; Grok re-checks it in the sweep). The 12th, the C238 portrait name, is a question for you in the app.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "40": {
+   "title": "Replace the approximate weights with catalog weights",
+   "desc": "Oct 8 (tr102): every swept type now carries the catalogue weight and size from Numista instead of a range (Jamaica $1 3.65 g, Mexico 5 pesos 3 g, Trinidad 25 cents 3.53 g and more); the few left are in Grok’s round 2.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "41": {
+   "title": "Find possible duplicate records",
+   "desc": "One possible double entry: C169 and C275 (both UK 1992 5p). Now a question for you.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "42": {
+   "title": "Warn when the spot price is stale",
+   "desc": "The Hall shows the daily price date and warns if it is over 36 h old. Also fixed the daily price job, which failed on Oct 5.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "43": {
+   "title": "Owner \"confirm\" button on each fact",
+   "desc": "Tap any label in a coin's view → \"I checked the coin: this is right\". It waits in Questions until you send it.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "44": {
+   "title": "Certainty chips in the Lab, Study and 3D table",
+   "desc": "Lab and Study already open the same coin view with labels; the 3D table got a \"How sure we are\" button.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "45": {
+   "title": "Tell Grok and Muse about provenance in their feedback docs",
+   "desc": "Grok and Muse feedback docs now carry the provenance and exact-source rules.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "46": {
+   "title": "Retire the unused Swiss type record",
+   "desc": "CH.KM.24a has no coins since the split; remove it so the integrity report is clean.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "not needed"
+  },
+  "47": {
+   "title": "Read in Muse's own file format automatically",
+   "desc": "A converter now turns Muse's own format into proper change files and lists what to check on the photo, including possible duplicates.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "48": {
+   "title": "Re-cite Muse's 26 vague sources",
+   "desc": "Muse has the list (its REJECTED note and queue): each one moves from “AI guess” to “Reference” when Muse resends it with the exact entry. Still pending.",
+   "needs": "Muse's next file",
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "49": {
+   "title": "Warn when a daily job fails",
+   "desc": "Health now has a \"Background jobs\" section, and the Hall's Health button shows ⚠ when any job failed.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "50": {
+   "title": "Process your answers file automatically",
+   "desc": "When you drop answers_owner_*.json in Drive, it becomes records without waiting for a chat. Two ways: Google Drive added to the daily routine, or the autonomous intake (#92), which does this and everything else.",
+   "needs": "Drive in the routine (you), or #92",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "51": {
+   "title": "GitHub job versions before Oct 19",
+   "desc": "Checked GitHub's own warnings: the old actions already run on the new engine. The real Oct 19 change is Ubuntu 26, so the smoke test (which installs a browser) is pinned to Ubuntu 24.04.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "52": {
+   "title": "Questions badge for your dad",
+   "desc": "Oct 8 (tr100): the Hall shows “15 questions only the coin can answer” next to the trust number, and the Simple view opens with a big “Answer the questions” button.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "53": {
+   "title": "Act on Muse's process audit",
+   "desc": "tr98: the next coin id is now published for every AI; a possible double entry is flagged at intake; files in a made-up format are bounced instead of fixed by Claude; the record of which AI made each fact is required from Oct 21; reshoot naming written down. A bounced file no longer costs probation.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "54": {
+   "title": "Shoot list in the right order",
+   "desc": "Oct 8 (tr100): Lab → Shoot list. Photos that settle one of your questions come first, then a research question, then an unread mint mark, then value × doubt, then the oldest. “Start here” shows the top 12; a second batch lists the 194 coins that need their other side, and which side.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "55": {
+   "title": "Two AIs read each new coin",
+   "desc": "Oct 9 (tr105): automatic. When an AI reads a new coin from its photo, the year, mint mark and face value go blind to a second AI (it never sees the first reading); agreement makes them “Checked”, a difference becomes a disagreement record. New-coin files are also compared with double_read.py before merging.",
+   "needs": "new coin photos in STAGING",
+   "unlocks": "#18",
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "56": {
+   "title": "Motion Lab test page",
+   "desc": "First study live at /motion-lab/ (built by Grok, checked by me): gold and silver dust forms one of your real coins from its photo, then the 49 countries, then album A001; your finger stirs it; Still / Calm / Full. Next studies: the coin flip, a tile growing into the coin view, the Confirm seal, a coin settling into its album hole.",
+   "needs": "nothing: never touches the app",
+   "unlocks": "#63",
+   "size": "medium",
+   "you": false,
+   "new": false,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "57": {
+   "title": "Phase 1 finish line",
+   "desc": "Oct 8 (tr100): one bar in the Lab and in Health: 172 of 285 pieces are through Phase 1. The 7 fields are frozen (photo, country, year, denomination, mint mark read from the coin, story, default value); 77 still need a photo and 55 need their mint mark read. The Lab lists exactly what each piece lacks.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "58": {
+   "title": "Restore drill",
+   "desc": "Oct 8 (tr100): the backup zip was rebuilt into an empty folder; the master validated, the data came out identical (285 flips, same headline) and the restored site passed all 27 smoke checks on phone and desktop. Runs again on the 3rd of every month. The opening films and sound recordings are left out of the compact backup on purpose (they stay in GitHub).",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "59": {
+   "title": "One motion setting",
+   "desc": "Oct 8 (tr100): Scene Studio → Sound → Settings → Motion: Full / Calm / Off for everything that moves (effects, the opening film, page movement, the Motion Lab). It follows the phone’s reduce-motion setting until you pick one; Off skips the opening film.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "60": {
+   "title": "Dad test",
+   "desc": "Ten minutes watching your dad use the Simple view (“Which Silver Eagle years am I missing?”). The known bugs are fixed first (bigger Simple view labels, tap-to-skip on the film), so the test sees the real design.",
+   "needs": "nothing",
+   "unlocks": "#29, #30",
+   "size": "small",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "61": {
+   "title": "Phase 2 photo standard and a 5-coin test shoot",
+   "desc": "Light, background, scale and file names for the pro photos, tested on 5 coins end to end before the real run (pairing, 2×2 and circle crops, registering, the quality check), so 290 coins are shot once. The scan page's photo checks (#65) are the start of the quality gate.",
+   "needs": "nothing for the test; the full shoot needs #5",
+   "unlocks": "Phase 2, #64, #79",
+   "size": "medium",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "62": {
+   "title": "Real collector values",
+   "desc": "Two paths, both built: Grok now has appraiser homework (25 coins at a time, each value citing the exact price page and the grade assumed; a cited value is re-appraised after a year). And a weekly GitHub job fetches Numista's price estimates per grade for every coin with a Numista number, once you add a free Numista API key. Values still change only through a cited file.",
+   "needs": "your free Numista API key (Waiting on you)",
+   "unlocks": "a firmer headline, #107",
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "63": {
+   "title": "Motion into the app",
+   "desc": "Only the studies you pick from #56, built on the chosen design, calm by default and off when the phone asks for less motion.",
+   "needs": "#30, #32, #25 and your picks from #56 (the motion setting #59 is done)",
+   "unlocks": null,
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "64": {
+   "title": "Printable inventory for insurance and family",
+   "desc": "Oct 9 (tr105): rebuilt on every update, linked from Health: an insurance copy (with values and how sure we are) and a family copy without values. Photo, id, what it is, where it came from, a tick-off column; prints on Letter or A4. Still yours to decide: which copy goes to whom.",
+   "needs": "the missing photos (shoot list); better with #62",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done (v1)"
+  },
+  "65": {
+   "title": "Scan a coin in the app",
+   "desc": "Version 1 is live: Hall footer → Scan a coin (or Lab → Shoot list → Scan with the camera). Pick the coin (your shoot list first), take the photo, see whether it is sharp, big enough and free of glare, and send it to Drive STAGING or to an AI app with the reading prompt, already named the way the pipeline expects. Next: the AI that wins the locked test (#19) reads it without leaving the app (needs a key that never sits in the public site).",
+   "needs": "#19 for the in-app reading",
+   "unlocks": null,
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "66": {
+   "title": "Deep review by four outside AIs",
+   "desc": "Oct 8 (tr99): Grok, Muse, ChatGPT and Gemini each reviewed the whole project; every claim was checked against the files before anything was used. Scores: Grok 10, Muse 8, ChatGPT 5 (it read an old copy), Gemini 1 (it could not open the files and invented a review). 43 coin corrections merged: Vietnam, Greece, Malta, Netherlands, Philippines, UK mintages, East Caribbean, Saudi, Cuba, Thailand, the Swiss 2 francs split, the Greek coin's story.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "67": {
+   "title": "The whole collection works offline",
+   "desc": "Every coin's page, search and the questions are now saved on the phone after the app opens, not only the Hall; Health has “Save all coin photos for offline”. The smoke test proves it by opening a never-viewed coin with the network off.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "68": {
+   "title": "The big number moves with silver and gold",
+   "desc": "The headline used to be the Sept 30 figure ($5,369). It now uses the latest daily metal prices and says which day, the same number as the Portfolio chart.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "69": {
+   "title": "Truth checks on every publish",
+   "desc": "A new check finds records that contradict each other or claim more than their evidence (Health → Contradictions to check). It went from 257 findings to 31: 114 mintages given their one home, 111 stale “unknown” notes cleared. What is left is real work: the Swiss 1968 conflict (#71), the C238 portrait, and 28 US/German coins whose mint letter can't be read.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "70": {
+   "title": "Contract holes closed",
+   "desc": "Every AI catalogue fact now needs the exact entry or the photo, even when the source names no site; the Oct 21 provenance deadline goes by the day of the merge, not the AI's own clock; a coin's mintage has one home and writing it on one coin updates the others of that issue; publishing can no longer leave the app half-written.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "71": {
+   "title": "Settle the Swiss 1968 B mintage",
+   "desc": "Oct 8 (tr102): Grok read the 1968 B row of Numista N#189: 31,588,000 struck at Bern; the 10,000,000 is London’s 1968 striking without a mint mark. Both coins now show 31,588,000 (labelled Reference).",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "72": {
+   "title": "Grok's Numista sweep (round 1)",
+   "desc": "Oct 8 (tr102): Grok swept 152 of 162 types in 9 batches overnight: 484 facts, each with the exact Numista entry and the row it read. Catalogue fixes (Guatemala, Trinidad, Mexico, Vietnam, Jamaica, USSR), catalogue weights and sizes instead of ranges, Schön numbers. The trust meter went from 5.7 % to 18.1 %. Round 2 (47 types, 93 facts and 31 catalogue numbers) is in its queue.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "73": {
+   "title": "Fact-check the stories",
+   "desc": "Now part of the research loop: every story nobody but its author has checked is a job (157 open); Grok has C151–C283 in progress and 25 more as homework. A checked story is re-sent with the exact entry it was checked against; a wrong sentence is corrected with its source.",
+   "needs": "nothing: running",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "74": {
+   "title": "Source chips that open the exact entry",
+   "desc": "Oct 9 (tr104): tap any label in a coin's view: the panel now has “Open the source” links to the exact entry (Numista N#… opens its catalogue page), so a right number on the wrong coin shows at a glance.",
+   "needs": "#72 (more types carry a Numista number)",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "75": {
+   "title": "One honest trust meter",
+   "desc": "Oct 8 (tr100): the Hall, the Simple view and Health show how much of what the app says is proven: today 5.7 % of the 3,181 facts on screen are cited or confirmed (69 % come from the original ledger unchecked, 21 % are AI readings, 2.5 % read from a photo). It rises every time you confirm a fact or an AI cites the exact entry.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "76": {
+   "title": "A change log that can never be quietly rewritten",
+   "desc": "Oct 9 (tr104): every line of the change history is chained to the one before (collection/changes.chain). Saving refuses to change an old line, the checker compares the chain with the file, and a GitHub job checks on every update that the history only grew. The fingerprint is published with the data, so any saved copy pins the history up to its day.",
+   "needs": "nothing (the restore drill #58 passed)",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "77": {
+   "title": "Where each coin came from",
+   "desc": "Ready: Questions → “Where did they come from?”: pick how (bought, inherited, a gift, found, a trip), from whom and when, tick the coins by country, send. They become your own records and show in each coin's view and the printable inventory.",
+   "needs": "you",
+   "unlocks": null,
+   "size": "medium",
+   "you": true,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "78": {
+   "title": "Confirm while you hold it",
+   "desc": "Oct 8 (tr100): every coin on the shoot list shows up to 3 facts to check in hand (“Right? Year 1978”). One tap queues the confirmation for the Questions page; your answers file turns them into verified facts.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "79": {
+   "title": "Fingerprint every photo",
+   "desc": "Oct 9 (tr104): all 217 cut-outs carry the fingerprint of the original phone photo they were cut from, checked against Drive by file id (13 same-name duplicates caught). A photo without one is flagged in Health.",
+   "needs": "nothing",
+   "unlocks": "a stronger #4",
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "80": {
+   "title": "Dad-facing fixes from the reviews",
+   "desc": "A tap anywhere now skips the opening film (it used to turn the sound on); Skip is large and readable over any frame; Simple view labels follow its 22 px base (some were 13–16 px); Questions says “can't load” when offline instead of “no open questions”.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "81": {
+   "title": "Haptics on phones",
+   "desc": "Oct 8 (tr100): a tiny tick when you tap a button, tab or chip; a double tick for a confirm or an answer. Android vibrates; iPhone (iOS 18) gets the system tick. Switch: next to Motion in Settings.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "82": {
+   "title": "Sound: smooth start, on by default, one tap = the whole scene",
+   "desc": "Oct 8 (tr101): the stutter at the start came from work piling up in the first two seconds (measuring loudness on the phone, building the reverb, switching the effect, a fragile background-sound route). All moved out of the way: start-up blocking went from about 1.2 s to 0.1 s on a fast computer. Sound now starts with your first tap (Off is remembered). Tapping a theme brings its sound and music; tapping a scene brings its lighting and effect.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "83": {
+   "title": "Real classical recordings",
+   "desc": "23 recordings play now, in the scenes and on the radio's Classical station. Oct 9: Handel's Largo (Ombra mai fu) is live, sung by Lea Desandre with Les Arts Florissants (CC BY 3.0), so the 1920 Caruso question is gone; every file was re-made at the intended 96 kb/s, so most got smaller. Still nothing qualifying for Nimrod, Rêverie or a piano Gymnopédie No. 3: they are re-searched on every music run, and Grok has them as a project.",
+   "needs": "nothing: re-searched on every run",
+   "unlocks": "more rooms with real music",
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "84": {
+   "title": "Always work queued for the other AIs",
+   "desc": "Oct 8: Grok, Muse and ChatGPT each have a standing queue (Gemini’s is parked until you fix it): Drive “WORK QUEUE for …” docs, and a GitHub page for ChatGPT. Each starts the next task by itself; I refresh the queues at every intake. See “The other AIs” above.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "85": {
+   "title": "The research loop: homework generated from the data",
+   "desc": "Oct 9 (tr104): every gap in the data is a job (cite a catalogue fact, check another AI's fact, read a mint mark, fact-check or simplify a story, answer a research question, appraise a value, settle a disagreement). After every update the loop closes answered homework, hands each AI new assignments in the kinds it is best at, never its own facts, and measures how often each one is wrong. docs/agents/RESEARCH_LOOP.md.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "86": {
+   "title": "“Checked”: two independent sources agree",
+   "desc": "Oct 9 (tr104): a new label above Reference. A fact is Checked when two different contributors each stated it with their own exact source or photo; an AI never checks itself. 25 facts so far; every check another AI does adds more.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "87": {
+   "title": "Answer sheets and a gate that never overwrites",
+   "desc": "Oct 9 (tr104): every assignment comes with a pre-filled answer sheet; an unfilled line is simply left out, a line written against an old value is skipped (not a rejected file), and a check that disagrees is filed, never written over the record. A mintage or catalogue number is never accepted on a photo alone.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "88": {
+   "title": "The blind photo tests recur by themselves",
+   "desc": "Oct 9 (tr105): each AI is due the main test every 6 months and the locked test every 90 days; due tests appear at the top of its page and the scores are logged, so accuracy is measured over time, not once.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "89": {
+   "title": "A coin's year list can no longer shift under pending files",
+   "desc": "Oct 9 (tr104): adding a new coin used to re-sort its type's years, so an AI line written for “the 4th year” could land on another year with the same empty value. Years are now append-only.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "90": {
+   "title": "Held music is searched again on every run",
+   "desc": "Oct 9: pieces with no qualifying recording are re-searched on every music run and reported, never used until reviewed. It found Handel's Ombra mai fu by Les Arts Florissants on its first run. Also fixed: the encoder had silently lost its quality settings.",
+   "needs": null,
+   "unlocks": null,
+   "size": null,
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": "done"
+  },
+  "91": {
+   "title": "Scores drafted by the pipeline",
+   "desc": "Each submission's score (right place, accepted as sent, accurate, complete, in its tier) drafted from the merge report and the cross-checks, so CONTRIBUTOR_SCORES and each AI's feedback stay current without my bookkeeping; I only adjust and add the praise.",
+   "needs": null,
+   "unlocks": "#92 running unattended",
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "92": {
+   "title": "The loop turns without a chat: autonomous intake",
+   "desc": "A Google Apps Script in your Drive copies each new change file from the drop folder to GitHub; a GitHub job merges it (all the gates and tests), publishes, turns the loop and writes each AI's new page back into its Drive doc. I review afterwards instead of being the bottleneck. Its GitHub key stays in your Drive script, never in the repo.",
+   "needs": "you install the script once and paste a GitHub key into it (I write both)",
+   "unlocks": "#50, #93, daily progress with no session open",
+   "size": "large",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "93": {
+   "title": "Each AI's page copied to its Drive doc automatically",
+   "desc": "Today I paste each changed WORK QUEUE page into its Drive doc by hand at every intake. Part of #92: the same script writes them.",
+   "needs": "#92",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "94": {
+   "title": "Old sources re-checked on a cadence",
+   "desc": "Catalogue pages change and links die. A small sample of facts cited more than a year ago goes back to a second reader each month; a changed entry becomes a disagreement record.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "95": {
+   "title": "My own spot checks counted",
+   "desc": "At each intake I check a sample of each AI's facts myself; those checks go into the same numbers as the AIs' checks (I am an AI too, and I never check my own facts).",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "96": {
+   "title": "Cost per checked fact",
+   "desc": "AI_RUNS.md gains the loop's numbers: what each AI's facts cost and how many held up under a check, so we pay for knowledge, not volume.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "97": {
+   "title": "One onboarding path for any new AI",
+   "desc": "Access check, then the main photo test, then half-size batches with every fact checked, then full membership after 3 good submissions in a row. Gemini is the first to go through it (relaunched Oct 9); any future AI follows the same path from roles.json.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "98": {
+   "title": "Targets and progress per kind of fact",
+   "desc": "Goals like every catalogue number Checked by January, every mint mark read by Phase 2, every story checked by someone other than its author, with a progress line for each in Health.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "99": {
+   "title": "Canary checks for the checkers",
+   "desc": "Now and then a check item shows a deliberately wrong value (the record itself stays right). An AI that 'agrees' with it is rubber-stamping, and it shows in its numbers. The only way to know a checker really checks.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "100": {
+   "title": "Re-test an AI when its model changes",
+   "desc": "Every file records the AI's exact model; when it changes, the loop treats it as new again (more of its facts checked first) and puts both photo tests on its page.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "101": {
+   "title": "A third research AI, so disagreements never wait on me",
+   "desc": "With only Grok and Muse researching, a Grok-vs-Muse disagreement needs me as the third reader. A third AI that passes the onboarding (#97) settles them inside the loop.",
+   "needs": "Gemini through its onboarding, or another AI you pick",
+   "unlocks": null,
+   "size": "medium",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "102": {
+   "title": "Every contradiction becomes homework",
+   "desc": "The truth checks (30 coins whose mint mark is unread but carry a mintage, two catalogue numbers on one type, years a type was never issued) feed the loop directly, routed to the right kind of job, instead of waiting in Health.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "103": {
+   "title": "Warn when the Drive backup is stale",
+   "desc": "Health shows the age of the newest Drive backup and warns past 7 days. Today the only Drive copy is from Sept 28.",
+   "needs": "the Drive backup script installed (Waiting on you)",
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "104": {
+   "title": "Export everything in plain formats",
+   "desc": "One click: every coin, album and lot as a spreadsheet (CSV) and as structured data, with sources and certainty, for insurance, an estate, or any future app. Nothing locked into this one.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "105": {
+   "title": "A recovery card",
+   "desc": "One printed page in the safe: where everything lives (GitHub, Drive, the app), which accounts own it, and how to rebuild the site from the backup (the restore drill's steps in plain words).",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "106": {
+   "title": "Who can change what",
+   "desc": "A short review of every write path (GitHub, Drive folders, keys in workflows, the AIs' access), with anything wider than needed narrowed. Gets more important once #92 runs unattended.",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "107": {
+   "title": "What completing each album would cost",
+   "desc": "The 858 named missing coins in your albums, each with a cited price for a typical grade, summed per album: “A026 Silver Eagles: 18 missing years, about $X”. HOLD stays the policy; this is for planning and wish lists.",
+   "needs": "#62 (prices)",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "108": {
+   "title": "Family stories for each coin",
+   "desc": "Your words (or your dad's) about a coin: who had it, where it was found. Typed or a voice note turned into text, kept as the owner's own story, which always wins over an AI's.",
+   "needs": null,
+   "unlocks": null,
+   "size": "medium",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "109": {
+   "title": "Your dad's phone",
+   "desc": "The Simple view as an icon on his home screen, opening straight to “Do I have…?”, read-only, with large type checked on his own phone.",
+   "needs": "his phone for 10 minutes",
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  }
+ }
+}

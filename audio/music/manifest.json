@@ -1,6 +1,6 @@
 {
  "schema": "music/1",
- "made": "2026-10-09T05:50:09Z",
+ "made": "2026-10-09T15:28:54Z",
  "note": "Recorded classical music (tools/music/fetch_classical.py). Every recording is Public Domain, CC0 or CC BY(-SA); credits in CREDITS.md and in the app's Scene Studio.",
  "tracks": [
   {
@@ -259,6 +259,19 @@
    "source": "https://commons.wikimedia.org/wiki/File%3ABach_Cello_Suite_1_Prelude_%28BWV_1007%29_Played_by_Chris.ogg",
    "file": "bach-cello-suite-1-prelude.m4a",
    "duration": 154.7,
+   "moods": [
+    "orchestra"
+   ]
+  },
+  {
+   "id": "handel-largo",
+   "title": "Largo ('Ombra mai fu', Serse)",
+   "composer": "George Frideric Handel",
+   "performer": "Lea Desandre (mezzo-soprano) and Les Arts Florissants",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3ALes_Arts_Florissants_-_Handel%27s_Serse%2C_HWV_40_-_Ombra_mai_fu.ogg",
+   "file": "handel-largo.m4a",
+   "duration": 177.4,
    "moods": [
     "orchestra"
    ]

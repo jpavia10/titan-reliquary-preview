@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-09T15:21:08Z",
+ "updated": "2026-10-09T19:33:52Z",
  "assignments": [
   {
    "id": "HW-muse-verify-20261009-1",
@@ -962,380 +962,6 @@
    ]
   },
   {
-   "id": "HW-muse-plain-story-20261009-1",
-   "agent": "muse",
-   "kind": "plain-story",
-   "issued": "2026-10-09T14:42:50Z",
-   "lease_until": "2026-10-16T14:42:50Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "plain:C001",
-     "entity": "specimen",
-     "id": "C001",
-     "field": "story"
-    },
-    {
-     "item": "plain:C002",
-     "entity": "specimen",
-     "id": "C002",
-     "field": "story"
-    },
-    {
-     "item": "plain:C006",
-     "entity": "specimen",
-     "id": "C006",
-     "field": "story"
-    },
-    {
-     "item": "plain:C008",
-     "entity": "specimen",
-     "id": "C008",
-     "field": "story"
-    },
-    {
-     "item": "plain:C009",
-     "entity": "specimen",
-     "id": "C009",
-     "field": "story"
-    },
-    {
-     "item": "plain:C012",
-     "entity": "specimen",
-     "id": "C012",
-     "field": "story"
-    },
-    {
-     "item": "plain:C015",
-     "entity": "specimen",
-     "id": "C015",
-     "field": "story"
-    },
-    {
-     "item": "plain:C017",
-     "entity": "specimen",
-     "id": "C017",
-     "field": "story"
-    },
-    {
-     "item": "plain:C025",
-     "entity": "specimen",
-     "id": "C025",
-     "field": "story"
-    },
-    {
-     "item": "plain:C031",
-     "entity": "specimen",
-     "id": "C031",
-     "field": "story"
-    },
-    {
-     "item": "plain:C033",
-     "entity": "specimen",
-     "id": "C033",
-     "field": "story"
-    },
-    {
-     "item": "plain:C035",
-     "entity": "specimen",
-     "id": "C035",
-     "field": "story"
-    },
-    {
-     "item": "plain:C045",
-     "entity": "specimen",
-     "id": "C045",
-     "field": "story"
-    },
-    {
-     "item": "plain:C048",
-     "entity": "specimen",
-     "id": "C048",
-     "field": "story"
-    },
-    {
-     "item": "plain:C049",
-     "entity": "specimen",
-     "id": "C049",
-     "field": "story"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "plain:C001",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C001",
-     "field": "story",
-     "coins": [
-      "C001"
-     ],
-     "label": "C001 · Switzerland · 1969 · 1 franc · CHF",
-     "authors": [],
-     "payload": {
-      "story": "A 1969 1 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy, Albert Walch, and Fr. Fisch. Struck in CuNi 75/25.",
-      "shorthand": "Standing Helvetia on the obverse, value "
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C002",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C002",
-     "field": "story",
-     "coins": [
-      "C002"
-     ],
-     "label": "C002 · Switzerland · 1963 · 5 rappen · CHF",
-     "authors": [],
-     "payload": {
-      "story": "A 1963 5 rappen from Switzerland. Libertas right on the obverse, 5 in grapevine wreath on the reverse, engravers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.",
-      "shorthand": "CuNi"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C006",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C006",
-     "field": "story",
-     "coins": [
-      "C006"
-     ],
-     "label": "C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
-     "authors": [],
-     "payload": {
-      "story": "A 1984 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.",
-      "shorthand": "CuNi"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C008",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C008",
-     "field": "story",
-     "coins": [
-      "C008"
-     ],
-     "label": "C008 · Switzerland · 1968 · 1/2 franc · CHF",
-     "authors": [],
-     "payload": {
-      "story": "A 1968 0.5 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy and Albert Walch. Struck in CuNi 75/25.",
-      "shorthand": "CuNi"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C009",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C009",
-     "field": "story",
-     "coins": [
-      "C009"
-     ],
-     "label": "C009 · Germany · 1987 · 5 Deutsche Mark · DEM",
-     "authors": [],
-     "payload": {
-      "story": "A 1987 5 Deutsche Mark from Germany. Bundesadler reverse, value, DEUTSCHE MARK obverse (circulation Magnimat, not Ag commemorative). Struck in CuNi clad nickel (Magnimat).",
-      "shorthand": "CuNi"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C012",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C012",
-     "field": "story",
-     "coins": [
-      "C012"
-     ],
-     "label": "C012 · France · 1962 · 1 franc · FRF (nouveau franc)",
-     "authors": [],
-     "payload": {
-      "story": "A 1962 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
-      "shorthand": "REPUBLIQUE FRANÇAISE, olive sprig, LIBER"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C015",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C015",
-     "field": "story",
-     "coins": [
-      "C015"
-     ],
-     "label": "C015 · Switzerland · 1971 · 1/2 franc · CHF",
-     "authors": [],
-     "payload": {
-      "story": "A 1971 0.5 franc from Switzerland. Standing Helvetia on the obverse, value in wreath on the reverse, engravers Antoine Bovy and Albert Walch. Struck in CuNi 75/25.",
-      "shorthand": "CuNi"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C017",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C017",
-     "field": "story",
-     "coins": [
-      "C017"
-     ],
-     "label": "C017 · France · 1999 · 1 franc · FRF (nouveau franc)",
-     "authors": [],
-     "payload": {
-      "story": "A 1999 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
-      "shorthand": "REPUBLIQUE FRANÇAISE, olive sprig, LIBER"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C025",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C025",
-     "field": "story",
-     "coins": [
-      "C025"
-     ],
-     "label": "C025 · France · 1965 · 1 franc · FRF (nouveau franc)",
-     "authors": [],
-     "payload": {
-      "story": "A 1965 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
-      "shorthand": "REPUBLIQUE FRANÇAISE, olive sprig, LIBER"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C031",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C031",
-     "field": "story",
-     "coins": [
-      "C031"
-     ],
-     "label": "C031 · Australia · 1943 · Threepence (3d) · AUD",
-     "authors": [],
-     "payload": {
-      "story": "A 1943 3 pence from Australia. The obverse shows George VI; the reverse shows three wheat stalks; IND:IMP still in legend, AUSTRALIA, THREE PENCE, 1943, S. Struck in .925 sterling silver.",
-      "shorthand": "IND:IMP still in legend, AUSTRALIA, THRE"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C033",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C033",
-     "field": "story",
-     "coins": [
-      "C033"
-     ],
-     "label": "C033 · France · 1969 · 1/2 franc · FRF",
-     "authors": [],
-     "payload": {
-      "story": "A 1969 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
-      "shorthand": "olive sprig, LIBERTE, EGALITE, FRATERNIT"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C035",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C035",
-     "field": "story",
-     "coins": [
-      "C035"
-     ],
-     "label": "C035 · Germany · 1971 · 50 Pfennig · DEM",
-     "authors": [],
-     "payload": {
-      "story": "A 1971 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.",
-      "shorthand": "CuNi"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C045",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C045",
-     "field": "story",
-     "coins": [
-      "C045"
-     ],
-     "label": "C045 · Netherlands · 2014 · 5 euro cent · EUR",
-     "authors": [],
-     "payload": {
-      "story": "A 2014 5 euro cent from Netherlands. National Willem-Alexander right-facing portrait, Willem-Alexander Koning der Nederlanden (vertical), date, 12 stars, common Europe map side (Luc Luycx). Struck in copper-plated steel.",
-      "shorthand": "National Willem-Alexander right-facing p"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C048",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C048",
-     "field": "story",
-     "coins": [
-      "C048"
-     ],
-     "label": "C048 · Germany · 1993 · 1 Deutsche Mark · DEM",
-     "authors": [],
-     "payload": {
-      "story": "A 1993 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.",
-      "shorthand": "CuNi"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C049",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C049",
-     "field": "story",
-     "coins": [
-      "C049"
-     ],
-     "label": "C049 · France · 1989 · 10 francs · FRF",
-     "authors": [],
-     "payload": {
-      "story": "A 1989 10 francs from France. The obverse shows Génie de la Liberté (after François Rude; the reverse shows 10 F; Bastille column), LIBERTE, EGALITE, FRATERNITE, date, RF. Struck in bimetallic (nickel center with an aluminum-bronze ring).",
-      "shorthand": "Bastille column), LIBERTE, EGALITE, FRAT"
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
    "id": "HW-muse-research-20261009-1",
    "agent": "muse",
    "kind": "research",
@@ -1527,6 +1153,380 @@
       },
       "type": "VN.KM.71",
       "remove_with": []
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-plain-story-20261009-2",
+   "agent": "muse",
+   "kind": "plain-story",
+   "issued": "2026-10-09T19:25:56Z",
+   "lease_until": "2026-10-16T19:25:56Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "plain:C031",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "story"
+    },
+    {
+     "item": "plain:C033",
+     "entity": "specimen",
+     "id": "C033",
+     "field": "story"
+    },
+    {
+     "item": "plain:C035",
+     "entity": "specimen",
+     "id": "C035",
+     "field": "story"
+    },
+    {
+     "item": "plain:C045",
+     "entity": "specimen",
+     "id": "C045",
+     "field": "story"
+    },
+    {
+     "item": "plain:C048",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "story"
+    },
+    {
+     "item": "plain:C049",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "story"
+    },
+    {
+     "item": "plain:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "story"
+    },
+    {
+     "item": "plain:C057",
+     "entity": "specimen",
+     "id": "C057",
+     "field": "story"
+    },
+    {
+     "item": "plain:C058",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "story"
+    },
+    {
+     "item": "plain:C059",
+     "entity": "specimen",
+     "id": "C059",
+     "field": "story"
+    },
+    {
+     "item": "plain:C060",
+     "entity": "specimen",
+     "id": "C060",
+     "field": "story"
+    },
+    {
+     "item": "plain:C068",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "story"
+    },
+    {
+     "item": "plain:C069",
+     "entity": "specimen",
+     "id": "C069",
+     "field": "story"
+    },
+    {
+     "item": "plain:C073",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "story"
+    },
+    {
+     "item": "plain:C076",
+     "entity": "specimen",
+     "id": "C076",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "plain:C031",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "story",
+     "coins": [
+      "C031"
+     ],
+     "label": "C031 · Australia · 1943 · Threepence (3d) · AUD",
+     "authors": [],
+     "payload": {
+      "story": "A 1943 3 pence from Australia. The obverse shows George VI; the reverse shows three wheat stalks; IND:IMP still in legend, AUSTRALIA, THREE PENCE, 1943, S. Struck in .925 sterling silver.",
+      "shorthand": "IND:IMP still in legend, AUSTRALIA, THRE"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C033",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C033",
+     "field": "story",
+     "coins": [
+      "C033"
+     ],
+     "label": "C033 · France · 1969 · 1/2 franc · FRF",
+     "authors": [],
+     "payload": {
+      "story": "A 1969 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "shorthand": "olive sprig, LIBERTE, EGALITE, FRATERNIT"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C035",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C035",
+     "field": "story",
+     "coins": [
+      "C035"
+     ],
+     "label": "C035 · Germany · 1971 · 50 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1971 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C045",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C045",
+     "field": "story",
+     "coins": [
+      "C045"
+     ],
+     "label": "C045 · Netherlands · 2014 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "story": "A 2014 5 euro cent from Netherlands. National Willem-Alexander right-facing portrait, Willem-Alexander Koning der Nederlanden (vertical), date, 12 stars, common Europe map side (Luc Luycx). Struck in copper-plated steel.",
+      "shorthand": "National Willem-Alexander right-facing p"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C048",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "story",
+     "coins": [
+      "C048"
+     ],
+     "label": "C048 · Germany · 1993 · 1 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1993 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C049",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "story",
+     "coins": [
+      "C049"
+     ],
+     "label": "C049 · France · 1989 · 10 francs · FRF",
+     "authors": [],
+     "payload": {
+      "story": "A 1989 10 francs from France. The obverse shows Génie de la Liberté (after François Rude; the reverse shows 10 F; Bastille column), LIBERTE, EGALITE, FRATERNITE, date, RF. Struck in bimetallic (nickel center with an aluminum-bronze ring).",
+      "shorthand": "Bastille column), LIBERTE, EGALITE, FRAT"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C050",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "story",
+     "coins": [
+      "C050"
+     ],
+     "label": "C050 · Germany · 1982 · 1 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1982 1 Deutsche Mark from Germany. Bundesadler, value 1 between oak sprigs, DEUTSCHE MARK (Josef Bernhart). Struck in CuNi.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C057",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C057",
+     "field": "story",
+     "coins": [
+      "C057"
+     ],
+     "label": "C057 · Germany · 1982 · 50 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1982 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C058",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "story",
+     "coins": [
+      "C058"
+     ],
+     "label": "C058 · Germany · 1985 · 50 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "story": "A 1985 50 Pfennig from Germany. Trümmerfrau planting oak sapling (Richard M. Werner and Gerda Werner), Bundesadler value side. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C059",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C059",
+     "field": "story",
+     "coins": [
+      "C059"
+     ],
+     "label": "C059 · France · 1960 · 1 franc · FRF (nouveau franc)",
+     "authors": [],
+     "payload": {
+      "story": "A 1960 1 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1 FRANC; REPUBLIQUE FRANÇAISE, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "shorthand": "REPUBLIQUE FRANÇAISE, olive sprig, LIBER"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C060",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C060",
+     "field": "story",
+     "coins": [
+      "C060"
+     ],
+     "label": "C060 · France · 1971 · 1/2 franc · FRF",
+     "authors": [],
+     "payload": {
+      "story": "A 1971 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
+      "shorthand": "olive sprig, LIBERTE, EGALITE, FRATERNIT"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C068",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "story",
+     "coins": [
+      "C068"
+     ],
+     "label": "C068 · Switzerland · 1963 · 20 rappen · CHF",
+     "authors": [],
+     "payload": {
+      "story": "A 1963 20 rappen from Switzerland. Libertas right on the obverse, 20 in wreath on the reverse, engravers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C069",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C069",
+     "field": "story",
+     "coins": [
+      "C069"
+     ],
+     "label": "C069 · Jamaica · 1975 · 50 cents · JMD",
+     "authors": [],
+     "payload": {
+      "story": "A 1975 50 cents from Jamaica. Arms, crocodile, Taino supporters, OUT OF MANY, ONE PEOPLE, JAMAICA, FIFTY CENTS, 1975. Struck in cupronickel.",
+      "shorthand": "Arms, crocodile, Taino supporters, OUT O"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C073",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "story",
+     "coins": [
+      "C073"
+     ],
+     "label": "C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)",
+     "authors": [],
+     "payload": {
+      "story": "A 1976 25 cents from USA. The obverse shows Washington; the reverse shows drummer boy (Jack L. Ahr); dual-date 1776–1976, E PLURIBUS UNUM, QUARTER DOLLAR. Struck in Cu-Ni clad (copper core visible on reeded edges).",
+      "shorthand": "Cu-Ni"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C076",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C076",
+     "field": "story",
+     "coins": [
+      "C076"
+     ],
+     "label": "C076 · Switzerland · 1989 · 20 rappen · CHF",
+     "authors": [],
+     "payload": {
+      "story": "A 1989 20 rappen from Switzerland. Libertas right on the obverse, 20 in wreath on the reverse, engravers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.",
+      "shorthand": "CuNi"
      },
      "blind": false,
      "inputs": []
