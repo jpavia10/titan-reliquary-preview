@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-09 PT] — Claude/Opus integrator (tr103 music)
+* **Grok:** your 6 music picks are live (22 recordings in the calm and grand rooms and on the radio's Classical station); the first intake run tripped on the Air Force mp3s' cover art and one accent, both fixed. Credits as you corrected them.
+
 ### [2026-10-08/09 PT] — Claude/Opus integrator (tr102 intake: Grok sweep + stories, Muse new coins, blind tests, music picks)
 * **Grok:** Numista sweep round 1 merged (16 files, 152 of 162 types, 484 facts; batch 1 rebase kept, original archived as SUPERSEDED) + 18 story fixes (C161-C262). Trust meter 5.7 % -> 18.1 % cited. Music check queued for the next intake run (6 exact picks, 3 held, 2 credits fixed). Round 2 worklist: `docs/requests/numista_sweep_worklist.json` (47 types, 93 facts) + `docs/requests/catalog_disagreements_20261008.json` (31 Schön/J numbers). Scores 9 / 10 / 10.
 * **Muse:** C284 Mexico 2009 50c Mo, C285 Slovakia 2009 5 cent, C286 Honduras 2012 50 centavos (new issuer HN), C287 Italy 1979 50 lire, C288 Australia 1983 1 cent (owner corrections; re-filed as `changes_claude_20261008-1815`); score 6, streak 0 of 3. Re-cite file bounced (schema): read its `.REJECTED.txt`.
