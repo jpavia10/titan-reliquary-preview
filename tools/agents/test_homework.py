@@ -51,7 +51,8 @@ class Loop(unittest.TestCase):
         for agent, ag in roles["agents"].items():
             mine = [a for a in st["assignments"] if a["agent"] == agent and a["status"] == "open"]
             self.assertLessEqual(len(mine), ag.get("capacity", 0), agent)
-            self.assertEqual(len({a["kind"] for a in mine}), len(mine), f"{agent}: one open assignment per kind")
+            for kind in {a["kind"] for a in mine}:     # at most `per_kind` open batches of one kind (default 1): variety first
+                self.assertLessEqual(sum(1 for a in mine if a["kind"] == kind), max(1, ag.get("per_kind", 1)), f"{agent}: too many open {kind} batches")
             for a in mine:
                 self.assertIn(a["kind"], ag["kinds"])
                 for it in a["items"]:

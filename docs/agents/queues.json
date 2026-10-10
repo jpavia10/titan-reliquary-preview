@@ -1,6 +1,6 @@
 {
   "about": "Hand-written PROJECTS for the other AIs (owner rule 10, 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Since 2026-10-09 most work is generated homework (tools/agents/homework.py from docs/agents/roles.json; docs/agents/RESEARCH_LOOP.md): this file keeps only what cannot be computed from the data (work in progress, code reviews, guides, music, motion, onboarding). A task with `reserves` holds those coins of those kinds for its AI while it is open. Each AI's page (docs/agents/QUEUE_{ai}.md, the same text as its Drive doc 'WORK QUEUE for ...') shows: finish first (state now), then its homework, then the other projects.",
-  "updated": "2026-10-09",
+  "updated": "2026-10-10",
   "agents": [
     {
       "id": "grok",
@@ -160,6 +160,22 @@
         },
         {
           "n": 2,
+          "title": "Theme pictures: the 22 picker cards (priority 1, two takes each)",
+          "fix": "#113",
+          "state": "now",
+          "what": "The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json' (repo copy docs/art/requests/artreq_20261010-1700_theme-thumbnails.json). Follow ART_START_HERE: one image at a time (make it, save it to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file name, then the next); stop at the first failure or credit warning and write down how far you got. The pictures must look premium: real-photo look unless the image's `medium` says pixel art, comic, clay or poster; no readable text or numbers anywhere; coins look like real coins. Claude reviews every file and re-requests weak ones. Your part: every image with priority 1 (44 files: world_{theme}_card_take1.png and _take2.png). Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-grok-p1.txt; Muse has the heroes (p2) and Gemini the refreshes (p3), so you never collide.",
+          "done_when": "44 card files in the output folder (or as many as your credits allowed) and artreq_20261010-1700_theme-thumbnails.p1.DONE.txt listing each file: ok or skipped: reason."
+        },
+        {
+          "n": 3,
+          "title": "Splash films: the open v5 clips",
+          "fix": "#35",
+          "state": "next",
+          "what": "artreq_20261005-0900_splash-film-v5-overthetop in the art queue still has open clips: your 2 Grok originals, Titan Forge, Dragon Hoard, Infinite Mint, Gold Rush Warp, then the 16:9 desktop versions. Spending rules (owner, 2026-10-05): check your remaining credit first, ONE clip at a time (submit, wait, save to Drive, confirm, then the next), at most 4 clips per run, stop at the first blocked download or credit warning. Every clip ends with THE LANDING; no text in any frame.",
+          "done_when": "Up to 4 clips saved per run, each listed in the request's DONE/progress note."
+        },
+        {
+          "n": 4,
           "title": "Music: a recording for each of the 3 held pieces",
           "fix": "#83",
           "state": "later",
@@ -167,15 +183,7 @@
           "done_when": "One JSON file with an exact Commons title (or 'none found' and why) for each held piece."
         },
         {
-          "n": 3,
-          "title": "Motion Lab study 2: the coin flip",
-          "fix": "#56",
-          "state": "later",
-          "what": "Like your gold-dust study: one self-contained HTML file using ../js/three.min.js and a real coin's two photos (photos/p1/ coins with both sides), the coin flips with a moving rim light; Still / Calm / Full; must follow the app's Motion setting (localStorage titan.motion). Put it in Drive 'motion-lab-incoming'.",
-          "done_when": "One HTML file Claude can drop into /motion-lab/."
-        },
-        {
-          "n": 4,
+          "n": 5,
           "title": "Read new coin photos (with Muse, blind)",
           "fix": "#55",
           "state": "always",
@@ -209,6 +217,14 @@
         },
         {
           "n": 3,
+          "title": "Theme pictures: the 22 wide heroes (priority 2)",
+          "fix": "#113",
+          "state": "now",
+          "what": "The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json' (repo copy docs/art/requests/artreq_20261010-1700_theme-thumbnails.json). Follow ART_START_HERE: one image at a time (make it, save it to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file name, then the next); stop at the first failure or credit warning and write down how far you got. The pictures must look premium: real-photo look unless the image's `medium` says pixel art, comic, clay or poster; no readable text or numbers anywhere; coins look like real coins. Claude reviews every file and re-requests weak ones. Your part: every image with priority 2 (22 files: world_{theme}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-muse-p2.txt; Grok has the cards (p1) and Gemini the refreshes (p3).",
+          "done_when": "22 hero files in the output folder (or as many as you could) and artreq_20261010-1700_theme-thumbnails.p2.DONE.txt listing each file: ok or skipped: reason."
+        },
+        {
+          "n": 4,
           "title": "Read new coin photos (with Grok, blind)",
           "fix": "#55",
           "state": "always",
@@ -234,6 +250,22 @@
         },
         {
           "n": 2,
+          "title": "Review the 20 styles and the motion splashes",
+          "fix": "#110",
+          "state": "now",
+          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/fx/styles-a.js, styles-b.js, styles-c.js, styles-d.js (same folder), https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/motion-splash.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/styles/style-layer.css (the engine contract is the header of wings/fx/engine.js). Find real defects only: a shader that will not compile on a phone GPU (precision, loops, derivatives), work that runs every frame and should not, a splash that can hang or never call done(), something that ignores reduced motion or Motion Off, text the effects make unreadable. For each: file:line, how to trigger it, the smallest fix.",
+          "done_when": "One reply with finding IDs GPT-S-01, GPT-S-02 ...; Claude verifies each claim before fixing."
+        },
+        {
+          "n": 3,
+          "title": "Security review of the intake bridge",
+          "fix": "#106",
+          "state": "next",
+          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/INTAKE_BRIDGE.md, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/bridge/intake.py, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/drive/intake_bridge.gs and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/.github/workflows/intake.yml. Find real holes only: a way a file in the Drive folder could run code, write outside collection/, merge as the owner or as another AI, leak the key, or make the job push something it should not. For each: how to trigger it, why it matters, the smallest fix (file:line).",
+          "done_when": "One reply with finding IDs GPT-B-01 ...; Claude verifies each claim before fixing."
+        },
+        {
+          "n": 4,
           "title": "Dad's one-page guide",
           "fix": "#60",
           "state": "next",
@@ -241,7 +273,7 @@
           "done_when": "One reply with the text."
         },
         {
-          "n": 3,
+          "n": 5,
           "title": "Find the holes in the research loop",
           "fix": "#85",
           "state": "later",
@@ -275,11 +307,11 @@
         },
         {
           "n": 3,
-          "title": "Open art and video jobs",
-          "fix": "#35",
-          "state": "later",
-          "what": "The art queue (ART_START_HERE in Drive): claim a job before starting. Paused while video credits are low and the design is not chosen (#30).",
-          "done_when": "When credits allow and Joseph asks."
+          "title": "Theme pictures (refreshes) and splash clips with Veo",
+          "fix": "#113",
+          "state": "next",
+          "what": "After the access check. (1) The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json' (repo copy docs/art/requests/artreq_20261010-1700_theme-thumbnails.json). Follow ART_START_HERE: one image at a time (make it, save it to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file name, then the next); stop at the first failure or credit warning and write down how far you got. The pictures must look premium: real-photo look unless the image's `medium` says pixel art, comic, clay or poster; no readable text or numbers anywhere; coins look like real coins. Claude reviews every file and re-requests weak ones. Your part: the 8 images with priority 3 (refreshed card + hero for Prism, Midnight Gallery, The Mint, Shipwreck). Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. (2) With Veo: the open clips of artreq_20261005-0900_splash-film-v5-overthetop (Titan Forge, Dragon Hoard, Infinite Mint, Gold Rush Warp first), one clip at a time, at most 4 per run, each ending with THE LANDING, no text in any frame.",
+          "done_when": "8 files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt; then up to 4 clips per run saved to the art-incoming folder."
         }
       ]
     }

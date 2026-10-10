@@ -16,7 +16,7 @@ Every run is a pure function of the collection (collection/), the roles (docs/ag
              without a price page (value), a disagreement between two AIs (arbitrate). A job disappears when its gap closes.
   2. CLOSE   an open assignment is done when all its items closed, or when the AI answered it (a merged event names it in
              provenance.assignment): items it left out go back to the pool, marked as tried by that AI. Past its lease it expires.
-  3. ISSUE   each active AI is topped up to its capacity from the kinds it does (roles.json, in order), highest priority first. An AI never
+  3. ISSUE   each active AI is topped up to its capacity from the kinds it does (roles.json, in order; `per_kind` batches of a kind), highest priority first. An AI never
              gets a fact it wrote to check, nor a disagreement it is part of. Two AIs that tried and could not do an item park it.
   4. WRITE   docs/agents/QUEUE_{ai}.md (the text of its Drive doc 'WORK QUEUE for ...'), docs/agents/homework/{ai}.json,
              one pre-filled answer sheet per open assignment (docs/agents/homework/sheets/{id}.jsonl), the overview (QUEUES.md)
@@ -499,26 +499,31 @@ def refresh(ctx, roles, queues, state, now, log=None):
     taken = {}                     # (entity, id) -> fields an open assignment will write: two assignments never write the same field
     for i in busy: _take(taken, pool.get(i))
     parked = {i for i, tr in state["tried"].items() if len({t["agent"] for t in tr}) >= 2}
-    for agent, ag in roles["agents"].items():
-        if ag.get("status") != "active": continue
-        mine = [a for a in state["assignments"] if a["agent"] == agent and a["status"] == "open"]
-        for kind in ag.get("kinds", []):
-            if len(mine) >= ag.get("capacity", 0): break
-            if kind not in WORDING_KINDS and demoted(agent, roles, metrics): continue     # too many of its own facts were wrong: it checks and rewords, it does not write new facts
-            if any(a["kind"] == kind for a in mine): continue          # one open assignment per kind: variety, and nobody hoards a pool
-            kd = roles["kinds"][kind]
-            cand = sorted((it for it in pool.values() if it["kind"] == kind and it["item"] not in busy and it["item"] not in parked
-                           and eligible(agent, it, roles, state, metrics)), key=lambda it: it["prio"])
-            size = max(1, kd["batch"] // 2) if ag.get("onboarding") else kd["batch"]
-            batch = []
-            for it in cand:                # e.g. a story out for a fact-check is not also handed out for a plain-English rewrite
-                if len(batch) >= size: break
-                if _clashes(taken, it): continue
-                batch.append(it); _take(taken, it)
-            if not batch: continue
-            a = new_assignment(state, agent, kind, batch, now, kd)
-            mine.append(a); busy.update(it["item"] for it in batch)
-            log.append(f"issued {a['id']}: {len(batch)} item(s)")
+    # round 0 gives every AI one batch of each of its kinds (variety first, and the first AI in roles.json cannot drain a pool before the
+    # others get theirs); later rounds (roles.json `per_kind`, default 1) give a second or third batch where the pool is still deep, so a
+    # busy AI is never idle waiting for the next publish
+    active = [(agent, ag) for agent, ag in roles["agents"].items() if ag.get("status") == "active"]
+    for rnd in range(max([1] + [ag.get("per_kind", 1) for _, ag in active])):
+        for agent, ag in active:
+            if rnd >= max(1, ag.get("per_kind", 1)): continue
+            mine = [a for a in state["assignments"] if a["agent"] == agent and a["status"] == "open"]
+            for kind in ag.get("kinds", []):
+                if len(mine) >= ag.get("capacity", 0): break
+                if kind not in WORDING_KINDS and demoted(agent, roles, metrics): continue     # too many of its own facts were wrong: it checks and rewords, it does not write new facts
+                if sum(1 for a in mine if a["kind"] == kind) > rnd: continue    # at most rnd+1 open assignments of a kind by round rnd
+                kd = roles["kinds"][kind]
+                cand = sorted((it for it in pool.values() if it["kind"] == kind and it["item"] not in busy and it["item"] not in parked
+                               and eligible(agent, it, roles, state, metrics)), key=lambda it: it["prio"])
+                size = max(1, kd["batch"] // 2) if ag.get("onboarding") and not ag.get("full_batches") else kd["batch"]
+                batch = []
+                for it in cand:                # e.g. a story out for a fact-check is not also handed out for a plain-English rewrite
+                    if len(batch) >= size: break
+                    if _clashes(taken, it): continue
+                    batch.append(it); _take(taken, it)
+                if not batch: continue
+                a = new_assignment(state, agent, kind, batch, now, kd)
+                mine.append(a); busy.update(it["item"] for it in batch)
+                log.append(f"issued {a['id']}: {len(batch)} item(s)")
     state["updated"] = now
     return pool, metrics, parked
 

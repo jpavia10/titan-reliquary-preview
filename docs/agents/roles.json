@@ -1,7 +1,7 @@
 {
   "schema": "titan-roles/1",
   "about": "Who does which homework (docs/agents/RESEARCH_LOOP.md). tools/agents/homework.py reads this file at every publish: it hands each active AI new assignments from the open work pools in the order of its `kinds` list, never gives an AI its own facts to check, and never lets one AI hold more than `capacity` open assignments. Claude edits this file when the owner changes who is active, or when the measured numbers say an AI should do more or less of a kind.",
-  "updated": "2026-10-09",
+  "updated": "2026-10-10",
   "agents": {
     "grok": {
       "name": "Grok",
@@ -19,7 +19,7 @@
         "vision",
         "code"
       ],
-      "capacity": 4,
+      "capacity": 14,
       "kinds": [
         "cite",
         "catno",
@@ -31,7 +31,8 @@
         "read-mint"
       ],
       "strength": "Strongest outside contributor (Numista sweep 9/10, story fixes 10/10, best blind photo test so far): opens Numista, careful exact sources, flags what it cannot settle.",
-      "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files)."
+      "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).",
+      "per_kind": 2
     },
     "muse": {
       "name": "Muse",
@@ -47,17 +48,20 @@
         "drive",
         "vision"
       ],
-      "capacity": 3,
+      "capacity": 12,
       "kinds": [
         "verify",
         "plain-story",
         "research",
         "arbitrate",
         "cite",
-        "story-check"
+        "story-check",
+        "value",
+        "read-mint"
       ],
       "strength": "Good researcher and writer (scores 8, then 6; probation streak 0 of 3): second reader for Grok's catalogue facts, plain-English stories for Joseph's dad.",
-      "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files)."
+      "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).",
+      "per_kind": 2
     },
     "gemini": {
       "name": "Gemini",
@@ -73,14 +77,18 @@
         "vision",
         "web"
       ],
-      "capacity": 2,
+      "capacity": 6,
       "kinds": [
         "read-mint",
-        "verify"
+        "verify",
+        "story-check",
+        "value",
+        "research"
       ],
       "strength": "Vision (and Veo video). Back from parked on 2026-10-09: starts with a proof-of-access check, the blind photo test and small photo-reading batches; every fact it writes is checked by another AI until it has 3 good submissions in a row.",
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.",
-      "inline_sheets": true
+      "inline_sheets": true,
+      "full_batches": true
     },
     "chatgpt": {
       "name": "ChatGPT",
@@ -105,7 +113,7 @@
     "cite": {
       "role": "Cataloguer",
       "title": "Cite the catalogue facts of {n} coin types",
-      "batch": 20,
+      "batch": 25,
       "lease_days": 7,
       "needs": [
         "numista"
@@ -129,7 +137,7 @@
     "verify": {
       "role": "Second reader",
       "title": "Check {n} facts another AI wrote",
-      "batch": 25,
+      "batch": 50,
       "lease_days": 7,
       "needs": [],
       "fix": "#18",
@@ -139,7 +147,7 @@
     "read-mint": {
       "role": "Photo reader",
       "title": "Read the mint mark on {n} coins from their photos",
-      "batch": 10,
+      "batch": 20,
       "lease_days": 7,
       "needs": [
         "vision"
@@ -151,7 +159,7 @@
     "story-check": {
       "role": "Fact-checker",
       "title": "Fact-check {n} coin stories",
-      "batch": 25,
+      "batch": 40,
       "lease_days": 7,
       "needs": [
         "web"
@@ -163,7 +171,7 @@
     "plain-story": {
       "role": "Writer",
       "title": "Rewrite {n} stories in plain English",
-      "batch": 15,
+      "batch": 25,
       "lease_days": 7,
       "needs": [],
       "fix": "#60",
@@ -185,7 +193,7 @@
     "value": {
       "role": "Appraiser",
       "title": "Cite collector values for {n} coins",
-      "batch": 25,
+      "batch": 50,
       "lease_days": 10,
       "needs": [
         "web"
@@ -233,5 +241,6 @@
         "after": "main"
       }
     ]
-  }
+  },
+  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite."
 }
