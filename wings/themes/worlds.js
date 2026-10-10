@@ -15,6 +15,8 @@
     var w = by[id];
     applied.forEach(function (k) { root.style.removeProperty(k); }); applied = [];
     root.style.removeProperty("--world-hero"); root.removeAttribute("data-world-art"); root.removeAttribute("data-world-tier");
+    /* styles-20: the shared UI treatments the World asks for (styles/style-layer.css); index.html sets the same before first paint */
+    if (w && w.ui && w.ui.length) root.setAttribute("data-ui", w.ui.join(" ")); else root.removeAttribute("data-ui");
     if (!w) return;
     if (w.tokens) Object.keys(w.tokens).forEach(function (k) { root.style.setProperty(k, w.tokens[k]); applied.push(k); });
     root.setAttribute("data-world-tier", w.tier);
@@ -46,32 +48,41 @@
     }
   }
 
+  /* styles-20: each card shows a small live preview of the style it carries (pure CSS, styles/worlds.css .th-prev; still under
+     reduced motion), its style names, and the World's mood. Grouped by collection; art (when a World has it) sits behind the preview. */
+  var PREV = { "Particles": "particles", "Liquid morph": "liquid", "Holographic": "holo", "Neon glow": "neon", "Retro VHS": "vhs",
+    "Wireframe 3D": "wire", "Glassmorphism": "glass", "ASCII art": "ascii", "Gradient mesh": "mesh", "Art deco": "deco", "Halftone": "halftone",
+    "Neo-brutalism": "brutal", "Pixel art": "pixel", "Comic book": "comic", "Blueprint": "blueprint", "Clay 3D": "clay", "Isometric": "iso",
+    "Bauhaus": "bauhaus", "Kinetic type": "kinetic", "Split-flap": "flap" };
+  function preview(w) {
+    var st = w.styles || [];
+    if (!st.length) return "";
+    return '<span class="th-prev" data-prev="' + (PREV[st[0]] || "particles") + '" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
+  }
   function card(w, big) {
-    var cur = root.getAttribute("data-atmo") === w.id;
+    var cur = root.getAttribute("data-atmo") === w.id, st = w.styles || [];
     var imgHtml = w.art
-      ? '<img class="th-img" loading="lazy" decoding="async" width="640" height="400" alt="" src="' + art(w.art.card) + '">'
-      : '<span class="th-img th-swatch atmo-swatch sw-' + w.id + '" aria-hidden="true"></span>';
-    return '<button type="button" class="th-card' + (big ? " th-big" : "") + '" data-world="' + w.id + '" aria-pressed="' + cur + '">' +
-      imgHtml + '<span class="th-body"><span class="th-name">' + esc(w.name) + '</span>' +
+      ? '<span class="th-img th-art"><img loading="lazy" decoding="async" width="640" height="400" alt="" src="' + art(w.art.card) + '">' + preview(w) + '</span>'
+      : '<span class="th-img th-swatch atmo-swatch sw-' + w.id + '" aria-hidden="true">' + preview(w) + '</span>';
+    var tags = st.length ? '<span class="th-styles">' + st.map(function (x) { return '<span class="th-style">' + esc(x) + '</span>'; }).join("") + '</span>' : "";
+    return '<button type="button" class="th-card' + (big ? " th-big" : "") + '" data-world="' + w.id + '" aria-pressed="' + cur + '"' +
+      (st.length ? ' aria-label="' + esc(w.name + ", " + st.join(" and ") + ". " + w.mood) + '"' : "") + '>' +
+      imgHtml + '<span class="th-body"><span class="th-name">' + esc(w.name) + '</span>' + tags +
       '<span class="th-mood">' + esc(w.mood) + '</span></span>' +
       '<span class="th-now" aria-hidden="true">Current</span></button>';
   }
 
   function render(el) {
-    var sig = W.filter(function (w) { return w.tier === "signature" && w.art; });
-    var cls = W.filter(function (w) { return w.tier !== "signature"; });
-    var h = "";
-    if (sig.length) {
-      h += '<h3 class="ss-h">Signature</h3>';
-      (window.TITAN_WORLD_COLLECTIONS || []).forEach(function (c) {
-        var l = sig.filter(function (w) { return w.collection === c; });
-        if (l.length) h += '<p class="th-coll">' + esc(c) + '</p><div class="th-grid th-grid-big">' + l.map(function (w) { return card(w, true); }).join("") + '</div>';
-      });
-    }
-    var withArt = cls.filter(function (w) { return w.art; }), without = cls.filter(function (w) { return !w.art; });
-    h += '<h3 class="ss-h">' + (sig.length ? "Classic" : "All themes") + '</h3>';
-    if (withArt.length) h += '<div class="th-grid th-grid-big">' + withArt.map(function (w) { return card(w, true); }).join("") + '</div>';
-    h += '<div class="th-grid">' + without.map(function (w) { return card(w, false); }).join("") + '</div>';
+    var nStyles = 0; W.forEach(function (w) { nStyles += (w.styles || []).length; });
+    var h = '<p class="th-intro">' + W.length + ' themes, ' + nStyles + ' animation styles. Tap one to light the room with it; its sound follows if that setting is on.</p>';
+    var seen = {};
+    (window.TITAN_WORLD_COLLECTIONS || []).concat(["Other"]).forEach(function (c) {
+      var l = W.filter(function (w) { return (w.collection || "Other") === c && !seen[w.id]; });
+      if (!l.length) return;
+      l.forEach(function (w) { seen[w.id] = 1; });
+      l.sort(function (a, b) { return (b.art ? 1 : 0) - (a.art ? 1 : 0) || ((b.styles || []).length ? 1 : 0) - ((a.styles || []).length ? 1 : 0); });
+      h += '<h3 class="th-coll">' + esc(c) + '</h3><div class="th-grid">' + l.map(function (w) { return card(w, !!w.art); }).join("") + '</div>';
+    });
     el.innerHTML = h;
   }
 

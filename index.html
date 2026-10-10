@@ -19,7 +19,7 @@
   <script>
     try {
       var __tr_a = localStorage.getItem("tr_atmo_v1");
-      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno","solaris","alchemist","glacier","valhalla","dynasty","zen","samadhi","silkroad"];
+      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno","solaris","alchemist","glacier","valhalla","dynasty","zen","samadhi","silkroad","arcade","pulp","drafting","diorama","bauhaus","terminal"];
       if (!__tr_a || __tr_ok.indexOf(__tr_a) === -1) {
         var __tr_old = localStorage.getItem("tr_theme_v1");
         if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
@@ -28,6 +28,9 @@
         try { localStorage.setItem("tr_atmo_v1", __tr_a); } catch (e) {}
       }
       document.documentElement.setAttribute("data-atmo", __tr_a);
+      /* style-layer treatments (styles/style-layer.css) before the first paint; wings/themes/manifest.js `ui` is the source, worlds.js keeps it in sync */
+      var __tr_ui = { notepad: "brutal", arcade: "pixel", pulp: "paper brutal comic", drafting: "blueprint", diorama: "paper clay", bauhaus: "paper brutal", terminal: "board" };
+      if (__tr_ui[__tr_a]) document.documentElement.setAttribute("data-ui", __tr_ui[__tr_a]);
     } catch (e) { /* private mode */ }
   </script>
   <!-- One motion setting + haptics (fix list #59): must run before every other script and before the first paint -->
@@ -78,6 +81,7 @@
   <link rel="stylesheet" href="styles/fx.css?v=tr107" />
   <link rel="stylesheet" href="styles/scene.css?v=tr107" />
   <link rel="stylesheet" href="styles/worlds.css?v=tr107" />
+  <link rel="stylesheet" href="styles/style-layer.css?v=tr107" />
   <!--WS:themes: shared atmosphere system + one stylesheet per atmosphere (notes/agents/themes.md)-->
 </head>
 <body>
@@ -435,6 +439,51 @@
         <circle cx="130" cy="80" r="1.8" fill="currentColor"/>
         <circle cx="82" cy="95" r="1.5" fill="currentColor"/>
         <circle cx="118" cy="95" r="1.5" fill="currentColor"/>
+      </symbol>
+      <!-- 21. Arcade: a pixel coin with a 1UP star (styles-20) -->
+      <symbol id="crest-arcade" viewBox="0 0 200 200">
+        <path d="M80 30h40v10h20v10h10v20h10v60h-10v20h-10v10h-20v10H80v-10H60v-10H50v-20H40V70h10V50h10V40h20z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="miter"/>
+        <path d="M90 60h20v10h10v10h-20v10h20v10h10v20h-10v10h-10v10H90v-10H80v-10h20v-10H80v-10H70V80h10V70h10z" fill="currentColor" opacity="0.85"/>
+        <path d="M150 20h10v10h10v10h-10v10h-10V40h-10V30h10z" fill="currentColor"/>
+      </symbol>
+      <!-- 22. Pulp Adventure: a comic burst around a coin (styles-20) -->
+      <symbol id="crest-pulp" viewBox="0 0 200 200">
+        <polygon points="100,12 116,58 160,30 140,76 190,82 146,104 182,140 132,130 138,182 104,148 78,190 74,140 26,160 54,120 10,100 56,84 24,44 72,62" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="100" cy="100" r="34" fill="none" stroke="currentColor" stroke-width="4"/>
+        <circle cx="100" cy="100" r="26" fill="currentColor" opacity="0.25"/>
+        <path d="M92 86h20M88 100h24M92 114h16" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      </symbol>
+      <!-- 23. Drafting Room: a coin drawn to scale with a divider and a dimension line (styles-20) -->
+      <symbol id="crest-drafting" viewBox="0 0 200 200">
+        <circle cx="100" cy="108" r="54" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="100" cy="108" r="44" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <path d="M46 108h108M100 54v108" stroke="currentColor" stroke-width="0.9" stroke-dasharray="10 3 2 3"/>
+        <path d="M46 176h108M46 170v12M154 170v12M46 176l8-4v8zM154 176l-8-4v8z" stroke="currentColor" stroke-width="1.6" fill="currentColor"/>
+        <path d="M100 18l-22 70M100 18l22 70" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="100" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/>
+      </symbol>
+      <!-- 24. Clay Diorama: an isometric block with a coin on top (styles-20) -->
+      <symbol id="crest-diorama" viewBox="0 0 200 200">
+        <path d="M100 60l64 36-64 36-64-36z" fill="currentColor" opacity="0.35" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M36 96v52l64 36 64-36V96M100 132v52" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        <ellipse cx="100" cy="74" rx="30" ry="15" fill="none" stroke="currentColor" stroke-width="3"/>
+        <path d="M70 74v10c0 8 13 15 30 15s30-7 30-15V74" fill="none" stroke="currentColor" stroke-width="3"/>
+      </symbol>
+      <!-- 25. Bauhaus: circle, square and triangle (styles-20) -->
+      <symbol id="crest-bauhaus" viewBox="0 0 200 200">
+        <circle cx="74" cy="78" r="44" fill="currentColor" opacity="0.9"/>
+        <rect x="96" y="96" width="74" height="74" fill="none" stroke="currentColor" stroke-width="8"/>
+        <polygon points="40,176 82,104 124,176" fill="currentColor" opacity="0.55"/>
+        <path d="M24 30h152" stroke="currentColor" stroke-width="6"/>
+      </symbol>
+      <!-- 26. Grand Terminal: the station clock over a split flap (styles-20) -->
+      <symbol id="crest-terminal" viewBox="0 0 200 200">
+        <circle cx="100" cy="84" r="58" fill="none" stroke="currentColor" stroke-width="5"/>
+        <circle cx="100" cy="84" r="48" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M100 84V46M100 84l26 14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <rect x="56" y="150" width="88" height="38" rx="4" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M56 169h88" stroke="currentColor" stroke-width="2"/>
+        <path d="M80 160v18M100 160v18M120 160v18" stroke="currentColor" stroke-width="2" opacity="0.6"/>
       </symbol>
     </defs>
   </svg>
@@ -880,6 +929,48 @@
             <span class="atmo-card-desc">Ancient desert caravanserai. Cobalt lapis lazuli tiles, oasis dune gold, rhythmic camel caravan bells, and desert starlight.</span>
             <span class="atmo-card-pair">Pairs with · Caravan Bells + Desert Oud</span>
             <span class="atmo-card-scene" data-scene="silkroad">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="arcade">
+            <span class="atmo-swatch sw-arcade" aria-hidden="true"></span>
+            <span class="atmo-card-name">Arcade</span>
+            <span class="atmo-card-desc">Insert coin: an 8-bit arcade where every piece is a token and the high score is your collection. Pixel art.</span>
+            <span class="atmo-card-pair">Pairs with · Arcade hum + Synthwave</span>
+            <span class="atmo-card-scene" data-scene="arcade">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="pulp">
+            <span class="atmo-swatch sw-pulp" aria-hidden="true"></span>
+            <span class="atmo-card-name">Pulp Adventure</span>
+            <span class="atmo-card-desc">A 1940s treasure-hunt comic: newsprint, black ink, Ben-Day dots and a POW on every find.</span>
+            <span class="atmo-card-pair">Pairs with · City rain + Jazz</span>
+            <span class="atmo-card-scene" data-scene="pulp">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="drafting">
+            <span class="atmo-swatch sw-drafting" aria-hidden="true"></span>
+            <span class="atmo-card-name">Drafting Room</span>
+            <span class="atmo-card-desc">The engraver's drafting room: blueprint paper, every coin drawn to scale, every dimension measured.</span>
+            <span class="atmo-card-pair">Pairs with · Clock and pencil + Classical</span>
+            <span class="atmo-card-scene" data-scene="drafting">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="diorama">
+            <span class="atmo-swatch sw-diorama" aria-hidden="true"></span>
+            <span class="atmo-card-name">Clay Diorama</span>
+            <span class="atmo-card-desc">A miniature vault in soft clay, seen from above like a toy model. Isometric and pastel.</span>
+            <span class="atmo-card-pair">Pairs with · Birds and stream + Lo-fi</span>
+            <span class="atmo-card-scene" data-scene="diorama">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="bauhaus">
+            <span class="atmo-swatch sw-bauhaus" aria-hidden="true"></span>
+            <span class="atmo-card-name">Bauhaus</span>
+            <span class="atmo-card-desc">Primary shapes and moving type: the coin legends as a 1920s Bauhaus poster.</span>
+            <span class="atmo-card-pair">Pairs with · Studio + Classical</span>
+            <span class="atmo-card-scene" data-scene="bauhaus">Set the scene →</span>
+          </button>
+          <button type="button" class="atmo-card" data-atmo-val="terminal">
+            <span class="atmo-swatch sw-terminal" aria-hidden="true"></span>
+            <span class="atmo-card-name">Grand Terminal</span>
+            <span class="atmo-card-desc">A grand railway hall at night: fifty countries on the split-flap departures board.</span>
+            <span class="atmo-card-pair">Pairs with · Trains and the hall + Adventure</span>
+            <span class="atmo-card-scene" data-scene="terminal">Set the scene →</span>
           </button>
         </div>
       </div>

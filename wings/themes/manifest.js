@@ -49,9 +49,30 @@
     { id: "samadhi", name: "Samadhi", collection: "Moods", tier: "classic", art: null,
       mood: "Saffron, sandalwood smoke and stillness.", fx: "incense-curl", fxIntensity: 0.85, scene: "samadhi", tokens: {} },
     { id: "silkroad", name: "Silk Road", collection: "Journeys", tier: "classic", art: null,
-      mood: "Desert caravanserai, lapis tiles, starlight.", fx: "dunes", fxIntensity: 0.85, scene: "caravanserai", tokens: {} }
+      mood: "Desert caravanserai, lapis tiles, starlight.", fx: "dunes", fxIntensity: 0.85, scene: "caravanserai", tokens: {} },
+    /* styles-20 (2026-10-10, notes/agents/styles-20.md): six token-only themes, one per style that no existing theme could host.
+       Tokens live in styles/atmo/{id}.css (token block only) so they paint before any script; `ui` switches on shared treatments
+       from styles/style-layer.css; `styles` names the styles from the owner's video each theme carries. Art: queued (rule 9). */
+    { id: "arcade", name: "Arcade", collection: "Studio", tier: "signature", art: null, ui: ["pixel"], styles: ["Pixel art"],
+      mood: "Insert coin: an 8-bit arcade where every piece is a token.", fx: "style-pixel", fxIntensity: 0.85, scene: "arcade", tokens: {} },
+    { id: "pulp", name: "Pulp Adventure", collection: "Studio", tier: "signature", art: null, ui: ["paper", "brutal", "comic"], styles: ["Comic book"],
+      mood: "A 1940s treasure-hunt comic: ink, Ben-Day dots, a POW on every find.", fx: "style-comic", fxIntensity: 0.8, scene: "pulp", tokens: {} },
+    { id: "drafting", name: "Drafting Room", collection: "Museum", tier: "signature", art: null, ui: ["blueprint"], styles: ["Blueprint"],
+      mood: "The engraver's drafting room: every coin drawn to scale.", fx: "style-blueprint", fxIntensity: 0.85, scene: "drafting", tokens: {} },
+    { id: "diorama", name: "Clay Diorama", collection: "Studio", tier: "signature", art: null, ui: ["paper", "clay"], styles: ["Clay 3D", "Isometric"],
+      mood: "A miniature vault in soft clay, seen from above like a toy model.", fx: "style-clay", fxIntensity: 0.8, scene: "diorama", tokens: {} },
+    { id: "bauhaus", name: "Bauhaus", collection: "Studio", tier: "signature", art: null, ui: ["paper", "brutal"], styles: ["Bauhaus", "Kinetic type"],
+      mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
+    { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: null, ui: ["board"], styles: ["Split-flap"],
+      mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} }
   ];
+  /* styles-20: the styles each existing theme now carries (shown on its picker card) and its shared UI treatments */
+  var STYLE_OF = { afterhours: ["Particles"], colossus: ["Liquid morph"], kaleido: ["Holographic"], neon: ["Neon glow", "Retro VHS"],
+    solaris: ["Wireframe 3D"], glacier: ["Glassmorphism"], samadhi: ["Gradient mesh"], nocturne: ["Art deco"], conservator: ["Halftone"],
+    notepad: ["Neo-brutalism"], construct: ["ASCII art"] };
+  var UI_OF = { notepad: ["brutal"] };
+  worlds.forEach(function (w) { if (STYLE_OF[w.id]) w.styles = STYLE_OF[w.id]; if (UI_OF[w.id]) w.ui = UI_OF[w.id]; });
   window.TITAN_WORLDS = worlds;
   window.TITAN_WORLD_BACKDROP = false;   // true = use the active World's hero art as the Hall hero backdrop (styles/worlds.css); easily removable
-  window.TITAN_WORLD_COLLECTIONS = ["Museum", "Treasure", "Journeys", "Moods", "Otherworld", "Utility"];
+  window.TITAN_WORLD_COLLECTIONS = ["Museum", "Treasure", "Journeys", "Moods", "Otherworld", "Studio", "Utility"];
 })();

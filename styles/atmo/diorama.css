@@ -1,0 +1,80 @@
+/* ============================================================================
+   Atmosphere: CLAY DIORAMA (diorama) · styles-20 #9 Clay 3D + #8 Isometric
+   A miniature vault in soft clay, seen from above like a toy model: warm clay white, terracotta, pastel shapes, rounded and soft.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md + notes/agents/styles-20.md): every look below comes from tokens; the
+   shared treatments in styles/style-layer.css are switched on by the theme's `ui` list in wings/themes/manifest.js (html[data-ui]).
+   Legibility: every token pair checked against the template's rules (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="diorama"] {
+  --scheme: light;
+  color-scheme: light;
+  --bg: #f3ece4;
+  --bg2: #ece3d8;
+  --surface: #fffaf5;
+  --surface2: #efe4d7;
+  --ink: #2a2320;
+  --muted: #4c423d;
+  --faint: #675b55;
+  --cardmeta: #3a312d;
+  --gold: #a9481f;
+  --gold-soft: #8a3a18;
+  --gold-deep: #7a3416;
+  --on-gold: #ffffff;
+  --ink-soft: #4c423d;
+  --line: rgba(42, 35, 32, 0.14);
+  --line-strong: rgba(169, 72, 31, 0.42);
+  --ok: #2d6b3a;
+  --warn: #875600;
+  --bad: #a8322a;
+  --shadow: 0 1px 2px rgba(40, 30, 20, 0.10), 0 6px 18px rgba(40, 30, 20, 0.10);
+  --elev-1: 0 1px 2px rgba(40, 30, 20, 0.10), 0 3px 10px rgba(40, 30, 20, 0.08);
+  --elev-2: 0 2px 4px rgba(40, 30, 20, 0.10), 0 12px 28px rgba(40, 30, 20, 0.14);
+  --elev-3: 0 4px 10px rgba(40, 30, 20, 0.12), 0 28px 70px rgba(40, 30, 20, 0.22);
+  --scrim: rgba(30, 24, 18, 0.40);
+  --focus: #1f5f8b;
+  --th-bg: #efe4d7;
+  --tabgrad1: #efe4d7; --tabgrad2: #fffaf5;
+  --toastgrad1: #efe4d7; --toastgrad2: #fffaf5;
+  --foot-bg: rgba(243, 236, 228, 0.94);
+  --drawerbar-bg: rgba(255, 250, 245, 0.96);
+  --ph-bg: #efe4d7;
+  --sel-bg: rgba(169, 72, 31, 0.18);
+  --row-hover: rgba(169, 72, 31, 0.07);
+  --hold-bg: linear-gradient(135deg, #efe4d7, #fffaf5);
+  --skeleton1: #efe4d7; --skeleton2: #f3ece4;
+  --grain-op: 0.03;
+  --wing-dur: 0.4s;
+  --wing-rise: 12px;
+  /* legacy aliases resolved on <html> */
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --font: ui-rounded, "SF Pro Rounded", "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --serif: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", "Nunito", system-ui, sans-serif;
+  --radius: 20px;
+  --clay-pink: #f4b6c2;
+  --clay-blue: #a8d8ea;
+  --clay-yellow: #ffe08a;
+  --clay-green: #b8e0c2;
+  /* the dark display-case interior used by the instrument panels (styles/style-layer.css, ui "paper") */
+  --case-bg: #3a2c27;
+  --case-bg2: #43332d;
+  --case-surface: #47362f;
+  --case-surface2: #56433a;
+  --case-ink: #fff5ec;
+  --case-muted: #ead8ca;
+  --case-faint: #cdb7a7;
+  --case-gold: #f5b48f;
+  --case-gold-soft: #ffd6bd;
+  --case-on-gold: #2a1408;
+  /* the page palette again, for paper labels inside a case */
+  --paper-bg: #f3ece4;
+  --paper-bg2: #ece3d8;
+  --paper-surface: #fffaf5;
+  --paper-surface2: #efe4d7;
+  --paper-ink: #2a2320;
+  --paper-muted: #4c423d;
+  --paper-faint: #675b55;
+  --paper-gold: #a9481f;
+  --paper-gold-soft: #8a3a18;
+  --paper-on-gold: #ffffff;
+}

@@ -53,7 +53,7 @@ Palettes (all token pairs pass the template's legibility rules; checked):
 - pulp: bg #f6ecd2, surface #fffaee, surface2 #efe1bf, ink #17120d, muted #3b3127, faint #5a4c3c, gold (comic red) #b3101f, on-gold #fff, yellow #ffd400, blue #1f4fa8
 - drafting: bg #0c2a50, surface #11355f, surface2 #17416f, ink #f3f8ff, muted #cfe0f5, faint #a6c2e4, gold (pencil amber) #ffd27a, on-gold #1a1204
 - diorama: bg #f3ece4, surface #fffaf5, surface2 #efe4d7, ink #2a2320, muted #4c423d, faint #675b55, gold (terracotta) #a9481f, on-gold #fff, pastels #f4b6c2 #a8d8ea #ffe08a #b8e0c2
-- bauhaus: bg #f2efe6, surface #ffffff, surface2 #e8e3d5, ink #111111, muted #2f2f2f, faint #4f4f4f, gold (red) #c32a17, on-gold #fff, blue #1d4ea1, yellow #f2c230
+- bauhaus: bg #f2efe6, surface #ffffff, surface2 #e8e3d5, ink #111111, muted #2f2f2f, faint #4f4f4f, gold (red) #b42416, on-gold #fff, blue #1d4ea1, yellow #f2c230
 - terminal: bg #0d0f12, surface #171b20, surface2 #20252c, ink #f6f3ea, muted #d2cdbe, faint #aaa493, gold (flap amber) #ffc43d, on-gold #15100a
 
 ## 3. FX rules (every `style-*` preset)

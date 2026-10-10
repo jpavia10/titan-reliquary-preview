@@ -6761,11 +6761,20 @@
     zen:         { name: "Zen Garden",        themeColor: "#08090a", preset: "zen",       station: "zen",       pair: "Bamboo Clack + Shakuhachi Flute" },
     samadhi:     { name: "Samadhi",           themeColor: "#0b0604", preset: "samadhi",   station: "samadhi",   pair: "108Hz Om Drone + Sitar Meditations" },
     silkroad:    { name: "Silk Road",         themeColor: "#030712", preset: "silkroad",  station: "silkroad",  pair: "Caravan Bells + Desert Oud" },
+    /* styles-20 (2026-10-10, notes/agents/styles-20.md): token-only themes; their sound is the TitanGen World scene (wings/scene-engine.js),
+       `preset` names no old ambient.js preset on purpose (applyPreset ignores unknown names) */
+    arcade:      { name: "Arcade",            themeColor: "#0b0820", preset: "arcade",    station: "synthwave", pair: "Arcade hum + Synthwave" },
+    pulp:        { name: "Pulp Adventure",    themeColor: "#f6ecd2", preset: "pulp",      station: "jazz",      pair: "City rain + Jazz" },
+    drafting:    { name: "Drafting Room",     themeColor: "#0c2a50", preset: "drafting",  station: "classical", pair: "Clock and pencil + Classical" },
+    diorama:     { name: "Clay Diorama",      themeColor: "#f3ece4", preset: "diorama",   station: "lofi",      pair: "Birds and stream + Lo-fi" },
+    bauhaus:     { name: "Bauhaus",           themeColor: "#f2efe6", preset: "bauhaus",   station: "classical", pair: "Studio + Classical" },
+    terminal:    { name: "Grand Terminal",    themeColor: "#0d0f12", preset: "terminal",  station: "adventure", pair: "Trains and the hall + Adventure" },
   };
   const ATMO_ORDER = [
     "afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss",
     "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla",
-    "dynasty", "zen", "samadhi", "silkroad"
+    "dynasty", "zen", "samadhi", "silkroad",
+    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal"
   ];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");
