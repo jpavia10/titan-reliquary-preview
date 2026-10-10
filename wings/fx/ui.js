@@ -10,19 +10,20 @@
   /* atmosphere id -> [preset or alias, intensity]. null = no overlay (film only). Current 20 atmospheres plus World ids. */
   var ATMO = {
     /* fx-v3: every atmosphere has its own signature preset (wings/fx/presets.js, section fx-v3); the manifest's `fx` says the same */
-    afterhours: ["moonlit", 0.85], nocturne: ["bluenote", 0.85], conservator: ["loupe", 0.6], colossus: ["mint-forge", 0.9],
-    odyssey: ["voyage", 0.85], cursedwing: ["crypt", 0.9], kaleido: ["prismatic", 0.75], abyss: ["deepsea", 0.9],
-    neon: ["nightcity", 0.85], notepad: ["paperink", 0.6], construct: ["style-ascii", 0.8], xeno: ["spores", 0.85],
-    solaris: ["coronagraph", 0.85], alchemist: ["athanor", 0.85], glacier: ["polar-ice", 0.85], valhalla: ["mead-hall", 0.9],
-    dynasty: ["lantern-feast", 0.85], zen: ["garden", 0.85], samadhi: ["incense-curl", 0.85], silkroad: ["dunes", 0.85],
+    /* styles-20: ten of them now lead with their style preset (wings/fx/styles-a.js, styles-c.js) and keep the fx-v3 signature underneath at a lower weight */
+    afterhours: ["style-particles+moonlit*0.35", 0.85], nocturne: ["style-deco+bluenote*0.45", 0.85], conservator: ["style-halftone+loupe*0.4", 0.7],
+    colossus: ["style-liquid+mint-forge*0.5", 0.85], odyssey: ["voyage", 0.85], cursedwing: ["crypt", 0.9], kaleido: ["style-holo+prismatic*0.45", 0.8],
+    abyss: ["deepsea", 0.9], neon: ["style-neon+style-vhs*0.7", 0.85], notepad: ["paperink", 0.6], construct: ["style-ascii", 0.8], xeno: ["spores", 0.85],
+    solaris: ["style-wireframe+coronagraph*0.5", 0.85], alchemist: ["athanor", 0.85], glacier: ["style-glass+polar-ice*0.4", 0.85], valhalla: ["mead-hall", 0.9],
+    dynasty: ["lantern-feast", 0.85], zen: ["garden", 0.85], samadhi: ["style-mesh+incense-curl*0.5", 0.85], silkroad: ["dunes", 0.85],
     /* styles-20 (notes/agents/styles-20.md): the six new themes, one style preset each (wings/fx/styles-*.js) */
     arcade: ["style-pixel", 0.85], pulp: ["style-comic", 0.8], drafting: ["style-blueprint", 0.85], diorama: ["style-clay", 0.8],
     bauhaus: ["style-bauhaus+style-kinetic*0.8", 0.8], terminal: ["style-splitflap", 0.85],
     /* World ids from notes/agents/theme-pot.md (each descends from one of the atmospheres above) */
-    "midnight-gallery": ["moonlit", 0.85], "conservators-bench": ["loupe", 0.6], clear: [null, 0], "the-mint": ["mint-forge", 0.9],
-    "hoard-hall": ["mead-hall", 0.9], "blue-note": ["bluenote", 0.85], "captains-cabin": ["voyage", 0.85], shipwreck: ["deepsea", 0.9],
-    prism: ["prismatic", 0.75], "night-city": ["nightcity", 0.85], "black-site": ["phosphor", 0.7], "forbidden-wing": ["crypt", 0.9],
-    observatory: ["coronagraph", 0.85], "alchemists-study": ["athanor", 0.85], "polar-vault": ["polar-ice", 0.85],
+    "midnight-gallery": ["style-particles+moonlit*0.35", 0.85], "conservators-bench": ["style-halftone+loupe*0.4", 0.7], clear: [null, 0], "the-mint": ["style-liquid+mint-forge*0.5", 0.85],
+    "hoard-hall": ["mead-hall", 0.9], "blue-note": ["style-deco+bluenote*0.45", 0.85], "captains-cabin": ["voyage", 0.85], shipwreck: ["deepsea", 0.9],
+    prism: ["style-holo+prismatic*0.45", 0.8], "night-city": ["style-neon+style-vhs*0.7", 0.85], "black-site": ["phosphor", 0.7], "forbidden-wing": ["crypt", 0.9],
+    observatory: ["style-wireframe+coronagraph*0.5", 0.85], "alchemists-study": ["athanor", 0.85], "polar-vault": ["style-glass+polar-ice*0.4", 0.85],
     "imperial-treasury": ["lantern-feast", 0.85], "temple-garden": ["garden", 0.85], caravanserai: ["dunes", 0.85],
     "fireside-den": ["embers*0.9+glass-frost*0.7+snow*0.5", 0.9], "roman-treasury": ["torch", 0.8], "private-bank": [null, 0]
   };

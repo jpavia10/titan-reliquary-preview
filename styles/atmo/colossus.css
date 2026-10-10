@@ -145,3 +145,15 @@ html[data-atmo="colossus"] :is(.bullion-lot-card, .vault-dash-card, .vault-custo
   html[data-atmo="colossus"] .exhibit::after,
   html[data-atmo="colossus"] .wordmark { animation: none; }
 }
+
+/* 7. Style (styles-20): liquid metal (FX "style-liquid") -------------------------------------------------------------
+   The UI side of the molten-silver look: cast panels get a chrome top lip and an ember under-glow, section rules become a
+   silver-to-bronze bar. Tokens and ornaments only; nothing here moves or changes layout. */
+html[data-atmo="colossus"] :is(.card, .tile, .wing-card, .note-card) {
+  box-shadow: var(--elev-1), inset 0 1px 0 rgba(236, 230, 222, 0.22), inset 0 -3px 10px -4px rgba(255, 122, 26, 0.22);
+}
+html[data-atmo="colossus"] .sec-head {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--gold-deep), #d8d1c6 28%, var(--gold-deep) 58%, rgba(255, 122, 26, 0.5) 85%, transparent) 1;
+}
+html[data-atmo="colossus"] .wing-head h2 { text-shadow: 0 3px 26px rgba(226, 169, 62, 0.4), 0 -1px 0 rgba(240, 235, 226, 0.18); }

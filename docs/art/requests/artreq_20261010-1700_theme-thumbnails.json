@@ -1,459 +1,547 @@
 {
- "request_id": "artreq_20261010-1700_theme-thumbnails",
- "status": "open",
- "assigned_to": "any",
- "requested_by": "Claude (integrator)",
- "created": "2026-10-10T17:00:00Z",
- "why": "The owner wants a picture card for every theme in the Themes picker (2026-10-10), including the six new style themes. 22 of the 26 themes have none yet; Prism, Midnight Gallery, The Mint and Shipwreck already have theirs.",
- "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim the job first ({request id}.CLAIMED-{model}.txt). Work in priority order: all priority 1 images (the 22 picker cards) first, then priority 2 (the 22 hero images). takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file names, then write artreq_20261010-1700_theme-thumbnails.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
- "deliverable_spec": {
-  "card": "16:10, at least 1280x800, PNG; the subject must read at 220x138 px (the picker card size on a phone)",
-  "hero": "16:10, at least 2560x1600, PNG",
-  "safe_area": "keep the top-left third of heroes calm and darker (or plain paper on light themes): UI text sits there"
- },
- "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, true reflections, physically accurate materials (toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich natural grading, fine film grain. Real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Exception: an image whose `medium` names an illustration, pixel art, clay or poster style is made in that medium, at the same premium standard (clean, crafted, never cheap clip-art).",
- "negative": "no readable text, no letters, no numbers, no logos, no watermark, no frame, no faces, no hands, no 3D-render plastic look in the photo images, no oversaturation, no HDR halos, no warped or melting coins, no invented legible inscriptions",
- "coin_rule": "Coins look like real circulated or uncirculated world coins (a generic portrait, eagle or crest is fine); never invent a legible inscription.",
- "images": [
-  {
-   "file_name": "world_conservator_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Conservator",
-   "theme_id": "conservator",
-   "medium": "photo",
-   "prompt": "Overhead 3/4 view of a conservator's daylight desk at noon: cream archival ledger paper with faint ruled lines, a brass jeweller's loupe, white cotton gloves and one toned silver coin under a warm desk lamp; beside it an old printed auction-catalogue page whose coin photo shows a visible halftone dot screen (no readable text). Light, warm, paper tones. Style from the owner's list: Halftone."
+  "request_id": "artreq_20261010-1700_theme-thumbnails",
+  "status": "open",
+  "assigned_to": "any",
+  "requested_by": "Claude (integrator)",
+  "created": "2026-10-10T17:00:00Z",
+  "why": "The owner wants a picture card for every theme in the Themes picker (2026-10-10), including the six new style themes: \"Make art requests for all of these theme thumbnails and dont forget the ones youre adding\". 22 of the 26 themes have none yet (priority 1 cards, priority 2 heroes); Prism, Midnight Gallery, The Mint and Shipwreck have older pictures, and three of them now have a new style, so they get a refresh (priority 3).",
+  "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim the job first ({request id}.CLAIMED-{model}.txt). Work in priority order: all priority 1 images (the 22 picker cards) first, then priority 2 (the 22 hero images), then priority 3 (refreshed card + hero for the 4 themes that already have a picture). takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file names, then write artreq_20261010-1700_theme-thumbnails.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+  "deliverable_spec": {
+    "card": "16:10, at least 1280x800, PNG; the subject must read at 220x138 px (the picker card size on a phone)",
+    "hero": "16:10, at least 2560x1600, PNG",
+    "safe_area": "keep the top-left third of heroes calm and darker (or plain paper on light themes): UI text sits there"
   },
-  {
-   "file_name": "world_nocturne_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Nocturne",
-   "theme_id": "nocturne",
-   "medium": "photo",
-   "prompt": "A single silver coin resting on the black lacquered lid of a grand piano in a smoky jazz cellar, deep blue light, a brass art-deco sunburst panel glowing softly behind, cigarette-smoke haze, bokeh of brass lamps. Style from the owner's list: Art deco."
-  },
-  {
-   "file_name": "world_odyssey_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Odyssey",
-   "theme_id": "odyssey",
-   "medium": "photo",
-   "prompt": "A galleon captain's cabin at dawn: an open leather purse spilling silver pieces of eight onto a sea chart, a brass compass and dividers, amber dawn light through the stern windows."
-  },
-  {
-   "file_name": "world_cursedwing_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "The Cursed Wing",
-   "theme_id": "cursedwing",
-   "medium": "photo",
-   "prompt": "Candlelit crypt reliquary: old silver coins in an open iron reliquary box, black wax seals and blood-red ribbon, a dripping candle, cobwebs, cold stone."
-  },
-  {
-   "file_name": "world_neon_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Neon Vault",
-   "theme_id": "neon",
-   "medium": "photo",
-   "prompt": "A rain-soaked pawnshop window at 2 a.m.: silver coins on black velvet in the window display, abstract magenta and cyan neon tubes (shapes only, no letters) reflected in wet glass, rain streaks, a faint VHS look (slight chromatic edge split and scan texture). Style from the owner's list: Neon glow, Retro VHS."
-  },
-  {
-   "file_name": "world_notepad_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Plaintext",
-   "theme_id": "notepad",
-   "medium": "graphic photo (flat, high contrast)",
-   "prompt": "Top-down studio photo on pure white paper: one silver coin, a single bold yellow rectangle with a hard black offset shadow, thick black ruled lines; neo-brutalist graphic composition, black and white plus that one yellow. Style from the owner's list: Neo-brutalism."
-  },
-  {
-   "file_name": "world_construct_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "The Construct",
-   "theme_id": "construct",
-   "medium": "photo of a screen",
-   "prompt": "An old green-phosphor CRT monitor in a dark room showing a coin drawn entirely in ASCII-style glyph characters (dense glyph texture that reads as a coin, never readable words), soft phosphor glow and scanlines, a real silver coin on the desk in front. Style from the owner's list: ASCII art."
-  },
-  {
-   "file_name": "world_xeno_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Xenohold",
-   "theme_id": "xeno",
-   "medium": "photo",
-   "prompt": "A strange old coin suspended in glowing teal fluid inside a laboratory containment cylinder, bioluminescent particles, cold steel, condensation on glass."
-  },
-  {
-   "file_name": "world_solaris_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Solar Observatory",
-   "theme_id": "solaris",
-   "medium": "photo",
-   "prompt": "Inside a brass telescope dome open to the stars: coins laid out like planets on an antique star chart, a glowing gold wireframe armillary sphere hovering above them (thin luminous lines), deep indigo night. Style from the owner's list: Wireframe 3D."
-  },
-  {
-   "file_name": "world_alchemist_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "The Alchemist",
-   "theme_id": "alchemist",
-   "medium": "photo",
-   "prompt": "An alchemist's bench: silver coins in a small crucible beside a glowing glass alembic with emerald liquid, hermetic brass rings, candle and furnace light."
-  },
-  {
-   "file_name": "world_glacier_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Hyperborean Vault",
-   "theme_id": "glacier",
-   "medium": "photo",
-   "prompt": "Gold bars and silver coins behind tall frosted-glass panes in a vault carved into Arctic ice; aurora light (teal, green, violet) glowing through and softly refracted by the frosted glass; cold, clean, luminous. Style from the owner's list: Glassmorphism."
-  },
-  {
-   "file_name": "world_valhalla_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Gilded Armory",
-   "theme_id": "valhalla",
-   "medium": "photo",
-   "prompt": "Viking hack-silver hoard on a fur pelt: arm rings, cut coins, a silver torc, hearthfire glow, carved wood."
-  },
-  {
-   "file_name": "world_dynasty_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Dynasty",
-   "theme_id": "dynasty",
-   "medium": "photo",
-   "prompt": "Strings of Chinese cash coins on red lacquer with 24-karat gold foil and a paper lantern glowing, imperial treasury mood."
-  },
-  {
-   "file_name": "world_zen_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Zen Garden",
-   "theme_id": "zen",
-   "medium": "photo",
-   "prompt": "One old coin on wet slate beside raked gravel in a Kyoto rock garden at dawn, light rain, a few cherry petals."
-  },
-  {
-   "file_name": "world_samadhi_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Samadhi",
-   "theme_id": "samadhi",
-   "medium": "photo (soft-focus colour)",
-   "prompt": "A coin resting on a brass singing bowl, sandalwood incense smoke curling, the background a dreamy soft gradient of saffron, rose, plum and indigo light fields (out-of-focus colour blending like a gradient mesh). Style from the owner's list: Gradient mesh."
-  },
-  {
-   "file_name": "world_silkroad_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Silk Road",
-   "theme_id": "silkroad",
-   "medium": "photo",
-   "prompt": "Silver dirhams on a woven carpet in a desert caravanserai at night, lapis-blue tiles, an oil lamp, stars above the courtyard."
-  },
-  {
-   "file_name": "world_arcade_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Arcade",
-   "theme_id": "arcade",
-   "medium": "16-bit pixel art illustration (crisp pixels, limited palette), not a photo",
-   "prompt": "Pixel art: a night arcade, purple-black with teal and coin-yellow; a big gold coin sprite dropping into a glowing coin slot on an arcade cabinet, pixel stars, a pixel skyline through the window. No letters. Style from the owner's list: Pixel art."
-  },
-  {
-   "file_name": "world_pulp_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Pulp Adventure",
-   "theme_id": "pulp",
-   "medium": "1940s pulp comic illustration (bold ink outlines, Ben-Day dots, newsprint colours), not a photo",
-   "prompt": "Comic panel: an explorer's lantern lighting an open treasure chest overflowing with coins, a jagged yellow starburst shape behind it (no letters), Ben-Day dot shading in red, yellow and blue on cream newsprint. Style from the owner's list: Comic book."
-  },
-  {
-   "file_name": "world_drafting_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Drafting Room",
-   "theme_id": "drafting",
-   "medium": "photo",
-   "prompt": "A real prussian-blue blueprint sheet on a drafting table: a white technical line drawing of a coin (concentric rims, reeding ticks, centre lines, dimension lines with arrowheads; no digits or words), brass dividers, a pencil and a real silver coin lying on the sheet, lamp light. Style from the owner's list: Blueprint."
-  },
-  {
-   "file_name": "world_diorama_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Clay Diorama",
-   "theme_id": "diorama",
-   "medium": "handmade clay / plasticine miniature (stylised but physically lit, tilt-shift), not a photo of a real place",
-   "prompt": "An isometric handmade clay diorama of a tiny bank vault: round vault door, stacks of clay coins, a pink clay sphere and a blue clay torus, pastel colours, soft studio light and contact shadows, seen from above at 30 degrees. Style from the owner's list: Clay 3D, Isometric."
-  },
-  {
-   "file_name": "world_bauhaus_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Bauhaus",
-   "theme_id": "bauhaus",
-   "medium": "flat graphic poster (1920s Bauhaus), not a photo",
-   "prompt": "Bauhaus poster composition on off-white: a red circle, a blue square, a yellow triangle and thick black bars, with a real silver coin photographed in place of one circle; abstract letterform shapes as bold black bands (no readable words). Style from the owner's list: Bauhaus, Kinetic type."
-  },
-  {
-   "file_name": "world_terminal_card.png",
-   "priority": 1,
-   "takes": 2,
-   "aspect_ratio": "16:10",
-   "world": "Grand Terminal",
-   "theme_id": "terminal",
-   "medium": "photo",
-   "prompt": "A grand railway station hall at night: a giant split-flap departures board in the background (flaps blurred mid-flip, no readable words), a brass station clock, and one silver coin on a polished marble ledge in the foreground, warm amber light. Style from the owner's list: Split-flap."
-  },
-  {
-   "file_name": "world_conservator_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Conservator",
-   "theme_id": "conservator",
-   "medium": "photo",
-   "prompt": "Same desk, wider: a long cream ledger page, the loupe, gloves, a tray of three silver coins, soft window light from the right, dust in the light; top-left third plain paper. Style from the owner's list: Halftone."
-  },
-  {
-   "file_name": "world_nocturne_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Nocturne",
-   "theme_id": "nocturne",
-   "medium": "photo",
-   "prompt": "Wide: the jazz cellar in deep blue, the gold art-deco sunburst fan on the back wall, the piano lid with the coin in the right third, smoke catching a narrow spotlight; top-left third dark. Style from the owner's list: Art deco."
-  },
-  {
-   "file_name": "world_odyssey_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Odyssey",
-   "theme_id": "odyssey",
-   "medium": "photo",
-   "prompt": "Wide cabin interior, swinging lantern, charts on the table, the coins catching the amber dawn; ocean visible through leaded windows; top-left third in shadow."
-  },
-  {
-   "file_name": "world_cursedwing_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "The Cursed Wing",
-   "theme_id": "cursedwing",
-   "medium": "photo",
-   "prompt": "Wide crypt corridor behind an iron gate, the reliquary on a stone altar in candle glow at right, fog on the floor; top-left third dark stone."
-  },
-  {
-   "file_name": "world_neon_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Neon Vault",
-   "theme_id": "neon",
-   "medium": "photo",
-   "prompt": "Wide wet street at night outside the window, neon reflections in puddles, the coin display glowing at right; top-left third dark rain. Style from the owner's list: Neon glow, Retro VHS."
-  },
-  {
-   "file_name": "world_notepad_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Plaintext",
-   "theme_id": "notepad",
-   "medium": "graphic photo (flat, high contrast)",
-   "prompt": "Same idea, wider: white paper, three coins in a row, two black bars and the yellow block with hard shadows; generous white space top-left. Style from the owner's list: Neo-brutalism."
-  },
-  {
-   "file_name": "world_construct_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "The Construct",
-   "theme_id": "construct",
-   "medium": "photo of a screen",
-   "prompt": "Wide: the dark server room, the CRT at right with the glyph coin, faint green light falling on the desk and the real coin; top-left third black. Style from the owner's list: ASCII art."
-  },
-  {
-   "file_name": "world_xeno_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Xenohold",
-   "theme_id": "xeno",
-   "medium": "photo",
-   "prompt": "Wide containment lab, rows of glowing tanks, the coin tank in the right third, mist; top-left third dark."
-  },
-  {
-   "file_name": "world_solaris_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Solar Observatory",
-   "theme_id": "solaris",
-   "medium": "photo",
-   "prompt": "Wide dome, telescope, the star chart table with coins and the gold wireframe sphere at right, stars through the slit; top-left third dark sky. Style from the owner's list: Wireframe 3D."
-  },
-  {
-   "file_name": "world_alchemist_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "The Alchemist",
-   "theme_id": "alchemist",
-   "medium": "photo",
-   "prompt": "Wide stone study, shelves of jars, the bench at right with green glow and coins; top-left third in shadow."
-  },
-  {
-   "file_name": "world_glacier_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Hyperborean Vault",
-   "theme_id": "glacier",
-   "medium": "photo",
-   "prompt": "Wide ice vault corridor, frosted glass panels in perspective, aurora through an ice window, bullion at right; top-left third soft blue frost. Style from the owner's list: Glassmorphism."
-  },
-  {
-   "file_name": "world_valhalla_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Gilded Armory",
-   "theme_id": "valhalla",
-   "medium": "photo",
-   "prompt": "Wide mead hall at night, long hearth, shields on the walls, the hoard on a table at right, snow at the open door; top-left third dark rafters."
-  },
-  {
-   "file_name": "world_dynasty_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Dynasty",
-   "theme_id": "dynasty",
-   "medium": "photo",
-   "prompt": "Wide imperial treasury hall, red lacquered pillars, lanterns, coin strings and a gold ingot at right; top-left third deep red shadow."
-  },
-  {
-   "file_name": "world_zen_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Zen Garden",
-   "theme_id": "zen",
-   "medium": "photo",
-   "prompt": "Wide rock garden at dawn in light rain, moss, raked lines, the slate with the coin at right; top-left third soft grey mist."
-  },
-  {
-   "file_name": "world_samadhi_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Samadhi",
-   "theme_id": "samadhi",
-   "medium": "photo (soft-focus colour)",
-   "prompt": "Wide: the same soft gradient colour fields filling the frame, the bowl and coin small at right, a ribbon of smoke; top-left third soft plum. Style from the owner's list: Gradient mesh."
-  },
-  {
-   "file_name": "world_silkroad_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Silk Road",
-   "theme_id": "silkroad",
-   "medium": "photo",
-   "prompt": "Wide courtyard at night, arches with lapis tiles, lamps, dunes beyond, the carpet with coins at right; top-left third night sky."
-  },
-  {
-   "file_name": "world_arcade_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Arcade",
-   "theme_id": "arcade",
-   "medium": "16-bit pixel art illustration (crisp pixels, limited palette), not a photo",
-   "prompt": "Pixel art, wide: a row of arcade cabinets glowing, pixel coins bouncing, a pixel night city behind; top-left third dark pixels. Style from the owner's list: Pixel art."
-  },
-  {
-   "file_name": "world_pulp_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Pulp Adventure",
-   "theme_id": "pulp",
-   "medium": "1940s pulp comic illustration (bold ink outlines, Ben-Day dots, newsprint colours), not a photo",
-   "prompt": "Comic panel, wide: a jungle temple doorway, the treasure chest at right, speed lines, dot screens; top-left third plain cream with light dots. Style from the owner's list: Comic book."
-  },
-  {
-   "file_name": "world_drafting_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Drafting Room",
-   "theme_id": "drafting",
-   "medium": "photo",
-   "prompt": "Wide drafting room: the blue sheet, a parallel rule, the lamp, gears drawn in the corner of the sheet, the coin at right; top-left third plain blue paper. Style from the owner's list: Blueprint."
-  },
-  {
-   "file_name": "world_diorama_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Clay Diorama",
-   "theme_id": "diorama",
-   "medium": "handmade clay / plasticine miniature (stylised but physically lit, tilt-shift), not a photo of a real place",
-   "prompt": "Wide isometric clay scene: the little vault building, a coin-stack plaza, tiny clay trees; soft pastel background; top-left third plain warm clay-white. Style from the owner's list: Clay 3D, Isometric."
-  },
-  {
-   "file_name": "world_bauhaus_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Bauhaus",
-   "theme_id": "bauhaus",
-   "medium": "flat graphic poster (1920s Bauhaus), not a photo",
-   "prompt": "Wide poster composition, the shapes and bands spread to the right, the coin as a red-ringed circle; top-left third plain off-white. Style from the owner's list: Bauhaus, Kinetic type."
-  },
-  {
-   "file_name": "world_terminal_hero.png",
-   "priority": 2,
-   "takes": 1,
-   "aspect_ratio": "16:10",
-   "world": "Grand Terminal",
-   "theme_id": "terminal",
-   "medium": "photo",
-   "prompt": "Wide station hall, vaulted iron roof, the departures board glowing amber, the clock, the coin on the ledge at right; top-left third dark roof. Style from the owner's list: Split-flap."
-  }
- ]
+  "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, true reflections, physically accurate materials (toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich natural grading, fine film grain. Real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Exception: an image whose `medium` names an illustration, pixel art, clay or poster style is made in that medium, at the same premium standard (clean, crafted, never cheap clip-art).",
+  "negative": "no readable text, no letters, no numbers, no logos, no watermark, no frame, no faces, no hands, no 3D-render plastic look in the photo images, no oversaturation, no HDR halos, no warped or melting coins, no invented legible inscriptions",
+  "coin_rule": "Coins look like real circulated or uncirculated world coins (a generic portrait, eagle or crest is fine); never invent a legible inscription.",
+  "images": [
+    {
+      "file_name": "world_conservator_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Conservator",
+      "theme_id": "conservator",
+      "medium": "photo",
+      "prompt": "Overhead 3/4 view of a conservator's daylight desk at noon: cream archival ledger paper with faint ruled lines, a brass jeweller's loupe, white cotton gloves and one toned silver coin under a warm desk lamp; beside it an old printed auction-catalogue page whose coin photo shows a visible halftone dot screen (no readable text). Light, warm, paper tones. Style from the owner's list: Halftone."
+    },
+    {
+      "file_name": "world_nocturne_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Nocturne",
+      "theme_id": "nocturne",
+      "medium": "photo",
+      "prompt": "A single silver coin resting on the black lacquered lid of a grand piano in a smoky jazz cellar, deep blue light, a brass art-deco sunburst panel glowing softly behind, cigarette-smoke haze, bokeh of brass lamps. Style from the owner's list: Art deco."
+    },
+    {
+      "file_name": "world_odyssey_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Odyssey",
+      "theme_id": "odyssey",
+      "medium": "photo",
+      "prompt": "A galleon captain's cabin at dawn: an open leather purse spilling silver pieces of eight onto a sea chart, a brass compass and dividers, amber dawn light through the stern windows."
+    },
+    {
+      "file_name": "world_cursedwing_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "The Cursed Wing",
+      "theme_id": "cursedwing",
+      "medium": "photo",
+      "prompt": "Candlelit crypt reliquary: old silver coins in an open iron reliquary box, black wax seals and blood-red ribbon, a dripping candle, cobwebs, cold stone."
+    },
+    {
+      "file_name": "world_neon_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Neon Vault",
+      "theme_id": "neon",
+      "medium": "photo",
+      "prompt": "A rain-soaked pawnshop window at 2 a.m.: silver coins on black velvet in the window display, abstract magenta and cyan neon tubes (shapes only, no letters) reflected in wet glass, rain streaks, a faint VHS look (slight chromatic edge split and scan texture). Style from the owner's list: Neon glow, Retro VHS."
+    },
+    {
+      "file_name": "world_notepad_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Plaintext",
+      "theme_id": "notepad",
+      "medium": "graphic photo (flat, high contrast)",
+      "prompt": "Top-down studio photo on pure white paper: one silver coin, a single bold yellow rectangle with a hard black offset shadow, thick black ruled lines; neo-brutalist graphic composition, black and white plus that one yellow. Style from the owner's list: Neo-brutalism."
+    },
+    {
+      "file_name": "world_construct_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "The Construct",
+      "theme_id": "construct",
+      "medium": "photo of a screen",
+      "prompt": "An old green-phosphor CRT monitor in a dark room showing a coin drawn entirely in ASCII-style glyph characters (dense glyph texture that reads as a coin, never readable words), soft phosphor glow and scanlines, a real silver coin on the desk in front. Style from the owner's list: ASCII art."
+    },
+    {
+      "file_name": "world_xeno_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Xenohold",
+      "theme_id": "xeno",
+      "medium": "photo",
+      "prompt": "A strange old coin suspended in glowing teal fluid inside a laboratory containment cylinder, bioluminescent particles, cold steel, condensation on glass."
+    },
+    {
+      "file_name": "world_solaris_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Solar Observatory",
+      "theme_id": "solaris",
+      "medium": "photo",
+      "prompt": "Inside a brass telescope dome open to the stars: coins laid out like planets on an antique star chart, a glowing gold wireframe armillary sphere hovering above them (thin luminous lines), deep indigo night. Style from the owner's list: Wireframe 3D."
+    },
+    {
+      "file_name": "world_alchemist_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "The Alchemist",
+      "theme_id": "alchemist",
+      "medium": "photo",
+      "prompt": "An alchemist's bench: silver coins in a small crucible beside a glowing glass alembic with emerald liquid, hermetic brass rings, candle and furnace light."
+    },
+    {
+      "file_name": "world_glacier_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Hyperborean Vault",
+      "theme_id": "glacier",
+      "medium": "photo",
+      "prompt": "Gold bars and silver coins behind tall frosted-glass panes in a vault carved into Arctic ice; aurora light (teal, green, violet) glowing through and softly refracted by the frosted glass; cold, clean, luminous. Style from the owner's list: Glassmorphism."
+    },
+    {
+      "file_name": "world_valhalla_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Gilded Armory",
+      "theme_id": "valhalla",
+      "medium": "photo",
+      "prompt": "Viking hack-silver hoard on a fur pelt: arm rings, cut coins, a silver torc, hearthfire glow, carved wood."
+    },
+    {
+      "file_name": "world_dynasty_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Dynasty",
+      "theme_id": "dynasty",
+      "medium": "photo",
+      "prompt": "Strings of Chinese cash coins on red lacquer with 24-karat gold foil and a paper lantern glowing, imperial treasury mood."
+    },
+    {
+      "file_name": "world_zen_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Zen Garden",
+      "theme_id": "zen",
+      "medium": "photo",
+      "prompt": "One old coin on wet slate beside raked gravel in a Kyoto rock garden at dawn, light rain, a few cherry petals."
+    },
+    {
+      "file_name": "world_samadhi_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Samadhi",
+      "theme_id": "samadhi",
+      "medium": "photo (soft-focus colour)",
+      "prompt": "A coin resting on a brass singing bowl, sandalwood incense smoke curling, the background a dreamy soft gradient of saffron, rose, plum and indigo light fields (out-of-focus colour blending like a gradient mesh). Style from the owner's list: Gradient mesh."
+    },
+    {
+      "file_name": "world_silkroad_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Silk Road",
+      "theme_id": "silkroad",
+      "medium": "photo",
+      "prompt": "Silver dirhams on a woven carpet in a desert caravanserai at night, lapis-blue tiles, an oil lamp, stars above the courtyard."
+    },
+    {
+      "file_name": "world_arcade_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Arcade",
+      "theme_id": "arcade",
+      "medium": "16-bit pixel art illustration (crisp pixels, limited palette), not a photo",
+      "prompt": "Pixel art: a night arcade, purple-black with teal and coin-yellow; a big gold coin sprite dropping into a glowing coin slot on an arcade cabinet, pixel stars, a pixel skyline through the window. No letters. Style from the owner's list: Pixel art."
+    },
+    {
+      "file_name": "world_pulp_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Pulp Adventure",
+      "theme_id": "pulp",
+      "medium": "1940s pulp comic illustration (bold ink outlines, Ben-Day dots, newsprint colours), not a photo",
+      "prompt": "Comic panel: an explorer's lantern lighting an open treasure chest overflowing with coins, a jagged yellow starburst shape behind it (no letters), Ben-Day dot shading in red, yellow and blue on cream newsprint. Style from the owner's list: Comic book."
+    },
+    {
+      "file_name": "world_drafting_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Drafting Room",
+      "theme_id": "drafting",
+      "medium": "photo",
+      "prompt": "A real prussian-blue blueprint sheet on a drafting table: a white technical line drawing of a coin (concentric rims, reeding ticks, centre lines, dimension lines with arrowheads; no digits or words), brass dividers, a pencil and a real silver coin lying on the sheet, lamp light. Style from the owner's list: Blueprint."
+    },
+    {
+      "file_name": "world_diorama_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Clay Diorama",
+      "theme_id": "diorama",
+      "medium": "handmade clay / plasticine miniature (stylised but physically lit, tilt-shift), not a photo of a real place",
+      "prompt": "An isometric handmade clay diorama of a tiny bank vault: round vault door, stacks of clay coins, a pink clay sphere and a blue clay torus, pastel colours, soft studio light and contact shadows, seen from above at 30 degrees. Style from the owner's list: Clay 3D, Isometric."
+    },
+    {
+      "file_name": "world_bauhaus_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Bauhaus",
+      "theme_id": "bauhaus",
+      "medium": "flat graphic poster (1920s Bauhaus), not a photo",
+      "prompt": "Bauhaus poster composition on off-white: a red circle, a blue square, a yellow triangle and thick black bars, with a real silver coin photographed in place of one circle; abstract letterform shapes as bold black bands (no readable words). Style from the owner's list: Bauhaus, Kinetic type."
+    },
+    {
+      "file_name": "world_terminal_card.png",
+      "priority": 1,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Grand Terminal",
+      "theme_id": "terminal",
+      "medium": "photo",
+      "prompt": "A grand railway station hall at night: a giant split-flap departures board in the background (flaps blurred mid-flip, no readable words), a brass station clock, and one silver coin on a polished marble ledge in the foreground, warm amber light. Style from the owner's list: Split-flap."
+    },
+    {
+      "file_name": "world_conservator_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Conservator",
+      "theme_id": "conservator",
+      "medium": "photo",
+      "prompt": "Same desk, wider: a long cream ledger page, the loupe, gloves, a tray of three silver coins, soft window light from the right, dust in the light; top-left third plain paper. Style from the owner's list: Halftone."
+    },
+    {
+      "file_name": "world_nocturne_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Nocturne",
+      "theme_id": "nocturne",
+      "medium": "photo",
+      "prompt": "Wide: the jazz cellar in deep blue, the gold art-deco sunburst fan on the back wall, the piano lid with the coin in the right third, smoke catching a narrow spotlight; top-left third dark. Style from the owner's list: Art deco."
+    },
+    {
+      "file_name": "world_odyssey_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Odyssey",
+      "theme_id": "odyssey",
+      "medium": "photo",
+      "prompt": "Wide cabin interior, swinging lantern, charts on the table, the coins catching the amber dawn; ocean visible through leaded windows; top-left third in shadow."
+    },
+    {
+      "file_name": "world_cursedwing_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "The Cursed Wing",
+      "theme_id": "cursedwing",
+      "medium": "photo",
+      "prompt": "Wide crypt corridor behind an iron gate, the reliquary on a stone altar in candle glow at right, fog on the floor; top-left third dark stone."
+    },
+    {
+      "file_name": "world_neon_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Neon Vault",
+      "theme_id": "neon",
+      "medium": "photo",
+      "prompt": "Wide wet street at night outside the window, neon reflections in puddles, the coin display glowing at right; top-left third dark rain. Style from the owner's list: Neon glow, Retro VHS."
+    },
+    {
+      "file_name": "world_notepad_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Plaintext",
+      "theme_id": "notepad",
+      "medium": "graphic photo (flat, high contrast)",
+      "prompt": "Same idea, wider: white paper, three coins in a row, two black bars and the yellow block with hard shadows; generous white space top-left. Style from the owner's list: Neo-brutalism."
+    },
+    {
+      "file_name": "world_construct_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "The Construct",
+      "theme_id": "construct",
+      "medium": "photo of a screen",
+      "prompt": "Wide: the dark server room, the CRT at right with the glyph coin, faint green light falling on the desk and the real coin; top-left third black. Style from the owner's list: ASCII art."
+    },
+    {
+      "file_name": "world_xeno_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Xenohold",
+      "theme_id": "xeno",
+      "medium": "photo",
+      "prompt": "Wide containment lab, rows of glowing tanks, the coin tank in the right third, mist; top-left third dark."
+    },
+    {
+      "file_name": "world_solaris_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Solar Observatory",
+      "theme_id": "solaris",
+      "medium": "photo",
+      "prompt": "Wide dome, telescope, the star chart table with coins and the gold wireframe sphere at right, stars through the slit; top-left third dark sky. Style from the owner's list: Wireframe 3D."
+    },
+    {
+      "file_name": "world_alchemist_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "The Alchemist",
+      "theme_id": "alchemist",
+      "medium": "photo",
+      "prompt": "Wide stone study, shelves of jars, the bench at right with green glow and coins; top-left third in shadow."
+    },
+    {
+      "file_name": "world_glacier_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Hyperborean Vault",
+      "theme_id": "glacier",
+      "medium": "photo",
+      "prompt": "Wide ice vault corridor, frosted glass panels in perspective, aurora through an ice window, bullion at right; top-left third soft blue frost. Style from the owner's list: Glassmorphism."
+    },
+    {
+      "file_name": "world_valhalla_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Gilded Armory",
+      "theme_id": "valhalla",
+      "medium": "photo",
+      "prompt": "Wide mead hall at night, long hearth, shields on the walls, the hoard on a table at right, snow at the open door; top-left third dark rafters."
+    },
+    {
+      "file_name": "world_dynasty_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Dynasty",
+      "theme_id": "dynasty",
+      "medium": "photo",
+      "prompt": "Wide imperial treasury hall, red lacquered pillars, lanterns, coin strings and a gold ingot at right; top-left third deep red shadow."
+    },
+    {
+      "file_name": "world_zen_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Zen Garden",
+      "theme_id": "zen",
+      "medium": "photo",
+      "prompt": "Wide rock garden at dawn in light rain, moss, raked lines, the slate with the coin at right; top-left third soft grey mist."
+    },
+    {
+      "file_name": "world_samadhi_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Samadhi",
+      "theme_id": "samadhi",
+      "medium": "photo (soft-focus colour)",
+      "prompt": "Wide: the same soft gradient colour fields filling the frame, the bowl and coin small at right, a ribbon of smoke; top-left third soft plum. Style from the owner's list: Gradient mesh."
+    },
+    {
+      "file_name": "world_silkroad_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Silk Road",
+      "theme_id": "silkroad",
+      "medium": "photo",
+      "prompt": "Wide courtyard at night, arches with lapis tiles, lamps, dunes beyond, the carpet with coins at right; top-left third night sky."
+    },
+    {
+      "file_name": "world_arcade_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Arcade",
+      "theme_id": "arcade",
+      "medium": "16-bit pixel art illustration (crisp pixels, limited palette), not a photo",
+      "prompt": "Pixel art, wide: a row of arcade cabinets glowing, pixel coins bouncing, a pixel night city behind; top-left third dark pixels. Style from the owner's list: Pixel art."
+    },
+    {
+      "file_name": "world_pulp_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Pulp Adventure",
+      "theme_id": "pulp",
+      "medium": "1940s pulp comic illustration (bold ink outlines, Ben-Day dots, newsprint colours), not a photo",
+      "prompt": "Comic panel, wide: a jungle temple doorway, the treasure chest at right, speed lines, dot screens; top-left third plain cream with light dots. Style from the owner's list: Comic book."
+    },
+    {
+      "file_name": "world_drafting_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Drafting Room",
+      "theme_id": "drafting",
+      "medium": "photo",
+      "prompt": "Wide drafting room: the blue sheet, a parallel rule, the lamp, gears drawn in the corner of the sheet, the coin at right; top-left third plain blue paper. Style from the owner's list: Blueprint."
+    },
+    {
+      "file_name": "world_diorama_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Clay Diorama",
+      "theme_id": "diorama",
+      "medium": "handmade clay / plasticine miniature (stylised but physically lit, tilt-shift), not a photo of a real place",
+      "prompt": "Wide isometric clay scene: the little vault building, a coin-stack plaza, tiny clay trees; soft pastel background; top-left third plain warm clay-white. Style from the owner's list: Clay 3D, Isometric."
+    },
+    {
+      "file_name": "world_bauhaus_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Bauhaus",
+      "theme_id": "bauhaus",
+      "medium": "flat graphic poster (1920s Bauhaus), not a photo",
+      "prompt": "Wide poster composition, the shapes and bands spread to the right, the coin as a red-ringed circle; top-left third plain off-white. Style from the owner's list: Bauhaus, Kinetic type."
+    },
+    {
+      "file_name": "world_terminal_hero.png",
+      "priority": 2,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Grand Terminal",
+      "theme_id": "terminal",
+      "medium": "photo",
+      "prompt": "Wide station hall, vaulted iron roof, the departures board glowing amber, the clock, the coin on the ledge at right; top-left third dark roof. Style from the owner's list: Split-flap."
+    },
+    {
+      "file_name": "world_kaleido_card.png",
+      "priority": 3,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Prism",
+      "theme_id": "kaleido",
+      "medium": "photo",
+      "prompt": "A silver coin standing on its edge on a sheet of holographic foil, thin-film rainbow interference bands (pink, cyan, mint, gold) sweeping across the foil and the coin's rim, cut-crystal prisms throwing spectral flares, deep violet background. Real photo, macro lens. Style from the owner's list: Holographic.",
+      "note": "This theme already has a picture (art/themes/); the new one replaces it only if it is better (review loop)."
+    },
+    {
+      "file_name": "world_afterhours_card.png",
+      "priority": 3,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Midnight Gallery",
+      "theme_id": "afterhours",
+      "medium": "photo",
+      "prompt": "A dark museum gallery after midnight: three cold blue shafts of moonlight from a high window falling across black marble, fine glowing dust suspended in the beams, one silver coin on a black plinth catching the light, the dust thicker around it as if gathering into its shape. Style from the owner's list: Particles.",
+      "note": "This theme already has a picture (art/themes/); the new one replaces it only if it is better (review loop)."
+    },
+    {
+      "file_name": "world_colossus_card.png",
+      "priority": 3,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "The Mint",
+      "theme_id": "colossus",
+      "medium": "photo",
+      "prompt": "Molten silver poured into a coin die in an old mint: the liquid metal flowing in smooth mirror-chrome blobs that merge and split, ember-orange glow from the furnace reflected in it, a finished silver coin beside the die. Real photo, high-speed shutter. Style from the owner's list: Liquid morph.",
+      "note": "This theme already has a picture (art/themes/); the new one replaces it only if it is better (review loop)."
+    },
+    {
+      "file_name": "world_abyss_card.png",
+      "priority": 3,
+      "takes": 2,
+      "aspect_ratio": "16:10",
+      "world": "Shipwreck",
+      "theme_id": "abyss",
+      "medium": "photo",
+      "prompt": "Forty fathoms down on a wreck: god rays slanting through blue-green water onto a half-buried sea chest spilling silver and gold coins, drifting particles, a few small fish as silhouettes far back. (A refresh of the current picture; this theme has no new style.)",
+      "note": "This theme already has a picture (art/themes/); the new one replaces it only if it is better (review loop)."
+    },
+    {
+      "file_name": "world_kaleido_hero.png",
+      "priority": 3,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Prism",
+      "theme_id": "kaleido",
+      "medium": "photo",
+      "prompt": "Wide: a field of holographic foil and cut crystal under a violet sky-light, rainbow bands sweeping diagonally, the coin on its edge in the right third; top-left third dark violet. Style from the owner's list: Holographic.",
+      "note": "This theme already has a picture (art/themes/); the new one replaces it only if it is better (review loop)."
+    },
+    {
+      "file_name": "world_afterhours_hero.png",
+      "priority": 3,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Midnight Gallery",
+      "theme_id": "afterhours",
+      "medium": "photo",
+      "prompt": "Wide: the marble gallery, the three moonlight shafts from the top left, dust drifting in them, the coin on its plinth in the right third; top-left third deep shadow. Style from the owner's list: Particles.",
+      "note": "This theme already has a picture (art/themes/); the new one replaces it only if it is better (review loop)."
+    },
+    {
+      "file_name": "world_colossus_hero.png",
+      "priority": 3,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "The Mint",
+      "theme_id": "colossus",
+      "medium": "photo",
+      "prompt": "Wide: the coining room, the press and furnace glow, a ribbon of liquid silver arcing into the die at right; top-left third dark iron and soft ember haze. Style from the owner's list: Liquid morph.",
+      "note": "This theme already has a picture (art/themes/); the new one replaces it only if it is better (review loop)."
+    },
+    {
+      "file_name": "world_abyss_hero.png",
+      "priority": 3,
+      "takes": 1,
+      "aspect_ratio": "16:10",
+      "world": "Shipwreck",
+      "theme_id": "abyss",
+      "medium": "photo",
+      "prompt": "Wide: the wreck's hull in blue haze, god rays from the top, the coin chest in the right third; top-left third open dark water. (A refresh of the current picture; this theme has no new style.)",
+      "note": "This theme already has a picture (art/themes/); the new one replaces it only if it is better (review loop)."
+    }
+  ]
 }

@@ -153,3 +153,79 @@ html[data-atmo="glacier"] .album-binder-card { background: #0a1723; border-color
 @media (prefers-reduced-motion: reduce) {
   html[data-atmo="glacier"] body::before { animation: none !important; opacity: 0.9; }
 }
+
+/* 7. Style (styles-20): frosted glass ----------------------------------------------------------------
+   Glassmorphism for the main surfaces. Colour has to exist BEHIND a glass panel for the frost to mean anything, so the
+   page gets four large, soft aurora colour fields (html::before, below every other layer, compositor-only drift), and
+   the surfaces become semi-transparent slate with a blur and a 1px light edge. The TitanFX "style-glass" overlay draws
+   the same family of fields (plus glass orbs and frost glints) on top. Legibility: the panel colour stays at 74-80 %
+   opacity so body text holds >= 7:1 over the brightest field. Tokens, borders, backdrop and ornaments only: no layout. */
+html[data-atmo="glacier"] {
+  --glass-bg: rgba(11, 23, 36, 0.76);        /* panels */
+  --glass-bg2: rgba(23, 42, 61, 0.76);       /* small raised tiles and stat boxes (no blur of their own) */
+  --glass-edge: rgba(203, 241, 255, 0.26);   /* the light edge */
+  --glass-blur: blur(14px) saturate(140%);
+  --foot-bg: rgba(9, 19, 31, 0.76);          /* dock / bottom nav */
+  --drawerbar-bg: rgba(9, 19, 31, 0.78);     /* drawer header, scene bar, nav pills */
+}
+html[data-atmo="glacier"]::before {
+  content: "";
+  position: fixed; inset: -18%; z-index: -3; pointer-events: none;
+  background:
+    radial-gradient(38% 34% at 20% 24%, rgba(30, 205, 190, 0.2), transparent 70%),
+    radial-gradient(34% 30% at 80% 16%, rgba(60, 235, 130, 0.14), transparent 70%),
+    radial-gradient(40% 36% at 64% 72%, rgba(140, 80, 240, 0.22), transparent 70%),
+    radial-gradient(36% 34% at 14% 82%, rgba(50, 130, 255, 0.18), transparent 70%);
+  will-change: transform;
+  animation: glc-fields 72s ease-in-out infinite alternate;
+}
+@keyframes glc-fields {
+  from { transform: translate3d(-3%, -2%, 0) rotate(-1.5deg) scale(1.02); }
+  to   { transform: translate3d(3%, 2%, 0) rotate(1.5deg) scale(1.08); }
+}
+/* panels: frosted, blurred, lit upper-left edge, a soft shadow */
+html[data-atmo="glacier"] :is(.card, .tile, .album-card, .latest-card, .sheet-card, .gf-finder,
+  #pane-hall .vault-valuation-hub, #pane-hall .trading-terminal-hub, .trading-terminal-hub, .vault-valuation-hub) {
+  background-color: var(--glass-bg);
+  background-image: linear-gradient(135deg, rgba(203, 241, 255, 0.10) 0%, rgba(203, 241, 255, 0.025) 36%, transparent 62%);
+  border-color: var(--glass-edge);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 0 0 1px rgba(203, 241, 255, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 12px 32px rgba(0, 6, 14, 0.45);
+}
+/* repeated small surfaces: the same glass colour and edge, without a blur pass of their own */
+html[data-atmo="glacier"] :is(.hg-tile, #pane-gallery .gx-tile, .term-stat-box) {
+  background-color: var(--glass-bg2);
+  border-color: var(--glass-edge);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 22px rgba(0, 6, 14, 0.4);
+}
+/* dock, bars, pills, drawers: content scrolls behind these, so the blur does real work here */
+html[data-atmo="glacier"] :is(.wings, .scene-bar, .drawer-bar, .foot, .study-nav-pills, .gallery-mode-switch, .cf-placard) {
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-color: var(--glass-edge);
+}
+html[data-atmo="glacier"] .wings { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 -10px 30px rgba(0, 6, 14, 0.4); }
+html[data-atmo="glacier"] :is(.study-nav-pills, .gallery-mode-switch) { background: rgba(13, 26, 40, 0.74); }
+html[data-atmo="glacier"] .drawer-inner {
+  background: rgba(10, 20, 32, 0.8);
+  border-color: var(--glass-edge);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 30px 90px rgba(0, 4, 10, 0.7);
+}
+@media (hover: none) and (pointer: coarse) {
+  html[data-atmo="glacier"] { --glass-blur: blur(10px) saturate(140%); }   /* phones: a cheaper blur */
+  /* phones: no blur pass on the panels themselves (behind them is only the smooth colour field, which a blur barely changes, and
+     every blurred panel costs a full-screen-sized backdrop read while scrolling); the dock and bars keep theirs */
+  html[data-atmo="glacier"] :is(.card, .tile, .album-card, .latest-card, .sheet-card, .gf-finder, .vault-valuation-hub, .trading-terminal-hub) {
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="glacier"]::before { animation: none !important; }
+}
+html[data-motion="calm"][data-atmo="glacier"]::before,
+html[data-motion="off"][data-atmo="glacier"]::before { animation: none !important; }
+/* the atlas legend's inline route colours were made for a near-black page: lift crimson on the glass */
+html[data-atmo="glacier"] .atlas-footer-bar strong[style*="#f43f5e"] { color: #ff8095 !important; }

@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-10, build tr107.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-10, build tr110.
 
-## State of the union (2026-10-10, build tr107)
+## State of the union (2026-10-10, build tr110)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
@@ -58,9 +58,10 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - Measure your phone's speed: Health → Measure speed → Add this speed report to my answers file, then send the answers file (#25).
 - Decide who gets which inventory copy: Health → Printable inventory (with values for the insurer, without for the family) (#64).
 - Decide: does every coin need both sides photographed? Or can the common side of common coins be shared from one good photo? It sets the size of the “other side” batch (194 coins) and #61.
-- Decide: should the opening film play once a day instead of every time the app opens?
+- Opening: the film now plays once a day by default, and every later open shows the theme's own 3-second motion. Change it in Scene Studio → Settings → Opening (Film every time, Theme motion, None) (#112).
 - Re-upload 4 photos smaller than 7 MB: C105–C113, C114, C115/116, C117–C119.
-- Try the Motion Lab and listen: jpavia10.github.io/titan-reliquary-preview/motion-lab/ (tell me the meter's number), and what sounds or feels off (#22).
+- Try the Motion Lab's six studies and pick what goes into the app: jpavia10.github.io/titan-reliquary-preview/motion-lab/ (coin flip, tile to coin view, Confirm seal, album settle, Morph, gold dust) (#56, #63), and say what sounds or feels off (#22).
+- Try the new theme effects on your phone: open a few themes (Scene Studio → Themes) and tell me which effects are too strong, too faint or stutter (#114).
 
 ## Questions for you (14 open, all in the app; only the coin itself can answer)
 
@@ -197,10 +198,15 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 - [ ] **#32 Split app.js into modules**: Steps 1–5 done (tr96–tr105; step 5 = the data layer, js/app-data.js). Next: the theme system and its effects (it shares a global name with the GPU effects, so it moves with a check), then the big wings one at a time, each smoke-tested. Needs first: nothing · Unlocks: #63, the redesign after #30 _[partly done, large]_
 - [ ] **#25 Speed budget and phone check**: Fixed limits are checked on every deploy (first load, page size, time to a real value, longest freeze). Now one tap brings your phone's real numbers: Health → Measure speed → Add this speed report to my answers file. Needs first: your phone report · Unlocks: #63, effects tuning _[partly done, medium]_
 
-## Parallel track · Motion (wanted, kept off the critical path)
+## Parallel track · Motion (the owner's videos of 2026-10-10: the 20 styles, six new themes, motion splashes and the Motion Lab)
 
-- [ ] **#56 Motion Lab test page**: First study live at /motion-lab/ (built by Grok, checked by me): gold and silver dust forms one of your real coins from its photo, then the 49 countries, then album A001; your finger stirs it; Still / Calm / Full. Next studies: the coin flip, a tile growing into the coin view, the Confirm seal, a coin settling into its album hole. Needs first: nothing: never touches the app · Unlocks: #63 _[partly done, medium]_
-- [ ] **#63 Motion into the app**: Only the studies you pick from #56, built on the chosen design, calm by default and off when the phone asks for less motion. Needs first: #30, #32, #25 and your picks from #56 (the motion setting #59 is done) _[large, new]_
+- [x] **#56 Motion Lab test page**: Done (tr110): six studies at /motion-lab/: gold dust (Grok), Morph (your second video, rebuilt with your coins: dust sheet, a coin formed from its photo, the burst, light ribbons, blue beams), coin flip with a rim light, a tile growing into the coin view, the Confirm seal (AI guess → Owner verified) and a coin settling into album A026. Still / Calm / Full on each. Tell me which ones you want in the app (#63). _[done]_
+- [ ] **#63 Motion into the app**: Started (tr108-tr110): the 20 animation styles now run inside the themes and every theme opens with its own motion splash (#110, #112). Still to come: only the Motion Lab studies you pick from #56 (coin flip, tile to coin view, Confirm seal, album settle), calm by default and off when the phone asks for less motion. Needs first: your picks from #56 (the motion setting #59 is done) _[partly done, large, new]_
+- [x] **#110 The 20 animation styles, inside the themes**: Done (tr108-tr110), from your first video: every one of the 20 styles is a live GPU effect in the theme it suits: Particles in Midnight Gallery, Liquid morph in The Mint, Holographic in Prism, Neon glow + Retro VHS in Neon Vault, Wireframe 3D in Solar Observatory, Glassmorphism in Hyperborean Vault, ASCII art in The Construct, Gradient mesh in Samadhi, Art deco in Nocturne, Halftone in Conservator, Neo-brutalism in Plaintext; the other nine got new themes (#111). Each theme's old signature effect stays underneath, softer, and each has a rare “moment” with a sound (#21). Every theme passes the contrast check. _[done]_
+- [x] **#111 Six new themes for the styles that had no home**: Done (tr108): Arcade (pixel art), Pulp Adventure (comic book), Drafting Room (blueprint), Clay Diorama (clay 3D + isometric), Bauhaus (Bauhaus + kinetic type) and Grand Terminal (split-flap departures board with your 50 countries). 26 themes now, in a new “Studio” group; each has its own colours, crest, sound scene and interface touches (ink outlines, pixel corners, blueprint lines...). The Themes picker now shows every theme with a small live preview. _[done]_
+- [x] **#112 A motion splash for every theme**: Done (tr110): each of the 26 themes opens with its own 3-second motion in its style (dust forming the title, molten letters, a KAPOW, a split-flap board, a coin drawn as a blueprint...). Scene Studio > Settings > Opening: Mix (the film on the first open of the day, the theme's motion after that; the default), Film every time, Theme motion, or None. Calm shows one still frame; Off skips it. _[done]_
+- [ ] **#113 Pictures for every theme card**: Requested (tr110): 52 images in the art queue, a picker card (two takes) and a wide hero for all 26 themes; the six new ones in their own medium (pixel art, comic panel, clay, Bauhaus poster). Any image AI with credits can take it; I review every picture and re-request weak ones. Needs first: an image AI with credits (Grok, Gemini or Muse) to claim artreq_20261010-1700_theme-thumbnails _[medium, new]_
+- [ ] **#114 Try the new effects on your phone**: Every effect and splash was tuned on a software graphics chip in my container, never on a real phone. Open a few themes on yours and tell me which effects are too strong, too faint or stutter; I tune them in one pass. Needs first: your phone, 10 minutes _[small, needs you, new]_
 
 ## Tier 2 · Capabilities on the foundation (each one names what it waits on)
 
@@ -229,9 +235,9 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 ## Tier 3 · Polish (never ahead of Tiers 0 to 2. No new themes.)
 
 - [ ] **#29 Make buttons look tappable**: Some controls do not look clickable, which is hardest on your dad. Needs first: #30 and #60 _[medium]_
-- [ ] **#23 Black Site terminal readability**: The one theme where text contrast is borderline with effects on. Needs first: nothing (reviewers: defer until #30) _[small]_
+- [x] **#23 Black Site terminal readability**: Done (tr109): the Construct's terminal is hidden on narrow screens and drawn at 14 px without glow; its falling code gave way to the new ASCII-art effect, which keeps clear of text. _[done]_
 - [ ] **#22 Tune sound and music from your listening**: Levels, rain, 3D placement, choir, drums: fix what you report. Needs first: your listening notes _[small, needs you]_
-- [ ] **#21 Sounds for the effect moments**: A whale call when the whale passes, a clang when the press strikes, a whoosh for the shooting star. Grok suggests parking this until #63 (calm by default). Needs first: nothing _[small]_
+- [x] **#21 Sounds for the effect moments**: Done (tr110): every effect moment has its own short sound (the whale, the press strike, the shooting star, POW, the clay drop, the foil sweep...), at most one every 12 seconds and only while the app is on screen; Scene Studio > Settings has an “Effect moment sounds” switch. _[done]_
 - [ ] **#28 Vault narration voice**: Review the spoken voice in the Vault wing. Grok suggests parking it. Needs first: your ears _[small, needs you]_
 - [ ] **#35 Finish the 12 missing splash films**: Any video AI, max 4 clips per run. Grok and Muse both suggest cutting this until the design is chosen (#30): about $52 bought 2 clips. Needs first: a video AI with credits, and #30 _[medium, needs you]_
 
@@ -302,3 +308,9 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 - [x] **#6 Health screen in the app**: Shows which build and data version you are seeing, offline cache state, photo coverage, problems found. _[done]_
 - [x] **#7 Automatic live-site check after each deploy**: A GitHub job confirms the live site really serves the new build and data. _[done]_
 - [x] **#8 Refresh button says what happened**: "Updated to tr92" or "Already current", never a silent reload. _[done]_
+- [x] **#110 The 20 animation styles, inside the themes**: Done (tr108-tr110), from your first video: every one of the 20 styles is a live GPU effect in the theme it suits: Particles in Midnight Gallery, Liquid morph in The Mint, Holographic in Prism, Neon glow + Retro VHS in Neon Vault, Wireframe 3D in Solar Observatory, Glassmorphism in Hyperborean Vault, ASCII art in The Construct, Gradient mesh in Samadhi, Art deco in Nocturne, Halftone in Conservator, Neo-brutalism in Plaintext; the other nine got new themes (#111). Each theme's old signature effect stays underneath, softer, and each has a rare “moment” with a sound (#21). Every theme passes the contrast check. _[done]_
+- [x] **#111 Six new themes for the styles that had no home**: Done (tr108): Arcade (pixel art), Pulp Adventure (comic book), Drafting Room (blueprint), Clay Diorama (clay 3D + isometric), Bauhaus (Bauhaus + kinetic type) and Grand Terminal (split-flap departures board with your 50 countries). 26 themes now, in a new “Studio” group; each has its own colours, crest, sound scene and interface touches (ink outlines, pixel corners, blueprint lines...). The Themes picker now shows every theme with a small live preview. _[done]_
+- [x] **#112 A motion splash for every theme**: Done (tr110): each of the 26 themes opens with its own 3-second motion in its style (dust forming the title, molten letters, a KAPOW, a split-flap board, a coin drawn as a blueprint...). Scene Studio > Settings > Opening: Mix (the film on the first open of the day, the theme's motion after that; the default), Film every time, Theme motion, or None. Calm shows one still frame; Off skips it. _[done]_
+- [x] **#21 Sounds for the effect moments**: Done (tr110): every effect moment has its own short sound (the whale, the press strike, the shooting star, POW, the clay drop, the foil sweep...), at most one every 12 seconds and only while the app is on screen; Scene Studio > Settings has an “Effect moment sounds” switch. _[done]_
+- [x] **#23 Black Site terminal readability**: Done (tr109): the Construct's terminal is hidden on narrow screens and drawn at 14 px without glow; its falling code gave way to the new ASCII-art effect, which keeps clear of text. _[done]_
+- [x] **#56 Motion Lab test page**: Done (tr110): six studies at /motion-lab/: gold dust (Grok), Morph (your second video, rebuilt with your coins: dust sheet, a coin formed from its photo, the burst, light ribbons, blue beams), coin flip with a rim light, a tile growing into the coin view, the Confirm seal (AI guess → Owner verified) and a coin settling into album A026. Still / Calm / Full on each. Tell me which ones you want in the app (#63). _[done]_

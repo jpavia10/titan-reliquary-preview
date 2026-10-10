@@ -153,11 +153,24 @@
     pow: { dur: 0.6, fn: function (c, o, t) { tone(c, o, t, 160, 0.12, 0.003, 0.25, "sine", 60); puff(c, o, t, 0.12, 0.06, "bandpass", 1400, 600, 0.8, 0.002); } },
     drop: { dur: 0.7, fn: function (c, o, t) { tone(c, o, t + 0.25, 320, 0.06, 0.004, 0.2, "sine", 120); puff(c, o, t + 0.25, 0.08, 0.03, "lowpass", 900, 300, 0.7, 0.002); } },
     redraw: { dur: 1.2, fn: function (c, o, t) { for (var i = 0; i < 3; i++) puff(c, o, t + i * 0.28, 0.18, 0.018, "bandpass", 3200, 2600, 2.5, 0.02); } },
-    compose: { dur: 0.8, fn: function (c, o, t) { tone(c, o, t, 880, 0.02, 0.002, 0.12, "triangle"); tone(c, o, t + 0.18, 660, 0.02, 0.002, 0.12, "triangle"); tone(c, o, t + 0.36, 990, 0.02, 0.002, 0.16, "triangle"); } }
+    compose: { dur: 0.8, fn: function (c, o, t) { tone(c, o, t, 880, 0.02, 0.002, 0.12, "triangle"); tone(c, o, t + 0.18, 660, 0.02, 0.002, 0.12, "triangle"); tone(c, o, t + 0.36, 990, 0.02, 0.002, 0.16, "triangle"); } },
+    /* styles-20 moments (wings/fx/styles-a.js, styles-c.js) */
+    gather: { dur: 3, fn: function (c, o, t) { puff(c, o, t, 2.4, 0.02, "bandpass", 1800, 6400, 2, 1.4); var n = [1047, 1319, 1568, 2093]; for (var i = 0; i < n.length; i++) tone(c, o, t + 0.5 + i * 0.35, n[i], 0.008, 0.2, 1.2); } },
+    drip: { dur: 0.6, fn: function (c, o, t) { tone(c, o, t, 1300, 0.03, 0.002, 0.16, "sine", 420); tone(c, o, t + 0.04, 2400, 0.006, 0.002, 0.08, "sine", 900); } },
+    swell: { dur: 3.4, fn: function (c, o, t) { puff(c, o, t, 3, 0.035, "lowpass", 180, 700, 0.7, 1.4); tone(c, o, t, 98, 0.03, 1.2, 1.8, "sine", 110); } },
+    "foil-sweep": { dur: 1.8, fn: function (c, o, t) { puff(c, o, t, 1.4, 0.022, "bandpass", 3500, 9500, 3, 0.4); tone(c, o, t + 0.3, 2794, 0.006, 0.05, 0.9); tone(c, o, t + 0.55, 3729, 0.005, 0.05, 0.8); } },
+    tear: { dur: 1, fn: function (c, o, t) { puff(c, o, t, 0.5, 0.04, "highpass", 2500, 900, 0.7, 0.005); for (var i = 0; i < 4; i++) tone(c, o, t + i * 0.07, 60 + i * 15, 0.03, 0.002, 0.05, "square"); } },
+    scan: { dur: 2, fn: function (c, o, t) { tone(c, o, t, 440, 0.01, 0.3, 1.4, "triangle", 1320); tone(c, o, t + 0.1, 442, 0.006, 0.3, 1.3, "triangle", 1330); } },
+    "brass-sweep": { dur: 2.2, fn: function (c, o, t) { puff(c, o, t, 1.8, 0.02, "highpass", 6000, 9000, 0.6, 0.5); tone(c, o, t + 0.2, 1175, 0.008, 0.1, 1.6); } }
   };
+  /* moments that borrow a sound from a close relative (the fx-v3 ones that never had their own, and the styles-20 ones) */
+  var MOMENT_ALIAS = { flicker: "sign-flicker", "aurora-surge": "aurora-flare", "glint-sweep": "shooting-star", bloom: "singing-bowl", misregister: "redraw",
+    "brass-glint": "brass-sweep", "case-glint": "shooting-star", "cold-breath": "door-gust", "field-surge": "transmutation", flare: "aurora-flare",
+    "ink-drop": "drop", "loupe-pass": "rescan", "moon-cloud": "door-gust", "petal-gust": "door-gust", prominence: "aurora-flare", sandstorm: "door-gust",
+    "spectrum-sweep": "foil-sweep", "spotlight-swing": "headlights", "wave-crest": "swell" };
   var lastMoment = 0;
   function playMoment(name) {
-    var def = MOMENT[name]; if (!def || !S.moments) return false;
+    var def = MOMENT[name] || MOMENT[MOMENT_ALIAS[name]]; if (!def || !S.moments) return false;
     var why = blocked(); if (why || document.hidden) { count(stats.skipped, why || "hidden"); return false; }
     var now = performance.now(); if (now - lastMoment < 12000) { count(stats.skipped, "moment-rate"); return false; }
     var r = route(); if (!r) return false;
@@ -243,7 +256,7 @@
   }
 
   window.TitanUISounds = {
-    play: play, mount: mount, playMoment: playMoment, moments: function () { return Object.keys(MOMENT); },
+    play: play, mount: mount, playMoment: playMoment, moments: function () { return Object.keys(MOMENT).concat(Object.keys(MOMENT_ALIAS)); },
     setEnabled: function (v) { S.on = !!v; save(); }, isEnabled: function () { return S.on; },
     setVolume: function (v) { S.vol = Math.min(1, Math.max(0, v)); save(); }, getVolume: function () { return S.vol; },
     stats: function () { return { played: stats.played, skipped: stats.skipped, duckCalls: stats.duckCalls, holds: stats.holds, voices: voices.length, hold: hold.db, muted: muted, on: S.on, gestured: gestured, shared: !!busOf(), ownCtx: ownCtx ? ownCtx.state : "none" }; },

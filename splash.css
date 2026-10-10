@@ -93,3 +93,14 @@ html.ts-film-reveal #app { animation: tsAppRise var(--ts-exit, 1.6s) cubic-bezie
   #tr-splash.ts-film-exit .ts-film { transform: none; filter: none; }
   html.ts-film-reveal #app { animation-name: none; }
 }
+
+/* ---------- Motion splash (2026-10-10, js/motion-splash.js): the theme's own 2.5-3.5 s canvas opening ----------
+   One 2D canvas under the controls; the root takes the theme's background (--ts-bg) so there is never a black flash on a light theme.
+   The caller dissolves it (.ts-out, opacity) into the app, or the canvas clears itself to transparent (.ts-handoff). */
+.ts-mo { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; pointer-events: none; }
+#tr-splash.ts-motion { background: var(--ts-bg, #020202); }
+#tr-splash.ts-motion .ts-gl, #tr-splash.ts-motion .ts-still, #tr-splash.ts-motion .ts-copy { display: none; }
+#tr-splash.ts-motion.ts-handoff { background: transparent; }
+/* Skip stays a 48 px, readable pill over any theme (light themes too): solid dark fill, white 16 px text */
+#tr-splash.ts-motion .ts-skip, #tr-splash.ts-motion .ts-sound { background: rgba(8, 8, 10, .82); border-color: rgba(255, 255, 255, .6); color: #fff; z-index: 5; }
+@media (prefers-reduced-motion: reduce) { .ts-mo { transition: none; } }

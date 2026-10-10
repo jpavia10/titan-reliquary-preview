@@ -145,3 +145,28 @@ html[data-atmo="solaris"] .album-binder-card { background: #101015; border-color
 @media (prefers-reduced-motion: reduce) {
   html[data-atmo="solaris"] body, html[data-atmo="solaris"] .hero-glow { animation: none; }
 }
+
+/* 7. Style (styles-20): wireframe -----------------------------------------------------------------------
+   The UI side of the TitanFX "style-wireframe" armillary: instrument panels get thin amber registration marks in their
+   four corners, like the corner ticks of a plotted wireframe. Background lines only (drawn under the content), no layout,
+   nothing moves in this section. */
+/* the four corner marks are tiny SVG images (one L each), not gradients: the theme audit reads every gradient colour as a
+   possible panel background, and these 12 px marks never sit behind text */
+html[data-atmo="solaris"] {
+  --sol-tl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M.5 12V.5H12' fill='none' stroke='%23ffb52e' stroke-opacity='.6'/%3E%3C/svg%3E");
+  --sol-tr: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 .5H11.5V12' fill='none' stroke='%23ffb52e' stroke-opacity='.6'/%3E%3C/svg%3E");
+  --sol-bl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M.5 0V11.5H12' fill='none' stroke='%23ffb52e' stroke-opacity='.6'/%3E%3C/svg%3E");
+  --sol-br: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 11.5H11.5V0' fill='none' stroke='%23ffb52e' stroke-opacity='.6'/%3E%3C/svg%3E");
+}
+html[data-atmo="solaris"] :is(.card, .album-card, .latest-card, .sheet-card, .gf-finder, #pane-hall .trading-terminal-hub) {
+  background-image: var(--sol-tl), var(--sol-tr), var(--sol-bl), var(--sol-br);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: left 6px top 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+}
+html[data-atmo="solaris"] #pane-hall .vault-valuation-hub {
+  background-image: var(--sol-tl), var(--sol-tr), var(--sol-bl), var(--sol-br), linear-gradient(180deg, var(--surface2) 0%, var(--surface) 100%);
+  background-repeat: no-repeat;
+  background-size: 12px 12px, 12px 12px, 12px 12px, 12px 12px, 100% 100%;
+  background-position: left 6px top 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px, 0 0;
+}

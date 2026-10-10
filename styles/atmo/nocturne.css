@@ -138,3 +138,31 @@ html[data-atmo="nocturne"] :is(.bullion-lot-card, .vault-dash-card, .vault-custo
   html[data-atmo="nocturne"] .exhibit-bg,
   html[data-atmo="nocturne"] .wordmark { animation: none; }
 }
+
+/* 7. Style (styles-20): art deco rules ------------------------------------------------------------------
+   The UI side of the TitanFX "style-deco" sunburst: thin brass double rules. Wing titles get a double rule with a
+   diamond at its centre, section heads keep their double rule in brass, and the large panels get a second thin rule
+   drawn just inside the edge (an outline with a negative offset; it yields to the focus ring). Borders, outlines and
+   ornaments only: nothing here changes layout, and nothing moves. */
+html[data-atmo="nocturne"] {
+  --deco: rgba(207, 169, 95, 0.50);        /* brass rule */
+  --deco-soft: rgba(207, 169, 95, 0.26);   /* inner rule */
+}
+html[data-atmo="nocturne"] .wing-head { position: relative; border-bottom-color: transparent; }
+html[data-atmo="nocturne"] .wing-head::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 5px; pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, var(--deco) 10% 90%, transparent) 0 0 / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, var(--deco) 10% 90%, transparent) 0 4px / 100% 1px no-repeat;
+}
+html[data-atmo="nocturne"] .wing-head::before {
+  content: ""; position: absolute; left: 50%; bottom: -5px; width: 9px; height: 9px; margin-left: -4px;
+  transform: rotate(45deg); background: var(--bg); border: 1px solid var(--gold); pointer-events: none; z-index: 1;
+}
+html[data-atmo="nocturne"] .sec-head { border-bottom-color: var(--deco); }
+html[data-atmo="nocturne"] :is(.card, .album-card, .latest-card, .sheet-card, .gf-finder, .wing-card, .note-card,
+  #pane-hall .vault-valuation-hub, #pane-hall .trading-terminal-hub):not(:focus-visible) {
+  outline: 1px solid var(--deco-soft);
+  outline-offset: -5px;
+}
+html[data-atmo="nocturne"] .drawer-inner { outline: 1px solid var(--deco-soft); outline-offset: -6px; }

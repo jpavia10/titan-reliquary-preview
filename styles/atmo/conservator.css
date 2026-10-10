@@ -292,3 +292,26 @@ html[data-atmo="conservator"] .atlas-footer-bar strong[style*="#10b981"] { color
   html[data-atmo="conservator"] .hero-glow,
   html[data-atmo="conservator"] .wordmark { animation: none; }
 }
+
+/* 9. Style (styles-20): halftone print -------------------------------------------------------------------
+   The UI side of the TitanFX "style-halftone" screen: a fine ink dot screen fades in from the top-right corner of the
+   paper cards and runs as a short strip under each wing title, like a printed plate. Ink-toned (oxblood) and under 16 %
+   alpha, drawn behind the content, so ink text on paper stays >= 7:1. Backgrounds only: no layout, nothing moves. */
+html[data-atmo="conservator"] :is(.card, .album-card, .latest-card, .sheet-card, .gf-finder, #pane-hall .trading-terminal-hub) {
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent 42%),
+    radial-gradient(120% 110% at 100% 0%, transparent 0%, var(--surface) 58%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Ccircle cx='3' cy='3' r='1.1' fill='%237a2e2e' fill-opacity='.16'/%3E%3C/svg%3E");
+  background-size: auto, auto, 6px 6px;   /* the dot screen is an SVG tile (about 7 % ink coverage, top-right corner only); as a gradient the audit read it as a solid tint */
+}
+html[data-atmo="conservator"] .wing-head { position: relative; }
+html[data-atmo="conservator"] .wing-head::after {
+  content: ""; position: absolute; left: 0; width: min(46%, 360px); bottom: -5px; height: 9px; pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(122, 46, 46, 0.5) 1.1px, transparent 1.7px) 0 0 / 5px 5px;
+  -webkit-mask-image: linear-gradient(90deg, #000, transparent);
+  mask-image: linear-gradient(90deg, #000, transparent);
+}
+
+/* "Now exhibiting": the kicker takes the case's pale gold (it is inside #exhibit) but its bar is drawn on paper, so it gets a
+   small walnut chip of its own (the same fix as the paper themes in styles/style-layer.css) */
+html[data-atmo="conservator"] #exhibit .exhibit-kicker { display: inline-block; padding: 0.15em 0.55em; border-radius: 4px; background: var(--case-bg); color: var(--case-gold-soft, #e9d7a0); }

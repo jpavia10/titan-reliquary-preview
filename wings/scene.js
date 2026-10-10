@@ -109,6 +109,7 @@
   document.body.appendChild(sheet);
   /* TitanFX hook (effects control in Settings) */ if (window.TitanFXUI) window.TitanFXUI.mount(sheet);
   /* TitanMotion hook (one motion setting Full / Calm / Off + haptics, fix list #59) */ if (window.TitanMotion) window.TitanMotion.mount(sheet);
+  /* TitanOpening hook (Opening: Mix / Film / Theme motion / None, js/motion-splash.js) */ if (window.TitanOpening) window.TitanOpening.mount(sheet);
   /* TitanUISounds hook (interface sounds toggle + volume) */ if (window.TitanUISounds) window.TitanUISounds.mount(sheet);
 
   // Auto-refresh toggle and the "checked 23s ago" line live in Settings now (same elements, same ids).

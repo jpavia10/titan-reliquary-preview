@@ -324,3 +324,31 @@ html[data-atmo="kaleido"] .country-strip { scrollbar-color: var(--gold-deep) tra
   html[data-atmo="kaleido"] .tab:active { transform: none; }
   html[data-atmo="kaleido"] .latest-card:hover { filter: none; }
 }
+
+/* 7. Style (styles-20): holographic foil (FX "style-holo") ----------------------------------------------------------
+   The UI side of the foil look: every panel gets a one-pixel iridescent edge (a pearl gradient that slowly slides along the
+   border, drawn with a masked ::after so the card's content and text are untouched). Hover brightens it. Tokens and ornaments
+   only; no layout change. The slide stops under reduced motion and under Motion "Calm" and "Off". */
+html[data-atmo="kaleido"] :is(.metal-tile, .album-card) { position: relative; }
+html[data-atmo="kaleido"] :is(.card, .tile, .metal-tile, .album-card)::after {
+  content: "";
+  position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(115deg, #ff9bf0, #8fd9ff 22%, #b8ffd9 40%, #fff0a8 55%, #ffb4e6 72%, #a99bff 88%, #ff9bf0);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0.42;
+  pointer-events: none;
+  animation: kal-foil 14s linear infinite;
+}
+@media (hover: hover) {
+  html[data-atmo="kaleido"] :is(.card, .tile, .metal-tile, .album-card):hover::after { opacity: 0.8; }
+}
+@keyframes kal-foil { from { background-position: 0% 50%; } to { background-position: 300% 50%; } }
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  /* touch screens too: animating background-position repaints every edge each frame; the FX overlay carries the motion there */
+  html[data-atmo="kaleido"] :is(.card, .tile, .metal-tile, .album-card)::after { animation: none; background-position: 40% 50%; }
+}
+html[data-motion="calm"][data-atmo="kaleido"] :is(.card, .tile, .metal-tile, .album-card)::after,
+html[data-motion="off"][data-atmo="kaleido"] :is(.card, .tile, .metal-tile, .album-card)::after { animation: none; background-position: 40% 50%; }

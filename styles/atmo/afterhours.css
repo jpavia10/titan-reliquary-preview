@@ -133,3 +133,18 @@ html[data-atmo="afterhours"] :is(.bullion-lot-card, .vault-dash-card, .vault-cus
   html[data-atmo="afterhours"] .exhibit-bg,
   html[data-atmo="afterhours"] .wordmark { animation: none; }
 }
+
+/* 7. Style (styles-20): moonlit particles (FX "style-particles") --------------------------------------------------
+   The UI side of the dust-and-beams look: panels are lit from the top left like the shafts, and with the GPU effect off the page
+   paints three static shafts of its own from the same corner. Tokens and ornaments only; nothing here moves or changes layout. */
+html[data-atmo="afterhours"] :is(.card, .tile, .wing-card, .note-card, .album-card, .latest-card) {
+  box-shadow: var(--elev-1), inset 16px 16px 40px -26px rgba(150, 190, 255, 0.13);
+}
+html:not([data-titanfx="on"])[data-atmo="afterhours"] body {
+  background-image:
+    conic-gradient(from 0deg at -6% -8%, transparent 0 96deg, rgba(150, 190, 255, 0.075) 112deg, transparent 124deg,
+      transparent 128deg, rgba(150, 190, 255, 0.09) 138deg, transparent 150deg,
+      transparent 154deg, rgba(150, 190, 255, 0.055) 162deg, transparent 172deg),
+    linear-gradient(180deg, rgba(130, 170, 235, 0.07), transparent 32%),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(2, 4, 9, 0.6) 100%);
+}

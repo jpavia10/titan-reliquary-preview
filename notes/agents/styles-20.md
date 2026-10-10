@@ -9,6 +9,28 @@ This lifts, for theme and motion work only, the design pause and the "theme cata
 `notes/agents/theme-pot.md` still hold where they can: token-only new themes, AA contrast, the perf budget, reduced motion. Hero art for new
 themes comes later from the art queue (rule 9); until then the picker shows the swatch.
 
+## Status (tr110, 2026-10-10): all of it is built
+- **All 20 style effects are live** as TitanFX presets: `wings/fx/styles-a.js` (particles, liquid, holo, neon, vhs), `styles-b.js` (ascii,
+  splitflap, kinetic, pixel), `styles-c.js` (wireframe, glass, mesh, deco, halftone), `styles-d.js` (comic, blueprint, clay, bauhaus).
+  Styles A, C and the motion splashes were started by agents that hit their usage limit; the integrator finished and tested them.
+- Theme mapping (`wings/fx/ui.js` ATMO + manifest `fx`): the style leads and the fx-v3 signature stays underneath at a lower weight:
+  afterhours `style-particles+moonlit*0.35`, colossus `style-liquid+mint-forge*0.5`, kaleido `style-holo+prismatic*0.45`,
+  neon `style-neon+style-vhs*0.7`, solaris `style-wireframe+coronagraph*0.5`, glacier `style-glass+polar-ice*0.4`,
+  samadhi `style-mesh+incense-curl*0.5`, nocturne `style-deco+bluenote*0.45`, conservator `style-halftone+loupe*0.4`, construct `style-ascii`;
+  new themes: arcade `style-pixel`, pulp `style-comic`, drafting `style-blueprint`, diorama `style-clay`, bauhaus `style-bauhaus+style-kinetic*0.8`,
+  terminal `style-splitflap`. Notepad's neo-brutalism is UI only (`data-ui="brutal"`, style-layer.css) on top of `paperink`.
+- Every effect moment has a sound (`wings/ui-sounds.js` MOMENT + MOMENT_ALIAS; rate-limited to one per 12 s, only while visible).
+- UI layer per theme: `styles/atmo/{id}.css` "Style (styles-20)" sections (glacier frosted glass, kaleido foil edge, neon chroma split,
+  nocturne deco rules, solaris corner marks, conservator dot screen, samadhi mesh, afterhours lit panels, colossus chrome lip). On touch
+  screens glacier's panels skip the backdrop blur (dock and bars keep it) and kaleido's foil edge does not slide (perf).
+- Contrast audit (`tools/themes/audit.js`): all 26 themes at the shared baseline (slab labels + the disabled zip button only).
+  Gotcha: the audit reads every colour stop of a background gradient as a possible panel colour, so small ornaments (corner marks, dot
+  screens) are SVG data-URI tiles, not gradients.
+- Motion splashes: all 26 themes (18 own styles + the crest-particle intro for the other 8), Opening setting in Scene Studio > Settings.
+  Tested: motion ends ~4 s after load, Calm / reduced motion = one still frame (~2.4 s), None = straight in, Mix = film on the first open of the day.
+- Motion Lab: 6 studies (`motion-lab/index.html`). Theme art: `docs/art/requests/artreq_20261010-1700_theme-thumbnails.json` (52 images: all 26 themes).
+- Not yet seen on a real GPU or phone: every effect was tuned on software WebGL in the container (quality tier 0); the owner's phone is the real test.
+
 ## 1. Where each style lives
 
 | # | Style | Theme (id) | How it shows |

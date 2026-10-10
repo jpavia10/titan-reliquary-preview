@@ -11,7 +11,10 @@
    reeded edge), PCF-soft shadows, cone-shader light shafts with animated streaks, GPU dust motes, MSAA HDR target,
    dual-filter bloom, depth-of-field focus pull, ACES, grain, vignette. Optional WebAudio sound (off by default).
    Tiers 0-4 (?splashq=N forces one); the tier is chosen from the frame time of the first ~500 ms (still black).
-   Replay: TitanSplash.replay() or ?splash=1.  Skip: ?nosplash, or tap / click / any key.  See notes/agents/splash-v3.md */
+   Replay: TitanSplash.replay() or ?splash=1.  Skip: ?nosplash, or tap / click / any key.  See notes/agents/splash-v3.md
+   Opening setting (Scene Studio > Settings > Opening, js/motion-splash.js): TitanOpening.pick() chooses "film" (everything below: the film,
+   then the 3D vault as its fallback), "motion" (the theme's own 2.5-3.5 s canvas splash, motionPath()) or "none" (straight into the app).
+   Test overrides: ?opening=motion|film|none, ?theme=<id> (the splash only), ?splashhold (no clock; TitanOpening._debug.seek(t)). */
 (function () {
   "use strict";
   var html = document.documentElement;
@@ -46,6 +49,8 @@
     { country: "Guatemala", year: "1934", denom: "10 Centavos", scan: "C235" },
     { country: "Australia", year: "1943", denom: "Threepence", scan: "C031" }
   ];
+  var opening = "film";                          // "film" | "motion" | "none" (TitanOpening.pick(): the Opening setting, Motion level, ?opening=)
+  try { if (window.TitanOpening && window.TitanOpening.pick) opening = window.TitanOpening.pick(); } catch (e) { opening = "film"; }
   var featured = null, featWait = [];
   function titleCase(s) { return s.replace(/\b([a-z])([a-z]*)/g, function (m, a, b) { return a.toUpperCase() + b; }); }
   function fromFlip(f) {
@@ -53,7 +58,7 @@
     var denom = f.label ? String(f.label).split(" · ").slice(2).join(" · ") : "";
     if (!denom || /^\d{4}/.test(denom)) denom = titleCase(String(f.denom));
     var ph = f.photos && f.photos.obv ? String(f.photos.obv) : (f.photo_obv ? String(f.photo_obv) : "");   // hook: once Phase 2 photos exist, the real obverse becomes the coin face
-    return { country: country, year: String(f.year), denom: denom, scan: f.scan || "", photo: ph };
+    return { country: country, year: String(f.year), denom: denom, scan: f.scan || "", photo: ph, thumb: f.thumb ? String(f.thumb) : "" };
   }
   function pickFeatured(v) {
     if (featured) return true;
@@ -63,6 +68,10 @@
     var list = v.flips.filter(function (f) { return f && f.country && f.year && f.denom && pieces && pieces[f.scan]; });
     var withPhoto = v.flips.filter(function (f) { return f && f.country && f.year && f.denom && f.photos && f.photos.obv; });
     if (withPhoto.length) list = withPhoto;
+    if (opening === "motion") {                       // the motion splash draws the coin from its round phone-photo cut-out
+      var withThumb = v.flips.filter(function (f) { return f && f.country && f.year && f.denom && f.thumb; });
+      if (withThumb.length) list = withThumb;
+    }
     if (!list.length) return false;
     var last = null; try { last = localStorage.getItem("tr_splash_feat_v3"); } catch (e) {}
     var f, tries = 0;
@@ -203,7 +212,7 @@
   var soundHint = null, soundUnlocked = false;
   if (Sfx.isOn()) {
     Sfx.gesture();
-    later(function () {
+    if (opening !== "motion") later(function () {
       if (state === "done" || !Sfx.isOn() || !Sfx.blocked()) { soundUnlocked = true; return; }
       soundHint = document.createElement("button"); soundHint.type = "button"; soundHint.className = "ts-sound-hint"; soundHint.textContent = "Tap for sound";
       soundHint.style.cssText = "position:absolute;left:50%;bottom:calc(14% + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:6;padding:12px 22px;min-height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(10,10,10,.55);color:#f3efe6;font:600 16px/1 system-ui,sans-serif;letter-spacing:.04em;backdrop-filter:blur(6px)";
@@ -255,6 +264,7 @@
   var finished = false;
   // quick = fade the whole splash out over a short time; otherwise the canvas is already transparent and we just clean up
   var filmEl = null;                                  // the playing opening film, if any (FILM path)
+  var motion = null;                                  // the running theme motion splash, if any (MOTION path)
   function finish(quick, ms) {
     if (finished) return;
     if (filmEl && quick) return filmExit(Math.max(ms || 0, 0.9));   // skip, cap or end: always the zoom-through, never a hard cut
@@ -298,6 +308,7 @@
     root.removeEventListener("pointerdown", onPointer);
     if (gl) { try { gl.dispose(); } catch (e) {} }
     gl = null;
+    if (motion) { try { motion.stop(); } catch (e) {} motion = null; }
     Sfx.stop(1.6);
     lockApp(false);
     html.classList.remove("ts-on", "ts-reveal", "ts-film-reveal");
@@ -335,6 +346,33 @@
       else finish(true, 0.3);
     });
   }
+  /* ---------- NONE: the owner chose no opening (Scene Studio > Settings > Opening) ---------- */
+  if (opening === "none") { finish(false); return; }
+
+  /* ---------- MOTION path (2026-10-10): the theme's own 2.5-3.5 s canvas splash (js/motion-splash.js). Calm = one still frame of it
+     for about a second, then a fade (TitanOpening handles that); Off never gets here. It dissolves into the app, never a hard cut. ---------- */
+  if (opening === "motion" && window.TitanOpening && window.TitanOpening.play && motionPath()) return;
+  function motionPath() {
+    var TO = window.TitanOpening, started = false;
+    function go() {
+      if (started || state === "done") return;
+      started = true;
+      try {
+        motion = TO.play(root, TO.theme(), featured, function (info) {
+          if (state === "done") return;
+          if (info && info.wiped) finish(false); else finish(true, 0.7);          // wiped: the canvas already cleared itself; else a 0.7 s dissolve
+        }, { cue: function () { if (Sfx.isOn() && !Sfx.blocked()) Sfx.shimmer(); } });
+      } catch (err) {
+        if (window.console) console.warn("opening motion", err);
+        motion = null; finish(true, 0.25);
+      }
+    }
+    whenFeatured(go);                                  // the coin is known (or fell back) within ~0.9 s; start by 0.3 s whatever happens
+    later(go, 300);
+    whenFeatured(function () { if (motion && featured && featured.thumb) { try { motion.feature(featured); } catch (e) {} } });
+    return true;
+  }
+
   if (reduce) { stillPath("reduced"); return; }
 
   /* ---------- FILM path (2026-10-01): a photoreal AI-generated opening film, when one has been imported ----------

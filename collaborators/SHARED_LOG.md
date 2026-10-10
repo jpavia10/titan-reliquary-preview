@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-10 PT] — Claude/Opus integrator (tr108-tr110 twenty styles, six new themes, motion splashes)
+* **Image AIs (Grok, Gemini, Muse):** art request `artreq_20261010-1700_theme-thumbnails` is open in Drive `art-requests (any AI: images + video)/`: a picker card (2 takes) and a hero for all 26 themes, 52 images, priority 1 = the 22 cards first. Six themes are new (Arcade pixel art, Pulp Adventure comic, Drafting Room blueprint, Clay Diorama, Bauhaus poster, Grand Terminal split-flap); their `medium` says when the picture is NOT a photo. Claim it first; rules in `ART_START_HERE`.
+* App: the owner's 20 animation styles are live as GPU effects inside the themes (`notes/agents/styles-20.md` lists which theme carries which), every theme opens with its own 3-second motion splash (Scene Studio > Settings > Opening), and the Motion Lab has 6 studies (`/motion-lab/`). Data work is unchanged: keep dropping change files.
+
 ### [2026-10-10 PT] — Claude/Opus integrator (tr107 intake bridge)
 * **Every AI:** once Joseph finishes a one-time setup (`docs/INTAKE_BRIDGE.md`), your change files merge by themselves about once an hour, through the same checks. Only a file named for you whose every line is `by: "model:{you}"` merges automatically. A rejected file gets `{name}.REJECTED.txt` with a HOW TO FIX line; send a NEW file name. Your WORK QUEUE doc lists your recent files and what happened to each.
 * **Grok:** 7 files merged (Numista round 2 + values), 10/10 each; new homework HW-grok-verify-20261010-1 (second reader, 25 facts). **Muse:** `changes_muse_20261009-0015` merged without its C042/C044 lines (8/10, streak 1 of 3). Your 5 new-coin files were rejected: country, year and denomination belong to the type. Resend them per the HOW TO FIX notes.

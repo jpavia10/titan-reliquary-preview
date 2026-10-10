@@ -1,5 +1,5 @@
 {
- "version": 21,
+ "version": 22,
  "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most: the system that researches the collection by itself first, then truth and safety, polish last. Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
  "sotu": {
   "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
@@ -134,16 +134,20 @@
    "Or can the common side of common coins be shared from one good photo? It sets the size of the “other side” batch (194 coins) and #61."
   ],
   [
-   "Decide: should the opening film play once a day",
-   "instead of every time the app opens?"
+   "Opening: the film now plays once a day by default,",
+   "and every later open shows the theme's own 3-second motion. Change it in Scene Studio → Settings → Opening (Film every time, Theme motion, None) (#112)."
   ],
   [
    "Re-upload 4 photos smaller than 7 MB:",
    "C105–C113, C114, C115/116, C117–C119."
   ],
   [
-   "Try the Motion Lab and listen:",
-   "jpavia10.github.io/titan-reliquary-preview/motion-lab/ (tell me the meter's number), and what sounds or feels off (#22)."
+   "Try the Motion Lab's six studies and pick what goes into the app:",
+   "jpavia10.github.io/titan-reliquary-preview/motion-lab/ (coin flip, tile to coin view, Confirm seal, album settle, Morph, gold dust) (#56, #63), and say what sounds or feels off (#22)."
+  ],
+  [
+   "Try the new theme effects on your phone:",
+   "open a few themes (Scene Studio → Themes) and tell me which effects are too strong, too faint or stutter (#114)."
   ]
  ],
  "sections": [
@@ -239,14 +243,19 @@
   },
   {
    "title": "Parallel track · Motion",
-   "sub": "wanted, kept off the critical path",
+   "sub": "the owner's videos of 2026-10-10: the 20 styles, six new themes, motion splashes and the Motion Lab",
    "cls": "par",
    "groups": [
     {
      "label": null,
      "items": [
       56,
-      63
+      63,
+      110,
+      111,
+      112,
+      113,
+      114
      ]
     }
    ]
@@ -378,7 +387,13 @@
   34,
   6,
   7,
-  8
+  8,
+  110,
+  111,
+  112,
+  21,
+  23,
+  56
  ],
  "items": {
   "1": {
@@ -623,14 +638,14 @@
   },
   "21": {
    "title": "Sounds for the effect moments",
-   "desc": "A whale call when the whale passes, a clang when the press strikes, a whoosh for the shooting star. Grok suggests parking this until #63 (calm by default).",
+   "desc": "Done (tr110): every effect moment has its own short sound (the whale, the press strike, the shooting star, POW, the clay drop, the foil sweep...), at most one every 12 seconds and only while the app is on screen; Scene Studio > Settings has an “Effect moment sounds” switch.",
    "needs": "nothing",
    "unlocks": null,
    "size": "small",
    "you": false,
    "new": false,
    "partly": false,
-   "state": "open",
+   "state": "done",
    "note": null
   },
   "22": {
@@ -647,14 +662,14 @@
   },
   "23": {
    "title": "Black Site terminal readability",
-   "desc": "The one theme where text contrast is borderline with effects on.",
+   "desc": "Done (tr109): the Construct's terminal is hidden on narrow screens and drawn at 14 px without glow; its falling code gave way to the new ASCII-art effect, which keeps clear of text.",
    "needs": "nothing (reviewers: defer until #30)",
    "unlocks": null,
    "size": "small",
    "you": false,
    "new": false,
    "partly": false,
-   "state": "open",
+   "state": "done",
    "note": null
   },
   "24": {
@@ -1043,14 +1058,14 @@
   },
   "56": {
    "title": "Motion Lab test page",
-   "desc": "First study live at /motion-lab/ (built by Grok, checked by me): gold and silver dust forms one of your real coins from its photo, then the 49 countries, then album A001; your finger stirs it; Still / Calm / Full. Next studies: the coin flip, a tile growing into the coin view, the Confirm seal, a coin settling into its album hole.",
+   "desc": "Done (tr110): six studies at /motion-lab/: gold dust (Grok), Morph (your second video, rebuilt with your coins: dust sheet, a coin formed from its photo, the burst, light ribbons, blue beams), coin flip with a rim light, a tile growing into the coin view, the Confirm seal (AI guess → Owner verified) and a coin settling into album A026. Still / Calm / Full on each. Tell me which ones you want in the app (#63).",
    "needs": "nothing: never touches the app",
    "unlocks": "#63",
    "size": "medium",
    "you": false,
    "new": false,
-   "partly": true,
-   "state": "open",
+   "partly": false,
+   "state": "done",
    "note": null
   },
   "57": {
@@ -1127,13 +1142,13 @@
   },
   "63": {
    "title": "Motion into the app",
-   "desc": "Only the studies you pick from #56, built on the chosen design, calm by default and off when the phone asks for less motion.",
-   "needs": "#30, #32, #25 and your picks from #56 (the motion setting #59 is done)",
+   "desc": "Started (tr108-tr110): the 20 animation styles now run inside the themes and every theme opens with its own motion splash (#110, #112). Still to come: only the Motion Lab studies you pick from #56 (coin flip, tile to coin view, Confirm seal, album settle), calm by default and off when the phone asks for less motion.",
+   "needs": "your picks from #56 (the motion setting #59 is done)",
    "unlocks": null,
    "size": "large",
    "you": false,
    "new": true,
-   "partly": false,
+   "partly": true,
    "state": "open",
    "note": null
   },
@@ -1681,6 +1696,66 @@
    "title": "Your dad's phone",
    "desc": "The Simple view as an icon on his home screen, opening straight to “Do I have…?”, read-only, with large type checked on his own phone.",
    "needs": "his phone for 10 minutes",
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "110": {
+   "title": "The 20 animation styles, inside the themes",
+   "desc": "Done (tr108-tr110), from your first video: every one of the 20 styles is a live GPU effect in the theme it suits: Particles in Midnight Gallery, Liquid morph in The Mint, Holographic in Prism, Neon glow + Retro VHS in Neon Vault, Wireframe 3D in Solar Observatory, Glassmorphism in Hyperborean Vault, ASCII art in The Construct, Gradient mesh in Samadhi, Art deco in Nocturne, Halftone in Conservator, Neo-brutalism in Plaintext; the other nine got new themes (#111). Each theme's old signature effect stays underneath, softer, and each has a rare “moment” with a sound (#21). Every theme passes the contrast check.",
+   "needs": null,
+   "unlocks": "#114",
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "111": {
+   "title": "Six new themes for the styles that had no home",
+   "desc": "Done (tr108): Arcade (pixel art), Pulp Adventure (comic book), Drafting Room (blueprint), Clay Diorama (clay 3D + isometric), Bauhaus (Bauhaus + kinetic type) and Grand Terminal (split-flap departures board with your 50 countries). 26 themes now, in a new “Studio” group; each has its own colours, crest, sound scene and interface touches (ink outlines, pixel corners, blueprint lines...). The Themes picker now shows every theme with a small live preview.",
+   "needs": null,
+   "unlocks": "#113",
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "112": {
+   "title": "A motion splash for every theme",
+   "desc": "Done (tr110): each of the 26 themes opens with its own 3-second motion in its style (dust forming the title, molten letters, a KAPOW, a split-flap board, a coin drawn as a blueprint...). Scene Studio > Settings > Opening: Mix (the film on the first open of the day, the theme's motion after that; the default), Film every time, Theme motion, or None. Calm shows one still frame; Off skips it.",
+   "needs": null,
+   "unlocks": null,
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
+   "note": null
+  },
+  "113": {
+   "title": "Pictures for every theme card",
+   "desc": "Requested (tr110): 52 images in the art queue, a picker card (two takes) and a wide hero for all 26 themes; the six new ones in their own medium (pixel art, comic panel, clay, Bauhaus poster). Any image AI with credits can take it; I review every picture and re-request weak ones.",
+   "needs": "an image AI with credits (Grok, Gemini or Muse) to claim artreq_20261010-1700_theme-thumbnails",
+   "unlocks": null,
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "114": {
+   "title": "Try the new effects on your phone",
+   "desc": "Every effect and splash was tuned on a software graphics chip in my container, never on a real phone. Open a few themes on yours and tell me which effects are too strong, too faint or stutter; I tune them in one pass.",
+   "needs": "your phone, 10 minutes",
    "unlocks": null,
    "size": "small",
    "you": true,

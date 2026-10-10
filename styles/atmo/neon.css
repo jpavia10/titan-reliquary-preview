@@ -336,3 +336,30 @@ html[data-atmo="neon"] #dust-layer i {
   html[data-atmo="neon"] .tile:hover,
   html[data-atmo="neon"] .btn:hover { transform: none; }
 }
+
+/* 7. Style (styles-20): neon glow + VHS (FX "style-neon" and "style-vhs") -------------------------------------------
+   The UI side: headlines get the tape's chroma split (a magenta and a cyan copy a pixel either side of the white text, large
+   type only, so contrast is unchanged), the wordmark takes a brief tracking jitter every few seconds, and panels pick up a faint
+   tube glow on their edge. Tokens and ornaments only; no layout change. The jitter stops under reduced motion and under
+   Motion "Calm" and "Off". */
+html[data-atmo="neon"] .wing-head h2 {
+  text-shadow: -1px 0 rgba(255, 60, 170, 0.65), 1px 0 rgba(40, 230, 255, 0.65), 0 0 14px rgba(53, 230, 255, 0.45);
+}
+html[data-atmo="neon"] .wordmark {
+  text-shadow: -1.5px 0 rgba(255, 60, 170, 0.8), 1.5px 0 rgba(40, 230, 255, 0.8), 0 0 2px #fff, 0 0 10px rgba(255, 92, 188, 0.9), 0 0 28px rgba(255, 92, 188, 0.55), 0 0 60px rgba(155, 107, 255, 0.35) !important;
+  animation: neon-vhs-jitter 11s steps(1, end) infinite !important;
+}
+@keyframes neon-vhs-jitter {
+  0%, 93%, 100% { transform: none; }
+  94% { transform: translateX(-3px); }
+  95.5% { transform: translateX(4px); }
+  97% { transform: translateX(-2px); }
+}
+html[data-atmo="neon"] :is(.card, .tile) {
+  box-shadow: var(--elev-1), 0 0 18px -8px rgba(53, 230, 255, 0.4), inset 0 -1px 0 rgba(255, 92, 188, 0.28);
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="neon"] .wordmark { animation: none !important; transform: none; }
+}
+html[data-motion="calm"][data-atmo="neon"] .wordmark,
+html[data-motion="off"][data-atmo="neon"] .wordmark { animation: none !important; transform: none; }
