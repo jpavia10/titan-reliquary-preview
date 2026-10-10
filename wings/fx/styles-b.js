@@ -1,5 +1,5 @@
-/* TitanFX style presets for the new themes and the text styles (notes/agents/styles-20.md, section 1): style-ascii, style-pixel,
-   style-comic, style-blueprint, style-clay, style-bauhaus, style-kinetic, style-splitflap. Loads after presets.js. */
+/* TitanFX style presets (notes/agents/styles-20.md, section 1): style-ascii, style-splitflap, style-kinetic, style-pixel (The Construct, Grand Terminal, Bauhaus, Arcade).
+   Loads after wings/fx/presets.js. */
 (function () {
   "use strict";
   var FX = window.TitanFX;

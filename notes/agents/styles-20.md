@@ -57,8 +57,9 @@ Palettes (all token pairs pass the template's legibility rules; checked):
 - terminal: bg #0d0f12, surface #171b20, surface2 #20252c, ink #f6f3ea, muted #d2cdbe, faint #aaa493, gold (flap amber) #ffc43d, on-gold #15100a
 
 ## 3. FX rules (every `style-*` preset)
-- Registered with `TitanFX.register(id, def)` in `wings/fx/styles-a.js` (styles for existing themes) or `wings/fx/styles-b.js` (new themes +
-  ASCII + split-flap + kinetic type). Read `wings/fx/engine.js` (header) and `wings/fx/presets.js` (the fx-v3 presets are the model: `T3`,
+- Registered with `TitanFX.register(id, def)` in one of four files (one owner each): `wings/fx/styles-a.js` (particles, liquid, holo,
+  neon, vhs), `wings/fx/styles-c.js` (wireframe, glass, mesh, deco, halftone), `wings/fx/styles-b.js` (ascii, splitflap, kinetic, pixel),
+  `wings/fx/styles-d.js` (comic, blueprint, clay, bauhaus). Read `wings/fx/engine.js` (header) and `wings/fx/presets.js` (the fx-v3 presets are the model: `T3`,
   `G3`, `PV`, `F_SOFT`, `fin`). Copy helpers you need into your file; do not edit presets.js.
 - Text, glyphs and sprites: the new `canvas` option (engine header): a small 2D canvas per layer, uploaded as `uTex` on texture unit 2. Keep it
   small (<= 512 x 512) and slow (<= 12 fps); return false from draw when nothing changed.
@@ -97,8 +98,10 @@ Palettes (all token pairs pass the template's legibility rules; checked):
 - Integrator: index.html, app.js, sw.js, version.json, wings/themes/*, wings/fx/ui.js, wings/scene-engine.js, js/playlist.js, ambient.js,
   styles.css, styles/themes.css, styles/style-layer.css, styles/atmo/{arcade,pulp,drafting,diorama,bauhaus,terminal}.css, docs, fix list.
 - Agent "styles A": wings/fx/styles-a.js; may append a clearly marked "Style (styles-20)" section to styles/atmo/{afterhours,colossus,kaleido,
-  neon,solaris,glacier,samadhi,nocturne,conservator}.css (classic tier: UI treatment for its style, e.g. glacier frosted panels).
+  neon}.css (classic tier: the UI treatment of its style).
+- Agent "styles C": wings/fx/styles-c.js; same for styles/atmo/{solaris,glacier,samadhi,nocturne,conservator}.css (e.g. glacier frosted panels).
 - Agent "styles B": wings/fx/styles-b.js; may append to styles/atmo/{construct,notepad}.css (ASCII + #23; neo-brutalist Plaintext).
+- Agent "styles D": wings/fx/styles-d.js only (its themes are token-only; propose token changes in the report).
 - Agent "splash": js/motion-splash.js, splash.js, splash.css, and the one Settings line in wings/scene.js.
 - Agents "lab" and "lab2": motion-lab/*.
 Report the final preset id + intensity per theme; the integrator sets `fx` in the manifest and `wings/fx/ui.js`.

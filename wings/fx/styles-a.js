@@ -1,5 +1,5 @@
-/* TitanFX style presets for the existing themes (notes/agents/styles-20.md, section 1): style-particles, style-liquid, style-holo,
-   style-neon, style-vhs, style-wireframe, style-glass, style-mesh, style-deco, style-halftone. Loads after presets.js. */
+/* TitanFX style presets (notes/agents/styles-20.md, section 1): style-particles, style-liquid, style-holo, style-neon, style-vhs (Midnight Gallery, The Mint, Prism, Neon Vault).
+   Loads after wings/fx/presets.js. */
 (function () {
   "use strict";
   var FX = window.TitanFX;
