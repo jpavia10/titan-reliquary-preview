@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
+<title>Motion Lab · Morph study (#56)</title>
+<!-- Titan Reliquary · Motion Lab study 2 for fix-list #56: "Morph". Built from the owner's second reference video (a scroll-driven
+     particle site): a deep blue room with soft light beams from the top left, a flowing sheet of glowing dust behind a grid of glass
+     cards, and one dust cloud that scroll turns into other shapes. Here the shapes come from this collection:
+       0 sheet   a wave of dust behind eight real coin photos (glass cards; tap one to choose it)
+       1 coin    the dust gathers into the real photo of that coin (grains land where the photo has light and relief)
+       2 burst   it scatters into a sparkle cloud of soft bokeh points
+       3 year    it re-forms as the coin's year in huge numerals (STRUCK ... KEPT)
+       4 place   the country: its coastline from atlas.js with a bright point on the map and the name (no country borders are
+                 available in the repo, so the map is the continent outline around the country's coordinates)
+       5 album   an album page: lit holes have a coin, dim rings are empty (collection/albums.json)
+       6 ribbons violet wisps that scroll turns into light ribbons drawn like a light pen, ending on a coin rim (REMEMBERED)
+     One THREE.Points system (custom ShaderMaterial, additive, soft round sprites with depth of field). Every form is a set of
+     targets, one per grain; the vertex shader blends the two forms the scroll is between, with a per-grain delay and curl-noise
+     drift. Targets are matched by Hilbert-curve rank (same rank = same relative place in each form), so shapes flow into each
+     other instead of shuffling. The pointer pushes the dust away along the line of sight with a smooth falloff.
+     Same-origin only: ../js/three.min.js (r128, global THREE), ../data/index.json, ../atlas.js, ../collection/albums.json and
+     ../photos/p1/*.webp. No network beyond those files, no CDN, no build. With the data missing it draws a procedural coin and says so.
+     Motion: the app's one setting (localStorage titan.motion) and the phone's "reduce motion" decide the start: Off or reduce = Still
+     (one composed frame per section, no loop), Calm = slower, half the grains, no burst, Full = everything (default when nothing is
+     set). The Still / Calm / Full buttons on the page override that. Tiers: grains from devicePixelRatio, screen size, cores and a quick
+     frame-time probe (desktop 90k or 60k, tablet and phone 30k, low-end phone 20k, then 12k). Test links: #stage=0..6 pins a form,
+     #tier=0..4, #mode=still|calm|full, #draw=0..1 (ribbons). -->
+<style>
+  :root { --ink: #eef4ff; --muted: #c6d3f0; --bg: #02050f; --line: rgba(170,200,255,.34); --accent: #9fc0ff; --glass: rgba(3,9,26,.80); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  body { overflow-x: hidden; }
+  #stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: pan-y; z-index: 0; }
+  #fallback { position: fixed; inset: 0; display: none; place-items: center; text-align: center; padding: 24px; z-index: 0; }
+  #fallback img { width: min(60vw, 320px); border-radius: 50%; display: block; margin: 0 auto 16px; }
+  #veil { position: fixed; inset: 0; z-index: 9; display: grid; place-items: center; background: var(--bg); color: var(--muted); font-size: 1.1rem; letter-spacing: .08em; transition: opacity .7s ease; }
+  html[data-ready] #veil { opacity: 0; pointer-events: none; }
+  html[data-still] #veil { transition: none; }
+
+  #hud { position: fixed; z-index: 5; top: max(10px, env(safe-area-inset-top)); left: 12px; right: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  #hud button, #hud a.back { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 48px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(3,9,26,.72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: var(--ink); font: 600 16px/1 system-ui, sans-serif; text-decoration: none; cursor: pointer; }
+  #hud button[aria-pressed="true"] { background: #cfe0ff; color: #04112e; border-color: #cfe0ff; }
+  #hud button:focus-visible, #hud a:focus-visible, .card:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  #fps { margin-left: auto; font: 600 14px/1.2 ui-monospace, Menlo, Consolas, monospace; color: var(--ink); background: rgba(3,9,26,.72); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; min-width: 9rem; text-align: right; }
+  .grp { display: inline-flex; gap: 8px; }
+  @media (max-width: 640px) {
+    #hud { gap: 6px; }
+    #hud a.back { order: 1; } #fps { order: 2; margin-left: auto; min-width: 0; padding: 8px; } .grp { order: 3; } #next { order: 4; }
+    #cap { padding: 12px 16px 14px; } #cap h2 { font-size: 1.25rem; }
+  }
+
+  main { position: relative; z-index: 2; pointer-events: none; }
+  #hero { min-height: 100vh; min-height: 100svh; padding: 132px 16px 80px; max-width: 78rem; margin: 0 auto; }
+  #hero h1 { margin: 0 0 14px; font-weight: 300; text-transform: uppercase; letter-spacing: .16em; font-size: clamp(1.7rem, 5.6vw, 4.2rem); line-height: 1.12; text-shadow: 0 0 24px rgba(2,6,20,.9); }
+  #hero p.lede { margin: 0 0 30px; max-width: 34rem; color: var(--ink); padding: 12px 16px; border-radius: 16px; background: rgba(3,9,26,.66); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(170,200,255,.2); }
+  #cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 0; padding: 0; list-style: none; }
+  @media (min-width: 760px) { #cards { grid-template-columns: repeat(4, 1fr); gap: 20px; } #hero { padding-top: 120px; } }
+  .card { pointer-events: auto; width: 100%; display: block; appearance: none; -webkit-appearance: none; text-align: left; cursor: pointer; color: var(--ink); font: inherit; padding: 14px; min-height: 48px;
+    border-radius: 22px; border: 1px solid rgba(180,208,255,.34);
+    background: linear-gradient(145deg, rgba(120,160,255,.22), rgba(24,48,130,.20) 55%, rgba(255,255,255,.06));
+    -webkit-backdrop-filter: blur(16px) saturate(1.25); backdrop-filter: blur(16px) saturate(1.25);
+    box-shadow: 0 14px 44px rgba(0,10,60,.5), inset 0 1px 0 rgba(255,255,255,.3);
+    transform: translate3d(0, calc(var(--sy, 0) * var(--k, 0.12) * -1px), 0); transition: border-color .25s ease, box-shadow .25s ease; }
+  .card:hover { border-color: #cfe0ff; }
+  .card[aria-pressed="true"] { border-color: #ffffff; box-shadow: 0 14px 44px rgba(0,10,60,.5), 0 0 0 2px rgba(255,255,255,.55), inset 0 1px 0 rgba(255,255,255,.4); }
+  .card img { width: 100%; height: auto; aspect-ratio: 1; border-radius: 50%; object-fit: cover; display: block; filter: drop-shadow(0 8px 20px rgba(0,0,0,.55)); }
+  .card b { display: block; margin-top: 10px; font-size: 1.06rem; line-height: 1.25; }
+  .card span { display: block; color: var(--muted); font-size: 1rem; line-height: 1.35; }
+  html[data-still] .card { transform: none; transition: none; }
+  .spacer { min-height: 130vh; min-height: 130svh; }
+  .spacer.last { min-height: 220vh; min-height: 220svh; }
+
+  #cap { position: fixed; z-index: 4; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); max-width: 34rem; padding: 14px 18px 16px; pointer-events: none;
+    border: 1px solid var(--line); border-radius: 18px; background: var(--glass); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+  #cap small { display: block; color: var(--accent); font-size: 1rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  #cap h2 { margin: 2px 0 4px; font-size: 1.4rem; line-height: 1.25; font-weight: 700; }
+  #cap p { margin: 0; color: var(--ink); font-size: 1rem; line-height: 1.5; }
+  #cap em { display: block; margin-top: 6px; font-style: normal; color: var(--muted); font-size: 1rem; }
+  #cap em:empty { display: none; }
+
+  .word { position: fixed; z-index: 3; pointer-events: none; opacity: 0; color: #f2f7ff; font-weight: 200; text-transform: uppercase; letter-spacing: .46em; white-space: nowrap; line-height: 1;
+    font-size: clamp(15px, 1.7vw, 25px); text-shadow: 0 0 16px rgba(2,6,20,.95), 0 0 4px rgba(2,6,20,1); }
+  #wL { left: clamp(14px, 3vw, 44px); top: 46%; transform: translateY(-50%); }
+  #wR { right: clamp(8px, 3vw, 44px); top: 46%; transform: translateY(-50%); margin-right: -.46em; }
+  #wC { left: 0; right: 0; text-align: center; top: 21%; margin-left: .46em; font-size: clamp(18px, 3.4vw, 46px); font-weight: 200; }
+  @media (max-aspect-ratio: 1/1) {
+    #wL, #wR { writing-mode: vertical-rl; font-size: 16px; letter-spacing: .5em; top: 40%; }
+    #wL { transform: translateY(-50%) rotate(180deg); left: 12px; }
+    #wR { right: 12px; margin-right: 0; }
+    #wC { top: 19%; font-size: clamp(17px, 5vw, 30px); letter-spacing: .36em; }
+  }
+  #note { order: 9; flex: 1 0 100%; font-size: 15px; line-height: 1.4; color: var(--ink); background: rgba(3,9,26,.82); border: 1px solid var(--line); border-radius: 12px; padding: 6px 12px; pointer-events: none; }
+  #note:empty { display: none; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  #story { padding: 0 16px 120px; max-width: 34rem; }
+  #story.plain { position: relative; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; background: rgba(3,9,26,.9); }
+</style>
+</head>
+<body>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="fallback" role="img" aria-label="Still picture of a coin from the collection"><div><img id="fbimg" alt=""><p>This device cannot draw the 3D dust, so here is the coin as a still picture.</p></div></div>
+<div id="veil" role="status">Preparing the dust</div>
+<div id="hud" role="toolbar" aria-label="Motion settings">
+  <a class="back" href="index.html">All studies</a>
+  <span class="grp">
+    <button type="button" data-mode="still" aria-pressed="false">Still</button>
+    <button type="button" data-mode="calm" aria-pressed="false">Calm</button>
+    <button type="button" data-mode="full" aria-pressed="false">Full</button>
+  </span>
+  <button type="button" id="next" aria-label="Show the next coin">Next coin</button>
+  <span id="fps" aria-live="off">-- fps</span>
+  <div id="note" role="status"></div>
+</div>
+<div class="word" id="wL" aria-hidden="true">Struck</div>
+<div class="word" id="wR" aria-hidden="true">Kept</div>
+<div class="word" id="wC" aria-hidden="true">Remembered</div>
+<div id="cap" aria-hidden="true"><small id="capK"></small><h2 id="capT"></h2><p id="capP"></p><em id="capN"></em></div>
+<main>
+  <section id="hero">
+    <h1>Struck once.<br>Kept for good.</h1>
+    <p class="lede">A sheet of dust behind eight coins from the collection. Tap a coin to choose it, then scroll: the dust gathers into that coin, its year, its country and an album page.</p>
+    <ul id="cards" aria-label="Choose a coin"></ul>
+  </section>
+  <section class="spacer" aria-hidden="true"></section>
+  <section class="spacer" aria-hidden="true"></section>
+  <section class="spacer" aria-hidden="true"></section>
+  <section class="spacer" aria-hidden="true"></section>
+  <section class="spacer" aria-hidden="true"></section>
+  <section class="spacer last" aria-hidden="true"></section>
+  <div id="story" class="sr"><h2>The seven steps</h2><ol id="storyList"></ol></div>
+</main>
+<script src="../js/three.min.js"></script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s) { return document.querySelector(s); };
+  var root = document.documentElement, fpsEl = $("#fps"), noteEl = $("#note");
+  var notes = [];
+  var coins = [], cur = null, coinIx = 0, story = {}, geoData = { land: null, coords: null };
+  function say(msg) { if (notes.indexOf(msg) < 0) notes.push(msg); noteEl.textContent = notes.join(" · "); }
+  function clamp(x, a, b) { return x < a ? a : x > b ? b : x; }
+  function smooth(a, b, x) { var t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); }
+
+  /* ---------------- test links: #stage=3.5&tier=2&mode=full&draw=1 ---------------- */
+  var HP = {};
+  (location.hash || "").replace(/^#/, "").split("&").forEach(function (kv) { var a = kv.split("="); if (a[0]) HP[a[0]] = a.length > 1 ? decodeURIComponent(a[1]) : "1"; });
+
+  /* ---------------- motion preference: Still / Calm / Full ---------------- */
+  var rmq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  // the app's one motion setting (fix list #59, localStorage titan.motion): Off = Still, Calm = at most Calm. With nothing set the page
+  // starts at Full (the app's own default) unless the phone asks to reduce motion.
+  var appMo = null; try { appMo = localStorage.getItem("titan.motion"); } catch (e) {}
+  var still0 = appMo === "off" || (appMo !== "full" && appMo !== "calm" && rmq && rmq.matches);
+  var mode = still0 ? "still" : appMo === "calm" ? "calm" : "full";
+  try { var saved = localStorage.getItem("motionlab_mode"); if (saved && !still0 && !(appMo === "calm" && saved === "full")) mode = saved; } catch (e) {}
+  if (HP.mode === "still" || HP.mode === "calm" || HP.mode === "full") mode = HP.mode;
+  var calmK = mode === "calm" ? 1 : 0;           // eased towards the mode in the loop so a switch never jumps
+  if (rmq && rmq.addEventListener) rmq.addEventListener("change", function () { if (rmq.matches) setMode("still"); });
+
+  /* ---------------- WebGL + tier ---------------- */
+  var canvas = $("#stage");
+  var renderer;
+  if (typeof THREE === "undefined") { noGL("three.min.js did not load"); return; }
+  try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: false, powerPreference: "high-performance" }); }
+  catch (e) { noGL("WebGL unavailable"); return; }
+  if (renderer.capabilities.maxAttributes < 8) { noGL("too few vertex attributes"); return; }
+  var cores = navigator.hardwareConcurrency || 4, mem = navigator.deviceMemory || 4;
+  var coarse = window.matchMedia && matchMedia("(pointer: coarse)").matches;
+  var smallScr = Math.min(screen.width, screen.height) < 700;
+  var TIER_N = [90000, 60000, 30000, 20000, 12000], DPR_CAP = [2, 1.75, 2, 1.5, 1.25];
+  var tier = (coarse || smallScr) ? ((smallScr && (cores <= 4 || mem <= 3)) ? 3 : (smallScr ? 2 : 2))
+           : (cores >= 8 && mem >= 8) ? 0 : 1;
+  if (HP.tier !== undefined && TIER_N[+HP.tier]) tier = +HP.tier;
+  var N = TIER_N[tier], drawCount = N;
+  renderer.setClearColor(0x02050f, 1);
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 80);
+  var TAN = Math.tan(THREE.MathUtils.degToRad(22.5));
+
+  /* ---------------- random, colour packing, Hilbert order ---------------- */
+  var rs = 20261010;                          // mulberry32: the plain LCG lost precision in doubles and left streaks in the dust
+  function rnd() { rs = (rs + 0x6D2B79F5) | 0; var t = Math.imul(rs ^ (rs >>> 15), 1 | rs); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }
+  function gauss() { var u = rnd() || 1e-6, v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(6.2831853 * v); }
+  // 5-6-5 bit colour in one float (exact below 2^16); the shader multiplies by 1.8 so highlights can exceed 1
+  function pack(r, g, b) {
+    return Math.round(clamp(r / 1.8, 0, 1) * 31) * 2048 + Math.round(clamp(g / 1.8, 0, 1) * 63) * 32 + Math.round(clamp(b / 1.8, 0, 1) * 31);
+  }
+  function hil(x, y) {                       // 1024 x 1024 Hilbert curve index
+    var d = 0, s, rx, ry, t;
+    for (s = 512; s > 0; s >>= 1) {
+      rx = (x & s) > 0 ? 1 : 0; ry = (y & s) > 0 ? 1 : 0; d += s * s * ((3 * rx) ^ ry);
+      if (ry === 0) { if (rx === 1) { x = 1023 - x; y = 1023 - y; } t = x; x = y; y = t; }
+    }
+    return d;
+  }
+  // grain p takes the grain-th ranked target of every form; the rank follows a golden-ratio sequence, so any prefix of the grains
+  // (a lower tier) is an even sprinkle over every form
+  var rank = new Int32Array(N);
+  (function () {
+    var k = new Float64Array(N), i;
+    for (i = 0; i < N; i++) k[i] = Math.floor(((0.5 + i * 0.6180339887498949) % 1) * 1048576) * 131072 + i;
+    k.sort();
+    for (i = 0; i < N; i++) rank[k[i] % 131072] = i;
+  })();
+
+  /* ---------------- buffers ---------------- */
+  var geo = new THREE.BufferGeometry();
+  var A = [null];                            // A[k] = Float32Array of form k (k = 1..6): x y z packedColour
+  var attrs = [null];
+  var posArr = new Float32Array(N * 3), miscArr = new Float32Array(N * 2);
+  var posAttr = new THREE.BufferAttribute(posArr, 3), miscAttr = new THREE.BufferAttribute(miscArr, 2);
+  geo.setAttribute("position", posAttr);
+  geo.setAttribute("aMisc", miscAttr);
+  for (var f = 1; f <= 6; f++) { A[f] = new Float32Array(N * 4); attrs[f] = new THREE.BufferAttribute(A[f], 4); geo.setAttribute("p" + f, attrs[f]); }
+  var i0; for (i0 = 0; i0 < N; i0++) miscArr[i0 * 2] = rnd();
+  geo.setDrawRange(0, drawCount);
+  var S = { x: new Float32Array(N), y: new Float32Array(N), z: new Float32Array(N), c: new Float32Array(N), t: new Float32Array(N) };
+  var keysBuf = new Float64Array(N), orderBuf = new Int32Array(N);
+
+  // copy the samples in S into form k, matched by Hilbert rank over the sample cloud's own bounding box
+  function place(k) {
+    var i, minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+    for (i = 0; i < N; i++) { var x = S.x[i], y = S.y[i]; if (x < minx) minx = x; if (x > maxx) maxx = x; if (y < miny) miny = y; if (y > maxy) maxy = y; }
+    var sx = 1023 / ((maxx - minx) || 1), sy = 1023 / ((maxy - miny) || 1);
+    for (i = 0; i < N; i++) keysBuf[i] = hil(((S.x[i] - minx) * sx) | 0, ((S.y[i] - miny) * sy) | 0) * 131072 + i;
+    keysBuf.sort();
+    for (i = 0; i < N; i++) orderBuf[i] = keysBuf[i] % 131072;
+    var p, s;
+    if (k === 0) {
+      for (p = 0; p < N; p++) { s = orderBuf[rank[p]]; posArr[p * 3] = S.x[s]; posArr[p * 3 + 1] = S.y[s]; posArr[p * 3 + 2] = S.z[s]; }
+      posAttr.needsUpdate = true; return;
+    }
+    var a = A[k];
+    for (p = 0; p < N; p++) {
+      s = orderBuf[rank[p]]; var o = p * 4;
+      a[o] = S.x[s]; a[o + 1] = S.y[s]; a[o + 2] = S.z[s]; a[o + 3] = S.c[s];
+      if (k === 6) miscArr[p * 2 + 1] = S.t[s];
+    }
+    attrs[k].needsUpdate = true;
+    if (k === 6) miscAttr.needsUpdate = true;
+  }
+
+  /* ---------------- shaders ---------------- */
+  var uniforms = {
+    uStage: { value: 0 }, uTime: { value: 0 }, uPx: { value: 1000 }, uSize: { value: 0.05 }, uCalm: { value: 0 }, uDraw: { value: 1 },
+    uStir: { value: 0 }, uRayO: { value: new THREE.Vector3(0, 0, 6) }, uRayD: { value: new THREE.Vector3(0, 0, -1) },
+    uFocus: { value: 6 }, uSpark: { value: 1 }, uTierS: { value: 1 }, uFlow: { value: 1 }, uSheetS: { value: 1 }, uGain: { value: 0.62 },
+    uFS: { value: [0.6, 0.4, 0.95, 0.28, 0.28, 0.3, 0.32] }, uFB: { value: [0.12, 0.45, 1.0, 0.45, 0.45, 0.45, 0.5] }, uFG: { value: [1.5, 0.62, 0.45, 0.85, 0.85, 0.85, 0.85] }
+  };
+  var VERT = [
+    "attribute vec4 p1; attribute vec4 p2; attribute vec4 p3; attribute vec4 p4; attribute vec4 p5; attribute vec4 p6; attribute vec2 aMisc;",
+    "uniform float uStage, uTime, uPx, uSize, uCalm, uDraw, uStir, uFocus, uSpark, uFlow, uSheetS, uTierS; uniform vec3 uRayO, uRayD; uniform float uFS[7]; uniform float uFB[7]; uniform float uFG[7];",
+    "varying vec3 vCol; varying float vA; varying float vBk;",
+    "vec3 unpack(float c) { float r = floor(c / 2048.0); float g = floor(mod(c, 2048.0) / 32.0); float b = mod(c, 32.0); return vec3(r / 31.0, g / 63.0, b / 31.0) * 1.8; }",
+    // value-noise potential and its curl: a divergence-free drift, so grains stream without piling up or tearing holes
+    "float h31(vec3 p) { p = fract(p * 0.3183099 + vec3(0.1, 0.2, 0.3)); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }",
+    "float vn(vec3 x) { vec3 i = floor(x), f = fract(x); f = f * f * (3.0 - 2.0 * f);",
+    "  return mix(mix(mix(h31(i), h31(i + vec3(1,0,0)), f.x), mix(h31(i + vec3(0,1,0)), h31(i + vec3(1,1,0)), f.x), f.y),",
+    "             mix(mix(h31(i + vec3(0,0,1)), h31(i + vec3(1,0,1)), f.x), mix(h31(i + vec3(0,1,1)), h31(i + vec3(1,1,1)), f.x), f.y), f.z); }",
+    "vec3 pot(vec3 p) { return vec3(vn(p), vn(p + vec3(31.4, 17.1, 5.7)), vn(p + vec3(11.3, 47.9, 23.2))); }",
+    "vec3 curl(vec3 p) { const float e = 0.12;",
+    "  vec3 dx = pot(p + vec3(e,0,0)) - pot(p - vec3(e,0,0)); vec3 dy = pot(p + vec3(0,e,0)) - pot(p - vec3(0,e,0)); vec3 dz = pot(p + vec3(0,0,e)) - pot(p - vec3(0,0,e));",
+    "  return vec3(dy.z - dz.y, dz.x - dx.z, dx.y - dy.x) / (2.0 * e); }",
+    // form 0: the sheet. Four travelling waves; the slope gives a normal, the normal a soft light from the top left (fabric-like crests)
+    "vec3 sheet(vec3 b, float seed, out vec3 col, out float vis) {",
+    "  vec2 q = b.xy; float t = uTime;",
+    "  float am = 0.8 + 0.35 * sin(q.x * 0.11 - t * 0.17);",
+    "  float p1w = dot(vec2(0.36, 0.14), q) + t * 0.50;           float p2w = dot(vec2(-0.13, 0.46), q) + t * 0.38 + 1.3;",
+    "  float p3w = dot(vec2(0.78, -0.31), q) + t * 0.85 + 2.1;    float p4w = dot(vec2(0.22, 0.71), q) - t * 0.62 + 4.0;",
+    "  float h = am * (1.00 * sin(p1w) + 0.62 * sin(p2w) + 0.24 * sin(p3w) + 0.30 * sin(p4w));",
+    "  vec2 g = am * (1.00 * vec2(0.36, 0.14) * cos(p1w) + 0.62 * vec2(-0.13, 0.46) * cos(p2w) + 0.24 * vec2(0.78, -0.31) * cos(p3w) + 0.30 * vec2(0.22, 0.71) * cos(p4w));",
+    "  vec3 P = vec3(q, h); vec3 Nn = normalize(vec3(-g, 1.0));",
+    // pose: tilt about X so the far edge recedes, a quarter turn about Z for the diagonal, then push it behind the coin plane
+    "  const float ca = 0.5253, sa = -0.8509;                        // -1.0 rad about X",
+    "  P = vec3(P.x, P.y * ca - P.z * sa, P.y * sa + P.z * ca); Nn = vec3(Nn.x, Nn.y * ca - Nn.z * sa, Nn.y * sa + Nn.z * ca);",
+    "  const float cz = 0.9553, sz = 0.2955;                          // 0.3 rad about Z",
+    "  P = vec3(P.x * cz - P.y * sz, P.x * sz + P.y * cz, P.z); Nn = vec3(Nn.x * cz - Nn.y * sz, Nn.x * sz + Nn.y * cz, Nn.z);",
+    "  P = (P + vec3(0.0, -0.4, -4.4)) * uSheetS;",
+    "  float lam = max(dot(Nn, normalize(vec3(-0.55, 0.62, 0.56))), 0.0);",
+    "  float crest = pow(lam, 4.0);",
+    "  float tw = pow(max(0.0, sin(t * (1.1 + seed * 2.3) + seed * 91.0)), 18.0);",
+    "  vec3 cobalt = vec3(0.16, 0.36, 1.0), ice = vec3(0.78, 0.9, 1.0), vio = vec3(0.62, 0.42, 1.0), pink = vec3(1.0, 0.46, 0.82);",
+    "  col = mix(cobalt, ice, smoothstep(0.1, 0.85, lam));",
+    "  col = mix(col, mix(vio, pink, fract(seed * 7.0)), step(0.9, seed) * 0.8);",
+    "  vis = 0.10 + 1.5 * crest + 0.22 * lam + 0.7 * tw * uSpark;",
+    "  return P;",
+    "}",
+    // form 6: strokes drawn in turn like a light pen. Behind the pen head a grain sits on its stroke; ahead of it, it is a violet wisp
+    "vec3 ribbon(vec4 v, out vec3 col, out float vis) {",
+    "  col = unpack(v.w); float sid = floor(aMisc.y + 0.001); float tt = aMisc.y - sid;",
+    "  float prog = clamp((uDraw - sid * 0.15) / 0.36, 0.0, 1.0); float head = prog * 1.05;",
+    "  float lock = smoothstep(head, head - 0.06, tt);",
+    "  float dh = (tt - head) / 0.018; float pen = exp(-dh * dh) * step(0.001, prog) * (1.0 - step(0.999, prog));",
+    "  vec3 P = v.xyz; P.y += 0.07 * sin(tt * 13.0 + uTime * 1.4 + sid * 2.0) * lock;",
+    "  vec3 wisp = P + curl(P * 0.42 + vec3(sid, uTime * 0.05, 0.0)) * 1.15 * (1.0 - lock);",
+    "  col = mix(vec3(0.6, 0.4, 1.0) * 0.8, col, lock) + pen * vec3(1.2, 1.0, 1.4);",
+    "  vis = mix(0.34, 1.0, lock) + pen * 3.0;",
+    "  if (sid < 3.5) vis *= mix(1.0, 0.5, smoothstep(0.84, 1.0, uDraw));",
+    "  return mix(wisp, P, lock);",
+    "}",
+    "vec3 formPos(float k, out vec3 col, out float vis) {",
+    "  vec4 v; vis = 1.0;",
+    "  if (k < 0.5) return sheet(position, aMisc.x, col, vis);",
+    "  if (k < 1.5) v = p1; else if (k < 2.5) { v = p2; v.xyz = mix(v.xyz, p1.xyz + (v.xyz - p1.xyz) * 0.3, uCalm); }",
+    "  else if (k < 3.5) v = p3; else if (k < 4.5) v = p4; else if (k < 5.5) v = p5; else return ribbon(p6, col, vis);",
+    "  col = unpack(v.w); return v.xyz;",
+    "}",
+    "void main() {",
+    "  float seed = aMisc.x;",
+    "  float st = clamp(uStage, 0.0, 6.0); float seg = min(floor(st), 5.0); float f = st - seg;",
+    "  float fp = clamp((f - seed * 0.36) / 0.64, 0.0, 1.0);",
+    "  float fe = fp * fp * (3.0 - 2.0 * fp);",
+    "  if (seg > 0.5 && seg < 1.5) fe = 1.0 - pow(1.0 - fp, 3.0);          // coin to burst: fast start, slow settle",
+    "  vec3 ca, cb; float va, vb;",
+    "  vec3 pa = formPos(seg, ca, va); vec3 pb = formPos(seg + 1.0, cb, vb);",
+    "  vec3 p = mix(pa, pb, fe); vec3 col = mix(ca, cb, fe); float vis = mix(va, vb, fe);",
+    "  float bet = sin(3.14159265 * fe);",
+    "  float amp = (seg > 0.5 && seg < 1.5) ? 2.1 : (seg > 4.5 ? 1.8 : 1.15);",
+    "  vec3 cu = curl(p * 0.5 + vec3(seed * 0.35, uTime * 0.07, 0.0));",
+    "  p += cu * (bet * amp * uFlow + 0.007 * uFlow);",
+    "  if (seg > 4.5) col = mix(col, vec3(0.62, 0.42, 1.0) * length(col) * 0.8, bet * 0.8);",     // wisps turn violet on the way to the ribbons
+    "  if (seg > 0.5 && seg < 1.5) col += vec3(0.8, 0.85, 1.0) * bet * 0.5;",                 // a flash as it bursts
+    // pointer: push grains away from the line of sight, with a smooth falloff that is the same on screen at every depth
+    "  vec3 v = p - uRayO; float tt = max(dot(v, uRayD), 0.3); vec3 perp = v - uRayD * tt; float ang = length(perp) / tt;",
+    "  float pf = uStir * exp(-ang * ang / 0.016);",
+    "  p += perp * pf * 0.85 + cross(uRayD, perp) * pf * 0.35;",
+    "  vec4 mv = modelViewMatrix * vec4(p, 1.0); float vz = max(-mv.z, 0.3);",
+    "  gl_Position = projectionMatrix * mv;",
+    // depth of field: the farther from the focus plane, the bigger, softer and dimmer the grain
+    "  float coc = abs(vz - uFocus) / uFocus;",
+    "  float fbk = mix(uFB[int(seg)], uFB[int(seg) + 1], fe);",
+    "  float bokeh = clamp(coc * 1.5 - 0.12, 0.0, 1.0) * fbk;",
+    "  float sA = uFS[int(seg)], sB = uFS[int(seg) + 1]; float sz = mix(sA, sB, fe);",
+    "  float cw = (seg > 0.5 && seg < 1.5) ? fe : ((seg > 1.5 && seg < 2.5) ? 1.0 - fe : 0.0);",
+    "  float big = step(0.86, seed) * cw * (1.0 - uCalm * 0.6);",
+    "  float tw = 1.0 + uSpark * 1.5 * pow(max(0.0, sin(uTime * (1.4 + seed * 2.4) + seed * 83.0)), 22.0);",
+    "  float size = uSize * uTierS * uPx * sz * (0.55 + seed * 0.9) * (1.0 + bokeh * 1.7 + big * 2.2) * tw;",
+    "  gl_PointSize = clamp(size / vz, 1.5, 64.0);",
+    "  float fog = exp(-max(vz - uFocus, 0.0) * 0.045);",
+    "  float nearF = smoothstep(0.22 * uFocus, 0.6 * uFocus, vz);",
+    "  float gF = mix(uFG[int(seg)], uFG[int(seg) + 1], fe);",
+    "  vA = vis * gF * fog * nearF * (1.0 + (tw - 1.0) * 0.6) / (1.0 + bokeh * 2.6 + big * 2.2) * (0.82 + 0.18 * (1.0 - bet));",
+    "  vBk = clamp(bokeh * 0.9 + big, 0.0, 1.0);",
+    "  vCol = col;",
+    "}"
+  ].join("\n");
+  var FRAG = [
+    "uniform float uGain; varying vec3 vCol; varying float vA; varying float vBk;",
+    "void main() {",
+    "  vec2 q = gl_PointCoord * 2.0 - 1.0; float d2 = dot(q, q);",
+    "  if (d2 > 1.0) discard;",
+    "  float d = sqrt(d2);",
+    "  float soft = exp(-d2 * 6.5) * 0.82 + exp(-d2 * 1.7) * 0.22;",                       // bright core with a faint halo (cheap bloom)
+    "  float disc = smoothstep(1.0, 0.8, d) * (0.5 + 0.5 * smoothstep(0.45, 0.95, d));",   // out-of-focus bokeh disc with a brighter edge
+    "  float a = mix(soft, disc * 0.55, vBk);",
+    "  gl_FragColor = vec4(vCol * (a * vA * uGain), 1.0);",
+    "}"
+  ].join("\n");
+  var mat = new THREE.ShaderMaterial({ uniforms: uniforms, transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending, vertexShader: VERT, fragmentShader: FRAG });
+  var points = new THREE.Points(geo, mat);
+  points.frustumCulled = false; points.renderOrder = 1;
+  scene.add(points);
+
+  // the room: deep blue gradient and soft light beams fanning from above the top-left corner, drawn first without any camera
+  var buniforms = {
+    uTime: { value: 0 }, uAspect: { value: 1.6 }, uFlash: { value: 0 }, uTint: { value: 0 }, uBeam: { value: 1 }, uShift: { value: new THREE.Vector2(0, 0) }
+  };
+  var bmat = new THREE.ShaderMaterial({
+    uniforms: buniforms, depthWrite: false, depthTest: false, transparent: false,
+    vertexShader: "varying vec2 vUv; void main() { vUv = position.xy; gl_Position = vec4(position.xy, 0.0, 1.0); }",
+    fragmentShader: [
+      "uniform float uTime, uAspect, uFlash, uTint, uBeam; uniform vec2 uShift; varying vec2 vUv;",
+      "float h21(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }",
+      "float vn2(vec2 p) { vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f); return mix(mix(h21(i), h21(i + vec2(1,0)), f.x), mix(h21(i + vec2(0,1)), h21(i + vec2(1,1)), f.x), f.y); }",
+      "float fbm(vec2 p) { return 0.55 * vn2(p) + 0.3 * vn2(p * 2.1 + 7.0) + 0.15 * vn2(p * 4.3 + 3.0); }",
+      "void main() {",
+      "  vec2 p = vec2(vUv.x * uAspect, vUv.y);",
+      "  vec2 o = vec2(-uAspect * 0.9 + uShift.x, 1.3 + uShift.y);",
+      "  vec2 d = p - o; float r = length(d); float ang = atan(d.y, d.x);",
+      "  float I = 0.0;",
+      "  for (int k = 0; k < 9; k++) {",
+      "    float fk = float(k);",
+      "    float c = -1.62 + fk * 0.19 + 0.022 * sin(uTime * 0.11 + fk * 2.1);",
+      "    float w = 0.03 + 0.035 * fract(sin(fk * 12.9898) * 43758.5453);",
+      "    float a = 0.3 + 0.7 * fract(sin(fk * 78.233) * 12345.6789);",
+      "    float x = (ang - c) / w; I += a * exp(-x * x);",
+      "  }",
+      "  float n = fbm(vec2(ang * 16.0 + uTime * 0.03, r * 1.5 - uTime * 0.06));",
+      "  I *= (0.45 + 1.0 * n);",
+      "  I *= smoothstep(0.1, 0.9, r) * exp(-r * 0.46);",
+      "  float haze = exp(-r * 1.15) * 0.16 + exp(-r * 0.4) * 0.03;",
+      "  vec3 bgA = vec3(0.004, 0.012, 0.05), bgB = vec3(0.018, 0.075, 0.24);",
+      "  vec3 bg = mix(bgA, bgB, smoothstep(3.6, 0.2, r)) + vec3(0.0, 0.005, 0.02) * fbm(p * 1.3 + uTime * 0.01);",
+      "  vec3 bc = mix(vec3(0.42, 0.62, 1.0), vec3(0.66, 0.42, 1.0), uTint);",
+      "  vec3 col = bg + bc * (I * 0.42 + haze) * uBeam * (1.0 + uFlash * 1.1);",
+      "  col *= 1.0 - 0.45 * dot(vUv * vec2(0.55, 0.7), vUv * vec2(0.55, 0.7));",             // vignette
+      "  col += (h21(gl_FragCoord.xy + uTime) - 0.5) / 190.0;",                                 // dither: no banding in the dark gradient
+      "  gl_FragColor = vec4(col, 1.0);",
+      "}"
+    ].join("\n")
+  });
+  var beams = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), bmat);
+  beams.frustumCulled = false; beams.renderOrder = 0;
+  scene.add(beams);
+
+  /* ---------------- layout: landscape or portrait forms ---------------- */
+  var layout = "landscape", BOX = { w: 6.8, h: 3.8 }, COIN_R = 1.5, camZ = 6;
+  function layoutNow() { return window.innerHeight > window.innerWidth * 1.02 ? "portrait" : "landscape"; }
+  function setBox() {
+    if (layout === "portrait") { BOX = { w: 4.3, h: 6.0 }; COIN_R = 1.85; } else { BOX = { w: 6.8, h: 3.8 }; COIN_R = 1.5; }
+  }
+
+  /* ---------------- samplers ---------------- */
+  var BLUEWHITE = [0.8, 0.9, 1.0], VIOLET = [0.66, 0.44, 1.0], PINK = [1.0, 0.5, 0.84], COBALT = [0.2, 0.42, 1.0];
+  function accent() {                          // white-blue mostly, some cobalt, a few violet / pink
+    var u = rnd();
+    return u < 0.64 ? BLUEWHITE : u < 0.84 ? COBALT : u < 0.93 ? VIOLET : PINK;
+  }
+  function setSample(i, x, y, z, r, g, b) { S.x[i] = x; S.y[i] = y; S.z[i] = z; S.c[i] = pack(r, g, b); }
+
+  // form 0: the sheet, laid out as plane coordinates (u, v, shimmer) on a low-discrepancy sequence
+  function buildSheet() {
+    var SW = layout === "portrait" ? 15 : 34, SH = 19, i;       // a tall phone only sees the middle of the sheet: do not waste grains outside it
+    for (i = 0; i < N; i++) {
+      S.x[i] = ((0.5 + i * 0.7548776662466927) % 1 - 0.5) * SW; S.y[i] = ((0.5 + i * 0.5698402909980532) % 1 - 0.5) * SH; S.z[i] = 0; S.c[i] = 0;
+    }
+    place(0);
+  }
+
+  // form 1: the coin. Grains land by relief and light in the photo (local contrast, edges, bright metal) and take its colour.
+  function sampleCoin(img) {
+    var Z = 256, cv = document.createElement("canvas"); cv.width = cv.height = Z;
+    var g = cv.getContext("2d", { willReadFrequently: true }); g.drawImage(img, 0, 0, Z, Z);
+    var px = g.getImageData(0, 0, Z, Z).data;       // throws on a cross-origin / file:// image: the caller falls back
+    var lum = new Float32Array(Z * Z), blur = new Float32Array(Z * Z), cdf = new Float32Array(Z * Z), det = new Float32Array(Z * Z);
+    var k, x, y;
+    for (k = 0; k < Z * Z; k++) lum[k] = (0.2126 * px[k * 4] + 0.7152 * px[k * 4 + 1] + 0.0722 * px[k * 4 + 2]) / 255;
+    var origL = new Float32Array(lum);
+    // stretch the coin's own tones (5th to 97th percentile) so a pale silver coin still has shadows to draw
+    var hist = new Float32Array(64), nIn = 0, ins = new Uint8Array(Z * Z);
+    for (k = 0; k < Z * Z; k++) {
+      var xk0 = (k % Z) / (Z - 1) * 2 - 1, yk0 = Math.floor(k / Z) / (Z - 1) * 2 - 1;
+      if ((xk0 * xk0 + yk0 * yk0 <= 0.97) && px[k * 4 + 3] > 100) { ins[k] = 1; hist[Math.min(63, (lum[k] * 64) | 0)]++; nIn++; }
+    }
+    var acc2 = 0, lo5 = 0, hi97 = 1, b2;
+    for (b2 = 0; b2 < 64; b2++) { acc2 += hist[b2]; if (acc2 < nIn * 0.05) lo5 = (b2 + 1) / 64; if (acc2 < nIn * 0.97) hi97 = (b2 + 1) / 64; }
+    var rng = Math.max(0.15, hi97 - lo5);
+    for (k = 0; k < Z * Z; k++) lum[k] = clamp((lum[k] - lo5) / rng, 0, 1);
+    for (k = 0; k < Z * Z; k++) { var ax = 0, cn = 0; var yy0 = Math.floor(k / Z), xx0 = k % Z; for (var dy2 = -3; dy2 <= 3; dy2++) { var y3 = yy0 + dy2; if (y3 < 0 || y3 >= Z) continue; for (var dx2 = -3; dx2 <= 3; dx2 += 2) { var x3 = xx0 + dx2; if (x3 < 0 || x3 >= Z) continue; ax += lum[y3 * Z + x3]; cn++; } } blur[k] = ax / cn; }
+    var tot = 0;
+    for (k = 0; k < Z * Z; k++) {
+      det[k] = Math.abs(lum[k] - blur[k]);
+      var e = det[k] * 3;
+      tot += ins[k] ? 0.05 + 1.5 * lum[k] * lum[k] + 1.2 * Math.min(1.0, e * e) : 0; cdf[k] = tot;
+    }
+    for (var i = 0; i < N; i++) {
+      var t = (i + rnd()) / N * tot, lo = 0, hi = Z * Z - 1;
+      while (lo < hi) { var mid = (lo + hi) >> 1; if (cdf[mid] < t) lo = mid + 1; else hi = mid; }
+      var o = lo * 4, l = lum[lo], lm = Math.max(origL[lo], 0.06);
+      var lit = 0.22 + 0.95 * l + det[lo] * 0.9;
+      // keep the metal's own hue, pulled 35 % towards the room's white-blue
+      var cr = ((px[o] / 255) / lm * 0.65 + BLUEWHITE[0] * 0.35) * lit, cg = ((px[o + 1] / 255) / lm * 0.65 + BLUEWHITE[1] * 0.35) * lit, cb = ((px[o + 2] / 255) / lm * 0.65 + BLUEWHITE[2] * 0.35) * lit;
+      var u = ((lo % Z) + rnd()) / Z * 2 - 1, v = (Math.floor(lo / Z) + rnd()) / Z * 2 - 1;
+      setSample(i, u * COIN_R, -v * COIN_R, (l - 0.5) * 0.16, Math.min(cr, 1.8), Math.min(cg, 1.8), Math.min(cb, 1.8));
+    }
+  }
+  function proceduralCoin() {                   // fallback only: rim, field and relief rings, no invented legend
+    for (var i = 0; i < N; i++) {
+      var a = rnd() * 6.2831853, rr = Math.sqrt(rnd()), rim = rr > 0.88 ? 1 : 0, ring = Math.abs(Math.sin(rr * 17.0)) > 0.93 ? 1 : 0;
+      var l = 0.3 + 0.55 * rim + 0.3 * ring;
+      setSample(i, Math.cos(a) * rr * COIN_R, Math.sin(a) * rr * COIN_R, (l - 0.5) * 0.1, l * 0.8, l * 0.9, l);
+    }
+  }
+
+  // forms 3 and 4 from a canvas: alpha is the grain density, the pixel is the grain colour
+  function sampleCanvas(cv, o) {
+    var g = cv.getContext("2d", { willReadFrequently: true }), W = cv.width, H = cv.height;
+    var d = g.getImageData(0, 0, W, H).data, cdf = new Float32Array(W * H), tot = 0, k;
+    for (k = 0; k < W * H; k++) { var a = d[k * 4 + 3] / 255; tot += a * a; cdf[k] = tot; }
+    for (var i = 0; i < N; i++) {
+      var t = (i + rnd()) / N * tot, lo = 0, hi = W * H - 1;
+      while (lo < hi) { var mid = (lo + hi) >> 1; if (cdf[mid] < t) lo = mid + 1; else hi = mid; }
+      var q = lo * 4, al = d[q + 3] / 255, br = (0.7 + 0.8 * al) * (o.gain || 1);
+      var x = ((lo % W) + rnd()) / W - 0.5, y = 0.5 - (Math.floor(lo / W) + rnd()) / H;
+      setSample(i, x * o.bw, y * o.bh, gauss() * (o.zj || 0.06), d[q] / 255 * br, d[q + 1] / 255 * br, d[q + 2] / 255 * br);
+    }
+  }
+  function spaced(g, text, cx, cy, track) {       // text with manual letter spacing, centred (canvas letterSpacing is not everywhere)
+    var w = 0, i; for (i = 0; i < text.length; i++) w += g.measureText(text[i]).width + track;
+    w -= track; var x = cx - w / 2;
+    g.textAlign = "left";
+    for (i = 0; i < text.length; i++) { g.fillText(text[i], x, cy); x += g.measureText(text[i]).width + track; }
+  }
+  function newCanvas() {
+    var port = layout === "portrait", cv = document.createElement("canvas");
+    cv.width = port ? 640 : 1024; cv.height = Math.round(cv.width * BOX.h / BOX.w);
+    return cv;
+  }
+  function buildYear(c) {
+    var cv = newCanvas(), g = cv.getContext("2d", { willReadFrequently: true }), W = cv.width, H = cv.height, y = String(c.year || "");
+    var lines = (layout === "portrait" && /^\d{4}$/.test(y)) ? [y.slice(0, 2), y.slice(2)] : [y || "----"];
+    var fs = H, wmax = W * (layout === "portrait" ? 0.8 : 0.76), hmax = H * (layout === "portrait" ? 0.8 : 0.66);
+    g.textBaseline = "middle"; g.textAlign = "center";
+    for (;;) {
+      g.font = "900 " + fs + "px 'Arial Black', Arial, 'Helvetica Neue', system-ui, sans-serif";
+      var mw = 0; lines.forEach(function (s) { mw = Math.max(mw, g.measureText(s).width); });
+      if ((mw <= wmax && fs * 0.82 * lines.length * 1.04 <= hmax) || fs < 40) break; fs -= 6;
+    }
+    var grad = g.createLinearGradient(0, H * 0.2, 0, H * 0.85);
+    grad.addColorStop(0, "#ffffff"); grad.addColorStop(0.55, "#bcd2ff"); grad.addColorStop(1, "#7a9cff");
+    g.fillStyle = grad; g.strokeStyle = "#cfe0ff"; g.lineWidth = fs * 0.03;
+    g.shadowColor = "rgba(120,160,255,.95)"; g.shadowBlur = fs * 0.2;
+    var lh = fs * 0.86, y0 = H / 2 - (lines.length - 1) * lh / 2 + fs * 0.03;
+    lines.forEach(function (s, k) { g.fillText(s, W / 2, y0 + k * lh); g.strokeText(s, W / 2, y0 + k * lh); });
+    sampleCanvas(cv, { bw: BOX.w, bh: BOX.h, zj: 0.07, gain: 1.0 });
+  }
+
+  // form 4: where it came from. atlas.js carries one continent outline (equirectangular, 1000 x 500) and a point per country, but no
+  // borders: so the dust draws the coast around the country, a bright point where it is, and its name.
+  function buildPlace(c) {
+    var cv = newCanvas(), g = cv.getContext("2d", { willReadFrequently: true }), W = cv.width, H = cv.height;
+    var co = geoData.coords && geoData.coords[c.iso];
+    if (co && geoData.land && window.Path2D) {
+      var spanLon = layout === "portrait" ? 40 : 46, unit = 1000 / 360, cw = spanLon * unit, ch = cw * H / W;
+      var cx = (co.lon + 180) * unit, cy = (90 - co.lat) * unit, s = W / cw;
+      g.save(); g.translate(W / 2 - cx * s, H / 2 - cy * s); g.scale(s, s);
+      var path = new Path2D(geoData.land);
+      g.fillStyle = "rgba(120,160,255,.26)"; g.fill(path);
+      g.lineJoin = "round"; g.strokeStyle = "rgba(190,215,255,.95)"; g.lineWidth = 2.4 / s * (W / 1024) * 1.4; g.stroke(path);
+      g.restore();
+      g.save(); g.globalCompositeOperation = "destination-in"; g.translate(W / 2, H / 2); g.scale(1, H / W);
+      var mg = g.createRadialGradient(0, 0, W * 0.22, 0, 0, W * 0.5); mg.addColorStop(0, "rgba(0,0,0,1)"); mg.addColorStop(0.7, "rgba(0,0,0,.55)"); mg.addColorStop(1, "rgba(0,0,0,0)");
+      g.fillStyle = mg; g.fillRect(-W / 2, -W / 2, W, W); g.restore();
+      var px = W / 2, py = H / 2, pr = W * 0.026;
+      var rg = g.createRadialGradient(px, py, 0, px, py, pr * 4.2);
+      rg.addColorStop(0, "rgba(255,255,255,1)"); rg.addColorStop(0.18, "rgba(255,170,225,.95)"); rg.addColorStop(0.5, "rgba(190,120,255,.5)"); rg.addColorStop(1, "rgba(120,80,255,0)");
+      g.fillStyle = rg; g.beginPath(); g.arc(px, py, pr * 4.2, 0, 6.2831853); g.fill();
+      g.strokeStyle = "rgba(255,220,245,.9)"; g.lineWidth = W * 0.004; g.beginPath(); g.arc(px, py, pr * 2.2, 0, 6.2831853); g.stroke();
+      g.beginPath(); g.arc(px, py, pr * 3.4, 0, 6.2831853); g.globalAlpha = 0.5; g.stroke(); g.globalAlpha = 1;
+    }
+    var name = String(c.country || "").toUpperCase(), fs = H * (layout === "portrait" ? 0.062 : 0.1);
+    g.textBaseline = "middle"; g.font = "800 " + fs + "px 'Arial Black', Arial, system-ui, sans-serif";
+    while (g.measureText(name).width + fs * 0.5 * name.length > W * 0.92 && fs > 14) { fs -= 2; g.font = "800 " + fs + "px 'Arial Black', Arial, system-ui, sans-serif"; }
+    g.fillStyle = "#ffffff"; g.shadowColor = "rgba(120,160,255,.95)"; g.shadowBlur = fs * 0.5;
+    spaced(g, name, W / 2, H * (layout === "portrait" ? 0.92 : 0.9), fs * 0.5);
+    sampleCanvas(cv, { bw: BOX.w, bh: BOX.h, zj: 0.05, gain: 1.0 });
+  }
+
+  // form 5: one real album page (collection/albums.json). Lit disc = a filled hole, dim ring = an empty one, faint frame = the page.
+  var albumData = null;
+  var A001 = { id: "A001", title: "Whitman 9030 · Lincoln 1941-1974 #2", family: "Lincoln cents", metal_text: "95% Copper Bronze", denomination_text: "1¢ Wheat Cent", slots: [] };
+  for (var q0 = 0; q0 < 89; q0++) A001.slots.push({ state: q0 < 77 ? "filled" : "empty" });
+  function buildAlbum() {
+    var al = albumData || A001, sl = al.slots, n = sl.length, best = 0, cols = 8, rows = 8, c, r;
+    for (c = 3; c <= 24; c++) { r = Math.ceil(n / c); var cell0 = Math.min(BOX.w * 0.9 / c, BOX.h * 0.88 / r); if (cell0 > best) { best = cell0; cols = c; rows = r; } }
+    var cell = best, hole = cell * 0.38;
+    var tint = /copper|bronze|cent/i.test((al.metal_text || "") + " " + (al.denomination_text || "")) ? [1.0, 0.7, 0.5] : /silver/i.test(al.metal_text || "") ? [0.86, 0.9, 1.0] : [1.0, 0.86, 0.55];
+    var wts = new Float32Array(n), tot = 0, k;
+    for (k = 0; k < n; k++) { wts[k] = sl[k].state === "filled" ? 1 : 0.34; tot += wts[k]; }
+    var frame = 0.07, nFrame = Math.round(N * frame), i = 0, pw = cols * cell * 1.04, ph = rows * cell * 1.04;
+    for (; i < nFrame; i++) {                                    // the page frame: a thin glowing rectangle
+      var u = rnd() * 2 * (pw + ph), x, y;
+      if (u < pw) { x = u - pw / 2; y = ph / 2; } else if (u < pw + ph) { x = pw / 2; y = ph / 2 - (u - pw); } else if (u < 2 * pw + ph) { x = pw / 2 - (u - pw - ph); y = -ph / 2; } else { x = -pw / 2; y = -ph / 2 + (u - 2 * pw - ph); }
+      var gl = 0.35 + 0.35 * rnd();
+      setSample(i, x + gauss() * 0.012, y + gauss() * 0.012, gauss() * 0.02, 0.35 * gl, 0.55 * gl, 1.0 * gl);
+    }
+    for (; i < N; i++) {
+      var t = rnd() * tot, kk = 0; for (; kk < n - 1; kk++) { t -= wts[kk]; if (t <= 0) break; }
+      var cx = ((kk % cols) - (cols - 1) / 2) * cell, cy = ((rows - 1) / 2 - Math.floor(kk / cols)) * cell, filled = sl[kk].state === "filled";
+      var a = rnd() * 6.2831853, rr = filled ? Math.sqrt(rnd()) * hole : hole * (1 + gauss() * 0.035);
+      var b = filled ? 0.75 + 0.6 * (1 - rr / hole) : 0.3;
+      var cr = filled ? tint[0] * 0.55 + 0.45 * BLUEWHITE[0] : VIOLET[0], cg = filled ? tint[1] * 0.55 + 0.45 * BLUEWHITE[1] : VIOLET[1], cb = filled ? tint[2] * 0.55 + 0.45 * BLUEWHITE[2] : VIOLET[2];
+      setSample(i, cx + Math.cos(a) * rr, cy + Math.sin(a) * rr, filled ? 0.05 + gauss() * 0.02 : 0, cr * b, cg * b, cb * b);
+    }
+    place(5);
+    var filledN = 0; for (k = 0; k < n; k++) if (sl[k].state === "filled") filledN++;
+    story.album = (al.id + " · " + (al.title || al.family)) + ": " + filledN + " of " + n + " holes have a coin" + (albumData ? "." : " (offline copy of the counts, not the slots).");
+    setCaption();
+  }
+
+  // form 6: light ribbons. Smooth strokes (Catmull-Rom through hand-set points, in half-box units) and one that closes into a coin rim.
+  var STROKES = [
+    [[-1.3, -0.55], [-0.7, 0.2], [-0.05, -0.38], [0.6, 0.5], [1.3, 0.12]],
+    [[-1.3, 0.62], [-0.55, 0.88], [0.15, 0.2], [0.75, -0.55], [1.3, -0.8]],
+    [[-1.3, -0.08], [-0.5, -0.78], [0.3, -0.86], [0.9, -0.12], [1.3, 0.78]],
+    [[-1.0, 0.95], [-0.25, -0.15], [0.35, 0.7], [1.0, 0.28], [1.3, 0.92]]
+  ];
+  function catmull(pts, t) {
+    var n = pts.length - 1, f = t * n, i = Math.min(n - 1, Math.floor(f)), u = f - i;
+    var p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(n, i + 2)], u2 = u * u, u3 = u2 * u;
+    function c(a, b, cc, d) { return 0.5 * ((2 * b) + (-a + cc) * u + (2 * a - 5 * b + 4 * cc - d) * u2 + (-a + 3 * b - 3 * cc + d) * u3); }
+    return [c(p0[0], p1[0], p2[0], p3[0]), c(p0[1], p1[1], p2[1], p3[1])];
+  }
+  function buildRibbons() {
+    var hx = BOX.w * 0.5 * (layout === "portrait" ? 1.05 : 1.2), hy = BOX.h * 0.5 * (layout === "portrait" ? 1.25 : 1.35), i;
+    for (i = 0; i < N; i++) {
+      var sid = Math.min(4, Math.floor(rnd() * 5)), t = rnd() * 0.998, x, y, tx, ty, w;
+      if (sid < 4) {
+        var P = catmull(STROKES[sid], t), Q = catmull(STROKES[sid], Math.min(1, t + 0.004));
+        x = P[0] * hx; y = P[1] * hy; tx = (Q[0] - P[0]) * hx; ty = (Q[1] - P[1]) * hy;
+        w = (0.04 + 0.22 * Math.pow(Math.sin(Math.PI * t), 0.7)) * (layout === "portrait" ? 0.8 : 1);
+      } else {
+        var an = t * 6.2831853, R = COIN_R * 1.18; x = Math.cos(an) * R; y = Math.sin(an) * R * 0.97; tx = -Math.sin(an); ty = Math.cos(an); w = 0.05;
+      }
+      var tl = Math.hypot(tx, ty) || 1, nx = -ty / tl, ny = tx / tl;
+      var core = rnd() < 0.42, off = gauss() * w * (core ? 0.12 : 0.55);
+      var z = gauss() * (sid < 4 ? 0.22 : 0.04) + (sid < 4 ? Math.sin(t * 6.28 + sid) * 0.5 : 0);
+      var m = core ? 1.0 : 0.5 + 0.3 * rnd();
+      var hue = sid === 4 ? 0.0 : smooth(0, 1, t);
+      var cr = (sid === 4 ? 0.85 : 0.65 + 0.35 * hue) * m * 1.15, cg = (sid === 4 ? 0.92 : 0.42 + 0.3 * (1 - Math.abs(hue - 0.5) * 2)) * m * 1.15, cb = (sid === 4 ? 1.0 : 1.0 - 0.12 * hue) * m * 1.15;
+      S.x[i] = x + nx * off; S.y[i] = y + ny * off; S.z[i] = z; S.c[i] = pack(cr, cg, cb); S.t[i] = sid + t;
+    }
+    place(6);
+  }
+
+  // form 2, derived from the coin: every grain flies outwards from its place on the coin, scattered in depth so the far ones blur
+  function buildBurst() {
+    var a = A[1], b = A[2], port = layout === "portrait", ax = port ? 0.72 : 1.5, ay = port ? 1.45 : 1.0;
+    for (var p = 0; p < N; p++) {
+      var o = p * 4, x = a[o], y = a[o + 1], r = Math.hypot(x, y), ang = Math.atan2(y, x) + gauss() * 0.55;
+      var rr = r * 0.1 + COIN_R * (0.05 + 3.3 * Math.pow(rnd(), 0.6));
+      b[o] = Math.cos(ang) * rr * ax; b[o + 1] = Math.sin(ang) * rr * ay; b[o + 2] = clamp(gauss() * (port ? 2.2 : 1.2), port ? -4 : -2.6, port ? 3.2 : 1.8);
+      var c = accent(), m = 0.14 + 1.5 * Math.pow(rnd(), 4.0);
+      b[o + 3] = pack(c[0] * m, c[1] * m, c[2] * m);
+    }
+    attrs[2].needsUpdate = true;
+  }
+
+  /* ---------------- data (same origin) ---------------- */
+  function getJSON(u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }); }
+  function getText(u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(u + " " + r.status); return r.text(); }); }
+  function loadImage(u) { return new Promise(function (res, rej) { var im = new Image(); im.decoding = "async"; im.onload = function () { res(im); }; im.onerror = function () { rej(new Error("image " + u)); }; im.src = u; }); }
+
+  var PREFER = ["C088", "C031", "C009", "C223", "C065", "C242", "C235", "C263", "C070", "C072"];   // portraits and strong reliefs first
+  function pickCoins(flips) {
+    var ok = flips.filter(function (f) { return f.thumb && /^\d{4}$/.test(String(f.year)) && f.status !== "Removed"; }), by = {}, out = [], seen = {};
+    ok.forEach(function (f) { by[f.scan] = f; });
+    PREFER.forEach(function (id) { var f = by[id]; if (f && !seen[f.country] && out.length < 8) { out.push(f); seen[f.country] = 1; } });
+    ok.slice().sort(function (x, y) { return (y.est || 0) - (x.est || 0); }).forEach(function (f) { if (out.length < 8 && !seen[f.country]) { out.push(f); seen[f.country] = 1; } });
+    return out;
+  }
+  function sideName(c) { return c.thumb_side === "rev" ? "reverse" : "obverse"; }
+  function buildCards() {
+    var ul = $("#cards"); ul.innerHTML = "";
+    coins.forEach(function (c, k) {
+      var li = document.createElement("li"), b = document.createElement("button"), im = new Image();
+      b.type = "button"; b.className = "card"; b.setAttribute("aria-pressed", "false"); b.style.setProperty("--k", String([0.1, 0.2, 0.15, 0.26][k % 4]));
+      b.setAttribute("aria-label", c.label + ": show this coin as dust");
+      im.src = "../" + c.thumb; im.alt = c.label + ", photo of the " + sideName(c); im.width = 200; im.height = 200;
+      var t = document.createElement("b"); t.textContent = c.country + " · " + c.year;
+      var s = document.createElement("span"); s.textContent = c.denom;
+      b.appendChild(im); b.appendChild(t); b.appendChild(s);
+      b.addEventListener("click", function () { chooseCoin(k, true); });
+      li.appendChild(b); ul.appendChild(li);
+    });
+    markCard();
+  }
+  function markCard() { Array.prototype.forEach.call(document.querySelectorAll(".card"), function (b, k) { b.setAttribute("aria-pressed", String(k === coinIx)); }); }
+
+  var building = false;
+  function chooseCoin(k, scroll) {
+    if (!coins.length) return;
+    coinIx = (k + coins.length) % coins.length; cur = coins[coinIx]; markCard(); setCaption();
+    return loadImage("../" + cur.thumb).then(function (im) { return composeCoin(im); }).catch(function () { say("photo " + cur.scan + " did not load, procedural coin"); return composeCoin(null); })
+      .then(function () { if (scroll) jumpTo(1); });
+  }
+  function composeCoin(img) {
+    var t0 = performance.now();
+    building = true; lastImg = img;
+    if (img) { try { sampleCoin(img); } catch (e) { proceduralCoin(); say("photo pixels unreadable here (open over http), procedural coin"); } } else proceduralCoin();
+    place(1); buildBurst();
+    buildYear(cur || { year: "----", country: "" }); place(3);
+    buildPlace(cur || { country: "" }); place(4);
+    building = false; if (HP.debug) console.log("compose ms", Math.round(performance.now() - t0), "grains", N);
+    renderOnce();
+  }
+
+  /* ---------------- captions and side words ---------------- */
+  function setCaption() { applyStage(true); }
+  function captions() {
+    var c = cur, lab = c ? c.label : "A coin";
+    return [
+      ["00 · The sheet", "Struck once. Kept for good.", "A sheet of dust behind eight coins from the collection. Tap a coin, then scroll.", ""],
+      ["01 · The coin", lab, "The dust gathers into the real photo of this coin. Brighter dust is where the relief catches the light.", cur && cur.awaiting_phase2 ? "Phone photo; the pro photo comes later." : ""],
+      ["02 · Scattered", "A sparkle cloud", "Then it scatters. Nothing is lost: the dust only waits for its next shape.", ""],
+      ["03 · The year", c ? "Struck in " + c.year : "The year", "The same dust, now drawn as the year on the coin.", ""],
+      ["04 · Where from", c ? c.country : "The country", geoData.coords && c && geoData.coords[c.iso] ? "The coast around the country, and a bright point where the coin comes from." : "The country's name. Map data was not available, so there is no map.", ""],
+      ["05 · The album", "An album page", story.album || "Lit holes have a coin, dim rings are still empty.", ""],
+      ["06 · Remembered", "Light, drawn like a pen", "The dust turns to violet wisps, then to ribbons that trace the rim of a coin. Scroll slowly to draw them.", ""]
+    ];
+  }
+  function fillStory() {
+    var ol = $("#storyList"); ol.innerHTML = "";
+    captions().forEach(function (c) { var li = document.createElement("li"); li.textContent = c[1] + ". " + c[2]; ol.appendChild(li); });
+  }
+  var capIx = -1, wordOp = [0, 0, 0], elCap = $("#cap"), elW = [$("#wL"), $("#wR"), $("#wC")];
+  function applyStage(force) {
+    var st = clamp(stage, 0, 6), ix = Math.round(st), d = Math.abs(st - ix);
+    if (ix !== capIx || force) {
+      capIx = ix; var c = captions()[ix];
+      $("#capK").textContent = c[0]; $("#capT").textContent = c[1]; $("#capP").textContent = c[2]; $("#capN").textContent = c[3];
+      fillStory();
+    }
+    var capOp = ix === 0 ? 0 : 1 - smooth(0.12, 0.34, d);          // the hero says it at the top
+    elCap.style.opacity = capOp.toFixed(3);
+    var wk = 1 - smooth(0.16, 0.5, Math.abs(st - 3)), wr = smooth(5.45, 5.95, st);
+    wordSet(0, wk); wordSet(1, wk); wordSet(2, wr);
+    buniforms.uFlash.value = 0.7 * Math.pow(Math.sin(Math.PI * clamp(st - 1, 0, 1)), 2);
+    buniforms.uTint.value = smooth(4.5, 6, st) * 0.9;
+    uniforms.uStage.value = stage;
+  }
+  function wordSet(k, v) { if (Math.abs(v - wordOp[k]) > 0.004) { wordOp[k] = v; elW[k].style.opacity = v.toFixed(3); } }
+
+  /* ---------------- scroll -> stage ---------------- */
+  var target = 0, stage = 0, draw01 = 1, pinned = false, anchors = [0], maxScroll = 1;
+  function measure() {
+    var secs = document.querySelectorAll("main > section"), k;
+    anchors = [0]; for (k = 1; k <= 6; k++) anchors.push(secs[k].offsetTop);
+    maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+  }
+  // form i holds while its spacer is on screen; the move to form i takes the 70 % of a screen of scrolling before it
+  function stageAt(y) {
+    var H = window.innerHeight, s = 0;
+    for (var i = 1; i <= 6; i++) {
+      var hi = anchors[i] - 0.1 * H, lo = anchors[i] - 0.8 * H;
+      if (y >= hi) s = i; else if (y > lo) { var u = (y - lo) / (hi - lo); s = (i - 1) + u * u * (3 - 2 * u); break; } else break;
+    }
+    return s;
+  }
+  function readScroll() {
+    var y = window.scrollY;
+    var cards = $("#cards"); if (cards && mode !== "still") cards.style.setProperty("--sy", String(Math.min(y, window.innerHeight * 1.2)));
+    if (pinned) return;
+    var s = stageAt(y); target = s;
+    draw01 = clamp((y - anchors[6]) / Math.max(1, maxScroll - anchors[6]), 0, 1);
+    if (mode === "still") { stage = Math.round(target); draw01 = 1; uniforms.uDraw.value = 1; applyStage(); renderOnce(); } else kick();
+  }
+  function jumpTo(i) {
+    if (!anchors[i]) measure();
+    var y = anchors[i]; try { window.scrollTo({ top: y, behavior: mode === "still" ? "auto" : "smooth" }); } catch (e) { window.scrollTo(0, y); }
+  }
+  window.addEventListener("scroll", readScroll, { passive: true });
+  // the hero grows when the cards and their photos arrive: measure again whenever the page changes height
+  if (window.ResizeObserver) new ResizeObserver(function () { var a = anchors.join(); measure(); if (a !== anchors.join() && ready) readScroll(); }).observe($("main"));
+
+  /* ---------------- pointer: stir the dust (Calm gentle, Full strong, Still off) ---------------- */
+  var stir = 0, ptr = { x: 0, y: 0, has: false }, ray = new THREE.Vector3(), ptrS = { x: 0, y: 0 };
+  function onPtr(x, y) {
+    if (mode === "still") return;
+    ptr.x = (x / window.innerWidth) * 2 - 1; ptr.y = -(y / window.innerHeight) * 2 + 1; ptr.has = true;
+    stir = Math.min(1, stir + (mode === "full" ? 0.3 : 0.14)); kick();
+  }
+  window.addEventListener("pointermove", function (e) { onPtr(e.clientX, e.clientY); }, { passive: true });
+  window.addEventListener("pointerdown", function (e) { onPtr(e.clientX, e.clientY); }, { passive: true });
+  window.addEventListener("touchmove", function (e) { if (e.touches[0]) onPtr(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });   // keeps stirring while the finger scrolls
+
+  /* ---------------- mode, sizing, render loop ---------------- */
+  function setMode(m) {
+    mode = m;
+    Array.prototype.forEach.call(document.querySelectorAll("#hud [data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-mode") === m)); });
+    if (m === "still") root.setAttribute("data-still", "1"); else root.removeAttribute("data-still");
+    root.setAttribute("data-mode", m);
+    if (!HP.mode) { try { localStorage.setItem("motionlab_mode", m); } catch (e) {} }
+    applyCount();
+    if (m === "still") { stir = 0; stage = Math.round(pinned ? target : stageAt(window.scrollY)); uniforms.uDraw.value = 1; applyStage(); renderOnce(); fpsEl.textContent = "still · no animation"; }
+    else { readScroll(); kick(); }
+  }
+  function applyCount() {
+    var n = mode === "calm" ? Math.min(drawCount, Math.round(N * 0.5)) : drawCount;
+    geo.setDrawRange(0, n);
+    // fewer grains: draw each a little bigger so the shapes still read, and keep the total light about the same
+    uniforms.uTierS.value = Math.pow(90000 / n, 0.4); gainBase = 0.62 * Math.pow(n / 90000, 0.12);
+  }
+  var vOff = 0, gainBase = 0.62;
+  function resize() {
+    var w = window.innerWidth, h = window.innerHeight, lay = layoutNow(), changed = lay !== layout;
+    layout = lay; setBox();
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, DPR_CAP[tier]));
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    // pull back until the design box fits (a tall phone needs much more distance than a wide screen)
+    camZ = Math.max(6, (BOX.w * 0.5 * 1.1) / (TAN * camera.aspect), (BOX.h * 0.5 * 1.16) / TAN);
+    vOff = lay === "portrait" ? 0.075 : 0.035;                // shift the picture up a little: the caption sits at the bottom
+    camera.setViewOffset(w, h, 0, Math.round(h * vOff), w, h);
+    camera.updateProjectionMatrix();
+    uniforms.uPx.value = renderer.domElement.height / (2 * TAN);
+    uniforms.uFocus.value = camZ; uniforms.uSheetS.value = camZ / 6.2;
+    buniforms.uAspect.value = camera.aspect;
+    measure();
+    if (changed && ready) recomposeLayout();
+    renderOnce();
+  }
+  function pinScroll() {                      // test links only: stand where the page would be for that form
+    if (!pinned) return; measure();
+    var i = Math.round(stage), y = i >= 1 ? anchors[i] : 0;
+    if (i === 6) y = anchors[6] + draw01 * (maxScroll - anchors[6]);
+    window.scrollTo(0, y);
+  }
+  var rt = 0;
+  window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(resize, 120); });
+  function recomposeLayout() { buildSheet(); composeCoin(lastImg); buildAlbum(); buildRibbons(); measure(); }
+
+  var running = false, last = 0, tAcc = 3.0, frames = 0, fpsT = 0, slow = 0, readyFlag = false, ready = false, lastImg = null;
+  function draw(now, stOverride) {
+    var full = mode === "full";
+    uniforms.uTime.value = tAcc; buniforms.uTime.value = tAcc;
+    uniforms.uStage.value = stOverride === undefined ? stage : stOverride;
+    uniforms.uDraw.value = mode === "still" ? 1 : drawEase;
+    uniforms.uStir.value = stir; uniforms.uCalm.value = calmK;
+    uniforms.uFlow.value = mode === "still" ? 0 : (full ? 1 : 0.55);
+    uniforms.uSpark.value = full ? 1 : 0;
+    uniforms.uGain.value = gainBase * (full ? 1 : 1.3);          // without the sparkle peaks the same dust reads dimmer
+    // the pointer ray, from the (eased) pointer
+    camera.position.set(ptrS.x * 0.32, ptrS.y * 0.2, camZ);
+    camera.lookAt(0, 0, 0); camera.updateMatrixWorld();
+    ray.set(ptr.x, ptr.y, 0.5).unproject(camera).sub(camera.position).normalize();
+    uniforms.uRayO.value.copy(camera.position); uniforms.uRayD.value.copy(ray);
+    buniforms.uShift.value.set(ptrS.x * 0.05, ptrS.y * 0.03);
+    renderer.render(scene, camera);
+  }
+  var drawEase = 1;
+  function renderOnce() { if (!running && ready) { applyStage(); draw(performance.now()); } }
+  function kick() { if (mode === "still" || running || document.hidden || !ready) return; running = true; last = performance.now(); requestAnimationFrame(loop); }
+  function loop(now) {
+    var dt = Math.min(0.05, (now - last) / 1000); last = now;
+    var full = mode === "full";
+    tAcc += dt * (full ? 1 : 0.5);
+    calmK += ((mode === "calm" ? 1 : 0) - calmK) * Math.min(1, dt * 3);
+    stage += (target - stage) * Math.min(1, dt * (full ? 3.0 : 1.7));
+    drawEase += (draw01 - drawEase) * Math.min(1, dt * 4);
+    stir *= Math.pow(0.1, dt);
+    ptrS.x += (ptr.x - ptrS.x) * Math.min(1, dt * 2.2); ptrS.y += (ptr.y - ptrS.y) * Math.min(1, dt * 2.2);
+    applyStage(); draw(now);
+    frames++; fpsT += dt;
+    if (fpsT >= 0.5) {
+      var fps = frames / fpsT, n = geo.drawRange.count;
+      fpsEl.textContent = fps.toFixed(0) + " fps · " + (n / 1000).toFixed(0) + "k";
+      var floor = full ? 40 : 24;
+      if (fps < floor && tier < TIER_N.length - 1) { if (++slow >= 4) { tier++; drawCount = Math.min(drawCount, TIER_N[tier]); applyCount(); slow = 0; say("stepped down to " + (TIER_N[tier] / 1000) + "k grains"); } } else slow = 0;
+      frames = 0; fpsT = 0;
+    }
+    if (mode === "still" || document.hidden) { running = false; return; }
+    if (mode === "calm") { setTimeout(function () { if (running) requestAnimationFrame(loop); }, 16); return; }     // Calm: about 30 frames a second
+    requestAnimationFrame(loop);
+  }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) kick(); });
+
+  /* ---------------- frame-time probe: pick the grain count for this device ---------------- */
+  function probe(done) {
+    if (HP.tier !== undefined || mode === "still") return done();
+    var round = 0;
+    (function again() {
+      var ts = [], lastT = performance.now(), n = 0;
+      (function f(now) {
+        ts.push(now - lastT); lastT = now; draw(now, 1.5); n++;
+        if (n < 16) return requestAnimationFrame(f);
+        var s = ts.slice(5).sort(function (a, b) { return a - b; }), med = s[s.length >> 1];
+        if (med > 30 && tier < TIER_N.length - 1 && round < 3) { round++; tier++; drawCount = Math.min(drawCount, TIER_N[tier]); applyCount(); say("device check: " + (TIER_N[tier] / 1000) + "k grains"); return again(); }
+        done();
+      })(performance.now());
+    })();
+  }
+
+  if (HP.debug) window.__morph = { A: A, N: N, uniforms: uniforms, geo: geo, camera: camera };   // test links only
+  /* ---------------- start ---------------- */
+  var hs = HP.stage !== undefined ? parseFloat(HP.stage) : NaN;
+  if (!isNaN(hs)) { pinned = true; stage = target = clamp(hs, 0, 6); draw01 = HP.draw !== undefined ? clamp(parseFloat(HP.draw) || 0, 0, 1) : 1; drawEase = draw01; }
+  layout = layoutNow(); setBox(); resize();
+  setMode(mode);
+  buildSheet(); buildAlbum(); buildRibbons();
+  var idx = getJSON("../data/index.json").catch(function () { return null; });
+  var atlas = getText("../atlas.js").catch(function () { return null; });
+  var albs = getJSON("../collection/albums.json").catch(function () { return null; });
+  Promise.all([idx, atlas, albs]).then(function (r) {
+    var ix = r[0], src = r[1], al = r[2];
+    if (src) {
+      try { var m = /const COUNTRY_COORDS = (\{[\s\S]*?\n\});/.exec(src); if (m) geoData.coords = JSON.parse(m[1]); } catch (e) { geoData.coords = null; }
+      var p = /const CONTINENT_PATHS = "([^"]+)"/.exec(src); if (p) geoData.land = p[1];
+    }
+    if (!geoData.coords || !geoData.land) say("map data unavailable: the country step shows the name only");
+    var list = al && (Array.isArray(al) ? al : al.albums || []).filter(function (a) { return a.slots && a.slots.length >= 36 && a.slots.length <= 100 && a.slots.some(function (s) { return s.state !== "filled"; }); });
+    if (list && list.length) albumData = list[0]; else say("album list unavailable: A001 counts from 2026-10-07 are drawn");
+    buildAlbum();
+    if (ix && ix.flips) coins = pickCoins(ix.flips);
+    if (coins.length) { buildCards(); cur = coins[0]; coinIx = 0; markCard(); return loadImage("../" + cur.thumb).then(function (im) { lastImg = im; return im; }, function () { say("photo " + cur.scan + " did not load, procedural coin"); return null; }); }
+    say("offline: data/index.json not reachable, procedural coin and no cards"); cur = { year: "----", country: "No data", label: "A coin (procedural stand-in)", iso: "" };
+    $("#cards").style.display = "none"; return null;
+  }).then(function (im) {
+    composeCoin(im);
+    fillStory(); ready = true;
+    if (mode !== "still" && isNaN(hs)) { /* start from the page's own scroll position */ }
+    probe(function () {
+      root.setAttribute("data-ready", "1"); root.setAttribute("data-tier", String(tier)); root.setAttribute("data-points", String(geo.drawRange.count));
+      pinScroll(); readScroll(); applyStage(true); renderOnce(); if (mode !== "still") kick(); else fpsEl.textContent = "still · no animation";
+    });
+  }).catch(function (e) { say("load problem: " + e.message); root.setAttribute("data-ready", "1"); });
+
+  function noGL(why) {
+    $("#stage").style.display = "none"; $("#fallback").style.display = "grid"; fpsEl.textContent = "no WebGL"; root.setAttribute("data-nogl", "1");
+    $("#veil").style.display = "none"; $("#cap").style.display = "none"; $("#story").className = "plain";
+    var fb = $("#fallback"); fb.style.position = "relative"; fb.style.zIndex = "2"; fb.style.padding = "0 16px 24px"; $("#hero").insertBefore(fb, $("#cards"));
+    $("#hero").style.minHeight = "0"; $("#hero").style.paddingTop = "190px"; $("#cards").style.display = "none";
+    $(".lede").textContent = "This device cannot draw the 3D dust. Here is what the page shows, one step at a time."; fillStory();
+    getJSON("../data/index.json").then(function (ix) { var f = (ix.flips || []).filter(function (x) { return x.thumb; })[0]; if (f) { $("#fbimg").src = "../" + f.thumb; $("#fbimg").alt = f.label; } }).catch(function () {});
+    say(why); root.setAttribute("data-ready", "1");
+  }
+  $("#next").addEventListener("click", function () { chooseCoin(coinIx + 1, true); });
+  Array.prototype.forEach.call(document.querySelectorAll("#hud [data-mode]"), function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); }); });
+})();
+</script>
+</body>
+</html>
