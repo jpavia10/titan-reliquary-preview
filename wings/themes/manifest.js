@@ -31,7 +31,7 @@
     { id: "notepad", name: "Plaintext", collection: "Utility", tier: "classic", art: null,
       mood: "Black on white. Just the coins.", fx: "paperink", fxIntensity: 0.6, scene: "privatebank", tokens: {} },
     { id: "construct", name: "The Construct", collection: "Otherworld", tier: "classic", art: null,
-      mood: "Green phosphor and falling code.", fx: "phosphor", fxIntensity: 0.7, scene: "blacksite", tokens: {} },
+      mood: "Green phosphor and falling code.", fx: "style-ascii", fxIntensity: 0.8, scene: "blacksite", tokens: {} },
     { id: "xeno", name: "Xenohold", collection: "Otherworld", tier: "classic", art: null,
       mood: "Bioluminescent containment for strange artifacts.", fx: "spores", fxIntensity: 0.85, scene: "xenohold", tokens: {} },
     { id: "solaris", name: "Solar Observatory", collection: "Journeys", tier: "classic", art: null,

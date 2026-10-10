@@ -155,3 +155,18 @@ html[data-atmo="construct"] #construct-term { bottom: calc(var(--nav-h, 66px) + 
 @media (prefers-reduced-motion: reduce) {
   html[data-atmo="construct"] .wordmark::after { animation: none; opacity: 1; }
 }
+
+/* ---------- Style (styles-20): ASCII art + fix list #23 (terminal readability) ----------
+   The GPU preset style-ascii (wings/fx/styles-b.js) now carries the theme: a real coin in green ASCII and falling glyph columns.
+   The old typing terminal was a fixed box OVER the page: on phones it covered real content and its 11.5 px glowing text was hard
+   to read. It now shows only where there is a free margin (wide screens), at 14 px, crisp (no glow) on a solid panel. The old
+   2D matrix-rain canvas is hidden while the GPU effect runs, so the two never stack behind text. */
+@media (max-width: 1099px) {
+  html[data-atmo="construct"] #construct-term { display: none; }
+}
+html[data-atmo="construct"] #construct-term {
+  font-size: 0.875rem; line-height: 1.5; text-shadow: none; color: #6dff99;
+  background: #000a04; border-color: rgba(51, 255, 102, 0.55); max-width: 26rem;
+}
+html[data-atmo="construct"] #construct-term .cx-ok { color: #5cff86; }
+html[data-atmo="construct"][data-titanfx] #matrix-rain { display: none; }

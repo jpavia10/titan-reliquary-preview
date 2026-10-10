@@ -240,3 +240,17 @@ html[data-atmo="notepad"] .atlas-footer-bar strong[style*="#10b981"] { color: #0
 @media (prefers-reduced-motion: reduce) {
   html[data-atmo="notepad"] .wordmark::after { animation: none !important; opacity: 1; }
 }
+
+/* ---------- Style (styles-20): Neo-brutalism ----------
+   Plaintext carries the neo-brutalist style through the shared `brutal` treatment (styles/style-layer.css, html[data-ui~="brutal"]):
+   2 px black borders, hard 4 px offset shadows, buttons that press in. Here only what Plaintext needs on top: still black on white,
+   no motion, and the one spot of colour is a yellow fill (black text) for whatever is current or active. */
+html[data-atmo="notepad"] {
+  --ui-bw: 2px; --ui-edge: #000000; --ui-hard: 4px 4px 0 #000000; --radius: 0px;
+}
+html[data-atmo="notepad"] :is(.tab.active, .tray-tab.active, .term-asset-btn.active, .ex-ctrl-btn.active, .gf-preset.on, .vx-chip.on, .term-tf-btn.active) {
+  background: #ffd400; color: #000000; border-color: #000000;
+}
+html[data-atmo="notepad"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn) { transition: none; }
+/* the chart-type toggle sits in a pinned light-ink area (styles.css TR50): its idle buttons need black ink on the grey chip */
+html[data-atmo="notepad"] #term-mode-area .term-mode-btn:not(.active) { color: #000000; }
