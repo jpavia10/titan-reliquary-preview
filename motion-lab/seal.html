@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Motion Lab · Confirm seal (#56)</title>
+<!-- Titan Reliquary · Motion Lab study 5 (fix list #56): the moment a fact changes from "AI guess" to "Owner verified". A fact card
+     shows the certainty chip the app uses; pressing Confirm presses a wax seal into the card: the seal drops, squashes, a ripple of
+     light runs through the card, the chip flips over to its new label and colour, and a short haptic tick plays where the phone
+     supports it. Undo plays it back. Pure CSS + Web Animations, no libraries. Still / Calm / Full; follows titan.motion. -->
+<style>
+  :root { --ink: #f3efe6; --muted: #c9c2b3; --bg: #0b0a08; --panel: #17140f; --gold: #e9c46a; --line: rgba(243,239,230,.24); --ok: #86d296; --ai: #d9b25a; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: radial-gradient(ellipse at 50% 30%, #1d1912, #0b0a08 70%); color: var(--ink); font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  #hud { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding: max(12px, env(safe-area-inset-top)) 12px 10px; }
+  #hud button, #hud a { min-height: 48px; min-width: 48px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: #15130f; color: var(--ink); font: 600 16px/1 system-ui, sans-serif; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+  #hud button[aria-pressed="true"] { background: var(--gold); color: #111; border-color: var(--gold); }
+  :focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  main { max-width: 34rem; margin: 0 auto; padding: 8px 16px 40px; }
+  h1 { margin: 8px 0 2px; font-size: 1.35rem; color: var(--gold); }
+  .lead { margin: 0 0 18px; color: var(--muted); }
+  .fact { position: relative; overflow: hidden; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px 18px 20px; }
+  .fact .k { color: var(--muted); font-size: 16px; }
+  .fact .v { font-size: 1.6rem; font-weight: 800; margin: 2px 0 10px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 14px; border-radius: 999px; font-weight: 800; font-size: 16px; perspective: 400px; }
+  .chip.ai { background: rgba(217,178,90,.16); color: var(--ai); border: 1px solid rgba(217,178,90,.55); }
+  .chip.ok { background: rgba(134,210,150,.16); color: var(--ok); border: 1px solid rgba(134,210,150,.6); }
+  .src { margin-top: 10px; color: var(--muted); font-size: 16px; }
+  .row { display: flex; gap: 10px; margin-top: 16px; }
+  .row button { flex: 1; min-height: 52px; border-radius: 14px; border: 1px solid var(--line); background: #22201a; color: var(--ink); font: 700 17px/1 system-ui, sans-serif; cursor: pointer; }
+  .row button.go { background: var(--gold); color: #111; border-color: var(--gold); }
+  .row button:disabled { opacity: .5; cursor: default; }
+  .seal { position: absolute; right: 16px; top: 64px; width: 84px; height: 84px; pointer-events: none; opacity: 0; }
+  .ripple { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(circle at var(--rx, 85%) var(--ry, 40%), rgba(255,236,190,.45) 0, rgba(255,236,190,.0) 30%); }
+</style>
+</head>
+<body>
+<div id="hud" role="toolbar" aria-label="Motion settings">
+  <a href="index.html">All studies</a>
+  <button type="button" data-mode="still" aria-pressed="false">Still</button>
+  <button type="button" data-mode="calm" aria-pressed="true">Calm</button>
+  <button type="button" data-mode="full" aria-pressed="false">Full</button>
+</div>
+<main>
+  <h1>Confirm seal</h1>
+  <p class="lead">When you confirm a fact with the coin in your hand, the app's label changes from an AI guess to Owner verified. This is how that moment could feel.</p>
+  <section class="fact" id="fact" aria-live="polite">
+    <div class="k">Mint mark · Switzerland 1969 1 franc (C001)</div>
+    <div class="v">B (Bern)</div>
+    <span class="chip ai" id="chip"><span id="chipIcon" aria-hidden="true">✦</span><span id="chipText">AI guess</span></span>
+    <div class="src" id="src">Read from the phone photo by an AI. Not yet checked by a person.</div>
+    <svg class="seal" id="seal" viewBox="0 0 100 100" aria-hidden="true">
+      <defs><radialGradient id="wax" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#e2574c"/><stop offset=".55" stop-color="#a3231b"/><stop offset="1" stop-color="#5e110c"/></radialGradient></defs>
+      <path d="M50 4c8 0 10 6 17 8s13-1 17 6 0 12 3 18 9 9 7 17-9 9-11 16 2 13-5 18-12 1-18 4-9 9-17 9-10-6-17-8-13 1-17-6 0-12-3-18-9-9-7-17 9-9 11-16-2-13 5-18 12-1 18-4 9-9 17-9z" fill="url(#wax)"/>
+      <circle cx="50" cy="50" r="27" fill="none" stroke="rgba(255,210,190,.55)" stroke-width="2"/>
+      <path d="M38 51l8 8 16-18" fill="none" stroke="rgba(255,226,210,.9)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="ripple" id="ripple"></div>
+  </section>
+  <div class="row"><button type="button" class="go" id="confirm">Confirm: it's right</button><button type="button" id="undo" disabled>Undo</button></div>
+</main>
+<script>
+(function () {
+  "use strict";
+  var rmq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  var appMo = null; try { appMo = localStorage.getItem("titan.motion"); } catch (e) {}
+  var still0 = appMo === "off" || (appMo !== "full" && appMo !== "calm" && rmq && rmq.matches);
+  var mode = still0 ? "still" : "calm";
+  try { var sv = localStorage.getItem("motionlab_mode"); if (sv && !still0 && !(appMo === "calm" && sv === "full")) mode = sv; } catch (e) {}
+  var hud = document.getElementById("hud");
+  function setMode(m) { mode = m; Array.prototype.forEach.call(hud.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b.dataset.mode === m)); }); try { localStorage.setItem("motionlab_mode", m); } catch (e) {} }
+  hud.addEventListener("click", function (e) { var b = e.target.closest("[data-mode]"); if (b) setMode(b.dataset.mode); });
+  setMode(mode);
+  var seal = document.getElementById("seal"), chip = document.getElementById("chip"), ripple = document.getElementById("ripple"), fact = document.getElementById("fact");
+  var bConfirm = document.getElementById("confirm"), bUndo = document.getElementById("undo");
+  function tick() { try { if (navigator.vibrate) navigator.vibrate([12, 40, 18]); } catch (e) {} }
+  function setChip(ok) {
+    chip.className = "chip " + (ok ? "ok" : "ai");
+    document.getElementById("chipIcon").textContent = ok ? "✓" : "✦";
+    document.getElementById("chipText").textContent = ok ? "Owner verified" : "AI guess";
+    document.getElementById("src").textContent = ok ? "Confirmed by the owner with the coin in hand, today." : "Read from the phone photo by an AI. Not yet checked by a person.";
+  }
+  function confirm() {
+    bConfirm.disabled = true; bUndo.disabled = false; tick();
+    if (mode === "still") { seal.style.opacity = 1; setChip(true); return; }
+    var full = mode === "full", D = full ? 1 : 0.6;
+    seal.animate(full ? [
+      { opacity: 0, transform: "translateY(-120px) rotate(-30deg) scale(1.5)" },
+      { opacity: 1, transform: "translateY(0) rotate(-8deg) scale(1.0)", offset: 0.55, easing: "cubic-bezier(.5,0,1,1)" },
+      { opacity: 1, transform: "translateY(0) rotate(-8deg) scale(1.18, .82)", offset: 0.68 },
+      { opacity: 1, transform: "translateY(0) rotate(-8deg) scale(.96, 1.04)", offset: 0.82 },
+      { opacity: 1, transform: "translateY(0) rotate(-8deg) scale(1)" }
+    ] : [{ opacity: 0, transform: "scale(1.25) rotate(-8deg)" }, { opacity: 1, transform: "scale(1) rotate(-8deg)" }],
+      { duration: 700 * D, fill: "forwards" });
+    setTimeout(function () {
+      ripple.animate([{ opacity: 0.9, transform: "scale(.4)" }, { opacity: 0, transform: "scale(2.6)" }], { duration: 650 * D, easing: "ease-out" });
+      fact.animate([{ transform: "translateY(0)" }, { transform: "translateY(2px)" }, { transform: "none" }], { duration: 180 });
+      chip.animate([{ transform: "rotateX(0)" }, { transform: "rotateX(90deg)" }], { duration: 160 * D, easing: "ease-in" }).onfinish = function () {
+        setChip(true);
+        chip.animate([{ transform: "rotateX(-90deg)" }, { transform: "rotateX(0)" }], { duration: 220 * D, easing: "cubic-bezier(.2,.9,.3,1.3)" });
+      };
+    }, (full ? 480 : 240));
+  }
+  function undo() {
+    bConfirm.disabled = false; bUndo.disabled = true;
+    if (mode === "still") { seal.style.opacity = 0; setChip(false); return; }
+    seal.animate([{ opacity: 1, transform: "rotate(-8deg) scale(1)" }, { opacity: 0, transform: "rotate(-8deg) scale(.6)" }], { duration: 260, fill: "forwards" });
+    chip.animate([{ opacity: 1 }, { opacity: 0 }, { opacity: 1 }], { duration: 300 }); setTimeout(function () { setChip(false); }, 150);
+  }
+  bConfirm.addEventListener("click", confirm); bUndo.addEventListener("click", undo);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Motion Lab · Tile to coin view (#56)</title>
+<!-- Titan Reliquary · Motion Lab study 4 (fix list #56): a gallery tile grows into the coin view. Real coins from ../data/index.json
+     (their phone-photo thumbnails). Tapping a tile morphs it, as one shared element, into the full coin view: the photo flies to the
+     centre and scales up while the card's frame stretches into the panel and the details fade in after it; Back reverses it.
+     Uses the View Transitions API where the browser has it, else a hand-written FLIP (First, Last, Invert, Play) transform.
+     Still = instant switch; Calm = shorter, no overshoot; Full = the whole morph with a slight overshoot. Follows titan.motion. -->
+<style>
+  :root { --ink: #f3efe6; --muted: #c9c2b3; --bg: #0b0a08; --panel: #17140f; --gold: #e9c46a; --line: rgba(243,239,230,.24); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  #hud { position: sticky; top: 0; z-index: 5; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding: max(12px, env(safe-area-inset-top)) 12px 10px; background: rgba(11,10,8,.92); border-bottom: 1px solid var(--line); }
+  #hud button, #hud a { min-height: 48px; min-width: 48px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: #15130f; color: var(--ink); font: 600 16px/1 system-ui, sans-serif; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+  #hud button[aria-pressed="true"] { background: var(--gold); color: #111; border-color: var(--gold); }
+  :focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  h1 { margin: 16px 16px 2px; font-size: 1.35rem; color: var(--gold); }
+  .lead { margin: 0 16px 12px; color: var(--muted); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 0 16px 40px; }
+  .tile { all: unset; cursor: pointer; display: block; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); padding: 12px; text-align: center; }
+  .tile img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 50%; }
+  .tile b { display: block; margin-top: 8px; font-size: 16px; }
+  .tile span { display: block; color: var(--muted); font-size: 15px; }
+  .tile:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  #view { position: fixed; inset: 0; z-index: 10; display: none; background: rgba(5,5,4,.0); }
+  #view.on { display: block; background: rgba(5,5,4,.86); transition: background .35s ease; }
+  #panel { position: absolute; left: 50%; top: 50%; width: min(92vw, 560px); transform: translate(-50%, -50%); background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 20px 20px 24px; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+  #panel img { display: block; width: min(64vw, 340px); aspect-ratio: 1; margin: 0 auto 12px; object-fit: contain; border-radius: 50%; filter: drop-shadow(0 18px 30px rgba(0,0,0,.55)); }
+  #panel h2 { margin: 0; text-align: center; font-size: 1.4rem; }
+  #panel .meta { text-align: center; color: var(--muted); margin: 4px 0 12px; }
+  #panel .facts { opacity: 0; transform: translateY(10px); transition: opacity .35s ease .18s, transform .35s ease .18s; color: var(--ink); }
+  #view.on.shown #panel .facts { opacity: 1; transform: none; }
+  #back { min-height: 48px; padding: 10px 20px; border-radius: 999px; border: 1px solid var(--line); background: #22201a; color: var(--ink); font: 600 16px/1 system-ui, sans-serif; cursor: pointer; display: block; margin: 16px auto 0; }
+  ::view-transition-group(coin), ::view-transition-group(frame) { animation-duration: var(--vt, .55s); animation-timing-function: cubic-bezier(.2,.9,.25,1.12); }
+  html[data-mode="calm"] { --vt: .32s; }
+  html[data-mode="calm"]::view-transition-group(coin), html[data-mode="calm"]::view-transition-group(frame) { animation-timing-function: ease-out; }
+</style>
+</head>
+<body>
+<div id="hud" role="toolbar" aria-label="Motion settings">
+  <a href="index.html">All studies</a>
+  <button type="button" data-mode="still" aria-pressed="false">Still</button>
+  <button type="button" data-mode="calm" aria-pressed="true">Calm</button>
+  <button type="button" data-mode="full" aria-pressed="false">Full</button>
+</div>
+<h1>Tile to coin view</h1>
+<p class="lead">Tap a coin. The tile grows into the coin view as one piece; Back sends it home.</p>
+<div class="grid" id="grid"></div>
+<div id="view" role="dialog" aria-modal="true" aria-labelledby="vtitle">
+  <div id="panel"><img id="vimg" alt=""><h2 id="vtitle"></h2><p class="meta" id="vmeta"></p>
+    <div class="facts" id="vfacts"></div><button type="button" id="back">Back</button></div>
+</div>
+<script>
+(function () {
+  "use strict";
+  var rmq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  var appMo = null; try { appMo = localStorage.getItem("titan.motion"); } catch (e) {}
+  var still0 = appMo === "off" || (appMo !== "full" && appMo !== "calm" && rmq && rmq.matches);
+  var mode = still0 ? "still" : "calm";
+  try { var sv = localStorage.getItem("motionlab_mode"); if (sv && !still0 && !(appMo === "calm" && sv === "full")) mode = sv; } catch (e) {}
+  var hud = document.getElementById("hud");
+  function setMode(m) { mode = m; document.documentElement.dataset.mode = m; Array.prototype.forEach.call(hud.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b.dataset.mode === m)); }); try { localStorage.setItem("motionlab_mode", m); } catch (e) {} }
+  hud.addEventListener("click", function (e) { var b = e.target.closest("[data-mode]"); if (b) setMode(b.dataset.mode); });
+  setMode(mode);
+
+  var grid = document.getElementById("grid"), view = document.getElementById("view"), vimg = document.getElementById("vimg");
+  var flips = [];
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  fetch("../data/index.json").then(function (r) { return r.json(); }).then(function (d) {
+    flips = (d.flips || []).filter(function (f) { return f.thumb; }).slice(0, 24);
+    build();
+  }).catch(function () { grid.innerHTML = '<p class="lead">The collection data did not load (open this page from the site, not from a file).</p>'; });
+  function build() {
+    grid.innerHTML = flips.map(function (f, i) {
+      return '<button class="tile" data-i="' + i + '"><img loading="lazy" alt="" src="../' + esc(f.thumb) + '"><b>' + esc(f.country) + '</b><span>' + esc(f.year) + ' · ' + esc(f.denom) + '</span></button>';
+    }).join("");
+  }
+  var openTile = null;
+  function fill(f) {
+    vimg.src = "../" + f.thumb;
+    document.getElementById("vtitle").textContent = f.country + " · " + f.year;
+    document.getElementById("vmeta").textContent = f.denom;
+    document.getElementById("vfacts").textContent = (f.label || "") + (f.est != null ? " · est. $" + Number(f.est).toFixed(2) : "");
+  }
+  function names(tile, on) {
+    var im = tile.querySelector("img");
+    im.style.viewTransitionName = on ? "coin" : ""; tile.style.viewTransitionName = on ? "frame" : "";
+    vimg.style.viewTransitionName = on ? "" : "coin"; document.getElementById("panel").style.viewTransitionName = on ? "" : "frame";
+  }
+  function open(tile) {
+    var f = flips[+tile.dataset.i]; if (!f) return;
+    fill(f); openTile = tile;
+    if (mode === "still") { view.classList.add("on", "shown"); document.getElementById("back").focus(); return; }
+    if (document.startViewTransition) {
+      names(tile, true);
+      var vt = document.startViewTransition(function () { names(tile, false); view.classList.add("on"); });
+      vt.finished.then(function () { view.classList.add("shown"); vimg.style.viewTransitionName = ""; document.getElementById("panel").style.viewTransitionName = ""; document.getElementById("back").focus(); });
+      return;
+    }
+    flipFrom(tile.querySelector("img"), function () { view.classList.add("shown"); document.getElementById("back").focus(); });
+  }
+  function close() {
+    var tile = openTile; if (!tile) return;
+    view.classList.remove("shown");
+    if (mode === "still" || !document.startViewTransition) { view.classList.remove("on"); tile.focus(); return; }
+    vimg.style.viewTransitionName = "coin"; document.getElementById("panel").style.viewTransitionName = "frame";
+    var vt = document.startViewTransition(function () { view.classList.remove("on"); vimg.style.viewTransitionName = ""; document.getElementById("panel").style.viewTransitionName = ""; names(tile, true); });
+    vt.finished.then(function () { names(tile, false); vimg.style.viewTransitionName = ""; tile.querySelector("img").style.viewTransitionName = ""; tile.style.viewTransitionName = ""; tile.focus(); });
+  }
+  /* FLIP fallback: measure the tile photo, show the view, then animate the big photo from the tile's box */
+  function flipFrom(src, done) {
+    var a = src.getBoundingClientRect();
+    view.classList.add("on");
+    var b = vimg.getBoundingClientRect();
+    var sx = a.width / b.width, sy = a.height / b.height, dx = a.left - b.left, dy = a.top - b.top;
+    vimg.animate([{ transform: "translate(" + dx + "px," + dy + "px) scale(" + sx + "," + sy + ")" }, { transform: "none" }],
+      { duration: mode === "full" ? 550 : 320, easing: mode === "full" ? "cubic-bezier(.2,.9,.25,1.12)" : "ease-out" }).onfinish = done;
+  }
+  grid.addEventListener("click", function (e) { var t = e.target.closest(".tile"); if (t) open(t); });
+  document.getElementById("back").addEventListener("click", close);
+  view.addEventListener("click", function (e) { if (e.target === view) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && view.classList.contains("on")) close(); });
+})();
+</script>
+</body>
+</html>

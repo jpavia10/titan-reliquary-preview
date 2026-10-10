@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Motion Lab · Album settle (#56)</title>
+<!-- Titan Reliquary · Motion Lab study 6 (fix list #56): a coin settling into its album hole. The real page of album A026
+     (American Silver Eagles 1986-2021, read hole by hole from the owner's photos: ../collection/albums.json) with its filled and
+     empty holes. Tap an empty hole (or "Find one") and a silver eagle drops in from above, spinning flat, wobbles as it settles
+     like a real coin rolling to rest, the hole's ring warms and the counter ticks up. "Reset" empties the holes you filled.
+     Nothing here changes the collection: it is a motion study only. Still / Calm / Full; follows titan.motion. -->
+<style>
+  :root { --ink: #f3efe6; --muted: #c9c2b3; --page: #13202c; --page2: #0d1720; --gold: #e9c46a; --line: rgba(243,239,230,.24); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: #0a0d10; color: var(--ink); font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  #hud { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding: max(12px, env(safe-area-inset-top)) 12px 10px; }
+  #hud button, #hud a { min-height: 48px; min-width: 48px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: #15181c; color: var(--ink); font: 600 16px/1 system-ui, sans-serif; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+  #hud button[aria-pressed="true"] { background: var(--gold); color: #111; border-color: var(--gold); }
+  :focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+  main { max-width: 40rem; margin: 0 auto; padding: 4px 14px 40px; }
+  h1 { margin: 6px 0 2px; font-size: 1.35rem; color: var(--gold); }
+  .lead { margin: 0 0 12px; color: var(--muted); }
+  .count { font-weight: 800; }
+  .page { background: radial-gradient(ellipse at 30% 0%, #1d3044, var(--page) 55%, var(--page2)); border-radius: 18px; border: 1px solid rgba(255,255,255,.08); padding: 16px 12px; box-shadow: inset 0 0 0 6px rgba(0,0,0,.25), 0 20px 50px rgba(0,0,0,.5); perspective: 900px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px 8px; }
+  .slot { all: unset; position: relative; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+  .hole { position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #060a0e 55%, #1b2a38 70%, #0a1118 74%); box-shadow: inset 0 3px 6px rgba(0,0,0,.8), 0 1px 0 rgba(255,255,255,.08); transition: box-shadow .5s ease; }
+  .slot.filled .hole { box-shadow: inset 0 3px 6px rgba(0,0,0,.8), 0 0 0 2px rgba(233,196,106,.0); }
+  .slot.warm .hole { box-shadow: inset 0 3px 6px rgba(0,0,0,.8), 0 0 0 2px rgba(233,196,106,.9), 0 0 16px rgba(233,196,106,.45); }
+  .yr { margin-top: 3px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .slot.empty .yr { color: #e7b9a8; }
+  .coin { position: absolute; inset: 7%; border-radius: 50%; background:
+      radial-gradient(circle at 34% 30%, #ffffff 0 6%, rgba(255,255,255,0) 22%),
+      repeating-radial-gradient(circle at 50% 50%, rgba(0,0,0,.0) 0 7%, rgba(0,0,0,.08) 7.5% 8%),
+      radial-gradient(circle at 50% 50%, #d9dde2 0 55%, #a8aeb6 70%, #e7eaee 72%, #8b929b 86%, #cfd4da 88%);
+    box-shadow: 0 2px 3px rgba(0,0,0,.5); }
+  .coin::after { content: ""; position: absolute; inset: 24%; border-radius: 50%; background: radial-gradient(circle at 50% 45%, rgba(110,116,124,.55), rgba(110,116,124,0) 70%); }
+  .row { display: flex; gap: 10px; margin-top: 14px; }
+  .row button { flex: 1; min-height: 52px; border-radius: 14px; border: 1px solid var(--line); background: #1d2228; color: var(--ink); font: 700 17px/1 system-ui, sans-serif; cursor: pointer; }
+  .row button.go { background: var(--gold); color: #111; border-color: var(--gold); }
+  #fly { position: fixed; z-index: 20; pointer-events: none; display: none; border-radius: 50%; }
+</style>
+</head>
+<body>
+<div id="hud" role="toolbar" aria-label="Motion settings">
+  <a href="index.html">All studies</a>
+  <button type="button" data-mode="still" aria-pressed="false">Still</button>
+  <button type="button" data-mode="calm" aria-pressed="true">Calm</button>
+  <button type="button" data-mode="full" aria-pressed="false">Full</button>
+</div>
+<main>
+  <h1 id="title">American Silver Eagles 1986-2021</h1>
+  <p class="lead"><span class="count" id="count">18 of 36</span> holes filled on the real album page. Tap an empty hole to see a coin settle into it (a study only: nothing is saved).</p>
+  <div class="page"><div class="grid" id="grid"></div></div>
+  <div class="row"><button type="button" class="go" id="find">Find one</button><button type="button" id="reset">Reset</button></div>
+</main>
+<div id="fly" class="coin" aria-hidden="true"></div>
+<script>
+(function () {
+  "use strict";
+  var rmq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  var appMo = null; try { appMo = localStorage.getItem("titan.motion"); } catch (e) {}
+  var still0 = appMo === "off" || (appMo !== "full" && appMo !== "calm" && rmq && rmq.matches);
+  var mode = still0 ? "still" : "calm";
+  try { var sv = localStorage.getItem("motionlab_mode"); if (sv && !still0 && !(appMo === "calm" && sv === "full")) mode = sv; } catch (e) {}
+  var hud = document.getElementById("hud");
+  function setMode(m) { mode = m; Array.prototype.forEach.call(hud.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b.dataset.mode === m)); }); try { localStorage.setItem("motionlab_mode", m); } catch (e) {} }
+  hud.addEventListener("click", function (e) { var b = e.target.closest("[data-mode]"); if (b) setMode(b.dataset.mode); });
+  setMode(mode);
+
+  var grid = document.getElementById("grid"), fly = document.getElementById("fly"), slots = [], added = [];
+  function fallback() { var s = []; for (var y = 1986; y <= 2021; y++) s.push({ year: y, label: String(y), state: y % 2 ? "filled" : "missing" }); return s; }
+  fetch("../collection/albums.json").then(function (r) { return r.json(); }).then(function (d) {
+    var a = (d || []).filter(function (x) { return x.id === "A026"; })[0];
+    slots = a && a.slots ? a.slots.map(function (s) { return { year: s.year, label: s.label || String(s.year), state: s.state === "filled" ? "filled" : "missing" }; }).sort(function (x, y) { return (x.year || 0) - (y.year || 0); }) : fallback();
+    build();
+  }).catch(function () { slots = fallback(); build(); });
+  function count() { var n = slots.filter(function (s) { return s.state === "filled"; }).length; document.getElementById("count").textContent = n + " of " + slots.length; }
+  function build() {
+    grid.innerHTML = slots.map(function (s, i) {
+      var f = s.state === "filled";
+      return '<button class="slot ' + (f ? "filled" : "empty") + '" data-i="' + i + '" aria-label="' + s.label + (f ? ", filled" : ", empty") + '"><span class="hole">' + (f ? '<span class="coin"></span>' : "") + '</span><span class="yr">' + s.label + '</span></button>';
+    }).join("");
+    count();
+  }
+  function settle(i) {
+    var s = slots[i]; if (!s || s.state === "filled") return;
+    var btn = grid.querySelector('[data-i="' + i + '"]'), hole = btn.querySelector(".hole");
+    function done() {
+      s.state = "filled"; added.push(i);
+      btn.classList.remove("empty"); btn.classList.add("filled", "warm"); btn.setAttribute("aria-label", s.label + ", filled");
+      hole.insertAdjacentHTML("beforeend", '<span class="coin"></span>');
+      if (mode !== "still") {
+        var c = hole.querySelector(".coin");
+        c.animate(mode === "full" ? [
+          { transform: "rotate3d(1,0,0,38deg) scale(1.04)" }, { transform: "rotate3d(0,1,0,-26deg)" }, { transform: "rotate3d(1,0,0,-16deg)" },
+          { transform: "rotate3d(0,1,0,9deg)" }, { transform: "rotate3d(1,0,0,4deg)" }, { transform: "none" }
+        ] : [{ transform: "scale(1.06)" }, { transform: "none" }], { duration: mode === "full" ? 900 : 320, easing: "ease-out" });
+      }
+      setTimeout(function () { btn.classList.remove("warm"); }, 1400);
+      count();
+      try { if (navigator.vibrate) navigator.vibrate(14); } catch (e) {}
+    }
+    if (mode === "still") return done();
+    var r = hole.getBoundingClientRect(), d = r.width * 0.86, x = r.left + r.width * 0.07, y = r.top + r.width * 0.07;
+    fly.style.display = "block"; fly.style.width = d + "px"; fly.style.height = d + "px"; fly.style.left = x + "px"; fly.style.top = y + "px";
+    var full = mode === "full", up = Math.max(160, y + 80);
+    var anim = fly.animate([
+      { transform: "translateY(" + (-up) + "px) rotateX(70deg) rotateZ(0deg) scale(" + (full ? 2.2 : 1.6) + ")", opacity: 0, filter: "drop-shadow(0 40px 20px rgba(0,0,0,.0))" },
+      { transform: "translateY(" + (-up * 0.35) + "px) rotateX(40deg) rotateZ(" + (full ? 300 : 120) + "deg) scale(" + (full ? 1.5 : 1.2) + ")", opacity: 1, offset: 0.45, filter: "drop-shadow(0 26px 14px rgba(0,0,0,.35))" },
+      { transform: "translateY(0) rotateX(0deg) rotateZ(" + (full ? 540 : 200) + "deg) scale(1)", opacity: 1, filter: "drop-shadow(0 2px 3px rgba(0,0,0,.5))" }
+    ], { duration: full ? 900 : 520, easing: "cubic-bezier(.3,.0,.4,1)" });
+    anim.onfinish = function () { fly.style.display = "none"; done(); };
+  }
+  grid.addEventListener("click", function (e) { var b = e.target.closest(".slot"); if (b) settle(+b.dataset.i); });
+  document.getElementById("find").addEventListener("click", function () {
+    var empty = []; slots.forEach(function (s, i) { if (s.state !== "filled") empty.push(i); });
+    if (empty.length) settle(empty[Math.floor(Math.random() * empty.length)]);
+  });
+  document.getElementById("reset").addEventListener("click", function () { added.forEach(function (i) { slots[i].state = "missing"; }); added = []; build(); });
+})();
+</script>
+</body>
+</html>
