@@ -99,10 +99,17 @@ under review and become `arbitrate` jobs.
 
 ## 7. Claude's part at every intake
 
-1. Merge the drops (`publish.py`): the loop turns by itself at the end and rewrites every AI's page.
-2. Copy each changed page into its Drive doc `WORK QUEUE for {AI}` (ChatGPT reads its page on GitHub).
-3. Score each submission (rule 2) and read the parked items and open disagreements in `docs/agents/QUEUES.md`: settle what a third
-   source settles, turn what only the coin can answer into owner questions.
+Once the intake bridge is installed (`docs/INTAKE_BRIDGE.md`, fix list #92), steps 1 and 2 run by themselves every hour: the GitHub job
+`intake.yml` merges the outside AIs' files, the loop turns, and the Drive side copies the changed pages into the WORK QUEUE docs. Until
+then (no `DRIVE_BRIDGE_URL` + `DRIVE_BRIDGE_KEY` secrets, or `INBOX.md` says the bridge has not answered), Claude does 1 and 2 by hand.
+
+1. Merge the drops (`publish.py`): the loop turns by itself at the end and rewrites every AI's page. With the bridge: read
+   `docs/agents/bridge/INBOX.md` first. It lists what was merged and rejected (to score), what was held for Claude, other files, and
+   STAGING. Handle each held file, then `python3 tools/bridge/intake.py resolve NAME --merged | --rejected "why" | --retry`.
+2. Copy each changed page into its Drive doc `WORK QUEUE for {AI}` (ChatGPT reads its page on GitHub). With the bridge: automatic.
+3. Score each submission (rule 2), then `python3 tools/bridge/intake.py reviewed NAME...`. Read the parked items and open
+   disagreements in `docs/agents/QUEUES.md`: settle what a third source settles; turn what only the coin can answer into owner
+   questions.
 4. When the numbers say so, edit roles.json (capacity, kinds, probation) and say why in SHARED_LOG.
 
 ## 8. The safety net under it

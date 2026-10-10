@@ -1,10 +1,9 @@
 {
-"generated_at": "2026-10-09T22:31:08Z",
+"generated_at": "2026-10-10T07:41:50Z",
 "summary": {
-"total": 31,
+"total": 30,
 "by_rule": {
-"mint_unknown": 30,
-"two_numbers": 1
+"mint_unknown": 30
 }
 },
 "findings": [
@@ -187,12 +186,6 @@
 "id": "C265",
 "field": "issue.mintage",
 "detail": "DE 1950: mint not read (unknown (letter soft / not locked (between oak lea); 1,100,617,000 must be the all-mints total"
-},
-{
-"rule": "two_numbers",
-"id": "DE.KM.124",
-"field": "catalogs",
-"detail": "2 KM numbers: 124, A127"
 }
 ]
 }

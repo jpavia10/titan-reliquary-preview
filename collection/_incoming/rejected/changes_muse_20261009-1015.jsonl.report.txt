@@ -1,0 +1,5 @@
+REJECTED changes_muse_20261009-1015.jsonl: 4 problem(s); nothing was changed
+  line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)
+  line 1: specimen field 'year' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)
+  line 1: specimen field 'denomination_note' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)
+  line 1: specimen field 'class' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)

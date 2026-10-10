@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-09T22:31:08Z",
+ "updated": "2026-10-10T07:41:50Z",
  "assignments": [
   {
    "id": "HW-muse-verify-20261009-1",
@@ -364,9 +364,10 @@
       "fact": "mintage",
       "author": "Grok",
       "value": 31588000,
-      "their_source": "Numista N#189 (https://en.numista.com/catalogue/pieces189.html): mintage table row '1968 B' = 31 588 000 (record had 10 000 000; corrected);",
+      "their_source": "Numista N#189 (https://en.numista.com/catalogue/pieces189.html): mintage table row '1968 B' = 31 588 000 (re-cite; matches the record); the ",
       "links": [
-       "https://en.numista.com/catalogue/pieces189.html"
+       "https://en.numista.com/catalogue/pieces189.html",
+       "https://www.swissmint.ch/dam/de/sd-web/uF2jYPYeBoNC/Pr%C3%A4geliste-2026.pdf"
       ],
       "photos": [],
       "audit": true
@@ -517,33 +518,6 @@
       "their_source": "Numista N#111 (https://en.numista.com/catalogue/pieces111.html) references: KM# 213, J# 488, Schön# 212, AKS# K2; Numista also lists J# 488,",
       "links": [
        "https://en.numista.com/catalogue/pieces111.html"
-      ],
-      "photos": [],
-      "audit": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MT.KM.132:issues.0.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MT.KM.132",
-     "field": "issues.0.mintage",
-     "coins": [
-      "C064"
-     ],
-     "label": "mintage of C064 · Malta · 2008 · 1 euro · EUR",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Grok",
-      "value": 14000000,
-      "their_source": "Numista N#2187 (https://en.numista.com/catalogue/pieces2187.html): mintage table row '2008 F' = 14 000 000 (re-cite; matches the record); ci",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2187.html"
       ],
       "photos": [],
       "audit": false

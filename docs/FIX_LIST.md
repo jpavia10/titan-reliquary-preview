@@ -1,18 +1,18 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-09, build tr105.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-10, build tr107.
 
-## State of the union (2026-10-09, build tr105)
+## State of the union (2026-10-10, build tr107)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
 - **290** pieces in flips (284 coins, 6 tokens), 50 countries
-- **$5,371** headline value at the latest metal prices (silver $60.59, gold $4,162)
+- **$5,380** headline value at the latest metal prices (silver $60.59, gold $4,162)
 - **213** pieces with a phone photo; 77 still need one, 14 have both sides
 - **175 / 290** pieces through Phase 1 (60.3 %): 77 need a photo, 57 need a mint mark read
 - **917 / 1775** album slots filled, all 33 albums read from your page photos
-- **18.6 %** of the 3,233 facts on screen are cited or confirmed; 25 are Checked by two independent sources
+- **19.9 %** of the 3,241 facts on screen are cited or confirmed; 43 are Checked by two independent sources
 
 ### What is strong
 
@@ -25,7 +25,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 ### What is holding it back
 
 - **Most facts are still not proven.** Of 3,233 facts on screen, 602 are cited or confirmed (18.6 %), 25 of them Checked by two sources; 1,870 still come from the original ledger unchecked and 631 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs.
-- **The loop needs me to turn it.** AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) removes that bottleneck and needs a one-time install from you.
+- **The loop needs me to turn it.** AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) that removes this is built and tested; it switches on with your one-time install (about 10 minutes).
 - **Only two AIs research today.** Gemini is relaunching through its access check; until a third AI is proven, disagreements between Grok and Muse wait for me (#101).
 - **Photos are the bottleneck.** 77 coins have no photo, 194 only one side, none have pro photos. The new Scan page makes each one a few taps; Phase 2 cannot start before them.
 - **The look is not decided.** The design pause continues (#30): polish comes after the foundation, as you said.
@@ -33,12 +33,12 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 ### The next three moves, in order
 
 - **1. Turn guesses into facts.** Answer the 14 questions and the new “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand.
-- **2. Let the loop run.** Give Gemini its WORK QUEUE doc (it starts with a 3-question access check), add the free Numista key, and when I hand you the Drive script for #92, install it once.
+- **2. Let the loop run.** Do the one-time install for #92 (docs/INTAKE_BRIDGE.md; it also starts the Drive backup), give Gemini its WORK QUEUE doc (it starts with a 3-question access check) and add the free Numista key.
 - **3. Measure, then decide.** The locked test (Grok, Muse) and the main test (Gemini, ChatGPT) decide who reads Phase 2; then pick the look (#30).
 
 ## What unlocks what (read right to left: do the last link first)
 
-- **The loop running without a chat (#92)** needs you to install one Drive script with a GitHub key (I write both) ← nothing else: the loop, the gates and the tests are built
+- **The loop running without a chat (#92)** needs your one-time install (one Apps Script project, two GitHub secrets; about 10 minutes) ← nothing else: the bridge, the loop, the gates and the tests are built
 - **Phase 2 pro photos (#61)** needs serial numbers (#5) ← Phase 1 at 100 % (now 175 of 290: Scan a coin) ← the missing photos and mint marks + your answers (#3)
 - **Which AI reads Phase 2 (#19)** needs the locked test from Grok and Muse (due on their pages now) ← the main test from Gemini and ChatGPT (#4)
 - **Reading a coin inside the app (#65 next step)** needs the winner of #19 ← a key kept outside the public site (#92's machinery)
@@ -49,6 +49,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 
 ## Waiting on you (not tickable: only you can do these)
 
+- Switch on the autonomous intake + Drive backup (once, about 10 minutes): follow docs/INTAKE_BRIDGE.md (github.com/jpavia10/titan-reliquary-preview/blob/main/docs/INTAKE_BRIDGE.md): one Apps Script project and two GitHub secrets. Then the AIs' files merge by themselves every hour and Drive gets a daily backup (#92, #93, #103). Never paste the URL or the key in a chat; tell me “the bridge is installed” and I run the first check.
 - Answer the 14 questions in the app (Hall footer → Questions), and the new “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77).
 - Photograph the missing coins with Scan a coin (Hall footer, or Lab → Shoot list → Scan with the camera): it checks each photo, names it and sends it to Drive STAGING. Unlocks Phase 1 at 100 %.
 - Start Gemini: paste the link to its Drive doc “WORK QUEUE for Gemini” and say “do the first task”. It begins with a 3-question access check, then the photo test.
@@ -56,8 +57,6 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - Get a free Numista API key (numista.com → your account → API) and add it in GitHub: the repository → Settings → Secrets and variables → Actions → New secret, name NUMISTA_API_KEY. The weekly price job then fills in collector values (#62). Never paste the key in a chat.
 - Measure your phone's speed: Health → Measure speed → Add this speed report to my answers file, then send the answers file (#25).
 - Decide who gets which inventory copy: Health → Printable inventory (with values for the insurer, without for the family) (#64).
-- Install the Drive backup script once at script.google.com (sync_to_drive.gs); the only Drive backup is from Sept 28 (#103).
-- Add Google Drive to the “Titan daily intake” routine in claude.ai Routines settings (#50), until #92 replaces it.
 - Decide: does every coin need both sides photographed? Or can the common side of common coins be shared from one good photo? It sets the size of the “other side” batch (194 coins) and #61.
 - Decide: should the opening film play once a day instead of every time the app opens?
 - Re-upload 4 photos smaller than 7 MB: C105–C113, C114, C115/116, C117–C119.
@@ -81,7 +80,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - **C073** C073 is a tube of 26 1976 quarters. Keep it as one mixed lot, or sort it into no-letter and D piles?
 - **→** Answer them in the app: Hall footer → Questions. Tap your answers, then “Save answers file” into the Drive change-file folder, or “Copy for chat” and paste it to me.
 
-## The other AIs (what each one is doing now (updated 2026-10-09))
+## The other AIs (what each one is doing now (updated 2026-10-10))
 
 The research loop hands out homework from the data after every update (docs/agents/RESEARCH_LOOP.md): each AI gets the kinds it is best at, never its own facts to check, and a different AI checks every fact. Their full pages: Drive “WORK QUEUE for …” docs, and docs/agents/ in the repo.
 
@@ -93,14 +92,14 @@ Strongest outside contributor (Numista sweep 9/10, story fixes 10/10, best blind
 - Now Fact-check the coin stories, C151 to C283 #73
 - Test Blind photo test, the locked pack (15 coins) #19
 - Homework Cataloguer: 20 items, due 10-16 HW-grok-cite-20261009-1
-- Homework Cataloguer: 29 items, due 10-16 HW-grok-catno-20261009-1
 - Homework Fact-checker: 25 items, due 10-16 HW-grok-story-check-20261009-1
 - Homework Appraiser: 25 items, due 10-19 HW-grok-value-20261009-1
+- Homework Second reader: 25 items, due 10-17 HW-grok-verify-20261010-1
 - Then Music: a recording for each of the 3 held pieces #83
 - Then Motion Lab study 2: the coin flip #56
 - Always Read new coin photos (with Muse, blind)
 
-Measured: 23 of its facts checked by another AI: 23 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
+Measured: 41 of its facts checked by another AI: 41 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 
 ### Muse (active)
@@ -115,7 +114,7 @@ Good researcher and writer (scores 8, then 6; probation streak 0 of 3): second r
 - Homework Writer: 15 items, due 10-16 HW-muse-plain-story-20261009-2
 - Always Read new coin photos (with Grok, blind)
 
-Measured: 17 of its facts checked by another AI: 13 confirmed, 4 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
+Measured: 35 of its facts checked by another AI: 31 confirmed, 4 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 
 ### Gemini (active)
@@ -149,10 +148,10 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ### Make it run without a chat
 
-- [ ] **#92 The loop turns without a chat: autonomous intake**: A Google Apps Script in your Drive copies each new change file from the drop folder to GitHub; a GitHub job merges it (all the gates and tests), publishes, turns the loop and writes each AI's new page back into its Drive doc. I review afterwards instead of being the bottleneck. Its GitHub key stays in your Drive script, never in the repo. Needs first: you install the script once and paste a GitHub key into it (I write both) · Unlocks: #50, #93, daily progress with no session open _[large, needs you, new]_
-- [ ] **#93 Each AI's page copied to its Drive doc automatically**: Today I paste each changed WORK QUEUE page into its Drive doc by hand at every intake. Part of #92: the same script writes them. Needs first: #92 _[medium, new]_
+- [ ] **#92 The loop turns without a chat: autonomous intake**: Built and tested (tr107). Every hour a GitHub job asks a small Google Apps Script in your Drive for new change files, merges the outside AIs' files through every gate and test, publishes, turns the loop and rebuilds the site; the Drive side then trashes merged files, leaves REJECTED notes with a HOW TO FIX line and refreshes each AI's WORK QUEUE doc. Owner answers and anything that needs judgement wait for me in docs/agents/bridge/INBOX.md. No GitHub key anywhere: the job uses GitHub's own short-lived token. Needs first: you: the one-time install, about 10 minutes (docs/INTAKE_BRIDGE.md: one Apps Script project, two GitHub secrets) · Unlocks: #50, #93, daily progress with no session open _[partly done, large, needs you, new]_
+- [ ] **#93 Each AI's page copied to its Drive doc automatically**: Today I paste each changed WORK QUEUE page into its Drive doc by hand at every intake. Built into #92's Drive script: it copies a page whenever it changes. Needs first: #92 installed _[partly done, medium, new]_
 - [ ] **#91 Scores drafted by the pipeline**: Each submission's score (right place, accepted as sent, accurate, complete, in its tier) drafted from the merge report and the cross-checks, so CONTRIBUTOR_SCORES and each AI's feedback stay current without my bookkeeping; I only adjust and add the praise. Unlocks: #92 running unattended _[medium, new]_
-- [ ] **#50 Process your answers file automatically**: When you drop answers_owner_*.json in Drive, it becomes records without waiting for a chat. Two ways: Google Drive added to the daily routine, or the autonomous intake (#92), which does this and everything else. Needs first: Drive in the routine (you), or #92 _[medium]_
+- [ ] **#50 Process your answers file automatically**: When you drop answers_owner_*.json in Drive, it becomes records without waiting for a chat. #92 lists it for me but does not merge it on its own: your answers become Verified facts, and any AI with access to the folder could write a file under that name. Two ways: Google Drive added to the daily routine, or an answers file the app signs so #92 can tell it is yours. Needs first: Drive in the routine (you), or a signed answers file (#92 installed first) _[medium]_
 
 ### Make it trustworthy at scale
 
@@ -186,7 +185,7 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ## Tier 1 · Safety net (nothing is lost, nothing is quietly changed)
 
-- [ ] **#103 Warn when the Drive backup is stale**: Health shows the age of the newest Drive backup and warns past 7 days. Today the only Drive copy is from Sept 28. Needs first: the Drive backup script installed (Waiting on you) _[small, needs you, new]_
+- [ ] **#103 Warn when the Drive backup is stale**: Health shows the age of the newest Drive backup and warns past 7 days. Today the only Drive copy is from Sept 28. Needs first: the Drive backup installed (it comes with the #92 install) _[small, needs you, new]_
 - [ ] **#104 Export everything in plain formats**: One click: every coin, album and lot as a spreadsheet (CSV) and as structured data, with sources and certainty, for insurance, an estate, or any future app. Nothing locked into this one. _[small, new]_
 - [ ] **#105 A recovery card**: One printed page in the safe: where everything lives (GitHub, Drive, the app), which accounts own it, and how to rebuild the site from the backup (the restore drill's steps in plain words). _[small, needs you, new]_
 - [ ] **#106 Who can change what**: A short review of every write path (GitHub, Drive folders, keys in workflows, the AIs' access), with anything wider than needed narrowed. Gets more important once #92 runs unattended. _[small, new]_

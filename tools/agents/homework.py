@@ -647,6 +647,19 @@ HOW = ("How homework works (read once):\n"
        "6. When you finish, start the next assignment straight away. New assignments appear here after every merge.")
 
 
+BRIDGE_WORDS = {"merged": "merged", "rejected": "rejected: the note {name}.REJECTED.txt in the drop folder says why; fix it and send it under a new time stamp",
+                "held": "waiting for Claude (left in the drop folder)", "duplicate": "already merged before; the copy was removed"}
+
+
+def bridge_recent(agent, root, n=5):
+    """The last n outcomes of this AI's files from the intake bridge (docs/agents/bridge/runs.jsonl, tools/bridge/intake.py), newest first."""
+    p = os.path.join(root, "docs", "agents", "bridge", "runs.jsonl")
+    if not os.path.exists(p): return []
+    with open(p, encoding="utf-8") as fh: rows = [json.loads(l) for l in fh if l.strip()]
+    out = [dict(f, at=r["at"]) for r in rows for f in r.get("files", []) if f.get("agent") == agent]
+    return out[-n:][::-1]
+
+
 def agent_page(agent, roles, queues, state, pool, metrics, now):
     ag = roles["agents"][agent]
     q = next((x for x in queues.get("agents", []) if x["id"] == agent), {"tasks": []})
@@ -686,6 +699,11 @@ def agent_page(agent, roles, queues, state, pool, metrics, now):
         L += ["## Projects (after the homework)", ""]
         for t in rest:
             L += [f"### {t['title']}  [{t['state'].upper()}]  (fix list {t['fix']})", "", t["what"], "", f"**Done when:** {t['done_when']}", ""]
+    recent = bridge_recent(agent, P_ROOT[0])
+    if recent:
+        L += ["## Your recent files (what happened to each file you sent)", ""]
+        L += [f"- {x['at'][:16].replace('T', ' ')} UTC `{x['name']}`: {BRIDGE_WORDS.get(x['outcome'], x['outcome']).replace('{name}', x['name'])}" + (f" ({x['summary']})" if x.get("summary") else "")
+              for x in recent] + [""]
     r = metrics.get(agent)
     done = [a for a in state["assignments"] if a["agent"] == agent and a["status"] != "open"]
     L += ["## Your numbers (measured, not self-reported)", "",

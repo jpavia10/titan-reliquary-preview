@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-09T22:31:08Z",
+ "updated": "2026-10-10T07:41:50Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261009-1",
@@ -379,33 +379,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:DE.KM.124:issues.0.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.124",
-     "field": "issues.0.mintage",
-     "coins": [
-      "C238"
-     ],
-     "label": "mintage of C238 · Germany · 1973 · 2 Deutsche Mark · DEM",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Muse",
-      "value": 10393000,
-      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#844 (DE.KM.124, 2 DM Adenauer), 1973-D circulation)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces844.html"
-      ],
-      "photos": [],
-      "audit": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:IT.KM.216:issues.0.mintage",
      "kind": "verify",
      "entity": "type",
@@ -460,33 +433,6 @@
       "their_source": "Numista N#4004 (https://en.numista.com/catalogue/pieces4004.html) references: KM# 837, Sp# 4058, Schön# 15c; Numista also lists Spink 4058 a",
       "links": [
        "https://en.numista.com/catalogue/pieces4004.html"
-      ],
-      "photos": [],
-      "audit": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CA.KM.33:issues.0.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CA.KM.33",
-     "field": "issues.0.mintage",
-     "coins": [
-      "C160"
-     ],
-     "label": "mintage of C160 · Canada · 1939 · 5 cents · CAD",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Grok",
-      "value": 5661123,
-      "their_source": "Numista N#413 (https://en.numista.com/catalogue/pieces413.html): mintage table row '1939' = 5 661 123 (re-cite; matches the record)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces413.html"
       ],
       "photos": [],
       "audit": false

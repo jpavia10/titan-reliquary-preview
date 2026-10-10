@@ -1,0 +1,61 @@
+name: intake
+
+# Fix list #92: the research loop turns without a chat. Every hour: ask the Drive bridge (tools/drive/intake_bridge.gs, a web app the owner
+# installs once; repo secrets DRIVE_BRIDGE_URL = its /exec URL, DRIVE_BRIDGE_KEY = its key) for new change files in the drop folder, merge the outside AIs' files
+# through every usual gate, run the same checks as integrity.yml, push, rebuild Pages, start the integrity + smoke runs, and tell the Drive
+# side to clean up and refresh the AIs' WORK QUEUE docs. Everything else waits for Claude in docs/agents/bridge/INBOX.md.
+# Steps: tools/bridge/run_intake.sh (the same script rehearses locally). Guide: docs/INTAKE_BRIDGE.md.
+on:
+  schedule:
+    - cron: "23 * * * *"          # hourly at :23 (the daily prices job runs at 22:15 and is done by then)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  actions: write
+
+concurrency:
+  group: intake
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      BRIDGE_URL: ${{ secrets.DRIVE_BRIDGE_URL }}
+      BRIDGE_KEY: ${{ secrets.DRIVE_BRIDGE_KEY }}
+    steps:
+      - name: Is the Drive bridge installed?
+        id: gate
+        run: |
+          if [ -z "$BRIDGE_URL" ] || [ -z "$BRIDGE_KEY" ]; then
+            echo "::notice::The Drive bridge is not installed yet (repo secrets DRIVE_BRIDGE_URL + DRIVE_BRIDGE_KEY, see docs/INTAKE_BRIDGE.md): nothing to do."
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true'
+        with:
+          ref: main
+          sparse-checkout: |
+            /*
+            !/art/
+            !/audio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.go == 'true'
+        with:
+          python-version: "3.12"
+      - name: Merge, check, push
+        if: steps.gate.outputs.go == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          pip install -q jsonschema
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          bash tools/bridge/run_intake.sh

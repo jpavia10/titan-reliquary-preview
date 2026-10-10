@@ -10,19 +10,17 @@
  *                      coins, types, albums, lots, valuations, change log). Unchanged files (same sha256,
  *                      stored in the Drive file's description) are skipped; changed files are updated IN PLACE,
  *                      so Drive ids and links stay stable.
- *  3. collection/_incoming/ : created if missing. Agents without GitHub access drop ChangeEvent files here
- *                      (changes_{agent}_{YYYYMMDD-HHMM}.jsonl); the integrator validates and merges them.
+ *  (Change files from the other AIs do NOT go here: they go to the drop folder "collection-incoming (AI change files)" at the top of
+ *   "Titan Reliquary", which the intake bridge, tools/drive/intake_bridge.gs, hands to GitHub.)
  *  3b. photos/_cutouts/ : mirrors every coin photo the site serves (paths from collection/photos.json, e.g.
  *                      photos/p1/C042_obv.webp -> photos/_cutouts/p1/C042_obv.webp); unchanged files (same sha256) skipped.
  *  4. collection/_SYNC_STATUS.json : when it last ran, which build, what changed, any errors.
  * It never deletes files. Old zips beyond KEEP_ZIPS go to the Drive trash (recoverable for 30 days).
  *
- * Install:
- *  1. https://script.google.com → New project → name it "Titan Reliquary sync".
- *  2. Paste this file into Code.gs and save.
- *  3. Run the function  install  once and approve the Drive + external-request permissions.
- *     It runs syncAll immediately and then every day at about 03:00 (script time zone).
- *  4. uninstall  removes the daily trigger.
+ * Install: together with the intake bridge, one project (docs/INTAKE_BRIDGE.md): Code.gs = this file, a second file "Bridge" =
+ * tools/drive/intake_bridge.gs; run installAll once. On its own: paste this file into Code.gs and run  install  once (approve the Drive +
+ * external-request permissions); it runs syncAll at once and then every day at about 03:00 (script time zone).  uninstall  removes the
+ * daily trigger.
  */
 var REPO = "jpavia10/titan-reliquary-preview";
 var BRANCH = "main";
@@ -50,7 +48,6 @@ function syncAll() {
   try { status.build = fetchJson_(raw_("version.json")).build || null; } catch (e) { status.errors.push("version.json: " + e); }
   try { status.zip = backupSite_(root, status.build); } catch (e) { status.errors.push("zip: " + e); }
   var coll = folder_(root, "collection");
-  folder_(coll, "_incoming");
   try { mirrorCollection_(coll, status.collection); } catch (e) { status.errors.push("collection: " + e); }
   try { mirrorPhotos_(folder_(folder_(root, "photos"), "_cutouts"), status.photos); } catch (e) { status.errors.push("photos: " + e); }
   status.finished_at = new Date().toISOString();

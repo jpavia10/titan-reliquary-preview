@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-09T22:31:08Z",
+ "updated": "2026-10-10T07:41:50Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -11,7 +11,8 @@
   "gemini-verify-20261009": 1,
   "muse-plain-story-20261009": 2,
   "muse-research-20261009": 1,
-  "grok-value-20261009": 1
+  "grok-value-20261009": 1,
+  "grok-verify-20261010": 1
  },
  "assignments": [
   {
@@ -152,9 +153,13 @@
    "kind": "catno",
    "issued": "2026-10-09T14:42:02Z",
    "lease_until": "2026-10-16T14:42:02Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-10T01:54:02Z",
+   "result": {
+    "items": 29,
+    "closed": 29,
+    "left": 0
+   },
    "items": [
     {
      "item": "catno:DE.KM.105",
@@ -1192,6 +1197,168 @@
      "entity": "specimen",
      "id": "C076",
      "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261010-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-10T01:54:02Z",
+   "lease_until": "2026-10-17T01:54:02Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:CH.KM.21a.3:composition.text",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:period",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:composition.text",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:period",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:issues.1.mintage",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:SA.KM.20:issues.0.mintage",
+     "entity": "type",
+     "id": "SA.KM.20",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:SE.KM.826a:issues.0.mintage",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:specimen:C287:issue.year",
+     "entity": "specimen",
+     "id": "C287",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:denomination.value",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.212:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.212",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:IT.KM.215:issues.0.mintage",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:AU.KM.66:issues.0.mintage",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.0.mintage",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.29a:composition.text",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.KM.424:composition.text",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:SU.Y.93:composition.text",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:TR.KM.1241:composition.text",
+     "entity": "type",
+     "id": "TR.KM.1241",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:TT.KM.31:composition.text",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:AT.X.2-groschen:design.text",
+     "entity": "type",
+     "id": "AT.X.2-groschen",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TR.KM.1241:period",
+     "entity": "type",
+     "id": "TR.KM.1241",
+     "field": "period"
+    },
+    {
+     "item": "verify:specimen:C279:issue.year",
+     "entity": "specimen",
+     "id": "C279",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C280:issue.year",
+     "entity": "specimen",
+     "id": "C280",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:BZ.X.25-cents:denomination.value",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:PH.X.1-piso:denomination.value",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "denomination.value"
     }
    ]
   }

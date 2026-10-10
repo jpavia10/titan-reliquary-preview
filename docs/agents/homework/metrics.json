@@ -1,14 +1,13 @@
 {
- "updated": "2026-10-09T22:31:08Z",
+ "updated": "2026-10-10T07:41:50Z",
  "pools": {
-  "cite": 43,
-  "catno": 29,
+  "cite": 37,
   "story-check": 157,
   "plain-story": 41,
   "research": 5,
-  "value": 290,
+  "value": 265,
   "read-mint": 38,
-  "verify": 395
+  "verify": 421
  },
  "agents": {
   "claude": {
@@ -24,27 +23,27 @@
    ]
   },
   "grok": {
-   "confirmed": 23,
+   "confirmed": 41,
    "wrong": 0,
    "checks_done": 0,
    "disagreements_open": 0,
-   "checked_n": 23,
+   "checked_n": 41,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.143
+    0.086
    ]
   },
   "muse": {
-   "confirmed": 13,
+   "confirmed": 31,
    "wrong": 4,
    "checks_done": 0,
    "disagreements_open": 0,
-   "checked_n": 17,
-   "error_rate": 0.235,
+   "checked_n": 35,
+   "error_rate": 0.114,
    "error_ci95": [
-    0.096,
-    0.473
+    0.045,
+    0.26
    ]
   }
  },

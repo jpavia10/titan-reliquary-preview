@@ -1,5 +1,5 @@
 {
- "version": 20,
+ "version": 21,
  "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most: the system that researches the collection by itself first, then truth and safety, polish last. Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
  "sotu": {
   "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
@@ -32,7 +32,7 @@
    ],
    [
     "The loop needs me to turn it.",
-    "AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) removes that bottleneck and needs a one-time install from you."
+    "AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) that removes this is built and tested; it switches on with your one-time install (about 10 minutes)."
    ],
    [
     "Only two AIs research today.",
@@ -54,7 +54,7 @@
    ],
    [
     "2. Let the loop run.",
-    "Give Gemini its WORK QUEUE doc (it starts with a 3-question access check), add the free Numista key, and when I hand you the Drive script for #92, install it once."
+    "Do the one-time install for #92 (docs/INTAKE_BRIDGE.md; it also starts the Drive backup), give Gemini its WORK QUEUE doc (it starts with a 3-question access check) and add the free Numista key."
    ],
    [
     "3. Measure, then decide.",
@@ -65,7 +65,7 @@
  "chains": [
   [
    "The loop running without a chat (#92)",
-   "needs you to install one Drive script with a GitHub key (I write both) ← nothing else: the loop, the gates and the tests are built"
+   "needs your one-time install (one Apps Script project, two GitHub secrets; about 10 minutes) ← nothing else: the bridge, the loop, the gates and the tests are built"
   ],
   [
    "Phase 2 pro photos (#61)",
@@ -98,6 +98,10 @@
  ],
  "you": [
   [
+   "Switch on the autonomous intake + Drive backup (once, about 10 minutes):",
+   "follow docs/INTAKE_BRIDGE.md (github.com/jpavia10/titan-reliquary-preview/blob/main/docs/INTAKE_BRIDGE.md): one Apps Script project and two GitHub secrets. Then the AIs' files merge by themselves every hour and Drive gets a daily backup (#92, #93, #103). Never paste the URL or the key in a chat; tell me “the bridge is installed” and I run the first check."
+  ],
+  [
    "Answer the 14 questions in the app",
    "(Hall footer → Questions), and the new “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77)."
   ],
@@ -124,14 +128,6 @@
   [
    "Decide who gets which inventory copy:",
    "Health → Printable inventory (with values for the insurer, without for the family) (#64)."
-  ],
-  [
-   "Install the Drive backup script once",
-   "at script.google.com (sync_to_drive.gs); the only Drive backup is from Sept 28 (#103)."
-  ],
-  [
-   "Add Google Drive to the “Titan daily intake” routine",
-   "in claude.ai Routines settings (#50), until #92 replaces it."
   ],
   [
    "Decide: does every coin need both sides photographed?",
@@ -975,8 +971,8 @@
   },
   "50": {
    "title": "Process your answers file automatically",
-   "desc": "When you drop answers_owner_*.json in Drive, it becomes records without waiting for a chat. Two ways: Google Drive added to the daily routine, or the autonomous intake (#92), which does this and everything else.",
-   "needs": "Drive in the routine (you), or #92",
+   "desc": "When you drop answers_owner_*.json in Drive, it becomes records without waiting for a chat. #92 lists it for me but does not merge it on its own: your answers become Verified facts, and any AI with access to the folder could write a file under that name. Two ways: Google Drive added to the daily routine, or an answers file the app signs so #92 can tell it is yours.",
+   "needs": "Drive in the routine (you), or a signed answers file (#92 installed first)",
    "unlocks": null,
    "size": "medium",
    "you": false,
@@ -1479,27 +1475,27 @@
   },
   "92": {
    "title": "The loop turns without a chat: autonomous intake",
-   "desc": "A Google Apps Script in your Drive copies each new change file from the drop folder to GitHub; a GitHub job merges it (all the gates and tests), publishes, turns the loop and writes each AI's new page back into its Drive doc. I review afterwards instead of being the bottleneck. Its GitHub key stays in your Drive script, never in the repo.",
-   "needs": "you install the script once and paste a GitHub key into it (I write both)",
+   "desc": "Built and tested (tr107). Every hour a GitHub job asks a small Google Apps Script in your Drive for new change files, merges the outside AIs' files through every gate and test, publishes, turns the loop and rebuilds the site; the Drive side then trashes merged files, leaves REJECTED notes with a HOW TO FIX line and refreshes each AI's WORK QUEUE doc. Owner answers and anything that needs judgement wait for me in docs/agents/bridge/INBOX.md. No GitHub key anywhere: the job uses GitHub's own short-lived token.",
+   "needs": "you: the one-time install, about 10 minutes (docs/INTAKE_BRIDGE.md: one Apps Script project, two GitHub secrets)",
    "unlocks": "#50, #93, daily progress with no session open",
    "size": "large",
    "you": true,
    "new": true,
-   "partly": false,
+   "partly": true,
    "state": "open",
-   "note": null
+   "note": "Off until the install; the hourly job checks for the two secrets and does nothing without them."
   },
   "93": {
    "title": "Each AI's page copied to its Drive doc automatically",
-   "desc": "Today I paste each changed WORK QUEUE page into its Drive doc by hand at every intake. Part of #92: the same script writes them.",
-   "needs": "#92",
+   "desc": "Today I paste each changed WORK QUEUE page into its Drive doc by hand at every intake. Built into #92's Drive script: it copies a page whenever it changes.",
+   "needs": "#92 installed",
    "unlocks": null,
    "size": "medium",
    "you": false,
    "new": true,
-   "partly": false,
+   "partly": true,
    "state": "open",
-   "note": null
+   "note": "Switches on with the #92 install."
   },
   "94": {
    "title": "Old sources re-checked on a cadence",
@@ -1612,7 +1608,7 @@
   "103": {
    "title": "Warn when the Drive backup is stale",
    "desc": "Health shows the age of the newest Drive backup and warns past 7 days. Today the only Drive copy is from Sept 28.",
-   "needs": "the Drive backup script installed (Waiting on you)",
+   "needs": "the Drive backup installed (it comes with the #92 install)",
    "unlocks": null,
    "size": "small",
    "you": true,

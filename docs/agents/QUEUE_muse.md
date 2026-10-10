@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-09 22:31 UTC)
+# WORK QUEUE for Muse (updated 2026-10-10 07:41 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -36,7 +36,7 @@ How homework works (read once):
 5. Finish within the lease (the date on each assignment); after it the items go back to the pool.
 6. When you finish, start the next assignment straight away. New assignments appear here after every merge.
 
-### 1. HW-muse-verify-20261009-1 · Second reader · Check 23 facts another AI wrote · due 2026-10-16  (fix list #18)
+### 1. HW-muse-verify-20261009-1 · Second reader · Check 22 facts another AI wrote · due 2026-10-16  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -50,12 +50,11 @@ Items:
 - **mintage of C066 · Switzerland · 1978 · 5 francs · CHF** `type CH.KM.40a.1 issues.0.mintage` = `4411000` (written by Grok: Numista N#195 (https://en.numista.com/catalogue/pieces195.html): mintage table row '1978' = 4 411 000 (re-cite; matches the record); circula)
 - **mintage of C088 · USA · 1957 · 10¢ Roosevelt** `type US.KM.195 issues.0.mintage` = `275200000` (written by Grok: Numista N#52 (https://en.numista.com/catalogue/pieces52.html): mintage table row '1957 (161 400 000) + 1957 D (113 800 000)' = 275 200 000; )
 - **catalog of C082 · Switzerland · 1979 · 10 rappen · CHF** `type CH.KM.27 catalogs` = `[{"number": "27", "system": "KM"}, {"number": "25", "system": "Schön"}, {"number": "24", …` (written by Grok: Numista N#173 (https://en.numista.com/catalogue/pieces173.html) references: KM# 27, Schön# 25, Y# 24)
-- **mintage of C003 · Switzerland · 1968 · 2 francs · CHF** `type CH.KM.21a issues.0.mintage` = `31588000` (written by Grok: Numista N#189 (https://en.numista.com/catalogue/pieces189.html): mintage table row '1968 B' = 31 588 000 (record had 10 000 000; corrected);) [audit sample]
+- **mintage of C003 · Switzerland · 1968 · 2 francs · CHF** `type CH.KM.21a issues.0.mintage` = `31588000` (written by Grok: Numista N#189 (https://en.numista.com/catalogue/pieces189.html): mintage table row '1968 B' = 31 588 000 (re-cite; matches the record); the ) [audit sample]
 - **mintage of C082 · Switzerland · 1979 · 10 rappen · CHF** `type CH.KM.27 issues.1.mintage` = `18000000` (written by Grok: Numista N#173 (https://en.numista.com/catalogue/pieces173.html): mintage table row '1979' = 18 000 000 (record had 18 010 000; corrected); c)
 - **catalog of C072 · France · 2000 · 2 euro · EUR** `type FR.KM.1289 catalogs` = `[{"number": "1289", "system": "KM"}, {"number": "658", "system": "Schön"}, {"number": "10…` (written by Grok: Numista N#104 (https://en.numista.com/catalogue/pieces104.html) references: KM# 1289, Schön# 658, Gad 1789# 8, Gad Euro# 801.0 etc.; Numista)
 - **catalog of C263 · Mexico · 1950 · 25 centavos · MXN** `type MX.KM.443 catalogs` = `[{"number": "443", "system": "KM"}, {"number": "43", "system": "Schön"}, {"number": "972"…` (written by Grok: Numista N#972 (https://en.numista.com/catalogue/pieces972.html) references: KM# 443, Schön# 43) [audit sample]
 - **catalog of C080 · Germany · 2002 · 1 euro · EUR** `type DE.KM.213 catalogs` = `[{"number": "213", "system": "KM"}, {"number": "212", "system": "Schön"}, {"number": "111…` (written by Grok: Numista N#111 (https://en.numista.com/catalogue/pieces111.html) references: KM# 213, J# 488, Schön# 212, AKS# K2; Numista also lists J# 488,)
-- **mintage of C064 · Malta · 2008 · 1 euro · EUR** `type MT.KM.132 issues.0.mintage` = `14000000` (written by Grok: Numista N#2187 (https://en.numista.com/catalogue/pieces2187.html): mintage table row '2008 F' = 14 000 000 (re-cite; matches the record); ci)
 - **composition of C238 · Germany · 1973 · 2 Deutsche Mark · DEM** `type DE.KM.124 composition.text` = `copper-nickel clad nickel` (written by Grok: Numista N#844 (https://en.numista.com/catalogue/pieces844.html) and N#1935 (https://en.numista.com/catalogue/pieces1935.html): both 2 Mark 1) [audit sample]
 - **catalog of C243 · France · 1946 · 5 francs · FRF (old franc · pre-nouveau)** `type FR.KM.888b.1 catalogs` = `[{"number": "888b.1", "system": "KM"}, {"number": "203b", "system": "Schön"}, {"number": …` (written by Grok: Numista N#1190 (https://en.numista.com/catalogue/pieces1190.html) references: KM# 888b.1, Schön# 203b; the entry lists KM# 888b; its 1946 (P) [audit sample]
 - **catalog of C281 · France · 1994 · 5 francs · FRF** `type FR.X.5-francs catalogs` = `[{"number": "926a.1", "system": "KM"}, {"number": "235a", "system": "Schön"}, {"number": …` (written by Grok: Numista N#8 (https://en.numista.com/catalogue/pieces8.html) references: KM# 926a.1, Schön# 235a)
@@ -117,8 +116,16 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 **Done when:** Ongoing.
 
+## Your recent files (what happened to each file you sent)
+
+- 2026-10-10 01:54 UTC `changes_muse_20261009-1035.jsonl`: rejected: the note changes_muse_20261009-1035.jsonl.REJECTED.txt in the drop folder says why; fix it and send it under a new time stamp (line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md))
+- 2026-10-10 01:54 UTC `changes_muse_20261009-1028.jsonl`: rejected: the note changes_muse_20261009-1028.jsonl.REJECTED.txt in the drop folder says why; fix it and send it under a new time stamp (line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md))
+- 2026-10-10 01:54 UTC `changes_muse_20261009-1025.jsonl`: rejected: the note changes_muse_20261009-1025.jsonl.REJECTED.txt in the drop folder says why; fix it and send it under a new time stamp (line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md))
+- 2026-10-10 01:54 UTC `changes_muse_20261009-1015.jsonl`: rejected: the note changes_muse_20261009-1015.jsonl.REJECTED.txt in the drop folder says why; fix it and send it under a new time stamp (line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md))
+- 2026-10-10 01:54 UTC `changes_muse_20261009-1006.jsonl`: rejected: the note changes_muse_20261009-1006.jsonl.REJECTED.txt in the drop folder says why; fix it and send it under a new time stamp (line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md))
+
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 0; expired: 0.
-- Your facts checked by another contributor: 17 (13 confirmed, 4 wrong; error rate 23.5 %, 95 % range 10-47 %). Checks you did for others: 0. Open disagreements you are part of: 0.
+- Your facts checked by another contributor: 35 (31 confirmed, 4 wrong; error rate 11.4 %, 95 % range 4-26 %). Checks you did for others: 0. Open disagreements you are part of: 0.
 - Share of your new facts that get checked first: 100 %.

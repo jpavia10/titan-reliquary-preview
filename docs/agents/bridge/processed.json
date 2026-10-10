@@ -1,0 +1,263 @@
+{
+ "schema": "bridge/1",
+ "updated": "2026-10-10T01:54:01Z",
+ "files": {
+  "1VCyFXLhrf_LQptckTRLbQywKJWf4pTnz": {
+   "name": "changes_grok-bot_20261009-0004.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-09T07:05:13.472Z",
+   "sha256": "58c6f7c0bd2d95bd98aac50ae69a8490f5ac392541edf7547f111dae3622e556",
+   "outcome": "merged",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "1 event(s) merged"
+  },
+  "1L2lqgthOXolstxFIVwxDm6NQRweTHdkn": {
+   "name": "changes_grok-bot_20261009-0011.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-09T07:11:21.326Z",
+   "sha256": "73996e5e749ea40d2dbdd976177e084920235fc015f660825ddef9b0619f5348",
+   "outcome": "merged",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "1 event(s) merged"
+  },
+  "1bT9ETCb-LnkAFaEUNKC9x5TvJKO5Ayg6": {
+   "name": "changes_grok-bot_20261009-0029.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-09T07:29:51.469Z",
+   "sha256": "9124087efbd4726511b6803e4dd7088b896a21a27f12a606c0249cd2ed87bb92",
+   "outcome": "merged",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "50 event(s) merged"
+  },
+  "1IDvAhL5G2CFQrXL9ECz6vDQtwgHyYWdI": {
+   "name": "changes_grok-bot_20261009-0032.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-09T07:32:30.357Z",
+   "sha256": "ffb1314464895bf9b9a48ab5d5433d81159744d5f3eda6d90edb2fdbef630731",
+   "outcome": "merged",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "34 event(s) merged"
+  },
+  "1Zc6hYCUCxzpezTPfcX_MuUPWTeNraPaK": {
+   "name": "changes_grok-bot_20261009-0055.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-09T07:55:26.344Z",
+   "sha256": "83c926e80dd2595125e9faeb108d057aaca94a28a4ce890d93885ff68ed11ca5",
+   "outcome": "merged",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "1 event(s) merged"
+  },
+  "1eKlzIppsraoh56wIVk6BAHfWNzLgz5UP": {
+   "name": "changes_grok-bot_20261009-0104.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-09T08:04:17.675Z",
+   "sha256": "acf7882ddff6fa6a39d0a56c4b439862c7ca4ef82787864de876d0fe31a6b7b1",
+   "outcome": "merged",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "1 event(s) merged"
+  },
+  "1eZqN5z9QfbShBBBJ2fcvJxEE3hi8U0P6": {
+   "name": "changes_grok-bot_20261009-0139.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-09T08:39:52.805Z",
+   "sha256": "28d81f48d50acec2539e6d32071d6f841ecbe1a1cac10b4f6324da6fd05e257e",
+   "outcome": "merged",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "29 event(s) merged"
+  },
+  "1sWOw2QNVHKN8G0rc2JInkpGYzehFMOn7": {
+   "name": "changes_muse_20261009-0015.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-09T07:06:15.984Z",
+   "sha256": "5e7be0e1b9d7e8f45b3b8bd20bcf7836fad6ed23ace6e795dedf5a2f8287b86a",
+   "outcome": "merged",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "17 event(s) merged"
+  },
+  "1fNomYQtPN1DRRp_-1JmPH6M-qCawyZRr": {
+   "name": "changes_muse_20261009-1006.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-09T17:12:04.749Z",
+   "sha256": "cd2e7c989a901e26f6a0c62dcfb046be01ea7a9a60478992c3df25471b3f7802",
+   "outcome": "rejected",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+   "report": [
+    "REJECTED changes_muse_20261009-1006.jsonl: 4 problem(s); nothing was changed",
+    "  line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'year' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'class' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "HOW TO FIX: a new coin's country and denomination belong to its TYPE, not to the specimen. Pick the existing type, or create one ({ISO}.X.{denomination}, e.g. GB.X.1-penny), then create the specimen: op create, id NEW-1, field '(new record)', new = {type, year_raw, issue: {year, mint_marks, mint_text}, story}. Value goes in a separate line (value.est_usd, value.confidence). See collection/templates/INSTRUCTIONS.md section 3, 'New specimen', and the example files it names."
+   ]
+  },
+  "123XIoOz8rXCoU8gSFE8Sw11IA7eTPyi-": {
+   "name": "changes_muse_20261009-1015.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-09T17:24:04.439Z",
+   "sha256": "eec267160fb09f926329a48fdfc7c38778f9a93965622143ce8bf96f7d0fc4f5",
+   "outcome": "rejected",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+   "report": [
+    "REJECTED changes_muse_20261009-1015.jsonl: 4 problem(s); nothing was changed",
+    "  line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'year' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'denomination_note' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'class' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "HOW TO FIX: a new coin's country and denomination belong to its TYPE, not to the specimen. Pick the existing type, or create one ({ISO}.X.{denomination}, e.g. GB.X.1-penny), then create the specimen: op create, id NEW-1, field '(new record)', new = {type, year_raw, issue: {year, mint_marks, mint_text}, story}. Value goes in a separate line (value.est_usd, value.confidence). See collection/templates/INSTRUCTIONS.md section 3, 'New specimen', and the example files it names."
+   ]
+  },
+  "1XYMiqUnPCT5LLX0S0vgICafJyDlCjpl5": {
+   "name": "changes_muse_20261009-1025.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-09T17:27:04.822Z",
+   "sha256": "f06d2615cb65e539eeb71cb095882ea62e975efe591301e739f2c4c129abeeb3",
+   "outcome": "rejected",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+   "report": [
+    "REJECTED changes_muse_20261009-1025.jsonl: 1 problem(s); nothing was changed",
+    "  line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "HOW TO FIX: a new coin's country and denomination belong to its TYPE, not to the specimen. Pick the existing type, or create one ({ISO}.X.{denomination}, e.g. GB.X.1-penny), then create the specimen: op create, id NEW-1, field '(new record)', new = {type, year_raw, issue: {year, mint_marks, mint_text}, story}. Value goes in a separate line (value.est_usd, value.confidence). See collection/templates/INSTRUCTIONS.md section 3, 'New specimen', and the example files it names."
+   ]
+  },
+  "1M6lTS9QlPOLF1ns8Jl54_bqLJ3VfNt87": {
+   "name": "changes_muse_20261009-1028.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-09T17:28:53.236Z",
+   "sha256": "bc0517a856781738c9ff30eb808c41e627623d50077e57aa0ab5952409514a64",
+   "outcome": "rejected",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+   "report": [
+    "REJECTED changes_muse_20261009-1028.jsonl: 4 problem(s); nothing was changed",
+    "  line 1: specimen field 'country' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'year' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "  line 1: specimen field 'class' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "HOW TO FIX: a new coin's country and denomination belong to its TYPE, not to the specimen. Pick the existing type, or create one ({ISO}.X.{denomination}, e.g. GB.X.1-penny), then create the specimen: op create, id NEW-1, field '(new record)', new = {type, year_raw, issue: {year, mint_marks, mint_text}, story}. Value goes in a separate line (value.est_usd, value.confidence). See collection/templates/INSTRUCTIONS.md section 3, 'New specimen', and the example files it names."
+   ]
+  },
+  "1UXh3sAbpRbuAg5y6VC8974IFxDVN-u5F": {
+   "name": "changes_muse_20261009-1035.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-09T17:32:46.573Z",
+   "sha256": "d8f2bcc4ef9862c356d0e5c8e0ae48d71a80576de6a6ef2db2216477d0129e45",
+   "outcome": "rejected",
+   "at": "2026-10-10T01:54:01Z",
+   "run": "bridge-20261010-015401",
+   "summary": "line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+   "report": [
+    "REJECTED changes_muse_20261009-1035.jsonl: 1 problem(s); nothing was changed",
+    "  line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
+    "HOW TO FIX: a new coin's country and denomination belong to its TYPE, not to the specimen. Pick the existing type, or create one ({ISO}.X.{denomination}, e.g. GB.X.1-penny), then create the specimen: op create, id NEW-1, field '(new record)', new = {type, year_raw, issue: {year, mint_marks, mint_text}, story}. Value goes in a separate line (value.est_usd, value.confidence). See collection/templates/INSTRUCTIONS.md section 3, 'New specimen', and the example files it names."
+   ]
+  }
+ },
+ "last_listing": {
+  "at": "2026-10-10T01:54:01Z",
+  "made": "2026-10-10T01:55:00Z",
+  "tick": null,
+  "drop": [
+   {
+    "id": "1VCyFXLhrf_LQptckTRLbQywKJWf4pTnz",
+    "name": "changes_grok-bot_20261009-0004.jsonl",
+    "size": 1426,
+    "updated": "2026-10-09T07:05:13.472Z"
+   },
+   {
+    "id": "1L2lqgthOXolstxFIVwxDm6NQRweTHdkn",
+    "name": "changes_grok-bot_20261009-0011.jsonl",
+    "size": 1490,
+    "updated": "2026-10-09T07:11:21.326Z"
+   },
+   {
+    "id": "1bT9ETCb-LnkAFaEUNKC9x5TvJKO5Ayg6",
+    "name": "changes_grok-bot_20261009-0029.jsonl",
+    "size": 39751,
+    "updated": "2026-10-09T07:29:51.469Z"
+   },
+   {
+    "id": "1IDvAhL5G2CFQrXL9ECz6vDQtwgHyYWdI",
+    "name": "changes_grok-bot_20261009-0032.jsonl",
+    "size": 23878,
+    "updated": "2026-10-09T07:32:30.357Z"
+   },
+   {
+    "id": "1Zc6hYCUCxzpezTPfcX_MuUPWTeNraPaK",
+    "name": "changes_grok-bot_20261009-0055.jsonl",
+    "size": 754,
+    "updated": "2026-10-09T07:55:26.344Z"
+   },
+   {
+    "id": "1eKlzIppsraoh56wIVk6BAHfWNzLgz5UP",
+    "name": "changes_grok-bot_20261009-0104.jsonl",
+    "size": 648,
+    "updated": "2026-10-09T08:04:17.675Z"
+   },
+   {
+    "id": "1eZqN5z9QfbShBBBJ2fcvJxEE3hi8U0P6",
+    "name": "changes_grok-bot_20261009-0139.jsonl",
+    "size": 32266,
+    "updated": "2026-10-09T08:39:52.805Z"
+   },
+   {
+    "id": "1sWOw2QNVHKN8G0rc2JInkpGYzehFMOn7",
+    "name": "changes_muse_20261009-0015.jsonl",
+    "size": 9887,
+    "updated": "2026-10-09T07:06:15.984Z"
+   },
+   {
+    "id": "1fNomYQtPN1DRRp_-1JmPH6M-qCawyZRr",
+    "name": "changes_muse_20261009-1006.jsonl",
+    "size": 1029,
+    "updated": "2026-10-09T17:12:04.749Z"
+   },
+   {
+    "id": "123XIoOz8rXCoU8gSFE8Sw11IA7eTPyi-",
+    "name": "changes_muse_20261009-1015.jsonl",
+    "size": 1164,
+    "updated": "2026-10-09T17:24:04.439Z"
+   },
+   {
+    "id": "1XYMiqUnPCT5LLX0S0vgICafJyDlCjpl5",
+    "name": "changes_muse_20261009-1025.jsonl",
+    "size": 944,
+    "updated": "2026-10-09T17:27:04.822Z"
+   },
+   {
+    "id": "1M6lTS9QlPOLF1ns8Jl54_bqLJ3VfNt87",
+    "name": "changes_muse_20261009-1028.jsonl",
+    "size": 1136,
+    "updated": "2026-10-09T17:28:53.236Z"
+   },
+   {
+    "id": "1UXh3sAbpRbuAg5y6VC8974IFxDVN-u5F",
+    "name": "changes_muse_20261009-1035.jsonl",
+    "size": 850,
+    "updated": "2026-10-09T17:32:46.573Z"
+   },
+   {
+    "id": "1qilgTBKs4BvQ2rQXsxIlDToNXHp3HSs2",
+    "name": "changes_muse_20261008-2302.jsonl.REJECTED.txt",
+    "size": 2176,
+    "updated": "2026-10-09T05:26:57.054Z"
+   }
+  ],
+  "staging": null,
+  "bakeoff": null
+ }
+}
