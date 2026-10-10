@@ -19,6 +19,12 @@
    Events: listens to "titan:thunder" ({detail:{delay, strength}}) -> lightning flash on presets that use it,
            "titan:coin" ({detail:{id}}) -> brief accent pulse.
            dispatches "titan:fx" ({detail:{type, preset, name?}}), type: play | idle | moment.
+   Styles (2026-10-10, notes/agents/styles-20.md): a preset may declare `canvas: { w, h, fps, draw(ctx, w, h, t, info) }`. The engine owns
+     a small 2D canvas per layer, calls draw at most `fps` times a second (once for a still frame) and uploads it as `uniform sampler2D uTex`
+     (texture unit 2) with `uniform vec2 uTexRes`; draw returns false when nothing changed (no upload). info = { bg, ink, acc (css rgb()),
+     light (0/1), q (quality 0..3), still (bool), coin (an HTMLImageElement of a real coin photo once loaded, else null) }. Text, glyphs
+     and sprites (ASCII art, split-flap letters, kinetic type, pixel sprites) are drawn there and shaded on the GPU like every other pass;
+     the preset declares `uniform sampler2D uTex; uniform vec2 uTexRes;` in its glsl. `canvas.nearest: true` = pixel-exact sampling.
    Quality: DPR capped at 1.5 (setDprCap), render scale + layer quality adapt from the first 2 s of measured frame cost
    (> 12 ms -> step down). Pauses (visual only) when the tab is hidden; reduced motion = one static frame. */
 (function () {
@@ -215,7 +221,7 @@
     if (def.moments && def.moments.length && !reduced) { var ev = def.moments[0].every || [30, 80]; l.mo = { next: (tStart ? (performance.now() - tStart) / 1000 : 0) + rnd(ev[0] * 0.3, ev[0] * 0.8), cur: null }; }
     return l;
   }
-  function killLayer(l) { l.passes.forEach(delProgram); l.passes = []; l.dead = true; }
+  function killLayer(l) { l.passes.forEach(delProgram); l.passes = []; l.dead = true; if (l.ctex) { try { if (gl) gl.deleteTexture(l.ctex.tex); } catch (e) { /* ignore */ } live.tex--; l.ctex = null; } }
   function pruneLayers(force) {
     layers = layers.filter(function (l) { if (l.dead) return false; if (l.target === 0 && (l.fade <= 0.004 || force)) { killLayer(l); return false; } return true; });
   }
@@ -315,7 +321,7 @@
       canvas = document.createElement("canvas");
       canvas.id = "titan-fx"; canvas.setAttribute("aria-hidden", "true");
       canvas.style.cssText = "position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:7;opacity:0;transition:opacity .6s ease;contain:strict";
-      canvas.addEventListener("webglcontextlost", function (e) { e.preventDefault(); if (e.target !== canvas) return; stopLoop(); layers.forEach(function (l) { l.passes = []; }); layers = []; filmLayer = null; live.programs = 0; gl = null; safe.tex = null; live.tex = 0; glow = { fbo: null, tex: null, prog: null, w: 0, h: 0 }; });
+      canvas.addEventListener("webglcontextlost", function (e) { e.preventDefault(); if (e.target !== canvas) return; stopLoop(); layers.forEach(function (l) { l.passes = []; l.ctex = null; }); layers = []; filmLayer = null; live.programs = 0; gl = null; safe.tex = null; live.tex = 0; glow = { fbo: null, tex: null, prog: null, w: 0, h: 0 }; });
       canvas.addEventListener("webglcontextrestored", function () { /* handled by ensure on next play */ });
       document.body.appendChild(canvas);
     }
@@ -419,6 +425,50 @@
       var fc = pf.color || [a[0], a[1], a[2]]; set3("uFrontC", fc[0], fc[1], fc[2]);
     }
   }
+  /* ---- styles: per-layer 2D canvas texture (def.canvas), texture unit 2 ---- */
+  var coinImg = null, coinWant = false;
+  function coinPhoto() {   // one real coin photo for styles that draw a coin (ASCII art, pixel sprite): the first flip with an obverse photo
+    if (coinImg || coinWant) return coinImg && coinImg.complete && coinImg.naturalWidth ? coinImg : null;
+    coinWant = true;
+    try {
+      fetch("data/index.json").then(function (r) { return r.json(); }).then(function (d) {
+        var f = (d.flips || []).filter(function (x) { return x.thumb && x.thumb_side === "obv"; });
+        if (!f.length) return;
+        var pick = f[Math.floor(Math.random() * f.length)], im = new Image();
+        im.decoding = "async"; im.onload = function () { coinImg = im; }; im.src = pick.thumb;
+      }).catch(function () { /* offline before the index was cached: styles draw without it */ });
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+  function css(c) { return "rgb(" + Math.round(c[0] * 255) + "," + Math.round(c[1] * 255) + "," + Math.round(c[2] * 255) + ")"; }
+  function updCanvas(l, tNow, q) {
+    var cd = l.def.canvas, ct = l.ctex;
+    if (!ct) {
+      var w = cd.w || 256, h = cd.h || 256, cv = document.createElement("canvas"); cv.width = w; cv.height = h;
+      ct = l.ctex = { cv: cv, cx: cv.getContext("2d"), w: w, h: h, tex: gl.createTexture(), last: -1e9, n: 0 }; live.tex++;
+      gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, ct.tex);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, cd.nearest ? gl.NEAREST : gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, cd.nearest ? gl.NEAREST : gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 0]));
+      gl.activeTexture(gl.TEXTURE0);
+    }
+    var gap = 1 / Math.max(1, cd.fps || 8);
+    if (!glowDraw && (ct.n === 0 || (!reduced && tNow - ct.last >= gap))) {
+      var changed = true;
+      try { changed = cd.draw(ct.cx, ct.w, ct.h, tNow, { bg: css(theme.bg), ink: css(theme.ink), acc: css(theme.acc), light: theme.light, q: q, still: reduced, coin: coinPhoto() }) !== false; }
+      catch (e) { if (!ct.err) { ct.err = 1; try { console.warn("TitanFX: canvas draw '" + l.id + "' failed", e); } catch (e2) { /* ignore */ } } changed = false; }
+      ct.last = tNow;
+      if (changed || ct.n === 0) {
+        gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, ct.tex);
+        gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, ct.cv);
+        gl.activeTexture(gl.TEXTURE0);
+        ct.n++;
+      }
+    }
+    gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, ct.tex); gl.activeTexture(gl.TEXTURE0);
+    return true;
+  }
   var glowDraw = false;
   function pulseValue(nowS) { var d = nowS - pulseT0; return d < 0 || d > 3 ? 0 : Math.exp(-d / 0.8) * Math.min(1, d / 0.06); }
   function drawLayer(l, tNow, fl, glowOnly) {
@@ -427,6 +477,7 @@
     if (!ready) return false;
     var eff = l.intensity * userGain() * (l.def.gain || 1) * (1 - 0.3 * theme.light);   // light atmospheres: dark text on a pale ground has little contrast to spare
     var q = LADDER[Math.min(scaleStep, LADDER.length - 1)][1], any = false;
+    if (l.def.canvas && !updCanvas(l, tNow, q)) return false;
     for (i = 0; i < l.passes.length; i++) {
       var rec = l.passes[i];
       if (!rec.ok) continue;
@@ -436,6 +487,7 @@
       setCommon(rec, l, tNow, Math.max(0, Math.min(1, l.fade)), fl, i === 0);
       var ui = uloc(rec, "uInt"); if (ui !== null) gl.uniform1f(ui, glowOnly ? eff * ps.glow : eff);
       var uf = uloc(rec, "uFilm"); if (uf !== null) gl.uniform1f(uf, (l.film == null ? 0 : l.film) * (1 - 0.55 * theme.light));
+      if (l.ctex) { var ut = uloc(rec, "uTex"); if (ut !== null) gl.uniform1i(ut, 2); var utr = uloc(rec, "uTexRes"); if (utr !== null) gl.uniform2f(utr, l.ctex.w, l.ctex.h); }
       if (ps.vert) {
         var n = ps.front ? ps.count[Math.min(3, q)] : Math.max(1, Math.round(ps.count[Math.min(3, q)] * (0.3 + 0.7 * Math.min(1, eff))));
         gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, n);
