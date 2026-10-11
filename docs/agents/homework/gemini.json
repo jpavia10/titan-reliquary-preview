@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-10T22:28:46Z",
+ "updated": "2026-10-11T02:17:30Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261009-1",
@@ -3955,6 +3955,3529 @@
         "drive": "https://drive.google.com/file/d/1z8QwEuHC_fh9NZi7Zg0VXGMEa-6YX_3s/view"
        }
       ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261010-1",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-10-10T21:24:51Z",
+   "lease_until": "2026-10-17T21:24:51Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:DE.KM.105:issues.2.mintage",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.105:issues.3.mintage",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "issues.3.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.106a:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.106a:issues.1.mintage",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.106a:issues.2.mintage",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.1.mintage",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.2.mintage",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.3.mintage",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.3.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.4.mintage",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.4.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.5.mintage",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.5.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.209:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.209",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.209:issues.1.mintage",
+     "entity": "type",
+     "id": "DE.KM.209",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:ES.KM.1040:issues.0.mintage",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:ES.KM.1144:issues.0.mintage",
+     "entity": "type",
+     "id": "ES.KM.1144",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:NL.KM.234:issues.0.mintage",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:NL.KM.236:issues.0.mintage",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:design.text",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:ruler",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:specimen:C275:issue.year",
+     "entity": "specimen",
+     "id": "C275",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:composition.text",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:design.text",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:ruler",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:CH.KM.21a:issues.1.mintage",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.21a:issues.2.mintage",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.214:catalogs",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.27:issues.0.mintage",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.27:issues.2.mintage",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:catalogs",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:IT.KM.216:catalogs",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.0.mintage",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.1.mintage",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:design.text",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.213:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.213",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:catalogs",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:issues.0.mintage",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:JM.KM.189:catalogs",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:JM.KM.191:catalogs",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:SU.Y.97:catalogs",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:VA.KM.52.1:catalogs",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:VA.KM.52.1:issues.0.mintage",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:issues.0.mintage",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:ER.KM.46:composition.text",
+     "entity": "type",
+     "id": "ER.KM.46",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:composition.text",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:JM.KM.191:composition.text",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:specimen:C281:issue.year",
+     "entity": "specimen",
+     "id": "C281",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:denomination.value",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "denomination.value"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:DE.KM.105:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C191"
+     ],
+     "label": "mintage of C191 · Germany · 1986 · 1 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 150000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#854, 1986 year total; no mint mark recorded)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces854.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.105:issues.3.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "issues.3.mintage",
+     "coins": [
+      "C192"
+     ],
+     "label": "mintage of C192 · Germany · 1991 · 1 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 1300000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#854, 1991 year total; no mint mark recorded (includes Berlin A))",
+      "links": [
+       "https://en.numista.com/catalogue/pieces854.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.106a:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C122"
+     ],
+     "label": "mintage of C122 · Germany · 1983 · 2 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 71500000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#1937, 1983-D circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1937.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.106a:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C018"
+     ],
+     "label": "mintage of C018 · Germany · 1983 · 2 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 47575000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#1937 (DE.KM.106a, 2 Pf), 1983-G circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1937.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.106a:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C123"
+     ],
+     "label": "mintage of C123 · Germany · 1988 · 2 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 34600000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista N#1937, 1988-G circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1937.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C132",
+      "C133",
+      "C134"
+     ],
+     "label": "mintage of C132 · Germany · 2002 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 4000000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 1 euro cent Germany, 2002 year total; no mint mark recorded)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C273"
+     ],
+     "label": "mintage of C273 · Germany · 2005 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 126000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 1 euro cent Germany, 2005-J circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C135"
+     ],
+     "label": "mintage of C135 · Germany · 2008 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 506000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 1 euro cent Germany, 2008 year total; no mint mark recorded)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.3.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.3.mintage",
+     "coins": [
+      "C136"
+     ],
+     "label": "mintage of C136 · Germany · 2009 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 500000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 1 euro cent Germany, 2009 year total; no mint mark recorded)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.4.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.4.mintage",
+     "coins": [
+      "C137"
+     ],
+     "label": "mintage of C137 · Germany · 2012 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 521000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 1 euro cent Germany, 2012 year total; no mint mark recorded)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.207:issues.5.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "issues.5.mintage",
+     "coins": [
+      "C138"
+     ],
+     "label": "mintage of C138 · Germany · 2015 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 431000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 1 euro cent Germany, 2015 year total; no mint mark recorded)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.209:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.209",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C099"
+     ],
+     "label": "mintage of C099 · Germany · 2002 · 5 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 504000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 5 euro cent Germany, 2002-J circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.209:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.209",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C121"
+     ],
+     "label": "mintage of C121 · Germany · 2014 · 5 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 32000000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista 5 euro cent Germany, 2014-A circulation)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.KM.1040:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C140"
+     ],
+     "label": "mintage of C140 · Spain · 2008 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 374600000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista, ES 1c 2008 1st type KM#1040 (NGC lists 374641060))",
+      "links": [],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.KM.1144:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.KM.1144",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C139"
+     ],
+     "label": "mintage of C139 · Spain · 2014 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 69400000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista, ES 1c 2014 2nd type KM#1144 (heritcoin lists 64900000; worklist KM#1040 ends 2009))",
+      "links": [],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.234:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C142"
+     ],
+     "label": "mintage of C142 · Netherlands · 2000 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 276800000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista, NL 1c 2000 (KM#234); NGC and coinsbook agree)",
+      "links": [],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.236:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C004"
+     ],
+     "label": "mintage of C004 · Netherlands · 2000 · 5 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "value": 184200000,
+      "their_source": "Titan Round 4 mintage research 2026-10-03 (Numista, NL 5c 2000 (KM#236))",
+      "links": [],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "design.text",
+     "coins": [
+      "C277"
+     ],
+     "label": "design of C277 · Bermuda · 2004 · 10 cents · BMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "The obverse shows Queen Elizabeth the Second wearing a tiara and facing right, with the words Elizabeth II Bermuda. The reverse shows a Bermuda lily flower, with the date above it and the words Ten Cents below.",
+      "their_source": "Numista N#3214",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3214.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "ruler",
+     "coins": [
+      "C277"
+     ],
+     "label": "ruler of C277 · Bermuda · 2004 · 10 cents · BMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "value": "Elizabeth II",
+      "their_source": "Numista N#3214 (Queen Elizabeth II 1952-2022)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3214.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C275:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C275",
+     "field": "issue.year",
+     "coins": [
+      "C275"
+     ],
+     "label": "year of C275 · United Kingdom · 1992 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C275_obv.webp",
+        "file": "C275_obv.webp",
+        "original": "C275_United-Kingdom_1992_5Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1QC7cwjs3PoBJsVZVpkg5O2FNKSiBANMh/view"
+       }
+      ],
+      "audit": true
+     },
+     "blind": true,
+     "inputs": [
+      "C275_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "composition.text",
+     "coins": [
+      "C276"
+     ],
+     "label": "composition of C276 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Muse",
+      "value": "Copper plated steel",
+      "their_source": "Numista N#92216 (1.70 g, 17.00 mm)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces92216.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "design.text",
+     "coins": [
+      "C276"
+     ],
+     "label": "design of C276 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "The obverse shows the coat of arms of The Bahamas, with a marlin and a flamingo holding a shield, and the words Commonwealth of The Bahamas with the date below. The reverse shows three starfish with the words 1 Cent.",
+      "their_source": "Numista N#92216",
+      "links": [
+       "https://en.numista.com/catalogue/pieces92216.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "ruler",
+     "coins": [
+      "C276"
+     ],
+     "label": "ruler of C276 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "value": "Elizabeth II",
+      "their_source": "Numista N#92216 (Queen Elizabeth II 1952-2022)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces92216.html"
+      ],
+      "photos": [],
+      "audit": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.21a:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C014"
+     ],
+     "label": "mintage of C014 · Switzerland · 1974 · 2 francs · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Claude",
+      "value": 15007000,
+      "their_source": "Muse deep review MUS-2-05 + NGC price guide Switzerland 2 Francs KM# 21a.3 1983-2012 (https://ngccoin.com/price-guide/world/switzerland-2-fr",
+      "links": [
+       "https://ngccoin.com/price-guide/world/switzerland-2-francs-km-21a3-1983-2012-cuid-55828-duid-151500",
+       "https://en.numista.com/catalogue/pieces189.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.21a:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C067",
+      "C116"
+     ],
+     "label": "mintage of C067 · Switzerland · 1981 · 2 francs · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Claude",
+      "value": 13852000,
+      "their_source": "Muse deep review MUS-2-05 + NGC price guide Switzerland 2 Francs KM# 21a.3 1983-2012 (https://ngccoin.com/price-guide/world/switzerland-2-fr",
+      "links": [
+       "https://ngccoin.com/price-guide/world/switzerland-2-francs-km-21a3-1983-2012-cuid-55828-duid-151500",
+       "https://en.numista.com/catalogue/pieces189.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "design.text",
+     "coins": [
+      "C077"
+     ],
+     "label": "design of C077 · Switzerland · 1991 · 2 francs · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "standing Helvetia (obv) · 2 Fr. in oak + alpine wreath (rev) · engravers Antoine Bovy / Albert Walch · 23 stars (canton of Jura, from 1983), medal alignment",
+      "their_source": "Muse deep review MUS-2-05 + NGC price guide Switzerland 2 Francs KM# 21a.3 1983-2012 (https://ngccoin.com/price-guide/world/switzerland-2-fr",
+      "links": [
+       "https://ngccoin.com/price-guide/world/switzerland-2-francs-km-21a3-1983-2012-cuid-55828-duid-151500",
+       "https://en.numista.com/catalogue/pieces189.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.214:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "catalogs",
+     "coins": [
+      "C071"
+     ],
+     "label": "catalog of C071 · Germany · 2003 · 2 euro · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "214",
+        "system": "KM"
+       },
+       {
+        "number": "213",
+        "system": "Schön"
+       },
+       {
+        "number": "489",
+        "system": "J"
+       },
+       {
+        "number": "112",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces112.html"
+       }
+      ],
+      "their_source": "Numista N#112 (https://en.numista.com/catalogue/pieces112.html) references: KM# 214, J# 489, Schön# 213, AKS# K1. Replaces the record's J# 4",
+      "links": [
+       "https://en.numista.com/catalogue/pieces112.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.27:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C242"
+     ],
+     "label": "mintage of C242 · Switzerland · 1883 · 10 rappen · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 2000000,
+      "their_source": "Numista N#173 (https://en.numista.com/catalogue/pieces173.html): mintage table row '1883 B' = 2 000 000 (re-cite; matches the record)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces173.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.27:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C083"
+     ],
+     "label": "mintage of C083 · Switzerland · 1981 · 10 rappen · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 30140000,
+      "their_source": "Numista N#173 (https://en.numista.com/catalogue/pieces173.html): mintage table row '1981' = 30 140 000 (record had 30 150 000; corrected); c",
+      "links": [
+       "https://en.numista.com/catalogue/pieces173.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "catalogs",
+     "coins": [
+      "C001",
+      "C093"
+     ],
+     "label": "catalog of C001 · Switzerland · 1969 · 1 franc · CHF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "24a.1",
+        "system": "KM"
+       },
+       {
+        "number": "185",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces185.html"
+       }
+      ],
+      "their_source": "Numista N#185 (https://en.numista.com/catalogue/pieces185.html) references: HMZ 2# 1204, Divo/Tob19# 307a, KM# 24a, Schön# 28a, 58; N#185 is",
+      "links": [
+       "https://en.numista.com/catalogue/pieces185.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.216:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "catalogs",
+     "coins": [
+      "C084"
+     ],
+     "label": "catalog of C084 · Italy · 2002 · 1 euro · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "216",
+        "system": "KM"
+       },
+       {
+        "number": "234",
+        "system": "Schön"
+       },
+       {
+        "number": "135",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces135.html"
+       }
+      ],
+      "their_source": "Numista N#135 (https://en.numista.com/catalogue/pieces135.html) references: KM# 216, Schön# 234. Replaces the record's Schön# 216 -> 234 (ol",
+      "links": [
+       "https://en.numista.com/catalogue/pieces135.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C001"
+     ],
+     "label": "mintage of C001 · Switzerland · 1969 · 1 franc · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Claude",
+      "value": 37598000,
+      "their_source": "NGC World Coin Price Guide: Switzerland Franc KM# 24a.1 (1968-1981, ngccoin.com cuid 55821) and KM# 24a.3 (1983-2015, 23 stars, cuid 1093662",
+      "links": [],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C093"
+     ],
+     "label": "mintage of C093 · Switzerland · 1970 · 1 franc · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Claude",
+      "value": 24240000,
+      "their_source": "NGC World Coin Price Guide: Switzerland Franc KM# 24a.1 (1968-1981, ngccoin.com cuid 55821) and KM# 24a.3 (1983-2015, 23 stars, cuid 1093662",
+      "links": [],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "design.text",
+     "coins": [
+      "C093"
+     ],
+     "label": "design of C093 · Switzerland · 1970 · 1 franc · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "standing Helvetia (obv) · value in wreath (rev) · engravers Antoine Bovy / Albert Walch / Fr. Fisch",
+      "their_source": "NGC World Coin Price Guide: Switzerland Franc KM# 24a.1 (1968-1981, ngccoin.com cuid 55821) and KM# 24a.3 (1983-2015, 23 stars, cuid 1093662",
+      "links": [],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "design.text",
+     "coins": [
+      "C094"
+     ],
+     "label": "design of C094 · Switzerland · 1986 · 1 franc · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "standing Helvetia within 23 stars (obv) · value in oak + alpine wreath (rev)",
+      "their_source": "NGC World Coin Price Guide: Switzerland Franc KM# 24a.1 (1968-1981, ngccoin.com cuid 55821) and KM# 24a.3 (1983-2015, 23 stars, cuid 1093662",
+      "links": [],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "denomination.value",
+     "coins": [
+      "C094"
+     ],
+     "label": "denomination of C094 · Switzerland · 1986 · 1 franc · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Claude",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C094_rev.webp",
+        "file": "C094_rev.webp",
+        "original": "C094_Switzerland_1986_1Franc_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1nbr-edHwfl1bPrHIC7bTHv7IethMua_8/view"
+       }
+      ],
+      "audit": false
+     },
+     "blind": true,
+     "inputs": [
+      "C094_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:DE.KM.213:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.213",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C080"
+     ],
+     "label": "mintage of C080 · Germany · 2002 · 1 euro · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 439800000,
+      "their_source": "Numista N#111 (https://en.numista.com/catalogue/pieces111.html): mintage table row '2002 F' = 439 800 000 (re-cite; matches the record); cir",
+      "links": [
+       "https://en.numista.com/catalogue/pieces111.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "catalogs",
+     "coins": [
+      "C049"
+     ],
+     "label": "catalog of C049 · France · 1989 · 10 francs · FRF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "964.1",
+        "system": "KM"
+       },
+       {
+        "number": "259",
+        "system": "Schön"
+       },
+       {
+        "number": "9",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces9.html"
+       }
+      ],
+      "their_source": "Numista N#9 (https://en.numista.com/catalogue/pieces9.html) references: Franc 2014# 375, Schön# 259, KM# 964.1, Gad 1789# 827; Numista also ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces9.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C049"
+     ],
+     "label": "mintage of C049 · France · 1989 · 10 francs · FRF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 249980449,
+      "their_source": "Numista N#9 (https://en.numista.com/catalogue/pieces9.html): mintage table row '1989' = 249 980 449 (re-cite; matches the record); Franc 201",
+      "links": [
+       "https://en.numista.com/catalogue/pieces9.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.189:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "catalogs",
+     "coins": [
+      "C219"
+     ],
+     "label": "catalog of C219 · Jamaica · 2015 · 1 dollar · JMD",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "189",
+        "system": "KM"
+       },
+       {
+        "number": "14369",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces14369.html"
+       }
+      ],
+      "their_source": "Numista N#14369 (https://en.numista.com/catalogue/pieces14369.html) references: KM# 189; round $1 2008-2025; 2015 is listed only on this rou",
+      "links": [
+       "https://en.numista.com/catalogue/pieces14369.html",
+       "https://en.numista.com/catalogue/pieces1078.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.191:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": "catalogs",
+     "coins": [
+      "C230"
+     ],
+     "label": "catalog of C230 · Jamaica · 2015 · 10 dollars · JMD",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "190",
+        "system": "KM"
+       },
+       {
+        "number": "14370",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces14370.html"
+       }
+      ],
+      "their_source": "Numista N#14370 (https://en.numista.com/catalogue/pieces14370.html) references: KM# 190; Jamaica 10 dollars 2008-2025, nickel clad steel, ar",
+      "links": [
+       "https://en.numista.com/catalogue/pieces14370.html",
+       "https://en.numista.com/catalogue/pieces3813.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SU.Y.97:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "catalogs",
+     "coins": [
+      "C261"
+     ],
+     "label": "catalog of C261 · USSR · 1932 · 15 kopecks · SUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "96",
+        "system": "Y"
+       },
+       {
+        "number": "45",
+        "system": "Schön"
+       },
+       {
+        "number": "5269",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces5269.html"
+       }
+      ],
+      "their_source": "Numista N#5269 (https://en.numista.com/catalogue/pieces5269.html) references: Y# 96, Schön# 45; the record's Y# 97 is wrong: the 1931-1934 c",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5269.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VA.KM.52.1:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": "catalogs",
+     "coins": [
+      "C254"
+     ],
+     "label": "catalog of C254 · Vatican City · 1951 · 10 lire · VAL",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "value": [
+       {
+        "number": "52.1",
+        "system": "KM"
+       },
+       {
+        "number": "52",
+        "system": "Schön"
+       },
+       {
+        "number": "3935",
+        "system": "Numista",
+        "url": "https://en.numista.com/catalogue/pieces3935.html"
+       }
+      ],
+      "their_source": "Numista N#3935 (https://en.numista.com/catalogue/pieces3935.html) references: KM# 52, Berman# 3410; N#3935 is the shared page for KM 52.1 an",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3935.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VA.KM.52.1:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C254"
+     ],
+     "label": "mintage of C254 · Vatican City · 1951 · 10 lire · VAL",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 1130000,
+      "their_source": "Numista N#3935 (https://en.numista.com/catalogue/pieces3935.html): mintage table row '1951 (KM#52.1, legend 'AN')' = 1 130 000 (re-cite; mat",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3935.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C258"
+     ],
+     "label": "mintage of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "value": 15000000,
+      "their_source": "Numista N#5904 (https://en.numista.com/catalogue/pieces5904.html): 1953 mintage 15 000 000 for the 20 Xu; the 20,000,000 in changes.jsonl li",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5904.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ER.KM.46:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ER.KM.46",
+     "field": "composition.text",
+     "coins": [
+      "C212"
+     ],
+     "label": "composition of C212 · Eritrea · 1997 · 50 cents · ERN (nakfa)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Grok",
+      "value": "nickel-clad steel",
+      "their_source": "Numista N#2403 (https://en.numista.com/catalogue/pieces2403.html): composition nickel clad steel -> metal_class clad (record had plated stee",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2403.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "composition.text",
+     "coins": [
+      "C281"
+     ],
+     "label": "composition of C281 · France · 1994 · 5 francs · FRF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Grok",
+      "value": "nickel plated copper-nickel",
+      "their_source": "Numista N#8 (https://en.numista.com/catalogue/pieces8.html): composition nickel plated copper-nickel -> metal_class cupronickel",
+      "links": [
+       "https://en.numista.com/catalogue/pieces8.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.191:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": "composition.text",
+     "coins": [
+      "C230"
+     ],
+     "label": "composition of C230 · Jamaica · 2015 · 10 dollars · JMD",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Grok",
+      "value": "nickel clad steel",
+      "their_source": "Numista N#14370 (https://en.numista.com/catalogue/pieces14370.html): composition nickel clad steel -> metal_class clad",
+      "links": [
+       "https://en.numista.com/catalogue/pieces14370.html"
+      ],
+      "photos": [],
+      "audit": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C281:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C281",
+     "field": "issue.year",
+     "coins": [
+      "C281"
+     ],
+     "label": "year of C281 · France · 1994 · 5 francs · FRF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Claude",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C281_rev.webp",
+        "file": "C281_rev.webp",
+        "original": "C282_France_1994_5Francs_rev.jpg",
+        "drive": null
+       }
+      ],
+      "audit": false
+     },
+     "blind": true,
+     "inputs": [
+      "C281_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "denomination.value",
+     "coins": [
+      "C281"
+     ],
+     "label": "denomination of C281 · France · 1994 · 5 francs · FRF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Claude",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C281_rev.webp",
+        "file": "C281_rev.webp",
+        "original": "C282_France_1994_5Francs_rev.jpg",
+        "drive": null
+       }
+      ],
+      "audit": false
+     },
+     "blind": true,
+     "inputs": [
+      "C281_rev.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-value-20261010-2",
+   "agent": "gemini",
+   "kind": "value",
+   "issued": "2026-10-10T21:24:51Z",
+   "lease_until": "2026-10-20T21:24:51Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C022",
+     "entity": "specimen",
+     "id": "C022",
+     "field": "value"
+    },
+    {
+     "item": "value:C024",
+     "entity": "specimen",
+     "id": "C024",
+     "field": "value"
+    },
+    {
+     "item": "value:C030",
+     "entity": "specimen",
+     "id": "C030",
+     "field": "value"
+    },
+    {
+     "item": "value:C034",
+     "entity": "specimen",
+     "id": "C034",
+     "field": "value"
+    },
+    {
+     "item": "value:C038",
+     "entity": "specimen",
+     "id": "C038",
+     "field": "value"
+    },
+    {
+     "item": "value:C039",
+     "entity": "specimen",
+     "id": "C039",
+     "field": "value"
+    },
+    {
+     "item": "value:C045",
+     "entity": "specimen",
+     "id": "C045",
+     "field": "value"
+    },
+    {
+     "item": "value:C046",
+     "entity": "specimen",
+     "id": "C046",
+     "field": "value"
+    },
+    {
+     "item": "value:C051",
+     "entity": "specimen",
+     "id": "C051",
+     "field": "value"
+    },
+    {
+     "item": "value:C089",
+     "entity": "specimen",
+     "id": "C089",
+     "field": "value"
+    },
+    {
+     "item": "value:C090",
+     "entity": "specimen",
+     "id": "C090",
+     "field": "value"
+    },
+    {
+     "item": "value:C091",
+     "entity": "specimen",
+     "id": "C091",
+     "field": "value"
+    },
+    {
+     "item": "value:C092",
+     "entity": "specimen",
+     "id": "C092",
+     "field": "value"
+    },
+    {
+     "item": "value:C100",
+     "entity": "specimen",
+     "id": "C100",
+     "field": "value"
+    },
+    {
+     "item": "value:C105",
+     "entity": "specimen",
+     "id": "C105",
+     "field": "value"
+    },
+    {
+     "item": "value:C106",
+     "entity": "specimen",
+     "id": "C106",
+     "field": "value"
+    },
+    {
+     "item": "value:C107",
+     "entity": "specimen",
+     "id": "C107",
+     "field": "value"
+    },
+    {
+     "item": "value:C108",
+     "entity": "specimen",
+     "id": "C108",
+     "field": "value"
+    },
+    {
+     "item": "value:C109",
+     "entity": "specimen",
+     "id": "C109",
+     "field": "value"
+    },
+    {
+     "item": "value:C110",
+     "entity": "specimen",
+     "id": "C110",
+     "field": "value"
+    },
+    {
+     "item": "value:C111",
+     "entity": "specimen",
+     "id": "C111",
+     "field": "value"
+    },
+    {
+     "item": "value:C112",
+     "entity": "specimen",
+     "id": "C112",
+     "field": "value"
+    },
+    {
+     "item": "value:C113",
+     "entity": "specimen",
+     "id": "C113",
+     "field": "value"
+    },
+    {
+     "item": "value:C126",
+     "entity": "specimen",
+     "id": "C126",
+     "field": "value"
+    },
+    {
+     "item": "value:C127",
+     "entity": "specimen",
+     "id": "C127",
+     "field": "value"
+    },
+    {
+     "item": "value:C128",
+     "entity": "specimen",
+     "id": "C128",
+     "field": "value"
+    },
+    {
+     "item": "value:C274",
+     "entity": "specimen",
+     "id": "C274",
+     "field": "value"
+    },
+    {
+     "item": "value:C285",
+     "entity": "specimen",
+     "id": "C285",
+     "field": "value"
+    },
+    {
+     "item": "value:C004",
+     "entity": "specimen",
+     "id": "C004",
+     "field": "value"
+    },
+    {
+     "item": "value:C018",
+     "entity": "specimen",
+     "id": "C018",
+     "field": "value"
+    },
+    {
+     "item": "value:C028",
+     "entity": "specimen",
+     "id": "C028",
+     "field": "value"
+    },
+    {
+     "item": "value:C029",
+     "entity": "specimen",
+     "id": "C029",
+     "field": "value"
+    },
+    {
+     "item": "value:C052",
+     "entity": "specimen",
+     "id": "C052",
+     "field": "value"
+    },
+    {
+     "item": "value:C098",
+     "entity": "specimen",
+     "id": "C098",
+     "field": "value"
+    },
+    {
+     "item": "value:C099",
+     "entity": "specimen",
+     "id": "C099",
+     "field": "value"
+    },
+    {
+     "item": "value:C101",
+     "entity": "specimen",
+     "id": "C101",
+     "field": "value"
+    },
+    {
+     "item": "value:C120",
+     "entity": "specimen",
+     "id": "C120",
+     "field": "value"
+    },
+    {
+     "item": "value:C121",
+     "entity": "specimen",
+     "id": "C121",
+     "field": "value"
+    },
+    {
+     "item": "value:C122",
+     "entity": "specimen",
+     "id": "C122",
+     "field": "value"
+    },
+    {
+     "item": "value:C123",
+     "entity": "specimen",
+     "id": "C123",
+     "field": "value"
+    },
+    {
+     "item": "value:C132",
+     "entity": "specimen",
+     "id": "C132",
+     "field": "value"
+    },
+    {
+     "item": "value:C133",
+     "entity": "specimen",
+     "id": "C133",
+     "field": "value"
+    },
+    {
+     "item": "value:C134",
+     "entity": "specimen",
+     "id": "C134",
+     "field": "value"
+    },
+    {
+     "item": "value:C135",
+     "entity": "specimen",
+     "id": "C135",
+     "field": "value"
+    },
+    {
+     "item": "value:C136",
+     "entity": "specimen",
+     "id": "C136",
+     "field": "value"
+    },
+    {
+     "item": "value:C137",
+     "entity": "specimen",
+     "id": "C137",
+     "field": "value"
+    },
+    {
+     "item": "value:C138",
+     "entity": "specimen",
+     "id": "C138",
+     "field": "value"
+    },
+    {
+     "item": "value:C139",
+     "entity": "specimen",
+     "id": "C139",
+     "field": "value"
+    },
+    {
+     "item": "value:C140",
+     "entity": "specimen",
+     "id": "C140",
+     "field": "value"
+    },
+    {
+     "item": "value:C141",
+     "entity": "specimen",
+     "id": "C141",
+     "field": "value"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "value:C022",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C022",
+     "field": "value",
+     "coins": [
+      "C022"
+     ],
+     "label": "C022 · Germany · 1989 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C022_obv.webp",
+        "file": "C022_obv.webp",
+        "original": "C022_Germany_1989_10Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/18FLPAB2tD3AeMba53SiyHcDT_cqQuDk0/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C024",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C024",
+     "field": "value",
+     "coins": [
+      "C024"
+     ],
+     "label": "C024 · United Kingdom · 1977 · 2 new pence · GBP",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C024_obv.webp",
+        "file": "C024_obv.webp",
+        "original": "C024_United-Kingdom_1977_2Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1tnO1ihrNENaU6PS10Tc6a6Fmv-LOghBd/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C030",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C030",
+     "field": "value",
+     "coins": [
+      "C030"
+     ],
+     "label": "C030 · Germany · 1982 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C030_obv.webp",
+        "file": "C030_obv.webp",
+        "original": "C030_Germany_1982_10Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Y1HgLbLDQfDlI7jmmziKsvV9aNM0qfHt/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C034",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C034",
+     "field": "value",
+     "coins": [
+      "C034"
+     ],
+     "label": "C034 · France · 2009 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C034_obv.webp",
+        "file": "C034_obv.webp",
+        "original": "C034_France_2009_2EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1gUGQK0fF0c87XwviHklvgfSiDQczBSGA/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C038",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C038",
+     "field": "value",
+     "coins": [
+      "C038"
+     ],
+     "label": "C038 · Slovakia · 2009 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C038_obv.webp",
+        "file": "C038_obv.webp",
+        "original": "C038_Slovakia_2009_2EuroCent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1-J40n876XBxhepLtEMS11KWT6EoXiwU_/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C039",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C039",
+     "field": "value",
+     "coins": [
+      "C039"
+     ],
+     "label": "C039 · Italy · 2010 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C039_obv.webp",
+        "file": "C039_obv.webp",
+        "original": "C039_Italy_2010_2EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1F_wQd_kXySCiS8R_jfRT0qbmsvTPvd5_/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C045",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C045",
+     "field": "value",
+     "coins": [
+      "C045"
+     ],
+     "label": "C045 · Netherlands · 2014 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C045_obv.webp",
+        "file": "C045_obv.webp",
+        "original": "C045_Netherlands_2014_5EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1BVJrFFeD5us0ktxfgeUJk3C-bQQZaWBf/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C046",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C046",
+     "field": "value",
+     "coins": [
+      "C046"
+     ],
+     "label": "C046 · Germany · 2010 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C046_obv.webp",
+        "file": "C046_obv.webp",
+        "original": "C046_Germany_2010_2EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1DsbuKFpxH7Ogkjy9SHV3GAq5YaqVrLmo/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C051",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C051",
+     "field": "value",
+     "coins": [
+      "C051"
+     ],
+     "label": "C051 · Germany · 1986 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C051_obv.webp",
+        "file": "C051_obv.webp",
+        "original": "C051_Germany_1986_10Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1_Y6DXJlTne3vqJTfjotsMi_AKrXPpfGy/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C089",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C089",
+     "field": "value",
+     "coins": [
+      "C089"
+     ],
+     "label": "C089 · Germany · 1995 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C089_obv.webp",
+        "file": "C089_obv.webp",
+        "original": "C089_Germany_1995_10Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1ogEnbBDAKXFKnnpC6-74i5s-Ewyehb_E/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C090",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C090",
+     "field": "value",
+     "coins": [
+      "C090"
+     ],
+     "label": "C090 · Germany · 1982 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C090_obv.webp",
+        "file": "C090_obv.webp",
+        "original": "C090_Germany_1982_10Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Xd5yilZN12obFa5EuqkL1s39t0OAYE9F/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C091",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C091",
+     "field": "value",
+     "coins": [
+      "C091"
+     ],
+     "label": "C091 · Germany · 1982 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C092",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C092",
+     "field": "value",
+     "coins": [
+      "C092"
+     ],
+     "label": "C092 · Germany · 1982 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C100",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C100",
+     "field": "value",
+     "coins": [
+      "C100"
+     ],
+     "label": "C100 · Germany · 2002 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C100_obv.webp",
+        "file": "C100_obv.webp",
+        "original": "C100_C101_Germany-Ireland_2002_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Vn2PJXCbK_Z5YlCVB-QIuifg1VaD7OKN/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C105",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C105",
+     "field": "value",
+     "coins": [
+      "C105"
+     ],
+     "label": "C105 · United Kingdom · 1971 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C106",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C106",
+     "field": "value",
+     "coins": [
+      "C106"
+     ],
+     "label": "C106 · United Kingdom · 1975 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C107",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C107",
+     "field": "value",
+     "coins": [
+      "C107"
+     ],
+     "label": "C107 · United Kingdom · 1987 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C108",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C108",
+     "field": "value",
+     "coins": [
+      "C108"
+     ],
+     "label": "C108 · United Kingdom · 1988 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C109",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C109",
+     "field": "value",
+     "coins": [
+      "C109"
+     ],
+     "label": "C109 · United Kingdom · 1995 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C110",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C110",
+     "field": "value",
+     "coins": [
+      "C110"
+     ],
+     "label": "C110 · United Kingdom · 1995 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C111",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C111",
+     "field": "value",
+     "coins": [
+      "C111"
+     ],
+     "label": "C111 · United Kingdom · 1996 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C112",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C112",
+     "field": "value",
+     "coins": [
+      "C112"
+     ],
+     "label": "C112 · United Kingdom · 2003 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C113",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C113",
+     "field": "value",
+     "coins": [
+      "C113"
+     ],
+     "label": "C113 · United Kingdom · 2007 · 1 penny · GBP (decimal)",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C126",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C126",
+     "field": "value",
+     "coins": [
+      "C126"
+     ],
+     "label": "C126 · Germany · 2002 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C126_obv.webp",
+        "file": "C126_obv.webp",
+        "original": "C126_C127_C128_Germany-France_2EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1nkxYX7di-gWj4cSPKd_cbb3__4W6qoC0/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C127",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C127",
+     "field": "value",
+     "coins": [
+      "C127"
+     ],
+     "label": "C127 · France · 2010 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C127_obv.webp",
+        "file": "C127_obv.webp",
+        "original": "C126_C127_C128_Germany-France_2EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1nkxYX7di-gWj4cSPKd_cbb3__4W6qoC0/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C128",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C128",
+     "field": "value",
+     "coins": [
+      "C128"
+     ],
+     "label": "C128 · France · 2017 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C128_obv.webp",
+        "file": "C128_obv.webp",
+        "original": "C126_C127_C128_Germany-France_2EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1nkxYX7di-gWj4cSPKd_cbb3__4W6qoC0/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C274",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C274",
+     "field": "value",
+     "coins": [
+      "C274"
+     ],
+     "label": "C274 · Mexico · 1995 · 10 centavos · MXN",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C285",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C285",
+     "field": "value",
+     "coins": [
+      "C285"
+     ],
+     "label": "C285 · Slovakia · 2009 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C285_obv.webp",
+        "file": "C285_obv.webp",
+        "original": "C285_Slovakia_2009_5Cent_obv.jpg",
+        "drive": "https://drive.google.com/file/d/1I8raIzKXi15TWX8U-MAf48jVmXL1FjB1/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C004",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C004",
+     "field": "value",
+     "coins": [
+      "C004"
+     ],
+     "label": "C004 · Netherlands · 2000 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C004_obv.webp",
+        "file": "C004_obv.webp",
+        "original": "C004_Netherlands_2000_5EuroCent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/16pEAeY7N2MOgIerAb5cwBrAdQFqzY60g/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C018",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C018",
+     "field": "value",
+     "coins": [
+      "C018"
+     ],
+     "label": "C018 · Germany · 1983 · 2 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C018_obv.webp",
+        "file": "C018_obv.webp",
+        "original": "C018_Germany_1983_2Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/14SvgEsGPeSi7BQ_5S_vfY-rykd7cDdxv/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C028",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C028",
+     "field": "value",
+     "coins": [
+      "C028"
+     ],
+     "label": "C028 · Malta · 2013 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C028_obv.webp",
+        "file": "C028_obv.webp",
+        "original": "C028_Malta_2013_5EuroCent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1R8VSWobJ74drFM5NtzFjvdwRyFDw382c/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C029",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C029",
+     "field": "value",
+     "coins": [
+      "C029"
+     ],
+     "label": "C029 · Germany · 1972 · 1 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C029_obv.webp",
+        "file": "C029_obv.webp",
+        "original": "C029_Germany_1972_1Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/17FIyti-w13y1rPG-dXhNBq35LumfI_km/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C052",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C052",
+     "field": "value",
+     "coins": [
+      "C052"
+     ],
+     "label": "C052 · France · 2009 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C052_obv.webp",
+        "file": "C052_obv.webp",
+        "original": "C052_France_2009_5EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1E4jkK0EbBzrkbcOQbcIHLQZRVCOKbHEX/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C098",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C098",
+     "field": "value",
+     "coins": [
+      "C098"
+     ],
+     "label": "C098 · Spain · 2000 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C098_obv.webp",
+        "file": "C098_obv.webp",
+        "original": "C098_C099_Spain-Germany_5EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1WnAOriJt18t7EjAq0t7KOdLPOGIH2yoL/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C099",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C099",
+     "field": "value",
+     "coins": [
+      "C099"
+     ],
+     "label": "C099 · Germany · 2002 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C099_obv.webp",
+        "file": "C099_obv.webp",
+        "original": "C098_C099_Spain-Germany_5EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1WnAOriJt18t7EjAq0t7KOdLPOGIH2yoL/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C101",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C101",
+     "field": "value",
+     "coins": [
+      "C101"
+     ],
+     "label": "C101 · Ireland · 2002 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C101_obv.webp",
+        "file": "C101_obv.webp",
+        "original": "C100_C101_Germany-Ireland_2002_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Vn2PJXCbK_Z5YlCVB-QIuifg1VaD7OKN/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C120",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C120",
+     "field": "value",
+     "coins": [
+      "C120"
+     ],
+     "label": "C120 · Ireland · 2013 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C121",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C121",
+     "field": "value",
+     "coins": [
+      "C121"
+     ],
+     "label": "C121 · Germany · 2014 · 5 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C121_obv.webp",
+        "file": "C121_obv.webp",
+        "original": "C120_C121_Ireland-Germany_5EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1w6V4VQACJgM5uciKHOZhxprq4D04PaRD/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C122",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C122",
+     "field": "value",
+     "coins": [
+      "C122"
+     ],
+     "label": "C122 · Germany · 1983 · 2 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C122_obv.webp",
+        "file": "C122_obv.webp",
+        "original": "C122_C123_Germany_2Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1WjdsybYFTYHgo5mFVRQyREdFrJIvBbcO/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C123",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C123",
+     "field": "value",
+     "coins": [
+      "C123"
+     ],
+     "label": "C123 · Germany · 1988 · 2 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C123_obv.webp",
+        "file": "C123_obv.webp",
+        "original": "C122_C123_Germany_2Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1WjdsybYFTYHgo5mFVRQyREdFrJIvBbcO/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C132",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C132",
+     "field": "value",
+     "coins": [
+      "C132"
+     ],
+     "label": "C132 · Germany · 2002 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C133",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C133",
+     "field": "value",
+     "coins": [
+      "C133"
+     ],
+     "label": "C133 · Germany · 2002 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C134",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C134",
+     "field": "value",
+     "coins": [
+      "C134"
+     ],
+     "label": "C134 · Germany · 2002 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C135",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C135",
+     "field": "value",
+     "coins": [
+      "C135"
+     ],
+     "label": "C135 · Germany · 2008 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C136",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C136",
+     "field": "value",
+     "coins": [
+      "C136"
+     ],
+     "label": "C136 · Germany · 2009 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C137",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C137",
+     "field": "value",
+     "coins": [
+      "C137"
+     ],
+     "label": "C137 · Germany · 2012 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C138",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C138",
+     "field": "value",
+     "coins": [
+      "C138"
+     ],
+     "label": "C138 · Germany · 2015 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C139",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C139",
+     "field": "value",
+     "coins": [
+      "C139"
+     ],
+     "label": "C139 · Spain · 2014 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C140",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C140",
+     "field": "value",
+     "coins": [
+      "C140"
+     ],
+     "label": "C140 · Spain · 2008 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C141",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C141",
+     "field": "value",
+     "coins": [
+      "C141"
+     ],
+     "label": "C141 · France · 2009 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "high",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
       "stale_since": null,
       "numista_prices": null,
       "numista_url": null

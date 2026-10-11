@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-10, build tr110.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-11, build tr111.
 
-## State of the union (2026-10-10, build tr110)
+## State of the union (2026-10-11, build tr111)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
@@ -34,13 +34,13 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 
 - **1. Turn guesses into facts.** Answer the 14 questions and the new “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand.
 - **2. Let the loop run.** Do the one-time install for #92 (docs/INTAKE_BRIDGE.md; it also starts the Drive backup), give Gemini its WORK QUEUE doc (it starts with a 3-question access check) and add the free Numista key.
-- **3. Measure, then decide.** The locked test (Grok, Muse) and the main test (Gemini, ChatGPT) decide who reads Phase 2; then pick the look (#30).
+- **3. Measure, then decide.** The locked test (Grok, Muse) and the main test (Gemini) decide who reads Phase 2; then pick the look (#30).
 
 ## What unlocks what (read right to left: do the last link first)
 
 - **The loop running without a chat (#92)** needs your one-time install (one Apps Script project, two GitHub secrets; about 10 minutes) ← nothing else: the bridge, the loop, the gates and the tests are built
 - **Phase 2 pro photos (#61)** needs serial numbers (#5) ← Phase 1 at 100 % (now 175 of 290: Scan a coin) ← the missing photos and mint marks + your answers (#3)
-- **Which AI reads Phase 2 (#19)** needs the locked test from Grok and Muse (due on their pages now) ← the main test from Gemini and ChatGPT (#4)
+- **Which AI reads Phase 2 (#19)** needs the locked test from Grok and Muse (due on their pages now) ← the main test from Gemini (#4)
 - **Reading a coin inside the app (#65 next step)** needs the winner of #19 ← a key kept outside the public site (#92's machinery)
 - **Disagreements settled without me (#101)** needs a third research AI through the onboarding (#97: Gemini first)
 - **Real collector values for every coin (#62)** needs Grok's appraisal homework (running) + your free Numista API key (the weekly price job)
@@ -53,7 +53,6 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - Answer the 14 questions in the app (Hall footer → Questions), and the new “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77).
 - Photograph the missing coins with Scan a coin (Hall footer, or Lab → Shoot list → Scan with the camera): it checks each photo, names it and sends it to Drive STAGING. Unlocks Phase 1 at 100 %.
 - Start Gemini: paste the link to its Drive doc “WORK QUEUE for Gemini” and say “do the first task”. It begins with a 3-question access check, then the photo test.
-- Give ChatGPT the photo test and its queue: “Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md and do the next task”, then paste its answer back to me.
 - Get a free Numista API key (numista.com → your account → API) and add it in GitHub: the repository → Settings → Secrets and variables → Actions → New secret, name NUMISTA_API_KEY. The weekly price job then fills in collector values (#62). Never paste the key in a chat.
 - Measure your phone's speed: Health → Measure speed → Add this speed report to my answers file, then send the answers file (#25).
 - Decide who gets which inventory copy: Health → Printable inventory (with values for the insurer, without for the family) (#64).
@@ -81,23 +80,34 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - **C073** C073 is a tube of 26 1976 quarters. Keep it as one mixed lot, or sort it into no-letter and D piles?
 - **→** Answer them in the app: Hall footer → Questions. Tap your answers, then “Save answers file” into the Drive change-file folder, or “Copy for chat” and paste it to me.
 
-## The other AIs (what each one is doing now (updated 2026-10-10))
+## The other AIs (what each one is doing now (updated 2026-10-11))
 
 The research loop hands out homework from the data after every update (docs/agents/RESEARCH_LOOP.md): each AI gets the kinds it is best at, never its own facts to check, and a different AI checks every fact. Their full pages: Drive “WORK QUEUE for …” docs, and docs/agents/ in the repo.
 
 
 ### Grok (active)
 
-Strongest outside contributor (Numista sweep 9/10, story fixes 10/10, best blind photo test so far): opens Numista, careful exact sources, flags what it cannot settle.
+Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basically opus if it needs to be so I think they get the hardest shit"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.
 
 - Now Fact-check the coin stories, C151 to C283 #73
+- Now Theme pictures: the 22 picker cards (priority 1, two takes each) #113
 - Test Blind photo test, the locked pack (15 coins) #19
 - Homework Cataloguer: 20 items, due 10-16 HW-grok-cite-20261009-1
 - Homework Fact-checker: 25 items, due 10-16 HW-grok-story-check-20261009-1
 - Homework Appraiser: 25 items, due 10-19 HW-grok-value-20261009-1
 - Homework Second reader: 25 items, due 10-17 HW-grok-verify-20261010-1
+- Homework Photo reader: 20 items, due 10-17 HW-grok-read-mint-20261010-1
+- Homework Cataloguer: 23 items, due 10-17 HW-grok-cite-20261010-1
+- Homework Appraiser: 50 items, due 10-20 HW-grok-value-20261010-1
+- Homework Fact-checker: 37 items, due 10-17 HW-grok-story-check-20261010-1
+- Homework Second reader: 50 items, due 10-17 HW-grok-verify-20261010-2
+- Then Review the 20 styles and the motion splashes #110
+- Then Security review of the intake bridge #106
+- Then Find the holes in the research loop #85
+- Then Review two new modules #32
+- Then Cost to complete the albums: price the missing coins in A001 to A016 #62
+- Then Splash films: the open v5 clips #35
 - Then Music: a recording for each of the 3 held pieces #83
-- Then Motion Lab study 2: the coin flip #56
 - Always Read new coin photos (with Muse, blind)
 
 Measured: 41 of its facts checked by another AI: 41 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
@@ -105,14 +115,22 @@ Measured: 41 of its facts checked by another AI: 41 confirmed, 0 wrong. Gets wor
 
 ### Muse (active)
 
-Good researcher and writer (scores 8, then 6; probation streak 0 of 3): second reader for Grok's catalogue facts, plain-English stories for Joseph's dad.
+Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
 
 - Now Re-cite your 26 vague sources #48
 - Now Second reader on Grok's Numista batches #72
+- Now Theme pictures: the 22 wide heroes (priority 2) #113
 - Test Blind photo test, the locked pack (15 coins) #19
 - Homework Second reader: 25 items, due 10-16 HW-muse-verify-20261009-1
 - Homework Researcher: 5 items, due 10-19 HW-muse-research-20261009-1
 - Homework Writer: 15 items, due 10-16 HW-muse-plain-story-20261009-2
+- Homework Fact-checker: 40 items, due 10-17 HW-muse-story-check-20261010-1
+- Homework Appraiser: 50 items, due 10-20 HW-muse-value-20261010-1
+- Homework Photo reader: 13 items, due 10-17 HW-muse-read-mint-20261010-1
+- Homework Second reader: 50 items, due 10-17 HW-muse-verify-20261010-1
+- Homework Appraiser: 50 items, due 10-20 HW-muse-value-20261010-2
+- Then Cost to complete the albums: price the missing coins in A017 to A033 #62
+- Then Dad's one-page guide #60
 - Always Read new coin photos (with Grok, blind)
 
 Measured: 35 of its facts checked by another AI: 31 confirmed, 4 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
@@ -120,26 +138,28 @@ Measured: 35 of its facts checked by another AI: 31 confirmed, 4 wrong. Gets wor
 
 ### Gemini (active)
 
-Vision (and Veo video). Back from parked on 2026-10-09: starts with a proof-of-access check, the blind photo test and small photo-reading batches; every fact it writes is checked by another AI until it has 3 good submissions in a row.
+Expected to be a powerhouse (owner, 2026-10-10: "Gemini should be a powerhouse so there potential there too"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.
 
 - Now Proof of access (do this first) #4
 - Test Blind photo test, the main pack (30 coins) #4
 - Homework Photo reader: 5 items, due 10-16 HW-gemini-read-mint-20261009-1
 - Homework Second reader: 12 items, due 10-16 HW-gemini-verify-20261009-1
-- Then Open art and video jobs #35
+- Homework Fact-checker: 40 items, due 10-17 HW-gemini-story-check-20261010-1
+- Homework Appraiser: 50 items, due 10-20 HW-gemini-value-20261010-1
+- Homework Second reader: 50 items, due 10-17 HW-gemini-verify-20261010-1
+- Homework Appraiser: 50 items, due 10-20 HW-gemini-value-20261010-2
+- Then Second reader for all 33 albums, from the page photos (blind) #55
+- Then Theme pictures (refreshes) and splash clips with Veo #113
 - Always Read new coin photos as the third blind reader
 
 Measured: None of its facts checked by another AI yet. Gets work: Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.
 
 
-### ChatGPT (occasional)
+### ChatGPT (parked)
 
-Strong reasoning and code review; no Drive access, so everything goes through chat. Takes part less often than the others (owner, 2026-10-09): projects only, no generated homework.
+Parked (owner, 2026-10-10: "Chatgpt is too manual so I dont expect stuff to come from there since it requires me"): no Drive access, so every task needs Joseph to paste it. Its projects moved to Grok (reviews) and Muse (Dad's guide). Nothing is expected from it.
 
-- Now Review two new modules #32
 - Test Blind photo test, the main pack (30 coins) #4
-- Then Dad's one-page guide #60
-- Then Find the holes in the research loop #85
 
 Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; the answer is pasted back to Claude.
 
@@ -181,7 +201,7 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ### Measure the AIs
 
-- [ ] **#4 Photo-model bake-off**: Grok and Muse took the main 30-coin test on Oct 8 (Grok 78 % right, 3.8 % invented, never wrong when sure; Muse 71 %, 5.3 %, 17 %). The test now recurs by itself: it is on Gemini's and ChatGPT's pages as due, and every AI retakes it every 6 months so we see who improves. Needs first: ChatGPT's reply (you paste) and Gemini's access check · Unlocks: #19, which AI does Phase 2 research _[partly done, medium, needs you]_
+- [ ] **#4 Photo-model bake-off**: Grok and Muse took the main 30-coin test on Oct 8 (Grok 78 % right, 3.8 % invented, never wrong when sure; Muse 71 %, 5.3 %, 17 %). The test now recurs by itself: it is on Gemini's page as due, and every AI retakes it every 6 months so we see who improves. Needs first: Gemini's access check (ChatGPT is parked) · Unlocks: #19, which AI does Phase 2 research _[partly done, medium, needs you]_
 - [ ] **#19 Locked coin test for scoring AIs over time**: The 15-coin locked test is now due on Grok's and Muse's pages (it opens only after the main test, then every 90 days). Its coin ids exist only in my locked key; it decides which AI reads the Phase 2 pro photos. Needs first: Grok's and Muse's answers · Unlocks: #65, fair scores over time _[partly done, large]_
 
 ## Tier 1 · Safety net (nothing is lost, nothing is quietly changed)
@@ -207,6 +227,7 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 - [x] **#112 A motion splash for every theme**: Done (tr110): each of the 26 themes opens with its own 3-second motion in its style (dust forming the title, molten letters, a KAPOW, a split-flap board, a coin drawn as a blueprint...). Scene Studio > Settings > Opening: Mix (the film on the first open of the day, the theme's motion after that; the default), Film every time, Theme motion, or None. Calm shows one still frame; Off skips it. _[done]_
 - [ ] **#113 Pictures for every theme card**: Requested (tr110): 52 images in the art queue, a picker card (two takes) and a wide hero for all 26 themes; the six new ones in their own medium (pixel art, comic panel, clay, Bauhaus poster). Any image AI with credits can take it; I review every picture and re-request weak ones. Needs first: an image AI with credits (Grok, Gemini or Muse) to claim artreq_20261010-1700_theme-thumbnails _[medium, new]_
 - [ ] **#114 Try the new effects on your phone**: Every effect and splash was tuned on a software graphics chip in my container, never on a real phone. Open a few themes on yours and tell me which effects are too strong, too faint or stutter; I tune them in one pass. Needs first: your phone, 10 minutes _[small, needs you, new]_
+- [x] **#115 Effects keep moving while you scroll**: Done (tr111): since tr82 the effects froze while a page scrolled (to keep scrolling smooth on phones). Now they keep moving at a scroll frame rate that steps down from 30 to 20 to 12 frames a second if the phone struggles, never to zero, and the text protection follows the page as it moves. _[done]_
 
 ## Tier 2 · Capabilities on the foundation (each one names what it waits on)
 
@@ -314,3 +335,4 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 - [x] **#21 Sounds for the effect moments**: Done (tr110): every effect moment has its own short sound (the whale, the press strike, the shooting star, POW, the clay drop, the foil sweep...), at most one every 12 seconds and only while the app is on screen; Scene Studio > Settings has an “Effect moment sounds” switch. _[done]_
 - [x] **#23 Black Site terminal readability**: Done (tr109): the Construct's terminal is hidden on narrow screens and drawn at 14 px without glow; its falling code gave way to the new ASCII-art effect, which keeps clear of text. _[done]_
 - [x] **#56 Motion Lab test page**: Done (tr110): six studies at /motion-lab/: gold dust (Grok), Morph (your second video, rebuilt with your coins: dust sheet, a coin formed from its photo, the burst, light ribbons, blue beams), coin flip with a rim light, a tile growing into the coin view, the Confirm seal (AI guess → Owner verified) and a coin settling into album A026. Still / Calm / Full on each. Tell me which ones you want in the app (#63). _[done]_
+- [x] **#115 Effects keep moving while you scroll**: Done (tr111): since tr82 the effects froze while a page scrolled (to keep scrolling smooth on phones). Now they keep moving at a scroll frame rate that steps down from 30 to 20 to 12 frames a second if the phone struggles, never to zero, and the text protection follows the page as it moves. _[done]_

@@ -1,5 +1,5 @@
 {
- "version": 22,
+ "version": 23,
  "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most: the system that researches the collection by itself first, then truth and safety, polish last. Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
  "sotu": {
   "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
@@ -58,7 +58,7 @@
    ],
    [
     "3. Measure, then decide.",
-    "The locked test (Grok, Muse) and the main test (Gemini, ChatGPT) decide who reads Phase 2; then pick the look (#30)."
+    "The locked test (Grok, Muse) and the main test (Gemini) decide who reads Phase 2; then pick the look (#30)."
    ]
   ]
  },
@@ -73,7 +73,7 @@
   ],
   [
    "Which AI reads Phase 2 (#19)",
-   "needs the locked test from Grok and Muse (due on their pages now) ← the main test from Gemini and ChatGPT (#4)"
+   "needs the locked test from Grok and Muse (due on their pages now) ← the main test from Gemini (#4)"
   ],
   [
    "Reading a coin inside the app (#65 next step)",
@@ -112,10 +112,6 @@
   [
    "Start Gemini:",
    "paste the link to its Drive doc “WORK QUEUE for Gemini” and say “do the first task”. It begins with a 3-question access check, then the photo test."
-  ],
-  [
-   "Give ChatGPT the photo test and its queue:",
-   "“Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md and do the next task”, then paste its answer back to me."
   ],
   [
    "Get a free Numista API key",
@@ -255,7 +251,8 @@
       111,
       112,
       113,
-      114
+      114,
+      115
      ]
     }
    ]
@@ -393,7 +390,8 @@
   112,
   21,
   23,
-  56
+  56,
+  115
  ],
  "items": {
   "1": {
@@ -434,8 +432,8 @@
   },
   "4": {
    "title": "Photo-model bake-off",
-   "desc": "Grok and Muse took the main 30-coin test on Oct 8 (Grok 78 % right, 3.8 % invented, never wrong when sure; Muse 71 %, 5.3 %, 17 %). The test now recurs by itself: it is on Gemini's and ChatGPT's pages as due, and every AI retakes it every 6 months so we see who improves.",
-   "needs": "ChatGPT's reply (you paste) and Gemini's access check",
+   "desc": "Grok and Muse took the main 30-coin test on Oct 8 (Grok 78 % right, 3.8 % invented, never wrong when sure; Muse 71 %, 5.3 %, 17 %). The test now recurs by itself: it is on Gemini's page as due, and every AI retakes it every 6 months so we see who improves.",
+   "needs": "Gemini's access check (ChatGPT is parked)",
    "unlocks": "#19, which AI does Phase 2 research",
    "size": "medium",
    "you": true,
@@ -1762,6 +1760,18 @@
    "new": true,
    "partly": false,
    "state": "open",
+   "note": null
+  },
+  "115": {
+   "title": "Effects keep moving while you scroll",
+   "desc": "Done (tr111): since tr82 the effects froze while a page scrolled (to keep scrolling smooth on phones). Now they keep moving at a scroll frame rate that steps down from 30 to 20 to 12 frames a second if the phone struggles, never to zero, and the text protection follows the page as it moves.",
+   "needs": null,
+   "unlocks": "#114",
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "done",
    "note": null
   }
  }

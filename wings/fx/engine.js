@@ -71,7 +71,13 @@
   var theme = { bg: [0.1, 0.09, 0.08], ink: [0.9, 0.85, 0.75], acc: [0.8, 0.65, 0.3], light: 0 };
   var videoEl = null, videoMap = {};
   var SAFE_K = 0.85;                       // how much the effect is attenuated over text (0 = off)
-  var scrolling = false, scrollT = 0, SCROLL_SETTLE_MS = 160;   // perf (tr82): no rendering or re-masking mid-scroll (Pixel 7 4x CPU: Gallery 33 -> ~57 fps)
+  var scrolling = false, scrollT = 0, SCROLL_SETTLE_MS = 160;
+  /* scroll motion (tr111, owner: "Whenever I scroll the animations pause on every screen on every theme. Its annoying"): tr82 froze the
+     effect mid-scroll for speed (Pixel 7 4x CPU: Gallery 33 -> ~57 fps). Now it keeps moving at a scroll frame rate that steps down
+     30 -> 20 -> 12 fps when the page itself drops frames (never to zero), and the text mask follows the page: the mask is shifted by the
+     distance scrolled since it was built (max of shifted and unshifted, so fixed bars stay covered too) and rebuilt every 280 ms. */
+  var SCROLL_FPS = [30, 20, 12], SCROLL_JANK_MS = 22, SCROLL_REMASK_MS = 280;
+  var scr = { off: 0, step: 0, ema: 16.7, slow: 0, lastRaf: 0, pos: window.WeakMap ? new WeakMap() : null };
   var safe = { tex: null, cv: null, cx: null, nodes: [], scanAt: 0, dirty: true, t: 0, built: 0, mut: null };
   var fadeMs = 1400, forced = null;
   /* fx-v3 state: interaction, moments, audio, glow */
@@ -114,14 +120,15 @@
     "float fbmQ(vec2 p, int n){ float a=.5, s=0.; for(int i=0;i<6;i++){ if(i>=n) break; s+=a*vn(p); p=p*2.03+vec2(17.1,9.2); a*=.5; } return s; }\n" +
     "vec3 hsv(float h, float s, float v){ vec3 k=clamp(abs(fract(h+vec3(0.,2./3.,1./3.))*6.-3.)-1.,0.,1.); return v*mix(vec3(1.),k,s); }\n";
   var VS_FULL = "#version 300 es\nvoid main(){ vec2 p=vec2(float((gl_VertexID<<1)&2), float(gl_VertexID&2)); gl_Position=vec4(p*2.-1.,0.,1.); }\n";
-  var FS_SAFE = "uniform sampler2D uSafe; uniform float uSafeK;\n";
+  var FS_SAFE = "uniform sampler2D uSafe; uniform float uSafeK, uSafeOff;\n" +
+    "float safeAt(vec2 fc){ float a = texture(uSafe, fc / uRes).r; return uSafeOff == 0. ? a : max(a, texture(uSafe, (fc - vec2(0., uSafeOff)) / uRes).r); }\n";
   var RING = "vec4 tapRing(){ if (uRing < .5 || uTap.w <= 0. || uTap.z > 2.4) return vec4(0.);\n" +
     "  vec2 pp = (gl_FragCoord.xy-.5*uRes)/uRes.y; float age = uTap.z; float d = length(pp-uTap.xy);\n" +
     "  float ring = exp(-pow((d-age*.5)/(.03+age*.02),2.))*exp(-age*1.7)*uTap.w;\n" +
     "  vec3 rc = mix(uAcc, vec3(1.), .35);\n" +
     "  return vec4(rc*ring*.2*(1.-uLight), ring*.07*uLight); }\n";
-  var FS_MAIN = "\n" + FS_SAFE + RING + "out vec4 outColor;\nvoid main(){ vec4 c = fx(gl_FragCoord.xy) * uFade; c += tapRing()*uFade; c *= 1. + .35*uPulse + .22*uAudio; float s = texture(uSafe, gl_FragCoord.xy / uRes).r; outColor = c * (1. - uSafeK * s); }\n";
-  var FS_MAIN_I = "\n" + FS_SAFE + "out vec4 outColor;\nvoid main(){ vec4 c = fxi() * uFade; c *= 1. + .35*uPulse + .22*uAudio; float s = texture(uSafe, gl_FragCoord.xy / uRes).r; outColor = c * (1. - uSafeK * s); }\n";
+  var FS_MAIN = "\n" + FS_SAFE + RING + "out vec4 outColor;\nvoid main(){ vec4 c = fx(gl_FragCoord.xy) * uFade; c += tapRing()*uFade; c *= 1. + .35*uPulse + .22*uAudio; float s = safeAt(gl_FragCoord.xy); outColor = c * (1. - uSafeK * s); }\n";
+  var FS_MAIN_I = "\n" + FS_SAFE + "out vec4 outColor;\nvoid main(){ vec4 c = fxi() * uFade; c *= 1. + .35*uPulse + .22*uAudio; float s = safeAt(gl_FragCoord.xy); outColor = c * (1. - uSafeK * s); }\n";
   var FS_HEAD_I = "#version 300 es\nprecision highp float;\nuniform vec2 uRes, uPar, uPtr; uniform vec4 uMoment, uTap; uniform float uFade, uLight, uInt, uQ, uTime, uFlash, uAudio, uPulse, uScale; uniform vec3 uBg, uInk, uAcc, uTint; uniform vec3 uFrontC;\nin vec4 vA; in vec2 vQ;\nfloat mK(){ return uMoment.z > 0. ? uMoment.x / uMoment.z : -1.; }\nfloat mEnv(){ float k = mK(); return k < 0. ? 0. : smoothstep(0.,.12,k)*(1.-smoothstep(.62,1.,k)); }\n";
 
   /* fx-v3 front layer: a few large out-of-focus particles drifting past the camera (sparse: most cycles are skipped) */
@@ -161,11 +168,12 @@
     "  float e = a*vA.y*uInt;",
     "  return vec4(c*e, e*mix(.12,.5,uLight)*(1.-.6*uLight*0.));",
     "}"].join("\n");
-  var GLOW_FS = "#version 300 es\nprecision highp float;\nuniform sampler2D uGlow, uSafe; uniform vec2 uRes, uTexel; uniform float uK, uFade, uSafeK;\nout vec4 outColor;\n" +
+  var GLOW_FS = "#version 300 es\nprecision highp float;\nuniform sampler2D uGlow, uSafe; uniform vec2 uRes, uTexel; uniform float uK, uFade, uSafeK, uSafeOff;\nout vec4 outColor;\n" +
     "void main(){ vec2 uv = gl_FragCoord.xy/uRes; vec3 s = texture(uGlow, uv).rgb*.2;\n" +
     "  for (int i=0;i<8;i++){ float a = float(i)*.7854+.3; vec2 o = vec2(cos(a), sin(a));\n" +
     "    s += texture(uGlow, uv+o*uTexel*1.7).rgb*.075 + texture(uGlow, uv+o*uTexel*3.9).rgb*.0275; }\n" +
-    "  float m = texture(uSafe, uv).r; outColor = vec4(s*uK*uFade*(1.-uSafeK*m), 0.); }\n";
+    "  float m = texture(uSafe, uv).r; if (uSafeOff != 0.) m = max(m, texture(uSafe, (gl_FragCoord.xy - vec2(0., uSafeOff))/uRes).r);\n" +
+    "  outColor = vec4(s*uK*uFade*(1.-uSafeK*m), 0.); }\n";
 
   function compile(type, src, label) {
     var s = gl.createShader(type);
@@ -279,8 +287,10 @@
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, safe.cv);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-    safe.dirty = false; safe.built = performance.now();
+    safe.dirty = false; safe.built = performance.now(); scr.off = 0;   // the mask now matches the page as it is
   }
+  /* how far (canvas px, gl y up) the page has scrolled since the mask was built */
+  function safeOffPx() { return scr.off ? scr.off * (ch / Math.max(1, window.innerHeight)) : 0; }
   function markSafe(delayMs) {
     safe.dirty = true;
     if (safe.t) return;
@@ -297,8 +307,14 @@
     scanSafe(); buildSafe();
     if (!safe.listen) {
       safe.listen = true;
-      window.addEventListener("scroll", function () {   // hold the effect still while a scroll is moving; re-mask once it settles
+      window.addEventListener("scroll", function (e) {   // the effect keeps moving; the mask follows the page and is rebuilt once the scroll settles
         scrolling = true;
+        var t = e && e.target, el = (!t || t === document) ? (document.scrollingElement || document.documentElement) : t;
+        if (el && (el === document.scrollingElement || el === document.documentElement || el === document.body || el.clientHeight > window.innerHeight * 0.5)) {
+          var st = el.scrollTop || 0, last = scr.pos && scr.pos.has(el) ? scr.pos.get(el) : st;   // vertical page scrolls only (a carousel moves sideways inside its own band)
+          if (scr.pos) scr.pos.set(el, st);
+          scr.off += st - last;
+        }
         if (scrollT) clearTimeout(scrollT);
         scrollT = setTimeout(function () { scrollT = 0; scrolling = false; if (gl) markSafe(0); }, SCROLL_SETTLE_MS);
       }, { passive: true, capture: true });
@@ -410,7 +426,7 @@
     var a = tint || theme.acc; set3("uAcc", a[0], a[1], a[2]);
     set3("uTint", a[0], a[1], a[2]);
     set3("uBolt", flash.x, fl[1], flash.seed);
-    set1("uSafeK", glowDraw ? 0 : Math.max(SAFE_K, (def && def.safe) || 0)); var us = uloc(rec, "uSafe"); if (us !== null) gl.uniform1i(us, 0);
+    set1("uSafeK", glowDraw ? 0 : Math.max(SAFE_K, (def && def.safe) || 0)); set1("uSafeOff", safeOffPx()); var us = uloc(rec, "uSafe"); if (us !== null) gl.uniform1i(us, 0);
     // fx-v3
     var tapOn = def && def.tap ? 1 : 0, nowS = performance.now() / 1000, age = tap.t0 > -50 ? nowS - tap.t0 : 99;
     set2("uPar", reduced ? 0 : (par.x * dz), reduced ? 0 : ((par.y + drift.v) * dz)); set2("uPtr", ptr.x, ptr.y);
@@ -542,7 +558,7 @@
     var set = function (n, f) { var u = uloc(rec, n); if (u !== null) f(u); };
     set("uRes", function (u) { gl.uniform2f(u, cw, ch); }); set("uTexel", function (u) { gl.uniform2f(u, 1 / glow.w, 1 / glow.h); });
     set("uK", function (u) { gl.uniform1f(u, 1.25 * (1 - 0.7 * theme.light)); }); set("uFade", function (u) { var f = 0; layers.forEach(function (l) { f = Math.max(f, Math.min(1, l.fade)); }); gl.uniform1f(u, f); });
-    set("uSafeK", function (u) { var k = SAFE_K; layers.forEach(function (l) { k = Math.max(k, l.def.safe || 0); }); gl.uniform1f(u, k); }); set("uSafe", function (u) { gl.uniform1i(u, 0); }); set("uGlow", function (u) { gl.uniform1i(u, 1); });
+    set("uSafeK", function (u) { var k = SAFE_K; layers.forEach(function (l) { k = Math.max(k, l.def.safe || 0); }); gl.uniform1f(u, k); }); set("uSafe", function (u) { gl.uniform1i(u, 0); }); set("uSafeOff", function (u) { gl.uniform1f(u, safeOffPx()); }); set("uGlow", function (u) { gl.uniform1i(u, 1); });
     gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, glow.tex); gl.activeTexture(gl.TEXTURE0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
@@ -659,13 +675,23 @@
     if (audioV < 0.002) audioV = 0;
   }
 
+  function scrollPace(rdt) {          // the page dropping frames while it scrolls: step the scroll frame rate down (30 -> 20 -> 12), never to zero
+    if (!(rdt > 0 && rdt < 250)) return;
+    scr.ema += (rdt - scr.ema) * 0.15;
+    if (scr.ema > SCROLL_JANK_MS) { scr.slow += rdt; if (scr.slow > 700 && scr.step < SCROLL_FPS.length - 1) { scr.step++; scr.slow = 0; scr.ema = 16.7; } }
+    else scr.slow = Math.max(0, scr.slow - rdt * 0.5);
+  }
   function frame(now) {
     raf = requestAnimationFrame(frame);
+    var rdt = scr.lastRaf ? now - scr.lastRaf : 0; scr.lastRaf = now;
+    if (scrolling) scrollPace(rdt);
     var dt = now - lastDraw;
-    if (dt < 1000 / FPS_CAP - 1.5) return;
-    if (scrolling) { lastDraw = now; wd.n = 0; wd.sum = 0; wd.t = 0; return; }   // the last frame stays on screen; the watchdog ignores the gap
+    if (dt < 1000 / (scrolling ? SCROLL_FPS[scr.step] : FPS_CAP) - 1.5) return;
     lastDraw = now;
-    if (dt < 250) watchdog(dt); else { wd.n = 0; wd.sum = 0; wd.t = 0; }
+    if (scrolling) {                     // the watchdog ignores scroll frames (they are capped on purpose); the mask is refreshed as the page moves
+      wd.n = 0; wd.sum = 0; wd.t = 0; scr.frames = (scr.frames || 0) + 1;
+      if (gl && safe.tex && SAFE_K > 0 && now - safe.built > SCROLL_REMASK_MS) buildSafe();
+    } else if (dt < 250) watchdog(dt); else { wd.n = 0; wd.sum = 0; wd.t = 0; }
     var step = dt / 1000 / (fadeMs / 1000);
     for (var i = 0; i < layers.length; i++) { var l = layers[i]; l.fade += (l.target > l.fade ? 1 : -1) * Math.min(Math.abs(l.target - l.fade), step); }
     if (filmLayer) { filmLayer.fade += (filmLayer.target > filmLayer.fade ? 1 : -1) * Math.min(Math.abs(filmLayer.target - filmLayer.fade), step); }
@@ -697,7 +723,7 @@
   function startLoop() {
     if (running || document.hidden) return;
     if (reduced) { drawOnce(); return; }
-    running = true; lastDraw = 0;
+    running = true; lastDraw = 0; scr.lastRaf = 0;
     if (!tStart) tStart = performance.now();
     raf = requestAnimationFrame(frame);
   }
@@ -837,7 +863,7 @@
     get supported() { return probe(); },
     owns: function () { return probe(); },              // when true, ambient.js leaves its 2D canvas weather off
     thunder: function (d) { window.dispatchEvent(new CustomEvent("titan:thunder", { detail: d || {} })); },
-    stats: function () { return { programs: live.programs, textures: live.tex, created: live.created, deleted: live.deleted, layers: layers.length, running: running, scale: LADDER[scaleStep][0], quality: LADDER[scaleStep][1], cost: frameCost.length ? frameCost[frameCost.length - 1] : null, canvas: canvas ? [cw, ch] : null, hasGL: !!gl, bloom: !!glow.tex, par: [+par.x.toFixed(4), +(par.y + drift.v).toFixed(4)], pulse: +pulseValue(performance.now() / 1000).toFixed(3), tapAge: tap.t0 > -50 ? +(performance.now() / 1000 - tap.t0).toFixed(2) : null, audio: audioV, moments: layers.map(function (l) { return l.mo && l.mo.cur ? l.mo.cur.name : null; }) }; },
+    stats: function () { return { programs: live.programs, textures: live.tex, created: live.created, deleted: live.deleted, layers: layers.length, running: running, scale: LADDER[scaleStep][0], quality: LADDER[scaleStep][1], cost: frameCost.length ? frameCost[frameCost.length - 1] : null, canvas: canvas ? [cw, ch] : null, hasGL: !!gl, bloom: !!glow.tex, par: [+par.x.toFixed(4), +(par.y + drift.v).toFixed(4)], pulse: +pulseValue(performance.now() / 1000).toFixed(3), tapAge: tap.t0 > -50 ? +(performance.now() / 1000 - tap.t0).toFixed(2) : null, audio: audioV, moments: layers.map(function (l) { return l.mo && l.mo.cur ? l.mo.cur.name : null; }), scroll: { step: scr.step, fps: SCROLL_FPS[scr.step], frames: scr.frames || 0, off: +scr.off.toFixed(1) } }; },
     state: function () { return { light: theme.light, level: cfg.level, intensity: cfg.intensity, film: cfg.film, reduced: reduced, playing: want ? want.id : null }; },
     vhead: VHEAD3,
     moment: forceMoment,

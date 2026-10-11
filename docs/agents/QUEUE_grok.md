@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-10 22:28 UTC)
+# WORK QUEUE for Grok (updated 2026-10-11 02:17 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
-**Status:** active. Strongest outside contributor (Numista sweep 9/10, story fixes 10/10, best blind photo test so far): opens Numista, careful exact sources, flags what it cannot settle.
+**Status:** active. Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basically opus if it needs to be so I think they get the hardest shit"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.
 **How you get this:** Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
@@ -373,6 +373,36 @@ Items:
 - **mintage of C187 · Germany · 1985 · 1 Pfennig · DEM** `type DE.KM.105 issues.1.mintage` = `75000000` (written by Muse: Titan Round 4 mintage research 2026-10-03 (Numista N#854, 1985 year total; no mint mark recorded)) [audit sample]
 
 ## Projects (after the homework)
+
+### Review the 20 styles and the motion splashes  [NEXT]  (fix list #110)
+
+Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/fx/styles-a.js, styles-b.js, styles-c.js, styles-d.js (same folder), https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/motion-splash.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/styles/style-layer.css (the engine contract is the header of wings/fx/engine.js). Find real defects only: a shader that will not compile on a phone GPU (precision, loops, derivatives), work that runs every frame and should not, a splash that can hang or never call done(), something that ignores reduced motion or Motion Off, text the effects make unreadable. For each: file:line, how to trigger it, the smallest fix. Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
+
+**Done when:** One reply with finding IDs GRK-S-01, GRK-S-02 ...; Claude verifies each claim before fixing.
+
+### Security review of the intake bridge  [NEXT]  (fix list #106)
+
+Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/INTAKE_BRIDGE.md, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/bridge/intake.py, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/drive/intake_bridge.gs and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/.github/workflows/intake.yml. Find real holes only: a way a file in the Drive folder could run code, write outside collection/, merge as the owner or as another AI, leak the key, or make the job push something it should not. For each: how to trigger it, why it matters, the smallest fix (file:line). Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
+
+**Done when:** One reply with finding IDs GRK-B-01 ...; Claude verifies each claim before fixing.
+
+### Find the holes in the research loop  [NEXT]  (fix list #85)
+
+Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/RESEARCH_LOOP.md and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/agents/homework.py. Find real holes only: a way an AI could get a wrong fact marked 'Checked', a job that can never close or is handed out twice, an AI that could end up checking its own work, a line that could overwrite data it should not. For each: how to trigger it, why it matters, the smallest fix (file:line). Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
+
+**Done when:** One reply; Claude verifies each claim before fixing.
+
+### Review two new modules  [LATER]  (fix list #32)
+
+Review https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/app-motion.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/music-recorded.js for real bugs only (what breaks, how to reproduce, the smallest fix, file:line). No style notes. Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
+
+**Done when:** One reply; Claude verifies each claim before fixing.
+
+### Cost to complete the albums: price the missing coins in A001 to A016  [NEXT]  (fix list #62)
+
+Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A001 to A016, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_grok_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {"album": "A001", "label": "1941-D", "value_usd": 1.25, "grade": "VF", "source": "exact page URL", "confidence": "med|low"}, plus a total per album.
+
+**Done when:** One JSON file covering every missing coin in A001 to A016 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing.
 
 ### Splash films: the open v5 clips  [NEXT]  (fix list #35)
 

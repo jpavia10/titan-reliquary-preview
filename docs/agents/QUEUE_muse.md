@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-10 22:28 UTC)
+# WORK QUEUE for Muse (updated 2026-10-11 02:17 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
-**Status:** active (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Good researcher and writer (scores 8, then 6; probation streak 0 of 3): second reader for Grok's catalogue facts, plain-English stories for Joseph's dad.
+**Status:** active (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
 **How you get this:** Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
@@ -368,6 +368,18 @@ Items:
 - **C021 · Germany · 1970 · 10 Pfennig · DEM**: now $0.15 (high). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C021_obv.webp
 
 ## Projects (after the homework)
+
+### Cost to complete the albums: price the missing coins in A017 to A033  [NEXT]  (fix list #62)
+
+Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A017 to A033, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_muse_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {"album": "A001", "label": "1941-D", "value_usd": 1.25, "grade": "VF", "source": "exact page URL", "confidence": "med|low"}, plus a total per album.
+
+**Done when:** One JSON file covering every missing coin in A017 to A033 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing.
+
+### Dad's one-page guide  [NEXT]  (fix list #60)
+
+Write a one-page plain-English guide for Joseph's dad to the Simple view (Do I have...?, What's missing?, At a glance, Questions): big words, short sentences, what to tap. Read the live app at https://jpavia10.github.io/titan-reliquary-preview/#simple first. Save it as guide_muse_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
+
+**Done when:** One file with the guide text.
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
 

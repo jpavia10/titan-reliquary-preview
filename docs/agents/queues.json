@@ -168,6 +168,46 @@
         },
         {
           "n": 3,
+          "title": "Review the 20 styles and the motion splashes",
+          "fix": "#110",
+          "state": "next",
+          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/fx/styles-a.js, styles-b.js, styles-c.js, styles-d.js (same folder), https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/motion-splash.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/styles/style-layer.css (the engine contract is the header of wings/fx/engine.js). Find real defects only: a shader that will not compile on a phone GPU (precision, loops, derivatives), work that runs every frame and should not, a splash that can hang or never call done(), something that ignores reduced motion or Motion Off, text the effects make unreadable. For each: file:line, how to trigger it, the smallest fix. Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
+          "done_when": "One reply with finding IDs GRK-S-01, GRK-S-02 ...; Claude verifies each claim before fixing."
+        },
+        {
+          "n": 4,
+          "title": "Security review of the intake bridge",
+          "fix": "#106",
+          "state": "next",
+          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/INTAKE_BRIDGE.md, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/bridge/intake.py, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/drive/intake_bridge.gs and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/.github/workflows/intake.yml. Find real holes only: a way a file in the Drive folder could run code, write outside collection/, merge as the owner or as another AI, leak the key, or make the job push something it should not. For each: how to trigger it, why it matters, the smallest fix (file:line). Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
+          "done_when": "One reply with finding IDs GRK-B-01 ...; Claude verifies each claim before fixing."
+        },
+        {
+          "n": 5,
+          "title": "Find the holes in the research loop",
+          "fix": "#85",
+          "state": "next",
+          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/RESEARCH_LOOP.md and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/agents/homework.py. Find real holes only: a way an AI could get a wrong fact marked 'Checked', a job that can never close or is handed out twice, an AI that could end up checking its own work, a line that could overwrite data it should not. For each: how to trigger it, why it matters, the smallest fix (file:line). Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
+          "done_when": "One reply; Claude verifies each claim before fixing."
+        },
+        {
+          "n": 6,
+          "title": "Review two new modules",
+          "fix": "#32",
+          "state": "later",
+          "what": "Review https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/app-motion.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/music-recorded.js for real bugs only (what breaks, how to reproduce, the smallest fix, file:line). No style notes. Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
+          "done_when": "One reply; Claude verifies each claim before fixing."
+        },
+        {
+          "n": 7,
+          "title": "Cost to complete the albums: price the missing coins in A001 to A016",
+          "fix": "#62",
+          "state": "next",
+          "what": "Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A001 to A016, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_grok_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {\"album\": \"A001\", \"label\": \"1941-D\", \"value_usd\": 1.25, \"grade\": \"VF\", \"source\": \"exact page URL\", \"confidence\": \"med|low\"}, plus a total per album.",
+          "done_when": "One JSON file covering every missing coin in A001 to A016 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing."
+        },
+        {
+          "n": 8,
           "title": "Splash films: the open v5 clips",
           "fix": "#35",
           "state": "next",
@@ -175,7 +215,7 @@
           "done_when": "Up to 4 clips saved per run, each listed in the request's DONE/progress note."
         },
         {
-          "n": 4,
+          "n": 9,
           "title": "Music: a recording for each of the 3 held pieces",
           "fix": "#83",
           "state": "later",
@@ -183,7 +223,7 @@
           "done_when": "One JSON file with an exact Commons title (or 'none found' and why) for each held piece."
         },
         {
-          "n": 5,
+          "n": 10,
           "title": "Read new coin photos (with Muse, blind)",
           "fix": "#55",
           "state": "always",
@@ -225,6 +265,22 @@
         },
         {
           "n": 4,
+          "title": "Cost to complete the albums: price the missing coins in A017 to A033",
+          "fix": "#62",
+          "state": "next",
+          "what": "Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A017 to A033, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_muse_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {\"album\": \"A001\", \"label\": \"1941-D\", \"value_usd\": 1.25, \"grade\": \"VF\", \"source\": \"exact page URL\", \"confidence\": \"med|low\"}, plus a total per album.",
+          "done_when": "One JSON file covering every missing coin in A017 to A033 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing."
+        },
+        {
+          "n": 5,
+          "title": "Dad's one-page guide",
+          "fix": "#60",
+          "state": "next",
+          "what": "Write a one-page plain-English guide for Joseph's dad to the Simple view (Do I have...?, What's missing?, At a glance, Questions): big words, short sentences, what to tap. Read the live app at https://jpavia10.github.io/titan-reliquary-preview/#simple first. Save it as guide_muse_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
+          "done_when": "One file with the guide text."
+        },
+        {
+          "n": 6,
           "title": "Read new coin photos (with Grok, blind)",
           "fix": "#55",
           "state": "always",
@@ -236,51 +292,10 @@
     {
       "id": "chatgpt",
       "name": "ChatGPT",
-      "status": "occasional",
-      "strength": "Strong reasoning and code review; no Drive access, so everything goes through chat. Takes part less often than the others (owner, 2026-10-09): projects only, no generated homework.",
+      "status": "parked",
+      "strength": "Parked (owner, 2026-10-10: \"Chatgpt is too manual so I dont expect stuff to come from there since it requires me\"): no Drive access, so every task needs Joseph to paste it. Its projects moved to Grok (reviews) and Muse (Dad's guide). Nothing is expected from it.",
       "reach": "Joseph pastes the link https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; ChatGPT's answer is pasted back to Claude.",
-      "tasks": [
-        {
-          "n": 1,
-          "title": "Review two new modules",
-          "fix": "#32",
-          "state": "now",
-          "what": "Review https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/app-motion.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/music-recorded.js for real bugs only (what breaks, how to reproduce, the smallest fix, file:line). No style notes.",
-          "done_when": "One reply; Claude verifies each claim before fixing."
-        },
-        {
-          "n": 2,
-          "title": "Review the 20 styles and the motion splashes",
-          "fix": "#110",
-          "state": "now",
-          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/fx/styles-a.js, styles-b.js, styles-c.js, styles-d.js (same folder), https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/motion-splash.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/styles/style-layer.css (the engine contract is the header of wings/fx/engine.js). Find real defects only: a shader that will not compile on a phone GPU (precision, loops, derivatives), work that runs every frame and should not, a splash that can hang or never call done(), something that ignores reduced motion or Motion Off, text the effects make unreadable. For each: file:line, how to trigger it, the smallest fix.",
-          "done_when": "One reply with finding IDs GPT-S-01, GPT-S-02 ...; Claude verifies each claim before fixing."
-        },
-        {
-          "n": 3,
-          "title": "Security review of the intake bridge",
-          "fix": "#106",
-          "state": "next",
-          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/INTAKE_BRIDGE.md, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/bridge/intake.py, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/drive/intake_bridge.gs and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/.github/workflows/intake.yml. Find real holes only: a way a file in the Drive folder could run code, write outside collection/, merge as the owner or as another AI, leak the key, or make the job push something it should not. For each: how to trigger it, why it matters, the smallest fix (file:line).",
-          "done_when": "One reply with finding IDs GPT-B-01 ...; Claude verifies each claim before fixing."
-        },
-        {
-          "n": 4,
-          "title": "Dad's one-page guide",
-          "fix": "#60",
-          "state": "next",
-          "what": "Write a one-page plain-English guide for Joseph's dad to the Simple view (Do I have...?, What's missing?, At a glance, Questions): big words, short sentences, what to tap. Read the live app at https://jpavia10.github.io/titan-reliquary-preview/#simple first.",
-          "done_when": "One reply with the text."
-        },
-        {
-          "n": 5,
-          "title": "Find the holes in the research loop",
-          "fix": "#85",
-          "state": "later",
-          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/RESEARCH_LOOP.md and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/agents/homework.py. Find real holes only: a way an AI could get a wrong fact marked 'Checked', a job that can never close or is handed out twice, an AI that could end up checking its own work, a line that could overwrite data it should not. For each: how to trigger it, why it matters, the smallest fix (file:line).",
-          "done_when": "One reply; Claude verifies each claim before fixing."
-        }
-      ]
+      "tasks": []
     },
     {
       "id": "gemini",
@@ -307,6 +322,14 @@
         },
         {
           "n": 3,
+          "title": "Second reader for all 33 albums, from the page photos (blind)",
+          "fix": "#55",
+          "state": "next",
+          "what": "After the access check. Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {\"A001\": {\"photos\": [file names], \"slots\": [{\"label\": \"1941-D\", \"state\": \"filled|empty|unclear\"}]}, ...}.",
+          "done_when": "One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look."
+        },
+        {
+          "n": 4,
           "title": "Theme pictures (refreshes) and splash clips with Veo",
           "fix": "#113",
           "state": "next",

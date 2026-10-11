@@ -19,18 +19,18 @@
         "vision",
         "code"
       ],
-      "capacity": 14,
+      "capacity": 16,
       "kinds": [
-        "cite",
-        "catno",
-        "value",
-        "story-check",
         "research",
         "arbitrate",
+        "catno",
+        "cite",
+        "value",
+        "story-check",
         "verify",
         "read-mint"
       ],
-      "strength": "Strongest outside contributor (Numista sweep 9/10, story fixes 10/10, best blind photo test so far): opens Numista, careful exact sources, flags what it cannot settle.",
+      "strength": "Strongest contributor, treated as a top model (owner, 2026-10-10: \"Grok is basically opus if it needs to be so I think they get the hardest shit\"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.",
       "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).",
       "per_kind": 2
     },
@@ -44,22 +44,23 @@
       ],
       "model": "muse-spark",
       "caps": [
-        "web",
         "drive",
-        "vision"
+        "numista",
+        "vision",
+        "web"
       ],
       "capacity": 12,
       "kinds": [
+        "research",
+        "cite",
+        "value",
+        "story-check",
+        "arbitrate",
         "verify",
         "plain-story",
-        "research",
-        "arbitrate",
-        "cite",
-        "story-check",
-        "value",
         "read-mint"
       ],
-      "strength": "Good researcher and writer (scores 8, then 6; probation streak 0 of 3): second reader for Grok's catalogue facts, plain-English stories for Joseph's dad.",
+      "strength": "Researcher and writer stepping up (owner, 2026-10-10: \"I think muse wants to step up so maybe see what they got in them\"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.",
       "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).",
       "per_kind": 2
     },
@@ -74,25 +75,30 @@
       "model": "gemini",
       "caps": [
         "drive",
+        "numista",
         "vision",
         "web"
       ],
-      "capacity": 6,
+      "capacity": 10,
       "kinds": [
         "read-mint",
         "verify",
-        "story-check",
+        "research",
         "value",
-        "research"
+        "story-check",
+        "cite",
+        "arbitrate",
+        "plain-story"
       ],
-      "strength": "Vision (and Veo video). Back from parked on 2026-10-09: starts with a proof-of-access check, the blind photo test and small photo-reading batches; every fact it writes is checked by another AI until it has 3 good submissions in a row.",
+      "strength": "Expected to be a powerhouse (owner, 2026-10-10: \"Gemini should be a powerhouse so there potential there too\"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.",
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.",
       "inline_sheets": true,
-      "full_batches": true
+      "full_batches": true,
+      "per_kind": 2
     },
     "chatgpt": {
       "name": "ChatGPT",
-      "status": "occasional",
+      "status": "parked",
       "probation": false,
       "by": [
         "model:chatgpt",
@@ -105,7 +111,7 @@
       ],
       "capacity": 0,
       "kinds": [],
-      "strength": "Strong reasoning and code review; no Drive access, so everything goes through chat. Takes part less often than the others (owner, 2026-10-09): projects only, no generated homework.",
+      "strength": "Parked (owner, 2026-10-10: \"Chatgpt is too manual so I dont expect stuff to come from there since it requires me\"): no Drive access, so every task needs Joseph to paste it. Its projects moved to Grok (reviews) and Muse (Dad's guide). Nothing is expected from it.",
       "reach": "Joseph pastes https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; the answer is pasted back to Claude."
     }
   },
@@ -242,5 +248,5 @@
       }
     ]
   },
-  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite."
+  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked."
 }
