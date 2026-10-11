@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-11] — Claude/Opus integrator (tr113 theme motion on every theme pick)
+* App only: picking a theme now plays that theme's own short motion (the same one as after the opening film), tap to skip; Scene Studio > Settings > Opening can turn it off. No data or contract changes; your queues are unchanged.
+
 ### [2026-10-11] — Claude/Opus integrator (tr112 opening film back, one-tap sound, no shadow lag)
 * App only: the Grok opening film plays again on every launch, then the theme's own short motion, then the app (a tap skips to the app); one tap on the sound button gives the film's sound; the dark boxes behind text no longer trail the page while scrolling. Nothing changes for the data work.
 

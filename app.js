@@ -7007,7 +7007,8 @@
     $$(".atmo-card").forEach((c) => c.classList.toggle("current", c.dataset.atmoVal === atmo));
     try { document.querySelector('meta[name="theme-color"]')?.setAttribute("content", ATMOS[atmo].themeColor); } catch { /* ignore */ }
     if (save) { try { localStorage.setItem(ATMO_KEY, atmo); } catch { /* ignore */ } }
-    if (changed && flash) atmoFlash(atmo);
+    // tr113 (owner: "Each themes unique motion should play when selecting a new theme"): the theme's own motion splash; the old flash is the fallback
+    if (changed && flash && !(window.TitanOpening && window.TitanOpening.switchTo && window.TitanOpening.switchTo(atmo))) atmoFlash(atmo);
     try { window.dispatchEvent(new CustomEvent("titan:atmo", { detail: { atmo, name: ATMOS[atmo].name } })); } catch { /* ignore */ }
     // Only when the atmosphere really changed: opening the picker calls setAtmo(current)
     // just to refresh the "On display" marks and must not start or reset the soundscape.

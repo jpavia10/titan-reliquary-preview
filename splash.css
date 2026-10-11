@@ -104,3 +104,12 @@ html.ts-film-reveal #app { animation: tsAppRise var(--ts-exit, 1.6s) cubic-bezie
 /* Skip stays a 48 px, readable pill over any theme (light themes too): solid dark fill, white 16 px text */
 #tr-splash.ts-motion .ts-skip, #tr-splash.ts-motion .ts-sound { background: rgba(8, 8, 10, .82); border-color: rgba(255, 255, 255, .6); color: #fff; z-index: 5; }
 @media (prefers-reduced-motion: reduce) { .ts-mo { transition: none; } }
+
+/* ---------- Theme switch (tr113, js/motion-splash.js switchTo): the new theme's motion splash over the app, then a dissolve ---------- */
+.ts-switch { position: fixed; inset: 0; z-index: 100400; background: var(--ts-bg, #050505); opacity: 1; touch-action: none; }
+.ts-switch.ts-handoff { background: transparent; }
+.ts-switch .ts-switch-skip { position: absolute; z-index: 5; top: max(14px, env(safe-area-inset-top)); right: 14px; min-height: 48px; min-width: 48px; padding: 10px 18px;
+  border-radius: 999px; border: 1px solid rgba(255, 255, 255, .6); background: rgba(8, 8, 10, .82); color: #fff; font: 600 16px/1 system-ui, sans-serif; letter-spacing: .06em; cursor: pointer; }
+.ts-switch .ts-switch-skip:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.ss-op-switch { display: flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 8px; font-size: 16px; cursor: pointer; }
+.ss-op-switch input { width: 22px; height: 22px; accent-color: var(--gold, #c9a227); }

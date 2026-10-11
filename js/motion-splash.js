@@ -125,10 +125,11 @@
     bauhaus:    { bg: "#f2efe6", bg2: "#e8e3d5", surface: "#ffffff", ink: "#111111", muted: "#2f2f2f", gold: "#c32a17", soft: "#c32a17", blue: "#1d4ea1", yellow: "#f2c230", light: true },
     terminal:   { bg: "#0d0f12", bg2: "#12151a", surface: "#171b20", ink: "#f6f3ea", muted: "#d2cdbe", gold: "#ffc43d", soft: "#ffd978" }
   };
-  function palette(id) {
+  function palette(id, tableOnly) {
     var base = PAL[id] || PAL.afterhours, out = {}, k;
     for (k in base) out[k] = base[k];
-    var live = !qs("theme") || qs("theme") === html.getAttribute("data-atmo");
+    // a theme switch starts before the new theme's stylesheet has loaded, so its live colours are still the old theme's: use the table
+    var live = !tableOnly && (!qs("theme") || qs("theme") === html.getAttribute("data-atmo"));
     if (live && html.getAttribute("data-atmo") === id) {
       try {
         var cs = getComputedStyle(html), map = { bg: "--bg", bg2: "--bg2", surface: "--surface", ink: "--ink", muted: "--muted", gold: "--gold", soft: "--gold-soft" };
@@ -306,7 +307,7 @@
 
   function play(root, id, featured, done, opts) {
     opts = opts || {};
-    var style = styleFor(id), pal = palette(id), hold = /[?&]splashhold\b/.test(location.search);
+    var style = styleFor(id), pal = palette(id, !!opts.tableOnly), hold = /[?&]splashhold\b/.test(location.search);
     var calm = opts.calm != null ? opts.calm : motionLevel() === "calm";
     var cv = document.createElement("canvas"); cv.className = "ts-mo"; cv.setAttribute("aria-hidden", "true");
     root.insertBefore(cv, root.firstChild);
@@ -1858,6 +1859,7 @@
       '</div><p class="ss-note" id="ss-op-note"></p>';
     var after = host.querySelector(".ss-motion-set");                   // sits right under the Motion setting
     if (after && after.nextSibling) host.insertBefore(box, after.nextSibling); else if (after) host.appendChild(box); else host.insertBefore(box, host.firstChild);
+    mountSwitch(box);
     var note = box.querySelector("#ss-op-note");
     function say() {
       var c = choice(), lv = motionLevel();
@@ -1869,8 +1871,51 @@
     window.addEventListener("titan:motion", say);
   }
 
+  /* ============================== on a theme switch ==============================
+     Owner, 2026-10-11: "Each themes unique motion should play when selecting a new theme. Not just on boot after grok splash."
+     switchTo(id) covers the screen with that theme's motion splash (the app has already switched underneath), then dissolves it.
+     A tap or any key skips it; picking another theme mid-way starts that one instead. Off under Motion Off or the Settings switch
+     ("Play a theme's motion when you pick it", localStorage titan.opening.switch = "0"); Calm = the still frame for a second. */
+  var SWKEY = "titan.opening.switch", sw = null;
+  function switchOn() { return lsGet(SWKEY) !== "0" && motionLevel() !== "off"; }
+  function endSwitch(fast) {
+    var cur = sw; if (!cur) return; sw = null;
+    window.removeEventListener("keydown", cur.onKey, true);
+    cur.root.style.transition = "opacity " + (fast ? 0.25 : 0.6) + "s ease"; cur.root.style.opacity = "0";
+    setTimeout(function () {
+      try { cur.api && cur.api.stop(); } catch (e) { /* ignore */ }
+      if (cur.root.parentNode) cur.root.parentNode.removeChild(cur.root);
+      if (!html.classList.contains("ts-on")) html.classList.remove("ts-reveal");
+    }, fast ? 260 : 620);
+  }
+  function switchTo(id) {
+    if (!switchOn() || !STYLES || html.classList.contains("ts-on")) return false;    // the boot opening is still on screen: leave it alone
+    if (sw) { var old = sw; sw = null; window.removeEventListener("keydown", old.onKey, true); try { old.api && old.api.stop(); } catch (e) {} if (old.root.parentNode) old.root.parentNode.removeChild(old.root); }
+    var root = document.createElement("div");
+    root.className = "ts-switch"; root.setAttribute("role", "presentation");
+    root.innerHTML = '<button type="button" class="ts-switch-skip">Skip</button>';
+    document.body.appendChild(root);
+    var cur = { root: root, api: null, onKey: null };
+    cur.onKey = function (e) { if (e.key === "Tab" || e.key === "Shift") return; e.preventDefault(); e.stopPropagation(); endSwitch(true); };
+    window.addEventListener("keydown", cur.onKey, true);
+    root.addEventListener("pointerdown", function (e) { e.preventDefault(); endSwitch(true); });
+    sw = cur;
+    try {
+      cur.api = play(root, id, null, function (info) { if (sw === cur) endSwitch(!!(info && info.wiped)); }, { tableOnly: true, cue: function () { try { if (window.TitanUISounds && window.TitanUISounds.play) window.TitanUISounds.play("coin-open"); } catch (e) {} } });
+    } catch (e) { if (window.console) console.warn("opening switch", e); endSwitch(true); return false; }
+    setTimeout(function () { if (sw === cur) endSwitch(false); }, 6000);   // backstop
+    return true;
+  }
+  function mountSwitch(box) {
+    var row = document.createElement("label");
+    row.className = "ss-op-switch";
+    row.innerHTML = '<input type="checkbox" id="ss-op-switch"' + (lsGet(SWKEY) !== "0" ? " checked" : "") + '> Play a theme\'s motion when you pick it';
+    box.appendChild(row);
+    row.querySelector("input").addEventListener("change", function (e) { lsSet(SWKEY, e.target.checked ? null : "0"); });
+  }
+
   var TitanOpening = window.TitanOpening = {
-    choice: choice, set: set, pick: pick, after: after, play: play, mount: mount, theme: themeId, palette: palette, MODES: MODES.slice(),
+    choice: choice, set: set, pick: pick, after: after, play: play, switchTo: switchTo, mount: mount, theme: themeId, palette: palette, MODES: MODES.slice(),
     _debug: { K: K, STYLES: STYLES }
   };
 })();
