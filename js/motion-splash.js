@@ -2,7 +2,8 @@
    Loaded before splash.js. Exposes window.TitanOpening.
 
    The setting (Scene Studio > Settings > Opening, localStorage "titan.opening"):
-     mix     (default) the opening film on the first open of each calendar day, the theme's motion splash on every later open that day
+     both    (default, owner 2026-10-11: "Grok splash missing. You can put the new motion after before main pages") the opening film,
+             then the theme's motion splash, then the app (a tap skips straight to the app); a stored "mix" from tr110 counts as "both"
      film    the film every time
      motion  the theme's motion splash every time
      none    no opening
@@ -23,15 +24,15 @@
   "use strict";
   if (window.TitanOpening) return;
   var html = document.documentElement;
-  var KEY = "titan.opening", DAYKEY = "titan.opening.day", COINKEY = "titan.opening.coin";
-  var MODES = ["mix", "film", "motion", "none"];
+  var KEY = "titan.opening", COINKEY = "titan.opening.coin";
+  var MODES = ["both", "film", "motion", "none"];
   var PI2 = Math.PI * 2;
 
   /* ============================== setting ============================== */
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { /* private mode: this visit only */ } }
   function qs(name) { var m = new RegExp("[?&]" + name + "=([^&#]*)").exec(location.search); return m ? decodeURIComponent(m[1]) : null; }
-  function choice() { var v = lsGet(KEY); return MODES.indexOf(v) >= 0 ? v : "mix"; }
+  function choice() { var v = lsGet(KEY); if (v === "mix") v = "both"; return MODES.indexOf(v) >= 0 ? v : "both"; }
   function set(v) {
     if (MODES.indexOf(v) < 0) return;
     lsSet(KEY, v);
@@ -48,14 +49,14 @@
     var lv = motionLevel(), f = qs("opening"), c = choice(), r;
     if (lv === "off") r = "none";
     else if (f === "motion" || f === "film" || f === "none") r = f;          // test override: remembers nothing
-    else if (c === "mix") {
-      var last = lsGet(DAYKEY), d = today();
-      if (last !== d) { r = "film"; lsSet(DAYKEY, d); } else r = "motion";    // the film opens the day; every later open is the theme's own splash
-    } else r = c;
+    else if (c === "both") r = "film";                                       // the film first; splash.js runs the theme motion after it (after())
+    else r = c;
     if (lv === "calm" && r === "film") r = "motion";                         // Calm: no film, one still frame of the theme splash
     picked = r;
     return r;
   }
+  /* true when the theme's motion should follow the film (Opening "both", Motion Full, no test override) */
+  function after() { return pick() === "film" && qs("opening") !== "film" && choice() === "both" && motionLevel() === "full"; }
   function themeId() {
     var t = qs("theme") || html.getAttribute("data-atmo") || "afterhours";
     return /^[a-z0-9_-]+$/i.test(t) ? t : "afterhours";
@@ -1838,9 +1839,9 @@
 
 
   /* ============================== settings row ============================== */
-  var WORDS = { mix: "Mix: film once a day", film: "Film every time", motion: "Theme motion", none: "None" };
+  var WORDS = { both: "Film, then theme motion", film: "Film only", motion: "Theme motion only", none: "None" };
   var NOTES = {
-    mix: "The opening film plays the first time you open the app each day; every later open shows this theme's own short motion.",
+    both: "The opening film plays, then this theme's own short motion leads into the app. A tap skips straight to the app.",
     film: "The opening film plays every time you open the app.",
     motion: "Each theme opens with its own short motion (about three seconds).",
     none: "The app opens straight away, with no opening."
@@ -1869,7 +1870,7 @@
   }
 
   var TitanOpening = window.TitanOpening = {
-    choice: choice, set: set, pick: pick, play: play, mount: mount, theme: themeId, palette: palette, MODES: MODES.slice(),
+    choice: choice, set: set, pick: pick, after: after, play: play, mount: mount, theme: themeId, palette: palette, MODES: MODES.slice(),
     _debug: { K: K, STYLES: STYLES }
   };
 })();

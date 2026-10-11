@@ -200,9 +200,14 @@
     return api;
   })();
   var btnSound = $(".ts-sound");
+  /* tr112 (owner: "Grok splash audio doesn't load on boot requires double tap of mute"): the button had two click handlers (this one
+     flipped the sound setting, the film path flipped the video's mute on its own), so one tap undid the other. Now one state: the
+     button shows what you actually hear, and the film's mute always follows it. */
+  function filmVideo() { return root.querySelector(".ts-film"); }
+  function audible() { var v = filmVideo(); return Sfx.isOn() && !(v && v.muted); }
   function syncSound() {
     if (!btnSound) return;
-    var on = Sfx.isOn();
+    var on = audible();
     btnSound.setAttribute("aria-pressed", on ? "true" : "false");
     btnSound.setAttribute("aria-label", on ? "Sound on. Turn sound off" : "Sound off. Turn sound on");
     btnSound.classList.toggle("ts-snd-on", on);
@@ -214,19 +219,28 @@
     Sfx.gesture();
     if (opening !== "motion") later(function () {
       if (state === "done" || !Sfx.isOn() || !Sfx.blocked()) { soundUnlocked = true; return; }
-      soundHint = document.createElement("button"); soundHint.type = "button"; soundHint.className = "ts-sound-hint"; soundHint.textContent = "Tap for sound";
-      soundHint.style.cssText = "position:absolute;left:50%;bottom:calc(14% + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:6;padding:12px 22px;min-height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(10,10,10,.55);color:#f3efe6;font:600 16px/1 system-ui,sans-serif;letter-spacing:.04em;backdrop-filter:blur(6px)";
-      root.appendChild(soundHint);
+      showSoundHint();
     }, 350);
   }
   function unlockSound() {
     soundUnlocked = true; Sfx.gesture();
-    var v = root.querySelector(".ts-film"); if (v) { try { v.muted = false; } catch (e) {} }
+    var v = filmVideo(); if (v) { try { v.muted = false; if (v.paused) { var pp = v.play(); if (pp && pp.catch) pp.catch(function () {}); } } catch (e) {} }
     if (soundHint) { soundHint.remove(); soundHint = null; }
+    syncSound();
+  }
+  function showSoundHint() {
+    if (soundHint || state === "done") return;
+    soundHint = document.createElement("button"); soundHint.type = "button"; soundHint.className = "ts-sound-hint"; soundHint.textContent = "Tap for sound";
+    soundHint.style.cssText = "position:absolute;left:50%;bottom:calc(14% + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:6;padding:12px 22px;min-height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(10,10,10,.55);color:#f3efe6;font:600 16px/1 system-ui,sans-serif;letter-spacing:.04em;backdrop-filter:blur(6px)";
+    root.appendChild(soundHint);
   }
   if (btnSound) {
     btnSound.addEventListener("pointerdown", function (e) { e.stopPropagation(); });
-    btnSound.addEventListener("click", function (e) { e.stopPropagation(); Sfx.set(!Sfx.isOn()); syncSound(); if (Sfx.isOn()) unlockSound(); });
+    btnSound.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (audible()) { Sfx.set(false); var v = filmVideo(); if (v) { try { v.muted = true; } catch (er) {} } syncSound(); }
+      else { Sfx.set(true); unlockSound(); }        // the tap itself is the gesture the browser wants: one tap = sound
+    });
   }
 
   /* ---------- lifecycle ---------- */
@@ -415,27 +429,49 @@
     root.insertBefore(v, root.firstChild);
     root.classList.add("ts-filmon");
     filmEl = v;
-    window.__tsFilmUntil = performance.now() + 20000; later(function () { finish(true, 0.5); }, 20000);   // clips run ~15 s; the film's own hard cap
+    window.__tsFilmUntil = performance.now() + 20000; later(function () { if (!motion) finish(true, 0.5); }, 20000);   // clips run ~15 s; the film's own hard cap (the motion after it ends itself)
     var started = false, tail = FILM.tail || 1.4, shown = false;
     var fallback = later(function () { if (started || state === "done") return; filmEl = null; v.remove(); root.classList.remove("ts-filmon"); window.__tsFilmUntil = 0; runGL(); }, 5000);
     v.addEventListener("playing", function () { started = true; clearTimeout(fallback); v.style.opacity = "1"; });
     var EXIT = FILM.exit || 1.6;                        // seconds: the zoom-through starts this long before the last frame
     v.addEventListener("timeupdate", function () {
-      if (v.duration && v.currentTime > v.duration - EXIT) filmExit(EXIT);
+      if (v.duration && v.currentTime > v.duration - EXIT) filmEnd(EXIT);
       if (performance.now() - lastSave > 500) { lastSave = performance.now(); try { sessionStorage.setItem("tr_splash_film_resume", JSON.stringify({ src: src, t: v.currentTime, at: Date.now() })); } catch (e) {} }
       if (!shown && v.duration && v.currentTime > v.duration - tail - 1.2) {
         shown = true;
         whenFeatured(function () { if (state === "done") return; showFeatureText(); var f = $(".ts-feature"); if (f) { f.style.transition = "opacity .6s ease"; f.style.opacity = "1"; } });
       }
     });
-    v.addEventListener("ended", function () { finish(true, 0.6); });
+    v.addEventListener("ended", function () { filmEnd(0.6); });
     v.addEventListener("error", function () { if (!started) { clearTimeout(fallback); filmEl = null; v.remove(); root.classList.remove("ts-filmon"); runGL(); } });
-    var snd = $(".ts-sound");
-    if (snd) snd.addEventListener("click", function () { try { v.muted = !v.muted; } catch (e) {} });
     if (Sfx.isOn()) { v.muted = false; }
     var p = v.play();
-    if (p && p.catch) p.catch(function () { v.muted = true; var p2 = v.play(); if (p2 && p2.catch) p2.catch(function () {}); });   // sound blocked: play muted, "Tap for sound" unmutes
+    if (p && p.catch) p.catch(function () {                 // sound blocked by the browser: play muted, show the real state and "Tap for sound"
+      v.muted = true; var p2 = v.play(); if (p2 && p2.catch) p2.catch(function () {});
+      syncSound(); if (Sfx.isOn()) showSoundHint();
+    });
+    syncSound();
     return true;
+  }
+  /* the film has reached its end: Opening "both" hands over to the theme's motion splash (owner 2026-10-11: "You can put the new motion
+     after before main pages"); otherwise the zoom-through into the app. A tap during either still skips straight to the app. */
+  var filmDone = false;
+  function filmEnd(sec) {
+    if (filmDone || finished) return; filmDone = true;
+    var TO = window.TitanOpening;
+    if (!(TO && TO.after && TO.after() && TO.play)) { filmExit(sec); return; }
+    var v = filmEl; filmEl = null;                          // from here finish() is the plain dissolve, not the film zoom
+    window.__tsFilmUntil = performance.now() + 6000;
+    later(function () { if (state !== "done") finish(true, 0.6); }, 6500);   // backstop: the motion ends itself after ~3 s
+    if (soundHint) { soundHint.remove(); soundHint = null; }
+    var f = $(".ts-feature"); if (f) f.style.opacity = "0";
+    motionPath();                                          // the motion canvas starts under the film
+    if (v) {
+      var v0 = v.volume, t0 = performance.now();
+      v.style.transition = "opacity .7s ease"; v.style.opacity = "0";
+      (function fade() { var k = Math.min(1, (performance.now() - t0) / 700); try { v.volume = v0 * (1 - k); } catch (e) {} if (k < 1 && state !== "done") requestAnimationFrame(fade); })();
+      later(function () { try { v.pause(); } catch (e) {} if (v.parentNode) v.parentNode.removeChild(v); root.classList.remove("ts-filmon"); }, 760);
+    }
   }
   runGL();
   function runGL() {

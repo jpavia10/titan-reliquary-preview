@@ -27,7 +27,7 @@ themes comes later from the art queue (rule 9); until then the picker shows the 
   Gotcha: the audit reads every colour stop of a background gradient as a possible panel colour, so small ornaments (corner marks, dot
   screens) are SVG data-URI tiles, not gradients.
 - Motion splashes: all 26 themes (18 own styles + the crest-particle intro for the other 8), Opening setting in Scene Studio > Settings.
-  Tested: motion ends ~4 s after load, Calm / reduced motion = one still frame (~2.4 s), None = straight in, Mix = film on the first open of the day.
+  Tested: motion ends ~4 s after load, Calm / reduced motion = one still frame (~2.4 s), None = straight in. tr112 (owner): the default is now "both" = the Grok film, then the theme motion, then the app (a stored tr110 "mix" counts as both); a tap skips straight to the app.
 - Motion Lab: 6 studies (`motion-lab/index.html`). Theme art: `docs/art/requests/artreq_20261010-1700_theme-thumbnails.json` (52 images: all 26 themes).
 - Not yet seen on a real GPU or phone: every effect was tuned on software WebGL in the container (quality tier 0); the owner's phone is the real test.
 

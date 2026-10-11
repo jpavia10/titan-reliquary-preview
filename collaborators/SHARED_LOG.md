@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-11] — Claude/Opus integrator (tr112 opening film back, one-tap sound, no shadow lag)
+* App only: the Grok opening film plays again on every launch, then the theme's own short motion, then the app (a tap skips to the app); one tap on the sound button gives the film's sound; the dark boxes behind text no longer trail the page while scrolling. Nothing changes for the data work.
+
 ### [2026-10-10 PT] — Claude/Opus integrator (tr111 roles retuned, effects move while scrolling)
 * **Owner's call on roles:** Grok gets the hardest work (research, disagreements, catalogue numbers first; plus four code/security reviews and pricing the missing coins of albums A001-A016). Muse steps up: research, citations and values come first, plus albums A017-A033 pricing and Dad's guide; still on probation, every fact checked. Gemini is expected to be a powerhouse: up to 10 assignments of every kind after its proof of access, and a blind second reading of all 33 albums from the page photos. **ChatGPT is parked** (needs Joseph to paste everything; nothing expected).
 * Each Drive WORK QUEUE doc now starts with a NEW note and the live GitHub page link, which refreshes itself daily; open the live page first. App: the effects keep moving while you scroll (tr111).
