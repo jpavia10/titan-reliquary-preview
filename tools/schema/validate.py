@@ -20,8 +20,18 @@ def validator(name):
     if name not in _V: _V[name] = Draft202012Validator({"$schema": DEFS["$schema"], "$defs": DEFS["$defs"], "$ref": f"#/$defs/{name}"})
     return _V[name]
 
+DUP_KEYS = []      # (file, key): the same key twice in one JSON object. json.load keeps only the last copy and drops the other silently.
+def _no_dup_pairs(p):
+    def hook(pairs):
+        d = {}
+        for k, v in pairs:
+            if k in d: DUP_KEYS.append((os.path.relpath(p), k))
+            d[k] = v
+        return d
+    return hook
+
 def load(p):
-    return json.load(open(p, encoding="utf-8"))
+    with open(p, encoding="utf-8") as f: return json.load(f, object_pairs_hook=_no_dup_pairs(p))
 
 def jsonl(p):
     rows = []
@@ -33,7 +43,7 @@ def jsonl(p):
 
 def main(d, update_manifest=False):
     if update_manifest: mf.write(d)
-    errs = collections.defaultdict(list)
+    errs = collections.defaultdict(list); DUP_KEYS.clear()
     def check(entity, key, rec):
         for e in validator(entity).iter_errors(rec):
             path = "/".join(str(x) for x in e.absolute_path)
@@ -180,6 +190,8 @@ def main(d, update_manifest=False):
         if m.get("counts") != cnt: errs["manifest"].append("counts in the manifest are stale")
         if errs["manifest"]: errs["manifest"].append("fix: python3 tools/schema/validate.py %s --update-manifest" % d)
     print(f"checked: {len(issuers)} issuers, {len(types)} types, {len(specs)} specimens, {len(lots)} lots, {len(albums)} albums, {len(photos)} photos, {nchg} change events, {nspot} spot days, boot rows {len(boot['rows'])}")
+    for fp, k in DUP_KEYS: errs["ref"].append(f"{fp}: key {k!r} appears twice in one object (only the last copy would be read)")
+    DUP_KEYS.clear()
     total = sum(len(v) for k, v in errs.items())
     for k, v in errs.items():
         print(f"\n{k}: {len(v)} problem(s)")
