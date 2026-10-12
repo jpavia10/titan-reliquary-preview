@@ -1,6 +1,6 @@
 /* Titan Reliquary service worker · build tr116
    - App shell precached per build (versioned cache names; old caches deleted on activate)
-   - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback
+   - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback, and after 4 s on a hung connection
    - audio/ambience/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
@@ -120,20 +120,32 @@ self.addEventListener("activate", (e) => {
   })());
 });
 
-async function networkFirst(req, cacheName) {
+/* Network first, but never wait forever: on a weak signal that connects and then sends nothing ("lie-fi"), a fetch can hang for
+   minutes. After WAIT_MS the saved copy (if there is one) answers; the network answer still lands in the cache for next time. */
+const WAIT_MS = 4000;
+async function networkFirst(req, cacheName, e) {
   const cache = await caches.open(cacheName);
-  try {
-    const fresh = await fetch(req, { cache: "no-store" });
-    if (fresh && fresh.ok) cache.put(req.url.split("?")[0], fresh.clone());
+  const key = req.url.split("?")[0];
+  const net = fetch(req, { cache: "no-store" }).then((fresh) => {
+    if (fresh && fresh.ok) return cache.put(key, fresh.clone()).catch(() => {}).then(() => fresh);
     return fresh;
+  });
+  if (e) e.waitUntil(net.catch(() => {}));
+  const saved = async () => {
+    const hit = await cache.match(key);
+    if (!hit) return null;   // offline: say so in a header, so the page never mistakes this saved copy for a fresh answer
+    const h = new Headers(hit.headers); h.set("x-titan-from-cache", "1");
+    return new Response(await hit.blob(), { status: hit.status, statusText: hit.statusText, headers: h });
+  };
+  let timer;
+  const slow = new Promise((_, no) => { timer = setTimeout(() => no(new Error("slow network")), WAIT_MS); });
+  try {
+    return await Promise.race([net, slow]);
   } catch (err) {
-    const hit = await cache.match(req.url.split("?")[0]);
-    if (hit) {   // offline: say so in a header, so the page never mistakes this saved copy for a fresh answer
-      const h = new Headers(hit.headers); h.set("x-titan-from-cache", "1");
-      return new Response(await hit.blob(), { status: hit.status, statusText: hit.statusText, headers: h });
-    }
-    throw err;
-  }
+    const hit = await saved();
+    if (hit) return hit;
+    return net;      // nothing saved yet: keep waiting for the network (or its error)
+  } finally { clearTimeout(timer); }
 }
 
 async function cacheFirst(req, cacheName) {
@@ -208,13 +220,13 @@ self.addEventListener("fetch", (e) => {
   if (url.pathname.includes("/audio/music/") && !url.pathname.endsWith("manifest.json")) return;   // recorded music streams (range requests); offline = generated music
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
-    e.respondWith(networkFirst(req, DATA));
+    e.respondWith(networkFirst(req, DATA, e));
   } else if (path.includes("/thumbs/") || path.includes("/photos/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
     e.respondWith(cacheFirst(req, IMG));
   } else if (path.includes("/audio/ambience/")) {
     e.respondWith(cacheFirst(req, AMB));
   } else if (req.mode === "navigate") {
-    e.respondWith(networkFirst(req, SHELL).catch(() => caches.match("index.html", { ignoreSearch: true })));
+    e.respondWith(networkFirst(req, SHELL, e).catch(() => caches.match("index.html", { ignoreSearch: true })));
   } else {
     e.respondWith(caches.match(req).then((hit) => hit || fetch(req)));
   }
