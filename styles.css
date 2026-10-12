@@ -11585,3 +11585,7 @@ html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="
   transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
 }
 html[data-motion="off"] #titan-fx { display: none !important; }
+
+/* GRK-A-02: pinch-zoom is allowed again (index.html viewport). iOS zooms into any focused field whose text is under 16 px, so the three
+   small fields on phones get 16 px (the size every other field already has). */
+@media (pointer: coarse) { #flip-country, #flip-sort, #world-table-search { font-size: 16px; } }
