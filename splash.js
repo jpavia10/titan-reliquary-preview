@@ -417,7 +417,15 @@
     try { localStorage.setItem("tr_splash_film_last", pick); } catch (e) {}
     return pick;
   }
+  /* The clips are 8-12 Mbps and 13-24 MB. On Data Saver or a connection too slow to stream them, use the real-time 3D opening instead
+     (nothing to download, capped at CAP_MS). ?film=N still forces a clip. Browsers without navigator.connection (Safari) are unchanged. */
+  function slowNet() {
+    var c = navigator.connection;
+    if (!c || /[?&]film=\d/.test(location.search)) return false;
+    return !!(c.saveData || /(^|-)2g$|^3g$/.test(c.effectiveType || "") || (c.downlink > 0 && c.downlink < 5));
+  }
   function filmPath() {
+    if (slowNet()) return false;
     var portrait = (window.innerHeight || 1) >= (window.innerWidth || 1);
     // One clip per launch: if the page reloaded mid-film (tab restore, manual refresh), resume the SAME clip where it was.
     var resume = null;
