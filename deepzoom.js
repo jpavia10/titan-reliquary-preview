@@ -157,9 +157,27 @@
     return canvas.toDataURL("image/jpeg", 0.92);
   }
 
+  /* GRK-P-03: OpenSeadragon (247 KB, 58 KB gzipped) is loaded the first time the 40x view opens, not on every app start.
+     sw.js still precaches js/openseadragon.min.js, so this works offline too. */
+  let osdLoading = null;
+  function loadOpenSeadragon() {
+    if (typeof OpenSeadragon !== "undefined") return Promise.resolve();
+    if (!osdLoading) osdLoading = new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = "js/openseadragon.min.js";
+      s.onload = resolve;
+      s.onerror = () => { osdLoading = null; s.remove(); reject(new Error("openseadragon")); };
+      document.head.appendChild(s);
+    });
+    return osdLoading;
+  }
+
   function initOpenSeadragon(container, dataUrl) {
     if (typeof OpenSeadragon === "undefined") {
-      console.warn("[TitanDeepZoom] OpenSeadragon library not loaded.");
+      loadOpenSeadragon().then(() => {
+        const modal = document.getElementById("deepzoom-forensic-modal");
+        if (modal && !modal.hidden && container.isConnected) { initOpenSeadragon(container, dataUrl); setFilter(activeFilter); }   // closed while loading: nothing to do
+      }).catch(() => console.warn("[TitanDeepZoom] OpenSeadragon library could not be loaded."));
       return;
     }
 
