@@ -38,6 +38,10 @@
 .sv-wide { width: 100%; text-align: left; }
 .sv-jump { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
 .sv-jump a { display: inline-flex; align-items: center; min-height: 56px; padding: 8px 18px; border: 3px solid var(--sv-line); border-radius: 12px; color: var(--sv-ink); font-weight: 700; text-decoration: none; }
+/* Links that look like buttons keep the Simple palette under every theme: a theme rule such as html[data-atmo="notepad"] a { color: #0000cc }
+   (0,1,2) outranks .sv-primary (0,1,0) and painted the blue "questions" button's text blue (1.07:1, unreadable). */
+#simple-view a.sv-btn, #simple-view .sv-jump a { color: var(--sv-ink); text-decoration: none; }
+#simple-view a.sv-primary { color: var(--sv-btn-ink); }
 
 #sv-form label { display: block; font-weight: 700; margin-bottom: 8px; }
 .sv-row { display: flex; gap: 10px; flex-wrap: wrap; }
