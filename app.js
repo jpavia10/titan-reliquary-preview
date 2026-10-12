@@ -191,11 +191,12 @@
     window.dispatchEvent(new CustomEvent("titan:ui", { detail: { kind: "wing", wing: name } }));
 
     // 2. Set active classes on wing buttons and panes so layout geometry exists
-    $$(".wing").forEach((b) => {
+    // GRK-A-03: plain nav buttons, so the open wing is aria-current (aria-selected is only valid on role=tab), and every wing stays
+    // reachable with Tab (a roving tabindex without tab roles left the other wings and the 3D Table button out of the Tab order).
+    $$(".wing[data-wing]").forEach((b) => {
       const on = b.dataset.wing === name;
       b.classList.toggle("active", on);
-      b.setAttribute("aria-selected", String(on));
-      b.tabIndex = on ? 0 : -1;
+      if (on) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
     });
     $$(".pane").forEach((p) => p.classList.toggle("active", p.id === "pane-" + name));
     if (name === "study" || name === "lab") ensureWingRendered(name);
@@ -7080,11 +7081,11 @@
     else if (top.id === "drawer") closeDrawer();
     return true;
   }
-  // Roving tabindex on the tab strip: arrows move, Enter/Space activates via the button.
+  // Arrow keys also move between the wings (each one is in the Tab order too).
   const WING_ORDER = ["hall", "gallery", "vault", "study", "lab"];
   document.querySelector(".wings")?.addEventListener("keydown", (e) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    const tabs = $$(".wing");
+    const tabs = $$(".wing[data-wing]");
     let i = tabs.indexOf(document.activeElement);
     if (i < 0) return;
     e.preventDefault();
