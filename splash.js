@@ -279,6 +279,8 @@
   // quick = fade the whole splash out over a short time; otherwise the canvas is already transparent and we just clean up
   var filmEl = null;                                  // the playing opening film, if any (FILM path)
   var motion = null;                                  // the running theme motion splash, if any (MOTION path)
+  /* A removed <video> keeps downloading the rest of the clip (up to ~15 MB) unless its source is dropped: always stop it this way. */
+  function dropVideo(v) { if (!v) return; try { v.pause(); v.removeAttribute("src"); v.load(); } catch (e) {} if (v.parentNode) v.parentNode.removeChild(v); }
   function finish(quick, ms) {
     if (finished) return;
     if (filmEl && quick) return filmExit(Math.max(ms || 0, 0.9));   // skip, cap or end: always the zoom-through, never a hard cut
@@ -327,6 +329,7 @@
     lockApp(false);
     html.classList.remove("ts-on", "ts-reveal", "ts-film-reveal");
     try { sessionStorage.setItem("tr_splash_v1", "1"); sessionStorage.removeItem("tr_splash_film_resume"); } catch (e) {}
+    Array.prototype.forEach.call(root.querySelectorAll("video"), dropVideo);
     if (root.parentNode) root.parentNode.removeChild(root);
     try { window.dispatchEvent(new CustomEvent("titan:splash-done")); } catch (e) {}
   }
@@ -434,7 +437,7 @@
     filmEl = v;
     window.__tsFilmUntil = performance.now() + 20000; later(function () { if (!motion) finish(true, 0.5); }, 20000);   // clips run ~15 s; the film's own hard cap (the motion after it ends itself)
     var started = false, tail = FILM.tail || 1.4, shown = false;
-    var fallback = later(function () { if (started || state === "done") return; filmEl = null; v.remove(); root.classList.remove("ts-filmon"); window.__tsFilmUntil = 0; runGL(); }, 5000);
+    var fallback = later(function () { if (started || state === "done") return; filmEl = null; dropVideo(v); root.classList.remove("ts-filmon"); window.__tsFilmUntil = 0; runGL(); }, 5000);
     v.addEventListener("playing", function () { started = true; clearTimeout(fallback); v.style.opacity = "1"; });
     var EXIT = FILM.exit || 1.6;                        // seconds: the zoom-through starts this long before the last frame
     v.addEventListener("timeupdate", function () {
@@ -446,7 +449,7 @@
       }
     });
     v.addEventListener("ended", function () { filmEnd(0.6); });
-    v.addEventListener("error", function () { if (!started) { clearTimeout(fallback); filmEl = null; v.remove(); root.classList.remove("ts-filmon"); runGL(); } });
+    v.addEventListener("error", function () { if (!started) { clearTimeout(fallback); filmEl = null; dropVideo(v); root.classList.remove("ts-filmon"); runGL(); } });
     if (Sfx.isOn()) { v.muted = false; }
     var p = v.play();
     if (p && p.catch) p.catch(function () {                 // sound blocked by the browser: play muted, show the real state and "Tap for sound"
@@ -473,7 +476,7 @@
       var v0 = v.volume, t0 = performance.now();
       v.style.transition = "opacity .7s ease"; v.style.opacity = "0";
       (function fade() { var k = Math.min(1, (performance.now() - t0) / 700); try { v.volume = v0 * (1 - k); } catch (e) {} if (k < 1 && state !== "done") requestAnimationFrame(fade); })();
-      later(function () { try { v.pause(); } catch (e) {} if (v.parentNode) v.parentNode.removeChild(v); root.classList.remove("ts-filmon"); }, 760);
+      later(function () { dropVideo(v); root.classList.remove("ts-filmon"); }, 760);
     }
   }
   runGL();
