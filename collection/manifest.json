@@ -18,7 +18,7 @@
   "countries": 50,
   "photos": 227,
   "valuations": 343,
-  "spot_days": 31,
+  "spot_days": 33,
   "changes": 3262,
   "lots_by_kind": {
    "bullion": 21,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "35f317036f4c7fa9f63a58f24e8354e9db0e176affe9e7aaebfed7fafc4e9010",
+ "content_hash": "511999b701662c548c0b7628d44bb39b1f8c4033234dec480d4455fe232904f9",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -109,13 +109,13 @@
   },
   {
    "path": "prices/latest.json",
-   "sha256": "9d33c8582f7ce44b0c503b7f9bcf02fa915c71dfaf0d524f31ce580146157b1f",
-   "bytes": 145
+   "sha256": "a68340bc68efa9fada33a8e84f96aa8c4283f3866aad4a5c6e31e6a9169699cd",
+   "bytes": 143
   },
   {
    "path": "prices/spot_daily.jsonl",
-   "sha256": "d18b25f9707b6b896dbd7628474ac34fbe141a8f335bd51f11b81325bea1e926",
-   "bytes": 5310
+   "sha256": "04cf7a396dc5fc25df759ddd6f0cd8ef0cc7e253cb1db0694892d0cf1d3f8940",
+   "bytes": 5691
   },
   {
    "path": "ref/issuers.json",
