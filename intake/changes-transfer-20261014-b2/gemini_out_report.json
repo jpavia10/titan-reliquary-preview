@@ -1,0 +1,7467 @@
+{
+ "generated": "2026-10-12T23:39:02.064Z",
+ "base": "http://localhost:8148/",
+ "wings": [
+  "hall",
+  "gallery",
+  "vault",
+  "study",
+  "lab"
+ ],
+ "vps": [
+  "desktop",
+  "phone"
+ ],
+ "static": {
+  "themes": [
+   "afterhours",
+   "conservator",
+   "colossus",
+   "nocturne",
+   "odyssey",
+   "cursedwing",
+   "kaleido",
+   "abyss",
+   "neon",
+   "notepad",
+   "construct",
+   "xeno",
+   "solaris",
+   "alchemist",
+   "glacier",
+   "valhalla",
+   "dynasty",
+   "zen",
+   "samadhi",
+   "silkroad",
+   "arcade",
+   "pulp",
+   "drafting",
+   "diorama",
+   "bauhaus",
+   "terminal"
+  ],
+  "order": [
+   "afterhours",
+   "conservator",
+   "colossus",
+   "nocturne",
+   "odyssey",
+   "cursedwing",
+   "kaleido",
+   "abyss",
+   "neon",
+   "notepad",
+   "construct",
+   "xeno",
+   "solaris",
+   "alchemist",
+   "glacier",
+   "valhalla",
+   "dynasty",
+   "zen",
+   "samadhi",
+   "silkroad",
+   "arcade",
+   "pulp",
+   "drafting",
+   "diorama",
+   "bauhaus",
+   "terminal"
+  ],
+  "atmosKeys": [
+   "afterhours",
+   "conservator",
+   "colossus",
+   "nocturne",
+   "odyssey",
+   "cursedwing",
+   "kaleido",
+   "abyss",
+   "neon",
+   "notepad",
+   "construct",
+   "xeno",
+   "solaris",
+   "alchemist",
+   "glacier",
+   "valhalla",
+   "dynasty",
+   "zen",
+   "samadhi",
+   "silkroad",
+   "arcade",
+   "pulp",
+   "drafting",
+   "diorama",
+   "bauhaus",
+   "terminal"
+  ],
+  "prepaint": [
+   "afterhours",
+   "conservator",
+   "colossus",
+   "nocturne",
+   "odyssey",
+   "cursedwing",
+   "kaleido",
+   "abyss",
+   "neon",
+   "notepad",
+   "construct",
+   "xeno",
+   "solaris",
+   "alchemist",
+   "glacier",
+   "valhalla",
+   "dynasty",
+   "zen",
+   "samadhi",
+   "silkroad",
+   "arcade",
+   "pulp",
+   "drafting",
+   "diorama",
+   "bauhaus",
+   "terminal"
+  ],
+  "cssFiles": [
+   "styles.css",
+   "styles/fx.css",
+   "styles/gallery.css",
+   "styles/hall.css",
+   "styles/health.css",
+   "styles/lab.css",
+   "styles/questions.css",
+   "styles/scene.css",
+   "styles/simple.css",
+   "styles/slab-legibility.css",
+   "styles/study.css",
+   "styles/style-layer.css",
+   "styles/table.css",
+   "styles/themes.css",
+   "styles/vault.css",
+   "styles/wants.css",
+   "styles/worlds.css",
+   "styles/atmo/abyss.css",
+   "styles/atmo/afterhours.css",
+   "styles/atmo/alchemist.css",
+   "styles/atmo/all.css",
+   "styles/atmo/arcade.css",
+   "styles/atmo/bauhaus.css",
+   "styles/atmo/colossus.css",
+   "styles/atmo/conservator.css",
+   "styles/atmo/construct.css",
+   "styles/atmo/cursedwing.css",
+   "styles/atmo/diorama.css",
+   "styles/atmo/drafting.css",
+   "styles/atmo/dynasty.css",
+   "styles/atmo/glacier.css",
+   "styles/atmo/kaleido.css",
+   "styles/atmo/neon.css",
+   "styles/atmo/nocturne.css",
+   "styles/atmo/notepad.css",
+   "styles/atmo/odyssey.css",
+   "styles/atmo/pulp.css",
+   "styles/atmo/samadhi.css",
+   "styles/atmo/silkroad.css",
+   "styles/atmo/solaris.css",
+   "styles/atmo/terminal.css",
+   "styles/atmo/valhalla.css",
+   "styles/atmo/xeno.css",
+   "styles/atmo/zen.css"
+  ],
+  "coverage": {
+   "afterhours": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "conservator": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "colossus": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "nocturne": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "odyssey": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "cursedwing": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "kaleido": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "abyss": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [
+     "--wing-dur",
+     "--wing-rise"
+    ],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "neon": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "notepad": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "construct": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "xeno": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "solaris": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "alchemist": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "glacier": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "valhalla": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "dynasty": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "zen": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "samadhi": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "silkroad": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--ink-soft",
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--chip",
+     "--panel",
+     "--text",
+     "--gold-dim",
+     "--danger",
+     "--missing",
+     "--border",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "arcade": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "pulp": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--deco",
+     "--deco-soft",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "drafting": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "diorama": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--deco",
+     "--deco-soft",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--ui-grid",
+     "--ui-grid2",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   },
+   "bauhaus": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--deco",
+     "--deco-soft",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green"
+    ]
+   },
+   "terminal": {
+    "missingRequired": [],
+    "missingSemantic": [],
+    "missingMotion": [],
+    "missingVsOthers": [
+     "--case-bg",
+     "--case-bg2",
+     "--case-surface",
+     "--case-surface2",
+     "--deco",
+     "--deco-soft",
+     "--k-amethyst",
+     "--k-teal",
+     "--k-brass",
+     "--k-plum",
+     "--k-rule",
+     "--k-rule-v",
+     "--abyss-brass",
+     "--abyss-brass-deep",
+     "--neon-cyan",
+     "--neon-pink",
+     "--neon-violet",
+     "--neon-sun1",
+     "--neon-cyan-rgb",
+     "--neon-pink-rgb",
+     "--inv-bg",
+     "--inv-bg2",
+     "--inv-surface",
+     "--inv-surface2",
+     "--ui-bw",
+     "--ui-edge",
+     "--ui-hard",
+     "--sol-tl",
+     "--sol-tr",
+     "--sol-bl",
+     "--sol-br",
+     "--glass-bg",
+     "--glass-bg2",
+     "--glass-edge",
+     "--glass-blur",
+     "--px-teal",
+     "--px-pink",
+     "--comic-yellow",
+     "--comic-blue",
+     "--ui-dot",
+     "--case-ink",
+     "--case-muted",
+     "--case-faint",
+     "--case-gold",
+     "--case-gold-soft",
+     "--case-on-gold",
+     "--paper-bg",
+     "--paper-bg2",
+     "--paper-surface",
+     "--paper-surface2",
+     "--paper-ink",
+     "--paper-muted",
+     "--paper-faint",
+     "--paper-gold",
+     "--paper-gold-soft",
+     "--paper-on-gold",
+     "--ui-grid",
+     "--ui-grid2",
+     "--clay-pink",
+     "--clay-blue",
+     "--clay-yellow",
+     "--clay-green",
+     "--bh-blue",
+     "--bh-yellow"
+    ]
+   }
+  },
+  "presence": {
+   "afterhours": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/afterhours.js",
+    "swatch": true
+   },
+   "conservator": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/conservator.js",
+    "swatch": true
+   },
+   "colossus": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/colossus.js",
+    "swatch": true
+   },
+   "nocturne": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/nocturne.js",
+    "swatch": true
+   },
+   "odyssey": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/odyssey.js",
+    "swatch": true
+   },
+   "cursedwing": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "kaleido": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "abyss": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "neon": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "notepad": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "construct": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "xeno": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "solaris": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/solaris.js",
+    "swatch": true
+   },
+   "alchemist": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "glacier": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/glacier.js",
+    "swatch": true
+   },
+   "valhalla": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/valhalla.js",
+    "swatch": true
+   },
+   "dynasty": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "zen": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/zen.js",
+    "swatch": true
+   },
+   "samadhi": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "silkroad": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": "wings/atmo/silkroad.js",
+    "swatch": true
+   },
+   "arcade": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "pulp": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "drafting": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "diorama": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "bauhaus": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   },
+   "terminal": {
+    "atmosEntry": true,
+    "prepaint": true,
+    "card": true,
+    "crest": true,
+    "crestOverride": null,
+    "swatch": true
+   }
+  },
+  "listDrift": {
+   "prepaintExtra": [],
+   "prepaintMissing": [],
+   "atmosMissing": []
+  },
+  "cssHard": [
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 237,
+    "selector": ".lofi-bar, .player-bar, .mobile-wing-dock",
+    "prop": "background",
+    "value": "rgba(14, 13, 10, 0.97) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 281,
+    "selector": ".gallery-load-more-btn",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.22) 0%, rgba(200, 169, 74, 0.08) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 282,
+    "selector": ".gallery-load-more-btn",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 293,
+    "selector": ".gallery-load-more-btn:hover",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.38) 0%, rgba(200, 169, 74, 0.16) 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 295,
+    "selector": ".gallery-load-more-btn:hover",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 356,
+    "selector": "html[data-atmo=\"afterhours\"] .hero::before, html:not([data-atmo]) .hero::before",
+    "prop": "background",
+    "value": "radial-gradient(ellipse 90% 100% at 50% 30%, transparent 55%, rgba(0, 0, 0, 0.55) 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 367,
+    "selector": ".hero-glow",
+    "prop": "background",
+    "value": "radial-gradient(ellipse 50% 55% at 50% 45%, rgba(200, 169, 74, 0.14), transparent 70%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 564,
+    "selector": ".sheet",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.55)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 678,
+    "selector": ".rain-btn[aria-pressed=\"true\"]",
+    "prop": "color",
+    "value": "#7db4d8"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 679,
+    "selector": ".rain-btn[aria-pressed=\"true\"]",
+    "prop": "border-color",
+    "value": "#4a7a9a"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 740,
+    "selector": ".tab.active",
+    "prop": "color",
+    "value": "#1c1508"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1200,
+    "selector": ".filter-ag.active",
+    "prop": "background",
+    "value": "#232a33"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 1201,
+    "selector": ".filter-ag.active",
+    "prop": "border-color",
+    "value": "#7a8a9a"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 1202,
+    "selector": ".filter-ag.active",
+    "prop": "color",
+    "value": "#e8eef4"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1318,
+    "selector": ".badge-ag",
+    "prop": "background",
+    "value": "#232a33"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 1319,
+    "selector": ".badge-ag",
+    "prop": "border",
+    "value": "1px solid #7a8a9a"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 1320,
+    "selector": ".badge-ag",
+    "prop": "color",
+    "value": "#d0d6de"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1335,
+    "selector": ".badge-au",
+    "prop": "background",
+    "value": "#2c230e"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1350,
+    "selector": ".badge-review, .ph-badge.review",
+    "prop": "background",
+    "value": "#3a1e18"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 1350,
+    "selector": ".badge-review, .ph-badge.review",
+    "prop": "color",
+    "value": "#f0b8ac"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 1351,
+    "selector": ".asw-cell",
+    "prop": "color",
+    "value": "#c0c8d0"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1358,
+    "selector": ".backdrop",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.6)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1463,
+    "selector": ".ph-empty",
+    "prop": "background",
+    "value": "radial-gradient(circle at 50% 42%, rgba(212, 175, 106, 0.07), transparent 60%),\r\n    repeating-linear-gradient(135deg, t"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 1543,
+    "selector": ".chip.ag strong",
+    "prop": "color",
+    "value": "#c0c8d0"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1582,
+    "selector": ".lightbox",
+    "prop": "background",
+    "value": "rgba(4, 3, 2, 0.94)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1592,
+    "selector": ".lb-close, .lb-nav",
+    "prop": "background",
+    "value": "rgba(20, 17, 12, 0.85)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1610,
+    "selector": ".palette",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.55)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 1882,
+    "selector": ".lofi-bar.collapsed .lofi-play",
+    "prop": "color",
+    "value": "#0c0b08"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1913,
+    "selector": ".lofi-bar.collapsed",
+    "prop": "background",
+    "value": "rgba(18, 16, 12, 0.94) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 1979,
+    "selector": ".ambient-panel::-webkit-scrollbar-thumb",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.35)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 2036,
+    "selector": ".amb-intensity input[type=\"range\"]",
+    "prop": "accent-color",
+    "value": "#7db4d8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2043,
+    "selector": ".amb-reverb-btn:hover",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2045,
+    "selector": ".amb-reverb-btn.active",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.22)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 2058,
+    "selector": ".ambient-row input[type=\"range\"]",
+    "prop": "accent-color",
+    "value": "#7db4d8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2090,
+    "selector": ".amb-toggle[aria-pressed=\"true\"]",
+    "prop": "background",
+    "value": "#1d3040"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 2090,
+    "selector": ".amb-toggle[aria-pressed=\"true\"]",
+    "prop": "border-color",
+    "value": "#4a7a9a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2091,
+    "selector": ".amb-toggle[aria-pressed=\"true\"]::after",
+    "prop": "background",
+    "value": "#9fd0ee"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2244,
+    "selector": "body",
+    "prop": "background",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2244,
+    "selector": "body",
+    "prop": "color",
+    "value": "#000"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 2246,
+    "selector": ".hero",
+    "prop": "border-bottom",
+    "value": "2px solid #000"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2247,
+    "selector": ".wordmark, .hero-grand",
+    "prop": "color",
+    "value": "#000 !important"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 2250,
+    "selector": ".card, .tile, .insight-card, .shoot-card",
+    "prop": "border-color",
+    "value": "#999"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2258,
+    "selector": "a",
+    "prop": "color",
+    "value": "#000"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2392,
+    "selector": ".wing.wing-3d",
+    "prop": "background",
+    "value": "linear-gradient(180deg, rgba(200, 169, 74, 0.08) 0%, transparent 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2399,
+    "selector": ".wing.wing-3d:hover",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2400,
+    "selector": ".wing.wing-3d:hover",
+    "prop": "background",
+    "value": "linear-gradient(180deg, rgba(200, 169, 74, 0.2) 0%, transparent 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2412,
+    "selector": ".wing-badge-3d",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #d97706, #f59e0b)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2413,
+    "selector": ".wing-badge-3d",
+    "prop": "color",
+    "value": "#08090c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2431,
+    "selector": ".hero-spatial-launcher",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.22) 0%, rgba(200, 169, 74, 0.08) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 2432,
+    "selector": ".hero-spatial-launcher",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.45)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2445,
+    "selector": ".hero-spatial-launcher:hover",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.38) 0%, rgba(200, 169, 74, 0.16) 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2447,
+    "selector": ".hero-spatial-launcher:hover",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2462,
+    "selector": ".hero-spatial-launcher .hsl-pill",
+    "prop": "color",
+    "value": "#08090c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2479,
+    "selector": ".grand-spatial-card",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.16) 0%, rgba(18, 24, 38, 0.95) 50%, rgba(10, 14, 22, 0.98) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 2480,
+    "selector": ".grand-spatial-card",
+    "prop": "border",
+    "value": "1.5px solid rgba(200, 169, 74, 0.45)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2500,
+    "selector": ".gsc-icon-wrap",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.28) 0%, rgba(200, 169, 74, 0.08) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 2501,
+    "selector": ".gsc-icon-wrap",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2522,
+    "selector": ".gsc-title",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2539,
+    "selector": ".gsc-btn",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #d97706 0%, #b45309 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2540,
+    "selector": ".gsc-btn",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2551,
+    "selector": ".gsc-btn:hover",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2558,
+    "selector": ".gsc-key",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.35)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 2596,
+    "selector": ".lab-badge",
+    "prop": "color",
+    "value": "#0b0a08"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2708,
+    "selector": ".exhibit-bg",
+    "prop": "background",
+    "value": "radial-gradient(60% 90% at 50% 10%, rgba(200, 169, 74, 0.16), transparent 70%),\r\n    radial-gradient(40% 60% at 80% 90%,"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 2857,
+    "selector": ".pc-await",
+    "prop": "background",
+    "value": "rgba(0,0,0,0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3171,
+    "selector": ".station-opt[data-station=\"lofi\"] .so-dot",
+    "prop": "background",
+    "value": "#8a7a5a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3172,
+    "selector": ".station-opt[data-station=\"classical\"] .so-dot",
+    "prop": "background",
+    "value": "#b09a6a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3173,
+    "selector": ".station-opt[data-station=\"epic\"] .so-dot",
+    "prop": "background",
+    "value": "#e2a93e"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3174,
+    "selector": ".station-opt[data-station=\"jazz\"] .so-dot",
+    "prop": "background",
+    "value": "#6a7ab0"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3175,
+    "selector": ".station-opt[data-station=\"adventure\"] .so-dot",
+    "prop": "background",
+    "value": "#7a9a5a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3176,
+    "selector": ".station-opt[data-station=\"dark\"] .so-dot",
+    "prop": "background",
+    "value": "#d42f2f"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3177,
+    "selector": ".station-opt[data-station=\"psych\"] .so-dot",
+    "prop": "background",
+    "value": "#c026d3"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3178,
+    "selector": ".station-opt[data-station=\"abyss\"] .so-dot",
+    "prop": "background",
+    "value": "#1e40af"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3179,
+    "selector": ".station-opt[data-station=\"synthwave\"] .so-dot",
+    "prop": "background",
+    "value": "#00e5ff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3180,
+    "selector": ".station-opt[data-station=\"quiet\"] .so-dot",
+    "prop": "background",
+    "value": "#a3a3a3"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3181,
+    "selector": ".station-opt[data-station=\"construct\"] .so-dot",
+    "prop": "background",
+    "value": "#33ff66"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3182,
+    "selector": ".station-opt[data-station=\"xeno\"] .so-dot",
+    "prop": "background",
+    "value": "#8b5cf6"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3183,
+    "selector": ".station-opt[data-station=\"solaris\"] .so-dot",
+    "prop": "background",
+    "value": "#f59e0b"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3184,
+    "selector": ".station-opt[data-station=\"alchemist\"] .so-dot",
+    "prop": "background",
+    "value": "#10b981"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3185,
+    "selector": ".station-opt[data-station=\"glacier\"] .so-dot",
+    "prop": "background",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3186,
+    "selector": ".station-opt[data-station=\"valhalla\"] .so-dot",
+    "prop": "background",
+    "value": "#eab308"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3187,
+    "selector": ".station-opt[data-station=\"dynasty\"] .so-dot",
+    "prop": "background",
+    "value": "#e11d48"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3188,
+    "selector": ".station-opt[data-station=\"zen\"] .so-dot",
+    "prop": "background",
+    "value": "#84cc16"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3189,
+    "selector": ".station-opt[data-station=\"samadhi\"] .so-dot",
+    "prop": "background",
+    "value": "#f97316"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3190,
+    "selector": ".station-opt[data-station=\"silkroad\"] .so-dot",
+    "prop": "background",
+    "value": "#e2b340"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3195,
+    "selector": ".lofi-stationbtn[data-station=\"lofi\"] .ls-dot",
+    "prop": "background",
+    "value": "#8a7a5a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3196,
+    "selector": ".lofi-stationbtn[data-station=\"classical\"] .ls-dot",
+    "prop": "background",
+    "value": "#b09a6a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3197,
+    "selector": ".lofi-stationbtn[data-station=\"epic\"] .ls-dot",
+    "prop": "background",
+    "value": "#e2a93e"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3198,
+    "selector": ".lofi-stationbtn[data-station=\"jazz\"] .ls-dot",
+    "prop": "background",
+    "value": "#6a7ab0"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3199,
+    "selector": ".lofi-stationbtn[data-station=\"adventure\"] .ls-dot",
+    "prop": "background",
+    "value": "#7a9a5a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3200,
+    "selector": ".lofi-stationbtn[data-station=\"dark\"] .ls-dot",
+    "prop": "background",
+    "value": "#d42f2f"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3201,
+    "selector": ".lofi-stationbtn[data-station=\"psych\"] .ls-dot",
+    "prop": "background",
+    "value": "#c026d3"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3202,
+    "selector": ".lofi-stationbtn[data-station=\"abyss\"] .ls-dot",
+    "prop": "background",
+    "value": "#1e40af"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3203,
+    "selector": ".lofi-stationbtn[data-station=\"synthwave\"] .ls-dot",
+    "prop": "background",
+    "value": "#00e5ff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3204,
+    "selector": ".lofi-stationbtn[data-station=\"quiet\"] .ls-dot",
+    "prop": "background",
+    "value": "#a3a3a3"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3205,
+    "selector": ".lofi-stationbtn[data-station=\"construct\"] .ls-dot",
+    "prop": "background",
+    "value": "#33ff66"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3206,
+    "selector": ".lofi-stationbtn[data-station=\"xeno\"] .ls-dot",
+    "prop": "background",
+    "value": "#8b5cf6"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3207,
+    "selector": ".lofi-stationbtn[data-station=\"solaris\"] .ls-dot",
+    "prop": "background",
+    "value": "#f59e0b"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3208,
+    "selector": ".lofi-stationbtn[data-station=\"alchemist\"] .ls-dot",
+    "prop": "background",
+    "value": "#10b981"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3209,
+    "selector": ".lofi-stationbtn[data-station=\"glacier\"] .ls-dot",
+    "prop": "background",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3210,
+    "selector": ".lofi-stationbtn[data-station=\"valhalla\"] .ls-dot",
+    "prop": "background",
+    "value": "#eab308"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3211,
+    "selector": ".lofi-stationbtn[data-station=\"dynasty\"] .ls-dot",
+    "prop": "background",
+    "value": "#e11d48"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3212,
+    "selector": ".lofi-stationbtn[data-station=\"zen\"] .ls-dot",
+    "prop": "background",
+    "value": "#84cc16"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3213,
+    "selector": ".lofi-stationbtn[data-station=\"samadhi\"] .ls-dot",
+    "prop": "background",
+    "value": "#f97316"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3214,
+    "selector": ".lofi-stationbtn[data-station=\"silkroad\"] .ls-dot",
+    "prop": "background",
+    "value": "#e2b340"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3254,
+    "selector": ".amb-fx-chip.active",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.22), rgba(200, 169, 74, 0.08))"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3436,
+    "selector": ".hero-money::after",
+    "prop": "background",
+    "value": "linear-gradient(100deg, transparent, rgba(255, 238, 196, 0.14), transparent)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3487,
+    "selector": "#dust-layer i",
+    "prop": "background",
+    "value": "radial-gradient(circle, rgba(232, 217, 168, 0.85), transparent 70%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3547,
+    "selector": ".rain-btn[aria-pressed=\"true\"]",
+    "prop": "background",
+    "value": "rgba(125, 180, 216, 0.14)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 3548,
+    "selector": ".rain-btn[aria-pressed=\"true\"]",
+    "prop": "border-color",
+    "value": "#6a9dc4"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 3549,
+    "selector": ".rain-btn[aria-pressed=\"true\"]",
+    "prop": "color",
+    "value": "#9cc8e8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 3577,
+    "selector": "#ember-layer i",
+    "prop": "background",
+    "value": "radial-gradient(circle, rgba(255, 170, 70, 0.95), rgba(255, 90, 20, 0) 70%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 3900,
+    "selector": ".lofi-btn[data-act=\"ambience\"].on",
+    "prop": "color",
+    "value": "#7db4d8"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 3900,
+    "selector": ".lofi-btn[data-act=\"ambience\"].on",
+    "prop": "border-color",
+    "value": "#4a7a9a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4306,
+    "selector": ".vault-valuation-hub",
+    "prop": "background",
+    "value": "linear-gradient(180deg, rgba(22, 19, 16, 0.8) 0%, rgba(14, 13, 10, 0.95) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 4351,
+    "selector": ".melt-allocation-bar",
+    "prop": "border",
+    "value": "1px solid rgba(0,0,0,0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4353,
+    "selector": ".melt-allocation-bar",
+    "prop": "background",
+    "value": "#080807"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4375,
+    "selector": ".seg-ag",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #f0f4f8 0%, #b8c8d8 50%, #8ca0b4 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4376,
+    "selector": ".seg-ag",
+    "prop": "color",
+    "value": "#1a2530"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4380,
+    "selector": ".seg-au",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #ffe57f 0%, #ffc107 50%, #ff8f00 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4381,
+    "selector": ".seg-au",
+    "prop": "color",
+    "value": "#3e2723"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4385,
+    "selector": ".seg-numis",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #c5cae9 0%, #7986cb 50%, #3f51b5 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4386,
+    "selector": ".seg-numis",
+    "prop": "color",
+    "value": "#ffffff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4392,
+    "selector": ".seg-glow",
+    "prop": "background",
+    "value": "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4423,
+    "selector": ".leg-ag .dot",
+    "prop": "background",
+    "value": "#b8c8d8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4423,
+    "selector": ".leg-ag .dot",
+    "prop": "color",
+    "value": "#b8c8d8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4424,
+    "selector": ".leg-au .dot",
+    "prop": "background",
+    "value": "#ffc107"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4424,
+    "selector": ".leg-au .dot",
+    "prop": "color",
+    "value": "#ffc107"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4425,
+    "selector": ".leg-numis .dot",
+    "prop": "background",
+    "value": "#7986cb"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4425,
+    "selector": ".leg-numis .dot",
+    "prop": "color",
+    "value": "#7986cb"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4434,
+    "selector": ".exhibit",
+    "prop": "background",
+    "value": "linear-gradient(180deg, #14120e 0%, #0a0907 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4481,
+    "selector": ".ex-nav-btn",
+    "prop": "background",
+    "value": "rgba(14, 16, 22, 0.90)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4497,
+    "selector": ".ex-nav-btn:hover",
+    "prop": "color",
+    "value": "#08090c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4563,
+    "selector": ".ex-medallion",
+    "prop": "background",
+    "value": "radial-gradient(circle at 35% 30%, #f0f4f8 0%, #c0d0e0 45%, #7a8c9e 85%, #566472 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4564,
+    "selector": ".ex-medallion",
+    "prop": "color",
+    "value": "#1a222a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4572,
+    "selector": ".ex-medallion.is-gold",
+    "prop": "background",
+    "value": "radial-gradient(circle at 35% 30%, #fff8e1 0%, #ffd54f 40%, #ff8f00 80%, #b26a00 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4579,
+    "selector": ".ex-medallion.is-gold",
+    "prop": "color",
+    "value": "#3e2723"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 4586,
+    "selector": ".med-ring",
+    "prop": "border",
+    "value": "2px dashed rgba(0,0,0,0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4619,
+    "selector": ".med-shimmer",
+    "prop": "background",
+    "value": "linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.55) 50%, transparent 60%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4724,
+    "selector": ".archival-flip-holder",
+    "prop": "background",
+    "value": "linear-gradient(145deg, rgba(26, 35, 52, 0.94) 0%, rgba(12, 17, 26, 0.98) 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4764,
+    "selector": ".flip-aero-header",
+    "prop": "color",
+    "value": "#e2e8f0"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 4765,
+    "selector": ".flip-aero-header",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4766,
+    "selector": ".flip-aero-header",
+    "prop": "background",
+    "value": "rgba(10, 14, 24, 0.5)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4771,
+    "selector": ".flip-aero-country",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4784,
+    "selector": ".flip-aero-ser",
+    "prop": "color",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4797,
+    "selector": ".flip-aero-footer",
+    "prop": "color",
+    "value": "#cbd5e1"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 4798,
+    "selector": ".flip-aero-footer",
+    "prop": "border-top",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4799,
+    "selector": ".flip-aero-footer",
+    "prop": "background",
+    "value": "rgba(10, 14, 24, 0.5)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4804,
+    "selector": ".flip-aero-denom",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4812,
+    "selector": ".flip-aero-purity",
+    "prop": "color",
+    "value": "#93c5fd"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4822,
+    "selector": ".flip-gasket-core",
+    "prop": "background",
+    "value": "radial-gradient(ellipse at 50% 50%, rgba(30, 42, 62, 0.94) 0%, rgba(10, 14, 24, 0.98) 100%),\r\n    repeating-radial-gradi"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 4825,
+    "selector": ".flip-gasket-core",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.15)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4851,
+    "selector": ".flip-coin-aperture",
+    "prop": "background",
+    "value": "#020408"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4871,
+    "selector": ".slab-edge-tab",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4894,
+    "selector": ".flip-holo-seal",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(236, 72, 153, 0.75), rgba(56, 189, 248, 0.75), rgba(234, 179, 8, 0.75), rgba(168, 85, 247, "
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 4900,
+    "selector": ".flip-holo-seal",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.4)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 4908,
+    "selector": ".flip-holo-text",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4928,
+    "selector": ".flip-mylar-window",
+    "prop": "background",
+    "value": "#090a0d"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4948,
+    "selector": ".flip-mylar-reflection",
+    "prop": "background",
+    "value": "linear-gradient(130deg, transparent 40%, rgba(255,255,255,0.28) 48%, rgba(255,255,255,0.06) 54%, transparent 62%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4966,
+    "selector": ".gallery-spatial-banner",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(22, 28, 42, 0.94) 0%, rgba(12, 16, 26, 0.98) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 4967,
+    "selector": ".gallery-spatial-banner",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.38)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 4999,
+    "selector": ".gsb-icon-wrap",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.15)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5000,
+    "selector": ".gsb-icon-wrap",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.35)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5024,
+    "selector": ".gsb-title",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5030,
+    "selector": ".gsb-sub",
+    "prop": "color",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5039,
+    "selector": ".gsb-btn",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #d97706 0%, #b45309 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5040,
+    "selector": ".gsb-btn",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.3)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5041,
+    "selector": ".gsb-btn",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5052,
+    "selector": ".gsb-btn:hover",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5057,
+    "selector": ".gsb-badge",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.35)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5058,
+    "selector": ".gsb-badge",
+    "prop": "color",
+    "value": "#fef08a"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5110,
+    "selector": ".specimen-blueprint .bp-txt-iso",
+    "prop": "fill",
+    "value": "#f1f5f9"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5123,
+    "selector": ".specimen-blueprint .bp-txt-alloy",
+    "prop": "fill",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5131,
+    "selector": ".specimen-blueprint .bp-txt-stamp",
+    "prop": "fill",
+    "value": "rgba(200, 169, 74, 0.45)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5144,
+    "selector": ".ex-tray-velvet",
+    "prop": "background",
+    "value": "radial-gradient(circle at 50% 40%, #151821 0%, #090a0e 85%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5160,
+    "selector": ".ex-velvet-corners",
+    "prop": "border",
+    "value": "1px dashed rgba(200, 169, 74, 0.25)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5167,
+    "selector": ".ex-spotlight-cone",
+    "prop": "background",
+    "value": "radial-gradient(circle at 50% 30%, rgba(200, 169, 74, 0.18) 0%, transparent 70%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5253,
+    "selector": ".placard-inspect-btn:hover",
+    "prop": "color",
+    "value": "#0b0a08"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5282,
+    "selector": ".pc-ag-pill",
+    "prop": "background",
+    "value": "rgba(184, 200, 216, 0.18)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5283,
+    "selector": ".pc-ag-pill",
+    "prop": "border",
+    "value": "1px solid rgba(184, 200, 216, 0.4)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5284,
+    "selector": ".pc-ag-pill",
+    "prop": "color",
+    "value": "#d8e2ec"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5334,
+    "selector": ".lofi-bar, .player-bar",
+    "prop": "background",
+    "value": "rgba(18, 16, 12, 0.94) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5419,
+    "selector": ".ds-caliper-frame",
+    "prop": "background",
+    "value": "#090a0d"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5420,
+    "selector": ".ds-caliper-frame",
+    "prop": "border",
+    "value": "2px dashed rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5432,
+    "selector": ".ds-caliper-coin-circle",
+    "prop": "background",
+    "value": "radial-gradient(circle at 40% 35%, rgba(200, 220, 240, 0.9), rgba(130, 150, 175, 0.8) 60%, rgba(70, 90, 115, 0.9) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5433,
+    "selector": ".ds-caliper-coin-circle",
+    "prop": "border",
+    "value": "1.5px solid rgba(255, 255, 255, 0.6)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5449,
+    "selector": ".ds-caliper-crosshair::before, .ds-caliper-crosshair::after",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.3)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5457,
+    "selector": ".ds-caliper-dim-tag",
+    "prop": "color",
+    "value": "#0b0f19"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5465,
+    "selector": ".ds-caliper-grid-rings",
+    "prop": "border",
+    "value": "1px dotted rgba(200, 169, 74, 0.2)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5540,
+    "selector": ".sim-toggle-btn:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.08)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5548,
+    "selector": ".sim-toggle-badge",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.15)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5549,
+    "selector": ".sim-toggle-badge",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5553,
+    "selector": ".sim-toggle-badge.gain",
+    "prop": "background",
+    "value": "rgba(107, 191, 122, 0.2)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5554,
+    "selector": ".sim-toggle-badge.gain",
+    "prop": "border-color",
+    "value": "rgba(107, 191, 122, 0.5)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5555,
+    "selector": ".sim-toggle-badge.gain",
+    "prop": "color",
+    "value": "#86efac"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5558,
+    "selector": ".sim-toggle-badge.loss",
+    "prop": "background",
+    "value": "rgba(196, 92, 74, 0.2)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5559,
+    "selector": ".sim-toggle-badge.loss",
+    "prop": "border-color",
+    "value": "rgba(196, 92, 74, 0.5)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5560,
+    "selector": ".sim-toggle-badge.loss",
+    "prop": "color",
+    "value": "#fca5a5"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5624,
+    "selector": ".sim-stat-delta.gain",
+    "prop": "color",
+    "value": "#4ade80"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5625,
+    "selector": ".sim-stat-delta.loss",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5659,
+    "selector": ".sim-range",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5668,
+    "selector": ".sim-range::-webkit-slider-thumb",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #e2e8f0, #94a3b8)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5669,
+    "selector": ".sim-range::-webkit-slider-thumb",
+    "prop": "border",
+    "value": "2px solid #ffffff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5675,
+    "selector": ".sim-range.range-au::-webkit-slider-thumb",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #fef08a, #ca8a04)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5773,
+    "selector": ".tray-tab:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.08)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5778,
+    "selector": ".tray-tab.active",
+    "prop": "color",
+    "value": "#0b0a08"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5787,
+    "selector": ".tray-tab .tray-count",
+    "prop": "background",
+    "value": "rgba(0,0,0,0.18)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5792,
+    "selector": ".tray-tab.active .tray-count",
+    "prop": "background",
+    "value": "rgba(0,0,0,0.3)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5793,
+    "selector": ".tray-tab.active .tray-count",
+    "prop": "color",
+    "value": "#ffffff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5851,
+    "selector": ".market-ticker-tape",
+    "prop": "background",
+    "value": "#08090c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5869,
+    "selector": ".ticker-badge",
+    "prop": "background",
+    "value": "#141720"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5870,
+    "selector": ".ticker-badge",
+    "prop": "border-right",
+    "value": "1px solid rgba(255, 255, 255, 0.12)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5878,
+    "selector": ".ticker-live-pulse",
+    "prop": "background",
+    "value": "#ef4444"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5891,
+    "selector": ".ticker-live-lbl",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5916,
+    "selector": ".ticker-item",
+    "prop": "color",
+    "value": "#cbd5e1"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5922,
+    "selector": ".ticker-item:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.12)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5923,
+    "selector": ".ticker-item:hover",
+    "prop": "color",
+    "value": "#ffffff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5931,
+    "selector": ".ticker-item .tk-price",
+    "prop": "color",
+    "value": "#f1f5f9"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5943,
+    "selector": ".tk-tag.tk-up",
+    "prop": "background",
+    "value": "rgba(34, 197, 94, 0.16)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5944,
+    "selector": ".tk-tag.tk-up",
+    "prop": "color",
+    "value": "#4ade80"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5945,
+    "selector": ".tk-tag.tk-up",
+    "prop": "border",
+    "value": "1px solid rgba(34, 197, 94, 0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5948,
+    "selector": ".tk-tag.tk-down",
+    "prop": "background",
+    "value": "rgba(239, 68, 68, 0.16)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5949,
+    "selector": ".tk-tag.tk-down",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5950,
+    "selector": ".tk-tag.tk-down",
+    "prop": "border",
+    "value": "1px solid rgba(239, 68, 68, 0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5953,
+    "selector": ".tk-tag.tk-neu",
+    "prop": "background",
+    "value": "rgba(148, 163, 184, 0.16)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5954,
+    "selector": ".tk-tag.tk-neu",
+    "prop": "color",
+    "value": "#cbd5e1"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 5955,
+    "selector": ".tk-tag.tk-neu",
+    "prop": "border",
+    "value": "1px solid rgba(148, 163, 184, 0.35)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 5996,
+    "selector": ".term-live-badge",
+    "prop": "color",
+    "value": "#4ade80"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 5997,
+    "selector": ".term-live-badge",
+    "prop": "background",
+    "value": "rgba(34, 197, 94, 0.15)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6000,
+    "selector": ".term-live-badge",
+    "prop": "border",
+    "value": "1px solid rgba(34, 197, 94, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6006,
+    "selector": ".term-live-dot",
+    "prop": "background",
+    "value": "#22c55e"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6030,
+    "selector": ".term-price.flash-up",
+    "prop": "color",
+    "value": "#4ade80 !important"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6035,
+    "selector": ".term-price.flash-down",
+    "prop": "color",
+    "value": "#f87171 !important"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6044,
+    "selector": ".term-delta.up",
+    "prop": "color",
+    "value": "#4ade80"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6045,
+    "selector": ".term-delta.down",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6067,
+    "selector": ".term-asset-btn:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.1)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6072,
+    "selector": ".term-asset-btn.active",
+    "prop": "color",
+    "value": "#0c0b08"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6141,
+    "selector": ".term-mode-btn.active",
+    "prop": "color",
+    "value": "#0c0b08"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6150,
+    "selector": ".term-chart-stage",
+    "prop": "background",
+    "value": "radial-gradient(circle at 50% 50%, rgba(200, 169, 74, 0.03) 0%, transparent 70%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6167,
+    "selector": ".term-hud",
+    "prop": "background",
+    "value": "rgba(14, 16, 22, 0.88)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6186,
+    "selector": ".hud-chg.up",
+    "prop": "color",
+    "value": "#4ade80"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6187,
+    "selector": ".hud-chg.down",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6284,
+    "selector": ".ts-track",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6294,
+    "selector": ".ts-cur",
+    "prop": "border",
+    "value": "2px solid #ffffff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6346,
+    "selector": ".ex-ctrl-btn:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.1)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6352,
+    "selector": ".ex-ctrl-btn.active",
+    "prop": "color",
+    "value": "#0c0b08"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6361,
+    "selector": ".ex-ctrl-btn.flip-btn:hover",
+    "prop": "color",
+    "value": "#0c0b08"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6402,
+    "selector": ".museum-slab",
+    "prop": "background",
+    "value": "linear-gradient(150deg, rgba(35, 48, 70, 0.94) 0%, rgba(20, 26, 38, 0.98) 35%, rgba(6, 9, 14, 0.99) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6403,
+    "selector": ".museum-slab",
+    "prop": "border",
+    "value": "1.5px solid rgba(255, 255, 255, 0.32)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6421,
+    "selector": ".slab-beveled-edge",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.2)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6433,
+    "selector": ".slab-rivet",
+    "prop": "background",
+    "value": "radial-gradient(circle at 35% 35%, #ffffff 0%, #cbd5e1 50%, #334155 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6448,
+    "selector": ".slab-pedigree-header",
+    "prop": "background",
+    "value": "#0c0e14"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6449,
+    "selector": ".slab-pedigree-header",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.2)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6463,
+    "selector": ".slab-pedigree-holo",
+    "prop": "background",
+    "value": "linear-gradient(90deg, #091322 0%, #172a45 20%, #1e3a8a 45%, #2563eb 50%, #1e3a8a 55%, #172a45 80%, #091322 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6468,
+    "selector": ".slab-pedigree-holo",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6482,
+    "selector": ".slab-pedigree-body",
+    "prop": "background",
+    "value": "rgba(15, 23, 42, 0.85)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6495,
+    "selector": ".slab-pedigree-title",
+    "prop": "color",
+    "value": "#f8fafc"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6538,
+    "selector": ".slab-pedigree-metal",
+    "prop": "color",
+    "value": "#93c5fd"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6548,
+    "selector": ".slab-barcode-strip",
+    "prop": "color",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6549,
+    "selector": ".slab-barcode-strip",
+    "prop": "background",
+    "value": "#06080d"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6571,
+    "selector": ".slab-gasket-core",
+    "prop": "background",
+    "value": "radial-gradient(ellipse at 50% 50%, rgba(28, 38, 56, 0.94) 0%, rgba(10, 14, 22, 0.98) 100%),\r\n    repeating-radial-gradi"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6574,
+    "selector": ".slab-gasket-core",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.14)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6597,
+    "selector": ".slab-coin-aperture",
+    "prop": "background",
+    "value": "#020408"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6611,
+    "selector": ".slab-optic-glare",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, transparent 40%, rgba(255, 255, 255, 0.06) 60%, transparent 80%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6696,
+    "selector": ".forensic-loupe",
+    "prop": "border",
+    "value": "3px solid #38bdf8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6706,
+    "selector": ".forensic-loupe",
+    "prop": "background",
+    "value": "#000"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6739,
+    "selector": ".loupe-hair-x",
+    "prop": "background",
+    "value": "rgba(56, 189, 248, 0.65)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6748,
+    "selector": ".loupe-hair-y",
+    "prop": "background",
+    "value": "rgba(56, 189, 248, 0.65)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6755,
+    "selector": ".loupe-scale-ticks",
+    "prop": "border",
+    "value": "1px dashed rgba(56, 189, 248, 0.35)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6773,
+    "selector": ".loupe-badge",
+    "prop": "color",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6775,
+    "selector": ".loupe-badge",
+    "prop": "background",
+    "value": "rgba(2, 6, 23, 0.85)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6778,
+    "selector": ".loupe-badge",
+    "prop": "border",
+    "value": "1px solid rgba(56, 189, 248, 0.3)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6784,
+    "selector": ".loupe-coords",
+    "prop": "color",
+    "value": "#f0fdf4"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6785,
+    "selector": ".loupe-coords",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.7)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6831,
+    "selector": ".ex-target-filename",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.3)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6844,
+    "selector": ".ex-copy-fn-btn:hover",
+    "prop": "color",
+    "value": "#ffffff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6850,
+    "selector": ".ex-ctrl-btn#btn-ex-reticle.active",
+    "prop": "background",
+    "value": "rgba(14, 165, 233, 0.18)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6851,
+    "selector": ".ex-ctrl-btn#btn-ex-reticle.active",
+    "prop": "border-color",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6852,
+    "selector": ".ex-ctrl-btn#btn-ex-reticle.active",
+    "prop": "color",
+    "value": "#e0f2fe"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6880,
+    "selector": ".ret-cross-x",
+    "prop": "background",
+    "value": "linear-gradient(90deg, transparent 4%, rgba(56, 189, 248, 0.7) 15%, rgba(56, 189, 248, 0.95) 50%, rgba(56, 189, 248, 0.7"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6887,
+    "selector": ".ret-cross-y",
+    "prop": "background",
+    "value": "linear-gradient(180deg, transparent 4%, rgba(56, 189, 248, 0.7) 15%, rgba(56, 189, 248, 0.95) 50%, rgba(56, 189, 248, 0."
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6894,
+    "selector": ".ret-ring",
+    "prop": "border",
+    "value": "1px dashed rgba(56, 189, 248, 0.38)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6897,
+    "selector": ".ret-ring-10",
+    "prop": "border-color",
+    "value": "rgba(56, 189, 248, 0.28)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6898,
+    "selector": ".ret-ring-20",
+    "prop": "border-color",
+    "value": "rgba(56, 189, 248, 0.42)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6899,
+    "selector": ".ret-ring-30",
+    "prop": "border-color",
+    "value": "rgba(56, 189, 248, 0.48)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6903,
+    "selector": ".ret-ring-planchet",
+    "prop": "border",
+    "value": "1.5px solid #38bdf8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6913,
+    "selector": ".ret-axis-lbl",
+    "prop": "color",
+    "value": "#7dd3fc"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6916,
+    "selector": ".ret-axis-lbl",
+    "prop": "background",
+    "value": "rgba(3, 7, 18, 0.75)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6919,
+    "selector": ".ret-axis-lbl",
+    "prop": "border",
+    "value": "0.5px solid rgba(56, 189, 248, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6931,
+    "selector": ".ret-center-pip",
+    "prop": "background",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6941,
+    "selector": ".ex-caliper-hud",
+    "prop": "background",
+    "value": "linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(3, 7, 18, 0.96) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6942,
+    "selector": ".ex-caliper-hud",
+    "prop": "border",
+    "value": "1px solid rgba(56, 189, 248, 0.35)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 6966,
+    "selector": ".caliper-hud-header",
+    "prop": "color",
+    "value": "#7dd3fc"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6967,
+    "selector": ".caliper-hud-header",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(56, 189, 248, 0.18)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6981,
+    "selector": ".caliper-hud-dot",
+    "prop": "background",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 6988,
+    "selector": ".caliper-scale-bar",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.55)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 6989,
+    "selector": ".caliper-scale-bar",
+    "prop": "border",
+    "value": "1px solid rgba(56, 189, 248, 0.25)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7000,
+    "selector": ".cal-ticks",
+    "prop": "background-image",
+    "value": "repeating-linear-gradient(90deg, rgba(56, 189, 248, 0.4) 0px, rgba(56, 189, 248, 0.4) 1px, transparent 1px, transparent "
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7011,
+    "selector": ".cal-lcd-readout",
+    "prop": "background",
+    "value": "#020617"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7014,
+    "selector": ".cal-lcd-readout",
+    "prop": "border",
+    "value": "1px solid rgba(56, 189, 248, 0.4)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7020,
+    "selector": ".cal-lcd-sym",
+    "prop": "color",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7027,
+    "selector": ".cal-lcd-val",
+    "prop": "color",
+    "value": "#f0fdf4"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7034,
+    "selector": ".cal-lcd-unit",
+    "prop": "color",
+    "value": "#86efac"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7048,
+    "selector": ".cm-tag",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.05)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7049,
+    "selector": ".cm-tag",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7052,
+    "selector": ".cm-tag",
+    "prop": "color",
+    "value": "#cbd5e1"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7056,
+    "selector": ".cm-tag.gold",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7057,
+    "selector": ".cm-tag.gold",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.08)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7062,
+    "selector": ".cm-info-btn",
+    "prop": "color",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7072,
+    "selector": ".cm-info-btn:hover",
+    "prop": "color",
+    "value": "#ffffff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7080,
+    "selector": ".caliper-explainer-popover",
+    "prop": "background",
+    "value": "rgba(2, 4, 9, 0.85)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7090,
+    "selector": ".caliper-pop-box",
+    "prop": "background",
+    "value": "#0f131a"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7091,
+    "selector": ".caliper-pop-box",
+    "prop": "border",
+    "value": "1px solid rgba(56, 189, 248, 0.45)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7097,
+    "selector": ".caliper-pop-box",
+    "prop": "color",
+    "value": "#e2e8f0"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7104,
+    "selector": ".caliper-pop-close",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.08)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7105,
+    "selector": ".caliper-pop-close",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.15)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7106,
+    "selector": ".caliper-pop-close",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7115,
+    "selector": ".caliper-pop-title",
+    "prop": "color",
+    "value": "#38bdf8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7124,
+    "selector": ".caliper-pop-body",
+    "prop": "color",
+    "value": "#cbd5e1"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7127,
+    "selector": ".caliper-pop-body strong",
+    "prop": "color",
+    "value": "#f8fafc"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7355,
+    "selector": "#cursed-vignette",
+    "prop": "background",
+    "value": "radial-gradient(circle at 50% 50%, transparent 45%, rgba(185, 28, 28, 0.22) 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7435,
+    "selector": ".calc-diffraction-alert",
+    "prop": "color",
+    "value": "#f59e0b"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7461,
+    "selector": ".lighting-mode-card:hover, .lighting-mode-card.active",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.08)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7484,
+    "selector": ".lmc-badge",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.15)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7505,
+    "selector": ".sandbox-canvas-wrap",
+    "prop": "background",
+    "value": "#090a0d"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7543,
+    "selector": ".staging-album-row:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.24) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7560,
+    "selector": ".gallery-mode-switch",
+    "prop": "background",
+    "value": "rgba(14, 17, 24, 0.85)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7583,
+    "selector": ".g-mode-btn:hover",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.05)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7586,
+    "selector": ".g-mode-btn.active",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.28) 0%, rgba(200, 169, 74, 0.12) 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7597,
+    "selector": ".museum-slab.slab-mini",
+    "prop": "background",
+    "value": "linear-gradient(155deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 22, 30, 0.9) 35%, rgba(6, 8, 12, 0.96) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7598,
+    "selector": ".museum-slab.slab-mini",
+    "prop": "border",
+    "value": "1.5px solid rgba(255, 255, 255, 0.18)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7621,
+    "selector": ".museum-slab.slab-mini .slab-pedigree-header",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(255, 255, 255, 0.12)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7674,
+    "selector": ".museum-slab.slab-mini .slab-barcode-strip",
+    "prop": "color",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7675,
+    "selector": ".museum-slab.slab-mini .slab-barcode-strip",
+    "prop": "background",
+    "value": "#06080d"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7687,
+    "selector": ".museum-slab.slab-mini .slab-gasket-core",
+    "prop": "background",
+    "value": "radial-gradient(ellipse at 50% 50%, rgba(28, 38, 56, 0.94) 0%, rgba(10, 14, 22, 0.98) 100%),\r\n    repeating-radial-gradi"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7690,
+    "selector": ".museum-slab.slab-mini .slab-gasket-core",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.12)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7707,
+    "selector": ".museum-slab.slab-mini .slab-coin-aperture",
+    "prop": "background",
+    "value": "#020408"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7720,
+    "selector": ".museum-slab.slab-mini .coin-cartwheel-luster",
+    "prop": "background",
+    "value": "conic-gradient(from 45deg at 50% 50%, \r\n    rgba(255, 255, 255, 0.14) 0deg,\r\n    transparent 45deg,\r\n    rgba(255, 255, "
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7745,
+    "selector": ".museum-slab.slab-mini .slab-optic-glare",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 25%, transparent 50%, rgba(255, 255, 255"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7766,
+    "selector": ".matrix-medallion-holder",
+    "prop": "background",
+    "value": "radial-gradient(circle at 50% 50%, rgba(200, 169, 74, 0.08) 0%, transparent 70%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7776,
+    "selector": ".piece-card.mode-slab",
+    "prop": "background",
+    "value": "rgba(14, 17, 24, 0.7)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7777,
+    "selector": ".piece-card.mode-slab",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7781,
+    "selector": ".piece-card.mode-slab:hover",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7802,
+    "selector": ".gallery-coverflow-wrap",
+    "prop": "background",
+    "value": "radial-gradient(ellipse 90% 70% at 50% 35%, rgba(20, 24, 33, 0.88) 0%, rgba(8, 10, 14, 0.98) 90%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7803,
+    "selector": ".gallery-coverflow-wrap",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7824,
+    "selector": ".gallery-coverflow-wrap::before",
+    "prop": "background",
+    "value": "radial-gradient(ellipse 60% 40% at 50% 60%, rgba(200, 169, 74, 0.16) 0%, rgba(56, 189, 248, 0.05) 45%, transparent 75%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7865,
+    "selector": ".cf-header-left .cf-title",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7882,
+    "selector": ".cf-header-actions .btn",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.06)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7883,
+    "selector": ".cf-header-actions .btn",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.15)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7884,
+    "selector": ".cf-header-actions .btn",
+    "prop": "color",
+    "value": "#e2e8f0"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7893,
+    "selector": ".cf-header-actions .btn:hover",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.12)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 7894,
+    "selector": ".cf-header-actions .btn:hover",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 7895,
+    "selector": ".cf-header-actions .btn:hover",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 7899,
+    "selector": ".cf-header-actions .btn.active",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.22)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8022,
+    "selector": ".cf-glass-sheen",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 60%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8028,
+    "selector": ".cf-card-left .cf-glass-sheen",
+    "prop": "background",
+    "value": "linear-gradient(110deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 65%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8032,
+    "selector": ".cf-card-right .cf-glass-sheen",
+    "prop": "background",
+    "value": "linear-gradient(250deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 65%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8068,
+    "selector": ".cf-flip-badge",
+    "prop": "background",
+    "value": "rgba(14, 17, 24, 0.85)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8069,
+    "selector": ".cf-flip-badge",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.5)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8086,
+    "selector": ".cf-flip-badge:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.25)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8087,
+    "selector": ".cf-flip-badge:hover",
+    "prop": "border-color",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8088,
+    "selector": ".cf-flip-badge:hover",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8130,
+    "selector": ".cf-placard",
+    "prop": "background",
+    "value": "rgba(14, 18, 26, 0.75)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8131,
+    "selector": ".cf-placard",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8157,
+    "selector": ".cf-placard-title",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8162,
+    "selector": ".cf-placard-meta",
+    "prop": "color",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8193,
+    "selector": ".cf-nav-btn",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.08)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8194,
+    "selector": ".cf-nav-btn",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.15)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8195,
+    "selector": ".cf-nav-btn",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8210,
+    "selector": ".cf-nav-btn:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.25)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8234,
+    "selector": ".cf-scrubber",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.15)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8241,
+    "selector": ".cf-scrubber:hover",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.25)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8251,
+    "selector": ".cf-scrubber::-webkit-slider-thumb",
+    "prop": "border",
+    "value": "2px solid #fff"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8266,
+    "selector": ".cf-scrubber::-moz-range-thumb",
+    "prop": "border",
+    "value": "2px solid #fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8275,
+    "selector": ".cf-counter",
+    "prop": "color",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8396,
+    "selector": ".atlas-quick-metrics",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8436,
+    "selector": ".atlas-cams-bar",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.35)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8446,
+    "selector": ".atlas-cam-btn",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.1) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8447,
+    "selector": ".atlas-cam-btn",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.03) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8458,
+    "selector": ".atlas-cam-btn:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.12) !important"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8465,
+    "selector": ".atlas-cam-btn.active",
+    "prop": "color",
+    "value": "#08090c !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8496,
+    "selector": ".atlas-route-btn",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.03) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8507,
+    "selector": ".atlas-route-btn:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.12) !important"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8515,
+    "selector": ".atlas-route-btn.active",
+    "prop": "color",
+    "value": "#08090c !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8528,
+    "selector": ".atlas-coords-hud",
+    "prop": "background",
+    "value": "rgba(8, 10, 14, 0.85)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8530,
+    "selector": ".atlas-coords-hud",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8540,
+    "selector": ".atlas-docked-dossier",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.12), rgba(14, 18, 26, 0.96))"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8607,
+    "selector": ".atlas-dossier-specimens-section",
+    "prop": "border-top",
+    "value": "1px solid rgba(200, 169, 74, 0.2)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8634,
+    "selector": ".atlas-dossier-coin-chip",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.45)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8635,
+    "selector": ".atlas-dossier-coin-chip",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8644,
+    "selector": ".atlas-dossier-coin-chip:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.18)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8655,
+    "selector": ".atlas-dossier-coin-thumb",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8656,
+    "selector": ".atlas-dossier-coin-thumb",
+    "prop": "background",
+    "value": "#000"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8730,
+    "selector": ".study-nav-pills",
+    "prop": "background",
+    "value": "rgba(14, 18, 26, 0.7)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8754,
+    "selector": ".study-nav-pill:hover",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.05)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8755,
+    "selector": ".study-nav-pill:hover",
+    "prop": "border-color",
+    "value": "rgba(255, 255, 255, 0.12)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8759,
+    "selector": ".study-nav-pill.active",
+    "prop": "color",
+    "value": "#08090c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8774,
+    "selector": ".world-table-controls",
+    "prop": "background",
+    "value": "rgba(14, 18, 26, 0.5)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8782,
+    "selector": ".world-search-input",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8804,
+    "selector": ".atlas-route-intel",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8817,
+    "selector": ".atlas-svg-container",
+    "prop": "background",
+    "value": "radial-gradient(circle at 50% 40%, rgba(18, 24, 38, 0.95) 0%, rgba(8, 10, 14, 0.98) 100%)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8889,
+    "selector": ".atlas-node:hover .atlas-node-core, .atlas-node:focus-visible .atlas-node-core",
+    "prop": "fill",
+    "value": "#ffffff !important"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8897,
+    "selector": ".atlas-node:hover .atlas-node-halo, .atlas-node:focus-visible .atlas-node-halo",
+    "prop": "fill",
+    "value": "rgba(200, 169, 74, 0.45) !important"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8902,
+    "selector": ".atlas-node.selected .atlas-node-core",
+    "prop": "fill",
+    "value": "#ffffff !important"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8909,
+    "selector": ".atlas-node.selected .atlas-node-halo",
+    "prop": "fill",
+    "value": "rgba(254, 240, 138, 0.38) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8938,
+    "selector": ".atlas-hud-tooltip",
+    "prop": "background",
+    "value": "rgba(10, 13, 18, 0.95)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8988,
+    "selector": ".spot-live-pill",
+    "prop": "background",
+    "value": "rgba(16, 185, 129, 0.15)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 8989,
+    "selector": ".spot-live-pill",
+    "prop": "border",
+    "value": "1px solid #10b981"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 8990,
+    "selector": ".spot-live-pill",
+    "prop": "color",
+    "value": "#34d399"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 8998,
+    "selector": ".spot-live-dot",
+    "prop": "background",
+    "value": "#10b981"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9017,
+    "selector": ".spot-metal-tile",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.3)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 9058,
+    "selector": ".spot-metal-delta.up",
+    "prop": "color",
+    "value": "#34d399"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 9062,
+    "selector": ".spot-metal-delta.down",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9070,
+    "selector": ".spot-recalc-banner",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.12), rgba(0, 0, 0, 0.4))"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9114,
+    "selector": ".spatial-modal",
+    "prop": "background",
+    "value": "#06070a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9154,
+    "selector": ".spatial-hud-info",
+    "prop": "background",
+    "value": "rgba(8, 10, 16, 0.78)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9196,
+    "selector": ".spatial-close-btn",
+    "prop": "background",
+    "value": "rgba(8, 10, 16, 0.85)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 9210,
+    "selector": ".spatial-close-btn:hover",
+    "prop": "color",
+    "value": "#08090c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9222,
+    "selector": ".spatial-hud-bottom",
+    "prop": "background",
+    "value": "rgba(8, 10, 16, 0.85)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 9251,
+    "selector": ".spatial-flip-btn",
+    "prop": "color",
+    "value": "#08090c !important"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 9270,
+    "selector": ".spatial-hint-pill",
+    "prop": "color",
+    "value": "rgba(200, 169, 74, 0.7)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9281,
+    "selector": ".spatial-qr-dialog",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.82)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9290,
+    "selector": ".spatial-qr-box",
+    "prop": "background",
+    "value": "#0e121a"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9331,
+    "selector": ".deepzoom-modal",
+    "prop": "background",
+    "value": "#06080c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9344,
+    "selector": ".deepzoom-viewer-container",
+    "prop": "background",
+    "value": "#06080c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9378,
+    "selector": ".deepzoom-hud-info",
+    "prop": "background",
+    "value": "rgba(8, 10, 16, 0.82)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9403,
+    "selector": ".deepzoom-hud-bottom",
+    "prop": "background",
+    "value": "rgba(8, 10, 16, 0.88)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9463,
+    "selector": ".pin-tooltip",
+    "prop": "background",
+    "value": "rgba(8, 10, 16, 0.95)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9570,
+    "selector": ".album-modal-backdrop",
+    "prop": "background",
+    "value": "rgba(4, 6, 10, 0.88)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9583,
+    "selector": ".album-binder-shell",
+    "prop": "background",
+    "value": "#0d121c"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9584,
+    "selector": ".album-binder-shell",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9596,
+    "selector": ".album-binder-header",
+    "prop": "background",
+    "value": "linear-gradient(180deg, rgba(22, 30, 46, 0.95), rgba(13, 18, 28, 0.98))"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9597,
+    "selector": ".album-binder-header",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(200, 169, 74, 0.25)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9634,
+    "selector": ".album-controls-bar",
+    "prop": "background",
+    "value": "rgba(9, 13, 20, 0.9)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9649,
+    "selector": ".album-tab-btn",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.05)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9650,
+    "selector": ".album-tab-btn",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9658,
+    "selector": ".album-tab-btn:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.12)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9659,
+    "selector": ".album-tab-btn:hover",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9664,
+    "selector": ".album-tab-btn.active",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.22)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9688,
+    "selector": ".album-filter-pill:hover, .album-filter-pill.active",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.18)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9689,
+    "selector": ".album-filter-pill:hover, .album-filter-pill.active",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.6)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9696,
+    "selector": ".album-progress-wrap",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.08)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9703,
+    "selector": ".album-progress-bar",
+    "prop": "background",
+    "value": "linear-gradient(90deg, #c8a94a, #dfc06e, #fce085)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9715,
+    "selector": ".album-board",
+    "prop": "background",
+    "value": "radial-gradient(circle at center, #111724 0%, #090d15 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9728,
+    "selector": ".album-binder-spine-margin",
+    "prop": "background",
+    "value": "linear-gradient(90deg, rgba(8, 11, 18, 0.95), rgba(20, 26, 38, 0.95))"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9729,
+    "selector": ".album-binder-spine-margin",
+    "prop": "border-right",
+    "value": "2px solid rgba(200, 169, 74, 0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9740,
+    "selector": ".spine-screw",
+    "prop": "background",
+    "value": "radial-gradient(circle at 35% 35%, #f7df94 0%, #c8a94a 60%, #785e1b 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9741,
+    "selector": ".spine-screw",
+    "prop": "border",
+    "value": "1px solid rgba(50, 40, 10, 0.8)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9753,
+    "selector": ".spine-screw::after",
+    "prop": "background",
+    "value": "rgba(30, 20, 5, 0.7)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9761,
+    "selector": ".album-page-container",
+    "prop": "background",
+    "value": "linear-gradient(145deg, #131a29 0%, #0c121e 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9762,
+    "selector": ".album-page-container",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.3)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9777,
+    "selector": ".album-page-header-row",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(200, 169, 74, 0.2)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9801,
+    "selector": ".album-page-nav-wrap",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.04)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9830,
+    "selector": ".album-flip-page-btn",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(200, 169, 74, 0.2), rgba(200, 169, 74, 0.08))"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9841,
+    "selector": ".album-flip-page-btn:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.3)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 9842,
+    "selector": ".album-flip-page-btn:hover",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9858,
+    "selector": ".album-slot-card",
+    "prop": "background",
+    "value": "rgba(18, 25, 40, 0.75)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9872,
+    "selector": ".album-slot-card:hover",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.55)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9877,
+    "selector": ".album-slot-card.is-filled",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9878,
+    "selector": ".album-slot-card.is-filled",
+    "prop": "background",
+    "value": "linear-gradient(180deg, rgba(20, 28, 44, 0.85), rgba(14, 20, 32, 0.85))"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9882,
+    "selector": ".album-slot-card.is-missing",
+    "prop": "background",
+    "value": "rgba(12, 16, 24, 0.55)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9883,
+    "selector": ".album-slot-card.is-missing",
+    "prop": "border",
+    "value": "1.5px dashed rgba(255, 255, 255, 0.14)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9887,
+    "selector": ".album-slot-card.is-missing:hover",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.45)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9888,
+    "selector": ".album-slot-card.is-missing:hover",
+    "prop": "background",
+    "value": "rgba(16, 22, 34, 0.75)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9922,
+    "selector": ".slot-coin-disc-face",
+    "prop": "border",
+    "value": "1.5px solid rgba(200, 169, 74, 0.6)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9928,
+    "selector": ".slot-coin-disc-face",
+    "prop": "background",
+    "value": "#080a0f"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9953,
+    "selector": ".slot-luster-ring",
+    "prop": "background",
+    "value": "linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, transparent 45%, rgba(200, 169, 74, 0.15) 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 9961,
+    "selector": ".slot-hole-cavity",
+    "prop": "background",
+    "value": "radial-gradient(circle at 35% 35%, #05070a 0%, #000000 95%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 9962,
+    "selector": ".slot-hole-cavity",
+    "prop": "border",
+    "value": "1.5px dashed rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 9972,
+    "selector": ".slot-hole-target-cross",
+    "prop": "color",
+    "value": "rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 9981,
+    "selector": ".slot-hole-lbl",
+    "prop": "color",
+    "value": "rgba(200, 169, 74, 0.7)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10017,
+    "selector": ".slot-status-pill.filled",
+    "prop": "background",
+    "value": "rgba(16, 185, 129, 0.16)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10018,
+    "selector": ".slot-status-pill.filled",
+    "prop": "border",
+    "value": "1px solid rgba(16, 185, 129, 0.45)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10019,
+    "selector": ".slot-status-pill.filled",
+    "prop": "color",
+    "value": "#34d399"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10023,
+    "selector": ".slot-status-pill.missing",
+    "prop": "background",
+    "value": "rgba(239, 68, 68, 0.12)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10024,
+    "selector": ".slot-status-pill.missing",
+    "prop": "border",
+    "value": "1px solid rgba(239, 68, 68, 0.35)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10025,
+    "selector": ".slot-status-pill.missing",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10029,
+    "selector": ".slot-status-pill.key-date",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.2)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10051,
+    "selector": ".album-shelf-header",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(200, 169, 74, 0.2)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10072,
+    "selector": ".shelf-filter-tab",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.04)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10082,
+    "selector": ".shelf-filter-tab:hover, .shelf-filter-tab.active",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.18)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10098,
+    "selector": ".album-binder-card",
+    "prop": "background",
+    "value": "#0f1420"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10099,
+    "selector": ".album-binder-card",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10120,
+    "selector": ".album-binder-card::before",
+    "prop": "border",
+    "value": "1px dashed rgba(200, 169, 74, 0.25)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10127,
+    "selector": ".binder-theme-navy",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #0d1a33 0%, #080d19 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10128,
+    "selector": ".binder-theme-navy",
+    "prop": "border-left",
+    "value": "6px solid #4a77c8"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10131,
+    "selector": ".binder-theme-chestnut",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #2b1810 0%, #140b07 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10132,
+    "selector": ".binder-theme-chestnut",
+    "prop": "border-left",
+    "value": "6px solid #b86e42"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10135,
+    "selector": ".binder-theme-forest",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #0f241a 0%, #07120d 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10136,
+    "selector": ".binder-theme-forest",
+    "prop": "border-left",
+    "value": "6px solid #3ca36e"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10139,
+    "selector": ".binder-theme-copper",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #2b190f 0%, #150c07 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10140,
+    "selector": ".binder-theme-copper",
+    "prop": "border-left",
+    "value": "6px solid #d97736"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10143,
+    "selector": ".binder-theme-burgundy",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #2b0f19 0%, #15070c 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10144,
+    "selector": ".binder-theme-burgundy",
+    "prop": "border-left",
+    "value": "6px solid #c23865"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10147,
+    "selector": ".binder-theme-obsidian",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #181920 0%, #0a0a0e 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10151,
+    "selector": ".binder-theme-crimson",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #2b0c10 0%, #150608 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10152,
+    "selector": ".binder-theme-crimson",
+    "prop": "border-left",
+    "value": "6px solid #e03144"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10155,
+    "selector": ".binder-theme-sage",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #14221a 0%, #09120e 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10156,
+    "selector": ".binder-theme-sage",
+    "prop": "border-left",
+    "value": "6px solid #5aa87e"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10159,
+    "selector": ".binder-theme-saddle",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #291a12 0%, #130c08 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10160,
+    "selector": ".binder-theme-saddle",
+    "prop": "border-left",
+    "value": "6px solid #a36538"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10163,
+    "selector": ".binder-theme-indigo",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #171536 0%, #0a091a 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10164,
+    "selector": ".binder-theme-indigo",
+    "prop": "border-left",
+    "value": "6px solid #635bff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10167,
+    "selector": ".binder-theme-gold",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #2b2210 0%, #141007 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10168,
+    "selector": ".binder-theme-gold",
+    "prop": "border-left",
+    "value": "6px solid #d9ab36"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10171,
+    "selector": ".binder-theme-cobalt",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #101c33 0%, #080e1a 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10172,
+    "selector": ".binder-theme-cobalt",
+    "prop": "border-left",
+    "value": "6px solid #367bd9"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10208,
+    "selector": ".binder-stats-row",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10252,
+    "selector": ".binder-track",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.08)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10259,
+    "selector": ".binder-fill",
+    "prop": "background",
+    "value": "linear-gradient(90deg, #c8a94a, #dfc06e)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10271,
+    "selector": ".binder-btn-open",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.16)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10279,
+    "selector": ".binder-btn-open:hover",
+    "prop": "color",
+    "value": "#08090c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10284,
+    "selector": ".binder-btn-holes",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.05)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10285,
+    "selector": ".binder-btn-holes",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.12)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10290,
+    "selector": ".binder-btn-holes:hover",
+    "prop": "border-color",
+    "value": "rgba(239, 68, 68, 0.5)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10291,
+    "selector": ".binder-btn-holes:hover",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10292,
+    "selector": ".binder-btn-holes:hover",
+    "prop": "background",
+    "value": "rgba(239, 68, 68, 0.1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10306,
+    "selector": ".wantlist-shell",
+    "prop": "background",
+    "value": "#0d121c"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10319,
+    "selector": ".wantlist-header",
+    "prop": "background",
+    "value": "linear-gradient(180deg, rgba(22, 30, 46, 0.95), rgba(13, 18, 28, 0.98))"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10320,
+    "selector": ".wantlist-header",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(200, 169, 74, 0.25)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10327,
+    "selector": ".wantlist-body",
+    "prop": "background",
+    "value": "#0a0e16"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10346,
+    "selector": ".wantlist-table th",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(200, 169, 74, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10357,
+    "selector": ".wantlist-table tr:hover td",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.08)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10369,
+    "selector": ".wantlist-target-badge.key",
+    "prop": "background",
+    "value": "rgba(239, 68, 68, 0.18)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10370,
+    "selector": ".wantlist-target-badge.key",
+    "prop": "border",
+    "value": "1px solid rgba(239, 68, 68, 0.5)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10371,
+    "selector": ".wantlist-target-badge.key",
+    "prop": "color",
+    "value": "#f87171"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10375,
+    "selector": ".wantlist-target-badge.semi-key",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.18)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10376,
+    "selector": ".wantlist-target-badge.semi-key",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.5)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10381,
+    "selector": ".wantlist-target-badge.standard",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.06)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10382,
+    "selector": ".wantlist-target-badge.standard",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.12)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10392,
+    "selector": ".interactive-album-row:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.12) !important"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10507,
+    "selector": ".pc-flip-action-btn, .cf-flip-badge",
+    "prop": "background",
+    "value": "rgba(14, 17, 24, 0.88)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10508,
+    "selector": ".pc-flip-action-btn, .cf-flip-badge",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.55)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10527,
+    "selector": ".pc-flip-action-btn:hover, .cf-flip-badge:hover",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.3)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10528,
+    "selector": ".pc-flip-action-btn:hover, .cf-flip-badge:hover",
+    "prop": "border-color",
+    "value": "#fff"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10529,
+    "selector": ".pc-flip-action-btn:hover, .cf-flip-badge:hover",
+    "prop": "color",
+    "value": "#fff"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10541,
+    "selector": ".slab-pedigree-footer",
+    "prop": "background",
+    "value": "linear-gradient(180deg, rgba(8, 12, 18, 0.75) 0%, rgba(14, 20, 32, 0.96) 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10542,
+    "selector": ".slab-pedigree-footer",
+    "prop": "border-top",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10567,
+    "selector": ".slab-footer-melt",
+    "prop": "color",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10581,
+    "selector": ".slab-footer-seal-text",
+    "prop": "color",
+    "value": "rgba(200, 169, 74, 0.85)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10607,
+    "selector": ".slot-luster-ring",
+    "prop": "background",
+    "value": "radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.25) 0%, transparent 60%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10626,
+    "selector": ".vault-door-overlay",
+    "prop": "background",
+    "value": "radial-gradient(circle at 50% 50%,\r\n    rgba(26, 29, 38, 0.98) 0%, rgba(14, 16, 22, 0.99) 50%, #06070a 100%)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10644,
+    "selector": ".vault-door-circle",
+    "prop": "background",
+    "value": "radial-gradient(circle at 35% 35%,\r\n    #4a5062 0%, #2a2e3a 45%, #181a22 100%)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10646,
+    "selector": ".vault-door-circle",
+    "prop": "border",
+    "value": "10px solid #232733"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10670,
+    "selector": ".vault-door-dial",
+    "prop": "background",
+    "value": "radial-gradient(circle at 40% 40%, #2f3444, #151720)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10681,
+    "selector": ".vault-door-dial::before",
+    "prop": "border",
+    "value": "1px dashed rgba(200, 169, 74, 0.45)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10713,
+    "selector": ".vault-door-bolt",
+    "prop": "background",
+    "value": "linear-gradient(180deg, #60687c, #303544)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10739,
+    "selector": ".vault-interior::before",
+    "prop": "background",
+    "value": "repeating-linear-gradient(\r\n      90deg,\r\n      transparent 0px,\r\n      transparent 79px,\r\n      rgba(16, 185, 129, 0.03"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10768,
+    "selector": ".vault-section-head",
+    "prop": "border-bottom",
+    "value": "1px solid rgba(200, 169, 74, 0.15)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10790,
+    "selector": ".bullion-lot-card",
+    "prop": "background",
+    "value": "linear-gradient(145deg, #131720, #0e1016)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10791,
+    "selector": ".bullion-lot-card",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.18)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10841,
+    "selector": ".bullion-tube-container",
+    "prop": "border",
+    "value": "2px solid rgba(255, 255, 255, 0.12)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10843,
+    "selector": ".bullion-tube-container",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.04)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10852,
+    "selector": ".bullion-round",
+    "prop": "background",
+    "value": "linear-gradient(180deg, #d4d8e0, #94a3b8, #b0b8c8)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10854,
+    "selector": ".bullion-round",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.25)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10867,
+    "selector": ".bullion-round::after",
+    "prop": "color",
+    "value": "rgba(0, 0, 0, 0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10876,
+    "selector": ".bullion-bar",
+    "prop": "background",
+    "value": "linear-gradient(135deg, #c8cdd8, #8892a4, #a0a8b8, #c0c8d4)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10878,
+    "selector": ".bullion-bar",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.2)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10896,
+    "selector": ".bullion-bar-stamp",
+    "prop": "color",
+    "value": "#1c2330"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10905,
+    "selector": ".bullion-bar-weight",
+    "prop": "color",
+    "value": "#141a26"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10914,
+    "selector": ".bullion-gold-disc",
+    "prop": "background",
+    "value": "radial-gradient(circle at 35% 30%,\r\n    #fde68a, #eab308, #ca8a04, #a16207)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10916,
+    "selector": ".bullion-gold-disc",
+    "prop": "border",
+    "value": "2px solid #fbbf24"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10931,
+    "selector": ".bullion-gold-disc::after",
+    "prop": "color",
+    "value": "rgba(0, 0, 0, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10939,
+    "selector": ".bullion-mint-box",
+    "prop": "background",
+    "value": "linear-gradient(145deg, #1e3a5f, #0f2847)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10940,
+    "selector": ".bullion-mint-box",
+    "prop": "border",
+    "value": "2px solid rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 10962,
+    "selector": ".bullion-mint-box-label",
+    "prop": "color",
+    "value": "#ecd9a0"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10971,
+    "selector": ".bullion-housing",
+    "prop": "background",
+    "value": "linear-gradient(145deg, #2a1f12, #1a140b)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10972,
+    "selector": ".bullion-housing",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.25)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 10988,
+    "selector": ".bullion-stamp-frame",
+    "prop": "background",
+    "value": "linear-gradient(145deg, #f5f0e0, #e8dfc8)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 10989,
+    "selector": ".bullion-stamp-frame",
+    "prop": "border",
+    "value": "3px solid rgba(200, 169, 74, 0.5)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11013,
+    "selector": ".bullion-lot-id",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.15)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11015,
+    "selector": ".bullion-lot-id",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11029,
+    "selector": ".bullion-lot-purity.ag",
+    "prop": "background",
+    "value": "rgba(148, 163, 184, 0.2)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 11030,
+    "selector": ".bullion-lot-purity.ag",
+    "prop": "color",
+    "value": "#cbd5e1"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11031,
+    "selector": ".bullion-lot-purity.ag",
+    "prop": "border",
+    "value": "1px solid rgba(148, 163, 184, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11034,
+    "selector": ".bullion-lot-purity.au",
+    "prop": "background",
+    "value": "rgba(234, 179, 8, 0.15)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 11035,
+    "selector": ".bullion-lot-purity.au",
+    "prop": "color",
+    "value": "#fbbf24"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11036,
+    "selector": ".bullion-lot-purity.au",
+    "prop": "border",
+    "value": "1px solid rgba(234, 179, 8, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11056,
+    "selector": ".bullion-lot-housing",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11068,
+    "selector": ".bullion-lot-melt-strip",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.35)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11099,
+    "selector": ".vault-dash-card",
+    "prop": "background",
+    "value": "linear-gradient(145deg, #131720, #0e1016)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11100,
+    "selector": ".vault-dash-card",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.18)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11194,
+    "selector": ".vault-custody-metric",
+    "prop": "background",
+    "value": "linear-gradient(145deg, #131720, #0e1016)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11195,
+    "selector": ".vault-custody-metric",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.15)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11230,
+    "selector": ".spot-sparkline-svg polyline.ag-spark",
+    "prop": "stroke",
+    "value": "#94a3b8"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11231,
+    "selector": ".spot-sparkline-svg polyline.au-spark",
+    "prop": "stroke",
+    "value": "#eab308"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11232,
+    "selector": ".spot-sparkline-svg polyline.pt-spark",
+    "prop": "stroke",
+    "value": "#10b981"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11233,
+    "selector": ".spot-sparkline-svg polyline.ratio-spark",
+    "prop": "stroke",
+    "value": "#06b6d4"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11236,
+    "selector": ".spot-range-bar",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.06)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11267,
+    "selector": ".silver-stack-bar-wrap",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.3)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11277,
+    "selector": ".silver-stack-bar",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.03)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11295,
+    "selector": ".silver-stack-bar .ss-segment .ss-tooltip",
+    "prop": "background",
+    "value": "#1a1d26"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11337,
+    "selector": ".vault-sort-pill",
+    "prop": "border",
+    "value": "1px solid rgba(255, 255, 255, 0.1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11344,
+    "selector": ".vault-sort-pill.active",
+    "prop": "background",
+    "value": "rgba(200, 169, 74, 0.15)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11349,
+    "selector": ".vault-sort-pill:hover",
+    "prop": "border-color",
+    "value": "rgba(200, 169, 74, 0.4)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11363,
+    "selector": ".asw-inline-bar .asw-bar-track",
+    "prop": "background",
+    "value": "rgba(255, 255, 255, 0.06)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11373,
+    "selector": ".asw-inline-bar .asw-bar-fill",
+    "prop": "background",
+    "value": "linear-gradient(90deg, #64748b, #cbd5e1)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11387,
+    "selector": ".vault-scenario-panel",
+    "prop": "background",
+    "value": "linear-gradient(145deg, #141824, #0b0d13)"
+   },
+   {
+    "kind": "line",
+    "file": "styles.css",
+    "line": 11388,
+    "selector": ".vault-scenario-panel",
+    "prop": "border",
+    "value": "1px solid rgba(200, 169, 74, 0.28)"
+   },
+   {
+    "kind": "surface",
+    "file": "styles.css",
+    "line": 11434,
+    "selector": ".scenario-card",
+    "prop": "background",
+    "value": "rgba(0, 0, 0, 0.3)"
+   },
+   {
+    "kind": "text",
+    "file": "styles.css",
+    "line": 11566,
+    "selector": "body.print-reshoot #reshoot, body.print-reshoot #reshoot *",
+    "prop": "color",
+    "value": "#000 !important"
+   }
+  ],
+  "jsHard": [
+   {
+    "line": 957,
+    "text": "rimStroke = \"#fef08a\";"
+   },
+   {
+    "line": 958,
+    "text": "reliefFill = \"#fef08a\";"
+   },
+   {
+    "line": 959,
+    "text": "reliefStroke = \"rgba(254, 240, 138, 0.85)\";"
+   },
+   {
+    "line": 962,
+    "text": "rimStroke = \"#fed7aa\";"
+   },
+   {
+    "line": 963,
+    "text": "reliefFill = \"#fed7aa\";"
+   },
+   {
+    "line": 964,
+    "text": "reliefStroke = \"rgba(254, 215, 170, 0.85)\";"
+   },
+   {
+    "line": 967,
+    "text": "rimStroke = \"#f8fafc\";"
+   },
+   {
+    "line": 968,
+    "text": "reliefFill = \"#ffffff\";"
+   },
+   {
+    "line": 969,
+    "text": "reliefStroke = \"rgba(255, 255, 255, 0.85)\";"
+   },
+   {
+    "line": 972,
+    "text": "rimStroke = \"#f1f5f9\";"
+   },
+   {
+    "line": 973,
+    "text": "reliefFill = \"#f1f5f9\";"
+   },
+   {
+    "line": 974,
+    "text": "reliefStroke = \"rgba(241, 245, 249, 0.85)\";"
+   },
+   {
+    "line": 1003,
+    "text": "<circle cx=\"50\" cy=\"50\" r=\"48\" fill=\"none\" stroke=\"rgba(200,169,74,0.15)\" stroke-width=\"0.75\"/>"
+   },
+   {
+    "line": 1004,
+    "text": "<circle cx=\"50\" cy=\"50\" r=\"47.2\" fill=\"none\" stroke=\"rgba(0,0,0,0.5)\" stroke-width=\"0.5\"/>"
+   },
+   {
+    "line": 1007,
+    "text": "<circle cx=\"50\" cy=\"50\" r=\"${scaledR.toFixed(1)}\" fill=\"url(#${gradId})\" stroke=\"#050608\" stroke-width=\"0.8\" filter=\"url(#pl-shadow-${uid})\"/>"
+   },
+   {
+    "line": 2681,
+    "text": "<button type=\"button\" class=\"btn small\" id=\"cf-btn-dossier\" style=\"border-color:rgba(200,169,74,0.4)\">Inspect Dossier →</button>"
+   },
+   {
+    "line": 2733,
+    "text": "stage.innerHTML = `<p class=\"empty\" style=\"color:#94a3b8;padding:2rem 0\">No specimens match current criteria</p>`;"
+   },
+   {
+    "line": 2735,
+    "text": "if (placard) placard.innerHTML = `<span style=\"color:#94a3b8\">No specimens</span>`;"
+   },
+   {
+    "line": 3093,
+    "text": "<button type=\"button\" class=\"btn small\" id=\"cf-btn-spatial\" style=\"background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)\" title=\"Inspect on 3D Spatial Museum Table (WebX"
+   },
+   {
+    "line": 3094,
+    "text": "<button type=\"button\" class=\"btn small\" id=\"cf-btn-deepzoom\" style=\"background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)\" title=\"Inspect on 40× Gigapixel Forensic Varie"
+   },
+   {
+    "line": 3315,
+    "text": "${flipFilter.staging ? `<button type=\"button\" class=\"btn small active\" id=\"flip-staging-clear\" style=\"background:var(--gold);color:#08090c;font-weight:700\" title=\"Clear Staging Filter\">📸 Phase 2 Stag"
+   },
+   {
+    "line": 3318,
+    "text": "${(flipFilter.iso || flipFilter.country) ? `<button type=\"button\" class=\"btn small\" id=\"flip-return-atlas\" style=\"border:1px solid var(--gold);color:var(--gold-soft);background:rgba(200,169,74,0.12);f"
+   },
+   {
+    "line": 3824,
+    "text": "${spotTileHtml(\"SILVER (XAG/OZ)\", \"PRIMARY\", \"background:rgba(200,169,74,0.15);color:var(--gold);font-size:0.65rem\", spotAg, \"$\" + spotAg.toFixed(2), priorAg, v => \"$\" + v.toFixed(2), \"ag-spark\")}"
+   },
+   {
+    "line": 3825,
+    "text": "${spotTileHtml(\"GOLD (XAU/OZ)\", \"RESERVE\", \"background:rgba(234,179,8,0.15);color:#eab308;font-size:0.65rem\", spotAu, \"$\" + spotAu.toFixed(2), priorAu, v => \"$\" + v.toFixed(2), \"au-spark\")}"
+   },
+   {
+    "line": 3826,
+    "text": "${spotTileHtml(\"GOLD / SILVER RATIO\", \"GSR\", \"background:rgba(6,182,212,0.15);color:#06b6d4;font-size:0.65rem\", parseFloat(gsRatio), gsRatio + \":1\", priorRatio, v => v.toFixed(1) + \":1\", \"ratio-spark\""
+   },
+   {
+    "line": 3828,
+    "text": "<div class=\"spot-metal-label\"><span>BULLION BOARD Δ</span><span class=\"badge\" style=\"background:rgba(16,185,129,0.15);color:#10b981;font-size:0.65rem\">LEDGER</span></div>"
+   },
+   {
+    "line": 3839,
+    "text": "Directly custodying <strong style=\"color:var(--gold)\">${num(totalAgOz, 2)} oz pure silver</strong> and <strong style=\"color:#eab308\">${num(totalAuOz, 4)} oz fine gold</strong>. Valued at the published"
+   },
+   {
+    "line": 3884,
+    "text": "<div style=\"font-family:var(--mono);font-size:1.6rem;font-weight:700;color:#94a3b8\">${money(totalPhysicalMelt)}</div>"
+   },
+   {
+    "line": 3893,
+    "text": "<div style=\"font-family:var(--mono);font-size:1.2rem;font-weight:700;color:#10b981\">+${money(Math.max(0, totalEst - totalPhysicalMelt))}</div>"
+   },
+   {
+    "line": 3897,
+    "text": "<div style=\"height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;display:flex\">"
+   },
+   {
+    "line": 3898,
+    "text": "<div style=\"width:${totalEst > 0 ? ((totalPhysicalMelt / totalEst) * 100).toFixed(1) : 0}%;background:linear-gradient(90deg,#64748b,#94a3b8);border-radius:4px 0 0 4px\" title=\"Melt value\"></div>"
+   },
+   {
+    "line": 3899,
+    "text": "<div style=\"flex:1;background:linear-gradient(90deg,#c8a94a,#eab308);border-radius:0 4px 4px 0\" title=\"Numismatic premium\"></div>"
+   },
+   {
+    "line": 3916,
+    "text": "return `<div class=\"ss-segment\" style=\"width:${Math.max(0.5, pct).toFixed(2)}%;background:rgba(148,163,184,${(intensity / 100).toFixed(2)})\" data-scan=\"${esc(f.scan)}\" title=\"${esc(f.ser || f.scan)}\">"
+   },
+   {
+    "line": 4405,
+    "text": "<div class=\"lab-card-pro reveal\" id=\"phase2-staging-card\" style=\"border:1px solid var(--gold);background:linear-gradient(135deg, rgba(200,169,74,0.08), rgba(14,16,22,0.95))\">"
+   },
+   {
+    "line": 4409,
+    "text": "<span class=\"badge\" style=\"font-family:var(--mono);font-size:0.75rem;background:var(--gold);color:#08090c;font-weight:700\">PHYSICAL STAGING DIRECTORY</span>"
+   },
+   {
+    "line": 4410,
+    "text": "<span class=\"badge\" style=\"font-family:var(--mono);font-size:0.7rem;background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)\">PHASE 2 MACRO RIG</span>"
+   },
+   {
+    "line": 4427,
+    "text": "<div style=\"margin-top:1rem;padding:0.75rem 1rem;background:rgba(0,0,0,0.4);border-radius:8px;border:1px dashed rgba(200,169,74,0.35);display:flex;align-items:center;justify-content:space-between;gap:"
+   },
+   {
+    "line": 4429,
+    "text": "📁 <strong>Google Drive Staging Folder:</strong> <code style=\"background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px\">G:\\\\My Drive\\\\Titan Reliquary\\\\PHOTO_STAGING\\\\STAGE_1_RAW\\\\</code>"
+   },
+   {
+    "line": 4438,
+    "text": "<div class=\"table-wrap\" style=\"background:rgba(8,9,12,0.6);border-radius:8px;border:1px solid var(--line)\">"
+   },
+   {
+    "line": 4456,
+    "text": "<td><span class=\"badge\" style=\"background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)\">Awaiting Macro Scan</span></td>"
+   },
+   {
+    "line": 4464,
+    "text": "<td><span class=\"badge\" style=\"background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)\">Awaiting Macro Scan</span></td>"
+   },
+   {
+    "line": 4472,
+    "text": "<td><span class=\"badge\" style=\"background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)\">Awaiting Macro Scan</span></td>"
+   },
+   {
+    "line": 4480,
+    "text": "<td><span class=\"badge\" style=\"background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)\">Awaiting Macro Scan</span></td>"
+   },
+   {
+    "line": 4488,
+    "text": "<td><span class=\"badge\" style=\"background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--line-strong)\">Awaiting Macro Scan</span></td>"
+   },
+   {
+    "line": 4504,
+    "text": "<span class=\"badge\" style=\"font-family:var(--mono);font-size:0.7rem;background:rgba(200,169,74,0.15);color:var(--gold-soft);border:1px solid var(--gold)\">PHASE 2 READY</span>"
+   },
+   {
+    "line": 4655,
+    "text": "<div id=\"sb-error-badge\" style=\"font-size:0.75rem;padding:0.5rem 0.75rem;border-radius:6px;background:rgba(200,169,74,0.1);border:1px solid var(--line);color:var(--ink)\">"
+   },
+   {
+    "line": 4781,
+    "text": "g.strokeStyle = \"rgba(255, 255, 255, 0.15)\";"
+   },
+   {
+    "line": 4802,
+    "text": "g.fillStyle = \"rgba(200, 169, 74, 0.85)\";"
+   },
+   {
+    "line": 4812,
+    "text": "g.fillStyle = \"#12141c\";"
+   },
+   {
+    "line": 4816,
+    "text": "g.strokeStyle = \"rgba(200, 169, 74, 0.4)\";"
+   },
+   {
+    "line": 4824,
+    "text": "g.fillStyle = \"rgba(200, 169, 74, 0.25)\";"
+   },
+   {
+    "line": 4827,
+    "text": "g.fillStyle = \"rgba(240, 215, 140, 0.75)\";"
+   },
+   {
+    "line": 4836,
+    "text": "g.fillStyle = \"rgba(240, 215, 140, 0.9)\";"
+   },
+   {
+    "line": 4847,
+    "text": "g.fillStyle = \"rgba(100, 180, 255, 0.22)\";"
+   },
+   {
+    "line": 4850,
+    "text": "g.fillStyle = \"rgba(180, 220, 255, 0.85)\";"
+   },
+   {
+    "line": 4863,
+    "text": "g.fillStyle = \"rgba(180, 220, 255, 0.95)\";"
+   },
+   {
+    "line": 4868,
+    "text": "g.strokeStyle = \"#38bdf8\";"
+   },
+   {
+    "line": 4875,
+    "text": "g.fillStyle = \"#38bdf8\";"
+   },
+   {
+    "line": 4900,
+    "text": "badgeEl.innerHTML = `⚠️ <strong style=\"color:#f59e0b\">Rotated Die Error Detected:</strong> ${rot}° (${clockH}:00). Variance is <strong>${dev}°</strong> from US coin standard. Potential collector premi"
+   },
+   {
+    "line": 4901,
+    "text": "badgeEl.style.borderColor = \"#f59e0b\";"
+   },
+   {
+    "line": 5176,
+    "text": "<div class=\"album-binder-card binder-theme-gold staging-binder-card\" data-album-family=\"${esc(g.family)}\" style=\"border:1.5px solid var(--gold);background:linear-gradient(135deg, rgba(200,169,74,0.15)"
+   },
+   {
+    "line": 5179,
+    "text": "<span class=\"badge\" style=\"background:var(--gold);color:#08090c;font-weight:700\">MACRO RIG QUEUE</span>"
+   },
+   {
+    "line": 5227,
+    "text": "<span class=\"badge\" style=\"background:rgba(255,255,255,0.08);color:var(--gold-soft);font-size:0.68rem\">${cfg.maker.toUpperCase()}</span>"
+   },
+   {
+    "line": 5261,
+    "text": "return `<tr class=\"staging-album-row\" style=\"background:rgba(200,169,74,0.12);font-weight:600;cursor:pointer\" title=\"Click to view Pro Photo Staging Album in Lab\">"
+   },
+   {
+    "line": 5308,
+    "text": "<button type=\"button\" class=\"btn small btn-shelf-wantlist\" id=\"btn-shelf-wantlist\" style=\"border-color:var(--gold);color:var(--gold-soft);background:rgba(200,169,74,0.12);font-weight:700\" title=\"Gener"
+   },
+   {
+    "line": 5601,
+    "text": "<td><span class=\"badge\" style=\"background:rgba(255,255,255,0.06);color:var(--gold-soft);font-family:var(--mono);font-size:0.7rem\">${esc(h.albumId)}</span></td>"
+   },
+   {
+    "line": 6360,
+    "text": "<div class=\"ds-caliper-box\" style=\"border-color: rgba(200, 169, 74, 0.35); background: linear-gradient(180deg, rgba(22,19,16,0.9), rgba(14,13,10,0.95));\">"
+   },
+   {
+    "line": 6890,
+    "text": "g.fillStyle = \"rgba(0,0,0,0.08)\"; g.fillRect(0, 0, w, h);"
+   }
+  ],
+  "union": [
+   "--abyss-brass",
+   "--abyss-brass-deep",
+   "--bad",
+   "--bg",
+   "--bg2",
+   "--bh-blue",
+   "--bh-yellow",
+   "--border",
+   "--cardmeta",
+   "--case-bg",
+   "--case-bg2",
+   "--case-faint",
+   "--case-gold",
+   "--case-gold-soft",
+   "--case-ink",
+   "--case-muted",
+   "--case-on-gold",
+   "--case-surface",
+   "--case-surface2",
+   "--chip",
+   "--clay-blue",
+   "--clay-green",
+   "--clay-pink",
+   "--clay-yellow",
+   "--comic-blue",
+   "--comic-yellow",
+   "--danger",
+   "--deco",
+   "--deco-soft",
+   "--drawerbar-bg",
+   "--ease-out",
+   "--elev-1",
+   "--elev-2",
+   "--elev-3",
+   "--faint",
+   "--focus",
+   "--font",
+   "--foot-bg",
+   "--glass-bg",
+   "--glass-bg2",
+   "--glass-blur",
+   "--glass-edge",
+   "--gold",
+   "--gold-deep",
+   "--gold-dim",
+   "--gold-soft",
+   "--grain-op",
+   "--hold-bg",
+   "--ink",
+   "--ink-soft",
+   "--inv-bg",
+   "--inv-bg2",
+   "--inv-surface",
+   "--inv-surface2",
+   "--k-amethyst",
+   "--k-brass",
+   "--k-plum",
+   "--k-rule",
+   "--k-rule-v",
+   "--k-teal",
+   "--line",
+   "--line-strong",
+   "--missing",
+   "--mono",
+   "--muted",
+   "--neon-cyan",
+   "--neon-cyan-rgb",
+   "--neon-pink",
+   "--neon-pink-rgb",
+   "--neon-sun1",
+   "--neon-violet",
+   "--ok",
+   "--on-gold",
+   "--panel",
+   "--paper-bg",
+   "--paper-bg2",
+   "--paper-faint",
+   "--paper-gold",
+   "--paper-gold-soft",
+   "--paper-ink",
+   "--paper-muted",
+   "--paper-on-gold",
+   "--paper-surface",
+   "--paper-surface2",
+   "--ph-bg",
+   "--px-pink",
+   "--px-teal",
+   "--radius",
+   "--row-hover",
+   "--scheme",
+   "--scrim",
+   "--sel-bg",
+   "--serif",
+   "--shadow",
+   "--skeleton1",
+   "--skeleton2",
+   "--sol-bl",
+   "--sol-br",
+   "--sol-tl",
+   "--sol-tr",
+   "--surface",
+   "--surface2",
+   "--tabgrad1",
+   "--tabgrad2",
+   "--text",
+   "--th-bg",
+   "--toastgrad1",
+   "--toastgrad2",
+   "--ui-bw",
+   "--ui-dot",
+   "--ui-edge",
+   "--ui-grid",
+   "--ui-grid2",
+   "--ui-hard",
+   "--warn",
+   "--wing-dur",
+   "--wing-rise"
+  ]
+ },
+ "runtime": null
+}
