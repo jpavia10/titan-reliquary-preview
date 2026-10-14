@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<title>Motion Lab · All studies</title>
+<!-- Titan Reliquary · Motion Lab (fix list #56): the list of studies. Each study is its own page in this folder and is never loaded by
+     the app. Studies follow the app's one motion setting (localStorage titan.motion: Off = a still picture, Calm = slower and lighter,
+     Full = everything) and the phone's "reduce motion" setting; each page has Still / Calm / Full buttons of its own as well.
+     Plain HTML and CSS, no scripts, no network beyond this folder. Studies 3 to 6 are small interface studies (coin flip, tile to coin
+     view, confirm seal, album settle); studies 1 and 2 are the big GPU dust pieces, so try those on the phone first. -->
+<style>
+  :root { --bg: #05080f; --ink: #f1f5ff; --muted: #c3cde6; --line: rgba(190,210,255,.34); --accent: #8fb4ff; --card: #0d1424; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  body { min-height: 100vh; padding: max(20px, env(safe-area-inset-top)) 16px calc(32px + env(safe-area-inset-bottom)); }
+  .wrap { max-width: 44rem; margin: 0 auto; }
+  h1 { margin: 8px 0 6px; font-size: 2rem; line-height: 1.2; font-weight: 700; letter-spacing: .01em; }
+  .lede { margin: 0 0 22px; color: var(--muted); font-size: 1.05rem; }
+  ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  li a { display: grid; grid-template-columns: 3.2rem 1fr; gap: 4px 14px; align-items: center; min-height: 64px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); color: var(--ink); text-decoration: none; }
+  li a:hover { border-color: var(--accent); }
+  li a:focus-visible, .foot a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  .n { grid-row: 1 / span 2; font-size: 1.9rem; font-weight: 700; color: var(--accent); text-align: center; }
+  .t { font-size: 1.3rem; font-weight: 700; line-height: 1.25; }
+  .d { color: var(--muted); font-size: 1rem; line-height: 1.45; grid-column: 2; }
+  .foot { margin-top: 26px; color: var(--muted); font-size: 1rem; }
+  .foot a { display: inline-flex; align-items: center; min-height: 48px; color: var(--ink); text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Motion Lab</h1>
+  <p class="lede">Test studies for fix-list #56. None of them is in the app yet; the owner picks which ones go in. Best on the phone.</p>
+  <ol>
+    <li><a href="dust.html"><span class="n">1</span><span class="t">Gold dust</span><span class="d">Dust gathers into a real coin, the countries and an album page as you scroll.</span></a></li>
+    <li><a href="morph.html"><span class="n">2</span><span class="t">Morph</span><span class="d">A sheet of dust behind coin cards becomes a coin, its year, its country, an album page and light ribbons.</span></a></li>
+    <li><a href="flip.html"><span class="n">3</span><span class="t">Coin flip</span><span class="d">Multi-coin gallery flip across 15 specimens: medal & coin alignment, procedural Web Audio acoustics, gyro tilt, and drag physics.</span></a></li>
+    <li><a href="coin-flip.html"><span class="n">3B</span><span class="t">Deep physics flip</span><span class="d">Grok Bot's deep physics turnover study with drag-to-spin, dynamic specular rim light, and live FPS monitor.</span></a></li>
+    <li><a href="tile.html"><span class="n">4</span><span class="t">Tile to coin view</span><span class="d">A gallery tile grows into the coin view.</span></a></li>
+    <li><a href="seal.html"><span class="n">5</span><span class="t">Confirm seal</span><span class="d">A seal presses down when an AI guess becomes Owner verified.</span></a></li>
+    <li><a href="album.html"><span class="n">6</span><span class="t">Album settle</span><span class="d">A coin settles into its hole in an album page.</span></a></li>
+  </ol>
+  <p class="foot">Motion follows the app's setting (Off shows still pictures). <a href="../">Back to Titan Reliquary</a></p>
+</div>
+</body>
+</html>
