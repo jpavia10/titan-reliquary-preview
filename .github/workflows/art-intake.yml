@@ -50,7 +50,8 @@ jobs:
             case "$id$name" in *[!A-Za-z0-9_.-]*) echo "skip unsafe: $name"; continue;; esac
             out="intake/$REQ/$name"
             curl -sSL --fail -o "$out" "https://drive.usercontent.google.com/download?id=$id&export=download&confirm=t"
-            if head -c 512 "$out" | grep -qi '<html'; then
+            # An .html file is HTML by design; anything else that starts like a web page is Drive's sign-in or error page.
+            if case "$name" in *.html|*.htm) false;; *) true;; esac && head -c 512 "$out" | grep -qi '<html'; then
               echo "::error::$name: Drive returned a web page, not the file. Share the art-incoming folder as 'Anyone with the link: Viewer'."
               rm -f "$out"; exit 1
             fi
