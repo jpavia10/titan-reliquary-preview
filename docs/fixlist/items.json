@@ -1,12 +1,12 @@
 {
- "version": 23,
+ "version": 24,
  "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most: the system that researches the collection by itself first, then truth and safety, polish last. Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
  "sotu": {
   "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
   "strong": [
    [
     "A research system that runs itself.",
-    "Since Oct 9 every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Grok, Muse and Gemini have assignments now; the blind photo tests recur on their own."
+    "Since Oct 9 every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Grok and Muse have assignments now (Gemini is paused); the blind photo tests recur on their own."
    ],
    [
     "Trust machinery.",
@@ -27,8 +27,8 @@
   ],
   "holding": [
    [
-    "Most facts are still not proven.",
-    "Of 3,233 facts on screen, 602 are cited or confirmed (18.6 %), 25 of them Checked by two sources; 1,870 still come from the original ledger unchecked and 631 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs."
+    "Half the facts are still not proven.",
+    "Of 3,362 facts on screen, 1,628 are cited or confirmed (48.4 %, up from 19.9 % before the Oct 14 intake), 227 of them Checked by two sources; 1,129 still come from the original ledger unchecked and 420 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs."
    ],
    [
     "The loop needs me to turn it.",
@@ -36,11 +36,11 @@
    ],
    [
     "Only two AIs research today.",
-    "Gemini is relaunching through its access check; until a third AI is proven, disagreements between Grok and Muse wait for me (#101)."
+    "Gemini is paused (the Argon release broke its app, Oct 14); until it is back, disagreements between Grok and Muse wait for me (#101)."
    ],
    [
     "Photos are the bottleneck.",
-    "77 coins have no photo, 194 only one side, none have pro photos. The new Scan page makes each one a few taps; Phase 2 cannot start before them."
+    "79 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them."
    ],
    [
     "The look is not decided.",
@@ -50,15 +50,15 @@
   "next": [
    [
     "1. Turn guesses into facts.",
-    "Answer the 14 questions and the new “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand."
+    "Answer the 17 questions and the “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand."
    ],
    [
     "2. Let the loop run.",
-    "Do the one-time install for #92 (docs/INTAKE_BRIDGE.md; it also starts the Drive backup), give Gemini its WORK QUEUE doc (it starts with a 3-question access check) and add the free Numista key."
+    "Do the one-time install for #92 (docs/INTAKE_BRIDGE.md; it also starts the Drive backup) and add the free Numista key; bring Gemini back when its app works."
    ],
    [
     "3. Measure, then decide.",
-    "The locked test (Grok, Muse) and the main test (Gemini) decide who reads Phase 2; then pick the look (#30)."
+    "Grok's locked test is in (76 %, 3.0 % invented); Muse's locked test and Gemini's are still due. Then pick who reads Phase 2, then the look (#30)."
    ]
   ]
  },
@@ -69,11 +69,11 @@
   ],
   [
    "Phase 2 pro photos (#61)",
-   "needs serial numbers (#5) ← Phase 1 at 100 % (now 175 of 290: Scan a coin) ← the missing photos and mint marks + your answers (#3)"
+   "needs serial numbers (#5) ← Phase 1 at 100 % (now 203 of 303: Scan a coin) ← the missing photos and mint marks + your answers (#3)"
   ],
   [
    "Which AI reads Phase 2 (#19)",
-   "needs the locked test from Grok and Muse (due on their pages now) ← the main test from Gemini (#4)"
+   "needs Muse's locked test (due on its page) and Gemini's when it is back ← Grok's is in: 76 % right, 3.0 % invented"
   ],
   [
    "Reading a coin inside the app (#65 next step)",
@@ -81,11 +81,11 @@
   ],
   [
    "Disagreements settled without me (#101)",
-   "needs a third research AI through the onboarding (#97: Gemini first)"
+   "needs a third research AI through the onboarding (#97: Gemini, paused until its app works)"
   ],
   [
    "Real collector values for every coin (#62)",
-   "needs Grok's appraisal homework (running) + your free Numista API key (the weekly price job)"
+   "needs Grok's appraisal homework (running) + your free Numista API key (the weekly price job); album costs (#107) use the same prices"
   ],
   [
    "Motion and the gold dust in the app (#63)",
@@ -102,16 +102,16 @@
    "follow docs/INTAKE_BRIDGE.md (github.com/jpavia10/titan-reliquary-preview/blob/main/docs/INTAKE_BRIDGE.md): one Apps Script project and two GitHub secrets. Then the AIs' files merge by themselves every hour and Drive gets a daily backup (#92, #93, #103). Never paste the URL or the key in a chat; tell me “the bridge is installed” and I run the first check."
   ],
   [
-   "Answer the 14 questions in the app",
-   "(Hall footer → Questions), and the new “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77)."
+   "Answer the 17 questions in the app",
+   "(Hall footer → Questions), and the “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77)."
   ],
   [
    "Photograph the missing coins with Scan a coin",
    "(Hall footer, or Lab → Shoot list → Scan with the camera): it checks each photo, names it and sends it to Drive STAGING. Unlocks Phase 1 at 100 %."
   ],
   [
-   "Start Gemini:",
-   "paste the link to its Drive doc “WORK QUEUE for Gemini” and say “do the first task”. It begins with a 3-question access check, then the photo test."
+   "Gemini is paused:",
+   "when its app works again, say “Gemini is back” and paste the link to its Drive doc “WORK QUEUE for Gemini”; it finishes its open homework first, then the locked photo test."
   ],
   [
    "Get a free Numista API key",
@@ -130,16 +130,16 @@
    "Or can the common side of common coins be shared from one good photo? It sets the size of the “other side” batch (194 coins) and #61."
   ],
   [
-   "Opening: the film now plays once a day by default,",
-   "and every later open shows the theme's own 3-second motion. Change it in Scene Studio → Settings → Opening (Film every time, Theme motion, None) (#112)."
+   "Opening: every launch plays the Grok film, then the theme's motion,",
+   "and picking a theme plays its motion too; 9 new Grok films joined the rotation on Oct 14. Change it in Scene Studio → Settings → Opening (#112)."
   ],
   [
    "Re-upload 4 photos smaller than 7 MB:",
    "C105–C113, C114, C115/116, C117–C119."
   ],
   [
-   "Try the Motion Lab's six studies and pick what goes into the app:",
-   "jpavia10.github.io/titan-reliquary-preview/motion-lab/ (coin flip, tile to coin view, Confirm seal, album settle, Morph, gold dust) (#56, #63), and say what sounds or feels off (#22)."
+   "Try the Motion Lab's studies and pick what goes into the app:",
+   "jpavia10.github.io/titan-reliquary-preview/motion-lab/ (coin flip in three versions, tile to coin view, Confirm seal, album settle, Morph, gold dust) (#56, #63), and say what sounds or feels off (#22)."
   ],
   [
    "Try the new theme effects on your phone:",
@@ -420,7 +420,7 @@
   },
   "3": {
    "title": "Settle the open curation questions",
-   "desc": "14 questions wait in the app (Hall footer → Questions), plus the new “Where did they come from?” section (#77). With the coin in hand each takes seconds. The research loop no longer leaves answered questions open: 13 stale research questions were closed on Oct 9.",
+   "desc": "17 questions wait in the app (Hall footer → Questions), plus the “Where did they come from?” section (#77). New on Oct 14: the UK penny (1922 or 1932?), the Australia 1983 1 cent (the back of C288 or a second coin?) and the Mexico 1981 20 pesos. With the coin in hand each takes seconds.",
    "needs": "you, with the coins",
    "unlocks": "Phase 1 at 100 %, #5",
    "size": "medium",
@@ -432,8 +432,8 @@
   },
   "4": {
    "title": "Photo-model bake-off",
-   "desc": "Grok and Muse took the main 30-coin test on Oct 8 (Grok 78 % right, 3.8 % invented, never wrong when sure; Muse 71 %, 5.3 %, 17 %). The test now recurs by itself: it is on Gemini's page as due, and every AI retakes it every 6 months so we see who improves.",
-   "needs": "Gemini's access check (ChatGPT is parked)",
+   "desc": "Main 30-coin test: Grok 78 % right, 3.8 % invented (Oct 8); Muse 71 %, 5.3 %, 17 % false confidence; Gemini 85 %, 3.0 % (Oct 12, but it worked from a copy of the repository in Drive, so its catalogue numbers may come from our own records: a weak measure). The test recurs by itself every 6 months.",
+   "needs": "Gemini's locked test when it is back (paused: the Argon release broke its app)",
    "unlocks": "#19, which AI does Phase 2 research",
    "size": "medium",
    "you": true,
@@ -612,8 +612,8 @@
   },
   "19": {
    "title": "Locked coin test for scoring AIs over time",
-   "desc": "The 15-coin locked test is now due on Grok's and Muse's pages (it opens only after the main test, then every 90 days). Its coin ids exist only in my locked key; it decides which AI reads the Phase 2 pro photos.",
-   "needs": "Grok's and Muse's answers",
+   "desc": "Grok took the 15-coin locked test (Oct 10): 76 % of the core fields right, 47 % of catalogue numbers, 3.0 % invented (2 of 66 values), never wrong when sure; it left 17 of 60 core fields blank rather than guess. This is the reference number for who reads the Phase 2 pro photos. Muse's and Gemini's locked tests are still due.",
+   "needs": "Muse's locked test; Gemini's when it is back",
    "unlocks": "#65, fair scores over time",
    "size": "large",
    "you": false,
@@ -1056,7 +1056,7 @@
   },
   "56": {
    "title": "Motion Lab test page",
-   "desc": "Done (tr110): six studies at /motion-lab/: gold dust (Grok), Morph (your second video, rebuilt with your coins: dust sheet, a coin formed from its photo, the burst, light ribbons, blue beams), coin flip with a rim light, a tile growing into the coin view, the Confirm seal (AI guess → Owner verified) and a coin settling into album A026. Still / Calm / Full on each. Tell me which ones you want in the app (#63).",
+   "desc": "Done (tr110): six studies at /motion-lab/: gold dust (Grok), Morph (your second video, rebuilt with your coins: dust sheet, a coin formed from its photo, the burst, light ribbons, blue beams), coin flip with a rim light, a tile growing into the coin view, the Confirm seal (AI guess → Owner verified) and a coin settling into album A026. Still / Calm / Full on each. Oct 14: two more coin-flip studies, 3B by Grok and 3C by Gemini (its coin notes are marked unchecked). Tell me which ones you want in the app (#63).",
    "needs": "nothing: never touches the app",
    "unlocks": "#63",
    "size": "medium",
@@ -1128,7 +1128,7 @@
   },
   "62": {
    "title": "Real collector values",
-   "desc": "Two paths, both built: Grok now has appraiser homework (25 coins at a time, each value citing the exact price page and the grade assumed; a cited value is re-appraised after a year). And a weekly GitHub job fetches Numista's price estimates per grade for every coin with a Numista number, once you add a free Numista API key. Values still change only through a cited file.",
+   "desc": "Two paths, both built: Grok has appraiser homework (each value citing the exact price page and the grade assumed; a cited value is re-appraised after a year), and a weekly GitHub job fetches Numista's price estimates per grade once you add a free Numista API key. Oct 14: Grok and Gemini priced 63 of the same coins independently and agreed on 62. Values still change only through a cited file.",
    "needs": "your free Numista API key (Waiting on you)",
    "unlocks": "a firmer headline, #107",
    "size": "large",
@@ -1260,7 +1260,7 @@
   },
   "73": {
    "title": "Fact-check the stories",
-   "desc": "Now part of the research loop: every story nobody but its author has checked is a job (157 open); Grok has C151–C283 in progress and 25 more as homework. A checked story is re-sent with the exact entry it was checked against; a wrong sentence is corrected with its source.",
+   "desc": "Part of the research loop: every story nobody but its author has checked is a job. Grok's checks so far all held up; it has C151-C283 plus 33 more stories as homework. A checked story is re-sent with the exact entry it was checked against; a wrong sentence is corrected with its source.",
    "needs": "nothing: running",
    "unlocks": null,
    "size": "medium",
@@ -1548,7 +1548,7 @@
   },
   "97": {
    "title": "One onboarding path for any new AI",
-   "desc": "Access check, then the main photo test, then half-size batches with every fact checked, then full membership after 3 good submissions in a row. Gemini is the first to go through it (relaunched Oct 9); any future AI follows the same path from roles.json.",
+   "desc": "Access check, then the main photo test, then half-size batches with every fact checked, then full membership after 3 good submissions in a row. Gemini went through the access check and the main test (Oct 12); it is paused since Oct 14 until its app works again. Any future AI follows the same path from roles.json.",
    "needs": null,
    "unlocks": null,
    "size": "small",
@@ -1597,7 +1597,7 @@
   "101": {
    "title": "A third research AI, so disagreements never wait on me",
    "desc": "With only Grok and Muse researching, a Grok-vs-Muse disagreement needs me as the third reader. A third AI that passes the onboarding (#97) settles them inside the loop.",
-   "needs": "Gemini through its onboarding, or another AI you pick",
+   "needs": "Gemini back from its pause (the Argon release broke its app), or another AI you pick",
    "unlocks": null,
    "size": "medium",
    "you": true,
@@ -1668,13 +1668,13 @@
   },
   "107": {
    "title": "What completing each album would cost",
-   "desc": "The 858 named missing coins in your albums, each with a cited price for a typical grade, summed per album: “A026 Silver Eagles: 18 missing years, about $X”. HOLD stays the policy; this is for planning and wish lists.",
-   "needs": "#62 (prices)",
+   "desc": "Started (tr114): What's missing and the Simple view now show a price on every missing hole of albums A001-A016 and a cost to complete per album (Grok's list from price guides: 289 holes, about $2,731 in all). It is a floor: key dates look low against dealer guides, so Grok is getting a second source for the 10 most expensive holes. Muse has A017-A033. HOLD stays the policy; this is for planning and wish lists.",
+   "needs": "Muse's prices for A017-A033; Grok's second source",
    "unlocks": null,
    "size": "medium",
    "you": false,
    "new": true,
-   "partly": false,
+   "partly": true,
    "state": "open",
    "note": null
   },
@@ -1728,7 +1728,7 @@
   },
   "112": {
    "title": "A motion splash for every theme",
-   "desc": "Done (tr110): each of the 26 themes opens with its own 3-second motion in its style (dust forming the title, molten letters, a KAPOW, a split-flap board, a coin drawn as a blueprint...). Scene Studio > Settings > Opening: Mix (the film on the first open of the day, the theme's motion after that; the default), Film every time, Theme motion, or None. Calm shows one still frame; Off skips it.",
+   "desc": "Done (tr110-tr113): each of the 26 themes has its own 3-second motion in its style (dust forming the title, molten letters, a KAPOW, a split-flap board, a coin drawn as a blueprint...). Since tr112 every launch plays the Grok film, then the theme's motion, then the app (a tap skips to the app); since tr113 picking a theme plays its motion too. Scene Studio > Settings > Opening changes it; Calm shows one still frame; Off skips it.",
    "needs": null,
    "unlocks": null,
    "size": "large",
@@ -1740,13 +1740,13 @@
   },
   "113": {
    "title": "Pictures for every theme card",
-   "desc": "Requested (tr110): 52 images in the art queue, a picker card (two takes) and a wide hero for all 26 themes; the six new ones in their own medium (pixel art, comic panel, clay, Bauhaus poster). Any image AI with credits can take it; I review every picture and re-request weak ones.",
-   "needs": "an image AI with credits (Grok, Gemini or Muse) to claim artreq_20261010-1700_theme-thumbnails",
+   "desc": "Mostly done (tr114): Grok made picker cards for all 26 themes; 25 are live (Midnight Gallery keeps its own), and themes without a wide picture use the card. Still open: the 22 wide heroes (Muse) and refreshed heroes for Prism, Midnight Gallery, The Mint and Shipwreck (Gemini, when it is back).",
+   "needs": "Muse's heroes; Gemini's 4 when it is back",
    "unlocks": null,
    "size": "medium",
    "you": false,
    "new": true,
-   "partly": false,
+   "partly": true,
    "state": "open",
    "note": null
   },

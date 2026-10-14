@@ -458,7 +458,12 @@ class Pipeline(unittest.TestCase):
         self.assertEqual([x["year"] for x in a26["missing_named"]], [1988, 1989, 1990, 1991, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2003, 2004, 2009, 2010, 2011, 2012])
         self.assertTrue(all(x["state"] == "filled" for x in a26["have_named"]))
         # no hand edits: the committed file is exactly what the master builds (generated_at is the publish stamp, so compare the rest)
-        fresh = build_wants.build(albums, w["generated_at"])
+        fresh = build_wants.build(albums, w["generated_at"], build_wants.load_values(os.path.join(ROOT, "collection")))
+        # cost to complete: every priced hole is a named missing hole of its album, and each volume's total is the sum of its holes
+        for v in w["volumes"]:
+            pr = [x["price"]["usd"] for x in v["missing_named"] if x.get("price")]
+            if v.get("cost"): self.assertEqual((v["cost"]["priced"], v["cost"]["usd"]), (len(pr), round(sum(pr), 2)), v["id"])
+            else: self.assertEqual(pr, [], v["id"])
         self.assertEqual(json.dumps(fresh, ensure_ascii=False, separators=(",", ":")), open(os.path.join(ROOT, "data", "wants.json"), encoding="utf-8").read())
 
     def test_integrity_catches_orphans(self):

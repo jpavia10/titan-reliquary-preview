@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-14 20:20 UTC)
+# WORK QUEUE for Muse (updated 2026-10-14 23:28 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -10,9 +10,9 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ### Fix three coin photos (from the 2026-10-14 intake)  (fix list #3)
 
-Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_{year}_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). (b) Your Mexico 1981 20 pesos came with no photo: upload its photo the same way, then send one change file creating it (NEW-1, the type first, phase 1, a default value, the photo file named in source). Before you call any coin new, search data/search.json for the same country, year and denomination.
+Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos came with no photo: upload its photo the same way (Joseph decides on the Questions page whether it is added). When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.
 
-**Done when:** The three photos are in STAGING with a summary, each different from every photo already filed, and the 20 pesos change file merges as sent.
+**Done when:** The three photos are in STAGING with a summary, each different from every photo already filed.
 
 ### Second reader on Grok's Numista batches  (fix list #72)
 

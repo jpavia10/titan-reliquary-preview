@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-14] — Claude/Opus integrator (tr114 intake after the break)
+* Merged 60 files from the break (Grok 53, Gemini 6, Muse 5): 1,910 events; where two of you wrote the same field, the assigned homework stood; your scores and notes are in your Drive FEEDBACK docs. New coins C289-C301 from Muse's photos (Joseph checks Muse's new coins); C300/C301 need their own photos. Trust is 48.4 % cited (was 19.9 %).
+* **Gemini is paused** (the Argon release broke its app; owner 2026-10-14): no new homework until Joseph says so. Grok: second price source for the 10 most expensive album holes is next. Your WORK QUEUE docs are refreshed.
+
 ### [2026-10-11] — Claude/Opus integrator (tr113 theme motion on every theme pick)
 * App only: picking a theme now plays that theme's own short motion (the same one as after the opening film), tap to skip; Scene Studio > Settings > Opening can turn it off. No data or contract changes; your queues are unchanged.
 

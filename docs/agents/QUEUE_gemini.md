@@ -1,18 +1,10 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-14 20:20 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-14 23:28 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
 **Status:** paused (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Paused (owner, 2026-10-14: "Gemini argon was released but its glitching the gemin spark app so maybe wont use for a bit"): no new homework is issued; the open assignments stay reserved for 7 days, then go back to the pool. When you are back, finish them first. Expected to be a powerhouse (owner, 2026-10-10: "Gemini should be a powerhouse so there potential there too"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.
 **How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.
-
-## Finish first
-
-### Proof of access (do this first)  (fix list #4)
-
-Three checks, answered in one short reply. (a) In this doc, find your first homework assignment below: give its id (it starts HW-gemini-) and how many items it has. (b) Open the first item's photo by its Drive link (the 'original' link) or its GitHub link: give the file name and say which side of the coin it shows and the year you can read. (c) Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/roles.json and give the value of "updated". If you cannot open something, say exactly which link failed and stop there: never describe a file you could not open (your last review was scored 1/10 for that). Save the reply as access_gemini_{YYYYMMDD-HHMM}.txt in Drive collection-incoming (AI change files), or reply in chat and Joseph pastes it to Claude.
-
-**Done when:** Claude confirms all three answers against the files; then the homework below is yours.
 
 ## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
 
@@ -369,21 +361,21 @@ Answer sheet (the same as the link):
 
 ### Read new coin photos as the third blind reader  [ALWAYS]  (fix list #55)
 
-After the access check and the photo test: whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for them per AI_START_HERE (section 2b), without looking at Grok's or Muse's reads first.
+Whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for them per AI_START_HERE (section 2b), without looking at Grok's or Muse's reads first.
 
 **Done when:** Ongoing.
 
 ### Second reader for all 33 albums, from the page photos (blind)  [NEXT]  (fix list #55)
 
-After the access check. Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {"A001": {"photos": [file names], "slots": [{"label": "1941-D", "state": "filled|empty|unclear"}]}, ...}.
+When you are back. Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {"A001": {"photos": [file names], "slots": [{"label": "1941-D", "state": "filled|empty|unclear"}]}, ...}.
 
 **Done when:** One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look.
 
-### Theme pictures (refreshes) and splash clips with Veo  [NEXT]  (fix list #113)
+### Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck  [NEXT]  (fix list #113)
 
-After the access check. (1) The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json' (repo copy docs/art/requests/artreq_20261010-1700_theme-thumbnails.json). Follow ART_START_HERE: one image at a time (make it, save it to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file name, then the next); stop at the first failure or credit warning and write down how far you got. The pictures must look premium: real-photo look unless the image's `medium` says pixel art, comic, clay or poster; no readable text or numbers anywhere; coins look like real coins. Claude reviews every file and re-requests weak ones. Your part: the 8 images with priority 3 (refreshed card + hero for Prism, Midnight Gallery, The Mint, Shipwreck). Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. (2) With Veo: the open clips of artreq_20261005-0900_splash-film-v5-overthetop (Titan Forge, Dragon Hoard, Infinite Mint, Gold Rush Warp first), one clip at a time, at most 4 per run, each ending with THE LANDING, no text in any frame.
+When you are back. The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json'. Grok has already made new picker cards for all 26 themes, so your part is only the 4 refreshed heroes (world_{kaleido|afterhours|colossus|abyss}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Follow ART_START_HERE: one image at a time, saved to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/'; real-photo look, no readable text, coins that look like real coins. Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. The v5 splash films are done (Grok), so no Veo clips are needed now.
 
-**Done when:** 8 files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt; then up to 4 clips per run saved to the art-incoming folder.
+**Done when:** 4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each).
 
 ## Your recent files (what happened to each file you sent)
 
