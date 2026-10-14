@@ -20,7 +20,7 @@
     "float sdTri(vec2 p, float r){ const float k=1.7320508; p.x=abs(p.x)-r; p.y=p.y+r/k; if(p.x+k*p.y>0.) p=vec2(p.x-k*p.y,-k*p.x-p.y)/2.; p.x-=clamp(p.x,-2.*r,0.); return -length(p)*sign(p.y); }",
     "float sdSeg(vec2 p, vec2 a, vec2 b){ vec2 pa=p-a, ba=b-a; float h=clamp(dot(pa,ba)/dot(ba,ba),0.,1.); return length(pa-ba*h); }",
     "float ease(float x){ x=clamp(x,0.,1.); return x*x*(3.-2.*x); }",
-    "float easeBack(float x){ x=clamp(x,0.,1.); float c=1.7; return 1.+(c+1.)*pow(x-1.,3.)+c*pow(x-1.,2.); }"
+    "float easeBack(float x){ x=clamp(x,0.,1.); float c=1.7, y=x-1.; return 1.+(c+1.)*y*y*y+c*y*y; }"   // no pow(): its base is <= 0 here, undefined in GLSL (NaN on many phone GPUs), Grok review GRK-S-01
   ].join("\n") + "\n";
   var TEX = "uniform sampler2D uTex; uniform vec2 uTexRes;\n";
 
@@ -158,7 +158,7 @@
       "  vec3 c = ink*(L*.42 + gl*.3) + amber*dim*.6 + labc*lab*.85;",
       "  c *= fade*(1.+flash);",
       // faint scan of the drafting arm across the sheet
-      "  float arm = exp(-pow((p.x - (-a*.5 + fract(t*.02)*a))*40., 2.))*.04;",
+      "  float arm = exp(-sq((p.x - (-a*.5 + fract(t*.02)*a))*40.))*.04;",
       "  c += ink*arm;",
       "  return vec4(c*I*.8, 0.);",
       "}"

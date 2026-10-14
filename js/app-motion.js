@@ -87,19 +87,31 @@
       return a + " " + s;
     }).join(", ");
   }
+  function unquery(ml, re) {   // drop the media queries that test the phone's reduce-motion setting; none left = the block never applies
+    var keep = [];
+    for (var q = 0; q < ml.length; q++) if (!re.test(ml.item(q))) keep.push(ml.item(q));
+    try { ml.mediaText = keep.length ? keep.join(", ") : "not all"; } catch (e) { /* read-only sheet: leave it */ }
+  }
   function copyRules(sheet) {
     var rules; try { rules = sheet.cssRules; } catch (e) { return; }   // a cross-origin sheet (fonts): nothing to copy
     if (!rules || (done && done.has(sheet))) return;
     if (done) done.add(sheet);
     var out = [];
     for (var i = 0; i < rules.length; i++) {
-      var r = rules[i];
-      if (r.type === 4 && /prefers-reduced-motion\s*:\s*reduce/i.test(r.conditionText || (r.media && r.media.mediaText) || "")) {
-        for (var j = 0; j < r.cssRules.length; j++) {
-          var x = r.cssRules[j];
-          if (x.type === 1 && x.selectorText) { out.push(scope(x.selectorText, "calm") + "{" + x.style.cssText + "}"); out.push(scope(x.selectorText, "off") + "{" + x.style.cssText + "}"); }
-        }
+      var r = rules[i], mt = r.type === 4 ? (r.conditionText || (r.media && r.media.mediaText) || "") : "";
+      var red = /prefers-reduced-motion\s*:\s*reduce/i.test(mt), nop = /prefers-reduced-motion\s*:\s*no-preference/i.test(mt);
+      if (!red && !nop) continue;
+      var plain = true;
+      for (var j = 0; j < r.cssRules.length; j++) {
+        var x = r.cssRules[j];
+        if (x.type === 1 && x.selectorText) {
+          if (red) { out.push(scope(x.selectorText, "calm") + "{" + x.style.cssText + "}"); out.push(scope(x.selectorText, "off") + "{" + x.style.cssText + "}"); }
+          else out.push(scope(x.selectorText, "full") + "{" + x.style.cssText + "}");
+        } else plain = false;
       }
+      // Grok's review GRK-M-01/M-02: the setting wins over the phone in CSS too. The copies above carry these rules under html[data-motion], so the
+      // phone's own query is taken out of the original (a block holding anything but style rules, e.g. @keyframes, is left as it was).
+      if (plain) unquery(r.media, red ? /prefers-reduced-motion\s*:\s*reduce/i : /prefers-reduced-motion\s*:\s*no-preference/i);
     }
     if (!out.length) return;
     var st = document.createElement("style"); st.setAttribute("data-motion-copy", "");

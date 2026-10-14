@@ -35,9 +35,9 @@
     "  vec2 S = pSrc(a); vec2 d = p-S; float L = length(d); float ang = atan(d.x, -d.y);",
     "  float c0 = atan(-S.x, S.y);",                                       // aim at the screen centre whatever the aspect
     "  float w0 = .11 + .05*sin(t*.05), w1 = .075 + .03*sin(t*.043+2.), w2 = .12 + .04*sin(t*.037+4.);",
-    "  float b = exp(-pow((ang-(c0-.30+.05*sin(t*.05)))/w0, 2.))*.75",
-    "          + exp(-pow((ang-(c0+.02+.04*sin(t*.043+2.1)))/w1, 2.))*1.",
-    "          + exp(-pow((ang-(c0+.33+.05*sin(t*.037+4.2)))/w2, 2.))*.6;",
+    "  float b = exp(-sq((ang-(c0-.30+.05*sin(t*.05)))/w0))*.75",
+    "          + exp(-sq((ang-(c0+.02+.04*sin(t*.043+2.1)))/w1))*1.",
+    "          + exp(-sq((ang-(c0+.33+.05*sin(t*.037+4.2)))/w2))*.6;",
     "  return b*smoothstep(0.,.5,L)*exp(-L*.5)*mix(1., noise, .62); }",
     "float pCoinR(float a){ return min(.30, a*.36); }",
     "vec2 pCoinC(float a, float seed){ float R = pCoinR(a); return vec2((a*.5-R-.05)*(h11(seed) > .5 ? 1. : -1.), .07); }"
@@ -53,14 +53,14 @@
     "  if (uMoment.z > 0. && uMoment.x >= 0.) env = smoothstep(.3,2.2,uMoment.x)*(1.-smoothstep(uMoment.z-2.6, uMoment.z-.6, uMoment.x));",
     "  float bm = pShaft(p, a, t, nz)*(1.+.4*env);",
     "  vec3 moon = vec3(.55,.72,1.);",
-    "  vec3 c = moon*(bm*.62 + exp(-pow(length(p-pSrc(a))/.6,2.))*.16);",
+    "  vec3 c = moon*(bm*.62 + exp(-sq(length(p-pSrc(a))/.6))*.16);",
     // a faint pool of light where the shafts land, and a cold haze low in the room
-    "  float pool = exp(-pow((p.x-a*.1)/(a*.55),2.))*smoothstep(-.1,-.6,p.y)*.05;",
+    "  float pool = exp(-sq((p.x-a*.1)/(a*.55)))*smoothstep(-.1,-.6,p.y)*.05;",
     "  float haze = smoothstep(.35,.8,fbmQ(p*1.2+vec2(t*.012,0.),3))*.05;",
     "  c += vec3(.4,.55,.9)*(pool + haze);",
     // moment: a halo and a thin bright rim behind the gathering coin
     "  if (env > 0.) { float R = pCoinR(a); vec2 C = pCoinC(a, uMoment.y); float r = length(p-C);",
-    "    c += (vec3(.5,.66,1.)*exp(-pow(r/(R*1.25),2.))*.13 + vec3(.8,.88,1.)*exp(-pow((r-R*.97)/(R*.035),2.))*.22)*env; }",
+    "    c += (vec3(.5,.66,1.)*exp(-sq(r/(R*1.25)))*.13 + vec3(.8,.88,1.)*exp(-sq((r-R*.97)/(R*.035)))*.22)*env; }",
     "  c *= I*.62;",
     "  return fin(c, haze*I*.5 + max(max(c.r,c.g),c.b)*.05);",
     "}"
@@ -280,7 +280,7 @@
       "  float bx = r.x + .08*sin(t*.12);",                                                       // window softboxes slide through the reflection
       "  float box = smoothstep(.1,.075,abs(bx+.42)) + smoothstep(.06,.04,abs(bx-.14)) + smoothstep(.05,.035,abs(bx-.62));",
       "  c += vec3(1.3,1.25,1.2)*box*smoothstep(.02,.18,y)*smoothstep(.85,.5,y);",
-      "  c += vec3(1.,.5,.15)*exp(-pow((y+.12)/.05,2.))*.45;",                                      // ember streak under the horizon
+      "  c += vec3(1.,.5,.15)*exp(-sq((y+.12)/.05))*.45;",                                      // ember streak under the horizon
       "  return c; }"
     );
     return g.join("\n");
@@ -490,11 +490,11 @@
       // faint scanlines (3 css px pitch) and a slow brightness roll
       "  float ln = pow(.5+.5*cos(px.y*2.0944), 3.);",
       "  al += ln*.085;",
-      "  c += vec3(.45,.55,1.)*exp(-pow((uv.y-fract(t*.037))/.17,2.))*.02;",
+      "  c += vec3(.45,.55,1.)*exp(-sq((uv.y-fract(t*.037))/.17))*.02;",
       // tracking band, drifting up
       "  float yb = fract(t*.05 + .15 + .1*env);",
       "  float bh = .038 + .016*sin(t*.7) + .03*env;",
-      "  float inB = exp(-pow((uv.y-yb)/bh,2.));",
+      "  float inB = exp(-sq((uv.y-yb)/bh));",
       "  float row = floor(px.y/2.);",
       "  float jit = (h11(row*1.7 + tf*3.1) - .5);",
       "  float off = jit*(90.+160.*env)*inB;",
@@ -503,7 +503,7 @@
       "  float nzR = step(.45, h21(vec2(floor((px.x+off-6.)/segw),   row + tf*13.)));",
       "  float nzB = step(.45, h21(vec2(floor((px.x+off+6.)/segw),   row + tf*13.)));",
       "  c += (vec3(1.,.12,.62)*nzR + vec3(.1,.9,1.)*nzB + vec3(.9,.92,1.)*nz*.55)*inB*.3;",
-      "  al += inB*.05;\n      c += vec3(.8,.85,1.)*exp(-pow((uv.y-yb-bh*.9)/.0025,2.))*.1*(1.-env*.3);",
+      "  al += inB*.05;\n      c += vec3(.8,.85,1.)*exp(-sq((uv.y-yb-bh*.9)/.0025))*.1*(1.-env*.3);",
       // head-switching strip at the bottom edge, and the tear that climbs out of it
       "  float hh = .045 + .1*env;",
       "  float kb = 1.-smoothstep(0., hh, uv.y);",
@@ -511,7 +511,7 @@
       "  float hn = step(.38, h21(vec2(floor((px.x+hsh)/9.), row + tf*9.)));",
       "  c += vec3(.85,.9,1.)*hn*kb*(.34+.4*env);",
       "  c += (vec3(1.,.12,.62)*step(.5, h21(vec2(floor((px.x+hsh-7.)/9.), row+tf*9.))) + vec3(.1,.9,1.)*step(.5, h21(vec2(floor((px.x+hsh+7.)/9.), row+tf*9.))))*kb*.12*(1.+2.*env);",
-      "  c += vec3(.8,.85,1.)*exp(-pow((uv.y-.05-.1*env)/.003,2.))*(.08+.12*env);",
+      "  c += vec3(.8,.85,1.)*exp(-sq((uv.y-.05-.1*env)/.003))*(.08+.12*env);",
       "  al += kb*.05;",
       // tape grain and the odd drop-out dash
       "  float gr = h21(px + tf*17.);",

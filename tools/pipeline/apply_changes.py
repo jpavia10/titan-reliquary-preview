@@ -256,7 +256,7 @@ class Applier:
             errs.append(f"ts '{e['ts']}' is in the future (today is {merge_day()}): use the real time in UTC")
         if e["entity"] not in ENTITIES: errs.append(f"entity '{e['entity']}' must be one of {ENTITIES}")
         if e.get("op", "set") not in ("set", "create"): errs.append(f"op '{e.get('op')}' must be 'set' or 'create'")
-        if not isinstance(e["by"], str) or not re.match(r"^(owner|model:[\w.\-]+|script:[\w.\-]+|person:[\w.\- ]+)$", e["by"]): errs.append(f"by '{e['by']}' must be owner, model:<id>, script:<name> or person:<name>")
+        if not isinstance(e["by"], str) or not re.fullmatch(r"(owner|model:[\w.\-]+|script:[\w.\-]+|person:[\w.\- ]+)", e["by"]): errs.append(f"by '{e['by']}' must be owner, model:<id>, script:<name> or person:<name>")
         if e.get("verified") and not (e["by"] == "owner" or e["by"].startswith("person:")): errs.append("only the owner (by: owner / person:<name>) can set verified: true; an AI never verifies its own work")
         if e["by"].startswith("model:"):
             if not (e.get("source") or "").strip(): errs.append("a model's fact needs a real 'source' (photo file, catalog, URL, reference)")
@@ -393,6 +393,8 @@ class Applier:
         if not aid: return None
         a = self.assignments.get(aid)
         if a is None: self.log.append(f"unknown assignment {aid} (line applied by the normal rules)")
+        elif a.get("agent") and PV.agent_of(e.get("by")) != a["agent"]:      # Grok's review GRK-R-02: only the assignee answers its assignment
+            self.log.append(f"assignment {aid} belongs to {a['agent']}, not {e.get('by')} (line applied by the normal rules)"); return None
         return a
 
     def last_setter(self, ent, rid, field):
@@ -661,7 +663,7 @@ class Applier:
         prefix = "C" if t["class"] == "coin" else "T"
         if PH.match(rid):
             ph, rid = rid, next_number(c.specs.keys(), prefix); self.ph[ph] = rid
-        if not re.match(r"^[CT]\d{3,}$", rid): raise Reject(f"specimen id {rid} must look like C### (coin) or T### (token/prop/medal)")
+        if not re.fullmatch(r"[CT]\d{3,}", rid): raise Reject(f"specimen id {rid} must look like C### (coin) or T### (token/prop/medal)")
         if rid[0] != prefix: raise Reject(f"type {t['id']} is class '{t['class']}', so its specimens use the '{prefix}' counter, not '{rid[0]}'")
         self.expect_counter(rid, prefix, c.specs.keys())
         rec = merge(skeleton_specimen(), new); rec["id"] = rid
@@ -686,7 +688,7 @@ class Applier:
     def create_type(self, e, rid, new):
         c = self.c
         pre = rid.split(".")[0]
-        if not re.match(r"^[A-Z]{2}(-[A-Z0-9]+)?\.[A-Za-z]+\.[\w.\-]+$", rid): raise Reject(f"type id '{rid}' must look like CH.KM.24a.1 or (no catalog number) CH.X.5-rappen")
+        if not re.fullmatch(r"[A-Z]{2}(-[A-Z0-9]+)?\.[A-Za-z]+\.[\w.\-]+", rid): raise Reject(f"type id '{rid}' must look like CH.KM.24a.1 or (no catalog number) CH.X.5-rappen")
         rec = merge(skeleton_type(), new); rec["id"] = rid
         iss = c.issuer(pre)
         if iss is None: raise Reject(f"type id prefix '{pre}' is not an issuer id (see ref/issuers.json; create the issuer first)")

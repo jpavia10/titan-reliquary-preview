@@ -104,9 +104,9 @@
       "  float margin = smoothstep(.15, .4, abs(p.x)/max(.3, a*.5));",
       "  float on = step(.72, h11(col*3.7)) * tail * margin;",
       "  float gl = on > 0.01 ? glyph(cid, sub, floor(t*8.+h11(cid.y)*8.)) : 0.;",
-      "  float headGlow = on*exp(-pow((y-head)/cs, 2.)*.5);",
+      "  float headGlow = on*exp(-sq((y-head)/cs)*.5);",
       "  c += vec3(.2,1.,.45)*gl*on*.22 + vec3(.75,1.,.82)*gl*headGlow*.35;",
-      "  float k = mK(); if (k >= 0.) { float band = exp(-pow((p.y - mix(.6, -.6, k))*12., 2.)); c += vec3(.4,1.,.6)*band*.12; }",
+      "  float k = mK(); if (k >= 0.) { float band = exp(-sq((p.y - mix(.6, -.6, k))*12.)); c += vec3(.4,1.,.6)*band*.12; }",
       "  float vig = .9 + .1*sin(fc.y*3.14159);",
       "  return vec4(c*vig*I, 0.);",
       "}"
@@ -174,7 +174,7 @@
       "  float W = min(a*.94, 1.7); vec2 S = vec2(W*.5, W*.5*246./704.); vec2 C = vec2(0., .5 - S.y - .07);",
       "  vec4 tx = texRect(p, C, S);",
       "  vec2 q = (p-C)/S; float frame = (abs(q.x) < 1.02 && abs(q.y) < 1.04) ? 1. : 0.;",
-      "  float glow = exp(-pow(max(0., abs(q.y)-1.)*14., 2.))*exp(-pow(max(0., abs(q.x)-1.)*14., 2.))*.06;",
+      "  float glow = exp(-sq(max(0., abs(q.y)-1.)*14.))*exp(-sq(max(0., abs(q.x)-1.)*14.))*.06;",
       "  vec3 c = tx.rgb*tx.a*.62 + vec3(1.,.77,.24)*glow;",
       "  return vec4(c*I, tx.a*.25*I*frame);",
       "}"

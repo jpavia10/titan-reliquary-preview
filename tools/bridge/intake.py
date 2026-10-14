@@ -88,7 +88,9 @@ def check_listing(data):
 def line_problems(text, agent_key):
     """-> (held_reasons, rejected_reasons). A file named for an AI may only carry that AI's own lines; owner / verified lines go to Claude."""
     held, rej = [], []
-    for n, raw in enumerate(text.splitlines(), 1):
+    # Split exactly as apply_changes.read_events reads the staged file (text mode, universal newlines): str.splitlines() also breaks on
+    # U+2028/U+2029/U+0085, which JSON allows raw inside a string, so a line could hide from these checks and still merge (GRK-B-01).
+    for n, raw in enumerate(text.replace("\r\n", "\n").replace("\r", "\n").split("\n"), 1):
         raw = raw.strip()
         if not raw: continue
         try: e = json.loads(raw)

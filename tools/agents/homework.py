@@ -440,11 +440,13 @@ def settle(ctx, now):
         for e in ctx["col"]["events"]:
             if e.get("entity") != d["entity"] or e.get("id") != d["rid"] or (e.get("ts") or "") < d["opened"] or PV._derived(e): continue
             f = e.get("field") or ""
-            if not (f == d["field"] or d["field"].startswith(f + ".")): continue
             who = PV.agent_of(e.get("by")); owner = who == "owner"
+            # Grok's review GRK-R-01: a third contributor settles it only by writing the disputed field itself (a write to a parent such
+            # as issues.2, made to fix something else, re-states every leaf and says nothing about this one); the owner may settle via a parent.
+            if not (f == d["field"] or (owner and d["field"].startswith(f + "."))): continue
             if not owner and (who in parties or PV.classify(e) not in ("reference", "photo")): continue
-            rec = (ctx["col"]["types"] if d["entity"] == "type" else ctx["col"]["specs"]).get(d["rid"]) or {}
-            cur = get_path(rec, d["field"])
+            # the winner is what THIS event says, not whatever the record holds now
+            cur = e.get("new") if f == d["field"] else get_path(e.get("new"), d["field"][len(f) + 1:])
             win = "claim" if cur == d["claim"]["value"] else "record" if cur == d["record"]["value"] else "neither"
             loser = {"claim": d["record"].get("by"), "record": d["claim"].get("by")}.get(win)
             d["status"] = "resolved"
@@ -454,15 +456,17 @@ def settle(ctx, now):
 
 
 # ------------------------------------------------------------------------------------------------ the loop
-def answered(ctx):
-    """{assignment id: set of (entity, id) its merged events touched} (diverted verify lines count too)."""
+def answered(ctx, owners=None):
+    """{assignment id: set of (entity, id) its merged events touched} (diverted verify lines count too).
+    owners = {assignment id: agent}: only the assignee's own lines answer an assignment (Grok's review GRK-R-02: anyone could close anyone's)."""
     a = {}
+    def mine(aid, by): return owners is None or aid not in owners or PV.agent_of(by) == owners[aid]
     for e in ctx["col"]["events"]:
         pv = e.get("provenance") if isinstance(e.get("provenance"), dict) else {}
-        if pv.get("assignment"): a.setdefault(pv["assignment"], set()).add((e.get("entity"), e.get("id")))
+        if pv.get("assignment") and mine(pv["assignment"], e.get("by")): a.setdefault(pv["assignment"], set()).add((e.get("entity"), e.get("id")))
     for d in ctx["disagreements"]:
         aid = (d.get("claim") or {}).get("assignment")
-        if aid: a.setdefault(aid, set()).add((d["entity"], d["rid"]))
+        if aid and mine(aid, (d.get("claim") or {}).get("by")): a.setdefault(aid, set()).add((d["entity"], d["rid"]))
     return a
 
 
@@ -480,7 +484,7 @@ def refresh(ctx, roles, queues, state, now, log=None):
     for i in settle(ctx, now): log.append(f"disagreement {i} settled")
     metrics = measure(ctx)
     pool = pools(ctx, roles, queues, metrics)
-    ans = answered(ctx)
+    ans = answered(ctx, {a["id"]: a["agent"] for a in state["assignments"]})
     for a in state["assignments"]:
         if a["status"] != "open": continue
         left = [it for it in a["items"] if it["item"] in pool]

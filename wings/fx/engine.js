@@ -112,6 +112,7 @@
     "uniform vec3 uBg, uInk, uAcc, uBolt, uTint;\n" +
     "uniform vec2 uPar, uPtr; uniform vec4 uTap, uMoment; uniform float uAudio, uPulse, uRing;\n" +
     "#define PI 3.14159265\n" +
+    "float sq(float x){ return x*x; }   /* x*x, never pow(x, 2.): pow() is undefined for x < 0 (Grok review GRK-S-02) */\n" +
     "float mK(){ return uMoment.z > 0. ? uMoment.x / uMoment.z : -1.; }\n" +
     "float mEnv(){ float k = mK(); return k < 0. ? 0. : smoothstep(0.,.12,k)*(1.-smoothstep(.62,1.,k)); }\n" +
     "float h11(float p){ return fract(sin(p*127.1+31.7)*43758.5453); }\n" +
@@ -126,15 +127,15 @@
     "float safeAt(vec2 fc){ float a = texture(uSafe, fc / uRes).r; return mix(a, .6, uSafeMix); }\n";   // .6 = SAFE_FLAT: even dimming while a scroll moves
   var RING = "vec4 tapRing(){ if (uRing < .5 || uTap.w <= 0. || uTap.z > 2.4) return vec4(0.);\n" +
     "  vec2 pp = (gl_FragCoord.xy-.5*uRes)/uRes.y; float age = uTap.z; float d = length(pp-uTap.xy);\n" +
-    "  float ring = exp(-pow((d-age*.5)/(.03+age*.02),2.))*exp(-age*1.7)*uTap.w;\n" +
+    "  float ring = exp(-sq((d-age*.5)/(.03+age*.02)))*exp(-age*1.7)*uTap.w;\n" +
     "  vec3 rc = mix(uAcc, vec3(1.), .35);\n" +
     "  return vec4(rc*ring*.2*(1.-uLight), ring*.07*uLight); }\n";
   var FS_MAIN = "\n" + FS_SAFE + RING + "out vec4 outColor;\nvoid main(){ vec4 c = fx(gl_FragCoord.xy) * uFade; c += tapRing()*uFade; c *= 1. + .35*uPulse + .22*uAudio; float s = safeAt(gl_FragCoord.xy); outColor = c * (1. - uSafeK * s); }\n";
   var FS_MAIN_I = "\n" + FS_SAFE + "out vec4 outColor;\nvoid main(){ vec4 c = fxi() * uFade; c *= 1. + .35*uPulse + .22*uAudio; float s = safeAt(gl_FragCoord.xy); outColor = c * (1. - uSafeK * s); }\n";
-  var FS_HEAD_I = "#version 300 es\nprecision highp float;\nuniform vec2 uRes, uPar, uPtr; uniform vec4 uMoment, uTap; uniform float uFade, uLight, uInt, uQ, uTime, uFlash, uAudio, uPulse, uScale; uniform vec3 uBg, uInk, uAcc, uTint; uniform vec3 uFrontC;\nin vec4 vA; in vec2 vQ;\nfloat mK(){ return uMoment.z > 0. ? uMoment.x / uMoment.z : -1.; }\nfloat mEnv(){ float k = mK(); return k < 0. ? 0. : smoothstep(0.,.12,k)*(1.-smoothstep(.62,1.,k)); }\n";
+  var FS_HEAD_I = "#version 300 es\nprecision highp float;\nfloat sq(float x){ return x*x; }   /* x*x, never pow(x, 2.): pow() is undefined for x < 0 (Grok review GRK-S-02) */\nuniform vec2 uRes, uPar, uPtr; uniform vec4 uMoment, uTap; uniform float uFade, uLight, uInt, uQ, uTime, uFlash, uAudio, uPulse, uScale; uniform vec3 uBg, uInk, uAcc, uTint; uniform vec3 uFrontC;\nin vec4 vA; in vec2 vQ;\nfloat mK(){ return uMoment.z > 0. ? uMoment.x / uMoment.z : -1.; }\nfloat mEnv(){ float k = mK(); return k < 0. ? 0. : smoothstep(0.,.12,k)*(1.-smoothstep(.62,1.,k)); }\n";
 
   /* fx-v3 front layer: a few large out-of-focus particles drifting past the camera (sparse: most cycles are skipped) */
-  var VHEAD3 = "#version 300 es\nprecision highp float;\n#define PI 3.14159265\nuniform vec2 uRes, uPar, uPtr; uniform vec4 uTap, uMoment; uniform float uTime, uInt, uQ, uScale, uLight, uFlash, uTapOn, uAudio, uPulse;\nout vec4 vA; out vec2 vQ;\n" +
+  var VHEAD3 = "#version 300 es\nprecision highp float;\n#define PI 3.14159265\nfloat sq(float x){ return x*x; }   /* x*x, never pow(x, 2.): pow() is undefined for x < 0 (Grok review GRK-S-02) */\nuniform vec2 uRes, uPar, uPtr; uniform vec4 uTap, uMoment; uniform float uTime, uInt, uQ, uScale, uLight, uFlash, uTapOn, uAudio, uPulse;\nout vec4 vA; out vec2 vQ;\n" +
     "float h11(float p){ return fract(sin(p*127.1+31.7)*43758.5453); }\n" +
     "float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7)))*43758.5453); }\n" +
     "vec2 rot2(vec2 v, float a){ float c=cos(a), s=sin(a); return vec2(c*v.x-s*v.y, s*v.x+c*v.y); }\n" +
@@ -142,7 +143,7 @@
     "float mEnv(){ float k = mK(); return k < 0. ? 0. : smoothstep(0.,.12,k)*(1.-smoothstep(.62,1.,k)); }\n" +
     "vec2 warp(vec2 ndc, float dz){\n" +
     "  float asp = uRes.x/uRes.y; vec2 p = ndc*vec2(asp*.5,.5) + uPar*dz;\n" +
-    "  if (uTapOn > .5 && uTap.w > 0.) { vec2 d = p-uTap.xy; float L = length(d)+1e-4; float w = exp(-pow((L-uTap.z*.55)/.14,2.))*exp(-uTap.z*1.8)*uTap.w; p += d/L*w*.06; }\n" +
+    "  if (uTapOn > .5 && uTap.w > 0.) { vec2 d = p-uTap.xy; float L = length(d)+1e-4; float w = exp(-sq((L-uTap.z*.55)/.14))*exp(-uTap.z*1.8)*uTap.w; p += d/L*w*.06; }\n" +
     "  return p/vec2(asp*.5,.5); }\n" +
     "void emit(vec2 ndc, vec2 halfPx, vec2 corner, vec4 a){ gl_Position = vec4(warp(ndc,1.) + corner*halfPx*2./uRes, 0., 1.); vQ = corner; vA = a; }\n" +
     "void cull(){ gl_Position = vec4(2.,2.,2.,1.); vQ = vec2(0.); vA = vec4(0.); }\n";

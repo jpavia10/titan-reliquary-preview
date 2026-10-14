@@ -52,7 +52,7 @@
       }, { once: true });
       el.addEventListener("ended", () => { if (me !== el) return; current = null; announce(null); gapT = setTimeout(next, 3000 + Math.random() * 5000); });
       el.addEventListener("error", () => { if (me === el) fail(); });
-      const pr = el.play(); if (pr && pr.catch) pr.catch(() => { /* a paused context or no gesture yet: 'playing' fires when it can */ });
+      if (!paused) { const pr = el.play(); if (pr && pr.catch) pr.catch(() => { /* a paused context or no gesture yet: 'playing' fires when it can */ }); }   // paused (GRK-M-03): the resume below starts it
     }
     function fail() {
       fails++;
@@ -71,8 +71,10 @@
 
   // pause / resume with the engine (TitanGen pause suspends the context; the element must stop too, or it runs on silently)
   const live = new Set();
+  let paused = false;                                   // a track that comes up while paused (end-of-track gap, retry) waits for the resume
   window.addEventListener("titan:gen", (e) => {
     const d = e.detail || {};
+    if (d.type === "pause") paused = true; else if (d.type === "play") paused = false;
     if (d.type === "pause") live.forEach((el) => { try { el.pause(); } catch (err) { /* ignore */ } });
     else if (d.type === "play") live.forEach((el) => { if (el.paused && !el.ended) { const pr = el.play(); if (pr && pr.catch) pr.catch(() => {}); } });
   });
