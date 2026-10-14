@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Motion Lab · Multi-Coin 3D Flip (#56)</title>
+<!-- Titan Reliquary · Motion Lab study 3 (fix list #56): real two-sided coins from the collection
+     tossed and rotated in 3D with dynamic die alignment (Medal ↑↑ vs Coin ↑↓), 3-point specular rim
+     lighting, direct pointer drag-to-spin manipulation, and live ARIA accessibility announcements.
+     three.js r128 (../js/three.min.js), same-origin photos (../photos/p1/), zero CDN dependencies.
+     Follows titan.motion (Off = Still, Calm, Full) and OS prefers-reduced-motion. -->
+<style>
+  :root {
+    --ink: #f7f4ed;
+    --muted: #c8c0af;
+    --faint: #9c9483;
+    --bg: #07070a;
+    --gold: #f2c75c;
+    --gold-soft: #ffe8a3;
+    --line: rgba(247, 244, 237, 0.24);
+    --panel: rgba(10, 10, 14, 0.88);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; height: 100%;
+    background: radial-gradient(ellipse at 50% 40%, #1c1812 0%, #0c0b08 55%, var(--bg) 100%) fixed;
+    color: var(--ink);
+    font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    overflow: hidden;
+  }
+  #stage {
+    position: fixed; inset: 0; width: 100vw; height: 100vh; display: block;
+    touch-action: pan-y; cursor: grab;
+  }
+  #stage.drag { cursor: grabbing; }
+
+  #hud {
+    position: fixed; z-index: 3;
+    top: max(12px, env(safe-area-inset-top)); left: 12px; right: 12px;
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  }
+  .seg { display: flex; gap: 6px; flex-wrap: wrap; }
+  button, a.btn {
+    min-height: 48px; min-width: 48px; padding: 10px 16px;
+    border-radius: 999px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--ink);
+    font: 600 15px/1 system-ui, sans-serif;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  button:hover, a.btn:hover { border-color: var(--gold); }
+  button[aria-pressed="true"] { background: var(--gold); color: #111; border-color: var(--gold); }
+  button:disabled { opacity: 0.55; cursor: not-allowed; border-style: dashed; }
+  :focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+  #fps {
+    margin-left: auto;
+    font: 600 14px/1 ui-monospace, Menlo, Consolas, monospace;
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 999px; padding: 10px 14px;
+    color: var(--muted);
+  }
+
+  .card {
+    position: fixed; z-index: 2;
+    left: 12px; right: 12px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    max-width: 42rem; margin: 0 auto;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px; padding: 16px 20px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;
+  }
+  .card-info { flex: 1; min-width: 240px; }
+  .card h1 { margin: 0 0 4px; font-size: 1.25rem; color: var(--gold); font-weight: 700; line-height: 1.2; }
+  .card p { margin: 2px 0; color: var(--muted); font-size: 0.95rem; }
+  .card-badges { display: flex; gap: 8px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+  .badge {
+    font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 6px;
+    background: rgba(242, 199, 92, 0.15); color: var(--gold-soft);
+    border: 1px solid rgba(242, 199, 92, 0.35); text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .badge.coin-align {
+    background: rgba(140, 190, 255, 0.15); color: #b8d6ff;
+    border-color: rgba(140, 190, 255, 0.35);
+  }
+  #side-label { color: var(--ink); font-weight: 600; }
+  .card-actions { display: flex; gap: 8px; align-items: center; }
+  #flip-btn {
+    background: var(--gold); color: #111; border-color: var(--gold);
+    font-size: 16px; font-weight: 700; padding: 12px 22px;
+  }
+  #flip-btn:hover { background: #ffe18b; }
+
+  #fallback { position: fixed; inset: 0; display: none; place-items: center; }
+  #fallback img { width: min(60vw, 340px); border-radius: 50%; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
+  @media (max-width: 600px) {
+    #hud { gap: 6px; }
+    button, a.btn { padding: 8px 12px; font-size: 14px; min-height: 44px; }
+    .card { padding: 12px 14px; bottom: calc(8px + env(safe-area-inset-bottom)); }
+    .card h1 { font-size: 1.1rem; }
+    #fps { font-size: 12px; padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="fallback" role="img" aria-label="Coin photograph"><img id="fbimg" alt=""></div>
+
+<div id="hud" role="toolbar" aria-label="Motion and specimen controls">
+  <a class="btn" href="index.html">All studies</a>
+  <div class="seg" role="group" aria-label="Motion Mode">
+    <button type="button" data-mode="still" aria-pressed="false">Still</button>
+    <button type="button" data-mode="calm" aria-pressed="true">Calm</button>
+    <button type="button" data-mode="full" aria-pressed="false">Full</button>
+  </div>
+  <button type="button" id="prev" title="Previous coin in collection">← Prev</button>
+  <button type="button" id="next" title="Next coin in collection">Next →</button>
+  <button type="button" id="sound-btn" aria-pressed="false" title="Toggle metallic coin acoustics">Sound: Off</button>
+  <span id="fps" aria-live="off">-- fps</span>
+</div>
+
+<div class="card">
+  <div class="card-info">
+    <h1 id="title">Coin Flip</h1>
+    <p><span id="side-label">Obverse</span> · <span id="side-desc">Front face</span></p>
+    <div class="card-badges">
+      <span class="badge" id="align-badge">Medal Alignment ↑↑</span>
+      <span class="badge" id="metal-badge">Silver</span>
+      <span class="badge" id="roster-badge">1 of 15</span>
+      <span class="badge" title="Written by Gemini for this study; the app's own coin records are the checked version">Notes: Gemini, not checked</span>
+    </div>
+  </div>
+  <div class="card-actions">
+    <button type="button" id="flip-btn">Flip</button>
+  </div>
+</div>
+
+<p class="sr-only" id="announcer" aria-live="polite"></p>
+
+<script src="../js/three.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- Verified Two-Sided Specimen Roster (15 Coins) ---------------- */
+  var COINS = [
+    { id: "C010", label: "Netherlands · 1996 · 25 Cents", align: "medal", metal: "Nickel", obv: "Queen Beatrix abstract geometric profile", rev: "25 Cents value grid & dates" },
+    { id: "C031", label: "Australia · 1943 S · Threepence", align: "medal", metal: ".925 Silver", obv: "King George VI bare head uncrowned", rev: "Three wheat stalks, AUSTRALIA 1943" },
+    { id: "C032", label: "Hungary · 1967 · 1 Forint", align: "medal", metal: "Aluminium", obv: "Kossuth national coat of arms & wreath", rev: "Large numeral 1 FORINT with mintmark" },
+    { id: "C042", label: "USSR · 1962 · 1 Kopek", align: "medal", metal: "Al-Bronze", obv: "Soviet state seal (globe, hammer & sickle)", rev: "1 Kopek surrounded by oak & wheat" },
+    { id: "C047", label: "Brazil · 2006 · 5 Centavos", align: "coin", metal: "Cu-Plated Steel", obv: "Tiradentes (martyr of Inconfidência Mineira)", rev: "Southern Cross constellation & 5 Centavos" },
+    { id: "C162", label: "Thailand · 2006 · 1 Baht", align: "coin", metal: "Cupronickel", obv: "King Rama IX (Bhumibol Adulyadej) portrait", rev: "Wat Phra Kaew (Temple of Emerald Buddha)" },
+    { id: "C198", label: "Netherlands · 1948 · 1 Cent", align: "medal", metal: "Bronze", obv: "Queen Wilhelmina facing left", rev: "1 CENT flanked by olive branches" },
+    { id: "C200", label: "Taiwan · 2008 · 1 Yuan", align: "medal", metal: "Cu-Al-Ni", obv: "Generalissimo Chiang Kai-shek bust", rev: "1 Yuan denomination within decorative border" },
+    { id: "C206", label: "Japan · 1976 · 1 Yen", align: "medal", metal: "Aluminium", obv: "Young sapling tree (signifying growth)", rev: "Large numeral 1 & Year 51 of Showa" },
+    { id: "C233", label: "Colombia · 2016 · 50 Pesos", align: "coin", metal: "Nickel-Brass", obv: "Spectacled bear (Tremarctos ornatus)", rev: "50 PESOS & national borders" },
+    { id: "C235", label: "Guatemala · 1934 · 10 Centavos", align: "coin", metal: ".720 Silver", obv: "National coat of arms with Resplendent Quetzal", rev: "Monolith E of Quiriguá Mayan stela" },
+    { id: "C247", label: "South Korea · 1966 · 1 Won", align: "coin", metal: "Brass", obv: "Mugunghwa (Rose of Sharon national flower)", rev: "1 WON numeral & Bank of Korea hangul" },
+    { id: "C288", label: "Australia · 1983 · 1 Cent", align: "medal", metal: "Bronze", obv: "Queen Elizabeth II portrait by Arnold Machin", rev: "Feathertail glider by Stuart Devlin" },
+    { id: "T002", label: "Germany · Spielmarke 20 Gr", align: "medal", metal: "Brass", obv: "Prussian heraldic eagle in oak wreath", rev: "20 Groschen denomination counter" },
+    { id: "T003", label: "Meijer · Sandy the Pony Token", align: "medal", metal: "Brass", obv: "Sandy the galloping supermarket pony", rev: "One cent mechanical horse ride token" }
+  ];
+
+  var curIdx = 0;
+  var currentCoin = COINS[curIdx];
+  var side = 0; // 0 = obverse, 1 = reverse
+
+  /* ---------------- Motion Policy Engine ---------------- */
+  var ORDER = ["still", "calm", "full"];
+  var osReduce = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  function getAppMotion() {
+    var v = null;
+    try { v = localStorage.getItem("titan.motion"); } catch (e) {}
+    return (v === "full" || v === "calm" || v === "off") ? v : null;
+  }
+  function computePolicy() {
+    var app = getAppMotion(), os = !!(osReduce && osReduce.matches);
+    if (app === "off") return { cap: "still", start: "still" };
+    if (app === "calm") return { cap: "calm", start: "calm" };
+    if (app === "full") return { cap: "full", start: "full" };
+    if (os) return { cap: "calm", start: "still" };
+    return { cap: "full", start: "calm" };
+  }
+  var policy = computePolicy();
+  var mode = policy.start;
+  try {
+    var saved = localStorage.getItem("motionlab_mode");
+    if (ORDER.indexOf(saved) >= 0 && ORDER.indexOf(saved) <= ORDER.indexOf(policy.cap)) mode = saved;
+  } catch (e) {}
+
+  var hud = document.getElementById("hud");
+  var fpsEl = document.getElementById("fps");
+  var announcer = document.getElementById("announcer");
+  var titleEl = document.getElementById("title");
+  var sideLabelEl = document.getElementById("side-label");
+  var sideDescEl = document.getElementById("side-desc");
+  var alignBadgeEl = document.getElementById("align-badge");
+  var metalBadgeEl = document.getElementById("metal-badge");
+  var rosterBadgeEl = document.getElementById("roster-badge");
+
+  function applyPolicyUI() {
+    Array.prototype.forEach.call(hud.querySelectorAll("[data-mode]"), function (b) {
+      var m = b.dataset.mode;
+      var over = ORDER.indexOf(m) > ORDER.indexOf(policy.cap);
+      b.disabled = over;
+      b.setAttribute("aria-pressed", String(m === mode));
+    });
+  }
+  function setMode(m, persist) {
+    if (ORDER.indexOf(m) > ORDER.indexOf(policy.cap)) m = policy.cap;
+    mode = m;
+    if (persist) { try { localStorage.setItem("motionlab_mode", m); } catch (e) {} }
+    applyPolicyUI();
+    if (mode === "still") {
+      finishTween();
+      spinSpeed = 0;
+      fpsEl.textContent = "still · 0 fps";
+      render();
+    } else {
+      kick();
+    }
+  }
+  hud.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-mode]");
+    if (b) setMode(b.dataset.mode, true);
+  });
+  if (osReduce) {
+    var onOs = function () { policy = computePolicy(); setMode(policy.start, false); };
+    if (osReduce.addEventListener) osReduce.addEventListener("change", onOs);
+    else if (osReduce.addListener) osReduce.addListener(onOs);
+  }
+  window.addEventListener("storage", function (e) {
+    if (!e || e.key === null || e.key === "titan.motion") {
+      policy = computePolicy();
+      setMode(policy.start, false);
+    }
+  });
+
+  /* ---------------- Fallback Handler ---------------- */
+  function showFallback(msg) {
+    document.getElementById("stage").style.display = "none";
+    document.getElementById("fallback").style.display = "grid";
+    updateFallbackImage();
+    fpsEl.textContent = "fallback · photos";
+    if (msg) console.warn(msg);
+  }
+  function updateFallbackImage() {
+    var img = document.getElementById("fbimg");
+    if (!img) return;
+    img.src = "../photos/p1/" + currentCoin.id + (side === 0 ? "_obv" : "_rev") + ".webp";
+    img.alt = currentCoin.label + " (" + (side === 0 ? "Obverse" : "Reverse") + ")";
+  }
+
+  if (typeof THREE === "undefined") {
+    showFallback("THREE.js unavailable");
+    return;
+  }
+
+  /* ---------------- Three.js Scene Setup ---------------- */
+  var canvas = document.getElementById("stage");
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
+  } catch (e) {
+    showFallback("WebGL context error");
+    return;
+  }
+  if (!renderer.getContext()) {
+    showFallback("WebGL context failed");
+    return;
+  }
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+
+  var scene = new THREE.Scene();
+  var cam = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
+  cam.position.set(0, 0.2, 5.8);
+
+  /* 3-Point Lighting Model */
+  scene.add(new THREE.AmbientLight(0x5c564c, 0.65));
+  var keyLight = new THREE.DirectionalLight(0xfff5e4, 1.25);
+  keyLight.position.set(-2.5, 3.2, 4.0);
+  scene.add(keyLight);
+
+  var fillLight = new THREE.DirectionalLight(0xaad0ff, 0.45);
+  fillLight.position.set(3.0, -1.5, 2.5);
+  scene.add(fillLight);
+
+  var rimLight1 = new THREE.PointLight(0xffcf7a, 3.5, 12, 1.8);
+  scene.add(rimLight1);
+
+  var rimLight2 = new THREE.PointLight(0x9bc2ff, 1.8, 12, 1.8);
+  scene.add(rimLight2);
+
+  /* Ground reflection pool */
+  var floorGlow = new THREE.Mesh(
+    new THREE.CircleGeometry(2.4, 64),
+    new THREE.MeshBasicMaterial({ color: 0xe9c46a, transparent: true, opacity: 0.08 })
+  );
+  floorGlow.rotation.x = -Math.PI / 2;
+  floorGlow.position.y = -1.4;
+  scene.add(floorGlow);
+
+  /* Procedural Reeded Edge Texture */
+  var edgeMat = new THREE.MeshStandardMaterial({ color: 0xb5ad9e, metalness: 0.92, roughness: 0.35 });
+  (function () {
+    var c = document.createElement("canvas"); c.width = 512; c.height = 16;
+    var g = c.getContext("2d");
+    for (var i = 0; i < 512; i += 4) {
+      g.fillStyle = (i % 8 === 0) ? "#ded8cc" : "#6e685e";
+      g.fillRect(i, 0, 4, 16);
+    }
+    var t = new THREE.CanvasTexture(c);
+    t.wrapS = THREE.RepeatWrapping; t.repeat.set(4, 1);
+    edgeMat.bumpMap = t; edgeMat.bumpScale = 0.04;
+    edgeMat.needsUpdate = true;
+  })();
+
+  function makeFaceMaterial() {
+    return new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      metalness: 0.65,
+      roughness: 0.42,
+      transparent: true
+    });
+  }
+  var topFaceMat = makeFaceMaterial();
+  var botFaceMat = makeFaceMaterial();
+
+  var coinGeo = new THREE.CylinderGeometry(1, 1, 0.11, 128, 1);
+  var coinMesh = new THREE.Mesh(coinGeo, [edgeMat, topFaceMat, botFaceMat]);
+  coinMesh.rotation.x = Math.PI / 2; // Face pointing towards the camera initially
+
+  var pivot = new THREE.Group();
+  pivot.add(coinMesh);
+  scene.add(pivot);
+
+  /* ---------------- Specimen Texture Loader ---------------- */
+  var texLoader = new THREE.TextureLoader();
+  function updateMetadataUI() {
+    titleEl.textContent = currentCoin.label;
+    var isObv = (side === 0);
+    sideLabelEl.textContent = isObv ? "Obverse (Front)" : "Reverse (Back)";
+    sideDescEl.textContent = isObv ? currentCoin.obv : currentCoin.rev;
+
+    var isCoin = (currentCoin.align === "coin");
+    alignBadgeEl.textContent = isCoin ? "Coin Alignment ↑↓" : "Medal Alignment ↑↑";
+    alignBadgeEl.className = "badge" + (isCoin ? " coin-align" : "");
+    metalBadgeEl.textContent = currentCoin.metal;
+    rosterBadgeEl.textContent = (curIdx + 1) + " of " + COINS.length;
+
+    announcer.textContent = "Showing " + currentCoin.label + ", " + (isObv ? "obverse" : "reverse") + ": " + (isObv ? currentCoin.obv : currentCoin.rev);
+    updateFallbackImage();
+  }
+
+  function loadCoin(idx) {
+    curIdx = (idx + COINS.length) % COINS.length;
+    currentCoin = COINS[curIdx];
+    side = 0;
+    updateMetadataUI();
+
+    var id = currentCoin.id;
+    var maxAniso = renderer.capabilities.getMaxAnisotropy();
+
+    // Adjust metalness/roughness based on coin material
+    var isSilver = currentCoin.metal.indexOf("Silver") >= 0;
+    var isBronze = currentCoin.metal.indexOf("Bronze") >= 0 || currentCoin.metal.indexOf("Steel") >= 0;
+    topFaceMat.metalness = botFaceMat.metalness = isSilver ? 0.85 : (isBronze ? 0.45 : 0.65);
+    topFaceMat.roughness = botFaceMat.roughness = isSilver ? 0.32 : (isBronze ? 0.52 : 0.42);
+
+    texLoader.load("../photos/p1/" + id + "_obv.webp", function (t) {
+      t.encoding = THREE.sRGBEncoding;
+      t.anisotropy = maxAniso;
+      t.center.set(0.5, 0.5);
+      t.rotation = -Math.PI / 2;
+      topFaceMat.map = t; topFaceMat.needsUpdate = true;
+      render();
+    });
+
+    texLoader.load("../photos/p1/" + id + "_rev.webp", function (t) {
+      t.encoding = THREE.sRGBEncoding;
+      t.anisotropy = maxAniso;
+      t.center.set(0.5, 0.5);
+      // In medal alignment: reverse faces upright when turned on vertical axis (Math.PI / 2)
+      // In coin alignment: reverse is inverted by 180° relative to obverse
+      t.rotation = (currentCoin.align === "coin") ? -Math.PI / 2 : Math.PI / 2;
+      botFaceMat.map = t; botFaceMat.needsUpdate = true;
+      render();
+    });
+
+    // Reset pivot orientations
+    pivot.rotation.set(0, 0, 0);
+    render();
+  }
+
+  /* ---------------- Procedural Numismatic Acoustics (Web Audio API) ---------------- */
+  var audioCtx = null;
+  var soundEnabled = false;
+  var soundBtn = document.getElementById("sound-btn");
+
+  function initAudio() {
+    if (!audioCtx) {
+      var AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) audioCtx = new AudioContext();
+    }
+    if (audioCtx && audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+  }
+
+  function playCoinRing(metalStr) {
+    if (!soundEnabled) return;
+    initAudio();
+    if (!audioCtx) return;
+
+    var now = audioCtx.currentTime;
+    var metal = metalStr || currentCoin.metal;
+    var baseFreq = 3400;
+    var decay = 0.55;
+    var harmRatio = 2.4;
+
+    if (metal.indexOf("Silver") >= 0) {
+      baseFreq = 4400;
+      decay = 0.95;
+      harmRatio = 2.76;
+    } else if (metal.indexOf("Aluminium") >= 0) {
+      baseFreq = 5100;
+      decay = 0.28;
+      harmRatio = 2.1;
+    } else if (metal.indexOf("Bronze") >= 0 || metal.indexOf("Brass") >= 0) {
+      baseFreq = 2650;
+      decay = 0.65;
+      harmRatio = 2.62;
+    } else if (metal.indexOf("Steel") >= 0) {
+      baseFreq = 3800;
+      decay = 0.45;
+      harmRatio = 2.3;
+    }
+
+    var masterGain = audioCtx.createGain();
+    masterGain.gain.setValueAtTime(0.001, now);
+    masterGain.gain.exponentialRampToValueAtTime(0.32, now + 0.003);
+    masterGain.gain.exponentialRampToValueAtTime(0.0001, now + decay);
+    masterGain.connect(audioCtx.destination);
+
+    // Fundamental metallic resonance
+    var osc1 = audioCtx.createOscillator();
+    osc1.type = "sine";
+    osc1.frequency.setValueAtTime(baseFreq, now);
+    osc1.frequency.exponentialRampToValueAtTime(baseFreq * 0.985, now + decay);
+    osc1.connect(masterGain);
+    osc1.start(now);
+    osc1.stop(now + decay);
+
+    // High overtone chime shimmer
+    var osc2 = audioCtx.createOscillator();
+    var gain2 = audioCtx.createGain();
+    gain2.gain.setValueAtTime(0.16, now);
+    gain2.gain.exponentialRampToValueAtTime(0.0001, now + decay * 0.6);
+    osc2.type = "sine";
+    osc2.frequency.setValueAtTime(baseFreq * harmRatio, now);
+    osc2.connect(gain2);
+    gain2.connect(masterGain);
+    osc2.start(now);
+    osc2.stop(now + decay * 0.6);
+
+    // Metallic impact click impulse
+    var bufferSize = Math.floor(audioCtx.sampleRate * 0.012);
+    var buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    var data = buffer.getChannelData(0);
+    for (var i = 0; i < bufferSize; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.25));
+    }
+    var noise = audioCtx.createBufferSource();
+    noise.buffer = buffer;
+    var noiseFilter = audioCtx.createBiquadFilter();
+    noiseFilter.type = "bandpass";
+    noiseFilter.frequency.setValueAtTime(baseFreq * 1.25, now);
+    noiseFilter.Q.setValueAtTime(3.5, now);
+    var noiseGain = audioCtx.createGain();
+    noiseGain.gain.setValueAtTime(0.22, now);
+    noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.012);
+    noise.connect(noiseFilter);
+    noiseFilter.connect(noiseGain);
+    noiseGain.connect(masterGain);
+    noise.start(now);
+  }
+
+  function playWhoosh() {
+    if (!soundEnabled) return;
+    initAudio();
+    if (!audioCtx) return;
+
+    var now = audioCtx.currentTime;
+    var dur = 0.42;
+    var bufferSize = Math.floor(audioCtx.sampleRate * dur);
+    var buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    var data = buffer.getChannelData(0);
+    for (var i = 0; i < bufferSize; i++) {
+      data[i] = (Math.random() * 2 - 1);
+    }
+    var noise = audioCtx.createBufferSource();
+    noise.buffer = buffer;
+
+    var filter = audioCtx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(300, now);
+    filter.frequency.exponentialRampToValueAtTime(1300, now + dur * 0.5);
+    filter.frequency.exponentialRampToValueAtTime(220, now + dur);
+
+    var gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0.001, now);
+    gain.gain.linearRampToValueAtTime(0.10, now + dur * 0.4);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(audioCtx.destination);
+    noise.start(now);
+  }
+
+  if (soundBtn) {
+    soundBtn.addEventListener("click", function () {
+      soundEnabled = !soundEnabled;
+      soundBtn.setAttribute("aria-pressed", String(soundEnabled));
+      soundBtn.textContent = soundEnabled ? "Sound: On" : "Sound: Off";
+      if (soundEnabled) {
+        initAudio();
+        playCoinRing();
+      }
+    });
+  }
+
+  /* ---------------- Gyroscope / Device Orientation Tilt ---------------- */
+  window.addEventListener("deviceorientation", function (e) {
+    if (e.beta === null || e.gamma === null) return;
+    var targetTiltX = Math.max(-0.35, Math.min(0.35, (e.beta - 45) * 0.008));
+    var targetTiltY = Math.max(-0.35, Math.min(0.35, e.gamma * 0.008));
+    if (!dragging && !tw && mode !== "still") {
+      keyLight.position.x = -2.5 + targetTiltY * 2.8;
+      keyLight.position.y = 3.2 - targetTiltX * 2.8;
+      render();
+    }
+  });
+
+  /* ---------------- Turnover Physics & Tweening ---------------- */
+  var tw = null; // Tween state: { axis: 'x'|'y', from, to, t0, dur, toss }
+  var spin = 0, spinSpeed = 0;
+  var dragging = false, dragStart = { x: 0, y: 0 }, lastDrag = { x: 0, y: 0 }, dragMoved = 0;
+
+  function easeInOutCubic(x) {
+    return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  }
+
+  function determineCurrentSide() {
+    // If turnover is around Y (medal)
+    var rotY = ((pivot.rotation.y % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+    // If turnover is around X (coin)
+    var rotX = ((pivot.rotation.x % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+
+    var isBackY = (rotY > Math.PI * 0.5 && rotY < Math.PI * 1.5);
+    var isBackX = (rotX > Math.PI * 0.5 && rotX < Math.PI * 1.5);
+    var newSide = (isBackY || isBackX) ? 1 : 0;
+    if (newSide !== side) {
+      side = newSide;
+      updateMetadataUI();
+    }
+  }
+
+  function toss() {
+    if (mode === "still") {
+      // Immediate instantaneous flip in Still mode
+      var axis = (currentCoin.align === "coin") ? "x" : "y";
+      pivot.rotation[axis] += Math.PI;
+      determineCurrentSide();
+      playCoinRing();
+      render();
+      return;
+    }
+
+    playWhoosh();
+    var isCoin = (currentCoin.align === "coin");
+    var axis = isCoin ? "x" : "y";
+    var curRot = pivot.rotation[axis];
+    var target = Math.round(curRot / Math.PI) * Math.PI + Math.PI;
+    var dur = (mode === "full") ? 1.25 : 1.75;
+    var doToss = (mode === "full");
+
+    tw = {
+      axis: axis,
+      from: curRot,
+      to: target,
+      t0: performance.now(),
+      dur: dur * 1000,
+      toss: doToss
+    };
+    kick();
+  }
+
+  function finishTween() {
+    if (tw) {
+      pivot.rotation[tw.axis] = tw.to;
+      tw = null;
+      pivot.position.y = 0;
+      pivot.rotation.z = 0;
+      determineCurrentSide();
+    }
+  }
+
+  /* ---------------- Pointer / Drag Interaction ---------------- */
+  canvas.addEventListener("pointerdown", function (e) {
+    if (e.button > 0) return;
+    if (mode === "still") {
+      dragStart.x = e.clientX; dragStart.y = e.clientY;
+      dragMoved = 0;
+      return;
+    }
+    finishTween();
+    dragging = true;
+    dragStart.x = lastDrag.x = e.clientX;
+    dragStart.y = lastDrag.y = e.clientY;
+    dragMoved = 0;
+    canvas.classList.add("drag");
+    try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+    kick();
+  });
+
+  canvas.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - lastDrag.x;
+    var dy = e.clientY - lastDrag.y;
+    dragMoved += Math.abs(dx) + Math.abs(dy);
+
+    // Horizontal drag turns along Y (medal style); vertical drag turns along X (coin style)
+    pivot.rotation.y += dx * 0.009;
+    pivot.rotation.x += dy * 0.009;
+
+    lastDrag.x = e.clientX;
+    lastDrag.y = e.clientY;
+    determineCurrentSide();
+    render();
+  });
+
+  function onPointerEnd(e) {
+    if (mode === "still") {
+      if (dragMoved < 10) toss();
+      return;
+    }
+    if (!dragging) return;
+    dragging = false;
+    canvas.classList.remove("drag");
+    if (dragMoved < 12) {
+      toss();
+      return;
+    }
+    // Settle rotation onto nearest upright face
+    var axis = (Math.abs(pivot.rotation.x) > Math.abs(pivot.rotation.y)) ? "x" : "y";
+    var otherAxis = (axis === "x") ? "y" : "x";
+    pivot.rotation[otherAxis] = Math.round(pivot.rotation[otherAxis] / Math.PI) * Math.PI;
+
+    var curRot = pivot.rotation[axis];
+    var target = Math.round(curRot / Math.PI) * Math.PI;
+    tw = {
+      axis: axis,
+      from: curRot,
+      to: target,
+      t0: performance.now(),
+      dur: 600,
+      toss: false
+    };
+    kick();
+  }
+
+  canvas.addEventListener("pointerup", onPointerEnd);
+  canvas.addEventListener("pointercancel", onPointerEnd);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.target && e.target !== document.body) return;
+    if (e.key === " " || e.key === "f" || e.key === "Enter") {
+      e.preventDefault(); toss();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault(); loadCoin(curIdx + 1);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault(); loadCoin(curIdx - 1);
+    }
+  });
+
+  /* ---------------- Animation Loop & Render Engine ---------------- */
+  var running = false, lastTime = performance.now(), rafId = 0;
+  var fpsFrames = 0, fpsTime = 0, autoHold = 0;
+
+  function update(now, dt) {
+    spin += dt * 0.8;
+
+    // Orbiting rim light positioning
+    var rimA = spin * 1.8;
+    rimLight1.position.set(Math.cos(rimA) * 2.8, 1.4 + Math.sin(rimA * 0.6) * 0.9, Math.sin(rimA) * 2.8);
+    rimLight2.position.set(-Math.cos(rimA) * 2.8, -0.6, -Math.sin(rimA) * 2.8);
+
+    if (tw) {
+      var progress = Math.min(1, (now - tw.t0) / tw.dur);
+      var eased = easeInOutCubic(progress);
+      pivot.rotation[tw.axis] = tw.from + (tw.to - tw.from) * eased;
+
+      if (tw.toss) {
+        pivot.position.y = Math.sin(progress * Math.PI) * 0.9;
+        pivot.rotation.z = Math.sin(progress * Math.PI) * 0.16;
+      } else {
+        pivot.position.y = 0;
+        pivot.rotation.z = 0;
+      }
+
+      floorGlow.material.opacity = 0.07 + 0.05 * (1 - pivot.position.y / 0.9);
+      determineCurrentSide();
+
+      if (progress >= 1) {
+        tw = null;
+        pivot.position.y = 0;
+        pivot.rotation.z = 0;
+        determineCurrentSide();
+        playCoinRing();
+        autoHold = now + 4000;
+      }
+    } else if (mode === "full" && !dragging) {
+      // Gentle gyroscopic breath when resting in Full mode
+      pivot.rotation.z = Math.sin(spin * 0.7) * 0.04;
+      if (now > autoHold) {
+        toss();
+      }
+    } else {
+      pivot.rotation.z = 0;
+      pivot.position.y = 0;
+    }
+  }
+
+  function frame(now) {
+    rafId = 0;
+    var dt = Math.min(0.05, (now - lastTime) / 1000);
+    lastTime = now;
+
+    update(now, dt);
+    render();
+
+    // FPS Meter
+    fpsFrames++; fpsTime += dt;
+    if (fpsTime >= 0.5) {
+      var fpsVal = Math.round(fpsFrames / fpsTime);
+      fpsEl.textContent = fpsVal + " fps · WebGL";
+      fpsFrames = 0; fpsTime = 0;
+    }
+
+    var busy = (mode === "full") || !!tw || dragging;
+    if (mode !== "still" && !document.hidden && busy) {
+      rafId = requestAnimationFrame(frame);
+    } else {
+      running = false;
+      if (mode === "still") fpsEl.textContent = "still · 0 fps";
+      else fpsEl.textContent = "resting · tap Flip";
+    }
+  }
+
+  function render() {
+    renderer.render(scene, cam);
+  }
+
+  function kick() {
+    if (mode === "still" || running || document.hidden) return;
+    running = true;
+    lastTime = performance.now();
+    rafId = requestAnimationFrame(frame);
+  }
+
+  /* ---------------- Layout & Viewport Sizing ---------------- */
+  function onResize() {
+    var w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w, h, false);
+    cam.aspect = w / h;
+    // Keep coin comfortably framed in portrait and landscape
+    cam.position.z = (w < h) ? Math.max(5.8, 2.2 / (0.58 * (w / h))) : 5.8;
+    cam.updateProjectionMatrix();
+    render();
+  }
+  window.addEventListener("resize", onResize);
+
+  /* ---------------- Button Listeners ---------------- */
+  document.getElementById("flip-btn").addEventListener("click", toss);
+  document.getElementById("next").addEventListener("click", function () {
+    loadCoin(curIdx + 1);
+    if (mode !== "still") toss();
+  });
+  document.getElementById("prev").addEventListener("click", function () {
+    loadCoin(curIdx - 1);
+    if (mode !== "still") toss();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) {
+      autoHold = performance.now() + 1500;
+      kick();
+    }
+  });
+
+  /* ---------------- Start Initial Specimen ---------------- */
+  applyPolicyUI();
+  onResize();
+  loadCoin(0);
+  if (mode !== "still") {
+    setTimeout(toss, 500);
+  }
+})();
+</script>
+</body>
+</html>

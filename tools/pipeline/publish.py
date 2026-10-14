@@ -152,7 +152,7 @@ def main(argv):
     r = subprocess.run([sys.executable, os.path.join(HERE, "build_app_data.py"), coll, outuse, "--version-json", vuse], capture_output=True, text=True)
     if r.returncode != 0: print(r.stdout, r.stderr); return fail("build_app_data.py failed")
     print(r.stdout.strip().replace(outuse, out))
-    with open(f"{outuse}/wants.json", "w", encoding="utf-8", newline="\n") as f: json.dump(W.build(col["albums"], ver["generated_at"]), f, ensure_ascii=False, separators=(",", ":"))
+    with open(f"{outuse}/wants.json", "w", encoding="utf-8", newline="\n") as f: json.dump(W.build(col["albums"], ver["generated_at"], W.load_values(coll)), f, ensure_ascii=False, separators=(",", ":"))
     import phase1 as P1
     with open(f"{outuse}/reshoot.json", "w", encoding="utf-8", newline="\n") as f: json.dump(R.build(col, ver["generated_at"], details=P1.details_from(outuse)), f, ensure_ascii=False, separators=(",", ":"))
     qs = OA.load_questions(coll); done = OA.answered_ids(coll)

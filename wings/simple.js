@@ -72,6 +72,7 @@
     const unnamed = v.unnamed_missing || 0;
     let h = `<article class="sv-card">${head}<p class="sv-big">You have <strong>${fmtInt(have)}</strong>${total != null ? ` of <strong>${fmtInt(total)}</strong>` : ""}. <strong>${fmtInt(v.missing)} missing.</strong></p>`;
     if (miss.length) h += `<p class="sv-label" id="m-${esc(v.id)}">Missing:</p><ul class="sv-chips" aria-labelledby="m-${esc(v.id)}">${miss.map((s) => `<li>${esc(slotText(s))}</li>`).join("")}</ul>`;
+    if (v.cost) h += `<p class="sv-note">To fill ${v.cost.priced === v.cost.of ? "them all" : `the ${v.cost.priced} with a price`}: about <strong>$${Math.round(v.cost.usd).toLocaleString("en-US")}</strong> (an estimate from coin price guides; scarce years can cost more).</p>`;
     if (unnamed) h += `<p class="sv-note">${unnamed} more empty ${unnamed === 1 ? "spot" : "spots"} cannot be named yet. They need a fresh photo of the album page.</p>`;
     if (v.maybe_missing && v.maybe_missing.length) h += `<p class="sv-note">Not sure about: ${v.maybe_missing.slice().sort(slotSort).map((s) => esc(slotText(s))).join(", ")}.</p>`;
     return h + "</article>";

@@ -58,9 +58,20 @@
     return out;
   }
   const KIND_TEXT = { have: "have it", missing: "MISSING", probably: "probably here", unknown: "not known yet" };
+  /* price of a missing hole and "cost to complete" (an AI's priced list in collection/prices/wants_values_*.json; build_wants.py) */
+  const usd = (n) => "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const WHO = { grok: "Grok", muse: "Muse", gemini: "Gemini", chatgpt: "ChatGPT", claude: "Claude" };
+  function costText(v) {
+    const c = v.cost; if (!c) return "";
+    const who = c.by.map((b) => WHO[b] || b).join(" + ");
+    const part = c.priced < c.of ? `${c.priced} of ${c.of} missing coins priced` : `all ${c.of} missing coins priced`;
+    return `Cost to complete: about ${usd(c.usd)} (${part}; ${who}'s estimate from price guides, ${new Date(c.date + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}${c.low ? `; ${c.low} at a nearby grade` : ""}). Scarce dates can cost more.`;
+  }
   function cellHtml(s) {
     const aria = `${s.label}: ${KIND_TEXT[s.kind]}`;
-    return `<li class="wants-cell is-${s.kind}" aria-label="${esc(aria)}"><span class="wants-year">${esc(s.label)}</span><span class="wants-state">${s.kind === "missing" ? "✗ " : s.kind === "have" ? "✓ " : "? "}${esc(KIND_TEXT[s.kind])}</span></li>`;
+    const pr = s.kind === "missing" && s.price ? s.price : null;
+    const title = pr ? ` title="${esc(`${pr.grade || ""} about ${usd(pr.usd)} · ${pr.source}`)}"` : "";
+    return `<li class="wants-cell is-${s.kind}" aria-label="${esc(aria + (pr ? `, about ${usd(pr.usd)}` : ""))}"${title}><span class="wants-year">${esc(s.label)}</span><span class="wants-state">${s.kind === "missing" ? "✗ " : s.kind === "have" ? "✓ " : "? "}${esc(KIND_TEXT[s.kind])}</span>${pr ? `<span class="wants-price">≈ ${esc(usd(pr.usd))}</span>` : ""}</li>`;
   }
 
   function cardHtml(v) {
@@ -75,6 +86,7 @@
         <p class="wants-count"><strong>${esc(headline(v))}</strong></p>
       </header>
       ${v.denomination ? `<p class="wants-meta">${esc(v.denomination)}${v.metal ? " · " + esc(v.metal) : ""}</p>` : ""}
+      ${costText(v) ? `<p class="wants-cost">${esc(costText(v))}</p>` : ""}
       ${caveat(v) ? `<p class="wants-caveat">${esc(caveat(v))}</p>` : ""}
       ${showGrid ? `<ul class="wants-grid" role="list" aria-label="Slots in ${esc(v.title)}">${cs.map(cellHtml).join("")}</ul>
       <p class="wants-legend" aria-hidden="true"><span class="wants-key is-missing">✗ MISSING</span> <span class="wants-key is-have">✓ have it</span> ${cs.some((c) => c.kind === "probably") ? '<span class="wants-key is-probably">? probably here</span>' : ""}${cs.some((c) => c.kind === "unknown") ? '<span class="wants-key is-unknown">? not known yet</span>' : ""}</p>` : ""}
@@ -108,7 +120,8 @@
     const vols = visibleVolumes();
     const named = vols.reduce((n, v) => n + v.missing_named.length, 0);
     const unknown = vols.filter((v) => v.evidence === "count-only" || v.unnamed_missing > 0).length;
-    return `${vols.length} album${vols.length === 1 ? "" : "s"} shown · ${named} missing slots named · ${unknown} album${unknown === 1 ? "" : "s"} still need${unknown === 1 ? "s" : ""} the album scan to name the rest`;
+    const costed = vols.filter((v) => v.cost), cost = costed.reduce((n, v) => n + v.cost.usd, 0), priced = costed.reduce((n, v) => n + v.cost.priced, 0);
+    return `${vols.length} album${vols.length === 1 ? "" : "s"} shown · ${named} missing slots named${costed.length ? ` · about ${usd(cost)} to complete the ${priced} priced` : ""} · ${unknown} album${unknown === 1 ? "" : "s"} still need${unknown === 1 ? "s" : ""} the album scan to name the rest`;
   }
 
   function dataDate() {
@@ -130,7 +143,7 @@
         if (v.missing === 0) continue;
         const denom = v.denomination || "";
         if (v.missing_named.length) {
-          const rows = v.missing_named.map((s) => `<li><span class="wp-year">${esc(s.year != null ? s.year : s.label)}</span><span class="wp-mint">${s.mint ? "mint " + esc(s.mint) : "no mint mark"}</span><span class="wp-denom">${esc(denom)}${s.variety ? " (" + esc(s.variety) + ")" : ""}</span></li>`).join("");
+          const rows = v.missing_named.map((s) => `<li><span class="wp-year">${esc(s.year != null ? s.year : s.label)}</span><span class="wp-mint">${s.mint ? "mint " + esc(s.mint) : "no mint mark"}</span><span class="wp-denom">${esc(denom)}${s.price ? " · about " + esc(usd(s.price.usd)) : ""}${s.variety ? " (" + esc(s.variety) + ")" : ""}</span></li>`).join("");
           const more = v.unnamed_missing > 0 ? `<p class="wp-note">Plus ${v.unnamed_missing} more missing, years not yet known (album scan).</p>` : "";
           parts.push(`<h3>${esc(v.title)} <span>(${v.missing_named.length} to find)</span></h3><ul>${rows}</ul>${more}`);
         } else {

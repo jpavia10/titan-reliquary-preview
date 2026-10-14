@@ -11,9 +11,12 @@ Honesty rules baked in:
     They are only ever shown as "not known yet", never as missing.
   * `inferred_fill` = True when other slots were counted filled by arithmetic ("ledger names only the holes"): shown as "probably here".
   * evidence 'count-only' volumes list no years at all; the app says "N missing, specific years unknown until the album scan (Phase 1.5)".
+  * `price` on a missing hole and `cost` on a volume come from collection/prices/wants_values_*.json (an AI's priced list of the missing
+    coins, each with its grade, exact price page and confidence; the newest file wins per hole). A hole nobody priced stays unpriced:
+    the app says "N of M priced", never a total that hides the gap.
 Only the Python 3 standard library is used.
 """
-import json, os, sys
+import glob, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "albums"))
@@ -27,7 +30,29 @@ def slot_row(s):
 def unit_of(slots):
     return "coins" if any(s.get("mint") for s in slots) else "years"
 
-def build_volume(v):
+def load_values(coll):
+    """{(album, label): price row} from collection/prices/wants_values_{agent}_{stamp}.json (newest file wins per hole)."""
+    vals = {}
+    for p in sorted(glob.glob(os.path.join(coll, "prices", "wants_values_*.json"))):
+        m = re.match(r"wants_values_([a-z0-9-]+)_(\d{8}-\d{4})\.json$", os.path.basename(p))
+        if not m: continue
+        with open(p, encoding="utf-8") as f: d = json.load(f)
+        for it in d.get("items", []):
+            if not isinstance(it.get("value_usd"), (int, float)) or not it.get("source"): continue
+            vals[(it["album"], it["label"])] = {"usd": round(float(it["value_usd"]), 2), "grade": it.get("grade"), "source": it["source"],
+                                                "confidence": it.get("confidence") or "low", "by": m.group(1), "file": os.path.basename(p),
+                                                "date": f"{m.group(2)[:4]}-{m.group(2)[4:6]}-{m.group(2)[6:8]}"}
+    return vals
+
+def cost_of(vid, named, values):
+    priced = [values[(vid, s["label"])] for s in named if (vid, s["label"]) in values]
+    if not priced: return None
+    return {"priced": len(priced), "of": len(named), "usd": round(sum(p["usd"] for p in priced), 2),
+            "low": sum(1 for p in priced if p["confidence"] == "low"), "by": sorted({p["by"] for p in priced}),
+            "date": max(p["date"] for p in priced)}
+
+def build_volume(v, values=None):
+    values = values or {}
     c = summary(v)
     slots = v["slots"]
     named = [s for s in slots if s["state"] == "empty"]
@@ -44,20 +69,24 @@ def build_volume(v):
         "slots_total": c["total"], "slots_total_approx": c["approx"],
         "filled": c["filled_claimed"], "missing": c["missing"],
         "exact": c["exact"], "unnamed_missing": c["unnamed_missing"], "inferred_fill": inferred_fill,
-        "missing_named": [slot_row(s) for s in named],
+        "missing_named": [dict(slot_row(s), **({"price": values[(v["id"], s["label"])]} if (v["id"], s["label"]) in values else {})) for s in named],
+        "cost": cost_of(v["id"], named, values),
         "maybe_missing": [slot_row(s) for s in maybe],
         "have_named": [slot_row(s) for s in filled],
         "note": v.get("note"),
     }
 
-def build(albums, generated_at=None):
-    vols = [build_volume(v) for v in albums]
+def build(albums, generated_at=None, values=None):
+    vols = [build_volume(v, values) for v in albums]
+    costed = [v["cost"] for v in vols if v["cost"]]
     return {
         "schema": "wants/1", "generated_at": generated_at, "source": "collection/albums.json (computed with tools/albums/album_calc.py)",
         "totals": {"volumes": len(vols), "needs_scan": sum(1 for v in vols if v["needs_scan"]),
                    "named_missing": sum(len(v["missing_named"]) for v in vols),
                    "missing_known": sum(v["missing"] for v in vols if v["missing"] is not None),
-                   "volumes_without_total": sum(1 for v in vols if v["missing"] is None)},
+                   "volumes_without_total": sum(1 for v in vols if v["missing"] is None),
+                   "cost_usd": round(sum(c["usd"] for c in costed), 2) if costed else None,
+                   "cost_priced": sum(c["priced"] for c in costed), "cost_volumes": len(costed)},
         "volumes": vols,
     }
 
@@ -66,7 +95,7 @@ def main(argv):
     gen = argv[argv.index("--generated-at") + 1] if "--generated-at" in argv else None
     with open(os.path.join(coll, "albums.json"), encoding="utf-8") as f: albums = json.load(f)
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
-    with open(out, "w", encoding="utf-8", newline="\n") as f: json.dump(build(albums, gen), f, ensure_ascii=False, separators=(",", ":"))
+    with open(out, "w", encoding="utf-8", newline="\n") as f: json.dump(build(albums, gen, load_values(coll)), f, ensure_ascii=False, separators=(",", ":"))
     print(f"wrote {out}")
     return 0
 

@@ -1,0 +1,2498 @@
+{
+ "meta": {
+  "model": "grok-bot",
+  "prompt_version": "QUEUE_GROK@2026-10-10",
+  "task": "Cost to complete albums A001-A016 (QUEUE_grok.md NEW 2026-10-10 evening, item 1)",
+  "generated": "20261010-1949 PT",
+  "repo": "main 026efe5 (tr111), data/wants.json generated 2026-10-11T02:17:30Z",
+  "grade_policy": "Coins dated before 1965: XF (circulated album fill). 1965 and later: UNC (roll / mint fill). Where the Numista row does not price that grade, the nearest grade given is used, the grade field says which, and confidence is low.",
+  "price_source": "Numista type-page value tables (USD, fetched 2026-10-10 19:2x-19:4x PT from the box). PCGS (Cloudflare 403) and NGC (prices load by script) could not be read, so none are used.",
+  "melt_floor": "Silver never below melt: xag_usd 60.949001 (data/prices.json latest, 2026-10-10 22:28 UTC). ASW oz: dime 0.0723 ($4.41), quarter 0.1808 ($11.02), Kennedy 90% 0.3617 ($22.05), Kennedy 40% 0.1479 ($9.01), wartime nickel 0.05626 ($3.43).",
+  "excluded": "Printed 'Issued only in mint sets' circles are not holes: A002 2019-W, A004 1996-W, A007 1970-D, A013 2020-W.",
+  "confidence": "med = the page prices that exact grade for that exact date and mint; low = nearest grade used."
+ },
+ "items": [
+  {
+   "album": "A001",
+   "label": "1941-D",
+   "value_usd": 0.92,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1941 D', XF = $0.92 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1941-S",
+   "value_usd": 0.52,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1941 S', XF = $0.52 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1942-S",
+   "value_usd": 0.75,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1942 S', XF = $0.75 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1944-S",
+   "value_usd": 0.48,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1944 S' (Tin alloy composition change), XF = $0.48 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1947",
+   "value_usd": 0.21,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1947', XF = $0.21 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1947-S",
+   "value_usd": 0.24,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1947 S', XF = $0.24 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1949",
+   "value_usd": 0.19,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1949', XF = $0.19 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1949-S",
+   "value_usd": 0.29,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1949 S', XF = $0.29 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1950-S",
+   "value_usd": 0.25,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1950 S', XF = $0.25 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1952-S",
+   "value_usd": 0.3,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1952 S', XF = $0.3 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1954-S",
+   "value_usd": 0.57,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1954 S', XF = $0.57 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A001",
+   "label": "1955-S",
+   "value_usd": 0.19,
+   "grade": "XF",
+   "source": "Numista N#908 value table, row '1955 S', XF = $0.19 (USD): https://en.numista.com/catalogue/pieces908.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A002",
+   "label": "2021",
+   "value_usd": 0.48,
+   "grade": "UNC",
+   "source": "Numista N#10969 value table, row '2021', UNC = $0.48 (USD): https://en.numista.com/catalogue/pieces10969.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A002",
+   "label": "2022",
+   "value_usd": 0.55,
+   "grade": "UNC",
+   "source": "Numista N#10969 value table, row '2022', UNC = $0.55 (USD): https://en.numista.com/catalogue/pieces10969.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A002",
+   "label": "2023",
+   "value_usd": 0.77,
+   "grade": "UNC",
+   "source": "Numista N#10969 value table, row '2023', UNC = $0.77 (USD): https://en.numista.com/catalogue/pieces10969.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A002",
+   "label": "2024",
+   "value_usd": 0.77,
+   "grade": "UNC",
+   "source": "Numista N#10969 value table, row '2024', UNC = $0.77 (USD): https://en.numista.com/catalogue/pieces10969.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A003",
+   "label": "2023-P",
+   "value_usd": 0.78,
+   "grade": "UNC",
+   "source": "Numista N#53 value table, row '2023 P', UNC = $0.78 (USD): https://en.numista.com/catalogue/pieces53.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A003",
+   "label": "2024-P",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "Numista N#53 value table, row '2024 P', UNC = $1 (USD): https://en.numista.com/catalogue/pieces53.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A004",
+   "label": "1969",
+   "value_usd": 1.2,
+   "grade": "UNC",
+   "source": "Numista N#53 value table, row '1969', UNC = $1.2 (USD): https://en.numista.com/catalogue/pieces53.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A004",
+   "label": "1971",
+   "value_usd": 0.99,
+   "grade": "UNC",
+   "source": "Numista N#53 value table, row '1971', UNC = $0.99 (USD): https://en.numista.com/catalogue/pieces53.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A004",
+   "label": "1973",
+   "value_usd": 0.45,
+   "grade": "UNC",
+   "source": "Numista N#53 value table, row '1973', UNC = $0.45 (USD): https://en.numista.com/catalogue/pieces53.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1946",
+   "value_usd": 5.2,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1946', XF = $5.2 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1946-D",
+   "value_usd": 5.3,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1946 D', XF = $5.3 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1946-S",
+   "value_usd": 5.4,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1946 S', XF = $5.4 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1947",
+   "value_usd": 4.9,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1947', XF = $4.9 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1947-D",
+   "value_usd": 5.0,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1947 D', XF = $5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1947-S",
+   "value_usd": 4.41,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1947 S', XF = $4.4 (USD): https://en.numista.com/catalogue/pieces52.html; melt floor applied: 0.0723 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $4.41",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1948",
+   "value_usd": 5.4,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1948', XF = $5.4 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1948-D",
+   "value_usd": 4.6,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1948 D', XF = $4.6 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1948-S",
+   "value_usd": 4.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1948 S', XF = $4.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1949",
+   "value_usd": 5.9,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1949', XF = $5.9 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1949-D",
+   "value_usd": 4.9,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1949 D', XF = $4.9 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1949-S",
+   "value_usd": 5.3,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1949 S', XF = $5.3 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1950",
+   "value_usd": 5.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1950', XF = $5.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1950-D",
+   "value_usd": 4.9,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1950 D', XF = $4.9 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1950-S",
+   "value_usd": 5.3,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1950 S', XF = $5.3 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1951-D",
+   "value_usd": 5.1,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1951 D', XF = $5.1 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1951-S",
+   "value_usd": 5.0,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1951 S', XF = $5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1952",
+   "value_usd": 4.6,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1952', XF = $4.6 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1952-D",
+   "value_usd": 4.7,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1952 D', XF = $4.7 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1952-S",
+   "value_usd": 4.7,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1952 S', XF = $4.7 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1953",
+   "value_usd": 5.1,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1953', XF = $5.1 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1953-D",
+   "value_usd": 5.0,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1953 D', XF = $5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1953-S",
+   "value_usd": 4.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1953 S', XF = $4.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1954",
+   "value_usd": 4.6,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1954', XF = $4.6 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1954-D",
+   "value_usd": 4.41,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1954 D', XF = $4.4 (USD): https://en.numista.com/catalogue/pieces52.html; melt floor applied: 0.0723 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $4.41",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1954-S",
+   "value_usd": 4.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1954 S', XF = $4.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1955",
+   "value_usd": 4.7,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1955', XF = $4.7 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1955-D",
+   "value_usd": 4.5,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1955 D', XF = $4.5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1955-S",
+   "value_usd": 4.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1955 S', XF = $4.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1956",
+   "value_usd": 4.6,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1956', XF = $4.6 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1956-D",
+   "value_usd": 4.7,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1956 D', XF = $4.7 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1957",
+   "value_usd": 5.0,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1957', XF = $5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1957-D",
+   "value_usd": 4.5,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1957 D', XF = $4.5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1958",
+   "value_usd": 4.6,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1958', XF = $4.6 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1958-D",
+   "value_usd": 4.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1958 D', XF = $4.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1959",
+   "value_usd": 4.6,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1959', XF = $4.6 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1959-D",
+   "value_usd": 5.0,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1959 D', XF = $5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1960",
+   "value_usd": 4.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1960' (see comments for doubled die), XF = $4.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1960-D",
+   "value_usd": 4.5,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1960 D', XF = $4.5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1961",
+   "value_usd": 4.5,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1961', XF = $4.5 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1961-D",
+   "value_usd": 4.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1961 D', XF = $4.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1962",
+   "value_usd": 5.1,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1962', XF = $5.1 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1962-D",
+   "value_usd": 4.7,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1962 D', XF = $4.7 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1963",
+   "value_usd": 4.8,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1963' (see comments for doubled die), XF = $4.8 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1963-D",
+   "value_usd": 4.9,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1963 D', XF = $4.9 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A005",
+   "label": "1964-D",
+   "value_usd": 4.9,
+   "grade": "XF",
+   "source": "Numista N#52 value table, row '1964 D' (see comments for doubled die), XF = $4.9 (USD): https://en.numista.com/catalogue/pieces52.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1916",
+   "value_usd": 10.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1916', XF = $10 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1916-D",
+   "value_usd": 880.0,
+   "grade": "VG",
+   "source": "Numista N#51 value table, row '1916 D', VG = $880 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VG price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1916-S",
+   "value_usd": 19.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1916 S', XF = $19 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1917",
+   "value_usd": 8.6,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1917', XF = $8.6 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1917-D",
+   "value_usd": 13.0,
+   "grade": "VF",
+   "source": "Numista N#51 value table, row '1917 D', VF = $13 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1917-S",
+   "value_usd": 9.4,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1917 S', XF = $9.4 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1918",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1918', XF = $12 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1918-D",
+   "value_usd": 19.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1918 D', XF = $19 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1918-S",
+   "value_usd": 8.5,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1918 S', XF = $8.5 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1919",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1919', XF = $12 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1919-D",
+   "value_usd": 9.5,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1919 D', XF = $9.5 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1919-S",
+   "value_usd": 16.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1919 S', XF = $16 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1920",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1920', XF = $12 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1920-D",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1920 D', XF = $12 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1920-S",
+   "value_usd": 15.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1920 S', XF = $15 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1921",
+   "value_usd": 49.0,
+   "grade": "VF",
+   "source": "Numista N#51 value table, row '1921', VF = $49 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1921-D",
+   "value_usd": 140.0,
+   "grade": "VF",
+   "source": "Numista N#51 value table, row '1921 D', VF = $140 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1923",
+   "value_usd": 10.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1923', XF = $10 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1923-S",
+   "value_usd": 29.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1923 S', XF = $29 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1924",
+   "value_usd": 14.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1924', XF = $14 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1924-D",
+   "value_usd": 11.0,
+   "grade": "VF",
+   "source": "Numista N#51 value table, row '1924 D', VF = $11 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1924-S",
+   "value_usd": 15.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1924 S', XF = $15 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1925",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1925', XF = $12 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1925-D",
+   "value_usd": 7.5,
+   "grade": "VF",
+   "source": "Numista N#51 value table, row '1925 D', VF = $7.5 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1925-S",
+   "value_usd": 12.0,
+   "grade": "VF",
+   "source": "Numista N#51 value table, row '1925 S', VF = $12 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1926",
+   "value_usd": 8.6,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1926', XF = $8.6 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1926-D",
+   "value_usd": 10.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1926 D', XF = $10 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1926-S",
+   "value_usd": 25.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1926 S', XF = $25 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1927",
+   "value_usd": 8.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1927', XF = $8 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1927-D",
+   "value_usd": 21.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1927 D', XF = $21 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1927-S",
+   "value_usd": 14.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1927 S', XF = $14 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1928",
+   "value_usd": 9.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1928', XF = $9 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1928-D",
+   "value_usd": 10.0,
+   "grade": "VF",
+   "source": "Numista N#51 value table, row '1928 D', VF = $10 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1928-S",
+   "value_usd": 8.4,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1928 S' (Large \"S\"), XF = $8.4 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1929",
+   "value_usd": 7.2,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1929', XF = $7.2 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1929-D",
+   "value_usd": 8.8,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1929 D', XF = $8.8 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1929-S",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1929 S', XF = $12 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1930",
+   "value_usd": 7.2,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1930', XF = $7.2 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1930-S",
+   "value_usd": 15.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1930 S', XF = $15 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1931",
+   "value_usd": 9.8,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1931', XF = $9.8 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1931-D",
+   "value_usd": 13.0,
+   "grade": "VF",
+   "source": "Numista N#51 value table, row '1931 D', VF = $13 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1931-S",
+   "value_usd": 15.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1931 S', XF = $15 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1934",
+   "value_usd": 9.3,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1934', XF = $9.3 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1934-D",
+   "value_usd": 11.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1934 D', XF = $11 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1935",
+   "value_usd": 7.5,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1935', XF = $7.5 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1935-D",
+   "value_usd": 10.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1935 D', XF = $10 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1935-S",
+   "value_usd": 7.6,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1935 S', XF = $7.6 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1936",
+   "value_usd": 7.5,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1936', XF = $7.5 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1936-D",
+   "value_usd": 9.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1936 D', XF = $9 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1936-S",
+   "value_usd": 7.8,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1936 S', XF = $7.8 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1937",
+   "value_usd": 6.7,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1937', XF = $6.7 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1937-D",
+   "value_usd": 6.7,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1937 D', XF = $6.7 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1937-S",
+   "value_usd": 7.8,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1937 S', XF = $7.8 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1938",
+   "value_usd": 8.1,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1938', XF = $8.1 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1938-D",
+   "value_usd": 8.9,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1938 D', XF = $8.9 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1938-S",
+   "value_usd": 9.4,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1938 S', XF = $9.4 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1939",
+   "value_usd": 7.5,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1939', XF = $7.5 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1939-D",
+   "value_usd": 7.4,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1939 D', XF = $7.4 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1939-S",
+   "value_usd": 8.2,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1939 S', XF = $8.2 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1940",
+   "value_usd": 6.9,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1940', XF = $6.9 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1940-D",
+   "value_usd": 8.1,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1940 D', XF = $8.1 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1940-S",
+   "value_usd": 7.3,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1940 S', XF = $7.3 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1941",
+   "value_usd": 6.9,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1941', XF = $6.9 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1941-D",
+   "value_usd": 6.6,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1941 D', XF = $6.6 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1941-S",
+   "value_usd": 7.3,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1941 S' (Large \"S\"), XF = $7.3 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1942",
+   "value_usd": 6.2,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1942', XF = $6.2 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1942-D",
+   "value_usd": 7.3,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1942 D', XF = $7.3 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1942-S",
+   "value_usd": 7.9,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1942 S', XF = $7.9 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1943-D",
+   "value_usd": 7.1,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1943 D', XF = $7.1 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1943-S",
+   "value_usd": 6.4,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1943 S', XF = $6.4 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1944",
+   "value_usd": 7.9,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1944', XF = $7.9 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1944-D",
+   "value_usd": 7.5,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1944 D', XF = $7.5 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1944-S",
+   "value_usd": 7.0,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1944 S', XF = $7 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1945",
+   "value_usd": 7.4,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1945', XF = $7.4 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1945-D",
+   "value_usd": 6.3,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1945 D', XF = $6.3 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1945-S",
+   "value_usd": 6.3,
+   "grade": "XF",
+   "source": "Numista N#51 value table, row '1945 S' (Larger \"S\"; see comments), XF = $6.3 (USD): https://en.numista.com/catalogue/pieces51.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A007",
+   "label": "1964-D",
+   "value_usd": 22.05,
+   "grade": "XF",
+   "source": "Numista N#943 value table, row '1964 D', XF = $22 (USD): https://en.numista.com/catalogue/pieces943.html; melt floor applied: 0.3617 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $22.05",
+   "confidence": "med"
+  },
+  {
+   "album": "A007",
+   "label": "1965",
+   "value_usd": 9.01,
+   "grade": "UNC",
+   "source": "Numista N#10865 value table, row '1965', UNC = $6.8 (USD): https://en.numista.com/catalogue/pieces10865.html; melt floor applied: 0.1479 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $9.01",
+   "confidence": "med"
+  },
+  {
+   "album": "A007",
+   "label": "1968-D",
+   "value_usd": 9.01,
+   "grade": "UNC",
+   "source": "Numista N#10865 value table, row '1968 D', UNC = $6.5 (USD): https://en.numista.com/catalogue/pieces10865.html; melt floor applied: 0.1479 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $9.01",
+   "confidence": "med"
+  },
+  {
+   "album": "A007",
+   "label": "1969-D",
+   "value_usd": 9.01,
+   "grade": "UNC",
+   "source": "Numista N#10865 value table, row '1969 D', UNC = $6.7 (USD): https://en.numista.com/catalogue/pieces10865.html; melt floor applied: 0.1479 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $9.01",
+   "confidence": "med"
+  },
+  {
+   "album": "A008",
+   "label": "1987-P",
+   "value_usd": 3.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '1987 P' (BU), UNC = $3 (USD): https://en.numista.com/catalogue/pieces6918.html; not issued for circulation in 1987: obtainable from 1987 P/D mint sets",
+   "confidence": "med"
+  },
+  {
+   "album": "A008",
+   "label": "1987-D",
+   "value_usd": 3.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '1987 D' (BU), UNC = $3 (USD): https://en.numista.com/catalogue/pieces6918.html; not issued for circulation in 1987: obtainable from 1987 P/D mint sets",
+   "confidence": "med"
+  },
+  {
+   "album": "A008",
+   "label": "2003-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2003 P' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A008",
+   "label": "2003-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2003 D' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2004-P",
+   "value_usd": 1.6,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2004 P' (BU), UNC = $1.6 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2006-P",
+   "value_usd": 2.1,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2006 P' (BU), UNC = $2.1 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2006-D",
+   "value_usd": 1.6,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2006 D' (BU), UNC = $1.6 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2007-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2007 P' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2008-P",
+   "value_usd": 2.3,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2008 P' (BU), UNC = $2.3 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2008-D",
+   "value_usd": 2.3,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2008 D' (BU), UNC = $2.3 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2010-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2010 P' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2010-D",
+   "value_usd": 1.9,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2010 D' (BU), UNC = $1.9 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2011-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2011 P' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2011-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2011 D' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2012-P",
+   "value_usd": 2.1,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2012 P' (BU), UNC = $2.1 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2012-D",
+   "value_usd": 2.1,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2012 D' (BU), UNC = $2.1 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2013-D",
+   "value_usd": 2.1,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2013 D' (BU), UNC = $2.1 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2014-P",
+   "value_usd": 2.4,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2014 P' (BU), UNC = $2.4 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2014-D",
+   "value_usd": 2.2,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2014 D' (two hair varieties; see comments), UNC = $2.2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2015-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2015 P' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2017-P",
+   "value_usd": 1.8,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2017 P' (BU), UNC = $1.8 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2018-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2018 P' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2019-P",
+   "value_usd": 2.1,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2019 P' (BU), UNC = $2.1 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2019-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2019 D' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A009",
+   "label": "2020-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "Numista N#6918 value table, row '2020 P' (BU), UNC = $2 (USD): https://en.numista.com/catalogue/pieces6918.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1948",
+   "value_usd": 15.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1948', XF = $15 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1948-D",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1948 D', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1948-S",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1948 S', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1949",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1949', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1949-D",
+   "value_usd": 18.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1949 D', XF = $18 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1950",
+   "value_usd": 14.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1950', XF = $14 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1950-D",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1950 D', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1950-S",
+   "value_usd": 14.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1950 S', XF = $14 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1951",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1951', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1951-D",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1951 D', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1951-S",
+   "value_usd": 15.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1951 S', XF = $15 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1952",
+   "value_usd": 13.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1952', XF = $13 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1952-D",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1952 D', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1952-S",
+   "value_usd": 13.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1952 S', XF = $13 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1953",
+   "value_usd": 13.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1953', XF = $13 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1953-D",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1953 D', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1953-S",
+   "value_usd": 13.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1953 S', XF = $13 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1954",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1954', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1954-D",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1954 D', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1954-S",
+   "value_usd": 14.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1954 S', XF = $14 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1955",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1955', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1955-D",
+   "value_usd": 14.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1955 D', XF = $14 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1956",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1956' (Type A reverse), XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1956-D",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1956 D', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1957",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1957' (Type A reverse), XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1957-D",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1957 D', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1958",
+   "value_usd": 13.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1958' (Type A reverse), XF = $13 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1958-D",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1958 D', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1959",
+   "value_usd": 13.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1959' (Type A reverse), XF = $13 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1959-D",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1959 D', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1960",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1960' (Type A reverse), XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1960-D",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1960 D', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1961",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1961' (Type A reverse), XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1961-D",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1961 D', XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1962",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1962' (Type A reverse), XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1962-D",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1962 D', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1963",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1963' (Type A reverse), XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1963-D",
+   "value_usd": 12.0,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1963 D', XF = $12 (USD): https://en.numista.com/catalogue/pieces54.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1964-D",
+   "value_usd": 11.02,
+   "grade": "XF",
+   "source": "Numista N#54 value table, row '1964 D' (Type A reverse), XF = $11 (USD): https://en.numista.com/catalogue/pieces54.html; melt floor applied: 0.1808 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $11.02",
+   "confidence": "med"
+  },
+  {
+   "album": "A013",
+   "label": "2008-P",
+   "value_usd": 0.48,
+   "grade": "UNC",
+   "source": "Numista N#50 value table, row '2008 P', UNC = $0.48 (USD): https://en.numista.com/catalogue/pieces50.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A013",
+   "label": "2009-P",
+   "value_usd": 2.2,
+   "grade": "UNC",
+   "source": "Numista N#50 value table, row '2009 P', UNC = $2.2 (USD): https://en.numista.com/catalogue/pieces50.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A013",
+   "label": "2010-P",
+   "value_usd": 0.57,
+   "grade": "UNC",
+   "source": "Numista N#50 value table, row '2010 P', UNC = $0.57 (USD): https://en.numista.com/catalogue/pieces50.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A013",
+   "label": "2021-P",
+   "value_usd": 0.96,
+   "grade": "UNC",
+   "source": "Numista N#50 value table, row '2021 P', UNC = $0.96 (USD): https://en.numista.com/catalogue/pieces50.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A013",
+   "label": "2023-P",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "Numista N#50 value table, row '2023 P', UNC = $1 (USD): https://en.numista.com/catalogue/pieces50.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A013",
+   "label": "2024-P",
+   "value_usd": 1.2,
+   "grade": "UNC",
+   "source": "Numista N#50 value table, row '2024 P', UNC = $1.2 (USD): https://en.numista.com/catalogue/pieces50.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A013",
+   "label": "2024-D",
+   "value_usd": 1.5,
+   "grade": "UNC",
+   "source": "Numista N#50 value table, row '2024 D', UNC = $1.5 (USD): https://en.numista.com/catalogue/pieces50.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1962-D",
+   "value_usd": 0.19,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1962 D', XF = $0.19 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1963-D",
+   "value_usd": 0.15,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1963 D', XF = $0.15 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1964-D",
+   "value_usd": 0.29,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1964 D', XF = $0.29 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1965",
+   "value_usd": 0.68,
+   "grade": "UNC",
+   "source": "Numista N#44 value table, row '1965', UNC = $0.68 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1967",
+   "value_usd": 0.56,
+   "grade": "UNC",
+   "source": "Numista N#44 value table, row '1967', UNC = $0.56 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1968-S",
+   "value_usd": 0.56,
+   "grade": "UNC",
+   "source": "Numista N#44 value table, row '1968 S', UNC = $0.56 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1969-S",
+   "value_usd": 0.74,
+   "grade": "UNC",
+   "source": "Numista N#44 value table, row '1969 S', UNC = $0.74 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1971",
+   "value_usd": 0.9,
+   "grade": "UNC",
+   "source": "Numista N#44 value table, row '1971', UNC = $0.9 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1973-D",
+   "value_usd": 0.39,
+   "grade": "UNC",
+   "source": "Numista N#44 value table, row '1973 D', UNC = $0.39 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1986-P",
+   "value_usd": 0.56,
+   "grade": "UNC",
+   "source": "Numista N#44 value table, row '1986 P', UNC = $0.56 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A014",
+   "label": "1992-P",
+   "value_usd": 0.47,
+   "grade": "UNC",
+   "source": "Numista N#44 value table, row '1992 P', UNC = $0.47 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1938",
+   "value_usd": 0.96,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1938', XF = $0.96 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1938-D",
+   "value_usd": 2.1,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1938 D', XF = $2.1 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1938-S",
+   "value_usd": 2.9,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1938 S', XF = $2.9 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1939-D",
+   "value_usd": 3.9,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1939 D' (T2 reverse: even steps (reverse of 1940)), XF = $3.9 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1939-S",
+   "value_usd": 2.5,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1939 S' (T2 reverse: even steps (reverse of 1940)), XF = $2.5 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1940-D",
+   "value_usd": 1.0,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1940 D', XF = $1 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1940-S",
+   "value_usd": 1.0,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1940 S', XF = $1 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1941",
+   "value_usd": 0.22,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1941', XF = $0.22 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1941-D",
+   "value_usd": 0.64,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1941 D', XF = $0.64 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1941-S",
+   "value_usd": 0.53,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1941 S' (Small \"S\"), XF = $0.53 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1942",
+   "value_usd": 0.49,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1942', XF = $0.49 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1942-D",
+   "value_usd": 1.1,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1942 D', XF = $1.1 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1942-P, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1942 P', XF = $2.3 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1942-S, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1942 S', XF = $3.1 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1943-P, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1943 P', XF = $3.1 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1943-D, Steel",
+   "value_usd": 3.6,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1943 D', XF = $3.6 (USD): https://en.numista.com/catalogue/pieces45.html; album page prints '1943-D, Steel' but no steel nickel exists; the 1943-D wartime nickel is 35% silver and is priced as such",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1943-S, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1943 S', XF = $2.7 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1944-P, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1944 P', XF = $2.3 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1944-D, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1944 D', XF = $2.6 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1944-S, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1944 S', XF = $2.1 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1945-P, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1945 P', XF = $2.3 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1945-D, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1945 D', XF = $2.3 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1945-S, Silver",
+   "value_usd": 3.43,
+   "grade": "XF",
+   "source": "Numista N#45 value table, row '1945 S', XF = $2.5 (USD): https://en.numista.com/catalogue/pieces45.html; melt floor applied: 0.05626 oz ASW x $60.949 (data/prices.json latest xag_usd, 2026-10-10 22:28 UTC) = $3.43",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1946",
+   "value_usd": 1.2,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1946', XF = $1.2 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1946-D",
+   "value_usd": 1.2,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1946 D', XF = $1.2 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1946-S",
+   "value_usd": 0.96,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1946 S', XF = $0.96 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1947-D",
+   "value_usd": 0.58,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1947 D', XF = $0.58 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1947-S",
+   "value_usd": 1.9,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1947 S', XF = $1.9 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1948",
+   "value_usd": 0.64,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1948', XF = $0.64 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1948-D",
+   "value_usd": 0.77,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1948 D', XF = $0.77 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1948-S",
+   "value_usd": 0.93,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1948 S', XF = $0.93 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1949-D",
+   "value_usd": 0.52,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1949 D', XF = $0.52 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1949-S",
+   "value_usd": 0.96,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1949 S', XF = $0.96 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1950",
+   "value_usd": 0.54,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1950', XF = $0.54 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1950-D",
+   "value_usd": 5.5,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1950 D', XF = $5.5 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1951",
+   "value_usd": 0.27,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1951', XF = $0.27 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1951-D",
+   "value_usd": 0.35,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1951 D', XF = $0.35 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1951-S",
+   "value_usd": 1.1,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1951 S', XF = $1.1 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1952",
+   "value_usd": 0.49,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1952', XF = $0.49 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1952-D",
+   "value_usd": 0.59,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1952 D', XF = $0.59 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1952-S",
+   "value_usd": 0.56,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1952 S', XF = $0.56 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1953",
+   "value_usd": 0.43,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1953', XF = $0.43 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1953-D",
+   "value_usd": 0.47,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1953 D', XF = $0.47 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1953-S",
+   "value_usd": 1.0,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1953 S', XF = $1 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1954",
+   "value_usd": 0.27,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1954', XF = $0.27 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1954-D",
+   "value_usd": 0.23,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1954 D', XF = $0.23 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1954-S",
+   "value_usd": 0.53,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1954 S', XF = $0.53 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1955-D",
+   "value_usd": 0.23,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1955 D', XF = $0.23 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1956-D",
+   "value_usd": 0.22,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1956 D', XF = $0.22 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1957",
+   "value_usd": 0.26,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1957', XF = $0.26 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1957-D",
+   "value_usd": 0.27,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1957 D', XF = $0.27 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1958",
+   "value_usd": 0.8,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1958', XF = $0.8 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1958-D",
+   "value_usd": 0.38,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1958 D', XF = $0.38 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1959-D",
+   "value_usd": 0.47,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1959 D', XF = $0.47 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1960",
+   "value_usd": 0.37,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1960', XF = $0.37 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1960-D",
+   "value_usd": 0.2,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1960 D', XF = $0.2 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1961-D",
+   "value_usd": 0.22,
+   "grade": "XF",
+   "source": "Numista N#44 value table, row '1961 D', XF = $0.22 (USD): https://en.numista.com/catalogue/pieces44.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A016",
+   "label": "2009 Birth & Early Childhood (P)",
+   "value_usd": 0.56,
+   "grade": "UNC",
+   "source": "Numista N#6731 value table, row '2009', UNC = $0.56 (USD): https://en.numista.com/catalogue/pieces6731.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A016",
+   "label": "2009 Professional Life (P)",
+   "value_usd": 0.53,
+   "grade": "UNC",
+   "source": "Numista N#7579 value table, row '2009', UNC = $0.53 (USD): https://en.numista.com/catalogue/pieces7579.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A016",
+   "label": "2009 Presidency (P)",
+   "value_usd": 0.52,
+   "grade": "UNC",
+   "source": "Numista N#7580 value table, row '2009', UNC = $0.52 (USD): https://en.numista.com/catalogue/pieces7580.html",
+   "confidence": "med"
+  }
+ ],
+ "totals": [
+  {
+   "album": "A001",
+   "title": "Whitman 9030 · Lincoln 1941-1974 #2",
+   "holes_priced": 12,
+   "total_usd": 4.91,
+   "med": 12,
+   "low": 0,
+   "unpriced": [],
+   "note": ""
+  },
+  {
+   "album": "A002",
+   "title": "Whitman 4304 · Lincoln Starting 2014 #4",
+   "holes_priced": 4,
+   "total_usd": 2.57,
+   "med": 4,
+   "low": 0,
+   "unpriced": [],
+   "note": "2019-W is a printed mint-set circle and is excluded."
+  },
+  {
+   "album": "A003",
+   "title": "Whitman 1939 · Roosevelt Starting 2005 #3",
+   "holes_priced": 2,
+   "total_usd": 1.78,
+   "med": 2,
+   "low": 0,
+   "unpriced": [],
+   "note": ""
+  },
+  {
+   "album": "A004",
+   "title": "Whitman 9034 · Roosevelt 1965-2004 #2",
+   "holes_priced": 3,
+   "total_usd": 2.64,
+   "med": 3,
+   "low": 0,
+   "unpriced": [],
+   "note": "1996-W is a printed mint-set circle and is excluded."
+  },
+  {
+   "album": "A005",
+   "title": "Whitman 9029 · Roosevelt 1946-1964 #1",
+   "holes_priced": 46,
+   "total_usd": 224.72,
+   "med": 46,
+   "low": 0,
+   "unpriced": [],
+   "note": ""
+  },
+  {
+   "album": "A006",
+   "title": "Whitman 9014 · Mercury 1916-1945",
+   "holes_priced": 76,
+   "total_usd": 1818.3,
+   "med": 67,
+   "low": 9,
+   "unpriced": [
+    "3 unnamed holes (no date in the ledger)"
+   ],
+   "note": "wants.json note: 'Only the fill count is in the ledger; a dated map needs the album photos or a physical check.' The 76 named holes are every Mercury date except the one logged (1943), so the real list may differ; 3 more holes are unnamed and unpriced. Key date 1916-D is priced at VG (the only grade Numista gives), so XF would cost several times more."
+  },
+  {
+   "album": "A007",
+   "title": "Whitman · Kennedy Halves 1964-1985 #1",
+   "holes_priced": 4,
+   "total_usd": 49.08,
+   "med": 4,
+   "low": 0,
+   "unpriced": [],
+   "note": "1970-D is a printed 'Issued only in mint sets' circle and is excluded."
+  },
+  {
+   "album": "A008",
+   "title": "Whitman · Kennedy Halves 1986-2003 #2",
+   "holes_priced": 4,
+   "total_usd": 10.0,
+   "med": 4,
+   "low": 0,
+   "unpriced": [],
+   "note": "wants.json note: 'Only the fill count is in the ledger.' 1987-P/D halves were not released for circulation (mint sets only), but these are real holes in this album."
+  },
+  {
+   "album": "A009",
+   "title": "Whitman · Kennedy Halves 2004-2021 #3",
+   "holes_priced": 21,
+   "total_usd": 42.6,
+   "med": 21,
+   "low": 0,
+   "unpriced": [],
+   "note": "wants.json note: the photo shows 2006-P and 2008-D empty while the ledger had 2005-P and 2009-P; priced as wants.json lists them; any swap among these UNC Kennedy dates moves the total by cents."
+  },
+  {
+   "album": "A010",
+   "title": "Whitman 9040 · Washington Quarters 1965-1987 #3",
+   "holes_priced": 0,
+   "total_usd": 0,
+   "med": 0,
+   "low": 0,
+   "unpriced": [],
+   "note": ""
+  },
+  {
+   "album": "A011",
+   "title": "Whitman 9032 · Washington Quarters 1988-1998 #4",
+   "holes_priced": 0,
+   "total_usd": 0,
+   "med": 0,
+   "low": 0,
+   "unpriced": [],
+   "note": ""
+  },
+  {
+   "album": "A012",
+   "title": "Whitman · Washington Quarters 1948-1964 #2",
+   "holes_priced": 39,
+   "total_usd": 478.32,
+   "med": 39,
+   "low": 0,
+   "unpriced": [],
+   "note": ""
+  },
+  {
+   "album": "A013",
+   "title": "Whitman 9035 · Jefferson Nickels Starting 1996 #3",
+   "holes_priced": 7,
+   "total_usd": 7.91,
+   "med": 7,
+   "low": 0,
+   "unpriced": [],
+   "note": "2020-W is a printed mint-set circle and is excluded."
+  },
+  {
+   "album": "A014",
+   "title": "Whitman 9039 · Jefferson Nickels 1962-1995 #2",
+   "holes_priced": 11,
+   "total_usd": 5.49,
+   "med": 11,
+   "low": 0,
+   "unpriced": [],
+   "note": ""
+  },
+  {
+   "album": "A015",
+   "title": "Whitman 9009 · Jefferson Nickels 1938-1961 #1",
+   "holes_priced": 57,
+   "total_usd": 80.65,
+   "med": 57,
+   "low": 0,
+   "unpriced": [],
+   "note": "'1943-D, Steel' is the album's printed label; the 1943-D wartime nickel is 35% silver (no steel nickel exists), priced from Numista N#45."
+  },
+  {
+   "album": "A016",
+   "title": "Whitman 9033 · Lincoln 1975-2013 #3",
+   "holes_priced": 3,
+   "total_usd": 1.61,
+   "med": 3,
+   "low": 0,
+   "unpriced": [],
+   "note": ""
+  }
+ ],
+ "overall_usd": 2730.58,
+ "overall_counts": {
+  "holes_priced": 289,
+  "med": 280,
+  "low": 9
+ }
+}
