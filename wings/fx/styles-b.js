@@ -132,13 +132,14 @@
     }
     return rows;
   }
-  function flapCanvas(c, w, h, t) {
+  function flapCanvas(c, w, h, t, info) {
     var page = Math.floor(t / 9), st = c.__st;
     if (!st) { st = c.__st = { page: -1, cur: [], want: [], start: [] }; for (var i = 0; i < FL_ROWS * FL_COLS; i++) { st.cur.push(" "); st.want.push(" "); st.start.push(0); } }
     if (page !== st.page) {
       st.page = page; var rows = boardPage(page);
       for (var r = 0; r < FL_ROWS; r++) for (var q = 0; q < FL_COLS; q++) { var k = r * FL_COLS + q; st.want[k] = rows[r][q] || " "; st.start[k] = t + r * 0.12 + q * 0.035; }
     }
+    if (info && info.still) for (var z = 0; z < st.cur.length; z++) st.cur[z] = st.want[z];   // Calm / reduced motion: one still frame shows the full board (Grok review GRK-S-05)
     var moving = false;
     var cw = w / FL_COLS, rh = (h - 30) / FL_ROWS;
     c.clearRect(0, 0, w, h);

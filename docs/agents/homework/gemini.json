@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-14T15:54:53Z",
+ "updated": "2026-10-14T16:10:27Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261014-1",
@@ -490,7 +490,8 @@
        "https://en.numista.com/catalogue/pieces737.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -519,45 +520,11 @@
        "https://www.usmint.gov/learn/history/historical-documents/bicentennial-circulating-coins-arrive"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.21a.3:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.21a.3",
-     "field": "denomination.value",
-     "coins": [
-      "C077"
-     ],
-     "label": "denomination of C077 · Switzerland · 1991 · 2 francs · CHF",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Grok",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C077_rev.webp",
-        "file": "C077_rev.webp",
-        "original": "C077_Switzerland_1991_2Francs_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1nakw8IFckD6_awAXYk871p0U0RKANv9i/view"
-       }
-      ],
-      "audit": true
-     },
-     "blind": true,
-     "inputs": [
-      "C077_rev.webp"
-     ]
     },
     {
      "item": "verify:type:MX.KM.443:composition.text",
@@ -581,7 +548,8 @@
        "https://en.numista.com/catalogue/pieces972.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -608,7 +576,8 @@
        "https://en.numista.com/catalogue/pieces1070.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -635,7 +604,8 @@
        "https://en.numista.com/catalogue/pieces1190.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -662,7 +632,8 @@
        "https://en.numista.com/catalogue/pieces5269.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -697,7 +668,8 @@
         "drive": "https://drive.google.com/file/d/1QlzMuGznkB5QiwZZNo47yahgAXy_HBMN/view"
        }
       ],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": true,
      "inputs": [
@@ -726,7 +698,8 @@
        "https://en.numista.com/catalogue/pieces2461.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -754,7 +727,8 @@
        "https://en.wikipedia.org/wiki/Harald_V"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -781,7 +755,8 @@
        "https://en.numista.com/catalogue/pieces865.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -808,7 +783,8 @@
        "https://en.numista.com/catalogue/pieces3445.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -836,7 +812,8 @@
        "https://en.numista.com/catalogue/pieces847.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -868,7 +845,8 @@
        "https://en.numista.com/catalogue/pieces178.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -895,7 +873,8 @@
        "https://en.numista.com/catalogue/pieces847.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -922,7 +901,8 @@
        "https://en.numista.com/catalogue/pieces34771.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -949,7 +929,8 @@
        "https://en.numista.com/catalogue/pieces2940.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -976,7 +957,8 @@
        "https://en.numista.com/catalogue/pieces5712.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -997,13 +979,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 47150050,
-      "their_source": "Numista N#5 (https://en.numista.com/catalogue/pieces5.html): mintage table row '1969' = 47 150 050; single row per year (comment F. 198/8, L",
-      "links": [
-       "https://en.numista.com/catalogue/pieces5.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -1034,7 +1015,8 @@
        "https://en.numista.com/catalogue/pieces3.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1056,14 +1038,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 149003600,
-      "their_source": "https://www.euronumi.eu/france/euro/20-eurocent table row '2000': circulation 148.953.600 + uncirculated 35.000 + proof 15.000 = total minta",
-      "links": [
-       "https://www.euronumi.eu/france/euro/20-eurocent",
-       "https://en.numista.com/catalogue/pieces101.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -1088,7 +1068,8 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": true,
      "inputs": []
@@ -1113,7 +1094,8 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": true,
      "inputs": []
@@ -1134,13 +1116,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 305740000,
-      "their_source": "Numista N#70547 (https://en.numista.com/catalogue/pieces70547.html): mintage table row '2016' = 305 740 000; circulation row (no comment); N",
-      "links": [
-       "https://en.numista.com/catalogue/pieces70547.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -1171,7 +1152,8 @@
        "https://en.wikipedia.org/wiki/Elizabeth_II"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1192,13 +1174,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 132960300,
-      "their_source": "Numista N#6612 (https://en.numista.com/catalogue/pieces6612.html): mintage table row '2009' = 132 960 300; circulation row (no comment); Num",
-      "links": [
-       "https://en.numista.com/catalogue/pieces6612.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -1225,7 +1206,8 @@
        "https://en.wikipedia.org/wiki/Elizabeth_II"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1253,7 +1235,8 @@
        "https://en.numista.com/catalogue/pieces1654.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1281,7 +1264,8 @@
        "https://en.wikipedia.org/wiki/Beatrix_of_the_Netherlands"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1302,13 +1286,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 70990000,
-      "their_source": "Numista N#3510 (https://en.numista.com/catalogue/pieces3510.html): mintage table row '2015' = 70 990 000; circulation row (no comment); Numi",
-      "links": [
-       "https://en.numista.com/catalogue/pieces3510.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -1338,7 +1321,8 @@
        "https://en.numista.com/catalogue/pieces860.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1365,7 +1349,8 @@
        "https://en.numista.com/catalogue/pieces1609.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1398,7 +1383,8 @@
         "drive": "https://drive.google.com/file/d/1QC7cwjs3PoBJsVZVpkg5O2FNKSiBANMh/view"
        }
       ],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": true,
      "inputs": [
@@ -1427,7 +1413,8 @@
        "https://en.numista.com/catalogue/pieces123.html"
       ],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1460,7 +1447,8 @@
         "drive": "https://drive.google.com/file/d/1I8raIzKXi15TWX8U-MAf48jVmXL1FjB1/view"
        }
       ],
-      "audit": true
+      "audit": true,
+      "lookup_blind": false
      },
      "blind": true,
      "inputs": [
@@ -1483,13 +1471,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 343120000,
-      "their_source": "Numista N#98 (https://en.numista.com/catalogue/pieces98.html): mintage table row '2009' = 343 120 000; circulation row (no comment); Numista",
-      "links": [
-       "https://en.numista.com/catalogue/pieces98.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": true
+      "audit": true,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -1516,7 +1503,8 @@
        "https://en.numista.com/catalogue/pieces5128.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1543,7 +1531,8 @@
        "https://en.wikipedia.org/wiki/Juliana_of_the_Netherlands"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1570,7 +1559,8 @@
        "https://en.numista.com/catalogue/pieces56.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1597,7 +1587,8 @@
        "https://en.numista.com/catalogue/pieces195.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1624,7 +1615,8 @@
        "https://en.numista.com/catalogue/pieces195.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1651,7 +1643,8 @@
        "https://en.numista.com/catalogue/pieces2980.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1678,7 +1671,8 @@
        "https://en.wikipedia.org/wiki/George_VI"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1705,7 +1699,8 @@
        "https://en.numista.com/catalogue/pieces52.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1732,7 +1727,8 @@
        "https://en.numista.com/catalogue/pieces843.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1759,7 +1755,8 @@
        "https://en.numista.com/catalogue/pieces5904.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1786,7 +1783,8 @@
        "https://en.wikipedia.org/wiki/B%E1%BA%A3o_%C4%90%E1%BA%A1i"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1817,7 +1815,8 @@
        "https://en.numista.com/catalogue/pieces189.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -1838,14 +1837,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 171170000,
-      "their_source": "https://www.euronumi.eu/france/euro/2-euro table row '2000': circulation 171.120.000 + uncirculated 35.000 + proof 15.000 = total mintage 17",
-      "links": [
-       "https://www.euronumi.eu/france/euro/2-euro",
-       "https://en.numista.com/catalogue/pieces104.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -1872,7 +1869,8 @@
        "https://en.numista.com/catalogue/pieces112.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3105,7 +3103,8 @@
        "https://en.numista.com/catalogue/pieces104.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3132,7 +3131,8 @@
        "https://en.numista.com/catalogue/pieces152.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3159,7 +3159,8 @@
        "https://en.wikipedia.org/wiki/Wilhelmina_of_the_Netherlands"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3187,7 +3188,8 @@
        "https://en.numista.com/catalogue/pieces185.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3214,7 +3216,8 @@
        "https://en.numista.com/catalogue/pieces111.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3241,7 +3244,8 @@
        "https://en.numista.com/catalogue/pieces135.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3268,7 +3272,8 @@
        "https://en.numista.com/catalogue/pieces2187.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3292,31 +3297,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "110",
-        "system": "KM"
-       },
-       {
-        "number": "108",
-        "system": "Schön"
-       },
-       {
-        "number": "385",
-        "system": "J"
-       },
-       {
-        "number": "846",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces846.html"
-       }
-      ],
-      "their_source": "Numista N#846 (https://en.numista.com/catalogue/pieces846.html) references: KM# 110, J# 385, Schön# 108, AKS# 113. Replaces the record's Sch",
-      "links": [
-       "https://en.numista.com/catalogue/pieces846.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3346,7 +3332,8 @@
        "https://en.numista.com/catalogue/pieces846.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3373,7 +3360,8 @@
        "https://en.numista.com/catalogue/pieces9.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3400,7 +3388,8 @@
        "https://en.numista.com/catalogue/pieces3935.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3427,7 +3416,8 @@
        "https://en.wikipedia.org/wiki/Pope_Pius_XII"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3448,13 +3438,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 27830000,
-      "their_source": "Numista N#5788 (https://en.numista.com/catalogue/pieces5788.html): mintage table row '1944 •' (Perth Mint; one dot after PENNY) = 27 830 000",
-      "links": [
-       "https://en.numista.com/catalogue/pieces5788.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3481,7 +3470,8 @@
        "https://en.numista.com/catalogue/pieces5788.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3508,7 +3498,8 @@
        "https://en.wikipedia.org/wiki/George_VI"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3535,7 +3526,8 @@
        "https://en.numista.com/catalogue/pieces1055.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3558,27 +3550,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "95.1",
-        "system": "KM"
-       },
-       {
-        "number": "95",
-        "system": "Schön"
-       },
-       {
-        "number": "724",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces724.html"
-       }
-      ],
-      "their_source": "Numista N#724 (https://en.numista.com/catalogue/pieces724.html) references: KM# 95.1, Schön# 95",
-      "links": [
-       "https://en.numista.com/catalogue/pieces724.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3599,13 +3576,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 21411000,
-      "their_source": "Numista N#724 (https://en.numista.com/catalogue/pieces724.html): mintage table row '1970 R' = 21 411 000 (re-cite; matches the record)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces724.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3626,13 +3602,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 315000000,
-      "their_source": "Numista N#724 (https://en.numista.com/catalogue/pieces724.html): mintage table row '1979 R' = 315 000 000; the only 1979 row in the entry (a",
-      "links": [
-       "https://en.numista.com/catalogue/pieces724.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3661,7 +3636,8 @@
        "https://en.numista.com/catalogue/pieces724.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3682,27 +3658,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "93",
-        "system": "Y"
-       },
-       {
-        "number": "42",
-        "system": "Schön"
-       },
-       {
-        "number": "4042",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces4042.html"
-       }
-      ],
-      "their_source": "Numista N#4042 (https://en.numista.com/catalogue/pieces4042.html) references: Y# 93, Schön# 42",
-      "links": [
-       "https://en.numista.com/catalogue/pieces4042.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3724,27 +3685,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "126a",
-        "system": "Y"
-       },
-       {
-        "number": "75a",
-        "system": "Schön"
-       },
-       {
-        "number": "767",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces767.html"
-       }
-      ],
-      "their_source": "Numista N#767 (https://en.numista.com/catalogue/pieces767.html) references: Y# 126a, Schön# 75a",
-      "links": [
-       "https://en.numista.com/catalogue/pieces767.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3772,7 +3718,8 @@
        "https://en.numista.com/catalogue/pieces767.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3793,27 +3740,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "33",
-        "system": "KM"
-       },
-       {
-        "number": "32",
-        "system": "Schön"
-       },
-       {
-        "number": "413",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces413.html"
-       }
-      ],
-      "their_source": "Numista N#413 (https://en.numista.com/catalogue/pieces413.html) references: KM# 33, Schön# 32, Ch# 73; Numista also lists Charlton 73",
-      "links": [
-       "https://en.numista.com/catalogue/pieces413.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3834,27 +3766,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "415",
-        "system": "KM"
-       },
-       {
-        "number": "11",
-        "system": "Schön"
-       },
-       {
-        "number": "5133",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces5133.html"
-       }
-      ],
-      "their_source": "Numista N#5133 (https://en.numista.com/catalogue/pieces5133.html) references: KM# 415, Schön# 11",
-      "links": [
-       "https://en.numista.com/catalogue/pieces5133.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3875,13 +3792,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 10000000,
-      "their_source": "Numista N#5133 (https://en.numista.com/catalogue/pieces5133.html): mintage table row '1940 Mo' = 10 000 000 (re-cite; matches the record)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces5133.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3902,13 +3818,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 250000000,
-      "their_source": "Numista N#2104 (https://en.numista.com/catalogue/pieces2104.html): mintage table row '2003' = 250 000 000 (record had 500 000 000; corrected",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2104.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -3935,7 +3850,8 @@
        "https://en.numista.com/catalogue/pieces413.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3962,7 +3878,8 @@
        "https://en.numista.com/catalogue/pieces5133.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -3989,7 +3906,8 @@
        "https://en.numista.com/catalogue/pieces2104.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4016,7 +3934,8 @@
        "https://en.wikipedia.org/wiki/George_VI"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4037,27 +3956,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "36",
-        "system": "KM"
-       },
-       {
-        "number": "6",
-        "system": "Schön"
-       },
-       {
-        "number": "2238",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces2238.html"
-       }
-      ],
-      "their_source": "Numista N#2238 (https://en.numista.com/catalogue/pieces2238.html) references: KM# 36, Schön# 6",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2238.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4084,7 +3988,8 @@
        "https://en.numista.com/catalogue/pieces2238.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4111,7 +4016,8 @@
        "https://en.numista.com/catalogue/pieces4461.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4133,27 +4039,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "23a",
-        "system": "KM"
-       },
-       {
-        "number": "27a",
-        "system": "Schön"
-       },
-       {
-        "number": "181",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces181.html"
-       }
-      ],
-      "their_source": "Numista N#181 (https://en.numista.com/catalogue/pieces181.html) references: KM# 23a, Schön# 27a; the entry's 1968-1981 rows are KM# 23a.1 (2",
-      "links": [
-       "https://en.numista.com/catalogue/pieces181.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4174,14 +4065,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 44920000,
-      "their_source": "Numista N#181 (https://en.numista.com/catalogue/pieces181.html): mintage table row '1968 B' = 44 920 000; row comment '22 stars; coin alignm",
-      "links": [
-       "https://en.numista.com/catalogue/pieces181.html",
-       "https://www.swissmint.ch/dam/de/sd-web/uF2jYPYeBoNC/Pr%C3%A4geliste-2026.pdf"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4209,7 +4098,8 @@
        "https://en.numista.com/catalogue/pieces181.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4230,31 +4120,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "212",
-        "system": "KM"
-       },
-       {
-        "number": "211",
-        "system": "Schön"
-       },
-       {
-        "number": "487",
-        "system": "J"
-       },
-       {
-        "number": "110",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces110.html"
-       }
-      ],
-      "their_source": "Numista N#110 (https://en.numista.com/catalogue/pieces110.html) references: KM# 212, J# 487, Schön# 211, AKS# K3. Replaces the record's J# 4",
-      "links": [
-       "https://en.numista.com/catalogue/pieces110.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4275,27 +4146,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "215",
-        "system": "KM"
-       },
-       {
-        "number": "233",
-        "system": "Schön"
-       },
-       {
-        "number": "134",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces134.html"
-       }
-      ],
-      "their_source": "Numista N#134 (https://en.numista.com/catalogue/pieces134.html) references: KM# 215, Schön# 233. Replaces the record's Schön# 215 -> 233 (ol",
-      "links": [
-       "https://en.numista.com/catalogue/pieces134.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4322,7 +4178,8 @@
        "https://en.numista.com/catalogue/pieces110.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4349,7 +4206,8 @@
        "https://en.numista.com/catalogue/pieces134.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4371,27 +4229,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "132",
-        "system": "KM"
-       },
-       {
-        "number": "135",
-        "system": "Schön"
-       },
-       {
-        "number": "2698",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces2698.html"
-       }
-      ],
-      "their_source": "Numista N#2698 (https://en.numista.com/catalogue/pieces2698.html) references: KM# 132, Schön# 135",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2698.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4412,13 +4255,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 2500000,
-      "their_source": "Numista N#2698 (https://en.numista.com/catalogue/pieces2698.html): mintage table row '2002' = 2 500 000 (re-cite; matches the record)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2698.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4439,13 +4281,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 3000000,
-      "their_source": "Numista N#2698 (https://en.numista.com/catalogue/pieces2698.html): mintage table row '2008' = 3 000 000 (re-cite; matches the record)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2698.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4473,7 +4314,8 @@
        "https://en.numista.com/catalogue/pieces2698.html"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4501,7 +4343,8 @@
        "https://en.wikipedia.org/wiki/Elizabeth_II"
       ],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": false
      },
      "blind": false,
      "inputs": []
@@ -4528,27 +4371,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "925.1",
-        "system": "KM"
-       },
-       {
-        "number": "233",
-        "system": "Schön"
-       },
-       {
-        "number": "6",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces6.html"
-       }
-      ],
-      "their_source": "Numista N#6 (https://en.numista.com/catalogue/pieces6.html) references: KM# 925.1, Schön# 233",
-      "links": [
-       "https://en.numista.com/catalogue/pieces6.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4569,23 +4397,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "65",
-        "system": "KM"
-       },
-       {
-        "number": "7457",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces7457.html"
-       }
-      ],
-      "their_source": "Numista N#7457 (https://en.numista.com/catalogue/pieces7457.html) references: KM# 65",
-      "links": [
-       "https://en.numista.com/catalogue/pieces7457.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4607,27 +4424,12 @@
      "payload": {
       "fact": "catalog",
       "author": "Grok",
-      "value": [
-       {
-        "number": "440",
-        "system": "KM"
-       },
-       {
-        "number": "51",
-        "system": "Schön"
-       },
-       {
-        "number": "959",
-        "system": "Numista",
-        "url": "https://en.numista.com/catalogue/pieces959.html"
-       }
-      ],
-      "their_source": "Numista N#959 (https://en.numista.com/catalogue/pieces959.html) references: KM# 440, Schön# 51",
-      "links": [
-       "https://en.numista.com/catalogue/pieces959.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []
@@ -4650,13 +4452,12 @@
      "payload": {
       "fact": "mintage",
       "author": "Grok",
-      "value": 406375000,
-      "their_source": "Numista N#6 (https://en.numista.com/catalogue/pieces6.html): mintage table row '1960, Small \"0\"' = 406 375 000 (re-cite; matches the record)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces6.html"
-      ],
+      "value": null,
+      "their_source": null,
+      "links": [],
       "photos": [],
-      "audit": false
+      "audit": false,
+      "lookup_blind": true
      },
      "blind": false,
      "inputs": []

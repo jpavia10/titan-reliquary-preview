@@ -57,7 +57,7 @@
     function fail() {
       fails++;
       if (played === 0 && fails >= 2) { stop(); if (o.fallback) o.fallback(); return; }   // nothing ever played (offline): generated music instead
-      if (fails < 4) gapT = setTimeout(next, 800); else stop();
+      if (fails < 4) gapT = setTimeout(next, 800); else { stop(); if (o.fallback) o.fallback(); }   // the network went: generated music, not silence (Grok review GRK-M-04)
     }
     function stop() {
       if (stopped) return; stopped = true; clearTimeout(gapT);
@@ -79,5 +79,5 @@
     else if (d.type === "play") live.forEach((el) => { if (el.paused && !el.ended) { const pr = el.play(); if (pr && pr.catch) pr.catch(() => {}); } });
   });
   window.TitanRecMusic = { has, start, load, now: () => current };
-  if (document.readyState === "complete") setTimeout(load, 1500); else window.addEventListener("load", () => setTimeout(load, 1500), { once: true });
+  load();   // one small JSON file: read it now, so a scene started in the first seconds already knows the recordings (Grok review GRK-M-05)
 })();

@@ -146,11 +146,10 @@
   ].join("\n");
 
   // density map for the gather moment (red channel): a coin photo's edges and detail, always with the rim ring and reeding ticks
-  var pState = { key: "" };
   function drawCoinMap(cx, w, h, t, info) {
     var key = info.coin ? "photo" : "ring";
-    if (pState.key === key) return false;
-    pState.key = key; 
+    if (cx.__key === key) return false;   // per layer (canvas context), not per module: a second play or a lost context gets a fresh canvas (Grok review GRK-S-04)
+    cx.__key = key;
     var R = w / 2, i;
     cx.globalCompositeOperation = "source-over";
     cx.fillStyle = "#000"; cx.fillRect(0, 0, w, h);
@@ -461,11 +460,10 @@
      strip along the bottom edge and, in the moment "tear" (every 22-50 s, 2.4 s), a violent tear that climbs out of it. A small
      "PLAY" on-screen display is drawn into the canvas texture. Still frame = the band parked mid screen.
      ===================================================================================================================== */
-  var vhsOsd = { sec: -1 };
   function drawOsd(cx, w, h, t, info) {
     var sec = info.still ? 1 : Math.floor(t);
-    if (vhsOsd.sec === sec) return false;
-    vhsOsd.sec = sec;
+    if (cx.__sec === sec) return false;   // per layer, as drawCoinMap (Grok review GRK-S-06)
+    cx.__sec = sec;
     cx.clearRect(0, 0, w, h);
     cx.font = "bold 30px ui-monospace, 'Courier New', monospace"; cx.textBaseline = "top";
     var s = sec % 60, m = Math.floor(sec / 60) % 60, txt = "SP  0:" + (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;

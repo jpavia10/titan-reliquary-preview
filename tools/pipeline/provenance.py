@@ -121,7 +121,14 @@ def _descend(v, parts):
         else: return _MISSING
     return v
 
-def _canon(v): return json.dumps(v, sort_keys=True, ensure_ascii=False)
+def _num(v):
+    """50 and 50.0 are the same value (one AI writes the record's float back, another types the integer)."""
+    if isinstance(v, float) and v.is_integer(): return int(v)
+    if isinstance(v, dict): return {k: _num(x) for k, x in v.items()}
+    if isinstance(v, list): return [_num(x) for x in v]
+    return v
+
+def _canon(v): return json.dumps(_num(v), sort_keys=True, ensure_ascii=False)
 
 def _cat_key(cats):
     """The catalog number a reader would check first: KM, else Y, else the first non-Numista entry (a url added later is not a new claim)."""

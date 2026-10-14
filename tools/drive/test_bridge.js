@@ -91,7 +91,8 @@ ok(gemDoc.writes === 2 && gemDoc.text.endsWith("new line\n"), "a changed page is
 const call = q => JSON.parse(B.doGet({ parameter: q }).s);
 ok(call({ key: "wrong", op: "list" }).error === "bad key", "a wrong key gets nothing");
 ok(call({ op: "list" }).error === "bad key", "no key gets nothing");
-const sheet = fs.readFileSync(path.join(ROOT, "docs", "agents", "homework", "sheets", "HW-gemini-verify-20261009-1.jsonl"), "utf8").split("\n")[0];
+const sheetDir = path.join(ROOT, "docs", "agents", "homework", "sheets");  /* any Gemini verify sheet: they close as homework is answered */
+const sheet = fs.readFileSync(path.join(sheetDir, fs.readdirSync(sheetDir).filter(n => /^HW-gemini-verify-.*\.jsonl$/.test(n)).sort()[0]), "utf8").split("\n")[0];
 const ev = JSON.parse(sheet); ev.source = "https://en.numista.com/catalogue/pieces112.html: mintage table row '2003 A' = 20 475 000"; ev.ts = "2026-10-10T08:30:00Z";
 const fGood = drop.add(new File("changes_gemini_20261010-0830.jsonl", JSON.stringify(ev) + "\n"));
 const fDoc = drop.add(new File("changes_muse_20261010-0831.jsonl", "", { mime: "application/vnd.google-apps.document", size: 0 }));

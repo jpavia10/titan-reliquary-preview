@@ -35,9 +35,21 @@ def drop(i, name, text=None, size=None):
     return f
 
 
+def gem_sheet(root):
+    """An open Gemini verify assignment and the first sheet line that states a value (sheets close as homework is answered, so never a fixed id)."""
+    asg = json.load(open(os.path.join(root, "docs", "agents", "homework", "assignments.json"), encoding="utf-8"))
+    for a in asg["assignments"]:
+        if a["agent"] != "gemini" or a["kind"] != "verify" or a["status"] != "open": continue
+        sheet = os.path.join(root, "docs", "agents", "homework", "sheets", a["id"] + ".jsonl")
+        if not os.path.exists(sheet): continue
+        for l in open(sheet, encoding="utf-8"):
+            ev = json.loads(l)
+            if ev.get("new") is not None: return a["id"], ev
+    raise AssertionError("no open Gemini verify sheet with a stated value to test with")
+
+
 def listing(tmp):
-    sheet = os.path.join(tmp, "docs", "agents", "homework", "sheets", "HW-gemini-verify-20261009-1.jsonl")
-    first = json.loads(open(sheet, encoding="utf-8").readline())
+    _, first = gem_sheet(tmp)
     first.update(ts="2026-10-10T08:30:00Z", source="https://en.numista.com/catalogue/pieces112.html: mintage table row '2003 A' = 20 475 000")
     dup_name = "changes_grok_20261001-1821.jsonl"
     dup_text = open(os.path.join(tmp, "collection", "_incoming", "applied", dup_name), encoding="utf-8").read()
@@ -69,6 +81,7 @@ class Bridge(unittest.TestCase):
     def setUpClass(cls):
         cls.tmp = sandbox()
         cls.L = os.path.join(cls.tmp, "listing.json")
+        cls.aid, _ = gem_sheet(cls.tmp)
         with open(cls.L, "w", encoding="utf-8") as fh: json.dump(listing(cls.tmp), fh)
         cls.rc, cls.out = run(cls.tmp, "run", "--listing", cls.L, "--now", NOW)
         cls.br = os.path.join(cls.tmp, "docs", "agents", "bridge")
@@ -96,7 +109,7 @@ class Bridge(unittest.TestCase):
 
     def test_2_the_loop_turned(self):
         asg = json.load(open(os.path.join(self.tmp, "docs", "agents", "homework", "assignments.json"), encoding="utf-8"))
-        a = next(x for x in asg["assignments"] if x["id"] == "HW-gemini-verify-20261009-1")
+        a = next(x for x in asg["assignments"] if x["id"] == self.aid)
         self.assertEqual(a["status"], "done", "an answered assignment closes")
         page = open(os.path.join(self.tmp, "docs", "agents", "QUEUE_gemini.md"), encoding="utf-8").read()
         self.assertIn("changes_gemini_20261010-0830.jsonl", page, "the AI's page shows what happened to its file")
