@@ -1,6 +1,6 @@
 {
  "schema": "bridge/1",
- "updated": "2026-10-10T01:54:01Z",
+ "updated": "2026-10-14T15:43:50Z",
  "files": {
   "1VCyFXLhrf_LQptckTRLbQywKJWf4pTnz": {
    "name": "changes_grok-bot_20261009-0004.jsonl",
@@ -165,96 +165,1042 @@
     "  line 1: specimen field 'denomination' is a Phase 2 field; a phase 1 contribution may not write it (see collection/templates/FIELDS.md)",
     "HOW TO FIX: a new coin's country and denomination belong to its TYPE, not to the specimen. Pick the existing type, or create one ({ISO}.X.{denomination}, e.g. GB.X.1-penny), then create the specimen: op create, id NEW-1, field '(new record)', new = {type, year_raw, issue: {year, mint_marks, mint_text}, story}. Value goes in a separate line (value.est_usd, value.confidence). See collection/templates/INSTRUCTIONS.md section 3, 'New specimen', and the example files it names."
    ]
+  },
+  "1JmE5x2NdT9NM7YQXKsl8C_2nlMU-Lgmt": {
+   "name": "changes_gemini_20261012-1410.jsonl",
+   "agent": "gemini",
+   "updated": "2026-10-12T21:09:16Z",
+   "sha256": "535c84f3ece19117c33203a3da5241ed410c09026221986828dd43eec997183f",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "10 event(s) merged"
+  },
+  "1lmFiNKfUKN0xE2ZF6g15S9UDnrZ5QJKb": {
+   "name": "changes_gemini_20261012-1415.jsonl",
+   "agent": "gemini",
+   "updated": "2026-10-12T21:10:30Z",
+   "sha256": "723cd5a2cd0ad959f1d3d7ba1c35e73d4fb419febd926a6b7b5b38387d033844",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "6 event(s) merged, 4 left out"
+  },
+  "17PV2CEPqcTAT3PyP6KTowTYNXzPwwsjm": {
+   "name": "changes_gemini_20261012-1626.jsonl",
+   "agent": "gemini",
+   "updated": "2026-10-12T23:26:48Z",
+   "sha256": "dcb5ad54caa522916a8f4d5aed56d202106fc7827bb9955aefcc906949c6874a",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "40 event(s) merged"
+  },
+  "16bL65yP8OKg_5hiHM3lCc8oUDKXUIqBR": {
+   "name": "changes_gemini_20261012-1633.jsonl",
+   "agent": "gemini",
+   "updated": "2026-10-12T23:33:24Z",
+   "sha256": "96f9bd5c61504384e6825e8bc9773faaad13f54310c23bc29b69b0a2662d9b09",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "50 event(s) merged"
+  },
+  "1dXcKM2cj5R9sXVQlTuyi13xt6qcbbvmN": {
+   "name": "changes_gemini_20261012-1642.jsonl",
+   "agent": "gemini",
+   "updated": "2026-10-12T23:45:03.055Z",
+   "sha256": "35f5f466aa17edbe2f4203360c5a867f6aaa45879081370a8f9d7292f5be1f09",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "100 event(s) merged"
+  },
+  "1lLSNFtnzMSfwOjd_wkxvlB-Xu_UidZsc": {
+   "name": "changes_gemini_20261012-1644.jsonl",
+   "agent": "gemini",
+   "updated": "2026-10-12T23:44:46Z",
+   "sha256": "b88235b60a6aa5fa8287ad322a2c9fb33b79e103a3a4dc3c296c72fa34e93209",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "100 event(s) merged"
+  },
+  "1n5h_Cfxp29vaB5FG5dReH1sm6aE2d_HQ": {
+   "name": "changes_grok-bot_20261010-1010.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:11:07.945Z",
+   "sha256": "17e9a246437249d7555d27fe344fe4302e27fc90bb0e06e8aaceef32021806cc",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "15 event(s) merged, 20 left out"
+  },
+  "1X4CZiRA0nK6p94Qzt52FW5up0fNr4v_7": {
+   "name": "changes_grok-bot_20261010-1011.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:11:54.834Z",
+   "sha256": "57579da5a974700f40a1c06ddcc7cedae3ba70cd066eed5790283949c6a8d24e",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "nothing to merge: 4 left out"
+  },
+  "1SqoOH6sddruQQ0i8q560ZWZCEPNajJDg": {
+   "name": "changes_grok-bot_20261010-1015.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:16:19.166Z",
+   "sha256": "19a5b319fc0df7201e3a28c703a41e3f8d26327cf634af086be97ee5c8ac958d",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "35 event(s) merged"
+  },
+  "1ztdEVvVY34b1-4zL6HZZvX5EZUrT36Jm": {
+   "name": "changes_grok-bot_20261010-1016.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:17:02.841Z",
+   "sha256": "3fdd514e7b1762d7490811ad42b52b24998d422342137d2290b7cc6c1ca16576",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "40 event(s) merged"
+  },
+  "1TnyoumwCC6224kd7Ckj0vtFOzcn-aI3Q": {
+   "name": "changes_grok-bot_20261010-1017.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:17:21.755Z",
+   "sha256": "fcbfccd3806f29eae5ebf861abdd99164de3319cfeaf87694d2f600267d979b3",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "38 event(s) merged"
+  },
+  "1eeiygZ2xIa6Iuu-kv3Uz0G6ULFkbwL_z": {
+   "name": "changes_grok-bot_20261010-1018.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:18:17.553Z",
+   "sha256": "519afd2a50317f1ed08eb82d99d845209cf2fde554d2343f1025a0da914f9231",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "39 event(s) merged"
+  },
+  "1anJuQJislUEQuLl9p1SSZTtTG-i2YJ6Z": {
+   "name": "changes_grok-bot_20261010-1019.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:19:15.625Z",
+   "sha256": "416e0c81a6b68fd7348b3e7b8faa7b98fbd6e2d837ba261a4bbf8600a72256c5",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "40 event(s) merged"
+  },
+  "1RU_FwII8XwdelDNHTJNYK1UKOL5pxOtL": {
+   "name": "changes_grok-bot_20261010-1020.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:20:11.483Z",
+   "sha256": "c00f077bc64935a2af4de6d513aee0465e84ed61fa465075b7875002761c97eb",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "36 event(s) merged"
+  },
+  "10FQScr_Hkzo0d3aHDUPa2rI04gZgU69c": {
+   "name": "changes_grok-bot_20261010-1021.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:21:24.127Z",
+   "sha256": "460cea6ad68dc87ebc1abb594e5c5c5770e819a9b2504435b05036a398135e39",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "30 event(s) merged"
+  },
+  "1yCDDNUWDkJPEu6TeqRrJPZ0ufh_F5e82": {
+   "name": "changes_grok-bot_20261010-1025.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:25:06.351Z",
+   "sha256": "504482cda7310cea28a38bf65d15b8ef466f44cd56a9aaf5b9991a6edd8ec275",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "24 event(s) merged, 1 left out"
+  },
+  "1FOBBkcJVVzJoapPB-PfxoeKJBjbhOnAo": {
+   "name": "changes_grok-bot_20261010-1032.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:33:03.233Z",
+   "sha256": "9b62682e6591b04088c667c34c581037d6b0fbf80d219c2b557721db619499c5",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "24 event(s) merged, 1 filed as disagreements"
+  },
+  "1Aw2vtYS9LspuWWqNK-_CqKByY5aA4ZxE": {
+   "name": "changes_grok-bot_20261010-1034.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:34:53.978Z",
+   "sha256": "f28fe848279c3745d0bf41469128b7a271530a7640a9c303d641309a6e1603da",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1aJ3IxMPRNYBP8V7s3f8oGHV5JBtjJNBK": {
+   "name": "changes_grok-bot_20261010-1035.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:35:20.274Z",
+   "sha256": "4dc0d759d91f9398f83bdde88b237beb5ed6ff5fe73125424ca67da039f07263",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1ds9pvvX-zWwdlkLsrmMcLZHsDmcb1kBY": {
+   "name": "changes_grok-bot_20261010-1036.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:36:21.533Z",
+   "sha256": "dd5fd07d40797fd0373507642fa40b87ba984a09524103a67a4610bb4e35cde8",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "18 event(s) merged"
+  },
+  "1y1P6s0Nvbv1RMoWRMRgx529wVX4MXihA": {
+   "name": "changes_grok-bot_20261010-1037.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:37:16.233Z",
+   "sha256": "8c5c065ced5be52671764d4b4bc323285d8b5eb589e163cc24ebae33d4b9420b",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "36 event(s) merged"
+  },
+  "1iVLV7lxX7rVtQVx_uxjOS3uaa_Ax0kuA": {
+   "name": "changes_grok-bot_20261010-1038.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:38:25.248Z",
+   "sha256": "5f7c4688d7ff04eb80855b34bfb18ece65644273b25c224a451cf699e9a530d9",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "42 event(s) merged"
+  },
+  "1OSqURKTZ-LRDdJ8uM37yAhnGI7LMCSV7": {
+   "name": "changes_grok-bot_20261010-1039.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:40:06.526Z",
+   "sha256": "c9a8b47ee1b5ee9421fc14172ca4838647f7747fe4f288a08e728b2baa9b0183",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1uTou8yKoWh4T6en2EpSg6vIS9clKeJOW": {
+   "name": "changes_grok-bot_20261010-1040.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:41:07.199Z",
+   "sha256": "7c78a6a520e44e72696beced9f2a43c7c0fd35f2658e99ce2a79ec73eab0aa54",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "18 event(s) merged"
+  },
+  "1Lg1nf6gFQ32nsoo-eQ5d0qExhX6FPI61": {
+   "name": "changes_grok-bot_20261010-1049.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:49:26.988Z",
+   "sha256": "71e7070798592c2657b2250abd487f1f6be14e9f3f64d77b2e1492e0a91dae63",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "2 event(s) merged"
+  },
+  "12QcI7Ax8TwnBwuoYPI0zJTwzGqU8pZ-A": {
+   "name": "changes_grok-bot_20261010-1050.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:50:15.157Z",
+   "sha256": "6894af1668bef5a8f1d59b62b925f0ffc750cfe64570e1644795ab90b424142c",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "31 event(s) merged"
+  },
+  "1MjijPzHo95ld3aIz_bJrm_06N-g9uLoo": {
+   "name": "changes_grok-bot_20261010-1057.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:58:06.446Z",
+   "sha256": "e6f4d52d648e857faa83030d725e1fe7adbe58413e61bb449d1310308fc5d504",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "19 event(s) merged"
+  },
+  "17-Q5knak4YIF0vZPDwO6u8kCB3JhWgS3": {
+   "name": "changes_grok-bot_20261010-1059.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T17:59:23.019Z",
+   "sha256": "4ad7c293cc826e7e1680ed435ee8ce2b8bb2138672d6e016dcf5b225a343cbc9",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "26 event(s) merged"
+  },
+  "1UeCvrqjzReBfB4o6wNf4J3zGCBRI_kZZ": {
+   "name": "changes_grok-bot_20261010-1118.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:19:02.034Z",
+   "sha256": "4daa4b803602a06cb8c8f475124b4a1bc2683c13a0fd46b6a9f5d28098863774",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "19 event(s) merged"
+  },
+  "1PXS7o5Z3dXM-z1ZrpiVZKVPtJ3vXGByL": {
+   "name": "changes_grok-bot_20261010-1138.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:38:48.565Z",
+   "sha256": "3988c6486289493b75f2d6738a0867c8f79707c615451941df370f564a8422ea",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "25 event(s) merged"
+  },
+  "1xlsxqEAzuJbA_-K2cAGvEiUbIXiUr2qE": {
+   "name": "changes_grok-bot_20261010-1141.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:41:48.612Z",
+   "sha256": "5c1123d163acb181c6ec2f66865075845aeb8214bfc29876385d77276ff934ac",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "2 event(s) merged"
+  },
+  "1Y6IqJjiKyBA8YvMgho02MwdNks-tUYOC": {
+   "name": "changes_grok-bot_20261010-1143.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:44:02.834Z",
+   "sha256": "d8e31ea51b10ae1178c9713cd2afc0a7b711e36202e82bb8a6df9b22727e934a",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "6 event(s) merged"
+  },
+  "1Fmx_m36Sc2niazTnU7OpmZTpviN20ROX": {
+   "name": "changes_grok-bot_20261010-1145.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:46:29.723Z",
+   "sha256": "903dc868d5276c2aaea8200d49d7e1feae466ce8ba5696c4c1068083cf930fd8",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "40 event(s) merged"
+  },
+  "14Nqn_TBFXCvckIcVtXCyje2UNIGmYFzC": {
+   "name": "changes_grok-bot_20261010-1146.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:46:30.851Z",
+   "sha256": "5df2f9f6bf6c0b073ddd2fd9095e6c99275fb58972598450da89cc3722279461",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "40 event(s) merged"
+  },
+  "1GpSEAaay_XfU19RSh6aQU87hRXRZQWxR": {
+   "name": "changes_grok-bot_20261010-1147.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:47:18.364Z",
+   "sha256": "73c94a216c1f69fc7587a98a003fb149e4354bf2973f0eb160c006ad123cfdf8",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "40 event(s) merged"
+  },
+  "1r_JkFAKUvEsn3mOL2taIAoPflN1ukYX1": {
+   "name": "changes_grok-bot_20261010-1148.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:48:45.145Z",
+   "sha256": "bab3cc644c60c5f5121576f6f88ffeba76fe481f849b5373767a0ac5f9745764",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "39 event(s) merged"
+  },
+  "1IpTLEs0OfvfmKW3y_bsfHUuERc0zG8Cj": {
+   "name": "changes_grok-bot_20261010-1149.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:51:35.230Z",
+   "sha256": "bbe3aaf30b4aa82b5083f5cc5dcb243fdc23ae5dc50479c30266ace8babed495",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "40 event(s) merged"
+  },
+  "1wtfZjJ5og4k_pmlK42rn-R979E_ubgLa": {
+   "name": "changes_grok-bot_20261010-1150.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:51:36.232Z",
+   "sha256": "a636bf9e40880d563f086e56c93730ddf1bb3c1e0ed6c12f8d9d3254fa399631",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "39 event(s) merged"
+  },
+  "1KkUHPMy3Og0fa5A8vOUNlumH2jg6A__O": {
+   "name": "changes_grok-bot_20261010-1151.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:51:37.368Z",
+   "sha256": "534c191437c4cbe9507007a7015e43574f621c59514bec9e20fe30188cddb947",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "28 event(s) merged"
+  },
+  "1Irjt_cmic5m_fF6k3fCMb81jWEskFb-5": {
+   "name": "changes_grok-bot_20261010-1152.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:53:04.665Z",
+   "sha256": "50f50c713b0b78928f17af55c85b3a7303c3790c10c1826a6d4ea5d973a259b4",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "26 event(s) merged"
+  },
+  "1aIrBeSRb23VHOexlpLMeTNcgMQPCT83X": {
+   "name": "changes_grok-bot_20261010-1153.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:53:09.129Z",
+   "sha256": "7bcf9c586be6b135d7f6dcc580dea2ddf2a1bc2c5b1b26ecda343a516e9cd620",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1V1GPfHzclyIMprdOsIOinapUg8E0j0gs": {
+   "name": "changes_grok-bot_20261010-1155.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T18:59:59.479Z",
+   "sha256": "4f5c3bf585905bec374220a28828e3c254e252c353f03fffc6ddc1f8747cc9cb",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1gcopJY4qPb79Jpj_Eon9RiFpXdXtX5BF": {
+   "name": "changes_grok-bot_20261010-1156.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T19:00:00.892Z",
+   "sha256": "b739c6a75d4107457d5671c236eccded6d40e22d20619c3c10f4e007d1400a8e",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1pmAjG0U5OTEtxUrBrP83gkX_-PevjeHH": {
+   "name": "changes_grok-bot_20261010-1157.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T19:00:02.937Z",
+   "sha256": "b43621a9b8cf02d3860524bdd9186b63010485fb205fdef3f6e0876919f239fc",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "50 event(s) merged"
+  },
+  "1kshN7D4PlH6Z8HzajpxkxgSYEUn9FHwT": {
+   "name": "changes_grok-bot_20261010-1158.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T19:00:03.996Z",
+   "sha256": "a9917fa4dbd5e026b14ccfe2ce473e0718a73e30377378c7f671b80bfd56bcf7",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "50 event(s) merged"
+  },
+  "1eXRPS2QotCTRh_NMP5YxTrGhvxCHOjkd": {
+   "name": "changes_grok-bot_20261010-1159.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T19:00:05.024Z",
+   "sha256": "480b915c41233a5a9081c8324fdefb022321fcc7b4c39a16f1e5ea66783ef8a2",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "50 event(s) merged"
+  },
+  "1SzsUkEjTPOgfJEgNIXHTnH1QRzDSrLJl": {
+   "name": "changes_grok-bot_20261010-1200.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T19:02:16.789Z",
+   "sha256": "fedfed7da21030fdcecb99e2b7bb6eb0d691546fbc31825010cc57ff4dcd01bd",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1RoDTBSZ8bzEmwac-D9sQ8ugx0CBi8Vxn": {
+   "name": "changes_grok-bot_20261010-1201.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T19:02:18.168Z",
+   "sha256": "a5ea34c04820e0d450193222c8d9f73a4730d727230519ea73616fb90ee0c02d",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1NOOggqdHPsViz1a0YwhKjNYaJBZPH-gZ": {
+   "name": "changes_grok-bot_20261010-1202.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T19:02:19.381Z",
+   "sha256": "88aece135d790e19fab5475a2d6ead56b4eb1dc1569526dbb65ca89d4b25fb35",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1_P8v8Rn2mHAsIZoXOtchWSPWiY_Y5sBP": {
+   "name": "changes_grok-bot_20261010-1203.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-10T19:03:13.596Z",
+   "sha256": "7730c2fe4ae6cefda86dfa749cfec16e5ab95a3ffc20742d276f3e0675a2a03b",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "14 event(s) merged"
+  },
+  "1--TA9foHggT0HoFfqlkquZ06pKPWdnL7": {
+   "name": "changes_grok-bot_20261010-1926.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-11T02:27:10.485Z",
+   "sha256": "8c48d3578f617ed16ba7338cdc2033ded1bbe92a3d908cecee8eacfe8b3873b9",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "32 event(s) merged, 8 left out"
+  },
+  "11PRgpaP5X9i4FEl8RkHotr0GHoxnEGvz": {
+   "name": "changes_grok-bot_20261010-1927.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-11T02:28:00.242Z",
+   "sha256": "6cb96c54a54f71a04b643bd3670f995d321427a5a1fb6080a1aaeae7fdacb3e0",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "4 event(s) merged, 19 left out"
+  },
+  "1R6R1vxZgxLM1Ej92KgqzMgrURxaXcO25": {
+   "name": "changes_grok-bot_20261010-1928.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-11T02:28:25.161Z",
+   "sha256": "a2f112657fc036ef7978ab71588e96bee27bafeff29a8b8184500cf208ad7ee9",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "27 event(s) merged, 73 stale (not counted)"
+  },
+  "1ejBIuG9V40HOMM1cs3wSyA7-eVxmQBlW": {
+   "name": "changes_grok-bot_20261010-1929.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-11T02:29:43.084Z",
+   "sha256": "ed00b5e22e4e4ea4cd522df9c110979f27c2361c29195b98e0c7972bed206ba7",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "32 event(s) merged, 3 stale (not counted), 2 left out"
+  },
+  "1KnS5v0xD9H7I0PxQAQ8vJPLBX_KLEOvu": {
+   "name": "changes_grok-bot_20261010-1930.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-11T02:31:11.071Z",
+   "sha256": "9233f5d7d21a450bffb7c00cd52cd3c3b2504617868ae250a245aa78dd6151a8",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "44 event(s) merged, 6 left out"
+  },
+  "1cRZL9DVCU7A5UqUs7nxIb5TZnfWq-g5R": {
+   "name": "changes_grok-bot_20261012-0657.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-12T13:58:45.466Z",
+   "sha256": "dc0e015b3f07b8d08373c4c0bae38d92938e35cb4e448cbd0bd5e0bda115af11",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "36 event(s) merged"
+  },
+  "1OLbLKMG7sfpCkpExZUznZQYgAZzE0oDR": {
+   "name": "changes_grok-bot_20261012-0658.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-12T13:58:46.603Z",
+   "sha256": "1bebbf04a8a3b9c6b76e57483e95e118bc137c0f5f25904a4aa68bb8980b7bb9",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "36 event(s) merged"
+  },
+  "1EfQq_MQLYclwG6aX17X0n9NCgfoeDSqk": {
+   "name": "changes_grok-bot_20261012-0705.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-12T14:05:54.376Z",
+   "sha256": "7f8beced3325c0a53bb09b51314b866ab04c89004471ec39cef4e8570a16668a",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "47 event(s) merged"
+  },
+  "1cEmXiuWN7uiNILDids8CkLYVsCugoHj2": {
+   "name": "changes_grok-bot_20261012-0707.jsonl",
+   "agent": "grok",
+   "updated": "2026-10-12T14:07:08.124Z",
+   "sha256": "285cb36db169f00fe0b8c99b6c54c324220356df4586c45bcb63d032c6c5a27e",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "17 event(s) merged"
+  },
+  "1k7POPul4wqqIKCj8XwrQVKRfC5SF05sT": {
+   "name": "changes_muse_20261010-0010.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-13T18:55:20.106Z",
+   "sha256": "28bad9bddc668b9726237a67d386e7ff693028df3b6c240a95d7080dbfca93ca",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "4 event(s) merged"
+  },
+  "18sgkDJZvI9tzFCWpO4cq1Ss7PQeXrxOb": {
+   "name": "changes_muse_20261010-1015.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-10T17:25:53.211Z",
+   "sha256": "491c51bc5ef0641f77756977b2ca526dda63c82674897b338e5f258fa92e5c7d",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "15 event(s) merged"
+  },
+  "1kyLteJ49YMjAj1dMzPNcB32KAlYKVKEP": {
+   "name": "changes_muse_20261010-1713.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-10T17:25:53.237Z",
+   "sha256": "1675ed7e1f893b62aa7627f1a140f24703a91f3e7240698111ff2058928b806e",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "1lwUuplzv-3dgOvJ7THkD3kWst4ao132F": {
+   "name": "changes_muse_20261010-1714.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-10T17:25:53.184Z",
+   "sha256": "f84f3a984b8a09e32c20875cdff18f7e401fc9802e0bc96a7c123af87f03024a",
+   "outcome": "merged",
+   "at": "2026-10-14T15:43:50Z",
+   "run": "bridge-20261014-154137",
+   "summary": "merged by Claude"
+  },
+  "19XDOHA5k_4IVfvdcu5IM0oCZw9ydblPh": {
+   "name": "changes_muse_20261011-2205.jsonl",
+   "agent": "muse",
+   "updated": "2026-10-13T18:55:35.793Z",
+   "sha256": "a7249a086c5f41b8d3e145c7f4d140f68b514806ecb79c800a35538e3cbe2330",
+   "outcome": "merged",
+   "at": "2026-10-14T15:41:37Z",
+   "run": "bridge-20261014-154137",
+   "summary": "3 event(s) merged"
   }
  },
  "last_listing": {
-  "at": "2026-10-10T01:54:01Z",
-  "made": "2026-10-10T01:55:00Z",
+  "at": "2026-10-14T15:41:37Z",
+  "made": null,
   "tick": null,
   "drop": [
    {
-    "id": "1VCyFXLhrf_LQptckTRLbQywKJWf4pTnz",
-    "name": "changes_grok-bot_20261009-0004.jsonl",
-    "size": 1426,
-    "updated": "2026-10-09T07:05:13.472Z"
+    "id": "1R0RF1kA703q8oTm5-sFfE0QzzsaCZ2yT",
+    "name": "access_gemini_20261012-1322.txt",
+    "size": 338,
+    "updated": "2026-10-12T20:22:11.161Z"
    },
    {
-    "id": "1L2lqgthOXolstxFIVwxDm6NQRweTHdkn",
-    "name": "changes_grok-bot_20261009-0011.jsonl",
-    "size": 1490,
-    "updated": "2026-10-09T07:11:21.326Z"
+    "id": "1lLSNFtnzMSfwOjd_wkxvlB-Xu_UidZsc",
+    "name": "changes_gemini_20261012-1644.jsonl",
+    "size": 63445,
+    "updated": "2026-10-12T23:44:46Z"
    },
    {
-    "id": "1bT9ETCb-LnkAFaEUNKC9x5TvJKO5Ayg6",
-    "name": "changes_grok-bot_20261009-0029.jsonl",
-    "size": 39751,
-    "updated": "2026-10-09T07:29:51.469Z"
+    "id": "1dXcKM2cj5R9sXVQlTuyi13xt6qcbbvmN",
+    "name": "changes_gemini_20261012-1642.jsonl",
+    "size": 62271,
+    "updated": "2026-10-12T23:45:03.055Z"
    },
    {
-    "id": "1IDvAhL5G2CFQrXL9ECz6vDQtwgHyYWdI",
-    "name": "changes_grok-bot_20261009-0032.jsonl",
-    "size": 23878,
-    "updated": "2026-10-09T07:32:30.357Z"
+    "id": "16bL65yP8OKg_5hiHM3lCc8oUDKXUIqBR",
+    "name": "changes_gemini_20261012-1633.jsonl",
+    "size": 37309,
+    "updated": "2026-10-12T23:33:24Z"
    },
    {
-    "id": "1Zc6hYCUCxzpezTPfcX_MuUPWTeNraPaK",
-    "name": "changes_grok-bot_20261009-0055.jsonl",
-    "size": 754,
-    "updated": "2026-10-09T07:55:26.344Z"
+    "id": "17PV2CEPqcTAT3PyP6KTowTYNXzPwwsjm",
+    "name": "changes_gemini_20261012-1626.jsonl",
+    "size": 41578,
+    "updated": "2026-10-12T23:26:48Z"
    },
    {
-    "id": "1eKlzIppsraoh56wIVk6BAHfWNzLgz5UP",
-    "name": "changes_grok-bot_20261009-0104.jsonl",
-    "size": 648,
-    "updated": "2026-10-09T08:04:17.675Z"
+    "id": "1lmFiNKfUKN0xE2ZF6g15S9UDnrZ5QJKb",
+    "name": "changes_gemini_20261012-1415.jsonl",
+    "size": 7158,
+    "updated": "2026-10-12T21:10:30Z"
    },
    {
-    "id": "1eZqN5z9QfbShBBBJ2fcvJxEE3hi8U0P6",
-    "name": "changes_grok-bot_20261009-0139.jsonl",
-    "size": 32266,
-    "updated": "2026-10-09T08:39:52.805Z"
+    "id": "1JmE5x2NdT9NM7YQXKsl8C_2nlMU-Lgmt",
+    "name": "changes_gemini_20261012-1410.jsonl",
+    "size": 6752,
+    "updated": "2026-10-12T21:09:16Z"
    },
    {
-    "id": "1sWOw2QNVHKN8G0rc2JInkpGYzehFMOn7",
-    "name": "changes_muse_20261009-0015.jsonl",
-    "size": 9887,
-    "updated": "2026-10-09T07:06:15.984Z"
+    "id": "19XDOHA5k_4IVfvdcu5IM0oCZw9ydblPh",
+    "name": "changes_muse_20261011-2205.jsonl",
+    "size": 3383,
+    "updated": "2026-10-13T18:55:35.793Z"
    },
    {
-    "id": "1fNomYQtPN1DRRp_-1JmPH6M-qCawyZRr",
-    "name": "changes_muse_20261009-1006.jsonl",
-    "size": 1029,
-    "updated": "2026-10-09T17:12:04.749Z"
+    "id": "1k7POPul4wqqIKCj8XwrQVKRfC5SF05sT",
+    "name": "changes_muse_20261010-0010.jsonl",
+    "size": 3026,
+    "updated": "2026-10-13T18:55:20.106Z"
    },
    {
-    "id": "123XIoOz8rXCoU8gSFE8Sw11IA7eTPyi-",
-    "name": "changes_muse_20261009-1015.jsonl",
-    "size": 1164,
-    "updated": "2026-10-09T17:24:04.439Z"
+    "id": "1cEmXiuWN7uiNILDids8CkLYVsCugoHj2",
+    "name": "changes_grok-bot_20261012-0707.jsonl",
+    "size": 14996,
+    "updated": "2026-10-12T14:07:08.124Z"
    },
    {
-    "id": "1XYMiqUnPCT5LLX0S0vgICafJyDlCjpl5",
-    "name": "changes_muse_20261009-1025.jsonl",
-    "size": 944,
-    "updated": "2026-10-09T17:27:04.822Z"
+    "id": "1EfQq_MQLYclwG6aX17X0n9NCgfoeDSqk",
+    "name": "changes_grok-bot_20261012-0705.jsonl",
+    "size": 35215,
+    "updated": "2026-10-12T14:05:54.376Z"
    },
    {
-    "id": "1M6lTS9QlPOLF1ns8Jl54_bqLJ3VfNt87",
-    "name": "changes_muse_20261009-1028.jsonl",
-    "size": 1136,
-    "updated": "2026-10-09T17:28:53.236Z"
+    "id": "1OLbLKMG7sfpCkpExZUznZQYgAZzE0oDR",
+    "name": "changes_grok-bot_20261012-0658.jsonl",
+    "size": 31517,
+    "updated": "2026-10-12T13:58:46.603Z"
    },
    {
-    "id": "1UXh3sAbpRbuAg5y6VC8974IFxDVN-u5F",
-    "name": "changes_muse_20261009-1035.jsonl",
-    "size": 850,
-    "updated": "2026-10-09T17:32:46.573Z"
+    "id": "1cRZL9DVCU7A5UqUs7nxIb5TZnfWq-g5R",
+    "name": "changes_grok-bot_20261012-0657.jsonl",
+    "size": 33876,
+    "updated": "2026-10-12T13:58:45.466Z"
    },
    {
-    "id": "1qilgTBKs4BvQ2rQXsxIlDToNXHp3HSs2",
-    "name": "changes_muse_20261008-2302.jsonl.REJECTED.txt",
-    "size": 2176,
-    "updated": "2026-10-09T05:26:57.054Z"
+    "id": "1KnS5v0xD9H7I0PxQAQ8vJPLBX_KLEOvu",
+    "name": "changes_grok-bot_20261010-1930.jsonl",
+    "size": 44721,
+    "updated": "2026-10-11T02:31:11.071Z"
+   },
+   {
+    "id": "1ejBIuG9V40HOMM1cs3wSyA7-eVxmQBlW",
+    "name": "changes_grok-bot_20261010-1929.jsonl",
+    "size": 47011,
+    "updated": "2026-10-11T02:29:43.084Z"
+   },
+   {
+    "id": "1R6R1vxZgxLM1Ej92KgqzMgrURxaXcO25",
+    "name": "changes_grok-bot_20261010-1928.jsonl",
+    "size": 92067,
+    "updated": "2026-10-11T02:28:25.161Z"
+   },
+   {
+    "id": "11PRgpaP5X9i4FEl8RkHotr0GHoxnEGvz",
+    "name": "changes_grok-bot_20261010-1927.jsonl",
+    "size": 15985,
+    "updated": "2026-10-11T02:28:00.242Z"
+   },
+   {
+    "id": "1--TA9foHggT0HoFfqlkquZ06pKPWdnL7",
+    "name": "changes_grok-bot_20261010-1926.jsonl",
+    "size": 37210,
+    "updated": "2026-10-11T02:27:10.485Z"
+   },
+   {
+    "id": "1_P8v8Rn2mHAsIZoXOtchWSPWiY_Y5sBP",
+    "name": "changes_grok-bot_20261010-1203.jsonl",
+    "size": 9224,
+    "updated": "2026-10-10T19:03:13.596Z"
+   },
+   {
+    "id": "1NOOggqdHPsViz1a0YwhKjNYaJBZPH-gZ",
+    "name": "changes_grok-bot_20261010-1202.jsonl",
+    "size": 37248,
+    "updated": "2026-10-10T19:02:19.381Z"
+   },
+   {
+    "id": "1RoDTBSZ8bzEmwac-D9sQ8ugx0CBi8Vxn",
+    "name": "changes_grok-bot_20261010-1201.jsonl",
+    "size": 25915,
+    "updated": "2026-10-10T19:02:18.168Z"
+   },
+   {
+    "id": "1SzsUkEjTPOgfJEgNIXHTnH1QRzDSrLJl",
+    "name": "changes_grok-bot_20261010-1200.jsonl",
+    "size": 36436,
+    "updated": "2026-10-10T19:02:16.789Z"
+   },
+   {
+    "id": "1eXRPS2QotCTRh_NMP5YxTrGhvxCHOjkd",
+    "name": "changes_grok-bot_20261010-1159.jsonl",
+    "size": 35244,
+    "updated": "2026-10-10T19:00:05.024Z"
+   },
+   {
+    "id": "1kshN7D4PlH6Z8HzajpxkxgSYEUn9FHwT",
+    "name": "changes_grok-bot_20261010-1158.jsonl",
+    "size": 36288,
+    "updated": "2026-10-10T19:00:03.996Z"
+   },
+   {
+    "id": "1pmAjG0U5OTEtxUrBrP83gkX_-PevjeHH",
+    "name": "changes_grok-bot_20261010-1157.jsonl",
+    "size": 38391,
+    "updated": "2026-10-10T19:00:02.937Z"
+   },
+   {
+    "id": "1gcopJY4qPb79Jpj_Eon9RiFpXdXtX5BF",
+    "name": "changes_grok-bot_20261010-1156.jsonl",
+    "size": 38033,
+    "updated": "2026-10-10T19:00:00.892Z"
+   },
+   {
+    "id": "1V1GPfHzclyIMprdOsIOinapUg8E0j0gs",
+    "name": "changes_grok-bot_20261010-1155.jsonl",
+    "size": 36365,
+    "updated": "2026-10-10T18:59:59.479Z"
+   },
+   {
+    "id": "1aIrBeSRb23VHOexlpLMeTNcgMQPCT83X",
+    "name": "changes_grok-bot_20261010-1153.jsonl",
+    "size": 17384,
+    "updated": "2026-10-10T18:53:09.129Z"
+   },
+   {
+    "id": "1Irjt_cmic5m_fF6k3fCMb81jWEskFb-5",
+    "name": "changes_grok-bot_20261010-1152.jsonl",
+    "size": 19982,
+    "updated": "2026-10-10T18:53:04.665Z"
+   },
+   {
+    "id": "1KkUHPMy3Og0fa5A8vOUNlumH2jg6A__O",
+    "name": "changes_grok-bot_20261010-1151.jsonl",
+    "size": 18478,
+    "updated": "2026-10-10T18:51:37.368Z"
+   },
+   {
+    "id": "1wtfZjJ5og4k_pmlK42rn-R979E_ubgLa",
+    "name": "changes_grok-bot_20261010-1150.jsonl",
+    "size": 26284,
+    "updated": "2026-10-10T18:51:36.232Z"
+   },
+   {
+    "id": "1IpTLEs0OfvfmKW3y_bsfHUuERc0zG8Cj",
+    "name": "changes_grok-bot_20261010-1149.jsonl",
+    "size": 26117,
+    "updated": "2026-10-10T18:51:35.230Z"
+   },
+   {
+    "id": "1r_JkFAKUvEsn3mOL2taIAoPflN1ukYX1",
+    "name": "changes_grok-bot_20261010-1148.jsonl",
+    "size": 26239,
+    "updated": "2026-10-10T18:48:45.145Z"
+   },
+   {
+    "id": "1GpSEAaay_XfU19RSh6aQU87hRXRZQWxR",
+    "name": "changes_grok-bot_20261010-1147.jsonl",
+    "size": 27251,
+    "updated": "2026-10-10T18:47:18.364Z"
+   },
+   {
+    "id": "14Nqn_TBFXCvckIcVtXCyje2UNIGmYFzC",
+    "name": "changes_grok-bot_20261010-1146.jsonl",
+    "size": 27289,
+    "updated": "2026-10-10T18:46:30.851Z"
+   },
+   {
+    "id": "1Fmx_m36Sc2niazTnU7OpmZTpviN20ROX",
+    "name": "changes_grok-bot_20261010-1145.jsonl",
+    "size": 26687,
+    "updated": "2026-10-10T18:46:29.723Z"
+   },
+   {
+    "id": "1Y6IqJjiKyBA8YvMgho02MwdNks-tUYOC",
+    "name": "changes_grok-bot_20261010-1143.jsonl",
+    "size": 5134,
+    "updated": "2026-10-10T18:44:02.834Z"
+   },
+   {
+    "id": "1xlsxqEAzuJbA_-K2cAGvEiUbIXiUr2qE",
+    "name": "changes_grok-bot_20261010-1141.jsonl",
+    "size": 1313,
+    "updated": "2026-10-10T18:41:48.612Z"
+   },
+   {
+    "id": "1PXS7o5Z3dXM-z1ZrpiVZKVPtJ3vXGByL",
+    "name": "changes_grok-bot_20261010-1138.jsonl",
+    "size": 16121,
+    "updated": "2026-10-10T18:38:48.565Z"
+   },
+   {
+    "id": "1UeCvrqjzReBfB4o6wNf4J3zGCBRI_kZZ",
+    "name": "changes_grok-bot_20261010-1118.jsonl",
+    "size": 12754,
+    "updated": "2026-10-10T18:19:02.034Z"
+   },
+   {
+    "id": "17-Q5knak4YIF0vZPDwO6u8kCB3JhWgS3",
+    "name": "changes_grok-bot_20261010-1059.jsonl",
+    "size": 17529,
+    "updated": "2026-10-10T17:59:23.019Z"
+   },
+   {
+    "id": "1MjijPzHo95ld3aIz_bJrm_06N-g9uLoo",
+    "name": "changes_grok-bot_20261010-1057.jsonl",
+    "size": 20928,
+    "updated": "2026-10-10T17:58:06.446Z"
+   },
+   {
+    "id": "12QcI7Ax8TwnBwuoYPI0zJTwzGqU8pZ-A",
+    "name": "changes_grok-bot_20261010-1050.jsonl",
+    "size": 20295,
+    "updated": "2026-10-10T17:50:15.157Z"
+   },
+   {
+    "id": "1Lg1nf6gFQ32nsoo-eQ5d0qExhX6FPI61",
+    "name": "changes_grok-bot_20261010-1049.jsonl",
+    "size": 1462,
+    "updated": "2026-10-10T17:49:26.988Z"
+   },
+   {
+    "id": "1uTou8yKoWh4T6en2EpSg6vIS9clKeJOW",
+    "name": "changes_grok-bot_20261010-1040.jsonl",
+    "size": 20977,
+    "updated": "2026-10-10T17:41:07.199Z"
+   },
+   {
+    "id": "1OSqURKTZ-LRDdJ8uM37yAhnGI7LMCSV7",
+    "name": "changes_grok-bot_20261010-1039.jsonl",
+    "size": 25942,
+    "updated": "2026-10-10T17:40:06.526Z"
+   },
+   {
+    "id": "1iVLV7lxX7rVtQVx_uxjOS3uaa_Ax0kuA",
+    "name": "changes_grok-bot_20261010-1038.jsonl",
+    "size": 27254,
+    "updated": "2026-10-10T17:38:25.248Z"
+   },
+   {
+    "id": "1y1P6s0Nvbv1RMoWRMRgx529wVX4MXihA",
+    "name": "changes_grok-bot_20261010-1037.jsonl",
+    "size": 24138,
+    "updated": "2026-10-10T17:37:16.233Z"
+   },
+   {
+    "id": "1ds9pvvX-zWwdlkLsrmMcLZHsDmcb1kBY",
+    "name": "changes_grok-bot_20261010-1036.jsonl",
+    "size": 13257,
+    "updated": "2026-10-10T17:36:21.533Z"
+   },
+   {
+    "id": "1aJ3IxMPRNYBP8V7s3f8oGHV5JBtjJNBK",
+    "name": "changes_grok-bot_20261010-1035.jsonl",
+    "size": 32299,
+    "updated": "2026-10-10T17:35:20.274Z"
+   },
+   {
+    "id": "1Aw2vtYS9LspuWWqNK-_CqKByY5aA4ZxE",
+    "name": "changes_grok-bot_20261010-1034.jsonl",
+    "size": 21075,
+    "updated": "2026-10-10T17:34:53.978Z"
+   },
+   {
+    "id": "1FOBBkcJVVzJoapPB-PfxoeKJBjbhOnAo",
+    "name": "changes_grok-bot_20261010-1032.jsonl",
+    "size": 19964,
+    "updated": "2026-10-10T17:33:03.233Z"
+   },
+   {
+    "id": "1kyLteJ49YMjAj1dMzPNcB32KAlYKVKEP",
+    "name": "changes_muse_20261010-1713.jsonl",
+    "size": 10064,
+    "updated": "2026-10-10T17:25:53.237Z"
+   },
+   {
+    "id": "18sgkDJZvI9tzFCWpO4cq1Ss7PQeXrxOb",
+    "name": "changes_muse_20261010-1015.jsonl",
+    "size": 14304,
+    "updated": "2026-10-10T17:25:53.211Z"
+   },
+   {
+    "id": "1lwUuplzv-3dgOvJ7THkD3kWst4ao132F",
+    "name": "changes_muse_20261010-1714.jsonl",
+    "size": 15194,
+    "updated": "2026-10-10T17:25:53.184Z"
+   },
+   {
+    "id": "1yCDDNUWDkJPEu6TeqRrJPZ0ufh_F5e82",
+    "name": "changes_grok-bot_20261010-1025.jsonl",
+    "size": 31079,
+    "updated": "2026-10-10T17:25:06.351Z"
+   },
+   {
+    "id": "10FQScr_Hkzo0d3aHDUPa2rI04gZgU69c",
+    "name": "changes_grok-bot_20261010-1021.jsonl",
+    "size": 24502,
+    "updated": "2026-10-10T17:21:24.127Z"
+   },
+   {
+    "id": "1RU_FwII8XwdelDNHTJNYK1UKOL5pxOtL",
+    "name": "changes_grok-bot_20261010-1020.jsonl",
+    "size": 23374,
+    "updated": "2026-10-10T17:20:11.483Z"
+   },
+   {
+    "id": "1anJuQJislUEQuLl9p1SSZTtTG-i2YJ6Z",
+    "name": "changes_grok-bot_20261010-1019.jsonl",
+    "size": 26003,
+    "updated": "2026-10-10T17:19:15.625Z"
+   },
+   {
+    "id": "1eeiygZ2xIa6Iuu-kv3Uz0G6ULFkbwL_z",
+    "name": "changes_grok-bot_20261010-1018.jsonl",
+    "size": 25281,
+    "updated": "2026-10-10T17:18:17.553Z"
+   },
+   {
+    "id": "1TnyoumwCC6224kd7Ckj0vtFOzcn-aI3Q",
+    "name": "changes_grok-bot_20261010-1017.jsonl",
+    "size": 25280,
+    "updated": "2026-10-10T17:17:21.755Z"
+   },
+   {
+    "id": "1ztdEVvVY34b1-4zL6HZZvX5EZUrT36Jm",
+    "name": "changes_grok-bot_20261010-1016.jsonl",
+    "size": 28304,
+    "updated": "2026-10-10T17:17:02.841Z"
+   },
+   {
+    "id": "1SqoOH6sddruQQ0i8q560ZWZCEPNajJDg",
+    "name": "changes_grok-bot_20261010-1015.jsonl",
+    "size": 23642,
+    "updated": "2026-10-10T17:16:19.166Z"
+   },
+   {
+    "id": "1X4CZiRA0nK6p94Qzt52FW5up0fNr4v_7",
+    "name": "changes_grok-bot_20261010-1011.jsonl",
+    "size": 3384,
+    "updated": "2026-10-10T17:11:54.834Z"
+   },
+   {
+    "id": "1n5h_Cfxp29vaB5FG5dReH1sm6aE2d_HQ",
+    "name": "changes_grok-bot_20261010-1010.jsonl",
+    "size": 27606,
+    "updated": "2026-10-10T17:11:07.945Z"
    }
   ],
   "staging": null,

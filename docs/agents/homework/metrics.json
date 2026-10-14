@@ -1,57 +1,79 @@
 {
- "updated": "2026-10-13T22:43:38Z",
+ "updated": "2026-10-14T15:54:53Z",
  "pools": {
-  "cite": 37,
-  "story-check": 157,
-  "plain-story": 41,
+  "cite": 28,
+  "story-check": 72,
+  "plain-story": 25,
   "research": 5,
-  "value": 265,
-  "read-mint": 38,
-  "verify": 421
+  "value": 25,
+  "read-mint": 19,
+  "arbitrate": 1,
+  "verify": 590
  },
  "agents": {
-  "claude": {
-   "confirmed": 6,
+  "gemini": {
+   "confirmed": 81,
    "wrong": 0,
-   "checks_done": 0,
+   "checks_done": 60,
    "disagreements_open": 0,
-   "checked_n": 6,
+   "checked_n": 81,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.39
+    0.045
    ]
   },
   "grok": {
-   "confirmed": 41,
+   "confirmed": 188,
    "wrong": 0,
-   "checks_done": 0,
-   "disagreements_open": 0,
-   "checked_n": 41,
+   "checks_done": 68,
+   "disagreements_open": 1,
+   "checked_n": 188,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.086
+    0.02
+   ]
+  },
+  "claude": {
+   "confirmed": 39,
+   "wrong": 0,
+   "checks_done": 0,
+   "disagreements_open": 0,
+   "checked_n": 39,
+   "error_rate": 0.0,
+   "error_ci95": [
+    0.0,
+    0.09
    ]
   },
   "muse": {
-   "confirmed": 31,
+   "confirmed": 126,
    "wrong": 4,
    "checks_done": 0,
    "disagreements_open": 0,
-   "checked_n": 35,
-   "error_rate": 0.114,
+   "checked_n": 130,
+   "error_rate": 0.031,
    "error_ci95": [
-    0.045,
-    0.26
+    0.012,
+    0.076
    ]
+  },
+  "": {
+   "confirmed": 0,
+   "wrong": 0,
+   "checks_done": 0,
+   "disagreements_open": 1,
+   "checked_n": 0,
+   "error_rate": null,
+   "error_ci95": null
   }
  },
  "parked": [],
  "open_assignments": {
-  "grok": 9,
-  "muse": 8,
-  "gemini": 6,
+  "grok": 8,
+  "muse": 11,
+  "gemini": 5,
   "chatgpt": 0
  }
 }

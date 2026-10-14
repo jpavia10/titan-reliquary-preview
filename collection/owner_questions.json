@@ -409,6 +409,102 @@
           "followup": "Split C073 into two lots by mint (see the answer text)."
         }
       ]
+    },
+    {
+      "id": "q-uk-penny-1922-1932",
+      "coin": null,
+      "ask": "A Britannia penny (George V) waits in STAGING: NOID_UnitedKingdom_1922_1Penny_rev.jpg. Is the date 1922 or 1932?",
+      "why": "The photo's name says 1922, but at full zoom the third digit looks like a 3 to Claude and to Gemini. The two years are different catalogue types, so the coin is not added until you say.",
+      "options": [
+        {
+          "label": "1922",
+          "effect": [],
+          "followup": "Create the UK 1922 penny (KM#810 era) from NOID_UnitedKingdom_1922_1Penny_rev.jpg."
+        },
+        {
+          "label": "1932",
+          "effect": [],
+          "followup": "Create the UK 1932 penny (KM#838) from NOID_UnitedKingdom_1922_1Penny_rev.jpg (rename the photo)."
+        },
+        {
+          "label": "Later",
+          "effect": [],
+          "keep_open": true
+        }
+      ]
+    },
+    {
+      "id": "q-uk-5p-1990-photo",
+      "coin": "C167",
+      "ask": "The 1990 5p photo in STAGING (NOID_UnitedKingdom_1990_Uncertain_obv.jpg): is it one of the two 1990 5p you already have (C167, C168), or a third one?",
+      "why": "C167 and C168 have no photo yet. Muse sent it as a new coin; if it is one of the two, adding it again would count it twice.",
+      "options": [
+        {
+          "label": "One of C167 / C168",
+          "effect": [],
+          "followup": "File NOID_UnitedKingdom_1990_Uncertain_obv.jpg as the C167 obverse photo."
+        },
+        {
+          "label": "A third 1990 5p",
+          "free": "Anything that tells it apart?",
+          "effect": [],
+          "followup": "Create a third UK 1990 5p (GB.KM.937b) from NOID_UnitedKingdom_1990_Uncertain_obv.jpg."
+        }
+      ]
+    },
+    {
+      "id": "q-c108-photo",
+      "coin": "C108",
+      "ask": "The 1988 penny photo in STAGING (NOID_UnitedKingdom_1988_1Penny_obv.jpg): is it C108, the 1988 penny you already have, or a second 1988 penny?",
+      "why": "C108 has no photo yet. Muse sent the photo as a new coin.",
+      "options": [
+        {
+          "label": "It's C108",
+          "effect": [],
+          "followup": "File NOID_UnitedKingdom_1988_1Penny_obv.jpg as the C108 obverse photo."
+        },
+        {
+          "label": "A second 1988 penny",
+          "effect": [],
+          "followup": "Create a second UK 1988 penny (GB.KM.935) from NOID_UnitedKingdom_1988_1Penny_obv.jpg."
+        }
+      ]
+    },
+    {
+      "id": "q-c287-second",
+      "coin": "C287",
+      "ask": "Italy 1979 50 lire: the new photo (NOID_Italy_1979_50Lire_obv.jpg, Oct 13) shows the Vulcan side, like C287's photo from Oct 8. Same coin, or a second 1979 50 lire?",
+      "why": "Muse sent it as a new coin; if it is C287 again it would be counted twice.",
+      "options": [
+        {
+          "label": "Same coin (C287)",
+          "effect": [],
+          "followup": "Drop Muse's new 1979 50 lire; keep the photo as a C287 retake only if it is better."
+        },
+        {
+          "label": "A second one",
+          "effect": [],
+          "followup": "Create a second Italy 1979 50 lire (IT.KM.95.1) from NOID_Italy_1979_50Lire_obv.jpg."
+        }
+      ]
+    },
+    {
+      "id": "q-c199-second",
+      "coin": "C199",
+      "ask": "Italy 1978 50 lire: the new photo (NOID_Italy_1978_50Lire_obv.jpg, Oct 13) shows the Vulcan side, like C199's photo. Same coin, or a second 1978 50 lire?",
+      "why": "Muse sent it as a new coin; if it is C199 again it would be counted twice.",
+      "options": [
+        {
+          "label": "Same coin (C199)",
+          "effect": [],
+          "followup": "Drop Muse's new 1978 50 lire."
+        },
+        {
+          "label": "A second one",
+          "effect": [],
+          "followup": "Create a second Italy 1978 50 lire (IT.KM.95.1) from NOID_Italy_1978_50Lire_obv.jpg."
+        }
+      ]
     }
   ]
 }

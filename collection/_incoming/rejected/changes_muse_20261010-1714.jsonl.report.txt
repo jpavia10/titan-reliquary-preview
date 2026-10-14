@@ -1,0 +1,23 @@
+REJECTED changes_muse_20261010-1714.jsonl: 16 problem(s); nothing was changed
+  line 1: stale edit: type US.KM.204 catalogs is now [{"number":"204","system":"KM"},{"number":"205","system":"Schön"},{"number":"56", the contribution expected [{"number":"204","system":"KM"}] (re-read the record and resubmit)
+  line 2: stale edit: type CH.KM.40a.4 catalogs is now [{"number":"40a.4","system":"KM"},{"number":"36a","system":"Schön"},{"number":"1, the contribution expected [{"number":"40a.4","system":"KM"}] (re-read the record and resubmit)
+  line 4: stale edit: type US.KM.195 issues.0.mintage is now 275200000, the contribution expected null (re-read the record and resubmit)
+  line 5: stale edit: type CH.KM.27 catalogs is now [{"number":"27","system":"KM"},{"number":"25","system":"Schön"},{"number":"24",", the contribution expected [{"number":"27","system":"KM"}] (re-read the record and resubmit)
+  line 6: stale edit: type CH.KM.21a issues.0.mintage is now 31588000, the contribution expected 10000000 (re-read the record and resubmit)
+  line 7: stale edit: type CH.KM.27 issues.1.mintage is now 18000000, the contribution expected 18010000 (re-read the record and resubmit)
+  line 8: stale edit: type FR.KM.1289 catalogs is now [{"number":"1289","system":"KM"},{"number":"658","system":"Schön"},{"number":"10, the contribution expected [{"number":"1289","system":"KM"}] (re-read the record and resubmit)
+  line 9: stale edit: type MX.KM.443 catalogs is now [{"number":"443","system":"KM"},{"number":"43","system":"Schön"},{"number":"972", the contribution expected [{"number":"443","system":"KM"}] (re-read the record and resubmit)
+  line 10: stale edit: type DE.KM.213 catalogs is now [{"number":"213","system":"KM"},{"number":"212","system":"Schön"},{"number":"111, the contribution expected [{"number":"213","system":"KM"},{"number":"212","system":"Schön"}] (re-read the record and resubmit)
+  line 12: stale edit: type FR.KM.888b.1 catalogs is now [{"number":"888b.1","system":"KM"},{"number":"203b","system":"Schön"},{"number":, the contribution expected [{"number":"888b.1","system":"KM"}] (re-read the record and resubmit)
+  line 13: stale edit: type FR.X.5-francs catalogs is now [{"number":"926a.1","system":"KM"},{"number":"235a","system":"Schön"},{"number":, the contribution expected [] (re-read the record and resubmit)
+  line 14: stale edit: type IT.KM.96.1 catalogs is now [{"number":"96.1","system":"KM"},{"number":"96","system":"Schön"},{"number":"304, the contribution expected [{"number":"96.1","system":"KM"},{"number":"96","system":"Schön"}] (re-read the record and resubmit)
+  line 15: stale edit: type NL.KM.107.2 catalogs is now [{"number":"107.2","system":"KM"},{"number":"963","system":"Sch"},{"number":"107, the contribution expected [{"number":"107.2","system":"KM"},{"number":"963","system":"Sch"}] (re-read the record and resubmit)
+  line 18: stale edit: type FR.X.5-francs issues.0.mintage is now 9973818, the contribution expected null (re-read the record and resubmit)
+  line 21: stale edit: type JM.KM.189 composition.text is now "nickel clad steel", the contribution expected "nickel-plated steel" (re-read the record and resubmit)
+  line 22: stale edit: type AU.KM.36 catalogs is now [{"number":"36","system":"KM"},{"number":"23","system":"Schön"},{"number":"5788", the contribution expected [{"number":"36","system":"KM"}] (re-read the record and resubmit)
+  notes: re-cited (value unchanged, exact source added): type CH.KM.40a.1 issues.0.mintage
+  notes: re-cited (value unchanged, exact source added): type DE.KM.124 composition.text
+  notes: re-cited (value unchanged, exact source added): type VN-SOV.KM.1 catalogs
+  notes: re-cited (value unchanged, exact source added): type FR.KM.888b.1 issues.0.mintage
+  notes: re-cited (value unchanged, exact source added): type IT.KM.96.1 issues.0.mintage
+  notes: re-cited (value unchanged, exact source added): type NL.KM.107.2 issues.0.mintage
