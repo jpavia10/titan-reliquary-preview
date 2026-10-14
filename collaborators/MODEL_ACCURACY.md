@@ -29,5 +29,9 @@ What this measures: how well each AI model reads and identifies **these** coins,
 |---|---|---|---|---|---|---|---|---|---|
 | 2026-10-09 | Grok (grok-bot), blind main pack, 2026-10-08 | main (2026-10-08) | BAKEOFF@2026-10-08 | 30 of 30 | 78% | 57% | 3.8% | 0% | n/a |
 | 2026-10-09 | Muse (muse-spark-1.3), blind main pack, 2026-10-08 | main (2026-10-08) | BAKEOFF@2026-10-08 | 30 of 30 | 71% | 17% | 5.3% | 17% | n/a |
+| 2026-10-14 | Grok (grok-bot), blind LOCKED pack, 2026-10-10 | locked (2026-10-08) | BAKEOFF@2026-10-08 | 15 of 15 | 76% | 47% | 3.0% | 0% | n/a |
+| 2026-10-14 | Gemini (gemini app), blind main pack, 2026-10-12 | main (2026-10-08) | BAKEOFF@2026-10-08 | 30 of 30 | 85% | 63% | 3.0% | 0% | n/a |
 
 Caveat for the 2026-10-09 rows: Grok and Muse have both worked on this collection's records (stories, Numista sweep, new coins), so the main pack partly measures recall of familiar coins, not only reading from the photo (Grok's catalogue numbers match the records it had just swept). Use them to compare the two contributors, not as a true accuracy. The real measure is the locked pack (15 coins, never shown to a contributor); it is run once, near the photo-model decision (fix list #19).
+
+Caveat for the 2026-10-14 rows: Grok's locked-pack run is the first true measure (15 coins chosen as the hardest: look-alike types, corrected records, single-country coins). It held back when unsure (17 of 60 core fields left blank) and invented only 2 values out of 66; it is the reference number for the photo-model decision (fix list #19). Gemini's main-pack run has the same familiar-set caveat as the others, and a stronger one: Gemini worked from a full copy of the repository in Drive (including `photos/p1/` and `data/`), so its catalogue numbers may come from the records rather than the photo. Gemini's locked pack is the measure that counts; it is not due until Gemini is back (the Argon release broke its app, owner 2026-10-14).
