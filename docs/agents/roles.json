@@ -66,7 +66,7 @@
     },
     "gemini": {
       "name": "Gemini",
-      "status": "active",
+      "status": "paused",
       "probation": true,
       "onboarding": true,
       "by": [
@@ -90,7 +90,7 @@
         "arbitrate",
         "plain-story"
       ],
-      "strength": "Expected to be a powerhouse (owner, 2026-10-10: \"Gemini should be a powerhouse so there potential there too\"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.",
+      "strength": "Paused (owner, 2026-10-14: \"Gemini argon was released but its glitching the gemin spark app so maybe wont use for a bit\"): no new homework is issued; the open assignments stay reserved for 7 days, then go back to the pool. When you are back, finish them first. Expected to be a powerhouse (owner, 2026-10-10: \"Gemini should be a powerhouse so there potential there too\"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.",
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.",
       "inline_sheets": true,
       "full_batches": true,

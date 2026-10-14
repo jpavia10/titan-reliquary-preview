@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-14T16:10:27Z",
+ "updated": "2026-10-14T20:20:40Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261014-1",
@@ -647,7 +647,9 @@
      "coins": [
       "C011",
       "C199",
-      "C287"
+      "C287",
+      "C298",
+      "C299"
      ],
      "label": "denomination of C011 · Italy · 1970 · 50 lire · ITL",
      "authors": [
@@ -1362,7 +1364,8 @@
      "id": "GB.KM.937b",
      "field": "denomination.value",
      "coins": [
-      "C275"
+      "C275",
+      "C296"
      ],
      "label": "denomination of C275 · United Kingdom · 1992 · 5 pence · GBP",
      "authors": [
@@ -3541,7 +3544,9 @@
      "coins": [
       "C011",
       "C199",
-      "C287"
+      "C287",
+      "C298",
+      "C299"
      ],
      "label": "catalog of C011 · Italy · 1970 · 50 lire · ITL",
      "authors": [
@@ -3593,7 +3598,8 @@
      "id": "IT.KM.95.1",
      "field": "issues.2.mintage",
      "coins": [
-      "C287"
+      "C287",
+      "C299"
      ],
      "label": "mintage of C287 · Italy · 1979 · 50 lire · ITL",
      "authors": [
@@ -3621,7 +3627,9 @@
      "coins": [
       "C011",
       "C199",
-      "C287"
+      "C287",
+      "C298",
+      "C299"
      ],
      "label": "composition of C011 · Italy · 1970 · 50 lire · ITL",
      "authors": [

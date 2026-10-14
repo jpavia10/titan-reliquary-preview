@@ -160,62 +160,22 @@
         },
         {
           "n": 2,
-          "title": "Theme pictures: the 22 picker cards (priority 1, two takes each)",
-          "fix": "#113",
-          "state": "now",
-          "what": "The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json' (repo copy docs/art/requests/artreq_20261010-1700_theme-thumbnails.json). Follow ART_START_HERE: one image at a time (make it, save it to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file name, then the next); stop at the first failure or credit warning and write down how far you got. The pictures must look premium: real-photo look unless the image's `medium` says pixel art, comic, clay or poster; no readable text or numbers anywhere; coins look like real coins. Claude reviews every file and re-requests weak ones. Your part: every image with priority 1 (44 files: world_{theme}_card_take1.png and _take2.png). Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-grok-p1.txt; Muse has the heroes (p2) and Gemini the refreshes (p3), so you never collide.",
-          "done_when": "44 card files in the output folder (or as many as your credits allowed) and artreq_20261010-1700_theme-thumbnails.p1.DONE.txt listing each file: ok or skipped: reason."
+          "title": "Album prices: a second source for the 10 most expensive holes",
+          "fix": "#62",
+          "state": "next",
+          "what": "Your A001-A016 list is live as 'Cost to complete' (collection/prices/wants_values_grok_20261010-1949.json). The key dates look low against dealer guides (1921-D dime $140 at VF, where APMEX's lowest grade starts near $158). For the 10 most expensive holes in that file (A006 1916-D, 1921-D, 1921, 1923-S, 1926-S, 1927-D, 1916-S, 1918-D; A012 1949-D; A007 1964-D), find a second price page (PCGS CoinFacts, NGC Price Guide, Greysheet retail or APMEX) for the same grade, and send wants_values_grok_{YYYYMMDD-HHMM}.json with the same shape; where the two sources differ by more than 25 %, give the higher and name both in source.",
+          "done_when": "One file in reviews-incoming; Claude checks a sample and the app's total updates."
         },
         {
           "n": 3,
-          "title": "Review the 20 styles and the motion splashes",
-          "fix": "#110",
-          "state": "next",
-          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/fx/styles-a.js, styles-b.js, styles-c.js, styles-d.js (same folder), https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/motion-splash.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/styles/style-layer.css (the engine contract is the header of wings/fx/engine.js). Find real defects only: a shader that will not compile on a phone GPU (precision, loops, derivatives), work that runs every frame and should not, a splash that can hang or never call done(), something that ignores reduced motion or Motion Off, text the effects make unreadable. For each: file:line, how to trigger it, the smallest fix. Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
-          "done_when": "One reply with finding IDs GRK-S-01, GRK-S-02 ...; Claude verifies each claim before fixing."
+          "title": "Splash film: Coinverse 16:9 again, plain coins (only when Joseph says the credits allow)",
+          "fix": "#56",
+          "state": "later",
+          "what": "Nine of your v5 clips are live (fractal, cathedral, coin rain, two forge takes and the hoard for phones; hoard, cathedral and forge for desktop). splash5_coinverse_16x9 was left out: its coins carry the Bitcoin symbol, and the brief says no text or brands. One clip, the same Coinverse beats, plain coins with no symbols, ending with THE LANDING; save it before starting anything else (ART_START_HERE).",
+          "done_when": "The clip is in art-incoming next to the request with a DONE line."
         },
         {
           "n": 4,
-          "title": "Security review of the intake bridge",
-          "fix": "#106",
-          "state": "next",
-          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/INTAKE_BRIDGE.md, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/bridge/intake.py, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/drive/intake_bridge.gs and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/.github/workflows/intake.yml. Find real holes only: a way a file in the Drive folder could run code, write outside collection/, merge as the owner or as another AI, leak the key, or make the job push something it should not. For each: how to trigger it, why it matters, the smallest fix (file:line). Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
-          "done_when": "One reply with finding IDs GRK-B-01 ...; Claude verifies each claim before fixing."
-        },
-        {
-          "n": 5,
-          "title": "Find the holes in the research loop",
-          "fix": "#85",
-          "state": "next",
-          "what": "Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/RESEARCH_LOOP.md and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/agents/homework.py. Find real holes only: a way an AI could get a wrong fact marked 'Checked', a job that can never close or is handed out twice, an AI that could end up checking its own work, a line that could overwrite data it should not. For each: how to trigger it, why it matters, the smallest fix (file:line). Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
-          "done_when": "One reply; Claude verifies each claim before fixing."
-        },
-        {
-          "n": 6,
-          "title": "Review two new modules",
-          "fix": "#32",
-          "state": "later",
-          "what": "Review https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/app-motion.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/music-recorded.js for real bugs only (what breaks, how to reproduce, the smallest fix, file:line). No style notes. Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
-          "done_when": "One reply; Claude verifies each claim before fixing."
-        },
-        {
-          "n": 7,
-          "title": "Cost to complete the albums: price the missing coins in A001 to A016",
-          "fix": "#62",
-          "state": "next",
-          "what": "Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A001 to A016, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_grok_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {\"album\": \"A001\", \"label\": \"1941-D\", \"value_usd\": 1.25, \"grade\": \"VF\", \"source\": \"exact page URL\", \"confidence\": \"med|low\"}, plus a total per album.",
-          "done_when": "One JSON file covering every missing coin in A001 to A016 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing."
-        },
-        {
-          "n": 8,
-          "title": "Splash films: the open v5 clips",
-          "fix": "#35",
-          "state": "next",
-          "what": "artreq_20261005-0900_splash-film-v5-overthetop in the art queue still has open clips: your 2 Grok originals, Titan Forge, Dragon Hoard, Infinite Mint, Gold Rush Warp, then the 16:9 desktop versions. Spending rules (owner, 2026-10-05): check your remaining credit first, ONE clip at a time (submit, wait, save to Drive, confirm, then the next), at most 4 clips per run, stop at the first blocked download or credit warning. Every clip ends with THE LANDING; no text in any frame.",
-          "done_when": "Up to 4 clips saved per run, each listed in the request's DONE/progress note."
-        },
-        {
-          "n": 9,
           "title": "Music: a recording for each of the 3 held pieces",
           "fix": "#83",
           "state": "later",
@@ -223,7 +183,7 @@
           "done_when": "One JSON file with an exact Commons title (or 'none found' and why) for each held piece."
         },
         {
-          "n": 10,
+          "n": 5,
           "title": "Read new coin photos (with Muse, blind)",
           "fix": "#55",
           "state": "always",
@@ -241,11 +201,11 @@
       "tasks": [
         {
           "n": 1,
-          "title": "Re-cite your 26 vague sources",
-          "fix": "#48",
+          "title": "Fix three coin photos (from the 2026-10-14 intake)",
+          "fix": "#3",
           "state": "now",
-          "what": "Your first file (changes_muse_20261008-2302.jsonl) bounced on two schema faults; read changes_muse_20261008-2302.jsonl.REJECTED.txt in the drop folder. Resend the 18 lines that match the record with an exact catalogue entry (Numista N# + URL, or the NGC page URL) in source, provenance.inputs as {\"file\": url}, no ts inside provenance. Leave out the 7 lines the note lists.",
-          "done_when": "One file that merges as sent; the 18 facts move from 'AI guess' to 'Reference'."
+          "what": "Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_{year}_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). (b) Your Mexico 1981 20 pesos came with no photo: upload its photo the same way, then send one change file creating it (NEW-1, the type first, phase 1, a default value, the photo file named in source). When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.",
+          "done_when": "The three photos are in STAGING with a summary, each different from every photo already filed, and the 20 pesos change file merges as sent."
         },
         {
           "n": 2,

@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-14 16:10 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-14 20:20 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
-**Status:** active (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Expected to be a powerhouse (owner, 2026-10-10: "Gemini should be a powerhouse so there potential there too"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.
+**Status:** paused (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Paused (owner, 2026-10-14: "Gemini argon was released but its glitching the gemin spark app so maybe wont use for a bit"): no new homework is issued; the open assignments stay reserved for 7 days, then go back to the pool. When you are back, finish them first. Expected to be a powerhouse (owner, 2026-10-10: "Gemini should be a powerhouse so there potential there too"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.
 **How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.
 
 ## Finish first
@@ -14,9 +14,9 @@ Three checks, answered in one short reply. (a) In this doc, find your first home
 
 **Done when:** Claude confirms all three answers against the files; then the homework below is yours.
 
-## Calibration test due: the main photo pack (30 coins)  (fix list #4)
+## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
 
-Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-main/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_gemini_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack.
+Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-locked and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-locked/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_gemini_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack. Its coin ids exist only in Claude's locked key; it decides which AI reads the Phase 2 pro photos.
 
 **Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
 

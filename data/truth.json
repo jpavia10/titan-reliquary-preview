@@ -1,8 +1,9 @@
 {
-"generated_at": "2026-10-14T16:10:27Z",
+"generated_at": "2026-10-14T20:20:40Z",
 "summary": {
-"total": 30,
+"total": 33,
 "by_rule": {
+"copy_differs": 3,
 "mint_unknown": 30
 }
 },
@@ -186,6 +187,24 @@
 "id": "C265",
 "field": "issue.mintage",
 "detail": "DE 1950: mint not read (unknown (letter soft / not locked (between oak lea); 1,100,617,000 must be the all-mints total"
+},
+{
+"rule": "copy_differs",
+"id": "C296",
+"field": "issue.mintage",
+"detail": "coin None vs type GB.KM.937b 1634976005"
+},
+{
+"rule": "copy_differs",
+"id": "C297",
+"field": "issue.mintage",
+"detail": "coin None vs type GB.KM.935 793492000"
+},
+{
+"rule": "copy_differs",
+"id": "C299",
+"field": "issue.mintage",
+"detail": "coin None vs type IT.KM.95.1 315000000"
 }
 ]
 }

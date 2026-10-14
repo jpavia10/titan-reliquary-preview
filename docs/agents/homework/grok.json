@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-14T16:10:27Z",
+ "updated": "2026-10-14T20:20:40Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261009-1",
@@ -2408,7 +2408,8 @@
      "id": "MX.X.500-pesos",
      "field": null,
      "coins": [
-      "C293"
+      "C293",
+      "C301"
      ],
      "label": "MX 500 pesos (MX.X.500-pesos)",
      "authors": [],
@@ -2426,6 +2427,19 @@
         "mintage": null,
         "mintage_label": null,
         "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1989,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C301"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
        }
       ],
       "catalogs": [],
@@ -2437,7 +2451,8 @@
        "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
        "nominal.diameter_mm",
        "composition.text + composition.metal_class",
-       "issues.0.mintage: 1988 Mo"
+       "issues.0.mintage: 1988 Mo",
+       "issues.1.mintage: 1989 Mo"
       ],
       "note": null
      },
@@ -4012,7 +4027,9 @@
      "coins": [
       "C011",
       "C199",
-      "C287"
+      "C287",
+      "C298",
+      "C299"
      ],
      "label": "design of C011 · Italy · 1970 · 50 lire · ITL",
      "authors": [
@@ -4859,6 +4876,249 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-cite-20261014-2",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-14T20:20:20Z",
+   "lease_until": "2026-10-21T20:20:20Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:BS.X.25-cents",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "cite:IT.KM.95.1",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:BS.X.25-cents",
+     "kind": "cite",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null,
+     "coins": [
+      "C300"
+     ],
+     "label": "BS 25 cents (BS.X.25-cents)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1984,
+        "mint_marks": [],
+        "coins": [
+         "C300"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1984"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:IT.KM.95.1",
+     "kind": "cite",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": null,
+     "coins": [
+      "C011",
+      "C199",
+      "C287",
+      "C298",
+      "C299"
+     ],
+     "label": "IT 50 lire (IT.KM.95.1)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1970,
+        "mint_marks": [
+         "R"
+        ],
+        "coins": [
+         "C011"
+        ],
+        "mintage": 21411000,
+        "mintage_label": "reference",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1978,
+        "mint_marks": [
+         "R"
+        ],
+        "coins": [
+         "C199"
+        ],
+        "mintage": 416808000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1979,
+        "mint_marks": [],
+        "coins": [
+         "C287",
+         "C299"
+        ],
+        "mintage": 315000000,
+        "mintage_label": "reference",
+        "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 1978,
+        "mint_marks": [],
+        "coins": [
+         "C298"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "95.1"
+       },
+       {
+        "system": "Schön",
+        "number": "95"
+       },
+       {
+        "system": "Numista",
+        "number": "724"
+       }
+      ],
+      "weight_g": 6.25,
+      "diameter_mm": 24.8,
+      "composition": "Acmonital stainless steel",
+      "ask": [
+       "issues.3.mintage: 1978"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-read-mint-20261014-2",
+   "agent": "grok",
+   "kind": "read-mint",
+   "issued": "2026-10-14T20:20:40Z",
+   "lease_until": "2026-10-21T20:20:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C299",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C298",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "mint:C299",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "issue",
+     "coins": [
+      "C299"
+     ],
+     "label": "C299 · Italy · 1979 · 50 lire · ITL",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C299_rev.webp",
+        "file": "C299_rev.webp",
+        "original": "C299_Italy_1979_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not visible on the Vulcan side"
+     },
+     "blind": false,
+     "inputs": [
+      "C299_rev.webp"
+     ]
+    },
+    {
+     "item": "mint:C298",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue",
+     "coins": [
+      "C298"
+     ],
+     "label": "C298 · Italy · 1978 · 50 lire · ITL",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
+        "file": "C298_rev.webp",
+        "original": "C298_Italy_1978_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not visible on the Vulcan side"
+     },
+     "blind": false,
+     "inputs": [
+      "C298_rev.webp"
+     ]
     }
    ]
   }

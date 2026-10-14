@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-14T16:10:27Z",
+ "updated": "2026-10-14T20:20:40Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -26,7 +26,7 @@
   "gemini-verify-20261010": 1,
   "grok-story-check-20261014": 2,
   "grok-verify-20261014": 2,
-  "grok-read-mint-20261014": 1,
+  "grok-read-mint-20261014": 2,
   "muse-cite-20261014": 1,
   "muse-arbitrate-20261014": 1,
   "muse-plain-story-20261014": 1,
@@ -36,7 +36,7 @@
   "gemini-story-check-20261014": 1,
   "muse-story-check-20261014": 1,
   "muse-verify-20261014": 1,
-  "grok-cite-20261014": 1,
+  "grok-cite-20261014": 2,
   "grok-value-20261014": 1
  },
  "assignments": [
@@ -7376,6 +7376,54 @@
      "entity": "type",
      "id": "GB.KM.988",
      "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-cite-20261014-2",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-14T20:20:20Z",
+   "lease_until": "2026-10-21T20:20:20Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:BS.X.25-cents",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "cite:IT.KM.95.1",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-read-mint-20261014-2",
+   "agent": "grok",
+   "kind": "read-mint",
+   "issued": "2026-10-14T20:20:40Z",
+   "lease_until": "2026-10-21T20:20:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C299",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C298",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue"
     }
    ]
   }

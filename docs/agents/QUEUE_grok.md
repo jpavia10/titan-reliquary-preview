@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-14 16:10 UTC)
+# WORK QUEUE for Grok (updated 2026-10-14 20:20 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -13,18 +13,6 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are merged: every one checked out. Carry on through C283 the same way: check each story against its own record and the cited Numista entry; where a claim is wrong, send a corrected story (source = the exact entry; say what was wrong; change only the wrong sentence). (While this is open, nobody else is given these stories: they are reserved for you.)
 
 **Done when:** Every story from C151 to C283 checked; a list of the ones you changed and why (in your FEEDBACK doc note).
-
-### Theme pictures: the 22 picker cards (priority 1, two takes each)  (fix list #113)
-
-The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json' (repo copy docs/art/requests/artreq_20261010-1700_theme-thumbnails.json). Follow ART_START_HERE: one image at a time (make it, save it to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file name, then the next); stop at the first failure or credit warning and write down how far you got. The pictures must look premium: real-photo look unless the image's `medium` says pixel art, comic, clay or poster; no readable text or numbers anywhere; coins look like real coins. Claude reviews every file and re-requests weak ones. Your part: every image with priority 1 (44 files: world_{theme}_card_take1.png and _take2.png). Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-grok-p1.txt; Muse has the heroes (p2) and Gemini the refreshes (p3), so you never collide.
-
-**Done when:** 44 card files in the output folder (or as many as your credits allowed) and artreq_20261010-1700_theme-thumbnails.p1.DONE.txt listing each file: ok or skipped: reason.
-
-## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
-
-Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-locked and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-locked/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_grok_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack. Its coin ids exist only in Claude's locked key; it decides which AI reads the Phase 2 pro photos.
-
-**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
 
 ## Homework (generated from the data)
 
@@ -142,7 +130,7 @@ Items:
 - **AU 10 cents (AU.X.10-cents)** coins C295. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 2006
 - **BS 5 cents (BS.X.5-cents)** coins C291. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1984
 - **MX 5 centavos (MX.X.5-centavos)** coins C294. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1969 Mo
-- **MX 500 pesos (MX.X.500-pesos)** coins C293. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1988 Mo
+- **MX 500 pesos (MX.X.500-pesos)** coins C293, C301. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1988 Mo; issues.1.mintage: 1989 Mo
 - **GB 1 penny (GB.KM.1107)** coins C218, C290. Ask: issues.1.mintage: 2013
 - **GB 1 penny (GB.KM.986)** coins C112, C113, C217, C292. Ask: issues.3.mintage: 2002
 
@@ -240,43 +228,43 @@ Items:
 - **design of C007 · France · 1963 · 10 centimes · FRF** `type FR.KM.929 design.text` = `obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 10 CENTIMES · olive + wheat · …` (written by Muse: «Numista N#3; LastDodo item 439363 (KM#929)») [audit sample]
 - **design of C173 · United Kingdom · 1998 · 5 pence · GBP** `type GB.KM.988 design.text` = `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)` (written by Muse: «coinsanduk.com '5 Pence 1998'; Heritcoin 'United Kingdom 5 pence - Elizabeth II 1998' (KM#988)») [audit sample]
 
+### 9. HW-grok-cite-20261014-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-21  (fix list #72)
+
+For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
+
+**Done when:** One change file answering this assignment; everything you left out goes back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261014-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **BS 25 cents (BS.X.25-cents)** coins C300. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1984
+- **IT 50 lire (IT.KM.95.1)** coins C011, C199, C287, C298, C299. Ask: issues.3.mintage: 1978
+
+### 10. HW-grok-read-mint-20261014-2 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
+
+Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
+
+**Done when:** One change file; unreadable coins left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-read-mint-20261014-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C299 · Italy · 1979 · 50 lire · ITL**: mint text now «not visible on the Vulcan side». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C299_rev.webp. Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
+- **C298 · Italy · 1978 · 50 lire · ITL**: mint text now «not visible on the Vulcan side». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp. Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
+
 ## Projects (after the homework)
 
-### Review the 20 styles and the motion splashes  [NEXT]  (fix list #110)
+### Album prices: a second source for the 10 most expensive holes  [NEXT]  (fix list #62)
 
-Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/fx/styles-a.js, styles-b.js, styles-c.js, styles-d.js (same folder), https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/motion-splash.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/styles/style-layer.css (the engine contract is the header of wings/fx/engine.js). Find real defects only: a shader that will not compile on a phone GPU (precision, loops, derivatives), work that runs every frame and should not, a splash that can hang or never call done(), something that ignores reduced motion or Motion Off, text the effects make unreadable. For each: file:line, how to trigger it, the smallest fix. Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
+Your A001-A016 list is live as 'Cost to complete' (collection/prices/wants_values_grok_20261010-1949.json). The key dates look low against dealer guides (1921-D dime $140 at VF, where APMEX's lowest grade starts near $158). For the 10 most expensive holes in that file (A006 1916-D, 1921-D, 1921, 1923-S, 1926-S, 1927-D, 1916-S, 1918-D; A012 1949-D; A007 1964-D), find a second price page (PCGS CoinFacts, NGC Price Guide, Greysheet retail or APMEX) for the same grade, and send wants_values_grok_{YYYYMMDD-HHMM}.json with the same shape; where the two sources differ by more than 25 %, give the higher and name both in source.
 
-**Done when:** One reply with finding IDs GRK-S-01, GRK-S-02 ...; Claude verifies each claim before fixing.
+**Done when:** One file in reviews-incoming; Claude checks a sample and the app's total updates.
 
-### Security review of the intake bridge  [NEXT]  (fix list #106)
+### Splash film: Coinverse 16:9 again, plain coins (only when Joseph says the credits allow)  [LATER]  (fix list #56)
 
-Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/INTAKE_BRIDGE.md, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/bridge/intake.py, https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/drive/intake_bridge.gs and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/.github/workflows/intake.yml. Find real holes only: a way a file in the Drive folder could run code, write outside collection/, merge as the owner or as another AI, leak the key, or make the job push something it should not. For each: how to trigger it, why it matters, the smallest fix (file:line). Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
+Nine of your v5 clips are live (fractal, cathedral, coin rain, two forge takes and the hoard for phones; hoard, cathedral and forge for desktop). splash5_coinverse_16x9 was left out: its coins carry the Bitcoin symbol, and the brief says no text or brands. One clip, the same Coinverse beats, plain coins with no symbols, ending with THE LANDING; save it before starting anything else (ART_START_HERE).
 
-**Done when:** One reply with finding IDs GRK-B-01 ...; Claude verifies each claim before fixing.
-
-### Find the holes in the research loop  [NEXT]  (fix list #85)
-
-Read https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/RESEARCH_LOOP.md and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/tools/agents/homework.py. Find real holes only: a way an AI could get a wrong fact marked 'Checked', a job that can never close or is handed out twice, an AI that could end up checking its own work, a line that could overwrite data it should not. For each: how to trigger it, why it matters, the smallest fix (file:line). Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
-
-**Done when:** One reply; Claude verifies each claim before fixing.
-
-### Review two new modules  [LATER]  (fix list #32)
-
-Review https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/js/app-motion.js and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/wings/music-recorded.js for real bugs only (what breaks, how to reproduce, the smallest fix, file:line). No style notes. Save the reply as review_grok_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
-
-**Done when:** One reply; Claude verifies each claim before fixing.
-
-### Cost to complete the albums: price the missing coins in A001 to A016  [NEXT]  (fix list #62)
-
-Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A001 to A016, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_grok_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {"album": "A001", "label": "1941-D", "value_usd": 1.25, "grade": "VF", "source": "exact page URL", "confidence": "med|low"}, plus a total per album.
-
-**Done when:** One JSON file covering every missing coin in A001 to A016 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing.
-
-### Splash films: the open v5 clips  [NEXT]  (fix list #35)
-
-artreq_20261005-0900_splash-film-v5-overthetop in the art queue still has open clips: your 2 Grok originals, Titan Forge, Dragon Hoard, Infinite Mint, Gold Rush Warp, then the 16:9 desktop versions. Spending rules (owner, 2026-10-05): check your remaining credit first, ONE clip at a time (submit, wait, save to Drive, confirm, then the next), at most 4 clips per run, stop at the first blocked download or credit warning. Every clip ends with THE LANDING; no text in any frame.
-
-**Done when:** Up to 4 clips saved per run, each listed in the request's DONE/progress note.
+**Done when:** The clip is in art-incoming next to the request with a DONE line.
 
 ### Music: a recording for each of the 3 held pieces  [LATER]  (fix list #83)
 

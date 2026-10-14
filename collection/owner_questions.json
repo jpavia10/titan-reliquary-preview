@@ -505,6 +505,52 @@
           "followup": "Create a second Italy 1978 50 lire (IT.KM.95.1) from NOID_Italy_1978_50Lire_obv.jpg."
         }
       ]
+    },
+    {
+      "id": "q-c288-second",
+      "coin": "C288",
+      "ask": "Australia 1983 1 cent: the back photo NOID_Australia_1983_1Cent_rev.jpg (Oct 8) is on C288 now. Is it C288's other side, or a second 1983 1 cent?",
+      "why": "Muse sent it with the new coins, and you said they are all new; but C288 is also a 1983 1 cent from the same day, so it may be the other side of that coin.",
+      "options": [
+        {
+          "label": "C288's other side",
+          "effect": [],
+          "followup": "Nothing to change: the photo stays on C288."
+        },
+        {
+          "label": "A second 1983 1 cent",
+          "effect": [],
+          "followup": "Create a second Australia 1983 1 cent (AU.X.1-cent) from NOID_Australia_1983_1Cent_rev.jpg and take the photo off C288."
+        },
+        {
+          "label": "Later",
+          "effect": [],
+          "keep_open": true
+        }
+      ]
+    },
+    {
+      "id": "q-mx-1981-20-pesos",
+      "coin": null,
+      "ask": "Mexico 1981 20 pesos (CULTURA MAYA): Muse read it on Oct 4 from a photo in your chat, but the photo never reached STAGING. Add it?",
+      "why": "Every new coin is added from a photo Claude can check; this one has only Muse's reading.",
+      "options": [
+        {
+          "label": "Add it now",
+          "effect": [],
+          "followup": "Create Mexico 1981 20 pesos from Muse's reading (changes_muse_20261004-C279-OLDFORMAT); photo later."
+        },
+        {
+          "label": "Wait for the photo",
+          "effect": [],
+          "followup": "Leave it on Muse's queue: upload the photo to STAGING first."
+        },
+        {
+          "label": "I don't have it",
+          "effect": [],
+          "followup": "Drop Muse's 1981 20 pesos."
+        }
+      ]
     }
   ]
 }
