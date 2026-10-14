@@ -394,8 +394,11 @@
      null = no film yet, so the real-time 3D scene below runs. If the film cannot start within 5 s (or the codec is unsupported), the 3D scene runs instead. */
   var FILM = {     // tr71: Grok Imagine Video 1.5 clips (artreq_20261001-2045_splash-film-v3-maximal), 1080p + sound; one picked at random per launch, never the same twice in a row
     portrait:  ["art/splash/zoom1_9x16", "art/splash/zoom2_9x16", "art/splash/titan_9x16", "art/splash/dragon_9x16",
-                "art/splash/coinverse1_9x16", "art/splash/coinverse2_9x16"],   // tr89: v5 "The Coinverse Opens" takes 1 + 2 (SuperGrok, artreq_20261005-0900)
-    landscape: ["art/splash/zoom1_16x9"],     // base names: .webm (VP9 + Opus, 8 Mbps) where supported, else .mp4 (H.264 + AAC, 12 Mbps)
+                "art/splash/coinverse1_9x16", "art/splash/coinverse2_9x16",   // tr89: v5 "The Coinverse Opens" takes 1 + 2 (SuperGrok, artreq_20261005-0900)
+                "art/splash/hoard_9x16", "art/splash/fractal_9x16", "art/splash/cathedral_9x16", "art/splash/coinrain_9x16",
+                "art/splash/forge1_9x16", "art/splash/forge2_9x16"],   // tr114: the rest of v5 (Grok; 4 Mbps VP9 / 6 Mbps H.264)
+    landscape: ["art/splash/zoom1_16x9", "art/splash/hoard_16x9", "art/splash/cathedral_16x9", "art/splash/forge_16x9"],
+                                              // base names: .webm (VP9 + Opus) where supported, else .mp4 (H.264 + AAC)
     tail: 1.4,
     exit: 1.6
   };
