@@ -1,78 +1,88 @@
 {
- "updated": "2026-10-15T02:13:52Z",
+ "updated": "2026-10-15T14:17:49Z",
  "pools": {
-  "cite": 32,
-  "contradiction": 30,
-  "story-check": 81,
-  "plain-story": 25,
-  "research": 5,
-  "value": 34,
-  "read-mint": 21,
-  "arbitrate": 1,
-  "verify": 601
+  "cite": 25,
+  "contradiction": 20,
+  "story-check": 61,
+  "plain-story": 8,
+  "value": 16,
+  "read-mint": 10,
+  "arbitrate": 17,
+  "verify": 552
  },
  "agents": {
   "gemini": {
-   "confirmed": 81,
+   "confirmed": 89,
    "wrong": 0,
    "checks_done": 60,
-   "disagreements_open": 0,
-   "canaries_caught": 0,
-   "canaries_missed": 0,
-   "checked_n": 81,
-   "error_rate": 0.0,
-   "error_ci95": [
-    0.0,
-    0.045
-   ]
-  },
-  "grok": {
-   "confirmed": 190,
-   "wrong": 0,
-   "checks_done": 68,
    "disagreements_open": 1,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 190,
+   "checked_n": 89,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.02
+    0.041
+   ]
+  },
+  "grok": {
+   "confirmed": 294,
+   "wrong": 0,
+   "checks_done": 117,
+   "disagreements_open": 17,
+   "canaries_caught": 0,
+   "canaries_missed": 0,
+   "checked_n": 294,
+   "error_rate": 0.0,
+   "error_ci95": [
+    0.0,
+    0.013
    ]
   },
   "claude": {
-   "confirmed": 41,
+   "confirmed": 65,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 0,
+   "disagreements_open": 1,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 41,
+   "checked_n": 65,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.086
+    0.056
    ]
   },
   "muse": {
-   "confirmed": 126,
-   "wrong": 4,
-   "checks_done": 0,
+   "confirmed": 182,
+   "wrong": 6,
+   "checks_done": 27,
    "disagreements_open": 0,
-   "canaries_caught": 0,
+   "canaries_caught": 5,
    "canaries_missed": 0,
-   "checked_n": 130,
-   "error_rate": 0.031,
+   "checked_n": 188,
+   "error_rate": 0.032,
    "error_ci95": [
-    0.012,
-    0.076
+    0.015,
+    0.068
    ]
   },
   "": {
    "confirmed": 0,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 1,
+   "disagreements_open": 11,
+   "canaries_caught": 0,
+   "canaries_missed": 0,
+   "checked_n": 0,
+   "error_rate": null,
+   "error_ci95": null
+  },
+  "ledger": {
+   "confirmed": 0,
+   "wrong": 0,
+   "checks_done": 0,
+   "disagreements_open": 4,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 0,
@@ -80,11 +90,34 @@
    "error_ci95": null
   }
  },
- "parked": [],
+ "parked": [
+  "cite:BS.X.1-cent",
+  "cite:BZ.X.25-cents",
+  "cite:DE-EMP.X.20-pfennig",
+  "cite:EC.KM.38",
+  "cite:ER.KM.46",
+  "cite:FR.KM.888b.1",
+  "cite:GT.KM.277.1",
+  "cite:HK.KM.69a",
+  "cite:IN.KM.92.2",
+  "cite:JM.KM.146",
+  "cite:JM.KM.189",
+  "cite:JM.KM.191",
+  "cite:KY.KM.87",
+  "cite:KY.KM.88a",
+  "cite:MX-CHI.KM.612",
+  "cite:NL.KM.184",
+  "cite:PH.X.1-piso",
+  "cite:TT.KM.31",
+  "cite:TT.KM.33",
+  "cite:TW.KM.551",
+  "story:C047",
+  "story:C114"
+ ],
  "open_assignments": {
-  "grok": 11,
-  "muse": 12,
-  "gemini": 8,
+  "grok": 7,
+  "muse": 8,
+  "gemini": 10,
   "chatgpt": 0
  }
 }

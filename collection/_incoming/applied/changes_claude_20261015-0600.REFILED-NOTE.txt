@@ -1,0 +1,26 @@
+Muse intake 2026-10-15 (31 files in the Drive drop folder). Claude re-filed the accepted lines as changes_claude_20261015-0600.jsonl;
+every line keeps Muse's `by` (model:muse-spark), source and provenance. Unchanged files merged under their own names.
+
+Merged as sent:     changes_muse_20261014-0315 (verify, assignment taken from run_id), 20261014-2018 (story-check re-cites),
+                    20261015-0330 (research: 5 questions closed with Numista sources), 0335 + 0340 (value homework, Numista value tables)
+Re-filed (0600):    20261014-0314 cite (4 of 7: catalogue numbers as system "Numista" + url; SU.Y.126a nulls would erase sourced numbers;
+                    TW.KM.551 number is the 1978 row, the coin is 2008), 0316 plain-story (21: `old` re-pointed to the current story; the
+                    rewrites follow the current facts), 2019 read-mint (26: confidence "medium" -> "med"), 2020 verify (48: the AU.KM.37
+                    line Muse withdrew in 0332-BLOCK-AUKM37 left out), 0328 values with a Numista table (9 of 17: face-value-only lines and
+                    lines on Gemini's open value homework left out), 0328 VALUE-CHECK (14 of 18: Muse's own value homework, re-tagged
+                    HW-muse-value-20261010-1; C263/C114 are Grok's open homework, C258 was priced as the 10 su), 0430 provenance audit
+                    (11 of 25 same-value re-citations; 9 more cite a Numista page that is not the coin's (C250 'N#1234' and C264
+                    'N#1235' are the answer sheet's example URL; C038 'N#96' is the KM number; C120, C247, C201, C056, C163, DE.KM.207
+                    differ from the record's checked Numista number); the 4 changed mintages cite other coins' pages; NO.KM.460 is bronze),
+                    0323 designers (CU.KM.32 fill only)
+Not merged:         20261004-C279-OLDFORMAT (made-up format; the coin is C304), 20261004-diameters + -research (9 days old; the questions
+                    were settled since), 0322 STORY-QUALITY-PASS + 0331_stories (long rewrites nobody asked for; C161 called bronze, it is
+                    copper-nickel; C258 'three dragons', it shows three women), 0322 D0008 arbitration copy (verified:true; the homework
+                    copy 0319 counts), 0323 rest + 0331 designers (roles dropped; 'same series' guesses wrong for FR.KM.929/930/933,
+                    FR.KM.925.1/931.1, DE.KM.109.1, DE.KM.140.1, GB.KM.1109), 0326 CITE-SWEEP (verified:true; would drop Schön/Y/J numbers),
+                    0329 (older wording of questions already rewritten), 0332 catalogs (pre-sweep lists; would drop entries), 0345
+                    mint texts (C023 is municipal notgeld, no mint mark; C050 contradicts the photo reading), 0430 composition subagent x2
+                    (verified:true; mostly capital letters; YU 50 para brass called bronze), 0435 rarity (stale; C255 source is not a source),
+                    research_muse_20261015-0321 (answered Q&A put into open_questions, which the app shows as 'Still being checked')
+Stale, nothing merged: 0317 story-check (stories changed after the sheet), 0319 arbitration (AU.KM.66 already 28,223,000; D0008 settled
+                    by Claude from Muse's answer)

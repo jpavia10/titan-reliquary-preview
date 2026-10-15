@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-15T02:13:52Z",
+ "updated": "2026-10-15T14:17:49Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261014-1",
@@ -1007,7 +1007,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1969,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:FR.KM.929:composition.text",
@@ -1068,7 +1075,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2000,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:specimen:C274:issue.year",
@@ -1149,7 +1163,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2016,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:GB.KM.938b:ruler",
@@ -1209,7 +1230,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2009,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:GB.KM.936:ruler",
@@ -1325,7 +1353,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 2015,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:GB.KM.935a:composition.text",
@@ -1517,7 +1552,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2009,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:GT.KM.239.2:composition.text",
@@ -1896,7 +1938,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2000,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:DE.KM.214:composition.text",
@@ -2492,11 +2541,11 @@
        "country": "Germany",
        "year": "1981",
        "denom": "10 Pfennig · DEM",
-       "mint": "unknown (not readable on oak reverse photo (check value side if you care — D/F/G/J))",
+       "mint": "No mint mark on this side — German 1/2/5/10 pfennig types carry the mint letter on the VALUE side (between the rye ears above the denomination, per Numista N#854/658/850); this photo shows the oak-seedling/date side, flip needed to read the letter",
        "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
        "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated / toned/circulated · white 2×2 staple flip",
        "specs": "thickness 1.7 mm · medal alignment",
-       "mintage": "460,410,000",
+       "mintage": "all mints: D 135,200,000 + F 117,410,000 + G 69,440,000 + J 138,360,000 = 460,410,000 (circulation; proofs excluded)",
        "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
        "period": "Federal Republic of Germany"
       }
@@ -3504,7 +3553,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1944,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:AU.KM.36:composition.text",
@@ -3649,7 +3705,16 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1970,
+       "mint": [
+        "R"
+       ],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:IT.KM.95.1:issues.2.mintage",
@@ -3677,7 +3742,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1979,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:IT.KM.95.1:composition.text",
@@ -3876,7 +3948,16 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1940,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:VN.KM.71:issues.0.mintage",
@@ -3903,7 +3984,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2003,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:CA.KM.33:composition.text",
@@ -4159,7 +4247,16 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1968,
+       "mint": [
+        "B"
+       ],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:CH.KM.23a:composition.text",
@@ -4356,7 +4453,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2002,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:KY.KM.132:issues.1.mintage",
@@ -4383,7 +4487,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 2008,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     },
     {
      "item": "verify:type:KY.KM.132:composition.text",
@@ -4560,7 +4671,14 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1960,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     }
    ]
   },
@@ -4878,37 +4996,6 @@
        "mintage": "1,300,000,000",
        "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
        "period": "Federal Republic of Germany"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "contra:mint_unknown:C126",
-     "kind": "contradiction",
-     "entity": "specimen",
-     "id": "C126",
-     "field": "issue.mintage",
-     "coins": [
-      "C126"
-     ],
-     "label": "C126 · Germany · 2002 · 2 euro cent · EUR",
-     "authors": [],
-     "payload": {
-      "rule": "mint_unknown",
-      "detail": "DE 2002: mint not read (unknown (letter not on shown common reverse (A/D/F); 2,082,000,000 must be the all-mints total",
-      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
-      "record": {
-       "country": "Germany",
-       "year": "2002",
-       "denom": "2 euro cent · EUR",
-       "mint": "unknown (letter not on shown common reverse (A/D/F/G/J on oak national side — flip if …)",
-       "refs": "KM#208 · Schön#207 · J#483 · Numista#106",
-       "metal": "copper-plated steel · 3.06 g · 18.75 mm · plain with groove · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.67 mm · medal alignment",
-       "mintage": "2,082,000,000",
-       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
-       "period": "Eurozone"
       }
      },
      "blind": false,
@@ -5618,7 +5705,7 @@
        "refs": "KM#95.1 · Schön#95 · Numista#724",
        "metal": "Acmonital stainless steel · 6.25 g · 24.8 mm · reeded",
        "specs": "thickness 1.95 mm · coin alignment",
-       "mintage": "unknown",
+       "mintage": "416,808,000",
        "design": "obverse Italia / Republic head oak-crowned (Romagnoli) · reverse Vulcan at anvil with hammer · L.50 · date · R (Giampaoli)",
        "period": "Italian Republic"
       }
@@ -5704,8 +5791,10 @@
        "year": "1989",
        "denom": "500 pesos · MXP",
        "mint": "Mo",
+       "refs": "Numista#819",
+       "metal": "copper-nickel (75% copper, 25% nickel) · 12.64 g · 28.5 mm",
        "specs": "thickness unknown",
-       "mintage": "unknown"
+       "mintage": "40,000,000"
       }
      },
      "blind": false,
@@ -5793,6 +5882,414 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-arbitrate-20261015-1",
+   "agent": "gemini",
+   "kind": "arbitrate",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0019",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0020",
+     "entity": "type",
+     "id": "KY.KM.132",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0021",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0022",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0023",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0024",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0025",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0019",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": "design.text",
+     "coins": [
+      "C055"
+     ],
+     "label": "D0019 IT.KM.215 design.text",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "national equestrian Marcus Aurelius / Campidoglio paving (Roberto Magagnini? / Maria Carmela Colaneri) + RI · date · 12 EU stars · common Europe globe side (Luc Luycx)"
+      },
+      "claim": {
+       "value": "national equestrian Marcus Aurelius on the Campidoglio paving (engraver Roberto Mauri) + RI · R · date · 12 EU stars · common map side (Luc Luycx)",
+       "by": "model:grok-bot",
+       "source": "Disagree — Numista N#134 (https://en.numista.com/catalogue/pieces134.html): Numista Obverse engraver: 'Roberto Mauri' (record had an uncertain 'Magagnini? / Colaneri'); Reverse is 'a map of the Europe', not a globe",
+       "ts": "2026-10-15T02:23:43Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0020",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "KY.KM.132",
+     "field": "design.text",
+     "coins": [
+      "C186",
+      "C215"
+     ],
+     "label": "D0020 KY.KM.132 design.text",
+     "authors": [
+      "grok",
+      "ledger"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:sonnet-5.5",
+       "source": "sibling records C186/C215 (same type KM#132); wording differences only (year in text)",
+       "ts": "2026-09-30T00:00:00Z",
+       "value": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse shrimp"
+      },
+      "claim": {
+       "value": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse Cayman crayfish · 5 (Stuart Devlin)",
+       "by": "model:grok-bot",
+       "source": "Disagree — Numista N#2698 (https://en.numista.com/catalogue/pieces2698.html): Numista Reverse: 'Cayman Crayfish, value at right ... Engraver: Stuart Devlin' (record said shrimp)",
+       "ts": "2026-10-15T02:23:43Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0021",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": "design.text",
+     "coins": [
+      "C120"
+     ],
+     "label": "D0021 IE.KM.34 design.text",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common Europe map side (Luc Luycx)"
+      },
+      "claim": {
+       "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common globe side (Luc Luycx)",
+       "by": "model:grok-bot",
+       "source": "Disagree — Numista N#123 (https://en.numista.com/catalogue/pieces123.html): Numista Reverse: 'A globe, next to the face value, shows Europe in relation to Africa and Asia' (record said map side)",
+       "ts": "2026-10-15T02:23:43Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0022",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "design.text",
+     "coins": [
+      "C057",
+      "C058"
+     ],
+     "label": "D0022 DE.KM.109.2 design.text",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "Trümmerfrau planting oak sapling (Richard M. Werner / Gerda Werner) · Bundesadler value side"
+      },
+      "claim": {
+       "value": "Trümmerfrau planting an oak sapling (Richard M. Werner) · value side 50 PFENNIG · BUNDESREPUBLIK DEUTSCHLAND · mint mark",
+       "by": "model:grok-bot",
+       "source": "Disagree — Numista N#847 (https://en.numista.com/catalogue/pieces847.html): record text describes a Trinidad & Tobago coin; Numista Reverse: 'A woman (Trümmerfrau) planting an oak', Obverse: 'Face value ... BUNDESREPUBLIK DEUTSCHLAND 50 PFENNIG' (Designer Richard Martin Werner)",
+       "ts": "2026-10-15T02:23:43Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0023",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": "design.text",
+     "coins": [
+      "C144",
+      "C268"
+     ],
+     "label": "D0023 NO.KM.460 design.text",
+     "authors": [
+      "grok",
+      "ledger"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:sonnet-5.5",
+       "source": "C144 (1998) and C268 (2000) are both KM#460 (C268 names the type); C268 is the fuller description; the legend spelling differs by year",
+       "ts": "2026-09-30T00:00:00Z",
+       "value": "obverse crowned Harald V monogram + crossed-hammers mintmark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)"
+      },
+      "claim": {
+       "value": "obverse large crown with crossed-hammers mint mark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)",
+       "by": "model:grok-bot",
+       "source": "Disagree — Numista N#1442 (https://en.numista.com/catalogue/pieces1442.html): Numista N#1442 Obverse: 'Large crown with crossed hammers mintmark below' — no Harald V monogram",
+       "ts": "2026-10-15T02:23:43Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0024",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "design.text",
+     "coins": [
+      "C002"
+     ],
+     "label": "D0024 CH.KM.26 design.text",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "Libertas right (obv) · 5 in grapevine wreath (rev) · engravers Karl Schwenzer / Carl Friedrich Voigt"
+      },
+      "claim": {
+       "value": "Libertas right (obv, designer Karl Schwenzer) · 5 in grapevine wreath (rev, designer Carl Friedrich Voigt)",
+       "by": "model:grok-bot",
+       "source": "Disagree — Numista N#168 (https://en.numista.com/catalogue/pieces168.html): Numista: Obverse 'Designer: Karl Schwenzer', Reverse 'Designer: Carl Friedrich Voigt' (record called them engravers)",
+       "ts": "2026-10-15T02:23:43Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0025",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "design.text",
+     "coins": [
+      "C019",
+      "C021",
+      "C022",
+      "C030",
+      "C051",
+      "C089",
+      "C090",
+      "C091",
+      "C092",
+      "C224",
+      "C225",
+      "C226",
+      "C227",
+      "C228",
+      "C229"
+     ],
+     "label": "D0025 DE.KM.108 design.text",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse"
+      },
+      "claim": {
+       "value": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value between rye ears / PFENNIG reverse",
+       "by": "model:grok-bot",
+       "source": "Disagree — Numista N#850 (https://en.numista.com/catalogue/pieces850.html): Numista: Obverse 'An oak seedling above the date', Reverse 'The mintmark in between two rye ears above the denomination' (record had the sides swapped)",
+       "ts": "2026-10-15T02:23:43Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261015-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:BS.X.25-cents",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "cite:BS.X.5-cents",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:BS.X.25-cents",
+     "kind": "cite",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null,
+     "coins": [
+      "C300"
+     ],
+     "label": "BS 25 cents (BS.X.25-cents)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1984,
+        "mint_marks": [],
+        "coins": [
+         "C300"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1984"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1984,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:BS.X.5-cents",
+     "kind": "cite",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": null,
+     "coins": [
+      "C291"
+     ],
+     "label": "BS 5 cents (BS.X.5-cents)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1984,
+        "mint_marks": [],
+        "coins": [
+         "C291"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "Numista",
+        "number": "5010"
+       }
+      ],
+      "weight_g": 3.94,
+      "diameter_mm": 21.0,
+      "composition": "copper-nickel (75% copper, 25% nickel)",
+      "ask": [
+       "issues.0.mintage: 1984"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1984,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     }
    ]
   }

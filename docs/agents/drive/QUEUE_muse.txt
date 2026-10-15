@@ -2,7 +2,7 @@ NEW (2026-10-15): 16 of your new coins are in the app (C289 to C304). Joseph now
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_muse.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Muse (updated 2026-10-15 02:13 UTC)
+# WORK QUEUE for Muse (updated 2026-10-15 14:17 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -35,40 +35,26 @@ The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1
 
 **Done when:** 22 hero files in the output folder (or as many as you could) and artreq_20261010-1700_theme-thumbnails.p2.DONE.txt listing each file: ok or skipped: reason.
 
-## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
-
-Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-locked and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-locked/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_muse_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack. Its coin ids exist only in Claude's locked key; it decides which AI reads the Phase 2 pro photos.
-
-**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
-
 ## Homework (generated from the data)
 
-Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above. Some check items show a value that is wrong on purpose: copy nothing, check every value against your own source.
+Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above. Some check items show a value that is wrong on purpose: copy nothing, check every value against your own source. Keep each sheet line's provenance.assignment, old and verified as they are; a line on issues.N is the year the sheet names, and a type id is a name, not always the KM number.
 
-- 1. HW-muse-research-20261009-1 · Researcher · Answer 5 open research questions · due 2026-10-19  (fix list #3)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-research-20261009-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 2. HW-muse-story-check-20261010-1 · Fact-checker · Fact-check 6 coin stories · due 2026-10-17  (fix list #73)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261010-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 3. HW-muse-value-20261010-1 · Appraiser · Cite collector values for 6 coins · due 2026-10-20  (fix list #62)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-value-20261010-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 4. HW-muse-read-mint-20261010-1 · Photo reader · Read the mint mark on 13 coins from their photos · due 2026-10-17  (fix list #57)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-read-mint-20261010-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 5. HW-muse-verify-20261010-1 · Second reader · Check 49 facts another AI wrote · due 2026-10-17  (fix list #18)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261010-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 6. HW-muse-value-20261010-2 · Appraiser · Cite collector values for 5 coins · due 2026-10-20  (fix list #62)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-value-20261010-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 7. HW-muse-cite-20261014-1 · Cataloguer · Cite the catalogue facts of 21 coin types · due 2026-10-21  (fix list #72)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 8. HW-muse-arbitrate-20261014-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-21  (fix list #18)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 9. HW-muse-plain-story-20261014-1 · Writer · Rewrite 21 stories in plain English · due 2026-10-21  (fix list #60)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-plain-story-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 10. HW-muse-story-check-20261014-1 · Fact-checker · Fact-check 3 coin stories · due 2026-10-21  (fix list #73)
+- 1. HW-muse-story-check-20261014-1 · Fact-checker · Fact-check 3 coin stories · due 2026-10-21  (fix list #73)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 11. HW-muse-verify-20261014-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-21  (fix list #18)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 12. HW-muse-cite-20261014-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-21  (fix list #72)
+- 2. HW-muse-cite-20261014-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-21  (fix list #72)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261014-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 3. HW-muse-contradiction-20261015-1 · Fact fixer · Settle 6 contradictions in the record · due 2026-10-22  (fix list #102)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-contradiction-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 4. HW-muse-arbitrate-20261015-1 · Arbiter · Settle 10 disagreements between two AIs · due 2026-10-22  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 5. HW-muse-verify-20261015-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 6. HW-muse-plain-story-20261015-1 · Writer · Rewrite 4 stories in plain English · due 2026-10-22  (fix list #60)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-plain-story-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 7. HW-muse-story-check-20261015-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-22  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 8. HW-muse-verify-20261015-2 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261015-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 ## Projects (after the homework)
 
 ### Cost to complete the albums: price the missing coins in A017 to A033  [NEXT]  (fix list #62)
@@ -91,6 +77,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 2; expired: 0.
-- Your facts checked by another contributor: 130 (126 confirmed, 4 wrong; error rate 3.1 %, 95 % range 1-8 %). Checks you did for others: 0. Open disagreements you are part of: 0.
+- Assignments answered: 12; expired: 0.
+- Your facts checked by another contributor: 188 (182 confirmed, 6 wrong; error rate 3.2 %, 95 % range 2-7 %). Checks you did for others: 27. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 5 of 5.
 - Share of your new facts that get checked first: 100 %.

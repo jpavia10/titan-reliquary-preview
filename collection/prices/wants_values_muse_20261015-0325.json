@@ -1,0 +1,4476 @@
+{
+ "meta": {
+  "by": "model:muse-spark",
+  "generated_at": "2026-10-15T03:25:14Z",
+  "spot_silver_usd_oz": 55.79,
+  "spot_date": "2026-10-14",
+  "received": "Drive collection-incoming (AI change files)/wants_values_muse_20261015-0325.json, 2026-10-15",
+  "claude_note": "top-level 'coins' renamed 'items' (the loader's key); the A033 '1936 Dot' row (182,500 USD, 3-5 known) left out: that hole is a printed circle, not a punched hole, so it is not counted in the cost to finish"
+ },
+ "items": [
+  {
+   "album": "A017",
+   "label": "2018-P American Innovators",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2018-D American Innovators",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2019-P Delaware",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2019-D Delaware",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2019-P Pennsylvania",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2019-D Pennsylvania",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2019-P New Jersey",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2019-D New Jersey",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2019-P Georgia",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2019-D Georgia",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2020-P Connecticut",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2020-D Connecticut",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2020-P Massachusetts",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2020-D Massachusetts",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2020-P Maryland",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2020-D Maryland",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2020-P South Carolina",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2020-D South Carolina",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2021-P New Hampshire",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2021-D New Hampshire",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2021-P Virginia",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2021-D Virginia",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2021-P New York",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2021-D New York",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2021-P North Carolina",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2021-D North Carolina",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2022-P Rhode Island",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2022-D Rhode Island",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2022-P Vermont",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2022-D Vermont",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2022-P Kentucky",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2022-D Kentucky",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2022-P Tennessee",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2022-D Tennessee",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2023-P Ohio",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2023-D Ohio",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2023-P Louisiana",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2023-D Louisiana",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2023-P Indiana",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2023-D Indiana",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2023-P Mississippi",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A017",
+   "label": "2023-D Mississippi",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=6367&displaytype=sell",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1971",
+   "value_usd": 2.5,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1971-D",
+   "value_usd": 2.5,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1972",
+   "value_usd": 2.5,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1972-D",
+   "value_usd": 2.5,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1974",
+   "value_usd": 2.0,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1776-1976",
+   "value_usd": 1.5,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1776-1976-D",
+   "value_usd": 1.5,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1977",
+   "value_usd": 2.0,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1977-D",
+   "value_usd": 2.0,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1978",
+   "value_usd": 2.0,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Ike 1978-D",
+   "value_usd": 2.0,
+   "grade": "XF/AU",
+   "source": "https://www.thesprucecrafts.com/eisenhower-dollar-values-3892619",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Anthony 1981-P",
+   "value_usd": 6.0,
+   "grade": "UNC",
+   "source": "https://coinvalueapp.com/coin-values/susan-b-anthony-dollar-value/1981/",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Anthony 1981-D",
+   "value_usd": 6.0,
+   "grade": "UNC",
+   "source": "https://coinvalueapp.com/coin-values/susan-b-anthony-dollar-value/1981/",
+   "confidence": "low"
+  },
+  {
+   "album": "A018",
+   "label": "Anthony 1981-S",
+   "value_usd": 8.0,
+   "grade": "Proof",
+   "source": "https://1981susanbanthonydollar.us/",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2009-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2010-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2010-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2011-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2012-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2012-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2013-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2013-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2014-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2014-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2015-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2015-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2016-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2016-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2017-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2017-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2018-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2018-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2019-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2019-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2020-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2020-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2021-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A019",
+   "label": "2021-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2001-P",
+   "value_usd": 1.5,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2002-P",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.coinvaluechecker.com/how-much-is-a-2002-sacagawea-dollar-worth/",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2002-D",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.coinvaluechecker.com/how-much-is-a-2002-sacagawea-dollar-worth/",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2003-P",
+   "value_usd": 3.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2003-D",
+   "value_usd": 3.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2004-P",
+   "value_usd": 3.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2004-D",
+   "value_usd": 3.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2005-P",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2005-D",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2006-P",
+   "value_usd": 2.5,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2006-D",
+   "value_usd": 3.5,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2007-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2007-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2008-P",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A020",
+   "label": "2008-D",
+   "value_usd": 2.0,
+   "grade": "UNC",
+   "source": "https://www.thesprucecrafts.com/sacagawea-native-american-dollar-values-4050507",
+   "confidence": "low"
+  },
+  {
+   "album": "A021",
+   "label": "2003-D Alabama",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=2312&displaypages=25",
+   "confidence": "med"
+  },
+  {
+   "album": "A021",
+   "label": "2003-P Maine",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins.php?id=2315&sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A021",
+   "label": "2009-P Guam",
+   "value_usd": 1.1,
+   "grade": "UNC",
+   "source": "https://en.numista.com/catalogue/pieces7528.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A021",
+   "label": "2009-D American Samoa",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "http://worldcoinsinfo.com/world_coins/us-quarter-2009-american-samoa.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1857",
+   "value_usd": 45.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces14014.html?mobile=0",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1858 Large Letters",
+   "value_usd": 37.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces14014.html?mobile=0",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1858 Small Letters",
+   "value_usd": 36.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces14014.html?mobile=0",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1859",
+   "value_usd": 57.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1860",
+   "value_usd": 48.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1861",
+   "value_usd": 71.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1862",
+   "value_usd": 19.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1863",
+   "value_usd": 17.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1864",
+   "value_usd": 67.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1865",
+   "value_usd": 28.5,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1864 No L",
+   "value_usd": 61.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=280&displaypages=200",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1864 With L",
+   "value_usd": 269.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/281/small-cents/indian-head-cent/1864-P/with-l/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1866",
+   "value_usd": 120.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1867",
+   "value_usd": 130.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1868",
+   "value_usd": 130.0,
+   "grade": "VF",
+   "source": "http://values.hobbizine.com/indian-cents.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1869",
+   "value_usd": 755.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=286&listtype=gallery",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1870",
+   "value_usd": 376.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=289&sort=lowestprice",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1871",
+   "value_usd": 498.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=290&sort=lowestprice",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1872",
+   "value_usd": 527.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1873",
+   "value_usd": 154.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1874",
+   "value_usd": 92.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1875",
+   "value_usd": 92.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1876",
+   "value_usd": 186.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1877",
+   "value_usd": 1599.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1878",
+   "value_usd": 207.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1879",
+   "value_usd": 56.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1880",
+   "value_usd": 5.6,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1881",
+   "value_usd": 5.2,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1882",
+   "value_usd": 5.8,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1883",
+   "value_usd": 5.8,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1884",
+   "value_usd": 3.7,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1885",
+   "value_usd": 17.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1886",
+   "value_usd": 5.5,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1887",
+   "value_usd": 3.4,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1888",
+   "value_usd": 4.8,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1889",
+   "value_usd": 4.8,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1890",
+   "value_usd": 3.9,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1891",
+   "value_usd": 3.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1892",
+   "value_usd": 4.1,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1893",
+   "value_usd": 4.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1894",
+   "value_usd": 5.2,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1895",
+   "value_usd": 3.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1896",
+   "value_usd": 3.4,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1897",
+   "value_usd": 3.8,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1898",
+   "value_usd": 3.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1900",
+   "value_usd": 2.5,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1901",
+   "value_usd": 3.4,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1902",
+   "value_usd": 3.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1903",
+   "value_usd": 2.8,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1904",
+   "value_usd": 3.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1905",
+   "value_usd": 3.4,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1906",
+   "value_usd": 3.2,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1907",
+   "value_usd": 2.9,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1908",
+   "value_usd": 3.4,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1909",
+   "value_usd": 7.9,
+   "grade": "VF",
+   "source": "https://en.numista.com/catalogue/pieces2356.html",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1908-S",
+   "value_usd": 148.0,
+   "grade": "VF",
+   "source": "https://www.APMEX.com/product/95874/1908-s-indian-head-cent-vf-35-pcgs",
+   "confidence": "med"
+  },
+  {
+   "album": "A022",
+   "label": "1909-S",
+   "value_usd": 415.0,
+   "grade": "VF",
+   "source": "https://www.greysheet.com/prices/item/indian-head-type-bronze-brown-surfaces/gsid/72337",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1909 V.D.B.",
+   "value_usd": 15.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1909",
+   "value_usd": 7.29,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1909-S",
+   "value_usd": 178.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1910",
+   "value_usd": 1.88,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1910-S",
+   "value_usd": 38.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1911",
+   "value_usd": 3.08,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1911-D",
+   "value_usd": 38.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1911-S",
+   "value_usd": 81.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1912",
+   "value_usd": 6.8,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1912-D",
+   "value_usd": 43.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1912-S",
+   "value_usd": 56.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1913",
+   "value_usd": 4.96,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1913-D",
+   "value_usd": 12.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1913-S",
+   "value_usd": 43.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1914",
+   "value_usd": 7.29,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1914-D",
+   "value_usd": 344.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1914-S",
+   "value_usd": 50.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1915",
+   "value_usd": 22.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1915-D",
+   "value_usd": 19.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1915-S",
+   "value_usd": 43.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1924-D",
+   "value_usd": 69.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=386&sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1926-S",
+   "value_usd": 25.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=393&displaytype=own&page=1",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1930-D",
+   "value_usd": 0.68,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1930-S",
+   "value_usd": 1.56,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1931",
+   "value_usd": 2.5,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1931-D",
+   "value_usd": 12.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1931-S",
+   "value_usd": 123.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1932",
+   "value_usd": 4.26,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1933",
+   "value_usd": 3.62,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1933-D",
+   "value_usd": 10.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1934",
+   "value_usd": 0.36,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1934-D",
+   "value_usd": 0.93,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1935",
+   "value_usd": 0.3,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1935-D",
+   "value_usd": 0.3,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1935-S",
+   "value_usd": 0.61,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1936-D",
+   "value_usd": 0.61,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1936-S",
+   "value_usd": 0.68,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1937-D",
+   "value_usd": 0.49,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1937-S",
+   "value_usd": 0.49,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1909-S V.D.B.",
+   "value_usd": 1300.0,
+   "grade": "VF",
+   "source": "https://findrarecoins.com/1909-s-vdb-lincoln-cent/",
+   "confidence": "med"
+  },
+  {
+   "album": "A023",
+   "label": "1916",
+   "value_usd": 0.94,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1916-D",
+   "value_usd": 4.6,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1916-S",
+   "value_usd": 4.3,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1917",
+   "value_usd": 1.1,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1917-D",
+   "value_usd": 1.9,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1917-S",
+   "value_usd": 2.2,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1918",
+   "value_usd": 1.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1918-D",
+   "value_usd": 1.9,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1919",
+   "value_usd": 0.6,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1919-D",
+   "value_usd": 1.7,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1919-S",
+   "value_usd": 1.1,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1920",
+   "value_usd": 0.53,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1920-D",
+   "value_usd": 2.3,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1920-S",
+   "value_usd": 2.2,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1921",
+   "value_usd": 1.2,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1921-S",
+   "value_usd": 4.7,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1922-D",
+   "value_usd": 22.0,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1923",
+   "value_usd": 0.98,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1923-S",
+   "value_usd": 6.1,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1924",
+   "value_usd": 0.87,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1924-S",
+   "value_usd": 3.6,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1925",
+   "value_usd": 0.64,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1925-D",
+   "value_usd": 3.3,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1925-S",
+   "value_usd": 2.3,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1926",
+   "value_usd": 0.52,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1926-D",
+   "value_usd": 3.9,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1927",
+   "value_usd": 0.45,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1927-D",
+   "value_usd": 1.5,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1927-S",
+   "value_usd": 2.2,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1928",
+   "value_usd": 0.61,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1928-D",
+   "value_usd": 2.1,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1928-S",
+   "value_usd": 2.5,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1929",
+   "value_usd": 0.53,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1929-D",
+   "value_usd": 1.6,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1929-S",
+   "value_usd": 2.2,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1938-D",
+   "value_usd": 0.87,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1938-S",
+   "value_usd": 0.65,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1939",
+   "value_usd": 0.34,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1939-D",
+   "value_usd": 0.83,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1939-S",
+   "value_usd": 0.43,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1940-D",
+   "value_usd": 0.3,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1940-S",
+   "value_usd": 0.52,
+   "grade": "VF",
+   "source": "https://en.numista.com/908",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Indian",
+   "value_usd": 1.0,
+   "grade": "G-4",
+   "source": "https://coinauctionshelp.com/indian-head-cent-value-1859-1909/",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Lincoln",
+   "value_usd": 0.25,
+   "grade": "G-4",
+   "source": "face value / dealer junk-box pricing (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Lincoln Memorial",
+   "value_usd": 0.05,
+   "grade": "Circ",
+   "source": "face value (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Lincoln (copr. pltd. zinc)",
+   "value_usd": 0.05,
+   "grade": "Circ",
+   "source": "face value (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Liberty Head",
+   "value_usd": 2.5,
+   "grade": "G-4",
+   "source": "https://www.usacoinbook.com/coins.php?id=898&displaytype=auction",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Buffalo",
+   "value_usd": 2.0,
+   "grade": "G-4",
+   "source": "https://coinvalueapp.com/coin-values/buffalo-nickel-value/1937/",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Jefferson (wartime silver)",
+   "value_usd": 4.0,
+   "grade": "G-4",
+   "source": "https://www.usacoinbook.com/coins.php?id=994&displaytype=own&page=1",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Jefferson",
+   "value_usd": 0.05,
+   "grade": "Circ",
+   "source": "face value (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Barber dime",
+   "value_usd": 10.0,
+   "grade": "G-4",
+   "source": "https://www.usacoinbook.com/coins/1462/dimes/barber/1913-P/?displaytype=own&sort=recent",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Mercury",
+   "value_usd": 5.0,
+   "grade": "G-4",
+   "source": "https://findbullionprices.com/blog/1941-dime-value/",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Roosevelt (silver)",
+   "value_usd": 5.0,
+   "grade": "G-4",
+   "source": "https://findbullionprices.com/blog/1941-dime-value/ (same 90% silver dime spec; melt floor $4.04 at $55.79 spot)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Roosevelt (clad)",
+   "value_usd": 0.25,
+   "grade": "Circ",
+   "source": "face value / dealer bin (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Barber quarter",
+   "value_usd": 15.0,
+   "grade": "G-4",
+   "source": "https://www.usacoinbook.com/coins.php?id=1954&displaytype=own",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Liberty Standing",
+   "value_usd": 16.0,
+   "grade": "G-4",
+   "source": "https://www.usacoinbook.com/coins/2015/quarters/standing-liberty/1925-P/",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Washington (silver)",
+   "value_usd": 11.0,
+   "grade": "G-4",
+   "source": "melt floor $10.09 (6.25g 90% Ag @ $55.79) + small junk-silver premium; common-date 90% quarter pricing",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "50 State Commemorative",
+   "value_usd": 0.5,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Barber half",
+   "value_usd": 26.0,
+   "grade": "G-4",
+   "source": "https://www.numismaticnews.net/us-coins/barber-half-dollar-bargains (melt floor $20.18 at $55.79 spot)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Liberty Walking",
+   "value_usd": 24.0,
+   "grade": "G-4",
+   "source": "https://coinvalueapp.com/coin-values/walking-liberty-half-dollar-value/1942/",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Franklin",
+   "value_usd": 22.0,
+   "grade": "Circ",
+   "source": "https://www.coinstudy.com/1961-franklin-half-dollar-value.html",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Kennedy (silver)",
+   "value_usd": 22.0,
+   "grade": "Circ",
+   "source": "https://www.coinstudy.com/1961-franklin-half-dollar-value.html (same 12.5g 90% Ag spec; melt floor $20.18)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Kennedy (silver clad)",
+   "value_usd": 9.0,
+   "grade": "Circ",
+   "source": "https://FindBullionPrices.com/silver-coin-melt-values/1965-1970-Kennedy-Half-Dollar (melt $8.25 at $55.79 spot, Oct 14 2026)",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Morgan",
+   "value_usd": 47.0,
+   "grade": "Cull",
+   "source": "https://www.apmex.com/product/178658/1878-1904-morgan-silver-dollar-cull-random-year?19782944=14",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Peace",
+   "value_usd": 48.0,
+   "grade": "Circ",
+   "source": "https://www.moneymetals.com/peace-dollar-common-circulated-no-grade-90-silver/418",
+   "confidence": "med"
+  },
+  {
+   "album": "A024",
+   "label": "Eisenhower",
+   "value_usd": 1.5,
+   "grade": "Circ",
+   "source": "face value / dealer bin (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Bicentennial 1776-1976 dollar",
+   "value_usd": 1.5,
+   "grade": "Circ",
+   "source": "face value / dealer bin, clad assumed (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Anthony",
+   "value_usd": 1.25,
+   "grade": "Circ",
+   "source": "face value / dealer bin (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A024",
+   "label": "Sacagawea",
+   "value_usd": 1.25,
+   "grade": "Circ",
+   "source": "face value / dealer bin (not individually URL-sourced)",
+   "confidence": "low"
+  },
+  {
+   "album": "A026",
+   "label": "1988",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1989",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1990",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1991",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1993",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1997",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1998",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1999",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "2000",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "2003",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "2004",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "2009",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "2010",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "2011",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "2012",
+   "value_usd": 63.0,
+   "grade": "UNC",
+   "source": "https://www.JMBullion.com/2026-1-oz-american-silver-eagle-coin-mintsealed/ (common-date BU ASE ~ spot+$5-10 per project brief; spot $55.79)",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1994",
+   "value_usd": 90.0,
+   "grade": "UNC",
+   "source": "https://www.collectons.com/shop/item/702/1994-American-Silver-Eagle-Dollar-BU-1oz-Silver-Uncirculated-Coin",
+   "confidence": "med"
+  },
+  {
+   "album": "A026",
+   "label": "1995",
+   "value_usd": 68.0,
+   "grade": "UNC",
+   "source": "low mintage 4.67M; slight premium over common-date ASE pricing per project brief",
+   "confidence": "low"
+  },
+  {
+   "album": "A026",
+   "label": "1996",
+   "value_usd": 100.0,
+   "grade": "UNC",
+   "source": "https://www.collectons.com/shop/item/704/1996-American-Silver-Eagle-Dollar-BU-1oz-Silver-Uncirculated-Coin",
+   "confidence": "med"
+  },
+  {
+   "album": "A027",
+   "label": "2010 Yosemite-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2010 Mt. Hood-D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2011 Glacier-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2011 Vicksburg-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2012 El Yunque-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2012 Chaco Culture-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2012 Chaco Culture-D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2012 Acadia-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2012 Hawaii Volcanoes-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2014 Great Smoky Mountains-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2016 Shawnee-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2016 Theodore Roosevelt-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2017 Effigy Mounds-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2018 Voyageurs-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2019 Lowell-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2019 American Memorial-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2019 San Antonio Missions-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2019 Frank Church River of No Return-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2020 Weir Farm-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A027",
+   "label": "2021 Tuskegee Airmen-P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2022 Ride P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2022 Otero-Warren P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2022 Anna May Wong P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2022 Anna May Wong D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2023 Honoree 1 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2023 Honoree 2 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2023 Honoree 3 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2023 Honoree 4 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2023 Honoree 4 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2023 Honoree 5 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2023 Honoree 5 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 1 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 1 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 2 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 2 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 3 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 3 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 4 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 4 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 5 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2024 Honoree 5 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 1 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 1 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 2 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 2 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 3 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 3 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 4 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 4 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 5 P",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A028",
+   "label": "2025 Honoree 5 D",
+   "value_usd": 0.75,
+   "grade": "UNC",
+   "source": "project brief: modern clad quarter UNC ~$0.50-1 (midpoint)",
+   "confidence": "low"
+  },
+  {
+   "album": "A029",
+   "label": "1932",
+   "value_usd": 23.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1932-D",
+   "value_usd": 201.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1932-S",
+   "value_usd": 155.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1934",
+   "value_usd": 19.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "low"
+  },
+  {
+   "album": "A029",
+   "label": "1934-D",
+   "value_usd": 22.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1935",
+   "value_usd": 19.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1935-D",
+   "value_usd": 26.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1935-S",
+   "value_usd": 20.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1936",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1936-D",
+   "value_usd": 64.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1936-S",
+   "value_usd": 22.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1937",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1937-D",
+   "value_usd": 26.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1937-S",
+   "value_usd": 40.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1938",
+   "value_usd": 23.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1938-S",
+   "value_usd": 26.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1939",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1939-D",
+   "value_usd": 19.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1939-S",
+   "value_usd": 26.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1940",
+   "value_usd": 18.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1940-D",
+   "value_usd": 40.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1940-S",
+   "value_usd": 19.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1941",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1941-D",
+   "value_usd": 16.22,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1941-S",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1942",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1942-D",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1942-S",
+   "value_usd": 20.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1943",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1943-D",
+   "value_usd": 18.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1943-S",
+   "value_usd": 18.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1944",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1944-D",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1944-S",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1945",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1945-D",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1945-S",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1946",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1946-D",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1946-S",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1947",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1947-D",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A029",
+   "label": "1947-S",
+   "value_usd": 15.45,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/quarters/washington/",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2007 Madison",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2008 Monroe",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2008 Jackson",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2009 Harrison",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2009 Polk",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2009 Taylor",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2010 Lincoln",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2011 Johnson",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2011 Hayes",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "P 2012 Arthur",
+   "value_usd": 6.25,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2012 Cleveland 1st",
+   "value_usd": 6.25,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2012 B. Harrison",
+   "value_usd": 6.25,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2012 Cleveland 2nd",
+   "value_usd": 6.25,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2013 McKinley",
+   "value_usd": 5.63,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2013 T. Roosevelt",
+   "value_usd": 5.63,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2013 Taft",
+   "value_usd": 5.63,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2013 Wilson",
+   "value_usd": 5.63,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2014 Coolidge",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2014 Hoover",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2014 F.D. Roosevelt",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2015 Truman",
+   "value_usd": 8.65,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2015 Eisenhower",
+   "value_usd": 8.65,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2015 Kennedy",
+   "value_usd": 8.65,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2015 L.B. Johnson",
+   "value_usd": 8.65,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2016 Nixon",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2016 Ford",
+   "value_usd": 12.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "P 2016 Reagan",
+   "value_usd": 12.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2008 Van Buren",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "D 2009 Polk",
+   "value_usd": 1.0,
+   "grade": "UNC",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "low"
+  },
+  {
+   "album": "A030",
+   "label": "D 2012 Arthur",
+   "value_usd": 6.25,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2012 Cleveland 1st",
+   "value_usd": 6.25,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2012 B. Harrison",
+   "value_usd": 6.25,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2012 Cleveland 2nd",
+   "value_usd": 6.25,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2013 McKinley",
+   "value_usd": 5.63,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2013 T. Roosevelt",
+   "value_usd": 5.63,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2013 Taft",
+   "value_usd": 5.63,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2013 Wilson",
+   "value_usd": 5.63,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2014 Coolidge",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2014 Hoover",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2014 F.D. Roosevelt",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2014 Harding",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2015 Truman",
+   "value_usd": 8.65,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2015 Eisenhower",
+   "value_usd": 8.65,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2015 Kennedy",
+   "value_usd": 8.65,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2015 L.B. Johnson",
+   "value_usd": 8.65,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2016 Nixon",
+   "value_usd": 10.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2016 Ford",
+   "value_usd": 12.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A030",
+   "label": "D 2016 Reagan",
+   "value_usd": 12.0,
+   "grade": "MS65",
+   "source": "https://www.usacoinbook.com/coins/dollars/presidential/?sort=oldest",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1913-S, Ground in Recess",
+   "value_usd": 556.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=912&displaytype=own",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1913-D, Ground in Recess",
+   "value_usd": 249.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=911&sort=highestprice",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1914-D",
+   "value_usd": 265.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=915&sort=lowestoffer",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1915-S",
+   "value_usd": 249.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=919&listtype=gallery",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1921-S",
+   "value_usd": 468.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins/938/nickels/buffalo/1921-S/",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1924-S",
+   "value_usd": 468.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=943&listtype=gallery",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1926-S",
+   "value_usd": 281.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=949&displaytype=sell&page=1",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1937-D, 3-Legged",
+   "value_usd": 721.0,
+   "grade": "VF",
+   "source": "https://www.usacoinbook.com/coins.php?id=974&listtype=list",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1913, Raised Ground",
+   "value_usd": 11.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1913-D, Raised Ground",
+   "value_usd": 14.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1913-S, Raised Ground",
+   "value_usd": 42.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1913, Ground in Recess",
+   "value_usd": 11.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1914",
+   "value_usd": 17.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1914-S",
+   "value_usd": 31.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1915",
+   "value_usd": 6.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1915-D",
+   "value_usd": 26.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1916",
+   "value_usd": 5.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1916-D",
+   "value_usd": 18.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1916-S",
+   "value_usd": 14.9,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1917",
+   "value_usd": 5.9,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1917-D",
+   "value_usd": 29.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1917-S",
+   "value_usd": 43.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1918",
+   "value_usd": 6.9,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1918-D",
+   "value_usd": 31.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1918-S",
+   "value_usd": 27.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1919",
+   "value_usd": 3.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1919-D",
+   "value_usd": 29.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1919-S",
+   "value_usd": 24.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1920",
+   "value_usd": 3.7,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1920-D",
+   "value_usd": 19.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1920-S",
+   "value_usd": 13.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1921",
+   "value_usd": 6.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1923",
+   "value_usd": 3.6,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1923-S",
+   "value_usd": 12.9,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1924",
+   "value_usd": 2.8,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1924-D",
+   "value_usd": 15.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1925",
+   "value_usd": 2.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1925-D",
+   "value_usd": 19.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1925-S",
+   "value_usd": 10.2,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1926",
+   "value_usd": 2.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1926-D",
+   "value_usd": 15.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1927",
+   "value_usd": 1.2,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1927-D",
+   "value_usd": 4.7,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1927-S",
+   "value_usd": 2.7,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1928",
+   "value_usd": 1.6,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1928-D",
+   "value_usd": 2.6,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1928-S",
+   "value_usd": 1.8,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1929",
+   "value_usd": 1.7,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1929-D",
+   "value_usd": 1.7,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1929-S",
+   "value_usd": 1.3,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1930",
+   "value_usd": 1.6,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1930-S",
+   "value_usd": 2.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1931-S",
+   "value_usd": 14.4,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1934",
+   "value_usd": 1.3,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1934-D",
+   "value_usd": 2.5,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1935",
+   "value_usd": 1.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1935-D",
+   "value_usd": 2.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1935-S",
+   "value_usd": 1.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1936-D",
+   "value_usd": 1.2,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1936-S",
+   "value_usd": 1.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1937",
+   "value_usd": 1.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1937-D",
+   "value_usd": 1.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1937-S",
+   "value_usd": 1.0,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A031",
+   "label": "1938-D",
+   "value_usd": 2.8,
+   "grade": "VF",
+   "source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294",
+   "confidence": "med"
+  },
+  {
+   "album": "A032",
+   "label": "1991",
+   "value_usd": 0.38,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "1992",
+   "value_usd": 0.95,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "1993",
+   "value_usd": 0.38,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "1994",
+   "value_usd": 0.38,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "1995",
+   "value_usd": 0.44,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "1996",
+   "value_usd": 0.44,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "1997",
+   "value_usd": 0.38,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2002",
+   "value_usd": 0.32,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2002P",
+   "value_usd": 0.38,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2003 Diadem",
+   "value_usd": 0.32,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2003P Diadem",
+   "value_usd": 0.38,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2003 Uncrowned",
+   "value_usd": 0.25,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2003P Uncrowned",
+   "value_usd": 0.32,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2004P",
+   "value_usd": 0.25,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2005",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2005P",
+   "value_usd": 0.32,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2006 Zinc",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2006P",
+   "value_usd": 6.6,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2006 RCM Steel",
+   "value_usd": 3.05,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2006 RCM Zinc",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2007 RCM Steel",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2007 RCM Zinc",
+   "value_usd": 6.48,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2008 RCM Steel",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2009 RCM Steel",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2009 RCM Zinc",
+   "value_usd": 2.03,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2010 RCM Zinc",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2011 RCM Steel",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2011 RCM Zinc",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2012 RCM Steel",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A032",
+   "label": "2012 RCM Zinc",
+   "value_usd": 0.19,
+   "grade": "UNC",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1990-2012&currency=GBP",
+   "confidence": "low"
+  },
+  {
+   "album": "A033",
+   "label": "1920",
+   "value_usd": 0.8,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1921",
+   "value_usd": 1.85,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1922",
+   "value_usd": 25.8,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1923",
+   "value_usd": 39.6,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1924",
+   "value_usd": 12.4,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1925",
+   "value_usd": 31.5,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1926",
+   "value_usd": 8.1,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1927",
+   "value_usd": 4.4,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1928",
+   "value_usd": 0.8,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1929",
+   "value_usd": 0.85,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1930",
+   "value_usd": 5.3,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1931",
+   "value_usd": 2.3,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1932",
+   "value_usd": 0.75,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1933",
+   "value_usd": 0.7,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1934",
+   "value_usd": 0.9,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1935",
+   "value_usd": 0.95,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1936",
+   "value_usd": 0.9,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1920-1936&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1937",
+   "value_usd": 0.65,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1938",
+   "value_usd": 0.35,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1939",
+   "value_usd": 0.3,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1940",
+   "value_usd": 0.25,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1941",
+   "value_usd": 0.25,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1943",
+   "value_usd": 0.25,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1944",
+   "value_usd": 0.25,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1945",
+   "value_usd": 0.2,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1946",
+   "value_usd": 0.2,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1947 Maple Leaf Blunt 7",
+   "value_usd": 0.35,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1947 Maple Leaf Pointed 7",
+   "value_usd": 0.2,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1948",
+   "value_usd": 0.4,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1949",
+   "value_usd": 0.2,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1950",
+   "value_usd": 0.2,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1952",
+   "value_usd": 0.2,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1952&currency=USD",
+   "confidence": "med"
+  },
+  {
+   "album": "A033",
+   "label": "1953 No Shoulder Fold",
+   "value_usd": 0.04,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1964",
+   "confidence": "low"
+  },
+  {
+   "album": "A033",
+   "label": "1953 Shoulder Fold",
+   "value_usd": 1.68,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1964",
+   "confidence": "low"
+  },
+  {
+   "album": "A033",
+   "label": "1954",
+   "value_usd": 0.22,
+   "grade": "VF",
+   "source": "https://coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1937-1964",
+   "confidence": "low"
+  },
+  {
+   "album": "A033",
+   "label": "1965 Large Beads",
+   "value_usd": 0.04,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1965-1989",
+   "confidence": "low"
+  },
+  {
+   "album": "A033",
+   "label": "1974",
+   "value_usd": 0.04,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1965-1989",
+   "confidence": "low"
+  },
+  {
+   "album": "A033",
+   "label": "1985 Blunt 5",
+   "value_usd": 0.03,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1965-1989",
+   "confidence": "low"
+  },
+  {
+   "album": "A033",
+   "label": "1988",
+   "value_usd": 0.03,
+   "grade": "VF",
+   "source": "https://www.coinsandcanada.com/coins-prices.php?canadian_coins=1-cent-1965-1989",
+   "confidence": "low"
+  }
+ ]
+}

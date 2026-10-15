@@ -13,10 +13,10 @@ contributor checked, how many held up, how many were wrong. We pay for knowledge
 
 | contributor | files | events | kept | verified | checked | held up | wrong | reported cost | cost per kept fact | cost per fact that held up |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| claude | 33 | 706 | 657 | 0 | 41 | 41 | 0 | - | - | - |
-| gemini | 6 | 310 | 306 | 0 | 81 | 81 | 0 | - | - | - |
-| grok | 83 | 2292 | 2154 | 0 | 190 | 190 | 0 | - | - | - |
-| muse | 25 | 878 | 870 | 0 | 130 | 126 | 4 | - | - | - |
+| claude | 34 | 707 | 658 | 0 | 65 | 65 | 0 | - | - | - |
+| gemini | 6 | 310 | 306 | 0 | 89 | 89 | 0 | - | - | - |
+| grok | 95 | 2530 | 2348 | 0 | 294 | 294 | 0 | - | - | - |
+| muse | 31 | 1086 | 1027 | 0 | 188 | 182 | 6 | - | - | - |
 | opus | 1 | 1 | 1 | 0 | 0 | 0 | 0 | - | - | - |
 
 ## Every run
@@ -154,6 +154,25 @@ contributor checked, how many held up, how many were wrong. We pay for knowledge
 | 2026-10-14 | `changes_claude_20261014-1700.jsonl` | claude | model:claude | 13 | 6 | 0 | 13 | - | - |
 | 2026-10-14 | `changes_claude_20261014-1810.jsonl` | claude | model:claude | 7 | 1 | 0 | 7 | - | - |
 | 2026-10-14 | `changes_claude_20261014-2355.jsonl` | claude | model:claude | 6 | 3 | 0 | 6 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1912.jsonl` | grok-bot | model:grok-bot | 33 | 32 | 0 | 33 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1913.jsonl` | grok-bot | model:grok-bot | 14 | 14 | 0 | 14 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1914.jsonl` | grok-bot | model:grok-bot | 7 | 7 | 0 | 7 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1915.jsonl` | grok-bot | model:grok-bot | 7 | 1 | 0 | 7 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1916.jsonl` | grok-bot | model:grok-bot | 4 | 0 | 0 | 4 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1917.jsonl` | grok-bot | model:grok-bot | 4 | 0 | 0 | 4 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1918.jsonl` | grok-bot | model:grok-bot | 4 | 0 | 0 | 4 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1920.jsonl` | grok-bot | model:grok-bot | 22 | 14 | 0 | 22 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1921.jsonl` | grok-bot | model:grok-bot | 30 | 30 | 0 | 30 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1922.jsonl` | grok-bot | model:grok-bot | 26 | 24 | 0 | 26 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1923.jsonl` | grok-bot | model:grok-bot | 50 | 35 | 0 | 50 | - | - |
+| 2026-10-14 | `changes_grok-bot_20261014-1924.jsonl` | grok-bot | model:grok-bot | 37 | 37 | 0 | 37 | - | - |
+| 2026-10-14 | `changes_muse_20261014-0315.jsonl` | muse | model:muse-spark | 38 | 20 | 0 | 38 | - | - |
+| 2026-10-14 | `changes_muse_20261014-2018.jsonl` | muse | model:muse-spark | 6 | 6 | 0 | 6 | - | - |
+| 2026-10-15 | `changes_claude_20261015-0600.jsonl` | muse (re-filed by Claude) | model:muse-spark | 134 | 101 | 0 | 134 | - | - |
+| 2026-10-15 | `changes_claude_20261015-0610.jsonl` | claude | model:claude | 1 | 1 | 0 | 1 | - | - |
+| 2026-10-15 | `changes_muse_20261015-0330.jsonl` | muse | model:muse-spark | 8 | 8 | 0 | 8 | - | - |
+| 2026-10-15 | `changes_muse_20261015-0335.jsonl` | muse | model:muse-spark | 12 | 12 | 0 | 12 | - | - |
+| 2026-10-15 | `changes_muse_20261015-0340.jsonl` | muse | model:muse-spark | 10 | 10 | 0 | 10 | - | - |
 | ? | `changes_grok-bot_20261010-1034.jsonl` (rejected) | grok-bot |  | 0 | 0 | 0 | 0 | - | - |
 | ? | `changes_grok-bot_20261010-1035.jsonl` (rejected) | grok-bot |  | 0 | 0 | 0 | 0 | - | - |
 | ? | `changes_grok-bot_20261010-1039.jsonl` (rejected) | grok-bot |  | 0 | 0 | 0 | 0 | - | - |

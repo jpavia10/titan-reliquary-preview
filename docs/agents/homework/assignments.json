@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-15T02:13:52Z",
+ "updated": "2026-10-15T14:17:49Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -41,7 +41,17 @@
   "grok-contradiction-20261015": 1,
   "gemini-contradiction-20261015": 1,
   "gemini-value-20261015": 1,
-  "gemini-story-check-20261015": 1
+  "gemini-story-check-20261015": 1,
+  "grok-cite-20261015": 1,
+  "grok-story-check-20261015": 1,
+  "grok-verify-20261015": 2,
+  "muse-contradiction-20261015": 1,
+  "muse-arbitrate-20261015": 1,
+  "muse-verify-20261015": 2,
+  "muse-plain-story-20261015": 1,
+  "gemini-arbitrate-20261015": 1,
+  "gemini-cite-20261015": 1,
+  "muse-story-check-20261015": 1
  },
  "assignments": [
   {
@@ -949,9 +959,13 @@
    "kind": "research",
    "issued": "2026-10-09T14:42:50Z",
    "lease_until": "2026-10-19T14:42:50Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 5,
+    "closed": 5,
+    "left": 0
+   },
    "items": [
     {
      "item": "research:C028:cfea3825",
@@ -1561,9 +1575,13 @@
    "kind": "story-check",
    "issued": "2026-10-10T21:09:55Z",
    "lease_until": "2026-10-17T21:09:55Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 40,
+    "closed": 40,
+    "left": 0
+   },
    "items": [
     {
      "item": "story:C026",
@@ -1813,9 +1831,13 @@
    "kind": "value",
    "issued": "2026-10-10T21:09:55Z",
    "lease_until": "2026-10-20T21:09:55Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 50,
+    "closed": 50,
+    "left": 0
+   },
    "items": [
     {
      "item": "value:C084",
@@ -2125,9 +2147,13 @@
    "kind": "read-mint",
    "issued": "2026-10-10T21:09:55Z",
    "lease_until": "2026-10-17T21:09:55Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 13,
+    "closed": 11,
+    "left": 2
+   },
    "items": [
     {
      "item": "mint:C268",
@@ -3811,9 +3837,13 @@
    "kind": "verify",
    "issued": "2026-10-10T21:09:55Z",
    "lease_until": "2026-10-17T21:09:55Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 50,
+    "closed": 28,
+    "left": 22
+   },
    "items": [
     {
      "item": "verify:type:NL.KM.241:catalogs",
@@ -4123,9 +4153,13 @@
    "kind": "value",
    "issued": "2026-10-10T21:09:55Z",
    "lease_until": "2026-10-20T21:09:55Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 50,
+    "closed": 50,
+    "left": 0
+   },
    "items": [
     {
      "item": "value:C195",
@@ -5067,9 +5101,13 @@
    "kind": "story-check",
    "issued": "2026-10-14T15:41:37Z",
    "lease_until": "2026-10-21T15:41:37Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 28,
+    "closed": 18,
+    "left": 10
+   },
    "items": [
     {
      "item": "story:C029",
@@ -5247,9 +5285,13 @@
    "kind": "verify",
    "issued": "2026-10-14T15:41:37Z",
    "lease_until": "2026-10-21T15:41:37Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 22,
+    "closed": 17,
+    "left": 5
+   },
    "items": [
     {
      "item": "verify:type:CH.KM.24a.1:design.text",
@@ -5415,9 +5457,13 @@
    "kind": "cite",
    "issued": "2026-10-14T15:41:37Z",
    "lease_until": "2026-10-21T15:41:37Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 21,
+    "closed": 1,
+    "left": 20
+   },
    "items": [
     {
      "item": "cite:DE-EMP.X.20-pfennig",
@@ -5553,9 +5599,13 @@
    "kind": "arbitrate",
    "issued": "2026-10-14T15:41:37Z",
    "lease_until": "2026-10-21T15:41:37Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0008",
@@ -5571,9 +5621,13 @@
    "kind": "plain-story",
    "issued": "2026-10-14T15:41:37Z",
    "lease_until": "2026-10-21T15:41:37Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 21,
+    "closed": 17,
+    "left": 4
+   },
    "items": [
     {
      "item": "plain:C001",
@@ -6603,9 +6657,13 @@
    "kind": "verify",
    "issued": "2026-10-14T15:43:36Z",
    "lease_until": "2026-10-21T15:43:36Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 50,
+    "closed": 20,
+    "left": 30
+   },
    "items": [
     {
      "item": "verify:type:HK.KM.69a:catalogs",
@@ -6915,9 +6973,13 @@
    "kind": "cite",
    "issued": "2026-10-14T15:52:11Z",
    "lease_until": "2026-10-21T15:52:11Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 7,
+    "closed": 6,
+    "left": 1
+   },
    "items": [
     {
      "item": "cite:AR.X.5-centavos",
@@ -6969,9 +7031,13 @@
    "kind": "value",
    "issued": "2026-10-14T15:52:11Z",
    "lease_until": "2026-10-24T15:52:11Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 7,
+    "closed": 7,
+    "left": 0
+   },
    "items": [
     {
      "item": "value:C293",
@@ -7023,9 +7089,13 @@
    "kind": "story-check",
    "issued": "2026-10-14T15:52:11Z",
    "lease_until": "2026-10-21T15:52:11Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 7,
+    "closed": 6,
+    "left": 1
+   },
    "items": [
     {
      "item": "story:C289",
@@ -7077,9 +7147,13 @@
    "kind": "verify",
    "issued": "2026-10-14T15:52:11Z",
    "lease_until": "2026-10-21T15:52:11Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 50,
+    "closed": 14,
+    "left": 36
+   },
    "items": [
     {
      "item": "verify:type:NL.KM.184:design.text",
@@ -7389,9 +7463,13 @@
    "kind": "cite",
    "issued": "2026-10-14T20:20:20Z",
    "lease_until": "2026-10-21T20:20:20Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 2,
+    "closed": 1,
+    "left": 1
+   },
    "items": [
     {
      "item": "cite:BS.X.25-cents",
@@ -7461,9 +7539,13 @@
    "kind": "contradiction",
    "issued": "2026-10-15T01:47:18Z",
    "lease_until": "2026-10-22T01:47:18Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:17:10Z",
+   "result": {
+    "items": 15,
+    "closed": 9,
+    "left": 6
+   },
    "items": [
     {
      "item": "contra:mint_unknown:C073",
@@ -7790,6 +7872,1530 @@
      "field": "story"
     }
    ]
+  },
+  {
+   "id": "HW-grok-cite-20261015-1",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:NO.KM.460",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-story-check-20261015-1",
+   "agent": "grok",
+   "kind": "story-check",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "story"
+    },
+    {
+     "item": "story:C078",
+     "entity": "specimen",
+     "id": "C078",
+     "field": "story"
+    },
+    {
+     "item": "story:C079",
+     "entity": "specimen",
+     "id": "C079",
+     "field": "story"
+    },
+    {
+     "item": "story:C082",
+     "entity": "specimen",
+     "id": "C082",
+     "field": "story"
+    },
+    {
+     "item": "story:C083",
+     "entity": "specimen",
+     "id": "C083",
+     "field": "story"
+    },
+    {
+     "item": "story:C103",
+     "entity": "specimen",
+     "id": "C103",
+     "field": "story"
+    },
+    {
+     "item": "story:C147",
+     "entity": "specimen",
+     "id": "C147",
+     "field": "story"
+    },
+    {
+     "item": "story:C148",
+     "entity": "specimen",
+     "id": "C148",
+     "field": "story"
+    },
+    {
+     "item": "story:C149",
+     "entity": "specimen",
+     "id": "C149",
+     "field": "story"
+    },
+    {
+     "item": "story:C150",
+     "entity": "specimen",
+     "id": "C150",
+     "field": "story"
+    },
+    {
+     "item": "story:T003",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "story"
+    },
+    {
+     "item": "story:T005",
+     "entity": "specimen",
+     "id": "T005",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261015-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:MX-CHI.KM.612:catalogs",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:ER.KM.46:design.text",
+     "entity": "type",
+     "id": "ER.KM.46",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CU.KM.32:design.text",
+     "entity": "type",
+     "id": "CU.KM.32",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.126a:issues.0.mintage",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:SU.Y.126a:issues.1.mintage",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:VN.KM.71:design.text",
+     "entity": "type",
+     "id": "VN.KM.71",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.X.1-penny:denomination.value",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C294:issue.year",
+     "entity": "specimen",
+     "id": "C294",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:DE.KM.211:design.text",
+     "entity": "type",
+     "id": "DE.KM.211",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.255:design.text",
+     "entity": "type",
+     "id": "DE.KM.255",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1286:design.text",
+     "entity": "type",
+     "id": "FR.KM.1286",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.1110d:design.text",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.214:design.text",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.239:design.text",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PT.KM.744:design.text",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SG.KM.4:design.text",
+     "entity": "type",
+     "id": "SG.KM.4",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TT.KM.33:design.text",
+     "entity": "type",
+     "id": "TT.KM.33",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.26c:design.text",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.107:design.text",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.930:design.text",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.912:design.text",
+     "entity": "type",
+     "id": "GB.KM.912",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.96.1:design.text",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.938b:design.text",
+     "entity": "type",
+     "id": "GB.KM.938b",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GR.KM.90:design.text",
+     "entity": "type",
+     "id": "GR.KM.90",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.1109:design.text",
+     "entity": "type",
+     "id": "GB.KM.1109",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.1109d:design.text",
+     "entity": "type",
+     "id": "GB.KM.1109d",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SG.KM.3:design.text",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C268:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C268",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:GB.KM.915:design.text",
+     "entity": "type",
+     "id": "GB.KM.915",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.204:design.text",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:YU.KM.86:design.text",
+     "entity": "type",
+     "id": "YU.KM.86",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.914:design.text",
+     "entity": "type",
+     "id": "GB.KM.914",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.1110:design.text",
+     "entity": "type",
+     "id": "GB.KM.1110",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TH.KM.183:design.text",
+     "entity": "type",
+     "id": "TH.KM.183",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.106a:design.text",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.1335:design.text",
+     "entity": "type",
+     "id": "GB.KM.1335",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1285:design.text",
+     "entity": "type",
+     "id": "FR.KM.1285",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.986:design.text",
+     "entity": "type",
+     "id": "GB.KM.986",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.213:design.text",
+     "entity": "type",
+     "id": "IT.KM.213",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MT.KM.129:design.text",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.105:design.text",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.933:design.text",
+     "entity": "type",
+     "id": "FR.KM.933",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.935:design.text",
+     "entity": "type",
+     "id": "GB.KM.935",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.935a:design.text",
+     "entity": "type",
+     "id": "GB.KM.935a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C296:issue.year",
+     "entity": "specimen",
+     "id": "C296",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:DE.KM.207:design.text",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.209:design.text",
+     "entity": "type",
+     "id": "DE.KM.209",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:ES.KM.1042:design.text",
+     "entity": "type",
+     "id": "ES.KM.1042",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1284:design.text",
+     "entity": "type",
+     "id": "FR.KM.1284",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MT.KM.128:design.text",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-contradiction-20261015-1",
+   "agent": "muse",
+   "kind": "contradiction",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "contra:mint_unknown:C073",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C088",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C091",
+     "entity": "specimen",
+     "id": "C091",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C037",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue.mintage"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261015-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0009",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0010",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0011",
+     "entity": "type",
+     "id": "GR.KM.117",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0012",
+     "entity": "type",
+     "id": "NL.KM.184",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0013",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0014",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0015",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0016",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0017",
+     "entity": "type",
+     "id": "AU.KM.36",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0018",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261015-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:DE.KM.212:design.text",
+     "entity": "type",
+     "id": "DE.KM.212",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.931:design.text",
+     "entity": "type",
+     "id": "GB.KM.931",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:catalogs",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GB.KM.988:design.text",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.4:design.text",
+     "entity": "type",
+     "id": "CH.KM.40a.4",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.1:design.text",
+     "entity": "type",
+     "id": "CH.KM.40a.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AU.KM.37:design.text",
+     "entity": "type",
+     "id": "AU.KM.37",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:US.KM.195:design.text",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.214:design.text",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1289:design.text",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.241:design.text",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.213:design.text",
+     "entity": "type",
+     "id": "DE.KM.213",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.216:design.text",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MT.KM.132:design.text",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.110:design.text",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.888b.1:design.text",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:VA.KM.52.1:design.text",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C304:issue.year",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:MX.X.20-pesos:denomination.value",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:issues.3.mintage",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "issues.3.mintage"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:design.text",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C299:issue.year",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:VN.KM.71:catalogs",
+     "entity": "type",
+     "id": "VN.KM.71",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CA.KM.33:design.text",
+     "entity": "type",
+     "id": "CA.KM.33",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NG.KM.10.1:design.text",
+     "entity": "type",
+     "id": "NG.KM.10.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.925.1:design.text",
+     "entity": "type",
+     "id": "FR.KM.925.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:HK.KM.69a:design.text",
+     "entity": "type",
+     "id": "HK.KM.69a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:catalogs",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:composition.text",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:specimen:C291:issue.year",
+     "entity": "specimen",
+     "id": "C291",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:denomination.value",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:CL.KM.219.2:design.text",
+     "entity": "type",
+     "id": "CL.KM.219.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.837:design.text",
+     "entity": "type",
+     "id": "GB.KM.837",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:HN.X.50-centavos:catalogs",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:HN.X.50-centavos:issues.0.mintage",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:HN.X.50-centavos:composition.text",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:HN.X.50-centavos:denomination.value",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:catalogs",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:issues.0.mintage",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:issues.1.mintage",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:composition.text",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:specimen:C293:issue.year",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C301:issue.year",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C293:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C301:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:denomination.value",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:MX.KM.433:design.text",
+     "entity": "type",
+     "id": "MX.KM.433",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KY.KM.88a:design.text",
+     "entity": "type",
+     "id": "KY.KM.88a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.111:design.text",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.109.1:design.text",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-plain-story-20261015-1",
+   "agent": "muse",
+   "kind": "plain-story",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "plain:C114",
+     "entity": "specimen",
+     "id": "C114",
+     "field": "story"
+    },
+    {
+     "item": "plain:C117",
+     "entity": "specimen",
+     "id": "C117",
+     "field": "story"
+    },
+    {
+     "item": "plain:C118",
+     "entity": "specimen",
+     "id": "C118",
+     "field": "story"
+    },
+    {
+     "item": "plain:C119",
+     "entity": "specimen",
+     "id": "C119",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-arbitrate-20261015-1",
+   "agent": "gemini",
+   "kind": "arbitrate",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0019",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0020",
+     "entity": "type",
+     "id": "KY.KM.132",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0021",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0022",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0023",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0024",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0025",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261015-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:BS.X.25-cents",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "cite:BS.X.5-cents",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261015-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:NL.KM.346:design.text",
+     "entity": "type",
+     "id": "NL.KM.346",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.208:design.text",
+     "entity": "type",
+     "id": "DE.KM.208",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1283:design.text",
+     "entity": "type",
+     "id": "FR.KM.1283",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.211:design.text",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:catalogs",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:ES.KM.1040:design.text",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1282:design.text",
+     "entity": "type",
+     "id": "FR.KM.1282",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IE.KM.32:design.text",
+     "entity": "type",
+     "id": "IE.KM.32",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.234:design.text",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:issues.0.mintage",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:IT.KM.111:composition.text",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:specimen:C294:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C294",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:denomination.value",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C289:issue.year",
+     "entity": "specimen",
+     "id": "C289",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:denomination.value",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C295:issue.year",
+     "entity": "specimen",
+     "id": "C295",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C300:issue.year",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:denomination.value",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:denomination.value",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C298:issue.year",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GB.KM.1107:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.986:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.986",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C290:issue.year",
+     "entity": "specimen",
+     "id": "C290",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C292:issue.year",
+     "entity": "specimen",
+     "id": "C292",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C297:issue.year",
+     "entity": "specimen",
+     "id": "C297",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GB.KM.935:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.935",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C303:issue.year",
+     "entity": "specimen",
+     "id": "C303",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.X.1-cent:denomination.value",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:ES.KM.1144:period",
+     "entity": "type",
+     "id": "ES.KM.1144",
+     "field": "period"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261015-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C031",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "story"
+    },
+    {
+     "item": "story:C033",
+     "entity": "specimen",
+     "id": "C033",
+     "field": "story"
+    },
+    {
+     "item": "story:C048",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "story"
+    },
+    {
+     "item": "story:C049",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "story"
+    },
+    {
+     "item": "story:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "story"
+    },
+    {
+     "item": "story:C057",
+     "entity": "specimen",
+     "id": "C057",
+     "field": "story"
+    },
+    {
+     "item": "story:C068",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "story"
+    },
+    {
+     "item": "story:C069",
+     "entity": "specimen",
+     "id": "C069",
+     "field": "story"
+    },
+    {
+     "item": "story:C289",
+     "entity": "specimen",
+     "id": "C289",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261015-2",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-10-15T14:17:10Z",
+   "lease_until": "2026-10-22T14:17:10Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:CH.KM.29a:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:AU.KM.66:catalogs",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AU.KM.66:issues.0.mintage",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:AU.KM.66:composition.text",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:AU.KM.66:ruler",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:HU.KM.575:design.text",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.989:issues.1.mintage",
+     "entity": "type",
+     "id": "GB.KM.989",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:GB.KM.989:composition.text",
+     "entity": "type",
+     "id": "GB.KM.989",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:KR.KM.4:composition.text",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:CO.KM.295:design.text",
+     "entity": "type",
+     "id": "CO.KM.295",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.989:design.text",
+     "entity": "type",
+     "id": "GB.KM.989",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.989:ruler",
+     "entity": "type",
+     "id": "GB.KM.989",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:SA.KM.20:ruler",
+     "entity": "type",
+     "id": "SA.KM.20",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:KY.KM.87:catalogs",
+     "entity": "type",
+     "id": "KY.KM.87",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:KY.KM.87:composition.text",
+     "entity": "type",
+     "id": "KY.KM.87",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:KY.KM.87:design.text",
+     "entity": "type",
+     "id": "KY.KM.87",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KY.KM.87:ruler",
+     "entity": "type",
+     "id": "KY.KM.87",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:AT.X.2-groschen:catalogs",
+     "entity": "type",
+     "id": "AT.X.2-groschen",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AT.X.2-groschen:composition.text",
+     "entity": "type",
+     "id": "AT.X.2-groschen",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:composition.text",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:catalogs",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:issues.0.mintage",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:composition.text",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:EC.KM.38:design.text",
+     "entity": "type",
+     "id": "EC.KM.38",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:EC.KM.38:ruler",
+     "entity": "type",
+     "id": "EC.KM.38",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:catalogs",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:FR.KM.931.1:catalogs",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:PH.KM.198:catalogs",
+     "entity": "type",
+     "id": "PH.KM.198",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:SE.KM.826a:catalogs",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:TT.KM.31:catalogs",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:issues.0.mintage",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:FR.KM.931.1:issues.1.mintage",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:FR.KM.931.1:issues.2.mintage",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:composition.text",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.KM.931.1:composition.text",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:NO.KM.460:composition.text",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:PH.KM.198:composition.text",
+     "entity": "type",
+     "id": "PH.KM.198",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:SE.KM.826a:composition.text",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.KM.931.1:design.text",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SE.KM.826a:design.text",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SE.KM.826a:ruler",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:CH.KM.26:catalogs",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.26:issues.0.mintage",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.26:composition.text",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:PH.X.1-piso:catalogs",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:PH.X.1-piso:composition.text",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:DE.KM.108:catalogs",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GB.KM.988:catalogs",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:issues.0.mintage",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DE.KM.108:issues.0.mintage",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "issues.0.mintage"
+    }
+   ]
   }
  ],
  "tried": {
@@ -7799,6 +9405,12 @@
     "assignment": "HW-grok-cite-20261009-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:DE-EMP.X.20-pfennig": [
@@ -7807,6 +9419,12 @@
     "assignment": "HW-grok-cite-20261009-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:JM.KM.191": [
@@ -7815,6 +9433,12 @@
     "assignment": "HW-grok-cite-20261009-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:MX-CHI.KM.612": [
@@ -7823,6 +9447,12 @@
     "assignment": "HW-grok-cite-20261009-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:FR.KM.888b.1": [
@@ -7831,6 +9461,12 @@
     "assignment": "HW-grok-cite-20261009-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:SU.Y.126a": [
@@ -7847,6 +9483,12 @@
     "assignment": "HW-grok-cite-20261009-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "story:C001": [
@@ -8095,6 +9737,12 @@
     "assignment": "HW-gemini-story-check-20261010-1",
     "outcome": "attempted",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "story:C051": [
@@ -8143,6 +9791,12 @@
     "assignment": "HW-gemini-story-check-20261010-1",
     "outcome": "attempted",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "story:C117": [
@@ -8183,6 +9837,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:ER.KM.46": [
@@ -8191,6 +9851,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:GT.KM.277.1": [
@@ -8199,6 +9865,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:HK.KM.69a": [
@@ -8207,6 +9879,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:IN.KM.92.2": [
@@ -8215,6 +9893,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:JM.KM.146": [
@@ -8223,6 +9907,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:JM.KM.189": [
@@ -8231,6 +9921,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:KY.KM.87": [
@@ -8239,6 +9935,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:KY.KM.88a": [
@@ -8247,6 +9949,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:NL.KM.184": [
@@ -8255,6 +9963,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "attempted",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:PH.X.1-piso": [
@@ -8263,6 +9977,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:TT.KM.31": [
@@ -8271,6 +9991,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:TT.KM.33": [
@@ -8279,6 +10005,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "cite:TW.KM.551": [
@@ -8287,6 +10019,12 @@
     "assignment": "HW-grok-cite-20261010-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ],
   "story:C123": [
@@ -8455,6 +10193,934 @@
     "assignment": "HW-gemini-verify-20261010-1",
     "outcome": "attempted",
     "ts": "2026-10-14T15:41:37Z"
+   }
+  ],
+  "mint:C037": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-read-mint-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "mint:C285": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-read-mint-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.837:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CH.KM.23a:issues.1.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GT.KM.277.1:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:JP.Y.73a:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CH.KM.26c:issues.1.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:DE.KM.210:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.929:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.929:issues.4.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.933:issues.1.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.1335:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.935a:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:KR.KM.103:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.937b:issues.3.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.935:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:ES.KM.1144:period": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:AU.X.1-cent:denomination.value": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GT.KM.239.2:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GT.KM.239.2:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CH.KM.40a.4:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:AU.KM.37:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:DE.KM.140.1:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CH.KM.21a.3:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261010-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C031": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C033": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C048": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C049": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C050": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C057": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C068": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C069": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CH.KM.29a:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:HN.X.50-centavos:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:MX.X.10-centavos:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:BS.X.1-cent:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:ES.KM.1144:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "plain:C012": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-plain-story-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "plain:C017": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-plain-story-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "plain:C025": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-plain-story-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "plain:T003": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-plain-story-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:HK.KM.69a:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:IE.KM.34:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.925.1:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:HK.KM.69a:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:JM.KM.65:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:PH.KM.242.1:issues.0.mintage": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GT.KM.277.1:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:PH.KM.242.1:series": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CL.KM.219.2:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.837:ruler": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:MX.KM.433:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:MX.KM.433:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:KY.KM.88a:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:KY.KM.88a:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:KY.KM.88a:ruler": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CR.KM.214.2:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:IT.KM.111:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CR.KM.214.2:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:IT.KM.111:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.931:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:MX.KM.424:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:MX.KM.502:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.931:ruler": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:DE.KM.109.2:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CH.KM.29a:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:HU.KM.575:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:HU.KM.575:composition.text": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CO.KM.295:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.989:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:KR.KM.4:catalogs": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261014-1",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "cite:BS.X.5-cents": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-cite-20261014-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "story:C289": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CH.KM.40a.4:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CH.KM.40a.1:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:AU.KM.37:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:US.KM.195:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:DE.KM.214:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.1289:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:NL.KM.241:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:MX.KM.443:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:DE.KM.213:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:IT.KM.216:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:MT.KM.132:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:DE.KM.110:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.888b.1:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:VA.KM.52.1:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:IT.KM.95.1:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CA.KM.33:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:NG.KM.10.1:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:DE.KM.212:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.925.1:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:HK.KM.69a:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CL.KM.219.2:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.837:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:MX.KM.433:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:KY.KM.88a:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:IT.KM.111:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.931:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:DE.KM.109.1:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:HU.KM.575:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:CO.KM.295:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.989:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:KY.KM.87:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:EC.KM.38:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.931.1:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:SE.KM.826a:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:FR.KM.929:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "verify:type:GB.KM.988:design.text": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "cite:BS.X.25-cents": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-cite-20261014-2",
+    "outcome": "left out",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "contra:mint_unknown:C073": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-contradiction-20261015-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "contra:mint_unknown:C088": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-contradiction-20261015-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "contra:mint_unknown:C006": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-contradiction-20261015-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "contra:mint_unknown:C050": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-contradiction-20261015-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "contra:mint_unknown:C091": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-contradiction-20261015-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "contra:mint_unknown:C037": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-contradiction-20261015-1",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:17:10Z"
    }
   ]
  },
