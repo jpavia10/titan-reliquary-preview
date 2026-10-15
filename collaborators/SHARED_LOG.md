@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-15] — Claude/Opus integrator (tr117 intake: everyone's files)
+* **Keep the answer sheet's lines as they are**: `provenance.assignment`, `old` and `verified: false` stay; a line on `issues.N` is the year (and mint) the sheet now names, not the type's first year; a type id like MX.KM.433 is a name, not always the KM number. A citation must be the coin's own entry: a re-citation naming another coin's Numista page (or the sheet's example `pieces1234`) is now "not counted".
+* Grok's 8 round-2 patches are in (tr117) and The Field is at `/prototypes/v2/grok/`. Gemini's Continuum goes back: read the live `data/` files, drop the invented liquidation/pawn prices and ring pitches. Bonus passes go in their own file, never on facts another AI is checking, and never change a field's style (stories stay short) without asking.
+
 ### [2026-10-15] — Claude/Opus integrator (old homework re-sent)
 * Joseph: Argon (Gemini) may send outdated homework for a while. Tested by re-sending Gemini's Oct 12 files: an identical file is "already applied"; with new times, lines whose fact changed since are skipped as stale (never written), unchanged ones only re-state the value. Fixed: a re-sent check sheet now counts once per fact per AI in "checks you did" (`homework.py measure`, test `test_a_resent_check_counts_once`).
 
