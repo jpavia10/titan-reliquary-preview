@@ -276,6 +276,14 @@ class LoopUpgrades(unittest.TestCase):
         self.assertEqual(col.types[tid]["ruler"], t["ruler"], "a spot check never overwrites")
         self.assertTrue(HW.measure(HW.load_context(tmp))["claude"]["checks_done"] >= 1)
 
+    def test_a_resent_check_counts_once(self):
+        ev = {"by": "model:gemini", "entity": "type", "id": "DE.KM.214", "field": "issues.0.mintage", "old": 20475000, "new": 20475000,
+              "provenance": {"assignment": "HW-gemini-verify-20261012-1"}}
+        ctx = {"details": {}, "disagreements": [], "col": {"events": [dict(ev, ts="2026-10-12T21:09:15Z"), dict(ev, ts="2026-10-15T03:00:00Z")], "specs": {}},
+               "root": tempfile.mkdtemp(prefix="hw_resend_")}
+        try: self.assertEqual(HW.measure(ctx)["gemini"]["checks_done"], 1, "the same fact checked twice by one AI is one check")
+        finally: shutil.rmtree(ctx["root"], ignore_errors=True)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2, warnings="ignore")

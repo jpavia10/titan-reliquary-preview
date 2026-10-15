@@ -463,10 +463,13 @@ def measure(ctx):
         r = d.get("resolution") or {}
         if r.get("error_by"): row(PV.agent_of(r["error_by"]))["wrong"] += 1
         if r.get("winner") in ("record", "claim") and d[r["winner"]].get("by"): row(PV.agent_of(d[r["winner"]]["by"]))["confirmed"] += 1   # it held up under a check
+    checked = set()      # one check per fact per AI: a re-sent or re-answered sheet never counts twice (owner, 2026-10-15: Argon may resend old homework)
     for e in ctx["col"]["events"]:
         aid = (e.get("provenance") or {}).get("assignment") if isinstance(e.get("provenance"), dict) else None
         spot = (e.get("provenance") or {}).get("workflow") == "spot-check" if isinstance(e.get("provenance"), dict) else False     # fix list #95
-        if ((aid and "-verify-" in aid) or spot) and e.get("old") == e.get("new"): row(PV.agent_of(e.get("by")))["checks_done"] += 1
+        if ((aid and "-verify-" in aid) or spot) and e.get("old") == e.get("new"):
+            k = (PV.agent_of(e.get("by")), e.get("entity"), e.get("id"), e.get("field"))
+            if k not in checked: checked.add(k); row(k[0])["checks_done"] += 1
     for d in ctx["disagreements"]:
         if (d.get("claim") or {}).get("assignment") == "spot-check-claude": row("claude")["checks_done"] += 1
     cp = os.path.join(ctx.get("root") or ROOT, "docs", "agents", "homework", "canaries.jsonl")     # fix list #99
