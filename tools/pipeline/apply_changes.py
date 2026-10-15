@@ -315,6 +315,15 @@ class Applier:
         if isinstance(pv.get("raw"), str) and len(pv["raw"]) > 500: errs.append("provenance.raw is longer than 500 characters; keep a short verbatim excerpt")
         return errs
 
+    OWNER_CONFIRMABLE = {("type", "country")}      # pipeline-kept fields the owner may CONFIRM (same value, verified) but never change (2026-10-15)
+
+    def owner_confirm(self, e, f):
+        """True for the owner re-stating a pipeline-kept field's current value with verified: true (the app's "Right? USA" chip)."""
+        if (e["entity"], f) not in self.OWNER_CONFIRMABLE or not e.get("verified") or e.get("op", "set") != "set" or e.get("field") != f: return False
+        rec = self.record(e["entity"], e["id"])
+        try: return rec is not None and get_at(rec, parse_path(f)) == e.get("new")
+        except KeyError: return False
+
     def check_tiers(self, e):
         """Schema v3 phase tiers: who may write which field (schema/v3/field_tiers.json)."""
         by = e["by"]; errs = []
@@ -322,7 +331,7 @@ class Applier:
         if e["entity"] == "photo" and e.get("field") == "review": return errs   # set_photo decides who (Claude or the owner)
         fields = touched_fields(e)
         if by == "owner" or by.startswith("person:"):
-            return [sys_msg(e["entity"], f) for f in fields if tier_of(e["entity"], f) == "system"]
+            return [sys_msg(e["entity"], f) for f in fields if tier_of(e["entity"], f) == "system" and not self.owner_confirm(e, f)]
         if "phase" not in e:
             return ["a model's event needs \"phase\": 1 (quick pass from a staging photo), 1.5 (album scans) or 2 (critical analysis with pro photos and sources)"]
         ok = PHASE_TIERS.get(e["phase"], set())

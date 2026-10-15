@@ -549,6 +549,16 @@ class Pipeline(unittest.TestCase):
         p1 = next(p for p in BASE.photos if p["phase"] == 1)
         self.reject([ev(by="script:photo_crop_p2", entity="photo", id=p1["id"], op="set", field="path", new="photos/x.webp")], "superseded_by", setup=None)
 
+    def test_the_owner_may_confirm_a_coins_country_but_never_change_it(self):
+        sp = next(s for s in BASE.specs.values() if s["type"].startswith("US."))
+        t = BASE.types[sp["type"]]
+        conf = lambda new: ev(by="owner", entity="type", id=t["id"], op="set", field="country", new=new, verified=True, source="owner answer in the app: confirmed with the coin in hand")
+        self.reject([conf("CA")], "maintained by the pipeline only", setup=None)
+        tmp = sandbox()
+        r = self.apply(tmp, write_events(tmp, "changes_owner_1.jsonl", [conf(t["country"])]))
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual(C.Collection(os.path.join(tmp, "collection")).types[t["id"]]["country"], t["country"])
+
     def test_a_photo_under_the_wrong_coin_is_rejected_by_claude_or_the_owner_only(self):
         p1 = next(p for p in BASE.photos if p["phase"] == 1 and p["kind"] == "crop_circle" and not p.get("superseded_by"))
         rev = lambda by, new: ev(by=by, entity="photo", id=p1["id"], op="set", field="review", new=new)
