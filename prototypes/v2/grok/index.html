@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Titan Reliquary · The Field (prototype, Grok)</title>
+<meta name="theme-color" content="#0d0b09">
+<style>
+  :root { --bg:#0d0b09; --ink:#f3ecdf; --muted:#c9bfae; --gold:#e2bd6a; --line:rgba(243,236,223,.18); --panel:#17140f; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--ink); font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow:hidden; }
+  #stage { position:fixed; inset:0; touch-action:none; }
+  canvas { display:block; }
+  header { position:fixed; top:0; left:0; right:0; padding: max(10px, env(safe-area-inset-top)) 14px 8px; display:flex; gap:10px; align-items:flex-start; justify-content:space-between;
+           background:linear-gradient(var(--bg) 55%, transparent); pointer-events:none; z-index:3; }
+  header > * { pointer-events:auto; }
+  .total { font-size:28px; font-weight:700; letter-spacing:.01em; }
+  .sub { color:var(--muted); font-size:16px; }
+  button { font:inherit; color:var(--ink); background:#241f17; border:2px solid var(--line); border-radius:12px; min-height:44px; min-width:44px; padding:8px 14px; cursor:pointer; }
+  button:focus-visible, input:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  .crumbs { position:fixed; left:14px; right:14px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index:3; display:flex; gap:8px; flex-wrap:wrap; align-items:center; font-size:18px; }
+  .crumb { background:rgba(23,20,15,.92); border:2px solid var(--line); border-radius:999px; padding:6px 14px; opacity:0; transform:translateY(8px); transition:opacity .35s, transform .35s; }
+  .crumb.on { opacity:1; transform:none; }
+  .crumb b { color:var(--gold); }
+  #labels { position:fixed; inset:0; pointer-events:none; z-index:2; }
+  .lab { position:absolute; transform:translate(-50%,-50%); font-size:16px; color:var(--muted); white-space:nowrap; text-shadow:0 1px 3px #000, 0 0 8px #000; }
+  .lab.cont { color:var(--ink); font-weight:700; font-size:17px; transform:translate(0,-50%); }
+  .lab.year { font-size:16px; }
+  .lab.hot { color:var(--gold); font-weight:700; }
+  #sheet { position:fixed; left:0; right:0; bottom:0; max-height:62vh; overflow:auto; z-index:4; background:var(--panel); border-top:2px solid var(--line);
+           border-radius:18px 18px 0 0; padding:16px 16px calc(20px + env(safe-area-inset-bottom)); transform:translateY(105%); transition:transform .45s cubic-bezier(.2,.8,.2,1); }
+  #sheet.open { transform:none; }
+  #sheet h2 { margin:0 0 4px; font-size:22px; }
+  #sheet .row { display:flex; gap:10px; overflow-x:auto; margin:10px 0; }
+  #sheet img { height:132px; width:132px; object-fit:cover; border-radius:50%; background:#000; border:2px solid var(--line); }
+  .facts { display:grid; grid-template-columns: auto 1fr; gap:6px 10px; margin:10px 0; }
+  .facts dt { color:var(--muted); } .facts dd { margin:0; }
+  .lvl { display:inline-block; font-size:14px; font-weight:700; padding:1px 8px; border-radius:999px; border:1.5px solid currentColor; margin-left:6px; white-space:nowrap; }
+  .lvl.verified,.lvl.checked { color:#8fd18f; } .lvl.reference { color:#9cc3ff; } .lvl.photo { color:#e9c46a; } .lvl.guess { color:#ffab91; } .lvl.ledger { color:#c9bfae; }
+  .hist { color:var(--muted); font-size:16px; padding-left:18px; }
+  #list { position:fixed; inset:0; z-index:5; background:var(--panel); overflow:auto; padding: max(14px, env(safe-area-inset-top)) 14px 24px; display:none; }
+  #list.open { display:block; }
+  #list input { width:100%; font:inherit; font-size:18px; padding:12px; border-radius:12px; border:2px solid var(--line); background:#0f0d0a; color:var(--ink); margin:8px 0 12px; }
+  #list h3 { margin:16px 0 6px; font-size:18px; color:var(--gold); }
+  #list .coins { display:flex; flex-wrap:wrap; gap:8px; }
+  #hint { position:fixed; left:50%; top:46%; transform:translate(-50%,-50%); z-index:2; color:var(--muted); background:rgba(13,11,9,.8); padding:8px 14px; border-radius:12px; transition:opacity .6s; }
+  .motion { display:flex; gap:6px; } .motion button[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
+  #fps { position:fixed; right:10px; bottom:calc(70px + env(safe-area-inset-bottom)); z-index:3; font:14px ui-monospace,monospace; color:var(--muted); background:rgba(0,0,0,.5); padding:2px 6px; border-radius:6px; }
+  #fade { position:fixed; inset:0; background:var(--bg); opacity:0; pointer-events:none; z-index:3; transition:opacity .18s; }
+  .err { padding:40px 20px; font-size:18px; }
+</style>
+</head>
+<body>
+<div id="stage" aria-hidden="true"></div>
+<div id="labels" aria-hidden="true"></div>
+<div id="fade"></div>
+<header>
+  <div>
+    <div class="total" id="total">…</div>
+    <div class="sub" id="totsub">loading the collection</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+    <button type="button" id="btn-list" aria-haspopup="dialog">List &amp; search</button>
+    <div class="motion" role="group" aria-label="Motion">
+      <button type="button" data-m="full" aria-pressed="false">Full</button><button type="button" data-m="calm" aria-pressed="false">Calm</button><button type="button" data-m="off" aria-pressed="false">Off</button>
+    </div>
+  </div>
+</header>
+<div id="hint">Tap a coin. Drag to move, pinch to zoom.</div>
+<nav class="crumbs" id="crumbs" aria-live="polite" aria-label="Where this coin lives"></nav>
+<section id="sheet" role="dialog" aria-modal="false" aria-labelledby="sh-title" tabindex="-1"></section>
+<section id="list" role="dialog" aria-modal="true" aria-label="All coins"></section>
+<div id="fps" hidden></div>
+
+<script type="module">
+import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js";
+
+/* ---------- data: only what the pipeline published (../../../data/) ---------- */
+const DATA = "../../../data/";
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const money = (n) => "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+let idx;
+try { idx = await (await fetch(DATA + "index.json")).json(); }
+catch (e) { document.body.innerHTML = '<p class="err">Could not read ../../../data/index.json. Open this page from the site (prototypes/v2/grok/).</p>'; throw e; }
+const flips = idx.flips.filter((f) => f.status !== "Removed");
+$("#total").textContent = money(idx.board.grand);
+$("#totsub").textContent = `${flips.length} pieces · ${new Set(flips.map((f) => f.iso)).size} countries · ledger estimate, ${idx.generated_at_pt || idx.generated_at}`;
+const details = new Map();
+const detail = (d) => { if (!details.has(d)) details.set(d, fetch(DATA + "detail/" + encodeURIComponent(d) + ".json").then((r) => r.json())); return details.get(d); };
+
+/* ---------- motion setting: Full / Calm / Off, default from the OS ---------- */
+const mq = matchMedia("(prefers-reduced-motion: reduce)");
+let motion = localStorage.getItem("grok.field.motion") || (mq.matches ? "calm" : "full");
+function setMotion(m) { motion = m; try { localStorage.setItem("grok.field.motion", m); } catch (e) {}
+  document.querySelectorAll(".motion button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.m === m))); }
+document.querySelectorAll(".motion button").forEach((b) => b.addEventListener("click", () => setMotion(b.dataset.m)));
+setMotion(motion);
+
+/* ---------- layout: one field. Rows = countries grouped by continent; across = the year; equal coins stack ---------- */
+const CONT_ORDER = ["Europe", "North America", "South America", "Asia", "Africa", "Oceania"];
+const yearOf = (f) => { const m = String(f.year || "").match(/\d{4}/); return m ? +m[0] : null; };
+const years = flips.map(yearOf).filter((y) => y != null);
+// broken axis: a lone medieval piece must not stretch the table 500 years, so anything before 1880 sits in one "earlier" slot
+const Y0 = Math.max(1880, Math.floor(Math.min(...years) / 10) * 10), Y1 = Math.ceil(Math.max(...years) / 10) * 10;
+const XS = 0.42;                                   // world units per year
+const xOfYear = (y) => (y == null ? -6 : y < Y0 ? -3 : (y - Y0) * XS);
+const countries = [...new Set(flips.map((f) => f.country))];
+const contOf = (c) => flips.find((f) => f.country === c).continent || "Other";
+countries.sort((a, b) => (CONT_ORDER.indexOf(contOf(a)) - CONT_ORDER.indexOf(contOf(b))) || a.localeCompare(b));
+const rowZ = new Map(); const contStart = new Map(); let z = 0, lastCont = null;
+for (const c of countries) { const k = contOf(c); if (k !== lastCont) { if (lastCont) z += 1.6; contStart.set(k, z); lastCont = k; } rowZ.set(c, z); z += 1.15; }
+const DEPTH = z, WIDTH = xOfYear(Y1);
+const stackN = new Map();
+const pos = flips.map((f) => { const y = yearOf(f), key = f.country + "|" + (y ?? "nd"); const n = stackN.get(key) || 0; stackN.set(key, n + 1);
+  return new THREE.Vector3(xOfYear(y), 0.09 + n * 0.2, rowZ.get(f.country)); });
+
+/* ---------- scene ---------- */
+const stage = $("#stage");
+const renderer = new THREE.WebGLRenderer({ antialias: (devicePixelRatio || 1) < 2, /* MSAA is wasted at DPR 2+ on phones */ powerPreference: "high-performance" });
+const DPR = Math.min(devicePixelRatio || 1, 2);
+renderer.setPixelRatio(DPR); renderer.outputColorSpace = THREE.SRGBColorSpace;
+stage.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0d0b09); scene.fog = new THREE.Fog(0x0d0b09, 60, 140);
+const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 400);
+scene.add(new THREE.HemisphereLight(0xfff4e0, 0x1a140c, 1.1));
+const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(-20, 40, 20); scene.add(key);
+
+// the table: decade lines and continent bands explain the two axes
+const grid = new THREE.Group(); scene.add(grid);
+const lineMat = new THREE.LineBasicMaterial({ color: 0x3a3226 });
+for (let y = Y0; y <= Y1; y += 10) { const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(xOfYear(y), 0, -1), new THREE.Vector3(xOfYear(y), 0, DEPTH)]); grid.add(new THREE.Line(g, lineMat)); }
+const bandMat = (c) => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.16 });
+const CONT_COL = { "Europe": 0x6f8fd8, "North America": 0xd8a35f, "South America": 0x7fc29b, "Asia": 0xd77b7b, "Africa": 0xc9b45a, "Oceania": 0x5fc4cf, "Other": 0x999999 };
+for (const [k, z0] of contStart) { const rows = countries.filter((c) => contOf(c) === k).length;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(WIDTH + 6, rows * 1.15), bandMat(CONT_COL[k] || 0x999999)); m.rotation.x = -Math.PI / 2; m.position.set((WIDTH - 6) / 2, 0, z0 + rows * 1.15 / 2 - 0.575); grid.add(m); }
+// highlight strip for the chosen coin's row and year
+const hiRow = new THREE.Mesh(new THREE.PlaneGeometry(WIDTH + 6, 1.1), new THREE.MeshBasicMaterial({ color: 0xe2bd6a, transparent: true, opacity: 0 })); hiRow.rotation.x = -Math.PI / 2; hiRow.position.y = 0.01; scene.add(hiRow);
+const hiCol = new THREE.Mesh(new THREE.PlaneGeometry(0.5, DEPTH + 2), new THREE.MeshBasicMaterial({ color: 0xe2bd6a, transparent: true, opacity: 0 })); hiCol.rotation.x = -Math.PI / 2; hiCol.position.set(0, 0.012, DEPTH / 2); scene.add(hiCol);
+
+// every coin: one instanced draw call. Bright = has a phone photo, dim = still to photograph (data: thumb)
+const coinGeo = new THREE.CylinderGeometry(0.42, 0.42, 0.16, 28);
+const coinMat = new THREE.MeshStandardMaterial({ metalness: 0.75, roughness: 0.35 });
+const coins = new THREE.InstancedMesh(coinGeo, coinMat, flips.length);
+const M = new THREE.Matrix4(), col = new THREE.Color();
+function baseColor(i) { const f = flips[i]; col.set(CONT_COL[f.continent] || 0x999999); col.lerp(new THREE.Color(0xd9d2c3), 0.45); if (!f.thumb) col.multiplyScalar(0.45); return col; }
+flips.forEach((f, i) => { M.makeTranslation(pos[i].x, pos[i].y, pos[i].z); coins.setMatrixAt(i, M); coins.setColorAt(i, baseColor(i)); });
+scene.add(coins);
+
+// the chosen coin, lifted out of its stack (a real mesh so it can carry the photo)
+const hero = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.16, 64),
+  [new THREE.MeshStandardMaterial({ color: 0xbdb6a8, metalness: 0.8, roughness: 0.3 }), new THREE.MeshStandardMaterial({ color: 0xd9d2c3, metalness: 0.2, roughness: 0.6 }), new THREE.MeshStandardMaterial({ color: 0xd9d2c3, metalness: 0.2, roughness: 0.6 })]);
+hero.visible = false; scene.add(hero);
+const texLoader = new THREE.TextureLoader();
+
+/* ---------- camera: overview framing that fits a phone in portrait ---------- */
+const view = { tx: WIDTH / 2, tz: DEPTH / 2, dist: 0 };
+function fitDist(setTx) { const a = camera.aspect, vf = THREE.MathUtils.degToRad(camera.fov);
+  const needH = (DEPTH + 4) / (2 * Math.tan(vf / 2)), needW = (WIDTH + 10) / (2 * Math.tan(vf / 2) * a);
+  // portrait phone: fit every country row top to bottom and show the most recent decades; drag sideways for older years
+  const d = Math.min(Math.max(needH, needW), needH * 1.05) * 0.92;
+  const seenW = 2 * Math.tan(vf / 2) * a * d; if (setTx) view.tx = Math.max(seenW / 2 - 7, WIDTH - seenW / 2 + 1.5); return d; }
+const cam = { pos: new THREE.Vector3(), look: new THREE.Vector3() };
+function overviewPose(out) { out.look.set(view.tx, 0, view.tz); out.pos.set(view.tx, view.dist * 0.94, view.tz + view.dist * 0.34); return out; }
+function applyCam() { camera.position.copy(cam.pos); camera.lookAt(cam.look); }
+function resize() { const w = innerWidth, h = innerHeight; renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix();
+  if (!view.dist || state === "field") { view.dist = view.dist || fitDist(true); } scene.fog.near = fitDist() * 0.9; scene.fog.far = fitDist() * 2.4; if (state === "field") { overviewPose(cam); applyCam(); } kick(); }
+let state = "field";
+addEventListener("resize", resize);
+
+/* ---------- labels: continents, decades, the chosen row ---------- */
+const labels = $("#labels"); const labEls = [];
+function addLab(text, cls, p) { const el = document.createElement("div"); el.className = "lab " + cls; el.textContent = text; labels.appendChild(el); labEls.push({ el, p }); return el; }
+for (const [k, z0] of contStart) addLab(k, "cont", new THREE.Vector3(-5.5, 0, z0 - 0.4));
+for (let y = Y0; y <= Y1; y += (Y1 - Y0 > 100 ? 20 : 10)) addLab(String(y), "year", new THREE.Vector3(xOfYear(y), 0, -1.6));
+if (flips.some((f) => yearOf(f) == null)) addLab("undated", "year", new THREE.Vector3(-6, 0, -1.6));
+if (years.some((y) => y < Y0)) addLab("earlier", "year", new THREE.Vector3(-3, 0, -1.6));
+const rowLab = addLab("", "cont hot", new THREE.Vector3()); rowLab.style.display = "none";
+const v3 = new THREE.Vector3();
+function placeLabels() { const w = innerWidth, h = innerHeight;
+  for (const L of labEls) { if (L.el.style.display === "none") continue; v3.copy(L.p).project(camera);
+    const off = v3.z > 1 || v3.x < -1.2 || v3.x > 1.2 || v3.y < -1.2 || v3.y > 1.2; L.el.style.visibility = off ? "hidden" : "visible";
+    L.el.style.left = ((v3.x + 1) / 2 * w) + "px"; L.el.style.top = ((1 - v3.y) / 2 * h) + "px"; } }
+
+/* ---------- render on demand + fps meter (only frames that move count) ---------- */
+let raf = 0, anims = [], frames = [], lastT = 0;
+const fpsEl = $("#fps"); const showFps = /[?&]fps/.test(location.search); fpsEl.hidden = !showFps;
+window.__fieldFrames = frames;
+function kick() { if (!raf && !document.hidden) { lastT = 0; raf = requestAnimationFrame(tick); } }
+function tick(t) {
+  raf = 0;
+  if (lastT) { frames.push(t - lastT); if (frames.length > 600) frames.shift(); }
+  lastT = t;
+  anims = anims.filter((a) => { const k = Math.min(1, (t - (a.t0 ??= t)) / a.ms); a.step(a.ease ? a.ease(k) : k); if (k >= 1) { a.done && a.done(); return false; } return true; });
+  applyCam(); renderer.render(scene, camera); placeLabels();
+  if (showFps && frames.length > 10) { const last = frames.slice(-60); fpsEl.textContent = (1000 / (last.reduce((a, b) => a + b, 0) / last.length)).toFixed(0) + " fps"; }
+  if (anims.length || drag.active) raf = requestAnimationFrame(tick); else lastT = 0;
+}
+document.addEventListener("visibilitychange", () => { if (document.hidden && raf) { cancelAnimationFrame(raf); raf = 0; } else kick(); });
+const ease = (k) => k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+function animate(ms, step, done) { if (motion === "full") { anims.push({ ms, step, done, ease }); kick(); } else { step(1); done && done(); kick(); } }
+
+/* ---------- the core move: field -> one coin -> back ---------- */
+let cur = -1, saved = null;
+const crumbs = $("#crumbs");
+function crumbBar(f, n) {
+  crumbs.innerHTML = [`<span class="crumb">${esc(f.continent)}</span>`, `<span class="crumb"><b>${esc(f.country)}</b></span>`,
+    `<span class="crumb">${esc(f.year)}${n > 1 ? ` · ${n} in this stack` : ""}</span>`, `<button type="button" class="crumb" id="btn-back">Back to all ${flips.length}</button>`].join("");
+  $("#btn-back").addEventListener("click", back);
+  const on = (i, ms) => setTimeout(() => crumbs.children[i] && crumbs.children[i].classList.add("on"), motion === "full" ? ms : 0);
+  on(0, 0); on(1, 260); on(2, 520); on(3, 700);
+}
+async function open(i) {
+  if (state !== "field") return; state = "flying"; cur = i; $("#hint").style.opacity = 0;
+  const f = flips[i], p = pos[i], n = stackN.get(f.country + "|" + (yearOf(f) ?? "nd"));
+  saved = { pos: cam.pos.clone(), look: cam.look.clone() };
+  hiRow.position.set((WIDTH - 6) / 2, 0.01, p.z); hiCol.position.x = p.x;
+  rowLab.textContent = f.country; rowLab.style.display = ""; labEls.find((L) => L.el === rowLab).p.set(p.x + 1.2, 0.3, p.z);
+  crumbBar(f, n);
+  // hide the instance, put the hero coin in its place, with its photo on the face if it has one
+  M.makeScale(0, 0, 0); coins.setMatrixAt(i, M); coins.instanceMatrix.needsUpdate = true;
+  hero.position.copy(p); hero.rotation.set(0, 0, 0); hero.scale.setScalar(1); hero.visible = true;
+  hero.material[1].map = null; hero.material[1].color.set(0xd9d2c3); hero.material[1].needsUpdate = true;
+  if (f.thumb) texLoader.load("../../../" + f.thumb, (tx) => { tx.colorSpace = THREE.SRGBColorSpace; tx.center.set(0.5, 0.5); tx.rotation = Math.PI / 2; hero.material[1].map = tx; hero.material[1].color.set(0xffffff); hero.material[1].needsUpdate = true; kick(); });
+  const from = { pos: cam.pos.clone(), look: cam.look.clone() };
+  // 1) the row and the year light up (where it lives); 2) the camera comes down to the stack; 3) the coin rises and turns to you
+  const lift = new THREE.Vector3(p.x, 2.2, p.z + 0.2);
+  // look below the coin so it sits in the top third, above the sheet
+  const to = { look: new THREE.Vector3(p.x, -0.9, p.z + 0.2), pos: new THREE.Vector3(p.x, 2.2 + 6.4, p.z + 8.4) };
+  if (motion === "calm") fadeCut();
+  animate(500, (k) => { hiRow.material.opacity = 0.35 * k; hiCol.material.opacity = 0.3 * k; });
+  animate(1100, (k) => { cam.pos.lerpVectors(from.pos, to.pos, k); cam.look.lerpVectors(from.look, to.look, k); },
+    () => { state = "coin"; showSheet(i); });
+  animate(1100, (k) => { const kk = Math.max(0, (k - 0.35) / 0.65); hero.position.lerpVectors(p, lift, kk); hero.rotation.x = kk * (Math.PI / 2 - 0.55); hero.scale.setScalar(1 + kk * 1.4); });
+}
+function back() {
+  if (state !== "coin") return; state = "flying"; hideSheet();
+  const i = cur, p = pos[i], from = { pos: cam.pos.clone(), look: cam.look.clone() }, hp = hero.position.clone(), hr = hero.rotation.x, hs = hero.scale.x;
+  if (motion === "calm") fadeCut();
+  animate(1000, (k) => { cam.pos.lerpVectors(from.pos, saved.pos, k); cam.look.lerpVectors(from.look, saved.look, k);
+    hero.position.lerpVectors(hp, p, k); hero.rotation.x = hr * (1 - k); hero.scale.setScalar(hs + (1 - hs) * k);
+    hiRow.material.opacity = 0.35 * (1 - k); hiCol.material.opacity = 0.3 * (1 - k); },
+    () => { hero.visible = false; M.makeTranslation(p.x, p.y, p.z); coins.setMatrixAt(i, M); coins.instanceMatrix.needsUpdate = true;
+      rowLab.style.display = "none"; crumbs.innerHTML = ""; state = "field"; cur = -1; kick(); lastFocus && lastFocus.focus && lastFocus.focus(); });
+}
+function fadeCut() { const fd = $("#fade"); fd.style.opacity = 1; setTimeout(() => (fd.style.opacity = 0), 180); }
+
+/* ---------- the coin sheet: only published facts, each with its certainty label ---------- */
+const LVL = { verified: "Verified", checked: "Checked", reference: "Reference", photo: "Photo", guess: "AI guess", ledger: "From ledger" };
+const FIELD = { catalog: "Catalogue", composition: "Metal", mintage: "Mintage", value: "Value", year: "Year", denomination: "Denomination", mint: "Mint", design: "Design", weight: "Weight", diameter: "Diameter", story: "Story" };
+const sheet = $("#sheet"); let lastFocus = null;
+async function showSheet(i) {
+  const f = flips[i]; let r = null;
+  try { r = (await detail(f.d || "_misc"))[f.scan]; } catch (e) { /* offline or missing: the index row is still shown */ }
+  if (cur !== i) return;
+  const photos = (r && r.photos || []).map((p) => `<img src="../../../${esc(p.url)}" alt="${esc((r.label || f.label) + ", " + (p.role === "obv" ? "front" : p.role === "rev" ? "back" : p.role))}" loading="lazy">`).join("");
+  const cert = r && r.certainty ? Object.entries(r.certainty).map(([k, c]) => `<dt>${esc(FIELD[k] || k)}</dt><dd><span class="lvl ${esc(c.level)}">${esc(LVL[c.level] || c.level)}</span> ${esc(c.by || "")}${c.ts ? " · " + esc(c.ts) : ""}${(c.links || []).slice(0, 1).map((u) => ` · <a href="${esc(u)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`).join("")}</dd>`).join("") : "";
+  const hist = r && r.history ? r.history.slice(0, 4).map((h) => `<li>${esc(h.ts)} · ${esc(h.what)}</li>`).join("") : "";
+  sheet.innerHTML = `<h2 id="sh-title">${esc((r && r.label) || f.label)}</h2>
+    <div class="sub">${esc(f.scan)}${f.ser ? " · " + esc(f.ser) : ""} · ${f.est != null ? money(f.est) + " est. (" + esc(f.conf || "") + ")" : "no estimate yet"}</div>
+    ${photos ? `<div class="row">${photos}</div>` : `<p class="sub">No phone photo yet: on the shoot list.</p>`}
+    ${r && r.story ? `<p>${esc(r.story)}</p>` : ""}
+    ${r && r.metal ? `<p class="sub">${esc(r.metal)}</p>` : ""}
+    ${cert ? `<dl class="facts">${cert}</dl>` : ""}
+    ${hist ? `<ul class="hist">${hist}</ul>` : ""}
+    <button type="button" id="btn-back2">Back to all ${flips.length}</button>`;
+  $("#btn-back2").addEventListener("click", back);
+  sheet.classList.add("open"); sheet.focus({ preventScroll: true });
+}
+function hideSheet() { sheet.classList.remove("open"); }
+addEventListener("keydown", (e) => { if (e.key === "Escape") { if ($("#list").classList.contains("open")) closeList(); else back(); } });
+
+/* ---------- touch: drag to pan, pinch / wheel to zoom, tap to open ---------- */
+const drag = { active: false, pts: new Map(), moved: 0, d0: 0, dist0: 0 };
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+const el = renderer.domElement;
+el.addEventListener("pointerdown", (e) => { el.setPointerCapture(e.pointerId); drag.pts.set(e.pointerId, { x: e.clientX, y: e.clientY }); drag.active = true; drag.moved = 0;
+  if (drag.pts.size === 2) { const [a, b] = [...drag.pts.values()]; drag.d0 = Math.hypot(a.x - b.x, a.y - b.y); drag.dist0 = view.dist; } kick(); });
+el.addEventListener("pointermove", (e) => { const p = drag.pts.get(e.pointerId); if (!p || state !== "field") return;
+  const dx = e.clientX - p.x, dy = e.clientY - p.y; p.x = e.clientX; p.y = e.clientY; drag.moved += Math.abs(dx) + Math.abs(dy);
+  if (drag.pts.size === 2) { const [a, b] = [...drag.pts.values()]; const d = Math.hypot(a.x - b.x, a.y - b.y); view.dist = THREE.MathUtils.clamp(drag.dist0 * drag.d0 / d, 6, fitDist() * 1.3); }
+  else { const s = view.dist / innerHeight * 1.1; view.tx = THREE.MathUtils.clamp(view.tx - dx * s, -6, WIDTH + 2); view.tz = THREE.MathUtils.clamp(view.tz - dy * s, -2, DEPTH + 2); }
+  overviewPose(cam); });
+const up = (e) => { drag.pts.delete(e.pointerId); if (!drag.pts.size) { drag.active = false;
+  if (drag.moved < 8 && state === "field") { ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ndc, camera);
+    const hit = ray.intersectObject(coins)[0]; if (hit) { lastFocus = $("#btn-list"); open(hit.instanceId); } } } };
+el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up);
+el.addEventListener("wheel", (e) => { if (state !== "field") return; e.preventDefault(); view.dist = THREE.MathUtils.clamp(view.dist * (1 + e.deltaY * 0.001), 6, fitDist() * 1.3); overviewPose(cam); kick(); }, { passive: false });
+
+/* ---------- the same move without gestures: a real list (keyboard, screen reader, Dad) ---------- */
+const list = $("#list");
+function renderList(q) {
+  const qq = (q || "").toLowerCase().trim(); const by = new Map();
+  flips.forEach((f, i) => { if (qq && !(f.label + " " + f.scan + " " + (f.ser || "")).toLowerCase().includes(qq)) return; (by.get(f.country) || by.set(f.country, []).get(f.country)).push(i); });
+  list.querySelector(".groups").innerHTML = [...by].map(([c, is]) => `<h3>${esc(c)} (${is.length})</h3><div class="coins">${is.map((i) => `<button type="button" data-i="${i}">${esc(flips[i].year)} · ${esc(flips[i].denom)}</button>`).join("")}</div>`).join("") || '<p class="sub">Nothing matches.</p>';
+}
+list.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h2 style="margin:0;font-size:22px">All ${flips.length} pieces</h2><button type="button" id="btn-close-list">Close</button></div>
+  <label for="q" class="sub">Find a coin (country, year, denomination, id)</label><input id="q" type="search" autocomplete="off"><div class="groups"></div>`;
+renderList("");
+$("#q").addEventListener("input", (e) => renderList(e.target.value));
+list.addEventListener("click", (e) => { const b = e.target.closest("button[data-i]"); if (!b) return; closeList(); lastFocus = $("#btn-list"); open(+b.dataset.i); });
+function closeList() { list.classList.remove("open"); $("#btn-list").focus(); }
+$("#btn-list").addEventListener("click", () => { if (state === "coin") back(); list.classList.add("open"); $("#q").focus(); });
+$("#btn-close-list").addEventListener("click", closeList);
+
+/* ---------- go: the whole collection settles onto the table (the opening says what this is: everything, by place and year) ---------- */
+resize(); view.dist = fitDist(true); overviewPose(cam);
+if (motion === "full") { const end = cam.pos.clone(), start = end.clone().add(new THREE.Vector3(0, 18, 14)); animate(1200, (k) => cam.pos.lerpVectors(start, end, k)); }
+kick();
+setTimeout(() => ($("#hint").style.opacity = 0), 6000);
+window.__field = { open, back, flips, state: () => state, frames };
+</script>
+</body>
+</html>

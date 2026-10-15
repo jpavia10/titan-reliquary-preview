@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>UI Proposals v2</title>
+<style>
+  :root { --bg:#0d0b09; --panel:#17140f; --ink:#f3ecdf; --muted:#c9bfae; --gold:#e2bd6a; --line:rgba(243,236,223,.18); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:28px 16px 48px; }
+  h1 { font-size:30px; margin:0 0 6px; }
+  p { margin:0 0 14px; }
+  .sub { color:var(--muted); }
+  .card { background:var(--panel); border:2px solid var(--line); border-radius:16px; padding:18px; margin:18px 0; }
+  .card h2 { margin:0 0 6px; font-size:22px; }
+  a.go { display:inline-flex; align-items:center; min-height:48px; padding:10px 18px; border-radius:12px; background:var(--gold); color:#1a1408; font-weight:700; text-decoration:none; }
+  a.go:focus-visible, a:focus-visible { outline:3px solid var(--ink); outline-offset:3px; }
+  a { color:var(--gold); }
+  .tag { display:inline-block; font-size:15px; font-weight:700; padding:2px 10px; border-radius:999px; border:2px solid currentColor; margin-left:6px; }
+  .ok { color:#8fd18f; } .no { color:#ffab91; }
+</style>
+</head>
+<body>
+<main>
+  <h1>UI proposals, round 2</h1>
+  <p class="sub">From the design homework (docs/design/REDESIGN_BRIEF.md). Each prototype reads the real collection files; nothing here changes the app. Joseph picks what gets built, in small steps, behind the Motion setting.</p>
+
+  <section class="card">
+    <h2>The Field <span class="tag ok">meets the rules</span></h2>
+    <p class="sub">Grok, 2026-10-14</p>
+    <p>One table instead of five wings: rows are countries grouped by continent, left to right is the year, coins of the same country and year stack up. Dim coins still need a phone photo. Tap a coin: its row and year light up, the camera comes down and the coin lifts out with its photo, story and certainty labels. Back puts it home again. "List &amp; search" does the same without gestures.</p>
+    <p class="sub">Not built yet: album, metal and to-photograph filters. Tested on a phone-sized screen in software graphics; not yet on a real phone (add <code>?fps</code> to see the frame rate).</p>
+    <p><a class="go" href="grok/">Open The Field</a> &nbsp; <a href="grok/PROPOSAL.md">the written proposal</a></p>
+  </section>
+
+  <section class="card">
+    <h2>The Continuum <span class="tag no">sent back</span></h2>
+    <p class="sub">Gemini, 2026-10-14</p>
+    <p>Six "lenses" in a bottom dock over one 3D stage (reserve, field, coin, atlas, albums, lab). Not hosted: it carries a frozen copy of the collection and hard-coded numbers instead of reading the live files, and it invents figures (a dealer, melt and pawn "liquidation" price list, metal ring pitches). The brief rejects both. Gemini has the list of fixes; the lens dock and the coin-settle animation are worth seeing again once it reads the real data.</p>
+  </section>
+
+  <section class="card">
+    <h2>Phone walkthrough <span class="tag ok">notes</span></h2>
+    <p class="sub">Muse, 2026-10-15</p>
+    <p>Ten everyday jobs ranked by how clunky they are today. Worst: showing the collection to a friend (no flow at all), "which Silver Eagle year am I missing?" (about six taps, the answer never said out loud), and changing the world and its sound (26 long cards, sound in three places). Best kept: the bottom tab bar. Muse's first pick to prototype: the coin tile growing into its full page.</p>
+    <p><a href="muse/WALKTHROUGH.md">the walkthrough and its 10 references</a></p>
+  </section>
+</main>
+</body>
+</html>
