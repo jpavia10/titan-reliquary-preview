@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-15 14:28 UTC)
+# WORK QUEUE for Muse (updated 2026-10-15 14:30 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -255,12 +255,6 @@ Items:
 - **mintage of C224 · Germany · 1966 · 10 Pfennig · DEM** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.108 issues.0.mintage`
 
 ## Projects (after the homework)
-
-### Dad's one-page guide  [NEXT]  (fix list #60)
-
-Write a one-page plain-English guide for Joseph's dad to the Simple view (Do I have...?, What's missing?, At a glance, Questions): big words, short sentences, what to tap. Read the live app at https://jpavia10.github.io/titan-reliquary-preview/#simple first. Save it as guide_muse_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
-
-**Done when:** One file with the guide text.
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
 

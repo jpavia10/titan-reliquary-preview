@@ -233,14 +233,6 @@
           "done_when": "22 hero files in the output folder (or as many as you could) and artreq_20261010-1700_theme-thumbnails.p2.DONE.txt listing each file: ok or skipped: reason."
         },
         {
-          "n": 5,
-          "title": "Dad's one-page guide",
-          "fix": "#60",
-          "state": "next",
-          "what": "Write a one-page plain-English guide for Joseph's dad to the Simple view (Do I have...?, What's missing?, At a glance, Questions): big words, short sentences, what to tap. Read the live app at https://jpavia10.github.io/titan-reliquary-preview/#simple first. Save it as guide_muse_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.",
-          "done_when": "One file with the guide text."
-        },
-        {
           "n": 6,
           "title": "Read new coin photos (with Grok, blind)",
           "fix": "#55",
