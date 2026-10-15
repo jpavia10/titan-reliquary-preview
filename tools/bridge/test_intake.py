@@ -50,7 +50,7 @@ def gem_sheet(root):
 
 def listing(tmp):
     _, first = gem_sheet(tmp)
-    first.update(ts="2026-10-10T08:30:00Z", source="https://en.numista.com/catalogue/pieces112.html: mintage table row '2003 A' = 20 475 000")
+    first.update(ts="2026-10-10T08:30:00Z", source="https://www.ngccoin.com/price-guide/world/test-cuid-112: mintage table row '2003 A' = 20 475 000")
     dup_name = "changes_grok_20261001-1821.jsonl"
     dup_text = open(os.path.join(tmp, "collection", "_incoming", "applied", dup_name), encoding="utf-8").read()
     prov = {"model": "muse", "prompt_version": "test", "workflow": "test", "inputs": []}

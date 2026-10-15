@@ -88,7 +88,7 @@ class Loop(unittest.TestCase):
         sheet = HW.sheet(a, self.r1["pool"], self.r1["roles"])
         self.assertTrue(all(ln["provenance"]["assignment"] == a["id"] and ln["source"].startswith("FILL") for ln in sheet))
         agree, disagree, left = copy.deepcopy(sheet[0]), copy.deepcopy(sheet[1]), copy.deepcopy(sheet[2])
-        agree["source"] = "Numista N#999999 (https://en.numista.com/catalogue/pieces999999.html): the same value, read again by the second reader"
+        agree["source"] = "https://www.ngccoin.com/price-guide/world/test-agree-cuid-2: the same value, read again by the second reader"   # not a Numista id: a made-up N# is now refused
         disagree["source"] = "https://www.ngccoin.com/price-guide/world/test-entry-cuid-1: a different figure on this page"
         disagree["new"] = ([{"number": "1", "system": "KM"}] if isinstance(disagree["new"], list) else (disagree["new"] + 1 if isinstance(disagree["new"], int) else "a different text"))
         before = json.load(open(os.path.join(tmp, "collection", "types", disagree["id"].split(".")[0] + ".json"), encoding="utf-8")) if disagree["entity"] == "type" else None
@@ -120,7 +120,7 @@ class Loop(unittest.TestCase):
         self.assertNotIn(f"verify:{agree['entity']}:{agree['id']}:{agree['field']}", r2["pool"], "a checked fact left the verify pool")
         # a third contributor's sourced event settles it: the record stays, the claim's author is counted wrong
         claude = {"ts": "2026-10-09T13:00:00Z", "by": "model:claude", "entity": disagree["entity"], "id": disagree["id"], "op": "set", "field": disagree["field"],
-                  "old": d["record"]["value"], "new": d["record"]["value"], "source": "Numista N#888888 (https://en.numista.com/catalogue/pieces888888.html): the record's value, read by a third reader",
+                  "old": d["record"]["value"], "new": d["record"]["value"], "source": "https://www.ngccoin.com/price-guide/world/test-third-cuid-3: the record's value, read by a third reader",
                   "verified": False, "phase": 2, "provenance": {"model": "claude", "workflow": "arbitrate", "run_id": "test", "inputs": []}}
         st3, rep3, _ = apply(tmp, [claude], "changes_claude_20261009-1300.jsonl")
         self.assertEqual(st3, "applied", rep3)
@@ -275,6 +275,60 @@ class LoopUpgrades(unittest.TestCase):
         col = A.C.Collection(os.path.join(tmp, "collection"))
         self.assertEqual(col.types[tid]["ruler"], t["ruler"], "a spot check never overwrites")
         self.assertTrue(HW.measure(HW.load_context(tmp))["claude"]["checks_done"] >= 1)
+
+    def test_a_check_answer_is_compared_by_meaning_not_spelling(self):
+        V = A.check_verdict
+        rec = [{"number": "241", "system": "KM"}, {"number": "124", "system": "Schön"}, {"number": "152", "system": "Numista", "url": "https://en.numista.com/catalogue/pieces152.html"}]
+        self.assertEqual(V("catalogs", rec, {"numista": "N#152", "km": "KM#241", "schon": "Schön#124"})[0], "same")
+        self.assertEqual(V("catalogs", rec, {"numista": "N#152", "km": "KM#241", "schon": "Schön#124", "gad": "Gad#4"})[0], "same")
+        self.assertEqual(V("catalogs", rec, [{"system": "N", "number": "152"}])[0], "partial", "naming only some catalogues is not a full check")
+        self.assertEqual(V("catalogs", rec, {"km": "KM#242", "numista": "N#152", "schon": "Schön#124"})[0], "differs")
+        self.assertEqual(V("composition.text", "copper-nickel", "Copper-nickel")[0], "same")
+        self.assertEqual(V("composition.text", "nickel brass (75% copper, 21% zinc, 4% nickel)", "Nickel brass (75 % Cu, 21 % Zn, 4% Ni)")[0], "same")
+        self.assertEqual(V("composition.text", "bronze", "brass")[0], "differs")
+        self.assertEqual(V("issues.0.mintage", 100, 101)[0], "differs")
+
+    def test_a_dict_or_partial_catalogue_answer_never_rewrites_the_list(self):
+        import canary as CAN
+        rate = CAN.RATE; CAN.RATE = 0.0
+        try:
+            tmp = sandbox(); r = run_refresh(tmp, NOW)
+            col = A.C.Collection(os.path.join(tmp, "collection"))
+            pick = None
+            for a in r["state"]["assignments"]:
+                if a["status"] != "open" or a["kind"] != "verify": continue
+                for t in a["items"]:
+                    rec = col.types.get(t["id"]) if t["entity"] == "type" else None
+                    if t.get("field") == "catalogs" and rec and len(rec.get("catalogs") or []) >= 2: pick = (a, t, rec); break
+                if pick: break
+            if not pick: self.skipTest("no catalogue item on a verify sheet")
+            a, t, rec = pick; cats = copy.deepcopy(rec["catalogs"])
+            base = {"ts": LATER, "by": f"model:{a['agent']}", "entity": "type", "id": t["id"], "op": "set", "field": "catalogs", "old": cats,
+                    "source": "https://en.numista.com/catalogue/pieces1234.html, the References row", "verified": False, "phase": 2, "confidence": "high",
+                    "provenance": {"model": a["agent"], "workflow": "homework-verify", "run_id": a["id"], "inputs": []}}      # "assignment" key dropped
+            as_dict = dict(base, new={x["system"].lower(): f"#{x['number']}" for x in cats})
+            st, rep, _ = apply(tmp, [as_dict], name=f"changes_{a['agent']}_20261009-1203.jsonl"); txt = "\n".join(rep)
+            self.assertIn("taken from provenance.run_id", txt); self.assertIn("typed differently", txt)
+            self.assertEqual(A.C.Collection(os.path.join(tmp, "collection")).types[t["id"]]["catalogs"], cats, "an agreeing answer keeps the record's own list")
+            before = len(A.C.Collection(os.path.join(tmp, "collection")).disagreements)
+            part = dict(base, ts="2026-10-09T12:05:00Z", new=[cats[0]])
+            st, rep, _ = apply(tmp, [part], name=f"changes_{a['agent']}_20261009-1204.jsonl")
+            self.assertIn("checked only part", "\n".join(rep))
+            c2 = A.C.Collection(os.path.join(tmp, "collection"))
+            self.assertEqual(c2.types[t["id"]]["catalogs"], cats, "a partial answer never drops the other catalogue numbers")
+            self.assertEqual(len(c2.disagreements), before, "a partial answer is not a disagreement")
+        finally:
+            CAN.RATE = rate
+
+    def test_every_issue_line_names_its_year(self):
+        tmp = sandbox(); run_refresh(tmp, NOW); n = 0
+        d = os.path.join(tmp, "docs", "agents", "homework", "sheets")
+        for f in os.listdir(d):
+            for ln in open(os.path.join(d, f), encoding="utf-8"):
+                x = json.loads(ln)
+                if x["entity"] == "type" and x["field"].startswith("issues.") and x["source"].startswith("FILL"):
+                    n += 1; self.assertIn("this line is the ", x["source"], x)
+        self.assertGreater(n, 0, "no issue-level sheet line to test")
 
     def test_a_resent_check_counts_once(self):
         ev = {"by": "model:gemini", "entity": "type", "id": "DE.KM.214", "field": "issues.0.mintage", "old": 20475000, "new": 20475000,

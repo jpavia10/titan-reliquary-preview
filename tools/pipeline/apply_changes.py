@@ -50,6 +50,45 @@ DIVERT_KINDS = {"verify"}          # assignment kinds whose lines check a fact: 
 SPOT_CHECK = {"id": "spot-check-claude", "kind": "verify"}     # fix list #95: Claude's own spot checks at an intake go the same way as an AI's check
 
 
+# A check answer is compared by what it says, not how it is typed (owner, 2026-10-15: Muse's check sheets came back with catalogue
+# numbers as {"km": "KM#241", ...} and "Copper-nickel" for "copper-nickel"; 44 such lines would have gone to a third reader as disagreements).
+CAT_SYSTEM = {"km": "KM", "y": "Y", "n": "Numista", "numista": "Numista", "schon": "Schön", "schön": "Schön", "sch": "Schön",
+              "j": "J", "sp": "Sp", "jnda": "JNDA", "pcgs": "PCGS"}
+ELEMENT = {"cu": "copper", "zn": "zinc", "ni": "nickel", "sn": "tin", "al": "aluminium", "aluminum": "aluminium", "fe": "iron",
+           "ag": "silver", "au": "gold", "mn": "manganese", "pb": "lead"}
+
+def cat_pairs(v):
+    """Catalogue numbers as {system: {numbers}}, from the record's list or a check sheet's {"km": "KM#241"} dict; None if neither."""
+    if isinstance(v, dict): v = [{"system": k, "number": n} for k, n in v.items()]
+    if not isinstance(v, list) or not all(isinstance(x, dict) and "system" in x and "number" in x for x in v): return None
+    out = {}
+    for x in v:
+        sysname = str(x["system"]).strip(); key = CAT_SYSTEM.get(sysname.lower(), sysname)
+        for num in re.split(r"\s*,\s*", str(x["number"])):
+            num = re.sub(r"^[^#]*#\s*", "", num.strip()).strip()        # "KM#241", "N#152", "Gad 1789#4b" -> the number itself
+            if num: out.setdefault(key, set()).add(num)
+    return out
+
+def norm_text(s):
+    s = re.sub(r"\s+", " ", s.strip().casefold()); s = re.sub(r"\s+%", "%", s)
+    return re.sub(r"[a-z]+", lambda m: ELEMENT.get(m.group(0), m.group(0)), s)
+
+def check_verdict(field, cur, new):
+    """same | partial (agrees with every catalogue it names but leaves some of the record's out) | differs."""
+    if cur == new: return "same", ""
+    if field.split(".")[-1] == "catalogs":
+        a, b = cat_pairs(cur), cat_pairs(new)
+        if a is not None and b is not None:
+            shared = set(a) & set(b)
+            if any(a[s] != b[s] for s in shared): return "differs", ""
+            extra = sorted(set(b) - set(a))
+            note = f" (numbers the record does not carry yet, not taken by a check: {', '.join(extra)})" if extra else ""
+            if not shared: return "differs", ""
+            return ("same" if set(a) <= shared else "partial"), note
+    if isinstance(cur, str) and isinstance(new, str) and norm_text(cur) == norm_text(new): return "same", ""
+    return "differs", ""
+
+
 def sheet_value(aid, ent, rid, field):
     """The value an assignment's answer sheet showed for a field (docs/agents/homework/sheets/{aid}.jsonl), or None when the sheet is gone."""
     p = os.path.join(os.path.dirname(os.environ.get("TITAN_ASSIGNMENTS") or ASSIGNMENTS), "sheets", f"{aid}.jsonl")
@@ -86,6 +125,7 @@ JUNK_SOURCES = {"n/a", "na", "unknown", "ai", "none", "null", "nil", "test", "tb
                 "chatgpt", "gpt", "muse", "see above", "ai estimate", "ai generated", "ai guess", "not applicable", "no source", "unknown source", "trust me", "from memory", "from the photo", "from photo"}
 # euphemisms for "no source" that a blocklist of whole strings misses (Muse's audit #12): rejected wherever they make up the whole source
 JUNK_PHRASES = re.compile(r"^\W*(?:my |the )?(?:training(?: data)?|general knowledge|common knowledge|memory|vibes?|intuition|best guess|i think|i believe|probably|likely|knowledge cutoff|internal knowledge|model knowledge)\W*$", re.I)
+NUMISTA_ID = re.compile(r"(?:\bN#\s*|numista\.com/(?:catalogue/pieces)?)(\d+)", re.I)   # the Numista entry ids a source names
 PHOTO_FILE = re.compile(r"[\w\-. ()]+\.(?:jpe?g|png|tiff?|heic|webp)\b", re.I)
 REFERENCE = re.compile(r"https?://|\bN#\s*\d|\bKM#?\s*\d|\b(?:Numista|Krause|PCGS|NGC|CoinFacts|Red Book|Colnect|ucoin)\b", re.I)
 # Fix list #17: a catalogue fact must point at the exact entry a person can open, not just name a publisher.
@@ -239,6 +279,7 @@ class Applier:
         self.c = col
         self.assignments = load_assignments() if assignments is None else assignments
         self.new_disagreements = []
+        self.run_id_noted = set()
         self.canaries = []                                   # fix list #99: planted wrong values caught or missed in this file
         self.done = {event_key(e) for e in col.changes}
         self.done_create = {create_key(e): e["id"] for e in col.changes if e["field"] == "(new record)"}
@@ -417,13 +458,26 @@ class Applier:
 
     # -- homework assignments (docs/agents/RESEARCH_LOOP.md)
     def assignment_of(self, e):
-        aid = (e.get("provenance") or {}).get("assignment") if isinstance(e.get("provenance"), dict) else None
+        pv = e.get("provenance") if isinstance(e.get("provenance"), dict) else {}
+        aid = pv.get("assignment")
+        if not aid and pv.get("run_id") in self.assignments and self.assignments[pv["run_id"]].get("agent") == PV.agent_of(e.get("by")):
+            aid = pv["run_id"]           # the sheet's "assignment" key was dropped but its run_id still names the homework (Muse, 2026-10-15)
+            if aid not in self.run_id_noted: self.run_id_noted.add(aid); self.log.append(f"assignment {aid} taken from provenance.run_id (please keep the sheet's \"assignment\" key)")
         if not aid: return None
         a = self.assignments.get(aid)
         if a is None: self.log.append(f"unknown assignment {aid} (line applied by the normal rules)")
         elif a.get("agent") and PV.agent_of(e.get("by")) != a["agent"]:      # Grok's review GRK-R-02: only the assignee answers its assignment
             self.log.append(f"assignment {aid} belongs to {a['agent']}, not {e.get('by')} (line applied by the normal rules)"); return None
         return a
+
+    def wrong_numista(self, e, ent, rid):
+        """(cited, record) when the source names Numista entries and none is the one this coin's type record carries, else None."""
+        cited = set(NUMISTA_ID.findall(e.get("source") or ""))
+        if not cited: return None
+        tid = rid if ent == "type" else (self.c.specs.get(rid) or {}).get("type") if ent == "specimen" else None
+        rec = {str(x.get("number")) for x in (self.c.types.get(tid) or {}).get("catalogs") or [] if x.get("system") in ("Numista", "N")}
+        if not rec or cited & rec: return None
+        return ("/".join("N#" + n for n in sorted(cited)), "/".join("N#" + n for n in sorted(rec)))
 
     def last_setter(self, ent, rid, field):
         """The event that put the current value at `field` there: the newest event on that field or a parent of it, bookkeeping copies skipped."""
@@ -446,16 +500,23 @@ class Applier:
             shown = sheet_value(asg["id"], ent, rid, field)
             if shown is not None and shown["value"] != cur:
                 row = {"ts": e["ts"], "assignment": asg["id"], "agent": PV.agent_of(e["by"]), "item": f"verify:{ent}:{rid}:{field}"}
-                if e["new"] == shown["value"]:
+                if check_verdict(field, shown["value"], e["new"])[0] == "same":
                     self.canaries.append(dict(row, outcome="missed"))
                     self.log.append(f"canary missed (a planted wrong value was sent back as right; nothing written): {ent} {rid} {field}"); return "canary"
-                if e["new"] == cur: self.canaries.append(dict(row, outcome="caught")); self.log.append(f"canary caught: {ent} {rid} {field}")
+                if check_verdict(field, cur, e["new"])[0] == "same": self.canaries.append(dict(row, outcome="caught")); self.log.append(f"canary caught: {ent} {rid} {field}")
                 e["old"] = cur               # the sheet showed the planted value as `old` too; judge the answer against the record
         if "old" in e and e["old"] != cur:
             self.log.append(f"stale, not counted: {ent} {rid} {field} changed after assignment {asg['id']} was issued (now {j(cur)[:60]}); nothing written")
             return "stale"
         setter = self.last_setter(ent, rid, field)
-        if cur == e["new"]:
+        verdict, note = check_verdict(field, cur, e["new"])
+        if verdict == "partial":
+            self.log.append(f"checked only part of it (agrees with the catalogues it names, not counted as a full check): {ent} {rid} {field}{note}")
+            return "left"
+        if verdict == "same":
+            if e["new"] != cur:
+                self.log.append(f"same value, typed differently (counted as agreeing; the record keeps its own form): {ent} {rid} {field}{note}")
+                e["new"] = cur           # set() then logs a re-citation of the record's own value, never the sheet's spelling
             if setter is not None and PV.agent_of(setter.get("by")) == PV.agent_of(e["by"]):
                 self.log.append(f"own fact re-stated (a citation, not a cross-check): {ent} {rid} {field}")
             return None
@@ -515,6 +576,11 @@ class Applier:
                 # verified event so the certainty label becomes "Verified" (tools/pipeline/provenance.py)
                 self.log_event(e, old); self.log.append(f"confirmed by the owner (value unchanged): {ent} {rid} {field}"); return
             if e["by"].startswith("model:") and EXACT_REF.search(e.get("source") or ""):
+                bad = self.wrong_numista(e, ent, rid)
+                if bad:
+                    # owner, 2026-10-15: Muse's provenance audit cited "N#1234" (the answer sheet's example URL) and other coins' pages; a
+                    # citation of the wrong entry must not lift a fact to "Reference"
+                    self.log.append(f"not counted: {ent} {rid} {field} cites Numista {bad[0]}, but this coin's entry is {bad[1]}"); return
                 # the same value re-stated with the exact entry it comes from (fix list #48): nothing changes, but the log keeps the
                 # better citation so the certainty label can move from "AI guess" to "Reference" (or to "Checked" when it is a second contributor)
                 self.log_event(e, old); self.log.append(f"re-cited (value unchanged, exact source added): {ent} {rid} {field}"); return

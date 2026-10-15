@@ -289,12 +289,27 @@ class Pipeline(unittest.TestCase):
         sys.path.insert(0, HERE)
         import collection_io as CIO
         tmp = sandbox(); coll = os.path.join(tmp, "collection"); col = CIO.Collection(coll)
-        sid, s = next((k, v) for k, v in sorted(col.specs.items()) if (v.get("issue") or {}).get("mintage"))
-        e = ev(entity="specimen", id=sid, field="issue.mintage", new=s["issue"]["mintage"], source="Numista N#1234, mintage row for the year")
+        numista = lambda s: [x["number"] for x in col.types[s["type"]].get("catalogs") or [] if x["system"] in ("Numista", "N")]
+        sid, s = next((k, v) for k, v in sorted(col.specs.items()) if (v.get("issue") or {}).get("mintage") and numista(v))
+        n = numista(s)[0]; tag = f"mintage row for the year, test {sid}"
+        e = ev(entity="specimen", id=sid, field="issue.mintage", new=s["issue"]["mintage"], source=f"Numista N#{n}, {tag}")
         r = self.apply(tmp, write_events(tmp, "changes_test_20261009-1100.jsonl", [e]))
         self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("re-cited", r.stdout)
-        logged = [json.loads(l) for l in open(os.path.join(coll, "changes.jsonl"), encoding="utf-8") if "N#1234" in l]
+        logged = [json.loads(l) for l in open(os.path.join(coll, "changes.jsonl"), encoding="utf-8") if tag in l]
         self.assertEqual(len(logged), 1)
+
+    def test_recitation_of_another_coins_entry_is_not_counted(self):
+        """Owner, 2026-10-15: a re-citation naming a Numista entry that is not the coin's own (N#1234 copied from the sheet's example) is not logged."""
+        sys.path.insert(0, HERE)
+        import collection_io as CIO
+        tmp = sandbox(); coll = os.path.join(tmp, "collection"); col = CIO.Collection(coll)
+        numista = lambda s: [x["number"] for x in col.types[s["type"]].get("catalogs") or [] if x["system"] in ("Numista", "N")]
+        sid, s = next((k, v) for k, v in sorted(col.specs.items()) if (v.get("issue") or {}).get("mintage") and numista(v) and "1234" not in numista(v))
+        tag = f"example entry, test {sid}"
+        e = ev(entity="specimen", id=sid, field="issue.mintage", new=s["issue"]["mintage"], source=f"Numista N#1234 (https://en.numista.com/catalogue/pieces1234.html), {tag}")
+        r = self.apply(tmp, write_events(tmp, "changes_test_20261009-1105.jsonl", [e]))
+        self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("not counted", r.stdout)
+        self.assertFalse([l for l in open(os.path.join(coll, "changes.jsonl"), encoding="utf-8") if tag in l], "a citation of the wrong entry was logged")
 
     def test_rejections(self):
         self.reject([ev(entity="specimen", id="C001", field="condition.grade", new="MS-70", verified=True)], "only the owner")
