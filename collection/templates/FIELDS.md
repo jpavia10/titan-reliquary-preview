@@ -270,7 +270,7 @@ Required keys of a whole record: `evidence`, `family`, `grid_source`, `id`, `nee
 | `slots.N.provenance` | Phase 1.5 | string or null |  | Required when occupant_status is 'inferred' (e.g. 'inferred: Whitman 9034 layout'). |
 | `slots.N.occupant` | Phase 2 | string or null |  | Specimen id once album coins are itemized (none yet). |
 
-## entity `photo`: one photo record (`op: create`; created by the photo scripts only; later edits: `op: set` on `superseded_by`, and once on `crop` (how the image was cut, written by the scripts, never overwritten))
+## entity `photo`: one photo record (`op: create`; created by the photo scripts only; later edits: `op: set` on `superseded_by`, on `review` (Claude or the owner only, e.g. a photo filed under the wrong coin), and once on `crop` (how the image was cut, written by the scripts, never overwritten))
 
 Required keys of a whole record: `id`, `kind`, `path`, `side`, `specimen`.
 

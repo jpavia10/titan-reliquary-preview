@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-14T23:42:53Z",
+ "updated": "2026-10-15T00:03:17Z",
  "pools": {
-  "cite": 30,
-  "story-check": 78,
+  "cite": 32,
+  "story-check": 81,
   "plain-story": 25,
   "research": 5,
-  "value": 31,
+  "value": 34,
   "read-mint": 21,
   "arbitrate": 1,
-  "verify": 597
+  "verify": 602
  },
  "agents": {
   "gemini": {
@@ -72,7 +72,7 @@
  "parked": [],
  "open_assignments": {
   "grok": 10,
-  "muse": 11,
+  "muse": 12,
   "gemini": 5,
   "chatgpt": 0
  }

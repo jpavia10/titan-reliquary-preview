@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-14 23:42 UTC)
+# WORK QUEUE for Muse (updated 2026-10-15 00:03 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -10,7 +10,7 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ### Fix three coin photos (from the 2026-10-14 intake)  (fix list #3)
 
-Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos came with no photo: upload its photo the same way (Joseph decides on the Questions page whether it is added). When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.
+Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos is in the app as C304 from your reading (Joseph: "Whatever muse said just use that"), but it has no photo: upload it the same way as NOID_Mexico_1981_20-pesos_{obv|rev}.jpeg. When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.
 
 **Done when:** The three photos are in STAGING with a summary, each different from every photo already filed.
 
@@ -160,7 +160,7 @@ Items:
 - **catalog of C141 · France · 2009 · 1 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.1282 catalogs` [audit sample]
 - **catalog of C142 · Netherlands · 2000 · 1 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type NL.KM.234 catalogs` [audit sample]
 - **period of C139 · Spain · 2014 · 1 euro cent · EUR** `type ES.KM.1144 period` = `Eurozone` (written by Claude: «Numista N#10856 (Spain 1 euro cent, 2010 onward, KM#1144) vs N#81 / NGC KM#1040 (1999-2009, https://www.ngccoin.com/price-guide/world/spain-»)
-- **denomination of C288 · Australia · 1983 · 1 cent · AUD** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type AU.X.1-cent denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C288_obv.webp (original: https://drive.google.com/file/d/1BeTkW-rEoVY-dp6zmkSyXEetziUnJK-S/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C288_rev.webp
+- **denomination of C288 · Australia · 1983 · 1 cent · AUD** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type AU.X.1-cent denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C288_obv.webp (original: https://drive.google.com/file/d/1BeTkW-rEoVY-dp6zmkSyXEetziUnJK-S/view)
 - **catalog of C235 · Guatemala · 1934 · 10 centavos · GTQ** (blind: look it up yourself in your own exact source; the first value is not shown) `type GT.KM.239.2 catalogs`
 - **mintage of C235 · Guatemala · 1934 · 10 centavos · GTQ** (blind: look it up yourself in your own exact source; the first value is not shown) `type GT.KM.239.2 issues.0.mintage`
 - **mintage of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)** (blind: look it up yourself in your own exact source; the first value is not shown) `type US.KM.204 issues.0.mintage`
@@ -332,6 +332,18 @@ Items:
 - **catalog of C247 · South Korea · 1966 · 1 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.KM.4 catalogs`
 - **mintage of C233 · Colombia · 2016 · 50 pesos · COP** (blind: look it up yourself in your own exact source; the first value is not shown) `type CO.KM.295 issues.0.mintage`
 - **mintage of C152 · United Kingdom · 2001 · 10 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.989 issues.0.mintage`
+
+### 12. HW-muse-cite-20261014-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-21  (fix list #72)
+
+For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
+
+**Done when:** One change file answering this assignment; everything you left out goes back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261014-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **GB 1 penny (GB.X.1-penny)** coins C302. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1922
+- **MX 20 pesos (MX.X.20-pesos)** coins C304. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1981
 
 ## Projects (after the homework)
 

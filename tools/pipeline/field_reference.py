@@ -16,7 +16,7 @@ ENTITIES = [("specimen", "Specimen", "one physical piece the owner holds (`C###`
             ("type", "Type", "what a coin IS; shared by all its specimens (`CH.KM.24a.1`, `CA.X.1-cent`)"),
             ("lot", "Lot", "bullion `B###`, set `S###`, housing `H###`, stamps `P###`"),
             ("album", "AlbumVolume", "a binder volume `A###` and its slot grid (Phase 1.5)"),
-            ("photo", "Photo", "one photo record (`op: create`; created by the photo scripts only; later edits: `op: set` on `superseded_by`, and once on `crop` (how the image was cut, written by the scripts, never overwritten))"),
+            ("photo", "Photo", "one photo record (`op: create`; created by the photo scripts only; later edits: `op: set` on `superseded_by`, on `review` (Claude or the owner only, e.g. a photo filed under the wrong coin), and once on `crop` (how the image was cut, written by the scripts, never overwritten))"),
             ("issuer", "Issuer", "who issued (country or historical issuer; create only)")]
 UNITS = [("_g", "grams"), ("_mm", "millimetres"), ("_oz", "troy ounces"), ("_usd", "US dollars"), ("_cents", "cents")]
 

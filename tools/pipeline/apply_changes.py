@@ -304,6 +304,7 @@ class Applier:
         """Schema v3 phase tiers: who may write which field (schema/v3/field_tiers.json)."""
         by = e["by"]; errs = []
         if by.startswith("script:"): return errs
+        if e["entity"] == "photo" and e.get("field") == "review": return errs   # set_photo decides who (Claude or the owner)
         fields = touched_fields(e)
         if by == "owner" or by.startswith("person:"):
             return [sys_msg(e["entity"], f) for f in fields if tier_of(e["entity"], f) == "system"]
@@ -508,7 +509,18 @@ class Applier:
             if old == e["new"]: self.log.append(f"no change (value already set): photo {rid} crop.source_sha256"); return
             if old is not None: raise Reject(f"photo {rid} already has a different source fingerprint ({old[:12]}...): the original changed, so cut a new photo record")
             rec["crop"]["source_sha256"] = e["new"]; self.log_event(e, old); return
-        if e["field"] not in ("superseded_by", "crop"): raise Reject("a photo record can only be changed through op set on 'superseded_by', 'crop' or 'crop.source_sha256' (everything else: create a new photo id)")
+        if e["field"] == "review":                 # 2026-10-14: a photo filed under the wrong coin is retired (rejected, with the reason); the right coin gets its own record
+            rec = next((p for p in c.photos if p["id"] == rid), None)
+            if rec is None: raise Reject(f"photo {rid} does not exist")
+            if not (e["by"] in ("owner", "model:claude") or e["by"].startswith("person:")): raise Reject("a photo's review is set by Claude (the integrator) or the owner only")
+            new = e["new"]
+            if not (isinstance(new, dict) and set(new) == {"status", "reason"} and new["status"] in ("approved", "rejected", "reshoot")
+                    and isinstance(new["reason"], str) and len(new["reason"].strip()) >= 8):
+                raise Reject('review must be {"status": "approved" | "rejected" | "reshoot", "reason": "why, in at least 8 characters"}')
+            old = rec.get("review")
+            if old == new: self.log.append(f"no change (value already set): photo {rid} review"); return
+            rec["review"] = new; self.log_event(e, old); return
+        if e["field"] not in ("superseded_by", "crop"): raise Reject("a photo record can only be changed through op set on 'superseded_by', 'review', 'crop' or 'crop.source_sha256' (everything else: create a new photo id)")
         rec = next((p for p in c.photos if p["id"] == rid), None)
         if rec is None: raise Reject(f"photo {rid} does not exist")
         new = e["new"]

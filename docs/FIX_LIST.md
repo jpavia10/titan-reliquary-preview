@@ -1,18 +1,18 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-14, build tr114.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-14, build tr115.
 
-## State of the union (2026-10-14, build tr114)
+## State of the union (2026-10-14, build tr115)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
-- **303** pieces in flips (297 coins, 6 tokens), 51 countries
-- **$5,365** headline value at the latest metal prices (silver $60.59, gold $4,162)
-- **224** pieces with a phone photo; 79 still need one, 15 have both sides
-- **203 / 303** pieces through Phase 1 (67.0 %): 79 need a photo, 41 need a mint mark read
+- **306** pieces in flips (300 coins, 6 tokens), 51 countries
+- **$5,367** headline value at the latest metal prices (silver $60.59, gold $4,162)
+- **226** pieces with a phone photo; 80 still need one, 14 have both sides
+- **205 / 306** pieces through Phase 1 (67.0 %): 80 need a photo, 42 need a mint mark read
 - **917 / 1775** album slots filled, all 33 albums read from your page photos
-- **48.4 %** of the 3,362 facts on screen are cited or confirmed; 227 are Checked by two independent sources
+- **48.2 %** of the 3,385 facts on screen are cited or confirmed; 227 are Checked by two independent sources
 
 ### What is strong
 
@@ -32,14 +32,14 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 
 ### The next three moves, in order
 
-- **1. Turn guesses into facts.** Answer the 17 questions and the “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand.
+- **1. Turn guesses into facts.** Answer the 14 questions and the “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand.
 - **2. Let the loop run.** Do the one-time install for #92 (docs/INTAKE_BRIDGE.md; it also starts the Drive backup) and add the free Numista key; bring Gemini back when its app works.
 - **3. Measure, then decide.** Grok's locked test is in (76 %, 3.0 % invented); Muse's locked test and Gemini's are still due. Then pick who reads Phase 2, then the look (#30).
 
 ## What unlocks what (read right to left: do the last link first)
 
 - **The loop running without a chat (#92)** needs your one-time install (one Apps Script project, two GitHub secrets; about 10 minutes) ← nothing else: the bridge, the loop, the gates and the tests are built
-- **Phase 2 pro photos (#61)** needs serial numbers (#5) ← Phase 1 at 100 % (now 203 of 303: Scan a coin) ← the missing photos and mint marks + your answers (#3)
+- **Phase 2 pro photos (#61)** needs serial numbers (#5) ← Phase 1 at 100 % (now 205 of 306: Scan a coin) ← the missing photos and mint marks + your answers (#3)
 - **Which AI reads Phase 2 (#19)** needs Muse's locked test (due on its page) and Gemini's when it is back ← Grok's is in: 76 % right, 3.0 % invented
 - **Reading a coin inside the app (#65 next step)** needs the winner of #19 ← a key kept outside the public site (#92's machinery)
 - **Disagreements settled without me (#101)** needs a third research AI through the onboarding (#97: Gemini, paused until its app works)
@@ -50,7 +50,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 ## Waiting on you (not tickable: only you can do these)
 
 - Switch on the autonomous intake + Drive backup (once, about 10 minutes): follow docs/INTAKE_BRIDGE.md (github.com/jpavia10/titan-reliquary-preview/blob/main/docs/INTAKE_BRIDGE.md): one Apps Script project and two GitHub secrets. Then the AIs' files merge by themselves every hour and Drive gets a daily backup (#92, #93, #103). Never paste the URL or the key in a chat; tell me “the bridge is installed” and I run the first check.
-- Answer the 17 questions in the app (Hall footer → Questions), and the “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77).
+- Answer the 14 questions in the app (Hall footer → Questions), and the “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77).
 - Photograph the missing coins with Scan a coin (Hall footer, or Lab → Shoot list → Scan with the camera): it checks each photo, names it and sends it to Drive STAGING. Unlocks Phase 1 at 100 %.
 - Gemini is paused: when its app works again, say “Gemini is back” and paste the link to its Drive doc “WORK QUEUE for Gemini”; it finishes its open homework first, then the locked photo test.
 - Get a free Numista API key (numista.com → your account → API) and add it in GitHub: the repository → Settings → Secrets and variables → Actions → New secret, name NUMISTA_API_KEY. The weekly price job then fills in collector values (#62). Never paste the key in a chat.
@@ -62,7 +62,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - Try the Motion Lab's studies and pick what goes into the app: jpavia10.github.io/titan-reliquary-preview/motion-lab/ (coin flip in three versions, tile to coin view, Confirm seal, album settle, Morph, gold dust) (#56, #63), and say what sounds or feels off (#22).
 - Try the new theme effects on your phone: open a few themes (Scene Studio → Themes) and tell me which effects are too strong, too faint or stutter (#114).
 
-## Questions for you (17 open, all in the app; only the coin itself can answer)
+## Questions for you (14 open, all in the app; only the coin itself can answer)
 
 - **C066** Look at the date on C066, the Swiss 5 francs. Does it end in 6 or in 8?
 - **T001** How many stars are on token T001 (the 20 play token with GR)?
@@ -78,9 +78,6 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - **C088** On C088, the 1957 dime, look on the torch side, left of the torch near the bottom. Is there a small D?
 - **C064** On C064, the Malta 2008 1 euro, is there a small F on the Maltese (cross) side?
 - **C073** C073 is a tube of 26 1976 quarters. Keep it as one mixed lot, or sort it into no-letter and D piles?
-- **?** A Britannia penny (George V) waits in STAGING: NOID_UnitedKingdom_1922_1Penny_rev.jpg. Is the date 1922 or 1932?
-- **C288** Australia 1983 1 cent: the back photo NOID_Australia_1983_1Cent_rev.jpg (Oct 8) is on C288 now. Is it C288's other side, or a second 1983 1 cent?
-- **?** Mexico 1981 20 pesos (CULTURA MAYA): Muse read it on Oct 4 from a photo in your chat, but the photo never reached STAGING. Add it?
 - **→** Answer them in the app: Hall footer → Questions. Tap your answers, then “Save answers file” into the Drive change-file folder, or “Copy for chat” and paste it to me.
 
 ## The other AIs (what each one is doing now (updated 2026-10-14))
@@ -130,6 +127,7 @@ Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to ste
 - Homework Writer: 21 items, due 10-21 HW-muse-plain-story-20261014-1
 - Homework Fact-checker: 3 items, due 10-21 HW-muse-story-check-20261014-1
 - Homework Second reader: 50 items, due 10-21 HW-muse-verify-20261014-1
+- Homework Cataloguer: 2 items, due 10-21 HW-muse-cite-20261014-2
 - Then Cost to complete the albums: price the missing coins in A017 to A033 #62
 - Then Dad's one-page guide #60
 - Always Read new coin photos (with Grok, blind)
@@ -193,7 +191,7 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ### Truth
 
-- [ ] **#3 Settle the open curation questions**: 17 questions wait in the app (Hall footer → Questions), plus the “Where did they come from?” section (#77). New on Oct 14: the UK penny (1922 or 1932?), the Australia 1983 1 cent (the back of C288 or a second coin?) and the Mexico 1981 20 pesos. With the coin in hand each takes seconds. Needs first: you, with the coins · Unlocks: Phase 1 at 100 %, #5 _[partly done, medium, needs you]_
+- [ ] **#3 Settle the open curation questions**: 14 questions wait in the app (Hall footer → Questions), plus the “Where did they come from?” section (#77). With the coin in hand each takes seconds. Oct 15: the three about Muse's coins are settled on Muse's readings, as you asked (C302 UK 1922 penny, C303 a second Australia 1983 one cent, C304 Mexico 1981 20 pesos). Needs first: you, with the coins · Unlocks: Phase 1 at 100 %, #5 _[partly done, medium, needs you]_
 - [ ] **#73 Fact-check the stories**: Part of the research loop: every story nobody but its author has checked is a job. Grok's checks so far all held up; it has C151-C283 plus 33 more stories as homework. A checked story is re-sent with the exact entry it was checked against; a wrong sentence is corrected with its source. Needs first: nothing: running _[partly done, medium, new]_
 - [ ] **#48 Re-cite Muse's 26 vague sources**: Muse has the list (its REJECTED note and queue): each one moves from “AI guess” to “Reference” when Muse resends it with the exact entry. Still pending. Needs first: Muse's next file _[small]_
 - [ ] **#62 Real collector values**: Two paths, both built: Grok has appraiser homework (each value citing the exact price page and the grade assumed; a cited value is re-appraised after a year), and a weekly GitHub job fetches Numista's price estimates per grade once you add a free Numista API key. Oct 14: Grok and Gemini priced 63 of the same coins independently and agreed on 62. Values still change only through a cited file. Needs first: your free Numista API key (Waiting on you) · Unlocks: a firmer headline, #107 _[partly done, large, new]_

@@ -10,16 +10,16 @@
   "master_repo": "https://github.com/jpavia10/titan-reliquary-preview"
  },
  "counts": {
-  "specimens": 303,
-  "types": 178,
+  "specimens": 306,
+  "types": 180,
   "lots": 28,
   "albums": 33,
   "issuers": 54,
   "countries": 51,
-  "photos": 239,
-  "valuations": 599,
+  "photos": 241,
+  "valuations": 602,
   "spot_days": 34,
-  "changes": 5341,
+  "changes": 5349,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -30,9 +30,9 @@
   "album_slots_filled_claimed": 917
  },
  "totals": {
-  "specimens_est_usd": 186.6,
+  "specimens_est_usd": 188.15,
   "lots_est_usd": 3288.75,
-  "records_est_usd": 3475.35,
+  "records_est_usd": 3476.9,
   "silver_oz": {
    "specimens": 0.3733,
    "lots": 37.397,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "517ff17a806bc7927f20a626c495cebc93d586bbd29d0a5e4390e97845b6c614",
+ "content_hash": "980e5efeb98e36296c6c2749738a9f3ead67838ac292d1084a6176ac8eb1f631",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -74,18 +74,18 @@
   },
   {
    "path": "boot.json",
-   "sha256": "5d167167e5aa720a1106880a6b51909fe07bfaf70ae1d8fb63468ad81dce1115",
-   "bytes": 18900
+   "sha256": "3aa2e748312d7343548effe4146ff69893e6816fa03420fbe840a0171291f1ce",
+   "bytes": 19078
   },
   {
    "path": "changes.chain",
-   "sha256": "e5293f9df63a065899f478041e63c4e9b725523c577c077945953b560d7f857b",
-   "bytes": 209736
+   "sha256": "99aab55fed8d47fea7812815f9b9a9c9b39059bc5ca035c27d2d2a17fbb28bad",
+   "bytes": 210048
   },
   {
    "path": "changes.jsonl",
-   "sha256": "1ff69563b855194927e57efb5d0d0c4fa87c8c44f959f6faa8a6f263e53cdae3",
-   "bytes": 4127222
+   "sha256": "d6fd97dd35772d644f57ec78dff7c14e6d32ed61b145648816c1a92f661773fa",
+   "bytes": 4136044
   },
   {
    "path": "disagreements.jsonl",
@@ -99,8 +99,8 @@
   },
   {
    "path": "owner_answers.jsonl",
-   "sha256": "5cbb168ae5ef0ee2e7026baed5044e2d2c7d5898cbbf5c176b3862b598d9e3c9",
-   "bytes": 1099
+   "sha256": "37d0cfa1ec72e0205998d7c92acc2a01ca35ce8c50f8d983f4550bb935bad5d5",
+   "bytes": 2072
   },
   {
    "path": "owner_questions.json",
@@ -109,8 +109,8 @@
   },
   {
    "path": "photos.json",
-   "sha256": "4fedc1eea2a030edfb5412eb18fede7f329cec7750e19961147bda0bac59a058",
-   "bytes": 158442
+   "sha256": "9a163b3f3df15348c78ea09763f844bd98dc2e721d13d7c6ead2cee65572a804",
+   "bytes": 159920
   },
   {
    "path": "prices/latest.json",
@@ -149,8 +149,8 @@
   },
   {
    "path": "specimens/AU.json",
-   "sha256": "a19affbbc40a63c3d3f3dcc143c8d96aaf50b857969ebae8012bd9f31f8bd6c2",
-   "bytes": 9650
+   "sha256": "5776b88df0f96a5b91f6c6f04166cdae5f82ddc36d50b722491f13cf1e5befda",
+   "bytes": 11203
   },
   {
    "path": "specimens/BM.json",
@@ -229,8 +229,8 @@
   },
   {
    "path": "specimens/GB.json",
-   "sha256": "4cb02d0367565e548807420779e84125e87167e8fde52d28016e04618e5e41d5",
-   "bytes": 118131
+   "sha256": "b751669875b6d1a70272c4665bbbc5002778e08ab9ee5ab3cb3b44dafb5434a4",
+   "bytes": 119733
   },
   {
    "path": "specimens/GR.json",
@@ -299,8 +299,8 @@
   },
   {
    "path": "specimens/MX.json",
-   "sha256": "f2f6ba06c3b198d68d1e5f37b878b6b025d1eeec980f437b13470c2cfbed5ec7",
-   "bytes": 31636
+   "sha256": "0dd9e745234780c655caae6f22fee3b81a6a54e38631235f7e47b7557b4f8fd7",
+   "bytes": 33155
   },
   {
    "path": "specimens/NG.json",
@@ -504,8 +504,8 @@
   },
   {
    "path": "types/GB.json",
-   "sha256": "7f518337b5941324120ffdffa1cf1a41c655b1f9484f841de1e997c5c890e4b3",
-   "bytes": 34922
+   "sha256": "64fdeb6ada0ac170780455c7aa71221aeba57f17db1aea8a31999891df5fb805",
+   "bytes": 35921
   },
   {
    "path": "types/GR.json",
@@ -574,8 +574,8 @@
   },
   {
    "path": "types/MX.json",
-   "sha256": "8978ca529afc1c2d5e90e561742677dffaebd423a0b9ed532c233d1c6d89ddfa",
-   "bytes": 17524
+   "sha256": "e21983ce4d3bce3da8cfa77caa354f88cbddf6bf38ac823918ec527cf542e4bf",
+   "bytes": 18551
   },
   {
    "path": "types/NG.json",
@@ -669,8 +669,8 @@
   },
   {
    "path": "valuations.jsonl",
-   "sha256": "a7ba966f16fb10647a678821bd065cbabae57a9e8d38e13ffd4256a303dafb20",
-   "bytes": 152119
+   "sha256": "4b2dd230842c56668fa24bae8b9e293b047d40237b6cdef8a235d6d3665f60e7",
+   "bytes": 153513
   }
  ]
 }

@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-14T23:42:53Z",
+ "updated": "2026-10-15T00:03:17Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261009-1",
@@ -1985,13 +1985,6 @@
         "file": "C288_obv.webp",
         "original": "C288_Australia_1983_2Cent_obv.jpg",
         "drive": "https://drive.google.com/file/d/1BeTkW-rEoVY-dp6zmkSyXEetziUnJK-S/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C288_rev.webp",
-        "file": "C288_rev.webp",
-        "original": "C288_Australia_1983_1Cent_rev.jpg",
-        "drive": null
        }
       ],
       "audit": false,
@@ -1999,8 +1992,7 @@
      },
      "blind": true,
      "inputs": [
-      "C288_obv.webp",
-      "C288_rev.webp"
+      "C288_obv.webp"
      ]
     },
     {

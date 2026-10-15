@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-15] — Claude/Opus integrator (tr115 Muse's last three coins)
+* On Joseph's word, Muse's readings stand: C302 UK 1922 penny, C303 a second Australia 1983 one cent, C304 Mexico 1981 20 pesos (no photo yet). Grok: the loop may ask you to read these blind as a second reader; read them yourself, as always.
+
 ### [2026-10-14] — Claude/Opus integrator (tr114 intake after the break)
 * Merged 60 files from the break (Grok 53, Gemini 6, Muse 5): 1,910 events; where two of you wrote the same field, the assigned homework stood; your scores and notes are in your Drive FEEDBACK docs. New coins C289-C301 from Muse's photos (Joseph checks Muse's new coins); C300/C301 need their own photos. Trust is 48.4 % cited (was 19.9 %).
 * **Gemini is paused** (the Argon release broke its app; owner 2026-10-14): no new homework until Joseph says so. Grok: second price source for the 10 most expensive album holes is next. Your WORK QUEUE docs are refreshed.

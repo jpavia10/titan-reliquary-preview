@@ -549,6 +549,21 @@ class Pipeline(unittest.TestCase):
         p1 = next(p for p in BASE.photos if p["phase"] == 1)
         self.reject([ev(by="script:photo_crop_p2", entity="photo", id=p1["id"], op="set", field="path", new="photos/x.webp")], "superseded_by", setup=None)
 
+    def test_a_photo_under_the_wrong_coin_is_rejected_by_claude_or_the_owner_only(self):
+        p1 = next(p for p in BASE.photos if p["phase"] == 1 and p["kind"] == "crop_circle" and not p.get("superseded_by"))
+        rev = lambda by, new: ev(by=by, entity="photo", id=p1["id"], op="set", field="review", new=new)
+        why = {"status": "rejected", "reason": "this photo shows another coin"}
+        self.reject([rev("model:grok", why)], "Claude (the integrator) or the owner only", setup=None)
+        self.reject([rev("model:claude", {"status": "rejected", "reason": "no"})], "at least 8 characters", setup=None)
+        self.reject([rev("model:claude", {**why, "status": "gone"})], "review must be", setup=None)
+        tmp = sandbox()
+        r = self.apply(tmp, write_events(tmp, "changes_claude_1.jsonl", [rev("model:claude", why)])); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual({p["id"]: p for p in C.Collection(os.path.join(tmp, "collection")).photos}[p1["id"]]["review"], why)
+        r = self.publish(tmp); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        iso = next(s for s in BASE.specs.values() if s["id"] == p1["specimen"])["type"].split(".")[0]
+        det = json.load(open(os.path.join(tmp, "data", "detail", iso + ".json"), encoding="utf-8"))[p1["specimen"]]
+        self.assertNotIn(p1["id"], [p["id"] for p in det["photos"]])
+
     def test_publish_refuses_a_broken_collection(self):
         tmp = sandbox()
         p = os.path.join(tmp, "collection", "specimens", "CH.json"); s = open(p, encoding="utf-8").read()

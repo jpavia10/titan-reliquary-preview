@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-14T23:42:53Z",
+ "updated": "2026-10-15T00:03:17Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -27,7 +27,7 @@
   "grok-story-check-20261014": 2,
   "grok-verify-20261014": 2,
   "grok-read-mint-20261014": 2,
-  "muse-cite-20261014": 1,
+  "muse-cite-20261014": 2,
   "muse-arbitrate-20261014": 1,
   "muse-plain-story-20261014": 1,
   "gemini-read-mint-20261014": 1,
@@ -7424,6 +7424,30 @@
      "entity": "specimen",
      "id": "C298",
      "field": "issue"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-cite-20261014-2",
+   "agent": "muse",
+   "kind": "cite",
+   "issued": "2026-10-14T23:54:34Z",
+   "lease_until": "2026-10-21T23:54:34Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:GB.X.1-penny",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.20-pesos",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": null
     }
    ]
   }

@@ -25,7 +25,7 @@ def find(coll_dir=None):
     src = collections.defaultdict(set)
     for p in photos:
         f = (p.get("crop") or {}).get("source_file")
-        if f and not p.get("superseded_by"): src[p.get("specimen")].add(f)
+        if f and not p.get("superseded_by") and (p.get("review") or {}).get("status") not in ("rejected", "reshoot"): src[p.get("specimen")].add(f)
     late = set()
     for e in C.read_jsonl(os.path.join(coll_dir, "changes.jsonl")):
         if e.get("entity") == "specimen" and e.get("field") == "(new record)": late.add(e.get("id"))
