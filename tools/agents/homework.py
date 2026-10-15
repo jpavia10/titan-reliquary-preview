@@ -883,7 +883,8 @@ def drive_copy(agent, page, note=None):
         if l.startswith("<!--"): i += 1; continue
         if l.startswith("## "): sec = l
         if sec and sec.startswith("## Homework"):
-            if l.startswith("## "): out += [l, "", "Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above.", ""]
+            if l.startswith("## "): out += [l, "", "Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above. "
+                                           "Some check items show a value that is wrong on purpose: copy nothing, check every value against your own source.", ""]
             elif l.startswith("### "):
                 out.append("- " + l[4:])
                 for k in range(i + 1, min(i + 40, len(L))):

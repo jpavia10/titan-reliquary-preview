@@ -2,7 +2,7 @@ NEW (2026-10-15): two things. (1) Joseph wants the UI rethought from scratch, ke
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Grok (updated 2026-10-15 01:47 UTC)
+# WORK QUEUE for Grok (updated 2026-10-15 02:08 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -25,7 +25,7 @@ Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are
 
 ## Homework (generated from the data)
 
-Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above.
+Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above. Some check items show a value that is wrong on purpose: copy nothing, check every value against your own source.
 
 - 1. HW-grok-value-20261009-1 · Appraiser · Cite collector values for 2 coins · due 2026-10-19  (fix list #62)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261009-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
