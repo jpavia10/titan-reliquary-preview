@@ -1,0 +1,85 @@
+# Type consolidation analysis — Muse, 2026-10-15
+
+For Claude (integrator). DOCUMENTATION ONLY — no merges performed. Scanned all 168 types in the local repo clone for duplicates. Three genuine merge candidates found; the rest are renames (already in the KM migration lane) or legitimate distinct types.
+
+---
+
+## MERGE CANDIDATE 1 (high confidence): CH.KM.24a → retire
+
+**The problem:** CH.KM.24a is a generic parent type whose issues are exact duplicates of the sub-variety types' issues.
+
+| Type | Issues | Design | Composition |
+|---|---|---|---|
+| CH.KM.24a | 1970 (24,240,000), 1986 (17,997,000) | standing Helvetia, CuNi 75/25 | CuNi 75/25 |
+| CH.KM.24a.1 | 1969 (37,598,000), **1970 (24,240,000)** | standing Helvetia, CuNi 75/25 | CuNi 75/25 |
+| CH.KM.24a.3 | **1986 (17,997,000)** | standing Helvetia within 23 stars, CuNi 75/25 | CuNi 75/25 |
+
+CH.KM.24a's 1970 issue (24,240,000) is byte-identical to CH.KM.24a.1's 1970 issue. Its 1986 issue (17,997,000) is byte-identical to CH.KM.24a.3's 1986 issue. The generic type adds nothing.
+
+**Specimens affected:** 0 on CH.KM.24a (safe to retire). CH.KM.24a.1 has 2 specimens, CH.KM.24a.3 has 1.
+
+**Recommendation:** Retire CH.KM.24a. Keep CH.KM.24a.1 and CH.KM.24a.3 (legitimate KM sub-varieties).
+
+---
+
+## MERGE CANDIDATE 2 (high confidence): TR.KM.1240 → TR.KM.1241
+
+**The problem:** Two types for the identical coin.
+
+| Type | Denomination | Year | Design | Composition | Mintage |
+|---|---|---|---|---|---|
+| TR.KM.1240 | 10 kuruş | 2011 | Atatürk / crescent+star / big 10 / KURUŞ / Rumi border | "brass / CuNi-clad" (vague) | none |
+| TR.KM.1241 | 10 kuruş | 2011 | Atatürk / crescent+star / big 10 / KURUŞ / Rumi border (identical text) | brass (nickel-brass) | 156,279,000 |
+
+Design text is character-identical. The Turkish 10 kuruş current type is KM#1241 (KM#1240 is not a 10 kuruş number in Krause). TR.KM.1240 looks like a duplicate created with a mistyped KM number.
+
+**Specimens affected:** 0 on TR.KM.1240 (safe). 1 on TR.KM.1241.
+
+**Recommendation:** Merge TR.KM.1240 into TR.KM.1241. Keep TR.KM.1241.
+
+---
+
+## MERGE CANDIDATE 3 (medium-high confidence): DE.KM.211 + DE.KM.255 → single German 20 euro cent type
+
+**The problem:** Two types, same denomination, same design, both with suspect KM numbers.
+
+| Type | Denomination | Years | Design | Catalogs | Specimens |
+|---|---|---|---|---|---|
+| DE.KM.211 | 20 euro cent | 2002 (mint unknown, 1.86B) | Brandenburg Gate (identical text) | KM#211, Schön#210, J#485 | 1 (C131, 2002) |
+| DE.KM.255 | 20 euro cent | 2011 (J), 2015 (G) | Brandenburg Gate (identical text) | KM#255 | 2 |
+
+Notes:
+- KM#211 is the German **10** euro cent in standard Krause; KM#212 is the 20 cent. DE.KM.211's ID number does not match its denomination.
+- C131 (the specimen on DE.KM.211) is a 2002 20c with a clear **G** (Karlsruhe) mint mark (read in HW-muse-read-mint-20261010-1). A G-mint 2002 20c belongs on the KM#212 type.
+- DE.KM.255's KM#255 is also unverified for a 20c.
+- Design text is character-identical between the two types; composition identical (Nordic gold).
+
+**Recommendation:** Verify the true Krause number for the German 20 euro cent (expected KM#212) against the current edition, then consolidate both types under the correct ID. If KM#212 is confirmed, merge DE.KM.211 and DE.KM.255 into DE.KM.212 (3 specimens total). Do NOT merge blindly — the KM# question needs Claude's verification first.
+
+Related anomaly (for the KM brief, not a merge): DE.KM.212 is labeled "50 euro cent" with KM#212 — but KM#212 is the 20c number and KM#213 is the 50c. The DE euro series numbering needs a full audit against the current Krause edition.
+
+---
+
+## CHECKED AND CLEARED (not merges)
+
+- **CH.KM.21a / CH.KM.21a.3** (2 francs): 21a has 5 specimens and catalogs KM#21a.1 — this is a **rename** (CH.KM.21a → CH.KM.21a.1), not a merge. 21a.3 (1991) is a legitimate sub-variety; keep separate.
+- **CH.KM.40a.1 / CH.KM.40a.4** (5 francs): different designs/eras (1978 vs 2014). Keep separate.
+- **CH.KM.26 / CH.KM.26c** (5 rappen): sub-variety split. Keep separate.
+- **DE.KM.109.1 / DE.KM.109.2** (50 pfennig): composition variants. Keep separate.
+- **ES.KM.1040 / ES.KM.1144, FR.KM.1285 / FR.KM.1410, NL.KM.236 / NL.KM.346** (euro): portrait redesign series. Keep separate.
+- **GB.KM.935 / 935a, GB.KM.1109 / 1109d, GB.KM.1110 / 1110d** (etc.): portrait/metal series. Keep separate.
+- **GT.KM.239.2 / GT.KM.277.1, KY.KM.132 / KY.KM.88a, MX-CHI.KM.612 / MX.KM.424, NL.KM.107.2 / NL.KM.170**: different eras/designs. Keep separate.
+- **FR.KM.888b.1 / FR.X.5-francs**: 1946 Lavrillier vs 1994 — different types entirely. FR.X.5-francs just needs a KM# (likely KM#1021), not a merge.
+- **MX.KM.433 / MX.X.10-centavos**: 1945 vs 1995 — different types. Keep separate.
+
+## RENAME-ONLY (already in KM migration lane, not merges)
+
+CU.KM.32→KM#31, ER.KM.46→KM#47, MT.KM.128→KM#127, MT.KM.129→KM#128, MT.KM.132→KM#131, TT.KM.33→KM#32, EC.KM.38→KM#37, GR.KM.117→KM#130, NL.KM.170→KM#175, NL.KM.239→KM#238, SA.KM.20→KM#40, VN-SOV.KM.1→KM#2, GT.KM.277.1→KM#277.6a (2010 issue), JM.KM.191→KM#190, JM.KM.146→KM#146.1, CH.KM.21a→KM#21a.1.
+
+## URGENT FLAG (filed separately)
+
+A subagent's line in `changes_muse_20261014-2020.jsonl` (Group 1 verify homework, already in incoming) wrongly "corrected" AU.KM.37's catalogs to Numista N#1003 / KM#66. N#1003 is the **1966 20 cents platypus** — a different coin. AU.KM.37 is the **1943-S George VI threepence**; KM#37 is correct (confirmed: NGC price guide "Australia Threepence KM 37"; heritcoin Krause KM#37 for 1944-S). I filed `changes_muse_20261015-0332-BLOCK-AUKM37.jsonl` to block that line. **Please reject the AU.KM.37 catalogs line from the 2020 file.**
+
+---
+
+*Method: full scan of 168 types (local repo clone, Oct 8 snapshot) grouped by country+denomination+design signature, then manual verification of each multi-type group against design text, composition, issues, and specimen assignments. No merges performed — all decisions deferred to Claude.*

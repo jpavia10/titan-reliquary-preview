@@ -1,0 +1,88 @@
+# Duplicate Hunt — Potential Duplicate Specimens — 2026-10-15
+
+For Claude's review. No merges proposed — flags only.
+
+Method: scanned all 285 specimens in the local repo clone (Oct 8 snapshot; C289–C304 not included) for same type + same year groupings, then checked photos, provenance inputs, mint marks, and notes for distinguishing evidence. Also checked for shared photo files and shared provenance inputs across all specimens (none found).
+
+---
+
+## HIGH — needs Joseph/Claude decision
+
+### 1. C169 vs C275 — GB.KM.937b, 1992 UK 5 pence
+
+- **C169**: Sept 15 batch, no photo. Note: "Obverse Maklouf Elizabeth II · 1992 · user shorthand All 5 Pence + 18-coin photo drip."
+- **C275**: Oct 4 chat photo (C275-obv-p1). Note: "Phase 1 from owner's chat photo, obverse only. Date 1992 read from enlarged obverse legend."
+- Already flagged as `kind: "late-add"` in `data/dupes.json` (the only late-add in the file).
+- **Evidence for duplicate**: same type, same year, no mint mark on UK circulation coinage (can't distinguish by mint). C169 has no photo to compare against C275's photo.
+- **Evidence against**: Joseph's Sept 15 "All 5 Pence" drip explicitly included multiple 1992 5ps (C147–C151 are the 10p equivalents from the same drip — "5 1992s").
+- **Status**: already asked Joseph; awaiting his answer. Do not merge without his confirmation.
+
+---
+
+## MEDIUM — same type+year, mint unconfirmed on one, worth a look
+
+### 2. C050 vs C103 — DE.KM.110, 1982 Germany 1 Deutsche Mark
+
+- **C050**: mint unknown ("letter under date unclear (soft D/G candidate)"). Photo: C050-rev-p1.
+- **C103**: mint J (Hamburg). Photo: C103-rev-p1.
+- Different photo files, so different photo sessions — likely different coins. But if C050's mint resolves to J, they'd be same type+year+mint with no other distinguishing info.
+- **Recommendation**: read C050's mint mark from a better photo if available; if it's J, ask Joseph.
+
+### 3. C100 vs C126 — DE.KM.208, 2002 Germany 2 euro cent
+
+- **C100**: mint G (Karlsruhe), national side photographed (C100-obv-p1).
+- **C126**: mint unknown — only the common reverse was photographed (C126-obv-p1, which is the euro common side; the mint letter is on the national side).
+- Different photo files. C126's national side was never photographed, so the mint can't be checked from the existing photo.
+- **Recommendation**: low risk — C100's mint is confirmed G; C126 would only be a duplicate if its (unphotographed) national side is also G. Flag for awareness only.
+
+---
+
+## LOW — documented as intentional multiples (no action needed)
+
+The following groups are explicitly documented in their notes as separate physical coins Joseph owns ("twin", "second", "5 1992s", "4 1985s", etc.). Listed here for completeness so Claude doesn't re-flag them:
+
+| Type | Year | IDs | Note evidence |
+|---|---|---|---|
+| CH.KM.21a | 1968 | C003, C115 | "Second 1968 2 Fr after C003" |
+| CH.KM.21a | 1981 | C067, C116 | "Second 1981 2 Fr after C067" |
+| DE.KM.105 | 1985 | C187–C190 (4x) | "1s 4 1985s 1986 and 1991" — four 1pf coins |
+| DE.KM.106a | 1983 | C018 (G), C122 (D) | Different mints |
+| DE.KM.107 | 1971 | C195 (F), C237 (D) | Different mints |
+| DE.KM.108 | 1982 | C030, C090 (G), C091, C092 | "Another 2 more 1982 10" — four 10pf coins |
+| DE.KM.108 | 1989 | C022 (G), C228 (G) | "Year+mint twin of C022" — Joseph confirmed |
+| DE.KM.207 | 2002 | C132, C133, C134 (3x) | "1s 2002 2002 2002" — three 1c coins |
+| DE.KM.210 | 2002 | C037 (A/J?), C283 (D) | Different mints |
+| DE.X.spielmarke-20-gr | ND | T001, T002 | "Second Spielmarke in the vault" |
+| FR.KM.925.1 | 1960 | C059, C117, C118 (3x) | "60 60 77" — three 1F coins |
+| FR.KM.1286 | 2000 | C129, C130 | "second physical of the" [same] |
+| GB.KM.915 | 1971 | C105, C216 | "Top to bottom and left to right" photo drip |
+| GB.KM.935a | 1995 | C109, C110 | Same photo drip, sequential SER numbers |
+| GB.KM.937b | 1990 | C167, C168 | "Twin 1990 after each" |
+| GB.KM.937b | 1996 | C170, C171 | "Twin 1996 after each" |
+| GB.KM.938b | 1992 | C147–C151 (5x) | "5 1992s" — five 10p coins |
+| GB.KM.1109 | 2010 | C178, C179 | "Twin 2010 after each" |
+| GB.KM.1109d | 2014 | C181, C182 | "Twin 2014 after each" |
+| GB.KM.1110d | 2013 | C155, C156 | Sequential SER numbers, same drip |
+| IT.KM.214 | 2002 | C027, C061 (both R) | "Second" noted |
+| KY.KM.88a | 1996 | C185, C214 | "1996 and 2008 both 5s" — Joseph confirmed both |
+| NL.KM.204 | 1996 | C010, C104 | Sequential SER numbers |
+| YU.KM.86 | 1984 | C251, C262 | "Joseph: new piece (same year as C251 by coincidence — keep)" |
+
+---
+
+## Out of scope for this scan
+
+- **C289–C304** (16 newest coins) are not in the local Oct 8 repo snapshot. The C300 (Bahamas 1984 25c) / C301 (Mexico 1989 500p) possible duplicates are flagged in a separate note (`NOTE_C300_C301_duplicates_20261014.md`, already in the incoming folder).
+- **No shared photo files** across any two specimens (checked all 285).
+- **No shared provenance input files** across any two specimens (checked all 285).
+- Common-coin multiples are **cull candidates, not integrity problems** per Joseph's standing rule — the LOW group above is informational only.
+
+---
+
+## Summary for Claude
+
+1. **C169/C275** is the one real open question — needs Joseph's answer.
+2. **C050/C103** and **C100/C126** are worth a glance if better photos surface, but low risk.
+3. Everything else in the same-type+year groups is documented as intentional multiples.
+
+— Muse, 2026-10-15

@@ -1,0 +1,55 @@
+# KM off-by-one type-ID migration — brief for Claude (2026-10-10)
+
+## Context
+
+Today's research homework (`HW-muse-research-20261009-1` → `changes_muse_20261010-1713.jsonl`,
+Claude's pipeline dry-run returned APPLIED, 10 events; uploaded ~10:26 PDT) resolved 8 open
+questions. Five of the resolutions show the collection's **type IDs carry superseded KM catalog
+numbers** — off by one against the current KM edition. A coordinated type-reference migration is
+needed; ordinary `set` edits can't express a rename.
+
+Joseph's standing direction (sharpened 2026-10-10): work nonstop with extreme accuracy, zero
+decision load on him. He was asked whether to draft the migration and hasn't answered. This brief
+absorbs that scope call per the zero-decision-load rule: **nothing has been renamed** — this is a
+migration spec for Claude (repo owner, the only integrator) to verify and execute. Reversible
+until he merges it.
+
+## The five renames (evidence from today's verified research)
+
+1. **MT.KM.128 → MT.KM.127** — Malta 5 cent
+   - Numista N#2183 (Malta 5 cent): References row shows current KM# 127. The old KM# 128 was
+     superseded; the Schön# 128 entry was a copy of the old KM number and was removed in today's
+     homework. Known specimen: C028.
+2. **MT.KM.129 → MT.KM.128** — Malta 10 cent
+   - Numista N#2183→N#2184 (Malta 10 cent): current KM# 128; Schön# 129 removed in today's
+     homework. Known specimen: C043.
+   - **Ordering constraint (chained rename):** execute #1 before #2, or atomically. Renaming #2
+     first would collide with the still-existing MT.KM.128.
+3. **TT.KM.33 → TT.KM.32** — Trinidad & Tobago 25 cent
+   - Research resolved the design question (reverse is the Chaconia flower, confirmed against
+     references); current KM# 32. Known specimen: C204.
+4. **ER.KM.46 → ER.KM.47** — Eritrea 50 cent
+   - Numista N#2403: References row KM# 47. Today's homework corrected the design note (obverse
+     greater kudu, reverse five soldiers with flag — the prior camel claim and side assignment
+     were wrong). Consistent with the 2026-10-04 Round 6 audit finding. Known specimen: C212.
+5. **VN.KM.71 → VN.KM.72** — Vietnam 1000 đồng
+   - Numista N#2104: "catalogue number is settled (KM# 72, Numista N#2104)". Known specimen: C232.
+
+## Claude's lane (requested)
+
+1. Verify each rename against the **current KM catalog edition** (research evidence is live Numista
+   as of 2026-10-10; the KM edition is the authority).
+2. Enumerate **all** specimens referencing each old type ID from the collection data — not just the
+   C-numbers above; there may be more per type.
+3. Execute the renames in the pipeline, update specimen type references (respecting the Malta
+   ordering constraint), and confirm in the shared log.
+
+## What was deliberately NOT done (honest scope)
+
+- **No rename change-events drafted.** I have no verified ChangeEvent format for type renames
+  from a file that actually passed Claude's checker, and the contract rule is to rebuild from
+  what passed — never guess at a format.
+- **Nothing uploaded, nothing in the repo touched.** The homework edits that motivated this
+  (Schön removals, design-note corrections) already merged via the homework file.
+- If any rename turns out wrong against the current KM edition, drop that one and note it in the
+  shared log — the other four stand on independent evidence.

@@ -1,0 +1,30 @@
+# Provenance Audit Report — 25 coins — 2026-10-15
+
+## Summary
+Audited 25 coins with the weakest provenance (AI-level certainty on verifiable facts).
+- 23 mintage verifications
+- 2 composition verifications
+
+## Key Findings
+
+### C042/C044 (USSR 1 kopek 1962/1974) — SOURCE CORRECTION
+The mintages (750,000,000 and 780,000,000) are CORRECT but were misattributed to Numista N#767.
+Numista does not list per-year mintages for this type. The numbers come from the numisview
+"Soviet Union 1 Kopek (Reform) Checklist" which lists them explicitly. Source corrected.
+
+### All other mintages — CONFIRMED
+23 mintages verified against Numista catalogue pages. All match the recorded values.
+Provenance upgraded from AI-level to reference-level with exact N# citations.
+
+### Compositions — CONFIRMED
+- C273 (Germany 2005 1c): Copper plated steel (standard euro cent)
+- C268 (Norway 2000 50 ore): Copper-nickel per Numista N#1442
+
+## Methodology
+- Compared each recorded value against the Numista catalogue page for that type/year
+- For USSR coins, used numisview checklist (Numista lacks per-year data)
+- All sources include exact N# and URL for Claude to verify
+
+## Files
+- Change file: changes_muse_20261015-0430.jsonl (25 lines)
+- This report: PROVENANCE_AUDIT_20261015.md

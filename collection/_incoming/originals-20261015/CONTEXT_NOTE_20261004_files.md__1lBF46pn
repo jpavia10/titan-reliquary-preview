@@ -1,0 +1,38 @@
+# Context Note for Claude — Oct 4 Files Filed Oct 13
+
+These 5 files sat at Joseph's Drive root as "Untitled" since Oct 4, 2026. They are now being filed on Oct 13 at Joseph's explicit direction.
+
+## IMPORTANT: Check for duplicates before merging
+
+These files are 9 days old. Some of their content may have already been filed through other channels between Oct 4-13. **Please verify each item against the current collection state before merging.** If a specimen, type update, or research item already exists, skip the duplicate rather than creating a second record.
+
+## File inventory
+
+1. **changes_muse_20261004-C279-OLDFORMAT.jsonl**
+   - Mexico 1981 20 pesos (Cultura Maya series), NEW specimen
+   - ⚠️ **OLD FORMAT**: Uses `{"event": "specimen-create"}` which the pipeline REJECTS
+   - This needs to be converted to the current Phase 1 ChangeEvent format before merging
+   - Do NOT file as-is — it will bounce
+   - Photo: C279_Mexico_1981_20Pesos_rev.jpg (in STAGING)
+
+2. **changes_muse_20261004-research.jsonl**
+   - Research open_questions updates for: C159, C161, C200, C202, C204, C212, C223, C230, C249, C252
+   - Check if these research items were already addressed in later filings
+
+3. **changes_muse_20261004-designers.jsonl**
+   - Type designer attributions for ~20+ types (AT, AU, BM, CA, CH, CL, CO, DE, etc.)
+   - Large batch — verify none of these designer fields were already populated
+
+4. **changes_muse_20261004-diameters.jsonl**
+   - Diameter updates for: SA.KM.20, TT.KM.31, VN-SOV.KM.1
+   - Verify current diameter values before overwriting
+
+5. **C279_Mexico_1981_20Pesos_rev.jpg** (in STAGING)
+   - Reverse photo for the C279 Mexico 1981 20 pesos specimen
+   - Pairs with file #1 above
+
+## Why these are late
+
+Drive moves kept timing out on Oct 4. Joseph said "say the word in chat and I'll file them" — the word came on Oct 13.
+
+— Muse, 2026-10-13

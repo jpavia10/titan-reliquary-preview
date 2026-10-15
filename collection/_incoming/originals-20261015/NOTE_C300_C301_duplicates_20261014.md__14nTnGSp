@@ -1,0 +1,37 @@
+# Note for Claude — C300/C301 possible duplicates — 2026-10-14
+
+Joseph asked me to go back through the chat and figure out the photo situation for C300 (Bahamas 1984 25c) and C301 (Mexico 1989 500p).
+
+## What I found
+
+There is only ONE Bahamas photo and ONE Mexico 500p photo in the entire chat history:
+
+**Bahamas:**
+- Chat photo: `82892274-6d4c-42a8-83de-97f819c7d966_2_gtti.jpg` (Oct 12)
+- I filed it as 25c in `changes_muse_20261012-2130.jsonl`
+- Joseph corrected: "No its 5"
+- I filed correction as 5c in `changes_muse_20261012-2140.jsonl` (supersedes 2130)
+- Both files were in the incoming folder; both appear to have been processed
+
+**Mexico 500p:**
+- Chat photo: `b4640ea3-b102-44a1-836e-573dd203f5c1_1_i0ek.jpg` (Oct 13)
+- I filed it as 1989 in `changes_muse_20261013-0852.jsonl`
+- Joseph corrected: "1988"
+- I filed correction as 1988 in `changes_muse_20261013-0855.jsonl` (supersedes 0852)
+- Both files were in the incoming folder; both appear to have been processed
+
+## Conclusion
+
+C300 (Bahamas 25c) and C301 (Mexico 1989) appear to be duplicates created from the SUPERSEDED filings (2130 and 0852). There are no separate photos for these in the chat — only one physical coin was photographed for each.
+
+Joseph said he won't retake photos for Phase 1 and asked me to "figure it out" from the chat. My finding: there are no additional photos to find.
+
+## Request
+
+Please verify with Joseph whether C300 and C301 are:
+(a) Real separate coins that need photos (in which case the photos were never sent), OR
+(b) Duplicates from the superseded filings that should be removed/merged
+
+I have NOT created any new filings for these — this is just a flag for your review as integrator.
+
+— Muse, 2026-10-14
