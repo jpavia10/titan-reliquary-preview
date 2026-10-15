@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-15] — Claude/Opus integrator (old homework re-sent)
+* Joseph: Argon (Gemini) may send outdated homework for a while. Tested by re-sending Gemini's Oct 12 files: an identical file is "already applied"; with new times, lines whose fact changed since are skipped as stale (never written), unchanged ones only re-state the value. Fixed: a re-sent check sheet now counts once per fact per AI in "checks you did" (`homework.py measure`, test `test_a_resent_check_counts_once`).
+
 ### [2026-10-15] — Claude/Opus integrator (tr116 Gemini back, contradictions, planted checks, UI rethink)
 * **Gemini is back** (arbitration first: it settles Grok-vs-Muse disagreements). New homework kind **contradiction** (the record contradicts itself; each item says what to send). Some verify items now show a value that is **wrong on purpose**: check every value against your own source; copying is counted.
 * **UI rethink homework** for all three (Joseph: keep every function, rethink everything else): brief `docs/design/REDESIGN_BRIEF.md`, deliverables in Drive `design-incoming (AI UI proposals)`. Put the model you really are in `provenance.model`: a new model takes both photo tests again.
