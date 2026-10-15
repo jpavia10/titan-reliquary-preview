@@ -133,6 +133,7 @@ def main(argv):
     print(f"{len(events)} change event(s), {len(log)} answer(s) recorded, {len(follow)} follow-up(s)")
     for f in follow: print("FOLLOW-UP", f)
     if dry: return 0
+    out = None
     if events:
         out = os.path.join(coll, "_incoming", f"changes_owner_{stamp}.jsonl"); n = 2
         while os.path.exists(out):   # Muse's review MUS-3-03: a second run in the same minute must never overwrite unpublished owner answers
@@ -146,7 +147,9 @@ def main(argv):
     # 2026-10-15 (owner: "How do I know that you got those three answers?"): one receipt per processed file, whichever way it came (chat,
     # Drive, the app's GitHub issue). publish.py turns these into data/answers_received.json; the app matches `made` to the batch it sent
     # and shows "Received" with the counts, so the phone knows its answers arrived.
-    rc = {"made": ts, "file": os.path.basename(argv[0]), "processed": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    # `changes` names the change file: publish.py only publishes this receipt once that file is merged (in _incoming/applied), never before
+    rc = {"made": ts, "file": os.path.basename(argv[0]), "changes": os.path.basename(out) if out else None,
+          "processed": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
           "answers": len(data.get("answers") or []), "recorded": len(log), "facts": len(events), "speed": len(speed), "skipped": len(problems), "followups": len(follow)}
     os.makedirs(os.path.dirname(RECEIPTS), exist_ok=True)
     with open(RECEIPTS, "a", encoding="utf-8", newline="\n") as fh: fh.write(json.dumps(rc, ensure_ascii=False) + "\n")

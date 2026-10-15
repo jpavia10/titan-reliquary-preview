@@ -28,6 +28,10 @@ echo "answers file: $(basename "$F")"
 python3 tools/pipeline/owner_answers.py "$F" | tee "$LOG"; [ "${PIPESTATUS[0]}" -eq 0 ] || fail "owner_answers.py could not read the file"
 python3 tools/pipeline/publish.py > "$TMPD/publish.log" 2>&1 || { tail -30 "$TMPD/publish.log"; fail "publish refused the merge"; }
 tail -5 "$TMPD/publish.log"
+if grep -q "rejected: .*changes_owner_" "$TMPD/publish.log"; then          # the answers' own change file was refused: say why, never "received"
+  grep -A6 "REJECTED changes_owner_" "$TMPD/publish.log" | sed 's/^/SKIPPED /' >> "$LOG"
+  fail "the merge refused the answers (the reasons are listed above)"
+fi
 python3 tools/pipeline/chain.py verify collection --against "$BEFORE" || fail "the change log check failed"
 python3 tools/schema/validate.py collection/ > "$TMPD/validate.log" || { tail -20 "$TMPD/validate.log"; fail "the collection did not validate"; }
 python3 tools/agents/homework.py --check || fail "the research loop check failed"

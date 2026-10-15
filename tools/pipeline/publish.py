@@ -163,6 +163,8 @@ def main(argv):
     rec = []
     if os.path.exists(rp):
         with open(rp, encoding="utf-8") as fh: rec = [json.loads(l) for l in fh if l.strip()]
+    applied = os.path.join(coll, "_incoming", "applied")
+    rec = [r for r in rec if not r.get("changes") or os.path.exists(os.path.join(applied, r["changes"]))]     # a refused file is never "received"
     with open(f"{outuse}/answers_received.json", "w", encoding="utf-8", newline="\n") as f:
         json.dump({"generated_at": ver["generated_at"], "batches": [{k: r.get(k) for k in ("made", "processed", "answers", "recorded", "facts", "skipped", "followups")} for r in rec[-60:]]}, f, ensure_ascii=False, separators=(",", ":"))
     dg = DUP.find(coll)
