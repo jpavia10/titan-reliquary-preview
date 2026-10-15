@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-15 14:17 UTC)
+# WORK QUEUE for Muse (updated 2026-10-15 14:28 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -13,12 +13,6 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos is in the app as C304 from your reading (Joseph: "Whatever muse said just use that"), but it has no photo: upload it the same way as NOID_Mexico_1981_20-pesos_{obv|rev}.jpeg. When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.
 
 **Done when:** The three photos are in STAGING with a summary, each different from every photo already filed.
-
-### UI rethink, part 3: what is clunky today (phone walkthrough) + 10 references  (fix list #116)
-
-Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'). Your part is the evidence the other two design from. (1) Walk the live app on a phone-sized screen (https://jpavia10.github.io/titan-reliquary-preview/) doing the ten jobs Joseph and his dad really do (for example: what's new today; find a coin; which Silver Eagle year is missing; answer a coin question and send it; photograph the next coin; change the World and its sound; show the collection to a friend). For each: the taps it took, where it got stuck, and why, ranked worst first. (2) Ten reference works that show how this could feel (public sites, demos, apps; code-made motion and 3D): the link, what to borrow, and why it fits a coin collection. No prototype needed. Save as design_muse_{YYYYMMDD-HHMM}_walkthrough.md in Drive 'design-incoming (AI UI proposals)'.
-
-**Done when:** One file with the ranked walkthrough and the ten references.
 
 ### Second reader on Grok's Numista batches  (fix list #72)
 
@@ -261,12 +255,6 @@ Items:
 - **mintage of C224 · Germany · 1966 · 10 Pfennig · DEM** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.108 issues.0.mintage`
 
 ## Projects (after the homework)
-
-### Cost to complete the albums: price the missing coins in A017 to A033  [NEXT]  (fix list #62)
-
-Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A017 to A033, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_muse_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {"album": "A001", "label": "1941-D", "value_usd": 1.25, "grade": "VF", "source": "exact page URL", "confidence": "med|low"}, plus a total per album.
-
-**Done when:** One JSON file covering every missing coin in A017 to A033 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing.
 
 ### Dad's one-page guide  [NEXT]  (fix list #60)
 

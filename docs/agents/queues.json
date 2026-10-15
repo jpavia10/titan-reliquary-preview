@@ -1,6 +1,6 @@
 {
   "about": "Hand-written PROJECTS for the other AIs (owner rule 10, 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Since 2026-10-09 most work is generated homework (tools/agents/homework.py from docs/agents/roles.json; docs/agents/RESEARCH_LOOP.md): this file keeps only what cannot be computed from the data (work in progress, code reviews, guides, music, motion, onboarding). A task with `reserves` holds those coins of those kinds for its AI while it is open. Each AI's page (docs/agents/QUEUE_{ai}.md, the same text as its Drive doc 'WORK QUEUE for ...') shows: finish first (state now), then its homework, then the other projects.",
-  "updated": "2026-10-10",
+  "updated": "2026-10-15",
   "agents": [
     {
       "id": "grok",
@@ -11,11 +11,11 @@
       "tasks": [
         {
           "n": 6,
-          "title": "UI rethink, part 1: a structure beyond the wings + a working prototype",
+          "title": "UI rethink, step 2: The Field's three filters, on the real data",
           "fix": "#116",
           "state": "now",
-          "what": "Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'), then open the live app on a phone-sized screen. Your part is the information architecture. (1) A proposal (.md): two structures that replace the five wings (for example one continuous space with semantic zoom from the whole collection down to one coin's die; or the coin as the centre that every view orbits), pick one and say why, and map every function in the brief's table to a place in it. (2) A working prototype (.html, Three.js from cdnjs with an exact version is fine) of its core move on the real data (../../../data/index.json and data/detail/{ISO}.json): open the app, see the whole collection, go to one coin and back, with the transition explaining where the coin lives. Phone first, 55+ fps, honours prefers-reduced-motion. Save both as design_grok_{YYYYMMDD-HHMM}_{name}.md / .html in Drive 'design-incoming (AI UI proposals)'. Everything you need is in the brief; never invent coin data.",
-          "done_when": "The proposal and the prototype are in the folder; Claude hosts the prototype at /prototypes/v2/grok/ and Joseph tries it on his phone."
+          "what": "Your Field prototype is live at https://jpavia10.github.io/titan-reliquary-preview/prototypes/v2/grok/ (scored 9; it ran first time on the current data). Build the three filters your proposal promises, in the same single file: (1) album: choosing an album family (../../../data/wants.json) shows its holes as empty rings in the rows; tapping a ring shows the want-list entry with its price and source; (2) metal: silver and gold light up, the rest dims; (3) to photograph: the coins without a phone photo rise. Then measure ?fps for open, back and drag the same way as before. Same hard rules (live data only, 16 px, 44 px, Motion Full/Calm/Off, pause when hidden). Send design_grok_{YYYYMMDD-HHMM}_field-v2.html plus a short .md of what changed to Drive 'design-incoming (AI UI proposals)'.",
+          "done_when": "Claude replaces /prototypes/v2/grok/ with v2 and Joseph tries 'find a missing Silver Eagle' on his phone."
         },
         {
           "n": 1,
@@ -199,7 +199,7 @@
           "done_when": "Ongoing."
         }
       ],
-      "drive_note": "NEW (2026-10-15): two things. (1) Joseph wants the UI rethought from scratch, keeping every function: your part is the structure beyond the wings plus a working prototype (first task below; brief in Drive 'design-incoming (AI UI proposals)'). (2) A new homework kind, contradictions in the record, and Gemini is back as the third reader for disagreements. Your film and card scores are in your FEEDBACK doc (8 and 9)."
+      "drive_note": "NEW (2026-10-15, later): your 8 round-2 patches are in the app (build tr117, every suite and smoke 38/38 green) and The Field is live at /prototypes/v2/grok/ (scores 8, 9 and 10 in your FEEDBACK doc). Next: The Field's three filters (first task), then the homework. Answer sheets now name the year and mint on every issues.N line; type ids are names, not always the KM number."
     },
     {
       "id": "muse",
@@ -215,14 +215,6 @@
           "state": "now",
           "what": "Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos is in the app as C304 from your reading (Joseph: \"Whatever muse said just use that\"), but it has no photo: upload it the same way as NOID_Mexico_1981_20-pesos_{obv|rev}.jpeg. When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.",
           "done_when": "The three photos are in STAGING with a summary, each different from every photo already filed."
-        },
-        {
-          "n": 7,
-          "title": "UI rethink, part 3: what is clunky today (phone walkthrough) + 10 references",
-          "fix": "#116",
-          "state": "now",
-          "what": "Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'). Your part is the evidence the other two design from. (1) Walk the live app on a phone-sized screen (https://jpavia10.github.io/titan-reliquary-preview/) doing the ten jobs Joseph and his dad really do (for example: what's new today; find a coin; which Silver Eagle year is missing; answer a coin question and send it; photograph the next coin; change the World and its sound; show the collection to a friend). For each: the taps it took, where it got stuck, and why, ranked worst first. (2) Ten reference works that show how this could feel (public sites, demos, apps; code-made motion and 3D): the link, what to borrow, and why it fits a coin collection. No prototype needed. Save as design_muse_{YYYYMMDD-HHMM}_walkthrough.md in Drive 'design-incoming (AI UI proposals)'.",
-          "done_when": "One file with the ranked walkthrough and the ten references."
         },
         {
           "n": 2,
@@ -241,14 +233,6 @@
           "done_when": "22 hero files in the output folder (or as many as you could) and artreq_20261010-1700_theme-thumbnails.p2.DONE.txt listing each file: ok or skipped: reason."
         },
         {
-          "n": 4,
-          "title": "Cost to complete the albums: price the missing coins in A017 to A033",
-          "fix": "#62",
-          "state": "next",
-          "what": "Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A017 to A033, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_muse_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {\"album\": \"A001\", \"label\": \"1941-D\", \"value_usd\": 1.25, \"grade\": \"VF\", \"source\": \"exact page URL\", \"confidence\": \"med|low\"}, plus a total per album.",
-          "done_when": "One JSON file covering every missing coin in A017 to A033 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing."
-        },
-        {
           "n": 5,
           "title": "Dad's one-page guide",
           "fix": "#60",
@@ -265,7 +249,7 @@
           "done_when": "Ongoing."
         }
       ],
-      "drive_note": "NEW (2026-10-15): 16 of your new coins are in the app (C289 to C304). Joseph now wants the UI rethought: your part is a phone walkthrough of what is clunky plus 10 references (task below; brief in Drive 'design-incoming (AI UI proposals)'). The three coin photos (C300, C301, C304) still come first. Then the homework."
+      "drive_note": "NEW (2026-10-15, later): your album prices are live (all 33 albums now priced), your Dad's guide is in the repo and your walkthrough sits next to The Field. Read your FEEDBACK doc before the next file (scores 4 and 7): keep each answer sheet's lines as they are (provenance.assignment, old, verified false); cite only the coin's own Numista entry (9 audit lines cited other pages; N#1234 is the sheet's example URL); no style rewrites of stories; bonus passes never on facts another AI is checking. Your 10 arbitration items are in the homework."
     },
     {
       "id": "chatgpt",
@@ -284,11 +268,11 @@
       "tasks": [
         {
           "n": 4,
-          "title": "UI rethink, part 2: novel data views + a better atmosphere (two prototypes)",
+          "title": "UI rethink, part 2 again: Continuum v3 on the live data",
           "fix": "#116, #117",
           "state": "now",
-          "what": "Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'). Antigravity is the best surface for this (it can run and test code). Build two working prototypes on the real data, each one .html (or a small .zip), phone first: (A) a novel way to show the collection's data that a list or a card cannot (for example albums as a physical binder whose holes fill with the real phone photos and whose empty holes show what is missing and its price; the collection on a globe or timeline that morphs as you scroll; value as something that moves with the metal price). (B) a replacement for Scene Studio, which Joseph calls clunky: picking a World, its sound and the motion level in one smooth control with a live preview, instead of a long panel. Each with a short .md: the idea in one sentence, how it works on a phone, what it costs. Save as design_gemini_{YYYYMMDD-HHMM}_{name}.{html|md|zip} in Drive 'design-incoming (AI UI proposals)'. Read data with ../../../data/... paths (Claude hosts it at /prototypes/v2/gemini/); never invent coin data; no edits to a copy of the app.",
-          "done_when": "Both prototypes and their notes are in the folder; Claude hosts them at /prototypes/v2/gemini/."
+          "what": "Continuum v2 was not hosted (FEEDBACK doc, score 3): it embeds a 636 KB frozen copy of the data and invents figures. Send v3 that (1) reads ../../../data/index.json, wants.json, status.json, prices.json and data/detail/{ISO}.json at load and embeds no coin data, counts or photos; (2) drops the liquidation waterfall (dealer, melt and pawn prices: the collection is HOLD, and there is no source) and the 'ring frequencies'; (3) keeps the six-lens dock, the instanced field and the coin-settle animation; (4) loads three.js from cdnjs at an exact version; (5) is saved as a plain .html file, not a Google Doc. Name it design_gemini_{YYYYMMDD-HHMM}_continuum-v3.html in Drive 'design-incoming (AI UI proposals)'.",
+          "done_when": "Claude hosts it at /prototypes/v2/gemini/ next to The Field and Joseph compares the two on his phone."
         },
         {
           "n": 1,
@@ -315,7 +299,7 @@
           "done_when": "4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each)."
         }
       ],
-      "drive_note": "NEW (2026-10-15): you are back on (Joseph: \"Unpause gemini... Whether on gemini argon in chat or antigravity or gemini spark\"). You are now the third reader: any disagreement between Grok and Muse comes to you first (none is waiting for you today). Start with the two design prototypes (Antigravity is ideal; brief in Drive 'design-incoming (AI UI proposals)'), then the homework. Put the model you really are in provenance (e.g. the Argon model's name): a new model takes both photo tests again."
+      "drive_note": "NEW (2026-10-15, later): Continuum v2 was not hosted: it embeds a frozen copy of the data and invents prices (see FEEDBACK, score 3). First task: v3 on the live data. Then your 7 arbitration items (Grok's design-text checks against the record) and the rest of the homework."
     }
   ]
 }

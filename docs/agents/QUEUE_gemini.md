@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-15 14:17 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-15 14:28 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,11 +8,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### UI rethink, part 2: novel data views + a better atmosphere (two prototypes)  (fix list #116, #117)
+### UI rethink, part 2 again: Continuum v3 on the live data  (fix list #116, #117)
 
-Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'). Antigravity is the best surface for this (it can run and test code). Build two working prototypes on the real data, each one .html (or a small .zip), phone first: (A) a novel way to show the collection's data that a list or a card cannot (for example albums as a physical binder whose holes fill with the real phone photos and whose empty holes show what is missing and its price; the collection on a globe or timeline that morphs as you scroll; value as something that moves with the metal price). (B) a replacement for Scene Studio, which Joseph calls clunky: picking a World, its sound and the motion level in one smooth control with a live preview, instead of a long panel. Each with a short .md: the idea in one sentence, how it works on a phone, what it costs. Save as design_gemini_{YYYYMMDD-HHMM}_{name}.{html|md|zip} in Drive 'design-incoming (AI UI proposals)'. Read data with ../../../data/... paths (Claude hosts it at /prototypes/v2/gemini/); never invent coin data; no edits to a copy of the app.
+Continuum v2 was not hosted (FEEDBACK doc, score 3): it embeds a 636 KB frozen copy of the data and invents figures. Send v3 that (1) reads ../../../data/index.json, wants.json, status.json, prices.json and data/detail/{ISO}.json at load and embeds no coin data, counts or photos; (2) drops the liquidation waterfall (dealer, melt and pawn prices: the collection is HOLD, and there is no source) and the 'ring frequencies'; (3) keeps the six-lens dock, the instanced field and the coin-settle animation; (4) loads three.js from cdnjs at an exact version; (5) is saved as a plain .html file, not a Google Doc. Name it design_gemini_{YYYYMMDD-HHMM}_continuum-v3.html in Drive 'design-incoming (AI UI proposals)'.
 
-**Done when:** Both prototypes and their notes are in the folder; Claude hosts them at /prototypes/v2/gemini/.
+**Done when:** Claude hosts it at /prototypes/v2/gemini/ next to The Field and Joseph compares the two on his phone.
 
 ## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
 

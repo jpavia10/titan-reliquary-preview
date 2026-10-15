@@ -1,8 +1,8 @@
-NEW (2026-10-15): two things. (1) Joseph wants the UI rethought from scratch, keeping every function: your part is the structure beyond the wings plus a working prototype (first task below; brief in Drive 'design-incoming (AI UI proposals)'). (2) A new homework kind, contradictions in the record, and Gemini is back as the third reader for disagreements. Your film and card scores are in your FEEDBACK doc (8 and 9).
+NEW (2026-10-15, later): your 8 round-2 patches are in the app (build tr117, every suite and smoke 38/38 green) and The Field is live at /prototypes/v2/grok/ (scores 8, 9 and 10 in your FEEDBACK doc). Next: The Field's three filters (first task), then the homework. Answer sheets now name the year and mint on every issues.N line; type ids are names, not always the KM number.
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Grok (updated 2026-10-15 14:17 UTC)
+# WORK QUEUE for Grok (updated 2026-10-15 14:28 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -11,11 +11,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### UI rethink, part 1: a structure beyond the wings + a working prototype  (fix list #116)
+### UI rethink, step 2: The Field's three filters, on the real data  (fix list #116)
 
-Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'), then open the live app on a phone-sized screen. Your part is the information architecture. (1) A proposal (.md): two structures that replace the five wings (for example one continuous space with semantic zoom from the whole collection down to one coin's die; or the coin as the centre that every view orbits), pick one and say why, and map every function in the brief's table to a place in it. (2) A working prototype (.html, Three.js from cdnjs with an exact version is fine) of its core move on the real data (../../../data/index.json and data/detail/{ISO}.json): open the app, see the whole collection, go to one coin and back, with the transition explaining where the coin lives. Phone first, 55+ fps, honours prefers-reduced-motion. Save both as design_grok_{YYYYMMDD-HHMM}_{name}.md / .html in Drive 'design-incoming (AI UI proposals)'. Everything you need is in the brief; never invent coin data.
+Your Field prototype is live at https://jpavia10.github.io/titan-reliquary-preview/prototypes/v2/grok/ (scored 9; it ran first time on the current data). Build the three filters your proposal promises, in the same single file: (1) album: choosing an album family (../../../data/wants.json) shows its holes as empty rings in the rows; tapping a ring shows the want-list entry with its price and source; (2) metal: silver and gold light up, the rest dims; (3) to photograph: the coins without a phone photo rise. Then measure ?fps for open, back and drag the same way as before. Same hard rules (live data only, 16 px, 44 px, Motion Full/Calm/Off, pause when hidden). Send design_grok_{YYYYMMDD-HHMM}_field-v2.html plus a short .md of what changed to Drive 'design-incoming (AI UI proposals)'.
 
-**Done when:** The proposal and the prototype are in the folder; Claude hosts the prototype at /prototypes/v2/grok/ and Joseph tries it on his phone.
+**Done when:** Claude replaces /prototypes/v2/grok/ with v2 and Joseph tries 'find a missing Silver Eagle' on his phone.
 
 ### Fact-check the coin stories, C151 to C283  (fix list #73)
 
