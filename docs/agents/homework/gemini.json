@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-15T14:30:00Z",
+ "updated": "2026-10-15T14:47:07Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261014-1",
@@ -5820,6 +5820,8 @@
        "year": "1922",
        "denom": "1 penny · GBP",
        "mint": "no mint mark visible",
+       "refs": "Numista#578 · KM#810 · Schön#299",
+       "metal": "bronze",
        "specs": "thickness unknown",
        "mintage": "unknown"
       }
@@ -5876,6 +5878,8 @@
        "year": "1981",
        "denom": "20 pesos · MXN",
        "mint": "not read (no photo of this coin in Drive yet)",
+       "refs": "Numista#987 · KM#486 · Schön#78",
+       "metal": "copper-nickel (75% copper, 25% nickel)",
        "specs": "thickness unknown",
        "mintage": "unknown"
       }

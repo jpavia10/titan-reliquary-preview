@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-15T14:30:00Z",
+ "updated": "2026-10-15T14:47:07Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261009-1",
@@ -1306,9 +1306,10 @@
       "fact": "design",
       "author": "Muse",
       "value": "obverse greater kudu left · STATE OF ERITREA · 1997 · 50 · FIFTY CENTS · reverse five soldiers with flag · LIBERTY · EQUALITY · JUSTICE · 1991",
-      "their_source": "Verified correct — sides are NOT swapped. Numista N#2403 (50 Cents - Eritrea, 1997), https://en.numista.com/catalogue/pieces2403.html — Obve",
+      "their_source": "Numista N#2403 (https://en.numista.com/catalogue/pieces2403.html) lists no engraver; madote.com 'The American Man Who Designed Eritrea\\'s Na",
       "links": [
-       "https://en.numista.com/catalogue/pieces2403.html"
+       "https://en.numista.com/catalogue/pieces2403.html",
+       "http://www.madote.com/2015/01/the-american-man-who-designed-eritreas.html"
       ],
       "photos": [],
       "audit": true,
@@ -3917,6 +3918,150 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-cite-20261015-2",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-15T14:42:39Z",
+   "lease_until": "2026-10-22T14:42:39Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:GB.X.1-penny",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.20-pesos",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:GB.X.1-penny",
+     "kind": "cite",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": null,
+     "coins": [
+      "C302"
+     ],
+     "label": "GB 1 penny (GB.X.1-penny)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1922,
+        "mint_marks": [],
+        "coins": [
+         "C302"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "Numista",
+        "number": "578"
+       },
+       {
+        "system": "KM",
+        "number": "810"
+       },
+       {
+        "system": "Schön",
+        "number": "299"
+       }
+      ],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "bronze",
+      "ask": [
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "issues.0.mintage: 1922"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1922,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:MX.X.20-pesos",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": null,
+     "coins": [
+      "C304"
+     ],
+     "label": "MX 20 pesos (MX.X.20-pesos)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1981,
+        "mint_marks": [],
+        "coins": [
+         "C304"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "Numista",
+        "number": "987"
+       },
+       {
+        "system": "KM",
+        "number": "486"
+       },
+       {
+        "system": "Schön",
+        "number": "78"
+       }
+      ],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "copper-nickel (75% copper, 25% nickel)",
+      "ask": [
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "issues.0.mintage: 1981"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1981,
+       "mint": [],
+       "qualifier": null
+      }
+     }
     }
    ]
   }

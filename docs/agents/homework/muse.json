@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-15T14:30:00Z",
+ "updated": "2026-10-15T14:47:07Z",
  "assignments": [
   {
    "id": "HW-muse-story-check-20261014-1",
@@ -125,128 +125,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-muse-cite-20261014-2",
-   "agent": "muse",
-   "kind": "cite",
-   "issued": "2026-10-14T23:54:34Z",
-   "lease_until": "2026-10-21T23:54:34Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "cite:GB.X.1-penny",
-     "entity": "type",
-     "id": "GB.X.1-penny",
-     "field": null
-    },
-    {
-     "item": "cite:MX.X.20-pesos",
-     "entity": "type",
-     "id": "MX.X.20-pesos",
-     "field": null
-    }
-   ],
-   "items_full": [
-    {
-     "item": "cite:GB.X.1-penny",
-     "kind": "cite",
-     "entity": "type",
-     "id": "GB.X.1-penny",
-     "field": null,
-     "coins": [
-      "C302"
-     ],
-     "label": "GB 1 penny (GB.X.1-penny)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1922,
-        "mint_marks": [],
-        "coins": [
-         "C302"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": null,
-      "diameter_mm": null,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
-       "nominal.diameter_mm",
-       "composition.text + composition.metal_class",
-       "issues.0.mintage: 1922"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 1922,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:MX.X.20-pesos",
-     "kind": "cite",
-     "entity": "type",
-     "id": "MX.X.20-pesos",
-     "field": null,
-     "coins": [
-      "C304"
-     ],
-     "label": "MX 20 pesos (MX.X.20-pesos)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1981,
-        "mint_marks": [],
-        "coins": [
-         "C304"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": null,
-      "diameter_mm": null,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
-       "nominal.diameter_mm",
-       "composition.text + composition.metal_class",
-       "issues.0.mintage: 1981"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 1981,
-       "mint": [],
-       "qualifier": null
-      }
-     }
     }
    ]
   },
@@ -1347,18 +1225,19 @@
      ],
      "label": "design of C066 · Switzerland · 1978 · 5 francs · CHF",
      "authors": [
-      "grok"
+      "muse"
      ],
      "payload": {
       "fact": "design",
-      "author": "Grok",
+      "author": "Muse",
       "value": "herdsman / shepherd head (obv) · 5 FR. + Swiss Cross shield in alpine wreath (rev) · designer Paul Burkhard",
-      "their_source": "Agree — every element checked against Numista N#195 (https://en.numista.com/catalogue/pieces195.html) Obverse/Reverse sections",
+      "their_source": "Numista N#195 (https://en.numista.com/195) — 5 francs KM#40a.1; Designer (both sides): Paul Burkhard",
       "links": [
+       "https://en.numista.com/195",
        "https://en.numista.com/catalogue/pieces195.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false
      },

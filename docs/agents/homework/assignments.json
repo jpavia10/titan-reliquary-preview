@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-15T14:30:00Z",
+ "updated": "2026-10-15T14:47:07Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -42,7 +42,7 @@
   "gemini-contradiction-20261015": 1,
   "gemini-value-20261015": 1,
   "gemini-story-check-20261015": 1,
-  "grok-cite-20261015": 1,
+  "grok-cite-20261015": 2,
   "grok-story-check-20261015": 1,
   "grok-verify-20261015": 2,
   "muse-contradiction-20261015": 1,
@@ -7515,9 +7515,13 @@
    "kind": "cite",
    "issued": "2026-10-14T23:54:34Z",
    "lease_until": "2026-10-21T23:54:34Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-15T14:42:39Z",
+   "result": {
+    "items": 2,
+    "closed": 0,
+    "left": 2
+   },
    "items": [
     {
      "item": "cite:GB.X.1-penny",
@@ -9396,6 +9400,30 @@
      "field": "issues.0.mintage"
     }
    ]
+  },
+  {
+   "id": "HW-grok-cite-20261015-2",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-15T14:42:39Z",
+   "lease_until": "2026-10-22T14:42:39Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:GB.X.1-penny",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.20-pesos",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": null
+    }
+   ]
   }
  ],
  "tried": {
@@ -11121,6 +11149,22 @@
     "assignment": "HW-grok-contradiction-20261015-1",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   }
+  ],
+  "cite:GB.X.1-penny": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:42:39Z"
+   }
+  ],
+  "cite:MX.X.20-pesos": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-cite-20261014-2",
+    "outcome": "attempted",
+    "ts": "2026-10-15T14:42:39Z"
    }
   ]
  },

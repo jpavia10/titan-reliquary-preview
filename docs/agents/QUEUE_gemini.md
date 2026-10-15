@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-15 14:30 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-15 14:47 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -482,9 +482,9 @@ Items:
 - **C299 · Italy · 1979 · 50 lire · ITL**: «A 1979 fifty-lire coin from Italy. The side shown has Vulcan, the god of fire, hammering at an anvil, with L. 50 and the date. The other side has the head of Italia. Struck in stainless steel.» Record: «{"country": "Italy", "year": "1979", "denom": "50 lire · ITL", "mint": "not visible on the Vulcan side", "refs": "KM#95.1 · Schön#95 · Numista#724", "metal": "Acmonital stainless steel · 6.25 g · 24.8 mm · reeded", "specs": "thickness 1.95 mm · coin alignment", "mintage": "unknown", "design": "obverse Italia / Republic head oak-crowned (Romagnoli) · reverse Vulcan at anvil with hammer · L.50 · da…»
 - **C300 · Bahamas · 1984 · 25 cents · BSD**: «A 1984 twenty-five-cent coin from the Bahamas. One side shows a Bahamian sailing sloop, the other the national arms with COMMONWEALTH OF THE BAHAMAS. There is no photo of this coin yet.» Record: «{"country": "Bahamas", "year": "1984", "denom": "25 cents · BSD", "mint": "not read (no photo of this coin yet)", "specs": "thickness unknown", "mintage": "unknown"}»
 - **C301 · Mexico · 1989 · 500 pesos · MXP**: «A 1989 five-hundred-peso coin from Mexico with Francisco I. Madero, who started the Mexican Revolution in 1910, beside a large $500. Inflation made coins this big in the 1980s; in 1993 Mexico dropped three zeros from its money. There is no photo of this coin yet.» Record: «{"country": "Mexico", "year": "1989", "denom": "500 pesos · MXP", "mint": "Mo", "refs": "Numista#819", "metal": "copper-nickel (75% copper, 25% nickel) · 12.64 g · 28.5 mm", "specs": "thickness unknown", "mintage": "40,000,000"}»
-- **C302 · United Kingdom · 1922 · 1 penny · GBP**: «A bronze penny from the reign of George V, showing Britannia with trident and shield on the reverse. Britain's pennies were the workhorse small change of the empire.» Record: «{"country": "United Kingdom", "year": "1922", "denom": "1 penny · GBP", "mint": "no mint mark visible", "specs": "thickness unknown", "mintage": "unknown"}»
+- **C302 · United Kingdom · 1922 · 1 penny · GBP**: «A bronze penny from the reign of George V, showing Britannia with trident and shield on the reverse. Britain's pennies were the workhorse small change of the empire.» Record: «{"country": "United Kingdom", "year": "1922", "denom": "1 penny · GBP", "mint": "no mint mark visible", "refs": "Numista#578 · KM#810 · Schön#299", "metal": "bronze", "specs": "thickness unknown", "mintage": "unknown"}»
 - **C303 · Australia · 1983 · 1 cent · AUD**: «A 1983 one-cent coin from Australia. The side shown has Stuart Devlin's feather-tailed glider with a large 1 and the date. Struck in bronze.» Record: «{"country": "Australia", "year": "1983", "denom": "1 cent · AUD", "mint": "none on the value side", "refs": "KM#62 · Schön#49 · Numista#1559", "metal": "bronze (97% copper, 2.5% zinc, 0.5% tin) · 2.59 g · 17.53 mm · plain", "specs": "thickness 1.5 mm", "mintage": "unknown"}»
-- **C304 · Mexico · 1981 · 20 pesos · MXN**: «Mexican 20 pesos from the Cultura Maya series, showing a Maya ball player and pyramid. CULTURA MAYA legend, date 1981, large 20 in center.» Record: «{"country": "Mexico", "year": "1981", "denom": "20 pesos · MXN", "mint": "not read (no photo of this coin in Drive yet)", "specs": "thickness unknown", "mintage": "unknown"}»
+- **C304 · Mexico · 1981 · 20 pesos · MXN**: «Mexican 20 pesos from the Cultura Maya series, showing a Maya ball player and pyramid. CULTURA MAYA legend, date 1981, large 20 in center.» Record: «{"country": "Mexico", "year": "1981", "denom": "20 pesos · MXN", "mint": "not read (no photo of this coin in Drive yet)", "refs": "Numista#987 · KM#486 · Schön#78", "metal": "copper-nickel (75% copper, 25% nickel)", "specs": "thickness unknown", "mintage": "unknown"}»
 
 Answer sheet (the same as the link):
 
@@ -584,5 +584,5 @@ The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 6; expired: 0.
-- Your facts checked by another contributor: 89 (89 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-4 %). Checks you did for others: 60. Open disagreements you are part of: 1.
+- Your facts checked by another contributor: 99 (99 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-4 %). Checks you did for others: 60. Open disagreements you are part of: 1.
 - Share of your new facts that get checked first: 100 %.

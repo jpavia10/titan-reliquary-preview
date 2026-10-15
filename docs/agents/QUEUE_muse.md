@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-15 14:30 UTC)
+# WORK QUEUE for Muse (updated 2026-10-15 14:47 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -53,19 +53,7 @@ Items:
 - **C081 · Switzerland · 1983 · 5 rappen · CHF**: «A 1983 5 rappen from Switzerland. Libertas right on the obverse, 5 in grapevine wreath on the reverse, designers Karl Schwenzer (obverse) and Carl Friedrich Voigt (reverse). Struck in aluminum-bronze (92% copper, 6% aluminum, 2% nickel).» Record: «{"country": "Switzerland", "year": "1983", "denom": "5 rappen · CHF", "mint": "B", "refs": "KM#26c · Schön#24c · Numista#171", "metal": "aluminum-bronze (Cu 92 / Al 6 / Ni 2) · 1.80 g · 17.15 mm · plain · circulated · white 2×2 staple flip", "specs": "thickness 1.25 mm · medal alignment · type specs shared with Al-bronze 5 Rp (KM#26c)", "mintage": "92,746,000", "design": "Libertas right (obv) · 5…»
 - **C104 · Netherlands · 1996 · 25 cents · NLG**: «A 1996 25 cents from Netherlands. The obverse shows Beatrix portrait; the reverse shows the value 25 ct and the date between vertical lines. Struck in nickel.» Record: «{"country": "Netherlands", "year": "1996", "denom": "25 cents · NLG", "mint": "Utrecht (caduceus / mintmaster marks — confirm on Beatrix side if shown)", "refs": "KM#204 · Schön#84 · Numista#731", "metal": "nickel · 3.00 g · 19 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness unknown · coin alignment · Beatrix kwartje type", "mintage": "24,840,000", "design": "obverse Beatri…»
 
-### 2. HW-muse-cite-20261014-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-21  (fix list #72)
-
-For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
-
-**Done when:** One change file answering this assignment; everything you left out goes back to the pool.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261014-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **GB 1 penny (GB.X.1-penny)** coins C302. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1922
-- **MX 20 pesos (MX.X.20-pesos)** coins C304. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1981
-
-### 3. HW-muse-contradiction-20261015-1 · Fact fixer · Settle 6 contradictions in the record · due 2026-10-22  (fix list #102)
+### 2. HW-muse-contradiction-20261015-1 · Fact fixer · Settle 6 contradictions in the record · due 2026-10-22  (fix list #102)
 
 Each item is a place where the record contradicts itself (found by the truth checks on every publish: a mintage on a coin whose mint mark nobody read, two numbers in one catalogue, a year its type was never struck, a weight far from the catalogue's). Each item says what to send. Settle it with an exact source: the corrected value for the field named, or the same value with your source when the record is right after all. Never guess; leave an item out when no source settles it.
 
@@ -81,7 +69,7 @@ Items:
 - **C091 · Germany · 1982 · 10 Pfennig · DEM** (mint_unknown): «DE 1982: mint not read (unknown (letter under oak stem soft · near D/Munic); 291,290,000 must be the all-mints total». The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source. `specimen C091 issue.mintage` Record: «{"country": "Germany", "year": "1982", "denom": "10 Pfennig · DEM", "mint": "unknown (letter under oak stem soft", "refs": "KM#108 · Schön#106 · J#383 · Numista#850", "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated / brighter of the pair · white 2×2 staple flip", "specs": "thickn…»
 - **C037 · Germany · 2002 · 10 euro cent · EUR** (mint_unknown): «DE 2002: mint not read (unknown (mint letter below 2002 date present but n); 3,509,935,000 must be the all-mints total». The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source. `specimen C037 issue.mintage` Record: «{"country": "Germany", "year": "2002", "denom": "10 euro cent · EUR", "mint": "unknown (mint letter below 2002 date present but not legible at this resolution — unidentifiable bump; cannot confirm A/D/F/G/J)", "refs": "KM#210 (2002–2006 map) · Schön#209 · J#484", "metal": "Nordic gold (Cu89Al5Zn5Sn…»
 
-### 4. HW-muse-arbitrate-20261015-1 · Arbiter · Settle 10 disagreements between two AIs · due 2026-10-22  (fix list #18)
+### 3. HW-muse-arbitrate-20261015-1 · Arbiter · Settle 10 disagreements between two AIs · due 2026-10-22  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -101,7 +89,7 @@ Items:
 - **D0017 AU.KM.36 design.text**: record `obverse George VI · reverse kangaroo right · AUSTRALIA · PENNY. (Perth dot) · 1944 · star` (None: «null») vs claim `obverse George VI left (Humphrey Paget) · reverse kangaroo left with Commonwealth star · …` (model:grok-bot: «Disagree — Numista N#5788 (https://en.numista.com/catalogue/pieces5788.html): Numista Reverse: 'Kangaroo facing left wi…»)
 - **D0018 CH.KM.23a design.text**: record `standing Helvetia (obv) · value in wreath (rev) · engravers Antoine Bovy / Albert Walch` (None: «null») vs claim `standing Helvetia (obv) · value in oak + alpine-rose wreath (rev) · engraver Antoine Bovy…` (model:grok-bot: «Disagree — Numista N#181 (https://en.numista.com/catalogue/pieces181.html): Numista Reverse: 'Engraver: Antoine Bovy De…»)
 
-### 5. HW-muse-verify-20261015-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
+### 4. HW-muse-verify-20261015-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -115,7 +103,7 @@ Items:
 - **catalog of C295 · Australia · 2006 · 10 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.10-cents catalogs` [audit sample]
 - **design of C173 · United Kingdom · 1998 · 5 pence · GBP** `type GB.KM.988 design.text` = `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)` (written by Grok: «Agree — every element checked against Numista N#876 (https://en.numista.com/catalogue/pieces876.html) Obverse/Reverse sections») [audit sample]
 - **design of C065 · Switzerland · 2014 · 5 francs · CHF** `type CH.KM.40a.4 design.text` = `herdsman / shepherd head (obv) · 5 FR. + Swiss Cross shield in alpine wreath (rev) · desi…` (written by Grok: «Agree — every element checked against Numista N#195 (https://en.numista.com/catalogue/pieces195.html) Obverse/Reverse sections»)
-- **design of C066 · Switzerland · 1978 · 5 francs · CHF** `type CH.KM.40a.1 design.text` = `herdsman / shepherd head (obv) · 5 FR. + Swiss Cross shield in alpine wreath (rev) · desi…` (written by Grok: «Agree — every element checked against Numista N#195 (https://en.numista.com/catalogue/pieces195.html) Obverse/Reverse sections»)
+- **design of C066 · Switzerland · 1978 · 5 francs · CHF** `type CH.KM.40a.1 design.text` = `herdsman / shepherd head (obv) · 5 FR. + Swiss Cross shield in alpine wreath (rev) · desi…` (written by Muse: «Numista N#195 (https://en.numista.com/195) — 5 francs KM#40a.1; Designer (both sides): Paul Burkhard») [audit sample]
 - **design of C031 · Australia · 1943 · Threepence (3d) · AUD** `type AU.KM.37 design.text` = `obverse George VI · IND:IMP still in legend · reverse three wheat stalks · AUSTRALIA · TH…` (written by Grok: «Agree — every element checked against Numista N#2980 (https://en.numista.com/catalogue/pieces2980.html) Obverse/Reverse sections»)
 - **design of C088 · USA · 1957 · 10¢ Roosevelt** `type US.KM.195 design.text` = `obverse Roosevelt left (John R. Sinnock) · reverse torch · olive · oak · UNITED STATES OF…` (written by Grok: «Agree — every element checked against Numista N#52 (https://en.numista.com/catalogue/pieces52.html) Obverse/Reverse sections»)
 - **design of C071 · Germany · 2003 · 2 euro · EUR** `type DE.KM.214 design.text` = `national Bundesadler (Heinz Hoyer / Sneschana Russewa-Hoyer) + 12 EU stars · common map s…` (written by Grok: «Agree — every element checked against Numista N#112 (https://en.numista.com/catalogue/pieces112.html) Obverse/Reverse sections»)
@@ -161,7 +149,7 @@ Items:
 - **design of C211 · Italy · 1987 · 500 lire · ITL** `type IT.KM.111 design.text` = `obverse female head / Italia · reverse Quirinale Palazzo · Dioscuri · L. 500 · Braille 50…` (written by Grok: «Agree — every element checked against Numista N#302 (https://en.numista.com/catalogue/pieces302.html) Obverse/Reverse sections»)
 - **design of C035 · Germany · 1971 · 50 Pfennig · DEM** `type DE.KM.109.1 design.text` = `Trümmerfrau planting oak sapling (Richard M. Werner / Gerda Werner) · Bundesadler value s…` (written by Grok: «Agree — every element checked against Numista N#847 (https://en.numista.com/catalogue/pieces847.html) Obverse/Reverse sections»)
 
-### 6. HW-muse-plain-story-20261015-1 · Writer · Rewrite 4 stories in plain English · due 2026-10-22  (fix list #60)
+### 5. HW-muse-plain-story-20261015-1 · Writer · Rewrite 4 stories in plain English · due 2026-10-22  (fix list #60)
 
 Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
 
@@ -175,7 +163,7 @@ Items:
 - **C118 · France · 1960 · 1 franc · FRF (nouveau franc)**: «A 1960 1 franc from France. The obverse shows La Semeuse left, REPUBLIQUE FRANÇAISE (Oscar Roty); the reverse shows 1 FRANC, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.» (shorthand: `the reverse shows 1 FRANC, olive sprig, `)
 - **C119 · France · 1977 · 1 franc · FRF (nouveau franc)**: «A 1977 1 franc from France. The obverse shows La Semeuse left, REPUBLIQUE FRANÇAISE (Oscar Roty); the reverse shows 1 FRANC, olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.» (shorthand: `the reverse shows 1 FRANC, olive sprig, `)
 
-### 7. HW-muse-story-check-20261015-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-22  (fix list #73)
+### 6. HW-muse-story-check-20261015-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-22  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -194,7 +182,7 @@ Items:
 - **C069 · Jamaica · 1975 · 50 cents · JMD**: «A 1975 Jamaican 50 cent piece. The coat of arms shows a crocodile on a log on top, held up by a man and woman of the Taino people who lived on the island first. The motto reads 'Out of Many, One People.'» Record: «{"country": "Jamaica", "year": "1975", "denom": "50 cents · JMD", "mint": "Jamaica (Royal Mint strike era typical)", "refs": "KM#65 · Numista#7457", "metal": "cupronickel · 12.43 g · 31.37 mm · reeded · circulated · white 2×2 staple flip · decagonal (10-sided)", "specs": "thickness 2.21 mm · medal alignment · wide-legend type", "mintage": "12,010,000 (1975)", "design": "arms · crocodile · Taino s…»
 - **C289 · Argentina · 1954 · 5 centavos · ARM**: «A 1954 five-centavo coin from Argentina, from Juan Perón's second presidency. The side shown has a large 5 with CENTAVOS and the date, and REPUBLICA ARGENTINA around the rim; the other side of this series carries a portrait of José de San Martín, the general who led Argentina to independence.» Record: «{"country": "Argentina", "year": "1954", "denom": "5 centavos · ARM", "mint": "none on the value side", "refs": "Numista#4835", "metal": "copper-nickel clad steel · 2.00 g · 17.2 mm", "specs": "thickness unknown", "mintage": "50,640,000"}»
 
-### 8. HW-muse-verify-20261015-2 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
+### 7. HW-muse-verify-20261015-2 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -272,6 +260,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 12; expired: 0.
-- Your facts checked by another contributor: 188 (182 confirmed, 6 wrong; error rate 3.2 %, 95 % range 2-7 %). Checks you did for others: 27. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 5 of 5.
+- Assignments answered: 13; expired: 0.
+- Your facts checked by another contributor: 213 (207 confirmed, 6 wrong; error rate 2.8 %, 95 % range 1-6 %). Checks you did for others: 27. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 5 of 5.
 - Share of your new facts that get checked first: 100 %.

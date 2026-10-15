@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-15 14:30 UTC)
+# WORK QUEUE for Grok (updated 2026-10-15 14:47 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -113,7 +113,7 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 
 Items:
 - **catalog of C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX-CHI.KM.612 catalogs` [audit sample]
-- **design of C212 · Eritrea · 1997 · 50 cents · ERN (nakfa)** `type ER.KM.46 design.text` = `obverse greater kudu left · STATE OF ERITREA · 1997 · 50 · FIFTY CENTS · reverse five sol…` (written by Muse: «Verified correct — sides are NOT swapped. Numista N#2403 (50 Cents - Eritrea, 1997), https://en.numista.com/catalogue/pieces2403.html — Obve») [audit sample]
+- **design of C212 · Eritrea · 1997 · 50 cents · ERN (nakfa)** `type ER.KM.46 design.text` = `obverse greater kudu left · STATE OF ERITREA · 1997 · 50 · FIFTY CENTS · reverse five sol…` (written by Muse: «Numista N#2403 (https://en.numista.com/catalogue/pieces2403.html) lists no engraver; madote.com 'The American Man Who Designed Eritrea\'s Na») [audit sample]
 - **design of C252 · Cuba · 1962 · 20 centavos · CUP** `type CU.KM.32 design.text` = `arms side REPUBLICA DE CUBA · Escudo (key · stripes · palm) · oak & laurel · Phrygian-cap…` (written by Muse: «Numista N#1055 (Cuba 20 centavos José Martí, KM#31): Obverse Engraver Charles Edward Barber, Reverse Engraver Esteban Valderrama Peña (https») [audit sample]
 - **mintage of C042 · USSR · 1962 · 1 kopek · SUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type SU.Y.126a issues.0.mintage` [audit sample]
 - **mintage of C044 · USSR · 1974 · 1 kopek · SUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type SU.Y.126a issues.1.mintage` [audit sample]
@@ -202,6 +202,18 @@ Items:
 - **denomination of C288 · Australia · 1983 · 1 cent · AUD** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type AU.X.1-cent denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C288_obv.webp (original: https://drive.google.com/file/d/1BeTkW-rEoVY-dp6zmkSyXEetziUnJK-S/view)
 - **period of C139 · Spain · 2014 · 1 euro cent · EUR** `type ES.KM.1144 period` = `Eurozone` (written by Claude: «Numista N#10856 (Spain 1 euro cent, 2010 onward, KM#1144) vs N#81 / NGC KM#1040 (1999-2009, https://www.ngccoin.com/price-guide/world/spain-»)
 
+### 8. HW-grok-cite-20261015-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-22  (fix list #72)
+
+For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
+
+**Done when:** One change file answering this assignment; everything you left out goes back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261015-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **GB 1 penny (GB.X.1-penny)** coins C302. Ask: nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; issues.0.mintage: 1922
+- **MX 20 pesos (MX.X.20-pesos)** coins C304. Ask: nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; issues.0.mintage: 1981
+
 ## Projects (after the homework)
 
 ### Album prices: a second source for the 10 most expensive holes  [NEXT]  (fix list #62)
@@ -239,5 +251,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 17; expired: 0.
-- Your facts checked by another contributor: 294 (294 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-1 %). Checks you did for others: 117. Open disagreements you are part of: 17.
+- Your facts checked by another contributor: 312 (312 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-1 %). Checks you did for others: 117. Open disagreements you are part of: 17.
 - Share of your new facts that get checked first: 15 %.

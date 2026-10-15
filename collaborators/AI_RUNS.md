@@ -13,10 +13,10 @@ contributor checked, how many held up, how many were wrong. We pay for knowledge
 
 | contributor | files | events | kept | verified | checked | held up | wrong | reported cost | cost per kept fact | cost per fact that held up |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| claude | 34 | 707 | 658 | 0 | 65 | 65 | 0 | - | - | - |
-| gemini | 6 | 310 | 306 | 0 | 89 | 89 | 0 | - | - | - |
-| grok | 95 | 2530 | 2348 | 0 | 294 | 294 | 0 | - | - | - |
-| muse | 31 | 1086 | 1027 | 0 | 188 | 182 | 6 | - | - | - |
+| claude | 35 | 750 | 701 | 0 | 65 | 65 | 0 | - | - | - |
+| gemini | 6 | 310 | 306 | 0 | 99 | 99 | 0 | - | - | - |
+| grok | 95 | 2530 | 2348 | 0 | 312 | 312 | 0 | - | - | - |
+| muse | 31 | 1086 | 1027 | 0 | 213 | 207 | 6 | - | - | - |
 | opus | 1 | 1 | 1 | 0 | 0 | 0 | 0 | - | - | - |
 
 ## Every run
@@ -170,6 +170,7 @@ contributor checked, how many held up, how many were wrong. We pay for knowledge
 | 2026-10-14 | `changes_muse_20261014-2018.jsonl` | muse | model:muse-spark | 6 | 6 | 0 | 6 | - | - |
 | 2026-10-15 | `changes_claude_20261015-0600.jsonl` | muse (re-filed by Claude) | model:muse-spark | 134 | 101 | 0 | 134 | - | - |
 | 2026-10-15 | `changes_claude_20261015-0610.jsonl` | claude | model:claude | 1 | 1 | 0 | 1 | - | - |
+| 2026-10-15 | `changes_claude_20261015-1445.jsonl` | claude | model:grok-bot, model:muse, model:muse-spark | 43 | 43 | 0 | 43 | - | - |
 | 2026-10-15 | `changes_muse_20261015-0330.jsonl` | muse | model:muse-spark | 8 | 8 | 0 | 8 | - | - |
 | 2026-10-15 | `changes_muse_20261015-0335.jsonl` | muse | model:muse-spark | 12 | 12 | 0 | 12 | - | - |
 | 2026-10-15 | `changes_muse_20261015-0340.jsonl` | muse | model:muse-spark | 10 | 10 | 0 | 10 | - | - |

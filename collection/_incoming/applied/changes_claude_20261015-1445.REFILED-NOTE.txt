@@ -1,0 +1,24 @@
+Late intake 2026-10-15: 16 files that reached the Drive drop folder between 04:27 and 04:59 UTC, after the first sweep
+(15 Muse, 1 Grok). Claude re-filed the accepted lines as changes_claude_20261015-1445.jsonl; every line keeps its contributor's
+`by`, source and provenance. Built by a one-off script; `old` re-pointed only for same-value re-citations and for the two
+catalogue lines that follow Grok's list in the same file.
+
+Re-filed (1445):    grok-bot 20261014-2134 bonus (6 of 10: MX.X.20-pesos and GB.X.1-penny catalogue numbers + composition from
+                    Numista N#987 / N#578; the C304 value lines are Gemini's open value homework; C212 stale, Muse's homework set 0.98),
+                    muse 0605 cite (5 of 9: GB.X.1-penny + MX.X.20-pesos tagged HW-muse-cite-20261014-2, Muse's own homework, adds
+                    Schön 299 / 78 to Grok's list; NL.KM.170, NL.KM.239, VN-SOV.KM.1 Numista links; BS.X.1-cent, MX-CHI.KM.612,
+                    NO.KM.460 are Grok's open homework; TR.KM.1240 is the empty leftover type, C208 is TR.KM.1241),
+                    muse 0500 values (13 of 15: 11 re-citations, C252 0.98 Numista XF, C231 0.62 worldcoinscatalog G; C031, C073
+                    are Grok's open value homework), muse 0515 designers (4 of 15: 3 re-citations + ER.KM.46 Clarence Holbert, med;
+                    Numista names Holbert as engraver of the 1997 1 cent), muse 0520 (JM.KM.191 design text: the coin is round),
+                    muse 0615 designers (ES.KM.1144 fill only), muse 0600 values (7 of 15 re-citations), muse 0505 cite (6 same-number
+                    re-citations)
+Not merged:         muse 0510 + 0610 STORY-QUALITY-PASS (long rewrites of the plain-English stories nobody asked for; 21 of 30 stale;
+                    C239 says 'just over 2.1 million struck' while Muse's own research file reads 27,830,000 for the 1944 Perth penny),
+                    muse 0515 rest + 0615 rest (the names are right; the lines only drop the (obverse)/(reverse) roles or shorten names),
+                    muse 0525 + 0625 composition (by model:muse-subagent-composition-2/-3 is not one of Muse's ids; mostly capital
+                    letters; weights written into composition.text), muse 0535 type descriptions (type.description is not shown in
+                    the app; the design text and story already carry it), muse 0600 T005, T006, C284 (contradict Muse's own homework
+                    answers of a few hours earlier) and C294 (Grok's homework answer stands), muse 0620 (same catalogue numbers as
+                    0605; AU.X.10-cents stale), muse 0505 rest (12 lists name only part of the record's numbers; YU 46 vs 46.1),
+                    research_muse 0520 + 0620 (types have no research.open_questions; the answers say "no change needed")
