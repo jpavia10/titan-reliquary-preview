@@ -11554,6 +11554,9 @@ html[data-atmo="odyssey"] :is(#market-ticker-tape, #exhibit, .museum-slab, #vaul
 .reshoot .rs-cf { appearance: none; font: inherit; font-size: 0.95rem; min-height: 44px; padding: 0.3rem 0.8rem; border-radius: 999px; cursor: pointer;
   border: 2px solid var(--ink); background: transparent; color: var(--ink); }
 .reshoot .rs-cf:disabled { border-style: dashed; cursor: default; opacity: 0.85; }
+.reshoot .rs-cf small { font-size: 0.8em; font-weight: 400; }
+.reshoot .rs-outbox { margin: 0.6rem 0 0; padding: 0.55rem 0.8rem; border: 2px dashed var(--gold, #d4af37); border-radius: 10px; font-size: 0.95rem; }
+.reshoot .rs-outbox a { color: inherit; font-weight: 700; text-decoration: underline; }
 .reshoot .rs-cf:focus-visible { outline: 3px solid var(--gold, #d4af37); outline-offset: 2px; }
 .reshoot .rs-finish, .reshoot .rs-first { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card, transparent); margin: 0.6rem 0 1rem; padding: 0.6rem 1rem 0.8rem; }
 .reshoot .rs-finish h3, .reshoot .rs-first h3 { margin: 0.2rem 0 0.5rem; font-size: 1.15rem; color: var(--ink); }

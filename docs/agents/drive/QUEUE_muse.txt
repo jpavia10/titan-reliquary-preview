@@ -1,0 +1,96 @@
+NEW (2026-10-15): 16 of your new coins are in the app (C289 to C304). Joseph now wants the UI rethought: your part is a phone walkthrough of what is clunky plus 10 references (task below; brief in Drive 'design-incoming (AI UI proposals)'). The three coin photos (C300, C301, C304) still come first. Then the homework.
+
+The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_muse.md. Open it first; it wins over this copy.
+
+# WORK QUEUE for Muse (updated 2026-10-15 01:47 UTC)
+
+From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
+
+**Status:** active (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
+**How you get this:** Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
+
+## Finish first
+
+### Fix three coin photos (from the 2026-10-14 intake)  (fix list #3)
+
+Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos is in the app as C304 from your reading (Joseph: "Whatever muse said just use that"), but it has no photo: upload it the same way as NOID_Mexico_1981_20-pesos_{obv|rev}.jpeg. When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.
+
+**Done when:** The three photos are in STAGING with a summary, each different from every photo already filed.
+
+### UI rethink, part 3: what is clunky today (phone walkthrough) + 10 references  (fix list #116)
+
+Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'). Your part is the evidence the other two design from. (1) Walk the live app on a phone-sized screen (https://jpavia10.github.io/titan-reliquary-preview/) doing the ten jobs Joseph and his dad really do (for example: what's new today; find a coin; which Silver Eagle year is missing; answer a coin question and send it; photograph the next coin; change the World and its sound; show the collection to a friend). For each: the taps it took, where it got stuck, and why, ranked worst first. (2) Ten reference works that show how this could feel (public sites, demos, apps; code-made motion and 3D): the link, what to borrow, and why it fits a coin collection. No prototype needed. Save as design_muse_{YYYYMMDD-HHMM}_walkthrough.md in Drive 'design-incoming (AI UI proposals)'.
+
+**Done when:** One file with the ranked walkthrough and the ten references.
+
+### Second reader on Grok's Numista batches  (fix list #72)
+
+If you already started this spot check (5 facts from each of Grok's 9 sweep batches, reported in your FEEDBACK doc), finish it the same way. If you have not started, skip it: the 'Second reader' homework below is the same job with a pre-filled answer sheet, and it counts towards your probation.
+
+**Done when:** Either your 45-fact report in the FEEDBACK doc, or the verify homework answered.
+
+### Theme pictures: the 22 wide heroes (priority 2)  (fix list #113)
+
+The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json' (repo copy docs/art/requests/artreq_20261010-1700_theme-thumbnails.json). Follow ART_START_HERE: one image at a time (make it, save it to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file name, then the next); stop at the first failure or credit warning and write down how far you got. The pictures must look premium: real-photo look unless the image's `medium` says pixel art, comic, clay or poster; no readable text or numbers anywhere; coins look like real coins. Claude reviews every file and re-requests weak ones. Your part: every image with priority 2 (22 files: world_{theme}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-muse-p2.txt; Grok has the cards (p1) and Gemini the refreshes (p3).
+
+**Done when:** 22 hero files in the output folder (or as many as you could) and artreq_20261010-1700_theme-thumbnails.p2.DONE.txt listing each file: ok or skipped: reason.
+
+## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
+
+Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-locked and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-locked/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_muse_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack. Its coin ids exist only in Claude's locked key; it decides which AI reads the Phase 2 pro photos.
+
+**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
+
+## Homework (generated from the data)
+
+Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above.
+
+- 1. HW-muse-research-20261009-1 · Researcher · Answer 5 open research questions · due 2026-10-19  (fix list #3)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-research-20261009-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 2. HW-muse-story-check-20261010-1 · Fact-checker · Fact-check 6 coin stories · due 2026-10-17  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261010-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 3. HW-muse-value-20261010-1 · Appraiser · Cite collector values for 6 coins · due 2026-10-20  (fix list #62)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-value-20261010-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 4. HW-muse-read-mint-20261010-1 · Photo reader · Read the mint mark on 13 coins from their photos · due 2026-10-17  (fix list #57)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-read-mint-20261010-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 5. HW-muse-verify-20261010-1 · Second reader · Check 49 facts another AI wrote · due 2026-10-17  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261010-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 6. HW-muse-value-20261010-2 · Appraiser · Cite collector values for 5 coins · due 2026-10-20  (fix list #62)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-value-20261010-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 7. HW-muse-cite-20261014-1 · Cataloguer · Cite the catalogue facts of 21 coin types · due 2026-10-21  (fix list #72)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 8. HW-muse-arbitrate-20261014-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-21  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 9. HW-muse-plain-story-20261014-1 · Writer · Rewrite 21 stories in plain English · due 2026-10-21  (fix list #60)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-plain-story-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 10. HW-muse-story-check-20261014-1 · Fact-checker · Fact-check 3 coin stories · due 2026-10-21  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 11. HW-muse-verify-20261014-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-21  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 12. HW-muse-cite-20261014-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-21  (fix list #72)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261014-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+## Projects (after the homework)
+
+### Cost to complete the albums: price the missing coins in A017 to A033  [NEXT]  (fix list #62)
+
+Joseph's dad asks which coins are missing; the next question is what they cost. Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json: every album volume lists `missing_named` (the exact year and mint of each empty hole). For the volumes A017 to A033, find a retail price for each missing coin in a typical collectable grade (say which grade you assumed), from a named price page (PCGS CoinFacts, NGC Price Guide, Numista's value table, or a dealer's listed price for that exact date and mint). Never guess: leave a coin out when no page covers it. Silver coins are never below melt (spot in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/prices.json). Save one file wants_values_muse_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': a list of {"album": "A001", "label": "1941-D", "value_usd": 1.25, "grade": "VF", "source": "exact page URL", "confidence": "med|low"}, plus a total per album.
+
+**Done when:** One JSON file covering every missing coin in A017 to A033 you could price; Claude checks a sample of the prices and adds a 'cost to complete' line to What's missing.
+
+### Dad's one-page guide  [NEXT]  (fix list #60)
+
+Write a one-page plain-English guide for Joseph's dad to the Simple view (Do I have...?, What's missing?, At a glance, Questions): big words, short sentences, what to tap. Read the live app at https://jpavia10.github.io/titan-reliquary-preview/#simple first. Save it as guide_muse_{YYYYMMDD-HHMM}.md in Drive 'reviews-incoming (AI deep reviews)'.
+
+**Done when:** One file with the guide text.
+
+### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
+
+Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Grok's read first (AI_START_HERE 2b).
+
+**Done when:** Ongoing.
+
+## Your numbers (measured, not self-reported)
+
+- Assignments answered: 2; expired: 0.
+- Your facts checked by another contributor: 130 (126 confirmed, 4 wrong; error rate 3.1 %, 95 % range 1-8 %). Checks you did for others: 0. Open disagreements you are part of: 0.
+- Share of your new facts that get checked first: 100 %.

@@ -40,7 +40,8 @@ meter's "cited or confirmed" = Verified + Owner + Checked + Reference. A mintage
 |---|---|---|---|
 | cite | Cataloguer | a coin type with catalogue facts below Reference (tools/pipeline/numista_sweep.py rows; tokens and props excluded) | the type has nothing left to ask |
 | catno | Cataloguer | a Schön / Jaeger number that disagrees with Numista (docs/requests/catalog_disagreements_*.json) | the record carries Numista's number, or the entry was re-read |
-| verify | Second reader | a fact only ONE contributor stands behind (Reference or Photo); blind for photo readings and for looked-up numbers (mintage, weight, catalogue number) | it is Checked, or a disagreement is filed |
+| verify | Second reader | a fact only ONE contributor stands behind (Reference or Photo); blind for photo readings and for looked-up numbers (mintage, weight, catalogue number). Also, each month, a sample of 12 Checked facts cited more than a year ago (#94: pages change, links die). About 6 % of shown values are planted wrong on purpose (#99, `tools/pipeline/canary.py`): sent back unchanged = missed, the true value = caught; never filed, counted on the AI's page | it is Checked, or a disagreement is filed |
+| contradiction | Fact fixer | a place where the record contradicts itself (`tools/pipeline/truth_checks.py`: a mintage on a German / US coin whose mint nobody read, two numbers in one catalogue, a year its type was never struck, a weight far from the catalogue's); the mechanical ones are fixed by `truth_checks.py --fix` instead (#102) | the truth check no longer finds it |
 | read-mint | Photo reader | a coin whose mint mark nobody read but which has a photo | the mint mark is read |
 | story-check | Fact-checker | a story nobody but its author has checked | someone else re-cites it (unchanged, with an exact source) or corrects it |
 | plain-story | Writer | a story still in shorthand (·, +, &, slashes, CuNi, bare lists) | the plain-English check passes |
@@ -88,8 +89,8 @@ line per field, `old` = the record now, `provenance.assignment` = the id, `sourc
 One record per disagreement: both values, who said each, their sources, how it came up (verify, double-read, intake, review), and once
 settled: who settled it, the value, the winner and who is counted wrong (`error_by`; null when the sources themselves disagree).
 homework.py settles a disagreement by itself when a later event sets or re-states the field by Joseph or by a contributor who is
-neither party, with an exact source. Claude is the default third reader while only two AIs research. Open disagreements put the fact
-under review and become `arbitrate` jobs.
+neither party, with an exact source. Gemini is the third reader since 2026-10-15 (arbitration is first on its list, fix list #101); Claude
+settles what no AI can. Open disagreements put the fact under review and become `arbitrate` jobs.
 
 ## 6. Measuring (docs/agents/homework/metrics.json, QUEUES.md, each AI's page, Health in the app)
 
@@ -107,11 +108,17 @@ then (no `DRIVE_BRIDGE_URL` + `DRIVE_BRIDGE_KEY` secrets, or `INBOX.md` says the
 1. Merge the drops (`publish.py`): the loop turns by itself at the end and rewrites every AI's page. With the bridge: read
    `docs/agents/bridge/INBOX.md` first. It lists what was merged and rejected (to score), what was held for Claude, other files, and
    STAGING. Handle each held file, then `python3 tools/bridge/intake.py resolve NAME --merged | --rejected "why" | --retry`.
-2. Copy each changed page into its Drive doc `WORK QUEUE for {AI}` (ChatGPT reads its page on GitHub). With the bridge: automatic.
+2. Copy each changed page into its Drive doc `WORK QUEUE for {AI}`: the text is `docs/agents/drive/QUEUE_{ai}.txt` (the loop writes this compact copy
+   on every run; its NEW note is `drive_note` in queues.json). ChatGPT reads its page on GitHub. With the bridge: automatic (#93).
 3. Score each submission (rule 2), then `python3 tools/bridge/intake.py reviewed NAME...`. Read the parked items and open
    disagreements in `docs/agents/QUEUES.md`: settle what a third source settles; turn what only the coin can answer into owner
    questions.
-4. When the numbers say so, edit roles.json (capacity, kinds, probation) and say why in SHARED_LOG.
+4. Spot-check a sample of each AI's merged facts yourself (fix list #95): send them as change lines by `model:claude` with
+   `provenance.workflow: "spot-check"`. They go the same way as an AI's check: the same value with your source = Checked and counted as a
+   check you did; a different value = a disagreement for a third reader (never an overwrite).
+5. Owner answers arrive as GitHub issues titled "Titan answers ..." (the app's Send to Claude, merged by `.github/workflows/owner-answers.yml`,
+   only for the repository owner's issues). An issue still open has a follow-up for Claude, or the robot could not merge it.
+6. When the numbers say so, edit roles.json (capacity, kinds, probation) and say why in SHARED_LOG.
 
 ## 8. The safety net under it
 
@@ -120,3 +127,18 @@ then (no `DRIVE_BRIDGE_URL` + `DRIVE_BRIDGE_KEY` secrets, or `INBOX.md` says the
   previous main, the master validates, and the pipeline and loop tests pass. The tip is published in data/status.json (`chain`).
 - **Issues are append-only**: `issues.N` always names the same year and mint, so a line written against the sheet can never land on another year.
 - Every original photo is fingerprinted (`crop.source_sha256`, fix list #79), so a swapped photo shows.
+
+## 9. Adding an AI: one onboarding path (fix list #97)
+
+Every new AI comes in the same way; `python3 tools/agents/new_agent.py ID "Name" --caps web,vision,drive` writes steps 1 and 2.
+
+1. **roles.json entry**: `status: active`, `probation: true`, `onboarding: true` (half batches), a small `capacity`, its `kinds` and `caps`.
+2. **queues.json**: a proof-of-access task first (it quotes one line from each of three links, so we know it can open the files), and
+   "read new coin photos, blind" as its standing task. The next publish writes its page; Claude makes its two Drive docs
+   (`WORK QUEUE for {Name}`, `FEEDBACK for {Name}`) and pastes the page.
+3. **The main photo test** appears on its page by itself (calibration); the locked test after it.
+4. **Half batches, every fact checked** while it is on probation (`audit.probation_rate` 1.0). After its first good submission Claude sets
+   `full_batches: true`; after 3 submissions in a row that score 8+ (rule 2) it leaves probation (`probation: false`, `onboarding: false`).
+5. **A new model is a new AI** (#100): when its files name a different model, its facts are checked first again and both photo tests come
+   back on its page.
+

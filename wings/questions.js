@@ -6,19 +6,42 @@
    Reuses the Health view's high-contrast look (styles/health.css) plus styles/questions.css.
    Notes ride in the same file (2026-10-09): a speed report from Health (fix list #25) and "where did they come from?" (#77, the one fact no
    catalogue knows). owner_answers.py files the speed report in docs/perf/phone_reports.jsonl and turns origins into owner acquisition records.
-   API: TitanQuestions.open(), .close(), .queueConfirm(scan, fact, label), .queueNote(kind, key, data, label), .pending(), .count() */
+   Sent + received (2026-10-15; owner: "How do I know that you got those three answers?"): "Send to Claude" opens a pre-filled GitHub issue
+   (title "Titan answers YYYYMMDD-HHMM"; only the repository owner's issues are merged, by .github/workflows/owner-answers.yml). Every batch
+   sent any way (GitHub, chat copy, file) moves to "titan.answers.sent" and stays visible as "sent, waiting" until data/answers_received.json
+   (written by publish.py from owner_answers.py's receipts) lists its `made` time: then it shows "Received" with the counts.
+   API: TitanQuestions.open(), .close(), .queueConfirm(scan, fact, label), .queueNote(kind, key, data, label), .status(scan, fact), .pending(), .count() */
 (function () {
   "use strict";
   if (window.TitanQuestions) return;
-  const KEY = "titan.answers";
-  let root = null, lastFocus = null, data = null, loading = null;
+  const KEY = "titan.answers", SENT = "titan.answers.sent", REPO = "jpavia10/titan-reliquary-preview";
+  let root = null, lastFocus = null, data = null, loading = null, received = null;
 
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   function readQ() { try { const v = JSON.parse(localStorage.getItem(KEY) || "[]"); return Array.isArray(v) ? v : []; } catch (e) { return []; } }
   function writeQ(list) { try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) { /* storage blocked: answers live only until reload */ mem = list; } badge(); }
-  let mem = null;
+  let mem = null, memSent = null;
   const queue = () => mem || readQ();
-
+  function readSent() { try { const v = JSON.parse(localStorage.getItem(SENT) || "[]"); return Array.isArray(v) ? v : []; } catch (e) { return memSent || []; } }
+  function writeSent(list) { try { localStorage.setItem(SENT, JSON.stringify(list)); } catch (e) { memSent = list; } badge(); }
+  const sent = () => memSent || readSent();
+  const madeKey = (iso) => String(iso || "").slice(0, 19) + "Z";       // owner_answers.py keeps the batch time to the second
+  const waiting = () => sent().filter((b) => !b.received);
+  /* receipts: data/answers_received.json lists every answers file Claude's pipeline has merged (by its `made` time) */
+  function checkReceipts() {
+    return fetch("data/answers_received.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((d) => {
+      if (!d || !Array.isArray(d.batches)) return;
+      received = new Map(d.batches.map((x) => [madeKey(x.made), x]));
+      let changed = false; const old = Date.now() - 30 * 864e5;
+      const list = sent().map((b) => {
+        const r = received.get(madeKey(b.made));
+        if (r && !b.received) { changed = true; return Object.assign({}, b, { received: { at: r.processed, recorded: r.recorded, facts: r.facts, skipped: r.skipped, followups: r.followups } }); }
+        return b;
+      }).filter((b) => !(b.received && Date.parse(b.received.at || 0) < old));
+      if (changed || list.length !== sent().length) writeSent(list);
+      if (root && !root.hidden) render();
+    }).catch(() => { /* offline: the batches simply stay "sent, waiting" */ });
+  }
   function load() {
     if (data) return Promise.resolve(data);
     // Grok's review GRK-3-02: a failed load (offline, not saved yet) is NOT "no questions": never remember it, and say so
@@ -33,8 +56,8 @@
   function badge() {
     const b = document.getElementById("btn-questions");
     if (!b) return;
-    const n = openCount(), p = queue().length;
-    b.textContent = "Questions" + (n ? ` (${n})` : "") + (p ? ` · ${p} to send` : "");
+    const n = openCount(), p = queue().length, w = waiting().reduce((t, x) => t + (x.n || 0), 0);
+    b.textContent = "Questions" + (n ? ` (${n})` : "") + (p ? ` · ${p} not sent` : "") + (w ? ` · ${w} sent, waiting` : "");
   }
 
   /* ---------- queue ---------- */
@@ -49,7 +72,14 @@
     writeQ(list);
     return list.length;
   }
-  const isQueuedConfirm = (scan, fact) => queue().some((a) => a.confirm && a.confirm.scan === scan && a.confirm.fact === fact);
+  const hasConf = (list, scan, fact) => list.some((a) => a.confirm && a.confirm.scan === scan && a.confirm.fact === fact);
+  /* "saved" (only on this phone) | "sent" (waiting for a receipt) | "received" | null */
+  function status(scan, fact) {
+    if (hasConf(queue(), scan, fact)) return "saved";
+    const b = sent().slice().reverse().find((x) => hasConf(x.items || [], scan, fact));
+    return b ? (b.received ? "received" : "sent") : null;
+  }
+  const isQueuedConfirm = (scan, fact) => status(scan, fact) != null;
   function queueNote(kind, key, dataObj, label) {
     const list = queue().filter((a) => !(a.note && a.note.kind === kind && a.note.key === key));
     list.push({ note: Object.assign({ kind, key }, dataObj), label: label || undefined, at: new Date().toISOString() });
@@ -61,36 +91,79 @@
     const p = (n) => String(n).padStart(2, "0");
     return `${d.getUTCFullYear()}${p(d.getUTCMonth() + 1)}${p(d.getUTCDate())}-${p(d.getUTCHours())}${p(d.getUTCMinutes())}`;
   }
-  function payload() {
-    const now = new Date();
-    return { name: `answers_owner_${stamp(now)}.json`,
-      body: { kind: "owner-answers", made: now.toISOString(), answers: queue().map((a) => (a.confirm ? { confirm: a.confirm } : a.note ? { note: a.note } : { q: a.q, choice: a.choice, text: a.text })) } };
+  function payload(items, made) {
+    const t = made ? new Date(made) : new Date();
+    return { name: `answers_owner_${stamp(t)}.json`,
+      body: { kind: "owner-answers", made: t.toISOString(), answers: (items || queue()).map((a) => (a.confirm ? { confirm: a.confirm } : a.note ? { note: a.note } : { q: a.q, choice: a.choice, text: a.text })) } };
   }
-  function plain() {
+  function plain(items) {
     const qs = data ? Object.fromEntries(data.questions.map((q) => [q.id, q])) : {};
-    return queue().map((a) => a.confirm ? `Confirmed: ${a.confirm.scan} ${a.confirm.fact}${a.label ? " (" + a.label + ")" : ""}`
+    return (items || queue()).map((a) => a.confirm ? `Confirmed: ${a.confirm.scan} ${a.confirm.fact}${a.label ? " (" + a.label + ")" : ""}`
       : a.note ? (a.label || a.note.kind)
       : `${qs[a.q] ? qs[a.q].ask : a.q} -> ${a.choice}${a.text ? " (" + a.text + ")" : ""}`).join("\n");
   }
-  async function send(how) {
-    const { name, body } = payload();
+  const VIA = { github: "GitHub", copy: "a chat copy", file: "a file" };
+  /* the batch leaves the "not sent" list and waits as "sent" until its receipt arrives (or the owner deletes it) */
+  function markSent(items, made, name, via, fromQueue) {
+    const list = sent().filter((b) => madeKey(b.made) !== madeKey(made));
+    list.push({ made, name, n: items.length, at: new Date().toISOString(), via, items });
+    writeSent(list);
+    if (fromQueue) writeQ([]);          // a resent older batch leaves newer unsent answers alone
+  }
+  function issueUrl(name, body, items) {
+    const text = "Titan answers from the app. Press Submit: nothing else to do. A robot merges them and answers here within a few minutes.\n\n"
+      + plain(items) + "\n\n```json\n" + JSON.stringify(body) + "\n```\n";
+    return `https://github.com/${REPO}/issues/new?title=${encodeURIComponent("Titan answers " + name.replace(/^answers_owner_|\.json$/g, ""))}&body=${encodeURIComponent(text)}`;
+  }
+  async function send(how, again) {
+    const prev = again ? sent().find((b) => madeKey(b.made) === again) : null;
+    const items = prev ? prev.items : queue();
+    if (!items.length) return;
+    const { name, body } = payload(items, prev && prev.made);
     const json = JSON.stringify(body, null, 1);
+    if (how === "github") {
+      if (navigator.onLine === false) return say("You're offline. Your answers stay saved on this phone; send them when you're back online.");
+      const url = issueUrl(name, body, items);
+      if (url.length > 7800) return say("Too many answers for one GitHub page. Use Save answers file (or Copy for chat) instead.");
+      const w = window.open(url, "_blank", "noopener");
+      if (!w) location.href = url;
+      markSent(items, body.made, name, "github", !prev);
+      return say("GitHub opened with your answers: press Submit there. This page shows them as received once they are in.");
+    }
     if (how === "copy") {
-      const text = "Titan answers file " + name + "\n" + plain() + "\n\n" + json;
-      try { await navigator.clipboard.writeText(text); say("Copied. Paste it to Claude in chat."); } catch (e) { say("Could not copy on this device; use Save answers file."); }
+      const text = "Titan answers file " + name + "\n" + plain(items) + "\n\n" + json;
+      try { await navigator.clipboard.writeText(text); markSent(items, body.made, name, "copy", !prev); say("Copied. Paste it to Claude in chat; it shows as received once Claude merged it."); }
+      catch (e) { say("Could not copy on this device; use Save answers file."); }
       return;
     }
     const file = typeof File === "function" ? new File([json], name, { type: "application/json" }) : null;
     if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
-      try { await navigator.share({ files: [file], title: name, text: "Titan Reliquary answers: save to Drive, folder collection-incoming (AI change files)" }); say("Shared. Save it to Drive, in the folder collection-incoming (AI change files)."); return; }
+      try { await navigator.share({ files: [file], title: name, text: "Titan Reliquary answers: save to Drive, folder collection-incoming (AI change files)" }); markSent(items, body.made, name, "file", !prev); say("Shared. Save it to Drive, in the folder collection-incoming (AI change files)."); return; }
       catch (e) { if (e && e.name === "AbortError") return; }
     }
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([json], { type: "application/json" })); a.download = name;
     document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    markSent(items, body.made, name, "file", !prev);
     say("Saved " + name + ". Put it in Drive, folder collection-incoming (AI change files).");
   }
-  function say(msg) { const s = root && root.querySelector("#qv-say"); if (s) { s.textContent = msg; s.hidden = false; } }
+  const when = (iso) => { try { return new Date(iso).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); } catch (e) { return iso; } };
+  function sentHtml() {
+    const list = sent().slice().reverse();
+    if (!list.length) return "";
+    return `<h2>Sent</h2><ul class="qv-sent">${list.map((b) => {
+      const k = esc(madeKey(b.made));
+      if (b.received) {
+        const r = b.received;
+        return `<li class="qv-rcv"><b>✓ Received ${esc(when(r.at))}:</b> ${esc(b.n)} answer${b.n === 1 ? "" : "s"} (sent ${esc(when(b.at))} by ${esc(VIA[b.via] || b.via)})${r.facts != null ? `, ${esc(r.facts)} fact${r.facts === 1 ? "" : "s"} now Verified` : ""}${r.skipped ? `, ${esc(r.skipped)} skipped` : ""}${r.followups ? `; Claude still does ${esc(r.followups)} by hand` : ""}.</li>`;
+      }
+      const late = Date.now() - Date.parse(b.at) > 2 * 3600e3;
+      return `<li class="qv-wait"><b>Sent ${esc(when(b.at))}</b> by ${esc(VIA[b.via] || b.via)}: ${esc(b.n)} answer${b.n === 1 ? "" : "s"}, <b>not received yet</b>.
+        ${b.via === "github" ? "If you did not press Submit on GitHub, send it again." : "Claude merges it at the next session."}${late ? " It has been a while: send it again, or Copy for chat." : ""}
+        <span class="qv-again"><button type="button" class="hv-btn" data-again="${k}" data-how="github">Send again</button> <button type="button" class="hv-btn" data-again="${k}" data-how="copy">Copy for chat</button> <button type="button" class="qv-undo" data-forget="${k}">Delete</button></span></li>`;
+    }).join("")}</ul>`;
+  }
+  function say(msg) { if (!root) return; root.dataset.say = msg || ""; const s = root.querySelector("#qv-say"); if (s && msg) { s.textContent = msg; s.hidden = false; } }
 
   /* ---------- view ---------- */
   function applyTone() {
@@ -132,14 +205,16 @@
       ${originHtml()}
       ${notes.length ? `<h2>Also in your answers file</h2><ul class="qv-conf">${notes.map((a) => `<li>${esc(a.label || a.note.kind)} <button type="button" class="qv-undo" data-unnote="${esc(a.note.kind + "|" + a.note.key)}">Undo</button></li>`).join("")}</ul>` : ""}
       <h2>Send your answers</h2>
-      <p class="hv-sub">${q.length ? `${q.length} answer${q.length === 1 ? "" : "s"} saved on this phone.` : "Nothing to send yet. Answer a question above, or press Confirm on a fact label in a coin's view."}
-        Claude turns them into checked records the next time the Drive folder is processed.</p>
+      <p class="hv-sub">${q.length ? `<b>${q.length} answer${q.length === 1 ? "" : "s"} saved on this phone only. Not sent yet.</b>` : "Nothing new to send. Answer a question above, or tap Confirm on a fact in a coin's view."}
+        ${q.length && navigator.onLine === false ? " You're offline: they stay saved here until you send them." : ""}</p>
       <div class="qv-send">
-        <button type="button" class="hv-btn hv-primary" data-send="file"${q.length ? "" : " disabled"}>Save answers file</button>
+        <button type="button" class="hv-btn hv-primary" data-send="github"${q.length ? "" : " disabled"}>Send to Claude</button>
         <button type="button" class="hv-btn" data-send="copy"${q.length ? "" : " disabled"}>Copy for chat</button>
-        <button type="button" class="hv-btn" data-sent${q.length ? "" : " disabled"}>I sent them: clear this list</button>
+        <button type="button" class="hv-btn" data-send="file"${q.length ? "" : " disabled"}>Save answers file</button>
       </div>
-      <p class="qv-say" id="qv-say" role="status" hidden></p>`;
+      <p class="hv-sub qv-how">Send to Claude opens GitHub with your answers filled in: press Submit. A robot merges them within minutes and this page then says <b>Received</b>.</p>
+      <p class="qv-say" id="qv-say" role="status" hidden></p>
+      ${sentHtml()}`;
   }
   /* ---------- #77 where each coin came from (bought, inherited, found ...): the one fact no catalogue knows ---------- */
   const HOW = ["Bought", "Inherited", "A gift", "Found in change", "Brought back from a trip", "Don't know"];
@@ -181,7 +256,7 @@
     root.setAttribute("role", "dialog"); root.setAttribute("aria-modal", "true"); root.setAttribute("aria-labelledby", "qv-title");
     root.innerHTML = `<div class="hv-shell">
       <div class="hv-top"><h1 id="qv-title" tabindex="-1">Questions for you</h1><button type="button" class="hv-btn" data-close>Close</button></div>
-      <p class="hv-sub">Things only you can settle by looking at a coin. Tap an answer; send them all at the end.</p>
+      <p class="hv-sub">Things only you can settle by looking at a coin. No rush: most can wait for the pro-photo session. Tap an answer; send them all at the end.</p>
       <div id="qv-body"><p class="hv-status">Loading…</p></div></div>`;
     document.body.appendChild(root);
     root.addEventListener("click", (e) => {
@@ -206,8 +281,11 @@
       const undo = t.closest("[data-undo]");
       if (undo) { const [s, f] = undo.dataset.undo.split("|"); writeQ(queue().filter((a) => !(a.confirm && a.confirm.scan === s && a.confirm.fact === f))); render(); return; }
       const snd = t.closest("[data-send]");
-      if (snd) return send(snd.dataset.send);
-      if (t.closest("[data-sent]")) { if (confirm("Clear the answers saved on this phone? Do this only after the file reached Drive or Claude.")) { writeQ([]); render(); say("Cleared."); } }
+      if (snd) return send(snd.dataset.send).then(() => render()).then(() => say(root.dataset.say || ""));
+      const ag = t.closest("[data-again]");
+      if (ag) return send(ag.dataset.how, ag.dataset.again).then(() => render()).then(() => say(root.dataset.say || ""));
+      const fg = t.closest("[data-forget]");
+      if (fg) { if (confirm("Delete this sent batch from the phone? Only do this if it reached Claude another way.")) { writeSent(sent().filter((b) => madeKey(b.made) !== fg.dataset.forget)); render(); } return; }
     });
     root.addEventListener("change", (e) => {
       const c = e.target.closest("[data-org-country]");
@@ -229,7 +307,9 @@
     lastFocus = document.activeElement; applyTone();
     root.hidden = false; document.body.style.overflow = "hidden"; root.scrollTop = 0;
     root.querySelector("#qv-title").focus({ preventScroll: true });
+    root.dataset.say = "";
     load().then((d) => { if (!root.hidden) render(d && d.error); badge(); });
+    checkReceipts();
   }
   function close(navigate) {
     if (!root || root.hidden) return;
@@ -239,9 +319,10 @@
   }
   function route() { if (/^#questions(\b|$)/i.test(location.hash)) open(); else close(false); }
   window.addEventListener("hashchange", route);
-  window.addEventListener("online", () => { if (!data) load().then((d) => { if (root && !root.hidden) render(d && d.error); badge(); }); });
+  window.addEventListener("online", () => { checkReceipts(); if (!data) load().then((d) => { if (root && !root.hidden) render(d && d.error); badge(); }); });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && waiting().length) checkReceipts(); });
   window.addEventListener("titan:atmo", applyTone);
-  window.TitanQuestions = { open, close, queueConfirm, isQueuedConfirm, queueNote, pending: () => queue().length, count: () => load().then((d) => (d && d.error ? null : openCount())) };
-  const boot = () => { route(); load().then(badge); };
+  window.TitanQuestions = { open, close, queueConfirm, isQueuedConfirm, status, queueNote, pending: () => queue().length, waiting: () => waiting().length, count: () => load().then((d) => (d && d.error ? null : openCount())) };
+  const boot = () => { route(); load().then(badge); if (waiting().length) checkReceipts(); };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 })();

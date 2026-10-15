@@ -1,7 +1,8 @@
 {
- "updated": "2026-10-15T01:09:26Z",
+ "updated": "2026-10-15T01:47:18Z",
  "pools": {
   "cite": 32,
+  "contradiction": 30,
   "story-check": 81,
   "plain-story": 25,
   "research": 5,
@@ -16,6 +17,8 @@
    "wrong": 0,
    "checks_done": 60,
    "disagreements_open": 0,
+   "canaries_caught": 0,
+   "canaries_missed": 0,
    "checked_n": 81,
    "error_rate": 0.0,
    "error_ci95": [
@@ -28,6 +31,8 @@
    "wrong": 0,
    "checks_done": 68,
    "disagreements_open": 1,
+   "canaries_caught": 0,
+   "canaries_missed": 0,
    "checked_n": 190,
    "error_rate": 0.0,
    "error_ci95": [
@@ -40,6 +45,8 @@
    "wrong": 0,
    "checks_done": 0,
    "disagreements_open": 0,
+   "canaries_caught": 0,
+   "canaries_missed": 0,
    "checked_n": 41,
    "error_rate": 0.0,
    "error_ci95": [
@@ -52,6 +59,8 @@
    "wrong": 4,
    "checks_done": 0,
    "disagreements_open": 0,
+   "canaries_caught": 0,
+   "canaries_missed": 0,
    "checked_n": 130,
    "error_rate": 0.031,
    "error_ci95": [
@@ -64,6 +73,8 @@
    "wrong": 0,
    "checks_done": 0,
    "disagreements_open": 1,
+   "canaries_caught": 0,
+   "canaries_missed": 0,
    "checked_n": 0,
    "error_rate": null,
    "error_ci95": null
@@ -71,9 +82,9 @@
  },
  "parked": [],
  "open_assignments": {
-  "grok": 10,
+  "grok": 11,
   "muse": 12,
-  "gemini": 5,
+  "gemini": 8,
   "chatgpt": 0
  }
 }

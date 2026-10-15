@@ -37,6 +37,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "tools", "schema"))
 import collection_io as C
 import provenance as PV
+import canary as CAN
 
 ENTITIES = ("type", "specimen", "lot", "album", "issuer", "photo")
 ALLOWED = {"ts", "by", "entity", "id", "field", "new", "old", "source", "verified", "op", "supersedes", "phase", "confidence", "provenance"}
@@ -46,6 +47,19 @@ LOT_PREFIX = {"bullion": "B", "set": "S", "housing": "H", "stamp": "P"}
 
 ASSIGNMENTS = os.path.join(ROOT, "docs", "agents", "homework", "assignments.json")
 DIVERT_KINDS = {"verify"}          # assignment kinds whose lines check a fact: a different value is filed as a disagreement, never applied
+SPOT_CHECK = {"id": "spot-check-claude", "kind": "verify"}     # fix list #95: Claude's own spot checks at an intake go the same way as an AI's check
+
+
+def sheet_value(aid, ent, rid, field):
+    """The value an assignment's answer sheet showed for a field (docs/agents/homework/sheets/{aid}.jsonl), or None when the sheet is gone."""
+    p = os.path.join(os.path.dirname(os.environ.get("TITAN_ASSIGNMENTS") or ASSIGNMENTS), "sheets", f"{aid}.jsonl")
+    if not os.path.exists(p): return None
+    with open(p, encoding="utf-8") as fh:
+        for ln in fh:
+            try: x = json.loads(ln)
+            except ValueError: continue
+            if (x.get("entity"), x.get("id"), x.get("field")) == (ent, rid, field): return {"value": x.get("new")}
+    return None
 
 def load_assignments(path=None):
     """{assignment id: record} from docs/agents/homework/assignments.json (TITAN_ASSIGNMENTS overrides the path: tests only)."""
@@ -225,6 +239,7 @@ class Applier:
         self.c = col
         self.assignments = load_assignments() if assignments is None else assignments
         self.new_disagreements = []
+        self.canaries = []                                   # fix list #99: planted wrong values caught or missed in this file
         self.done = {event_key(e) for e in col.changes}
         self.done_create = {create_key(e): e["id"] for e in col.changes if e["field"] == "(new record)"}
         self.ph = {}                                         # NEW-1 -> next free id (placeholder ids allocated in this file)
@@ -380,6 +395,9 @@ class Applier:
             if asg.get("kind") in DIVERT_KINDS and op == "set" and e["entity"] != "photo":
                 r = self.divert(e, asg)
                 if r: self.done.add(event_key(e)); return r
+        elif e.get("by") == "model:claude" and op == "set" and e["entity"] != "photo" and (e.get("provenance") or {}).get("workflow") == "spot-check":
+            r = self.divert(e, SPOT_CHECK)       # agrees: re-cited (Checked); differs: a disagreement for a third reader, never an overwrite
+            if r: self.done.add(event_key(e)); return r
         try: (self.create if op == "create" else self.set)(e)
         except Stale as x:
             self.log.append(str(x)); self.done.add(event_key(e)); return "stale"
@@ -415,6 +433,15 @@ class Applier:
         except KeyError: cur = None
         if e["new"] is None:
             self.log.append(f"left out (no value given): {ent} {rid} {field}"); return "left"
+        if CAN.chosen(asg["id"], f"verify:{ent}:{rid}:{field}"):
+            shown = sheet_value(asg["id"], ent, rid, field)
+            if shown is not None and shown["value"] != cur:
+                row = {"ts": e["ts"], "assignment": asg["id"], "agent": PV.agent_of(e["by"]), "item": f"verify:{ent}:{rid}:{field}"}
+                if e["new"] == shown["value"]:
+                    self.canaries.append(dict(row, outcome="missed"))
+                    self.log.append(f"canary missed (a planted wrong value was sent back as right; nothing written): {ent} {rid} {field}"); return "canary"
+                if e["new"] == cur: self.canaries.append(dict(row, outcome="caught")); self.log.append(f"canary caught: {ent} {rid} {field}")
+                e["old"] = cur               # the sheet showed the planted value as `old` too; judge the answer against the record
         if "old" in e and e["old"] != cur:
             self.log.append(f"stale, not counted: {ent} {rid} {field} changed after assignment {asg['id']} was issued (now {j(cur)[:60]}); nothing written")
             return "stale"
@@ -806,10 +833,15 @@ def apply_file(path, coll, dry_run=False, assignments=None):
         return "rejected", [f"REJECTED {name}: {len(problems)} problem(s); nothing was changed"] + ["  " + p for p in problems] + (["  notes: " + m for m in ap.log] if ap.log else []), []
     changed = [] if dry_run else tree_sync(wdir, coll)
     shutil.rmtree(work, ignore_errors=True)
+    if ap.canaries and not dry_run:
+        cp = os.path.join(os.path.dirname(os.path.abspath(coll)), "docs", "agents", "homework", "canaries.jsonl")
+        os.makedirs(os.path.dirname(cp), exist_ok=True)
+        with open(cp, "a", encoding="utf-8", newline="\n") as fh:
+            for r in ap.canaries: fh.write(json.dumps(r, ensure_ascii=False) + "\n")
     warn = []
     if any(e.get("by", "").startswith("model:") and not e.get("provenance") for _, e in events):
         warn = [f"WARNING {name}: no provenance on {sum(1 for _, e in events if e.get('by', '').startswith('model:') and not e.get('provenance'))} model event(s). Please add a `provenance` object (model, prompt_version, workflow, inputs, run_id): see collection/templates/INSTRUCTIONS.md"]
-    extra = "".join(f", {sum(1 for r in results if r == k)} {w}" for k, w in (("diverted", "filed as disagreements"), ("stale", "stale (not counted)"), ("left", "left out")) if k in results)
+    extra = "".join(f", {sum(1 for r in results if r == k)} {w}" for k, w in (("diverted", "filed as disagreements"), ("stale", "stale (not counted)"), ("left", "left out"), ("canary", "planted values sent back unchecked")) if k in results)
     rep = warn + [f"APPLIED {name}: {sum(1 for r in results if r == 'applied')} event(s) merged{extra}" + (" (dry run, nothing written)" if dry_run else f", {len(changed)} file(s) updated")] + ["  " + m for m in ap.log]
     return "applied", rep, ap.new_events
 

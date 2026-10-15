@@ -4929,11 +4929,18 @@
      confirm while the coin is in hand; Confirm queues them for the Questions page (TitanQuestions.queueConfirm). */
   let reshootData = null;
   const RS_SIDE = { obv: "front (obverse)", rev: "back (reverse)" };
+  const RS_ST = { saved: "on this phone, not sent", sent: "sent, waiting", received: "received" };   // 2026-10-15: say where a confirm is
+  function rsOutbox() {
+    const Q = window.TitanQuestions; if (!Q) return "";
+    const p = Q.pending ? Q.pending() : 0, w = Q.waiting ? Q.waiting() : 0;
+    if (!p && !w) return "";
+    return `<p class="rs-outbox" role="status">${p ? `<b>${intFmt(p)} answer${p === 1 ? "" : "s"} saved on this phone only, not sent yet.</b> ` : ""}${w ? `${intFmt(w)} batch${w === 1 ? "" : "es"} sent, waiting for the receipt. ` : ""}<a href="#questions">${p ? "Send them" : "See what was sent"}</a></p>`;
+  }
   function rsRow(i, extra) {
     const Q = window.TitanQuestions;
     const conf = Q && i.confirm && i.confirm.length ? `<div class="rs-confirm" role="group" aria-label="Check these on ${esc(i.id)} while you hold it">${i.confirm.map((c) => {
-      const done = Q.isQueuedConfirm && Q.isQueuedConfirm(i.id, c.fact);
-      return `<button type="button" class="rs-cf" data-scan="${esc(i.id)}" data-fact="${esc(c.fact)}" data-label="${esc(c.label)}"${done ? " disabled" : ""}>${done ? "✓ " : "Right? "}${esc(c.label)}</button>`;
+      const st = Q.status ? Q.status(i.id, c.fact) : (Q.isQueuedConfirm && Q.isQueuedConfirm(i.id, c.fact) ? "saved" : null);
+      return `<button type="button" class="rs-cf" data-scan="${esc(i.id)}" data-fact="${esc(c.fact)}" data-label="${esc(c.label)}"${st ? " disabled" : ""}>${st ? "✓ " : "Right? "}${esc(c.label)}${st ? ` <small>${RS_ST[st]}</small>` : ""}</button>`;
     }).join("")}</div>` : "";
     const why = i.settles && i.settles.length ? `<p class="rs-settles">Settles: ${esc(i.settles[0].text)}${i.settles.length > 1 ? ` <span class="rs-more">(+${i.settles.length - 1} more)</span>` : ""}</p>` : "";
     return `<li class="rs-item"><button type="button" class="rs-coin" data-scan="${esc(i.id)}"><strong>${esc(i.id)}</strong> ${esc(i.country || "")} ${esc(i.year || "")} · ${esc(String(i.denom || "").split(" · ")[0])}${extra ? ` <span class="rs-side">${extra}</span>` : ""}</button>${why}${conf}</li>`;
@@ -4968,7 +4975,8 @@
     const todo = d.total - (d.counts.not_round || 0);
     el.innerHTML = `<div class="sec-head"><span class="eyebrow">Phase 1</span><h2 id="reshoot-h">Shoot list</h2>
       <p class="sub">${todo ? `${intFmt(todo)} flips still need a phone photo (one side, with your pen label showing), and ${intFmt(os.total)} need their other side. Drop them in Drive STAGING.` : "Every flip has a phone photo."} While a coin is in your hand, tap “Right?” on what it says to confirm it.</p>
-      <a href="#scan" class="btn small" id="rs-scan">Scan with the camera</a> <button type="button" class="btn small" id="rs-print">Print this list</button></div>
+      <a href="#scan" class="btn small" id="rs-scan">Scan with the camera</a> <button type="button" class="btn small" id="rs-print">Print this list</button>
+      <div id="rs-outbox">${rsOutbox()}</div></div>
       ${finish}
       ${first.length ? `<div class="rs-first"><h3>Start here: these photos settle an open question</h3><ol class="rs-list rs-ol">${first.map(([i, x]) => rsRow(i, x)).join("")}</ol></div>` : ""}
       ${groups}${other}`;
@@ -4977,8 +4985,9 @@
       if (cf) {
         const Q = window.TitanQuestions; if (!Q || cf.disabled) return;
         Q.queueConfirm(cf.dataset.scan, cf.dataset.fact, cf.dataset.label);
-        $$(`#reshoot .rs-cf[data-scan="${cf.dataset.scan}"][data-fact="${cf.dataset.fact}"]`).forEach((b) => { b.disabled = true; b.textContent = "✓ " + b.dataset.label; });
-        showToast(`Confirmed ${cf.dataset.scan}: ${cf.dataset.label}. Send it from Questions.`);
+        $$(`#reshoot .rs-cf[data-scan="${cf.dataset.scan}"][data-fact="${cf.dataset.fact}"]`).forEach((b) => { b.disabled = true; b.innerHTML = "✓ " + esc(b.dataset.label) + ` <small>${RS_ST.saved}</small>`; });
+        const ob = $("#rs-outbox"); if (ob) ob.innerHTML = rsOutbox();
+        showToast(`Saved on this phone: ${cf.dataset.scan} ${cf.dataset.label}. Not sent yet: send it from Questions.`);
         return;
       }
       const b = e.target.closest(".rs-coin");

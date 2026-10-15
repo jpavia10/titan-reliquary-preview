@@ -25,6 +25,8 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
 import collection_io as C  # noqa: E402
 
+RECEIPTS = os.path.join(ROOT, "docs", "agents", "bridge", "answers_received.jsonl")
+
 # fact (as named by provenance.FACTS / the app's labels) -> (entity, field). Type facts are confirmed on the coin's type.
 CONFIRM = {
     "year": ("specimen", "issue.year"), "mint": ("specimen", "issue.mint_marks"), "mintage": ("specimen", "issue.mintage"),
@@ -141,6 +143,14 @@ def main(argv):
     if log:
         with open(os.path.join(coll, "owner_answers.jsonl"), "a", encoding="utf-8", newline="\n") as fh:
             for r in log: fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+    # 2026-10-15 (owner: "How do I know that you got those three answers?"): one receipt per processed file, whichever way it came (chat,
+    # Drive, the app's GitHub issue). publish.py turns these into data/answers_received.json; the app matches `made` to the batch it sent
+    # and shows "Received" with the counts, so the phone knows its answers arrived.
+    rc = {"made": ts, "file": os.path.basename(argv[0]), "processed": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+          "answers": len(data.get("answers") or []), "recorded": len(log), "facts": len(events), "speed": len(speed), "skipped": len(problems), "followups": len(follow)}
+    os.makedirs(os.path.dirname(RECEIPTS), exist_ok=True)
+    with open(RECEIPTS, "a", encoding="utf-8", newline="\n") as fh: fh.write(json.dumps(rc, ensure_ascii=False) + "\n")
+    print(f"receipt: {rc['answers']} answer(s) made {ts} -> docs/agents/bridge/answers_received.jsonl (the app shows them as received after the next publish)")
     return 0
 
 

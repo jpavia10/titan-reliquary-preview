@@ -10,6 +10,14 @@
       "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ + this repo (raw GitHub URLs)",
       "tasks": [
         {
+          "n": 6,
+          "title": "UI rethink, part 1: a structure beyond the wings + a working prototype",
+          "fix": "#116",
+          "state": "now",
+          "what": "Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'), then open the live app on a phone-sized screen. Your part is the information architecture. (1) A proposal (.md): two structures that replace the five wings (for example one continuous space with semantic zoom from the whole collection down to one coin's die; or the coin as the centre that every view orbits), pick one and say why, and map every function in the brief's table to a place in it. (2) A working prototype (.html, Three.js from cdnjs with an exact version is fine) of its core move on the real data (../../../data/index.json and data/detail/{ISO}.json): open the app, see the whole collection, go to one coin and back, with the transition explaining where the coin lives. Phone first, 55+ fps, honours prefers-reduced-motion. Save both as design_grok_{YYYYMMDD-HHMM}_{name}.md / .html in Drive 'design-incoming (AI UI proposals)'. Everything you need is in the brief; never invent coin data.",
+          "done_when": "The proposal and the prototype are in the folder; Claude hosts the prototype at /prototypes/v2/grok/ and Joseph tries it on his phone."
+        },
+        {
           "n": 1,
           "title": "Fact-check the coin stories, C151 to C283",
           "fix": "#73",
@@ -190,7 +198,8 @@
           "what": "Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Muse's read first (AI_START_HERE 2b).",
           "done_when": "Ongoing."
         }
-      ]
+      ],
+      "drive_note": "NEW (2026-10-15): two things. (1) Joseph wants the UI rethought from scratch, keeping every function: your part is the structure beyond the wings plus a working prototype (first task below; brief in Drive 'design-incoming (AI UI proposals)'). (2) A new homework kind, contradictions in the record, and Gemini is back as the third reader for disagreements. Your film and card scores are in your FEEDBACK doc (8 and 9)."
     },
     {
       "id": "muse",
@@ -206,6 +215,14 @@
           "state": "now",
           "what": "Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos is in the app as C304 from your reading (Joseph: \"Whatever muse said just use that\"), but it has no photo: upload it the same way as NOID_Mexico_1981_20-pesos_{obv|rev}.jpeg. When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.",
           "done_when": "The three photos are in STAGING with a summary, each different from every photo already filed."
+        },
+        {
+          "n": 7,
+          "title": "UI rethink, part 3: what is clunky today (phone walkthrough) + 10 references",
+          "fix": "#116",
+          "state": "now",
+          "what": "Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'). Your part is the evidence the other two design from. (1) Walk the live app on a phone-sized screen (https://jpavia10.github.io/titan-reliquary-preview/) doing the ten jobs Joseph and his dad really do (for example: what's new today; find a coin; which Silver Eagle year is missing; answer a coin question and send it; photograph the next coin; change the World and its sound; show the collection to a friend). For each: the taps it took, where it got stuck, and why, ranked worst first. (2) Ten reference works that show how this could feel (public sites, demos, apps; code-made motion and 3D): the link, what to borrow, and why it fits a coin collection. No prototype needed. Save as design_muse_{YYYYMMDD-HHMM}_walkthrough.md in Drive 'design-incoming (AI UI proposals)'.",
+          "done_when": "One file with the ranked walkthrough and the ten references."
         },
         {
           "n": 2,
@@ -247,7 +264,8 @@
           "what": "Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Grok's read first (AI_START_HERE 2b).",
           "done_when": "Ongoing."
         }
-      ]
+      ],
+      "drive_note": "NEW (2026-10-15): 16 of your new coins are in the app (C289 to C304). Joseph now wants the UI rethought: your part is a phone walkthrough of what is clunky plus 10 references (task below; brief in Drive 'design-incoming (AI UI proposals)'). The three coin photos (C300, C301, C304) still come first. Then the homework."
     },
     {
       "id": "chatgpt",
@@ -265,6 +283,14 @@
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/",
       "tasks": [
         {
+          "n": 4,
+          "title": "UI rethink, part 2: novel data views + a better atmosphere (two prototypes)",
+          "fix": "#116, #117",
+          "state": "now",
+          "what": "Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'). Antigravity is the best surface for this (it can run and test code). Build two working prototypes on the real data, each one .html (or a small .zip), phone first: (A) a novel way to show the collection's data that a list or a card cannot (for example albums as a physical binder whose holes fill with the real phone photos and whose empty holes show what is missing and its price; the collection on a globe or timeline that morphs as you scroll; value as something that moves with the metal price). (B) a replacement for Scene Studio, which Joseph calls clunky: picking a World, its sound and the motion level in one smooth control with a live preview, instead of a long panel. Each with a short .md: the idea in one sentence, how it works on a phone, what it costs. Save as design_gemini_{YYYYMMDD-HHMM}_{name}.{html|md|zip} in Drive 'design-incoming (AI UI proposals)'. Read data with ../../../data/... paths (Claude hosts it at /prototypes/v2/gemini/); never invent coin data; no edits to a copy of the app.",
+          "done_when": "Both prototypes and their notes are in the folder; Claude hosts them at /prototypes/v2/gemini/."
+        },
+        {
           "n": 1,
           "title": "Read new coin photos as the third blind reader",
           "fix": "#55",
@@ -277,7 +303,7 @@
           "title": "Second reader for all 33 albums, from the page photos (blind)",
           "fix": "#55",
           "state": "next",
-          "what": "When you are back. Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {\"A001\": {\"photos\": [file names], \"slots\": [{\"label\": \"1941-D\", \"state\": \"filled|empty|unclear\"}]}, ...}.",
+          "what": "Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {\"A001\": {\"photos\": [file names], \"slots\": [{\"label\": \"1941-D\", \"state\": \"filled|empty|unclear\"}]}, ...}.",
           "done_when": "One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look."
         },
         {
@@ -285,10 +311,11 @@
           "title": "Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck",
           "fix": "#113",
           "state": "next",
-          "what": "When you are back. The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json'. Grok has already made new picker cards for all 26 themes, so your part is only the 4 refreshed heroes (world_{kaleido|afterhours|colossus|abyss}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Follow ART_START_HERE: one image at a time, saved to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/'; real-photo look, no readable text, coins that look like real coins. Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. The v5 splash films are done (Grok), so no Veo clips are needed now.",
+          "what": "The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json'. Grok has already made new picker cards for all 26 themes, so your part is only the 4 refreshed heroes (world_{kaleido|afterhours|colossus|abyss}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Follow ART_START_HERE: one image at a time, saved to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/'; real-photo look, no readable text, coins that look like real coins. Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. The v5 splash films are done (Grok), so no Veo clips are needed now.",
           "done_when": "4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each)."
         }
-      ]
+      ],
+      "drive_note": "NEW (2026-10-15): you are back on (Joseph: \"Unpause gemini... Whether on gemini argon in chat or antigravity or gemini spark\"). First: settle the disagreements between Grok and Muse (arbitration is first on your list). Then two design prototypes (Antigravity is ideal; brief in Drive 'design-incoming (AI UI proposals)'). Put the model you really are in provenance (e.g. the Argon model's name): a new model takes both photo tests again."
     }
   ]
 }

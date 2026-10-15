@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-15T01:09:26Z",
+ "updated": "2026-10-15T01:47:18Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -37,7 +37,11 @@
   "muse-story-check-20261014": 1,
   "muse-verify-20261014": 1,
   "grok-cite-20261014": 2,
-  "grok-value-20261014": 1
+  "grok-value-20261014": 1,
+  "grok-contradiction-20261015": 1,
+  "gemini-contradiction-20261015": 1,
+  "gemini-value-20261015": 1,
+  "gemini-story-check-20261015": 1
  },
  "assignments": [
   {
@@ -7450,6 +7454,342 @@
      "field": null
     }
    ]
+  },
+  {
+   "id": "HW-grok-contradiction-20261015-1",
+   "agent": "grok",
+   "kind": "contradiction",
+   "issued": "2026-10-15T01:47:18Z",
+   "lease_until": "2026-10-22T01:47:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "contra:mint_unknown:C073",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C088",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C057",
+     "entity": "specimen",
+     "id": "C057",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C035",
+     "entity": "specimen",
+     "id": "C035",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C058",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C019",
+     "entity": "specimen",
+     "id": "C019",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C131",
+     "entity": "specimen",
+     "id": "C131",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C265",
+     "entity": "specimen",
+     "id": "C265",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C089",
+     "entity": "specimen",
+     "id": "C089",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C091",
+     "entity": "specimen",
+     "id": "C091",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C051",
+     "entity": "specimen",
+     "id": "C051",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C030",
+     "entity": "specimen",
+     "id": "C030",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C037",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue.mintage"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-contradiction-20261015-1",
+   "agent": "gemini",
+   "kind": "contradiction",
+   "issued": "2026-10-15T01:47:18Z",
+   "lease_until": "2026-10-22T01:47:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "contra:mint_unknown:C092",
+     "entity": "specimen",
+     "id": "C092",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C187",
+     "entity": "specimen",
+     "id": "C187",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C188",
+     "entity": "specimen",
+     "id": "C188",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C189",
+     "entity": "specimen",
+     "id": "C189",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C190",
+     "entity": "specimen",
+     "id": "C190",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C191",
+     "entity": "specimen",
+     "id": "C191",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C192",
+     "entity": "specimen",
+     "id": "C192",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C126",
+     "entity": "specimen",
+     "id": "C126",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C132",
+     "entity": "specimen",
+     "id": "C132",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C133",
+     "entity": "specimen",
+     "id": "C133",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C134",
+     "entity": "specimen",
+     "id": "C134",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C135",
+     "entity": "specimen",
+     "id": "C135",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C136",
+     "entity": "specimen",
+     "id": "C136",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C137",
+     "entity": "specimen",
+     "id": "C137",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C138",
+     "entity": "specimen",
+     "id": "C138",
+     "field": "issue.mintage"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-value-20261015-1",
+   "agent": "gemini",
+   "kind": "value",
+   "issued": "2026-10-15T01:47:18Z",
+   "lease_until": "2026-10-25T01:47:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C304",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "value"
+    },
+    {
+     "item": "value:C299",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "value"
+    },
+    {
+     "item": "value:C301",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "value"
+    },
+    {
+     "item": "value:C302",
+     "entity": "specimen",
+     "id": "C302",
+     "field": "value"
+    },
+    {
+     "item": "value:C300",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "value"
+    },
+    {
+     "item": "value:C298",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "value"
+    },
+    {
+     "item": "value:C296",
+     "entity": "specimen",
+     "id": "C296",
+     "field": "value"
+    },
+    {
+     "item": "value:C297",
+     "entity": "specimen",
+     "id": "C297",
+     "field": "value"
+    },
+    {
+     "item": "value:C303",
+     "entity": "specimen",
+     "id": "C303",
+     "field": "value"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261015-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-10-15T01:47:18Z",
+   "lease_until": "2026-10-22T01:47:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C296",
+     "entity": "specimen",
+     "id": "C296",
+     "field": "story"
+    },
+    {
+     "item": "story:C297",
+     "entity": "specimen",
+     "id": "C297",
+     "field": "story"
+    },
+    {
+     "item": "story:C298",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "story"
+    },
+    {
+     "item": "story:C299",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "story"
+    },
+    {
+     "item": "story:C300",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "story"
+    },
+    {
+     "item": "story:C301",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "story"
+    },
+    {
+     "item": "story:C302",
+     "entity": "specimen",
+     "id": "C302",
+     "field": "story"
+    },
+    {
+     "item": "story:C303",
+     "entity": "specimen",
+     "id": "C303",
+     "field": "story"
+    },
+    {
+     "item": "story:C304",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "story"
+    }
+   ]
   }
  ],
  "tried": {
@@ -8117,5 +8457,41 @@
     "ts": "2026-10-14T15:41:37Z"
    }
   ]
+ },
+ "models": {
+  "claude": {
+   "seen": [
+    "claude",
+    "claude-opus"
+   ],
+   "current": "claude-opus",
+   "changed": null,
+   "from": null
+  },
+  "grok": {
+   "seen": [
+    "grok-bot"
+   ],
+   "current": "grok-bot",
+   "changed": null,
+   "from": null
+  },
+  "muse": {
+   "seen": [
+    "muse-spark",
+    "muse-spark-1.3"
+   ],
+   "current": "muse-spark-1.3",
+   "changed": null,
+   "from": null
+  },
+  "gemini": {
+   "seen": [
+    "gemini"
+   ],
+   "current": "gemini",
+   "changed": null,
+   "from": null
+  }
  }
 }

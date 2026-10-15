@@ -13,7 +13,8 @@
  *         merged or duplicate -> the file goes to the Drive trash (recoverable for 30 days; owner rule: a processed file is deleted);
  *         rejected -> a note {name}.REJECTED.txt with the reasons is left next to it, and the file goes to the trash;
  *         held -> left alone (Claude looks at it). A file changed since the job saw it is left alone too: the next job run reads it.
- *       - copies docs/agents/QUEUE_{grok,muse,gemini}.md into the Drive docs "WORK QUEUE for {AI}" whenever the page changed.
+ *       - copies docs/agents/drive/QUEUE_{grok,muse,gemini}.txt (the compact copy homework.py writes next to each QUEUE_{ai}.md page)
+ *         into the Drive docs "WORK QUEUE for {AI}" whenever it changed.
  * The only secret is the key (Script properties, made by installAll). The repo is public, so nothing secret is ever read from it.
  *
  * Install (the whole guide: docs/INTAKE_BRIDGE.md):
@@ -156,7 +157,7 @@ function brQueues_(root, ref, status) {
   var props = PropertiesService.getScriptProperties();
   Object.keys(BR_QUEUES).forEach(function (ai) {
     try {
-      var text = brFetchText_(brRaw_("docs/agents/QUEUE_" + ai + ".md", ref));
+      var text = brFetchText_(brRaw_("docs/agents/drive/QUEUE_" + ai + ".txt", ref));
       if (text === null) return;
       text = text.replace(/^<!--[^\n]*-->\s*\n/, "");                 // the doc-status line is for the repo, not for the AI
       var h = brHash_(text);

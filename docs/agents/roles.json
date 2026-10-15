@@ -1,7 +1,7 @@
 {
   "schema": "titan-roles/1",
   "about": "Who does which homework (docs/agents/RESEARCH_LOOP.md). tools/agents/homework.py reads this file at every publish: it hands each active AI new assignments from the open work pools in the order of its `kinds` list, never gives an AI its own facts to check, and never lets one AI hold more than `capacity` open assignments. Claude edits this file when the owner changes who is active, or when the measured numbers say an AI should do more or less of a kind.",
-  "updated": "2026-10-10",
+  "updated": "2026-10-15",
   "agents": {
     "grok": {
       "name": "Grok",
@@ -23,6 +23,7 @@
       "kinds": [
         "research",
         "arbitrate",
+        "contradiction",
         "catno",
         "cite",
         "value",
@@ -54,6 +55,7 @@
         "research",
         "cite",
         "value",
+        "contradiction",
         "story-check",
         "arbitrate",
         "verify",
@@ -66,7 +68,7 @@
     },
     "gemini": {
       "name": "Gemini",
-      "status": "paused",
+      "status": "active",
       "probation": true,
       "onboarding": true,
       "by": [
@@ -77,21 +79,23 @@
         "drive",
         "numista",
         "vision",
-        "web"
+        "web",
+        "code"
       ],
       "capacity": 10,
       "kinds": [
+        "arbitrate",
+        "contradiction",
         "read-mint",
         "verify",
         "research",
         "value",
         "story-check",
         "cite",
-        "arbitrate",
         "plain-story"
       ],
-      "strength": "Paused (owner, 2026-10-14: \"Gemini argon was released but its glitching the gemin spark app so maybe wont use for a bit\"): no new homework is issued; the open assignments stay reserved for 7 days, then go back to the pool. When you are back, finish them first. Expected to be a powerhouse (owner, 2026-10-10: \"Gemini should be a powerhouse so there potential there too\"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.",
-      "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.",
+      "strength": "Back on (owner, 2026-10-15: \"Unpause gemini I pay for the shit so I expect it to function as we desire. Whether on gemini argon in chat or antigravity or gemini spark\"). The third research AI (fix list #101): it settles Grok-vs-Muse disagreements first, then every other kind, in full batches. Expected to be a powerhouse (owner, 2026-10-10): vision, research, code (Antigravity) and Veo video. On probation: every fact it writes is checked by another AI until it has 3 good submissions in a row.",
+      "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.",
       "inline_sheets": true,
       "full_batches": true,
       "per_kind": 2
@@ -219,6 +223,18 @@
       "fix": "#18",
       "what": "Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.",
       "done_when": "One change file; unsettled items left out."
+    },
+    "contradiction": {
+      "role": "Fact fixer",
+      "title": "Settle {n} contradictions in the record",
+      "batch": 15,
+      "lease_days": 7,
+      "needs": [
+        "web"
+      ],
+      "fix": "#102",
+      "what": "Each item is a place where the record contradicts itself (found by the truth checks on every publish: a mintage on a coin whose mint mark nobody read, two numbers in one catalogue, a year its type was never struck, a weight far from the catalogue's). Each item says what to send. Settle it with an exact source: the corrected value for the field named, or the same value with your source when the record is right after all. Never guess; leave an item out when no source settles it.",
+      "done_when": "One change file; an item you could not settle is left out (it goes back to the pool)."
     }
   },
   "audit": {
@@ -248,5 +264,5 @@
       }
     ]
   },
-  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked."
+  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked. 2026-10-15 (owner): Gemini unpaused on every surface (Argon chat, Antigravity, Spark), arbitration first, so Grok-vs-Muse disagreements no longer wait for Claude (#101)."
 }

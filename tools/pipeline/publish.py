@@ -158,6 +158,13 @@ def main(argv):
     qs = OA.load_questions(coll); done = OA.answered_ids(coll)
     with open(f"{outuse}/questions.json", "w", encoding="utf-8", newline="\n") as f:
         json.dump({"generated_at": ver["generated_at"], "questions": [dict({k: q[k] for k in ("id", "coin", "ask", "why") if k in q}, options=[{k: o[k] for k in ("label", "free") if k in o} for o in q["options"]]) for q in qs.values() if q["id"] not in done]}, f, ensure_ascii=False, separators=(",", ":"))
+    # receipts of the owner's answers files (owner_answers.py writes them; the app marks a sent batch "Received" when its `made` is here)
+    rp = os.path.join(os.path.dirname(os.path.abspath(coll)), "docs", "agents", "bridge", "answers_received.jsonl")
+    rec = []
+    if os.path.exists(rp):
+        with open(rp, encoding="utf-8") as fh: rec = [json.loads(l) for l in fh if l.strip()]
+    with open(f"{outuse}/answers_received.json", "w", encoding="utf-8", newline="\n") as f:
+        json.dump({"generated_at": ver["generated_at"], "batches": [{k: r.get(k) for k in ("made", "processed", "answers", "recorded", "facts", "skipped", "followups")} for r in rec[-60:]]}, f, ensure_ascii=False, separators=(",", ":"))
     dg = DUP.find(coll)
     with open(f"{outuse}/dupes.json", "w", encoding="utf-8", newline="\n") as f: json.dump({"generated_at": ver["generated_at"], "groups": dg}, f, ensure_ascii=False, separators=(",", ":"))
     if any(g["kind"] != "multiple" for g in dg): print("dupes: " + "; ".join(f"{g['kind']} {', '.join(g['ids'])}" for g in dg if g["kind"] != "multiple") + " (possible double entries; data/dupes.json)")
@@ -186,7 +193,7 @@ def main(argv):
         shutil.copytree(os.path.join(outuse, "detail"), stage)
         if os.path.isdir(os.path.join(out, "detail")): os.replace(os.path.join(out, "detail"), old_dir)
         os.replace(stage, os.path.join(out, "detail")); shutil.rmtree(old_dir, ignore_errors=True)
-        for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "prices.json", "truth.json", "status.json", "inventory.html", "inventory-family.html"):
+        for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "answers_received.json", "prices.json", "truth.json", "status.json", "inventory.html", "inventory-family.html"):
             shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n + ".new")); os.replace(os.path.join(out, n + ".new"), os.path.join(out, n))
         shutil.copyfile(vuse, vpath)
         if os.path.abspath(out) == os.path.join(ROOT, "data"):     # only the real publish turns the research loop and rewrites the docs

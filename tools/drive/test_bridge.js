@@ -68,8 +68,8 @@ vm.createContext(sandbox);
 vm.runInContext(fs.readFileSync(path.join(__dirname, "intake_bridge.gs"), "utf8"), sandbox, { filename: "intake_bridge.gs" });
 const B = sandbox;
 const RAW = "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/";
-const page = ai => fs.readFileSync(path.join(ROOT, "docs", "agents", `QUEUE_${ai}.md`), "utf8");
-for (const ai of ["grok", "muse", "gemini"]) raw[RAW + `main/docs/agents/QUEUE_${ai}.md`] = page(ai);
+const page = ai => fs.readFileSync(path.join(ROOT, "docs", "agents", "drive", `QUEUE_${ai}.txt`), "utf8");
+for (const ai of ["grok", "muse", "gemini"]) raw[RAW + `main/docs/agents/drive/QUEUE_${ai}.txt`] = page(ai);
 
 /* ---------- install ---------- */
 B.installAll();
@@ -80,10 +80,11 @@ ok(triggers.length === 1, "running installAll twice still leaves one tick trigge
 ok(B.showSecret() === props.BR_KEY, "showSecret prints the key (the URL comes from the Deploy dialog)");
 const key = props.BR_KEY;
 const gemDoc = Object.values(docs).find(d => d.title.startsWith("WORK QUEUE for Gemini"));
-ok(gemDoc.writes === 1 && gemDoc.text.startsWith("# WORK QUEUE for Gemini"), "the first tick copies the page into the doc, without the doc-status line");
+ok(gemDoc.writes === 1 && gemDoc.text.includes("# WORK QUEUE for Gemini") && !gemDoc.text.includes("<!--") && gemDoc.text === page("gemini").replace(/^<!--[^\n]*-->\s*\n/, ""),
+   "the first tick copies the compact page (docs/agents/drive/QUEUE_gemini.txt) into the doc, without any doc-status line");
 B.tick();
 ok(gemDoc.writes === 1, "an unchanged page is not written again");
-raw[RAW + "main/docs/agents/QUEUE_gemini.md"] = page("gemini") + "\nnew line\n";
+raw[RAW + "main/docs/agents/drive/QUEUE_gemini.txt"] = page("gemini") + "\nnew line\n";
 B.tick();
 ok(gemDoc.writes === 2 && gemDoc.text.endsWith("new line\n"), "a changed page is written again");
 
@@ -131,7 +132,7 @@ const processed = { files: {
   [fChanged.id]: rec(fChanged, "merged", { updated: "2026-10-10T07:59:00.000Z" }),
 } };
 raw[RAW + "abc1234/docs/agents/bridge/processed.json"] = JSON.stringify(processed);
-for (const ai of ["grok", "muse", "gemini"]) raw[RAW + `abc1234/docs/agents/QUEUE_${ai}.md`] = page(ai);
+for (const ai of ["grok", "muse", "gemini"]) raw[RAW + `abc1234/docs/agents/drive/QUEUE_${ai}.txt`] = page(ai);
 const st = call({ key, op: "tick", sha: "abc1234" });
 ok(st.ref === "abc1234" && fetched.some(u => u.startsWith(RAW + "abc1234/docs/agents/bridge/processed.json")), "op=tick reads the files at that exact commit");
 ok(fGood.trashed && fDup.trashed, "merged and duplicate files go to the trash");

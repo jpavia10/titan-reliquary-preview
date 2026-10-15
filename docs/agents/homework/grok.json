@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-15T01:09:26Z",
+ "updated": "2026-10-15T01:47:18Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261009-1",
@@ -1386,7 +1386,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1420,7 +1421,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1454,7 +1456,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1490,7 +1493,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1526,7 +1530,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1562,7 +1567,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1598,7 +1604,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1634,7 +1641,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1670,7 +1678,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1706,7 +1715,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1734,7 +1744,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": []
@@ -1762,7 +1773,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1790,7 +1802,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1818,7 +1831,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1846,7 +1860,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1880,7 +1895,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1916,7 +1932,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1952,7 +1969,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1988,7 +2006,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -2020,7 +2039,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -2054,7 +2074,8 @@
        }
       ],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -2082,7 +2103,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": []
@@ -3468,7 +3490,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3494,7 +3517,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3522,7 +3546,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3550,7 +3575,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3578,7 +3604,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3606,7 +3633,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3638,7 +3666,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3666,7 +3695,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3694,7 +3724,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3722,7 +3753,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3750,7 +3782,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3780,7 +3813,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3808,7 +3842,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3836,7 +3871,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3864,7 +3900,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3893,7 +3930,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3921,7 +3959,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3949,7 +3988,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3977,7 +4017,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4005,7 +4046,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4035,7 +4077,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4063,7 +4106,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4091,7 +4135,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4120,7 +4165,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4146,7 +4192,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4174,7 +4221,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4203,7 +4251,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4237,7 +4286,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4263,7 +4313,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4289,7 +4340,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4317,7 +4369,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4345,7 +4398,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4373,7 +4427,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4402,7 +4457,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4430,7 +4486,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4456,7 +4513,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4483,7 +4541,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4511,7 +4570,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4539,7 +4599,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4567,7 +4628,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4594,7 +4656,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4622,7 +4685,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4650,7 +4714,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4678,7 +4743,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4705,7 +4771,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4733,7 +4800,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4761,7 +4829,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4803,7 +4872,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4835,7 +4905,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4864,7 +4935,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -5111,6 +5183,576 @@
      "inputs": [
       "C298_rev.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-contradiction-20261015-1",
+   "agent": "grok",
+   "kind": "contradiction",
+   "issued": "2026-10-15T01:47:18Z",
+   "lease_until": "2026-10-22T01:47:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "contra:mint_unknown:C073",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C088",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C057",
+     "entity": "specimen",
+     "id": "C057",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C035",
+     "entity": "specimen",
+     "id": "C035",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C058",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C019",
+     "entity": "specimen",
+     "id": "C019",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C131",
+     "entity": "specimen",
+     "id": "C131",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C265",
+     "entity": "specimen",
+     "id": "C265",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C089",
+     "entity": "specimen",
+     "id": "C089",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C091",
+     "entity": "specimen",
+     "id": "C091",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C051",
+     "entity": "specimen",
+     "id": "C051",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C030",
+     "entity": "specimen",
+     "id": "C030",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C037",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue.mintage"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "contra:mint_unknown:C073",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C073",
+     "field": "issue.mintage",
+     "coins": [
+      "C073"
+     ],
+     "label": "C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "US 1976: mint not read (mixed P/D likely (not sorted in tube) · no silver ); 1,669,902,855 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "USA",
+       "year": "1976",
+       "denom": "25 cents · USD · Bicentennial (1776–1976)",
+       "mint": "mixed P/D likely (not sorted in tube)",
+       "refs": "KM#204 / KM#A204",
+       "metal": "Cu-Ni clad (copper core visible on reeded edges) · 5.67 g · 24.3 mm · reeded (with 119 reeds) · circulated · labeled tube (not 2×2)",
+       "specs": "thickness 1.75 mm · medal alignment · clad sandwich — not 40% silver",
+       "mintage": "1,669,902,855",
+       "design": "obverse Washington · dual-date 1776–1976 · reverse drummer boy (Jack L. Ahr) · E PLURIBUS UNUM · QUARTER DOLLAR",
+       "series": "Bicentennial coinage",
+       "period": "United States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C088",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue.mintage",
+     "coins": [
+      "C088"
+     ],
+     "label": "C088 · USA · 1957 · 10¢ Roosevelt",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "US 1957: mint not read (1957 · mintmark not on obverse (1946–1964 mark is ); 275,200,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "USA",
+       "year": "1957",
+       "denom": "10¢ Roosevelt",
+       "mint": "1957",
+       "refs": "KM#195 · Schön#197 · Numista#52",
+       "metal": "90% silver · 2.50 g · 17.9 mm · reeded (118 reeds) · circulated / toned · in H001 chest · white 2×2 when sleeved",
+       "specs": "thickness 1.35 mm · medal alignment",
+       "mintage": "275,200,000",
+       "design": "obverse Roosevelt left (John R. Sinnock) · reverse torch · olive · oak · UNITED STATES OF AMERICA · ONE DIME",
+       "period": "United States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C006",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue.mintage",
+     "coins": [
+      "C006"
+     ],
+     "label": "C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1984: mint not read (unknown); 32,400,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1984",
+       "denom": "1 Deutsche Mark · DEM",
+       "mint": "unknown",
+       "refs": "KM#110 · Schön#108 · J#385 · Numista#846",
+       "metal": "CuNi · 5.50 g · 23.5 mm · ornamented (arabesque) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.75 mm · medal alignment",
+       "mintage": "32,400,000",
+       "design": "Bundesadler · value 1 between oak sprigs / DEUTSCHE MARK (Josef Bernhart)",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C050",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue.mintage",
+     "coins": [
+      "C050"
+     ],
+     "label": "C050 · Germany · 1982 · 1 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1982: mint not read (unknown (letter under date unclear (soft D/G candi); 70,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1982",
+       "denom": "1 Deutsche Mark · DEM",
+       "mint": "unknown (letter under date unclear (soft D/G candidate))",
+       "refs": "KM#110 · Schön#108 · J#385 · Numista#846",
+       "metal": "CuNi · 5.50 g · 23.5 mm · ornamented (arabesque) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.75 mm · medal alignment",
+       "mintage": "70,000,000",
+       "design": "Bundesadler · value 1 between oak sprigs / DEUTSCHE MARK (Josef Bernhart)",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C057",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C057",
+     "field": "issue.mintage",
+     "coins": [
+      "C057"
+     ],
+     "label": "C057 · Germany · 1982 · 50 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1982: mint not read (unknown (letter not on this reverse (oak-planter s); 87,360,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1982",
+       "denom": "50 Pfennig · DEM",
+       "mint": "unknown (letter not on this reverse (oak-planter side); check eagle for D/F/G/J)",
+       "refs": "KM#109.2 · Schön#109 · J#384 (smooth edge type)",
+       "metal": "CuNi 75/25 · 3.50 g · 20 mm · plain (post-1971) / reeded (to 1971) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.58 mm · medal alignment",
+       "mintage": "87,360,000",
+       "design": "Trümmerfrau planting oak sapling (Richard M. Werner / Gerda Werner) · Bundesadler value side",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C035",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C035",
+     "field": "issue.mintage",
+     "coins": [
+      "C035"
+     ],
+     "label": "C035 · Germany · 1971 · 50 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1971: mint not read (unknown (not read (mark on value side; photos show); 92,739,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1971",
+       "denom": "50 Pfennig · DEM",
+       "mint": "unknown (not read (mark on value side; photos show planter side))",
+       "refs": "KM#109.1 · Schön#109 · J#384 (reeded edge type)",
+       "metal": "CuNi 75/25 · 3.50 g · 20 mm · plain (post-1971) / reeded (to 1971) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.58 mm · medal alignment",
+       "mintage": "92,739,000",
+       "design": "Trümmerfrau planting oak sapling (Richard M. Werner / Gerda Werner) · Bundesadler value side",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C058",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.mintage",
+     "coins": [
+      "C058"
+     ],
+     "label": "C058 · Germany · 1985 · 50 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1985: mint not read (unknown (letter not on this reverse (oak-planter s); 60,200,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1985",
+       "denom": "50 Pfennig · DEM",
+       "mint": "unknown (letter not on this reverse (oak-planter side); check eagle for D/F/G/J)",
+       "refs": "KM#109.2 · Schön#109 · J#384 (smooth edge type)",
+       "metal": "CuNi 75/25 · 3.50 g · 20 mm · plain (post-1971) / reeded (to 1971) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.58 mm · medal alignment",
+       "mintage": "60,200,000",
+       "design": "Trümmerfrau planting oak sapling (Richard M. Werner / Gerda Werner) · Bundesadler value side",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C019",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C019",
+     "field": "issue.mintage",
+     "coins": [
+      "C019"
+     ],
+     "label": "C019 · Germany · 1981 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1981: mint not read (unknown (not readable on oak reverse photo (check ); 460,410,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1981",
+       "denom": "10 Pfennig · DEM",
+       "mint": "unknown (not readable on oak reverse photo (check value side if you care — D/F/G/J))",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated / toned/circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "460,410,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C131",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C131",
+     "field": "issue.mintage",
+     "coins": [
+      "C131"
+     ],
+     "label": "C131 · Germany · 2002 · 20 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2002: mint not read (unknown (letter not clear on photo (A/D/F/G/J by t); 1,859,645,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2002",
+       "denom": "20 euro cent · EUR",
+       "mint": "unknown (letter not clear on photo (A/D/F/G/J by the Gate — flip if you want it locked))",
+       "refs": "KM#211 · Schön#210 · J#486 · Numista#109",
+       "metal": "Nordic gold (Cu89Al5Zn5Sn1) · 5.74 g · 22.25 mm · plain (Spanish-flower shape) · circulated · white 2×2 staple flip",
+       "specs": "thickness 2.14 mm · medal alignment · Spanish-flower outline",
+       "mintage": "1,859,645,000",
+       "design": "national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C265",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C265",
+     "field": "issue.mintage",
+     "coins": [
+      "C265"
+     ],
+     "label": "C265 · Germany · 1950 · 5 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1950: mint not read (unknown (letter soft / not locked (between oak lea); 1,100,617,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1950",
+       "denom": "5 Pfennig · DEM",
+       "mint": "unknown (letter soft / not locked (between oak leaves above date))",
+       "refs": "KM#107 · Schön#105 · J#382 · Numista#658",
+       "metal": "brass-clad steel · 3.00 g · 18.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "1,100,617,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C089",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C089",
+     "field": "issue.mintage",
+     "coins": [
+      "C089"
+     ],
+     "label": "C089 · Germany · 1995 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1995: mint not read (unknown (not on oak reverse (value side carries A/); 549,500,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1995",
+       "denom": "10 Pfennig · DEM",
+       "mint": "unknown (not on oak reverse (value side carries A/D/F/G/J — flip if you want the lette…)",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "549,500,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C091",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C091",
+     "field": "issue.mintage",
+     "coins": [
+      "C091"
+     ],
+     "label": "C091 · Germany · 1982 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1982: mint not read (unknown (letter under oak stem soft · near D/Munic); 291,290,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1982",
+       "denom": "10 Pfennig · DEM",
+       "mint": "unknown (letter under oak stem soft",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated / brighter of the pair · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "291,290,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C051",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C051",
+     "field": "issue.mintage",
+     "coins": [
+      "C051"
+     ],
+     "label": "C051 · Germany · 1986 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1986: mint not read (unknown (letter above date unclear)); 160,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1986",
+       "denom": "10 Pfennig · DEM",
+       "mint": "unknown (letter above date unclear)",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "160,000,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C030",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C030",
+     "field": "issue.mintage",
+     "coins": [
+      "C030"
+     ],
+     "label": "C030 · Germany · 1982 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1982: mint not read (unknown (not clear on oak reverse photo (value sid); 291,290,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1982",
+       "denom": "10 Pfennig · DEM",
+       "mint": "unknown (not clear on oak reverse photo (value side if you want D/F/G/J))",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "291,290,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C037",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue.mintage",
+     "coins": [
+      "C037"
+     ],
+     "label": "C037 · Germany · 2002 · 10 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2002: mint not read (unknown (photo unclear · A Berlin or J Hamburg)); 3,509,935,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2002",
+       "denom": "10 euro cent · EUR",
+       "mint": "unknown (photo unclear",
+       "refs": "KM#210 (2002–2006 map) · Schön#209 · J#484",
+       "metal": "Nordic gold (Cu89Al5Zn5Sn1) · 4.10 g · 19.75 mm · reeded (fine scallops) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.93 mm · medal alignment",
+       "mintage": "3,509,935,000",
+       "design": "national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

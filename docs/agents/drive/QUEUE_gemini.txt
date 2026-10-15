@@ -1,0 +1,70 @@
+NEW (2026-10-15): you are back on (Joseph: "Unpause gemini... Whether on gemini argon in chat or antigravity or gemini spark"). First: settle the disagreements between Grok and Muse (arbitration is first on your list). Then two design prototypes (Antigravity is ideal; brief in Drive 'design-incoming (AI UI proposals)'). Put the model you really are in provenance (e.g. the Argon model's name): a new model takes both photo tests again.
+
+The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_gemini.md. Open it first; it wins over this copy.
+
+# WORK QUEUE for Gemini (updated 2026-10-15 01:47 UTC)
+
+From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
+
+**Status:** active (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Back on (owner, 2026-10-15: "Unpause gemini I pay for the shit so I expect it to function as we desire. Whether on gemini argon in chat or antigravity or gemini spark"). The third research AI (fix list #101): it settles Grok-vs-Muse disagreements first, then every other kind, in full batches. Expected to be a powerhouse (owner, 2026-10-10): vision, research, code (Antigravity) and Veo video. On probation: every fact it writes is checked by another AI until it has 3 good submissions in a row.
+**How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.
+
+## Finish first
+
+### UI rethink, part 2: novel data views + a better atmosphere (two prototypes)  (fix list #116, #117)
+
+Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'). Antigravity is the best surface for this (it can run and test code). Build two working prototypes on the real data, each one .html (or a small .zip), phone first: (A) a novel way to show the collection's data that a list or a card cannot (for example albums as a physical binder whose holes fill with the real phone photos and whose empty holes show what is missing and its price; the collection on a globe or timeline that morphs as you scroll; value as something that moves with the metal price). (B) a replacement for Scene Studio, which Joseph calls clunky: picking a World, its sound and the motion level in one smooth control with a live preview, instead of a long panel. Each with a short .md: the idea in one sentence, how it works on a phone, what it costs. Save as design_gemini_{YYYYMMDD-HHMM}_{name}.{html|md|zip} in Drive 'design-incoming (AI UI proposals)'. Read data with ../../../data/... paths (Claude hosts it at /prototypes/v2/gemini/); never invent coin data; no edits to a copy of the app.
+
+**Done when:** Both prototypes and their notes are in the folder; Claude hosts them at /prototypes/v2/gemini/.
+
+## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
+
+Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-locked and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-locked/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_gemini_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack. Its coin ids exist only in Claude's locked key; it decides which AI reads the Phase 2 pro photos.
+
+**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
+
+## Homework (generated from the data)
+
+Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above.
+
+- 1. HW-gemini-read-mint-20261014-1 · Photo reader · Read the mint mark on 4 coins from their photos · due 2026-10-21  (fix list #57)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-read-mint-20261014-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+- 2. HW-gemini-verify-20261014-1 · Second reader · Check 49 facts another AI wrote · due 2026-10-21  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261014-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+- 3. HW-gemini-value-20261014-1 · Appraiser · Cite collector values for 5 coins · due 2026-10-24  (fix list #62)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-value-20261014-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+- 4. HW-gemini-story-check-20261014-1 · Fact-checker · Fact-check 17 coin stories · due 2026-10-21  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261014-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+- 5. HW-gemini-verify-20261014-2 · Second reader · Check 50 facts another AI wrote · due 2026-10-21  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261014-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+- 6. HW-gemini-contradiction-20261015-1 · Fact fixer · Settle 15 contradictions in the record · due 2026-10-22  (fix list #102)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-contradiction-20261015-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+- 7. HW-gemini-value-20261015-1 · Appraiser · Cite collector values for 9 coins · due 2026-10-25  (fix list #62)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-value-20261015-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+- 8. HW-gemini-story-check-20261015-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-22  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261015-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+## Projects (after the homework)
+
+### Read new coin photos as the third blind reader  [ALWAYS]  (fix list #55)
+
+Whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for them per AI_START_HERE (section 2b), without looking at Grok's or Muse's reads first.
+
+**Done when:** Ongoing.
+
+### Second reader for all 33 albums, from the page photos (blind)  [NEXT]  (fix list #55)
+
+Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {"A001": {"photos": [file names], "slots": [{"label": "1941-D", "state": "filled|empty|unclear"}]}, ...}.
+
+**Done when:** One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look.
+
+### Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck  [NEXT]  (fix list #113)
+
+The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json'. Grok has already made new picker cards for all 26 themes, so your part is only the 4 refreshed heroes (world_{kaleido|afterhours|colossus|abyss}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Follow ART_START_HERE: one image at a time, saved to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/'; real-photo look, no readable text, coins that look like real coins. Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. The v5 splash films are done (Grok), so no Veo clips are needed now.
+
+**Done when:** 4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each).
+
+## Your numbers (measured, not self-reported)
+
+- Assignments answered: 6; expired: 0.
+- Your facts checked by another contributor: 81 (81 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-4 %). Checks you did for others: 60. Open disagreements you are part of: 0.
+- Share of your new facts that get checked first: 100 %.

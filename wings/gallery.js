@@ -1356,13 +1356,14 @@
     if (e.like && m[e.like]) e = Object.assign({}, m[e.like], { level: e.level });
     return e;
   }
+  const CONF_ST = { saved: "✓ Saved on this phone, not sent: send it from Questions", sent: "✓ Sent, waiting for the receipt", received: "✓ Received" };
   function certChip(c, fact) {
     if (!c.certainty) return "";
     const e = certOf(c, fact), L = CERT[e.level] || CERT.imported;
     const why = e.level === "imported" ? "Imported from Grok's ledger (2026-09-30)" : [e.by, e.ts, e.source].filter(Boolean).join(" · ");
     // #43: the owner can confirm any fact that is not verified yet; it waits in Questions until sent (wings/questions.js)
-    const Q = window.TitanQuestions, queued = Q && Q.isQueuedConfirm(c.scan, fact);
-    const conf = e.level === "verified" || !Q ? "" : `<br><button type="button" class="gxd-confirm" data-scan="${esc(c.scan)}" data-fact="${esc(fact)}"${queued ? " disabled" : ""}>${queued ? "✓ Confirmed: send it from Questions" : "I checked the coin: this is right"}</button>`;
+    const Q = window.TitanQuestions, st = Q && (Q.status ? Q.status(c.scan, fact) : (Q.isQueuedConfirm(c.scan, fact) ? "saved" : null));
+    const conf = e.level === "verified" || !Q ? "" : `<br><button type="button" class="gxd-confirm" data-scan="${esc(c.scan)}" data-fact="${esc(fact)}"${st ? " disabled" : ""}>${st ? CONF_ST[st] : "I checked the coin: this is right"}</button>`;
     // #74: the exact entry the fact came from, one tap away ("right number, wrong coin" shows at a glance). Only http(s) links are ever rendered.
     const links = (e.links || []).filter((u) => /^https?:\/\//i.test(u)).slice(0, 3)
       .map((u) => `<a class="gxd-src" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(srcLabel(u))} ↗</a>`).join(" ");
@@ -1473,7 +1474,7 @@
         const Q = window.TitanQuestions; if (!Q || cf.disabled) return;
         const row = cf.closest("dd, li, p, div"), label = row ? (row.textContent || "").split("I checked")[0].replace(/\s+/g, " ").trim().slice(0, 80) : "";
         Q.queueConfirm(cf.dataset.scan, cf.dataset.fact, label);
-        cf.disabled = true; cf.textContent = "✓ Confirmed: send it from Questions";
+        cf.disabled = true; cf.textContent = CONF_ST.saved;
         return;
       }
       const chip = e.target.closest(".gxd-cert");

@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-15T01:09:26Z",
+ "updated": "2026-10-15T01:47:18Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261014-1",
@@ -491,7 +491,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -521,7 +522,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -549,7 +551,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -577,7 +580,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -605,7 +609,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -633,7 +638,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -671,7 +677,8 @@
        }
       ],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -701,7 +708,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -730,7 +738,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -758,7 +767,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -786,7 +796,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -815,7 +826,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -848,7 +860,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -876,7 +889,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -904,7 +918,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -932,7 +947,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -960,7 +976,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -986,7 +1003,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1018,7 +1036,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1045,7 +1064,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1071,7 +1091,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": []
@@ -1097,7 +1118,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": []
@@ -1123,7 +1145,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1155,7 +1178,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1181,7 +1205,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1209,7 +1234,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1238,7 +1264,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1267,7 +1294,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1293,7 +1321,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1324,7 +1353,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1352,7 +1382,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1387,7 +1418,8 @@
        }
       ],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1417,7 +1449,8 @@
       ],
       "photos": [],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1451,7 +1484,8 @@
        }
       ],
       "audit": true,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": true,
      "inputs": [
@@ -1479,7 +1513,8 @@
       "links": [],
       "photos": [],
       "audit": true,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1507,7 +1542,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1535,7 +1571,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1563,7 +1600,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1591,7 +1629,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1619,7 +1658,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1647,7 +1687,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1675,7 +1716,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1703,7 +1745,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1731,7 +1774,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1759,7 +1803,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1787,7 +1832,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1819,7 +1865,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1845,7 +1892,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -1873,7 +1921,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3100,7 +3149,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3128,7 +3178,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3156,7 +3207,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3185,7 +3237,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3213,7 +3266,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3241,7 +3295,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3269,7 +3324,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3298,7 +3354,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3329,7 +3386,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3357,7 +3415,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3385,7 +3444,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3413,7 +3473,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3439,7 +3500,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3467,7 +3529,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3495,7 +3558,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3523,7 +3587,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3553,7 +3618,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3579,7 +3645,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3606,7 +3673,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3638,7 +3706,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3664,7 +3733,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3691,7 +3761,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3720,7 +3791,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3746,7 +3818,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3772,7 +3845,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3798,7 +3872,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3824,7 +3899,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3852,7 +3928,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3880,7 +3957,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3908,7 +3986,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3936,7 +4015,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3962,7 +4042,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -3990,7 +4071,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4018,7 +4100,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4045,7 +4128,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4071,7 +4155,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4100,7 +4185,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4126,7 +4212,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4152,7 +4239,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4180,7 +4268,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4208,7 +4297,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4235,7 +4325,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4261,7 +4352,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4287,7 +4379,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4316,7 +4409,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4345,7 +4439,8 @@
       ],
       "photos": [],
       "audit": false,
-      "lookup_blind": false
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4377,7 +4472,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4403,7 +4499,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4430,7 +4527,8 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": []
@@ -4458,7 +4556,1240 @@
       "links": [],
       "photos": [],
       "audit": false,
-      "lookup_blind": true
+      "lookup_blind": true,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-contradiction-20261015-1",
+   "agent": "gemini",
+   "kind": "contradiction",
+   "issued": "2026-10-15T01:47:18Z",
+   "lease_until": "2026-10-22T01:47:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "contra:mint_unknown:C092",
+     "entity": "specimen",
+     "id": "C092",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C187",
+     "entity": "specimen",
+     "id": "C187",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C188",
+     "entity": "specimen",
+     "id": "C188",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C189",
+     "entity": "specimen",
+     "id": "C189",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C190",
+     "entity": "specimen",
+     "id": "C190",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C191",
+     "entity": "specimen",
+     "id": "C191",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C192",
+     "entity": "specimen",
+     "id": "C192",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C126",
+     "entity": "specimen",
+     "id": "C126",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C132",
+     "entity": "specimen",
+     "id": "C132",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C133",
+     "entity": "specimen",
+     "id": "C133",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C134",
+     "entity": "specimen",
+     "id": "C134",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C135",
+     "entity": "specimen",
+     "id": "C135",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C136",
+     "entity": "specimen",
+     "id": "C136",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C137",
+     "entity": "specimen",
+     "id": "C137",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "contra:mint_unknown:C138",
+     "entity": "specimen",
+     "id": "C138",
+     "field": "issue.mintage"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "contra:mint_unknown:C092",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C092",
+     "field": "issue.mintage",
+     "coins": [
+      "C092"
+     ],
+     "label": "C092 · Germany · 1982 · 10 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1982: mint not read (unknown (letter under oak stem unclear on photo (v); 291,290,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1982",
+       "denom": "10 Pfennig · DEM",
+       "mint": "unknown (letter under oak stem unclear on photo (value side if you want A/D/F/G/J …)",
+       "refs": "KM#108 · Schön#106 · J#383 · Numista#850",
+       "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated / darker toning / darker toning · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "291,290,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C187",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C187",
+     "field": "issue.mintage",
+     "coins": [
+      "C187"
+     ],
+     "label": "C187 · Germany · 1985 · 1 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1985: mint not read (unknown (not clear on shown side)); 75,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1985",
+       "denom": "1 Pfennig · DEM",
+       "mint": "unknown (not clear on shown side)",
+       "refs": "KM#105 · Schön#103 · J#380 · Numista#854",
+       "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / brighter / brighter · white 2×2 staple flip",
+       "specs": "thickness 1.38 mm · medal alignment",
+       "mintage": "75,000,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C188",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C188",
+     "field": "issue.mintage",
+     "coins": [
+      "C188"
+     ],
+     "label": "C188 · Germany · 1985 · 1 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1985: mint not read (unknown (not clear on shown side)); 75,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1985",
+       "denom": "1 Pfennig · DEM",
+       "mint": "unknown (not clear on shown side)",
+       "refs": "KM#105 · Schön#103 · J#380 · Numista#854",
+       "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
+       "specs": "thickness 1.38 mm · medal alignment",
+       "mintage": "75,000,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C189",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C189",
+     "field": "issue.mintage",
+     "coins": [
+      "C189"
+     ],
+     "label": "C189 · Germany · 1985 · 1 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1985: mint not read (unknown (not clear on shown side)); 75,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1985",
+       "denom": "1 Pfennig · DEM",
+       "mint": "unknown (not clear on shown side)",
+       "refs": "KM#105 · Schön#103 · J#380 · Numista#854",
+       "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
+       "specs": "thickness 1.38 mm · medal alignment",
+       "mintage": "75,000,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C190",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C190",
+     "field": "issue.mintage",
+     "coins": [
+      "C190"
+     ],
+     "label": "C190 · Germany · 1985 · 1 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1985: mint not read (unknown (not clear on shown side)); 75,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1985",
+       "denom": "1 Pfennig · DEM",
+       "mint": "unknown (not clear on shown side)",
+       "refs": "KM#105 · Schön#103 · J#380 · Numista#854",
+       "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
+       "specs": "thickness 1.38 mm · medal alignment",
+       "mintage": "75,000,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C191",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C191",
+     "field": "issue.mintage",
+     "coins": [
+      "C191"
+     ],
+     "label": "C191 · Germany · 1986 · 1 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1986: mint not read (unknown (not clear on shown side)); 150,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1986",
+       "denom": "1 Pfennig · DEM",
+       "mint": "unknown (not clear on shown side)",
+       "refs": "KM#105 · Schön#103 · J#380 · Numista#854",
+       "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.38 mm · medal alignment",
+       "mintage": "150,000,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C192",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C192",
+     "field": "issue.mintage",
+     "coins": [
+      "C192"
+     ],
+     "label": "C192 · Germany · 1991 · 1 Pfennig · DEM",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 1991: mint not read (unknown (not clear on shown side)); 1,300,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "1991",
+       "denom": "1 Pfennig · DEM",
+       "mint": "unknown (not clear on shown side)",
+       "refs": "KM#105 · Schön#103 · J#380 · Numista#854",
+       "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.38 mm · medal alignment",
+       "mintage": "1,300,000,000",
+       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "period": "Federal Republic of Germany"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C126",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C126",
+     "field": "issue.mintage",
+     "coins": [
+      "C126"
+     ],
+     "label": "C126 · Germany · 2002 · 2 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2002: mint not read (unknown (letter not on shown common reverse (A/D/F); 2,082,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2002",
+       "denom": "2 euro cent · EUR",
+       "mint": "unknown (letter not on shown common reverse (A/D/F/G/J on oak national side — flip if …)",
+       "refs": "KM#208 · Schön#207 · J#483 · Numista#106",
+       "metal": "copper-plated steel · 3.06 g · 18.75 mm · plain with groove · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "2,082,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C132",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C132",
+     "field": "issue.mintage",
+     "coins": [
+      "C132"
+     ],
+     "label": "C132 · Germany · 2002 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2002: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 4,000,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2002",
+       "denom": "1 euro cent · EUR",
+       "mint": "unknown (letter not clear on photo (A/D/F/G/J by oak / date — flip if you want it locked))",
+       "refs": "KM#207 · Schön#206 · J#482 · Numista#105",
+       "metal": "copper-plated steel · 2.30 g · 16.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "4,000,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C133",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C133",
+     "field": "issue.mintage",
+     "coins": [
+      "C133"
+     ],
+     "label": "C133 · Germany · 2002 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2002: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 4,000,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2002",
+       "denom": "1 euro cent · EUR",
+       "mint": "unknown (letter not clear on photo (A/D/F/G/J by oak / date — flip if you want it locked))",
+       "refs": "KM#207 · Schön#206 · J#482 · Numista#105",
+       "metal": "copper-plated steel · 2.30 g · 16.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "4,000,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C134",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C134",
+     "field": "issue.mintage",
+     "coins": [
+      "C134"
+     ],
+     "label": "C134 · Germany · 2002 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2002: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 4,000,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2002",
+       "denom": "1 euro cent · EUR",
+       "mint": "unknown (letter not clear on photo (A/D/F/G/J by oak / date — flip if you want it locked))",
+       "refs": "KM#207 · Schön#206 · J#482 · Numista#105",
+       "metal": "copper-plated steel · 2.30 g · 16.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "4,000,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C135",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C135",
+     "field": "issue.mintage",
+     "coins": [
+      "C135"
+     ],
+     "label": "C135 · Germany · 2008 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2008: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 506,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2008",
+       "denom": "1 euro cent · EUR",
+       "mint": "unknown (letter not clear on photo (A/D/F/G/J by oak / date — flip if you want it locked))",
+       "refs": "KM#207 · Schön#206 · J#482 · Numista#105",
+       "metal": "copper-plated steel · 2.30 g · 16.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "506,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C136",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C136",
+     "field": "issue.mintage",
+     "coins": [
+      "C136"
+     ],
+     "label": "C136 · Germany · 2009 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2009: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 500,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2009",
+       "denom": "1 euro cent · EUR",
+       "mint": "unknown (letter not clear on photo (A/D/F/G/J by oak / date — flip if you want it locked))",
+       "refs": "KM#207 · Schön#206 · J#482 · Numista#105",
+       "metal": "copper-plated steel · 2.30 g · 16.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "500,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C137",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C137",
+     "field": "issue.mintage",
+     "coins": [
+      "C137"
+     ],
+     "label": "C137 · Germany · 2012 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2012: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 521,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2012",
+       "denom": "1 euro cent · EUR",
+       "mint": "unknown (letter not clear on photo (A/D/F/G/J by oak / date — flip if you want it locked))",
+       "refs": "KM#207 · Schön#206 · J#482 · Numista#105",
+       "metal": "copper-plated steel · 2.30 g · 16.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "521,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "contra:mint_unknown:C138",
+     "kind": "contradiction",
+     "entity": "specimen",
+     "id": "C138",
+     "field": "issue.mintage",
+     "coins": [
+      "C138"
+     ],
+     "label": "C138 · Germany · 2015 · 1 euro cent · EUR",
+     "authors": [],
+     "payload": {
+      "rule": "mint_unknown",
+      "detail": "DE 2015: mint not read (unknown (letter not clear on photo (A/D/F/G/J by o); 431,000,000 must be the all-mints total",
+      "ask": "The mint mark is not read, so the mintage must be the total of ALL mints for that year. Find a page that lists the per-mint figures; send issue.mintage = their sum (or the same number when it already is the sum) and issue.mintage_text = 'all mints: A ... + D ... + F ...' with the page in source.",
+      "record": {
+       "country": "Germany",
+       "year": "2015",
+       "denom": "1 euro cent · EUR",
+       "mint": "unknown (letter not clear on photo (A/D/F/G/J by oak / date — flip if you want it locked))",
+       "refs": "KM#207 · Schön#206 · J#482 · Numista#105",
+       "metal": "copper-plated steel · 2.30 g · 16.25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "431,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-value-20261015-1",
+   "agent": "gemini",
+   "kind": "value",
+   "issued": "2026-10-15T01:47:18Z",
+   "lease_until": "2026-10-25T01:47:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C304",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "value"
+    },
+    {
+     "item": "value:C299",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "value"
+    },
+    {
+     "item": "value:C301",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "value"
+    },
+    {
+     "item": "value:C302",
+     "entity": "specimen",
+     "id": "C302",
+     "field": "value"
+    },
+    {
+     "item": "value:C300",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "value"
+    },
+    {
+     "item": "value:C298",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "value"
+    },
+    {
+     "item": "value:C296",
+     "entity": "specimen",
+     "id": "C296",
+     "field": "value"
+    },
+    {
+     "item": "value:C297",
+     "entity": "specimen",
+     "id": "C297",
+     "field": "value"
+    },
+    {
+     "item": "value:C303",
+     "entity": "specimen",
+     "id": "C303",
+     "field": "value"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "value:C304",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "value",
+     "coins": [
+      "C304"
+     ],
+     "label": "C304 · Mexico · 1981 · 20 pesos · MXN",
+     "authors": [],
+     "payload": {
+      "est_usd": 1.0,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C299",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "value",
+     "coins": [
+      "C299"
+     ],
+     "label": "C299 · Italy · 1979 · 50 lire · ITL",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.75,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C299_rev.webp",
+        "file": "C299_rev.webp",
+        "original": "C299_Italy_1979_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C301",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "value",
+     "coins": [
+      "C301"
+     ],
+     "label": "C301 · Mexico · 1989 · 500 pesos · MXP",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.5,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C302",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C302",
+     "field": "value",
+     "coins": [
+      "C302"
+     ],
+     "label": "C302 · United Kingdom · 1922 · 1 penny · GBP",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.5,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C302_rev.webp",
+        "file": "C302_rev.webp",
+        "original": "C302_UnitedKingdom_1922_1Penny_rev.jpg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C300",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "value",
+     "coins": [
+      "C300"
+     ],
+     "label": "C300 · Bahamas · 1984 · 25 cents · BSD",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.25,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C298",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "value",
+     "coins": [
+      "C298"
+     ],
+     "label": "C298 · Italy · 1978 · 50 lire · ITL",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.2,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
+        "file": "C298_rev.webp",
+        "original": "C298_Italy_1978_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C296",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C296",
+     "field": "value",
+     "coins": [
+      "C296"
+     ],
+     "label": "C296 · United Kingdom · 1990 · 5 pence · GBP",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.11,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C296_obv.webp",
+        "file": "C296_obv.webp",
+        "original": "C296_UnitedKingdom_1990_5Pence_obv.jpg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C297",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C297",
+     "field": "value",
+     "coins": [
+      "C297"
+     ],
+     "label": "C297 · United Kingdom · 1988 · 1 penny · GBP",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.11,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C297_obv.webp",
+        "file": "C297_obv.webp",
+        "original": "C297_UnitedKingdom_1988_1Penny_obv.jpg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C303",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C303",
+     "field": "value",
+     "coins": [
+      "C303"
+     ],
+     "label": "C303 · Australia · 1983 · 1 cent · AUD",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.05,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C303_rev.webp",
+        "file": "C303_rev.webp",
+        "original": "C303_Australia_1983_1Cent_rev.jpg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261015-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-10-15T01:47:18Z",
+   "lease_until": "2026-10-22T01:47:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C296",
+     "entity": "specimen",
+     "id": "C296",
+     "field": "story"
+    },
+    {
+     "item": "story:C297",
+     "entity": "specimen",
+     "id": "C297",
+     "field": "story"
+    },
+    {
+     "item": "story:C298",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "story"
+    },
+    {
+     "item": "story:C299",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "story"
+    },
+    {
+     "item": "story:C300",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "story"
+    },
+    {
+     "item": "story:C301",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "story"
+    },
+    {
+     "item": "story:C302",
+     "entity": "specimen",
+     "id": "C302",
+     "field": "story"
+    },
+    {
+     "item": "story:C303",
+     "entity": "specimen",
+     "id": "C303",
+     "field": "story"
+    },
+    {
+     "item": "story:C304",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C296",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C296",
+     "field": "story",
+     "coins": [
+      "C296"
+     ],
+     "label": "C296 · United Kingdom · 1990 · 5 pence · GBP",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1990 British five pence. The side shown has Raphael Maklouf's portrait of Queen Elizabeth II with ELIZABETH II D.G.REG.F.D. 1990. The other side shows a crowned thistle, the badge of Scotland. 1990 was the first year of the smaller five pence.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1990",
+       "denom": "5 pence · GBP",
+       "mint": "none on the portrait side",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C297",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C297",
+     "field": "story",
+     "coins": [
+      "C297"
+     ],
+     "label": "C297 · United Kingdom · 1988 · 1 penny · GBP",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1988 British one penny. The side shown has Raphael Maklouf's portrait of Queen Elizabeth II. The other side shows a crowned portcullis with chains. Struck in bronze.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1988",
+       "denom": "1 penny · GBP",
+       "mint": "none on the portrait side",
+       "refs": "KM#935 · Schön#425 · Numista#861",
+       "metal": "bronze (97 Cu / 2.5 Zn / 0.5 Sn) · 3.56 g · 20.3 mm · plain",
+       "specs": "thickness 1.52 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C298",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "story",
+     "coins": [
+      "C298"
+     ],
+     "label": "C298 · Italy · 1978 · 50 lire · ITL",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1978 fifty-lire coin from Italy. The side shown has Vulcan, the god of fire, hammering at an anvil, with L. 50 and the date. The other side has the head of Italia. Struck in stainless steel.",
+      "record": {
+       "country": "Italy",
+       "year": "1978",
+       "denom": "50 lire · ITL",
+       "mint": "not visible on the Vulcan side",
+       "refs": "KM#95.1 · Schön#95 · Numista#724",
+       "metal": "Acmonital stainless steel · 6.25 g · 24.8 mm · reeded",
+       "specs": "thickness 1.95 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "obverse Italia / Republic head oak-crowned (Romagnoli) · reverse Vulcan at anvil with hammer · L.50 · date · R (Giampaoli)",
+       "period": "Italian Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C299",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "story",
+     "coins": [
+      "C299"
+     ],
+     "label": "C299 · Italy · 1979 · 50 lire · ITL",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1979 fifty-lire coin from Italy. The side shown has Vulcan, the god of fire, hammering at an anvil, with L. 50 and the date. The other side has the head of Italia. Struck in stainless steel.",
+      "record": {
+       "country": "Italy",
+       "year": "1979",
+       "denom": "50 lire · ITL",
+       "mint": "not visible on the Vulcan side",
+       "refs": "KM#95.1 · Schön#95 · Numista#724",
+       "metal": "Acmonital stainless steel · 6.25 g · 24.8 mm · reeded",
+       "specs": "thickness 1.95 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "obverse Italia / Republic head oak-crowned (Romagnoli) · reverse Vulcan at anvil with hammer · L.50 · date · R (Giampaoli)",
+       "period": "Italian Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C300",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "story",
+     "coins": [
+      "C300"
+     ],
+     "label": "C300 · Bahamas · 1984 · 25 cents · BSD",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1984 twenty-five-cent coin from the Bahamas. One side shows a Bahamian sailing sloop, the other the national arms with COMMONWEALTH OF THE BAHAMAS. There is no photo of this coin yet.",
+      "record": {
+       "country": "Bahamas",
+       "year": "1984",
+       "denom": "25 cents · BSD",
+       "mint": "not read (no photo of this coin yet)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C301",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "story",
+     "coins": [
+      "C301"
+     ],
+     "label": "C301 · Mexico · 1989 · 500 pesos · MXP",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1989 five-hundred-peso coin from Mexico with Francisco I. Madero, who started the Mexican Revolution in 1910, beside a large $500. Inflation made coins this big in the 1980s; in 1993 Mexico dropped three zeros from its money. There is no photo of this coin yet.",
+      "record": {
+       "country": "Mexico",
+       "year": "1989",
+       "denom": "500 pesos · MXP",
+       "mint": "Mo",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C302",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C302",
+     "field": "story",
+     "coins": [
+      "C302"
+     ],
+     "label": "C302 · United Kingdom · 1922 · 1 penny · GBP",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A bronze penny from the reign of George V, showing Britannia with trident and shield on the reverse. Britain's pennies were the workhorse small change of the empire.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1922",
+       "denom": "1 penny · GBP",
+       "mint": "no mint mark visible",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C303",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C303",
+     "field": "story",
+     "coins": [
+      "C303"
+     ],
+     "label": "C303 · Australia · 1983 · 1 cent · AUD",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1983 one-cent coin from Australia. The side shown has Stuart Devlin's feather-tailed glider with a large 1 and the date. Struck in bronze.",
+      "record": {
+       "country": "Australia",
+       "year": "1983",
+       "denom": "1 cent · AUD",
+       "mint": "none on the value side",
+       "refs": "KM#62 · Schön#49 · Numista#1559",
+       "metal": "bronze (97% copper, 2.5% zinc, 0.5% tin) · 2.59 g · 17.53 mm · plain",
+       "specs": "thickness 1.5 mm",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C304",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "story",
+     "coins": [
+      "C304"
+     ],
+     "label": "C304 · Mexico · 1981 · 20 pesos · MXN",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "Mexican 20 pesos from the Cultura Maya series, showing a Maya ball player and pyramid. CULTURA MAYA legend, date 1981, large 20 in center.",
+      "record": {
+       "country": "Mexico",
+       "year": "1981",
+       "denom": "20 pesos · MXN",
+       "mint": "not read (no photo of this coin in Drive yet)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
      },
      "blind": false,
      "inputs": []

@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-14, build tr115.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-15, build tr116.
 
-## State of the union (2026-10-14, build tr115)
+## State of the union (2026-10-15, build tr116)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
@@ -26,15 +26,15 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 
 - **Half the facts are still not proven.** Of 3,362 facts on screen, 1,628 are cited or confirmed (48.4 %, up from 19.9 % before the Oct 14 intake), 227 of them Checked by two sources; 1,129 still come from the original ledger unchecked and 420 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs.
 - **The loop needs me to turn it.** AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) that removes this is built and tested; it switches on with your one-time install (about 10 minutes).
-- **Only two AIs research today.** Gemini is paused (the Argon release broke its app, Oct 14); until it is back, disagreements between Grok and Muse wait for me (#101).
+- **The interface is behind the system.** The research system and the data are strong; the screens are still an early museum layout (#116). The three AIs now have design homework; nothing changes in the app until you pick.
 - **Photos are the bottleneck.** 79 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them.
 - **The look is not decided.** The design pause continues (#30): polish comes after the foundation, as you said.
 
 ### The next three moves, in order
 
 - **1. Turn guesses into facts.** Answer the 14 questions and the “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand.
-- **2. Let the loop run.** Do the one-time install for #92 (docs/INTAKE_BRIDGE.md; it also starts the Drive backup) and add the free Numista key; bring Gemini back when its app works.
-- **3. Measure, then decide.** Grok's locked test is in (76 %, 3.0 % invented); Muse's locked test and Gemini's are still due. Then pick who reads Phase 2, then the look (#30).
+- **2. Let the loop run.** Send each AI to its WORK QUEUE doc; Gemini is back as the third reader. The one-time install for #92 and the free Numista key still save the most of my time.
+- **3. Pick the new interface.** Try the prototypes at /prototypes/v2/ as they arrive (#116, #117); the coin questions can wait for the pro-photo session.
 
 ## What unlocks what (read right to left: do the last link first)
 
@@ -50,16 +50,15 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 ## Waiting on you (not tickable: only you can do these)
 
 - Switch on the autonomous intake + Drive backup (once, about 10 minutes): follow docs/INTAKE_BRIDGE.md (github.com/jpavia10/titan-reliquary-preview/blob/main/docs/INTAKE_BRIDGE.md): one Apps Script project and two GitHub secrets. Then the AIs' files merge by themselves every hour and Drive gets a daily backup (#92, #93, #103). Never paste the URL or the key in a chat; tell me “the bridge is installed” and I run the first check.
-- Answer the 14 questions in the app (Hall footer → Questions), and the “Where did they come from?” section: pick how you got a group of coins, tick them by country, send (#77).
+- No rush on the coin questions: they can wait for the pro-photo session. When you do answer some, press Send to Claude on the Questions page; it then shows Received when they are in (#118).
 - Photograph the missing coins with Scan a coin (Hall footer, or Lab → Shoot list → Scan with the camera): it checks each photo, names it and sends it to Drive STAGING. Unlocks Phase 1 at 100 %.
-- Gemini is paused: when its app works again, say “Gemini is back” and paste the link to its Drive doc “WORK QUEUE for Gemini”; it finishes its open homework first, then the locked photo test.
 - Get a free Numista API key (numista.com → your account → API) and add it in GitHub: the repository → Settings → Secrets and variables → Actions → New secret, name NUMISTA_API_KEY. The weekly price job then fills in collector values (#62). Never paste the key in a chat.
 - Measure your phone's speed: Health → Measure speed → Add this speed report to my answers file, then send the answers file (#25).
 - Decide who gets which inventory copy: Health → Printable inventory (with values for the insurer, without for the family) (#64).
 - Decide: does every coin need both sides photographed? Or can the common side of common coins be shared from one good photo? It sets the size of the “other side” batch (194 coins) and #61.
 - Opening: every launch plays the Grok film, then the theme's motion, and picking a theme plays its motion too; 9 new Grok films joined the rotation on Oct 14. Change it in Scene Studio → Settings → Opening (#112).
 - Re-upload 4 photos smaller than 7 MB: C105–C113, C114, C115/116, C117–C119.
-- Try the Motion Lab's studies and pick what goes into the app: jpavia10.github.io/titan-reliquary-preview/motion-lab/ (coin flip in three versions, tile to coin view, Confirm seal, album settle, Morph, gold dust) (#56, #63), and say what sounds or feels off (#22).
+- Try the design prototypes as they arrive: jpavia10.github.io/titan-reliquary-preview/prototypes/v2/ (#116, #117); the older Motion Lab studies are still at /motion-lab/.
 - Try the new theme effects on your phone: open a few themes (Scene Studio → Themes) and tell me which effects are too strong, too faint or stutter (#114).
 
 ## Questions for you (14 open, all in the app; only the coin itself can answer)
@@ -80,7 +79,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - **C073** C073 is a tube of 26 1976 quarters. Keep it as one mixed lot, or sort it into no-letter and D piles?
 - **→** Answer them in the app: Hall footer → Questions. Tap your answers, then “Save answers file” into the Drive change-file folder, or “Copy for chat” and paste it to me.
 
-## The other AIs (what each one is doing now (updated 2026-10-14))
+## The other AIs (what each one is doing now (updated 2026-10-15))
 
 The research loop hands out homework from the data after every update (docs/agents/RESEARCH_LOOP.md): each AI gets the kinds it is best at, never its own facts to check, and a different AI checks every fact. Their full pages: Drive “WORK QUEUE for …” docs, and docs/agents/ in the repo.
 
@@ -89,6 +88,7 @@ The research loop hands out homework from the data after every update (docs/agen
 
 Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basically opus if it needs to be so I think they get the hardest shit"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.
 
+- Now UI rethink, part 1: a structure beyond the wings + a working prototype #116
 - Now Fact-check the coin stories, C151 to C283 #73
 - Homework Appraiser: 25 items, due 10-19 HW-grok-value-20261009-1
 - Homework Fact-checker: 28 items, due 10-21 HW-grok-story-check-20261014-1
@@ -100,6 +100,7 @@ Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basic
 - Homework Second reader: 50 items, due 10-21 HW-grok-verify-20261014-2
 - Homework Cataloguer: 2 items, due 10-21 HW-grok-cite-20261014-2
 - Homework Photo reader: 2 items, due 10-21 HW-grok-read-mint-20261014-2
+- Homework Fact fixer: 15 items, due 10-22 HW-grok-contradiction-20261015-1
 - Then Album prices: a second source for the 10 most expensive holes #62
 - Then Splash film: Coinverse 16:9 again, plain coins (only when Joseph says the credits allow) #56
 - Then Music: a recording for each of the 3 held pieces #83
@@ -113,6 +114,7 @@ Measured: 190 of its facts checked by another AI: 190 confirmed, 0 wrong. Gets w
 Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
 
 - Now Fix three coin photos (from the 2026-10-14 intake) #3
+- Now UI rethink, part 3: what is clunky today (phone walkthrough) + 10 references #116
 - Now Second reader on Grok's Numista batches #72
 - Now Theme pictures: the 22 wide heroes (priority 2) #113
 - Test Blind photo test, the locked pack (15 coins) #19
@@ -135,21 +137,25 @@ Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to ste
 Measured: 130 of its facts checked by another AI: 126 confirmed, 4 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 
-### Gemini (paused)
+### Gemini (active)
 
-Paused (owner, 2026-10-14: "Gemini argon was released but its glitching the gemin spark app so maybe wont use for a bit"): no new homework is issued; the open assignments stay reserved for 7 days, then go back to the pool. When you are back, finish them first. Expected to be a powerhouse (owner, 2026-10-10: "Gemini should be a powerhouse so there potential there too"): vision, research and Veo video. Proves it can open the files first (proof of access), then full batches of every kind; every fact it writes is checked by another AI until it has 3 good submissions in a row.
+Back on (owner, 2026-10-15: "Unpause gemini I pay for the shit so I expect it to function as we desire. Whether on gemini argon in chat or antigravity or gemini spark"). The third research AI (fix list #101): it settles Grok-vs-Muse disagreements first, then every other kind, in full batches. Expected to be a powerhouse (owner, 2026-10-10): vision, research, code (Antigravity) and Veo video. On probation: every fact it writes is checked by another AI until it has 3 good submissions in a row.
 
+- Now UI rethink, part 2: novel data views + a better atmosphere (two prototypes) #116, #117
 - Test Blind photo test, the locked pack (15 coins) #19
 - Homework Photo reader: 4 items, due 10-21 HW-gemini-read-mint-20261014-1
 - Homework Second reader: 50 items, due 10-21 HW-gemini-verify-20261014-1
 - Homework Appraiser: 13 items, due 10-24 HW-gemini-value-20261014-1
 - Homework Fact-checker: 17 items, due 10-21 HW-gemini-story-check-20261014-1
 - Homework Second reader: 50 items, due 10-21 HW-gemini-verify-20261014-2
+- Homework Fact fixer: 15 items, due 10-22 HW-gemini-contradiction-20261015-1
+- Homework Appraiser: 9 items, due 10-25 HW-gemini-value-20261015-1
+- Homework Fact-checker: 9 items, due 10-22 HW-gemini-story-check-20261015-1
 - Then Second reader for all 33 albums, from the page photos (blind) #55
 - Then Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck #113
 - Always Read new coin photos as the third blind reader
 
-Measured: 81 of its facts checked by another AI: 81 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md). If it cannot write to Drive, it replies with the file in one code block and Joseph pastes it to Claude.
+Measured: 81 of its facts checked by another AI: 81 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.
 
 
 ### ChatGPT (parked)
@@ -167,24 +173,25 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 ### Make it run without a chat
 
 - [ ] **#92 The loop turns without a chat: autonomous intake**: Built and tested (tr107). Every hour a GitHub job asks a small Google Apps Script in your Drive for new change files, merges the outside AIs' files through every gate and test, publishes, turns the loop and rebuilds the site; the Drive side then trashes merged files, leaves REJECTED notes with a HOW TO FIX line and refreshes each AI's WORK QUEUE doc. Owner answers and anything that needs judgement wait for me in docs/agents/bridge/INBOX.md. No GitHub key anywhere: the job uses GitHub's own short-lived token. Needs first: you: the one-time install, about 10 minutes (docs/INTAKE_BRIDGE.md: one Apps Script project, two GitHub secrets) · Unlocks: #50, #93, daily progress with no session open _[partly done, large, needs you, new]_
-- [ ] **#93 Each AI's page copied to its Drive doc automatically**: Today I paste each changed WORK QUEUE page into its Drive doc by hand at every intake. Built into #92's Drive script: it copies a page whenever it changes. Needs first: #92 installed _[partly done, medium, new]_
+- [ ] **#93 Each AI's page copied to its Drive doc automatically**: Built (tr116): the loop now writes each AI's compact Drive copy (docs/agents/drive/QUEUE_{ai}.txt: its NEW note, the live link, one line per assignment), and the Drive bridge copies that file into the AI's doc whenever it changes. Until the bridge is installed I paste the same file by hand. Needs first: #92 installed _[partly done, medium, new]_
 - [ ] **#91 Scores drafted by the pipeline**: Each submission's score (right place, accepted as sent, accurate, complete, in its tier) drafted from the merge report and the cross-checks, so CONTRIBUTOR_SCORES and each AI's feedback stay current without my bookkeeping; I only adjust and add the praise. Unlocks: #92 running unattended _[medium, new]_
 - [ ] **#50 Process your answers file automatically**: When you drop answers_owner_*.json in Drive, it becomes records without waiting for a chat. #92 lists it for me but does not merge it on its own: your answers become Verified facts, and any AI with access to the folder could write a file under that name. Two ways: Google Drive added to the daily routine, or an answers file the app signs so #92 can tell it is yours. Needs first: Drive in the routine (you), or a signed answers file (#92 installed first) _[medium]_
+- [x] **#118 Answers you send get a receipt**: Done (tr116; you: "How do I know that you got those three answers?"). Questions has Send to Claude: it opens GitHub with your answers filled in, you press Submit, and a robot (owner-answers.yml, only for your own issues) merges them, publishes and replies on the issue. The phone shows each batch as Not sent, Sent (waiting) or Received with the counts, whichever way you sent it (GitHub, a chat copy or a Drive file). Offline it says so and keeps them. _[done]_
 
 ### Make it trustworthy at scale
 
-- [ ] **#99 Canary checks for the checkers**: Now and then a check item shows a deliberately wrong value (the record itself stays right). An AI that 'agrees' with it is rubber-stamping, and it shows in its numbers. The only way to know a checker really checks. _[medium, new]_
-- [ ] **#102 Every contradiction becomes homework**: The truth checks (30 coins whose mint mark is unread but carry a mintage, two catalogue numbers on one type, years a type was never issued) feed the loop directly, routed to the right kind of job, instead of waiting in Health. _[small, new]_
-- [ ] **#94 Old sources re-checked on a cadence**: Catalogue pages change and links die. A small sample of facts cited more than a year ago goes back to a second reader each month; a changed entry becomes a disagreement record. _[medium, new]_
-- [ ] **#95 My own spot checks counted**: At each intake I check a sample of each AI's facts myself; those checks go into the same numbers as the AIs' checks (I am an AI too, and I never check my own facts). _[small, new]_
+- [x] **#99 Canary checks for the checkers**: Oct 15 (tr116): about 6 % of the values a check list shows are planted wrong on purpose (a real value of the same field from another coin type; the record stays right). An AI that sends one back unchanged was rubber-stamping; one that sends the true value caught it. Never filed as a disagreement; counted on the AI's page and in metrics (tools/pipeline/canary.py). _[done]_
+- [x] **#102 Every contradiction becomes homework**: Oct 15 (tr116): a new homework kind, contradictions: every truth-check finding that needs research (30 today: German and US coins with a mintage but no mint mark read) goes to an AI as a job with an exact ask; the mechanical ones are still fixed by the script. Grok and Gemini have the first batches. _[done]_
+- [x] **#94 Old sources re-checked on a cadence**: Oct 15 (tr116): each month a sample of 12 Checked facts cited more than a year ago goes back to a second reader (never to either of the two who checked it); a changed entry becomes a disagreement. Nothing is that old yet, so the first ones come in October 2027. _[done]_
+- [x] **#95 My own spot checks counted**: Oct 15 (tr116): my own spot checks at an intake go through the same gate as an AI's check (workflow spot-check): the same value with my source = Checked and counted as a check I did; a different value = a disagreement for a third reader, never an overwrite. _[done]_
 - [ ] **#98 Targets and progress per kind of fact**: Goals like every catalogue number Checked by January, every mint mark read by Phase 2, every story checked by someone other than its author, with a progress line for each in Health. _[medium, new]_
 
 ### Grow the team
 
-- [ ] **#97 One onboarding path for any new AI**: Access check, then the main photo test, then half-size batches with every fact checked, then full membership after 3 good submissions in a row. Gemini went through the access check and the main test (Oct 12); it is paused since Oct 14 until its app works again. Any future AI follows the same path from roles.json. _[partly done, small, new]_
-- [ ] **#101 A third research AI, so disagreements never wait on me**: With only Grok and Muse researching, a Grok-vs-Muse disagreement needs me as the third reader. A third AI that passes the onboarding (#97) settles them inside the loop. Needs first: Gemini back from its pause (the Argon release broke its app), or another AI you pick _[medium, needs you, new]_
-- [ ] **#100 Re-test an AI when its model changes**: Every file records the AI's exact model; when it changes, the loop treats it as new again (more of its facts checked first) and puts both photo tests on its page. _[small, new]_
-- [ ] **#96 Cost per checked fact**: AI_RUNS.md gains the loop's numbers: what each AI's facts cost and how many held up under a check, so we pay for knowledge, not volume. _[small, new]_
+- [x] **#97 One onboarding path for any new AI**: Oct 15 (tr116): one path, written down (RESEARCH_LOOP.md section 9) and one command (tools/agents/new_agent.py): proof of access, the main photo test, half batches with every fact checked, full batches after the first good submission, off probation after 3 in a row that score 8+. _[done]_
+- [x] **#101 A third research AI, so disagreements never wait on me**: Oct 15 (tr116): Gemini is back on every surface (Argon chat, Antigravity, Spark; owner: "I pay for the shit so I expect it to function as we desire"), with arbitration first on its list, so Grok-vs-Muse disagreements no longer wait for me. _[done]_
+- [x] **#100 Re-test an AI when its model changes**: Oct 15 (tr116): a model name never seen before for an AI (provenance.model in its files) makes it new again: for 30 days its facts are checked first, and both photo tests come back on its page. Gemini coming back on Argon is the first case. _[done]_
+- [x] **#96 Cost per checked fact**: Oct 15 (tr116): collaborators/AI_RUNS.md now shows, per AI, how many of its facts another contributor checked, how many held up, how many were wrong, and the cost per fact that held up (when the AI reports its cost). _[done]_
 
 ## Tier 1 · Truth and measurement (turn guesses into facts and measure who is right)
 
@@ -210,6 +217,8 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ## Tier 1 · Gates for design and motion (needed before any visual work)
 
+- [ ] **#116 Rethink the interface beyond the wings (AI homework)**: Oct 15: your call ("the framework is good but the UI still sucks... too fixed into the wings... more novel ways of presenting data"). A design brief (docs/design/REDESIGN_BRIEF.md, also in Drive 'design-incoming (AI UI proposals)') lists every function to keep, what is wrong today, the bar and the hard rules. Grok proposes a structure beyond the five wings with a working prototype, Gemini builds two prototypes (a novel data view and the atmosphere control), Muse walks the app on a phone and ranks what is clunky with ten references. I host the good prototypes side by side at /prototypes/v2/ for you to try; only what you pick goes into the app, in small steps. Needs first: the three AIs' deliverables · Unlocks: #30, #63, #29 _[partly done, large, new]_
+- [ ] **#117 A better atmosphere control (replaces the Scene Studio panel)**: You called it clunky: themes, sound, effects and settings are one long panel. Gemini prototypes one smooth control with a live preview (part of #116); the winner replaces the panel, keeping every setting. Needs first: #116 (Gemini's prototype) _[medium, new]_
 - [ ] **#60 Dad test**: Ten minutes watching your dad use the Simple view (“Which Silver Eagle years am I missing?”). The known bugs are fixed first (bigger Simple view labels, tap-to-skip on the film), so the test sees the real design. Needs first: nothing · Unlocks: #29, #30 _[small, needs you, new]_
 - [ ] **#30 Pick the final design direction**: Combine the three prototypes or ask for new options. This ends the design pause; every visual change waits on it. Needs first: #60 (recommended) · Unlocks: #29, #63, splash and icon _[large, needs you]_
 - [ ] **#32 Split app.js into modules**: Steps 1–5 done (tr96–tr105; step 5 = the data layer, js/app-data.js). Next: the theme system and its effects (it shares a global name with the GPU effects, so it moves with a check), then the big wings one at a time, each smoke-tested. Needs first: nothing · Unlocks: #63, the redesign after #30 _[partly done, large]_
@@ -333,3 +342,12 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 - [x] **#23 Black Site terminal readability**: Done (tr109): the Construct's terminal is hidden on narrow screens and drawn at 14 px without glow; its falling code gave way to the new ASCII-art effect, which keeps clear of text. _[done]_
 - [x] **#56 Motion Lab test page**: Done (tr110): six studies at /motion-lab/: gold dust (Grok), Morph (your second video, rebuilt with your coins: dust sheet, a coin formed from its photo, the burst, light ribbons, blue beams), coin flip with a rim light, a tile growing into the coin view, the Confirm seal (AI guess → Owner verified) and a coin settling into album A026. Still / Calm / Full on each. Oct 14: two more coin-flip studies, 3B by Grok and 3C by Gemini (its coin notes are marked unchecked). Tell me which ones you want in the app (#63). _[done]_
 - [x] **#115 Effects keep moving while you scroll**: Done (tr111): since tr82 the effects froze while a page scrolled (to keep scrolling smooth on phones). Now they keep moving at a scroll frame rate that steps down from 30 to 20 to 12 frames a second if the phone struggles, never to zero, and the text protection follows the page as it moves. _[done]_
+- [x] **#118 Answers you send get a receipt**: Done (tr116; you: "How do I know that you got those three answers?"). Questions has Send to Claude: it opens GitHub with your answers filled in, you press Submit, and a robot (owner-answers.yml, only for your own issues) merges them, publishes and replies on the issue. The phone shows each batch as Not sent, Sent (waiting) or Received with the counts, whichever way you sent it (GitHub, a chat copy or a Drive file). Offline it says so and keeps them. _[done]_
+- [x] **#101 A third research AI, so disagreements never wait on me**: Oct 15 (tr116): Gemini is back on every surface (Argon chat, Antigravity, Spark; owner: "I pay for the shit so I expect it to function as we desire"), with arbitration first on its list, so Grok-vs-Muse disagreements no longer wait for me. _[done]_
+- [x] **#102 Every contradiction becomes homework**: Oct 15 (tr116): a new homework kind, contradictions: every truth-check finding that needs research (30 today: German and US coins with a mintage but no mint mark read) goes to an AI as a job with an exact ask; the mechanical ones are still fixed by the script. Grok and Gemini have the first batches. _[done]_
+- [x] **#99 Canary checks for the checkers**: Oct 15 (tr116): about 6 % of the values a check list shows are planted wrong on purpose (a real value of the same field from another coin type; the record stays right). An AI that sends one back unchanged was rubber-stamping; one that sends the true value caught it. Never filed as a disagreement; counted on the AI's page and in metrics (tools/pipeline/canary.py). _[done]_
+- [x] **#94 Old sources re-checked on a cadence**: Oct 15 (tr116): each month a sample of 12 Checked facts cited more than a year ago goes back to a second reader (never to either of the two who checked it); a changed entry becomes a disagreement. Nothing is that old yet, so the first ones come in October 2027. _[done]_
+- [x] **#95 My own spot checks counted**: Oct 15 (tr116): my own spot checks at an intake go through the same gate as an AI's check (workflow spot-check): the same value with my source = Checked and counted as a check I did; a different value = a disagreement for a third reader, never an overwrite. _[done]_
+- [x] **#97 One onboarding path for any new AI**: Oct 15 (tr116): one path, written down (RESEARCH_LOOP.md section 9) and one command (tools/agents/new_agent.py): proof of access, the main photo test, half batches with every fact checked, full batches after the first good submission, off probation after 3 in a row that score 8+. _[done]_
+- [x] **#96 Cost per checked fact**: Oct 15 (tr116): collaborators/AI_RUNS.md now shows, per AI, how many of its facts another contributor checked, how many held up, how many were wrong, and the cost per fact that held up (when the AI reports its cost). _[done]_
+- [x] **#100 Re-test an AI when its model changes**: Oct 15 (tr116): a model name never seen before for an AI (provenance.model in its files) makes it new again: for 30 days its facts are checked first, and both photo tests come back on its page. Gemini coming back on Argon is the first case. _[done]_

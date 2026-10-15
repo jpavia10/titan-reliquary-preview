@@ -213,5 +213,69 @@ class Loop(unittest.TestCase):
         self.assertTrue(CH.problems(d))
 
 
+class LoopUpgrades(unittest.TestCase):
+    """2026-10-15: contradictions as homework (#102), planted wrong values (#99), yearly re-checks (#94), Claude's spot checks (#95)."""
+    def test_contradictions_become_homework_except_the_mechanical_ones(self):
+        tmp = sandbox(); ctx = HW.load_context(tmp)
+        ctx["truth"] = ctx["truth"] + [{"rule": "copy_differs", "id": "C001", "field": "issue.mintage", "detail": "x"}]
+        pool = HW.pool_contradiction(ctx)
+        self.assertTrue(pool, "the truth checks found contradictions, so there must be homework")
+        self.assertFalse([i for i in pool if ":copy_differs:" in i], "mechanical findings stay with truth_checks.py --fix")
+        for it in pool.values():
+            self.assertEqual(it["kind"], "contradiction"); self.assertTrue(it["lines"]); self.assertIn(it["payload"]["rule"], HW.CONTRA_ASK)
+
+    def test_recheck_sends_old_checked_facts_back_once_a_year(self):
+        tmp = sandbox(); ctx = HW.load_context(tmp)
+        ctx["now"] = "2026-10-15T00:00:00Z"
+        self.assertFalse([i for i in HW.pool_verify(ctx, lambda a: 0.0).values() if i["payload"].get("recheck")])
+        ctx["now"] = "2028-01-15T00:00:00Z"
+        old = [i for i in HW.pool_verify(ctx, lambda a: 0.0).values() if i["payload"].get("recheck")]
+        self.assertTrue(old); self.assertLessEqual(len(old), HW.RECHECK_PER_MONTH)
+        self.assertTrue(all(len(i["authors"]) >= 2 for i in old), "a re-check never goes to either of the two who checked it")
+
+    def test_planted_values_are_caught_or_missed_and_never_filed(self):
+        import canary as CAN
+        rate = CAN.RATE; CAN.RATE = 1.0
+        try:
+            tmp = sandbox(); r = run_refresh(tmp, NOW)
+            os.environ["TITAN_ASSIGNMENTS"] = os.path.join(tmp, "docs", "agents", "homework", "assignments.json")
+            col = A.C.Collection(os.path.join(tmp, "collection")); planted = []
+            for a in r["state"]["assignments"]:
+                if a["status"] != "open" or a["kind"] != "verify": continue
+                for ln in open(os.path.join(tmp, "docs", "agents", "homework", "sheets", a["id"] + ".jsonl"), encoding="utf-8"):
+                    x = json.loads(ln); rec = col.types.get(x["id"]) if x["entity"] == "type" else col.specs.get(x["id"])
+                    if x.get("new") is not None and "old" in x and x["new"] != HW.get_path(rec, x["field"]):
+                        planted.append((x, HW.get_path(rec, x["field"])))
+            self.assertGreaterEqual(len(planted), 2, "with every item chosen, verify sheets must carry planted values")
+            agent = planted[0][0]["by"]; same = [p for p in planted if p[0]["by"] == agent][:2]
+            if len(same) < 2: self.skipTest("need two planted lines from one AI")
+            src = "https://en.numista.com/catalogue/pieces1234.html, the Features table row"
+            missed = dict(same[0][0], ts=LATER, source=src)                          # sent back as shown: rubber-stamped
+            caught = dict(same[1][0], ts=LATER, source=src, new=same[1][1])          # the true value: it really checked
+            before = len(A.C.Collection(os.path.join(tmp, "collection")).disagreements)
+            st, rep, _ = apply(tmp, [missed, caught], name=f"changes_{PV.agent_of(agent)}_20261009-1201.jsonl")
+            txt = "\n".join(rep)
+            self.assertIn("canary missed", txt); self.assertIn("canary caught", txt)
+            self.assertEqual(len(A.C.Collection(os.path.join(tmp, "collection")).disagreements), before, "a planted value is never filed as a disagreement")
+            rows = [json.loads(l) for l in open(os.path.join(tmp, "docs", "agents", "homework", "canaries.jsonl"), encoding="utf-8")]
+            self.assertEqual(sorted(x["outcome"] for x in rows), ["caught", "missed"])
+            m = HW.measure(HW.load_context(tmp))[PV.agent_of(agent)]
+            self.assertEqual((m["canaries_caught"], m["canaries_missed"]), (1, 1))
+        finally:
+            CAN.RATE = rate; os.environ.pop("TITAN_ASSIGNMENTS", None)
+
+    def test_claude_spot_check_counts_and_files_a_difference(self):
+        tmp = sandbox(); col = A.C.Collection(os.path.join(tmp, "collection"))
+        tid, t = next((k, v) for k, v in sorted(col.types.items()) if isinstance(v.get("ruler"), str) and v["ruler"])
+        line = {"ts": LATER, "by": "model:claude", "entity": "type", "id": tid, "op": "set", "field": "ruler", "old": t["ruler"], "new": t["ruler"] + " (spot check)",
+                "source": "https://en.numista.com/catalogue/pieces1234.html, the Features table row", "verified": False, "phase": 2, "confidence": "high",
+                "provenance": {"model": "claude-opus", "prompt_version": "INTAKE@2026-10-15", "workflow": "spot-check", "run_id": "t", "inputs": []}}
+        st, rep, _ = apply(tmp, [line], name="changes_claude_20261009-1202.jsonl")
+        self.assertIn("filed, NOT applied", "\n".join(rep))
+        col = A.C.Collection(os.path.join(tmp, "collection"))
+        self.assertEqual(col.types[tid]["ruler"], t["ruler"], "a spot check never overwrites")
+        self.assertTrue(HW.measure(HW.load_context(tmp))["claude"]["checks_done"] >= 1)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2, warnings="ignore")

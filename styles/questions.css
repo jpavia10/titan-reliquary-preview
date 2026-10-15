@@ -40,3 +40,10 @@
 .scan-view .sc-ring { position: absolute; transform: translate(-50%, -50%); border: 3px dashed var(--hv-btn); border-radius: 50%; pointer-events: none; }
 .scan-view .sc-checks { list-style: none; padding: 0; margin: 8px 0; font-size: 1rem; } .scan-view .sc-checks li { margin: 6px 0; font-weight: 700; }
 .scan-view code { font-size: 0.85em; word-break: break-all; }
+/* sent batches and their receipts (2026-10-15: the phone shows what reached Claude) */
+.questions-view .qv-sent { list-style: none; margin: 8px 0 18px; padding: 0; display: grid; gap: 10px; }
+.questions-view .qv-sent li { padding: 12px 14px; border: 3px solid var(--hv-line); border-radius: 10px; font-size: 1rem; line-height: 1.45; }
+.questions-view .qv-sent .qv-rcv { border-color: var(--hv-ok, #2e7d32); }
+.questions-view .qv-sent .qv-wait { border-style: dashed; }
+.questions-view .qv-again { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.questions-view .qv-how { font-size: 0.95rem; }

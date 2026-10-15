@@ -1,0 +1,82 @@
+NEW (2026-10-15): two things. (1) Joseph wants the UI rethought from scratch, keeping every function: your part is the structure beyond the wings plus a working prototype (first task below; brief in Drive 'design-incoming (AI UI proposals)'). (2) A new homework kind, contradictions in the record, and Gemini is back as the third reader for disagreements. Your film and card scores are in your FEEDBACK doc (8 and 9).
+
+The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
+
+# WORK QUEUE for Grok (updated 2026-10-15 01:47 UTC)
+
+From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
+
+**Status:** active. Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basically opus if it needs to be so I think they get the hardest shit"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.
+**How you get this:** Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
+
+## Finish first
+
+### UI rethink, part 1: a structure beyond the wings + a working prototype  (fix list #116)
+
+Joseph wants the interface rethought from scratch, keeping every function: read the brief: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/REDESIGN_BRIEF.md (a copy is in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/DESIGN BRIEF'), then open the live app on a phone-sized screen. Your part is the information architecture. (1) A proposal (.md): two structures that replace the five wings (for example one continuous space with semantic zoom from the whole collection down to one coin's die; or the coin as the centre that every view orbits), pick one and say why, and map every function in the brief's table to a place in it. (2) A working prototype (.html, Three.js from cdnjs with an exact version is fine) of its core move on the real data (../../../data/index.json and data/detail/{ISO}.json): open the app, see the whole collection, go to one coin and back, with the transition explaining where the coin lives. Phone first, 55+ fps, honours prefers-reduced-motion. Save both as design_grok_{YYYYMMDD-HHMM}_{name}.md / .html in Drive 'design-incoming (AI UI proposals)'. Everything you need is in the brief; never invent coin data.
+
+**Done when:** The proposal and the prototype are in the folder; Claude hosts the prototype at /prototypes/v2/grok/ and Joseph tries it on his phone.
+
+### Fact-check the coin stories, C151 to C283  (fix list #73)
+
+Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are merged: every one checked out. Carry on through C283 the same way: check each story against its own record and the cited Numista entry; where a claim is wrong, send a corrected story (source = the exact entry; say what was wrong; change only the wrong sentence). (While this is open, nobody else is given these stories: they are reserved for you.)
+
+**Done when:** Every story from C151 to C283 checked; a list of the ones you changed and why (in your FEEDBACK doc note).
+
+## Homework (generated from the data)
+
+Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above.
+
+- 1. HW-grok-value-20261009-1 · Appraiser · Cite collector values for 2 coins · due 2026-10-19  (fix list #62)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261009-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 2. HW-grok-story-check-20261014-1 · Fact-checker · Fact-check 26 coin stories · due 2026-10-21  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261014-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 3. HW-grok-verify-20261014-1 · Second reader · Check 22 facts another AI wrote · due 2026-10-21  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261014-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 4. HW-grok-read-mint-20261014-1 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-read-mint-20261014-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 5. HW-grok-cite-20261014-1 · Cataloguer · Cite the catalogue facts of 7 coin types · due 2026-10-21  (fix list #72)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261014-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 6. HW-grok-value-20261014-1 · Appraiser · Cite collector values for 7 coins · due 2026-10-24  (fix list #62)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261014-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 7. HW-grok-story-check-20261014-2 · Fact-checker · Fact-check 7 coin stories · due 2026-10-21  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261014-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 8. HW-grok-verify-20261014-2 · Second reader · Check 50 facts another AI wrote · due 2026-10-21  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261014-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 9. HW-grok-cite-20261014-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-21  (fix list #72)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261014-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 10. HW-grok-read-mint-20261014-2 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-read-mint-20261014-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 11. HW-grok-contradiction-20261015-1 · Fact fixer · Settle 15 contradictions in the record · due 2026-10-22  (fix list #102)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-contradiction-20261015-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+## Projects (after the homework)
+
+### Album prices: a second source for the 10 most expensive holes  [NEXT]  (fix list #62)
+
+Your A001-A016 list is live as 'Cost to complete' (collection/prices/wants_values_grok_20261010-1949.json). The key dates look low against dealer guides (1921-D dime $140 at VF, where APMEX's lowest grade starts near $158). For the 10 most expensive holes in that file (A006 1916-D, 1921-D, 1921, 1923-S, 1926-S, 1927-D, 1916-S, 1918-D; A012 1949-D; A007 1964-D), find a second price page (PCGS CoinFacts, NGC Price Guide, Greysheet retail or APMEX) for the same grade, and send wants_values_grok_{YYYYMMDD-HHMM}.json with the same shape; where the two sources differ by more than 25 %, give the higher and name both in source.
+
+**Done when:** One file in reviews-incoming; Claude checks a sample and the app's total updates.
+
+### Splash film: Coinverse 16:9 again, plain coins (only when Joseph says the credits allow)  [LATER]  (fix list #56)
+
+Nine of your v5 clips are live (fractal, cathedral, coin rain, two forge takes and the hoard for phones; hoard, cathedral and forge for desktop). splash5_coinverse_16x9 was left out: its coins carry the Bitcoin symbol, and the brief says no text or brands. One clip, the same Coinverse beats, plain coins with no symbols, ending with THE LANDING; save it before starting anything else (ART_START_HERE).
+
+**Done when:** The clip is in art-incoming next to the request with a DONE line.
+
+### Music: a recording for each of the 3 held pieces  [LATER]  (fix list #83)
+
+Held in docs/music/wanted.json: Elgar Nimrod, Debussy Rêverie (only a saxophone arrangement found so far), Satie Gymnopédie 3 on piano (the search keeps finding No. 1). Handel's Largo is done: Lea Desandre with Les Arts Florissants (CC BY 3.0) is live since 2026-10-09. For each held piece, find one Wikimedia Commons file that is a real performance of exactly that piece (not a synth or MIDI render), public domain or CC BY / CC BY-SA, with the performer named; give the exact Commons file title, the license and the performer, the same way as your 2026-10-08 music check. Save it as music_grok_{YYYYMMDD-HHMM}.json in Drive 'music-requests'.
+
+**Done when:** One JSON file with an exact Commons title (or 'none found' and why) for each held piece.
+
+### Read new coin photos (with Muse, blind)  [ALWAYS]  (fix list #55)
+
+Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Muse's read first (AI_START_HERE 2b).
+
+**Done when:** Ongoing.
+
+## Your numbers (measured, not self-reported)
+
+- Assignments answered: 9; expired: 0.
+- Your facts checked by another contributor: 190 (190 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-2 %). Checks you did for others: 68. Open disagreements you are part of: 1.
+- Share of your new facts that get checked first: 15 %.

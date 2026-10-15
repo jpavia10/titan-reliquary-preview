@@ -44,3 +44,4 @@ jobs:
           python tools/agents/test_regress_grk_r01.py
           python tools/agents/test_regress_grk_r02.py
           node tools/music/test_regress_grk_m03.js
+      - run: python tools/bridge/test_owner_answers_issue.py

@@ -1,0 +1,50 @@
+name: owner-answers
+
+# The owner's answers from the app (2026-10-15; owner: "How do I know that you got those three answers?"). The Questions page's
+# "Send to Claude" opens a pre-filled GitHub issue titled "Titan answers YYYYMMDD-HHMM"; when the repository owner submits it, this
+# merges the answers (owner events + a receipt), publishes, runs the integrity checks, pushes, rebuilds Pages and answers on the issue
+# with what arrived. Issues anyone else opens are ignored: the GitHub login is the proof the answers are the owner's.
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  actions: write
+
+concurrency:
+  group: owner-answers
+  cancel-in-progress: false
+
+jobs:
+  answers:
+    if: github.event.issue.user.login == github.repository_owner && startsWith(github.event.issue.title, 'Titan answers')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            /*
+            !/art/
+            !/audio/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Merge the answers, check, push, reply
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          pip install -q jsonschema
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          bash tools/bridge/run_owner_answers.sh
