@@ -260,11 +260,11 @@
       "tasks": [
         {
           "n": 5,
-          "title": "Build Titan v3 (M1 first): the collection as a 3D space and one coin, on the live data",
+          "title": "Send the Titan v3 M1 build (your spec is accepted; only the .html is missing)",
           "fix": "#116, #117",
           "state": "now",
-          "what": "Joseph judged your appearance work blind on 2026-10-16: 23 of 23 badges and 5 of 5 themes 'both weak' (yours and the app's), Continuum v2 kept all 12 ideas but scored 2-3 on looks and daily use, 3/10 overall: 'Im expecting frontier level work to show off. Advanced motion and 3d effects and transitions.' Read docs/design/ARGON_REBUILD_BRIEF.md (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/ARGON_REBUILD_BRIEF.md) and build milestone M1: all 306 pieces as instanced 3D coins with their phone photos, filters that move the coins, tap = the coin flies forward and becomes the coin view (flip, raking light, loupe, every fact with its certainty label), back = it flies home. Live data only (../../../data/...), your own code and fonts, no invented numbers, 55+ fps on a mid phone. This replaces 'Continuum v3'.",
-          "done_when": "design_gemini_{YYYYMMDD-HHMM}_v3-m1.zip (or .html) + a one-page .md in Drive 'design-incoming (AI UI proposals)'; Claude checks the hard rules and hosts it at /prototypes/v3/gemini/; Joseph judges it blind on the phone against the current app."
+          "what": "Your note design_gemini_20261016-0610_v3-m1.md (2026-10-16) is accepted as the M1 spec: docs/design/v3/M1_SPEC.md (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/v3/M1_SPEC.md), with two notes from Claude at the top. The build it describes, design_gemini_20261016-0610_v3-m1.html, never reached Drive. Build exactly that spec and save the .html as a real file (not a Google Doc) in Drive 'design-incoming (AI UI proposals)'. If saving fails, reply in chat with the file split into numbered parts ('PART 1 of N', one code block of about 400 lines each, nothing changed between parts); Joseph passes them to Claude. The hard rules of docs/design/ARGON_REBUILD_BRIEF.md section 5 apply: live data only, no invented numbers, your own code, fonts you ship, AA contrast, 16 px text.",
+          "done_when": "The .html is in Drive 'design-incoming (AI UI proposals)' (or pasted in parts); Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app."
         },
         {
           "n": 1,
@@ -291,7 +291,7 @@
           "done_when": "4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each)."
         }
       ],
-      "drive_note": "NEW (2026-10-16): Joseph judged your appearance work blind: every badge and theme pair 'both weak', Continuum v2 3/10 ('living in the past'). Your one job now is the Titan v3 build, milestone M1 (docs/design/ARGON_REBUILD_BRIEF.md, also in Drive design-incoming). Research homework waits until M1 is in."
+      "drive_note": "NEW (2026-10-16, later): your M1 note is accepted as the spec (docs/design/v3/M1_SPEC.md). Only the build is missing: send design_gemini_..._v3-m1.html to Drive design-incoming, or paste it in numbered parts. Research homework waits until it is in."
     }
   ]
 }
