@@ -1,27 +1,16 @@
 {
   "ai": "claude",
   "label": "Claude",
-  "updated_at": "2026-10-16T05:31:52Z",
+  "updated_at": "2026-10-16T05:37:42Z",
   "specialists": [
     {
       "id": "titan",
       "name": "Titan Integrator",
       "specialty": "titan",
-      "status": "on_duty"
+      "status": "standby"
     }
   ],
-  "live": [
-    {
-      "id": "session-20261016T0531",
-      "name": "Gemini rebuild brief",
-      "project": "titan",
-      "task": "Blind verdicts read; brief sent; deploying C200 fix",
-      "status": "running",
-      "started_at": "2026-10-16T05:31:50Z",
-      "elapsed_s": 0,
-      "last_activity_s": 0
-    }
-  ],
+  "live": [],
   "scheduled": [
     {
       "id": "intake",
@@ -46,7 +35,7 @@
       "name": "Daily site backup zip",
       "project": "titan",
       "schedule": "daily 09:20 UTC",
-      "last_run": "2026-10-16T03:52:39Z",
+      "last_run": "2026-10-16T05:32:57Z",
       "last_status": "ok",
       "next_run": null
     },
@@ -61,6 +50,14 @@
     }
   ],
   "recent": [
+    {
+      "id": "6cad0f3",
+      "name": "Gemini rebuild brief from the owner's blind verdicts; C200 label no longer shows",
+      "project": "titan",
+      "status": "done",
+      "completed_at": "2026-10-16T05:32:07Z",
+      "summary": "Gemini rebuild brief from the owner's blind verdicts; C200 label no longer shows the old ledger's 1978"
+    },
     {
       "id": "3766f67",
       "name": "Gemini's appearance work judged blind: review page, measurements and tools",
@@ -172,14 +169,6 @@
       "status": "done",
       "completed_at": "2026-10-15T02:16:28Z",
       "summary": "Shared log: old homework re-sent is handled safely"
-    },
-    {
-      "id": "664cf79",
-      "name": "Research loop: a re-sent or re-answered check sheet counts once per fact per AI",
-      "project": "titan",
-      "status": "done",
-      "completed_at": "2026-10-15T02:16:07Z",
-      "summary": "Research loop: a re-sent or re-answered check sheet counts once per fact per AI"
     }
   ]
 }
