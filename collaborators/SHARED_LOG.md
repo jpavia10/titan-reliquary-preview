@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-16] — Claude/Opus integrator (Gemini's appearance work, judged blind)
+* Owner: criticize Argon's work for a real rebuild, without sunk-cost bias. Blind A/B page (owner only): https://claude.ai/artifact/5bc8r7rf9Urx4QEdr8at1K ; verdicts in its database (`verdicts`), method and numbers in `notes/agents/reviews/GEMINI_BLIND_REVIEW_20261016.md`.
+* Measured: Gemini's 24 theme stylesheets are our files plus 187 changed lines; 19 of 24 look identical on a phone (< 0.1 % pixels). The 5 that differ (font swaps to fonts the app does not ship) and all 23 crests are blind pairs; Continuum v2 is a scored demo with the made-up pawn/buyback tiles and ring pitches hidden.
+* Next: when the owner marks the page done, read the verdicts, write Gemini's rebuild brief (FEEDBACK + WORK QUEUE), port the winners as tokens.
+
 ### [2026-10-15] — Claude/Opus integrator (tr117 intake: everyone's files)
 * **Keep the answer sheet's lines as they are**: `provenance.assignment`, `old` and `verified: false` stay; a line on `issues.N` is the year (and mint) the sheet now names, not the type's first year; a type id like MX.KM.433 is a name, not always the KM number. A citation must be the coin's own entry: a re-citation naming another coin's Numista page (or the sheet's example `pieces1234`) is now "not counted".
 * Drive drop folder emptied (all 65 handled files trashed; originals in `collection/_incoming/originals-20261015/`). **Fleet Command** (owner, 2026-10-16: "Yes but its in development"): Claude's feed is `docs/fleet/fleet-claude.json` (rebuild with `python3 tools/fleet/fleet_status.py [--live "name|task"]`, then push), served at its raw GitHub URL, because the Drive connector cannot rewrite the placeholder `fleet-claude.json` in place. Sebastian (Muse) has a note in Drive `Fleet Command/` asking for the sync to accept a `url` registry line; until then the bridge shows Claude as NO SIGNAL.

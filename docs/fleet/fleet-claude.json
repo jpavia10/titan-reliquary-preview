@@ -1,23 +1,34 @@
 {
   "ai": "claude",
   "label": "Claude",
-  "updated_at": "2026-10-16T03:51:49Z",
+  "updated_at": "2026-10-16T05:11:46Z",
   "specialists": [
     {
       "id": "titan",
       "name": "Titan Integrator",
       "specialty": "titan",
-      "status": "standby"
+      "status": "on_duty"
     }
   ],
-  "live": [],
+  "live": [
+    {
+      "id": "session-20261016T0511",
+      "name": "Gemini blind review",
+      "project": "titan",
+      "task": "Blind A/B page for the owner; waiting on the owner's picks",
+      "status": "running",
+      "started_at": "2026-10-16T05:11:43Z",
+      "elapsed_s": 0,
+      "last_activity_s": 0
+    }
+  ],
   "scheduled": [
     {
       "id": "intake",
       "name": "Hourly intake of the other AIs' change files",
       "project": "titan",
       "schedule": "hourly at :23 UTC",
-      "last_run": "2026-10-16T03:49:30Z",
+      "last_run": "2026-10-16T04:49:55Z",
       "last_status": "ok",
       "next_run": null
     },
@@ -35,7 +46,7 @@
       "name": "Daily site backup zip",
       "project": "titan",
       "schedule": "daily 09:20 UTC",
-      "last_run": "2026-10-16T03:03:56Z",
+      "last_run": "2026-10-16T03:52:39Z",
       "last_status": "ok",
       "next_run": null
     },
@@ -50,6 +61,14 @@
     }
   ],
   "recent": [
+    {
+      "id": "bd9a9eb",
+      "name": "Drive drop folder emptied; Fleet Command feed refreshed and logged",
+      "project": "titan",
+      "status": "done",
+      "completed_at": "2026-10-16T03:51:49Z",
+      "summary": "Drive drop folder emptied; Fleet Command feed refreshed and logged"
+    },
     {
       "id": "c62c9b0",
       "name": "Fleet Command: Claude's status feed (docs/fleet/fleet-claude.json, tools/fleet/f",
@@ -161,14 +180,6 @@
       "status": "done",
       "completed_at": "2026-10-15T02:09:57Z",
       "summary": "Research loop: every Drive queue copy warns that some check items are planted wrong; Gemini's note matches what is waiting for it"
-    },
-    {
-      "id": "3e1fa06",
-      "name": "owner answers: the owner may confirm a coin's country (unchanged, verified); a c",
-      "project": "titan",
-      "status": "done",
-      "completed_at": "2026-10-15T01:58:19Z",
-      "summary": "owner answers: the owner may confirm a coin's country (unchanged, verified); a change is still refused"
     }
   ]
 }
