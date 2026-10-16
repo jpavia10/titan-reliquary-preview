@@ -183,6 +183,8 @@ def specimen_detail(col, s, t):
     stem = photo_stem(s, t)
     tok = is_token(t)
     lt = s.get("ledger_text") or {}          # ledger wording kept verbatim where it cannot be derived (schema: Specimen.ledger_text)
+    if lt.get("label") and not set(re.findall(r"\b\d{4}\b", lt["label"])) <= set(re.findall(r"\b\d{4}\b", str(s["year_raw"]))):
+        lt = {k: v for k, v in lt.items() if k not in ("label", "specs_tail")}   # the wording predates a year correction (C200: ledger 1978, the coin reads ROC 97 = 2008)
     if "denom" in lt: dl = lt["denom"]
     if "photo_stem" in lt: stem = lt["photo_stem"]
     if "face" in lt: face = lt["face"]

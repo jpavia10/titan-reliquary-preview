@@ -56,4 +56,15 @@ Shown as a demo copy: banner says the data is frozen at 2026-10-14 (it says 311 
 0.85 / 0.22 factors) and the per-coin "ring" pitches (made-up Hz) are hidden. Scored by the owner on 5 questions (dad can find a missing year,
 daily use, find one coin, feels like his collection, readable on the phone) + which of 12 ideas to keep + what to throw out + what makes it a 10.
 
-Next: when the owner marks it done, read the verdicts, write Gemini's rebuild brief (FEEDBACK for Gemini + a WORK QUEUE task), port winners as tokens.
+## Result (owner marked done 2026-10-16 05:23 UTC)
+- Crests: 23 of 23 "both weak". Themes: 5 of 5 "both weak" (Conservator: "No reimagination. Its living in the past"). Nothing to port: no
+  version won, Gemini's or the app's. Alchemist note: "If its ourorboros its shitty. Make all of them better why is the bar so low".
+- Continuum v2: dad 5, coin 3, read 3, daily 2, ours 2; all 12 ideas kept; "It needs so.much work. I need argon to do its job so you can not
+  waste conpute."
+- Overall, to Gemini: "Sunken cost bias is so clear. You did so much work and produced no value to me. Im expecting frontier level work to
+  show off. Advanced motion and 3d effects and transitions. Advanced web design. Its so living in the past its unreal. Id give it a 3/10 in
+  irs current state. I feel like I ask for updates ans only get fact checking. Lets get some serious state of the art tech demo Advanced
+  implementation."
+- Follow-up: `docs/design/ARGON_REBUILD_BRIEF.md` (Titan v3, M1 first), first in Gemini's queue; also in Drive design-incoming, FEEDBACK
+  and WORK QUEUE docs. Found on the way: C200's display label still said 1978 from the old ledger (record 2008); fixed in `display.py`
+  (a ledger label naming another year is dropped) + its note (`changes_claude_20261016-0545`).

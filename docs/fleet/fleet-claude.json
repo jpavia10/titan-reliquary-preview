@@ -1,7 +1,7 @@
 {
   "ai": "claude",
   "label": "Claude",
-  "updated_at": "2026-10-16T05:11:46Z",
+  "updated_at": "2026-10-16T05:31:52Z",
   "specialists": [
     {
       "id": "titan",
@@ -12,12 +12,12 @@
   ],
   "live": [
     {
-      "id": "session-20261016T0511",
-      "name": "Gemini blind review",
+      "id": "session-20261016T0531",
+      "name": "Gemini rebuild brief",
       "project": "titan",
-      "task": "Blind A/B page for the owner; waiting on the owner's picks",
+      "task": "Blind verdicts read; brief sent; deploying C200 fix",
       "status": "running",
-      "started_at": "2026-10-16T05:11:43Z",
+      "started_at": "2026-10-16T05:31:50Z",
       "elapsed_s": 0,
       "last_activity_s": 0
     }
@@ -61,6 +61,14 @@
     }
   ],
   "recent": [
+    {
+      "id": "3766f67",
+      "name": "Gemini's appearance work judged blind: review page, measurements and tools",
+      "project": "titan",
+      "status": "done",
+      "completed_at": "2026-10-16T05:11:46Z",
+      "summary": "Gemini's appearance work judged blind: review page, measurements and tools"
+    },
     {
       "id": "bd9a9eb",
       "name": "Drive drop folder emptied; Fleet Command feed refreshed and logged",
@@ -172,14 +180,6 @@
       "status": "done",
       "completed_at": "2026-10-15T02:16:07Z",
       "summary": "Research loop: a re-sent or re-answered check sheet counts once per fact per AI"
-    },
-    {
-      "id": "309542d",
-      "name": "Research loop: every Drive queue copy warns that some check items are planted wr",
-      "project": "titan",
-      "status": "done",
-      "completed_at": "2026-10-15T02:09:57Z",
-      "summary": "Research loop: every Drive queue copy warns that some check items are planted wrong; Gemini's note matches what is waiting for it"
     }
   ]
 }

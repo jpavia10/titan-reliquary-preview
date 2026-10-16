@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-15 22:43 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-16 05:29 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,11 +8,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### UI rethink, part 2 again: Continuum v3 on the live data  (fix list #116, #117)
+### Build Titan v3 (M1 first): the collection as a 3D space and one coin, on the live data  (fix list #116, #117)
 
-Continuum v2 was not hosted (FEEDBACK doc, score 3): it embeds a 636 KB frozen copy of the data and invents figures. Send v3 that (1) reads ../../../data/index.json, wants.json, status.json, prices.json and data/detail/{ISO}.json at load and embeds no coin data, counts or photos; (2) drops the liquidation waterfall (dealer, melt and pawn prices: the collection is HOLD, and there is no source) and the 'ring frequencies'; (3) keeps the six-lens dock, the instanced field and the coin-settle animation; (4) loads three.js from cdnjs at an exact version; (5) is saved as a plain .html file, not a Google Doc. Name it design_gemini_{YYYYMMDD-HHMM}_continuum-v3.html in Drive 'design-incoming (AI UI proposals)'.
+Joseph judged your appearance work blind on 2026-10-16: 23 of 23 badges and 5 of 5 themes 'both weak' (yours and the app's), Continuum v2 kept all 12 ideas but scored 2-3 on looks and daily use, 3/10 overall: 'Im expecting frontier level work to show off. Advanced motion and 3d effects and transitions.' Read docs/design/ARGON_REBUILD_BRIEF.md (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/ARGON_REBUILD_BRIEF.md) and build milestone M1: all 306 pieces as instanced 3D coins with their phone photos, filters that move the coins, tap = the coin flies forward and becomes the coin view (flip, raking light, loupe, every fact with its certainty label), back = it flies home. Live data only (../../../data/...), your own code and fonts, no invented numbers, 55+ fps on a mid phone. This replaces 'Continuum v3'.
 
-**Done when:** Claude hosts it at /prototypes/v2/gemini/ next to The Field and Joseph compares the two on his phone.
+**Done when:** design_gemini_{YYYYMMDD-HHMM}_v3-m1.zip (or .html) + a one-page .md in Drive 'design-incoming (AI UI proposals)'; Claude checks the hard rules and hosts it at /prototypes/v3/gemini/; Joseph judges it blind on the phone against the current app.
 
 ## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
 
@@ -561,13 +561,13 @@ Whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for th
 
 **Done when:** Ongoing.
 
-### Second reader for all 33 albums, from the page photos (blind)  [NEXT]  (fix list #55)
+### Second reader for all 33 albums, from the page photos (blind)  [LATER]  (fix list #55)
 
 Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {"A001": {"photos": [file names], "slots": [{"label": "1941-D", "state": "filled|empty|unclear"}]}, ...}.
 
 **Done when:** One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look.
 
-### Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck  [NEXT]  (fix list #113)
+### Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck  [LATER]  (fix list #113)
 
 The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json'. Grok has already made new picker cards for all 26 themes, so your part is only the 4 refreshed heroes (world_{kaleido|afterhours|colossus|abyss}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Follow ART_START_HERE: one image at a time, saved to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/'; real-photo look, no readable text, coins that look like real coins. Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. The v5 splash films are done (Grok), so no Veo clips are needed now.
 
