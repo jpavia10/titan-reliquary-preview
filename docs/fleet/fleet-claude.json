@@ -1,7 +1,7 @@
 {
   "ai": "claude",
   "label": "Claude",
-  "updated_at": "2026-10-16T03:21:44Z",
+  "updated_at": "2026-10-16T03:51:49Z",
   "specialists": [
     {
       "id": "titan",
@@ -17,7 +17,7 @@
       "name": "Hourly intake of the other AIs' change files",
       "project": "titan",
       "schedule": "hourly at :23 UTC",
-      "last_run": "2026-10-16T02:48:36Z",
+      "last_run": "2026-10-16T03:49:30Z",
       "last_status": "ok",
       "next_run": null
     },
@@ -50,6 +50,14 @@
     }
   ],
   "recent": [
+    {
+      "id": "c62c9b0",
+      "name": "Fleet Command: Claude's status feed (docs/fleet/fleet-claude.json, tools/fleet/f",
+      "project": "titan",
+      "status": "done",
+      "completed_at": "2026-10-16T03:21:44Z",
+      "summary": "Fleet Command: Claude's status feed (docs/fleet/fleet-claude.json, tools/fleet/fleet_status.py)"
+    },
     {
       "id": "d6906bc",
       "name": "Note the unfinished Drive cleanup (52 files still in the drop folder, ids in the",
@@ -161,14 +169,6 @@
       "status": "done",
       "completed_at": "2026-10-15T01:58:19Z",
       "summary": "owner answers: the owner may confirm a coin's country (unchanged, verified); a change is still refused"
-    },
-    {
-      "id": "167f0cf",
-      "name": "owner answers: a receipt only for answers that actually merged; the robot fails ",
-      "project": "titan",
-      "status": "done",
-      "completed_at": "2026-10-15T01:57:21Z",
-      "summary": "owner answers: a receipt only for answers that actually merged; the robot fails loudly when the merge refuses them"
     }
   ]
 }
