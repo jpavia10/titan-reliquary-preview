@@ -1,40 +1,40 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-15, build tr116.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-16, build tr117.
 
-## State of the union (2026-10-15, build tr116)
+## State of the union (2026-10-16, build tr117)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
 - **306** pieces in flips (300 coins, 6 tokens), 51 countries
-- **$5,367** headline value at the latest metal prices (silver $60.59, gold $4,162)
+- **$5,390** headline value at the latest metal prices (silver $60.59, gold $4,162)
 - **226** pieces with a phone photo; 80 still need one, 14 have both sides
-- **205 / 306** pieces through Phase 1 (67.0 %): 80 need a photo, 42 need a mint mark read
+- **216 / 306** pieces through Phase 1 (70.6 %): 80 need a photo, 31 need a mint mark read
 - **917 / 1775** album slots filled, all 33 albums read from your page photos
-- **48.2 %** of the 3,385 facts on screen are cited or confirmed; 227 are Checked by two independent sources
+- **51.2 %** of the 3,402 facts on screen are cited or confirmed; 350 are Checked by two independent sources
 
 ### What is strong
 
-- **A research system that runs itself.** Since Oct 9 every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Grok and Muse have assignments now (Gemini is paused); the blind photo tests recur on their own.
+- **A research system that runs itself.** Since Oct 9 every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Grok and Muse have assignments now (Gemini's research waits until its Titan v3 build is in); the blind photo tests recur on their own.
 - **Trust machinery.** Every fact has a certainty label, a history and now a link to its exact source; “Checked” means two independent sources agree. The change history is sealed (a correction is a new line, never an edit), and every photo is fingerprinted against its original.
-- **One pipeline, one master, tested on every update.** Any AI drops a change file; one script checks it, merges it and rebuilds the site. 48 pipeline tests, 10 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup.
+- **One pipeline, one master, tested on every update.** Any AI drops a change file; one script checks it, merges it and rebuilds the site. 51 pipeline tests, 18 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup.
 - **Never silently broken.** Daily prices, live-site check, smoke and integrity checks and a daily backup zip run on GitHub; Health warns when any fails.
 - **Dad-readable, and printable.** The Simple view answers “Do I have…?” in big type, the app works offline, and there is now a printable inventory with photos.
 
 ### What is holding it back
 
-- **Half the facts are still not proven.** Of 3,362 facts on screen, 1,628 are cited or confirmed (48.4 %, up from 19.9 % before the Oct 14 intake), 227 of them Checked by two sources; 1,129 still come from the original ledger unchecked and 420 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs.
+- **Half the facts are still not proven.** Of 3,402 facts on screen, 1,742 are cited or confirmed (51.2 %), 350 of them Checked by two sources; 1,111 still come from the original ledger unchecked and 385 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs.
 - **The loop needs me to turn it.** AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) that removes this is built and tested; it switches on with your one-time install (about 10 minutes).
-- **The interface is behind the system.** The research system and the data are strong; the screens are still an early museum layout (#116). The three AIs now have design homework; nothing changes in the app until you pick.
-- **Photos are the bottleneck.** 79 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them.
-- **The look is not decided.** The design pause continues (#30): polish comes after the foundation, as you said.
+- **The interface is behind the system, and you said so.** Judged blind on Oct 16, every badge and theme pair, ours and Gemini's, came back "both weak"; you gave it 3/10 and asked for frontier-level motion, 3D and transitions. Titan v3 (#119-#121) is the answer, built in three steps; nothing changes in the app until you pick it blind (#122).
+- **Photos are the bottleneck.** 80 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them.
+- **The look is being rebuilt, not polished.** The old design pause is over: Titan v3 replaces the look, and you choose by blind test (#122) instead of from descriptions.
 
 ### The next three moves, in order
 
 - **1. Turn guesses into facts.** Answer the 14 questions and the “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand.
 - **2. Let the loop run.** Send each AI to its WORK QUEUE doc; Gemini is back as the third reader. The one-time install for #92 and the free Numista key still save the most of my time.
-- **3. Pick the new interface.** Try the prototypes at /prototypes/v2/ as they arrive (#116, #117); the coin questions can wait for the pro-photo session.
+- **3. Judge Titan v3.** When step 1 arrives I host it and send you a blind test against today's app (#119, #122); the coin questions can wait for the pro-photo session.
 
 ## What unlocks what (read right to left: do the last link first)
 
@@ -50,6 +50,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 ## Waiting on you (not tickable: only you can do these)
 
 - Switch on the autonomous intake + Drive backup (once, about 10 minutes): follow docs/INTAKE_BRIDGE.md (github.com/jpavia10/titan-reliquary-preview/blob/main/docs/INTAKE_BRIDGE.md): one Apps Script project and two GitHub secrets. Then the AIs' files merge by themselves every hour and Drive gets a daily backup (#92, #93, #103). Never paste the URL or the key in a chat; tell me “the bridge is installed” and I run the first check.
+- Two possible duplicates: keep or delete C300 and C301 (#124)? I won't delete without your yes.
 - No rush on the coin questions: they can wait for the pro-photo session. When you do answer some, press Send to Claude on the Questions page; it then shows Received when they are in (#118).
 - Photograph the missing coins with Scan a coin (Hall footer, or Lab → Shoot list → Scan with the camera): it checks each photo, names it and sends it to Drive STAGING. Unlocks Phase 1 at 100 %.
 - Get a free Numista API key (numista.com → your account → API) and add it in GitHub: the repository → Settings → Secrets and variables → Actions → New secret, name NUMISTA_API_KEY. The weekly price job then fills in collector values (#62). Never paste the key in a chat.
@@ -58,7 +59,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - Decide: does every coin need both sides photographed? Or can the common side of common coins be shared from one good photo? It sets the size of the “other side” batch (194 coins) and #61.
 - Opening: every launch plays the Grok film, then the theme's motion, and picking a theme plays its motion too; 9 new Grok films joined the rotation on Oct 14. Change it in Scene Studio → Settings → Opening (#112).
 - Re-upload 4 photos smaller than 7 MB: C105–C113, C114, C115/116, C117–C119.
-- Try the design prototypes as they arrive: jpavia10.github.io/titan-reliquary-preview/prototypes/v2/ (#116, #117); the older Motion Lab studies are still at /motion-lab/.
+- Judge the new designs blind: when Titan v3 step 1 or The Field v2 is ready I send you a blind-test link; pick A, B or both weak (#119, #122). The older prototypes are at jpavia10.github.io/titan-reliquary-preview/prototypes/v2/.
 - Try the new theme effects on your phone: open a few themes (Scene Studio → Themes) and tell me which effects are too strong, too faint or stutter (#114).
 
 ## Questions for you (14 open, all in the app; only the coin itself can answer)
@@ -79,7 +80,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - **C073** C073 is a tube of 26 1976 quarters. Keep it as one mixed lot, or sort it into no-letter and D piles?
 - **→** Answer them in the app: Hall footer → Questions. Tap your answers, then “Save answers file” into the Drive change-file folder, or “Copy for chat” and paste it to me.
 
-## The other AIs (what each one is doing now (updated 2026-10-15))
+## The other AIs (what each one is doing now (updated 2026-10-16))
 
 The research loop hands out homework from the data after every update (docs/agents/RESEARCH_LOOP.md): each AI gets the kinds it is best at, never its own facts to check, and a different AI checks every fact. Their full pages: Drive “WORK QUEUE for …” docs, and docs/agents/ in the repo.
 
@@ -88,25 +89,22 @@ The research loop hands out homework from the data after every update (docs/agen
 
 Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basically opus if it needs to be so I think they get the hardest shit"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.
 
-- Now UI rethink, part 1: a structure beyond the wings + a working prototype #116
+- Now UI rethink, step 2: The Field's three filters, on the real data #116
 - Now Fact-check the coin stories, C151 to C283 #73
 - Homework Appraiser: 25 items, due 10-19 HW-grok-value-20261009-1
-- Homework Fact-checker: 28 items, due 10-21 HW-grok-story-check-20261014-1
-- Homework Second reader: 22 items, due 10-21 HW-grok-verify-20261014-1
 - Homework Photo reader: 2 items, due 10-21 HW-grok-read-mint-20261014-1
-- Homework Cataloguer: 7 items, due 10-21 HW-grok-cite-20261014-1
-- Homework Appraiser: 7 items, due 10-24 HW-grok-value-20261014-1
-- Homework Fact-checker: 7 items, due 10-21 HW-grok-story-check-20261014-2
-- Homework Second reader: 50 items, due 10-21 HW-grok-verify-20261014-2
-- Homework Cataloguer: 2 items, due 10-21 HW-grok-cite-20261014-2
 - Homework Photo reader: 2 items, due 10-21 HW-grok-read-mint-20261014-2
-- Homework Fact fixer: 15 items, due 10-22 HW-grok-contradiction-20261015-1
+- Homework Cataloguer: 1 items, due 10-22 HW-grok-cite-20261015-1
+- Homework Fact-checker: 12 items, due 10-22 HW-grok-story-check-20261015-1
+- Homework Second reader: 50 items, due 10-22 HW-grok-verify-20261015-1
+- Homework Second reader: 29 items, due 10-22 HW-grok-verify-20261015-2
+- Homework Cataloguer: 2 items, due 10-22 HW-grok-cite-20261015-2
 - Then Album prices: a second source for the 10 most expensive holes #62
 - Then Splash film: Coinverse 16:9 again, plain coins (only when Joseph says the credits allow) #56
 - Then Music: a recording for each of the 3 held pieces #83
 - Always Read new coin photos (with Muse, blind)
 
-Measured: 190 of its facts checked by another AI: 190 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
+Measured: 312 of its facts checked by another AI: 312 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 
 ### Muse (active)
@@ -114,34 +112,25 @@ Measured: 190 of its facts checked by another AI: 190 confirmed, 0 wrong. Gets w
 Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
 
 - Now Fix three coin photos (from the 2026-10-14 intake) #3
-- Now UI rethink, part 3: what is clunky today (phone walkthrough) + 10 references #116
 - Now Second reader on Grok's Numista batches #72
 - Now Theme pictures: the 22 wide heroes (priority 2) #113
-- Test Blind photo test, the locked pack (15 coins) #19
-- Homework Researcher: 5 items, due 10-19 HW-muse-research-20261009-1
-- Homework Fact-checker: 40 items, due 10-17 HW-muse-story-check-20261010-1
-- Homework Appraiser: 50 items, due 10-20 HW-muse-value-20261010-1
-- Homework Photo reader: 13 items, due 10-17 HW-muse-read-mint-20261010-1
-- Homework Second reader: 50 items, due 10-17 HW-muse-verify-20261010-1
-- Homework Appraiser: 50 items, due 10-20 HW-muse-value-20261010-2
-- Homework Cataloguer: 21 items, due 10-21 HW-muse-cite-20261014-1
-- Homework Arbiter: 1 items, due 10-21 HW-muse-arbitrate-20261014-1
-- Homework Writer: 21 items, due 10-21 HW-muse-plain-story-20261014-1
 - Homework Fact-checker: 3 items, due 10-21 HW-muse-story-check-20261014-1
-- Homework Second reader: 50 items, due 10-21 HW-muse-verify-20261014-1
-- Homework Cataloguer: 2 items, due 10-21 HW-muse-cite-20261014-2
-- Then Cost to complete the albums: price the missing coins in A017 to A033 #62
-- Then Dad's one-page guide #60
+- Homework Fact fixer: 6 items, due 10-22 HW-muse-contradiction-20261015-1
+- Homework Arbiter: 10 items, due 10-22 HW-muse-arbitrate-20261015-1
+- Homework Second reader: 50 items, due 10-22 HW-muse-verify-20261015-1
+- Homework Writer: 4 items, due 10-22 HW-muse-plain-story-20261015-1
+- Homework Fact-checker: 9 items, due 10-22 HW-muse-story-check-20261015-1
+- Homework Second reader: 50 items, due 10-22 HW-muse-verify-20261015-2
 - Always Read new coin photos (with Grok, blind)
 
-Measured: 130 of its facts checked by another AI: 126 confirmed, 4 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
+Measured: 213 of its facts checked by another AI: 207 confirmed, 6 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 
 ### Gemini (active)
 
 Back on (owner, 2026-10-15: "Unpause gemini I pay for the shit so I expect it to function as we desire. Whether on gemini argon in chat or antigravity or gemini spark"). The third research AI (fix list #101): it settles Grok-vs-Muse disagreements first, then every other kind, in full batches. Expected to be a powerhouse (owner, 2026-10-10): vision, research, code (Antigravity) and Veo video. On probation: every fact it writes is checked by another AI until it has 3 good submissions in a row.
 
-- Now UI rethink, part 2: novel data views + a better atmosphere (two prototypes) #116, #117
+- Now Send the Titan v3 M1 build (your spec is accepted; only the .html is missing) #116, #117
 - Test Blind photo test, the locked pack (15 coins) #19
 - Homework Photo reader: 4 items, due 10-21 HW-gemini-read-mint-20261014-1
 - Homework Second reader: 50 items, due 10-21 HW-gemini-verify-20261014-1
@@ -151,11 +140,13 @@ Back on (owner, 2026-10-15: "Unpause gemini I pay for the shit so I expect it to
 - Homework Fact fixer: 15 items, due 10-22 HW-gemini-contradiction-20261015-1
 - Homework Appraiser: 9 items, due 10-25 HW-gemini-value-20261015-1
 - Homework Fact-checker: 9 items, due 10-22 HW-gemini-story-check-20261015-1
+- Homework Arbiter: 7 items, due 10-22 HW-gemini-arbitrate-20261015-1
+- Homework Cataloguer: 2 items, due 10-22 HW-gemini-cite-20261015-1
 - Then Second reader for all 33 albums, from the page photos (blind) #55
 - Then Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck #113
 - Always Read new coin photos as the third blind reader
 
-Measured: 81 of its facts checked by another AI: 81 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.
+Measured: 99 of its facts checked by another AI: 99 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.
 
 
 ### ChatGPT (parked)
@@ -166,6 +157,23 @@ Parked (owner, 2026-10-10: "Chatgpt is too manual so I dont expect stuff to come
 
 Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; the answer is pasted back to Claude.
 
+
+## Now · Titan v3, the app worth showing off (each step judged blind against today's app)
+
+
+### Build
+
+- [ ] **#119 Titan v3, step 1: the whole collection as one 3D space, and one coin**: All 306 pieces as real 3D coins with their phone photos; filters and sorts move the coins instead of redrawing a list; tap a coin and it flies forward into its own view (flip, a raking light you drag, a loupe, every fact with its certainty label), back flies it home; search moves the camera. Gemini's plan for it is accepted as the spec (docs/design/v3/M1_SPEC.md, Oct 16); the build itself has not arrived yet. I check Drive for it on Oct 17 (16:30 UTC); if it is still missing I ask you whether I should build it from the spec. Needs first: Gemini's build (its first task) · Unlocks: #120, #121, the blind test against today's app (#122) _[partly done, large, new]_
+- [ ] **#120 Titan v3, step 2: albums as real pages, and Dad's two-tap answer**: Each album as a physical page with real holes: filled holes hold the coin, missing ones are empty and lit, printed circles look different, pages turn. "Which Silver Eagle year am I missing?" answered in two taps from opening, in big type, with no gesture needed. Cost to complete and the want list from data/wants.json. Needs first: #119 · Unlocks: #60 (the Dad test) _[large, new]_
+- [ ] **#121 Titan v3, step 3: live value and three showpiece worlds**: The headline value moves with the metal prices; one world switch changes look, light, effect and sound together as a transition instead of a settings panel (this replaces #117). Three worlds made at showpiece quality instead of 26, each with its own badge drawn from scratch: on Oct 16 you judged all 23 badge pairs and 5 theme pairs "both weak", ours as well as Gemini's. Needs first: #120 · Unlocks: #30 (the final look) _[large, new]_
+
+### Judge and pick
+
+- [ ] **#122 Judge every design blind before it ships**: Started Oct 16: the blind review page showed each badge and theme as A and B in random order and saved your picks (claude.ai/artifact/5bc8r7rf9Urx4QEdr8at1K). It found that Gemini's 24 theme files were our files with 187 lines changed (19 look identical on screen) and that all 28 pairs were "both weak". Every Titan v3 step, Grok's The Field and any new theme goes through the same test against today's app before anything changes in the app. Unlocks: #30 _[partly done, small, new]_
+- [ ] **#116 Rethink the interface beyond the wings (AI homework)**: Oct 15: your call ("the framework is good but the UI still sucks... too fixed into the wings... more novel ways of presenting data"). A design brief (docs/design/REDESIGN_BRIEF.md, also in Drive 'design-incoming (AI UI proposals)') lists every function to keep, what is wrong today, the bar and the hard rules. Grok proposes a structure beyond the five wings with a working prototype, Gemini builds two prototypes (a novel data view and the atmosphere control), Muse walks the app on a phone and ranks what is clunky with ten references. I host the good prototypes side by side at /prototypes/v2/ for you to try; only what you pick goes into the app, in small steps. Oct 16: Grok's The Field is hosted at /prototypes/v2/grok/ (v2 sent, see #123); Gemini's Continuum v2 scored 3/10 blind, every one of its 12 ideas kept, and became Titan v3 (#119-#121). Needs first: the three AIs' deliverables · Unlocks: #30, #63, #29 _[partly done, large, new]_
+- [ ] **#117 A better atmosphere control (replaces the Scene Studio panel)**: You called it clunky: themes, sound, effects and settings are one long panel. Gemini prototypes one smooth control with a live preview (part of #116); the winner replaces the panel, keeping every setting. Oct 16: now part of Titan v3 step 3 (#121). Needs first: #116 (Gemini's prototype) _[medium, new]_
+- [ ] **#60 Dad test**: Ten minutes watching your dad use the Simple view (“Which Silver Eagle years am I missing?”). The known bugs are fixed first (bigger Simple view labels, tap-to-skip on the film), so the test sees the real design. Needs first: nothing · Unlocks: #29, #30 _[small, needs you, new]_
+- [ ] **#30 Pick the final design direction**: Combine the three prototypes or ask for new options. This ends the design pause; every visual change waits on it. Needs first: #60 (recommended) · Unlocks: #29, #63, splash and icon _[large, needs you]_
 
 ## Tier 0 · The research system that runs itself (the foundation for everything else: facts found, checked and measured as homework over time)
 
@@ -217,10 +225,6 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ## Tier 1 · Gates for design and motion (needed before any visual work)
 
-- [ ] **#116 Rethink the interface beyond the wings (AI homework)**: Oct 15: your call ("the framework is good but the UI still sucks... too fixed into the wings... more novel ways of presenting data"). A design brief (docs/design/REDESIGN_BRIEF.md, also in Drive 'design-incoming (AI UI proposals)') lists every function to keep, what is wrong today, the bar and the hard rules. Grok proposes a structure beyond the five wings with a working prototype, Gemini builds two prototypes (a novel data view and the atmosphere control), Muse walks the app on a phone and ranks what is clunky with ten references. I host the good prototypes side by side at /prototypes/v2/ for you to try; only what you pick goes into the app, in small steps. Needs first: the three AIs' deliverables · Unlocks: #30, #63, #29 _[partly done, large, new]_
-- [ ] **#117 A better atmosphere control (replaces the Scene Studio panel)**: You called it clunky: themes, sound, effects and settings are one long panel. Gemini prototypes one smooth control with a live preview (part of #116); the winner replaces the panel, keeping every setting. Needs first: #116 (Gemini's prototype) _[medium, new]_
-- [ ] **#60 Dad test**: Ten minutes watching your dad use the Simple view (“Which Silver Eagle years am I missing?”). The known bugs are fixed first (bigger Simple view labels, tap-to-skip on the film), so the test sees the real design. Needs first: nothing · Unlocks: #29, #30 _[small, needs you, new]_
-- [ ] **#30 Pick the final design direction**: Combine the three prototypes or ask for new options. This ends the design pause; every visual change waits on it. Needs first: #60 (recommended) · Unlocks: #29, #63, splash and icon _[large, needs you]_
 - [ ] **#32 Split app.js into modules**: Steps 1–5 done (tr96–tr105; step 5 = the data layer, js/app-data.js). Next: the theme system and its effects (it shares a global name with the GPU effects, so it moves with a check), then the big wings one at a time, each smoke-tested. Needs first: nothing · Unlocks: #63, the redesign after #30 _[partly done, large]_
 - [ ] **#25 Speed budget and phone check**: Fixed limits are checked on every deploy (first load, page size, time to a real value, longest freeze). Now one tap brings your phone's real numbers: Health → Measure speed → Add this speed report to my answers file. Needs first: your phone report · Unlocks: #63, effects tuning _[partly done, medium]_
 
@@ -257,6 +261,8 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ## Always on (routine collection work, done as drops arrive)
 
+- [ ] **#123 Process Grok's Oct 16 drop**: Grok sent 5 data files, album prices and The Field v2 (its redesign, second version) to Drive on Oct 16 at 05:49-05:55 UTC. They wait for a session because the automatic intake (#92) is not switched on: merge the data through the gates, score it, host The Field v2 next to v1 for the blind test (#122). _[small, new]_
+- [ ] **#124 Decide on two possible duplicates: C300 and C301**: Muse's C300 (Bahamas 1984 25 cents) and C301 (Mexico 1989 500 pesos) arrived without their own photos (Muse uploaded copies of other coins' photos) and may be the same coins as C291 and C293. I don't delete a coin without your yes: keep both, or delete C300 and C301. Needs first: you: yes or no _[small, needs you, new]_
 - [ ] **#2 Fix album A006 hole count (80 → 77)**: Mercury dime album: the 80 was an estimate; your page photos show 77 holes. It is a question in the app, because only you can lower a count. Needs first: your answer in Questions _[small, needs you]_
 
 ## Tier 3 · Polish (never ahead of Tiers 0 to 2. No new themes.)

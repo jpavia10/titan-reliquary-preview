@@ -1,12 +1,12 @@
 {
- "version": 26,
- "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most: the system that researches the collection by itself first, then truth and safety, polish last. Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
+ "version": 27,
+ "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most now: the new app worth showing off first (your call after the Oct 16 blind review), then the system that researches the collection by itself, truth and safety, polish last. Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
  "sotu": {
   "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
   "strong": [
    [
     "A research system that runs itself.",
-    "Since Oct 9 every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Grok and Muse have assignments now (Gemini is paused); the blind photo tests recur on their own."
+    "Since Oct 9 every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Grok and Muse have assignments now (Gemini's research waits until its Titan v3 build is in); the blind photo tests recur on their own."
    ],
    [
     "Trust machinery.",
@@ -14,7 +14,7 @@
    ],
    [
     "One pipeline, one master, tested on every update.",
-    "Any AI drops a change file; one script checks it, merges it and rebuilds the site. 48 pipeline tests, 10 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup."
+    "Any AI drops a change file; one script checks it, merges it and rebuilds the site. 51 pipeline tests, 18 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup."
    ],
    [
     "Never silently broken.",
@@ -28,23 +28,23 @@
   "holding": [
    [
     "Half the facts are still not proven.",
-    "Of 3,362 facts on screen, 1,628 are cited or confirmed (48.4 %, up from 19.9 % before the Oct 14 intake), 227 of them Checked by two sources; 1,129 still come from the original ledger unchecked and 420 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs."
+    "Of 3,402 facts on screen, 1,742 are cited or confirmed (51.2 %), 350 of them Checked by two sources; 1,111 still come from the original ledger unchecked and 385 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs."
    ],
    [
     "The loop needs me to turn it.",
     "AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) that removes this is built and tested; it switches on with your one-time install (about 10 minutes)."
    ],
    [
-    "The interface is behind the system.",
-    "The research system and the data are strong; the screens are still an early museum layout (#116). The three AIs now have design homework; nothing changes in the app until you pick."
+    "The interface is behind the system, and you said so.",
+    "Judged blind on Oct 16, every badge and theme pair, ours and Gemini's, came back \"both weak\"; you gave it 3/10 and asked for frontier-level motion, 3D and transitions. Titan v3 (#119-#121) is the answer, built in three steps; nothing changes in the app until you pick it blind (#122)."
    ],
    [
     "Photos are the bottleneck.",
-    "79 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them."
+    "80 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them."
    ],
    [
-    "The look is not decided.",
-    "The design pause continues (#30): polish comes after the foundation, as you said."
+    "The look is being rebuilt, not polished.",
+    "The old design pause is over: Titan v3 replaces the look, and you choose by blind test (#122) instead of from descriptions."
    ]
   ],
   "next": [
@@ -57,8 +57,8 @@
     "Send each AI to its WORK QUEUE doc; Gemini is back as the third reader. The one-time install for #92 and the free Numista key still save the most of my time."
    ],
    [
-    "3. Pick the new interface.",
-    "Try the prototypes at /prototypes/v2/ as they arrive (#116, #117); the coin questions can wait for the pro-photo session."
+    "3. Judge Titan v3.",
+    "When step 1 arrives I host it and send you a blind test against today's app (#119, #122); the coin questions can wait for the pro-photo session."
    ]
   ]
  },
@@ -102,6 +102,10 @@
    "follow docs/INTAKE_BRIDGE.md (github.com/jpavia10/titan-reliquary-preview/blob/main/docs/INTAKE_BRIDGE.md): one Apps Script project and two GitHub secrets. Then the AIs' files merge by themselves every hour and Drive gets a daily backup (#92, #93, #103). Never paste the URL or the key in a chat; tell me “the bridge is installed” and I run the first check."
   ],
   [
+   "Two possible duplicates:",
+   "keep or delete C300 and C301 (#124)? I won't delete without your yes."
+  ],
+  [
    "No rush on the coin questions:",
    "they can wait for the pro-photo session. When you do answer some, press Send to Claude on the Questions page; it then shows Received when they are in (#118)."
   ],
@@ -134,8 +138,8 @@
    "C105–C113, C114, C115/116, C117–C119."
   ],
   [
-   "Try the design prototypes as they arrive:",
-   "jpavia10.github.io/titan-reliquary-preview/prototypes/v2/ (#116, #117); the older Motion Lab studies are still at /motion-lab/."
+   "Judge the new designs blind:",
+   "when Titan v3 step 1 or The Field v2 is ready I send you a blind-test link; pick A, B or both weak (#119, #122). The older prototypes are at jpavia10.github.io/titan-reliquary-preview/prototypes/v2/."
   ],
   [
    "Try the new theme effects on your phone:",
@@ -143,6 +147,31 @@
   ]
  ],
  "sections": [
+  {
+   "title": "Now · Titan v3, the app worth showing off",
+   "sub": "each step judged blind against today's app",
+   "cls": "par",
+   "groups": [
+    {
+     "label": "Build",
+     "items": [
+      119,
+      120,
+      121
+     ]
+    },
+    {
+     "label": "Judge and pick",
+     "items": [
+      122,
+      116,
+      117,
+      60,
+      30
+     ]
+    }
+   ]
+  },
   {
    "title": "Tier 0 · The research system that runs itself",
    "sub": "the foundation for everything else: facts found, checked and measured as homework over time",
@@ -226,10 +255,6 @@
     {
      "label": null,
      "items": [
-      116,
-      117,
-      60,
-      30,
       32,
       25
      ]
@@ -294,6 +319,8 @@
     {
      "label": null,
      "items": [
+      123,
+      124,
       2
      ]
     }
@@ -1784,7 +1811,7 @@
   },
   "116": {
    "title": "Rethink the interface beyond the wings (AI homework)",
-   "desc": "Oct 15: your call (\"the framework is good but the UI still sucks... too fixed into the wings... more novel ways of presenting data\"). A design brief (docs/design/REDESIGN_BRIEF.md, also in Drive 'design-incoming (AI UI proposals)') lists every function to keep, what is wrong today, the bar and the hard rules. Grok proposes a structure beyond the five wings with a working prototype, Gemini builds two prototypes (a novel data view and the atmosphere control), Muse walks the app on a phone and ranks what is clunky with ten references. I host the good prototypes side by side at /prototypes/v2/ for you to try; only what you pick goes into the app, in small steps.",
+   "desc": "Oct 15: your call (\"the framework is good but the UI still sucks... too fixed into the wings... more novel ways of presenting data\"). A design brief (docs/design/REDESIGN_BRIEF.md, also in Drive 'design-incoming (AI UI proposals)') lists every function to keep, what is wrong today, the bar and the hard rules. Grok proposes a structure beyond the five wings with a working prototype, Gemini builds two prototypes (a novel data view and the atmosphere control), Muse walks the app on a phone and ranks what is clunky with ten references. I host the good prototypes side by side at /prototypes/v2/ for you to try; only what you pick goes into the app, in small steps. Oct 16: Grok's The Field is hosted at /prototypes/v2/grok/ (v2 sent, see #123); Gemini's Continuum v2 scored 3/10 blind, every one of its 12 ideas kept, and became Titan v3 (#119-#121).",
    "needs": "the three AIs' deliverables",
    "unlocks": "#30, #63, #29",
    "size": "large",
@@ -1796,7 +1823,7 @@
   },
   "117": {
    "title": "A better atmosphere control (replaces the Scene Studio panel)",
-   "desc": "You called it clunky: themes, sound, effects and settings are one long panel. Gemini prototypes one smooth control with a live preview (part of #116); the winner replaces the panel, keeping every setting.",
+   "desc": "You called it clunky: themes, sound, effects and settings are one long panel. Gemini prototypes one smooth control with a live preview (part of #116); the winner replaces the panel, keeping every setting. Oct 16: now part of Titan v3 step 3 (#121).",
    "needs": "#116 (Gemini's prototype)",
    "unlocks": null,
    "size": "medium",
@@ -1816,6 +1843,78 @@
    "new": true,
    "partly": false,
    "state": "done",
+   "note": null
+  },
+  "119": {
+   "title": "Titan v3, step 1: the whole collection as one 3D space, and one coin",
+   "desc": "All 306 pieces as real 3D coins with their phone photos; filters and sorts move the coins instead of redrawing a list; tap a coin and it flies forward into its own view (flip, a raking light you drag, a loupe, every fact with its certainty label), back flies it home; search moves the camera. Gemini's plan for it is accepted as the spec (docs/design/v3/M1_SPEC.md, Oct 16); the build itself has not arrived yet. I check Drive for it on Oct 17 (16:30 UTC); if it is still missing I ask you whether I should build it from the spec.",
+   "needs": "Gemini's build (its first task)",
+   "unlocks": "#120, #121, the blind test against today's app (#122)",
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "120": {
+   "title": "Titan v3, step 2: albums as real pages, and Dad's two-tap answer",
+   "desc": "Each album as a physical page with real holes: filled holes hold the coin, missing ones are empty and lit, printed circles look different, pages turn. \"Which Silver Eagle year am I missing?\" answered in two taps from opening, in big type, with no gesture needed. Cost to complete and the want list from data/wants.json.",
+   "needs": "#119",
+   "unlocks": "#60 (the Dad test)",
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "121": {
+   "title": "Titan v3, step 3: live value and three showpiece worlds",
+   "desc": "The headline value moves with the metal prices; one world switch changes look, light, effect and sound together as a transition instead of a settings panel (this replaces #117). Three worlds made at showpiece quality instead of 26, each with its own badge drawn from scratch: on Oct 16 you judged all 23 badge pairs and 5 theme pairs \"both weak\", ours as well as Gemini's.",
+   "needs": "#120",
+   "unlocks": "#30 (the final look)",
+   "size": "large",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "122": {
+   "title": "Judge every design blind before it ships",
+   "desc": "Started Oct 16: the blind review page showed each badge and theme as A and B in random order and saved your picks (claude.ai/artifact/5bc8r7rf9Urx4QEdr8at1K). It found that Gemini's 24 theme files were our files with 187 lines changed (19 look identical on screen) and that all 28 pairs were \"both weak\". Every Titan v3 step, Grok's The Field and any new theme goes through the same test against today's app before anything changes in the app.",
+   "needs": null,
+   "unlocks": "#30",
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "123": {
+   "title": "Process Grok's Oct 16 drop",
+   "desc": "Grok sent 5 data files, album prices and The Field v2 (its redesign, second version) to Drive on Oct 16 at 05:49-05:55 UTC. They wait for a session because the automatic intake (#92) is not switched on: merge the data through the gates, score it, host The Field v2 next to v1 for the blind test (#122).",
+   "needs": null,
+   "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": true,
+   "partly": false,
+   "state": "open",
+   "note": null
+  },
+  "124": {
+   "title": "Decide on two possible duplicates: C300 and C301",
+   "desc": "Muse's C300 (Bahamas 1984 25 cents) and C301 (Mexico 1989 500 pesos) arrived without their own photos (Muse uploaded copies of other coins' photos) and may be the same coins as C291 and C293. I don't delete a coin without your yes: keep both, or delete C300 and C301.",
+   "needs": "you: yes or no",
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": true,
+   "partly": false,
+   "state": "open",
    "note": null
   }
  }
