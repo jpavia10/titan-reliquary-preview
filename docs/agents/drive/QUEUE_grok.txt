@@ -2,7 +2,7 @@ NEW (2026-10-15, later): your 8 round-2 patches are in the app (build tr117, eve
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Grok (updated 2026-10-17 22:38 UTC)
+# WORK QUEUE for Grok (updated 2026-10-19 22:42 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -27,22 +27,22 @@ Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are
 
 Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above. Some check items show a value that is wrong on purpose: copy nothing, check every value against your own source. Keep each sheet line's provenance.assignment, old and verified as they are; a line on issues.N is the year the sheet names, and a type id is a name, not always the KM number.
 
-- 1. HW-grok-value-20261009-1 · Appraiser · Cite collector values for 2 coins · due 2026-10-19  (fix list #62)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261009-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-- 2. HW-grok-read-mint-20261014-1 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
+- 1. HW-grok-read-mint-20261014-1 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-read-mint-20261014-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-- 3. HW-grok-read-mint-20261014-2 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
+- 2. HW-grok-read-mint-20261014-2 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-read-mint-20261014-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-- 4. HW-grok-cite-20261015-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-10-22  (fix list #72)
+- 3. HW-grok-cite-20261015-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-10-22  (fix list #72)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261015-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-- 5. HW-grok-story-check-20261015-1 · Fact-checker · Fact-check 12 coin stories · due 2026-10-22  (fix list #73)
+- 4. HW-grok-story-check-20261015-1 · Fact-checker · Fact-check 12 coin stories · due 2026-10-22  (fix list #73)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261015-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-- 6. HW-grok-verify-20261015-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
+- 5. HW-grok-verify-20261015-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261015-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-- 7. HW-grok-verify-20261015-2 · Second reader · Check 29 facts another AI wrote · due 2026-10-22  (fix list #18)
+- 6. HW-grok-verify-20261015-2 · Second reader · Check 29 facts another AI wrote · due 2026-10-22  (fix list #18)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261015-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-- 8. HW-grok-cite-20261015-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-22  (fix list #72)
+- 7. HW-grok-cite-20261015-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-22  (fix list #72)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261015-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 8. HW-grok-value-20261019-1 · Appraiser · Cite collector values for 2 coins · due 2026-10-29  (fix list #62)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261019-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
 ## Projects (after the homework)
 
 ### Album prices: a second source for the 10 most expensive holes  [NEXT]  (fix list #62)
@@ -71,6 +71,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 17; expired: 0.
+- Assignments answered: 17; expired: 1.
 - Your facts checked by another contributor: 312 (312 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-1 %). Checks you did for others: 117. Open disagreements you are part of: 17.
 - Share of your new facts that get checked first: 15 %.

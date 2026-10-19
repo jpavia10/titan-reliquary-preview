@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-17 22:38 UTC)
+# WORK QUEUE for Grok (updated 2026-10-19 22:42 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -34,19 +34,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-grok-value-20261009-1 · Appraiser · Cite collector values for 2 coins · due 2026-10-19  (fix list #62)
-
-For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
-
-**Done when:** One change file; coins without a price page left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261009-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **T004 · USA · ca. 1970s · Miniature “penny” in printed cardboard flap**: now $5.00 (med)
-- **T003 · USA · ND · Ride token (Sandy the Pony · Meijer)**: now $1.50 (med). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_obv.webp
-
-### 2. HW-grok-read-mint-20261014-1 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
+### 1. HW-grok-read-mint-20261014-1 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -58,7 +46,7 @@ Items:
 - **C088 · USA · 1957 · 10¢ Roosevelt**: mint text now «1957 · mintmark not on obverse (1946–1964 mark is reverse — not shown)». Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C088_obv.webp (original: https://drive.google.com/file/d/1CFp6DDPmszLTtmOAh_FkBTHRahIaQLYH/view). US mint marks: P (Philadelphia; most coins before 1980 carry none), D (Denver), S (San Francisco), W (West Point). On modern coins the mark is on the obverse near the date; on older ones often on the reverse.
 - **C023 · Germany (Empire) · 1918 · 20 Pfennig · German Empire Mark system**: mint text now «unknown (not on this wreath side (often on eagle/obverse))». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C023_rev.webp (original: https://drive.google.com/file/d/1AvM21rocsNxH3aDzEmOFa5QZqFXsVwwP/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
 
-### 3. HW-grok-read-mint-20261014-2 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
+### 2. HW-grok-read-mint-20261014-2 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-21  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -70,7 +58,7 @@ Items:
 - **C299 · Italy · 1979 · 50 lire · ITL**: mint text now «not visible on the Vulcan side». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C299_rev.webp. Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
 - **C298 · Italy · 1978 · 50 lire · ITL**: mint text now «not visible on the Vulcan side». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp. Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
 
-### 4. HW-grok-cite-20261015-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-10-22  (fix list #72)
+### 3. HW-grok-cite-20261015-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-10-22  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -81,7 +69,7 @@ For each coin type below, open its Numista entry (or find it) and send the facts
 Items:
 - **NO 50 øre (NO.KM.460)** coins C144, C268. Ask: issues.2.mintage: 2000 crossed hammers
 
-### 5. HW-grok-story-check-20261015-1 · Fact-checker · Fact-check 12 coin stories · due 2026-10-22  (fix list #73)
+### 4. HW-grok-story-check-20261015-1 · Fact-checker · Fact-check 12 coin stories · due 2026-10-22  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -103,7 +91,7 @@ Items:
 - **T003 · USA · ND · Ride token (Sandy the Pony · Meijer)**: «A Sandy the Pony ride token from Meijer in the USA. It has no date. It reads FREE PONY RIDE // MEIJER IS FOR KIDS, good for one free pony ride. It is made of brass.» Record: «{"country": "USA", "year": "ND", "denom": "Ride token (Sandy the Pony · Meijer)", "mint": "n/a", "refs": "n/a (exonumia · promotional token)", "metal": "brass · circulated · white 2×2 staple flip", "specs": "diameter/weight unknown · private strike", "mintage": "unknown", "design": "FREE PONY RIDE // MEIJER IS FOR KIDS · Sandy the Pony ride token"}»
 - **T005 · USA · 2013 · Prop $1 (Series 2013 style)**: «A 2013 fake $1 bill from the USA, made as a movie prop. It shows Washington's portrait. It is stamped MOVIE PROP USE ONLY and MOTION PICTURE USE, and says NOT LEGAL TENDER, so it is not real money. The word COPY is printed in red across the Boston (A) seal. It carries the names Rios and Lew, and it is styled like a Series 2013 bill.» Record: «{"country": "USA", "year": "2013", "denom": "Prop $1 (Series 2013 style)", "mint": "n/a", "refs": "n/a (exonumia · not a KM issue)", "metal": "paper prop note · plain stock (not currency paper) · red COPY stamp · slight curl", "specs": "paper · not currency stock · alignment n/a", "mintage": "unknown (prop stock)", "design": "Washington portrait · MOVIE PROP USE ONLY · MOTION PICTURE USE · NOT LE…»
 
-### 6. HW-grok-verify-20261015-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
+### 5. HW-grok-verify-20261015-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -163,7 +151,7 @@ Items:
 - **design of C052 · France · 2009 · 5 euro cent · EUR** `type FR.KM.1284 design.text` = `national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe …` (written by Muse: «heritcoin France 5 cent KM#1284; LastDodo France 5 cent 1999/2013 KM#1284») [audit sample]
 - **design of C028 · Malta · 2013 · 5 euro cent · EUR** `type MT.KM.128 design.text` = `national Mnajdra Temple altar/trilithon + MALTA · date · 12 EU stars · common Europe map …` (written by Muse: «Numista N#2183; Central Bank of Malta euro coins page») [audit sample]
 
-### 7. HW-grok-verify-20261015-2 · Second reader · Check 29 facts another AI wrote · due 2026-10-22  (fix list #18)
+### 6. HW-grok-verify-20261015-2 · Second reader · Check 29 facts another AI wrote · due 2026-10-22  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -202,7 +190,7 @@ Items:
 - **denomination of C288 · Australia · 1983 · 1 cent · AUD** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type AU.X.1-cent denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C288_obv.webp (original: https://drive.google.com/file/d/1BeTkW-rEoVY-dp6zmkSyXEetziUnJK-S/view)
 - **period of C139 · Spain · 2014 · 1 euro cent · EUR** `type ES.KM.1144 period` = `Eurozone` (written by Claude: «Numista N#10856 (Spain 1 euro cent, 2010 onward, KM#1144) vs N#81 / NGC KM#1040 (1999-2009, https://www.ngccoin.com/price-guide/world/spain-»)
 
-### 8. HW-grok-cite-20261015-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-22  (fix list #72)
+### 7. HW-grok-cite-20261015-2 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-22  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -213,6 +201,18 @@ For each coin type below, open its Numista entry (or find it) and send the facts
 Items:
 - **GB 1 penny (GB.X.1-penny)** coins C302. Ask: nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; issues.0.mintage: 1922
 - **MX 20 pesos (MX.X.20-pesos)** coins C304. Ask: nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; issues.0.mintage: 1981
+
+### 8. HW-grok-value-20261019-1 · Appraiser · Cite collector values for 2 coins · due 2026-10-29  (fix list #62)
+
+For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
+
+**Done when:** One change file; coins without a price page left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261019-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **T004 · USA · ca. 1970s · Miniature “penny” in printed cardboard flap**: now $5.00 (med)
+- **T003 · USA · ND · Ride token (Sandy the Pony · Meijer)**: now $1.50 (med). Photo: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_obv.webp
 
 ## Projects (after the homework)
 
@@ -250,6 +250,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 17; expired: 0.
+- Assignments answered: 17; expired: 1.
 - Your facts checked by another contributor: 312 (312 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-1 %). Checks you did for others: 117. Open disagreements you are part of: 17.
 - Share of your new facts that get checked first: 15 %.

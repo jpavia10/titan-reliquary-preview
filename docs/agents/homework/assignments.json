@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-17T22:38:20Z",
+ "updated": "2026-10-19T22:42:49Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -51,7 +51,8 @@
   "muse-plain-story-20261015": 1,
   "gemini-arbitrate-20261015": 1,
   "gemini-cite-20261015": 1,
-  "muse-story-check-20261015": 1
+  "muse-story-check-20261015": 1,
+  "grok-value-20261019": 1
  },
  "assignments": [
   {
@@ -1005,9 +1006,13 @@
    "kind": "value",
    "issued": "2026-10-09T15:21:08Z",
    "lease_until": "2026-10-19T15:21:08Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-19T22:42:49Z",
+   "result": {
+    "items": 25,
+    "closed": 23,
+    "left": 2
+   },
    "items": [
     {
      "item": "value:C114",
@@ -9422,6 +9427,30 @@
      "entity": "type",
      "id": "MX.X.20-pesos",
      "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-value-20261019-1",
+   "agent": "grok",
+   "kind": "value",
+   "issued": "2026-10-19T22:42:49Z",
+   "lease_until": "2026-10-29T22:42:49Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:T004",
+     "entity": "specimen",
+     "id": "T004",
+     "field": "value"
+    },
+    {
+     "item": "value:T003",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "value"
     }
    ]
   }
