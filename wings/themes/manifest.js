@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "marbled", name: "Marbled Endpapers", collection: "Studio", tier: "signature", art: null, ui: ["paper", "endpaper"], styles: ["Marbled paper"],
+      mood: "A bookbinder's endpapers: marbled paper in indigo, oxblood and ochre swirls slowly at the edges of every page.", fx: "style-marble", fxIntensity: 0.85, scene: "marbled", tokens: {} },
     { id: "cathedral", name: "Cathedral Glass", collection: "Studio", tier: "signature", art: null, ui: ["lead"], styles: ["Stained glass"],
       mood: "A nave at dusk: a rose window of jewel-coloured glass, lit by a slow sun, throwing coloured light across the collection.", fx: "style-glass", fxIntensity: 0.85, scene: "cathedral", tokens: {} },
     { id: "contour", name: "Survey Map", collection: "Studio", tier: "signature", art: null, ui: ["topo"], styles: ["Topographic"],

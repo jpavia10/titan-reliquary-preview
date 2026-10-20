@@ -1,0 +1,77 @@
+/* ============================================================================
+   Atmosphere: MARBLED ENDPAPERS (marbled) · Marbled paper
+   A bookbinder's endpapers: marbled paper in indigo, oxblood and ochre swirls slowly at the edges of every page.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md): the shared treatments in styles/style-layer.css are switched on by
+   the theme's `ui` list in wings/themes/manifest.js (html[data-ui]); the effect is style-marble (wings/fx/styles-e.js).
+   Legibility: checked with tools/themes/check_theme.js (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="marbled"] {
+  --scheme: light;
+  color-scheme: light;
+  --bg: #f3ecdc;
+  --bg2: #ebe2cd;
+  --surface: #fbf7ec;
+  --surface2: #e8dec6;
+  --ink: #231a16;
+  --muted: #46372f;
+  --faint: #5e4d43;
+  --cardmeta: #33261f;
+  --gold: #7a1f2b;
+  --gold-soft: #5f1520;
+  --gold-deep: #231a16;
+  --on-gold: #ffffff;
+  --ink-soft: #46372f;
+  --line: rgba(35, 26, 22, 0.18);
+  --line-strong: #7a1f2b;
+  --ok: #1f6b33;
+  --warn: #7f5800;
+  --bad: #b0220f;
+  --shadow: 0 1px 1px rgba(60, 35, 25, 0.14), 0 6px 0 -2px rgba(60, 35, 25, 0.10), 0 10px 18px rgba(60, 35, 25, 0.10);
+  --elev-1: 0 1px 1px rgba(60, 35, 25, 0.14), 0 3px 6px rgba(60, 35, 25, 0.10);
+  --elev-2: 0 2px 2px rgba(60, 35, 25, 0.14), 0 10px 22px rgba(60, 35, 25, 0.14);
+  --elev-3: 0 4px 6px rgba(60, 35, 25, 0.16), 0 24px 60px rgba(60, 35, 25, 0.22);
+  --scrim: rgba(35, 26, 22, 0.42);
+  --focus: #2f6fd6;
+  --th-bg: #e8dec6;
+  --tabgrad1: #e8dec6; --tabgrad2: #fbf7ec;
+  --toastgrad1: #e8dec6; --toastgrad2: #fbf7ec;
+  --foot-bg: rgba(243, 236, 220, 0.95);
+  --drawerbar-bg: rgba(251, 247, 236, 0.96);
+  --ph-bg: #e8dec6;
+  --sel-bg: rgba(122, 31, 43, 0.14);
+  --row-hover: rgba(122, 31, 43, 0.06);
+  --hold-bg: linear-gradient(135deg, #e8dec6, #fbf7ec);
+  --skeleton1: #e8dec6; --skeleton2: #f3ecdc;
+  --grain-op: 0.035;
+  --wing-dur: 0.42s;
+  --wing-rise: 14px;
+  /* legacy aliases resolved on <html> */
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --radius: 6px;
+  /* the endpaper treatment (styles/style-layer.css, ui "endpaper"): a gilt hairline inside each card */
+  --gilt: rgba(158, 118, 44, 0.75);
+  /* the dark display-case interior used by the instrument panels (styles/style-layer.css, ui "paper"): indigo bookcloth */
+  --case-bg: #1a2047;
+  --case-bg2: #1f2654;
+  --case-surface: #252d5f;
+  --case-surface2: #2f3870;
+  --case-ink: #ffffff;
+  --case-muted: #dde1f3;
+  --case-faint: #b8bedf;
+  --case-gold: #e7c27a;
+  --case-gold-soft: #f4dba5;
+  --case-on-gold: #1a2047;
+  /* the page palette again, for paper labels inside a case */
+  --paper-bg: #f3ecdc;
+  --paper-bg2: #ebe2cd;
+  --paper-surface: #fbf7ec;
+  --paper-surface2: #e8dec6;
+  --paper-ink: #231a16;
+  --paper-muted: #46372f;
+  --paper-faint: #5e4d43;
+  --paper-gold: #7a1f2b;
+  --paper-gold-soft: #5f1520;
+  --paper-on-gold: #ffffff;
+}

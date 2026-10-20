@@ -1,0 +1,34 @@
+{
+ "id": "marbled",
+ "name": "Marbled Endpapers",
+ "collection": "Studio",
+ "mood": "A bookbinder's endpapers: marbled paper in indigo, oxblood and ochre swirls slowly at the edges of every page.",
+ "pair": "Old library + Classical",
+ "scheme": "light",
+ "themeColor": "#f3ecdc",
+ "station": "classical",
+ "ui": [
+  "paper",
+  "endpaper"
+ ],
+ "styles": [
+  "Marbled paper"
+ ],
+ "fx": "style-marble",
+ "fxIntensity": 0.85,
+ "tokens": "  --scheme: light;\n  color-scheme: light;\n  --bg: #f3ecdc;\n  --bg2: #ebe2cd;\n  --surface: #fbf7ec;\n  --surface2: #e8dec6;\n  --ink: #231a16;\n  --muted: #46372f;\n  --faint: #5e4d43;\n  --cardmeta: #33261f;\n  --gold: #7a1f2b;\n  --gold-soft: #5f1520;\n  --gold-deep: #231a16;\n  --on-gold: #ffffff;\n  --ink-soft: #46372f;\n  --line: rgba(35, 26, 22, 0.18);\n  --line-strong: #7a1f2b;\n  --ok: #1f6b33;\n  --warn: #7f5800;\n  --bad: #b0220f;\n  --shadow: 0 1px 1px rgba(60, 35, 25, 0.14), 0 6px 0 -2px rgba(60, 35, 25, 0.10), 0 10px 18px rgba(60, 35, 25, 0.10);\n  --elev-1: 0 1px 1px rgba(60, 35, 25, 0.14), 0 3px 6px rgba(60, 35, 25, 0.10);\n  --elev-2: 0 2px 2px rgba(60, 35, 25, 0.14), 0 10px 22px rgba(60, 35, 25, 0.14);\n  --elev-3: 0 4px 6px rgba(60, 35, 25, 0.16), 0 24px 60px rgba(60, 35, 25, 0.22);\n  --scrim: rgba(35, 26, 22, 0.42);\n  --focus: #2f6fd6;\n  --th-bg: #e8dec6;\n  --tabgrad1: #e8dec6; --tabgrad2: #fbf7ec;\n  --toastgrad1: #e8dec6; --toastgrad2: #fbf7ec;\n  --foot-bg: rgba(243, 236, 220, 0.95);\n  --drawerbar-bg: rgba(251, 247, 236, 0.96);\n  --ph-bg: #e8dec6;\n  --sel-bg: rgba(122, 31, 43, 0.14);\n  --row-hover: rgba(122, 31, 43, 0.06);\n  --hold-bg: linear-gradient(135deg, #e8dec6, #fbf7ec);\n  --skeleton1: #e8dec6; --skeleton2: #f3ecdc;\n  --grain-op: 0.035;\n  --wing-dur: 0.42s;\n  --wing-rise: 14px;\n  /* legacy aliases resolved on <html> */\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Fraunces\", Georgia, \"Times New Roman\", serif;\n  --radius: 6px;\n  /* the endpaper treatment (styles/style-layer.css, ui \"endpaper\"): a gilt hairline inside each card */\n  --gilt: rgba(158, 118, 44, 0.75);\n  /* the dark display-case interior used by the instrument panels (styles/style-layer.css, ui \"paper\"): indigo bookcloth */\n  --case-bg: #1a2047;\n  --case-bg2: #1f2654;\n  --case-surface: #252d5f;\n  --case-surface2: #2f3870;\n  --case-ink: #ffffff;\n  --case-muted: #dde1f3;\n  --case-faint: #b8bedf;\n  --case-gold: #e7c27a;\n  --case-gold-soft: #f4dba5;\n  --case-on-gold: #1a2047;\n  /* the page palette again, for paper labels inside a case */\n  --paper-bg: #f3ecdc;\n  --paper-bg2: #ebe2cd;\n  --paper-surface: #fbf7ec;\n  --paper-surface2: #e8dec6;\n  --paper-ink: #231a16;\n  --paper-muted: #46372f;\n  --paper-faint: #5e4d43;\n  --paper-gold: #7a1f2b;\n  --paper-gold-soft: #5f1520;\n  --paper-on-gold: #ffffff;",
+ "crest": "<circle cx=\"100\" cy=\"100\" r=\"66\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"/><clipPath id=\"mbc\"><circle cx=\"100\" cy=\"100\" r=\"62\"/></clipPath><g clip-path=\"url(#mbc)\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\"><path d=\"M30 70 C60 50 80 90 110 70 S160 50 175 75\" stroke-width=\"5\"/><path d=\"M30 95 C60 75 85 115 115 95 S165 75 175 100\" stroke-width=\"3.5\" opacity=\".75\"/><path d=\"M30 120 C62 100 86 140 116 120 S166 100 175 125\" stroke-width=\"5\"/><path d=\"M30 145 C60 125 84 165 114 145 S164 125 175 150\" stroke-width=\"3.5\" opacity=\".75\"/></g><circle cx=\"78\" cy=\"84\" r=\"7\" fill=\"currentColor\" opacity=\".6\"/><circle cx=\"128\" cy=\"132\" r=\"9\" fill=\"currentColor\" opacity=\".6\"/>",
+ "swatch": ".sw-marbled { --sw-ink: #231a16; background: radial-gradient(ellipse 30% 22% at 30% 35%, #efe4cc 0 40%, #7a1f2b 41% 60%, #23306b 61% 80%, transparent 81%), radial-gradient(ellipse 34% 26% at 70% 70%, #c2913a 0 40%, #4b6c8f 41% 62%, #23306b 63% 82%, transparent 83%), linear-gradient(135deg, #7a1f2b, #23306b); }",
+ "splash_pal": {
+  "bg": "#f3ecdc",
+  "bg2": "#ebe2cd",
+  "surface": "#fbf7ec",
+  "ink": "#231a16",
+  "muted": "#46372f",
+  "gold": "#7a1f2b",
+  "soft": "#5f1520",
+  "light": true
+ },
+ "scene": "{ rec: \"piano\", world: true, name: \"Marbled Endpapers\", icon: \"📚\", desc: \"An old library: the hush of the room, pages turning, a clock, rain on tall windows.\", atmo: \"marbled\",\n               beds: { library: 0.45, pages: 0.35, clock: 0.25, rainWindow: 0.15 }, pad: 0.4, piano: true, bells: false, beat: false,\n               root: \"Bb\", mode: \"major\", prog: [0, 5, 3, 4], chordSec: 16, gap: [8, 16], bpm: 64, vol: 0.45 }",
+ "splash_js": "tools/themes/splash/marbled.js"
+}

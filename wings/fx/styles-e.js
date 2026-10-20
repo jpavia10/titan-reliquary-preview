@@ -18,6 +18,9 @@
      style-glass      Cathedral Glass (cathedral): a twelve-fold rose window and lancet windows of leaded Voronoi glass in
                       jewel colours, lit from behind by a slow-moving sun, casting coloured light shafts with dust in them;
                       moment: the sun comes out and the glass blazes
+     style-marble     Marbled Endpapers (marbled): bookbinder's marbled paper (iterated domain warp into veined colour bands of
+                      indigo, oxblood, ochre and slate) swirling slowly, strongest at the edges of the page like endpapers;
+                      moment: a comb is drawn through the bath and pulls the bands into a nonpareil pattern
    Loads after wings/fx/presets.js. Premultiplied output (rgb*a); light themes paint with alpha only and never add light, and the
    engine's text-safe mask attenuates every pass over text (notes/agents/styles-20.md, section 3). */
 (function () {
@@ -623,5 +626,39 @@
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return glass(fc); }" }]
+  });
+  /* =====================================================================================================================
+     8. style-marble · Marbled Endpapers (light, cream laid paper). The marbler's bath: the page coordinate is warped three times by
+        slow swirling sines, then cut into soft bands of five pigments with thin darker veins where they meet, plus a few cream
+        "stones" (spots). Strongest along the left and right edges like a book's endpapers and only a faint watermark elsewhere.
+        Paints with alpha only. Moment "comb": a comb is drawn down through the bath; the bands are pulled into the fine
+        chevrons of a nonpareil pattern, then relax.
+     ===================================================================================================================== */
+  FX.register("style-marble", {
+    layer: "front", still: 10, safe: 0.97,
+    moments: [{ name: "comb", every: [26, 50], dur: 7 }],
+    glsl: H + [
+      "vec3 pig(float i){ return i < .5 ? vec3(.14,.19,.42) : i < 1.5 ? vec3(.48,.12,.17) : i < 2.5 ? vec3(.76,.57,.23) : i < 3.5 ? vec3(.29,.42,.56) : vec3(.93,.89,.80); }",
+      "vec4 marble(vec2 fc){",
+      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3); float t = uTime*.02;",
+      "  vec2 q = p*2.6;",
+      "  for (int i=0;i<3;i++){ float fi = float(i); q += .33*vec2(sin(q.y*2.1 + t*3. + 1.3 + fi), sin(q.x*1.7 - t*2.4 + 4. + fi*2.)); }",
+      "  float km = mK(); float comb = km < 0. ? 0. : smoothstep(0.,.25,km)*(1. - smoothstep(.6,1.,km));",
+      "  q.x += comb*.06*sin(q.y*34.);",                                                          // the comb's tines drag the bands into chevrons
+      "  q.y += comb*.12*abs(fract(p.x*9.) - .5);",
+      "  float v = q.x*1.1 + .55*sin(q.y*2.7) + .2*fbmQ(q*2., 3);",
+      "  float b = v*2.4; float i = mod(floor(b), 5.); float f = fract(b);",
+      "  vec3 c = mix(pig(i), pig(mod(i + 1., 5.)), smoothstep(.82, 1., f));",
+      "  float vein = exp(-sq((f - .02)/.025)) + exp(-sq((f - .98)/.025))*.6;",
+      "  c = mix(c, c*.45, clamp(vein, 0., 1.)*.85);",
+      "  vec2 sp = q*3.2; vec2 sc = floor(sp); float stone = step(.8, h21(sc)) * (1. - smoothstep(.18, .26, length(fract(sp) - h22(sc)*.6 - .2)));",   // cream stones
+      "  c = mix(c, vec3(.95,.92,.84), stone*.85);",
+      "  float cw = a < .8 ? a*.5 - .045 : min(a*.5 - .07, .62);",
+      "  float edge = smoothstep(cw - .02, cw + .07, abs(p.x));",
+      "  float A = (.06 + .86*edge)*(.88 + .12*vn(fc*.6));",
+      "  return vec4(c*A, A)*I;",
+      "}"
+    ].join("\n") + "\n",
+    passes: [{ frag: "vec4 fx(vec2 fc){ return marble(fc); }" }]
   });
 })();

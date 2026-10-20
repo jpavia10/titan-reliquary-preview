@@ -23,6 +23,7 @@
      topo      survey chart: faint contour rings on the page, cards outlined in a contour hairline (--topo-line), tracked
                uppercase headings with tabular figures
      lead      stained glass: lead came round cards and buttons (--lead), the glass glowing inside them (--glass-glow, --glass-glow2)
+     endpaper  bookbinding: laid-paper chain lines on the page, a gilt hairline inside each card (--gilt), italic serif headings
    Loaded last (after the wing sheets) so these rules win over component defaults. No layout: borders, radii, shadows,
    backgrounds, type case and spacing only. Motion stops under reduced motion and Motion Calm/Off.
    ========================================================================== */
@@ -355,6 +356,18 @@ html[data-ui~="lead"] :is(.hg-tile, .wing-card, .note-card, .vault-valuation-hub
     0 14px 34px rgba(0, 0, 0, 0.6);
 }
 html[data-ui~="lead"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { box-shadow: 0 0 0 2px var(--lead, #050407), inset 0 0 12px var(--glass-glow, rgba(200, 20, 31, 0.16)); }
+
+/* ---------- 15. endpaper (2026-10-20, Marbled Endpapers) ------------------------------------------------------------
+   Bookbinding: laid paper (faint chain lines, an SVG tile) on the page, a gilt hairline inset in every card like a tooled
+   border, a soft page shadow under it, and section headings in italic serif. */
+html[data-ui~="endpaper"] body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='8'%3E%3Cpath d='M0 0.5H32' stroke='%23786450' stroke-opacity='.05'/%3E%3Cpath d='M16 0V8' stroke='%23786450' stroke-opacity='.035'/%3E%3C/svg%3E");
+}
+html[data-ui~="endpaper"] :is(.hg-tile, .wing-card, .note-card, .vault-valuation-hub, .ex-info-placard, .lab-banner, .gx-tile, .cf-placard, .gf-finder,
+  .vx-sec, .vx-lot, .vx-wi-card, .sheet-card, .card, .tile, .album-card, .latest-card, .metal-tile, .shoot-card, .piece-card, .hero-trust, .scenario-card) {
+  box-shadow: inset 0 0 0 5px var(--surface), inset 0 0 0 6px var(--gilt, rgba(158, 118, 44, 0.75)), 0 1px 2px rgba(60, 35, 25, 0.14), 0 10px 24px rgba(60, 35, 25, 0.12);
+}
+html[data-ui~="endpaper"] :is(.sec-head h2, .wing-head h2, .vx-sec h2) { font-family: var(--serif); font-style: italic; letter-spacing: 0.01em; }
 
 @media (prefers-reduced-motion: reduce) {
   html[data-ui] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { transition: none; }
