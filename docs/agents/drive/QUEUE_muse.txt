@@ -2,7 +2,7 @@ NEW (2026-10-15, later): your album prices are live (all 33 albums now priced), 
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_muse.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Muse (updated 2026-10-20 06:34 UTC)
+# WORK QUEUE for Muse (updated 2026-10-20 15:07 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -33,20 +33,18 @@ The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1
 
 Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above. Some check items show a value that is wrong on purpose: copy nothing, check every value against your own source. Keep each sheet line's provenance.assignment, old and verified as they are; a line on issues.N is the year the sheet names, and a type id is a name, not always the KM number.
 
-- 1. HW-muse-story-check-20261014-1 · Fact-checker · Fact-check 3 coin stories · due 2026-10-21  (fix list #73)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261014-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 2. HW-muse-contradiction-20261015-1 · Fact fixer · Settle 6 contradictions in the record · due 2026-10-22  (fix list #102)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-contradiction-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 3. HW-muse-arbitrate-20261015-1 · Arbiter · Settle 10 disagreements between two AIs · due 2026-10-22  (fix list #18)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 4. HW-muse-verify-20261015-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 5. HW-muse-plain-story-20261015-1 · Writer · Rewrite 4 stories in plain English · due 2026-10-22  (fix list #60)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-plain-story-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 6. HW-muse-story-check-20261015-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-22  (fix list #73)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261015-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-- 7. HW-muse-verify-20261015-2 · Second reader · Check 50 facts another AI wrote · due 2026-10-22  (fix list #18)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261015-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 1. HW-muse-story-check-20261020-1 · Fact-checker · Fact-check 2 coin stories · due 2026-10-27  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261020-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 2. HW-muse-arbitrate-20261020-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-10-27  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261020-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 3. HW-muse-verify-20261020-1 · Second reader · Check 50 facts another AI wrote · due 2026-10-27  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261020-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 4. HW-muse-read-mint-20261020-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-10-27  (fix list #57)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-read-mint-20261020-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 5. HW-muse-arbitrate-20261020-2 · Arbiter · Settle 3 disagreements between two AIs · due 2026-10-27  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261020-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 6. HW-muse-verify-20261020-2 · Second reader · Check 50 facts another AI wrote · due 2026-10-27  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261020-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -57,6 +55,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 13; expired: 0.
-- Your facts checked by another contributor: 213 (207 confirmed, 6 wrong; error rate 2.8 %, 95 % range 1-6 %). Checks you did for others: 27. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 5 of 5.
+- Assignments answered: 20; expired: 0.
+- Your facts checked by another contributor: 297 (289 confirmed, 8 wrong; error rate 2.7 %, 95 % range 1-5 %). Checks you did for others: 99. Open disagreements you are part of: 6. Values planted wrong on purpose in your checks: you caught 8 of 8.
 - Share of your new facts that get checked first: 100 %.

@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-20T06:34:47Z",
+ "updated": "2026-10-20T15:07:16Z",
  "assignments": [
   {
    "id": "HW-grok-read-mint-20261014-1",
@@ -171,3674 +171,6 @@
    ]
   },
   {
-   "id": "HW-grok-cite-20261015-1",
-   "agent": "grok",
-   "kind": "cite",
-   "issued": "2026-10-15T14:17:10Z",
-   "lease_until": "2026-10-22T14:17:10Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "cite:NO.KM.460",
-     "entity": "type",
-     "id": "NO.KM.460",
-     "field": null
-    }
-   ],
-   "items_full": [
-    {
-     "item": "cite:NO.KM.460",
-     "kind": "cite",
-     "entity": "type",
-     "id": "NO.KM.460",
-     "field": null,
-     "coins": [
-      "C144",
-      "C268"
-     ],
-     "label": "NO 50 øre (NO.KM.460)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1998,
-        "mint_marks": [],
-        "coins": [
-         "C144"
-        ],
-        "mintage": 30898003,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 2,
-        "year": 2000,
-        "mint_marks": [
-         "crossed hammers"
-        ],
-        "coins": [
-         "C268"
-        ],
-        "mintage": 18966552,
-        "mintage_label": "ai",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "460"
-       },
-       {
-        "system": "Schön",
-        "number": "107"
-       },
-       {
-        "system": "Numista",
-        "number": "1442"
-       }
-      ],
-      "weight_g": 3.6,
-      "diameter_mm": 18.5,
-      "composition": "bronze (97% Cu · 2.5% Zn · 0.5% Sn)",
-      "ask": [
-       "issues.2.mintage: 2000 crossed hammers"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.2.mintage": {
-       "year": 2000,
-       "mint": [
-        "crossed hammers"
-       ],
-       "qualifier": null
-      }
-     }
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-story-check-20261015-1",
-   "agent": "grok",
-   "kind": "story-check",
-   "issued": "2026-10-15T14:17:10Z",
-   "lease_until": "2026-10-22T14:17:10Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "story:C006",
-     "entity": "specimen",
-     "id": "C006",
-     "field": "story"
-    },
-    {
-     "item": "story:C078",
-     "entity": "specimen",
-     "id": "C078",
-     "field": "story"
-    },
-    {
-     "item": "story:C079",
-     "entity": "specimen",
-     "id": "C079",
-     "field": "story"
-    },
-    {
-     "item": "story:C082",
-     "entity": "specimen",
-     "id": "C082",
-     "field": "story"
-    },
-    {
-     "item": "story:C083",
-     "entity": "specimen",
-     "id": "C083",
-     "field": "story"
-    },
-    {
-     "item": "story:C103",
-     "entity": "specimen",
-     "id": "C103",
-     "field": "story"
-    },
-    {
-     "item": "story:C147",
-     "entity": "specimen",
-     "id": "C147",
-     "field": "story"
-    },
-    {
-     "item": "story:C148",
-     "entity": "specimen",
-     "id": "C148",
-     "field": "story"
-    },
-    {
-     "item": "story:C149",
-     "entity": "specimen",
-     "id": "C149",
-     "field": "story"
-    },
-    {
-     "item": "story:C150",
-     "entity": "specimen",
-     "id": "C150",
-     "field": "story"
-    },
-    {
-     "item": "story:T003",
-     "entity": "specimen",
-     "id": "T003",
-     "field": "story"
-    },
-    {
-     "item": "story:T005",
-     "entity": "specimen",
-     "id": "T005",
-     "field": "story"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "story:C006",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C006",
-     "field": "story",
-     "coins": [
-      "C006"
-     ],
-     "label": "C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1984 1-Deutsche-Mark coin from Germany. The front shows the German federal eagle. The back shows the number 1 between oak twigs, with the words DEUTSCHE MARK. Josef Bernhart made the design. It is made of copper-nickel.",
-      "record": {
-       "country": "Germany",
-       "year": "1984",
-       "denom": "1 Deutsche Mark · DEM",
-       "mint": "unknown",
-       "refs": "KM#110 · Schön#108 · J#385 · Numista#846",
-       "metal": "CuNi · 5.50 g · 23.5 mm · ornamented (arabesque) · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.75 mm · medal alignment",
-       "mintage": "all mints: D 8,400,000 + F 9,700,000 + G 5,600,000 + J 8,700,000 = 32,400,000 (circulation; proofs excluded)",
-       "design": "Bundesadler · value 1 between oak sprigs / DEUTSCHE MARK (Josef Bernhart)",
-       "period": "Federal Republic of Germany"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C078",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C078",
-     "field": "story",
-     "coins": [
-      "C078"
-     ],
-     "label": "C078 · Switzerland · 1969 · 20 rappen · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1969 20-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 20 in a wreath. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel.",
-      "record": {
-       "country": "Switzerland",
-       "year": "1969",
-       "denom": "20 rappen · CHF",
-       "mint": "B",
-       "refs": "KM#29a · Schön#26a · Y#25 · Numista#178",
-       "metal": "CuNi 75/25 · 4.00 g · 21.05 mm · plain · circulated · bright · white 2×2 staple flip",
-       "specs": "thickness 1.65 mm · medal alignment · type specs shared with CuNi 20 Rp (KM#29a)",
-       "mintage": "39,875,000 Bern B",
-       "design": "Libertas right (obv) · 20 in wreath (rev) · engravers Karl Schwenzer / Carl Friedrich Voigt",
-       "period": "Swiss Confederation"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C079",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C079",
-     "field": "story",
-     "coins": [
-      "C079"
-     ],
-     "label": "C079 · Switzerland · 1991 · 20 rappen · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1991 20-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 20 in a wreath. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel.",
-      "record": {
-       "country": "Switzerland",
-       "year": "1991",
-       "denom": "20 rappen · CHF",
-       "mint": "B",
-       "refs": "KM#29a · Schön#26a · Y#25 · Numista#178",
-       "metal": "CuNi 75/25 · 4.00 g · 21.05 mm · plain · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.65 mm · medal alignment · type specs shared with CuNi 20 Rp (KM#29a)",
-       "mintage": "48,066,100 Bern B",
-       "design": "Libertas right (obv) · 20 in wreath (rev) · engravers Karl Schwenzer / Carl Friedrich Voigt",
-       "period": "Swiss Confederation"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C082",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C082",
-     "field": "story",
-     "coins": [
-      "C082"
-     ],
-     "label": "C082 · Switzerland · 1979 · 10 rappen · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1979 10-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 10 in a wreath. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel.",
-      "record": {
-       "country": "Switzerland",
-       "year": "1979",
-       "denom": "10 rappen · CHF",
-       "mint": "B",
-       "refs": "KM#27 · Schön#25 · Y#24 · Numista#173",
-       "metal": "CuNi 75/25 · 3.00 g · 19.15 mm · plain · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.45 mm · medal alignment · type specs shared with CuNi 10 Rp Libertas (KM#27) — same type as oldest flip C242 / EU-CH-001",
-       "mintage": "18,000,000",
-       "design": "Libertas right (obv) · 10 in wreath (rev) · engravers Karl Schwenzer / Carl Friedrich Voigt",
-       "period": "Swiss Confederation"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C083",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C083",
-     "field": "story",
-     "coins": [
-      "C083"
-     ],
-     "label": "C083 · Switzerland · 1981 · 10 rappen · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1981 10-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 10 in a wreath. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel.",
-      "record": {
-       "country": "Switzerland",
-       "year": "1981",
-       "denom": "10 rappen · CHF",
-       "mint": "B",
-       "refs": "KM#27 · Schön#25 · Y#24 · Numista#173",
-       "metal": "CuNi 75/25 · 3.00 g · 19.15 mm · plain · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.45 mm · medal alignment · type specs shared with CuNi 10 Rp (KM#27)",
-       "mintage": "30,140,000",
-       "design": "Libertas right (obv) · 10 in wreath (rev) · engravers Karl Schwenzer / Carl Friedrich Voigt",
-       "period": "Swiss Confederation"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C103",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C103",
-     "field": "story",
-     "coins": [
-      "C103"
-     ],
-     "label": "C103 · Germany · 1982 · 1 Deutsche Mark · DEM",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1982 1-Deutsche-Mark coin from Germany. The front shows the German federal eagle. The back shows the number 1 between oak twigs, with the words DEUTSCHE MARK. Josef Bernhart made the design. It is made of copper-nickel.",
-      "record": {
-       "country": "Germany",
-       "year": "1982",
-       "denom": "1 Deutsche Mark · DEM",
-       "mint": "J",
-       "refs": "KM#110 · Schön#108 · J#385 · Numista#846",
-       "metal": "CuNi · 5.50 g · 23.5 mm · ornamented (arabesque) · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.75 mm · medal alignment",
-       "mintage": "11,520,000",
-       "design": "Bundesadler · value 1 between oak sprigs / DEUTSCHE MARK (Josef Bernhart)",
-       "period": "Federal Republic of Germany"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C147",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C147",
-     "field": "story",
-     "coins": [
-      "C147"
-     ],
-     "label": "C147 · United Kingdom · 1992 · 10 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1992 10-pence coin from the United Kingdom. The front shows Queen Elizabeth II, in a portrait by Raphael Maklouf. The back shows a crowned lion walking, with the words TEN PENCE. Ironside made the back design. It is made of copper-nickel.",
-      "record": {
-       "country": "United Kingdom",
-       "year": "1992",
-       "denom": "10 pence · GBP",
-       "mint": "Royal Mint",
-       "refs": "KM#938b · Numista#879",
-       "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module from Sep 1992",
-       "mintage": "1,413,455,170 (circulation · Royal Mint)",
-       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)",
-       "ruler": "Elizabeth II",
-       "period": "British decimal"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C148",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C148",
-     "field": "story",
-     "coins": [
-      "C148"
-     ],
-     "label": "C148 · United Kingdom · 1992 · 10 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1992 10-pence coin from the United Kingdom. The front shows Queen Elizabeth II, in a portrait by Raphael Maklouf. The back shows a crowned lion walking, with the words TEN PENCE. Ironside made the back design. It is made of copper-nickel.",
-      "record": {
-       "country": "United Kingdom",
-       "year": "1992",
-       "denom": "10 pence · GBP",
-       "mint": "Royal Mint",
-       "refs": "KM#938b · Numista#879",
-       "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module from Sep 1992",
-       "mintage": "1,413,455,170 (circulation · Royal Mint)",
-       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)",
-       "ruler": "Elizabeth II",
-       "period": "British decimal"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C149",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C149",
-     "field": "story",
-     "coins": [
-      "C149"
-     ],
-     "label": "C149 · United Kingdom · 1992 · 10 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1992 10-pence coin from the United Kingdom. The front shows Queen Elizabeth II, in a portrait by Raphael Maklouf. The back shows a crowned lion walking, with the words TEN PENCE. Ironside made the back design. It is made of copper-nickel.",
-      "record": {
-       "country": "United Kingdom",
-       "year": "1992",
-       "denom": "10 pence · GBP",
-       "mint": "Royal Mint",
-       "refs": "KM#938b · Numista#879",
-       "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module from Sep 1992",
-       "mintage": "1,413,455,170 (circulation · Royal Mint)",
-       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)",
-       "ruler": "Elizabeth II",
-       "period": "British decimal"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C150",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C150",
-     "field": "story",
-     "coins": [
-      "C150"
-     ],
-     "label": "C150 · United Kingdom · 1992 · 10 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 1992 10-pence coin from the United Kingdom. The front shows Queen Elizabeth II, in a portrait by Raphael Maklouf. The back shows a crowned lion walking, with the words TEN PENCE. Ironside made the back design. It is made of copper-nickel.",
-      "record": {
-       "country": "United Kingdom",
-       "year": "1992",
-       "denom": "10 pence · GBP",
-       "mint": "Royal Mint",
-       "refs": "KM#938b · Numista#879",
-       "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module from Sep 1992",
-       "mintage": "1,413,455,170 (circulation · Royal Mint)",
-       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)",
-       "ruler": "Elizabeth II",
-       "period": "British decimal"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:T003",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "T003",
-     "field": "story",
-     "coins": [
-      "T003"
-     ],
-     "label": "T003 · USA · ND · Ride token (Sandy the Pony · Meijer)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A Sandy the Pony ride token from Meijer in the USA. It has no date. It reads FREE PONY RIDE // MEIJER IS FOR KIDS, good for one free pony ride. It is made of brass.",
-      "record": {
-       "country": "USA",
-       "year": "ND",
-       "denom": "Ride token (Sandy the Pony · Meijer)",
-       "mint": "n/a",
-       "refs": "n/a (exonumia · promotional token)",
-       "metal": "brass · circulated · white 2×2 staple flip",
-       "specs": "diameter/weight unknown · private strike",
-       "mintage": "unknown",
-       "design": "FREE PONY RIDE // MEIJER IS FOR KIDS · Sandy the Pony ride token"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:T005",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "T005",
-     "field": "story",
-     "coins": [
-      "T005"
-     ],
-     "label": "T005 · USA · 2013 · Prop $1 (Series 2013 style)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "story": "A 2013 fake $1 bill from the USA, made as a movie prop. It shows Washington's portrait. It is stamped MOVIE PROP USE ONLY and MOTION PICTURE USE, and says NOT LEGAL TENDER, so it is not real money. The word COPY is printed in red across the Boston (A) seal. It carries the names Rios and Lew, and it is styled like a Series 2013 bill.",
-      "record": {
-       "country": "USA",
-       "year": "2013",
-       "denom": "Prop $1 (Series 2013 style)",
-       "mint": "n/a",
-       "refs": "n/a (exonumia · not a KM issue)",
-       "metal": "paper prop note · plain stock (not currency paper) · red COPY stamp · slight curl",
-       "specs": "paper · not currency stock · alignment n/a",
-       "mintage": "unknown (prop stock)",
-       "design": "Washington portrait · MOVIE PROP USE ONLY · MOTION PICTURE USE · NOT LEGAL TENDER · red COPY across Fed seal A (Boston) · Rios / Lew · Series 2013 look"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-verify-20261015-1",
-   "agent": "grok",
-   "kind": "verify",
-   "issued": "2026-10-15T14:17:10Z",
-   "lease_until": "2026-10-22T14:17:10Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:MX-CHI.KM.612:catalogs",
-     "entity": "type",
-     "id": "MX-CHI.KM.612",
-     "field": "catalogs"
-    },
-    {
-     "item": "verify:type:ER.KM.46:design.text",
-     "entity": "type",
-     "id": "ER.KM.46",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:CU.KM.32:design.text",
-     "entity": "type",
-     "id": "CU.KM.32",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:SU.Y.126a:issues.0.mintage",
-     "entity": "type",
-     "id": "SU.Y.126a",
-     "field": "issues.0.mintage"
-    },
-    {
-     "item": "verify:type:SU.Y.126a:issues.1.mintage",
-     "entity": "type",
-     "id": "SU.Y.126a",
-     "field": "issues.1.mintage"
-    },
-    {
-     "item": "verify:type:VN.KM.71:design.text",
-     "entity": "type",
-     "id": "VN.KM.71",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.X.1-penny:denomination.value",
-     "entity": "type",
-     "id": "GB.X.1-penny",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C294:issue.year",
-     "entity": "specimen",
-     "id": "C294",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:DE.KM.211:design.text",
-     "entity": "type",
-     "id": "DE.KM.211",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:DE.KM.255:design.text",
-     "entity": "type",
-     "id": "DE.KM.255",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:FR.KM.1286:design.text",
-     "entity": "type",
-     "id": "FR.KM.1286",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.1110d:design.text",
-     "entity": "type",
-     "id": "GB.KM.1110d",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:IT.KM.214:design.text",
-     "entity": "type",
-     "id": "IT.KM.214",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:NL.KM.239:design.text",
-     "entity": "type",
-     "id": "NL.KM.239",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:PT.KM.744:design.text",
-     "entity": "type",
-     "id": "PT.KM.744",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:SG.KM.4:design.text",
-     "entity": "type",
-     "id": "SG.KM.4",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:TT.KM.33:design.text",
-     "entity": "type",
-     "id": "TT.KM.33",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:CH.KM.26c:design.text",
-     "entity": "type",
-     "id": "CH.KM.26c",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:DE.KM.107:design.text",
-     "entity": "type",
-     "id": "DE.KM.107",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:FR.KM.930:design.text",
-     "entity": "type",
-     "id": "FR.KM.930",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.912:design.text",
-     "entity": "type",
-     "id": "GB.KM.912",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:IT.KM.96.1:design.text",
-     "entity": "type",
-     "id": "IT.KM.96.1",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.938b:design.text",
-     "entity": "type",
-     "id": "GB.KM.938b",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GR.KM.90:design.text",
-     "entity": "type",
-     "id": "GR.KM.90",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.1109:design.text",
-     "entity": "type",
-     "id": "GB.KM.1109",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.1109d:design.text",
-     "entity": "type",
-     "id": "GB.KM.1109d",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:SG.KM.3:design.text",
-     "entity": "type",
-     "id": "SG.KM.3",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:specimen:C268:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C268",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:type:GB.KM.915:design.text",
-     "entity": "type",
-     "id": "GB.KM.915",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:NL.KM.204:design.text",
-     "entity": "type",
-     "id": "NL.KM.204",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:YU.KM.86:design.text",
-     "entity": "type",
-     "id": "YU.KM.86",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.914:design.text",
-     "entity": "type",
-     "id": "GB.KM.914",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.1110:design.text",
-     "entity": "type",
-     "id": "GB.KM.1110",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:TH.KM.183:design.text",
-     "entity": "type",
-     "id": "TH.KM.183",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:DE.KM.106a:design.text",
-     "entity": "type",
-     "id": "DE.KM.106a",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.1335:design.text",
-     "entity": "type",
-     "id": "GB.KM.1335",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:FR.KM.1285:design.text",
-     "entity": "type",
-     "id": "FR.KM.1285",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.986:design.text",
-     "entity": "type",
-     "id": "GB.KM.986",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:IT.KM.213:design.text",
-     "entity": "type",
-     "id": "IT.KM.213",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MT.KM.129:design.text",
-     "entity": "type",
-     "id": "MT.KM.129",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:DE.KM.105:design.text",
-     "entity": "type",
-     "id": "DE.KM.105",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:FR.KM.933:design.text",
-     "entity": "type",
-     "id": "FR.KM.933",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.935:design.text",
-     "entity": "type",
-     "id": "GB.KM.935",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:GB.KM.935a:design.text",
-     "entity": "type",
-     "id": "GB.KM.935a",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:specimen:C296:issue.year",
-     "entity": "specimen",
-     "id": "C296",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:DE.KM.207:design.text",
-     "entity": "type",
-     "id": "DE.KM.207",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:DE.KM.209:design.text",
-     "entity": "type",
-     "id": "DE.KM.209",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:ES.KM.1042:design.text",
-     "entity": "type",
-     "id": "ES.KM.1042",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:FR.KM.1284:design.text",
-     "entity": "type",
-     "id": "FR.KM.1284",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MT.KM.128:design.text",
-     "entity": "type",
-     "id": "MT.KM.128",
-     "field": "design.text"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:MX-CHI.KM.612:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX-CHI.KM.612",
-     "field": "catalogs",
-     "coins": [
-      "C114"
-     ],
-     "label": "catalog of C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Muse",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:ER.KM.46:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ER.KM.46",
-     "field": "design.text",
-     "coins": [
-      "C212"
-     ],
-     "label": "design of C212 · Eritrea · 1997 · 50 cents · ERN (nakfa)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse greater kudu left · STATE OF ERITREA · 1997 · 50 · FIFTY CENTS · reverse five soldiers with flag · LIBERTY · EQUALITY · JUSTICE · 1991",
-      "their_source": "Numista N#2403 (https://en.numista.com/catalogue/pieces2403.html) lists no engraver; madote.com 'The American Man Who Designed Eritrea\\'s Na",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2403.html",
-       "http://www.madote.com/2015/01/the-american-man-who-designed-eritreas.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CU.KM.32:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CU.KM.32",
-     "field": "design.text",
-     "coins": [
-      "C252"
-     ],
-     "label": "design of C252 · Cuba · 1962 · 20 centavos · CUP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "arms side REPUBLICA DE CUBA · Escudo (key · stripes · palm) · oak & laurel · Phrygian-cap star · VEINTE CENTAVOS · reverse big 20 / date",
-      "their_source": "Numista N#1055 (Cuba 20 centavos José Martí, KM#31): Obverse Engraver Charles Edward Barber, Reverse Engraver Esteban Valderrama Peña (https",
-      "links": [
-       "https://en.numista.com/1055",
-       "https://en.numista.com/catalogue/pieces1055.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SU.Y.126a:issues.0.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SU.Y.126a",
-     "field": "issues.0.mintage",
-     "coins": [
-      "C042"
-     ],
-     "label": "mintage of C042 · USSR · 1962 · 1 kopek · SUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Muse",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 1962,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:SU.Y.126a:issues.1.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SU.Y.126a",
-     "field": "issues.1.mintage",
-     "coins": [
-      "C044"
-     ],
-     "label": "mintage of C044 · USSR · 1974 · 1 kopek · SUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Muse",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.1.mintage": {
-       "year": 1974,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:VN.KM.71:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "VN.KM.71",
-     "field": "design.text",
-     "coins": [
-      "C232"
-     ],
-     "label": "design of C232 · Vietnam · 2003 · 1000 đồng · VND",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse national emblem (star · cog · rice wreath) · CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM · 2003 · reverse One Pillar Pagoda temple · 1000 ĐỒNG · NGÂN HÀNG NHÀ NƯỚC VIỆT NAM",
-      "their_source": "Verified: Numista N#2104 (1000 Đồng - Vietnam, 2003), https://en.numista.com/catalogue/pieces2104.html — Obverse: arms of Vietnam, lettering",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2104.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.X.1-penny:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.X.1-penny",
-     "field": "denomination.value",
-     "coins": [
-      "C302"
-     ],
-     "label": "denomination of C302 · United Kingdom · 1922 · 1 penny · GBP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C302_rev.webp",
-        "file": "C302_rev.webp",
-        "original": "C302_UnitedKingdom_1922_1Penny_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C302_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C294:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C294",
-     "field": "issue.year",
-     "coins": [
-      "C294"
-     ],
-     "label": "year of C294 · Mexico · 1969 · 5 centavos · MXP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C294_rev.webp",
-        "file": "C294_rev.webp",
-        "original": "C294_Mexico_1969_5Centavos_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C294_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:DE.KM.211:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.211",
-     "field": "design.text",
-     "coins": [
-      "C131"
-     ],
-     "label": "design of C131 · Germany · 2002 · 20 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luycx)",
-      "their_source": "heritcoin Germany 20 euro cent KM#211; onlinecoin.club Germany Twenty Euro Cents 2020",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:DE.KM.255:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.255",
-     "field": "design.text",
-     "coins": [
-      "C053",
-      "C102"
-     ],
-     "label": "design of C053 · Germany · 2011 · 20 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luycx)",
-      "their_source": "uCoin Germany 20 euro cent KM#255",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.1286:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1286",
-     "field": "design.text",
-     "coins": [
-      "C129",
-      "C130"
-     ],
-     "label": "design of C129 · France · 2000 · 20 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national modern La Semeuse (Laurent Jorio after Roty) · RF · 12 EU stars · common map side (Luc Luycx)",
-      "their_source": "Numista N#101 (20 Euro Cents 1st map - France, KM#1286)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces101.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.1110d:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1110d",
-     "field": "design.text",
-     "coins": [
-      "C155",
-      "C156"
-     ],
-     "label": "design of C155 · United Kingdom · 2013 · 10 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)",
-      "their_source": "Numista N#208018; NGC Great Britain 10 Pence KM#1110d",
-      "links": [
-       "https://en.numista.com/catalogue/pieces208018.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IT.KM.214:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.214",
-     "field": "design.text",
-     "coins": [
-      "C027",
-      "C061"
-     ],
-     "label": "design of C027 · Italy · 2002 · 20 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Boccioni Unique Forms of Continuity in Space (M.A. Cassol) + RI · R · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "NGC KM#214; heritcoin KM#214",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.239:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.239",
-     "field": "design.text",
-     "coins": [
-      "C040"
-     ],
-     "label": "design of C040 · Netherlands · 2001 · 20 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Beatrix stylized profile + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Numista N#149",
-      "links": [
-       "https://en.numista.com/catalogue/pieces149.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:PT.KM.744:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "PT.KM.744",
-     "field": "design.text",
-     "coins": [
-      "C056"
-     ],
-     "label": "design of C056 · Portugal · 2002 · 20 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national royal seal of 1142 (seven castles · five shields) + PORTUGAL · 20★02 style date · 12 EU stars · common Europe globe side (Luc Luycx) · Vítor Santos",
-      "their_source": "Wikipedia Portuguese euro coins; LastDodo Portugal 50 cent 2002 KM#745",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SG.KM.4:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SG.KM.4",
-     "field": "design.text",
-     "coins": [
-      "C250"
-     ],
-     "label": "design of C250 · Singapore · 1967 · 20 cents · SGD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "value side rice stalks · big 20 · CENTS · 1967 · SINGAPORE · arms / lion fish obverse",
-      "their_source": "LastDodo Singapore 20 cents 1970 and 1980 KM#4",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:TT.KM.33:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "TT.KM.33",
-     "field": "design.text",
-     "coins": [
-      "C204"
-     ],
-     "label": "design of C204 · Trinidad and Tobago · 2014 · 25 cents · TTD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse coat of arms · Scarlet Ibis + Cocrico supporters · REPUBLIC OF TRINIDAD AND TOBAGO · 2014 · reverse Chaconia flower (wild poinsettia, national flower) · 25 CENTS",
-      "their_source": "Verified correct. Numista N#1159, 25 Cents (Non-Magnetic) - Trinidad and Tobago, https://en.numista.com/1159 — Reverse: 'The Chaconia or Wil",
-      "links": [
-       "https://en.numista.com/1159",
-       "https://en.numista.com/catalogue/pieces1159.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.26c:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.26c",
-     "field": "design.text",
-     "coins": [
-      "C075",
-      "C081"
-     ],
-     "label": "design of C075 · Switzerland · 1982 · 5 rappen · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "Libertas right (obv) · 5 in grapevine wreath (rev) · engravers Karl Schwenzer / Carl Friedrich Voigt",
-      "their_source": "Numista N#171; onlinecoin.club KM#26c",
-      "links": [
-       "https://en.numista.com/catalogue/pieces171.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:DE.KM.107:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.107",
-     "field": "design.text",
-     "coins": [
-      "C195",
-      "C196",
-      "C197",
-      "C237",
-      "C265"
-     ],
-     "label": "design of C195 · Germany · 1971 · 5 Pfennig · DEM",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
-      "their_source": "LastDodo KM#107",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.930:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.930",
-     "field": "design.text",
-     "coins": [
-      "C005",
-      "C041"
-     ],
-     "label": "design of C005 · France · 1986 · 20 centimes · FRF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 20 CENTIMES · olive + wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
-      "their_source": "heritcoin France 20 centimes KM#930; LastDodo France 20 centimes 1974",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.912:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.912",
-     "field": "design.text",
-     "coins": [
-      "C234"
-     ],
-     "label": "design of C234 · United Kingdom · 1968 · 10 new pence · GBP (large module)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Arnold Machin Elizabeth II · reverse crowned lion passant guardant · NEW PENCE (Ironside)",
-      "their_source": "NGC Great Britain 10 New Pence KM#912; onlinecoin.club UK Ten Pence",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IT.KM.96.1:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.96.1",
-     "field": "design.text",
-     "coins": [
-      "C240"
-     ],
-     "label": "design of C240 · Italy · 1965 · 100 lire · ITL",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Italia / Republic head · reverse Minerva with spear · olive tree · L.100 · date · R (Giuseppe Romagnoli)",
-      "their_source": "heritcoin KM#96.1; ucoin KM#96.1",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.938b:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.938b",
-     "field": "design.text",
-     "coins": [
-      "C147",
-      "C148",
-      "C149",
-      "C150",
-      "C151"
-     ],
-     "label": "design of C147 · United Kingdom · 1992 · 10 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)",
-      "their_source": "NGC KM#938c; heritcoin KM#938b; onlinecoin.club KM#938b",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GR.KM.90:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GR.KM.90",
-     "field": "design.text",
-     "coins": [
-      "C245"
-     ],
-     "label": "design of C245 · Greece · 1970 · 2 drachmai · GRD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Constantine II portrait · reverse royal arms crowned cross shield · Heracles supporters with clubs · ΒΑΣΙΛΕΙΟΝ ΤΗΣ ΕΛΛΑΔΟΣ · 2 ΔΡΑΧΜΑΙ · 1970",
-      "their_source": "Numista N#545; coin-identifier.com",
-      "links": [
-       "https://en.numista.com/catalogue/pieces545.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.1109:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1109",
-     "field": "design.text",
-     "coins": [
-      "C177",
-      "C178",
-      "C179"
-     ],
-     "label": "design of C177 · United Kingdom · 2009 · 5 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)",
-      "their_source": "heritcoin KM#1109; onlinecoin.club KM#1109",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.1109d:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1109d",
-     "field": "design.text",
-     "coins": [
-      "C180",
-      "C181",
-      "C182"
-     ],
-     "label": "design of C180 · United Kingdom · 2012 · 5 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)",
-      "their_source": "Numista N#25766; heritcoin.com (United Kingdom 5 pence 2012, KM#1109d)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces25766.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SG.KM.3:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SG.KM.3",
-     "field": "design.text",
-     "coins": [
-      "C264"
-     ],
-     "label": "design of C264 · Singapore · 1973 · 10 cents · SGD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "value side rice stalk left · big 10 · CENTS · 1973 · SINGAPORE · arms / lion fish obverse",
-      "their_source": "Numista N#1671; Heritcoin 'Singapore 10 cents 1973' (KM#3)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces1671.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:specimen:C268:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C268",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C268"
-     ],
-     "label": "mint of C268 · Norway · 2000 · 50 øre · NOK",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Muse",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C268_rev.webp",
-        "file": "C268_rev.webp",
-        "original": "C268_Norway_2000_50Ore_rev_idx120.jpg",
-        "drive": "https://drive.google.com/file/d/1ar7a-mIYM6hvx0lSuRmIFtaoS1ym4twT/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C268_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:GB.KM.915:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.915",
-     "field": "design.text",
-     "coins": [
-      "C105",
-      "C106",
-      "C216"
-     ],
-     "label": "design of C105 · United Kingdom · 1971 · 1 penny · GBP (decimal)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Arnold Machin Elizabeth II · reverse crowned portcullis · NEW PENNY (Ironside)",
-      "their_source": "Numista N#665",
-      "links": [
-       "https://en.numista.com/catalogue/pieces665.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.204:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.204",
-     "field": "design.text",
-     "coins": [
-      "C010",
-      "C104"
-     ],
-     "label": "design of C010 · Netherlands · 1996 · 25 cents · NLG",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Beatrix portrait · reverse squared grid field with large 25 · ct · date",
-      "their_source": "Numista N#731",
-      "links": [
-       "https://en.numista.com/catalogue/pieces731.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:YU.KM.86:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "YU.KM.86",
-     "field": "design.text",
-     "coins": [
-      "C251",
-      "C262"
-     ],
-     "label": "design of C251 · Yugoslavia · 1984 · 1 dinar · YUD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse SFRY arms (torch and wheat) · reverse big 1 · bilingual ДИНАР / DINAR legend · date · beaded rim",
-      "their_source": "Numista N#2417",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2417.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.914:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.914",
-     "field": "design.text",
-     "coins": [
-      "C020"
-     ],
-     "label": "design of C020 · United Kingdom · 1973 · ½ new penny · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW HALF PENNY / NEW PENNY era",
-      "their_source": "numisview; onlinecoin.club KM#914",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.1110:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1110",
-     "field": "design.text",
-     "coins": [
-      "C154"
-     ],
-     "label": "design of C154 · United Kingdom · 2010 · 10 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)",
-      "their_source": "Numista N#7350; Wikipedia 'Ten pence (British decimal coin)'",
-      "links": [
-       "https://en.numista.com/catalogue/pieces7350.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:TH.KM.183:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "TH.KM.183",
-     "field": "design.text",
-     "coins": [
-      "C162"
-     ],
-     "label": "design of C162 · Thailand · 2006 · 1 baht · THB",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Rama IX (Bhumibol Adulyadej) left-facing with glasses · reverse Wat Phra Kaew · ประเทศไทย · พ.ศ. ๒๕๔๙ · ๑ บาท",
-      "their_source": "coinsbook.net Y#183",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:DE.KM.106a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.106a",
-     "field": "design.text",
-     "coins": [
-      "C018",
-      "C122",
-      "C123"
-     ],
-     "label": "design of C018 · Germany · 1983 · 2 Pfennig · DEM",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
-      "their_source": "heritcoin Germany 2 pfennig KM#106a; LastDodo Germany 1/5/10 pfennig KM#105/107/108 (Adolf Jäger series designer)",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.1335:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1335",
-     "field": "design.text",
-     "coins": [
-      "C158"
-     ],
-     "label": "design of C158 · United Kingdom · 2016 · 10 pence · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Jody Clark Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)",
-      "their_source": "Numista N#70549",
-      "links": [
-       "https://en.numista.com/catalogue/pieces70549.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.1285:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1285",
-     "field": "design.text",
-     "coins": [
-      "C095",
-      "C096"
-     ],
-     "label": "design of C095 · France · 1999 · 10 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national modern La Semeuse (Laurent Jorio after Roty) · RF · 12 EU stars · common map side (Luc Luycx)",
-      "their_source": "heritcoin KM#1285; LastDodo KM#1285; NGC KM#1285",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.986:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.986",
-     "field": "design.text",
-     "coins": [
-      "C112",
-      "C113",
-      "C217",
-      "C292"
-     ],
-     "label": "design of C112 · United Kingdom · 2003 · 1 penny · GBP (decimal)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)",
-      "their_source": "Numista N#862",
-      "links": [
-       "https://en.numista.com/catalogue/pieces862.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IT.KM.213:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.213",
-     "field": "design.text",
-     "coins": [
-      "C036"
-     ],
-     "label": "design of C036 · Italy · 2007 · 10 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Botticelli Birth of Venus detail (Claudia Momoni) + RI · date · R · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "Numista-cited coin guide video for Italy 10 euro cent KM#213; vcoins Numiscorner listing",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MT.KM.129:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MT.KM.129",
-     "field": "design.text",
-     "coins": [
-      "C043"
-     ],
-     "label": "design of C043 · Malta · 2008 · 10 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Arms of Malta (flag shield · mural crown · olive & palm) + MALTA · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Numista N#2184; Wikipedia '10 cent euro coin'",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2184.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:DE.KM.105:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.105",
-     "field": "design.text",
-     "coins": [
-      "C029",
-      "C187",
-      "C188",
-      "C189",
-      "C190",
-      "C191",
-      "C192"
-     ],
-     "label": "design of C029 · Germany · 1972 · 1 Pfennig · DEM",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
-      "their_source": "Heritcoin 'Germany 1 pfennig 1985-J' (KM#105); LastDodo item 180029 (KM#105)",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.933:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.933",
-     "field": "design.text",
-     "coins": [
-      "C193",
-      "C194"
-     ],
-     "label": "design of C193 · France · 1973 · 5 centimes · FRF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 5 CENTIMES · olive/wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
-      "their_source": "Numista N#2 (5 Centimes - France); heritcoin.com (France 5 centimes 1978, KM#933)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.935:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.935",
-     "field": "design.text",
-     "coins": [
-      "C107",
-      "C108",
-      "C297"
-     ],
-     "label": "design of C107 · United Kingdom · 1987 · 1 penny · GBP (decimal)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Raphael Maklouf Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)",
-      "their_source": "heritcoin KM#935; NGC KM#935",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.935a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.935a",
-     "field": "design.text",
-     "coins": [
-      "C109",
-      "C110",
-      "C111",
-      "C241"
-     ],
-     "label": "design of C109 · United Kingdom · 1995 · 1 penny · GBP (decimal)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "obverse Raphael Maklouf Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)",
-      "their_source": "Numista N#860",
-      "links": [
-       "https://en.numista.com/catalogue/pieces860.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:specimen:C296:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C296",
-     "field": "issue.year",
-     "coins": [
-      "C296"
-     ],
-     "label": "year of C296 · United Kingdom · 1990 · 5 pence · GBP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C296_obv.webp",
-        "file": "C296_obv.webp",
-        "original": "C296_UnitedKingdom_1990_5Pence_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C296_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:DE.KM.207:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.207",
-     "field": "design.text",
-     "coins": [
-      "C132",
-      "C133",
-      "C134",
-      "C135",
-      "C136",
-      "C137",
-      "C138",
-      "C273"
-     ],
-     "label": "design of C132 · Germany · 2002 · 1 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Numista N#105; onlinecoin.club Germany Euro Cent",
-      "links": [
-       "https://en.numista.com/catalogue/pieces105.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:DE.KM.209:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.209",
-     "field": "design.text",
-     "coins": [
-      "C099",
-      "C121"
-     ],
-     "label": "design of C099 · Germany · 2002 · 5 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Numista N#107; planetolog.com (citing ECB); Online Coin Club (Germany Five Euro Cents)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces107.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:ES.KM.1042:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ES.KM.1042",
-     "field": "design.text",
-     "coins": [
-      "C098"
-     ],
-     "label": "design of C098 · Spain · 2000 · 5 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Cathedral of Santiago de Compostela (Garcilaso Rollán) + 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "NGC KM#1042; Wikipedia (Spanish euro coins)",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.1284:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1284",
-     "field": "design.text",
-     "coins": [
-      "C052"
-     ],
-     "label": "design of C052 · France · 2009 · 5 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)",
-      "their_source": "heritcoin France 5 cent KM#1284; LastDodo France 5 cent 1999/2013 KM#1284",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MT.KM.128:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MT.KM.128",
-     "field": "design.text",
-     "coins": [
-      "C028"
-     ],
-     "label": "design of C028 · Malta · 2013 · 5 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Mnajdra Temple altar/trilithon + MALTA · date · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "Numista N#2183; Central Bank of Malta euro coins page",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2183.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-verify-20261015-2",
-   "agent": "grok",
-   "kind": "verify",
-   "issued": "2026-10-15T14:17:10Z",
-   "lease_until": "2026-10-22T14:17:10Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:NL.KM.346:design.text",
-     "entity": "type",
-     "id": "NL.KM.346",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:DE.KM.208:design.text",
-     "entity": "type",
-     "id": "DE.KM.208",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:FR.KM.1283:design.text",
-     "entity": "type",
-     "id": "FR.KM.1283",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:IT.KM.211:design.text",
-     "entity": "type",
-     "id": "IT.KM.211",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:BS.X.1-cent:catalogs",
-     "entity": "type",
-     "id": "BS.X.1-cent",
-     "field": "catalogs"
-    },
-    {
-     "item": "verify:type:ES.KM.1040:design.text",
-     "entity": "type",
-     "id": "ES.KM.1040",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:FR.KM.1282:design.text",
-     "entity": "type",
-     "id": "FR.KM.1282",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:IE.KM.32:design.text",
-     "entity": "type",
-     "id": "IE.KM.32",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:NL.KM.234:design.text",
-     "entity": "type",
-     "id": "NL.KM.234",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:CH.KM.21a.3:issues.0.mintage",
-     "entity": "type",
-     "id": "CH.KM.21a.3",
-     "field": "issues.0.mintage"
-    },
-    {
-     "item": "verify:type:IT.KM.111:composition.text",
-     "entity": "type",
-     "id": "IT.KM.111",
-     "field": "composition.text"
-    },
-    {
-     "item": "verify:specimen:C294:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C294",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:type:MX.X.5-centavos:denomination.value",
-     "entity": "type",
-     "id": "MX.X.5-centavos",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C289:issue.year",
-     "entity": "specimen",
-     "id": "C289",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:AR.X.5-centavos:denomination.value",
-     "entity": "type",
-     "id": "AR.X.5-centavos",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C295:issue.year",
-     "entity": "specimen",
-     "id": "C295",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C300:issue.year",
-     "entity": "specimen",
-     "id": "C300",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:AU.X.10-cents:denomination.value",
-     "entity": "type",
-     "id": "AU.X.10-cents",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:BS.X.25-cents:denomination.value",
-     "entity": "type",
-     "id": "BS.X.25-cents",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C298:issue.year",
-     "entity": "specimen",
-     "id": "C298",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:GB.KM.1107:denomination.value",
-     "entity": "type",
-     "id": "GB.KM.1107",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:GB.KM.986:denomination.value",
-     "entity": "type",
-     "id": "GB.KM.986",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C290:issue.year",
-     "entity": "specimen",
-     "id": "C290",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C292:issue.year",
-     "entity": "specimen",
-     "id": "C292",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C297:issue.year",
-     "entity": "specimen",
-     "id": "C297",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:GB.KM.935:denomination.value",
-     "entity": "type",
-     "id": "GB.KM.935",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C303:issue.year",
-     "entity": "specimen",
-     "id": "C303",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:AU.X.1-cent:denomination.value",
-     "entity": "type",
-     "id": "AU.X.1-cent",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:ES.KM.1144:period",
-     "entity": "type",
-     "id": "ES.KM.1144",
-     "field": "period"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:NL.KM.346:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.346",
-     "field": "design.text",
-     "coins": [
-      "C045"
-     ],
-     "label": "design of C045 · Netherlands · 2014 · 5 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Willem-Alexander right-facing portrait · Willem-Alexander Koning der Nederlanden (vertical) · date · 12 stars · common Europe map side (Luc Luycx)",
-      "their_source": "Numista N#54953; Wikipedia Dutch euro coins",
-      "links": [
-       "https://en.numista.com/catalogue/pieces54953.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:DE.KM.208:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.208",
-     "field": "design.text",
-     "coins": [
-      "C046",
-      "C100",
-      "C126"
-     ],
-     "label": "design of C046 · Germany · 2010 · 2 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "LastDodo KM#208; heritcoin KM#208",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.1283:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1283",
-     "field": "design.text",
-     "coins": [
-      "C034",
-      "C127",
-      "C128"
-     ],
-     "label": "design of C034 · France · 2009 · 2 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)",
-      "their_source": "Numista N#98; Heritcoin 'France 2 euro cent 2017' (KM#1283)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces98.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IT.KM.211:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.211",
-     "field": "design.text",
-     "coins": [
-      "C039"
-     ],
-     "label": "design of C039 · Italy · 2010 · 2 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Mole Antonelliana Turin (Luciana De Simoni) + RI · date · R · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "Numista N#130; moneterare.net 'Italy Euro Coins'",
-      "links": [
-       "https://en.numista.com/catalogue/pieces130.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:BS.X.1-cent:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "BS.X.1-cent",
-     "field": "catalogs",
-     "coins": [
-      "C276"
-     ],
-     "label": "catalog of C276 · Bahamas · 2015 · 1 cent · BSD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Muse",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:ES.KM.1040:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ES.KM.1040",
-     "field": "design.text",
-     "coins": [
-      "C140"
-     ],
-     "label": "design of C140 · Spain · 2008 · 1 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national side Cathedral of Santiago de Compostela (Garcilaso Rollán) + 12 EU stars · common side Europe map (Luc Luycx, design from 2007)",
-      "their_source": "Numista N#81; Wikipedia Spanish euro coins",
-      "links": [
-       "https://en.numista.com/catalogue/pieces81.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.1282:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1282",
-     "field": "design.text",
-     "coins": [
-      "C141"
-     ],
-     "label": "design of C141 · France · 2009 · 1 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)",
-      "their_source": "Numista N#97; heritcoin.com (France 1 euro cent 2000, KM#1282)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces97.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IE.KM.32:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IE.KM.32",
-     "field": "design.text",
-     "coins": [
-      "C101",
-      "C143"
-     ],
-     "label": "design of C101 · Ireland · 2002 · 1 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Numista N#121; Heritcoin 'Ireland 1 euro cent 2006' (KM#32)",
-      "links": [
-       "https://en.numista.com/catalogue/pieces121.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.234:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.234",
-     "field": "design.text",
-     "coins": [
-      "C142"
-     ],
-     "label": "design of C142 · Netherlands · 2000 · 1 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "value": "national Beatrix portrait + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Numista N#145; NGC Netherlands Euro Cent KM 234",
-      "links": [
-       "https://en.numista.com/catalogue/pieces145.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.21a.3:issues.0.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.21a.3",
-     "field": "issues.0.mintage",
-     "coins": [
-      "C077"
-     ],
-     "label": "mintage of C077 · Switzerland · 1991 · 2 francs · CHF",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 1991,
-       "mint": [
-        "B"
-       ],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:IT.KM.111:composition.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.111",
-     "field": "composition.text",
-     "coins": [
-      "C211"
-     ],
-     "label": "composition of C211 · Italy · 1987 · 500 lire · ITL",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "composition",
-      "author": "Claude",
-      "value": "bimetallic (bronzital center / acmonital ring)",
-      "their_source": "disagreement D0027 settled for the claim: Muse's cited entry https://en.numista.com/302 Features reads 'Bimetallic: bronzital centre in acmo",
-      "links": [
-       "https://en.numista.com/302"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:specimen:C294:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C294",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C294"
-     ],
-     "label": "mint of C294 · Mexico · 1969 · 5 centavos · MXP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C294_rev.webp",
-        "file": "C294_rev.webp",
-        "original": "C294_Mexico_1969_5Centavos_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C294_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:MX.X.5-centavos:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.X.5-centavos",
-     "field": "denomination.value",
-     "coins": [
-      "C294"
-     ],
-     "label": "denomination of C294 · Mexico · 1969 · 5 centavos · MXP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C294_rev.webp",
-        "file": "C294_rev.webp",
-        "original": "C294_Mexico_1969_5Centavos_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C294_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C289:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C289",
-     "field": "issue.year",
-     "coins": [
-      "C289"
-     ],
-     "label": "year of C289 · Argentina · 1954 · 5 centavos · ARM",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C289_rev.webp",
-        "file": "C289_rev.webp",
-        "original": "C289_Argentina_1954_5Centavos_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C289_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:AR.X.5-centavos:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "AR.X.5-centavos",
-     "field": "denomination.value",
-     "coins": [
-      "C289"
-     ],
-     "label": "denomination of C289 · Argentina · 1954 · 5 centavos · ARM",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C289_rev.webp",
-        "file": "C289_rev.webp",
-        "original": "C289_Argentina_1954_5Centavos_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C289_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C295:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C295",
-     "field": "issue.year",
-     "coins": [
-      "C295"
-     ],
-     "label": "year of C295 · Australia · 2006 · 10 cents · AUD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C295_obv.webp",
-        "file": "C295_obv.webp",
-        "original": "C295_Australia_2006_10Cents_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C295_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C300:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C300",
-     "field": "issue.year",
-     "coins": [
-      "C300"
-     ],
-     "label": "year of C300 · Bahamas · 1984 · 25 cents · BSD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:AU.X.10-cents:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "AU.X.10-cents",
-     "field": "denomination.value",
-     "coins": [
-      "C295"
-     ],
-     "label": "denomination of C295 · Australia · 2006 · 10 cents · AUD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C295_obv.webp",
-        "file": "C295_obv.webp",
-        "original": "C295_Australia_2006_10Cents_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C295_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:BS.X.25-cents:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "BS.X.25-cents",
-     "field": "denomination.value",
-     "coins": [
-      "C300"
-     ],
-     "label": "denomination of C300 · Bahamas · 1984 · 25 cents · BSD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": []
-    },
-    {
-     "item": "verify:specimen:C298:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C298",
-     "field": "issue.year",
-     "coins": [
-      "C298"
-     ],
-     "label": "year of C298 · Italy · 1978 · 50 lire · ITL",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
-        "file": "C298_rev.webp",
-        "original": "C298_Italy_1978_50Lire_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C298_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:GB.KM.1107:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1107",
-     "field": "denomination.value",
-     "coins": [
-      "C290"
-     ],
-     "label": "denomination of C290 · United Kingdom · 2013 · 1 penny · GBP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C290_obv.webp",
-        "file": "C290_obv.webp",
-        "original": "C290_UnitedKingdom_2013_1Penny_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C290_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:GB.KM.986:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.986",
-     "field": "denomination.value",
-     "coins": [
-      "C292"
-     ],
-     "label": "denomination of C292 · United Kingdom · 2002 · 1 penny · GBP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C292_obv.webp",
-        "file": "C292_obv.webp",
-        "original": "C292_UnitedKingdom_2002_1Penny_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C292_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C290:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C290",
-     "field": "issue.year",
-     "coins": [
-      "C290"
-     ],
-     "label": "year of C290 · United Kingdom · 2013 · 1 penny · GBP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C290_obv.webp",
-        "file": "C290_obv.webp",
-        "original": "C290_UnitedKingdom_2013_1Penny_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C290_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C292:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C292",
-     "field": "issue.year",
-     "coins": [
-      "C292"
-     ],
-     "label": "year of C292 · United Kingdom · 2002 · 1 penny · GBP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C292_obv.webp",
-        "file": "C292_obv.webp",
-        "original": "C292_UnitedKingdom_2002_1Penny_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C292_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C297:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C297",
-     "field": "issue.year",
-     "coins": [
-      "C297"
-     ],
-     "label": "year of C297 · United Kingdom · 1988 · 1 penny · GBP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C297_obv.webp",
-        "file": "C297_obv.webp",
-        "original": "C297_UnitedKingdom_1988_1Penny_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C297_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:GB.KM.935:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.935",
-     "field": "denomination.value",
-     "coins": [
-      "C297"
-     ],
-     "label": "denomination of C297 · United Kingdom · 1988 · 1 penny · GBP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C297_obv.webp",
-        "file": "C297_obv.webp",
-        "original": "C297_UnitedKingdom_1988_1Penny_obv.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C297_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C303:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C303",
-     "field": "issue.year",
-     "coins": [
-      "C303"
-     ],
-     "label": "year of C303 · Australia · 1983 · 1 cent · AUD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C303_rev.webp",
-        "file": "C303_rev.webp",
-        "original": "C303_Australia_1983_1Cent_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C303_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:AU.X.1-cent:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "AU.X.1-cent",
-     "field": "denomination.value",
-     "coins": [
-      "C288",
-      "C303"
-     ],
-     "label": "denomination of C288 · Australia · 1983 · 1 cent · AUD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C288_obv.webp",
-        "file": "C288_obv.webp",
-        "original": "C288_Australia_1983_2Cent_obv.jpg",
-        "drive": "https://drive.google.com/file/d/1BeTkW-rEoVY-dp6zmkSyXEetziUnJK-S/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C288_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:ES.KM.1144:period",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ES.KM.1144",
-     "field": "period",
-     "coins": [
-      "C139"
-     ],
-     "label": "period of C139 · Spain · 2014 · 1 euro cent · EUR",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "period",
-      "author": "Claude",
-      "value": "Eurozone",
-      "their_source": "Numista N#10856 (Spain 1 euro cent, 2010 onward, KM#1144) vs N#81 / NGC KM#1040 (1999-2009, https://www.ngccoin.com/price-guide/world/spain-",
-      "links": [
-       "https://www.ngccoin.com/price-guide/world/spain-euro-cent-km-1040-1999-2009-cuid-1093596-duid-1553416",
-       "https://en.numista.com/catalogue/pieces10856.html",
-       "https://en.numista.com/catalogue/pieces81.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-cite-20261015-2",
-   "agent": "grok",
-   "kind": "cite",
-   "issued": "2026-10-15T14:42:39Z",
-   "lease_until": "2026-10-22T14:42:39Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "cite:GB.X.1-penny",
-     "entity": "type",
-     "id": "GB.X.1-penny",
-     "field": null
-    },
-    {
-     "item": "cite:MX.X.20-pesos",
-     "entity": "type",
-     "id": "MX.X.20-pesos",
-     "field": null
-    }
-   ],
-   "items_full": [
-    {
-     "item": "cite:GB.X.1-penny",
-     "kind": "cite",
-     "entity": "type",
-     "id": "GB.X.1-penny",
-     "field": null,
-     "coins": [
-      "C302"
-     ],
-     "label": "GB 1 penny (GB.X.1-penny)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1922,
-        "mint_marks": [],
-        "coins": [
-         "C302"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "Numista",
-        "number": "578"
-       },
-       {
-        "system": "KM",
-        "number": "810"
-       },
-       {
-        "system": "Schön",
-        "number": "299"
-       }
-      ],
-      "weight_g": null,
-      "diameter_mm": null,
-      "composition": "bronze",
-      "ask": [
-       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
-       "nominal.diameter_mm",
-       "issues.0.mintage: 1922"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 1922,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:MX.X.20-pesos",
-     "kind": "cite",
-     "entity": "type",
-     "id": "MX.X.20-pesos",
-     "field": null,
-     "coins": [
-      "C304"
-     ],
-     "label": "MX 20 pesos (MX.X.20-pesos)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1981,
-        "mint_marks": [],
-        "coins": [
-         "C304"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "Numista",
-        "number": "987"
-       },
-       {
-        "system": "KM",
-        "number": "486"
-       },
-       {
-        "system": "Schön",
-        "number": "78"
-       }
-      ],
-      "weight_g": null,
-      "diameter_mm": null,
-      "composition": "copper-nickel (75% copper, 25% nickel)",
-      "ask": [
-       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
-       "nominal.diameter_mm",
-       "issues.0.mintage: 1981"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 1981,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    }
-   ]
-  },
-  {
    "id": "HW-grok-value-20261019-1",
    "agent": "grok",
    "kind": "value",
@@ -3921,6 +253,1697 @@
       "stale_since": null,
       "numista_prices": null,
       "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261020-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-10-20T15:00:33Z",
+   "lease_until": "2026-10-27T15:00:33Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0071",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.year"
+    },
+    {
+     "item": "arb:D0074",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "issues.0.mintage"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0074",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C249"
+     ],
+     "label": "D0074 AU.KM.66 issues.0.mintage",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": 28223000
+      },
+      "claim": {
+       "value": 58223000,
+       "by": "model:muse-spark",
+       "source": "Numista N#1003 (https://en.numista.com/catalogue/pieces1003.html): 1966 mintage rows '28 223 000' (Circulation - Canberra Mint) and '30 000 000' (Circulation - London Mint); summed circulation strikes = 58223000.",
+       "ts": "2026-10-17T04:55:32Z"
+      }
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1966,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-story-check-20261020-1",
+   "agent": "grok",
+   "kind": "story-check",
+   "issued": "2026-10-20T15:00:33Z",
+   "lease_until": "2026-10-27T15:00:33Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C117",
+     "entity": "specimen",
+     "id": "C117",
+     "field": "story"
+    },
+    {
+     "item": "story:C118",
+     "entity": "specimen",
+     "id": "C118",
+     "field": "story"
+    },
+    {
+     "item": "story:C119",
+     "entity": "specimen",
+     "id": "C119",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C117",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C117",
+     "field": "story",
+     "coins": [
+      "C117"
+     ],
+     "label": "C117 · France · 1960 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1960 1-franc coin from France. The front shows La Semeuse, the sower, facing left, with the words REPUBLIQUE FRANÇAISE. The design is by Oscar Roty. The back shows 1 FRANC, an olive sprig, the words LIBERTE, EGALITE, FRATERNITE, and the date. Made of nickel.",
+      "record": {
+       "country": "France",
+       "year": "1960",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "406,375,000 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C118",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C118",
+     "field": "story",
+     "coins": [
+      "C118"
+     ],
+     "label": "C118 · France · 1960 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1960 1-franc coin from France. The front shows La Semeuse, the sower, facing left, with the words REPUBLIQUE FRANÇAISE. The design is by Oscar Roty. The back shows 1 FRANC, an olive sprig, the words LIBERTE, EGALITE, FRATERNITE, and the date. Made of nickel.",
+      "record": {
+       "country": "France",
+       "year": "1960",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "406,375,000 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C119",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C119",
+     "field": "story",
+     "coins": [
+      "C119"
+     ],
+     "label": "C119 · France · 1977 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1977 1-franc coin from France. The front shows La Semeuse, the sower, facing left, with the words REPUBLIQUE FRANÇAISE. The design is by Oscar Roty. The back shows 1 FRANC, an olive sprig, the words LIBERTE, EGALITE, FRATERNITE, and the date. Made of nickel.",
+      "record": {
+       "country": "France",
+       "year": "1977",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "230,110,011 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261020-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-20T15:00:33Z",
+   "lease_until": "2026-10-27T15:00:33Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:NL.KM.184:design.text",
+     "entity": "type",
+     "id": "NL.KM.184",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.140.1:design.text",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.21a:design.text",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.27:design.text",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:design.text",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:design.text",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AU.KM.36:design.text",
+     "entity": "type",
+     "id": "AU.KM.36",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.191:design.text",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.23a:design.text",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:catalogs",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:catalogs",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.29a:design.text",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AT.X.2-groschen:design.text",
+     "entity": "type",
+     "id": "AT.X.2-groschen",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:catalogs",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:catalogs",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:catalogs",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GR.KM.117:design.text",
+     "entity": "type",
+     "id": "GR.KM.117",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:ES.KM.1144:design.text",
+     "entity": "type",
+     "id": "ES.KM.1144",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C301:issue.year",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C293:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C301:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:NL.KM.184:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.184",
+     "field": "design.text",
+     "coins": [
+      "C223"
+     ],
+     "label": "design of C223 · Netherlands · 1967 · 1 gulden · NLG",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "Juliana head right, JULIANA KONINGIN DER NEDERLANDEN (obv; engraver Ludwig Oswald Wenckebach) · crowned arms dividing date, 1 G, NEDERLAND (rev) · mintmaster fish mark",
+      "their_source": "https://en.numista.com/catalogue/pieces737.html (Numista N#737, Netherlands 1 Gulden KM#184): Obverse — Juliana head right, lettering JULIAN",
+      "links": [
+       "https://en.numista.com/catalogue/pieces737.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.140.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "design.text",
+     "coins": [
+      "C009"
+     ],
+     "label": "design of C009 · Germany · 1987 · 5 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "Bundesadler with date and mintmark below (obv; engraver Wolfgang Theodor Doehm) · 5 DEUTSCHE MARK in rounded square, BUNDESREPUBLIK DEUTSCHLAND (rev) · circulation CuNi-clad nickel, not silver",
+      "their_source": "https://en.numista.com/catalogue/pieces843.html (Numista N#843, Germany 5 Deutsche Mark KM#140.1): Obverse — German eagle with mintmark belo",
+      "links": [
+       "https://en.numista.com/catalogue/pieces843.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.21a:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "design.text",
+     "coins": [
+      "C003",
+      "C014",
+      "C067",
+      "C115",
+      "C116"
+     ],
+     "label": "design of C003 · Switzerland · 1968 · 2 francs · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "standing Helvetia facing left, spear and Swiss shield, 22 stars, HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 2 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
+      "their_source": "https://en.numista.com/catalogue/pieces189.html (Numista N#189, Switzerland 2 Francs KM#21a): Obverse — Helvetia standing facing left, 22 st",
+      "links": [
+       "https://en.numista.com/catalogue/pieces189.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.27:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "design.text",
+     "coins": [
+      "C082",
+      "C083",
+      "C242"
+     ],
+     "label": "design of C082 · Switzerland · 1979 · 10 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "Libertas head right (obv; designer Karl Schwenzer) · 10 in oak wreath (rev; designer Carl Friedrich Voigt)",
+      "their_source": "https://en.numista.com/catalogue/pieces173.html (Numista N#173, Switzerland 10 Rappen KM#27): Obverse — Head of Libertas facing right, Desig",
+      "links": [
+       "https://en.numista.com/catalogue/pieces173.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "design.text",
+     "coins": [
+      "C001",
+      "C093"
+     ],
+     "label": "design of C001 · Switzerland · 1969 · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "standing Helvetia facing left, spear in right hand, Swiss shield in left, 22 stars (23 from 1983), HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 1 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
+      "their_source": "https://en.numista.com/catalogue/pieces185.html (Numista N#185, Switzerland 1 Franc KM#24a): Obverse — Helvetia standing facing left, spear/",
+      "links": [
+       "https://en.numista.com/catalogue/pieces185.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "design.text",
+     "coins": [
+      "C049"
+     ],
+     "label": "design of C049 · France · 1989 · 10 francs · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "Génie de la Liberté atop the July Column, Paris, between R F (obv; engravers Jean-Luc Maréchal, Atelier de Gravure) · 10 F crossed with wide stripes, LIBERTÉ ÉGALITÉ FRATERNITÉ, date (rev)",
+      "their_source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9, France 10 Francs KM#964.1): Obverse — Génie de la Liberté (top of the July Colum",
+      "links": [
+       "https://en.numista.com/catalogue/pieces9.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.KM.36:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.KM.36",
+     "field": "design.text",
+     "coins": [
+      "C239"
+     ],
+     "label": "design of C239 · Australia · 1944 · 1 penny · AUD (pre-decimal)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "George VI facing left (obv; engraver Thomas Humphrey Paget) · kangaroo facing left with Commonwealth Star left, date right, AUSTRALIA above, PENNY below (rev; engraver George Kruger Gray) · Perth = dot after PENNY",
+      "their_source": "https://en.numista.com/catalogue/pieces5788.html (Numista N#5788, Australia 1 Penny KM#36): Obverse — George VI facing left, Engraver Thomas",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5788.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.191:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": "design.text",
+     "coins": [
+      "C230"
+     ],
+     "label": "design of C230 · Jamaica · 2015 · 10 dollars · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · 2015",
+      "their_source": "https://en.numista.com/catalogue/pieces14370.html (N#14370: 10 Dollars (Round) - Jamaica, KM#190, Years 2008-2025, Shape: Round — the cited ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces14370.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.23a:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": "design.text",
+     "coins": [
+      "C008",
+      "C015"
+     ],
+     "label": "design of C008 · Switzerland · 1968 · 1/2 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "standing Helvetia facing left, spear and Swiss shield, 22 stars, HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · ½ Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Albert Walch)",
+      "their_source": "https://en.numista.com/catalogue/pieces181.html (Numista N#181, Switzerland ½ Franc KM#23a): Obverse — Helvetia standing facing left, 22 sta",
+      "links": [
+       "https://en.numista.com/catalogue/pieces181.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "catalogs",
+     "coins": [
+      "C291"
+     ],
+     "label": "catalog of C291 · Bahamas · 1984 · 5 cents · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Muse",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "catalogs",
+     "coins": [
+      "C293",
+      "C301"
+     ],
+     "label": "catalog of C293 · Mexico · 1988 · 500 pesos · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Muse",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.29a:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": "design.text",
+     "coins": [
+      "C068",
+      "C076",
+      "C078",
+      "C079",
+      "C256",
+      "C278"
+     ],
+     "label": "design of C068 · Switzerland · 1963 · 20 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "Libertas head right (obv; designer Karl Schwenzer) · 20 in alpine rose wreath (rev; designer Carl Friedrich Voigt)",
+      "their_source": "https://en.numista.com/catalogue/pieces178.html (Numista N#178, Switzerland 20 Rappen KM#29a): Obverse — Head of Libertas facing right, Desi",
+      "links": [
+       "https://en.numista.com/catalogue/pieces178.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AT.X.2-groschen:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AT.X.2-groschen",
+     "field": "design.text",
+     "coins": [
+      "C272"
+     ],
+     "label": "design of C272 · Austria · 1925 · 2 groschen · ATS",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "The obverse shows a thick cross with the date below and the word Oesterreich above. The reverse shows a large numeral 2 with the word Groschen.",
+      "their_source": "Numista N#1944 (https://en.numista.com/catalogue/pieces1944.html) — Engraver listed for both obverse and reverse: Philipp Häusler",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1944.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "catalogs",
+     "coins": [
+      "C294"
+     ],
+     "label": "catalog of C294 · Mexico · 1969 · 5 centavos · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Muse",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "catalogs",
+     "coins": [
+      "C289"
+     ],
+     "label": "catalog of C289 · Argentina · 1954 · 5 centavos · ARM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Muse",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "catalogs",
+     "coins": [
+      "C295"
+     ],
+     "label": "catalog of C295 · Australia · 2006 · 10 cents · AUD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Muse",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GR.KM.117:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GR.KM.117",
+     "field": "design.text",
+     "coins": [
+      "C248"
+     ],
+     "label": "design of C248 · Greece · 1982 · 2 drachmes · GRD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "two crossed rifles with branch, denomination and date below (obv; engraver Nikos Perantinos) · Georgios Karaiskakis portrait left (rev)",
+      "their_source": "https://en.numista.com/catalogue/pieces549.html (Numista N#549, Greece 2 Drachmes 1982-1986): Obverse — two crossed rifles with branch, deno",
+      "links": [
+       "https://en.numista.com/catalogue/pieces549.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.KM.1144:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.KM.1144",
+     "field": "design.text",
+     "coins": [
+      "C139"
+     ],
+     "label": "design of C139 · Spain · 2014 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "value": "national side Cathedral of Santiago de Compostela + 12 EU stars (2010 onward type) · common side globe (Luc Luycx)",
+      "their_source": "Numista N#10856 (https://en.numista.com/10856) — 1 Euro Cent (2nd type) KM#1144; obverse engraver Garcilaso Rollán Sánchez, reverse engraver",
+      "links": [
+       "https://en.numista.com/10856",
+       "https://en.numista.com/catalogue/pieces10856.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C301:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.year",
+     "coins": [
+      "C301"
+     ],
+     "label": "year of C301 · Mexico · 1989 · 500 pesos · MXP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Claude",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C301_obv.webp",
+        "file": "C301_obv.webp",
+        "original": "C301_Mexico_1989_500Pesos_obv.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C301_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C293:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C293"
+     ],
+     "label": "mint of C293 · Mexico · 1988 · 500 pesos · MXP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Claude",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C301:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C301"
+     ],
+     "label": "mint of C301 · Mexico · 1989 · 500 pesos · MXP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Claude",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C301_obv.webp",
+        "file": "C301_obv.webp",
+        "original": "C301_Mexico_1989_500Pesos_obv.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C301_obv.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261020-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-20T15:07:16Z",
+   "lease_until": "2026-10-27T15:07:16Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:NO.KM.460:design.text",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PT.KM.744:design.text",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MT.KM.128:design.text",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.215:design.text",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IE.KM.34:design.text",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C293:issue.year",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:DE.KM.109.2:design.text",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.26:design.text",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.108:design.text",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.214:design.text",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.239:design.text",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SG.KM.4:design.text",
+     "entity": "type",
+     "id": "SG.KM.4",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.26c:design.text",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.107:design.text",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SG.KM.3:design.text",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.204:design.text",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MT.KM.129:design.text",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.346:design.text",
+     "entity": "type",
+     "id": "NL.KM.346",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.211:design.text",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:ES.KM.1040:design.text",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:NO.KM.460:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": "design.text",
+     "coins": [
+      "C144",
+      "C268"
+     ],
+     "label": "design of C144 · Norway · 1998 · 50 øre · NOK",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "obverse large crown with crossed-hammers mint mark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)",
+      "their_source": "Third reader for D0023: Norway 50 øre 1996-2011: obverse is a large crown (no Harald V monogram on this coin). Claimant's source: Disagree —",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1442.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:PT.KM.744:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "design.text",
+     "coins": [
+      "C056"
+     ],
+     "label": "design of C056 · Portugal · 2002 · 20 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national royal seal of 1142 (seven castles · five shields) + PORTUGAL · 20★02 style date · 12 EU stars · common Europe map side (Luc Luycx) · Vítor Santos",
+      "their_source": "Third reader for D0052: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces157.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MT.KM.128:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": "design.text",
+     "coins": [
+      "C028"
+     ],
+     "label": "design of C028 · Malta · 2013 · 5 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national Mnajdra Temple altar/trilithon + MALTA · date · 12 EU stars · common Europe globe side (Luc Luycx)",
+      "their_source": "Third reader for D0062: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2183.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.215:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": "design.text",
+     "coins": [
+      "C055"
+     ],
+     "label": "design of C055 · Italy · 2002 · 50 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national equestrian Marcus Aurelius on the Campidoglio paving (engraver Roberto Mauri) + RI · R · date · 12 EU stars · common map side (Luc Luycx)",
+      "their_source": "Third reader for D0019: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces134.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IE.KM.34:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": "design.text",
+     "coins": [
+      "C120"
+     ],
+     "label": "design of C120 · Ireland · 2013 · 5 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common globe side (Luc Luycx)",
+      "their_source": "Third reader for D0021: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces123.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C293:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.year",
+     "coins": [
+      "C293"
+     ],
+     "label": "year of C293 · Mexico · 1988 · 500 pesos · MXP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Claude",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.109.2:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "design.text",
+     "coins": [
+      "C057",
+      "C058"
+     ],
+     "label": "design of C057 · Germany · 1982 · 50 Pfennig · DEM",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "Trümmerfrau planting an oak sapling (Richard M. Werner) · value side 50 PFENNIG · BUNDESREPUBLIK DEUTSCHLAND · mint mark",
+      "their_source": "Third reader for D0022: The 50 pfennig value side carries 50 PFENNIG and BUNDESREPUBLIK DEUTSCHLAND, no Bundesadler; Gerda Werner was the mo",
+      "links": [
+       "https://en.numista.com/catalogue/pieces847.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.26:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "design.text",
+     "coins": [
+      "C002"
+     ],
+     "label": "design of C002 · Switzerland · 1963 · 5 rappen · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "Libertas right (obv, designer Karl Schwenzer) · 5 in grapevine wreath (rev, designer Carl Friedrich Voigt)",
+      "their_source": "Third reader for D0024: Numista N#168 names Schwenzer and Voigt as designers. Claimant's source: Disagree — Numista N#168 (https://en.numist",
+      "links": [
+       "https://en.numista.com/catalogue/pieces168.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.108:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "design.text",
+     "coins": [
+      "C019",
+      "C021",
+      "C022",
+      "C030",
+      "C051",
+      "C089",
+      "C090",
+      "C091",
+      "C092",
+      "C224",
+      "C225",
+      "C226",
+      "C227",
+      "C228",
+      "C229"
+     ],
+     "label": "design of C019 · Germany · 1981 · 10 Pfennig · DEM",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value between rye ears / PFENNIG reverse",
+      "their_source": "Third reader for D0025: House rule (2026-10-04): the German oak side is the obverse; Numista N#850 agrees. Claimant's source: Disagree — Num",
+      "links": [
+       "https://en.numista.com/catalogue/pieces850.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.214:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "design.text",
+     "coins": [
+      "C027",
+      "C061"
+     ],
+     "label": "design of C027 · Italy · 2002 · 20 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national Boccioni Unique Forms of Continuity in Space (M.A. Cassol) + RI · R · date · 12 EU stars · common Europe map side (Luc Luycx)",
+      "their_source": "Third reader for D0050: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces133.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.239:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "design.text",
+     "coins": [
+      "C040"
+     ],
+     "label": "design of C040 · Netherlands · 2001 · 20 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national Beatrix stylized profile + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe map side (Luc Luycx)",
+      "their_source": "Third reader for D0051: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces149.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SG.KM.4:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SG.KM.4",
+     "field": "design.text",
+     "coins": [
+      "C250"
+     ],
+     "label": "design of C250 · Singapore · 1967 · 20 cents · SGD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "value side rice stalks · big 20 · CENTS · 1967 · SINGAPORE · swordfish other side (Stuart Devlin)",
+      "their_source": "Third reader for D0053: Singapore 1967 series (Stuart Devlin): the 20 cents shows a swordfish, the lionfish is the 50 cents. Claimant's sour",
+      "links": [
+       "https://en.numista.com/catalogue/pieces975.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.26c:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": "design.text",
+     "coins": [
+      "C075",
+      "C081"
+     ],
+     "label": "design of C075 · Switzerland · 1982 · 5 rappen · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "Libertas right (obv) · 5 in grapevine wreath (rev) · designers Karl Schwenzer / Carl Friedrich Voigt",
+      "their_source": "Third reader for D0054: Numista N#171 names Schwenzer and Voigt as designers. Claimant's source: Disagree in part — Numista N#171 (https://e",
+      "links": [
+       "https://en.numista.com/catalogue/pieces171.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.107:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": "design.text",
+     "coins": [
+      "C195",
+      "C196",
+      "C197",
+      "C237",
+      "C265"
+     ],
+     "label": "design of C195 · Germany · 1971 · 5 Pfennig · DEM",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "oak seedling obverse (Adolf Jäger) · value between rye ears / PFENNIG reverse",
+      "their_source": "Third reader for D0055: House rule (2026-10-04): the German oak side is the obverse; Numista N#658 agrees. Claimant's source: Disagree in pa",
+      "links": [
+       "https://en.numista.com/catalogue/pieces658.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SG.KM.3:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": "design.text",
+     "coins": [
+      "C264"
+     ],
+     "label": "design of C264 · Singapore · 1973 · 10 cents · SGD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "value side two rice (paddy) stalks · big 10 · CENTS · 1973 · SINGAPORE · crowned seahorse other side (Stuart Devlin)",
+      "their_source": "Third reader for D0056: Singapore 1967 series (Stuart Devlin): the 10 cents shows a seahorse. Claimant's source: Disagree in part — Numista ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1671.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.204:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": "design.text",
+     "coins": [
+      "C010",
+      "C104"
+     ],
+     "label": "design of C010 · Netherlands · 1996 · 25 cents · NLG",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "obverse Beatrix portrait · reverse value and date within vertical lines (25ct · date)",
+      "their_source": "Third reader for D0057: Netherlands 25 cents 1982-2001 (Bruno Ninaber van Eyben): value and date within vertical lines; Numista N#731. Claim",
+      "links": [
+       "https://en.numista.com/catalogue/pieces731.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MT.KM.129:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": "design.text",
+     "coins": [
+      "C043"
+     ],
+     "label": "design of C043 · Malta · 2008 · 10 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national Arms of Malta (flag shield · mural crown · olive & palm) + MALTA · date · 12 EU stars · common Europe map side (Luc Luycx)",
+      "their_source": "Third reader for D0060: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2184.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.346:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.346",
+     "field": "design.text",
+     "coins": [
+      "C045"
+     ],
+     "label": "design of C045 · Netherlands · 2014 · 5 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national Willem-Alexander right-facing portrait · Willem-Alexander Koning der Nederlanden (vertical) · date · 12 stars · common Europe globe side (Luc Luycx)",
+      "their_source": "Third reader for D0063: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces54953.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.211:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": "design.text",
+     "coins": [
+      "C039"
+     ],
+     "label": "design of C039 · Italy · 2010 · 2 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national Mole Antonelliana Turin (Luciana De Simoni) + RI · date · R · 12 EU stars · common Europe globe side (Luc Luycx)",
+      "their_source": "Third reader for D0064: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces130.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.KM.1040:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "design.text",
+     "coins": [
+      "C140"
+     ],
+     "label": "design of C140 · Spain · 2008 · 1 euro cent · EUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "value": "national side Cathedral of Santiago de Compostela (Garcilaso Rollán) + 12 EU stars · common side globe (Luc Luycx)",
+      "their_source": "Third reader for D0065: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "links": [
+       "https://en.numista.com/catalogue/pieces81.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []

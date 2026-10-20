@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-20T06:34:47Z",
+ "updated": "2026-10-20T15:07:16Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261014-1",
@@ -2360,7 +2360,7 @@
        "metal": "CuNi 75/25 · 8.80 g · 27.4 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness 2.15 mm · coin alignment · type specs shared with CuNi 2 Fr from 1968 (KM#21a)",
        "mintage": "31,588,000",
-       "design": "standing Helvetia (obv) · 2 Fr. in oak + alpine wreath (rev) · engravers Antoine Bovy / Albert Walch",
+       "design": "standing Helvetia facing left, spear and Swiss shield, 22 stars, HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 2 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
        "period": "Swiss Confederation"
       }
      },
@@ -2391,7 +2391,7 @@
        "metal": "nickel · 3.00 g · 19 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness unknown · coin alignment · Beatrix kwartje type",
        "mintage": "24,840,000",
-       "design": "obverse Beatrix portrait · reverse squared grid field with large 25 · ct · date",
+       "design": "obverse Beatrix portrait · reverse value and date within vertical lines (25ct · date)",
        "ruler": "Beatrix",
        "period": "Kingdom of the Netherlands"
       }
@@ -2454,7 +2454,7 @@
        "metal": "CuNi 75/25 · 8.80 g · 27.4 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness 2.15 mm · coin alignment · type specs shared with CuNi 2 Fr (KM#21a)",
        "mintage": "15,007,000",
-       "design": "standing Helvetia (obv) · 2 Fr. in oak + alpine wreath (rev) · engravers Antoine Bovy / Albert Walch",
+       "design": "standing Helvetia facing left, spear and Swiss shield, 22 stars, HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 2 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
        "period": "Swiss Confederation"
       }
      },
@@ -2546,7 +2546,7 @@
        "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated / toned/circulated · white 2×2 staple flip",
        "specs": "thickness 1.7 mm · medal alignment",
        "mintage": "all mints: D 135,200,000 + F 117,410,000 + G 69,440,000 + J 138,360,000 = 460,410,000 (circulation; proofs excluded)",
-       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "design": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value between rye ears / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -2609,7 +2609,7 @@
        "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.7 mm · medal alignment",
        "mintage": "40,115,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "design": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value between rye ears / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -2640,7 +2640,7 @@
        "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.7 mm · medal alignment",
        "mintage": "79,580,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "design": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value between rye ears / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -2732,7 +2732,7 @@
        "metal": "bronze (97% Cu · 2.5% Zn · 0.5% Sn) · 3.60 g · 18.5 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.7 mm · medal alignment · Harald V monogram type",
        "mintage": "30,898,003",
-       "design": "obverse crowned Harald V monogram + crossed-hammers mintmark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)",
+       "design": "obverse large crown with crossed-hammers mint mark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)",
        "ruler": "Harald V",
        "period": "Kingdom of Norway"
       }
@@ -4808,7 +4808,7 @@
        "metal": "brass-clad steel · 4.00 g · 21.5 mm · plain · circulated / darker toning / darker toning · white 2×2 staple flip",
        "specs": "thickness 1.7 mm · medal alignment",
        "mintage": "291,290,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse",
+       "design": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value between rye ears / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5302,7 +5302,15 @@
       "confidence": "low",
       "silver_oz": null,
       "melt_usd": null,
-      "photos": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C304_rev.webp",
+        "file": "C304_rev.webp",
+        "original": "C304_Mexico_1981_20Pesos_rev.jpeg",
+        "drive": null
+       }
+      ],
       "stale_since": null,
       "numista_prices": null,
       "numista_url": null
@@ -5358,7 +5366,15 @@
       "confidence": "low",
       "silver_oz": null,
       "melt_usd": null,
-      "photos": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C301_obv.webp",
+        "file": "C301_obv.webp",
+        "original": "C301_Mexico_1989_500Pesos_obv.jpeg",
+        "drive": null
+       }
+      ],
       "stale_since": null,
       "numista_prices": null,
       "numista_url": null
@@ -5821,9 +5837,9 @@
        "denom": "1 penny · GBP",
        "mint": "no mint mark visible",
        "refs": "Numista#578 · KM#810 · Schön#299",
-       "metal": "bronze",
+       "metal": "bronze · 9.45 g · 30.8 mm",
        "specs": "thickness unknown",
-       "mintage": "unknown"
+       "mintage": "16,346,700"
       }
      },
      "blind": false,
@@ -5879,9 +5895,9 @@
        "denom": "20 pesos · MXN",
        "mint": "not read (no photo of this coin in Drive yet)",
        "refs": "Numista#987 · KM#486 · Schön#78",
-       "metal": "copper-nickel (75% copper, 25% nickel)",
+       "metal": "copper-nickel (75% copper, 25% nickel) · 15.20 g · 32.06 mm",
        "specs": "thickness unknown",
-       "mintage": "unknown"
+       "mintage": "250,573,000"
       }
      },
      "blind": false,
@@ -5944,36 +5960,6 @@
    ],
    "items_full": [
     {
-     "item": "arb:D0019",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "IT.KM.215",
-     "field": "design.text",
-     "coins": [
-      "C055"
-     ],
-     "label": "D0019 IT.KM.215 design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "national equestrian Marcus Aurelius / Campidoglio paving (Roberto Magagnini? / Maria Carmela Colaneri) + RI · date · 12 EU stars · common Europe globe side (Luc Luycx)"
-      },
-      "claim": {
-       "value": "national equestrian Marcus Aurelius on the Campidoglio paving (engraver Roberto Mauri) + RI · R · date · 12 EU stars · common map side (Luc Luycx)",
-       "by": "model:grok-bot",
-       "source": "Disagree — Numista N#134 (https://en.numista.com/catalogue/pieces134.html): Numista Obverse engraver: 'Roberto Mauri' (record had an uncertain 'Magagnini? / Colaneri'); Reverse is 'a map of the Europe', not a globe",
-       "ts": "2026-10-15T02:23:43Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "arb:D0020",
      "kind": "arbitrate",
      "entity": "type",
@@ -5999,173 +5985,6 @@
        "value": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse Cayman crayfish · 5 (Stuart Devlin)",
        "by": "model:grok-bot",
        "source": "Disagree — Numista N#2698 (https://en.numista.com/catalogue/pieces2698.html): Numista Reverse: 'Cayman Crayfish, value at right ... Engraver: Stuart Devlin' (record said shrimp)",
-       "ts": "2026-10-15T02:23:43Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0021",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "IE.KM.34",
-     "field": "design.text",
-     "coins": [
-      "C120"
-     ],
-     "label": "D0021 IE.KM.34 design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common Europe map side (Luc Luycx)"
-      },
-      "claim": {
-       "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common globe side (Luc Luycx)",
-       "by": "model:grok-bot",
-       "source": "Disagree — Numista N#123 (https://en.numista.com/catalogue/pieces123.html): Numista Reverse: 'A globe, next to the face value, shows Europe in relation to Africa and Asia' (record said map side)",
-       "ts": "2026-10-15T02:23:43Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0022",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "DE.KM.109.2",
-     "field": "design.text",
-     "coins": [
-      "C057",
-      "C058"
-     ],
-     "label": "D0022 DE.KM.109.2 design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "Trümmerfrau planting oak sapling (Richard M. Werner / Gerda Werner) · Bundesadler value side"
-      },
-      "claim": {
-       "value": "Trümmerfrau planting an oak sapling (Richard M. Werner) · value side 50 PFENNIG · BUNDESREPUBLIK DEUTSCHLAND · mint mark",
-       "by": "model:grok-bot",
-       "source": "Disagree — Numista N#847 (https://en.numista.com/catalogue/pieces847.html): record text describes a Trinidad & Tobago coin; Numista Reverse: 'A woman (Trümmerfrau) planting an oak', Obverse: 'Face value ... BUNDESREPUBLIK DEUTSCHLAND 50 PFENNIG' (Designer Richard Martin Werner)",
-       "ts": "2026-10-15T02:23:43Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0023",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "NO.KM.460",
-     "field": "design.text",
-     "coins": [
-      "C144",
-      "C268"
-     ],
-     "label": "D0023 NO.KM.460 design.text",
-     "authors": [
-      "grok",
-      "ledger"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:sonnet-5.5",
-       "source": "C144 (1998) and C268 (2000) are both KM#460 (C268 names the type); C268 is the fuller description; the legend spelling differs by year",
-       "ts": "2026-09-30T00:00:00Z",
-       "value": "obverse crowned Harald V monogram + crossed-hammers mintmark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)"
-      },
-      "claim": {
-       "value": "obverse large crown with crossed-hammers mint mark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)",
-       "by": "model:grok-bot",
-       "source": "Disagree — Numista N#1442 (https://en.numista.com/catalogue/pieces1442.html): Numista N#1442 Obverse: 'Large crown with crossed hammers mintmark below' — no Harald V monogram",
-       "ts": "2026-10-15T02:23:43Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0024",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "CH.KM.26",
-     "field": "design.text",
-     "coins": [
-      "C002"
-     ],
-     "label": "D0024 CH.KM.26 design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "Libertas right (obv) · 5 in grapevine wreath (rev) · engravers Karl Schwenzer / Carl Friedrich Voigt"
-      },
-      "claim": {
-       "value": "Libertas right (obv, designer Karl Schwenzer) · 5 in grapevine wreath (rev, designer Carl Friedrich Voigt)",
-       "by": "model:grok-bot",
-       "source": "Disagree — Numista N#168 (https://en.numista.com/catalogue/pieces168.html): Numista: Obverse 'Designer: Karl Schwenzer', Reverse 'Designer: Carl Friedrich Voigt' (record called them engravers)",
-       "ts": "2026-10-15T02:23:43Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0025",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "DE.KM.108",
-     "field": "design.text",
-     "coins": [
-      "C019",
-      "C021",
-      "C022",
-      "C030",
-      "C051",
-      "C089",
-      "C090",
-      "C091",
-      "C092",
-      "C224",
-      "C225",
-      "C226",
-      "C227",
-      "C228",
-      "C229"
-     ],
-     "label": "D0025 DE.KM.108 design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "oak seedling reverse (Adolf Jäger) · value between rye ears / PFENNIG obverse"
-      },
-      "claim": {
-       "value": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value between rye ears / PFENNIG reverse",
-       "by": "model:grok-bot",
-       "source": "Disagree — Numista N#850 (https://en.numista.com/catalogue/pieces850.html): Numista: Obverse 'An oak seedling above the date', Reverse 'The mintmark in between two rye ears above the denomination' (record had the sides swapped)",
        "ts": "2026-10-15T02:23:43Z"
       }
      },

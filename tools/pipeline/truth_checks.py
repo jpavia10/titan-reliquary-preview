@@ -14,7 +14,8 @@ Rules (rule id: what it means)
   copy_differs         a coin's issue copy and its type issue disagree (the type is the home of the mintage)
   number_but_unknown   a mintage number next to text that says it is unknown
   mint_unknown         a US or German coin with no readable mint mark but a mintage figure (those countries strike at several mints,
-                       so the figure must be the all-mints total; check it)
+                       so the figure must be the all-mints total; check it; settled once mintage_text shows the per-mint figures and
+                       they add up: 'all mints: P ... + D ... = total')
   two_numbers          a type carries two numbers in the same catalogue (two different coins on one record)
   weight_off           a coin's measured weight is more than 8 % from the type's catalogue weight
   year_not_issued      a coin's year is not one of its type's issues
@@ -32,6 +33,17 @@ EURO_FROM = {"AT": 1999, "BE": 1999, "DE": 1999, "ES": 1999, "FI": 1999, "FR": 1
 MULTI_MINT = {"US", "DE"}
 UNKNOWN_TXT = re.compile(r"\bunknown\b|not (?:yet )?(?:known|found)", re.I)
 MINT_UNSEEN = re.compile(r"mixed|not shown|not visible|not on (?:the )?shown|unknown|unreadable", re.I)
+ALL_MINTS = re.compile(r"^\s*all mints\s*:", re.I)
+BIG_NUM = re.compile(r"\d{1,3}(?:,\d{3})+|\d{4,}")
+
+
+def all_mints_shown(si):
+    """True when issue.mintage_text already lists the per-mint figures ('all mints: P 809,784,016 + D 860,118,839 = ...') and they add up
+    to issue.mintage: the answer a mint_unknown finding asks for, so the finding is settled."""
+    txt = si.get("mintage_text") or ""
+    if not ALL_MINTS.match(txt) or si.get("mintage") is None: return False
+    parts = [int(x.replace(",", "")) for x in BIG_NUM.findall(txt.split("=")[0])]
+    return len(parts) >= 2 and sum(parts) == si["mintage"]
 
 
 def _key(i):
@@ -60,7 +72,8 @@ def findings(col):
         if si.get("mintage") is not None and UNKNOWN_TXT.search(si.get("mintage_text") or ""):
             add("number_but_unknown", k, "issue.mintage_text", f"{si['mintage']:,} next to {si['mintage_text'][:60]!r}")
         iso = t.get("country") or ""
-        if (iso in MULTI_MINT and not si["mint_marks"] and si.get("mintage") is not None and MINT_UNSEEN.search(si.get("mint_text") or "")):
+        if (iso in MULTI_MINT and not si["mint_marks"] and si.get("mintage") is not None and MINT_UNSEEN.search(si.get("mint_text") or "")
+                and not all_mints_shown(si)):
             add("mint_unknown", k, "issue.mintage", f"{iso} {si['year']}: mint not read ({(si.get('mint_text') or '')[:50]}); {si['mintage']:,} must be the all-mints total")
         w = (s.get("measured") or {}).get("weight_g"); nw = (t.get("nominal") or {}).get("weight_g")
         if w and nw and abs(w - nw) / nw > 0.08: add("weight_off", k, "measured.weight_g", f"{w} g measured vs {nw} g catalogue")

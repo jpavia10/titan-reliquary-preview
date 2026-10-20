@@ -1,0 +1,3 @@
+changes_claude_20261020-1500.jsonl = Muse's changes_muse_20261017-0440.jsonl (HW-muse-contradiction-20261015-1, 12 lines),
+re-filed unchanged except the time stamp: Muse wrote "2026-10-17T04:40Z" (no seconds), which the pipeline rejects.
+Every line keeps by: model:muse-spark and its provenance; the original is in collection/_incoming/originals-20261020/.

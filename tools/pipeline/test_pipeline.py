@@ -284,6 +284,16 @@ class Pipeline(unittest.TestCase):
         left = TC.summary(TC.findings(BA.load_collection(coll)))["by_rule"]
         self.assertNotIn("number_but_unknown", left)
 
+    def test_all_mints_text_settles_mint_unknown(self):
+        """A mint_unknown finding is settled by a mintage_text that lists the per-mint figures adding up to the mintage, not by any text."""
+        sys.path.insert(0, HERE)
+        import truth_checks as TC
+        ok = {"mintage": 1669902855, "mintage_text": "all mints: P 809,784,016 + D 860,118,839 = 1,669,902,855 (circulation; 1976 S proofs not counted)"}
+        self.assertTrue(TC.all_mints_shown(ok))
+        self.assertFalse(TC.all_mints_shown(dict(ok, mintage=1669902856)))            # the parts do not add up
+        self.assertFalse(TC.all_mints_shown(dict(ok, mintage_text="1,669,902,855 (all mints)")))   # no per-mint figures
+        self.assertFalse(TC.all_mints_shown({"mintage": None, "mintage_text": ok["mintage_text"]}))
+
     def test_recitation_with_exact_source_is_logged(self):
         """#48: a model re-stating an existing value with an exact catalogue entry is kept in the log (no value change)."""
         sys.path.insert(0, HERE)

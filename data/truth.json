@@ -1,49 +1,13 @@
 {
-"generated_at": "2026-10-20T06:34:47Z",
+"generated_at": "2026-10-20T15:07:16Z",
 "summary": {
-"total": 24,
+"total": 18,
 "by_rule": {
 "copy_differs": 4,
-"mint_unknown": 20
+"mint_unknown": 14
 }
 },
 "findings": [
-{
-"rule": "mint_unknown",
-"id": "C006",
-"field": "issue.mintage",
-"detail": "DE 1984: mint not read (unknown); 32,400,000 must be the all-mints total"
-},
-{
-"rule": "mint_unknown",
-"id": "C037",
-"field": "issue.mintage",
-"detail": "DE 2002: mint not read (unknown (mint letter below 2002 date present but n); 3,509,935,000 must be the all-mints total"
-},
-{
-"rule": "mint_unknown",
-"id": "C050",
-"field": "issue.mintage",
-"detail": "DE 1982: mint not read (unknown (letter under date unclear (soft D/G candi); 70,000,000 must be the all-mints total"
-},
-{
-"rule": "mint_unknown",
-"id": "C073",
-"field": "issue.mintage",
-"detail": "US 1976: mint not read (mixed P/D likely (not sorted in tube) · no silver ); 1,669,902,855 must be the all-mints total"
-},
-{
-"rule": "mint_unknown",
-"id": "C088",
-"field": "issue.mintage",
-"detail": "US 1957: mint not read (1957 · mintmark not on obverse (1946–1964 mark is ); 275,200,000 must be the all-mints total"
-},
-{
-"rule": "mint_unknown",
-"id": "C091",
-"field": "issue.mintage",
-"detail": "DE 1982: mint not read (unknown (letter under oak stem soft · near D/Munic); 291,290,000 must be the all-mints total"
-},
 {
 "rule": "mint_unknown",
 "id": "C092",

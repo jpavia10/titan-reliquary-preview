@@ -1,88 +1,91 @@
 {
- "updated": "2026-10-20T06:34:47Z",
+ "updated": "2026-10-20T15:07:16Z",
  "pools": {
-  "cite": 25,
-  "contradiction": 20,
-  "story-check": 61,
-  "plain-story": 8,
+  "cite": 22,
+  "contradiction": 14,
+  "story-check": 44,
+  "plain-story": 7,
   "value": 16,
-  "read-mint": 10,
-  "arbitrate": 17,
-  "verify": 550
+  "read-mint": 11,
+  "arbitrate": 12,
+  "verify": 477
  },
  "agents": {
   "gemini": {
-   "confirmed": 99,
+   "confirmed": 96,
    "wrong": 0,
    "checks_done": 60,
-   "disagreements_open": 1,
+   "disagreements_open": 0,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 99,
+   "checked_n": 96,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.037
+    0.038
    ]
   },
   "grok": {
-   "confirmed": 312,
-   "wrong": 0,
-   "checks_done": 117,
-   "disagreements_open": 17,
-   "canaries_caught": 0,
+   "confirmed": 430,
+   "wrong": 1,
+   "checks_done": 161,
+   "disagreements_open": 11,
+   "canaries_caught": 2,
    "canaries_missed": 0,
-   "checked_n": 312,
-   "error_rate": 0.0,
+   "checked_n": 431,
+   "error_rate": 0.002,
    "error_ci95": [
     0.0,
-    0.012
+    0.013
    ]
   },
   "claude": {
-   "confirmed": 65,
+   "confirmed": 85,
    "wrong": 0,
    "checks_done": 0,
    "disagreements_open": 1,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 65,
+   "checked_n": 85,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.056
+    0.043
    ]
   },
   "muse": {
-   "confirmed": 207,
-   "wrong": 6,
-   "checks_done": 27,
-   "disagreements_open": 0,
-   "canaries_caught": 5,
+   "confirmed": 289,
+   "wrong": 8,
+   "checks_done": 99,
+   "disagreements_open": 6,
+   "canaries_caught": 8,
    "canaries_missed": 0,
-   "checked_n": 213,
-   "error_rate": 0.028,
+   "checked_n": 297,
+   "error_rate": 0.027,
    "error_ci95": [
-    0.013,
-    0.06
+    0.014,
+    0.052
+   ]
+  },
+  "ledger": {
+   "confirmed": 0,
+   "wrong": 3,
+   "checks_done": 0,
+   "disagreements_open": 1,
+   "canaries_caught": 0,
+   "canaries_missed": 0,
+   "checked_n": 3,
+   "error_rate": 1.0,
+   "error_ci95": [
+    0.438,
+    1.0
    ]
   },
   "": {
    "confirmed": 0,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 11,
-   "canaries_caught": 0,
-   "canaries_missed": 0,
-   "checked_n": 0,
-   "error_rate": null,
-   "error_ci95": null
-  },
-  "ledger": {
-   "confirmed": 0,
-   "wrong": 0,
-   "checks_done": 0,
-   "disagreements_open": 4,
+   "disagreements_open": 5,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 0,
@@ -111,12 +114,22 @@
   "cite:TT.KM.31",
   "cite:TT.KM.33",
   "cite:TW.KM.551",
+  "contra:mint_unknown:C006",
+  "contra:mint_unknown:C037",
+  "contra:mint_unknown:C050",
+  "contra:mint_unknown:C073",
+  "contra:mint_unknown:C088",
+  "contra:mint_unknown:C091",
+  "story:C033",
   "story:C047",
-  "story:C114"
+  "story:C114",
+  "verify:type:AU.X.1-cent:denomination.value",
+  "verify:type:CH.KM.29a:denomination.value",
+  "verify:type:ES.KM.1144:period"
  ],
  "open_assignments": {
-  "grok": 8,
-  "muse": 7,
+  "grok": 7,
+  "muse": 6,
   "gemini": 10,
   "chatgpt": 0
  }

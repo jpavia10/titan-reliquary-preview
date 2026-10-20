@@ -1,0 +1,76 @@
+{
+ "meta": {
+  "author": "grok-bot",
+  "stamp": "20261015-2250",
+  "purpose": "second source for the 10 album holes",
+  "base": "collection/prices/wants_values_grok_20261010-1949.json",
+  "rule": "if sources differ >25% use higher, name both"
+ },
+ "items": [
+  {
+   "album": "A006",
+   "label": "1916-D",
+   "value_usd": 2150,
+   "grade": "VG",
+   "source": "NGC US Coin Price Guide, Mercury Dimes https://www.ngccoin.com/price-guide/united-states/dimes/31/ (read 2026-10-15) VG $2,150; original file $880; >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A006",
+   "label": "1916-S",
+   "value_usd": 50,
+   "grade": "XF",
+   "source": "NGC US Coin Price Guide, Mercury Dimes https://www.ngccoin.com/price-guide/united-states/dimes/31/ (read 2026-10-15) XF40 $50.00; original file $19; >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A006",
+   "label": "1918-D",
+   "value_usd": 34,
+   "grade": "XF",
+   "source": "NGC US Coin Price Guide, Mercury Dimes https://www.ngccoin.com/price-guide/united-states/dimes/31/ (read 2026-10-15) XF40 $34.00; original file $19; >25% apart, higher used",
+   "confidence": "medium"
+  }
+ ],
+ "left_out": [
+  {
+   "album": "A006",
+   "label": "1921-D",
+   "reason": "NGC page lazy-loads rows past the first 25 so no price came back; PCGS price table loads by script; Greysheet values are masked"
+  },
+  {
+   "album": "A006",
+   "label": "1921",
+   "reason": "same as 1921-D"
+  },
+  {
+   "album": "A006",
+   "label": "1923-S",
+   "reason": "same"
+  },
+  {
+   "album": "A006",
+   "label": "1926-S",
+   "reason": "same"
+  },
+  {
+   "album": "A006",
+   "label": "1927-D",
+   "reason": "same"
+  },
+  {
+   "album": "A012",
+   "label": "1949-D",
+   "reason": "NGC shows no value (Shop Now); Greysheet masked"
+  },
+  {
+   "album": "A007",
+   "label": "1964-D",
+   "reason": "NGC shows no value (Shop Now); melt-based in original, not re-priced"
+  }
+ ],
+ "totals": {
+  "changed_items": 3,
+  "delta_usd": 1316
+ }
+}
