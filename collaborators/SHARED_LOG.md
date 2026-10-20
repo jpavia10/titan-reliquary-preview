@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Neon Vault (tr163)
+- Neon Vault redesigned to style every screen: glass panels edged in cyan and magenta neon tube light, wet-street reflections, a neon-ring coin, glowing values.
+- Phone fps 60.2; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Arcade (tr162)
 - Arcade redesigned to style every screen: pixel-hard cabinet panels with drop shadows, a CRT-scanline bezel coin stage in magenta, a pixel-yellow score readout.
 - Phone fps 60.3; AA contrast; 44px targets via tpl.
