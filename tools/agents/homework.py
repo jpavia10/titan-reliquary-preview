@@ -201,15 +201,20 @@ def pool_verify(ctx, audit_rate):
         t = col["types"].get(s["type"]) or {}
         for fact, ent, field in VERIFY_FACTS:
             e = PV.resolve(cert, fact) if fact in cert else None
-            if not e: continue
+            ledger = False
+            if not e:
+                # a fact still as imported from Grok's ledger (no entry) on a coin with a photo is read blind from the photo (fix list #125):
+                # the ledger was never checked (the first 3 ledger facts checked were all wrong), so these go first; a second blind read makes it Checked
+                if fact not in BLIND or not photos_of(ctx, sid): continue
+                e = {"level": "imported", "by": "ledger", "source": "Grok's ledger v254 (imported 2026-09-30, never checked)"}; ledger = True
             recheck = False
-            if e.get("level") not in PV.SOURCED:
+            if not ledger and e.get("level") not in PV.SOURCED:
                 ts = (e.get("ts") or "")[:10]
                 if e.get("level") != "checked" or not ts or (today - datetime.date.fromisoformat(ts)).days <= RECHECK_DAYS: continue
                 recheck = True
-            author = _author(e)
+            author = "ledger" if ledger else _author(e)
             if recheck: author = ",".join(rev.get(n, n.lower()) for n in (e.get("by") or "").split(" + "))
-            if author in ("owner", "ledger", ""): continue
+            if author in ("owner", "ledger", "") and not ledger: continue
             if "{N}" in field:
                 n = next((i for i, x in enumerate(t.get("issues") or []) if PV._issue_key(x) == PV._issue_key(s["issue"])), None)
                 if n is None: continue
@@ -223,7 +228,7 @@ def pool_verify(ctx, audit_rate):
             if iid in out:
                 out[iid]["coins"].append(sid); continue
             est = max([(x.get("value") or {}).get("est_usd") or 0 for k, x in ctx["live"].items() if (x["type"] == rid if ent == "type" else k == sid)] or [0])
-            audit = recheck or _h(iid) < audit_rate(author.split(",")[0])
+            audit = ledger or recheck or _h(iid) < audit_rate(author.split(",")[0])
             pics = photos_of(ctx, sid) if fact in BLIND else []
             dec = None
             if fact in CAN.FIELDS and isinstance(val, str):
@@ -232,7 +237,7 @@ def pool_verify(ctx, audit_rate):
             it = _item("verify", iid, ent, rid, field_n, [sid], f"{fact} of {coin_line(ctx, sid)}" + (f" (re-check: cited {e.get('ts', '')[:10]})" if recheck else ""),
                        (0 if audit else 1, -est, order.index(fact), iid),
                        authors=author.split(","), blind=fact in BLIND, inputs=[p["file"] for p in pics],
-                       payload={"fact": fact, "author": e.get("by"), "value": None if fact in BLIND | NUM_BLIND else val,
+                       payload={"fact": fact, "author": e.get("by"), "ledger": ledger, "value": None if fact in BLIND | NUM_BLIND else val,
                                 "their_source": None if fact in BLIND | NUM_BLIND else e.get("source"), "links": [] if fact in BLIND | NUM_BLIND else e.get("links") or [],
                                 "photos": pics, "audit": audit, "lookup_blind": fact in NUM_BLIND, "recheck": recheck, "decoy": dec},
                        lines=[(ent, rid, field_n, val)])

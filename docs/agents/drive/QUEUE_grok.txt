@@ -1,8 +1,8 @@
-NEW (2026-10-15, later): your 8 round-2 patches are in the app (build tr117, every suite and smoke 38/38 green) and The Field is live at /prototypes/v2/grok/ (scores 8, 9 and 10 in your FEEDBACK doc; your late bonus file 20261014-2134 scored 8: 6 of 10 lines in). Bonus passes stay off facts another AI is assigned: the two new types were Muse's cite homework, C304's value Gemini's. Their weight, size and 1922 / 1981 mintage are now your homework (HW-grok-cite-20261015-2). Next: The Field's three filters (first task), then the homework. Answer sheets now name the year and mint on every issues.N line; type ids are names, not always the KM number.
+NEW (2026-10-20): score 9 for your Oct 15/19 files (FEEDBACK doc): every design-text dispute Claude could settle went your way, incl. the euro globe/map side on 10 types. More work now: capacity 24, bigger batches, and your check batches start with the ledger's never-checked year, mint and face value, read blind from the photo. Projects: varieties checklist for the pro-photo session, the 40 most expensive album holes, 24 blank mintages.
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Grok (updated 2026-10-20 15:07 UTC)
+# WORK QUEUE for Grok (updated 2026-10-20 16:09 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -11,17 +11,23 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### UI rethink, step 2: The Field's three filters, on the real data  (fix list #116)
+### Varieties to look for at the pro-photo session (every US, UK and German coin in a flip)  (fix list #61)
 
-Your Field prototype is live at https://jpavia10.github.io/titan-reliquary-preview/prototypes/v2/grok/ (scored 9; it ran first time on the current data). Build the three filters your proposal promises, in the same single file: (1) album: choosing an album family (../../../data/wants.json) shows its holes as empty rings in the rows; tapping a ring shows the want-list entry with its price and source; (2) metal: silver and gold light up, the rest dims; (3) to photograph: the coins without a phone photo rise. Then measure ?fps for open, back and drag the same way as before. Same hard rules (live data only, 16 px, 44 px, Motion Full/Calm/Off, pause when hidden). Send design_grok_{YYYYMMDD-HHMM}_field-v2.html plus a short .md of what changed to Drive 'design-incoming (AI UI proposals)'.
+Phase 2 will photograph every coin with a loupe. Before that session, list for every US, UK and German coin in a flip (data/index.json, by id) each KNOWN variety or error for that exact year and mint that a collector would pay more for: e.g. 1982 small vs large date cents, 1983/1984 doubled-die Lincoln cents, 1970-S small date, 1999/2000 wide vs close AM, 1995 DDO, UK 2008 undated 20p mule, German 1950-G 'BANK DEUTSCHER LÄNDER' 50 pfennig. For each: what to look for, on which side, how big a loupe it needs, and the value if found with an exact price source. Send varieties_grok_{YYYYMMDD-HHMM}.json as [{"id": "C0xx", "type": "...", "year": 1982, "mint": "D", "variety": "...", "look_for": "...", "side": "obv|rev", "value_if_found_usd": 0, "source": "exact URL + row"}]. Leave a coin out when its year and mint have no known variety; never claim this coin IS the variety (only the photo can say).
 
-**Done when:** Claude replaces /prototypes/v2/grok/ with v2 and Joseph tries 'find a missing Silver Eagle' on his phone.
+**Done when:** One file in reviews-incoming; Claude turns it into the Phase 2 shoot checklist (fix list #61).
 
-### Fact-check the coin stories, C151 to C283  (fix list #73)
+### Mintages still blank on 24 coins  (fix list #3)
 
-Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are merged: every one checked out. Carry on through C283 the same way: check each story against its own record and the cited Numista entry; where a claim is wrong, send a corrected story (source = the exact entry; say what was wrong; change only the wrong sentence). (While this is open, nobody else is given these stories: they are reserved for you.)
+These coins show no mintage: C023 (DE Empire 1918 20 pfennig), C114 (Mexico Chihuahua 1914 5 centavos), C146 (HK 1998 KM#69a), C159 (Ecuador 2004 KM#38), C185 + C214 (Cayman 1996 KM#88a), C200 (Taiwan ROC 97 KM#551), C202 (Guatemala 2010 KM#277.1), C203 (India 2001 KM#92.2), C204 (Trinidad 2014 KM#33), C207 (Trinidad 2016 KM#31), C212 (Eritrea 1997 KM#46), C219 (Jamaica 2015 KM#189), C230 (Jamaica 2015 KM#191), C253 (Jamaica 1993 KM#146), C269 (Cayman 1990 KM#87), C276 (Bahamas 2015 1 cent), C279 (Philippines 1997 1 piso), C280 (Belize 2007 25 cents), C291 (Bahamas 1984 5 cents), C296 (UK 1990 5p KM#937b), C297 (UK 1988 1p KM#935), C299 (Italy 1979 50 lire KM#95.1), C303 (Australia 1983 1 cent). For each, send `type issues.N.mintage` (the issue matching the coin's year and mint) with the exact entry URL and the row you read; where the catalogue says 'unknown' or gives none, send nothing and say so in one line of notes. (The tokens T001-T006 have no mintage by nature: skip them.)
 
-**Done when:** Every story from C151 to C283 checked; a list of the ones you changed and why (in your FEEDBACK doc note).
+**Done when:** One change file; Claude merges it like homework.
+
+### Album prices: a second source for the 40 most expensive holes  (fix list #62)
+
+Your first second-source file priced 3 holes (A006 1916-D $2,150 VG, 1916-S $50, 1918-D $34; NGC); 7 were left out because NGC lazy-loads past row 25. Now do the 40 most expensive missing holes across ALL 33 albums (data/wants.json `price`, highest first; both your A001-A016 file and Muse's A017-A033 file count). Use any of PCGS CoinFacts price guide, Greysheet retail, Heritage auction archives (realised prices, last 3 years) or APMEX/JM Bullion listings when NGC fails, for the SAME grade as the hole's existing row. Send wants_values_grok_{YYYYMMDD-HHMM}.json in the same shape; where the two sources differ by more than 25 %, give the higher and name both in source; put every hole you could not price in `left_out` with the reason.
+
+**Done when:** One file in collection-incoming or reviews-incoming; Claude spot-checks 5 rows and the album totals in the app update.
 
 ## Homework (generated from the data)
 
@@ -41,13 +47,19 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261020-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
 - 7. HW-grok-verify-20261020-2 · Second reader · Check 20 facts another AI wrote · due 2026-10-27  (fix list #18)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261020-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 8. HW-grok-story-check-20261020-2 · Fact-checker · Fact-check 45 coin stories · due 2026-10-27  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261020-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 9. HW-grok-verify-20261020-3 · Second reader · Check 80 facts another AI wrote · due 2026-10-27  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261020-3.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 10. HW-grok-verify-20261020-4 · Second reader · Check 80 facts another AI wrote · due 2026-10-27  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261020-4.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
 ## Projects (after the homework)
 
-### Album prices: a second source for the 10 most expensive holes  [NEXT]  (fix list #62)
+### UI rethink, step 2: The Field's three filters, on the real data  [LATER]  (fix list #116)
 
-Your A001-A016 list is live as 'Cost to complete' (collection/prices/wants_values_grok_20261010-1949.json). The key dates look low against dealer guides (1921-D dime $140 at VF, where APMEX's lowest grade starts near $158). For the 10 most expensive holes in that file (A006 1916-D, 1921-D, 1921, 1923-S, 1926-S, 1927-D, 1916-S, 1918-D; A012 1949-D; A007 1964-D), find a second price page (PCGS CoinFacts, NGC Price Guide, Greysheet retail or APMEX) for the same grade, and send wants_values_grok_{YYYYMMDD-HHMM}.json with the same shape; where the two sources differ by more than 25 %, give the higher and name both in source.
+Your Field prototype is live at https://jpavia10.github.io/titan-reliquary-preview/prototypes/v2/grok/ (scored 9; it ran first time on the current data). Build the three filters your proposal promises, in the same single file: (1) album: choosing an album family (../../../data/wants.json) shows its holes as empty rings in the rows; tapping a ring shows the want-list entry with its price and source; (2) metal: silver and gold light up, the rest dims; (3) to photograph: the coins without a phone photo rise. Then measure ?fps for open, back and drag the same way as before. Same hard rules (live data only, 16 px, 44 px, Motion Full/Calm/Off, pause when hidden). Send design_grok_{YYYYMMDD-HHMM}_field-v2.html plus a short .md of what changed to Drive 'design-incoming (AI UI proposals)'. (Later: the owner asked to wait on the redesign while you upgrade the themes, 2026-10-20.)
 
-**Done when:** One file in reviews-incoming; Claude checks a sample and the app's total updates.
+**Done when:** Claude replaces /prototypes/v2/grok/ with v2 and Joseph tries 'find a missing Silver Eagle' on his phone.
 
 ### Splash film: Coinverse 16:9 again, plain coins (only when Joseph says the credits allow)  [LATER]  (fix list #56)
 

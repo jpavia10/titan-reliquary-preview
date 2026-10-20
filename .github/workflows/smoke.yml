@@ -8,6 +8,9 @@ on:
     paths-ignore: ["collection/prices/**", "**.md"]
   workflow_dispatch:
 
+permissions:
+  contents: read        # fix list #106: this job only reads the repo
+
 concurrency:
   group: smoke-${{ github.ref }}
   cancel-in-progress: true

@@ -1,8 +1,8 @@
-NEW (2026-10-15, later): your album prices are live (all 33 albums now priced), your Dad's guide is in the repo and your walkthrough sits next to The Field. Read your FEEDBACK doc before the next file (scores 4 and 7, and 4 for the 15 late files of 04:27-04:59 UTC: 37 lines in, mostly re-citations; story rewrites, designer lines that only drop the (obverse)/(reverse) roles, composition files under model:muse-subagent-*, type descriptions and research Q&A on types were not merged; always write by model:muse-spark): keep each answer sheet's lines as they are (provenance.assignment, old, verified false); cite only the coin's own Numista entry (9 audit lines cited other pages; N#1234 is the sheet's example URL); no style rewrites of stories; bonus passes never on facts another AI is checking. Your 10 arbitration items are in the homework.
+NEW (2026-10-20): score 7 for your Oct 17 files (FEEDBACK doc): the C293/C301 photo detective work was excellent; time stamps need seconds. More work now: capacity 20, bigger batches, your check batches start with the ledger's year, mint and face value read blind from the photo. Projects: cite your 263 era fields, which side to shoot for the 31 unread mint marks.
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_muse.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Muse (updated 2026-10-20 15:07 UTC)
+# WORK QUEUE for Muse (updated 2026-10-20 16:09 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -11,11 +11,17 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### Fix three coin photos (from the 2026-10-14 intake)  (fix list #3)
+### Cite your own era fields: 263 'period' facts on 138 types are still 'AI guess'  (fix list #48)
 
-Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos is in the app as C304 from your reading (Joseph: "Whatever muse said just use that"), but it has no photo: upload it the same way as NOID_Mexico_1981_20-pesos_{obv|rev}.jpeg. When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.
+Your round-3 file (2026-10-03) wrote `period`, `ruler` and `series` for 193 types with one general source, so every era in the app still says 'AI guess'. Re-cite them type by type: open the type's Numista entry (the record's `catalogs` has the N# for most), read its 'Period' (and 'Ruler' where it has one) line, and send `type {id} period` (and `ruler`) with the exact entry URL in source. Same value with a source = a re-citation (it becomes Reference, then a second reader makes it Checked); a different value = a correction, say why in one line. Work in batches of 40 types, one change file each, in the order of data/index.json. Never write a period that is a country status ('British Overseas Territory' is not an era).
 
-**Done when:** The three photos are in STAGING with a summary, each different from every photo already filed.
+**Done when:** All 138 types answered (or left out with a reason) across as many files as you need.
+
+### Which side to shoot: the 31 coins whose mint mark is unread  (fix list #57)
+
+31 coins miss the Phase 1 finish line only because their mint mark is not read (data/status.json phase1.missing.mint; the list is data/reshoot.json phase1 rows lacking 'mint'). For each: from the type's catalogue entry, say on which side and where the mint mark sits for that year (or that the type never carries one), and whether the photo we have shows that side. Send shootnotes_muse_{YYYYMMDD-HHMM}.json as [{"id": "C0xx", "mark_side": "obv|rev|none", "where": "below the date", "our_photo_shows_it": true, "source": "exact URL"}]. Where the photo shows that side clearly, also send the reading as a Phase 1 change line (issue.mint_marks + mint_text) with the photo file in source.
+
+**Done when:** One file; Claude moves the 'needs other side' coins to the top of the shoot list.
 
 ### Second reader on Grok's Numista batches  (fix list #72)
 
@@ -45,6 +51,14 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261020-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 - 6. HW-muse-verify-20261020-2 · Second reader · Check 50 facts another AI wrote · due 2026-10-27  (fix list #18)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261020-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 7. HW-muse-plain-story-20261020-1 · Writer · Rewrite 40 stories in plain English · due 2026-10-27  (fix list #60)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-plain-story-20261020-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 8. HW-muse-story-check-20261020-2 · Fact-checker · Fact-check 41 coin stories · due 2026-10-27  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261020-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 9. HW-muse-verify-20261020-3 · Second reader · Check 80 facts another AI wrote · due 2026-10-27  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261020-3.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+- 10. HW-muse-verify-20261020-4 · Second reader · Check 80 facts another AI wrote · due 2026-10-27  (fix list #18)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261020-4.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)

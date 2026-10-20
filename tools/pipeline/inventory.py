@@ -22,6 +22,11 @@ def _cert(d, fact):
     return LV.get(e.get("level"), "")
 
 
+EXPORT = ('<p class="note">The same collection as files for a spreadsheet or any other app (fix list #104; the files carry values): '
+          '<a href="export/coins.csv">coins.csv</a> · <a href="export/album_holes.csv">album_holes.csv</a> · <a href="export/lots.csv">lots.csv</a> · '
+          '<a href="export/collection.json">collection.json</a> (everything, with sources) · <a href="export/README.txt">what each file is</a>.</p>')
+
+
 def page(out, values=True):
     idx = json.load(open(os.path.join(out, "index.json"), encoding="utf-8"))
     st = json.load(open(os.path.join(out, "status.json"), encoding="utf-8")) if os.path.exists(os.path.join(out, "status.json")) else {}
@@ -78,6 +83,7 @@ Made {E(when)} from the master record (build {E(str(st.get("build") or ""))}). {
 catalogue number{" and value" if values else ""}. The empty column on the right is for ticking off each piece during a check.</p>
 {total}
 <p><button class="print" onclick="window.print()">Print</button></p>
+{EXPORT if values else ""}
 <h2>Coins and tokens in flips</h2>
 <table><thead><tr><th>Photo</th><th>Id</th><th>What it is</th><th>Where it came from</th>{"<th>Value</th>" if values else ""}<th>✓</th></tr></thead><tbody>
 {"".join(rows)}

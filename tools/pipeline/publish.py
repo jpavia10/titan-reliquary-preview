@@ -176,6 +176,8 @@ def main(argv):
     with open(f"{outuse}/status.json", "w", encoding="utf-8", newline="\n") as f: json.dump(I.status(col, outuse, ver.get("build"), ver["generated_at"], os.path.dirname(os.path.abspath(coll))), f, ensure_ascii=False, indent=1)
     import inventory as INV          # fix list #64: the printable inventory (insurance copy with values, family copy without)
     INV.write(outuse)
+    import export as EXP            # fix list #104: everything in plain formats (CSV + one JSON) in data/export/
+    EXP.write(coll, outuse)
     # 5. checks
     problems = check_outputs(col, outuse, col["board"], os.path.dirname(os.path.abspath(coll)))
     if "--parity" in argv:
@@ -195,6 +197,11 @@ def main(argv):
         shutil.copytree(os.path.join(outuse, "detail"), stage)
         if os.path.isdir(os.path.join(out, "detail")): os.replace(os.path.join(out, "detail"), old_dir)
         os.replace(stage, os.path.join(out, "detail")); shutil.rmtree(old_dir, ignore_errors=True)
+        ex_new, ex_old = os.path.join(out, ".export.new"), os.path.join(out, ".export.old")
+        for d in (ex_new, ex_old): shutil.rmtree(d, ignore_errors=True)
+        shutil.copytree(os.path.join(outuse, "export"), ex_new)
+        if os.path.isdir(os.path.join(out, "export")): os.replace(os.path.join(out, "export"), ex_old)
+        os.replace(ex_new, os.path.join(out, "export")); shutil.rmtree(ex_old, ignore_errors=True)
         for n in ("index.json", "search.json", "wants.json", "reshoot.json", "dupes.json", "questions.json", "answers_received.json", "prices.json", "truth.json", "status.json", "inventory.html", "inventory-family.html"):
             shutil.copyfile(os.path.join(outuse, n), os.path.join(out, n + ".new")); os.replace(os.path.join(out, n + ".new"), os.path.join(out, n))
         shutil.copyfile(vuse, vpath)

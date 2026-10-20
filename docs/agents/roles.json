@@ -1,7 +1,7 @@
 {
   "schema": "titan-roles/1",
   "about": "Who does which homework (docs/agents/RESEARCH_LOOP.md). tools/agents/homework.py reads this file at every publish: it hands each active AI new assignments from the open work pools in the order of its `kinds` list, never gives an AI its own facts to check, and never lets one AI hold more than `capacity` open assignments. Claude edits this file when the owner changes who is active, or when the measured numbers say an AI should do more or less of a kind.",
-  "updated": "2026-10-15",
+  "updated": "2026-10-20",
   "agents": {
     "grok": {
       "name": "Grok",
@@ -19,7 +19,7 @@
         "vision",
         "code"
       ],
-      "capacity": 16,
+      "capacity": 24,
       "kinds": [
         "research",
         "arbitrate",
@@ -33,7 +33,7 @@
       ],
       "strength": "Strongest contributor, treated as a top model (owner, 2026-10-10: \"Grok is basically opus if it needs to be so I think they get the hardest shit\"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.",
       "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).",
-      "per_kind": 2
+      "per_kind": 4
     },
     "muse": {
       "name": "Muse",
@@ -50,7 +50,7 @@
         "vision",
         "web"
       ],
-      "capacity": 12,
+      "capacity": 20,
       "kinds": [
         "research",
         "cite",
@@ -64,7 +64,7 @@
       ],
       "strength": "Researcher and writer stepping up (owner, 2026-10-10: \"I think muse wants to step up so maybe see what they got in them\"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.",
       "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).",
-      "per_kind": 2
+      "per_kind": 4
     },
     "gemini": {
       "name": "Gemini",
@@ -82,7 +82,7 @@
         "web",
         "code"
       ],
-      "capacity": 10,
+      "capacity": 16,
       "kinds": [
         "arbitrate",
         "contradiction",
@@ -98,7 +98,7 @@
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.",
       "inline_sheets": true,
       "full_batches": true,
-      "per_kind": 2
+      "per_kind": 3
     },
     "chatgpt": {
       "name": "ChatGPT",
@@ -123,7 +123,7 @@
     "cite": {
       "role": "Cataloguer",
       "title": "Cite the catalogue facts of {n} coin types",
-      "batch": 25,
+      "batch": 40,
       "lease_days": 7,
       "needs": [
         "numista"
@@ -147,7 +147,7 @@
     "verify": {
       "role": "Second reader",
       "title": "Check {n} facts another AI wrote",
-      "batch": 50,
+      "batch": 80,
       "lease_days": 7,
       "needs": [],
       "fix": "#18",
@@ -157,7 +157,7 @@
     "read-mint": {
       "role": "Photo reader",
       "title": "Read the mint mark on {n} coins from their photos",
-      "batch": 20,
+      "batch": 30,
       "lease_days": 7,
       "needs": [
         "vision"
@@ -169,7 +169,7 @@
     "story-check": {
       "role": "Fact-checker",
       "title": "Fact-check {n} coin stories",
-      "batch": 40,
+      "batch": 50,
       "lease_days": 7,
       "needs": [
         "web"
@@ -181,7 +181,7 @@
     "plain-story": {
       "role": "Writer",
       "title": "Rewrite {n} stories in plain English",
-      "batch": 25,
+      "batch": 40,
       "lease_days": 7,
       "needs": [],
       "fix": "#60",
@@ -191,7 +191,7 @@
     "research": {
       "role": "Researcher",
       "title": "Answer {n} open research questions",
-      "batch": 8,
+      "batch": 12,
       "lease_days": 10,
       "needs": [
         "web"
@@ -203,7 +203,7 @@
     "value": {
       "role": "Appraiser",
       "title": "Cite collector values for {n} coins",
-      "batch": 50,
+      "batch": 60,
       "lease_days": 10,
       "needs": [
         "web"
@@ -215,7 +215,7 @@
     "arbitrate": {
       "role": "Arbiter",
       "title": "Settle {n} disagreements between two AIs",
-      "batch": 10,
+      "batch": 15,
       "lease_days": 7,
       "needs": [
         "web"
@@ -227,7 +227,7 @@
     "contradiction": {
       "role": "Fact fixer",
       "title": "Settle {n} contradictions in the record",
-      "batch": 15,
+      "batch": 20,
       "lease_days": 7,
       "needs": [
         "web"
@@ -264,5 +264,5 @@
       }
     ]
   },
-  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked. 2026-10-15 (owner): Gemini unpaused on every surface (Argon chat, Antigravity, Spark), arbitration first, so Grok-vs-Muse disagreements no longer wait for Claude (#101)."
+  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked. 2026-10-15 (owner): Gemini unpaused on every surface (Argon chat, Antigravity, Spark), arbitration first, so Grok-vs-Muse disagreements no longer wait for Claude (#101). 2026-10-20 (owner: \"give new aggressive homework assignments\"): capacity Grok 24, Muse 20, Gemini 16; per_kind 4/4/3; batches up (verify 80, cite 40, story-check 50, value 60, arbitrate 15, contradiction 20, read-mint 30, plain-story 40, research 12); the ledger's year, mint and face value on every photographed coin join the check pool as blind photo reads, first in line (#125). Gates unchanged."
 }

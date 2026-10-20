@@ -1,12 +1,12 @@
 {
- "version": 27,
- "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most now: the new app worth showing off first (your call after the Oct 16 blind review), then the system that researches the collection by itself, truth and safety, polish last. Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
+ "version": 28,
+ "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most now: turning the ledger's guesses into checked facts and the research loop that does it, then safety, then the new app (on hold while Grok upgrades the themes), motion and polish. Designed for your own experience (Oct 20: no separate Dad mode). Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
  "sotu": {
   "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
   "strong": [
    [
     "A research system that runs itself.",
-    "Since Oct 9 every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Grok and Muse have assignments now (Gemini's research waits until its Titan v3 build is in); the blind photo tests recur on their own."
+    "Every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Since Oct 20 the never-checked ledger facts go first, read blind from the photos, and about 900 items are out to Grok, Muse and Gemini."
    ],
    [
     "Trust machinery.",
@@ -14,21 +14,21 @@
    ],
    [
     "One pipeline, one master, tested on every update.",
-    "Any AI drops a change file; one script checks it, merges it and rebuilds the site. 51 pipeline tests, 18 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup."
+    "Any AI drops a change file; one script checks it, merges it and rebuilds the site. 53 pipeline tests, 19 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup."
    ],
    [
     "Never silently broken.",
     "Daily prices, live-site check, smoke and integrity checks and a daily backup zip run on GitHub; Health warns when any fails."
    ],
    [
-    "Dad-readable, and printable.",
-    "The Simple view answers “Do I have…?” in big type, the app works offline, and there is now a printable inventory with photos."
+    "Exportable, printable, recoverable.",
+    "The whole collection opens as a spreadsheet (coins, album holes, lots, every source) and as one JSON file, a printable inventory exists, and a recovery card says how to rebuild everything from the daily backup."
    ]
   ],
   "holding": [
    [
-    "Half the facts are still not proven.",
-    "Of 3,402 facts on screen, 1,742 are cited or confirmed (51.2 %), 350 of them Checked by two sources; 1,111 still come from the original ledger unchecked and 385 are AI readings without an exact source. The loop works through them as homework, but it only turns when a chat session runs."
+    "A third of the facts are still the old ledger's word.",
+    "Of 3,402 facts on screen, 1,781 are cited or confirmed (52.4 %), 474 of them Checked by two sources; 1,106 still come from the original ledger unchecked and 371 are AI readings without an exact source. The ledger's year, mint and face value on photographed coins are now first in line (#125)."
    ],
    [
     "The loop needs me to turn it.",
@@ -36,29 +36,29 @@
    ],
    [
     "The interface is behind the system, and you said so.",
-    "Judged blind on Oct 16, every badge and theme pair, ours and Gemini's, came back \"both weak\"; you gave it 3/10 and asked for frontier-level motion, 3D and transitions. Titan v3 (#119-#121) is the answer, built in three steps; nothing changes in the app until you pick it blind (#122)."
+    "Judged blind on Oct 16, every badge and theme pair came back \"both weak\". Grok is upgrading the themes on main now; Titan v3 (#119-#121) waits until that pass is done, and is built for your own experience."
    ],
    [
     "Photos are the bottleneck.",
-    "80 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them."
+    "79 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them."
    ],
    [
-    "The look is being rebuilt, not polished.",
-    "The old design pause is over: Titan v3 replaces the look, and you choose by blind test (#122) instead of from descriptions."
+    "Gemini has gone quiet.",
+    "Nothing from Gemini since Oct 16; its 15 assignments include the 12 disagreements only a third reader can settle. Claude settles the clear ones meanwhile."
    ]
   ],
   "next": [
    [
-    "1. Turn guesses into facts.",
-    "Answer the 14 questions and the “Where did they come from?” section; photograph the missing coins with Scan a coin, tapping “Right?” on each fact while the coin is in your hand."
+    "1. Let the AIs work.",
+    "Send Grok, Muse and Gemini to their WORK QUEUE docs (all updated today, with bigger batches). The one-time install for #92 still saves the most: their files then merge every hour without a chat."
    ],
    [
-    "2. Let the loop run.",
-    "Send each AI to its WORK QUEUE doc; Gemini is back as the third reader. The one-time install for #92 and the free Numista key still save the most of my time."
+    "2. Photograph the missing coins.",
+    "79 pieces have no photo (C293 and C300 among them); Scan a coin names and sends each one. That and the 31 unread mint marks are all that stands between Phase 1 and 100 %."
    ],
    [
-    "3. Judge Titan v3.",
-    "When step 1 arrives I host it and send you a blind test against today's app (#119, #122); the coin questions can wait for the pro-photo session."
+    "3. Print the recovery card.",
+    "And decide #127 (Grok's direct pushes, the AIs' Drive reach) when you have a minute."
    ]
   ]
  },
@@ -69,7 +69,7 @@
   ],
   [
    "Phase 2 pro photos (#61)",
-   "needs serial numbers (#5) ← Phase 1 at 100 % (now 205 of 306: Scan a coin) ← the missing photos and mint marks + your answers (#3)"
+   "needs serial numbers (#5) ← Phase 1 at 100 % (now 216 of 306: 79 photos and 31 mint marks missing) ← the ledger checked against the photos (#125) + the varieties checklist (#126)"
   ],
   [
    "Which AI reads Phase 2 (#19)",
@@ -81,7 +81,7 @@
   ],
   [
    "Disagreements settled without me (#101)",
-   "needs a third research AI through the onboarding (#97: Gemini, paused until its app works)"
+   "needs Gemini to answer its arbitration homework (12 open, on its page; nothing from Gemini since Oct 16) ← Claude settles the clear ones meanwhile (37 on Oct 20)"
   ],
   [
    "Real collector values for every coin (#62)",
@@ -93,7 +93,7 @@
   ],
   [
    "Buttons that look tappable (#29)",
-   "needs design direction (#30) + the Dad test (#60)"
+   "needs design direction (#30)"
   ]
  ],
  "you": [
@@ -102,8 +102,12 @@
    "follow docs/INTAKE_BRIDGE.md (github.com/jpavia10/titan-reliquary-preview/blob/main/docs/INTAKE_BRIDGE.md): one Apps Script project and two GitHub secrets. Then the AIs' files merge by themselves every hour and Drive gets a daily backup (#92, #93, #103). Never paste the URL or the key in a chat; tell me “the bridge is installed” and I run the first check."
   ],
   [
-   "Two possible duplicates:",
-   "keep or delete C300 and C301 (#124)? I won't delete without your yes."
+   "Print the recovery card:",
+   "Drive → Titan Reliquary → 'RECOVERY CARD (print this, keep it in the safe)'; write your GitHub and Google recovery codes on it by hand (#105)."
+  ],
+  [
+   "Two write paths to narrow, your call:",
+   "Grok's direct pushes to main, and the AIs' reach into your whole Drive (#127)."
   ],
   [
    "No rush on the coin questions:",
@@ -148,31 +152,6 @@
  ],
  "sections": [
   {
-   "title": "Now · Titan v3, the app worth showing off",
-   "sub": "each step judged blind against today's app",
-   "cls": "par",
-   "groups": [
-    {
-     "label": "Build",
-     "items": [
-      119,
-      120,
-      121
-     ]
-    },
-    {
-     "label": "Judge and pick",
-     "items": [
-      122,
-      116,
-      117,
-      60,
-      30
-     ]
-    }
-   ]
-  },
-  {
    "title": "Tier 0 · The research system that runs itself",
    "sub": "the foundation for everything else: facts found, checked and measured as homework over time",
    "cls": "par",
@@ -216,10 +195,12 @@
     {
      "label": "Truth",
      "items": [
+      125,
       3,
       73,
       48,
-      62
+      62,
+      126
      ]
     },
     {
@@ -239,10 +220,9 @@
     {
      "label": null,
      "items": [
-      103,
-      104,
       105,
-      106
+      127,
+      103
      ]
     }
    ]
@@ -257,6 +237,30 @@
      "items": [
       32,
       25
+     ]
+    }
+   ]
+  },
+  {
+   "title": "On hold · Titan v3, the app worth showing off",
+   "sub": "you, Oct 20: wait while Grok upgrades the themes; built for your own experience, judged blind against today's app",
+   "cls": "par",
+   "groups": [
+    {
+     "label": "Build",
+     "items": [
+      119,
+      120,
+      121
+     ]
+    },
+    {
+     "label": "Judge and pick",
+     "items": [
+      122,
+      116,
+      117,
+      30
      ]
     }
    ]
@@ -299,8 +303,7 @@
      "items": [
       77,
       107,
-      108,
-      109
+      108
      ]
     },
     {
@@ -319,8 +322,6 @@
     {
      "label": null,
      "items": [
-      123,
-      124,
       2
      ]
     }
@@ -346,6 +347,12 @@
   }
  ],
  "done_order": [
+  104,
+  106,
+  123,
+  124,
+  60,
+  109,
   85,
   86,
   87,
@@ -767,7 +774,7 @@
   },
   "29": {
    "title": "Make buttons look tappable",
-   "desc": "Some controls do not look clickable, which is hardest on your dad.",
+   "desc": "Some controls do not look clickable.",
    "needs": "#30 and #60",
    "unlocks": null,
    "size": "medium",
@@ -1139,15 +1146,15 @@
   },
   "60": {
    "title": "Dad test",
-   "desc": "Ten minutes watching your dad use the Simple view (“Which Silver Eagle years am I missing?”). The known bugs are fixed first (bigger Simple view labels, tap-to-skip on the film), so the test sees the real design.",
+   "desc": "Dropped (you, Oct 20: \"Too focused on my dad's easy navigation ... Just make my experience and he will check it and be like damn nice\"). The app is designed for your own experience; no separate Dad test.",
    "needs": "nothing",
    "unlocks": "#29, #30",
    "size": "small",
    "you": true,
-   "new": true,
+   "new": false,
    "partly": false,
-   "state": "open",
-   "note": null
+   "state": "done",
+   "note": "dropped Oct 20"
   },
   "61": {
    "title": "Phase 2 photo standard and a 5-coin test shoot",
@@ -1667,39 +1674,39 @@
   },
   "104": {
    "title": "Export everything in plain formats",
-   "desc": "One click: every coin, album and lot as a spreadsheet (CSV) and as structured data, with sources and certainty, for insurance, an estate, or any future app. Nothing locked into this one.",
+   "desc": "Oct 20: data/export/ is rebuilt on every publish: coins.csv (all 306 pieces, 41 columns, with \"how sure\" and the source for 9 key facts), album_holes.csv (all 1,775 holes, with the price and source of each missing one), lots.csv, collection.json (the whole master record plus every certainty label) and a plain README. Opens in Excel, Numbers or Google Sheets; linked from the printable inventory (insurance copy).",
    "needs": null,
    "unlocks": null,
    "size": "small",
    "you": false,
-   "new": true,
+   "new": false,
    "partly": false,
-   "state": "open",
-   "note": null
+   "state": "done",
+   "note": "done Oct 20"
   },
   "105": {
    "title": "A recovery card",
-   "desc": "One printed page in the safe: where everything lives (GitHub, Drive, the app), which accounts own it, and how to rebuild the site from the backup (the restore drill's steps in plain words).",
+   "desc": "Oct 20: written. Repo copy docs/RECOVERY_CARD.md; Drive doc 'RECOVERY CARD (print this, keep it in the safe)' in Titan Reliquary/: where everything lives, which accounts own it, what to do if the site stops loading or GitHub is gone (rebuild from the backup zip in plain steps), and where the spreadsheet export is. Your part: print it, write the GitHub and Google recovery codes on it by hand, put it in the safe.",
    "needs": null,
    "unlocks": null,
    "size": "small",
    "you": true,
-   "new": true,
-   "partly": false,
+   "new": false,
+   "partly": true,
    "state": "open",
    "note": null
   },
   "106": {
    "title": "Who can change what",
-   "desc": "A short review of every write path (GitHub, Drive folders, keys in workflows, the AIs' access), with anything wider than needed narrowed. Gets more important once #92 runs unattended.",
+   "desc": "Oct 20: docs/WHO_CAN_CHANGE_WHAT.md lists every way in (GitHub accounts and app, each GitHub job's token, the repo secrets, Drive and its connectors, the Apps Script) with its guard. Narrowed: the integrity, smoke and restore-drill jobs now get read-only tokens. Two paths are wider than needed and wait for you: #127.",
    "needs": null,
    "unlocks": null,
    "size": "small",
    "you": false,
-   "new": true,
+   "new": false,
    "partly": false,
-   "state": "open",
-   "note": null
+   "state": "done",
+   "note": "done Oct 20"
   },
   "107": {
    "title": "What completing each album would cost",
@@ -1727,15 +1734,15 @@
   },
   "109": {
    "title": "Your dad's phone",
-   "desc": "The Simple view as an icon on his home screen, opening straight to “Do I have…?”, read-only, with large type checked on his own phone.",
+   "desc": "Dropped with #60 (Oct 20): your dad uses the same app as you.",
    "needs": "his phone for 10 minutes",
    "unlocks": null,
    "size": "small",
    "you": true,
-   "new": true,
+   "new": false,
    "partly": false,
-   "state": "open",
-   "note": null
+   "state": "done",
+   "note": "dropped Oct 20"
   },
   "110": {
    "title": "The 20 animation styles, inside the themes",
@@ -1847,7 +1854,7 @@
   },
   "119": {
    "title": "Titan v3, step 1: the whole collection as one 3D space, and one coin",
-   "desc": "All 306 pieces as real 3D coins with their phone photos; filters and sorts move the coins instead of redrawing a list; tap a coin and it flies forward into its own view (flip, a raking light you drag, a loupe, every fact with its certainty label), back flies it home; search moves the camera. Gemini's plan for it is accepted as the spec (docs/design/v3/M1_SPEC.md, Oct 16); the build itself has not arrived yet. I check Drive for it on Oct 17 (16:30 UTC); if it is still missing I ask you whether I should build it from the spec.",
+   "desc": "All 306 pieces as real 3D coins with their phone photos; filters and sorts move the coins instead of redrawing a list; tap a coin and it flies forward into its own view (flip, a raking light you drag, a loupe, every fact with its certainty label), back flies it home; search moves the camera. Gemini's plan for it is accepted as the spec (docs/design/v3/M1_SPEC.md, Oct 16); the build itself has not arrived yet. I check Drive for it on Oct 17 (16:30 UTC); if it is still missing I ask you whether I should build it from the spec. On hold (you, Oct 20): wait while Grok upgrades the themes on main.",
    "needs": "Gemini's build (its first task)",
    "unlocks": "#120, #121, the blind test against today's app (#122)",
    "size": "large",
@@ -1858,10 +1865,10 @@
    "note": null
   },
   "120": {
-   "title": "Titan v3, step 2: albums as real pages, and Dad's two-tap answer",
-   "desc": "Each album as a physical page with real holes: filled holes hold the coin, missing ones are empty and lit, printed circles look different, pages turn. \"Which Silver Eagle year am I missing?\" answered in two taps from opening, in big type, with no gesture needed. Cost to complete and the want list from data/wants.json.",
+   "title": "Titan v3, step 2: albums as real pages",
+   "desc": "Each album as a physical page with real holes: filled holes hold the coin, missing ones are empty and lit, printed circles look different, pages turn. \"Which Silver Eagle year am I missing?\" answered in a couple of taps from opening, in the main app. Cost to complete and the want list from data/wants.json.",
    "needs": "#119",
-   "unlocks": "#60 (the Dad test)",
+   "unlocks": null,
    "size": "large",
    "you": false,
    "new": true,
@@ -1895,9 +1902,45 @@
   },
   "123": {
    "title": "Process Grok's Oct 16 drop",
-   "desc": "Grok sent 5 data files, album prices and The Field v2 (its redesign, second version) to Drive on Oct 16 at 05:49-05:55 UTC. They wait for a session because the automatic intake (#92) is not switched on: merge the data through the gates, score it, host The Field v2 next to v1 for the blind test (#122).",
+   "desc": "Oct 20: Grok's Oct 15-19 files and Muse's Oct 17 files merged through the gates (175 lines), the C301 and C304 photos cut and live, 37 disagreements settled (Grok won every one Claude could decide, incl. the euro globe/map side on 10 types). Scores: Grok 9, Muse 7. The Field v2 was already hosted by Grok at /prototypes/v2/grok/.",
    "needs": null,
    "unlocks": null,
+   "size": "small",
+   "you": false,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": "done Oct 20"
+  },
+  "124": {
+   "title": "Decide on two possible duplicates: C300 and C301",
+   "desc": "Oct 19 (you): keep both. C301 has its own photo now (Oct 20: the file filed under C293 was really C301's 1989 coin, so that photo is retired); C293 and C300 still need a photo of their own (shoot list).",
+   "needs": "you: yes or no",
+   "unlocks": null,
+   "size": "small",
+   "you": true,
+   "new": false,
+   "partly": false,
+   "state": "done",
+   "note": "decided Oct 19"
+  },
+  "125": {
+   "title": "Check the ledger's facts against the photos",
+   "desc": "Oct 20: 1,106 facts on screen still come straight from Grok's original ledger, never checked, and the first 3 ever checked were all wrong. The year, mint and face value of every coin with a photo (441 facts) now go to the AIs first as blind photo reads; a second agreeing read makes a fact Checked. Batches are bigger too (Grok 24 assignments, Muse 20, Gemini 16; about 900 items out today).",
+   "needs": null,
+   "unlocks": "#57 (Phase 1 at 100 %), #61",
+   "size": "medium",
+   "you": false,
+   "new": true,
+   "partly": true,
+   "state": "open",
+   "note": null
+  },
+  "126": {
+   "title": "A varieties checklist for the pro-photo session",
+   "desc": "Grok's new homework: for every US, UK and German coin in a flip, the known varieties and errors of that exact year and mint (small/large date, doubled dies, wide/close AM...), what to look for under the loupe, on which side, and what it is worth if found. Becomes the Phase 2 shoot checklist, so no variety is missed while the coin is out of its flip.",
+   "needs": "Grok's file",
+   "unlocks": "#61",
    "size": "small",
    "you": false,
    "new": true,
@@ -1905,10 +1948,10 @@
    "state": "open",
    "note": null
   },
-  "124": {
-   "title": "Decide on two possible duplicates: C300 and C301",
-   "desc": "Muse's C300 (Bahamas 1984 25 cents) and C301 (Mexico 1989 500 pesos) arrived without their own photos (Muse uploaded copies of other coins' photos) and may be the same coins as C291 and C293. I don't delete a coin without your yes: keep both, or delete C300 and C301.",
-   "needs": "you: yes or no",
+  "127": {
+   "title": "Narrow two write paths (your call)",
+   "desc": "From the #106 review. (1) Since Oct 19 grok-bot pushes code straight to main; the checks run after, but nothing stops a bad push. Safer: Grok pushes to grok/* branches and I merge as soon as integrity and smoke are green. (2) Grok, Muse and Gemini reach your whole Google Drive through their connections. Narrower: a separate Google account that only holds the shared Titan Reliquary folder. Say yes to either and I write Grok's new instructions or the share steps.",
+   "needs": null,
    "unlocks": null,
    "size": "small",
    "you": true,

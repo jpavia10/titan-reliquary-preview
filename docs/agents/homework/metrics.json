@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-20T15:07:16Z",
+ "updated": "2026-10-20T16:09:29Z",
  "pools": {
   "cite": 22,
   "contradiction": 14,
-  "story-check": 44,
-  "plain-story": 7,
+  "story-check": 177,
+  "plain-story": 54,
   "value": 16,
   "read-mint": 11,
   "arbitrate": 12,
-  "verify": 477
+  "verify": 852
  },
  "agents": {
   "gemini": {
@@ -128,9 +128,9 @@
   "verify:type:ES.KM.1144:period"
  ],
  "open_assignments": {
-  "grok": 7,
-  "muse": 6,
-  "gemini": 10,
+  "grok": 10,
+  "muse": 10,
+  "gemini": 15,
   "chatgpt": 0
  }
 }

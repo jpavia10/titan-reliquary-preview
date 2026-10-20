@@ -8,6 +8,9 @@ on:
     - cron: "40 10 3 * *"      # the 3rd of every month, 10:40 UTC (after the 09:20 backup)
   workflow_dispatch:
 
+permissions:
+  contents: read        # fix list #106: reads the site-backup release and the repo, writes nothing
+
 jobs:
   drill:
     runs-on: ubuntu-24.04

@@ -8,6 +8,9 @@ on:
     paths-ignore: ["collection/prices/**"]
   workflow_dispatch:
 
+permissions:
+  contents: read        # fix list #106: this job only reads the repo
+
 concurrency:
   group: integrity-${{ github.ref }}
   cancel-in-progress: true

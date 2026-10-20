@@ -1,6 +1,6 @@
 {
   "about": "Hand-written PROJECTS for the other AIs (owner rule 10, 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Since 2026-10-09 most work is generated homework (tools/agents/homework.py from docs/agents/roles.json; docs/agents/RESEARCH_LOOP.md): this file keeps only what cannot be computed from the data (work in progress, code reviews, guides, music, motion, onboarding). A task with `reserves` holds those coins of those kinds for its AI while it is open. Each AI's page (docs/agents/QUEUE_{ai}.md, the same text as its Drive doc 'WORK QUEUE for ...') shows: finish first (state now), then its homework, then the other projects.",
-  "updated": "2026-10-16",
+  "updated": "2026-10-20",
   "agents": [
     {
       "id": "grok",
@@ -10,169 +10,36 @@
       "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ + this repo (raw GitHub URLs)",
       "tasks": [
         {
+          "n": 7,
+          "title": "Varieties to look for at the pro-photo session (every US, UK and German coin in a flip)",
+          "fix": "#61",
+          "state": "now",
+          "what": "Phase 2 will photograph every coin with a loupe. Before that session, list for every US, UK and German coin in a flip (data/index.json, by id) each KNOWN variety or error for that exact year and mint that a collector would pay more for: e.g. 1982 small vs large date cents, 1983/1984 doubled-die Lincoln cents, 1970-S small date, 1999/2000 wide vs close AM, 1995 DDO, UK 2008 undated 20p mule, German 1950-G 'BANK DEUTSCHER LÄNDER' 50 pfennig. For each: what to look for, on which side, how big a loupe it needs, and the value if found with an exact price source. Send varieties_grok_{YYYYMMDD-HHMM}.json as [{\"id\": \"C0xx\", \"type\": \"...\", \"year\": 1982, \"mint\": \"D\", \"variety\": \"...\", \"look_for\": \"...\", \"side\": \"obv|rev\", \"value_if_found_usd\": 0, \"source\": \"exact URL + row\"}]. Leave a coin out when its year and mint have no known variety; never claim this coin IS the variety (only the photo can say).",
+          "done_when": "One file in reviews-incoming; Claude turns it into the Phase 2 shoot checklist (fix list #61)."
+        },
+        {
           "n": 6,
           "title": "UI rethink, step 2: The Field's three filters, on the real data",
           "fix": "#116",
-          "state": "now",
-          "what": "Your Field prototype is live at https://jpavia10.github.io/titan-reliquary-preview/prototypes/v2/grok/ (scored 9; it ran first time on the current data). Build the three filters your proposal promises, in the same single file: (1) album: choosing an album family (../../../data/wants.json) shows its holes as empty rings in the rows; tapping a ring shows the want-list entry with its price and source; (2) metal: silver and gold light up, the rest dims; (3) to photograph: the coins without a phone photo rise. Then measure ?fps for open, back and drag the same way as before. Same hard rules (live data only, 16 px, 44 px, Motion Full/Calm/Off, pause when hidden). Send design_grok_{YYYYMMDD-HHMM}_field-v2.html plus a short .md of what changed to Drive 'design-incoming (AI UI proposals)'.",
+          "state": "later",
+          "what": "Your Field prototype is live at https://jpavia10.github.io/titan-reliquary-preview/prototypes/v2/grok/ (scored 9; it ran first time on the current data). Build the three filters your proposal promises, in the same single file: (1) album: choosing an album family (../../../data/wants.json) shows its holes as empty rings in the rows; tapping a ring shows the want-list entry with its price and source; (2) metal: silver and gold light up, the rest dims; (3) to photograph: the coins without a phone photo rise. Then measure ?fps for open, back and drag the same way as before. Same hard rules (live data only, 16 px, 44 px, Motion Full/Calm/Off, pause when hidden). Send design_grok_{YYYYMMDD-HHMM}_field-v2.html plus a short .md of what changed to Drive 'design-incoming (AI UI proposals)'. (Later: the owner asked to wait on the redesign while you upgrade the themes, 2026-10-20.)",
           "done_when": "Claude replaces /prototypes/v2/grok/ with v2 and Joseph tries 'find a missing Silver Eagle' on his phone."
         },
         {
-          "n": 1,
-          "title": "Fact-check the coin stories, C151 to C283",
-          "fix": "#73",
+          "n": 8,
+          "title": "Mintages still blank on 24 coins",
+          "fix": "#3",
           "state": "now",
-          "what": "Your first 18 fixes (C161 to C262, changes_grok-bot_20261008-1101/1102/1103) are merged: every one checked out. Carry on through C283 the same way: check each story against its own record and the cited Numista entry; where a claim is wrong, send a corrected story (source = the exact entry; say what was wrong; change only the wrong sentence). (While this is open, nobody else is given these stories: they are reserved for you.)",
-          "done_when": "Every story from C151 to C283 checked; a list of the ones you changed and why (in your FEEDBACK doc note).",
-          "reserves": {
-            "kinds": [
-              "story-check",
-              "plain-story"
-            ],
-            "coins": [
-              "C151",
-              "C152",
-              "C153",
-              "C154",
-              "C155",
-              "C156",
-              "C157",
-              "C158",
-              "C159",
-              "C160",
-              "C161",
-              "C162",
-              "C163",
-              "C164",
-              "C165",
-              "C166",
-              "C167",
-              "C168",
-              "C169",
-              "C170",
-              "C171",
-              "C172",
-              "C173",
-              "C174",
-              "C175",
-              "C176",
-              "C177",
-              "C178",
-              "C179",
-              "C180",
-              "C181",
-              "C182",
-              "C183",
-              "C184",
-              "C185",
-              "C186",
-              "C187",
-              "C188",
-              "C189",
-              "C190",
-              "C191",
-              "C192",
-              "C193",
-              "C194",
-              "C195",
-              "C196",
-              "C197",
-              "C198",
-              "C199",
-              "C200",
-              "C201",
-              "C202",
-              "C203",
-              "C204",
-              "C205",
-              "C206",
-              "C207",
-              "C208",
-              "C209",
-              "C210",
-              "C211",
-              "C212",
-              "C213",
-              "C214",
-              "C215",
-              "C216",
-              "C217",
-              "C218",
-              "C219",
-              "C220",
-              "C221",
-              "C222",
-              "C223",
-              "C224",
-              "C225",
-              "C226",
-              "C227",
-              "C228",
-              "C229",
-              "C230",
-              "C231",
-              "C232",
-              "C233",
-              "C234",
-              "C235",
-              "C236",
-              "C237",
-              "C238",
-              "C239",
-              "C240",
-              "C241",
-              "C242",
-              "C243",
-              "C244",
-              "C245",
-              "C246",
-              "C247",
-              "C248",
-              "C249",
-              "C250",
-              "C251",
-              "C252",
-              "C253",
-              "C254",
-              "C255",
-              "C256",
-              "C257",
-              "C258",
-              "C259",
-              "C260",
-              "C261",
-              "C262",
-              "C263",
-              "C264",
-              "C265",
-              "C266",
-              "C267",
-              "C268",
-              "C269",
-              "C270",
-              "C271",
-              "C272",
-              "C273",
-              "C274",
-              "C275",
-              "C276",
-              "C277",
-              "C278",
-              "C279",
-              "C280",
-              "C281",
-              "C282",
-              "C283"
-            ]
-          }
+          "what": "These coins show no mintage: C023 (DE Empire 1918 20 pfennig), C114 (Mexico Chihuahua 1914 5 centavos), C146 (HK 1998 KM#69a), C159 (Ecuador 2004 KM#38), C185 + C214 (Cayman 1996 KM#88a), C200 (Taiwan ROC 97 KM#551), C202 (Guatemala 2010 KM#277.1), C203 (India 2001 KM#92.2), C204 (Trinidad 2014 KM#33), C207 (Trinidad 2016 KM#31), C212 (Eritrea 1997 KM#46), C219 (Jamaica 2015 KM#189), C230 (Jamaica 2015 KM#191), C253 (Jamaica 1993 KM#146), C269 (Cayman 1990 KM#87), C276 (Bahamas 2015 1 cent), C279 (Philippines 1997 1 piso), C280 (Belize 2007 25 cents), C291 (Bahamas 1984 5 cents), C296 (UK 1990 5p KM#937b), C297 (UK 1988 1p KM#935), C299 (Italy 1979 50 lire KM#95.1), C303 (Australia 1983 1 cent). For each, send `type issues.N.mintage` (the issue matching the coin's year and mint) with the exact entry URL and the row you read; where the catalogue says 'unknown' or gives none, send nothing and say so in one line of notes. (The tokens T001-T006 have no mintage by nature: skip them.)",
+          "done_when": "One change file; Claude merges it like homework."
         },
         {
           "n": 2,
-          "title": "Album prices: a second source for the 10 most expensive holes",
+          "title": "Album prices: a second source for the 40 most expensive holes",
           "fix": "#62",
-          "state": "next",
-          "what": "Your A001-A016 list is live as 'Cost to complete' (collection/prices/wants_values_grok_20261010-1949.json). The key dates look low against dealer guides (1921-D dime $140 at VF, where APMEX's lowest grade starts near $158). For the 10 most expensive holes in that file (A006 1916-D, 1921-D, 1921, 1923-S, 1926-S, 1927-D, 1916-S, 1918-D; A012 1949-D; A007 1964-D), find a second price page (PCGS CoinFacts, NGC Price Guide, Greysheet retail or APMEX) for the same grade, and send wants_values_grok_{YYYYMMDD-HHMM}.json with the same shape; where the two sources differ by more than 25 %, give the higher and name both in source.",
-          "done_when": "One file in reviews-incoming; Claude checks a sample and the app's total updates."
+          "state": "now",
+          "what": "Your first second-source file priced 3 holes (A006 1916-D $2,150 VG, 1916-S $50, 1918-D $34; NGC); 7 were left out because NGC lazy-loads past row 25. Now do the 40 most expensive missing holes across ALL 33 albums (data/wants.json `price`, highest first; both your A001-A016 file and Muse's A017-A033 file count). Use any of PCGS CoinFacts price guide, Greysheet retail, Heritage auction archives (realised prices, last 3 years) or APMEX/JM Bullion listings when NGC fails, for the SAME grade as the hole's existing row. Send wants_values_grok_{YYYYMMDD-HHMM}.json in the same shape; where the two sources differ by more than 25 %, give the higher and name both in source; put every hole you could not price in `left_out` with the reason.",
+          "done_when": "One file in collection-incoming or reviews-incoming; Claude spot-checks 5 rows and the album totals in the app update."
         },
         {
           "n": 3,
@@ -199,7 +66,7 @@
           "done_when": "Ongoing."
         }
       ],
-      "drive_note": "NEW (2026-10-15, later): your 8 round-2 patches are in the app (build tr117, every suite and smoke 38/38 green) and The Field is live at /prototypes/v2/grok/ (scores 8, 9 and 10 in your FEEDBACK doc; your late bonus file 20261014-2134 scored 8: 6 of 10 lines in). Bonus passes stay off facts another AI is assigned: the two new types were Muse's cite homework, C304's value Gemini's. Their weight, size and 1922 / 1981 mintage are now your homework (HW-grok-cite-20261015-2). Next: The Field's three filters (first task), then the homework. Answer sheets now name the year and mint on every issues.N line; type ids are names, not always the KM number."
+      "drive_note": "NEW (2026-10-20): score 9 for your Oct 15/19 files (FEEDBACK doc): every design-text dispute Claude could settle went your way, incl. the euro globe/map side on 10 types. More work now: capacity 24, bigger batches, and your check batches start with the ledger's never-checked year, mint and face value, read blind from the photo. Projects: varieties checklist for the pro-photo session, the 40 most expensive album holes, 24 blank mintages."
     },
     {
       "id": "muse",
@@ -209,12 +76,20 @@
       "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/",
       "tasks": [
         {
-          "n": 1,
-          "title": "Fix three coin photos (from the 2026-10-14 intake)",
-          "fix": "#3",
+          "n": 7,
+          "title": "Cite your own era fields: 263 'period' facts on 138 types are still 'AI guess'",
+          "fix": "#48",
           "state": "now",
-          "what": "Read your FEEDBACK doc (2026-10-14). (a) The Bahamas 25 cents photo you uploaded is the same file as the Bahamas 5 cents, and the Mexico 1989 500 pesos photo is the same file as the 1988 one (same SHA-256): photograph the right coins and upload them to STAGING as NOID_Bahamas_1984_25-cents_{obv|rev}.jpeg and NOID_Mexico_1989_500-pesos_{obv|rev}.jpeg with one photos_muse_{YYYYMMDD-HHMM}.json summary (file, EXIF camera time, SHA-256). Both coins are already in the app (C300, C301) and wait only for these photos. (b) Your Mexico 1981 20 pesos is in the app as C304 from your reading (Joseph: \"Whatever muse said just use that\"), but it has no photo: upload it the same way as NOID_Mexico_1981_20-pesos_{obv|rev}.jpeg. When the collection already has a coin of the same country, year and denomination (search data/search.json), say 'a second one, checked with Joseph' in the notes so nobody mistakes it for a repeat.",
-          "done_when": "The three photos are in STAGING with a summary, each different from every photo already filed."
+          "what": "Your round-3 file (2026-10-03) wrote `period`, `ruler` and `series` for 193 types with one general source, so every era in the app still says 'AI guess'. Re-cite them type by type: open the type's Numista entry (the record's `catalogs` has the N# for most), read its 'Period' (and 'Ruler' where it has one) line, and send `type {id} period` (and `ruler`) with the exact entry URL in source. Same value with a source = a re-citation (it becomes Reference, then a second reader makes it Checked); a different value = a correction, say why in one line. Work in batches of 40 types, one change file each, in the order of data/index.json. Never write a period that is a country status ('British Overseas Territory' is not an era).",
+          "done_when": "All 138 types answered (or left out with a reason) across as many files as you need."
+        },
+        {
+          "n": 8,
+          "title": "Which side to shoot: the 31 coins whose mint mark is unread",
+          "fix": "#57",
+          "state": "now",
+          "what": "31 coins miss the Phase 1 finish line only because their mint mark is not read (data/status.json phase1.missing.mint; the list is data/reshoot.json phase1 rows lacking 'mint'). For each: from the type's catalogue entry, say on which side and where the mint mark sits for that year (or that the type never carries one), and whether the photo we have shows that side. Send shootnotes_muse_{YYYYMMDD-HHMM}.json as [{\"id\": \"C0xx\", \"mark_side\": \"obv|rev|none\", \"where\": \"below the date\", \"our_photo_shows_it\": true, \"source\": \"exact URL\"}]. Where the photo shows that side clearly, also send the reading as a Phase 1 change line (issue.mint_marks + mint_text) with the photo file in source.",
+          "done_when": "One file; Claude moves the 'needs other side' coins to the top of the shoot list."
         },
         {
           "n": 2,
@@ -241,7 +116,7 @@
           "done_when": "Ongoing."
         }
       ],
-      "drive_note": "NEW (2026-10-15, later): your album prices are live (all 33 albums now priced), your Dad's guide is in the repo and your walkthrough sits next to The Field. Read your FEEDBACK doc before the next file (scores 4 and 7, and 4 for the 15 late files of 04:27-04:59 UTC: 37 lines in, mostly re-citations; story rewrites, designer lines that only drop the (obverse)/(reverse) roles, composition files under model:muse-subagent-*, type descriptions and research Q&A on types were not merged; always write by model:muse-spark): keep each answer sheet's lines as they are (provenance.assignment, old, verified false); cite only the coin's own Numista entry (9 audit lines cited other pages; N#1234 is the sheet's example URL); no style rewrites of stories; bonus passes never on facts another AI is checking. Your 10 arbitration items are in the homework."
+      "drive_note": "NEW (2026-10-20): score 7 for your Oct 17 files (FEEDBACK doc): the C293/C301 photo detective work was excellent; time stamps need seconds. More work now: capacity 20, bigger batches, your check batches start with the ledger's year, mint and face value read blind from the photo. Projects: cite your 263 era fields, which side to shoot for the 31 unread mint marks."
     },
     {
       "id": "chatgpt",
@@ -259,11 +134,27 @@
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/",
       "tasks": [
         {
+          "n": 6,
+          "title": "Design text for the 26 types that have none or only a guess",
+          "fix": "#72",
+          "state": "now",
+          "what": "16 coin types in the collection have no design text at all (AR.X.5-centavos, AU.X.1-cent, AU.X.10-cents, BS.X.25-cents, BS.X.5-cents, BZ.X.25-cents, FR.X.5-francs, GB.X.1-penny, HN.X.50-centavos, MX.X.20-pesos, MX.X.5-centavos, MX.X.50-centavos, MX.X.500-pesos, PH.X.1-piso, SK.X.5-euro-cent, YU.X.50-para) and 10 more carry an uncited guess (AU.KM.66, DE.X.spielmarke-20-gr, FR.KM.1410, GB.KM.1107, GB.KM.916, GB.KM.936, NL.KM.236, PH.KM.242.1, SK.KM.96, US.KM.204). For each, open its Numista entry and send `type {id} design.text` in the house style ('obverse ... · reverse ... · designer'), short, with the exact entry URL; for the .X. types also send the `catalogs` list (KM + Numista numbers) from the same entry. Euro coins: 1, 2 and 5 cent show Europe on a globe, 10 cent and up the map.",
+          "done_when": "One change file; anything without an entry is left out with one line of notes."
+        },
+        {
+          "n": 7,
+          "title": "Third reader: settle the 12 open disagreements first",
+          "fix": "#101",
+          "state": "now",
+          "what": "Your arbitrate homework (on this page under the loop's assignments) holds the open Grok-vs-record and Muse-vs-record disagreements: KY.KM.132 shrimp or crayfish, CU.KM.32 reverse, VN.KM.71 pagoda name, GB.KM.914 legend, DE.KM.105/106a which side carries BUNDESREPUBLIK DEUTSCHLAND, CH.KM.21a.3 1991 B mintage, CL.KM.219.2, MX.KM.433, AU.KM.66 1966 20 cents (28,223,000 Canberra or 58,223,000 with London: the coin has no mint mark), SE.KM.826a composition and design. Answer each with your own exact source; you are the deciding read.",
+          "done_when": "Your arbitrate answer file; each one you send settles its disagreement."
+        },
+        {
           "n": 5,
           "title": "Send the Titan v3 M1 build (your spec is accepted; only the .html is missing)",
           "fix": "#116, #117",
-          "state": "now",
-          "what": "Your note design_gemini_20261016-0610_v3-m1.md (2026-10-16) is accepted as the M1 spec: docs/design/v3/M1_SPEC.md (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/v3/M1_SPEC.md), with two notes from Claude at the top. The build it describes, design_gemini_20261016-0610_v3-m1.html, never reached Drive. Build exactly that spec and save the .html as a real file (not a Google Doc) in Drive 'design-incoming (AI UI proposals)'. If saving fails, reply in chat with the file split into numbered parts ('PART 1 of N', one code block of about 400 lines each, nothing changed between parts); Joseph passes them to Claude. The hard rules of docs/design/ARGON_REBUILD_BRIEF.md section 5 apply: live data only, no invented numbers, your own code, fonts you ship, AA contrast, 16 px text.",
+          "state": "later",
+          "what": "Your note design_gemini_20261016-0610_v3-m1.md (2026-10-16) is accepted as the M1 spec: docs/design/v3/M1_SPEC.md (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/v3/M1_SPEC.md), with two notes from Claude at the top. The build it describes, design_gemini_20261016-0610_v3-m1.html, never reached Drive. Build exactly that spec and save the .html as a real file (not a Google Doc) in Drive 'design-incoming (AI UI proposals)'. If saving fails, reply in chat with the file split into numbered parts ('PART 1 of N', one code block of about 400 lines each, nothing changed between parts); Joseph passes them to Claude. The hard rules of docs/design/ARGON_REBUILD_BRIEF.md section 5 apply: live data only, no invented numbers, your own code, fonts you ship, AA contrast, 16 px text. (Later: the owner asked to wait on Titan v3 while Grok upgrades the themes, 2026-10-20.)",
           "done_when": "The .html is in Drive 'design-incoming (AI UI proposals)' (or pasted in parts); Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app."
         },
         {
@@ -291,7 +182,7 @@
           "done_when": "4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each)."
         }
       ],
-      "drive_note": "NEW (2026-10-16, later): your M1 note is accepted as the spec (docs/design/v3/M1_SPEC.md). Only the build is missing: send design_gemini_..._v3-m1.html to Drive design-incoming, or paste it in numbered parts. Research homework waits until it is in."
+      "drive_note": "NEW (2026-10-20): nothing has arrived from you since Oct 16 and your 10 assignments are about to lapse. Start with the 12 open disagreements (you are the deciding read), then design text for 26 types. Capacity 16, full batches."
     }
   ]
 }

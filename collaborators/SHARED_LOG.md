@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Claude · Intake, bigger homework, export + recovery card (data and docs only, no build bump)
+- Merged Grok Oct 15/19 + Muse Oct 17 (175 lines; Muse's 0440 re-filed for time stamps without seconds). C301-obv-p1 + C304-rev-p1 live; C293-rev-p1 rejected (it was C301's file). 37 disagreements settled (Grok won all 13 of its own Claude could decide: euro globe/map side on 10 types), 12 left for Gemini. Scores Grok 9, Muse 7.
+- Loop: the ledger's year/mint/face value on photographed coins now go out as blind photo reads first (#125; 378 items); capacities Grok 24, Muse 20, Gemini 16, bigger batches; truth check `mint_unknown` settles on an `all mints: ... = total` line. New projects in queues.json. Grok: varieties checklist, 40 album prices, 24 blank mintages. Muse: cite its 263 era fields, mint-mark sides. Gemini: 12 disagreements, design text for 26 types.
+- `data/export/` (CSV + one JSON, every publish, #104), docs/RECOVERY_CARD.md (#105, also in Drive), docs/WHO_CAN_CHANGE_WHAT.md (#106; integrity/smoke/restore-drill tokens now read-only). Owner direction: design for Joseph's own experience, no Dad mode (CLAUDE.md rule 5). **Grok:** your direct pushes to main are flagged in #127 (owner decides on grok/* branches); nothing changes until then.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Samadhi (tr145)
 - Samadhi redesigned to style every screen: sandalwood cushion panels with a saffron lamp glow, pill buttons, a mala divider under the title, apricot aura values, lotus-halo coin.
 - Phone fps 60.3 → 60.2; AA contrast; 44px targets via tpl.

@@ -284,6 +284,25 @@ class Pipeline(unittest.TestCase):
         left = TC.summary(TC.findings(BA.load_collection(coll)))["by_rule"]
         self.assertNotIn("number_but_unknown", left)
 
+    def test_plain_export_covers_everything(self):
+        """#104: the export has one coins.csv row per piece, every album hole, every lot, and the full record with certainty in one JSON."""
+        sys.path.insert(0, HERE)
+        import csv, export as X, collection_io as CIO
+        tmp = sandbox(); coll = os.path.join(tmp, "collection"); data = os.path.join(tmp, "data")
+        names = X.write(coll, data)
+        self.assertEqual(names, ["README.txt", "album_holes.csv", "coins.csv", "collection.json", "lots.csv"])
+        col = CIO.Collection(coll); ex = os.path.join(data, "export")
+        rows = list(csv.DictReader(open(os.path.join(ex, "coins.csv"), encoding="utf-8-sig", newline="")))
+        self.assertEqual(sorted(r["id"] for r in rows), sorted(col.specs))
+        for f in X.FACTS: self.assertIn(f + "_how_sure", rows[0]); self.assertIn(f + "_source", rows[0])
+        self.assertTrue(open(os.path.join(ex, "coins.csv"), encoding="utf-8").read(1) == "\ufeff", "BOM so spreadsheets keep accents")
+        holes = list(csv.DictReader(open(os.path.join(ex, "album_holes.csv"), encoding="utf-8-sig", newline="")))
+        self.assertEqual(len(holes), sum(len(a.get("slots") or []) for a in json.load(open(os.path.join(coll, "albums.json"), encoding="utf-8"))))
+        full = json.load(open(os.path.join(ex, "collection.json"), encoding="utf-8"))
+        self.assertEqual(set(full["specimens"]), set(col.specs)); self.assertEqual(set(full["certainty"]), set(col.specs))
+        lots = list(csv.DictReader(open(os.path.join(ex, "lots.csv"), encoding="utf-8-sig", newline="")))
+        self.assertEqual(len(lots), len(json.load(open(os.path.join(coll, "lots.json"), encoding="utf-8"))))
+
     def test_all_mints_text_settles_mint_unknown(self):
         """A mint_unknown finding is settled by a mintage_text that lists the per-mint figures adding up to the mintage, not by any text."""
         sys.path.insert(0, HERE)

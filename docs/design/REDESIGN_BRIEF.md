@@ -13,7 +13,9 @@ collection is open. The current app: https://jpavia10.github.io/titan-reliquary-
 
 ## Who it is for
 - **Joseph** on his phone (Android, Chrome), daily: what's new, what to photograph, answering the coin questions, showing it off.
-- **His dad**, sometimes: "which Silver Eagle year am I missing?" Big type, high contrast, nothing that hides behind a gesture only.
+- **His dad**, sometimes, on the same app (owner, 2026-10-20: "He is 53 not a [child]. Just make my experience and he will check it and be
+  like damn nice"). Design for Joseph; there is no separate simplified mode to design for. "Which Silver Eagle year am I missing?" still
+  has to be easy to answer in the main app, because it is a good question, not because of who asks it.
 - Both on desktop now and then. Offline must keep working.
 
 ## Every function that must survive (somewhere, in some form)
@@ -52,7 +54,7 @@ missing), never only decorate. Smooth on a mid-range phone.
   `data/search.json`, `data/wants.json`, `data/status.json`, `data/prices.json` with relative paths, as the app does. Never invent a coin,
   a value or a count; never hard-code coin facts.
 - **Readable**: WCAG AA contrast for all text, 16 px minimum body text on a phone, every action reachable by tap and by keyboard, nothing
-  only on hover. Dad's Simple view keeps its big-type mode.
+  only on hover. (The old Simple view stays as a function, but it is not a design target; the main app is.)
 - **Motion setting**: honour `prefers-reduced-motion` and offer Calm (one still frame or a short fade) and Off.
 - **Speed**: first screen under 2 s on a mid phone over 4G, no main-thread block over 200 ms, 55+ fps while scrolling. Effects pause when
   the tab is hidden.

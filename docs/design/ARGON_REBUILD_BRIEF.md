@@ -50,10 +50,11 @@ must stand on its own and be better than today in the first 10 seconds.
   From ledger), the story, and the history and sources one tap away.
 - A search that moves the camera to what it finds.
 
-**M2: albums and Dad.**
+**M2: albums.**
 - An album is a physical page with real holes. Filled holes hold the coin, missing holes are empty and lit, and printed circles (not holes)
   look different. Turning pages is a physical motion.
-- "Which Silver Eagle year am I missing?" is answered **in two taps or fewer** from opening, in Dad's big-type mode, with no gesture needed.
+- "Which Silver Eagle year am I missing?" is answered in a couple of taps from opening, in the main app (owner, 2026-10-20: design for
+  Joseph's own experience; no separate big-type mode for his dad).
 - Cost to complete and the want-list come from `data/wants.json`.
 
 **M3: value and worlds.**

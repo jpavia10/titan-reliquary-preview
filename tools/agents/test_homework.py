@@ -165,7 +165,7 @@ class Loop(unittest.TestCase):
     def test_9_blind_second_read_makes_a_new_coin_checked(self):
         """#55: a second AI reading the photo blind and agreeing makes the first reading 'Checked'; disagreeing files a disagreement."""
         tmp = sandbox(); r = run_refresh(tmp, NOW)
-        it = next(v for v in r["pool"].values() if v["kind"] == "verify" and v["field"] == "denomination.value" and v["blind"])
+        it = next(v for v in r["pool"].values() if v["kind"] == "verify" and v["field"] == "denomination.value" and v["blind"] and not v["payload"].get("ledger"))
         self.assertIsNone(it["payload"]["value"], "a blind item must not show the first reading")
         author = it["authors"][0]
         reader = next(a for a in ("grok", "muse", "gemini") if a != author)
@@ -223,6 +223,20 @@ class LoopUpgrades(unittest.TestCase):
         self.assertFalse([i for i in pool if ":copy_differs:" in i], "mechanical findings stay with truth_checks.py --fix")
         for it in pool.values():
             self.assertEqual(it["kind"], "contradiction"); self.assertTrue(it["lines"]); self.assertIn(it["payload"]["rule"], HW.CONTRA_ASK)
+
+    def test_ledger_facts_on_a_photographed_coin_are_read_blind_first(self):
+        """#125: year, mint and face value still as imported from the ledger go to a blind photo read, ahead of other checks; no photo, no item."""
+        tmp = sandbox(); ctx = HW.load_context(tmp)
+        pool = HW.pool_verify(ctx, lambda a: 0.0)
+        led = [i for i in pool.values() if i["payload"].get("ledger")]
+        self.assertTrue(led, "the collection still has ledger facts on photographed coins")
+        for it in led:
+            self.assertTrue(it["blind"]); self.assertIn(it["payload"]["fact"], HW.BLIND)
+            self.assertIsNone(it["payload"]["value"], "a blind read never shows the ledger's value")
+            self.assertTrue(all(HW.photos_of(ctx, c) for c in it["coins"]), "only coins with a live photo")
+            self.assertTrue(it["payload"]["audit"], "the never-checked ledger goes first")
+        nophoto = {sid for sid in ctx["live"] if not HW.photos_of(ctx, sid)}
+        self.assertFalse([i for i in led if i["entity"] == "specimen" and set(i["coins"]) <= nophoto])
 
     def test_recheck_sends_old_checked_facts_back_once_a_year(self):
         tmp = sandbox(); ctx = HW.load_context(tmp)
