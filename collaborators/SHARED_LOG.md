@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Music upgrade 1: fades + follow the theme (owner-approved push) (tr141)
+* Music upgrade 1 (owner 2026-10-20 06:55 PT: "level up the music experience"). `audio.js` v4: play fades in (0.7 s), pause fades out (0.32 s), and a station change fades the old station out before switching, so music never starts or stops with a click (iOS ignores element volume, so there it stays a plain cut). Volume and mute were already remembered.
+* Follow the theme: when the theme changes while the radio is playing, it moves to that theme's paired station (app.js ATMOS `station`, now sent on the "titan:atmo" event). It never starts music by itself (no autoplay surprises); `TitanLofi.setFollowTheme(false)` turns it off and is remembered.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 12/34: Prism / kaleido (owner-approved push) (tr140)
 * Theme upgrade 12/34 (worst first, owner-approved 2026-10-20 06:55 PT). Prism (kaleido) was #23: named for a kaleidoscope but had no mirroring or refraction, ~38 fps idle.
 * New effect `style-kaleido` (wings/fx/styles-e.js): a real 8-fold mirrored kaleidoscope of a coin photo from the collection (painted glass chips until one loads), slowly turning in the upper corner with a prismatic rim; one texture read inside the rosette, nothing outside it, 30 fps. Prism now plays "style-kaleido+style-holo*0.4" (was holo + prismatic). 60.2 fps idle on the phone floor.

@@ -111,8 +111,21 @@
   let vol = Math.min(1, Math.max(0, readNum(VOL_KEY, 0.6)));
   let muted = false;
   try { muted = localStorage.getItem(MUTE_KEY) === "1"; } catch { /* ignore */ }
+  // v4 (Grok, 2026-10-20): smooth fades. Play fades in, pause fades out, a station change fades out before it switches, so
+  // nothing starts or stops with a click. fadeMul multiplies the volume; iOS ignores element.volume, so there it is a plain cut.
+  let fadeMul = 1, fadeT = 0;
+  function fade(to, ms, done) {
+    clearInterval(fadeT); fadeT = 0;
+    const from = fadeMul, t0 = performance.now();
+    if (ms <= 0 || Math.abs(to - from) < 0.01) { fadeMul = to; applyVolume(); if (done) done(); return; }
+    fadeT = setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / ms);
+      fadeMul = from + (to - from) * k * k * (3 - 2 * k); applyVolume();
+      if (k >= 1) { clearInterval(fadeT); fadeT = 0; if (done) done(); }
+    }, 30);
+  }
   function applyVolume() {
-    audio.volume = Math.min(1, Math.max(0, vol * duck));
+    audio.volume = Math.min(1, Math.max(0, vol * duck * fadeMul));
     audio.muted = muted;
   }
   applyVolume();
@@ -352,6 +365,8 @@
     attach();
     armWatchdog();
     updateNowPlaying();
+    fadeMul = 0; applyVolume();
+    fade(1, 700);
     const p = audio.play();
     if (p && p.catch) p.catch(onPlayRejected);
   }
@@ -379,10 +394,11 @@
     begin();
     return Promise.resolve();
   }
-  function pause() {
+  function pause(now) {
     wantPlay = false;
     clearWatchdog();
-    audio.pause();
+    if (now === true || audio.paused) { fade(1, 0); audio.pause(); }
+    else fade(0, 320, () => { if (!wantPlay) audio.pause(); fadeMul = 1; applyVolume(); });
     playing = false;
     updateNowPlaying();
   }
@@ -437,8 +453,16 @@
   function setStation(key, autoplay) {
     if (!valid.includes(key)) return;
     if (key === stationKey) { renderStationMenu(); stationMenu.hidden = true; return; }
+    if (wantPlay && playing && !audio.paused) {        // fade the old station out first, then switch
+      const was0 = wantPlay;
+      fade(0, 380, () => { wantPlay = was0; switchStation(key, autoplay); });
+      return;
+    }
+    switchStation(key, autoplay);
+  }
+  function switchStation(key, autoplay) {
     const was = wantPlay;
-    pause();
+    pause(true);
     detach();
     stationKey = key;
     writeStation();
@@ -452,6 +476,16 @@
     if (autoplay || was) play();
     else showBar();
   }
+  // Follow the theme: when the theme changes while music is playing, move to the theme's paired station (app.js ATMOS
+  // station, sent on "titan:atmo"). Never starts music by itself; off with TitanLofi.setFollowTheme(false) (remembered).
+  const FOLLOW_KEY = "tr_music_follow_theme_v1";
+  let follow = true;
+  try { follow = localStorage.getItem(FOLLOW_KEY) !== "0"; } catch { /* ignore */ }
+  window.addEventListener("titan:atmo", (e) => {
+    const st = e && e.detail && e.detail.station;
+    if (!follow || !wantPlay || !st || !valid.includes(st) || st === stationKey) return;
+    setStation(st, true);
+  });
   function playStation(key) {
     if (!valid.includes(key)) return;
     if (key !== stationKey) setStation(key, true);
@@ -615,6 +649,8 @@
     isAvailable: () => !radioDown,
     playStation,
     setStation: (k) => setStation(k, wantPlay),
+    setFollowTheme: (on) => { follow = !!on; try { localStorage.setItem(FOLLOW_KEY, follow ? "1" : "0"); } catch { /* ignore */ } },
+    followsTheme: () => follow,
     station: () => stationKey,
     status: radioStatus,
     setVolume: (v) => { vol = Math.min(1, Math.max(0, v)); applyVolume(); try { localStorage.setItem(VOL_KEY, String(vol)); } catch { /* ignore */ } },
