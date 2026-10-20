@@ -5,6 +5,31 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Music 2: every theme has sound (tr151)
+- FIX (Joseph: Dynasty had no sound): sound only started on a first tap outside the Scene studio, and following the theme only worked once something was already playing. So opening the studio first and picking a theme stayed silent. Picking a theme after any tap now starts that theme's sound (unless you pressed Off).
+- iOS: audio plays as media, so the silent switch doesn't mute it (iOS 17+), and the sound comes back on the next tap after a call or Siri interrupts it.
+- Every one of the 34 themes now has its own interface voice: a soft themed click on every tap (with a 6 ms haptic tick on Android; off under reduced motion), and a short chord in the new theme's voice when you switch themes.
+- New regression test tools/smoke/test_regress_grk_m04.py checks all 34 themes have a scene, music and an interface voice, and that a first visit that picks Dynasty in the studio plays sound.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Fix: update reload kicked users out of the Scene studio (tr150)
+- FIX (Joseph: the scene selector kept kicking him out): each new build ships a new sw.js, and the app reloaded about 1 s after the new service worker took over (and again when version.json showed a newer publish), even with the Scene studio open. Reloads now wait until no sheet or dialog is open, the intro isn't playing, and there has been no tap for 5 s, or until the app goes to the background. Health's Update now still reloads straight away.
+- New regression test tools/smoke/test_regress_grk_p03.py (fails on the old code), also added to CI.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Treasury Note (tr149)
+- Treasury Note redesigned to style every screen: guilloche-wave panels with engraved double borders, intaglio value plates, rosette security-field coin stage, red treasury-seal offset on the coin.
+- Phone fps 60.2; AA contrast; 44px targets via tpl.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Dynasty (tr148)
+- Dynasty redesigned to style every screen: cinnabar lacquer panels with a gold hui-fret band on the values, 24K foil headings and values, a moon-gate stage, a gold ring on the coin.
+- Phone fps 60.1; AA contrast; 44px targets via tpl.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: The Alchemist (tr147)
+- The Alchemist redesigned to style every screen: vitriol-green glass plates edged in gold leaf, engraved double-rule value frames, athanor-glow stage, double sigil ring on the coin, gold-leaf values.
+- Phone fps 60.1 (before 60.2); AA contrast; 44px targets via tpl.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: The Cursed Wing (tr146)
+- The Cursed Wing redesigned to style every screen: lacquered reliquary panels with wax-red hairlines and bone-ink inner rules, a wax-seal ring on the coin, wax-gradient values.
+- Phone fps 60.2 → 60.2; AA contrast; 44px targets via tpl.
 ### [2026-10-20] — Claude · Intake, bigger homework, export + recovery card (data and docs only, no build bump)
 - Merged Grok Oct 15/19 + Muse Oct 17 (175 lines; Muse's 0440 re-filed for time stamps without seconds). C301-obv-p1 + C304-rev-p1 live; C293-rev-p1 rejected (it was C301's file). 37 disagreements settled (Grok won all 13 of its own Claude could decide: euro globe/map side on 10 types), 12 left for Gemini. Scores Grok 9, Muse 7.
 - Loop: the ledger's year/mint/face value on photographed coins now go out as blind photo reads first (#125; 378 items); capacities Grok 24, Muse 20, Gemini 16, bigger batches; truth check `mint_unknown` settles on an `all mints: ... = total` line. New projects in queues.json. Grok: varieties checklist, 40 album prices, 24 blank mintages. Muse: cite its 263 era fields, mint-mark sides. Gemini: 12 disagreements, design text for 26 types.
