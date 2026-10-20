@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "papercut", name: "Paper Hills", collection: "Studio", tier: "signature", art: null, ui: ["paper", "papercut"], styles: ["Paper cutout"],
+      mood: "A layered paper landscape: hills, sun and balloons cut from card, the collection pinned to the paper.", fx: "style-papercut", fxIntensity: 0.85, scene: "papercut", tokens: {} },
     { id: "y2k", name: "Millennium Chrome", collection: "Studio", tier: "signature", art: null, ui: ["paper", "chrome"], styles: ["Y2K chrome"],
       mood: "Liquid chrome and pastel sparkle: the collection as a Y2K dream, every coin polished to a mirror.", fx: "style-y2k", fxIntensity: 0.85, scene: "y2k", tokens: {} }
   ];

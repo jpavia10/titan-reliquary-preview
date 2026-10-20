@@ -1,0 +1,34 @@
+{
+ "id": "papercut",
+ "name": "Paper Hills",
+ "collection": "Studio",
+ "mood": "A layered paper landscape: hills, sun and balloons cut from card, the collection pinned to the paper.",
+ "pair": "Countryside breeze + Lo-fi",
+ "scheme": "light",
+ "themeColor": "#f4efe3",
+ "station": "lofi",
+ "ui": [
+  "paper",
+  "papercut"
+ ],
+ "styles": [
+  "Paper cutout"
+ ],
+ "fx": "style-papercut",
+ "fxIntensity": 0.85,
+ "tokens": "  --scheme: light;\n  color-scheme: light;\n  --bg: #f4efe3;\n  --bg2: #ece5d4;\n  --surface: #fffdf7;\n  --surface2: #ebe3cf;\n  --ink: #1f2a22;\n  --muted: #3d4a40;\n  --faint: #55625a;\n  --cardmeta: #2c3830;\n  --gold: #b0401c;\n  --gold-soft: #8f3415;\n  --gold-deep: #1f2a22;\n  --on-gold: #ffffff;\n  --ink-soft: #3d4a40;\n  --line: rgba(31, 42, 34, 0.16);\n  --line-strong: #b0401c;\n  --ok: #1f6b33;\n  --warn: #7f5800;\n  --bad: #b0220f;\n  --shadow: 0 1px 1px rgba(70, 55, 30, 0.14), 0 6px 0 -2px rgba(70, 55, 30, 0.10), 0 10px 18px rgba(70, 55, 30, 0.10);\n  --elev-1: 0 1px 1px rgba(70, 55, 30, 0.14), 0 3px 6px rgba(70, 55, 30, 0.10);\n  --elev-2: 0 2px 2px rgba(70, 55, 30, 0.14), 0 10px 22px rgba(70, 55, 30, 0.14);\n  --elev-3: 0 4px 6px rgba(70, 55, 30, 0.16), 0 24px 60px rgba(70, 55, 30, 0.22);\n  --scrim: rgba(31, 42, 34, 0.42);\n  --focus: #2f6fd6;\n  --th-bg: #ebe3cf;\n  --tabgrad1: #ebe3cf; --tabgrad2: #fffdf7;\n  --toastgrad1: #ebe3cf; --toastgrad2: #fffdf7;\n  --foot-bg: rgba(244, 239, 227, 0.95);\n  --drawerbar-bg: rgba(255, 253, 247, 0.96);\n  --ph-bg: #ebe3cf;\n  --sel-bg: rgba(176, 64, 28, 0.15);\n  --row-hover: rgba(176, 64, 28, 0.07);\n  --hold-bg: linear-gradient(135deg, #ebe3cf, #fffdf7);\n  --skeleton1: #ebe3cf; --skeleton2: #f4efe3;\n  --grain-op: 0.035;\n  --wing-dur: 0.42s;\n  --wing-rise: 14px;\n  /* legacy aliases resolved on <html> */\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Avenir Next\", \"Futura\", \"Century Gothic\", \"Segoe UI\", system-ui, -apple-system, sans-serif;\n  --radius: 10px;\n  /* the card stock behind each card (styles/style-layer.css, ui \"papercut\"): two layers, hill green then ochre */\n  --cut-l1: #a9c9a4;\n  --cut-l2: #dcae5c;\n  --cut-shadow: rgba(70, 55, 30, 0.22);\n  /* the dark display-case interior used by the instrument panels (styles/style-layer.css, ui \"paper\"): deep forest card */\n  --case-bg: #1d2b24;\n  --case-bg2: #22342b;\n  --case-surface: #283d32;\n  --case-surface2: #33503f;\n  --case-ink: #ffffff;\n  --case-muted: #dbe8d8;\n  --case-faint: #b8cdb6;\n  --case-gold: #f3b98f;\n  --case-gold-soft: #ffd7b8;\n  --case-on-gold: #1d2b24;\n  /* the page palette again, for paper labels inside a case */\n  --paper-bg: #f4efe3;\n  --paper-bg2: #ece5d4;\n  --paper-surface: #fffdf7;\n  --paper-surface2: #ebe3cf;\n  --paper-ink: #1f2a22;\n  --paper-muted: #3d4a40;\n  --paper-faint: #55625a;\n  --paper-gold: #b0401c;\n  --paper-gold-soft: #8f3415;\n  --paper-on-gold: #ffffff;",
+ "crest": "<circle cx=\"100\" cy=\"100\" r=\"64\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\"/><clipPath id=\"pcc\"><circle cx=\"100\" cy=\"100\" r=\"61\"/></clipPath><g clip-path=\"url(#pcc)\"><g transform=\"translate(124 70)\" fill=\"currentColor\"><circle r=\"13\"/><path d=\"M0-24 3-17-3-17Z M0 24 3 17-3 17Z M-24 0-17 3-17-3Z M24 0 17 3 17-3Z M-17-17-10-14-14-10Z M17 17 10 14 14 10Z M17-17 14-10 10-14Z M-17 17-14 10-10 14Z\"/></g><path d=\"M30 118 Q62 92 96 112 T172 104 L172 170 L30 170 Z\" fill=\"currentColor\" opacity=\".35\"/><path d=\"M30 134 Q70 110 108 130 T172 124 L172 170 L30 170 Z\" fill=\"currentColor\" opacity=\".6\"/><path d=\"M30 150 Q76 132 120 148 T172 144 L172 170 L30 170 Z\" fill=\"currentColor\" opacity=\".9\"/><g transform=\"translate(66 72)\"><ellipse rx=\"11\" ry=\"13\" fill=\"currentColor\"/><path d=\"M-5 12 L-3 20 M5 12 L3 20\" stroke=\"currentColor\" stroke-width=\"2\"/><rect x=\"-4\" y=\"20\" width=\"8\" height=\"5\" fill=\"currentColor\"/></g></g>",
+ "swatch": ".sw-papercut { --sw-ink: #1f2a22; background: radial-gradient(circle at 76% 26%, #f6c25a 0 9%, transparent 10%), radial-gradient(ellipse 90% 40% at 30% 112%, #dcae5c 0 60%, transparent 61%), radial-gradient(ellipse 80% 42% at 80% 100%, #4a8560 0 60%, transparent 61%), radial-gradient(ellipse 90% 44% at 20% 88%, #70a880 0 60%, transparent 61%), linear-gradient(180deg, #dceef0, #f4efe3); }",
+ "splash_pal": {
+  "bg": "#f4efe3",
+  "bg2": "#ece5d4",
+  "surface": "#fffdf7",
+  "ink": "#1f2a22",
+  "muted": "#3d4a40",
+  "gold": "#b0401c",
+  "soft": "#8f3415",
+  "light": true
+ },
+ "scene": "{ world: true, name: \"Paper Hills\", icon: \"🎈\", desc: \"A breezy hillside: birdsong, wind in the trees, a brook below, the turn of a page.\", atmo: \"papercut\",\n               beds: { birds: 0.4, windTrees: 0.3, river: 0.16, pages: 0.3, chimes: 0.1 }, pad: 0.35, piano: true, bells: false, beat: false,\n               root: \"D\", mode: \"major\", prog: [0, 3, 4, 0], chordSec: 0, gap: [6, 12], bpm: 72, vol: 0.45 }",
+ "splash_js": "tools/themes/splash/papercut.js"
+}

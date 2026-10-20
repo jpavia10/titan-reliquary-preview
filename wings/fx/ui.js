@@ -18,7 +18,7 @@
     dynasty: ["lantern-feast", 0.85], zen: ["garden", 0.85], samadhi: ["style-mesh+incense-curl*0.5", 0.85], silkroad: ["dunes", 0.85],
     /* styles-20 (notes/agents/styles-20.md): the six new themes, one style preset each (wings/fx/styles-*.js) */
     arcade: ["style-pixel", 0.85], pulp: ["style-comic", 0.8], drafting: ["style-blueprint", 0.85], diorama: ["style-clay", 0.8],
-    bauhaus: ["style-bauhaus+style-kinetic*0.8", 0.8], terminal: ["style-splitflap", 0.85], y2k: ["style-y2k", 0.85],
+    bauhaus: ["style-bauhaus+style-kinetic*0.8", 0.8], terminal: ["style-splitflap", 0.85], papercut: ["style-papercut", 0.85], y2k: ["style-y2k", 0.85],
     /* World ids from notes/agents/theme-pot.md (each descends from one of the atmospheres above) */
     "midnight-gallery": ["style-particles+moonlit*0.35", 0.85], "conservators-bench": ["style-halftone+loupe*0.4", 0.7], clear: [null, 0], "the-mint": ["style-liquid+mint-forge*0.5", 0.85],
     "hoard-hall": ["mead-hall", 0.9], "blue-note": ["style-deco+bluenote*0.45", 0.85], "captains-cabin": ["voyage", 0.85], shipwreck: ["deepsea", 0.9],

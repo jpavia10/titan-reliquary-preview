@@ -13,6 +13,7 @@
      clay      soft clay: big radii, puffy inner/outer shadows, pastel blobs on the page, pill buttons that squash when pressed
      board     departures board: tracked uppercase signage, split-flap seams across tiles, mono numerals
      chrome    Y2K chrome: pastel blobs on the page, glossy pill buttons, chrome-edged cards
+     papercut  cut card stock: paper fibre on the page, two coloured card layers peeking out under each card (--cut-l1, --cut-l2)
    Loaded last (after the wing sheets) so these rules win over component defaults. No layout: borders, radii, shadows,
    backgrounds, type case and spacing only. Motion stops under reduced motion and Motion Calm/Off.
    ========================================================================== */
@@ -256,6 +257,30 @@ html[data-ui~="chrome"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .
   transform: translateY(1px) scale(0.98); box-shadow: 0 0 0 1px rgba(130, 136, 204, 0.7), inset 0 3px 7px rgba(70, 76, 160, 0.25);
 }
 html[data-ui~="chrome"] nav.wings { border-radius: 26px; box-shadow: 0 0 0 1px rgba(150, 156, 214, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 30px rgba(60, 50, 140, 0.16); }
+
+/* ---------- 9. papercut (2026-10-20, Paper Hills) -------------------------------------------------------------------
+   Layered card stock: a faint paper fibre on the page, and each card sits on two offset sheets of coloured card (--cut-l1,
+   --cut-l2) with a soft shadow under the stack. Buttons are card tabs that press flat. Shadows and the page background only. */
+html[data-ui~="papercut"] body {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .16 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23f)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, color-mix(in srgb, #dceef0 55%, var(--bg)) 0, var(--bg) 340px);
+}
+html[data-ui~="papercut"] :is(.hg-tile, .wing-card, .note-card, .vault-valuation-hub, .ex-info-placard, .lab-banner, .gx-tile, .cf-placard, .gf-finder,
+  .vx-sec, .vx-lot, .vx-wi-card, .sheet-card, .card, .tile, .album-card, .latest-card, .metal-tile, .shoot-card, .piece-card, .hero-trust, .scenario-card) {
+  border-radius: var(--radius, 10px);
+  box-shadow: 0 0 0 1px rgba(70, 55, 30, 0.10), 4px 5px 0 -1px var(--cut-l1, #a9c9a4), 8px 10px 0 -2px var(--cut-l2, #dcae5c),
+    10px 16px 18px var(--cut-shadow, rgba(70, 55, 30, 0.22));
+}
+html[data-ui~="papercut"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) {
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(70, 55, 30, 0.14), 0 3px 0 var(--cut-l1, #a9c9a4), 0 5px 7px var(--cut-shadow, rgba(70, 55, 30, 0.22));
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+html[data-ui~="papercut"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn):active {
+  transform: translateY(3px); box-shadow: 0 0 0 1px rgba(70, 55, 30, 0.18), 0 0 0 var(--cut-l1, #a9c9a4), 0 1px 2px var(--cut-shadow, rgba(70, 55, 30, 0.22));
+}
+html[data-ui~="papercut"] nav.wings { box-shadow: 0 0 0 1px rgba(70, 55, 30, 0.12), 0 -4px 0 -1px var(--cut-l1, #a9c9a4), 0 -8px 18px var(--cut-shadow, rgba(70, 55, 30, 0.2)); }
 
 @media (prefers-reduced-motion: reduce) {
   html[data-ui] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { transition: none; }

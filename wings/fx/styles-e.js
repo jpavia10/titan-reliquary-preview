@@ -2,6 +2,8 @@
    the "20 insane Claude animation styles" video, styles the first batch did not have a theme for). One preset per new theme:
      style-y2k        Millennium Chrome (y2k): a liquid-chrome coin with chrome blobs that orbit and merge into it, a pastel studio
                       reflected in the metal, four-point sparkles and a retro grid floor
+     style-papercut   Paper Hills (papercut): rolling hills cut from layered card with drop shadows, a paper sun, clouds and
+                      hot-air balloons; moment: a balloon carries a gold paper coin up the page
    Loads after wings/fx/presets.js. Premultiplied output (rgb*a); light themes paint with alpha only and never add light, and the
    engine's text-safe mask attenuates every pass over text (notes/agents/styles-20.md, section 3). */
 (function () {
@@ -110,5 +112,65 @@
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return y2k(fc); }" }]
+  });
+  /* =====================================================================================================================
+     2. style-papercut · Paper Hills (light, cream card). Four layers of rolling hills cut from coloured card along the bottom, each
+        casting a soft shadow on the layer behind and drifting at its own depth with the pointer; a paper sun with cut rays, clouds
+        made of overlapping discs, two striped hot-air balloons rising slowly, and paper fibre over everything. Moment "lift": a
+        third balloon floats up carrying a gold paper coin.
+     ===================================================================================================================== */
+  FX.register("style-papercut", {
+    layer: "front", still: 9, safe: 0.97,
+    moments: [{ name: "lift", every: [26, 52], dur: 9 }],
+    glsl: H + [
+      "float fib(vec2 p){ return vn(p*420.)*.6 + vn(p*130.+3.)*.4; }",                  // paper fibre
+      "float hill(float x, float i){ float t = uTime*.004*(1.+i); x += t + uPar.x*(.6+i*.9);",
+      "  return -.5 + .19 - .043*i + .035*sin(x*(2.4+i*.7)+i*1.9) + .02*sin(x*(5.1+i)+i*4.1) + .012*sin(x*11.3+i*7.); }",
+      "vec3 hillC(float i){ return i < .5 ? vec3(.64,.78,.66) : i < 1.5 ? vec3(.44,.66,.50) : i < 2.5 ? vec3(.29,.52,.38) : vec3(.86,.68,.36); }",
+      "float disc(vec2 p, vec2 c, float r){ return length(p-c)-r; }",
+      "float cloud(vec2 p, vec2 c, float s){ float d = disc(p, c, .05*s); d = min(d, disc(p, c+vec2(.055,.012)*s, .04*s)); d = min(d, disc(p, c+vec2(-.05,.004)*s, .035*s)); d = min(d, max(p.y-(c.y-.012*s), abs(p.x-c.x)-.085*s)); return d; }",
+      "float balloon(vec2 p, vec2 c, float s, out float stripe, out float basket){",
+      "  vec2 q = (p-c)/s; float body = length(q*vec2(1.,.92)-vec2(0.,.02))-.05; float neck = max(abs(q.x)-.018+q.y*.4, abs(q.y+.055)-.02);",
+      "  stripe = step(.5, fract(atan(q.x, .06)*2.2)); float bk = max(abs(q.x)-.013, abs(q.y+.1)-.009); basket = step(bk, 0.);",
+      "  float rope = max(abs(abs(q.x)-.011)-.0012, abs(q.y+.082)-.015);",
+      "  return min(min(body, neck), min(bk, rope))*s; }",
+      "vec4 over(vec4 top, vec4 under){ return top + under*(1.-top.a); }",
+      "vec4 card(float d, vec3 c, float shadowFrom, float al, vec2 p){",               // a paper piece: fill inside, a soft shadow just outside below-right
+      "  float px1 = 1.2/uRes.y; float inside = 1.-smoothstep(-px1, px1, d);",
+      "  float f = fib(p); vec3 cc = c*(.95+.08*f);",
+      "  float sh = (1.-inside)*exp(-max(shadowFrom,0.)/.012)*.22;",
+      "  return vec4(cc*inside*al, inside*al) + vec4(vec3(.12,.10,.08)*sh*(1.-inside), sh*(1.-inside));",
+      "}",
+      "vec4 papercut(vec2 fc){",
+      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3); vec4 col = vec4(0.);",
+      // sun with cut rays, upper right
+      "  vec2 sc = vec2(a*.5-.16, .33); float sd = disc(p, sc, .055);",
+      "  float ang = atan(p.y-sc.y, p.x-sc.x), rr = length(p-sc); float rays = rr - (.075 + .018*step(.5, fract(ang*12./6.2832 + uTime*.01)));",
+      "  vec4 sun = card(min(sd, max(rays, .052-rr)), vec3(.98,.76,.32), disc(p+vec2(-.006,.008), sc, .058), .75, p);",
+      "  col = over(sun, col);",
+      // clouds drifting
+      "  for (int i=0;i<3;i++){ float fi = float(i); float x = mod(uTime*.008*(1.+fi*.4) + fi*.9, a+.4) - a*.5 - .2; vec2 c = vec2(x, .2 + .09*fi - .02*sin(fi*3.)); float s = .9+.35*h11(fi);",
+      "    vec4 cl = card(cloud(p, c, s), vec3(1.,.99,.97), cloud(p+vec2(-.006,.009), c, s), .7, p); col = over(cl, col); }",
+      // balloons rising (two always, a third with a coin at the moment)
+      "  float k = mK();",
+      "  for (int i=0;i<3;i++){ float fi = float(i);",
+      "    float cyc = 38.+fi*11.; float ph = fract(uTime/cyc + fi*.37); vec2 c = vec2((fi-.9)*a*.32 + .05*sin(uTime*.05+fi*2.), -.42 + ph*1.05);",
+      "    float vis = smoothstep(0.,.08,ph)*(1.-smoothstep(.85,1.,ph));",
+      "    if (i == 2) { if (k < 0.) continue; c = vec2(a*.12, -.45 + k*1.0); vis = smoothstep(0.,.08,k)*(1.-smoothstep(.85,1.,k)); }",
+      "    float st, bk; float d = balloon(p, c, .9+.25*fi*.5, st, bk);",
+      "    vec3 bc = mix(i == 0 ? vec3(.86,.36,.30) : i == 1 ? vec3(.30,.52,.80) : vec3(.92,.70,.22), vec3(1.,.97,.9), st*.85); bc = mix(bc, vec3(.55,.37,.22), bk);",
+      "    float sd2 = balloon(p+vec2(-.005,.008), c, .9+.25*fi*.5, st, bk);",
+      "    vec4 b = card(d, bc, sd2, .78*vis, p); col = over(b, col);",
+      "    if (i == 2) { vec2 cc = c + vec2(0., -.13); float cd = disc(p, cc, .024); vec4 coin = card(cd, vec3(.86,.66,.22), disc(p+vec2(-.004,.006), cc, .025), .9*vis, p);",
+      "      float rim = abs(length(p-cc)-.018) < .0018 ? 1. : 0.; coin.rgb *= 1.-.3*rim; col = over(coin, col); }",
+      "  }",
+      // hills, back to front; each casts its shadow on the layers behind it
+      "  for (int i=0;i<4;i++){ float fi = float(i); float h = hill(p.x, fi); float d = p.y - h;",
+      "    float hs = hill(p.x - .006, fi); float sdist = p.y - hs - .008;",
+      "    vec4 hl = card(d, hillC(fi), sdist, .72 - .04*fi, p); col = over(hl, col); }",
+      "  return col*I*.95;",
+      "}"
+    ].join("\n") + "\n",
+    passes: [{ frag: "vec4 fx(vec2 fc){ return papercut(fc); }" }]
   });
 })();

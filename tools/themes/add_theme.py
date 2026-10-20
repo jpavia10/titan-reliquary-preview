@@ -129,7 +129,7 @@ def main(spec_path):
     t = rd("js/motion-splash.js")
     if f"\n    {tid}:" not in t.split("function palette(")[0]:
         pal = ", ".join(f"{k}: {js(v)}" for k, v in s["splash_pal"].items())
-        e = last_line_with(t.split("function palette(")[0], '    terminal:   { bg: "#0d0f12"')
+        e = t.find("\n  };", t.find('    terminal:   { bg: "#0d0f12"'))         # end of the palette table: append after its last entry
         t = t[:e] + "," + f"\n    {tid + ':':<11} {{ {pal} }}" + t[e:]; log.append("splash palette")
     if s.get("splash_js") and f"STYLES.{tid} =" not in t:
         code = open(P(s["splash_js"]), encoding="utf-8").read().rstrip() + "\n\n"
