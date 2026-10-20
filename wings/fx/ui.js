@@ -17,7 +17,7 @@
     solaris: ["style-wireframe+coronagraph*0.5", 0.85], alchemist: ["athanor", 0.85], glacier: ["style-ice-glass+polar-ice*0.4", 0.85], valhalla: ["mead-hall", 0.9],
     dynasty: ["lantern-feast", 0.85], zen: ["garden", 0.85], samadhi: ["style-mesh+incense-curl*0.5", 0.85], silkroad: ["dunes", 0.85],
     /* styles-20 (notes/agents/styles-20.md): the six new themes, one style preset each (wings/fx/styles-*.js) */
-    arcade: ["style-pixel", 0.85], pulp: ["style-comic", 0.8], drafting: ["style-blueprint", 0.85], diorama: ["style-clay", 0.8],
+    arcade: ["style-pixel", 0.85], pulp: ["style-comic", 0.8], drafting: ["style-blueprint", 0.85], diorama: ["style-clay", 0.65],
     bauhaus: ["style-bauhaus+style-kinetic*0.8", 0.8], terminal: ["style-splitflap", 0.85], marbled: ["style-marble", 0.85], cathedral: ["style-glass", 0.85], contour: ["style-topo", 1.05], banknote: ["style-guilloche", 0.85], freefall: ["style-physics", 0.9], sketch: ["style-sketch", 0.85], papercut: ["style-papercut", 0.6], y2k: ["style-y2k", 0.85],
     /* World ids from notes/agents/theme-pot.md (each descends from one of the atmospheres above) */
     "midnight-gallery": ["style-particles+moonlit*0.35", 0.85], "conservators-bench": ["style-halftone+loupe*0.4", 0.7], clear: [null, 0], "the-mint": ["style-liquid+mint-forge*0.5", 0.85],

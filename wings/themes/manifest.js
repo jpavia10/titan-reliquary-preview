@@ -61,7 +61,7 @@
     { id: "drafting", name: "Drafting Room", collection: "Museum", tier: "signature", art: C("drafting"), ui: ["blueprint"], styles: ["Blueprint"],
       mood: "The engraver's drafting room: every coin drawn to scale.", fx: "style-blueprint", fxIntensity: 0.85, scene: "drafting", tokens: {} },
     { id: "diorama", name: "Clay Diorama", collection: "Studio", tier: "signature", art: C("diorama"), ui: ["paper", "clay"], styles: ["Clay 3D", "Isometric"],
-      mood: "A miniature vault in soft clay, seen from above like a toy model.", fx: "style-clay", fxIntensity: 0.8, scene: "diorama", tokens: {} },
+      mood: "A miniature vault in soft clay, seen from above like a toy model.", fx: "style-clay", fxIntensity: 0.65, scene: "diorama", tokens: {} },
     { id: "bauhaus", name: "Bauhaus", collection: "Studio", tier: "signature", art: C("bauhaus"), ui: ["paper", "brutal"], styles: ["Bauhaus", "Kinetic type"],
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],

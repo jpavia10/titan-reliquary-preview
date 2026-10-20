@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 9/34: Clay Diorama / diorama (owner-approved push) (tr137)
+* Theme upgrade 9/34 (worst first, owner-approved 2026-10-20 06:55 PT). Clay Diorama was #26: ~16 fps idle on the phone floor, clay props floating over every screen, gallery and coin page generic.
+* Speed: style-clay (a raymarch, the costliest pass in the app) now redraws at 12 fps, which is how claymation is shot (on twos), and runs at 0.65 strength (was 0.8) so the props crowd the text less. Phone floor 40.3 -> 59.6 fps idle (ranking: 15.7).
+* Every screen (`styles/atmo/diorama.css` v2): pressed plasticine tiles with a puffy rolled edge and a thumbprint texture, clay-pill buttons that squash and stretch when pressed, coins on rolled clay discs, chunky rounded headings, a clay-orange active state, 44 px+ controls, reduced-motion CSS.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrades 1-7 follow-up: coin-page specificity (owner-approved push) (tr136)
 * Follow-up to theme upgrades 1-7: the coin page rules in styles/gallery.css are `#drawer-body ...` (id specificity), so part of each v2 coin-page restyle (headings, value boxes, labels, the coin stage) was not winning. The v2 blocks of sketch, freefall, colossus, papercut, glacier, pulp and afterhours now use `:is(#drawer-body, body)` (same elements, id-level specificity), and the value cards target `.gxd-value > div` (the cards) rather than the row. Sketchbook and Pulp only enlarge the estimate, not the face value.
 

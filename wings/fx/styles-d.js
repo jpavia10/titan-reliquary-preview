@@ -173,7 +173,7 @@
         centre on phones); the moment drops a clay coin that squashes on landing.
      ===================================================================================================================== */
   FX.register("style-clay", {
-    layer: "front", still: 6, safe: 0.97,
+    layer: "front", still: 6, safe: 0.97, fps: 12,   // v2 (Grok, 2026-10-20): claymation is shot on twos (12 fps), and the raymarch was the costliest pass in the app
     moments: [{ name: "drop", every: [24, 50], dur: 2.6 }],
     glsl: H + [
       "float sdRBox(vec3 p, vec3 b, float r){ vec3 q = abs(p)-b+r; return length(max(q,0.))+min(max(q.x,max(q.y,q.z)),0.)-r; }",
