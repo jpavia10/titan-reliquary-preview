@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 7/34: Midnight Gallery / afterhours (owner-approved push) (tr134)
+* Theme upgrade 7/34 (worst first, owner-approved 2026-10-20 06:55 PT). Midnight Gallery (afterhours, the default theme) was #28: ~19 fps idle on the phone floor.
+* Speed: style-particles is cheaper at the low quality tiers (one noise layer fewer, 1,100 motes instead of 2,400 at the lowest tier); `wings/fx/engine.js` now skips a faint accent preset (the "*0.35" part of "a+b*0.35") only at the lowest quality tier, which also helps every other two-preset theme on slow phones. Phone floor 34 -> 60.3 fps idle.
+* Every screen (`styles/atmo/afterhours.css` v2): black-marble panels with grey veining and champagne-brass hairlines, brass plaque labels, the coin on a marble plinth under a moonlight spotlight, gallery slabs hung as framed exhibits, Didone headings and values, 44 px+ controls, reduced-motion CSS.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 6/34: Pulp Adventure / pulp (owner-approved push) (tr133)
 * Theme upgrade 6/34 (worst first, owner-approved 2026-10-20 06:55 PT). Pulp Adventure was #29: only the headline font sold the concept.
 * Every screen (`styles/atmo/pulp.css` v2): newsprint panels outlined in heavy ink with hard offset shadows, a red halftone dot screen on the hero, misregistered CMYK shadows on the big headings, the coin page framed as a pulp cover (red tilted title banner, "ISSUE" before the catalogue id), a starburst on the estimate, a panel slam when a coin opens (off with reduced motion), buttons that press into their shadow, 44 px+ controls. 60 fps idle on the phone floor before and after.

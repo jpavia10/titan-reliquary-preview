@@ -488,6 +488,7 @@
     var ready = true;
     for (var i = 0; i < l.passes.length; i++) if (progStatus(l.passes[i]) === null) { ready = false; break; }
     if (!ready) return false;
+    if (l.accent && scaleStep >= LADDER.length - 1) return false;   // v2 (Grok, 2026-10-20): at the lowest quality tier a faint accent preset is skipped (each is a full-screen pass)
     var eff = l.intensity * userGain() * (l.def.gain || 1) * (1 - 0.3 * theme.light);   // light atmospheres: dark text on a pale ground has little contrast to spare
     var q = LADDER[Math.min(scaleStep, LADDER.length - 1)][1], any = false;
     if (l.def.canvas && !updCanvas(l, tNow, q)) return false;
@@ -786,7 +787,7 @@
     } else {
       layers.forEach(function (l) { l.target = 0; });
       if (layers.length > 3) { layers.slice(0, layers.length - 3).forEach(killLayer); pruneLayers(true); }
-      parts.forEach(function (p) { layers.push(makeLayer(p.def, base * p.w, opts.tint)); });
+      parts.forEach(function (p) { var ly = makeLayer(p.def, base * p.w, opts.tint); ly.accent = parts.length > 1 && p.w < 0.6; layers.push(ly); });   // accent = a faint second preset ("a+b*0.35")
       scaleStep = qMem[key] != null ? Math.min(qMem[key], LADDER.length - 1) : (qMem[parts[0].def.id] != null ? Math.min(qMem[parts[0].def.id], LADDER.length - 1) : 0);
       want.id = key;
       if (forced != null) { scaleStep = forced; cal = null; } else if (qMem[key] == null) startCal(); else cal = null;

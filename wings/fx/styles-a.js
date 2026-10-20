@@ -48,7 +48,7 @@
     "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3); float t = uTime;",
     "  vec2 S = pSrc(a); vec2 d = p-S; float ang = atan(d.x,-d.y), L = length(d);",
     // streaky volumetric noise stretched along each shaft (angle across, distance along)
-    "  float nz = fbmQ(vec2(ang*16., L*.9 - t*.035), uQ>1.5?4:2)*1.5 + .25*fbmQ(vec2(ang*43.+3., L*2.1 - t*.06), 2);",
+    "  float nz = fbmQ(vec2(ang*16., L*.9 - t*.035), uQ>1.5?4:2)*1.5 + (uQ > .5 ? .25*fbmQ(vec2(ang*43.+3., L*2.1 - t*.06), 2) : .12);",
     "  float env = 0.;",
     "  if (uMoment.z > 0. && uMoment.x >= 0.) env = smoothstep(.3,2.2,uMoment.x)*(1.-smoothstep(uMoment.z-2.6, uMoment.z-.6, uMoment.x));",
     "  float bm = pShaft(p, a, t, nz)*(1.+.4*env);",
@@ -56,7 +56,7 @@
     "  vec3 c = moon*(bm*.62 + exp(-sq(length(p-pSrc(a))/.6))*.16);",
     // a faint pool of light where the shafts land, and a cold haze low in the room
     "  float pool = exp(-sq((p.x-a*.1)/(a*.55)))*smoothstep(-.1,-.6,p.y)*.05;",
-    "  float haze = smoothstep(.35,.8,fbmQ(p*1.2+vec2(t*.012,0.),3))*.05;",
+    "  float haze = smoothstep(.35,.8,fbmQ(p*1.2+vec2(t*.012,0.),uQ > .5 ? 3 : 1))*.05;",
     "  c += vec3(.4,.55,.9)*(pool + haze);",
     // moment: a halo and a thin bright rim behind the gathering coin
     "  if (env > 0.) { float R = pCoinR(a); vec2 C = pCoinC(a, uMoment.y); float r = length(p-C);",
@@ -203,13 +203,13 @@
   }
 
   FX.register("style-particles", {
-    layer: "front", still: 24, tap: "warp", glsl: P + LIB + PBEAM,
+    layer: "front", still: 24, tap: "warp", glsl: P + LIB + PBEAM, fps: 30,   // v2 (Grok, 2026-10-20): slow dust drifts fine at 30 redraws a second
     canvas: { w: 128, h: 128, fps: 6, draw: drawCoinMap },
     front: { rate: 0.3, size: 0.15, alpha: 0.08, kind: 0, color: [0.62, 0.76, 1.0] },
     moments: [{ name: "gather", every: [45, 90], dur: 8 }],
     passes: [
       { frag: PART_FRAG },
-      { count: [2400, 4800, 8000, 11000], glow: 0.8, vert: PART_VERT, ifrag: PART_IFRAG }
+      { count: [1100, 3600, 7000, 11000], glow: 0.8, vert: PART_VERT, ifrag: PART_IFRAG }   // v2: fewer motes at the lowest tier (phones on the software floor)
     ]
   });
 
