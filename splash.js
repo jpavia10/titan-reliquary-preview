@@ -417,12 +417,15 @@
     try { localStorage.setItem("tr_splash_film_last", pick); } catch (e) {}
     return pick;
   }
-  /* The clips are 8-12 Mbps and 13-24 MB. On Data Saver or a connection too slow to stream them, use the real-time 3D opening instead
-     (nothing to download, capped at CAP_MS). ?film=N still forces a clip. Browsers without navigator.connection (Safari) are unchanged. */
+  /* The clips are 8-12 Mbps and 13-24 MB. On Data Saver or a 2g/3g connection, use the real-time 3D opening instead (nothing to
+     download, capped at CAP_MS). ?film=N still forces a clip. Browsers without navigator.connection (Safari) are unchanged.
+     2026-10-20 (owner: "None of groks intros appear"): the tr117 rule also skipped the film when navigator.connection.downlink was
+     under 5 Mbps, but Chrome's downlink is a rough estimate that often reads 1-2 Mbps on a fast line, so the film almost never
+     played. A slow line is now caught by watching the film itself: a clip that stalls is cut short (STALL_MS in filmPath). */
   function slowNet() {
     var c = navigator.connection;
     if (!c || /[?&]film=\d/.test(location.search)) return false;
-    return !!(c.saveData || /(^|-)2g$|^3g$/.test(c.effectiveType || "") || (c.downlink > 0 && c.downlink < 5));
+    return !!(c.saveData || /(^|-)2g$|^3g$/.test(c.effectiveType || ""));
   }
   function filmPath() {
     if (slowNet()) return false;
@@ -446,7 +449,15 @@
     window.__tsFilmUntil = performance.now() + 20000; later(function () { if (!motion) finish(true, 0.5); }, 20000);   // clips run ~15 s; the film's own hard cap (the motion after it ends itself)
     var started = false, tail = FILM.tail || 1.4, shown = false;
     var fallback = later(function () { if (started || state === "done") return; filmEl = null; dropVideo(v); root.classList.remove("ts-filmon"); window.__tsFilmUntil = 0; runGL(); }, 5000);
-    v.addEventListener("playing", function () { started = true; clearTimeout(fallback); v.style.opacity = "1"; });
+    // A line too slow for the clip shows up as buffering mid-film: a second stall, or one longer than STALL_MS, goes on to the app
+    // (measured 2026-10-20, throttled: 12 Mbps plays the whole clip smoothly, 5 Mbps stalls every 1-2 s and is cut at the second stall).
+    var stall = 0, stalls = 0, STALL_MS = 1500;
+    v.addEventListener("playing", function () { started = true; clearTimeout(fallback); clearTimeout(stall); stall = 0; v.style.opacity = "1"; });
+    v.addEventListener("waiting", function () {
+      if (!started || stall || state === "done" || filmEl !== v) return;
+      if (++stalls >= 2) { filmEnd(0.6); return; }
+      stall = later(function () { stall = 0; if (state !== "done" && filmEl === v && v.readyState < 3) filmEnd(0.6); }, STALL_MS);
+    });
     var EXIT = FILM.exit || 1.6;                        // seconds: the zoom-through starts this long before the last frame
     v.addEventListener("timeupdate", function () {
       if (v.duration && v.currentTime > v.duration - EXIT) filmEnd(EXIT);

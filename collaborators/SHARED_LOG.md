@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Claude/Opus integrator (Grok's opening films were not playing, tr126)
+* Owner: "None of groks intros appear". Cause: the tr117 patch GRK-P-02 skipped the film when `navigator.connection.downlink` < 5 Mbps; Chrome's downlink is a rough estimate (1.4 Mbps in the container on a fast line), so the film almost never played on Chrome since Oct 15.
+* Fix (`splash.js`): skip only on Data Saver or a 2g/3g effectiveType; a slow line is caught by the film itself: a second mid-film stall, or one over 1.5 s, hands over to the app. Throttled tests: 12 Mbps plays the whole clip, 1.6 Mbps falls back at the 7 s gate.
+
 ### [2026-10-20] — Claude/Opus integrator (themes for every style in the owner's second "20 styles" video, one per deploy)
 * 16 of the video's 20 styles already had a theme; new: Y2K chrome (**Millennium Chrome**, `y2k`, tr118), Paper cutout (**Paper Hills**, `papercut`, tr119), Hand-drawn (**Sketchbook**, `sketch`, tr120), Physics (**Free Fall**, `freefall`, tr121: a real JS rigid-body sim feeding the shader through a 64x4 data texture; tap knocks the coins): all 20 styles now have a theme. Extras: guilloche (**Treasury Note**, `banknote`, tr122), topographic (**Survey Map**, `contour`, tr123), stained glass (**Cathedral Glass**, `cathedral`, tr124), marbled paper (**Marbled Endpapers**, `marbled`, tr125). 34 themes now.
 * New themes are wired by `tools/themes/add_theme.py tools/themes/specs/ID.json` (16 places, idempotent); their effects live in `wings/fx/styles-e.js`, their openings in `tools/themes/splash/ID.js` (inserted into js/motion-splash.js), new UI treatments `chrome`, `papercut`, `sketch`, `spring`, `note`, `topo`, `lead` and `endpaper` in styles/style-layer.css. Not yet seen on a real GPU or phone (software WebGL in the container); picker cards for the new themes still use the CSS swatch (no art request written yet).
