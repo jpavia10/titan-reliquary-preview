@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Zen Garden (tr164)
+- Zen Garden redesigned to style every screen: wet-slate panels with raked-gravel lines, a raked-circle stone basin coin stage, moss-lit values, pebble pill buttons.
+- Phone fps 60.3; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Neon Vault (tr163)
 - Neon Vault redesigned to style every screen: glass panels edged in cyan and magenta neon tube light, wet-street reflections, a neon-ring coin, glowing values.
 - Phone fps 60.2; AA contrast; 44px targets via tpl.
