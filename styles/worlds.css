@@ -159,3 +159,11 @@ img.th-img { background: #0b0a0e; }
 /* the previews hold still when the phone or the Motion setting asks for less motion */
 @media (prefers-reduced-motion: reduce) { .th-prev i { animation: none !important; } }
 html[data-motion="calm"] .th-prev i, html[data-motion="off"] .th-prev i { animation: none !important; }
+
+/* cinematic theme switch: circular reveal from the tap point; the old theme sinks and dims (compositor-only, 0.7 s) */
+html.vt-theme::view-transition-group(root) { animation-duration: 0.7s; }
+html.vt-theme::view-transition-old(root) { animation: vt-sink 0.7s cubic-bezier(.4,0,.2,1) both; }
+html.vt-theme::view-transition-new(root) { animation: vt-open 0.7s cubic-bezier(.3,.7,.2,1) both; mix-blend-mode: normal; }
+@keyframes vt-sink { to { transform: scale(0.94); filter: brightness(0.55); } }
+@keyframes vt-open { from { clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 50%)); } to { clip-path: circle(150vmax at var(--vt-x, 50%) var(--vt-y, 50%)); } }
+@media (prefers-reduced-motion: reduce) { html.vt-theme::view-transition-old(root), html.vt-theme::view-transition-new(root) { animation: none !important; } }

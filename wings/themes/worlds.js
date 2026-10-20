@@ -27,6 +27,8 @@
     }
   }
 
+  var lastTap = { x: innerWidth / 2, y: innerHeight / 2 };
+  document.addEventListener("pointerdown", function (e) { lastTap = { x: Math.round(e.clientX), y: Math.round(e.clientY) }; }, { capture: true, passive: true });
   function apply(id) {
     if (!by[id] || !window.TitanSetAtmo) return;
     /* app.js loads an atmosphere's stylesheet on demand: TitanSetAtmo applies it once the sheet is ready, so the
@@ -40,7 +42,11 @@
     if (root.getAttribute("data-atmo") === id) { sync(id); return; }
     if (reduced()) { go(); return; }
     if (document.startViewTransition) {
+      /* cinematic switch (Grok 2026-10-20): the new theme opens as a circle from where you tapped while the old one sinks back */
+      root.style.setProperty("--vt-x", lastTap.x + "px"); root.style.setProperty("--vt-y", lastTap.y + "px");
+      root.classList.add("vt-theme");
       var vt = document.startViewTransition(go);
+      vt.finished.then(function () { root.classList.remove("vt-theme"); }, function () { root.classList.remove("vt-theme"); });
       vt.finished.then(function () {}, function () {});
     } else {
       root.classList.add("world-fade");
