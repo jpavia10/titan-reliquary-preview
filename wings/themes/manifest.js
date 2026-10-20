@@ -79,7 +79,7 @@
     { id: "sketch", name: "Sketchbook", collection: "Studio", tier: "signature", art: null, ui: ["paper", "sketch"], styles: ["Hand-drawn"],
       mood: "Pencil on drawing paper: doodles sketch themselves in the margins while the collection is drawn by hand.", fx: "style-sketch", fxIntensity: 0.85, scene: "sketch", tokens: {} },
     { id: "papercut", name: "Paper Hills", collection: "Studio", tier: "signature", art: null, ui: ["paper", "papercut"], styles: ["Paper cutout"],
-      mood: "A layered paper landscape: hills, sun and balloons cut from card, the collection pinned to the paper.", fx: "style-papercut", fxIntensity: 0.85, scene: "papercut", tokens: {} },
+      mood: "A layered paper landscape: hills, sun and balloons cut from card, the collection pinned to the paper.", fx: "style-papercut", fxIntensity: 0.6, scene: "papercut", tokens: {} },
     { id: "y2k", name: "Millennium Chrome", collection: "Studio", tier: "signature", art: null, ui: ["paper", "chrome"], styles: ["Y2K chrome"],
       mood: "Liquid chrome and pastel sparkle: the collection as a Y2K dream, every coin polished to a mirror.", fx: "style-y2k", fxIntensity: 0.85, scene: "y2k", tokens: {} }
   ];

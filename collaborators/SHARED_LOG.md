@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 4/34: Paper Hills / papercut (owner-approved push) (tr131)
+* Theme upgrade 4/34 (worst first, owner-approved 2026-10-20 06:55 PT). Paper Hills (papercut) was #31: "barely more than colours".
+* Every screen (`styles/atmo/papercut.css` v2): a pop-up book. Panels are sheets of fibred card lifted on sage and ochre paper layers, the coin stage and the search box sit on deckle-edged (hand-torn) sheets, coins stand on stacked paper-disc plinths, the coin page unfolds from a top hinge once when it opens, paper hills run along the foot of the coin page, and the Specimen Showcase is a night scene cut from navy card instead of the default dark slab.
+* Effect: style-papercut redraws at 30 fps and runs at 0.6 strength (was 0.85) so the balloons and hills no longer crowd the text. Phone floor 55.6 -> 60.3 fps idle.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 3/34: The Mint / colossus (owner-approved push) (tr130)
 * Theme upgrade 3/34 (worst first, owner-approved 2026-10-20 06:55 PT). The Mint (colossus) was #32: ember orbs floated over the text and coins, ~29 fps idle on the phone floor.
 * Effects: style-liquid redraws at 30 fps (new engine `fps` cap) with a cheaper noise at low quality and no out-of-focus orbs; mint-forge embers are smaller and fainter so text stays sharp. Phone floor ~52 -> 54-60 fps idle (measured while tests ran; ranking had 28.8).

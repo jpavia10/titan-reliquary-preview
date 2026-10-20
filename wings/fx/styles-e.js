@@ -137,7 +137,7 @@
         third balloon floats up carrying a gold paper coin.
      ===================================================================================================================== */
   FX.register("style-papercut", {
-    layer: "front", still: 9, safe: 0.97,
+    layer: "front", still: 9, safe: 0.97, fps: 30,   // v2 (Grok, 2026-10-20): paper drifts slowly; 30 redraws a second
     moments: [{ name: "lift", every: [26, 52], dur: 9 }],
     glsl: H + [
       "float fib(vec2 p){ return vn(p*420.)*.6 + vn(p*130.+3.)*.4; }",                  // paper fibre
