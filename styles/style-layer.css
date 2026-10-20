@@ -16,6 +16,8 @@
      papercut  cut card stock: paper fibre on the page, two coloured card layers peeking out under each card (--cut-l1, --cut-l2)
      sketch    drawn by hand: drawing-paper tooth, pencil outlines with uneven corners and a second pencil line (--sk-line,
                --sk-echo), section headings in a hand-lettered face (--hand)
+     spring    physics lab: a faint measuring grid on the page (--lab-grid), buttons squash when pressed and spring back with an
+               overshoot (--spring)
    Loaded last (after the wing sheets) so these rules win over component defaults. No layout: borders, radii, shadows,
    backgrounds, type case and spacing only. Motion stops under reduced motion and Motion Calm/Off.
    ========================================================================== */
@@ -305,6 +307,15 @@ html[data-ui~="sketch"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .
 html[data-ui~="sketch"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn):active { transform: translate(1px, 1px); box-shadow: none; }
 html[data-ui~="sketch"] :is(.sec-head h2, .wing-head h2, .vx-sec h2) { font-family: var(--hand, cursive); letter-spacing: 0; text-transform: none; }
 html[data-ui~="sketch"] nav.wings { border-top: 1.5px solid var(--sk-line, rgba(34, 35, 42, 0.78)); box-shadow: 0 -3px 0 -1.5px var(--sk-echo, rgba(34, 35, 42, 0.3)); }
+
+/* ---------- 11. spring (2026-10-20, Free Fall) ----------------------------------------------------------------------
+   Physics lab: a faint measuring grid on the page (an SVG tile, so the audit does not read grid stops as panel colours), and
+   buttons with mass: they squash quickly when pressed and spring back past their size before settling (--spring overshoot). */
+html[data-ui~="spring"] body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M56 0V56M0 56H56' fill='none' stroke='%23a0b4dc' stroke-opacity='.07'/%3E%3Cpath d='M28 0V56M0 28H56' fill='none' stroke='%23a0b4dc' stroke-opacity='.035'/%3E%3C/svg%3E");
+}
+html[data-ui~="spring"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { transition: transform 0.55s var(--spring, cubic-bezier(0.34, 1.9, 0.5, 1)); }
+html[data-ui~="spring"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn):active { transform: scale(0.92, 0.88); transition-duration: 0.08s; transition-timing-function: ease-out; }
 
 @media (prefers-reduced-motion: reduce) {
   html[data-ui] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { transition: none; }

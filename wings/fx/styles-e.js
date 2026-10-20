@@ -7,6 +7,10 @@
      style-sketch     Sketchbook (sketch): pencil doodles (a star, a spiral, a light bulb, a coin, an arrow, a heart, loops) draw
                       themselves in the margins with a little pencil, are gone over once more, then erased; moment: a big
                       sketched coin, hatched in
+     style-physics    Free Fall (freefall): a real 2D rigid-body simulation in JavaScript: coins rain from above, bounce, roll
+                      and heap up in the corners, a tap knocks them about, and when the heap is full the floor opens and
+                      they pour away; the coins' positions reach the shader through a tiny data texture (uTex) and are
+                      drawn there as lit metal discs; moment: a jackpot of coins pours from the top
    Loads after wings/fx/presets.js. Premultiplied output (rgb*a); light themes paint with alpha only and never add light, and the
    engine's text-safe mask attenuates every pass over text (notes/agents/styles-20.md, section 3). */
 (function () {
@@ -273,5 +277,168 @@
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return sketch(fc); }" }]
+  });
+  /* =====================================================================================================================
+     4. style-physics · Free Fall (dark). The only preset with real physics: a small impulse solver (discs with mass, spin,
+        restitution and friction against each other, the walls and the floor, 6 sub-steps) runs in the canvas hook at 30 fps.
+        Coins spawn above the screen near the side margins, bounce, roll and heap up; a tap anywhere knocks nearby coins away;
+        when the heap is full it holds, then the floor opens and the coins pour away, and the rain starts again. Positions are
+        packed into a 64x4 RGBA data texture (16-bit x and y, angle, radius, metal, impact glint) read with texelFetch, so the
+        coins are drawn at full screen resolution as lit, reeded metal discs with a star device that turns as they roll.
+        Moment "jackpot": a dozen coins pour from the top centre. Reduced motion: one frame of a settled heap (pre-simulated).
+     ===================================================================================================================== */
+  var PHY = { cs: [], last: -1, A: 1.6, open: 0, hold: 0, spawnT: 0, seed: 7, kick: null, burst: 0, seen: -1e9, cap: 30, floor: 0, floorT: -9 };
+  function phyRnd() { PHY.seed = (PHY.seed * 16807) % 2147483647; return (PHY.seed - 1) / 2147483646; }
+  function phyCoin(x, y, vx, vy) {
+    var r = (0.026 + 0.02 * phyRnd()) * (PHY.A < 0.8 ? 0.72 : 1), k = phyRnd();                // smaller coins on a narrow phone screen
+    PHY.cs.push({ x: x, y: y, vx: vx, vy: vy, a: phyRnd() * 6.28, w: (phyRnd() - 0.5) * 6, r: r, m: r * r, k: k < 0.45 ? 0 : k < 0.8 ? 1 : 2, hit: 0 });
+  }
+  function phySpawn() {
+    var A = PHY.A, side = phyRnd() < 0.5, mx = Math.min(0.3 * A, 0.34);
+    phyCoin(side ? 0.04 + phyRnd() * mx : A - 0.04 - phyRnd() * mx, 1.08 + phyRnd() * 0.1, (phyRnd() - 0.5) * 0.5, -0.2 - phyRnd() * 0.4);
+  }
+  function phyStep(dt) {
+    var cs = PHY.cs, A = PHY.A, n = cs.length, SUB = 6, h = dt / SUB, G = 2.6, i, j, s, c, d;
+    for (s = 0; s < SUB; s++) {
+      for (i = 0; i < n; i++) {
+        c = cs[i]; c.vy -= G * h; c.vx *= 1 - 0.15 * h; c.w *= 1 - 0.4 * h;
+        c.x += c.vx * h; c.y += c.vy * h; c.a += c.w * h;
+        if (c.x < c.r) { c.x = c.r; if (c.vx < 0) c.vx = -c.vx * 0.35; }
+        if (c.x > A - c.r) { c.x = A - c.r; if (c.vx > 0) c.vx = -c.vx * 0.35; }
+        if (!PHY.open && c.y < c.r + PHY.floor) {
+          c.y = c.r + PHY.floor;
+          if (c.vy < 0) {
+            var jn = -c.vy * c.m * 1.32; if (-c.vy > 0.35) c.hit = Math.max(c.hit, Math.min(1, -c.vy * 0.8));
+            c.vy = -c.vy * 0.32; if (c.vy < 0.04) c.vy = 0;
+            var vc = c.vx + c.w * c.r, jt = -vc / (3 / c.m), lim = 0.5 * jn;                // floor friction turns sliding into rolling
+            jt = Math.max(-lim, Math.min(lim, jt)); c.vx += jt / c.m; c.w += 2 * jt / (c.m * c.r);
+          }
+          c.vx *= 1 - 1.2 * h; c.w *= 1 - 1.2 * h;                                          // rolling resistance
+        }
+      }
+      for (i = 0; i < n; i++) for (j = i + 1; j < n; j++) {
+        var a = cs[i], b = cs[j], dx = b.x - a.x, dy = b.y - a.y, rr = a.r + b.r;
+        if (dx > rr || dx < -rr || dy > rr || dy < -rr) continue;
+        d = Math.sqrt(dx * dx + dy * dy); if (d >= rr || d < 1e-6) continue;
+        var nx = dx / d, ny = dy / d, ov = rr - d, ia = 1 / a.m, ib = 1 / b.m, it = ia + ib;
+        a.x -= nx * ov * ia / it * 0.85; a.y -= ny * ov * ia / it * 0.85; b.x += nx * ov * ib / it * 0.85; b.y += ny * ov * ib / it * 0.85;
+        var vn = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+        if (vn < 0) {
+          var J = -(1 + 0.3) * vn / it;
+          a.vx -= J * nx * ia; a.vy -= J * ny * ia; b.vx += J * nx * ib; b.vy += J * ny * ib;
+          if (-vn > 0.45) { var hh = Math.min(1, -vn * 0.7); a.hit = Math.max(a.hit, hh); b.hit = Math.max(b.hit, hh); }
+          var tx = -ny, ty = nx, vt = (b.vx - a.vx) * tx + (b.vy - a.vy) * ty - b.w * b.r - a.w * a.r;   // contact friction: spin
+          var Jt = -vt / (3 * it), L = 0.4 * J; Jt = Math.max(-L, Math.min(L, Jt));
+          a.vx -= Jt * tx * ia; a.vy -= Jt * ty * ia; b.vx += Jt * tx * ib; b.vy += Jt * ty * ib;
+          a.w -= 2 * Jt * ia / a.r; b.w -= 2 * Jt * ib / b.r;
+        }
+      }
+    }
+    for (i = 0; i < n; i++) { c = cs[i]; c.hit *= Math.exp(-dt * 5); if (c.vx * c.vx + c.vy * c.vy < 0.0004 && c.y < 0.6) { c.vx *= 0.8; c.vy *= 0.8; c.w *= 0.8; } }
+  }
+  function phyTick(t, still) {
+    var A = window.innerWidth / Math.max(1, window.innerHeight);
+    if (Math.abs(A - PHY.A) > 0.01) { var sc = A / PHY.A; PHY.cs.forEach(function (c) { c.x = Math.min(A - c.r, c.x * sc); }); PHY.A = A; }
+    PHY.cap = A > 1.1 ? 26 : A > 0.7 ? 20 : 14;
+    if (t - PHY.floorT > 1) {                                                                 // coins rest on top of a full-width bottom bar (phones), not behind it
+      PHY.floorT = t; var nav = document.querySelector("nav.wings"), f = 0;
+      if (nav) { var rc = nav.getBoundingClientRect(); if (rc.width > window.innerWidth * 0.9 && rc.bottom >= window.innerHeight - 2 && rc.height < window.innerHeight * 0.2) f = (window.innerHeight - rc.top) / window.innerHeight; }
+      PHY.floor = f;
+    }
+    if (PHY.last < 0) {                                                                       // first frame: pre-simulate a settled heap
+      for (var k = 0; k < Math.round(PHY.cap * 0.7); k++) { phySpawn(); for (var s0 = 0; s0 < 14; s0++) phyStep(1 / 30); }
+      for (var s1 = 0; s1 < 150; s1++) phyStep(1 / 30);
+      PHY.last = t; PHY.spawnT = t; return;
+    }
+    if (still) return;
+    var dt = Math.min(1 / 20, Math.max(0, t - PHY.last)); PHY.last = t;
+    if (PHY.kick) {                                                                           // a tap: knock nearby coins away and up
+      var kx = PHY.kick[0], ky = PHY.kick[1]; PHY.kick = null;
+      PHY.cs.forEach(function (c) { var dx = c.x - kx, dy = c.y - ky, d = Math.sqrt(dx * dx + dy * dy); if (d < 0.22) { var f = (1 - d / 0.22) * 1.6; c.vx += dx / (d + 0.02) * f * 0.5; c.vy += f + 0.3; c.w += (phyRnd() - 0.5) * 20; c.hit = 0.6; } });
+    }
+    if (PHY.burst > 0 && t - PHY.spawnT > 0.12) { PHY.burst--; PHY.spawnT = t; phyCoin(PHY.A / 2 + (phyRnd() - 0.5) * 0.3, 1.1, (phyRnd() - 0.5) * 1.6, -0.3); }
+    if (PHY.open) {
+      if (t - PHY.open > 3.2 || !PHY.cs.length) { PHY.open = 0; PHY.hold = 0; PHY.spawnT = t; }
+    } else if (PHY.cs.length >= PHY.cap) {
+      if (!PHY.hold) PHY.hold = t; else if (t - PHY.hold > 9) { PHY.open = t; PHY.cs.forEach(function (c) { c.vy -= 0.1; }); }
+    } else if (t - PHY.spawnT > 0.7 + 0.9 * phyRnd() && !PHY.burst) { PHY.spawnT = t; phySpawn(); }
+    phyStep(dt);
+    PHY.cs = PHY.cs.filter(function (c) { return c.y > -0.3; });
+  }
+  try {
+    window.addEventListener("pointerdown", function (e) {
+      if (performance.now() / 1000 - PHY.seen > 1) return;                                  // only while this effect is drawing
+      PHY.kick = [e.clientX / Math.max(1, window.innerHeight), 1 - e.clientY / Math.max(1, window.innerHeight)];
+    }, { passive: true });
+    window.addEventListener("titan:fx", function (e) { var d = e.detail || {}; if (d.type === "moment" && d.preset === "style-physics") PHY.burst = 12; });
+  } catch (e) { /* no window events: the rain still falls */ }
+  function physicsCanvas(c, w, h, t, info) {
+    PHY.seen = performance.now() / 1000;
+    phyTick(t, info && info.still);
+    var img = c.createImageData(w, h), D = img.data, cs = PHY.cs, n = Math.min(cs.length, w), i;
+    for (i = 0; i < D.length; i += 4) D[i + 3] = 255;
+    function put(x, y, r, g, b) { var o = (y * w + x) * 4; D[o] = r; D[o + 1] = g; D[o + 2] = b; }
+    for (i = 0; i < n; i++) {
+      var q = cs[i], X = Math.max(0, Math.min(65535, Math.round(q.x / 4 * 65535))), Y = Math.max(0, Math.min(65535, Math.round((q.y + 0.25) / 1.5 * 65535)));
+      var ang = ((q.a % 6.2832) + 6.2832) % 6.2832;
+      put(i, 0, X >> 8, X & 255, Y >> 8);
+      put(i, 1, Y & 255, Math.round(ang / 6.2832 * 255) & 255, Math.round(q.r / 0.07 * 255));
+      put(i, 2, q.k, Math.round(Math.min(1, q.hit) * 255), 0);
+    }
+    put(0, 3, n, 0, 0);
+    c.putImageData(img, 0, 0);
+    return true;
+  }
+  FX.register("style-physics", {
+    layer: "front", still: 3, safe: 0.97,
+    moments: [{ name: "jackpot", every: [30, 60], dur: 3 }],
+    canvas: { w: 64, h: 4, fps: 30, nearest: true, draw: physicsCanvas },
+    glsl: "uniform sampler2D uTex; uniform vec2 uTexRes;\n" + H + [
+      "vec4 over(vec4 top, vec4 under){ return top + under*(1.-top.a); }",
+      "vec4 T(int x, int y){ return texelFetch(uTex, ivec2(x,y), 0); }",
+      "float b8(float v){ return floor(v*255.+.5); }",
+      "float sdStar(vec2 p, float r, float rf){",                                          // five-point star (iq)
+      "  const vec2 k1 = vec2(.809017,-.587785); const vec2 k2 = vec2(-k1.x,k1.y);",
+      "  p.x = abs(p.x); p -= 2.*max(dot(k1,p),0.)*k1; p -= 2.*max(dot(k2,p),0.)*k2; p.x = abs(p.x); p.y -= r;",
+      "  vec2 ba = rf*vec2(-k1.y,k1.x) - vec2(0.,1.); float h = clamp(dot(p,ba)/dot(ba,ba),0.,r);",
+      "  return length(p-ba*h)*sign(p.y*ba.x-p.x*ba.y);",
+      "}",
+      "vec3 metal(float k){ return k < .5 ? vec3(.96,.76,.34) : k < 1.5 ? vec3(.80,.83,.88) : vec3(.82,.50,.32); }",
+      "vec4 physics(vec2 fc){",
+      "  vec2 w = fc/uRes.y; float I = clamp(uInt,0.,1.3); float px = 1./uRes.y;",
+      "  int n = int(b8(T(0,3).r)); vec4 col = vec4(0.);",
+      "  vec3 Ld = normalize(vec3(-.5,.65,.85));",
+      "  for (int i=0;i<64;i++){ if (i >= n) break;",
+      "    vec4 a = T(i,0), b = T(i,1), e = T(i,2);",
+      "    vec2 c = vec2((b8(a.r)*256.+b8(a.g))/65535.*4., (b8(a.b)*256.+b8(b.r))/65535.*1.5-.25); float r = b8(b.b)/255.*.07;",
+      "    vec2 d = w-c; float L = length(d); if (L > r + .022) continue;",
+      "    float sh = (1.-smoothstep(r-.004, r+.02, length(d-vec2(.004,-.007))))*.45;",           // soft contact shadow, down and right
+      "    float inside = 1.-smoothstep(r-px, r+px, L);",
+      "    vec4 shadow = vec4(0.,0.,0., sh*(1.-inside));",
+      "    if (inside <= 0.) { col = over(shadow, col); continue; }",
+      "    float ang = b8(b.g)/255.*6.2832; vec2 q = r2(-ang)*d/r; float rq = length(q);",
+      "    vec3 m = metal(b8(e.r)); float glint = e.g;",
+      "    vec3 nrm = normalize(vec3(d/r*.55, 1.));",                                              // a slightly domed face
+      "    float rim = smoothstep(.80,.84,rq);",
+      "    if (rim > 0.) nrm = normalize(vec3(d/r*(rq > .93 ? 1.6 : .2), 1.));",                    // raised rim with a bevelled edge
+      "    vec2 Lq = r2(-ang)*Ld.xy;",
+      "    float st = sdStar(q, .42, .45), st2 = sdStar(q + Lq*.05, .42, .45);",
+      "    float dev = 1.-smoothstep(-.02, .02, st);",
+      "    float bev = clamp((st2-st)/.05, -1., 1.)*dev;",                                          // the device's lit and shaded edges
+      "    float dif = max(dot(nrm, Ld), 0.);",
+      "    float spec = pow(max(dot(reflect(-Ld, nrm), vec3(0.,0.,1.)), 0.), 22.);",
+      "    vec3 cc = m*(.35 + .75*dif) + vec3(1.)*spec*(.45 + 1.2*glint);",
+      "    cc *= 1. - .18*(1.-rim)*(1.-dev);",                                                       // the field sits a little lower
+      "    cc += m*bev*.35;",
+      "    float reed = rq > .95 ? .5+.5*cos(atan(q.y,q.x)*70.) : 1.;  cc *= mix(1., .78+.22*reed, rim);",
+      "    float bead = exp(-sq((rq-.74)/.018)); float dots = step(.6, cos(atan(q.y,q.x)*24.)); cc *= 1. - .25*bead*(1.-dots); cc += m*.25*bead*dots;",
+      "    cc += vec3(1.,.95,.8)*glint*.25*exp(-sq(rq/.6));",
+      "    vec4 coin = vec4(cc*inside*.88, inside*.88);",
+      "    col = over(coin, over(shadow, col));",
+      "  }",
+      "  return col*I;",
+      "}"
+    ].join("\n") + "\n",
+    passes: [{ frag: "vec4 fx(vec2 fc){ return physics(fc); }" }]
   });
 })();
