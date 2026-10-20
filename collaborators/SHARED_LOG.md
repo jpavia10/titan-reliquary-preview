@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Claude/Opus integrator (Scene Studio v3, tr127)
+* Owner: "make the grouping of the themes and the ui of the atmosphere and sound not suck". Tabs Themes | Sound | Settings (Scenes folded into Sound); one compact sticky header on every tab (now card: the theme's picture + name, what is playing, Play; volume + Off).
+* Themes: six groups by feel in `wings/themes/worlds.js` `GROUPS` (Museum and study, Vaults and treasure, Journeys, Calm and quiet, Neon and otherworld, Playful and retro; an unlisted new theme lands in "New and more"), All/Light/Dark filter, the current theme big on top with Surprise me, 3-4 column tiles (phone scroll 5,600 -> 2,500 px). Sound: this theme's sound first, Moods, every theme's sound as chips (36, in group order), the mixer as chips + "In your mix" sliders. Settings: Look and motion / Sound / Updates. The manifest and theme files were not touched (Grok is upgrading themes).
+
 ### [2026-10-20] — Claude/Opus integrator (Grok's opening films were not playing, tr126)
 * Owner: "None of groks intros appear". Cause: the tr117 patch GRK-P-02 skipped the film when `navigator.connection.downlink` < 5 Mbps; Chrome's downlink is a rough estimate (1.4 Mbps in the container on a fast line), so the film almost never played on Chrome since Oct 15.
 * Fix (`splash.js`): skip only on Data Saver or a 2g/3g effectiveType; a slow line is caught by the film itself: a second mid-film stall, or one over 1.5 s, hands over to the app. Throttled tests: 12 Mbps plays the whole clip, 1.6 Mbps falls back at the 7 s gate.

@@ -141,3 +141,59 @@ html[data-atmo="notepad"] .scene-bar { top: 49px; }
 /* the recording now playing (recorded music, owner 2026-10-08) */
 .scene-sheet .ss-now { margin: 2px 0 8px; font-size: 0.92rem; line-height: 1.35; color: var(--ink, #fff); opacity: 0.9; overflow-wrap: anywhere; }
 .scene-sheet .ss-now[hidden] { display: none; }
+
+/* ---------- Scene Studio v3 (2026-10-20, owner: "make ... the ui of the atmosphere and sound not suck") ----------
+   A compact sticky header on every tab (tabs + close, the now card, volume + Off), so the content gets most of the screen. */
+.ss-title { position: absolute; width: 1px; height: 1px; margin: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ss-top { padding: 10px 16px 10px; margin: 0 -16px 12px; }
+.ss-head { display: flex; align-items: center; gap: 8px; }
+.ss-head .ss-tabs { flex: 1 1 auto; min-width: 0; margin: 0; }
+.ss-head .ss-tab { font-size: 16px; min-height: 44px; padding: 0 4px; }
+.ss-x { flex: 0 0 auto; }
+.ss-nowcard { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+.ss-now-pic { position: relative; flex: 0 0 auto; display: block; width: 68px; height: 44px; border-radius: 10px; overflow: hidden; border: 1px solid var(--ss-line); background: #2a2216; }
+.ss-now-pic img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ss-now-pic.atmo-swatch { margin: 0; aspect-ratio: auto; }
+.ss-now-txt { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.ss-now-theme { font-size: 17px; font-weight: 800; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ss-nowcard .ss-status { margin: 0; min-height: 0; font-size: 15px; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ss-btn.ss-playbtn { flex: 0 0 auto; min-width: 104px; min-height: 46px; }
+.ss-master { margin-top: 8px; gap: 10px; }
+.ss-btn.ss-offbtn { flex: 0 0 auto; min-height: 40px; padding: 0 12px; font-size: 15px; background: transparent; color: #ffb9b9; border-color: #8e3a3a; }
+.ss-btn.ss-offbtn:not([disabled]):hover { background: #3a1616; }
+.scene-sheet .ss-now { margin: 6px 0 0; font-size: 14px; color: var(--ss-dim); opacity: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Sound tab: this theme's sound first (one big card), then the moods in compact cards, then everything else folded */
+.ss-theme-snd .ss-scene { width: 100%; min-height: 0; flex-direction: row; align-items: center; gap: 12px; padding: 12px 14px; border-color: var(--ss-gold); }
+.ss-theme-snd .ss-scene .i { font-size: 28px; flex: 0 0 auto; }
+.ss-theme-snd .ss-scene .n { flex: 0 0 auto; }
+.ss-theme-snd .ss-scene .d { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 480px) { .ss-theme-snd .ss-scene { flex-wrap: wrap; } .ss-theme-snd .ss-scene .d { flex-basis: 100%; } }
+#ss-p-sound > .ss-h:first-child, #ss-theme-snd > .ss-h:first-child, .ss-panel > .ss-set:first-child > .ss-h { margin-top: 2px; }
+.ss-scenes { gap: 8px; }
+.ss-scene { min-height: 0; padding: 9px 11px; gap: 1px; }
+.ss-scene .i { font-size: 20px; }
+.ss-scene .n { font-size: 16px; line-height: 1.2; }
+.ss-scene .d { font-size: 14px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ss-count { margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: var(--ss-bg); color: var(--ss-dim); font-size: 14px; font-weight: 700; }
+.ss-wchips, .ss-beds { display: flex; flex-wrap: wrap; gap: 8px; }
+.ss-wchips, .ss-beds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ss-beds .ss-bed { min-width: 0; border-radius: 12px; padding: 6px 10px; line-height: 1.2; flex-wrap: wrap; }
+.ss-wchips .ss-wchip { min-width: 0; border-radius: 12px; padding: 6px 10px; line-height: 1.2; font-size: 15px; }
+.ss-wchip, .ss-bed { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 12px; border-radius: 999px; border: 1.5px solid var(--ss-line);
+  background: var(--ss-bg); color: var(--ss-ink); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; text-align: left; }
+.ss-wchip .i, .ss-bed .i { font-size: 18px; line-height: 1; }
+.ss-bed small { font-size: 13px; font-weight: 600; color: var(--ss-dim); }
+.ss-wchip[aria-pressed=true], .ss-bed[aria-pressed=true] { background: var(--ss-gold); color: #1a1408; border-color: #fff3cf; }
+.ss-bed[aria-pressed=true] small { color: #3a2c10; }
+.ss-wchip:focus-visible, .ss-bed:focus-visible, .ss-rm:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+/* "In your mix": one row per layer that is on */
+.ss-mixlist .ss-mrow { grid-template-columns: 40px 1fr 3ch 44px; grid-template-areas: "i l n x" "i s s x"; padding: 4px 0; }
+.ss-mixlist .ss-mi { width: 40px; height: 40px; font-size: 22px; border-radius: 12px; opacity: 1; background: var(--ss-gold); border-color: #fff3cf; }
+.ss-mixlist .ss-mrow input[type=range] { min-height: 36px; }
+.ss-rm { grid-area: x; width: 44px; height: 44px; border-radius: 12px; border: 1.5px solid var(--ss-line); background: transparent; color: var(--ss-ink); font-size: 22px; line-height: 1; cursor: pointer; }
+.ss-mixlist > .ss-note { margin: 0 0 4px; }
+/* Settings tab: three plain sections instead of one long fold */
+.ss-set { padding: 4px 0 10px; border-bottom: 1px solid rgba(90, 74, 42, 0.45); }
+.ss-set:last-child { border-bottom: 0; }
+.ss-set .ss-fx { margin: 8px 0 12px; }

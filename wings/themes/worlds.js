@@ -1,6 +1,6 @@
 /* Titan Reliquary: Worlds runtime (themes picker data + apply). Loads after wings/themes/manifest.js and app.js.
    TitanWorlds.apply(id)  : cross-fades the page (~350 ms) and switches the atmosphere
-   TitanWorlds.render(el) : paints the Signature + Classic card grid into el (used by the Scene Studio Themes tab)
+   TitanWorlds.render(el) : paints the Themes tab into el: filter chips, the current theme, six groups of tiles (Scene Studio v3)
    Hero art: --world-hero on <html> (only the ACTIVE world's image is ever requested), used by styles/worlds.css. */
 (function () {
   "use strict";
@@ -56,42 +56,81 @@
     "Bauhaus": "bauhaus", "Kinetic type": "kinetic", "Split-flap": "flap" };
   function preview(w) {
     var st = w.styles || [];
-    if (!st.length) return "";
-    return '<span class="th-prev" data-prev="' + (PREV[st[0]] || "particles") + '" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
+    if (!st.length || !PREV[st[0]]) return "";                 // newer styles have no CSS miniature: their swatch already shows the look
+    return '<span class="th-prev" data-prev="' + PREV[st[0]] + '" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
   }
-  function card(w, big) {
-    var cur = root.getAttribute("data-atmo") === w.id, st = w.styles || [];
-    var imgHtml = w.art
-      ? '<span class="th-img th-art"><img loading="lazy" decoding="async" width="640" height="400" alt="" src="' + art(w.art.card) + '">' + preview(w) + '</span>'
-      : '<span class="th-img th-swatch atmo-swatch sw-' + w.id + '" aria-hidden="true">' + preview(w) + '</span>';
-    var tags = st.length ? '<span class="th-styles">' + st.map(function (x) { return '<span class="th-style">' + esc(x) + '</span>'; }).join("") + '</span>' : "";
-    return '<button type="button" class="th-card' + (big ? " th-big" : "") + '" data-world="' + w.id + '" aria-pressed="' + cur + '"' +
-      (st.length ? ' aria-label="' + esc(w.name + ", " + st.join(" and ") + ". " + w.mood) + '"' : "") + '>' +
-      imgHtml + '<span class="th-body"><span class="th-name">' + esc(w.name) + '</span>' + tags +
-      '<span class="th-mood">' + esc(w.mood) + '</span></span>' +
-      '<span class="th-now" aria-hidden="true">Current</span></button>';
-  }
-
-  function render(el) {
-    var nStyles = 0; W.forEach(function (w) { nStyles += (w.styles || []).length; });
-    var h = '<p class="th-intro">' + W.length + ' themes, ' + nStyles + ' animation styles. Tap one to light the room with it; its sound follows if that setting is on.</p>';
-    var seen = {};
-    (window.TITAN_WORLD_COLLECTIONS || []).concat(["Other"]).forEach(function (c) {
-      var l = W.filter(function (w) { return (w.collection || "Other") === c && !seen[w.id]; });
-      if (!l.length) return;
+  /* Themes tab v3 (2026-10-20, owner: "make the grouping of the themes ... not suck"). Six groups by what a theme feels like, instead of
+     the manifest's collections (one of them, "Studio", had become a pile of 14 unrelated themes). A theme not listed here (a new one)
+     lands in "New and more" until it is given a group. Filter chips: All / Light / Dark. The current theme sits on top, big. */
+  var GROUPS = [
+    { name: "Museum and study", note: "Calm rooms for looking closely", ids: ["afterhours", "conservator", "drafting", "sketch", "marbled", "banknote", "notepad"] },
+    { name: "Vaults and treasure", note: "Gold, silver and hoards", ids: ["colossus", "glacier", "valhalla", "dynasty", "abyss", "alchemist"] },
+    { name: "Journeys", note: "Maps, ships, stations and stars", ids: ["odyssey", "silkroad", "terminal", "contour", "solaris"] },
+    { name: "Calm and quiet", note: "Slow, soft and still", ids: ["nocturne", "zen", "samadhi", "cathedral"] },
+    { name: "Neon and otherworld", note: "Glow, code and strange places", ids: ["kaleido", "neon", "construct", "xeno", "cursedwing"] },
+    { name: "Playful and retro", note: "Games, comics, paper and toys", ids: ["arcade", "pulp", "diorama", "bauhaus", "y2k", "papercut", "freefall"] }
+  ];
+  var LIGHT = { banknote: 1, bauhaus: 1, conservator: 1, diorama: 1, marbled: 1, notepad: 1, papercut: 1, pulp: 1, sketch: 1, y2k: 1 };
+  function isLight(w) { return w.scheme ? w.scheme === "light" : !!LIGHT[w.id]; }
+  function groups() {
+    var seen = {}, out = GROUPS.map(function (g) {
+      var l = g.ids.map(function (id) { return by[id]; }).filter(Boolean);
       l.forEach(function (w) { seen[w.id] = 1; });
-      l.sort(function (a, b) { return (b.art ? 1 : 0) - (a.art ? 1 : 0) || ((b.styles || []).length ? 1 : 0) - ((a.styles || []).length ? 1 : 0); });
-      h += '<h3 class="th-coll">' + esc(c) + '</h3><div class="th-grid">' + l.map(function (w) { return card(w, !!w.art); }).join("") + '</div>';
+      return { name: g.name, note: g.note, list: l };
+    });
+    var rest = W.filter(function (w) { return !seen[w.id]; });
+    if (rest.length) out.push({ name: "New and more", note: "Themes still waiting for a group", list: rest });
+    return out;
+  }
+  function pass(w, f) { return f === "light" ? isLight(w) : f === "dark" ? !isLight(w) : true; }
+  function picture(w, cls) {
+    return w.art
+      ? '<span class="th-img th-art ' + cls + '"><img loading="lazy" decoding="async" width="640" height="400" alt="" src="' + art(w.art.card) + '">' + preview(w) + '</span>'
+      : '<span class="th-img th-swatch atmo-swatch sw-' + w.id + ' ' + cls + '" aria-hidden="true">' + preview(w) + '</span>';
+  }
+  function tile(w, cur) {
+    var st = w.styles || [];
+    return '<button type="button" class="th-card th-tile" data-world="' + w.id + '" aria-pressed="' + (cur === w.id) + '" aria-label="' +
+      esc(w.name + (st.length ? ", " + st.join(" and ") : "") + ". " + w.mood) + '">' + picture(w, "") +
+      '<span class="th-name' + (/\S{11,}/.test(w.name) ? " th-long" : "") + '">' + esc(w.name) + '</span><span class="th-now" aria-hidden="true">✓</span></button>';
+  }
+  function hero(id) {
+    var w = by[id]; if (!w) return "";
+    var st = w.styles || [];
+    return picture(w, "th-hero-img") + '<span class="th-hero-body"><span class="th-hero-k">Now showing</span><span class="th-name">' + esc(w.name) + '</span>' +
+      (st.length ? '<span class="th-styles">' + st.map(function (x) { return '<span class="th-style">' + esc(x) + '</span>'; }).join("") + '</span>' : "") +
+      '<span class="th-mood">' + esc(w.mood) + '</span><button type="button" class="th-surprise" data-th-surprise="1">Surprise me</button></span>';
+  }
+  function render(el) {
+    var cur = root.getAttribute("data-atmo"), f = el.dataset.filter || "all";
+    var nL = W.filter(isLight).length, chip = function (k, label, n) {
+      return '<button type="button" class="th-filter" data-th-filter="' + k + '" aria-pressed="' + (f === k) + '">' + label + ' <span>' + n + '</span></button>';
+    };
+    var h = '<div class="th-bar" role="group" aria-label="Show themes">' + chip("all", "All", W.length) + chip("light", "Light", nL) + chip("dark", "Dark", W.length - nL) +
+      '</div>' +
+      '<div class="th-hero" id="th-hero">' + hero(cur) + '</div>';
+    groups().forEach(function (g) {
+      var l = g.list.filter(function (w) { return pass(w, f); });
+      if (!l.length) return;
+      h += '<section class="th-group"><h3 class="th-coll">' + esc(g.name) + ' <span class="th-note">' + esc(g.note) + '</span></h3><div class="th-grid">' +
+        l.map(function (w) { return tile(w, cur); }).join("") + '</div></section>';
     });
     el.innerHTML = h;
   }
-
-  function mark(el) {
-    var cur = root.getAttribute("data-atmo");
+  /* mark the current theme (the tile ring and the big card on top); id = the theme just picked, before data-atmo has switched */
+  function mark(el, id) {
+    var cur = id || root.getAttribute("data-atmo");
     el.querySelectorAll(".th-card").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.world === cur)); });
+    var hb = el.querySelector("#th-hero");
+    if (hb && hb.getAttribute("data-for") !== cur) { hb.setAttribute("data-for", cur); hb.innerHTML = hero(cur); }
+  }
+  /* a random theme from the current filter, never the one on screen */
+  function surprise(f, cur) {
+    var l = W.filter(function (w) { return pass(w, f || "all") && w.id !== cur; });
+    return l.length ? l[Math.floor(Math.random() * l.length)].id : null;
   }
 
   window.addEventListener("titan:atmo", function (e) { sync(e.detail.atmo); });
   sync(root.getAttribute("data-atmo"));
-  window.TitanWorlds = { worlds: W, byId: function (i) { return by[i]; }, apply: apply, render: render, mark: mark, sync: sync };
+  window.TitanWorlds = { worlds: W, byId: function (i) { return by[i]; }, apply: apply, render: render, mark: mark, sync: sync, surprise: surprise, groups: groups, isLight: isLight };
 })();
