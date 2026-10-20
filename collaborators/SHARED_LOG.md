@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 8/34: Survey Map / contour (owner-approved push) (tr135)
+* Theme upgrade 8/34 (worst first, owner-approved 2026-10-20 06:55 PT). Survey Map (contour) was #27: contours too faint, nothing beyond the backdrop themed.
+* Effect brighter: style-topo at 1.05 (was 0.85) in ui.js and the manifest.
+* Every screen (`styles/atmo/contour.css` v2): map-sheet panels with a coordinate grid, tick marks and faint contour lines, a compass rose on the coin stage, map pins on the coin cards and before the catalogue id, monospace coordinate labels, a dashed survey-line search box, amber survey-pen accents, 44 px+ controls, reduced-motion CSS. The v2 rules are raised to id-level specificity (`:is(#drawer-body, body)`) so they beat the `#drawer-body` rules in styles/gallery.css on the coin page.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 7/34: Midnight Gallery / afterhours (owner-approved push) (tr134)
 * Theme upgrade 7/34 (worst first, owner-approved 2026-10-20 06:55 PT). Midnight Gallery (afterhours, the default theme) was #28: ~19 fps idle on the phone floor.
 * Speed: style-particles is cheaper at the low quality tiers (one noise layer fewer, 1,100 motes instead of 2,400 at the lowest tier); `wings/fx/engine.js` now skips a faint accent preset (the "*0.35" part of "a+b*0.35") only at the lowest quality tier, which also helps every other two-preset theme on slow phones. Phone floor 34 -> 60.3 fps idle.

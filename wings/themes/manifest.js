@@ -71,7 +71,7 @@
     { id: "cathedral", name: "Cathedral Glass", collection: "Studio", tier: "signature", art: null, ui: ["lead"], styles: ["Stained glass"],
       mood: "A nave at dusk: a rose window of jewel-coloured glass, lit by a slow sun, throwing coloured light across the collection.", fx: "style-glass", fxIntensity: 0.85, scene: "cathedral", tokens: {} },
     { id: "contour", name: "Survey Map", collection: "Studio", tier: "signature", art: null, ui: ["topo"], styles: ["Topographic"],
-      mood: "A night survey chart: glowing contour lines of a slowly shifting terrain, and now and then a survey ping.", fx: "style-topo", fxIntensity: 0.85, scene: "contour", tokens: {} },
+      mood: "A night survey chart: glowing contour lines of a slowly shifting terrain, and now and then a survey ping.", fx: "style-topo", fxIntensity: 1.05, scene: "contour", tokens: {} },
     { id: "banknote", name: "Treasury Note", collection: "Studio", tier: "signature", art: null, ui: ["paper", "note"], styles: ["Guilloche"],
       mood: "Engraved like a banknote: guilloche rosettes shimmer in fine green lines and the treasury seal stamps in red.", fx: "style-guilloche", fxIntensity: 0.85, scene: "banknote", tokens: {} },
     { id: "freefall", name: "Free Fall", collection: "Studio", tier: "signature", art: null, ui: ["spring"], styles: ["Physics"],
