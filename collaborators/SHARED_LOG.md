@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 2/34: Free Fall (owner-approved push) (tr129)
+* Theme upgrade 2/34 (worst first, owner-approved 2026-10-20 06:55 PT). Free Fall was #33 (about 11 fps on the phone floor).
+* Speed: the coins are pre-lit sprites (one per metal, drawn once) stamped with Canvas2D into a screen-shaped texture at 30 fps; the shader is one texture read (was a 64-coin loop with three texel fetches per pixel). A heap at rest is not redrawn or uploaded. Phone heap cap 14 -> 10 so it stays under the content. Phone floor 27.5 -> 60.2 fps idle.
+* Every screen (`styles/atmo/freefall.css` v2): instrument-case panels on a measuring grid with gold corner brackets, monospace lab readouts with tabular numbers, the coin page as a specimen tray with a scale ruler, springy buttons with mass, readout-style search, 44 px+ controls, reduced-motion CSS.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 1/34: Sketchbook (owner-approved push) (tr128)
 * Owner (2026-10-20 06:55 PT): "Improve each theme ... commit each one at a time", worst first. Sketchbook was #34 (about 6 fps on the phone floor).
 * Speed: the doodles are now drawn with Canvas2D strokes into a small texture 15 times a second; the shader only samples it and adds paper grain (was a per-pixel line search). Phone floor 9.9 -> 60 fps idle. `wings/fx/engine.js` gains an optional per-preset `fps` cap (watchdog skips capped presets) for the other heavy themes.

@@ -363,7 +363,7 @@
   function phyTick(t, still) {
     var A = window.innerWidth / Math.max(1, window.innerHeight);
     if (Math.abs(A - PHY.A) > 0.01) { var sc = A / PHY.A; PHY.cs.forEach(function (c) { c.x = Math.min(A - c.r, c.x * sc); }); PHY.A = A; }
-    PHY.cap = A > 1.1 ? 26 : A > 0.7 ? 20 : 14;
+    PHY.cap = A > 1.1 ? 26 : A > 0.7 ? 18 : 10;   // phones: a lower heap that stays under the content (v2)
     if (t - PHY.floorT > 1) {                                                                 // coins rest on top of a full-width bottom bar (phones), not behind it
       PHY.floorT = t; var nav = document.querySelector("nav.wings"), f = 0;
       if (nav) { var rc = nav.getBoundingClientRect(); if (rc.width > window.innerWidth * 0.9 && rc.bottom >= window.innerHeight - 2 && rc.height < window.innerHeight * 0.2) f = (window.innerHeight - rc.top) / window.innerHeight; }
@@ -396,71 +396,64 @@
     }, { passive: true });
     window.addEventListener("titan:fx", function (e) { var d = e.detail || {}; if (d.type === "moment" && d.preset === "style-physics") PHY.burst = 12; });
   } catch (e) { /* no window events: the rain still falls */ }
+  /* v2 (Grok, 2026-10-20): the coins are drawn as pre-lit sprites (one per metal, rendered once) with Canvas2D into a screen-shaped
+     texture, so the shader is one texture read instead of a 64-coin loop with three texel fetches each per pixel (~11 fps on the
+     phone floor). When the heap is at rest the canvas is not redrawn or re-uploaded at all. */
+  var PHS = null;
+  function phySprites() {
+    if (PHS) return PHS;
+    var S = 128, out = [], tints = [[245, 194, 87], [204, 212, 224], [209, 128, 82]];
+    for (var k = 0; k < 3; k++) {
+      var cv = document.createElement("canvas"); cv.width = cv.height = S; var c = cv.getContext("2d"), m = tints[k], R = S / 2 - 2;
+      var rgb = function (f, al) { return "rgba(" + Math.min(255, Math.round(m[0] * f)) + "," + Math.min(255, Math.round(m[1] * f)) + "," + Math.min(255, Math.round(m[2] * f)) + "," + (al == null ? 1 : al) + ")"; };
+      c.translate(S / 2, S / 2);
+      var g = c.createRadialGradient(-R * 0.35, -R * 0.4, R * 0.05, 0, 0, R);   // domed face lit from the upper left
+      g.addColorStop(0, rgb(1.25)); g.addColorStop(0.55, rgb(0.95)); g.addColorStop(1, rgb(0.55));
+      c.fillStyle = g; c.beginPath(); c.arc(0, 0, R, 0, 6.2832); c.fill();
+      c.lineWidth = R * 0.1; c.strokeStyle = rgb(0.8); c.beginPath(); c.arc(0, 0, R * 0.88, 0, 6.2832); c.stroke();   // raised rim
+      c.lineWidth = R * 0.03; c.strokeStyle = rgb(1.3, 0.8); c.beginPath(); c.arc(0, 0, R * 0.83, 3.4, 5.4); c.stroke();
+      for (var i = 0; i < 70; i++) { var an = i / 70 * 6.2832; c.strokeStyle = rgb(0.45, 0.6); c.lineWidth = 1; c.beginPath(); c.moveTo(Math.cos(an) * R * 0.95, Math.sin(an) * R * 0.95); c.lineTo(Math.cos(an) * R, Math.sin(an) * R); c.stroke(); }   // reeded edge
+      for (i = 0; i < 24; i++) { an = i / 24 * 6.2832; c.fillStyle = rgb(1.2, 0.9); c.beginPath(); c.arc(Math.cos(an) * R * 0.74, Math.sin(an) * R * 0.74, R * 0.022, 0, 6.2832); c.fill(); }   // bead circle
+      c.beginPath(); for (i = 0; i < 10; i++) { var rr = i % 2 ? R * 0.19 : R * 0.42, a2 = -1.5708 + i * 0.62832; c.lineTo(Math.cos(a2) * rr, Math.sin(a2) * rr); } c.closePath();
+      c.fillStyle = rgb(1.05); c.fill(); c.lineWidth = R * 0.035; c.strokeStyle = rgb(0.6); c.stroke();   // the star device
+      var sp = c.createRadialGradient(-R * 0.3, -R * 0.35, 0, -R * 0.3, -R * 0.35, R * 0.5); sp.addColorStop(0, "rgba(255,255,255,.45)"); sp.addColorStop(1, "rgba(255,255,255,0)");
+      c.fillStyle = sp; c.beginPath(); c.arc(0, 0, R, 0, 6.2832); c.fill();
+      out.push(cv);
+    }
+    var sh = document.createElement("canvas"); sh.width = sh.height = S; var x = sh.getContext("2d"), gs = x.createRadialGradient(S / 2, S / 2, S * 0.3, S / 2, S / 2, S / 2);
+    gs.addColorStop(0, "rgba(0,0,0,.5)"); gs.addColorStop(1, "rgba(0,0,0,0)"); x.fillStyle = gs; x.fillRect(0, 0, S, S);
+    PHS = { coins: out, shadow: sh };
+    return PHS;
+  }
   function physicsCanvas(c, w, h, t, info) {
     PHY.seen = performance.now() / 1000;
     phyTick(t, info && info.still);
-    var img = c.createImageData(w, h), D = img.data, cs = PHY.cs, n = Math.min(cs.length, w), i;
-    for (i = 0; i < D.length; i += 4) D[i + 3] = 255;
-    function put(x, y, r, g, b) { var o = (y * w + x) * 4; D[o] = r; D[o + 1] = g; D[o + 2] = b; }
-    for (i = 0; i < n; i++) {
-      var q = cs[i], X = Math.max(0, Math.min(65535, Math.round(q.x / 4 * 65535))), Y = Math.max(0, Math.min(65535, Math.round((q.y + 0.25) / 1.5 * 65535)));
-      var ang = ((q.a % 6.2832) + 6.2832) % 6.2832;
-      put(i, 0, X >> 8, X & 255, Y >> 8);
-      put(i, 1, Y & 255, Math.round(ang / 6.2832 * 255) & 255, Math.round(q.r / 0.07 * 255));
-      put(i, 2, q.k, Math.round(Math.min(1, q.hit) * 255), 0);
+    var cs = PHY.cs, A = PHY.A, moving = false, i;
+    for (i = 0; i < cs.length; i++) { var q0 = cs[i]; if (q0.vx * q0.vx + q0.vy * q0.vy > 1e-5 || Math.abs(q0.w) > 0.02 || q0.hit > 0.02) { moving = true; break; } }
+    var sig = cs.length + ":" + PHY.open;
+    if (!moving && PHY.sig === sig && PHY.drawn) return false;  // the heap is asleep: nothing to redraw or upload
+    PHY.sig = sig; PHY.drawn = true;
+    var sp = phySprites(), sx = w / A, sy = h;
+    c.clearRect(0, 0, w, h);
+    for (i = 0; i < cs.length; i++) {
+      var q = cs[i], X = q.x * sx, Y = (1 - q.y) * sy, R = q.r * sy;
+      c.globalAlpha = 0.55; c.drawImage(sp.shadow, X - R * 1.25 + R * 0.12, Y - R * 1.25 + R * 0.2, R * 2.5 * (sx / sy), R * 2.5);
+      c.globalAlpha = 0.9; c.save(); c.translate(X, Y); c.rotate(-q.a); c.scale(sx / sy, 1); c.drawImage(sp.coins[q.k], -R, -R, 2 * R, 2 * R);
+      if (q.hit > 0.05) { c.globalAlpha = Math.min(0.7, q.hit * 0.7); c.globalCompositeOperation = "lighter"; c.drawImage(sp.coins[q.k], -R, -R, 2 * R, 2 * R); c.globalCompositeOperation = "source-over"; }
+      c.restore();
     }
-    put(0, 3, n, 0, 0);
-    c.putImageData(img, 0, 0);
+    c.globalAlpha = 1;
     return true;
   }
   FX.register("style-physics", {
     layer: "front", still: 3, safe: 0.97,
     moments: [{ name: "jackpot", every: [30, 60], dur: 3 }],
-    canvas: { w: 64, h: 4, fps: 30, nearest: true, draw: physicsCanvas },
+    canvas: { w: 512, h: 1024, fps: 30, draw: physicsCanvas },
     glsl: "uniform sampler2D uTex; uniform vec2 uTexRes;\n" + H + [
-      "vec4 over(vec4 top, vec4 under){ return top + under*(1.-top.a); }",
-      "vec4 T(int x, int y){ return texelFetch(uTex, ivec2(x,y), 0); }",
-      "float b8(float v){ return floor(v*255.+.5); }",
-      "float sdStar(vec2 p, float r, float rf){",                                          // five-point star (iq)
-      "  const vec2 k1 = vec2(.809017,-.587785); const vec2 k2 = vec2(-k1.x,k1.y);",
-      "  p.x = abs(p.x); p -= 2.*max(dot(k1,p),0.)*k1; p -= 2.*max(dot(k2,p),0.)*k2; p.x = abs(p.x); p.y -= r;",
-      "  vec2 ba = rf*vec2(-k1.y,k1.x) - vec2(0.,1.); float h = clamp(dot(p,ba)/dot(ba,ba),0.,r);",
-      "  return length(p-ba*h)*sign(p.y*ba.x-p.x*ba.y);",
-      "}",
-      "vec3 metal(float k){ return k < .5 ? vec3(.96,.76,.34) : k < 1.5 ? vec3(.80,.83,.88) : vec3(.82,.50,.32); }",
       "vec4 physics(vec2 fc){",
-      "  vec2 w = fc/uRes.y; float I = clamp(uInt,0.,1.3); float px = 1./uRes.y;",
-      "  int n = int(b8(T(0,3).r)); vec4 col = vec4(0.);",
-      "  vec3 Ld = normalize(vec3(-.5,.65,.85));",
-      "  for (int i=0;i<64;i++){ if (i >= n) break;",
-      "    vec4 a = T(i,0), b = T(i,1), e = T(i,2);",
-      "    vec2 c = vec2((b8(a.r)*256.+b8(a.g))/65535.*4., (b8(a.b)*256.+b8(b.r))/65535.*1.5-.25); float r = b8(b.b)/255.*.07;",
-      "    vec2 d = w-c; float L = length(d); if (L > r + .022) continue;",
-      "    float sh = (1.-smoothstep(r-.004, r+.02, length(d-vec2(.004,-.007))))*.45;",           // soft contact shadow, down and right
-      "    float inside = 1.-smoothstep(r-px, r+px, L);",
-      "    vec4 shadow = vec4(0.,0.,0., sh*(1.-inside));",
-      "    if (inside <= 0.) { col = over(shadow, col); continue; }",
-      "    float ang = b8(b.g)/255.*6.2832; vec2 q = r2(-ang)*d/r; float rq = length(q);",
-      "    vec3 m = metal(b8(e.r)); float glint = e.g;",
-      "    vec3 nrm = normalize(vec3(d/r*.55, 1.));",                                              // a slightly domed face
-      "    float rim = smoothstep(.80,.84,rq);",
-      "    if (rim > 0.) nrm = normalize(vec3(d/r*(rq > .93 ? 1.6 : .2), 1.));",                    // raised rim with a bevelled edge
-      "    vec2 Lq = r2(-ang)*Ld.xy;",
-      "    float st = sdStar(q, .42, .45), st2 = sdStar(q + Lq*.05, .42, .45);",
-      "    float dev = 1.-smoothstep(-.02, .02, st);",
-      "    float bev = clamp((st2-st)/.05, -1., 1.)*dev;",                                          // the device's lit and shaded edges
-      "    float dif = max(dot(nrm, Ld), 0.);",
-      "    float spec = pow(max(dot(reflect(-Ld, nrm), vec3(0.,0.,1.)), 0.), 22.);",
-      "    vec3 cc = m*(.35 + .75*dif) + vec3(1.)*spec*(.45 + 1.2*glint);",
-      "    cc *= 1. - .18*(1.-rim)*(1.-dev);",                                                       // the field sits a little lower
-      "    cc += m*bev*.35;",
-      "    float reed = rq > .95 ? .5+.5*cos(atan(q.y,q.x)*70.) : 1.;  cc *= mix(1., .78+.22*reed, rim);",
-      "    float bead = exp(-sq((rq-.74)/.018)); float dots = step(.6, cos(atan(q.y,q.x)*24.)); cc *= 1. - .25*bead*(1.-dots); cc += m*.25*bead*dots;",
-      "    cc += vec3(1.,.95,.8)*glint*.25*exp(-sq(rq/.6));",
-      "    vec4 coin = vec4(cc*inside*.88, inside*.88);",
-      "    col = over(coin, over(shadow, col));",
-      "  }",
-      "  return col*I;",
+      "  vec2 w = fc/uRes.y; float A = asp(); float I = clamp(uInt,0.,1.3);",
+      "  vec4 tx = texture(uTex, vec2(w.x/A, 1.-w.y));",
+      "  return vec4(tx.rgb*tx.a, tx.a)*I;",
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return physics(fc); }" }]
