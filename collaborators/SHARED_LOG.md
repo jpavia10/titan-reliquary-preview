@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Conservator (tr153)
+- Conservator redesigned to style every screen: archival-board panels, a pencilled register line under each value, a black loupe ring around the coin, sepia-ink values.
+- Phone fps 60.3; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · 3D coin on the coin page (tr152)
 - NEW: a real 3D coin on every coin page (three.js, loaded from the app's own copy so it works offline). Real metal lighting from a light setup tinted by each theme, a reeded edge, metal colour read from the coin's Metal field, and the photographed faces on both sides (drawn faces become an engraved blank).
 - It flips in when you open a coin. Drag to spin or tilt it: it keeps spinning, then a spring lands it on a face. Tap to flip it over (with the coin-tink sound). It tilts slightly as you tilt the phone; iOS asks permission on your first touch.

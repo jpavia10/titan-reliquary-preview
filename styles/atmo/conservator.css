@@ -315,3 +315,50 @@ html[data-atmo="conservator"] .wing-head::after {
 /* "Now exhibiting": the kicker takes the case's pale gold (it is inside #exhibit) but its bar is drawn on paper, so it gets a
    small walnut chip of its own (the same fix as the paper themes in styles/style-layer.css) */
 html[data-atmo="conservator"] #exhibit .exhibit-kicker { display: inline-block; padding: 0.15em 0.55em; border-radius: 4px; background: var(--case-bg); color: var(--case-gold-soft, #e9d7a0); }
+
+/* ============================================================================
+   Conservator v2 (Grok, 2026-10-20): every screen, not just home.
+   The conservator's desk by a north window: archival-board panels with a pencilled register line, a loupe-ring around the coin, condition-report label caps, and sepia-ink values.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="conservator"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
+  background: linear-gradient(175deg, #fbf7ee, #f3ecdc); border: 1px solid rgba(127,82,24,0.45); border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(40,30,20,0.10), 0 8px 20px rgba(40,30,20,0.12);
+}
+html[data-atmo="conservator"] :is(#drawer-body, body) .drawer-inner{ background: radial-gradient(70% 30% at 50% 0%, rgba(127,82,24,0.10), transparent 70%), var(--bg); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: radial-gradient(circle at 50% 42%, #ffffff, #efe6d2 70%); border: 1px solid rgba(127,82,24,0.45); border-radius: 4px; box-shadow: inset 0 0 0 6px #fbf7ee, inset 0 0 0 7px rgba(127,82,24,0.22); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .museum-slab{  }
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
+  min-height: 44px; min-width: 44px;
+  background: linear-gradient(180deg, #fbf7ee, #f3ecdc); border: 1px solid rgba(127,82,24,0.5); border-radius: 4px;
+  box-shadow: none; color: var(--ink);
+}
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif, inherit); font-weight: 700; letter-spacing: 0.02em; }
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: inherit; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .gxd-value strong{ font-family: var(--serif, inherit); color: var(--gold-soft); }
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #fbf7ee; border: 1px solid rgba(127,82,24,0.55); border-radius: 4px; }
+html[data-atmo="conservator"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #fbf7ee, #f3ecdc); border: 1px solid rgba(127,82,24,0.5); border-radius: 4px; }
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #9a6a28, #7f5218); color: var(--on-gold); box-shadow: 0 0 14px rgba(127,82,24,0.28); }
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="conservator"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="conservator"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .palette-sheet{ background: linear-gradient(175deg, #fbf7ee, #f3ecdc); border: 1px solid rgba(127,82,24,0.45); border-radius: 4px; box-shadow: 0 1px 2px rgba(40,30,20,0.10), 0 8px 20px rgba(40,30,20,0.12), var(--elev-3); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="conservator"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
+html[data-atmo="conservator"] :is(#drawer-body, body) .gallery-coverflow-wrap .cf-title{ color: #ffffff; }
+
+html[data-atmo="conservator"] :is(#drawer-body, body) .gxd-face figcaption{ color: var(--muted); }
+html[data-atmo="conservator"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(127,82,24,0.55); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
+
+html[data-atmo="conservator"] :is(#drawer-body, body) .gxd-value > div{ box-shadow: inset 0 -1px 0 rgba(127,82,24,0.3); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .gxd-coin{ border-radius: 50%; box-shadow: 0 0 0 2px #fbf7ee, 0 0 0 8px rgba(34,28,18,0.85), 0 0 0 9px rgba(127,82,24,0.6), 0 6px 18px rgba(40,30,20,0.25); }
+html[data-atmo="conservator"] :is(#drawer-body, body) .slab-pedigree-header{ background: #3b2a12; color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="conservator"] *, html[data-atmo="conservator"] *::before, html[data-atmo="conservator"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
