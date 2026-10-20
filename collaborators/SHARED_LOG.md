@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · The Field v2 hosted (fix list #123 hosting part DONE, owner-approved push)
+* Joseph approved in chat (2026-10-19 23:29 PT) that Grok pushes this itself. **#123's "host The Field v2 next to v1" is done; Claude does not need to repeat it** (the data files and scoring in #123 are untouched and still Claude's).
+* `prototypes/v2/grok/index.html` = The Field v2.1 (album / silver & gold / to-photograph filters, photo preloaded before the flight, cheaper labels, plus a compressed 1850–1879 scale, the 1378 coin in its own marked slot and a year ruler under the header); v1 kept as `v1.html`; `prototypes/v2/index.html` card updated. Prototype only: no app files, no build bump. Tested at 412×915 against the hosted relative paths; suites + smoke 38/38 phone + desktop.
+
 ### [2026-10-20] — Claude/Opus integrator (Scene Studio v3, tr127)
 * Owner: "make the grouping of the themes and the ui of the atmosphere and sound not suck". Tabs Themes | Sound | Settings (Scenes folded into Sound); one compact sticky header on every tab (now card: the theme's picture + name, what is playing, Play; volume + Off).
 * Themes: six groups by feel in `wings/themes/worlds.js` `GROUPS` (Museum and study, Vaults and treasure, Journeys, Calm and quiet, Neon and otherworld, Playful and retro; an unlisted new theme lands in "New and more"), All/Light/Dark filter, the current theme big on top with Surprise me, 3-4 column tiles (phone scroll 5,600 -> 2,500 px). Sound: this theme's sound first, Moods, every theme's sound as chips (36, in group order), the mixer as chips + "In your mix" sliders. Settings: Look and motion / Sound / Updates. The manifest and theme files were not touched (Grok is upgrading themes).

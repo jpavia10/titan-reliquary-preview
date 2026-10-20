@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Titan Reliquary · The Field (prototype, Grok)</title>
+<title>Titan Reliquary · The Field v2.1 (prototype, Grok)</title>
 <meta name="theme-color" content="#0d0b09">
 <style>
   :root { --bg:#0d0b09; --ink:#f3ecdf; --muted:#c9bfae; --gold:#e2bd6a; --line:rgba(243,236,223,.18); --panel:#17140f; }
@@ -23,8 +23,8 @@
   .crumb.on { opacity:1; transform:none; }
   .crumb b { color:var(--gold); }
   #labels { position:fixed; inset:0; pointer-events:none; z-index:2; }
-  .lab { position:absolute; transform:translate(-50%,-50%); font-size:16px; color:var(--muted); white-space:nowrap; text-shadow:0 1px 3px #000, 0 0 8px #000; }
-  .lab.cont { color:var(--ink); font-weight:700; font-size:17px; transform:translate(0,-50%); }
+  .lab { position:absolute; font-size:16px; color:var(--muted); white-space:nowrap; text-shadow:0 1px 3px #000, 0 0 8px #000; }
+  .lab.cont { color:var(--ink); font-weight:700; font-size:17px; }
   .lab.year { font-size:16px; }
   .lab.hot { color:var(--gold); font-weight:700; }
   #sheet { position:fixed; left:0; right:0; bottom:0; max-height:62vh; overflow:auto; z-index:4; background:var(--panel); border-top:2px solid var(--line);
@@ -35,7 +35,7 @@
   #sheet img { height:132px; width:132px; object-fit:cover; border-radius:50%; background:#000; border:2px solid var(--line); }
   .facts { display:grid; grid-template-columns: auto 1fr; gap:6px 10px; margin:10px 0; }
   .facts dt { color:var(--muted); } .facts dd { margin:0; }
-  .lvl { display:inline-block; font-size:14px; font-weight:700; padding:1px 8px; border-radius:999px; border:1.5px solid currentColor; margin-left:6px; white-space:nowrap; }
+  .lvl { display:inline-block; font-size:16px; font-weight:700; padding:1px 8px; border-radius:999px; border:1.5px solid currentColor; margin-left:6px; white-space:nowrap; }
   .lvl.verified,.lvl.checked { color:#8fd18f; } .lvl.reference { color:#9cc3ff; } .lvl.photo { color:#e9c46a; } .lvl.guess { color:#ffab91; } .lvl.ledger { color:#c9bfae; }
   .hist { color:var(--muted); font-size:16px; padding-left:18px; }
   #list { position:fixed; inset:0; z-index:5; background:var(--panel); overflow:auto; padding: max(14px, env(safe-area-inset-top)) 14px 24px; display:none; }
@@ -45,9 +45,23 @@
   #list .coins { display:flex; flex-wrap:wrap; gap:8px; }
   #hint { position:fixed; left:50%; top:46%; transform:translate(-50%,-50%); z-index:2; color:var(--muted); background:rgba(13,11,9,.8); padding:8px 14px; border-radius:12px; transition:opacity .6s; }
   .motion { display:flex; gap:6px; } .motion button[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
-  #fps { position:fixed; right:10px; bottom:calc(70px + env(safe-area-inset-bottom)); z-index:3; font:14px ui-monospace,monospace; color:var(--muted); background:rgba(0,0,0,.5); padding:2px 6px; border-radius:6px; }
+  #fps { position:fixed; right:10px; top:calc(130px + env(safe-area-inset-bottom)); z-index:3; font:16px ui-monospace,monospace; color:var(--muted); background:rgba(0,0,0,.5); padding:2px 6px; border-radius:6px; }
   #fade { position:fixed; inset:0; background:var(--bg); opacity:0; pointer-events:none; z-index:3; transition:opacity .18s; }
   .err { padding:40px 20px; font-size:18px; }
+  /* v2: filters. One row of real buttons above the crumbs; the note says what is lit and what is not on the table */
+  #dock { position:fixed; left:8px; right:8px; bottom:calc(10px + env(safe-area-inset-bottom)); z-index:3; display:flex; flex-direction:column; gap:6px; }
+  body.coin #dock { display:none; }
+  .filters { display:flex; gap:5px; flex-wrap:wrap; justify-content:center; }
+  .filters button { flex:0 0 auto; background:rgba(36,31,23,.94); padding:8px 11px; }
+  .filters button[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
+  body.coin .filters { display:none; }
+  #fnote { background:rgba(13,11,9,.9); border:2px solid var(--line); border-radius:12px; padding:8px 12px; font-size:16px; }
+  #fnote[hidden] { display:none; } body.coin #fnote { display:none; }
+  #albums { position:fixed; inset:0; z-index:5; background:var(--panel); overflow:auto; padding: max(14px, env(safe-area-inset-top)) 14px 24px; display:none; }
+  #albums.open { display:block; }
+  #albums .fam { display:block; width:100%; text-align:left; margin:8px 0; }
+  #albums .fam small { display:block; color:var(--muted); font-size:16px; }
+  .lab { will-change:transform; left:0; top:0; }
 </style>
 </head>
 <body>
@@ -71,6 +85,11 @@
 <section id="sheet" role="dialog" aria-modal="false" aria-labelledby="sh-title" tabindex="-1"></section>
 <section id="list" role="dialog" aria-modal="true" aria-label="All coins"></section>
 <div id="fps" hidden></div>
+<div id="dock"><div id="fnote" role="status" aria-live="polite" hidden></div>
+<div class="filters" role="group" aria-label="Show">
+  <button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="album" aria-pressed="false" aria-haspopup="dialog">Albums</button><button type="button" data-f="metal" aria-pressed="false">Silver &amp; gold</button><button type="button" data-f="photo" aria-pressed="false">To photograph</button>
+</div></div>
+<section id="albums" role="dialog" aria-modal="true" aria-label="Choose an album family"></section>
 
 <script type="module">
 import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js";
@@ -86,6 +105,7 @@ catch (e) { document.body.innerHTML = '<p class="err">Could not read ../../../da
 const flips = idx.flips.filter((f) => f.status !== "Removed");
 $("#total").textContent = money(idx.board.grand);
 $("#totsub").textContent = `${flips.length} pieces · ${new Set(flips.map((f) => f.iso)).size} countries · ledger estimate, ${idx.generated_at_pt || idx.generated_at}`;
+let wants = null; try { wants = await (await fetch(DATA + "wants.json")).json(); } catch (e) { /* no album data: the Albums filter says so */ }
 const details = new Map();
 const detail = (d) => { if (!details.has(d)) details.set(d, fetch(DATA + "detail/" + encodeURIComponent(d) + ".json").then((r) => r.json())); return details.get(d); };
 
@@ -101,10 +121,15 @@ setMotion(motion);
 const CONT_ORDER = ["Europe", "North America", "South America", "Asia", "Africa", "Oceania"];
 const yearOf = (f) => { const m = String(f.year || "").match(/\d{4}/); return m ? +m[0] : null; };
 const years = flips.map(yearOf).filter((y) => y != null);
-// broken axis: a lone medieval piece must not stretch the table 500 years, so anything before 1880 sits in one "earlier" slot
+// broken axis (v2.1): 1880 onward at full scale; 1850-1879 on a compressed scale to its left (Indian cent holes stay readable);
+// anything older (today one coin, 1378) gets its own marked slot so it cannot stretch the table by 500 years
 const Y0 = Math.max(1880, Math.floor(Math.min(...years) / 10) * 10), Y1 = Math.ceil(Math.max(...years) / 10) * 10;
+const YC = 1850, XC = 0.3, XGAP = 0.6;                // compressed years and the gap that marks the break
+const X_EARLY = -(Y0 - YC) * XC - XGAP - 1.6, X_UNDATED = X_EARLY - 2.4;
+const early = [...new Set(years.filter((y) => y < YC))].sort((a, b) => a - b);
 const XS = 0.42;                                   // world units per year
-const xOfYear = (y) => (y == null ? -6 : y < Y0 ? -3 : (y - Y0) * XS);
+const xOfYear = (y) => (y == null ? X_UNDATED : y < YC ? X_EARLY : y < Y0 ? -(Y0 - y) * XC - XGAP : (y - Y0) * XS);
+const XMIN = X_UNDATED - 1.5;
 const countries = [...new Set(flips.map((f) => f.country))];
 const contOf = (c) => flips.find((f) => f.country === c).continent || "Other";
 countries.sort((a, b) => (CONT_ORDER.indexOf(contOf(a)) - CONT_ORDER.indexOf(contOf(b))) || a.localeCompare(b));
@@ -129,13 +154,14 @@ const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(-20, 40,
 // the table: decade lines and continent bands explain the two axes
 const grid = new THREE.Group(); scene.add(grid);
 const lineMat = new THREE.LineBasicMaterial({ color: 0x3a3226 });
+for (let y = YC; y < Y0; y += 10) { const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(xOfYear(y), 0, -1), new THREE.Vector3(xOfYear(y), 0, DEPTH)]); grid.add(new THREE.Line(g, lineMat)); }
 for (let y = Y0; y <= Y1; y += 10) { const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(xOfYear(y), 0, -1), new THREE.Vector3(xOfYear(y), 0, DEPTH)]); grid.add(new THREE.Line(g, lineMat)); }
 const bandMat = (c) => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.16 });
 const CONT_COL = { "Europe": 0x6f8fd8, "North America": 0xd8a35f, "South America": 0x7fc29b, "Asia": 0xd77b7b, "Africa": 0xc9b45a, "Oceania": 0x5fc4cf, "Other": 0x999999 };
 for (const [k, z0] of contStart) { const rows = countries.filter((c) => contOf(c) === k).length;
-  const m = new THREE.Mesh(new THREE.PlaneGeometry(WIDTH + 6, rows * 1.15), bandMat(CONT_COL[k] || 0x999999)); m.rotation.x = -Math.PI / 2; m.position.set((WIDTH - 6) / 2, 0, z0 + rows * 1.15 / 2 - 0.575); grid.add(m); }
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(WIDTH - XMIN, rows * 1.15), bandMat(CONT_COL[k] || 0x999999)); m.rotation.x = -Math.PI / 2; m.position.set((WIDTH + XMIN) / 2, 0, z0 + rows * 1.15 / 2 - 0.575); grid.add(m); }
 // highlight strip for the chosen coin's row and year
-const hiRow = new THREE.Mesh(new THREE.PlaneGeometry(WIDTH + 6, 1.1), new THREE.MeshBasicMaterial({ color: 0xe2bd6a, transparent: true, opacity: 0 })); hiRow.rotation.x = -Math.PI / 2; hiRow.position.y = 0.01; scene.add(hiRow);
+const hiRow = new THREE.Mesh(new THREE.PlaneGeometry(WIDTH - XMIN, 1.1), new THREE.MeshBasicMaterial({ color: 0xe2bd6a, transparent: true, opacity: 0 })); hiRow.rotation.x = -Math.PI / 2; hiRow.position.y = 0.01; scene.add(hiRow);
 const hiCol = new THREE.Mesh(new THREE.PlaneGeometry(0.5, DEPTH + 2), new THREE.MeshBasicMaterial({ color: 0xe2bd6a, transparent: true, opacity: 0 })); hiCol.rotation.x = -Math.PI / 2; hiCol.position.set(0, 0.012, DEPTH / 2); scene.add(hiCol);
 
 // every coin: one instanced draw call. Bright = has a phone photo, dim = still to photograph (data: thumb)
@@ -151,7 +177,8 @@ scene.add(coins);
 const hero = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.16, 64),
   [new THREE.MeshStandardMaterial({ color: 0xbdb6a8, metalness: 0.8, roughness: 0.3 }), new THREE.MeshStandardMaterial({ color: 0xd9d2c3, metalness: 0.2, roughness: 0.6 }), new THREE.MeshStandardMaterial({ color: 0xd9d2c3, metalness: 0.2, roughness: 0.6 })]);
 hero.visible = false; scene.add(hero);
-const texLoader = new THREE.TextureLoader();
+const texLoader = new THREE.TextureLoader(); const texCache = new Map();
+function photoTex(f) { if (!texCache.has(f.scan)) texCache.set(f.scan, texLoader.loadAsync("../../../" + f.thumb).then((tx) => { tx.colorSpace = THREE.SRGBColorSpace; tx.center.set(0.5, 0.5); tx.rotation = Math.PI / 2; return tx; }).catch(() => null)); return texCache.get(f.scan); }
 
 /* ---------- camera: overview framing that fits a phone in portrait ---------- */
 const view = { tx: WIDTH / 2, tz: DEPTH / 2, dist: 0 };
@@ -170,20 +197,27 @@ addEventListener("resize", resize);
 
 /* ---------- labels: continents, decades, the chosen row ---------- */
 const labels = $("#labels"); const labEls = [];
-function addLab(text, cls, p) { const el = document.createElement("div"); el.className = "lab " + cls; el.textContent = text; labels.appendChild(el); labEls.push({ el, p }); return el; }
-for (const [k, z0] of contStart) addLab(k, "cont", new THREE.Vector3(-5.5, 0, z0 - 0.4));
+function addLab(text, cls, p) { const el = document.createElement("div"); el.className = "lab " + cls; el.textContent = text; labels.appendChild(el); labEls.push({ el, p, pin: cls.includes("year") && state !== "coin", anchor: cls.includes("cont") ? "translate(0,-50%)" : "translate(-50%,-50%)" }); return el; }
+for (const [k, z0] of contStart) addLab(k, "cont", new THREE.Vector3(XMIN + 0.5, 0, z0 - 0.4));
 for (let y = Y0; y <= Y1; y += (Y1 - Y0 > 100 ? 20 : 10)) addLab(String(y), "year", new THREE.Vector3(xOfYear(y), 0, -1.6));
-if (flips.some((f) => yearOf(f) == null)) addLab("undated", "year", new THREE.Vector3(-6, 0, -1.6));
-if (years.some((y) => y < Y0)) addLab("earlier", "year", new THREE.Vector3(-3, 0, -1.6));
+if (flips.some((f) => yearOf(f) == null)) addLab("undated", "year", new THREE.Vector3(X_UNDATED, 0, -1.6));
+if (early.length) addLab(early.join(", "), "year hot", new THREE.Vector3(X_EARLY, 0, -1.6));   // the own slot says its real year(s)
+addLab("1850–79", "year", new THREE.Vector3(xOfYear(1864.5), 0, -1.6));
+// the break between the scales is drawn as a gap with two short marks
+for (const bx of [-XGAP / 2 - 0.12, -XGAP / 2 + 0.12, X_EARLY + 0.9]) { const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(bx, 0.02, -1.2), new THREE.Vector3(bx, 0.02, DEPTH + 0.2)]); grid.add(new THREE.Line(g, new THREE.LineBasicMaterial({ color: 0x8a7650 }))); }
 const rowLab = addLab("", "cont hot", new THREE.Vector3()); rowLab.style.display = "none";
 const v3 = new THREE.Vector3();
+const RULER_Y = () => Math.round(document.querySelector("header").getBoundingClientRect().bottom + 6);
 function placeLabels() { const w = innerWidth, h = innerHeight;
-  for (const L of labEls) { if (L.el.style.display === "none") continue; v3.copy(L.p).project(camera);
-    const off = v3.z > 1 || v3.x < -1.2 || v3.x > 1.2 || v3.y < -1.2 || v3.y > 1.2; L.el.style.visibility = off ? "hidden" : "visible";
-    L.el.style.left = ((v3.x + 1) / 2 * w) + "px"; L.el.style.top = ((1 - v3.y) / 2 * h) + "px"; } }
+  for (const L of labEls) { if (L.el.style.display === "none") continue; // year labels are pinned to a ruler under the header: the axis stays readable wherever you pan on a phone
+    if (L.pin) v3.set(L.p.x, 0, cam.look.z).project(camera); else v3.copy(L.p).project(camera);
+    const off = v3.z > 1 || v3.x < -1.2 || v3.x > 1.2 || (!L.pin && (v3.y < -1.2 || v3.y > 1.2));
+    if (off !== L.off) { L.el.style.visibility = off ? "hidden" : "visible"; L.off = off; } if (off) continue;
+    const x = Math.round((v3.x + 1) / 2 * w), y = L.pin ? RULER_Y() : Math.round((1 - v3.y) / 2 * h);
+    if (x !== L.x || y !== L.y) { L.x = x; L.y = y; L.el.style.transform = `translate3d(${x}px,${y}px,0) ${L.anchor}`; } } }
 
 /* ---------- render on demand + fps meter (only frames that move count) ---------- */
-let raf = 0, anims = [], frames = [], lastT = 0;
+let raf = 0, anims = [], frames = [], lastT = 0, labelsDirty = true; const camKey = new THREE.Matrix4();
 const fpsEl = $("#fps"); const showFps = /[?&]fps/.test(location.search); fpsEl.hidden = !showFps;
 window.__fieldFrames = frames;
 function kick() { if (!raf && !document.hidden) { lastT = 0; raf = requestAnimationFrame(tick); } }
@@ -192,7 +226,8 @@ function tick(t) {
   if (lastT) { frames.push(t - lastT); if (frames.length > 600) frames.shift(); }
   lastT = t;
   anims = anims.filter((a) => { const k = Math.min(1, (t - (a.t0 ??= t)) / a.ms); a.step(a.ease ? a.ease(k) : k); if (k >= 1) { a.done && a.done(); return false; } return true; });
-  applyCam(); renderer.render(scene, camera); placeLabels();
+  applyCam(); renderer.render(scene, camera);
+  camera.updateMatrixWorld(); if (labelsDirty || !camKey.equals(camera.matrixWorld)) { camKey.copy(camera.matrixWorld); labelsDirty = false; placeLabels(); }
   if (showFps && frames.length > 10) { const last = frames.slice(-60); fpsEl.textContent = (1000 / (last.reduce((a, b) => a + b, 0) / last.length)).toFixed(0) + " fps"; }
   if (anims.length || drag.active) raf = requestAnimationFrame(tick); else lastT = 0;
 }
@@ -211,17 +246,22 @@ function crumbBar(f, n) {
   on(0, 0); on(1, 260); on(2, 520); on(3, 700);
 }
 async function open(i) {
-  if (state !== "field") return; state = "flying"; cur = i; $("#hint").style.opacity = 0;
-  const f = flips[i], p = pos[i], n = stackN.get(f.country + "|" + (yearOf(f) ?? "nd"));
+  if (state !== "field") return; state = "flying"; document.body.classList.add("coin"); cur = i; $("#hint").style.opacity = 0;
+  const f = flips[i], p = pos[i].clone().setY(pos[i].y + rise[i]), n = stackN.get(f.country + "|" + (yearOf(f) ?? "nd"));
   saved = { pos: cam.pos.clone(), look: cam.look.clone() };
-  hiRow.position.set((WIDTH - 6) / 2, 0.01, p.z); hiCol.position.x = p.x;
-  rowLab.textContent = f.country; rowLab.style.display = ""; labEls.find((L) => L.el === rowLab).p.set(p.x + 1.2, 0.3, p.z);
+  hiRow.position.set((WIDTH + XMIN) / 2, 0.01, p.z); hiCol.position.x = p.x;
+  rowLab.textContent = f.country; rowLab.style.display = ""; labelsDirty = true; labEls.find((L) => L.el === rowLab).p.set(p.x + 1.2, 0.3, p.z);
   crumbBar(f, n);
   // hide the instance, put the hero coin in its place, with its photo on the face if it has one
   M.makeScale(0, 0, 0); coins.setMatrixAt(i, M); coins.instanceMatrix.needsUpdate = true;
   hero.position.copy(p); hero.rotation.set(0, 0, 0); hero.scale.setScalar(1); hero.visible = true;
   hero.material[1].map = null; hero.material[1].color.set(0xd9d2c3); hero.material[1].needsUpdate = true;
-  if (f.thumb) texLoader.load("../../../" + f.thumb, (tx) => { tx.colorSpace = THREE.SRGBColorSpace; tx.center.set(0.5, 0.5); tx.rotation = Math.PI / 2; hero.material[1].map = tx; hero.material[1].color.set(0xffffff); hero.material[1].needsUpdate = true; kick(); });
+  // v2: the photo (and the detail file) are fetched BEFORE the flight starts, so the texture upload does not land mid-flight.
+  // We wait at most 450 ms; a slow photo still arrives later and is put on then.
+  detail(f.d || "_misc").catch(() => {});
+  if (f.thumb) { const tp = photoTex(f); const tx = await Promise.race([tp, new Promise((r) => setTimeout(() => r(null), 450))]);
+    const put = (t) => { if (!t || cur !== i) return; hero.material[1].map = t; hero.material[1].color.set(0xffffff); hero.material[1].needsUpdate = true; renderer.initTexture && renderer.initTexture(t); kick(); };
+    if (tx) put(tx); else tp.then(put); }
   const from = { pos: cam.pos.clone(), look: cam.look.clone() };
   // 1) the row and the year light up (where it lives); 2) the camera comes down to the stack; 3) the coin rises and turns to you
   const lift = new THREE.Vector3(p.x, 2.2, p.z + 0.2);
@@ -235,15 +275,94 @@ async function open(i) {
 }
 function back() {
   if (state !== "coin") return; state = "flying"; hideSheet();
-  const i = cur, p = pos[i], from = { pos: cam.pos.clone(), look: cam.look.clone() }, hp = hero.position.clone(), hr = hero.rotation.x, hs = hero.scale.x;
+  const i = cur, p = pos[i].clone().setY(pos[i].y + rise[i]), from = { pos: cam.pos.clone(), look: cam.look.clone() }, hp = hero.position.clone(), hr = hero.rotation.x, hs = hero.scale.x;
   if (motion === "calm") fadeCut();
   animate(1000, (k) => { cam.pos.lerpVectors(from.pos, saved.pos, k); cam.look.lerpVectors(from.look, saved.look, k);
     hero.position.lerpVectors(hp, p, k); hero.rotation.x = hr * (1 - k); hero.scale.setScalar(hs + (1 - hs) * k);
     hiRow.material.opacity = 0.35 * (1 - k); hiCol.material.opacity = 0.3 * (1 - k); },
     () => { hero.visible = false; M.makeTranslation(p.x, p.y, p.z); coins.setMatrixAt(i, M); coins.instanceMatrix.needsUpdate = true;
-      rowLab.style.display = "none"; crumbs.innerHTML = ""; state = "field"; cur = -1; kick(); lastFocus && lastFocus.focus && lastFocus.focus(); });
+      rowLab.style.display = "none"; crumbs.innerHTML = ""; state = "field"; document.body.classList.remove("coin"); labelsDirty = true; cur = -1; kick(); lastFocus && lastFocus.focus && lastFocus.focus(); });
 }
 function fadeCut() { const fd = $("#fade"); fd.style.opacity = 1; setTimeout(() => (fd.style.opacity = 0), 180); }
+
+
+/* ---------- v2 filters: Albums (holes as empty rings), Silver & gold, To photograph. Live data only ---------- */
+const rise = new Float32Array(flips.length);           // current lift of each coin (To photograph raises the unphotographed ones)
+const lit = new Uint8Array(flips.length).fill(1);
+const SILVER = new Set(Object.keys(idx.metals?.inventory?.ag?.junk_flips?.pieces || {}));   // the flips the metals ledger counts as silver
+const GOLD = new Set(Object.keys(idx.metals?.inventory?.au?.flips?.pieces || {}));          // none today: gold is all bullion
+const rowOfFamily = (fam) => (/canada/i.test(fam) ? "Canada" : "USA");                     // every album family is US except the two Canada cent albums
+const families = new Map();
+for (const v of (wants?.volumes || [])) { const k = v.family; (families.get(k) || families.set(k, []).get(k)).push(v); }
+const ringGeo = new THREE.TorusGeometry(0.34, 0.07, 8, 28); ringGeo.rotateX(Math.PI / 2);
+const MAXR = Math.max(1, ...[...families.values()].map((vs) => vs.reduce((a, v) => a + v.missing_named.length, 0)));
+const rings = new THREE.InstancedMesh(ringGeo, new THREE.MeshStandardMaterial({ color: 0xe2bd6a, emissive: 0x4a3510, metalness: 0.6, roughness: 0.4 }), MAXR);
+rings.count = 0; rings.frustumCulled = false; scene.add(rings); let ringData = [];
+let filter = "all", family = null;
+const fnote = $("#fnote");
+function stackTop(country, y) { const k = country + "|" + (y ?? "nd"); return 0.09 + (stackN.get(k) || 0) * 0.2; }
+function setColors() { for (let i = 0; i < flips.length; i++) { const c = baseColor(i); if (!lit[i]) c.multiplyScalar(0.14); else if (filter !== "all") c.set(0xffd27a); coins.setColorAt(i, c); } coins.instanceColor.needsUpdate = true; }
+function setRise(target) {
+  const from = Float32Array.from(rise);
+  animate(700, (k) => { for (let i = 0; i < flips.length; i++) { if (i === cur) continue; rise[i] = from[i] + (target[i] - from[i]) * k; const sc = filter !== "all" && lit[i] ? 1.4 : 1; M.makeScale(sc, sc, sc).setPosition(pos[i].x, pos[i].y + rise[i], pos[i].z); coins.setMatrixAt(i, M); } coins.instanceMatrix.needsUpdate = true; });
+}
+function flyRow(country, x) { if (!rowZ.has(country)) return; const from = cam.pos.clone(), fl = cam.look.clone();
+  const tz = rowZ.get(country), d0 = view.dist, d1 = Math.min(view.dist, 34), tx0 = view.tx, tz0 = view.tz;
+  animate(900, (k) => { view.tx = tx0 + ((x ?? tx0) - tx0) * k; view.tz = tz0 + (tz - tz0) * k; view.dist = d0 + (d1 - d0) * k; overviewPose(cam); }); }
+function applyFilter(f, fam) {
+  if (state !== "field") return; filter = f; family = fam || null;
+  document.querySelectorAll(".filters button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
+  const target = new Float32Array(flips.length); rings.count = 0; ringData = [];
+  flips.forEach((x, i) => { lit[i] = f === "all" ? 1 : f === "metal" ? +(SILVER.has(x.scan) || GOLD.has(x.scan)) : f === "photo" ? +!x.thumb : 0; if (f === "photo" && !x.thumb) target[i] = 1.4; });
+  let note = "";
+  if (f === "metal") {
+    const pr = idx.precious || {};
+    note = `${SILVER.size} silver piece${SILVER.size === 1 ? "" : "s"} on the table (${pr.flip_silver?.oz ?? "?"} oz Ag). Gold on the table: ${GOLD.size || "none"}. `
+      + `Not on the table: bullion ${pr.bullion_silver?.oz ?? "?"} oz Ag + ${pr.bullion_gold?.oz ?? "?"} oz Au, and the silver in the albums.`;
+  } else if (f === "photo") {
+    const n = flips.filter((x) => !x.thumb).length; note = `${n} of ${flips.length} still need a phone photo; they rise. The rest dim.`;
+  } else if (f === "album") {
+    const vs = families.get(fam) || []; const row = rowOfFamily(fam); const yrs = new Map();
+    for (const v of vs) for (const m of v.missing_named) {
+      const k = m.year; const n = yrs.get(k) || 0; yrs.set(k, n + 1);
+      const y = typeof m.year === "number" ? m.year : null; const x = xOfYear(y), z = rowZ.get(row);
+      if (z == null) continue;
+      M.makeTranslation(x, stackTop(row, y) + 0.12 + n * 0.22, z); rings.setMatrixAt(rings.count, M); ringData[rings.count++] = { m, v };
+    }
+    rings.instanceMatrix.needsUpdate = true; rings.boundingSphere = null; rings.boundingBox = null;   // raycast must see the new instances
+    const holes = ringData.length, priced = ringData.filter((r) => r.m.price?.usd != null), cost = priced.reduce((a, r) => a + r.m.price.usd, 0);
+    note = `${esc(fam)}: ${holes} hole${holes === 1 ? "" : "s"} in ${vs.length} album${vs.length === 1 ? "" : "s"} (gold rings in the ${esc(row)} row). `
+      + (priced.length ? `Priced ${priced.length}: ${money(cost)} to fill. ` : "") + (holes ? "Tap a ring for the want-list entry." : "Nothing missing.");
+    flips.forEach((x, i) => { lit[i] = +(x.country === row); });
+    if (holes) { const xs = ringData.map((r) => xOfYear(typeof r.m.year === "number" ? r.m.year : null)); flyRow(row, (Math.min(...xs) + Math.max(...xs)) / 2); }
+  }
+  if (f === "album" && rowZ.has(rowOfFamily(fam))) { const row = rowOfFamily(fam); rowLab.textContent = row + " · " + fam; rowLab.style.display = ""; const xs = ringData.map((r) => xOfYear(typeof r.m.year === "number" ? r.m.year : null)); labEls.find((L) => L.el === rowLab).p.set(xs.length ? Math.min(...xs) - 0.6 : 0, 0.3, rowZ.get(row) - 0.9); }
+  else if (state === "field") rowLab.style.display = "none";
+  labelsDirty = true; fnote.hidden = !note; fnote.innerHTML = note; setColors(); setRise(target); kick();
+}
+function showRing(k) {
+  const { m, v } = ringData[k]; const pr = m.price; const url = pr && (pr.source.match(/https?:\/\/\S+/) || [])[0];
+  lastFocus = document.activeElement;
+  sheet.innerHTML = `<h2 id="sh-title">Missing: ${esc(m.label)}${m.variety ? " · " + esc(m.variety) : ""}</h2>
+    <div class="sub">${esc(v.id)} · ${esc(v.title)}</div>
+    <dl class="facts"><dt>Album</dt><dd>${esc(v.denomination)} · ${esc(v.metal)}</dd><dt>Hole</dt><dd>${esc(m.year)}${m.mint ? " · mint " + esc(m.mint) : ""} · ${esc(m.state)}</dd>
+    <dt>Price</dt><dd>${pr ? `${money(pr.usd)} (${esc(pr.grade)}) <span class="lvl reference">${esc(pr.confidence)}</span> ${esc(pr.by)} · ${esc(pr.date)}` : "not priced yet"}</dd>
+    ${pr ? `<dt>Source</dt><dd>${esc(pr.source.replace(/https?:\/\/\S+/, "").replace(/[:\s]+$/, ""))}${url ? ` · <a href="${esc(url)}" target="_blank" rel="noopener" style="color:var(--gold)">open</a>` : ""}</dd>` : ""}</dl>
+    <button type="button" id="btn-ring-close">Close</button>`;
+  $("#btn-ring-close").addEventListener("click", () => { hideSheet(); lastFocus && lastFocus.focus && lastFocus.focus(); });
+  sheet.classList.add("open"); sheet.focus({ preventScroll: true });
+}
+const albumsDlg = $("#albums");
+albumsDlg.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h2 style="margin:0;font-size:22px">Albums: show the holes</h2><button type="button" id="btn-close-alb">Close</button></div>`
+  + (families.size ? [...families].map(([fam, vs]) => { const h = vs.reduce((a, v) => a + v.missing_named.length, 0);
+      return `<button type="button" class="fam" data-fam="${esc(fam)}">${esc(fam)}<small>${vs.length} album${vs.length === 1 ? "" : "s"} · ${h} missing</small></button>`; }).join("")
+    : `<p class="sub">Album data (../../../data/wants.json) could not be read.</p>`);
+function closeAlbums() { albumsDlg.classList.remove("open"); $('[data-f="album"]').focus(); }
+$("#btn-close-alb").addEventListener("click", closeAlbums);
+albumsDlg.addEventListener("click", (e) => { const b = e.target.closest("button[data-fam]"); if (!b) return; albumsDlg.classList.remove("open"); applyFilter("album", b.dataset.fam); $('[data-f="album"]').focus(); });
+document.querySelectorAll(".filters button").forEach((b) => b.addEventListener("click", () => {
+  if (b.dataset.f === "album") { hideSheet(); albumsDlg.classList.add("open"); albumsDlg.querySelector("button.fam, button").focus(); }
+  else { hideSheet(); applyFilter(b.dataset.f); } }));
 
 /* ---------- the coin sheet: only published facts, each with its certainty label ---------- */
 const LVL = { verified: "Verified", checked: "Checked", reference: "Reference", photo: "Photo", guess: "AI guess", ledger: "From ledger" };
@@ -268,7 +387,7 @@ async function showSheet(i) {
   sheet.classList.add("open"); sheet.focus({ preventScroll: true });
 }
 function hideSheet() { sheet.classList.remove("open"); }
-addEventListener("keydown", (e) => { if (e.key === "Escape") { if ($("#list").classList.contains("open")) closeList(); else back(); } });
+addEventListener("keydown", (e) => { if (e.key === "Escape") { if ($("#list").classList.contains("open")) closeList(); else if (albumsDlg.classList.contains("open")) closeAlbums(); else if (state === "field" && sheet.classList.contains("open")) hideSheet(); else back(); } });
 
 /* ---------- touch: drag to pan, pinch / wheel to zoom, tap to open ---------- */
 const drag = { active: false, pts: new Map(), moved: 0, d0: 0, dist0: 0 };
@@ -279,11 +398,12 @@ el.addEventListener("pointerdown", (e) => { el.setPointerCapture(e.pointerId); d
 el.addEventListener("pointermove", (e) => { const p = drag.pts.get(e.pointerId); if (!p || state !== "field") return;
   const dx = e.clientX - p.x, dy = e.clientY - p.y; p.x = e.clientX; p.y = e.clientY; drag.moved += Math.abs(dx) + Math.abs(dy);
   if (drag.pts.size === 2) { const [a, b] = [...drag.pts.values()]; const d = Math.hypot(a.x - b.x, a.y - b.y); view.dist = THREE.MathUtils.clamp(drag.dist0 * drag.d0 / d, 6, fitDist() * 1.3); }
-  else { const s = view.dist / innerHeight * 1.1; view.tx = THREE.MathUtils.clamp(view.tx - dx * s, -6, WIDTH + 2); view.tz = THREE.MathUtils.clamp(view.tz - dy * s, -2, DEPTH + 2); }
+  else { const s = view.dist / innerHeight * 1.1; const half = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * camera.aspect * view.dist * 0.95; view.tx = THREE.MathUtils.clamp(view.tx - dx * s, Math.min(XMIN + half, WIDTH), Math.max(WIDTH + 2 - half, XMIN + half)); view.tz = THREE.MathUtils.clamp(view.tz - dy * s, -2, DEPTH + 2); }
   overviewPose(cam); });
 const up = (e) => { drag.pts.delete(e.pointerId); if (!drag.pts.size) { drag.active = false;
   if (drag.moved < 8 && state === "field") { ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ndc, camera);
-    const hit = ray.intersectObject(coins)[0]; if (hit) { lastFocus = $("#btn-list"); open(hit.instanceId); } } } };
+    const rh = rings.count ? ray.intersectObject(rings)[0] : null; if (rh) { showRing(rh.instanceId); return; }
+    hideSheet(); const hit = ray.intersectObject(coins)[0]; if (hit) { lastFocus = $("#btn-list"); open(hit.instanceId); } } } };
 el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up);
 el.addEventListener("wheel", (e) => { if (state !== "field") return; e.preventDefault(); view.dist = THREE.MathUtils.clamp(view.dist * (1 + e.deltaY * 0.001), 6, fitDist() * 1.3); overviewPose(cam); kick(); }, { passive: false });
 
@@ -308,7 +428,7 @@ resize(); view.dist = fitDist(true); overviewPose(cam);
 if (motion === "full") { const end = cam.pos.clone(), start = end.clone().add(new THREE.Vector3(0, 18, 14)); animate(1200, (k) => cam.pos.lerpVectors(start, end, k)); }
 kick();
 setTimeout(() => ($("#hint").style.opacity = 0), 6000);
-window.__field = { open, back, flips, state: () => state, frames };
+window.__field = { open, back, flips, state: () => state, frames, applyFilter, showRing, rings: () => ringData.length, families: () => [...families.keys()] };
 </script>
 </body>
 </html>
