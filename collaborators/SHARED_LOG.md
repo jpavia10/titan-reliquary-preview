@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Cathedral Glass (tr154)
+- Cathedral Glass redesigned to style every screen: lead-came panels, jewel-glass bar on the values, a rose-window coin stage with a lancet arch, candle-gold values.
+- Phone fps 60.4; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Conservator (tr153)
 - Conservator redesigned to style every screen: archival-board panels, a pencilled register line under each value, a black loupe ring around the coin, sepia-ink values.
 - Phone fps 60.3; AA contrast; 44px targets via tpl.
