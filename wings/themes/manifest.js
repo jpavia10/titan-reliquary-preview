@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "banknote", name: "Treasury Note", collection: "Studio", tier: "signature", art: null, ui: ["paper", "note"], styles: ["Guilloche"],
+      mood: "Engraved like a banknote: guilloche rosettes shimmer in fine green lines and the treasury seal stamps in red.", fx: "style-guilloche", fxIntensity: 0.85, scene: "banknote", tokens: {} },
     { id: "freefall", name: "Free Fall", collection: "Studio", tier: "signature", art: null, ui: ["spring"], styles: ["Physics"],
       mood: "A physics lab at night: coins rain from above, bounce, roll and heap up. Tap to knock them about.", fx: "style-physics", fxIntensity: 0.9, scene: "freefall", tokens: {} },
     { id: "sketch", name: "Sketchbook", collection: "Studio", tier: "signature", art: null, ui: ["paper", "sketch"], styles: ["Hand-drawn"],

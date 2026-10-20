@@ -1,10 +1,10 @@
-/* Titan Reliquary service worker · build tr121
+/* Titan Reliquary service worker · build tr122
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback, and after 4 s on a hung connection
    - audio/ambience/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr121";
+const BUILD = "tr122";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
@@ -38,6 +38,7 @@ const WING_URLS = [
   "styles/atmo/diorama.css?v=" + BUILD,
   "styles/atmo/bauhaus.css?v=" + BUILD,
   "styles/atmo/terminal.css?v=" + BUILD,
+  "styles/atmo/banknote.css?v=" + BUILD,
   "styles/atmo/freefall.css?v=" + BUILD,
   "styles/atmo/sketch.css?v=" + BUILD,
   "styles/atmo/papercut.css?v=" + BUILD,

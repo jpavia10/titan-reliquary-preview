@@ -11,6 +11,8 @@
                       and heap up in the corners, a tap knocks them about, and when the heap is full the floor opens and
                       they pour away; the coins' positions reach the shader through a tiny data texture (uTex) and are
                       drawn there as lit metal discs; moment: a jackpot of coins pours from the top
+     style-guilloche  Treasury Note (banknote): engraved guilloche rosettes and border bands in banknote green, two crossing
+                      families of wavy lines whose phases drift so the moiré shimmers; moment: a red treasury seal stamps in
    Loads after wings/fx/presets.js. Premultiplied output (rgb*a); light themes paint with alpha only and never add light, and the
    engine's text-safe mask attenuates every pass over text (notes/agents/styles-20.md, section 3). */
 (function () {
@@ -440,5 +442,67 @@
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return physics(fc); }" }]
+  });
+  /* =====================================================================================================================
+     5. style-guilloche · Treasury Note (light, note paper). The engraver's guilloche: a large rosette in the upper corner and a
+        smaller one opposite, each a band of two crossing families of wavy rings (r + a·sin(nθ+φ)), an inner petal rosette, and
+        fine wavy border bands down both edges. Line width is one device pixel (fwidth), the phases drift slowly so the moiré
+        shimmers like a note tilted under a lamp. Banknote green ink at engraving strength (alpha only, never light).
+        Moment "seal": a serrated red treasury seal stamps onto the smaller rosette, ink pressed unevenly.
+     ===================================================================================================================== */
+  FX.register("style-guilloche", {
+    layer: "front", still: 6, safe: 0.97,
+    moments: [{ name: "seal", every: [26, 50], dur: 7 }],
+    glsl: H + [
+      "vec4 over(vec4 top, vec4 under){ return top + under*(1.-top.a); }",
+      "float gl1(float v, float s){ float px = fwidth(v); float d = abs(fract(v/s - .5) - .5)*s; return 1.-smoothstep(0., px*1.25, d); }",
+      "float rosette(vec2 q, float R0, float R1, float n, float m, float ph, float s){",
+      "  float r = length(q); if (r > R1 + .03) return 0.;",
+      "  float th = atan(q.y, q.x);",
+      "  float band = smoothstep(R0-.012, R0+.012, r)*(1.-smoothstep(R1-.012, R1+.012, r));",
+      "  float a = (R1-R0)*.2;",
+      "  float v1 = r + a*sin(n*th + ph) + a*.35*sin(m*th - ph*1.3);",
+      "  float v2 = r - a*sin(n*th + ph*.8 + 1.2) + a*.35*sin(m*th + ph*1.1);",
+      "  float L = max(gl1(v1, s), .85*gl1(v2, s))*band;",
+      "  float pr = r*(1. + .32*cos((n*.5)*th + ph*.6)) ;",                              // the petal rosette inside the band
+      "  float pet = gl1(pr + .012*sin(m*th - ph), s*1.3)*(1.-smoothstep(R0*.82, R0*.92, pr))*smoothstep(R0*.12, R0*.22, r);",
+      "  return max(L, pet*.8);",
+      "}",
+      "float border(vec2 p, float a, float t){",
+      "  float x = abs(p.x), e = a*.5 - .045; float m = smoothstep(e-.026, e-.016, x)*(1.-smoothstep(e+.012, e+.022, x));",
+      "  if (m <= 0.) return 0.;",
+      "  float v1 = x + .006*sin(p.y*58. + t*.25), v2 = x + .006*sin(p.y*58. + 3.1416 - t*.2);",
+      "  return m*max(gl1(v1, .0045), .8*gl1(v2, .0045));",
+      "}",
+      "vec4 guilloche(vec2 fc){",
+      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3); float t = uTime;",
+      "  vec4 col = vec4(0.);",
+      "  vec2 cA = vec2(a*.5 - (a < .8 ? .06 : .14), .36); float RA = a < .8 ? .24 : .3;",
+      "  vec2 cB = vec2(-a*.5 + (a < .8 ? .07 : .16), -.34); float RB = a < .8 ? .17 : .21;",
+      "  float A1 = rosette(r2(t*.004)*(p-cA), RA*.62, RA, 18., 7., t*.06, .0052);",
+      "  float B1 = rosette(r2(-t*.005)*(p-cB), RB*.6, RB, 14., 5., 1.7 + t*.07, .0048);",
+      "  float bo = a > .8 ? border(p, a, t) : 0.;",
+      "  float ink = max(max(A1, B1), bo);",
+      "  vec3 g = mix(vec3(.08,.30,.22), vec3(.10,.24,.36), .5+.5*sin(p.x*3.+p.y*2.+t*.05));",   // green drifting toward blue-green, as printed notes do
+      "  float al = ink*.55;",
+      "  col = vec4(g*al, al);",
+      "  float km = mK();",
+      "  if (km >= 0.) {",                                                                      // the treasury seal stamps in
+      "    float sc = 1. + .45*(1.-smoothstep(0.,.07,km)); float fa = smoothstep(0.,.05,km)*(1.-smoothstep(.85,1.,km));",
+      "    vec2 q = (p-cB)/(RB*.72*sc); float r = length(q), th = atan(q.y,q.x);",
+      "    float edge = 1. + .05*step(.5, fract(th*36./6.2832));",
+      "    float disc = 1.-smoothstep(edge-.02, edge+.02, r);",
+      "    float ring = 1.-smoothstep(.0, .025, abs(r-.8)) ; float ring2 = 1.-smoothstep(.0, .015, abs(r-.66));",
+      "    float an = th + 1.5708; float st = r*(1.+.4*cos(5.*an)) ;",                          // a five-point star at the centre
+      "    float star = 1.-smoothstep(.36, .38, st);",
+      "    float press = .55 + .45*vn(p*260.);",
+      "    float sealInk = clamp(disc*(.32 + .55*ring + .55*ring2 + .55*star), 0., 1.)*press*fa;",
+      "    vec3 sc3 = vec3(.66,.20,.11); float sa = sealInk*.7;",
+      "    col = over(vec4(sc3*sa, sa), col);",
+      "  }",
+      "  return col*I;",
+      "}"
+    ].join("\n") + "\n",
+    passes: [{ frag: "vec4 fx(vec2 fc){ return guilloche(fc); }" }]
   });
 })();
