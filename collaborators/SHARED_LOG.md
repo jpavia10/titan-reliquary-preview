@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Nocturne (tr157)
+- Nocturne redesigned to style every screen: velvet-navy panels lit by a spotlight cone, footlight glow under the values, gilt proscenium edges, a spotlit coin stage; old full-page repaint animations stopped (the cause of 45 fps).
+- Phone fps 45.7 → 60.3; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Drafting Room (tr156)
 - Drafting Room redesigned to style every screen: blueprint panels with a white technical grid, title-block value plates, a crosshair-centred coin stage, amber pencil callouts.
 - Phone fps 60.3; AA contrast; 44px targets via tpl.
