@@ -25,6 +25,8 @@ jobs:
       - run: python tools/smoke/smoke.py --shots smoke-shots
       - name: opening-film rule (GRK-P-02 / tr126 regression)
         run: python tools/smoke/test_regress_grk_p02.py
+      - name: updates never close the Scene studio (GRK-P-03 regression)
+        run: python tools/smoke/test_regress_grk_p03.py
       - if: failure()
         uses: actions/upload-artifact@v4
         with:

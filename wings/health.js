@@ -84,7 +84,7 @@
   }
   function applyUpdate(c) {
     try { sessionStorage.setItem(FLAG, JSON.stringify({ build: c.build, publish: c.publish })); } catch (e) { /* ignore */ }
-    swUpdate().finally(() => { if (window.TitanReload) window.TitanReload(); else location.reload(); });
+    swUpdate().finally(() => { if (window.TitanReload) window.TitanReload(true); else location.reload(); });
   }
 
   async function refresh() {

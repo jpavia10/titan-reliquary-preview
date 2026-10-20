@@ -330,17 +330,31 @@
   /* Never reload while the opening film is playing (it restarted mid-clip when a deploy or a price publish landed).
      The reload waits until the app is backgrounded, so it is invisible and never interrupts the intro's hand-off. */
   let deferredReload = null;
+  /* GRK fix (2026-10-20): every new build ships a new sw.js, and "controllerchange" / a newer version.json used to reload the
+     page ~1 s later even while the Scene studio (or any other sheet) was open, so the picker kept getting kicked closed.
+     Now a reload never happens while the intro film or ANY overlay is open, or within 5 s of a tap; it waits until the
+     overlays are closed and the user has been idle, or until the app is backgrounded. */
+  let lastInteractAt = 0;
+  ["pointerdown", "keydown", "touchstart", "wheel"].forEach((t) => window.addEventListener(t, () => { lastInteractAt = Date.now(); }, { capture: true, passive: true }));
+  const OVERLAY_SEL = "#scene-sheet, #atmo-sheet, #palette, #lightbox, #keys-sheet, .ambient-panel, #trt-qr, [role=dialog][aria-modal=true]";
+  function overlayOpen() {
+    return [...document.querySelectorAll(OVERLAY_SEL)].some((el) => !el.hidden && el.getAttribute("aria-hidden") !== "true" && el.offsetParent !== null);
+  }
+  function reloadUnsafe() {
+    return document.documentElement.classList.contains("ts-on") || overlayOpen() || Date.now() - lastInteractAt < 5000;
+  }
+  window.TitanReloadUnsafe = reloadUnsafe;
   function reloadWhenSafe(fn) {
-    if (!document.documentElement.classList.contains("ts-on")) return fn();
+    if (!reloadUnsafe()) return fn();
     if (deferredReload) return;
     deferredReload = fn;
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden && deferredReload) { const f = deferredReload; deferredReload = null; f(); }
-    });
+    const fire = () => { if (!deferredReload) return; const f = deferredReload; deferredReload = null; clearInterval(t); f(); };
+    document.addEventListener("visibilitychange", () => { if (document.hidden) fire(); });
+    const t = setInterval(() => { if (!reloadUnsafe()) fire(); }, 2000);
   }
-  function bustReload() {
-    if (document.documentElement.classList.contains("ts-on")) return reloadWhenSafe(bustReload);
-    if (deferredReload) return;   // a reload is already queued for the next time the app is backgrounded
+  function bustReload(force) {
+    if (force !== true && reloadUnsafe()) return reloadWhenSafe(() => bustReload(true));
+    if (force !== true && deferredReload) return;   // a reload is already queued for the next time the app is backgrounded
     saveState();
     const url = new URL(location.href);
     url.searchParams.set("v", Date.now().toString(36));
@@ -6729,7 +6743,7 @@
         reloadWhenSafe(() => {
           if (document.hidden) { window.location.reload(); return; }
           showToast("New version available — refreshing…");
-          setTimeout(() => window.location.reload(), 900);
+          setTimeout(() => { if (reloadUnsafe()) { reloaded = false; deferredReload = null; reloadWhenSafe(() => window.location.reload()); } else window.location.reload(); }, 900);
         });
       });
     }).catch(() => {});
