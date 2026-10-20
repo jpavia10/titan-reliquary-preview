@@ -146,3 +146,52 @@ html[data-atmo="alchemist"] .album-binder-card { background: #0a1f15; border-col
 @media (prefers-reduced-motion: reduce) {
   html[data-atmo="alchemist"] .hero::before { animation: none; }
 }
+
+/* ============================================================================
+   The Alchemist v2 (Grok, 2026-10-20): every screen, not just home.
+   A Renaissance transmutation lab: vitriol-green glass plates edged in gold leaf, engraved double-rule frames, an athanor-glow coin stage under a circled-triangle sigil ring, and gold-leaf values.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="alchemist"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
+  background: linear-gradient(175deg, #0f2a1c, #081a11); border: 1px solid rgba(223,183,90,0.30); border-radius: 10px;
+  box-shadow: inset 0 1px 0 rgba(223,183,90,0.10), 0 12px 30px rgba(0,0,0,0.6);
+}
+html[data-atmo="alchemist"] :is(#drawer-body, body) .drawer-inner{ background: radial-gradient(70% 30% at 50% 0%, rgba(223,183,90,0.10), transparent 70%), var(--bg); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: radial-gradient(circle at 50% 45%, rgba(223,183,90,0.18), transparent 60%), #06140c; border: 1px solid rgba(223,183,90,0.5); border-radius: 10px; box-shadow: inset 0 0 0 3px #0c2016, inset 0 0 0 4px rgba(223,183,90,0.3), inset 0 0 40px rgba(0,0,0,0.6); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .museum-slab{  }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
+  min-height: 44px; min-width: 44px;
+  background: linear-gradient(180deg, #0f2a1c, #081a11); border: 1px solid rgba(223,183,90,0.42); border-radius: 10px;
+  box-shadow: inset 0 1px 0 rgba(223,183,90,0.12); color: var(--ink);
+}
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif, inherit); font-weight: 700; letter-spacing: 0.02em; }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: inherit; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .gxd-value strong{ font-family: var(--serif, inherit); color: var(--gold-soft); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #081a11; border: 1px solid rgba(223,183,90,0.5); border-radius: 10px; }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #0f2a1c, #081a11); border: 1px solid rgba(223,183,90,0.42); border-radius: 10px; }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #f5dfa0 0%, #dfb75a 55%, #9c7a2a 100%); color: var(--on-gold); box-shadow: 0 0 16px rgba(223,183,90,0.3); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="alchemist"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="alchemist"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .palette-sheet{ background: linear-gradient(175deg, #0f2a1c, #081a11); border: 1px solid rgba(223,183,90,0.30); border-radius: 10px; box-shadow: inset 0 1px 0 rgba(223,183,90,0.10), 0 12px 30px rgba(0,0,0,0.6), var(--elev-3); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="alchemist"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
+
+@supports (-webkit-background-clip: text) {
+  html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gxd-value strong.gxd-est, .hero-grand){ background: linear-gradient(180deg, #f5dfa0 0%, #dfb75a 55%, #9c7a2a 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+}
+html[data-atmo="alchemist"] :is(#drawer-body, body) .gxd-face figcaption{ color: var(--muted); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(223,183,90,0.5); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
+
+html[data-atmo="alchemist"] :is(#drawer-body, body) .gxd-coin{ border-radius: 50%; box-shadow: 0 0 0 3px #0c2016, 0 0 0 4px rgba(223,183,90,0.7), 0 0 0 9px rgba(12,32,22,0.9), 0 0 0 10px rgba(223,183,90,0.35), 0 0 30px rgba(223,183,90,0.2); }
+html[data-atmo="alchemist"] :is(#drawer-body, body) .slab-pedigree-header{ background: linear-gradient(90deg, #3d3010, #0c2016); color: #fff; }
+html[data-atmo="alchemist"] :is(#drawer-body, body) :is(.gxd-value > div){ outline: 1px solid rgba(223,183,90,0.18); outline-offset: -5px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="alchemist"] *, html[data-atmo="alchemist"] *::before, html[data-atmo="alchemist"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
