@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 10/34: Silk Road / silkroad (owner-approved push) (tr138)
+* Theme upgrade 10/34 (worst first, owner-approved 2026-10-20 06:55 PT). Silk Road was #25: the concept stopped at navy and gold.
+* Every screen (`styles/atmo/silkroad.css` v2): lapis panels with a faint suzani embroidery pattern and an ikat band along the top, the coin shown under a pointed caravanserai arch, a dashed caravan route with stops across the home hero and above the coin's name, parchment and dune-gold type with italic labels, bazaar-gold active buttons, 44 px+ controls, reduced-motion CSS. 60 fps idle on the phone floor before and after.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 9/34: Clay Diorama / diorama (owner-approved push) (tr137)
 * Theme upgrade 9/34 (worst first, owner-approved 2026-10-20 06:55 PT). Clay Diorama was #26: ~16 fps idle on the phone floor, clay props floating over every screen, gallery and coin page generic.
 * Speed: style-clay (a raymarch, the costliest pass in the app) now redraws at 12 fps, which is how claymation is shot (on twos), and runs at 0.65 strength (was 0.8) so the props crowd the text less. Phone floor 40.3 -> 59.6 fps idle (ranking: 15.7).
