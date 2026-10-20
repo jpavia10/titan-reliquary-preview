@@ -174,3 +174,16 @@ html.vt-theme::view-transition-new(root) { animation: vt-open 0.7s cubic-bezier(
   :where(button, [role="button"], .gx-tile, .atmo-card, .cf-card):not(:disabled) { transition: transform 0.32s cubic-bezier(.3,1.6,.5,1); }
   :where(button, [role="button"], .gx-tile, .atmo-card, .cf-card):not(:disabled):active { transform: scale(0.96); transition-duration: 0.06s; }
 }
+
+/* scroll-driven depth (Grok 2026-10-20): coin tiles tip up out of the page as they scroll in and lean away as they leave, driven by
+   scroll position on the compositor (no JS). Only where the browser supports scroll timelines; off under reduced motion. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    :where(.gx-tile, .piece-card, .latest-card) { animation: tr-depth linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; transform-origin: 50% 50%; }
+    @keyframes tr-depth {
+      0% { transform: perspective(700px) rotateX(22deg) translateY(24px) scale(0.92); opacity: 0.35; }
+      22%, 78% { transform: none; opacity: 1; }
+      100% { transform: perspective(700px) rotateX(-14deg) scale(0.95); opacity: 0.7; }
+    }
+  }
+}

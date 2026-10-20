@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Motion: scroll-driven tile depth (tr170)
+- NEW: scroll-driven depth. Coin tiles tip up out of the page as they scroll in and lean away as they leave, driven by scroll position on the compositor (no JS). Only where the browser supports scroll timelines; off under reduced motion. Phone fps unchanged (60.3).
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Motion: coin fly-in and spring taps (tr169)
 - NEW: tapping a coin tile flies the 3D coin out of the tile's picture into the coin page (shared-element motion with a slight spring overshoot), then the coin flips in.
 - NEW: every button and tile gives slightly under the finger and springs back (zero-specificity rule, so theme styles still win). Both are off under reduced motion; phone fps unchanged (afterhours 60.1, glacier 60.3).
