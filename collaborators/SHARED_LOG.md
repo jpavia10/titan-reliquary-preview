@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Sunken Treasury (tr144)
+- Sunken Treasury (abyss) redesigned to style every screen: pressure-glass viewport panels with an aqua rim and caustic top light, wreck-brass money, bathysphere porthole coin stage.
+- Phone fps 60.2 -> 60.2; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Bauhaus (tr143)
 - Bauhaus redesigned to style every screen as a Dessau poster: hard black rules, zero radius, offset solid shadows, primary-color blocks, yellow value plate, caps headings.
 - Phone fps 60.2 -> 60.2; AA contrast (black on yellow/white); 44px targets via tpl.

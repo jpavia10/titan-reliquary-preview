@@ -242,3 +242,50 @@ html[data-atmo="abyss"] .mobile-wing-dock { background: rgba(4, 20, 31, 0.97) !i
   html[data-atmo="abyss"] .card,
   html[data-atmo="abyss"] .tile { transition: none; }
 }
+
+/* ============================================================================
+   Sunken Treasury v2 (Grok, 2026-10-20): every screen, not just home.
+   Forty fathoms down: every panel is a pressure-glass viewport with a bioluminescent aqua rim and caustic light pooling from above, wreck-brass for money, rivet-ringed bathysphere porthole for the coin stage, and sonar-ring active tabs.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="abyss"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
+  background: radial-gradient(120% 60% at 50% -10%, rgba(79,214,226,0.12), transparent 60%), linear-gradient(180deg, #0a2638, #061a28); border: 1px solid rgba(79,214,226,0.30); border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(178,238,243,0.12), 0 0 18px rgba(79,214,226,0.08), 0 14px 32px rgba(0,6,12,0.65);
+}
+html[data-atmo="abyss"] :is(#drawer-body, body) .drawer-inner{ background: radial-gradient(70% 35% at 50% 0%, rgba(79,214,226,0.12), transparent 70%), linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.25)), var(--bg); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: radial-gradient(circle at 50% 30%, rgba(79,214,226,0.18), transparent 65%), #051623; border: 2px solid rgba(224,169,72,0.55); border-radius: 24px; box-shadow: inset 0 0 0 5px #082233, inset 0 0 0 6px rgba(79,214,226,0.3), inset 0 0 40px rgba(0,0,0,0.6); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .museum-slab{  }
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
+  min-height: 44px; min-width: 44px;
+  background: linear-gradient(180deg, #0f3248, #082233); border: 1px solid rgba(79,214,226,0.40); border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(178,238,243,0.12), 0 2px 8px rgba(0,6,12,0.5); color: var(--ink);
+}
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif, inherit); font-weight: 700; letter-spacing: 0.01em; }
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: inherit; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .gxd-value strong{ font-family: var(--serif, inherit); color: #ffd98a; }
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #04131f; border: 1px solid rgba(79,214,226,0.5); border-radius: 14px; box-shadow: 0 0 12px rgba(79,214,226,0.15); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #0f3248, #082233); border: 1px solid rgba(79,214,226,0.40); border-radius: 14px; }
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #7fe6ee, #4fd6e2); color: var(--on-gold); box-shadow: 0 0 0 3px rgba(79,214,226,0.18), 0 0 18px rgba(79,214,226,0.4); }
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="abyss"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="abyss"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .palette-sheet{ background: radial-gradient(120% 60% at 50% -10%, rgba(79,214,226,0.12), transparent 60%), linear-gradient(180deg, #0a2638, #061a28); border: 1px solid rgba(79,214,226,0.30); border-radius: 16px; box-shadow: inset 0 1px 0 rgba(178,238,243,0.12), 0 0 18px rgba(79,214,226,0.08), 0 14px 32px rgba(0,6,12,0.65), var(--elev-3); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="abyss"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
+
+@supports (-webkit-background-clip: text) {
+  html[data-atmo="abyss"] :is(#drawer-body, body) :is(.gxd-value strong.gxd-est, .hero-grand){ background: linear-gradient(180deg, #ffe0a0 0%, #e0a948 55%, #a8742a 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+}
+html[data-atmo="abyss"] :is(#drawer-body, body) .gxd-coin{ border-radius: 50%; box-shadow: 0 0 0 3px #082233, 0 0 0 5px rgba(224,169,72,0.6), 0 0 30px rgba(79,214,226,0.25); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .gxd-face figcaption{ color: var(--muted); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .slab-pedigree-header{ background: linear-gradient(90deg, #0e3a50, #5a3f14); color: #fff; }
+html[data-atmo="abyss"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(79,214,226,0.5); }
+html[data-atmo="abyss"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="abyss"] *, html[data-atmo="abyss"] *::before, html[data-atmo="abyss"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
