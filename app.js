@@ -6779,12 +6779,13 @@
     diorama:     { name: "Clay Diorama",      themeColor: "#f3ece4", preset: "diorama",   station: "lofi",      pair: "Birds and stream + Lo-fi" },
     bauhaus:     { name: "Bauhaus",           themeColor: "#f2efe6", preset: "bauhaus",   station: "classical", pair: "Studio + Classical" },
     terminal:    { name: "Grand Terminal",    themeColor: "#0d0f12", preset: "terminal",  station: "adventure", pair: "Trains and the hall + Adventure" },
+    y2k:         { name: "Millennium Chrome", themeColor: "#eef0f8", preset: "y2k", station: "synthwave", pair: "Late-90s mall + Synthwave" },
   };
   const ATMO_ORDER = [
     "afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss",
     "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla",
     "dynasty", "zen", "samadhi", "silkroad",
-    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal"
+    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k"
   ];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");

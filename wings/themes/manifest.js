@@ -65,7 +65,9 @@
     { id: "bauhaus", name: "Bauhaus", collection: "Studio", tier: "signature", art: C("bauhaus"), ui: ["paper", "brutal"], styles: ["Bauhaus", "Kinetic type"],
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
-      mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} }
+      mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "y2k", name: "Millennium Chrome", collection: "Studio", tier: "signature", art: null, ui: ["paper", "chrome"], styles: ["Y2K chrome"],
+      mood: "Liquid chrome and pastel sparkle: the collection as a Y2K dream, every coin polished to a mirror.", fx: "style-y2k", fxIntensity: 0.85, scene: "y2k", tokens: {} }
   ];
   /* styles-20: the styles each existing theme now carries (shown on its picker card) and its shared UI treatments */
   var STYLE_OF = { afterhours: ["Particles"], colossus: ["Liquid morph"], kaleido: ["Holographic"], neon: ["Neon glow", "Retro VHS"],

@@ -12,6 +12,7 @@
      blueprint drafting grid on the page (--ui-grid, --ui-grid2), hairline technical frames, tracked uppercase headings
      clay      soft clay: big radii, puffy inner/outer shadows, pastel blobs on the page, pill buttons that squash when pressed
      board     departures board: tracked uppercase signage, split-flap seams across tiles, mono numerals
+     chrome    Y2K chrome: pastel blobs on the page, glossy pill buttons, chrome-edged cards
    Loaded last (after the wing sheets) so these rules win over component defaults. No layout: borders, radii, shadows,
    backgrounds, type case and spacing only. Motion stops under reduced motion and Motion Calm/Off.
    ========================================================================== */
@@ -229,6 +230,33 @@ html[data-ui~="board"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .v
 }
 
 /* ---------- motion off ------------------------------------------------------ */
+/* ---------- 8. chrome (2026-10-20, Millennium Chrome) ----------------------------------------------------------------
+   Y2K chrome: pastel blobs on the page, glossy pill buttons with a top gloss, cards with a bright chrome edge. Only shadows,
+   radii and the page background change: text and fill colours stay the theme's own, so contrast is the token check's. */
+html[data-ui~="chrome"] body {
+  background-image:
+    radial-gradient(circle at 10% 8%, color-mix(in srgb, var(--y2k-pink, #f6b8e4) 45%, transparent) 0, transparent 28%),
+    radial-gradient(circle at 90% 14%, color-mix(in srgb, var(--y2k-sky, #b9d4ff) 50%, transparent) 0, transparent 26%),
+    radial-gradient(circle at 80% 90%, color-mix(in srgb, var(--y2k-lilac, #d6c8ff) 50%, transparent) 0, transparent 28%);
+  background-attachment: fixed;
+}
+html[data-ui~="chrome"] :is(.hg-tile, .wing-card, .note-card, .vault-valuation-hub, .ex-info-placard, .lab-banner, .gx-tile, .cf-placard, .gf-finder,
+  .vx-sec, .vx-lot, .vx-wi-card, .sheet-card, .card, .tile, .album-card, .latest-card, .metal-tile, .shoot-card, .piece-card, .hero-trust, .scenario-card) {
+  border-radius: var(--radius, 18px);
+  box-shadow: 0 0 0 1px rgba(150, 156, 214, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 rgba(90, 96, 170, 0.22),
+    0 10px 26px rgba(60, 50, 140, 0.12), 0 2px 5px rgba(60, 50, 140, 0.08);
+}
+html[data-ui~="chrome"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) {
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(130, 136, 204, 0.6), inset 0 9px 9px -7px rgba(255, 255, 255, 0.95), inset 0 -4px 7px -4px rgba(70, 76, 160, 0.22),
+    0 3px 8px rgba(60, 50, 140, 0.14);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+html[data-ui~="chrome"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn):active {
+  transform: translateY(1px) scale(0.98); box-shadow: 0 0 0 1px rgba(130, 136, 204, 0.7), inset 0 3px 7px rgba(70, 76, 160, 0.25);
+}
+html[data-ui~="chrome"] nav.wings { border-radius: 26px; box-shadow: 0 0 0 1px rgba(150, 156, 214, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 30px rgba(60, 50, 140, 0.16); }
+
 @media (prefers-reduced-motion: reduce) {
   html[data-ui] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { transition: none; }
 }
