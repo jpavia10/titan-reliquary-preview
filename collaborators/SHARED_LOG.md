@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · 3D coin worlds for every theme (tr167)
+- NEW: each of the 34 themes has its own world around the 3D coin: depth layers of embers rising (Valhalla, Colossus), bubbles (Abyss), snow (Glacier), code rain (Construct, Neon), petals (Zen), pixels (Arcade), dust and stars elsewhere. They drift and shift with depth as you turn the coin or tilt the phone.
+- Drawn on a cheap 2D layer at 30 fps (the coin's WebGL still only draws while it moves), frozen under reduced motion, paused when hidden. Coin-page fps under 4x CPU throttle: Valhalla 57.7 to 55.0.
+- Test v01 now also checks every theme has a world.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Notepad (tr166)
 - Notepad redesigned to style every screen: flat white windows with a 1px frame and a title-bar strip on the coin stage, square buttons, Courier values, system-blue links.
 - Phone fps 60.3; AA contrast; 44px targets via tpl.

@@ -67,6 +67,52 @@
   }
 
   const sig = (st) => [...st.querySelectorAll(".gxd-faces > figure, .gxd-face")].map((f) => { const i = f.querySelector("img"); return i ? i.getAttribute("src") : "svg"; }).join("|");
+  /* Each theme's own 3D world around the coin: depth layers of particles that drift and parallax as the coin is turned or the
+     phone tilts. [kind, colour, count, speed] kinds: rise (embers, bubbles), fall (snow, ash, petals), drift (dust, spores, stars), pixel */
+  const WORLD = {
+    afterhours: ["drift", 0xe8d9b0, 70, 0.04], conservator: ["drift", 0x9a7a4a, 50, 0.02], colossus: ["rise", 0xffa040, 80, 0.25],
+    nocturne: ["drift", 0xcfa95f, 60, 0.05], odyssey: ["drift", 0xffd9a0, 60, 0.06], cursedwing: ["fall", 0xb03020, 60, 0.12],
+    abyss: ["rise", 0x9ff0f6, 90, 0.18], neon: ["fall", 0x35e6ff, 90, 0.5], notepad: ["drift", 0x000000, 0, 0], construct: ["fall", 0x33ff66, 120, 0.7],
+    xeno: ["drift", 0x55f5c6, 80, 0.08], solaris: ["drift", 0xffb52e, 90, 0.1], alchemist: ["rise", 0xdfb75a, 70, 0.12], glacier: ["fall", 0xffffff, 120, 0.15],
+    valhalla: ["rise", 0xff8a30, 100, 0.3], dynasty: ["fall", 0xff5a5a, 50, 0.1], zen: ["fall", 0xf2b8c6, 40, 0.08], samadhi: ["rise", 0xffc78f, 60, 0.06],
+    silkroad: ["drift", 0xe0b070, 90, 0.15], arcade: ["pixel", 0xffd23f, 60, 0.3], pulp: ["drift", 0xffffff, 40, 0.05], drafting: ["drift", 0xffffff, 50, 0.03],
+    diorama: ["drift", 0xfff0d0, 40, 0.04], bauhaus: ["pixel", 0xb42416, 24, 0.05], terminal: ["drift", 0xffc43d, 40, 0.03], marbled: ["drift", 0x7a1f2b, 30, 0.02],
+    cathedral: ["drift", 0xe9b44c, 70, 0.03], contour: ["drift", 0xffffff, 40, 0.03], banknote: ["drift", 0x1f5e43, 30, 0.02], freefall: ["fall", 0xffffff, 80, 0.6],
+    sketch: ["drift", 0x333333, 30, 0.03], papercut: ["fall", 0xffffff, 30, 0.08], y2k: ["drift", 0xffffff, 70, 0.08], kaleido: ["drift", 0xee6fd6, 80, 0.06]
+  };
+  /* drawn on a cheap 2D canvas behind the WebGL coin (the coin itself still renders only while it moves) */
+  function makeWorld(wrap, atmo, light, st) {
+    const w = WORLD[atmo] || WORLD.afterhours; if (!w[2]) return null;
+    const c = document.createElement("canvas"); c.className = "c3d-world"; c.setAttribute("aria-hidden", "true"); wrap.insertBefore(c, wrap.firstChild);
+    const x = c.getContext("2d"), n = MOBILE ? Math.round(w[2] * 0.7) : w[2], P = [];
+    for (let i = 0; i < n; i++) P.push({ x: Math.random(), y: Math.random(), z: 0.25 + Math.random() * 0.75, s: Math.random() * 100 });
+    P.sort((a, b) => a.z - b.z);
+    const col = "#" + w[1].toString(16).padStart(6, "0"), kind = w[0], v = w[3];
+    let W = 0, H = 0, dpr = 1, raf = 0, last = 0, timer = 0, dead = false;
+    function size() { dpr = Math.min(1.5, window.devicePixelRatio || 1); W = c.clientWidth; H = c.clientHeight; c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); }
+    function draw(now) {
+      raf = 0; if (dead) return; const dt = Math.min(0.1, last ? (now - last) / 1000 : 0.03); last = now; const t = now / 1000;
+      if (c.width !== Math.round(c.clientWidth * dpr)) size();
+      x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, W, H); x.fillStyle = col; x.globalCompositeOperation = light ? "source-over" : "lighter";
+      const px = (st.yaw - st.ty) * 40 + st.tilt.x * 140, py = st.pitch * 50 + st.tilt.y * 120;
+      for (const p of P) {
+        if (!reduce.matches) {
+          if (kind === "rise") { p.y -= v * dt * 0.25 * p.z; p.x += Math.sin(t * 0.7 + p.s) * 0.0004; if (p.y < -0.05) p.y = 1.05; }
+          else if (kind === "fall") { p.y += v * dt * 0.25 * p.z; p.x += Math.sin(t * 0.9 + p.s) * 0.0005; if (p.y > 1.05) p.y = -0.05; }
+          else if (kind === "drift") { p.x += Math.sin(t * 0.21 + p.s) * v * dt * 0.05; p.y += Math.cos(t * 0.17 + p.s) * v * dt * 0.05; }
+        }
+        const X = ((p.x * W + px * p.z) % W + W) % W, Y = ((p.y * H + py * p.z) % H + H) % H, r = (kind === "pixel" ? 2.5 : 1.6) * (0.5 + p.z);
+        x.globalAlpha = (light ? 0.35 : 0.55) * (0.35 + p.z * 0.65) * (kind === "drift" ? 0.75 + 0.25 * Math.sin(t * 1.3 + p.s) : 1);
+        if (kind === "pixel") x.fillRect(X, Y, r * 2, r * 2); else { x.beginPath(); x.arc(X, Y, r, 0, 6.283); x.fill(); }
+      }
+      if (!reduce.matches && !document.hidden) timer = setTimeout(() => { raf = requestAnimationFrame(draw); }, 28);
+    }
+    size(); raf = requestAnimationFrame(draw);
+    return { n, poke() { if (!raf && !timer) raf = requestAnimationFrame(draw); }, wake() { clearTimeout(timer); timer = 0; if (!raf) raf = requestAnimationFrame(draw); },
+      dispose() { dead = true; cancelAnimationFrame(raf); clearTimeout(timer); c.remove(); } };
+  }
+  const MOBILE = /Mobi|Android|iPhone|iPad/.test(navigator.userAgent || "");
+
   function build(stage) {
     destroy();
     const faces = stage.querySelectorAll(".gxd-faces > figure, .gxd-face");
@@ -100,6 +146,9 @@
     const pivot = new T.Group(); pivot.add(coin); scene.add(pivot);
     // cap UVs run sideways in three: turn both faces upright
     f1.tex.rotation = Math.PI / 2; f2.tex.rotation = Math.PI / 2;
+    const atmo = document.documentElement.dataset.atmo || "afterhours";
+    const light = getComputedStyle(document.documentElement).getPropertyValue("--scheme").trim() === "light";
+    let world = null;
     const shadow = new T.Mesh(new T.CircleGeometry(1.15, 48), new T.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.28, depthWrite: false }));
     shadow.position.set(0, 0, -0.6); scene.add(shadow);
 
@@ -109,6 +158,7 @@
     lastTitle = title;
     function size() { const w = wrap.clientWidth || 320, h = Math.round(Math.min(340, Math.max(220, w * 0.72))); canvas.style.height = h + "px"; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
     size();
+    world = makeWorld(wrap, atmo, light, s);
     function frame(now) {
       s.raf = 0; const dt = Math.min(0.05, s.last ? (now - s.last) / 1000 : 0.016); s.last = now;
       if (!s.drag) {
@@ -122,7 +172,8 @@
       const t0 = performance.now(); renderer.render(scene, cam);
       if (performance.now() - t0 > 20 && ++s.slow > 6 && dpr > 1) { dpr = 1; renderer.setPixelRatio(1); size(); }
       const moving = s.drag || Math.abs(s.vy) + Math.abs(s.vp) + Math.abs(s.vs) > 0.002 || Math.abs(s.ty - s.yaw) + Math.abs(s.tp + s.tilt.y - s.pitch) + Math.abs(1 - s.sc) > 0.001;
-      if (moving && !document.hidden) s.raf = requestAnimationFrame(frame); else s.last = 0;
+      if (moving && !document.hidden) s.raf = requestAnimationFrame(frame);
+      else s.last = 0;
     }
     function kick() { if (!s.raf) s.raf = requestAnimationFrame(frame); }
     function settle() { const n = Math.round(s.ty / Math.PI) * Math.PI; s.ty = n; s.tp = 0; }
@@ -161,9 +212,9 @@
     const tog = wrap.querySelector(".c3d-toggle");
     tog.addEventListener("click", () => { setOn(false); });
     const ro = window.ResizeObserver ? new ResizeObserver(() => { size(); kick(); }) : null; if (ro) ro.observe(wrap);
-    const vis = () => { if (!document.hidden) kick(); }; document.addEventListener("visibilitychange", vis);
-    R = { sig: sig(stage), stage, wrap, renderer, ro, vis, onTilt, s, flip, dispose() {
-      cancelAnimationFrame(s.raf); if (ro) ro.disconnect(); document.removeEventListener("visibilitychange", vis); window.removeEventListener("deviceorientation", onTilt);
+    const vis = () => { if (!document.hidden) { kick(); if (world) world.wake(); } }; document.addEventListener("visibilitychange", vis);
+    R = { world: () => world, sig: sig(stage), stage, wrap, renderer, ro, vis, onTilt, s, flip, dispose() {
+      cancelAnimationFrame(s.raf); if (world) world.dispose(); if (ro) ro.disconnect(); document.removeEventListener("visibilitychange", vis); window.removeEventListener("deviceorientation", onTilt);
       geo.dispose(); [rim, top, bot].forEach((m) => { if (m.map) m.map.dispose(); if (m.normalMap) m.normalMap.dispose(); m.dispose(); });
       if (scene.environment) scene.environment.dispose(); renderer.dispose(); try { renderer.forceContextLoss(); } catch (e) { /* ignore */ }
       wrap.remove(); stage.classList.remove("c3d-on");
@@ -198,5 +249,5 @@
   window.addEventListener("titan:ui", (e) => { if (e.detail && e.detail.kind === "coin-close") { destroy(); lastTitle = null; } });
   window.addEventListener("titan:atmo", () => { const st = R && R.stage; if (st) { destroy(); if (on) build(st); } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
-  window.TitanCoin3D = { isOn: () => on, setOn, active: () => !!R, state: () => (R ? { yaw: R.s.yaw, pitch: R.s.pitch, scale: R.s.sc } : null), flip: () => { if (R) R.flip(); } };
+  window.TitanCoin3D = { isOn: () => on, setOn, active: () => !!R, state: () => (R ? { yaw: R.s.yaw, pitch: R.s.pitch, scale: R.s.sc, world: R.world() ? R.world().n : 0 } : null), worlds: () => Object.keys(WORLD), flip: () => { if (R) R.flip(); } };
 })();
