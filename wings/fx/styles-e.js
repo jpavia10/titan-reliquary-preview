@@ -670,4 +670,43 @@
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return marble(fc); }" }]
   });
+  /* =====================================================================================================================
+     v2 (Grok, 2026-10-20) style-kaleido · Prism (kaleido). A real kaleidoscope: a coin photo from the collection (or, until one
+     loads, a painted glass-chip plate) is drawn once into a small texture; the shader folds the plane into an 8-fold mirrored
+     wedge and turns it slowly, shown as a rosette in the upper corner with a prismatic rim, faded well clear of the text.
+     One texture read per pixel inside the rosette, nothing outside it; 30 redraws a second.
+     ===================================================================================================================== */
+  function kalCanvas(c, w, h, t, info) {
+    var key = info.coin ? "coin" : "chips"; if (c.__k === key) return false; c.__k = key;
+    c.fillStyle = "#130b20"; c.fillRect(0, 0, w, h);
+    if (info.coin) { c.drawImage(info.coin, 0, 0, w, h); }
+    else {
+      var cols = ["#ee6fd6", "#6fd6de", "#ffc6ee", "#9b7bff", "#ffd36f", "#5be3a8"];
+      for (var i = 0; i < 46; i++) { var x = (i * 73 % w), y = (i * 151 % h), r = 10 + (i * 37 % 34);
+        c.globalAlpha = 0.75; c.fillStyle = cols[i % cols.length]; c.beginPath();
+        for (var k = 0; k < 5; k++) { var an = k * 1.2566 + i; c.lineTo(x + Math.cos(an) * r, y + Math.sin(an) * r * 0.8); } c.closePath(); c.fill(); }
+      c.globalAlpha = 1;
+    }
+    return true;
+  }
+  FX.register("style-kaleido", {
+    layer: "front", still: 8, safe: 0.97, fps: 30,
+    canvas: { w: 256, h: 256, fps: 1, draw: kalCanvas },
+    glsl: "uniform sampler2D uTex; uniform vec2 uTexRes;\n" + H + [
+      "vec4 kal(vec2 fc){",
+      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3);",
+      "  float R = a < .8 ? .2 : .26; vec2 C = vec2(a*.5 - R*.55, .5 - R*.55);",
+      "  vec2 d = p - C; float r = length(d); if (r > R*1.08) return vec4(0.);",
+      "  float W = 6.2832/8., an = atan(d.y, d.x) + uTime*.06; an = mod(an, W); an = min(an, W - an);",
+      "  vec2 q = vec2(cos(an), sin(an))*r/R; q = r2(uTime*.021)*q;",
+      "  vec3 tx = texture(uTex, .5 + q*.42).rgb;",
+      "  vec3 rim = hsv(an/W + uTime*.03, .55, 1.)*exp(-sq((r/R - 1.)/.025))*.9;",
+      "  float body = 1. - smoothstep(.9, 1., r/R);",
+      "  vec3 c = tx*body*.62 + rim;",
+      "  float al = (body*.62 + length(rim)*.3)*I;",
+      "  return vec4(c*I, clamp(al, 0., .9));",
+      "}"
+    ].join("\n") + "\n",
+    passes: [{ frag: "vec4 fx(vec2 fc){ return kal(fc); }" }]
+  });
 })();

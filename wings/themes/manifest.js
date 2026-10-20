@@ -12,7 +12,7 @@
   var C = function (id) { return { hero: null, card: id + "-card.webp" }; };   // picker card only (Grok, artreq_20261010-1700_theme-thumbnails); a hero comes later
   var worlds = [
     { id: "kaleido", name: "Prism", collection: "Otherworld", tier: "classic", art: A("kaleido"),
-      mood: "A silver coin on cut crystal, splitting light into rainbows.", fx: "style-holo+prismatic*0.45", fxIntensity: 0.8, scene: "prism", tokens: {} },
+      mood: "A silver coin on cut crystal, splitting light into rainbows.", fx: "style-kaleido+style-holo*0.4", fxIntensity: 0.8, scene: "prism", tokens: {} },
     { id: "afterhours", name: "Midnight Gallery", collection: "Museum", tier: "classic", art: A("afterhours"),
       mood: "Cold moonlight on black marble, the gallery after midnight.", fx: "style-particles+moonlit*0.35", fxIntensity: 0.85, scene: "midnight-gallery", tokens: {} },
     { id: "conservator", name: "Conservator", collection: "Museum", tier: "classic", art: C("conservator"),

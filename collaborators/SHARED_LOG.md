@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 12/34: Prism / kaleido (owner-approved push) (tr140)
+* Theme upgrade 12/34 (worst first, owner-approved 2026-10-20 06:55 PT). Prism (kaleido) was #23: named for a kaleidoscope but had no mirroring or refraction, ~38 fps idle.
+* New effect `style-kaleido` (wings/fx/styles-e.js): a real 8-fold mirrored kaleidoscope of a coin photo from the collection (painted glass chips until one loads), slowly turning in the upper corner with a prismatic rim; one texture read inside the rosette, nothing outside it, 30 fps. Prism now plays "style-kaleido+style-holo*0.4" (was holo + prismatic). 60.2 fps idle on the phone floor.
+* Every screen (`styles/atmo/kaleido.css` v2): chromatic-dispersion hairlines (red/green/blue split) on panels, buttons, search and coins, holographic foil on headings and the hero total, a prism-cut faceted coin stage, a foil active state, 44 px+ controls, reduced-motion CSS.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 11/34: Millennium Chrome / y2k (owner-approved push) (tr139)
 * Theme upgrade 11/34 (worst first, owner-approved 2026-10-20 06:55 PT). Millennium Chrome (y2k) was #24.
 * Speed: style-y2k redraws at 30 fps and its sparkle field tests only the pixel's own cell at the low quality tiers (was nine cells for every pixel). Phone floor 37.6 -> 59.7 fps idle.
