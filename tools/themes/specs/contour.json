@@ -1,0 +1,32 @@
+{
+ "id": "contour",
+ "name": "Survey Map",
+ "collection": "Studio",
+ "mood": "A night survey chart: glowing contour lines of a slowly shifting terrain, and now and then a survey ping.",
+ "pair": "Night expedition + Ambient",
+ "scheme": "dark",
+ "themeColor": "#0b1315",
+ "station": "adventure",
+ "ui": [
+  "topo"
+ ],
+ "styles": [
+  "Topographic"
+ ],
+ "fx": "style-topo",
+ "fxIntensity": 0.85,
+ "tokens": "  --scheme: dark;\n  color-scheme: dark;\n  --bg: #0b1315;\n  --bg2: #0f1a1d;\n  --surface: #132124;\n  --surface2: #1a2c30;\n  --ink: #eef6f4;\n  --muted: #c8d9d5;\n  --faint: #9fb5b0;\n  --cardmeta: #dbe8e5;\n  --gold: #ffb547;\n  --gold-soft: #ffd28a;\n  --gold-deep: #8a5a14;\n  --on-gold: #1a1206;\n  --ink-soft: #c8d9d5;\n  --line: rgba(238, 246, 244, 0.12);\n  --line-strong: rgba(111, 227, 196, 0.45);\n  --ok: #7fe39a;\n  --warn: #ffcf5c;\n  --bad: #ff8f7a;\n  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 50px rgba(0, 0, 0, 0.65);\n  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 2px 8px rgba(0, 0, 0, 0.45);\n  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 12px 30px rgba(0, 0, 0, 0.55);\n  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 28px 80px rgba(0, 0, 0, 0.75);\n  --scrim: rgba(0, 0, 0, 0.62);\n  --focus: #ffd28a;\n  --th-bg: #1a2c30;\n  --tabgrad1: #1a2c30; --tabgrad2: #132124;\n  --toastgrad1: #1a2c30; --toastgrad2: #132124;\n  --foot-bg: rgba(11, 19, 21, 0.94);\n  --drawerbar-bg: rgba(19, 33, 36, 0.96);\n  --ph-bg: #1a2c30;\n  --sel-bg: rgba(111, 227, 196, 0.16);\n  --row-hover: rgba(111, 227, 196, 0.07);\n  --hold-bg: linear-gradient(135deg, #1a2c30, #132124);\n  --skeleton1: #1a2c30; --skeleton2: #0b1315;\n  --grain-op: 0.04;\n  --wing-dur: 0.45s;\n  --wing-rise: 18px;\n  /* legacy aliases resolved on <html> */\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Futura\", \"Century Gothic\", \"Avenir Next\", \"Trebuchet MS\", system-ui, sans-serif;\n  --mono: ui-monospace, \"SFMono-Regular\", Menlo, Consolas, monospace;\n  --radius: 8px;\n  /* the topo treatment (styles/style-layer.css, ui \"topo\"): contour hairlines */\n  --topo-line: rgba(111, 227, 196, 0.32);",
+ "crest": "<circle cx=\"100\" cy=\"100\" r=\"66\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\"/><path d=\"M54 120 C60 80 92 60 120 70 C150 80 156 116 134 134 C112 152 64 150 54 120 Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><path d=\"M70 118 C74 92 96 80 116 86 C138 92 140 116 126 126 C110 138 76 136 70 118 Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" opacity=\".85\"/><path d=\"M86 114 C88 100 100 94 112 98 C124 102 124 114 116 120 C106 126 88 124 86 114 Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" opacity=\".7\"/><path d=\"M100 104 l0 0\" stroke=\"currentColor\" stroke-width=\"8\" stroke-linecap=\"round\"/><path d=\"M100 34 L100 50 M100 150 L100 166 M34 100 L50 100 M150 100 L166 100\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\"/>",
+ "swatch": ".sw-contour { --sw-ink: #eef6f4; background: repeating-radial-gradient(ellipse 60% 45% at 40% 60%, transparent 0 5px, rgba(111,227,196,.55) 5px 6px), radial-gradient(circle at 40% 60%, rgba(255,181,71,.5) 0 4%, transparent 5%), linear-gradient(160deg, #0f1a1d, #0b1315); }",
+ "splash_pal": {
+  "bg": "#0b1315",
+  "bg2": "#0f1a1d",
+  "surface": "#132124",
+  "ink": "#eef6f4",
+  "muted": "#c8d9d5",
+  "gold": "#ffb547",
+  "soft": "#ffd28a"
+ },
+ "scene": "{ world: true, name: \"Survey Map\", icon: \"🗺️\", desc: \"A camp on a ridge at night: wind across the hills, crickets, a far-off river.\", atmo: \"contour\",\n               beds: { wind: 0.35, crickets: 0.32, river: 0.18, telemetry: 0.12 }, pad: 0.45, piano: false, bells: true, beat: false,\n               root: \"B\", mode: \"dorian\", prog: [0, 5, 3, 4], chordSec: 14, gap: [8, 16], bpm: 70, vol: 0.45 }",
+ "splash_js": "tools/themes/splash/contour.js"
+}

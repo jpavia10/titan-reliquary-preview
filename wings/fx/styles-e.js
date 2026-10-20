@@ -13,6 +13,8 @@
                       drawn there as lit metal discs; moment: a jackpot of coins pours from the top
      style-guilloche  Treasury Note (banknote): engraved guilloche rosettes and border bands in banknote green, two crossing
                       families of wavy lines whose phases drift so the moiré shimmers; moment: a red treasury seal stamps in
+     style-topo       Survey Map (contour): glowing contour lines of a slowly reshaping terrain, every fifth an index contour,
+                      coloured by height, with a soft hillshade; moment: a survey ping rings out from a peak
    Loads after wings/fx/presets.js. Premultiplied output (rgb*a); light themes paint with alpha only and never add light, and the
    engine's text-safe mask attenuates every pass over text (notes/agents/styles-20.md, section 3). */
 (function () {
@@ -504,5 +506,47 @@
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return guilloche(fc); }" }]
+  });
+  /* =====================================================================================================================
+     6. style-topo · Survey Map (dark, night chart). A domain-warped fbm terrain drifts and slowly reshapes; its contour lines are
+        drawn one device pixel wide (fwidth), every fifth an index contour a little brighter and wider, coloured from deep teal in
+        the valleys through mint to sand on the peaks, over a faint hillshade. Moment "ping": a survey ring expands from a
+        point, lighting the contours it crosses, with a cross-hair marker at its centre.
+     ===================================================================================================================== */
+  FX.register("style-topo", {
+    layer: "front", still: 8, safe: 0.97,
+    moments: [{ name: "ping", every: [22, 44], dur: 5 }],
+    glsl: H + [
+      "float hgt(vec2 q, float t){",
+      "  vec2 w = .35*vec2(fbmQ(q*.8 + vec2(t*.010, 0.), 3), fbmQ(q*.8 + vec2(5.2, -t*.012), 3));",
+      "  return fbmQ(q*1.25 + w + vec2(t*.006, 0.), uQ > 1.5 ? 5 : 4);",
+      "}",
+      "vec4 topo(vec2 fc){",
+      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3); float t = uTime;",
+      "  float h = hgt(p, t); float f = h*17.;",
+      "  float fw = fwidth(f); float d = abs(fract(f - .5) - .5);",
+      "  float idx = step(abs(mod(floor(f + .5), 5.)), .5);",                               // every fifth line is an index contour
+      "  float ln = 1. - smoothstep(0., fw*(1.1 + .9*idx), d);",
+      "  float e = .01; float hx = hgt(p + vec2(e,0.), t) - h, hy = hgt(p + vec2(0.,e), t) - h;",
+      "  float shade = clamp(.5 + (hx*-.7 + hy*.7)*28., 0., 1.);",                              // hillshade, light from the upper left
+      "  vec3 lo = vec3(.10,.42,.52), mid = vec3(.36,.88,.74), hi = vec3(.95,.80,.52);",
+      "  float hh = clamp((h - .25)/.55, 0., 1.);",
+      "  vec3 c = hh < .5 ? mix(lo, mid, hh*2.) : mix(mid, hi, hh*2. - 1.);",
+      "  float al = ln*(.30 + .22*idx);",
+      "  vec3 col = c*al + vec3(.05,.12,.13)*shade*.22;",
+      "  float A = al + .05*shade;",
+      "  float km = mK();",
+      "  if (km >= 0.) {",
+      "    float cyc = floor(uTime/37.); vec2 cc = vec2((h11(cyc*3.1) - .5)*a*.7, (h11(cyc*7.7) - .5)*.6);",
+      "    float R = km*.95, ring = exp(-sq((length(p - cc) - R)/.012))*(1. - km);",
+      "    float lit = ring*ln*1.6 + ring*.25;",
+      "    vec2 q = abs(p - cc); float cross = (step(q.x, .0016)*step(q.y, .028) + step(q.y, .0016)*step(q.x, .028))*step(.008, length(p - cc));",
+      "    float mk = (cross + (1. - smoothstep(0., .002, abs(length(p - cc) - .016))))*smoothstep(0., .1, km)*(1. - smoothstep(.75, 1., km));",
+      "    col += vec3(1.,.72,.30)*(lit + mk*.8); A += lit*.6 + mk*.8;",
+      "  }",
+      "  return vec4(col, min(A, 1.))*I;",
+      "}"
+    ].join("\n") + "\n",
+    passes: [{ frag: "vec4 fx(vec2 fc){ return topo(fc); }" }]
   });
 })();

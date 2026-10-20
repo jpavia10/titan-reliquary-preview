@@ -20,6 +20,8 @@
                overshoot (--spring)
      note      banknote: a faint guilloche wave across the page, engraved double rules round cards (--note-rule), tracked
                small-caps headings
+     topo      survey chart: faint contour rings on the page, cards outlined in a contour hairline (--topo-line), tracked
+               uppercase headings with tabular figures
    Loaded last (after the wing sheets) so these rules win over component defaults. No layout: borders, radii, shadows,
    backgrounds, type case and spacing only. Motion stops under reduced motion and Motion Calm/Off.
    ========================================================================== */
@@ -332,6 +334,16 @@ html[data-ui~="note"] :is(.hg-tile, .wing-card, .note-card, .vault-valuation-hub
 }
 html[data-ui~="note"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { box-shadow: 0 0 0 1px var(--note-rule, rgba(20, 39, 31, 0.55)), inset 0 0 0 2px var(--surface); }
 html[data-ui~="note"] :is(.sec-head h2, .wing-head h2, .vx-sec h2) { font-variant: small-caps; letter-spacing: 0.08em; }
+
+/* ---------- 13. topo (2026-10-20, Survey Map) ----------------------------------------------------------------------
+   Survey chart: faint contour rings across the page (an SVG tile), cards outlined in a contour hairline with a soft glow,
+   section headings tracked uppercase with tabular figures like a chart's legend. */
+html[data-ui~="topo"] body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='220'%3E%3Cg fill='none' stroke='%236fe3c4' stroke-opacity='.06'%3E%3Cpath d='M40 120 C50 60 120 40 170 70 C220 100 210 170 150 185 C90 200 32 175 40 120 Z'/%3E%3Cpath d='M70 118 C76 84 120 70 152 88 C184 106 178 150 140 160 C102 170 64 150 70 118 Z'/%3E%3Cpath d='M98 116 C102 98 124 92 140 102 C156 112 152 134 132 138 C112 142 94 132 98 116 Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+html[data-ui~="topo"] :is(.hg-tile, .wing-card, .note-card, .vault-valuation-hub, .ex-info-placard, .lab-banner, .gx-tile, .cf-placard, .gf-finder,
+  .vx-sec, .vx-lot, .vx-wi-card, .sheet-card, .card, .tile, .album-card, .latest-card, .metal-tile, .shoot-card, .piece-card, .hero-trust, .scenario-card) { box-shadow: 0 0 0 1px var(--topo-line, rgba(111, 227, 196, 0.32)), 0 0 18px rgba(111, 227, 196, 0.06), 0 12px 30px rgba(0, 0, 0, 0.5); }
+html[data-ui~="topo"] :is(.sec-head h2, .wing-head h2, .vx-sec h2) { text-transform: uppercase; letter-spacing: 0.14em; font-variant-numeric: tabular-nums; }
 
 @media (prefers-reduced-motion: reduce) {
   html[data-ui] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { transition: none; }

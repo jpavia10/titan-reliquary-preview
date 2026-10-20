@@ -6779,6 +6779,7 @@
     diorama:     { name: "Clay Diorama",      themeColor: "#f3ece4", preset: "diorama",   station: "lofi",      pair: "Birds and stream + Lo-fi" },
     bauhaus:     { name: "Bauhaus",           themeColor: "#f2efe6", preset: "bauhaus",   station: "classical", pair: "Studio + Classical" },
     terminal:    { name: "Grand Terminal",    themeColor: "#0d0f12", preset: "terminal",  station: "adventure", pair: "Trains and the hall + Adventure" },
+    contour:     { name: "Survey Map", themeColor: "#0b1315", preset: "contour", station: "adventure", pair: "Night expedition + Ambient" },
     banknote:    { name: "Treasury Note", themeColor: "#eef0e4", preset: "banknote", station: "classical", pair: "Bank hall + Classical" },
     freefall:    { name: "Free Fall", themeColor: "#0e1117", preset: "freefall", station: "synthwave", pair: "After-hours lab + Synthwave" },
     sketch:      { name: "Sketchbook", themeColor: "#f7f5ef", preset: "sketch", station: "lofi", pair: "Art room + Lo-fi" },
@@ -6789,7 +6790,7 @@
     "afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss",
     "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla",
     "dynasty", "zen", "samadhi", "silkroad",
-    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k", "papercut", "sketch", "freefall", "banknote"
+    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k", "papercut", "sketch", "freefall", "banknote", "contour"
   ];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");
