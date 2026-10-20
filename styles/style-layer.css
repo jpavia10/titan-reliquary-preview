@@ -22,6 +22,7 @@
                small-caps headings
      topo      survey chart: faint contour rings on the page, cards outlined in a contour hairline (--topo-line), tracked
                uppercase headings with tabular figures
+     lead      stained glass: lead came round cards and buttons (--lead), the glass glowing inside them (--glass-glow, --glass-glow2)
    Loaded last (after the wing sheets) so these rules win over component defaults. No layout: borders, radii, shadows,
    backgrounds, type case and spacing only. Motion stops under reduced motion and Motion Calm/Off.
    ========================================================================== */
@@ -344,6 +345,16 @@ html[data-ui~="topo"] body {
 html[data-ui~="topo"] :is(.hg-tile, .wing-card, .note-card, .vault-valuation-hub, .ex-info-placard, .lab-banner, .gx-tile, .cf-placard, .gf-finder,
   .vx-sec, .vx-lot, .vx-wi-card, .sheet-card, .card, .tile, .album-card, .latest-card, .metal-tile, .shoot-card, .piece-card, .hero-trust, .scenario-card) { box-shadow: 0 0 0 1px var(--topo-line, rgba(111, 227, 196, 0.32)), 0 0 18px rgba(111, 227, 196, 0.06), 0 12px 30px rgba(0, 0, 0, 0.5); }
 html[data-ui~="topo"] :is(.sec-head h2, .wing-head h2, .vx-sec h2) { text-transform: uppercase; letter-spacing: 0.14em; font-variant-numeric: tabular-nums; }
+
+/* ---------- 14. lead (2026-10-20, Cathedral Glass) ----------------------------------------------------------------
+   Stained glass: each card is a panel held in lead came (a dark 3px ring), with the colour of the glass glowing in from its
+   edges (inset shadows in ruby and sapphire); buttons get a thinner came. */
+html[data-ui~="lead"] :is(.hg-tile, .wing-card, .note-card, .vault-valuation-hub, .ex-info-placard, .lab-banner, .gx-tile, .cf-placard, .gf-finder,
+  .vx-sec, .vx-lot, .vx-wi-card, .sheet-card, .card, .tile, .album-card, .latest-card, .metal-tile, .shoot-card, .piece-card, .hero-trust, .scenario-card) {
+  box-shadow: 0 0 0 3px var(--lead, #050407), inset 0 0 26px var(--glass-glow, rgba(200, 20, 31, 0.16)), inset 0 -18px 30px -12px var(--glass-glow2, rgba(26, 61, 200, 0.16)),
+    0 14px 34px rgba(0, 0, 0, 0.6);
+}
+html[data-ui~="lead"] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { box-shadow: 0 0 0 2px var(--lead, #050407), inset 0 0 12px var(--glass-glow, rgba(200, 20, 31, 0.16)); }
 
 @media (prefers-reduced-motion: reduce) {
   html[data-ui] :is(.btn, .sb-btn, .ex-ctrl-btn, .gf-preset, .vx-chip, .vx-btn, .term-asset-btn, .term-tf-btn, .term-mode-btn, .placard-inspect-btn, .ss-btn) { transition: none; }

@@ -1,0 +1,58 @@
+/* ============================================================================
+   Atmosphere: CATHEDRAL GLASS (cathedral) · Stained glass
+   A nave at dusk: a rose window of jewel-coloured glass, lit by a slow sun, throwing coloured light across the collection.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md): the shared treatments in styles/style-layer.css are switched on by
+   the theme's `ui` list in wings/themes/manifest.js (html[data-ui]); the effect is style-glass (wings/fx/styles-e.js).
+   Legibility: checked with tools/themes/check_theme.js (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="cathedral"] {
+  --scheme: dark;
+  color-scheme: dark;
+  --bg: #0d0b14;
+  --bg2: #120f1b;
+  --surface: #18142a;
+  --surface2: #221c38;
+  --ink: #f5f1ea;
+  --muted: #d8d0c4;
+  --faint: #b0a89c;
+  --cardmeta: #e6dfd4;
+  --gold: #e9b44c;
+  --gold-soft: #f5cf7f;
+  --gold-deep: #7d5a14;
+  --on-gold: #160f05;
+  --ink-soft: #d8d0c4;
+  --line: rgba(245, 241, 234, 0.12);
+  --line-strong: rgba(233, 180, 76, 0.45);
+  --ok: #7fe39a;
+  --warn: #ffcf5c;
+  --bad: #ff8f7a;
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 50px rgba(0, 0, 0, 0.65);
+  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 2px 8px rgba(0, 0, 0, 0.45);
+  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 12px 30px rgba(0, 0, 0, 0.55);
+  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 28px 80px rgba(0, 0, 0, 0.75);
+  --scrim: rgba(0, 0, 0, 0.62);
+  --focus: #f5cf7f;
+  --th-bg: #221c38;
+  --tabgrad1: #221c38; --tabgrad2: #18142a;
+  --toastgrad1: #221c38; --toastgrad2: #18142a;
+  --foot-bg: rgba(13, 11, 20, 0.94);
+  --drawerbar-bg: rgba(24, 20, 42, 0.96);
+  --ph-bg: #221c38;
+  --sel-bg: rgba(233, 180, 76, 0.18);
+  --row-hover: rgba(233, 180, 76, 0.07);
+  --hold-bg: linear-gradient(135deg, #221c38, #18142a);
+  --skeleton1: #221c38; --skeleton2: #0d0b14;
+  --grain-op: 0.04;
+  --wing-dur: 0.45s;
+  --wing-rise: 18px;
+  /* legacy aliases resolved on <html> */
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 6px;
+  /* the lead treatment (styles/style-layer.css, ui "lead"): lead came round cards and the glow of the glass inside them */
+  --lead: #050407;
+  --glass-glow: rgba(200, 20, 31, 0.16);
+  --glass-glow2: rgba(26, 61, 200, 0.16);
+}

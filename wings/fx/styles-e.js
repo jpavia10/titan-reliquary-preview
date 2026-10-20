@@ -15,6 +15,9 @@
                       families of wavy lines whose phases drift so the moiré shimmers; moment: a red treasury seal stamps in
      style-topo       Survey Map (contour): glowing contour lines of a slowly reshaping terrain, every fifth an index contour,
                       coloured by height, with a soft hillshade; moment: a survey ping rings out from a peak
+     style-glass      Cathedral Glass (cathedral): a twelve-fold rose window and lancet windows of leaded Voronoi glass in
+                      jewel colours, lit from behind by a slow-moving sun, casting coloured light shafts with dust in them;
+                      moment: the sun comes out and the glass blazes
    Loads after wings/fx/presets.js. Premultiplied output (rgb*a); light themes paint with alpha only and never add light, and the
    engine's text-safe mask attenuates every pass over text (notes/agents/styles-20.md, section 3). */
 (function () {
@@ -548,5 +551,77 @@
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return topo(fc); }" }]
+  });
+  /* =====================================================================================================================
+     7. style-glass · Cathedral Glass (dark, a nave at dusk). A rose window in the upper corner: twelve-fold mirrored Voronoi panes
+        between stone rings, leaded (F2-F1 edges), each pane a jewel colour (ruby, sapphire, emerald, amber, amethyst) with
+        streaky glass and a soft glow that follows a slow sun moving behind it. On wide screens two pointed lancet windows run
+        down the margins. Coloured light shafts fall from the rose across the page with dust motes drifting in them.
+        Moment "sunburst": the sun comes out from behind cloud, the glass blazes and the shafts brighten.
+     ===================================================================================================================== */
+  FX.register("style-glass", {
+    layer: "front", still: 7, safe: 0.97,
+    moments: [{ name: "sunburst", every: [24, 46], dur: 6 }],
+    glsl: H + [
+      "vec3 vor(vec2 x){",                                                                  // F1, F2, cell id hash
+      "  vec2 n = floor(x), f = fract(x); float F1 = 8., F2 = 8., id = 0.;",
+      "  for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++){ vec2 g = vec2(float(i),float(j)); vec2 o = h22(n+g)*.8+.1; vec2 r = g+o-f; float d = dot(r,r);",
+      "    if (d < F1){ F2 = F1; F1 = d; id = h21(n+g); } else if (d < F2) F2 = d; }",
+      "  return vec3(sqrt(F1), sqrt(F2), id);",
+      "}",
+      "vec3 jewel(float h){ return h < .22 ? vec3(.78,.08,.12) : h < .42 ? vec3(.10,.24,.78) : h < .58 ? vec3(.06,.56,.30) : h < .8 ? vec3(.96,.62,.12) : vec3(.48,.16,.64); }",
+      "vec4 pane(vec2 x, float sc, float glow, float lw){",                                    // leaded glass at scale sc; returns premultiplied
+      "  vec3 v = vor(x*sc); float edge = (v.y - v.x);",
+      "  float lead = 1. - smoothstep(lw*.55, lw, edge);",
+      "  vec3 c = jewel(v.z); float streak = .75 + .35*vn(x*sc*vec2(9., 2.) + v.z*20.);",       // streaky, uneven glass
+      "  vec3 g = c*streak*glow*(1.1 - .5*v.x);",
+      "  return vec4(mix(g, vec3(0.), lead), 1.);",
+      "}",
+      "vec4 glass(vec2 fc){",
+      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3); float t = uTime; float px = 1.5/uRes.y;",
+      "  float me = mEnv();",
+      "  vec2 sun = vec2(.25*sin(t*.03), .2*cos(t*.023));",                                    // the sun drifts behind the glass
+      "  vec2 c = vec2(a*.5 - (a < .8 ? .1 : .2), .34); float R = a < .8 ? .2 : .27;",
+      "  vec4 col = vec4(0.);",
+      "  vec2 d = p - c; float r = length(d);",
+      // light shafts falling from the rose, down and to the left, tinted by the panes they pass through
+      "  float ang = atan(d.y, d.x); float down = smoothstep(-2.9, -2.3, ang)*(1. - smoothstep(-1.75, -1.25, ang));",
+      "  float bands = pow(.5+.5*sin(ang*26. + t*.05), 3.)*(.6 + .4*vn(vec2(ang*8., t*.05)));",
+      "  float fall = exp(-max(r - R, 0.)*1.4)*step(R, r);",
+      "  vec3 tint = jewel(fract(floor(ang*6.)*.37 + .11));",
+      "  float sh = down*bands*fall*(.10 + .14*me);",
+      "  vec2 mp = p*vec2(22., 22.) + vec2(0., t*.15); vec2 mc = floor(mp); vec2 mo = h22(mc); float mote = step(.9, h21(mc+3.))*(1. - smoothstep(.0, .06, length(fract(mp) - mo)));",
+      "  vec3 shaft = mix(vec3(1.,.9,.7), tint, .55)*(sh + mote*down*fall*.35);",
+      "  col = vec4(shaft, (sh + mote*down*fall*.35)*.5);",
+      // the rose window
+      "  if (r < R*1.06) {",
+      "    float th = atan(d.y, d.x); float seg = 6.2832/12.; float tm = mod(th + seg*.5, seg) - seg*.5; tm = abs(tm);",
+      "    vec2 q = r*vec2(cos(tm), sin(tm));",
+      "    float sunL = .55 + .9*exp(-dot(d/R - sun, d/R - sun)*1.6) + .9*me;",
+      "    vec4 g = pane(q/R, 6., sunL, .07);",
+      "    float stone = max(max(1. - smoothstep(.0, px*1.5/R + .02, abs(r/R - 1.)), 1. - smoothstep(.0, .02, abs(r/R - .62))), 1. - smoothstep(.0, .018, abs(r/R - .3)));",
+      "    float spoke = (1. - smoothstep(.0, .012, abs(sin(tm))*r/R))*step(.3, r/R);",
+      "    float frame = clamp(stone + spoke, 0., 1.);",
+      "    float inside = 1. - smoothstep(R - px, R + px, r);",
+      "    vec3 gc = mix(g.rgb, vec3(.03,.025,.04), frame);",
+      "    float al = inside*.74;",
+      "    col = vec4(gc*al, al) + col*(1. - al);",
+      "  }",
+      // two lancet windows down the margins on wide screens
+      "  if (a > 1.1) {",
+      "    float lx = a*.5 - .07; float u = (abs(p.x) - lx)/.032; float top = .26 + .07*sqrt(max(0., 1. - abs(u)));",
+      "    float inL = step(abs(u), 1.)*step(p.y, top)*step(-.4, p.y);",
+      "    if (inL > 0.) {",
+      "      float sunL = .5 + .45*exp(-sq(p.y - sun.y*1.5)*6.) + .9*me;",
+      "      vec4 g = pane(vec2(p.x*sign(p.x), p.y), 9., sunL, .06);",
+      "      float fr = 1. - smoothstep(.82, .9, abs(u)); float al = inL*.68;",
+      "      vec3 gc = mix(vec3(.03,.025,.04), g.rgb, fr);",
+      "      col = vec4(gc*al, al) + col*(1. - al);",
+      "    }",
+      "  }",
+      "  return col*I;",
+      "}"
+    ].join("\n") + "\n",
+    passes: [{ frag: "vec4 fx(vec2 fc){ return glass(fc); }" }]
   });
 })();
