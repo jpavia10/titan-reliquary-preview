@@ -196,94 +196,108 @@
         the drawing holds, then smudges as it is erased and a new one starts somewhere else. Graphite mostly, now and then blue or
         red pencil, with pixel-scale grain. Moment "doodle": a big coin is sketched in the upper corner and hatched in.
      ===================================================================================================================== */
+  /* v2 (Grok, 2026-10-20): the doodles are drawn with Canvas2D strokes into a small texture at 15 fps and the shader only samples
+     it and adds paper grain. The old per-pixel line search (up to 82 segment tests per pixel, six doodles) ran at ~6 fps on the
+     software-GL floor; the look is the same, the cost is one texture read. */
+  function skH(x) { x = Math.sin(x * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+  var SK_N = [11, 33, 33, 41, 19, 25, 41];
+  var SK_BULB = [[-.26,-.78,1],[.26,-.78,1],[.356,-.508,1],[-.26,-.88,0],[.26,-.88,1],[-.18,-.98,0],[.18,-.98,1],[0,.78,0],[0,1,1],[.64,.45,0],[.82,.57,1],[-.64,.45,0],[-.82,.57,1]];
+  function skP(k, i) {
+    var an, r, s;
+    if (k === 0) { an = 1.5708 + i * 0.62832; r = (i % 2) < 0.5 ? 1 : 0.42; return [r * Math.cos(an), r * Math.sin(an), 1]; }
+    if (k === 1) { s = i / 32; an = s * 14; r = 0.1 + 0.9 * s; return [r * Math.cos(an), r * Math.sin(an), 1]; }
+    if (k === 2) { if (i < 20) { an = -0.96 + i / 19 * 5.06; return [0.62 * Math.cos(an), 0.62 * Math.sin(an), 1]; } return SK_BULB[i - 20]; }
+    if (k === 3) { if (i < 21) { an = 0.3 + i / 20 * 6.6; return [Math.cos(an), Math.sin(an), 1]; }
+      if (i < 38) { an = 1 + (i - 21) / 16 * 6.2832; return [0.72 * Math.cos(an), 0.72 * Math.sin(an), i === 21 ? 0 : 1]; }
+      return i === 38 ? [-0.12, 0.22, 0] : i === 39 ? [0.04, 0.36, 1] : [0.04, -0.34, 1]; }
+    if (k === 4) { if (i < 16) { s = i / 15; return [-1 + 2 * s, 0.35 * Math.sin(s * 3.6 - 0.4), 1]; }
+      var tip = [1, 0.35 * Math.sin(3.2)], dx = 2, dy = 1.26 * Math.cos(3.2), dl = Math.hypot(dx, dy); dx /= dl; dy /= dl;
+      var rot = function (ang) { var c = Math.cos(ang), sn = Math.sin(ang); return [c * dx + sn * dy, -sn * dx + c * dy]; };
+      if (i === 17) return [tip[0], tip[1], 1];
+      var d = rot(i === 16 ? 0.5 : -0.5); return [tip[0] - d[0] * 0.32, tip[1] - d[1] * 0.32, i === 16 ? 0 : 1]; }
+    if (k === 5) { s = i / 24 * 6.2832; var x = 16 * Math.pow(Math.sin(s), 3), y = 13 * Math.cos(s) - 5 * Math.cos(2 * s) - 2 * Math.cos(3 * s) - Math.cos(4 * s); return [x / 17, y / 17 + 0.1, 1]; }
+    s = i / 40; return [-1 + 2 * s - 0.25 * Math.sin(s * 25), -0.05 + 0.3 * Math.cos(s * 25), 1];
+  }
+  function skEase(x) { x = Math.max(0, Math.min(1, x)); return x * x * (3 - 2 * x); }
+  function skSm(a, b, x) { return skEase((x - a) / (b - a)); }
+  function skLine(c, k, prog, seed, w, map) {      // one pencil pass over doodle k up to prog, points wobbled like the old shader
+    var M = SK_N[k], n = prog * (M - 1), a = skP(k, 0), pa = map(a[0] + w * (skH(seed) - 0.5), a[1] + w * (skH(seed + 0.3) - 0.5)), tip = pa;
+    c.beginPath(); c.moveTo(pa[0], pa[1]);
+    for (var i = 1; i < M && i - 1 < n; i++) {
+      var b = skP(k, i), pb = map(b[0] + w * (skH(seed + i * 1.37) - 0.5), b[1] + w * (skH(seed + i * 2.11 + 0.3) - 0.5));
+      var f = Math.max(0, Math.min(1, n - (i - 1))), e = [pa[0] + (pb[0] - pa[0]) * f, pa[1] + (pb[1] - pa[1]) * f];
+      if (b[2] > 0.5) c.lineTo(e[0], e[1]); else c.moveTo(e[0], e[1]);
+      tip = e; pa = pb;
+    }
+    c.stroke(); return tip;
+  }
+  function skPencil(c, x, y, s, al) {
+    c.save(); c.translate(x, y); c.rotate(-Math.atan2(0.86, 0.5)); c.globalAlpha = al;
+    var L = 0.075 * s, W = 0.0058 * s, cone = 0.016 * s;
+    c.fillStyle = "#e3c294"; c.beginPath(); c.moveTo(0, 0); c.lineTo(cone, -W); c.lineTo(cone, W); c.closePath(); c.fill();
+    c.fillStyle = "#2e2e33"; c.beginPath(); c.moveTo(0, 0); c.lineTo(cone * 0.3, -W * 0.3); c.lineTo(cone * 0.3, W * 0.3); c.closePath(); c.fill();
+    c.fillStyle = "#f2c22e"; c.fillRect(cone, -W, L - cone - 0.012 * s, 2 * W);
+    c.fillStyle = "#b3b5bb"; c.fillRect(L - 0.012 * s, -W, 0.004 * s, 2 * W);
+    c.fillStyle = "#ed8c99"; c.fillRect(L - 0.008 * s, -W, 0.008 * s, 2 * W);
+    c.restore();
+  }
+  var SK_INK = ["rgb(41,79,168)", "rgb(189,61,48)", "rgb(43,46,54)"];
+  function sketchCanvas(c, w, h, t, info) {
+    var a = Math.max(0.3, (window.innerWidth || 412) / Math.max(1, window.innerHeight || 915));
+    c.clearRect(0, 0, w, h); c.lineCap = "round"; c.lineJoin = "round";
+    var sx = w / a, sy = h;                                    // p-space (x in [-a/2,a/2], y in [-.5,.5], y up) to canvas pixels
+    var T = info.still ? 14 : t, mk = sketchCanvas.km;
+    for (var j = 0; j < 6; j++) {
+      var k, cx, cy, sz, ph, sd, prog, al;
+      if (j < 5) {
+        var per = 15 + 2.5 * j, ct = (T + j * 4.7) / per, cyc = Math.floor(ct); ph = ct - cyc;
+        sd = skH(cyc * 13.17 + j * 71.3); k = Math.floor(skH(sd * 91.7) * 6.99);
+        var side = j % 2 === 0 ? -1 : 1; sz = 0.05 + 0.028 * skH(sd + 2.3);
+        cx = side * (a * 0.5 - 0.03 - sz - 0.06 * skH(sd + 4.1)); cy = -0.39 + 0.78 * (j + 0.5) / 5 + 0.05 * (skH(sd + 6) - 0.5);
+        prog = info.still ? 1 : skEase(ph / 0.34); al = info.still ? 1 : 1 - skSm(0.8, 0.92, ph);
+      } else {
+        if (!(mk >= 0)) continue; k = 3; sd = 0.37; ph = mk * 0.92; sz = a < 0.8 ? 0.085 : 0.12;
+        cx = a * 0.5 - sz - (a < 0.8 ? 0.04 : 0.1); cy = 0.27; prog = skEase(mk / 0.4); al = 1 - skSm(0.84, 0.97, mk);
+      }
+      if (al <= 0.01) continue;
+      var rotA = (skH(sd + 8) - 0.5) * 0.6, cr = Math.cos(rotA), sr = Math.sin(rotA);
+      var map = (function (cx, cy, sz, cr, sr) { return function (x, y) { var X = cr * x + sr * y, Y = -sr * x + cr * y; return [(cx + X * sz + a / 2) * sx, (0.5 - (cy + Y * sz)) * sy]; }; })(cx, cy, sz, cr, sr);
+      var smear = 1 + 2.2 * (info.still ? 0 : skSm(0.8, 0.92, ph)), lw = 1.25 * smear * (j === 5 ? 1.35 : 1) * (h / 576);
+      var ink = j === 5 ? SK_INK[2] : (function (v) { return v < 0.2 ? SK_INK[0] : v < 0.3 ? SK_INK[1] : SK_INK[2]; })(skH(sd + 9));
+      c.strokeStyle = ink; c.lineWidth = lw; c.globalAlpha = al * 0.82 / (smear * 0.7 + 0.3);
+      var tip = skLine(c, k, prog, sd * 17, 0.07, map);
+      c.globalAlpha *= 0.5; c.lineWidth = lw * 0.8; skLine(c, k, Math.max(0, Math.min(1, prog * 1.1 - 0.1)), sd * 29 + 3, 0.11, map);
+      if (j === 5) {                                             // hatching on the lower right of the big coin
+        var hr = Math.max(0, Math.min(1, (mk - 0.38) / 0.3));
+        if (hr > 0) { c.globalAlpha = al * 0.45; c.lineWidth = lw * 0.7; c.beginPath();
+          for (var u = -1; u <= 1.001; u += 0.2) { if ((u + 1) / 2 > hr) break; var p1 = map(u + 0.35, -0.35), p2 = map(u - 0.35 + 0.7, 0.35 - 0.7); c.moveTo(p1[0], p1[1]); c.lineTo(p2[0], p2[1]); }
+          c.stroke(); }
+      }
+      if (prog < 1 && !info.still) skPencil(c, tip[0], tip[1], sy, 0.9 * skSm(0, 0.05, ph) * (1 - skSm(0.9, 1, prog)));
+      c.globalAlpha = 1;
+    }
+    return true;
+  }
+  sketchCanvas.km = -1;
+  window.addEventListener("titan:fx", function (e) {          // the big hatched coin: the engine's "doodle" moment drives it
+    var d = e && e.detail; if (!d || d.preset !== "style-sketch" || d.type !== "moment") return;
+    var t0 = performance.now(), dur = (d.dur || 8) * 1000;
+    (function step() { var k = (performance.now() - t0) / dur; sketchCanvas.km = k < 1 ? k : -1; if (k < 1) setTimeout(step, 66); })();
+  });
   FX.register("style-sketch", {
-    layer: "front", still: 5.2, safe: 0.97,
+    layer: "front", still: 5.2, safe: 0.97, fps: 20,
     moments: [{ name: "doodle", every: [24, 48], dur: 8 }],
+    canvas: { w: 512, h: 1024, fps: 15, draw: sketchCanvas },
     glsl: H + [
-      "float sdSeg(vec2 p, vec2 a, vec2 b){ vec2 pa = p-a, ba = b-a; float h = clamp(dot(pa,ba)/max(dot(ba,ba),1e-8),0.,1.); return length(pa-ba*h); }",
-      "vec4 over(vec4 top, vec4 under){ return top + under*(1.-top.a); }",
-      // doodle k, point i, in a unit box: xy, z = 1 pen down on the way to this point, 0 a pen lift
-      "int dN(int k){ return k==0 ? 11 : k==1 ? 33 : k==2 ? 33 : k==3 ? 41 : k==4 ? 19 : k==5 ? 25 : 41; }",
-      "const vec3 BULB[13] = vec3[13](vec3(-.26,-.78,1.), vec3(.26,-.78,1.), vec3(.356,-.508,1.), vec3(-.26,-.88,0.), vec3(.26,-.88,1.),",
-      "  vec3(-.18,-.98,0.), vec3(.18,-.98,1.), vec3(0.,.78,0.), vec3(0.,1.,1.), vec3(.64,.45,0.), vec3(.82,.57,1.), vec3(-.64,.45,0.), vec3(-.82,.57,1.));",
-      "vec3 dP(int k, int i){",
-      "  float fi = float(i);",
-      "  if (k==0){ float an = 1.5708 + fi*.62832; float r = mod(fi,2.) < .5 ? 1. : .42; return vec3(r*cos(an), r*sin(an), 1.); }",
-      "  if (k==1){ float s = fi/32.; float an = s*14.; float r = .1+.9*s; return vec3(r*cos(an), r*sin(an), 1.); }",
-      "  if (k==2){ if (i < 20){ float an = -.96 + fi/19.*5.06; return vec3(.62*cos(an), .62*sin(an), 1.); } return BULB[i-20]; }",
-      "  if (k==3){ if (i < 21){ float an = .3 + fi/20.*6.6; return vec3(cos(an), sin(an), 1.); }",
-      "    if (i < 38){ float an = 1. + (fi-21.)/16.*6.2832; return vec3(.72*cos(an), .72*sin(an), i==21 ? 0. : 1.); }",
-      "    return i==38 ? vec3(-.12,.22,0.) : i==39 ? vec3(.04,.36,1.) : vec3(.04,-.34,1.); }",
-      "  if (k==4){ if (i < 16){ float s = fi/15.; return vec3(-1.+2.*s, .35*sin(s*3.6-.4), 1.); }",
-      "    vec2 tip = vec2(1., .35*sin(3.2)); vec2 dir = normalize(vec2(2., 1.26*cos(3.2)));",
-      "    return i==16 ? vec3(tip - r2(.5)*dir*.32, 0.) : i==17 ? vec3(tip, 1.) : vec3(tip - r2(-.5)*dir*.32, 1.); }",
-      "  if (k==5){ float s = fi/24.*6.2832; float x = 16.*pow(sin(s),3.), y = 13.*cos(s)-5.*cos(2.*s)-2.*cos(3.*s)-cos(4.*s); return vec3(x/17., y/17.+.1, 1.); }",
-      "  float s = fi/40.; return vec3(-1.+2.*s-.25*sin(s*25.), -.05+.3*cos(s*25.), 1.);",
-      "}",
-      "vec2 wob(float seed, float fi, float w){ return w*(vec2(h11(seed+fi*1.37), h11(seed+fi*2.11+.3))-.5); }",
-      // distance (unit-box units) to the part of the line drawn so far; prog 0..1 along the points
-      "float doodle(vec2 q, int k, float prog, float seed, float w){",
-      "  int M = dN(k); float d = 1e3; vec3 a = dP(k,0); a.xy += wob(seed, 0., w);",
-      "  float n = prog*float(M-1);",
-      "  for (int i=1;i<41;i++){ if (i >= M) break; float fi = float(i); if (fi-1. >= n) break;",
-      "    vec3 b = dP(k,i); b.xy += wob(seed, fi, w);",
-      "    if (b.z > .5){ vec2 e = mix(a.xy, b.xy, clamp(n-(fi-1.),0.,1.)); d = min(d, sdSeg(q, a.xy, e)); }",
-      "    a = b; }",
-      "  return d;",
-      "}",
-      "vec2 tipAt(int k, float prog, float seed, float w){",
-      "  int M = dN(k); float n = prog*float(M-1); int i0 = int(floor(n)); int i1 = min(i0+1, M-1);",
-      "  vec2 a = dP(k,i0).xy + wob(seed, float(i0), w), b = dP(k,i1).xy + wob(seed, float(i1), w); return mix(a, b, fract(n));",
-      "}",
-      // a little yellow pencil whose point is at t, leaning up and to the right
-      "vec4 pencil(vec2 p, vec2 t, float al){",
-      "  vec2 u = normalize(vec2(.5,.86)), v = vec2(-u.y,u.x); vec2 d = p-t; float x = dot(d,u), y = dot(d,v);",
-      "  float L = .075, Wd = .0058; if (x < 0. || x > L) return vec4(0.);",
-      "  float cone = .016; float hw = x < cone ? Wd*x/cone : Wd; if (abs(y) > hw + .6/uRes.y) return vec4(0.);",
-      "  float e = 1.-smoothstep(hw-.6/uRes.y, hw+.6/uRes.y, abs(y));",
-      "  vec3 c = x < .0045 ? vec3(.18,.18,.2) : x < cone ? vec3(.89,.76,.58) : x < L-.012 ? mix(vec3(.96,.76,.18), vec3(.80,.58,.10), step(.0019, abs(y))*step(abs(y), .0036)) : x < L-.008 ? vec3(.70,.71,.74) : vec3(.93,.55,.60);",
-      "  return vec4(c*e*al, e*al);",
-      "}",
-      "vec3 inkC(float h){ return h < .2 ? vec3(.16,.31,.66) : h < .3 ? vec3(.74,.24,.19) : vec3(.17,.18,.21); }",
+      "uniform sampler2D uTex; uniform vec2 uTexRes;",
       "vec4 sketch(vec2 fc){",
-      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3); vec4 col = vec4(0.);",
-      "  float pxs = 1./uRes.y; float grain = .5 + .5*vn(fc*.8);",
-      "  float km = mK();",
-      "  for (int j=0;j<6;j++){ float fj = float(j);",
-      "    int k; vec2 c; float sz, ph, sd, prog, al;",
-      "    if (j < 5){",
-      "      float T = 15. + 2.5*fj; float ct = (uTime + fj*4.7)/T; float cyc = floor(ct); ph = fract(ct);",
-      "      sd = h11(cyc*13.17 + fj*71.3); k = int(floor(h11(sd*91.7)*6.99));",
-      "      float side = mod(fj,2.) < .5 ? -1. : 1.; sz = .05 + .028*h11(sd+2.3);",
-      "      c = vec2(side*(a*.5 - .03 - sz - .06*h11(sd+4.1)), mix(-.39,.39,(fj+.5)/5.) + .05*(h11(sd+6.)-.5));",
-      "      prog = ease(ph/.34); al = 1.-smoothstep(.8,.92,ph);",
-      "    } else {",
-      "      if (km < 0.) continue; k = 3; sd = .37; ph = km*.92; sz = a < .8 ? .085 : .12;",
-      "      c = vec2(a*.5 - sz - (a < .8 ? .04 : .1), .27); prog = ease(km/.4); al = 1.-smoothstep(.84,.97,km);",
-      "    }",
-      "    if (al <= 0. || length(p-c) > sz*1.3 + .085) continue;                           // nothing of this doodle (or its pencil) reaches the pixel",
-      "    vec2 q = r2((h11(sd+8.)-.5)*.6)*(p-c)/sz;",
-      "    float smear = 1. + 2.2*smoothstep(.8,.92,ph);",                                // the line widens and greys as it is rubbed out
-      "    float w = 1.25*pxs*smear*(j==5 ? 1.35 : 1.);",
-      "    float d1 = doodle(q, k, prog, sd*17., .07)*sz;",
-      "    float d2 = doodle(q, k, clamp(prog*1.1-.1,0.,1.), sd*29.+3., .11)*sz;",      // a second, lighter pass a little behind the first
-      "    float ink = (1.-smoothstep(w*.35, w*1.1, d1)) + .5*(1.-smoothstep(w*.3, w, d2));",
-      "    if (k == 3 && j == 5){",                                                      // hatching on the lower right of the big coin
-      "      float hr = clamp((km-.38)/.3,0.,1.); float r = length(q);",
-      "      float side = dot(q, vec2(.707,-.707)); float hl = abs(fract((q.x+q.y)*5.)-.5)*2.;",
-      "      float on = step(r, .93)*step(.72, r)*smoothstep(-.2,.2,side) + step(r,.66)*smoothstep(.1,.5,side);",
-      "      float rev = step((q.x - q.y + 1.5)/3., hr);",
-      "      ink += .55*on*rev*(1.-smoothstep(.12, .12 + 1.5*w/sz, hl));",
-      "    }",
-      "    vec3 ic = j == 5 ? vec3(.17,.18,.21) : inkC(h11(sd+9.));",
-      "    float A = clamp(ink,0.,1.)*grain*al*.82/ (smear*.7+.3);",
-      "    col = over(vec4(ic*A, A), col);",
-      "    if (prog < 1. && al > 0.) {",                                                    // the pencil rides the tip while drawing
-      "      vec2 tp = c + transpose(r2((h11(sd+8.)-.5)*.6))*tipAt(k, prog, sd*17., .07)*sz;",
-      "      col = over(pencil(p, tp, .9*smoothstep(0.,.05,ph)*(1.-smoothstep(.9,1.,prog))), col);",
-      "    }",
-      "  }",
-      "  return col*I;",
+      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3);",
+      "  vec2 uv = vec2((p.x + a*.5)/a, .5 - p.y);",
+      "  if (uv.x < 0. || uv.x > 1. || uv.y < 0. || uv.y > 1.) return vec4(0.);",
+      "  vec4 tx = texture(uTex, uv); if (tx.a < .004) return vec4(0.);",
+      "  float grain = .55 + .45*vn(fc*.8);",                          // graphite catches only the paper's tooth
+      "  float A = tx.a*grain;",
+      "  return vec4(tx.rgb*A, A)*I;",
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return sketch(fc); }" }]

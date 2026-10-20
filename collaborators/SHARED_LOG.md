@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 1/34: Sketchbook (owner-approved push) (tr128)
+* Owner (2026-10-20 06:55 PT): "Improve each theme ... commit each one at a time", worst first. Sketchbook was #34 (about 6 fps on the phone floor).
+* Speed: the doodles are now drawn with Canvas2D strokes into a small texture 15 times a second; the shader only samples it and adds paper grain (was a per-pixel line search). Phone floor 9.9 -> 60 fps idle. `wings/fx/engine.js` gains an optional per-preset `fps` cap (watchdog skips capped presets) for the other heavy themes.
+* Every screen: `styles/atmo/sketch.css` v2 block. Ruled sketchbook page with a red margin, masking tape on the coin stage and gallery slabs, the coin page drawn as a taped-in sheet, index-card value boxes with handwritten labels, pencil-underlined headings, a pencil-line search box, search palette and theme cards as torn sheets, 44 px+ controls, dashed focus ring, reduced-motion CSS. Specimen Showcase kept dark as the sketchbook cover.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · tools/release/bump.py + CI stamp check (owner-approved push)
 * `python3 tools/release/bump.py --next` (or `tr130`) bumps sw.js header + BUILD, every `?v=` in index.html (86 today, comments included as before), `window.TITAN_BUILD` and version.json `build`; `--stamp "title (sha)"` writes DEPLOY_STAMP.txt for the deploy commit; `--dry-run` writes nothing. Not touched: data/, legacy `styles/atmo/all.css`.
 * `--check` runs in `integrity.yml`: all stamps agree, DEPLOY_STAMP is at BUILD or one behind (release commit before deploy commit), every `?v=` file the page loads is precached by sw.js and every precached file exists. Passes on tr127. No real bump was run.

@@ -25,6 +25,8 @@
      light (0/1), q (quality 0..3), still (bool), coin (an HTMLImageElement of a real coin photo once loaded, else null) }. Text, glyphs
      and sprites (ASCII art, split-flap letters, kinetic type, pixel sprites) are drawn there and shaded on the GPU like every other pass;
      the preset declares `uniform sampler2D uTex; uniform vec2 uTexRes;` in its glsl. `canvas.nearest: true` = pixel-exact sampling.
+   Frame cap (2026-10-20): a preset may declare `fps: N` and the GL overlay redraws at most N times a second (the page itself
+     keeps 60). For heavy, slow-moving shaders (pencil lines, paper, ice) so the overlay never starves the page.
    Quality: DPR capped at 1.5 (setDprCap), render scale + layer quality adapt from the first 2 s of measured frame cost
    (> 12 ms -> step down). Pauses (visual only) when the tab is hidden; reduced motion = one static frame. */
 (function () {
@@ -687,10 +689,11 @@
     var rdt = scr.lastRaf ? now - scr.lastRaf : 0; scr.lastRaf = now;
     if (scrolling) scrollPace(rdt);
     var dt = now - lastDraw;
-    if (dt < 1000 / (scrolling ? SCROLL_FPS[scr.step] : FPS_CAP) - 1.5) return;
+    var capF = FPS_CAP; for (var ci = 0; ci < layers.length; ci++) { var cf = layers[ci].def && layers[ci].def.fps; if (cf && layers[ci].target > 0 && cf < capF) capF = cf; }   // a preset may declare `fps` (heavy, slow-moving shaders draw "on twos")
+    if (dt < 1000 / (scrolling ? Math.min(SCROLL_FPS[scr.step], capF) : capF) - 1.5) return;
     lastDraw = now;
     if (scrolling) { wd.n = 0; wd.sum = 0; wd.t = 0; scr.frames = (scr.frames || 0) + 1; }   // the watchdog ignores scroll frames (they are capped on purpose)
-    else if (dt < 250) watchdog(dt); else { wd.n = 0; wd.sum = 0; wd.t = 0; }
+    else if (dt < 250 && capF >= 50) watchdog(dt); else { wd.n = 0; wd.sum = 0; wd.t = 0; }
     stepMix(now);
     var step = dt / 1000 / (fadeMs / 1000);
     for (var i = 0; i < layers.length; i++) { var l = layers[i]; l.fade += (l.target > l.fade ? 1 : -1) * Math.min(Math.abs(l.target - l.fade), step); }
