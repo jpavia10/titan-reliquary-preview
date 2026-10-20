@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Arcade (tr162)
+- Arcade redesigned to style every screen: pixel-hard cabinet panels with drop shadows, a CRT-scanline bezel coin stage in magenta, a pixel-yellow score readout.
+- Phone fps 60.3; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Marbled Endpapers (tr161)
 - Marbled Endpapers redesigned to style every screen: laid-paper panels, a marbled-board coin stage with gilt tooled double rule, leather-red values.
 - Phone fps 60.3; AA contrast; 44px targets via tpl.
