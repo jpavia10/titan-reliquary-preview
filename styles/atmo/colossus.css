@@ -157,3 +157,59 @@ html[data-atmo="colossus"] .sec-head {
   border-image: linear-gradient(90deg, var(--gold-deep), #d8d1c6 28%, var(--gold-deep) 58%, rgba(255, 122, 26, 0.5) 85%, transparent) 1;
 }
 html[data-atmo="colossus"] .wing-head h2 { text-shadow: 0 3px 26px rgba(226, 169, 62, 0.4), 0 -1px 0 rgba(240, 235, 226, 0.18); }
+
+/* ============================================================================
+   The Mint v2 (Grok, 2026-10-20): every screen, not just home.
+   The coining room: hammered-bronze panels with a riveted rim, a furnace glow rising from the bottom of every screen, headings struck in capitals like a coin legend, values stamped in bronze, the coin page opening with one press strike, and the search box a die slot.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="colossus"] :is(.gxd-stage, .gxd-value, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card) {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='h'%3E%3CfeTurbulence type='turbulence' baseFrequency='.045' numOctaves='2' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .75 0 0 0 0 .4 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23h)'/%3E%3C/svg%3E"), linear-gradient(160deg, #3a2710 0%, #241809 55%, #1c1207 100%); border: 1px solid rgba(242, 169, 59, 0.38); border-radius: 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 217, 140, 0.18), inset 0 -2px 6px rgba(0,0,0,0.45), 0 10px 24px rgba(0,0,0,0.45);
+}
+html[data-atmo="colossus"] .drawer-inner { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='h'%3E%3CfeTurbulence type='turbulence' baseFrequency='.045' numOctaves='2' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .75 0 0 0 0 .4 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23h)'/%3E%3C/svg%3E"), radial-gradient(130% 60% at 50% 110%, rgba(242,120,30,0.22), transparent 60%), var(--bg); border-top: 2px solid rgba(242,169,59,0.5); }
+html[data-atmo="colossus"] .gxd-stage { position: relative; background: radial-gradient(100% 80% at 50% 30%, #3b2810, #140c05); border: 1px solid rgba(242,169,59,0.45); }
+html[data-atmo="colossus"] .museum-slab {  }
+html[data-atmo="colossus"] :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn) {
+  min-height: 44px; min-width: 44px;
+  background: linear-gradient(180deg, #4a3214, #2c1e0b); border: 1px solid rgba(255, 217, 140, 0.35); border-radius: 9px;
+  box-shadow: inset 0 1px 0 rgba(255, 217, 140, 0.25), 0 2px 0 #0d0803; color: var(--ink);
+}
+html[data-atmo="colossus"] :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4) { font-family: "Cinzel", "Trajan Pro", "Optima", "Palatino Linotype", Georgia, serif; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-soft); text-shadow: 0 1px 0 #000, 0 0 18px rgba(242, 169, 59, 0.25); }
+html[data-atmo="colossus"] :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count) { font-family: "Cinzel", "Trajan Pro", "Optima", "Palatino Linotype", Georgia, serif; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.74rem; color: #f0d6a8; }
+html[data-atmo="colossus"] .gxd-value strong { font-family: "Cinzel", "Trajan Pro", "Optima", "Palatino Linotype", Georgia, serif; color: var(--gold-soft); }
+html[data-atmo="colossus"] :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen) { opacity: 0.3; }
+html[data-atmo="colossus"] :is(.gf-search, .palette-bar input) { min-height: 44px; color: var(--ink); background: #120b04; border: 1px solid rgba(242,169,59,0.45); border-radius: 22px; box-shadow: inset 0 2px 6px rgba(0,0,0,0.6); caret-color: var(--gold); }
+html[data-atmo="colossus"] .gf-bar select { min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #4a3214, #2c1e0b); border: 1px solid rgba(255, 217, 140, 0.35); border-radius: 9px; }
+html[data-atmo="colossus"] :is(.gf-preset.on, .sb-btn.active) { background: linear-gradient(180deg, #f2a93b, #b9741c); color: var(--on-gold); box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 0 16px rgba(242,169,59,0.35); }
+html[data-atmo="colossus"] :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl) { color: inherit; }
+html[data-atmo="colossus"] nav.wings .wing { min-height: 48px; }
+html[data-atmo="colossus"] nav.wings .wing.active { box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="colossus"] .palette-sheet { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='h'%3E%3CfeTurbulence type='turbulence' baseFrequency='.045' numOctaves='2' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .75 0 0 0 0 .4 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23h)'/%3E%3C/svg%3E"), linear-gradient(160deg, #3a2710 0%, #241809 55%, #1c1207 100%); border: 1px solid rgba(242, 169, 59, 0.38); border-radius: 10px; box-shadow: inset 0 1px 0 rgba(255, 217, 140, 0.18), inset 0 -2px 6px rgba(0,0,0,0.45), 0 10px 24px rgba(0,0,0,0.45), var(--elev-3); }
+html[data-atmo="colossus"] .pal-row { min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="colossus"] .pal-row:is(:hover, [aria-selected="true"], .on) { background: var(--sel-bg); }
+html[data-atmo="colossus"] :is(.gxd-history, .gxd-full) summary { min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="colossus"] :focus-visible { outline: 2.5px solid var(--focus); outline-offset: 3px; }
+
+/* furnace glow from the bottom edge of every screen: a fixed, static gradient behind content */
+html[data-atmo="colossus"] body::after { content: ""; position: fixed; left: 0; right: 0; bottom: 0; height: 38vh; pointer-events: none; z-index: -1;
+  background: radial-gradient(90% 100% at 50% 100%, rgba(242, 110, 25, 0.20), rgba(242, 110, 25, 0.06) 55%, transparent 80%); }
+/* rivets at the four corners of the big panels */
+html[data-atmo="colossus"] :is(.gxd-stage, .vault-valuation-hub, .gf-finder) { background-image: radial-gradient(circle at 10px 10px, #ffd98c 0 2px, #6b4512 2.5px 3.5px, transparent 4px),
+  radial-gradient(circle at calc(100% - 10px) 10px, #ffd98c 0 2px, #6b4512 2.5px 3.5px, transparent 4px),
+  radial-gradient(circle at 10px calc(100% - 10px), #ffd98c 0 2px, #6b4512 2.5px 3.5px, transparent 4px),
+  radial-gradient(circle at calc(100% - 10px) calc(100% - 10px), #ffd98c 0 2px, #6b4512 2.5px 3.5px, transparent 4px); }
+html[data-atmo="colossus"] :is(.gxd-stage, .vault-valuation-hub, .gf-finder) { background-color: #241809; }
+html[data-atmo="colossus"] .hero-grand { font-family: "Cinzel", "Trajan Pro", "Optima", "Palatino Linotype", Georgia, serif; color: var(--gold-soft); text-shadow: 0 2px 0 #3a2208, 0 0 30px rgba(242, 169, 59, 0.35); }
+html[data-atmo="colossus"] .gxd-coin { filter: sepia(0.35) saturate(1.3) drop-shadow(0 0 14px rgba(242, 140, 40, 0.35)); }
+html[data-atmo="colossus"] .slab-pedigree-header { background: linear-gradient(180deg, #4a3214, #2c1e0b); color: var(--gold-soft); }
+html[data-atmo="colossus"] :is(.gxd-badge, .gxd-cert) { border-color: rgba(255, 217, 140, 0.5); }
+html[data-atmo="colossus"] .market-ticker-tape { background: linear-gradient(180deg, #2c1e0b, #1a1106); border-top: 1px solid rgba(242,169,59,0.4); border-bottom: 1px solid rgba(242,169,59,0.4); }
+/* the press strike: the coin stage lands once when a coin page opens (transform only, composited) */
+@keyframes mint-strike { 0% { transform: scale(1.06); filter: brightness(1.35); } 35% { transform: scale(0.985); } 100% { transform: none; filter: none; } }
+html[data-atmo="colossus"] .drawer-open .gxd-stage { animation: mint-strike 0.42s cubic-bezier(0.2, 0.9, 0.3, 1) 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="colossus"] *, html[data-atmo="colossus"] *::before, html[data-atmo="colossus"] *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}

@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 3/34: The Mint / colossus (owner-approved push) (tr130)
+* Theme upgrade 3/34 (worst first, owner-approved 2026-10-20 06:55 PT). The Mint (colossus) was #32: ember orbs floated over the text and coins, ~29 fps idle on the phone floor.
+* Effects: style-liquid redraws at 30 fps (new engine `fps` cap) with a cheaper noise at low quality and no out-of-focus orbs; mint-forge embers are smaller and fainter so text stays sharp. Phone floor ~52 -> 54-60 fps idle (measured while tests ran; ranking had 28.8).
+* Every screen (`styles/atmo/colossus.css` v2): hammered-bronze panels with rivets, a static furnace glow from the bottom edge, coin-legend capitals for headings and values, a die-slot search box, bronze-struck active buttons, the coin page "press strike" when it opens (once, off with reduced motion), 44 px+ controls.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 2/34: Free Fall (owner-approved push) (tr129)
 * Theme upgrade 2/34 (worst first, owner-approved 2026-10-20 06:55 PT). Free Fall was #33 (about 11 fps on the phone floor).
 * Speed: the coins are pre-lit sprites (one per metal, drawn once) stamped with Canvas2D into a screen-shaped texture at 30 fps; the shader is one texture read (was a 64-coin loop with three texel fetches per pixel). A heap at rest is not redrawn or uploaded. Phone heap cap 14 -> 10 so it stays under the content. Phone floor 27.5 -> 60.2 fps idle.

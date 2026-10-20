@@ -286,8 +286,8 @@
   })();
 
   FX.register("style-liquid", {
-    layer: "front", still: 14, tap: true, glsl: P + LIB + LQ_FIELD,
-    front: { rate: 0.4, size: 0.07, alpha: 0.11, kind: 2, color: [1.0, 0.5, 0.16] },
+    layer: "front", still: 14, tap: true, glsl: P + LIB + LQ_FIELD, fps: 30,   // v2 (Grok, 2026-10-20): molten metal moves slowly; 30 redraws a second, and no out-of-focus orbs over the text
+
     moments: [{ name: "drip", every: [20, 48], dur: 6.5 }, { name: "swell", every: [34, 75], dur: 8 }],
     passes: [{ frag: [
       "vec4 fx(vec2 fc){",
@@ -304,7 +304,7 @@
       "    vec2 g = vec2(lqD(p+vec2(e,0.),hx,rs,t,swell)-lqD(p-vec2(e,0.),hx,rs,t,swell), lqD(p+vec2(0.,e),hx,rs,t,swell)-lqD(p-vec2(0.,e),hx,rs,t,swell));",
       "    g = g/(length(g)+1e-5);",
       "    float ph = clamp(-d/(.075*rs+.02), 0., 1.);",
-      "    vec2 nz = (vec2(fbmQ(p*6.+vec2(t*.07,0.), 3), fbmQ(p*6.+vec2(7.,-t*.05), 3)) - .5)*1.1;",
+      "    vec2 nz = (vec2(fbmQ(p*6.+vec2(t*.07,0.), uQ > 1.5 ? 3 : 2), fbmQ(p*6.+vec2(7.,-t*.05), uQ > 1.5 ? 3 : 2)) - .5)*1.1;",
       "    vec3 n = normalize(vec3(g*(1.-ph) + nz*(.4+.6*ph), .45 + .9*ph) + vec3(0., .16, 0.));",
       "    vec3 r = vec3(2.*n.z*n.x, 2.*n.z*n.y, 2.*n.z*n.z-1.);",
       "    vec3 m = lqEnv(r, t);",

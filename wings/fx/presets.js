@@ -765,7 +765,7 @@
   var SPARKF = PO + "vec4 fxi(){ float d = length(vQ*vec2(.55,1.4)); float core = exp(-d*d*9.), halo = exp(-d*3.2)*.3; vec3 c = mix(vec3(1.,.28,.05), vec3(1.,.9,.6), core*(1.-vA.x*.8)); float e = (core+halo)*vA.y*uInt; return pout(c, e, .5); }";
   FX.register("mint-forge", T3({
     still: 10, tap: true, glsl: G3, depth: 1,
-    front: { rate: 0.55, size: 0.08, alpha: 0.16, kind: 2, color: [1.0, 0.5, 0.15] },
+    front: { rate: 0.3, size: 0.035, alpha: 0.07, kind: 2, color: [1.0, 0.5, 0.15] },   // v2: small, faint embers that no longer blur the text
     moments: [{ name: "press-strike", every: [24, 60], dur: 3.6 }],
     passes: [
       { frag: [
