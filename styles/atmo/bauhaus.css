@@ -78,3 +78,50 @@ html[data-atmo="bauhaus"] {
   --paper-gold-soft: #9d2112;
   --paper-on-gold: #ffffff;
 }
+
+/* ============================================================================
+   Bauhaus v2 (Grok, 2026-10-20): every screen, not just home.
+   Dessau workshop poster: hard black rules, primary red/blue/yellow blocks, zero-radius panels with an offset solid shadow, a red circle-square-triangle corner mark on cards, Futura caps labels, and a yellow-backed value plate.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="bauhaus"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
+  background: #ffffff; border: 2px solid #111111; border-radius: 0;
+  box-shadow: 5px 5px 0 #111111;
+}
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .drawer-inner{ background: linear-gradient(90deg, #b42416 0 10px, transparent 10px), var(--bg); }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: linear-gradient(135deg, #f5c400 0 18%, transparent 18%), linear-gradient(315deg, #1d4ea1 0 7%, transparent 7%), #e8e3d5; border: 2px solid #111111; border-radius: 0; box-shadow: 5px 5px 0 #111111; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .museum-slab{  }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
+  min-height: 44px; min-width: 44px;
+  background: #ffffff; border: 2px solid #111111; border-radius: 0;
+  box-shadow: 3px 3px 0 #111111; color: var(--ink);
+}
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif, inherit); font-weight: 800; letter-spacing: 0.01em; text-transform: uppercase; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: var(--serif, inherit); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 700; color: #111111; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .gxd-value strong{ font-family: var(--serif, inherit); color: #111111; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #ffffff; border: 2px solid #111111; border-radius: 0; box-shadow: 3px 3px 0 #1d4ea1; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: #ffffff; border: 2px solid #111111; border-radius: 0; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: #b42416; color: #ffffff; box-shadow: 3px 3px 0 #111111; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 4px 0 #b42416; color: #111111; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .palette-sheet{ background: #ffffff; border: 2px solid #111111; border-radius: 0; box-shadow: 5px 5px 0 #111111, var(--elev-3); }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="bauhaus"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .gallery-coverflow-wrap .cf-title{ color: #ffffff; }
+
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .gxd-value > div{ border-radius: 0; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .gxd-value > div:first-child{ background: #f5c400; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .gxd-coin{ border-radius: 50%; box-shadow: 0 0 0 3px #111111, 6px 6px 0 #b42416; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .gxd-face figcaption{ color: #111111; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .slab-pedigree-header{ background: #111111; color: #fff; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border: 2px solid #111111; border-radius: 0; }
+html[data-atmo="bauhaus"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 6px 0 0 #b42416; }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="bauhaus"] *, html[data-atmo="bauhaus"] *::before, html[data-atmo="bauhaus"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
