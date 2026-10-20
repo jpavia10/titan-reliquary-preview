@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · opening-film rule regression test (owner-approved push)
+* `tools/smoke/test_regress_grk_p02.py`, run in `smoke.yml` after the smoke test: a low reported downlink (1.4 Mbps, 4g) still plays the film; Data Saver, 3g, 2g and slow-2g skip it; a skip stops the download (film bytes counted at the server, paced to 4 Mbps). It fails on the old tr117 downlink rule and on a dropVideo() that keeps the source, so the bug Claude fixed in tr126 cannot come back. Test only: no app change, no build bump.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · The Field v2 hosted (fix list #123 hosting part DONE, owner-approved push)
 * Joseph approved in chat (2026-10-19 23:29 PT) that Grok pushes this itself. **#123's "host The Field v2 next to v1" is done; Claude does not need to repeat it** (the data files and scoring in #123 are untouched and still Claude's).
 * `prototypes/v2/grok/index.html` = The Field v2.1 (album / silver & gold / to-photograph filters, photo preloaded before the flight, cheaper labels, plus a compressed 1850–1879 scale, the 1378 coin in its own marked slot and a year ruler under the header); v1 kept as `v1.html`; `prototypes/v2/index.html` card updated. Prototype only: no app files, no build bump. Tested at 412×915 against the hosted relative paths; suites + smoke 38/38 phone + desktop.
