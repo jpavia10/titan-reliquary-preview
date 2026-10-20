@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Marbled Endpapers (tr161)
+- Marbled Endpapers redesigned to style every screen: laid-paper panels, a marbled-board coin stage with gilt tooled double rule, leather-red values.
+- Phone fps 60.3; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Grand Terminal (tr160)
 - Grand Terminal redesigned to style every screen: split-flap board panels with a mid seam on values, a station-clock ring on the coin, platform-blue headers.
 - Phone fps 60.3; AA contrast; 44px targets via tpl.
