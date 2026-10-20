@@ -174,7 +174,7 @@
     "alchemist": { rec: "piano", world: true, name: "Alchemist's Study", icon: "⚗", desc: "A low fire, turning pages, a still room.", atmo: "alchemist",
                beds: { fire: 0.5, pages: 0.55, roomTone: 0.25 }, pad: 0.45, piano: true, bells: false, beat: false,
                root: "A", mode: "minor", prog: [0, 5, 2, 4], chordSec: 16, gap: [8, 16], bpm: 70, vol: 0.5 },
-    "polar": { world: true, name: "Polar Vault", icon: "❄", desc: "Howling wind over ice and a deep stillness.", atmo: "glacier",
+    "polar": { world: true, name: "Hyperborean Vault", icon: "❄", desc: "Howling wind over ice and a deep stillness.", atmo: "glacier",
                beds: { windHowl: 0.7, wind: 0.3, roomTone: 0.2 }, arc: { depth: 1.2, beds: { windHowl: { lo: 0.55, hi: 1.5, per: [60, 150] } } }, pad: 0.65, piano: false, bells: true, beat: false,
                root: "Bb", mode: "lydian", prog: [0, 1, 4, 1], chordSec: 17, gap: [9, 18], bpm: 70, vol: 0.5 },
     "imperial": { world: true, name: "Imperial Treasury", icon: "🏮", desc: "Wind chimes, a light breeze, water far away.", atmo: "dynasty",

@@ -40,7 +40,7 @@
     { id: "alchemist", name: "The Alchemist", collection: "Otherworld", tier: "classic", art: C("alchemist"),
       mood: "Emerald vitriol and glowing hermetic rings.", fx: "athanor", fxIntensity: 0.85, scene: "alchemist", tokens: {} },
     { id: "glacier", name: "Hyperborean Vault", collection: "Treasure", tier: "classic", art: C("glacier"),
-      mood: "A bullion reserve in Arctic bedrock under aurora.", fx: "style-glass+polar-ice*0.4", fxIntensity: 0.85, scene: "polar", tokens: {} },
+      mood: "A bullion reserve in Arctic bedrock under aurora.", fx: "style-ice-glass+polar-ice*0.4", fxIntensity: 0.85, scene: "polar", tokens: {} },
     { id: "valhalla", name: "Gilded Armory", collection: "Treasure", tier: "classic", art: C("valhalla"),
       mood: "Viking hoard hall by hearthfire.", fx: "mead-hall", fxIntensity: 0.9, scene: "hoard", tokens: {} },
     { id: "dynasty", name: "Dynasty", collection: "Treasure", tier: "classic", art: C("dynasty"),

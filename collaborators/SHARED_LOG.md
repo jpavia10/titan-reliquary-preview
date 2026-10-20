@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 5/34: Hyperborean Vault / glacier (owner-approved push) (tr132)
+* Theme upgrade 5/34 (worst first, owner-approved 2026-10-20 06:55 PT). Hyperborean Vault (glacier) was #30: it showed a stained-glass rose window and was called "Polar Vault" on some screens.
+* Bug fixed: `wings/fx/styles-e.js` (Cathedral Glass, tr122) registered `style-glass`, the same id as glacier's aurora glass in styles-c.js, and loads later, so glacier had shown Cathedral's rose window since tr122. Glacier's preset is now `style-ice-glass` (ui.js + manifest), capped at 30 fps; the scene is named "Hyperborean Vault" everywhere.
+* Every screen (`styles/atmo/glacier.css` v2): subsurface-blue ice panels veined with hairline cracks, coins in carved ice niches with a cold rim light, icicles along the top of the coin page, frost that clears from the coin stage on open, thin light headings, glacial-cyan values and active buttons, 44 px+ controls, reduced-motion CSS. Phone floor 50.9 -> 58.1 fps idle.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 4/34: Paper Hills / papercut (owner-approved push) (tr131)
 * Theme upgrade 4/34 (worst first, owner-approved 2026-10-20 06:55 PT). Paper Hills (papercut) was #31: "barely more than colours".
 * Every screen (`styles/atmo/papercut.css` v2): a pop-up book. Panels are sheets of fibred card lifted on sage and ochre paper layers, the coin stage and the search box sit on deckle-edged (hand-torn) sheets, coins stand on stacked paper-disc plinths, the coin page unfolds from a top hinge once when it opens, paper hills run along the foot of the coin page, and the Specimen Showcase is a night scene cut from navy card instead of the default dark slab.

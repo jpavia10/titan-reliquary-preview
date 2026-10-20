@@ -187,8 +187,10 @@
     "}"
   ].join("\n");
 
-  FX.register("style-glass", {
-    layer: "front", still: 22, tap: true, glsl: COMMON + GLASS_LIB,
+  /* v2 (Grok, 2026-10-20): renamed from "style-glass". styles-e.js registers Cathedral's stained glass under the same id and loads
+     later, so since tr122 the Hyperborean Vault showed a rose window. Glacier now asks for "style-ice-glass" (this one). */
+  FX.register("style-ice-glass", {
+    layer: "front", still: 22, tap: true, glsl: COMMON + GLASS_LIB, fps: 30,
     front: { rate: 0.3, size: 0.12, alpha: 0.06, kind: 1, color: [0.6, 0.95, 1.0] },
     moments: [{ name: "aurora-surge", every: [30, 70], dur: 10 }, { name: "glint-sweep", every: [26, 60], dur: 3.8 }],
     passes: [{ frag: GLASS }]
