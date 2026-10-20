@@ -56,3 +56,49 @@ html[data-atmo="drafting"] {
   --ui-grid: rgba(243, 248, 255, 0.07);
   --ui-grid2: rgba(243, 248, 255, 0.035);
 }
+
+/* ============================================================================
+   Drafting Room v2 (Grok, 2026-10-20): every screen, not just home.
+   The engraver's drafting room: blueprint panels with a white technical grid, dimension-line labels, a title-block value plate, crosshair-centred coin stage, and amber pencil callouts.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="drafting"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 24px), linear-gradient(175deg, #14406f, #0f3460); border: 1px solid rgba(255,210,122,0.3); border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(255,210,122,0.10), 0 12px 30px rgba(0,0,0,0.6);
+}
+html[data-atmo="drafting"] :is(#drawer-body, body) .drawer-inner{ background: radial-gradient(70% 30% at 50% 0%, rgba(255,210,122,0.10), transparent 70%), var(--bg); }
+html[data-atmo="drafting"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.18)) center/1px 100% no-repeat, linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.18)) center/100% 1px no-repeat, repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 20px), repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 20px), #0c2a50; border: 1px solid rgba(243,248,255,0.5); border-radius: 2px; }
+html[data-atmo="drafting"] :is(#drawer-body, body) .museum-slab{  }
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
+  min-height: 44px; min-width: 44px;
+  background: linear-gradient(180deg, #14406f, #0f3460); border: 1px solid rgba(255,210,122,0.5); border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(255,210,122,0.12); color: var(--ink);
+}
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif, inherit); font-weight: 700; letter-spacing: 0.02em; }
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: inherit; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); }
+html[data-atmo="drafting"] :is(#drawer-body, body) .gxd-value strong{ font-family: var(--serif, inherit); color: var(--gold-soft); }
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #14406f; border: 1px solid rgba(255,210,122,0.55); border-radius: 2px; }
+html[data-atmo="drafting"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #14406f, #0f3460); border: 1px solid rgba(255,210,122,0.5); border-radius: 2px; }
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #ffe6b0, #ffd27a); color: var(--on-gold); box-shadow: 0 0 14px rgba(255,210,122,0.28); }
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="drafting"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="drafting"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="drafting"] :is(#drawer-body, body) .palette-sheet{ background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 24px), linear-gradient(175deg, #14406f, #0f3460); border: 1px solid rgba(255,210,122,0.3); border-radius: 2px; box-shadow: inset 0 1px 0 rgba(255,210,122,0.10), 0 12px 30px rgba(0,0,0,0.6), var(--elev-3); }
+html[data-atmo="drafting"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="drafting"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="drafting"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
+
+html[data-atmo="drafting"] :is(#drawer-body, body) .gxd-face figcaption{ color: var(--muted); }
+html[data-atmo="drafting"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(255,210,122,0.55); }
+html[data-atmo="drafting"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
+
+html[data-atmo="drafting"] :is(#drawer-body, body) .gxd-value > div{ border: 1px solid rgba(243,248,255,0.55); border-radius: 0; }
+html[data-atmo="drafting"] :is(#drawer-body, body) .gxd-coin{ border-radius: 50%; box-shadow: 0 0 0 2px rgba(243,248,255,0.7), 0 0 0 8px rgba(12,42,80,0.6), 0 0 0 9px rgba(255,210,122,0.6); }
+html[data-atmo="drafting"] :is(#drawer-body, body) .slab-pedigree-header{ background: #0c2a50; color: #fff; border-bottom: 1px solid rgba(243,248,255,0.5); }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="drafting"] *, html[data-atmo="drafting"] *::before, html[data-atmo="drafting"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
