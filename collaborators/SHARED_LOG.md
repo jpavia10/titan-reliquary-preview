@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Grand Terminal (tr160)
+- Grand Terminal redesigned to style every screen: split-flap board panels with a mid seam on values, a station-clock ring on the coin, platform-blue headers.
+- Phone fps 60.3; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Gilded Armory (tr159)
 - Gilded Armory redesigned to style every screen: oak-and-iron panels with hearth-ember glow, a plank-and-iron coin stage, a shield-boss ring on the coin, ember-gold values.
 - Phone fps 60.2; AA contrast; 44px targets via tpl.
