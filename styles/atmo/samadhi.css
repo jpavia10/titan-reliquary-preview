@@ -201,3 +201,51 @@ html[data-atmo="samadhi"] #pane-hall .vault-valuation-hub {
 }
 html[data-motion="calm"][data-atmo="samadhi"]::before,
 html[data-motion="off"][data-atmo="samadhi"]::before { animation: none !important; }
+
+/* ============================================================================
+   Samadhi v2 (Grok, 2026-10-20): every screen, not just home.
+   An ashram at first light: every panel is a soft sandalwood cushion with a 22px round, a saffron inner glow rising from below like a lamp, a dot-and-line mala divider under headings, apricot aura on values, and the coin resting in a lotus halo.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="samadhi"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
+  background: radial-gradient(90% 60% at 50% 120%, rgba(244,162,97,0.16), transparent 70%), linear-gradient(180deg, #2c1912, #1f110c); border: 1px solid rgba(255,199,143,0.22); border-radius: 22px;
+  box-shadow: inset 0 0 24px rgba(255,170,90,0.06), 0 12px 30px rgba(10,4,2,0.55);
+}
+html[data-atmo="samadhi"] :is(#drawer-body, body) .drawer-inner{ background: radial-gradient(60% 30% at 50% 0%, rgba(255,170,90,0.14), transparent 70%), var(--bg); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: radial-gradient(circle at 50% 42%, rgba(255,199,143,0.20), rgba(244,162,97,0.06) 45%, transparent 70%), #1a0d09; border: 1px solid rgba(255,199,143,0.3); border-radius: 28px; box-shadow: inset 0 0 40px rgba(255,170,90,0.08); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .museum-slab{  }
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
+  min-height: 44px; min-width: 44px;
+  background: linear-gradient(180deg, #34201a, #26150f); border: 1px solid rgba(255,199,143,0.32); border-radius: 999px;
+  box-shadow: inset 0 0 10px rgba(255,170,90,0.08); color: var(--ink);
+}
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif, inherit); font-weight: 600; letter-spacing: 0.02em; }
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: inherit; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.72rem; color: var(--muted); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .gxd-value strong{ font-family: var(--serif, inherit); color: var(--gold-soft); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #1a0d09; border: 1px solid rgba(255,199,143,0.4); border-radius: 999px; box-shadow: inset 0 0 12px rgba(255,170,90,0.08); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #34201a, #26150f); border: 1px solid rgba(255,199,143,0.32); border-radius: 999px; }
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #fff1dc 0%, #ffc78f 60%, #f4a261 100%); color: var(--on-gold); box-shadow: 0 0 22px rgba(255,170,90,0.35); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="samadhi"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="samadhi"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .palette-sheet{ background: radial-gradient(90% 60% at 50% 120%, rgba(244,162,97,0.16), transparent 70%), linear-gradient(180deg, #2c1912, #1f110c); border: 1px solid rgba(255,199,143,0.22); border-radius: 22px; box-shadow: inset 0 0 24px rgba(255,170,90,0.06), 0 12px 30px rgba(10,4,2,0.55), var(--elev-3); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="samadhi"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
+
+@supports (-webkit-background-clip: text) {
+  html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.gxd-value strong.gxd-est, .hero-grand){ background: linear-gradient(180deg, #fff1dc 0%, #ffc78f 60%, #f4a261 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+}
+html[data-atmo="samadhi"] :is(#drawer-body, body) .gxd-coin{ border-radius: 50%; box-shadow: 0 0 0 2px rgba(255,199,143,0.5), 0 0 0 10px rgba(255,170,90,0.08), 0 0 40px rgba(255,170,90,0.28); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .gxd-head h2::after{ content: ""; display: block; width: 96px; height: 6px; margin-top: 8px; background: radial-gradient(circle, var(--gold) 2.5px, transparent 3px) center/12px 6px repeat-x, linear-gradient(var(--gold), var(--gold)) center/100% 1px no-repeat; opacity: 0.7; }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .gxd-face figcaption{ color: var(--muted); }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .slab-pedigree-header{ background: linear-gradient(90deg, #5a2e14, #2c1912); color: #fff; }
+html[data-atmo="samadhi"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(255,199,143,0.5); border-radius: 999px; }
+html[data-atmo="samadhi"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="samadhi"] *, html[data-atmo="samadhi"] *::before, html[data-atmo="samadhi"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
