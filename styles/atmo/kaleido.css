@@ -352,3 +352,50 @@ html[data-atmo="kaleido"] :is(.card, .tile, .metal-tile, .album-card)::after {
 }
 html[data-motion="calm"][data-atmo="kaleido"] :is(.card, .tile, .metal-tile, .album-card)::after,
 html[data-motion="off"][data-atmo="kaleido"] :is(.card, .tile, .metal-tile, .album-card)::after { animation: none; background-position: 40% 50%; }
+
+/* ============================================================================
+   Prism v2 (Grok, 2026-10-20): every screen, not just home.
+   A real prism: a slowly turning 8-fold kaleidoscope of a coin from the collection in the corner, panels edged with a chromatic-dispersion hairline (red, green and blue split a pixel apart), holographic foil on the values and headings, prism-cut faceted corners on the coin stage, and a teal-rose glass palette.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="kaleido"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
+  background: linear-gradient(160deg, #241640, #1a1030); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px;
+  box-shadow: -1px 0 0 rgba(255, 80, 120, 0.55), 1px 0 0 rgba(80, 220, 255, 0.55), 0 1px 0 rgba(140, 255, 160, 0.35), 0 12px 30px rgba(0,0,0,0.45);
+}
+html[data-atmo="kaleido"] :is(#drawer-body, body) .drawer-inner{ background: radial-gradient(60% 35% at 90% 0%, rgba(111,214,222,0.14), transparent 70%), radial-gradient(60% 35% at 0% 20%, rgba(238,111,214,0.12), transparent 70%), var(--bg); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: conic-gradient(from 0deg at 50% 45%, rgba(238,111,214,0.10), rgba(111,214,222,0.10), rgba(255,243,176,0.08), rgba(155,123,255,0.10), rgba(238,111,214,0.10)), #160d27; clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px); border: 0; }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .museum-slab{  }
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
+  min-height: 44px; min-width: 44px;
+  background: linear-gradient(160deg, #2e1d50, #20133a); border: 1px solid rgba(255,255,255,0.14); border-radius: 12px;
+  box-shadow: -1px 0 0 rgba(255,80,120,0.45), 1px 0 0 rgba(80,220,255,0.45); color: var(--ink);
+}
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif, inherit); font-weight: 700; letter-spacing: 0.01em; }
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: inherit; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; color: var(--muted); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .gxd-value strong{ font-family: inherit; color: var(--gold-soft); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #10081c; border: 1px solid rgba(111,214,222,0.45); border-radius: 12px; box-shadow: -1px 0 0 rgba(255,80,120,0.5), 1px 0 0 rgba(80,220,255,0.5); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(160deg, #2e1d50, #20133a); border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; }
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(110deg, #ffc6ee 0%, #6fd6de 25%, #fff3b0 45%, #ee6fd6 65%, #9b7bff 85%, #ffc6ee 100%); color: var(--on-gold); box-shadow: 0 0 18px rgba(238,111,214,0.35); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="kaleido"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="kaleido"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .palette-sheet{ background: linear-gradient(160deg, #241640, #1a1030); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; box-shadow: -1px 0 0 rgba(255, 80, 120, 0.55), 1px 0 0 rgba(80, 220, 255, 0.55), 0 1px 0 rgba(140, 255, 160, 0.35), 0 12px 30px rgba(0,0,0,0.45), var(--elev-3); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="kaleido"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
+
+@supports (-webkit-background-clip: text) {
+  html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gxd-value strong.gxd-est, .hero-grand, .wing-head h2, .gxd-head h2){ background: linear-gradient(110deg, #ffc6ee 0%, #6fd6de 25%, #fff3b0 45%, #ee6fd6 65%, #9b7bff 85%, #ffc6ee 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+}
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gxd-coin, .ph-slot.is-round){ border-radius: 50%; box-shadow: -2px 0 0 rgba(255,80,120,0.7), 2px 0 0 rgba(80,220,255,0.7), 0 2px 0 rgba(140,255,160,0.5), 0 0 30px rgba(238,111,214,0.25); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .gxd-face figcaption{ color: var(--muted); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .slab-pedigree-header{ background: linear-gradient(90deg, #3a1d52, #1d3550); color: #fff; }
+html[data-atmo="kaleido"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(111,214,222,0.5); }
+html[data-atmo="kaleido"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="kaleido"] *, html[data-atmo="kaleido"] *::before, html[data-atmo="kaleido"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}

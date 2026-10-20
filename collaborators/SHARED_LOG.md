@@ -5,6 +5,36 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Samadhi (tr145)
+- Samadhi redesigned to style every screen: sandalwood cushion panels with a saffron lamp glow, pill buttons, a mala divider under the title, apricot aura values, lotus-halo coin.
+- Phone fps 60.3 → 60.2; AA contrast; 44px targets via tpl.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Sunken Treasury (tr144)
+- Sunken Treasury (abyss) redesigned to style every screen: pressure-glass viewport panels with an aqua rim and caustic top light, wreck-brass money, bathysphere porthole coin stage.
+- Phone fps 60.2 -> 60.2; AA contrast; 44px targets via tpl.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Bauhaus (tr143)
+- Bauhaus redesigned to style every screen as a Dessau poster: hard black rules, zero radius, offset solid shadows, primary-color blocks, yellow value plate, caps headings.
+- Phone fps 60.2 -> 60.2; AA contrast (black on yellow/white); 44px targets via tpl.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Odyssey (tr142)
+- Odyssey redesigned to style every screen as a navigator's chart table: lat/long grid panels, brass hairlines, brass-plate values, porthole coin stage.
+- Phone fps 60.3 -> 59.3 (no regression); AA contrast kept; 44px targets via tpl.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Music upgrade 1: fades + follow the theme (owner-approved push) (tr141)
+* Music upgrade 1 (owner 2026-10-20 06:55 PT: "level up the music experience"). `audio.js` v4: play fades in (0.7 s), pause fades out (0.32 s), and a station change fades the old station out before switching, so music never starts or stops with a click (iOS ignores element volume, so there it stays a plain cut). Volume and mute were already remembered.
+* Follow the theme: when the theme changes while the radio is playing, it moves to that theme's paired station (app.js ATMOS `station`, now sent on the "titan:atmo" event). It never starts music by itself (no autoplay surprises); `TitanLofi.setFollowTheme(false)` turns it off and is remembered.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 12/34: Prism / kaleido (owner-approved push) (tr140)
+* Theme upgrade 12/34 (worst first, owner-approved 2026-10-20 06:55 PT). Prism (kaleido) was #23: named for a kaleidoscope but had no mirroring or refraction, ~38 fps idle.
+* New effect `style-kaleido` (wings/fx/styles-e.js): a real 8-fold mirrored kaleidoscope of a coin photo from the collection (painted glass chips until one loads), slowly turning in the upper corner with a prismatic rim; one texture read inside the rosette, nothing outside it, 30 fps. Prism now plays "style-kaleido+style-holo*0.4" (was holo + prismatic). 60.2 fps idle on the phone floor.
+* Every screen (`styles/atmo/kaleido.css` v2): chromatic-dispersion hairlines (red/green/blue split) on panels, buttons, search and coins, holographic foil on headings and the hero total, a prism-cut faceted coin stage, a foil active state, 44 px+ controls, reduced-motion CSS.
+
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 11/34: Millennium Chrome / y2k (owner-approved push) (tr139)
+* Theme upgrade 11/34 (worst first, owner-approved 2026-10-20 06:55 PT). Millennium Chrome (y2k) was #24.
+* Speed: style-y2k redraws at 30 fps and its sparkle field tests only the pixel's own cell at the low quality tiers (was nine cells for every pixel). Phone floor 37.6 -> 59.7 fps idle.
+* Every screen (`styles/atmo/y2k.css` v2): Frutiger Aero glossy glass panels with a wet top highlight and an iridescent hairline, bubble-pill buttons with an inner gleam, a CD-ROM iridescent rim round every coin, chrome-gradient headings, a lava-lamp purple active state, iridescent search-row highlight, 44 px+ controls, reduced-motion CSS.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 10/34: Silk Road / silkroad (owner-approved push) (tr138)
 * Theme upgrade 10/34 (worst first, owner-approved 2026-10-20 06:55 PT). Silk Road was #25: the concept stopped at navy and gold.
 * Every screen (`styles/atmo/silkroad.css` v2): lapis panels with a faint suzani embroidery pattern and an ikat band along the top, the coin shown under a pointed caravanserai arch, a dashed caravan route with stops across the home hero and above the coin's name, parchment and dune-gold type with italic labels, bazaar-gold active buttons, 44 px+ controls, reduced-motion CSS. 60 fps idle on the phone floor before and after.

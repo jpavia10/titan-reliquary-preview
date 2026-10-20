@@ -7027,7 +7027,7 @@
     if (save) { try { localStorage.setItem(ATMO_KEY, atmo); } catch { /* ignore */ } }
     // tr113 (owner: "Each themes unique motion should play when selecting a new theme"): the theme's own motion splash; the old flash is the fallback
     if (changed && flash && !(window.TitanOpening && window.TitanOpening.switchTo && window.TitanOpening.switchTo(atmo))) atmoFlash(atmo);
-    try { window.dispatchEvent(new CustomEvent("titan:atmo", { detail: { atmo, name: ATMOS[atmo].name } })); } catch { /* ignore */ }
+    try { window.dispatchEvent(new CustomEvent("titan:atmo", { detail: { atmo, name: ATMOS[atmo].name, station: ATMOS[atmo].station } })); } catch { /* ignore */ }
     // Only when the atmosphere really changed: opening the picker calls setAtmo(current)
     // just to refresh the "On display" marks and must not start or reset the soundscape.
     if (changed && window.TitanAmbient) {

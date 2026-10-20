@@ -49,7 +49,7 @@
         the page and a retro perspective grid scrolls along the floor. Moment "shine": a glint sweeps the chrome and the sparkles burst.
      ===================================================================================================================== */
   FX.register("style-y2k", {
-    layer: "front", still: 4.2, safe: 0.97,
+    layer: "front", still: 4.2, safe: 0.97, fps: 30,   // v2 (Grok, 2026-10-20): the chrome blobs drift slowly; 30 redraws a second
     moments: [{ name: "shine", every: [20, 44], dur: 2.4 }],
     glsl: H + [
       "float gT;",
@@ -97,10 +97,12 @@
       "vec4 sparks(vec2 p, float a, float I){",
       "  float k = mK(), burst = k >= 0. ? exp(-sq((k-.25)*5.)) : 0.;",
       "  vec2 g = p*vec2(5.2, 5.2); vec2 id = floor(g); vec4 acc = vec4(0.);",
+      "  int R = uQ > 1.5 ? 1 : 0;",                                                 // v2: low tiers test only the pixel's own cell (sparks are small)
       "  for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++){",
+      "    if (abs(i) > R || abs(j) > R) continue;",
       "    vec2 c = id+vec2(float(i),float(j)); float rnd = h21(c);",
       "    if (rnd > .34 + .3*burst) continue;",
-      "    vec2 o = h22(c*1.7+3.1); vec2 sp = (c+o)/5.2;",
+      "    vec2 o = h22(c*1.7+3.1); if (R == 0) o = .22 + .56*o; vec2 sp = (c+o)/5.2;",   // own-cell only: keep each spark clear of the cell edge
       "    float ph = h21(c+9.3)*6.283, sp2 = .55+h21(c+4.4)*1.1;",
       "    float tw = pow(max(0., sin(uTime*sp2+ph)), 6.); tw = max(tw, burst*(.4+.6*h21(c+2.)));",
       "    float sz = .016 + .02*h21(c+7.7);",
@@ -667,5 +669,44 @@
       "}"
     ].join("\n") + "\n",
     passes: [{ frag: "vec4 fx(vec2 fc){ return marble(fc); }" }]
+  });
+  /* =====================================================================================================================
+     v2 (Grok, 2026-10-20) style-kaleido · Prism (kaleido). A real kaleidoscope: a coin photo from the collection (or, until one
+     loads, a painted glass-chip plate) is drawn once into a small texture; the shader folds the plane into an 8-fold mirrored
+     wedge and turns it slowly, shown as a rosette in the upper corner with a prismatic rim, faded well clear of the text.
+     One texture read per pixel inside the rosette, nothing outside it; 30 redraws a second.
+     ===================================================================================================================== */
+  function kalCanvas(c, w, h, t, info) {
+    var key = info.coin ? "coin" : "chips"; if (c.__k === key) return false; c.__k = key;
+    c.fillStyle = "#130b20"; c.fillRect(0, 0, w, h);
+    if (info.coin) { c.drawImage(info.coin, 0, 0, w, h); }
+    else {
+      var cols = ["#ee6fd6", "#6fd6de", "#ffc6ee", "#9b7bff", "#ffd36f", "#5be3a8"];
+      for (var i = 0; i < 46; i++) { var x = (i * 73 % w), y = (i * 151 % h), r = 10 + (i * 37 % 34);
+        c.globalAlpha = 0.75; c.fillStyle = cols[i % cols.length]; c.beginPath();
+        for (var k = 0; k < 5; k++) { var an = k * 1.2566 + i; c.lineTo(x + Math.cos(an) * r, y + Math.sin(an) * r * 0.8); } c.closePath(); c.fill(); }
+      c.globalAlpha = 1;
+    }
+    return true;
+  }
+  FX.register("style-kaleido", {
+    layer: "front", still: 8, safe: 0.97, fps: 30,
+    canvas: { w: 256, h: 256, fps: 1, draw: kalCanvas },
+    glsl: "uniform sampler2D uTex; uniform vec2 uTexRes;\n" + H + [
+      "vec4 kal(vec2 fc){",
+      "  vec2 p = P(fc); float a = asp(); float I = clamp(uInt,0.,1.3);",
+      "  float R = a < .8 ? .2 : .26; vec2 C = vec2(a*.5 - R*.55, .5 - R*.55);",
+      "  vec2 d = p - C; float r = length(d); if (r > R*1.08) return vec4(0.);",
+      "  float W = 6.2832/8., an = atan(d.y, d.x) + uTime*.06; an = mod(an, W); an = min(an, W - an);",
+      "  vec2 q = vec2(cos(an), sin(an))*r/R; q = r2(uTime*.021)*q;",
+      "  vec3 tx = texture(uTex, .5 + q*.42).rgb;",
+      "  vec3 rim = hsv(an/W + uTime*.03, .55, 1.)*exp(-sq((r/R - 1.)/.025))*.9;",
+      "  float body = 1. - smoothstep(.9, 1., r/R);",
+      "  vec3 c = tx*body*.62 + rim;",
+      "  float al = (body*.62 + length(rim)*.3)*I;",
+      "  return vec4(c*I, clamp(al, 0., .9));",
+      "}"
+    ].join("\n") + "\n",
+    passes: [{ frag: "vec4 fx(vec2 fc){ return kal(fc); }" }]
   });
 })();
