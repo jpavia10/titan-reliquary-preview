@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Tilt your phone to move the scene (tr171)
+- NEW: tilt your phone and the scene moves with it. The theme's effect layer, the hero glow and the wordmark shift against the tilt for real depth, and it re-centres on how you're holding the phone. iOS asks permission once, on your first tap. Off under reduced motion; TitanFX.setTilt(false) turns it off.
+- New test tools/smoke/test_regress_grk_t01.py.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Motion: scroll-driven tile depth (tr170)
 - NEW: scroll-driven depth. Coin tiles tip up out of the page as they scroll in and lean away as they leave, driven by scroll position on the compositor (no JS). Only where the browser supports scroll timelines; off under reduced motion. Phone fps unchanged (60.3).
 

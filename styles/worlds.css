@@ -187,3 +187,10 @@ html.vt-theme::view-transition-new(root) { animation: vt-open 0.7s cubic-bezier(
     }
   }
 }
+
+/* phone tilt moves the scene (wings/fx/engine.js sets --tilt-x/--tilt-y from the motion sensor): background layers shift a few pixels
+   against the tilt for depth. `translate` composes with any transform a theme already uses. Off under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  :where(.hero-glow, .exhibit-bg) { translate: calc(var(--tilt-x, 0) * -14px) calc(var(--tilt-y, 0) * -10px); transition: translate 0.25s ease-out; }
+  :where(.wordmark) { translate: calc(var(--tilt-x, 0) * 5px) calc(var(--tilt-y, 0) * 4px); transition: translate 0.25s ease-out; }
+}

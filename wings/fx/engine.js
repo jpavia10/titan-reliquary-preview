@@ -765,6 +765,28 @@
   window.addEventListener("orientationchange", onResize);
   window.addEventListener("titan:atmo", function () { setTimeout(readTheme, 30); setTimeout(readTheme, 600); });
   window.addEventListener("pointermove", onPointerMove, { passive: true });
+  /* Grok 2026-10-20: tilt the phone and the scene moves with it. Sensor parallax drives the same smoothed offset as the pointer
+     (plus --tilt-x/--tilt-y on <html> for CSS layers). iOS asks permission once, inside the first tap; Android needs none.
+     Off under reduced motion; TitanFX.setTilt(false) turns it off (remembered in tr_tilt_v1). */
+  var tiltOn = true; try { tiltOn = localStorage.getItem("tr_tilt_v1") !== "0"; } catch (e) { /* ignore */ }
+  var tiltBase = null, tiltAsked = false, tiltLast = 0;
+  function onTilt(e) {
+    if (!tiltOn || reduced || e.beta == null) return;
+    var now = performance.now(); if (now - tiltLast < 30) return; tiltLast = now;
+    if (!tiltBase || now - tiltBase.t > 20000) tiltBase = { b: e.beta, g: e.gamma, t: now };   // re-centre slowly: the resting pose drifts
+    tiltBase.b += (e.beta - tiltBase.b) * 0.004; tiltBase.g += (e.gamma - tiltBase.g) * 0.004;
+    var gx = Math.max(-1, Math.min(1, (e.gamma - tiltBase.g) / 30)), by = Math.max(-1, Math.min(1, (e.beta - tiltBase.b) / 30));
+    if (gl) { var M = PAR_MAX * 2; par.tx = -gx * M; par.ty = by * M; }
+    var r = document.documentElement.style; r.setProperty("--tilt-x", gx.toFixed(3)); r.setProperty("--tilt-y", by.toFixed(3));
+  }
+  function askTilt() {
+    if (tiltAsked || !tiltOn) return; tiltAsked = true;
+    var DOE = window.DeviceOrientationEvent; if (!DOE) return;
+    var listen = function () { window.addEventListener("deviceorientation", onTilt, { passive: true }); };
+    listen();   // harmless where permission is missing: no readings arrive until it is granted
+    if (typeof DOE.requestPermission === "function") { try { DOE.requestPermission().catch(function () {}); } catch (e) { /* ignore */ } }
+  }
+  document.addEventListener("touchend", askTilt, { capture: true, passive: true, once: true });
   window.addEventListener("pointerdown", onPointerDown, { passive: true, capture: true });
   window.addEventListener("scroll", onScrollDrift, { passive: true, capture: true });
   window.addEventListener("titan:coin", function () { if (!reduced && gl) pulseT0 = performance.now() / 1000; });
@@ -882,6 +904,8 @@
     setTextSafe: function (v) { SAFE_K = Math.max(0, Math.min(0.95, +v || 0)); markSafe(0); if (gl && reduced) drawOnce(); },
     refreshSafe: function () { safe.mutDirty = true; markSafe(0); },
     pulse: function () { if (!reduced) pulseT0 = performance.now() / 1000; },
+    setTilt: function (v) { tiltOn = !!v; try { localStorage.setItem("tr_tilt_v1", tiltOn ? "1" : "0"); } catch (e) { /* ignore */ } if (!tiltOn) { document.documentElement.style.removeProperty("--tilt-x"); document.documentElement.style.removeProperty("--tilt-y"); } },
+    tiltEnabled: function () { return tiltOn; },
     setPointerParallax: function (v) { PAR_MAX = Math.max(0, Math.min(0.03, +v || 0)); },
     setQuality: function (step) { forced = step == null ? null : Math.max(0, Math.min(LADDER.length - 1, step | 0)); if (forced != null) { scaleStep = forced; cal = null; sizeCanvas(); } },
     _lost: lostRecover
