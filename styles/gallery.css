@@ -620,3 +620,13 @@
 #drawer-body .gxd-history ol { margin: 0 0 1rem; padding: 0; list-style: none; border-left: 2px solid var(--line-strong); }
 #drawer-body .gxd-history li { padding: 0.3rem 0 0.3rem 0.9rem; font-size: 0.95rem; line-height: 1.45; color: var(--ink); }
 #drawer-body .gxd-history time { font-variant-numeric: tabular-nums; color: var(--muted); }
+
+/* 3D coin (wings/coin3d.js, Grok 2026-10-20): the struck coin in real light; the flat faces return with "Flat photos". */
+#drawer-body .gxd-stage .c3d-wrap { position: relative; width: 100%; margin: 0 0 6px; }
+#drawer-body .gxd-stage .c3d-canvas { display: block; width: 100%; height: 260px; cursor: grab; -webkit-tap-highlight-color: transparent; }
+#drawer-body .gxd-stage .c3d-canvas:active { cursor: grabbing; }
+#drawer-body .gxd-stage.c3d-on .gxd-faces { display: none; }
+#drawer-body .gxd-stage .c3d-hint { text-align: center; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); margin-top: 2px; }
+#drawer-body .gxd-stage .c3d-toggle { display: block; min-height: 44px; min-width: 44px; margin: 8px auto 0; padding: 0 18px; border-radius: 999px;
+  border: 1px solid var(--line-strong, rgba(255,255,255,0.3)); background: var(--surface2, rgba(255,255,255,0.06)); color: var(--ink); font: inherit; font-size: 0.85rem; cursor: pointer; }
+#drawer-body .gxd-stage .c3d-toggle:focus-visible { outline: 2px solid var(--focus, var(--gold)); outline-offset: 2px; }

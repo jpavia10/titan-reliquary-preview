@@ -32,6 +32,8 @@ jobs:
         run: python tools/smoke/test_regress_grk_p03.py
       - name: every theme has sound (GRK-M-04 regression)
         run: python tools/smoke/test_regress_grk_m04.py
+      - name: 3D coin (GRK-V-01 regression)
+        run: python tools/smoke/test_regress_grk_v01.py
       - if: failure()
         uses: actions/upload-artifact@v4
         with:

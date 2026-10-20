@@ -5,6 +5,12 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · 3D coin on the coin page (tr152)
+- NEW: a real 3D coin on every coin page (three.js, loaded from the app's own copy so it works offline). Real metal lighting from a light setup tinted by each theme, a reeded edge, metal colour read from the coin's Metal field, and the photographed faces on both sides (drawn faces become an engraved blank).
+- It flips in when you open a coin. Drag to spin or tilt it: it keeps spinning, then a spring lands it on a face. Tap to flip it over (with the coin-tink sound). It tilts slightly as you tilt the phone; iOS asks permission on your first touch.
+- 'Flat photos' (44 px) goes back to the flat photos and is remembered. It only draws while moving (no cost when still), caps sharpness on slow phones, and skips the flip-in with reduced motion.
+- New test tools/smoke/test_regress_grk_v01.py.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Music 2: every theme has sound (tr151)
 - FIX (Joseph: Dynasty had no sound): sound only started on a first tap outside the Scene studio, and following the theme only worked once something was already playing. So opening the studio first and picking a theme stayed silent. Picking a theme after any tap now starts that theme's sound (unless you pressed Off).
 - iOS: audio plays as media, so the silent switch doesn't mute it (iOS 17+), and the sound comes back on the next tap after a call or Siri interrupts it.
