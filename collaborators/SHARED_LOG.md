@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 6/34: Pulp Adventure / pulp (owner-approved push) (tr133)
+* Theme upgrade 6/34 (worst first, owner-approved 2026-10-20 06:55 PT). Pulp Adventure was #29: only the headline font sold the concept.
+* Every screen (`styles/atmo/pulp.css` v2): newsprint panels outlined in heavy ink with hard offset shadows, a red halftone dot screen on the hero, misregistered CMYK shadows on the big headings, the coin page framed as a pulp cover (red tilted title banner, "ISSUE" before the catalogue id), a starburst on the estimate, a panel slam when a coin opens (off with reduced motion), buttons that press into their shadow, 44 px+ controls. 60 fps idle on the phone floor before and after.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 5/34: Hyperborean Vault / glacier (owner-approved push) (tr132)
 * Theme upgrade 5/34 (worst first, owner-approved 2026-10-20 06:55 PT). Hyperborean Vault (glacier) was #30: it showed a stained-glass rose window and was called "Polar Vault" on some screens.
 * Bug fixed: `wings/fx/styles-e.js` (Cathedral Glass, tr122) registered `style-glass`, the same id as glacier's aurora glass in styles-c.js, and loads later, so glacier had shown Cathedral's rose window since tr122. Glacier's preset is now `style-ice-glass` (ui.js + manifest), capped at 30 fps; the scene is named "Hyperborean Vault" everywhere.

@@ -79,3 +79,63 @@ html[data-atmo="pulp"] {
   --paper-gold-soft: #8e0c19;
   --paper-on-gold: #ffffff;
 }
+
+/* ============================================================================
+   Pulp Adventure v2 (Grok, 2026-10-20): every screen, not just home.
+   A 1940s pulp magazine: newsprint panels outlined in heavy ink with hard 4 px offset shadows, a red halftone dot screen in the coin stage and the hero, misregistered CMYK headings, the coin page framed like a pulp cover with a red title banner, starburst price badges and a panel slam when a coin opens.
+   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
+   every control is at least 44 px; reduced motion switches off every transition below.
+   ========================================================================== */
+html[data-atmo="pulp"] :is(.gxd-stage, .gxd-value, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card) {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"), var(--surface); border: 2.5px solid var(--ink); border-radius: 2px;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+html[data-atmo="pulp"] .drawer-inner { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"), var(--bg); }
+html[data-atmo="pulp"] .gxd-stage { position: relative; background: radial-gradient(circle, rgba(179,16,31,0.16) 1.2px, transparent 1.6px) 0 0 / 7px 7px, linear-gradient(180deg, #ffe08a, #f4b73d); border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+html[data-atmo="pulp"] .museum-slab { background: var(--surface); border: 2.5px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+html[data-atmo="pulp"] :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn) {
+  min-height: 44px; min-width: 44px;
+  background: var(--surface); border: 2.5px solid var(--ink); border-radius: 2px;
+  box-shadow: 3px 3px 0 var(--ink); color: var(--ink);
+}
+html[data-atmo="pulp"] :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4) { font-family: var(--serif); text-transform: uppercase; letter-spacing: 0.02em; text-shadow: 2px 1px 0 rgba(0,160,220,0.55), -1.5px -1px 0 rgba(236,0,140,0.45); }
+html[data-atmo="pulp"] :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count) { font-family: var(--serif); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85rem; color: var(--ink); }
+html[data-atmo="pulp"] .gxd-value strong { font-family: var(--serif); color: var(--gold); }
+html[data-atmo="pulp"] :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen) { display: none; }
+html[data-atmo="pulp"] :is(.gf-search, .palette-bar input) { min-height: 44px; color: var(--ink); background: var(--surface); border: 2.5px solid var(--ink); border-radius: 2px; box-shadow: 3px 3px 0 var(--ink); font-weight: 700; }
+html[data-atmo="pulp"] .gf-bar select { min-height: 44px; color: var(--ink); background: var(--surface); border: 2.5px solid var(--ink); border-radius: 2px; }
+html[data-atmo="pulp"] :is(.gf-preset.on, .sb-btn.active) { background: var(--gold); color: var(--on-gold); box-shadow: 3px 3px 0 var(--ink); }
+html[data-atmo="pulp"] :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl) { color: inherit; }
+html[data-atmo="pulp"] nav.wings .wing { min-height: 48px; }
+html[data-atmo="pulp"] nav.wings .wing.active { box-shadow: inset 0 -5px 0 var(--gold); }
+html[data-atmo="pulp"] .palette-sheet { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"), var(--surface); border: 2.5px solid var(--ink); border-radius: 2px; box-shadow: 4px 4px 0 var(--ink), var(--elev-3); }
+html[data-atmo="pulp"] .pal-row { min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="pulp"] .pal-row:is(:hover, [aria-selected="true"], .on) { background: var(--sel-bg); }
+html[data-atmo="pulp"] :is(.gxd-history, .gxd-full) summary { min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="pulp"] :focus-visible { outline: 2.5px solid var(--focus); outline-offset: 3px; }
+
+/* the pulp cover: a red title banner across the coin page head */
+html[data-atmo="pulp"] .gxd-head h2 { display: inline-block; background: var(--gold); color: #fff !important; -webkit-text-fill-color: #fff; padding: 4px 12px 2px; transform: rotate(-1.5deg); border: 2.5px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); text-shadow: 2px 2px 0 var(--ink); }
+html[data-atmo="pulp"] .gxd-head .gxd-ids::before { content: "ISSUE "; font-family: var(--serif); letter-spacing: 0.06em; color: var(--gold); }
+/* starburst behind the estimate */
+html[data-atmo="pulp"] .gxd-value { position: relative; overflow: visible; }
+html[data-atmo="pulp"] .gxd-value:first-child::before { content: ""; position: absolute; top: -14px; right: -10px; width: 46px; height: 46px; background: #ffd23f; border: 0; pointer-events: none;
+  clip-path: polygon(50% 0, 61% 32%, 95% 20%, 72% 47%, 100% 68%, 65% 68%, 70% 100%, 50% 77%, 30% 100%, 35% 68%, 0 68%, 28% 47%, 5% 20%, 39% 32%); filter: drop-shadow(2px 2px 0 #17120d); }
+html[data-atmo="pulp"] .gxd-value strong { font-size: 1.9rem; }
+html[data-atmo="pulp"] .gxd-sec h4 { text-shadow: none; color: var(--gold-soft); }
+html[data-atmo="pulp"] .hero-grand { color: var(--gold); text-shadow: 3px 3px 0 var(--ink); }
+html[data-atmo="pulp"] .vault-valuation-hub { background: radial-gradient(circle, rgba(179,16,31,0.16) 1.2px, transparent 1.6px) 0 0 / 7px 7px, var(--surface); }
+html[data-atmo="pulp"] .gxd-face figcaption { color: var(--ink); font-weight: 700; }
+html[data-atmo="pulp"] .slab-pedigree-header { background: var(--ink); color: #fff; }
+html[data-atmo="pulp"] .slab-pedigree-header :is(.slab-pedigree-title, .slab-pedigree-grade) { color: #fff; }
+html[data-atmo="pulp"] .market-ticker-tape { background: var(--ink); color: #fff; }
+html[data-atmo="pulp"] :is(.gxd-badge, .gxd-cert) { border: 2px solid var(--ink); border-radius: 2px; box-shadow: 2px 2px 0 var(--ink); }
+html[data-atmo="pulp"] .gallery-coverflow-wrap { border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); border-radius: 2px; }
+html[data-atmo="pulp"] :is(.btn, .nav-btn, .gxd-act, .gf-preset, .sb-btn, .gf-filters-btn, .gf-link):active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+/* panel slam: the coin page lands with a little overshoot */
+@keyframes pulp-slam { 0% { transform: scale(1.08) rotate(-1deg); opacity: 0.2; } 60% { transform: scale(0.98) rotate(0.4deg); opacity: 1; } 100% { transform: none; } }
+html[data-atmo="pulp"] .drawer-open .gxd { animation: pulp-slam 0.36s cubic-bezier(0.2, 0.9, 0.3, 1.2) 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="pulp"] *, html[data-atmo="pulp"] *::before, html[data-atmo="pulp"] *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
