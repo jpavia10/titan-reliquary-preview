@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Odyssey (tr142)
+- Odyssey redesigned to style every screen as a navigator's chart table: lat/long grid panels, brass hairlines, brass-plate values, porthole coin stage.
+- Phone fps 60.3 -> 59.3 (no regression); AA contrast kept; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Music upgrade 1: fades + follow the theme (owner-approved push) (tr141)
 * Music upgrade 1 (owner 2026-10-20 06:55 PT: "level up the music experience"). `audio.js` v4: play fades in (0.7 s), pause fades out (0.32 s), and a station change fades the old station out before switching, so music never starts or stops with a click (iOS ignores element volume, so there it stays a plain cut). Volume and mute were already remembered.
 * Follow the theme: when the theme changes while the radio is playing, it moves to that theme's paired station (app.js ATMOS `station`, now sent on the "titan:atmo" event). It never starts music by itself (no autoplay surprises); `TitanLofi.setFollowTheme(false)` turns it off and is remembered.
