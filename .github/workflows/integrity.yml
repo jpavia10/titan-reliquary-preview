@@ -33,6 +33,8 @@ jobs:
             python tools/pipeline/chain.py verify collection
           fi
       - run: python tools/schema/validate.py collection/
+      - name: release stamps agree (trNNN in sw.js, index.html, version.json) and sw.js precaches every ?v= file
+        run: python tools/release/bump.py --check
       - run: python tools/agents/homework.py --check
       - run: python tools/agents/test_homework.py
       - run: python tools/pipeline/test_migrations.py

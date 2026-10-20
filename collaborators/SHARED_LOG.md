@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · tools/release/bump.py + CI stamp check (owner-approved push)
+* `python3 tools/release/bump.py --next` (or `tr130`) bumps sw.js header + BUILD, every `?v=` in index.html (86 today, comments included as before), `window.TITAN_BUILD` and version.json `build`; `--stamp "title (sha)"` writes DEPLOY_STAMP.txt for the deploy commit; `--dry-run` writes nothing. Not touched: data/, legacy `styles/atmo/all.css`.
+* `--check` runs in `integrity.yml`: all stamps agree, DEPLOY_STAMP is at BUILD or one behind (release commit before deploy commit), every `?v=` file the page loads is precached by sw.js and every precached file exists. Passes on tr127. No real bump was run.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · opening-film rule regression test (owner-approved push)
 * `tools/smoke/test_regress_grk_p02.py`, run in `smoke.yml` after the smoke test: a low reported downlink (1.4 Mbps, 4g) still plays the film; Data Saver, 3g, 2g and slow-2g skip it; a skip stops the download (film bytes counted at the server, paced to 4 Mbps). It fails on the old tr117 downlink rule and on a dropVideo() that keeps the source, so the bug Claude fixed in tr126 cannot come back. Test only: no app change, no build bump.
 
