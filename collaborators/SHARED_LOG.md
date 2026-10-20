@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: Dynasty (tr148)
+- Dynasty redesigned to style every screen: cinnabar lacquer panels with a gold hui-fret band on the values, 24K foil headings and values, a moon-gate stage, a gold ring on the coin.
+- Phone fps 60.1; AA contrast; 44px targets via tpl.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade: The Alchemist (tr147)
 - The Alchemist redesigned to style every screen: vitriol-green glass plates edged in gold leaf, engraved double-rule value frames, athanor-glow stage, double sigil ring on the coin, gold-leaf values.
 - Phone fps 60.1 (before 60.2); AA contrast; 44px targets via tpl.
