@@ -236,46 +236,46 @@ html[data-atmo="glacier"] .atlas-footer-bar strong[style*="#f43f5e"] { color: #f
    Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
    every control is at least 44 px; reduced motion switches off every transition below.
    ========================================================================== */
-html[data-atmo="glacier"] :is(.gxd-stage, .gxd-value, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card) {
+html[data-atmo="glacier"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg fill='none' stroke='%23cbf1ff' stroke-opacity='.10' stroke-width='.8'%3E%3Cpath d='M0 40 L38 52 L60 30 L96 46 L130 20 L170 38 L220 26'/%3E%3Cpath d='M38 52 L44 90 L80 110 L74 150 L110 170'/%3E%3Cpath d='M130 20 L140 70 L180 96 L220 90'/%3E%3Cpath d='M80 110 L130 120 L160 160 L150 220'/%3E%3Cpath d='M0 150 L30 140 L74 150'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(170deg, rgba(40, 86, 120, 0.55) 0%, rgba(14, 32, 50, 0.85) 60%, rgba(8, 20, 33, 0.92) 100%); border: 1px solid rgba(203, 241, 255, 0.22); border-radius: 14px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -18px 30px rgba(127,220,255,0.06), 0 12px 30px rgba(0,6,14,0.5);
 }
-html[data-atmo="glacier"] .drawer-inner { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H120 V3 L114 4 L111 13 L107 4 L96 5 L93 9 L89 4 L74 4 L70 15 L66 4 L52 5 L49 10 L45 4 L30 4 L27 12 L23 4 L10 5 L7 9 L3 4 L0 4Z' fill='%23cbf1ff' fill-opacity='.55'/%3E%3C/svg%3E") left top / 120px 16px repeat-x, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg fill='none' stroke='%23cbf1ff' stroke-opacity='.10' stroke-width='.8'%3E%3Cpath d='M0 40 L38 52 L60 30 L96 46 L130 20 L170 38 L220 26'/%3E%3Cpath d='M38 52 L44 90 L80 110 L74 150 L110 170'/%3E%3Cpath d='M130 20 L140 70 L180 96 L220 90'/%3E%3Cpath d='M80 110 L130 120 L160 160 L150 220'/%3E%3Cpath d='M0 150 L30 140 L74 150'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(180deg, #0c1c2c, var(--bg) 40%); }
-html[data-atmo="glacier"] .gxd-stage { position: relative; background: radial-gradient(110% 80% at 50% 0%, rgba(127,220,255,0.18), transparent 60%), linear-gradient(180deg, #0f2436, #07111c); border: 1px solid rgba(203,241,255,0.3); margin-top: 10px; }
-html[data-atmo="glacier"] .museum-slab { border: 1px solid rgba(203,241,255,0.28); }
-html[data-atmo="glacier"] :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn) {
+html[data-atmo="glacier"] :is(#drawer-body, body) .drawer-inner{ background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='16' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H120 V3 L114 4 L111 13 L107 4 L96 5 L93 9 L89 4 L74 4 L70 15 L66 4 L52 5 L49 10 L45 4 L30 4 L27 12 L23 4 L10 5 L7 9 L3 4 L0 4Z' fill='%23cbf1ff' fill-opacity='.55'/%3E%3C/svg%3E") left top / 120px 16px repeat-x, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg fill='none' stroke='%23cbf1ff' stroke-opacity='.10' stroke-width='.8'%3E%3Cpath d='M0 40 L38 52 L60 30 L96 46 L130 20 L170 38 L220 26'/%3E%3Cpath d='M38 52 L44 90 L80 110 L74 150 L110 170'/%3E%3Cpath d='M130 20 L140 70 L180 96 L220 90'/%3E%3Cpath d='M80 110 L130 120 L160 160 L150 220'/%3E%3Cpath d='M0 150 L30 140 L74 150'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(180deg, #0c1c2c, var(--bg) 40%); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: radial-gradient(110% 80% at 50% 0%, rgba(127,220,255,0.18), transparent 60%), linear-gradient(180deg, #0f2436, #07111c); border: 1px solid rgba(203,241,255,0.3); margin-top: 10px; }
+html[data-atmo="glacier"] :is(#drawer-body, body) .museum-slab{ border: 1px solid rgba(203,241,255,0.28); }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
   min-height: 44px; min-width: 44px;
   background: linear-gradient(180deg, rgba(60,120,160,0.35), rgba(14,32,50,0.8)); border: 1px solid rgba(203,241,255,0.3); border-radius: 12px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.22); color: var(--ink);
 }
-html[data-atmo="glacier"] :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4) { font-family: var(--serif); font-weight: 300; letter-spacing: 0.06em; color: #ffffff; text-shadow: 0 0 18px rgba(127,220,255,0.35); }
-html[data-atmo="glacier"] :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count) { font-family: var(--serif); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); }
-html[data-atmo="glacier"] .gxd-value strong { font-family: var(--serif); color: var(--gold-soft); }
-html[data-atmo="glacier"] :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen) { opacity: 0.6; }
-html[data-atmo="glacier"] :is(.gf-search, .palette-bar input) { min-height: 44px; color: var(--ink); background: rgba(4, 14, 24, 0.75); border: 1px solid rgba(203,241,255,0.35); border-radius: 14px; box-shadow: inset 0 0 18px rgba(127,220,255,0.10); caret-color: var(--gold); }
-html[data-atmo="glacier"] .gf-bar select { min-height: 44px; color: var(--ink); background: linear-gradient(180deg, rgba(60,120,160,0.35), rgba(14,32,50,0.8)); border: 1px solid rgba(203,241,255,0.3); border-radius: 12px; }
-html[data-atmo="glacier"] :is(.gf-preset.on, .sb-btn.active) { background: linear-gradient(180deg, #a8e8ff, #59bde6); color: var(--on-gold); box-shadow: 0 0 18px rgba(127,220,255,0.4), inset 0 1px 0 #fff; }
-html[data-atmo="glacier"] :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl) { color: inherit; }
-html[data-atmo="glacier"] nav.wings .wing { min-height: 48px; }
-html[data-atmo="glacier"] nav.wings .wing.active { box-shadow: inset 0 3px 0 var(--gold), 0 0 16px rgba(127,220,255,0.25); color: #fff; }
-html[data-atmo="glacier"] .palette-sheet { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg fill='none' stroke='%23cbf1ff' stroke-opacity='.10' stroke-width='.8'%3E%3Cpath d='M0 40 L38 52 L60 30 L96 46 L130 20 L170 38 L220 26'/%3E%3Cpath d='M38 52 L44 90 L80 110 L74 150 L110 170'/%3E%3Cpath d='M130 20 L140 70 L180 96 L220 90'/%3E%3Cpath d='M80 110 L130 120 L160 160 L150 220'/%3E%3Cpath d='M0 150 L30 140 L74 150'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(170deg, rgba(40, 86, 120, 0.55) 0%, rgba(14, 32, 50, 0.85) 60%, rgba(8, 20, 33, 0.92) 100%); border: 1px solid rgba(203, 241, 255, 0.22); border-radius: 14px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -18px 30px rgba(127,220,255,0.06), 0 12px 30px rgba(0,6,14,0.5), var(--elev-3); }
-html[data-atmo="glacier"] .pal-row { min-height: 48px; border-bottom: 1px solid var(--line); }
-html[data-atmo="glacier"] .pal-row:is(:hover, [aria-selected="true"], .on) { background: var(--sel-bg); }
-html[data-atmo="glacier"] :is(.gxd-history, .gxd-full) summary { min-height: 44px; display: flex; align-items: center; }
-html[data-atmo="glacier"] :focus-visible { outline: 2.5px solid var(--focus); outline-offset: 3px; }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif); font-weight: 300; letter-spacing: 0.06em; color: #ffffff; text-shadow: 0 0 18px rgba(127,220,255,0.35); }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: var(--serif); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .gxd-value strong{ font-family: var(--serif); color: var(--gold-soft); }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){ opacity: 0.6; }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: rgba(4, 14, 24, 0.75); border: 1px solid rgba(203,241,255,0.35); border-radius: 14px; box-shadow: inset 0 0 18px rgba(127,220,255,0.10); caret-color: var(--gold); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, rgba(60,120,160,0.35), rgba(14,32,50,0.8)); border: 1px solid rgba(203,241,255,0.3); border-radius: 12px; }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #a8e8ff, #59bde6); color: var(--on-gold); box-shadow: 0 0 18px rgba(127,220,255,0.4), inset 0 1px 0 #fff; }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="glacier"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="glacier"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold), 0 0 16px rgba(127,220,255,0.25); color: #fff; }
+html[data-atmo="glacier"] :is(#drawer-body, body) .palette-sheet{ background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg fill='none' stroke='%23cbf1ff' stroke-opacity='.10' stroke-width='.8'%3E%3Cpath d='M0 40 L38 52 L60 30 L96 46 L130 20 L170 38 L220 26'/%3E%3Cpath d='M38 52 L44 90 L80 110 L74 150 L110 170'/%3E%3Cpath d='M130 20 L140 70 L180 96 L220 90'/%3E%3Cpath d='M80 110 L130 120 L160 160 L150 220'/%3E%3Cpath d='M0 150 L30 140 L74 150'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(170deg, rgba(40, 86, 120, 0.55) 0%, rgba(14, 32, 50, 0.85) 60%, rgba(8, 20, 33, 0.92) 100%); border: 1px solid rgba(203, 241, 255, 0.22); border-radius: 14px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -18px 30px rgba(127,220,255,0.06), 0 12px 30px rgba(0,6,14,0.5), var(--elev-3); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="glacier"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
 
 /* carved ice niches: the coin sits in a recess with a cold rim light */
-html[data-atmo="glacier"] :is(.gxd-coin, .ph-slot.is-round) { border-radius: 50%; box-shadow: 0 0 0 6px rgba(8,20,33,0.9), 0 0 0 7px rgba(203,241,255,0.35), inset 0 0 0 1px rgba(255,255,255,0.25), 0 0 26px 6px rgba(127,220,255,0.22); }
-html[data-atmo="glacier"] .gxd-face figcaption { color: var(--muted); }
-html[data-atmo="glacier"] .gxd-value strong { text-shadow: 0 0 16px rgba(127,220,255,0.4); }
-html[data-atmo="glacier"] .slab-pedigree-header { background: linear-gradient(180deg, rgba(60,120,160,0.45), rgba(14,32,50,0.9)); color: #fff; }
-html[data-atmo="glacier"] :is(.gxd-badge, .gxd-cert) { border-color: rgba(203,241,255,0.45); }
-html[data-atmo="glacier"] .pal-row:is(:hover, [aria-selected="true"], .on) { box-shadow: inset 3px 0 0 var(--gold); }
-html[data-atmo="glacier"] .drawer-bar { border-bottom: 1px solid rgba(203,241,255,0.18); }
+html[data-atmo="glacier"] :is(.gxd-coin, .ph-slot.is-round){ border-radius: 50%; box-shadow: 0 0 0 6px rgba(8,20,33,0.9), 0 0 0 7px rgba(203,241,255,0.35), inset 0 0 0 1px rgba(255,255,255,0.25), 0 0 26px 6px rgba(127,220,255,0.22); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .gxd-face figcaption{ color: var(--muted); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .gxd-value strong{ text-shadow: 0 0 16px rgba(127,220,255,0.4); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .slab-pedigree-header{ background: linear-gradient(180deg, rgba(60,120,160,0.45), rgba(14,32,50,0.9)); color: #fff; }
+html[data-atmo="glacier"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(203,241,255,0.45); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
+html[data-atmo="glacier"] :is(#drawer-body, body) .drawer-bar{ border-bottom: 1px solid rgba(203,241,255,0.18); }
 /* frost forming on the coin stage, once, when a coin page opens */
 @keyframes ice-form { from { box-shadow: inset 0 0 60px rgba(203,241,255,0.45); } to { box-shadow: inset 0 0 0 rgba(203,241,255,0); } }
-html[data-atmo="glacier"] .drawer-open .gxd-stage { animation: ice-form 0.9s ease-out 1; }
+html[data-atmo="glacier"] body.drawer-open :is(#drawer-body, body) .gxd-stage{ animation: ice-form 0.9s ease-out 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  html[data-atmo="glacier"] *, html[data-atmo="glacier"] *::before, html[data-atmo="glacier"] *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  html[data-atmo="glacier"] *, html[data-atmo="glacier"] *::before, html[data-atmo="glacier"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }

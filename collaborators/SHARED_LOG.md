@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrades 1-7 follow-up: coin-page specificity (owner-approved push) (tr136)
+* Follow-up to theme upgrades 1-7: the coin page rules in styles/gallery.css are `#drawer-body ...` (id specificity), so part of each v2 coin-page restyle (headings, value boxes, labels, the coin stage) was not winning. The v2 blocks of sketch, freefall, colossus, papercut, glacier, pulp and afterhours now use `:is(#drawer-body, body)` (same elements, id-level specificity), and the value cards target `.gxd-value > div` (the cards) rather than the row. Sketchbook and Pulp only enlarge the estimate, not the face value.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 8/34: Survey Map / contour (owner-approved push) (tr135)
 * Theme upgrade 8/34 (worst first, owner-approved 2026-10-20 06:55 PT). Survey Map (contour) was #27: contours too faint, nothing beyond the backdrop themed.
 * Effect brighter: style-topo at 1.05 (was 0.85) in ui.js and the manifest.

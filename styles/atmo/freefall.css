@@ -62,55 +62,55 @@ html[data-atmo="freefall"] {
    Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
    every control is at least 44 px; reduced motion switches off every transition below.
    ========================================================================== */
-html[data-atmo="freefall"] :is(.gxd-stage, .gxd-value, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card) {
+html[data-atmo="freefall"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M16 0V16M0 16H16' fill='none' stroke='%23a0b4dc' stroke-opacity='.06'/%3E%3C/svg%3E"), linear-gradient(180deg, var(--surface2), var(--surface)); border: 1px solid rgba(160, 180, 220, 0.22); border-radius: 6px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 22px rgba(0,0,0,0.35);
 }
-html[data-atmo="freefall"] .drawer-inner { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M16 0V16M0 16H16' fill='none' stroke='%23a0b4dc' stroke-opacity='.06'/%3E%3C/svg%3E"), var(--bg); border-top: 1px solid rgba(160,180,220,0.3); }
-html[data-atmo="freefall"] .gxd-stage { position: relative; background: radial-gradient(120% 90% at 50% 20%, #1f2634, #0f131b); border: 1px solid rgba(160,180,220,0.3); }
-html[data-atmo="freefall"] .museum-slab {  }
-html[data-atmo="freefall"] :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn) {
+html[data-atmo="freefall"] :is(#drawer-body, body) .drawer-inner{ background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M16 0V16M0 16H16' fill='none' stroke='%23a0b4dc' stroke-opacity='.06'/%3E%3C/svg%3E"), var(--bg); border-top: 1px solid rgba(160,180,220,0.3); }
+html[data-atmo="freefall"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: radial-gradient(120% 90% at 50% 20%, #1f2634, #0f131b); border: 1px solid rgba(160,180,220,0.3); }
+html[data-atmo="freefall"] :is(#drawer-body, body) .museum-slab{  }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
   min-height: 44px; min-width: 44px;
   background: linear-gradient(180deg, #252d3c, #1a202b); border: 1px solid rgba(160, 180, 220, 0.28); border-radius: 6px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 3px 0 #0a0d12; color: var(--ink);
 }
-html[data-atmo="freefall"] :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4) { font-family: "SF Mono", "JetBrains Mono", "Roboto Mono", ui-monospace, monospace; letter-spacing: -0.01em; }
-html[data-atmo="freefall"] :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count) { font-family: "SF Mono", "Roboto Mono", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: #b9c3d6; }
-html[data-atmo="freefall"] .gxd-value strong { font-family: "SF Mono", "Roboto Mono", ui-monospace, monospace; color: var(--gold); }
-html[data-atmo="freefall"] :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen) { opacity: 0.35; }
-html[data-atmo="freefall"] :is(.gf-search, .palette-bar input) { min-height: 44px; color: var(--ink); background: #0b0e14; border: 1px solid rgba(160,180,220,0.3); border-radius: 6px; font-family: 'SF Mono', ui-monospace, monospace; caret-color: var(--gold); }
-html[data-atmo="freefall"] .gf-bar select { min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #252d3c, #1a202b); border: 1px solid rgba(160, 180, 220, 0.28); border-radius: 6px; }
-html[data-atmo="freefall"] :is(.gf-preset.on, .sb-btn.active) { background: linear-gradient(180deg, #3a2f10, #241d0a); color: var(--gold-soft); box-shadow: inset 0 0 0 1px var(--gold), 0 0 14px rgba(255,204,77,0.25); }
-html[data-atmo="freefall"] :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl) { color: inherit; }
-html[data-atmo="freefall"] nav.wings .wing { min-height: 48px; }
-html[data-atmo="freefall"] nav.wings .wing.active { box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
-html[data-atmo="freefall"] .palette-sheet { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M16 0V16M0 16H16' fill='none' stroke='%23a0b4dc' stroke-opacity='.06'/%3E%3C/svg%3E"), linear-gradient(180deg, var(--surface2), var(--surface)); border: 1px solid rgba(160, 180, 220, 0.22); border-radius: 6px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 22px rgba(0,0,0,0.35), var(--elev-3); }
-html[data-atmo="freefall"] .pal-row { min-height: 48px; border-bottom: 1px solid var(--line); }
-html[data-atmo="freefall"] .pal-row:is(:hover, [aria-selected="true"], .on) { background: var(--sel-bg); }
-html[data-atmo="freefall"] :is(.gxd-history, .gxd-full) summary { min-height: 44px; display: flex; align-items: center; }
-html[data-atmo="freefall"] :focus-visible { outline: 2.5px solid var(--focus); outline-offset: 3px; }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: "SF Mono", "JetBrains Mono", "Roboto Mono", ui-monospace, monospace; letter-spacing: -0.01em; }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: "SF Mono", "Roboto Mono", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: #b9c3d6; }
+html[data-atmo="freefall"] :is(#drawer-body, body) .gxd-value strong{ font-family: "SF Mono", "Roboto Mono", ui-monospace, monospace; color: var(--gold); }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){ opacity: 0.35; }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #0b0e14; border: 1px solid rgba(160,180,220,0.3); border-radius: 6px; font-family: 'SF Mono', ui-monospace, monospace; caret-color: var(--gold); }
+html[data-atmo="freefall"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #252d3c, #1a202b); border: 1px solid rgba(160, 180, 220, 0.28); border-radius: 6px; }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #3a2f10, #241d0a); color: var(--gold-soft); box-shadow: inset 0 0 0 1px var(--gold), 0 0 14px rgba(255,204,77,0.25); }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="freefall"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="freefall"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="freefall"] :is(#drawer-body, body) .palette-sheet{ background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M16 0V16M0 16H16' fill='none' stroke='%23a0b4dc' stroke-opacity='.06'/%3E%3C/svg%3E"), linear-gradient(180deg, var(--surface2), var(--surface)); border: 1px solid rgba(160, 180, 220, 0.22); border-radius: 6px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 22px rgba(0,0,0,0.35), var(--elev-3); }
+html[data-atmo="freefall"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="freefall"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="freefall"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
 
 /* corner brackets on instrument panels (two pseudo-elements, static) */
-html[data-atmo="freefall"] :is(.gxd-stage, .gxd-value, .vault-valuation-hub)::before, html[data-atmo="freefall"] :is(.gxd-stage, .gxd-value, .vault-valuation-hub)::after {
+html[data-atmo="freefall"] :is(.gxd-stage, .gxd-value > div, .vault-valuation-hub)::before, html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-stage, .gxd-value > div, .vault-valuation-hub)::after{
   content: ""; position: absolute; width: 14px; height: 14px; pointer-events: none; border: 2px solid var(--gold); opacity: 0.8;
 }
-html[data-atmo="freefall"] :is(.gxd-stage, .gxd-value, .vault-valuation-hub) { position: relative; }
-html[data-atmo="freefall"] :is(.gxd-stage, .gxd-value, .vault-valuation-hub)::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
-html[data-atmo="freefall"] :is(.gxd-stage, .gxd-value, .vault-valuation-hub)::after { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-stage, .gxd-value > div, .vault-valuation-hub){ position: relative; }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-stage, .gxd-value > div, .vault-valuation-hub)::before{ top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-stage, .gxd-value > div, .vault-valuation-hub)::after{ bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
 /* a scale ruler under the coin tray */
-html[data-atmo="freefall"] .gxd-faces { padding-bottom: 18px; background: repeating-linear-gradient(90deg, rgba(185,195,214,0.55) 0 1px, transparent 1px 10px) left bottom / 100% 8px no-repeat,
+html[data-atmo="freefall"] .gxd-faces{ padding-bottom: 18px; background: repeating-linear-gradient(90deg, rgba(185,195,214,0.55) 0 1px, transparent 1px 10px) left bottom / 100% 8px no-repeat,
   repeating-linear-gradient(90deg, rgba(255,204,77,0.8) 0 1px, transparent 1px 50px) left bottom / 100% 14px no-repeat; }
-html[data-atmo="freefall"] :is(.gxd-value strong, .hero-grand, .tk-price, .gxd-fact dd) { font-variant-numeric: tabular-nums; }
-html[data-atmo="freefall"] .hero-grand { text-shadow: 0 0 24px rgba(255, 204, 77, 0.28); }
-html[data-atmo="freefall"] .gxd-face figcaption { color: #b9c3d6; }
-html[data-atmo="freefall"] .gxd-coin { filter: drop-shadow(0 10px 12px rgba(0,0,0,0.55)); }
-html[data-atmo="freefall"] .slab-pedigree-header { background: #0b0e14; border-bottom: 1px solid rgba(160,180,220,0.25); }
-html[data-atmo="freefall"] :is(.gxd-badge, .gxd-cert) { border-radius: 4px; font-family: "SF Mono", ui-monospace, monospace; }
-html[data-atmo="freefall"] .pal-row:is(:hover, [aria-selected="true"], .on) { box-shadow: inset 3px 0 0 var(--gold); }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-value strong, .hero-grand, .tk-price, .gxd-fact dd){ font-variant-numeric: tabular-nums; }
+html[data-atmo="freefall"] :is(#drawer-body, body) .hero-grand{ text-shadow: 0 0 24px rgba(255, 204, 77, 0.28); }
+html[data-atmo="freefall"] :is(#drawer-body, body) .gxd-face figcaption{ color: #b9c3d6; }
+html[data-atmo="freefall"] :is(#drawer-body, body) .gxd-coin{ filter: drop-shadow(0 10px 12px rgba(0,0,0,0.55)); }
+html[data-atmo="freefall"] :is(#drawer-body, body) .slab-pedigree-header{ background: #0b0e14; border-bottom: 1px solid rgba(160,180,220,0.25); }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-radius: 4px; font-family: "SF Mono", ui-monospace, monospace; }
+html[data-atmo="freefall"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
 /* buttons with mass: quick squash, overshooting spring back */
-html[data-atmo="freefall"] :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .gf-preset, .sb-btn, .atmo-card) { transition: transform 0.5s cubic-bezier(0.34, 1.9, 0.5, 1); }
-html[data-atmo="freefall"] :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .gf-preset, .sb-btn, .atmo-card):active { transform: scale(0.94, 0.9) translateY(2px); transition-duration: 0.07s; }
+html[data-atmo="freefall"] :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .gf-preset, .sb-btn, .atmo-card){ transition: transform 0.5s cubic-bezier(0.34, 1.9, 0.5, 1); }
+html[data-atmo="freefall"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .gf-preset, .sb-btn, .atmo-card):active{ transform: scale(0.94, 0.9) translateY(2px); transition-duration: 0.07s; }
 
 @media (prefers-reduced-motion: reduce) {
-  html[data-atmo="freefall"] *, html[data-atmo="freefall"] *::before, html[data-atmo="freefall"] *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  html[data-atmo="freefall"] *, html[data-atmo="freefall"] *::before, html[data-atmo="freefall"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }

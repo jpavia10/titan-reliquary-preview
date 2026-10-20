@@ -155,48 +155,48 @@ html:not([data-titanfx="on"])[data-atmo="afterhours"] body {
    Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
    every control is at least 44 px; reduced motion switches off every transition below.
    ========================================================================== */
-html[data-atmo="afterhours"] :is(.gxd-stage, .gxd-value, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card) {
+html[data-atmo="afterhours"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .035' numOctaves='3' seed='21'/%3E%3CfeColorMatrix values='0 0 0 0 .75 0 0 0 0 .8 0 0 0 0 .9 0 0 -1.6 0 .9'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23v)' opacity='.10'/%3E%3C/svg%3E"), linear-gradient(180deg, #0d121b, #080b11); border: 1px solid rgba(205, 178, 113, 0.28); border-radius: 4px;
   box-shadow: inset 0 1px 0 rgba(230, 214, 168, 0.08), 0 14px 34px rgba(0,0,0,0.55);
 }
-html[data-atmo="afterhours"] .drawer-inner { background: radial-gradient(70% 40% at 50% 0%, rgba(160, 190, 255, 0.10), transparent 70%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .035' numOctaves='3' seed='21'/%3E%3CfeColorMatrix values='0 0 0 0 .75 0 0 0 0 .8 0 0 0 0 .9 0 0 -1.6 0 .9'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23v)' opacity='.10'/%3E%3C/svg%3E"), var(--bg); border-top: 1px solid rgba(205,178,113,0.35); }
-html[data-atmo="afterhours"] .gxd-stage { position: relative; background: radial-gradient(60% 55% at 50% 38%, rgba(170, 195, 255, 0.16), transparent 70%), linear-gradient(180deg, #0c111a 0%, #06080d 72%, #161b24 72.5%, #0b0f16 100%); border: 1px solid rgba(205,178,113,0.3); }
-html[data-atmo="afterhours"] .museum-slab { border: 1px solid rgba(205,178,113,0.4); box-shadow: 0 0 0 6px #070a10, 0 0 0 7px rgba(205,178,113,0.25), 0 18px 40px rgba(0,0,0,0.6); }
-html[data-atmo="afterhours"] :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn) {
+html[data-atmo="afterhours"] :is(#drawer-body, body) .drawer-inner{ background: radial-gradient(70% 40% at 50% 0%, rgba(160, 190, 255, 0.10), transparent 70%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .035' numOctaves='3' seed='21'/%3E%3CfeColorMatrix values='0 0 0 0 .75 0 0 0 0 .8 0 0 0 0 .9 0 0 -1.6 0 .9'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23v)' opacity='.10'/%3E%3C/svg%3E"), var(--bg); border-top: 1px solid rgba(205,178,113,0.35); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: radial-gradient(60% 55% at 50% 38%, rgba(170, 195, 255, 0.16), transparent 70%), linear-gradient(180deg, #0c111a 0%, #06080d 72%, #161b24 72.5%, #0b0f16 100%); border: 1px solid rgba(205,178,113,0.3); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .museum-slab{ border: 1px solid rgba(205,178,113,0.4); box-shadow: 0 0 0 6px #070a10, 0 0 0 7px rgba(205,178,113,0.25), 0 18px 40px rgba(0,0,0,0.6); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
   min-height: 44px; min-width: 44px;
   background: linear-gradient(180deg, #121925, #0a0e16); border: 1px solid rgba(205,178,113,0.35); border-radius: 3px;
   box-shadow: inset 0 1px 0 rgba(230,214,168,0.10); color: var(--ink);
 }
-html[data-atmo="afterhours"] :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4) { font-family: "Cormorant Garamond", "Didot", "Bodoni 72", "Playfair Display", Georgia, serif; font-weight: 500; letter-spacing: 0.02em; color: #f4efe2; }
-html[data-atmo="afterhours"] :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count) { font-family: var(--serif, inherit); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.7rem; color: var(--gold-soft); }
-html[data-atmo="afterhours"] .gxd-value strong { font-family: "Cormorant Garamond", "Didot", "Bodoni 72", "Playfair Display", Georgia, serif; color: var(--gold-soft); }
-html[data-atmo="afterhours"] :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen) {  }
-html[data-atmo="afterhours"] :is(.gf-search, .palette-bar input) { min-height: 44px; color: var(--ink); background: rgba(4,6,11,0.85); border: 0; border-bottom: 1px solid rgba(205,178,113,0.55); border-radius: 0; letter-spacing: 0.02em; }
-html[data-atmo="afterhours"] .gf-bar select { min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #121925, #0a0e16); border: 1px solid rgba(205,178,113,0.35); border-radius: 3px; }
-html[data-atmo="afterhours"] :is(.gf-preset.on, .sb-btn.active) { background: linear-gradient(180deg, #e6d6a8, #b99a55); color: var(--on-gold); box-shadow: 0 0 18px rgba(205,178,113,0.25); }
-html[data-atmo="afterhours"] :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl) { color: inherit; }
-html[data-atmo="afterhours"] nav.wings .wing { min-height: 48px; }
-html[data-atmo="afterhours"] nav.wings .wing.active { box-shadow: inset 0 2px 0 var(--gold); color: var(--gold-soft); }
-html[data-atmo="afterhours"] .palette-sheet { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .035' numOctaves='3' seed='21'/%3E%3CfeColorMatrix values='0 0 0 0 .75 0 0 0 0 .8 0 0 0 0 .9 0 0 -1.6 0 .9'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23v)' opacity='.10'/%3E%3C/svg%3E"), linear-gradient(180deg, #0d121b, #080b11); border: 1px solid rgba(205, 178, 113, 0.28); border-radius: 4px; box-shadow: inset 0 1px 0 rgba(230, 214, 168, 0.08), 0 14px 34px rgba(0,0,0,0.55), var(--elev-3); }
-html[data-atmo="afterhours"] .pal-row { min-height: 48px; border-bottom: 1px solid var(--line); }
-html[data-atmo="afterhours"] .pal-row:is(:hover, [aria-selected="true"], .on) { background: var(--sel-bg); }
-html[data-atmo="afterhours"] :is(.gxd-history, .gxd-full) summary { min-height: 44px; display: flex; align-items: center; }
-html[data-atmo="afterhours"] :focus-visible { outline: 2.5px solid var(--focus); outline-offset: 3px; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: "Cormorant Garamond", "Didot", "Bodoni 72", "Playfair Display", Georgia, serif; font-weight: 500; letter-spacing: 0.02em; color: #f4efe2; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: var(--serif, inherit); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.7rem; color: var(--gold-soft); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .gxd-value strong{ font-family: "Cormorant Garamond", "Didot", "Bodoni 72", "Playfair Display", Georgia, serif; color: var(--gold-soft); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: rgba(4,6,11,0.85); border: 0; border-bottom: 1px solid rgba(205,178,113,0.55); border-radius: 0; letter-spacing: 0.02em; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #121925, #0a0e16); border: 1px solid rgba(205,178,113,0.35); border-radius: 3px; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #e6d6a8, #b99a55); color: var(--on-gold); box-shadow: 0 0 18px rgba(205,178,113,0.25); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 2px 0 var(--gold); color: var(--gold-soft); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .palette-sheet{ background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .035' numOctaves='3' seed='21'/%3E%3CfeColorMatrix values='0 0 0 0 .75 0 0 0 0 .8 0 0 0 0 .9 0 0 -1.6 0 .9'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23v)' opacity='.10'/%3E%3C/svg%3E"), linear-gradient(180deg, #0d121b, #080b11); border: 1px solid rgba(205, 178, 113, 0.28); border-radius: 4px; box-shadow: inset 0 1px 0 rgba(230, 214, 168, 0.08), 0 14px 34px rgba(0,0,0,0.55), var(--elev-3); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
+html[data-atmo="afterhours"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
 
 /* the marble plinth: a lit top edge under each coin, moonlight specular on the coin */
-html[data-atmo="afterhours"] .gxd-face { position: relative; }
-html[data-atmo="afterhours"] .gxd-face::after { content: ""; display: block; height: 10px; margin: 6px auto 0; width: 74%; border-radius: 2px;
+html[data-atmo="afterhours"] .gxd-face{ position: relative; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .gxd-face::after{ content: ""; display: block; height: 10px; margin: 6px auto 0; width: 74%; border-radius: 2px;
   background: linear-gradient(180deg, #2a313d, #121720); box-shadow: inset 0 1px 0 rgba(220,230,255,0.35), 0 6px 12px rgba(0,0,0,0.6); }
-html[data-atmo="afterhours"] :is(.gxd-coin, .ph-slot.is-round) { box-shadow: 0 0 34px rgba(150, 180, 255, 0.18); border-radius: 50%; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.gxd-coin, .ph-slot.is-round){ box-shadow: 0 0 34px rgba(150, 180, 255, 0.18); border-radius: 50%; }
 /* brass plaques for the labels and the catalogue ids */
-html[data-atmo="afterhours"] :is(.gxd-k, .gxd-fact dt) { display: inline-block; padding: 2px 8px; border: 1px solid rgba(205,178,113,0.45); background: linear-gradient(180deg, rgba(205,178,113,0.14), rgba(205,178,113,0.04)); }
-html[data-atmo="afterhours"] .gxd-ser { color: var(--gold-soft); letter-spacing: 0.08em; }
-html[data-atmo="afterhours"] .hero-grand { font-family: "Cormorant Garamond", "Didot", "Bodoni 72", "Playfair Display", Georgia, serif; font-weight: 500; color: #f6f0de; text-shadow: 0 0 40px rgba(170,195,255,0.25); }
-html[data-atmo="afterhours"] .slab-pedigree-header { background: linear-gradient(180deg, #121925, #090d14); color: var(--gold-soft); border-bottom: 1px solid rgba(205,178,113,0.35); }
-html[data-atmo="afterhours"] :is(.gxd-badge, .gxd-cert) { border-color: rgba(205,178,113,0.45); }
-html[data-atmo="afterhours"] .pal-row:is(:hover, [aria-selected="true"], .on) { box-shadow: inset 2px 0 0 var(--gold); }
-html[data-atmo="afterhours"] .wing-head h2 { font-size: 2.2rem; }
+html[data-atmo="afterhours"] :is(.gxd-k, .gxd-fact dt){ display: inline-block; padding: 2px 8px; border: 1px solid rgba(205,178,113,0.45); background: linear-gradient(180deg, rgba(205,178,113,0.14), rgba(205,178,113,0.04)); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .gxd-ser{ color: var(--gold-soft); letter-spacing: 0.08em; }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .hero-grand{ font-family: "Cormorant Garamond", "Didot", "Bodoni 72", "Playfair Display", Georgia, serif; font-weight: 500; color: #f6f0de; text-shadow: 0 0 40px rgba(170,195,255,0.25); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .slab-pedigree-header{ background: linear-gradient(180deg, #121925, #090d14); color: var(--gold-soft); border-bottom: 1px solid rgba(205,178,113,0.35); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(205,178,113,0.45); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 2px 0 0 var(--gold); }
+html[data-atmo="afterhours"] :is(#drawer-body, body) .wing-head h2{ font-size: 2.2rem; }
 
 @media (prefers-reduced-motion: reduce) {
-  html[data-atmo="afterhours"] *, html[data-atmo="afterhours"] *::before, html[data-atmo="afterhours"] *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  html[data-atmo="afterhours"] *, html[data-atmo="afterhours"] *::before, html[data-atmo="afterhours"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }
