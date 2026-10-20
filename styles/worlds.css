@@ -167,3 +167,10 @@ html.vt-theme::view-transition-new(root) { animation: vt-open 0.7s cubic-bezier(
 @keyframes vt-sink { to { transform: scale(0.94); filter: brightness(0.55); } }
 @keyframes vt-open { from { clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 50%)); } to { clip-path: circle(150vmax at var(--vt-x, 50%) var(--vt-y, 50%)); } }
 @media (prefers-reduced-motion: reduce) { html.vt-theme::view-transition-old(root), html.vt-theme::view-transition-new(root) { animation: none !important; } }
+
+/* micro-interactions (Grok 2026-10-20): every button and tile gives under the finger and springs back. :where() = zero specificity,
+   so any theme or component transform still wins. Off under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  :where(button, [role="button"], .gx-tile, .atmo-card, .cf-card):not(:disabled) { transition: transform 0.32s cubic-bezier(.3,1.6,.5,1); }
+  :where(button, [role="button"], .gx-tile, .atmo-card, .cf-card):not(:disabled):active { transform: scale(0.96); transition-duration: 0.06s; }
+}

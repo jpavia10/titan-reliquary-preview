@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Motion: coin fly-in and spring taps (tr169)
+- NEW: tapping a coin tile flies the 3D coin out of the tile's picture into the coin page (shared-element motion with a slight spring overshoot), then the coin flips in.
+- NEW: every button and tile gives slightly under the finger and springs back (zero-specificity rule, so theme styles still win). Both are off under reduced motion; phone fps unchanged (afterhours 60.1, glacier 60.3).
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Cinematic theme switch (tr168)
 - NEW: switching themes is now cinematic. The new theme opens as a growing circle from the exact spot you tapped, while the old theme sinks back and dims (0.7 s, compositor-only, View Transitions; the old fade stays as the fallback). Off under reduced motion. Plays with the new theme-switch chord from Music 2.
 

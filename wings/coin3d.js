@@ -17,6 +17,13 @@
   let on = true; try { on = localStorage.getItem(KEY) !== "0"; } catch (e) { /* ignore */ }
   let R = null;   // the live view
   let lastTitle = null;
+  /* shared element: remember the coin picture of the tile that was tapped, so the 3D coin can fly out of it */
+  let lastTile = null;
+  document.addEventListener("pointerdown", (e) => {
+    const card = e.target && e.target.closest && e.target.closest("[data-scan]");
+    const pic = card && card.querySelector("img, svg, .ph-slot, .gx-coin, .coin");
+    if (pic) { const r = pic.getBoundingClientRect(); if (r.width > 8) lastTile = { r, t: performance.now() }; }
+  }, { capture: true, passive: true });
 
   function cssVar(n, d) { const v = getComputedStyle(document.documentElement).getPropertyValue(n).trim(); return v || d; }
   function metalOf(text) {
@@ -159,6 +166,14 @@
     function size() { const w = wrap.clientWidth || 320, h = Math.round(Math.min(340, Math.max(220, w * 0.72))); canvas.style.height = h + "px"; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
     size();
     world = makeWorld(wrap, atmo, light, s);
+    if (lastTile && performance.now() - lastTile.t < 1500 && !reduce.matches && canvas.animate) {
+      const from = lastTile.r; lastTile = null;
+      requestAnimationFrame(() => { const to = canvas.getBoundingClientRect(); if (!to.width) return;
+        const sc = Math.max(0.08, Math.min(from.width, from.height) / Math.min(to.width, to.height));
+        const dx = from.left + from.width / 2 - (to.left + to.width / 2), dy = from.top + from.height / 2 - (to.top + to.height / 2);
+        canvas.animate([{ transform: `translate(${dx}px, ${dy}px) scale(${sc})`, opacity: 0.7 }, { transform: "none", opacity: 1 }],
+          { duration: 560, easing: "cubic-bezier(.2,.9,.25,1.12)" }); });
+    }
     function frame(now) {
       s.raf = 0; const dt = Math.min(0.05, s.last ? (now - s.last) / 1000 : 0.016); s.last = now;
       if (!s.drag) {
