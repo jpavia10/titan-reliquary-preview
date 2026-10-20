@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Performance fallback for weak phones (tr173)
+- Performance: weak or data-saving phones (4 or fewer CPU cores, 3 GB RAM or less, or Data Saver) get a light version of today's new effects. The 3D coin draws at lower sharpness without antialiasing, its world uses 40% of the particles at 20 fps, there's no scroll-driven tile depth, and theme switches use a plain fade.
+- A watchdog also halves the coin's particle world when a frame of it costs more than 4 ms, and stops it altogether if that keeps happening. The theme FX layer already self-calibrates.
+- Coin page under 4x CPU throttle: Valhalla 56 to 59 fps, Glacier 44 to 52 fps in lite mode. Force with localStorage tr_lite_v1 = 1/0. Test v01 checks lite mode.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme coin sounds, haptics, AR button (tr172)
 - Sound: the coin flip tink is now pitched to each theme's voice, and the coin-open chime plays the theme's own chord (so Dynasty, Arcade, Cathedral and the rest each sound like themselves on every coin).
 - Haptics: a short tick when the 3D coin flips and another when it lands (Android; follows the Interface sounds switch; off under reduced motion).

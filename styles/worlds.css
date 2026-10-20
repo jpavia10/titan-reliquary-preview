@@ -194,3 +194,7 @@ html.vt-theme::view-transition-new(root) { animation: vt-open 0.7s cubic-bezier(
   :where(.hero-glow, .exhibit-bg) { translate: calc(var(--tilt-x, 0) * -14px) calc(var(--tilt-y, 0) * -10px); transition: translate 0.25s ease-out; }
   :where(.wordmark) { translate: calc(var(--tilt-x, 0) * 5px) calc(var(--tilt-y, 0) * 4px); transition: translate 0.25s ease-out; }
 }
+
+/* weak devices (html.tr-lite, wings/coin3d.js): no scroll-driven tile depth, a plain cross-fade theme switch */
+html.tr-lite :where(.gx-tile, .piece-card, .latest-card) { animation: none !important; }
+html.tr-lite.vt-theme::view-transition-old(root) { animation: none; }

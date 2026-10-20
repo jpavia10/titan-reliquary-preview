@@ -11,6 +11,11 @@
 (() => {
   "use strict";
   const KEY = "tr_coin3d_v1";
+  /* quality fallback (Grok 2026-10-20): a weak or data-saving device gets the light version of today's new effects. <html class="tr-lite">,
+     window.TitanLite. Force with localStorage tr_lite_v1 = "1" / "0". */
+  const LITE = (() => { try { const f = localStorage.getItem("tr_lite_v1"); if (f === "1") return true; if (f === "0") return false; } catch (e) { /* ignore */ }
+    const n = navigator, c = n.connection || {}; return !!(c.saveData || (n.deviceMemory && n.deviceMemory <= 3) || (n.hardwareConcurrency && n.hardwareConcurrency <= 4)); })();
+  window.TitanLite = LITE; if (LITE) document.documentElement.classList.add("tr-lite");
   const T = window.THREE;
   if (!T) return;
   const reduce = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false };
@@ -92,14 +97,14 @@
   function makeWorld(wrap, atmo, light, st) {
     const w = WORLD[atmo] || WORLD.afterhours; if (!w[2]) return null;
     const c = document.createElement("canvas"); c.className = "c3d-world"; c.setAttribute("aria-hidden", "true"); wrap.insertBefore(c, wrap.firstChild);
-    const x = c.getContext("2d"), n = MOBILE ? Math.round(w[2] * 0.7) : w[2], P = [];
+    const x = c.getContext("2d"), n = Math.round(w[2] * (LITE ? 0.4 : MOBILE ? 0.7 : 1)), P = [];
     for (let i = 0; i < n; i++) P.push({ x: Math.random(), y: Math.random(), z: 0.25 + Math.random() * 0.75, s: Math.random() * 100 });
     P.sort((a, b) => a.z - b.z);
     const col = "#" + w[1].toString(16).padStart(6, "0"), kind = w[0], v = w[3];
-    let W = 0, H = 0, dpr = 1, raf = 0, last = 0, timer = 0, dead = false;
+    let W = 0, H = 0, dpr = 1, raf = 0, last = 0, timer = 0, dead = false, cost = 0, frames = 0;
     function size() { dpr = Math.min(1.5, window.devicePixelRatio || 1); W = c.clientWidth; H = c.clientHeight; c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); }
     function draw(now) {
-      raf = 0; if (dead) return; const dt = Math.min(0.1, last ? (now - last) / 1000 : 0.03); last = now; const t = now / 1000;
+      raf = 0; if (dead) return; const c0 = performance.now(); const dt = Math.min(0.1, last ? (now - last) / 1000 : 0.03); last = now; const t = now / 1000;
       if (c.width !== Math.round(c.clientWidth * dpr)) size();
       x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, W, H); x.fillStyle = col; x.globalCompositeOperation = light ? "source-over" : "lighter";
       const px = (st.yaw - st.ty) * 40 + st.tilt.x * 140, py = st.pitch * 50 + st.tilt.y * 120;
@@ -113,10 +118,13 @@
         x.globalAlpha = (light ? 0.35 : 0.55) * (0.35 + p.z * 0.65) * (kind === "drift" ? 0.75 + 0.25 * Math.sin(t * 1.3 + p.s) : 1);
         if (kind === "pixel") x.fillRect(X, Y, r * 2, r * 2); else { x.beginPath(); x.arc(X, Y, r, 0, 6.283); x.fill(); }
       }
-      if (!reduce.matches && !document.hidden) timer = setTimeout(() => { raf = requestAnimationFrame(draw); }, 28);
+      // watchdog: a frame of the world costing > 4 ms (averaged) halves the particles; twice more and the world holds still
+      cost = cost * 0.9 + (performance.now() - c0) * 0.1; frames++;
+      if (frames > 30 && cost > 4) { frames = 0; cost = 0; if (P.length > 12) P.length = Math.floor(P.length / 2); else return; }
+      if (!reduce.matches && !document.hidden) timer = setTimeout(() => { raf = requestAnimationFrame(draw); }, LITE ? 48 : 28);
     }
     size(); raf = requestAnimationFrame(draw);
-    return { n, poke() { if (!raf && !timer) raf = requestAnimationFrame(draw); }, wake() { clearTimeout(timer); timer = 0; if (!raf) raf = requestAnimationFrame(draw); },
+    return { get n() { return P.length; }, poke() { if (!raf && !timer) raf = requestAnimationFrame(draw); }, wake() { clearTimeout(timer); timer = 0; if (!raf) raf = requestAnimationFrame(draw); },
       dispose() { dead = true; cancelAnimationFrame(raf); clearTimeout(timer); c.remove(); } };
   }
   const MOBILE = /Mobi|Android|iPhone|iPad/.test(navigator.userAgent || "");
@@ -137,9 +145,9 @@
     stage.insertBefore(wrap, stage.firstChild);
     const canvas = wrap.querySelector("canvas");
     let renderer;
-    try { renderer = new T.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "low-power" }); } catch (e) { wrap.remove(); return; }
+    try { renderer = new T.WebGLRenderer({ canvas, antialias: !LITE, alpha: true, powerPreference: "low-power" }); } catch (e) { wrap.remove(); return; }
     stage.classList.add("c3d-on");
-    let dpr = Math.min(2, window.devicePixelRatio || 1);
+    let dpr = Math.min(LITE ? 1.25 : 2, window.devicePixelRatio || 1);
     renderer.setPixelRatio(dpr); renderer.outputEncoding = T.sRGBEncoding; renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
     const scene = new T.Scene(), cam = new T.PerspectiveCamera(30, 1, 0.1, 50); cam.position.set(0, 0, 4.4);
     const accent = cssVar("--gold", "#d4af37");

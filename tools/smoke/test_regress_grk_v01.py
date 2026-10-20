@@ -48,6 +48,10 @@ def main():
         p2.goto(base + "?nosplash#coin=C001"); p2.wait_for_timeout(3000)
         s2 = p2.evaluate("TitanCoin3D.state()")
         check("reduced motion: no flip-in", s2 is not None and abs(s2["yaw"]) < 0.01 and abs(s2["scale"] - 1) < 0.01, s2)
+        c3 = b.new_context(viewport={"width": 390, "height": 844}); c3.add_init_script("localStorage.setItem('tr_lite_v1', '1')"); p3 = c3.new_page()
+        p3.goto(base + "?nosplash#coin=C001"); p3.wait_for_timeout(3000)
+        l = p3.evaluate("({ lite: window.TitanLite === true && document.documentElement.classList.contains('tr-lite'), on: TitanCoin3D.active(), n: TitanCoin3D.state().world })")
+        check("weak-device fallback: lite mode keeps the 3D coin with a lighter world", l["lite"] and l["on"] and 0 < l["n"] <= 40, l)
         b.close()
     sys.exit(1 if fails else 0)
 
