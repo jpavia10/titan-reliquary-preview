@@ -25,6 +25,7 @@
     if (pic) { const r = pic.getBoundingClientRect(); if (r.width > 8) lastTile = { r, t: performance.now() }; }
   }, { capture: true, passive: true });
 
+  function buzz(ms) { try { if (!reduce.matches && navigator.vibrate && (!window.TitanUISounds || window.TitanUISounds.isEnabled())) navigator.vibrate(ms); } catch (e) { /* ignore */ } }
   function cssVar(n, d) { const v = getComputedStyle(document.documentElement).getPropertyValue(n).trim(); return v || d; }
   function metalOf(text) {
     const t = (text || "").toLowerCase();
@@ -131,7 +132,8 @@
     const metal = metalOf(mdt && mdt.nextElementSibling ? mdt.nextElementSibling.textContent.slice(0, 80) : "");
     const wrap = document.createElement("div"); wrap.className = "c3d-wrap";
     wrap.innerHTML = '<canvas class="c3d-canvas" aria-label="3D coin: drag to turn it, tap to flip it over" role="img"></canvas>' +
-      '<div class="c3d-hint" aria-hidden="true">Drag to turn · tap to flip</div><button type="button" class="c3d-toggle" data-no-uisound aria-pressed="true">Flat photos</button>';
+      '<div class="c3d-hint" aria-hidden="true">Drag to turn · tap to flip</div><div class="c3d-row"><button type="button" class="c3d-toggle" data-no-uisound aria-pressed="true">Flat photos</button>' +
+      (window.TitanSpatial ? '<button type="button" class="c3d-toggle c3d-ar" data-no-uisound>On your table (AR)</button>' : "") + "</div>";
     stage.insertBefore(wrap, stage.firstChild);
     const canvas = wrap.querySelector("canvas");
     let renderer;
@@ -184,6 +186,7 @@
       s.vs += ((1 - s.sc) * 60 - s.vs * 11) * dt; s.sc += s.vs * dt;
       pivot.rotation.set(s.pitch, s.yaw + s.tilt.x, 0); pivot.scale.setScalar(s.sc);
       shadow.scale.setScalar(s.sc * (1 - Math.abs(Math.sin(s.yaw)) * 0.5)); shadow.position.x = Math.sin(s.yaw) * 0.12;
+      if (!s.drag && s.armLand && Math.abs(s.ty - s.yaw) < 0.04) { s.armLand = false; buzz(6); }
       const t0 = performance.now(); renderer.render(scene, cam);
       if (performance.now() - t0 > 20 && ++s.slow > 6 && dpr > 1) { dpr = 1; renderer.setPixelRatio(1); size(); }
       const moving = s.drag || Math.abs(s.vy) + Math.abs(s.vp) + Math.abs(s.vs) > 0.002 || Math.abs(s.ty - s.yaw) + Math.abs(s.tp + s.tilt.y - s.pitch) + Math.abs(1 - s.sc) > 0.001;
@@ -192,7 +195,7 @@
     }
     function kick() { if (!s.raf) s.raf = requestAnimationFrame(frame); }
     function settle() { const n = Math.round(s.ty / Math.PI) * Math.PI; s.ty = n; s.tp = 0; }
-    function flip() { s.ty = Math.round(s.yaw / Math.PI) * Math.PI + Math.PI; s.vy += 3; kick(); try { window.TitanUISounds && window.TitanUISounds.play("flip"); } catch (e) { /* ignore */ } }
+    function flip() { buzz(10); s.armLand = true; s.ty = Math.round(s.yaw / Math.PI) * Math.PI + Math.PI; s.vy += 3; kick(); try { window.TitanUISounds && window.TitanUISounds.play("flip"); } catch (e) { /* ignore */ } }
     let motionAsked = false;
     function askMotion() {
       if (motionAsked) return; motionAsked = true;
@@ -226,6 +229,12 @@
     canvas.style.touchAction = "pan-y";
     const tog = wrap.querySelector(".c3d-toggle");
     tog.addEventListener("click", () => { setOn(false); });
+    const arb = wrap.querySelector(".c3d-ar");
+    if (arb) arb.addEventListener("click", () => {
+      const m = /coin=([^&]+)/.exec(location.hash); const key = m ? decodeURIComponent(m[1]) : null; const sp = window.TitanSpatial; if (!key || !sp) return;
+      buzz(12); sp.open(key, "flip");
+      let n = 0; (function wait() { const st = sp._debug && sp._debug.state(); if (st && st.open && st.built) { sp.exportAR(); return; } if (++n < 40) setTimeout(wait, 150); })();
+    });
     const ro = window.ResizeObserver ? new ResizeObserver(() => { size(); kick(); }) : null; if (ro) ro.observe(wrap);
     const vis = () => { if (!document.hidden) { kick(); if (world) world.wake(); } }; document.addEventListener("visibilitychange", vis);
     R = { world: () => world, sig: sig(stage), stage, wrap, renderer, ro, vis, onTilt, s, flip, dispose() {

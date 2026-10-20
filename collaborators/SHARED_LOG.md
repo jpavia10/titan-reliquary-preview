@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme coin sounds, haptics, AR button (tr172)
+- Sound: the coin flip tink is now pitched to each theme's voice, and the coin-open chime plays the theme's own chord (so Dynasty, Arcade, Cathedral and the rest each sound like themselves on every coin).
+- Haptics: a short tick when the 3D coin flips and another when it lands (Android; follows the Interface sounds switch; off under reduced motion).
+- NEW: an 'On your table (AR)' button under the 3D coin opens this coin in the 3D Table and starts the AR view (iPhone: AR Quick Look on your real table; Android: camera backdrop; desktop: QR code to open it on your phone).
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Tilt your phone to move the scene (tr171)
 - NEW: tilt your phone and the scene moves with it. The theme's effect layer, the hero glow and the wordmark shift against the tilt for real depth, and it re-centres on how you're holding the phone. iOS asks permission once, on your first tap. Off under reduced motion; TitanFX.setTilt(false) turns it off.
 - New test tools/smoke/test_regress_grk_t01.py.

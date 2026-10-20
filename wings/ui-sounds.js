@@ -156,6 +156,14 @@
   };
   function curAtmo() { return document.documentElement.dataset.atmo || "afterhours"; }
   function voiceOf(id) { return VOICE[id] || VOICE.afterhours; }
+  /* the coin sounds take the theme's voice too: the flip tink is pitched to the theme's root, the coin-open chime plays its chord */
+  SOUNDS.flip.fn = function (c, o, t) { var v = voiceOf(curAtmo()), k = Math.pow(2, Math.round(12 * Math.log2(v[0] * 2.27 / 1500)) / 12);
+    var f = 1500 * k * Math.pow(2, (Math.random() - 0.5) * 0.2), r = [1, 2.32, 3.87, 5.41], p = [0.07, 0.04, 0.022, 0.012], dd = [0.28, 0.2, 0.12, 0.08];
+    for (var i = 0; i < r.length; i++) tone(c, o, t, f * r[i], p[i], 0.002, dd[i]);
+    puff(c, o, t, 0.02, 0.03, "highpass", 3500, 0, 0.7, 0.001); tone(c, o, t + 0.07, f * 0.62 * 2.32, 0.02, 0.002, 0.12); };
+  SOUNDS["coin-open"].fn = function (c, o, t) { var v = voiceOf(curAtmo()), ch = v[5];
+    puff(c, o, t, 0.34, 0.07, "bandpass", 380, Math.min(4000, v[4]), 0.6, 0.12);
+    for (var i = 0; i < Math.min(3, ch.length); i++) tone(c, o, t + 0.12 + i * 0.05, v[0] * Math.pow(2, ch[i] / 12), 0.03 / (i + 1), 0.02, 0.6, v[1] === "square" || v[1] === "sawtooth" ? "triangle" : v[1]); };
   SOUNDS.tap = { dur: 0.35, duck: null, fn: function (c, o, t) {
     var v = voiceOf(curAtmo()), f = v[0] * Math.pow(2, (Math.random() - 0.5) * 0.05), dec = Math.min(0.3, v[3]);
     for (var i = 0; i < v[2].length; i++) tone(c, o, t, f * v[2][i], 0.022 / (i + 1), 0.002, dec / (1 + i * 0.5), i ? "sine" : v[1]);
