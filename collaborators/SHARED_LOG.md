@@ -5,6 +5,12 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Music 2: every theme has sound (tr151)
+- FIX (Joseph: Dynasty had no sound): sound only started on a first tap outside the Scene studio, and following the theme only worked once something was already playing. So opening the studio first and picking a theme stayed silent. Picking a theme after any tap now starts that theme's sound (unless you pressed Off).
+- iOS: audio plays as media, so the silent switch doesn't mute it (iOS 17+), and the sound comes back on the next tap after a call or Siri interrupts it.
+- Every one of the 34 themes now has its own interface voice: a soft themed click on every tap (with a 6 ms haptic tick on Android; off under reduced motion), and a short chord in the new theme's voice when you switch themes.
+- New regression test tools/smoke/test_regress_grk_m04.py checks all 34 themes have a scene, music and an interface voice, and that a first visit that picks Dynasty in the studio plays sound.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Fix: update reload kicked users out of the Scene studio (tr150)
 - FIX (Joseph: the scene selector kept kicking him out): each new build ships a new sw.js, and the app reloaded about 1 s after the new service worker took over (and again when version.json showed a newer publish), even with the Scene studio open. Reloads now wait until no sheet or dialog is open, the intro isn't playing, and there has been no tap for 5 s, or until the app goes to the background. Health's Update now still reloads straight away.
 - New regression test tools/smoke/test_regress_grk_p03.py (fails on the old code), also added to CI.

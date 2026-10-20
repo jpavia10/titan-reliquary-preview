@@ -354,6 +354,11 @@
     let ctx;
     try { ctx = new AC({ latencyHint: "playback" }); } catch (e) { try { ctx = new AC(); } catch (e2) { return null; } }
     E.ctx = ctx;
+    // iOS 17+: play as media so the ring/silent switch does not mute the app (GRK-M-04)
+    try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) { /* ignore */ }
+    // iOS suspends or "interrupts" the context after a call, Siri or backgrounding; any later tap brings the sound back
+    const wake = () => { if (!E.playing || E.paused) return; try { if (ctx.state !== "running") ctx.resume().catch(() => {}); if (IOS && E.el && E.el.paused && E.via === "media") E.el.play().catch(() => {}); } catch (e) { /* ignore */ } };
+    ["pointerdown", "keydown", "touchend"].forEach((t) => document.addEventListener(t, wake, { capture: true, passive: true }));
     const bus = ctx.createGain();
     E.ambBus = ctx.createGain(); E.musBus = ctx.createGain(); E.recBus = ctx.createGain();
     E.ambBus.connect(bus); E.recBus.connect(bus);          // recorded music (wings/music-recorded.js): no tape colour or hall, it has its own room

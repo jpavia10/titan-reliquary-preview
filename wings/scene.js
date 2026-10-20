@@ -395,11 +395,23 @@
   $("#ss-bg", sheet).addEventListener("change", (e) => { st.bgPause = e.target.checked; window.TITAN_BG_PAUSE = st.bgPause; G.setBackgroundPause(st.bgPause); save(); });
   window.addEventListener("titan:atmo", (e) => { lastAtmo = e.detail.atmo; followTheme(e.detail.atmo); render(); });
   /* each World has its own sound scene (manifest `scene`): while sound plays, a theme change crossfades to that World's mix */
+  /* GRK-M-04 (2026-10-20, Joseph: "Dynasty had NO sound"): taps inside the studio never auto-start sound, and following the theme
+     only worked once something was already playing, so a first visit that went straight to the Scene studio and picked a theme stayed
+     silent. Now choosing a theme after any tap starts that theme's scene, unless Off was pressed (remembered) or the radio is on. */
+  let gestured = false;
+  ["pointerdown", "keydown"].forEach((g) => document.addEventListener(g, () => { gestured = true; }, { capture: true, once: true }));
   function followTheme(atmo) {
-    if (st.follow === false || radioOn || !G.isPlaying()) return;
+    if (radioOn) return;
     const w = window.TitanWorlds && window.TitanWorlds.byId(atmo);
     const id = w && w.scene && (G.ALIASES && G.ALIASES[w.scene] || w.scene);
-    if (id && G.SCENES[id] && st.scene !== id) pickScene(id, { visual: false });
+    if (!(id && G.SCENES[id])) return;
+    if (!G.isActive()) {
+      if (st.userOff || !gestured) return;
+      try { const c = G.ensure(); if (c && c.state !== "running") c.resume().catch(() => {}); } catch (err) { /* ignore */ }
+      off(); pickScene(id, { visual: false, fade: 3 }); return;
+    }
+    if (st.follow === false || !G.isPlaying()) return;
+    if (st.scene !== id) pickScene(id, { visual: false });
   }
   $("#ss-follow", sheet).addEventListener("change", (e) => { st.follow = e.target.checked; save(); if (st.follow) followTheme(lastAtmo); });
   window.addEventListener("titan:gen", () => { render(); });

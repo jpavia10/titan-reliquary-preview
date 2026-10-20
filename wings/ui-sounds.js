@@ -12,8 +12,8 @@
 (function () {
   "use strict";
   var KEY = "titan.uisound.v1", MUTE_KEY = "tr_mute_v1", MAX_VOICES = 4;
-  var S = { on: true, vol: 0.7, moments: true };
-  try { var raw = JSON.parse(localStorage.getItem(KEY) || "null"); if (raw) { if (typeof raw.on === "boolean") S.on = raw.on; if (typeof raw.moments === "boolean") S.moments = raw.moments; if (typeof raw.vol === "number") S.vol = Math.min(1, Math.max(0, raw.vol)); } } catch (e) { /* ignore */ }
+  var S = { on: true, vol: 0.7, moments: true, haptics: true };
+  try { var raw = JSON.parse(localStorage.getItem(KEY) || "null"); if (raw) { if (typeof raw.on === "boolean") S.on = raw.on; if (typeof raw.moments === "boolean") S.moments = raw.moments; if (typeof raw.haptics === "boolean") S.haptics = raw.haptics; if (typeof raw.vol === "number") S.vol = Math.min(1, Math.max(0, raw.vol)); } } catch (e) { /* ignore */ }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* ignore */ } }
 
   var muted = false;
@@ -132,6 +132,41 @@
     } }
   };
 
+  /* GRK-M-04 (2026-10-20): every theme has its own interface voice. A tap on any button or tile gives a soft click in the theme's timbre
+     (rate-limited, quiet, with a 6 ms haptic tick where the phone supports it), and switching themes plays a short chord in the new theme's
+     voice. [root Hz, wave, partial ratios, decay s, noise colour Hz, chord intervals in semitones] */
+  var VOICE = {
+    afterhours: [660, "sine", [1, 2.4], 0.18, 3000, [0, 4, 7, 11]], conservator: [880, "sine", [1, 3.1], 0.12, 5000, [0, 7, 12]],
+    colossus: [330, "triangle", [1, 2.76, 5.4], 0.3, 1800, [0, 7, 12, 16]], nocturne: [523, "sine", [1, 2, 3], 0.25, 2500, [0, 3, 7, 10]],
+    odyssey: [392, "triangle", [1, 2.01], 0.28, 1200, [0, 5, 7, 12]], cursedwing: [233, "sawtooth", [1, 1.5], 0.3, 900, [0, 1, 6, 10]],
+    abyss: [196, "sine", [1, 2.7], 0.45, 700, [0, 7, 14]], neon: [880, "square", [1, 2], 0.08, 6000, [0, 4, 7, 12]],
+    notepad: [1046, "triangle", [1], 0.06, 7000, [0, 7]], construct: [440, "square", [1, 1.5], 0.06, 4000, [0, 5, 10]],
+    xeno: [311, "sawtooth", [1, 1.41, 2.83], 0.35, 1500, [0, 6, 11, 17]], solaris: [784, "sine", [1, 2.5, 4.2], 0.4, 4500, [0, 7, 14, 19]],
+    alchemist: [440, "sine", [1, 2.92, 4.95], 0.35, 2200, [0, 5, 7]], glacier: [1318, "sine", [1, 2.76, 5.4], 0.5, 8000, [0, 7, 14, 21]],
+    valhalla: [294, "sawtooth", [1, 2], 0.3, 900, [0, 7, 12, 15]], dynasty: [587, "triangle", [1, 2.0, 3.01], 0.35, 3500, [0, 2, 4, 7, 9]],
+    zen: [415, "sine", [1, 2.71, 5.1], 0.9, 1200, [0, 7, 12]], samadhi: [220, "sine", [1, 2.71], 1.0, 900, [0, 7, 12, 19]],
+    silkroad: [349, "triangle", [1, 2, 3], 0.25, 2500, [0, 1, 4, 7]], arcade: [988, "square", [1], 0.07, 8000, [0, 4, 7, 12, 16]],
+    pulp: [523, "square", [1, 3], 0.08, 3000, [0, 3, 6, 9]], drafting: [740, "triangle", [1, 2], 0.1, 6000, [0, 5, 9]],
+    diorama: [370, "sine", [1, 2], 0.15, 900, [0, 4, 7]], bauhaus: [660, "square", [1, 2], 0.06, 5000, [0, 4, 7, 12]],
+    terminal: [1200, "square", [1], 0.04, 9000, [0, 12]], marbled: [494, "sine", [1, 2.4, 3.9], 0.35, 2000, [0, 4, 9]],
+    cathedral: [262, "sine", [1, 2, 3, 4.2], 0.9, 1400, [0, 7, 12, 16, 19]], contour: [587, "triangle", [1, 2], 0.15, 3000, [0, 5, 7]],
+    banknote: [784, "sine", [1, 3.2], 0.12, 6500, [0, 4, 7]], freefall: [659, "sine", [1, 2.5], 0.3, 4000, [0, 5, 10, 15]],
+    sketch: [880, "triangle", [1], 0.05, 6000, [0, 7]], papercut: [523, "triangle", [1, 2], 0.08, 2500, [0, 4, 7]],
+    y2k: [1046, "sine", [1, 2, 3], 0.2, 7000, [0, 4, 7, 11, 14]], kaleido: [698, "sine", [1, 2.5, 3.75], 0.4, 6000, [0, 4, 8, 12]]
+  };
+  function curAtmo() { return document.documentElement.dataset.atmo || "afterhours"; }
+  function voiceOf(id) { return VOICE[id] || VOICE.afterhours; }
+  SOUNDS.tap = { dur: 0.35, duck: null, fn: function (c, o, t) {
+    var v = voiceOf(curAtmo()), f = v[0] * Math.pow(2, (Math.random() - 0.5) * 0.05), dec = Math.min(0.3, v[3]);
+    for (var i = 0; i < v[2].length; i++) tone(c, o, t, f * v[2][i], 0.022 / (i + 1), 0.002, dec / (1 + i * 0.5), i ? "sine" : v[1]);
+    puff(c, o, t, 0.012, 0.012, "bandpass", v[4], 0, 1.2, 0.001);
+  } };
+  SOUNDS.theme = { dur: 1.8, duck: [2, 900], fn: function (c, o, t) {
+    var v = voiceOf(curAtmo()), ch = v[5];
+    puff(c, o, t, 0.6, 0.03, "bandpass", 400, v[4], 0.6, 0.25);
+    for (var i = 0; i < ch.length; i++) { var f = v[0] * 0.5 * Math.pow(2, ch[i] / 12); tone(c, o, t + 0.12 + i * 0.07, f, 0.03, 0.02, Math.max(0.6, v[3] * 1.4), v[1] === "sawtooth" || v[1] === "square" ? "triangle" : v[1]); tone(c, o, t + 0.12 + i * 0.07, f * v[2][v[2].length - 1], 0.008, 0.02, 0.5); }
+  } };
+
   /* fix list #21: a soft sound for each effect's rare signature moment (TitanFX dispatches titan:fx {type:"moment", name}).
      Quiet (they sit under the ambience), at most one every 12 s, only while the page is visible; setting "Sounds for the
      effects' rare moments" (default on, needs Interface sounds on). */
@@ -228,6 +263,14 @@
     }
     if (SOUNDS[k]) play(k);
   });
+  var lastAtmoSeen = null;
+  window.addEventListener("titan:atmo", function (e) { var a = e.detail && e.detail.atmo; if (lastAtmoSeen && a && a !== lastAtmoSeen) play("theme"); lastAtmoSeen = a; });
+  var reduce = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  document.addEventListener("pointerdown", function (e) {
+    var t = e.target && e.target.closest && e.target.closest("button, a, [role=button], [role=tab], .atmo-card, .tile, .gx-tile, input[type=checkbox], summary");
+    if (!t || t.closest("[data-no-uisound]") || (t.id || "").indexOf("drawer") === 0) return;
+    if (play("tap") && S.haptics && navigator.vibrate && !(reduce && reduce.matches)) { try { navigator.vibrate(6); } catch (err) { /* ignore */ } }
+  }, { capture: false, passive: true });
   window.addEventListener("titan:fx", function (e) { var d = e.detail || {}; if (d.type === "moment" && d.name) playMoment(d.name); });
   window.addEventListener("titan:mute", function (e) { muted = !!(e.detail && e.detail.muted); });
   function onGesture() {
@@ -256,7 +299,8 @@
   }
 
   window.TitanUISounds = {
-    play: play, mount: mount, playMoment: playMoment, moments: function () { return Object.keys(MOMENT).concat(Object.keys(MOMENT_ALIAS)); },
+    play: play, mount: mount, voices: function () { return Object.keys(VOICE); }, kinds: function () { return Object.keys(SOUNDS); },
+    setHaptics: function (v) { S.haptics = !!v; save(); }, playMoment: playMoment, moments: function () { return Object.keys(MOMENT).concat(Object.keys(MOMENT_ALIAS)); },
     setEnabled: function (v) { S.on = !!v; save(); }, isEnabled: function () { return S.on; },
     setVolume: function (v) { S.vol = Math.min(1, Math.max(0, v)); save(); }, getVolume: function () { return S.vol; },
     stats: function () { return { played: stats.played, skipped: stats.skipped, duckCalls: stats.duckCalls, holds: stats.holds, voices: voices.length, hold: hold.db, muted: muted, on: S.on, gestured: gestured, shared: !!busOf(), ownCtx: ownCtx ? ownCtx.state : "none" }; },
