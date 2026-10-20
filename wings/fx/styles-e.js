@@ -49,7 +49,7 @@
         the page and a retro perspective grid scrolls along the floor. Moment "shine": a glint sweeps the chrome and the sparkles burst.
      ===================================================================================================================== */
   FX.register("style-y2k", {
-    layer: "front", still: 4.2, safe: 0.97,
+    layer: "front", still: 4.2, safe: 0.97, fps: 30,   // v2 (Grok, 2026-10-20): the chrome blobs drift slowly; 30 redraws a second
     moments: [{ name: "shine", every: [20, 44], dur: 2.4 }],
     glsl: H + [
       "float gT;",
@@ -97,10 +97,12 @@
       "vec4 sparks(vec2 p, float a, float I){",
       "  float k = mK(), burst = k >= 0. ? exp(-sq((k-.25)*5.)) : 0.;",
       "  vec2 g = p*vec2(5.2, 5.2); vec2 id = floor(g); vec4 acc = vec4(0.);",
+      "  int R = uQ > 1.5 ? 1 : 0;",                                                 // v2: low tiers test only the pixel's own cell (sparks are small)
       "  for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++){",
+      "    if (abs(i) > R || abs(j) > R) continue;",
       "    vec2 c = id+vec2(float(i),float(j)); float rnd = h21(c);",
       "    if (rnd > .34 + .3*burst) continue;",
-      "    vec2 o = h22(c*1.7+3.1); vec2 sp = (c+o)/5.2;",
+      "    vec2 o = h22(c*1.7+3.1); if (R == 0) o = .22 + .56*o; vec2 sp = (c+o)/5.2;",   // own-cell only: keep each spark clear of the cell edge
       "    float ph = h21(c+9.3)*6.283, sp2 = .55+h21(c+4.4)*1.1;",
       "    float tw = pow(max(0., sin(uTime*sp2+ph)), 6.); tw = max(tw, burst*(.4+.6*h21(c+2.)));",
       "    float sz = .016 + .02*h21(c+7.7);",

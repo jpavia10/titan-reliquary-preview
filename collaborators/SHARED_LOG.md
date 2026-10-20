@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 11/34: Millennium Chrome / y2k (owner-approved push) (tr139)
+* Theme upgrade 11/34 (worst first, owner-approved 2026-10-20 06:55 PT). Millennium Chrome (y2k) was #24.
+* Speed: style-y2k redraws at 30 fps and its sparkle field tests only the pixel's own cell at the low quality tiers (was nine cells for every pixel). Phone floor 37.6 -> 59.7 fps idle.
+* Every screen (`styles/atmo/y2k.css` v2): Frutiger Aero glossy glass panels with a wet top highlight and an iridescent hairline, bubble-pill buttons with an inner gleam, a CD-ROM iridescent rim round every coin, chrome-gradient headings, a lava-lamp purple active state, iridescent search-row highlight, 44 px+ controls, reduced-motion CSS.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Theme upgrade 10/34: Silk Road / silkroad (owner-approved push) (tr138)
 * Theme upgrade 10/34 (worst first, owner-approved 2026-10-20 06:55 PT). Silk Road was #25: the concept stopped at navy and gold.
 * Every screen (`styles/atmo/silkroad.css` v2): lapis panels with a faint suzani embroidery pattern and an ikat band along the top, the coin shown under a pointed caravanserai arch, a dashed caravan route with stops across the home hero and above the coin's name, parchment and dune-gold type with italic labels, bazaar-gold active buttons, 44 px+ controls, reduced-motion CSS. 60 fps idle on the phone floor before and after.
