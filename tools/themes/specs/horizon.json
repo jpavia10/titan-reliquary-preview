@@ -1,0 +1,30 @@
+{
+ "id": "horizon",
+ "name": "Event Horizon",
+ "collection": "Otherworld",
+ "mood": "A black hole up close: a blazing accretion disk, light bent into rings, and stars smeared around the dark. Drag to orbit; hold to lean in.",
+ "pair": "Deep space drone + Late-night piano",
+ "scheme": "dark",
+ "themeColor": "#030305",
+ "station": "dark",
+ "ui": [],
+ "styles": [
+  "Black hole"
+ ],
+ "fx": "fxk",
+ "fxIntensity": 0.01,
+ "tokens": "  --scheme: dark;\n  color-scheme: dark;\n  --bg: #030305;\n  --bg2: #07060b;\n  --surface: #0d0b12;\n  --surface2: #16131c;\n  --ink: #f6efe6;\n  --muted: #d3c6b6;\n  --faint: #a8998a;\n  --cardmeta: #ece0d2;\n  --gold: #ffae5c;\n  --gold-soft: #ffd6a8;\n  --gold-deep: #8a4a14;\n  --on-gold: #1a0b00;\n  --ink-soft: #d3c6b6;\n  --line: rgba(220, 235, 245, 0.10);\n  --line-strong: rgba(255, 174, 92, 0.45);\n  --ok: #7fe3a8;\n  --warn: #ffd06b;\n  --bad: #ff8a7a;\n  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 18px 50px rgba(0, 0, 0, 0.75);\n  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.5);\n  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.6);\n  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 28px 80px rgba(0, 0, 0, 0.8);\n  --scrim: rgba(0, 0, 0, 0.66);\n  --focus: #ffd6a8;\n  --th-bg: #16131c;\n  --tabgrad1: #16131c; --tabgrad2: #0d0b12;\n  --toastgrad1: #16131c; --toastgrad2: #0d0b12;\n  --foot-bg: rgba(3, 3, 5, 0.92);\n  --drawerbar-bg: rgba(13, 11, 18, 0.94);\n  --ph-bg: #16131c;\n  --sel-bg: rgba(255, 174, 92, 0.16);\n  --row-hover: rgba(255, 174, 92, 0.06);\n  --hold-bg: linear-gradient(160deg, #1c1622, #030305 60%);\n  --skeleton1: #16131c; --skeleton2: #030305;\n  --grain-op: 0.03;\n  --wing-dur: 0.5s;\n  --wing-rise: 14px;\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Avenir Next\", \"Helvetica Neue\", \"Segoe UI\", system-ui, sans-serif;\n  --mono: ui-monospace, \"SFMono-Regular\", Menlo, Consolas, monospace;\n  --radius: 16px;",
+ "extra_css": "/* Event Horizon surfaces: panels are smoked glass in orbit, edged by a thin warm rim like the photon ring (brighter on one side,\n   as the disk is), with the starfield bending faintly behind them. Hover pulls a panel a little toward you. Own surfaces only. */\nhtml[data-atmo=\"horizon\"] .card, html[data-atmo=\"horizon\"] .panel, html[data-atmo=\"horizon\"] .gx-card {\n  background: radial-gradient(140% 90% at 0% 0%, rgba(255,174,92,.08), transparent 50%), linear-gradient(180deg, rgba(20,16,26,.72), rgba(4,3,7,.88));\n  backdrop-filter: blur(16px) saturate(130%); -webkit-backdrop-filter: blur(16px) saturate(130%);\n  box-shadow: inset 1px 1px 0 rgba(255,190,120,.35), inset -1px -1px 0 rgba(140,160,255,.12), 0 0 30px rgba(255,140,60,.06), 0 24px 60px rgba(0,0,0,.8);\n  transition: transform .45s cubic-bezier(.2,1,.3,1), box-shadow .45s; }\nhtml[data-atmo=\"horizon\"] .card:hover, html[data-atmo=\"horizon\"] .gx-card:hover {\n  transform: translateY(-3px) scale(1.005); box-shadow: inset 1px 1px 0 rgba(255,200,140,.6), inset -1px -1px 0 rgba(140,160,255,.2), 0 0 40px rgba(255,140,60,.14), 0 30px 70px rgba(0,0,0,.85); }\nhtml[data-atmo=\"horizon\"] h1, html[data-atmo=\"horizon\"] h2 { font-weight: 300; letter-spacing: .06em; text-shadow: 0 0 18px rgba(255,160,80,.35); }\n",
+ "crest": "<circle cx=\"100\" cy=\"100\" r=\"34\" fill=\"currentColor\"/><ellipse cx=\"100\" cy=\"100\" rx=\"86\" ry=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"7\"/><circle cx=\"100\" cy=\"100\" r=\"46\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" opacity=\".7\"/>",
+ "swatch": ".sw-horizon { --sw-ink: #f6efe6; background: radial-gradient(circle at 50% 50%, #000 0 15%, #ffd6a8 16%, #ff8a2a 19%, transparent 26%), radial-gradient(ellipse 48% 10% at 50% 52%, #ffb066 0 40%, #a8400a 70%, transparent 100%), radial-gradient(circle at 30% 30%, #1a1430, #030305 70%); }",
+ "splash_pal": {
+  "bg": "#030305",
+  "bg2": "#07060b",
+  "surface": "#0d0b12",
+  "ink": "#f6efe6",
+  "muted": "#d3c6b6",
+  "gold": "#ffae5c",
+  "soft": "#ffd6a8"
+ },
+ "scene": "{ rec: \"piano\", world: true, name: \"Event Horizon\", icon: \"\ud83d\udd73\", desc: \"Deep space: a low drone and faint telemetry, with a real recorded piano.\", atmo: \"horizon\",\n               beds: { roomTone: 0.3, telemetry: 0.35, labHum: 0.15 }, pad: 0, piano: false, bells: false, beat: false,\n               root: \"C\", mode: \"minor\", prog: [0], chordSec: 16, gap: [9, 18], vol: 0.45 }"
+}

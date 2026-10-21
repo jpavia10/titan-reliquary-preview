@@ -134,7 +134,8 @@
     marbled:    { bg: "#f3ecdc", bg2: "#ebe2cd", surface: "#fbf7ec", ink: "#231a16", muted: "#46372f", gold: "#7a1f2b", soft: "#5f1520", light: true },
     ferro:      { bg: "#050608", bg2: "#08090c", surface: "#0d0f13", ink: "#eef3f7", muted: "#c3ccd6", gold: "#6fe7ff", soft: "#b4f3ff" },
     lumen:      { bg: "#03050b", bg2: "#060914", surface: "#0a0f1c", ink: "#eaf6ff", muted: "#b9cde0", gold: "#3fe0ff", soft: "#a8f1ff" },
-    rift:       { bg: "#060807", bg2: "#0a0d0b", surface: "#101411", ink: "#eef7ef", muted: "#c2d2c5", gold: "#6dff8a", soft: "#c4ffd0" }
+    rift:       { bg: "#060807", bg2: "#0a0d0b", surface: "#101411", ink: "#eef7ef", muted: "#c2d2c5", gold: "#6dff8a", soft: "#c4ffd0" },
+    horizon:    { bg: "#030305", bg2: "#07060b", surface: "#0d0b12", ink: "#f6efe6", muted: "#d3c6b6", gold: "#ffae5c", soft: "#ffd6a8" }
   };
   function palette(id, tableOnly) {
     var base = PAL[id] || PAL.afterhours, out = {}, k;
