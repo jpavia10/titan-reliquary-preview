@@ -31,11 +31,21 @@
     return ev;
   }
   function lit(e, t) { var v = 0; for (var i = 0; i < e.length; i++) { if (t >= e[i][0]) v = e[i][1]; else break; } return v; }
-  function brick(W, H) {
-    var c = K.mk(W, H), g = c.getContext("2d"), bh = Math.max(14, H / 46), bw = bh * 2.4, r = K.rng(77);
-    g.fillStyle = "#08060d"; g.fillRect(0, 0, W, H);
+  function brick(W, H) {                               // wet, grimy brick: per-brick tone + speckle, mortar, water stains, a torn poster, a wet sheen
+    var c = K.mk(W, H), g = c.getContext("2d"), bh = Math.max(14, H / 46), bw = bh * 2.4, r = K.rng(77), i;
+    g.fillStyle = "#14101a"; g.fillRect(0, 0, W, H);
     for (var y = 0, row = 0; y < H; y += bh, row++) for (var x = -(row % 2) * bw / 2; x < W; x += bw) {
-      var l = 9 + r() * 8; g.fillStyle = "rgb(" + (l + 6 | 0) + "," + (l * 0.6 | 0) + "," + (l + 10 | 0) + ")"; g.fillRect(x + 1.5, y + 1.5, bw - 3, bh - 3); }
+      var l = 14 + r() * 14; g.fillStyle = "rgb(" + (l + 10 | 0) + "," + (l * 0.55 | 0) + "," + (l * 0.7 | 0) + ")"; g.fillRect(x + 1.5, y + 1.5, bw - 3, bh - 3);
+      g.fillStyle = "rgba(255,255,255,.035)"; g.fillRect(x + 1.5, y + 1.5, bw - 3, 1.5);
+      for (i = 0; i < 6; i++) { g.fillStyle = r() < 0.5 ? "rgba(0,0,0,.25)" : "rgba(255,230,220,.05)"; g.fillRect(x + r() * bw, y + r() * bh, 1 + r() * 2, 1 + r() * 2); } }
+    for (i = 0; i < 18; i++) { var sx = r() * W, sw = 4 + r() * 22, gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, "rgba(0,0,0,0)"); gr.addColorStop(0.3 + r() * 0.3, "rgba(0,0,0," + (0.2 + r() * 0.3) + ")"); gr.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = gr; g.fillRect(sx, 0, sw, H); }
+    g.save(); g.translate(W * 0.16, H * 0.62); g.rotate(-0.05); g.fillStyle = "rgba(200,190,160,.18)"; g.fillRect(0, 0, W * 0.1, H * 0.16); g.fillStyle = "rgba(160,40,40,.2)"; g.fillRect(4, 6, W * 0.07, H * 0.03); g.restore();
+    var sh = g.createLinearGradient(0, 0, W, H); sh.addColorStop(0, "rgba(0,0,0,.35)"); sh.addColorStop(0.5, "rgba(120,140,170,.05)"); sh.addColorStop(1, "rgba(0,0,0,.45)"); g.fillStyle = sh; g.fillRect(0, 0, W, H);
+    return c;
+  }
+  function fogTex(W, H) {                               // soft drifting haze, tileable enough to scroll
+    var c = K.mk(W, H), g = c.getContext("2d"), r = K.rng(9);
+    for (var i = 0; i < 40; i++) { var x = r() * W, y = r() * H, rad = (0.1 + r() * 0.25) * Math.max(W, H), gr = g.createRadialGradient(x, y, 0, x, y, rad); gr.addColorStop(0, "rgba(255,255,255," + (0.05 + r() * 0.08) + ")"); gr.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = gr; g.fillRect(0, 0, W, H); }
     return c;
   }
   I.reg("neon", {
@@ -47,6 +57,7 @@
       C.titan = tubes("TITAN", "800 %px " + K.SANS, s1 * 0.5, "#ff3fa4", 0.25);
       C.tag = tubes("VAULT OPEN", "700 %px " + K.SANS, Math.max(12, s1 * 0.18), "#ffd23f", 0.12);
       var r = K.rng(4242); C.ev = flickers(WORD.length, 0.75, 0.11, r); C.evT = flickers(5, 1.9, 0.06, r);
+      C.fog = fogTex(Math.round(W * 0.5), Math.round(H * 0.5)); C.bl = K.mk(Math.max(8, Math.round(W / 8)), Math.max(8, Math.round(H / 8))); C.blg = C.bl.getContext("2d");
       C.drops = []; for (var i = 0; i < (C.lite ? 70 : 150); i++) C.drops.push([r(), r(), 0.6 + r() * 0.8]);
     },
     draw: function (C, t) {
@@ -62,8 +73,15 @@
         var gr = g.createRadialGradient(0, 0, 10, 0, 0, Math.max(W, H) * 0.6);
         gr.addColorStop(0, "rgba(53,230,255," + 0.45 * glow + ")"); gr.addColorStop(0.45, "rgba(255,63,164," + 0.2 * glow + ")"); gr.addColorStop(1, "rgba(0,0,0,0)");
         g.fillStyle = gr; g.fillRect(-W, -H, W * 2, H * 2);
-        var w0 = C.word.total, x0 = -w0 / 2;
-        C.word.forEach(function (L, k) { var v = lit(C.ev[k], t); g.drawImage(L.off, x0 + L.x, -L.h / 2); if (v) { g.globalCompositeOperation = "lighter"; g.drawImage(L.on, x0 + L.x, -L.h / 2); g.globalCompositeOperation = "source-over"; } });
+        var w0 = C.word.total, x0 = -w0 / 2, s1 = C.word[0].h;
+        // transformer box, conduit and cable to the sign
+        g.fillStyle = "#2a2a30"; g.fillRect(w0 * 0.5 + s1 * 0.1, -s1 * 1.3, s1 * 0.5, s1 * 0.38); g.fillStyle = "rgba(255,255,255,.08)"; g.fillRect(w0 * 0.5 + s1 * 0.1, -s1 * 1.3, s1 * 0.5, 2);
+        g.fillStyle = "#ffd23f"; g.fillRect(w0 * 0.5 + s1 * 0.16, -s1 * 1.22, s1 * 0.08, s1 * 0.05);
+        g.strokeStyle = "#0c0b10"; g.lineWidth = Math.max(2, s1 * 0.025); g.beginPath(); g.moveTo(w0 * 0.5 + s1 * 0.35, -s1 * 0.92); g.bezierCurveTo(w0 * 0.5 + s1 * 0.3, -s1 * 0.2, w0 * 0.3, s1 * 0.45, w0 * 0.25, s1 * 0.1); g.stroke();
+        g.beginPath(); g.moveTo(w0 * 0.5 + s1 * 0.35, -s1 * 1.3); g.lineTo(w0 * 0.5 + s1 * 0.35, -H); g.lineWidth = Math.max(3, s1 * 0.04); g.stroke();
+        // standoff clips behind every tube
+        for (var m = 0; m < C.word.length; m++) { var mx = x0 + C.word[m].x + C.word[m].w / 2; g.fillStyle = "#3a3a44"; g.fillRect(mx - 2, s1 * 0.1, 4, 6); g.fillRect(mx - 2, -s1 * 0.16, 4, 6); g.fillStyle = "rgba(255,255,255,.15)"; g.fillRect(mx - 2, s1 * 0.1, 4, 1); }
+        C.word.forEach(function (L, k) { var v = lit(C.ev[k], t); g.drawImage(L.off, x0 + L.x, -L.h / 2); if (v) { g.globalCompositeOperation = "lighter"; g.globalAlpha = 0.85 + 0.15 * K.hash(Math.floor(t * 50) + k * 7); g.drawImage(L.on, x0 + L.x, -L.h / 2); g.globalAlpha = 1; g.globalCompositeOperation = "source-over"; } });
         var tw = C.titan.total, ty = -C.word[0].h * 0.55;
         C.titan.forEach(function (L, k) { var v = lit(C.evT[k], t); g.drawImage(L.off, -tw / 2 + L.x, ty - L.h / 2); if (v) { g.globalCompositeOperation = "lighter"; g.drawImage(L.on, -tw / 2 + L.x, ty - L.h / 2); g.globalCompositeOperation = "source-over"; } });
         var blink = t > 2.75 && (Math.floor((t - 2.75) * 1.6) % 2 === 0), gw = C.tag.total, gy = C.word[0].h * 0.42;
@@ -86,6 +104,16 @@
       g.strokeStyle = "rgba(170,230,255," + (0.12 + 0.25 * glow) + ")"; g.lineWidth = 1; g.beginPath();
       C.drops.forEach(function (d) { var y = ((d[1] + t * 1.4 * d[2]) % 1) * H, x = d[0] * W - y * 0.08; g.moveTo(x, y); g.lineTo(x - 2.5, y + 16 * d[2]); });
       g.stroke();
+      // volumetric haze the neon scatters through (drifting, coloured by the sign), then bloom from a downsampled copy
+      if (glow > 0) { g.save(); g.globalCompositeOperation = "lighter";
+        var fx = (t * 18) % W; g.globalAlpha = 0.06 + 0.16 * glow; g.drawImage(C.fog, -fx, 0, W, H); g.drawImage(C.fog, W - fx, 0, W, H);
+        var sy2 = horizon * 0.5, hz = g.createRadialGradient(W / 2, sy2, 0, W / 2, sy2, Math.max(W, H) * 0.7); hz.addColorStop(0, "rgba(53,230,255," + 0.1 * glow + ")"); hz.addColorStop(0.35, "rgba(255,63,164," + 0.05 * glow + ")"); hz.addColorStop(1, "rgba(0,0,0,0)");
+        g.globalAlpha = 1; g.fillStyle = hz; g.fillRect(0, 0, W, H);
+        if (!C.lite) { C.blg.clearRect(0, 0, C.bl.width, C.bl.height); C.blg.drawImage(C.cv, 0, 0, C.bl.width, C.bl.height); g.globalAlpha = 0.2 * glow; g.imageSmoothingEnabled = true; g.drawImage(C.bl, 0, 0, W, H); g.globalAlpha = 0.12 * glow; g.drawImage(C.bl, -W * 0.05, -H * 0.05, W * 1.1, H * 1.1); }
+        // wet ground: the sign smeared vertically on the asphalt
+        g.globalAlpha = 0.18 * glow; var st = g.createLinearGradient(0, horizon, 0, H); st.addColorStop(0, "rgba(53,230,255,.6)"); st.addColorStop(1, "rgba(53,230,255,0)"); g.fillStyle = st;
+        for (var q = 0; q < 9; q++) { var qx = W * (0.2 + q * 0.075) + Math.sin(t * 2 + q) * 3; g.fillRect(qx, horizon, 2 + (q % 3) * 2, (H - horizon) * (0.5 + 0.4 * K.hash(q))); }
+        g.restore(); }
       // a grade: the hum of light on the lens
       if (glow > 0) { g.globalCompositeOperation = "lighter"; g.fillStyle = "rgba(40,20,60," + 0.08 * glow + ")"; g.fillRect(0, 0, W, H); g.globalCompositeOperation = "source-over"; }
     },
@@ -100,6 +128,7 @@
       all.forEach(function (e) { e.forEach(function (p) { A.noise(p[0], 0.03, { type: "bandpass", f: p[1] ? 4200 : 1800, q: 2, v: p[1] ? 0.12 : 0.05 }); }); });
       for (var s = 0; s <= 3.9; s += 0.05) { var k = 0; all.forEach(function (e) { k += lit(e, s); }); hum.gain.setValueAtTime(0.0001 + 0.07 * k / n, A.t0 + s); }
       hum.gain.linearRampToValueAtTime(0.0001, A.t0 + 3.95);
+      A.tone(0.7, 120, 3.1, { type: "square", v: 0.012, lp: 900, a: 0.4 }); A.noise(0.7, 0.25, { type: "highpass", f: 6000, v: 0.06 });
       A.tone(2.45, 90, 0.4, { type: "triangle", v: 0.25, to: 50 });   // the clunk when it all holds
     }
   });
