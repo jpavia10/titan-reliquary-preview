@@ -143,84 +143,85 @@
       G.run(P.fin, { S: hdr, Bl: U[0], Hz: o.hz || hdr, bloom: o.bloom, haze: o.haze || 0, T: o.T, expo: o.expo || 1 }, null);
     } };
   }
-  /* ---------- The Mint, GPU path: timeline ---------- */
-  var S2 = { pour: [0, 1.35], roll: [1.35, 1.9], blank: [1.9, 2.4], upset: [2.4, 2.8], strike: [2.8, 3.3], tray: [3.3, 5.0] }, HIT2 = 3.02, PUNCH = [2.02, 2.17, 2.32];
-  function station(t) { var k = ["pour", "roll", "blank", "upset", "strike", "tray"]; for (var i = 0; i < 6; i++) if (t < S2[k[i]][1]) return i; return 5; }
-  var SOLID = "void main(){vec2 p=uv;float m=0.;" +          /* the ingot mould walls + floor (fluid obstacle) */
-    "if(p.y<.2)m=1.;if(p.y<.36&&(abs(p.x-.2)<.025||abs(p.x-.8)<.025))m=1.;if(p.x<.01||p.x>.99)m=1.;o=vec4(m,0,0,1);}";
+  /* ---------- The Mint v4: three long, full-bleed moments ---------- */
+  var M3 = { pour: [0, 1.9], strike: [1.9, 3.45], hero: [3.45, 5.0] }, CONTACT = 1.9 + 1.55 * 0.36;
   var SCENE = [
-    "uniform sampler2D D,TX;uniform vec2 R;uniform float T,st,lt,heat,tip,hit,spin,land,sweep;",
-    "vec3 bb(float k){k=clamp(k,0.,1.);return mix(mix(vec3(.25,.02,0.),vec3(1.,.25,.02),smoothstep(0.,.4,k)),mix(vec3(1.,.6,.15),vec3(1.,.95,.8),smoothstep(.7,1.,k)),smoothstep(.35,.75,k))*(.5+2.2*k*k);}",
-    "vec3 env(vec3 r){float y=r.y;vec3 c=mix(vec3(.03,.025,.03),vec3(.55,.5,.48),smoothstep(-.2,.8,y));c=mix(c,vec3(.01),exp(-y*y*60.)*.7);",
-    " c+=vec3(1.,.92,.8)*smoothstep(.93,.985,dot(r,normalize(vec3(-.55,.65,.5))))*3.2;c+=vec3(1.,.55,.2)*smoothstep(.9,.99,dot(r,normalize(vec3(.8,-.1,.5))))*heat*4.;",
-    " c+=vec3(.5,.6,.8)*smoothstep(.95,.995,dot(r,normalize(vec3(.7,.5,.4))))*2.;return c;}",
+    "uniform sampler2D TX;uniform vec2 R;uniform float T,st,lt,tip,fill,flow,dsc,form,lift,rise,rot,sweep,heat;",
+    "vec3 bb(float k){k=clamp(k,0.,1.);return mix(mix(vec3(.3,.03,0.),vec3(1.,.28,.03),smoothstep(0.,.4,k)),mix(vec3(1.,.62,.16),vec3(1.,.95,.82),smoothstep(.7,1.,k)),smoothstep(.35,.75,k))*(.4+2.6*k*k);}",
+    "vec3 env(vec3 r){float y=r.y;vec3 c=mix(vec3(.012,.011,.013),vec3(.16,.15,.15),smoothstep(-.2,.9,y));",
+    " c+=vec3(1.,.95,.88)*smoothstep(.9,.975,dot(r,normalize(vec3(-.6,.55,.55))))*4.;c+=vec3(.75,.82,1.)*smoothstep(.93,.99,dot(r,normalize(vec3(.75,.35,.5))))*2.2;",
+    " c+=vec3(1.)*smoothstep(.975,.995,dot(r,normalize(vec3(.0,1.,.15))))*2.5;c+=vec3(1.,.5,.15)*heat*smoothstep(.6,1.,-y)*1.5;return c;}",
+    "float smin(float a,float b,float k){float h=clamp(.5+.5*(b-a)/k,0.,1.);return mix(b,a,h)-k*h*(1.-h);}",
     "float sdBox(vec3 p,vec3 b,float r){vec3 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,max(q.y,q.z)),0.)-r;}",
-    "float sdCylZ(vec3 p,float r,float h){vec2 d=abs(vec2(length(p.xy),p.z))-vec2(r,h);return min(max(d.x,d.y),0.)+length(max(d,0.));}",
     "float sdCylY(vec3 p,float r,float h){vec2 d=abs(vec2(length(p.xz),p.y))-vec2(r,h);return min(max(d.x,d.y),0.)+length(max(d,0.));}",
-    "float relief(vec2 q){return texture(TX,q*.5+.5).r;}",
-    "int mat;float glow;",
-    "float coin(vec3 p,float r,float h,float rel){float d=sdCylZ(p,r,h);float rim=smoothstep(r*.86,r*.9,length(p.xy))*h*.35;",
-    " if(rel>0.&&abs(p.z)>h*.3&&length(p.xy)<r){d-=relief(p.xy/r)*h*.35*rel*step(0.,p.z);} return d-rim;}",
-    "float map(vec3 p){mat=0;glow=0.;float d=1e3,e;",
-    " if(st<1.5){",                                                           /* ROLL: two chromed rolls (axis z) + the hot strip */
-    "  float a=T*9.;vec3 q=p-vec3(0,.62,0);e=sdCylZ(q,.55,1.2);if(e<d){d=e;mat=1;} q=p-vec3(0,-.62,0);e=sdCylZ(q,.55,1.2);if(e<d){d=e;mat=1;}",
-    "  float th=mix(.12,.05,smoothstep(-.1,.1,p.x));e=sdBox(p-vec3(0,0,0),vec3(3.,th,.9),.01);if(e<d){d=e;mat=2;glow=heat*(1.-smoothstep(-.5,2.,p.x)*.6);}",
-    " } else if(st<2.5){",                                                    /* BLANK: top-down strip with punched holes + the punch */
-    "  e=sdBox(p,vec3(.9,.04,3.),.005);for(int i=0;i<3;i++){float fi=float(i);if(fi<lt){vec3 hq=p-vec3(0,0,(floor(lt)-fi)*.95+fract(lt)*0.);e=max(e,-sdCylY(hq,.42,.2));}}",
-    "  if(e<d){d=e;mat=1;} float pz=mix(1.4,.0,hit);e=sdCylY(p-vec3(0,.25+pz,0),.43,.2);if(e<d){d=e;mat=3;}",
-    " } else if(st<3.5){",                                                    /* UPSET: blanks rolling on edge through the mill */
-    "  e=sdBox(p-vec3(0,-.52,0),vec3(4.,.06,.4),.01);if(e<d){d=e;mat=3;} e=sdBox(p-vec3(0,.75,0),vec3(.35,.6,.5),.03);if(e<d){d=e;mat=1;}",
-    "  for(int i=0;i<6;i++){float fi=float(i);float x=mod(lt*4.5-fi*1.1+3.,6.6)-3.3;vec3 q=p-vec3(x,-.08,0);float an=-x/.42;q.xy=mat2(cos(an),-sin(an),sin(an),cos(an))*q.xy;",
-    "   e=coin(q,.42,.06+.02*step(0.,x),0.);if(e<d){d=e;mat=4;}}",
-    " } else if(st<4.5){",                                                    /* STRIKE: hammer die drops onto the blank on the anvil die */
-    "  e=sdCylY(p-vec3(0,-.75,0),.75,.55);if(e<d){d=e;mat=1;} e=sdCylY(p-vec3(0,-.15,0),.6,.05);if(e<d){d=e;mat=4;}",
-    "  float hy=mix(2.4,.0,hit);e=sdCylY(p-vec3(0,.5+hy,0),.75,.4);if(e<d){d=e;mat=1;}",
-    " } else {",                                                              /* TRAY: the hero coin + a velvet tray of struck coins */
-    "  vec3 q=p-vec3(0,mix(2.6,.15,land),mix(-1.,0.,land));float a=spin;q.xz=mat2(cos(a),-sin(a),sin(a),cos(a))*q.xz;float tl=-1.05+.35*(1.-land);q.yz=mat2(cos(tl),-sin(tl),sin(tl),cos(tl))*q.yz;",
-    "  e=coin(q,1.,.085,1.);if(e<d){d=e;mat=5;}",
-    "  e=p.y+1.05;if(e<d){d=e;mat=6;}",
-    "  vec3 c=p-vec3(0,-.98,-2.2);vec2 id=floor((c.xz+.62)/1.24);c.xz=mod(c.xz+.62,1.24)-.62;if(abs(id.x)<4.&&id.y<1.&&id.y>-4.){c.yz=mat2(0,-1,1,0)*c.yz;e=coin(c,.55,.05,0.);if(e<d){d=e;mat=4;}}",
+    "float rel(vec2 q){return texture(TX,q*.5+.5).r;}",
+    "mat2 rm(float a){return mat2(cos(a),-sin(a),sin(a),cos(a));}",
+    "int mat;float emi;",
+    "vec3 LIP;",
+    "float map(vec3 p){mat=0;emi=0.;float d=1e3,e;",
+    " if(st<.5){",
+    "  e=p.y+1.32;if(e<d){d=e;mat=6;}",                                                                     /* foundry floor */
+    "  vec3 m=p-vec3(-.15,-1.05,0.);e=max(sdBox(m,vec3(1.25,.27,.62),.03),-sdBox(m-vec3(0,.2,0),vec3(1.05,.3,.45),.02));if(e<d){d=e;mat=1;}",   /* cast-iron ingot mould */
+    "  float lvl=mix(-1.2,-.84,fill);vec3 q=m-vec3(0,0,0);float pool=max(sdBox(q-vec3(0,.05,0),vec3(1.04,.29,.44),.02),p.y-lvl-.012*sin(length(p.xz-vec2(.25,0.))*22.-T*14.)*fill);",
+    "  vec3 cq=p-vec3(1.05,.55,0.);cq.xy=rm(tip)*cq.xy;",                                                    /* the crucible, tipping about its pivot */
+    "  float cup=max(sdCylY(cq,.5,.55),-sdCylY(cq-vec3(0,.12,0),.42,.55));cup=min(cup,sdBox(cq-vec3(-.55,.42,0),vec3(.1,.04,.12),.02));if(cup<d){d=cup;mat=2;}",
+    "  vec3 wp=p;float inner=max(sdCylY(cq-vec3(0,.12,0),.41,.55),wp.y-(.55+.25-tip*.32));",            /* metal inside the crucible: level stays horizontal as it tips */
+    "  float liq=min(pool,inner);",
+    "  if(flow>0.){vec3 a=LIP;for(int i=0;i<24;i++){float s=float(i)/23.;vec3 c=a+vec3(-.28*s-.12*s*s,-1.65*s*s-.25*s,0.)+vec3(.015*sin(T*20.+s*9.),0,.015*cos(T*17.+s*7.));",
+    "    if(c.y<lvl)break;liq=smin(liq,length(p-c)-mix(.07,.05,s)*flow,.12);}}",
+    "  if(liq<d){d=liq;mat=3;emi=1.;}",
+    " } else if(st<1.5){",                                                                                    /* the strike, slow motion */
+    "  e=p.y+1.6;if(e<d){d=e;mat=6;}",
+    "  e=sdCylY(p-vec3(0,-1.,0),1.35,.55);if(e<d){d=e;mat=1;}",                                               /* lower die */
+    "  float r=mix(1.0,1.05,form);vec3 q=p-vec3(0,-.36,0);float b=sdCylY(q,r,.09);",                          /* the blank, spreading as it is struck */
+    "  if(length(q.xz)<r&&q.y>0.){b-=rel(vec2(q.x,-q.z)/r)*.07*form;b-=smoothstep(r*.86,r*.92,length(q.xz))*.04*form;}",
+    "  if(b<d){d=b;mat=4;emi=heat*(.25+rel(vec2(q.x,-q.z)/r));}",
+    "  float top=-.36+.09+.07*form;float dy=mix(2.6,top+.6,dsc)+lift*2.4;e=sdCylY(p-vec3(0,dy,0),1.25,.6);if(e<d){d=e;mat=1;}",   /* upper die */
+    " } else {",                                                                                              /* the hero coin */
+    "  e=p.y+1.25;if(e<d){d=e;mat=7;}",
+    "  vec3 q=p-vec3(0,mix(-1.9,.34,rise),0);q.xz=rm(rot)*q.xz;q.yz=rm(.12*(1.-rise))*q.yz;",
+    "  vec3 c=q.xzy;float b=sdCylY(c,1.,.09);if(length(c.xz)<1.&&c.y>0.){b-=rel(c.xz)*.06;b-=smoothstep(.86,.92,length(c.xz))*.035;}",
+    "  if(c.y<0.&&length(c.xz)<1.){b-=rel(vec2(-c.x,-c.z))*.04;}",
+    "  if(b<d){d=b;mat=5;}",
     " }",
     " return d;}",
-    "vec3 nrm(vec3 p){vec2 e=vec2(.0015,0);return normalize(vec3(map(p+e.xyy)-map(p-e.xyy),map(p+e.yxy)-map(p-e.yxy),map(p+e.yyx)-map(p-e.yyx)));}",
-    "void main(){vec2 s=(gl_FragCoord.xy-.5*R)/min(R.x,R.y);vec3 col=vec3(0.);",
-    " if(st<.5){",                                                            /* POUR: 2.5D foundry + the fluid */
-    "  vec2 p=uv;vec4 d=texture(D,p);float m=d.g,tp=d.r;",
-    "  col=mix(vec3(.012,.01,.012),vec3(.05,.035,.03),p.y)+vec3(.9,.3,.05)*heat*.06*exp(-length((p-vec2(.5,.25))*vec2(1.,2.))*3.);",
-    "  float mould=step(p.y,.36)*step(.175,p.x)*step(p.x,.825)*(1.-step(.2,p.y)*step(.225,p.x)*step(p.x,.775));col=mix(col,vec3(.035,.03,.032)+vec3(.12,.05,.02)*heat*smoothstep(.36,.2,p.y)*.4,mould);",
-    "  vec2 cp=p-vec2(.66,.82);float a=-tip*1.1;cp=mat2(cos(a),-sin(a),sin(a),cos(a))*cp;float cru=step(abs(cp.x),.16-cp.y*.25)*step(abs(cp.y),.13);col=mix(col,vec3(.12,.1,.1)*(.6+.8*smoothstep(-.16,.16,cp.x)),cru);",
-    "  col+=vec3(1.,.5,.15)*3.*smoothstep(.01,0.,abs(cp.y-.13))*step(abs(cp.x),.13)*cru;",
-    "  float e=1./R.y*2.;float mx=texture(D,p+vec2(e,0)).g-texture(D,p-vec2(e,0)).g,my=texture(D,p+vec2(0,e)).g-texture(D,p-vec2(0,e)).g;vec3 n=normalize(vec3(-mx*6.,-my*6.,1.));",
-    "  vec3 mol=bb(tp*.9)*(.7+.5*n.z)+env(reflect(vec3(0,0,-1),n))*.25*(1.-tp);float k=smoothstep(.05,.35,m);col=mix(col,mol,k);",
-    " } else {",
-    "  vec3 ro,ta;float f=1.8;",
-    "  if(st<1.5){ro=vec3(-.8+lt*.9,.35,5.4);ta=vec3(0.,0.,0.);} else if(st<2.5){ro=vec3(.0,6.5,1.2);ta=vec3(0,0,0);} else if(st<3.5){ro=vec3(lt*.6-.3,.6,7.5);ta=vec3(0,0,0);} else if(st<4.5){ro=vec3(.3,.4,7.);ta=vec3(0,.1,0);} else {ro=vec3(.0,2.4+.8*(1.-land),4.6);ta=vec3(0,0.,0);}",
-    "  vec3 w=normalize(ta-ro),u=normalize(cross(w,vec3(0,1,0))),v=cross(u,w);vec3 rd=normalize(s.x*u+s.y*v+f*w);",
-    "  float tt=0.;bool h=false;for(int i=0;i<110;i++){float dd=map(ro+rd*tt);if(dd<.0007*tt){h=true;break;}tt+=dd*.9;if(tt>14.)break;}",
-    "  col=mix(vec3(.01,.009,.011),vec3(.06,.05,.05),smoothstep(-.4,.6,s.y))+vec3(1.,.5,.15)*heat*.05;",
-    "  if(h){vec3 p=ro+rd*tt;map(p);int mm=mat;float gw=glow;vec3 n=nrm(p),r=reflect(rd,n);float fr=pow(1.-max(dot(n,-rd),0.),5.);",
-    "   vec3 tint=mm==5||mm==4?vec3(1.,.76,.38):mm==2?vec3(.9,.8,.7):vec3(.85,.87,.9);float rough=mm==1?.35:mm==3?.6:.12;",
-    "   vec3 e=env(r)*mix(tint,vec3(1.),fr);vec3 dif=tint*max(dot(n,normalize(vec3(-.5,.7,.5))),0.)*.25;",
-    "   if(mm==1){float br=vn(vec2(atan(p.y-(p.y>0.?.62:-.62),p.x)*40.,p.z*3.));e*=.75+.35*br;}",
-    "   if(mm==6){vec3 vel=vec3(.08,.015,.025)*(.6+.4*fbm(p.xz*30.));col=vel*(.4+.6*max(dot(n,normalize(vec3(-.5,.7,.5))),0.));}",
-    "   else col=mix(e,dif+e*.5,rough);",
-    "   if(mm==2)col+=bb(gw*.85)*gw;",
-    "   if(mm==5){float sw=exp(-pow((p.x+p.y*.6)-mix(-2.,2.,sweep),2.)*18.)*step(.01,sweep)*step(sweep,.99);col+=vec3(1.,.9,.7)*sw*.9;}",
-    "   float ao=clamp(map(p+n*.08)/.08,.25,1.);col*=ao;}",
-    "  if(st>3.5&&st<4.5&&hit>.99){float since=T-3.02;float rr=since*6.;float ring=exp(-pow(length(s*vec2(1.,3.)+vec2(0,.22))-rr,2.)*120.)*exp(-since*5.);col+=vec3(1.,.8,.5)*ring*3.+vec3(1.,.95,.85)*exp(-since*22.)*3.*exp(-dot(s,s)*6.);}",
+    "vec3 nrm(vec3 p){vec2 e=vec2(.0012,0);return normalize(vec3(map(p+e.xyy)-map(p-e.xyy),map(p+e.yxy)-map(p-e.yxy),map(p+e.yyx)-map(p-e.yyx)));}",
+    "float march(vec3 ro,vec3 rd,out bool h){float t=0.;h=false;for(int i=0;i<140;i++){float d=map(ro+rd*t);if(d<.0006*t){h=true;break;}t+=d*.85;if(t>18.)break;}return t;}",
+    "vec3 shade(vec3 ro,vec3 rd,float t,vec3 hot){vec3 p=ro+rd*t;map(p);int mm=mat;float em=emi;vec3 n=nrm(p),r=reflect(rd,n);float fr=pow(1.-max(dot(n,-rd),0.),5.);",
+    " vec3 c;vec3 L=hot-p;float ld=length(L);L/=ld;float hl=max(dot(n,L),0.)/(1.+ld*ld*.6);",
+    " if(mm==3){float k=.82+.18*sin(T*3.+p.x*2.);c=bb(k)+env(r)*.15;}",
+    " else if(mm==1){c=env(r)*.12+vec3(.05,.045,.045)*(.3+.7*max(dot(n,normalize(vec3(-.5,.8,.4))),0.))+vec3(1.,.45,.12)*hl*heat*2.;c*=.8+.4*vn(p.xz*14.+p.y*9.);}",
+    " else if(mm==2){c=env(r)*mix(vec3(.25,.24,.24),vec3(1.),fr)*.5+vec3(.06,.05,.05)*max(dot(n,normalize(vec3(-.5,.8,.4))),0.)+vec3(1.,.45,.12)*hl*heat*1.5;c*=.75+.4*vn(vec2(atan(p.z,p.x-1.05)*8.,p.y*6.));}",
+    " else if(mm==4||mm==5){vec3 g=vec3(1.,.77,.4);c=env(r)*mix(g,vec3(1.),fr)+g*max(dot(n,normalize(vec3(-.5,.8,.4))),0.)*.08;c+=bb(.75)*em*1.5;",
+    "  if(mm==5){float sw=exp(-pow(dot(p.xy,vec2(.8,.6))-mix(-2.,2.,sweep),2.)*14.)*step(.01,sweep)*step(sweep,.99);c+=vec3(1.,.92,.75)*sw*1.2;}}",
+    " else if(mm==6){c=vec3(.02,.018,.018)*(.5+.5*vn(p.xz*6.))+vec3(1.,.45,.12)*hl*heat*.8;}",
+    " else {c=env(r)*.05+vec3(.01);}",
+    " float ao=clamp(map(p+n*.06)/.06,.3,1.);return c*ao;}",
+    "void main(){vec2 s=(gl_FragCoord.xy-.5*R)/min(R.x,R.y);vec3 ro,ta;float f=1.9;",
+    " LIP=vec3(1.05,.55,0.)+vec3(rm(-tip)*vec2(-.6,.46),0.)*0.;{vec2 l=vec2(-.62,.46);l=vec2(cos(tip)*l.x-sin(tip)*l.y,sin(tip)*l.x+cos(tip)*l.y);LIP=vec3(1.05+l.x,.55+l.y,0.);}",
+    " if(st<.5){ro=mix(vec3(-1.2,.9,7.8),vec3(-.6,.25,4.6),smoothstep(0.,1.,lt));ta=vec3(.25,-.35,0.);}",
+    " else if(st<1.5){ro=mix(vec3(.4,.05,4.4),vec3(.0,3.0,2.2),smoothstep(.55,.95,lt));ro.x+=.3*sin(lt*1.2);ta=vec3(0,-.35,0);f=2.1;}",
+    " else {ro=vec3(.0,.3,5.2)+vec3(.15*sin(lt*1.3),0.,-.45*lt);ta=vec3(0,.1,0);f=2.15;}",
+    " if(R.x<R.y)f*=st<.5?.68:.8;vec3 w=normalize(ta-ro),u=normalize(cross(w,vec3(0,1,0))),v=cross(u,w);vec3 rd=normalize(s.x*u+s.y*v+f*w);",
+    " vec3 hot=st<.5?vec3(.2,-.7,0.):vec3(0.,-.2,0.);",
+    " vec3 col=mix(vec3(.006,.005,.006),vec3(.03,.025,.025),smoothstep(-.5,.7,s.y))+vec3(1.,.45,.12)*heat*.035*exp(-dot(s+vec2(0.,.2),s+vec2(0.,.2))*2.);",
+    " bool h;float t=march(ro,rd,h);",
+    " if(h){vec3 p=ro+rd*t;map(p);int mm=mat;col=shade(ro,rd,t,hot);",
+    "  if(mm==7){vec3 n=vec3(0,1,0);vec3 r2=reflect(rd,n);bool h2;float t2=march(p+n*.01,r2,h2);vec3 rc=h2?shade(p+n*.01,r2,t2,hot):env(r2)*.1;col=vec3(.008)+rc*.35*(.4+.6*pow(1.-max(dot(n,-rd),0.),3.));}",
+    "  if(mm==6&&st<.5){vec3 n=vec3(0,1,0);vec3 r2=reflect(rd,n);bool h2;float t2=march(p+n*.01,r2,h2);if(h2){map(p+n*.01+r2*t2);if(mat==3)col+=shade(p+n*.01,r2,t2,hot)*.18;}}",
     " }",
+    " if(st>.5&&st<1.5){float since=T-"+CONTACT.toFixed(3)+";if(since>0.){float ring=exp(-pow(length(s*vec2(1.,2.6)+vec2(0,.12))-.45-since*1.2,2.)*90.)*exp(-since*4.);col+=vec3(1.,.7,.4)*ring*.5+vec3(1.,.85,.6)*exp(-since*12.)*.35*exp(-dot(s,s)*6.);}}",
+    " col=mix(col,col*.4+vec3(.02,.015,.012),smoothstep(10.,17.,t)*0.);",
     " o=vec4(col,1.);}"
   ].join("\n");
-  /* sparks: stateless GPU particles (ballistic, born from emitters on the timeline), additive into the HDR buffer */
-  var SPV = "#version 300 es\nprecision highp float;uniform float T,asp;uniform int st;out float a;out vec3 c;" +
+  var SPV = "#version 300 es\nprecision highp float;uniform float T,asp;uniform int st;uniform vec2 at;out float a;out vec3 c;" +
     "float h(float n){return fract(sin(n*12.9898)*43758.5453);}" +
-    "void main(){float id=float(gl_VertexID);float b,life;vec2 o0,v0;" +
-    " if(st==0){b=.35+h(id)*1.0;o0=vec2(.5+(h(id+1.)-.5)*.3,.22+h(id+5.)*.06);float an=1.57+(h(id+2.)-.5)*2.6;float sp=.25+h(id+3.)*.7;v0=vec2(cos(an),sin(an))*sp;life=.35+h(id+4.)*.5;}" +
-    " else if(st==1){b=1.35+h(id)*.55;o0=vec2(.46,.5);float an=3.14+(h(id+2.)-.5)*1.4;float sp=.3+h(id+3.)*.8;v0=vec2(cos(an),sin(an))*sp;life=.25+h(id+4.)*.35;}" +
-    " else if(st==4){b=3.02+h(id)*.04;o0=vec2(.5+(h(id+1.)-.5)*.35,.42);float an=(h(id+2.)-.5)*3.0+1.57;float sp=.4+h(id+3.)*1.4;v0=vec2(cos(an)*1.6,sin(an)*.5)*sp;life=.3+h(id+4.)*.6;}" +
+    "void main(){float id=float(gl_VertexID);float b,life;vec2 v0;" +
+    " if(st==0){b=.55+h(id)*1.3;float an=1.57+(h(id+2.)-.5)*2.4;float sp=.18+h(id+3.)*.55;v0=vec2(cos(an)/asp,sin(an))*sp;life=.4+h(id+4.)*.6;}" +
+    " else if(st==1){b=" + CONTACT.toFixed(3) + "+h(id)*.06;float an=h(id+2.)*6.283;float sp=.35+h(id+3.)*.9;v0=vec2(cos(an)/asp*1.3,sin(an)*.28+.15)*sp;life=.5+h(id+4.)*.8;}" +
     " else {gl_Position=vec4(2.,2.,0.,1.);gl_PointSize=0.;a=0.;c=vec3(0);return;}" +
-    " float age=T-b;if(age<0.||age>life){gl_Position=vec4(2.,2.,0.,1.);gl_PointSize=0.;a=0.;c=vec3(0);return;}" +
-    " vec2 p=o0+v0*age+vec2(0.,-1.3)*age*age;float k=age/life;gl_Position=vec4((p*2.-1.)*vec2(1.,1.),0.,1.);gl_PointSize=mix(3.,1.,k);a=(1.-k);c=mix(vec3(1.,.9,.6)*2.2,vec3(1.,.35,.05)*.8,k)*(st==4?.35:1.);}";
+    " float age=(T-b)*(st==1?.45:1.);if(age<0.||age>life){gl_Position=vec4(2.,2.,0.,1.);gl_PointSize=0.;a=0.;c=vec3(0);return;}" +
+    " vec2 p=at+v0*age+vec2(0.,-.9)*age*age;float k=age/life;gl_Position=vec4(p*2.-1.,0.,1.);gl_PointSize=mix(3.,1.,k);a=1.-k;c=mix(vec3(1.,.9,.6)*2.,vec3(1.,.35,.05)*.7,k);}";
   var SPF = "#version 300 es\nprecision highp float;in float a;in vec3 c;out vec4 o;void main(){vec2 q=gl_PointCoord-.5;float f=exp(-dot(q,q)*14.);o=vec4(c*a*f,0.);}";
   function heightTex(C) {                                  // relief height map of the coin face (device + legend), white = high
     var s = 512, c = K.mk(s, s), g = c.getContext("2d"), cx = s / 2, R = s * 0.48, i; g.fillStyle = "#000"; g.fillRect(0, 0, s, s);
@@ -236,17 +237,8 @@
     return c;
   }
   function setupGPU(C) {
-    var G = GPU(C, 1); if (!G) return null;
-    var gw = 160, gh = Math.round(160 * C.H / C.W); var F = Fluid(G, gw, Math.max(96, Math.min(400, gh)), SOLID); if (!F) return null;
-    var Po = Post(G); if (!Po) return null; var Sc = G.prog(SCENE); if (!Sc) return null;
-    var Sp = G.prog(SPF, SPV); if (!Sp) return null; var tx = G.tex(heightTex(C));
-    return { G: G, F: F, Po: Po, Sc: Sc, Sp: Sp, tx: { t: tx }, simT: -1 };
-  }
-  function pourStep(M, t) {                                // fixed 1/60 s steps; replays from zero on a backward seek
-    var F = M.F, dt = 1 / 60; if (M.simT < 0 || t < M.simT - 1e-4) { F.reset(); M.simT = 0; }
-    var n = 0; while (M.simT + dt <= Math.min(t, S2.pour[1]) + 1e-6 && n++ < 120) { var s = M.simT;
-      if (s > 0.28 && s < 1.15) { var w = 0.5 + 0.5 * Math.sin(s * 23); F.splat([0.53 + 0.006 * Math.sin(s * 17), 0.74], 0.00005, [-0.05 + 0.03 * w, -1.6], [0.3, 0.7, 0, 0]); }
-      F.step(dt, 3.2, 18); M.simT += dt; }
+    var G = GPU(C, 1); if (!G) return null; var Po = Post(G); if (!Po) return null; var Sc = G.prog(SCENE); if (!Sc) return null;
+    var Sp = G.prog(SPF, SPV); if (!Sp) return null; return { G: G, Po: Po, Sc: Sc, Sp: Sp, tx: { t: G.tex(heightTex(C)) } };
   }
   function draw2d(C, t) {
       var g = C.g, W = C.W, H = C.H, seg = K.seg, lite = C.lite, i, M = Math.min(W, H), cx = W / 2, cy = H * 0.46, e, k;
@@ -334,40 +326,35 @@
       [T.roll[0], T.blank[0], T.upset[0], T.strike[0], T.tray[0]].forEach(function (c0) { var d = t - c0; if (d >= 0 && d < 0.06) { g.fillStyle = "rgba(255,255,255," + 0.25 * (1 - d / 0.06) + ")"; g.fillRect(0, 0, W, H); } });
   }
   I.reg("colossus", {
-    dur: 5.0, still: 4.8,
+    dur: 5.0, still: 4.9,
     init: function (C) { C.R = Math.min(C.W, C.H) * 0.36; C.face = face(C.R); C.M = C.lite ? null : setupGPU(C); },
     draw: function (C, t) {
       var g = C.g, W = C.W, H = C.H, seg = K.seg; g.clearRect(0, 0, W, H);
       var M = C.M; if (!M || C._glDead) { draw2d(C, t * 4.8 / 5.0); return; }
-      var G = M.G, x = G.x, st = station(t), lt = 0, hit = 0, heat = 0, tip = 0, land = 0, spin = 0, sweep = 0, shake = 0, i;
-      if (st === 0) { pourStep(M, t); tip = K.eio(seg(t, 0.05, 0.4)); heat = 1; }
-      else if (st === 1) { lt = t - S2.roll[0]; heat = 1 - seg(t, S2.roll[0], S2.roll[1]) * 0.6; }
-      else if (st === 2) { var n = 0; PUNCH.forEach(function (p) { if (t > p) n++; }); lt = n; var last = -9; PUNCH.forEach(function (p) { if (t > p - 0.1) last = p; });
-        hit = last < 0 ? 0 : t < last ? 1 - (last - t) / 0.1 : Math.max(0, 1 - (t - last) / 0.09); hit = K.ei3(Math.min(1, hit)); PUNCH.forEach(function (p) { var d = t - p; if (d > 0 && d < 0.1) shake = Math.max(shake, 6 * (1 - d / 0.1)); }); }
-      else if (st === 3) { lt = t - S2.upset[0]; }
-      else if (st === 4) { hit = t < HIT2 ? K.ei3(seg(t, S2.strike[0] + 0.05, HIT2)) : 1; heat = t > HIT2 ? Math.exp(-(t - HIT2) * 4) : 0; if (t > HIT2 && t < HIT2 + 0.35) shake = 18 * (1 - (t - HIT2) / 0.35); }
-      else { land = K.eo3(seg(t, S2.tray[0], 4.25)); spin = (1 - land) * 14 + (t > 4.25 ? Math.sin((t - 4.25) * 16) * Math.exp(-(t - 4.25) * 6) * 0.12 : 0); sweep = seg(t, 4.2, 4.85); }
+      var G = M.G, x = G.x, st = t < M3.pour[1] ? 0 : t < M3.strike[1] ? 1 : 2, P = st === 0 ? M3.pour : st === 1 ? M3.strike : M3.hero, lt = seg(t, P[0], P[1]);
+      var u = { TX: M.tx, R: [G.W, G.H], T: t, st: st, lt: lt, tip: 0, fill: 0, flow: 0, dsc: 0, form: 0, lift: 0, rise: 0, rot: 0, sweep: 0, heat: 0 }, shake = 0, at = [0.5, 0.3];
+      if (st === 0) { u.tip = 1.15 * K.eio(seg(t, 0.1, 1.0)); u.flow = seg(t, 0.55, 0.75) * (1 - seg(t, 1.65, 1.85)); u.fill = K.eio(seg(t, 0.7, 1.85)); u.heat = 1; at = [0.47, 0.3 + 0.08 * u.fill]; }
+      else if (st === 1) { u.dsc = K.ei3(seg(lt, 0.0, 0.36)); u.form = K.eio(seg(lt, 0.36, 0.6)); u.lift = K.eio(seg(lt, 0.6, 0.82)); u.heat = 0.9 * u.form * (1 - K.eio(seg(lt, 0.7, 1.0))); at = [0.5, 0.43];
+        var d = t - CONTACT; if (d > 0 && d < 0.4) shake = 14 * (1 - d / 0.4); }
+      else { u.rise = K.eo3(seg(lt, 0.0, 0.55)); u.rot = (1 - K.eo3(seg(lt, 0, 0.8))) * 5.2 + Math.sin(lt * 2) * 0.06; u.sweep = seg(lt, 0.5, 0.85); }
       C.cv.style.transform = G.cv.style.transform = shake ? "translate(" + (K.hash(t * 97) - 0.5) * shake + "px," + (K.hash(t * 61) - 0.5) * shake + "px)" : "";
-      G.run(M.Sc, { D: M.F.D.r, TX: M.tx, R: [G.W, G.H], T: t, st: st, lt: lt, heat: heat, tip: tip, hit: hit, spin: spin, land: land, sweep: sweep }, M.Po.hdr);
-      x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE); G.run(M.Sp, { T: t, st: st, asp: W / H }, M.Po.hdr, st === 0 ? 9000 : st === 4 ? 8000 : st === 1 ? 4000 : 1); x.disable(x.BLEND);
-      M.Po.out({ bloom: st === 0 ? 0.9 : 0.7, haze: st === 0 ? 1.0 : st === 1 ? 0.5 : 0, hz: st <= 1 ? M.F.D.r : null, T: t, expo: 1.0 });
-      // crisp type on top: station plate, then the name under the landed coin
-      var lab = ["POUR \u00b7 1,064 \u00b0C", "ROLLING MILL \u00b7 18 \u2192 1.9 mm", "BLANKING PRESS \u00b7 3 HITS", "UPSETTING MILL \u00b7 RAISING THE RIM", "COINING PRESS \u00b7 1,200 kN", ""][st];
-      if (lab) { g.font = "600 " + Math.max(12, Math.min(W, H) * 0.03) + "px " + K.MONO; g.textAlign = "left"; g.textBaseline = "top"; g.fillStyle = "rgba(255,200,130,.8)"; g.fillText("0" + (st + 1) + " \u2014 " + lab, 18, H - 44); g.fillStyle = "rgba(255,200,130,.35)"; g.fillRect(18, H - 24, Math.min(W, H) * 0.3, 1); }
-      var nm = seg(t, 4.35, 4.75); if (nm > 0) { var tf = Math.min(W * 0.085, H * 0.06, 54); g.save(); g.globalAlpha = nm; g.font = "700 " + tf + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle"; if ("letterSpacing" in g) g.letterSpacing = (tf * 0.08 * (1.4 - nm * 0.4)) + "px";
+      G.run(M.Sc, u, M.Po.hdr);
+      x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE); G.run(M.Sp, { T: t, st: st, asp: W / H, at: at }, M.Po.hdr, st === 0 ? 6000 : st === 1 ? 9000 : 1); x.disable(x.BLEND);
+      M.Po.out({ bloom: st === 2 ? 0.55 : 0.8, haze: 0, T: t, expo: st === 2 ? 1.15 : 1.0 });
+      if (st === 2) { var nm = seg(t, 4.35, 4.8); if (nm > 0) { var tf = Math.min(W * 0.085, H * 0.06, 58); g.save(); g.globalAlpha = nm; g.font = "700 " + tf + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle"; if ("letterSpacing" in g) g.letterSpacing = (tf * 0.08 * (1.4 - nm * 0.4)) + "px";
         g.fillStyle = "rgba(0,0,0,.7)"; g.fillText("TITAN RELIQUARY", W / 2 + 1, H * 0.86 + 2); g.fillStyle = "#f2d290"; g.fillText("TITAN RELIQUARY", W / 2, H * 0.86);
-        g.font = "600 " + tf * 0.26 + "px " + K.MONO; g.fillStyle = "#e8c47a"; g.fillText("THE MINT  \u00b7  STRUCK 20 OCT 2026  \u00b7  PROOF", W / 2, H * 0.86 + tf * 0.85); g.restore(); }
+        g.font = "600 " + tf * 0.26 + "px " + K.MONO; g.fillStyle = "#e8c47a"; g.fillText("THE MINT  \u00b7  STRUCK 20 OCT 2026  \u00b7  PROOF", W / 2, H * 0.86 + tf * 0.85); g.restore(); } }
     },
     dispose: function (C) { if (C.cv) C.cv.style.transform = ""; },
     sound: function (C) {
       var A = I.audio(C); if (!A) return;
-      A.noise(0.3, 0.9, { type: "lowpass", f: 900, to: 2400, shape: [[0.1, 0.2], [0.8, 0.16], [0.9, 0.0001]] }); A.tone(0.25, 55, 1.0, { type: "sawtooth", v: 0.07, lp: 200 }); A.noise(0.4, 0.8, { type: "bandpass", f: 3000, q: 0.8, v: 0.04 });   // pour roar, sizzle
-      A.tone(1.35, 41, 0.55, { type: "sawtooth", v: 0.1, lp: 160 }); A.noise(1.35, 0.55, { type: "bandpass", f: 220, q: 1.5, v: 0.18 });          // roll rumble
-      PUNCH.forEach(function (h) { A.tone(h, 70, 0.22, { to: 35, v: 0.35 }); A.noise(h, 0.07, { type: "lowpass", f: 2200, v: 0.45 }); A.bell(h + 0.01, 3300, 0.12, 0.03, [[1, 1], [1.6, 0.6]]); });
-      for (var i = 0; i < 16; i++) { var s = 2.42 + i * 0.024 + K.hash(i) * 0.015; A.bell(s, 2600 + K.hash(i + 4) * 2400, 0.08, 0.025, [[1, 1], [2.3, 0.5]]); A.noise(s, 0.02, { type: "highpass", f: 3000, v: 0.12 }); }
-      A.tone(HIT2, 48, 0.9, { to: 26, v: 0.6 }); A.noise(HIT2, 0.12, { type: "lowpass", f: 4500, v: 0.75 }); A.noise(HIT2, 1.0, { type: "lowpass", f: 600, to: 120, v: 0.22 }); A.bell(HIT2, 180, 1.3, 0.09, [[1, 1], [2.76, 0.5], [5.4, 0.3]]);
-      A.bell(4.27, 2093, 1.9, 0.07, [[1, 1], [2.32, 0.45], [4.25, 0.25], [6.1, 0.12]]); A.bell(4.33, 2093 * 1.005, 1.5, 0.03, [[1, 1], [2.32, 0.4]]);
-      A.bell(4.26, 3200, 0.1, 0.03, [[1, 1]]); A.bell(4.37, 3500, 0.08, 0.02, [[1, 1]]); A.bell(4.45, 3800, 0.06, 0.015, [[1, 1]]);
+      A.tone(0.0, 38, 1.9, { type: "sawtooth", v: 0.06, lp: 140 });                                              // furnace drone
+      A.noise(0.1, 0.6, { type: "bandpass", f: 400, q: 2, v: 0.08 }); A.tone(0.15, 90, 0.5, { to: 70, type: "triangle", v: 0.05 });   // crucible grinds as it tips
+      A.noise(0.55, 1.3, { type: "lowpass", f: 700, to: 1800, shape: [[0.1, 0.22], [1.0, 0.16], [1.2, 0.0001]] }); A.noise(0.6, 1.2, { type: "bandpass", f: 3200, q: 0.8, v: 0.05 });   // pour roar + sizzle
+      A.tone(1.9, 60, 0.7, { to: 52, type: "sawtooth", v: 0.05, lp: 300 });                                       // hydraulic descent
+      A.tone(CONTACT, 44, 1.4, { to: 24, v: 0.7 }); A.noise(CONTACT, 0.14, { type: "lowpass", f: 4000, v: 0.7 }); A.noise(CONTACT, 1.2, { type: "lowpass", f: 500, to: 90, v: 0.25 });
+      A.bell(CONTACT, 170, 1.6, 0.09, [[1, 1], [2.76, 0.5], [5.4, 0.3]]); A.noise(3.05, 0.4, { type: "highpass", f: 2500, v: 0.05 });   // die lifts, hiss
+      A.bell(3.6, 2093, 2.2, 0.06, [[1, 1], [2.32, 0.45], [4.25, 0.25], [6.1, 0.12]]); A.bell(4.35, 1568, 0.9, 0.03, [[1, 1], [2.32, 0.3]]);   // hero ring
     }
   });
 })();

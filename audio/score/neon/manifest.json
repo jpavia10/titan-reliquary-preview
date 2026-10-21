@@ -1,59 +1,58 @@
 {
  "theme": "neon",
- "title": "Wet Asphalt",
- "bpm": 84,
- "bars": 16,
- "key": "C minor",
- "stems": {
-  "bed": {
-   "file": "bed.m4a",
-   "pad": 0.5,
-   "len": 45.71429166666667,
-   "total": 46.71429166666667
+ "version": 3,
+ "tracks": {
+  "mystery-sax": {
+   "file": "mystery-sax.m4a",
+   "title": "Mystery Sax",
+   "artist": "Kevin MacLeod",
+   "license": "CC BY 4.0",
+   "url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1700082"
   },
-  "drive": {
-   "file": "drive.m4a",
-   "pad": 0.5,
-   "len": 45.71429166666667,
-   "total": 46.71429166666667
+  "just-as-soon": {
+   "file": "just-as-soon.m4a",
+   "title": "Just As Soon",
+   "artist": "Kevin MacLeod",
+   "license": "CC BY 4.0",
+   "url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100185"
   },
-  "lead": {
-   "file": "lead.m4a",
-   "pad": 0.5,
-   "len": 45.71429166666667,
-   "total": 46.71429166666667
-  },
-  "shimmer": {
-   "file": "shimmer.m4a",
-   "pad": 0.5,
-   "len": 45.71429166666667,
-   "total": 46.71429166666667
+  "night-on-the-docks-sax": {
+   "file": "night-on-the-docks-sax.m4a",
+   "title": "Night on the Docks (Sax)",
+   "artist": "Kevin MacLeod",
+   "license": "CC BY 4.0",
+   "url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100137"
   }
+ },
+ "decks": {
+  "browse": [
+   "mystery-sax",
+   "just-as-soon"
+  ],
+  "coin": [
+   "night-on-the-docks-sax"
+  ]
  },
  "states": {
   "browse": {
-   "bed": 1,
-   "drive": 0.9,
-   "lead": 0.8,
-   "shimmer": 0
-  },
-  "coin": {
-   "bed": 0.9,
-   "drive": 0.3,
-   "lead": 0.25,
-   "shimmer": 1
+   "deck": "browse",
+   "lp": 20000,
+   "gain": 1
   },
   "search": {
-   "bed": 0.85,
-   "drive": 0.6,
-   "lead": 0,
-   "shimmer": 0.35
+   "deck": "browse",
+   "lp": 1600,
+   "gain": 0.7
   },
   "idle": {
-   "bed": 0.8,
-   "drive": 0,
-   "lead": 0.2,
-   "shimmer": 0
+   "deck": "browse",
+   "lp": 900,
+   "gain": 0.55
+  },
+  "coin": {
+   "deck": "coin",
+   "lp": 20000,
+   "gain": 0.95
   }
  },
  "stinger": {
@@ -70,5 +69,5 @@
   "search": "ui-search.m4a",
   "coin": "ui-coin.m4a"
  },
- "license": "Original composition and synthesis for Titan Reliquary (no third-party audio). CC0."
+ "note": "Songs are recorded human music (licensed, see audio/score/CREDITS.md). Stinger and UI sounds are designed sound effects (tools/music/score/neon.py)."
 }
