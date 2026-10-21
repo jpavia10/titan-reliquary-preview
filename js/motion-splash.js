@@ -323,9 +323,10 @@
     root.style.setProperty("--ts-bg", pal.bg);
     var g = cv.getContext("2d");
     var C = { root: root, cv: cv, g: g, id: id, pal: pal, K: K, W: 0, H: 0, dpr: 1, small: false, portrait: true, featured: featured || null, coin: null, crest: null, frame: 0, t: 0, ready: false,
-              rnd: rng(1717), cue: opts.cue || function () {}, reveal: function () { html.classList.add("ts-reveal"); root.classList.add("ts-handoff"); } };
+              rnd: rng(1717), cue: opts.cue || function () {}, lite: html.classList.contains("tr-lite") || window.TitanLite === true, swap: !!opts.tableOnly, reveal: function () { html.classList.add("ts-reveal"); root.classList.add("ts-handoff"); } };
     // total budget 2.5-3.5 s: the timeline plays at most 2.85 s (a little brisker than authored) and the caller dissolves it in 0.7 s; a style that wipes itself clear needs no dissolve
-    var speed = style.wipe ? 1 : Math.max(1, style.dur / 2.85);
+    // a "native" style (js/intros.js, 2026-10-20) is authored at its real length (2-5 s) and plays at speed 1
+    var speed = style.wipe || style.native ? 1 : Math.max(1, style.dur / 2.85);
     var raf = 0, stopped = false, started = false, t0 = 0, doneCalled = false, timers = [], resizeT = 0, gate = null;
     function later(fn, ms) { var h = setTimeout(fn, ms); timers.push(h); return h; }
 
@@ -363,6 +364,7 @@
         later(finishTimeline, 1000); return;
       }
       t0 = performance.now(); TitanOpening._debug.startedAt = t0; raf = requestAnimationFrame(tick);
+      if (style.sound) { try { style.sound(C); } catch (e) { if (window.console) console.warn("opening sound", e); } }
     }
     function relayout() {
       if (stopped) return; layout(); initStyle();

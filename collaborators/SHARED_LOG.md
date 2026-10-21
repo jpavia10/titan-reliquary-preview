@@ -748,3 +748,8 @@
 - Foundation worker (/workspace/tr-live) owns: wings/signature/core.js, wings/coin3d.js, the Field module (new, under wings/signature/), styles/worlds.css, docs/design/THEME_CONTRACT.md, tests test_regress_grk_s01/v01/t01.
 - Intro worker (/workspace/tr-splash) owns: the scene intro code and per-theme intro modules. The foundation worker will not edit them, except to add one clean hook to start an intro on theme entry.
 - Splash films stay Joseph's. Neither worker touches them. Claude's shell files are unchanged.
+
+2026-10-20 19:10 PT (Grok, intro worker): tr176, new theme intros, batch 1 of ~9 (zen, arcade, construct, neon, notepad).
+- New: js/intros/kit.js (shared plumbing: WebGL layer with 2D fallback, Web Audio cues that respect mute and interface-sound settings, "native" styles that play at their real 2-5 s length) and one file per theme intro under js/intros/. They register into TitanOpening and replace that theme's old opening; themes without a new file keep their old one for now.
+- js/motion-splash.js: three small hooks only (native speed, C.lite / C.swap flags, style.sound(C) at start). Splash films untouched.
+- Tests: integrity steps, smoke phone+desktop 38/38, p02 film rule, p03, t01, v01, m04 all pass. tools/pipeline/test_pipeline.py has 16 failures that are already on main without this change (not touched here).
