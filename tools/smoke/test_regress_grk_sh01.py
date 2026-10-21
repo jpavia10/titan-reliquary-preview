@@ -40,7 +40,7 @@ def main():
         check("(2) the sheet shows sourced facts with their provenance", st["facts"] > 0 and st["lvl"] > 0 and st["hold"], st)
         p.click("#fld-btn-hold"); p.wait_for_timeout(2500)
         check("(2) Hold it opens the full coin page above The Field", p.evaluate("!document.getElementById('drawer').hidden && !!document.getElementById('shell-field')"))
-        p.keyboard.press("Escape"); p.wait_for_timeout(800)
+        p.keyboard.press("Escape"); p.wait_for_timeout(2000)  # the sheet finishes its smooth scroll back before Back is clicked
         check("closing the coin page returns to The Field", p.evaluate("document.getElementById('drawer').hidden && __field.state() === 'coin'"))
         # (3) back
         p.click("#fld-btn-back3"); p.wait_for_timeout(1500)

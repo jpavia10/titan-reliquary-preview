@@ -231,7 +231,7 @@ html.sig-open body { overflow: hidden; }
 /* UI chooser (shells/shell.js) */
 .shell-pick { position: fixed; inset: 0; z-index: 95; background: rgba(0,0,0,.55); display: flex; align-items: flex-end; justify-content: center; padding: 12px; }
 .shell-pick[hidden] { display: none; }
-.shell-card { width: min(520px, 100%); background: #17140f; color: #f3ecdf; border: 2px solid rgba(243,236,223,.18); border-radius: 18px; padding: 14px 14px calc(14px + env(safe-area-inset-bottom)); font: 16px/1.45 system-ui, -apple-system, sans-serif; }
+.shell-card { max-height: calc(100dvh - 24px); overflow-y: auto; overscroll-behavior: contain; width: min(520px, 100%); background: #17140f; color: #f3ecdf; border: 2px solid rgba(243,236,223,.18); border-radius: 18px; padding: 14px 14px calc(14px + env(safe-area-inset-bottom)); font: 16px/1.45 system-ui, -apple-system, sans-serif; }
 .shell-top { display: flex; justify-content: space-between; align-items: center; }
 .shell-top h2 { margin: 0; font-size: 20px; }
 .shell-card button { font: inherit; color: inherit; background: #241f17; border: 2px solid rgba(243,236,223,.18); border-radius: 12px; min-height: 44px; min-width: 44px; cursor: pointer; }

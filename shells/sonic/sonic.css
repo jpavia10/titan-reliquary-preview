@@ -1,0 +1,10 @@
+@import url("../exp/exp.css");
+/* Sonic: an instrument in the dark. Cool studio blue, thin mono labels like a mixing desk */
+#shell-sonic { --bg:#020308; --acc:#8fc3ff; --line:rgba(143,195,255,.24); --panel:rgba(6,9,18,.92); }
+#shell-sonic .xp-title b { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; letter-spacing:.42em; color:#cfe4ff; font-weight:600; }
+#shell-sonic .son-labs { position:absolute; inset:0; pointer-events:none; z-index:2; }
+#shell-sonic .son-labs span { position:absolute; left:0; top:0; font: 12px/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing:.12em; text-transform:uppercase; color:rgba(170,205,255,.72); text-shadow:0 1px 3px #000; transition:opacity .25s; white-space:nowrap; }
+#shell-sonic .son-labs .son-y { color:rgba(170,205,255,.5); padding-right:6px; }
+#shell-sonic .xp-sheet h2 { color:#e2eeff; }
+@media (max-aspect-ratio: 1/1) { #shell-sonic .xp-sheet { max-height:52vh; } }
+@media (min-width: 900px) { #shell-sonic .xp-sheet { left:auto; right:24px; bottom:24px; width:min(480px,32vw); max-height:84vh; border-radius:18px; border:1px solid var(--line); transform:translateX(130%); } #shell-sonic .xp-sheet.open { transform:none; } }

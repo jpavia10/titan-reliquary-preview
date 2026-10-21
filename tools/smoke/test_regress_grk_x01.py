@@ -13,7 +13,7 @@ LISTJS = """(() => { const q = document.getElementById('xp-q'), n = () => docume
   document.querySelector('#xp-chips [data-f="m:silver"]').click(); const ag = n();
   document.querySelector('#xp-chips [data-f="all"]').click(); q.value = 'Switzerland'; q.dispatchEvent(new Event('input'));
   return all === __exp.count && ag > 0 && ag < all; })()"""
-EXP = [x for x in os.environ.get("XP_ONLY", "hologram,orrery,deck").split(",") if x]
+EXP = [x for x in os.environ.get("XP_ONLY", "hologram,orrery,deck,sonic").split(",") if x]
 
 def main():
     base = serve(); fails = []; shots = os.environ.get("XP_SHOTS")
@@ -41,14 +41,18 @@ def main():
                     check(tag + "turning then tapping a dealt card opens its facts", p.evaluate("__exp.state()") == "coin")
                     if shots: p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-reading.png")
                     p.click("#xp-back"); p.wait_for_timeout(500); p.click('[data-mode="fan"]'); p.wait_for_timeout(600)
+                if sid == "sonic":
+                    check(tag + "400k field particles", p.evaluate("__sonic.particlesFull") >= 400000)
+                    p.evaluate(f"__sonic.scrub(20, {vp['height']//2}, {vp['width']-20}, {vp['height']//2 - 60})"); p.wait_for_timeout(300)
+                    check(tag + "a finger scrub strikes coins", p.evaluate("__sonic.strikes()") > 0, p.evaluate("__sonic.strikes()"))
                 if sid == "hologram":
                     n = p.evaluate("window.__holo ? __holo.particles : 0"); check(tag + "at least 1M particles", n >= 1_000_000, n)
                 if shots:
-                    p.evaluate("window.__holo ? __holo.warm(120) : window.__orrery && __orrery.warm(4)"); p.wait_for_timeout(1500)
+                    p.evaluate("window.__holo ? __holo.warm(120) : window.__orrery ? __orrery.warm(4) : window.__sonic && __sonic.warm(4)"); p.wait_for_timeout(1500)
                     p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-home.png")
                 if vp["width"] > 2000:
                     if shots:
-                        p.evaluate("__exp.open(0)"); p.wait_for_timeout(3000); p.evaluate("window.__holo ? __holo.warm(90) : window.__orrery && __orrery.warm(4)"); p.wait_for_timeout(2500); p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-coin.png")
+                        p.evaluate("__exp.open(0)"); p.wait_for_timeout(3000); p.evaluate("window.__holo ? __holo.warm(90) : window.__orrery ? __orrery.warm(4) : window.__sonic && __sonic.warm(4)"); p.wait_for_timeout(2500); p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-coin.png")
                     p.close(); continue
                 p.click("#xp-search"); p.fill("#xp-q", "Switzerland"); p.wait_for_timeout(300)
                 check(tag + "(5) search finds coins", p.evaluate("document.querySelectorAll('#xp-list [data-i]').length") > 0)
@@ -59,7 +63,7 @@ def main():
                 check(tag + "(2) sourced facts with provenance", st["dt"] > 0 and st["lvl"] > 0, st)
                 if sid == "hologram": check(tag + "the coin forms from particles", p.evaluate("__holo.mix() > 0.5 && __holo.mode() === 'coin'"), p.evaluate("__holo.mix()"))
                 if shots:
-                    p.evaluate("window.__holo ? __holo.warm(90) : window.__orrery && __orrery.warm(4)"); p.wait_for_timeout(1500)
+                    p.evaluate("window.__holo ? __holo.warm(90) : window.__orrery ? __orrery.warm(4) : window.__sonic && __sonic.warm(4)"); p.wait_for_timeout(1500)
                     p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-coin.png")
                 p.click("#xp-hold"); p.wait_for_timeout(4000)
                 check(tag + "(2) Hold it opens the full coin page above", p.evaluate("!document.getElementById('drawer').hidden"))
