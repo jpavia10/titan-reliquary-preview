@@ -3,7 +3,8 @@
 
 Joseph: Dynasty had NO sound. Cause: a first tap inside the Scene studio never starts sound, and following the theme only worked
 once something was already playing, so opening the studio first and picking a theme stayed silent. This pins:
-  1. every theme in wings/themes/manifest.js maps to a scene that exists and has music (generated or recorded)
+  1. every theme in wings/themes/manifest.js maps to a scene that exists and has REAL RECORDED music (its own songs or recorded
+     classical; owner 2026-10-21: "I dont want computer generated music!!!!"), and no music generator is loaded
   2. every theme has its own interface voice, and the tap / theme / coin-open / coin-close sounds exist
   3. a fresh visit whose first tap is inside the studio, then picks Dynasty, is playing Dynasty's scene
   python3 tools/smoke/test_regress_grk_m04.py      Exit code 0 = all pass.
@@ -24,9 +25,10 @@ def serve():
 MAP = """() => { const G = TitanGen, W = TitanWorlds.worlds, ws = typeof W === "function" ? W() : W, voices = TitanUISounds.voices(), bad = [];
   for (const w of ws) { let id = w.scene; if (G.ALIASES && G.ALIASES[id]) id = G.ALIASES[id]; const s = G.SCENES[id];
     if (!s) { bad.push(w.id + ": no scene " + w.scene); continue; }
-    const m = TitanMusic.forMix(s.mix || s, s.name); if (!(m && m.spec) && !s.rec) bad.push(w.id + ": scene " + id + " has no music");
+    if (!s.score && !s.rec) bad.push(w.id + ": scene " + id + " has no recorded music");
     if (voices.indexOf(w.id) < 0) bad.push(w.id + ": no interface voice"); }
   const k = TitanUISounds.kinds(); for (const n of ["tap", "theme", "coin-open", "coin-close"]) if (k.indexOf(n) < 0) bad.push("missing sound " + n);
+  if (typeof window.TitanMusic !== "undefined") bad.push("the generated-music engine (TitanMusic) is loaded");
   return { n: ws.length, bad }; }"""
 
 def main():
@@ -40,7 +42,7 @@ def main():
         p.add_init_script("try { localStorage.setItem('tr_atmo_v1', 'afterhours'); } catch (e) {}")
         p.goto(base + "?nosplash#hall"); p.wait_for_timeout(2500)
         r = p.evaluate(MAP)
-        check("all %d themes have a scene, music and their own interface voice" % r["n"], r["n"] >= 30 and not r["bad"], r["bad"])
+        check("all %d themes have a scene, real recorded music and their own interface voice" % r["n"], r["n"] >= 30 and not r["bad"], r["bad"])
         p.evaluate("TitanScene.open('themes')"); p.wait_for_timeout(500)
         p.locator("#scene-sheet").click(position={"x": 5, "y": 300}, force=True); p.wait_for_timeout(300)
         p.evaluate("TitanSetAtmo('dynasty')"); p.wait_for_timeout(2500)

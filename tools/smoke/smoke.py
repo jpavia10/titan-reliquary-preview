@@ -143,7 +143,8 @@ def scenario(r):
     r.check("Scene Studio opens", p.evaluate("!!document.querySelector('#ss-title') && document.querySelector('#ss-title').offsetParent !== null"))
     tab = p.query_selector("#ss-tab-sound")
     if tab: tab.click(); p.wait_for_timeout(400)
-    r.check("Scene Studio Sound tab has the tempo slider", p.evaluate("!!document.querySelector('#ss-tempo')"))
+    # owner 2026-10-21 "I dont want computer generated music!!!!": the music choices are real recordings only (no pads, bells, beat or tempo)
+    r.check("Scene Studio music choices are real recordings only", p.evaluate("[...document.querySelectorAll('#ss-music [data-mus]')].map((b) => b.dataset.mus).join() === 'piano,orchestra' && !document.querySelector('#ss-tempo') && typeof window.TitanMusic === 'undefined'"))
     p.keyboard.press("Escape")
     # one motion setting (#59): Off skips the opening film and stops effects; the reduced-motion query answers from the setting
     p.evaluate("TitanMotion.set('off')"); p.goto(r.base + "#hall"); p.wait_for_timeout(1500)

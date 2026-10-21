@@ -120,16 +120,16 @@
   /* One-tap scenes. beds: id -> level 0..1 (loops and events); music flags below.
      Music sits under the ambience: soft pads, a little felt piano, music-box bells, never bright. */
   const SCENES = {
-    rainy:   { name: "Rainy archive", icon: "🌧", desc: "Rain on the skylight, far thunder, a slow lo-fi beat.", atmo: "afterhours",
+    rainy:   { rec: "piano", name: "Rainy archive", icon: "🌧", desc: "Rain on the skylight, far thunder, real recorded piano.", atmo: "afterhours",
                beds: { rainWindow: 0.85, thunder: 0.5, library: 0.3 }, arc: { period: [300, 480], depth: 0.8 }, pad: 0.5, piano: true, bells: false, beat: true,
                root: "A", mode: "dorian", prog: [0, 3, 5, 4], chordSec: 0, gap: [5, 10], bpm: 68, vol: 0.55 },
     vault:   { rec: "orchestra", name: "Midnight vault", icon: "🔒", desc: "A stone hall at night, a slow clock, a far bowl.", atmo: "nocturne",
                beds: { hall: 0.85, clock: 0.45, bowl: 0.6 }, pad: 0.4, piano: false, bells: true, beat: false,
                root: "E", mode: "phrygian", prog: [0, 0, 5, 3], chordSec: 18, gap: [10, 20], vol: 0.5 },
-    lofi:    { name: "Lo-fi evening", icon: "🎧", desc: "A laid-back beat, vinyl crackle, soft keys, light rain.", atmo: "neon",
+    lofi:    { rec: "piano", name: "Lo-fi evening", icon: "🎧", desc: "A laid-back evening: vinyl crackle, light rain, real recorded piano.", atmo: "neon",
                beds: { vinyl: 0.75, rainLight: 0.3 }, pad: 0.45, piano: true, bells: true, beat: true,
                root: "C", mode: "dorian", prog: [1, 4, 0, 5], chordSec: 0, gap: [3, 7], bpm: 76, vol: 0.55 },
-    garden:  { name: "Night garden", icon: "🌙", desc: "Crickets, a far owl, a light breeze, slow bells.", atmo: "zen",
+    garden:  { rec: "piano", name: "Night garden", icon: "🌙", desc: "Crickets, a far owl, a light breeze, real recorded piano.", atmo: "zen",
                beds: { crickets: 0.8, frogs: 0.3, owl: 0.7, wind: 0.2 }, arc: { depth: 0.8 }, pad: 0.35, piano: false, bells: true, beat: false,
                root: "G", mode: "pent", prog: [0, 2, 1, 3], chordSec: 15, gap: [7, 13], vol: 0.5 },
     storm:   { name: "Thunderstorm", icon: "⛈", desc: "Heavy rain and rolling thunder, no music.", atmo: "odyssey",
@@ -153,19 +153,19 @@
     "cabin": { rec: "orchestra", world: true, name: "Captain's Cabin", icon: "⚓", desc: "Waves on the hull, creaking timber, gulls.", atmo: "odyssey",
                beds: { waves: 0.6, ship: 0.35, creak: 0.6, gulls: 0.3 }, pad: 0.4, piano: false, bells: true, beat: false,
                root: "G", mode: "major", prog: [0, 3, 4, 0], chordSec: 16, gap: [9, 18], bpm: 70, vol: 0.5 },
-    "shipwreck": { world: true, name: "Shipwreck", icon: "🌊", desc: "Deep underwater rumble and a distant whale.", atmo: "abyss",
+    "shipwreck": { rec: "orchestra", world: true, name: "Shipwreck", icon: "🌊", desc: "Deep underwater rumble and a distant whale.", atmo: "abyss",
                beds: { underwater: 0.85, whale: 0.6 }, arc: { depth: 1.1, beds: { whale: { lo: 0.6, hi: 1.5, per: [150, 300] } } }, pad: 0.55, piano: false, bells: true, beat: false,
                root: "Bb", mode: "lydian", prog: [0, 1, 4, 1], chordSec: 18, gap: [10, 20], bpm: 70, vol: 0.5 },
-    "prism": { world: true, name: "Prism", icon: "🔮", desc: "Glassy pads and soft wind chimes.", atmo: "kaleido",
+    "prism": { rec: "piano", world: true, name: "Prism", icon: "🔮", desc: "Soft wind chimes and real recorded piano.", atmo: "kaleido",
                beds: { chimes: 0.6, wind: 0.12 }, pad: 0.6, piano: false, bells: true, beat: false,
                root: "F", mode: "lydian", prog: [0, 4, 1, 3], chordSec: 16, gap: [6, 12], bpm: 70, vol: 0.5 },
-    "nightcity": { score: "neon", world: true, name: "Night City", icon: "🌃", desc: "Neon noir: heavy rain on the street, tubes humming overhead, far thunder, a slow dark synth.", atmo: "neon",
+    "nightcity": { score: "neon", world: true, name: "Night City", icon: "🌃", desc: "Neon noir: heavy rain on the street, tubes humming overhead, far thunder, late-night sax (Kevin MacLeod).", atmo: "neon",
                beds: { rainHeavy: 0.45, rainUmbrella: 0.25, labHum: 0.3, city: 0.35, thunder: 0.18 }, spat: { city: { k: "pass", d: [28, 6], gap: [0.5, 3], len: [9, 15] } }, arc: { depth: 0.95 }, pad: 0.55, piano: true, bells: false, beat: true,
                root: "F", mode: "minor", prog: [0, 5, 3, 4], chordSec: 0, gap: [4, 8], bpm: 78, vol: 0.5 },
-    "blacksite": { world: true, name: "Black Site", icon: "🛰", desc: "Air handling hum and faint telemetry.", atmo: "construct",
+    "blacksite": { rec: "orchestra", world: true, name: "Black Site", icon: "🛰", desc: "Air handling hum and faint telemetry.", atmo: "construct",
                beds: { labHum: 0.65, roomTone: 0.3, telemetry: 0.6 }, spat: { telemetry: { k: "fixed", az: -50, d: 3, y: 0.5 } }, arc: { depth: 0.5 }, pad: 0.3, piano: false, bells: false, beat: false,
                root: "E", mode: "minor", prog: [0, 0, 5, 3], chordSec: 20, gap: [10, 20], bpm: 70, vol: 0.45 },
-    "crypt": { world: true, name: "Forbidden Wing", icon: "🕯", desc: "Slow drips, a cold draught, a far bell.", atmo: "cursedwing",
+    "crypt": { rec: "orchestra", world: true, name: "Forbidden Wing", icon: "🕯", desc: "Slow drips, a cold draught, a far bell.", atmo: "cursedwing",
                beds: { drips: 0.6, windHowl: 0.3, hall: 0.4, bowl: 0.45 }, spat: { drips: { k: "spot", d: [1.2, 3], y: [-1, 1.2] } }, arc: { beds: { windHowl: { lo: 0.4, hi: 1.5, per: [60, 140] } } }, pad: 0.35, piano: false, bells: true, beat: false,
                root: "E", mode: "phrygian", prog: [0, 1, 0, 5], chordSec: 19, gap: [10, 20], bpm: 70, vol: 0.45 },
     "observatory": { rec: "piano", world: true, name: "Observatory", icon: "🔭", desc: "Night crickets, a thin wind, clockwork ticking.", atmo: "solaris",
@@ -174,16 +174,16 @@
     "alchemist": { rec: "piano", world: true, name: "Alchemist's Study", icon: "⚗", desc: "A low fire, turning pages, a still room.", atmo: "alchemist",
                beds: { fire: 0.5, pages: 0.55, roomTone: 0.25 }, pad: 0.45, piano: true, bells: false, beat: false,
                root: "A", mode: "minor", prog: [0, 5, 2, 4], chordSec: 16, gap: [8, 16], bpm: 70, vol: 0.5 },
-    "polar": { world: true, name: "Hyperborean Vault", icon: "❄", desc: "Howling wind over ice and a deep stillness.", atmo: "glacier",
+    "polar": { rec: "orchestra", world: true, name: "Hyperborean Vault", icon: "❄", desc: "Howling wind over ice and a deep stillness.", atmo: "glacier",
                beds: { windHowl: 0.7, wind: 0.3, roomTone: 0.2 }, arc: { depth: 1.2, beds: { windHowl: { lo: 0.55, hi: 1.5, per: [60, 150] } } }, pad: 0.65, piano: false, bells: true, beat: false,
                root: "Bb", mode: "lydian", prog: [0, 1, 4, 1], chordSec: 17, gap: [9, 18], bpm: 70, vol: 0.5 },
-    "imperial": { world: true, name: "Imperial Treasury", icon: "🏮", desc: "Wind chimes, a light breeze, water far away.", atmo: "dynasty",
+    "imperial": { rec: "piano", world: true, name: "Imperial Treasury", icon: "🏮", desc: "Wind chimes, a light breeze, water far away.", atmo: "dynasty",
                beds: { chimes: 0.55, wind: 0.2, waterfall: 0.15 }, pad: 0.4, piano: false, bells: true, beat: false,
                root: "D", mode: "pent", prog: [0, 2, 1, 3], chordSec: 15, gap: [6, 12], bpm: 70, vol: 0.5 },
-    "temple": { world: true, name: "Temple Garden", icon: "⛩", desc: "Rain on leaves, water, a singing bowl.", atmo: "zen",
+    "temple": { rec: "piano", world: true, name: "Temple Garden", icon: "⛩", desc: "Rain on leaves, water, a singing bowl.", atmo: "zen",
                beds: { leaves: 0.65, waterfall: 0.3, drips: 0.2, bowl: 0.7 }, pad: 0.3, piano: false, bells: true, beat: false,
                root: "G", mode: "pent", prog: [0, 2, 1, 3], chordSec: 16, gap: [8, 16], bpm: 70, vol: 0.5 },
-    "caravanserai": { world: true, name: "Caravanserai", icon: "🐪", desc: "Desert wind, a small fire, soft chimes (no camel bells in the library).", atmo: "silkroad",
+    "caravanserai": { rec: "orchestra", world: true, name: "Caravanserai", icon: "🐪", desc: "Desert wind, a small fire, soft chimes (no camel bells in the library).", atmo: "silkroad",
                beds: { wind: 0.45, fire: 0.4, chimes: 0.15, crickets: 0.3 }, pad: 0.45, piano: false, bells: true, beat: false,
                root: "D", mode: "dorian", prog: [0, 3, 0, 4], chordSec: 18, gap: [9, 18], bpm: 70, vol: 0.5 },
     "fireside": { rec: "piano", world: true, name: "Fireside Den", icon: "🛋", desc: "A crackling fire, snow wind at the window, a clock.", atmo: null,
@@ -195,11 +195,11 @@
     "privatebank": { rec: "piano", world: true, name: "Private Bank", icon: "🏦", desc: "Quiet room tone, nothing else.", atmo: null,
                beds: { roomTone: 0.65 }, pad: 0.35, piano: true, bells: false, beat: false,
                root: "C", mode: "major", prog: [0, 4, 3, 4], chordSec: 16, gap: [10, 18], bpm: 70, vol: 0.45 },
-    "xenohold": { world: true, name: "Xenohold", icon: "🧫", desc: "Slow drips in a flooded chamber, a deep hum, faint telemetry, glassy pads.", atmo: null,
+    "xenohold": { rec: "orchestra", world: true, name: "Xenohold", icon: "🧫", desc: "Slow drips in a flooded chamber, a deep hum, faint telemetry, recorded strings.", atmo: null,
                beds: { underwater: 0.55, drips: 0.55, labHum: 0.28, telemetry: 0.5 }, pad: 0.6, piano: false, bells: true, beat: false,
                spat: { telemetry: { k: "spot", d: [4, 9], y: [0, 2.5] }, drips: { k: "spot", d: [1.5, 5], y: [-1.5, 1.5] } }, arc: { depth: 1.2, beds: { underwater: { lo: 0.6, hi: 1.4, per: [90, 200] } } },
                root: "F#", mode: "whole", prog: [0, 2, 4, 1], chordSec: 20, gap: [9, 18], bpm: 70, vol: 0.45 },
-    "samadhi": { world: true, name: "Samadhi", icon: "🏔", desc: "High mountain wind, a singing bowl, soft chimes and birds at dawn over a slow drone.", atmo: null,
+    "samadhi": { rec: "piano", world: true, name: "Samadhi", icon: "🏔", desc: "High mountain wind, a singing bowl, soft chimes and birds at dawn, real recorded piano.", atmo: null,
                beds: { windHowl: 0.32, bowl: 0.8, chimes: 0.35, birds: 0.45 }, pad: 0.6, piano: false, bells: true, beat: false,
                arc: { beds: { windHowl: { lo: 0.5, hi: 1.4, per: [70, 160] }, birds: { lo: 0.5, hi: 1.35, per: [120, 260] } } },
                root: "D", mode: "pent", prog: [0, 0, 1, 0], chordSec: 26, gap: [11, 22], bpm: 70, vol: 0.5 },
@@ -207,13 +207,13 @@
     "arcade": { score: "arcade", world: true, name: "Arcade", icon: "🕹", desc: "An arcade after closing: cabinet hum, a few late players, punchy indie-rock instrumentals by Steve Combs.", atmo: "arcade",
                beds: { labHum: 0.3, crowd: 0.18, keys: 0.15, roomTone: 0.25 }, pad: 0.45, piano: false, bells: true, beat: true,
                root: "A", mode: "dorian", prog: [0, 5, 3, 4], chordSec: 0, gap: [5, 10], bpm: 96, vol: 0.45 },
-    "pulp": { world: true, name: "Pulp Adventure", icon: "💥", desc: "Rain on the window over a city at night, a record turning, a ticking clock.", atmo: "pulp",
+    "pulp": { rec: "orchestra", world: true, name: "Pulp Adventure", icon: "💥", desc: "Rain on the window over a city at night, a record turning, a ticking clock.", atmo: "pulp",
                beds: { city: 0.4, rainWindow: 0.45, vinyl: 0.35, clock: 0.15 }, pad: 0.35, piano: true, bells: false, beat: false,
                root: "D", mode: "minor", prog: [0, 3, 4, 0], chordSec: 15, gap: [7, 14], bpm: 70, vol: 0.5 },
     "drafting": { rec: "piano", world: true, name: "Drafting Room", icon: "📐", desc: "A quiet drawing office: a clock, pages turning, soft rain on the skylight.", atmo: "drafting",
                beds: { roomTone: 0.35, clock: 0.4, pages: 0.5, rainLight: 0.15 }, pad: 0.4, piano: true, bells: false, beat: false,
                root: "C", mode: "major", prog: [0, 4, 3, 4], chordSec: 16, gap: [9, 16], bpm: 70, vol: 0.5 },
-    "diorama": { world: true, name: "Clay Diorama", icon: "🧸", desc: "Birds, a little stream and a breeze in the trees, music-box chimes.", atmo: "diorama",
+    "diorama": { rec: "piano", world: true, name: "Clay Diorama", icon: "🧸", desc: "Birds, a little stream and a breeze in the trees, real recorded piano.", atmo: "diorama",
                beds: { birds: 0.45, river: 0.3, windTrees: 0.25, chimes: 0.2 }, pad: 0.45, piano: false, bells: true, beat: false,
                root: "F", mode: "major", prog: [0, 3, 4, 0], chordSec: 14, gap: [6, 12], bpm: 70, vol: 0.5 },
     "bauhaus": { rec: "piano", world: true, name: "Bauhaus", icon: "🔺", desc: "A sunny studio: room tone, a record, the odd page turning.", atmo: "bauhaus",
@@ -243,7 +243,7 @@
     "cathedral": { rec: "orchestra", world: true, name: "Cathedral Glass", icon: "⛪", desc: "A great nave at dusk: the echo of stone, a far choir, footsteps on the flags.", atmo: "cathedral",
                beds: { temple: 0.4, hall: 0.35, roomTone: 0.25, bowl: 0.2 }, pad: 0.5, piano: false, bells: true, beat: false,
                root: "F", mode: "major", prog: [0, 3, 4, 0], chordSec: 18, gap: [10, 20], bpm: 60, vol: 0.45 },
-    "contour": { world: true, name: "Survey Map", icon: "🗺️", desc: "A camp on a ridge at night: wind across the hills, crickets, a far-off river.", atmo: "contour",
+    "contour": { rec: "piano", world: true, name: "Survey Map", icon: "🗺️", desc: "A camp on a ridge at night: wind across the hills, crickets, a far-off river.", atmo: "contour",
                beds: { wind: 0.35, crickets: 0.32, river: 0.18, telemetry: 0.12 }, pad: 0.45, piano: false, bells: true, beat: false,
                root: "B", mode: "dorian", prog: [0, 5, 3, 4], chordSec: 14, gap: [8, 16], bpm: 70, vol: 0.45 },
     "banknote": { rec: "piano", world: true, name: "Treasury Note", icon: "💵", desc: "A bank's quiet hall: the big clock, the murmur of the hall, notes being counted.", atmo: "banknote",
@@ -252,22 +252,22 @@
     "freefall": { score: "freefall", world: true, name: "Free Fall", icon: "🪙", desc: "A physics lab after hours: the air handling, a clock, a distant clunk, soaring guitar instrumentals by Cloudkicker.", atmo: "freefall",
                beds: { labHum: 0.32, clank: 0.45, roomTone: 0.3, clock: 0.2 }, pad: 0.4, piano: false, bells: true, beat: true,
                root: "A", mode: "dorian", prog: [0, 3, 5, 4], chordSec: 0, gap: [5, 10], bpm: 92, vol: 0.45 },
-    "sketch": { world: true, name: "Sketchbook", icon: "✏️", desc: "A quiet art room: pages turning, a clock, rain on the window, soft keys.", atmo: "sketch",
+    "sketch": { rec: "piano", world: true, name: "Sketchbook", icon: "✏️", desc: "A quiet art room: pages turning, a clock, rain on the window, real recorded piano.", atmo: "sketch",
                beds: { roomTone: 0.35, pages: 0.45, clock: 0.28, rainWindow: 0.14 }, pad: 0.35, piano: true, bells: false, beat: false,
                root: "F", mode: "lydian", prog: [0, 3, 4, 0], chordSec: 0, gap: [6, 12], bpm: 74, vol: 0.45 },
-    "papercut": { world: true, name: "Paper Hills", icon: "🎈", desc: "A breezy hillside: birdsong, wind in the trees, a brook below, the turn of a page.", atmo: "papercut",
+    "papercut": { rec: "piano", world: true, name: "Paper Hills", icon: "🎈", desc: "A breezy hillside: birdsong, wind in the trees, a brook below, the turn of a page.", atmo: "papercut",
                beds: { birds: 0.4, windTrees: 0.3, river: 0.16, pages: 0.3, chimes: 0.1 }, pad: 0.35, piano: true, bells: false, beat: false,
                root: "D", mode: "major", prog: [0, 3, 4, 0], chordSec: 0, gap: [6, 12], bpm: 72, vol: 0.45 },
     "y2k": { score: "y2k", world: true, name: "Millennium Chrome", icon: "💿", desc: "A late-90s mall at closing: fountain chimes, a soft hum, bright guitar-pop instrumentals by Josh Woodward.", atmo: "y2k",
                beds: { roomTone: 0.3, chimes: 0.28, labHum: 0.18, crowd: 0.12 }, pad: 0.45, piano: false, bells: true, beat: true,
                root: "E", mode: "lydian", prog: [0, 4, 5, 3], chordSec: 0, gap: [5, 10], bpm: 100, vol: 0.45 },
-    coast:   { rec: "piano", name: "Coastal reading room", icon: "🌊", desc: "Waves below the window, gulls, turning pages, soft keys.", atmo: "abyss",
+    coast:   { rec: "piano", name: "Coastal reading room", icon: "🌊", desc: "Waves below the window, gulls, turning pages, real recorded piano.", atmo: "abyss",
                beds: { waves: 0.8, gulls: 0.35, pages: 0.6, wind: 0.15 }, pad: 0.5, piano: true, bells: false, beat: false,
                root: "G", mode: "lydian", prog: [0, 4, 1, 3], chordSec: 15, gap: [8, 15], vol: 0.55 },
     closing: { rec: "piano", name: "Library at closing", icon: "🕯", desc: "Rain on the glass, a ticking clock, the last pages turning.", atmo: "alchemist",
                beds: { library: 0.6, rainWindow: 0.35, clock: 0.4, pages: 0.8 }, pad: 0.45, piano: true, bells: false, beat: false,
                root: "A", mode: "minor", prog: [0, 5, 2, 4], chordSec: 16, gap: [8, 16], vol: 0.5 },
-    train:   { name: "Train through the night", icon: "🚆", desc: "The rhythm of the rails, rain on the window, a slow pad.", atmo: "silkroad",
+    train:   { rec: "piano", name: "Train through the night", icon: "🚆", desc: "The rhythm of the rails, rain on the window, real recorded piano.", atmo: "silkroad",
                beds: { trainIn: 0.85, rainWindow: 0.3 }, pad: 0.55, piano: false, bells: true, beat: false,
                root: "D", mode: "dorian", prog: [0, 3, 0, 4], chordSec: 18, gap: [10, 20], vol: 0.5 },
     cafe:    { rec: "piano", name: "Café on the corner", icon: "☕", desc: "Quiet chatter, rain on the umbrellas, soft piano.", atmo: "dynasty",
@@ -1237,67 +1237,8 @@
     o.connect(v); v.connect(g.beat); o.start(t); o.stop(t + 0.4);
   }
 
-  function buildMusic(g, m) {
-    const ctx = E.ctx, S = scaleOf(m), prog = m.prog && m.prog.length ? m.prog : [0];
-    const bpm = m.bpm || 72, beat = 60 / bpm, chordSec = m.beat ? beat * 8 : (m.chordSec || 14);
-    g.beat = ctx.createBiquadFilter(); g.beat.type = "lowpass"; g.beat.frequency.value = 2600; g.beat.connect(g.mus);
-    const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.frequency.value = 1100; flt.Q.value = 0.3; flt.connect(g.mus);
-    lfo(g, 0.045, 380, flt.frequency);
-    let ci = 0, chordAt = g.t0 + 0.1, curDeg = prog[0], lastIdx = null;
-    if (m.pad > 0 || m.beat) {
-      g.tickers.push((t0, t1) => {
-        while (chordAt < t1) {
-          const t = Math.max(chordAt, t0);
-          curDeg = prog[ci % prog.length]; ci++;
-          const notes = chordNotes(S, curDeg).map((x, i) => { while (x > 74) x -= 12; while (x < 52 + (i ? 3 : 0)) x += 12; return x; });
-          if (m.pad > 0) padChord(g, t, chordSec, notes, m.pad, flt);
-          if (m.beat) {      // soft bass note on each chord
-            const o = g.src(ctx.createOscillator()), v = ctx.createGain(), bm = chordNotes(S, curDeg)[0] - 24;
-            o.type = "sine"; o.frequency.value = mtof(bm < 30 ? bm + 12 : bm);
-            v.gain.setValueAtTime(0, t); v.gain.linearRampToValueAtTime(0.28, t + 0.04); v.gain.setTargetAtTime(0, t + chordSec * 0.55, 0.5);
-            o.connect(v); v.connect(g.mus); o.start(t); o.stop(t + chordSec + 0.2);
-          }
-          chordAt += chordSec;
-        }
-      });
-    }
-    // sparse piano / bell motif that follows the chord tones
-    const inst = []; if (m.piano) inst.push("piano"); if (m.bells) inst.push("bells");
-    if (inst.length) {
-      const gap = m.gap || [5, 10];
-      g.every(rnd(1.5, 4), () => rnd(gap[0], gap[1]), (t) => {
-        const len = Math.random() < 0.3 ? 2 + Math.floor(Math.random() * 2) : 1, dir = Math.random() < 0.5 ? 1 : -1;
-        let idx = lastIdx;
-        if (Math.random() < 0.45 || idx == null) { const ct = chordNotes(S, curDeg); const base = pick(ct); idx = noteNear(S, null); const cand = S.sc.indexOf(((base - S.root) % 12 + 12) % 12); if (cand >= 0) idx = S.sc.length * 2 + cand; }
-        for (let k = 0; k < len; k++) {
-          idx = k === 0 ? idx : idx + dir * pick([1, 1, 2]);
-          idx = Math.max(S.sc.length, Math.min(S.sc.length * 3 + 2, idx));
-          const midi = idxMidi(S, idx), tt = t + k * rnd(0.34, 0.6), which = pick(inst);
-          (which === "bells" ? voiceBell : voicePiano)(g, tt, midi, 0.8 + Math.random() * 0.3);
-        }
-        lastIdx = idx;
-      });
-    }
-    // lo-fi beat: one pre-rendered two-bar loop, aligned to the chord changes
-    if (m.beat) loopTex(g, texBeat(bpm), g.beat, 1, g.t0 + 0.1);
-  }
-
-  /* ---------- TitanMusic bridge (wings/music-engine.js) ----------
-     The session feeds this group's music gain (g.mus), so the scene crossfade, kill and every level control work unchanged.
-     If the beds work adds TitanGen.musicBus() ({ ctx, input }), it is the fallback when a group has no g.mus. */
-  function musicStart(g, mix) {
-    const r = window.TitanMusic.forMix(mix, E.name);
-    if (!r) return false;                                   // engine declined: use the old music path
-    if (!r.spec) return true;                               // this scene has no music (e.g. storm)
-    let ctx = E.ctx, input = g.mus;
-    if (!input) { const mb = musicBusOf(); if (mb) { ctx = mb.ctx; input = mb.input; } }
-    if (!input) input = E.musBus;
-    const sess = window.TitanMusic.start(r.spec, { ctx, input, exclusive: false, fadeIn: 0.05 });
-    if (!sess) return false;
-    g.musicSession = sess; g.rel.push(() => sess.stop(0));
-    return true;
-  }
-  function musicBusOf() { return (window.TitanGen && typeof window.TitanGen.musicBus === "function") ? window.TitanGen.musicBus() : null; }
+  /* The generated music (pad chords, piano/bell motifs, the lo-fi beat, the TitanMusic bridge) was removed on 2026-10-21 (owner: "I dont
+     want computer generated music!!!! Its pretty bad"). Music comes only from real recordings: see buildGroup. */
 
   /* ---------- public control ---------- */
   function buildGroup(mix) {
@@ -1312,25 +1253,18 @@
     const order = BED_ORDER.filter((id) => beds[id] > 0).sort((x, y) => (REC[x].kind === "event") - (REC[y].kind === "event") || beds[y] * REC[y].trim - beds[x] * REC[x].trim);
     for (const id of order) (REC[id].kind === "event" ? recEvent : recLoop)(g, id, beds[id]);
     arcTicker(g);
-    // Recorded music first (wings/music-recorded.js): a scene with a `rec` mood plays real public-domain recordings when they are available;
-    // if they cannot load (offline, first visit) the generative music below takes over, so a scene is never silent.
+    // Music is real recorded music only (owner 2026-10-21: "I dont want computer generated music!!!! Its pretty bad"): the theme's own
+    // songs (wings/score.js), else recorded classical (wings/music-recorded.js, `rec` mood "piano" | "orchestra"). Nothing is generated:
+    // when no recording can play (offline before the first listen) the scene keeps its beds and has no music. A scene without `rec`
+    // (an old saved mix) that asked for music gets the piano recordings; `rec: null` with no music asked for = no music (Thunderstorm).
     let musicDone = false;
-    const genMusic = () => {
-      let done = false;
-      if (window.TitanMusic && window.TitanMusic.supported) { try { done = musicStart(g, mix); } catch (e) { done = false; } }
-      if (!done && ((mix.pad > 0) || mix.piano || mix.bells || mix.beat)) buildMusic(g, mix);
-    };
-    // per-theme adaptive score (wings/score.js, music worker): when the scene names one it is the music, layered over the beds
     if (mix.score && window.TitanScore && window.TitanScore.has(mix.score)) {
       try { musicDone = window.TitanScore.start(g, mix.score, { ctx: E.ctx, input: g.mus }); } catch (e) { musicDone = false; }
     }
-    if (!musicDone && mix.rec && window.TitanRecMusic && window.TitanRecMusic.has(mix.rec)) {
-      try { musicDone = window.TitanRecMusic.start(g, mix.rec, { ctx: E.ctx, input: g.recOut, fallback: () => { if (!g.dead) genMusic(); } }); } catch (e) { musicDone = false; }
+    const mood = mix.rec || (((mix.pad > 0) || mix.piano || mix.bells || mix.beat) ? "piano" : null);
+    if (!musicDone && mood && window.TitanRecMusic) {
+      try { musicDone = window.TitanRecMusic.start(g, mood, { ctx: E.ctx, input: g.recOut }); } catch (e) { musicDone = false; }
     }
-    // >>> TitanMusic integration (wings/music-engine.js): when present it plays the music; otherwise the old buildMusic path below runs.
-    if (!musicDone && window.TitanMusic && window.TitanMusic.supported) { try { musicDone = musicStart(g, mix); } catch (e) { musicDone = false; } }
-    // <<< end TitanMusic integration
-    if (!musicDone && ((mix.pad > 0) || mix.piano || mix.bells || mix.beat)) buildMusic(g, mix);
     return g;
   }
 
@@ -1492,7 +1426,6 @@
     level() { if (!E.an) return 0; E.an.getFloatTimeDomainData(E.anBuf); let s = 0; for (let i = 0; i < E.anBuf.length; i++) s += E.anBuf[i] * E.anBuf[i]; return Math.sqrt(s / E.anBuf.length); },
     stats: () => ({ buffers: Object.keys(E.bufs).filter((k) => E.bufs[k].buf).length, decoded: E.decoded, released: E.released, fallbacks: E.fallbacks, groups: E.groups.length, sources: E.groups.reduce((n, g) => n + g.srcs.length, 0), killed: E.killedSources, chunks: E.chunks, maxBedLive: E.maxBed, hrtf: E.hrtf, spatial: E.spatial, ctx: E.ctx ? E.ctx.state : "none", via: E.via })
   };
-  // >>> TitanMusic integration: tempo trim for the new music layer (no-op without wings/music-engine.js)
-  window.TitanGen.setMusicTempo = (x) => { if (window.TitanMusic) window.TitanMusic.setTempoScale(x); };
-  // <<< end TitanMusic integration
+  // kept for older callers: recordings have no tempo control
+  window.TitanGen.setMusicTempo = () => {};   // the generated music had a tempo; recordings play at their own
 })();

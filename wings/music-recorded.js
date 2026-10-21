@@ -1,10 +1,11 @@
 /* Titan Reliquary · recorded music (owner 2026-10-08: "make the music better, at minimum the classical music").
    Real public-domain / CC recordings from audio/music/ (fetched and checked by tools/music/fetch_classical.py; credits in
    audio/music/CREDITS.md). A scene with a `rec` mood (wings/scene-engine.js SCENES: "piano" or "orchestra") plays them in place of the
-   generated music; the engine falls back to the generated music when a recording cannot load (offline before first play, a network error).
+   generated music. There is no generated fallback (owner 2026-10-21: "I dont want computer generated music!!!! Its pretty bad"): when a
+   recording cannot load (offline before the first listen, a network error) the scene keeps its beds and tries again a little later.
    Streaming through an <audio> element (MediaElementSource), never decoded whole: a 5-minute piece would be ~100 MB of samples on a phone.
    Loaded before wings/scene-engine.js uses it; reads audio/music/manifest.json once.
-   API: TitanRecMusic.has(mood), .start(group, mood, {ctx, input, fallback}) -> true, .now() -> the current track or null, .load() */
+   API: TitanRecMusic.has(mood), .start(group, mood, {ctx, input}) -> true, .now() -> the current track or null, .load() */
 (() => {
   "use strict";
   if (window.TitanRecMusic) return;
@@ -39,8 +40,9 @@
     };
     function next() {
       if (stopped || g.dead) return;
+      if (!man) { load().then((m) => { if (m) next(); else retry(); }); return; }   // the list is still on its way: wait for it, never fill in
       const t = pick(mood);
-      if (!t) { stop(); if (o.fallback) o.fallback(); return; }
+      if (!t) { stop(); return; }
       drop();
       el = new Audio(); el.preload = "auto"; el.src = BASE + t.file; live.add(el);
       try { src = ctx.createMediaElementSource(el); src.connect(out); } catch (e) { fail(); return; }
@@ -56,8 +58,11 @@
     }
     function fail() {
       fails++;
-      if (played === 0 && fails >= 2) { stop(); if (o.fallback) o.fallback(); return; }   // nothing ever played (offline): generated music instead
-      if (fails < 4) gapT = setTimeout(next, 800); else { stop(); if (o.fallback) o.fallback(); }   // the network went: generated music, not silence (Grok review GRK-M-04)
+      if (fails < 4) gapT = setTimeout(next, 800); else retry();
+    }
+    function retry() {                                    // offline or the network went: no music for now, try again in a while (never generated)
+      drop(); fails = 0; clearTimeout(gapT);
+      if (!stopped && !g.dead) gapT = setTimeout(next, navigator.onLine === false ? 60000 : 20000);
     }
     function stop() {
       if (stopped) return; stopped = true; clearTimeout(gapT);
