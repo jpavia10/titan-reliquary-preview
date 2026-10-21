@@ -948,7 +948,7 @@ Collision rules: each scene registers itself with TitanFXK.mod(<name>) + TitanFX
 
 2026-10-20 23:30 PT (Grok, SOUNDSCAPE worker): tr232 SCAPE wired (bridge). horizon -> blackhole; per-theme variants (room, tone, speed, layer balance) for every theme that shares a scape (17 variants, bridge.js PARAMS); new test tools/themes/test_scape.py (every theme has a scape, every scape exists) + one step in .github/workflows/smoke.yml after the registry check.
 - FOUNDATION/SOUND OWNER: small additive edit in wings/scene-engine.js: TitanGen.setAmbDuck(x 0..1|null) multiplies the ambience bus (applyLevels), and TitanGen.getLevels(). The bridge sets ambDuck 0.12 (about -18 dB) while a scape plays so the old theme beds fold under it, and null when it stops. The scape level follows the user's ambience slider. Nothing else changed in that file.
-## 2026-10-21 00:20 PT · Grok (fx builder #2) · tr229 fx library batch 4 + polish
+## 2026-10-21 00:20 PT · Grok (fx builder #2) · tr233 fx library batch 4 + polish
 - New scenes (fx/scenes-nms.js, K.preset(id), demo entries): jellyfish (Nature), sakura (Nature), ringworld (Space), wormhole (Space), cathedral rose window (Material & Magic). Sound aliases in K.sceneSound: jellyfish->underwater, sakura->rainforest, ringworld/wormhole->space, cathedral->crystal (SOUNDSCAPE worker: dedicated presets welcome).
 - Polish: waterfall sky (sunset gradient, sun glow, fbm clouds, birds); plasma globe bolts stay separate while held (partial, per-bolt attraction + fan-out); Sun richer (red-orange granulation without the net look, penumbrae, limb faculae, red chromosphere rim, colour-graded corona).
 - Event Horizon (horizon) loads fx/scenes-nms.js too; the blackhole scene is unchanged.
