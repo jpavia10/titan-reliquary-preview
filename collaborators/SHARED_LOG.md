@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · World engine: minimal contract (tr174)
+- NEW (foundation): a minimal shared engine for theme-owned worlds (wings/signature/core.js). It enforces only a 5-point contract: any coin within a couple of steps, its sourced facts with who checked them and the source links, always a way back, a mute button and search. Everything else (layout, navigation, camera, metaphor) belongs to each theme.
+- Shared services: three.js shell, coin textures from the photos, eased camera flights, tap picking, one custom post-processing shader per world, intro moment, adaptive music (levels and tempo follow motion and selection), spatial cues (stereo pan and distance filtering), Lite mode, reduced motion.
+- No world is switched on yet, so nothing changes for users. New test tools/smoke/test_regress_grk_s01.py proves the shell keeps the contract with a bare probe world.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · Performance fallback for weak phones (tr173)
 - Performance: weak or data-saving phones (4 or fewer CPU cores, 3 GB RAM or less, or Data Saver) get a light version of today's new effects. The 3D coin draws at lower sharpness without antialiasing, its world uses 40% of the particles at 20 fps, there's no scroll-driven tile depth, and theme switches use a plain fade.
 - A watchdog also halves the coin's particle world when a frame of it costs more than 4 ms, and stops it altogether if that keeps happening. The theme FX layer already self-calibrates.
