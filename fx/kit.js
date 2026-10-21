@@ -70,6 +70,19 @@
     return true;
   }
   K.gl = function () { return gl; };
+  /* HDR scene target: when a theme's stack has a "post" module, every module draws into this RGBA16F buffer and post composites
+     it to the screen (bloom, ACES, aberration, grain, trails). Modules call K.bindTarget() before drawing. */
+  var hdr = null; K.hdr = function () { return hdr; };
+  function ensureHdr(w, h) {
+    if (hdr && hdr.w === w && hdr.h === h) return;
+    if (hdr) { gl.deleteTexture(hdr.t); gl.deleteFramebuffer(hdr.f); }
+    var t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA16F, w, h, 0, gl.RGBA, gl.HALF_FLOAT, null);
+    [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER].forEach(function (k) { gl.texParameteri(gl.TEXTURE_2D, k, gl.LINEAR); });
+    [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T].forEach(function (k) { gl.texParameteri(gl.TEXTURE_2D, k, gl.CLAMP_TO_EDGE); });
+    var f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f); gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0);
+    hdr = { t: t, f: f, w: w, h: h };
+  }
+  K.bindTarget = function () { var useH = active && active.post && hdr; gl.bindFramebuffer(gl.FRAMEBUFFER, useH ? hdr.f : null); gl.viewport(0, 0, cv.width, cv.height); };
   function stop() { if (raf) cancelAnimationFrame(raf); raf = 0; }
   function teardown() { stop(); if (active) active.parts.forEach(function (p) { p.dispose && p.dispose(); }); active = null; if (cv) cv.style.opacity = "0"; root.removeAttribute("data-fxk"); }
   function frame(now) {
@@ -78,7 +91,7 @@
     var dt = Math.min(.05, (now - last) / 1000 || .016);
     // governor: sustained slow frames (> 21 ms) lower quality; sustained fast frames raise it again
     if (last) { var ft = now - last; if (ft > (lite() ? 40 : 21)) { Q.slow++; Q.fast = 0; } else if (ft < (lite() ? 35 : 17.5)) { Q.fast++; Q.slow = 0; }
-      if (Q.slow > 45 && Q.q > .2) { Q.q = Math.max(.2, Q.q * .7); Q.scale = Math.max(.55, Q.scale * .88); Q.slow = 0; size(); }
+      if (Q.slow > 45 && Q.q > .2) { Q.q = Math.max(.2, Q.q * .7); Q.scale = Math.max(Math.min(Q.scale, .55), Q.scale * .88); Q.slow = 0; size(); }
       if (Q.fast > 240 && Q.q < 1) { Q.q = Math.min(1, Q.q * 1.15); Q.scale = Math.min(1, Q.scale * 1.05); Q.fast = 0; size(); } }
     last = now; draw((now - t0) / 1000, dt);
     if (!still() && !document.hidden) raf = requestAnimationFrame(frame);
@@ -89,18 +102,18 @@
     gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
     var ctx = { t: t, dt: dt, w: cv.width, h: cv.height, q: Q.q, lite: lite(), still: still(), ptr: ptr, obs: obs, obsN: obsN, cfg: active.cfg, id: active.id };
     for (var i = 0; i < active.parts.length; i++) active.parts[i].step && active.parts[i].step(ctx);
-    gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, cv.width, cv.height);
-    for (i = 0; i < active.parts.length; i++) active.parts[i].draw(ctx);
+    if (active.post) { ensureHdr(cv.width, cv.height); K.bindTarget(); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); } else K.bindTarget();
+    for (i = 0; i < active.parts.length; i++) { if (active.parts[i].name !== "post") K.bindTarget(); active.parts[i].draw(ctx); }
     ptr.vx *= .85; ptr.vy *= .85;
   }
   function apply(force) {
-    var id = root.dataset.atmo, cfg = K.themes[id];
+    var id = K.forced || root.dataset.atmo, cfg = K.themes[id];
     if (!force && active && active.id === id) return;
     teardown(); if (!cfg || root.dataset.ui === "field" && !cfg.field) return;
     if (!ensure()) return;
     var parts = []; (cfg.stack || []).forEach(function (s) { var f = K.mods[s.mod]; if (f) { try { var p = f(gl, s, K); if (p) parts.push(p); } catch (e) { console.warn("[fxk]", s.mod, e); } } });
     if (!parts.length) return;
-    active = { id: id, cfg: cfg, parts: parts }; root.setAttribute("data-fxk", id);
+    active = { id: id, cfg: cfg, parts: parts, post: parts.some(function (p) { return p.name === "post"; }) }; root.setAttribute("data-fxk", id);
     cv.style.opacity = String(cfg.opacity == null ? 1 : cfg.opacity); last = 0; Q.slow = Q.fast = 0;
     raf = requestAnimationFrame(frame);
   }

@@ -35,10 +35,10 @@
       "  vec2 d = (uv-uP)*vec2(uAsp,1.); float g = exp(-dot(d,d)/.0035)*uDown;",
       "  r.xy += uV*g*.9; r.z = max(r.z*exp(-uDt*.4), g); o = r; }"].join("\n"));
     var upd = K.compile(K.FSQ, HEAD + [
-      "uniform sampler2D uS, uR; uniform float uT, uDt, uAsp, uCurl, uScale, uSpeed, uGrav, uLife, uRake, uSpawn, uObsK; uniform vec2 uDrift; uniform vec4 uObs[8]; uniform int uObsN; out vec4 o;",
+      "uniform sampler2D uS, uR, uF; uniform float uFluidK, uT, uDt, uAsp, uCurl, uScale, uSpeed, uGrav, uLife, uRake, uSpawn, uObsK; uniform vec2 uDrift; uniform vec4 uObs[8]; uniform int uObsN; out vec4 o;",
       "vec2 field(vec2 p){ vec2 q = p*vec2(uAsp,1.);",
       "  vec2 v = uDrift + vec2(0.,-uGrav) + curl(q*uScale, uT*uSpeed)*uCurl*.02;",
-      "  v += texture(uR, p).xy*uRake;",
+      "  v += texture(uR, p).xy*uRake; if (uFluidK > 0.) v += texture(uF, p).xy*uFluidK*.0015;",
       "  for (int i=0;i<8;i++){ if (i>=uObsN) break; vec2 d = (p-uObs[i].xy)*vec2(uAsp,1.); float r = uObs[i].z, L = length(d);",
       "    if (L < r*1.8){ vec2 n = d/max(L,1e-4), tg = vec2(-n.y,n.x)*sign(dot(vec2(-n.y,n.x), v)+1e-4); float k = smoothstep(r*1.8, r, L)*uObsK;",
       "      v = mix(v, tg*length(v)*1.25 + n*.02, k); if (L < r) v += n*(r-L)*6.*uObsK; } }",
@@ -87,6 +87,7 @@
         gl.viewport(0, 0, side, side); gl.bindFramebuffer(gl.FRAMEBUFFER, FB[1 - cur]); gl.useProgram(upd.p);
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, A[cur]); gl.uniform1i(upd.u.uS, 0);
         gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, R[rc]); gl.uniform1i(upd.u.uR, 1);
+        var F = K.fluid; gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, F ? F.vel.r.t : R[rc]); gl.uniform1i(upd.u.uF, 2); gl.uniform1f(upd.u.uFluidK, F ? (s.fluidK || 0) : 0);
         var u = upd.u; gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uDt, c.still ? 0 : c.dt); gl.uniform1f(u.uAsp, asp);
         gl.uniform1f(u.uCurl, s.curl == null ? 1 : s.curl); gl.uniform1f(u.uScale, s.scale || 2); gl.uniform1f(u.uSpeed, s.speed == null ? .05 : s.speed);
         gl.uniform1f(u.uGrav, s.gravity || 0); gl.uniform1f(u.uLife, s.life == null ? .08 : s.life); gl.uniform1f(u.uRake, s.rake == null ? .6 : s.rake);

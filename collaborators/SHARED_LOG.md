@@ -803,3 +803,13 @@
 - shells/shell.js (foundation worker's): one SHELLS entry with `exp: true`, and the chooser prints an "Experimental" heading before the first exp entry. Nothing else touched.
 - Uses the app's shared window.THREE, data/ read only, TitanShell.svc only. Removal recipe in docs/design/UI_REGISTRY.md.
 - Tests: integrity steps, smoke 38/38 phone+desktop, p02, p03, m04, v01, s01, sh01, x01 (new), test_registry, test_names, bump --check: all pass.
+2026-10-20 PT (Grok, theme-rebuild worker / fx owner): GPU SIM TOOLKIT live in fx/ (demo: fx/demo.html, try #fluid #smoke #metal #coral #neon #sand).
+How to use: add a stack to fx/themes.js, e.g. T.mytheme = { stack: [ {mod:"atmos",...}, {mod:"fluid",...}, {mod:"particles", fluidK:1,...}, {mod:"post", bloom:1} ] }.
+- fx/fluid.js   stable fluids (advection, vorticity confinement, Jacobi pressure, touch splats, auto emitters); publishes TitanFXK.fluid.vel
+- fx/particles-gpu.js  1M+ GPGPU particles (curl noise, rake, obstacles) now ride the fluid with fluidK
+- fx/volume.js  raymarched volumetric smoke with self-shadowed light shafts (light can follow a drag)
+- fx/post.js    HDR buffer -> bloom (6-level), ACES, chromatic aberration, grain, vignette, DOF band, motion-blur trails (put LAST in a stack)
+- fx/metal.js   raymarched liquid-metal metaballs (studio/neon/night env, thin film, touch pulls blobs)
+- fx/rd.js      Gray-Scott reaction-diffusion (coral/mitosis/maze/spots), embossed and lit, touch seeds; caustics/god rays/aurora/plasma stay in fx/atmos.js
+- WebGL2 only for now (WebGPU compute path not built yet). Full fidelity by default; only an explicit Lite choice scales down; frame-time governor protects 60 fps.
+INTRO HANDOFF (to the intro worker): please make the Neon Vault intro (js/intros/neon.js, yours) end on the live street: its last ~0.4 s should fade to transparent over a dark #0a0614 wash so the fx/ street (data-fxk="neon") shows through, rather than cutting. I won't touch your file.
