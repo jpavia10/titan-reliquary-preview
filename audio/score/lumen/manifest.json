@@ -1,0 +1,89 @@
+{
+ "theme": "lumen",
+ "version": 1,
+ "tracks": {
+  "hoist": {
+   "file": "hoist.m4a",
+   "title": "Hoist",
+   "artist": "Andy G. Cohen",
+   "license": "CC BY 4.0",
+   "url": "https://archive.org/details/andy-g.-cohen-prisma"
+  },
+  "decapod": {
+   "file": "decapod.m4a",
+   "title": "Decapod",
+   "artist": "Andy G. Cohen",
+   "license": "CC BY 4.0",
+   "url": "https://archive.org/details/andy-g.-cohen-prisma"
+  },
+  "epoxy-resin": {
+   "file": "epoxy-resin.m4a",
+   "title": "Epoxy Resin",
+   "artist": "Andy G. Cohen",
+   "license": "CC BY 4.0",
+   "url": "https://archive.org/details/andy-g.-cohen-prisma"
+  },
+  "crunch-me-beautiful": {
+   "file": "crunch-me-beautiful.m4a",
+   "title": "Crunch Me Beautiful",
+   "artist": "Andy G. Cohen",
+   "license": "CC BY 4.0",
+   "url": "https://archive.org/details/andy-g.-cohen-prisma"
+  },
+  "gazing": {
+   "file": "gazing.m4a",
+   "title": "Gazing",
+   "artist": "Andy G. Cohen",
+   "license": "CC BY 4.0",
+   "url": "https://archive.org/details/andy-g.-cohen-prisma"
+  }
+ },
+ "decks": {
+  "browse": [
+   "hoist",
+   "decapod",
+   "epoxy-resin",
+   "crunch-me-beautiful"
+  ],
+  "coin": [
+   "gazing"
+  ]
+ },
+ "states": {
+  "browse": {
+   "deck": "browse",
+   "lp": 20000,
+   "gain": 1
+  },
+  "search": {
+   "deck": "browse",
+   "lp": 1600,
+   "gain": 0.7
+  },
+  "idle": {
+   "deck": "browse",
+   "lp": 900,
+   "gain": 0.55
+  },
+  "coin": {
+   "deck": "coin",
+   "lp": 20000,
+   "gain": 0.95
+  }
+ },
+ "stinger": {
+  "file": "stinger.m4a",
+  "pad": 0,
+  "len": 11.0,
+  "total": 11.0,
+  "hit": 2.4
+ },
+ "ui": {
+  "tap": "ui-tap.m4a",
+  "open": "ui-open.m4a",
+  "back": "ui-back.m4a",
+  "search": "ui-search.m4a",
+  "coin": "ui-coin.m4a"
+ },
+ "note": "Songs are recorded human music (licensed, see audio/score/CREDITS.md). Stinger and UI sounds are designed sound effects (tools/music/score/lumen.py)."
+}
