@@ -131,7 +131,8 @@
     banknote:   { bg: "#eef0e4", bg2: "#e6e9da", surface: "#fbfcf5", ink: "#14271f", muted: "#2f4639", gold: "#1f5e43", soft: "#174a35", light: true },
     contour:    { bg: "#0b1315", bg2: "#0f1a1d", surface: "#132124", ink: "#eef6f4", muted: "#c8d9d5", gold: "#ffb547", soft: "#ffd28a" },
     cathedral:  { bg: "#0d0b14", bg2: "#120f1b", surface: "#18142a", ink: "#f5f1ea", muted: "#d8d0c4", gold: "#e9b44c", soft: "#f5cf7f" },
-    marbled:    { bg: "#f3ecdc", bg2: "#ebe2cd", surface: "#fbf7ec", ink: "#231a16", muted: "#46372f", gold: "#7a1f2b", soft: "#5f1520", light: true }
+    marbled:    { bg: "#f3ecdc", bg2: "#ebe2cd", surface: "#fbf7ec", ink: "#231a16", muted: "#46372f", gold: "#7a1f2b", soft: "#5f1520", light: true },
+    ferro:      { bg: "#050608", bg2: "#08090c", surface: "#0d0f13", ink: "#eef3f7", muted: "#c3ccd6", gold: "#6fe7ff", soft: "#b4f3ff" }
   };
   function palette(id, tableOnly) {
     var base = PAL[id] || PAL.afterhours, out = {}, k;
