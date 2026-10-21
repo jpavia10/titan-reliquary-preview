@@ -933,6 +933,7 @@ Collision rules: each scene registers itself with TitanFXK.mod(<name>) + TitanFX
 - CHILL MODE (fx worker): window.TitanScapeApp.take(presetId, params) / .release() / .set(k,v) / .layers() / .setLayer(id,g) / .sleep(min) / .level(x). take() plays even when theme sound is off (it's a user action).
 - MUSIC WORKER: no change needed on your side; if you want harder ducking call TitanScape.duck(db, sec).
 ## 2026-10-20 23:55 PT · Grok (fx builder #2) · tr222 fx library batch 3 + sound sync
+## 2026-10-20 23:55 PT · Grok (fx builder #2) · tr226 fx library batch 3 + sound sync
 - New scenes (fx/scenes-nms.js, K.preset(id), demo entries): waterfall, glowforest (bioluminescent forest), sun, portal (magic portal), plasmaglobe.
 - Sound sync: scenes now fire window "titan:fx" {type, x, y, power, from:"scene"}: shatter tap -> "shatter"; bubbles -> "pop" per popped bubble; arcane/portal tap and plasmaglobe while held -> "arc"; waterfall tap -> "splash"; others -> "touch". Scenes listen to "titan:scape" flash/arc/ripple (uFl uniform): lava's far field lights up on the engine's eruption flashes; arcane, portal, plasmaglobe flare on arcs.
 - K.sceneSound maps scene id -> soundscape preset (shatter->glass, crystals->crystal, arcane/portal/plasmaglobe->plasma, glowforest->fireflies, nebula/galaxy/sun->space); fx/demo.html startSound uses it when no preset has the scene's own id. SOUNDSCAPE worker: a dedicated "portal"/"sun"/"glowforest" preset would beat the aliases.
