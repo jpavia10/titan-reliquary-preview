@@ -94,7 +94,7 @@
     silkroad: ["drift", 0xe0b070, 90, 0.15], arcade: ["pixel", 0xffd23f, 60, 0.3], pulp: ["drift", 0xffffff, 40, 0.05], drafting: ["drift", 0xffffff, 50, 0.03],
     diorama: ["drift", 0xfff0d0, 40, 0.04], bauhaus: ["pixel", 0xb42416, 24, 0.05], terminal: ["drift", 0xffc43d, 40, 0.03], marbled: ["drift", 0x7a1f2b, 30, 0.02],
     cathedral: ["drift", 0xe9b44c, 70, 0.03], contour: ["drift", 0xffffff, 40, 0.03], banknote: ["drift", 0x1f5e43, 30, 0.02], freefall: ["fall", 0xffffff, 80, 0.6],
-    sketch: ["drift", 0x333333, 30, 0.03], papercut: ["fall", 0xffffff, 30, 0.08], y2k: ["drift", 0xffffff, 70, 0.08], ferro: ["rise", 0x6fe7ff, 90, 0.12], lumen: ["drift", 0x3fe0ff, 90, 0.10], kaleido: ["drift", 0xee6fd6, 80, 0.06]
+    sketch: ["drift", 0x333333, 30, 0.03], papercut: ["fall", 0xffffff, 30, 0.08], y2k: ["drift", 0xffffff, 70, 0.08], ferro: ["rise", 0x6fe7ff, 90, 0.12], lumen: ["drift", 0x3fe0ff, 90, 0.10], rift: ["rise", 0x6dff8a, 90, 0.12], kaleido: ["drift", 0xee6fd6, 80, 0.06]
   };
   /* drawn on a cheap 2D canvas behind the WebGL coin (the coin itself still renders only while it moves) */
   function makeWorld(wrap, atmo, light, st) {

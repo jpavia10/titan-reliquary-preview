@@ -6793,6 +6793,7 @@
     diorama:     { name: "Clay Diorama",      themeColor: "#f3ece4", preset: "diorama",   station: "lofi",      pair: "Birds and stream + Lo-fi" },
     bauhaus:     { name: "Bauhaus",           themeColor: "#f2efe6", preset: "bauhaus",   station: "classical", pair: "Studio + Classical" },
     terminal:    { name: "Grand Terminal",    themeColor: "#0d0f12", preset: "terminal",  station: "adventure", pair: "Trains and the hall + Adventure" },
+    rift:        { name: "Rift Garage", themeColor: "#060807", preset: "rift", station: "dark", pair: "Workshop hum + Late-night piano" },
     lumen:       { name: "Lumen Circuit", themeColor: "#03050b", preset: "lumen", station: "dark", pair: "Grid hum + Synth night" },
     ferro:       { name: "Ferrofluid", themeColor: "#050608", preset: "ferro", station: "dark", pair: "Magnet lab + Dark ambient" },
     marbled:     { name: "Marbled Endpapers", themeColor: "#f3ecdc", preset: "marbled", station: "classical", pair: "Old library + Classical" },
@@ -6808,7 +6809,7 @@
     "afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss",
     "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla",
     "dynasty", "zen", "samadhi", "silkroad",
-    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k", "papercut", "sketch", "freefall", "banknote", "contour", "cathedral", "marbled", "ferro", "lumen"
+    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k", "papercut", "sketch", "freefall", "banknote", "contour", "cathedral", "marbled", "ferro", "lumen", "rift"
   ];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");
