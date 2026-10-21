@@ -1,0 +1,81 @@
+{
+ "theme": "ferro",
+ "version": 1,
+ "tracks": {
+  "from-the-balcony": {
+   "file": "from-the-balcony.m4a",
+   "title": "From the Balcony",
+   "artist": "Cloudkicker (Ben Sharp)",
+   "license": "CC BY 4.0",
+   "url": "https://cloudkicker.bandcamp.com/album/fade"
+  },
+  "the-focus": {
+   "file": "the-focus.m4a",
+   "title": "The Focus",
+   "artist": "Cloudkicker (Ben Sharp)",
+   "license": "CC BY 4.0",
+   "url": "https://cloudkicker.bandcamp.com/album/fade"
+  },
+  "making-will-mad": {
+   "file": "making-will-mad.m4a",
+   "title": "Making Will Mad",
+   "artist": "Cloudkicker (Ben Sharp)",
+   "license": "CC BY 4.0",
+   "url": "https://cloudkicker.bandcamp.com/album/fade"
+  },
+  "la-after-rain": {
+   "file": "la-after-rain.m4a",
+   "title": "LA After Rain",
+   "artist": "Cloudkicker (Ben Sharp)",
+   "license": "CC BY 4.0",
+   "url": "https://cloudkicker.bandcamp.com/album/fade"
+  }
+ },
+ "decks": {
+  "browse": [
+   "from-the-balcony",
+   "the-focus",
+   "making-will-mad"
+  ],
+  "coin": [
+   "la-after-rain"
+  ]
+ },
+ "states": {
+  "browse": {
+   "deck": "browse",
+   "lp": 9000,
+   "gain": 1
+  },
+  "search": {
+   "deck": "browse",
+   "lp": 1600,
+   "gain": 0.7
+  },
+  "idle": {
+   "deck": "browse",
+   "lp": 900,
+   "gain": 0.55
+  },
+  "coin": {
+   "deck": "coin",
+   "lp": 20000,
+   "gain": 0.95
+  }
+ },
+ "stinger": {
+  "file": "stinger.m4a",
+  "pad": 0,
+  "len": 11.0,
+  "total": 11.0,
+  "hit": 2.4
+ },
+ "ui": {
+  "tap": "ui-tap.m4a",
+  "open": "ui-open.m4a",
+  "back": "ui-back.m4a",
+  "search": "ui-search.m4a",
+  "coin": "ui-coin.m4a"
+ },
+ "note": "Songs are recorded human music (licensed, see audio/score/CREDITS.md). Stinger and UI sounds are designed sound effects (tools/music/score/ferro.py)."
+}

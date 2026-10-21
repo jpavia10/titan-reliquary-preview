@@ -228,7 +228,7 @@
     "lumen": { rec: "piano", world: true, name: "Lumen Circuit", icon: "🔷", desc: "A grid world at night: the low hum of the lanes, faint telemetry and a real recorded piano.", atmo: "lumen",
                beds: { labHum: 0.4, roomTone: 0.25, telemetry: 0.45 }, pad: 0, piano: false, bells: false, beat: false,
                root: "D", mode: "minor", prog: [0], chordSec: 16, gap: [9, 18], vol: 0.45 },
-    "ferro": { world: true, name: "Ferrofluid", icon: "🧲", desc: "A magnet lab after hours: coil hum, a slow sub pulse, metal ticking as it cools.", atmo: "ferro",
+    "ferro": { score: "ferro", world: true, name: "Ferrofluid", icon: "🧲", desc: "A magnet lab after hours: coil hum, metal ticking as it cools, slow dark guitar instrumentals by Cloudkicker.", atmo: "ferro",
                beds: { labHum: 0.32, roomTone: 0.28, telemetry: 0.14 }, pad: 0.5, piano: false, bells: true, beat: false,
                root: "C#", mode: "phrygian", prog: [0, 1, 0, 6], chordSec: 16, gap: [9, 18], bpm: 60, vol: 0.45 },
     "marbled": { rec: "piano", world: true, name: "Marbled Endpapers", icon: "📚", desc: "An old library: the hush of the room, pages turning, a clock, rain on tall windows.", atmo: "marbled",

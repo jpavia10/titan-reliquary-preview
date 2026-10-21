@@ -21,6 +21,10 @@ effects around a song (intro stingers, UI sounds, filters, crossfades). Each tra
 | Arcade (arcade) | Hero | Steve Combs | CC BY 3.0 | https://archive.org/details/ourwastedyouth (Our Wasted Youth, Parenthetical Records PAR-601) |
 | Arcade (arcade) | Chase | Steve Combs | CC BY 3.0 | https://archive.org/details/ourwastedyouth (Our Wasted Youth, Parenthetical Records PAR-601) |
 | Arcade (arcade) | Wandering | Steve Combs | CC BY 3.0 | https://archive.org/details/ourwastedyouth (Our Wasted Youth, Parenthetical Records PAR-601) |
+| Ferrofluid (ferro) | From the Balcony | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/fade (album Fade, 2012) |
+| Ferrofluid (ferro) | The Focus | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/fade (album Fade, 2012) |
+| Ferrofluid (ferro) | Making Will Mad | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/fade (album Fade, 2012) |
+| Ferrofluid (ferro) | LA After Rain | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/fade (album Fade, 2012) |
 
 Attribution (CC BY 4.0): "<Track>" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0
 License, http://creativecommons.org/licenses/by/4.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
@@ -28,7 +32,7 @@ License, http://creativecommons.org/licenses/by/4.0/. Changes: loudness-normalis
 Attribution (CC BY 3.0): "<Track> (Instrumental Version)" by Josh Woodward (joshwoodward.com), via Jamendo / Internet Archive. Licensed under
 Creative Commons Attribution 3.0, http://creativecommons.org/licenses/by/3.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
 
-Attribution (CC BY 4.0): "<Track>" by Cloudkicker (Ben Sharp), from Let Yourself Be Huge (2011), cloudkicker.bandcamp.com. Licensed under
+Attribution (CC BY 4.0): "<Track>" by Cloudkicker (Ben Sharp), from Let Yourself Be Huge (2011) or Fade (2012), cloudkicker.bandcamp.com. Licensed under
 Creative Commons Attribution 4.0, http://creativecommons.org/licenses/by/4.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
 
 Attribution (CC BY 3.0): "<Track>" by Steve Combs, from Our Wasted Youth (Parenthetical Records, 2015). Licensed under Creative Commons
