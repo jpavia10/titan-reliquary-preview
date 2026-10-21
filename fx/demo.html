@@ -24,7 +24,7 @@
 <div id="flash"></div>
 <script src="kit.js"></script><script src="atmos.js"></script><script src="particles-gpu.js"></script><script src="fluid.js"></script>
 <script src="post.js"></script><script src="volume.js"></script><script src="metal.js"></script><script src="rd.js"></script><script src="themes.js"></script>
-<script src="../audio/scape/engine.js?v=s2"></script><script src="../audio/scape/presets.js?v=s2"></script>
+<script src="../audio/scape/engine.js?v=s3"></script><script src="../audio/scape/presets.js?v=s3"></script>
 <script>
 (function () {
   var K = TitanFXK, T = K.themes, POST = { mod: "post", bloom: 1, threshold: .6, exposure: 1.2, aberr: .5, grain: .03, vig: .4 };
@@ -67,7 +67,7 @@
     sb.onclick = function () { soundOn = !soundOn; sb.setAttribute("aria-pressed", String(soundOn)); sb.innerHTML = soundOn ? "&#128266; Sound on" : "&#128264; Sound off"; mix.hidden = !soundOn;
       if (soundOn) { if (TS.muted) TS.setMuted(false); TS.unlock(); startSound(); } else TS.stop(); };
     var ex = document.getElementById("mixextra"), scenes = D.map(function (d) { return d[0]; });
-    Object.keys(TS.presets).forEach(function (id) { if (scenes.indexOf(id) >= 0 || id === "insects") return; var b = document.createElement("button"); b.textContent = TS.presets[id].name; b.dataset.p = id; b.onclick = function () { startSound(id); }; ex.appendChild(b); });
+    Object.keys(TS.presets).forEach(function (id) { if (scenes.indexOf(id) >= 0 || id === "insects" || id === "space") return; var b = document.createElement("button"); b.textContent = TS.presets[id].name; b.dataset.p = id; b.onclick = function () { startSound(id); }; ex.appendChild(b); });
     var fl = document.getElementById("flash");
     addEventListener("titan:scape", function (e) { var d = e.detail; if (d.type !== "burst") return; var h = Math.floor(Math.random() * 360);
       fl.style.setProperty("--fx", (d.x * 100) + "%"); fl.style.background = "radial-gradient(circle at " + (d.x * 100) + "% " + ((1 - d.y) * 100) + "%, hsla(" + h + ",100%,75%,.9), hsla(" + h + ",100%,50%,.2) 25%, transparent 55%)";

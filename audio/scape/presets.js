@@ -252,6 +252,85 @@
       var grass = k.L("breeze", "Breeze in grass", .3); k.grains(grass, "windTrees", { grain: 3, density: 2, spread: 1, rate: 1.1 }); drive(grass, "wind", function () { return .2 + k.P.wind * 1.5; }, 300);
     } });
   TS.define("insects", Object.assign({}, TS.presets.fireflies, { name: "Night insects" }));
+
+  /* ===== batch 3 ===== */
+  /* 14. WATERFALL: a big fall in a gorge; recorded roar split into a near plunge and a high spray, mist hiss, splash drops, gorge echo */
+  TS.define("waterfall", { name: "Waterfall in a gorge", space: "cave", params: { intensity: 1 },
+    build: function (k) {
+      var fall = k.L("fall", "Falling water", .85, { wet: .5 }); var fv = k.Voice(fall.g, [0, 4, -14], { ref: 8 });
+      k.grains(fall, "waterfall", { grain: 2.4, density: 3, dest: fv.in, spread: 0, jitter: .05 });
+      k.noiseBed(fall, "brown", { type: "lowpass", f: 160, gain: 1.2, walk: [90, 260], walkMs: 600, gainWalk: [.7, 1.2], dest: fv.in });
+      drive(fall, "i", function () { return .5 + k.P.intensity * .5; }, 300);
+      var spray = k.L("spray", "Spray and mist", .45); k.grains(spray, "river", { grain: 1.6, density: 3, spread: 1, rate: 1.25 });
+      k.noiseBed(spray, "white", { type: "highpass", f: 5000, gain: .2, walk: [3500, 8000], gainWalk: [.5, 1.1], walkMs: 500 });
+      var sp = k.L("splash", "Splashes", .5); k.poisson(sp, function () { return 18 * k.P.intensity; }, function (t) { var V = k.Voice(sp.g, [k.rr(-6, 6), k.rr(-2, 1), -k.rr(3, 10)], { ref: 1.5 }); k.S.drop(V.in, t, { f: k.rr(600, 2500), len: k.rr(.04, .12), gain: .22 }); setTimeout(function () { V.pan.disconnect(); }, 500); });
+      var pool = k.L("pool", "Plunge pool", .35); var pv = k.Voice(pool.g, [-3, -2, -9], { ref: 3 }); k.poisson(pool, function () { return 3; }, function (t) { k.S.bubble(pv.in, t, { size: k.rr(2, 5), gain: .2 }); });
+      var birds = k.L("birds", "Gorge birds", .2, { wet: 1 }); k.grains(birds, "birds", { grain: 2.5, density: 1.6, spread: 1 }); drive(birds, "tod", function () { var h = k.P.tod; return h > 6 && h < 19 ? 1 : 0; }, 1000);
+    } });
+
+  /* 15. UNDERWATER (open ocean, not the reef): pressure hum, slow current surges, a diver's breath bubbles, far whales, sonar-like ping echoes off the deep */
+  TS.define("underwater", { name: "Deep underwater", space: "water", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx;
+      var deep = k.L("deep", "Deep water", .8); var lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 700; lp.connect(deep.g);
+      k.grains(deep, "underwater", { grain: 3, density: 2.4, spread: .9, rate: .85, dest: lp });
+      k.noiseBed(deep, "brown", { type: "lowpass", f: 120, gain: 1, walk: [60, 220], walkMs: 3000, gainWalk: [.4, 1.3], walkT: 2.5 });
+      var surge = k.L("current", "Current surges", .5);
+      k.poisson(surge, function () { return 1 / 9; }, function (t) { var n = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); n.buffer = (nb(k), k.noiseBuf); n.loop = true; f.type = "lowpass";
+        f.frequency.setValueAtTime(80, t); f.frequency.linearRampToValueAtTime(420, t + 3); f.frequency.linearRampToValueAtTime(80, t + 7); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.6, t + 3); g.gain.linearRampToValueAtTime(0, t + 7.5);
+        var p = c.createStereoPanner(); p.pan.setValueAtTime(-.8, t); p.pan.linearRampToValueAtTime(.8, t + 7.5); n.connect(f); f.connect(g); g.connect(p); p.connect(surge.g); n.start(t, Math.random() * 3); n.stop(t + 8); });
+      var br = k.L("breath", "Diver's bubbles", .45); var bv = k.Voice(br.g, [.3, .6, -.5], { ref: .6 });
+      (function breathe() { if (br.dead) return; var t = c.currentTime + .1; for (var i = 0; i < 26; i++) k.S.bubble(bv.in, t + Math.pow(Math.random(), 1.4) * 1.6, { size: k.rr(.7, 2.5), gain: .16 }); br.timers.push(setTimeout(breathe, k.rr(4.5, 6) * 1000)); })();
+      var wh = k.L("whales", "Whales far off", .5, { wet: 1.5 }); var wv = k.Voice(wh.g, [-100, -30, -400], { ref: 60, roll: .2 }); wv.lp.frequency.value = 1200;
+      k.poisson(wh, function () { return 1 / 30; }, function (t) { wv.at(k.rr(-400, 400), -30, -k.rr(200, 600)); k.oneShot(wv.in, "whale", { t: t, gain: .7, rate: k.rr(.75, 1) }); });
+      var pg = k.L("groan", "Hull and ice groans", .3, { wet: 1.4 }); var gv = k.Voice(pg.g, [40, -10, -120], { ref: 30, roll: .3 });
+      k.poisson(pg, function () { return 1 / 20; }, function (t) { gv.at(k.rr(-100, 100), -10, -k.rr(60, 200)); k.oneShot(gv.in, "creak", { t: t, segs: [[0, 3.6], [4.1, 3.6], [8.2, 3.6], [12.3, 3.6]], gain: .5, rate: k.rr(.25, .4) }); });
+    } });
+
+  /* 16. LAVA: a lava field; deep earth rumble, slow viscous bubbles that burst with a thud and a spatter of crackle, cooling crust ticks, vent hiss, distant eruptions */
+  TS.define("lava", { name: "Lava field", space: "open", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx;
+      var rum = k.L("rumble", "Earth rumble", .8); k.noiseBed(rum, "brown", { type: "lowpass", f: 70, gain: 1.5, walk: [35, 120], walkMs: 1800, gainWalk: [.5, 1.3], walkT: 1.2 });
+      [29, 31.3].forEach(function (f) { var o = c.createOscillator(), g = c.createGain(); o.frequency.value = f; g.gain.value = .3; o.connect(g); g.connect(rum.g); o.start(); rum.nodes.push(o); });
+      var flow = k.L("flow", "Molten flow", .6); var fv = k.Voice(flow.g, [-2, -1, -5], { ref: 3 }); k.grains(flow, "fire", { grain: 2, density: 3, rate: .45, dest: fv.in, spread: 0, jitter: .1 }); fv.lp.frequency.value = 1100;
+      var blob = k.L("bubbles", "Lava bubbles", .8);
+      k.poisson(blob, function () { return 1.1 * k.P.intensity; }, function (t) { var V = k.Voice(blob.g, [k.rr(-6, 6), -1, -k.rr(2, 9)], { ref: 2 }), lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 700; lp.connect(V.in);
+        var up = k.rr(.3, 1.2); k.S.bubble(lp, t, { size: k.rr(8, 16), gain: .5 }); k.S.boom(V.in, t + up, { f: k.rr(50, 90), len: .35, gain: .45, bright: 900 });
+        for (var i = 0; i < 12; i++) k.S.crackle(V.in, t + up + Math.random() * .5, { f: k.rr(1500, 5000), gain: .18, burst: 2 }); });
+      var crust = k.L("crust", "Cooling crust", .4); k.poisson(crust, function () { return 9; }, function (t) { var V = k.Voice(crust.g, [k.rr(-5, 5), -1.2, -k.rr(1, 6)], { ref: 1 }); k.S.crackle(V.in, t, { f: k.rr(2500, 8000), gain: .1, burst: 1 }); setTimeout(function () { V.pan.disconnect(); }, 300); });
+      var vent = k.L("vent", "Gas vent", .35); var vv = k.Voice(vent.g, [5, 0, -7]); var vb = k.noiseBed(vent, "white", { f: 2500, q: .7, gain: 0, dest: vv.in });
+      (function puff() { if (vent.dead) return; var t = c.currentTime, d = k.rr(2, 6); vb.g.gain.setValueAtTime(0, t); vb.g.gain.linearRampToValueAtTime(.5, t + .4); vb.g.gain.linearRampToValueAtTime(0, t + d); vent.timers.push(setTimeout(puff, (d + k.rr(3, 12)) * 1000)); })();
+      var far = k.L("eruption", "Distant eruptions", .7, { wet: 1 }); var ev = k.Voice(far.g, [0, 50, -800], { ref: 200, roll: .3 });
+      k.poisson(far, function () { return 1 / 25; }, function (t) { var dist = k.rr(.6, 2); ev.at(k.rr(-600, 600), 50, -dist * 1000); k.emit("flash", { dist: dist, x: k.rr(.2, .8), power: .5, kind: "eruption" }); k.S.thunder(ev.in, t + dist * 1000 / 343, dist, { gain: 1.2 }); });
+    } });
+
+  /* 17. AURORA / SPACE: the vast quiet; a pitchless solar-wind texture, slow inharmonic resonances, ionosphere crackle (natural VLF-style tweeks), sub pressure. No notes, no melody. */
+  TS.define("aurora", { name: "Aurora and deep space", space: "space", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx;
+      var wind = k.L("solar", "Solar wind", .6, { wet: 1.2 }); k.noiseBed(wind, "pink", { f: 900, q: .9, gain: .8, walk: [300, 2600], walkMs: 4000, gainWalk: [.3, 1], walkT: 4 });
+      var res = k.L("glow", "Shimmer", .45, { wet: 1.6 }); [233, 377, 610, 987, 1597].forEach(function (f) { k.noiseBed(res, "pink", { f: f, q: 40, gain: .9, walk: [f * .9, f * 1.1], walkMs: 6000, gainWalk: [0, 1], walkT: 5 }); });
+      var sub = k.L("sub", "Pressure", .35); k.noiseBed(sub, "brown", { type: "lowpass", f: 50, gain: 1.4, walk: [25, 80], walkMs: 5000, gainWalk: [.4, 1.2], walkT: 4 });
+      var vlf = k.L("tweeks", "Radio tweeks", .3, { wet: 1.3 });
+      k.poisson(vlf, function () { return .7 * k.P.intensity; }, function (t) { var o = c.createOscillator(), g = c.createGain(), p = c.createStereoPanner(), f0 = k.rr(3000, 7000), d = k.rr(.15, .6);
+        o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f0 * k.rr(.15, .3), t + d); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.05, t + .01); g.gain.exponentialRampToValueAtTime(1e-4, t + d);
+        p.pan.value = k.rr(-1, 1); o.connect(g); g.connect(p); p.connect(vlf.g); o.start(t); o.stop(t + d + .05); });
+      k.poisson(vlf, function () { return 6; }, function (t) { k.S.crackle(vlf.g, t, { f: k.rr(1500, 6000), gain: .05, burst: 2 }); });
+      var cold = k.L("hum", "Station hum", .2, { wet: .8 }); k.grains(cold, "labHum", { grain: 3, density: 2, rate: .5, spread: 1 });
+    } });
+  TS.define("space", Object.assign({}, TS.presets.aurora, { name: "Deep space" }));
+
+  /* 18. SANDSTORM: a wall of sand; roaring wind front that builds and passes, sand blasting the near field, rattling debris, low drone of the storm body */
+  TS.define("sandstorm", { name: "Sandstorm", space: "open", params: { wind: 1.2, intensity: 1 },
+    build: function (k) { var c = k.ctx;
+      var roar = k.L("roar", "Storm roar", .9); k.grains(roar, "windHowl", { grain: 3, density: 3, spread: 1, rate: .8, jitter: .08 });
+      k.noiseBed(roar, "pink", { f: 400, q: 1, gain: 1, walk: [180, 1200], walkMs: 700, gainWalk: [.5, 1.4], walkT: .5 });
+      var front = 0; (function wave() { if (roar.dead) return; front = 1; roar.timers.push(setTimeout(function () { front = 0; }, k.rr(5, 10) * 1000)); roar.timers.push(setTimeout(wave, k.rr(14, 30) * 1000)); })();
+      drive(roar, "wind", function () { return .4 + k.P.wind * .5 + front * .4; }, 400);
+      var blast = k.L("blast", "Sand blast", .55); k.noiseBed(blast, "white", { type: "highpass", f: 3500, gain: .4, walk: [2500, 7000], walkMs: 300, gainWalk: [.4, 1.3], walkT: .2 });
+      k.poisson(blast, function () { return 120 * (k.P.wind * .6 + front * .6) * k.P.intensity; }, function (t) { k.S.crackle(blast.g, t, { f: k.rr(4000, 11000), gain: .06, burst: 1 }); });
+      var deb = k.L("debris", "Rattling debris", .4, { wet: .6 }); k.poisson(deb, function () { return .25 + front * .6; }, function (t) { var V = k.Voice(deb.g, [k.rr(-12, 12), 0, -k.rr(3, 15)]);
+        k.oneShot(V.in, "clank", { t: t, segs: [[0, 2.6], [3.1, 2.6], [6.2, 2.6], [9.3, 2.6]], gain: .3, rate: k.rr(1.1, 1.6) }); });
+      var body = k.L("body", "Storm body", .5); k.noiseBed(body, "brown", { type: "lowpass", f: 90, gain: 1.3, walk: [45, 150], walkMs: 1600, gainWalk: [.5, 1.3] });
+    } });
   /* fix-ups: give touch handlers access to the kit */
   ["metal"].forEach(function (id) { var p = TS.presets[id], b = p.build; p.build = function (k) { this._k = k; return b.call(this, k); }; });
 })();
