@@ -66,8 +66,11 @@
     if (src) {
       const im = new Image(); im.decoding = "async"; if (!/^(data|blob):/.test(src) && new URL(src, location.href).origin !== location.origin) im.crossOrigin = "anonymous";
       im.onload = () => { try { const s = Math.min(im.naturalWidth, im.naturalHeight); x.save(); x.beginPath(); x.arc(S / 2, S / 2, S / 2, 0, Math.PI * 2); x.clip();
-        x.drawImage(im, (im.naturalWidth - s) / 2, (im.naturalHeight - s) / 2, s, s, 0, 0, S, S); x.restore(); tex.needsUpdate = true; cb && cb(true); } catch (e) { /* tainted: keep the struck blank */ } };
-      im.src = src; return { tex, photo: true };
+        x.drawImage(im, (im.naturalWidth - s) / 2, (im.naturalHeight - s) / 2, s, s, 0, 0, S, S); x.restore(); tex.needsUpdate = true;
+        // photo-derived relief: the photo's own shading becomes raised relief that relights as the coin turns
+        try { const rl = window.TitanRelief && window.TitanRelief.derive(c, { size: LITE ? 256 : 384 }); if (rl) ret.relief = rl; } catch (e) { /* flat photo */ }
+        cb && cb(true); } catch (e) { /* tainted: keep the struck blank */ } };
+      const ret = { tex, photo: true }; im.src = src; return ret;
     }
     // drawn face: an engraved blank with a beaded border and the legend
     x.strokeStyle = "rgba(0,0,0,0.35)"; x.lineWidth = 10; x.beginPath(); x.arc(S / 2, S / 2, S / 2 - 18, 0, Math.PI * 2); x.stroke();
@@ -153,9 +156,12 @@
     const accent = cssVar("--gold", "#d4af37");
     scene.environment = envFor(renderer, accent);
     const key = new T.DirectionalLight(0xffffff, 0.6); key.position.set(-2, 3, 4); scene.add(key);
+    const rake = new T.PointLight(0xfff2dc, LITE ? 0.9 : 1.3, 12, 1.6); rake.position.set(-2.4, 1.6, 2.2); scene.add(rake);   // a low raking light that follows the tilt, so the relief reads
     const geo = new T.CylinderGeometry(1, 1, 0.11, 128, 1, false);
     const rim = new T.MeshStandardMaterial({ color: metal.c, metalness: 1, roughness: metal.r + 0.08, normalMap: reedTex(), normalScale: new T.Vector2(0.9, 0.9) });
-    const f1 = faceTex(faces[0], title + " · " + sub, metal.c, () => kick()), f2 = faceTex(faces[1] || faces[0], title + " · " + sub, metal.c, () => kick());
+    const applyRelief = (f, m) => { if (!f.relief || m.normalMap) return; const mk = (cv, srgb) => { const t = new T.CanvasTexture(cv); if (srgb) t.encoding = T.sRGBEncoding; t.center.set(0.5, 0.5); t.rotation = Math.PI / 2; t.anisotropy = 4; return t; };
+      m.normalMap = mk(f.relief.normal); m.normalScale = new T.Vector2(1.2, 1.2); m.roughnessMap = mk(f.relief.rough); m.roughness = 1; m.metalness = 0.6; m.envMapIntensity = 1.6; m.needsUpdate = true; R && (R.relief = (R.relief || 0) + 1); };
+    const f1 = faceTex(faces[0], title + " · " + sub, metal.c, () => { applyRelief(f1, top); kick(); }), f2 = faceTex(faces[1] || faces[0], title + " · " + sub, metal.c, () => { applyRelief(f2, bot); kick(); });
     const fm = (f) => new T.MeshStandardMaterial({ map: f.tex, metalness: f.photo ? 0.5 : 1, roughness: f.photo ? 0.45 : metal.r, color: f.photo ? 0xffffff : metal.c, envMapIntensity: 1.3 });
     const top = fm(f1), bot = fm(f2);
     // cylinder caps face +Y/-Y: stand the coin up so its faces look at the camera
@@ -193,6 +199,7 @@
       }
       s.vs += ((1 - s.sc) * 60 - s.vs * 11) * dt; s.sc += s.vs * dt;
       pivot.rotation.set(s.pitch, s.yaw + s.tilt.x, 0); pivot.scale.setScalar(s.sc);
+      rake.position.set(-2.4 + s.tilt.x * 9 - s.vy * 0.05, 1.6 - s.tilt.y * 8, 2.2);
       shadow.scale.setScalar(s.sc * (1 - Math.abs(Math.sin(s.yaw)) * 0.5)); shadow.position.x = Math.sin(s.yaw) * 0.12;
       if (!s.drag && s.armLand && Math.abs(s.ty - s.yaw) < 0.04) { s.armLand = false; buzz(6); }
       const t0 = performance.now(); renderer.render(scene, cam);
@@ -247,7 +254,7 @@
     const vis = () => { if (!document.hidden) { kick(); if (world) world.wake(); } }; document.addEventListener("visibilitychange", vis);
     R = { world: () => world, sig: sig(stage), stage, wrap, renderer, ro, vis, onTilt, s, flip, dispose() {
       cancelAnimationFrame(s.raf); if (world) world.dispose(); if (ro) ro.disconnect(); document.removeEventListener("visibilitychange", vis); window.removeEventListener("deviceorientation", onTilt);
-      geo.dispose(); [rim, top, bot].forEach((m) => { if (m.map) m.map.dispose(); if (m.normalMap) m.normalMap.dispose(); m.dispose(); });
+      geo.dispose(); [rim, top, bot].forEach((m) => { if (m.map) m.map.dispose(); if (m.normalMap) m.normalMap.dispose(); if (m.roughnessMap) m.roughnessMap.dispose(); m.dispose(); });
       if (scene.environment) scene.environment.dispose(); renderer.dispose(); try { renderer.forceContextLoss(); } catch (e) { /* ignore */ }
       wrap.remove(); stage.classList.remove("c3d-on");
     } };
@@ -281,5 +288,5 @@
   window.addEventListener("titan:ui", (e) => { if (e.detail && e.detail.kind === "coin-close") { destroy(); lastTitle = null; } });
   window.addEventListener("titan:atmo", () => { const st = R && R.stage; if (st) { destroy(); if (on) build(st); } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
-  window.TitanCoin3D = { isOn: () => on, setOn, active: () => !!R, state: () => (R ? { yaw: R.s.yaw, pitch: R.s.pitch, scale: R.s.sc, world: R.world() ? R.world().n : 0 } : null), worlds: () => Object.keys(WORLD), flip: () => { if (R) R.flip(); } };
+  window.TitanCoin3D = { isOn: () => on, setOn, active: () => !!R, state: () => (R ? { yaw: R.s.yaw, pitch: R.s.pitch, scale: R.s.sc, world: R.world() ? R.world().n : 0, relief: R.relief || 0 } : null), worlds: () => Object.keys(WORLD), flip: () => { if (R) R.flip(); } };
 })();

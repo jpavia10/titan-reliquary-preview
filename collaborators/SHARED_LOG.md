@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · photo-relief coin (tr175)
+- Photo-derived relief: each coin photo's own shading becomes raised relief (normal + roughness maps, made on the device in a few ms) so the 3D coin relights under a low raking light that follows phone tilt and drag.
+- New shared service wings/relief.js; offline-cached. Test GRK-R-01.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · World engine: minimal contract (tr174)
 - NEW (foundation): a minimal shared engine for theme-owned worlds (wings/signature/core.js). It enforces only a 5-point contract: any coin within a couple of steps, its sourced facts with who checked them and the source links, always a way back, a mute button and search. Everything else (layout, navigation, camera, metaphor) belongs to each theme.
 - Shared services: three.js shell, coin textures from the photos, eased camera flights, tap picking, one custom post-processing shader per world, intro moment, adaptive music (levels and tempo follow motion and selection), spatial cues (stereo pan and distance filtering), Lite mode, reduced motion.
