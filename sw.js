@@ -1,10 +1,10 @@
-/* Titan Reliquary service worker · build tr225
+/* Titan Reliquary service worker · build tr226
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback, and after 4 s on a hung connection
    - audio/ambience/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr225";
+const BUILD = "tr226";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
@@ -13,8 +13,10 @@ const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "js/app-motion.js
   "icons/icon-192.png", "icons/apple-touch-icon.png", "icons/favicon-32.png", "favicon.svg",
   "fonts/Fraunces-500.woff2", "fonts/Fraunces-600.woff2", "fonts/Fraunces-700.woff2" , "fonts/Yellowtail-400.woff2",
   "js/three.min.js", "js/OrbitControls.js", "js/fflate.min.js", "js/USDZExporter.js", "js/qrcode.min.js", "js/openseadragon.min.js",
-  "js/playlist.js?v=" + BUILD, "audio.js?v=" + BUILD, "ambient.js?v=" + BUILD];
+  "js/playlist.js?v=" + BUILD, "audio.js?v=" + BUILD, "ambient.js?v=" + BUILD, "audio/scape/bridge.js?v=" + BUILD];
 const WING_URLS = [
+  "audio/scape/engine.js?v=" + BUILD,
+  "audio/scape/presets.js?v=" + BUILD,
   "styles/atmo/abyss.css?v=" + BUILD,
   "styles/atmo/afterhours.css?v=" + BUILD,
   "styles/atmo/alchemist.css?v=" + BUILD,

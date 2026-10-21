@@ -32,16 +32,17 @@
   function tier() { var q = window.TitanQuality; var t = q && (q.tier || (q.get && q.get())); var m = { low: .4, medium: .65, high: 1, ultra: 1.3, max: 1.6 }; return m[String(t || "").toLowerCase()] || 1; }
 
   /* ---------- context + master chain ---------- */
+  var ext = null; // { ctx, dest } when hosted inside the app (shares the app's context and output route)
   function init() {
     if (ctx) return ctx;
-    if (!AC) return null;
-    try { if (navigator.audioSession) navigator.audioSession.type = "ambient"; } catch (e) {}
-    ctx = new AC({ latencyHint: "playback" });
+    if (!AC && !ext) return null;
+    if (ext) ctx = ext.ctx;
+    else { try { if (navigator.audioSession) navigator.audioSession.type = "ambient"; } catch (e) {} ctx = new AC({ latencyHint: "playback" }); }
     master = ctx.createGain(); master.gain.value = muted ? 0 : vol;
     limiter = ctx.createDynamicsCompressor();
     limiter.threshold.value = -4; limiter.knee.value = 2; limiter.ratio.value = 20; limiter.attack.value = .002; limiter.release.value = .18;
     agc = ctx.createGain(); duckG = ctx.createGain(); bed = ctx.createGain(); dry = ctx.createGain();
-    dry.connect(bed); bed.connect(duckG); duckG.connect(agc); agc.connect(limiter); limiter.connect(master); master.connect(ctx.destination);
+    dry.connect(bed); bed.connect(duckG); duckG.connect(agc); agc.connect(limiter); limiter.connect(master); master.connect(ext ? ext.dest : ctx.destination);
     // loudness normalisation: slow RMS follower steers agc toward -20 dBFS (+-9 dB), the limiter catches peaks
     var an = ctx.createAnalyser(); an.fftSize = 2048; agc.connect(an); var buf = new Float32Array(an.fftSize), lvl = -20;
     setInterval(function () { if (!preset || ctx.state !== "running") return; an.getFloatTimeDomainData(buf); var s = 0; for (var i = 0; i < buf.length; i++) s += buf[i] * buf[i];
@@ -64,7 +65,7 @@
   addEventListener("pointerdown", function (e) { P.px = e.clientX / innerWidth; P.py = e.clientY / innerHeight; if (preset && preset.on && ctx) try { preset.on({ type: "touch", x: P.px, y: P.py }, ctx.currentTime); } catch (er) {} }, { passive: true });
   setInterval(function () { P.drag *= .86; }, 50);
   ["pointerdown", "touchend", "keydown"].forEach(function (ev) { addEventListener(ev, function () { if (ctx && ctx.state !== "running") ctx.resume(); }, { passive: true, capture: true }); });
-  document.addEventListener("visibilitychange", function () { if (!ctx) return; if (document.hidden) ctx.suspend(); else if (preset && !muted) ctx.resume(); });
+  document.addEventListener("visibilitychange", function () { if (!ctx || ext) return; if (document.hidden) ctx.suspend(); else if (preset && !muted) ctx.resume(); });
 
   function setMuted(m, silent) { muted = !!m; try { localStorage.setItem("tr_mute_v1", muted ? "1" : "0"); } catch (e) {}
     if (master) master.gain.setTargetAtTime(muted ? 0 : vol, ctx.currentTime, .08);
@@ -283,6 +284,7 @@
 
   window.TitanScape = {
     define: def, presets: PRESETS, play: play, stop: function () { if (ctx) stopAll(1.2); },
+    attach: function (c, dest) { if (ctx) return ctx === c; ext = { ctx: c, dest: dest }; init(); return true; },
     unlock: unlock, get ctx() { return init(); }, get out() { init(); return bed; },
     get current() { return preset && preset.id; }, layers: function () { return layers.map(function (L) { return { id: L.id, label: L.label, gain: L.user }; }); },
     setLayer: function (id, g) { layers.forEach(function (L) { if (L.id === id) { L.user = g; L.level(.3); } }); },
