@@ -19,7 +19,8 @@
       .catch(() => { loading = null; return null; });
     return loading;
   }
-  const byMood = (mood) => (man ? man.tracks.filter((t) => (t.moods || []).indexOf(mood) >= 0) : []);
+  // a mood may list fallbacks, best first: "dynasty|piano" = the theme's own recordings, else the piano set
+  const byMood = (mood) => { if (!man) return []; for (const m of String(mood || "").split("|")) { const l = man.tracks.filter((t) => (t.moods || []).indexOf(m) >= 0); if (l.length) return l; } return []; };
   function has(mood) { if (!man) load(); return byMood(mood).length > 0; }
   function pick(mood) {
     const all = byMood(mood); if (!all.length) return null;

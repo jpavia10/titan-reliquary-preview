@@ -653,6 +653,360 @@
      "license": "CC BY-SA 4.0"
     }
    }
+  },
+  {
+   "id": "dynasty-guqin",
+   "title": "Guqin (traditional)",
+   "composer": "Traditional (China)",
+   "query": "guqin",
+   "must": [
+    "guqin"
+   ],
+   "prefer": [
+    "flowing",
+    "liu shui",
+    "guangling",
+    "mountain"
+   ],
+   "moods": [
+    "dynasty"
+   ]
+  },
+  {
+   "id": "zen-shakuhachi",
+   "title": "Shakuhachi (honkyoku)",
+   "composer": "Traditional (Japan)",
+   "query": "shakuhachi",
+   "must": [
+    "shakuhachi"
+   ],
+   "prefer": [
+    "honkyoku",
+    "tsuru",
+    "shika"
+   ],
+   "moods": [
+    "zen"
+   ]
+  },
+  {
+   "id": "samadhi-bansuri",
+   "title": "Raga on bansuri",
+   "composer": "Traditional (India)",
+   "query": "bansuri raga",
+   "must": [
+    "bansuri"
+   ],
+   "prefer": [
+    "raga",
+    "alap"
+   ],
+   "moods": [
+    "samadhi"
+   ]
+  },
+  {
+   "id": "samadhi-sitar",
+   "title": "Raga on sitar",
+   "composer": "Traditional (India)",
+   "query": "sitar raga",
+   "must": [
+    "sitar"
+   ],
+   "prefer": [
+    "raga",
+    "alap"
+   ],
+   "moods": [
+    "samadhi"
+   ]
+  },
+  {
+   "id": "silkroad-oud",
+   "title": "Taqsim on oud",
+   "composer": "Traditional (Middle East)",
+   "query": "oud taqsim",
+   "must": [
+    "oud",
+    "ud "
+   ],
+   "prefer": [
+    "taqsim",
+    "maqam"
+   ],
+   "moods": [
+    "silkroad"
+   ],
+   "any": true
+  },
+  {
+   "id": "silkroad-santur",
+   "title": "Santur (Persian classical)",
+   "composer": "Traditional (Persia)",
+   "query": "santur Persian",
+   "must": [
+    "santur"
+   ],
+   "prefer": [
+    "dastgah",
+    "persian"
+   ],
+   "moods": [
+    "silkroad"
+   ]
+  },
+  {
+   "id": "glacier-sibelius",
+   "title": "Finlandia / Valse triste",
+   "composer": "Jean Sibelius",
+   "query": "Sibelius Finlandia",
+   "must": [
+    "sibelius"
+   ],
+   "prefer": [
+    "finlandia",
+    "valse triste",
+    "andante festivo"
+   ],
+   "moods": [
+    "glacier"
+   ]
+  },
+  {
+   "id": "cursedwing-toccata",
+   "title": "Toccata and Fugue in D minor, BWV 565",
+   "composer": "Johann Sebastian Bach",
+   "query": "Bach Toccata Fugue D minor BWV 565 organ",
+   "must": [
+    "565",
+    "toccata"
+   ],
+   "prefer": [
+    "organ",
+    "565"
+   ],
+   "moods": [
+    "cursedwing"
+   ],
+   "any": true
+  },
+  {
+   "id": "abyss-engloutie",
+   "title": "La cathédrale engloutie",
+   "composer": "Claude Debussy",
+   "query": "Debussy cathedrale engloutie",
+   "must": [
+    "engloutie",
+    "sunken"
+   ],
+   "prefer": [
+    "piano"
+   ],
+   "moods": [
+    "abyss"
+   ],
+   "any": true
+  },
+  {
+   "id": "abyss-aquarium",
+   "title": "Aquarium (The Carnival of the Animals)",
+   "composer": "Camille Saint-Saëns",
+   "query": "Saint-Saens Aquarium Carnival of the Animals",
+   "must": [
+    "aquarium"
+   ],
+   "prefer": [
+    "carnival",
+    "carnaval"
+   ],
+   "moods": [
+    "abyss"
+   ]
+  },
+  {
+   "id": "kaleido-reflets",
+   "title": "Reflets dans l'eau",
+   "composer": "Claude Debussy",
+   "query": "Debussy Reflets dans l'eau",
+   "must": [
+    "reflets"
+   ],
+   "prefer": [
+    "images",
+    "piano"
+   ],
+   "moods": [
+    "kaleido"
+   ]
+  },
+  {
+   "id": "kaleido-jeux",
+   "title": "Jeux d'eau",
+   "composer": "Maurice Ravel",
+   "query": "Ravel Jeux d'eau",
+   "must": [
+    "jeux d"
+   ],
+   "prefer": [
+    "ravel",
+    "piano"
+   ],
+   "moods": [
+    "kaleido"
+   ]
+  },
+  {
+   "id": "construct-planets",
+   "title": "The Planets",
+   "composer": "Gustav Holst",
+   "query": "Holst The Planets",
+   "must": [
+    "holst"
+   ],
+   "prefer": [
+    "neptune",
+    "saturn",
+    "uranus",
+    "mars"
+   ],
+   "moods": [
+    "construct"
+   ]
+  },
+  {
+   "id": "xeno-nuages",
+   "title": "Nocturnes: Nuages",
+   "composer": "Claude Debussy",
+   "query": "Debussy Nocturnes Nuages",
+   "must": [
+    "nuages"
+   ],
+   "prefer": [
+    "nocturnes",
+    "debussy"
+   ],
+   "moods": [
+    "xeno"
+   ]
+  },
+  {
+   "id": "pulp-rhapsody",
+   "title": "Rhapsody in Blue",
+   "composer": "George Gershwin",
+   "query": "Gershwin Rhapsody in Blue",
+   "must": [
+    "rhapsody in blue"
+   ],
+   "prefer": [
+    "whiteman",
+    "1924"
+   ],
+   "moods": [
+    "pulp"
+   ]
+  },
+  {
+   "id": "diorama-sugarplum",
+   "title": "Dance of the Sugar Plum Fairy (The Nutcracker)",
+   "composer": "Pyotr Ilyich Tchaikovsky",
+   "query": "Tchaikovsky Dance of the Sugar Plum Fairy",
+   "must": [
+    "sugar plum",
+    "sugar-plum",
+    "dragee"
+   ],
+   "prefer": [
+    "nutcracker",
+    "celesta"
+   ],
+   "moods": [
+    "diorama"
+   ],
+   "any": true
+  },
+  {
+   "id": "diorama-reedflutes",
+   "title": "Dance of the Reed Flutes (The Nutcracker)",
+   "composer": "Pyotr Ilyich Tchaikovsky",
+   "query": "Tchaikovsky Nutcracker Dance of the Reed Flutes",
+   "must": [
+    "reed flutes",
+    "mirlitons"
+   ],
+   "prefer": [
+    "nutcracker"
+   ],
+   "moods": [
+    "diorama"
+   ],
+   "any": true
+  },
+  {
+   "id": "contour-moldau",
+   "title": "Má vlast: Vltava (The Moldau)",
+   "composer": "Bedřich Smetana",
+   "query": "Smetana Moldau Vltava",
+   "must": [
+    "moldau",
+    "vltava"
+   ],
+   "prefer": [
+    "smetana",
+    "ma vlast"
+   ],
+   "moods": [
+    "contour"
+   ],
+   "any": true
+  },
+  {
+   "id": "sketch-k545",
+   "title": "Piano Sonata No. 16 in C major, K. 545",
+   "composer": "Wolfgang Amadeus Mozart",
+   "query": "Mozart Piano Sonata K 545",
+   "must": [
+    "545"
+   ],
+   "prefer": [
+    "sonata",
+    "facile",
+    "allegro"
+   ],
+   "moods": [
+    "sketch"
+   ]
+  },
+  {
+   "id": "papercut-pastoral",
+   "title": "Symphony No. 6 'Pastoral'",
+   "composer": "Ludwig van Beethoven",
+   "query": "Beethoven Symphony 6 Pastoral",
+   "must": [
+    "pastoral"
+   ],
+   "prefer": [
+    "symphony",
+    "musopen"
+   ],
+   "moods": [
+    "papercut"
+   ]
+  },
+  {
+   "id": "papercut-troldhaugen",
+   "title": "Wedding Day at Troldhaugen",
+   "composer": "Edvard Grieg",
+   "query": "Grieg Wedding Day at Troldhaugen",
+   "must": [
+    "troldhaugen"
+   ],
+   "prefer": [
+    "lyric",
+    "piano"
+   ],
+   "moods": [
+    "papercut"
+   ]
   }
  ]
 }
