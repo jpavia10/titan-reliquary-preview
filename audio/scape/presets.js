@@ -207,7 +207,12 @@
       var ice = k.L("ice", "Ice and creaks", .4, { wet: .8 }); var iv = k.Voice(ice.g, [-6, 1, -8]);
       k.poisson(ice, function () { return 1 / 6; }, function (t) { iv.at(k.rr(-10, 10), 1, -k.rr(4, 14)); k.oneShot(iv.in, "creak", { t: t, segs: [[0, 3.6], [4.1, 3.6], [8.2, 3.6]], gain: .35, rate: k.rr(.5, .7) }); });
       var sub = k.L("rumble", "Low rumble", .4); k.noiseBed(sub, "brown", { type: "lowpass", f: 90, gain: .9, walk: [50, 140], walkMs: 1500, gainWalk: [.4, 1.2] });
-    } });
+      this._k = k; this._ice = k.L("frost", "Frost snap (tap)", .8, { wet: .9 });   // fx builder #2: frost scene tap hook (additive)
+    },
+    on: function (d, t) { if ((d.type !== "touch" && d.type !== "frost" && d.type !== "shatter") || !this._ice || this._ice.dead) return; var k = this._k, L = this._ice;
+      var V = k.Voice(L.g, [((d.x == null ? .5 : d.x) - .5) * 8, 1, -k.rr(1.5, 4)]); t = t || TS.ctx.currentTime;
+      k.oneShot(V.in, "creak", { t: t, segs: [[k.rr(0, 8), 1.4]], gain: .5 * (d.power || 1), rate: k.rr(.9, 1.3) });
+      for (var i = 0; i < 26; i++) k.S.crackle(V.in, t + i * k.rr(.012, .05), { f: k.rr(6000, 11000), gain: .06, burst: 1 }); } });
 
   /* 11. OCEAN: open shore; each wave is built (swell, crash, foam fizz, backwash over pebbles) plus a recorded surf bed and gulls */
   TS.define("ocean", { name: "Ocean shore", space: "open", params: { wind: .4, intensity: 1, tod: 14 },

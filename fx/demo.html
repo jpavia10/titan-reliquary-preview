@@ -106,7 +106,12 @@
     ["comet", "Comet", "A comet with a glowing coma, a curved golden dust tail and a straight blue ion tail over the Milky Way. Drag to swing the sun, tap for an outburst.", P("comet"), "Space"],
     ["pulsar", "Pulsar", "A spinning neutron star sweeps twin beams like a lighthouse inside its magnetic field and a glowing nebula. Drag to tilt it, tap for a starquake.", P("pulsar"), "Space"],
     ["frost", "Frost", "Ice ferns crystallise across a dark window with city lights behind. Hold to melt a patch with your warmth, tap for a frost snap.", P("frost"), "Material & Magic"],
-    ["clockwork", "Clockwork", "Brass gears turn behind a gold astrolabe face with a rotating star map. Drag to turn the works by hand, tap for a chime.", P("clockwork"), "Material & Magic"]
+    ["clockwork", "Clockwork", "Brass gears turn behind a gold astrolabe face with a rotating star map. Drag to turn the works by hand, tap for a chime.", P("clockwork"), "Material & Magic"],
+    ["glowworms", "Glowworm grotto", "A cave ceiling full of blue-green glowworms on hanging silk threads, mirrored in a still black river. Hold to shine a torch, tap for a drip ripple.", P("glowworms"), "Nature"],
+    ["orbit", "Sunrise from orbit", "The sun crests the planet's curved edge in a starburst over a glowing blue atmosphere, clouds and city lights. Drag to move the dawn, tap as the sun breaks free.", P("orbit"), "Space"],
+    ["eclipse", "Total eclipse", "The Moon blots out the Sun: a pearly streaming corona, red prominences and Baily's beads. Tap for the diamond ring, drag to nudge the Moon.", P("eclipse"), "Space"],
+    ["opal", "Black opal", "A polished black opal whose colour fire rolls across its grains as it tilts. Drag to tilt, tap for a light sweep.", P("opal"), "Material & Magic"],
+    ["spellorb", "Spell orb", "A seer's crystal ball: teal and violet mist swirls around a forming sigil, sparks orbiting. Hold to scry, tap for a vision.", P("spellorb"), "Material & Magic"]
   ]).concat(window.FXDEMO_EXTRA || []);
   var ui = document.getElementById("ui"), cap = document.getElementById("cap"), catNav = document.getElementById("cat"), CATS = [];
   D.forEach(function (d) { d[4] = d[4] || "Sims"; if (CATS.indexOf(d[4]) < 0) CATS.push(d[4]); T["demo-" + d[0]] = { stack: d[3] }; var b = document.createElement("button"); b.textContent = d[1]; b.dataset.id = d[0]; b.dataset.cat = d[4]; ui.appendChild(b); });

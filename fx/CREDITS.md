@@ -25,5 +25,7 @@ Every effect in fx/ is vendored locally (no CDN). Ports and the techniques they 
 | fx/scenes-nms.js `sakura` | Layered fbm canopy silhouettes. | own code |
 | fx/scenes-nms.js `cathedral` | Polar-folded tracery SDFs, projected light shafts. | own code |
 | fx/scenes-nms.js `comet`, `pulsar`, `dunes`, `frost`, `clockwork` | Analytic tails/beams, dipole field lines, ridged-noise dunes, angular-fbm dendrites, polar gear SDFs. | own code |
+| fx/scenes-nms.js `orbit`, `eclipse`, `glowworms`, `opal`, `spellorb` | Limb-atmosphere falloff, radial-fbm corona, reflected cave layers, Voronoi play-of-colour, curl-warped mist in a refracting sphere. | own code |
+| audio/scape/presets.js blizzard `on` (frost tap) | Additive hook by fx builder #2 reusing the preset's own creak sample and crackle synth. | own code |
 
 Personal, non-commercial project. CC BY-NC-SA Shadertoy ports, when added, are listed here with author and link.

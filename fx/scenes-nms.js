@@ -3,7 +3,7 @@
    { mod:"post" } after it). Every scene reads touch/mouse: K.ptr position, drag (accumulated into an orbit/turn), and taps.
    Quality: reads the tier from window.TitanQuality (Low/Medium/High/Ultra/Max) when it exists, else High; never auto-downgrades
    (the kit's frame governor is the only safety net). Ports and credits: fx/CREDITS.md.
-   Kinds (batch 5): "comet", "pulsar", "dunes", "frost", "clockwork". Kinds (batch 4): "jellyfish", "ringworld", "wormhole", "sakura", "cathedral". Kinds (batch 3): "waterfall", "portal", "glowforest", "sun", "plasmaglobe". Kinds (batch 2): "aurora", "galaxy", "lava", "crystals", "arcane". Kinds (batch 1): "nebula" (Star Nest volumetric fractal, MIT), "blackhole" (geodesic-bent rays + Doppler accretion disk),
+   Kinds (batch 6): "orbit", "eclipse", "glowworms", "opal", "spellorb". Kinds (batch 5): "comet", "pulsar", "dunes", "frost", "clockwork". Kinds (batch 4): "jellyfish", "ringworld", "wormhole", "sakura", "cathedral". Kinds (batch 3): "waterfall", "portal", "glowforest", "sun", "plasmaglobe". Kinds (batch 2): "aurora", "galaxy", "lava", "crystals", "arcane". Kinds (batch 1): "nebula" (Star Nest volumetric fractal, MIT), "blackhole" (geodesic-bent rays + Doppler accretion disk),
    "rainforest" (layered swaying canopy + screen-space god rays + mist), "bubbles" (thin-film soap interference),
    "shatter" (polar-Voronoi glass fracture with per-shard refraction).
    Theme use:  T.mytheme = { stack: [ { mod:"scene", kind:"blackhole" }, { mod:"post", bloom:1.2 } ] }  or  K.preset("blackhole"). */
@@ -550,17 +550,17 @@
     "      trunk = max(trunk, smoothstep(tw2*.55,tw2*.3,abs(bx))*step(by,q.y)*step(q.y,by+.16)); }",
     "    vec3 bark = mix(vec3(.11,.07,.07)*(.7+.6*fbm(vec2(xx*80.,q.y*6.))), sky, .55-fl*.17);",
     "    vec2 cq = q*vec2(7.,8.)+fl*7.; vec2 cn = floor(cq), cf = fract(cq); float md = 9.; float cid = 0.;",
-    "    for (int j2=-1;j2<=1;j2++) for (int i2=-1;i2<=1;i2++){ vec2 g = vec2(i2,j2); vec2 o2 = g+.2+.6*h22(cn+g)-cf; float rr = .45+.4*h21(cn+g+9.); float d = length(o2)/rr; if (d<md){ md = d; cid = h21(cn+g); } }",
+    "    for (int j2=-1;j2<=1;j2++) for (int i2=-1;i2<=1;i2++){ vec2 g = vec2(i2,j2); vec2 o2 = g+.2+.6*h22(cn+g)-cf; float hh = h21(cn+g+9.); float rr = (.25+.75*hh*hh)*step(.12,h21(cn+g+4.)); float d = length(o2)/rr; if (d<md){ md = d; cid = h21(cn+g); } }",
     "    float band = smoothstep(top-.2, top+.05, q.y) * (1.-smoothstep(.3+fl*.04,.55,q.y)) ;",
     "    float edge = fbm(q*40.+fl)*.35; float m = smoothstep(1.,.7,md+edge)*step(.25,band*(.6+.6*fbm(q*3.+fl)));",
-    "    float blos = fbm(q*30.+cid*9.); vec3 pink = mix(vec3(.93,.5,.63), vec3(1.,.9,.93), blos*.8+.2*(1.-md));",
-    "    pink *= .55+.6*(1.-md)*(.6+.4*smoothstep(-.2,.4,q.y)) + .3*pow(fbm(q*5.+uT*.05),2.);",
+    "    float blos = fbm(q*30.+cid*9.); vec3 tone = cid < .3 ? vec3(1.,.95,.96) : cid < .75 ? vec3(.97,.62,.74) : vec3(.86,.36,.52); float flo = smoothstep(.55,.75,fbm(q*120.+cid*20.)); vec3 pink = mix(tone*.82, mix(tone, vec3(1.), .45), blos*.8+.2*(1.-md)) + vec3(1.,.95,.9)*flo*.25;",
+    "    pink *= (.45+.4*fract(cid*7.31))+.55*(1.-md)*(.6+.4*smoothstep(-.2,.4,q.y)) + .3*pow(fbm(q*5.+uT*.05),2.);",
     "    vec3 lc = mix(pink, sky, .55-fl*.17);",
     "    c = mix(c, bark, trunk); c = mix(c, lc, m); }",
     "  if (p.y < -.32) { float d = -.32-p.y; vec3 grd = mix(vec3(.55,.45,.42), vec3(.85,.65,.7), fbm(vec2(p.x/(d+.05),1./(d+.05))*.6)); float path = smoothstep(.12+d*.8,.0,abs(p.x+.05))*.4; c = mix(sky*.8, grd + path*vec3(.3,.25,.2), smoothstep(0.,.05,d)); }",
     "  float sh = 0.; for (int k=0;k<4;k++){ float fk = float(k); float x = (p.x-sun.x)*cos(.5)+(p.y-sun.y)*sin(.5) + fk*.17-.25; sh += exp(-abs(x)*35.)*(.5+.5*sin(uT*.4+fk)); }",
     "  c += vec3(1.,.95,.85)*sh*.12*smoothstep(.4,-.3,p.y);",
-    "  o = vec4(c*.5, 1.); }"].join("\n");
+    "  o = vec4(c*.6, 1.); }"].join("\n");
   /* ---- MATERIAL & MAGIC: cathedral window. A rose window of stained glass (procedural tracery: 12-fold petals, rings of
      quatrefoils, lead came lines, per-pane hue and glass seeds/bubbles) with low sun streaming through, casting coloured light shafts
      through dusty air onto stone. Drag moves the sun (shafts swing, panes catch fire); tap = a choir swell of light. */
@@ -642,14 +642,14 @@
     "    float h = duneH(w*.35); float hx = duneH(w*.35+vec2(.02,0.)) - h; float hzz = duneH(w*.35+vec2(0.,.02)) - h;",
     "    vec3 n = normalize(vec3(-hx*30., 1., -hzz*30.)); vec3 L = normalize(vec3(.9,.25,.3));",
     "    float rip = sin((w.x*40.+w.y*25.) + vn(w*6.)*6.)*.5+.5; float dif = clamp(dot(n,L),0.,1.);",
-    "    vec3 sand = mix(vec3(.75,.42,.22), vec3(1.,.7,.42), dif) * (.92+.08*rip);",
-    "    vec3 shade = vec3(.25,.18,.32)*(.6+.4*h);",
+    "    vec3 sand = mix(vec3(.72,.3,.1), vec3(1.,.62,.3), dif) * (.88+.12*rip); sand += vec3(1.,.85,.6)*step(.9975, h21(floor(gl_FragCoord.xy*.7)))*dif*.8; sand = mix(sand, vec3(.95,.45,.2), .25*smoothstep(.3,.8,fbm(w*.7)));",
+    "    vec3 shade = mix(vec3(.2,.1,.2), vec3(.38,.2,.24), h)*(.7+.3*rip);",
     "    c = mix(shade, sand, smoothstep(.0,.25,dif)); c = mix(c, sky*.9, smoothstep(2.,10.,z)*.0 + exp(-d*12.)*.85);",
     "    float blow = smoothstep(.85,1.,h)*fbm(vec2(w.x*3.-uT*.8, w.y*2.))*.6; c += vec3(1.,.75,.5)*blow*exp(-d*3.)*.4; }",
     "  float gust = uTap<0. ? 0. : exp(-uTap*.6); vec2 tp = (uTapP-.5)*vec2(A,1.);",
     "  float plume = fbm(vec2((p.x-tp.x)*4.-uTap*1.5, (p.y-tp.y)*6.))*exp(-pow(max(p.y-tp.y,0.)*5.,2.))*smoothstep(.0,.1,p.x-tp.x+.05)*exp(-(p.x-tp.x)*2.)*gust;",
     "  c = mix(c, vec3(1.,.72,.48), clamp(plume*1.2,0.,.7));",
-    "  o = vec4(c*.72, 1.); }"].join("\n");
+    "  o = vec4(c*.8, 1.); }"].join("\n");
   /* ---- MATERIAL: frost. Ice ferns crystallise across a dark window pane: diffusion-limited-aggregation look from branching dendrites
      (recursive angular fbm along growth rays, six-fold sub-branches), growth front advancing with time, sparkling where the light
      catches. Hold to melt a clear patch with your warmth (it refreezes slowly); tap = a frost snap that races across. */
@@ -675,8 +675,10 @@
      filigree astrolabe face with rotating rete, zodiac ring and star pointers; warm lamplight, engraved shading. Drag turns the
      mechanism by hand; tap = a chime: all gears jump a tick and a golden pulse runs the rims. */
   S.clockwork = [
-    "float gear(vec2 p, float R, float n, float ang){ float a = atan(p.y,p.x)+ang; float r = length(p); float nt = floor(R*110.); float seg = 6.2832/nt; float la = mod(a+100.*6.2832, seg) - seg*.5; float tw = seg*.28*(1.-.3*clamp((r-R*.92)/(R*.08),0.,1.)); float t = abs(la) < tw ? R*.08 : 0.;",
-    "  float d = r - (R*.92 + t); d = max(d, -(r - R*.1)); float inArc = step(.35, fract(a*5./6.2832)); if (inArc > .5) d = max(d, -(R*.2 - abs(r-R*.55))); return d; }",
+    "float gear(vec2 p, float R, float n, float ang){ float a = atan(p.y,p.x)+ang; float r = length(p); float nt = floor(R*110.); float seg = 6.2832/nt;",
+    "  float la = mod(a+628.3185, seg) - seg*.5; float dT = max(r - R, abs(la)*r - seg*R*(.22 - .06*clamp((r-R*.88)/(R*.12),0.,1.)));",
+    "  float d = min(r - R*.88, dT); d = max(d, R*.1 - r);",
+    "  float sa = mod(a+628.3185, 1.25664) - .62832; float wd = max(abs(r-R*.5)-R*.22, R*.07-abs(sa)*r); d = max(d, -wd); return d; }",
     "void main(){ vec2 uv = gl_FragCoord.xy/uRes; float A = uRes.x/uRes.y; vec2 p = (uv-.5)*vec2(A,1.);",
     "  float tick = uTap<0. ? 0. : exp(-uTap*3.); float T = uT*.3 + uDrag.x*3. + floor(max(uTap,0.)*0.)*0.;",
     "  vec3 c = vec3(.025,.018,.012)*(.6+.6*fbm(p*5.));",
@@ -697,14 +699,121 @@
     "  c = mix(c, gold, fil*.9); c += vec3(1.,.8,.4)*exp(-pow((r-R) ,2.)*4000.)*tick*2.;",
     "  c += vec3(1.,.75,.4)*exp(-length(p-vec2(-.5,.45))*2.)*.12;",
     "  o = vec4(c, 1.); }"].join("\n");
+  /* ===================== batch 6 (fx builder #2): orbit, eclipse, glowworms, opal, spellorb ===================== */
+  /* ---- SPACE: sunrise from orbit. The planet's curved limb with a Rayleigh-style atmosphere shell (blue scattering fading to an
+     orange terminator band), cloud decks in fbm, night-side city lights in clusters, the sun cresting the limb with a starburst.
+     Drag shifts the dawn along the limb; tap = the sun breaks free (flare). */
+  S.orbit = [
+    "void main(){ vec2 uv = gl_FragCoord.xy/uRes; float A = uRes.x/uRes.y; vec2 p = (uv-.5)*vec2(A,1.);",
+    "  vec2 pc = vec2(0.,-2.35); float R = 2.; float r = length(p-pc); float h = r-R; float ang = atan(p.x-pc.x, p.y-pc.y);",
+    "  float sunX = clamp(.15+uDrag.x*.8,-.8,.8); float flare = uTap<0. ? 0. : exp(-uTap*.6)*smoothstep(0.,.2,uTap);",
+    "  vec2 sp = pc + vec2(sin(sunX*.4),cos(sunX*.4))*(R+.005+flare*.02); float dawn = exp(-pow((ang-sunX*.4)*2.2,2.));",
+    "  vec3 c = vec3(0.); { vec3 q = vec3(gl_FragCoord.xy*.55,1.); vec3 id = floor(q); c += vec3(.85,.9,1.)*step(.998,h31(id))*(.4+h31(id+1.))*(1.-dawn*.8); }",
+    "  if (h > 0.) { float atm = exp(-h*28.); c += mix(vec3(.15,.4,1.), vec3(1.,.45,.15), exp(-h*90.))*atm*(.15+1.4*dawn) + vec3(.3,.55,1.)*atm*.08; }",
+    "  else { vec2 g = vec2(ang*R, -h)*vec2(2.,9.); float z = sqrt(max(-h*2.*R,0.)); vec2 gp = vec2(ang*6., z*4.);",
+    "    float cl = fbm(gp*2.+fbm(gp*4.)*.5 + vec2(uT*.005,0.)); float land = smoothstep(.45,.55,fbm(gp*.8+7.));",
+    "    vec3 ground = mix(vec3(.01,.03,.08), vec3(.06,.08,.04), land);",
+    "    float lit = smoothstep(-.6,.25,dawn-.35+(-h)*.0) * dawn; vec3 day = mix(ground*4., vec3(.9,.85,.8), smoothstep(.5,.75,cl))*lit;",
+    "    float cities = pow(fbm(gp*14.),6.)*land*30.*(1.-lit)*smoothstep(.75,.45,cl);",
+    "    c = day + vec3(1.,.7,.35)*cities*.25 + ground*.15;",
+    "    c += mix(vec3(.2,.45,1.), vec3(1.,.5,.2), dawn)*exp(h*40.)*(.25+.8*dawn); }",
+    "  float sd = length(p-sp); vec2 sq = p-sp; float star = exp(-sd*60.)*3. + exp(-sd*9.)*.4*(1.+flare*2.);",
+    "  float rays = pow(abs(sin(atan(sq.y,sq.x)*4.)),40.)*exp(-sd*5.)*.6 + pow(abs(sin(atan(sq.y,sq.x)*3.+.5)),60.)*exp(-sd*3.)*.4;",
+    "  float vis = smoothstep(-.01,.01, length(p-pc)-R+.0) + .3; c += vec3(1.,.92,.8)*(star+rays*(1.+flare*2.))*vis;",
+    "  o = vec4(c, 1.); }"].join("\n");
+  /* ---- SPACE: total solar eclipse. The black lunar disc over a pearly streamered corona (radial fbm, polar plumes), red
+     prominences peeking at the limb, Baily's beads; a tap slides the Moon so the "diamond ring" flashes out. Drag nudges the Moon. */
+  S.eclipse = [
+    "void main(){ vec2 uv = gl_FragCoord.xy/uRes; float A = uRes.x/uRes.y; vec2 p = (uv-.5)*vec2(A,1.);",
+    "  float R = .16; float ring = uTap<0. ? 0. : exp(-pow(uTap-1.2,2.)*1.5); vec2 mo = vec2(uDrag.x*.05 + ring*.012, uDrag.y*.05 + ring*.004);",
+    "  float r = length(p), a = atan(p.y,p.x);",
+    "  vec3 c = mix(vec3(.02,.03,.07), vec3(.05,.08,.16), uv.y); { vec3 q = vec3(gl_FragCoord.xy*.5,1.); vec3 id = floor(q); c += vec3(.9,.9,1.)*step(.9985,h31(id))*.6; }",
+    "  float str = fbm(vec2(a*7., log(r)*1.5 - uT*.01))*.6 + fbm(vec2(a*21., log(r)*3.))*.4; float pol = pow(abs(sin(a)),6.);",
+    "  float cor = pow(str,2.)*exp(-(r-R)*mix(6.,11.,pol)) + exp(-(r-R)*20.)*.6;",
+    "  c += vec3(.85,.9,1.)*cor*step(R,r)*1.4 + vec3(.6,.7,1.)*exp(-(r-R)*4.)*.08;",
+    "  for (int k=0;k<4;k++){ float fk = float(k); float pa = fk*1.9+.4; vec2 pp = vec2(cos(pa),sin(pa))*R; float pd = length((p-pp)*vec2(1.,1.)); c += vec3(1.,.15,.3)*exp(-pd*pd*8000.)*.8*smoothstep(R*.99,R*1.02,r); }",
+    "  float mr = length(p-mo); float limb = smoothstep(R*1.003, R*.997, mr);",
+    "  float edge = R - length(mo);", 
+    "  vec2 dir = normalize(-mo+1e-5); float bead = exp(-length(p - dir*R)*80.)*smoothstep(.003,.012,length(mo));",
+    "  float beads = 0.; for (int k=-2;k<=2;k++){ float ba = atan(dir.y,dir.x)+float(k)*.12; beads += exp(-length(p-vec2(cos(ba),sin(ba))*R)*300.)*smoothstep(.002,.008,length(mo)); }",
+    "  c = mix(c, vec3(.0,.0,.004), limb);",
+    "  c += vec3(1.,.97,.92)*(bead*3.*(1.+ring*4.) + beads*.8); vec2 bq = p-dir*R; float sp = pow(abs(sin(atan(bq.y,bq.x)*3.)),50.)*exp(-length(bq)*6.)*bead*0. + exp(-length(bq)*7.)*ring*.8; c += vec3(1.,.95,.9)*sp;",
+    "  o = vec4(c, 1.); }"].join("\n");
+  /* ---- NATURE: glowworm grotto. A dark limestone cave ceiling studded with thousands of blue-green glowworms whose silk threads hang
+     down as beaded lines, reflected in a still black river; a boat-eye drift. Hold to shine a torch (they dim, threads glint); tap =
+     a drip ripple across the reflection. */
+  S.glowworms = [
+    "vec3 cave(vec2 p, float t){ vec3 c = vec3(0.);",
+    "  for (int L=0;L<3;L++){ float fl = float(L); vec2 q = p*(1.5+fl*1.3) + vec2(uT*.01*(1.+fl), 0.) + fl*7.;",
+    "    float ceil_ = .05 + .25*fbm(vec2(q.x*.6, fl)) - fl*.05; vec2 g = floor(q*vec2(9.,4.)); vec2 f = fract(q*vec2(9.,4.));",
+    "    float h = h21(g+fl*3.); vec2 o2 = vec2(.2+.6*h21(g+1.), .2+.6*h);",
+    "    float worm = exp(-dot(f-o2,f-o2)*900.) * step(ceil_*4., q.y*0.+p.y*4.+.0)*0.;",
+    "    float yy = p.y; float top = ceil_ - .02; if (yy < top) {",
+    "      vec2 cell = floor(vec2(q.x*14., 0.)); float hx = h21(cell+fl*5.); float x = (fract(q.x*14.)-(.2+.6*hx));",
+    "      float len = .02+.12*h21(cell+2.+fl); float thread = smoothstep(.012,.0,abs(x))*step(top-len, yy)*(.5+.5*sin(yy*400.+hx*30.));",
+    "      float glow = exp(-x*x*180. - pow((yy-(top-len)),2.)*4000.);",
+    "      float tw = .7+.3*sin(uT*(1.+hx)+hx*20.);",
+    "      c += (vec3(.25,.9,.85)*glow*tw*1.4 + vec3(.3,.7,.8)*thread*.05*(1.+t*6.))*(1.-t*.7)/(1.+fl*.6); }",
+    "    else c *= .4; }",
+    "  return c; }",
+    "void main(){ vec2 uv = gl_FragCoord.xy/uRes; float A = uRes.x/uRes.y; vec2 p = (uv-.5)*vec2(A,1.);",
+    "  float torch = smoothstep(0.,.5,uDown); vec2 fp = (uP-.5)*vec2(A,1.);",
+    "  float water = -.22; vec3 c;",
+    "  if (p.y > water) { c = cave(p, torch) + vec3(.02,.03,.03)*fbm(p*8.)*.3; c += vec3(.9,.8,.6)*exp(-dot(p-fp,p-fp)*12.)*torch*.15*fbm(p*20.); }",
+    "  else { vec2 rp = vec2(p.x, 2.*water - p.y); float tap = uTap<0. ? 0. : exp(-uTap*.5); vec2 tp = (uTapP-.5)*vec2(A,1.);",
+    "    float d = length((p-vec2(tp.x,water-.05))*vec2(1.,3.)); rp.y += sin(d*90.-uTap*10.)*.006*tap*exp(-d*4.) + (fbm(p*vec2(3.,30.)+uT*.1)-.5)*.004;",
+    "    c = cave(rp, torch)*.55 + vec3(.0,.01,.012); }",
+    "  c += vec3(.05,.15,.15)*exp(-abs(p.y-water)*60.)*.15;",
+    "  o = vec4(c, 1.); }"].join("\n");
+  /* ---- MATERIAL: precious opal. A polished cabochon of black opal: play-of-colour patches (Voronoi grains with a diffraction
+     hue that shifts with view angle), a glossy dome with Fresnel and soft-box reflections, on velvet. Drag tilts it so the fire
+     rolls across the grains; tap = a light sweep. */
+  S.opal = [
+    "void main(){ vec2 uv = gl_FragCoord.xy/uRes; float A = uRes.x/uRes.y; vec2 p = (uv-.5)*vec2(A,1.);",
+    "  vec3 c = vec3(.04,.01,.03)*(.6+.6*fbm(p*30.))*(1.-length(p)*.6);",
+    "  vec2 e = p*vec2(1.,1.35); float R = .34; float r = length(e);",
+    "  if (r < R) { float z = sqrt(1.-pow(r/R,2.)); vec3 n = normalize(vec3(e/R, z)); vec2 tilt = vec2(sin(uT*.2), cos(uT*.17))*.25 + uDrag*1.5;",
+    "    vec2 q = e*15. + n.xy*2. + vec2(fbm(e*6.),fbm(e*6.+4.))*1.5; vec2 cn = floor(q), cf = fract(q); float md = 9.; vec2 mid = vec2(0.);",
+    "    for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++){ vec2 g = vec2(i,j); vec2 o2 = g+h22(cn+g)-cf; float d = dot(o2,o2); if (d<md){ md = d; mid = cn+g; } }",
+    "    vec2 hd = h22(mid+3.)-.5; float ph = dot(normalize(hd), n.xy*2.+tilt) + h21(mid)*6.;",
+    "    float on = pow(.5+.5*cos(ph*3.14159*1.2 + fbm(q*.6)*3.), 3.);",
+    "    vec3 fire = .5+.5*cos(6.2832*(h21(mid)*.7 + ph*.3) + vec3(0.,2.1,4.2)); fire = pow(fire, vec3(1.5));",
+    "    vec3 body = vec3(.02,.02,.04) + fire*on*on*(.5+.7*fbm(q*2.))*smoothstep(.0,.3,md+.1);",
+    "    float F = .04+.96*pow(1.-z,5.); vec3 refl = vec3(1.)*smoothstep(.08,.0,length(n.xy-vec2(-.35,.45)))*1.2 + vec3(.6,.6,.7)*smoothstep(.2,.0,abs(n.x+.1))*smoothstep(.0,.3,n.y)*.1;",
+    "    float sw = uTap<0. ? 0. : exp(-uTap*1.2); refl += vec3(1.)*exp(-pow(n.x+n.y - (uTap*1.5-1.2),2.)*30.)*sw*.8;",
+    "    c = body*(1.-F) + refl + vec3(.8,.85,1.)*F*.25;",
+    "    c *= smoothstep(R, R*.985, r); }",
+    "  c += vec3(.0)*0.; float sh = smoothstep(R*1.15, R*.9, length(e-vec2(.03,-.04))) * step(R, r); c *= 1.-sh*.6;",
+    "  o = vec4(c, 1.); }"].join("\n");
+  /* ---- MAGIC: spell orb. A seer's crystal ball on a bronze claw stand; inside, curl-warped arcane mist in teal and violet swirls
+     around a slowly forming sigil, sparks orbit; the glass refracts the room (inverted) and carries a caustic on the cloth below.
+     Hold to scry (mist parts, the sigil blazes); tap = a vision flash. */
+  S.spellorb = [
+    "void main(){ vec2 uv = gl_FragCoord.xy/uRes; float A = uRes.x/uRes.y; vec2 p = (uv-vec2(.5,.55))*vec2(A,1.); float R = .3;",
+    "  vec3 room = mix(vec3(.03,.02,.04), vec3(.08,.05,.06), uv.y) + vec3(1.,.6,.3)*exp(-length(p-vec2(-.55,.3))*3.)*.25;",
+    "  vec3 c = room; float r = length(p); float scry = smoothstep(0.,1.,uDown); float vis = uTap<0. ? 0. : exp(-uTap*1.5);",
+    "  if (p.y < -R*.85) { vec2 cq = p - vec2(0., -R*.85); c = vec3(.12,.03,.06)*(.6+.5*fbm(p*vec2(20.,60.))); c += vec3(.4,.6,1.)*exp(-dot(cq*vec2(1.,4.),cq*vec2(1.,4.))*30.)*(.15+.3*scry+vis); }",
+    "  if (r < R) { float z = sqrt(1.-pow(r/R,2.)); vec2 q = p/R; vec2 rq = -q*.6;",
+    "    vec3 inner = (mix(vec3(.03,.02,.04), vec3(.08,.05,.06), .5+rq.y*.5) + vec3(1.,.6,.3)*exp(-length(rq-vec2(.5,-.3))*4.)*.3)*.6;",
+    "    vec2 m = q*2.; for (int k=0;k<3;k++){ m += .35*vec2(fbm(m*1.3+uT*.12+float(k)), fbm(m*1.3-uT*.1+7.+float(k))) - .175; }",
+    "    float mist = fbm(m*1.5 + uT*.05); mist *= 1. - scry*.6*smoothstep(.6,.0,length(q));",
+    "    vec3 mc = mix(vec3(.1,.8,.75), vec3(.6,.25,1.), smoothstep(.3,.7,fbm(m*.8)));",
+    "    float rr = length(q), aa = atan(q.y,q.x); float sig = smoothstep(.02,.0,abs(rr-.35)) + smoothstep(.02,.0,abs(rr-.2)) + smoothstep(.015,.0,abs(sin(aa*3.+uT*.3))*rr)*step(rr,.35)*step(.2,rr);",
+    "    sig *= (.25+.75*scry+vis)*smoothstep(0.,4.,uT);",
+    "    vec3 col = inner + mc*pow(mist,2.)*1.2*(1.+vis*2.) + vec3(1.,.85,.5)*sig*1.5;",
+    "    for (int k=0;k<6;k++){ float fk = float(k); float oa = uT*(.5+fk*.1)+fk*1.05; vec2 op = vec2(cos(oa), sin(oa)*.35)*(.55+.1*sin(fk)); col += vec3(.8,.9,1.)*exp(-length(q-op)*60.)*.8; }",
+    "    float F = .04+.96*pow(1.-z,4.); col = col*(1.-F*.7) + vec3(.7,.75,.9)*F*.35 + vec3(1.)*smoothstep(.1,.0,length(q-vec2(-.4,.45)))*.9;",
+    "    c = col; }",
+    "  vec2 sq = p - vec2(0.,-R*1.0); if (abs(sq.x) < .14-sq.y*.0 && sq.y < .02 && sq.y > -.12 && r > R*.97) { c = vec3(.35,.22,.1)*(.5+.6*fbm(sq*40.))*(.6+.6*smoothstep(-.12,.02,sq.y)); }",
+    "  o = vec4(c, 1.); }"].join("\n");
 
   K.scenes = S;
   /* Sound sync (audio/scape engine listens for window "titan:fx"): what a tap means in each scene. */
-  var TAPFX = { shatter: "shatter", arcane: "arc", portal: "arc", plasmaglobe: "arc", waterfall: "splash", jellyfish: "touch", frost: "shatter", lava: "touch", crystals: "touch", glowforest: "touch" };
+  var TAPFX = { shatter: "shatter", arcane: "arc", portal: "arc", plasmaglobe: "arc", waterfall: "splash", spellorb: "arc", glowworms: "splash", jellyfish: "touch", frost: "frost", lava: "touch", crystals: "touch", glowforest: "touch" };
   function fx(type, x, y, power) { try { dispatchEvent(new CustomEvent("titan:fx", { detail: { type: type, x: x, y: y, power: power, from: "scene" } })); } catch (e) {} }
   /* Scene id -> soundscape preset id (audio/scape/presets.js) for pages that start sound by scene. */
   K.sceneSound = { nebula: "space", galaxy: "space", sun: "space", blackhole: "blackhole", rainforest: "rainforest", aurora: "aurora", lava: "lava", waterfall: "waterfall",
-    glowforest: "fireflies", jellyfish: "underwater", comet: "space", pulsar: "space", dunes: "sandstorm", frost: "blizzard", clockwork: "crystal", ringworld: "space", wormhole: "space", sakura: "rainforest", cathedral: "crystal", bubbles: "bubbles", shatter: "glass", crystals: "crystal", arcane: "plasma", portal: "plasma", plasmaglobe: "plasma" };
+    glowforest: "fireflies", jellyfish: "underwater", orbit: "space", eclipse: "space", glowworms: "underwater", opal: "crystal", spellorb: "plasma", comet: "space", pulsar: "space", dunes: "sandstorm", frost: "blizzard", clockwork: "crystal", ringworld: "space", wormhole: "space", sakura: "rainforest", cathedral: "crystal", bubbles: "bubbles", shatter: "glass", crystals: "crystal", arcane: "plasma", portal: "plasma", plasmaglobe: "plasma" };
   K.mod("scene", function (gl, s, K) {
     var src = S[s.kind]; if (!src) return null;
     var pr = K.compile(K.FSQ, HEAD.replace("NOISE", K.NOISE) + src); if (!pr) return null;
@@ -761,9 +870,14 @@
     cathedral: [{ mod: "scene", kind: "cathedral" }, { mod: "particles", count: .0008, shape: "mote", size: 2.5, curl: .4, scale: 2, speed: .008, life: .04, c1: [1, .9, .7], c2: [.8, .8, 1], alpha: .3, blend: "add", glint: 1, rake: .4 }, POST({ bloom: .8, threshold: .85, aberr: .15 })],
     comet: [{ mod: "scene", kind: "comet" }, POST({ bloom: 1.2, threshold: .6, aberr: .2 })],
     pulsar: [{ mod: "scene", kind: "pulsar" }, { mod: "particles", count: .001, shape: "mote", size: 2, curl: .3, scale: 2, speed: .01, life: .04, c1: [.6, .8, 1], c2: [1, .6, .6], alpha: .4, blend: "add", rake: .4 }, POST({ bloom: 1.4, threshold: .5, aberr: .4 })],
-    dunes: [{ mod: "scene", kind: "dunes" }, { mod: "particles", count: .002, shape: "dot", size: 1.3, drift: [.06, .005], curl: .8, scale: 2, speed: .05, life: .06, c1: [1, .75, .5], c2: [1, .85, .65], alpha: .35, blend: "add", rake: 1.5 }, POST({ bloom: .7, threshold: .85, aberr: .1 })],
+    dunes: [{ mod: "scene", kind: "dunes" }, { mod: "particles", count: .002, shape: "dot", size: 1.3, drift: [.06, .005], curl: .8, scale: 2, speed: .05, life: .06, c1: [1, .75, .5], c2: [1, .85, .65], alpha: .35, blend: "add", rake: 1.5 }, POST({ bloom: .5, threshold: .95, exposure: .85, aberr: .1 })],
     frost: [{ mod: "scene", kind: "frost" }, POST({ bloom: 1, threshold: .7, aberr: .25 })],
     clockwork: [{ mod: "scene", kind: "clockwork" }, { mod: "particles", count: .0008, shape: "mote", size: 3, curl: .5, scale: 2, speed: .01, life: .05, c1: [1, .85, .5], c2: [1, .7, .4], alpha: .45, blend: "add", glint: 1, rake: .4 }, POST({ bloom: .9, threshold: .85, aberr: .2 })],
+    orbit: [{ mod: "scene", kind: "orbit" }, POST({ bloom: 1.1, threshold: .7, aberr: .25 })],
+    eclipse: [{ mod: "scene", kind: "eclipse" }, POST({ bloom: 1, threshold: .7, aberr: .2 })],
+    glowworms: [{ mod: "scene", kind: "glowworms" }, POST({ bloom: 1.1, threshold: .6, aberr: .15 })],
+    opal: [{ mod: "scene", kind: "opal" }, POST({ bloom: .8, threshold: .8, aberr: .15 })],
+    spellorb: [{ mod: "scene", kind: "spellorb" }, { mod: "particles", count: .0006, shape: "mote", size: 4, curl: 1, scale: 2, speed: .02, life: .06, c1: [.4, 1, .9], c2: [.7, .4, 1], alpha: .6, blend: "add", glint: 1, rake: .5 }, POST({ bloom: 1.1, threshold: .65, aberr: .25 })],
     shatter: [{ mod: "scene", kind: "shatter" }, { mod: "particles", count: .0008, shape: "spark", size: 2.5, curl: .5, speed: .05, life: .3, c1: [.8, .9, 1], c2: [1, .9, .8], alpha: .35, blend: "add", rake: 2, glint: 1 }, POST({ bloom: 1.1, threshold: .7, aberr: .5 })]
   });
   K.preset = function (id) { return (K.presets[id] || []).map(function (x) { return Object.assign({}, x); }); };
