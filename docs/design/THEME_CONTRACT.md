@@ -33,3 +33,8 @@ If a theme has no design for the current shell, the shell keeps its neutral look
 ## Adding or removing a shell
 - **Add**: put the folder under `shells/`, add one entry to `SHELLS` in `shells/shell.js`, add its files to the `sw.js` precache, add a contract test, and add a row to `UI_REGISTRY.md`. It ships as its own commit.
 - **Remove**: revert that commit, or delete the folder, its `SHELLS` entry and its precache lines. Anyone who had chosen it falls back to Classic.
+
+## Theme names
+The display name is the human label. The id never changes, because saved choices, CSS and files all use it. Anywhere people read it (logs, reports, commits, progress docs, test output), write **Display Name (id)**, e.g. *Gilded Armory (valhalla)*. In code, call `TitanWorldLabel(id)`.
+Ids that read like a different name are listed in `TITAN_WORLD_ALIASES` (wings/themes/manifest.js). `tools/themes/test_names.js` fails if a new one is left out.
+Today's aliases: Prism (kaleido), Midnight Gallery (afterhours), The Mint (colossus), Shipwreck (abyss), Plaintext (notepad), Solar Observatory (solaris), Hyperborean Vault (glacier), Gilded Armory (valhalla), Survey Map (contour), Treasury Note (banknote), Paper Hills (papercut), Millennium Chrome (y2k).

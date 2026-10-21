@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · theme names registry (tr182)
+- Theme names: the display name is the human label and ids stay stable. Every report now prints Display Name (id), e.g. Gilded Armory (valhalla), Plaintext (notepad), Hyperborean Vault (glacier). The 12 ids that read like another name are listed in TITAN_WORLD_ALIASES, with TitanWorldLabel(id) for code. tools/themes/test_names.js fails on a new divergent id that isn't listed.
+
 ### [2026-10-21] — Claude · score drafts (#91), serial plan options (#5)
 - `tools/agents/score_drafts.py` runs after every publish and drafts a score for each outside AI file merged since its last scored row (`collaborators/SCORE_DRAFTS.md`); Claude adjusts and moves rows into CONTRIBUTOR_SCORES. Nothing waiting today.
 - `tools/schema/reassign_ser.py`: the dry run now lists both serial options side by side and what blocks applying it. Fix list v29.

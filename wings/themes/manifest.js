@@ -90,6 +90,16 @@
   var UI_OF = { notepad: ["brutal"] };
   worlds.forEach(function (w) { if (STYLE_OF[w.id]) w.styles = STYLE_OF[w.id]; if (UI_OF[w.id]) w.ui = UI_OF[w.id]; });
   window.TITAN_WORLDS = worlds;
+  /* Names (Grok 2026-10-20): the display name is the human label; the id never changes (saved choices, CSS, files use it).
+     Everywhere a theme is named for people (logs, reports, commits, tests) print label(id) = "Display Name (id)".
+     ALIASES lists every id that reads like a different name, so nobody hunts for "Valhalla" again. A new divergent id must be added
+     here (tools/themes/test_names.js fails otherwise). */
+  window.TITAN_WORLD_ALIASES = {
+    kaleido: "Prism", afterhours: "Midnight Gallery", colossus: "The Mint", abyss: "Shipwreck", notepad: "Plaintext",
+    solaris: "Solar Observatory", glacier: "Hyperborean Vault", valhalla: "Gilded Armory",
+    contour: "Survey Map", banknote: "Treasury Note", papercut: "Paper Hills", y2k: "Millennium Chrome"
+  };
+  window.TitanWorldLabel = function (id) { var w = worlds.filter(function (x) { return x.id === id; })[0]; return w ? w.name + " (" + id + ")" : String(id); };
   window.TITAN_WORLD_BACKDROP = false;   // true = use the active World's hero art as the Hall hero backdrop (styles/worlds.css); easily removable
   window.TITAN_WORLD_COLLECTIONS = ["Museum", "Treasure", "Journeys", "Moods", "Otherworld", "Studio", "Utility"];
 })();

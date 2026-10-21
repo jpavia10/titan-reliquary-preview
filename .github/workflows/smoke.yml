@@ -42,6 +42,8 @@ jobs:
         run: python tools/smoke/test_regress_grk_r01.py
       - name: GRK-SH-01 UI shells + The Field contract
         run: python tools/smoke/test_regress_grk_sh01.py
+      - name: theme names (display name vs id aliases)
+        run: node tools/themes/test_names.js
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
