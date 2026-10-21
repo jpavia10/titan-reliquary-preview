@@ -526,6 +526,7 @@
     var small = Math.min(window.innerWidth, window.innerHeight) < 520;
     var tier = (function () {
       if (forced) return clamp(+forced[1], 0, 4);
+      if (window.TitanQuality) return ({ low: 3, medium: 2 })[window.TitanQuality.tier] || 0;   // the user's Graphics setting
       var save = navigator.connection && navigator.connection.saveData;
       // Device floor (Joseph 7:47 PM): Galaxy S24 Ultra or better. Everything starts at full quality; only Save-Data or a very
       // weak report (well below the floor) lowers it. iOS hides cores/memory, so an unknown device is treated as flagship.

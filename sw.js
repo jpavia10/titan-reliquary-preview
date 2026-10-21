@@ -124,6 +124,7 @@ const WING_URLS = [
   "wings/ui-sounds.js?v=" + BUILD,
   "wings/relief.js?v=" + BUILD,
   "wings/quality.js?v=" + BUILD,
+  "styles/quality.css?v=" + BUILD,
   "wings/cutouts.js?v=" + BUILD,
   "photos/cut/manifest.json?v=" + BUILD,
   "shells/shell.js?v=" + BUILD,

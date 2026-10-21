@@ -34,6 +34,8 @@
     } catch (e) { /* private mode */ }
   </script>
   <!-- One motion setting + haptics (fix list #59): must run before every other script and before the first paint -->
+  <link rel="stylesheet" href="styles/quality.css?v=tr222" />
+  <script src="wings/quality.js?v=tr222"></script>
   <script src="js/app-motion.js?v=tr222"></script>
   <!-- Splash gate: show the cinematic vault-door opening (splash v3) once per session on a plain load of the Grand Hall.
        ?nosplash skips it, ?splash=1 forces it, deep links (#coin=..., #vault ...) skip it, Motion "Off" skips it. Fails open after 7 s. -->
@@ -1383,7 +1385,6 @@
   <script src="wings/scene-engine.js?v=tr222"></script>
   <script src="wings/signature/core.js?v=tr222"></script>
   <script src="wings/relief.js?v=tr222"></script>
-  <script src="wings/quality.js?v=tr222"></script>
   <script src="wings/cutouts.js?v=tr222"></script>
   <script src="shells/shell.js?v=tr222"></script>
   <script src="wings/coin3d.js?v=tr222"></script>
