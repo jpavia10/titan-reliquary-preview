@@ -96,7 +96,12 @@
     ["glowforest", "Glow forest", "A night forest where moss, vines and mushrooms glow cyan and violet, spores drifting. Hold to light the moss, tap to send a glow wave through the ground.", P("glowforest"), "Nature"],
     ["sun", "The Sun", "The Sun up close: boiling granules, sunspots, looping prominences and a streaming corona. Drag to rotate, tap for a solar flare.", P("sun"), "Space"],
     ["portal", "Magic portal", "A ring of molten sparks tears open a window onto a sunlit sea of clouds. Hold to widen it, drag to look through, tap for a surge.", P("portal"), "Material & Magic"],
-    ["plasmaglobe", "Plasma globe", "Violet lightning wanders inside a glass globe. Hold and every bolt reaches for your finger, tap for a discharge.", P("plasmaglobe"), "Material & Magic"]
+    ["plasmaglobe", "Plasma globe", "Violet lightning wanders inside a glass globe. Hold and every bolt reaches for your finger, tap for a discharge.", P("plasmaglobe"), "Material & Magic"],
+    ["jellyfish", "Jellyfish", "Glowing jellyfish pulse upward through blue light shafts and drifting marine snow. Hold to draw them in, tap for a glow ripple.", P("jellyfish"), "Nature"],
+    ["sakura", "Cherry blossoms", "A sunlit cherry grove in layers, petals drifting down through light shafts. Drag to sway the trees, tap for a gust.", P("sakura"), "Nature"],
+    ["ringworld", "Ringed planet", "A banded gas giant with a great storm, its rings casting shadows, a moon passing. Drag to tilt and orbit, tap for polar aurora.", P("ringworld"), "Space"],
+    ["wormhole", "Wormhole", "Fly down a tunnel of folded spacetime toward a lensed galaxy. Drag to steer, hold to accelerate, tap to jump.", P("wormhole"), "Space"],
+    ["cathedral", "Rose window", "Sun through a stained-glass rose window throws coloured shafts through dusty air. Drag to move the sun, tap for a swell of light.", P("cathedral"), "Material & Magic"]
   ]).concat(window.FXDEMO_EXTRA || []);
   var ui = document.getElementById("ui"), cap = document.getElementById("cap"), catNav = document.getElementById("cat"), CATS = [];
   D.forEach(function (d) { d[4] = d[4] || "Sims"; if (CATS.indexOf(d[4]) < 0) CATS.push(d[4]); T["demo-" + d[0]] = { stack: d[3] }; var b = document.createElement("button"); b.textContent = d[1]; b.dataset.id = d[0]; b.dataset.cat = d[4]; ui.appendChild(b); });

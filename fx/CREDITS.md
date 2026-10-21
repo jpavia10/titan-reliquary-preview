@@ -19,5 +19,10 @@ Every effect in fx/ is vendored locally (no CDN). Ports and the techniques they 
 | fx/scenes-nms.js `glowforest` | Parallax silhouette layers, perspective ground fbm with travelling glow wave. | own code |
 | fx/scenes-nms.js `sun` | Animated Voronoi granulation (after Inigo Quilez's Voronoi articles), Eddington-style limb darkening, fbm corona. | technique, own code |
 | fx/scenes-nms.js `plasmaglobe` | fbm-displaced radial filaments attracted to the pointer, Fresnel glass shell. | own code |
+| fx/scenes-nms.js `jellyfish` | Analytic bells, Fresnel-style rim, sine tentacles. | own code |
+| fx/scenes-nms.js `ringworld` | Ray-sphere + ray-plane intersections with mutual ring/planet shadows (standard analytic technique). | technique, own code |
+| fx/scenes-nms.js `wormhole` | Polar tunnel mapping (classic demoscene tunnel, as in Inigo Quilez's "tunnel" articles). | technique, own code |
+| fx/scenes-nms.js `sakura` | Layered fbm canopy silhouettes. | own code |
+| fx/scenes-nms.js `cathedral` | Polar-folded tracery SDFs, projected light shafts. | own code |
 
 Personal, non-commercial project. CC BY-NC-SA Shadertoy ports, when added, are listed here with author and link.
