@@ -56,7 +56,7 @@
   var cur = null, soundOn = false, TS = window.TitanScape, sb = document.getElementById("snd"), mix = document.getElementById("mix");
   function row(label, val, min, max, step, fn) { var l = document.createElement("label"), sp = document.createElement("span"), i = document.createElement("input");
     sp.textContent = label; i.type = "range"; i.min = min; i.max = max; i.step = step; i.value = val; i.oninput = function () { fn(+i.value); }; l.appendChild(sp); l.appendChild(i); return l; }
-  function startSound(only) { if (!TS) return; var pr = TS.play(only || cur);
+  function startSound(only) { if (!TS) return; var pr = TS.play(only || ((K.sceneSound || {})[cur] && TS.presets[(K.sceneSound || {})[cur]] && !TS.presets[cur] ? K.sceneSound[cur] : cur));
     document.querySelectorAll("#mixextra button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.p === only)); }); var rows = document.getElementById("mixrows"); rows.innerHTML = "";
     document.getElementById("mixname").textContent = pr ? pr.name : "";
     rows.appendChild(row("Volume", TS.volume, 0, 1, .01, TS.setVolume));
@@ -91,7 +91,12 @@
     ["lava", "Lava field", "Glowing magma flows under cracking black crust, embers rising. Drag to stir the flow, hold to melt the crust, tap for a fountain.", P("lava"), "Nature"],
     ["galaxy", "Spiral galaxy", "A 3D spiral galaxy with blue star-forming arms and dark dust lanes. Drag to tilt and turn, tap for a supernova.", P("galaxy"), "Space"],
     ["crystals", "Crystal geode", "Raytraced amethyst and quartz crystals with rainbow dispersion. Drag to turn, hold to move the light, tap for a resonance pulse.", P("crystals"), "Material & Magic"],
-    ["arcane", "Arcane circle", "A burning gold summoning circle with turning rune rings and a vortex of magic sparks. Drag to spin it, hold to charge, tap to cast.", P("arcane"), "Material & Magic"]
+    ["arcane", "Arcane circle", "A burning gold summoning circle with turning rune rings and a vortex of magic sparks. Drag to spin it, hold to charge, tap to cast.", P("arcane"), "Material & Magic"],
+    ["waterfall", "Waterfall", "A golden-hour gorge: water pours between mossy cliffs into a rippling pool, mist billows up and a rainbow hangs in the spray. Drag to move the sun, tap to splash.", P("waterfall"), "Nature"],
+    ["glowforest", "Glow forest", "A night forest where moss, vines and mushrooms glow cyan and violet, spores drifting. Hold to light the moss, tap to send a glow wave through the ground.", P("glowforest"), "Nature"],
+    ["sun", "The Sun", "The Sun up close: boiling granules, sunspots, looping prominences and a streaming corona. Drag to rotate, tap for a solar flare.", P("sun"), "Space"],
+    ["portal", "Magic portal", "A ring of molten sparks tears open a window onto a sunlit sea of clouds. Hold to widen it, drag to look through, tap for a surge.", P("portal"), "Material & Magic"],
+    ["plasmaglobe", "Plasma globe", "Violet lightning wanders inside a glass globe. Hold and every bolt reaches for your finger, tap for a discharge.", P("plasmaglobe"), "Material & Magic"]
   ]).concat(window.FXDEMO_EXTRA || []);
   var ui = document.getElementById("ui"), cap = document.getElementById("cap"), catNav = document.getElementById("cat"), CATS = [];
   D.forEach(function (d) { d[4] = d[4] || "Sims"; if (CATS.indexOf(d[4]) < 0) CATS.push(d[4]); T["demo-" + d[0]] = { stack: d[3] }; var b = document.createElement("button"); b.textContent = d[1]; b.dataset.id = d[0]; b.dataset.cat = d[4]; ui.appendChild(b); });
