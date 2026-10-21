@@ -120,7 +120,9 @@ def render(out_html):
         parts.append(section(sec["title"], sec["sub"], "    <ul>\n" + body + "    </ul>\n", sec.get("cls", "")))
     done = [n for n in d.get("done_order", []) if items[n]["state"] == "done"]
     done += sorted((n for n, it in items.items() if it["state"] == "done" and n not in done and n not in placed), reverse=True)
-    parts.append(section("Done", "shipped and checked", "    <ul>\n" + "".join(item_li(n, items[n]) for n in done) + "    </ul>\n"))
+    parts.append(section("Done", f"{len(done)} shipped, merged or dropped (numbers never change)",
+                         f'    <details>\n      <summary style="cursor:pointer;padding:10px 0;font-weight:600">Show all {len(done)}</summary>\n'
+                         "    <ul>\n" + "".join(item_li(n, items[n]) for n in done) + "    </ul>\n    </details>\n"))
     missing = [n for n, it in items.items() if it["state"] != "done" and n not in placed]
     if missing: raise SystemExit(f"open items not placed in any section: {missing}")
     body = "".join(parts) + "</div>\n"

@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-21] — Claude · fix list pruned to 9 open (v30)
+- Owner asked to prune: 13 closed, 11 merged into keepers, 6 dropped (list in CLAUDE.md status). Open: #92 #114 #3 #5 #30 #127, #61 #62, #119 (on hold while Grok does themes). No new AI files in Drive since Oct 20.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · theme registry (tr184)
 - One theme registry: TitanRegistry (wings/themes/manifest.js) is the only list of themes. The picker, intros, sound scenes, UI voices, coin-page worlds, FX and stylesheets are all keyed by its ids. tools/themes/test_registry.py (CI) fails on anything missing or orphaned, naming each theme as Display Name (id). Today all 34 agree.
 
