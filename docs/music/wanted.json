@@ -670,7 +670,8 @@
    ],
    "moods": [
     "dynasty"
-   ]
+   ],
+   "traditional": true
   },
   {
    "id": "zen-shakuhachi",
@@ -681,12 +682,18 @@
     "shakuhachi"
    ],
    "prefer": [
+    "shika",
     "honkyoku",
-    "tsuru",
-    "shika"
+    "tsuru"
    ],
    "moods": [
     "zen"
+   ],
+   "traditional": true,
+   "modern": true,
+   "reject": [
+    "File:Shikanotoone.ogg",
+    "File:Shikanotoone new.ogg"
    ]
   },
   {
@@ -703,6 +710,10 @@
    ],
    "moods": [
     "samadhi"
+   ],
+   "traditional": true,
+   "reject": [
+    "File:Indian Folk Classical Flute Music (1).wav"
    ]
   },
   {
@@ -714,21 +725,22 @@
     "sitar"
    ],
    "prefer": [
+    "makkuni",
     "raga",
-    "alap"
+    "tabla"
    ],
    "moods": [
     "samadhi"
-   ]
+   ],
+   "traditional": true
   },
   {
    "id": "silkroad-oud",
    "title": "Taqsim on oud",
    "composer": "Traditional (Middle East)",
-   "query": "oud taqsim",
+   "query": "oud improvisation maqam",
    "must": [
-    "oud",
-    "ud "
+    "oud"
    ],
    "prefer": [
     "taqsim",
@@ -737,7 +749,8 @@
    "moods": [
     "silkroad"
    ],
-   "any": true
+   "any": false,
+   "traditional": true
   },
   {
    "id": "silkroad-santur",
@@ -753,15 +766,20 @@
    ],
    "moods": [
     "silkroad"
-   ]
+   ],
+   "traditional": true
   },
   {
    "id": "glacier-sibelius",
    "title": "Finlandia / Valse triste",
    "composer": "Jean Sibelius",
-   "query": "Sibelius Finlandia",
+   "query": "Sibelius",
    "must": [
-    "sibelius"
+    "finlandia",
+    "valse triste",
+    "karelia",
+    "sibelius",
+    "andante festivo"
    ],
    "prefer": [
     "finlandia",
@@ -770,7 +788,8 @@
    ],
    "moods": [
     "glacier"
-   ]
+   ],
+   "any": true
   },
   {
    "id": "cursedwing-toccata",
@@ -821,6 +840,9 @@
    ],
    "moods": [
     "abyss"
+   ],
+   "reject": [
+    "File:Saint-Saens - The Carnival of the Animals - 07 Aquarium.ogg"
    ]
   },
   {
@@ -887,6 +909,9 @@
    ],
    "moods": [
     "xeno"
+   ],
+   "reject": [
+    "File:Debussy Nocturnes1Nuages VPO.ogg"
    ]
   },
   {
@@ -922,16 +947,21 @@
    "moods": [
     "diorama"
    ],
-   "any": true
+   "any": true,
+   "modern": true,
+   "reject": [
+    "File:Tchaikovsky - Dance of the Sugar Plum Fairy - The Nutcracker.ogg"
+   ]
   },
   {
    "id": "diorama-reedflutes",
    "title": "Dance of the Reed Flutes (The Nutcracker)",
    "composer": "Pyotr Ilyich Tchaikovsky",
-   "query": "Tchaikovsky Nutcracker Dance of the Reed Flutes",
+   "query": "Tchaikovsky Nutcracker Mirlitons reed flutes",
    "must": [
-    "reed flutes",
-    "mirlitons"
+    "mirliton",
+    "reed flute",
+    "reed-flute"
    ],
    "prefer": [
     "nutcracker"
@@ -939,7 +969,8 @@
    "moods": [
     "diorama"
    ],
-   "any": true
+   "any": true,
+   "modern": true
   },
   {
    "id": "contour-moldau",
@@ -1006,6 +1037,42 @@
    ],
    "moods": [
     "papercut"
+   ],
+   "modern": true
+  },
+  {
+   "id": "xeno-neptune",
+   "title": "The Planets: Neptune, the Mystic",
+   "composer": "Gustav Holst",
+   "query": "Holst Neptune the Mystic",
+   "must": [
+    "neptune"
+   ],
+   "prefer": [
+    "band",
+    "orchestra"
+   ],
+   "moods": [
+    "xeno"
+   ]
+  },
+  {
+   "id": "pulp-rhapsody-1",
+   "title": "Rhapsody in Blue (part 1, 1924, with Gershwin at the piano)",
+   "composer": "George Gershwin",
+   "query": "Paul Whiteman Rhapsody in Blue",
+   "must": [
+    "rhapsody in blue"
+   ],
+   "prefer": [
+    "part 01",
+    "part 1"
+   ],
+   "moods": [
+    "pulp"
+   ],
+   "files": [
+    "File:Paul Whiteman Concert Orchestra - Rhapsody in Blue Part 01.mp3"
    ]
   }
  ]
