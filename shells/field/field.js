@@ -3,9 +3,10 @@
    each with who checked it, when, and its source. Filters: album holes as gold rings, silver & gold, still to photograph.
    Contract (docs/design/THEME_CONTRACT.md): any coin in two taps (table or List & search), sourced facts + provenance (sheet;
    "Hold it" opens the full coin page with the photo-relief coin), Back crumb + UI switch home, mute, search.
-   Shared services come in through svc; nothing here reaches into Classic's wings. Three.js 0.160 is vendored (offline). */
-import * as THREE from "../../js/vendor/three-0.160.0.module.min.js";
+   Shared services come in through svc; nothing here reaches into Classic's wings. Uses the app's one shared three.js (r128, offline via the precache). */
 export async function mount(root, svc) {
+const THREE = window.THREE;   // the app's one shared copy (js/three.min.js, r128); no second three.js on the page
+if (!THREE) throw new Error("three.js not loaded");
 const ac = new AbortController(), signal = ac.signal;
 root.innerHTML = BODY;
 /* ---------- data: only what the pipeline published (../../../data/) ---------- */
@@ -54,7 +55,7 @@ const pos = flips.map((f) => { const y = yearOf(f), key = f.country + "|" + (y ?
 const stage = $("#fld-stage");
 const renderer = new THREE.WebGLRenderer({ antialias: (devicePixelRatio || 1) < 2, /* MSAA is wasted at DPR 2+ on phones */ powerPreference: "high-performance" });
 const DPR = Math.min(devicePixelRatio || 1, svc.lite() ? 1.25 : 2);
-renderer.setPixelRatio(DPR); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.domElement.className = "fld-canvas";
+renderer.setPixelRatio(DPR); renderer.outputEncoding = THREE.sRGBEncoding; renderer.domElement.className = "fld-canvas";
 stage.appendChild(renderer.domElement);
 const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0d0b09); scene.fog = new THREE.Fog(0x0d0b09, 60, 140);
 const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 400);
@@ -98,7 +99,7 @@ function reliefOn(m, t) {   // shared service: the photo's own shading becomes r
     r = { n: mk(d.normal), r: mk(d.rough) }; reliefCache.set(t, r); }
   m.normalMap = r.n; m.normalScale.set(1.2, 1.2); m.roughnessMap = r.r; m.roughness = 1; m.metalness = 0.55; reliefN++;
 }
-function photoTex(f) { if (!texCache.has(f.scan)) texCache.set(f.scan, texLoader.loadAsync(f.thumb).then((tx) => { tx.colorSpace = THREE.SRGBColorSpace; tx.center.set(0.5, 0.5); tx.rotation = Math.PI / 2; return tx; }).catch(() => null)); return texCache.get(f.scan); }
+function photoTex(f) { if (!texCache.has(f.scan)) texCache.set(f.scan, texLoader.loadAsync(f.thumb).then((tx) => { tx.encoding = THREE.sRGBEncoding; tx.center.set(0.5, 0.5); tx.rotation = Math.PI / 2; return tx; }).catch(() => null)); return texCache.get(f.scan); }
 
 /* ---------- camera: overview framing that fits a phone in portrait ---------- */
 const view = { tx: WIDTH / 2, tz: DEPTH / 2, dist: 0 };
@@ -145,7 +146,7 @@ function tick(t) {
   raf = 0;
   if (lastT) { frames.push(t - lastT); if (frames.length > 600) frames.shift(); }
   lastT = t;
-  anims = anims.filter((a) => { const k = Math.min(1, (t - (a.t0 ??= t)) / a.ms); a.step(a.ease ? a.ease(k) : k); if (k >= 1) { a.done && a.done(); return false; } return true; });
+  anims = anims.filter((a) => { const k = Math.min(1, (t - (a.t0 = a.t0 == null ? t : a.t0)) / a.ms); a.step(a.ease ? a.ease(k) : k); if (k >= 1) { a.done && a.done(); return false; } return true; });
   applyCam(); renderer.render(scene, camera);
   camera.updateMatrixWorld(); if (labelsDirty || !camKey.equals(camera.matrixWorld)) { camKey.copy(camera.matrixWorld); labelsDirty = false; placeLabels(); }
   if (showFps && frames.length > 10) { const last = frames.slice(-60); fpsEl.textContent = (1000 / (last.reduce((a, b) => a + b, 0) / last.length)).toFixed(0) + " fps"; }
