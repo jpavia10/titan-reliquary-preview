@@ -1,0 +1,39 @@
+{
+ "request_id": "artreq_20261021-1900_theme-cards-supercell",
+ "status": "open",
+ "assigned_to": "any",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-21T19:00:00Z",
+ "why": "New theme #40 Supercell (supercell) shipped without a picker card or hero (owner rule 9: art is never rendered by code; the picker shows its CSS swatch until this lands).",
+ "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim it with {request id}.CLAIMED-{model}.txt first. takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261021-1900_theme-cards-supercell/' with the exact file names, then write artreq_20261021-1900_theme-cards-supercell.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+ "deliverable_spec": {
+  "card": "16:10, at least 1280x800, PNG; the subject must read at 220x138 px (the picker card size on a phone)",
+  "hero": "16:10, at least 2560x1600, PNG",
+  "safe_area": "keep the top-left third of heroes calm and darker (or plain paper on light themes): UI text sits there"
+ },
+ "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, true reflections, physically accurate materials (toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich natural grading, fine film grain. Real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Exception: an image whose `medium` names an illustration, pixel art, clay or poster style is made in that medium, at the same premium standard (clean, crafted, never cheap clip-art).",
+ "negative": "no readable text, no letters, no numbers, no logos, no watermark, no frame, no faces, no hands, no 3D-render plastic look in the photo images, no oversaturation, no HDR halos, no warped or melting coins, no invented legible inscriptions",
+ "coin_rule": "Coins look like real circulated or uncirculated world coins (a generic portrait, eagle or crest is fine); never invent a legible inscription.",
+ "images": [
+  {
+   "file_name": "world_supercell_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Supercell",
+   "theme_id": "supercell",
+   "medium": "photo",
+   "prompt": "Storm-chaser photograph at dusk on the open American plains: a rotating supercell thunderstorm with a striated, flaring mothership base and a lowered wall cloud, lit warm orange from the low sun behind the camera, deep blue shadows, a flat-topped anvil spreading at the top, a single cloud-to-ground lightning bolt and rain shafts under the base, dark wheat field in the foreground. Low on the field, slightly off centre, one real circulated silver coin standing on its edge on a fence post catches the last light. Wide lens, natural colours, no people."
+  },
+  {
+   "file_name": "world_supercell_hero.png",
+   "priority": 2,
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Supercell",
+   "theme_id": "supercell",
+   "medium": "photo",
+   "prompt": "The same supercell at dusk, wider: the whole storm rotating over endless plains, mammatus hanging under the anvil, lightning lighting the inside of the cloud blue-white, a burning orange band on the horizon. Keep the top-left third calm and darker (UI text sits there). A small silver coin on a weathered fence post in the lower right foreground, catching a lightning flash."
+  }
+ ]
+}

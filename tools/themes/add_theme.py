@@ -140,7 +140,9 @@ def main(spec_path):
     # 9. the TitanGen World scene
     t = rd("wings/scene-engine.js")
     if f'\n    "{tid}": {{' not in t:
-        k = t.find('"terminal": { rec: "orchestra", world: true'); e = t.find("vol: 0.5 },", k) + len("vol: 0.5 },")
+        m = re.search(r'\n    "terminal": \{ rec: "[^"]+", world: true', t)       # the rec mood may name fallbacks ("terminal|orchestra")
+        if not m: raise SystemExit("anchor not found for scene: the terminal row in wings/scene-engine.js")
+        e = t.find("vol: 0.5 },", m.start()) + len("vol: 0.5 },")
         t = t[:e] + f'\n    "{tid}": ' + s["scene"].strip() + "," + t[e:]; log.append("scene")
     wr("wings/scene-engine.js", t)
 

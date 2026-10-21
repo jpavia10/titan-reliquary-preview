@@ -1418,6 +1418,47 @@
     "banknote"
    ],
    "modern": true
+  },
+  {
+   "id": "supercell-pastoral-storm",
+   "title": "Symphony No. 6 'Pastoral': IV. Thunderstorm",
+   "composer": "Ludwig van Beethoven",
+   "query": "Beethoven Symphony 6 Pastoral Gewitter Sturm thunderstorm",
+   "must": [
+    "gewitter",
+    "storm",
+    "sturm",
+    "iv."
+   ],
+   "any": true,
+   "prefer": [
+    "musopen",
+    "pastoral",
+    "allegro"
+   ],
+   "moods": [
+    "supercell"
+   ],
+   "modern": true
+  },
+  {
+   "id": "supercell-vivaldi-summer",
+   "title": "The Four Seasons, Summer: III. Presto (the storm)",
+   "composer": "Antonio Vivaldi",
+   "query": "Vivaldi Four Seasons Summer Presto",
+   "must": [
+    "summer",
+    "estate"
+   ],
+   "any": true,
+   "prefer": [
+    "presto",
+    "harrison"
+   ],
+   "moods": [
+    "supercell"
+   ],
+   "modern": true
   }
  ]
 }

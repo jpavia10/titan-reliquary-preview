@@ -1,0 +1,63 @@
+/* ============================================================================
+   Atmosphere: SUPERCELL (supercell) · Volumetric storm
+   A rotating thunderstorm at dusk over open plains, lit from inside by lightning. Tap the sky to call a strike.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md): the shared treatments in styles/style-layer.css are switched on by
+   the theme's `ui` list in wings/themes/manifest.js (html[data-ui]); the effect is fxk (wings/fx/styles-e.js).
+   Legibility: checked with tools/themes/check_theme.js (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="supercell"] {
+  --scheme: dark;
+  color-scheme: dark;
+  --bg: #0a0d13;
+  --bg2: #0f131b;
+  --surface: #141a24;
+  --surface2: #1b2230;
+  --ink: #eef2f8;
+  --muted: #bcc6d3;
+  --faint: #93a0b2;
+  --cardmeta: #dbe3ee;
+  --gold: #a9c8ff;
+  --gold-soft: #d6e4ff;
+  --gold-deep: #4d6ea6;
+  --on-gold: #07101f;
+  --ink-soft: #bcc6d3;
+  --line: rgba(190, 210, 240, 0.11);
+  --line-strong: rgba(169, 200, 255, 0.45);
+  --ok: #7fe3a8;
+  --warn: #ffc56b;
+  --bad: #ff8a7a;
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 18px 50px rgba(0, 0, 0, 0.75);
+  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.6);
+  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 28px 80px rgba(0, 0, 0, 0.8);
+  --scrim: rgba(2, 4, 8, 0.68);
+  --focus: #d6e4ff;
+  --th-bg: #1b2230;
+  --tabgrad1: #1b2230; --tabgrad2: #141a24;
+  --toastgrad1: #1b2230; --toastgrad2: #141a24;
+  --foot-bg: rgba(10, 13, 19, 0.92);
+  --drawerbar-bg: rgba(20, 26, 36, 0.94);
+  --ph-bg: #1b2230;
+  --sel-bg: rgba(169, 200, 255, 0.16);
+  --row-hover: rgba(169, 200, 255, 0.06);
+  --hold-bg: linear-gradient(160deg, #1e2533, #0a0d13 60%);
+  --skeleton1: #1b2230; --skeleton2: #0a0d13;
+  --grain-op: 0.035;
+  --wing-dur: 0.5s;
+  --wing-rise: 14px;
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --serif: "Cormorant Garamond", "Hoefler Text", "Iowan Old Style", Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 8px;
+}
+/* Supercell surfaces: storm glass. Panels are dark slate with a cold rim and a faint dusk glow along the lower edge, as if lit from
+   the burning horizon under the storm; hover sends a quick flash across the rim. Scoped to own surfaces only. */
+html[data-atmo="supercell"] .card, html[data-atmo="supercell"] .panel, html[data-atmo="supercell"] .gx-card {
+  background: linear-gradient(180deg, rgba(27,34,48,.86), rgba(10,13,19,.93) 78%, rgba(60,30,18,.5));
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 0 rgba(214,228,255,.10), inset 0 0 0 1px rgba(169,200,255,.12), inset 0 -10px 22px -16px rgba(255,140,70,.35), 0 18px 46px rgba(0,0,0,.7);
+  transition: box-shadow .35s ease, transform .5s cubic-bezier(.2,1,.3,1); }
+html[data-atmo="supercell"] .card:hover, html[data-atmo="supercell"] .gx-card:hover {
+  transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(214,228,255,.22), inset 0 0 0 1px rgba(169,200,255,.45), 0 0 26px rgba(169,200,255,.14), 0 22px 54px rgba(0,0,0,.75); }
+html[data-atmo="supercell"] h1, html[data-atmo="supercell"] h2 { background: linear-gradient(180deg, #ffffff, #c9dbff 50%, #7f9cc9); -webkit-background-clip: text; background-clip: text; color: transparent; }

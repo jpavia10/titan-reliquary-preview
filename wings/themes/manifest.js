@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "supercell", name: "Supercell", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Volumetric storm"],
+      mood: "A rotating thunderstorm at dusk over open plains, lit from inside by lightning. Tap the sky to call a strike.", fx: "fxk", fxIntensity: 0.01, scene: "supercell", tokens: {} },
     { id: "kintsugi", name: "Kintsugi", collection: "Studio", tier: "signature", art: C("kintsugi"), ui: [], styles: ["Gold-mended glaze"],
       mood: "Black raku glaze mended with liquid gold. Tap to crack the glaze and watch gold run in and seal it.", fx: "fxk", fxIntensity: 0.01, scene: "kintsugi", tokens: {} },
     { id: "horizon", name: "Event Horizon", collection: "Otherworld", tier: "signature", art: C("horizon"), ui: [], styles: ["Black hole"],

@@ -40,3 +40,24 @@ Verdict: ship v1 (passes tests, real GPU raymarch, unique intro). Rounds 1-3 go 
 - The spike lattice is procedural, scaled by the sim. A true per-spike instability (Rosensweig solved at its own wavelength) would let spikes split and coalesce on their own.
 - I couldn't check fps on a real Adreno 750; the box only has software GL. The kit's governor drops render scale and step count if frames run long.
 Verdict: ship v2.
+
+## #40 Supercell (supercell), v1 (Claude, 2026-10-21; theme work moved to Claude for the week)
+**What works**
+- A real raymarched volume (`fx/supercell.js`): updraft tower with turrets that leans downwind, a flat anvil with an overshooting dome and
+  mammatus under it, a striated base that flares outward and turns (spiral plates), a lowered wall cloud, rain curtains. Rendered into its
+  own reduced-resolution buffer (tier .32-.66) and upscaled with a soft 5-tap filter, like `fx/volume.js`.
+- Light: a low dusk sun behind the camera (warm front faces, blue undersides, the anvil's underside catching the afterglow) and lightning
+  as point lights INSIDE the cloud with return strokes; a flash brightens the whole sky and the wet plains.
+- Sound sync both ways: the "storm" soundscape's own flashes (titan:scape) become flashes here (under 1.4 km = a ground strike), and a tap is
+  a ground strike that tells the soundscape (titan:fx lightning, dist .7) so the thunder answers. Silent schedule when no soundscape plays.
+- Intro (`js/intros/supercell.js`): three in-cloud flashes show the carved, backlit name, a ground strike stamps it white-hot, it cools to
+  silver; wind, thunder delayed by distance, the close crack.
+**Below the bar (next rounds)**
+1. Tuned only on software GL (swiftshader). No fps from a real phone yet; volume cost per tier is a guess (26/38/56/80 steps).
+2. The tower still reads a little "solid"; true cauliflower billows need a second, smaller noise band and a silver lining on the sun side.
+3. Bolts are screen-space (one branch). A real branching tree with a stepped-leader phase before the return stroke would sell it.
+4. No picker card yet: requested in the art queue (`artreq_20261021-1900_theme-cards-supercell`, rule 9); the CSS swatch stands in.
+5. Music: Beethoven's Pastoral IV (Thunderstorm) and Vivaldi's Summer Presto queued in `docs/music/wanted.json`; recorded orchestra until then.
+6. Coin page: the shared 2D world (rain, `wings/coin3d.js` WORLD row); its own storm under the coin waits on the coin3d world hook.
+Verdict: ship v1.
+

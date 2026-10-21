@@ -22,3 +22,5 @@ Checked for overlap with the 34 + #35 (grid/light-trail vibe) + #36 (portal-gree
 | 50 | Sahel Futurism (sahel) | culture + sci-fi | Mudbrick towers, brass solar sails, harmattan haze. | Volumetric dust sun, adobe forms, brass mirrors tracking the sun | Plucked strings, talking-drum pulse | Mirrors turn in sequence and burn the name into the wall |
 
 Build order: Ferrofluid, Event Horizon, Kintsugi, Supercell, Tourbillon, then the rest.
+
+Status (2026-10-21): #35-#39 shipped by Grok (tr212-tr239). #40 Supercell shipped by Claude (tr248). Next: #41 Tourbillon.
