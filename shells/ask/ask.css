@@ -1,0 +1,21 @@
+@import url("../exp/exp.css");
+/* Ask: a quiet observatory. Night-blue glass chat over the constellation */
+#shell-ask { --bg:#03040b; --acc:#9cb8ff; --line:rgba(156,184,255,.22); --panel:rgba(8,10,22,.93); }
+#shell-ask .xp-title b { letter-spacing:.42em; color:#dfe7ff; }
+#shell-ask .ask-chat { position:absolute; z-index:4; left:0; right:0; bottom:0; display:flex; flex-direction:column; gap:8px; max-height:52%; padding:10px 12px calc(12px + env(safe-area-inset-bottom)); background:linear-gradient(transparent, rgba(3,4,11,.92) 18%); }
+#shell-ask .ask-log { overflow:auto; display:flex; flex-direction:column; gap:8px; min-height:0; }
+#shell-ask .ask-me { align-self:flex-end; max-width:85%; background:#2a3a6a; padding:8px 12px; border-radius:14px 14px 4px 14px; }
+#shell-ask .ask-bot { align-self:flex-start; max-width:94%; background:rgba(18,22,40,.9); border:1px solid var(--line); padding:8px 12px; border-radius:14px 14px 14px 4px; -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+#shell-ask .ask-bot p { margin:0 0 6px; } #shell-ask .ask-bot small { color:var(--muted); font-size:12px; }
+#shell-ask .ask-cite { display:flex; gap:6px; overflow-x:auto; margin:4px 0 6px; }
+#shell-ask .ask-cite button { flex:none; display:flex; flex-direction:column; align-items:center; gap:2px; padding:4px 6px; min-width:56px; font-size:12px; }
+#shell-ask .ask-cite img, #shell-ask .ask-cite i { width:40px; height:40px; border-radius:50%; object-fit:cover; background:#223; display:block; }
+#shell-ask .ask-sug { display:flex; gap:6px; overflow-x:auto; flex:none; }
+#shell-ask .ask-sug button { flex:none; border-radius:99px; font-size:14px; min-height:40px; }
+#shell-ask .ask-in { display:flex; gap:8px; flex:none; }
+#shell-ask #ask-q { flex:1; font:inherit; font-size:17px; color:var(--ink); background:#121628; border:1px solid var(--line); border-radius:14px; padding:10px 14px; }
+#shell-ask .ask-in button { background:var(--acc); color:#0a0d1a; font-weight:700; }
+#shell-ask .xp-hint { display:none; }
+@media (min-width: 900px) { #shell-ask .ask-chat { left:24px; right:auto; bottom:24px; width:min(560px,40vw); max-height:72vh; background:rgba(6,8,18,.72); border:1px solid var(--line); border-radius:18px; -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); }
+  #shell-ask .xp-sheet { left:auto; right:24px; bottom:24px; width:min(480px,32vw); max-height:84vh; border-radius:18px; border:1px solid var(--line); transform:translateX(130%); } #shell-ask .xp-sheet.open { transform:none; } }
+#shell-ask .xp-sheet { z-index:9; }

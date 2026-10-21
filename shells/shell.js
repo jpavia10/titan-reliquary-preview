@@ -13,7 +13,8 @@
     { id: "hologram", exp: true, name: "Hologram", desc: "Millions of light particles. The ring of your collection surrounds you; tap one and every particle spirals in to form that coin.", module: "shells/hologram/hologram.js", css: "shells/hologram/hologram.css" },
     { id: "orrery", exp: true, name: "Orrery", desc: "A brass orrery in space. The sun is today; each decade is an orbit, older coins circle farther out and slower. Tap a coin and time stops.", module: "shells/orrery/orrery.js", css: "shells/orrery/orrery.css" },
     { id: "deck", exp: true, name: "Deck", desc: "Every coin is a foil card. Flick through a springy fan, or shuffle and deal a three-card reading from any suit.", module: "shells/deck/deck.js", css: "shells/deck/deck.css" },
-    { id: "sonic", exp: true, name: "Sonic", desc: "Play your collection like an instrument. Every coin is a struck note: newer is higher, place is left or right, metal is the tone. Drag to play, tap to hold.", module: "shells/sonic/sonic.js", css: "shells/sonic/sonic.css" }
+    { id: "sonic", exp: true, name: "Sonic", desc: "Play your collection like an instrument. Every coin is a struck note: newer is higher, place is left or right, metal is the tone. Drag to play, tap to hold.", module: "shells/sonic/sonic.js", css: "shells/sonic/sonic.css" },
+    { id: "ask", exp: true, name: "Ask", desc: "Chat with your collection. Every answer shows the coins behind it, lit up as a constellation.", module: "shells/ask/ask.js", css: "shells/ask/ask.css" }
   ];
   const KEY = "tr.shell", B = () => window.TITAN_BUILD || "";
   let cur = "classic", live = null, root = null, manifest = null, themeLink = null, busy = Promise.resolve();

@@ -13,7 +13,7 @@ LISTJS = """(() => { const q = document.getElementById('xp-q'), n = () => docume
   document.querySelector('#xp-chips [data-f="m:silver"]').click(); const ag = n();
   document.querySelector('#xp-chips [data-f="all"]').click(); q.value = 'Switzerland'; q.dispatchEvent(new Event('input'));
   return all === __exp.count && ag > 0 && ag < all; })()"""
-EXP = [x for x in os.environ.get("XP_ONLY", "hologram,orrery,deck,sonic").split(",") if x]
+EXP = [x for x in os.environ.get("XP_ONLY", "hologram,orrery,deck,sonic,ask").split(",") if x]
 
 def main():
     base = serve(); fails = []; shots = os.environ.get("XP_SHOTS")
@@ -45,6 +45,14 @@ def main():
                     check(tag + "400k field particles", p.evaluate("__sonic.particlesFull") >= 400000)
                     p.evaluate(f"__sonic.scrub(20, {vp['height']//2}, {vp['width']-20}, {vp['height']//2 - 60})"); p.wait_for_timeout(300)
                     check(tag + "a finger scrub strikes coins", p.evaluate("__sonic.strikes()") > 0, p.evaluate("__sonic.strikes()"))
+                if sid == "ask":
+                    check(tag + "200k galaxy dust", p.evaluate("__ask.particlesFull") >= 200000)
+                    p.fill("#ask-q", "oldest silver coins"); p.press("#ask-q", "Enter"); p.wait_for_timeout(800)
+                    check(tag + "a question gets an answer that cites coins", p.evaluate("__ask.cited() > 0 && document.querySelectorAll('.ask-cite [data-i]').length > 0"))
+                    check(tag + "the parser counts silver correctly", p.evaluate("__ask.answer('how many silver coins').cite.length > 0"))
+                    p.evaluate("__ask.ask('most valuable')"); p.wait_for_timeout(600)
+                    if shots: p.evaluate("__ask.warm(4)"); p.wait_for_timeout(500); p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-answer.png", timeout=180000)
+                    p.click("#xp-back"); p.wait_for_timeout(300)
                 if sid == "hologram":
                     n = p.evaluate("window.__holo ? __holo.particles : 0"); check(tag + "at least 1M particles", n >= 1_000_000, n)
                 if shots:
