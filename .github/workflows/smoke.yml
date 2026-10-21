@@ -46,6 +46,8 @@ jobs:
         run: node tools/themes/test_names.js
       - name: theme registry (one registry, every map agrees)
         run: python tools/themes/test_registry.py
+      - name: Coin cutouts manifest
+        run: python tools/photos/test_cutouts.py
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
