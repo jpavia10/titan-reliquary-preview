@@ -40,6 +40,7 @@ jobs:
         run: python tools/release/bump.py --check
       - run: python tools/agents/homework.py --check
       - run: python tools/agents/test_homework.py
+      - run: python tools/agents/test_score_drafts.py
       - run: python tools/pipeline/test_migrations.py
       - run: python tools/pipeline/test_pipeline.py
       - name: regression tests from Grok's reviews (GRK-B-01, B-02, R-01, R-02, M-03)

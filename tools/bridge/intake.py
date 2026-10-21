@@ -285,7 +285,8 @@ def inbox(state, now):
     score = [e for e in files if e["outcome"] == "merged" and e["name"] not in rev]
     L += ["", f"## Score these (rule 2): {len(score)}", ""]
     L += [f"- `{e['name']}` ({PV.NAMES.get(e['agent'], e['agent'])}, merged {e['at'][:16].replace('T', ' ')}): {e['summary']}" for e in score] or ["- Nothing new."]
-    if score: L += ["", "Score each in collaborators/CONTRIBUTOR_SCORES.md and its FEEDBACK doc, then: `python3 tools/bridge/intake.py reviewed NAME...`"]
+    if score: L += ["", "Drafts with the pipeline's findings: collaborators/SCORE_DRAFTS.md (fix list #91). Adjust each, add the praise, move it into "
+                    "collaborators/CONTRIBUTOR_SCORES.md and its FEEDBACK doc, then: `python3 tools/bridge/intake.py reviewed NAME...`"]
     held = [e for e in files if e["outcome"] == "held"]
     L += ["", f"## Held for Claude (left in the drop folder): {len(held)}", ""]
     for e in held:

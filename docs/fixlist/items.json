@@ -1,5 +1,5 @@
 {
- "version": 28,
+ "version": 29,
  "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most now: turning the ledger's guesses into checked facts and the research loop that does it, then safety, then the new app (on hold while Grok upgrades the themes), motion and polish. Designed for your own experience (Oct 20: no separate Dad mode). Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
  "sotu": {
   "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
@@ -27,8 +27,8 @@
   ],
   "holding": [
    [
-    "A third of the facts are still the old ledger's word.",
-    "Of 3,402 facts on screen, 1,781 are cited or confirmed (52.4 %), 474 of them Checked by two sources; 1,106 still come from the original ledger unchecked and 371 are AI readings without an exact source. The ledger's year, mint and face value on photographed coins are now first in line (#125)."
+    "A quarter of the facts are still the old ledger's word.",
+    "Of 3,402 facts on screen, 1,781 are cited or confirmed (52.4 %), 474 of them Checked by two sources; 863 still come from the original ledger unchecked (1,106 before Oct 21, when I read 213 of them blind from the photos: 212 agreed, 1 did not) and 371 are AI readings without an exact source. The AIs' blind reads of the same photos turn the agreeing ones into Checked (#125)."
    ],
    [
     "The loop needs me to turn it.",
@@ -433,7 +433,8 @@
   95,
   97,
   96,
-  100
+  100,
+  91
  ],
  "items": {
   "1": {
@@ -494,7 +495,7 @@
    "new": false,
    "partly": false,
    "state": "open",
-   "note": null
+   "note": "Oct 21: the dry run is ready (collection/SER_REASSIGN_PLAN.md, regenerated on demand): both options side by side for all 306 pieces, grouped by country (EU-CH-001...) or a plain number with no pattern (0001...). It is applied only when Phase 1 is at 100 % and you have picked one."
   },
   "6": {
    "title": "Health screen in the app",
@@ -1518,14 +1519,14 @@
   },
   "91": {
    "title": "Scores drafted by the pipeline",
-   "desc": "Each submission's score (right place, accepted as sent, accurate, complete, in its tier) drafted from the merge report and the cross-checks, so CONTRIBUTOR_SCORES and each AI's feedback stay current without my bookkeeping; I only adjust and add the praise.",
+   "desc": "Oct 21: after every publish, tools/agents/score_drafts.py drafts a score for each outside AI file merged since the scorecard's last row (collaborators/SCORE_DRAFTS.md): place from the file name, accepted 0 when I re-filed it, accuracy from what was cross-checked since (disagreements it lost or won, canaries, a later agreeing source, an owner correction), complete from how much of its homework sheet it answered (across its files), tier from lines off its sheet. Rejected files are listed as bounced, unscored. I adjust each draft, add the praise and move it into the scorecard; INBOX.md points there.",
    "needs": null,
    "unlocks": "#92 running unattended",
    "size": "medium",
    "you": false,
    "new": true,
    "partly": false,
-   "state": "open",
+   "state": "done",
    "note": null
   },
   "92": {
@@ -1926,7 +1927,7 @@
   },
   "125": {
    "title": "Check the ledger's facts against the photos",
-   "desc": "Oct 20: 1,106 facts on screen still come straight from Grok's original ledger, never checked, and the first 3 ever checked were all wrong. The year, mint and face value of every coin with a photo (441 facts) now go to the AIs first as blind photo reads; a second agreeing read makes a fact Checked. Batches are bigger too (Grok 24 assignments, Muse 20, Gemini 16; about 900 items out today).",
+   "desc": "Oct 21: I read the year, face value and mint mark blind from the photos of 200 coins myself (213 facts): 212 agree with the ledger (now \"read from the photo\"; never-checked facts on screen 1,106 -> 863) and 1 does not (C220 Japan 10 yen reads Showa 50 = 1975, the ledger says 1982; a third reader decides). The AIs' blind reads make each of these Checked when they agree. Oct 20: the year, mint and face value of every coin with a photo (441 facts) go to the AIs first as blind photo reads (Grok 24 assignments, Muse 20, Gemini 16).",
    "needs": null,
    "unlocks": "#57 (Phase 1 at 100 %), #61",
    "size": "medium",

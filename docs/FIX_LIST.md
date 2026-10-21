@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-20, build tr145.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-21, build tr175.
 
-## State of the union (2026-10-20, build tr145)
+## State of the union (2026-10-21, build tr175)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
@@ -18,16 +18,16 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 
 - **A research system that runs itself.** Every gap in the data is homework: the loop hands each AI the jobs it is best at, never its own facts to check, files every disagreement instead of overwriting, and measures each AI by how often its facts turn out wrong. Since Oct 20 the never-checked ledger facts go first, read blind from the photos, and about 900 items are out to Grok, Muse and Gemini.
 - **Trust machinery.** Every fact has a certainty label, a history and now a link to its exact source; “Checked” means two independent sources agree. The change history is sealed (a correction is a new line, never an edit), and every photo is fingerprinted against its original.
-- **One pipeline, one master, tested on every update.** Any AI drops a change file; one script checks it, merges it and rebuilds the site. 51 pipeline tests, 18 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup.
+- **One pipeline, one master, tested on every update.** Any AI drops a change file; one script checks it, merges it and rebuilds the site. 53 pipeline tests, 19 research-loop tests, a 38-point phone + desktop smoke test and a GitHub integrity check run on every update; a monthly restore drill rebuilds the whole site from the backup.
 - **Never silently broken.** Daily prices, live-site check, smoke and integrity checks and a daily backup zip run on GitHub; Health warns when any fails.
 - **Exportable, printable, recoverable.** The whole collection opens as a spreadsheet (coins, album holes, lots, every source) and as one JSON file, a printable inventory exists, and a recovery card says how to rebuild everything from the daily backup.
 
 ### What is holding it back
 
-- **A third of the facts are still the old ledger's word.** Of 3,402 facts on screen, 1,781 are cited or confirmed (52.4 %), 474 of them Checked by two sources; 1,106 still come from the original ledger unchecked and 371 are AI readings without an exact source. The ledger's year, mint and face value on photographed coins are now first in line (#125).
+- **A quarter of the facts are still the old ledger's word.** Of 3,402 facts on screen, 1,781 are cited or confirmed (52.4 %), 474 of them Checked by two sources; 863 still come from the original ledger unchecked (1,106 before Oct 21, when I read 213 of them blind from the photos: 212 agreed, 1 did not) and 371 are AI readings without an exact source. The AIs' blind reads of the same photos turn the agreeing ones into Checked (#125).
 - **The loop needs me to turn it.** AIs drop files in Drive; nothing merges until a session opens. The autonomous intake (#92) that removes this is built and tested; it switches on with your one-time install (about 10 minutes).
 - **The interface is behind the system, and you said so.** Judged blind on Oct 16, every badge and theme pair came back "both weak". Grok is upgrading the themes on main now; Titan v3 (#119-#121) waits until that pass is done, and is built for your own experience.
-- **Photos are the bottleneck.** 80 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them.
+- **Photos are the bottleneck.** 79 pieces have no photo, most have only one side, none have pro photos. The Scan page makes each one a few taps; Phase 2 cannot start before them.
 - **Gemini has gone quiet.** Nothing from Gemini since Oct 16; its 15 assignments include the 12 disagreements only a third reader can settle. Claude settles the clear ones meanwhile.
 
 ### The next three moves, in order
@@ -81,7 +81,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - **C073** C073 is a tube of 26 1976 quarters. Keep it as one mixed lot, or sort it into no-letter and D piles?
 - **→** Answer them in the app: Hall footer → Questions. Tap your answers, then “Save answers file” into the Drive change-file folder, or “Copy for chat” and paste it to me.
 
-## The other AIs (what each one is doing now (updated 2026-10-20))
+## The other AIs (what each one is doing now (updated 2026-10-21))
 
 The research loop hands out homework from the data after every update (docs/agents/RESEARCH_LOOP.md): each AI gets the kinds it is best at, never its own facts to check, and a different AI checks every fact. Their full pages: Drive “WORK QUEUE for …” docs, and docs/agents/ in the repo.
 
@@ -103,6 +103,7 @@ Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basic
 - Homework Fact-checker: 45 items, due 10-27 HW-grok-story-check-20261020-2
 - Homework Second reader: 80 items, due 10-27 HW-grok-verify-20261020-3
 - Homework Second reader: 80 items, due 10-27 HW-grok-verify-20261020-4
+- Homework Arbiter: 1 items, due 10-28 HW-grok-arbitrate-20261021-1
 - Then UI rethink, step 2: The Field's three filters, on the real data #116
 - Then Splash film: Coinverse 16:9 again, plain coins (only when Joseph says the credits allow) #56
 - Then Music: a recording for each of the 3 held pieces #83
@@ -180,7 +181,7 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 - [ ] **#92 The loop turns without a chat: autonomous intake**: Built and tested (tr107). Every hour a GitHub job asks a small Google Apps Script in your Drive for new change files, merges the outside AIs' files through every gate and test, publishes, turns the loop and rebuilds the site; the Drive side then trashes merged files, leaves REJECTED notes with a HOW TO FIX line and refreshes each AI's WORK QUEUE doc. Owner answers and anything that needs judgement wait for me in docs/agents/bridge/INBOX.md. No GitHub key anywhere: the job uses GitHub's own short-lived token. Needs first: you: the one-time install, about 10 minutes (docs/INTAKE_BRIDGE.md: one Apps Script project, two GitHub secrets) · Unlocks: #50, #93, daily progress with no session open _[partly done, large, needs you, new]_
 - [ ] **#93 Each AI's page copied to its Drive doc automatically**: Built (tr116): the loop now writes each AI's compact Drive copy (docs/agents/drive/QUEUE_{ai}.txt: its NEW note, the live link, one line per assignment), and the Drive bridge copies that file into the AI's doc whenever it changes. Until the bridge is installed I paste the same file by hand. Needs first: #92 installed _[partly done, medium, new]_
-- [ ] **#91 Scores drafted by the pipeline**: Each submission's score (right place, accepted as sent, accurate, complete, in its tier) drafted from the merge report and the cross-checks, so CONTRIBUTOR_SCORES and each AI's feedback stay current without my bookkeeping; I only adjust and add the praise. Unlocks: #92 running unattended _[medium, new]_
+- [x] **#91 Scores drafted by the pipeline**: Oct 21: after every publish, tools/agents/score_drafts.py drafts a score for each outside AI file merged since the scorecard's last row (collaborators/SCORE_DRAFTS.md): place from the file name, accepted 0 when I re-filed it, accuracy from what was cross-checked since (disagreements it lost or won, canaries, a later agreeing source, an owner correction), complete from how much of its homework sheet it answered (across its files), tier from lines off its sheet. Rejected files are listed as bounced, unscored. I adjust each draft, add the praise and move it into the scorecard; INBOX.md points there. _[done]_
 - [ ] **#50 Process your answers file automatically**: When you drop answers_owner_*.json in Drive, it becomes records without waiting for a chat. #92 lists it for me but does not merge it on its own: your answers become Verified facts, and any AI with access to the folder could write a file under that name. Two ways: Google Drive added to the daily routine, or an answers file the app signs so #92 can tell it is yours. Needs first: Drive in the routine (you), or a signed answers file (#92 installed first) _[medium]_
 - [x] **#118 Answers you send get a receipt**: Done (tr116; you: "How do I know that you got those three answers?"). Questions has Send to Claude: it opens GitHub with your answers filled in, you press Submit, and a robot (owner-answers.yml, only for your own issues) merges them, publishes and replies on the issue. The phone shows each batch as Not sent, Sent (waiting) or Received with the counts, whichever way you sent it (GitHub, a chat copy or a Drive file). Offline it says so and keeps them. _[done]_
 
@@ -204,7 +205,7 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ### Truth
 
-- [ ] **#125 Check the ledger's facts against the photos**: Oct 20: 1,106 facts on screen still come straight from Grok's original ledger, never checked, and the first 3 ever checked were all wrong. The year, mint and face value of every coin with a photo (441 facts) now go to the AIs first as blind photo reads; a second agreeing read makes a fact Checked. Batches are bigger too (Grok 24 assignments, Muse 20, Gemini 16; about 900 items out today). Unlocks: #57 (Phase 1 at 100 %), #61 _[partly done, medium, new]_
+- [ ] **#125 Check the ledger's facts against the photos**: Oct 21: I read the year, face value and mint mark blind from the photos of 200 coins myself (213 facts): 212 agree with the ledger (now "read from the photo"; never-checked facts on screen 1,106 -> 863) and 1 does not (C220 Japan 10 yen reads Showa 50 = 1975, the ledger says 1982; a third reader decides). The AIs' blind reads make each of these Checked when they agree. Oct 20: the year, mint and face value of every coin with a photo (441 facts) go to the AIs first as blind photo reads (Grok 24 assignments, Muse 20, Gemini 16). Unlocks: #57 (Phase 1 at 100 %), #61 _[partly done, medium, new]_
 - [ ] **#3 Settle the open curation questions**: 14 questions wait in the app (Hall footer → Questions), plus the “Where did they come from?” section (#77). With the coin in hand each takes seconds. Oct 15: the three about Muse's coins are settled on Muse's readings, as you asked (C302 UK 1922 penny, C303 a second Australia 1983 one cent, C304 Mexico 1981 20 pesos). Needs first: you, with the coins · Unlocks: Phase 1 at 100 %, #5 _[partly done, medium, needs you]_
 - [ ] **#73 Fact-check the stories**: Part of the research loop: every story nobody but its author has checked is a job. Grok's checks so far all held up; it has C151-C283 plus 33 more stories as homework. A checked story is re-sent with the exact entry it was checked against; a wrong sentence is corrected with its source. Needs first: nothing: running _[partly done, medium, new]_
 - [ ] **#48 Re-cite Muse's 26 vague sources**: Muse has the list (its REJECTED note and queue): each one moves from “AI guess” to “Reference” when Muse resends it with the exact entry. Still pending. Needs first: Muse's next file _[small]_
@@ -375,3 +376,4 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 - [x] **#97 One onboarding path for any new AI**: Oct 15 (tr116): one path, written down (RESEARCH_LOOP.md section 9) and one command (tools/agents/new_agent.py): proof of access, the main photo test, half batches with every fact checked, full batches after the first good submission, off probation after 3 in a row that score 8+. _[done]_
 - [x] **#96 Cost per checked fact**: Oct 15 (tr116): collaborators/AI_RUNS.md now shows, per AI, how many of its facts another contributor checked, how many held up, how many were wrong, and the cost per fact that held up (when the AI reports its cost). _[done]_
 - [x] **#100 Re-test an AI when its model changes**: Oct 15 (tr116): a model name never seen before for an AI (provenance.model in its files) makes it new again: for 30 days its facts are checked first, and both photo tests come back on its page. Gemini coming back on Argon is the first case. _[done]_
+- [x] **#91 Scores drafted by the pipeline**: Oct 21: after every publish, tools/agents/score_drafts.py drafts a score for each outside AI file merged since the scorecard's last row (collaborators/SCORE_DRAFTS.md): place from the file name, accepted 0 when I re-filed it, accuracy from what was cross-checked since (disagreements it lost or won, canaries, a later agreeing source, an owner correction), complete from how much of its homework sheet it answered (across its files), tier from lines off its sheet. Rejected files are listed as bounced, unscored. I adjust each draft, add the praise and move it into the scorecard; INBOX.md points there. _[done]_

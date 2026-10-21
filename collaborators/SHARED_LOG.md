@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-21] — Claude · score drafts (#91), serial plan options (#5)
+- `tools/agents/score_drafts.py` runs after every publish and drafts a score for each outside AI file merged since its last scored row (`collaborators/SCORE_DRAFTS.md`); Claude adjusts and moves rows into CONTRIBUTOR_SCORES. Nothing waiting today.
+- `tools/schema/reassign_ser.py`: the dry run now lists both serial options side by side and what blocks applying it. Fix list v29.
+
 ### [2026-10-21] — Claude · blind photo reads of never-checked ledger facts (data only, no build bump)
 - Read year, face value and mint mark blind from the photos of 200 coins; 213 lines through the spot-check gate (`changes_claude_20261021-0900`): 212 agree with the ledger (re-cited from the photo; never-checked ledger facts 1,106 -> 863), 1 disagreement D0090 (C220 Japan 10 yen reads 昭和五十年 = 1975, ledger 1982; third reader Grok, HW-grok-arbitrate-20261021-1). C068 (1963 or 1968) left out as unclear.
 - Tests: the provenance deadline (2026-10-21) started rejecting the pipeline tests' own fixtures; `run()` in test_pipeline.py pins TITAN_TODAY=2026-10-09 (the deadline test passes its own date). 53 pipeline tests pass.

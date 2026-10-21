@@ -36,7 +36,19 @@ def plan(d):
         seq[iso] = seq.get(iso, 0) + 1
         code = s["ser"].split("-")[0]
         out.append({"id": s["id"], "old": s["ser"], "new": f"{code}-{iso}-{seq[iso]:03d}", "iso": iso, "continent": key[0], "country": key[1], "year": s["issue"]["year"], "year_raw": s["year_raw"], "denom": t["denomination"]})
+    for n, r in enumerate(sorted(out, key=lambda r: hashlib.sha256((SALT + r["id"]).encode()).hexdigest()), 1):
+        r["plain"] = f"{n:04d}"          # the other option (fix list #5): a number with no pattern at all, same salt, never scan order
     return out
+
+def readiness(d):
+    """What still blocks applying the plan: Phase 1 at 100 % (#57) and the owner's East Caribbean code answer (#3)."""
+    root = os.path.dirname(os.path.abspath(d)); L = []
+    st = os.path.join(root, "data", "status.json"); qs = os.path.join(root, "data", "questions.json")
+    p1 = load(st).get("phase1") or {} if os.path.exists(st) else {}
+    if p1: L.append(f"- Phase 1 finish line: {p1.get('done')} of {p1.get('total')} pieces ({p1.get('pct')} %); the plan is applied only at 100 %, so the numbers below still move.")
+    q = [x for x in (load(qs).get("questions") or [])] if os.path.exists(qs) else []
+    if any(x.get("id") == "q-ec-code" for x in q): L.append("- Open owner question q-ec-code (East Caribbean filed as EC, which is Ecuador's code; XC?): the answer changes those coins' country code.")
+    return L or ["- Nothing blocks it any more: ask the owner for the go."]
 
 def render(d, out):
     import fmt
@@ -48,13 +60,17 @@ def render(d, out):
          "Method: sort by continent, then country, then year (no-date last), then face value; ties are broken by a hash of the permanent `id` (salt `%s`), not by scan order. "
          "New `ser` = continent code + ISO + a 3-digit sequence from 001 within each ISO. The permanent key `id` (`C###`/`T###`) never changes." % SALT.rstrip(":"), "",
          f"- specimens: {len(out)}; ser values that would change: {n_changed}; unchanged: {len(out) - n_changed}; all new values unique: yes", "",
+         "**The owner decides first (fix list #5): numbers that mean something, or no pattern?** Column *new ser* groups each country's coins "
+         "(EU-CH-001, EU-CH-002 ... in year order). Column *or no pattern* is a plain 4-digit number in a salted-hash order that says nothing "
+         "about the coin (it would need the schema's `ser` pattern widened). Either way the number written on the flip's back is the one chosen.", "",
+         "Ready to apply?"] + readiness(d) + ["",
          "Regenerate: `python3 tools/schema/reassign_ser.py collection/` (deterministic). Applying the plan is a separate, owner-approved step: rewrite `ser` in `specimens/*.json` and `boot.json`, "
          "append one ChangeEvent per specimen (`field: ser`), refresh the manifest, then tell the photo workflow the new numbers.", ""]
     cur = None
     for r in out:
         if (r["continent"], r["country"]) != cur:
-            cur = (r["continent"], r["country"]); L += ["", f"## {cur[0]} / {cur[1]} ({r['iso']})", "", "| id | year | denomination | old ser | new ser |", "|---|---|---|---|---|"]
-        L.append(f"| {r['id']} | {r['year_raw']} | {fmt.denomination(r['denom'])} | {r['old']} | {r['new']}{'' if r['old'] != r['new'] else ' (same)'} |")
+            cur = (r["continent"], r["country"]); L += ["", f"## {cur[0]} / {cur[1]} ({r['iso']})", "", "| id | year | denomination | old ser | new ser | or no pattern |", "|---|---|---|---|---|---|"]
+        L.append(f"| {r['id']} | {r['year_raw']} | {fmt.denomination(r['denom'])} | {r['old']} | {r['new']}{'' if r['old'] != r['new'] else ' (same)'} | {r['plain']} |")
     return "\n".join(L) + "\n"
 
 if __name__ == "__main__":

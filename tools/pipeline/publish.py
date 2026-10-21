@@ -16,6 +16,7 @@ Steps (stops with exit code 1 at the first failure, leaving data/ and version.js
   6. print a summary (what changed, headline totals, rejected files)
   7. (real publish only) turn the research loop: tools/agents/homework.py closes answered homework, settles disagreements, hands out
      new assignments and rewrites docs/agents/QUEUE_*.md; its summary goes into data/status.json `loop`
+     then tools/agents/score_drafts.py drafts the score of every outside AI file merged since the scorecard's last row (fix list #91)
 Needs python3 + jsonschema.
 """
 import atexit, contextlib, datetime, glob, hashlib, io, json, os, re, shutil, subprocess, sys, tempfile
@@ -101,6 +102,16 @@ def sync_docs(st):
         s = open(p, encoding="utf-8").read()
         s2 = re.sub(r"<!-- status:begin.*?<!-- status:end -->", lambda m: txt, s, flags=re.S)
         if s2 != s: open(p, "w", encoding="utf-8", newline="\n").write(s2)
+
+def score_drafts():
+    """Fix list #91: draft the score of every outside AI file merged since the scorecard's last row (collaborators/SCORE_DRAFTS.md)."""
+    try:
+        sys.path.insert(0, os.path.join(ROOT, "tools", "agents"))
+        import score_drafts as SD
+        d, b = SD.write(ROOT)
+        if d or b: print(f"score drafts: {len(d)} file(s) to score, {len(b)} bounced (collaborators/SCORE_DRAFTS.md)")
+    except Exception as x:          # a draft page never blocks a publish
+        print(f"score drafts FAILED ({type(x).__name__}: {x}); run python3 tools/agents/score_drafts.py")
 
 def research_loop(now):
     """Step 7 (docs/agents/RESEARCH_LOOP.md): close answered assignments, settle disagreements, hand out new homework, rewrite every AI's page.
@@ -211,6 +222,7 @@ def main(argv):
                 st = B.load(os.path.join(out, "status.json")); st["loop"] = loop_summary
                 with open(os.path.join(out, "status.json"), "w", encoding="utf-8", newline="\n") as f: json.dump(st, f, ensure_ascii=False, indent=1)
             sync_docs(B.load(os.path.join(out, "status.json")))
+            score_drafts()
     idx = B.load(f"{outuse}/index.json"); b = idx["board"]; snap = col["board"]["index"]["board"]
     print("\n==== publish summary" + (" (DRY RUN: nothing written)" if dry else "") + " ====")
     print(f"ledger_version  {ver['ledger_version']}   generated {ver['generated_at']}")
