@@ -225,7 +225,7 @@
     "kintsugi": { rec: "piano", world: true, name: "Kintsugi", icon: "🏺", desc: "A potter's room in the rain: soft rain on the window, the room, a real recorded piano.", atmo: "kintsugi",
                beds: { rainWindow: 0.45, roomTone: 0.3, temple: 0.12 }, pad: 0, piano: false, bells: false, beat: false,
                root: "D", mode: "pent", prog: [0], chordSec: 16, gap: [9, 18], vol: 0.45 },
-    "horizon": { rec: "piano", world: true, name: "Event Horizon", icon: "🕳", desc: "Deep space: a low drone and faint telemetry, with a real recorded piano.", atmo: "horizon",
+    "horizon": { score: "horizon", rec: "piano", world: true, name: "Event Horizon", icon: "🕳", desc: "Deep space: a low drone and faint telemetry under a full symphony orchestra (Musopen Symphony).", atmo: "horizon",
                beds: { roomTone: 0.3, telemetry: 0.35, labHum: 0.15 }, pad: 0, piano: false, bells: false, beat: false,
                root: "C", mode: "minor", prog: [0], chordSec: 16, gap: [9, 18], vol: 0.45 },
     "rift": { score: "rift", rec: "piano", world: true, name: "Rift Garage", icon: "🌀", desc: "A garage lab after midnight: the hum of the rift, the fridge, and a live garage space-rock jam by Ear of the Rat.", atmo: "rift",

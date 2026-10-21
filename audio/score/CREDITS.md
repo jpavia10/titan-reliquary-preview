@@ -42,6 +42,10 @@ effects around a song (intro stingers, UI sounds, filters, crossfades). Each tra
 | Rift Garage (rift) | Space Jam | Ear of the Rat | CC BY 3.0 | https://archive.org/details/Eotr-WaveRock (EOTR - Wave Rock, 2011) |
 | Rift Garage (rift) | From Way Back When | Ear of the Rat | CC BY 3.0 | https://archive.org/details/Eotr-WaveRock (EOTR - Wave Rock, 2011) |
 | Rift Garage (rift) | Fun Them | Ear of the Rat | CC BY 3.0 | https://archive.org/details/Eotr-WaveRock (EOTR - Wave Rock, 2011) |
+| Event Horizon (horizon) | Brahms: Symphony No. 1 in C minor, Op. 68, I. Un poco sostenuto - Allegro | Musopen Symphony | Public domain | https://commons.wikimedia.org/wiki/File:Brahms_-_Symphony_No._1_in_C_minor,_Op._68_-_I._Un_poco_sostenuto_-_Allegro_-_Meno_allegro_(Musopen_Symphony).flac |
+| Event Horizon (horizon) | Beethoven: Symphony No. 3 "Eroica", II. Marcia funebre | Musopen Symphony | Public domain | https://commons.wikimedia.org/wiki/File:Beethoven_-_Symphony_No._3_in_E_flat_major,_Op._55_%27Eroica%27_-_II._Marcia_funebre._Adagio_assai_(Musopen_Symphony).flac |
+| Event Horizon (horizon) | Mendelssohn: Symphony No. 3 "Scottish", III. Adagio | Musopen Symphony | Public domain | https://commons.wikimedia.org/wiki/File:Mendelssohn_-_Symphony_No._3_in_A_minor,_Op._56_%27Scottish%27_-_III._Adagio_(Musopen_Symphony).flac |
+| Event Horizon (horizon) | Brahms: Symphony No. 1 in C minor, Op. 68, II. Andante sostenuto | Musopen Symphony | Public domain | https://commons.wikimedia.org/wiki/File:Brahms_-_Symphony_No._1_in_C_minor,_Op._68_-_II._Andante_sostenuto_(Musopen_Symphony).flac |
 
 Attribution (CC BY 4.0): "<Track>" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0
 License, http://creativecommons.org/licenses/by/4.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
@@ -68,6 +72,9 @@ license, https://creativecommons.org/licenses/by/4.0/ (artist's own license stat
 
 Rift Garage: "<Track>" by Ear of the Rat (improvised live space-rock jams, Niagara), from EOTR - Wave Rock (2011), licensed CC BY 3.0,
 http://creativecommons.org/licenses/by/3.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
+
+Event Horizon: recordings by the Musopen Symphony (the 2012 Musopen Kickstarter sessions, recorded by a professional symphony orchestra and
+released into the public domain by Musopen; files from Wikimedia Commons). Compositions public domain. Changes: loudness-normalised, fades, AAC 128 kbps.
 
 ## Designed sound (not songs)
 
