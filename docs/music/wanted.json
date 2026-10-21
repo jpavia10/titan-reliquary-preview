@@ -694,7 +694,8 @@
    "reject": [
     "File:Shikanotoone.ogg",
     "File:Shikanotoone new.ogg",
-    "File:伊丹の秋洗い唄.wav"
+    "File:伊丹の秋洗い唄.wav",
+    "File:伊丹のもとすり唄.wav"
    ]
   },
   {
@@ -1094,7 +1095,10 @@
    "moods": [
     "afterhours"
    ],
-   "modern": true
+   "modern": true,
+   "reject": [
+    "File:Ravel's Pavane pour une infante défunte, M. 19 (accordion orchestra) - Paul De Bra.ogg"
+   ]
   },
   {
    "id": "conservator-wtc",
@@ -1135,7 +1139,10 @@
     "odyssey"
    ],
    "any": true,
-   "modern": true
+   "modern": true,
+   "reject": [
+    "File:Rimsky-Korsakov. Scheherazade, Symphonic Suite, Op. 35 - 01 The Sea And Sinbads Ship.ogg"
+   ]
   },
   {
    "id": "odyssey-hebrides",
@@ -1241,7 +1248,10 @@
     "valhalla"
    ],
    "any": true,
-   "modern": true
+   "modern": true,
+   "reject": [
+    "File:Ride of the Valkyries.ogg"
+   ]
   },
   {
    "id": "valhalla-mountainking",
@@ -1335,7 +1345,10 @@
    ],
    "any": true,
    "traditional": true,
-   "modern": true
+   "modern": true,
+   "reject": [
+    "File:Koto is home in Finnish (Antti Luode).mp3"
+   ]
   },
   {
    "id": "marbled-impromptu",
