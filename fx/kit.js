@@ -8,7 +8,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK = window.TitanFXK || { mods: {}, themes: {} };
-  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: "fx/horizon.js", kintsugi: "fx/kintsugi.js" };
+  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js" };   /* a list loads in order */
   K.mod = function (name, f) { K.mods[name] = f; };
   var root = document.documentElement, cv = null, gl = null, active = null, raf = 0, last = 0, t0 = performance.now();
   var lite = function () { try { return localStorage.getItem("tr_lite_v1") === "1"; } catch (e) { return false; } };   /* owner rule: assume a capable GPU; only an explicit Lite choice scales down */
@@ -118,8 +118,12 @@
   }
   // Lazy theme scripts (keeps first load within the speed budget): fetched only when that theme is shown.
   var lazyV = (function () { var s = document.querySelector('script[src*="fx/kit.js"]'); var m = s && /\?v=([^&]+)/.exec(s.src); return m ? "?v=" + m[1] : ""; })(), lazyBusy = {};
-  function lazyLoad(id) { if (lazyBusy[id]) return; lazyBusy[id] = 1; teardown(); var s = document.createElement("script"); s.src = K.lazy[id] + lazyV;
-    s.onload = function () { if (K.themes[id]) apply(true); }; s.onerror = function () { lazyBusy[id] = 0; }; document.head.appendChild(s); }
+  var lazyDone = {};
+  function lazyLoad(id) { if (lazyBusy[id]) return; lazyBusy[id] = 1; teardown(); var list = [].concat(K.lazy[id]);
+    (function next(i) { if (i >= list.length) { if (K.themes[id] && (K.forced || root.dataset.atmo) === id) apply(true); return; }
+      if (lazyDone[list[i]]) return next(i + 1);
+      var s = document.createElement("script"); s.src = list[i] + lazyV;
+      s.onload = function () { lazyDone[list[i]] = 1; next(i + 1); }; s.onerror = function () { lazyBusy[id] = 0; }; document.head.appendChild(s); })(0); }
   K.apply = apply; K.debug = function () { return { id: active && active.id, q: Q.q, scale: Q.scale, w: cv && cv.width, h: cv && cv.height, parts: active ? active.parts.map(function (p) { return p.name + (p.count ? ":" + p.count() : ""); }) : [] }; };
   function start() { apply(); new MutationObserver(function () { apply(); }).observe(root, { attributes: true, attributeFilter: ["data-atmo", "data-motion", "data-ui"] });
     document.addEventListener("visibilitychange", function () { if (!document.hidden && active && !raf) { last = 0; raf = requestAnimationFrame(frame); } });

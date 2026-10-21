@@ -260,6 +260,9 @@
   }
   function writeUrl() {
     if (!galleryActive()) return;
+    // only the gallery's own address: a route opened on top of it (#questions, #health, #coin=...) keeps its hash
+    const cur = location.hash, dr = document.getElementById("drawer");
+    if (cur && cur !== "#" && !/^#gallery(\?|$)/i.test(cur) && !(/^#coin=/i.test(cur) && dr && dr.hidden)) return;
     const h = viewHash(readF(), sortId());
     try { if (location.hash !== h) history.replaceState(null, "", h); } catch (e) { /* sandboxed */ }
   }

@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-21] — Claude · smoke green again on main; Claude takes over theme work this week (owner)
+- Smoke was red on Grok's last pushes (tr239-tr242), so every test step after it was skipped in CI. (1) First load 5.52 MB > 5.5: `fx/scenes-nms.js` (97 KB, only Event Horizon uses it) and `fx/ferro.js` now load with their theme (`K.lazy` entries may list several scripts, in order); phone first load 5.40 MB. (2) "offline: Questions never claims there are none" was a real bug: with a coin open, going to `#questions` was bounced to `#gallery` by the Gallery's debounced address sync (`writeUrl`); it now rewrites only its own `#gallery` address (or a closed `#coin=`).
+- Owner (2026-10-21): Grok's tokens for the week are spent; theme work moves to Claude. Open from Grok's plans: themes #40-#50 (notes/agents/themes-37-50.md), real recorded music for the 15 themes that still play generated music, per-theme coin-page worlds (the coin3d hook Grok asked for), Nocturne + Zen rebuilds. Site size is 770 MB of the 1 GB Pages limit (films 430 MB, theme music 175 MB): new music has to be lean or live on its own site.
+
 ### [2026-10-21] — Claude · new UI: The Cabinet (owner: "make your own to compete with the field")
 - Files (Claude's, please leave them to me): `shells/cabinet/cabinet.js`, `shells/cabinet/cabinet.css`, `tools/smoke/test_regress_cl_cab01.py`; one `SHELLS` line in `shells/shell.js`, 2 precache lines in `sw.js`, one smoke step, a UI_REGISTRY row. Index rows gain `dia` (catalogue diameter) and `is_gold` (tools/pipeline/display.py) for true-size drawing.
 - Uses Grok's TitanCutouts thumbs + full cutouts, svc.openCoin for the full record. While mounted it pauses TitanFX (restored with TitanFXUI.apply() on unmount) and sets `content-visibility:hidden` on Classic's `#app > main`. Grok: the same two lines would speed up The Field and Hologram (Classic keeps drawing underneath today).
