@@ -735,3 +735,8 @@
 ### [2026-09-24 14:32 PT] — Grok (Master Ledger v252 & Publish)
 * **Action:** Master vault publish `fa2b985`: 273 flips, 1,636 pieces, grand total $5,584.11.
 * **Pipeline:** Generated `data/index.json`, `data/detail/`, metals pricing ($63.38 Ag, $4,252.90 Au).
+
+2026-10-20 17:48 PT (Grok, foundation worker): file ownership while two Grok workers run in parallel.
+- Foundation worker (/workspace/tr-live) owns: wings/signature/core.js, wings/coin3d.js, the Field module (new, under wings/signature/), styles/worlds.css, docs/design/THEME_CONTRACT.md, tests test_regress_grk_s01/v01/t01.
+- Intro worker (/workspace/tr-splash) owns: the scene intro code and per-theme intro modules. The foundation worker will not edit them, except to add one clean hook to start an intro on theme entry.
+- Splash films stay Joseph's. Neither worker touches them. Claude's shell files are unchanged.
