@@ -74,7 +74,8 @@
     { name: "Journeys", note: "Maps, ships, stations and stars", ids: ["odyssey", "silkroad", "terminal", "contour", "solaris"] },
     { name: "Calm and quiet", note: "Slow, soft and still", ids: ["nocturne", "zen", "samadhi", "cathedral"] },
     { name: "Neon and otherworld", note: "Glow, code and strange places", ids: ["kaleido", "neon", "construct", "xeno", "cursedwing"] },
-    { name: "Playful and retro", note: "Games, comics, paper and toys", ids: ["arcade", "pulp", "diorama", "bauhaus", "y2k", "papercut", "freefall"] }
+    { name: "Playful and retro", note: "Games, comics, paper and toys", ids: ["arcade", "pulp", "diorama", "bauhaus", "y2k", "papercut", "freefall"] },
+    { name: "Matter and machines", note: "Liquids, metals and moving parts", ids: ["ferro"] }
   ];
   var LIGHT = { banknote: 1, bauhaus: 1, conservator: 1, diorama: 1, marbled: 1, notepad: 1, papercut: 1, pulp: 1, sketch: 1, y2k: 1 };
   function isLight(w) { return w.scheme ? w.scheme === "light" : !!LIGHT[w.id]; }
