@@ -487,7 +487,7 @@
   }
   function applyLevels() {
     if (!E.ctx) return; const t = E.ctx.currentTime;
-    E.ambBus.gain.setTargetAtTime(E.ambLevel, t, 0.08);
+    E.ambBus.gain.setTargetAtTime(E.ambLevel * (E.ambDuck == null ? 1 : E.ambDuck), t, 0.4); // ambDuck: SCAPE (audio/scape/bridge.js) folds the old beds under its own
     E.musBus.gain.setTargetAtTime(E.duck ? 0 : E.musLevel, t, 0.25);
     if (E.recBus) E.recBus.gain.setTargetAtTime(E.duck ? 0 : E.musLevel * 0.8, t, 0.25);
   }
@@ -1464,6 +1464,7 @@
     setLevels(mus, amb) { if (mus != null) E.musLevel = mus; if (amb != null) E.ambLevel = amb; applyLevels(); },
     setTone(b, m, t) { E.bass = b; E.mid = m; E.treble = t; applyTone(); },
     setMusicDuck(on) { E.duck = !!on; applyLevels(); },
+    setAmbDuck(x) { E.ambDuck = x == null ? null : Math.max(0, Math.min(1, +x)); applyLevels(); }, getLevels: () => ({ mus: E.musLevel, amb: E.ambLevel }),
     setBackgroundPause(on) { E.bgPause = !!on; },
     isPlaying: () => E.playing && !E.paused,
     isPaused: () => E.playing && E.paused,

@@ -19,7 +19,7 @@
   var BASE = (function () { var s = document.currentScript && document.currentScript.src; return s ? s.replace(/[^/]*$/, "") : "audio/scape/"; })();
   var AMB = BASE + "../ambience/", OWN = BASE;
   var AC = window.AudioContext || window.webkitAudioContext;
-  var ctx = null, master, limiter, agc, duckG, bed, dry, sends = {}, irs = {}, buffers = {}, loading = {};
+  var tilt, RATE = 1, ctx = null, master, limiter, agc, duckG, bed, dry, sends = {}, irs = {}, buffers = {}, loading = {};
   var preset = null, layers = [], timers = [], P = { intensity: 1, rain: .6, wind: .5, storm: 3, tod: 22, vol: .9, drag: 0, px: .5, py: .5 };
   var muted = false, vol = .9, sleepT = 0, listeners = {}, budget = 1, noiseBufs = {};
   try { muted = localStorage.getItem("tr_mute_v1") === "1"; vol = +(localStorage.getItem("tr_scape_vol") || .9); } catch (e) {}
@@ -42,7 +42,7 @@
     limiter = ctx.createDynamicsCompressor();
     limiter.threshold.value = -4; limiter.knee.value = 2; limiter.ratio.value = 20; limiter.attack.value = .002; limiter.release.value = .18;
     agc = ctx.createGain(); duckG = ctx.createGain(); bed = ctx.createGain(); dry = ctx.createGain();
-    dry.connect(bed); bed.connect(duckG); duckG.connect(agc); agc.connect(limiter); limiter.connect(master); master.connect(ext ? ext.dest : ctx.destination);
+    dry.connect(bed); tilt = ctx.createBiquadFilter(); tilt.type = "lowpass"; tilt.frequency.value = 20000; tilt.Q.value = .5; bed.connect(tilt); tilt.connect(duckG); duckG.connect(agc); agc.connect(limiter); limiter.connect(master); master.connect(ext ? ext.dest : ctx.destination);
     // loudness normalisation: slow RMS follower steers agc toward -20 dBFS (+-9 dB), the limiter catches peaks
     var an = ctx.createAnalyser(); an.fftSize = 2048; agc.connect(an); var buf = new Float32Array(an.fftSize), lvl = -20;
     setInterval(function () { if (!preset || ctx.state !== "running") return; an.getFloatTimeDomainData(buf); var s = 0; for (var i = 0; i < buf.length; i++) s += buf[i] * buf[i];
@@ -163,7 +163,7 @@
       var segs = o.segs, next = ctx.currentTime + .05;
       function sched() { if (L.dead) return; var now = ctx.currentTime;
         while (next < now + .4) { var s = ctx.createBufferSource(), g = ctx.createGain(), p = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-          s.buffer = b; s.playbackRate.value = (o.rate || 1) * Math.pow(2, rr(-1, 1) * (o.jitter == null ? .03 : o.jitter));
+          s.buffer = b; s.playbackRate.value = (o.rate || 1) * RATE * Math.pow(2, rr(-1, 1) * (o.jitter == null ? .03 : o.jitter));
           var len = gl * rr(.8, 1.25), off = rr(0, Math.max(0, b.duration - len - .01));
           env2(g, next, len); s.connect(g); if (p) { p.pan.value = rr(-1, 1) * (o.spread == null ? .6 : o.spread); g.connect(p); p.connect(o.dest || L.g); } else g.connect(o.dest || L.g);
           s.start(next, off, len); next += (gl / dens) * rr(.7, 1.3) * (1 / (o.dmul ? o.dmul() : 1)); }
@@ -248,12 +248,13 @@
     if (!init()) return;
     unlock(); stopAll(.8);
     var pr = PRESETS[id]; if (!pr) return;
-    preset = pr; useSpace(pr.space || "open");
+    opts = opts || {}; RATE = opts.rate || 1; tilt.frequency.setTargetAtTime(opts.tone || 20000, ctx.currentTime, .5);
+    preset = pr; useSpace(opts.space || pr.space || "open");
     if (pr.params) Object.keys(pr.params).forEach(function (k) { P[k] = pr.params[k]; });
-    if (opts) Object.keys(opts).forEach(function (k) { P[k] = opts[k]; });
+    if (opts) Object.keys(opts).forEach(function (k) { if (typeof opts[k] === "number") P[k] = opts[k]; });
     var mine = []; P.drag = 0; var mk = function (id2, label, gain, o) { var L = Layer(id2, label, gain, o); L.timers = []; mine.push(L); return L; };
     pr.build({ L: mk, P: P, S: S, grains: grains, noiseBed: noiseBed, poisson: poisson, oneShot: oneShot, Voice: Voice, mover: mover, rr: rr, ctx: ctx, emit: fire, space: curSpace });
-    mine.forEach(function (L) { L.level(1.5); });
+    var lm = opts.layers || {}; mine.forEach(function (L) { if (lm[L.id] != null) L.user = lm[L.id]; L.level(1.5); });
     pr._layers = mine; emit("preset", id); return pr;
   }
   function stopAll(fade) {
