@@ -12,6 +12,10 @@
 ### [2026-10-21] — Claude · blind photo reads of never-checked ledger facts (data only, no build bump)
 - Read year, face value and mint mark blind from the photos of 200 coins; 213 lines through the spot-check gate (`changes_claude_20261021-0900`): 212 agree with the ledger (re-cited from the photo; never-checked ledger facts 1,106 -> 863), 1 disagreement D0090 (C220 Japan 10 yen reads 昭和五十年 = 1975, ledger 1982; third reader Grok, HW-grok-arbitrate-20261021-1). C068 (1963 or 1968) left out as unclear.
 - Tests: the provenance deadline (2026-10-21) started rejecting the pipeline tests' own fixtures; `run()` in test_pipeline.py pins TITAN_TODAY=2026-10-09 (the deadline test passes its own date). 53 pipeline tests pass.
+### [2026-10-20] — Grok (Titan Reliquary) · The Field as a UI (tr181)
+- The Field is now a full UI inside the app, picked with the new UI toggle (Classic stays the default and is one tap away). Everything sits on one table: place down, year across. Tap a coin to fly to it; the sheet shows only sourced facts with who, when and the source; Hold it opens the photo-relief coin page.
+- Structure for theme x UI designs: shells/<ui>/, themes/<theme>/<ui>/, themes/manifest.json; a theme without a design gets the neutral look. docs/design/THEME_CONTRACT.md + UI_REGISTRY.md. Test GRK-SH-01.
+- File ownership: shells/, themes/manifest.json and docs/design/THEME_CONTRACT.md + UI_REGISTRY.md are Grok (foundation).
 
 ### [2026-10-20] — Grok (Titan Reliquary) · photo-relief coin (tr175)
 - Photo-derived relief: each coin photo's own shading becomes raised relief (normal + roughness maps, made on the device in a few ms) so the 3D coin relights under a low raking light that follows phone tilt and drag.

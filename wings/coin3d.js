@@ -179,6 +179,7 @@
     const s = { yaw: 0, vy: 0, ty: 0, pitch: 0, vp: 0, tp: 0, sc: 1, vs: 0, tilt: { x: 0, y: 0 }, drag: null, raf: 0, last: 0, slow: 0 };
     if (!reduce.matches && lastTitle !== title) { s.yaw = -Math.PI * 3; s.sc = 0.55; s.pitch = 0.5; }   // flip-in once per coin
     lastTitle = title;
+    if (!f1.photo && f2.photo) { s.yaw += Math.PI; s.ty = Math.PI; }   // only the back is photographed: show the photo first, not the drawn blank
     function size() { const w = wrap.clientWidth || 320, h = Math.round(Math.min(340, Math.max(220, w * 0.72))); canvas.style.height = h + "px"; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
     size();
     world = makeWorld(wrap, atmo, light, s);

@@ -1,0 +1,74 @@
+
+#shell-field { --bg:#0d0b09; --ink:#f3ecdf; --muted:#c9bfae; --gold:#e2bd6a; --line:rgba(243,236,223,.18); --panel:#17140f; }
+#shell-field * { box-sizing: border-box; }
+#shell-field { margin:0; height:100%; background:var(--bg); color:var(--ink); font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow:hidden; }
+#shell-field #fld-stage { position:fixed; inset:0; touch-action:none; }
+#shell-field canvas { display:block; }
+#shell-field header { position:fixed; top:0; left:0; right:0; padding: max(10px, env(safe-area-inset-top)) 14px 8px; display:flex; gap:10px; align-items:flex-start; justify-content:space-between;
+           background:linear-gradient(var(--bg) 55%, transparent); pointer-events:none; z-index:3; }
+#shell-field header > * { pointer-events:auto; }
+#shell-field .total { font-size:28px; font-weight:700; letter-spacing:.01em; }
+#shell-field .sub { color:var(--muted); font-size:16px; }
+#shell-field button { font:inherit; color:var(--ink); background:#241f17; border:2px solid var(--line); border-radius:12px; min-height:44px; min-width:44px; padding:8px 14px; cursor:pointer; }
+#shell-field button:focus-visible, #shell-field input:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+#shell-field .crumbs { position:fixed; left:14px; right:14px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index:3; display:flex; gap:8px; flex-wrap:wrap; align-items:center; font-size:18px; }
+#shell-field .crumb { background:rgba(23,20,15,.92); border:2px solid var(--line); border-radius:999px; padding:6px 14px; opacity:0; transform:translateY(8px); transition:opacity .35s, transform .35s; }
+#shell-field .crumb.on { opacity:1; transform:none; }
+#shell-field .crumb b { color:var(--gold); }
+#shell-field #fld-labels { position:fixed; inset:0; pointer-events:none; z-index:2; }
+#shell-field .lab { position:absolute; font-size:16px; color:var(--muted); white-space:nowrap; text-shadow:0 1px 3px #000, 0 0 8px #000; }
+#shell-field .lab.cont { color:var(--ink); font-weight:700; font-size:17px; }
+#shell-field .lab.year { font-size:16px; }
+#shell-field .lab.hot { color:var(--gold); font-weight:700; }
+#shell-field #fld-sheet { position:fixed; left:0; right:0; bottom:0; max-height:62vh; overflow:auto; z-index:4; background:var(--panel); border-top:2px solid var(--line);
+           border-radius:18px 18px 0 0; padding:16px 16px calc(20px + env(safe-area-inset-bottom)); transform:translateY(105%); transition:transform .45s cubic-bezier(.2,.8,.2,1); }
+#shell-field #fld-sheet.open { transform:none; }
+#shell-field #fld-sheet h2 { margin:0 0 4px; font-size:22px; }
+#shell-field #fld-sheet .row { display:flex; gap:10px; overflow-x:auto; margin:10px 0; }
+#shell-field #fld-sheet img { height:132px; width:132px; object-fit:cover; border-radius:50%; background:#000; border:2px solid var(--line); }
+#shell-field .facts { display:grid; grid-template-columns: auto 1fr; gap:6px 10px; margin:10px 0; }
+#shell-field .facts dt { color:var(--muted); }
+#shell-field .facts dd { margin:0; }
+#shell-field .lvl { display:inline-block; font-size:16px; font-weight:700; padding:1px 8px; border-radius:999px; border:1.5px solid currentColor; margin-left:6px; white-space:nowrap; }
+#shell-field .lvl.verified, #shell-field .lvl.checked { color:#8fd18f; }
+#shell-field .lvl.reference { color:#9cc3ff; }
+#shell-field .lvl.photo { color:#e9c46a; }
+#shell-field .lvl.guess { color:#ffab91; }
+#shell-field .lvl.ledger { color:#c9bfae; }
+#shell-field .hist { color:var(--muted); font-size:16px; padding-left:18px; }
+#shell-field #fld-list { position:fixed; inset:0; z-index:5; background:var(--panel); overflow:auto; padding: max(14px, env(safe-area-inset-top)) 14px 24px; display:none; }
+#shell-field #fld-list.open { display:block; }
+#shell-field #fld-list input { width:100%; font:inherit; font-size:18px; padding:12px; border-radius:12px; border:2px solid var(--line); background:#0f0d0a; color:var(--ink); margin:8px 0 12px; }
+#shell-field #fld-list h3 { margin:16px 0 6px; font-size:18px; color:var(--gold); }
+#shell-field #fld-list .coins { display:flex; flex-wrap:wrap; gap:8px; }
+#shell-field #fld-hint { position:fixed; left:50%; top:46%; transform:translate(-50%,-50%); z-index:2; color:var(--muted); background:rgba(13,11,9,.8); padding:8px 14px; border-radius:12px; transition:opacity .6s; }
+#shell-field .motion { display:flex; gap:6px; }
+#shell-field .motion button[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
+#shell-field #fld-fps { position:fixed; right:10px; top:calc(130px + env(safe-area-inset-bottom)); z-index:3; font:16px ui-monospace,monospace; color:var(--muted); background:rgba(0,0,0,.5); padding:2px 6px; border-radius:6px; }
+#shell-field #fld-fade { position:fixed; inset:0; background:var(--bg); opacity:0; pointer-events:none; z-index:3; transition:opacity .18s; }
+#shell-field .err { padding:40px 20px; font-size:18px; }
+#shell-field /* v2: filters. One row of real buttons above the crumbs; the note says what is lit and what is not on the table */
+  #fld-dock { position:fixed; left:8px; right:8px; bottom:calc(10px + env(safe-area-inset-bottom)); z-index:3; display:flex; flex-direction:column; gap:6px; }
+#shell-field.coin #fld-dock { display:none; }
+#shell-field .filters { display:flex; gap:5px; flex-wrap:wrap; justify-content:center; }
+#shell-field .filters button { flex:0 0 auto; background:rgba(36,31,23,.94); padding:8px 11px; }
+#shell-field .filters button[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
+#shell-field.coin .filters { display:none; }
+#shell-field #fld-fnote { background:rgba(13,11,9,.9); border:2px solid var(--line); border-radius:12px; padding:8px 12px; font-size:16px; }
+#shell-field #fld-fnote[hidden] { display:none; }
+#shell-field.coin #fld-fnote { display:none; }
+#shell-field #fld-albums { position:fixed; inset:0; z-index:5; background:var(--panel); overflow:auto; padding: max(14px, env(safe-area-inset-top)) 14px 24px; display:none; }
+#shell-field #fld-albums.open { display:block; }
+#shell-field #fld-albums .fam { display:block; width:100%; text-align:left; margin:8px 0; }
+#shell-field #fld-albums .fam small { display:block; color:var(--muted); font-size:16px; }
+#shell-field .lab { will-change:transform; left:0; top:0; }
+
+/* shell frame: The Field covers Classic (the coin page drawer and search still open above it) */
+#shell-field { position: fixed; inset: 0; z-index: 40; background: var(--bg); color: var(--ink); font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+#shell-field .fld-ctl { display: flex; gap: 6px; }
+#shell-field .fld-acts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+#shell-field #fld-btn-hold { border-color: var(--gold); color: var(--gold); }
+html.shell-field-on body { overflow: hidden; }
+/* one UI at a time: Classic's bars step aside while The Field is home (they come back with the UI switch) */
+html.shell-field-on #scene-bar, html.shell-field-on nav.wings { display: none !important; }
+#shell-field .fld-back-top { position: sticky; top: 0; float: right; z-index: 1; margin: 0 0 6px 8px; background: #241f17; }

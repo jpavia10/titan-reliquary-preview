@@ -104,6 +104,11 @@ const WING_URLS = [
   "wings/scene-engine.js?v=" + BUILD,
   "wings/ui-sounds.js?v=" + BUILD,
   "wings/relief.js?v=" + BUILD,
+  "shells/shell.js?v=" + BUILD,
+  "shells/field/field.js?v=" + BUILD,
+  "shells/field/field.css?v=" + BUILD,
+  "themes/manifest.json?v=" + BUILD,
+  "js/vendor/three-0.160.0.module.min.js",   // The Field, offline: exact version, named by version so it is never stale
   "wings/coin3d.js?v=" + BUILD,
   "wings/signature/core.js?v=" + BUILD,
   "wings/scene.js?v=" + BUILD,
