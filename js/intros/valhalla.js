@@ -20,6 +20,29 @@
     return { p: P, br: br };
   }
   function path(g, P) { g.beginPath(); g.moveTo(P[0][0], P[0][1]); for (var i = 1; i < P.length; i++) g.lineTo(P[i][0], P[i][1]); g.stroke(); }
+  function armory(W, H, lit) {                         // the hall wall: timber, shields, crossed swords, axes, spears (lit = the flash pass)
+    var c = K.mk(W, H), g = c.getContext("2d"), r = K.rng(61), i;
+    if (!lit) { g.fillStyle = "#120c08"; g.fillRect(0, 0, W, H); for (i = 0; i < W; i += 38) { g.fillStyle = i % 76 ? "#18100a" : "#140d08"; g.fillRect(i, 0, 36, H); } }
+    var M = Math.min(W, H), sh = [[0.14, 0.22], [0.86, 0.22], [0.1, 0.5], [0.9, 0.5], [0.5, 0.12]];
+    function metal(a) { return lit ? "rgba(225,232,255," + a + ")" : "rgba(255,170,90," + a * 0.55 + ")"; }
+    // spears racked behind
+    for (i = 0; i < 6; i++) { var sx = W * (0.24 + i * 0.105); g.strokeStyle = lit ? "rgba(200,210,240,.35)" : "#3a2616"; g.lineWidth = 3; g.beginPath(); g.moveTo(sx, H * 0.08); g.lineTo(sx + 4, H * 0.62); g.stroke();
+      g.fillStyle = metal(0.9); g.beginPath(); g.moveTo(sx, H * 0.03); g.lineTo(sx - 6, H * 0.09); g.lineTo(sx + 6, H * 0.09); g.closePath(); g.fill(); }
+    // crossed swords
+    [[0.3, 0.36], [0.7, 0.36]].forEach(function (p) { [-0.6, 0.6].forEach(function (a) { g.save(); g.translate(W * p[0], H * p[1]); g.rotate(a); var L = M * 0.34;
+      g.fillStyle = metal(lit ? 0.95 : 0.7); g.fillRect(-3, -L / 2, 6, L * 0.8); g.fillStyle = lit ? "rgba(255,220,150,.9)" : "#7a5320"; g.fillRect(-L * 0.12, L * 0.3, L * 0.24, 6); g.fillStyle = lit ? "rgba(160,170,200,.6)" : "#2a1a10"; g.fillRect(-3, L * 0.32, 6, L * 0.14); g.restore(); }); });
+    // round shields: planks, painted halves, iron rim, gold boss
+    sh.forEach(function (p, k) { var x = W * p[0], y = H * p[1], R = M * (k === 4 ? 0.1 : 0.12);
+      if (!lit) { g.fillStyle = ["#5a1a14", "#1f3550", "#2a3a22", "#5a1a14", "#6a4a1a"][k]; g.beginPath(); g.arc(x, y, R, 0, K.PI2); g.fill();
+        g.fillStyle = "rgba(0,0,0,.25)"; g.beginPath(); g.moveTo(x, y); g.arc(x, y, R, k * 0.7, k * 0.7 + Math.PI); g.fill();
+        g.strokeStyle = "rgba(0,0,0,.3)"; g.lineWidth = 1; for (var q = -R; q < R; q += R / 4) { g.beginPath(); g.moveTo(x + q, y - R); g.lineTo(x + q, y + R); g.stroke(); } }
+      g.strokeStyle = metal(lit ? 0.9 : 0.6); g.lineWidth = R * 0.08; g.beginPath(); g.arc(x, y, R, 0, K.PI2); g.stroke();
+      g.fillStyle = lit ? "rgba(255,245,210,.95)" : "#c08a2a"; g.beginPath(); g.arc(x, y, R * 0.22, 0, K.PI2); g.fill(); });
+    // a bearded axe either side
+    [0.2, 0.8].forEach(function (px, k) { var x = W * px, y = H * 0.66; g.strokeStyle = lit ? "rgba(200,210,240,.5)" : "#3a2616"; g.lineWidth = 4; g.beginPath(); g.moveTo(x, y - M * 0.2); g.lineTo(x, y + M * 0.12); g.stroke();
+      g.fillStyle = metal(0.9); g.beginPath(); var d = k ? -1 : 1; g.moveTo(x, y - M * 0.18); g.quadraticCurveTo(x + d * M * 0.11, y - M * 0.2, x + d * M * 0.12, y - M * 0.08); g.quadraticCurveTo(x + d * M * 0.05, y - M * 0.1, x, y - M * 0.11); g.fill(); });
+    return c;
+  }
   I.reg("valhalla", {
     dur: 4.3, still: 3.9,
     init: function (C) {
@@ -33,6 +56,7 @@
       g.strokeStyle = "rgba(0,0,0,.35)"; g.lineWidth = 1; for (i = 0; i < 7; i++) { g.beginPath(); var yy = r() * sh; g.moveTo(0, yy); g.bezierCurveTo(sw * 0.3, yy + 20 * r(), sw * 0.6, yy - 20 * r(), sw, yy + 10); g.stroke(); }
       g.restore(); C.stone = st;
       C.sparks = []; for (i = 0; i < 70; i++) C.sparks.push([r(), r(), r(), r()]);
+      C.hall = armory(Math.round(W), Math.round(H * 0.8), false); C.hallLit = armory(Math.round(W), Math.round(H * 0.8), true);
       C.rain = []; for (i = 0; i < 110; i++) C.rain.push([r(), r(), 0.7 + r() * 0.6]);
     },
     draw: function (C, t) {
@@ -41,6 +65,15 @@
       var rise = K.eio(seg(t, 0, 4.3)), camY = K.lerp(H * 0.1, -H * 0.02, rise), zs = K.lerp(1.05, 0.98, rise);
       // sky: storm clouds, lifted by the flash
       var sky = g.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, K.mixc("#0b0d14", "#9aa6c8", flash * 0.8)); sky.addColorStop(0.65, K.mixc("#120c08", "#4a4860", flash * 0.6)); sky.addColorStop(1, "#060403"); g.fillStyle = sky; g.fillRect(0, 0, W, H);
+      // the armory wall behind the stone: torchlit, and every metal edge catches the flash
+      var tf = 0.75 + 0.15 * Math.sin(t * 23) + 0.1 * Math.sin(t * 37 + 1);
+      g.save(); g.translate(0, camY * 0.5); g.globalAlpha = 0.55 + 0.15 * tf; g.drawImage(C.hall, 0, 0, W, H * 0.8);
+      if (flash > 0) { g.globalCompositeOperation = "lighter"; g.globalAlpha = flash; g.drawImage(C.hallLit, 0, 0, W, H * 0.8); g.globalCompositeOperation = "source-over"; }
+      g.globalAlpha = 1; [0.04, 0.96].forEach(function (px, k) { var x = W * px, y = H * 0.42, fl = tf + 0.1 * Math.sin(t * 31 + k * 3);
+        var tg = g.createRadialGradient(x, y, 2, x, y, Math.min(W, H) * 0.45 * fl); tg.addColorStop(0, "rgba(255,170,70,.5)"); tg.addColorStop(1, "rgba(255,120,40,0)"); g.fillStyle = tg; g.fillRect(0, 0, W, H);
+        g.fillStyle = "#3a2414"; g.fillRect(x - 3, y, 6, 40); g.fillStyle = "rgba(255,200,90,.95)"; g.beginPath(); g.ellipse(x, y - 8 * fl, 6, 14 * fl, Math.sin(t * 9 + k) * 0.15, 0, K.PI2); g.fill(); });
+      g.restore();
+      // a window of storm sky above the wall, where the bolt is seen
       // the bolt itself
       STRIKES.forEach(function (s, k) { var d = t - s; if (d < 0 || d > 0.22) return; var B = C.bolts[k], a = d < 0.06 || (d > 0.1 && d < 0.14) ? 1 : 0.35;
         g.save(); g.globalCompositeOperation = "lighter"; g.strokeStyle = "rgba(190,210,255," + 0.35 * a + ")"; g.lineWidth = 9; path(g, B.p); g.strokeStyle = "rgba(255,255,255," + a + ")"; g.lineWidth = 2.2; path(g, B.p); g.lineWidth = 1.2; B.br.forEach(function (q) { path(g, q); }); g.restore(); });

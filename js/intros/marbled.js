@@ -30,7 +30,7 @@
     g.save(); g.translate(W / 2, H / 2); g.strokeStyle = "#c2913a"; g.lineWidth = 1.5;                     // a tooled lozenge
     g.beginPath(); g.moveTo(0, -H * 0.16); g.lineTo(W * 0.18, 0); g.lineTo(0, H * 0.16); g.lineTo(-W * 0.18, 0); g.closePath(); g.stroke();
     g.beginPath(); g.arc(0, 0, Math.min(W, H) * 0.05, 0, K.PI2); g.stroke(); g.restore();
-    var sp = K.mk(1, 1); return c;
+    return c;
   }
   function stillMarble(W, H) {
     var c = K.mk(W, H), g = c.getContext("2d"), r = K.rng(71), cols = ["#23306b", "#efe4cc", "#7a1f2b", "#c2913a", "#4b6c8f"];
