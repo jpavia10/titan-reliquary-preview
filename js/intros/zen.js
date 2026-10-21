@@ -23,15 +23,18 @@
     " vec2 v=vec2((a-b),-(c-d))/(2.*e)*.035+vec2(.045,.004*sin(p.y*9.+t));",
     /* the rake: a curved line sweeping right->left; grains near it are shoved sideways and combed into five tines */
     " float lx=rx+.06*sin(p.y*5.+1.),dx=p.x-lx;float near=exp(-dx*dx*160.)*rake;v.x-=near*.35;",
-    " float combed=smoothstep(.0,.08,dx)*rake+step(.5,rake)*0.;float ph=p.y*170.+sin(p.x*7.)*3.;v.y-=sin(ph)*combed*.02;",
+    " float combed=smoothstep(.0,.08,dx)*rake+step(.5,rake)*0.;float ph=p.y*170.+sin(p.x*7.)*3.;float keep=1.-smoothstep(.02,.2,texture(M,p).r)*carve;v.y-=sin(ph)*combed*.007*keep;",
     /* carving: push out of the letterforms (down the gradient of the blurred mask) */
     " float m=texture(M,p).r;vec2 g=vec2(texture(M,p+vec2(.003,0.)).r-texture(M,p-vec2(.003,0.)).r,texture(M,p+vec2(0.,.003)).r-texture(M,p-vec2(0.,.003)).r);",
-    " v-=normalize(g+1e-5)*smoothstep(.05,.5,m)*carve*.9; v*=mix(1.,mix(1.,.04,settle),step(.0,1.));",
+    " v-=normalize(g+1e-5)*smoothstep(.03,.5,m)*carve*1.5; v*=mix(1.,mix(1.,.04,settle),step(.0,1.));",
     " p+=v*dt; s.z+=dt; if(p.x>1.)p.x-=1.; if(p.x<0.)p.x+=1.; if(p.y>1.)p.y-=1.; if(p.y<0.)p.y+=1.;",
     " o=vec4(p,s.z,s.w);}"].join("\n");
-  var RV = "#version 300 es\nprecision highp float;uniform sampler2D S;uniform int N;uniform float ps;out float w;out float lum;" +
-    "void main(){ivec2 c=ivec2(gl_VertexID%N,gl_VertexID/N);vec4 s=texelFetch(S,c,0);gl_Position=vec4(s.xy*2.-1.,0.,1.);gl_PointSize=ps;w=s.w;lum=.75+.25*fract(s.w*7.3);}";
-  var RF = "#version 300 es\nprecision highp float;in float w;in float lum;uniform float al;out vec4 o;void main(){vec3 c=mix(vec3(.82,.78,.68),vec3(.95,.92,.84),w)*lum;o=vec4(c*al,al);}";
+  var RV = "#version 300 es\nprecision highp float;uniform sampler2D S,M;uniform int N;uniform float ps,carve;out float w;out float lum;out vec3 tint;" +
+    "void main(){ivec2 c=ivec2(gl_VertexID%N,gl_VertexID/N);vec4 s=texelFetch(S,c,0);vec2 p=s.xy;gl_Position=vec4(p*2.-1.,0.,1.);gl_PointSize=ps;w=s.w;" +
+    "float e=.004;vec2 g=vec2(texture(M,p+vec2(e,0.)).r-texture(M,p-vec2(e,0.)).r,texture(M,p+vec2(0.,e)).r-texture(M,p-vec2(0.,e)).r);float m=texture(M,p).r;" +
+    "float rim=smoothstep(.0,.08,m)*(1.-smoothstep(.25,.45,m))*carve;float lit=dot(normalize(g+1e-5),normalize(vec2(.6,-.8)));" +
+    "float moon=.55+.6*smoothstep(1.3,0.,length(p-vec2(.2,.95)));lum=(.75+.25*fract(s.w*7.3))*moon*(1.+rim*(1.6*max(lit,0.)-.5*max(-lit,0.)));tint=mix(vec3(1.),vec3(.78,.86,1.05),.5*moon-.2);}";
+  var RF = "#version 300 es\nprecision highp float;in float w;in float lum;in vec3 tint;uniform float al;out vec4 o;void main(){vec3 c=mix(vec3(.82,.78,.68),vec3(.95,.92,.84),w)*lum*tint;o=vec4(c*al,al);}";
   function mask(W, H) {
     var c = K.mk(W, H), g = c.getContext("2d"), fs = Math.min(W * 0.15, 96); g.fillStyle = "#000"; g.fillRect(0, 0, W, H);
     g.font = "600 " + fs + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle"; g.fillStyle = "#fff";
@@ -55,7 +58,7 @@
     x.bindFramebuffer(x.FRAMEBUFFER, null);
     var mk = mask(Math.round(C.W * 0.5), Math.round(C.H * 0.5)); C.fs = mk.fs * 2; var Mt = tex(0, 0, true); x.pixelStorei(x.UNPACK_FLIP_Y_WEBGL, true); x.texImage2D(x.TEXTURE_2D, 0, x.RGBA, x.RGBA, x.UNSIGNED_BYTE, mk.c);
     var U = {}; ["S", "M", "t", "dt", "asp", "rx", "rake", "carve", "settle"].forEach(function (n) { U[n] = x.getUniformLocation(Ps, n); });
-    var Ur = { S: x.getUniformLocation(Pr, "S"), N: x.getUniformLocation(Pr, "N"), ps: x.getUniformLocation(Pr, "ps"), al: x.getUniformLocation(Pr, "al") };
+    var Ur = { M: x.getUniformLocation(Pr, "M"), carve: x.getUniformLocation(Pr, "carve"), S: x.getUniformLocation(Pr, "S"), N: x.getUniformLocation(Pr, "N"), ps: x.getUniformLocation(Pr, "ps"), al: x.getUniformLocation(Pr, "al") };
     var L = C._gl = { cv: cv, x: x, N: N, T: T, F: F, cur: 0, simT: -1, Pi: Pi, Ps: Ps, Pr: Pr, U: U, Ur: Ur, Mt: Mt };
     cv.addEventListener("webglcontextlost", function (e) { e.preventDefault(); C._glDead = true; cv.style.display = "none"; });
     var d = Math.min(window.devicePixelRatio || 1, 2) * (big ? 0.8 : 0.7); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
@@ -69,7 +72,7 @@
     var n = 0; while (L.simT + dt <= t + 1e-6 && n++ < 400) { var p = P(L.simT); x.uniform1f(L.U.t, L.simT); x.uniform1f(L.U.rx, p.rx); x.uniform1f(L.U.rake, p.rake); x.uniform1f(L.U.carve, p.carve); x.uniform1f(L.U.settle, p.settle);
       x.bindTexture(x.TEXTURE_2D, L.T[L.cur]); x.bindFramebuffer(x.FRAMEBUFFER, L.F[1 - L.cur]); x.viewport(0, 0, L.N, L.N); x.drawArrays(x.TRIANGLES, 0, 3); L.cur = 1 - L.cur; L.simT += dt; }
     x.bindFramebuffer(x.FRAMEBUFFER, null); x.viewport(0, 0, L.cv.width, L.cv.height); x.clearColor(0.06, 0.055, 0.05, 1); x.clear(x.COLOR_BUFFER_BIT);
-    x.useProgram(L.Pr); x.bindTexture(x.TEXTURE_2D, L.T[L.cur]); x.uniform1i(L.Ur.S, 0); x.uniform1i(L.Ur.N, L.N);
+    x.useProgram(L.Pr); x.bindTexture(x.TEXTURE_2D, L.T[L.cur]); x.uniform1i(L.Ur.S, 0); x.uniform1i(L.Ur.N, L.N); x.uniform1i(L.Ur.M, 1); x.uniform1f(L.Ur.carve, P(t).carve); x.activeTexture(x.TEXTURE1); x.bindTexture(x.TEXTURE_2D, L.Mt); x.activeTexture(x.TEXTURE0);
     var density = (L.N * L.N) / (L.cv.width * L.cv.height); x.uniform1f(L.Ur.ps, density < 0.6 ? 1.6 : 1.0); x.uniform1f(L.Ur.al, Math.min(0.5, 0.2 / Math.max(0.3, density)));
     x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE); x.drawArrays(x.POINTS, 0, L.N * L.N); x.disable(x.BLEND); return true;
   }
@@ -89,7 +92,7 @@
       g.clearRect(0, 0, W, H);
       if (!(C.L && gpu(C, t))) cpu(C, t);
       // moonlight + vignette over the sand
-      var v = g.createRadialGradient(W * 0.3, H * 0.2, 0, W * 0.5, H * 0.5, Math.max(W, H) * 0.8); v.addColorStop(0, "rgba(160,180,220,.10)"); v.addColorStop(0.6, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0,.55)"); g.fillStyle = v; g.fillRect(0, 0, W, H);
+      var v = g.createRadialGradient(W * 0.3, H * 0.2, 0, W * 0.5, H * 0.5, Math.max(W, H) * 0.8); v.addColorStop(0, "rgba(170,195,240,.16)"); v.addColorStop(0.6, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0,.55)"); g.fillStyle = v; g.fillRect(0, 0, W, H);
       // the rake head, riding the sweep
       var p = P(t); if (p.rake > 0) { var rx = p.rx * W; g.save(); g.globalAlpha = p.rake; g.fillStyle = "#3a2a1c"; g.fillRect(rx - 6, H * 0.18, 12, H * 0.64); g.fillStyle = "rgba(255,230,190,.2)"; g.fillRect(rx - 6, H * 0.18, 2, H * 0.64); g.fillStyle = "#2a1e14"; g.fillRect(rx + 6, H * 0.49, W * 0.6, 6); g.restore(); }
       // the seal
