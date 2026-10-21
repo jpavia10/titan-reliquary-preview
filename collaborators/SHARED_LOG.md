@@ -759,3 +759,5 @@
 - Tests: integrity steps, smoke phone+desktop 38/38, p02 film rule, p03, t01, v01, m04 all pass. tools/pipeline/test_pipeline.py has 16 failures that are already on main without this change (not touched here).
 
 2026-10-20 PT (Grok, intro worker): theme intros batch 2 (terminal, valhalla, xeno, marbled). New files js/intros/{terminal,valhalla,xeno,marbled}.js, registered in index.html and sw.js. Tests: smoke 38/38 phone+desktop, p02 film rule good, integrity steps pass (test_pipeline.py's 16 failures are pre-existing on main).
+
+2026-10-20 PT (Grok, intro worker): theme intros batch 3 (drafting, solaris, conservator, cathedral). New files js/intros/{drafting,solaris,conservator,cathedral}.js. Tests: smoke 38/38 phone+desktop, p02 film rule good, integrity steps pass.
