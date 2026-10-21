@@ -63,7 +63,7 @@
       pick.addEventListener("click", (e) => { if (e.target.closest("[data-gfx]")) { pick.hidden = true; window.TitanQuality.open(); return; } const b = e.target.closest("[data-shell]"); if (b) { pick.hidden = true; set(b.dataset.shell); } else if (e.target === pick || e.target.closest(".shell-x")) pick.hidden = true; });
       document.addEventListener("keydown", (e) => { if (e.key === "Escape" && pick && !pick.hidden) { e.stopPropagation(); pick.hidden = true; } }, true); }
     pick.innerHTML = '<div class="shell-card"><div class="shell-top"><h2>Choose a UI</h2><button type="button" class="shell-x" aria-label="Close">✕</button></div>' +
-      (window.TitanQuality ? '<button type="button" class="shell-opt shell-gfx" data-gfx="1"><b>Graphics: ' + TitanQuality.NAMES[TitanQuality.choice] + (TitanQuality.choice === "auto" ? " (" + TitanQuality.NAMES[TitanQuality.tier] + ")" : "") + '</b><span>Quality from Low to Max, with a live preview.</span></button>' : "") +
+      (window.TitanQuality ? '<button type="button" class="shell-opt shell-gfx" data-gfx="1"><b>Graphics: ' + TitanQuality.NAMES[TitanQuality.choice] + (TitanQuality.choice === "auto" ? " (" + TitanQuality.NAMES[TitanQuality.tier()] + ")" : "") + '</b><span>Quality from Low to Max, with a live preview.</span></button>' : "") +
       SHELLS.map((s, k) => (s.exp && !(SHELLS[k - 1] || {}).exp ? '<h3 class="shell-exp">Experimental</h3>' : "") + '<button type="button" class="shell-opt" data-shell="' + s.id + '" aria-pressed="' + (s.id === cur) + '"><b>' + s.name + '</b><span>' + s.desc + "</span></button>").join("") + "</div>";
     pick.hidden = false; const f = pick.querySelector('[aria-pressed="true"]') || pick.querySelector(".shell-opt"); f && f.focus();
   }
@@ -71,7 +71,7 @@
     if (!b) { b = document.createElement("button"); b.type = "button"; b.id = "btn-ui"; b.className = "sb-btn sb-ui"; b.setAttribute("aria-haspopup", "dialog"); b.addEventListener("click", choose);
       const sc = document.getElementById("btn-atmo"); bar.insertBefore(b, sc || null);
       if (window.TitanQuality && !document.getElementById("btn-gfx")) { const g = document.createElement("button"); g.type = "button"; g.id = "btn-gfx"; g.className = "sb-btn sb-gfx"; g.setAttribute("aria-haspopup", "dialog");
-        g.innerHTML = '<span class="sb-lbl">Graphics</span><span class="sb-sub">' + TitanQuality.NAMES[TitanQuality.tier] + "</span>"; g.setAttribute("aria-label", "Graphics quality (now " + TitanQuality.NAMES[TitanQuality.tier] + ")");
+        g.innerHTML = '<span class="sb-lbl">Graphics</span><span class="sb-sub">' + TitanQuality.NAMES[TitanQuality.tier()] + "</span>"; g.setAttribute("aria-label", "Graphics quality (now " + TitanQuality.NAMES[TitanQuality.tier()] + ")");
         g.addEventListener("click", () => TitanQuality.open()); bar.insertBefore(g, sc || null); } }
     b.innerHTML = '<span class="sb-lbl">UI</span><span class="sb-sub">' + byId(cur).name + "</span>"; b.setAttribute("aria-label", "Choose a UI (now " + byId(cur).name + ")"); }
   window.addEventListener("titan:atmo", () => themeFor());

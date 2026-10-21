@@ -6,7 +6,7 @@
    desktops) and never changes it mid-session. Old Lite users ("tr_lite_v1" = "1") are migrated to Low.
    Low is the Lite level: it sets window.TitanLite, html.tr-lite and tr_lite_v1 = "1" so every older reader agrees.
    ?q=<tier> forces a tier for one visit.
-   API: TitanQuality.tier ("low".."max"), .choice ("auto" or a tier), .q (knobs below), .set(choice) (saves, reloads),
+   API: TitanQuality.tier() ("low".."max"; also coerces to that string), .choice ("auto" or a tier), .q (knobs below), .set(choice) (saves, reloads),
         .open() (the Graphics panel), .ultrawide, .webgpu, .gpu, .TIERS, .ORDER. Event "titan:quality" on window.
    Knobs (read these, never hardcode counts):
      particles  absolute GPU particle budget for one full-screen effect
@@ -47,10 +47,13 @@
   const html = document.documentElement; html.classList.toggle("tr-lite", isLow); html.dataset.quality = tier;
   const ultrawide = () => innerWidth / Math.max(1, innerHeight) >= 2.1;
   const markUW = () => html.classList.toggle("tr-ultrawide", ultrawide()); markUW(); addEventListener("resize", markUW);
-  function set(c) { if (c !== "auto" && !TIERS[c]) return; ls.set(KEY, c); ls.set(LKEY, (c === "auto" ? autoTier : c) === "low" ? "1" : "0");
+  function set(c) { if (c !== "auto" && !TIERS[c]) return; ls.set(KEY, c); ls.set("tr_quality", c === "auto" ? autoTier : c); ls.set(LKEY, (c === "auto" ? autoTier : c) === "low" ? "1" : "0");
     try { window.dispatchEvent(new CustomEvent("titan:quality", { detail: { choice: c } })); } catch (e) { /* ignore */ }
     const u = new URL(location.href); u.searchParams.delete("q"); location.replace(u.toString()); }
-  const api = { ORDER, TIERS, NAMES, tier, choice, auto: autoTier, gpu, discrete, touch, webgpu: !!navigator.gpu,
+  /* tier() is the call the themes use (fx/lumen.js); it also coerces to the tier string for older property readers */
+  const tierFn = () => tier; tierFn.toString = tierFn.valueOf = tierFn; tierFn[Symbol.toPrimitive] = tierFn;
+  ls.set("tr_quality", choice === "auto" ? tier : choice);   // plain mirror for themes that read localStorage directly
+  const api = { ORDER, TIERS, NAMES, tier: tierFn, choice, auto: autoTier, gpu, discrete, touch, webgpu: !!navigator.gpu,
     get q() { return TIERS[tier]; }, get ultrawide() { return ultrawide(); }, set, open: () => panel() };
   window.TitanQuality = api;
 
