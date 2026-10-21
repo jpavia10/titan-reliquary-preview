@@ -421,6 +421,120 @@
         g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.25, t + d * .97); g.gain.linearRampToValueAtTime(0, t + d + .05); o.connect(g); g.connect(gw.g); o.start(t); o.stop(t + d + .1); k.emit("ripple", { at: t + d }); });
       var hiss = k.L("radiation", "Hawking hiss", .2); k.noiseBed(hiss, "white", { type: "highpass", f: 8000, gain: .15, walk: [6000, 12000], walkMs: 2000 });
     } });
+
+  /* ===== batch 5: dedicated scapes for the fx scenes (ids = fx/demo.html scene ids) ===== */
+  function twinkle(k, dest, t, g) { ring(k, dest, t, { f: k.rr(3500, 9000), decay: k.rr(.15, .6), gain: g || .03, ratios: [1, 2.76, 5.4] }); }
+  function swell(k, L, dest, t, o) { var c = k.ctx, n = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(), d = o.d || 4; n.buffer = (nb(k), k.noiseBuf); n.loop = true;
+    f.type = "bandpass"; f.Q.value = o.q || 2; f.frequency.setValueAtTime(o.f0, t); f.frequency.exponentialRampToValueAtTime(o.f1, t + d); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(o.gain || .4, t + d * (o.peak || .7)); g.gain.linearRampToValueAtTime(0, t + d);
+    n.connect(f); f.connect(g); g.connect(dest); n.start(t, Math.random() * 3); n.stop(t + d + .1); }
+  function orbiter(k, L, r, speed, y) { var V = k.Voice(L.g, [r, y || 0, 0], { ref: 2 }), a = Math.random() * 6.28; (function o() { if (L.dead) return; a += speed * .05; V.at(Math.cos(a) * r, (y || 0) + Math.sin(a * .7) * .8, Math.sin(a) * r); L.timers.push(setTimeout(o, 50)); })(); return V; }
+
+  TS.define("portal", { name: "Magic portal", space: "cave", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx; this._k = k;
+      var vort = k.L("vortex", "Swirling vortex", .7, { wet: .8 }); var v1 = orbiter(k, vort, 3, 2.2), v2 = orbiter(k, vort, 4.5, -1.4, .5);
+      k.noiseBed(vort, "pink", { f: 500, q: 3, gain: .9, walk: [250, 1400], walkMs: 500, gainWalk: [.5, 1.2], walkT: .3, dest: v1.in });
+      k.noiseBed(vort, "pink", { f: 1800, q: 4, gain: .5, walk: [900, 3500], walkMs: 700, dest: v2.in });
+      var throb = k.L("throb", "Throb", .5); var tg = c.createGain(); tg.gain.value = .5; tg.connect(throb.g); k.noiseBed(throb, "brown", { type: "lowpass", f: 70, gain: 1.4, dest: tg });
+      var lfo = c.createOscillator(), lg = c.createGain(); lfo.frequency.value = .55; lg.gain.value = .45; lfo.connect(lg); lg.connect(tg.gain); lfo.start(); throb.nodes.push(lfo);
+      var sp = k.L("sparks", "Sparkles", .45); k.poisson(sp, function () { return 7 * k.P.intensity; }, function (t) { var V = k.Voice(sp.g, [k.rr(-3, 3), k.rr(-1, 2), -k.rr(1, 4)], { ref: 1 }); twinkle(k, V.in, t, .025); k.S.crackle(V.in, t, { f: 9000, gain: .05, burst: 2 }); setTimeout(function () { V.pan.disconnect(); }, 800); });
+      var pull = k.L("pull", "Inrush", .5, { wet: 1 }); this._p = pull; k.poisson(pull, function () { return 1 / 7; }, function (t) { swell(k, pull, pull.g, t, { f0: 200, f1: 3000, d: k.rr(2.5, 4.5), gain: .5, peak: .9 }); });
+    },
+    on: function (d) { var k = this._k, L = this._p; if (!L || L.dead) return; var t = k.ctx.currentTime + .01, V = k.Voice(L.g, [((d.x == null ? .5 : d.x) - .5) * 6, 0, -2]);
+      swell(k, L, V.in, t, { f0: 300, f1: 6000, d: .6, gain: .7, peak: .8 }); for (var i = 0; i < 10; i++) k.S.crackle(V.in, t + .4 + Math.random() * .4, { f: 6000, gain: .3, burst: 3 }); k.S.boom(V.in, t + .55, { f: 55, len: .9, gain: .5, bright: 1500 }); } });
+
+  TS.define("sun", { name: "The surface of the Sun", space: "space", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx; this._k = k;
+      var roar = k.L("roar", "Plasma roar", .8); k.noiseBed(roar, "brown", { type: "lowpass", f: 140, gain: 1.6, walk: [70, 260], walkMs: 900, gainWalk: [.6, 1.3], walkT: .7 });
+      k.noiseBed(roar, "pink", { f: 450, q: .8, gain: .5, walk: [200, 900], walkMs: 1100, gainWalk: [.4, 1] });
+      var boil = k.L("boil", "Boiling surface", .6); k.poisson(boil, function () { return 3; }, function (t) { var V = k.Voice(boil.g, [k.rr(-10, 10), -2, -k.rr(4, 14)], { ref: 4 }), lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 500; lp.connect(V.in); k.S.bubble(lp, t, { size: k.rr(12, 24), gain: .6 }); });
+      var mag = k.L("field", "Magnetic field", .3, { wet: 1.4 }); [151, 263, 419, 677].forEach(function (f) { k.noiseBed(mag, "pink", { f: f, q: 35, gain: .9, walk: [f * .92, f * 1.08], walkMs: 5000, gainWalk: [0, 1], walkT: 4 }); });
+      var fl = k.L("flares", "Flares", .7, { wet: .9 }); this._f = fl; k.poisson(fl, function () { return 1 / 12 * k.P.intensity; }, function () { flare(k, fl, Math.random(), .8); });
+    },
+    on: function (d) { if (this._f && !this._f.dead) flare(this._k, this._f, d.x == null ? .5 : d.x, 1); } });
+  function flare(k, L, x, p) { var t = k.ctx.currentTime + .01, V = k.Voice(L.g, [(x - .5) * 30, 10, -30], { ref: 10, roll: .4 });
+    swell(k, L, V.in, t, { f0: 150, f1: 2500, d: 2.5, gain: .6 * p, peak: .35 }); k.S.thunder(V.in, t + .4, 1.5, { gain: .7 * p }); for (var i = 0; i < 30; i++) k.S.crackle(V.in, t + .3 + Math.random() * 2, { f: k.rr(2000, 6000), gain: .1 * p, burst: 2 }); k.emit("flare", { x: x, power: p }); }
+
+  TS.define("glowforest", { name: "Glowing forest at night", space: "forest", params: { tod: 23, wind: .2 },
+    build: function (k) { this._k = k;
+      var bugs = k.L("insects", "Night insects", .45); nightBugs(k, bugs, 8);
+      var frogs = k.L("frogs", "Tree frogs", .35, { wet: .7 }); k.grains(frogs, "frogs", { grain: 2.4, density: 2, spread: 1, rate: 1.15 });
+      var leaves = k.L("leaves", "Leaves", .3); k.grains(leaves, "windTrees", { grain: 3, density: 2, spread: 1 }); drive(leaves, "wind", function () { return .3 + k.P.wind * 2; }, 400);
+      var drip = k.L("drips", "Dew drips", .4); k.poisson(drip, function () { return 2.5; }, function (t) { var V = k.Voice(drip.g, [k.rr(-6, 6), k.rr(0, 3), -k.rr(1, 7)], { ref: 1 }); k.S.drop(V.in, t, { f: k.rr(900, 2400), len: .1, gain: .2 }); setTimeout(function () { V.pan.disconnect(); }, 600); });
+      var glow = k.L("glow", "Glow shimmer", .4, { wet: 1.3 }); this._g = glow; k.poisson(glow, function () { return 1.5; }, function (t) { var V = k.Voice(glow.g, [k.rr(-8, 8), k.rr(0, 4), -k.rr(2, 10)]); twinkle(k, V.in, t, .02); });
+      var owl = k.L("owl", "Owl", .35, { wet: 1 }); var ov = k.Voice(owl.g, [-20, 8, -30], { ref: 8 }); k.poisson(owl, function () { return 1 / 40; }, function (t) { ov.at(k.rr(-30, 30), 8, -k.rr(15, 40)); k.oneShot(ov.in, "owl", { t: t, segs: SEG.owl, gain: .45 }); });
+    },
+    on: function (d) { var k = this._k, L = this._g; if (!L || L.dead || d.type !== "touch") return; var t = k.ctx.currentTime + .01, V = k.Voice(L.g, [((d.x || .5) - .5) * 6, 0, -2]); for (var i = 0; i < 14; i++) twinkle(k, V.in, t + i * k.rr(.02, .08), .05); } });
+
+  TS.define("jellyfish", { name: "Jellyfish in the deep", space: "water", params: {},
+    build: function (k) { var c = k.ctx; this._k = k;
+      var deep = k.L("deep", "Deep water", .6); var lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 600; lp.connect(deep.g); k.grains(deep, "underwater", { grain: 3, density: 2.2, spread: 1, rate: .8, dest: lp });
+      var pulse = k.L("pulse", "Jelly pulses", .55); this._j = pulse; k.poisson(pulse, function () { return 1 / 3.2; }, function (t) { jelly(k, pulse, k.rr(.1, .9), .6); });
+      var bub = k.L("bubbles", "Rising bubbles", .3); k.poisson(bub, function () { return .7; }, function (t) { var V = k.Voice(bub.g, [k.rr(-4, 4), -1, -k.rr(2, 6)]); k.S.bubble(V.in, t, { size: k.rr(.6, 2), gain: .1 }); });
+      var glow = k.L("bio", "Bioluminescence", .3, { wet: 1.4 }); k.poisson(glow, function () { return .8; }, function (t) { twinkle(k, glow.g, t, .015); });
+      var wh = k.L("whale", "Far whale", .35, { wet: 1.5 }); var wv = k.Voice(wh.g, [-150, -30, -400], { ref: 60, roll: .2 }); wv.lp.frequency.value = 1000; k.poisson(wh, function () { return 1 / 50; }, function (t) { k.oneShot(wv.in, "whale", { t: t, gain: .6, rate: k.rr(.7, .9) }); });
+    },
+    on: function (d) { if (this._j && !this._j.dead) jelly(this._k, this._j, d.x == null ? .5 : d.x, 1); } });
+  function jelly(k, L, x, p) { var c = k.ctx, t = c.currentTime + .01, V = k.Voice(L.g, [(x - .5) * 6, 0, -2.5], { ref: 1.5 }), n = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); n.buffer = (nb(k), k.noiseBuf);
+    f.type = "lowpass"; f.frequency.setValueAtTime(120, t); f.frequency.linearRampToValueAtTime(600, t + .35); f.frequency.linearRampToValueAtTime(100, t + 1.4); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.8 * p, t + .3); g.gain.exponentialRampToValueAtTime(1e-3, t + 1.6);
+    n.connect(f); f.connect(g); g.connect(V.in); n.start(t, Math.random() * 3); n.stop(t + 1.7); }
+
+  TS.define("sakura", { name: "Cherry blossoms in spring", space: "forest", params: { wind: .35, tod: 10 },
+    build: function (k) { this._k = k;
+      var breeze = k.L("breeze", "Spring breeze", .5); k.grains(breeze, "windTrees", { grain: 3, density: 2.2, spread: 1, rate: 1.05 }); drive(breeze, "wind", function () { return .3 + k.P.wind * 1.6; }, 400);
+      var petals = k.L("petals", "Falling petals", .35); k.poisson(petals, function () { return 12 * (.4 + k.P.wind); }, function (t) { var V = k.Voice(petals.g, [k.rr(-4, 4), k.rr(-1, 3), -k.rr(.8, 4)], { ref: .8 }); k.S.crackle(V.in, t, { f: k.rr(5000, 9000), gain: .025, burst: 2 }); setTimeout(function () { V.pan.disconnect(); }, 400); });
+      var birds = k.L("birds", "Songbirds", .45, { wet: .7 }); k.grains(birds, "birds", { grain: 2.6, density: 2, spread: 1 });
+      var stream = k.L("stream", "Garden stream", .3); var sv = k.Voice(stream.g, [6, -1, -8], { ref: 3 }); k.grains(stream, "river", { grain: 2, density: 2.6, dest: sv.in, spread: 0, rate: 1.1 });
+      var bell = k.L("temple", "Far temple bell", .25, { wet: 1.5 }); var bv = k.Voice(bell.g, [-60, 10, -120], { ref: 30, roll: .3 }); k.poisson(bell, function () { return 1 / 45; }, function (t) { k.oneShot(bv.in, "bowl", { t: t, rate: k.rr(.62, .66), gain: .5 }); });
+    } });
+
+  TS.define("cathedral", { name: "Light through a rose window", space: "cathedral", params: { tod: 15 },
+    build: function (k) { var c = k.ctx;
+      var air = k.L("air", "Nave air", .5, { wet: 1.2 }); [262, 393, 587, 881].forEach(function (f) { k.noiseBed(air, "pink", { f: f, q: 14, gain: .7, walk: [f * .97, f * 1.03], walkMs: 3500, gainWalk: [.2, 1], walkT: 3 }); });
+      var room = k.L("room", "Stone room", .4, { wet: .6 }); k.grains(room, "hall", { grain: 3, density: 2, spread: 1 });
+      var out = k.L("outside", "Birds outside the glass", .35); var lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 1400; lp.connect(out.g); k.grains(out, "birds", { grain: 2.6, density: 1.8, spread: 1, dest: lp });
+      var wind = k.L("glass", "Wind on the glass", .3); k.noiseBed(wind, "white", { f: 1600, q: 18, gain: .12, walk: [1100, 2400], walkMs: 2500, gainWalk: [0, 1] });
+      var bell = k.L("bell", "Tower bell", .35, { wet: 1.6 }); var bv = k.Voice(bell.g, [0, 30, -60], { ref: 20, roll: .3 }); k.poisson(bell, function () { return 1 / 50; }, function (t) { k.oneShot(bv.in, "bowl", { t: t, rate: k.rr(.5, .53), gain: .55 }); });
+    } });
+
+  TS.define("wormhole", { name: "Through a wormhole", space: "space", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx;
+      var rush = k.L("rush", "Tunnel rush", .7); k.noiseBed(rush, "pink", { f: 900, q: 1.2, gain: 1, walk: [400, 2400], walkMs: 600, gainWalk: [.6, 1.2], walkT: .3 });
+      var sub = k.L("sub", "Spacetime pressure", .5); k.noiseBed(sub, "brown", { type: "lowpass", f: 55, gain: 1.5, walk: [28, 90], walkMs: 2000 });
+      var streak = k.L("streaks", "Streaks flying past", .6); k.poisson(streak, function () { return 1.4 * k.P.intensity; }, function () { var a = Math.random() * 6.28, r = k.rr(1.5, 4);
+        k.mover(streak, k.rr(.8, 1.6), function (u) { return [Math.cos(a) * r, Math.sin(a) * r, -40 + u * 80]; }, function (dest) { var n = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); n.buffer = (nb(k), k.noiseBuf); n.loop = true;
+          f.type = "bandpass"; f.frequency.value = k.rr(1500, 4000); f.Q.value = 4; g.gain.value = .5; n.connect(f); f.connect(g); g.connect(dest); n.start();
+          return { rate: function (rt) { n.playbackRate.setTargetAtTime(rt, c.currentTime, .03); }, stop: function () { try { n.stop(); } catch (e) {} } }; }, { ref: 2 }); });
+      var spiral = k.L("spiral", "Spiral drop", .35, { wet: 1.2 }); k.poisson(spiral, function () { return 1 / 9; }, function (t) { swell(k, spiral, spiral.g, t, { f0: 3000, f1: 120, d: k.rr(3, 6), gain: .5, q: 6, peak: .3 }); k.emit("ripple", {}); });
+    } });
+
+  TS.define("ringworld", { name: "Orbiting a ringed planet", space: "space", params: {},
+    build: function (k) {
+      var hush = k.L("hush", "Space hush", .4, { wet: 1.4 }); k.noiseBed(hush, "pink", { f: 700, q: .7, gain: .5, walk: [300, 1500], walkMs: 6000, gainWalk: [.3, 1], walkT: 5 });
+      var hum = k.L("planet", "Planet hum", .5); k.noiseBed(hum, "brown", { type: "lowpass", f: 60, gain: 1.4, walk: [35, 85], walkMs: 5000 });
+      var ice = k.L("rings", "Ring ice", .45); var rv = orbiter(k, ice, 7, .25); k.poisson(ice, function () { return 9; }, function (t) { k.S.crackle(rv.in, t, { f: k.rr(4000, 10000), gain: .05, burst: 1 }); if (Math.random() < .1) twinkle(k, rv.in, t, .02); });
+      var radio = k.L("radio", "Radio whistlers", .25, { wet: 1.3 }); k.poisson(radio, function () { return .3; }, function (t) { var c = k.ctx, o = c.createOscillator(), g = c.createGain(), f0 = k.rr(2500, 6000), d = k.rr(.8, 2);
+        o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f0 * .2, t + d); g.gain.setValueAtTime(.03, t); g.gain.exponentialRampToValueAtTime(1e-4, t + d); o.connect(g); g.connect(radio.g); o.start(t); o.stop(t + d + .05); });
+    } });
+
+  TS.define("galaxy", { name: "A spiral galaxy", space: "space", params: {},
+    build: function (k) { var c = k.ctx;
+      var glow = k.L("glow", "Galactic glow", .45, { wet: 1.6 }); [89, 144, 233, 377, 610].forEach(function (f) { k.noiseBed(glow, "pink", { f: f, q: 30, gain: .9, walk: [f * .9, f * 1.1], walkMs: 7000, gainWalk: [.1, 1], walkT: 6 }); });
+      var arm = k.L("arms", "Turning arms", .45); var av = orbiter(k, arm, 8, .12); k.noiseBed(arm, "pink", { f: 1200, q: 1, gain: .6, walk: [600, 2400], walkMs: 3000, dest: av.in });
+      var stars = k.L("stars", "Star twinkle", .3); k.poisson(stars, function () { return 3; }, function (t) { var V = k.Voice(stars.g, [k.rr(-20, 20), k.rr(-5, 10), -k.rr(5, 30)]); twinkle(k, V.in, t, .015); });
+      var pul = k.L("pulsar", "A far pulsar", .3, { wet: 1.2 }); var pv = k.Voice(pul.g, [-30, 5, -60], { ref: 15, roll: .3 }); var per = k.rr(.7, 1.4), nt = c.currentTime + 1;
+      (function tick() { if (pul.dead) return; while (nt < c.currentTime + .3) { k.S.crackle(pv.in, nt, { f: 1500, gain: .25, burst: 1 }); nt += per; } pul.timers.push(setTimeout(tick, 100)); })();
+      var sub = k.L("sub", "Deep", .35); k.noiseBed(sub, "brown", { type: "lowpass", f: 45, gain: 1.3, walk: [25, 70], walkMs: 6000 });
+    } });
+
+  TS.define("nebula", { name: "Diving through a nebula", space: "space", params: { intensity: 1 },
+    build: function (k) {
+      var gas = k.L("gas", "Cosmic gas", .65, { wet: 1.2 }); k.noiseBed(gas, "pink", { f: 600, q: 1.5, gain: .9, walk: [200, 2200], walkMs: 1600, gainWalk: [.4, 1.2], walkT: 1.2 });
+      k.noiseBed(gas, "white", { f: 3500, q: 2, gain: .15, walk: [2000, 6000], walkMs: 2200, gainWalk: [.2, 1] });
+      var dust = k.L("dust", "Dust grains", .4); k.poisson(dust, function () { return 20 * k.P.intensity; }, function (t) { var V = k.Voice(dust.g, [k.rr(-3, 3), k.rr(-2, 2), -k.rr(.5, 4)], { ref: .8 }); k.S.crackle(V.in, t, { f: k.rr(3000, 9000), gain: .03, burst: 1 }); setTimeout(function () { V.pan.disconnect(); }, 300); });
+      var pad = k.L("cloud", "Cloud resonance", .4, { wet: 1.6 }); [197, 311, 503].forEach(function (f) { k.noiseBed(pad, "pink", { f: f, q: 20, gain: .9, walk: [f * .85, f * 1.15], walkMs: 5000, gainWalk: [.1, 1], walkT: 4 }); });
+      var birth = k.L("birth", "Star birth", .5, { wet: 1.4 }); k.poisson(birth, function () { return 1 / 14; }, function (t) { swell(k, birth, birth.g, t, { f0: 80, f1: 1800, d: k.rr(5, 9), gain: .5, peak: .8 }); k.emit("flash", { dist: 3, x: k.rr(.2, .8), power: .3, kind: "starbirth" }); });
+      var sub = k.L("sub", "Depth", .35); k.noiseBed(sub, "brown", { type: "lowpass", f: 50, gain: 1.3, walk: [28, 80], walkMs: 4000 });
+    } });
   /* fix-ups: give touch handlers access to the kit */
   ["metal"].forEach(function (id) { var p = TS.presets[id], b = p.build; p.build = function (k) { this._k = k; return b.call(this, k); }; });
 })();
