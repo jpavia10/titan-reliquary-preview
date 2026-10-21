@@ -904,7 +904,7 @@ Collision rules: each scene registers itself with TitanFXK.mod(<name>) + TitanFX
 - Tests: integrity steps, bump --check, smoke 38/38 phone+desktop, p02 p03 m04 t01 s01 r01 sh01 v01, test_registry (35 ALL AGREE), test_picker_shape, test_names: all pass.
 - Quality: K.tier() reads window.TitanQuality / localStorage tr_quality_v1 / ?q= (low..max); default High. No auto-downgrade added.
 
-## 2026-10-20 23:20 PT · Grok (fx builder #2) · tr219 fx library: nature/space/material+magic batches 1 + 2
+## 2026-10-20 23:20 PT · Grok (fx builder #2) · tr220 fx library: nature/space/material+magic batches 1 + 2
 - Batch 1 (was stuck unpushed as "tr208"; rebased): nebula (Star Nest port, MIT), black hole, rainforest, soap bubbles, glass shatter, demo category picker, fx/CREDITS.md.
 - Batch 2: aurora (lake-mirrored curtains, tap = substorm), lava field (flowing magma under splitting basalt crust, embers, tap = fountain), spiral galaxy (3D volume march with dust lanes, tap = supernova), crystal geode (raymarched hex prisms, 3-IOR dispersion, tap = resonance pulse), arcane circle (gold sigil with rune bands + spark vortex, hold = charge, tap = cast). K.preset(id) for each.
 - Quality: K.tier() now reads TitanQuality.tier() first, then localStorage tr_quality (legacy tr_quality_v1), ?q= override; default High; never auto-downgrades.
