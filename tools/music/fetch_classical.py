@@ -30,7 +30,7 @@ BAD = re.compile(r"\bmidi\b|\.mid\b|synth|musescore|sibelius|finale\b|8-?bit|chi
 # in Europe only. A historical transfer (Public Domain Project / Swiss foundation, 78 rpm) is accepted only when recorded in 1925 or earlier:
 # US sound recordings from 1923-1946 stay protected for 100 years after publication.
 BAD_CATS = re.compile(r"Template Unknown \(source\)|PD EU Audio|PD-EU", re.I)
-HISTORIC = re.compile(r"PDP-CH|Swiss Foundation Public Domain|publicdomainproject|78 ?rpm|HMV|Columbia Records|gallica", re.I)
+HISTORIC = re.compile(r"PDP-CH|Swiss Foundation Public Domain|publicdomainproject|78 ?rpm|original 78|78 set|HMV|Columbia Records|gallica", re.I)
 GOOD = re.compile(r"musopen|ishizaka|marine band|army band|navy band|air force band|orchestra|philharmon|symphon|quartet|ensemble|pianist|"
                   r"performed by|played by|concert", re.I)
 MIMES = {"application/ogg", "audio/ogg", "audio/webm", "video/webm", "audio/flac", "audio/x-flac", "audio/mpeg", "audio/wav", "audio/x-wav", "audio/mp3"}
@@ -95,14 +95,15 @@ def judge(c, w):
     if c["mime"] not in MIMES: return None, f"not an audio file: {c['mime']}"
     if BAD.search(text): return None, "MIDI / synth / toy-instrument rendering, or a parody / medley"
     if c["file"] in set(w.get("reject") or []): return None, "rejected in Claude's review"
+    if any(fold(n) in ft for n in w.get("not") or []): return None, "excluded by the piece's 'not' words (not this kind of piece)"
     if BAD_CATS.search(c["cats"]): return None, "source unknown, or public domain in Europe only"
     if HISTORIC.search(text):
         # the RECORDING's year (release / recording date, the 'Music in YYYY' category), never a composer's or arranger's life dates
         src = c["desc"] + " | " + c["cats"]
-        yrs = [int(y) for y in re.findall(r"(?:release date|recording date|recorded)[^0-9|]{0,20}(\d{4})|Music in (\d{4})|(\d{4})s music", src) for y in y if y]
+        yrs = [int(y) for y in re.findall(r"(?:release date|recording date|recorded)[^|]{0,30}?\b((?:18|19|20)\d\d)\b|Music in (\d{4})|(\d{4})s music", src) for y in y if y]
         if not yrs or max(yrs) > 1925: return None, "historical recording after 1925 (or undated): still protected in the US"
     if w.get("modern"):     # a theme's song: a modern recording, not a 100-year-old acoustic transfer (owner: the music must sound good)
-        yrs = [int(y) for y in re.findall(r"Music in (\d{4})|(?:recorded|recording date|release date)[^0-9|]{0,20}(\d{4})", c["desc"] + " | " + c["cats"]) for y in y if y]
+        yrs = [int(y) for y in re.findall(r"Music in (\d{4})|(?:recorded|recording date|release date)[^|]{0,30}?\b((?:18|19|20)\d\d)\b", c["desc"] + " | " + c["cats"]) for y in y if y]
         if HISTORIC.search(text) or (yrs and min(yrs) < 1950): return None, "an old transfer: this piece wants a modern recording"
     must = [fold(m) for m in w.get("must", [])]
     hit = [m for m in must if m in ft]

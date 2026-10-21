@@ -652,6 +652,32 @@
    "moods": [
     "banknote"
    ]
+  },
+  {
+   "id": "afterhours-pavane",
+   "title": "Pavane pour une infante défunte",
+   "composer": "Maurice Ravel",
+   "performer": "Wasei Duo (David Hernando Vitores, Kayoko Morimoto)",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AMaurice_Ravel_-_Pavane_pour_une_infante_d%C3%A9funte_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.oga",
+   "file": "afterhours-pavane.m4a",
+   "duration": 332.1,
+   "moods": [
+    "afterhours"
+   ]
+  },
+  {
+   "id": "supercell-vivaldi-summer",
+   "title": "The Four Seasons, Summer: III. Presto (the storm)",
+   "composer": "Antonio Vivaldi",
+   "performer": "John Harrison (violin), Wiedemann Recital",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AVivaldi_-_Four_Seasons_2_Summer_mvt_3_Presto_-_John_Harrison_violin.oga",
+   "file": "supercell-vivaldi-summer.m4a",
+   "duration": 159.0,
+   "moods": [
+    "supercell"
+   ]
   }
  ]
 }
