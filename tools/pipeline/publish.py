@@ -218,6 +218,7 @@ def main(argv):
         shutil.copyfile(vuse, vpath)
         if os.path.abspath(out) == os.path.join(ROOT, "data"):     # only the real publish turns the research loop and rewrites the docs
             loop_summary = research_loop(now)
+            with contextlib.redirect_stdout(io.StringIO()): V.main(coll, update_manifest=True)   # the loop settles disagreements in collection/: keep the manifest current
             if loop_summary is not None:
                 st = B.load(os.path.join(out, "status.json")); st["loop"] = loop_summary
                 with open(os.path.join(out, "status.json"), "w", encoding="utf-8", newline="\n") as f: json.dump(st, f, ensure_ascii=False, indent=1)

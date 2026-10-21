@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-21T01:08:28Z",
+ "updated": "2026-10-21T03:39:38Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -8816,9 +8816,13 @@
    "kind": "arbitrate",
    "issued": "2026-10-15T14:17:10Z",
    "lease_until": "2026-10-22T14:17:10Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-21T03:31:49Z",
+   "result": {
+    "items": 7,
+    "closed": 7,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0019",
@@ -9738,9 +9742,13 @@
    "kind": "arbitrate",
    "issued": "2026-10-20T15:00:33Z",
    "lease_until": "2026-10-27T15:00:33Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-21T03:31:49Z",
+   "result": {
+    "items": 10,
+    "closed": 10,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0048",
@@ -11514,9 +11522,13 @@
    "kind": "arbitrate",
    "issued": "2026-10-20T16:00:29Z",
    "lease_until": "2026-10-27T16:00:29Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-21T03:31:49Z",
+   "result": {
+    "items": 5,
+    "closed": 5,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0049",

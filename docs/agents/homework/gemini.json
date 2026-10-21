@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-21T01:08:28Z",
+ "updated": "2026-10-21T03:39:38Z",
  "assignments": [
   {
    "id": "HW-gemini-read-mint-20261014-1",
@@ -2564,7 +2564,7 @@
        "metal": "copper-clad steel · 2.90 g · 19.25 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.52 mm · medal alignment",
        "mintage": "47,575,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -2626,7 +2626,7 @@
        "metal": "bronze (97 Cu / 2.5 Zn / 0.5 Sn) · 1.78 g · 17.14 mm · plain · circulated / toned · white 2×2 staple flip",
        "specs": "thickness ~1.0 mm · medal alignment · type specs shared with decimal ½p 1971–1984 (KM#914)",
        "mintage": "365,680,000 (circulation · Royal Mint)",
-       "design": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW HALF PENNY / NEW PENNY era",
+       "design": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW PENNY ½",
        "ruler": "Elizabeth II",
        "period": "British decimal"
       }
@@ -2750,7 +2750,7 @@
        "metal": "copper-clad steel · 2.90 g · 19.25 mm · plain · circulated / bright / bright · white 2×2 staple flip",
        "specs": "thickness 1.52 mm · medal alignment",
        "mintage": "34,600,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -2813,7 +2813,7 @@
        "metal": "aluminum-nickel bronze · 7 g · 25 mm · plain · circulated · white 2×2 staple flip · decagonal (10-sided)",
        "specs": "thickness 1.8 mm · coin alignment · narrow-date 1996 type",
        "mintage": "8,100,000 (1996 So · narrow date)",
-       "design": "obverse Bernardo O’Higgins profile · REPUBLICA DE CHILE · LIBERTADOR B. O’HIGGINS · mint S · reverse value / date"
+       "design": "obverse O'Higgins portrait right · REPUBLICA DE CHILE · LIBERTADOR B. O'HIGGINS (François Maurice Thénot) · reverse value in laurel wreath · 50 PESOS · date"
       }
      },
      "blind": false,
@@ -4938,7 +4938,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / brighter / brighter · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "75,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -4969,7 +4969,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "75,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5000,7 +5000,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "75,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5031,7 +5031,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "75,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5062,7 +5062,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "150,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5093,7 +5093,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "1,300,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -6005,94 +6005,6 @@
    ]
   },
   {
-   "id": "HW-gemini-arbitrate-20261015-1",
-   "agent": "gemini",
-   "kind": "arbitrate",
-   "issued": "2026-10-15T14:17:10Z",
-   "lease_until": "2026-10-22T14:17:10Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "arb:D0019",
-     "entity": "type",
-     "id": "IT.KM.215",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0020",
-     "entity": "type",
-     "id": "KY.KM.132",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0021",
-     "entity": "type",
-     "id": "IE.KM.34",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0022",
-     "entity": "type",
-     "id": "DE.KM.109.2",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0023",
-     "entity": "type",
-     "id": "NO.KM.460",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0024",
-     "entity": "type",
-     "id": "CH.KM.26",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0025",
-     "entity": "type",
-     "id": "DE.KM.108",
-     "field": "design.text"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "arb:D0020",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "KY.KM.132",
-     "field": "design.text",
-     "coins": [
-      "C186",
-      "C215"
-     ],
-     "label": "D0020 KY.KM.132 design.text",
-     "authors": [
-      "grok",
-      "ledger"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:sonnet-5.5",
-       "source": "sibling records C186/C215 (same type KM#132); wording differences only (year in text)",
-       "ts": "2026-09-30T00:00:00Z",
-       "value": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse shrimp"
-      },
-      "claim": {
-       "value": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse Cayman crayfish · 5 (Stuart Devlin)",
-       "by": "model:grok-bot",
-       "source": "Disagree — Numista N#2698 (https://en.numista.com/catalogue/pieces2698.html): Numista Reverse: 'Cayman Crayfish, value at right ... Engraver: Stuart Devlin' (record said shrimp)",
-       "ts": "2026-10-15T02:23:43Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
    "id": "HW-gemini-cite-20261015-1",
    "agent": "gemini",
    "kind": "cite",
@@ -6487,205 +6399,6 @@
      "payload": {
       "story": "A Sandy the Pony ride token from Meijer in the USA. It has no date. It reads FREE PONY RIDE // MEIJER IS FOR KIDS, good for one free pony ride. It is made of brass.",
       "shorthand": "//"
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-gemini-arbitrate-20261020-1",
-   "agent": "gemini",
-   "kind": "arbitrate",
-   "issued": "2026-10-20T16:00:29Z",
-   "lease_until": "2026-10-27T16:00:29Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "arb:D0049",
-     "entity": "type",
-     "id": "VN.KM.71",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0070",
-     "entity": "type",
-     "id": "CL.KM.219.2",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0072",
-     "entity": "type",
-     "id": "MX.KM.433",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0085",
-     "entity": "type",
-     "id": "SE.KM.826a",
-     "field": "composition.text"
-    },
-    {
-     "item": "arb:D0087",
-     "entity": "type",
-     "id": "SE.KM.826a",
-     "field": "design.text"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "arb:D0049",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "VN.KM.71",
-     "field": "design.text",
-     "coins": [
-      "C232"
-     ],
-     "label": "D0049 VN.KM.71 design.text",
-     "authors": [
-      "grok",
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:muse-spark",
-       "source": "Verified: Numista N#2104 (1000 Đồng - Vietnam, 2003), https://en.numista.com/catalogue/pieces2104.html — Obverse: arms of Vietnam, lettering CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM / VIỆT NAM / 2003. Reverse: a Hanoi pagoda ('Bat De Pagoda in Hanoi' in Numista's exact wording) with the denomination below, lettering NGÂN HÀNG NHÀ NƯỚC VIỆT NAM / 1000 ĐỒNG; references KM#72, Schön#144. The type record's 'One Pillar Pagoda' name is corroborated by the hobbyofkings KM72/2003 entry which describes the reverse as 'One pillar pagoda' with the same lettering. Kept new as-is. [phase 2; confidence high]",
-       "ts": "2026-10-15T03:07:06Z",
-       "value": "obverse national emblem (star · cog · rice wreath) · CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM · 2003 · reverse One Pillar Pagoda temple · 1000 ĐỒNG · NGÂN HÀNG NHÀ NƯỚC VIỆT NAM"
-      },
-      "claim": {
-       "value": "obverse national emblem (star · cog · rice wreath) · CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM · 2003 · reverse Bat De Pagoda (Hanoi) · 1000 ĐỒNG · NGÂN HÀNG NHÀ NƯỚC VIỆT NAM",
-       "by": "model:grok-bot",
-       "source": "Disagree in part — Numista N#2104 (https://en.numista.com/catalogue/pieces2104.html): Reverse 'Bat De Pagoda in Hanoi with the denomination below', not the One Pillar Pagoda. Arms side and legends hold. Only that phrase changed.",
-       "ts": "2026-10-16T05:48:02Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0070",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "CL.KM.219.2",
-     "field": "design.text",
-     "coins": [
-      "C145"
-     ],
-     "label": "D0070 CL.KM.219.2 design.text",
-     "authors": [
-      "grok",
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:grok-bot",
-       "source": "Agree — every element checked against Numista N#2834 (https://en.numista.com/catalogue/pieces2834.html) Obverse/Reverse sections [phase 2; confidence high]",
-       "ts": "2026-10-15T02:23:43Z",
-       "value": "obverse Bernardo O’Higgins profile · REPUBLICA DE CHILE · LIBERTADOR B. O’HIGGINS · mint S · reverse value / date"
-      },
-      "claim": {
-       "value": "obverse O'Higgins portrait right · REPUBLICA DE CHILE · LIBERTADOR B. O'HIGGINS (François Maurice Thénot) · reverse value in laurel wreath · 50 PESOS · date",
-       "by": "model:muse-spark",
-       "source": "https://en.numista.com/catalogue/pieces2834.html (N#2834, KM#219.1/219.2) — \"50 Pesos - Chile\": Obverse portrait of Bernardo O'Higgins right, \"REPUBLICA DE CHILE So LIBERTADOR B. O'HIGGINS R.THENOT\", Engraver François Maurice Thénot; Reverse \"value within a laurel wreath\", \"50 PESOS 2008\". The shown text describes the Italy 1 euro (Vitruvian Man), not this coin — disagreement.",
-       "ts": "2026-10-17T04:44:56Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0072",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "MX.KM.433",
-     "field": "design.text",
-     "coins": [
-      "C161"
-     ],
-     "label": "D0072 MX.KM.433 design.text",
-     "authors": [
-      "grok",
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:grok-bot",
-       "source": "Agree — every element checked against Numista N#6694 (https://en.numista.com/catalogue/pieces6694.html) Obverse/Reverse sections [phase 2; confidence high]",
-       "ts": "2026-10-15T02:23:43Z",
-       "value": "value side big 10 · CENTAVOS · 1945 · national arms reverse"
-      },
-      "claim": {
-       "value": "obverse national arms (eagle on cactus) · reverse Aztec Sun Stone · big 10 · CENTAVOS · 1945 · M (Manuel Luna Negrete)",
-       "by": "model:muse-spark",
-       "source": "https://en.numista.com/catalogue/pieces6694.html (N#6694) — \"10 Centavos - Mexico\" 1936-1946: Obverse Mexican coat of arms (eagle); Reverse \"outer circles of the Mexica (Aztec/Sun Stone), with the year, the mintmark (M), and the denomination in the center\", \"1936 M 10 CENTAVOS\", Engraver Manuel Luna Negrete. The shown text puts the national arms on the reverse; per the entry the arms are the obverse and the value side is the reverse — disagreement on side attribution.",
-       "ts": "2026-10-17T04:44:56Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0085",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "SE.KM.826a",
-     "field": "composition.text",
-     "coins": [
-      "C165"
-     ],
-     "label": "D0085 SE.KM.826a composition.text",
-     "authors": [
-      "grok",
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:grok-bot",
-       "source": "https://en.numista.com/catalogue/pieces1516.html (Numista N#1516, 1 Krona - Gustaf VI Adolf (Copper-nickel clad) - Sweden): Composition Copper-nickel clad copper-nickel (Cladding: 75% Copper, 25% Nickel; Core: 97% Copper, 3% Nickel); matches the record (re-cite) [phase 2; confidence high]",
-       "ts": "2026-10-10T17:20:03Z",
-       "value": "CuNi"
-      },
-      "claim": {
-       "value": "Copper-nickel clad copper-nickel",
-       "by": "model:muse-spark",
-       "source": "Numista N#1516 (https://en.numista.com/catalogue/pieces1516.html): '1 Krona - Gustaf VI Adolf (Copper-nickel clad) - Sweden', Years 1968-1973, References KM# 826a, Schön# 64; Composition line reads 'Copper-nickel clad copper-nickel' (cladding 75% Cu/25% Ni; core 97% Cu/3% Ni). URL from the type's own catalog link; page identity confirmed.",
-       "ts": "2026-10-17T04:55:32Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0087",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "SE.KM.826a",
-     "field": "design.text",
-     "coins": [
-      "C165"
-     ],
-     "label": "D0087 SE.KM.826a design.text",
-     "authors": [
-      "grok",
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:grok-bot",
-       "source": "Agree — every element checked against Numista N#1516 (https://en.numista.com/catalogue/pieces1516.html) Obverse/Reverse sections [phase 2; confidence high]",
-       "ts": "2026-10-15T02:23:43Z",
-       "value": "obverse Gustaf VI Adolf left · GUSTAF VI ADOLF SVERIGES KONUNG · reverse crowned arms · 1 KRONA · date"
-      },
-      "claim": {
-       "value": "obverse stylized bust of Gustaf VI Adolf facing left · GUSTAF VI ADOLF SVERIGES KONUNG · reverse crowned coat of arms of Sweden · 1 KR · PLIKTEN • FRAMFÖR • ALLT · date",
-       "by": "model:muse-spark",
-       "source": "Numista N#1516 (https://en.numista.com/catalogue/pieces1516.html): Obverse: stylized bust of King Gustaf VI Adolf facing left, lettering 'GUSTAF VI ADOLF SVERIGES KONUNG', engraver Edvin Öhrström. Reverse: crowned coat of arms of Sweden dividing date at top and value in the middle, lettering '1 KR', 'PLIKTEN • FRAMFÖR • ALLT'.",
-       "ts": "2026-10-17T04:55:32Z"
-      }
      },
      "blind": false,
      "inputs": []

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T01:08:28Z",
+ "updated": "2026-10-21T03:39:38Z",
  "pools": {
   "cite": 22,
   "contradiction": 14,
@@ -7,8 +7,8 @@
   "plain-story": 54,
   "value": 16,
   "read-mint": 11,
-  "arbitrate": 13,
-  "verify": 851
+  "arbitrate": 3,
+  "verify": 861
  },
  "agents": {
   "gemini": {
@@ -26,17 +26,17 @@
    ]
   },
   "grok": {
-   "confirmed": 430,
-   "wrong": 1,
+   "confirmed": 436,
+   "wrong": 5,
    "checks_done": 161,
-   "disagreements_open": 11,
+   "disagreements_open": 1,
    "canaries_caught": 2,
    "canaries_missed": 0,
-   "checked_n": 431,
-   "error_rate": 0.002,
+   "checked_n": 441,
+   "error_rate": 0.011,
    "error_ci95": [
-    0.0,
-    0.013
+    0.005,
+    0.026
    ]
   },
   "claude": {
@@ -54,30 +54,30 @@
    ]
   },
   "muse": {
-   "confirmed": 289,
-   "wrong": 8,
+   "confirmed": 293,
+   "wrong": 9,
    "checks_done": 99,
-   "disagreements_open": 6,
+   "disagreements_open": 1,
    "canaries_caught": 8,
    "canaries_missed": 0,
-   "checked_n": 297,
-   "error_rate": 0.027,
+   "checked_n": 302,
+   "error_rate": 0.03,
    "error_ci95": [
-    0.014,
-    0.052
+    0.016,
+    0.056
    ]
   },
   "ledger": {
    "confirmed": 0,
-   "wrong": 3,
+   "wrong": 4,
    "checks_done": 0,
-   "disagreements_open": 1,
+   "disagreements_open": 0,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 3,
+   "checked_n": 4,
    "error_rate": 1.0,
    "error_ci95": [
-    0.438,
+    0.51,
     1.0
    ]
   },
@@ -85,7 +85,7 @@
    "confirmed": 0,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 6,
+   "disagreements_open": 2,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 0,
@@ -129,8 +129,8 @@
  ],
  "open_assignments": {
   "grok": 11,
-  "muse": 10,
-  "gemini": 15,
+  "muse": 9,
+  "gemini": 13,
   "chatgpt": 0
  }
 }

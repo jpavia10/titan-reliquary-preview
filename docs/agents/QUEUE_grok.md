@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-21 01:08 UTC)
+# WORK QUEUE for Grok (updated 2026-10-21 03:39 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -112,7 +112,7 @@ Items:
 - **design of C223 · Netherlands · 1967 · 1 gulden · NLG** `type NL.KM.184 design.text` = `Juliana head right, JULIANA KONINGIN DER NEDERLANDEN (obv; engraver Ludwig Oswald Wenckeb…` (written by Muse: «https://en.numista.com/catalogue/pieces737.html (Numista N#737, Netherlands 1 Gulden KM#184): Obverse — Juliana head right, lettering JULIAN») [audit sample]
 - **design of C009 · Germany · 1987 · 5 Deutsche Mark · DEM** `type DE.KM.140.1 design.text` = `Bundesadler with date and mintmark below (obv; engraver Wolfgang Theodor Doehm) · 5 DEUTS…` (written by Muse: «https://en.numista.com/catalogue/pieces843.html (Numista N#843, Germany 5 Deutsche Mark KM#140.1): Obverse — German eagle with mintmark belo») [audit sample]
 - **design of C003 · Switzerland · 1968 · 2 francs · CHF** `type CH.KM.21a design.text` = `standing Helvetia facing left, spear and Swiss shield, 22 stars, HELVETIA (obv; engraver …` (written by Muse: «https://en.numista.com/catalogue/pieces189.html (Numista N#189, Switzerland 2 Francs KM#21a): Obverse — Helvetia standing facing left, 22 st») [audit sample]
-- **design of C082 · Switzerland · 1979 · 10 rappen · CHF** `type CH.KM.27 design.text` = `obverse Josefa Ortiz de Domínguez left · CINCO CENTAVOS · 1944 · Mo · reverse national ar…` (written by Muse: «https://en.numista.com/catalogue/pieces173.html (Numista N#173, Switzerland 10 Rappen KM#27): Obverse — Head of Libertas facing right, Desig») [audit sample]
+- **design of C082 · Switzerland · 1979 · 10 rappen · CHF** `type CH.KM.27 design.text` = `obverse La Semeuse left (Oscar Roty) · reverse 1/2 FRANC · olive sprig · LIBERTE · EGALIT…` (written by Muse: «https://en.numista.com/catalogue/pieces173.html (Numista N#173, Switzerland 10 Rappen KM#27): Obverse — Head of Libertas facing right, Desig») [audit sample]
 - **design of C001 · Switzerland · 1969 · 1 franc · CHF** `type CH.KM.24a.1 design.text` = `standing Helvetia facing left, spear in right hand, Swiss shield in left, 22 stars (23 fr…` (written by Muse: «https://en.numista.com/catalogue/pieces185.html (Numista N#185, Switzerland 1 Franc KM#24a): Obverse — Helvetia standing facing left, spear/») [audit sample]
 - **design of C049 · France · 1989 · 10 francs · FRF** `type FR.KM.964.1 design.text` = `Génie de la Liberté atop the July Column, Paris, between R F (obv; engravers Jean-Luc Mar…` (written by Muse: «https://en.numista.com/catalogue/pieces9.html (Numista N#9, France 10 Francs KM#964.1): Obverse — Génie de la Liberté (top of the July Colum») [audit sample]
 - **design of C239 · Australia · 1944 · 1 penny · AUD (pre-decimal)** `type AU.KM.36 design.text` = `George VI facing left (obv; engraver Thomas Humphrey Paget) · kangaroo facing left with C…` (written by Muse: «https://en.numista.com/catalogue/pieces5788.html (Numista N#5788, Australia 1 Penny KM#36): Obverse — George VI facing left, Engraver Thomas») [audit sample]
@@ -444,5 +444,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 22; expired: 1.
-- Your facts checked by another contributor: 431 (430 confirmed, 1 wrong; error rate 0.2 %, 95 % range 0-1 %). Checks you did for others: 161. Open disagreements you are part of: 11. Values planted wrong on purpose in your checks: you caught 2 of 2.
+- Your facts checked by another contributor: 441 (436 confirmed, 5 wrong; error rate 1.1 %, 95 % range 0-3 %). Checks you did for others: 161. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 2 of 2.
 - Share of your new facts that get checked first: 15 %.

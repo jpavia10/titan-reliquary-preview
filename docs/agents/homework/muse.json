@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-21T01:08:28Z",
+ "updated": "2026-10-21T03:39:38Z",
  "assignments": [
   {
    "id": "HW-muse-story-check-20261020-1",
@@ -83,140 +83,6 @@
        "mintage": "11,520,000",
        "design": "Bundesadler · value 1 between oak sprigs / DEUTSCHE MARK (Josef Bernhart)",
        "period": "Federal Republic of Germany"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-muse-arbitrate-20261020-1",
-   "agent": "muse",
-   "kind": "arbitrate",
-   "issued": "2026-10-20T15:00:33Z",
-   "lease_until": "2026-10-27T15:00:33Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "arb:D0048",
-     "entity": "type",
-     "id": "CU.KM.32",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0050",
-     "entity": "type",
-     "id": "IT.KM.214",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0051",
-     "entity": "type",
-     "id": "NL.KM.239",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0052",
-     "entity": "type",
-     "id": "PT.KM.744",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0053",
-     "entity": "type",
-     "id": "SG.KM.4",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0054",
-     "entity": "type",
-     "id": "CH.KM.26c",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0055",
-     "entity": "type",
-     "id": "DE.KM.107",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0056",
-     "entity": "type",
-     "id": "SG.KM.3",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0057",
-     "entity": "type",
-     "id": "NL.KM.204",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0058",
-     "entity": "type",
-     "id": "GB.KM.914",
-     "field": "design.text"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "arb:D0048",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "CU.KM.32",
-     "field": "design.text",
-     "coins": [
-      "C252"
-     ],
-     "label": "D0048 CU.KM.32 design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "arms side REPUBLICA DE CUBA · Escudo (key · stripes · palm) · oak & laurel · Phrygian-cap star · VEINTE CENTAVOS · reverse big 20 / date"
-      },
-      "claim": {
-       "value": "arms side REPUBLICA DE CUBA · Escudo (key · stripes · palm) · oak & laurel · Phrygian-cap star · VEINTE CENTAVOS · reverse José Martí left · PATRIA O MUERTE · date",
-       "by": "model:grok-bot",
-       "source": "Disagree in part — Numista N#1055 (https://en.numista.com/catalogue/pieces1055.html): the record's own entry (KM 31, N#1055) has Reverse 'Portrait of José Martí ... left, date on left', lettering 'PATRIA O MUERTE 1968'; there is no big 20 on the reverse (the value is in words VEINTE CENTAVOS on the arms side). Arms side holds. Only that phrase changed.",
-       "ts": "2026-10-16T05:48:02Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0058",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "GB.KM.914",
-     "field": "design.text",
-     "coins": [
-      "C020"
-     ],
-     "label": "D0058 GB.KM.914 design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW HALF PENNY / NEW PENNY era"
-      },
-      "claim": {
-       "value": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW PENNY ½",
-       "by": "model:grok-bot",
-       "source": "Disagree in part — Numista N#856 (https://en.numista.com/catalogue/pieces856.html): Reverse 'Central crown of St. Edward, denomination in letters above and numerals below', lettering 'NEW PENNY ½' (the words NEW HALF PENNY do not appear). Only that phrase changed.",
-       "ts": "2026-10-16T05:48:02Z"
       }
      },
      "blind": false,
@@ -2258,74 +2124,6 @@
     }
    ],
    "items_full": [
-    {
-     "item": "arb:D0059",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "DE.KM.106a",
-     "field": "design.text",
-     "coins": [
-      "C018",
-      "C122",
-      "C123"
-     ],
-     "label": "D0059 DE.KM.106a design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse"
-      },
-      "claim": {
-       "value": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
-       "by": "model:grok-bot",
-       "source": "Disagree in part — Numista N#1937 (https://en.numista.com/catalogue/pieces1937.html): Obverse 'An oak seedling ... the country name around the rim' (BUNDESREPUBLIK DEUTSCHLAND), Reverse 'The mintmark in between two rye ears above the denomination' (PFENNIG); the record had the sides swapped and put the country name on the value side. Only that phrase changed.",
-       "ts": "2026-10-16T05:48:02Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0061",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "DE.KM.105",
-     "field": "design.text",
-     "coins": [
-      "C029",
-      "C187",
-      "C188",
-      "C189",
-      "C190",
-      "C191",
-      "C192"
-     ],
-     "label": "D0061 DE.KM.105 design.text",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse"
-      },
-      "claim": {
-       "value": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
-       "by": "model:grok-bot",
-       "source": "Disagree in part — Numista N#854 (https://en.numista.com/catalogue/pieces854.html): Obverse 'An oak seedling ... the country name around the rim' (BUNDESREPUBLIK DEUTSCHLAND), Reverse 'The mintmark in between two rye ears above the denomination' (PFENNIG); the record had the sides swapped and put the country name on the value side. Only that phrase changed.",
-       "ts": "2026-10-16T05:48:02Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
     {
      "item": "arb:D0066",
      "kind": "arbitrate",
@@ -5522,7 +5320,7 @@
        "metal": "copper-nickel (80% copper, 20% nickel) · 5.50 g · 23.5 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness 1.75 mm · coin alignment · wartime bronze type",
        "mintage": "9,558,000",
-       "design": "value side big 10 · CENTAVOS · 1945 · national arms reverse",
+       "design": "obverse national arms (eagle on cactus) · reverse Aztec Sun Stone · big 10 · CENTAVOS · 1945 · M (Manuel Luna Negrete)",
        "period": "United Mexican States"
       }
      },
@@ -5582,10 +5380,10 @@
        "denom": "1 krona · SEK",
        "mint": "Sweden",
        "refs": "KM#826a · Schön#62a (CuNi Gustaf VI)",
-       "metal": "CuNi · 7.00 g · 25 mm · reeded · circulated / light tone · white 2×2 staple flip",
+       "metal": "Copper-nickel clad copper-nickel · 7.00 g · 25 mm · reeded · circulated / light tone · white 2×2 staple flip",
        "specs": "thickness unknown · medal alignment · last Gustaf VI calendar year",
        "mintage": "142,000,000",
-       "design": "obverse Gustaf VI Adolf left · GUSTAF VI ADOLF SVERIGES KONUNG · reverse crowned arms · 1 KRONA · date",
+       "design": "obverse stylized bust of Gustaf VI Adolf facing left · GUSTAF VI ADOLF SVERIGES KONUNG · reverse crowned coat of arms of Sweden · 1 KR · PLIKTEN • FRAMFÖR • ALLT · date",
        "ruler": "Gustaf VI Adolf",
        "period": "Kingdom of Sweden"
       }
@@ -5713,7 +5511,7 @@
        "metal": "nickel-plated steel · 2.00 g · 18 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness unknown · medal alignment · Rank-Broadley 4th portrait type",
        "mintage": "2,500,000 (2002)",
-       "design": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse shrimp",
+       "design": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse Cayman crayfish · 5 (Stuart Devlin)",
        "ruler": "Elizabeth II",
        "period": "Cayman Islands (British Overseas Territory)"
       }
@@ -5745,7 +5543,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / brighter / brighter · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "75,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5776,7 +5574,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "75,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5807,7 +5605,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "75,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5838,7 +5636,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated / darker / darker · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "75,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5869,7 +5667,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "150,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -5900,7 +5698,7 @@
        "metal": "copper-clad steel · 2.00 g · 16.5 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.38 mm · medal alignment",
        "mintage": "1,300,000,000",
-       "design": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse",
+       "design": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
        "period": "Federal Republic of Germany"
       }
      },
@@ -6210,7 +6008,7 @@
        "metal": "nickel-plated steel · ~2.2 g · ~18 mm · reeded · bright / near-UNC look · white 2×2 staple flip",
        "specs": "thickness unknown · medal alignment · Rank-Broadley 4th portrait",
        "mintage": "3,000,000 (2008)",
-       "design": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse shrimp",
+       "design": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse Cayman crayfish · 5 (Stuart Devlin)",
        "ruler": "Elizabeth II",
        "period": "Cayman Islands (British Overseas Territory)"
       }

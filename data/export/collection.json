@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-10-21T01:08:28Z",
- "content_hash": "d705dc8df8846785",
+ "generated_at": "2026-10-21T03:35:47Z",
+ "content_hash": "e44cf7f8bd51f6f2",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:d705dc8df8846785",
+  "ledger_version": "v3:e44cf7f8bd51f6f2",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5390.04,
@@ -2480,7 +2480,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Bernardo O’Higgins profile · REPUBLICA DE CHILE · LIBERTADOR B. O’HIGGINS · mint S · reverse value / date"
+    "text": "obverse O'Higgins portrait right · REPUBLICA DE CHILE · LIBERTADOR B. O'HIGGINS (François Maurice Thénot) · reverse value in laurel wreath · 50 PESOS · date"
    },
    "die_variety": null,
    "error_type": null,
@@ -2751,7 +2751,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "arms side REPUBLICA DE CUBA · Escudo (key · stripes · palm) · oak & laurel · Phrygian-cap star · VEINTE CENTAVOS · reverse big 20 / date"
+    "text": "arms side REPUBLICA DE CUBA · Escudo (key · stripes · palm) · oak & laurel · Phrygian-cap star · VEINTE CENTAVOS · reverse José Martí left · PATRIA O MUERTE · date"
    },
    "die_variety": null,
    "error_type": null,
@@ -2913,7 +2913,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse"
+    "text": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse"
    },
    "die_variety": null,
    "error_type": null,
@@ -3030,7 +3030,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "oak seedling reverse (Adolf Jäger) · value / PFENNIG / BUNDESREPUBLIK DEUTSCHLAND obverse"
+    "text": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse"
    },
    "die_variety": null,
    "error_type": null,
@@ -7675,7 +7675,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW HALF PENNY / NEW PENNY era"
+    "text": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW PENNY ½"
    },
    "die_variety": null,
    "error_type": null,
@@ -11318,7 +11318,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse shrimp"
+    "text": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse Cayman crayfish · 5 (Stuart Devlin)"
    },
    "die_variety": null,
    "error_type": null,
@@ -12109,7 +12109,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "value side big 10 · CENTAVOS · 1945 · national arms reverse"
+    "text": "obverse national arms (eagle on cactus) · reverse Aztec Sun Stone · big 10 · CENTAVOS · 1945 · M (Manuel Luna Negrete)"
    },
    "die_variety": null,
    "error_type": null,
@@ -14465,7 +14465,7 @@
    "composition": {
     "fineness": null,
     "metal_class": "cupronickel",
-    "text": "CuNi"
+    "text": "Copper-nickel clad copper-nickel"
    },
    "country": "SE",
    "denomination": {
@@ -14482,7 +14482,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Gustaf VI Adolf left · GUSTAF VI ADOLF SVERIGES KONUNG · reverse crowned arms · 1 KRONA · date"
+    "text": "obverse stylized bust of Gustaf VI Adolf facing left · GUSTAF VI ADOLF SVERIGES KONUNG · reverse crowned coat of arms of Sweden · 1 KR · PLIKTEN • FRAMFÖR • ALLT · date"
    },
    "die_variety": null,
    "error_type": null,
@@ -16321,7 +16321,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse national emblem (star · cog · rice wreath) · CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM · 2003 · reverse One Pillar Pagoda temple · 1000 ĐỒNG · NGÂN HÀNG NHÀ NƯỚC VIỆT NAM"
+    "text": "obverse national emblem (star · cog · rice wreath) · CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM · 2003 · reverse Bat De Pagoda (Hanoi) · 1000 ĐỒNG · NGÂN HÀNG NHÀ NƯỚC VIỆT NAM"
    },
    "die_variety": null,
    "error_type": null,
@@ -75508,9 +75508,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "heritcoin Germany 2 pfennig KM#106a; LastDodo Germany 1/5/10 pfennig KM#105/107/108 (Adolf Jäger series designer)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0059: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1937.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -75651,9 +75654,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "numisview; onlinecoin.club KM#914"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0058: KM#914 (1971-1981) reads NEW PENNY above St Edward's Crown and ½ below; HALF PENNY is the 1982-1984 KM#926 (Numista ",
+    "links": [
+     "https://en.numista.com/catalogue/pieces856.html"
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -76268,9 +76274,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Heritcoin 'Germany 1 pfennig 1985-J' (KM#105); LastDodo item 180029 (KM#105)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces854.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -82638,9 +82647,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "heritcoin Germany 2 pfennig KM#106a; LastDodo Germany 1/5/10 pfennig KM#105/107/108 (Adolf Jäger series designer)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0059: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1937.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -82705,9 +82717,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "heritcoin Germany 2 pfennig KM#106a; LastDodo Germany 1/5/10 pfennig KM#105/107/108 (Adolf Jäger series designer)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0059: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1937.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -84200,9 +84215,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#2834 (https://en.numista.com/catalogue/pieces2834.html) Obverse/Reverse sections",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0070: Numista N#2834 (https://en.numista.com/catalogue/pieces2834.html) and Numisquare: O'Higgins right, REPUBLICA DE CHIL",
     "links": [
      "https://en.numista.com/catalogue/pieces2834.html"
     ]
@@ -85387,9 +85402,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#6694 (https://en.numista.com/catalogue/pieces6694.html) Obverse/Reverse sections",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0072: Numista N#6694 (https://en.numista.com/catalogue/pieces6694.html) and Greysheet KM-432 'Aztec Calendar': arms on the",
     "links": [
      "https://en.numista.com/catalogue/pieces6694.html"
     ]
@@ -85648,9 +85663,9 @@
    },
    "composition": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces1516.html (Numista N#1516, 1 Krona - Gustaf VI Adolf (Copper-nickel clad) - Sweden): Composition Copp",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0085: Both parties quote the same Numista N#1516 line (https://en.numista.com/catalogue/pieces1516.html): the 1968-1973 kr",
     "links": [
      "https://en.numista.com/catalogue/pieces1516.html"
     ]
@@ -85686,9 +85701,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#1516 (https://en.numista.com/catalogue/pieces1516.html) Obverse/Reverse sections",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0087: Numista N#1516 (https://en.numista.com/catalogue/pieces1516.html) and uCoin: the reverse reads 1 KR beside the crown",
     "links": [
      "https://en.numista.com/catalogue/pieces1516.html"
     ]
@@ -87242,10 +87257,11 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Numista N#2698",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0020: Cayman Islands Monetary Authority names the 5 cents animal the Cayman crayfish (a spiny lobster), not a shrimp; Numi",
     "links": [
+     "https://pl.numista.com/forum/topic63325.html",
      "https://en.numista.com/catalogue/pieces2698.html"
     ]
    },
@@ -87315,9 +87331,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Heritcoin 'Germany 1 pfennig 1985-J' (KM#105); LastDodo item 180029 (KM#105)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces854.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -87376,9 +87395,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Heritcoin 'Germany 1 pfennig 1985-J' (KM#105); LastDodo item 180029 (KM#105)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces854.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -87437,9 +87459,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Heritcoin 'Germany 1 pfennig 1985-J' (KM#105); LastDodo item 180029 (KM#105)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces854.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -87498,9 +87523,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Heritcoin 'Germany 1 pfennig 1985-J' (KM#105); LastDodo item 180029 (KM#105)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces854.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -87559,9 +87587,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Heritcoin 'Germany 1 pfennig 1985-J' (KM#105); LastDodo item 180029 (KM#105)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces854.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -87620,9 +87651,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Heritcoin 'Germany 1 pfennig 1985-J' (KM#105); LastDodo item 180029 (KM#105)"
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
+    "links": [
+     "https://en.numista.com/catalogue/pieces854.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -89270,10 +89304,11 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Numista N#2698",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0020: Cayman Islands Monetary Authority names the 5 cents animal the Cayman crayfish (a spiny lobster), not a shrimp; Numi",
     "links": [
+     "https://pl.numista.com/forum/topic63325.html",
      "https://en.numista.com/catalogue/pieces2698.html"
     ]
    },
@@ -90449,9 +90484,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Verified: Numista N#2104 (1000 Đồng - Vietnam, 2003), https://en.numista.com/catalogue/pieces2104.html — Obverse: arms of Vietnam, lettering",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0049: Numista N#2104 (https://en.numista.com/catalogue/pieces2104.html) and Numisquare describe the 1000 đồng 2003 reverse",
     "links": [
      "https://en.numista.com/catalogue/pieces2104.html"
     ]
@@ -91820,11 +91855,10 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Numista N#1055 (Cuba 20 centavos José Martí, KM#31): Obverse Engraver Charles Edward Barber, Reverse Engraver Esteban Valderrama Peña (https",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "Third reader for D0048: The 1962-1968 copper-nickel 20 centavos (KM#31, Numista N#1055 https://en.numista.com/catalogue/pieces1055.html) has",
     "links": [
-     "https://en.numista.com/1055",
      "https://en.numista.com/catalogue/pieces1055.html"
     ]
    }

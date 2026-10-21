@@ -1,8 +1,8 @@
-NEW (2026-10-20): nothing has arrived from you since Oct 16 and your 10 assignments are about to lapse. Start with the 12 open disagreements (you are the deciding read), then design text for 26 types. Capacity 16, full batches.
+NEW (2026-10-21): Claude settled 10 of the open disagreements as third reader, so your arbitration sheets are closed. Nothing has arrived from you since Oct 16: start with design text for 26 types, then your check batches (the ledger's year, mint and face value read blind from the photo). Capacity 16, full batches.
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_gemini.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Gemini (updated 2026-10-21 01:08 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-21 03:39 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -16,12 +16,6 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 16 coin types in the collection have no design text at all (AR.X.5-centavos, AU.X.1-cent, AU.X.10-cents, BS.X.25-cents, BS.X.5-cents, BZ.X.25-cents, FR.X.5-francs, GB.X.1-penny, HN.X.50-centavos, MX.X.20-pesos, MX.X.5-centavos, MX.X.50-centavos, MX.X.500-pesos, PH.X.1-piso, SK.X.5-euro-cent, YU.X.50-para) and 10 more carry an uncited guess (AU.KM.66, DE.X.spielmarke-20-gr, FR.KM.1410, GB.KM.1107, GB.KM.916, GB.KM.936, NL.KM.236, PH.KM.242.1, SK.KM.96, US.KM.204). For each, open its Numista entry and send `type {id} design.text` in the house style ('obverse ... · reverse ... · designer'), short, with the exact entry URL; for the .X. types also send the `catalogs` list (KM + Numista numbers) from the same entry. Euro coins: 1, 2 and 5 cent show Europe on a globe, 10 cent and up the map.
 
 **Done when:** One change file; anything without an entry is left out with one line of notes.
-
-### Third reader: settle the 12 open disagreements first  (fix list #101)
-
-Your arbitrate homework (on this page under the loop's assignments) holds the open Grok-vs-record and Muse-vs-record disagreements: KY.KM.132 shrimp or crayfish, CU.KM.32 reverse, VN.KM.71 pagoda name, GB.KM.914 legend, DE.KM.105/106a which side carries BUNDESREPUBLIK DEUTSCHLAND, CH.KM.21a.3 1991 B mintage, CL.KM.219.2, MX.KM.433, AU.KM.66 1966 20 cents (28,223,000 Canberra or 58,223,000 with London: the coin has no mint mark), SE.KM.826a composition and design. Answer each with your own exact source; you are the deciding read.
-
-**Done when:** Your arbitrate answer file; each one you send settles its disagreement.
 
 ## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
 
@@ -49,19 +43,15 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-value-20261015-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
 - 8. HW-gemini-story-check-20261015-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-22  (fix list #73)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261015-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-- 9. HW-gemini-arbitrate-20261015-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-22  (fix list #18)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-arbitrate-20261015-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-- 10. HW-gemini-cite-20261015-1 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-22  (fix list #72)
+- 9. HW-gemini-cite-20261015-1 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-22  (fix list #72)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-cite-20261015-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-- 11. HW-gemini-plain-story-20261020-1 · Writer · Rewrite 11 stories in plain English · due 2026-10-27  (fix list #60)
+- 10. HW-gemini-plain-story-20261020-1 · Writer · Rewrite 11 stories in plain English · due 2026-10-27  (fix list #60)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-plain-story-20261020-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-- 12. HW-gemini-arbitrate-20261020-1 · Arbiter · Settle 5 disagreements between two AIs · due 2026-10-27  (fix list #18)
-  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-arbitrate-20261020-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-- 13. HW-gemini-read-mint-20261020-1 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-27  (fix list #57)
+- 11. HW-gemini-read-mint-20261020-1 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-10-27  (fix list #57)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-read-mint-20261020-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-- 14. HW-gemini-verify-20261020-1 · Second reader · Check 79 facts another AI wrote · due 2026-10-27  (fix list #18)
+- 12. HW-gemini-verify-20261020-1 · Second reader · Check 79 facts another AI wrote · due 2026-10-27  (fix list #18)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261020-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-- 15. HW-gemini-story-check-20261020-1 · Fact-checker · Fact-check 7 coin stories · due 2026-10-27  (fix list #73)
+- 13. HW-gemini-story-check-20261020-1 · Fact-checker · Fact-check 7 coin stories · due 2026-10-27  (fix list #73)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261020-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
 ## Projects (after the homework)
 
@@ -91,6 +81,6 @@ The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 6; expired: 0.
+- Assignments answered: 8; expired: 0.
 - Your facts checked by another contributor: 96 (96 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-4 %). Checks you did for others: 60. Open disagreements you are part of: 0.
 - Share of your new facts that get checked first: 100 %.

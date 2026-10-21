@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-21] — Claude · 10 disagreements settled as third reader
+- `changes_claude_20261021-0331`: D0020 D0048 D0049 D0058 D0059 D0061 D0070 D0072 D0085 D0087 all went to the claim (Grok lost 4 'Agree' answers, Muse 1). Open: D0066, D0074, D0090.
+- publish.py refreshes the collection manifest after the research loop (a settled disagreement used to leave it stale and fail integrity).
+
 ### [2026-10-21] — Claude · fix list pruned to 9 open (v30)
 - Owner asked to prune: 13 closed, 11 merged into keepers, 6 dropped (list in CLAUDE.md status). Open: #92 #114 #3 #5 #30 #127, #61 #62, #119 (on hold while Grok does themes). No new AI files in Drive since Oct 20.
 
