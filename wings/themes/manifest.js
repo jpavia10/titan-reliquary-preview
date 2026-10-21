@@ -28,7 +28,7 @@
     { id: "abyss", name: "Shipwreck", collection: "Treasure", tier: "classic", art: A("abyss"),
       mood: "Forty fathoms down, god rays on a wreck.", fx: "deepsea", fxIntensity: 0.9, scene: "shipwreck", tokens: {} },
     { id: "neon", name: "Neon Vault", collection: "Otherworld", tier: "classic", art: C("neon"),
-      mood: "Chrome midnight, hot-pink horizon, wet streets.", fx: "style-neon+style-vhs*0.7", fxIntensity: 0.85, scene: "nightcity", tokens: {} },
+      mood: "Neon noir: buzzing tubes, rain on wet asphalt, fog lit pink and cyan.", fx: "fxk", fxIntensity: 0.01, scene: "nightcity", tokens: {} },
     { id: "notepad", name: "Plaintext", collection: "Utility", tier: "classic", art: C("notepad"),
       mood: "Black on white. Just the coins.", fx: "paperink", fxIntensity: 0.6, scene: "privatebank", tokens: {} },
     { id: "construct", name: "The Construct", collection: "Otherworld", tier: "classic", art: C("construct"),
@@ -84,7 +84,7 @@
       mood: "Liquid chrome and pastel sparkle: the collection as a Y2K dream, every coin polished to a mirror.", fx: "style-y2k", fxIntensity: 0.85, scene: "y2k", tokens: {} }
   ];
   /* styles-20: the styles each existing theme now carries (shown on its picker card) and its shared UI treatments */
-  var STYLE_OF = { afterhours: ["Particles"], colossus: ["Liquid morph"], kaleido: ["Holographic"], neon: ["Neon glow", "Retro VHS"],
+  var STYLE_OF = { afterhours: ["Particles"], colossus: ["Liquid morph"], kaleido: ["Holographic"], neon: ["Neon noir", "Volumetric fog", "Wet reflections"],
     solaris: ["Wireframe 3D"], glacier: ["Glassmorphism"], samadhi: ["Gradient mesh"], nocturne: ["Art deco"], conservator: ["Halftone"],
     notepad: ["Neo-brutalism"], construct: ["ASCII art"] };
   var UI_OF = { notepad: ["brutal"] };

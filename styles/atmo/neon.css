@@ -1,24 +1,10 @@
 /* ============================================================================
-   Atmosphere: NEON VAULT (neon)
-   Midnight drive. A slatted sun sits on a neon horizon, a perspective grid runs
-   out under the page, and every panel is edged like a lit glass tube: cyan for
-   what you can act on, magenta for what is decorative. Text is never neon on
-   neon: body copy is near-white lavender on deep indigo (>= 15:1), glow lives
-   on edges and rules, not behind letters.
-
-   Loads after styles.css, so the same selector here wins over the legacy block
-   (styles.css "9. Neon Vault" + tr17). The global "Performance Shield" in
-   styles.css kills body/wordmark/hero-glow animation, so this theme is static
-   by design; the only motion is short hover transitions and the drifting sun,
-   all of which stand down under prefers-reduced-motion.
-
-   Contrast (computed, WCAG 2.x):
-     ink    #f5f0ff  17.9 bg / 16.7 surface / 15.3 surface2
-     muted  #cdc0ec  11.8 bg / 11.0 surface / 10.0 surface2
-     faint  #a896d0   7.6 bg /  7.1 surface
-     gold   #35e6ff  13.3 bg / 12.4 surface   (cyan accent)
-     pink   #ff5cbc   7.2 bg /  6.7 surface   (magenta accent, --neon-pink)
-     on-gold #05121a on gold 12.6
+   Atmosphere: NEON VAULT (neon), rebuilt 2026-10-20 (Grok theme-rebuild worker): neon noir.
+   A rain-slick street at 2 a.m. painted live behind the page by fx/ (atmos: buzzing neon tubes, wet-asphalt reflections, rain
+   rings, lit volumetric fog; particles: rain in two depths, floating motes). Panels are smoked glass on brushed-metal rails with
+   real tube edges (white-hot core, coloured halo, bloom); headings are signage that powers on and buzzes. Body copy stays
+   near-white on smoked glass (>= 12:1); glow lives on edges and rules, never behind letters.
+   Contrast tokens below are unchanged from the audited block.
    ========================================================================== */
 
 /* 1. Tokens -------------------------------------------------------------- */
@@ -90,323 +76,132 @@ html[data-atmo="neon"] {
   --wing-rise: 12px;
 }
 
-/* 2. Page: night sky band, sun glow on the horizon, grid floor -------------- */
+/* 2. Page: the street scene is painted by fx/ (TitanFXK); without WebGL a still CSS night street stands in ----------------- */
 html[data-atmo="neon"] body {
-  background-color: var(--bg);
-  background-image:
-    radial-gradient(70% 38% at 50% 100%, rgba(255, 92, 188, 0.20), transparent 70%),
-    radial-gradient(60% 40% at 50% -6%, rgba(155, 107, 255, 0.16), transparent 70%),
-    linear-gradient(180deg, #0c0719 0%, #0a0614 55%, #120823 100%);
+  background:
+    radial-gradient(60% 28% at 22% 30%, rgba(255, 58, 168, .22), transparent 70%),
+    radial-gradient(50% 24% at 78% 22%, rgba(40, 220, 255, .18), transparent 70%),
+    linear-gradient(180deg, #08051a 0%, #0a0614 62%, #050309 64%, #020104 100%);
   background-attachment: fixed;
-  animation: none;
 }
-/* The grid floor: a static perspective plane under the bottom third. */
-html[data-atmo="neon"] body::before {
-  inset: auto -30% -8% -30%;
-  width: auto;
-  height: 46vh;
-  background-image:
-    linear-gradient(0deg, rgba(var(--neon-pink-rgb), 0.34) 0 2px, transparent 2px),
-    linear-gradient(90deg, rgba(var(--neon-cyan-rgb), 0.26) 0 2px, transparent 2px);
-  background-size: 100% 44px, 64px 100%;
-  background-position: 0 0, 50% 0;
-  transform: perspective(320px) rotateX(58deg);
-  transform-origin: 50% 100%;
-  -webkit-mask-image: linear-gradient(0deg, #000 10%, transparent 85%);
-  mask-image: linear-gradient(0deg, #000 10%, transparent 85%);
-  opacity: 0.55;
-  animation: none;
-}
-html[data-atmo="neon"] ::selection { background: rgba(255, 92, 188, 0.45); color: #fff; }
+html[data-atmo="neon"] #neon-sun, html[data-atmo="neon"] #neon-scan { display: none !important; }   /* the old synthwave sun + scanlines are retired */
+html[data-atmo="neon"] ::selection { background: rgba(255, 58, 168, .5); color: #fff; }
 
-/* Scanlines (created by app.js): kept as a whisper, never over text contrast. */
-html[data-atmo="neon"] #neon-scan {
-  opacity: 0.12;
-  z-index: 4;
-  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0 1px, transparent 1px 4px);
-}
-/* The slatted sun (created by app.js): sits low and dim behind the hero. */
-html[data-atmo="neon"] #neon-sun {
-  top: 2vh;
-  width: min(44vmin, 300px);
-  height: min(44vmin, 300px);
-  opacity: 0.32;
-  background: linear-gradient(180deg, #ffd24a 0%, #ff8a4d 32%, #ff5cbc 64%, #9b6bff 100%);
-  -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 18px, transparent 18px 24px);
-  mask-image: repeating-linear-gradient(180deg, #000 0 18px, transparent 18px 24px);
-  box-shadow: none;
-  animation: neon-sun-drift 14s ease-in-out infinite;
-}
-@keyframes neon-sun-drift {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-10px); }
-}
-@media (max-width: 768px) {
-  html[data-atmo="neon"] #neon-sun { opacity: 0.22; animation: none; }
-  html[data-atmo="neon"] #neon-scan { display: none; }
-  html[data-atmo="neon"] body::before { height: 34vh; opacity: 0.45; }
-}
-
-/* 3. Wordmark: white-hot tube core, magenta halo (static) ------------------- */
+/* 3. Signage: the wordmark and headings are neon tubes that power on (stutter, then hold) and buzz faintly ------------------ */
+@keyframes nv-poweron { 0%, 8% { opacity: .15; } 9% { opacity: 1; } 11% { opacity: .2; } 14% { opacity: 1; } 16% { opacity: .45; } 22%, 100% { opacity: 1; } }
+@keyframes nv-buzz { 0%, 96%, 100% { opacity: 1; } 97% { opacity: .72; } 98.5% { opacity: .95; } }
 html[data-atmo="neon"] .wordmark {
-  font-family: var(--serif);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #fff4fb;
-  text-shadow: 0 0 2px #fff, 0 0 10px rgba(255, 92, 188, 0.9), 0 0 28px rgba(255, 92, 188, 0.55), 0 0 60px rgba(155, 107, 255, 0.35) !important;
-  animation: none !important;
+  color: #fff6fd;
+  text-shadow: 0 0 1px #fff, 0 0 4px #ff9ad6, 0 0 10px #ff3aa8, 0 0 22px #ff3aa8, 0 0 46px rgba(255, 58, 168, .55), 0 18px 30px rgba(255, 58, 168, .25);
+  animation: nv-poweron 1.6s steps(1) both, nv-buzz 7s 1.6s infinite;
+  letter-spacing: .06em;
 }
-html[data-atmo="neon"] .eyebrow {
-  color: var(--gold);
-  letter-spacing: 0.22em;
+html[data-atmo="neon"] .eyebrow { color: #9ff4ff; text-shadow: 0 0 8px rgba(40, 220, 255, .6); letter-spacing: .32em; text-transform: uppercase; }
+html[data-atmo="neon"] .sigil { color: #ff3aa8; filter: drop-shadow(0 0 6px #ff3aa8); }
+html[data-atmo="neon"] .hero-glow { background: radial-gradient(closest-side, rgba(255, 58, 168, .18), transparent); }
+html[data-atmo="neon"] .hero-crest-watermark { color: #35e6ff; opacity: .08; }
+html[data-atmo="neon"] .exhibit-crest-watermark { color: #ff3aa8; opacity: .06; }
+html[data-atmo="neon"] .hero-grand { color: #fff; text-shadow: 0 0 2px #fff, 0 0 12px rgba(53, 230, 255, .8), 0 0 34px rgba(53, 230, 255, .45); font-variant-numeric: tabular-nums; }
+html[data-atmo="neon"] .hero-cap { color: var(--muted); letter-spacing: .14em; }
+html[data-atmo="neon"] .wing-head { border-bottom: 0; position: relative; }
+html[data-atmo="neon"] .wing-head h2 {
+  color: #f7fdff; text-transform: uppercase; letter-spacing: .14em;
+  text-shadow: 0 0 1px #fff, 0 0 5px #7ff0ff, 0 0 14px #28dcff, 0 0 32px rgba(40, 220, 255, .5);
+  animation: nv-poweron 1.2s steps(1) both;
 }
-html[data-atmo="neon"] .sigil { color: var(--neon-pink); }
-html[data-atmo="neon"] .hero-glow {
-  background: radial-gradient(ellipse 55% 50% at 50% 40%, rgba(255, 92, 188, 0.14), transparent 70%);
-  animation: none;
-}
-html[data-atmo="neon"] .hero-crest-watermark { color: var(--neon-cyan); opacity: 0.09; }
-html[data-atmo="neon"] .exhibit-crest-watermark { color: var(--neon-pink); opacity: 0.07; }
-html[data-atmo="neon"] .hero-grand {
-  color: var(--gold-soft);
-  text-shadow: 0 0 18px rgba(53, 230, 255, 0.45), 0 2px 0 rgba(0, 0, 0, 0.5);
-}
-html[data-atmo="neon"] .hero-cap { color: var(--muted); letter-spacing: 0.12em; }
-html[data-atmo="neon"] .badge.hold {
-  background: var(--hold-bg);
-  color: #ffd6ee;
-  border: 1px solid rgba(255, 92, 188, 0.7);
-  box-shadow: 0 0 12px rgba(255, 92, 188, 0.35);
+html[data-atmo="neon"] .wing-head::after {   /* a tube under each heading, with its mounting clips */
+  content: ""; position: absolute; left: 0; right: 30%; bottom: -6px; height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, #ff3aa8, #ff9ad6 50%, #ff3aa8);
+  box-shadow: 0 0 6px #ff3aa8, 0 0 18px rgba(255, 58, 168, .6), 0 8px 24px rgba(255, 58, 168, .35);
 }
 
-/* 4. Picker swatch (only unscoped selector) ------------------------------- */
+/* 4. Materials: smoked glass panels on brushed-metal rails, tube edges, concrete under the bar -------------------------------- */
+html[data-atmo="neon"] :is(.card, .tile, .exhibit, .gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card, .drawer, .sheet, .modal, dialog) {
+  background: var(--tx-glass), linear-gradient(180deg, rgba(22, 14, 40, .78), rgba(10, 6, 20, .86));
+  -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(160, 240, 255, .14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), inset 0 0 0 1px rgba(0, 0, 0, .4), 0 0 0 1px rgba(53, 230, 255, .05), 0 18px 50px rgba(0, 0, 0, .7);
+  position: relative;
+}
+html[data-atmo="neon"] :is(.card, .tile, .museum-slab, .hg-tile, .gxd-fact, .atmo-card)::before {   /* the brushed-metal rail with a cyan tube on top */
+  content: ""; position: absolute; left: 10px; right: 10px; top: -1px; height: 2px; border-radius: 2px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, #28dcff 12%, #b8f8ff 50%, #28dcff 88%, transparent);
+  box-shadow: 0 0 6px #28dcff, 0 0 16px rgba(40, 220, 255, .55), 0 6px 20px rgba(40, 220, 255, .25);
+}
+html[data-atmo="neon"] :is(.card, .tile, .museum-slab, .hg-tile)::after {   /* wet glass: a cold highlight and tiny droplets */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: .5; mix-blend-mode: screen;
+  background: radial-gradient(1.5px 2px at 18% 30%, rgba(200, 240, 255, .7), transparent), radial-gradient(1px 1.6px at 72% 18%, rgba(255, 200, 240, .6), transparent),
+    radial-gradient(1.2px 2px at 84% 66%, rgba(200, 240, 255, .5), transparent), radial-gradient(1px 1.4px at 40% 80%, rgba(255, 255, 255, .45), transparent);
+}
+@media (hover: hover) {
+  html[data-atmo="neon"] :is(.card, .tile, .hg-tile, .atmo-card) { transition: box-shadow .25s var(--ease-out), border-color .25s var(--ease-out), transform .25s var(--ease-out); }
+  html[data-atmo="neon"] :is(.card, .tile, .hg-tile, .atmo-card):hover {
+    border-color: rgba(255, 58, 168, .55); transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 0 0 1px rgba(255, 58, 168, .4), 0 0 26px rgba(255, 58, 168, .35), 0 24px 60px rgba(0, 0, 0, .75);
+  }
+}
+html[data-atmo="neon"] :is(.card h3, .tile .k) { color: #b9f6ff; letter-spacing: .18em; text-transform: uppercase; font-size: .78em; }
+html[data-atmo="neon"] .card .val { color: #fff; text-shadow: 0 0 10px rgba(53, 230, 255, .55); }
+html[data-atmo="neon"] .exhibit { border-color: rgba(255, 58, 168, .35); box-shadow: inset 0 0 60px rgba(255, 58, 168, .08), 0 0 0 1px rgba(255, 58, 168, .2), 0 30px 80px rgba(0, 0, 0, .8); }
+
+/* 5. Controls: tubes you can press. Outline = unlit glass; primary = lit tube with dark text; press = the tube flares -------- */
+html[data-atmo="neon"] :is(.btn, .ex-ctrl-btn, .chip, .gallery-load-more-btn) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, 0)), rgba(12, 8, 24, .7);
+  color: #e9fbff; border: 1px solid rgba(53, 230, 255, .45); border-radius: 999px;
+  box-shadow: inset 0 0 8px rgba(53, 230, 255, .12), 0 0 10px rgba(53, 230, 255, .12);
+  transition: box-shadow .18s, background .18s, transform .12s;
+}
+html[data-atmo="neon"] :is(.btn, .ex-ctrl-btn, .chip, .gallery-load-more-btn):hover { box-shadow: inset 0 0 10px rgba(53, 230, 255, .25), 0 0 18px rgba(53, 230, 255, .45); }
+html[data-atmo="neon"] :is(.btn, .ex-ctrl-btn, .chip, .gallery-load-more-btn):active { transform: scale(.97); box-shadow: inset 0 0 14px rgba(53, 230, 255, .5), 0 0 30px rgba(53, 230, 255, .7); }
+html[data-atmo="neon"] :is(.btn.primary, .btn.gold, .chip.active, .chip[aria-pressed="true"], .ex-ctrl-btn.active, .ex-ctrl-btn[aria-pressed="true"]) {
+  background: linear-gradient(180deg, #c9fbff, #35e6ff 55%, #17b8d6); color: #04121a; border-color: #e6fdff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .5) inset, 0 0 12px #35e6ff, 0 0 30px rgba(53, 230, 255, .55), 0 8px 26px rgba(53, 230, 255, .3);
+  text-shadow: none;
+}
+/* 6. The bottom bar: a brushed-steel awning with a pink tube along its edge; the active wing is lit -------------------------- */
+html[data-atmo="neon"] .wings {
+  background: var(--tx-brushed), linear-gradient(180deg, rgba(30, 26, 44, .92), rgba(8, 6, 16, .96));
+  background-size: 300px 60px, auto; border-top: 0;
+  box-shadow: 0 -2px 0 #ff3aa8, 0 -6px 14px rgba(255, 58, 168, .55), 0 -22px 50px rgba(255, 58, 168, .18);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+html[data-atmo="neon"] .wing { color: #c9bfe6; }
+html[data-atmo="neon"] .wing.active { color: #fff; text-shadow: 0 0 8px rgba(53, 230, 255, .8); }
+html[data-atmo="neon"] .wing.active svg { color: #35e6ff; filter: drop-shadow(0 0 4px #35e6ff) drop-shadow(0 0 12px rgba(53, 230, 255, .7)); }
+
+/* 6b. Scene bar: a brushed-steel strip; buttons are unlit tubes, the Scene button a lit magenta one */
+html[data-atmo="neon"] .scene-bar { background: var(--tx-brushed), linear-gradient(180deg, rgba(20, 16, 34, .9), rgba(8, 6, 16, .85)); background-size: 300px 60px, auto;
+  box-shadow: 0 1px 0 rgba(53, 230, 255, .5), 0 4px 18px rgba(53, 230, 255, .18); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+html[data-atmo="neon"] .sb-btn { background: rgba(10, 6, 20, .75); color: #e9fbff; border: 1px solid rgba(53, 230, 255, .5); box-shadow: inset 0 0 8px rgba(53, 230, 255, .15), 0 0 10px rgba(53, 230, 255, .2); }
+html[data-atmo="neon"] .sb-btn.sb-scene { background: linear-gradient(180deg, #ffb8e2, #ff3aa8 60%, #d01f86); color: #1a0010; border-color: #ffd6ee;
+  box-shadow: 0 0 12px #ff3aa8, 0 0 30px rgba(255, 58, 168, .5); }
+/* 7. Market wire: a scrolling LED marquee */
+html[data-atmo="neon"] .market-ticker-tape {
+  background: radial-gradient(circle, rgba(255, 170, 60, .16) 1px, transparent 1.4px) 0 0 / 4px 4px, #090510;
+  color: #ffc46a; text-shadow: 0 0 6px rgba(255, 170, 60, .8); border-block: 1px solid rgba(255, 170, 60, .25);
+}
+html[data-atmo="neon"] th { color: #b9f6ff; letter-spacing: .1em; }
+html[data-atmo="neon"] :is(table, .table) tr:hover td { background: rgba(53, 230, 255, .06); }
+html[data-atmo="neon"] :focus-visible { outline: 2px solid #ffe066; outline-offset: 3px; box-shadow: 0 0 0 5px rgba(255, 224, 102, .25); }
+html[data-atmo="neon"] .badge.hold { background: #ff3aa8; color: #1a0010; box-shadow: 0 0 12px rgba(255, 58, 168, .6); }
+/* 8. Coin page: the coin sits in a lit vitrine; the faces get a rim of reflected tube light */
+html[data-atmo="neon"] :is(.gxd-face img, .gxd-faces img) { filter: drop-shadow(0 0 14px rgba(53, 230, 255, .35)) drop-shadow(0 18px 24px rgba(0, 0, 0, .8)); }
+html[data-atmo="neon"] .gxd-stage { background: radial-gradient(60% 50% at 50% 40%, rgba(255, 58, 168, .14), transparent 70%), linear-gradient(180deg, rgba(16, 10, 30, .7), rgba(4, 2, 10, .9)); }
+html[data-atmo="neon"] .atmo-card[data-atmo-val="neon"] { border-color: #ff3aa8; }
+
+/* 9. Calm motion / reduced motion: signs hold lit, nothing flickers */
+@media (prefers-reduced-motion: reduce) {
+  html[data-atmo="neon"] :is(.wordmark, .wing-head h2) { animation: none; }
+  html[data-atmo="neon"] :is(.card, .tile, .hg-tile, .atmo-card):hover { transform: none; }
+}
+html[data-motion="calm"][data-atmo="neon"] :is(.wordmark, .wing-head h2), html[data-motion="off"][data-atmo="neon"] :is(.wordmark, .wing-head h2) { animation: none; }
+html.tr-lite[data-atmo="neon"] :is(.card, .tile, .exhibit, .gxd-stage, .museum-slab, .hg-tile, .atmo-card, .drawer, .sheet, .modal, dialog) { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(14, 9, 28, .94); }
+
+/* 10. Picker swatch (unscoped) */
 .sw-neon {
   background:
     linear-gradient(0deg, rgba(255, 92, 188, 0.85) 0 2px, transparent 2px) 0 60% / 100% 9px,
     linear-gradient(180deg, transparent 0 18%, #ffd24a 18% 26%, transparent 26% 30%, #ff8a4d 30% 37%, transparent 37% 41%, #ff5cbc 41% 50%, transparent 50%) 50% 0 / 44% 100% no-repeat,
     linear-gradient(180deg, #120823 0%, #1d0b36 50%, #0a0614 51%, #0a0614 100%);
   box-shadow: inset 0 0 0 1px rgba(53, 230, 255, 0.55);
-}
-
-/* 5. Components ------------------------------------------------------------ */
-
-/* Wing heads: tube-lit headline with a gradient rule under it */
-html[data-atmo="neon"] .wing-head { border-bottom: 0; position: relative; }
-html[data-atmo="neon"] .wing-head::after {
-  content: "";
-  position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
-  background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan) 55%, transparent);
-  box-shadow: 0 0 10px rgba(255, 92, 188, 0.45);
-}
-html[data-atmo="neon"] .wing-head h2 {
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #fff;
-  text-shadow: 0 0 14px rgba(53, 230, 255, 0.45);
-}
-
-/* Cards + tiles: glass panels edged in cyan, magenta rail */
-html[data-atmo="neon"] .card,
-html[data-atmo="neon"] .tile {
-  background: linear-gradient(180deg, rgba(31, 22, 56, 0.96), rgba(21, 14, 40, 0.98));
-  border-color: rgba(53, 230, 255, 0.24);
-  box-shadow: var(--elev-1);
-}
-html[data-atmo="neon"] .tile::before {
-  width: 3px;
-  background: linear-gradient(180deg, var(--neon-pink), var(--neon-violet));
-  box-shadow: 0 0 10px rgba(255, 92, 188, 0.6);
-  opacity: 1;
-}
-@media (hover: hover) {
-  html[data-atmo="neon"] .card:hover,
-  html[data-atmo="neon"] .tile:hover {
-    border-color: rgba(53, 230, 255, 0.6);
-    box-shadow: var(--elev-2);
-  }
-}
-html[data-atmo="neon"] .card h3,
-html[data-atmo="neon"] .tile .k { color: var(--muted); letter-spacing: 0.16em; }
-html[data-atmo="neon"] .card .val { color: var(--gold-soft); }
-
-/* Exhibit: a lit display case */
-html[data-atmo="neon"] .exhibit {
-  background:
-    radial-gradient(90% 70% at 50% 110%, rgba(255, 92, 188, 0.14), transparent 70%),
-    linear-gradient(180deg, #170f2c, #0f0920);
-  border-color: rgba(53, 230, 255, 0.4);
-  box-shadow: var(--elev-2);
-}
-html[data-atmo="neon"] .ex-ctrl-btn {
-  background: rgba(31, 22, 56, 0.9);
-  border-color: rgba(53, 230, 255, 0.3);
-  color: var(--ink);
-}
-html[data-atmo="neon"] .ex-ctrl-btn.active,
-html[data-atmo="neon"] .ex-ctrl-btn[aria-pressed="true"] {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--on-gold);
-}
-
-/* Buttons: outlined tubes; primary action fills cyan with dark text */
-html[data-atmo="neon"] .btn {
-  background: rgba(31, 22, 56, 0.92);
-  border-color: rgba(53, 230, 255, 0.5);
-  color: var(--gold-soft);
-}
-html[data-atmo="neon"] .btn:hover {
-  border-color: var(--gold);
-  box-shadow: 0 0 14px rgba(53, 230, 255, 0.35);
-}
-html[data-atmo="neon"] .btn.primary,
-html[data-atmo="neon"] .btn.gold {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--on-gold);
-}
-html[data-atmo="neon"] .chip {
-  border-color: rgba(53, 230, 255, 0.28);
-}
-html[data-atmo="neon"] .chip.active,
-html[data-atmo="neon"] .chip[aria-pressed="true"] {
-  background: rgba(53, 230, 255, 0.16);
-  border-color: var(--gold);
-  color: #fff;
-}
-html[data-atmo="neon"] .gallery-load-more-btn {
-  background: rgba(53, 230, 255, 0.10);
-  border-color: rgba(53, 230, 255, 0.5);
-  color: var(--gold-soft);
-}
-
-/* Bottom wing bar: dark glass, cyan active tube, magenta top edge */
-html[data-atmo="neon"] .wings {
-  background: rgba(10, 6, 20, 0.95);
-  border-top-color: rgba(255, 92, 188, 0.55);
-}
-@media (min-width: 768px) {
-  html[data-atmo="neon"] .wings {
-    border-color: rgba(255, 92, 188, 0.5);
-    box-shadow: 0 0 24px rgba(255, 92, 188, 0.18), 0 16px 44px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  }
-}
-html[data-atmo="neon"] .wing { color: var(--muted); }
-html[data-atmo="neon"] .wing.active { color: #fff; }
-html[data-atmo="neon"] .wing.active svg { color: var(--gold); filter: drop-shadow(0 0 5px rgba(53, 230, 255, 0.7)); }
-html[data-atmo="neon"] .wing.active::before {
-  left: 18%; right: 18%; height: 3px;
-  background: var(--gold);
-  box-shadow: 0 0 8px var(--gold), 0 0 18px rgba(53, 230, 255, 0.6);
-}
-
-/* Market wire: a scrolling marquee sign */
-html[data-atmo="neon"] .market-ticker-tape {
-  background: rgba(10, 6, 20, 0.9);
-  border-color: rgba(255, 92, 188, 0.45);
-}
-
-/* Tables */
-html[data-atmo="neon"] th { color: var(--gold-soft); }
-
-/* Focus: amber ring, thick enough to see from the couch */
-html[data-atmo="neon"] :focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 6px rgba(255, 224, 102, 0.18);
-}
-
-/* Particles (if the FX layer shows them) */
-html[data-atmo="neon"] #dust-layer i {
-  background: radial-gradient(circle, rgba(53, 230, 255, 0.7), transparent 70%);
-}
-
-/* 6. Reduced motion ------------------------------------------------------ */
-@media (prefers-reduced-motion: reduce) {
-  html[data-atmo="neon"] #neon-sun,
-  html[data-atmo="neon"] body,
-  html[data-atmo="neon"] .wordmark,
-  html[data-atmo="neon"] .hero-glow { animation: none !important; }
-  html[data-atmo="neon"] #neon-scan { display: none; }
-  html[data-atmo="neon"] .card,
-  html[data-atmo="neon"] .tile,
-  html[data-atmo="neon"] .btn { transition: none; }
-  html[data-atmo="neon"] .card:hover,
-  html[data-atmo="neon"] .tile:hover,
-  html[data-atmo="neon"] .btn:hover { transform: none; }
-}
-
-/* 7. Style (styles-20): neon glow + VHS (FX "style-neon" and "style-vhs") -------------------------------------------
-   The UI side: headlines get the tape's chroma split (a magenta and a cyan copy a pixel either side of the white text, large
-   type only, so contrast is unchanged), the wordmark takes a brief tracking jitter every few seconds, and panels pick up a faint
-   tube glow on their edge. Tokens and ornaments only; no layout change. The jitter stops under reduced motion and under
-   Motion "Calm" and "Off". */
-html[data-atmo="neon"] .wing-head h2 {
-  text-shadow: -1px 0 rgba(255, 60, 170, 0.65), 1px 0 rgba(40, 230, 255, 0.65), 0 0 14px rgba(53, 230, 255, 0.45);
-}
-html[data-atmo="neon"] .wordmark {
-  text-shadow: -1.5px 0 rgba(255, 60, 170, 0.8), 1.5px 0 rgba(40, 230, 255, 0.8), 0 0 2px #fff, 0 0 10px rgba(255, 92, 188, 0.9), 0 0 28px rgba(255, 92, 188, 0.55), 0 0 60px rgba(155, 107, 255, 0.35) !important;
-  animation: neon-vhs-jitter 11s steps(1, end) infinite !important;
-}
-@keyframes neon-vhs-jitter {
-  0%, 93%, 100% { transform: none; }
-  94% { transform: translateX(-3px); }
-  95.5% { transform: translateX(4px); }
-  97% { transform: translateX(-2px); }
-}
-html[data-atmo="neon"] :is(.card, .tile) {
-  box-shadow: var(--elev-1), 0 0 18px -8px rgba(53, 230, 255, 0.4), inset 0 -1px 0 rgba(255, 92, 188, 0.28);
-}
-@media (prefers-reduced-motion: reduce) {
-  html[data-atmo="neon"] .wordmark { animation: none !important; transform: none; }
-}
-html[data-motion="calm"][data-atmo="neon"] .wordmark,
-html[data-motion="off"][data-atmo="neon"] .wordmark { animation: none !important; transform: none; }
-
-/* ============================================================================
-   Neon Vault v2 (Grok, 2026-10-20): every screen, not just home.
-   A night-city vault: glass panels edged in a cyan-magenta neon tube, wet-street reflections, a neon-ring coin stage, and glowing values.
-   Static decoration only (no animated filters or per-frame repaints); text keeps the token contrast checked above (AA or better);
-   every control is at least 44 px; reduced motion switches off every transition below.
-   ========================================================================== */
-html[data-atmo="neon"] :is(.gxd-stage, .gxd-value > div, .gxd-fact, .gxd-gauge, .gxd-window, .museum-slab, .gf-finder, .hg-tile, .vault-valuation-hub, .atmo-card){
-  background: linear-gradient(175deg, #1f1638, #120b24); border: 1px solid rgba(53,230,255,0.3); border-radius: 14px;
-  box-shadow: inset 0 1px 0 rgba(53,230,255,0.10), 0 12px 30px rgba(0,0,0,0.6);
-}
-html[data-atmo="neon"] :is(#drawer-body, body) .drawer-inner{ background: radial-gradient(70% 30% at 50% 0%, rgba(53,230,255,0.10), transparent 70%), var(--bg); }
-html[data-atmo="neon"] :is(#drawer-body, body) .gxd-stage{ position: relative; background: radial-gradient(circle at 50% 42%, rgba(255,60,200,0.15), transparent 60%), linear-gradient(0deg, rgba(53,230,255,0.08), transparent 30%), #0b0718; border: 1px solid rgba(53,230,255,0.7); border-radius: 14px; box-shadow: 0 0 14px rgba(53,230,255,0.3), inset 0 0 14px rgba(255,60,200,0.18); }
-html[data-atmo="neon"] :is(#drawer-body, body) .museum-slab{  }
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.nav-btn, .drawer-close, .gxd-act, .gf-filters-btn, .gf-link, .sim-toggle-btn, .gf-preset, .sb-btn){
-  min-height: 44px; min-width: 44px;
-  background: linear-gradient(180deg, #1f1638, #120b24); border: 1px solid rgba(53,230,255,0.5); border-radius: 12px;
-  box-shadow: inset 0 1px 0 rgba(53,230,255,0.12); color: var(--ink);
-}
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.gxd-head h2, .wing-head h2, .cf-title, .sec-head h2, .gxd-sec h4){ font-family: var(--serif, inherit); font-weight: 700; letter-spacing: 0.02em; }
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.gxd-k, .gxd-fact dt, .gxd-face figcaption, .slab-pedigree-title, .gf-count){ font-family: inherit; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--muted); }
-html[data-atmo="neon"] :is(#drawer-body, body) .gxd-value strong{ font-family: var(--serif, inherit); color: var(--gold-soft); }
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.slab-beveled-edge, .slab-optic-glare, .cf-glass-sheen){  }
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.gf-search, .palette-bar input){ min-height: 44px; color: var(--ink); background: #1f1638; border: 1px solid rgba(53,230,255,0.55); border-radius: 12px; }
-html[data-atmo="neon"] :is(#drawer-body, body) .gf-bar select{ min-height: 44px; color: var(--ink); background: linear-gradient(180deg, #1f1638, #120b24); border: 1px solid rgba(53,230,255,0.5); border-radius: 12px; }
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active){ background: linear-gradient(180deg, #a6f3ff, #35e6ff); color: var(--on-gold); box-shadow: 0 0 14px rgba(53,230,255,0.28); }
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.gf-preset.on, .sb-btn.active) :is(.gf-pt, .gf-pn, .sb-lbl){ color: inherit; }
-html[data-atmo="neon"] :is(#drawer-body, body) nav.wings .wing{ min-height: 48px; }
-html[data-atmo="neon"] :is(#drawer-body, body) nav.wings .wing.active{ box-shadow: inset 0 3px 0 var(--gold); color: var(--gold-soft); }
-html[data-atmo="neon"] :is(#drawer-body, body) .palette-sheet{ background: linear-gradient(175deg, #1f1638, #120b24); border: 1px solid rgba(53,230,255,0.3); border-radius: 14px; box-shadow: inset 0 1px 0 rgba(53,230,255,0.10), 0 12px 30px rgba(0,0,0,0.6), var(--elev-3); }
-html[data-atmo="neon"] :is(#drawer-body, body) .pal-row{ min-height: 48px; border-bottom: 1px solid var(--line); }
-html[data-atmo="neon"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ background: var(--sel-bg); }
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.gxd-history, .gxd-full) summary{ min-height: 44px; display: flex; align-items: center; }
-html[data-atmo="neon"] :focus-visible{ outline: 2.5px solid var(--focus); outline-offset: 3px; }
-
-html[data-atmo="neon"] :is(#drawer-body, body) .gxd-face figcaption{ color: var(--muted); }
-html[data-atmo="neon"] :is(#drawer-body, body) :is(.gxd-badge, .gxd-cert){ border-color: rgba(53,230,255,0.55); }
-html[data-atmo="neon"] :is(#drawer-body, body) .pal-row:is(:hover, [aria-selected="true"], .on){ box-shadow: inset 3px 0 0 var(--gold); }
-
-html[data-atmo="neon"] :is(#drawer-body, body) .gxd-value > div{ box-shadow: 0 0 0 1px rgba(255,60,200,0.35), 0 0 12px rgba(53,230,255,0.15); }
-html[data-atmo="neon"] :is(#drawer-body, body) .gxd-value strong.gxd-est{ text-shadow: 0 0 12px rgba(53,230,255,0.55); }
-html[data-atmo="neon"] :is(#drawer-body, body) .gxd-coin{ border-radius: 50%; box-shadow: 0 0 0 3px #150e28, 0 0 0 5px #ff3cc8, 0 0 22px rgba(255,60,200,0.5); }
-html[data-atmo="neon"] :is(#drawer-body, body) .slab-pedigree-header{ background: linear-gradient(90deg, #5a1a6a, #12304a); color: #fff; }
-
-@media (prefers-reduced-motion: reduce) {
-  html[data-atmo="neon"] *, html[data-atmo="neon"] *::before, html[data-atmo="neon"] *::after{ transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }
