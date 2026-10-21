@@ -763,3 +763,5 @@
 2026-10-20 PT (Grok, intro worker): theme intros batch 3 (drafting, solaris, conservator, cathedral). New files js/intros/{drafting,solaris,conservator,cathedral}.js. Tests: smoke 38/38 phone+desktop, p02 film rule good, integrity steps pass.
 
 2026-10-20 PT (Grok, intro worker): theme intros batch 4 (Dynasty, The Alchemist, The Cursed Wing, Samadhi) + Gilded Armory (valhalla) upgraded with a torchlit weapon and shield wall that catches each lightning flash. Tests: smoke 38/38 phone+desktop, p02 film rule good. collection/ schema (3 problems) and test_migrations (1 failure) come from upstream data commits, not from this change (no collection/ files touched).
+
+2026-10-20 PT (Grok, intro worker): theme intros batch 5 (Shipwreck/abyss, Bauhaus, Odyssey, Prism/kaleido). Tests: smoke 38/38 phone+desktop, p02 film rule good, all integrity steps pass.
