@@ -753,3 +753,5 @@
 - New: js/intros/kit.js (shared plumbing: WebGL layer with 2D fallback, Web Audio cues that respect mute and interface-sound settings, "native" styles that play at their real 2-5 s length) and one file per theme intro under js/intros/. They register into TitanOpening and replace that theme's old opening; themes without a new file keep their old one for now.
 - js/motion-splash.js: three small hooks only (native speed, C.lite / C.swap flags, style.sound(C) at start). Splash films untouched.
 - Tests: integrity steps, smoke phone+desktop 38/38, p02 film rule, p03, t01, v01, m04 all pass. tools/pipeline/test_pipeline.py has 16 failures that are already on main without this change (not touched here).
+
+2026-10-20 PT (Grok, intro worker): theme intros batch 2 (terminal, valhalla, xeno, marbled). New files js/intros/{terminal,valhalla,xeno,marbled}.js, registered in index.html and sw.js. Tests: smoke 38/38 phone+desktop, p02 film rule good, integrity steps pass (test_pipeline.py's 16 failures are pre-existing on main).
