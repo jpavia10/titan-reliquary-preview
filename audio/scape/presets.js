@@ -540,6 +540,40 @@
       var birth = k.L("birth", "Star birth", .5, { wet: 1.4 }); k.poisson(birth, function () { return 1 / 14; }, function (t) { swell(k, birth, birth.g, t, { f0: 80, f1: 1800, d: k.rr(5, 9), gain: .5, peak: .8 }); k.emit("flash", { dist: 3, x: k.rr(.2, .8), power: .3, kind: "starbirth" }); });
       var sub = k.L("sub", "Depth", .35); k.noiseBed(sub, "brown", { type: "lowpass", f: 50, gain: 1.3, walk: [28, 80], walkMs: 4000 });
     } });
+  /* 35. INSIDE A WATCH MOVEMENT (Claude, theme #41 Tourbillon, 2026-10-21): a watchmaker's bench at night. Only recorded sound:
+     room air from the room-tone recording; the escapement ticks 6 times a second (21,600 vph) using a real tick and tock cut from
+     the clock recording and sped up to a wristwatch's size. The beats sit on the wall clock (Date), exactly where fx/tourbillon.js
+     puts its beats, so the picture and the tick agree without messages (getOutputTimestamp maps wall time to audio time).
+     titan:fx {type:"wind", at:[s...]} = ratchet clicks when you wind the crown; {type:"repeater", seq:[[s, gong]...]} = the minute
+     repeater's two gongs, cut from a single isolated strike in the chimes recording and pitched a fourth apart. */
+  var TICKS = [[.664, .13], [1.67, .13], [2.664, .13], [3.67, .13]];   // onsets measured in audio/ambience/clock (tick, tock, tick, tock)
+  var GONG = [13.735, .6];                                            // an isolated strike in audio/ambience/chimes (about 4.2 kHz)
+  function audioAt(c, wallMs) { var pm = wallMs - (Date.now() - performance.now());
+    try { if (c.getOutputTimestamp) { var ts = c.getOutputTimestamp(); if (ts.performanceTime > 0) return ts.contextTime + (pm - ts.performanceTime) / 1000; } } catch (e) {}
+    return c.currentTime + (pm - performance.now()) / 1000 - (c.outputLatency || c.baseLatency || 0); }
+  function cut(k, dest, name, t, seg, rate, gain, rel) { var c = k.ctx, g = c.createGain(); g.connect(dest); var end = t + seg[1] / rate;
+    g.gain.setValueAtTime(gain, t); g.gain.setValueAtTime(gain, Math.max(t, end - rel)); g.gain.linearRampToValueAtTime(0, end);
+    k.oneShot(g, name, { t: t, segs: [seg], rate: rate }); setTimeout(function () { try { g.disconnect(); } catch (e) {} }, (end - c.currentTime) * 1000 + 400); }
+  TS.define("movement", { name: "Inside a watch movement", space: "hall", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx; this._k = k;
+      var room = k.L("room", "Bench room", .42, { wet: .3 }); k.grains(room, "roomTone", { grain: 3, density: 1.6, spread: .4 });
+      var esc = k.L("escapement", "Escapement", .5, { wet: .12 }); var V = k.Voice(esc.g, [.3, -.15, -.4], { ref: .4 }); this._V = V;
+      var next = Math.ceil(Date.now() / 1000 * 6);
+      (function sched() { if (esc.dead) return; var now = Date.now(), horizon = now + 1200;   // a long look-ahead: a busy page never drops a beat
+        if (next / 6 * 1000 < now - 200) next = Math.ceil(now / 1000 * 6);                         // back from a hidden tab: rejoin the beat
+        while (next / 6 * 1000 < horizon) { var t = audioAt(c, next / 6 * 1000);
+          if (t > c.currentTime + .004) cut(k, V.in, "clock", t, TICKS[next % 4], 2.3, .5 * (.9 + Math.random() * .2), .012);
+          next++; }
+        esc.timers.push(setTimeout(sched, 250)); if (esc.timers.length > 40) esc.timers.splice(0, 30); })();
+      var mech = k.L("winding", "Winding and repeater", .6, { wet: .35 }); this._W = k.Voice(mech.g, [-.25, -.1, -.45], { ref: .4 });
+    },
+    on: function (d, t) { var k = this._k; if (!k || !this._W) return;
+      if (d.type === "wind" && d.at) d.at.forEach(function (o, i) { cut(k, this._W.in, "clock", t + o, TICKS[i % 4], 3.1 + i * .06, .55, .01);
+        cut(k, this._W.in, "clock", t + o + .004, TICKS[(i + 1) % 4], 1.35, .14, .02); }, this);
+      if (d.type === "repeater" && d.seq) d.seq.forEach(function (s) { var tt = t + s[0];
+        cut(k, this._W.in, "clock", tt - .012, TICKS[0], 3.4, .25, .01);                                  // the hammer lets go
+        cut(k, this._W.in, "chimes", tt, GONG, s[1] ? .3 : .225, d.quiet ? .3 : .7, .25); }, this); } });
+
   /* fix-ups: give touch handlers access to the kit */
   ["metal"].forEach(function (id) { var p = TS.presets[id], b = p.build; p.build = function (k) { this._k = k; return b.call(this, k); }; });
 })();

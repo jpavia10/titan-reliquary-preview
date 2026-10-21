@@ -61,3 +61,32 @@ Verdict: ship v2.
 6. Coin page: the shared 2D world (rain, `wings/coin3d.js` WORLD row); its own storm under the coin waits on the coin3d world hook.
 Verdict: ship v1.
 
+## #41 Tourbillon (tourbillon), v1 (Claude, 2026-10-21)
+**What works**
+- One full-resolution pass (`fx/tourbillon.js`) draws the movement as layered parts with heights: dark ruthenium plate with overlapping
+  perlage, gilt train (barrel, centre, third wheel, steel pinions), rhodium bridges with one Cotes de Geneve pass across the movement and
+  mirror-polished anglage, blued screws, rubies in gold chatons, a sunburst ratchet + crown wheel + click, two repeater gongs with hammers,
+  a seconds ring, and a flying tourbillon. Parallax by height; every layer shadows the ones below along the ray to the lamp.
+- The teeth mesh: phases solved from tooth counts (barrel 96/12, centre 80/10, third 80/10, fixed seconds wheel 72/8, ratchet 60/24), so
+  every wheel turns at its true ratio. The cage turns once a minute on the REAL seconds (its arrow reads the ring) and steps 1 degree per
+  beat; the escape wheel rolls round the fixed wheel at 9 turns per cage turn (half a tooth per beat); fork with ruby stones; screw
+  balance at 21,600 vph with exact analytic motion blur (a 10 ms shutter, no strobing) and a hairspring that breathes.
+- The lamp is the pointer: Cotes stripes ripple, perlage spots flicker, bevels flash, black polish turns black to white. Idle, it drifts
+  over the lower half so the title stays clear (plus a calmer top and a drop shadow under h1).
+- Sound only from recordings (`audio/scape` preset "movement"): the escapement ticks 6/s with a real tick and tock cut from the clock
+  recording, scheduled on the wall clock like the picture (getOutputTimestamp), so they agree without messages. Tap = wind (ratchet clicks
+  + the balance swings wider for ~20 s); hold = minute repeater striking the current time on two gongs cut from one chime strike.
+- Intro (`js/intros/tourbillon.js`): the crown winds the ratchet tooth by tooth, the camera dives to the balance swinging up, the train
+  cascades out wheel by wheel (meshing, stepping on the beat), blued Breguet hands sweep a turn and lock at 10:10, engraving the name.
+- Cost on software GL is below Supercell and Event Horizon (429 ms/frame at 640x380 vs 1000 and 600).
+**Below the bar (next rounds)**
+1. Tuned only on software GL; no fps from a real phone yet. If it is heavy, Low already drops the overlapping perlage and wheel shadows.
+2. Bridges cover pivots but the train is still a little sparse at the left edge on wide screens; a second barrel or a power-reserve
+   differential would fill it.
+3. The hammers read small on phones; the gongs are thin. A close-up "repeater" camera move during a hold would show them properly.
+4. The intro uses real recordings only after they are in memory (first play: short filtered clicks and a two-note gong).
+5. No picker card yet: `artreq_20261021-2300_theme-cards-tourbillon` (rule 9); the CSS swatch stands in.
+6. Music: Haydn's Clock symphony (II), Mozart's K. 608 for a mechanical organ, Haydn's musical-clock pieces queued in
+   `docs/music/wanted.json`; recorded piano until then.
+Verdict: ship v1.
+

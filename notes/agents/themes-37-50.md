@@ -23,4 +23,4 @@ Checked for overlap with the 34 + #35 (grid/light-trail vibe) + #36 (portal-gree
 
 Build order: Ferrofluid, Event Horizon, Kintsugi, Supercell, Tourbillon, then the rest.
 
-Status (2026-10-21): #35-#39 shipped by Grok (tr212-tr239). #40 Supercell shipped by Claude (tr248). Next: #41 Tourbillon.
+Status (2026-10-21): #35-#39 shipped by Grok (tr212-tr239). #40 Supercell (tr248) and #41 Tourbillon (tr249) shipped by Claude. Next: #42 Darkroom.

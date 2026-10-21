@@ -1459,6 +1459,68 @@
     "supercell"
    ],
    "modern": true
+  },
+  {
+   "id": "tourbillon-haydn-clock",
+   "title": "Symphony No. 101 'The Clock': II. Andante",
+   "composer": "Joseph Haydn",
+   "query": "Haydn Symphony 101 Clock Andante",
+   "must": [
+    "101",
+    "clock",
+    "uhr"
+   ],
+   "any": true,
+   "prefer": [
+    "andante",
+    "musopen"
+   ],
+   "moods": [
+    "tourbillon"
+   ],
+   "modern": true
+  },
+  {
+   "id": "tourbillon-mozart-k608",
+   "title": "Fantasia in F minor for a mechanical organ, K. 608",
+   "composer": "Wolfgang Amadeus Mozart",
+   "query": "Mozart Fantasia F minor K. 608 mechanical organ",
+   "must": [
+    "608",
+    "594",
+    "orgelwalze",
+    "mechanical"
+   ],
+   "any": true,
+   "prefer": [
+    "organ",
+    "orgel"
+   ],
+   "moods": [
+    "tourbillon"
+   ],
+   "modern": true
+  },
+  {
+   "id": "tourbillon-haydn-flotenuhr",
+   "title": "Pieces for a musical clock (Flotenuhr), Hob. XIX",
+   "composer": "Joseph Haydn",
+   "query": "Haydn Flötenuhr musical clock pieces",
+   "must": [
+    "flötenuhr",
+    "flotenuhr",
+    "flute clock",
+    "musical clock",
+    "hob. xix"
+   ],
+   "any": true,
+   "prefer": [
+    "flötenuhr"
+   ],
+   "moods": [
+    "tourbillon"
+   ],
+   "modern": true
   }
  ]
 }

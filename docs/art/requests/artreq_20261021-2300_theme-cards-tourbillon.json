@@ -1,0 +1,39 @@
+{
+ "request_id": "artreq_20261021-2300_theme-cards-tourbillon",
+ "status": "open",
+ "assigned_to": "any",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-21T23:00:00Z",
+ "why": "New theme #41 Tourbillon (tourbillon) shipped without a picker card or hero (owner rule 9: art is never rendered by code; the picker shows its CSS swatch until this lands).",
+ "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim it with {request id}.CLAIMED-{model}.txt first. takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261021-2300_theme-cards-tourbillon/' with the exact file names, then write artreq_20261021-2300_theme-cards-tourbillon.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+ "deliverable_spec": {
+  "card": "16:10, at least 1280x800, PNG; the subject must read at 220x138 px (the picker card size on a phone)",
+  "hero": "16:10, at least 2560x1600, PNG",
+  "safe_area": "keep the top-left third of heroes calm and darker (or plain paper on light themes): UI text sits there"
+ },
+ "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, true reflections, physically accurate materials (toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich natural grading, fine film grain. Real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Exception: an image whose `medium` names an illustration, pixel art, clay or poster style is made in that medium, at the same premium standard (clean, crafted, never cheap clip-art).",
+ "negative": "no readable text, no letters, no numbers, no logos, no watermark, no frame, no faces, no hands, no 3D-render plastic look in the photo images, no oversaturation, no HDR halos, no warped or melting coins, no invented legible inscriptions",
+ "coin_rule": "Coins look like real circulated or uncirculated world coins (a generic portrait, eagle or crest is fine); never invent a legible inscription.",
+ "images": [
+  {
+   "file_name": "world_tourbillon_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Tourbillon",
+   "theme_id": "tourbillon",
+   "medium": "photo",
+   "prompt": "Macro photograph through the sapphire caseback of a haute horlogerie watch: an open flying tourbillon cage of black-polished steel with three slim arms, a gilt screw balance motion-blurred mid-swing and a blued hairspring inside it, a ruby cap jewel at its centre. Around it dark ruthenium bridges with Cotes de Geneve stripes and mirror-polished bevelled edges, heat-blued screws, rubies in gold chatons, a gilt wheel with fine teeth. Lit by a single warm watchmaker's lamp from the upper left, deep shadows, shallow depth of field with the cage sharp. One real circulated silver coin rests at the very edge of the frame, out of focus. No text, no logos, no numerals."
+  },
+  {
+   "file_name": "world_tourbillon_hero.png",
+   "priority": 2,
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Tourbillon",
+   "theme_id": "tourbillon",
+   "medium": "photo",
+   "prompt": "The same movement, wider: the whole gear train from the sunburst ratchet wheel and gilt barrel down to the tourbillon in the lower right, Cotes de Geneve bridges catching the lamp in rippling bands, perlage on the dark main plate, blued screws and ruby jewels. Keep the top-left third calm and darker (UI text sits there). A small silver coin lies on the watchmaker's bench mat beside the movement in the lower left, softly out of focus. No text, no logos, no numerals."
+  }
+ ]
+}
