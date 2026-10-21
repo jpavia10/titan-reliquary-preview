@@ -1,175 +1,7 @@
 {
  "agent": "grok",
- "updated": "2026-10-21T04:14:22Z",
+ "updated": "2026-10-21T22:44:09Z",
  "assignments": [
-  {
-   "id": "HW-grok-read-mint-20261014-1",
-   "agent": "grok",
-   "kind": "read-mint",
-   "issued": "2026-10-14T15:41:37Z",
-   "lease_until": "2026-10-21T15:41:37Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "mint:C088",
-     "entity": "specimen",
-     "id": "C088",
-     "field": "issue"
-    },
-    {
-     "item": "mint:C023",
-     "entity": "specimen",
-     "id": "C023",
-     "field": "issue"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "mint:C088",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C088",
-     "field": "issue",
-     "coins": [
-      "C088"
-     ],
-     "label": "C088 · USA · 1957 · 10¢ Roosevelt",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C088_obv.webp",
-        "file": "C088_obv.webp",
-        "original": "C088_USA_1957_Dime_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1CFp6DDPmszLTtmOAh_FkBTHRahIaQLYH/view"
-       }
-      ],
-      "hint": "US mint marks: P (Philadelphia; most coins before 1980 carry none), D (Denver), S (San Francisco), W (West Point). On modern coins the mark is on the obverse near the date; on older ones often on the reverse.",
-      "mint_text_now": "1957 · mintmark not on obverse (1946–1964 mark is reverse — not shown)"
-     },
-     "blind": false,
-     "inputs": [
-      "C088_obv.webp"
-     ]
-    },
-    {
-     "item": "mint:C023",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C023",
-     "field": "issue",
-     "coins": [
-      "C023"
-     ],
-     "label": "C023 · Germany (Empire) · 1918 · 20 Pfennig · German Empire Mark system",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C023_rev.webp",
-        "file": "C023_rev.webp",
-        "original": "C023_Germany_1918_20Pfennig_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1AvM21rocsNxH3aDzEmOFa5QZqFXsVwwP/view"
-       }
-      ],
-      "hint": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
-      "mint_text_now": "unknown (not on this wreath side (often on eagle/obverse))"
-     },
-     "blind": false,
-     "inputs": [
-      "C023_rev.webp"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-read-mint-20261014-2",
-   "agent": "grok",
-   "kind": "read-mint",
-   "issued": "2026-10-14T20:20:40Z",
-   "lease_until": "2026-10-21T20:20:40Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "mint:C299",
-     "entity": "specimen",
-     "id": "C299",
-     "field": "issue"
-    },
-    {
-     "item": "mint:C298",
-     "entity": "specimen",
-     "id": "C298",
-     "field": "issue"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "mint:C299",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C299",
-     "field": "issue",
-     "coins": [
-      "C299"
-     ],
-     "label": "C299 · Italy · 1979 · 50 lire · ITL",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C299_rev.webp",
-        "file": "C299_rev.webp",
-        "original": "C299_Italy_1979_50Lire_rev.jpg",
-        "drive": null
-       }
-      ],
-      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
-      "mint_text_now": "not visible on the Vulcan side"
-     },
-     "blind": false,
-     "inputs": [
-      "C299_rev.webp"
-     ]
-    },
-    {
-     "item": "mint:C298",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C298",
-     "field": "issue",
-     "coins": [
-      "C298"
-     ],
-     "label": "C298 · Italy · 1978 · 50 lire · ITL",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
-        "file": "C298_rev.webp",
-        "original": "C298_Italy_1978_50Lire_rev.jpg",
-        "drive": null
-       }
-      ],
-      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
-      "mint_text_now": "not visible on the Vulcan side"
-     },
-     "blind": false,
-     "inputs": [
-      "C298_rev.webp"
-     ]
-    }
-   ]
-  },
   {
    "id": "HW-grok-value-20261019-1",
    "agent": "grok",
@@ -10929,6 +10761,160 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-read-mint-20261021-1",
+   "agent": "grok",
+   "kind": "read-mint",
+   "issued": "2026-10-21T22:44:09Z",
+   "lease_until": "2026-10-28T22:44:09Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C023",
+     "entity": "specimen",
+     "id": "C023",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C088",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C299",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C298",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "mint:C023",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C023",
+     "field": "issue",
+     "coins": [
+      "C023"
+     ],
+     "label": "C023 · Germany (Empire) · 1918 · 20 Pfennig · German Empire Mark system",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C023_rev.webp",
+        "file": "C023_rev.webp",
+        "original": "C023_Germany_1918_20Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1AvM21rocsNxH3aDzEmOFa5QZqFXsVwwP/view"
+       }
+      ],
+      "hint": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
+      "mint_text_now": "unknown (not on this wreath side (often on eagle/obverse))"
+     },
+     "blind": false,
+     "inputs": [
+      "C023_rev.webp"
+     ]
+    },
+    {
+     "item": "mint:C088",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue",
+     "coins": [
+      "C088"
+     ],
+     "label": "C088 · USA · 1957 · 10¢ Roosevelt",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C088_obv.webp",
+        "file": "C088_obv.webp",
+        "original": "C088_USA_1957_Dime_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1CFp6DDPmszLTtmOAh_FkBTHRahIaQLYH/view"
+       }
+      ],
+      "hint": "US mint marks: P (Philadelphia; most coins before 1980 carry none), D (Denver), S (San Francisco), W (West Point). On modern coins the mark is on the obverse near the date; on older ones often on the reverse.",
+      "mint_text_now": "1957 · mintmark not on obverse (1946–1964 mark is reverse — not shown)"
+     },
+     "blind": false,
+     "inputs": [
+      "C088_obv.webp"
+     ]
+    },
+    {
+     "item": "mint:C299",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C299",
+     "field": "issue",
+     "coins": [
+      "C299"
+     ],
+     "label": "C299 · Italy · 1979 · 50 lire · ITL",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C299_rev.webp",
+        "file": "C299_rev.webp",
+        "original": "C299_Italy_1979_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not visible on the Vulcan side"
+     },
+     "blind": false,
+     "inputs": [
+      "C299_rev.webp"
+     ]
+    },
+    {
+     "item": "mint:C298",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue",
+     "coins": [
+      "C298"
+     ],
+     "label": "C298 · Italy · 1978 · 50 lire · ITL",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
+        "file": "C298_rev.webp",
+        "original": "C298_Italy_1978_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not visible on the Vulcan side"
+     },
+     "blind": false,
+     "inputs": [
+      "C298_rev.webp"
+     ]
     }
    ]
   }
