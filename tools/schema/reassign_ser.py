@@ -81,4 +81,7 @@ if __name__ == "__main__":
     if outp in a: a.remove(outp)
     text = render(d, plan(d))
     open(outp, "w", encoding="utf-8", newline="\n").write(text)
+    if os.path.abspath(outp).startswith(os.path.abspath(d) + os.sep):      # the plan lives in collection/: keep its manifest hash current
+        import contextlib, io, validate as V
+        with contextlib.redirect_stdout(io.StringIO()): V.main(d, update_manifest=True)
     print(f"wrote {outp} (dry run; no record was changed)")
