@@ -9,7 +9,7 @@
 (() => {
   "use strict";
   if (window.TitanRecMusic) return;
-  const BASE = "audio/music/";
+  const BASE = window.TitanMedia ? TitanMedia.url("music", "audio/music/") : "audio/music/";   // the recordings live on titan-music (js/media.js)
   let man = null, loading = null, current = null;
   const recent = [];
 
@@ -44,7 +44,7 @@
       const t = pick(mood);
       if (!t) { stop(); return; }
       drop();
-      el = new Audio(); el.preload = "auto"; el.src = BASE + t.file; live.add(el);
+      el = new Audio(); el.crossOrigin = "anonymous"; el.preload = "auto"; el.src = BASE + t.file; live.add(el);   // CORS, or Web Audio gets silence
       try { src = ctx.createMediaElementSource(el); src.connect(out); } catch (e) { fail(); return; }
       const me = el;
       el.addEventListener("playing", () => {

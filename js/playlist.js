@@ -29,11 +29,11 @@
   });
 
   /* Classical: the recordings in audio/music/ (Wikimedia Commons, every license checked: audio/music/CREDITS.md). Same files as the
-     scenes' recorded music, served from this site, so they never depend on another host. */
+     scenes' recorded music, served from the titan-music site (js/media.js). */
   const L = (title, composer, file, performer, license) => ({
     title,
     artist: composer,
-    url: "audio/music/" + file,
+    url: (window.TitanMedia ? TitanMedia.url("music", "audio/music/") : "audio/music/") + file,
     license,
     credit: `“${title}” by ${composer}, performed by ${performer} (${license}, Wikimedia Commons)`,
   });

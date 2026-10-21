@@ -12,7 +12,7 @@
 (() => {
   "use strict";
   if (window.TitanScore) return;
-  const BASE = "audio/score/", man = {}, loading = {}, bufs = new Map(), stung = {};
+  const BASE = window.TitanMedia ? TitanMedia.url("music", "audio/score/") : "audio/score/", man = {}, loading = {}, bufs = new Map(), stung = {};
   const KNOWN = ["neon", "y2k", "freefall", "arcade", "ferro", "mint", "nocturne", "lumen", "rift", "horizon"];
   const UI_MAP = { flip: "tap", "coin-open": "coin", "coin-close": "back", wing: "open", search: "search", "simple-open": "open", "simple-close": "back" };
   let live = null, stateName = "browse", searchT = 0, idleT = 0, coinOpen = false, paused = false;
@@ -40,7 +40,7 @@
       const id = D.list[D.i % D.list.length]; D.i++; const t = S.m.tracks[id];
       if (D.el) { try { D.el.pause(); D.el.removeAttribute("src"); D.el.load(); } catch (e) { /* ignore */ } }
       if (D.src) { try { D.src.disconnect(); } catch (e) { /* ignore */ } }
-      const el = new Audio(); el.preload = "auto"; el.src = BASE + S.id + "/" + t.file; D.el = el; D.track = t;
+      const el = new Audio(); el.crossOrigin = "anonymous"; el.preload = "auto"; el.src = BASE + S.id + "/" + t.file; D.el = el; D.track = t;   // titan-music (js/media.js): CORS for Web Audio
       try { D.src = ctx.createMediaElementSource(el); D.src.connect(gain); } catch (e) { return; }
       el.addEventListener("ended", () => { if (D.el === el) setTimeout(D.next, 1500); });
       el.addEventListener("playing", () => { if (D.el === el && S.active === D) announce(t); });

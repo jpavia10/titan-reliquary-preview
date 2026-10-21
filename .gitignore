@@ -4,3 +4,5 @@ __pycache__/
 art/_masters/
 art/_incoming_review/
 docs/agents/bridge/.commit_message
+# clones of the titan-films / titan-music media sites, read by js/media.js on a local server (tests, CI)
+_media/

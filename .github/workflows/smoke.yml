@@ -21,6 +21,11 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      # the films and music live on their own Pages sites (js/media.js); on a local server the app reads them from _media/
+      - uses: actions/checkout@v4
+        with: { repository: jpavia10/titan-films, path: _media/titan-films, fetch-depth: 1 }
+      - uses: actions/checkout@v4
+        with: { repository: jpavia10/titan-music, path: _media/titan-music, fetch-depth: 1 }
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

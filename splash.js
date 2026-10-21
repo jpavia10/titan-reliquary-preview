@@ -441,7 +441,7 @@
     if (resume && resume.t > 0.5) v.addEventListener("loadedmetadata", function () { try { v.currentTime = Math.min(resume.t, (v.duration || 99) - 2); } catch (e) {} }, { once: true });
     var lastSave = 0;
     v.className = "ts-film"; v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.setAttribute("muted", "");
-    v.preload = "auto"; v.src = src;
+    v.preload = "auto"; v.src = window.TitanMedia ? TitanMedia.url("films", src) : src;   // the films live on titan-films (js/media.js)
     v.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;background:#000;z-index:1";
     root.insertBefore(v, root.firstChild);
     root.classList.add("ts-filmon");
