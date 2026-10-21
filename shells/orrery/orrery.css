@@ -1,0 +1,10 @@
+@import url("../exp/exp.css");
+/* Orrery: warm brass on deep space; quiet serif labels like engraved scale marks */
+#shell-orrery { --bg:#03040a; --acc:#d9b26a; --line:rgba(217,178,106,.28); --panel:rgba(12,10,8,.9); }
+#shell-orrery .xp-title b { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; letter-spacing:.3em; color:#ecd3a0; }
+#shell-orrery .orr-labs { position:absolute; inset:0; pointer-events:none; z-index:2; }
+#shell-orrery .orr-labs span { position:absolute; left:0; top:0; font: 13px/1 "Iowan Old Style", Georgia, serif; letter-spacing:.08em; color:#d9b26a; text-shadow:0 1px 3px #000; transition:opacity .4s; white-space:nowrap; }
+#shell-orrery .orr-clock { position:absolute; z-index:4; right:12px; bottom:calc(46px + env(safe-area-inset-bottom)); border-color:var(--line); color:#ecd3a0; }
+#shell-orrery .xp-sheet h2 { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; color:#f0dcb0; }
+@media (max-aspect-ratio: 1/1) { #shell-orrery .xp-sheet { max-height:52vh; } }
+@media (min-width: 900px) { #shell-orrery .xp-sheet { left:auto; right:24px; bottom:24px; width:min(480px,32vw); max-height:84vh; border-radius:18px; border:1px solid var(--line); transform:translateX(130%); } #shell-orrery .xp-sheet.open { transform:none; } }

@@ -247,6 +247,7 @@
     try { if (ctx.state === "suspended") ctx.resume(); } catch (e) { /* ignore */ }
     if (!voiceStart(ctx, def.dur)) { count(stats.skipped, "voices"); return false; }
     lastPlay[kind] = now;
+    if (window.TitanScore && window.TitanScore.ui(kind, ctx, r.out, Math.pow(S.vol, 1.6) * 1.4)) { count(stats.played, kind); return true; }   // the theme's own signature set (wings/score.js)
     try {
       var out = ctx.createGain(); out.gain.value = Math.pow(S.vol, 1.6) * 1.4; out.connect(r.out);
       def.fn(ctx, out, ctx.currentTime + 0.005);

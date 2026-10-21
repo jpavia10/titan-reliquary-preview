@@ -159,7 +159,7 @@
     "prism": { world: true, name: "Prism", icon: "🔮", desc: "Glassy pads and soft wind chimes.", atmo: "kaleido",
                beds: { chimes: 0.6, wind: 0.12 }, pad: 0.6, piano: false, bells: true, beat: false,
                root: "F", mode: "lydian", prog: [0, 4, 1, 3], chordSec: 16, gap: [6, 12], bpm: 70, vol: 0.5 },
-    "nightcity": { world: true, name: "Night City", icon: "🌃", desc: "Neon noir: heavy rain on the street, tubes humming overhead, far thunder, a slow dark synth.", atmo: "neon",
+    "nightcity": { score: "neon", world: true, name: "Night City", icon: "🌃", desc: "Neon noir: heavy rain on the street, tubes humming overhead, far thunder, a slow dark synth.", atmo: "neon",
                beds: { rainHeavy: 0.45, rainUmbrella: 0.25, labHum: 0.3, city: 0.35, thunder: 0.18 }, spat: { city: { k: "pass", d: [28, 6], gap: [0.5, 3], len: [9, 15] } }, arc: { depth: 0.95 }, pad: 0.55, piano: true, bells: false, beat: true,
                root: "F", mode: "minor", prog: [0, 5, 3, 4], chordSec: 0, gap: [4, 8], bpm: 78, vol: 0.5 },
     "blacksite": { world: true, name: "Black Site", icon: "🛰", desc: "Air handling hum and faint telemetry.", atmo: "construct",
@@ -1308,7 +1308,11 @@
       if (window.TitanMusic && window.TitanMusic.supported) { try { done = musicStart(g, mix); } catch (e) { done = false; } }
       if (!done && ((mix.pad > 0) || mix.piano || mix.bells || mix.beat)) buildMusic(g, mix);
     };
-    if (mix.rec && window.TitanRecMusic && window.TitanRecMusic.has(mix.rec)) {
+    // per-theme adaptive score (wings/score.js, music worker): when the scene names one it is the music, layered over the beds
+    if (mix.score && window.TitanScore && window.TitanScore.has(mix.score)) {
+      try { musicDone = window.TitanScore.start(g, mix.score, { ctx: E.ctx, input: g.mus }); } catch (e) { musicDone = false; }
+    }
+    if (!musicDone && mix.rec && window.TitanRecMusic && window.TitanRecMusic.has(mix.rec)) {
       try { musicDone = window.TitanRecMusic.start(g, mix.rec, { ctx: E.ctx, input: g.recOut, fallback: () => { if (!g.dead) genMusic(); } }); } catch (e) { musicDone = false; }
     }
     // >>> TitanMusic integration (wings/music-engine.js): when present it plays the music; otherwise the old buildMusic path below runs.

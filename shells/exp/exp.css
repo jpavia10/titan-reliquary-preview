@@ -21,7 +21,7 @@
 .shell.xp #xp-list img, .shell.xp #xp-list i { width:40px; height:40px; border-radius:50%; object-fit:cover; background:#222; flex:none; }
 .shell.xp #xp-list small { display:block; color:var(--muted); }
 .shell.xp .xp-sheet { position:absolute; left:0; right:0; bottom:0; z-index:7; max-height:70vh; overflow:auto; background:var(--panel); border-top:1px solid var(--line); border-radius:20px 20px 0 0;
-  padding:14px 16px calc(20px + env(safe-area-inset-bottom)); transform:translateY(105%); transition:transform .5s cubic-bezier(.2,.9,.2,1); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); }
+  padding:14px 16px calc(20px + env(safe-area-inset-bottom)); transform:translateY(105%); transition:transform .32s cubic-bezier(.2,.9,.2,1); -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px); }
 .shell.xp .xp-sheet.open { transform:none; }
 .shell.xp .xp-sheet h2 { margin:6px 0 2px; font-size:22px; } .shell.xp .xp-sheet h3 { font-size:15px; color:var(--muted); margin:14px 0 4px; font-weight:600; }
 .shell.xp .xp-ph { display:flex; gap:10px; overflow-x:auto; margin:10px 0; }
@@ -34,3 +34,10 @@
 .shell.xp .xp-err { padding:90px 20px 20px; color:var(--muted); }
 html.xp-on body { overflow:hidden; }
 html.xp-on #scene-bar, html.xp-on nav.wings { display:none !important; }
+.shell.xp .xp-lbl span { font-size:15px; margin-left:2px; }
+.shell.xp .xp-chips { display:flex; gap:6px; overflow-x:auto; padding-bottom:2px; flex:none; }
+.shell.xp .xp-chips button { flex:none; min-height:40px; border-radius:99px; font-size:14px; padding:6px 12px; }
+.shell.xp .xp-chips button[aria-pressed="true"] { background:var(--acc); color:#111; border-color:var(--acc); }
+.shell.xp .xp-count { color:var(--muted); font-size:13px; }
+.shell.xp #xp-list button { min-height:56px; }
+@media (min-width: 900px) { .shell.xp .xp-find { left:auto; width:min(520px,40vw); border-left:1px solid var(--line); } }

@@ -48,6 +48,8 @@ jobs:
         run: node tools/themes/test_names.js
       - name: theme registry (one registry, every map agrees)
         run: python tools/themes/test_registry.py
+      - name: theme picker shape, groups and portraits
+        run: python tools/themes/test_picker_shape.py
       - name: Coin cutouts manifest
         run: python tools/photos/test_cutouts.py
       - if: failure()
