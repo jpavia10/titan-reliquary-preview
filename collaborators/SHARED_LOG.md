@@ -959,3 +959,7 @@ Collision rules: each scene registers itself with TitanFXK.mod(<name>) + TitanFX
 - The inline GPU kits in alchemist, colossus, ferro, neon and zen's sand use I.res; alchemist/colossus particles and the old ferro filings use I.count. ALL STREAMS: in new intros use C.tier / C.lite, I.res and I.count; never read TitanLite / tr-lite / tr_lite_v1 directly (the test fails on it).
 - NEW TEST tools/smoke/test_regress_grk_q02.py (in smoke.yml): no intro reads the Lite flag; ?q=low -> all intros tier low and no GPU layer; ?q=high -> all at high; res/count grow with tier; Max renders more pixels than High; no downgrade after playback.
 - Note: smoke "offline: Questions never claims there are none" is flaky on origin/main too (failed on ipad without this change).
+
+## 2026-10-21 00:55 PT · Grok (fx builder #2) · tr235 fx library batch 5 + polish
+- New scenes (fx/scenes-nms.js, K.preset(id), demo entries): dunes (Nature), comet + pulsar (Space), frost + clockwork (Material & Magic). Sound aliases: dunes->sandstorm, comet/pulsar->space, frost->blizzard, clockwork->crystal.
+- Polish: sakura (Voronoi blossom clusters, tapered leaning trunks with forked branches, bark texture); jellyfish (full bell with concave underside, gonads, 12 fine tentacles + 4 frilled oral arms, wrap fade); rose window aged glass (streaks, cracks, corrosion at the leads, warmer tint); Sun colour (less green/blue, lower post exposure so ACES keeps it orange).

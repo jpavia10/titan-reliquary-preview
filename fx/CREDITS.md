@@ -24,5 +24,6 @@ Every effect in fx/ is vendored locally (no CDN). Ports and the techniques they 
 | fx/scenes-nms.js `wormhole` | Polar tunnel mapping (classic demoscene tunnel, as in Inigo Quilez's "tunnel" articles). | technique, own code |
 | fx/scenes-nms.js `sakura` | Layered fbm canopy silhouettes. | own code |
 | fx/scenes-nms.js `cathedral` | Polar-folded tracery SDFs, projected light shafts. | own code |
+| fx/scenes-nms.js `comet`, `pulsar`, `dunes`, `frost`, `clockwork` | Analytic tails/beams, dipole field lines, ridged-noise dunes, angular-fbm dendrites, polar gear SDFs. | own code |
 
 Personal, non-commercial project. CC BY-NC-SA Shadertoy ports, when added, are listed here with author and link.
