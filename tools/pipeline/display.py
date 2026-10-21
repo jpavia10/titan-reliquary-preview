@@ -233,6 +233,8 @@ def specimen_index_row(col, s, t, det):
     r["d"] = col["spec_file"][s["id"]]
     if "asw_oz" in det: r["is_silver"] = True; r["asw_oz"] = det["asw_oz"]; r["melt_live"] = det["melt_live"]
     if det.get("thumb"): r["thumb"] = det["thumb"]; r["thumb_side"] = det["thumb_side"]   # gallery tiles show the photo before the detail loads
+    if det.get("diameter_mm") is not None: r["dia"] = det["diameter_mm"]                 # The Cabinet draws every coin at its true size from the boot index
+    if det.get("is_gold"): r["is_gold"] = True
     return r
 
 # ---------------------------------------------------------------------------------- lots

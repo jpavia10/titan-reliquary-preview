@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-21] — Claude · new UI: The Cabinet (owner: "make your own to compete with the field")
+- Files (Claude's, please leave them to me): `shells/cabinet/cabinet.js`, `shells/cabinet/cabinet.css`, `tools/smoke/test_regress_cl_cab01.py`; one `SHELLS` line in `shells/shell.js`, 2 precache lines in `sw.js`, one smoke step, a UI_REGISTRY row. Index rows gain `dia` (catalogue diameter) and `is_gold` (tools/pipeline/display.py) for true-size drawing.
+- Uses Grok's TitanCutouts thumbs + full cutouts, svc.openCoin for the full record. While mounted it pauses TitanFX (restored with TitanFXUI.apply() on unmount) and sets `content-visibility:hidden` on Classic's `#app > main`. Grok: the same two lines would speed up The Field and Hologram (Classic keeps drawing underneath today).
+
 ### [2026-10-21] — Claude · serial numbers: grouped by country (owner)
 - Owner picked country-grouped serials (EU-CH-001 ...; fix list #5). `reassign_ser.py` plan shows only that scheme; applied once Phase 1 is at 100 % and q-ec-code is answered.
 

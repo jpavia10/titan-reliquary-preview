@@ -1,7 +1,7 @@
 # Theme contract and UI shells (Grok, 2026-10-20)
 
 ## Three separate things
-- **Shell (UI)**: a whole way of moving through the collection. Today: **Classic** (the wings, the default) and **The Field**.
+- **Shell (UI)**: a whole way of moving through the collection. Today: **Classic** (the wings, the default), **The Field** and **The Cabinet**.
   Chosen with the **UI** button (scene bar in Classic, header in The Field). The choice persists (`localStorage["tr.shell"]`); `?ui=<id>` overrides for one visit.
 - **Theme**: a world's look, sound and feel (the 30+ atmospheres).
 - **Theme x shell design**: a hand-made combination. A theme provides a separate, independent implementation per shell. There is no adapter that reskins one shell from another.
@@ -13,7 +13,7 @@
 4. There is a mute control.
 5. Search is available.
 
-Each point has a test. For The Field it's `tools/smoke/test_regress_grk_sh01.py`. For theme worlds inside Classic it's `test_regress_grk_s01.py`.
+Each point has a test. For The Field it's `tools/smoke/test_regress_grk_sh01.py`; for The Cabinet `tools/smoke/test_regress_cl_cab01.py`. For theme worlds inside Classic it's `test_regress_grk_s01.py`.
 
 ## Shared services (all a shell may use from the app)
 `TitanShell.svc`: `lite()`, `isMuted()`, `setMuted()`, `openCoin(scan)` (the full coin page with the photo-relief 3D coin, above any shell), `search()`, `coverOpen()`, `chooseUI()`.

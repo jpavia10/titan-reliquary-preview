@@ -42,6 +42,8 @@ jobs:
         run: python tools/smoke/test_regress_grk_r01.py
       - name: GRK-SH-01 UI shells + The Field contract
         run: python tools/smoke/test_regress_grk_sh01.py
+      - name: CL-CAB-01 The Cabinet contract
+        run: python tools/smoke/test_regress_cl_cab01.py
       - name: theme names (display name vs id aliases)
         run: node tools/themes/test_names.js
       - name: theme registry (one registry, every map agrees)

@@ -8,6 +8,7 @@
   const SHELLS = [
     { id: "classic", name: "Classic", desc: "The wings: Hall, Gallery, Vault, Study and Lab, as before." },
     { id: "field", name: "The Field", desc: "Everything on one table: place down, year across. Tap a coin and fly to it.", module: "shells/field/field.js", css: "shells/field/field.css" },
+    { id: "cabinet", name: "The Cabinet", desc: "Every coin as itself, at its true size, in velvet trays. Sort by country, year, value or what's new; tap a coin to lift it out and turn it over.", module: "shells/cabinet/cabinet.js", css: "shells/cabinet/cabinet.css" },
     /* Experimental (exp worker): each is one folder + one line here; see docs/design/UI_REGISTRY.md to remove */
     { id: "hologram", exp: true, name: "Hologram", desc: "Millions of light particles. The ring of your collection surrounds you; tap one and every particle spirals in to form that coin.", module: "shells/hologram/hologram.js", css: "shells/hologram/hologram.css" }
   ];
