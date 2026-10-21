@@ -25,9 +25,9 @@ export async function xpMount(root, svc, opt) {
   root.classList.add("xp"); document.documentElement.classList.add("xp-on"); root.dataset.xp = opt.id;
   root.innerHTML = `<div class="xp-stage" id="xp-stage"></div>
   <header class="xp-head"><button type="button" id="xp-back" aria-label="Back">←</button><div class="xp-title"><b>${esc(opt.title)}</b><span id="xp-sub">loading…</span></div>
-    <button type="button" id="xp-search" aria-label="Search coins">⌕</button><button type="button" id="xp-mute" aria-label="Mute"></button><button type="button" id="xp-ui" aria-label="Choose a UI">UI</button></header>
+    <button type="button" id="xp-search" class="xp-lbl" aria-label="Search and list every coin">⌕ <span>Search</span></button><button type="button" id="xp-mute" aria-label="Mute"></button><button type="button" id="xp-ui" aria-label="Choose a UI">UI</button></header>
   <div class="xp-hint" id="xp-hint">${esc(opt.hint || "")}</div>
-  <div class="xp-find" id="xp-find" hidden><div class="xp-find-in"><input id="xp-q" type="search" placeholder="Country, year, denomination, C-number…" aria-label="Search coins" autocomplete="off"><button type="button" id="xp-find-x" aria-label="Close search">✕</button></div><div id="xp-list" role="list"></div></div>
+  <div class="xp-find" id="xp-find" hidden><div class="xp-find-in"><input id="xp-q" type="search" placeholder="Search: country, year, denomination, C-number" aria-label="Search coins" autocomplete="off"><button type="button" id="xp-find-x" aria-label="Close search">✕</button></div><div class="xp-chips" id="xp-chips" role="group" aria-label="Filters"></div><div class="xp-count" id="xp-count"></div><div id="xp-list" role="list"></div></div>
   <section class="xp-sheet" id="xp-sheet" tabindex="-1" aria-live="polite"></section>`;
   const $ = (s) => root.querySelector(s);
   let idx; try { idx = await (await fetch("data/index.json")).json(); }
@@ -73,9 +73,19 @@ export async function xpMount(root, svc, opt) {
 
   /* (5) search */
   const norm = (s) => String(s || "").toLowerCase();
+  /* the list fallback: every coin, filterable by metal, continent and era, searchable by any word */
+  const FILTERS = [["all", "All"], ["m:gold", "Gold"], ["m:silver", "Silver"], ["m:copper", "Copper/bronze"], ["m:base", "Nickel/steel"], ["photo", "Has photo"], ["nophoto", "Needs photo"],
+    ...[...new Set(flips.map((f) => f.continent).filter(Boolean))].map((c) => ["c:" + c, c]), ["e:pre1900", "Before 1900"], ["e:1900", "1900–1949"], ["e:1950", "1950–1999"], ["e:2000", "2000+"]];
+  let filt = "all";
+  const passF = (f) => { if (filt === "all") return true; const [k, v] = filt.includes(":") ? filt.split(/:(.*)/) : [filt, ""];
+    if (k === "m") return metalOf(f) === v; if (k === "c") return f.continent === v; if (filt === "photo") return !!f.thumb; if (filt === "nophoto") return !f.thumb;
+    const y = yearOf(f); if (k === "e") return y != null && (v === "pre1900" ? y < 1900 : v === "1900" ? y >= 1900 && y < 1950 : v === "1950" ? y >= 1950 && y < 2000 : y >= 2000); return true; };
+  $("#xp-chips").innerHTML = FILTERS.map(([id, l]) => `<button type="button" data-f="${esc(id)}" aria-pressed="${id === "all"}">${esc(l)}</button>`).join("");
   function list(q) { const t = norm(q).split(/\s+/).filter(Boolean);
-    const hits = flips.map((f, i) => [f, i]).filter(([f]) => t.every((w) => norm(`${f.label} ${f.scan} ${f.ser} ${f.country} ${f.continent} ${f.year} ${f.denom}`).includes(w))).slice(0, 80);
+    const hits = flips.map((f, i) => [f, i]).filter(([f]) => passF(f) && t.every((w) => norm(`${f.label} ${f.scan} ${f.ser} ${f.country} ${f.continent} ${f.year} ${f.denom}`).includes(w)));
+    $("#xp-count").textContent = `${hits.length} of ${flips.length} coins`;
     $("#xp-list").innerHTML = hits.map(([f, i]) => `<button type="button" role="listitem" data-i="${i}">${f.thumb ? `<img src="${esc(f.thumb)}" alt="" loading="lazy">` : "<i></i>"}<span><b>${esc(f.label)}</b><small>${esc(f.scan)} · ${f.est != null ? money(f.est) : "—"}</small></span></button>`).join("") || '<p class="xp-sub">No coin matches.</p>'; }
+  $("#xp-chips").addEventListener("click", (e) => { const b = e.target.closest("[data-f]"); if (!b) return; filt = b.dataset.f; $("#xp-chips").querySelectorAll("[data-f]").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); list($("#xp-q").value); }, { signal });
   $("#xp-search").addEventListener("click", () => { $("#xp-find").hidden = false; list($("#xp-q").value); $("#xp-q").focus(); }, { signal });
   $("#xp-q").addEventListener("input", (e) => list(e.target.value), { signal });
   $("#xp-find-x").addEventListener("click", () => ($("#xp-find").hidden = true), { signal });
