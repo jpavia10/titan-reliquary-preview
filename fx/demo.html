@@ -13,18 +13,18 @@
   #snd[aria-pressed=true]{background:#fff;color:#000}
   #mix{position:fixed;right:12px;top:calc(92px + env(safe-area-inset-top));z-index:7;width:min(280px,80vw);max-height:60vh;overflow:auto;background:rgba(10,10,18,.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:12px 14px;font-size:13px}
   #mix b{display:block;font-size:14px} #mix #mixname{opacity:.7;display:block;margin-bottom:6px}
-  #mix label{display:flex;align-items:center;gap:8px;margin:6px 0} #mix label span{flex:0 0 42%} #mix input{flex:1;accent-color:#9cf}
+  #mix label{display:flex;align-items:center;gap:8px;margin:6px 0} #mix label span{flex:0 0 42%} #mix input{flex:1;accent-color:#9cf} #mixextra{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px} #mixextra button{border:1px solid rgba(255,255,255,.25);background:rgba(30,30,45,.7);color:#fff;border-radius:999px;padding:6px 10px;font:inherit} #mixextra button[aria-pressed=true]{background:#fff;color:#000}
   #flash{position:fixed;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at var(--fx,50%) 0%,rgba(220,230,255,.9),rgba(160,180,255,.25) 50%,transparent 80%);opacity:0;mix-blend-mode:screen}
 </style></head>
 <body>
 <div id="cap"><b></b><span></span></div><div id="stat"></div>
 <nav id="ui" aria-label="Demos"></nav>
 <button id="snd" type="button" aria-pressed="false">&#128264; Sound off</button>
-<div id="mix" hidden><b>Soundscape</b><span id="mixname"></span><div id="mixrows"></div></div>
+<div id="mix" hidden><b>Soundscape</b><span id="mixname"></span><div id="mixrows"></div><b style="margin-top:10px">Sound only (scenes coming)</b><div id="mixextra"></div></div>
 <div id="flash"></div>
 <script src="kit.js"></script><script src="atmos.js"></script><script src="particles-gpu.js"></script><script src="fluid.js"></script>
 <script src="post.js"></script><script src="volume.js"></script><script src="metal.js"></script><script src="rd.js"></script><script src="themes.js"></script>
-<script src="../audio/scape/engine.js?v=s1"></script><script src="../audio/scape/presets.js?v=s1"></script>
+<script src="../audio/scape/engine.js?v=s2"></script><script src="../audio/scape/presets.js?v=s2"></script>
 <script>
 (function () {
   var K = TitanFXK, T = K.themes, POST = { mod: "post", bloom: 1, threshold: .6, exposure: 1.2, aberr: .5, grain: .03, vig: .4 };
@@ -53,7 +53,8 @@
   var cur = null, soundOn = false, TS = window.TitanScape, sb = document.getElementById("snd"), mix = document.getElementById("mix");
   function row(label, val, min, max, step, fn) { var l = document.createElement("label"), sp = document.createElement("span"), i = document.createElement("input");
     sp.textContent = label; i.type = "range"; i.min = min; i.max = max; i.step = step; i.value = val; i.oninput = function () { fn(+i.value); }; l.appendChild(sp); l.appendChild(i); return l; }
-  function startSound() { if (!TS) return; var pr = TS.play(cur); var rows = document.getElementById("mixrows"); rows.innerHTML = "";
+  function startSound(only) { if (!TS) return; var pr = TS.play(only || cur);
+    document.querySelectorAll("#mixextra button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.p === only)); }); var rows = document.getElementById("mixrows"); rows.innerHTML = "";
     document.getElementById("mixname").textContent = pr ? pr.name : "";
     rows.appendChild(row("Volume", TS.volume, 0, 1, .01, TS.setVolume));
     rows.appendChild(row("Intensity", TS.params.intensity, 0, 2, .01, function (v) { TS.setParam("intensity", v); }));
@@ -65,8 +66,13 @@
   if (TS) {
     sb.onclick = function () { soundOn = !soundOn; sb.setAttribute("aria-pressed", String(soundOn)); sb.innerHTML = soundOn ? "&#128266; Sound on" : "&#128264; Sound off"; mix.hidden = !soundOn;
       if (soundOn) { if (TS.muted) TS.setMuted(false); TS.unlock(); startSound(); } else TS.stop(); };
+    var ex = document.getElementById("mixextra"), scenes = D.map(function (d) { return d[0]; });
+    Object.keys(TS.presets).forEach(function (id) { if (scenes.indexOf(id) >= 0 || id === "insects") return; var b = document.createElement("button"); b.textContent = TS.presets[id].name; b.dataset.p = id; b.onclick = function () { startSound(id); }; ex.appendChild(b); });
     var fl = document.getElementById("flash");
-    addEventListener("titan:scape", function (e) { var d = e.detail; if (d.type !== "flash") return; fl.style.setProperty("--fx", (d.x * 100) + "%");
+    addEventListener("titan:scape", function (e) { var d = e.detail; if (d.type !== "burst") return; var h = Math.floor(Math.random() * 360);
+      fl.style.setProperty("--fx", (d.x * 100) + "%"); fl.style.background = "radial-gradient(circle at " + (d.x * 100) + "% " + ((1 - d.y) * 100) + "%, hsla(" + h + ",100%,75%,.9), hsla(" + h + ",100%,50%,.2) 25%, transparent 55%)";
+      fl.animate([{ opacity: 0 }, { opacity: d.power }, { opacity: 0 }], { duration: 1600, easing: "ease-out" }); });
+    addEventListener("titan:scape", function (e) { var d = e.detail; if (d.type !== "flash") return; fl.style.background = ""; fl.style.setProperty("--fx", (d.x * 100) + "%");
       fl.animate([{ opacity: 0 }, { opacity: .9 * d.power }, { opacity: .1 }, { opacity: .7 * d.power }, { opacity: 0 }], { duration: 420 + Math.random() * 300, easing: "ease-out" }); });
   } else sb.hidden = true;
   var ui = document.getElementById("ui"), cap = document.getElementById("cap");

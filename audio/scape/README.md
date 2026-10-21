@@ -24,5 +24,5 @@ per-space convolution reverb (forest, cave, cathedral, street, space, hall, open
 
 ## Sources and licences
 Recordings are the vendored set in `audio/ambience/` (see its CREDITS.md: CC0 or Pixabay Content License, Opus webm + AAC m4a for Safari).
-Impulse responses are generated at load from per-space parameters (3-band RT60 decay, early reflections). They are not recorded IRs yet; the plan is to swap in CC-BY recorded IRs (OpenAIR) and credit them here.
+Impulse responses: recorded OpenAIR IRs (CC BY 4.0) for forest, snow, cave, cathedral, street, hall, space; see CREDITS.md. Generated IRs remain for open and water and as the instant fallback while a recorded IR decodes.
 All procedural synthesis is original code.

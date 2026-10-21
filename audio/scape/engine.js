@@ -17,7 +17,7 @@
   "use strict";
   if (window.TitanScape) return;
   var BASE = (function () { var s = document.currentScript && document.currentScript.src; return s ? s.replace(/[^/]*$/, "") : "audio/scape/"; })();
-  var AMB = BASE + "../ambience/", OWN = BASE + "snd/";
+  var AMB = BASE + "../ambience/", OWN = BASE;
   var AC = window.AudioContext || window.webkitAudioContext;
   var ctx = null, master, limiter, agc, duckG, bed, dry, sends = {}, irs = {}, buffers = {}, loading = {};
   var preset = null, layers = [], timers = [], P = { intensity: 1, rain: .6, wind: .5, storm: 3, tod: 22, vol: .9, drag: 0, px: .5, py: .5 };
@@ -95,12 +95,13 @@
   /* IRs are built per space from measured-style parameters: early-reflection tap pattern + 3-band exponentially decaying
      diffuse tail with per-band RT60 (high frequencies die first), stereo-decorrelated. */
   var SPACES = {
-    forest:    { rt: [1.6, 1.1, .55], pre: .012, er: 14, erSpan: .09, size: 2.0, wet: .28 },
-    cave:      { rt: [4.8, 3.6, 2.0], pre: .03,  er: 22, erSpan: .14, size: 5.0, wet: .42 },
-    cathedral: { rt: [7.5, 5.8, 3.2], pre: .045, er: 30, erSpan: .22, size: 8.0, wet: .4 },
-    street:    { rt: [1.9, 1.4, .8],  pre: .018, er: 10, erSpan: .12, size: 2.4, wet: .24 },
-    space:     { rt: [12, 10, 7],     pre: .08,  er: 6,  erSpan: .4,  size: 14,  wet: .55 },
-    hall:      { rt: [3.0, 2.4, 1.4], pre: .025, er: 18, erSpan: .1,  size: 3.4, wet: .32 },
+    forest:    { rt: [1.6, 1.1, .55], pre: .012, er: 14, erSpan: .09, size: 2.0, wet: .28, ir: "forest" },
+    cave:      { rt: [4.8, 3.6, 2.0], pre: .03,  er: 22, erSpan: .14, size: 5.0, wet: .42, ir: "cave" },
+    cathedral: { rt: [7.5, 5.8, 3.2], pre: .045, er: 30, erSpan: .22, size: 8.0, wet: .4, ir: "cathedral" },
+    street:    { rt: [1.9, 1.4, .8],  pre: .018, er: 10, erSpan: .12, size: 2.4, wet: .24, ir: "street" },
+    space:     { rt: [12, 10, 7],     pre: .08,  er: 6,  erSpan: .4,  size: 14,  wet: .55, ir: "space" },
+    snow:      { rt: [1.2, .7, .3], pre: .015, er: 6, erSpan: .2, size: 1.6, wet: .2, ir: "snow" },
+    hall:      { rt: [3.0, 2.4, 1.4], pre: .025, er: 18, erSpan: .1,  size: 3.4, wet: .32, ir: "hall" },
     open:      { rt: [.9, .6, .35],   pre: .02,  er: 4,  erSpan: .2,  size: 1.1, wet: .14 },
     water:     { rt: [2.6, 1.2, .5],  pre: .006, er: 26, erSpan: .05, size: 2.8, wet: .5 }
   };
@@ -117,7 +118,9 @@
   function space(name) {
     if (sends[name]) return sends[name];
     var sp = SPACES[name] || SPACES.open, conv = ctx.createConvolver(), g = ctx.createGain(), hp = ctx.createBiquadFilter();
-    conv.normalize = true; conv.buffer = irs[name] || (irs[name] = buildIR(sp)); hp.type = "highpass"; hp.frequency.value = 90;
+    conv.normalize = true; conv.buffer = irs[name] || (irs[name] = buildIR(sp));
+    /* recorded OpenAIR impulse response (CC BY 4.0, see CREDITS.md) replaces the generated one once decoded */
+    if (sp.ir) load("@ir/" + sp.ir).then(function (b) { if (b) { var c2 = ctx.createConvolver(); c2.normalize = true; c2.buffer = b; hp.disconnect(); hp.connect(c2); c2.connect(g); conv.disconnect(); } }); hp.type = "highpass"; hp.frequency.value = 90;
     g.gain.value = 0; hp.connect(conv); conv.connect(g); g.connect(bed);
     return (sends[name] = { input: hp, out: g, wet: sp.wet });
   }
@@ -247,7 +250,7 @@
     preset = pr; useSpace(pr.space || "open");
     if (pr.params) Object.keys(pr.params).forEach(function (k) { P[k] = pr.params[k]; });
     if (opts) Object.keys(opts).forEach(function (k) { P[k] = opts[k]; });
-    var mine = []; var mk = function (id2, label, gain, o) { var L = Layer(id2, label, gain, o); L.timers = []; mine.push(L); return L; };
+    var mine = []; P.drag = 0; var mk = function (id2, label, gain, o) { var L = Layer(id2, label, gain, o); L.timers = []; mine.push(L); return L; };
     pr.build({ L: mk, P: P, S: S, grains: grains, noiseBed: noiseBed, poisson: poisson, oneShot: oneShot, Voice: Voice, mover: mover, rr: rr, ctx: ctx, emit: fire, space: curSpace });
     mine.forEach(function (L) { L.level(1.5); });
     pr._layers = mine; emit("preset", id); return pr;
@@ -285,6 +288,6 @@
     setLayer: function (id, g) { layers.forEach(function (L) { if (L.id === id) { L.user = g; L.level(.3); } }); },
     setParam: setParam, params: P, setVolume: setVolume, get volume() { return vol; }, setMuted: setMuted, get muted() { return muted; },
     duck: duck, sidechain: sidechain, sleep: sleep, fx: function (d) { if (preset && preset.on && ctx) preset.on(d, ctx.currentTime); },
-    on: function (t, f) { (listeners[t] = listeners[t] || []).push(f); }, spaces: SPACES, _S: S
+    _dbg: function () { return layers.map(function (L) { return L.id + ":" + L.g.gain.value.toFixed(3) + "/" + L.mod; }).join(" ") + " ctxT=" + ctx.currentTime.toFixed(1); }, on: function (t, f) { (listeners[t] = listeners[t] || []).push(f); }, spaces: SPACES, _S: S
   };
 })();

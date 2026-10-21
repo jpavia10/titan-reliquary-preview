@@ -160,6 +160,98 @@
       k.poisson(owl, function () { var h = k.P.tod; return (h > 20 || h < 4) ? 1 / 50 : 0; }, function (t) { ov.at(k.rr(-30, 30), 8, -k.rr(15, 40)); k.oneShot(ov.in, "owl", { t: t, segs: SEG.owl, gain: .5 }); });
     } });
 
+
+  /* ===== batch 2 ===== */
+  function cricket(k, L, pos, o) { // one insect: carrier tone chirped in pulse trains, its own tempo, placed in space
+    var c = k.ctx, V = k.Voice(L.g, pos, { ref: 1.5 }), f = o.f * k.rr(.97, 1.03), per = o.per * k.rr(.85, 1.15), n = o.pulses;
+    k.poisson(L, function () { return 1 / per; }, function (t) { for (var i = 0; i < n; i++) { var tt = t + i * o.gap, os = c.createOscillator(), g = c.createGain(); os.frequency.value = f; os.type = o.wave || "sine";
+      g.gain.setValueAtTime(0, tt); g.gain.linearRampToValueAtTime(o.gain, tt + o.on * .3); g.gain.linearRampToValueAtTime(0, tt + o.on); os.connect(g); g.connect(V.in); os.start(tt); os.stop(tt + o.on + .01); } });
+  }
+  function nightBugs(k, L, count) {
+    for (var i = 0; i < count; i++) cricket(k, L, [k.rr(-12, 12), k.rr(-1, 1), -k.rr(2, 18)], { f: k.rr(3900, 5200), per: k.rr(.45, 1.1), pulses: 3 + (i % 3), gap: .028, on: .018, gain: .05 });
+    for (var j = 0; j < Math.ceil(count / 4); j++) cricket(k, L, [k.rr(-15, 15), k.rr(0, 4), -k.rr(5, 20)], { f: k.rr(7000, 9000), per: k.rr(1.2, 2.4), pulses: 14, gap: .012, on: .008, gain: .025, wave: "square" }); // katydid rasp
+  }
+  /* firework: launch whoosh -> flash event -> boom + crackling tail after the sound's travel time */
+  function shell(k, L, d) {
+    var c = k.ctx, t = c.currentTime, x = d.x == null ? k.rr(.15, .85) : d.x, dist = d.dist || k.rr(.25, 1), delay = dist * 1000 / 343, px = (x - .5) * 2;
+    var V = k.Voice(L.g, [px * 200 * dist, 150, -900 * dist], { ref: 120, roll: .3 });
+    if (!d.burstOnly) { var lv = k.Voice(L.g, [px * 60, 0, -250 * dist], { ref: 30, roll: .4 }), n = c.createBufferSource(), bp = c.createBiquadFilter(), g = c.createGain(), up = k.rr(1.4, 2.2);
+      n.buffer = k.noiseBuf; bp.type = "bandpass"; bp.Q.value = 3; bp.frequency.setValueAtTime(500, t); bp.frequency.exponentialRampToValueAtTime(3500, t + up); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.35, t + .1); g.gain.linearRampToValueAtTime(0, t + up);
+      n.connect(bp); bp.connect(g); g.connect(lv.in); n.start(t, Math.random() * 3); n.stop(t + up + .1);
+      if (Math.random() < .35) { var w = c.createOscillator(), wg = c.createGain(); w.frequency.setValueAtTime(k.rr(900, 1300), t); w.frequency.exponentialRampToValueAtTime(k.rr(2600, 3600), t + up); wg.gain.setValueAtTime(.06, t); wg.gain.linearRampToValueAtTime(0, t + up); w.connect(wg); wg.connect(lv.in); w.start(t); w.stop(t + up); }
+      t += up; }
+    var pw = d.power || k.rr(.6, 1); setTimeout(function () { k.emit("burst", { x: x, y: k.rr(.55, .85), dist: dist, power: pw }); }, (t - c.currentTime) * 1000);
+    var tb = t + delay; k.S.boom(V.in, tb, { f: k.rr(38, 60), len: 1.6 + dist, gain: 1.1 * pw, bright: 5200 * (1 - dist * .4) });
+    if (Math.random() < .55) for (var i = 0; i < 140 * k.budgetK(); i++) k.S.crackle(V.in, tb + .35 + Math.pow(Math.random(), .7) * 1.8, { f: k.rr(2500, 7500), gain: .22 * pw, burst: 2 });
+  }
+
+  /* 9. FIREWORKS: a show over the city; launch whoosh, flash, boom arriving dist/343 s later, crackling willow tails, echoes */
+  TS.define("fireworks", { name: "Fireworks over the city", space: "street", params: { intensity: 1 },
+    build: function (k) { nb(k); k.budgetK = function () { return 1; };
+      var show = k.L("show", "Fireworks", 1, { wet: 1.2 }); this._s = show; this._k = k;
+      var finale = 0; k.poisson(show, function () { return (.35 + finale) * k.P.intensity; }, function () { shell(k, show, {}); if (Math.random() < .03) { finale = 2.5; setTimeout(function () { finale = 0; }, 7000); } });
+      var crowd = k.L("crowd", "Crowd far off", .25, { wet: 1 }); var cv = k.Voice(crowd.g, [0, 0, -60], { ref: 30, roll: .2 }); k.grains(crowd, "crowd", { grain: 2.5, density: 2, dest: cv.in, spread: 0 }); cv.lp.frequency.value = 1800;
+      var air = k.L("air", "Night air", .3); k.grains(air, "wind", { grain: 3, density: 2, spread: .9 });
+    },
+    on: function (d) { if ((d.type === "burst" || d.type === "launch") && this._s && !this._s.dead) shell(this._k, this._s, { x: d.x, dist: d.dist, power: d.power, burstOnly: d.type === "burst" }); } });
+
+  /* 10. BLIZZARD: a howling whiteout; layered gusts, resonant whistles, hissing snow, ice ticks; snow-muffled distance */
+  TS.define("blizzard", { name: "Blizzard", space: "snow", params: { wind: 1, intensity: 1 },
+    build: function (k) {
+      var howl = k.L("howl", "Howling wind", .9, { wet: .4 }); k.grains(howl, "windHowl", { grain: 3.5, density: 2.6, spread: 1, jitter: .06 });
+      k.noiseBed(howl, "pink", { f: 600, q: 1.5, gain: .7, walk: [250, 1800], walkMs: 800, gainWalk: [.3, 1.3], walkT: .6 });
+      drive(howl, "wind", function () { return .3 + k.P.wind * .8; }, 300);
+      var wh = k.L("whistle", "Whistling gaps", .35); [900, 1400, 2300].forEach(function (f) { k.noiseBed(wh, "white", { f: f, q: 30, gain: .15, walk: [f * .8, f * 1.3], walkMs: 1300, gainWalk: [0, 1], walkT: .8 }); });
+      var snow = k.L("snow", "Driving snow", .45); k.noiseBed(snow, "white", { type: "highpass", f: 6000, gain: .3, walk: [4500, 9000], walkMs: 500, gainWalk: [.4, 1.2], walkT: .3 });
+      k.poisson(snow, function () { return 25 * k.P.wind; }, function (t) { k.S.crackle(snow.g, t, { f: k.rr(7000, 12000), gain: .04, burst: 1 }); });
+      var ice = k.L("ice", "Ice and creaks", .4, { wet: .8 }); var iv = k.Voice(ice.g, [-6, 1, -8]);
+      k.poisson(ice, function () { return 1 / 6; }, function (t) { iv.at(k.rr(-10, 10), 1, -k.rr(4, 14)); k.oneShot(iv.in, "creak", { t: t, segs: [[0, 3.6], [4.1, 3.6], [8.2, 3.6]], gain: .35, rate: k.rr(.5, .7) }); });
+      var sub = k.L("rumble", "Low rumble", .4); k.noiseBed(sub, "brown", { type: "lowpass", f: 90, gain: .9, walk: [50, 140], walkMs: 1500, gainWalk: [.4, 1.2] });
+    } });
+
+  /* 11. OCEAN: open shore; each wave is built (swell, crash, foam fizz, backwash over pebbles) plus a recorded surf bed and gulls */
+  TS.define("ocean", { name: "Ocean shore", space: "open", params: { wind: .4, intensity: 1, tod: 14 },
+    build: function (k) { var c = k.ctx;
+      var bed = k.L("surf", "Surf bed", .55); k.grains(bed, "waves", { grain: 3.2, density: 2.2, spread: .9 });
+      var waves = k.L("waves", "Breaking waves", .9, { wet: .3 });
+      k.poisson(waves, function () { return 1 / k.rr(6, 10) * k.P.intensity; }, function (t) {
+        var x = k.rr(-8, 8), V = k.Voice(waves.g, [x, 0, -k.rr(8, 16)], { ref: 6 }), big = k.rr(.6, 1.2);
+        var sw = c.createBufferSource(), sl = c.createBiquadFilter(), sg = c.createGain(); sw.buffer = k.noiseBuf || (nb(k), k.noiseBuf); sl.type = "lowpass";
+        sl.frequency.setValueAtTime(150, t); sl.frequency.exponentialRampToValueAtTime(2500 * big, t + 2.2); sl.frequency.exponentialRampToValueAtTime(400, t + 6);
+        sg.gain.setValueAtTime(0, t); sg.gain.linearRampToValueAtTime(.8 * big, t + 2); sg.gain.linearRampToValueAtTime(2.2 * big, t + 2.4); sg.gain.exponentialRampToValueAtTime(.001, t + 7.5);
+        sw.connect(sl); sl.connect(sg); sg.connect(V.in); sw.start(t, Math.random() * 3); sw.stop(t + 8);
+        k.S.boom(V.in, t + 2.3, { f: 45, len: 1.4, gain: .9 * big, bright: 900 });
+        for (var i = 0; i < 90; i++) k.S.crackle(V.in, t + 2.6 + Math.pow(Math.random(), .6) * 4, { f: k.rr(3000, 9000), gain: .05, burst: 1 });
+        var bw = k.Voice(waves.g, [x * .6, -1, -k.rr(2, 5)], { ref: 2 }); for (var j = 0; j < 60; j++) k.S.crackle(bw.in, t + 5 + Math.random() * 2.5, { f: k.rr(1500, 4000), gain: .07, burst: 2 }); });
+      var gulls = k.L("gulls", "Gulls", .3, { wet: .6 }); var gv = k.Voice(gulls.g, [10, 15, -30], { ref: 10 });
+      k.poisson(gulls, function () { var h = k.P.tod; return h > 6 && h < 20 ? 1 / 12 : 0; }, function (t) { gv.at(k.rr(-30, 30), 15, -k.rr(15, 40)); k.oneShot(gv.in, "gulls", { t: t, segs: [[k.rr(0, 30), 4]], gain: .6 }); });
+      var wind = k.L("wind", "Sea wind", .35); k.noiseBed(wind, "pink", { f: 700, q: .8, gain: .5, walk: [300, 1500], walkMs: 1500, gainWalk: [.3, 1] }); drive(wind, "wind", function () { return .2 + k.P.wind; }, 300);
+    } });
+
+  /* 12. RAINFOREST: dense canopy; birds by day, frogs and insects by night, rain on leaves, canopy drips, distant river, cicada swells */
+  TS.define("rainforest", { name: "Misty rainforest", space: "forest", params: { rain: .4, tod: 7, intensity: 1 },
+    build: function (k) { var c = k.ctx; var day = function () { var h = k.P.tod; return h > 5.5 && h < 19 ? 1 : 0; };
+      var birds = k.L("birds", "Birds", .6, { wet: .7 }); k.grains(birds, "birds", { grain: 2.6, density: 2.2, spread: 1 }); drive(birds, "tod", function () { return .15 + day() * .85; }, 1000);
+      var frogs = k.L("frogs", "Frogs", .5, { wet: .6 }); k.grains(frogs, "frogs", { grain: 2.4, density: 2, spread: 1 }); drive(frogs, "tod", function () { return .2 + (1 - day()) * .8 + k.P.rain * .4; }, 1000);
+      var bugs = k.L("insects", "Insects", .4); nightBugs(k, bugs, 8); drive(bugs, "tod", function () { return .3 + (1 - day()) * .7; }, 1000);
+      var cic = k.L("cicadas", "Cicada swells", .3); var cb = k.noiseBed(cic, "white", { f: 5200, q: 8, gain: 0 });
+      (function swell() { if (cic.dead) return; var t = c.currentTime, d = k.rr(6, 14); cb.g.gain.setValueAtTime(0, t); cb.g.gain.linearRampToValueAtTime(.5, t + d * .4); cb.g.gain.linearRampToValueAtTime(0, t + d); cic.timers.push(setTimeout(swell, (d + k.rr(4, 20)) * 1000)); })();
+      var am = c.createOscillator(), amg = c.createGain(); am.frequency.value = 110; amg.gain.value = .4; am.connect(amg); amg.connect(cb.f2.frequency); am.start(); cic.nodes.push(am);
+      var rain = k.L("rain", "Rain on leaves", .6); k.grains(rain, "leaves", { grain: 2.2, density: 2.6, spread: 1 }); drive(rain, "rain", function () { return k.P.rain * 1.2; }, 300);
+      var drips = k.L("drips", "Canopy drips", .55); k.poisson(drips, function () { return 2 + k.P.rain * 10; }, function (t) { var V = k.Voice(drips.g, [k.rr(-6, 6), k.rr(-1, 4), -k.rr(1, 8)], { ref: 1 }); k.S.drop(V.in, t, { f: k.rr(700, 2200), len: k.rr(.05, .15), gain: .2 }); setTimeout(function () { V.pan.disconnect(); }, 600); });
+      var river = k.L("river", "Distant river", .3, { wet: .8 }); var rv = k.Voice(river.g, [-25, -2, -40], { ref: 15, roll: .3 }); k.grains(river, "river", { grain: 2.5, density: 2.4, dest: rv.in, spread: 0 });
+    } });
+
+  /* 13. NIGHT INSECTS / FIREFLIES: a warm meadow at night; a field of individually placed crickets and katydids, frogs, an owl, grass breeze */
+  TS.define("fireflies", { name: "Fireflies in a night meadow", space: "forest", params: { tod: 23, wind: .2 },
+    build: function (k) {
+      var bugs = k.L("crickets", "Crickets (each one placed)", .7); nightBugs(k, bugs, Math.round(14 * (TS.budget || 1)));
+      var bed = k.L("field", "Meadow bed", .35, { wet: .5 }); k.grains(bed, "crickets", { grain: 2.8, density: 2, spread: 1 });
+      var frogs = k.L("frogs", "Far pond frogs", .3, { wet: .8 }); var fv = k.Voice(frogs.g, [20, -1, -45], { ref: 15, roll: .3 }); k.grains(frogs, "frogs", { grain: 2.4, density: 2, dest: fv.in, spread: 0 });
+      var owl = k.L("owl", "Owl", .4, { wet: 1.1 }); var ov = k.Voice(owl.g, [-20, 8, -30], { ref: 8 }); k.poisson(owl, function () { return 1 / 35; }, function (t) { ov.at(k.rr(-30, 30), 8, -k.rr(15, 40)); k.oneShot(ov.in, "owl", { t: t, segs: SEG.owl, gain: .5 }); });
+      var grass = k.L("breeze", "Breeze in grass", .3); k.grains(grass, "windTrees", { grain: 3, density: 2, spread: 1, rate: 1.1 }); drive(grass, "wind", function () { return .2 + k.P.wind * 1.5; }, 300);
+    } });
+  TS.define("insects", Object.assign({}, TS.presets.fireflies, { name: "Night insects" }));
   /* fix-ups: give touch handlers access to the kit */
   ["metal"].forEach(function (id) { var p = TS.presets[id], b = p.build; p.build = function (k) { this._k = k; return b.call(this, k); }; });
 })();
