@@ -37,6 +37,11 @@ effects around a song (intro stingers, UI sounds, filters, crossfades). Each tra
 | Lumen Circuit (lumen) | Epoxy Resin | Andy G. Cohen | CC BY 4.0 | https://archive.org/details/andy-g.-cohen-prisma (album Prisma, 2021) |
 | Lumen Circuit (lumen) | Crunch Me Beautiful | Andy G. Cohen | CC BY 4.0 | https://archive.org/details/andy-g.-cohen-prisma (album Prisma, 2021) |
 | Lumen Circuit (lumen) | Gazing | Andy G. Cohen | CC BY 4.0 | https://archive.org/details/andy-g.-cohen-prisma (album Prisma, 2021) |
+| Rift Garage (rift) | Wave Rock | Ear of the Rat | CC BY 3.0 | https://archive.org/details/Eotr-WaveRock (EOTR - Wave Rock, 2011) |
+| Rift Garage (rift) | Underground Space | Ear of the Rat | CC BY 3.0 | https://archive.org/details/Eotr-WaveRock (EOTR - Wave Rock, 2011) |
+| Rift Garage (rift) | Space Jam | Ear of the Rat | CC BY 3.0 | https://archive.org/details/Eotr-WaveRock (EOTR - Wave Rock, 2011) |
+| Rift Garage (rift) | From Way Back When | Ear of the Rat | CC BY 3.0 | https://archive.org/details/Eotr-WaveRock (EOTR - Wave Rock, 2011) |
+| Rift Garage (rift) | Fun Them | Ear of the Rat | CC BY 3.0 | https://archive.org/details/Eotr-WaveRock (EOTR - Wave Rock, 2011) |
 
 Attribution (CC BY 4.0): "<Track>" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0
 License, http://creativecommons.org/licenses/by/4.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
@@ -60,6 +65,9 @@ Nocturne: "Gnome Ale" and "Not Again" by the Andrew Taranto Trio (Andrew Taranto
 
 Lumen Circuit: "<Song>" by Andy G. Cohen, album Prisma (2021), released under a Creative Commons Attribution International (CC BY 4.0)
 license, https://creativecommons.org/licenses/by/4.0/ (artist's own license statement on the release). Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
+
+Rift Garage: "<Track>" by Ear of the Rat (improvised live space-rock jams, Niagara), from EOTR - Wave Rock (2011), licensed CC BY 3.0,
+http://creativecommons.org/licenses/by/3.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
 
 ## Designed sound (not songs)
 

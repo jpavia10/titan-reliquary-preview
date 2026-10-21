@@ -225,7 +225,7 @@
     "horizon": { rec: "piano", world: true, name: "Event Horizon", icon: "🕳", desc: "Deep space: a low drone and faint telemetry, with a real recorded piano.", atmo: "horizon",
                beds: { roomTone: 0.3, telemetry: 0.35, labHum: 0.15 }, pad: 0, piano: false, bells: false, beat: false,
                root: "C", mode: "minor", prog: [0], chordSec: 16, gap: [9, 18], vol: 0.45 },
-    "rift": { rec: "piano", world: true, name: "Rift Garage", icon: "🌀", desc: "A garage lab after midnight: the hum of the rift, the fridge, a real recorded piano.", atmo: "rift",
+    "rift": { score: "rift", rec: "piano", world: true, name: "Rift Garage", icon: "🌀", desc: "A garage lab after midnight: the hum of the rift, the fridge, and a live garage space-rock jam by Ear of the Rat.", atmo: "rift",
                beds: { labHum: 0.45, roomTone: 0.35, telemetry: 0.2 }, pad: 0, piano: false, bells: false, beat: false,
                root: "E", mode: "minor", prog: [0], chordSec: 16, gap: [9, 18], vol: 0.45 },
     "lumen": { score: "lumen", rec: "piano", world: true, name: "Lumen Circuit", icon: "🔷", desc: "A grid world at night: the low hum of the lanes, faint telemetry and driving instrumental post-rock by Andy G. Cohen.", atmo: "lumen",
