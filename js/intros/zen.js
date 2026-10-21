@@ -1,113 +1,109 @@
-/* Zen Garden intro (Grok, 2026-10-20). Overhead, moonlit karesansui. A five-tine rake draws one long S-curve across the sand
-   (the camera eases down from a high crop), three stones drop and the sand answers with raked rings around each, then the name
-   is pressed INTO the sand as a relief and a vermilion seal is stamped. Sound: the rake's scrape follows its speed, low wooden
-   thuds for the stones, one singing bowl at the seal. WebGL: the sand is a lit heightfield (normals from the height, moonlight
-   grazing from the left); 2D fallback draws the same grooves as strokes. */
+/* Zen Garden intro (Grok, 2026-10-20, v2: GPU sand). Overhead, moonlit karesansui made of grains, not lines. Up to ~1M
+   particles on desktop and ~260k on a phone (auto-scaled by screen class) stream across the garden on a curl-noise current,
+   each grain integrated on the GPU (WebGL2 float ping-pong: one simulation pass per 1/60 s step, deterministic, so seeking
+   and skipping replay exactly). A five-tine rake sweeps through and parts the current into combed wakes; then the flow
+   itself carves the name: grains are pushed out of the letterforms and pile up on their rims, so TITAN RELIQUARY appears as
+   dark grooves edged in bright sand, and the current slows to stillness. A vermilion seal is pressed last.
+   Same technique as the Zen Garden theme's own particle field (curl noise + float-texture integration).
+   Fallbacks: no float render targets / Lite / no WebGL2 -> a 2D canvas with ~5k grains on the same field and the carved name;
+   reduced motion -> the final still. Sound: sand hiss that follows the flow, the rake's scrape, a wooden knock, a singing bowl. */
 (function () {
   "use strict";
   var I = window.TitanIntro; if (!I) return; var K = I.K;
-  var STONES = [[0.27, 0.30, 0.060], [0.72, 0.58, 0.085], [0.40, 0.80, 0.048]];   // x, y (fraction of the screen), radius (fraction of min side)
-  var DROP = [1.55, 1.85, 2.1];
-  var FRAG = [
-    "float curveY(float x){return 0.5+0.17*sin(x*5.2+0.6)+0.05*sin(x*13.0);}",
-    "float H(vec2 p, vec2 q){",              // p in 0..1 screen, q in aspect units
-    "  float asp=R.x/R.y; float h=0.04*vn(q*180.)+0.02*vn(q*37.);",
-    "  float prog=U0.x;",
-    "  float cy=curveY(p.x); float dy=(curveY(p.x+0.002)-cy)/0.002; float d=(p.y-cy)/sqrt(1.+dy*dy)*(1./asp);",
-    "  float band=0.085; float tip=smoothstep(prog,prog-0.03,p.x);",
-    "  if(abs(d)<band){ float gv=0.5+0.5*cos(d/band*15.70796); h+= (gv-0.5)*0.55*tip*smoothstep(band,band*0.85,abs(d)); }",
-    "  else { float off=abs(d)-band; float lines=0.5+0.5*cos(off*55.); h+= (lines-0.5)*0.10*smoothstep(0.,0.05,off)*U0.w; }",
-    "  for(int i=0;i<3;i++){",
-    "    vec3 s=i==0?vec3(0.27,0.30,0.060):i==1?vec3(0.72,0.58,0.085):vec3(0.40,0.80,0.048);",
-    "    float dt=i==0?U1.x:i==1?U1.y:U1.z;",
-    "    vec2 c=vec2(s.x*asp,s.y); float r=length(q-c); float rr=s.z*min(asp,1.)*1.0;",
-    "    float ring=smoothstep(0.,1.,dt)*(rr*3.2); float w=smoothstep(ring,ring-0.04,r)*smoothstep(rr*0.9,rr*1.2,r);",
-    "    h=mix(h, 0.5+0.28*cos((r-rr)*95.), w*0.85*step(0.001,dt));",
-    "    h-= exp(-pow((r-rr*(1.0+0.6*dt))/(0.012+0.02*dt),2.))*0.25*max(0.,1.-dt)*step(0.001,dt);",   /* the splash ring of the drop */
-    "  }",
-    "  vec2 tc=vec2(p.x,1.-p.y); vec4 m=texture2D(TX,tc); float halo=m.g; float tx=m.r;",
-    "  h=mix(h,0.02*vn(q*180.),smoothstep(0.,0.6,halo)*U0.z); h-=tx*0.7*U0.z;",
-    "  return h;}",
-    "void main(){",
-    "  vec2 uv=gl_FragCoord.xy/R; uv.y=1.-uv.y; float asp=R.x/R.y;",
-    "  float z=mix(1.22,1.0,U0.y); vec2 p=(uv-vec2(0.35,0.4))/z+vec2(0.35,0.4);",   /* camera: eases out from a crop near the rake's start */
-    "  vec2 q=vec2(p.x*asp,p.y); float e=1.5/R.y;",
-    "  float h0=H(p,q), hx=H(p+vec2(e/asp,0.),q+vec2(e,0.)), hy=H(p+vec2(0.,e),q+vec2(0.,e));",
-    "  vec3 n=normalize(vec3(h0-hx,h0-hy,e*30.));",
-    "  vec3 L=normalize(vec3(-0.75,-0.35,0.45)); float dif=max(dot(n,L),0.);",
-    "  vec3 sand=vec3(0.50,0.52,0.53)*(0.88+0.24*vn(q*400.));",
-    "  vec3 col=sand*(0.10+1.05*dif)*vec3(0.80,0.88,1.0);",
-    "  for(int i=0;i<3;i++){",
-    "    vec3 s=i==0?vec3(0.27,0.30,0.060):i==1?vec3(0.72,0.58,0.085):vec3(0.40,0.80,0.048);",
-    "    float dt=i==0?U1.x:i==1?U1.y:U1.z; if(dt<=0.) continue;",
-    "    float k=clamp(dt*3.,0.,1.); float sc=mix(1.6,1.,k*k);",
-    "    vec2 c=vec2(s.x*asp,s.y); vec2 d=(q-c)/(s.z*min(asp,1.)*sc); d.x*=1.0+0.15*sin(float(i)*3.);",
-    "    float sh=smoothstep(1.35,0.8,length(d-vec2(0.22,0.16)*sc)); col*=1.-0.55*sh*k;",   /* shadow */
-    "    float r=length(d); if(r<1.){ vec3 sn=normalize(vec3(d*0.9,sqrt(max(0.,1.-r*r)))); float rd=max(dot(sn,L),0.);",
-    "      float gr=vn(d*6.+float(i)*7.)*0.5+vn(d*19.)*0.25; vec3 st=vec3(0.13,0.14,0.15)*(0.6+gr)+pow(max(dot(reflect(-L,sn),vec3(0,0,1)),0.),18.)*0.35;",
-    "      col=mix(col, st*(0.25+1.1*rd), smoothstep(1.,0.96,r)*smoothstep(0.,0.4,k)); }",
-    "  }",
-    "  float vig=smoothstep(1.25,0.35,length((uv-0.5)*vec2(asp,1.)*0.9)); col*=mix(0.35,1.,vig);",
-    "  col*=U1.w; col+= (h21(gl_FragCoord.xy+T)-0.5)*0.025;",
-    "  gl_FragColor=vec4(col,1.);}"
-  ].join("\n");
-
-  function nameLines(C, fs) { return C.portrait ? [["TITAN", 0], ["RELIQUARY", fs * 1.15]] : [["TITAN  RELIQUARY", fs * 0.3]]; }
-  function textMask(C) {                                          // R = the letters (pressed in), G = the smoothed plate around them
-    var W = C.W, H = C.H, c = K.mk(Math.round(W * 0.5), Math.round(H * 0.5)), g = c.getContext("2d");
-    var fs = Math.min(W * (C.portrait ? 0.11 : 0.07), 84) * 0.5, y0 = c.height * (C.portrait ? 0.16 : 0.15), cy = y0 + (C.portrait ? fs * 0.58 : fs * 0.3);
-    g.fillStyle = "#000"; g.fillRect(0, 0, c.width, c.height);
-    g.save(); g.translate(c.width / 2, cy); g.scale(1.6, 1); var pl = g.createRadialGradient(0, 0, fs * 0.6, 0, 0, fs * 2.6);
-    pl.addColorStop(0, "rgb(0,255,0)"); pl.addColorStop(1, "rgb(0,0,0)"); g.fillStyle = pl; g.fillRect(-c.width, -c.height, c.width * 2, c.height * 2); g.restore();
-    g.globalCompositeOperation = "lighter"; g.font = "500 " + fs + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle";
-    g.shadowColor = "rgb(255,0,0)"; g.shadowBlur = fs * 0.1; g.fillStyle = "rgb(255,0,0)";
-    nameLines(C, fs).forEach(function (l) { g.fillText(l[0], c.width / 2, y0 + l[1]); });
-    C.nameFs = fs * 2; C.nameY = y0 * 2; return c;
+  var VQ = "#version 300 es\nin vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+  var COMMON = "#version 300 es\nprecision highp float;\n" +
+    "float h21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}\n" +
+    "float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h21(i),h21(i+vec2(1,0)),f.x),mix(h21(i+vec2(0,1)),h21(i+1.),f.x),f.y);}\n" +
+    "float psi(vec2 p,float t){return vn(p*vec2(2.2,3.)+vec2(t*.07,0.))*.6+vn(p*6.+vec2(0.,t*.13)+7.)*.25;}\n";
+  var INIT = COMMON + "uint hu(uint x){x^=x>>16;x*=0x7feb352du;x^=x>>15;x*=0x846ca68bu;x^=x>>16;return x;}out vec4 o;void main(){uvec2 c=uvec2(gl_FragCoord.xy);uint k=hu(c.x+hu(c.y*1973u));o=vec4(float(hu(k)&0xffffffu)/16777216.,float(hu(k+1u)&0xffffffu)/16777216.,0.,float(hu(k+2u)&0xffffffu)/16777216.);}";
+  var SIM = COMMON + [
+    "uniform sampler2D S;uniform sampler2D M;uniform float t,dt,asp,rx,rake,carve,settle;out vec4 o;",
+    "void main(){vec4 s=texelFetch(S,ivec2(gl_FragCoord.xy),0);vec2 p=s.xy;float e=.004;",
+    " vec2 q=p*vec2(asp,1.);float a=psi(q+vec2(0.,e),t),b=psi(q-vec2(0.,e),t),c=psi(q+vec2(e,0.),t),d=psi(q-vec2(e,0.),t);",
+    " vec2 v=vec2((a-b),-(c-d))/(2.*e)*.035+vec2(.045,.004*sin(p.y*9.+t));",
+    /* the rake: a curved line sweeping right->left; grains near it are shoved sideways and combed into five tines */
+    " float lx=rx+.06*sin(p.y*5.+1.),dx=p.x-lx;float near=exp(-dx*dx*160.)*rake;v.x-=near*.35;",
+    " float combed=smoothstep(.0,.08,dx)*rake+step(.5,rake)*0.;float ph=p.y*170.+sin(p.x*7.)*3.;v.y-=sin(ph)*combed*.02;",
+    /* carving: push out of the letterforms (down the gradient of the blurred mask) */
+    " float m=texture(M,p).r;vec2 g=vec2(texture(M,p+vec2(.003,0.)).r-texture(M,p-vec2(.003,0.)).r,texture(M,p+vec2(0.,.003)).r-texture(M,p-vec2(0.,.003)).r);",
+    " v-=normalize(g+1e-5)*smoothstep(.05,.5,m)*carve*.9; v*=mix(1.,mix(1.,.04,settle),step(.0,1.));",
+    " p+=v*dt; s.z+=dt; if(p.x>1.)p.x-=1.; if(p.x<0.)p.x+=1.; if(p.y>1.)p.y-=1.; if(p.y<0.)p.y+=1.;",
+    " o=vec4(p,s.z,s.w);}"].join("\n");
+  var RV = "#version 300 es\nprecision highp float;uniform sampler2D S;uniform int N;uniform float ps;out float w;out float lum;" +
+    "void main(){ivec2 c=ivec2(gl_VertexID%N,gl_VertexID/N);vec4 s=texelFetch(S,c,0);gl_Position=vec4(s.xy*2.-1.,0.,1.);gl_PointSize=ps;w=s.w;lum=.75+.25*fract(s.w*7.3);}";
+  var RF = "#version 300 es\nprecision highp float;in float w;in float lum;uniform float al;out vec4 o;void main(){vec3 c=mix(vec3(.82,.78,.68),vec3(.95,.92,.84),w)*lum;o=vec4(c*al,al);}";
+  function mask(W, H) {
+    var c = K.mk(W, H), g = c.getContext("2d"), fs = Math.min(W * 0.15, 96); g.fillStyle = "#000"; g.fillRect(0, 0, W, H);
+    g.font = "600 " + fs + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle"; g.fillStyle = "#fff";
+    g.shadowColor = "#fff"; g.shadowBlur = fs * 0.06; g.shadowOffsetX = 10000; g.fillText("TITAN", W / 2 - 10000, H * 0.44); g.fillText("RELIQUARY", W / 2 - 10000, H * 0.44 + fs * 1.05);
+    g.shadowBlur = 0; g.shadowOffsetX = 0; g.globalAlpha = 0.7; g.fillText("TITAN", W / 2, H * 0.44); g.fillText("RELIQUARY", W / 2, H * 0.44 + fs * 1.05); return { c: c, fs: fs };
   }
-  function seal(g, x, y, s, a) {
-    g.save(); g.globalAlpha = a; g.translate(x, y); g.rotate(-0.05);
-    g.fillStyle = "#b8321f"; g.beginPath(); g.rect(-s / 2, -s / 2, s, s); g.fill();
-    g.globalCompositeOperation = "destination-out"; g.font = "700 " + s * 0.36 + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle";
-    g.fillText("T", -s * 0.18, -s * 0.16); g.fillText("R", s * 0.18, s * 0.18); g.lineWidth = s * 0.05; g.strokeStyle = "#000"; g.strokeRect(-s * 0.4, -s * 0.4, s * 0.8, s * 0.8);
-    g.restore();
+  function setup(C) {
+    if (C.lite) return null;
+    var cv = document.createElement("canvas"); cv.className = "ts-mo ts-mogl"; cv.setAttribute("aria-hidden", "true");
+    var x = null; try { x = cv.getContext("webgl2", { alpha: false, antialias: false, depth: false, stencil: false, powerPreference: "high-performance" }); } catch (e) { x = null; }
+    if (!x || !x.getExtension("EXT_color_buffer_float")) return null;
+    function prog(vs, fs) { function sh(ty, src) { var s = x.createShader(ty); x.shaderSource(s, src); x.compileShader(s); if (!x.getShaderParameter(s, x.COMPILE_STATUS)) { if (window.console) console.warn("zen", x.getShaderInfoLog(s)); return null; } return s; }
+      var a = sh(x.VERTEX_SHADER, vs), b = sh(x.FRAGMENT_SHADER, fs); if (!a || !b) return null; var p = x.createProgram(); x.attachShader(p, a); x.attachShader(p, b); x.bindAttribLocation(p, 0, "p"); x.linkProgram(p); return x.getProgramParameter(p, x.LINK_STATUS) ? p : null; }
+    var Pi = prog(VQ, INIT), Ps = prog(VQ, SIM), Pr = prog(RV, RF); if (!Pi || !Ps || !Pr) return null;
+    var big = !C.small && Math.max(C.W, C.H) > 900, N = big ? 1024 : 512;
+    var b = x.createBuffer(); x.bindBuffer(x.ARRAY_BUFFER, b); x.bufferData(x.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), x.STATIC_DRAW); x.enableVertexAttribArray(0); x.vertexAttribPointer(0, 2, x.FLOAT, false, 0, 0);
+    function tex(w, h, fl) { var t = x.createTexture(); x.bindTexture(x.TEXTURE_2D, t); x.texParameteri(x.TEXTURE_2D, x.TEXTURE_MIN_FILTER, fl ? x.LINEAR : x.NEAREST); x.texParameteri(x.TEXTURE_2D, x.TEXTURE_MAG_FILTER, fl ? x.LINEAR : x.NEAREST);
+      x.texParameteri(x.TEXTURE_2D, x.TEXTURE_WRAP_S, x.CLAMP_TO_EDGE); x.texParameteri(x.TEXTURE_2D, x.TEXTURE_WRAP_T, x.CLAMP_TO_EDGE); return t; }
+    var T = [], F = []; for (var i = 0; i < 2; i++) { T.push(tex()); x.texImage2D(x.TEXTURE_2D, 0, x.RGBA32F, N, N, 0, x.RGBA, x.FLOAT, null); var f = x.createFramebuffer(); x.bindFramebuffer(x.FRAMEBUFFER, f); x.framebufferTexture2D(x.FRAMEBUFFER, x.COLOR_ATTACHMENT0, x.TEXTURE_2D, T[i], 0);
+      if (x.checkFramebufferStatus(x.FRAMEBUFFER) !== x.FRAMEBUFFER_COMPLETE) return null; F.push(f); }
+    x.bindFramebuffer(x.FRAMEBUFFER, null);
+    var mk = mask(Math.round(C.W * 0.5), Math.round(C.H * 0.5)); C.fs = mk.fs * 2; var Mt = tex(0, 0, true); x.pixelStorei(x.UNPACK_FLIP_Y_WEBGL, true); x.texImage2D(x.TEXTURE_2D, 0, x.RGBA, x.RGBA, x.UNSIGNED_BYTE, mk.c);
+    var U = {}; ["S", "M", "t", "dt", "asp", "rx", "rake", "carve", "settle"].forEach(function (n) { U[n] = x.getUniformLocation(Ps, n); });
+    var Ur = { S: x.getUniformLocation(Pr, "S"), N: x.getUniformLocation(Pr, "N"), ps: x.getUniformLocation(Pr, "ps"), al: x.getUniformLocation(Pr, "al") };
+    var L = C._gl = { cv: cv, x: x, N: N, T: T, F: F, cur: 0, simT: -1, Pi: Pi, Ps: Ps, Pr: Pr, U: U, Ur: Ur, Mt: Mt };
+    cv.addEventListener("webglcontextlost", function (e) { e.preventDefault(); C._glDead = true; cv.style.display = "none"; });
+    var d = Math.min(window.devicePixelRatio || 1, 2) * (big ? 0.8 : 0.7); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
+    C.root.insertBefore(cv, C.cv); return L;
+  }
+  function P(t) { return { rx: K.lerp(1.15, -0.15, K.eio(K.seg(t, 0.7, 2.0))), rake: K.seg(t, 0.7, 0.8) * (1 - K.seg(t, 1.9, 2.0)), carve: K.eio(K.seg(t, 1.9, 2.8)), settle: K.eio(K.seg(t, 2.6, 3.6)) }; }
+  function gpu(C, t) {
+    var L = C._gl, x = L.x; if (C._glDead) return false; var dt = 1 / 60;
+    if (L.simT < 0 || t < L.simT - 1e-4) { x.useProgram(L.Pi); x.bindFramebuffer(x.FRAMEBUFFER, L.F[0]); x.viewport(0, 0, L.N, L.N); x.drawArrays(x.TRIANGLES, 0, 3); L.cur = 0; L.simT = 0; }
+    x.useProgram(L.Ps); x.uniform1i(L.U.S, 0); x.uniform1i(L.U.M, 1); x.uniform1f(L.U.dt, dt); x.uniform1f(L.U.asp, C.W / C.H); x.activeTexture(x.TEXTURE1); x.bindTexture(x.TEXTURE_2D, L.Mt); x.activeTexture(x.TEXTURE0);
+    var n = 0; while (L.simT + dt <= t + 1e-6 && n++ < 400) { var p = P(L.simT); x.uniform1f(L.U.t, L.simT); x.uniform1f(L.U.rx, p.rx); x.uniform1f(L.U.rake, p.rake); x.uniform1f(L.U.carve, p.carve); x.uniform1f(L.U.settle, p.settle);
+      x.bindTexture(x.TEXTURE_2D, L.T[L.cur]); x.bindFramebuffer(x.FRAMEBUFFER, L.F[1 - L.cur]); x.viewport(0, 0, L.N, L.N); x.drawArrays(x.TRIANGLES, 0, 3); L.cur = 1 - L.cur; L.simT += dt; }
+    x.bindFramebuffer(x.FRAMEBUFFER, null); x.viewport(0, 0, L.cv.width, L.cv.height); x.clearColor(0.06, 0.055, 0.05, 1); x.clear(x.COLOR_BUFFER_BIT);
+    x.useProgram(L.Pr); x.bindTexture(x.TEXTURE_2D, L.T[L.cur]); x.uniform1i(L.Ur.S, 0); x.uniform1i(L.Ur.N, L.N);
+    var density = (L.N * L.N) / (L.cv.width * L.cv.height); x.uniform1f(L.Ur.ps, density < 0.6 ? 1.6 : 1.0); x.uniform1f(L.Ur.al, Math.min(0.5, 0.2 / Math.max(0.3, density)));
+    x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE); x.drawArrays(x.POINTS, 0, L.N * L.N); x.disable(x.BLEND); return true;
+  }
+  function cpu(C, t) {                                   // 2D fallback: a few thousand grains on the same idea, analytic in t
+    var g = C.g, W = C.W, H = C.H, p = P(t), i;
+    g.fillStyle = "#1a1714"; g.fillRect(0, 0, W, H); g.fillStyle = "rgba(225,215,190,.55)";
+    for (i = 0; i < (C.lite ? 2500 : 5000); i++) { var x0 = K.hash(i), y0 = K.hash(i + 0.5), x = (x0 + t * 0.045 * (1 - 0.9 * p.settle) + 0.02 * Math.sin(y0 * 12 + t)) % 1, y = y0 + 0.01 * Math.sin(x0 * 20 + t * 2);
+      var dx = x - (p.rx + 0.06 * Math.sin(y * 5 + 1)); if (p.rake && Math.abs(dx) < 0.03) x += Math.sign(dx) * 0.03; g.fillRect(x * W, y * H, 1.3, 1.3); }
+    if (p.carve > 0) { var fs = Math.min(W * 0.15, 96); g.save(); g.globalAlpha = p.carve; g.font = "600 " + fs + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle"; g.lineWidth = 3; g.strokeStyle = "rgba(240,230,205,.8)"; g.fillStyle = "#0d0b0a";
+      ["TITAN", "RELIQUARY"].forEach(function (s, k) { g.strokeText(s, W / 2, H * 0.44 + k * fs * 1.05); g.fillText(s, W / 2, H * 0.44 + k * fs * 1.05); }); g.restore(); }
   }
   I.reg("zen", {
-    dur: 4.2, still: 3.9,
-    init: function (C) {
-      C.L = I.gl(C, FRAG); C.mask = textMask(C);
-      if (C.L) C.L.tex(C.mask);
-    },
+    dur: 4.2, still: 4.0,
+    init: function (C) { C.L = setup(C); },
     draw: function (C, t) {
-      var g = C.g, W = C.W, H = C.H, seg = K.seg, eo3 = K.eo3;
-      var prog = K.eio(seg(t, 0.25, 2.35)) * 1.08, cam = K.eio(seg(t, 0.2, 3.2)), press = eo3(seg(t, 2.55, 3.25)), lines = eo3(seg(t, 0.9, 2.6));
-      var drops = DROP.map(function (d) { return t < d ? 0 : seg(t, d, d + 1.3); }), light = K.sm(seg(t, 0, 0.6)) * (1 - 0.0 * t);
+      var g = C.g, W = C.W, H = C.H, seg = K.seg;
       g.clearRect(0, 0, W, H);
-      if (C.L && C.L.draw(t, [prog, cam, press, lines], [drops[0], drops[1], drops[2], light])) { /* sand drawn on the GL layer */ }
-      else {                                                       // 2D: the same composition as strokes
-        g.fillStyle = "#3a3d40"; g.fillRect(0, 0, W, H); g.globalAlpha = light;
-        g.strokeStyle = "rgba(220,228,235,.35)"; g.lineWidth = 1.4;
-        for (var k = -2; k <= 2; k++) { g.beginPath(); for (var x = 0; x <= prog * W; x += 6) { var u = x / W, y = (0.5 + 0.17 * Math.sin(u * 5.2 + 0.6) + 0.05 * Math.sin(u * 13)) * H + k * 9; if (x === 0) g.moveTo(x, y); else g.lineTo(x, y); } g.stroke(); }
-        STONES.forEach(function (s, i) { var d = drops[i]; if (!d) return; var r = s[2] * Math.min(W, H);
-          for (var j = 1; j < 5; j++) { var rr = r * (1 + j * 0.45); if (rr > r * 3.2 * d) break; g.beginPath(); g.arc(s[0] * W, s[1] * H, rr, 0, K.PI2); g.stroke(); }
-          g.fillStyle = "#1d2023"; g.beginPath(); g.arc(s[0] * W, s[1] * H, r, 0, K.PI2); g.fill(); });
-        if (press > 0) { g.globalAlpha = press * 0.8; g.fillStyle = "#16181a"; g.font = "500 " + C.nameFs + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle";
-          nameLines(C, C.nameFs).forEach(function (l) { g.fillText(l[0], W / 2, C.nameY + l[1]); }); }
-        g.globalAlpha = 1;
-      }
-      // the seal, stamped: a quick press (overshoot) and the ink settles
-      var st = seg(t, 3.15, 3.45);
-      if (st > 0) { var s = Math.min(W, H) * 0.085, sc = 1 + 0.6 * (1 - K.eob(st, 2.2)); seal(g, W - s * 1.1, H - s * 1.3 - (C.portrait ? H * 0.05 : 0), s * sc, Math.min(1, st * 3) * 0.92); }
-      var cap = seg(t, 3.3, 3.8);
-      if (cap > 0) { g.globalAlpha = cap * 0.75; g.fillStyle = "#e9eef2"; g.font = "400 " + Math.max(11, Math.min(W, H) * 0.028) + "px " + K.SERIF; g.textAlign = "left";
-        g.fillText("every coin, a stone in the garden", Math.min(W, H) * 0.06, H - Math.min(W, H) * 0.08 - (C.portrait ? H * 0.05 : 0)); g.globalAlpha = 1; }
+      if (!(C.L && gpu(C, t))) cpu(C, t);
+      // moonlight + vignette over the sand
+      var v = g.createRadialGradient(W * 0.3, H * 0.2, 0, W * 0.5, H * 0.5, Math.max(W, H) * 0.8); v.addColorStop(0, "rgba(160,180,220,.10)"); v.addColorStop(0.6, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(0,0,0,.55)"); g.fillStyle = v; g.fillRect(0, 0, W, H);
+      // the rake head, riding the sweep
+      var p = P(t); if (p.rake > 0) { var rx = p.rx * W; g.save(); g.globalAlpha = p.rake; g.fillStyle = "#3a2a1c"; g.fillRect(rx - 6, H * 0.18, 12, H * 0.64); g.fillStyle = "rgba(255,230,190,.2)"; g.fillRect(rx - 6, H * 0.18, 2, H * 0.64); g.fillStyle = "#2a1e14"; g.fillRect(rx + 6, H * 0.49, W * 0.6, 6); g.restore(); }
+      // the seal
+      var sl = K.eob(seg(t, 3.3, 3.55), 2); if (sl > 0) { var fs = C.fs || Math.min(W * 0.15, 96), sx = W / 2 + fs * 2.3 > W - 30 ? W - 48 : W / 2 + fs * 2.3, sy = H * 0.44 + fs * 1.9, sz = 34 * (2 - sl);
+        g.save(); g.globalAlpha = Math.min(1, sl); g.translate(W * 0.78, sy); g.rotate(0.05); g.fillStyle = "#c8322a"; g.fillRect(-sz / 2, -sz / 2, sz, sz); g.fillStyle = "#f6e6d0"; g.font = "700 " + sz * 0.34 + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("\u5bf6", 0, -sz * 0.15); g.fillText("\u7bb1", 0, sz * 0.22); g.restore(); }
     },
     sound: function (C) {
       var A = I.audio(C); if (!A) return;
-      A.noise(0.25, 2.1, { type: "bandpass", f: 900, to: 2400, q: 0.8, shape: [[0.05, 0.05], [0.6, 0.12], [1.2, 0.16], [1.8, 0.1], [2.1, 0.0001]] });   // the rake's scrape: loudest at full speed
-      A.noise(0.25, 2.1, { type: "highpass", f: 4500, q: 0.5, shape: [[0.3, 0.02], [1.2, 0.035], [2.1, 0.0001]] });
-      DROP.forEach(function (d, i) { A.tone(d + 0.12, 95 - i * 12, 0.35, { v: 0.32, to: 55, glide: 0.2 }); A.noise(d + 0.12, 0.08, { type: "lowpass", f: 700, v: 0.2 }); });
-      A.bell(3.17, 196, 3.2, 0.14);                                // the bowl
-      A.tone(3.17, 197.5, 3.0, { v: 0.05 });                       // its slow beat
+      A.noise(0, 3.6, { type: "bandpass", f: 5200, q: 0.7, shape: [[0.4, 0.05], [2.0, 0.06], [3.3, 0.012], [3.6, 0.0001]] });   // the sand's hiss, fading as it settles
+      A.noise(0.7, 1.3, { type: "bandpass", f: 1400, to: 900, q: 3, shape: [[0.15, 0.1], [1.1, 0.08], [1.3, 0.0001]] });            // the rake
+      A.tone(0.7, 180, 0.15, { type: "triangle", v: 0.15, to: 120 });                                                                 // wood knock as it bites
+      A.noise(1.9, 0.9, { type: "lowpass", f: 700, to: 300, v: 0.05 });                                                               // the carve
+      A.tone(3.32, 140, 0.2, { type: "triangle", v: 0.18, to: 90 });                                                                  // seal
+      A.bell(3.35, 196, 3.0, 0.08, [[1, 1], [2.71, 0.45], [5.15, 0.2], [8.2, 0.08]]); A.bell(3.36, 196 * 1.007, 2.5, 0.04, [[1, 1], [2.71, 0.3]]);   // singing bowl (beating)
     }
   });
 })();
