@@ -1,6 +1,6 @@
 {
  "schema": "music/1",
- "made": "2026-10-09T15:28:54Z",
+ "made": "2026-10-21T17:23:05Z",
  "note": "Recorded classical music (tools/music/fetch_classical.py). Every recording is Public Domain, CC0 or CC BY(-SA); credits in CREDITS.md and in the app's Scene Studio.",
  "tracks": [
   {
@@ -300,6 +300,188 @@
    "duration": 132.3,
    "moods": [
     "orchestra"
+   ]
+  },
+  {
+   "id": "dynasty-guqin",
+   "title": "Guqin (traditional)",
+   "composer": "Traditional (China)",
+   "performer": "Charlie Huang (guqin)",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AGuqin-Yangguan_Sandie.ogg",
+   "file": "dynasty-guqin.m4a",
+   "duration": 350.1,
+   "moods": [
+    "dynasty"
+   ]
+  },
+  {
+   "id": "samadhi-sitar",
+   "title": "Raga on sitar",
+   "composer": "Traditional (India)",
+   "performer": "Ashok Ayengar (sitar), live in Bangalore, 2015",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3ASitar_and_Tabla_rendition_-_Freedom_Jam%2C_August_2015.oga",
+   "file": "samadhi-sitar.m4a",
+   "duration": 420,
+   "moods": [
+    "samadhi"
+   ]
+  },
+  {
+   "id": "silkroad-santur",
+   "title": "Santur (Persian classical)",
+   "composer": "Traditional (Persia)",
+   "performer": "santur and orchestra (Iran)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3APayvar-Dehlavi-Concertino_for_Santur.ogg",
+   "file": "silkroad-santur.m4a",
+   "duration": 114.2,
+   "moods": [
+    "silkroad"
+   ]
+  },
+  {
+   "id": "cursedwing-toccata",
+   "title": "Toccata and Fugue in D minor, BWV 565",
+   "composer": "Johann Sebastian Bach",
+   "performer": "Ashtar Moïra (Tamburini organ)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AToccata_et_Fugue_BWV565.ogg",
+   "file": "cursedwing-toccata.m4a",
+   "duration": 420,
+   "moods": [
+    "cursedwing"
+   ]
+  },
+  {
+   "id": "abyss-engloutie",
+   "title": "La cathédrale engloutie",
+   "composer": "Claude Debussy",
+   "performer": "Ivan Ilić (piano)",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3ALa_Cath%C3%A9drale_engloutie_-_Claude_Debussy_-_performed_by_Ivan_Ilic.ogg",
+   "file": "abyss-engloutie.m4a",
+   "duration": 324.9,
+   "moods": [
+    "abyss"
+   ]
+  },
+  {
+   "id": "kaleido-reflets",
+   "title": "Reflets dans l'eau",
+   "composer": "Claude Debussy",
+   "performer": "Giorgi Latsabidze (piano), 2017",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3ADebussy_%2C_Reflets_dans_l%27eau.ogg",
+   "file": "kaleido-reflets.m4a",
+   "duration": 332.9,
+   "moods": [
+    "kaleido"
+   ]
+  },
+  {
+   "id": "kaleido-jeux",
+   "title": "Jeux d'eau",
+   "composer": "Maurice Ravel",
+   "performer": "Anna Sutyagina (piano)",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3ARavel%27s_Jeux_d%27eau%2C_M._30_-_Anna_Sutyagina.ogg",
+   "file": "kaleido-jeux.m4a",
+   "duration": 362.5,
+   "moods": [
+    "kaleido"
+   ]
+  },
+  {
+   "id": "construct-planets",
+   "title": "The Planets",
+   "composer": "Gustav Holst",
+   "performer": "\"The President's Own\" United States Marine Band",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AHOLST_%22The_Planets%2C_Op._32_5._Saturn%2C_the_Bringer_of_Old_Age%22_-_%22The_President%27s_Own%22_U.S._Marine_Band.opus",
+   "file": "construct-planets.m4a",
+   "duration": 420,
+   "moods": [
+    "construct"
+   ]
+  },
+  {
+   "id": "xeno-neptune",
+   "title": "The Planets: Neptune, the Mystic",
+   "composer": "Gustav Holst",
+   "performer": "\"The President's Own\" United States Marine Band",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AHOLST_%22The_Planets%2C_Op._32_7._Neptune%2C_the_Mystic%22_-_%22The_President%27s_Own%22_U.S._Marine_Band.opus",
+   "file": "xeno-neptune.m4a",
+   "duration": 420,
+   "moods": [
+    "xeno"
+   ]
+  },
+  {
+   "id": "pulp-rhapsody",
+   "title": "Rhapsody in Blue",
+   "composer": "George Gershwin",
+   "performer": "Paul Whiteman and his Concert Orchestra, George Gershwin (piano), 1924",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3APaul_Whiteman_Concert_Orchestra_-_Rhapsody_in_Blue_Part_02.mp3",
+   "file": "pulp-rhapsody.m4a",
+   "duration": 272.9,
+   "moods": [
+    "pulp"
+   ]
+  },
+  {
+   "id": "pulp-rhapsody-1",
+   "title": "Rhapsody in Blue (part 1, 1924, with Gershwin at the piano)",
+   "composer": "George Gershwin",
+   "performer": "Paul Whiteman and his Concert Orchestra, George Gershwin (piano), 1924",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3APaul_Whiteman_Concert_Orchestra_-_Rhapsody_in_Blue_Part_01.mp3",
+   "file": "pulp-rhapsody-1.m4a",
+   "duration": 261.1,
+   "moods": [
+    "pulp"
+   ]
+  },
+  {
+   "id": "contour-moldau",
+   "title": "Má vlast: Vltava (The Moldau)",
+   "composer": "Bedřich Smetana",
+   "performer": "Musopen Symphony",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3ASmetana_-_M%C3%A1_Vlast_-_Vltava_%28Musopen_Symphony%29.flac",
+   "file": "contour-moldau.m4a",
+   "duration": 420,
+   "moods": [
+    "contour"
+   ]
+  },
+  {
+   "id": "sketch-k545",
+   "title": "Piano Sonata No. 16 in C major, K. 545",
+   "composer": "Wolfgang Amadeus Mozart",
+   "performer": "Musopen (piano)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AWolfgang_Amadeus_Mozart_-_sonata_no._16_in_c_major%2C_k.545_%27sonata_facile%27_-_i._allegro.ogg",
+   "file": "sketch-k545.m4a",
+   "duration": 133.9,
+   "moods": [
+    "sketch"
+   ]
+  },
+  {
+   "id": "papercut-pastoral",
+   "title": "Symphony No. 6 'Pastoral'",
+   "composer": "Ludwig van Beethoven",
+   "performer": "Musopen (orchestra)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3ALudwig_van_Beethoven_-_symphony_no._6_in_f_major_%27pastoral%27%2C_op._68_-_i._allegro_non_troppo.ogg",
+   "file": "papercut-pastoral.m4a",
+   "duration": 420,
+   "moods": [
+    "papercut"
    ]
   }
  ]

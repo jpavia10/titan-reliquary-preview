@@ -693,7 +693,8 @@
    "modern": true,
    "reject": [
     "File:Shikanotoone.ogg",
-    "File:Shikanotoone new.ogg"
+    "File:Shikanotoone new.ogg",
+    "File:伊丹の秋洗い唄.wav"
    ]
   },
   {
@@ -1038,7 +1039,10 @@
    "moods": [
     "papercut"
    ],
-   "modern": true
+   "modern": true,
+   "reject": [
+    "File:Edvard-Grieg-Lyric-Pieces-Op-65 -No-6-Wedding-Day-at-Troldhaugen.ogg"
+   ]
   },
   {
    "id": "xeno-neptune",
@@ -1074,6 +1078,333 @@
    "files": [
     "File:Paul Whiteman Concert Orchestra - Rhapsody in Blue Part 01.mp3"
    ]
+  },
+  {
+   "id": "afterhours-pavane",
+   "title": "Pavane pour une infante défunte",
+   "composer": "Maurice Ravel",
+   "query": "Ravel Pavane pour une infante defunte",
+   "must": [
+    "pavane"
+   ],
+   "prefer": [
+    "piano",
+    "orchestra"
+   ],
+   "moods": [
+    "afterhours"
+   ],
+   "modern": true
+  },
+  {
+   "id": "conservator-wtc",
+   "title": "The Well-Tempered Clavier (Book 1)",
+   "composer": "Johann Sebastian Bach",
+   "query": "Kimiko Ishizaka Well-Tempered Clavier",
+   "must": [
+    "well-tempered",
+    "wohltemperierte",
+    "wtc"
+   ],
+   "prefer": [
+    "ishizaka",
+    "prelude",
+    "fugue"
+   ],
+   "moods": [
+    "conservator"
+   ],
+   "any": true
+  },
+  {
+   "id": "odyssey-scheherazade",
+   "title": "Scheherazade: The Sea and Sinbad's Ship",
+   "composer": "Nikolai Rimsky-Korsakov",
+   "query": "Rimsky-Korsakov Scheherazade",
+   "must": [
+    "scheherazade",
+    "sheherazade",
+    "schéhérazade"
+   ],
+   "prefer": [
+    "sea",
+    "sinbad",
+    "musopen"
+   ],
+   "moods": [
+    "odyssey"
+   ],
+   "any": true,
+   "modern": true
+  },
+  {
+   "id": "odyssey-hebrides",
+   "title": "The Hebrides (Fingal's Cave)",
+   "composer": "Felix Mendelssohn",
+   "query": "Mendelssohn Hebrides Overture Fingal's Cave",
+   "must": [
+    "hebrides",
+    "fingal"
+   ],
+   "prefer": [
+    "overture"
+   ],
+   "moods": [
+    "odyssey"
+   ],
+   "any": true,
+   "modern": true
+  },
+  {
+   "id": "notepad-inventions",
+   "title": "Two-Part Inventions",
+   "composer": "Johann Sebastian Bach",
+   "query": "Bach Invention BWV 772",
+   "must": [
+    "invention"
+   ],
+   "prefer": [
+    "772",
+    "two-part",
+    "piano"
+   ],
+   "moods": [
+    "notepad"
+   ]
+  },
+  {
+   "id": "solaris-venus",
+   "title": "The Planets: Venus, the Bringer of Peace",
+   "composer": "Gustav Holst",
+   "query": "Holst Venus the Bringer of Peace",
+   "must": [
+    "venus"
+   ],
+   "prefer": [
+    "band",
+    "orchestra"
+   ],
+   "moods": [
+    "solaris"
+   ]
+  },
+  {
+   "id": "solaris-jupiter",
+   "title": "The Planets: Jupiter, the Bringer of Jollity",
+   "composer": "Gustav Holst",
+   "query": "Holst Jupiter the Bringer of Jollity",
+   "must": [
+    "jupiter"
+   ],
+   "prefer": [
+    "band",
+    "orchestra"
+   ],
+   "moods": [
+    "solaris"
+   ]
+  },
+  {
+   "id": "alchemist-sorcerer",
+   "title": "The Sorcerer's Apprentice",
+   "composer": "Paul Dukas",
+   "query": "Dukas Sorcerer's Apprentice",
+   "must": [
+    "sorcerer",
+    "apprenti"
+   ],
+   "prefer": [
+    "orchestra",
+    "band"
+   ],
+   "moods": [
+    "alchemist"
+   ],
+   "any": true,
+   "modern": true
+  },
+  {
+   "id": "valhalla-valkyries",
+   "title": "Ride of the Valkyries",
+   "composer": "Richard Wagner",
+   "query": "Wagner Ride of the Valkyries",
+   "must": [
+    "valkyr",
+    "walkür",
+    "walkur"
+   ],
+   "prefer": [
+    "band",
+    "orchestra"
+   ],
+   "moods": [
+    "valhalla"
+   ],
+   "any": true,
+   "modern": true
+  },
+  {
+   "id": "valhalla-mountainking",
+   "title": "In the Hall of the Mountain King",
+   "composer": "Edvard Grieg",
+   "query": "Grieg In the Hall of the Mountain King",
+   "must": [
+    "mountain king",
+    "dovregubben"
+   ],
+   "prefer": [
+    "peer gynt",
+    "orchestra"
+   ],
+   "moods": [
+    "valhalla"
+   ],
+   "any": true,
+   "modern": true
+  },
+  {
+   "id": "drafting-brandenburg",
+   "title": "Brandenburg Concerto No. 3",
+   "composer": "Johann Sebastian Bach",
+   "query": "Bach Brandenburg Concerto 3",
+   "must": [
+    "brandenburg"
+   ],
+   "prefer": [
+    "no. 3",
+    "1048",
+    "allegro"
+   ],
+   "moods": [
+    "drafting"
+   ]
+  },
+  {
+   "id": "bauhaus-tombeau",
+   "title": "Le Tombeau de Couperin",
+   "composer": "Maurice Ravel",
+   "query": "Ravel Le Tombeau de Couperin",
+   "must": [
+    "tombeau"
+   ],
+   "prefer": [
+    "prelude",
+    "piano",
+    "orchestra"
+   ],
+   "moods": [
+    "bauhaus"
+   ],
+   "modern": true
+  },
+  {
+   "id": "terminal-slavonic",
+   "title": "Slavonic Dances",
+   "composer": "Antonin Dvorak",
+   "query": "Dvorak Slavonic Dance",
+   "must": [
+    "slavonic",
+    "slavische",
+    "slovansk"
+   ],
+   "prefer": [
+    "orchestra",
+    "musopen"
+   ],
+   "moods": [
+    "terminal"
+   ],
+   "any": true,
+   "modern": true
+  },
+  {
+   "id": "kintsugi-koto",
+   "title": "Koto (traditional)",
+   "composer": "Traditional (Japan)",
+   "query": "koto Rokudan no shirabe",
+   "must": [
+    "rokudan",
+    "koto"
+   ],
+   "prefer": [
+    "rokudan",
+    "shirabe"
+   ],
+   "moods": [
+    "kintsugi"
+   ],
+   "any": true,
+   "traditional": true,
+   "modern": true
+  },
+  {
+   "id": "marbled-impromptu",
+   "title": "Impromptus, D. 899",
+   "composer": "Franz Schubert",
+   "query": "Schubert Impromptu D 899",
+   "must": [
+    "impromptu"
+   ],
+   "prefer": [
+    "899",
+    "op. 90",
+    "piano"
+   ],
+   "moods": [
+    "marbled"
+   ]
+  },
+  {
+   "id": "cathedral-miserere",
+   "title": "Miserere mei, Deus",
+   "composer": "Gregorio Allegri",
+   "query": "Allegri Miserere",
+   "must": [
+    "miserere"
+   ],
+   "prefer": [
+    "choir",
+    "allegri"
+   ],
+   "moods": [
+    "cathedral"
+   ],
+   "modern": true
+  },
+  {
+   "id": "cathedral-widor",
+   "title": "Organ Symphony No. 5: Toccata",
+   "composer": "Charles-Marie Widor",
+   "query": "Widor Toccata organ",
+   "must": [
+    "widor"
+   ],
+   "prefer": [
+    "toccata",
+    "organ"
+   ],
+   "moods": [
+    "cathedral"
+   ]
+  },
+  {
+   "id": "banknote-sousa",
+   "title": "Marches (The Liberty Bell, The Washington Post)",
+   "composer": "John Philip Sousa",
+   "query": "Sousa march United States Marine Band",
+   "must": [
+    "sousa"
+   ],
+   "prefer": [
+    "marine band",
+    "liberty bell",
+    "washington post",
+    "semper fidelis"
+   ],
+   "moods": [
+    "banknote"
+   ],
+   "modern": true
   }
  ]
 }

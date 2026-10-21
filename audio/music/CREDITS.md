@@ -28,3 +28,22 @@ Every recording below comes from Wikimedia Commons under the license shown (the 
 | Largo ('Ombra mai fu', Serse) | George Frideric Handel | Lea Desandre (mezzo-soprano) and Les Arts Florissants | CC BY 3.0 | https://commons.wikimedia.org/wiki/File%3ALes_Arts_Florissants_-_Handel%27s_Serse%2C_HWV_40_-_Ombra_mai_fu.ogg |
 | Eine kleine Nachtmusik: II. Romanze | Wolfgang Amadeus Mozart | Musopen (strings) | Public domain | https://commons.wikimedia.org/wiki/File%3AMozart_-_Serenade_No._13_for_strings_in_G_major%2C_K._525_-_Romanze.ogg |
 | The Four Seasons, Winter: II. Largo | Antonio Vivaldi | John Harrison (violin), Wiedemann Recital | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File%3A11_-_Vivaldi_Winter_mvt_2_Largo_-_John_Harrison_violin.ogg |
+
+## Each theme's own recordings (2026-10-21, reviewed by Claude: real performers, licenses checked)
+
+| Piece | Composer | Performer | License | Source |
+|---|---|---|---|---|
+| Guqin (traditional) | Traditional (China) | Charlie Huang (guqin) | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File%3AGuqin-Yangguan_Sandie.ogg |
+| Raga on sitar | Traditional (India) | Ashok Ayengar (sitar), live in Bangalore, 2015 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File%3ASitar_and_Tabla_rendition_-_Freedom_Jam%2C_August_2015.oga |
+| Santur (Persian classical) | Traditional (Persia) | santur and orchestra (Iran) | Public domain | https://commons.wikimedia.org/wiki/File%3APayvar-Dehlavi-Concertino_for_Santur.ogg |
+| Toccata and Fugue in D minor, BWV 565 | Johann Sebastian Bach | Ashtar Moïra (Tamburini organ) | Public domain | https://commons.wikimedia.org/wiki/File%3AToccata_et_Fugue_BWV565.ogg |
+| La cathédrale engloutie | Claude Debussy | Ivan Ilić (piano) | CC BY 3.0 | https://commons.wikimedia.org/wiki/File%3ALa_Cath%C3%A9drale_engloutie_-_Claude_Debussy_-_performed_by_Ivan_Ilic.ogg |
+| Reflets dans l'eau | Claude Debussy | Giorgi Latsabidze (piano), 2017 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File%3ADebussy_%2C_Reflets_dans_l%27eau.ogg |
+| Jeux d'eau | Maurice Ravel | Anna Sutyagina (piano) | CC BY 3.0 | https://commons.wikimedia.org/wiki/File%3ARavel%27s_Jeux_d%27eau%2C_M._30_-_Anna_Sutyagina.ogg |
+| The Planets | Gustav Holst | "The President's Own" United States Marine Band | Public domain | https://commons.wikimedia.org/wiki/File%3AHOLST_%22The_Planets%2C_Op._32_5._Saturn%2C_the_Bringer_of_Old_Age%22_-_%22The_President%27s_Own%22_U.S._Marine_Band.opus |
+| The Planets: Neptune, the Mystic | Gustav Holst | "The President's Own" United States Marine Band | Public domain | https://commons.wikimedia.org/wiki/File%3AHOLST_%22The_Planets%2C_Op._32_7._Neptune%2C_the_Mystic%22_-_%22The_President%27s_Own%22_U.S._Marine_Band.opus |
+| Rhapsody in Blue | George Gershwin | Paul Whiteman and his Concert Orchestra, George Gershwin (piano), 1924 | Public domain | https://commons.wikimedia.org/wiki/File%3APaul_Whiteman_Concert_Orchestra_-_Rhapsody_in_Blue_Part_02.mp3 |
+| Rhapsody in Blue (part 1, 1924, with Gershwin at the piano) | George Gershwin | Paul Whiteman and his Concert Orchestra, George Gershwin (piano), 1924 | Public domain | https://commons.wikimedia.org/wiki/File%3APaul_Whiteman_Concert_Orchestra_-_Rhapsody_in_Blue_Part_01.mp3 |
+| Má vlast: Vltava (The Moldau) | Bedřich Smetana | Musopen Symphony | Public domain | https://commons.wikimedia.org/wiki/File%3ASmetana_-_M%C3%A1_Vlast_-_Vltava_%28Musopen_Symphony%29.flac |
+| Piano Sonata No. 16 in C major, K. 545 | Wolfgang Amadeus Mozart | Musopen (piano) | Public domain | https://commons.wikimedia.org/wiki/File%3AWolfgang_Amadeus_Mozart_-_sonata_no._16_in_c_major%2C_k.545_%27sonata_facile%27_-_i._allegro.ogg |
+| Symphony No. 6 'Pastoral' | Ludwig van Beethoven | Musopen (orchestra) | Public domain | https://commons.wikimedia.org/wiki/File%3ALudwig_van_Beethoven_-_symphony_no._6_in_f_major_%27pastoral%27%2C_op._68_-_i._allegro_non_troppo.ogg |

@@ -1,10 +1,10 @@
-/* Titan Reliquary service worker · build tr245
+/* Titan Reliquary service worker · build tr246
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback, and after 4 s on a hung connection
    - audio/ambience/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr245";
+const BUILD = "tr246";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
@@ -274,7 +274,7 @@ self.addEventListener("fetch", (e) => {
   const url = new URL(req.url);
   if (url.origin !== location.origin) return; // shard images: browser HTTP cache
   if (url.pathname.includes("/art/splash/")) return;   // splash films: native range requests, never cached by the SW
-  if (url.pathname.includes("/audio/music/") && !url.pathname.endsWith("manifest.json")) return;   // recorded music streams (range requests); offline = generated music
+  if (url.pathname.includes("/audio/music/") && !url.pathname.endsWith("manifest.json")) return;   // recorded music streams (range requests); offline = no music (never generated)
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA, e));
