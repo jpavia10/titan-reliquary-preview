@@ -26,7 +26,7 @@
     " float combed=smoothstep(.0,.08,dx)*rake+step(.5,rake)*0.;float ph=p.y*170.+sin(p.x*7.)*3.;float keep=1.-smoothstep(.02,.2,texture(M,p).r)*carve;v.y-=sin(ph)*combed*.007*keep;",
     /* carving: push out of the letterforms (down the gradient of the blurred mask) */
     " float m=texture(M,p).r;vec2 g=vec2(texture(M,p+vec2(.003,0.)).r-texture(M,p-vec2(.003,0.)).r,texture(M,p+vec2(0.,.003)).r-texture(M,p-vec2(0.,.003)).r);",
-    " v-=normalize(g+1e-5)*smoothstep(.03,.5,m)*carve*1.5; v*=mix(1.,mix(1.,.04,settle),step(.0,1.));",
+    " v-=normalize(g+1e-5)*smoothstep(.32,.5,m)*carve*1.2; v*=mix(1.,mix(1.,.04,settle),step(.0,1.));",
     " p+=v*dt; s.z+=dt; if(p.x>1.)p.x-=1.; if(p.x<0.)p.x+=1.; if(p.y>1.)p.y-=1.; if(p.y<0.)p.y+=1.;",
     " o=vec4(p,s.z,s.w);}"].join("\n");
   var RV = "#version 300 es\nprecision highp float;uniform sampler2D S,M;uniform int N;uniform float ps,carve;out float w;out float lum;out vec3 tint;" +
