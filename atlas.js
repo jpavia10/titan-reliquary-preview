@@ -956,6 +956,12 @@
     }
   }
 
+  // Coin image for the dossier chips: the alpha cutout when one passed its check (TitanCutouts), else the photo
+  function coinPhoto(c) { const ph = (c.photos || []).filter(p => p && p.url); const o = ph.find(p => p.role === "obv") || ph[0]; return o ? o.url : (c.thumb || ""); }
+  function coinImg(c) { const u = coinPhoto(c); return u && window.TitanCutouts ? TitanCutouts.src(u, { thumb: true }) : u; }
+  function isCut(c) { const u = coinPhoto(c); return !!(u && window.TitanCutouts && TitanCutouts.has(u)); }
+  addEventListener("DOMContentLoaded", () => window.TitanCutouts && TitanCutouts.ready());   // cutouts.js loads after this file
+
   // Docked Country Dossier Card (rendered dynamically upon node selection)
   function renderDockedDossier(selC) {
     if (!selC) return "";
@@ -968,7 +974,7 @@
 
     const coinsHtml = previewCoins.map(coin => `
       <div class="atlas-dossier-coin-chip" data-scan="${coin.scan}" title="Click to view specimen dossier" tabindex="0">
-        ${coin.thumb ? `<img src="${coin.thumb}" alt="${coin.denom || ''}" class="atlas-dossier-coin-thumb" loading="lazy" />` : `<span class="atlas-dossier-coin-icon">🪙</span>`}
+        ${coinImg(coin) ? `<img src="${coinImg(coin)}" alt="${coin.denom || ''}" class="atlas-dossier-coin-thumb${isCut(coin) ? ' is-cutout' : ''}" loading="lazy" />` : `<span class="atlas-dossier-coin-icon">🪙</span>`}
         <div class="atlas-dossier-coin-info">
           <span class="atlas-dossier-coin-title">${coin.year || ''} ${coin.denom || coin.label || 'Specimen'}</span>
           <span class="atlas-dossier-coin-sub">${coin.ser || coin.scan} · ${coin.grade || coin.metal || ''}</span>
@@ -1151,11 +1157,11 @@
       <div class="atlas-card card reveal" id="titan-world-atlas-wrap">
         <div class="atlas-header">
           <div>
-            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem">
-              <span class="badge" style="background:var(--gold);color:#08090c;font-weight:700">HISTORICAL CARTOGRAPHY</span>
-              <span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold-soft)">${countries.length} SOVEREIGN NATIONS · ${totalCount} SPECIMENS (DYNAMIC)</span>
+            <div class="atlas-badges" style="display:flex;flex-wrap:wrap;align-items:center;gap:0.4rem 0.5rem;margin-bottom:0.5rem">
+              <span class="badge" style="background:var(--gold);color:#08090c;font-weight:700;white-space:nowrap">HISTORICAL CARTOGRAPHY</span>
+              <span class="badge" style="background:rgba(200,169,74,0.15);color:var(--gold-soft);white-space:nowrap">${countries.length} SOVEREIGN NATIONS · ${totalCount} SPECIMENS (DYNAMIC)</span>
             </div>
-            <h3 style="margin:0;font-size:1.35rem;color:var(--gold-soft)">Interactive World Specimen Atlas &amp; Silver Trade Routes</h3>
+            <h3 class="atlas-title" style="margin:0;font-size:clamp(1.05rem,4.2vw,1.35rem);line-height:1.25;color:var(--gold-soft);overflow-wrap:anywhere">Interactive World Specimen Atlas &amp; Silver Trade Routes</h3>
             <p style="margin:0.25rem 0 0;font-size:0.82rem;color:var(--ink)">
               Geographic provenance and historic trade veins. Tap any sovereign nation to inspect its cataloged pieces and filter the <strong>3D Cover Flow</strong>.
             </p>

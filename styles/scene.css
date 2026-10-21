@@ -197,3 +197,14 @@ html[data-atmo="notepad"] .scene-bar { top: 49px; }
 .ss-set { padding: 4px 0 10px; border-bottom: 1px solid rgba(90, 74, 42, 0.45); }
 .ss-set:last-child { border-bottom: 0; }
 .ss-set .ss-fx { margin: 8px 0 12px; }
+
+/* UI + Graphics buttons (2026-10-20): two-line compact pills that never shrink into each other; the bar scrolls before anything overlaps */
+.scene-bar { overflow-x: auto; scrollbar-width: none; }
+.scene-bar::-webkit-scrollbar { display: none; }
+.sb-ui, .sb-gfx { flex: 0 0 auto; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1px; padding: 0 12px;
+  background: transparent; color: var(--ink); border: 1.5px solid var(--line-strong, rgba(200, 169, 74, 0.5)); }
+.sb-ui .sb-lbl, .sb-gfx .sb-lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
+.sb-ui .sb-sub, .sb-gfx .sb-sub { font-size: 14px; font-weight: 700; max-width: 9em; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 559px) { .scene-bar { gap: 6px; } .sb-search { padding: 0 10px; } .sb-scene { flex: 1 1 auto; min-width: 88px; } }
+/* Atlas dossier: coin cutouts sit on the card with a real shadow instead of a boxed photo */
+.atlas-dossier-coin-thumb.is-cutout { background: transparent !important; border: 0 !important; border-radius: 0 !important; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,.45)); }
