@@ -331,6 +331,96 @@
         k.oneShot(V.in, "clank", { t: t, segs: [[0, 2.6], [3.1, 2.6], [6.2, 2.6], [9.3, 2.6]], gain: .3, rate: k.rr(1.1, 1.6) }); });
       var body = k.L("body", "Storm body", .5); k.noiseBed(body, "brown", { type: "lowpass", f: 90, gain: 1.3, walk: [45, 150], walkMs: 1600, gainWalk: [.5, 1.3] });
     } });
+
+  /* ===== batch 4 ===== */
+  /* modal "struck glass/crystal": inharmonic partials (plate/bar ratios), each with its own decay, so it rings like an object, never a note sequence */
+  function ring(k, dest, t, o) { var c = k.ctx, f = o.f, R = o.ratios || [1, 2.32, 4.25, 6.63, 9.38], g0 = o.gain || .2;
+    R.forEach(function (r, i) { var os = c.createOscillator(), g = c.createGain(), fr = Math.min(18000, f * r * k.rr(.995, 1.005)), d = (o.decay || 2) / (1 + i * .8);
+      os.frequency.value = fr; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(g0 / (1 + i * .6), t + .002); g.gain.exponentialRampToValueAtTime(1e-4, t + d); os.connect(g); g.connect(dest); os.start(t); os.stop(t + d + .05); }); }
+  function shatter(k, L, x, big) { var c = k.ctx, t = c.currentTime + .01, V = k.Voice(L.g, [(x - .5) * 6, .5, -2], { ref: 1.5 });
+    k.S.crackle(V.in, t, { f: 6000, gain: .9 * big, burst: 10 }); k.S.boom(V.in, t, { f: 120, len: .12, gain: .2 * big, bright: 8000 });
+    for (var i = 0; i < 40 * big; i++) { var tt = t + .02 + Math.pow(Math.random(), 1.8) * 1.4, sv = k.Voice(L.g, [(x - .5) * 6 + k.rr(-2, 2), -1.5, -2 + k.rr(-1.5, 1)], { ref: 1 });
+      ring(k, sv.in, tt, { f: k.rr(2500, 7000), decay: k.rr(.08, .4), gain: .06 }); k.S.crackle(sv.in, tt, { f: k.rr(5000, 11000), gain: .12, burst: 1 }); } }
+
+  /* 19. GLASS: a quiet glass gallery; panes creak under stress, tiny settling ticks, occasional distant shatter; touch to shatter glass where you tap */
+  TS.define("glass", { name: "Shattering glass", space: "hall", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx; this._k = k;
+      var room = k.L("room", "Gallery air", .35, { wet: .8 }); k.grains(room, "roomTone", { grain: 3, density: 2, spread: 1, rate: .9 });
+      k.noiseBed(room, "pink", { f: 3000, q: 5, gain: .15, walk: [2000, 5000], walkMs: 3000, gainWalk: [.2, 1] });
+      var stress = k.L("stress", "Panes under stress", .4, { wet: .7 }); k.poisson(stress, function () { return .4; }, function (t) { var V = k.Voice(stress.g, [k.rr(-6, 6), k.rr(0, 3), -k.rr(2, 8)]);
+        ring(k, V.in, t, { f: k.rr(900, 2200), decay: k.rr(1.5, 3.5), gain: .05, ratios: [1, 2.76, 5.4, 8.93] }); for (var i = 0; i < 4; i++) k.S.crackle(V.in, t + i * k.rr(.02, .08), { f: 9000, gain: .05, burst: 1 }); });
+      var ticks = k.L("ticks", "Settling ticks", .3); k.poisson(ticks, function () { return 3; }, function (t) { var V = k.Voice(ticks.g, [k.rr(-5, 5), -1, -k.rr(1, 5)], { ref: 1 }); ring(k, V.in, t, { f: k.rr(4000, 9000), decay: .08, gain: .04 }); setTimeout(function () { V.pan.disconnect(); }, 400); });
+      var far = k.L("far", "Distant shatters", .5, { wet: 1.4 }); this._sh = k.L("touch", "Shatter (tap)", .9);
+      k.poisson(far, function () { return 1 / 25 * k.P.intensity; }, function () { shatter(k, far, Math.random(), .5); });
+    },
+    on: function (d) { if ((d.type === "touch" || d.type === "shatter") && this._sh && !this._sh.dead) shatter(this._k, this._sh, d.x == null ? .5 : d.x, d.power || 1); } });
+
+  /* 20. PLASMA: a containment chamber; mains hum and corona hiss, crawling arcs that buzz and snap, ozone fizz; touch to strike an arc */
+  function arc(k, L, x, big) { var c = k.ctx, t = c.currentTime + .01, V = k.Voice(L.g, [(x - .5) * 6, 1, -2.5], { ref: 1.5 }), d = k.rr(.15, .7) * big;
+    var n = c.createBufferSource(), bp = c.createBiquadFilter(), g = c.createGain(), am = c.createOscillator(), ag = c.createGain(); n.buffer = (nb(k), k.noiseBuf); bp.type = "bandpass"; bp.frequency.value = k.rr(1500, 4000); bp.Q.value = 1.5;
+    am.type = "square"; am.frequency.value = k.rr(90, 240); ag.gain.value = .5; am.connect(ag); ag.connect(g.gain); g.gain.setValueAtTime(.5 * big, t); g.gain.exponentialRampToValueAtTime(1e-3, t + d);
+    n.connect(bp); bp.connect(g); g.connect(V.in); n.start(t, Math.random() * 3); n.stop(t + d + .05); am.start(t); am.stop(t + d + .05);
+    k.S.crackle(V.in, t, { f: 5000, gain: .8 * big, burst: 6 }); k.S.boom(V.in, t, { f: 90, len: .1, gain: .25 * big, bright: 6000 }); k.emit("arc", { x: x, power: big }); }
+  TS.define("plasma", { name: "Plasma chamber", space: "hall", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx; this._k = k;
+      var hum = k.L("hum", "Mains hum", .3); [60, 120, 180, 300].forEach(function (f, i) { var o = c.createOscillator(), g = c.createGain(); o.type = i ? "sine" : "sawtooth"; o.frequency.value = f; g.gain.value = [.15, .25, .1, .05][i]; o.connect(g); g.connect(hum.g); o.start(); hum.nodes.push(o); });
+      var cor = k.L("corona", "Corona hiss", .4); k.noiseBed(cor, "white", { type: "highpass", f: 6000, gain: .3, walk: [5000, 10000], walkMs: 400, gainWalk: [.4, 1.2], walkT: .2 });
+      k.poisson(cor, function () { return 40; }, function (t) { k.S.crackle(cor.g, t, { f: k.rr(6000, 12000), gain: .04, burst: 1 }); });
+      var lab = k.L("lab", "Machinery", .3, { wet: .8 }); k.grains(lab, "labHum", { grain: 3, density: 2, spread: 1 });
+      var arcs = k.L("arcs", "Arcs", .8, { wet: .6 }); this._a = arcs; k.poisson(arcs, function () { return .5 * k.P.intensity; }, function () { arc(k, arcs, Math.random(), k.rr(.4, 1)); });
+    },
+    on: function (d) { if ((d.type === "touch" || d.type === "arc") && this._a && !this._a.dead) arc(this._k, this._a, d.x == null ? .5 : d.x, 1); } });
+
+  /* 21. CRYSTAL: a crystal cave growing; slow mineral ticks as lattices extend, cave drips, deep air, rare ringing of a large crystal struck by a drip */
+  TS.define("crystal", { name: "Crystal cave", space: "cave", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx;
+      var air = k.L("air", "Cave air", .45, { wet: .8 }); k.noiseBed(air, "brown", { type: "lowpass", f: 200, gain: .9, walk: [100, 350], walkMs: 3000, gainWalk: [.5, 1.1] }); k.grains(air, "drips", { grain: 2.4, density: 2, spread: 1, rate: .9 });
+      var grow = k.L("growth", "Crystal growth", .5); k.poisson(grow, function () { return 14 * k.P.intensity; }, function (t) { var V = k.Voice(grow.g, [k.rr(-4, 4), k.rr(-1, 2), -k.rr(1, 5)], { ref: 1 });
+        ring(k, V.in, t, { f: k.rr(5000, 11000), decay: k.rr(.03, .1), gain: .03, ratios: [1, 1.5, 2.9] }); setTimeout(function () { V.pan.disconnect(); }, 300); });
+      var drip = k.L("drips", "Drips", .55, { wet: 1.1 }); k.poisson(drip, function () { return 1.2; }, function (t) { var V = k.Voice(drip.g, [k.rr(-8, 8), 0, -k.rr(2, 12)]); k.S.drop(V.in, t, { f: k.rr(700, 1800), len: k.rr(.08, .2), gain: .3 });
+        if (Math.random() < .15) ring(k, V.in, t + .01, { f: k.rr(700, 1600), decay: k.rr(3, 6), gain: .04, ratios: [1, 2.76, 5.4, 8.93, 13.3] }); });
+      var deep = k.L("deep", "Deep earth", .3); k.noiseBed(deep, "brown", { type: "lowpass", f: 60, gain: 1.2, walk: [30, 90], walkMs: 4000 });
+    } });
+
+  /* 22. IRIDESCENT BUBBLES: a sunlit garden; soft breath blowing bubbles, bubbles drifting by close to your ears and popping, light breeze, birds far off; touch to pop */
+  function pop(k, L, x, y) { var c = k.ctx, t = c.currentTime + .01, V = k.Voice(L.g, [(x - .5) * 5, (.5 - y) * 3, -1.2], { ref: .8 });
+    var n = c.createBufferSource(), hp = c.createBiquadFilter(), g = c.createGain(); n.buffer = (nb(k), k.noiseBuf); hp.type = "bandpass"; hp.frequency.value = k.rr(2500, 6000); hp.Q.value = 2;
+    g.gain.setValueAtTime(.5, t); g.gain.exponentialRampToValueAtTime(1e-4, t + .03); n.connect(hp); hp.connect(g); g.connect(V.in); n.start(t, Math.random() * 3); n.stop(t + .05);
+    for (var i = 0; i < 6; i++) k.S.drop(V.in, t + .01 + Math.random() * .15, { f: k.rr(3000, 7000), len: .02, gain: .04 }); }
+  TS.define("bubbles", { name: "Iridescent bubbles", space: "forest", params: { wind: .2, tod: 13 },
+    build: function (k) { var c = k.ctx; this._k = k;
+      var air = k.L("breeze", "Breeze", .35); k.grains(air, "windTrees", { grain: 3, density: 2, spread: 1, rate: 1.05 }); drive(air, "wind", function () { return .3 + k.P.wind * 2; }, 400);
+      var birds = k.L("birds", "Garden birds", .3, { wet: .7 }); k.grains(birds, "birds", { grain: 2.6, density: 1.8, spread: 1 });
+      var blow = k.L("blow", "Blowing bubbles", .35); var bv = k.Voice(blow.g, [0, 0, -.6], { ref: .5 });
+      k.poisson(blow, function () { return 1 / 8; }, function (t) { var n = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); n.buffer = (nb(k), k.noiseBuf); f.type = "bandpass"; f.frequency.value = 900; f.Q.value = .8;
+        g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.3, t + .4); g.gain.linearRampToValueAtTime(0, t + 1.6); n.connect(f); f.connect(g); g.connect(bv.in); n.start(t, Math.random() * 3); n.stop(t + 1.7); });
+      var drift = k.L("drift", "Bubbles drifting by", .45); this._p = drift;
+      k.poisson(drift, function () { return .6; }, function () { var dir = Math.random() < .5 ? 1 : -1, z = -k.rr(.6, 2.5), y = k.rr(-.5, 1.5);
+        var V = k.mover(drift, k.rr(3, 6), function (u) { return [dir * (u - .5) * 4, y + u * .5, z]; }, function (dest) { var n = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); n.buffer = k.noiseBuf; n.loop = true;
+          f.type = "bandpass"; f.frequency.value = k.rr(6000, 9000); f.Q.value = 6; g.gain.value = .03; n.connect(f); f.connect(g); g.connect(dest); n.start();
+          return { rate: function (r) { n.playbackRate.value = r; }, stop: function () { try { n.stop(); } catch (e) {} } }; }, { ref: .5 });
+        if (Math.random() < .5) setTimeout(function () { if (!drift.dead) pop(k, drift, .5 + V.pos[0] / 5, .5 - V.pos[1] / 3); }, k.rr(1.5, 3) * 1000); });
+    },
+    on: function (d) { if ((d.type === "touch" || d.type === "pop") && this._p && !this._p.dead) pop(this._k, this._p, d.x == null ? .5 : d.x, d.y == null ? .5 : d.y); } });
+
+  /* 23. BLACK HOLE: the edge of an event horizon; crushing sub pressure, the accretion disk's roar orbiting around your head, matter streaking in faster and deeper (Doppler), gravitational-wave chirps from merging stars far away */
+  TS.define("blackhole", { name: "Black hole", space: "space", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx;
+      var sub = k.L("sub", "Gravity well", .7); k.noiseBed(sub, "brown", { type: "lowpass", f: 45, gain: 1.6, walk: [22, 70], walkMs: 5000, gainWalk: [.6, 1.3], walkT: 4 });
+      var o1 = c.createOscillator(), og = c.createGain(); o1.frequency.value = 24; og.gain.value = .35; o1.connect(og); og.connect(sub.g); o1.start(); sub.nodes.push(o1);
+      var disk = k.L("disk", "Accretion disk (orbits you)", .55, { wet: 1 }); var dv = k.Voice(disk.g, [6, 0, 0], { ref: 3 });
+      var db = k.noiseBed(disk, "pink", { f: 700, q: 1.2, gain: 1, walk: [300, 1600], walkMs: 1500, gainWalk: [.5, 1.2], dest: dv.in });
+      var ang = 0; (function orbit() { if (disk.dead) return; ang += .05 * 2 * Math.PI * .08; dv.at(Math.cos(ang) * 6, Math.sin(ang * .5) * 1.5, Math.sin(ang) * 6); disk.timers.push(setTimeout(orbit, 50)); })();
+      var fall = k.L("infall", "Matter falling in", .6, { wet: .8 });
+      k.poisson(fall, function () { return .25 * k.P.intensity; }, function () { var a0 = Math.random() * 6.28, r0 = k.rr(40, 80);
+        k.mover(fall, k.rr(3, 6), function (u) { var r = r0 * Math.pow(1 - u, 2) + .5, a = a0 + u * u * 12; return [Math.cos(a) * r, k.rr(-.2, .2), Math.sin(a) * r]; }, function (dest) {
+          var n = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); n.buffer = (nb(k), k.noiseBuf); n.loop = true; f.type = "bandpass"; f.frequency.value = 1200; f.Q.value = 3; g.gain.value = .5;
+          n.connect(f); f.connect(g); g.connect(dest); n.start(); return { rate: function (r) { n.playbackRate.setTargetAtTime(r, c.currentTime, .05); f.frequency.setTargetAtTime(1200 * r * r, c.currentTime, .05); }, stop: function () { try { n.stop(); } catch (e) {} } }; }, { ref: 4 }); });
+      var gw = k.L("chirps", "Gravitational-wave chirps", .4, { wet: 1.5 });
+      k.poisson(gw, function () { return 1 / 30; }, function (t) { var o = c.createOscillator(), g = c.createGain(), d = k.rr(1.5, 3); o.frequency.setValueAtTime(30, t); o.frequency.exponentialRampToValueAtTime(k.rr(250, 400), t + d);
+        g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.25, t + d * .97); g.gain.linearRampToValueAtTime(0, t + d + .05); o.connect(g); g.connect(gw.g); o.start(t); o.stop(t + d + .1); k.emit("ripple", { at: t + d }); });
+      var hiss = k.L("radiation", "Hawking hiss", .2); k.noiseBed(hiss, "white", { type: "highpass", f: 8000, gain: .15, walk: [6000, 12000], walkMs: 2000 });
+    } });
   /* fix-ups: give touch handlers access to the kit */
   ["metal"].forEach(function (id) { var p = TS.presets[id], b = p.build; p.build = function (k) { this._k = k; return b.call(this, k); }; });
 })();
