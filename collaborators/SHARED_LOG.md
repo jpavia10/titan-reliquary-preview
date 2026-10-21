@@ -766,3 +766,4 @@
 
 2026-10-20 PT (Grok, intro worker): theme intros batch 5 (Shipwreck/abyss, Bauhaus, Odyssey, Prism/kaleido). Tests: smoke 38/38 phone+desktop, p02 film rule good, all integrity steps pass.
 - Theme intros batch 6 (grok-bot): unique openings for Millennium Chrome (liquid-chrome blob morph + bubble title), Silk Road (caravan crossing a dune sunset), Clay Diorama (tilt-shift clay temple assembling), Survey Map (topographic GL relief with surveyed summit label). Intro files only.
+- Theme intros batch 7 (grok-bot): unique openings for Midnight Gallery (security lasers cut out, flashlight finds the framed name), Pulp Adventure (comic panels slam in, splash page masthead), Hyperborean Vault (GL ice fracture with refraction, frost burns off the etched name), Paper Hills (craft knife cuts a hill line, paper layers stand up). Intro files only.
