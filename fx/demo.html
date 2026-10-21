@@ -5,6 +5,9 @@
   html,body{margin:0;height:100%;background:#000;color:#eef;font:500 15px/1.3 system-ui,-apple-system,sans-serif;overflow:hidden;touch-action:none}
   #ui{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:12px 12px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(0,0,0,.7))}
   #ui button{flex:none;border:1px solid rgba(255,255,255,.25);background:rgba(20,20,30,.6);color:#fff;border-radius:999px;padding:10px 14px;font:inherit;backdrop-filter:blur(8px)}
+  #cat{position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom));z-index:5;display:flex;gap:6px;overflow-x:auto;padding:0 12px}
+  #cat button{flex:none;border:0;background:none;color:#fff;opacity:.55;font:600 12px/1 system-ui;letter-spacing:.12em;text-transform:uppercase;padding:8px 10px}
+  #cat button[aria-pressed=true]{opacity:1;border-bottom:2px solid #fff}
   #ui button[aria-pressed=true]{background:#fff;color:#000}
   #cap{position:fixed;top:calc(14px + env(safe-area-inset-top));left:16px;right:16px;z-index:5;pointer-events:none;text-shadow:0 1px 8px #000}
   #cap b{display:block;font-size:20px;letter-spacing:.02em} #cap span{opacity:.8}
@@ -18,12 +21,12 @@
 </style></head>
 <body>
 <div id="cap"><b></b><span></span></div><div id="stat"></div>
-<nav id="ui" aria-label="Demos"></nav>
+<nav id="cat" aria-label="Categories"></nav><nav id="ui" aria-label="Demos"></nav>
 <button id="snd" type="button" aria-pressed="false">&#128264; Sound off</button>
 <div id="mix" hidden><b>Soundscape</b><span id="mixname"></span><div id="mixrows"></div><b style="margin-top:10px">Sound only (scenes coming)</b><div id="mixextra"></div></div>
 <div id="flash"></div>
 <script src="kit.js"></script><script src="atmos.js"></script><script src="particles-gpu.js"></script><script src="fluid.js"></script>
-<script src="post.js"></script><script src="volume.js"></script><script src="metal.js"></script><script src="rd.js"></script><script src="themes.js"></script>
+<script src="post.js"></script><script src="volume.js"></script><script src="metal.js"></script><script src="rd.js"></script><script src="scenes-nms.js"></script><script src="themes.js"></script>
 <script src="../audio/scape/engine.js?v=s4"></script><script src="../audio/scape/presets.js?v=s4"></script>
 <script>
 (function () {
@@ -75,9 +78,22 @@
     addEventListener("titan:scape", function (e) { var d = e.detail; if (d.type !== "flash") return; fl.style.background = ""; fl.style.setProperty("--fx", (d.x * 100) + "%");
       fl.animate([{ opacity: 0 }, { opacity: .9 * d.power }, { opacity: .1 }, { opacity: .7 * d.power }, { opacity: 0 }], { duration: 420 + Math.random() * 300, easing: "ease-out" }); });
   } else sb.hidden = true;
-  var ui = document.getElementById("ui"), cap = document.getElementById("cap");
-  D.forEach(function (d) { T["demo-" + d[0]] = { stack: d[3] }; var b = document.createElement("button"); b.textContent = d[1]; b.dataset.id = d[0]; ui.appendChild(b); });
-  function go(id) { var d = D.filter(function (x) { return x[0] === id; })[0] || D[0]; K.forced = "demo-" + d[0]; K.apply(true);
+  /* Category picker (fx builder #2). An entry's 5th field is its category; entries without one sit under "Sims". Other workers can
+     add entries before this runs via window.FXDEMO_EXTRA = [[id, name, caption, stack, category], ...]. */
+  var P = K.preset || function () { return []; };
+  D = D.concat([
+    ["nebula", "Nebula dive", "A volumetric fractal nebula you fly through (Star Nest, MIT). Drag to turn, tap for a warp surge.", P("nebula"), "Space"],
+    ["blackhole", "Black hole", "Light bent around a black hole: the disk wraps over the top and under the bottom, the near side blazes from beaming. Drag to orbit, hold to fall closer, tap for a flare.", P("blackhole"), "Space"],
+    ["rainforest", "Rainforest", "Misty layered canopy swaying in the wind, light shafts through the gaps, fireflies, falling leaves, pollen. Move to steer the sun, tap for a gust.", P("rainforest"), "Nature"],
+    ["bubbles", "Soap bubbles", "Thin-film interference: the colours swirl and drain like real soap. Drag to push them, tap to pop.", P("bubbles"), "Material & Magic"],
+    ["shatter", "Glass shatter", "Tap the glass: cracks race out, every shard bends the city lights its own way, then the pane heals. Drag to tilt.", P("shatter"), "Material & Magic"]
+  ]).concat(window.FXDEMO_EXTRA || []);
+  var ui = document.getElementById("ui"), cap = document.getElementById("cap"), catNav = document.getElementById("cat"), CATS = [];
+  D.forEach(function (d) { d[4] = d[4] || "Sims"; if (CATS.indexOf(d[4]) < 0) CATS.push(d[4]); T["demo-" + d[0]] = { stack: d[3] }; var b = document.createElement("button"); b.textContent = d[1]; b.dataset.id = d[0]; b.dataset.cat = d[4]; ui.appendChild(b); });
+  CATS.forEach(function (c) { var b = document.createElement("button"); b.textContent = c; b.dataset.cat = c; catNav.appendChild(b); });
+  function showCat(c) { catNav.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.cat === c)); }); ui.querySelectorAll("button").forEach(function (b) { b.style.display = b.dataset.cat === c ? "" : "none"; }); }
+  catNav.addEventListener("click", function (e) { var b = e.target.closest("button"); if (!b) return; showCat(b.dataset.cat); var f = D.filter(function (x) { return x[4] === b.dataset.cat; })[0]; if (f) go(f[0]); });
+  function go(id) { var d = D.filter(function (x) { return x[0] === id; })[0] || D[0]; K.forced = "demo-" + d[0]; K.apply(true); showCat(d[4]);
     cap.querySelector("b").textContent = d[1]; cap.querySelector("span").textContent = d[2];
     ui.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.id === d[0])); }); history.replaceState(null, "", "#" + d[0]); cur = d[0]; if (soundOn) startSound(); }
   ui.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) go(b.dataset.id); });
