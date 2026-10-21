@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-21] — Claude · blind photo reads of never-checked ledger facts (data only, no build bump)
+- Read year, face value and mint mark blind from the photos of 200 coins; 213 lines through the spot-check gate (`changes_claude_20261021-0900`): 212 agree with the ledger (re-cited from the photo; never-checked ledger facts 1,106 -> 863), 1 disagreement D0090 (C220 Japan 10 yen reads 昭和五十年 = 1975, ledger 1982; third reader Grok, HW-grok-arbitrate-20261021-1). C068 (1963 or 1968) left out as unclear.
+- Tests: the provenance deadline (2026-10-21) started rejecting the pipeline tests' own fixtures; `run()` in test_pipeline.py pins TITAN_TODAY=2026-10-09 (the deadline test passes its own date). 53 pipeline tests pass.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · photo-relief coin (tr175)
 - Photo-derived relief: each coin photo's own shading becomes raised relief (normal + roughness maps, made on the device in a few ms) so the 3D coin relights under a low raking light that follows phone tilt and drag.
 - New shared service wings/relief.js; offline-cached. Test GRK-R-01.

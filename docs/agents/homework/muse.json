@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-20T22:42:44Z",
+ "updated": "2026-10-21T01:08:28Z",
  "assignments": [
   {
    "id": "HW-muse-story-check-20261020-1",
@@ -7328,12 +7328,12 @@
      ],
      "label": "denomination of C042 · USSR · 1962 · 1 kopek · SUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7353,7 +7353,7 @@
         "drive": "https://drive.google.com/file/d/1oMc1IVXPPMNjnfDN-EU2yxmL4ukmdEQ9/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7374,12 +7374,12 @@
      ],
      "label": "year of C259 · Mexico · 1940 · 1 centavo · MXN",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7392,7 +7392,7 @@
         "drive": "https://drive.google.com/file/d/1oOWBo4WCfMDCGmRD-TqFnw3MXQF_MizV/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7450,12 +7450,12 @@
      ],
      "label": "denomination of C259 · Mexico · 1940 · 1 centavo · MXN",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7468,7 +7468,7 @@
         "drive": "https://drive.google.com/file/d/1oOWBo4WCfMDCGmRD-TqFnw3MXQF_MizV/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7488,12 +7488,12 @@
      ],
      "label": "year of C160 · Canada · 1939 · 5 cents · CAD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7506,7 +7506,7 @@
         "drive": "https://drive.google.com/file/d/1VNGXSwYqcvRphYLNmVLKMsxG_9W6Yro-/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7526,12 +7526,12 @@
      ],
      "label": "year of C232 · Vietnam · 2003 · 1000 đồng · VND",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7544,7 +7544,7 @@
         "drive": "https://drive.google.com/file/d/1gXRrUJfHDaV6JmuE7pjeblP9oZfsjEVl/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7564,12 +7564,12 @@
      ],
      "label": "denomination of C160 · Canada · 1939 · 5 cents · CAD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7582,7 +7582,7 @@
         "drive": "https://drive.google.com/file/d/1VNGXSwYqcvRphYLNmVLKMsxG_9W6Yro-/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7678,12 +7678,12 @@
      ],
      "label": "denomination of C201 · Nigeria · 1976 · 10 kobo · NGN",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7716,12 +7716,12 @@
      ],
      "label": "year of C008 · Switzerland · 1968 · 1/2 franc · CHF",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7754,12 +7754,12 @@
      ],
      "label": "year of C015 · Switzerland · 1971 · 1/2 franc · CHF",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7772,7 +7772,7 @@
         "drive": "https://drive.google.com/file/d/1DoPJqvCEo5jMYFZ5WLwxk5-Ih-oTJNCA/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7869,12 +7869,12 @@
      ],
      "label": "denomination of C008 · Switzerland · 1968 · 1/2 franc · CHF",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7887,7 +7887,7 @@
         "drive": "https://drive.google.com/file/d/1RAPm6O4iw5sx09U8sUwtL7qQ45I7_TiJ/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7907,12 +7907,12 @@
      ],
      "label": "year of C026 · Germany · 2002 · 50 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7925,7 +7925,7 @@
         "drive": "https://drive.google.com/file/d/1WvR7EjBQlA63zlyAp5AhkNOFsh8INtzd/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7945,12 +7945,12 @@
      ],
      "label": "year of C055 · Italy · 2002 · 50 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -7963,7 +7963,7 @@
         "drive": "https://drive.google.com/file/d/1kN_oaQHq3m6aews6nT-DcWxM98afhFvw/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -7983,12 +7983,12 @@
      ],
      "label": "mint of C026 · Germany · 2002 · 50 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "mint",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8001,7 +8001,7 @@
         "drive": "https://drive.google.com/file/d/1WvR7EjBQlA63zlyAp5AhkNOFsh8INtzd/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8097,12 +8097,12 @@
      ],
      "label": "year of C215 · Cayman Islands · 2008 · 5 cents · KYD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8115,7 +8115,7 @@
         "drive": "https://drive.google.com/file/d/1Qixkk4Ppl-ZaxkICOBQscQTBzupyDTHl/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8173,12 +8173,12 @@
      ],
      "label": "year of C012 · France · 1962 · 1 franc · FRF (nouveau franc)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8191,7 +8191,7 @@
         "drive": "https://drive.google.com/file/d/1Fc0I2utIKeEonyDSDce5MyOHRJVNOHB8/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8211,12 +8211,12 @@
      ],
      "label": "year of C069 · Jamaica · 1975 · 50 cents · JMD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8229,7 +8229,7 @@
         "drive": "https://drive.google.com/file/d/1kIGxJQIeyKGGSttkuGtY7pMCnJ1Gl1MA/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8249,12 +8249,12 @@
      ],
      "label": "year of C146 · Hong Kong · 1998 · $1 · HKD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8287,12 +8287,12 @@
      ],
      "label": "year of C257 · Mexico · 1967 · 20 centavos · MXN",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8305,7 +8305,7 @@
         "drive": "https://drive.google.com/file/d/1vuFmYeWLZMd8zEeACX1YAU6GVVMPH-Qy/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8360,17 +8360,21 @@
      "field": "denomination.value",
      "coins": [
       "C012",
+      "C017",
       "C025",
-      "C059"
+      "C059",
+      "C117",
+      "C118",
+      "C119"
      ],
      "label": "denomination of C012 · France · 1962 · 1 franc · FRF (nouveau franc)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8383,7 +8387,7 @@
         "drive": "https://drive.google.com/file/d/1Fc0I2utIKeEonyDSDce5MyOHRJVNOHB8/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8403,12 +8407,12 @@
      ],
      "label": "denomination of C146 · Hong Kong · 1998 · $1 · HKD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8421,7 +8425,7 @@
         "drive": "https://drive.google.com/file/d/1Qb6DLnwboUxC8zNRKwxxZhVKidPvcA9g/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8441,12 +8445,12 @@
      ],
      "label": "denomination of C069 · Jamaica · 1975 · 50 cents · JMD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8459,7 +8463,7 @@
         "drive": "https://drive.google.com/file/d/1kIGxJQIeyKGGSttkuGtY7pMCnJ1Gl1MA/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8480,12 +8484,12 @@
      ],
      "label": "denomination of C244 · Mexico · 1964 · 20 centavos · MXN",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8556,12 +8560,12 @@
      ],
      "label": "denomination of C253 · Jamaica · 1993 · 10 cents · JMD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8574,7 +8578,7 @@
         "drive": "https://drive.google.com/file/d/10vTD-h_lsUNFHDEkFdx7-NBgBiRs_eX5/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8594,12 +8598,12 @@
      ],
      "label": "year of C103 · Germany · 1982 · 1 Deutsche Mark · DEM",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8612,7 +8616,7 @@
         "drive": "https://drive.google.com/file/d/1z8QwEuHC_fh9NZi7Zg0VXGMEa-6YX_3s/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8784,12 +8788,12 @@
      ],
      "label": "denomination of C202 · Guatemala · 2010 · 10 centavos · GTQ",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8802,7 +8806,7 @@
         "drive": "https://drive.google.com/file/d/14EUPS609595wCSAS84tA8zb4Na4TQG1s/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8822,12 +8826,12 @@
      ],
      "label": "denomination of C163 · Philippines · 1984 · 50 sentimo · PHP",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8840,7 +8844,7 @@
         "drive": "https://drive.google.com/file/d/1w3suHnJuMJsCIIFMZyZuSWKgN6XcQnCy/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -8898,12 +8902,12 @@
      ],
      "label": "year of C164 · United Kingdom · 1932 · ½ penny · GBP",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -8916,7 +8920,7 @@
         "drive": "https://drive.google.com/file/d/1FMzq_6HHS07SL7ZEPlJf93D0i-sA3KcM/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9012,12 +9016,12 @@
      ],
      "label": "denomination of C164 · United Kingdom · 1932 · ½ penny · GBP",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9030,7 +9034,7 @@
         "drive": "https://drive.google.com/file/d/1FMzq_6HHS07SL7ZEPlJf93D0i-sA3KcM/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9089,12 +9093,12 @@
      ],
      "label": "year of C016 · Costa Rica · 1985 · 5 colones · CRC",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9107,7 +9111,7 @@
         "drive": "https://drive.google.com/file/d/1tpraCFpEWGTWK_DlFLymoia9cWTWYCGL/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9127,12 +9131,12 @@
      ],
      "label": "year of C211 · Italy · 1987 · 500 lire · ITL",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9241,12 +9245,12 @@
      ],
      "label": "denomination of C211 · Italy · 1987 · 500 lire · ITL",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9259,7 +9263,7 @@
         "drive": "https://drive.google.com/file/d/1tGRVQxZSmykDNl2rASe59nFLvMW3XGs2/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9347,12 +9351,12 @@
      ],
      "label": "year of C205 · United Kingdom · 1982 · 20 pence · GBP",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9365,7 +9369,7 @@
         "drive": "https://drive.google.com/file/d/1-nxjqq7UJWCWbIaFIG5MaiAnml6bUn7s/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9385,12 +9389,12 @@
      ],
      "label": "year of C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9403,7 +9407,7 @@
         "drive": "https://drive.google.com/file/d/1ZoATqIulCHcZa93fPIdfpNdo-E4WzQcx/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9499,12 +9503,12 @@
      ],
      "label": "denomination of C205 · United Kingdom · 1982 · 20 pence · GBP",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9537,12 +9541,12 @@
      ],
      "label": "denomination of C166 · Mexico · 1944 · 5 centavos · MXN",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9555,7 +9559,7 @@
         "drive": "https://drive.google.com/file/d/1f4-Cj8s68KrvRTuUhaKQKa2dbE__oExE/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9575,12 +9579,12 @@
      ],
      "label": "denomination of C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9593,7 +9597,7 @@
         "drive": "https://drive.google.com/file/d/1ZoATqIulCHcZa93fPIdfpNdo-E4WzQcx/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9804,12 +9808,12 @@
      ],
      "label": "denomination of C249 · Australia · 1966 · 20 cents · AUD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9822,7 +9826,7 @@
         "drive": "https://drive.google.com/file/d/1WzTovyBqhDXHV8rZEE9UFvxPwe4SRUYH/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9888,12 +9892,12 @@
      ],
      "label": "denomination of C032 · Hungary · 1967 · 1 forint · HUF",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9913,7 +9917,7 @@
         "drive": "https://drive.google.com/file/d/1YHzKg4z6oyqnzymFVTvL8SbVs0Ti6UA1/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9934,12 +9938,12 @@
      ],
      "label": "year of C025 · France · 1965 · 1 franc · FRF (nouveau franc)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9952,7 +9956,7 @@
         "drive": "https://drive.google.com/file/d/1b27Rl88HQxwvdi359bbxFiuCYl-bdm-D/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -9972,12 +9976,12 @@
      ],
      "label": "year of C153 · United Kingdom · 2008 · 10 pence · GBP",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -9990,7 +9994,7 @@
         "drive": "https://drive.google.com/file/d/1mB199zPnfMsVm2Yv4a9zaVbX-SxTDsxA/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -10010,12 +10014,12 @@
      ],
      "label": "year of C247 · South Korea · 1966 · 1 won · KRW",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -10035,7 +10039,7 @@
         "drive": "https://drive.google.com/file/d/1kjWyVFjuRBVogmYV-i82AkYzE6V5PxiH/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -10056,12 +10060,12 @@
      ],
      "label": "denomination of C233 · Colombia · 2016 · 50 pesos · COP",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -10081,7 +10085,7 @@
         "drive": "https://drive.google.com/file/d/1dZsEsJgq_i1cwRAUShNLRuN-qmNZ6ujh/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -10141,12 +10145,12 @@
      ],
      "label": "denomination of C247 · South Korea · 1966 · 1 won · KRW",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -10225,12 +10229,12 @@
      ],
      "label": "year of C059 · France · 1960 · 1 franc · FRF (nouveau franc)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -10243,7 +10247,7 @@
         "drive": "https://drive.google.com/file/d/1QPmiHvoieP6E5QMb955NuYXTVXQRgcrt/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -10263,12 +10267,12 @@
      ],
      "label": "year of C269 · Cayman Islands · 1990 · 1 cent · KYD",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -10281,7 +10285,7 @@
         "drive": "https://drive.google.com/file/d/14WhTWVSkkIwzNgmkjEbzIiDOjJ0vhftQ/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -10339,12 +10343,12 @@
      ],
      "label": "year of C078 · Switzerland · 1969 · 20 rappen · CHF",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -10357,7 +10361,7 @@
         "drive": "https://drive.google.com/file/d/1NBBKww5p8WQrxtPOxkxoWxRBGn57Numb/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -10910,12 +10914,12 @@
      ],
      "label": "year of C095 · France · 1999 · 10 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -10928,7 +10932,7 @@
         "drive": "https://drive.google.com/file/d/1KSFTxoC8wyT9MkN9ima0QnyL1TeQTAwe/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -10948,12 +10952,12 @@
      ],
      "label": "year of C096 · France · 2002 · 10 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -10966,7 +10970,7 @@
         "drive": "https://drive.google.com/file/d/1KSFTxoC8wyT9MkN9ima0QnyL1TeQTAwe/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -10986,12 +10990,12 @@
      ],
      "label": "year of C097 · France · 2015 · 10 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11004,7 +11008,7 @@
         "drive": "https://drive.google.com/file/d/1KSFTxoC8wyT9MkN9ima0QnyL1TeQTAwe/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11024,12 +11028,12 @@
      ],
      "label": "year of C122 · Germany · 1983 · 2 Pfennig · DEM",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11062,12 +11066,12 @@
      ],
      "label": "year of C123 · Germany · 1988 · 2 Pfennig · DEM",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11080,7 +11084,7 @@
         "drive": "https://drive.google.com/file/d/1WjdsybYFTYHgo5mFVRQyREdFrJIvBbcO/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11100,12 +11104,12 @@
      ],
      "label": "year of C217 · United Kingdom · 1998 · 1 penny · GBP (decimal)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11118,7 +11122,7 @@
         "drive": "https://drive.google.com/file/d/16UGRaIPUaf2xhs3Pr_soR3LGrGCjAclF/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11176,12 +11180,12 @@
      ],
      "label": "year of C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11194,7 +11198,7 @@
         "drive": "https://drive.google.com/file/d/1XscsOv-0C6E9G04EOOcJjBlMZv4ybj7s/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11442,12 +11446,12 @@
      ],
      "label": "denomination of C047 · Brazil · 2006 · 5 centavos · BRL",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11467,7 +11471,7 @@
         "drive": "https://drive.google.com/file/d/1_y_UN1BVoFy5X308Qg2O4qJ4kqE5saOL/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11720,12 +11724,12 @@
      ],
      "label": "denomination of C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11738,7 +11742,7 @@
         "drive": "https://drive.google.com/file/d/1XscsOv-0C6E9G04EOOcJjBlMZv4ybj7s/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11758,12 +11762,12 @@
      ],
      "label": "year of C029 · Germany · 1972 · 1 Pfennig · DEM",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11776,7 +11780,7 @@
         "drive": "https://drive.google.com/file/d/17FIyti-w13y1rPG-dXhNBq35LumfI_km/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11796,12 +11800,12 @@
      ],
      "label": "year of C184 · United Kingdom · 2016 · 5 pence · GBP",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11814,7 +11818,7 @@
         "drive": "https://drive.google.com/file/d/1YHvY3T2fD94Rz7GlU1x2fuqZL4QWgX6u/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11834,12 +11838,12 @@
      ],
      "label": "year of C193 · France · 1973 · 5 centimes · FRF",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11872,12 +11876,12 @@
      ],
      "label": "year of C194 · France · 1980 · 5 centimes · FRF",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11890,7 +11894,7 @@
         "drive": "https://drive.google.com/file/d/15jt1ifzjSpGDfIXFRk-j1juPM0_808pG/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11948,12 +11952,12 @@
      ],
      "label": "year of C197 · Germany · 1992 · 5 Pfennig · DEM",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -11966,7 +11970,7 @@
         "drive": "https://drive.google.com/file/d/1UV5V8I2cIKpZOkLJNf9hSzoRqQsVuyVO/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -11986,12 +11990,12 @@
      ],
      "label": "year of C203 · India · 2001 · 1 rupee · INR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12024,12 +12028,12 @@
      ],
      "label": "year of C208 · Turkey · 2011 · 10 kuruş · TRY",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12042,7 +12046,7 @@
         "drive": "https://drive.google.com/file/d/1u2NoFbq0jFU-gxQ4vPN59C-9IrCY6St6/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -12062,12 +12066,12 @@
      ],
      "label": "year of C226 · Germany · 1980 · 10 Pfennig · DEM",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12291,12 +12295,12 @@
      ],
      "label": "denomination of C193 · France · 1973 · 5 centimes · FRF",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12309,7 +12313,7 @@
         "drive": "https://drive.google.com/file/d/15jt1ifzjSpGDfIXFRk-j1juPM0_808pG/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -12329,12 +12333,12 @@
      ],
      "label": "denomination of C203 · India · 2001 · 1 rupee · INR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "denomination",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12347,7 +12351,7 @@
         "drive": "https://drive.google.com/file/d/1ZZKQlbeRon6mQ-4qkq3FQEHUVOt85Duz/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -12367,12 +12371,12 @@
      ],
      "label": "year of C004 · Netherlands · 2000 · 5 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12385,7 +12389,7 @@
         "drive": "https://drive.google.com/file/d/16pEAeY7N2MOgIerAb5cwBrAdQFqzY60g/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -12405,12 +12409,12 @@
      ],
      "label": "year of C028 · Malta · 2013 · 5 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12423,7 +12427,7 @@
         "drive": "https://drive.google.com/file/d/1R8VSWobJ74drFM5NtzFjvdwRyFDw382c/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -12557,12 +12561,12 @@
      ],
      "label": "year of C099 · Germany · 2002 · 5 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12575,7 +12579,7 @@
         "drive": "https://drive.google.com/file/d/1WnAOriJt18t7EjAq0t7KOdLPOGIH2yoL/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -12595,12 +12599,12 @@
      ],
      "label": "year of C121 · Germany · 2014 · 5 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12633,12 +12637,12 @@
      ],
      "label": "mint of C099 · Germany · 2002 · 5 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "mint",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12651,7 +12655,7 @@
         "drive": "https://drive.google.com/file/d/1WnAOriJt18t7EjAq0t7KOdLPOGIH2yoL/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -12671,12 +12675,12 @@
      ],
      "label": "mint of C121 · Germany · 2014 · 5 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "mint",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -12689,7 +12693,7 @@
         "drive": "https://drive.google.com/file/d/1w6V4VQACJgM5uciKHOZhxprq4D04PaRD/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -13014,12 +13018,12 @@
      ],
      "label": "year of C039 · Italy · 2010 · 2 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -13090,12 +13094,12 @@
      ],
      "label": "year of C127 · France · 2010 · 2 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -13108,7 +13112,7 @@
         "drive": "https://drive.google.com/file/d/1nkxYX7di-gWj4cSPKd_cbb3__4W6qoC0/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -13166,12 +13170,12 @@
      ],
      "label": "mint of C039 · Italy · 2010 · 2 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "mint",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -13436,12 +13440,12 @@
      ],
      "label": "year of C101 · Ireland · 2002 · 1 euro cent · EUR",
      "authors": [
-      "ledger"
+      "claude"
      ],
      "payload": {
       "fact": "year",
-      "author": "ledger",
-      "ledger": true,
+      "author": "Claude",
+      "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
@@ -13454,7 +13458,7 @@
         "drive": "https://drive.google.com/file/d/1Vn2PJXCbK_Z5YlCVB-QIuifg1VaD7OKN/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },

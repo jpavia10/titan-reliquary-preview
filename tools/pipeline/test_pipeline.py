@@ -46,6 +46,9 @@ def tree_hash(d):
     return h.hexdigest()
 
 def run(*args, **kw):
+    # merge day pinned before the 2026-10-21 provenance deadline (and level with publish --now), so fixtures without provenance keep
+    # testing the rule they were written for; a test of the deadline itself passes its own TITAN_TODAY
+    kw["env"] = dict({"TITAN_TODAY": "2026-10-09"}, **kw.get("env", os.environ))
     return subprocess.run([PY, *args], capture_output=True, text=True, cwd=ROOT, **kw)
 
 def sandbox():

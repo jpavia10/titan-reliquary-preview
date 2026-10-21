@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-20 22:42 UTC)
+# WORK QUEUE for Grok (updated 2026-10-21 01:08 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -252,7 +252,7 @@ Items:
 - **mint of C014 · Switzerland · 1974 · 2 francs · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C014 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C014_rev.webp (original: https://drive.google.com/file/d/1DS567aqaAsMN6t3n_W6DBbLIHDzuroq1/view)
 - **mint of C067 · Switzerland · 1981 · 2 francs · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C067 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C067_rev.webp (original: https://drive.google.com/file/d/1h0ACoiqW28AImqjI2_sk08TW8DbPGJOu/view)
 - **mint of C077 · Switzerland · 1991 · 2 francs · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C077 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C077_rev.webp (original: https://drive.google.com/file/d/1nakw8IFckD6_awAXYk871p0U0RKANv9i/view)
-- **denomination of C014 · Switzerland · 1974 · 2 francs · CHF** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type CH.KM.21a denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C014_rev.webp (original: https://drive.google.com/file/d/1DS567aqaAsMN6t3n_W6DBbLIHDzuroq1/view)
+- **denomination of C003 · Switzerland · 1968 · 2 francs · CHF** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type CH.KM.21a denomination.value`. Photos: none
 - **year of C070 · Netherlands · 2002 · 2 euro · EUR** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C070 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C070_obv.webp (original: https://drive.google.com/file/d/1D8kHrH-4_LVuz8T6T3gAt6tE8NG-t6JU/view)
 - **year of C071 · Germany · 2003 · 2 euro · EUR** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C071 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C071_obv.webp (original: https://drive.google.com/file/d/1fpIQ1h9s4t5gKN2t-d_fqmooIXfs70SX/view)
 - **year of C072 · France · 2000 · 2 euro · EUR** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C072 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C072_obv.webp (original: https://drive.google.com/file/d/1QUjRnMpglnekiqg4hwmiV1DKvj0xeGIo/view)
@@ -395,6 +395,17 @@ Items:
 - **year of C047 · Brazil · 2006 · 5 centavos · BRL** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C047 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C047_obv.webp (original: https://drive.google.com/file/d/1E17ZrK0Lsvb-3AACaLNSz7S46GZiKG_a/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C047_rev.webp (original: https://drive.google.com/file/d/1_y_UN1BVoFy5X308Qg2O4qJ4kqE5saOL/view)
 - **year of C054 · France · 2010 · 10 euro cent · EUR** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C054 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C054_obv.webp (original: https://drive.google.com/file/d/1StU-n3mv9Ux059V-Y1fU5RoaDKn2lpD3/view)
 - **year of C090 · Germany · 1982 · 10 Pfennig · DEM** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C090 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C090_obv.webp (original: https://drive.google.com/file/d/1Xd5yilZN12obFa5EuqkL1s39t0OAYE9F/view)
+
+### 11. HW-grok-arbitrate-20261021-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-28  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261021-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0090 C220 issue.year**: record `1982` (None: «null») vs claim `1975` (model:claude: «read blind from photo photos/p1/C220_rev.webp (Claude spot check, full size)»)
 
 ## Projects (after the homework)
 

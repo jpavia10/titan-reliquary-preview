@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-10-20T22:42:44Z",
- "content_hash": "b8cec33c4b0762bf",
+ "generated_at": "2026-10-21T01:08:28Z",
+ "content_hash": "d705dc8df8846785",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:b8cec33c4b0762bf",
+  "ledger_version": "v3:d705dc8df8846785",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5390.04,
@@ -16783,8 +16783,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-17T04:39:36Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:37Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -16876,8 +16876,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:53Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -17834,8 +17834,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:33:42Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:50Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -17925,8 +17925,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:06:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:01Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -18197,8 +18197,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:06:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:10Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -18289,8 +18289,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:25:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:19Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -18381,8 +18381,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:06:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:21Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -18474,8 +18474,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:40:23Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:01Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -18658,8 +18658,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:05:43Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:04Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -18842,8 +18842,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-17T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:10Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -18934,8 +18934,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-15T02:22:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:11Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19028,8 +19028,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:05:43Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:12Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19121,8 +19121,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-16T05:46:19Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:13Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19213,8 +19213,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-16T05:46:19Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:14Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19305,8 +19305,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-17T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:16Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19397,8 +19397,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-16T05:46:19Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:17Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19489,8 +19489,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-16T05:46:19Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:18Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19581,8 +19581,8 @@
     "phase": 2,
     "phase1_at": "2026-10-06T09:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:05:43Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:24Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19673,8 +19673,8 @@
     "phase": 2,
     "phase1_at": "2026-10-06T09:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:05:43Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:25Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19944,8 +19944,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:56Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20397,8 +20397,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T18:52:00Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:22Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20572,8 +20572,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-16T05:46:19Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:06Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20664,8 +20664,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:06:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:12Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20755,8 +20755,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:02:03Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:23Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20844,8 +20844,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:09:26Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:24Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20935,8 +20935,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:00:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:25Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21026,8 +21026,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:00:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:26Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21213,8 +21213,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:34:44Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:31Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21304,8 +21304,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:02:03Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:35Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21393,8 +21393,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:09:26Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:36Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21572,8 +21572,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-17T04:40:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:41Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21751,8 +21751,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-17T04:39:36Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:49Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21929,8 +21929,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:09:26Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:52Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22024,8 +22024,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T18:56:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:53Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22295,8 +22295,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:35:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:08Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22387,8 +22387,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:40:23Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:15Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22476,8 +22476,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:09:26Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:22Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22568,8 +22568,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:22:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:23Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22834,8 +22834,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T19:02:03Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:30Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23022,8 +23022,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T18:56:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:32Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23114,8 +23114,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-16T05:46:19Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:33Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23207,8 +23207,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T19:02:03Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:36Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23300,8 +23300,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:02:03Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:37Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23392,8 +23392,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:02:03Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:38Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23579,8 +23579,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:09:26Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:41Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -24874,8 +24874,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:06Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -24965,8 +24965,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:07Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -25238,8 +25238,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:39Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -25329,8 +25329,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:40Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -25420,8 +25420,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:41Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -25602,8 +25602,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:51Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -25784,8 +25784,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:09:26Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:03:26Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26228,8 +26228,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:53:00Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:48Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26317,8 +26317,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:28:36Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:02:28Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26672,8 +26672,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T18:57:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:04Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26761,8 +26761,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-11T02:28:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:08Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26851,8 +26851,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:06:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:16Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27030,8 +27030,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:33:41Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:29Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27302,8 +27302,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:34:44Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:44Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27392,8 +27392,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-17T04:39:36Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:50Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27571,8 +27571,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T17:35:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:54Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27662,8 +27662,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-15T03:33:41Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:56Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28026,8 +28026,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T17:35:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:09Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28116,8 +28116,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T17:39:00Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:26Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28206,8 +28206,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T17:39:00Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:27Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28296,8 +28296,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T17:39:00Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:28Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28743,8 +28743,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:39:00Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:39Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28833,8 +28833,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:02:03Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:40Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -29278,8 +29278,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:58:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:03Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -29367,8 +29367,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:58:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:05Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -29546,8 +29546,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:21:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:57Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -29722,8 +29722,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:00:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:18Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -29902,8 +29902,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:00:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:28Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31233,8 +31233,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:58:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:46Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31323,8 +31323,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:58:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:47Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31858,8 +31858,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:36:11Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:54Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32476,8 +32476,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:59:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:57Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32566,8 +32566,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:59:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:58Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33098,8 +33098,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:59:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:59Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33364,8 +33364,8 @@
     "phase": 2,
     "phase1_at": "2026-10-05T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T19:00:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:00Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33454,8 +33454,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:00:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:01Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33545,8 +33545,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:02:17Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33634,8 +33634,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:58:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:30Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33812,8 +33812,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:58:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:32Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33994,8 +33994,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:02:46Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34774,8 +34774,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:03:04Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34956,8 +34956,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-09T07:29:32Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:47Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -35049,8 +35049,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:53:00Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:44Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -35316,8 +35316,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:33:42Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:31Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -35582,8 +35582,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T06:00:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:02:14Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -35675,8 +35675,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T17:25:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:15Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -35767,8 +35767,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:34:44Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:33Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -35943,8 +35943,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T19:00:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:43Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36029,8 +36029,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:35:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:55Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36121,8 +36121,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:35:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:58Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36213,8 +36213,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:35:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:01:20Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36305,8 +36305,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-12T13:58:08Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:10Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36397,8 +36397,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-12T13:58:08Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:26Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36837,8 +36837,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-17T04:39:36Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:06Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36927,8 +36927,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T17:21:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:33Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37017,8 +37017,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:42Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37467,8 +37467,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:56:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:32Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37556,8 +37556,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:24Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37646,8 +37646,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:56:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:02Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37736,8 +37736,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T18:59:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:27Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37827,8 +37827,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T18:59:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:29Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37916,8 +37916,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:02Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38184,8 +38184,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:31Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38275,8 +38275,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:59:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:31Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38364,8 +38364,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:33:42Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:34Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38450,8 +38450,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:33:42Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:46Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38538,8 +38538,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:33:42Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:59Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38902,8 +38902,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:02:22Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38994,8 +38994,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:49Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39085,8 +39085,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:59Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39176,8 +39176,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:13Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39268,8 +39268,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:33:41Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:03:15Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39364,8 +39364,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-12T13:58:08Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:22Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39458,8 +39458,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T02:24:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:33Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40158,8 +40158,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T19:02:03Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:03Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40248,8 +40248,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:56:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:00:13Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40608,8 +40608,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-17T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:34Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40786,8 +40786,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-12T13:58:08Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:08Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40880,8 +40880,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-12T13:58:08Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:37Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41061,8 +41061,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:33:42Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:42Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41154,8 +41154,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:09:26Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:03:30Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41782,8 +41782,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:55:22Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:07Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41868,8 +41868,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:56:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:24Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42221,8 +42221,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:33:42Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:00:47Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42313,8 +42313,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T03:33:41Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:03:17Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42405,8 +42405,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T00:10:00Z",
-    "phase2_by": "model:muse"
+    "phase2_at": "2026-10-21T09:03:19Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42587,8 +42587,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:55:22Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:21Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42673,8 +42673,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:02:16Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42759,8 +42759,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T18:55:22Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:02:20Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43037,8 +43037,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-17T04:40:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:01:21Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43584,8 +43584,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-15T04:35:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-10-21T09:02:44Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43766,8 +43766,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:01:17Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:09Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43856,8 +43856,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:01:17Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-21T09:03:21Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -74251,6 +74251,16 @@
  },
  "certainty": {
   "C001": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C001_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Gemini + Grok",
@@ -74373,6 +74383,12 @@
    }
   },
   "C003": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C014_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Claude + Grok",
@@ -74439,6 +74455,12 @@
    }
   },
   "C004": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C004_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -74500,6 +74522,16 @@
    }
   },
   "C005": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C005_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -74562,6 +74594,16 @@
    }
   },
   "C006": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C006_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -74626,6 +74668,16 @@
    }
   },
   "C007": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C007_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -74690,6 +74742,16 @@
    }
   },
   "C008": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C008_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -74750,6 +74812,12 @@
    }
   },
   "C009": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C009_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -74811,6 +74879,16 @@
    }
   },
   "C010": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C010_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -74886,6 +74964,12 @@
    }
   },
   "C011": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C011_rev.webp (Claude spot check, full size)"
+   },
    "denomination": {
     "level": "photo",
     "by": "Grok",
@@ -74955,6 +75039,16 @@
    }
   },
   "C012": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C012_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75016,6 +75110,12 @@
    }
   },
   "C013": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C013_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75084,6 +75184,16 @@
    }
   },
   "C014": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C014_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Claude + Grok",
@@ -75150,6 +75260,18 @@
    }
   },
   "C015": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C015_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C008_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75209,6 +75331,12 @@
    }
   },
   "C016": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C016_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75258,6 +75386,12 @@
    }
   },
   "C017": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C012_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75319,6 +75453,12 @@
    }
   },
   "C018": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C018_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75380,6 +75520,12 @@
    }
   },
   "C019": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C019_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Muse",
@@ -75526,6 +75672,12 @@
    }
   },
   "C021": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C021_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -75591,6 +75743,12 @@
    }
   },
   "C022": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C022_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -75662,6 +75820,12 @@
    "year": {
     "level": "review"
    },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C023_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "review"
    },
@@ -75683,6 +75847,12 @@
    }
   },
   "C024": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C024_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75751,6 +75921,18 @@
    }
   },
   "C025": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C025_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C012_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75812,6 +75994,16 @@
    }
   },
   "C026": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C026_obv.webp (Claude spot check, full size)"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75877,6 +76069,16 @@
    }
   },
   "C027": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C027_obv.webp (Claude spot check, full size)"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -75941,6 +76143,12 @@
    }
   },
   "C028": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C028_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -76004,6 +76212,12 @@
    }
   },
   "C029": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C029_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -76066,6 +76280,12 @@
    }
   },
   "C030": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C030_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Muse",
@@ -76143,6 +76363,16 @@
    }
   },
   "C031": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C031_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -76211,6 +76441,12 @@
    }
   },
   "C032": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C032_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -76276,6 +76512,12 @@
   "C033": {
    "year": {
     "level": "review"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C033_rev.webp (Claude spot check, full size)"
    },
    "catalog": {
     "level": "checked",
@@ -76543,6 +76785,12 @@
    }
   },
   "C037": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C037_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "photo",
     "by": "Muse",
@@ -76673,6 +76921,16 @@
    }
   },
   "C039": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C039_obv.webp (Claude spot check, full size)"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -76802,6 +77060,18 @@
    }
   },
   "C041": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C041_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C005_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -76864,6 +77134,12 @@
    }
   },
   "C042": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C042_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -76919,6 +77195,12 @@
    }
   },
   "C043": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C043_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -76983,6 +77265,18 @@
    }
   },
   "C044": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C044_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C042_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -77167,6 +77461,12 @@
    }
   },
   "C047": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C047_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -77220,6 +77520,18 @@
    }
   },
   "C048": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C048_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C006_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -77286,6 +77598,16 @@
    }
   },
   "C049": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C049_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Gemini + Grok",
@@ -77351,6 +77673,12 @@
    }
   },
   "C050": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C006_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -77416,6 +77744,12 @@
    }
   },
   "C051": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C051_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Muse",
@@ -77557,6 +77891,12 @@
    }
   },
   "C053": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C053_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "review"
    },
@@ -77624,6 +77964,12 @@
    }
   },
   "C054": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C054_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -77686,6 +78032,12 @@
    }
   },
   "C055": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C055_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -77960,6 +78312,18 @@
    }
   },
   "C059": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C059_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C012_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -78022,6 +78386,12 @@
    }
   },
   "C060": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C033_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -78087,6 +78457,16 @@
    }
   },
   "C061": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C061_obv.webp (Claude spot check, full size)"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -78153,6 +78533,12 @@
   "C062": {
    "year": {
     "level": "review"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C007_rev.webp (Claude spot check, full size)"
    },
    "catalog": {
     "level": "checked",
@@ -78221,6 +78607,12 @@
    "year": {
     "level": "review"
    },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C007_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -78285,6 +78677,12 @@
    }
   },
   "C064": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C064_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "review",
     "by": "Grok",
@@ -78346,6 +78744,20 @@
    }
   },
   "C065": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C065_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -78413,6 +78825,12 @@
    "year": {
     "level": "review"
    },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C066_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -78479,6 +78897,18 @@
    }
   },
   "C067": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C067_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C014_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Claude + Grok",
@@ -78620,6 +79050,16 @@
    }
   },
   "C069": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C069_obv.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -78746,6 +79186,12 @@
    }
   },
   "C071": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C071_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Gemini + Grok",
@@ -78813,6 +79259,12 @@
    }
   },
   "C072": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C072_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -78952,6 +79404,12 @@
    }
   },
   "C075": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C075_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -79015,6 +79473,12 @@
    }
   },
   "C076": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C076_obv.webp (Claude spot check, full size)"
+   },
    "denomination": {
     "level": "reference",
     "by": "Muse",
@@ -79088,6 +79552,12 @@
    }
   },
   "C077": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C077_rev.webp (Claude spot check, full size)"
+   },
    "denomination": {
     "level": "checked",
     "by": "Claude + Grok",
@@ -79175,6 +79645,12 @@
    }
   },
   "C078": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C078_obv.webp (Claude spot check, full size)"
+   },
    "denomination": {
     "level": "reference",
     "by": "Muse",
@@ -79248,6 +79724,12 @@
    }
   },
   "C079": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C079_obv.webp (Claude spot check, full size)"
+   },
    "denomination": {
     "level": "reference",
     "by": "Muse",
@@ -79321,6 +79803,12 @@
    }
   },
   "C080": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C080_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -79385,6 +79873,12 @@
    }
   },
   "C081": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C081_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -79448,6 +79942,12 @@
    }
   },
   "C082": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C082_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -79509,6 +80009,12 @@
    }
   },
   "C083": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C083_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -79570,6 +80076,16 @@
    }
   },
   "C084": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C084_obv.webp (Claude spot check, full size)"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Gemini + Grok",
@@ -79636,6 +80152,12 @@
    }
   },
   "C088": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C088_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -79704,6 +80226,12 @@
    }
   },
   "C089": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C089_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Muse",
@@ -79781,6 +80309,12 @@
    }
   },
   "C090": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C090_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -79979,6 +80513,18 @@
    }
   },
   "C093": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C093_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C001_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Gemini + Grok",
@@ -80044,6 +80590,12 @@
    }
   },
   "C094": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C094_rev.webp (Claude spot check, full size)"
+   },
    "denomination": {
     "level": "checked",
     "by": "Claude + Gemini",
@@ -80126,6 +80678,12 @@
    }
   },
   "C095": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C095_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -80189,6 +80747,12 @@
    }
   },
   "C096": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C096_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -80252,6 +80816,12 @@
    }
   },
   "C097": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C097_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -80376,6 +80946,16 @@
    }
   },
   "C099": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C099_obv.webp (Claude spot check, full size)"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -80511,6 +81091,12 @@
    }
   },
   "C101": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C101_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -80574,6 +81160,12 @@
    }
   },
   "C102": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C102_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -80638,6 +81230,18 @@
    }
   },
   "C103": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C103_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C006_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -80704,6 +81308,18 @@
    }
   },
   "C104": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C104_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C010_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -81474,6 +82090,12 @@
    }
   },
   "C115": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C014_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Claude + Grok",
@@ -81541,6 +82163,12 @@
    }
   },
   "C116": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C014_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Claude + Grok",
@@ -81608,6 +82236,12 @@
    }
   },
   "C117": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C012_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -81670,6 +82304,12 @@
    }
   },
   "C118": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C012_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -81732,6 +82372,12 @@
    }
   },
   "C119": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C012_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -81861,6 +82507,16 @@
    }
   },
   "C121": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C121_obv.webp (Claude spot check, full size)"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -81926,6 +82582,12 @@
    }
   },
   "C122": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C122_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -81988,6 +82650,12 @@
    }
   },
   "C123": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C123_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -82049,6 +82717,12 @@
    }
   },
   "C124": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C007_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -82114,6 +82788,18 @@
    }
   },
   "C125": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C125_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C007_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -82253,6 +82939,12 @@
    }
   },
   "C127": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C127_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -82503,6 +83195,12 @@
    }
   },
   "C131": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C131_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "review",
     "by": "Muse",
@@ -83367,6 +84065,16 @@
    }
   },
   "C144": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C144_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Claude + Grok",
@@ -83501,6 +84209,16 @@
    }
   },
   "C146": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C146_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -83928,6 +84646,12 @@
    }
   },
   "C152": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C152_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -83999,6 +84723,12 @@
    }
   },
   "C153": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C153_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -84456,6 +85186,16 @@
    }
   },
   "C159": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C159_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -84522,6 +85262,16 @@
    }
   },
   "C160": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C160_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -84652,6 +85402,12 @@
    }
   },
   "C162": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C162_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -84724,6 +85480,12 @@
    }
   },
   "C163": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C163_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -84791,6 +85553,16 @@
    }
   },
   "C164": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C164_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Gemini + Grok + Muse",
@@ -84940,6 +85712,12 @@
    }
   },
   "C166": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C166_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -85407,6 +86185,12 @@
    }
   },
   "C173": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C173_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -85477,6 +86261,12 @@
    }
   },
   "C174": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C174_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -85920,6 +86710,12 @@
    }
   },
   "C180": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C180_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -86151,6 +86947,12 @@
    }
   },
   "C183": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C183_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -86232,6 +87034,12 @@
    }
   },
   "C184": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C184_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -86309,6 +87117,12 @@
    }
   },
   "C185": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C185_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -86818,6 +87632,16 @@
    }
   },
   "C193": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C193_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -86877,6 +87701,18 @@
    }
   },
   "C194": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C194_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C193_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -87000,6 +87836,12 @@
    }
   },
   "C196": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C196_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -87064,6 +87906,12 @@
    }
   },
   "C197": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C197_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -87128,6 +87976,16 @@
    }
   },
   "C198": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C198_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -87190,6 +88048,12 @@
    }
   },
   "C199": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C199_rev.webp (Claude spot check, full size)"
+   },
    "denomination": {
     "level": "photo",
     "by": "Grok",
@@ -87258,6 +88122,12 @@
    }
   },
   "C200": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C200_rev.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -87330,6 +88200,12 @@
    }
   },
   "C201": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C201_rev.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -87396,6 +88272,12 @@
    }
   },
   "C202": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C202_rev.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -87453,6 +88335,16 @@
    }
   },
   "C203": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C203_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -87499,6 +88391,12 @@
    }
   },
   "C204": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C204_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -87562,6 +88460,16 @@
    }
   },
   "C205": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C205_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -87639,6 +88547,12 @@
    "year": {
     "level": "review"
    },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C206_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -87689,6 +88603,12 @@
    }
   },
   "C207": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C207_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -87746,6 +88666,12 @@
    }
   },
   "C208": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C208_rev.webp (Claude spot check, full size)"
+   },
    "denomination": {
     "level": "checked",
     "by": "Claude + Grok",
@@ -87841,6 +88767,16 @@
    }
   },
   "C209": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C209_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -87898,6 +88834,16 @@
    }
   },
   "C210": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C210_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "mint": {
     "level": "reference",
     "by": "Muse",
@@ -87965,6 +88911,16 @@
    }
   },
   "C211": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C211_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -88032,6 +88988,16 @@
    }
   },
   "C212": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C212_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "mint": {
     "level": "reference",
     "by": "Gemini",
@@ -88094,6 +89060,12 @@
    }
   },
   "C213": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C213_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -88236,6 +89208,12 @@
    }
   },
   "C215": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C215_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -88386,6 +89364,12 @@
    }
   },
   "C217": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C217_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -88536,6 +89520,16 @@
    }
   },
   "C219": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C219_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "mint": {
     "level": "reference",
     "by": "Gemini",
@@ -88594,6 +89588,12 @@
    }
   },
   "C220": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C220_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -88641,6 +89641,12 @@
    }
   },
   "C221": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C033_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -88703,6 +89709,12 @@
    }
   },
   "C222": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C206_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -88753,6 +89765,16 @@
    }
   },
   "C223": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C223_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "review",
     "by": "Grok",
@@ -88943,6 +89965,12 @@
    }
   },
   "C226": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C226_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -89008,6 +90036,12 @@
    }
   },
   "C227": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C227_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -89073,6 +90107,12 @@
    }
   },
   "C228": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C228_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -89203,6 +90243,16 @@
    }
   },
   "C230": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C230_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "mint": {
     "level": "reference",
     "by": "Gemini",
@@ -89332,6 +90382,12 @@
    }
   },
   "C232": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C232_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Muse",
@@ -89411,6 +90467,12 @@
    "year": {
     "level": "review"
    },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C233_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -89466,6 +90528,12 @@
    }
   },
   "C234": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C234_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -89538,6 +90606,16 @@
    }
   },
   "C235": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C235_obv.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -89588,6 +90666,16 @@
    }
   },
   "C236": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C236_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -89643,6 +90731,12 @@
    }
   },
   "C237": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C237_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -89710,6 +90804,12 @@
    "year": {
     "level": "review"
    },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C238_rev.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "review"
    },
@@ -89773,6 +90873,16 @@
    }
   },
   "C239": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C239_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -89839,6 +90949,12 @@
    }
   },
   "C240": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C240_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -89968,6 +91084,12 @@
    }
   },
   "C242": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C242_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -90026,6 +91148,16 @@
    }
   },
   "C243": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C243_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -90082,6 +91214,18 @@
    }
   },
   "C244": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C244_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C257_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -90202,6 +91346,12 @@
    }
   },
   "C246": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C246_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -90257,6 +91407,16 @@
    }
   },
   "C247": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C247_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -90309,6 +91469,16 @@
    }
   },
   "C248": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C248_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -90374,6 +91544,12 @@
    }
   },
   "C249": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C249_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -90438,6 +91614,16 @@
    }
   },
   "C250": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C250_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -90500,6 +91686,16 @@
    }
   },
   "C251": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C251_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -90566,6 +91762,12 @@
    }
   },
   "C252": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C252_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -90628,6 +91830,12 @@
    }
   },
   "C253": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C253_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -90881,6 +92089,16 @@
    }
   },
   "C257": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C257_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -90933,6 +92151,12 @@
    }
   },
   "C258": {
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C258_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -90997,6 +92221,16 @@
    }
   },
   "C259": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C259_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -91047,6 +92281,16 @@
    }
   },
   "C260": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C260_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -91113,6 +92357,16 @@
    }
   },
   "C261": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C261_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "mint": {
     "level": "reference",
     "by": "Grok",
@@ -91175,6 +92429,18 @@
    }
   },
   "C262": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C262_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C251_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -91241,6 +92507,16 @@
    }
   },
   "C263": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C263_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -91303,6 +92579,16 @@
    }
   },
   "C264": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C264_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -91368,6 +92654,12 @@
    }
   },
   "C265": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C265_obv.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "reference",
     "by": "Muse",
@@ -91443,6 +92735,16 @@
    }
   },
   "C266": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C266_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -91499,6 +92801,18 @@
    }
   },
   "C267": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C267_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C266_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -91555,6 +92869,18 @@
    }
   },
   "C268": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C268_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C144_rev.webp (Claude spot check, full size)"
+   },
    "mint": {
     "level": "photo",
     "by": "Muse",
@@ -91634,6 +92960,12 @@
    }
   },
   "C269": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C269_obv.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -91697,6 +93029,18 @@
    }
   },
   "C270": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C270_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C220_rev.webp (Claude spot check, full size)"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",
@@ -91744,6 +93088,16 @@
    }
   },
   "C271": {
+   "year": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-21",
+    "source": "read blind from photo photos/p1/C271_rev.webp (Claude spot check, full size)"
+   },
+   "denomination": {
+    "level": "photo",
+    "like": "year"
+   },
    "catalog": {
     "level": "reference",
     "by": "Grok",

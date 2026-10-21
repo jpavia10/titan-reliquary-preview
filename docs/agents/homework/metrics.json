@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T22:42:44Z",
+ "updated": "2026-10-21T01:08:28Z",
  "pools": {
   "cite": 22,
   "contradiction": 14,
@@ -7,8 +7,8 @@
   "plain-story": 54,
   "value": 16,
   "read-mint": 11,
-  "arbitrate": 12,
-  "verify": 852
+  "arbitrate": 13,
+  "verify": 851
  },
  "agents": {
   "gemini": {
@@ -42,8 +42,8 @@
   "claude": {
    "confirmed": 85,
    "wrong": 0,
-   "checks_done": 0,
-   "disagreements_open": 1,
+   "checks_done": 213,
+   "disagreements_open": 2,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 85,
@@ -85,7 +85,7 @@
    "confirmed": 0,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 5,
+   "disagreements_open": 6,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 0,
@@ -128,7 +128,7 @@
   "verify:type:ES.KM.1144:period"
  ],
  "open_assignments": {
-  "grok": 10,
+  "grok": 11,
   "muse": 10,
   "gemini": 15,
   "chatgpt": 0
