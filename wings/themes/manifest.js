@@ -99,6 +99,15 @@
     solaris: "Solar Observatory", glacier: "Hyperborean Vault", valhalla: "Gilded Armory",
     contour: "Survey Map", banknote: "Treasury Note", papercut: "Paper Hills", y2k: "Millennium Chrome"
   };
+  /* TitanRegistry: the ONE theme registry. The picker, intros (js/intros/<id>.js), sound scene (world.scene), UI voice, coin-page
+     world, FX (world.fx) and stylesheets (styles/atmo/<id>.css) are all keyed by these ids; tools/themes/test_registry.py fails
+     on anything missing or orphaned. Add a theme here first (tools/themes/add_theme.py). */
+  window.TitanRegistry = {
+    ids: function () { return worlds.map(function (w) { return w.id; }); },
+    get: function (id) { return worlds.filter(function (w) { return w.id === id; })[0] || null; },
+    label: function (id) { return window.TitanWorldLabel(id); },
+    aliases: function () { return window.TITAN_WORLD_ALIASES; }
+  };
   window.TitanWorldLabel = function (id) { var w = worlds.filter(function (x) { return x.id === id; })[0]; return w ? w.name + " (" + id + ")" : String(id); };
   window.TITAN_WORLD_BACKDROP = false;   // true = use the active World's hero art as the Hall hero backdrop (styles/worlds.css); easily removable
   window.TITAN_WORLD_COLLECTIONS = ["Museum", "Treasure", "Journeys", "Moods", "Otherworld", "Studio", "Utility"];

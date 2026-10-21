@@ -38,3 +38,6 @@ If a theme has no design for the current shell, the shell keeps its neutral look
 The display name is the human label. The id never changes, because saved choices, CSS and files all use it. Anywhere people read it (logs, reports, commits, progress docs, test output), write **Display Name (id)**, e.g. *Gilded Armory (valhalla)*. In code, call `TitanWorldLabel(id)`.
 Ids that read like a different name are listed in `TITAN_WORLD_ALIASES` (wings/themes/manifest.js). `tools/themes/test_names.js` fails if a new one is left out.
 Today's aliases: Prism (kaleido), Midnight Gallery (afterhours), The Mint (colossus), Shipwreck (abyss), Plaintext (notepad), Solar Observatory (solaris), Hyperborean Vault (glacier), Gilded Armory (valhalla), Survey Map (contour), Treasury Note (banknote), Paper Hills (papercut), Millennium Chrome (y2k).
+
+## One theme registry
+`window.TITAN_WORLDS` / `TitanRegistry` (wings/themes/manifest.js) is the only list of themes. Everything else is keyed by its ids: the picker cards, the intros (`js/intros/<id>.js`), the sound scene (`world.scene`), the UI sound voice, the coin-page world, the FX (`world.fx`) and the stylesheets (`styles/atmo/<id>.css`). `tools/themes/test_registry.py` (in CI) fails on anything missing or orphaned in any of them and names each theme as Display Name (id).

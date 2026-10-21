@@ -34,7 +34,7 @@
     } catch (e) { /* private mode */ }
   </script>
   <!-- One motion setting + haptics (fix list #59): must run before every other script and before the first paint -->
-  <script src="js/app-motion.js?v=tr184"></script>
+  <script src="js/app-motion.js?v=tr185"></script>
   <!-- Splash gate: show the cinematic vault-door opening (splash v3) once per session on a plain load of the Grand Hall.
        ?nosplash skips it, ?splash=1 forces it, deep links (#coin=..., #vault ...) skip it, Motion "Off" skips it. Fails open after 7 s. -->
   <script>
@@ -51,9 +51,9 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr184" />
-  <link rel="stylesheet" href="splash.css?v=tr184" />
-  <link rel="stylesheet" href="styles/themes.css?v=tr184" />
+  <link rel="stylesheet" href="styles.css?v=tr185" />
+  <link rel="stylesheet" href="splash.css?v=tr185" />
+  <link rel="stylesheet" href="styles/themes.css?v=tr185" />
   <!-- Only the ACTIVE atmosphere's stylesheet loads (written here so it still blocks first paint: no flash of the wrong theme).
        Switching later is app.js (atmoCss loader): the new sheet loads first, then data-atmo flips and the old sheet is removed.
        sw.js precaches all 20 so switching works offline. styles/atmo/all.css is no longer linked. -->
@@ -65,23 +65,23 @@
       document.write('<link rel="stylesheet" id="atmo-css" data-atmo-css="' + a + '" href="styles/atmo/' + a + '.css' + window.__trAtmoQ + '">');
     })();
   </script>
-  <noscript><link rel="stylesheet" href="styles/atmo/afterhours.css?v=tr184" /></noscript>
-  <link rel="stylesheet" href="styles/slab-legibility.css?v=tr184" />
-  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr184" /> -->
-  <link rel="stylesheet" href="styles/hall.css?v=tr184" />
-  <link rel="stylesheet" href="styles/gallery.css?v=tr184" />
-  <link rel="stylesheet" href="styles/vault.css?v=tr184" />
-  <link rel="stylesheet" href="styles/study.css?v=tr184" />
-  <link rel="stylesheet" href="styles/wants.css?v=tr184" />
-  <link rel="stylesheet" href="styles/simple.css?v=tr184" />
-  <link rel="stylesheet" href="styles/health.css?v=tr184" />
-  <link rel="stylesheet" href="styles/questions.css?v=tr184" />
-  <link rel="stylesheet" href="styles/lab.css?v=tr184" />
-  <link rel="stylesheet" href="styles/table.css?v=tr184" />
-  <link rel="stylesheet" href="styles/fx.css?v=tr184" />
-  <link rel="stylesheet" href="styles/scene.css?v=tr184" />
-  <link rel="stylesheet" href="styles/worlds.css?v=tr184" />
-  <link rel="stylesheet" href="styles/style-layer.css?v=tr184" />
+  <noscript><link rel="stylesheet" href="styles/atmo/afterhours.css?v=tr185" /></noscript>
+  <link rel="stylesheet" href="styles/slab-legibility.css?v=tr185" />
+  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr185" /> -->
+  <link rel="stylesheet" href="styles/hall.css?v=tr185" />
+  <link rel="stylesheet" href="styles/gallery.css?v=tr185" />
+  <link rel="stylesheet" href="styles/vault.css?v=tr185" />
+  <link rel="stylesheet" href="styles/study.css?v=tr185" />
+  <link rel="stylesheet" href="styles/wants.css?v=tr185" />
+  <link rel="stylesheet" href="styles/simple.css?v=tr185" />
+  <link rel="stylesheet" href="styles/health.css?v=tr185" />
+  <link rel="stylesheet" href="styles/questions.css?v=tr185" />
+  <link rel="stylesheet" href="styles/lab.css?v=tr185" />
+  <link rel="stylesheet" href="styles/table.css?v=tr185" />
+  <link rel="stylesheet" href="styles/fx.css?v=tr185" />
+  <link rel="stylesheet" href="styles/scene.css?v=tr185" />
+  <link rel="stylesheet" href="styles/worlds.css?v=tr185" />
+  <link rel="stylesheet" href="styles/style-layer.css?v=tr185" />
   <!--WS:themes: shared atmosphere system + one stylesheet per atmosphere (notes/agents/themes.md)-->
 </head>
 <body>
@@ -1256,108 +1256,108 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr184";</script>
+  <script>window.TITAN_BUILD = "tr185";</script>
   <script src="js/three.min.js"></script>
-  <script src="js/motion-splash.js?v=tr184"></script>
-  <script src="js/intros/kit.js?v=tr184"></script>
-  <script src="js/intros/zen.js?v=tr184"></script>
-  <script src="js/intros/arcade.js?v=tr184"></script>
-  <script src="js/intros/construct.js?v=tr184"></script>
-  <script src="js/intros/neon.js?v=tr184"></script>
-  <script src="js/intros/notepad.js?v=tr184"></script>
-  <script src="js/intros/terminal.js?v=tr184"></script>
-  <script src="js/intros/valhalla.js?v=tr184"></script>
-  <script src="js/intros/xeno.js?v=tr184"></script>
-  <script src="js/intros/marbled.js?v=tr184"></script>
-  <script src="js/intros/drafting.js?v=tr184"></script>
-  <script src="js/intros/solaris.js?v=tr184"></script>
-  <script src="js/intros/conservator.js?v=tr184"></script>
-  <script src="js/intros/cathedral.js?v=tr184"></script>
-  <script src="js/intros/dynasty.js?v=tr184"></script>
-  <script src="js/intros/alchemist.js?v=tr184"></script>
-  <script src="js/intros/cursedwing.js?v=tr184"></script>
-  <script src="js/intros/samadhi.js?v=tr184"></script>
-  <script src="js/intros/abyss.js?v=tr184"></script>
-  <script src="js/intros/bauhaus.js?v=tr184"></script>
-  <script src="js/intros/odyssey.js?v=tr184"></script>
-  <script src="js/intros/kaleido.js?v=tr184"></script>
-  <script src="js/intros/y2k.js?v=tr184"></script>
-  <script src="js/intros/silkroad.js?v=tr184"></script>
-  <script src="js/intros/diorama.js?v=tr184"></script>
-  <script src="js/intros/contour.js?v=tr184"></script>
-  <script src="js/intros/afterhours.js?v=tr184"></script>
-  <script src="js/intros/pulp.js?v=tr184"></script>
-  <script src="js/intros/glacier.js?v=tr184"></script>
-  <script src="js/intros/papercut.js?v=tr184"></script>
-  <script src="js/intros/colossus.js?v=tr184"></script>
-  <script src="js/intros/freefall.js?v=tr184"></script>
-  <script src="js/intros/sketch.js?v=tr184"></script>
-  <script src="js/intros/banknote.js?v=tr184"></script>
-  <script src="splash.js?v=tr184"></script>
+  <script src="js/motion-splash.js?v=tr185"></script>
+  <script src="js/intros/kit.js?v=tr185"></script>
+  <script src="js/intros/zen.js?v=tr185"></script>
+  <script src="js/intros/arcade.js?v=tr185"></script>
+  <script src="js/intros/construct.js?v=tr185"></script>
+  <script src="js/intros/neon.js?v=tr185"></script>
+  <script src="js/intros/notepad.js?v=tr185"></script>
+  <script src="js/intros/terminal.js?v=tr185"></script>
+  <script src="js/intros/valhalla.js?v=tr185"></script>
+  <script src="js/intros/xeno.js?v=tr185"></script>
+  <script src="js/intros/marbled.js?v=tr185"></script>
+  <script src="js/intros/drafting.js?v=tr185"></script>
+  <script src="js/intros/solaris.js?v=tr185"></script>
+  <script src="js/intros/conservator.js?v=tr185"></script>
+  <script src="js/intros/cathedral.js?v=tr185"></script>
+  <script src="js/intros/dynasty.js?v=tr185"></script>
+  <script src="js/intros/alchemist.js?v=tr185"></script>
+  <script src="js/intros/cursedwing.js?v=tr185"></script>
+  <script src="js/intros/samadhi.js?v=tr185"></script>
+  <script src="js/intros/abyss.js?v=tr185"></script>
+  <script src="js/intros/bauhaus.js?v=tr185"></script>
+  <script src="js/intros/odyssey.js?v=tr185"></script>
+  <script src="js/intros/kaleido.js?v=tr185"></script>
+  <script src="js/intros/y2k.js?v=tr185"></script>
+  <script src="js/intros/silkroad.js?v=tr185"></script>
+  <script src="js/intros/diorama.js?v=tr185"></script>
+  <script src="js/intros/contour.js?v=tr185"></script>
+  <script src="js/intros/afterhours.js?v=tr185"></script>
+  <script src="js/intros/pulp.js?v=tr185"></script>
+  <script src="js/intros/glacier.js?v=tr185"></script>
+  <script src="js/intros/papercut.js?v=tr185"></script>
+  <script src="js/intros/colossus.js?v=tr185"></script>
+  <script src="js/intros/freefall.js?v=tr185"></script>
+  <script src="js/intros/sketch.js?v=tr185"></script>
+  <script src="js/intros/banknote.js?v=tr185"></script>
+  <script src="splash.js?v=tr185"></script>
   <script src="js/OrbitControls.js"></script>
   <script src="js/fflate.min.js"></script>
   <script src="js/USDZExporter.js"></script>
   <script src="js/qrcode.min.js"></script>
-  <script src="spatial.js?v=tr184"></script>
-  <script src="deepzoom.js?v=tr184"></script>
-  <script src="atlas.js?v=tr184"></script>
-  <script src="js/app-format.js?v=tr184"></script>
-  <script src="js/app-data.js?v=tr184"></script>
-  <script src="js/app-insights.js?v=tr184"></script>
-  <script src="js/app-overlay.js?v=tr184"></script>
-  <script src="js/app-atmo-css.js?v=tr184"></script>
-  <script src="js/app-ui.js?v=tr184"></script>
-  <script src="js/app-palette.js?v=tr184"></script>
-  <script src="app.js?v=tr184"></script>
-  <script src="js/playlist.js?v=tr184"></script>
-  <script src="audio.js?v=tr184"></script>
-  <script src="ambient.js?v=tr184"></script>
-  <script src="wings/atmo/core.js?v=tr184"></script>
-  <script src="wings/atmo/afterhours.js?v=tr184"></script>
-  <script src="wings/atmo/conservator.js?v=tr184"></script>
-  <script src="wings/atmo/colossus.js?v=tr184"></script>
-  <script src="wings/atmo/nocturne.js?v=tr184"></script>
-  <script src="wings/atmo/odyssey.js?v=tr184"></script>
-  <script src="wings/atmo/cursedwing.js?v=tr184"></script>
-  <script src="wings/atmo/kaleido.js?v=tr184"></script>
-  <script src="wings/atmo/abyss.js?v=tr184"></script>
-  <script src="wings/atmo/neon.js?v=tr184"></script>
-  <script src="wings/atmo/notepad.js?v=tr184"></script>
-  <script src="wings/atmo/construct.js?v=tr184"></script>
-  <script src="wings/atmo/xeno.js?v=tr184"></script>
-  <script src="wings/atmo/solaris.js?v=tr184"></script>
-  <script src="wings/atmo/alchemist.js?v=tr184"></script>
-  <script src="wings/atmo/glacier.js?v=tr184"></script>
-  <script src="wings/atmo/valhalla.js?v=tr184"></script>
-  <script src="wings/atmo/dynasty.js?v=tr184"></script>
-  <script src="wings/atmo/zen.js?v=tr184"></script>
-  <script src="wings/atmo/samadhi.js?v=tr184"></script>
-  <script src="wings/atmo/silkroad.js?v=tr184"></script>
-  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr184"></script> -->
-  <script src="wings/hall.js?v=tr184"></script>
-  <script src="wings/gallery.js?v=tr184"></script>
-  <script src="wings/vault.js?v=tr184"></script>
-  <script src="wings/albums-data.js?v=tr184"></script><script src="wings/study.js?v=tr184"></script>
-  <script src="wings/wants.js?v=tr184"></script>
-  <script src="wings/simple.js?v=tr184"></script>
-  <script src="wings/health.js?v=tr184"></script>
-  <script src="wings/questions.js?v=tr184"></script>
-  <script src="wings/scan.js?v=tr184"></script>
-  <script src="wings/lab.js?v=tr184"></script>
+  <script src="spatial.js?v=tr185"></script>
+  <script src="deepzoom.js?v=tr185"></script>
+  <script src="atlas.js?v=tr185"></script>
+  <script src="js/app-format.js?v=tr185"></script>
+  <script src="js/app-data.js?v=tr185"></script>
+  <script src="js/app-insights.js?v=tr185"></script>
+  <script src="js/app-overlay.js?v=tr185"></script>
+  <script src="js/app-atmo-css.js?v=tr185"></script>
+  <script src="js/app-ui.js?v=tr185"></script>
+  <script src="js/app-palette.js?v=tr185"></script>
+  <script src="app.js?v=tr185"></script>
+  <script src="js/playlist.js?v=tr185"></script>
+  <script src="audio.js?v=tr185"></script>
+  <script src="ambient.js?v=tr185"></script>
+  <script src="wings/atmo/core.js?v=tr185"></script>
+  <script src="wings/atmo/afterhours.js?v=tr185"></script>
+  <script src="wings/atmo/conservator.js?v=tr185"></script>
+  <script src="wings/atmo/colossus.js?v=tr185"></script>
+  <script src="wings/atmo/nocturne.js?v=tr185"></script>
+  <script src="wings/atmo/odyssey.js?v=tr185"></script>
+  <script src="wings/atmo/cursedwing.js?v=tr185"></script>
+  <script src="wings/atmo/kaleido.js?v=tr185"></script>
+  <script src="wings/atmo/abyss.js?v=tr185"></script>
+  <script src="wings/atmo/neon.js?v=tr185"></script>
+  <script src="wings/atmo/notepad.js?v=tr185"></script>
+  <script src="wings/atmo/construct.js?v=tr185"></script>
+  <script src="wings/atmo/xeno.js?v=tr185"></script>
+  <script src="wings/atmo/solaris.js?v=tr185"></script>
+  <script src="wings/atmo/alchemist.js?v=tr185"></script>
+  <script src="wings/atmo/glacier.js?v=tr185"></script>
+  <script src="wings/atmo/valhalla.js?v=tr185"></script>
+  <script src="wings/atmo/dynasty.js?v=tr185"></script>
+  <script src="wings/atmo/zen.js?v=tr185"></script>
+  <script src="wings/atmo/samadhi.js?v=tr185"></script>
+  <script src="wings/atmo/silkroad.js?v=tr185"></script>
+  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr185"></script> -->
+  <script src="wings/hall.js?v=tr185"></script>
+  <script src="wings/gallery.js?v=tr185"></script>
+  <script src="wings/vault.js?v=tr185"></script>
+  <script src="wings/albums-data.js?v=tr185"></script><script src="wings/study.js?v=tr185"></script>
+  <script src="wings/wants.js?v=tr185"></script>
+  <script src="wings/simple.js?v=tr185"></script>
+  <script src="wings/health.js?v=tr185"></script>
+  <script src="wings/questions.js?v=tr185"></script>
+  <script src="wings/scan.js?v=tr185"></script>
+  <script src="wings/lab.js?v=tr185"></script>
   <!--WJ:table-->
-  <script src="wings/fx/engine.js?v=tr184"></script><script src="wings/fx/presets.js?v=tr184"></script><script src="wings/fx/styles-a.js?v=tr184"></script><script src="wings/fx/styles-b.js?v=tr184"></script><script src="wings/fx/styles-c.js?v=tr184"></script><script src="wings/fx/styles-d.js?v=tr184"></script><script src="wings/fx/styles-e.js?v=tr184"></script><script src="wings/fx/ui.js?v=tr184"></script>
-  <script src="wings/themes/manifest.js?v=tr184"></script>
-  <script src="wings/themes/worlds.js?v=tr184"></script>
-  <script src="wings/music-recorded.js?v=tr184"></script>
-  <script src="wings/music-engine.js?v=tr184"></script>
-  <script src="wings/scene-engine.js?v=tr184"></script>
-  <script src="wings/signature/core.js?v=tr184"></script>
-  <script src="wings/relief.js?v=tr184"></script>
-  <script src="shells/shell.js?v=tr184"></script>
-  <script src="wings/coin3d.js?v=tr184"></script>
-  <script src="wings/ui-sounds.js?v=tr184"></script>
-  <script src="wings/scene.js?v=tr184"></script>
+  <script src="wings/fx/engine.js?v=tr185"></script><script src="wings/fx/presets.js?v=tr185"></script><script src="wings/fx/styles-a.js?v=tr185"></script><script src="wings/fx/styles-b.js?v=tr185"></script><script src="wings/fx/styles-c.js?v=tr185"></script><script src="wings/fx/styles-d.js?v=tr185"></script><script src="wings/fx/styles-e.js?v=tr185"></script><script src="wings/fx/ui.js?v=tr185"></script>
+  <script src="wings/themes/manifest.js?v=tr185"></script>
+  <script src="wings/themes/worlds.js?v=tr185"></script>
+  <script src="wings/music-recorded.js?v=tr185"></script>
+  <script src="wings/music-engine.js?v=tr185"></script>
+  <script src="wings/scene-engine.js?v=tr185"></script>
+  <script src="wings/signature/core.js?v=tr185"></script>
+  <script src="wings/relief.js?v=tr185"></script>
+  <script src="shells/shell.js?v=tr185"></script>
+  <script src="wings/coin3d.js?v=tr185"></script>
+  <script src="wings/ui-sounds.js?v=tr185"></script>
+  <script src="wings/scene.js?v=tr185"></script>
   <!--WJ:themes: crest registry + one crest file per atmosphere-->
-  <script src="wings/themes.js?v=tr184"></script>
+  <script src="wings/themes.js?v=tr185"></script>
 </body>
 </html>

@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-20] — Grok (Titan Reliquary) · theme registry (tr184)
+- One theme registry: TitanRegistry (wings/themes/manifest.js) is the only list of themes. The picker, intros, sound scenes, UI voices, coin-page worlds, FX and stylesheets are all keyed by its ids. tools/themes/test_registry.py (CI) fails on anything missing or orphaned, naming each theme as Display Name (id). Today all 34 agree.
+
 ### [2026-10-20] — Grok (Titan Reliquary) · theme names registry (tr182)
 - Theme names: the display name is the human label and ids stay stable. Every report now prints Display Name (id), e.g. Gilded Armory (valhalla), Plaintext (notepad), Hyperborean Vault (glacier). The 12 ids that read like another name are listed in TITAN_WORLD_ALIASES, with TitanWorldLabel(id) for code. tools/themes/test_names.js fails on a new divergent id that isn't listed.
 
