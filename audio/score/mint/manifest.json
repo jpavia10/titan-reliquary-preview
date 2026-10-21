@@ -1,0 +1,81 @@
+{
+ "theme": "mint",
+ "version": 1,
+ "tracks": {
+  "mars": {
+   "file": "mars.m4a",
+   "title": "Holst: The Planets, I. Mars, the Bringer of War (band transcription)",
+   "artist": "United States Air Force Heritage of America Band",
+   "license": "Public domain (US Government work; composition PD)",
+   "url": "https://commons.wikimedia.org/wiki/File:Holst-_mars.ogg"
+  },
+  "first-suite-march": {
+   "file": "first-suite-march.m4a",
+   "title": "Holst: First Suite in E-flat, III. March",
+   "artist": "\"The President's Own\" United States Marine Band",
+   "license": "Public domain (US Government work; composition PD)",
+   "url": "https://commons.wikimedia.org/wiki/File:Holst_First_Suite_March.ogg"
+  },
+  "first-suite-chaconne": {
+   "file": "first-suite-chaconne.m4a",
+   "title": "Holst: First Suite in E-flat, I. Chaconne",
+   "artist": "\"The President's Own\" United States Marine Band",
+   "license": "Public domain (US Government work; composition PD)",
+   "url": "https://commons.wikimedia.org/wiki/File:Holst_First_Suite_Chaconne.ogg"
+  },
+  "saturn": {
+   "file": "saturn.m4a",
+   "title": "Holst: The Planets, V. Saturn, the Bringer of Old Age (band transcription)",
+   "artist": "\"The President's Own\" United States Marine Band",
+   "license": "Public domain (US Government work; composition PD)",
+   "url": "https://commons.wikimedia.org/wiki/File:HOLST_%22The_Planets,_Op._32_5._Saturn,_the_Bringer_of_Old_Age%22_-_%22The_President%27s_Own%22_U.S._Marine_Band.opus"
+  }
+ },
+ "decks": {
+  "browse": [
+   "mars",
+   "first-suite-march",
+   "first-suite-chaconne"
+  ],
+  "coin": [
+   "saturn"
+  ]
+ },
+ "states": {
+  "browse": {
+   "deck": "browse",
+   "lp": 20000,
+   "gain": 1
+  },
+  "search": {
+   "deck": "browse",
+   "lp": 1600,
+   "gain": 0.7
+  },
+  "idle": {
+   "deck": "browse",
+   "lp": 900,
+   "gain": 0.55
+  },
+  "coin": {
+   "deck": "coin",
+   "lp": 20000,
+   "gain": 0.95
+  }
+ },
+ "stinger": {
+  "file": "stinger.m4a",
+  "pad": 0,
+  "len": 11.0,
+  "total": 11.0,
+  "hit": 2.4
+ },
+ "ui": {
+  "tap": "ui-tap.m4a",
+  "open": "ui-open.m4a",
+  "back": "ui-back.m4a",
+  "search": "ui-search.m4a",
+  "coin": "ui-coin.m4a"
+ },
+ "note": "Songs are recorded human music (licensed, see audio/score/CREDITS.md). Stinger and UI sounds are designed sound effects (tools/music/score/mint.py)."
+}

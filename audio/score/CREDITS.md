@@ -25,6 +25,10 @@ effects around a song (intro stingers, UI sounds, filters, crossfades). Each tra
 | Ferrofluid (ferro) | The Focus | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/fade (album Fade, 2012) |
 | Ferrofluid (ferro) | Making Will Mad | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/fade (album Fade, 2012) |
 | Ferrofluid (ferro) | LA After Rain | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/fade (album Fade, 2012) |
+| The Mint (mint) | Holst: The Planets, I. Mars, the Bringer of War (band transcription) | United States Air Force Heritage of America Band | Public domain | https://commons.wikimedia.org/wiki/File:Holst-_mars.ogg |
+| The Mint (mint) | Holst: First Suite in E-flat, III. March | "The President's Own" United States Marine Band | Public domain | https://commons.wikimedia.org/wiki/File:Holst_First_Suite_March.ogg |
+| The Mint (mint) | Holst: First Suite in E-flat, I. Chaconne | "The President's Own" United States Marine Band | Public domain | https://commons.wikimedia.org/wiki/File:Holst_First_Suite_Chaconne.ogg |
+| The Mint (mint) | Holst: The Planets, V. Saturn, the Bringer of Old Age (band transcription) | "The President's Own" United States Marine Band | Public domain | https://commons.wikimedia.org/wiki/File:HOLST_%22The_Planets,_Op._32_5._Saturn,_the_Bringer_of_Old_Age%22_-_%22The_President%27s_Own%22_U.S._Marine_Band.opus |
 
 Attribution (CC BY 4.0): "<Track>" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0
 License, http://creativecommons.org/licenses/by/4.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
@@ -37,6 +41,10 @@ Creative Commons Attribution 4.0, http://creativecommons.org/licenses/by/4.0/. C
 
 Attribution (CC BY 3.0): "<Track>" by Steve Combs, from Our Wasted Youth (Parenthetical Records, 2015). Licensed under Creative Commons
 Attribution 3.0, http://creativecommons.org/licenses/by/3.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
+
+The Mint: performances by US military bands are works of the US Government (public domain, 17 U.S.C. 105); Holst's compositions
+(1909, 1914-16) are public domain. Mars is in Merlin Patterson's band transcription, recorded by the USAF band (Commons: PD US Air Force).
+Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps. Credit given as a courtesy.
 
 ## Designed sound (not songs)
 

@@ -141,7 +141,7 @@
     "conservator": { rec: "piano", world: true, name: "Conservator's Bench", icon: "🔎", desc: "A hushed library, turning pages, a quiet clock.", atmo: "conservator",
                beds: { library: 0.8, pages: 0.65, clock: 0.3 }, pad: 0.55, piano: true, bells: false, beat: false,
                root: "D", mode: "lydian", prog: [0, 4, 3, 1], chordSec: 14, gap: [7, 14], bpm: 70, vol: 0.55 },
-    "mint": { world: true, name: "The Mint", icon: "⚒", desc: "A furnace fire and distant metal clunks.", atmo: "colossus",
+    "mint": { score: "mint", world: true, name: "The Mint", icon: "⚒", desc: "A furnace fire and distant metal clunks under Holst played by the US military bands.", atmo: "colossus",
                beds: { fire: 0.75, clank: 0.75, roomTone: 0.2 }, pad: 0.35, piano: false, bells: true, beat: false,
                root: "D", mode: "minor", prog: [0, 0, 3, 4], chordSec: 18, gap: [10, 20], bpm: 70, vol: 0.5 },
     "hoard": { rec: "orchestra", world: true, name: "Hoard Hall", icon: "🛡", desc: "Hearth fire, wind in the timbers, a creaking beam.", atmo: "valhalla",
