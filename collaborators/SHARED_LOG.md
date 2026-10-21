@@ -765,3 +765,4 @@
 2026-10-20 PT (Grok, intro worker): theme intros batch 4 (Dynasty, The Alchemist, The Cursed Wing, Samadhi) + Gilded Armory (valhalla) upgraded with a torchlit weapon and shield wall that catches each lightning flash. Tests: smoke 38/38 phone+desktop, p02 film rule good. collection/ schema (3 problems) and test_migrations (1 failure) come from upstream data commits, not from this change (no collection/ files touched).
 
 2026-10-20 PT (Grok, intro worker): theme intros batch 5 (Shipwreck/abyss, Bauhaus, Odyssey, Prism/kaleido). Tests: smoke 38/38 phone+desktop, p02 film rule good, all integrity steps pass.
+- Theme intros batch 6 (grok-bot): unique openings for Millennium Chrome (liquid-chrome blob morph + bubble title), Silk Road (caravan crossing a dune sunset), Clay Diorama (tilt-shift clay temple assembling), Survey Map (topographic GL relief with surveyed summit label). Intro files only.
