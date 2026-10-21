@@ -152,7 +152,7 @@
     cathedral: [262, "sine", [1, 2, 3, 4.2], 0.9, 1400, [0, 7, 12, 16, 19]], contour: [587, "triangle", [1, 2], 0.15, 3000, [0, 5, 7]],
     banknote: [784, "sine", [1, 3.2], 0.12, 6500, [0, 4, 7]], freefall: [659, "sine", [1, 2.5], 0.3, 4000, [0, 5, 10, 15]],
     sketch: [880, "triangle", [1], 0.05, 6000, [0, 7]], papercut: [523, "triangle", [1, 2], 0.08, 2500, [0, 4, 7]],
-    y2k: [1046, "sine", [1, 2, 3], 0.2, 7000, [0, 4, 7, 11, 14]], ferro: [147, "sine", [1, 2.01, 5.6], 0.25, 3200, [0, 1, 7, 13]], kaleido: [698, "sine", [1, 2.5, 3.75], 0.4, 6000, [0, 4, 8, 12]]
+    y2k: [1046, "sine", [1, 2, 3], 0.2, 7000, [0, 4, 7, 11, 14]], ferro: [147, "sine", [1, 2.01, 5.6], 0.25, 3200, [0, 1, 7, 13]], lumen: [220, "square", [1, 2, 3.01], 0.18, 4200, [0, 7, 12, 19]], kaleido: [698, "sine", [1, 2.5, 3.75], 0.4, 6000, [0, 4, 8, 12]]
   };
   function curAtmo() { return document.documentElement.dataset.atmo || "afterhours"; }
   function voiceOf(id) { return VOICE[id] || VOICE.afterhours; }

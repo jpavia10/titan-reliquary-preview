@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "lumen", name: "Lumen Circuit", collection: "Otherworld", tier: "signature", art: C("lumen"), ui: [], styles: ["Light grid"],
+      mood: "A black glass grid at night: runners of light race the lanes and leave walls of light behind them. Touch to launch your own.", fx: "fxk", fxIntensity: 0.01, scene: "lumen", tokens: {} },
     { id: "ferro", name: "Ferrofluid", collection: "Otherworld", tier: "signature", art: C("ferro"), ui: [], styles: ["Ferrofluid"],
       mood: "A pool of mirror-black ferrofluid that stands up in spikes wherever your finger goes.", fx: "fxk", fxIntensity: 1.0, scene: "ferro", tokens: {} },
     { id: "marbled", name: "Marbled Endpapers", collection: "Studio", tier: "signature", art: null, ui: ["paper", "endpaper"], styles: ["Marbled paper"],

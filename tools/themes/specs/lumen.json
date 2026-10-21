@@ -1,0 +1,53 @@
+{
+ "id": "lumen",
+ "name": "Lumen Circuit",
+ "collection": "Otherworld",
+ "mood": "A black glass grid at night: runners of light race the lanes and leave walls of light behind them. Touch to launch your own.",
+ "pair": "Grid hum + Synth night",
+ "scheme": "dark",
+ "themeColor": "#03050b",
+ "station": "dark",
+ "ui": [],
+ "styles": [
+  "Light grid"
+ ],
+ "fx": "fxk",
+ "fxIntensity": 0.01,
+ "tokens": "  --scheme: dark;\n  color-scheme: dark;\n  --bg: #03050b;\n  --bg2: #060914;\n  --surface: #0a0f1c;\n  --surface2: #101828;\n  --ink: #eaf6ff;\n  --muted: #b9cde0;\n  --faint: #8ea6bd;\n  --cardmeta: #d6e8f7;\n  --gold: #3fe0ff;\n  --gold-soft: #a8f1ff;\n  --gold-deep: #0e5a74;\n  --on-gold: #01111a;\n  --ink-soft: #b9cde0;\n  --line: rgba(220, 235, 245, 0.10);\n  --line-strong: rgba(63, 224, 255, 0.45);\n  --ok: #7fe3a8;\n  --warn: #ffd06b;\n  --bad: #ff8a7a;\n  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 18px 50px rgba(0, 0, 0, 0.75);\n  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.5);\n  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.6);\n  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 28px 80px rgba(0, 0, 0, 0.8);\n  --scrim: rgba(0, 0, 0, 0.66);\n  --focus: #a8f1ff;\n  --th-bg: #101828;\n  --tabgrad1: #101828; --tabgrad2: #0a0f1c;\n  --toastgrad1: #101828; --toastgrad2: #0a0f1c;\n  --foot-bg: rgba(3, 5, 11, 0.92);\n  --drawerbar-bg: rgba(10, 15, 28, 0.94);\n  --ph-bg: #101828;\n  --sel-bg: rgba(63, 224, 255, 0.16);\n  --row-hover: rgba(63, 224, 255, 0.06);\n  --hold-bg: linear-gradient(160deg, #0f1a2e, #03050b 60%);\n  --skeleton1: #101828; --skeleton2: #03050b;\n  --grain-op: 0.03;\n  --wing-dur: 0.5s;\n  --wing-rise: 14px;\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Eurostile\", \"Bank Gothic\", \"Orbitron\", \"Avenir Next\", \"Segoe UI\", system-ui, sans-serif;\n  --mono: ui-monospace, \"SFMono-Regular\", Menlo, Consolas, monospace;\n  --radius: 4px;",
+ "extra_css": "/* Lumen Circuit surfaces: panels are slabs of black glass on the grid, edged with a thin line of light that runs along the top\n   (a scan that travels the edge), cut corners like circuit traces, and a faint floor reflection. Scoped to the theme's own surfaces. */\nhtml[data-atmo=\"lumen\"] .card, html[data-atmo=\"lumen\"] .panel, html[data-atmo=\"lumen\"] .gx-card {\n  background: linear-gradient(180deg, rgba(14,22,40,.78), rgba(3,5,11,.9)), repeating-linear-gradient(90deg, rgba(63,224,255,.035) 0 1px, transparent 1px 28px);\n  backdrop-filter: blur(12px) saturate(150%); -webkit-backdrop-filter: blur(12px) saturate(150%);\n  box-shadow: inset 0 1px 0 rgba(63,224,255,.55), inset 0 0 0 1px rgba(63,224,255,.14), 0 0 22px rgba(63,224,255,.10), 0 22px 50px rgba(0,0,0,.7);\n  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));\n  transition: box-shadow .3s, transform .3s cubic-bezier(.2,1.2,.4,1); }\nhtml[data-atmo=\"lumen\"] .card:hover, html[data-atmo=\"lumen\"] .gx-card:hover {\n  transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,190,90,.8), inset 0 0 0 1px rgba(63,224,255,.3), 0 0 30px rgba(63,224,255,.22), 0 26px 60px rgba(0,0,0,.75); }\nhtml[data-atmo=\"lumen\"] h1, html[data-atmo=\"lumen\"] h2 { letter-spacing: .08em; text-shadow: 0 0 12px rgba(63,224,255,.55), 0 0 2px rgba(220,250,255,.9); }\n@media (prefers-reduced-motion: no-preference) {\n  html[data-atmo=\"lumen\"] .card::after, html[data-atmo=\"lumen\"] .gx-card::after { content: \"\"; position: absolute; left: 0; top: 0; height: 1px; width: 30%; pointer-events: none;\n    background: linear-gradient(90deg, transparent, #fff, #3fe0ff, transparent); animation: lumen-scan 3.6s linear infinite; }\n}\n@keyframes lumen-scan { from { transform: translateX(-100%); } to { transform: translateX(400%); } }\n",
+ "crest": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"7\" stroke-linecap=\"square\"><path d=\"M30 150 H90 V90 H150 V40\"/><path d=\"M60 170 H120 V120 H170\"/><path d=\"M30 120 H60 V60 H110\"/></g><circle cx=\"150\" cy=\"40\" r=\"11\" fill=\"currentColor\"/><circle cx=\"170\" cy=\"120\" r=\"11\" fill=\"currentColor\"/><circle cx=\"110\" cy=\"60\" r=\"9\" fill=\"currentColor\"/>",
+ "swatch": ".sw-lumen { --sw-ink: #eaf6ff; background: linear-gradient(180deg, #03050b 0 46%, #3fe0ff 46.5%, #06101e 48% 100%), repeating-linear-gradient(90deg, transparent 0 18px, rgba(63,224,255,.5) 18px 19px); background-blend-mode: screen; }",
+ "splash_pal": {
+  "bg": "#03050b",
+  "bg2": "#060914",
+  "surface": "#0a0f1c",
+  "ink": "#eaf6ff",
+  "muted": "#b9cde0",
+  "gold": "#3fe0ff",
+  "soft": "#a8f1ff"
+ },
+ "scene": "{ rec: \"piano\", world: true, name: \"Lumen Circuit\", icon: \"\ud83d\udd37\", desc: \"A grid world at night: the low hum of the lanes and faint telemetry and a real recorded piano.\", atmo: \"lumen\",\n               beds: { labHum: 0.4, roomTone: 0.25, telemetry: 0.45 }, pad: 0, piano: false, bells: false, beat: false,\n               root: \"D\", mode: \"minor\", prog: [0], chordSec: 16, gap: [9, 18], vol: 0.45 }",
+ "world": [
+  "drift",
+  4186367,
+  90,
+  0.1
+ ],
+ "voice": [
+  220,
+  "square",
+  [
+   1,
+   2,
+   3.01
+  ],
+  0.18,
+  4200,
+  [
+   0,
+   7,
+   12,
+   19
+  ]
+ ]
+}
