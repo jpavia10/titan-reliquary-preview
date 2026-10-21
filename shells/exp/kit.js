@@ -4,7 +4,8 @@
    Usage: export const mount = (root, svc) => xpMount(root, svc, { id, title, hint, stage: async (ctx) => ({ unmount, focus(i)?, back()? }) }) */
 export const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 export const money = (n) => "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-export const yearOf = (f) => { const m = String(f.year || "").match(/\d{4}/); return m ? +m[0] : null; };
+export const yearOf = (f) => { const y = String(f.year || ""), g = y.match(/\((\d{4})\)/);   // "AH 1378 (1958)": the Gregorian year in brackets wins
+  if (g) return +g[1]; const ah = y.match(/AH\s*(\d{4})/i); if (ah) return Math.round(+ah[1] * 0.970229 + 621.57); const m = y.match(/\d{4}/); return m ? +m[0] : null; };
 export const metalOf = (f) => { const s = ((f.metal || "") + " " + (f.denom || "") + " " + (f.label || "")).toLowerCase();
   return f.is_gold || /gold/.test(s) ? "gold" : f.is_silver || /silver/.test(s) ? "silver" : /bronze|copper/.test(s) ? "copper" : /nickel|cupro|steel|alumin|zinc/.test(s) ? "base" : "unknown"; };
 const LVL = { verified: "Verified", checked: "Checked", reference: "Reference", photo: "Photo", guess: "AI guess", ledger: "From ledger" };

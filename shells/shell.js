@@ -10,7 +10,8 @@
     { id: "field", name: "The Field", desc: "Everything on one table: place down, year across. Tap a coin and fly to it.", module: "shells/field/field.js", css: "shells/field/field.css" },
     /* Experimental (exp worker): each is one folder + one line here; see docs/design/UI_REGISTRY.md to remove */
     { id: "hologram", exp: true, name: "Hologram", desc: "Millions of light particles. The ring of your collection surrounds you; tap one and every particle spirals in to form that coin.", module: "shells/hologram/hologram.js", css: "shells/hologram/hologram.css" },
-    { id: "orrery", exp: true, name: "Orrery", desc: "A brass orrery in space. The sun is today; each decade is an orbit, older coins circle farther out and slower. Tap a coin and time stops.", module: "shells/orrery/orrery.js", css: "shells/orrery/orrery.css" }
+    { id: "orrery", exp: true, name: "Orrery", desc: "A brass orrery in space. The sun is today; each decade is an orbit, older coins circle farther out and slower. Tap a coin and time stops.", module: "shells/orrery/orrery.js", css: "shells/orrery/orrery.css" },
+    { id: "deck", exp: true, name: "Deck", desc: "Every coin is a foil card. Flick through a springy fan, or shuffle and deal a three-card reading from any suit.", module: "shells/deck/deck.js", css: "shells/deck/deck.css" }
   ];
   const KEY = "tr.shell", B = () => window.TITAN_BUILD || "";
   let cur = "classic", live = null, root = null, manifest = null, themeLink = null, busy = Promise.resolve();

@@ -13,7 +13,7 @@ LISTJS = """(() => { const q = document.getElementById('xp-q'), n = () => docume
   document.querySelector('#xp-chips [data-f="m:silver"]').click(); const ag = n();
   document.querySelector('#xp-chips [data-f="all"]').click(); q.value = 'Switzerland'; q.dispatchEvent(new Event('input'));
   return all === __exp.count && ag > 0 && ag < all; })()"""
-EXP = [x for x in os.environ.get("XP_ONLY", "hologram,orrery").split(",") if x]
+EXP = [x for x in os.environ.get("XP_ONLY", "hologram,orrery,deck").split(",") if x]
 
 def main():
     base = serve(); fails = []; shots = os.environ.get("XP_SHOTS")
@@ -32,6 +32,15 @@ def main():
                 check(tag + "mounts", p.evaluate(f"TitanShell.current() === '{sid}' && !!window.__exp && __exp.id === '{sid}'"))
                 check(tag + "listed under Experimental in the UI chooser", p.evaluate(f"TitanShell.list().some(s => s.id === '{sid}')"))
                 if sid == "orrery": check(tag + "has an orbit per decade and 500k dust", p.evaluate("__orrery.orbits >= 10 && __orrery.dustFull >= 500000"))
+                if sid == "deck":
+                    p.evaluate("__deck.go(5)"); p.wait_for_timeout(1500)
+                    check(tag + "the fan moves to any card", p.evaluate("__deck.center()") is not None)
+                    p.click('[data-mode="reading"]'); p.wait_for_timeout(900)
+                    check(tag + "a reading deals three cards", p.evaluate("document.querySelectorAll('.dk-spread [data-r]').length") == 3)
+                    p.click('.dk-spread [data-r="0"]'); p.wait_for_timeout(700); p.click('.dk-spread [data-r="0"]'); p.wait_for_timeout(1200)
+                    check(tag + "turning then tapping a dealt card opens its facts", p.evaluate("__exp.state()") == "coin")
+                    if shots: p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-reading.png")
+                    p.click("#xp-back"); p.wait_for_timeout(500); p.click('[data-mode="fan"]'); p.wait_for_timeout(600)
                 if sid == "hologram":
                     n = p.evaluate("window.__holo ? __holo.particles : 0"); check(tag + "at least 1M particles", n >= 1_000_000, n)
                 if shots:
@@ -39,7 +48,7 @@ def main():
                     p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-home.png")
                 if vp["width"] > 2000:
                     if shots:
-                        p.evaluate("__exp.open(0)"); p.wait_for_timeout(3000); p.evaluate("window.__holo ? __holo.warm(90) : __orrery.warm(4)"); p.wait_for_timeout(2500); p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-coin.png")
+                        p.evaluate("__exp.open(0)"); p.wait_for_timeout(3000); p.evaluate("window.__holo ? __holo.warm(90) : window.__orrery && __orrery.warm(4)"); p.wait_for_timeout(2500); p.screenshot(path=f"{shots}/exp-{sid}/{vp['width']}x{vp['height']}-coin.png")
                     p.close(); continue
                 p.click("#xp-search"); p.fill("#xp-q", "Switzerland"); p.wait_for_timeout(300)
                 check(tag + "(5) search finds coins", p.evaluate("document.querySelectorAll('#xp-list [data-i]').length") > 0)

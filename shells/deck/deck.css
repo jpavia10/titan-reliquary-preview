@@ -1,0 +1,53 @@
+@import url("../exp/exp.css");
+/* Deck: dark baize table, ivory cards with gilt edges and a holographic foil that follows touch/tilt */
+#shell-deck { --bg:#0b100d; --acc:#e3c27a; --line:rgba(227,194,122,.3); --panel:rgba(14,18,15,.94); }
+#shell-deck .xp-stage { background: radial-gradient(120% 80% at 50% 45%, #183126 0%, #0c1712 55%, #060908 100%); touch-action:none; }
+#shell-deck .xp-title b { font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif; letter-spacing:.35em; color:#f0d798; }
+#shell-deck .dk-table { position:absolute; inset:0; perspective:1400px; }
+#shell-deck .dk-card { position:absolute; left:0; top:0; padding:0; border:0; background:none; border-radius:14px; min-height:0; min-width:0; cursor:pointer; will-change:transform;
+  -webkit-backdrop-filter:none; backdrop-filter:none; box-shadow:none; }
+#shell-deck .dk-inner { position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .42s cubic-bezier(.2,.9,.25,1.15); transform:rotateY(180deg); }
+#shell-deck .dk-center .dk-inner, #shell-deck .dk-turned .dk-inner { transform:rotateY(0deg); }
+#shell-deck .dk-reading .dk-card .dk-inner { transform:rotateY(180deg); } #shell-deck .dk-reading .dk-card.dk-turned .dk-inner { transform:rotateY(0deg) translateZ(20px); }
+#shell-deck .dk-face, #shell-deck .dk-back { position:absolute; inset:0; border-radius:14px; backface-visibility:hidden; -webkit-backface-visibility:hidden; overflow:hidden; box-shadow:0 18px 40px rgba(0,0,0,.55), 0 0 0 1px rgba(255,235,190,.35) inset; }
+#shell-deck .dk-face { background:linear-gradient(160deg,#fbf3e1,#eadbb8); color:#2a2116; display:flex; flex-direction:column; align-items:center; padding:9% 8% 7%; font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif; }
+#shell-deck .dk-face::before { content:""; position:absolute; inset:5px; border:1.5px solid #b48a3c; border-radius:10px; pointer-events:none; }
+#shell-deck .dk-back { transform:rotateY(180deg); background:#16261f; }
+#shell-deck .dk-backart { position:absolute; inset:6px; border-radius:10px; border:1.5px solid #c9a35a;
+  background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(201,163,90,.22) 0 6deg, transparent 6deg 15deg), radial-gradient(circle at 50% 50%, #2a4a3b 0 22%, #10201a 60%); }
+#shell-deck .dk-backart::after { content:"✧"; position:absolute; inset:0; display:grid; place-items:center; font-size:42px; color:#e3c27a; text-shadow:0 0 14px rgba(227,194,122,.6); }
+#shell-deck .dk-art { width:74%; aspect-ratio:1; border-radius:50%; overflow:hidden; margin:6% 0 5%; box-shadow:0 6px 14px rgba(60,40,10,.45), 0 0 0 3px #c9a35a; background:#222; display:grid; place-items:center; }
+#shell-deck .dk-art img { width:100%; height:100%; object-fit:cover; pointer-events:none; }
+#shell-deck .dk-noimg { font-size:3em; color:#e3c27a; }
+#shell-deck .dk-name { font-weight:700; font-size:clamp(13px,4.2vw,19px); text-align:center; line-height:1.15; }
+#shell-deck .dk-sub { font-size:clamp(11px,3.2vw,14px); color:#6b5a3e; text-align:center; }
+#shell-deck .dk-year { font-size:clamp(18px,6vw,28px); font-weight:700; letter-spacing:.06em; margin-top:auto; }
+#shell-deck .dk-pips { color:#a8782a; letter-spacing:.2em; font-size:12px; } #shell-deck .dk-suit { font-size:12px; color:#6b5a3e; }
+#shell-deck .dk-corner { position:absolute; top:8px; left:10px; font-size:20px; line-height:1; color:#a8782a; display:flex; flex-direction:column; align-items:center; }
+#shell-deck .dk-corner small { font:600 9px/1 system-ui; color:#6b5a3e; margin-top:2px; }
+#shell-deck .dk-br { top:auto; left:auto; bottom:8px; right:10px; transform:rotate(180deg); }
+#shell-deck .dk-silver .dk-face, #shell-deck .dk-face.dk-silver { background:linear-gradient(160deg,#f4f6f8,#d9dee4); }
+#shell-deck .dk-face.dk-gold { background:linear-gradient(160deg,#fff4cf,#ecd38a); }
+#shell-deck .dk-face.dk-copper { background:linear-gradient(160deg,#fbe9dc,#e7c2a6); }
+/* holographic foil: a moving rainbow sheen + glints, only on the face that's up front */
+#shell-deck .dk-foil { position:absolute; inset:0; pointer-events:none; mix-blend-mode:color-dodge; opacity:0; transition:opacity .3s;
+  background: linear-gradient(var(--fa,20deg), transparent 20%, rgba(255,0,140,.35) 35%, rgba(0,255,220,.35) 45%, rgba(255,240,0,.35) 55%, rgba(120,80,255,.35) 65%, transparent 80%),
+              radial-gradient(circle at var(--fx,50%) var(--fy,40%), rgba(255,255,255,.75), transparent 35%);
+  background-size: 220% 220%, 100% 100%; background-position: var(--fx,50%) var(--fy,50%), 0 0; }
+#shell-deck .dk-center .dk-foil, #shell-deck .dk-turned .dk-foil { opacity:.55; }
+#shell-deck .dk-center .dk-face { box-shadow:0 18px 40px rgba(0,0,0,.55), 0 0 28px rgba(227,194,122,.45), 0 0 0 1px rgba(255,235,190,.35) inset; }   /* no CSS filter on a 3D card: it flattens the flip */
+#shell-deck .dk-bar { position:absolute; left:0; right:0; bottom:calc(64px + env(safe-area-inset-bottom)); z-index:4; display:flex; flex-direction:column; align-items:center; gap:8px; padding:0 10px; }
+#shell-deck .dk-modes { display:flex; gap:6px; }
+#shell-deck .dk-modes button, #shell-deck .dk-suits button { border-radius:99px; min-height:44px; padding:6px 16px; }
+#shell-deck .dk-modes button[aria-pressed="true"], #shell-deck .dk-suits button[aria-pressed="true"] { background:var(--acc); color:#1a140a; border-color:var(--acc); }
+#shell-deck .dk-suits { display:flex; gap:6px; overflow-x:auto; max-width:100%; padding-bottom:2px; } #shell-deck .dk-suits button { flex:none; font-size:14px; }
+#shell-deck .dk-pos { color:#d8c69b; font-size:14px; text-align:center; min-height:1.4em; text-shadow:0 1px 3px #000; }
+#shell-deck .dk-spread { position:absolute; left:0; right:0; top:14%; display:flex; justify-content:center; gap:3vw; padding:0 3vw; }
+#shell-deck .dk-slot { display:flex; flex-direction:column; align-items:center; gap:4px; width:min(30vw,230px); color:#e3c27a; text-align:center; font-family:"Iowan Old Style",Georgia,serif; }
+#shell-deck .dk-slot small { color:#a9b9ae; font:12px system-ui; }
+#shell-deck .dk-slot .dk-card { position:relative; width:100%; aspect-ratio:1/1.62; animation:dk-deal .45s var(--d,0ms) cubic-bezier(.2,.9,.25,1.1) both; }
+@keyframes dk-deal { from { transform:translate3d(0,60vh,0) rotate(-25deg); opacity:0; } to { transform:none; opacity:1; } }
+#shell-deck .dk-redeal { position:absolute; left:50%; transform:translateX(-50%); top:calc(14% + min(30vw,230px)*1.62 + 64px); border-radius:99px; }
+@media (max-aspect-ratio: 1/1) { #shell-deck .xp-sheet { max-height:58vh; } #shell-deck .dk-slot .dk-face { font-size:10px; } #shell-deck .dk-slot .dk-name { font-size:12px; } #shell-deck .dk-slot .dk-year { font-size:16px; } }
+@media (min-width: 900px) { #shell-deck .xp-sheet { left:auto; right:24px; bottom:24px; width:min(460px,32vw); max-height:84vh; border-radius:18px; border:1px solid var(--line); transform:translateX(130%); } #shell-deck .xp-sheet.open { transform:none; } }
+@media (prefers-reduced-motion: reduce) { #shell-deck .dk-inner { transition:none; } #shell-deck .dk-slot .dk-card { animation:none; } }
