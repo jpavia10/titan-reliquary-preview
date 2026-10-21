@@ -36,8 +36,6 @@ def plan(d):
         seq[iso] = seq.get(iso, 0) + 1
         code = s["ser"].split("-")[0]
         out.append({"id": s["id"], "old": s["ser"], "new": f"{code}-{iso}-{seq[iso]:03d}", "iso": iso, "continent": key[0], "country": key[1], "year": s["issue"]["year"], "year_raw": s["year_raw"], "denom": t["denomination"]})
-    for n, r in enumerate(sorted(out, key=lambda r: hashlib.sha256((SALT + r["id"]).encode()).hexdigest()), 1):
-        r["plain"] = f"{n:04d}"          # the other option (fix list #5): a number with no pattern at all, same salt, never scan order
     return out
 
 def readiness(d):
@@ -60,17 +58,16 @@ def render(d, out):
          "Method: sort by continent, then country, then year (no-date last), then face value; ties are broken by a hash of the permanent `id` (salt `%s`), not by scan order. "
          "New `ser` = continent code + ISO + a 3-digit sequence from 001 within each ISO. The permanent key `id` (`C###`/`T###`) never changes." % SALT.rstrip(":"), "",
          f"- specimens: {len(out)}; ser values that would change: {n_changed}; unchanged: {len(out) - n_changed}; all new values unique: yes", "",
-         "**The owner decides first (fix list #5): numbers that mean something, or no pattern?** Column *new ser* groups each country's coins "
-         "(EU-CH-001, EU-CH-002 ... in year order). Column *or no pattern* is a plain 4-digit number in a salted-hash order that says nothing "
-         "about the coin (it would need the schema's `ser` pattern widened). Either way the number written on the flip's back is the one chosen.", "",
+         "**Owner decision (2026-10-21, fix list #5): the numbers are grouped by country** (EU-CH-001, EU-CH-002 ... in year order), "
+         "not a plain number with no pattern. The new `ser` is what the owner writes on each flip's back for Phase 2.", "",
          "Ready to apply?"] + readiness(d) + ["",
-         "Regenerate: `python3 tools/schema/reassign_ser.py collection/` (deterministic). Applying the plan is a separate, owner-approved step: rewrite `ser` in `specimens/*.json` and `boot.json`, "
+         "Regenerate: `python3 tools/schema/reassign_ser.py collection/` (deterministic). Applying the plan is a separate step, run once Phase 1 is at 100 %: rewrite `ser` in `specimens/*.json` and `boot.json`, "
          "append one ChangeEvent per specimen (`field: ser`), refresh the manifest, then tell the photo workflow the new numbers.", ""]
     cur = None
     for r in out:
         if (r["continent"], r["country"]) != cur:
-            cur = (r["continent"], r["country"]); L += ["", f"## {cur[0]} / {cur[1]} ({r['iso']})", "", "| id | year | denomination | old ser | new ser | or no pattern |", "|---|---|---|---|---|---|"]
-        L.append(f"| {r['id']} | {r['year_raw']} | {fmt.denomination(r['denom'])} | {r['old']} | {r['new']}{'' if r['old'] != r['new'] else ' (same)'} | {r['plain']} |")
+            cur = (r["continent"], r["country"]); L += ["", f"## {cur[0]} / {cur[1]} ({r['iso']})", "", "| id | year | denomination | old ser | new ser |", "|---|---|---|---|---|"]
+        L.append(f"| {r['id']} | {r['year_raw']} | {fmt.denomination(r['denom'])} | {r['old']} | {r['new']}{'' if r['old'] != r['new'] else ' (same)'} |")
     return "\n".join(L) + "\n"
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-21, build tr175.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-21, build tr192.
 
-## State of the union (2026-10-21, build tr175)
+## State of the union (2026-10-21, build tr192)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
@@ -36,7 +36,7 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 
 ## What unlocks what (read right to left: do the last link first)
 
-- **Phase 2 pro photos (#61)** needs serial numbers (#5) ← Phase 1 at 100 % (216 of 306: 79 photos and 31 mint marks missing)
+- **Phase 2 pro photos (#61)** needs the new serial numbers (#5, grouped by country: decided) ← Phase 1 at 100 % (216 of 306: 79 photos and 31 mint marks missing)
 - **The loop running without a chat (#92)** needs your one-time install ← nothing else
 - **Titan v3 (#119)** needs Grok's theme pass to finish ← your design direction (#30)
 
@@ -93,7 +93,7 @@ Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basic
 - Then Music: a recording for each of the 3 held pieces #83
 - Always Read new coin photos (with Muse, blind)
 
-Measured: 431 of its facts checked by another AI: 430 confirmed, 1 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
+Measured: 441 of its facts checked by another AI: 436 confirmed, 5 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 
 ### Muse (active)
@@ -105,7 +105,6 @@ Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to ste
 - Now Second reader on Grok's Numista batches #72
 - Now Theme pictures: the 22 wide heroes (priority 2) #113
 - Homework Fact-checker: 2 items, due 10-27 HW-muse-story-check-20261020-1
-- Homework Arbiter: 10 items, due 10-27 HW-muse-arbitrate-20261020-1
 - Homework Second reader: 50 items, due 10-27 HW-muse-verify-20261020-1
 - Homework Photo reader: 1 items, due 10-27 HW-muse-read-mint-20261020-1
 - Homework Arbiter: 8 items, due 10-27 HW-muse-arbitrate-20261020-2
@@ -116,7 +115,7 @@ Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to ste
 - Homework Second reader: 80 items, due 10-27 HW-muse-verify-20261020-4
 - Always Read new coin photos (with Grok, blind)
 
-Measured: 297 of its facts checked by another AI: 289 confirmed, 8 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
+Measured: 302 of its facts checked by another AI: 293 confirmed, 9 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 
 ### Gemini (active)
@@ -124,7 +123,6 @@ Measured: 297 of its facts checked by another AI: 289 confirmed, 8 wrong. Gets w
 Back on (owner, 2026-10-15: "Unpause gemini I pay for the shit so I expect it to function as we desire. Whether on gemini argon in chat or antigravity or gemini spark"). The third research AI (fix list #101): it settles Grok-vs-Muse disagreements first, then every other kind, in full batches. Expected to be a powerhouse (owner, 2026-10-10): vision, research, code (Antigravity) and Veo video. On probation: every fact it writes is checked by another AI until it has 3 good submissions in a row.
 
 - Now Design text for the 26 types that have none or only a guess #72
-- Now Third reader: settle the 12 open disagreements first #101
 - Test Blind photo test, the locked pack (15 coins) #19
 - Homework Photo reader: 4 items, due 10-21 HW-gemini-read-mint-20261014-1
 - Homework Second reader: 50 items, due 10-21 HW-gemini-verify-20261014-1
@@ -134,10 +132,8 @@ Back on (owner, 2026-10-15: "Unpause gemini I pay for the shit so I expect it to
 - Homework Fact fixer: 15 items, due 10-22 HW-gemini-contradiction-20261015-1
 - Homework Appraiser: 9 items, due 10-25 HW-gemini-value-20261015-1
 - Homework Fact-checker: 9 items, due 10-22 HW-gemini-story-check-20261015-1
-- Homework Arbiter: 7 items, due 10-22 HW-gemini-arbitrate-20261015-1
 - Homework Cataloguer: 2 items, due 10-22 HW-gemini-cite-20261015-1
 - Homework Writer: 11 items, due 10-27 HW-gemini-plain-story-20261020-1
-- Homework Arbiter: 5 items, due 10-27 HW-gemini-arbitrate-20261020-1
 - Homework Photo reader: 2 items, due 10-27 HW-gemini-read-mint-20261020-1
 - Homework Second reader: 80 items, due 10-27 HW-gemini-verify-20261020-1
 - Homework Fact-checker: 7 items, due 10-27 HW-gemini-story-check-20261020-1
@@ -163,12 +159,12 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 - [ ] **#92 The loop turns without a chat: autonomous intake**: Built and tested. Every hour a GitHub job merges the AIs' change files from Drive through every gate and test, rebuilds the site and refreshes each AI's WORK QUEUE doc; the same install starts the daily Drive backup and Health's stale-backup warning. Until then I merge by hand in a session. Needs first: you: the one-time install, about 10 minutes (docs/INTAKE_BRIDGE.md: one Apps Script project, two GitHub secrets) · Unlocks: #50, #93, daily progress with no session open _[partly done, large, needs you, new]_
 - [ ] **#114 Try it on your phone and tell me**: Everything was tuned on a software graphics chip, never on a real phone. Open a few themes; tell me which effects are too strong, too faint or stutter, and anything in the sound or music that bothers you. One tap adds your phone's speed: Health → Measure speed → Add this speed report. Needs first: your phone, 10 minutes _[small, needs you, new]_
 - [ ] **#3 Settle the open curation questions**: 14 questions wait in the app (Hall footer → Questions), including the A006 hole count (80 → 77, only you can lower it) and “Where did they come from?”. With the coin in hand each takes seconds; most can wait for the pro-photo session. Needs first: you, with the coins · Unlocks: Phase 1 at 100 %, #5 _[partly done, medium, needs you]_
-- [ ] **#5 Plan the serial reassignment**: New display serials with no scan-order bias, done once. Decide first: should the numbers mean something (grouped by country) or carry no pattern? Needs first: #57 at 100 % and your East Caribbean code answer (#3) · Unlocks: #61 (you write the new id on each coin’s back) _[large, needs you]_
 - [ ] **#30 Pick the final design direction**: Grok's The Field is in the app as a UI toggle since tr181; the AIs' other proposals are in /prototypes/v2/. Pick a direction (or say "neither") and buttons, layout and Titan v3 follow it. Unlocks: #29, #63, splash and icon _[large, needs you]_
 - [ ] **#127 Narrow two write paths (your call)**: From the #106 review. (1) Since Oct 19 grok-bot pushes code straight to main; the checks run after, but nothing stops a bad push. Safer: Grok pushes to grok/* branches and I merge as soon as integrity and smoke are green. (2) Grok, Muse and Gemini reach your whole Google Drive through their connections. Narrower: a separate Google account that only holds the shared Titan Reliquary folder. Say yes to either and I write Grok's new instructions or the share steps. _[small, needs you, new]_
 
 ## Next up (me and the AIs)
 
+- [ ] **#5 Reassign the serial numbers (grouped by country)**: Decided (you, Oct 21): grouped by country, e.g. EU-CH-001, EU-CH-002 in year order, ties broken by a salted hash so scan order never shows. The plan for all 306 pieces is ready (collection/SER_REASSIGN_PLAN.md); it is applied once, then frozen, and the new number is what you write on each flip's back. Needs first: Phase 1 at 100 % (216 of 306) and your East Caribbean code answer (EC or XC, in Questions) · Unlocks: #61 (Phase 2 pro photos) _[large]_
 - [ ] **#61 Phase 2 photo standard and a 5-coin test shoot**: Light, background, scale and file names for the pro photos, tested on 5 coins end to end (pairing, 2x2 and circle crops, registering, the quality check) so the rest are shot once. Grok's varieties checklist (what to look for under the loupe on each US, UK and German coin) becomes the shoot checklist. Needs first: nothing for the test; the full shoot needs #5 · Unlocks: Phase 2, #64, #79 _[medium, needs you, new]_
 - [ ] **#62 Real collector values**: Grok appraises with a cited price page per value (63 coins priced twice so far, 62 agreed). Your free Numista API key turns on a weekly job that fills in every coin. Needs first: your free Numista API key (Waiting on you) · Unlocks: a firmer headline, #107 _[partly done, large, new]_
 
