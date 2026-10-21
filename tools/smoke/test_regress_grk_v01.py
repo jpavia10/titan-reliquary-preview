@@ -32,8 +32,8 @@ def main():
         p.goto(base + "?nosplash#coin=C001"); p.wait_for_timeout(4500)
         st = p.evaluate("({ a: TitanCoin3D.active(), c: !!document.querySelector('#drawer-body .c3d-canvas'), hid: getComputedStyle(document.querySelector('#drawer-body .gxd-faces')).display })")
         check("the coin page shows the 3D coin and hides the flat faces", st["a"] and st["c"] and st["hid"] == "none", st)
-        y0 = p.evaluate("TitanCoin3D.state().yaw")   # the photographed side shows first, so the start can be 0 or pi
-        p.evaluate("TitanCoin3D.flip()"); p.wait_for_timeout(2200)
+        y0 = p.evaluate("TitanCoin3D.state().target")   # the face it is showing or still settling onto (photographed side first: 0 or pi)
+        p.evaluate("TitanCoin3D.flip()"); p.wait_for_function("Math.abs(TitanCoin3D.state().target - TitanCoin3D.state().yaw) < 0.01", timeout=8000)
         y = p.evaluate("TitanCoin3D.state().yaw")
         check("a flip lands on the other face", abs(abs(y - y0) % (2 * math.pi) - math.pi) < 0.05, (y0, y))
         p.click("#drawer-body .c3d-wrap .c3d-toggle"); p.wait_for_timeout(300)

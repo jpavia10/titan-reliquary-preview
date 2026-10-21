@@ -192,8 +192,11 @@
           { duration: 560, easing: "cubic-bezier(.2,.9,.25,1.12)" }); });
     }
     function frame(now) {
-      s.raf = 0; const dt = Math.min(0.05, s.last ? (now - s.last) / 1000 : 0.016); s.last = now;
-      if (!s.drag) {
+      // Springs run on wall-clock time in fixed 1/120 s sub-steps, so a slow or busy frame never slows the motion down
+      // (the old single 50 ms-capped step made flips take several times longer on a loaded device and land late).
+      s.raf = 0; const el = Math.min(0.25, s.last ? (now - s.last) / 1000 : 0.016); s.last = now;
+      const n = Math.max(1, Math.ceil(el * 120)), dt = el / n;
+      if (!s.drag) for (let i = 0; i < n; i++) {
         const k = 38, d = 9.5;
         s.vy += ((s.ty - s.yaw) * k - s.vy * d) * dt; s.yaw += s.vy * dt;
         s.vp += ((s.tp + s.tilt.y - s.pitch) * k - s.vp * d) * dt; s.pitch += s.vp * dt;
@@ -204,14 +207,14 @@
       shadow.scale.setScalar(s.sc * (1 - Math.abs(Math.sin(s.yaw)) * 0.5)); shadow.position.x = Math.sin(s.yaw) * 0.12;
       if (!s.drag && s.armLand && Math.abs(s.ty - s.yaw) < 0.04) { s.armLand = false; buzz(6); }
       const t0 = performance.now(); renderer.render(scene, cam);
-      if (performance.now() - t0 > 20 && ++s.slow > 6 && dpr > 1) { dpr = 1; renderer.setPixelRatio(1); size(); }
+      /* no auto-downscale: assume a capable GPU (Joseph); quality comes from TitanQuality */
       const moving = s.drag || Math.abs(s.vy) + Math.abs(s.vp) + Math.abs(s.vs) > 0.002 || Math.abs(s.ty - s.yaw) + Math.abs(s.tp + s.tilt.y - s.pitch) + Math.abs(1 - s.sc) > 0.001;
       if (moving && !document.hidden) s.raf = requestAnimationFrame(frame);
       else s.last = 0;
     }
     function kick() { if (!s.raf) s.raf = requestAnimationFrame(frame); }
     function settle() { const n = Math.round(s.ty / Math.PI) * Math.PI; s.ty = n; s.tp = 0; }
-    function flip() { buzz(10); s.armLand = true; s.ty = Math.round(s.yaw / Math.PI) * Math.PI + Math.PI; s.vy += 3; kick(); try { window.TitanUISounds && window.TitanUISounds.play("flip"); } catch (e) { /* ignore */ } }
+    function flip() { buzz(10); s.armLand = true; s.ty = Math.round(s.ty / Math.PI) * Math.PI + Math.PI; /* from the face it is heading to, not where it is mid-spin: a flip during the flip-in used to land on the same face */ s.vy += 3; kick(); try { window.TitanUISounds && window.TitanUISounds.play("flip"); } catch (e) { /* ignore */ } }
     let motionAsked = false;
     function askMotion() {
       if (motionAsked) return; motionAsked = true;
@@ -289,5 +292,5 @@
   window.addEventListener("titan:ui", (e) => { if (e.detail && e.detail.kind === "coin-close") { destroy(); lastTitle = null; } });
   window.addEventListener("titan:atmo", () => { const st = R && R.stage; if (st) { destroy(); if (on) build(st); } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
-  window.TitanCoin3D = { isOn: () => on, setOn, active: () => !!R, state: () => (R ? { yaw: R.s.yaw, pitch: R.s.pitch, scale: R.s.sc, world: R.world() ? R.world().n : 0, relief: R.relief || 0 } : null), worlds: () => Object.keys(WORLD), flip: () => { if (R) R.flip(); } };
+  window.TitanCoin3D = { isOn: () => on, setOn, active: () => !!R, state: () => (R ? { yaw: R.s.yaw, target: R.s.ty, pitch: R.s.pitch, scale: R.s.sc, world: R.world() ? R.world().n : 0, relief: R.relief || 0 } : null), worlds: () => Object.keys(WORLD), flip: () => { if (R) R.flip(); } };
 })();
