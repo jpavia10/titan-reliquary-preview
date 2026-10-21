@@ -11,7 +11,9 @@
 (function () {
   "use strict";
   var I = window.TitanIntro; if (!I) return; var K = I.K;
-  var SCRIPT = '"Brush Script MT", "Segoe Script", "Snell Roundhand", cursive';
+  /* bundled neon script: Yellowtail (Astigmatic, Apache-2.0, fonts/CREDITS.md), loaded as soon as this file runs so the tubes match on every device */
+  var NF = null; try { if (window.FontFace && document.fonts) { NF = new FontFace("TRNeonScript", "url(fonts/Yellowtail-400.woff2) format('woff2')"); document.fonts.add(NF); NF.load().catch(function () {}); } } catch (e) { NF = null; }
+  var SCRIPT = '"TRNeonScript", "Brush Script MT", "Segoe Script", "Snell Roundhand", cursive';
   var WORD = "Reliquary";
   function tubes(text, font, size, color, track) {    // one canvas per letter: dark glass / lit tube with halo
     var g0 = K.mk(10, 10).getContext("2d"); g0.font = font.replace("%", size);
@@ -305,7 +307,7 @@
   function nsetup(C) {
     var G = GPU(C, C.W * C.H > 2.2e6 ? 0.75 : 1); if (!G) return null; var Po = Post(G); if (!Po) return null; var Sc = G.prog(NSC); if (!Sc) return null;
     var S = signTex(C), tx = G.tex(S.c), X = G.x; X.texParameteri(X.TEXTURE_2D, X.TEXTURE_WRAP_S, X.CLAMP_TO_EDGE); X.texParameteri(X.TEXTURE_2D, X.TEXTURE_WRAP_T, X.CLAMP_TO_EDGE); X.bindTexture(X.TEXTURE_2D, null);
-    var r = K.rng(4242); return { G: G, Po: Po, Sc: Sc, tx: { t: tx }, bx: S.bx, ev: flickers(WORD.length, 1.95, 0.12, r), evT: flickers(1, 2.95, 0.1, r)[0] };
+    var r = K.rng(4242); return { fontOk: !!(NF && NF.status === "loaded"), G: G, Po: Po, Sc: Sc, tx: { t: tx }, bx: S.bx, ev: flickers(WORD.length, 1.95, 0.12, r), evT: flickers(1, 2.95, 0.1, r)[0] };
   }
   function cam(t, port) {
     var e, ro, ta;
@@ -321,6 +323,7 @@
     draw: function (C, t) {
       if (C.old || C._glDead) { if (!C.old) { OLD.init(C); C.old = true; } OLD.draw(C, Math.min(t * 3.9 / NDUR, 3.9)); var k0 = K.seg(t, FADE0, NDUR); C.cv.style.opacity = 1 - k0; if (k0 > 0 && !C.revealed) { C.revealed = true; C.reveal(); } return; }
       var N = C.N, G = N.G, g = C.g, W = C.W, H = C.H, seg = K.seg, i;
+      if (!N.fontOk && NF && NF.status === "loaded") { N.fontOk = true; var S2 = signTex(C), X2 = G.x; X2.bindTexture(X2.TEXTURE_2D, N.tx.t); X2.pixelStorei(X2.UNPACK_FLIP_Y_WEBGL, true); X2.texImage2D(X2.TEXTURE_2D, 0, X2.RGBA, X2.RGBA, X2.UNSIGNED_BYTE, S2.c); X2.generateMipmap(X2.TEXTURE_2D); X2.pixelStorei(X2.UNPACK_FLIP_Y_WEBGL, false); N.bx = S2.bx; }
       var L = []; for (i = 0; i < WORD.length; i++) L.push(lit(N.ev[i], t)); if (t > 3.6) L[5] = (Math.sin(t * 23) > 0.93 && t < 4.4) ? 0 : 1;
       if (t > 1.15 && t < 1.25) L[0] = 1;                                 // a tube tries early, then dies
       var titan = lit(N.evT, t), tag = t > 3.25 ? (((t - 3.25) % 0.9) < 0.55 ? 1 : 0) : 0, master = t < 1.1 ? 0 : 1;
