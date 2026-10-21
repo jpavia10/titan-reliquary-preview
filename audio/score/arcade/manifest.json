@@ -1,0 +1,89 @@
+{
+ "theme": "arcade",
+ "version": 1,
+ "tracks": {
+  "new-rock": {
+   "file": "new-rock.m4a",
+   "title": "New Rock",
+   "artist": "Steve Combs",
+   "license": "CC BY 3.0",
+   "url": "https://archive.org/details/ourwastedyouth"
+  },
+  "run": {
+   "file": "run.m4a",
+   "title": "Run!",
+   "artist": "Steve Combs",
+   "license": "CC BY 3.0",
+   "url": "https://archive.org/details/ourwastedyouth"
+  },
+  "hero": {
+   "file": "hero.m4a",
+   "title": "Hero",
+   "artist": "Steve Combs",
+   "license": "CC BY 3.0",
+   "url": "https://archive.org/details/ourwastedyouth"
+  },
+  "chase": {
+   "file": "chase.m4a",
+   "title": "Chase",
+   "artist": "Steve Combs",
+   "license": "CC BY 3.0",
+   "url": "https://archive.org/details/ourwastedyouth"
+  },
+  "wandering": {
+   "file": "wandering.m4a",
+   "title": "Wandering",
+   "artist": "Steve Combs",
+   "license": "CC BY 3.0",
+   "url": "https://archive.org/details/ourwastedyouth"
+  }
+ },
+ "decks": {
+  "browse": [
+   "new-rock",
+   "run",
+   "hero",
+   "chase"
+  ],
+  "coin": [
+   "wandering"
+  ]
+ },
+ "states": {
+  "browse": {
+   "deck": "browse",
+   "lp": 20000,
+   "gain": 1
+  },
+  "search": {
+   "deck": "browse",
+   "lp": 1600,
+   "gain": 0.7
+  },
+  "idle": {
+   "deck": "browse",
+   "lp": 900,
+   "gain": 0.55
+  },
+  "coin": {
+   "deck": "coin",
+   "lp": 20000,
+   "gain": 0.95
+  }
+ },
+ "stinger": {
+  "file": "stinger.m4a",
+  "pad": 0,
+  "len": 11.0,
+  "total": 11.0,
+  "hit": 2.4
+ },
+ "ui": {
+  "tap": "ui-tap.m4a",
+  "open": "ui-open.m4a",
+  "back": "ui-back.m4a",
+  "search": "ui-search.m4a",
+  "coin": "ui-coin.m4a"
+ },
+ "note": "Songs are recorded human music (licensed, see audio/score/CREDITS.md). Stinger and UI sounds are designed sound effects (tools/music/score/arcade.py)."
+}

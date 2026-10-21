@@ -16,6 +16,11 @@ effects around a song (intro stingers, UI sounds, filters, crossfades). Each tra
 | Free Fall (freefall) | Explore, Be Curious | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/let-yourself-be-huge (album Let Yourself Be Huge, 2011) |
 | Free Fall (freefall) | Let Yourself Be Huge | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/let-yourself-be-huge (album Let Yourself Be Huge, 2011) |
 | Free Fall (freefall) | It's Inside Me, and I'm Inside It | Cloudkicker (Ben Sharp) | CC BY 4.0 | https://cloudkicker.bandcamp.com/album/let-yourself-be-huge (album Let Yourself Be Huge, 2011) |
+| Arcade (arcade) | New Rock | Steve Combs | CC BY 3.0 | https://archive.org/details/ourwastedyouth (Our Wasted Youth, Parenthetical Records PAR-601) |
+| Arcade (arcade) | Run! | Steve Combs | CC BY 3.0 | https://archive.org/details/ourwastedyouth (Our Wasted Youth, Parenthetical Records PAR-601) |
+| Arcade (arcade) | Hero | Steve Combs | CC BY 3.0 | https://archive.org/details/ourwastedyouth (Our Wasted Youth, Parenthetical Records PAR-601) |
+| Arcade (arcade) | Chase | Steve Combs | CC BY 3.0 | https://archive.org/details/ourwastedyouth (Our Wasted Youth, Parenthetical Records PAR-601) |
+| Arcade (arcade) | Wandering | Steve Combs | CC BY 3.0 | https://archive.org/details/ourwastedyouth (Our Wasted Youth, Parenthetical Records PAR-601) |
 
 Attribution (CC BY 4.0): "<Track>" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0
 License, http://creativecommons.org/licenses/by/4.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
@@ -25,6 +30,9 @@ Creative Commons Attribution 3.0, http://creativecommons.org/licenses/by/3.0/. C
 
 Attribution (CC BY 4.0): "<Track>" by Cloudkicker (Ben Sharp), from Let Yourself Be Huge (2011), cloudkicker.bandcamp.com. Licensed under
 Creative Commons Attribution 4.0, http://creativecommons.org/licenses/by/4.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
+
+Attribution (CC BY 3.0): "<Track>" by Steve Combs, from Our Wasted Youth (Parenthetical Records, 2015). Licensed under Creative Commons
+Attribution 3.0, http://creativecommons.org/licenses/by/3.0/. Changes: loudness-normalised to -20 LUFS, fades added, AAC 128 kbps.
 
 ## Designed sound (not songs)
 

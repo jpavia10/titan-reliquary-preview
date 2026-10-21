@@ -204,7 +204,7 @@
                arc: { beds: { windHowl: { lo: 0.5, hi: 1.4, per: [70, 160] }, birds: { lo: 0.5, hi: 1.35, per: [120, 260] } } },
                root: "D", mode: "pent", prog: [0, 0, 1, 0], chordSec: 26, gap: [11, 22], bpm: 70, vol: 0.5 },
     /* styles-20 (2026-10-10): the World scenes of the six new themes, built from the same recorded beds */
-    "arcade": { world: true, name: "Arcade", icon: "🕹", desc: "An arcade after closing: cabinet hum, a few late players, a soft synth beat.", atmo: "arcade",
+    "arcade": { score: "arcade", world: true, name: "Arcade", icon: "🕹", desc: "An arcade after closing: cabinet hum, a few late players, punchy indie-rock instrumentals by Steve Combs.", atmo: "arcade",
                beds: { labHum: 0.3, crowd: 0.18, keys: 0.15, roomTone: 0.25 }, pad: 0.45, piano: false, bells: true, beat: true,
                root: "A", mode: "dorian", prog: [0, 5, 3, 4], chordSec: 0, gap: [5, 10], bpm: 96, vol: 0.45 },
     "pulp": { world: true, name: "Pulp Adventure", icon: "💥", desc: "Rain on the window over a city at night, a record turning, a ticking clock.", atmo: "pulp",
