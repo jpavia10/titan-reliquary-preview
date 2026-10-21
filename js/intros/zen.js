@@ -61,7 +61,7 @@
     var Ur = { M: x.getUniformLocation(Pr, "M"), carve: x.getUniformLocation(Pr, "carve"), S: x.getUniformLocation(Pr, "S"), N: x.getUniformLocation(Pr, "N"), ps: x.getUniformLocation(Pr, "ps"), al: x.getUniformLocation(Pr, "al") };
     var L = C._gl = { cv: cv, x: x, N: N, T: T, F: F, cur: 0, simT: -1, Pi: Pi, Ps: Ps, Pr: Pr, U: U, Ur: Ur, Mt: Mt };
     cv.addEventListener("webglcontextlost", function (e) { e.preventDefault(); C._glDead = true; cv.style.display = "none"; });
-    var d = Math.min(window.devicePixelRatio || 1, 2) * (big ? 0.8 : 0.7); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
+    var d = I.res(C, big ? 0.8 : 0.7); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
     C.root.insertBefore(cv, C.cv); return L;
   }
   function P(t) { return { rx: K.lerp(1.15, -0.15, K.eio(K.seg(t, 0.7, 2.0))), rake: K.seg(t, 0.7, 0.8) * (1 - K.seg(t, 1.9, 2.0)), carve: K.eio(K.seg(t, 1.9, 2.8)), settle: K.eio(K.seg(t, 2.6, 3.6)) }; }

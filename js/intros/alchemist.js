@@ -63,7 +63,7 @@
     var cv = document.createElement("canvas"); cv.className = "ts-mo ts-mogl"; cv.setAttribute("aria-hidden", "true");
     var x = null; try { x = cv.getContext("webgl2", { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: "high-performance" }); } catch (e) { x = null; }
     if (!x || !x.getExtension("EXT_color_buffer_float")) return null; x.getExtension("OES_texture_float_linear");
-    var d = Math.min(window.devicePixelRatio || 1, 2) * (scale || 1); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
+    var d = I.res(C, scale || 1); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
     var VQ = "#version 300 es\nin vec2 p;out vec2 uv;void main(){uv=p*.5+.5;gl_Position=vec4(p,0.,1.);}";
     var HD = "#version 300 es\nprecision highp float;precision highp sampler2D;in vec2 uv;out vec4 o;\n" +
       "float h21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}\n" +
@@ -319,7 +319,7 @@
         else { u.rise = K.eo3(seg(lt, 0, 0.5)); u.rip = (1 - K.eio(seg(lt, 0.15, 0.75))) * smoothRise(lt); u.rot = (1 - K.eo3(seg(lt, 0, 0.9))) * 3.5 + lt * 0.3; u.sweep = seg(lt, 0.48, 0.8); u.lit = K.eio(seg(lt, 0.05, 0.4)); u.flash = 1 - seg(t, 3.5, 3.75); expo = 1.1; bloom = 0.6; }
         G.run(M.Sc, u, M.Po.hdr);
       }
-      if (st > 0) { x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE); G.run(M.Sp, { T: t, st: st, sc: [M.m / W, M.m / H] }, M.Po.hdr, st === 1 ? 24000 : 700); x.disable(x.BLEND); }
+      if (st > 0) { x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE); G.run(M.Sp, { T: t, st: st, sc: [M.m / W, M.m / H] }, M.Po.hdr, st === 1 ? I.count(C, 24000) : I.count(C, 700)); x.disable(x.BLEND); }
       M.Po.out({ bloom: bloom, haze: 0, T: t, expo: expo });
       if (st === 2) { var nm = seg(t, 4.3, 4.85); if (nm > 0) { var tf = Math.min(W * 0.085, H * 0.06, 58); g.save(); g.globalAlpha = nm; g.font = "700 " + tf + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle"; if ("letterSpacing" in g) g.letterSpacing = (tf * 0.08 * (1.4 - nm * 0.4)) + "px";
         var bd = g.createLinearGradient(0, H * 0.85 - tf * 1.6, 0, H); bd.addColorStop(0, "rgba(4,3,2,0)"); bd.addColorStop(0.35, "rgba(4,3,2,.62)"); bd.addColorStop(1, "rgba(4,3,2,.8)"); g.fillStyle = bd; g.fillRect(0, H * 0.85 - tf * 1.6, W, H);

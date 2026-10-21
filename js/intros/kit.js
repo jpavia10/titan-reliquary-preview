@@ -15,6 +15,15 @@
   if (!O || !O._debug || !O._debug.STYLES || window.TitanIntro) return;
   var S = O._debug.STYLES, K = O._debug.K;
 
+  /* ---------------- graphics quality ---------------- */
+  /* res(C, s): drawing-buffer scale for a GPU layer = devicePixelRatio (capped by the tier) x s x the tier's detail, kept inside
+     the tier's pixel budget. count(C, n): a particle / sample count authored at High, scaled by the tier. Low never gets here
+     (C.lite: every scene takes its flat 2D path). No automatic downgrade: the tier is fixed for the session. */
+  var BUD = { low: 1.2e6, medium: 2.2e6, high: 4e6, ultra: 8e6, max: 14e6 };
+  function res(C, s) { var t = C.tier || "high", cap = { low: 1, medium: 1.5, high: 2, ultra: 2, max: 3 }[t] || 2;
+    var d = Math.min(window.devicePixelRatio || 1, cap) * (s || 1) * Math.min(C.detail || 1, 1.25), b = BUD[t] || 4e6;
+    if (C.W * C.H * d * d > b) d = Math.sqrt(b / (C.W * C.H)); return Math.max(0.25, d); }
+  function count(C, n) { return Math.max(1, Math.round(n * ({ low: 0.25, medium: 0.6, high: 1, ultra: 1.6, max: 2.5 }[C.tier || "high"] || 1))); }
   /* ---------------- WebGL layer ---------------- */
   var VS = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
   var HEAD = "precision highp float;uniform vec2 R;uniform float T;uniform vec4 U0;uniform vec4 U1;uniform sampler2D TX;\n" +
@@ -55,7 +64,7 @@
         x.drawArrays(x.TRIANGLES, 0, 3); return true;
       };
     }
-    var sc = o.scale || (C.small ? 0.75 : 0.6), d = Math.min(window.devicePixelRatio || 1, 2) * sc;
+    var d = res(C, o.scale || (C.small ? 0.75 : 0.6));
     var w = Math.max(2, Math.round(C.W * d)), h = Math.max(2, Math.round(C.H * d));
     if (L.cv.width !== w || L.cv.height !== h) { L.cv.width = w; L.cv.height = h; }
     return L;
@@ -138,5 +147,5 @@
     st.dispose = function (C) { try { if (C._aud) C._aud.stop(); } catch (e) { /* ignore */ } C._aud = null; glFree(C); if (d) d(C); };
     S[id] = st;
   }
-  window.TitanIntro = { reg: reg, gl: gl, audio: audio, pixelText: pixelText, K: K, ids: function () { return Object.keys(S).filter(function (k) { return S[k].native; }); } };
+  window.TitanIntro = { res: res, count: count, tier: function (C) { return C.tier || "high"; }, reg: reg, gl: gl, audio: audio, pixelText: pixelText, K: K, ids: function () { return Object.keys(S).filter(function (k) { return S[k].native; }); } };
 })();

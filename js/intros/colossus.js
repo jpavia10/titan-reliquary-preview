@@ -56,7 +56,7 @@
     var cv = document.createElement("canvas"); cv.className = "ts-mo ts-mogl"; cv.setAttribute("aria-hidden", "true");
     var x = null; try { x = cv.getContext("webgl2", { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: "high-performance" }); } catch (e) { x = null; }
     if (!x || !x.getExtension("EXT_color_buffer_float")) return null; x.getExtension("OES_texture_float_linear");
-    var d = Math.min(window.devicePixelRatio || 1, 2) * (scale || 1); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
+    var d = I.res(C, scale || 1); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
     var VQ = "#version 300 es\nin vec2 p;out vec2 uv;void main(){uv=p*.5+.5;gl_Position=vec4(p,0.,1.);}";
     var HD = "#version 300 es\nprecision highp float;precision highp sampler2D;in vec2 uv;out vec4 o;\n" +
       "float h21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}\n" +
@@ -339,7 +339,7 @@
       else { u.rise = K.eo3(seg(lt, 0.0, 0.55)); u.rot = (1 - K.eo3(seg(lt, 0, 0.8))) * 5.2 + Math.sin(lt * 2) * 0.06; u.sweep = seg(lt, 0.5, 0.85); }
       C.cv.style.transform = G.cv.style.transform = shake ? "translate(" + (K.hash(t * 97) - 0.5) * shake + "px," + (K.hash(t * 61) - 0.5) * shake + "px)" : "";
       G.run(M.Sc, u, M.Po.hdr);
-      x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE); G.run(M.Sp, { T: t, st: st, asp: W / H, at: at }, M.Po.hdr, st === 0 ? 6000 : st === 1 ? 9000 : 1); x.disable(x.BLEND);
+      x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE); G.run(M.Sp, { T: t, st: st, asp: W / H, at: at }, M.Po.hdr, st === 0 ? I.count(C, 6000) : st === 1 ? I.count(C, 9000) : 1); x.disable(x.BLEND);
       M.Po.out({ bloom: st === 2 ? 0.55 : 0.8, haze: 0, T: t, expo: st === 2 ? 1.15 : 1.0 });
       if (st === 2) { var nm = seg(t, 4.35, 4.8); if (nm > 0) { var tf = Math.min(W * 0.085, H * 0.06, 58); g.save(); g.globalAlpha = nm; g.font = "700 " + tf + "px " + K.SERIF; g.textAlign = "center"; g.textBaseline = "middle"; if ("letterSpacing" in g) g.letterSpacing = (tf * 0.08 * (1.4 - nm * 0.4)) + "px";
         g.fillStyle = "rgba(0,0,0,.7)"; g.fillText("TITAN RELIQUARY", W / 2 + 1, H * 0.86 + 2); g.fillStyle = "#f2d290"; g.fillText("TITAN RELIQUARY", W / 2, H * 0.86);

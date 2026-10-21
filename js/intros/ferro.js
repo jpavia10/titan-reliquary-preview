@@ -108,11 +108,11 @@
     x.texParameteri(x.TEXTURE_2D, x.TEXTURE_WRAP_S, x.CLAMP_TO_EDGE); x.texParameteri(x.TEXTURE_2D, x.TEXTURE_WRAP_T, x.CLAMP_TO_EDGE);
     var vao = x.createVertexArray(); x.bindVertexArray(vao);
     var big = Math.max(screen.width, screen.height) * (window.devicePixelRatio || 1) >= 2500;
-    var N = big ? 2097152 : 1048576;                 // a million filings on a phone; two million on a big screen
+    var N = Math.min(4194304, I.count(C, big ? 2097152 : 1048576));                 // a million filings on a phone; two million on a big screen
     var m = /[?&]fxkscale=([0-9.]+)/.exec(location.search); if (m) N = Math.round(N * +m[1]);
     C.root.insertBefore(cv, C.cv);
     return { cv: cv, draw: function (t, hw, dz) {
-      var d = Math.min(window.devicePixelRatio || 1, 2), w = Math.round(C.W * d), hh = Math.round(C.H * d); if (cv.width !== w || cv.height !== hh) { cv.width = w; cv.height = hh; }
+      var d = I.res(C, 1), w = Math.round(C.W * d), hh = Math.round(C.H * d); if (cv.width !== w || cv.height !== hh) { cv.width = w; cv.height = hh; }
       x.viewport(0, 0, w, hh); x.clearColor(0, 0, 0, 0); x.clear(x.COLOR_BUFFER_BIT); if (t > 3.4) return;
       x.useProgram(pr); x.enable(x.BLEND); x.blendFunc(x.ONE, x.ONE_MINUS_SRC_ALPHA);
       x.uniform1f(u.T, t); x.uniform1f(u.ASP, C.W / C.H); x.uniform1f(u.HW, hw); x.uniform1f(u.DZ, dz); x.uniform1f(u.AK, Math.max(.4, Math.min(1, Math.sqrt(262144 / N)))); x.uniform1f(u.MSZ, Math.max(2, 2.2 * d * Math.min(1.6, C.H / 700)));
@@ -161,7 +161,7 @@
     var cv = document.createElement("canvas"); cv.className = "ts-mo ts-mogl"; cv.setAttribute("aria-hidden", "true");
     var x = null; try { x = cv.getContext("webgl2", { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: "high-performance" }); } catch (e) { x = null; }
     if (!x || !x.getExtension("EXT_color_buffer_float")) return null; x.getExtension("OES_texture_float_linear");
-    var d = Math.min(window.devicePixelRatio || 1, 2) * (scale || 1); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
+    var d = I.res(C, scale || 1); cv.width = Math.round(C.W * d); cv.height = Math.round(C.H * d);
     var VQ = "#version 300 es\nin vec2 p;out vec2 uv;void main(){uv=p*.5+.5;gl_Position=vec4(p,0.,1.);}";
     var HD = "#version 300 es\nprecision highp float;precision highp sampler2D;in vec2 uv;out vec4 o;\n" +
       "float h21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}\n" +

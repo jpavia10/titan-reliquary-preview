@@ -326,8 +326,13 @@
     root.classList.add("ts-motion");
     root.style.setProperty("--ts-bg", pal.bg);
     var g = cv.getContext("2d");
+    /* graphics quality (wings/quality.js): the intros read TitanQuality.tier(); Low = the flat version, higher tiers scale detail up.
+       The tier is fixed for the session; nothing here downgrades it automatically. */
+    function qTier() { try { var Q = window.TitanQuality; if (Q && Q.tier) { var t = String(Q.tier()); if (/^(low|medium|high|ultra|max)$/.test(t)) return t; } } catch (e) { /* ignore */ }
+      return html.classList.contains("tr-lite") || window.TitanLite === true ? "low" : "high"; }
     var C = { root: root, cv: cv, g: g, id: id, pal: pal, K: K, W: 0, H: 0, dpr: 1, small: false, portrait: true, featured: featured || null, coin: null, crest: null, frame: 0, t: 0, ready: false,
-              rnd: rng(1717), cue: opts.cue || function () {}, lite: html.classList.contains("tr-lite") || window.TitanLite === true, swap: !!opts.tableOnly, reveal: function () { html.classList.add("ts-reveal"); root.classList.add("ts-handoff"); } };
+              rnd: rng(1717), cue: opts.cue || function () {}, tier: qTier(), lite: false, swap: !!opts.tableOnly, reveal: function () { html.classList.add("ts-reveal"); root.classList.add("ts-handoff"); } };
+    C.lite = C.tier === "low"; C.detail = { low: 0.6, medium: 0.8, high: 1, ultra: 1.3, max: 1.6 }[C.tier]; try { C.q = window.TitanQuality && window.TitanQuality.q || null; } catch (e) { C.q = null; }
     // total budget 2.5-3.5 s: the timeline plays at most 2.85 s (a little brisker than authored) and the caller dissolves it in 0.7 s; a style that wipes itself clear needs no dissolve
     // a "native" style (js/intros.js, 2026-10-20) is authored at its real length (2-5 s) and plays at speed 1
     var speed = style.wipe || style.native ? 1 : Math.max(1, style.dur / 2.85);
@@ -336,8 +341,9 @@
 
     function layout() {
       var W = Math.max(1, root.clientWidth || window.innerWidth), H = Math.max(1, root.clientHeight || window.innerHeight);
-      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      if (W * H * dpr * dpr > 1.7e6) dpr = Math.max(1, Math.sqrt(1.7e6 / (W * H)));      // keep the canvas under ~1.7 M pixels
+      var QD = { low: [1, 1.2e6], medium: [1.5, 1.7e6], high: [1.5, 1.7e6], ultra: [2, 3.5e6], max: [2, 6e6] }[C.tier] || [1.5, 1.7e6];   // [dpr cap, pixel budget] per tier
+      var dpr = Math.min(window.devicePixelRatio || 1, QD[0]);
+      if (W * H * dpr * dpr > QD[1]) dpr = Math.max(1, Math.sqrt(QD[1] / (W * H)));      // keep the canvas inside the tier's pixel budget
       C.W = W; C.H = H; C.dpr = dpr; C.small = Math.min(W, H) < 520; C.portrait = H >= W * 0.95;
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
       g.setTransform(dpr, 0, 0, dpr, 0, 0);
