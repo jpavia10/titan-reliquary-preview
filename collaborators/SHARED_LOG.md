@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-21] — Claude · music intake review (tr250)
+- Merged Ravel Pavane (Wasei Duo, After Hours) + Vivaldi Summer Presto (John Harrison, Supercell). Rejected the Monteux 1942 Scheherazade (78 transfer) and the Itami sake song for zen; `fetch_classical.py` now reads recording years past a day number, treats 'original 78'/'78 set' as historic, and honours a piece's `not` words.
+
 ### [2026-10-21] — Claude · NEW THEME #41 Tourbillon (tourbillon), tr249
 - `fx/tourbillon.js` (lazy): inside a watch movement under a lamp that follows the pointer. Perlage plate, gilt train with exactly meshing teeth, Cotes de Geneve bridges with polished bevels, blued screws, rubies, ratchet + crown + click, repeater gongs; a flying tourbillon on the real seconds (1 deg per beat, escape wheel rolling on the fixed 72/8 wheel), screw balance at 3 Hz with analytic motion blur. Tap = wind, hold = minute repeater (titan:fx wind/repeater).
 - Sound: new scape preset `movement` (audio/scape/presets.js): real tick/tock cut from audio/ambience/clock at 6 beats a second on the wall clock (in sync with the picture by construction), ratchet clicks, two gongs cut from one chimes strike. Intro `js/intros/tourbillon.js` (winds, balance starts, train cascades, Breguet hands lock at 10:10 over the engraved name). Group "Matter and machines"; card in the art queue (`artreq_20261021-2300_theme-cards-tourbillon`); music queued (Haydn Clock II, Mozart K. 608, Haydn musical-clock pieces).
