@@ -86,7 +86,12 @@
     ["blackhole", "Black hole", "Light bent around a black hole: the disk wraps over the top and under the bottom, the near side blazes from beaming. Drag to orbit, hold to fall closer, tap for a flare.", P("blackhole"), "Space"],
     ["rainforest", "Rainforest", "Misty layered canopy swaying in the wind, light shafts through the gaps, fireflies, falling leaves, pollen. Move to steer the sun, tap for a gust.", P("rainforest"), "Nature"],
     ["bubbles", "Soap bubbles", "Thin-film interference: the colours swirl and drain like real soap. Drag to push them, tap to pop.", P("bubbles"), "Material & Magic"],
-    ["shatter", "Glass shatter", "Tap the glass: cracks race out, every shard bends the city lights its own way, then the pane heals. Drag to tilt.", P("shatter"), "Material & Magic"]
+    ["shatter", "Glass shatter", "Tap the glass: cracks race out, every shard bends the city lights its own way, then the pane heals. Drag to tilt.", P("shatter"), "Material & Magic"],
+    ["aurora", "Aurora", "Northern lights ripple over a snowy ridge and mirror in a still lake. Drag to look around, tap for a substorm surge.", P("aurora"), "Nature"],
+    ["lava", "Lava field", "Glowing magma flows under cracking black crust, embers rising. Drag to stir the flow, hold to melt the crust, tap for a fountain.", P("lava"), "Nature"],
+    ["galaxy", "Spiral galaxy", "A 3D spiral galaxy with blue star-forming arms and dark dust lanes. Drag to tilt and turn, tap for a supernova.", P("galaxy"), "Space"],
+    ["crystals", "Crystal geode", "Raytraced amethyst and quartz crystals with rainbow dispersion. Drag to turn, hold to move the light, tap for a resonance pulse.", P("crystals"), "Material & Magic"],
+    ["arcane", "Arcane circle", "A burning gold summoning circle with turning rune rings and a vortex of magic sparks. Drag to spin it, hold to charge, tap to cast.", P("arcane"), "Material & Magic"]
   ]).concat(window.FXDEMO_EXTRA || []);
   var ui = document.getElementById("ui"), cap = document.getElementById("cap"), catNav = document.getElementById("cat"), CATS = [];
   D.forEach(function (d) { d[4] = d[4] || "Sims"; if (CATS.indexOf(d[4]) < 0) CATS.push(d[4]); T["demo-" + d[0]] = { stack: d[3] }; var b = document.createElement("button"); b.textContent = d[1]; b.dataset.id = d[0]; b.dataset.cat = d[4]; ui.appendChild(b); });

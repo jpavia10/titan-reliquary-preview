@@ -3,7 +3,7 @@
    { mod:"post" } after it). Every scene reads touch/mouse: K.ptr position, drag (accumulated into an orbit/turn), and taps.
    Quality: reads the tier from window.TitanQuality (Low/Medium/High/Ultra/Max) when it exists, else High; never auto-downgrades
    (the kit's frame governor is the only safety net). Ports and credits: fx/CREDITS.md.
-   Kinds (batch 1): "nebula" (Star Nest volumetric fractal, MIT), "blackhole" (geodesic-bent rays + Doppler accretion disk),
+   Kinds (batch 2): "aurora", "galaxy", "lava", "crystals", "arcane". Kinds (batch 1): "nebula" (Star Nest volumetric fractal, MIT), "blackhole" (geodesic-bent rays + Doppler accretion disk),
    "rainforest" (layered swaying canopy + screen-space god rays + mist), "bubbles" (thin-film soap interference),
    "shatter" (polar-Voronoi glass fracture with per-shard refraction).
    Theme use:  T.mytheme = { stack: [ { mod:"scene", kind:"blackhole" }, { mod:"post", bloom:1.2 } ] }  or  K.preset("blackhole"). */
@@ -11,9 +11,10 @@
   "use strict";
   var K = window.TitanFXK; if (!K) return;
   var TIERS = { low: .45, medium: .65, high: .85, ultra: 1, max: 1.35 };
+  /* Quality: TitanQuality.tier() first, then localStorage tr_quality (legacy tr_quality_v1), ?q= override; default High. Never auto-downgrades. */
   K.tier = function () { var Q = window.TitanQuality, v = null;
-    try { v = Q && (typeof Q.level === "function" ? Q.level() : Q.level || Q.tier); } catch (e) {}
-    if (!v) try { v = localStorage.getItem("tr_quality_v1"); } catch (e) {}
+    try { v = Q && (typeof Q.tier === "function" ? Q.tier() : typeof Q.level === "function" ? Q.level() : Q.tier || Q.level); } catch (e) {}
+    if (!v) try { v = localStorage.getItem("tr_quality") || localStorage.getItem("tr_quality_v1"); } catch (e) {}
     var m = /[?&]q=(low|medium|high|ultra|max)/i.exec(location.search); if (m) v = m[1];
     return TIERS[String(v || "high").toLowerCase()] || .85; };
   var HEAD = "#version 300 es\nprecision highp float;\nNOISE\nuniform vec2 uRes, uP, uTapP, uDrag; uniform float uT, uDown, uTap, uQ; out vec4 o;\n" +
@@ -151,6 +152,152 @@
     "  float sweep = exp(-pow((p.x+p.y*.5) - (tau-9.)*1.4 + 1.2, 2.)*30.)*step(9.,tau)*step(tau,11.5); c += vec3(.6,.8,1.)*sweep*.8;",
     "  c += vec3(.7,.8,1.)*.025*smoothstep(.0,.6,1.-abs(p.y-p.x*.3-.2))*(1.-shard);",            // faint pane sheen
     "  o = vec4(c, 1.); }"].join("\n");
+  /* ===================== batch 2 (fx builder #2): aurora, galaxy, lava, crystals, arcane ===================== */
+  /* ---- NATURE: aurora. Curtains follow nimitz's "Auroras" (Shadertoy XtGGRt) approach: a stack of planes sampled with
+     rotated triangle noise, each a step higher and redder; re-written for this kit. Over a snow ridge and a still lake that
+     mirrors the sky. Drag looks around, tap sends a substorm surge rippling along the curtains. */
+  S.aurora = [
+    "float tri(float x){ return clamp(abs(fract(x)-.5),.01,.49); } vec2 tri2(vec2 p){ return vec2(tri(p.x)+tri(p.y), tri(p.y+tri(p.x))); }",
+    "float triN(vec2 p, float spd){ float z = 1.8, z2 = 2.5, rz = 0.; p *= rot(p.x*.06); vec2 bp = p;",
+    "  for (int i=0;i<5;i++){ vec2 dg = tri2(bp*1.85)*.75; dg *= rot(uT*spd); p -= dg/z2; bp *= 1.3; z2 *= .45; z *= .42; p *= 1.21+(rz-1.)*.02; rz += tri(p.x+tri(p.y))*z; p *= -mat2(.95534,.29552,-.29552,.95534); }",
+    "  return clamp(1./pow(rz*29.,1.3),0.,.55); }",
+    "vec4 aur(vec3 ro, vec3 rd, float surge){ vec4 col = vec4(0.), avg = vec4(0.); int N = int(18.+26.*uQ);",
+    "  for (int i=0;i<50;i++){ if (i>=N) break; float fi = float(i)*50./float(N); float of = .006*h21(gl_FragCoord.xy)*smoothstep(0.,15.,fi);",
+    "    float pt = ((.8+pow(fi,1.4)*.002)-ro.y)/(rd.y*2.+.4); pt -= of; vec3 bpos = ro + pt*rd; vec2 p = bpos.zx;",
+    "    float rzt = triN(p+vec2(surge*.3*sin(p.y*3.),0.), .06+surge*.2);",
+    "    vec4 c2 = vec4(0,0,0,rzt); c2.rgb = (sin(1.-vec3(2.15,-.5,1.2)+fi*.043)*.5+.5)*rzt;",
+    "    avg = mix(avg, c2, .5); col += avg*exp2(-fi*.065-2.5)*smoothstep(0.,5.,fi); }",
+    "  col *= clamp(rd.y*15.+.4,0.,1.); return col*.75*(1.+surge*1.5); }",
+    "vec3 stars(vec3 d){ vec3 q = d*300.; vec3 id = floor(q); float h = h31(id); vec3 f = fract(q)-.5; return vec3(.9,.95,1.)*step(.997,h)*exp(-dot(f,f)*25.)*(1.+2.*h31(id+2.)); }",
+    "vec3 sky(vec3 rd, vec3 ro, float surge){ vec3 c = mix(vec3(.01,.015,.03), vec3(.04,.06,.1), pow(1.-max(rd.y,0.),3.));",
+    "  c += stars(rd)*smoothstep(0.,.1,rd.y); vec4 a = aur(ro, rd, surge); return c*(1.-a.a) + a.rgb; }",
+    "void main(){ vec3 a = aspectP(); vec2 uv = a.xy; float surge = uTap<0. ? 0. : exp(-uTap*.5)*smoothstep(0.,.3,uTap);",
+    "  vec3 ro = vec3(0,0,-6.7); vec3 rd = normalize(vec3(uv, 1.3));",
+    "  rd.yz *= rot(-.1-clamp(uDrag.y,-.4,.3)); rd.xz *= rot(uDrag.x*1.5+sin(uT*.025)*.15);",
+    "  vec3 c; float hz = .035*fbm3(vec2(atan(rd.x,rd.z)*4.,1.)) + .012*fbm(vec2(atan(rd.x,rd.z)*20.,3.));",
+    "  if (rd.y > hz) c = sky(rd, ro, surge);",
+    "  else if (rd.y > -.02+hz*.2 && rd.y <= hz) { float s = fbm(vec2(atan(rd.x,rd.z)*30., rd.y*90.)); c = vec3(.04,.05,.08)*(.4+s) + sky(vec3(rd.x,.1,rd.z),ro,surge)*.08; }",
+    "  else { vec3 rr = rd; rr.y = abs(rr.y); vec2 w = rd.xz/max(-rd.y,.01)*.5; float rip = fbm(w*3.+uT*.1)*.006; rr.y += rip; rr = normalize(rr);",
+    "    float F = .25+.75*pow(1.-abs(rd.y),5.); c = sky(rr, ro, surge)*F*.7 + vec3(.005,.008,.012); }",
+    "  vec2 q = (gl_FragCoord.xy/uRes-uP)*vec2(uRes.x/uRes.y,1.); c += vec3(.2,1.,.6)*exp(-dot(q,q)*30.)*.05*uDown;",
+    "  o = vec4(c, 1.); }"].join("\n");
+  /* ---- SPACE: galaxy. A barred spiral rendered as a thin volume: logarithmic arms (pitch 14 deg) warped by fbm, blue star-forming
+     knots on the arm crests, brown dust lanes on their inner edges, a warm bulge and a halo of field stars. Raymarched through the
+     disk so dust really occludes and the inclination is a true 3D tilt. Drag tilts/turns it; tap = a supernova in an arm. */
+  S.galaxy = [
+    "float dens(vec3 p, out float dust, out float knots){ float r = length(p.xz), a = atan(p.z,p.x) - uT*.04/(.3+r);",
+    "  float arm = .5+.5*cos(2.*(a - log(r+.05)*4.));",
+    "  float w = fbm(p.xz*3.+3.)*.9; float arms = pow(clamp(arm+w*.35-.15,0.,1.), 3.);",
+    "  float disk = exp(-r*1.5)*exp(-abs(p.y)*(14.+6.*r));",
+    "  dust = pow(clamp(.5+.5*cos(2.*(a - log(r+.05)*4.)+.55)+fbm(p.xz*7.)*.4-.4,0.,1.),2.)*disk*smoothstep(.05,.25,r)*3.;",
+    "  knots = pow(fbm(p.xz*14.+9.),4.)*arms*disk*18.;",
+    "  return arms*disk*2.5 + exp(-r*r*30.-p.y*p.y*90.)*1.6; }",
+    "void main(){ vec3 A = aspectP(); vec2 uv = A.xy;",
+    "  float inc = clamp(1.05+uDrag.y*2.,.15,1.5), spin = uDrag.x*2.;",
+    "  vec3 ro = vec3(0., sin(inc), -cos(inc))*2.4; vec3 fw = normalize(-ro), rt = normalize(cross(vec3(0,1,0),fw)), up = cross(fw,rt);",
+    "  vec3 rd = normalize(fw*1.5+rt*uv.x+up*uv.y); ro.xz *= rot(spin); rd.xz *= rot(spin);",
+    "  vec3 bg = vec3(0.); { vec3 q = rd*220.; vec3 id = floor(q); float h = h31(id); vec3 f = fract(q)-.5; bg = mix(vec3(1.,.85,.7),vec3(.7,.8,1.),h31(id+1.))*step(.996,h)*exp(-dot(f,f)*30.)*(1.+3.*h31(id+5.)); }",
+    "  float t0 = (-ro.y-.25*sign(rd.y))/rd.y, t1 = (-ro.y+.25*sign(rd.y))/rd.y; if (abs(rd.y)<1e-3){ t0 = 0.; t1 = 6.; } t0 = max(t0,0.); t1 = min(t1, 7.);",
+    "  int N = int(28.+44.*uQ); float dt = (t1-t0)/float(N); float t = t0 + dt*h21(gl_FragCoord.xy+uT);",
+    "  vec3 col = vec3(0.); float tr = 1.;",
+    "  vec2 snP = vec2(cos(5.1),sin(5.1))*.42; float sn = uTap<0. ? 0. : exp(-uTap*.45)*smoothstep(0.,.08,uTap);",
+    "  for (int i=0;i<80;i++){ if (i>=N || t>t1 || tr<.02) break; vec3 p = ro+rd*t; float du, kn; float d = dens(p, du, kn);",
+    "    float r = length(p.xz); vec3 em = mix(vec3(1.,.78,.5), vec3(.75,.85,1.), smoothstep(.1,.7,r))*d + vec3(.4,.6,1.)*kn + vec3(1.,.35,.5)*kn*.4*fbm(p.xz*20.);",
+    "    em += vec3(1.,.95,.9)*sn*30.*exp(-dot(p.xz-snP,p.xz-snP)*900.-p.y*p.y*900.);",
+    "    col += tr*em*dt*1.1; tr *= exp(-du*dt*30.); t += dt; }",
+    "  col += bg*tr; col += vec3(1.,.8,.6)*sn*.02/(length(uv - (vec2(dot(vec3(snP.x,0.,snP.y)-ro,rt), dot(vec3(snP.x,0.,snP.y)-ro,up))/dot(vec3(snP.x,0.,snP.y)-ro,fw)*1.5))+.01);",
+    "  o = vec4(col, 1.); }"].join("\n");
+  /* ---- NATURE: lava field. Flow-noise magma (after Inigo Quilez's domain warping and Perlin/Neyret "flow noise") with black basalt crust
+     plates (Voronoi) that split along glowing seams, rafts drift with the current, crust edges cool from orange to black, heat shimmer
+     above it all. Drag stirs the flow, hold heats the crust under your finger, tap bursts a lava fountain. */
+  S.lava = [
+    "vec3 vor(vec2 x){ vec2 n = floor(x), f = fract(x); float d1 = 8., d2 = 8.; vec2 id = vec2(0.);",
+    "  for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++){ vec2 g = vec2(i,j); vec2 o2 = g + .5+.4*sin(uT*.15+6.28*h22(n+g)) - f; float d = dot(o2,o2);",
+    "    if (d<d1){ d2 = d1; d1 = d; id = n+g; } else if (d<d2) d2 = d; } return vec3(sqrt(d2)-sqrt(d1), id); }",
+    "void main(){ vec2 uv = gl_FragCoord.xy/uRes; float A = uRes.x/uRes.y; vec2 p = (uv-.5)*vec2(A,1.);",
+    "  vec2 P = vec2(p.x, p.y/(.55+.45*(1.-uv.y)))*2.2;",   // fake perspective: farther toward the top
+    "  vec2 fl = vec2(.06,.03)*uT + uDrag*.8; float sh = (fbm3(P*6.+uT*2.)-.5)*.012*(1.-uv.y); P += sh;",
+    "  vec2 q = vec2(fbm(P+fl), fbm(P+vec2(5.2,1.3)-fl*.7)); vec2 r = vec2(fbm(P+4.*q+vec2(1.7,9.2)+uT*.05), fbm(P+4.*q+vec2(8.3,2.8)-uT*.04));",
+    "  float m = fbm(P+4.*r);",
+    "  vec3 v = vor(P*2.4+q*1.2); float seam = smoothstep(.0,.16+.06*sin(uT*.6+v.y*3.), v.x);",
+    "  vec2 fp = (uP-.5)*vec2(A,1.); float heat = exp(-dot(p-fp,p-fp)*25.)*uDown;",
+    "  float tap = uTap<0. ? 0. : exp(-uTap*.7); vec2 tp = (uTapP-.5)*vec2(A,1.); float burst = exp(-dot(p-tp,p-tp)*(120./(.2+max(uTap,0.)*.6)))*tap;",
+    "  float crust = clamp(seam*(.75+.5*h21(v.yz)) - heat*.9 - burst*1.5, 0., 1.);",
+    "  float T = clamp(m*1.3 + (1.-crust)*.9 - crust*.6 + heat*.6 + burst*2., 0., 3.);",
+    "  vec3 magma = (vec3(1.,.25,.02)*T + vec3(1.,.7,.2)*pow(T,3.)*.25 + vec3(1.,.95,.8)*pow(max(T-1.6,0.),2.)*.6)*.6;",
+    "  float rough = fbm(P*14.+v.yz); vec3 rock = vec3(.035,.03,.03)*(.5+rough) + vec3(.6,.15,.02)*pow(1.-seam,6.)*.8;",
+    "  vec3 n = normalize(vec3(dFdx(rough), dFdy(rough), .02)); rock += vec3(.9,.4,.15)*pow(max(dot(n, normalize(vec3(0.,-.4,1.))),0.),12.)*.15*(1.-crust*.3);",
+    "  vec3 c = mix(magma, rock, smoothstep(.25,.6,crust));",
+    "  c += vec3(1.,.3,.05)*.12*smoothstep(.3,1.,uv.y)*(.6+.4*fbm3(vec2(uv.x*3.,uT*.2)));",   // glow haze on the far field
+    "  c *= .85+.15*(1.-smoothstep(.2,1.2,length(p)));",
+    "  o = vec4(c, 1.); }"].join("\n");
+  /* ---- MATERIAL: crystal geode. Raymarched cluster of hexagonal quartz/amethyst prisms (Inigo Quilez's hexagonal-prism SDF and
+     smooth-min) growing out of a split geode; glass shading with Fresnel, an internal-path approximation with RGB dispersion
+     (three IORs), inner veils and a slow caustic light that orbits. Drag turns it; hold draws the light to your finger; tap = resonance
+     pulse that rings up through every crystal. */
+  S.crystals = [
+    "float sdHex(vec3 p, vec2 h){ const vec3 k = vec3(-.8660254,.5,.57735); p = abs(p); p.xy -= 2.*min(dot(k.xy,p.xy),0.)*k.xy;",
+    "  vec2 d = vec2(length(p.xy-vec2(clamp(p.x,-k.z*h.x,k.z*h.x),h.x))*sign(p.y-h.x), p.z-h.y); return min(max(d.x,d.y),0.)+length(max(d,0.)); }",
+    "float xtal(vec3 p, vec3 base, vec3 dir, float r, float len){ vec3 z = normalize(dir); vec3 x = normalize(cross(z, vec3(.3,1.,.2))); vec3 y = cross(z,x);",
+    "  vec3 q = p-base; q = vec3(dot(q,x),dot(q,y),dot(q,z)); q.z -= len*.5;",
+    "  float body = sdHex(q, vec2(r, len*.5)); float tip = dot(vec3(abs(q.xy), q.z-len*.5), normalize(vec3(.8,.46,.9)))-r*.55; return max(body, tip); }",
+    "float map(vec3 p, out float id){ float d = 1e3; id = 0.;",
+    "  for (int i=0;i<9;i++){ float fi = float(i); vec3 h = vec3(h21(vec2(fi,1.)),h21(vec2(fi,2.)),h21(vec2(fi,3.)));",
+    "    vec3 dir = normalize(vec3((h.x-.5)*1.3, .9, (h.y-.5)*1.1)); vec3 b = vec3((h.x-.5)*.7, -.75, (h.y-.5)*.5);",
+    "    float c = xtal(p, b, dir, .1+.09*h.z, .7+1.*h.z*(i==0?1.6:1.)); if (c<d){ d = c; id = fi; } }",
+    "  float rock = length(p-vec3(0.,-1.3,0.))-.8 + fbm3(p.xz*4.)*.12; if (rock<d){ d = rock; id = -1.; } return d; }",
+    "vec3 nrm(vec3 p){ float id; vec2 e = vec2(.0015,0.); return normalize(vec3(map(p+e.xyy,id)-map(p-e.xyy,id), map(p+e.yxy,id)-map(p-e.yxy,id), map(p+e.yyx,id)-map(p-e.yyx,id))); }",
+    "vec3 env(vec3 d, vec3 L){ vec3 c = mix(vec3(.02,.015,.04), vec3(.08,.05,.14), d.y*.5+.5); c += vec3(1.,.85,1.)*pow(max(dot(d,L),0.),40.)*1.2 + vec3(.5,.3,1.)*pow(max(dot(d,L),0.),6.)*.4; return c; }",
+    "void main(){ vec3 A = aspectP(); vec2 uv = A.xy; float yaw = uDrag.x*3.+uT*.08, pit = clamp(.25+uDrag.y,-.1,1.);",
+    "  vec3 ro = 3.4*vec3(sin(yaw)*cos(pit), sin(pit), -cos(yaw)*cos(pit)); vec3 fw = normalize(vec3(0.,-.05,0.)-ro), rt = normalize(cross(vec3(0,1,0),fw)), up = cross(fw,rt);",
+    "  vec3 rd = normalize(fw*1.8+rt*uv.x+up*uv.y);",
+    "  vec3 L = normalize(vec3(cos(uT*.3), .7, sin(uT*.3))); if (uDown>.5) L = normalize(rt*(uP.x-.5)*3.+up*(uP.y-.2)*3.-fw*.6);",
+    "  float pulse = uTap<0. ? 0. : exp(-uTap*.8);",
+    "  float t = 0., id = 0.; bool hit = false; int N = int(50.+60.*uQ);",
+    "  for (int i=0;i<120;i++){ if (i>=N) break; float d = map(ro+rd*t, id); if (d<.001){ hit = true; break; } t += d*.9; if (t>8.) break; }",
+    "  vec3 c = env(rd, L)*.6;",
+    "  if (hit){ vec3 p = ro+rd*t, n = nrm(p);",
+    "    if (id < 0.){ float ao = clamp(map(p+n*.08,id)/.08,0.,1.); vec3 rc = vec3(.08,.07,.07)*(.4+fbm(p.xz*9.))*(max(dot(n,L),0.)+.15)*ao; c = rc + vec3(.5,.2,.9)*.08*ao; }",
+    "    else { float F = .04+.96*pow(1.-max(dot(-rd,n),0.),5.); vec3 refl = env(reflect(rd,n), L);",
+    "      vec3 tint = mix(vec3(.75,.45,1.), vec3(.9,.92,1.), h21(vec2(id,7.)));",
+    "      vec3 tr3; for (int k=0;k<3;k++){ float ior = 1.53+float(k)*.025; vec3 rr = refract(rd, n, 1./ior); vec3 pin = p+rr*.35;",
+    "        float veil = fbm(pin.xy*6.+pin.z*4.+id); vec3 e = env(refract(rr, -nrm(pin), ior+.0001)+rr*.0001, L)*(.6+veil*1.4);",
+    "        tr3[k] = e[k]; }",
+    "      float glow = pow(max(dot(normalize(L+-rd), n),0.),80.)*1.2;",
+    "      float ring = exp(-pow((p.y+.8) - uTap*1.6, 2.)*30.)*pulse;",
+    "      c = mix(tr3*tint*1.2, refl, F) + vec3(1.)*glow + tint*vec3(.8,.6,1.)*ring*3. + tint*.06; } }",
+    "  o = vec4(c, 1.); }"].join("\n");
+  /* ---- MAGIC: arcane circle. A summoning sigil drawn procedurally (concentric rings, rotating rune bands, an inscribed heptagram and
+     orbiting glyph seals), lit like burning gold leaf on a dark slate floor seen in perspective, with a volumetric light column and a
+     swirling vortex of sparks (particles layer in the preset). Drag spins the outer ring; hold charges it; tap = a castF flash. */
+  S.arcane = [
+    "float ring(float r, float R, float w){ return smoothstep(w, 0., abs(r-R)); }",
+    "float rune(vec2 p, float seed){ vec2 g = floor(p*vec2(5.,3.)); vec2 f = fract(p*vec2(5.,3.)); float h = h21(g+seed);",
+    "  float v = step(.5,h)*(1.-smoothstep(.0,.12,abs(f.x-.5))) + step(.4,fract(h*7.))*(1.-smoothstep(.0,.12,abs(f.y-.5))) + step(.75,fract(h*13.))*(1.-smoothstep(.0,.1,abs(f.x-f.y)));",
+    "  return clamp(v,0.,1.)*step(abs(p.y-.5),.42); }",
+    "float seg(vec2 p, vec2 a, vec2 b){ vec2 pa = p-a, ba = b-a; float h = clamp(dot(pa,ba)/dot(ba,ba),0.,1.); return length(pa-ba*h); }",
+    "float sigil(vec2 p, float ch){ float r = length(p), a = atan(p.y,p.x); float s = 0.; float w = .007+.003*ch;",
+    "  s += ring(r,.92,w)+ring(r,.86,w)+ring(r,.62,w)+ring(r,.56,w)+ring(r,.22,w*1.4);",
+    "  float a1 = a + uT*.15 + uDrag.x*3.; float u1 = fract(a1/6.2832*48.); s += rune(vec2(u1, (r-.865)/.055+.5), floor(a1/6.2832*48.))*step(.865,r)*step(r,.915);",
+    "  float a2 = a - uT*.22; float u2 = fract(a2/6.2832*28.); s += rune(vec2(u2, (r-.565)/.055+.5), floor(a2/6.2832*28.)+50.)*step(.565,r)*step(r,.615);",
+    "  vec2 q = p*rot(-uT*.08); float hs = 1e3; for (int i=0;i<7;i++){ float t0 = float(i)*6.2832/7., t1 = float(i+3)*6.2832/7.; hs = min(hs, seg(q, .56*vec2(cos(t0),sin(t0)), .56*vec2(cos(t1),sin(t1)))); }",
+    "  s += smoothstep(w*1.2,0.,hs);",
+    "  for (int i=0;i<7;i++){ float t0 = float(i)*6.2832/7. + uT*.08; vec2 c = .74*vec2(cos(t0),sin(t0)); float d = length(p-c); s += ring(d,.07,w)+ring(d,.045,w*.8)*step(.5,fract(uT*.5+float(i)*.3)+.3); }",
+    "  s += ring(r,.11,w)*(.5+.5*sin(uT*3.)); return clamp(s,0.,1.); }",
+    "void main(){ vec2 uv = gl_FragCoord.xy/uRes; float A = uRes.x/uRes.y; vec2 sp = (uv-vec2(.5,.55))*vec2(A,1.);",
+    "  float ch = smoothstep(0.,1.5,uDown) + (uTap<0. ? 0. : exp(-uTap*1.2)); float castF = uTap<0. ? 0. : exp(-uTap*2.5);",
+    "  vec3 ro = vec3(0.,1.25,-1.45); vec3 rd = normalize(vec3(sp.x, sp.y-.15, 1.)); rd.yz *= rot(-.48);",
+    "  vec3 c = mix(vec3(.01,.008,.02), vec3(.03,.02,.05), uv.y);",
+    "  if (rd.y < 0.){ float t = -ro.y/rd.y; vec3 hp = ro+rd*t; vec2 p = hp.xz-vec2(0.,.15);",
+    "    float slate = fbm(p*8.)*.5+fbm(p*30.)*.3; vec3 floorc = vec3(.025,.022,.03)*(.6+slate);",
+    "    float sg = sigil(p, ch), glowS = sigil(p*1.0, ch);",
+    "    float pr = length(p); vec3 gold = mix(vec3(1.,.55,.15), vec3(1.,.85,.55), sg); vec3 arc = mix(vec3(.35,.6,1.), vec3(.8,.4,1.), .5+.5*sin(atan(p.y,p.x)*3.+uT));",
+    "    vec3 em = mix(gold, arc, .35+.35*ch)*sg*(2.2+2.5*ch+6.*castF);",
+    "    floorc += mix(gold,arc,.5)*exp(-pr*2.2)*(.08+.25*ch) + arc*exp(-abs(pr-.9)*12.)*.04*(1.+ch);",
+    "    c = floorc + em; c *= exp(-t*.08); }",
+    "  float col = exp(-abs(sp.x)*(10.-4.*ch))*smoothstep(-.35,.6,sp.y)*(.08+.35*ch+1.2*castF); c += mix(vec3(.5,.7,1.),vec3(1.,.8,.5),.4)*col*(.7+.3*fbm3(vec2(sp.x*8., sp.y*2.-uT*1.5)));",
+    "  c += vec3(1.,.9,.8)*castF*.6*exp(-dot(sp,sp)*3.);",
+    "  o = vec4(c, 1.); }"].join("\n");
 
   K.scenes = S;
   K.mod("scene", function (gl, s, K) {
@@ -189,6 +336,11 @@
       { mod: "particles", count: .004, shape: "dot", size: 1.2, curl: .6, scale: 3, speed: .02, life: .05, drift: [.005, .003], c1: [1, .95, .7], c2: [.9, 1, .8], alpha: .18, blend: "add", rake: .5 },
       POST({ bloom: .9, threshold: .75, aberr: .15, dof: .25, focusY: .45 })],
     bubbles: [{ mod: "scene", kind: "bubbles" }, POST({ bloom: .8, threshold: .8, aberr: .2 })],
+    aurora: [{ mod: "scene", kind: "aurora" }, { mod: "particles", count: .0015, shape: "dot", size: 1.4, gravity: .02, curl: .5, scale: 2, speed: .02, life: .06, spawn: "top", c1: [.9, .95, 1], c2: [.7, .9, 1], alpha: .5, blend: "add", rake: .4 }, POST({ bloom: 1.1, threshold: .5, aberr: .15 })],
+    galaxy: [{ mod: "scene", kind: "galaxy" }, POST({ bloom: 1, threshold: .8, exposure: 1, aberr: .25 })],
+    lava: [{ mod: "scene", kind: "lava" }, { mod: "particles", count: .0012, shape: "spark", size: 3, gravity: -.12, curl: 1.2, scale: 1.6, speed: .06, life: .12, spawn: "bottom", c1: [1, .5, .1], c2: [1, .85, .4], alpha: .8, blend: "add", glint: 1, rake: 1.5 }, POST({ bloom: 1, threshold: .85, exposure: 1, aberr: .3 })],
+    crystals: [{ mod: "scene", kind: "crystals" }, { mod: "particles", count: .0008, shape: "mote", size: 3, curl: .6, scale: 2, speed: .015, life: .05, c1: [.85, .7, 1], c2: [.7, .9, 1], alpha: .5, blend: "add", glint: 1, rake: .5 }, POST({ bloom: .9, threshold: .85, aberr: .35 })],
+    arcane: [{ mod: "scene", kind: "arcane" }, { mod: "particles", count: .003, shape: "spark", size: 2.6, gravity: -.06, curl: 2.2, scale: 1.4, speed: .09, life: .1, spawn: "bottom", c1: [.5, .7, 1], c2: [1, .8, .4], alpha: .8, blend: "add", glint: 1, rake: 1.6 }, { mod: "particles", count: .0005, shape: "mote", size: 7, curl: 1.5, scale: 1.2, speed: .04, life: .08, c1: [.8, .5, 1], c2: [.5, .8, 1], alpha: .7, blend: "add", rake: .8 }, POST({ bloom: 1.5, threshold: .5, aberr: .35 })],
     shatter: [{ mod: "scene", kind: "shatter" }, { mod: "particles", count: .0008, shape: "spark", size: 2.5, curl: .5, speed: .05, life: .3, c1: [.8, .9, 1], c2: [1, .9, .8], alpha: .35, blend: "add", rake: 2, glint: 1 }, POST({ bloom: 1.1, threshold: .7, aberr: .5 })]
   });
   K.preset = function (id) { return (K.presets[id] || []).map(function (x) { return Object.assign({}, x); }); };
