@@ -14,7 +14,7 @@
   /* quality fallback (Grok 2026-10-20): a weak or data-saving device gets the light version of today's new effects. <html class="tr-lite">,
      window.TitanLite. Force with localStorage tr_lite_v1 = "1" / "0". */
   const LITE = (() => { try { const f = localStorage.getItem("tr_lite_v1"); if (f === "1") return true; if (f === "0") return false; } catch (e) { /* ignore */ }
-    const n = navigator, c = n.connection || {}; return !!(c.saveData || (n.deviceMemory && n.deviceMemory <= 3) || (n.hardwareConcurrency && n.hardwareConcurrency <= 4)); })();
+    const n = navigator, c = n.connection || {}; return !!(c.saveData || (n.deviceMemory && n.deviceMemory <= 1) || (n.hardwareConcurrency && n.hardwareConcurrency <= 2)); })();
   window.TitanLite = LITE; if (LITE) document.documentElement.classList.add("tr-lite");
   const T = window.THREE;
   if (!T) return;

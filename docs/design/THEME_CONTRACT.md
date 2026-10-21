@@ -41,3 +41,13 @@ Today's aliases: Prism (kaleido), Midnight Gallery (afterhours), The Mint (colos
 
 ## One theme registry
 `window.TITAN_WORLDS` / `TitanRegistry` (wings/themes/manifest.js) is the only list of themes. Everything else is keyed by its ids: the picker cards, the intros (`js/intros/<id>.js`), the sound scene (`world.scene`), the UI sound voice, the coin-page world, the FX (`world.fx`) and the stylesheets (`styles/atmo/<id>.css`). `tools/themes/test_registry.py` (in CI) fails on anything missing or orphaned in any of them and names each theme as Display Name (id). `tools/themes/test_picker_shape.py` (in CI) fails if a theme's stylesheet changes the shape or size of the shared picker tiles or the now-playing picture, if a theme is in no group in `wings/themes/worlds.js` ("New and more"), or if a theme lacks a 640x400 `art/themes/<id>-card.webp` portrait. Scope theme CSS to your own surfaces: never style bare `button`, `dialog` or `.atmo-card`.
+
+## Device targets (Joseph, 2026-10-20) — every worker inherits these
+- **Floor: Samsung Galaxy S24 Ultra** (Snapdragon 8 Gen 3 / Adreno 750, Chrome Android). Smooth 60fps there. Never design below it; no auto-downgrade may trigger on it or anything better.
+- **iPad Pro, Safari/WebKit**: test with WebGPU on, fall back to WebGL2.
+- **Top: RTX 4090 + i9 on a 45" curved ultrawide** (~5120x2160, 21:9 or wider). Quality scales UP here: more particles, higher resolution scale, volumetrics, post-fx.
+- Assume a capable GPU. Lite mode (user's choice) and reduced motion stay mandatory; they are the only way quality goes down.
+- Shared tiers: `wings/quality.js` → `TitanQuality.tier` (base / high / ultra, lite) and `.q` {dpr, particles, volumetrics, post, shadow, msaa}; `?q=` forces a tier. Use it, don't invent your own.
+- Layouts must use the width on 21:9 and 32:9 (`html.tr-ultrawide`, aspect ≥ 2.1), not a centred column.
+- Smoke screenshots run phone 412x900, desktop 1400x900, iPad 1024x1366 and ultrawide 2560x1080.
+- Shared fx modules (GPU particles, volumetric fog, bloom, reflections, caustics, PBR) live under `fx/`; use them, don't duplicate.

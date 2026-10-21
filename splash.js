@@ -527,10 +527,10 @@
     var tier = (function () {
       if (forced) return clamp(+forced[1], 0, 4);
       var save = navigator.connection && navigator.connection.saveData;
+      // Device floor (Joseph 7:47 PM): Galaxy S24 Ultra or better. Everything starts at full quality; only Save-Data or a very
+      // weak report (well below the floor) lowers it. iOS hides cores/memory, so an unknown device is treated as flagship.
       if (save || cores <= 2 || mem <= 1) return 3;
-      if (cores <= 4 || mem <= 2) return small ? 2 : 1;
-      if (cores >= 8 && mem >= 6) return 0;      // flagship class: full quality, demoted by the frame-time probe if it cannot hold ~50 fps
-      return 1;
+      return 0;
     })();
     var Q = TIERS[tier];
 
@@ -1282,7 +1282,7 @@
         if (frames > 2 && t < 0.5) probe.push(now - last);
         else if (!probed && t >= 0.5) {
           probed = true; var avg = probe.length ? probe.reduce(function (a, b) { return a + b; }, 0) / probe.length : 16;
-          var nt = avg > 60 ? 4 : avg > 34 ? Math.max(tier, 3) : avg > 20.5 ? tier + 1 : tier;
+          var nt = avg > 60 ? 4 : avg > 40 ? tier + 1 : tier;   // only demotes far below S24 Ultra class (40ms+ frames)
           applyTier(clamp(nt, 0, 4)); coinTex();
         }
       } else if (!probed && t >= 0.45) { probed = true; coinTex(); }

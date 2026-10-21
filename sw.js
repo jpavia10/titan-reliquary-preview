@@ -123,6 +123,7 @@ const WING_URLS = [
   "wings/scene-engine.js?v=" + BUILD,
   "wings/ui-sounds.js?v=" + BUILD,
   "wings/relief.js?v=" + BUILD,
+  "wings/quality.js?v=" + BUILD,
   "wings/cutouts.js?v=" + BUILD,
   "photos/cut/manifest.json?v=" + BUILD,
   "shells/shell.js?v=" + BUILD,

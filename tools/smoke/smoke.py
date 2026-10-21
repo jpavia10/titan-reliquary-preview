@@ -208,7 +208,7 @@ def main(argv):
     with sync_playwright() as pw:
         kw = {"executable_path": CHROMIUM} if os.path.exists(CHROMIUM) else {}
         browser = pw.chromium.launch(args=["--use-gl=swiftshader", "--enable-webgl", "--ignore-gpu-blocklist"], **kw)
-        for name, vp, mobile in (("phone", {"width": 412, "height": 900}, True), ("desktop", {"width": 1400, "height": 900}, False)):
+        for name, vp, mobile in (("phone", {"width": 412, "height": 900}, True), ("desktop", {"width": 1400, "height": 900}, False), ("ipad", {"width": 1024, "height": 1366}, True), ("ultrawide", {"width": 2560, "height": 1080}, False)):
             if only and only != name: continue
             ctx = browser.new_context(viewport=vp, is_mobile=mobile, has_touch=mobile)
             ctx.add_init_script(LONGTASKS)
