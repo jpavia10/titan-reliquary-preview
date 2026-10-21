@@ -1,14 +1,7 @@
 {
  "theme": "mint",
- "version": 1,
+ "version": 2,
  "tracks": {
-  "mars": {
-   "file": "mars.m4a",
-   "title": "Holst: The Planets, I. Mars, the Bringer of War (band transcription)",
-   "artist": "United States Air Force Heritage of America Band",
-   "license": "Public domain (US Government work; composition PD)",
-   "url": "https://commons.wikimedia.org/wiki/File:Holst-_mars.ogg"
-  },
   "first-suite-march": {
    "file": "first-suite-march.m4a",
    "title": "Holst: First Suite in E-flat, III. March",
@@ -29,12 +22,19 @@
    "artist": "\"The President's Own\" United States Marine Band",
    "license": "Public domain (US Government work; composition PD)",
    "url": "https://commons.wikimedia.org/wiki/File:HOLST_%22The_Planets,_Op._32_5._Saturn,_the_Bringer_of_Old_Age%22_-_%22The_President%27s_Own%22_U.S._Marine_Band.opus"
+  },
+  "first-suite-intermezzo": {
+   "file": "first-suite-intermezzo.m4a",
+   "title": "Holst: First Suite in E-flat, II. Intermezzo",
+   "artist": "\"The President's Own\" United States Marine Band",
+   "license": "Public domain (US Government work; composition PD)",
+   "url": "https://commons.wikimedia.org/wiki/File:Holst_First_Suite_Intermezzo.ogg"
   }
  },
  "decks": {
   "browse": [
-   "mars",
    "first-suite-march",
+   "first-suite-intermezzo",
    "first-suite-chaconne"
   ],
   "coin": [
