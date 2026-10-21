@@ -169,7 +169,9 @@ def scenario(r):
             hero = r.visible_text("#hero-grand"); r.check("works offline (Hall value shows)", hero.startswith("$") and hero != "$0.00", hero)
             p.goto(r.base + "?nosplash#coin=C258"); p.wait_for_timeout(3500)
             r.check("offline: a coin never opened before still opens", p.evaluate("document.querySelectorAll('.gxd-cert').length") >= 3)
-            p.goto(r.base + "?nosplash#questions"); p.wait_for_timeout(2500)
+            p.goto(r.base + "?nosplash#questions")
+            try: p.wait_for_function("(() => { const v = document.querySelector('#questions-view'); const t = v ? v.innerText : ''; return document.querySelectorAll('.qv-q').length > 0 || /Can't load/.test(t); })()", timeout=12000)
+            except Exception: pass   # wait for the view to settle (busy machine), then judge it below
             qt = r.visible_text("#questions-view")
             r.check("offline: Questions never claims there are none", "No open questions" not in qt and (p.evaluate("document.querySelectorAll('.qv-q').length") > 0 or "Can't load" in qt), qt[:120])
         finally:

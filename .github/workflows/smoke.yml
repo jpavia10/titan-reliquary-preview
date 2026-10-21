@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install playwright && python -m playwright install --with-deps chromium
+      - run: pip install playwright pillow numpy && python -m playwright install --with-deps chromium
       - run: python tools/smoke/smoke.py --shots smoke-shots
       - name: opening-film rule (GRK-P-02 / tr126 regression)
         run: python tools/smoke/test_regress_grk_p02.py
