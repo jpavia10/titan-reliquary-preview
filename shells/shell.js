@@ -7,7 +7,9 @@
   "use strict";
   const SHELLS = [
     { id: "classic", name: "Classic", desc: "The wings: Hall, Gallery, Vault, Study and Lab, as before." },
-    { id: "field", name: "The Field", desc: "Everything on one table: place down, year across. Tap a coin and fly to it.", module: "shells/field/field.js", css: "shells/field/field.css" }
+    { id: "field", name: "The Field", desc: "Everything on one table: place down, year across. Tap a coin and fly to it.", module: "shells/field/field.js", css: "shells/field/field.css" },
+    /* Experimental (exp worker): each is one folder + one line here; see docs/design/UI_REGISTRY.md to remove */
+    { id: "hologram", exp: true, name: "Hologram", desc: "Millions of light particles. The ring of your collection surrounds you; tap one and every particle spirals in to form that coin.", module: "shells/hologram/hologram.js", css: "shells/hologram/hologram.css" }
   ];
   const KEY = "tr.shell", B = () => window.TITAN_BUILD || "";
   let cur = "classic", live = null, root = null, manifest = null, themeLink = null, busy = Promise.resolve();
@@ -57,7 +59,7 @@
       pick.addEventListener("click", (e) => { const b = e.target.closest("[data-shell]"); if (b) { pick.hidden = true; set(b.dataset.shell); } else if (e.target === pick || e.target.closest(".shell-x")) pick.hidden = true; });
       document.addEventListener("keydown", (e) => { if (e.key === "Escape" && pick && !pick.hidden) { e.stopPropagation(); pick.hidden = true; } }, true); }
     pick.innerHTML = '<div class="shell-card"><div class="shell-top"><h2>Choose a UI</h2><button type="button" class="shell-x" aria-label="Close">✕</button></div>' +
-      SHELLS.map((s) => '<button type="button" class="shell-opt" data-shell="' + s.id + '" aria-pressed="' + (s.id === cur) + '"><b>' + s.name + '</b><span>' + s.desc + "</span></button>").join("") + "</div>";
+      SHELLS.map((s, k) => (s.exp && !(SHELLS[k - 1] || {}).exp ? '<h3 class="shell-exp">Experimental</h3>' : "") + '<button type="button" class="shell-opt" data-shell="' + s.id + '" aria-pressed="' + (s.id === cur) + '"><b>' + s.name + '</b><span>' + s.desc + "</span></button>").join("") + "</div>";
     pick.hidden = false; const f = pick.querySelector('[aria-pressed="true"]') || pick.querySelector(".shell-opt"); f && f.focus();
   }
   function syncBtn() { const bar = document.getElementById("scene-bar"); if (!bar) return; let b = document.getElementById("btn-ui");

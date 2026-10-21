@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Titan Reliquary · GPU sim toolkit</title>
+<style>
+  html,body{margin:0;height:100%;background:#000;color:#eef;font:500 15px/1.3 system-ui,-apple-system,sans-serif;overflow:hidden;touch-action:none}
+  #ui{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:12px 12px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(0,0,0,.7))}
+  #ui button{flex:none;border:1px solid rgba(255,255,255,.25);background:rgba(20,20,30,.6);color:#fff;border-radius:999px;padding:10px 14px;font:inherit;backdrop-filter:blur(8px)}
+  #ui button[aria-pressed=true]{background:#fff;color:#000}
+  #cap{position:fixed;top:calc(14px + env(safe-area-inset-top));left:16px;right:16px;z-index:5;pointer-events:none;text-shadow:0 1px 8px #000}
+  #cap b{display:block;font-size:20px;letter-spacing:.02em} #cap span{opacity:.8}
+  #stat{position:fixed;top:calc(14px + env(safe-area-inset-top));right:14px;z-index:6;font:12px ui-monospace,monospace;opacity:.7}
+</style></head>
+<body>
+<div id="cap"><b></b><span></span></div><div id="stat"></div>
+<nav id="ui" aria-label="Demos"></nav>
+<script src="kit.js"></script><script src="atmos.js"></script><script src="particles-gpu.js"></script><script src="fluid.js"></script>
+<script src="post.js"></script><script src="volume.js"></script><script src="metal.js"></script><script src="rd.js"></script><script src="themes.js"></script>
+<script>
+(function () {
+  var K = TitanFXK, T = K.themes, POST = { mod: "post", bloom: 1, threshold: .6, exposure: 1.2, aberr: .5, grain: .03, vig: .4 };
+  var D = [
+    ["fluid", "Ink fluid", "Stable fluids (pressure solve, vorticity) + a million particles riding the flow. Drag to stir.",
+      [{ mod: "fluid", auto: 3, colors: [[1, .25, .6], [.2, .8, 1], [.7, .4, 1]], curl: 30, dyeDiss: .6, shade: .9 },
+       { mod: "particles", count: 1, curl: .2, fluidK: 1, life: .06, size: 1.1, c1: [1, .9, 1], c2: [.6, .9, 1], alpha: .07, blend: "add", rake: 0 }, POST]],
+    ["smoke", "Smoke and light", "Raymarched volumetric smoke with real self-shadowing: light shafts through the gaps. Drag to move the light.",
+      [{ mod: "atmos", top: [.01, .01, .02], bottom: [0, 0, 0], vig: .3, grain: 0, touchGlow: 0 },
+       { mod: "volume", steps: 56, density: .9, color: [.8, .85, 1], light: [1, .75, .45], lightAt: [.7, .8], follow: true, lightPow: 1.6, ambient: [.015, .02, .04], low: .5 },
+       Object.assign({}, POST, { bloom: 1.2, threshold: .5, aberr: .3 })]],
+    ["metal", "Liquid metal", "Raymarched metaballs merging with a smooth union, reflecting a studio. Touch to pull them to your finger.",
+      [{ mod: "atmos", top: [.05, .05, .06], bottom: [.01, .01, .012], vig: .6, grain: 0, touchGlow: 0 },
+       { mod: "metal", n: 8, size: .24, tint: [1, .8, .45], film: .5, area: [.5, .55, .42], env: "studio" }, Object.assign({}, POST, { bloom: .7, threshold: .9 })]],
+    ["coral", "Living coral", "Gray-Scott reaction-diffusion grown in real time, embossed and lit. Touch to seed new growth.",
+      [{ mod: "atmos", top: [.01, .03, .04], bottom: [0, .01, .015], caustics: .15, causticC: [.3, .7, .9], vig: .5, grain: 0, touchGlow: 0 },
+       { mod: "rd", kind: "coral", c0: [.02, .08, .1], c1: [.9, .35, .3], c2: [1, .85, .6], steps: 14 }, POST]],
+    ["neon", "Neon street", "The Neon Vault street (tubes, wet reflections, rain, fog) with HDR bloom and ACES.",
+      T.neon.stack.concat([Object.assign({}, POST, { bloom: 1.3, threshold: .55 })])],
+    ["sand", "A million grains", "1M particles on a curl-noise current flowing around stones. Drag to rake the flow.",
+      [{ mod: "atmos", top: [.05, .06, .07], bottom: [.02, .025, .025], sand: 1, sandC: [.6, .58, .52], rocks: [[.3, .65, .08], [.72, .35, .06]], fog: .3, fogC: [.5, .55, .6], rays: .3, rayC: [.6, .7, .9], vig: .6, touchGlow: 0 },
+       { mod: "particles", count: 1, curl: 1.4, scale: 2.2, speed: .025, drift: [.012, -.004], life: .05, rake: 1.2, size: 1.3, c1: [.95, .92, .82], c2: [.75, .8, .85], alpha: .15, blend: "add", glint: .9 },
+       Object.assign({}, POST, { bloom: .6, threshold: .8, aberr: .2, dof: .4, focusY: .5 })]]
+  ];
+  var ui = document.getElementById("ui"), cap = document.getElementById("cap");
+  D.forEach(function (d) { T["demo-" + d[0]] = { stack: d[3] }; var b = document.createElement("button"); b.textContent = d[1]; b.dataset.id = d[0]; ui.appendChild(b); });
+  function go(id) { var d = D.filter(function (x) { return x[0] === id; })[0] || D[0]; K.forced = "demo-" + d[0]; K.apply(true);
+    cap.querySelector("b").textContent = d[1]; cap.querySelector("span").textContent = d[2];
+    ui.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.id === d[0])); }); history.replaceState(null, "", "#" + d[0]); }
+  ui.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) go(b.dataset.id); });
+  setTimeout(function () { go(location.hash.slice(1)); }, 50);
+  var st = document.getElementById("stat"), n = 0, t0 = performance.now();
+  (function tick(now) { n++; if (now - t0 > 1000) { var g = K.debug(); st.textContent = Math.round(n * 1000 / (now - t0)) + " fps · " + (g.parts || []).join(" ") + " · q" + g.q.toFixed(2); n = 0; t0 = now; } requestAnimationFrame(tick); })(t0);
+})();
+</script>
+</body></html>
