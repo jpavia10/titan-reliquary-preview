@@ -3,7 +3,7 @@
    Modules plug in with TitanFXK.mod(name, factory): fx/atmos.js (fog, god rays, caustics, neon signs + wet reflections, aurora,
    portal swirl, light grid, plasma, rocks), fx/particles-gpu.js (GPGPU ping-pong particle field: curl noise, rake, obstacles).
    Lite-aware: Lite mode (window.TitanLite / html.tr-lite) = fewer particles, lower resolution, 30 fps cap.
-   Motion "calm"/"off" or prefers-reduced-motion = one still frame, no loop. A frame-time governor drops quality before fps drops.
+   Motion "calm"/"off" or prefers-reduced-motion = one still frame, no loop. No automatic downscaling (owner rule: S24 Ultra is the floor).
    Pauses when the tab is hidden. Never blocks input (pointer-events:none); touch/drag is read passively for the rake. */
 (function () {
   "use strict";
@@ -13,7 +13,7 @@
   var lite = function () { try { return localStorage.getItem("tr_lite_v1") === "1"; } catch (e) { return false; } };   /* owner rule: assume a capable GPU; only an explicit Lite choice scales down */
   var still = function () { var m = root.dataset.motion; return m === "calm" || m === "off" || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); };
   var phone = Math.min(screen.width, screen.height) < 820;
-  /* quality: 0..1, adjusted by the governor (frame time) */
+  /* quality: 0..1, fixed at 1 unless Lite mode */
   var Q = { q: 1, scale: /[?&]fxkscale=/.test(location.search) ? .3 : 1, slow: 0, fast: 0 };
   K.quality = function () { return Q.q; };
   /* pointer: position in canvas uv (0..1, y up), velocity, down flag; also a short history used for raking */
@@ -89,10 +89,7 @@
     raf = 0; if (!active) return;
     var cap = lite() ? 33 : 15.5; if (now - last < cap) { raf = requestAnimationFrame(frame); return; }
     var dt = Math.min(.05, (now - last) / 1000 || .016);
-    // governor: sustained slow frames (> 21 ms) lower quality; sustained fast frames raise it again
-    if (last) { var ft = now - last; if (ft > (lite() ? 40 : 21)) { Q.slow++; Q.fast = 0; } else if (ft < (lite() ? 35 : 17.5)) { Q.fast++; Q.slow = 0; }
-      if (Q.slow > 45 && Q.q > .2) { Q.q = Math.max(.2, Q.q * .7); Q.scale = Math.max(Math.min(Q.scale, .55), Q.scale * .88); Q.slow = 0; size(); }
-      if (Q.fast > 240 && Q.q < 1) { Q.q = Math.min(1, Q.q * 1.15); Q.scale = Math.min(1, Q.scale * 1.05); Q.fast = 0; size(); } }
+    /* no automatic quality drop (owner rule: the S24 Ultra is the floor, never downscale on our own); only Lite mode lowers quality */
     last = now; draw((now - t0) / 1000, dt);
     if (!still() && !document.hidden) raf = requestAnimationFrame(frame);
   }
