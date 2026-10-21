@@ -246,7 +246,7 @@
     "papercut": { world: true, name: "Paper Hills", icon: "🎈", desc: "A breezy hillside: birdsong, wind in the trees, a brook below, the turn of a page.", atmo: "papercut",
                beds: { birds: 0.4, windTrees: 0.3, river: 0.16, pages: 0.3, chimes: 0.1 }, pad: 0.35, piano: true, bells: false, beat: false,
                root: "D", mode: "major", prog: [0, 3, 4, 0], chordSec: 0, gap: [6, 12], bpm: 72, vol: 0.45 },
-    "y2k": { world: true, name: "Millennium Chrome", icon: "💿", desc: "A late-90s mall at closing: fountain chimes, a soft hum, a glossy synth beat.", atmo: "y2k",
+    "y2k": { score: "y2k", world: true, name: "Millennium Chrome", icon: "💿", desc: "A late-90s mall at closing: fountain chimes, a soft hum, bright guitar-pop instrumentals by Josh Woodward.", atmo: "y2k",
                beds: { roomTone: 0.3, chimes: 0.28, labHum: 0.18, crowd: 0.12 }, pad: 0.45, piano: false, bells: true, beat: true,
                root: "E", mode: "lydian", prog: [0, 4, 5, 3], chordSec: 0, gap: [5, 10], bpm: 100, vol: 0.45 },
     coast:   { rec: "piano", name: "Coastal reading room", icon: "🌊", desc: "Waves below the window, gulls, turning pages, soft keys.", atmo: "abyss",

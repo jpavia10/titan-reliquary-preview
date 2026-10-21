@@ -1,0 +1,73 @@
+{
+ "theme": "y2k",
+ "version": 1,
+ "tracks": {
+  "airplane-mode": {
+   "file": "airplane-mode.m4a",
+   "title": "Airplane Mode (Instrumental Version)",
+   "artist": "Josh Woodward",
+   "license": "CC BY 3.0",
+   "url": "https://archive.org/details/jamendo-124697"
+  },
+  "faded-war": {
+   "file": "faded-war.m4a",
+   "title": "Faded War (Instrumental Version)",
+   "artist": "Josh Woodward",
+   "license": "CC BY 3.0",
+   "url": "https://archive.org/details/jamendo-117649"
+  },
+  "the-dreamers": {
+   "file": "the-dreamers.m4a",
+   "title": "The Dreamers (Instrumental Version)",
+   "artist": "Josh Woodward",
+   "license": "CC BY 3.0",
+   "url": "https://archive.org/details/jamendo-126405"
+  }
+ },
+ "decks": {
+  "browse": [
+   "airplane-mode",
+   "faded-war"
+  ],
+  "coin": [
+   "the-dreamers"
+  ]
+ },
+ "states": {
+  "browse": {
+   "deck": "browse",
+   "lp": 20000,
+   "gain": 1
+  },
+  "search": {
+   "deck": "browse",
+   "lp": 1600,
+   "gain": 0.7
+  },
+  "idle": {
+   "deck": "browse",
+   "lp": 900,
+   "gain": 0.55
+  },
+  "coin": {
+   "deck": "coin",
+   "lp": 20000,
+   "gain": 0.95
+  }
+ },
+ "stinger": {
+  "file": "stinger.m4a",
+  "pad": 0,
+  "len": 11.0,
+  "total": 11.0,
+  "hit": 2.4
+ },
+ "ui": {
+  "tap": "ui-tap.m4a",
+  "open": "ui-open.m4a",
+  "back": "ui-back.m4a",
+  "search": "ui-search.m4a",
+  "coin": "ui-coin.m4a"
+ },
+ "note": "Songs are recorded human music (licensed, see audio/score/CREDITS.md). Stinger and UI sounds are designed sound effects (tools/music/score/y2k.py)."
+}

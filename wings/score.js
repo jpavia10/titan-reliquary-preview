@@ -13,7 +13,7 @@
   "use strict";
   if (window.TitanScore) return;
   const BASE = "audio/score/", man = {}, loading = {}, bufs = new Map(), stung = {};
-  const KNOWN = ["neon"];
+  const KNOWN = ["neon", "y2k"];
   const UI_MAP = { flip: "tap", "coin-open": "coin", "coin-close": "back", wing: "open", search: "search", "simple-open": "open", "simple-close": "back" };
   let live = null, stateName = "browse", searchT = 0, idleT = 0, coinOpen = false, paused = false;
 
