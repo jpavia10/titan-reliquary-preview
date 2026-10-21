@@ -240,7 +240,7 @@
     "banknote": { rec: "piano", world: true, name: "Treasury Note", icon: "💵", desc: "A bank's quiet hall: the big clock, the murmur of the hall, notes being counted.", atmo: "banknote",
                beds: { hall: 0.35, clock: 0.35, pages: 0.35, roomTone: 0.25 }, pad: 0.4, piano: true, bells: false, beat: false,
                root: "D", mode: "major", prog: [0, 4, 5, 3], chordSec: 16, gap: [8, 16], bpm: 66, vol: 0.45 },
-    "freefall": { world: true, name: "Free Fall", icon: "🪙", desc: "A physics lab after hours: the air handling, a clock, now and then a distant clunk.", atmo: "freefall",
+    "freefall": { score: "freefall", world: true, name: "Free Fall", icon: "🪙", desc: "A physics lab after hours: the air handling, a clock, a distant clunk, soaring guitar instrumentals by Cloudkicker.", atmo: "freefall",
                beds: { labHum: 0.32, clank: 0.45, roomTone: 0.3, clock: 0.2 }, pad: 0.4, piano: false, bells: true, beat: true,
                root: "A", mode: "dorian", prog: [0, 3, 5, 4], chordSec: 0, gap: [5, 10], bpm: 92, vol: 0.45 },
     "sketch": { world: true, name: "Sketchbook", icon: "✏️", desc: "A quiet art room: pages turning, a clock, rain on the window, soft keys.", atmo: "sketch",
