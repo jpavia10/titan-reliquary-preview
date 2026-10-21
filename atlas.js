@@ -960,7 +960,10 @@
   function coinPhoto(c) { const ph = (c.photos || []).filter(p => p && p.url); const o = ph.find(p => p.role === "obv") || ph[0]; return o ? o.url : (c.thumb || ""); }
   function coinImg(c) { const u = coinPhoto(c); return u && window.TitanCutouts ? TitanCutouts.src(u, { thumb: true }) : u; }
   function isCut(c) { const u = coinPhoto(c); return !!(u && window.TitanCutouts && TitanCutouts.has(u)); }
-  addEventListener("DOMContentLoaded", () => window.TitanCutouts && TitanCutouts.ready());   // cutouts.js loads after this file
+  /* cutouts.js loads after this file; once its manifest arrives, upgrade any chip already drawn with the plain photo */
+  addEventListener("DOMContentLoaded", () => window.TitanCutouts && TitanCutouts.ready().then(() =>
+    document.querySelectorAll(".atlas-dossier-coin-thumb[data-photo]:not(.is-cutout)").forEach((im) => { const u = im.dataset.photo;
+      if (TitanCutouts.has(u)) { im.src = TitanCutouts.src(u, { thumb: true }); im.classList.add("is-cutout"); } })));   // cutouts.js loads after this file
 
   // Docked Country Dossier Card (rendered dynamically upon node selection)
   function renderDockedDossier(selC) {
@@ -974,7 +977,7 @@
 
     const coinsHtml = previewCoins.map(coin => `
       <div class="atlas-dossier-coin-chip" data-scan="${coin.scan}" title="Click to view specimen dossier" tabindex="0">
-        ${coinImg(coin) ? `<img src="${coinImg(coin)}" alt="${coin.denom || ''}" class="atlas-dossier-coin-thumb${isCut(coin) ? ' is-cutout' : ''}" loading="lazy" />` : `<span class="atlas-dossier-coin-icon">🪙</span>`}
+        ${coinImg(coin) ? `<img src="${coinImg(coin)}" data-photo="${coinPhoto(coin)}" alt="${coin.denom || ''}" class="atlas-dossier-coin-thumb${isCut(coin) ? ' is-cutout' : ''}" loading="lazy" />` : `<span class="atlas-dossier-coin-icon">🪙</span>`}
         <div class="atlas-dossier-coin-info">
           <span class="atlas-dossier-coin-title">${coin.year || ''} ${coin.denom || coin.label || 'Specimen'}</span>
           <span class="atlas-dossier-coin-sub">${coin.ser || coin.scan} · ${coin.grade || coin.metal || ''}</span>
