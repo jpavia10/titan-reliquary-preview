@@ -23,12 +23,19 @@ The owner says one of these in chat, or a scheduled task says it:
 
 You never edit code, the website, GitHub, the Drive mirror, or the collection files directly. You read the master, look at photos, and write **one change file**, which you drop in Drive `Titan Reliquary/collection-incoming (AI change files)/`. Claude (the integrator) merges it with the pipeline and owns the site. This holds for Grok too: Grok no longer publishes a ledger and does not edit GitHub or the Drive mirror. If any older document (`collection/README.md` hand-edit steps, `DRIVE_ANALYSIS.md`, old ledger notes) says otherwise, it is out of date; follow this page and `collection/templates/INSTRUCTIONS.md`.
 
+## Read the right files (2026-10-22)
+- **The master is on GitHub only:** `github.com/jpavia10/titan-reliquary-preview`, folder `collection/` (raw files: `https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/...`). Drive has **no** current copy of it yet (a read-only `Titan Reliquary/collection/` mirror starts once Joseph installs the Drive script, `docs/INTAKE_BRIDGE.md`).
+- **Never read a saved copy of the repository.** The Drive folder `AI experiements/Titan/repo` is Joseph's own computer's checkout, last updated 2026-10-12: its data, queues and answer sheets are out of date and its sheets belong to other AIs. The same goes for any zip, download or copy you kept. Work built from it is rejected.
+- **Homework comes from two places only:** your Drive doc `WORK QUEUE for {you}` and your answer sheets in Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/{you}/` (the same files are linked on GitHub from your queue page). Answer only your own open sheets: copy the `assignment` id from the sheet, and write lines only about the coins on it. A line about a coin that is not on that sheet, an id that does not exist or another AI's id rejects the whole file.
+- Each blank on a sheet names its coin, e.g. `FILL (design of C263 · Mexico · 1950 · 25 centavos · MXN): ...`: check your answer is about that coin and that year before you send it.
+
 Schema: **v3** (`schema/v3/`). Every field has a tier: Phase 1, Phase 1.5, Phase 2, owner only, pipeline only. `collection/templates/FIELDS.md` lists them (column "who writes it"). The exact file format is in `collection/templates/INSTRUCTIONS.md` (read it next, it is one page); every field you may write is in `collection/templates/FIELDS.md`.
 
 ## Where things are (these are the real folder names)
 | What | Where |
 |---|---|
-| The master (read this) | GitHub repo `jpavia10/titan-reliquary-preview`, folder `collection/`: coins = `specimens/{ISO}.json`, what a coin IS = `types/{ISO}.json`, binder volumes = `albums.json`, bullion/sets = `lots.json`. Read-only mirror on Drive: `Titan Reliquary/collection/` |
+| The master (read this) | GitHub repo `jpavia10/titan-reliquary-preview`, folder `collection/`: coins = `specimens/{ISO}.json`, what a coin IS = `types/{ISO}.json`, binder volumes = `albums.json`, bullion/sets = `lots.json`. No current copy in Drive yet; never use `AI experiements/Titan/repo` (an old checkout) |
+| Your homework | Drive doc `WORK QUEUE for {you}` + your sheets in `Titan Reliquary/homework sheets (current: refreshed every hour)/{you}/` |
 | Photos to process | Drive `Titan Reliquary/STAGING (drop coin photos here)/` |
 | Where your change file goes | Drive `Titan Reliquary/collection-incoming (AI change files)/`. Files are merged by Claude, or (once Joseph has switched on the intake bridge, `docs/INTAKE_BRIDGE.md`) automatically about once an hour, through the same checks. An automatic merge takes only a file named for you whose every line is `by: "model:{you}"`; owner answers and lines written as the owner wait for Claude. After processing, your change file is deleted from the Drive drop folder (the archived copy lives in the repo at `collection/_incoming/applied/`). A file that has disappeared was merged; your WORK QUEUE page lists it under "Your recent files". If it was rejected, `{your file name}.REJECTED.txt` is left in the drop folder with the line-numbered reasons and a HOW TO FIX line: fix them and drop a NEW file (new timestamp; a reused name is rejected). If you can commit to the repo instead, `collection/_incoming/` there. If you can do neither (plain chat), print the whole file in a code block and tell the owner to save it under its file name in the Drive folder above. |
 | The exact change-file format + rules | `collection/templates/INSTRUCTIONS.md`, worked examples `collection/templates/phase1_template.jsonl`, `phase2_template.jsonl` |
@@ -59,9 +66,11 @@ Serial numbers (`ser`) are NOT yours: they are assigned automatically and reassi
 
 ## 2a. Homework: your standing assignments (start here when nothing new is in STAGING)
 Your Drive doc `WORK QUEUE for {you}` lists your homework, generated from the data after every merge: each assignment has an id (`HW-...`),
-a list of items and a pre-filled answer sheet. Fill in only `new`, `source` and `ts`; a line still saying `FILL` is simply left out. You are
-never given your own facts to check; a check that disagrees is filed for a third reader, never written over the record. Full rules:
-`collection/templates/INSTRUCTIONS.md` section 2b and `docs/agents/RESEARCH_LOOP.md`.
+a list of items and a pre-filled answer sheet (in Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/{you}/{id}.jsonl`,
+and on GitHub). Fill in only `new`, `source` and `ts`; a line still saying `FILL` is simply left out. You are
+never given your own facts to check; a check that disagrees is filed for a third reader, never written over the record. Only your own
+open sheets count: a line about a coin that is not on the sheet it names, an assignment id that does not exist, or another AI's id rejects the
+file. Full rules: `collection/templates/INSTRUCTIONS.md` section 2b and `docs/agents/RESEARCH_LOOP.md`.
 
 ## 2b. Blind double read (Muse and Grok, the next 10 new coins; fix list #55)
 For new coins (NOID photos in STAGING after 2026-10-08) both Muse and Grok read the same photo. **Do not open the other AI's file, summary or FEEDBACK about those coins until yours is in the drop folder**, and put the photo file name in `provenance.inputs` on every line. Claude compares the two reads (`tools/pipeline/double_read.py`) before merging: agreed facts merge, each disagreement becomes a question for Joseph. Full rules: `docs/protocols/DOUBLE_READ.md`.

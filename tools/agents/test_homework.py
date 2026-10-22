@@ -358,6 +358,42 @@ class LoopUpgrades(unittest.TestCase):
             own = roles["agents"][a["agent"]].get("lease_days"); kd = roles["kinds"][a["kind"]].get("lease_days", 7)
             self.assertEqual(a["lease_until"], HW._days(NOW, min(kd, own) if own else kd), a["id"])
 
+    def test_only_your_own_sheet_and_a_real_assignment_are_accepted(self):
+        """2026-10-22: Gemini sent Grok's Oct 10 sheet lines (from a stale Drive copy of the repository) under its own assignment id."""
+        tmp = sandbox(); r = run_refresh(tmp, NOW); st = r["state"]
+        a = next(x for x in st["assignments"] if x["agent"] == "muse" and x["kind"] == "verify")
+        b = next(x for x in st["assignments"] if x["agent"] == "grok" and x["status"] == "open")
+        mine = HW.sheet(a, r["pool"], r["roles"]); theirs = HW.sheet(b, r["pool"], r["roles"])
+        everyone = [ln for x in st["assignments"] if x["agent"] != "muse" and x["status"] == "open" for ln in HW.sheet(x, r["pool"], r["roles"])]
+        on = {(t["entity"], t["id"]) for t in a["items"]}
+        col = A.C.Collection(os.path.join(tmp, "collection"))
+        def related(ln):
+            if (ln["entity"], ln["id"]) in on: return True
+            specs = {i for k, i in on if k == "specimen"}; types = {i for k, i in on if k == "type"}
+            return (ln["entity"] == "type" and any((col.specs.get(x) or {}).get("type") == ln["id"] for x in specs)) or \
+                   (ln["entity"] == "specimen" and (col.specs.get(ln["id"]) or {}).get("type") in types)
+        stray = copy.deepcopy(next(ln for ln in everyone if not related(ln)))
+        stray["by"] = mine[0]["by"]; stray["provenance"] = dict(mine[0]["provenance"]); stray["source"] = "https://www.ngccoin.com/price-guide/world/test-stray-cuid-9: a line copied from another sheet"
+        status, rep, _ = apply(tmp, [stray], "changes_muse_20261009-1201.jsonl")
+        self.assertEqual(status, "rejected", rep); self.assertIn("is not on your sheet " + a["id"], "\n".join(rep))
+        made_up = copy.deepcopy(mine[0]); made_up["provenance"] = dict(made_up["provenance"], assignment="HW-muse-verify-19990101-9", run_id="x")
+        made_up["source"] = "https://www.ngccoin.com/price-guide/world/test-made-up-cuid-8: a made-up assignment id"
+        status, rep, _ = apply(tmp, [made_up], "changes_muse_20261009-1202.jsonl")
+        self.assertEqual(status, "rejected", rep); self.assertIn("does not exist", "\n".join(rep))
+        other = copy.deepcopy(theirs[0]); other["by"] = mine[0]["by"]; other["source"] = "https://www.ngccoin.com/price-guide/world/test-other-cuid-7: another AI's sheet"
+        status, rep, _ = apply(tmp, [other], "changes_muse_20261009-1203.jsonl")
+        self.assertEqual(status, "rejected", rep); self.assertIn("belongs to grok", "\n".join(rep))
+        # every blank names its coin, and a blind reading never shows the answer in that name
+        for x in st["assignments"]:
+            if x["status"] != "open": continue
+            for ln in HW.sheet(x, r["pool"], r["roles"]):
+                if ln["source"].startswith("FILL"): self.assertTrue(ln["source"].startswith("FILL ("), ln["source"][:80])
+        for it in r["pool"].values():
+            if it["kind"] == "verify" and it["blind"] and it["payload"]["fact"] in ("year", "denomination"):
+                sp = col.specs[it["coins"][0]]
+                hidden = str(sp["issue"]["year"]) if it["payload"]["fact"] == "year" else None
+                if hidden: self.assertNotIn(hidden, [x.strip() for x in it["label"].split("·")], it["label"])
+
     def test_a_resent_check_counts_once(self):
         ev = {"by": "model:gemini", "entity": "type", "id": "DE.KM.214", "field": "issues.0.mintage", "old": 20475000, "new": 20475000,
               "provenance": {"assignment": "HW-gemini-verify-20261012-1"}}

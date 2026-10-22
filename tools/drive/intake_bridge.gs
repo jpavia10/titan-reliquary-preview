@@ -15,6 +15,10 @@
  *         held -> left alone (Claude looks at it). A file changed since the job saw it is left alone too: the next job run reads it.
  *       - copies docs/agents/drive/QUEUE_{grok,muse,gemini}.txt (the compact copy homework.py writes next to each QUEUE_{ai}.md page)
  *         into the Drive docs "WORK QUEUE for {AI}" whenever it changed.
+ *       - mirrors every open answer sheet (docs/agents/drive/sheets.json) into Drive
+ *         "homework sheets (current: refreshed every hour)/{AI name}/{id}.jsonl": a new or changed sheet is written (its sha256 is kept in
+ *         the file's description), a closed one goes to the trash. An AI that can only read Drive gets its real sheets here, not an old
+ *         copy of the repository (2026-10-22: Gemini answered Grok's Oct 10 sheet from a stale Drive copy).
  * The only secret is the key (Script properties, made by installAll). The repo is public, so nothing secret is ever read from it.
  *
  * Install (the whole guide: docs/INTAKE_BRIDGE.md):
@@ -109,20 +113,22 @@ function brSummary_(root, name) {
 function brLastTick_() {
   var s = PropertiesService.getScriptProperties().getProperty("BR_TICK");
   if (!s) return null;
-  try { var t = JSON.parse(s); return { at: t.at, ref: t.ref, trashed: (t.trashed || []).length, notes: (t.notes || []).length, queues: t.queues, errors: t.errors }; }
+  try { var t = JSON.parse(s); return { at: t.at, ref: t.ref, trashed: (t.trashed || []).length, notes: (t.notes || []).length, queues: t.queues,
+                                         sheets: (t.sheets || []).length, sheets_removed: (t.sheets_removed || []).length, errors: t.errors }; }
   catch (x) { return null; }
 }
 
 /* ---------- 2. the tick ---------- */
 function tick(sha) {
   var ref = sha || BR_BRANCH;
-  var status = { at: new Date().toISOString(), ref: ref, trashed: [], notes: [], queues: [], errors: [] };
+  var status = { at: new Date().toISOString(), ref: ref, trashed: [], notes: [], queues: [], sheets: [], sheets_removed: [], errors: [] };
   var root = DriveApp.getFolderById(BR_ROOT_ID);
   try {
     var st = brFetchJson_(brRaw_("docs/agents/bridge/processed.json", ref));
     if (st && st.files) brCleanup_(brFolder_(root, BR_DROP), st.files, status);
   } catch (x) { status.errors.push("cleanup: " + String(x).slice(0, 200)); }
   try { brQueues_(root, ref, status); } catch (x) { status.errors.push("queues: " + String(x).slice(0, 200)); }
+  try { brSheets_(root, ref, status); } catch (x) { status.errors.push("sheets: " + String(x).slice(0, 200)); }
   PropertiesService.getScriptProperties().setProperty("BR_TICK", JSON.stringify(status).slice(0, 8000));
   return status;
 }
@@ -171,7 +177,45 @@ function brQueues_(root, ref, status) {
   });
 }
 
+function brSheets_(root, ref, status) {
+  var man = brFetchJson_(brRaw_("docs/agents/drive/sheets.json", ref));
+  if (!man || !man.agents || !man.folder) return;
+  var top = brEnsureFolder_(root, man.folder), keep = {};
+  Object.keys(man.agents).forEach(function (ai) {
+    var a = man.agents[ai], sub = brEnsureFolder_(top, a.name || ai);
+    keep[a.name || ai] = {};
+    (a.sheets || []).forEach(function (sh) {
+      var name = sh.id + ".jsonl";
+      keep[a.name || ai][name] = true;
+      try {
+        var it = sub.getFilesByName(name), f = null;
+        while (it.hasNext() && !f) { var c = it.next(); if (!c.isTrashed()) f = c; }
+        if (f && f.getDescription() === sh.sha256) return;
+        var text = brFetchText_(brRaw_(sh.path, ref));
+        if (text === null) return;
+        if (f) f.setContent(text); else f = sub.createFile(name, text, MimeType.PLAIN_TEXT);
+        f.setDescription(sh.sha256);
+        status.sheets.push(sh.id);
+      } catch (x) { status.errors.push("sheet " + sh.id + ": " + String(x).slice(0, 160)); }
+    });
+  });
+  var subs = top.getFolders();                      // a closed sheet (or every sheet of an AI with none open) goes to the trash
+  while (subs.hasNext()) {
+    var d = subs.next(), k = keep[d.getName()] || {}, fi = d.getFiles();
+    while (fi.hasNext()) {
+      var f = fi.next();
+      if (f.isTrashed() || !/^HW-.*\.jsonl$/.test(f.getName()) || k[f.getName()]) continue;
+      try { f.setTrashed(true); status.sheets_removed.push(f.getName()); } catch (x) { status.errors.push(f.getName() + ": " + String(x).slice(0, 160)); }
+    }
+  }
+}
+
 /* ---------- helpers ---------- */
+function brEnsureFolder_(parent, name) {
+  var it = parent.getFoldersByName(name);
+  while (it.hasNext()) { var d = it.next(); if (!d.isTrashed()) return d; }
+  return parent.createFolder(name);
+}
 function brRaw_(path, ref) {
   return "https://raw.githubusercontent.com/" + BR_REPO + "/" + (ref || BR_BRANCH) + "/" + path + (ref && ref !== BR_BRANCH ? "" : "?t=" + Date.now());
 }

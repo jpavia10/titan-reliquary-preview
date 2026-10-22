@@ -3,7 +3,8 @@
      node tools/drive/test_bridge.js
    It cannot run in Google from here, so this checks the script's logic: the key, the listing (text, Google-Doc files, the size caps,
    STAGING), the tick (trash merged + duplicate, .REJECTED.txt notes, leave held and changed files), the WORK QUEUE doc copies (only when a
-   page changed; the doc-status line dropped), a tick pinned to a commit, and finally that tools/bridge/intake.py accepts the listing. */
+   page changed; the doc-status line dropped), the answer-sheet mirror (every open sheet written once, rewritten when its sha256 changes,
+   trashed when it closes), a tick pinned to a commit, and finally that tools/bridge/intake.py accepts the listing. */
 "use strict";
 const fs = require("fs"), path = require("path"), vm = require("vm"), crypto = require("crypto"), os = require("os"), cp = require("child_process");
 const ROOT = path.resolve(__dirname, "..", "..");
@@ -21,9 +22,14 @@ class File {
   getId() { return this.id; } getName() { return this.name; } getSize() { return this.size; } getMimeType() { return this.mime; }
   getLastUpdated() { return this.updated; } isTrashed() { return this.trashed; } setTrashed(v) { this.trashed = v; }
   getBlob() { const t = this.text; return { getDataAsString: () => t }; }
+  setContent(t) { this.text = t; this.writes = (this.writes || 0) + 1; return this; }
+  getDescription() { return this.description || null; } setDescription(d) { this.description = d; return this; }
 }
 class Folder {
-  constructor(name) { this.name = name; this.files = []; this.folders = []; }
+  constructor(name) { this.name = name; this.files = []; this.folders = []; this.trashed = false; }
+  getName() { return this.name; } isTrashed() { return this.trashed; }
+  getFolders() { return iter(this.folders.slice()); }
+  createFolder(name) { return this.sub(name); }
   add(f) { this.files.push(f); return f; }
   sub(name) { const f = new Folder(name); this.folders.push(f); return f; }
   getFiles() { return iter(this.files.slice()); }
@@ -88,6 +94,33 @@ raw[RAW + "main/docs/agents/drive/QUEUE_gemini.txt"] = page("gemini") + "\nnew l
 B.tick();
 ok(gemDoc.writes === 2 && gemDoc.text.endsWith("new line\n"), "a changed page is written again");
 
+/* ---------- the answer-sheet mirror ---------- */
+const man = JSON.parse(fs.readFileSync(path.join(ROOT, "docs", "agents", "drive", "sheets.json"), "utf8"));
+raw[RAW + "main/docs/agents/drive/sheets.json"] = JSON.stringify(man);
+for (const ai of Object.keys(man.agents)) for (const sh of man.agents[ai].sheets) raw[RAW + "main/" + sh.path] = fs.readFileSync(path.join(ROOT, sh.path), "utf8");
+const gemSheets = man.agents.gemini.sheets;
+ok(gemSheets.length > 0, "the manifest lists Gemini's open sheets");
+const s1 = B.tick();
+const top = root.folders.find(f => f.name === man.folder);
+const gemDir = top && top.folders.find(f => f.name === "Gemini");
+ok(gemDir && gemSheets.every(sh => gemDir.files.some(f => f.name === sh.id + ".jsonl" && f.getDescription() === sh.sha256 && f.text === raw[RAW + "main/" + sh.path])),
+   "the first tick makes 'homework sheets (...)/Gemini/' with every open sheet, its sha256 in the description");
+ok(s1.errors.length === 0 && s1.sheets.length === Object.values(man.agents).reduce((n, a) => n + a.sheets.length, 0), "every open sheet of every AI is written once: " + JSON.stringify(s1.errors));
+const s2 = B.tick();
+ok(s2.sheets.length === 0, "an unchanged sheet is not written again");
+const changed = JSON.parse(JSON.stringify(man)); const c0 = changed.agents.gemini.sheets[0];
+c0.sha256 = "0".repeat(64); raw[RAW + "main/" + c0.path] = "changed sheet\n";
+const gone = changed.agents.gemini.sheets.pop();
+raw[RAW + "main/docs/agents/drive/sheets.json"] = JSON.stringify(changed);
+const old0 = gemDir.files.find(f => f.name === c0.id + ".jsonl");
+gemDir.add(new File("README (from Joseph).txt", "keep me"));
+const s3 = B.tick();
+ok(s3.sheets.length === 1 && old0.text === "changed sheet\n" && old0.getDescription() === "0".repeat(64) && gemDir.files.filter(f => f.name === c0.id + ".jsonl").length === 1,
+   "a changed sheet is rewritten in place (same file)");
+ok(gone && gemDir.files.find(f => f.name === gone.id + ".jsonl").trashed && s3.sheets_removed.includes(gone.id + ".jsonl"), "a closed sheet goes to the trash");
+ok(!gemDir.files.find(f => f.name === "README (from Joseph).txt").trashed, "a file that is not a sheet is left alone");
+raw[RAW + "main/docs/agents/drive/sheets.json"] = JSON.stringify(man);
+
 /* ---------- the listing ---------- */
 const call = q => JSON.parse(B.doGet({ parameter: q }).s);
 ok(call({ key: "wrong", op: "list" }).error === "bad key", "a wrong key gets nothing");
@@ -133,6 +166,8 @@ const processed = { files: {
 } };
 raw[RAW + "abc1234/docs/agents/bridge/processed.json"] = JSON.stringify(processed);
 for (const ai of ["grok", "muse", "gemini"]) raw[RAW + `abc1234/docs/agents/drive/QUEUE_${ai}.txt`] = page(ai);
+raw[RAW + "abc1234/docs/agents/drive/sheets.json"] = JSON.stringify(man);
+for (const ai of Object.keys(man.agents)) for (const sh of man.agents[ai].sheets) raw[RAW + "abc1234/" + sh.path] = raw[RAW + "main/" + sh.path];
 const st = call({ key, op: "tick", sha: "abc1234" });
 ok(st.ref === "abc1234" && fetched.some(u => u.startsWith(RAW + "abc1234/docs/agents/bridge/processed.json")), "op=tick reads the files at that exact commit");
 ok(fGood.trashed && fDup.trashed, "merged and duplicate files go to the trash");

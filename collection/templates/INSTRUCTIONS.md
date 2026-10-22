@@ -43,6 +43,12 @@ an id (`HW-grok-cite-20261009-1`) and a pre-filled **answer sheet** (`docs/agent
   two independent sources); put your value in `new` when you disagree (it is filed as a disagreement for a third reader, not applied).
   Blind lines (photo readings) have no `old` and `new: null`: write what you read; leave `null` if you cannot read it.
 - You are never given your own facts to check. One assignment per change file.
+- **Only your own open sheet** (2026-10-22): take it from Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/{you}/` or the
+  GitHub link on your queue page, never from a saved copy of the repository (Drive `AI experiements/Titan/repo` is an old checkout). The file is
+  rejected when its `provenance.assignment` does not exist, belongs to another AI, or a line is about a coin that is not on that sheet (a coin on
+  the sheet also covers its type, and a type on the sheet its coins). Each blank names its coin (`FILL (design of C263 · Mexico · 1950 · ...)`).
+- A model's `catalogs` list that adds or corrects an entry must keep every other entry the record has (send the whole list); removing a bogus
+  entry alone is allowed.
 - A mintage or a catalogue number can never be read off a photo: they always need the exact entry (Numista N# + row, KM#, URL, book + page).
 
 ## 3. Phase 1: quick pass (thin, plus a story)

@@ -111,10 +111,11 @@ def load_context(root=ROOT, coll=None):
             "disagreements": read_jsonl(os.path.join(coll, "disagreements.jsonl")), "raw": raw}
 
 
-def coin_line(ctx, sid):
-    """One readable line about a coin for an item table."""
+def coin_line(ctx, sid, hide=()):
+    """One readable line about a coin for an item table. hide: the facts a blind reader must not see ("year", "denomination"):
+    a blind year read used to be labelled 'year of C210 · South Korea · 2000 · 100 won' (2026-10-22)."""
     d = ctx["details"].get(sid) or {}
-    return " · ".join(str(x) for x in (sid, d.get("country"), d.get("year"), d.get("denom")) if x)
+    return " · ".join(str(x) for x in (sid, d.get("country"), None if "year" in hide else d.get("year"), None if "denomination" in hide else d.get("denom")) if x)
 
 
 def photos_of(ctx, sid):
@@ -235,7 +236,7 @@ def pool_verify(ctx, audit_rate):
             if fact in CAN.FIELDS and isinstance(val, str):
                 if fact not in others: others[fact] = {get_path(x, CAN.FIELDS[fact]) for x in col["types"].values()}
                 dec = CAN.decoy(iid, val, others[fact])
-            it = _item("verify", iid, ent, rid, field_n, [sid], f"{fact} of {coin_line(ctx, sid)}" + (f" (re-check: cited {e.get('ts', '')[:10]})" if recheck else ""),
+            it = _item("verify", iid, ent, rid, field_n, [sid], f"{fact} of {coin_line(ctx, sid, {fact} & BLIND)}" + (f" (re-check: cited {e.get('ts', '')[:10]})" if recheck else ""),
                        (0 if audit else 1, -est, order.index(fact), iid),
                        authors=author.split(","), blind=fact in BLIND, inputs=[p["file"] for p in pics],
                        payload={"fact": fact, "author": e.get("by"), "ledger": ledger, "value": None if fact in BLIND | NUM_BLIND else val,
@@ -728,6 +729,7 @@ def sheet(a, pool, roles, issued_for_lines=None):
                    "value": f"{FILL}: exact price page URL + the grade you assumed and why",
                    "research": f"{FILL}: the exact source that answers the question (URL / Numista N# + row / book + page)",
                    "contradiction": f"{FILL}: the exact source that settles it (URL + the row you read) and what you checked"}.get(a["kind"], f"{FILL}: exact entry URL + the table row you read")
+            src = f"{FILL} ({it['label']})" + src[len(FILL):]      # 2026-10-22: every blank names the coin, so an answer can be checked against the right piece
             src += issue_hint(it, field)
             hide = it["blind"] or bool(it["payload"].get("lookup_blind"))
             new = None if hide else cur
@@ -786,6 +788,9 @@ def item_md(it, aid=None):
 
 
 HOW = ("How homework works (read once):\n"
+       "0. Work only from the live pages: this WORK QUEUE, your answer sheets (the Drive folder `Titan Reliquary/homework sheets (current: refreshed every hour)/` "
+       "or the GitHub links below) and the coin photos they link. Never from a saved, downloaded or copied version of the repository, an old sheet or "
+       "another AI's sheet: those are out of date and any line from them is rejected. Every line must be about a coin on your own sheet.\n"
        "1. Each assignment has an id (HW-...). Answer ONE assignment per change file: `changes_{you}_{YYYYMMDD-HHMM}.jsonl` in Drive "
        "`Titan Reliquary/collection-incoming (AI change files)/`. Every line carries `\"assignment\": \"<the id>\"` inside `provenance`.\n"
        "2. Start from the answer sheet: it is pre-filled (download it from the link, or copy the block). Change only `new` (when the record is wrong) "
@@ -902,13 +907,18 @@ def overview(roles, queues, state, pool, metrics, parked, ctx, now):
     return "\n".join(L).rstrip() + "\n"
 
 
-def drive_copy(agent, page, note=None):
+SHEETS_FOLDER = "homework sheets (current: refreshed every hour)"     # Drive: Titan Reliquary/<this>/<AI name>/<id>.jsonl (tools/drive/intake_bridge.gs)
+
+
+def drive_copy(agent, page, note=None, name=None):
     """The compact text of an AI's Drive doc 'WORK QUEUE for ...' (fix list #93): its NEW note, the live page link, then the page with each
     assignment shortened to one line + its answer sheet link (the full items stay on the GitHub page, which wins). Written on every run as
     docs/agents/drive/QUEUE_{ai}.txt; the Drive bridge copies that file into the doc by itself, and Claude pastes the same text by hand
     until the bridge is installed."""
     L = page.split("\n")
-    out = ([note, ""] if note else []) + [f"The newest version of this page, always current (every assignment with its answer sheet): {RAW}docs/agents/QUEUE_{agent}.md. Open it first; it wins over this copy.", ""]
+    out = ([note, ""] if note else []) + [f"The newest version of this page, always current (every assignment with its answer sheet): {RAW}docs/agents/QUEUE_{agent}.md. Open it first; it wins over this copy.",
+           f"Your answer sheets are in Drive: `Titan Reliquary/{SHEETS_FOLDER}/{name or agent}/` (one file per assignment, replaced when it changes; a closed one is removed). "
+           "Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.", ""]
     sec = None; i = 0
     while i < len(L):
         l = L[i]
@@ -923,7 +933,10 @@ def drive_copy(agent, page, note=None):
                 out.append("- " + l[4:])
                 for k in range(i + 1, min(i + 40, len(L))):
                     if L[k].startswith("### ") or L[k].startswith("## "): break
-                    if "**Answer sheet:**" in L[k]: out.append("  " + L[k].strip()); break
+                    if "**Answer sheet:**" in L[k]:
+                        m = re.search(r"sheets/(HW-[\w.\-]+)\.jsonl", L[k])
+                        out.append(f"  **Answer sheet:** Drive `Titan Reliquary/{SHEETS_FOLDER}/{name or agent}/{m.group(1)}.jsonl` "
+                                   f"(the same file: {RAW}docs/agents/homework/sheets/{m.group(1)}.jsonl)" if m else "  " + L[k].strip()); break
             i += 1; continue
         if sec and sec.startswith("## Your recent files"): i += 1; continue
         out.append(l); i += 1
@@ -942,10 +955,20 @@ def write_all(root, roles, queues, state, pool, metrics, parked, ctx, now):
     for f in os.listdir(P["sheets"]):
         if f.endswith(".jsonl") and f not in keep: os.remove(os.path.join(P["sheets"], f))
     notes = {x["id"]: x.get("drive_note") for x in queues.get("agents", [])}
+    man = {"about": "The open answer sheets the Drive bridge (tools/drive/intake_bridge.gs) copies into Drive "
+                    f"'Titan Reliquary/{SHEETS_FOLDER}/<name>/', replacing a file whose sha256 changed and removing closed ones. Generated by tools/agents/homework.py.",
+           "folder": SHEETS_FOLDER, "agents": {}}
+    for a in state["assignments"]:
+        if a["status"] != "open": continue
+        fn = os.path.join(P["sheets"], f"{a['id']}.jsonl"); body = open(fn, "rb").read()
+        man["agents"].setdefault(a["agent"], {"name": roles["agents"][a["agent"]]["name"], "sheets": []})["sheets"].append(
+            {"id": a["id"], "kind": a["kind"], "due": a["lease_until"][:10], "path": f"docs/agents/homework/sheets/{a['id']}.jsonl",
+             "sha256": hashlib.sha256(body).hexdigest(), "lines": body.count(b"\n")})
+    _write(os.path.join(P["agents"], "drive", "sheets.json"), json.dumps(man, ensure_ascii=False, indent=1) + "\n")
     for agent in roles["agents"]:
         page = agent_page(agent, roles, queues, state, pool, metrics, now)
         _write(os.path.join(P["agents"], f"QUEUE_{agent}.md"), page)
-        _write(os.path.join(P["agents"], "drive", f"QUEUE_{agent}.txt"), drive_copy(agent, page, notes.get(agent)))
+        _write(os.path.join(P["agents"], "drive", f"QUEUE_{agent}.txt"), drive_copy(agent, page, notes.get(agent), roles["agents"][agent]["name"]))
         mine = [a for a in state["assignments"] if a["agent"] == agent and a["status"] == "open"]
         _write(os.path.join(P["hw"], f"{agent}.json"), json.dumps({"agent": agent, "updated": now, "assignments": [
             dict(a, items_full=[dict({k: v for k, v in pool[x["item"]].items() if k not in ("lines", "prio")},

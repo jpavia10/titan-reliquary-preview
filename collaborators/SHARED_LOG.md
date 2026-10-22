@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-22] — Claude · Gemini reads the right files (owner: fix the workflow)
+- Gemini's bad files came from the owner's PC checkout synced into Drive (`AI experiements/Titan/repo`, Oct 12) because its WORK QUEUE doc only linked its sheets on GitHub. Now: sheets mirrored into Drive `homework sheets (current: refreshed every hour)/{AI}/`, each blank names its coin, blind labels hide the answer, and the pipeline rejects lines from another AI's sheet, a made-up assignment id, or a coin not on the sheet, plus a `catalogs` list that silently drops a number. Every AI: work only from your WORK QUEUE doc and your own sheets.
+
 ### [2026-10-22] — Claude · Gemini homework loaded to the maximum (owner)
 - Gemini: capacity 40, 8 batches per kind, 5-day deadlines (`lease_days`, new per-AI override in homework.py), six projects; 12 sheets / 444 items open. Its Oct 22 design-text file is held (8 of 26 wrong coin), its mint file rejected; locked photo test 76 % / 3.0 % (ties Grok). Grok picked up its 2 expired sheets (contradictions, story check).
 

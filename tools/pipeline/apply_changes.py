@@ -26,7 +26,12 @@ Event fields
                                                    inputs [{file, sha256?}], run_id, tokens, cost_usd, raw (<= 500 chars). Unknown keys are rejected.
                                                    Stored with the event in changes.jsonl. A model event without it merges with a WARNING until 2026-10-20 and is REJECTED from 2026-10-21 (PROVENANCE_REQUIRED_FROM).
                                                    provenance.assignment names the homework assignment the line answers (docs/agents/homework/assignments.json,
-                                                   docs/agents/RESEARCH_LOOP.md). A line outside its assignment's items is applied by the normal rules and reported.
+                                                   docs/agents/RESEARCH_LOOP.md). It must name an assignment that exists and belongs to the line's AI, and every
+                                                   line must be about a coin or type on that sheet (a specimen item also covers its type, a type item its
+                                                   specimens): a line from another sheet or an old copy of one REJECTS the file (2026-10-22, Gemini answered
+                                                   Grok's Oct 10 sheet from a stale Drive copy of the repository under its own assignment id).
+                                                   A model's `catalogs` list that adds or changes an entry may not drop a number the record has (removing a bogus
+                                                   entry alone is fine; Claude and the owner may do either).
                                                    A line of a VERIFY assignment never changes data: the same value = a logged re-citation (a second, independent
                                                    source); a different value = a disagreement filed in collection/disagreements.jsonl for a third reader or the owner;
                                                    a stale `old` (the record changed since the assignment was issued) = skipped and reported, never a rejection.
@@ -440,6 +445,9 @@ class Applier:
             self.log.append(f"already applied: {e['entity']} {e['id']} {e['field']}"); return "skipped"
         asg = self.assignment_of(e)
         if asg is not None:
+            if not self.on_sheet(asg, e):
+                raise Reject(f"{e['entity']} {e['id']} is not on your sheet {asg['id']}: answer only the coins on the sheet you were given. "
+                             "HOW TO FIX: open the sheet from your WORK QUEUE doc (Drive 'homework sheets' folder or its GitHub link), never from a saved copy of the repository")
             if not any(t.get("entity") == e["entity"] and t.get("id") == e["id"] and (not t.get("field") or overlap(t["field"], e["field"])) for t in asg.get("items") or []):
                 self.log.append(f"outside assignment {asg['id']}: {e['entity']} {e['id']} {e['field']} (applied by the normal rules)")
             if asg.get("kind") in DIVERT_KINDS and op == "set" and e["entity"] != "photo":
@@ -448,6 +456,7 @@ class Applier:
         elif e.get("by") == "model:claude" and op == "set" and e["entity"] != "photo" and (e.get("provenance") or {}).get("workflow") == "spot-check":
             r = self.divert(e, SPOT_CHECK)       # agrees: re-cited (Checked); differs: a disagreement for a third reader, never an overwrite
             if r: self.done.add(event_key(e)); return r
+        self.check_catalogs(e)
         try: (self.create if op == "create" else self.set)(e)
         except Stale as x:
             self.log.append(str(x)); self.done.add(event_key(e)); return "stale"
@@ -465,10 +474,39 @@ class Applier:
             if aid not in self.run_id_noted: self.run_id_noted.add(aid); self.log.append(f"assignment {aid} taken from provenance.run_id (please keep the sheet's \"assignment\" key)")
         if not aid: return None
         a = self.assignments.get(aid)
-        if a is None: self.log.append(f"unknown assignment {aid} (line applied by the normal rules)")
-        elif a.get("agent") and PV.agent_of(e.get("by")) != a["agent"]:      # Grok's review GRK-R-02: only the assignee answers its assignment
-            self.log.append(f"assignment {aid} belongs to {a['agent']}, not {e.get('by')} (line applied by the normal rules)"); return None
+        if a is None:                    # 2026-10-22: a made-up or copied id used to pass as "applied by the normal rules"
+            raise Reject(f"assignment {aid} does not exist. HOW TO FIX: copy the \"assignment\" id from the sheet you were given (your WORK QUEUE doc lists your open ones)")
+        if a.get("agent") and PV.agent_of(e.get("by")) != a["agent"]:      # Grok's review GRK-R-02: only the assignee answers its assignment
+            raise Reject(f"assignment {aid} belongs to {a['agent']}, not {e.get('by')}: answer only your own sheets (never another AI's, never one from a saved copy of the repository)")
         return a
+
+    def on_sheet(self, asg, e):
+        """True when the line is about a record on the assignment's sheet: the item itself, the type of a specimen item, a specimen of a type item,
+        or a photo of a specimen item (research on a coin may correct its type's design text, Muse 2026-10-09)."""
+        items = {(t.get("entity"), t.get("id")) for t in asg.get("items") or []}
+        ent, rid = e["entity"], e["id"]
+        if (ent, rid) in items or not items: return True
+        specs = {i for k, i in items if k == "specimen"}; types = {i for k, i in items if k == "type"}
+        if ent == "type": return any((self.c.specs.get(s) or {}).get("type") == rid for s in specs)
+        if ent == "specimen": return (self.c.specs.get(rid) or {}).get("type") in types
+        if ent == "photo":
+            sp = (e.get("new") or {}).get("specimen") if isinstance(e.get("new"), dict) else next((p.get("specimen") for p in self.c.photos if p["id"] == rid), None)
+            return sp in specs or (self.c.specs.get(sp) or {}).get("type") in types
+        return False
+
+    def check_catalogs(self, e):
+        """A model's `catalogs` list that adds or changes an entry keeps every catalogue number the record has (2026-10-22: a whole-list set
+        could silently drop the Schön number). Removing a bogus entry on purpose stays allowed: a line whose every entry is already in the
+        record (Muse's made-up KM#A204). An entry counts as kept when its system (a number corrected in place) or its number (a renamed
+        system) is still in the new list."""
+        if e["entity"] != "type" or e.get("op", "set") != "set" or e["field"] != "catalogs": return
+        if not e["by"].startswith("model:") or e["by"] == "model:claude" or not isinstance(e.get("new"), list): return
+        cur = (self.c.types.get(e["id"]) or {}).get("catalogs") or []
+        if all(x in cur for x in e["new"]): return
+        nums = {str(x.get("number")) for x in e["new"] if isinstance(x, dict)}; systems = {x.get("system") for x in e["new"] if isinstance(x, dict)}
+        gone = [f"{x.get('system')} {x.get('number')}" for x in cur if isinstance(x, dict) and str(x.get("number")) not in nums and x.get("system") not in systems]
+        if gone: raise Reject(f"type {e['id']} catalogs: your list drops {', '.join(gone)}. HOW TO FIX: send the whole list with every entry the record has "
+                              "plus yours (correct a wrong number in place); only Claude or the owner removes a catalogue number")
 
     def wrong_numista(self, e, ent, rid):
         """(cited, record) when the source names Numista entries and none is the one this coin's type record carries, else None."""

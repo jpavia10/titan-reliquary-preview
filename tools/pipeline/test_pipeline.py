@@ -162,6 +162,16 @@ class Pipeline(unittest.TestCase):
         self.assertIn("REJECTED", r.stdout); self.assertIn(expect, r.stdout)
         self.assertEqual(before, tree_hash(os.path.join(tmp, "collection")), "a rejected file must change nothing")
 
+    def test_a_catalogue_list_that_changes_an_entry_keeps_the_others(self):
+        """2026-10-22: a model's whole-list catalogs write that fixes one number may not silently drop the Schön number; removing a bogus one alone stays allowed."""
+        tid, t = next((k, v) for k, v in sorted(BASE.types.items()) if len({x.get("system") for x in v.get("catalogs") or []}) >= 3)
+        cats = t["catalogs"]; fixed = [dict(cats[0], number=str(cats[0]["number"]) + "a")]          # one number corrected, the rest left off
+        self.reject([ev(entity="type", id=tid, field="catalogs", old=cats, new=fixed, source="Numista N#1944 catalogue row KM# 2837a")], "your list drops")
+        tmp = sandbox()
+        keep = [dict(cats[0], number=str(cats[0]["number"]) + "a")] + cats[1:]                   # the same fix with every entry kept: fine
+        r = self.apply(tmp, write_events(tmp, "changes_x_cat.jsonl", [ev(entity="type", id=tid, field="catalogs", old=cats, new=keep, source="Numista N#1944 catalogue row KM# 2837a")]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+
     def test_owner_answers_become_verified_events(self):
         """#36/#43: an answers file from the app -> owner events; a confirm of an unchanged value is still logged as verified."""
         sys.path.insert(0, HERE)

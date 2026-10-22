@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-22T13:54:19Z",
+ "updated": "2026-10-22T14:45:22Z",
  "assignments": [
   {
    "id": "HW-gemini-value-20261014-1",
@@ -591,129 +591,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-gemini-cite-20261015-1",
-   "agent": "gemini",
-   "kind": "cite",
-   "issued": "2026-10-15T14:17:10Z",
-   "lease_until": "2026-10-22T14:17:10Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "cite:BS.X.25-cents",
-     "entity": "type",
-     "id": "BS.X.25-cents",
-     "field": null
-    },
-    {
-     "item": "cite:BS.X.5-cents",
-     "entity": "type",
-     "id": "BS.X.5-cents",
-     "field": null
-    }
-   ],
-   "items_full": [
-    {
-     "item": "cite:BS.X.25-cents",
-     "kind": "cite",
-     "entity": "type",
-     "id": "BS.X.25-cents",
-     "field": null,
-     "coins": [
-      "C300"
-     ],
-     "label": "BS 25 cents (BS.X.25-cents)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1984,
-        "mint_marks": [],
-        "coins": [
-         "C300"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": null,
-      "diameter_mm": null,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
-       "nominal.diameter_mm",
-       "composition.text + composition.metal_class",
-       "issues.0.mintage: 1984"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 1984,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:BS.X.5-cents",
-     "kind": "cite",
-     "entity": "type",
-     "id": "BS.X.5-cents",
-     "field": null,
-     "coins": [
-      "C291"
-     ],
-     "label": "BS 5 cents (BS.X.5-cents)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1984,
-        "mint_marks": [],
-        "coins": [
-         "C291"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "Numista",
-        "number": "5010"
-       }
-      ],
-      "weight_g": 3.94,
-      "diameter_mm": 21.0,
-      "composition": "copper-nickel (75% copper, 25% nickel)",
-      "ask": [
-       "issues.0.mintage: 1984"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 1984,
-       "mint": [],
-       "qualifier": null
-      }
-     }
     }
    ]
   },
@@ -1818,7 +1695,7 @@
      "coins": [
       "C210"
      ],
-     "label": "year of C210 · South Korea · 2000 · 100 won · KRW",
+     "label": "year of C210 · South Korea · 100 won · KRW",
      "authors": [
       "claude"
      ],
@@ -1856,7 +1733,7 @@
      "coins": [
       "C210"
      ],
-     "label": "denomination of C210 · South Korea · 2000 · 100 won · KRW",
+     "label": "denomination of C210 · South Korea · 2000",
      "authors": [
       "claude"
      ],
@@ -1894,7 +1771,7 @@
      "coins": [
       "C244"
      ],
-     "label": "year of C244 · Mexico · 1964 · 20 centavos · MXN",
+     "label": "year of C244 · Mexico · 20 centavos · MXN",
      "authors": [
       "claude"
      ],
@@ -1970,7 +1847,7 @@
      "coins": [
       "C068"
      ],
-     "label": "year of C068 · Switzerland · 1963 · 20 rappen · CHF",
+     "label": "year of C068 · Switzerland · 20 rappen · CHF",
      "authors": [
       "ledger"
      ],
@@ -2008,7 +1885,7 @@
      "coins": [
       "C152"
      ],
-     "label": "year of C152 · United Kingdom · 2001 · 10 pence · GBP",
+     "label": "year of C152 · United Kingdom · 10 pence · GBP",
      "authors": [
       "claude"
      ],
@@ -2046,7 +1923,7 @@
      "coins": [
       "C159"
      ],
-     "label": "year of C159 · East Caribbean States · 2004 · 10 cents · XCD",
+     "label": "year of C159 · East Caribbean States · 10 cents · XCD",
      "authors": [
       "claude"
      ],
@@ -2122,7 +1999,7 @@
      "coins": [
       "C159"
      ],
-     "label": "denomination of C159 · East Caribbean States · 2004 · 10 cents · XCD",
+     "label": "denomination of C159 · East Caribbean States · 2004",
      "authors": [
       "claude"
      ],
@@ -2160,7 +2037,7 @@
      "coins": [
       "C011"
      ],
-     "label": "year of C011 · Italy · 1970 · 50 lire · ITL",
+     "label": "year of C011 · Italy · 50 lire · ITL",
      "authors": [
       "claude"
      ],
@@ -2198,7 +2075,7 @@
      "coins": [
       "C219"
      ],
-     "label": "year of C219 · Jamaica · 2015 · 1 dollar · JMD",
+     "label": "year of C219 · Jamaica · 1 dollar · JMD",
      "authors": [
       "claude"
      ],
@@ -2274,7 +2151,7 @@
      "coins": [
       "C219"
      ],
-     "label": "denomination of C219 · Jamaica · 2015 · 1 dollar · JMD",
+     "label": "denomination of C219 · Jamaica · 2015",
      "authors": [
       "claude"
      ],
@@ -2312,7 +2189,7 @@
      "coins": [
       "C076"
      ],
-     "label": "year of C076 · Switzerland · 1989 · 20 rappen · CHF",
+     "label": "year of C076 · Switzerland · 20 rappen · CHF",
      "authors": [
       "claude"
      ],
@@ -2350,7 +2227,7 @@
      "coins": [
       "C082"
      ],
-     "label": "year of C082 · Switzerland · 1979 · 10 rappen · CHF",
+     "label": "year of C082 · Switzerland · 10 rappen · CHF",
      "authors": [
       "claude"
      ],
@@ -2388,7 +2265,7 @@
      "coins": [
       "C144"
      ],
-     "label": "year of C144 · Norway · 1998 · 50 øre · NOK",
+     "label": "year of C144 · Norway · 50 øre · NOK",
      "authors": [
       "claude"
      ],
@@ -2426,7 +2303,7 @@
      "coins": [
       "C165"
      ],
-     "label": "year of C165 · Sweden · 1973 · 1 krona · SEK",
+     "label": "year of C165 · Sweden · 1 krona · SEK",
      "authors": [
       "ledger"
      ],
@@ -2464,7 +2341,7 @@
      "coins": [
       "C207"
      ],
-     "label": "year of C207 · Trinidad and Tobago · 2016 · 10 cents · TTD",
+     "label": "year of C207 · Trinidad and Tobago · 10 cents · TTD",
      "authors": [
       "claude"
      ],
@@ -2502,7 +2379,7 @@
      "coins": [
       "C221"
      ],
-     "label": "year of C221 · France · 1986 · 1/2 franc · FRF",
+     "label": "year of C221 · France · 1/2 franc · FRF",
      "authors": [
       "ledger"
      ],
@@ -2540,7 +2417,7 @@
      "coins": [
       "C246"
      ],
-     "label": "year of C246 · Philippines · 1971 · 10 sentimos · PHP",
+     "label": "year of C246 · Philippines · 10 sentimos · PHP",
      "authors": [
       "ledger"
      ],
@@ -2656,7 +2533,7 @@
       "C060",
       "C221"
      ],
-     "label": "denomination of C033 · France · 1969 · 1/2 franc · FRF",
+     "label": "denomination of C033 · France · 1969",
      "authors": [
       "claude"
      ],
@@ -2695,7 +2572,7 @@
       "C144",
       "C268"
      ],
-     "label": "denomination of C144 · Norway · 1998 · 50 øre · NOK",
+     "label": "denomination of C144 · Norway · 1998",
      "authors": [
       "claude"
      ],
@@ -2733,7 +2610,7 @@
      "coins": [
       "C246"
      ],
-     "label": "denomination of C246 · Philippines · 1971 · 10 sentimos · PHP",
+     "label": "denomination of C246 · Philippines · 1971",
      "authors": [
       "claude"
      ],
@@ -2771,7 +2648,7 @@
      "coins": [
       "C165"
      ],
-     "label": "denomination of C165 · Sweden · 1973 · 1 krona · SEK",
+     "label": "denomination of C165 · Sweden · 1973",
      "authors": [
       "ledger"
      ],
@@ -2809,7 +2686,7 @@
      "coins": [
       "C207"
      ],
-     "label": "denomination of C207 · Trinidad and Tobago · 2016 · 10 cents · TTD",
+     "label": "denomination of C207 · Trinidad and Tobago · 2016",
      "authors": [
       "ledger"
      ],
@@ -2917,7 +2794,7 @@
      "coins": [
       "C007"
      ],
-     "label": "year of C007 · France · 1963 · 10 centimes · FRF",
+     "label": "year of C007 · France · 10 centimes · FRF",
      "authors": [
       "claude"
      ],
@@ -2955,7 +2832,7 @@
      "coins": [
       "C019"
      ],
-     "label": "year of C019 · Germany · 1981 · 10 Pfennig · DEM",
+     "label": "year of C019 · Germany · 10 Pfennig · DEM",
      "authors": [
       "claude"
      ],
@@ -2993,7 +2870,7 @@
      "coins": [
       "C173"
      ],
-     "label": "year of C173 · United Kingdom · 1998 · 5 pence · GBP",
+     "label": "year of C173 · United Kingdom · 5 pence · GBP",
      "authors": [
       "claude"
      ],
@@ -3043,7 +2920,7 @@
       "C228",
       "C229"
      ],
-     "label": "denomination of C019 · Germany · 1981 · 10 Pfennig · DEM",
+     "label": "denomination of C019 · Germany · 1981",
      "authors": [
       "ledger"
      ],
@@ -3085,7 +2962,7 @@
       "C124",
       "C125"
      ],
-     "label": "denomination of C007 · France · 1963 · 10 centimes · FRF",
+     "label": "denomination of C007 · France · 1963",
      "authors": [
       "claude"
      ],
@@ -3124,7 +3001,7 @@
       "C173",
       "C174"
      ],
-     "label": "denomination of C173 · United Kingdom · 1998 · 5 pence · GBP",
+     "label": "denomination of C173 · United Kingdom · 1998",
      "authors": [
       "ledger"
      ],
@@ -3197,7 +3074,7 @@
      "coins": [
       "C027"
      ],
-     "label": "year of C027 · Italy · 2002 · 20 euro cent · EUR",
+     "label": "year of C027 · Italy · 20 euro cent · EUR",
      "authors": [
       "claude"
      ],
@@ -3235,7 +3112,7 @@
      "coins": [
       "C040"
      ],
-     "label": "year of C040 · Netherlands · 2001 · 20 euro cent · EUR",
+     "label": "year of C040 · Netherlands · 20 euro cent · EUR",
      "authors": [
       "ledger"
      ],
@@ -3273,7 +3150,7 @@
      "coins": [
       "C053"
      ],
-     "label": "year of C053 · Germany · 2011 · 20 euro cent · EUR",
+     "label": "year of C053 · Germany · 20 euro cent · EUR",
      "authors": [
       "claude"
      ],
@@ -3311,7 +3188,7 @@
      "coins": [
       "C056"
      ],
-     "label": "year of C056 · Portugal · 2002 · 20 euro cent · EUR",
+     "label": "year of C056 · Portugal · 20 euro cent · EUR",
      "authors": [
       "ledger"
      ],
@@ -3349,7 +3226,7 @@
      "coins": [
       "C061"
      ],
-     "label": "year of C061 · Italy · 2002 · 20 euro cent · EUR",
+     "label": "year of C061 · Italy · 20 euro cent · EUR",
      "authors": [
       "claude"
      ],
@@ -3387,7 +3264,7 @@
      "coins": [
       "C102"
      ],
-     "label": "year of C102 · Germany · 2015 · 20 euro cent · EUR",
+     "label": "year of C102 · Germany · 20 euro cent · EUR",
      "authors": [
       "claude"
      ],
@@ -3425,7 +3302,7 @@
      "coins": [
       "C131"
      ],
-     "label": "year of C131 · Germany · 2002 · 20 euro cent · EUR",
+     "label": "year of C131 · Germany · 20 euro cent · EUR",
      "authors": [
       "claude"
      ],
@@ -3463,7 +3340,7 @@
      "coins": [
       "C198"
      ],
-     "label": "year of C198 · Netherlands · 1948 · 1 cent · NLG",
+     "label": "year of C198 · Netherlands · 1 cent · NLG",
      "authors": [
       "claude"
      ],
@@ -3509,7 +3386,7 @@
      "coins": [
       "C227"
      ],
-     "label": "year of C227 · Germany · 1984 · 10 Pfennig · DEM",
+     "label": "year of C227 · Germany · 10 Pfennig · DEM",
      "authors": [
       "claude"
      ],
@@ -3699,7 +3576,7 @@
      "coins": [
       "C131"
      ],
-     "label": "denomination of C131 · Germany · 2002 · 20 euro cent · EUR",
+     "label": "denomination of C131 · Germany · 2002",
      "authors": [
       "ledger"
      ],
@@ -3738,7 +3615,7 @@
       "C053",
       "C102"
      ],
-     "label": "denomination of C053 · Germany · 2011 · 20 euro cent · EUR",
+     "label": "denomination of C053 · Germany · 2011",
      "authors": [
       "ledger"
      ],
@@ -3776,7 +3653,7 @@
      "coins": [
       "C157"
      ],
-     "label": "denomination of C157 · United Kingdom · 2014 · 10 pence · GBP",
+     "label": "denomination of C157 · United Kingdom · 2014",
      "authors": [
       "ledger"
      ],
@@ -3815,7 +3692,7 @@
       "C027",
       "C061"
      ],
-     "label": "denomination of C027 · Italy · 2002 · 20 euro cent · EUR",
+     "label": "denomination of C027 · Italy · 2002",
      "authors": [
       "ledger"
      ],
@@ -3854,7 +3731,7 @@
       "C220",
       "C270"
      ],
-     "label": "denomination of C220 · Japan · 1982 · 10 yen · JPY",
+     "label": "denomination of C220 · Japan · 1982",
      "authors": [
       "claude"
      ],
@@ -3892,7 +3769,7 @@
      "coins": [
       "C198"
      ],
-     "label": "denomination of C198 · Netherlands · 1948 · 1 cent · NLG",
+     "label": "denomination of C198 · Netherlands · 1948",
      "authors": [
       "claude"
      ],
@@ -3938,7 +3815,7 @@
      "coins": [
       "C040"
      ],
-     "label": "denomination of C040 · Netherlands · 2001 · 20 euro cent · EUR",
+     "label": "denomination of C040 · Netherlands · 2001",
      "authors": [
       "ledger"
      ],
@@ -3976,7 +3853,7 @@
      "coins": [
       "C056"
      ],
-     "label": "denomination of C056 · Portugal · 2002 · 20 euro cent · EUR",
+     "label": "denomination of C056 · Portugal · 2002",
      "authors": [
       "ledger"
      ],
@@ -4014,7 +3891,7 @@
      "coins": [
       "C079"
      ],
-     "label": "year of C079 · Switzerland · 1991 · 20 rappen · CHF",
+     "label": "year of C079 · Switzerland · 20 rappen · CHF",
      "authors": [
       "claude"
      ],
@@ -4052,7 +3929,7 @@
      "coins": [
       "C204"
      ],
-     "label": "year of C204 · Trinidad and Tobago · 2014 · 25 cents · TTD",
+     "label": "year of C204 · Trinidad and Tobago · 25 cents · TTD",
      "authors": [
       "claude"
      ],
@@ -4090,7 +3967,7 @@
      "coins": [
       "C250"
      ],
-     "label": "year of C250 · Singapore · 1967 · 20 cents · SGD",
+     "label": "year of C250 · Singapore · 20 cents · SGD",
      "authors": [
       "claude"
      ],
@@ -4166,7 +4043,7 @@
      "coins": [
       "C250"
      ],
-     "label": "denomination of C250 · Singapore · 1967 · 20 cents · SGD",
+     "label": "denomination of C250 · Singapore · 1967",
      "authors": [
       "claude"
      ],
@@ -4204,7 +4081,7 @@
      "coins": [
       "C204"
      ],
-     "label": "denomination of C204 · Trinidad and Tobago · 2014 · 25 cents · TTD",
+     "label": "denomination of C204 · Trinidad and Tobago · 2014",
      "authors": [
       "ledger"
      ],
@@ -4279,7 +4156,7 @@
      "coins": [
       "C005"
      ],
-     "label": "year of C005 · France · 1986 · 20 centimes · FRF",
+     "label": "year of C005 · France · 20 centimes · FRF",
      "authors": [
       "claude"
      ],
@@ -4317,7 +4194,7 @@
      "coins": [
       "C081"
      ],
-     "label": "year of C081 · Switzerland · 1983 · 5 rappen · CHF",
+     "label": "year of C081 · Switzerland · 5 rappen · CHF",
      "authors": [
       "claude"
      ],
@@ -4355,7 +4232,7 @@
      "coins": [
       "C083"
      ],
-     "label": "year of C083 · Switzerland · 1981 · 10 rappen · CHF",
+     "label": "year of C083 · Switzerland · 10 rappen · CHF",
      "authors": [
       "claude"
      ],
@@ -4393,7 +4270,7 @@
      "coins": [
       "C196"
      ],
-     "label": "year of C196 · Germany · 1987 · 5 Pfennig · DEM",
+     "label": "year of C196 · Germany · 5 Pfennig · DEM",
      "authors": [
       "claude"
      ],
@@ -4431,7 +4308,7 @@
      "coins": [
       "C222"
      ],
-     "label": "year of C222 · Japan · 1965 · 1 yen · JPY",
+     "label": "year of C222 · Japan · 1 yen · JPY",
      "authors": [
       "ledger"
      ],
@@ -4469,7 +4346,7 @@
      "coins": [
       "C224"
      ],
-     "label": "year of C224 · Germany · 1966 · 10 Pfennig · DEM",
+     "label": "year of C224 · Germany · 10 Pfennig · DEM",
      "authors": [
       "ledger"
      ],
@@ -4507,7 +4384,7 @@
      "coins": [
       "C234"
      ],
-     "label": "year of C234 · United Kingdom · 1968 · 10 new pence · GBP (large module)",
+     "label": "year of C234 · United Kingdom · 10 new pence · GBP (large module)",
      "authors": [
       "claude"
      ],
@@ -4545,7 +4422,7 @@
      "coins": [
       "C240"
      ],
-     "label": "year of C240 · Italy · 1965 · 100 lire · ITL",
+     "label": "year of C240 · Italy · 100 lire · ITL",
      "authors": [
       "ledger"
      ],
@@ -5534,7 +5411,7 @@
       "C298",
       "C299"
      ],
-     "label": "denomination of C011 · Italy · 1970 · 50 lire · ITL",
+     "label": "denomination of C011 · Italy · 1970",
      "authors": [
       "grok"
      ],
@@ -6014,7 +5891,7 @@
      "coins": [
       "C274"
      ],
-     "label": "year of C274 · Mexico · 1995 · 10 centavos · MXN",
+     "label": "year of C274 · Mexico · 10 centavos · MXN",
      "authors": [
       "claude"
      ],
@@ -6742,7 +6619,7 @@
       "C275",
       "C296"
      ],
-     "label": "denomination of C275 · United Kingdom · 1992 · 5 pence · GBP",
+     "label": "denomination of C275 · United Kingdom · 1992",
      "authors": [
       "muse"
      ],
@@ -6780,7 +6657,7 @@
      "coins": [
       "C285"
      ],
-     "label": "denomination of C285 · Slovakia · 2009 · 5 euro cent · EUR",
+     "label": "denomination of C285 · Slovakia · 2009",
      "authors": [
       "claude"
      ],
@@ -15265,7 +15142,7 @@
      "coins": [
       "C297"
      ],
-     "label": "denomination of C297 · United Kingdom · 1988 · 1 penny · GBP",
+     "label": "denomination of C297 · United Kingdom · 1988",
      "authors": [
       "claude"
      ],
@@ -16205,7 +16082,7 @@
      "coins": [
       "C303"
      ],
-     "label": "year of C303 · Australia · 1983 · 1 cent · AUD",
+     "label": "year of C303 · Australia · 1 cent · AUD",
      "authors": [
       "claude"
      ],
@@ -16900,7 +16777,7 @@
      "coins": [
       "C276"
      ],
-     "label": "denomination of C276 · Bahamas · 2015 · 1 cent · BSD",
+     "label": "denomination of C276 · Bahamas · 2015",
      "authors": [
       "claude"
      ],
@@ -16938,7 +16815,7 @@
      "coins": [
       "C139"
      ],
-     "label": "denomination of C139 · Spain · 2014 · 1 euro cent · EUR",
+     "label": "denomination of C139 · Spain · 2014",
      "authors": [
       "claude"
      ],
