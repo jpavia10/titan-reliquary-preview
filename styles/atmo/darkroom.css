@@ -1,0 +1,67 @@
+/* ============================================================================
+   Atmosphere: DARKROOM (darkroom) · Analog darkroom
+   A darkroom under the red safelight: your coins come up as prints in the developer, one after another. Open a coin and its print is next; tap the tray to rock it.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md): the shared treatments in styles/style-layer.css are switched on by
+   the theme's `ui` list in wings/themes/manifest.js (html[data-ui]); the effect is fxk (wings/fx/styles-e.js).
+   Legibility: checked with tools/themes/check_theme.js (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="darkroom"] {
+  --scheme: dark;
+  color-scheme: dark;
+  --bg: #0c0606;
+  --bg2: #120808;
+  --surface: #180b0a;
+  --surface2: #20100e;
+  --ink: #f6eeec;
+  --muted: #d2c2be;
+  --faint: #a8958f;
+  --cardmeta: #e6d9d5;
+  --gold: #ffa36b;
+  --gold-soft: #ffd0b0;
+  --gold-deep: #a8432a;
+  --on-gold: #1a0703;
+  --ink-soft: #d2c2be;
+  --line: rgba(255, 170, 150, 0.11);
+  --line-strong: rgba(255, 163, 107, 0.45);
+  --ok: #7fe3a8;
+  --warn: #ffc56b;
+  --bad: #ff8a7a;
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 18px 50px rgba(0, 0, 0, 0.75);
+  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.6);
+  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 28px 80px rgba(0, 0, 0, 0.8);
+  --scrim: rgba(6, 2, 2, 0.72);
+  --focus: #ffd0b0;
+  --th-bg: #20100e;
+  --tabgrad1: #20100e; --tabgrad2: #180b0a;
+  --toastgrad1: #20100e; --toastgrad2: #180b0a;
+  --foot-bg: rgba(12, 6, 6, 0.92);
+  --drawerbar-bg: rgba(24, 11, 10, 0.94);
+  --ph-bg: #20100e;
+  --sel-bg: rgba(255, 163, 107, 0.16);
+  --row-hover: rgba(255, 163, 107, 0.06);
+  --hold-bg: linear-gradient(160deg, #241210, #0c0606 60%);
+  --skeleton1: #20100e; --skeleton2: #0c0606;
+  --grain-op: 0.04;
+  --wing-dur: 0.5s;
+  --wing-rise: 14px;
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --serif: "Cormorant Garamond", "Hoefler Text", "Iowan Old Style", Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 8px;
+}
+/* Darkroom surfaces: matte black boards lit by the safelight. Panels are near-black with a red cast that is brighter toward the
+   top-left (where the safelight hangs), a dim red rim and a soft drop; hover lifts the board into the light and its rim warms to the
+   safelight amber. Headings in warm print white. Scoped to own surfaces only. */
+html[data-atmo="darkroom"] .card, html[data-atmo="darkroom"] .panel, html[data-atmo="darkroom"] .gx-card {
+  background: radial-gradient(120% 90% at 0% 0%, rgba(255,60,30,.08), transparent 55%), linear-gradient(180deg, rgba(32,16,14,.9), rgba(12,6,6,.95));
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255,140,110,.1), inset 0 0 0 1px rgba(255,90,60,.13), 0 18px 46px rgba(0,0,0,.75);
+  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }
+html[data-atmo="darkroom"] .card:hover, html[data-atmo="darkroom"] .gx-card:hover {
+  transform: translateY(-2px);
+  background: radial-gradient(120% 90% at 0% 0%, rgba(255,70,35,.14), transparent 60%), linear-gradient(180deg, rgba(38,18,16,.92), rgba(14,7,6,.95));
+  box-shadow: inset 0 1px 0 rgba(255,170,130,.18), inset 0 0 0 1px rgba(255,163,107,.42), 0 0 26px rgba(255,70,40,.12), 0 22px 54px rgba(0,0,0,.78); }
+html[data-atmo="darkroom"] h1, html[data-atmo="darkroom"] h2 { background: linear-gradient(180deg, #fff6f2, #ffcdbd 52%, #c98571); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-atmo="darkroom"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }

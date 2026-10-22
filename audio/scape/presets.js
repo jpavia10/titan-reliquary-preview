@@ -574,6 +574,34 @@
         cut(k, this._W.in, "clock", tt - .012, TICKS[0], 3.4, .25, .01);                                  // the hammer lets go
         cut(k, this._W.in, "chimes", tt, GONG, s[1] ? .3 : .225, d.quiet ? .3 : .7, .25); }, this); } });
 
+  /* 36. THE DARKROOM (Claude, theme #42 Darkroom, 2026-10-22): a darkroom at night, recordings only. The vent's air hum and the room;
+     the developer sloshing each time the tray is rocked (every 1.6 s: a lowpassed cut of the river recording, swelling and settling);
+     the timer ticking once a second while a print develops and its bell when it is done (the clock recording's tick; three quick
+     strikes cut from the chimes recording); the paper going in. The print cycle is fx/darkroom.js's: 26 s on the wall clock, paper in
+     at 0.55 s, developing from 1.4 to 19 s, bell at 19 s, rocks on every 1.6 s, so picture and sound agree without messages.
+     titan:fx {type:"splash"} (a tap) = a stronger slosh and a drip. */
+  var DR = { cyc: 26, devFrom: 1.4, devTo: 19, rock: 1.6 };
+  function slosh(k, dest, t, gain, len) { cut(k, dest, "river", t, [k.rr(2, 36), len || .9], k.rr(.85, 1.05), gain, (len || .9) * .6); }
+  TS.define("darkroom", { name: "A darkroom at night", space: "hall", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx; this._k = k;
+      var vent = k.L("vent", "Vent and room", .45, { wet: .25 }); k.grains(vent, "labHum", { grain: 3, density: 1.5, spread: .3 }); k.grains(vent, "roomTone", { grain: 3, density: 1.2, spread: .5, dest: vent.g });
+      var bath = k.L("developer", "Developer sloshing", .5, { wet: .2 }); var lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 1500; lp.Q.value = .4; lp.connect(bath.g);
+      var V = k.Voice(lp, [0, -.3, -.5], { ref: .5 }); this._V = V;
+      var tim = k.L("timer", "Timer and bell", .45, { wet: .3 }); var VT = k.Voice(tim.g, [.45, -.1, -.6], { ref: .5 });
+      var nR = Math.ceil(Date.now() / 1000 / DR.rock), nS = Math.ceil(Date.now() / 1000), nP = Math.floor(Date.now() / 1000 / DR.cyc) + 1;
+      (function sched() { if (bath.dead) return; var now = Date.now(), hz = now + 1200;
+        if (nR * DR.rock * 1000 < now - 200) nR = Math.ceil(now / 1000 / DR.rock); if (nS * 1000 < now - 200) nS = Math.ceil(now / 1000);
+        while (nR * DR.rock * 1000 < hz) { var t = audioAt(c, nR * DR.rock * 1000); if (t > c.currentTime + .004) slosh(k, V.in, t, .55 * k.rr(.8, 1.1)); nR++; }
+        while (nS * 1000 < hz) { var ph = nS % DR.cyc, t2 = audioAt(c, nS * 1000);
+          if (t2 > c.currentTime + .004) { if (ph > DR.devFrom && ph <= DR.devTo - 1) cut(k, VT.in, "clock", t2, TICKS[ph % 2], 1, .32, .02);   // the timer, once a second
+            if (ph === DR.devTo) [0, .17, .34, .51].forEach(function (o) { cut(k, VT.in, "chimes", t2 + o, GONG, .78, .5, .15); }); }       // its bell
+          nS++; }
+        while (nP * DR.cyc * 1000 < hz) { var t3 = audioAt(c, nP * DR.cyc * 1000 + 550); if (t3 > c.currentTime + .004) slosh(k, V.in, t3, .7, .6); nP++; }   // the paper goes in
+        bath.timers.push(setTimeout(sched, 250)); if (bath.timers.length > 40) bath.timers.splice(0, 30); })();
+    },
+    on: function (d, t) { var k = this._k; if (!k || !this._V || d.type !== "splash") return;
+      slosh(k, this._V.in, t + .01, .8, .7); cut(k, this._V.in, "drips", t + .2, [k.rr(1, 38), .35], 1, .4, .1); } });
+
   /* fix-ups: give touch handlers access to the kit */
   ["metal"].forEach(function (id) { var p = TS.presets[id], b = p.build; p.build = function (k) { this._k = k; return b.call(this, k); }; });
 })();

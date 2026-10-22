@@ -90,3 +90,28 @@ Verdict: ship v1.
    `docs/music/wanted.json`; recorded piano until then.
 Verdict: ship v1.
 
+## #42 Darkroom (darkroom), v1 (Claude, 2026-10-22)
+**What works**
+- The prints are the collection (`fx/darkroom.js`): every 26 s a sheet slides into the developer and one of your photographed coins
+  (its phone cut-out, black and white, on black velvet, with an archive caption "COUNTRY · YEAR · DENOMINATION / No. C###") comes up
+  out of the white paper, shadows first and a little unevenly where the developer flows; at the bell it is lifted toward the stop
+  bath and the next one goes in. Open a coin in the app and its print is next (titan:coin). First print is the name.
+- A real liquid surface: the tray rocks (first sloshing mode along the tray, a little across), taps and the paper make rings,
+  crossing capillary wavelets; it refracts the print and the ribbed bottom, focuses the safelight into caustics (its curvature) and
+  reflects the safelight, which wobbles. Rim, wet counter with drops near the lamp, stop bath at the edge, dust in the red light, a
+  GraLab-style timer whose luminous marks are the one green thing in the room.
+- Sound from recordings only (`audio/scape` "darkroom"): vent hum + room, a lowpassed river cut each time the tray rocks, the timer's
+  tick once a second while the print develops (the clock recording), its bell (three strikes cut from the chimes recording), the
+  paper going in; tap = a stronger slosh and a drip. The cycle sits on the wall clock, so picture and sound agree without messages.
+- Intro (`js/intros/darkroom.js`): safelight up, the enlarger projects the name in white light on the easel, the sheet slides into
+  the developer, the name comes up black; timer ticks and bell.
+- The cheapest of the new themes on software GL (143 ms/frame at 640x380; Tourbillon 429, Supercell 1000).
+**Below the bar (next rounds)**
+1. Tuned only on software GL; no real-phone fps yet.
+2. The scene is top-down; a slight perspective (looking along the tray row: developer, stop, fixer) would read more like a room.
+3. Prints drying on a line above the trays, a print being lifted with tongs (drips running off it) would sell the pull-out.
+4. The intro uses real recordings only after they are in memory (first play: filtered clicks, a swish, a synthesized bell).
+5. No picker card yet: `artreq_20261022-0100_theme-cards-darkroom` (rule 9); the CSS swatch stands in.
+6. Music: Chopin Nocturne Op. 48 No. 1, Satie Gnossienne No. 3, Ravel Le Gibet queued; recorded piano until then.
+Verdict: ship v1.
+

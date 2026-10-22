@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "darkroom", name: "Darkroom", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Analog darkroom"],
+      mood: "A darkroom under the red safelight: your coins come up as prints in the developer, one after another. Open a coin and its print is next; tap the tray to rock it.", fx: "fxk", fxIntensity: 0.01, scene: "darkroom", tokens: {} },
     { id: "tourbillon", name: "Tourbillon", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Haute horlogerie"],
       mood: "Inside a watch movement under the loupe: C\u00f4tes de Gen\u00e8ve, blued screws, rubies and a flying tourbillon turning on the real seconds. Tap to wind it, hold for the repeater.", fx: "fxk", fxIntensity: 0.01, scene: "tourbillon", tokens: {} },
     { id: "supercell", name: "Supercell", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Volumetric storm"],

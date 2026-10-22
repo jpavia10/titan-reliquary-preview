@@ -69,7 +69,7 @@
      the manifest's collections (one of them, "Studio", had become a pile of 14 unrelated themes). A theme not listed here (a new one)
      lands in "New and more" until it is given a group. Filter chips: All / Light / Dark. The current theme sits on top, big. */
   var GROUPS = [
-    { name: "Museum and study", note: "Calm rooms for looking closely", ids: ["afterhours", "conservator", "drafting", "sketch", "marbled", "banknote", "notepad"] },
+    { name: "Museum and study", note: "Calm rooms for looking closely", ids: ["afterhours", "conservator", "drafting", "sketch", "marbled", "banknote", "notepad", "darkroom"] },
     { name: "Vaults and treasure", note: "Gold, silver and hoards", ids: ["colossus", "glacier", "valhalla", "dynasty", "abyss", "alchemist"] },
     { name: "Journeys", note: "Maps, ships, stations and stars", ids: ["odyssey", "silkroad", "terminal", "contour", "solaris"] },
     { name: "Calm and quiet", note: "Slow, soft and still", ids: ["nocturne", "zen", "samadhi", "cathedral", "kintsugi"] },

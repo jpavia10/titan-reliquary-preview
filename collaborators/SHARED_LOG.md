@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-22] — Claude · NEW THEME #42 Darkroom (darkroom), tr252
+- `fx/darkroom.js` (lazy): the developer tray under a red safelight; every 26 s (wall clock) a print of one of your photographed coins (its cut-out, B&W, archive caption) develops from white, then goes to the stop bath; open a coin and its print is next (titan:coin). Rocking liquid with refraction, caustics, the safelight's wobbling reflection; luminous timer; tap = agitate (titan:fx splash).
+- New scape preset `darkroom` (recordings only: vent, river slosh on each rock, clock tick while developing, chimes bell, paper in). Intro `js/intros/darkroom.js`. Group "Museum and study"; card requested (`artreq_20261022-0100_theme-cards-darkroom`); music queued (Chopin Op. 48/1, Satie Gnossienne 3, Ravel Le Gibet).
+
 ### [2026-10-22] — Claude · Tourbillon music (tr251)
 - Haydn 'Clock' Symphony II (The Geneva Camerata, CC BY 3.0) merged for Tourbillon from intake 48dd9c2; the fixed fetcher picked nothing bad (zen, odyssey, Pastoral IV, K. 608, Flotenuhr: no candidate).
 

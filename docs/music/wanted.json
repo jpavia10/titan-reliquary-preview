@@ -1535,6 +1535,60 @@
     "tourbillon"
    ],
    "modern": true
+  },
+  {
+   "id": "darkroom-chopin-nocturne-48-1",
+   "title": "Nocturne in C minor, Op. 48 No. 1",
+   "composer": "Frédéric Chopin",
+   "query": "Chopin Nocturne Op. 48 No. 1 C minor",
+   "must": [
+    "48"
+   ],
+   "prefer": [
+    "nocturne",
+    "piano"
+   ],
+   "moods": [
+    "darkroom"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth"
+   ]
+  },
+  {
+   "id": "darkroom-satie-gnossienne-3",
+   "title": "Gnossienne No. 3",
+   "composer": "Erik Satie",
+   "query": "Satie Gnossienne No. 3",
+   "must": [
+    "gnossienne"
+   ],
+   "prefer": [
+    "3",
+    "piano"
+   ],
+   "moods": [
+    "darkroom"
+   ],
+   "modern": true
+  },
+  {
+   "id": "darkroom-ravel-gibet",
+   "title": "Gaspard de la nuit: II. Le Gibet",
+   "composer": "Maurice Ravel",
+   "query": "Ravel Gaspard de la nuit Le Gibet",
+   "must": [
+    "gibet"
+   ],
+   "prefer": [
+    "piano"
+   ],
+   "moods": [
+    "darkroom"
+   ],
+   "modern": true
   }
  ]
 }
