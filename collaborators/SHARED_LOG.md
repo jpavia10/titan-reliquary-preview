@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-22] — Claude · Gemini homework loaded to the maximum (owner)
+- Gemini: capacity 40, 8 batches per kind, 5-day deadlines (`lease_days`, new per-AI override in homework.py), six projects; 12 sheets / 444 items open. Its Oct 22 design-text file is held (8 of 26 wrong coin), its mint file rejected; locked photo test 76 % / 3.0 % (ties Grok). Grok picked up its 2 expired sheets (contradictions, story check).
+
 ### [2026-10-22] — Claude · Darkroom + Silver Screen music (tr254)
 - Kept from the intake: Chopin Op. 48/1 (Faulkner) + Ravel Le Gibet (OE1FEU) for Darkroom, Joplin Maple Leaf Rag (USAF Strolling Strings) + Solace (Stephan) for Silver Screen. Rejected Gnossienne 1 (wrong number); no human recording on Commons yet for The Entertainer or Golliwogg's Cakewalk. Files + rows only, never the branch's manifest/CREDITS wholesale.
 

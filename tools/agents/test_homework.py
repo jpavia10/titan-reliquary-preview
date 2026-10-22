@@ -344,6 +344,20 @@ class LoopUpgrades(unittest.TestCase):
                     n += 1; self.assertIn("this line is the ", x["source"], x)
         self.assertGreater(n, 0, "no issue-level sheet line to test")
 
+    def test_an_ai_with_its_own_lease_gets_the_shorter_deadline(self):
+        tmp = sandbox(); p = os.path.join(tmp, "docs", "agents", "roles.json")
+        roles = json.load(open(p, encoding="utf-8")); agent = next(a for a, ag in roles["agents"].items() if ag.get("status") == "active")
+        roles["agents"][agent]["lease_days"] = 2
+        with open(p, "w", encoding="utf-8") as fh: json.dump(roles, fh)
+        r = run_refresh(tmp, NOW)
+        mine = [a for a in r["state"]["assignments"] if a["agent"] == agent and a["status"] == "open"]
+        self.assertTrue(mine, "no assignment issued to test")
+        for a in mine: self.assertEqual(a["lease_until"], HW._days(NOW, 2), a["id"])
+        others = [a for a in r["state"]["assignments"] if a["agent"] != agent and a["status"] == "open"]
+        for a in others:                # everyone else: the kind's lease, or their own when that is shorter
+            own = roles["agents"][a["agent"]].get("lease_days"); kd = roles["kinds"][a["kind"]].get("lease_days", 7)
+            self.assertEqual(a["lease_until"], HW._days(NOW, min(kd, own) if own else kd), a["id"])
+
     def test_a_resent_check_counts_once(self):
         ev = {"by": "model:gemini", "entity": "type", "id": "DE.KM.214", "field": "issues.0.mintage", "old": 20475000, "new": 20475000,
               "provenance": {"assignment": "HW-gemini-verify-20261012-1"}}

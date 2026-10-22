@@ -8,6 +8,8 @@ One listing, as the Drive bridge would send it, with every kind of file the drop
 Then: the same listing again changes nothing; `hold` after a failed check; `reviewed` clears the score list.
 """
 import atexit, json, os, shutil, subprocess, sys, tempfile, unittest
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "tools", "pipeline"))
+import canary as CAN  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(HERE))
 NOW = "2026-10-10T09:00:00Z"
@@ -42,8 +44,10 @@ def gem_sheet(root):
         if a["agent"] != "gemini" or a["kind"] != "verify" or a["status"] != "open": continue
         sheet = os.path.join(root, "docs", "agents", "homework", "sheets", a["id"] + ".jsonl")
         if not os.path.exists(sheet): continue
+        item = {(it["entity"], it["id"], it["field"]): it["item"] for it in a["items"]}
         for l in open(sheet, encoding="utf-8"):
             ev = json.loads(l)
+            if CAN.chosen(a["id"], item.get((ev["entity"], ev["id"], ev["field"]), "")): continue   # a planted value (canary): its answer is never filed
             if ev.get("new") is not None: return a["id"], ev
     raise AssertionError("no open Gemini verify sheet with a stated value to test with")
 

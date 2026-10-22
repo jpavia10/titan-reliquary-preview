@@ -2,7 +2,7 @@ NEW (2026-10-20): score 9 for your Oct 15/19 files (FEEDBACK doc): every design-
 
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 
-# WORK QUEUE for Grok (updated 2026-10-21 22:44 UTC)
+# WORK QUEUE for Grok (updated 2026-10-22 13:54 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -53,6 +53,10 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261021-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
 - 10. HW-grok-read-mint-20261021-1 · Photo reader · Read the mint mark on 4 coins from their photos · due 2026-10-28  (fix list #57)
   **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-read-mint-20261021-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 11. HW-grok-contradiction-20261022-1 · Fact fixer · Settle 14 contradictions in the record · due 2026-10-29  (fix list #102)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-contradiction-20261022-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+- 12. HW-grok-story-check-20261022-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-29  (fix list #73)
+  **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261022-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
 ## Projects (after the homework)
 
 ### UI rethink, step 2: The Field's three filters, on the real data  [LATER]  (fix list #116)

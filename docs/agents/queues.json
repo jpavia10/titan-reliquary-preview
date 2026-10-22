@@ -1,6 +1,6 @@
 {
   "about": "Hand-written PROJECTS for the other AIs (owner rule 10, 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Since 2026-10-09 most work is generated homework (tools/agents/homework.py from docs/agents/roles.json; docs/agents/RESEARCH_LOOP.md): this file keeps only what cannot be computed from the data (work in progress, code reviews, guides, music, motion, onboarding). A task with `reserves` holds those coins of those kinds for its AI while it is open. Each AI's page (docs/agents/QUEUE_{ai}.md, the same text as its Drive doc 'WORK QUEUE for ...') shows: finish first (state now), then its homework, then the other projects.",
-  "updated": "2026-10-20",
+  "updated": "2026-10-22",
   "agents": [
     {
       "id": "grok",
@@ -134,28 +134,52 @@
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/",
       "tasks": [
         {
-          "n": 6,
-          "title": "Design text for the 26 types that have none or only a guess",
+          "n": 8,
+          "title": "Redo the 15 design texts that do not match the coin we hold",
           "fix": "#72",
           "state": "now",
-          "what": "16 coin types in the collection have no design text at all (AR.X.5-centavos, AU.X.1-cent, AU.X.10-cents, BS.X.25-cents, BS.X.5-cents, BZ.X.25-cents, FR.X.5-francs, GB.X.1-penny, HN.X.50-centavos, MX.X.20-pesos, MX.X.5-centavos, MX.X.50-centavos, MX.X.500-pesos, PH.X.1-piso, SK.X.5-euro-cent, YU.X.50-para) and 10 more carry an uncited guess (AU.KM.66, DE.X.spielmarke-20-gr, FR.KM.1410, GB.KM.1107, GB.KM.916, GB.KM.936, NL.KM.236, PH.KM.242.1, SK.KM.96, US.KM.204). For each, open its Numista entry and send `type {id} design.text` in the house style ('obverse ... · reverse ... · designer'), short, with the exact entry URL; for the .X. types also send the `catalogs` list (KM + Numista numbers) from the same entry. Euro coins: 1, 2 and 5 cent show Europe on a globe, 10 cent and up the map.",
-          "done_when": "One change file; anything without an entry is left out with one line of notes."
+          "what": "Your file changes_gemini_20261021-1830.jsonl is held, not merged: 8 texts describe a different coin from the one in the collection and 7 more send catalogue numbers or details that differ from the record. Redo each from the Numista entry of the coin we hold, then send all 26 types again in one new file (the 11 that were right can be copied as they were). WRONG: GB.X.1-penny (C302 is a 1922 penny: George V, not Elizabeth II); MX.X.50-centavos (C284 is a 2009 50 centavos, the KM#549 type, not the 1950s Cuauhtémoc coin); AR.X.5-centavos (C289 is dated 1954, not the 1990s Sun of May coin, KM#109); AU.X.10-cents (C295 is dated 2006: not the 1966 Machin portrait or KM#64); FR.KM.1410 (C054 and C097 are 10 euro cent, not 1 euro); GB.KM.936 (C213 is a 1991 2 pence, not 20 pence); NL.KM.236 (C004 is a 5 euro cent: the common side is the globe, not the map); DE.X.spielmarke-20-gr (the source is a search page, not an entry: describe T001/T002 from their photos with the photo file as source, or leave it out). CHECK AGAINST THE RECORD: MX.X.5-centavos (C294, 1969 Mo: the record has Numista N#953; you sent KM#425 / N#942), BS.X.25-cents (C300, 1984: KM#220 / N#56550 must be the entry for a 1984 coin), BS.X.5-cents (C291, 1984: KM#64?), MX.X.500-pesos (C293 1988, C301 1989: KM#507?), FR.X.5-francs (C281, 1994: the record has KM#926a.1, you sent 926.1), BZ.X.25-cents (C280, 2007: the designer), MX.X.20-pesos (C304, 1981: the reverse design). The records are at https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/types/{ISO}.json and collection/specimens/{ISO}.json.",
+          "done_when": "One change file with all 26 types, every line citing the Numista entry for the year we hold."
         },
         {
-          "n": 7,
-          "title": "Third reader: settle the 12 open disagreements first",
-          "fix": "#101",
-          "state": "done",
-          "what": "Settled by Claude on Oct 21 (10 of 12; the other 2 stay with their arbiters). New disagreements come to you as arbitrate homework.",
-          "done_when": "Your arbitrate answer file; each one you send settles its disagreement."
+          "n": 10,
+          "title": "Picker cards and heroes for the four new themes (12 images)",
+          "fix": "#113",
+          "state": "now",
+          "what": "Supercell, Tourbillon, Darkroom and Silver Screen shipped without pictures (rule 9: art comes from an image AI, never from code). The requests are in Drive 'art-requests (any AI: images + video)/': artreq_20261021-1900_theme-cards-supercell, artreq_20261021-2300_theme-cards-tourbillon, artreq_20261022-0100_theme-cards-darkroom and artreq_20261022-0200_theme-cards-silverscreen (each: a 16:10 card in 2 takes + a 16:10 hero). Claim each first ({request id}.CLAIMED-gemini.txt; skip one another AI has already claimed), follow ART_START_HERE, one image at a time, exact file names, then the request's .DONE.txt.",
+          "done_when": "12 images in 'art-incoming (AI images + video)/{request id}/' and a .DONE.txt per request."
         },
         {
-          "n": 5,
-          "title": "Send the Titan v3 M1 build (your spec is accepted; only the .html is missing)",
-          "fix": "#116, #117",
-          "state": "later",
-          "what": "Your note design_gemini_20261016-0610_v3-m1.md (2026-10-16) is accepted as the M1 spec: docs/design/v3/M1_SPEC.md (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/v3/M1_SPEC.md), with two notes from Claude at the top. The build it describes, design_gemini_20261016-0610_v3-m1.html, never reached Drive. Build exactly that spec and save the .html as a real file (not a Google Doc) in Drive 'design-incoming (AI UI proposals)'. If saving fails, reply in chat with the file split into numbered parts ('PART 1 of N', one code block of about 400 lines each, nothing changed between parts); Joseph passes them to Claude. The hard rules of docs/design/ARGON_REBUILD_BRIEF.md section 5 apply: live data only, no invented numbers, your own code, fonts you ship, AA contrast, 16 px text. (Later: the owner asked to wait on Titan v3 while Grok upgrades the themes, 2026-10-20.)",
-          "done_when": "The .html is in Drive 'design-incoming (AI UI proposals)' (or pasted in parts); Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app."
+          "n": 9,
+          "title": "A second price for every missing album hole (about 820 holes)",
+          "fix": "#62",
+          "state": "now",
+          "what": "The 861 empty holes in the 33 albums are priced from one source each (Grok A001-A016, Muse A017-A033; about $20,338 to finish). Grok is re-pricing the 40 most expensive; you price every other hole again, from a DIFFERENT source than the one the record names: PCGS Price Guide, NGC price guide, Greysheet/CDN retail, or a dated auction result, at the grade policy of the first file (dated before 1965: XF; 1965 and later: UNC). The holes, with their current price and source, are in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json (volumes[].missing_named[]). Save wants_values_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)' in the same shape as https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/prices/wants_values_grok_20261010-1949.json (meta + items: album, label, value_usd, grade, source = the exact page and row, confidence). Silver never below melt (data/prices.json). Several files are fine: send each one as soon as an album family is done.",
+          "done_when": "Files covering as many holes as you can price; Claude compares the two sources and sends holes that differ by more than 50 % to a third reader."
+        },
+        {
+          "n": 2,
+          "title": "Second reader for all 33 albums, from the page photos (blind)",
+          "fix": "#55",
+          "state": "now",
+          "what": "Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {\"A001\": {\"photos\": [file names], \"slots\": [{\"label\": \"1941-D\", \"state\": \"filled|empty|unclear\"}]}, ...}.",
+          "done_when": "One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look."
+        },
+        {
+          "n": 11,
+          "title": "Find real recordings for the 19 pieces nobody has found yet",
+          "fix": "#83",
+          "state": "now",
+          "what": "These themes still play shared music because no qualifying recording was found: zen shakuhachi (honkyoku), samadhi raga on bansuri, silkroad taqsim on oud, kintsugi koto, Sibelius Finlandia or Valse triste, Saint-Saëns Aquarium, Debussy Nuages, Tchaikovsky Sugar Plum Fairy and Reed Flutes, Grieg Wedding Day at Troldhaugen, Rimsky-Korsakov Scheherazade I, Dukas The Sorcerer's Apprentice, Wagner Ride of the Valkyries, Beethoven Pastoral IV (Thunderstorm), Mozart Fantasia K. 608, Haydn's musical-clock pieces (Hob. XIX), Satie Gnossienne No. 3, Joplin The Entertainer, Debussy Golliwogg's Cakewalk (ids and the rules the intake applies: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/music/wanted.json). Each recording must have a named human performer (no MIDI, synthesizer, keyboard, virtual instrument or sample-library rendering), a recording licence that is public domain, CC0, CC BY or CC BY-SA and valid in the US (transfers of old discs only if recorded and published before 1926), and be the right piece (not an arrangement, medley or excerpt). Look on Wikimedia Commons first, then Musopen, the US military bands (music.af.mil, marineband.marines.mil, army.mil) and archive.org items with an explicit licence. For each piece send the file page URL, performer, recording year, the licence and where the page states it, and why it is a human performance. Save music_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)' in the shape of https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/music/grok_check_20261008-1107.json.",
+          "done_when": "One file; a piece with no qualifying recording is listed as not found, with what you searched."
+        },
+        {
+          "n": 3,
+          "title": "Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck",
+          "fix": "#113",
+          "state": "now",
+          "what": "The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json'. Grok has already made new picker cards for all 26 themes, so your part is only the 4 refreshed heroes (world_{kaleido|afterhours|colossus|abyss}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Follow ART_START_HERE: one image at a time, saved to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/'; real-photo look, no readable text, coins that look like real coins. Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. The v5 splash films are done (Grok), so no Veo clips are needed now.",
+          "done_when": "4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each)."
         },
         {
           "n": 1,
@@ -166,23 +190,31 @@
           "done_when": "Ongoing."
         },
         {
-          "n": 2,
-          "title": "Second reader for all 33 albums, from the page photos (blind)",
-          "fix": "#55",
+          "n": 5,
+          "title": "Send the Titan v3 M1 build (your spec is accepted; only the .html is missing)",
+          "fix": "#116, #117",
           "state": "later",
-          "what": "Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {\"A001\": {\"photos\": [file names], \"slots\": [{\"label\": \"1941-D\", \"state\": \"filled|empty|unclear\"}]}, ...}.",
-          "done_when": "One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look."
+          "what": "Your note design_gemini_20261016-0610_v3-m1.md (2026-10-16) is accepted as the M1 spec: docs/design/v3/M1_SPEC.md (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/v3/M1_SPEC.md), with two notes from Claude at the top. The build it describes, design_gemini_20261016-0610_v3-m1.html, never reached Drive. Build exactly that spec and save the .html as a real file (not a Google Doc) in Drive 'design-incoming (AI UI proposals)'. If saving fails, reply in chat with the file split into numbered parts ('PART 1 of N', one code block of about 400 lines each, nothing changed between parts); Joseph passes them to Claude. The hard rules of docs/design/ARGON_REBUILD_BRIEF.md section 5 apply: live data only, no invented numbers, your own code, fonts you ship, AA contrast, 16 px text. (Later: the owner asked to wait on Titan v3 while Grok upgrades the themes, 2026-10-20.)",
+          "done_when": "The .html is in Drive 'design-incoming (AI UI proposals)' (or pasted in parts); Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app."
         },
         {
-          "n": 3,
-          "title": "Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck",
-          "fix": "#113",
-          "state": "later",
-          "what": "The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json'. Grok has already made new picker cards for all 26 themes, so your part is only the 4 refreshed heroes (world_{kaleido|afterhours|colossus|abyss}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Follow ART_START_HERE: one image at a time, saved to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/'; real-photo look, no readable text, coins that look like real coins. Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. The v5 splash films are done (Grok), so no Veo clips are needed now.",
-          "done_when": "4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each)."
+          "n": 6,
+          "title": "Design text for the 26 types that have none or only a guess",
+          "fix": "#72",
+          "state": "done",
+          "what": "Answered 2026-10-22 (changes_gemini_20261021-1830.jsonl, 42 lines): 11 of 26 right; held, not merged. The redo is the next item.",
+          "done_when": "One change file; anything without an entry is left out with one line of notes."
+        },
+        {
+          "n": 7,
+          "title": "Third reader: settle the 12 open disagreements first",
+          "fix": "#101",
+          "state": "done",
+          "what": "Settled by Claude on Oct 21 (10 of 12; the other 2 stay with their arbiters). New disagreements come to you as arbitrate homework.",
+          "done_when": "Your arbitrate answer file; each one you send settles its disagreement."
         }
       ],
-      "drive_note": "NEW (2026-10-21): Claude settled 10 of the open disagreements as third reader, so your arbitration sheets are closed. Nothing has arrived from you since Oct 16: start with design text for 26 types, then your check batches (the ledger's year, mint and face value read blind from the photo). Capacity 16, full batches."
+      "drive_note": "NEW (2026-10-22): Joseph has loaded your queue to the maximum: up to 40 open sheets at a time, every sheet due in 5 days, plus the projects below. Your record since Oct 14: 0 of 16 assigned sheets answered (6 have run out); design texts 11 of 26 right. Your blind locked photo test was good: 76 % core, 3.0 % invented, tied with Grok. Four rules from tonight: (1) answer YOUR sheet: its id is at the top and its coins are the only ones you answer; (2) read the coin we hold (its year and denomination are on the sheet) before you describe its type; (3) a `catalogs` line replaces the whole list, so copy the record's list (Schön included) and change only what the entry proves wrong; (4) cite the exact entry page, never a search page. Order: the redo first, then the sheets by due date, then the projects."
     }
   ]
 }

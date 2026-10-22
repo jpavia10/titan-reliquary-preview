@@ -16,7 +16,8 @@ Every run is a pure function of the collection (collection/), the roles (docs/ag
              without a price page (value), a disagreement between two AIs (arbitrate). A job disappears when its gap closes.
   2. CLOSE   an open assignment is done when all its items closed, or when the AI answered it (a merged event names it in
              provenance.assignment): items it left out go back to the pool, marked as tried by that AI. Past its lease it expires.
-  3. ISSUE   each active AI is topped up to its capacity from the kinds it does (roles.json, in order; `per_kind` batches of a kind), highest priority first. An AI never
+  3. ISSUE   each active AI is topped up to its capacity from the kinds it does (roles.json, in order; `per_kind` batches of a kind), highest priority first,
+             due within the kind's lease or the AI's own `lease_days` when that is shorter (unanswered items come back sooner). An AI never
              gets a fact it wrote to check, nor a disagreement it is part of. Two AIs that tried and could not do an item park it.
   4. WRITE   docs/agents/QUEUE_{ai}.md (the text of its Drive doc 'WORK QUEUE for ...'), docs/agents/homework/{ai}.json,
              one pre-filled answer sheet per open assignment (docs/agents/homework/sheets/{id}.jsonl), the overview (QUEUES.md)
@@ -647,7 +648,7 @@ def refresh(ctx, roles, queues, state, now, log=None):
                     if _clashes(taken, it): continue
                     batch.append(it); _take(taken, it)
                 if not batch: continue
-                a = new_assignment(state, agent, kind, batch, now, kd)
+                a = new_assignment(state, agent, kind, batch, now, dict(kd, lease_days=min(kd.get("lease_days", 7), ag["lease_days"])) if ag.get("lease_days") else kd)   # an AI's own shorter deadline (roles.json)
                 mine.append(a); busy.update(it["item"] for it in batch)
                 log.append(f"issued {a['id']}: {len(batch)} item(s)")
     state["updated"] = now

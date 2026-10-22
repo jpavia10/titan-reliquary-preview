@@ -1,7 +1,7 @@
 {
   "schema": "titan-roles/1",
   "about": "Who does which homework (docs/agents/RESEARCH_LOOP.md). tools/agents/homework.py reads this file at every publish: it hands each active AI new assignments from the open work pools in the order of its `kinds` list, never gives an AI its own facts to check, and never lets one AI hold more than `capacity` open assignments. Claude edits this file when the owner changes who is active, or when the measured numbers say an AI should do more or less of a kind.",
-  "updated": "2026-10-20",
+  "updated": "2026-10-22",
   "agents": {
     "grok": {
       "name": "Grok",
@@ -82,7 +82,7 @@
         "web",
         "code"
       ],
-      "capacity": 16,
+      "capacity": 40,
       "kinds": [
         "arbitrate",
         "contradiction",
@@ -92,13 +92,15 @@
         "value",
         "story-check",
         "cite",
+        "catno",
         "plain-story"
       ],
-      "strength": "Back on (owner, 2026-10-15: \"Unpause gemini I pay for the shit so I expect it to function as we desire. Whether on gemini argon in chat or antigravity or gemini spark\"). The third research AI (fix list #101): it settles Grok-vs-Muse disagreements first, then every other kind, in full batches. Expected to be a powerhouse (owner, 2026-10-10): vision, research, code (Antigravity) and Veo video. On probation: every fact it writes is checked by another AI until it has 3 good submissions in a row.",
+      "strength": "Loaded to the maximum (owner, 2026-10-22: \"Homework is the best way I can get it to listen to me and complete tasks. Load it up with an obscene amount of homework\"). Measured 2026-10-22: 0 of 16 assignments issued since Oct 14 answered; tonight's design-text file 11 of 26 right; blind locked photo test 76 % core, 3.0 % invented (ties Grok). Capacity 40, up to 8 batches per kind, 5-day deadlines (an ignored sheet goes back to the pool for Grok and Muse sooner). On probation: every fact it writes is checked by another AI until 3 submissions in a row score 8+.",
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.",
       "inline_sheets": true,
       "full_batches": true,
-      "per_kind": 3
+      "per_kind": 8,
+      "lease_days": 5
     },
     "chatgpt": {
       "name": "ChatGPT",
@@ -264,5 +266,5 @@
       }
     ]
   },
-  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked. 2026-10-15 (owner): Gemini unpaused on every surface (Argon chat, Antigravity, Spark), arbitration first, so Grok-vs-Muse disagreements no longer wait for Claude (#101). 2026-10-20 (owner: \"give new aggressive homework assignments\"): capacity Grok 24, Muse 20, Gemini 16; per_kind 4/4/3; batches up (verify 80, cite 40, story-check 50, value 60, arbitrate 15, contradiction 20, read-mint 30, plain-story 40, research 12); the ledger's year, mint and face value on every photographed coin join the check pool as blind photo reads, first in line (#125). Gates unchanged."
+  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked. 2026-10-15 (owner): Gemini unpaused on every surface (Argon chat, Antigravity, Spark), arbitration first, so Grok-vs-Muse disagreements no longer wait for Claude (#101). 2026-10-20 (owner: \"give new aggressive homework assignments\"): capacity Grok 24, Muse 20, Gemini 16; per_kind 4/4/3; batches up (verify 80, cite 40, story-check 50, value 60, arbitrate 15, contradiction 20, read-mint 30, plain-story 40, research 12); the ledger's year, mint and face value on every photographed coin join the check pool as blind photo reads, first in line (#125). Gates unchanged. 2026-10-22 (owner: \"Load it up with an obscene amount of homework. Almost like a punishment for being so bad.\"): Gemini capacity 40, per_kind 8, lease_days 5 (its own deadline: tools/agents/homework.py takes the shorter of the kind's lease and the AI's), catno added; Grok and Muse are served first in every round, so Gemini's extra batches come from what is left. Gates unchanged."
 }

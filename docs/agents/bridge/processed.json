@@ -1,6 +1,6 @@
 {
  "schema": "bridge/1",
- "updated": "2026-10-14T15:43:50Z",
+ "updated": "2026-10-22T13:50:00Z",
  "files": {
   "1VCyFXLhrf_LQptckTRLbQywKJWf4pTnz": {
    "name": "changes_grok-bot_20261009-0004.jsonl",
@@ -805,6 +805,32 @@
    "at": "2026-10-14T15:41:37Z",
    "run": "bridge-20261014-154137",
    "summary": "3 event(s) merged"
+  },
+  "13qSClJb3iD9ZfWYXxHxtPpo0XZrgufoQ": {
+   "name": "changes_gemini_20261021-1830.jsonl",
+   "agent": "gemini",
+   "updated": "2026-10-22T02:48:23.367Z",
+   "sha256": null,
+   "outcome": "held",
+   "at": "2026-10-22T13:50:00Z",
+   "run": "claude-20261022-1350",
+   "summary": "held by Claude: 8 of its 26 design texts describe a different coin from the one held, 7 more differ from the record; the redo is on Gemini's queue (Redo the 15 design texts)",
+   "report": [
+    "held by Claude: 8 of its 26 design texts describe a different coin from the one held, 7 more differ from the record; the redo is on Gemini's queue (Redo the 15 design texts)"
+   ]
+  },
+  "1_F_pJrjxXhWJPVPfvkLHm0Mt4JNGi2jc": {
+   "name": "changes_gemini_20261021-1835.jsonl",
+   "agent": "gemini",
+   "updated": "2026-10-22T02:56:10.603Z",
+   "sha256": null,
+   "outcome": "rejected",
+   "at": "2026-10-22T13:50:00Z",
+   "run": "claude-20261022-1350",
+   "summary": "rejected: it names HW-gemini-read-mint-20261014-1 (expired 2026-10-21) but answers coins that are not on that sheet: C088 and C023 left as FILL, C212, C219 and C230 restate the record with Numista numbers that do not match it",
+   "report": [
+    "rejected: it names HW-gemini-read-mint-20261014-1 (expired 2026-10-21) but answers coins that are not on that sheet: C088 and C023 left as FILL, C212, C219 and C230 restate the record with Numista numbers that do not match it"
+   ]
   }
  },
  "last_listing": {
