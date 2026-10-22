@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-22] — Claude · Tourbillon music (tr251)
+- Haydn 'Clock' Symphony II (The Geneva Camerata, CC BY 3.0) merged for Tourbillon from intake 48dd9c2; the fixed fetcher picked nothing bad (zen, odyssey, Pastoral IV, K. 608, Flotenuhr: no candidate).
+
 ### [2026-10-21] — Claude · music intake review (tr250)
 - Merged Ravel Pavane (Wasei Duo, After Hours) + Vivaldi Summer Presto (John Harrison, Supercell). Rejected the Monteux 1942 Scheherazade (78 transfer) and the Itami sake song for zen; `fetch_classical.py` now reads recording years past a day number, treats 'original 78'/'78 set' as historic, and honours a piece's `not` words.
 
