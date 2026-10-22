@@ -1572,7 +1572,25 @@
    "moods": [
     "darkroom"
    ],
-   "modern": true
+   "modern": true,
+   "reject": [
+    "File:Erik Satie - Gnossienne no 1.ogg",
+    "File:Satie - Gnossienne 1.ogg"
+   ],
+   "not": [
+    "gnossienne 1",
+    "gnossienne no 1",
+    "gnossienne no. 1",
+    "gnossienne 2",
+    "gnossienne no 2",
+    "gnossienne no. 2",
+    "gnossienne 4",
+    "gnossienne 5",
+    "gnossienne 6",
+    "gnossienne 7",
+    "midi",
+    "synth"
+   ]
   },
   {
    "id": "darkroom-ravel-gibet",

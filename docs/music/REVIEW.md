@@ -34,3 +34,13 @@ run takes Grok's exact file picks first (`files` in docs/music/wanted.json), wit
 - Held: Elgar Nimrod (no recording both named and free in the US), Debussy Rêverie (only a saxophone arrangement), Handel Ombra mai fu (Caruso 1920, public domain but an acoustic vocal recording: the owner's ear decides; replaced in run 3, below), piano Gymnopédie No. 3 (none found).
 - Run 2 (2026-10-09, `015924f`) merged: 22 recordings now. The first run fell back to the Menuhin 1948 film audio and a sample-library Canon because the Air Force Band mp3s carry cover art that ffmpeg could not put in .m4a (fixed: audio-only encode) and the piano Gymnopédie's Commons title is spelled with a grave accent (fixed); both fallbacks are now in the reject lists, and incompetech / kevin macleod in the BAD list. All 6 new picks are Grok's, with the reviewed credits.
 - Run 3 (2026-10-09, `3eb4ffe`) merged: **23 recordings**. New: Handel Largo "Ombra mai fu" by Lea Desandre (mezzo-soprano) with Les Arts Florissants, CC BY 3.0 (the ensemble's own YouTube upload on Commons; replaces the held 1920 Caruso). All 23 re-encoded with the restored AAC 96 kbps stereo arguments (the earlier files had been made with ffmpeg's defaults), so most files got smaller and the levels are the same -20 LUFS. The held pieces were searched again and stay held: Elgar Nimrod (nothing found), Debussy Rêverie (would pick the saxophone arrangement again), piano Gymnopédie No. 3 (would pick a No. 1, the wrong piece).
+
+## 2026-10-22: intake for Darkroom and Silver Screen (Claude)
+Kept (4), each checked against its Commons file page data: Chopin Nocturne Op. 48 No. 1 (Luke Faulkner, Musopen "Set Chopin Free",
+public domain; 4.6 s of leading and 8 s of trailing silence cut by stream copy) and Ravel Le Gibet (OE1FEU, own recording on a
+Bechstein concert grand in the Wiener Kaisersaal, CC BY-SA 4.0) for Darkroom; Joplin Maple Leaf Rag (United States Air Force Band,
+Strolling Strings, 1994, US government work) and Joplin Solace (Constantin Stephan, piano, CC BY-SA 4.0) for Silver Screen.
+Rejected: "Satie - Gnossienne 1" picked for Gnossienne No. 3 (the wrong piece; the entry now refuses the other numbers).
+Nothing usable on Commons: The Entertainer (a Casio keyboard and other electronic renderings) and Golliwogg's Cakewalk (a virtual
+piano, GigaSampler); both stay wanted. Only the four files and their manifest/credit rows were taken from the `music-intake` branch:
+its regenerated performer strings are worse than main's corrected ones (several name the composer as the performer).

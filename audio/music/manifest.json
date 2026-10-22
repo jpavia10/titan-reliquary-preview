@@ -691,6 +691,58 @@
    "moods": [
     "tourbillon"
    ]
+  },
+  {
+   "id": "darkroom-chopin-nocturne-48-1",
+   "title": "Nocturne in C minor, Op. 48 No. 1",
+   "composer": "Frédéric Chopin",
+   "performer": "Luke Faulkner (piano), Musopen 'Set Chopin Free'",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AChopin_-_Nocturne_No._13_in_C_minor%2C_Op._48_No._1_%28Luke_Faulkner%29.flac",
+   "file": "darkroom-chopin-nocturne-48-1.m4a",
+   "duration": 368.3,
+   "moods": [
+    "darkroom"
+   ]
+  },
+  {
+   "id": "darkroom-ravel-gibet",
+   "title": "Gaspard de la nuit: II. Le Gibet",
+   "composer": "Maurice Ravel",
+   "performer": "OE1FEU (Bechstein concert grand, Wiener Kaisersaal)",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AMaurice_Ravel-_Gaspard_de_la_Nuit-_II_Le_Gibet.flac",
+   "file": "darkroom-ravel-gibet.m4a",
+   "duration": 420,
+   "moods": [
+    "darkroom"
+   ]
+  },
+  {
+   "id": "silverscreen-joplin-maple-leaf",
+   "title": "Maple Leaf Rag",
+   "composer": "Scott Joplin",
+   "performer": "United States Air Force Band, Strolling Strings (1994)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AMaple_Leaf_Rag_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3",
+   "file": "silverscreen-joplin-maple-leaf.m4a",
+   "duration": 125.2,
+   "moods": [
+    "silverscreen"
+   ]
+  },
+  {
+   "id": "silverscreen-joplin-solace",
+   "title": "Solace (A Mexican Serenade)",
+   "composer": "Scott Joplin",
+   "performer": "Constantin Stephan (piano)",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AJoplin-Solace-Stephan.ogg",
+   "file": "silverscreen-joplin-solace.m4a",
+   "duration": 417.4,
+   "moods": [
+    "silverscreen"
+   ]
   }
  ]
 }
