@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-22] — Claude · NEW THEME #43 Silver Screen (silverscreen), tr253
+- `fx/silverscreen.js` (lazy): a 1920s picture palace; the screen runs a silent newsreel of your photographed coins (intertitle card, then the coin's shot, iris), 12 s a subject on the wall clock, 18 fps projection artefacts; the beam rises from the picture toward you through haze (tap stirs the dust); open a coin and it is next (titan:coin).
+- New scape preset `picturehouse` (recordings only: projector at 18 fps from the clock recording, motor, slide-projector changeover, hall, audience, seat creaks). Intro `js/intros/silverscreen.js` with a real organ cut (`audio/cuts/organ`, Toccata BWV 565, public domain). Card requested (`artreq_20261022-0200_theme-cards-silverscreen`); music queued (Joplin x3, Debussy Golliwogg).
+
 ### [2026-10-22] — Claude · NEW THEME #42 Darkroom (darkroom), tr252
 - `fx/darkroom.js` (lazy): the developer tray under a red safelight; every 26 s (wall clock) a print of one of your photographed coins (its cut-out, B&W, archive caption) develops from white, then goes to the stop bath; open a coin and its print is next (titan:coin). Rocking liquid with refraction, caustics, the safelight's wobbling reflection; luminous timer; tap = agitate (titan:fx splash).
 - New scape preset `darkroom` (recordings only: vent, river slosh on each rock, clock tick while developing, chimes bell, paper in). Intro `js/intros/darkroom.js`. Group "Museum and study"; card requested (`artreq_20261022-0100_theme-cards-darkroom`); music queued (Chopin Op. 48/1, Satie Gnossienne 3, Ravel Le Gibet).

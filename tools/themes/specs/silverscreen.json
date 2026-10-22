@@ -1,0 +1,30 @@
+{
+ "id": "silverscreen",
+ "name": "Silver Screen",
+ "collection": "Studio",
+ "mood": "A 1920s picture palace from the stalls: a silent newsreel of your coins on the screen, a title card for each and then its shot, the projector's beam over your head. Open a coin and it is the next picture; tap the beam to stir the dust.",
+ "pair": "Picture palace + Piano",
+ "scheme": "dark",
+ "themeColor": "#0a0809",
+ "station": "dark",
+ "ui": [],
+ "styles": [
+  "Silent cinema"
+ ],
+ "fx": "fxk",
+ "fxIntensity": 0.01,
+ "tokens": "  --scheme: dark;\n  color-scheme: dark;\n  --bg: #0a0809;\n  --bg2: #100c0d;\n  --surface: #161112;\n  --surface2: #1e1719;\n  --ink: #f3eee6;\n  --muted: #cdc4b7;\n  --faint: #a79d90;\n  --cardmeta: #e4ddd1;\n  --gold: #dcb862;\n  --gold-soft: #f1dfa6;\n  --gold-deep: #8a6a26;\n  --on-gold: #140f04;\n  --ink-soft: #cdc4b7;\n  --line: rgba(230, 210, 160, 0.11);\n  --line-strong: rgba(220, 184, 98, 0.45);\n  --ok: #7fe3a8;\n  --warn: #ffc56b;\n  --bad: #ff8a7a;\n  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 18px 50px rgba(0, 0, 0, 0.75);\n  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.5);\n  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.6);\n  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 28px 80px rgba(0, 0, 0, 0.8);\n  --scrim: rgba(4, 3, 3, 0.74);\n  --focus: #f1dfa6;\n  --th-bg: #1e1719;\n  --tabgrad1: #1e1719; --tabgrad2: #161112;\n  --toastgrad1: #1e1719; --toastgrad2: #161112;\n  --foot-bg: rgba(10, 8, 9, 0.92);\n  --drawerbar-bg: rgba(22, 17, 18, 0.94);\n  --ph-bg: #1e1719;\n  --sel-bg: rgba(220, 184, 98, 0.16);\n  --row-hover: rgba(220, 184, 98, 0.06);\n  --hold-bg: linear-gradient(160deg, #221a14, #0a0809 60%);\n  --skeleton1: #1e1719; --skeleton2: #0a0809;\n  --grain-op: 0.04;\n  --wing-dur: 0.5s;\n  --wing-rise: 14px;\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Cormorant Garamond\", \"Hoefler Text\", \"Iowan Old Style\", Georgia, serif;\n  --mono: ui-monospace, \"SFMono-Regular\", Menlo, Consolas, monospace;\n  --radius: 8px;",
+ "extra_css": "/* Silver Screen surfaces: black velvet boards in gilded art deco frames (a thin gold rule, a gap, a fainter rule), lit from\n   above by the screen; hover brings the frame up like the house lights. Headings in silver nitrate (a cool white-to-silver gradient).\n   Scoped to own surfaces only. */\nhtml[data-atmo=\"silverscreen\"] .card, html[data-atmo=\"silverscreen\"] .panel, html[data-atmo=\"silverscreen\"] .gx-card {\n  background: radial-gradient(130% 80% at 50% 0%, rgba(240,232,214,.06), transparent 60%), linear-gradient(180deg, rgba(30,23,25,.9), rgba(10,8,9,.95));\n  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);\n  box-shadow: inset 0 0 0 1px rgba(220,184,98,.34), inset 0 0 0 4px rgba(10,8,9,.9), inset 0 0 0 5px rgba(220,184,98,.14), 0 18px 46px rgba(0,0,0,.75);\n  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }\nhtml[data-atmo=\"silverscreen\"] .card:hover, html[data-atmo=\"silverscreen\"] .gx-card:hover {\n  transform: translateY(-2px);\n  background: radial-gradient(130% 80% at 50% 0%, rgba(240,232,214,.1), transparent 62%), linear-gradient(180deg, rgba(36,28,30,.92), rgba(12,9,10,.95));\n  box-shadow: inset 0 0 0 1px rgba(232,200,120,.6), inset 0 0 0 4px rgba(10,8,9,.9), inset 0 0 0 5px rgba(220,184,98,.3), 0 0 26px rgba(220,184,98,.1), 0 22px 54px rgba(0,0,0,.78); }\nhtml[data-atmo=\"silverscreen\"] h1, html[data-atmo=\"silverscreen\"] h2 { background: linear-gradient(180deg, #ffffff, #dcdad6 48%, #9c9890); -webkit-background-clip: text; background-clip: text; color: transparent; }\nhtml[data-atmo=\"silverscreen\"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }\n",
+ "crest": "<path d=\"M28 178 V70 Q100 12 172 70 V178\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"7\"/><path d=\"M100 40 V20 M80 46 L68 28 M120 46 L132 28 M62 56 L46 42 M138 56 L154 42\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\"/><rect x=\"60\" y=\"80\" width=\"80\" height=\"60\" rx=\"2\" fill=\"currentColor\"/><path d=\"M44 72 Q56 122 44 170 M156 72 Q144 122 156 170\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/><path d=\"M50 188 Q100 176 150 188\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linecap=\"round\"/>",
+ "swatch": ".sw-silverscreen { --sw-ink: #f3eee6; background: linear-gradient(170deg, transparent 0 18%, rgba(255,250,235,.16) 30%, transparent 46%) 0 0 / 100% 40% no-repeat, linear-gradient(180deg, #d9d4ca, #8e887e) 50% 46% / 52% 46% no-repeat, linear-gradient(90deg, transparent 0 12%, #7a0c16 12% 23%, transparent 23% 77%, #7a0c16 77% 88%, transparent 88%) 0 54% / 100% 66% no-repeat, linear-gradient(90deg, transparent 0 9%, #b08a3a 9% 12%, transparent 12% 88%, #b08a3a 88% 91%, transparent 91%) 0 56% / 100% 72% no-repeat, linear-gradient(180deg, #120d0e, #070505); }",
+ "splash_pal": {
+  "bg": "#0a0809",
+  "bg2": "#100c0d",
+  "surface": "#161112",
+  "ink": "#f3eee6",
+  "muted": "#cdc4b7",
+  "gold": "#dcb862",
+  "soft": "#f1dfa6"
+ },
+ "scene": "{ rec: \"silverscreen|piano\", world: true, name: \"Silver Screen\", icon: \"🎬\", desc: \"A picture palace in the 1920s: the projector rattling in its booth behind you, the house around you, a real recorded piano.\", atmo: \"silverscreen\",\n               beds: { roomTone: 0.3, hall: 0.35 }, pad: 0, piano: false, bells: false, beat: false,\n               root: \"C\", mode: \"major\", prog: [0], chordSec: 12, gap: [8, 12], vol: 0.5 }"
+}

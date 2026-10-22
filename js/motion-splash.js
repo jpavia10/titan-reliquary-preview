@@ -139,7 +139,8 @@
     kintsugi:   { bg: "#0a0908", bg2: "#100e0c", surface: "#161310", ink: "#f3ece0", muted: "#d2c6b4", gold: "#e2b25c", soft: "#f3d79c" },
     supercell:  { bg: "#0a0d13", bg2: "#0f131b", surface: "#141a24", ink: "#eef2f8", muted: "#bcc6d3", gold: "#a9c8ff", soft: "#d6e4ff" },
     tourbillon: { bg: "#0b0c10", bg2: "#101218", surface: "#15171e", ink: "#f1f2f5", muted: "#c0c4ce", gold: "#8fa8ff", soft: "#c9d4ff" },
-    darkroom:   { bg: "#0c0606", bg2: "#120808", surface: "#180b0a", ink: "#f6eeec", muted: "#d2c2be", gold: "#ffa36b", soft: "#ffd0b0" }
+    darkroom:   { bg: "#0c0606", bg2: "#120808", surface: "#180b0a", ink: "#f6eeec", muted: "#d2c2be", gold: "#ffa36b", soft: "#ffd0b0" },
+    silverscreen: { bg: "#0a0809", bg2: "#100c0d", surface: "#161112", ink: "#f3eee6", muted: "#cdc4b7", gold: "#dcb862", soft: "#f1dfa6" }
   };
   function palette(id, tableOnly) {
     var base = PAL[id] || PAL.afterhours, out = {}, k;

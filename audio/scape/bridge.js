@@ -15,7 +15,7 @@
     alchemist: "lava", glacier: "blizzard", valhalla: "fire", dynasty: "waterfall", zen: "sand", samadhi: "fluid", silkroad: "sandstorm",
     arcade: "fireworks", pulp: "rainforest", drafting: "storm", diorama: "bubbles", bauhaus: "crystal", terminal: "neon", lumen: "plasma",
     ferro: "metal", marbled: "fluid", cathedral: "cathedral", contour: "waterfall", banknote: "metal", freefall: "sandstorm", sketch: "rainforest",
-    papercut: "bubbles", y2k: "fireworks", rift: "plasma", horizon: "blackhole", kintsugi: "storm", supercell: "storm", tourbillon: "movement", darkroom: "darkroom"
+    papercut: "bubbles", y2k: "fireworks", rift: "plasma", horizon: "blackhole", kintsugi: "storm", supercell: "storm", tourbillon: "movement", darkroom: "darkroom", silverscreen: "picturehouse"
   };
   /* per-theme variants: where themes share a scape each gets its own room, tone, speed and layer balance (+ numeric params) */
   var PARAMS = {
@@ -28,9 +28,10 @@
     cursedwing: { storm: 1, rain: 1, space: "cathedral" },
     drafting: { storm: 6, rain: .5, space: "hall", tone: 2200, layers: { wind: .3 } },
     supercell: { storm: 2.2, rain: .9, wind: 1.1, space: "open", layers: { drops: .4 } },   /* open plains: the storm is close, wind across the grass */
-    kintsugi: { storm: 12, rain: .7, space: "hall", tone: 2000, layers: { wind: .15 } },
+    kintsugi: { storm: 12, rain: .7, space: "hall", tone: 2000, layers: { wind: .15 } },   /* a potter's room: soft rain on the window, thunder far off */
     tourbillon: { space: "hall", tone: 9000 },   /* a quiet bench: the escapement close, the room soft */
-    darkroom: { space: "hall", tone: 7000 },     /* a small blacked-out room: the vent, the tray, the timer */   /* a potter's room: soft rain on the window, thunder far off */
+    darkroom: { space: "hall", tone: 7000 },     /* a small blacked-out room: the vent, the tray, the timer */
+    silverscreen: { space: "hall", tone: 6500 }, /* the stalls of a picture palace: the projector behind you, the house around */
     terminal: { rain: .3, storm: 8, space: "cathedral", layers: { neon: .3, cars: .4, city: 1.6 } },
     lumen: { rate: 1.3, layers: { arcs: 1.4, lab: .3 } },
     rift: { rate: .75, space: "cave", layers: { lab: 1.6, arcs: .8 } },

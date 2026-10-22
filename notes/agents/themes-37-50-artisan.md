@@ -115,3 +115,35 @@ Verdict: ship v1.
 6. Music: Chopin Nocturne Op. 48 No. 1, Satie Gnossienne No. 3, Ravel Le Gibet queued; recorded piano until then.
 Verdict: ship v1.
 
+
+## #43 Silver Screen (silverscreen), v1 (Claude, 2026-10-22)
+**What works**
+- The film is the collection (`fx/silverscreen.js`): a silent newsreel on a 4:3 screen, 12 s a subject on the wall clock: an
+  art deco intertitle tinted amber (— from the collection —, COUNTRY, year · denomination, No. C###), then the coin's own shot (its
+  phone cut-out in silver black and white, a slow push-in), closing on an iris; open a coin in the app and it is the next subject
+  (titan:coin). The first subject is the title card (the collection presents TITAN RELIQUARY); with no coin loaded it holds.
+- Real projection at 18 frames a second: each frame has its own gate weave, flicker, grain (in screen pixels), a speck of dust and
+  now and then a scratch; the projector's hot spot. The screen's light falls on the drapes, the gilded proscenium, the swag valance
+  and the rims of the seat backs.
+- The beam comes from the booth behind and above you, so it rises out of the picture and widens toward you (in the image every ray
+  meets the booth's mirror point below the screen); each ray carries the light of the picture along its line, so the streaks
+  change with every shot; drifting haze and motes; tap the beam and the dust swirls there.
+- A picture palace from the stalls: velvet drapes gathered at the sides, a swag valance, a fluted gilded frame, footlights, deco
+  wall sconces on the side walls (wide screens), rows of seats in perspective. Phone and desktop have their own layouts.
+- Sound from recordings only (`audio/scape` "picturehouse"): the projector's intermittent at 18 frames a second (the clock recording,
+  sped up and dulled by the booth glass) over its motor (the laboratory recording, low-passed), the changeover between subjects (the
+  slide-projector recording) as the iris closes, the hall (the church recording) with a full house murmuring and a seat creaking now
+  and then. Frames and changeovers sit on the wall clock, so picture and sound agree without messages.
+- Intro (`js/intros/silverscreen.js`): house lights down, the curtain parts and gathers into the theme's drapes, the leader flickers,
+  the beam rises, an iris opens on the title card; the organ is the opening phrase of Bach's Toccata BWV 565 (Ashtar Moïra, public
+  domain; a 5.3 s cut in `audio/cuts/organ`), the projector winds up to 18 fps (clock recording), its motor hums. It ends on the
+  theme's own composition, so the reel goes on from it.
+- The cheapest of the new themes on software GL (87 ms/frame at 640x380, same method: Darkroom 138, Tourbillon 364).
+**Below the bar (next rounds)**
+1. Tuned only on software GL; no real-phone fps yet.
+2. Low quality saves little (motes and one haze octave); a half-resolution beam pass would be the real saving.
+3. The audience is only seat backs; heads in silhouette against the screen (a few, slowly shifting) would make it a full house.
+4. The intro's organ and projector use recordings only after they are in memory (first play: filtered clicks and a hum, no organ).
+5. No picker card yet: `artreq_20261022-0200_theme-cards-silverscreen` (rule 9); the CSS swatch stands in.
+6. Music: Joplin (Maple Leaf Rag, Solace, The Entertainer) and Debussy's Golliwogg's Cakewalk queued; recorded piano until then.
+Verdict: ship v1.

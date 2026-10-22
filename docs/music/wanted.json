@@ -1589,6 +1589,98 @@
     "darkroom"
    ],
    "modern": true
+  },
+  {
+   "id": "silverscreen-joplin-maple-leaf",
+   "title": "Maple Leaf Rag",
+   "composer": "Scott Joplin",
+   "query": "Scott Joplin Maple Leaf Rag piano",
+   "must": [
+    "maple"
+   ],
+   "prefer": [
+    "rag",
+    "piano"
+   ],
+   "moods": [
+    "silverscreen"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "macleod",
+    "sequenced",
+    "orchestra"
+   ]
+  },
+  {
+   "id": "silverscreen-joplin-solace",
+   "title": "Solace (A Mexican Serenade)",
+   "composer": "Scott Joplin",
+   "query": "Scott Joplin Solace piano",
+   "must": [
+    "solace"
+   ],
+   "prefer": [
+    "joplin",
+    "piano"
+   ],
+   "moods": [
+    "silverscreen"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "macleod",
+    "sequenced"
+   ]
+  },
+  {
+   "id": "silverscreen-joplin-entertainer",
+   "title": "The Entertainer",
+   "composer": "Scott Joplin",
+   "query": "Scott Joplin The Entertainer piano",
+   "must": [
+    "entertainer"
+   ],
+   "prefer": [
+    "rag",
+    "piano"
+   ],
+   "moods": [
+    "silverscreen"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "macleod",
+    "sequenced"
+   ]
+  },
+  {
+   "id": "silverscreen-debussy-golliwogg",
+   "title": "Children's Corner: VI. Golliwogg's Cakewalk",
+   "composer": "Claude Debussy",
+   "query": "Debussy Golliwogg's Cakewalk piano",
+   "must": [
+    "golliwog"
+   ],
+   "prefer": [
+    "cakewalk",
+    "piano"
+   ],
+   "moods": [
+    "silverscreen"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "orchestra"
+   ]
   }
  ]
 }

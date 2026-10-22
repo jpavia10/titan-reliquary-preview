@@ -1,0 +1,39 @@
+{
+ "request_id": "artreq_20261022-0200_theme-cards-silverscreen",
+ "status": "open",
+ "assigned_to": "any",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-22T02:00:00Z",
+ "why": "New theme #43 Silver Screen (silverscreen) shipped without a picker card or hero (owner rule 9: art is never rendered by code; the picker shows its CSS swatch until this lands).",
+ "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim it with {request id}.CLAIMED-{model}.txt first. takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261022-0200_theme-cards-silverscreen/' with the exact file names, then write artreq_20261022-0200_theme-cards-silverscreen.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+ "deliverable_spec": {
+  "card": "16:10, at least 1280x800, PNG; the subject must read at 220x138 px (the picker card size on a phone)",
+  "hero": "16:10, at least 2560x1600, PNG",
+  "safe_area": "keep the top-left third of heroes calm and darker (or plain paper on light themes): UI text sits there"
+ },
+ "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, true reflections, physically accurate materials (toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich natural grading, fine film grain. Real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Exception: an image whose `medium` names an illustration, pixel art, clay or poster style is made in that medium, at the same premium standard (clean, crafted, never cheap clip-art).",
+ "negative": "no readable text, no letters, no numbers, no logos, no watermark, no frame, no faces, no hands, no 3D-render plastic look in the photo images, no oversaturation, no HDR halos, no warped or melting coins, no invented legible inscriptions",
+ "coin_rule": "Coins look like real circulated or uncirculated world coins (a generic portrait, eagle or crest is fine); never invent a legible inscription.",
+ "images": [
+  {
+   "file_name": "world_silverscreen_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Silver Screen",
+   "theme_id": "silverscreen",
+   "medium": "photo",
+   "prompt": "Photograph from the stalls of an ornate 1920s picture palace during a silent film: a gilded art deco proscenium with fluted pillars, deep red velvet curtains gathered at the sides, and on the screen a black-and-white close-up of a single real silver coin, slightly flickering. The projector beam comes over the dark audience from behind the camera, a visible cone of light through drifting haze and dust, widening toward the camera. Rows of red velvet seat backs in silhouette, warm footlights along the stage edge. Deep blacks, silver light, film grain, shallow depth of field. No text, no logos, no numerals."
+  },
+  {
+   "file_name": "world_silverscreen_hero.png",
+   "priority": 2,
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Silver Screen",
+   "theme_id": "silverscreen",
+   "medium": "photo",
+   "prompt": "The same picture palace, wider: the whole auditorium from the back of the stalls, the projector beam crossing the hall in haze from the booth above and behind, a silver coin on the far screen, gilded boxes and deco wall sconces glowing softly along the side walls, the audience as dark silhouettes. Keep the top-left third calm and dark (UI text sits there). Deep blacks, silver and gold light, film grain. No text, no logos, no numerals."
+  }
+ ]
+}

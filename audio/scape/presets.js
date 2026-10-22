@@ -602,6 +602,34 @@
     on: function (d, t) { var k = this._k; if (!k || !this._V || d.type !== "splash") return;
       slosh(k, this._V.in, t + .01, .8, .7); cut(k, this._V.in, "drips", t + .2, [k.rr(1, 38), .35], 1, .4, .1); } });
 
+  /* 37. THE PICTURE HOUSE (Claude, theme #43 Silver Screen, 2026-10-22): a 1920s picture palace during a silent picture, recordings only.
+     The projector in its booth behind and above you: the intermittent's rattle at 18 frames a second (the clock recording's tick, sped
+     up and dulled by the booth glass) over the motor's hum (the laboratory recording, low-passed); the changeover between subjects
+     (the slide-projector recording's mechanism) as the iris closes; the hall itself (the church recording, far) with a full house
+     murmuring under it and now and then a seat creaking. The reel is fx/silverscreen.js's: 12 s a subject on the wall clock, frames on
+     the 18 fps wall-clock grid, so the rattle and the changeover land with the picture without messages. */
+  var PH = { seg: 12, fps: 18 };
+  TS.define("picturehouse", { name: "A picture palace", space: "hall", params: { intensity: 1 },
+    build: function (k) { var c = k.ctx; this._k = k;
+      var hall = k.L("hall", "The hall", .4, { wet: .4 }); k.grains(hall, "hall", { grain: 4, density: 1.2, spread: .6 });
+      var aud = k.L("audience", "A full house", .16, { wet: .45 }); var alp = c.createBiquadFilter(); alp.type = "lowpass"; alp.frequency.value = 900; alp.connect(aud.g);
+      k.grains(aud, "crowd", { grain: 4, density: .8, spread: .7, dest: alp });
+      var pj = k.L("projector", "The projector", .42, { wet: .2 }); var glass = c.createBiquadFilter(); glass.type = "lowpass"; glass.frequency.value = 2600; glass.Q.value = .5; glass.connect(pj.g);
+      var V = k.Voice(glass, [.9, 1.6, 3.2], { ref: 1.2 });                                                  // the booth: behind you, up and to the right
+      var mlp = c.createBiquadFilter(); mlp.type = "lowpass"; mlp.frequency.value = 520; mlp.connect(V.in); k.grains(pj, "labHum", { grain: 3, density: 1.4, spread: .2, dest: mlp });
+      var seats = k.L("seats", "Seats", .3, { wet: .35 }); var slp = c.createBiquadFilter(); slp.type = "lowpass"; slp.frequency.value = 1800; slp.connect(seats.g);
+      var nF = Math.ceil(Date.now() / 1000 * PH.fps), nS = Math.ceil(Date.now() / 1000 / PH.seg), nC = Date.now() + k.rr(6, 14) * 1000;
+      (function sched() { if (pj.dead) return; var now = Date.now(), hz = now + 1200;   // a long look-ahead: a busy page never drops a frame
+        if (nF / PH.fps * 1000 < now - 200) nF = Math.ceil(now / 1000 * PH.fps); if (nS * PH.seg * 1000 < now - 200) nS = Math.ceil(now / 1000 / PH.seg);
+        while (nF / PH.fps * 1000 < hz) { var t = audioAt(c, nF / PH.fps * 1000);
+          if (t > c.currentTime + .004) cut(k, V.in, "clock", t, TICKS[nF % 4], 2.7 + (nF % 3) * .08, .3 * (.85 + Math.random() * .3), .01);
+          nF++; }
+        while (nS * PH.seg * 1000 < hz) { var t2 = audioAt(c, nS * PH.seg * 1000 - 420); if (t2 > c.currentTime + .004) cut(k, V.in, "clank", t2, [[0, 3.1, 6.2, 9.3][nS % 4], .75], 1, .34, .2); nS++; }   // the changeover
+        if (nC < hz) { var t3 = audioAt(c, nC), x = k.rr(-1, 1); if (t3 > c.currentTime + .004) { var VS = k.Voice(slp, [x * 4, -.6, k.rr(-2, 3)], { ref: 1 }); cut(k, VS.in, "creak", t3, [[0, 4.1, 8.2, 12.3, 16.4][Math.floor(Math.random() * 5)] + k.rr(0, 2.6), .55], k.rr(.85, 1.1), .22, .2); }
+          nC = now + k.rr(9, 22) * 1000; }
+        pj.timers.push(setTimeout(sched, 250)); if (pj.timers.length > 40) pj.timers.splice(0, 30); })();
+    } });
+
   /* fix-ups: give touch handlers access to the kit */
   ["metal"].forEach(function (id) { var p = TS.presets[id], b = p.build; p.build = function (k) { this._k = k; return b.call(this, k); }; });
 })();
