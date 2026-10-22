@@ -729,6 +729,8 @@ def sheet(a, pool, roles, issued_for_lines=None):
                    "value": f"{FILL}: exact price page URL + the grade you assumed and why",
                    "research": f"{FILL}: the exact source that answers the question (URL / Numista N# + row / book + page)",
                    "contradiction": f"{FILL}: the exact source that settles it (URL + the row you read) and what you checked"}.get(a["kind"], f"{FILL}: exact entry URL + the table row you read")
+            if a["kind"] == "verify" and it["blind"]:          # a photo reading cites the photo, not a catalogue page (2026-10-22)
+                src = f"{FILL}: the photo file you read it from, e.g. {it['inputs'][0] if it['inputs'] else 'C123_obv.webp'}, and what you read on the coin (write null in new when you cannot read it)"
             src = f"{FILL} ({it['label']})" + src[len(FILL):]      # 2026-10-22: every blank names the coin, so an answer can be checked against the right piece
             src += issue_hint(it, field)
             hide = it["blind"] or bool(it["payload"].get("lookup_blind"))
