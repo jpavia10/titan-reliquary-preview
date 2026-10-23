@@ -18,7 +18,7 @@
   "countries": 51,
   "photos": 243,
   "valuations": 634,
-  "spot_days": 42,
+  "spot_days": 43,
   "changes": 6267,
   "lots_by_kind": {
    "bullion": 21,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "7805e36d09f42e37abc9f7b0a3e60484efea0940efbd6247645d84c783d12840",
+ "content_hash": "7a377e608af609200560e7d5ea497d10a622ea375b60ded6a4854cb3681250d6",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -114,13 +114,13 @@
   },
   {
    "path": "prices/latest.json",
-   "sha256": "a6b2239ac21012f727855b48bbaf04bfd99491cf2a535a56e7c42bd460ba8245",
+   "sha256": "759382d6ca33f01e2328a70e6ce3ea5d8c014f7229641048349aa72d52539233",
    "bytes": 148
   },
   {
    "path": "prices/spot_daily.jsonl",
-   "sha256": "2041bfb566d387c54efef01758de6ac22b07681e65d02ad779cf004c618c1bb0",
-   "bytes": 7176
+   "sha256": "666135a70997e6f80859ccdba46b21ab35dc5e2482addb08d16279f02c681654",
+   "bytes": 7338
   },
   {
    "path": "prices/wants_values_grok_20261010-1949.json",
