@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-23T16:07:47Z",
+ "updated": "2026-10-23T17:41:31Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -76,7 +76,8 @@
   "grok-story-check-20261022": 1,
   "gemini-verify-20261022": 2,
   "muse-cite-20261022": 1,
-  "muse-fill-20261023": 8
+  "muse-fill-20261023": 8,
+  "muse-verify-20261023": 1
  },
  "assignments": [
   {
@@ -17173,6 +17174,180 @@
      "entity": "type",
      "id": "EC.KM.38",
      "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261023-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-10-23T16:42:00Z",
+   "lease_until": "2026-10-30T16:42:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:DE.X.spielmarke-20-gr:design.text",
+     "entity": "type",
+     "id": "DE.X.spielmarke-20-gr",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:US.KM.204:design.text",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.20-pesos:design.text",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:design.text",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BZ.X.25-cents:design.text",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:design.text",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PH.KM.242.1:design.text",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:HN.X.50-centavos:design.text",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.X.1-penny:design.text",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:design.text",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AU.KM.66:design.text",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:design.text",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:design.text",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PH.X.1-piso:design.text",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:catalogs",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:design.text",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:design.text",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.916:design.text",
+     "entity": "type",
+     "id": "GB.KM.916",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.936:design.text",
+     "entity": "type",
+     "id": "GB.KM.936",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:YU.X.50-para:design.text",
+     "entity": "type",
+     "id": "YU.X.50-para",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.1107:design.text",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1410:design.text",
+     "entity": "type",
+     "id": "FR.KM.1410",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.236:design.text",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SK.X.5-euro-cent:design.text",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AU.X.1-cent:design.text",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SK.KM.96:design.text",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.50-centavos:design.text",
+     "entity": "type",
+     "id": "MX.X.50-centavos",
+     "field": "design.text"
     }
    ]
   }

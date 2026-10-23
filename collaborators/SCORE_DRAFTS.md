@@ -3,4 +3,8 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-Nothing waiting: every outside AI's file is scored.
+## Gemini
+
+| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
+|---|---|---|---|---|---|---|---|
+| `changes_gemini_20261023-1601.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 40 lines: 40 in the change log, 0 filed as disagreements; cross-checked so far: 8 held, 0 wrong |

@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-23T16:07:47Z",
+ "updated": "2026-10-23T17:41:31Z",
  "assignments": [
   {
    "id": "HW-muse-story-check-20261020-1",
@@ -2667,34 +2667,6 @@
       "C271"
      ],
      "label": "catalog of C271 · Mexico · 2013 · 50 centavos · MXN (nuevo)",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.X.50-centavos:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.X.50-centavos",
-     "field": "catalogs",
-     "coins": [
-      "C284"
-     ],
-     "label": "catalog of C284 · Mexico · 2009 · 50 centavos · MXN",
      "authors": [
       "grok"
      ],
@@ -6568,7 +6540,8 @@
        "refs": "KM#926a.1 · Schön#235a · Numista#8",
        "metal": "nickel plated copper-nickel · 10.00 g · 29 mm · reeded",
        "specs": "thickness 2.09 mm",
-       "mintage": "9,973,818"
+       "mintage": "9,973,818",
+       "design": "obverse The Sower in Phrygian cap sowing against rising sun · REPUBLIQUE FRANÇAISE · reverse olive and oak branches with wheat ears · LIBERTE•EGALITE•FRATERNITE · 5 FRANCS · Louis-Oscar Roty"
       }
      },
      "blind": false,
@@ -14358,7 +14331,7 @@
        "metal": "brass/bronze tone · circulated · white 2×2 staple flip",
        "specs": "unknown · undated",
        "mintage": "unknown",
-       "design": "Fraktur GR + stars (13 counted on T001; 'ring of stars' on T002) // large 20 in closed laurel wreath"
+       "design": "obverse Fraktur monogram GR in a ring of stars (15 on T002; T001's count is an open owner question) · reverse large 20 in a laurel wreath open at the top, the stems crossed at the bottom"
       }
      },
      "blind": false,
@@ -14415,12 +14388,24 @@
         "mint_read": true
        }
       ],
-      "catalogs": [],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "63.1"
+       },
+       {
+        "system": "Schön",
+        "number": "38"
+       },
+       {
+        "system": "Numista",
+        "number": "9352"
+       }
+      ],
       "weight_g": null,
       "diameter_mm": null,
       "composition": "",
       "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
        "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
        "nominal.diameter_mm",
        "composition.text + composition.metal_class",
@@ -14464,6 +14449,14 @@
        }
       ],
       "catalogs": [
+       {
+        "system": "KM",
+        "number": "60"
+       },
+       {
+        "system": "Schön",
+        "number": "35"
+       },
        {
         "system": "Numista",
         "number": "5010"
@@ -14649,7 +14642,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces9352.html"
      },
      "blind": false,
      "inputs": []
@@ -14703,7 +14696,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": "https://en.numista.com/578"
+      "numista_url": "https://en.numista.com/catalogue/pieces578.html"
      },
      "blind": false,
      "inputs": []
@@ -17395,6 +17388,995 @@
        "reverse"
       ],
       "numista_url": "https://en.numista.com/catalogue/pieces5712.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261023-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-10-23T16:42:00Z",
+   "lease_until": "2026-10-30T16:42:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:DE.X.spielmarke-20-gr:design.text",
+     "entity": "type",
+     "id": "DE.X.spielmarke-20-gr",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:US.KM.204:design.text",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.20-pesos:design.text",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:design.text",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BZ.X.25-cents:design.text",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:design.text",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PH.KM.242.1:design.text",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:HN.X.50-centavos:design.text",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.X.1-penny:design.text",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:design.text",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AU.KM.66:design.text",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:design.text",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:design.text",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PH.X.1-piso:design.text",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:catalogs",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:design.text",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:design.text",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.916:design.text",
+     "entity": "type",
+     "id": "GB.KM.916",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.936:design.text",
+     "entity": "type",
+     "id": "GB.KM.936",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:YU.X.50-para:design.text",
+     "entity": "type",
+     "id": "YU.X.50-para",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.1107:design.text",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1410:design.text",
+     "entity": "type",
+     "id": "FR.KM.1410",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.236:design.text",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SK.X.5-euro-cent:design.text",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AU.X.1-cent:design.text",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SK.KM.96:design.text",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.50-centavos:design.text",
+     "entity": "type",
+     "id": "MX.X.50-centavos",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:DE.X.spielmarke-20-gr:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.X.spielmarke-20-gr",
+     "field": "design.text",
+     "coins": [
+      "T001",
+      "T002"
+     ],
+     "label": "design of T001 · Germany · ND · Spielmarke “20” (GR)",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse Fraktur monogram GR in a ring of stars (15 on T002; T001's count is an open owner question) · reverse large 20 in a laurel wreath open at the top, the stems crossed at the bottom",
+      "their_source": "photos T002_Germany_ND_Spielmarke20_obv.jpeg + T002_Germany_ND_Spielmarke20_rev.jpeg (photos/p1/T002_obv.webp, T002_rev.webp), read by Claud",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:US.KM.204:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "design.text",
+     "coins": [
+      "C073"
+     ],
+     "label": "design of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse bust of George Washington left · LIBERTY · 1776–1976 · reverse colonial military drummer boy facing left · victory torch with 13 stars · Jack L. Ahr / John Flanagan",
+      "their_source": "Numista N#56 (https://en.numista.com/catalogue/pieces56.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces56.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.20-pesos:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": "design.text",
+     "coins": [
+      "C304"
+     ],
+     "label": "design of C304 · Mexico · 1981 · 20 pesos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse Maya ballplayer (Jugador de pelota) in circle · CULTURA MAYA · $20 · Mo · Alfonso Rodríguez Facio",
+      "their_source": "Numista N#987 (https://en.numista.com/catalogue/pieces987.html, 1980-1984 20 Pesos for C304 dated 1981): verified reverse legend CULTURA MAY",
+      "links": [
+       "https://en.numista.com/catalogue/pieces987.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.X.5-francs:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": "design.text",
+     "coins": [
+      "C281"
+     ],
+     "label": "design of C281 · France · 1994 · 5 francs · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse The Sower in Phrygian cap sowing against rising sun · REPUBLIQUE FRANÇAISE · reverse olive and oak branches with wheat ears · LIBERTE•EGALITE•FRATERNITE · 5 FRANCS · Louis-Oscar Roty",
+      "their_source": "Numista N#8 (https://en.numista.com/catalogue/pieces8.html, 1969-2001 5 Francs for C281 dated 1994): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces8.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BZ.X.25-cents:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "design.text",
+     "coins": [
+      "C280"
+     ],
+     "label": "design of C280 · Belize · 2007 · 25 cents · BZD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SECOND · reverse 25 CENTS within central beaded circle and ornamental border with BELIZE above and date below · Cecil Thomas (obverse)",
+      "their_source": "Numista N#2238 (https://en.numista.com/catalogue/pieces2238.html, 1974-2022 25 Cents for C280 dated 2007): obverse engraver Cecil Thomas, re",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2238.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "design.text",
+     "coins": [
+      "C291"
+     ],
+     "label": "design of C291 · Bahamas · 1984 · 5 cents · BSD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse pineapple above garland · FIVE CENTS",
+      "their_source": "Numista N#5010 (https://en.numista.com/catalogue/pieces5010.html, 1974-2006 5 Cents for C291 dated 1984): verified design text in house styl",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5010.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:PH.KM.242.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": "design.text",
+     "coins": [
+      "C163"
+     ],
+     "label": "design of C163 · Philippines · 1984 · 50 sentimo · PHP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse portrait of Marcelo H. del Pilar right · REPUBLIKA NG PILIPINAS · reverse Philippine eagle (Pithecophaga jefferyi) perched with wings spread · 50 SENTIMO",
+      "their_source": "Numista N#2461 (https://en.numista.com/catalogue/pieces2461.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2461.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:HN.X.50-centavos:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": "design.text",
+     "coins": [
+      "C286"
+     ],
+     "label": "design of C286 · Honduras · 2012 · 50 centavos · HNL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse national coat of arms · REPUBLICA DE HONDURAS · reverse portrait of cacique Lempira facing left · 50 CENTAVOS DE LEMPIRA",
+      "their_source": "Numista N#3190 (https://en.numista.com/catalogue/pieces3190.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3190.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.X.1-penny:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": "design.text",
+     "coins": [
+      "C302"
+     ],
+     "label": "design of C302 · United Kingdom · 1922 · 1 penny · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse uncrowned portrait of George V left · GEORGIVS V DEI GRA:BRITT:OMN:REX FID:DEF:IND:IMP: · reverse seated Britannia right with trident and shield · ONE PENNY · Edgar Bertram MacKennal / Leonard Charles Wyon",
+      "their_source": "Numista N#578 (https://en.numista.com/catalogue/pieces578.html, 1911-1926 George V 1 Penny for C302 dated 1922): verified design text in hou",
+      "links": [
+       "https://en.numista.com/catalogue/pieces578.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "design.text",
+     "coins": [
+      "C293",
+      "C301"
+     ],
+     "label": "design of C293 · Mexico · 1988 · 500 pesos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse portrait of Francisco I. Madero facing right · Madero · $500 · Mo",
+      "their_source": "Numista N#819 (https://en.numista.com/catalogue/pieces819.html, 1986-1992 500 Pesos for C293 1988 and C301 1989): verified design text in ho",
+      "links": [
+       "https://en.numista.com/catalogue/pieces819.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.KM.66:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "design.text",
+     "coins": [
+      "C249"
+     ],
+     "label": "design of C249 · Australia · 1966 · 20 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse platypus swimming left · 20 · Stuart Devlin / Arnold Machin",
+      "their_source": "Numista N#1003 (https://en.numista.com/catalogue/pieces1003.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1003.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "design.text",
+     "coins": [
+      "C294"
+     ],
+     "label": "design of C294 · Mexico · 1969 · 5 centavos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse bust of Josefa Ortiz de Domínguez right · CINCO CENTAVOS · Mo",
+      "their_source": "Numista N#953 (https://en.numista.com/catalogue/pieces953.html, 1954-1969 5 Centavos for C294 dated 1969 Mo): verified design text in house ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces953.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "design.text",
+     "coins": [
+      "C289"
+     ],
+     "label": "design of C289 · Argentina · 1954 · 5 centavos · ARM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse denomination 5 CENTAVOS in center · REPUBLICA ARGENTINA · reverse portrait of José de San Martín right · JOSE DE SAN MARTIN · Mario Baiardi",
+      "their_source": "Numista N#4835 (https://en.numista.com/catalogue/pieces4835.html, 1954-1956 5 Centavos for C289 dated 1954): verified design text in house s",
+      "links": [
+       "https://en.numista.com/catalogue/pieces4835.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:PH.X.1-piso:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "design.text",
+     "coins": [
+      "C279"
+     ],
+     "label": "design of C279 · Philippines · 1997 · 1 piso · PHP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse bust of José Rizal right · 1 PISO · REPUBLIKA NG PILIPINAS · reverse Bangko Sentral ng Pilipinas seal · date",
+      "their_source": "Numista N#1681 (https://en.numista.com/catalogue/pieces1681.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1681.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "catalogs",
+     "coins": [
+      "C300"
+     ],
+     "label": "catalog of C300 · Bahamas · 1984 · 25 cents · BSD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "design.text",
+     "coins": [
+      "C295"
+     ],
+     "label": "design of C295 · Australia · 2006 · 10 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse 4th portrait bust of Elizabeth II right wearing tiara · ELIZABETH II AUSTRALIA · reverse superb lyrebird displaying plumage · 10 · Stuart Devlin / Ian Rank-Broadley",
+      "their_source": "Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html, 1999-2019 10 Cents for C295 dated 2006): verified design text in house sty",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1565.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "design.text",
+     "coins": [
+      "C300"
+     ],
+     "label": "design of C300 · Bahamas · 1984 · 25 cents · BSD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin",
+      "their_source": "Numista N#9352 (https://en.numista.com/catalogue/pieces9352.html, 1974-1992 25 Cents for C300 dated 1984): verified design text in house sty",
+      "links": [
+       "https://en.numista.com/catalogue/pieces9352.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.KM.916:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.KM.916",
+     "field": "design.text",
+     "coins": [
+      "C013",
+      "C024"
+     ],
+     "label": "design of C013 · United Kingdom · 1971 · 2 new pence · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Prince of Wales feathers coronet badge · NEW PENCE 2 · Christopher Ironside / Arnold Machin",
+      "their_source": "Numista N#664 (https://en.numista.com/catalogue/pieces664.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces664.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.KM.936:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.KM.936",
+     "field": "design.text",
+     "coins": [
+      "C213"
+     ],
+     "label": "design of C213 · United Kingdom · 1991 · 2 pence · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse 3rd crowned bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Prince of Wales feathers coronet badge with motto ICH DIEN · TWO PENCE 2 · Christopher Ironside / Raphael David Maklouf",
+      "their_source": "Numista N#867 (https://en.numista.com/catalogue/pieces867.html, 1985-1992 2 Pence KM# 936 for C213 dated 1991): verified design text in hous",
+      "links": [
+       "https://en.numista.com/catalogue/pieces867.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:YU.X.50-para:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "YU.X.50-para",
+     "field": "design.text",
+     "coins": [
+      "C282"
+     ],
+     "label": "design of C282 · Yugoslavia · 1965 · 50 para · YUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse SFRY socialist arms with six torches within wheat sheaf · reverse numeral 50 · ПАРА / PARA · state title rim legend",
+      "their_source": "Numista N#2006 (https://en.numista.com/catalogue/pieces2006.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2006.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.KM.1107:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": "design.text",
+     "coins": [
+      "C218",
+      "C290"
+     ],
+     "label": "design of C218 · United Kingdom · 2010 · 1 penny · GBP (decimal)",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse lower section of Royal Arms shield · ONE PENNY · Matthew Dent / Ian Rank-Broadley",
+      "their_source": "Numista N#4038 (https://en.numista.com/catalogue/pieces4038.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces4038.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.1410:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.1410",
+     "field": "design.text",
+     "coins": [
+      "C054",
+      "C097"
+     ],
+     "label": "design of C054 · France · 2010 · 10 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse The Sower walking left with rays and 12 stars · RF · L. JORIO d'ap. O. ROTY · reverse common Europe map side · 10 EURO CENT · Laurent Jorio / Luc Luycx",
+      "their_source": "Numista N#3510 (https://en.numista.com/catalogue/pieces3510.html, 2007-2023 10 Euro Cents KM# 1410 for C054 and C097): verified design text ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3510.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.236:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "design.text",
+     "coins": [
+      "C004"
+     ],
+     "label": "design of C004 · Netherlands · 2000 · 5 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse profile portrait of Queen Beatrix left with 12 stars and BEATRIX KONINGIN DER NEDERLANDEN · reverse common Europe on globe side · 5 EURO CENT · Bruno Ninaber van Eyben / Luc Luycx",
+      "their_source": "Numista N#147 (https://en.numista.com/catalogue/pieces147.html, 1999-2013 5 Euro Cents KM# 236 for C004 dated 2000): verified globe common s",
+      "links": [
+       "https://en.numista.com/catalogue/pieces147.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SK.X.5-euro-cent:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": "design.text",
+     "coins": [
+      "C285"
+     ],
+     "label": "design of C285 · Slovakia · 2009 · 5 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse Kriváň peak in High Tatras · national double-cross arms · SLOVENSKO · reverse common Europe on globe side · 5 EURO CENT · Drahomír Zobek / Luc Luycx",
+      "their_source": "Numista N#5086 (https://en.numista.com/catalogue/pieces5086.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5086.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.1-cent:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": "design.text",
+     "coins": [
+      "C288",
+      "C303"
+     ],
+     "label": "design of C288 · Australia · 1983 · 1 cent · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse feather-tailed glider · 1 · Stuart Devlin / Arnold Machin",
+      "their_source": "Numista N#1559 (https://en.numista.com/catalogue/pieces1559.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1559.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SK.KM.96:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": "design.text",
+     "coins": [
+      "C038"
+     ],
+     "label": "design of C038 · Slovakia · 2009 · 2 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse Kriváň peak in High Tatras · national double-cross arms · SLOVENSKO · reverse common Europe on globe side · 2 EURO CENT · Drahomír Zobek / Luc Luycx",
+      "their_source": "Numista N#5085 (https://en.numista.com/catalogue/pieces5085.html): verified design text in house style",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5085.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.50-centavos:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.50-centavos",
+     "field": "design.text",
+     "coins": [
+      "C284"
+     ],
+     "label": "design of C284 · Mexico · 2009 · 50 centavos · MXN",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse large 50¢ in a 12-sided field, date above, mint mark below · border of stylized feathers and blade handles from the Ring of Sacrifice (Anillo del Sacrificio) on the Aztec sun stone",
+      "their_source": "Greysheet KM-549 2009-Mo 50 centavos (https://www.greysheet.com/prices/item/2009-mo-50-centavos-reform-type-a1-km-549-mexico-world-coins/gsi",
+      "links": [
+       "https://www.greysheet.com/prices/item/2009-mo-50-centavos-reform-type-a1-km-549-mexico-world-coins/gsid/295584",
+       "https://en.numista.com/catalogue/pieces583.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
      "inputs": []

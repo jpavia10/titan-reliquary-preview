@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-23T16:07:47Z",
+ "updated": "2026-10-23T17:41:31Z",
  "assignments": [
   {
    "id": "HW-gemini-value-20261014-1",
@@ -8863,34 +8863,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:BZ.X.25-cents:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "BZ.X.25-cents",
-     "field": "catalogs",
-     "coins": [
-      "C280"
-     ],
-     "label": "catalog of C280 · Belize · 2007 · 25 cents · BZD",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:BZ.X.25-cents:composition.text",
      "kind": "verify",
      "entity": "type",
@@ -10565,34 +10537,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:PH.X.1-piso:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "PH.X.1-piso",
-     "field": "catalogs",
-     "coins": [
-      "C279"
-     ],
-     "label": "catalog of C279 · Philippines · 1997 · 1 piso · PHP",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:PH.X.1-piso:composition.text",
      "kind": "verify",
      "entity": "type",
@@ -11729,34 +11673,6 @@
       "C262"
      ],
      "label": "catalog of C251 · Yugoslavia · 1984 · 1 dinar · YUD",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:YU.X.50-para:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "YU.X.50-para",
-     "field": "catalogs",
-     "coins": [
-      "C282"
-     ],
-     "label": "catalog of C282 · Yugoslavia · 1965 · 50 para · YUD",
      "authors": [
       "grok"
      ],
@@ -15543,34 +15459,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:SK.X.5-euro-cent:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SK.X.5-euro-cent",
-     "field": "catalogs",
-     "coins": [
-      "C285"
-     ],
-     "label": "catalog of C285 · Slovakia · 2009 · 5 euro cent · EUR",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:ES.KM.1042:issues.0.mintage",
      "kind": "verify",
      "entity": "type",
@@ -15972,35 +15860,6 @@
       "photos": [],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:AU.X.1-cent:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "AU.X.1-cent",
-     "field": "catalogs",
-     "coins": [
-      "C288",
-      "C303"
-     ],
-     "label": "catalog of C288 · Australia · 1983 · 1 cent · AUD",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
       "recheck": false
      },
      "blind": false,

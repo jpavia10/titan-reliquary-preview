@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-10-22T22:42:51Z",
- "content_hash": "e209b1fba9ea3094",
+ "generated_at": "2026-10-23T16:42:00Z",
+ "content_hash": "2d99aa86aef35952",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:e209b1fba9ea3094",
+  "ledger_version": "v3:2d99aa86aef35952",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5390.04,
@@ -83,6 +83,14 @@
   "AR.X.5-centavos": {
    "catalogs": [
     {
+     "number": "50",
+     "system": "KM"
+    },
+    {
+     "number": "49a.2",
+     "system": "Schön"
+    },
+    {
      "number": "4835",
      "system": "Numista",
      "url": "https://en.numista.com/catalogue/pieces4835.html"
@@ -108,7 +116,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse denomination 5 CENTAVOS in center · REPUBLICA ARGENTINA · reverse portrait of José de San Martín right · JOSE DE SAN MARTIN · Mario Baiardi"
    },
    "die_variety": null,
    "error_type": null,
@@ -461,7 +469,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Elizabeth II · reverse Stuart Devlin platypus in water · big 20"
+    "text": "obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse platypus swimming left · 20 · Stuart Devlin / Arnold Machin"
    },
    "die_variety": null,
    "error_type": null,
@@ -546,7 +554,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse feather-tailed glider · 1 · Stuart Devlin / Arnold Machin"
    },
    "die_variety": null,
    "error_type": null,
@@ -598,6 +606,14 @@
   "AU.X.10-cents": {
    "catalogs": [
     {
+     "number": "402",
+     "system": "KM"
+    },
+    {
+     "number": "418",
+     "system": "Schön"
+    },
+    {
      "number": "1565",
      "system": "Numista",
      "url": "https://en.numista.com/catalogue/pieces1565.html"
@@ -623,7 +639,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse 4th portrait bust of Elizabeth II right wearing tiara · ELIZABETH II AUSTRALIA · reverse superb lyrebird displaying plumage · 10 · Stuart Devlin / Ian Rank-Broadley"
    },
    "die_variety": null,
    "error_type": null,
@@ -927,7 +943,21 @@
    "tags": []
   },
   "BS.X.25-cents": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "63.1",
+     "system": "KM"
+    },
+    {
+     "number": "38",
+     "system": "Schön"
+    },
+    {
+     "number": "9352",
+     "system": "Numista",
+     "url": "https://en.numista.com/catalogue/pieces9352.html"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
@@ -948,7 +978,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin"
    },
    "die_variety": null,
    "error_type": null,
@@ -1000,6 +1030,14 @@
   "BS.X.5-cents": {
    "catalogs": [
     {
+     "number": "60",
+     "system": "KM"
+    },
+    {
+     "number": "35",
+     "system": "Schön"
+    },
+    {
      "number": "5010",
      "system": "Numista",
      "url": "https://en.numista.com/catalogue/pieces5010.html"
@@ -1025,7 +1063,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse pineapple above garland · FIVE CENTS"
    },
    "die_variety": null,
    "error_type": null,
@@ -1110,7 +1148,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SECOND · reverse 25 CENTS within central beaded circle and ornamental border with BELIZE above and date below · Cecil Thomas (obverse)"
    },
    "die_variety": null,
    "error_type": null,
@@ -4896,7 +4934,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "Fraktur GR + stars (13 counted on T001; 'ring of stars' on T002) // large 20 in closed laurel wreath"
+    "text": "obverse Fraktur monogram GR in a ring of stars (15 on T002; T001's count is an open owner question) · reverse large 20 in a laurel wreath open at the top, the stems crossed at the bottom"
    },
    "die_variety": null,
    "error_type": null,
@@ -5971,7 +6009,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "national modern La Semeuse (Laurent Jorio after Roty) · RF · 12 EU stars · common map side (Luc Luycx)"
+    "text": "obverse The Sower walking left with rays and 12 stars · RF · L. JORIO d'ap. O. ROTY · reverse common Europe map side · 10 EURO CENT · Laurent Jorio / Luc Luycx"
    },
    "die_variety": null,
    "error_type": null,
@@ -6773,7 +6811,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse The Sower in Phrygian cap sowing against rising sun · REPUBLIQUE FRANÇAISE · reverse olive and oak branches with wheat ears · LIBERTE•EGALITE•FRATERNITE · 5 FRANCS · Louis-Oscar Roty"
    },
    "die_variety": null,
    "error_type": null,
@@ -6857,7 +6895,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · ONE PENNY (Matthew Dent)"
+    "text": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse lower section of Royal Arms shield · ONE PENNY · Matthew Dent / Ian Rank-Broadley"
    },
    "die_variety": null,
    "error_type": null,
@@ -7859,7 +7897,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Arnold Machin Elizabeth II · reverse Plume of ostrich feathers in coronet · NEW PENCE (Ironside)"
+    "text": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Prince of Wales feathers coronet badge · NEW PENCE 2 · Christopher Ironside / Arnold Machin"
    },
    "die_variety": null,
    "error_type": null,
@@ -8235,7 +8273,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Raphael Maklouf Elizabeth II · reverse Plume of ostrich feathers · TWO PENCE (Ironside)"
+    "text": "obverse 3rd crowned bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Prince of Wales feathers coronet badge with motto ICH DIEN · TWO PENCE 2 · Christopher Ironside / Raphael David Maklouf"
    },
    "die_variety": null,
    "error_type": null,
@@ -8803,17 +8841,17 @@
   "GB.X.1-penny": {
    "catalogs": [
     {
-     "number": "578",
-     "system": "Numista",
-     "url": "https://en.numista.com/578"
-    },
-    {
      "number": "810",
      "system": "KM"
     },
     {
      "number": "299",
      "system": "Schön"
+    },
+    {
+     "number": "578",
+     "system": "Numista",
+     "url": "https://en.numista.com/catalogue/pieces578.html"
     }
    ],
    "class": "coin",
@@ -8836,7 +8874,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse uncrowned portrait of George V left · GEORGIVS V DEI GRA:BRITT:OMN:REX FID:DEF:IND:IMP: · reverse seated Britannia right with trident and shield · ONE PENNY · Edgar Bertram MacKennal / Leonard Charles Wyon"
    },
    "die_variety": null,
    "error_type": null,
@@ -9350,7 +9388,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse national coat of arms · REPUBLICA DE HONDURAS · reverse portrait of cacique Lempira facing left · 50 CENTAVOS DE LEMPIRA"
    },
    "die_variety": null,
    "error_type": null,
@@ -12695,17 +12733,17 @@
   "MX.X.20-pesos": {
    "catalogs": [
     {
-     "number": "987",
-     "system": "Numista",
-     "url": "https://en.numista.com/catalogue/pieces987.html"
-    },
-    {
      "number": "486",
      "system": "KM"
     },
     {
      "number": "78",
      "system": "Schön"
+    },
+    {
+     "number": "987",
+     "system": "Numista",
+     "url": "https://en.numista.com/catalogue/pieces987.html"
     }
    ],
    "class": "coin",
@@ -12728,7 +12766,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse Maya ballplayer (Jugador de pelota) in circle · CULTURA MAYA · $20 · Mo · Alfonso Rodríguez Facio"
    },
    "die_variety": null,
    "error_type": null,
@@ -12780,6 +12818,14 @@
   "MX.X.5-centavos": {
    "catalogs": [
     {
+     "number": "426",
+     "system": "KM"
+    },
+    {
+     "number": "49",
+     "system": "Schön"
+    },
+    {
      "number": "953",
      "system": "Numista",
      "url": "https://en.numista.com/catalogue/pieces953.html"
@@ -12805,7 +12851,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse bust of Josefa Ortiz de Domínguez right · CINCO CENTAVOS · Mo"
    },
    "die_variety": null,
    "error_type": null,
@@ -12892,7 +12938,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse large 50¢ in a 12-sided field, date above, mint mark below · border of stylized feathers and blade handles from the Ring of Sacrifice (Anillo del Sacrificio) on the Aztec sun stone"
    },
    "die_variety": null,
    "error_type": null,
@@ -12946,6 +12992,14 @@
   "MX.X.500-pesos": {
    "catalogs": [
     {
+     "number": "529",
+     "system": "KM"
+    },
+    {
+     "number": "88",
+     "system": "Schön"
+    },
+    {
      "number": "819",
      "system": "Numista",
      "url": "https://en.numista.com/catalogue/pieces819.html"
@@ -12971,7 +13025,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse portrait of Francisco I. Madero facing right · Madero · $500 · Mo"
    },
    "die_variety": null,
    "error_type": null,
@@ -13590,7 +13644,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "national Beatrix portrait + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe globe side (Luc Luycx)"
+    "text": "obverse profile portrait of Queen Beatrix left with 12 stars and BEATRIX KONINGIN DER NEDERLANDEN · reverse common Europe on globe side · 5 EURO CENT · Bruno Ninaber van Eyben / Luc Luycx"
    },
    "die_variety": null,
    "error_type": null,
@@ -14131,7 +14185,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "reverse Philippine Eagle (Pithecophaga jefferyi) wings spread · 50 SENTIMO · scientific name on rim · obverse/date side not shown"
+    "text": "obverse portrait of Marcelo H. del Pilar right · REPUBLIKA NG PILIPINAS · reverse Philippine eagle (Pithecophaga jefferyi) perched with wings spread · 50 SENTIMO"
    },
    "die_variety": null,
    "error_type": null,
@@ -14220,7 +14274,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse bust of José Rizal right · 1 PISO · REPUBLIKA NG PILIPINAS · reverse Bangko Sentral ng Pilipinas seal · date"
    },
    "die_variety": null,
    "error_type": null,
@@ -14744,7 +14798,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "national Kriváň peak · double-cross arms + SLOVENSKO · date · 12 EU stars · common Europe map side (Luc Luycx) · Drahomír Zobek"
+    "text": "obverse Kriváň peak in High Tatras · national double-cross arms · SLOVENSKO · reverse common Europe on globe side · 2 EURO CENT · Drahomír Zobek / Luc Luycx"
    },
    "die_variety": null,
    "error_type": null,
@@ -14829,7 +14883,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse Kriváň peak in High Tatras · national double-cross arms · SLOVENSKO · reverse common Europe on globe side · 5 EURO CENT · Drahomír Zobek / Luc Luycx"
    },
    "die_variety": null,
    "error_type": null,
@@ -15777,7 +15831,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": "obverse Washington · dual-date 1776–1976 · reverse drummer boy (Jack L. Ahr) · E PLURIBUS UNUM · QUARTER DOLLAR"
+    "text": "obverse bust of George Washington left · LIBERTY · 1776–1976 · reverse colonial military drummer boy facing left · victory torch with 13 stars · Jack L. Ahr / John Flanagan"
    },
    "die_variety": null,
    "error_type": null,
@@ -16493,7 +16547,7 @@
     "legend": null,
     "obverse": null,
     "reverse": null,
-    "text": ""
+    "text": "obverse SFRY socialist arms with six torches within wheat sheaf · reverse numeral 50 · ПАРА / PARA · state title rim legend"
    },
    "die_variety": null,
    "error_type": null,
@@ -74509,10 +74563,13 @@
     ]
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Wikipedia (Dutch euro coins); Numista artist page (Luc Luycx)"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#147 (https://en.numista.com/catalogue/pieces147.html, 1999-2013 5 Euro Cents KM# 236 for C004 dated 2000): verified globe common s",
+    "links": [
+     "https://en.numista.com/catalogue/pieces147.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -75162,10 +75219,13 @@
     ]
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Online Coin Club 'Two Pence, Coin Type from United Kingdom'; Listia auction 26895454 (1971 2 New Pence)"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#664 (https://en.numista.com/catalogue/pieces664.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces664.html"
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -75905,10 +75965,13 @@
     ]
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Online Coin Club 'Two Pence, Coin Type from United Kingdom'; Listia auction 26895454 (1971 2 New Pence)"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#664 (https://en.numista.com/catalogue/pieces664.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces664.html"
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -76917,10 +76980,13 @@
     ]
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Wikipedia (Slovak euro coins); European Commission euro pages"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#5085 (https://en.numista.com/catalogue/pieces5085.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5085.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -78028,10 +78094,13 @@
     "n": 2
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Wikipedia French euro coins (Laurent Jorio after Oscar Roty's La Semeuse); Numista-cited coin guide video for France 10 euro cent"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#3510 (https://en.numista.com/catalogue/pieces3510.html, 2007-2023 10 Euro Cents KM# 1410 for C054 and C097): verified design text ",
+    "links": [
+     "https://en.numista.com/catalogue/pieces3510.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -79391,10 +79460,13 @@
     ]
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "CoinWeek '1976-S Bicentennial Quarter Clad Proof'; usacoinbook.com 'Jack L. Ahr'"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#56 (https://en.numista.com/catalogue/pieces56.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces56.html"
+    ]
    },
    "series": {
     "level": "reference",
@@ -80880,10 +80952,13 @@
     "n": 2
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Wikipedia French euro coins (Laurent Jorio after Oscar Roty's La Semeuse); Numista-cited coin guide video for France 10 euro cent"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#3510 (https://en.numista.com/catalogue/pieces3510.html, 2007-2023 10 Euro Cents KM# 1410 for C054 and C097): verified design text ",
+    "links": [
+     "https://en.numista.com/catalogue/pieces3510.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -85546,10 +85621,13 @@
     "source": "plain-English rewrite (owner request 2026-10-04) of Muse's story, using only the coin's own specimen and type record"
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "numismatics.ph '50 Sentimo Flora and Fauna Series Coins (1983-1994)'; LastDodo item 2095671"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#2461 (https://en.numista.com/catalogue/pieces2461.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces2461.html"
+    ]
    },
    "series": {
     "level": "reference",
@@ -89145,10 +89223,13 @@
     "source": "Titan collection audit 2026-10-03: story composed from catalogued type record GB.KM.936 (design, denomination, composition as recorded)"
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "coinsanduk.com '2 Pence 1991'; Online Coin Club 'Two Pence, Coin Type from United Kingdom'"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#867 (https://en.numista.com/catalogue/pieces867.html, 1985-1992 2 Pence KM# 936 for C213 dated 1991): verified design text in hous",
+    "links": [
+     "https://en.numista.com/catalogue/pieces867.html"
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -89524,10 +89605,13 @@
     "source": "Titan collection audit 2026-10-03: story composed from catalogued type record GB.KM.1107 (design, denomination, composition as recorded)"
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "changechecker UK 1p; onlinecoin.club UK One Penny"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#4038 (https://en.numista.com/catalogue/pieces4038.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces4038.html"
+    ]
    },
    "series": {
     "level": "reference",
@@ -91631,10 +91715,13 @@
     "source": "Titan collection audit 2026-10-03: story composed from catalogued type record AU.KM.66 (design, denomination, composition as recorded)"
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Wikipedia 'Australian twenty-cent coin'; Online Coin Club 'Twenty Cents 1966'"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#1003 (https://en.numista.com/catalogue/pieces1003.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1003.html"
+    ]
    },
    "ruler": {
     "level": "checked",
@@ -93771,13 +93858,14 @@
     "like": "country"
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-08",
-    "source": "Numista N#1681 (https://en.numista.com/catalogue/pieces1681.html) references: KM# 269, Schön# 119",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-10-23",
+    "source": "Numista N#1681 (https://en.numista.com/catalogue/pieces1681.html): verified catalogue numbers KM# 269, Schön# 119, N# 1681",
     "links": [
      "https://en.numista.com/catalogue/pieces1681.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "reference",
@@ -93806,6 +93894,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#1681 (https://en.numista.com/catalogue/pieces1681.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1681.html"
+    ]
    }
   },
   "C280": {
@@ -93834,13 +93931,14 @@
     "like": "country"
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-08",
-    "source": "Numista N#2238 (https://en.numista.com/catalogue/pieces2238.html) references: KM# 36, Schön# 6",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-10-23",
+    "source": "Numista N#2238 (https://en.numista.com/catalogue/pieces2238.html): verified catalogue numbers KM# 36, Schön# 6, N# 2238",
     "links": [
      "https://en.numista.com/catalogue/pieces2238.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "reference",
@@ -93869,6 +93967,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#2238 (https://en.numista.com/catalogue/pieces2238.html, 1974-2022 25 Cents for C280 dated 2007): obverse engraver Cecil Thomas, re",
+    "links": [
+     "https://en.numista.com/catalogue/pieces2238.html"
+    ]
    }
   },
   "C281": {
@@ -93904,13 +94011,13 @@
    },
    "catalog": {
     "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces8.html: References row KM# 926a.1, Schön# 235a; Number N#8",
+    "by": "Gemini + Grok + Muse",
+    "ts": "2026-10-23",
+    "source": "Numista N#8 (https://en.numista.com/catalogue/pieces8.html): verified catalogue numbers KM# 926a.1, Schön# 235a, N# 8 for 1994 5 Francs (C28",
     "links": [
      "https://en.numista.com/catalogue/pieces8.html"
     ],
-    "n": 2
+    "n": 3
    },
    "composition": {
     "level": "checked",
@@ -93949,6 +94056,15 @@
     "links": [
      "https://en.numista.com/catalogue/pieces8.html"
     ]
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#8 (https://en.numista.com/catalogue/pieces8.html, 1969-2001 5 Francs for C281 dated 1994): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces8.html"
+    ]
    }
   },
   "C282": {
@@ -93977,13 +94093,14 @@
     "like": "country"
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-08",
-    "source": "Numista N#2006 (https://en.numista.com/catalogue/pieces2006.html) references: KM# 46.1, Schön# 42; type KM# 46; the 1965 row is KM# 46.1 (na",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-10-23",
+    "source": "Numista N#2006 (https://en.numista.com/catalogue/pieces2006.html): verified catalogue numbers KM# 46.1, Schön# 42, N# 2006",
     "links": [
      "https://en.numista.com/catalogue/pieces2006.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "reference",
@@ -94016,6 +94133,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#2006 (https://en.numista.com/catalogue/pieces2006.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces2006.html"
+    ]
    }
   },
   "C283": {
@@ -94125,13 +94251,14 @@
     "n": 2
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-09",
-    "source": "Numista N#583 (https://en.numista.com/catalogue/pieces583.html) references: KM# 549, Schön# 145; 50 centavos large type 1992-2009, aluminium",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-10-23",
+    "source": "Numista N#583 (https://en.numista.com/catalogue/pieces583.html): verified catalogue numbers KM# 549, Schön# 145, N# 583 for 2009 50 Centavos",
     "links": [
      "https://en.numista.com/catalogue/pieces583.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "reference",
@@ -94170,6 +94297,16 @@
      "https://en.numista.com/catalogue/pieces583.html"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Claude",
+    "ts": "2026-10-23",
+    "source": "Greysheet KM-549 2009-Mo 50 centavos (https://www.greysheet.com/prices/item/2009-mo-50-centavos-reform-type-a1-km-549-mexico-world-coins/gsi",
+    "links": [
+     "https://www.greysheet.com/prices/item/2009-mo-50-centavos-reform-type-a1-km-549-mexico-world-coins/gsid/295584",
+     "https://en.numista.com/catalogue/pieces583.html"
+    ]
    }
   },
   "C285": {
@@ -94197,15 +94334,16 @@
     "source": "C285_obv.webp: photo not found in repo"
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-09",
-    "source": "Numista N#5086 (https://en.numista.com/catalogue/pieces5086.html) references: KM# 97, Schön# 95; Slovakia 5 euro cents 2009-date, national s",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-10-23",
+    "source": "Numista N#5086 (https://en.numista.com/catalogue/pieces5086.html): verified catalogue numbers KM# 97, Schön# 95, N# 5086",
     "links": [
      "https://en.numista.com/catalogue/pieces5086.html",
      "https://en.numista.com/catalogue/pieces5085.html",
      "https://en.numista.com/catalogue/pieces5084.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "reference",
@@ -94243,6 +94381,15 @@
      "https://en.numista.com/catalogue/pieces5086.html"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#5086 (https://en.numista.com/catalogue/pieces5086.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5086.html"
+    ]
    }
   },
   "C286": {
@@ -94275,13 +94422,13 @@
    },
    "catalog": {
     "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces3190.html (N#3190) — References row: \"KM # 84a\", \"Schön # 39a\".",
+    "by": "Gemini + Grok + Muse",
+    "ts": "2026-10-23",
+    "source": "Numista N#3190 (https://en.numista.com/catalogue/pieces3190.html): verified catalogue numbers KM# 84a, Schön# 39a, N# 3190",
     "links": [
      "https://en.numista.com/catalogue/pieces3190.html"
     ],
-    "n": 2
+    "n": 3
    },
    "composition": {
     "level": "checked",
@@ -94321,6 +94468,15 @@
      "https://en.numista.com/catalogue/pieces3190.html"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#3190 (https://en.numista.com/catalogue/pieces3190.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces3190.html"
+    ]
    }
   },
   "C287": {
@@ -94434,13 +94590,14 @@
     "like": "country"
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-09",
-    "source": "Numista N#1559 (https://en.numista.com/catalogue/pieces1559.html) references: KM# 62, Schön# 49; Australia 1 cent 1966-1984, Elizabeth II 2n",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-10-23",
+    "source": "Numista N#1559 (https://en.numista.com/catalogue/pieces1559.html): verified catalogue numbers KM# 62, Schön# 49, N# 1559",
     "links": [
      "https://en.numista.com/catalogue/pieces1559.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "reference",
@@ -94473,6 +94630,15 @@
      "https://en.numista.com/catalogue/pieces1559.html"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#1559 (https://en.numista.com/catalogue/pieces1559.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1559.html"
+    ]
    }
   },
   "C289": {
@@ -94502,9 +94668,9 @@
    },
    "catalog": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Numista N#4835 (https://en.numista.com/catalogue/pieces4835.html): References — KM# 50, CJ# 249-251, Schön# 49a.2; Number N#4835. Page: '5 C",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#4835 (https://en.numista.com/catalogue/pieces4835.html): verified catalogue numbers KM# 50, Schön# 49a.2, N# 4835 for 1954 5 Centa",
     "links": [
      "https://en.numista.com/catalogue/pieces4835.html"
     ]
@@ -94548,6 +94714,15 @@
      "https://en.wikipedia.org/wiki/Juan_Per%C3%B3n"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#4835 (https://en.numista.com/catalogue/pieces4835.html, 1954-1956 5 Centavos for C289 dated 1954): verified design text in house s",
+    "links": [
+     "https://en.numista.com/catalogue/pieces4835.html"
+    ]
    }
   },
   "C290": {
@@ -94621,10 +94796,13 @@
     "n": 2
    },
    "design": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "changechecker UK 1p; onlinecoin.club UK One Penny"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#4038 (https://en.numista.com/catalogue/pieces4038.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces4038.html"
+    ]
    },
    "series": {
     "level": "reference",
@@ -94684,9 +94862,9 @@
    },
    "catalog": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces5010.html (N#5010) — References row: \"KM # 60\", \"Schön # 35\".",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#5010 (https://en.numista.com/catalogue/pieces5010.html): verified catalogue numbers KM# 60, Schön# 35, N# 5010 for 1984 5 Cents (C",
     "links": [
      "https://en.numista.com/catalogue/pieces5010.html"
     ]
@@ -94725,6 +94903,15 @@
      "https://en.numista.com/catalogue/pieces5010.html"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#5010 (https://en.numista.com/catalogue/pieces5010.html, 1974-2006 5 Cents for C291 dated 1984): verified design text in house styl",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5010.html"
+    ]
    }
   },
   "C292": {
@@ -94847,9 +95034,9 @@
    },
    "catalog": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces819.html (N#819) — References row: \"KM # 529\", \"Schön # 88\".",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#819 (https://en.numista.com/catalogue/pieces819.html): verified catalogue numbers KM# 529, Schön# 88, N# 819 for 1988/1989 500 Pes",
     "links": [
      "https://en.numista.com/catalogue/pieces819.html"
     ]
@@ -94894,6 +95081,15 @@
      "https://en.numista.com/catalogue/pieces819.html"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#819 (https://en.numista.com/catalogue/pieces819.html, 1986-1992 500 Pesos for C293 1988 and C301 1989): verified design text in ho",
+    "links": [
+     "https://en.numista.com/catalogue/pieces819.html"
+    ]
    }
   },
   "C294": {
@@ -94923,9 +95119,9 @@
    },
    "catalog": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Numista N#953 (https://en.numista.com/catalogue/pieces953.html): References section reads 'KM# 426, Standard Catalog of World Coins' and 'Sc",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#953 (https://en.numista.com/catalogue/pieces953.html): verified catalogue numbers KM# 426, Schön# 49, N# 953 for 1969 Mo 5 Centavo",
     "links": [
      "https://en.numista.com/catalogue/pieces953.html"
     ]
@@ -94968,6 +95164,15 @@
      "https://en.numista.com/catalogue/pieces953.html"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#953 (https://en.numista.com/catalogue/pieces953.html, 1954-1969 5 Centavos for C294 dated 1969 Mo): verified design text in house ",
+    "links": [
+     "https://en.numista.com/catalogue/pieces953.html"
+    ]
    }
   },
   "C295": {
@@ -94994,9 +95199,9 @@
    },
    "catalog": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces1565.html (N#1565) — References row: \"KM # 402\", \"Schön # 418\".",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html): verified catalogue numbers KM# 402, Schön# 418, N# 1565 for 2006 10 Cents",
     "links": [
      "https://en.numista.com/catalogue/pieces1565.html"
     ]
@@ -95038,6 +95243,15 @@
      "https://en.numista.com/catalogue/pieces1565.html"
     ],
     "n": 2
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html, 1999-2019 10 Cents for C295 dated 2006): verified design text in house sty",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1565.html"
+    ]
    }
   },
   "C296": {
@@ -95386,6 +95600,15 @@
     "level": "photo",
     "like": "country"
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#9352 (https://en.numista.com/catalogue/pieces9352.html): verified catalogue numbers KM# 63.1, Schön# 38, N# 9352 for 1984 25 Cents",
+    "links": [
+     "https://en.numista.com/catalogue/pieces9352.html"
+    ]
+   },
    "mintage": {
     "level": "ai",
     "by": "Claude",
@@ -95399,6 +95622,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#9352 (https://en.numista.com/catalogue/pieces9352.html, 1974-1992 25 Cents for C300 dated 1984): verified design text in house sty",
+    "links": [
+     "https://en.numista.com/catalogue/pieces9352.html"
+    ]
    }
   },
   "C301": {
@@ -95428,9 +95660,9 @@
    },
    "catalog": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces819.html (N#819) — References row: \"KM # 529\", \"Schön # 88\".",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#819 (https://en.numista.com/catalogue/pieces819.html): verified catalogue numbers KM# 529, Schön# 88, N# 819 for 1988/1989 500 Pes",
     "links": [
      "https://en.numista.com/catalogue/pieces819.html"
     ]
@@ -95462,6 +95694,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#819 (https://en.numista.com/catalogue/pieces819.html, 1986-1992 500 Pesos for C293 1988 and C301 1989): verified design text in ho",
+    "links": [
+     "https://en.numista.com/catalogue/pieces819.html"
+    ]
    }
   },
   "C302": {
@@ -95490,14 +95731,14 @@
    },
    "catalog": {
     "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-15",
-    "source": "Numista N#578 https://en.numista.com/578 — George V penny 1911-1926; page shows 1922 in reverse lettering, matches type issue. KM#810, Schon",
+    "by": "Gemini + Grok + Muse",
+    "ts": "2026-10-23",
+    "source": "Numista N#578 (https://en.numista.com/catalogue/pieces578.html): verified catalogue numbers KM# 810, Schön# 299, N# 578 for 1922 1 Penny (C3",
     "links": [
-     "https://en.numista.com/578",
-     "https://en.numista.com/catalogue/pieces578.html"
+     "https://en.numista.com/catalogue/pieces578.html",
+     "https://en.numista.com/578"
     ],
-    "n": 2
+    "n": 3
    },
    "composition": {
     "level": "reference",
@@ -95524,6 +95765,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#578 (https://en.numista.com/catalogue/pieces578.html, 1911-1926 George V 1 Penny for C302 dated 1922): verified design text in hou",
+    "links": [
+     "https://en.numista.com/catalogue/pieces578.html"
+    ]
    }
   },
   "C303": {
@@ -95548,13 +95798,14 @@
     "like": "country"
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-09",
-    "source": "Numista N#1559 (https://en.numista.com/catalogue/pieces1559.html) references: KM# 62, Schön# 49; Australia 1 cent 1966-1984, Elizabeth II 2n",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-10-23",
+    "source": "Numista N#1559 (https://en.numista.com/catalogue/pieces1559.html): verified catalogue numbers KM# 62, Schön# 49, N# 1559",
     "links": [
      "https://en.numista.com/catalogue/pieces1559.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "reference",
@@ -95581,6 +95832,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#1559 (https://en.numista.com/catalogue/pieces1559.html): verified design text in house style",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1559.html"
+    ]
    }
   },
   "C304": {
@@ -95613,13 +95873,13 @@
    },
    "catalog": {
     "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-15",
-    "source": "Numista N#987 https://en.numista.com/catalogue/pieces987.html — Mexico 20 pesos Maya culture commemorative 1980-1984; matches type (1981 iss",
+    "by": "Gemini + Grok + Muse",
+    "ts": "2026-10-23",
+    "source": "Numista N#987 (https://en.numista.com/catalogue/pieces987.html): verified catalogue numbers KM# 486, Schön# 78, N# 987",
     "links": [
      "https://en.numista.com/catalogue/pieces987.html"
     ],
-    "n": 2
+    "n": 3
    },
    "composition": {
     "level": "reference",
@@ -95646,6 +95906,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "design": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#987 (https://en.numista.com/catalogue/pieces987.html, 1980-1984 20 Pesos for C304 dated 1981): verified reverse legend CULTURA MAY",
+    "links": [
+     "https://en.numista.com/catalogue/pieces987.html"
+    ]
    }
   },
   "T001": {
@@ -95665,10 +95934,10 @@
     "source": "plain-English rewrite (owner request 2026-10-04) of Muse's story, using only the coin's own specimen and type record"
    },
    "design": {
-    "level": "ai",
-    "by": "Ledger import",
-    "ts": "2026-09-30",
-    "source": "T001 vs T002 (same Spielmarke); both facts kept in one sentence"
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-23",
+    "source": "photos T002_Germany_ND_Spielmarke20_obv.jpeg + T002_Germany_ND_Spielmarke20_rev.jpeg (photos/p1/T002_obv.webp, T002_rev.webp), read by Claud"
    }
   },
   "T002": {
@@ -95694,10 +95963,10 @@
     "source": "checked against photos T002_obv.webp and T002_rev.webp (no catalogue entry exists for this game token): all claims hold (GR in black-letter "
    },
    "design": {
-    "level": "ai",
-    "by": "Ledger import",
-    "ts": "2026-09-30",
-    "source": "T001 vs T002 (same Spielmarke); both facts kept in one sentence"
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-23",
+    "source": "photos T002_Germany_ND_Spielmarke20_obv.jpeg + T002_Germany_ND_Spielmarke20_rev.jpeg (photos/p1/T002_obv.webp, T002_rev.webp), read by Claud"
    }
   },
   "T003": {

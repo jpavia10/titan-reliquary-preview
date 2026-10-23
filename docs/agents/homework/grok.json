@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-23T16:07:47Z",
+ "updated": "2026-10-23T17:41:31Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261019-1",
@@ -706,11 +706,11 @@
      ],
      "label": "catalog of C291 · Bahamas · 1984 · 5 cents · BSD",
      "authors": [
-      "muse"
+      "gemini"
      ],
      "payload": {
       "fact": "catalog",
-      "author": "Muse",
+      "author": "Gemini",
       "ledger": false,
       "value": null,
       "their_source": null,
@@ -735,11 +735,11 @@
      ],
      "label": "catalog of C293 · Mexico · 1988 · 500 pesos · MXP",
      "authors": [
-      "muse"
+      "gemini"
      ],
      "payload": {
       "fact": "catalog",
-      "author": "Muse",
+      "author": "Gemini",
       "ledger": false,
       "value": null,
       "their_source": null,
@@ -828,11 +828,11 @@
      ],
      "label": "catalog of C294 · Mexico · 1969 · 5 centavos · MXP",
      "authors": [
-      "muse"
+      "gemini"
      ],
      "payload": {
       "fact": "catalog",
-      "author": "Muse",
+      "author": "Gemini",
       "ledger": false,
       "value": null,
       "their_source": null,
@@ -856,11 +856,11 @@
      ],
      "label": "catalog of C289 · Argentina · 1954 · 5 centavos · ARM",
      "authors": [
-      "muse"
+      "gemini"
      ],
      "payload": {
       "fact": "catalog",
-      "author": "Muse",
+      "author": "Gemini",
       "ledger": false,
       "value": null,
       "their_source": null,
@@ -884,11 +884,11 @@
      ],
      "label": "catalog of C295 · Australia · 2006 · 10 cents · AUD",
      "authors": [
-      "muse"
+      "gemini"
      ],
      "payload": {
       "fact": "catalog",
-      "author": "Muse",
+      "author": "Gemini",
       "ledger": false,
       "value": null,
       "their_source": null,
@@ -2323,7 +2323,7 @@
        "metal": "cupronickel · 6.00 g · 25 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness 1.62 mm · medal alignment · Flora and Fauna / eagle type",
        "mintage": "121,408,000",
-       "design": "reverse Philippine Eagle (Pithecophaga jefferyi) wings spread · 50 SENTIMO · scientific name on rim · obverse/date side not shown",
+       "design": "obverse portrait of Marcelo H. del Pilar right · REPUBLIKA NG PILIPINAS · reverse Philippine eagle (Pithecophaga jefferyi) perched with wings spread · 50 SENTIMO",
        "series": "Flora and Fauna",
        "period": "Republic of the Philippines"
       }
@@ -2643,7 +2643,7 @@
        "metal": "bronze (97 Cu / 2.5 Zn / 0.5 Sn) · 7.12 g · 25.9 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness 1.85 mm · medal alignment · type specs shared with decimal 2p family · bronze era (pre–Sep 1992)",
        "mintage": "86,625,250 (circulation · Royal Mint)",
-       "design": "obverse Raphael Maklouf Elizabeth II · reverse Plume of ostrich feathers · TWO PENCE (Ironside)",
+       "design": "obverse 3rd crowned bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Prince of Wales feathers coronet badge with motto ICH DIEN · TWO PENCE 2 · Christopher Ironside / Raphael David Maklouf",
        "ruler": "Elizabeth II",
        "period": "British decimal"
       }
@@ -2739,7 +2739,7 @@
        "metal": "copper-plated steel · 3.56 g · 20.3 mm · plain · circulated bright · white 2×2 staple flip",
        "specs": "thickness 1.65 mm · medal alignment · type specs shared with decimal 1p family · Cu-plated steel from Sep 1992 (magnetic)",
        "mintage": "609,603,000",
-       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · ONE PENNY (Matthew Dent)",
+       "design": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse lower section of Royal Arms shield · ONE PENNY · Matthew Dent / Ian Rank-Broadley",
        "ruler": "Elizabeth II",
        "series": "Shield series",
        "period": "British decimal"
@@ -2992,7 +2992,7 @@
        "metal": "cupronickel · 11.30 g · 28.52 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness unknown · medal alignment · first-year decimal",
        "mintage": "28,223,000",
-       "design": "obverse Elizabeth II · reverse Stuart Devlin platypus in water · big 20",
+       "design": "obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse platypus swimming left · 20 · Stuart Devlin / Arnold Machin",
        "ruler": "Elizabeth II"
       }
      },
@@ -3460,7 +3460,8 @@
        "refs": "KM#36 · Schön#6 · Numista#2238",
        "metal": "copper-nickel (75% copper, 25% nickel) · 5.66 g · 23.6 mm · reeded",
        "specs": "thickness 1.9 mm",
-       "mintage": "unknown"
+       "mintage": "unknown",
+       "design": "obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SECOND · reverse 25 CENTS within central beaded circle and ornamental border with BELIZE above and date below · Cecil Thomas (obverse)"
       }
      },
      "blind": false,
@@ -3489,7 +3490,8 @@
        "refs": "KM#46.1 · Schön#42 · Numista#2006",
        "metal": "aluminium brass (85% copper, 14.5% zinc, 0.5% aluminium) · 6.00 g · 25.5 mm · reeded",
        "specs": "thickness 1.57 mm",
-       "mintage": "44,850,000"
+       "mintage": "44,850,000",
+       "design": "obverse SFRY socialist arms with six torches within wheat sheaf · reverse numeral 50 · ПАРА / PARA · state title rim legend"
       }
      },
      "blind": false,
@@ -11662,8 +11664,10 @@
        "year": "1984",
        "denom": "25 cents · BSD",
        "mint": "not read (no photo of this coin yet)",
+       "refs": "KM#63.1 · Schön#38 · Numista#9352",
        "specs": "thickness unknown",
-       "mintage": "unknown"
+       "mintage": "unknown",
+       "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin"
       }
      },
      "blind": false,
@@ -11689,10 +11693,11 @@
        "year": "1989",
        "denom": "500 pesos · MXP",
        "mint": "Mo",
-       "refs": "Numista#819",
+       "refs": "KM#529 · Schön#88 · Numista#819",
        "metal": "copper-nickel (75% copper, 25% nickel) · 12.64 g · 28.5 mm",
        "specs": "thickness unknown",
-       "mintage": "40,000,000"
+       "mintage": "40,000,000",
+       "design": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse portrait of Francisco I. Madero facing right · Madero · $500 · Mo"
       }
      },
      "blind": false,
@@ -11718,10 +11723,11 @@
        "year": "1922",
        "denom": "1 penny · GBP",
        "mint": "no mint mark visible",
-       "refs": "Numista#578 · KM#810 · Schön#299",
+       "refs": "KM#810 · Schön#299 · Numista#578",
        "metal": "bronze · 9.45 g · 30.8 mm",
        "specs": "thickness unknown",
-       "mintage": "16,346,700"
+       "mintage": "16,346,700",
+       "design": "obverse uncrowned portrait of George V left · GEORGIVS V DEI GRA:BRITT:OMN:REX FID:DEF:IND:IMP: · reverse seated Britannia right with trident and shield · ONE PENNY · Edgar Bertram MacKennal / Leonard Charles Wyon"
       }
      },
      "blind": false,
@@ -11750,7 +11756,8 @@
        "refs": "KM#62 · Schön#49 · Numista#1559",
        "metal": "bronze (97% copper, 2.5% zinc, 0.5% tin) · 2.59 g · 17.53 mm · plain",
        "specs": "thickness 1.5 mm",
-       "mintage": "unknown"
+       "mintage": "unknown",
+       "design": "obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse feather-tailed glider · 1 · Stuart Devlin / Arnold Machin"
       }
      },
      "blind": false,
@@ -11776,10 +11783,11 @@
        "year": "1981",
        "denom": "20 pesos · MXN",
        "mint": "not read (no photo of this coin in Drive yet)",
-       "refs": "Numista#987 · KM#486 · Schön#78",
+       "refs": "KM#486 · Schön#78 · Numista#987",
        "metal": "copper-nickel (75% copper, 25% nickel) · 15.20 g · 32.06 mm",
        "specs": "thickness unknown",
-       "mintage": "250,573,000"
+       "mintage": "250,573,000",
+       "design": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse Maya ballplayer (Jugador de pelota) in circle · CULTURA MAYA · $20 · Mo · Alfonso Rodríguez Facio"
       }
      },
      "blind": false,

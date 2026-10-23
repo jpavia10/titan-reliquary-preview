@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-23] — Claude · Gemini's design-text redo merged (8/10)
+- Gemini redid all 26 types (run run-fixlist72-20261023-1601; pasted in chat by Joseph, never in the drop folder): 40 of 42 lines merged as `changes_gemini_20261023-1601` (original in `collection/_incoming/originals-20261023/`). All 8 wrong texts fixed, all 7 checks right, and it caught SK.KM.96 (2 euro cent = globe side, our record said map).
+- Left out, corrected by Claude (`changes_claude_20261023-1640`): MX.X.50-centavos border = Ring of Sacrifice (not 'Ring of Acceptance'); DE.X.spielmarke-20-gr = 15 stars on T002, no ribbon (Gemini wrote 16 + ribbon). Six new Schön numbers unconfirmed elsewhere. Old held `changes_gemini_20261021-1830` closed as superseded and trashed. Redo project done (queues.json); FEEDBACK + WORK QUEUE docs for Gemini updated.
+
 ### [2026-10-23] — Claude · Muse loaded up (owner)
 - Muse: capacity 40, 8 per kind, +catno, and a new homework kind `fill` (blank edge, thickness, alignment, legal tender, era, designers, obverse/reverse on the types we hold; 173 types in the pool). Muse holds 20 sheets / 469 items. Other AIs: a fill line is a type fact with an exact entry URL, nothing else.
 

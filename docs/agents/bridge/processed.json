@@ -1,6 +1,6 @@
 {
  "schema": "bridge/1",
- "updated": "2026-10-22T13:50:00Z",
+ "updated": "2026-10-23T16:45:31Z",
  "files": {
   "1VCyFXLhrf_LQptckTRLbQywKJWf4pTnz": {
    "name": "changes_grok-bot_20261009-0004.jsonl",
@@ -811,12 +811,12 @@
    "agent": "gemini",
    "updated": "2026-10-22T02:48:23.367Z",
    "sha256": null,
-   "outcome": "held",
-   "at": "2026-10-22T13:50:00Z",
+   "outcome": "rejected",
+   "at": "2026-10-23T16:45:31Z",
    "run": "claude-20261022-1350",
-   "summary": "held by Claude: 8 of its 26 design texts describe a different coin from the one held, 7 more differ from the record; the redo is on Gemini's queue (Redo the 15 design texts)",
+   "summary": "superseded: Gemini redid all 26 types (run run-fixlist72-20261023-1601, pasted in chat by Joseph); 40 of its 42 lines merged as changes_gemini_20261023-1601, so this older file is closed without merging",
    "report": [
-    "held by Claude: 8 of its 26 design texts describe a different coin from the one held, 7 more differ from the record; the redo is on Gemini's queue (Redo the 15 design texts)"
+    "superseded: Gemini redid all 26 types (run run-fixlist72-20261023-1601, pasted in chat by Joseph); 40 of its 42 lines merged as changes_gemini_20261023-1601, so this older file is closed without merging"
    ]
   },
   "1_F_pJrjxXhWJPVPfvkLHm0Mt4JNGi2jc": {
