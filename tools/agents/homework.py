@@ -38,6 +38,7 @@ MIN_OPEN = 3
 FILL = "FILL"                      # answer-sheet placeholder: a line whose source still starts with it is left out, never an error
 STATES_OPEN = ("now", "next", "later", "always")
 STORY_LINT = re.compile(r"·|\s\+\s|&|\(shown\)|\btypical\b|\bCu-?Ni\b|\bCu\s?\d|\.\d{3}\s?Ag\b|//|\b[A-Za-z]{3,}/[A-Za-z]{3,}\b|(?:[^.,;!?]+,){4,}")
+LEGEND = re.compile(r"\b[A-ZÀ-ÖØ-Þ0-9]{2,}(?:[ ,]+[A-ZÀ-ÖØ-Þ0-9]{2,})+\b")   # an inscription in capitals (LIBERTE, EGALITE, FRATERNITE): its commas are not a list
 NOT_RESEARCH = re.compile(r"Confirm at Phase 2|pro photos|physical coin|in hand|the owner", re.I)
 VERIFY_FACTS = (("catalog", "type", "catalogs"), ("mintage", "type", "issues.{N}.mintage"), ("composition", "type", "composition.text"),
                 ("weight", "type", "nominal.weight_g"), ("design", "type", "design.text"), ("ruler", "type", "ruler"), ("series", "type", "series"),
@@ -322,10 +323,10 @@ def pool_plain(ctx, reserved):
     for sid, s in sorted(ctx["live"].items()):
         st = s.get("story") or ""
         if not st or ("plain-story", sid) in reserved: continue
-        m = STORY_LINT.search(st)
+        m = STORY_LINT.search(LEGEND.sub(lambda g: g.group(0).replace(",", "\u201a"), st))   # same length, so m indexes st
         if not m: continue
         out[f"plain:{sid}"] = _item("plain-story", f"plain:{sid}", "specimen", sid, "story", [sid], coin_line(ctx, sid), (sid,),
-                                    payload={"story": st, "shorthand": m.group(0).strip()[:40]}, lines=[("specimen", sid, "story", st)])
+                                    payload={"story": st, "shorthand": st[m.start():m.end()].strip()[:40]}, lines=[("specimen", sid, "story", st)])
     return out
 
 

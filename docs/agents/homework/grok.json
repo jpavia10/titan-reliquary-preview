@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-23T17:41:31Z",
+ "updated": "2026-10-23T20:26:51Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261019-1",
@@ -716,7 +716,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": true,
       "recheck": false
      },
@@ -745,7 +745,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": true,
       "recheck": false
      },
@@ -838,7 +838,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": true,
       "recheck": false
      },
@@ -866,7 +866,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": true,
       "recheck": false
      },
@@ -4188,44 +4188,6 @@
      "blind": true,
      "inputs": [
       "C223_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:DE-EMP.X.20-pfennig:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE-EMP.X.20-pfennig",
-     "field": "denomination.value",
-     "coins": [
-      "C023"
-     ],
-     "label": "denomination of C023 · Germany (Empire) · 1918",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C023_rev.webp",
-        "file": "C023_rev.webp",
-        "original": "C023_Germany_1918_20Pfennig_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1AvM21rocsNxH3aDzEmOFa5QZqFXsVwwP/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C023_rev.webp"
      ]
     },
     {
@@ -10803,35 +10765,6 @@
    ],
    "items_full": [
     {
-     "item": "mint:C023",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C023",
-     "field": "issue",
-     "coins": [
-      "C023"
-     ],
-     "label": "C023 · Germany (Empire) · 1918 · 20 Pfennig · German Empire Mark system",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C023_rev.webp",
-        "file": "C023_rev.webp",
-        "original": "C023_Germany_1918_20Pfennig_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1AvM21rocsNxH3aDzEmOFa5QZqFXsVwwP/view"
-       }
-      ],
-      "hint": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
-      "mint_text_now": "unknown (not on this wreath side (often on eagle/obverse))"
-     },
-     "blind": false,
-     "inputs": [
-      "C023_rev.webp"
-     ]
-    },
-    {
      "item": "mint:C088",
      "kind": "read-mint",
      "entity": "specimen",
@@ -11789,6 +11722,297 @@
        "mintage": "250,573,000",
        "design": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse Maya ballplayer (Jugador de pelota) in circle · CULTURA MAYA · $20 · Mo · Alfonso Rodríguez Facio"
       }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-cite-20261023-1",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:SK.X.5-euro-cent",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:SK.X.5-euro-cent",
+     "kind": "cite",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": null,
+     "coins": [
+      "C285"
+     ],
+     "label": "SK 5 euro cent (SK.X.5-euro-cent)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 1,
+        "year": 2009,
+        "mint_marks": [
+         "MK"
+        ],
+        "coins": [
+         "C285"
+        ],
+        "mintage": 78098000,
+        "mintage_label": "ai",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "97"
+       },
+       {
+        "system": "Schön",
+        "number": "95"
+       },
+       {
+        "system": "Numista",
+        "number": "5086"
+       }
+      ],
+      "weight_g": 3.92,
+      "diameter_mm": 21.25,
+      "composition": "copper plated steel",
+      "ask": [
+       "issues.1.mintage: 2009 MK"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 2009,
+       "mint": [
+        "MK"
+       ],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-story-check-20261023-1",
+   "agent": "grok",
+   "kind": "story-check",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C256",
+     "entity": "specimen",
+     "id": "C256",
+     "field": "story"
+    },
+    {
+     "item": "story:C259",
+     "entity": "specimen",
+     "id": "C259",
+     "field": "story"
+    },
+    {
+     "item": "story:C270",
+     "entity": "specimen",
+     "id": "C270",
+     "field": "story"
+    },
+    {
+     "item": "story:T003",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C256",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C256",
+     "field": "story",
+     "coins": [
+      "C256"
+     ],
+     "label": "C256 · Switzerland · 1959 · 20 rappen · CHF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1959 20-rappen coin from Switzerland. The front shows Libertas facing right, designed by Karl Schwenzer. The back shows the number 20 inside a wreath, designed by Carl Friedrich Voigt. It is made of copper-nickel (75% copper and 25% nickel).",
+      "record": {
+       "country": "Switzerland",
+       "year": "1959",
+       "denom": "20 rappen · CHF",
+       "mint": "B",
+       "refs": "KM#29a · Schön#26a · Y#25 · Numista#178",
+       "metal": "CuNi 75/25 · 4.00 g · 21.05 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.65 mm · medal alignment · type specs shared with CuNi 20 Rp from 1939 (KM#29a)",
+       "mintage": "10,136,000 Bern B",
+       "design": "Libertas head right (obv; designer Karl Schwenzer) · 20 in alpine rose wreath (rev; designer Carl Friedrich Voigt)",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C259",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C259",
+     "field": "story",
+     "coins": [
+      "C259"
+     ],
+     "label": "C259 · Mexico · 1940 · 1 centavo · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1940 1-centavo coin from Mexico. The front shows Mexico's national coat of arms and the words ESTADOS UNIDOS MEXICANOS. The back shows a large 1 over a shaded centavo sign (¢) inside a laurel wreath, with the date 1940. It is made of bronze.",
+      "record": {
+       "country": "Mexico",
+       "year": "1940",
+       "denom": "1 centavo · MXN",
+       "mint": "Mo",
+       "refs": "KM#415 · Schön#11 · Numista#5133",
+       "metal": "bronze · 3 g · 19.5–20 mm · plain · circulated dark chocolate · white 2×2 staple flip",
+       "specs": "thickness 1.4 mm · coin alignment",
+       "mintage": "10,000,000 (1940 Mo)",
+       "design": "national arms / ESTADOS UNIDOS MEXICANOS (obv) · value big 1 over shaded ¢ monogram · laurel wreath · 1940",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C270",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C270",
+     "field": "story",
+     "coins": [
+      "C270"
+     ],
+     "label": "C270 · Japan · 1988 · 10 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1988 10-yen coin from Japan. One side shows the Phoenix Hall of Byodoin temple with the country name (日本国) and value (十円). The other side shows a large 10, an evergreen bay laurel (tokiwa) wreath, and the Japanese Showa-era date (昭和 63, which is 1988; 昭和 57 is 1982). It is made of bronze (95% copper, 3–4% zinc, and 1–2% tin).",
+      "record": {
+       "country": "Japan",
+       "year": "1988",
+       "denom": "10 yen · JPY",
+       "mint": "Japan Mint (not lettered on type)",
+       "refs": "Y#73a · JNDA#02-9 · Schön#A53 · Numista#922",
+       "metal": "bronze (Cu 95% · Zn 3–4% · Sn 1–2%) · 4.50 g · 23.5 mm · plain (smooth-edge type) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.5 mm · medal alignment · Shōwa 63",
+       "mintage": "617,912,000 circulation (Shōwa 63 / 1988; +200,000 proof)",
+       "design": "Phoenix Hall / Byodoin temple · 日本国 · 十円 // big 10 · bay laurel (evergreen, tokiwa) wreath · Showa regnal-year date (昭和 57 = 1982, 63 = 1988)",
+       "period": "Showa era"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:T003",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "story",
+     "coins": [
+      "T003"
+     ],
+     "label": "T003 · USA · ND · Ride token (Sandy the Pony · Meijer)",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A Sandy the Pony ride token from Meijer stores in the USA, with no date. It reads FREE PONY RIDE on one side and MEIJER IS FOR KIDS on the other, good for one free pony ride. It is made of brass.",
+      "record": {
+       "country": "USA",
+       "year": "ND",
+       "denom": "Ride token (Sandy the Pony · Meijer)",
+       "mint": "n/a",
+       "refs": "n/a (exonumia · promotional token)",
+       "metal": "brass · circulated · white 2×2 staple flip",
+       "specs": "diameter/weight unknown · private strike",
+       "mintage": "unknown",
+       "design": "FREE PONY RIDE // MEIJER IS FOR KIDS · Sandy the Pony ride token"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-research-20261023-1",
+   "agent": "grok",
+   "kind": "research",
+   "issued": "2026-10-23T18:01:21Z",
+   "lease_until": "2026-11-02T18:01:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "research:C300:35aac561",
+     "entity": "specimen",
+     "id": "C300",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "research:C300:35aac561",
+     "kind": "research",
+     "entity": "specimen",
+     "id": "C300",
+     "field": null,
+     "coins": [
+      "C300"
+     ],
+     "label": "C300 · Bahamas · 1984 · 25 cents · BSD",
+     "authors": [],
+     "payload": {
+      "question": "Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1).",
+      "record": {
+       "country": "Bahamas",
+       "year": "1984",
+       "denom": "25 cents · BSD",
+       "mint": "not read (no photo of this coin yet)",
+       "refs": "KM#63.1 · Schön#38 · Numista#9352",
+       "specs": "thickness unknown",
+       "mintage": "unknown",
+       "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin"
+      },
+      "type": "BS.X.25-cents",
+      "remove_with": []
      },
      "blind": false,
      "inputs": []

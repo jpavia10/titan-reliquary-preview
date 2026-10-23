@@ -1,25 +1,26 @@
 {
- "updated": "2026-10-23T17:41:31Z",
+ "updated": "2026-10-23T20:26:51Z",
  "pools": {
   "cite": 22,
   "contradiction": 14,
-  "story-check": 177,
-  "plain-story": 54,
-  "value": 16,
-  "read-mint": 11,
+  "story-check": 170,
+  "plain-story": 39,
+  "research": 1,
+  "value": 3,
+  "read-mint": 9,
   "arbitrate": 3,
   "fill": 173,
-  "verify": 882
+  "verify": 887
  },
  "agents": {
   "gemini": {
-   "confirmed": 106,
+   "confirmed": 107,
    "wrong": 0,
    "checks_done": 60,
    "disagreements_open": 0,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 106,
+   "checked_n": 107,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
@@ -55,17 +56,17 @@
    ]
   },
   "muse": {
-   "confirmed": 293,
+   "confirmed": 294,
    "wrong": 9,
    "checks_done": 99,
    "disagreements_open": 1,
    "canaries_caught": 8,
    "canaries_missed": 0,
-   "checked_n": 302,
+   "checked_n": 303,
    "error_rate": 0.03,
    "error_ci95": [
     0.016,
-    0.056
+    0.055
    ]
   },
   "ledger": {
@@ -121,6 +122,11 @@
   "contra:mint_unknown:C073",
   "contra:mint_unknown:C088",
   "contra:mint_unknown:C091",
+  "mint:C037",
+  "plain:C012",
+  "plain:C017",
+  "plain:C025",
+  "story:C023",
   "story:C033",
   "story:C047",
   "story:C114",
@@ -129,9 +135,9 @@
   "verify:type:ES.KM.1144:period"
  ],
  "open_assignments": {
-  "grok": 12,
-  "muse": 21,
-  "gemini": 11,
+  "grok": 15,
+  "muse": 26,
+  "gemini": 7,
   "chatgpt": 0
  }
 }

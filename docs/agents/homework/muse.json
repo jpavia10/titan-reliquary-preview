@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-23T17:41:31Z",
+ "updated": "2026-10-23T20:26:51Z",
  "assignments": [
   {
    "id": "HW-muse-story-check-20261020-1",
@@ -1054,34 +1054,6 @@
       "recheck": false
      },
      "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:specimen:C300:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C300",
-     "field": "issue.year",
-     "coins": [
-      "C300"
-     ],
-     "label": "year of C300 · Bahamas · 25 cents · BSD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
      "inputs": []
     },
     {
@@ -4739,24 +4711,6 @@
      "inputs": []
     },
     {
-     "item": "plain:C219",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C219",
-     "field": "story",
-     "coins": [
-      "C219"
-     ],
-     "label": "C219 · Jamaica · 2015 · 1 dollar · JMD",
-     "authors": [],
-     "payload": {
-      "story": "A 2015 1 dollar from Jamaica. The reverse shows arms; crocodile crest, Taino supporters, JAMAICA, ONE DOLLAR, 2015. The coin is round. Struck in nickel-clad steel.",
-      "shorthand": "crocodile crest, Taino supporters, JAMAI"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "plain:C220",
      "kind": "plain-story",
      "entity": "specimen",
@@ -4770,24 +4724,6 @@
      "payload": {
       "story": "A 1982 10 yen from Japan. Phoenix Hall of Byodoin temple, 日本国, 十円 , large 10, bay laurel (evergreen, tokiwa) wreath, Showa regnal-year date (昭和 57 = 1982, 63 = 1988). Struck in bronze (Cu 95% · Zn 3–4% · Sn 1–2%).",
       "shorthand": "Phoenix Hall of Byodoin temple, 日本国, 十円 "
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C221",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C221",
-     "field": "story",
-     "coins": [
-      "C221"
-     ],
-     "label": "C221 · France · 1986 · 1/2 franc · FRF",
-     "authors": [],
-     "payload": {
-      "story": "A 1986 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel.",
-      "shorthand": "olive sprig, LIBERTE, EGALITE, FRATERNIT"
      },
      "blind": false,
      "inputs": []
@@ -4842,24 +4778,6 @@
      "payload": {
       "story": "A 2003 1000 đồng from Vietnam. Emblem side star, cog, rice wreath, CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM, 2003, value 1000 ĐỒNG reverse. Struck in brass-plated steel.",
       "shorthand": "Emblem side star, cog, rice wreath, CỘNG"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C233",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C233",
-     "field": "story",
-     "coins": [
-      "C233"
-     ],
-     "label": "C233 · Colombia · 2016 · 50 pesos · COP",
-     "authors": [],
-     "payload": {
-      "story": "A 2016 50 pesos from Colombia. The reverse shows spectacled bear (also called the Andean bear) (Tremarctos ornatus); value large 50, PESOS, REPÚBLICA DE COLOMBIA, 2016, wavy field, OSO de ANTEOJOS (José Antonio Suárez). Struck in nickel-plated steel.",
-      "shorthand": "value large 50, PESOS, REPÚBLICA DE COLO"
      },
      "blind": false,
      "inputs": []
@@ -4968,24 +4886,6 @@
      "payload": {
       "story": "A 1966 1 won from South Korea. Rose of Sharon (Hibiscus syriacus), 일원, 한국은행 // THE BANK OF KOREA, big 1, 1966. Struck in brass.",
       "shorthand": "Rose of Sharon (Hibiscus syriacus), 일원, "
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "plain:C250",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C250",
-     "field": "story",
-     "coins": [
-      "C250"
-     ],
-     "label": "C250 · Singapore · 1967 · 20 cents · SGD",
-     "authors": [],
-     "payload": {
-      "story": "A 1967 20 cents from Singapore. Value side two stalks of rice, large 20, CENTS, 1967, SINGAPORE; the other side shows a swordfish against wavy lines for water. Struck in copper-nickel.",
-      "shorthand": "Value side two stalks of rice, large 20,"
      },
      "blind": false,
      "inputs": []
@@ -14859,32 +14759,6 @@
      },
      "blind": false,
      "inputs": []
-    },
-    {
-     "item": "fill:DE-EMP.X.20-pfennig",
-     "kind": "fill",
-     "entity": "type",
-     "id": "DE-EMP.X.20-pfennig",
-     "field": null,
-     "coins": [
-      "C023"
-     ],
-     "label": "C023 · Germany (Empire) · 1918 · 20 Pfennig · German Empire Mark system (DE-EMP.X.20-pfennig)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "edge",
-       "thickness",
-       "alignment",
-       "era",
-       "designers",
-       "obverse",
-       "reverse"
-      ],
-      "numista_url": null
-     },
-     "blind": false,
-     "inputs": []
     }
    ]
   },
@@ -17620,7 +17494,7 @@
        "https://en.numista.com/catalogue/pieces56.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17650,7 +17524,7 @@
        "https://en.numista.com/catalogue/pieces987.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17680,7 +17554,7 @@
        "https://en.numista.com/catalogue/pieces8.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17710,7 +17584,7 @@
        "https://en.numista.com/catalogue/pieces2238.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17740,7 +17614,7 @@
        "https://en.numista.com/catalogue/pieces5010.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17800,7 +17674,7 @@
        "https://en.numista.com/catalogue/pieces3190.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17861,7 +17735,7 @@
        "https://en.numista.com/catalogue/pieces819.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17891,7 +17765,7 @@
        "https://en.numista.com/catalogue/pieces1003.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17921,7 +17795,7 @@
        "https://en.numista.com/catalogue/pieces953.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17951,7 +17825,7 @@
        "https://en.numista.com/catalogue/pieces4835.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -17983,34 +17857,6 @@
       "photos": [],
       "audit": true,
       "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:BS.X.25-cents:catalogs",
-     "kind": "verify",
-     "entity": "type",
-     "id": "BS.X.25-cents",
-     "field": "catalogs",
-     "coins": [
-      "C300"
-     ],
-     "label": "catalog of C300 · Bahamas · 1984 · 25 cents · BSD",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "catalog",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": true,
       "recheck": false
      },
      "blind": false,
@@ -18069,7 +17915,7 @@
        "https://en.numista.com/catalogue/pieces9352.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18100,7 +17946,7 @@
        "https://en.numista.com/catalogue/pieces664.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18130,7 +17976,7 @@
        "https://en.numista.com/catalogue/pieces867.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18160,7 +18006,7 @@
        "https://en.numista.com/catalogue/pieces2006.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18191,7 +18037,7 @@
        "https://en.numista.com/catalogue/pieces4038.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18222,7 +18068,7 @@
        "https://en.numista.com/catalogue/pieces3510.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18252,7 +18098,7 @@
        "https://en.numista.com/catalogue/pieces147.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18282,7 +18128,7 @@
        "https://en.numista.com/catalogue/pieces5086.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18313,7 +18159,7 @@
        "https://en.numista.com/catalogue/pieces1559.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18343,7 +18189,7 @@
        "https://en.numista.com/catalogue/pieces5085.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -18377,6 +18223,376 @@
       "audit": false,
       "lookup_blind": false,
       "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-value-20261023-1",
+   "agent": "muse",
+   "kind": "value",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-11-02T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C300",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "value"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "value:C300",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "value",
+     "coins": [
+      "C300"
+     ],
+     "label": "C300 · Bahamas · 1984 · 25 cents · BSD",
+     "authors": [],
+     "payload": {
+      "est_usd": 0.25,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-plain-story-20261023-1",
+   "agent": "muse",
+   "kind": "plain-story",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "plain:C253",
+     "entity": "specimen",
+     "id": "C253",
+     "field": "story"
+    },
+    {
+     "item": "plain:C257",
+     "entity": "specimen",
+     "id": "C257",
+     "field": "story"
+    },
+    {
+     "item": "plain:C264",
+     "entity": "specimen",
+     "id": "C264",
+     "field": "story"
+    },
+    {
+     "item": "plain:C279",
+     "entity": "specimen",
+     "id": "C279",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "plain:C253",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C253",
+     "field": "story",
+     "coins": [
+      "C253"
+     ],
+     "label": "C253 · Jamaica · 1993 · 10 cents · JMD",
+     "authors": [],
+     "payload": {
+      "story": "A 1993 10-cent coin from Jamaica. It shows Jamaica's coat of arms with a crocodile on top, two Taino people holding the shield, a cross with pineapples, and the motto OUT OF MANY, ONE PEOPLE, along with JAMAICA, TEN CENTS, and the date 1993. It is made of nickel-plated steel.",
+      "shorthand": "It shows Jamaica's coat of arms with a c"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C257",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C257",
+     "field": "story",
+     "coins": [
+      "C257"
+     ],
+     "label": "C257 · Mexico · 1967 · 20 centavos · MXN",
+     "authors": [],
+     "payload": {
+      "story": "A 1967 20-centavo coin from Mexico. The front shows Mexico's national coat of arms. The back shows the Pyramid of the Sun at Teotihuacan with the volcanoes Popocatépetl and Iztaccíhuatl behind it, a shining liberty cap above, a large 20, the word CENTAVOS, the date 1967, and the Mo mint mark. It is made of brass (95% copper and 5% zinc).",
+      "shorthand": "The back shows the Pyramid of the Sun at"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "plain:C279",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C279",
+     "field": "story",
+     "coins": [
+      "C279"
+     ],
+     "label": "C279 · Philippines · 1997 · 1 piso · PHP",
+     "authors": [],
+     "payload": {
+      "story": "A 1997 1-piso coin from the Philippines. The side shown has a portrait of national hero José Rizal, the words Republika ng Pilipinas (Republic of the Philippines), a large 1, the word PISO, and the date 1997.",
+      "shorthand": "The side shown has a portrait of nationa"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261023-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C012",
+     "entity": "specimen",
+     "id": "C012",
+     "field": "story"
+    },
+    {
+     "item": "story:C017",
+     "entity": "specimen",
+     "id": "C017",
+     "field": "story"
+    },
+    {
+     "item": "story:C025",
+     "entity": "specimen",
+     "id": "C025",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C012",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C012",
+     "field": "story",
+     "coins": [
+      "C012"
+     ],
+     "label": "C012 · France · 1962 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1962 1-franc coin from France. The front shows La Semeuse (the Sower) walking to the left with the words REPUBLIQUE FRANCAISE, designed by Oscar Roty. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date 1962. It is made of nickel.",
+      "record": {
+       "country": "France",
+       "year": "1962",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "14,014,136 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C017",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C017",
+     "field": "story",
+     "coins": [
+      "C017"
+     ],
+     "label": "C017 · France · 1999 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1999 1-franc coin from France. The front shows La Semeuse (the Sower) walking to the left with the words REPUBLIQUE FRANCAISE, designed by Oscar Roty. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date 1999. It is made of nickel.",
+      "record": {
+       "country": "France",
+       "year": "1999",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6 g · 24 mm · reeded · nice circulated / clean · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "80,457,513 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C025",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C025",
+     "field": "story",
+     "coins": [
+      "C025"
+     ],
+     "label": "C025 · France · 1965 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1965 1-franc coin from France. The front shows La Semeuse (the Sower) walking to the left with the words REPUBLIQUE FRANCAISE, designed by Oscar Roty. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date 1965. It is made of nickel.",
+      "record": {
+       "country": "France",
+       "year": "1965",
+       "denom": "1 franc · FRF (nouveau franc)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#925.1 · Schön#233 · Numista#6",
+       "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)",
+       "mintage": "44,286,591 (circulation · Monnaie de Paris)",
+       "design": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261023-2",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C285:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C285",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:specimen:C285:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C285",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C285"
+     ],
+     "label": "mint of C285 · Slovakia · 2009 · 5 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C285_obv.webp",
+        "file": "C285_obv.webp",
+        "original": "C285_Slovakia_2009_5Cent_obv.jpg",
+        "drive": "https://drive.google.com/file/d/1I8raIzKXi15TWX8U-MAf48jVmXL1FjB1/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C285_obv.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261023-2",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-10-23T18:01:21Z",
+   "lease_until": "2026-10-30T18:01:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C264",
+     "entity": "specimen",
+     "id": "C264",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C264",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C264",
+     "field": "story",
+     "coins": [
+      "C264"
+     ],
+     "label": "C264 · Singapore · 1973 · 10 cents · SGD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1973 10-cent coin from Singapore. One side shows a crowned seahorse. The value side shows two stalks of rice, a large 10, and the words CENTS, 1973, and SINGAPORE. It is made of copper-nickel.",
+      "record": {
+       "country": "Singapore",
+       "year": "1973",
+       "denom": "10 cents · SGD",
+       "mint": "Singapore Mint (no letter on shown value side)",
+       "refs": "KM#3 · Schön#3 · Numista#1671",
+       "metal": "cupronickel · 2.83 g · 19.41 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.397 mm · medal alignment",
+       "mintage": "14,290,000",
+       "design": "value side two rice (paddy) stalks · big 10 · CENTS · 1973 · SINGAPORE · crowned seahorse other side (Stuart Devlin)",
+       "period": "Republic of Singapore"
+      }
      },
      "blind": false,
      "inputs": []

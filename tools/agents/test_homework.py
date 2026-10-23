@@ -413,6 +413,12 @@ class LoopUpgrades(unittest.TestCase):
         it = r2["pool"].get(f"fill:{ln['id']}")
         self.assertTrue(it is None or not any(f == "nominal.edge" for _, _, f, _ in it["lines"]), "a filled fact left the fill pool")
 
+    def test_commas_inside_an_inscription_are_not_shorthand(self):
+        motto = {"C001": {"story": "A 1962 1-franc coin from France. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date."}}
+        listy = {"C001": {"story": "A 1962 franc. Sower, olive branch, oak, stars, date, RF on the front."}}
+        self.assertEqual(HW.pool_plain({"live": motto, "details": {}}, set()), {}, "a capital-letter motto made a plain story look like shorthand")
+        self.assertIn("plain:C001", HW.pool_plain({"live": listy, "details": {}}, set()), "a list of fragments is still shorthand")
+
     def test_a_resent_check_counts_once(self):
         ev = {"by": "model:gemini", "entity": "type", "id": "DE.KM.214", "field": "issues.0.mintage", "old": 20475000, "new": 20475000,
               "provenance": {"assignment": "HW-gemini-verify-20261012-1"}}

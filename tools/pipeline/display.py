@@ -185,6 +185,9 @@ def specimen_detail(col, s, t):
     lt = s.get("ledger_text") or {}          # ledger wording kept verbatim where it cannot be derived (schema: Specimen.ledger_text)
     if lt.get("label") and not set(re.findall(r"\b\d{4}\b", lt["label"])) <= set(re.findall(r"\b\d{4}\b", str(s["year_raw"]))):
         lt = {k: v for k, v in lt.items() if k not in ("label", "specs_tail")}   # the wording predates a year correction (C200: ledger 1978, the coin reads ROC 97 = 2008)
+    unit = ((t.get("denomination") or {}).get("unit") or "").lower().split()
+    if lt.get("denom") and unit and re.sub(r"(es|s)$", "", unit[-1]) not in lt["denom"].lower():
+        lt = {}      # the wording names another coin: it predates a re-identification (C023: ledger '20 Pfennig', the coin is Austria's 20 heller)
     if "denom" in lt: dl = lt["denom"]
     if "photo_stem" in lt: stem = lt["photo_stem"]
     if "face" in lt: face = lt["face"]

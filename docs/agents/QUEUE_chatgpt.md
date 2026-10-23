@@ -1,10 +1,10 @@
 <!-- doc-status: current; normative: yes (for ChatGPT) -->
-# WORK QUEUE for ChatGPT (updated 2026-10-23 17:41 UTC)
+# WORK QUEUE for ChatGPT (updated 2026-10-23 20:26 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
 **Status:** parked. Parked (owner, 2026-10-10: "Chatgpt is too manual so I dont expect stuff to come from there since it requires me"): no Drive access, so every task needs Joseph to paste it. Its projects moved to Grok (reviews) and Muse (Dad's guide). Nothing is expected from it.
-**How you get this:** Joseph pastes https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; the answer is pasted back to Claude.
+**How you get this:** Its page is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md; it takes part only when it can save its files to Drive itself (ChatGPT's Google Drive connector). Joseph never pastes anything for it (owner, 2026-10-23).
 
 ## Calibration test due: the main photo pack (30 coins)  (fix list #4)
 

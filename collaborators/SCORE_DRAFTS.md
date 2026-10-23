@@ -7,4 +7,9 @@ Drafted from the merge and the cross-checks since (rubric: top of `collaborators
 
 | File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
 |---|---|---|---|---|---|---|---|
-| `changes_gemini_20261023-1601.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 40 lines: 40 in the change log, 0 filed as disagreements; cross-checked so far: 8 held, 0 wrong |
+| `changes_gemini_20261023-1642.jsonl` | **8 / 10** | 2 | 2 | 3 | 0 | 1 | 10 lines: 10 in the change log, 0 filed as disagreements; answered 5 of 13 items of HW-gemini-value-20261014-1 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
+| `changes_gemini_20261023-1643.jsonl` | **9 / 10** | 2 | 2 | 3 | 1 | 1 | 16 lines: 16 in the change log, 0 filed as disagreements; answered 8 of 9 items of HW-gemini-value-20261015-1 (with its other files for the same sheet); cross-checked so far: 4 held, 0 wrong |
+| `changes_gemini_20261023-1644.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 11 lines: 11 in the change log, 0 filed as disagreements; answered 11 of 11 items of HW-gemini-plain-story-20261020-1 (with its other files for the same sheet); nothing cross-checked yet |
+| `changes_gemini_20261023-1645.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 4 lines: 4 in the change log, 0 filed as disagreements; answered 2 of 2 items of HW-gemini-read-mint-20261020-1 (with its other files for the same sheet); cross-checked so far: 2 held, 0 wrong |
+| `changes_gemini_20261023-1646.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 7 lines: 7 in the change log, 0 filed as disagreements; answered 7 of 7 items of HW-gemini-story-check-20261020-1 (with its other files for the same sheet); cross-checked so far: 7 held, 0 wrong |
+| `changes_gemini_20261023-1647.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 2 lines: 2 in the change log, 0 filed as disagreements; answered 2 of 2 items of HW-gemini-story-check-20261021-1 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |

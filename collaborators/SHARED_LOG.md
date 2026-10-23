@@ -5,8 +5,12 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-23] — Claude · No copy-paste for any AI; C023 is Austrian; Gemini off probation
+- Owner rule: every AI saves its own files in Drive (or GitHub); never in the chat for Joseph, never 'ask Joseph what next'. Written into AI_START_HERE, INSTRUCTIONS, roles.json, queues.json and Gemini's Drive docs. ChatGPT only with its own Drive connector.
+- Gemini's 6 homework files merged (51 lines; C300 value lines left out: 1984 is proof-only on Numista, now a research question). C023 = Austria 1918 20 heller KM#2826 (new type AT.KM.2826, coin moved DE -> AT; the save now re-files a coin by its type's country, the coin page drops old ledger wording that names another unit). Plain-story check no longer trips on mottos. Gemini off probation (4 files in a row 8+).
+
 ### [2026-10-23] — Claude · Gemini's design-text redo merged (8/10)
-- Gemini redid all 26 types (run run-fixlist72-20261023-1601; pasted in chat by Joseph, never in the drop folder): 40 of 42 lines merged as `changes_gemini_20261023-1601` (original in `collection/_incoming/originals-20261023/`). All 8 wrong texts fixed, all 7 checks right, and it caught SK.KM.96 (2 euro cent = globe side, our record said map).
+- Gemini redid all 26 types (run run-fixlist72-20261023-1601; saved in the drop folder at 16:40 UTC, two minutes after Claude looked, so Joseph's identical pasted copy was merged): 40 of 42 lines merged as `changes_gemini_20261023-1601` (original in `collection/_incoming/originals-20261023/`). All 8 wrong texts fixed, all 7 checks right, and it caught SK.KM.96 (2 euro cent = globe side, our record said map).
 - Left out, corrected by Claude (`changes_claude_20261023-1640`): MX.X.50-centavos border = Ring of Sacrifice (not 'Ring of Acceptance'); DE.X.spielmarke-20-gr = 15 stars on T002, no ribbon (Gemini wrote 16 + ribbon). Six new Schön numbers unconfirmed elsewhere. Old held `changes_gemini_20261021-1830` closed as superseded and trashed. Redo project done (queues.json); FEEDBACK + WORK QUEUE docs for Gemini updated.
 
 ### [2026-10-23] — Claude · Muse loaded up (owner)

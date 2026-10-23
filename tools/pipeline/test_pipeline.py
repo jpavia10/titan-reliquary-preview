@@ -172,6 +172,20 @@ class Pipeline(unittest.TestCase):
         r = self.apply(tmp, write_events(tmp, "changes_x_cat.jsonl", [ev(entity="type", id=tid, field="catalogs", old=cats, new=keep, source="Numista N#1944 catalogue row KM# 2837a")]))
         self.assertEqual(r.returncode, 0, r.stdout)
 
+    def test_a_coin_moved_to_another_countrys_type_changes_file(self):
+        """2026-10-23: C023 (filed as a German 20 pfennig) is Austria's 20 heller; its record has to move from specimens/DE.json to AT.json."""
+        sid, s = next((k, v) for k, v in sorted(BASE.specs.items()) if BASE.types[v["type"]]["country"] == "DE")
+        at = copy.deepcopy(next(t for k, t in sorted(BASE.types.items()) if t["country"] == "AT"))
+        at.pop("country"); at["id"] = tid = "AT.X.test-move"
+        at["issues"] = [dict(at["issues"][0], year=s["issue"]["year"], mint_marks=s["issue"]["mint_marks"], mintage=None, mintage_text="unknown")]
+        src = "Numista N#6133 catalogue entry KM# 2826 matches the photo"
+        tmp = sandbox()
+        r = self.apply(tmp, write_events(tmp, "changes_x_move.jsonl", [ev(entity="type", id=tid, op="create", field="(new record)", new=at, source=src),
+                                                                         ev(entity="specimen", id=sid, field="type", old=s["type"], new=tid, source=src)]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+        col = C.Collection(os.path.join(tmp, "collection"))
+        self.assertIn(sid, col.specs_by_iso["AT"]); self.assertNotIn(sid, col.specs_by_iso["DE"])
+
     def test_owner_answers_become_verified_events(self):
         """#36/#43: an answers file from the app -> owner events; a confirm of an unchanged value is still logged as verified."""
         sys.path.insert(0, HERE)

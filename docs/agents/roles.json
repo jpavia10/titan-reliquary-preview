@@ -72,8 +72,8 @@
     "gemini": {
       "name": "Gemini",
       "status": "active",
-      "probation": true,
-      "onboarding": true,
+      "probation": false,
+      "onboarding": false,
       "by": [
         "model:gemini"
       ],
@@ -98,8 +98,8 @@
         "catno",
         "plain-story"
       ],
-      "strength": "Loaded to the maximum (owner, 2026-10-22: \"Homework is the best way I can get it to listen to me and complete tasks. Load it up with an obscene amount of homework\"). Measured 2026-10-22: 0 of 16 assignments issued since Oct 14 answered; tonight's design-text file 11 of 26 right (its redo on 2026-10-23: 24 of 26, score 8); blind locked photo test 76 % core, 3.0 % invented (ties Grok). Capacity 40, up to 8 batches per kind, 5-day deadlines (an ignored sheet goes back to the pool for Grok and Muse sooner). On probation: every fact it writes is checked by another AI until 3 submissions in a row score 8+.",
-      "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.",
+      "strength": "Loaded to the maximum (owner, 2026-10-22: \"Homework is the best way I can get it to listen to me and complete tasks. Load it up with an obscene amount of homework\"). Measured 2026-10-22: 0 of 16 assignments issued since Oct 14 answered; tonight's design-text file 11 of 26 right (its redo on 2026-10-23: 24 of 26, score 8); blind locked photo test 76 % core, 3.0 % invented (ties Grok). Capacity 40, up to 8 batches per kind, 5-day deadlines (an ignored sheet goes back to the pool for Grok and Muse sooner). Off probation 2026-10-23: 4 files in a row scored 8+ with no accuracy fault (changes_gemini_20261023-1644 to -1647; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate like Grok's.",
+      "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).",
       "inline_sheets": true,
       "full_batches": true,
       "per_kind": 8,
@@ -121,7 +121,7 @@
       "capacity": 0,
       "kinds": [],
       "strength": "Parked (owner, 2026-10-10: \"Chatgpt is too manual so I dont expect stuff to come from there since it requires me\"): no Drive access, so every task needs Joseph to paste it. Its projects moved to Grok (reviews) and Muse (Dad's guide). Nothing is expected from it.",
-      "reach": "Joseph pastes https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; the answer is pasted back to Claude."
+      "reach": "Its page is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md; it takes part only when it can save its files to Drive itself (ChatGPT's Google Drive connector). Joseph never pastes anything for it (owner, 2026-10-23)."
     }
   },
   "kinds": {

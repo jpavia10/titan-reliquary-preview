@@ -294,14 +294,26 @@
     {
       "id": "q-c023-back",
       "coin": "C023",
-      "ask": "Turn over C023, the 1918 iron 20 with the oak wreath. What words are on the other side?",
-      "why": "No German Empire 20 pfennig was struck in 1918, so it is probably a city's emergency money; the other side should name the city.",
+      "ask": "Turn over C023, the 1918 iron 20 in the oak wreath. Is the other side a crowned double-headed eagle with a shield on its chest?",
+      "why": "The side we have matches Austria's 1918 iron 20 heller (KM#2826) exactly: a 20 in an oak wreath, the date below, no lettering. No German 20 pfennig was struck in 1918, so it was moved from Germany to Austria on 2026-10-23 (found by Gemini, checked by Claude). A German city token would show words (a city name) instead of the eagle.",
       "options": [
         {
-          "label": "I'll type them",
+          "label": "Yes, the eagle",
+          "effect": [
+            {
+              "confirm": {
+                "scan": "C023",
+                "fact": "design"
+              }
+            }
+          ],
+          "followup": "C023 is Austria's 20 heller (KM#2826), owner-confirmed: clear the question."
+        },
+        {
+          "label": "No, it has words",
           "effect": [],
           "free": "Words on the other side",
-          "followup": "C023 other-side text from the owner (see the answer text): re-file it as the right notgeld type."
+          "followup": "C023 is not the Austrian coin: re-file it as the German city notgeld the words name (see the answer text)."
         },
         {
           "label": "I'll send a photo",

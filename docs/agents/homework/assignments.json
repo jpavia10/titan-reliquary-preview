@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-23T17:41:31Z",
+ "updated": "2026-10-23T20:26:51Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -77,7 +77,15 @@
   "gemini-verify-20261022": 2,
   "muse-cite-20261022": 1,
   "muse-fill-20261023": 8,
-  "muse-verify-20261023": 1
+  "muse-verify-20261023": 2,
+  "grok-cite-20261023": 1,
+  "muse-value-20261023": 1,
+  "muse-plain-story-20261023": 1,
+  "grok-story-check-20261023": 1,
+  "muse-story-check-20261023": 2,
+  "grok-research-20261023": 1,
+  "gemini-story-check-20261023": 1,
+  "gemini-verify-20261023": 1
  },
  "assignments": [
   {
@@ -6153,9 +6161,13 @@
    "kind": "value",
    "issued": "2026-10-14T15:41:37Z",
    "lease_until": "2026-10-24T15:41:37Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-23T17:49:40Z",
+   "result": {
+    "items": 13,
+    "closed": 13,
+    "left": 0
+   },
    "items": [
     {
      "item": "value:C142",
@@ -7813,9 +7825,13 @@
    "kind": "value",
    "issued": "2026-10-15T01:47:18Z",
    "lease_until": "2026-10-25T01:47:18Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-23T17:49:40Z",
+   "result": {
+    "items": 9,
+    "closed": 8,
+    "left": 1
+   },
    "items": [
     {
      "item": "value:C304",
@@ -10951,9 +10967,13 @@
    "kind": "plain-story",
    "issued": "2026-10-20T16:00:29Z",
    "lease_until": "2026-10-27T16:00:29Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-23T17:49:40Z",
+   "result": {
+    "items": 11,
+    "closed": 4,
+    "left": 7
+   },
    "items": [
     {
      "item": "plain:C012",
@@ -11615,9 +11635,13 @@
    "kind": "read-mint",
    "issued": "2026-10-20T16:00:29Z",
    "lease_until": "2026-10-27T16:00:29Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-23T17:49:40Z",
+   "result": {
+    "items": 2,
+    "closed": 1,
+    "left": 1
+   },
    "items": [
     {
      "item": "mint:C037",
@@ -13115,9 +13139,13 @@
    "kind": "story-check",
    "issued": "2026-10-20T16:00:29Z",
    "lease_until": "2026-10-27T16:00:29Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-23T17:49:40Z",
+   "result": {
+    "items": 7,
+    "closed": 7,
+    "left": 0
+   },
    "items": [
     {
      "item": "story:C001",
@@ -15329,9 +15357,13 @@
    "kind": "story-check",
    "issued": "2026-10-21T22:44:09Z",
    "lease_until": "2026-10-28T22:44:09Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-23T17:49:40Z",
+   "result": {
+    "items": 2,
+    "closed": 1,
+    "left": 1
+   },
    "items": [
     {
      "item": "story:C023",
@@ -17350,6 +17382,294 @@
      "field": "design.text"
     }
    ]
+  },
+  {
+   "id": "HW-grok-cite-20261023-1",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:SK.X.5-euro-cent",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-value-20261023-1",
+   "agent": "muse",
+   "kind": "value",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-11-02T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C300",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "value"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-plain-story-20261023-1",
+   "agent": "muse",
+   "kind": "plain-story",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "plain:C253",
+     "entity": "specimen",
+     "id": "C253",
+     "field": "story"
+    },
+    {
+     "item": "plain:C257",
+     "entity": "specimen",
+     "id": "C257",
+     "field": "story"
+    },
+    {
+     "item": "plain:C264",
+     "entity": "specimen",
+     "id": "C264",
+     "field": "story"
+    },
+    {
+     "item": "plain:C279",
+     "entity": "specimen",
+     "id": "C279",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-story-check-20261023-1",
+   "agent": "grok",
+   "kind": "story-check",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C256",
+     "entity": "specimen",
+     "id": "C256",
+     "field": "story"
+    },
+    {
+     "item": "story:C259",
+     "entity": "specimen",
+     "id": "C259",
+     "field": "story"
+    },
+    {
+     "item": "story:C270",
+     "entity": "specimen",
+     "id": "C270",
+     "field": "story"
+    },
+    {
+     "item": "story:T003",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261023-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C012",
+     "entity": "specimen",
+     "id": "C012",
+     "field": "story"
+    },
+    {
+     "item": "story:C017",
+     "entity": "specimen",
+     "id": "C017",
+     "field": "story"
+    },
+    {
+     "item": "story:C025",
+     "entity": "specimen",
+     "id": "C025",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261023-2",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-10-23T17:49:40Z",
+   "lease_until": "2026-10-30T17:49:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C285:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C285",
+     "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-research-20261023-1",
+   "agent": "grok",
+   "kind": "research",
+   "issued": "2026-10-23T18:01:21Z",
+   "lease_until": "2026-11-02T18:01:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "research:C300:35aac561",
+     "entity": "specimen",
+     "id": "C300",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261023-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-10-23T18:01:21Z",
+   "lease_until": "2026-10-28T18:01:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C219",
+     "entity": "specimen",
+     "id": "C219",
+     "field": "story"
+    },
+    {
+     "item": "story:C221",
+     "entity": "specimen",
+     "id": "C221",
+     "field": "story"
+    },
+    {
+     "item": "story:C233",
+     "entity": "specimen",
+     "id": "C233",
+     "field": "story"
+    },
+    {
+     "item": "story:C250",
+     "entity": "specimen",
+     "id": "C250",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261023-2",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-10-23T18:01:21Z",
+   "lease_until": "2026-10-30T18:01:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C264",
+     "entity": "specimen",
+     "id": "C264",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261023-1",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-10-23T18:01:21Z",
+   "lease_until": "2026-10-28T18:01:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:AT.KM.2826:design.text",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C023:issue.year",
+     "entity": "specimen",
+     "id": "C023",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AT.KM.2826:catalogs",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AT.KM.2826:issues.0.mintage",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:AT.KM.2826:composition.text",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:AT.KM.2826:ruler",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:AT.KM.2826:period",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:AT.KM.2826:denomination.value",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "denomination.value"
+    }
+   ]
   }
  ],
  "tried": {
@@ -17587,6 +17907,12 @@
     "assignment": "HW-grok-story-check-20261009-1",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-story-check-20261021-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
    }
   ],
   "story:C025": [
@@ -18155,6 +18481,12 @@
     "assignment": "HW-muse-read-mint-20261010-1",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-read-mint-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
    }
   ],
   "mint:C285": [
@@ -18475,6 +18807,12 @@
     "assignment": "HW-muse-plain-story-20261014-1",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-plain-story-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
    }
   ],
   "plain:C017": [
@@ -18483,6 +18821,12 @@
     "assignment": "HW-muse-plain-story-20261014-1",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-plain-story-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
    }
   ],
   "plain:C025": [
@@ -18491,6 +18835,12 @@
     "assignment": "HW-muse-plain-story-20261014-1",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-plain-story-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
    }
   ],
   "plain:T003": [
@@ -19623,6 +19973,46 @@
     "assignment": "HW-muse-verify-20261015-2",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   }
+  ],
+  "value:C300": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-value-20261015-1",
+    "outcome": "left out",
+    "ts": "2026-10-23T17:49:40Z"
+   }
+  ],
+  "plain:C253": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-plain-story-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
+   }
+  ],
+  "plain:C257": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-plain-story-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
+   }
+  ],
+  "plain:C264": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-plain-story-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
+   }
+  ],
+  "plain:C279": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-plain-story-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-10-23T17:49:40Z"
    }
   ]
  },

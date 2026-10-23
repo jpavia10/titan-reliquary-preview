@@ -57,6 +57,11 @@ class Collection:
     def save(self):
         d = self.d
         for iso, m in self.types_by_iso.items(): dump_map(f"{d}/types/{iso}.json", m)
+        types = self.types
+        for iso in list(self.specs_by_iso):     # a coin moved to another country's type is filed under that country (C023 DE -> AT, 2026-10-23)
+            for sid in [k for k, s in self.specs_by_iso[iso].items() if (types.get(s.get("type")) or {}).get("country") not in (None, iso)]:
+                to = types[self.specs_by_iso[iso][sid]["type"]]["country"]
+                self.specs_by_iso.setdefault(to, {})[sid] = self.specs_by_iso[iso].pop(sid)
         for iso, m in self.specs_by_iso.items(): dump_map(f"{d}/specimens/{iso}.json", m)
         dump_list(f"{d}/lots.json", self.lots); dump_albums(f"{d}/albums.json", self.albums)
         dump_list(f"{d}/ref/issuers.json", sorted(self.issuers, key=lambda i: i["id"]))
