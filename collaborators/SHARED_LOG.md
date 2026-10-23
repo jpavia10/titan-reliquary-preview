@@ -5,8 +5,8 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
-### [2026-10-23] — Claude · Gemini answers doc (owner)
-- Gemini now works from the Ask Gemini side panel in Google Docs and inserts its change lines into the Drive doc 'Gemini answers (Gemini writes here, Claude collects)'. Claude collects them at each intake and runs them through the pipeline as `changes_gemini_*.jsonl`.
+### [2026-10-23] — Claude · Gemini works in its chat (owner)
+- Gemini is working in the chat app now; no special answer doc or side panel (the one made earlier was trashed). Its files come in like everyone else's.
 
 ### [2026-10-23] — Claude · Codeword check for Gemini (owner)
 - Gemini's current WORK QUEUE doc starts with a codeword line (Joseph asks, Gemini answers). Only the current page has it, so it shows whether Gemini is reading the right doc. Do not copy it into other AIs' pages or any shared doc.
