@@ -1,6 +1,6 @@
 {
   "about": "Hand-written PROJECTS for the other AIs (owner rule 10, 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Since 2026-10-09 most work is generated homework (tools/agents/homework.py from docs/agents/roles.json; docs/agents/RESEARCH_LOOP.md): this file keeps only what cannot be computed from the data (work in progress, code reviews, guides, music, motion, onboarding). A task with `reserves` holds those coins of those kinds for its AI while it is open. Each AI's page (docs/agents/QUEUE_{ai}.md, the same text as its Drive doc 'WORK QUEUE for ...') shows: finish first (state now), then its homework, then the other projects.",
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "agents": [
     {
       "id": "grok",
@@ -134,6 +134,30 @@
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/",
       "tasks": [
         {
+          "n": 12,
+          "title": "Build themes #44 to #50, one complete package at a time (Cloud Forest first)",
+          "fix": "#113",
+          "state": "now",
+          "what": "Joseph (2026-10-23): theme work moves to you. Build the seven themes left in the plan, in order: #44 Cloud Forest (canopy), #45 Salt Mirror (saltflat), #46 Light Well (lightwell), #47 Obsidian Sun (obsidian), #48 The Glasshouse (glasshouse), #49 Low Orbit (orbit), #50 Sahel Futurism (sahel); then rebuild Nocturne (nocturne) and Zen (zen) at the same standard. Each package is five files in 'design-incoming (AI UI proposals)/themes/{id}/': {id}.spec.json (tokens that pass AA, crest, swatch, scene), fx_{id}.js (the world on the GPU: real raymarched or volumetric depth, the owner's own coins in it, a touch that does something, the opened coin shown next), intro_{id}.js (its own 2.5 to 5 s opening that ends on the world), sound_{id}.md (layers from our recordings + two pieces of recorded music) and README.md. Read Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' first and copy the shape of the Silver Screen files in 'themes/_kit (reference copies from GitHub, 2026-10-23)/'. Claim a theme first (themes/{id}/CLAIMED-gemini.txt); one theme at a time, finished, before the next.",
+          "done_when": "DONE.txt in a theme's folder; Claude runs it, writes REVIEW from Claude.txt, and ships it or sends it back. The project is done when all nine are shipped."
+        },
+        {
+          "n": 13,
+          "title": "Advanced motion: six Motion Lab studies on live data",
+          "fix": "#56",
+          "state": "now",
+          "what": "Six self-contained .html studies, one file each, saved as 'design-incoming (AI UI proposals)/motion/study_{n}_{name}.html': (1) a gallery tile grows into the coin page with the photo as one continuous object, and back; (2) drag to turn a coin in 3D with its two photos as faces, a real edge and a rim light; (3) scroll-driven GPU particles from a real coin photo morph into its country's outline, then into its album page; (4) a coin drops and settles into its album hole; (5) a theme switch as a shader wipe in the new theme's own motif; (6) the coin page inside the worlds of Silver Screen, Darkroom and Tourbillon. Live data only from https://jpavia10.github.io/titan-reliquary-preview/data/index.json and the coin photos on the same site; 60 fps target, interruptible, a still end state for reduced motion. Full rules: Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' section 4. Work on these between theme packages.",
+          "done_when": "The six .html files in the motion folder; Claude hosts the good ones at /motion-lab/gemini/ and Joseph picks on his phone what goes into the app."
+        },
+        {
+          "n": 14,
+          "title": "Recorded music for the nine themes you build",
+          "fix": "#83",
+          "state": "now",
+          "what": "For each theme in your theme project (#44 to #50, Nocturne, Zen) find two pieces of recorded music that fit it, under the rules of Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' section 5 (a named human performer, public domain, CC0, CC BY or CC BY-SA valid in the US, the right piece). Ideas, not orders: Cloud Forest a Villa-Lobos guitar piece or a Debussy flute piece; Light Well Gregorian chant or Allegri; Obsidian Sun Mexican son or Chávez; The Glasshouse a real music box or a Satie piano piece; Low Orbit Holst or Debussy; Sahel kora or ngoni recordings. Save one music_gemini_{YYYYMMDD-HHMM}.json per theme or for all, in the shape of the 19-piece task.",
+          "done_when": "Two qualifying recordings per theme (or a 'not found' with what you searched), in 'reviews-incoming (AI deep reviews)'."
+        },
+        {
           "n": 8,
           "title": "Redo the 15 design texts that do not match the coin we hold",
           "fix": "#72",
@@ -214,7 +238,7 @@
           "done_when": "Your arbitrate answer file; each one you send settles its disagreement."
         }
       ],
-      "drive_note": "CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answer: monkey. The codeword is only in this current page, never in an old copy of the repository, so it tells Joseph you are reading the right doc. NEW (2026-10-22, read this first): your last files were built from an OLD copy of the repository: the Drive folder 'AI experiements/Titan/repo' is Joseph's computer's checkout from Oct 12, and the lines you sent were Grok's Oct 10 sheet under your id. Never open that folder or any saved copy again. Your real, current sheets are in Drive 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/' (one file per assignment, named by its id); this doc lists them. If a sheet named here is not in that folder yet (the five big HW-gemini-verify sheets, until Joseph switches on the Drive bridge), skip it and do the others: never look for it anywhere else. From now on a file is rejected whole when a line names an assignment that does not exist or is not yours, or is about a coin that is not on that sheet. Every blank on a sheet names its coin, e.g. 'FILL (design of C263 · Mexico · 1950 · 25 centavos · MXN)': read that coin and that year before you answer. Your queue stays at the maximum Joseph set: up to 40 open sheets, each due in 5 days, plus the projects below. Other rules: a `catalogs` line sends the whole list, Schön included, changing only what the entry proves wrong; cite the exact entry page, never a search page. DONE 2026-10-23: your redo of the 26 design texts (8 of 10) and 6 homework sheets are merged; see 'FEEDBACK for Gemini'. DELIVERY RULE (Joseph, 2026-10-23): save every file yourself in Drive (change files in 'collection-incoming (AI change files)/', other files where the task says). Never put a file in the chat for Joseph to copy, never ask him to paste or pass anything on, and never stop to ask him what to do next: when the sheets you can open are done, start the next project below without asking. Order: the sheets by due date, then the projects."
+      "drive_note": "CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answer: monkey. The codeword is only in this current page, never in an old copy of the repository, so it tells Joseph you are reading the right doc. NEW (2026-10-22, read this first): your last files were built from an OLD copy of the repository: the Drive folder 'AI experiements/Titan/repo' is Joseph's computer's checkout from Oct 12, and the lines you sent were Grok's Oct 10 sheet under your id. Never open that folder or any saved copy again. Your real, current sheets are in Drive 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/' (one file per assignment, named by its id); this doc lists them. If a sheet named here is not in that folder yet (the five big HW-gemini-verify sheets, until Joseph switches on the Drive bridge), skip it and do the others: never look for it anywhere else. From now on a file is rejected whole when a line names an assignment that does not exist or is not yours, or is about a coin that is not on that sheet. Every blank on a sheet names its coin, e.g. 'FILL (design of C263 · Mexico · 1950 · 25 centavos · MXN)': read that coin and that year before you answer. Your queue stays at the maximum Joseph set: up to 40 open sheets, each due in 5 days, plus the projects below. Other rules: a `catalogs` line sends the whole list, Schön included, changing only what the entry proves wrong; cite the exact entry page, never a search page. DONE 2026-10-23: your redo of the 26 design texts (8 of 10) and 6 homework sheets are merged; see 'FEEDBACK for Gemini'. DELIVERY RULE (Joseph, 2026-10-23): save every file yourself in Drive (change files in 'collection-incoming (AI change files)/', other files where the task says). Never put a file in the chat for Joseph to copy, never ask him to paste or pass anything on, and never stop to ask him what to do next: when the sheets you can open are done, start the next project below without asking. NEW 2026-10-23 (Joseph: 'Ask it for more help on theming and advanced motion. Or songs'): you now build themes #44 to #50, six advanced-motion studies and the music for them; read 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' first. Order: sheets due in the next two days first, then theme packages (one at a time), with the motion studies and the music between them, then the other projects."
     }
   ]
 }

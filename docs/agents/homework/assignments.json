@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-23T20:26:51Z",
+ "updated": "2026-10-23T20:44:12Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -85,7 +85,8 @@
   "muse-story-check-20261023": 2,
   "grok-research-20261023": 1,
   "gemini-story-check-20261023": 1,
-  "gemini-verify-20261023": 1
+  "gemini-verify-20261023": 1,
+  "gemini-fill-20261023": 7
  },
  "assignments": [
   {
@@ -17668,6 +17669,558 @@
      "entity": "type",
      "id": "AT.KM.2826",
      "field": "denomination.value"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:AT.KM.2826",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": null
+    },
+    {
+     "item": "fill:ES.KM.1040",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": null
+    },
+    {
+     "item": "fill:ES.KM.1042",
+     "entity": "type",
+     "id": "ES.KM.1042",
+     "field": null
+    },
+    {
+     "item": "fill:ES.KM.1144",
+     "entity": "type",
+     "id": "ES.KM.1144",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1282",
+     "entity": "type",
+     "id": "FR.KM.1282",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1283",
+     "entity": "type",
+     "id": "FR.KM.1283",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1284",
+     "entity": "type",
+     "id": "FR.KM.1284",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1285",
+     "entity": "type",
+     "id": "FR.KM.1285",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1286",
+     "entity": "type",
+     "id": "FR.KM.1286",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1289",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1410",
+     "entity": "type",
+     "id": "FR.KM.1410",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.925.1",
+     "entity": "type",
+     "id": "FR.KM.925.1",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-2",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:FR.KM.929",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.930",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.931.1",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.933",
+     "entity": "type",
+     "id": "FR.KM.933",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.964.1",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1107",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1109",
+     "entity": "type",
+     "id": "GB.KM.1109",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1109d",
+     "entity": "type",
+     "id": "GB.KM.1109d",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1110",
+     "entity": "type",
+     "id": "GB.KM.1110",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1110d",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1334",
+     "entity": "type",
+     "id": "GB.KM.1334",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1335",
+     "entity": "type",
+     "id": "GB.KM.1335",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-3",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:GB.KM.837",
+     "entity": "type",
+     "id": "GB.KM.837",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.912",
+     "entity": "type",
+     "id": "GB.KM.912",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.914",
+     "entity": "type",
+     "id": "GB.KM.914",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.915",
+     "entity": "type",
+     "id": "GB.KM.915",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.916",
+     "entity": "type",
+     "id": "GB.KM.916",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.931",
+     "entity": "type",
+     "id": "GB.KM.931",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.935",
+     "entity": "type",
+     "id": "GB.KM.935",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.935a",
+     "entity": "type",
+     "id": "GB.KM.935a",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.936",
+     "entity": "type",
+     "id": "GB.KM.936",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.937b",
+     "entity": "type",
+     "id": "GB.KM.937b",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.938b",
+     "entity": "type",
+     "id": "GB.KM.938b",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.986",
+     "entity": "type",
+     "id": "GB.KM.986",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-4",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:GB.KM.988",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.989",
+     "entity": "type",
+     "id": "GB.KM.989",
+     "field": null
+    },
+    {
+     "item": "fill:GR.KM.90",
+     "entity": "type",
+     "id": "GR.KM.90",
+     "field": null
+    },
+    {
+     "item": "fill:HK.KM.69a",
+     "entity": "type",
+     "id": "HK.KM.69a",
+     "field": null
+    },
+    {
+     "item": "fill:HU.KM.575",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": null
+    },
+    {
+     "item": "fill:IE.KM.32",
+     "entity": "type",
+     "id": "IE.KM.32",
+     "field": null
+    },
+    {
+     "item": "fill:IE.KM.34",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.111",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.211",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.213",
+     "entity": "type",
+     "id": "IT.KM.213",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.214",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.215",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-5",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:IT.KM.216",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.95.1",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.96.1",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": null
+    },
+    {
+     "item": "fill:KY.KM.132",
+     "entity": "type",
+     "id": "KY.KM.132",
+     "field": null
+    },
+    {
+     "item": "fill:KY.KM.87",
+     "entity": "type",
+     "id": "KY.KM.87",
+     "field": null
+    },
+    {
+     "item": "fill:KY.KM.88a",
+     "entity": "type",
+     "id": "KY.KM.88a",
+     "field": null
+    },
+    {
+     "item": "fill:MT.KM.128",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": null
+    },
+    {
+     "item": "fill:MT.KM.129",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": null
+    },
+    {
+     "item": "fill:MT.KM.132",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.433",
+     "entity": "type",
+     "id": "MX.KM.433",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.184",
+     "entity": "type",
+     "id": "NL.KM.184",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.204",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-6",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:NL.KM.234",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.236",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.239",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.241",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.346",
+     "entity": "type",
+     "id": "NL.KM.346",
+     "field": null
+    },
+    {
+     "item": "fill:NO.KM.460",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": null
+    },
+    {
+     "item": "fill:PH.KM.242.1",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": null
+    },
+    {
+     "item": "fill:PT.KM.744",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": null
+    },
+    {
+     "item": "fill:SE.KM.826a",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": null
+    },
+    {
+     "item": "fill:SG.KM.3",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": null
+    },
+    {
+     "item": "fill:SG.KM.4",
+     "entity": "type",
+     "id": "SG.KM.4",
+     "field": null
+    },
+    {
+     "item": "fill:SK.KM.96",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-7",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:TH.KM.183",
+     "entity": "type",
+     "id": "TH.KM.183",
+     "field": null
+    },
+    {
+     "item": "fill:TT.KM.33",
+     "entity": "type",
+     "id": "TT.KM.33",
+     "field": null
+    },
+    {
+     "item": "fill:US.KM.195",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": null
+    },
+    {
+     "item": "fill:US.KM.204",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": null
+    },
+    {
+     "item": "fill:VA.KM.52.1",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": null
+    },
+    {
+     "item": "fill:YU.KM.86",
+     "entity": "type",
+     "id": "YU.KM.86",
+     "field": null
     }
    ]
   }

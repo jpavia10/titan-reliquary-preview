@@ -24,3 +24,4 @@ Checked for overlap with the 34 + #35 (grid/light-trail vibe) + #36 (portal-gree
 Build order: Ferrofluid, Event Horizon, Kintsugi, Supercell, Tourbillon, then the rest.
 
 Status (2026-10-21): #35-#39 shipped by Grok (tr212-tr239). #40 Supercell (tr248), #41 Tourbillon (tr249), #42 Darkroom (tr252) and #43 Silver Screen (tr253) shipped by Claude. Next: #44.
+Status (2026-10-23): #44-#50 handed to Gemini as build packages (owner: "Ask it for more help on theming and advanced motion ... Off load your tokens here"); brief `docs/design/BUILD_BRIEF_THEMES_MOTION.md` (Drive copy in `design-incoming (AI UI proposals)/`). Gemini delivers to `design-incoming (AI UI proposals)/themes/{id}/`; Claude runs, reviews, wires (add_theme.py), requests the art and ships each one.

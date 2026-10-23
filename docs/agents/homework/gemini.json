@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-23T20:26:51Z",
+ "updated": "2026-10-23T20:44:12Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261020-1",
@@ -15832,6 +15832,2277 @@
      "inputs": [
       "C023_rev.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:AT.KM.2826",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": null
+    },
+    {
+     "item": "fill:ES.KM.1040",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": null
+    },
+    {
+     "item": "fill:ES.KM.1042",
+     "entity": "type",
+     "id": "ES.KM.1042",
+     "field": null
+    },
+    {
+     "item": "fill:ES.KM.1144",
+     "entity": "type",
+     "id": "ES.KM.1144",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1282",
+     "entity": "type",
+     "id": "FR.KM.1282",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1283",
+     "entity": "type",
+     "id": "FR.KM.1283",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1284",
+     "entity": "type",
+     "id": "FR.KM.1284",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1285",
+     "entity": "type",
+     "id": "FR.KM.1285",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1286",
+     "entity": "type",
+     "id": "FR.KM.1286",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1289",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.1410",
+     "entity": "type",
+     "id": "FR.KM.1410",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.925.1",
+     "entity": "type",
+     "id": "FR.KM.925.1",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:AT.KM.2826",
+     "kind": "fill",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": null,
+     "coins": [
+      "C023"
+     ],
+     "label": "C023 · Austria · 1918 · 20 heller (AT.KM.2826)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces6133.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:ES.KM.1040",
+     "kind": "fill",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": null,
+     "coins": [
+      "C140"
+     ],
+     "label": "C140 · Spain · 2008 · 1 euro cent · EUR (ES.KM.1040)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces81.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:ES.KM.1042",
+     "kind": "fill",
+     "entity": "type",
+     "id": "ES.KM.1042",
+     "field": null,
+     "coins": [
+      "C098"
+     ],
+     "label": "C098 · Spain · 2000 · 5 euro cent · EUR (ES.KM.1042)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces83.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:ES.KM.1144",
+     "kind": "fill",
+     "entity": "type",
+     "id": "ES.KM.1144",
+     "field": null,
+     "coins": [
+      "C139"
+     ],
+     "label": "C139 · Spain · 2014 · 1 euro cent · EUR (ES.KM.1144)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces10856.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.1282",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.1282",
+     "field": null,
+     "coins": [
+      "C141"
+     ],
+     "label": "C141 · France · 2009 · 1 euro cent · EUR (FR.KM.1282)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces97.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.1283",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.1283",
+     "field": null,
+     "coins": [
+      "C034",
+      "C127",
+      "C128"
+     ],
+     "label": "C034 · France · 2009 · 2 euro cent · EUR (FR.KM.1283)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces98.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.1284",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.1284",
+     "field": null,
+     "coins": [
+      "C052"
+     ],
+     "label": "C052 · France · 2009 · 5 euro cent · EUR (FR.KM.1284)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces99.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.1285",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.1285",
+     "field": null,
+     "coins": [
+      "C095",
+      "C096"
+     ],
+     "label": "C095 · France · 1999 · 10 euro cent · EUR (FR.KM.1285)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces100.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.1286",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.1286",
+     "field": null,
+     "coins": [
+      "C129",
+      "C130"
+     ],
+     "label": "C129 · France · 2000 · 20 euro cent · EUR (FR.KM.1286)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces101.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.1289",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": null,
+     "coins": [
+      "C072"
+     ],
+     "label": "C072 · France · 2000 · 2 euro · EUR (FR.KM.1289)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces104.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.1410",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.1410",
+     "field": null,
+     "coins": [
+      "C054",
+      "C097"
+     ],
+     "label": "C054 · France · 2010 · 10 euro cent · EUR (FR.KM.1410)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces3510.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.925.1",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.925.1",
+     "field": null,
+     "coins": [
+      "C012",
+      "C017",
+      "C025",
+      "C059",
+      "C117",
+      "C118",
+      "C119"
+     ],
+     "label": "C012 · France · 1962 · 1 franc · FRF (nouveau franc) (FR.KM.925.1)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces6.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-2",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:FR.KM.929",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.930",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.931.1",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.933",
+     "entity": "type",
+     "id": "FR.KM.933",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.964.1",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1107",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1109",
+     "entity": "type",
+     "id": "GB.KM.1109",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1109d",
+     "entity": "type",
+     "id": "GB.KM.1109d",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1110",
+     "entity": "type",
+     "id": "GB.KM.1110",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1110d",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1334",
+     "entity": "type",
+     "id": "GB.KM.1334",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.1335",
+     "entity": "type",
+     "id": "GB.KM.1335",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:FR.KM.929",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": null,
+     "coins": [
+      "C007",
+      "C062",
+      "C063",
+      "C124",
+      "C125"
+     ],
+     "label": "C007 · France · 1963 · 10 centimes · FRF (FR.KM.929)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces3.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.930",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": null,
+     "coins": [
+      "C005",
+      "C041"
+     ],
+     "label": "C005 · France · 1986 · 20 centimes · FRF (FR.KM.930)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces4.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.931.1",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": null,
+     "coins": [
+      "C033",
+      "C060",
+      "C221"
+     ],
+     "label": "C033 · France · 1969 · 1/2 franc · FRF (FR.KM.931.1)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces5.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.933",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.933",
+     "field": null,
+     "coins": [
+      "C193",
+      "C194"
+     ],
+     "label": "C193 · France · 1973 · 5 centimes · FRF (FR.KM.933)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.KM.964.1",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": null,
+     "coins": [
+      "C049"
+     ],
+     "label": "C049 · France · 1989 · 10 francs · FRF (FR.KM.964.1)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces9.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.1107",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": null,
+     "coins": [
+      "C218",
+      "C290"
+     ],
+     "label": "C218 · United Kingdom · 2010 · 1 penny · GBP (decimal) (GB.KM.1107)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces4038.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.1109",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.1109",
+     "field": null,
+     "coins": [
+      "C177",
+      "C178",
+      "C179"
+     ],
+     "label": "C177 · United Kingdom · 2009 · 5 pence · GBP (GB.KM.1109)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces6612.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.1109d",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.1109d",
+     "field": null,
+     "coins": [
+      "C180",
+      "C181",
+      "C182"
+     ],
+     "label": "C180 · United Kingdom · 2012 · 5 pence · GBP (GB.KM.1109d)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces25766.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.1110",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.1110",
+     "field": null,
+     "coins": [
+      "C154"
+     ],
+     "label": "C154 · United Kingdom · 2010 · 10 pence · GBP (GB.KM.1110)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces7350.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.1110d",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": null,
+     "coins": [
+      "C155",
+      "C156",
+      "C157"
+     ],
+     "label": "C155 · United Kingdom · 2013 · 10 pence · GBP (GB.KM.1110d)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces25746.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.1334",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.1334",
+     "field": null,
+     "coins": [
+      "C183",
+      "C184"
+     ],
+     "label": "C183 · United Kingdom · 2015 · 5 pence · GBP (GB.KM.1334)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces70547.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.1335",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.1335",
+     "field": null,
+     "coins": [
+      "C158"
+     ],
+     "label": "C158 · United Kingdom · 2016 · 10 pence · GBP (GB.KM.1335)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces70549.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-3",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:GB.KM.837",
+     "entity": "type",
+     "id": "GB.KM.837",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.912",
+     "entity": "type",
+     "id": "GB.KM.912",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.914",
+     "entity": "type",
+     "id": "GB.KM.914",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.915",
+     "entity": "type",
+     "id": "GB.KM.915",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.916",
+     "entity": "type",
+     "id": "GB.KM.916",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.931",
+     "entity": "type",
+     "id": "GB.KM.931",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.935",
+     "entity": "type",
+     "id": "GB.KM.935",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.935a",
+     "entity": "type",
+     "id": "GB.KM.935a",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.936",
+     "entity": "type",
+     "id": "GB.KM.936",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.937b",
+     "entity": "type",
+     "id": "GB.KM.937b",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.938b",
+     "entity": "type",
+     "id": "GB.KM.938b",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.986",
+     "entity": "type",
+     "id": "GB.KM.986",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:GB.KM.837",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.837",
+     "field": null,
+     "coins": [
+      "C164"
+     ],
+     "label": "C164 · United Kingdom · 1932 · ½ penny · GBP (GB.KM.837)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces4004.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.912",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.912",
+     "field": null,
+     "coins": [
+      "C234"
+     ],
+     "label": "C234 · United Kingdom · 1968 · 10 new pence · GBP (large module) (GB.KM.912)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces878.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.914",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.914",
+     "field": null,
+     "coins": [
+      "C020"
+     ],
+     "label": "C020 · United Kingdom · 1973 · ½ new penny · GBP (GB.KM.914)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces856.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.915",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.915",
+     "field": null,
+     "coins": [
+      "C105",
+      "C106",
+      "C216"
+     ],
+     "label": "C105 · United Kingdom · 1971 · 1 penny · GBP (decimal) (GB.KM.915)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces665.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.916",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.916",
+     "field": null,
+     "coins": [
+      "C013",
+      "C024"
+     ],
+     "label": "C013 · United Kingdom · 1971 · 2 new pence · GBP (GB.KM.916)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces664.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.931",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.931",
+     "field": null,
+     "coins": [
+      "C205"
+     ],
+     "label": "C205 · United Kingdom · 1982 · 20 pence · GBP (GB.KM.931)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces865.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.935",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.935",
+     "field": null,
+     "coins": [
+      "C107",
+      "C108",
+      "C297"
+     ],
+     "label": "C107 · United Kingdom · 1987 · 1 penny · GBP (decimal) (GB.KM.935)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces861.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.935a",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.935a",
+     "field": null,
+     "coins": [
+      "C109",
+      "C110",
+      "C111",
+      "C241"
+     ],
+     "label": "C109 · United Kingdom · 1995 · 1 penny · GBP (decimal) (GB.KM.935a)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces860.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.936",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.936",
+     "field": null,
+     "coins": [
+      "C213"
+     ],
+     "label": "C213 · United Kingdom · 1991 · 2 pence · GBP (GB.KM.936)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces867.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.937b",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.937b",
+     "field": null,
+     "coins": [
+      "C167",
+      "C168",
+      "C169",
+      "C170",
+      "C171",
+      "C172",
+      "C275",
+      "C296"
+     ],
+     "label": "C167 · United Kingdom · 1990 · 5 pence · GBP (GB.KM.937b)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces875.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.938b",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.938b",
+     "field": null,
+     "coins": [
+      "C147",
+      "C148",
+      "C149",
+      "C150",
+      "C151"
+     ],
+     "label": "C147 · United Kingdom · 1992 · 10 pence · GBP (GB.KM.938b)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces879.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.986",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.986",
+     "field": null,
+     "coins": [
+      "C112",
+      "C113",
+      "C217",
+      "C292"
+     ],
+     "label": "C112 · United Kingdom · 2003 · 1 penny · GBP (decimal) (GB.KM.986)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces862.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-4",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:GB.KM.988",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": null
+    },
+    {
+     "item": "fill:GB.KM.989",
+     "entity": "type",
+     "id": "GB.KM.989",
+     "field": null
+    },
+    {
+     "item": "fill:GR.KM.90",
+     "entity": "type",
+     "id": "GR.KM.90",
+     "field": null
+    },
+    {
+     "item": "fill:HK.KM.69a",
+     "entity": "type",
+     "id": "HK.KM.69a",
+     "field": null
+    },
+    {
+     "item": "fill:HU.KM.575",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": null
+    },
+    {
+     "item": "fill:IE.KM.32",
+     "entity": "type",
+     "id": "IE.KM.32",
+     "field": null
+    },
+    {
+     "item": "fill:IE.KM.34",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.111",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.211",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.213",
+     "entity": "type",
+     "id": "IT.KM.213",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.214",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.215",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:GB.KM.988",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": null,
+     "coins": [
+      "C173",
+      "C174",
+      "C175",
+      "C176"
+     ],
+     "label": "C173 · United Kingdom · 1998 · 5 pence · GBP (GB.KM.988)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces876.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.KM.989",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.KM.989",
+     "field": null,
+     "coins": [
+      "C152",
+      "C153"
+     ],
+     "label": "C152 · United Kingdom · 2001 · 10 pence · GBP (GB.KM.989)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2236.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GR.KM.90",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GR.KM.90",
+     "field": null,
+     "coins": [
+      "C245"
+     ],
+     "label": "C245 · Greece · 1970 · 2 drachmai · GRD (GR.KM.90)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces545.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:HK.KM.69a",
+     "kind": "fill",
+     "entity": "type",
+     "id": "HK.KM.69a",
+     "field": null,
+     "coins": [
+      "C146"
+     ],
+     "label": "C146 · Hong Kong · 1998 · $1 · HKD (HK.KM.69a)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2118.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:HU.KM.575",
+     "kind": "fill",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": null,
+     "coins": [
+      "C032"
+     ],
+     "label": "C032 · Hungary · 1967 · 1 forint · HUF (HU.KM.575)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1124.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IE.KM.32",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IE.KM.32",
+     "field": null,
+     "coins": [
+      "C101",
+      "C143"
+     ],
+     "label": "C101 · Ireland · 2002 · 1 euro cent · EUR (IE.KM.32)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces121.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IE.KM.34",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IE.KM.34",
+     "field": null,
+     "coins": [
+      "C120"
+     ],
+     "label": "C120 · Ireland · 2013 · 5 euro cent · EUR (IE.KM.34)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces123.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IT.KM.111",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": null,
+     "coins": [
+      "C211"
+     ],
+     "label": "C211 · Italy · 1987 · 500 lire · ITL (IT.KM.111)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces302.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IT.KM.211",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": null,
+     "coins": [
+      "C039"
+     ],
+     "label": "C039 · Italy · 2010 · 2 euro cent · EUR (IT.KM.211)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces130.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IT.KM.213",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IT.KM.213",
+     "field": null,
+     "coins": [
+      "C036"
+     ],
+     "label": "C036 · Italy · 2007 · 10 euro cent · EUR (IT.KM.213)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces132.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IT.KM.214",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": null,
+     "coins": [
+      "C027",
+      "C061"
+     ],
+     "label": "C027 · Italy · 2002 · 20 euro cent · EUR (IT.KM.214)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces133.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IT.KM.215",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IT.KM.215",
+     "field": null,
+     "coins": [
+      "C055"
+     ],
+     "label": "C055 · Italy · 2002 · 50 euro cent · EUR (IT.KM.215)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces134.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-5",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:IT.KM.216",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.95.1",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": null
+    },
+    {
+     "item": "fill:IT.KM.96.1",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": null
+    },
+    {
+     "item": "fill:KY.KM.132",
+     "entity": "type",
+     "id": "KY.KM.132",
+     "field": null
+    },
+    {
+     "item": "fill:KY.KM.87",
+     "entity": "type",
+     "id": "KY.KM.87",
+     "field": null
+    },
+    {
+     "item": "fill:KY.KM.88a",
+     "entity": "type",
+     "id": "KY.KM.88a",
+     "field": null
+    },
+    {
+     "item": "fill:MT.KM.128",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": null
+    },
+    {
+     "item": "fill:MT.KM.129",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": null
+    },
+    {
+     "item": "fill:MT.KM.132",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.433",
+     "entity": "type",
+     "id": "MX.KM.433",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.184",
+     "entity": "type",
+     "id": "NL.KM.184",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.204",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:IT.KM.216",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": null,
+     "coins": [
+      "C084"
+     ],
+     "label": "C084 · Italy · 2002 · 1 euro · EUR (IT.KM.216)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces135.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IT.KM.95.1",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": null,
+     "coins": [
+      "C011",
+      "C199",
+      "C287",
+      "C298",
+      "C299"
+     ],
+     "label": "C011 · Italy · 1970 · 50 lire · ITL (IT.KM.95.1)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces724.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IT.KM.96.1",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": null,
+     "coins": [
+      "C240"
+     ],
+     "label": "C240 · Italy · 1965 · 100 lire · ITL (IT.KM.96.1)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces304.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:KY.KM.132",
+     "kind": "fill",
+     "entity": "type",
+     "id": "KY.KM.132",
+     "field": null,
+     "coins": [
+      "C186",
+      "C215"
+     ],
+     "label": "C186 · Cayman Islands · 2002 · 5 cents · KYD (KY.KM.132)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2698.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:KY.KM.87",
+     "kind": "fill",
+     "entity": "type",
+     "id": "KY.KM.87",
+     "field": null,
+     "coins": [
+      "C269"
+     ],
+     "label": "C269 · Cayman Islands · 1990 · 1 cent · KYD (KY.KM.87)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces7364.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:KY.KM.88a",
+     "kind": "fill",
+     "entity": "type",
+     "id": "KY.KM.88a",
+     "field": null,
+     "coins": [
+      "C185",
+      "C214"
+     ],
+     "label": "C185 · Cayman Islands · 1996 · 5 cents · KYD (KY.KM.88a)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces10222.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MT.KM.128",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": null,
+     "coins": [
+      "C028"
+     ],
+     "label": "C028 · Malta · 2013 · 5 euro cent · EUR (MT.KM.128)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2183.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MT.KM.129",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": null,
+     "coins": [
+      "C043"
+     ],
+     "label": "C043 · Malta · 2008 · 10 euro cent · EUR (MT.KM.129)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2184.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MT.KM.132",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": null,
+     "coins": [
+      "C064"
+     ],
+     "label": "C064 · Malta · 2008 · 1 euro · EUR (MT.KM.132)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2187.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.KM.433",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.KM.433",
+     "field": null,
+     "coins": [
+      "C161"
+     ],
+     "label": "C161 · Mexico · 1945 · 10 centavos · MXN (MX.KM.433)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces6694.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:NL.KM.184",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NL.KM.184",
+     "field": null,
+     "coins": [
+      "C223"
+     ],
+     "label": "C223 · Netherlands · 1967 · 1 gulden · NLG (NL.KM.184)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces737.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:NL.KM.204",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": null,
+     "coins": [
+      "C010",
+      "C104"
+     ],
+     "label": "C010 · Netherlands · 1996 · 25 cents · NLG (NL.KM.204)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces731.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-6",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:NL.KM.234",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.236",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.239",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.241",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.346",
+     "entity": "type",
+     "id": "NL.KM.346",
+     "field": null
+    },
+    {
+     "item": "fill:NO.KM.460",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": null
+    },
+    {
+     "item": "fill:PH.KM.242.1",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": null
+    },
+    {
+     "item": "fill:PT.KM.744",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": null
+    },
+    {
+     "item": "fill:SE.KM.826a",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": null
+    },
+    {
+     "item": "fill:SG.KM.3",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": null
+    },
+    {
+     "item": "fill:SG.KM.4",
+     "entity": "type",
+     "id": "SG.KM.4",
+     "field": null
+    },
+    {
+     "item": "fill:SK.KM.96",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:NL.KM.234",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": null,
+     "coins": [
+      "C142"
+     ],
+     "label": "C142 · Netherlands · 2000 · 1 euro cent · EUR (NL.KM.234)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces145.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:NL.KM.236",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": null,
+     "coins": [
+      "C004"
+     ],
+     "label": "C004 · Netherlands · 2000 · 5 euro cent · EUR (NL.KM.236)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces147.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:NL.KM.239",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": null,
+     "coins": [
+      "C040"
+     ],
+     "label": "C040 · Netherlands · 2001 · 20 euro cent · EUR (NL.KM.239)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces149.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:NL.KM.241",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": null,
+     "coins": [
+      "C070"
+     ],
+     "label": "C070 · Netherlands · 2002 · 2 euro · EUR (NL.KM.241)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces152.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:NL.KM.346",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NL.KM.346",
+     "field": null,
+     "coins": [
+      "C045"
+     ],
+     "label": "C045 · Netherlands · 2014 · 5 euro cent · EUR (NL.KM.346)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces54953.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:NO.KM.460",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": null,
+     "coins": [
+      "C144",
+      "C268"
+     ],
+     "label": "C144 · Norway · 1998 · 50 øre · NOK (NO.KM.460)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:PH.KM.242.1",
+     "kind": "fill",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": null,
+     "coins": [
+      "C163"
+     ],
+     "label": "C163 · Philippines · 1984 · 50 sentimo · PHP (PH.KM.242.1)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2461.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:PT.KM.744",
+     "kind": "fill",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": null,
+     "coins": [
+      "C056"
+     ],
+     "label": "C056 · Portugal · 2002 · 20 euro cent · EUR (PT.KM.744)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces157.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:SE.KM.826a",
+     "kind": "fill",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": null,
+     "coins": [
+      "C165"
+     ],
+     "label": "C165 · Sweden · 1973 · 1 krona · SEK (SE.KM.826a)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1516.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:SG.KM.3",
+     "kind": "fill",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": null,
+     "coins": [
+      "C264"
+     ],
+     "label": "C264 · Singapore · 1973 · 10 cents · SGD (SG.KM.3)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1671.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:SG.KM.4",
+     "kind": "fill",
+     "entity": "type",
+     "id": "SG.KM.4",
+     "field": null,
+     "coins": [
+      "C250"
+     ],
+     "label": "C250 · Singapore · 1967 · 20 cents · SGD (SG.KM.4)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces975.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:SK.KM.96",
+     "kind": "fill",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": null,
+     "coins": [
+      "C038"
+     ],
+     "label": "C038 · Slovakia · 2009 · 2 euro cent · EUR (SK.KM.96)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces5085.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261023-7",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-23T20:44:12Z",
+   "lease_until": "2026-10-28T20:44:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:TH.KM.183",
+     "entity": "type",
+     "id": "TH.KM.183",
+     "field": null
+    },
+    {
+     "item": "fill:TT.KM.33",
+     "entity": "type",
+     "id": "TT.KM.33",
+     "field": null
+    },
+    {
+     "item": "fill:US.KM.195",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": null
+    },
+    {
+     "item": "fill:US.KM.204",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": null
+    },
+    {
+     "item": "fill:VA.KM.52.1",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": null
+    },
+    {
+     "item": "fill:YU.KM.86",
+     "entity": "type",
+     "id": "YU.KM.86",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:TH.KM.183",
+     "kind": "fill",
+     "entity": "type",
+     "id": "TH.KM.183",
+     "field": null,
+     "coins": [
+      "C162"
+     ],
+     "label": "C162 · Thailand · 2006 · 1 baht · THB (TH.KM.183)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1106.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:TT.KM.33",
+     "kind": "fill",
+     "entity": "type",
+     "id": "TT.KM.33",
+     "field": null,
+     "coins": [
+      "C204"
+     ],
+     "label": "C204 · Trinidad and Tobago · 2014 · 25 cents · TTD (TT.KM.33)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1159.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:US.KM.195",
+     "kind": "fill",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": null,
+     "coins": [
+      "C088"
+     ],
+     "label": "C088 · USA · 1957 · 10¢ Roosevelt (US.KM.195)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces52.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:US.KM.204",
+     "kind": "fill",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": null,
+     "coins": [
+      "C073"
+     ],
+     "label": "C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976) (US.KM.204)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces56.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:VA.KM.52.1",
+     "kind": "fill",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": null,
+     "coins": [
+      "C254"
+     ],
+     "label": "C254 · Vatican City · 1951 · 10 lire · VAL (VA.KM.52.1)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces3935.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:YU.KM.86",
+     "kind": "fill",
+     "entity": "type",
+     "id": "YU.KM.86",
+     "field": null,
+     "coins": [
+      "C251",
+      "C262"
+     ],
+     "label": "C251 · Yugoslavia · 1984 · 1 dinar · YUD (YU.KM.86)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2417.html"
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }
