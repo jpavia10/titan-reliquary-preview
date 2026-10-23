@@ -13,7 +13,8 @@ Every run is a pure function of the collection (collection/), the roles (docs/ag
   1. POOLS   every open job is computed from a gap in the data: a catalogue fact without an exact source (cite), a catalogue number that
              disagrees with Numista (catno), a fact only one contributor stands behind (verify), a mint mark nobody read (read-mint), a
              story nobody else checked (story-check) or still in shorthand (plain-story), an open research question (research), a value
-             without a price page (value), a disagreement between two AIs (arbitrate). A job disappears when its gap closes.
+             without a price page (value), a disagreement between two AIs (arbitrate), a Phase 2 fact still blank on a type we hold
+             (fill). A job disappears when its gap closes.
   2. CLOSE   an open assignment is done when all its items closed, or when the AI answered it (a merged event names it in
              provenance.assignment): items it left out go back to the pool, marked as tried by that AI. Past its lease it expires.
   3. ISSUE   each active AI is topped up to its capacity from the kinds it does (roles.json, in order; `per_kind` batches of a kind), highest priority first,
@@ -161,6 +162,43 @@ def pool_cite(ctx):
         out[f"cite:{r['type']}"] = _item("cite", f"cite:{r['type']}", "type", r["type"], None, r["coins"], f"{r['country']} {r['denomination']} ({r['type']})",
                                          (n,), payload={k: r[k] for k in ("issues", "catalogs", "weight_g", "diameter_mm", "composition", "ask", "note")}, lines=lines)
     return out
+
+
+FILL_FIELDS = (("edge", "nominal.edge"), ("thickness", "nominal.thickness_mm"), ("alignment", "nominal.alignment"),
+               ("legal tender", "legal_tender.status"), ("legal tender", "legal_tender.text"), ("era", "period"), ("era", "ruler"),
+               ("designers", "design.designers"), ("obverse", "design.obverse"), ("reverse", "design.reverse"))
+FILL_HOW = {"nominal.edge": "as the entry words it, e.g. Plain, Reeded, Lettered: ...", "nominal.thickness_mm": "a number in mm",
+            "nominal.alignment": "coin or medal", "legal_tender.status": "current, demonetized, withdrawn, superseded or none",
+            "legal_tender.text": "a few words, e.g. demonetized 2002 (euro)", "period": "a historical period or regime, never a country status",
+            "ruler": "the ruler named on the coin", "design.designers": 'a list with each side in brackets, e.g. ["Arnold Machin (obverse)", "Stuart Devlin (reverse)"]',
+            "design.obverse": "what the obverse shows, then its legend in capitals, joined by ' · '",
+            "design.reverse": "what the reverse shows, then its legend in capitals, joined by ' · '"}
+
+
+def pool_fill(ctx):
+    """2026-10-23 (owner: "Load up muse"): a coin type in the collection with Phase 2 facts still blank (edge, thickness, alignment,
+    legal tender, era, designers, obverse/reverse text). One item per type, a line per blank field; specs and designers before the side
+    descriptions. Tokens and props have no catalogue entry, so they are left out."""
+    col = ctx["col"]; out = []
+    coins = {}
+    for sid, s in sorted(ctx["live"].items()): coins.setdefault(s["type"], []).append(sid)
+    for tid, sids in coins.items():
+        t = col["types"].get(tid) or {}
+        if t.get("class") != "coin": continue
+        lines = []; blank = []
+        for name, f in FILL_FIELDS:
+            v = get_path(t, f)
+            if f == "legal_tender.status" and v not in (None, "unknown"): continue
+            if f == "legal_tender.text" and ((t.get("legal_tender") or {}).get("status") not in (None, "unknown") or v): continue
+            if f in ("period", "ruler") and (t.get("period") or t.get("ruler")): continue
+            if f != "legal_tender.status" and v not in (None, "", []): continue
+            lines.append(("type", tid, f, v)); blank.append(name)
+        if not lines: continue
+        main = sum(1 for n in blank if n not in ("obverse", "reverse"))
+        url = next((c.get("url") for c in t.get("catalogs") or [] if c.get("system") in ("Numista", "N") and c.get("url")), None)
+        out.append(((-main, tid), _item("fill", f"fill:{tid}", "type", tid, None, sids, f"{coin_line(ctx, sids[0])} ({tid})", (-main, tid),
+                                        payload={"blank": sorted(set(blank), key=blank.index), "numista_url": url}, lines=lines)))
+    return {it["item"]: it for _, it in sorted(out, key=lambda x: x[0])}
 
 
 def pool_catno(ctx):
@@ -435,7 +473,7 @@ def pools(ctx, roles, queues, metrics=None):
     rate = lambda a: audit_rate(a, roles, metrics or {})
     out = {}
     for f in (pool_cite(ctx), pool_catno(ctx), pool_contradiction(ctx), pool_story(ctx, reserved), pool_plain(ctx, reserved), pool_research(ctx),
-              pool_value(ctx, ctx.get("now")), pool_read_mint(ctx), pool_arbitrate(ctx)):
+              pool_value(ctx, ctx.get("now")), pool_read_mint(ctx), pool_arbitrate(ctx), pool_fill(ctx)):
         out.update(f)
     # a fact another job is about to change is not handed out to be checked at the same time (it would only go stale)
     busy = {(e, i, f) for it in out.values() for e, i, f, _ in it["lines"]}
@@ -727,6 +765,7 @@ def sheet(a, pool, roles, issued_for_lines=None):
                    "plain-story": f"{FILL}: plain-English rewrite of the existing story; no facts changed",
                    "story-check": f"{FILL}: checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)",
                    "value": f"{FILL}: exact price page URL + the grade you assumed and why",
+                   "fill": f"{FILL}: the exact entry URL for the coin we hold + the line you read (`new` = {FILL_HOW.get(field, 'the value')}; leave FILL when the entry does not say)",
                    "research": f"{FILL}: the exact source that answers the question (URL / Numista N# + row / book + page)",
                    "contradiction": f"{FILL}: the exact source that settles it (URL + the row you read) and what you checked"}.get(a["kind"], f"{FILL}: exact entry URL + the table row you read")
             if a["kind"] == "verify" and it["blind"]:          # a photo reading cites the photo, not a catalogue page (2026-10-22)
@@ -760,6 +799,8 @@ def item_md(it, aid=None):
         return f"- **{it['label']}** ({p['rule']}): {_data(p['detail'], 200)}. {p['ask']} `{it['entity']} {it['id']} {it['field']}`" + (f" Record: {_data(p['record'], 300)}" if p.get("record") else "")
     if k == "cite":
         return f"- **{it['label']}** coins {', '.join(it['coins'])}. Ask: " + "; ".join(p["ask"]) + (f". Note: {_data(p['note'], 300)}" if p.get("note") else "")
+    if k == "fill":
+        return (f"- **{it['label']}**: blank: {', '.join(p['blank'])}." + (f" Entry on record: {p['numista_url']}" if p.get("numista_url") else " No entry on record yet: find the one for this year."))
     if k == "catno":
         return f"- **{it['id']}** ({', '.join(it['coins'])}): " + "; ".join(f"{d['system']} record {'/'.join(d['record'])} vs Numista {d['numista_says']} ({d['url']})" for d in p["disputes"])
     if k == "verify":

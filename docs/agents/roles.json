@@ -50,10 +50,12 @@
         "vision",
         "web"
       ],
-      "capacity": 20,
+      "capacity": 40,
       "kinds": [
+        "fill",
         "research",
         "cite",
+        "catno",
         "value",
         "contradiction",
         "story-check",
@@ -62,9 +64,10 @@
         "plain-story",
         "read-mint"
       ],
-      "strength": "Researcher and writer stepping up (owner, 2026-10-10: \"I think muse wants to step up so maybe see what they got in them\"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.",
+      "strength": "Researcher and writer, loaded up (owner, 2026-10-23: \"Load up muse\"; 2026-10-10: \"I think muse wants to step up so maybe see what they got in them\"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.",
       "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).",
-      "per_kind": 4
+      "per_kind": 8,
+      "full_batches": true
     },
     "gemini": {
       "name": "Gemini",
@@ -237,6 +240,18 @@
       "fix": "#102",
       "what": "Each item is a place where the record contradicts itself (found by the truth checks on every publish: a mintage on a coin whose mint mark nobody read, two numbers in one catalogue, a year its type was never struck, a weight far from the catalogue's). Each item says what to send. Settle it with an exact source: the corrected value for the field named, or the same value with your source when the record is right after all. Never guess; leave an item out when no source settles it.",
       "done_when": "One change file; an item you could not settle is left out (it goes back to the pool)."
+    },
+    "fill": {
+      "role": "Cataloguer",
+      "title": "Fill the blank facts of {n} coin types",
+      "batch": 12,
+      "lease_days": 10,
+      "needs": [
+        "numista"
+      ],
+      "fix": "#72",
+      "what": "Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.",
+      "done_when": "One change file answering this assignment; the lines you left as FILL go back to the pool."
     }
   },
   "audit": {

@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-23] — Claude · Muse loaded up (owner)
+- Muse: capacity 40, 8 per kind, +catno, and a new homework kind `fill` (blank edge, thickness, alignment, legal tender, era, designers, obverse/reverse on the types we hold; 173 types in the pool). Muse holds 20 sheets / 469 items. Other AIs: a fill line is a type fact with an exact entry URL, nothing else.
+
 ### [2026-10-23] — Claude · Gemini works in its chat (owner)
 - Gemini is working in the chat app now; no special answer doc or side panel (the one made earlier was trashed). Its files come in like everyone else's.
 

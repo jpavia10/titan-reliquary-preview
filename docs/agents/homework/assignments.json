@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-23T04:52:45Z",
+ "updated": "2026-10-23T16:07:47Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -75,7 +75,8 @@
   "grok-contradiction-20261022": 1,
   "grok-story-check-20261022": 1,
   "gemini-verify-20261022": 2,
-  "muse-cite-20261022": 1
+  "muse-cite-20261022": 1,
+  "muse-fill-20261023": 8
  },
  "assignments": [
   {
@@ -16499,6 +16500,678 @@
      "item": "cite:BS.X.5-cents",
      "entity": "type",
      "id": "BS.X.5-cents",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261023-1",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-10-23T16:03:44Z",
+   "lease_until": "2026-11-02T16:03:44Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:AR.X.5-centavos",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": null
+    },
+    {
+     "item": "fill:AU.X.10-cents",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "fill:BS.X.25-cents",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "fill:BS.X.5-cents",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": null
+    },
+    {
+     "item": "fill:GB.X.1-penny",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.20-pesos",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.5-centavos",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.500-pesos",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": null
+    },
+    {
+     "item": "fill:AU.X.1-cent",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": null
+    },
+    {
+     "item": "fill:BS.X.1-cent",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": null
+    },
+    {
+     "item": "fill:BZ.X.25-cents",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "fill:DE-EMP.X.20-pfennig",
+     "entity": "type",
+     "id": "DE-EMP.X.20-pfennig",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261023-2",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-10-23T16:03:44Z",
+   "lease_until": "2026-11-02T16:03:44Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:FR.X.5-francs",
+     "entity": "type",
+     "id": "FR.X.5-francs",
+     "field": null
+    },
+    {
+     "item": "fill:HN.X.50-centavos",
+     "entity": "type",
+     "id": "HN.X.50-centavos",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.50-centavos",
+     "entity": "type",
+     "id": "MX.X.50-centavos",
+     "field": null
+    },
+    {
+     "item": "fill:PH.X.1-piso",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": null
+    },
+    {
+     "item": "fill:SK.X.5-euro-cent",
+     "entity": "type",
+     "id": "SK.X.5-euro-cent",
+     "field": null
+    },
+    {
+     "item": "fill:YU.X.50-para",
+     "entity": "type",
+     "id": "YU.X.50-para",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.10-centavos",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": null
+    },
+    {
+     "item": "fill:AT.X.2-groschen",
+     "entity": "type",
+     "id": "AT.X.2-groschen",
+     "field": null
+    },
+    {
+     "item": "fill:BM.X.10-cents",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "fill:CR.KM.214.2",
+     "entity": "type",
+     "id": "CR.KM.214.2",
+     "field": null
+    },
+    {
+     "item": "fill:MX-CHI.KM.612",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.24a.3",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261023-3",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-10-23T16:03:44Z",
+   "lease_until": "2026-11-02T16:03:44Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:CL.KM.219.2",
+     "entity": "type",
+     "id": "CL.KM.219.2",
+     "field": null
+    },
+    {
+     "item": "fill:CO.KM.295",
+     "entity": "type",
+     "id": "CO.KM.295",
+     "field": null
+    },
+    {
+     "item": "fill:CU.KM.32",
+     "entity": "type",
+     "id": "CU.KM.32",
+     "field": null
+    },
+    {
+     "item": "fill:ER.KM.46",
+     "entity": "type",
+     "id": "ER.KM.46",
+     "field": null
+    },
+    {
+     "item": "fill:FR.KM.888b.1",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": null
+    },
+    {
+     "item": "fill:NG.KM.10.1",
+     "entity": "type",
+     "id": "NG.KM.10.1",
+     "field": null
+    },
+    {
+     "item": "fill:VN-SOV.KM.1",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": null
+    },
+    {
+     "item": "fill:BR.KM.648.1",
+     "entity": "type",
+     "id": "BR.KM.648.1",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.21a.3",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": null
+    },
+    {
+     "item": "fill:GR.KM.117",
+     "entity": "type",
+     "id": "GR.KM.117",
+     "field": null
+    },
+    {
+     "item": "fill:GT.KM.239.2",
+     "entity": "type",
+     "id": "GT.KM.239.2",
+     "field": null
+    },
+    {
+     "item": "fill:GT.KM.277.1",
+     "entity": "type",
+     "id": "GT.KM.277.1",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261023-4",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-10-23T16:03:44Z",
+   "lease_until": "2026-11-02T16:03:44Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:IN.KM.92.2",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.146",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.189",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.191",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.65",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": null
+    },
+    {
+     "item": "fill:JP.Y.73a",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": null
+    },
+    {
+     "item": "fill:JP.Y.74",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": null
+    },
+    {
+     "item": "fill:KR.KM.103",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": null
+    },
+    {
+     "item": "fill:KR.KM.35.2",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": null
+    },
+    {
+     "item": "fill:KR.KM.4",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.415",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.424",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261023-5",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-10-23T16:03:44Z",
+   "lease_until": "2026-11-02T16:03:44Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:MX.KM.440",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.443",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.502",
+     "entity": "type",
+     "id": "MX.KM.502",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.604",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.936",
+     "entity": "type",
+     "id": "MX.KM.936",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.107.2",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": null
+    },
+    {
+     "item": "fill:NL.KM.170",
+     "entity": "type",
+     "id": "NL.KM.170",
+     "field": null
+    },
+    {
+     "item": "fill:PH.KM.198",
+     "entity": "type",
+     "id": "PH.KM.198",
+     "field": null
+    },
+    {
+     "item": "fill:SA.KM.20",
+     "entity": "type",
+     "id": "SA.KM.20",
+     "field": null
+    },
+    {
+     "item": "fill:SU.Y.126a",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": null
+    },
+    {
+     "item": "fill:SU.Y.93",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": null
+    },
+    {
+     "item": "fill:SU.Y.97",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261023-6",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-10-23T16:03:44Z",
+   "lease_until": "2026-11-02T16:03:44Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:TR.KM.1241",
+     "entity": "type",
+     "id": "TR.KM.1241",
+     "field": null
+    },
+    {
+     "item": "fill:TT.KM.31",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": null
+    },
+    {
+     "item": "fill:TW.KM.551",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": null
+    },
+    {
+     "item": "fill:VN.KM.71",
+     "entity": "type",
+     "id": "VN.KM.71",
+     "field": null
+    },
+    {
+     "item": "fill:AU.KM.36",
+     "entity": "type",
+     "id": "AU.KM.36",
+     "field": null
+    },
+    {
+     "item": "fill:AU.KM.37",
+     "entity": "type",
+     "id": "AU.KM.37",
+     "field": null
+    },
+    {
+     "item": "fill:AU.KM.66",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": null
+    },
+    {
+     "item": "fill:CA.KM.33",
+     "entity": "type",
+     "id": "CA.KM.33",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.21a",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.23a",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.24a.1",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.26",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261023-7",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-10-23T16:03:44Z",
+   "lease_until": "2026-11-02T16:03:44Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:CH.KM.26c",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.27",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.29a",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.40a.1",
+     "entity": "type",
+     "id": "CH.KM.40a.1",
+     "field": null
+    },
+    {
+     "item": "fill:CH.KM.40a.4",
+     "entity": "type",
+     "id": "CH.KM.40a.4",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.105",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.106a",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.107",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.108",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.109.1",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.109.2",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.110",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261023-8",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-10-23T16:03:44Z",
+   "lease_until": "2026-11-02T16:03:44Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:DE.KM.124",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.140.1",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.207",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.208",
+     "entity": "type",
+     "id": "DE.KM.208",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.209",
+     "entity": "type",
+     "id": "DE.KM.209",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.210",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.211",
+     "entity": "type",
+     "id": "DE.KM.211",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.212",
+     "entity": "type",
+     "id": "DE.KM.212",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.213",
+     "entity": "type",
+     "id": "DE.KM.213",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.214",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": null
+    },
+    {
+     "item": "fill:DE.KM.255",
+     "entity": "type",
+     "id": "DE.KM.255",
+     "field": null
+    },
+    {
+     "item": "fill:EC.KM.38",
+     "entity": "type",
+     "id": "EC.KM.38",
      "field": null
     }
    ]

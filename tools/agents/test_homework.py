@@ -394,6 +394,25 @@ class LoopUpgrades(unittest.TestCase):
                 hidden = str(sp["issue"]["year"]) if it["payload"]["fact"] == "year" else None
                 if hidden: self.assertNotIn(hidden, [x.strip() for x in it["label"].split("·")], it["label"])
 
+    def test_blank_facts_become_fill_sheets_that_merge(self):
+        """2026-10-23 (owner: "Load up muse"): a Phase 2 fact still blank on a type we hold is a fill item; an answered line merges."""
+        tmp = sandbox(); r = run_refresh(tmp, NOW)
+        fills = [it for it in r["pool"].values() if it["kind"] == "fill"]
+        self.assertTrue(fills, "no blank facts found")
+        a = next((x for x in r["state"]["assignments"] if x["kind"] == "fill" and x["status"] == "open"), None)
+        self.assertIsNotNone(a, "no fill assignment issued")
+        sheet = HW.sheet(a, r["pool"], r["roles"])
+        self.assertTrue(all(ln["source"].startswith("FILL (") and ln["new"] in (None, "", [], "unknown") for ln in sheet), sheet[0])
+        ln = copy.deepcopy(next(x for x in sheet if x["field"] == "nominal.edge"))
+        ln["new"] = "Plain"; ln["source"] = "https://en.numista.com/catalogue/pieces99999.html: Edge row 'Plain'"
+        status, rep, _ = apply(tmp, [ln], f"changes_{a['agent']}_20261009-1204.jsonl")
+        self.assertEqual(status, "applied", rep)
+        col = A.C.Collection(os.path.join(tmp, "collection"))
+        self.assertEqual(col.types[ln["id"]]["nominal"]["edge"], "Plain")
+        r2 = HW.run(tmp, LATER)
+        it = r2["pool"].get(f"fill:{ln['id']}")
+        self.assertTrue(it is None or not any(f == "nominal.edge" for _, _, f, _ in it["lines"]), "a filled fact left the fill pool")
+
     def test_a_resent_check_counts_once(self):
         ev = {"by": "model:gemini", "entity": "type", "id": "DE.KM.214", "field": "issues.0.mintage", "old": 20475000, "new": 20475000,
               "provenance": {"assignment": "HW-gemini-verify-20261012-1"}}

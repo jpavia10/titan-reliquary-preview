@@ -48,13 +48,14 @@ meter's "cited or confirmed" = Verified + Owner + Checked + Reference. A mintage
 | research | Researcher | an open research question (not one only the coin in hand can answer, not one already asked of Joseph) | the question is removed with an exact source |
 | value | Appraiser | a value without a cited price page | the value cites one |
 | arbitrate | Arbiter | an open disagreement | a third contributor (or Joseph) settles it |
+| fill | Cataloguer | a Phase 2 fact still blank on a coin type we hold: edge, thickness, alignment, legal tender, era (period / ruler), designers, the obverse and reverse descriptions (owner, 2026-10-23: "Load up muse"); one item per type, every blank line names the coin and its year | the field is filled with a cited value |
 
 Hand-written work that cannot be computed (work in progress, code reviews, guides, music, motion, onboarding) stays in
 `docs/agents/queues.json` as projects. A project with `reserves` holds those coins of those kinds for its AI while it is open.
 
 ## 3. The rules of assignment (tools/agents/homework.py)
 
-1. Each active AI holds at most `capacity` open assignments, taken in the order of its `kinds` list: first one batch of each kind for every AI, then (`per_kind` 2) a second batch of a kind whose pool is still deep. Batches are halved while an AI is onboarding unless roles.json says `full_batches`. Since 2026-10-10 (owner: "Dont throttle it") the capacities and batches are large: Grok 16 (the hardest kinds first: research, arbitrate, catalogue numbers, citations), Muse 12 (stepping up: research, citations and values first), Gemini 10 (every kind); ChatGPT is parked (it needs Joseph to paste every task).
+1. Each active AI holds at most `capacity` open assignments, taken in the order of its `kinds` list: first one batch of each kind for every AI, then (`per_kind` 2) a second batch of a kind whose pool is still deep. Batches are halved while an AI is onboarding unless roles.json says `full_batches`. Since 2026-10-10 (owner: "Dont throttle it") the capacities and batches are large: Grok 16 (the hardest kinds first: research, arbitrate, catalogue numbers, citations), Muse 12 (stepping up: research, citations and values first), Gemini 10 (every kind); ChatGPT is parked (it needs Joseph to paste every task). Since 2026-10-22/23 (owner: "Load it up", "Load up muse"): Gemini 40 and Muse 40, 8 batches per kind (Gemini with 5-day deadlines; Muse first on `fill`), Grok 24.
 2. **Nobody checks their own work**, Claude included: an AI is never given a fact it wrote to verify, a story it wrote to check, or a disagreement it is part of. Two ids of one AI (Grok's chat and its bot) are one contributor.
 3. A job is in at most one open assignment. An assignment holds its items for its lease (7 to 10 days); past it, the items go back to the pool.
 4. An assignment is answered when a merged line names it (`provenance.assignment`). Items it left out go back to the pool, marked as tried by that AI; when two different AIs could not do an item it is parked (listed in QUEUES.md for Claude or Joseph).

@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-23 04:52 UTC)
+# WORK QUEUE for Muse (updated 2026-10-23 16:07 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
-**Status:** active (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
+**Status:** active (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Researcher and writer, loaded up (owner, 2026-10-23: "Load up muse"; 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
 **How you get this:** Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
@@ -532,6 +532,182 @@ For each coin type below, open its Numista entry (or find it) and send the facts
 Items:
 - **BS 25 cents (BS.X.25-cents)** coins C300. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1984
 - **BS 5 cents (BS.X.5-cents)** coins C291. Ask: issues.0.mintage: 1984
+
+### 13. HW-muse-fill-20261023-1 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C289 · Argentina · 1954 · 5 centavos · ARM (AR.X.5-centavos)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces4835.html
+- **C295 · Australia · 2006 · 10 cents · AUD (AU.X.10-cents)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1565.html
+- **C300 · Bahamas · 1984 · 25 cents · BSD (BS.X.25-cents)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. No entry on record yet: find the one for this year.
+- **C291 · Bahamas · 1984 · 5 cents · BSD (BS.X.5-cents)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5010.html
+- **C302 · United Kingdom · 1922 · 1 penny · GBP (GB.X.1-penny)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/578
+- **C304 · Mexico · 1981 · 20 pesos · MXN (MX.X.20-pesos)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces987.html
+- **C294 · Mexico · 1969 · 5 centavos · MXP (MX.X.5-centavos)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces953.html
+- **C293 · Mexico · 1988 · 500 pesos · MXP (MX.X.500-pesos)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces819.html
+- **C288 · Australia · 1983 · 1 cent · AUD (AU.X.1-cent)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1559.html
+- **C276 · Bahamas · 2015 · 1 cent · BSD (BS.X.1-cent)**: blank: edge, thickness, alignment, legal tender, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces92216.html
+- **C280 · Belize · 2007 · 25 cents · BZD (BZ.X.25-cents)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2238.html
+- **C023 · Germany (Empire) · 1918 · 20 Pfennig · German Empire Mark system (DE-EMP.X.20-pfennig)**: blank: edge, thickness, alignment, era, designers, obverse, reverse. No entry on record yet: find the one for this year.
+
+### 14. HW-muse-fill-20261023-2 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C281 · France · 1994 · 5 francs · FRF (FR.X.5-francs)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces8.html
+- **C286 · Honduras · 2012 · 50 centavos · HNL (HN.X.50-centavos)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces3190.html
+- **C284 · Mexico · 2009 · 50 centavos · MXN (MX.X.50-centavos)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces583.html
+- **C279 · Philippines · 1997 · 1 piso · PHP (PH.X.1-piso)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1681.html
+- **C285 · Slovakia · 2009 · 5 euro cent · EUR (SK.X.5-euro-cent)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5086.html
+- **C282 · Yugoslavia · 1965 · 50 para · YUD (YU.X.50-para)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2006.html
+- **C274 · Mexico · 1995 · 10 centavos · MXN (MX.X.10-centavos)**: blank: alignment, legal tender, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces581.html
+- **C272 · Austria · 1925 · 2 groschen · ATS (AT.X.2-groschen)**: blank: alignment, legal tender, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1944.html
+- **C277 · Bermuda · 2004 · 10 cents · BMD (BM.X.10-cents)**: blank: alignment, legal tender, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces3214.html
+- **C016 · Costa Rica · 1985 · 5 colones · CRC (CR.KM.214.2)**: blank: era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces69.html
+- **C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915) (MX-CHI.KM.612)**: blank: edge, thickness, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces32634.html
+- **C094 · Switzerland · 1986 · 1 franc · CHF (CH.KM.24a.3)**: blank: alignment, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces185.html
+
+### 15. HW-muse-fill-20261023-3 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-3.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C145 · Chile · 1996 · 50 pesos · CLP (CL.KM.219.2)**: blank: era, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2834.html
+- **C233 · Colombia · 2016 · 50 pesos · COP (CO.KM.295)**: blank: era, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces34771.html
+- **C252 · Cuba · 1962 · 20 centavos · CUP (CU.KM.32)**: blank: era, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1055.html
+- **C212 · Eritrea · 1997 · 50 cents · ERN (nakfa) (ER.KM.46)**: blank: era, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2403.html
+- **C243 · France · 1946 · 5 francs · FRF (old franc · pre-nouveau) (FR.KM.888b.1)**: blank: era, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1190.html
+- **C201 · Nigeria · 1976 · 10 kobo · NGN (NG.KM.10.1)**: blank: era, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces4461.html
+- **C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng) (VN-SOV.KM.1)**: blank: thickness, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5904.html
+- **C047 · Brazil · 2006 · 5 centavos · BRL (BR.KM.648.1)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1049.html
+- **C077 · Switzerland · 1991 · 2 francs · CHF (CH.KM.21a.3)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces189.html
+- **C248 · Greece · 1982 · 2 drachmes · GRD (GR.KM.117)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces549.html
+- **C235 · Guatemala · 1934 · 10 centavos · GTQ (GT.KM.239.2)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5128.html
+- **C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.1)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces42670.html
+
+### 16. HW-muse-fill-20261023-4 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-4.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C203 · India · 2001 · 1 rupee · INR (IN.KM.92.2)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1609.html
+- **C253 · Jamaica · 1993 · 10 cents · JMD (JM.KM.146)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2617.html
+- **C219 · Jamaica · 2015 · 1 dollar · JMD (JM.KM.189)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces14369.html
+- **C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.191)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces14370.html
+- **C069 · Jamaica · 1975 · 50 cents · JMD (JM.KM.65)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces7457.html
+- **C220 · Japan · 1982 · 10 yen · JPY (JP.Y.73a)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces922.html
+- **C206 · Japan · 1976 · 1 yen · JPY (JP.Y.74)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1590.html
+- **C266 · South Korea · 2012 · 10 won · KRW (KR.KM.103)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1654.html
+- **C210 · South Korea · 2000 · 100 won · KRW (KR.KM.35.2)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1052.html
+- **C247 · South Korea · 1966 · 1 won · KRW (KR.KM.4)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5993.html
+- **C259 · Mexico · 1940 · 1 centavo · MXN (MX.KM.415)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5133.html
+- **C166 · Mexico · 1944 · 5 centavos · MXN (MX.KM.424)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces3136.html
+
+### 17. HW-muse-fill-20261023-5 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-5.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C244 · Mexico · 1964 · 20 centavos · MXN (MX.KM.440)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces959.html
+- **C263 · Mexico · 1950 · 25 centavos · MXN (MX.KM.443)**: blank: alignment, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces972.html
+- **C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo) (MX.KM.502)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces3445.html
+- **C236 · Mexico · 2010 · 2 pesos · MXN (nuevo) (MX.KM.604)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces587.html
+- **C271 · Mexico · 2013 · 50 centavos · MXN (nuevo) (MX.KM.936)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces18097.html
+- **C255 · Netherlands · 1892 · 1 cent · NLG (NL.KM.107.2)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1070.html
+- **C198 · Netherlands · 1948 · 1 cent · NLG (NL.KM.170)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2562.html
+- **C246 · Philippines · 1971 · 10 sentimos · PHP (PH.KM.198)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces3752.html
+- **C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR (SA.KM.20)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2940.html
+- **C042 · USSR · 1962 · 1 kopek · SUR (SU.Y.126a)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces767.html
+- **C260 · USSR · 1931 · 3 kopecks · SUR (SU.Y.93)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces4042.html
+- **C261 · USSR · 1932 · 15 kopecks · SUR (SU.Y.97)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5269.html
+
+### 18. HW-muse-fill-20261023-6 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-6.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C208 · Turkey · 2011 · 10 kuruş · TRY (TR.KM.1241)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces6165.html
+- **C207 · Trinidad and Tobago · 2016 · 10 cents · TTD (TT.KM.31)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces3463.html
+- **C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD (TW.KM.551)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces966.html
+- **C232 · Vietnam · 2003 · 1000 đồng · VND (VN.KM.71)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2104.html
+- **C239 · Australia · 1944 · 1 penny · AUD (pre-decimal) (AU.KM.36)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5788.html
+- **C031 · Australia · 1943 · Threepence (3d) · AUD (AU.KM.37)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2980.html
+- **C249 · Australia · 1966 · 20 cents · AUD (AU.KM.66)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1003.html
+- **C160 · Canada · 1939 · 5 cents · CAD (CA.KM.33)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces413.html
+- **C003 · Switzerland · 1968 · 2 francs · CHF (CH.KM.21a)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces189.html
+- **C008 · Switzerland · 1968 · 1/2 franc · CHF (CH.KM.23a)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces181.html
+- **C001 · Switzerland · 1969 · 1 franc · CHF (CH.KM.24a.1)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces185.html
+- **C002 · Switzerland · 1963 · 5 rappen · CHF (CH.KM.26)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces168.html
+
+### 19. HW-muse-fill-20261023-7 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-7.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C075 · Switzerland · 1982 · 5 rappen · CHF (CH.KM.26c)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces171.html
+- **C082 · Switzerland · 1979 · 10 rappen · CHF (CH.KM.27)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces173.html
+- **C068 · Switzerland · 1963 · 20 rappen · CHF (CH.KM.29a)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces178.html
+- **C066 · Switzerland · 1978 · 5 francs · CHF (CH.KM.40a.1)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces195.html
+- **C065 · Switzerland · 2014 · 5 francs · CHF (CH.KM.40a.4)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces195.html
+- **C029 · Germany · 1972 · 1 Pfennig · DEM (DE.KM.105)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces854.html
+- **C018 · Germany · 1983 · 2 Pfennig · DEM (DE.KM.106a)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1937.html
+- **C195 · Germany · 1971 · 5 Pfennig · DEM (DE.KM.107)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces658.html
+- **C019 · Germany · 1981 · 10 Pfennig · DEM (DE.KM.108)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces850.html
+- **C035 · Germany · 1971 · 50 Pfennig · DEM (DE.KM.109.1)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces847.html
+- **C057 · Germany · 1982 · 50 Pfennig · DEM (DE.KM.109.2)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces847.html
+- **C006 · Germany · 1984 · 1 Deutsche Mark · DEM (DE.KM.110)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces846.html
+
+### 20. HW-muse-fill-20261023-8 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-8.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C238 · Germany · 1973 · 2 Deutsche Mark · DEM (DE.KM.124)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces844.html
+- **C009 · Germany · 1987 · 5 Deutsche Mark · DEM (DE.KM.140.1)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces843.html
+- **C132 · Germany · 2002 · 1 euro cent · EUR (DE.KM.207)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces105.html
+- **C046 · Germany · 2010 · 2 euro cent · EUR (DE.KM.208)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces106.html
+- **C099 · Germany · 2002 · 5 euro cent · EUR (DE.KM.209)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces107.html
+- **C037 · Germany · 2002 · 10 euro cent · EUR (DE.KM.210)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces108.html
+- **C131 · Germany · 2002 · 20 euro cent · EUR (DE.KM.211)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces109.html
+- **C026 · Germany · 2002 · 50 euro cent · EUR (DE.KM.212)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces110.html
+- **C080 · Germany · 2002 · 1 euro · EUR (DE.KM.213)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces111.html
+- **C071 · Germany · 2003 · 2 euro · EUR (DE.KM.214)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces112.html
+- **C053 · Germany · 2011 · 20 euro cent · EUR (DE.KM.255)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces6319.html
+- **C159 · East Caribbean States · 2004 · 10 cents · XCD (EC.KM.38)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5712.html
 
 ## Projects (after the homework)
 
