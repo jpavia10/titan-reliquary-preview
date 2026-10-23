@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-23] — Claude · Codeword check for Gemini (owner)
+- Gemini's current WORK QUEUE doc starts with a codeword line (Joseph asks, Gemini answers). Only the current page has it, so it shows whether Gemini is reading the right doc. Do not copy it into other AIs' pages or any shared doc.
+
 ### [2026-10-22] — Claude · Gemini reads the right files (owner: fix the workflow)
 - Gemini's bad files came from the owner's PC checkout synced into Drive (`AI experiements/Titan/repo`, Oct 12) because its WORK QUEUE doc only linked its sheets on GitHub. Now: sheets mirrored into Drive `homework sheets (current: refreshed every hour)/{AI}/`, each blank names its coin, blind labels hide the answer, and the pipeline rejects lines from another AI's sheet, a made-up assignment id, or a coin not on the sheet, plus a `catalogs` list that silently drops a number. Every AI: work only from your WORK QUEUE doc and your own sheets.
 
