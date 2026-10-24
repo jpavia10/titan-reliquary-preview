@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-24T06:49:04Z",
+ "updated": "2026-10-24T07:31:03Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261019-1",
@@ -418,192 +418,6 @@
    ],
    "items_full": [
     {
-     "item": "verify:type:DE.KM.140.1:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.140.1",
-     "field": "design.text",
-     "coins": [
-      "C009"
-     ],
-     "label": "design of C009 · Germany · 1987 · 5 Deutsche Mark · DEM",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "Bundesadler with date and mintmark below (obv; engraver Wolfgang Theodor Doehm) · 5 DEUTSCHE MARK in rounded square, BUNDESREPUBLIK DEUTSCHLAND (rev) · circulation CuNi-clad nickel, not silver",
-      "their_source": "https://en.numista.com/catalogue/pieces843.html (Numista N#843, Germany 5 Deutsche Mark KM#140.1): Obverse — German eagle with mintmark belo",
-      "links": [
-       "https://en.numista.com/catalogue/pieces843.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.21a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.21a",
-     "field": "design.text",
-     "coins": [
-      "C003",
-      "C014",
-      "C067",
-      "C115",
-      "C116"
-     ],
-     "label": "design of C003 · Switzerland · 1968 · 2 francs · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "standing Helvetia facing left, spear and Swiss shield, 22 stars, HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 2 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
-      "their_source": "https://en.numista.com/catalogue/pieces189.html (Numista N#189, Switzerland 2 Francs KM#21a): Obverse — Helvetia standing facing left, 22 st",
-      "links": [
-       "https://en.numista.com/catalogue/pieces189.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.24a.1:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.24a.1",
-     "field": "design.text",
-     "coins": [
-      "C001",
-      "C093"
-     ],
-     "label": "design of C001 · Switzerland · 1969 · 1 franc · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "standing Helvetia facing left, spear in right hand, Swiss shield in left, 22 stars (23 from 1983), HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 1 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
-      "their_source": "https://en.numista.com/catalogue/pieces185.html (Numista N#185, Switzerland 1 Franc KM#24a): Obverse — Helvetia standing facing left, spear/",
-      "links": [
-       "https://en.numista.com/catalogue/pieces185.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:AU.KM.36:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "AU.KM.36",
-     "field": "design.text",
-     "coins": [
-      "C239"
-     ],
-     "label": "design of C239 · Australia · 1944 · 1 penny · AUD (pre-decimal)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "George VI facing left (obv; engraver Thomas Humphrey Paget) · kangaroo facing left with Commonwealth Star left, date right, AUSTRALIA above, PENNY below (rev; engraver George Kruger Gray) · Perth = dot after PENNY",
-      "their_source": "https://en.numista.com/catalogue/pieces5788.html (Numista N#5788, Australia 1 Penny KM#36): Obverse — George VI facing left, Engraver Thomas",
-      "links": [
-       "https://en.numista.com/catalogue/pieces5788.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:JM.KM.191:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "JM.KM.191",
-     "field": "design.text",
-     "coins": [
-      "C230"
-     ],
-     "label": "design of C230 · Jamaica · 2015 · 10 dollars · JMD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · 2015",
-      "their_source": "https://en.numista.com/catalogue/pieces14370.html (N#14370: 10 Dollars (Round) - Jamaica, KM#190, Years 2008-2025, Shape: Round — the cited ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces14370.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.23a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.23a",
-     "field": "design.text",
-     "coins": [
-      "C008",
-      "C015"
-     ],
-     "label": "design of C008 · Switzerland · 1968 · 1/2 franc · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "standing Helvetia facing left, spear and Swiss shield, 22 stars, HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · ½ Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Albert Walch)",
-      "their_source": "https://en.numista.com/catalogue/pieces181.html (Numista N#181, Switzerland ½ Franc KM#23a): Obverse — Helvetia standing facing left, 22 sta",
-      "links": [
-       "https://en.numista.com/catalogue/pieces181.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:BS.X.5-cents:catalogs",
      "kind": "verify",
      "entity": "type",
@@ -655,36 +469,6 @@
       "photos": [],
       "audit": false,
       "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:AT.X.2-groschen:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "AT.X.2-groschen",
-     "field": "design.text",
-     "coins": [
-      "C272"
-     ],
-     "label": "design of C272 · Austria · 1925 · 2 groschen · ATS",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "The obverse shows a thick cross with the date below and the word Oesterreich above. The reverse shows a large numeral 2 with the word Groschen.",
-      "their_source": "Numista N#1944 (https://en.numista.com/catalogue/pieces1944.html) — Engraver listed for both obverse and reverse: Philipp Häusler",
-      "links": [
-       "https://en.numista.com/catalogue/pieces1944.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
       "recheck": false
      },
      "blind": false,
@@ -769,36 +553,6 @@
       "photos": [],
       "audit": true,
       "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GR.KM.117:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GR.KM.117",
-     "field": "design.text",
-     "coins": [
-      "C248"
-     ],
-     "label": "design of C248 · Greece · 1982 · 2 drachmes · GRD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "two crossed rifles with branch, denomination and date below (obv; engraver Nikos Perantinos) · Georgios Karaiskakis portrait left (rev)",
-      "their_source": "https://en.numista.com/catalogue/pieces549.html (Numista N#549, Greece 2 Drachmes 1982-1986): Obverse — two crossed rifles with branch, deno",
-      "links": [
-       "https://en.numista.com/catalogue/pieces549.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
       "recheck": false
      },
      "blind": false,
@@ -1068,36 +822,6 @@
       "recheck": false
      },
      "blind": true,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.26:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.26",
-     "field": "design.text",
-     "coins": [
-      "C002"
-     ],
-     "label": "design of C002 · Switzerland · 1963 · 5 rappen · CHF",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "Libertas right (obv, designer Karl Schwenzer) · 5 in grapevine wreath (rev, designer Carl Friedrich Voigt)",
-      "their_source": "Third reader for D0024: Numista N#168 names Schwenzer and Voigt as designers. Claimant's source: Disagree — Numista N#168 (https://en.numist",
-      "links": [
-       "https://en.numista.com/catalogue/pieces168.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
      "inputs": []
     }
    ]
@@ -1602,7 +1326,7 @@
        "metal": "cupronickel · 6.00 g · 25 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness 1.62 mm · medal alignment · Flora and Fauna / eagle type",
        "mintage": "121,408,000",
-       "design": "obverse portrait of Marcelo H. del Pilar right · REPUBLIKA NG PILIPINAS · reverse Philippine eagle (Pithecophaga jefferyi) perched with wings spread · 50 SENTIMO",
+       "design": "obverse portrait of Marcelo H. del Pilar left · REPUBLIKA NG PILIPINAS · reverse Philippine eagle (Pithecophaga jefferyi) flying right · 50 SENTIMO",
        "series": "Flora and Fauna",
        "period": "Republic of the Philippines"
       }
@@ -1861,7 +1585,8 @@
        "metal": "cupronickel · 4.00 g · 22.86 mm · reeded · circulated · white 2×2 staple flip",
        "specs": "thickness 1.3 mm · medal alignment",
        "mintage": "7,000,000",
-       "design": "obverse national arms · reverse value 10 · two oil palms · kobo · date on arms side"
+       "design": "obverse national arms · reverse value 10 · two oil palms · kobo · date on arms side",
+       "period": "Federal Republic"
       }
      },
      "blind": false,
@@ -2178,7 +1903,8 @@
        "metal": "aluminum · ~3.50 g · 31 mm · plain · circulated · white 2×2 staple flip",
        "specs": "thickness ~2.0 mm · coin alignment · type specs shared with Lavrillier Al 5 Fr 1945–1952 (KM#888b)",
        "mintage": "61,332,000 (circulation · Monnaie de Paris)",
-       "design": "obverse laureate Marianne/Liberté left (André Lavrillier) · reverse RF · 5 FRANCS in laurel wreath · date · Paris cornucopia + Bazor wing"
+       "design": "obverse laureate Marianne/Liberté left (André Lavrillier) · reverse RF · 5 FRANCS in laurel wreath · date · Paris cornucopia + Bazor wing",
+       "period": "Fourth Republic"
       }
      },
      "blind": false,
@@ -2520,7 +2246,7 @@
        "mint": "no mint mark visible",
        "refs": "KM#2837 · Schön#40 · Numista#1944",
        "metal": "bronze · 3.30 g · 19 mm · plain",
-       "specs": "thickness 1.41 mm",
+       "specs": "thickness 1.41 mm · medal alignment",
        "mintage": "29,892,000",
        "design": "The obverse shows a thick cross with the date below and the word Oesterreich above. The reverse shows a large numeral 2 with the word Groschen.",
        "period": "First Austrian Republic"
@@ -2582,7 +2308,7 @@
        "mint": "Mexico City (Mo mint mark)",
        "refs": "KM#547 · Schön#143 · Numista#581",
        "metal": "stainless steel · 2.08 g · 17 mm · plain",
-       "specs": "thickness 1.33 mm",
+       "specs": "thickness 1.33 mm · coin alignment",
        "mintage": "560,000,000",
        "design": "The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cactus and holding a snake in its beak, with the words Estados Unidos Mexicanos. The reverse shows stylized rays from the Aztec sun stone around the denomination and mint mark.",
        "period": "United Mexican States"
@@ -2676,7 +2402,7 @@
        "mint": "no mint mark visible",
        "refs": "KM#109 · Schön#126 · Numista#3214",
        "metal": "Copper-nickel (75 percent copper, 25 percent nickel) · 2.50 g · 17.8 mm · reeded",
-       "specs": "thickness 1.34 mm",
+       "specs": "thickness 1.34 mm · medal alignment",
        "mintage": "800,000",
        "design": "The obverse shows Queen Elizabeth the Second wearing a tiara and facing right, with the words Elizabeth II Bermuda. The reverse shows a Bermuda lily flower, with the date above it and the words Ten Cents below.",
        "ruler": "Elizabeth II"
@@ -2769,9 +2495,10 @@
        "mint": "no mint mark visible",
        "refs": "KM#46.1 · Schön#42 · Numista#2006",
        "metal": "aluminium brass (85% copper, 14.5% zinc, 0.5% aluminium) · 6.00 g · 25.5 mm · reeded",
-       "specs": "thickness 1.57 mm",
+       "specs": "thickness 1.57 mm · medal alignment",
        "mintage": "44,850,000",
-       "design": "obverse SFRY socialist arms with six torches within wheat sheaf · reverse numeral 50 · ПАРА / PARA · state title rim legend"
+       "design": "obverse SFRY socialist arms with six torches within wheat sheaf · reverse numeral 50 · ПАРА / PARA · state title rim legend",
+       "period": "Socialist Federal Republic"
       }
      },
      "blind": false,
@@ -10878,7 +10605,7 @@
        "denom": "25 cents · BSD",
        "mint": "not read (no photo of this coin yet)",
        "refs": "KM#63.1 · Schön#38 · Numista#9352",
-       "metal": "Reeded",
+       "metal": "nickel · 6.90 g · 24.26 mm · Reeded",
        "specs": "thickness 1.9 mm · medal alignment",
        "mintage": "unknown",
        "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin",
@@ -11293,7 +11020,7 @@
        "denom": "25 cents · BSD",
        "mint": "not read (no photo of this coin yet)",
        "refs": "KM#63.1 · Schön#38 · Numista#9352",
-       "metal": "Reeded",
+       "metal": "nickel · 6.90 g · 24.26 mm · Reeded",
        "specs": "thickness 1.9 mm · medal alignment",
        "mintage": "unknown",
        "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin",
@@ -11301,6 +11028,70 @@
       },
       "type": "BS.X.25-cents",
       "remove_with": []
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261024-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-10-24T07:28:18Z",
+   "lease_until": "2026-10-31T07:28:18Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0104",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0105",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0106",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0106",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": "design.text",
+     "coins": [
+      "C218",
+      "C290"
+     ],
+     "label": "D0106 GB.KM.1107 design.text",
+     "authors": [
+      "gemini",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:gemini",
+       "source": "Numista N#4038 (https://en.numista.com/catalogue/pieces4038.html): verified design text in house style [phase 2; confidence high]",
+       "ts": "2026-10-23T16:01:00Z",
+       "value": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse lower section of Royal Arms shield · ONE PENNY · Matthew Dent / Ian Rank-Broadley"
+      },
+      "claim": {
+       "value": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse left part of the Royal Shield · ONE PENNY · Matthew Dent / Ian Rank-Broadley",
+       "by": "model:muse-spark",
+       "source": "Numista N#4038 https://en.numista.com/catalogue/pieces4038.html read 2026-10-24: Reverse 'Left part of Royal Shield, denomination in left segment', lettering ONE PENNY, engraver Matthew Dent — record said 'lower section of Royal Arms shield', corrected to the entry's wording. Obverse 4th portrait right, engraver Ian Rank-Broadley, confirmed.",
+       "ts": "2026-10-24T05:40:56Z"
+      }
      },
      "blind": false,
      "inputs": []

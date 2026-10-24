@@ -53,13 +53,15 @@ def scored(text):
         if h: agent = _agent(h.group(1).lower()); continue
         if agent is None or not row.startswith("|"): continue
         dm = re.search(r"\|\s*(\d{4})-(\d{2})-(\d{2})", row); day = "".join(dm.groups()) if dm else None
-        prev = None
-        for m in re.finditer(r"(\d{8})-(\d{4})|(\.\.|/|`)-?(\d{4})(?![\d-])", row):
-            if m.group(1):
-                day, prev = m.group(1), m.group(2); out.add((agent, f"{day}-{prev}")); continue
-            if not day: continue
-            hhmm = m.group(4)
-            if m.group(3) == ".." and prev:
+        prev = None; foreign = False
+        for m in re.finditer(r"(?:changes_([a-z0-9-]+?)_)?(\d{8})-(\d{4})|(\.\.|/|`)-?(\d{4})(?![\d-])", row):
+            if m.group(2):
+                foreign = bool(m.group(1)) and _agent(m.group(1)) != agent     # a Claude file named in this AI's row is not this AI's
+                if foreign: continue
+                day, prev = m.group(2), m.group(3); out.add((agent, f"{day}-{prev}")); continue
+            if not day or foreign: continue
+            hhmm = m.group(5)
+            if m.group(4) == ".." and prev:
                 out.update((agent, f"{day}-{t:04d}") for t in range(int(prev), int(hhmm) + 1) if t % 100 < 60)
             out.add((agent, f"{day}-{hhmm}")); prev = hhmm
     return out
@@ -211,7 +213,7 @@ def build(root=ROOT):
         m = ANY.match(name)
         if not m: return None
         a = _agent(m.group(1)); st = f"{m.group(2)}-{m.group(3)}"
-        if a not in agents or (a, st) in done or st <= last.get(a, ""): return None
+        if a not in agents or (a, st) in done or st[:8] < last.get(a, "")[:8]: return None   # a late file from the last scored day still counts
         return a
 
     drafts, bounced = [], []

@@ -534,14 +534,15 @@ class Applier:
         except KeyError: cur = None
         if e["new"] is None:
             self.log.append(f"left out (no value given): {ent} {rid} {field}"); return "left"
-        if CAN.chosen(asg["id"], f"verify:{ent}:{rid}:{field}"):
+        if CAN.chosen(asg["id"], f"verify:{ent}:{rid}:{field}") and field in CAN.FIELDS.values():   # only text facts carry a planted value
             shown = sheet_value(asg["id"], ent, rid, field)
-            if shown is not None and shown["value"] != cur:
+            if shown is not None and shown["value"] is not None and shown["value"] != cur:            # a blind item shows nothing to plant
                 row = {"ts": e["ts"], "assignment": asg["id"], "agent": PV.agent_of(e["by"]), "item": f"verify:{ent}:{rid}:{field}"}
                 if check_verdict(field, shown["value"], e["new"])[0] == "same":
                     self.canaries.append(dict(row, outcome="missed"))
                     self.log.append(f"canary missed (a planted wrong value was sent back as right; nothing written): {ent} {rid} {field}"); return "canary"
-                if check_verdict(field, cur, e["new"])[0] == "same": self.canaries.append(dict(row, outcome="caught")); self.log.append(f"canary caught: {ent} {rid} {field}")
+                self.canaries.append(dict(row, outcome="caught"))        # it changed the planted value: it really checked, whatever wording it used
+                self.log.append(f"canary caught: {ent} {rid} {field}" + ("" if check_verdict(field, cur, e["new"])[0] == "same" else " (the answer also differs from the record, so it is judged as usual)"))
                 e["old"] = cur               # the sheet showed the planted value as `old` too; judge the answer against the record
         if "old" in e and e["old"] != cur:
             self.log.append(f"stale, not counted: {ent} {rid} {field} changed after assignment {asg['id']} was issued (now {j(cur)[:60]}); nothing written")

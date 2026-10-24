@@ -3,11 +3,4 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-## Muse
-
-| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
-|---|---|---|---|---|---|---|---|
-| `changes_muse_20261024-0509.jsonl` | **9 / 10** | 2 | 2 | 3 | 2 | 0 | 47 lines: 45 in the change log, 2 filed as disagreements; answered 47 of 50 items of HW-muse-verify-20261020-1 (with its other files for the same sheet); 4 verify answer(s) on its own earlier fact; cross-checked so far: 47 held, 0 wrong |
-| `changes_muse_20261024-0533.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 36 lines: 36 in the change log, 0 filed as disagreements; answered 36 of 40 items of HW-muse-plain-story-20261020-1 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_muse_20261024-0551.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 79 lines: 79 in the change log, 0 filed as disagreements; answered 11 of 12 items of HW-muse-fill-20261023-1 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_muse_20261024-0552.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 24 lines: 24 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-muse-fill-20261023-7 (with its other files for the same sheet); nothing cross-checked yet |
+Nothing waiting: every outside AI's file is scored.

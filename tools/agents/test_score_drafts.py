@@ -87,6 +87,20 @@ class Drafts(unittest.TestCase):
         for st in ("20261015-2244", "20261015-2245", "20261015-2246", "20261019-2316"): self.assertIn(("grok", st), s)
         self.assertIn(("gemini", "20261012-1626"), s); self.assertIn(("gemini", "20261012-1633"), s)
 
+    def test_a_claude_file_in_a_row_is_not_the_ais_and_a_late_file_of_the_day_is_drafted(self):
+        """2026-10-24: Muse's rows named changes_claude_20261024-0641/-0643, which hid 21 late Muse files stamped before them."""
+        card = SCORES.replace("| 2 | 2026-10-17 |", "| 3 | 2026-10-24 | `changes_muse_20261024-0552.jsonl`, corrected by `changes_claude_20261024-0641/-0643` | **10 / 10** | x |\n| 2 | 2026-10-17 |")
+        s = SD.scored(card)
+        self.assertIn(("muse", "20261024-0552"), s)
+        self.assertNotIn(("muse", "20261024-0641"), s); self.assertNotIn(("muse", "20261024-0643"), s)
+        r = tempfile.mkdtemp(prefix="sd_late_"); atexit.register(shutil.rmtree, r, True)
+        write(r, "collaborators/CONTRIBUTOR_SCORES.md", card)
+        write(r, "docs/agents/roles.json", json.dumps({"agents": {"muse": {}, "grok": {}, "gemini": {}}}))
+        line = {"ts": "2026-10-24T05:13:00Z", "by": "model:muse-spark", "entity": "type", "id": "XX.KM.1", "op": "set", "field": "ruler", "new": "A"}
+        for n in ("20261024-0513", "20261024-0601", "20261023-0900"): write(r, f"collection/_incoming/applied/changes_muse_{n}.jsonl", jl([line]))
+        names = sorted(d["file"] for d in SD.build(r)[0])
+        self.assertEqual(names, ["changes_muse_20261024-0513.jsonl", "changes_muse_20261024-0601.jsonl"], "late files of the last scored day are drafted; an older day is not")
+
     def test_drafts(self):
         drafts, bounced = SD.write(self.root)
         by = {d["file"]: d for d in drafts}

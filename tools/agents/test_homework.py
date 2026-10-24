@@ -247,7 +247,7 @@ class LoopUpgrades(unittest.TestCase):
         self.assertTrue(old); self.assertLessEqual(len(old), HW.RECHECK_PER_MONTH)
         self.assertTrue(all(len(i["authors"]) >= 2 for i in old), "a re-check never goes to either of the two who checked it")
 
-    def test_planted_values_are_caught_or_missed_and_never_filed(self):
+    def test_planted_values_are_caught_or_missed(self):
         import canary as CAN
         rate = CAN.RATE; CAN.RATE = 1.0
         try:
@@ -261,20 +261,22 @@ class LoopUpgrades(unittest.TestCase):
                     if x.get("new") is not None and "old" in x and x["new"] != HW.get_path(rec, x["field"]):
                         planted.append((x, HW.get_path(rec, x["field"])))
             self.assertGreaterEqual(len(planted), 2, "with every item chosen, verify sheets must carry planted values")
-            agent = planted[0][0]["by"]; same = [p for p in planted if p[0]["by"] == agent][:2]
-            if len(same) < 2: self.skipTest("need two planted lines from one AI")
+            agent = planted[0][0]["by"]; same = [p for p in planted if p[0]["by"] == agent][:3]
+            if len(same) < 3: self.skipTest("need three planted lines from one AI")
             src = "https://en.numista.com/catalogue/pieces1234.html, the Features table row"
             missed = dict(same[0][0], ts=LATER, source=src)                          # sent back as shown: rubber-stamped
             caught = dict(same[1][0], ts=LATER, source=src, new=same[1][1])          # the true value: it really checked
+            reworded = dict(same[2][0], ts=LATER, source=src, new=f"{same[2][1]} and something more")   # changed the planted value, in its own words
             before = len(A.C.Collection(os.path.join(tmp, "collection")).disagreements)
-            st, rep, _ = apply(tmp, [missed, caught], name=f"changes_{PV.agent_of(agent)}_20261009-1201.jsonl")
+            st, rep, _ = apply(tmp, [missed, caught, reworded], name=f"changes_{PV.agent_of(agent)}_20261009-1201.jsonl")
             txt = "\n".join(rep)
             self.assertIn("canary missed", txt); self.assertIn("canary caught", txt)
-            self.assertEqual(len(A.C.Collection(os.path.join(tmp, "collection")).disagreements), before, "a planted value is never filed as a disagreement")
+            self.assertEqual(len(A.C.Collection(os.path.join(tmp, "collection")).disagreements), before + 1,
+                             "a planted value sent back is never filed; an answer that differs from the record too is judged as usual")
             rows = [json.loads(l) for l in open(os.path.join(tmp, "docs", "agents", "homework", "canaries.jsonl"), encoding="utf-8")]
-            self.assertEqual(sorted(x["outcome"] for x in rows), ["caught", "missed"])
+            self.assertEqual(sorted(x["outcome"] for x in rows), ["caught", "caught", "missed"], "changing the planted value counts as caught in any wording")
             m = HW.measure(HW.load_context(tmp))[PV.agent_of(agent)]
-            self.assertEqual((m["canaries_caught"], m["canaries_missed"]), (1, 1))
+            self.assertEqual((m["canaries_caught"], m["canaries_missed"]), (2, 1))
         finally:
             CAN.RATE = rate; os.environ.pop("TITAN_ASSIGNMENTS", None)
 
@@ -423,15 +425,17 @@ class LoopUpgrades(unittest.TestCase):
         self.assertIsNotNone(a, "no fill assignment issued")
         sheet = HW.sheet(a, r["pool"], r["roles"])
         self.assertTrue(all(ln["source"].startswith("FILL (") and ln["new"] in (None, "", [], "unknown") for ln in sheet), sheet[0])
-        ln = copy.deepcopy(next(x for x in sheet if x["field"] == "nominal.edge"))
-        ln["new"] = "Plain"; ln["source"] = "https://en.numista.com/catalogue/pieces99999.html: Edge row 'Plain'"
+        answers = {"nominal.edge": "Plain", "period": "Republic", "nominal.alignment": "coin", "nominal.thickness_mm": 1.5,
+                   "design.obverse": "Arms · REPUBLIC · date", "design.reverse": "Value · 10 · CENTS"}   # whichever blank the live data still has
+        ln = copy.deepcopy(next(x for x in sheet if x["field"] in answers))
+        ln["new"] = answers[ln["field"]]; ln["source"] = "https://en.numista.com/catalogue/pieces99999.html: Features table row"
         status, rep, _ = apply(tmp, [ln], f"changes_{a['agent']}_20261009-1204.jsonl")
         self.assertEqual(status, "applied", rep)
         col = A.C.Collection(os.path.join(tmp, "collection"))
-        self.assertEqual(col.types[ln["id"]]["nominal"]["edge"], "Plain")
+        self.assertEqual(HW.get_path(col.types[ln["id"]], ln["field"]), ln["new"])
         r2 = HW.run(tmp, LATER)
         it = r2["pool"].get(f"fill:{ln['id']}")
-        self.assertTrue(it is None or not any(f == "nominal.edge" for _, _, f, _ in it["lines"]), "a filled fact left the fill pool")
+        self.assertTrue(it is None or not any(f == ln["field"] for _, _, f, _ in it["lines"]), "a filled fact left the fill pool")
 
     def test_commas_inside_an_inscription_are_not_shorthand(self):
         motto = {"C001": {"story": "A 1962 1-franc coin from France. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date."}}
