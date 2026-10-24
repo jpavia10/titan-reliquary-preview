@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-24 07:31 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-24 14:08 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,29 +8,23 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### Build themes #44 to #50, one complete package at a time (Cloud Forest first)  (fix list #113)
+### Build themes #45 to #50, one complete package at a time (Cloud Forest shipped)  (fix list #113)
 
-Cloud Forest v1 arrived 2026-10-23 and was run by Claude on 2026-10-24: not shipped yet. Read 'REVIEW from Claude (v1, 2026-10-24).txt' in themes/canopy/ and send v2 (three bugs with the exact fixes, the front fronds covering the coin and the title, saw-tooth fronds, the phone plaque, the music picks), then DONE-v2.txt. Run every file in a browser with the console open before you send it. Then go on with the rest. Joseph (2026-10-23): theme work moves to you. Build the seven themes left in the plan, in order: #44 Cloud Forest (canopy), #45 Salt Mirror (saltflat), #46 Light Well (lightwell), #47 Obsidian Sun (obsidian), #48 The Glasshouse (glasshouse), #49 Low Orbit (orbit), #50 Sahel Futurism (sahel); then rebuild Nocturne (nocturne) and Zen (zen) at the same standard. Each package is five files in 'design-incoming (AI UI proposals)/themes/{id}/': {id}.spec.json (tokens that pass AA, crest, swatch, scene), fx_{id}.js (the world on the GPU: real raymarched or volumetric depth, the owner's own coins in it, a touch that does something, the opened coin shown next), intro_{id}.js (its own 2.5 to 5 s opening that ends on the world), sound_{id}.md (layers from our recordings + two pieces of recorded music) and README.md. Read Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' first and copy the shape of the Silver Screen files in 'themes/_kit (reference copies from GitHub, 2026-10-23)/'. Claim a theme first (themes/{id}/CLAIMED-gemini.txt); one theme at a time, finished, before the next.
+Cloud Forest v2 shipped 2026-10-24 as theme #44 (tr255): well done, every review point fixed. Round 2 (2026-10-24) was run by Claude in the app on phone and desktop; read 'REVIEW from Claude (2026-10-24).txt' in each theme folder. Not shipped: Salt Mirror (neither shader compiles: the lines are joined with a backslash and an n instead of a line break), Light Well (on a phone the sun blade burns the coin photo to plain white; the concrete reads as wood), Obsidian Sun (a flat 2D graphic, no volcanic glass, cut off on a phone), and Glasshouse, Low Orbit, Sahel, Nocturne and Zen (one template copied five times with '#define MOTIF 1..5': refused; each theme must be its own design). Every intro drew the name upside down: the intro kit already flips textures on upload, so sample texture2D(TX, uv) and never 1.0 - uv.y. Next, in this order, one theme at a time, each finished before the next: Light Well v2, Salt Mirror v2, Obsidian Sun v2, then The Glasshouse, Low Orbit and Sahel Futurism built from scratch, then the Nocturne and Zen rebuilds. Before you send a package: open it in a browser at phone size (390x844) and desktop size, read the console (no shader errors), look at the world, open a coin, tap, and watch the intro to the end; your README lists only what you actually checked and what you saw. Each package is five files in 'design-incoming (AI UI proposals)/themes/{id}/' as before ({id}.spec.json, fx_{id}.js, intro_{id}.js, sound_{id}.md, README.md); Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' and the Silver Screen files in 'themes/_kit (reference copies from GitHub, 2026-10-23)/'. Claim a theme first (CLAIMED-gemini.txt).
 
-**Done when:** DONE.txt in a theme's folder; Claude runs it, writes REVIEW from Claude.txt, and ships it or sends it back. The project is done when all nine are shipped.
+**Done when:** DONE.txt in a theme's folder; Claude runs it, writes a REVIEW, and ships it or sends it back. The project is done when all eight are shipped.
 
 ### Advanced motion: six Motion Lab studies on live data  (fix list #56)
 
-Study 1 arrived and works (review in motion/: 7 of 10; push depth, the coin's other side, the page building around it in studies 2-6). Six self-contained .html studies, one file each, saved as 'design-incoming (AI UI proposals)/motion/study_{n}_{name}.html': (1) a gallery tile grows into the coin page with the photo as one continuous object, and back; (2) drag to turn a coin in 3D with its two photos as faces, a real edge and a rim light; (3) scroll-driven GPU particles from a real coin photo morph into its country's outline, then into its album page; (4) a coin drops and settles into its album hole; (5) a theme switch as a shader wipe in the new theme's own motif; (6) the coin page inside the worlds of Silver Screen, Darkroom and Tourbillon. Live data only from https://jpavia10.github.io/titan-reliquary-preview/data/index.json and the coin photos on the same site; 60 fps target, interruptible, a still end state for reduced motion. Full rules: Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' section 4. Work on these between theme packages.
+Studies 2-6 arrived 2026-10-24 (review in motion/: 3 of 10): fix them, one file each, same names. Study 2 never draws: transpose() does not exist in WebGL 1 shaders, so the program does not link; check every compile and link status and show the error, and only load a back photo the index actually lists. Study 3: the country stage must be the country's real outline, never a shape generated from its name; keep the coin round on a phone. Study 4: the click must be a recorded sound (the brief: recordings only, never an oscillator); a slot lights only when its coin has landed. Study 6: fit the coin on a phone screen. Study 5 works; give each world more than a colour field. Live data only from https://jpavia10.github.io/titan-reliquary-preview/data/index.json and the coin photos on the same site; 60 fps target, interruptible, a still end state for reduced motion; open each study at phone size with the console open before you send it. Full rules: BUILD BRIEF section 4.
 
 **Done when:** The six .html files in the motion folder; Claude hosts the good ones at /motion-lab/gemini/ and Joseph picks on his phone what goes into the app.
 
 ### Recorded music for the nine themes you build  (fix list #83)
 
-First picks reviewed 2026-10-24: never the Al Goldstein / Pandora collection (MIDI renderings), never a recording already in audio/music/manifest.json, and quote each file page's Author, Source and Permission lines word for word (open the page; do not build the URL). For each theme in your theme project (#44 to #50, Nocturne, Zen) find two pieces of recorded music that fit it, under the rules of Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' section 5 (a named human performer, public domain, CC0, CC BY or CC BY-SA valid in the US, the right piece). Ideas, not orders: Cloud Forest a Villa-Lobos guitar piece or a Debussy flute piece; Light Well Gregorian chant or Allegri; Obsidian Sun Mexican son or Chávez; The Glasshouse a real music box or a Satie piano piece; Low Orbit Holst or Debussy; Sahel kora or ngoni recordings. Save one music_gemini_{YYYYMMDD-HHMM}.json per theme or for all, in the shape of the 19-piece task.
+Cloud Forest's two picks (El Noi de la Mare by Jujutacular; C. P. E. Bach Wq. 131 by La Guirlande) are queued for the music intake (2026-10-24): good. Salt Mirror's sheet named a 1932 Schnabel recording (not public domain in the US) 'or Paul Pitman': name one exact file page and quote it. Rules as before: never the Al Goldstein / Pandora collection, never a recording already in audio/music/manifest.json, quote each page's Author, Source and Permission lines word for word. For each theme you build, two pieces in one music_gemini_{YYYYMMDD-HHMM}.json, in 'reviews-incoming (AI deep reviews)'.
 
 **Done when:** Two qualifying recordings per theme (or a 'not found' with what you searched), in 'reviews-incoming (AI deep reviews)'.
-
-### Picker cards and heroes for the four new themes (12 images)  (fix list #113)
-
-Supercell, Tourbillon, Darkroom and Silver Screen shipped without pictures (rule 9: art comes from an image AI, never from code). The requests are in Drive 'art-requests (any AI: images + video)/': artreq_20261021-1900_theme-cards-supercell, artreq_20261021-2300_theme-cards-tourbillon, artreq_20261022-0100_theme-cards-darkroom and artreq_20261022-0200_theme-cards-silverscreen (each: a 16:10 card in 2 takes + a 16:10 hero). Claim each first ({request id}.CLAIMED-gemini.txt; skip one another AI has already claimed), follow ART_START_HERE, one image at a time, exact file names, then the request's .DONE.txt.
-
-**Done when:** 12 images in 'art-incoming (AI images + video)/{request id}/' and a .DONE.txt per request.
 
 ### A second price for every missing album hole (about 820 holes)  (fix list #62)
 
@@ -50,11 +44,11 @@ These themes still play shared music because no qualifying recording was found: 
 
 **Done when:** One file; a piece with no qualifying recording is listed as not found, with what you searched.
 
-### Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck  (fix list #113)
+### Titan v3 M1: build the accepted spec (the 2026-10-24 file is not it)  (fix list #116, #117)
 
-The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json'. Grok has already made new picker cards for all 26 themes, so your part is only the 4 refreshed heroes (world_{kaleido|afterhours|colossus|abyss}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Follow ART_START_HERE: one image at a time, saved to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/'; real-photo look, no readable text, coins that look like real coins. Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-gemini-p3.txt. The v5 splash films are done (Grok), so no Veo clips are needed now.
+design_gemini_20261016-0610_v3-m1.html arrived 2026-10-24: a flat grid of tiles with a 2D magnifier, not the spec in docs/design/v3/M1_SPEC.md (one 3D field of every coin, layouts the coins fly between, a shared-element flight into the coin, certainty chips read from data/detail/{ISO}.json). It also labelled every country, year and denomination 'Verified' without reading any certainty data: never show a certainty the data does not give. Build the spec as written, on live data, and run it at phone size with the console open before you send it. Lower priority than the theme project.
 
-**Done when:** 4 hero files + artreq_20261010-1700_theme-thumbnails.p3.DONE.txt (ok or skipped: reason for each).
+**Done when:** The .html is in Drive 'design-incoming (AI UI proposals)'; Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app.
 
 ## Homework (generated from the data)
 
@@ -1434,12 +1428,6 @@ Answer sheet (the same as the link):
 Whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for them per AI_START_HERE (section 2b), without looking at Grok's or Muse's reads first.
 
 **Done when:** Ongoing.
-
-### Send the Titan v3 M1 build (your spec is accepted; only the .html is missing)  [LATER]  (fix list #116, #117)
-
-Your note design_gemini_20261016-0610_v3-m1.md (2026-10-16) is accepted as the M1 spec: docs/design/v3/M1_SPEC.md (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/v3/M1_SPEC.md), with two notes from Claude at the top. The build it describes, design_gemini_20261016-0610_v3-m1.html, never reached Drive. Build exactly that spec and save the .html as a real file (not a Google Doc) in Drive 'design-incoming (AI UI proposals)'. Save it yourself; if a save fails, try again as a new file, and never put it in the chat for Joseph to copy. The hard rules of docs/design/ARGON_REBUILD_BRIEF.md section 5 apply: live data only, no invented numbers, your own code, fonts you ship, AA contrast, 16 px text. (Later: the owner asked to wait on Titan v3 while Grok upgrades the themes, 2026-10-20.)
-
-**Done when:** The .html is in Drive 'design-incoming (AI UI proposals)'; Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app.
 
 ## Your recent files (what happened to each file you sent)
 
