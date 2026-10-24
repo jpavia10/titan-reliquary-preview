@@ -119,16 +119,18 @@ def judge(c, w):
     return s, "ok"
 
 
-def encode(src, dst):
+def encode(src, dst, span=None):
     probe = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", src], capture_output=True, text=True)
     dur = float(probe.stdout.strip() or 0)
     af = "loudnorm=I=-20:TP=-2:LRA=11"
-    cut = []
+    cut, pre = [], []
+    if span:    # reviewed [from, to] seconds for an exact pick: whole movements only (a video's teaser, or a cut mid-movement at MAX_SEC)
+        pre = ["-ss", str(span[0]), "-to", str(span[1])]; dur = min(dur, span[1]) - span[0]
     if dur > MAX_SEC:
         af += f",afade=t=out:st={MAX_SEC - 8}:d=8"; cut = ["-t", str(MAX_SEC)]
     # audio only (-map 0:a:0 -vn): an mp3's cover art cannot go in .m4a. (2026-10-09: a comment on this line used to swallow the codec
     # arguments, so the 2026-10-09 files were encoded at ffmpeg's defaults; the next run re-encodes them at 96 kb/s stereo 44.1 kHz.)
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", src, *cut, "-map", "0:a:0", "-vn", "-af", af,
+    subprocess.run(["ffmpeg", "-y", "-v", "error", *pre, "-i", src, *cut, "-map", "0:a:0", "-vn", "-af", af,
                     "-ac", "2", "-ar", "44100", "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", dst], check=True)
     return min(dur, MAX_SEC)
 
@@ -169,7 +171,7 @@ def main(argv):
                     src = os.path.join(td, "in" + os.path.splitext(r["file"])[1])
                     req = urllib.request.Request(r["url"], headers={"User-Agent": UA})
                     with urllib.request.urlopen(req, timeout=300) as resp, open(src, "wb") as fh: fh.write(resp.read())
-                    dur = encode(src, os.path.join(out, w["id"] + ".m4a"))
+                    dur = encode(src, os.path.join(out, w["id"] + ".m4a"), ((w.get("credit") or {}).get(r["file"]) or {}).get("span"))
                 if dur < 60: raise RuntimeError(f"too short after download ({dur:.0f} s)")
                 r["encoded_sec"] = round(dur, 1); pick = r; break
             except Exception as e:      # noqa: BLE001

@@ -67,3 +67,6 @@ Every recording below comes from Wikimedia Commons under the license shown (the 
 | Gaspard de la nuit: II. Le Gibet | Maurice Ravel | OE1FEU (Bechstein concert grand, Wiener Kaisersaal) | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File%3AMaurice_Ravel-_Gaspard_de_la_Nuit-_II_Le_Gibet.flac |
 | Maple Leaf Rag | Scott Joplin | United States Air Force Band, Strolling Strings (1994) | Public domain | https://commons.wikimedia.org/wiki/File%3AMaple_Leaf_Rag_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3 |
 | Solace (A Mexican Serenade) | Scott Joplin | Constantin Stephan (piano) | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File%3AJoplin-Solace-Stephan.ogg |
+| Gnossienne No. 3 | Erik Satie | La Pianista (piano) | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File%3AGnossienne_3_%28Satie%29.ogg |
+| El Noi de la Mare | Traditional Catalan | Jujutacular (guitar) | Public domain | https://commons.wikimedia.org/wiki/File%3AEl_Noi_de_la_Mare_%28guitar%29.ogg |
+| Flute Sonata in D major, Wq. 131: I. Andante | Carl Philipp Emanuel Bach | Luis Martínez Pueyo (traverso), Alfonso Sebastián Alegre (harpsichord) | CC BY 3.0 | https://commons.wikimedia.org/wiki/File%3AC._P._E._Bach_-_Flute_Sonata_in_D_Major%2C_Wq._131%2C_H._561.webm |

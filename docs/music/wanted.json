@@ -1590,7 +1590,16 @@
     "gnossienne 7",
     "midi",
     "synth"
-   ]
+   ],
+   "files": [
+    "File:Gnossienne 3 (Satie).ogg"
+   ],
+   "credit": {
+    "File:Gnossienne 3 (Satie).ogg": {
+     "performer": "La Pianista (piano)",
+     "license": "CC BY-SA 3.0"
+    }
+   }
   },
   {
    "id": "darkroom-ravel-gibet",
@@ -1724,11 +1733,17 @@
     "synth",
     "sequenced"
    ],
-   "note": "Gemini's pick for Cloud Forest (music_gemini_20261023-2135.json, v2): Jujutacular, 2009, CC BY-SA 3.0 per its page quote; the intake checks the page itself."
+   "note": "Gemini's pick for Cloud Forest (music_gemini_20261023-2135.json, v2): Jujutacular, own work 2009. Commons marks the recording public domain (PD mark + GFDL), not CC BY-SA 3.0 as the pick said. Reviewed and live 2026-10-24 (tr256).",
+   "credit": {
+    "File:El Noi de la Mare (guitar).ogg": {
+     "performer": "Jujutacular (guitar)",
+     "license": "Public domain"
+    }
+   }
   },
   {
    "id": "canopy-cpe-bach-flute-sonata-wq131",
-   "title": "Flute Sonata in D major, Wq. 131",
+   "title": "Flute Sonata in D major, Wq. 131: I. Andante",
    "composer": "Carl Philipp Emanuel Bach",
    "query": "C. P. E. Bach Flute Sonata D major Wq. 131",
    "files": [
@@ -1749,7 +1764,17 @@
     "synth",
     "sequenced"
    ],
-   "note": "Gemini's pick for Cloud Forest (v2): La Guirlande Early Music, 2016, CC BY 3.0 per its page quote (YouTubeReviewBot); the intake checks the page itself."
+   "note": "Gemini's pick for Cloud Forest (v2): Luis Martínez Pueyo (La Guirlande) and Alfonso Sebastián Alegre, CC BY 3.0 (YouTube upload, license reviewed). The video opens with a 30 s teaser and the Allegretto would be cut at 7:00, so only the Andante is used (span 37.5-174.5 s). Reviewed and live 2026-10-24 (tr256).",
+   "credit": {
+    "File:C. P. E. Bach - Flute Sonata in D Major, Wq. 131, H. 561.webm": {
+     "performer": "Luis Martínez Pueyo (traverso), Alfonso Sebastián Alegre (harpsichord)",
+     "license": "CC BY 3.0",
+     "span": [
+      37.5,
+      174.5
+     ]
+    }
+   }
   }
  ]
 }

@@ -222,7 +222,7 @@
     "terminal": { rec: "terminal|orchestra", world: true, name: "Grand Terminal", icon: "🚉", desc: "A station hall at night: trains arriving, the echo of the hall, voices, the big clock.", atmo: "terminal",
                beds: { trainIn: 0.45, hall: 0.45, crowd: 0.3, clock: 0.3 }, pad: 0.4, piano: false, bells: true, beat: false,
                root: "G", mode: "major", prog: [0, 3, 4, 0], chordSec: 17, gap: [9, 18], bpm: 70, vol: 0.5 },
-    "canopy": { rec: "canopy|piano", world: true, name: "Cloud Forest", icon: "🌿", desc: "Montane cloud forest at dawn: rain dripping from giant ferns, tree frogs and waking birds in the mist, a recorded flute and piano.", atmo: "canopy",
+    "canopy": { rec: "canopy|piano", world: true, name: "Cloud Forest", icon: "🌿", desc: "Montane cloud forest at dawn: rain dripping from giant ferns, tree frogs and waking birds in the mist, a recorded Catalan guitar song and a baroque flute sonata.", atmo: "canopy",
                beds: { drips: 0.42, frogs: 0.28, birds: 0.24, rainLight: 0.18, windTrees: 0.22 }, pad: 0, piano: false, bells: false, beat: false,
                root: "D", mode: "dorian", prog: [0], chordSec: 12, gap: [8, 12], vol: 0.5 },
     "silverscreen": { rec: "silverscreen|piano", world: true, name: "Silver Screen", icon: "🎬", desc: "A picture palace in the 1920s: the projector rattling in its booth behind you, the house around you, a real recorded piano.", atmo: "silverscreen",

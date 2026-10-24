@@ -44,3 +44,14 @@ Rejected: "Satie - Gnossienne 1" picked for Gnossienne No. 3 (the wrong piece; t
 Nothing usable on Commons: The Entertainer (a Casio keyboard and other electronic renderings) and Golliwogg's Cakewalk (a virtual
 piano, GigaSampler); both stay wanted. Only the four files and their manifest/credit rows were taken from the `music-intake` branch:
 its regenerated performer strings are worse than main's corrected ones (several name the composer as the performer).
+
+## 2026-10-24: intake for Cloud Forest, and Darkroom's Gnossienne 3 (Claude)
+Kept (3), each checked against its Commons file data (the container cannot open Commons; the run's page data plus a web search of
+each file page): El Noi de la Mare (Jujutacular, guitar, own work 2009; Commons marks the recording public domain, not CC BY-SA 3.0
+as Gemini's pick said) and C. P. E. Bach's Flute Sonata in D major, Wq. 131 (Luis Martínez Pueyo, traverso, of La Guirlande, and
+Alfonso Sebastián Alegre, harpsichord; CC BY 3.0, YouTube upload with a license review) for Cloud Forest; Satie Gnossienne No. 3
+(La Pianista, CC BY-SA 3.0 like her No. 1; Commons shows "Public domain" because the composition's template comes first) for
+Darkroom, the right piece this time. The sonata video opens with a 30 s teaser and the fetcher's 7-minute cut fell 7 s before the
+end of the Allegretto, so only the complete Andante is used (37.5-174.5 s, stream copy, -19.3 LUFS); `credit[file].span` in
+wanted.json now gives the fetcher a reviewed span, so the next run makes the same cut. The run's re-encode of the Chopin nocturne
+was not taken (main's copy has the silences trimmed), nor its regenerated performer strings.

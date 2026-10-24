@@ -1,6 +1,6 @@
 {
  "schema": "music/1",
- "made": "2026-10-21T17:23:05Z",
+ "made": "2026-10-24T15:05:00Z",
  "note": "Recorded classical music (tools/music/fetch_classical.py). Every recording is Public Domain, CC0 or CC BY(-SA); credits in CREDITS.md and in the app's Scene Studio.",
  "tracks": [
   {
@@ -742,6 +742,45 @@
    "duration": 417.4,
    "moods": [
     "silverscreen"
+   ]
+  },
+  {
+   "id": "darkroom-satie-gnossienne-3",
+   "title": "Gnossienne No. 3",
+   "composer": "Erik Satie",
+   "performer": "La Pianista (piano)",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AGnossienne_3_%28Satie%29.ogg",
+   "file": "darkroom-satie-gnossienne-3.m4a",
+   "duration": 162.7,
+   "moods": [
+    "darkroom"
+   ]
+  },
+  {
+   "id": "canopy-noi-de-la-mare-guitar",
+   "title": "El Noi de la Mare",
+   "composer": "Traditional Catalan",
+   "performer": "Jujutacular (guitar)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AEl_Noi_de_la_Mare_%28guitar%29.ogg",
+   "file": "canopy-noi-de-la-mare-guitar.m4a",
+   "duration": 132.7,
+   "moods": [
+    "canopy"
+   ]
+  },
+  {
+   "id": "canopy-cpe-bach-flute-sonata-wq131",
+   "title": "Flute Sonata in D major, Wq. 131: I. Andante",
+   "composer": "Carl Philipp Emanuel Bach",
+   "performer": "Luis Martínez Pueyo (traverso), Alfonso Sebastián Alegre (harpsichord)",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AC._P._E._Bach_-_Flute_Sonata_in_D_Major%2C_Wq._131%2C_H._561.webm",
+   "file": "canopy-cpe-bach-flute-sonata-wq131.m4a",
+   "duration": 137.0,
+   "moods": [
+    "canopy"
    ]
   }
  ]

@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-24] — Claude · Cloud Forest's own music + Darkroom's Gnossienne 3 (tr256); Drive side of round 2 done
+- Live: El Noi de la Mare (Jujutacular, guitar, PD) + C. P. E. Bach Wq. 131 Andante (Martínez Pueyo / Sebastián Alegre, CC BY 3.0; teaser cut off, reviewed span in wanted.json) for Cloud Forest; Gnossienne No. 3 (La Pianista, CC BY-SA 3.0) for Darkroom. Gemini's El Noi licence was wrong (the recording is PD).
+- Drive: round-2 reviews in every package folder, FEEDBACK + WORK QUEUE for Gemini and Muse updated, art request `artreq_20261024-0900` up, Muse's 20 merged drop files trashed. Gemini's 11 new sheets stay GitHub-only until the bridge.
+
 ### [2026-10-24] — Claude · Gemini round 2 reviewed: Cloud Forest ships as theme #44, 9 images in (tr255) (owner: "Check again im sure gemini did stuff look everywhere"; "Art at least. There should be a lot")
 - Found by the full sweep: 9 theme packages, motion studies 2-6, the Titan v3 M1 build, music picks v2, 15 images. All run in the app on software GL (phone + desktop, world, coin open, tap, intro at 5 moments). Review: `notes/agents/reviews/GEMINI_ROUND2_20261024.md`; scores Gemini rows 23-31.
 - Shipped: Cloud Forest v2 (`fx/canopy.js`, `js/intros/canopy.js`; Claude fixed one line: every intro of the round sampled its title with `1.0 - uv.y` on a texture the kit already flips, so the name was upside down), group Weather and sky, scape `rainforest`; card + hero and the missing Silver Screen hero requested (`artreq_20261024-0900_theme-art-canopy-silverscreen`); its 2 music picks queued in wanted.json. Art: cards for Supercell, Tourbillon, Darkroom, Silver Screen; heroes for Supercell, Tourbillon, Darkroom; Midnight Gallery and Shipwreck hero refreshes (Prism and The Mint kept, Gemini's were weaker). `.result.md` per request.
