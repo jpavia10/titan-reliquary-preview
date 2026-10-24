@@ -3,17 +3,11 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-## Gemini
+## Muse
 
 | File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
 |---|---|---|---|---|---|---|---|
-| `changes_gemini_20261023-2101.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 4 lines: 4 in the change log, 0 filed as disagreements; answered 4 of 4 items of HW-gemini-story-check-20261023-1 (with its other files for the same sheet); cross-checked so far: 2 held, 0 wrong |
-| `changes_gemini_20261023-2102.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 8 lines: 6 in the change log, 2 filed as disagreements; answered 8 of 8 items of HW-gemini-verify-20261023-1 (with its other files for the same sheet); cross-checked so far: 6 held, 0 wrong |
-| `changes_gemini_20261023-2103.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 27 lines: 27 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-gemini-fill-20261023-1 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261023-2104.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 24 lines: 24 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-gemini-fill-20261023-2 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261023-2105.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 24 lines: 24 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-gemini-fill-20261023-3 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261023-2106.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 24 lines: 24 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-gemini-fill-20261023-4 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261023-2107.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 24 lines: 24 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-gemini-fill-20261023-5 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261023-2108.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 24 lines: 24 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-gemini-fill-20261023-6 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261023-2109.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 12 lines: 12 in the change log, 0 filed as disagreements; answered 6 of 6 items of HW-gemini-fill-20261023-7 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261023-2110.jsonl` | **9 / 10** | 2 | 2 | 3 | 1 | 1 | 5 lines: 1 in the change log, 0 filed as disagreements, 4 not written (stale, no change or already applied); answered 16 of 24 items of HW-gemini-plain-story-20261020-1, HW-gemini-value-20261014-1 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
+| `changes_muse_20261024-0509.jsonl` | **9 / 10** | 2 | 2 | 3 | 2 | 0 | 47 lines: 45 in the change log, 2 filed as disagreements; answered 47 of 50 items of HW-muse-verify-20261020-1 (with its other files for the same sheet); 4 verify answer(s) on its own earlier fact; cross-checked so far: 47 held, 0 wrong |
+| `changes_muse_20261024-0533.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 36 lines: 36 in the change log, 0 filed as disagreements; answered 36 of 40 items of HW-muse-plain-story-20261020-1 (with its other files for the same sheet); nothing cross-checked yet |
+| `changes_muse_20261024-0551.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 79 lines: 79 in the change log, 0 filed as disagreements; answered 11 of 12 items of HW-muse-fill-20261023-1 (with its other files for the same sheet); nothing cross-checked yet |
+| `changes_muse_20261024-0552.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 24 lines: 24 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-muse-fill-20261023-7 (with its other files for the same sheet); nothing cross-checked yet |

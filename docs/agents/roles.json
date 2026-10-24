@@ -38,7 +38,7 @@
     "muse": {
       "name": "Muse",
       "status": "active",
-      "probation": true,
+      "probation": false,
       "by": [
         "model:muse-spark",
         "model:muse"
@@ -64,7 +64,7 @@
         "plain-story",
         "read-mint"
       ],
-      "strength": "Researcher and writer, loaded up (owner, 2026-10-23: \"Load up muse\"; 2026-10-10: \"I think muse wants to step up so maybe see what they got in them\"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.",
+      "strength": "Researcher and writer, loaded up (owner, 2026-10-23: \"Load up muse\"; 2026-10-10: \"I think muse wants to step up so maybe see what they got in them\"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values). Off probation 2026-10-24: 4 files in a row scored 10 with no accuracy fault (changes_muse_20261024-0509 to -0552; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate.",
       "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).",
       "per_kind": 8,
       "full_batches": true

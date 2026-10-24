@@ -1,26 +1,26 @@
 {
- "updated": "2026-10-24T02:53:24Z",
+ "updated": "2026-10-24T06:49:04Z",
  "pools": {
   "cite": 22,
   "contradiction": 14,
   "story-check": 168,
-  "plain-story": 39,
+  "plain-story": 5,
   "research": 1,
   "value": 3,
   "read-mint": 9,
   "arbitrate": 5,
-  "fill": 95,
-  "verify": 894
+  "fill": 80,
+  "verify": 769
  },
  "agents": {
   "gemini": {
-   "confirmed": 112,
+   "confirmed": 111,
    "wrong": 0,
    "checks_done": 66,
    "disagreements_open": 2,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 112,
+   "checked_n": 111,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
@@ -28,27 +28,27 @@
    ]
   },
   "grok": {
-   "confirmed": 430,
+   "confirmed": 469,
    "wrong": 5,
    "checks_done": 161,
    "disagreements_open": 1,
    "canaries_caught": 2,
    "canaries_missed": 0,
-   "checked_n": 435,
+   "checked_n": 474,
    "error_rate": 0.011,
    "error_ci95": [
     0.005,
-    0.027
+    0.024
    ]
   },
   "claude": {
-   "confirmed": 89,
+   "confirmed": 90,
    "wrong": 0,
    "checks_done": 213,
    "disagreements_open": 4,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 89,
+   "checked_n": 90,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
@@ -56,17 +56,17 @@
    ]
   },
   "muse": {
-   "confirmed": 281,
+   "confirmed": 318,
    "wrong": 9,
-   "checks_done": 99,
+   "checks_done": 144,
    "disagreements_open": 1,
-   "canaries_caught": 8,
+   "canaries_caught": 10,
    "canaries_missed": 0,
-   "checked_n": 290,
-   "error_rate": 0.031,
+   "checked_n": 327,
+   "error_rate": 0.028,
    "error_ci95": [
-    0.016,
-    0.058
+    0.015,
+    0.051
    ]
   },
   "ledger": {
@@ -131,13 +131,15 @@
   "story:C047",
   "story:C114",
   "verify:type:AU.X.1-cent:denomination.value",
+  "verify:type:AU.X.10-cents:denomination.value",
+  "verify:type:BS.X.25-cents:denomination.value",
   "verify:type:CH.KM.29a:denomination.value",
   "verify:type:ES.KM.1144:period"
  ],
  "open_assignments": {
   "grok": 15,
-  "muse": 29,
-  "gemini": 5,
+  "muse": 26,
+  "gemini": 8,
   "chatgpt": 0
  }
 }

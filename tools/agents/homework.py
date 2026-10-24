@@ -173,8 +173,10 @@ FILL_HOW = {"nominal.edge": "as the entry words it, e.g. Plain, Reeded, Lettered
             "nominal.alignment": "coin or medal", "legal_tender.status": "current, demonetized, withdrawn, superseded or none",
             "legal_tender.text": "a few words, e.g. demonetized 2002 (euro)", "period": "a historical period or regime, never a country status",
             "ruler": "the ruler named on the coin", "design.designers": 'a list with each side in brackets, e.g. ["Arnold Machin (obverse)", "Stuart Devlin (reverse)"]',
-            "design.obverse": "what the obverse shows, then its legend in capitals, joined by ' · '",
-            "design.reverse": "what the reverse shows, then its legend in capitals, joined by ' · '"}
+            "design.obverse": "what the obverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, "
+                              "so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo)",
+            "design.reverse": "what the reverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, "
+                              "so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo)"}
 
 
 def pool_fill(ctx):

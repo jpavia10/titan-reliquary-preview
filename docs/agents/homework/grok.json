@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-24T02:53:24Z",
+ "updated": "2026-10-24T06:49:04Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261019-1",
@@ -418,36 +418,6 @@
    ],
    "items_full": [
     {
-     "item": "verify:type:NL.KM.184:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.184",
-     "field": "design.text",
-     "coins": [
-      "C223"
-     ],
-     "label": "design of C223 · Netherlands · 1967 · 1 gulden · NLG",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "Juliana head right, JULIANA KONINGIN DER NEDERLANDEN (obv; engraver Ludwig Oswald Wenckebach) · crowned arms dividing date, 1 G, NEDERLAND (rev) · mintmaster fish mark",
-      "their_source": "https://en.numista.com/catalogue/pieces737.html (Numista N#737): Reverse 'Crowned Dutch coat of arms dividing the date and value, country na",
-      "links": [
-       "https://en.numista.com/catalogue/pieces737.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:DE.KM.140.1:design.text",
      "kind": "verify",
      "entity": "type",
@@ -470,7 +440,7 @@
        "https://en.numista.com/catalogue/pieces843.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -504,39 +474,7 @@
        "https://en.numista.com/catalogue/pieces189.html"
       ],
       "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.27:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.27",
-     "field": "design.text",
-     "coins": [
-      "C082",
-      "C083",
-      "C242"
-     ],
-     "label": "design of C082 · Switzerland · 1979 · 10 rappen · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "Libertas head right (obv; designer Karl Schwenzer) · 10 in oak wreath (rev; designer Carl Friedrich Voigt)",
-      "their_source": "https://en.numista.com/catalogue/pieces173.html (Numista N#173, Switzerland 10 Rappen KM#27): Obverse — Head of Libertas facing right, Desig",
-      "links": [
-       "https://en.numista.com/catalogue/pieces173.html"
-      ],
-      "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -565,36 +503,6 @@
       "their_source": "https://en.numista.com/catalogue/pieces185.html (Numista N#185, Switzerland 1 Franc KM#24a): Obverse — Helvetia standing facing left, spear/",
       "links": [
        "https://en.numista.com/catalogue/pieces185.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.964.1:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.964.1",
-     "field": "design.text",
-     "coins": [
-      "C049"
-     ],
-     "label": "design of C049 · France · 1989 · 10 francs · FRF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "Génie de la Liberté atop the July Column, Paris, between R F (obv; engravers Jean-Luc Maréchal, Atelier de Gravure) · 10 F crossed with wide stripes, LIBERTÉ ÉGALITÉ FRATERNITÉ, date (rev)",
-      "their_source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9): Reverse 'The face value, crossed with wide stripes, is surrounded by the French",
-      "links": [
-       "https://en.numista.com/catalogue/pieces9.html"
       ],
       "photos": [],
       "audit": false,
@@ -627,7 +535,7 @@
        "https://en.numista.com/catalogue/pieces5788.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -657,7 +565,7 @@
        "https://en.numista.com/catalogue/pieces14370.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -688,7 +596,7 @@
        "https://en.numista.com/catalogue/pieces181.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -747,41 +655,6 @@
       "photos": [],
       "audit": false,
       "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.29a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.29a",
-     "field": "design.text",
-     "coins": [
-      "C068",
-      "C076",
-      "C078",
-      "C079",
-      "C256",
-      "C278"
-     ],
-     "label": "design of C068 · Switzerland · 1963 · 20 rappen · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "Libertas head right (obv; designer Karl Schwenzer) · 20 in alpine rose wreath (rev; designer Carl Friedrich Voigt)",
-      "their_source": "https://en.numista.com/catalogue/pieces178.html (Numista N#178, Switzerland 20 Rappen KM#29a): Obverse — Head of Libertas facing right, Desi",
-      "links": [
-       "https://en.numista.com/catalogue/pieces178.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
       "recheck": false
      },
      "blind": false,
@@ -922,36 +795,6 @@
       "their_source": "https://en.numista.com/catalogue/pieces549.html (Numista N#549, Greece 2 Drachmes 1982-1986): Obverse — two crossed rifles with branch, deno",
       "links": [
        "https://en.numista.com/catalogue/pieces549.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:ES.KM.1144:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ES.KM.1144",
-     "field": "design.text",
-     "coins": [
-      "C139"
-     ],
-     "label": "design of C139 · Spain · 2014 · 1 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national side Cathedral of Santiago de Compostela + 12 EU stars (2010 onward type) · common side globe (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces10856.html (Numista N#10856): Reverse 'A globe, next to the face value, shows Europe in relation to A",
-      "links": [
-       "https://en.numista.com/catalogue/pieces10856.html"
       ],
       "photos": [],
       "audit": false,
@@ -1200,157 +1043,6 @@
    ],
    "items_full": [
     {
-     "item": "verify:type:NO.KM.460:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NO.KM.460",
-     "field": "design.text",
-     "coins": [
-      "C144",
-      "C268"
-     ],
-     "label": "design of C144 · Norway · 1998 · 50 øre · NOK",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse large crown with crossed-hammers mint mark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)",
-      "their_source": "https://en.numista.com/catalogue/pieces1442.html (Numista N#1442): Reverse 'Stylised mythical animal (the dragon Nidhogg) facing right, valu",
-      "links": [
-       "https://en.numista.com/catalogue/pieces1442.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:PT.KM.744:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "PT.KM.744",
-     "field": "design.text",
-     "coins": [
-      "C056"
-     ],
-     "label": "design of C056 · Portugal · 2002 · 20 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national royal seal of 1142 (seven castles · five shields) + PORTUGAL · 20★02 style date · 12 EU stars · common Europe map side (Luc Luycx) · Vítor Santos",
-      "their_source": "https://en.numista.com/catalogue/pieces157.html (Numista N#157): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
-      "links": [
-       "https://en.numista.com/catalogue/pieces157.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MT.KM.128:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MT.KM.128",
-     "field": "design.text",
-     "coins": [
-      "C028"
-     ],
-     "label": "design of C028 · Malta · 2013 · 5 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Mnajdra Temple altar/trilithon + MALTA · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces2183.html (Numista N#2183): Reverse 'A globe, next to the face value, shows Europe in relation to Afr",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2183.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IT.KM.215:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.215",
-     "field": "design.text",
-     "coins": [
-      "C055"
-     ],
-     "label": "design of C055 · Italy · 2002 · 50 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national equestrian Marcus Aurelius on the Campidoglio paving (engraver Roberto Mauri) + RI · R · date · 12 EU stars · common map side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces134.html (Numista N#134): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
-      "links": [
-       "https://en.numista.com/catalogue/pieces134.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IE.KM.34:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IE.KM.34",
-     "field": "design.text",
-     "coins": [
-      "C120"
-     ],
-     "label": "design of C120 · Ireland · 2013 · 5 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces123.html (Numista N#123): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
-      "links": [
-       "https://en.numista.com/catalogue/pieces123.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:specimen:C293:issue.year",
      "kind": "verify",
      "entity": "specimen",
@@ -1379,37 +1071,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:DE.KM.109.2:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.109.2",
-     "field": "design.text",
-     "coins": [
-      "C057",
-      "C058"
-     ],
-     "label": "design of C057 · Germany · 1982 · 50 Pfennig · DEM",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "Trümmerfrau planting an oak sapling (Richard M. Werner) · value side 50 PFENNIG · BUNDESREPUBLIK DEUTSCHLAND · mint mark",
-      "their_source": "Third reader for D0022: The 50 pfennig value side carries 50 PFENNIG and BUNDESREPUBLIK DEUTSCHLAND, no Bundesadler; Gerda Werner was the mo",
-      "links": [
-       "https://en.numista.com/catalogue/pieces847.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:CH.KM.26:design.text",
      "kind": "verify",
      "entity": "type",
@@ -1430,387 +1091,6 @@
       "their_source": "Third reader for D0024: Numista N#168 names Schwenzer and Voigt as designers. Claimant's source: Disagree — Numista N#168 (https://en.numist",
       "links": [
        "https://en.numista.com/catalogue/pieces168.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:DE.KM.108:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.108",
-     "field": "design.text",
-     "coins": [
-      "C019",
-      "C021",
-      "C022",
-      "C030",
-      "C051",
-      "C089",
-      "C090",
-      "C091",
-      "C092",
-      "C224",
-      "C225",
-      "C226",
-      "C227",
-      "C228",
-      "C229"
-     ],
-     "label": "design of C019 · Germany · 1981 · 10 Pfennig · DEM",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value between rye ears / PFENNIG reverse",
-      "their_source": "Third reader for D0025: House rule (2026-10-04): the German oak side is the obverse; Numista N#850 agrees. Claimant's source: Disagree — Num",
-      "links": [
-       "https://en.numista.com/catalogue/pieces850.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IT.KM.214:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.214",
-     "field": "design.text",
-     "coins": [
-      "C027",
-      "C061"
-     ],
-     "label": "design of C027 · Italy · 2002 · 20 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Boccioni Unique Forms of Continuity in Space (M.A. Cassol) + RI · R · date · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces133.html (Numista N#133): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
-      "links": [
-       "https://en.numista.com/catalogue/pieces133.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.239:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.239",
-     "field": "design.text",
-     "coins": [
-      "C040"
-     ],
-     "label": "design of C040 · Netherlands · 2001 · 20 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Beatrix stylized profile + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces149.html (Numista N#149): Reverse 'A map of the European continent is represented on a dynamic canvas",
-      "links": [
-       "https://en.numista.com/catalogue/pieces149.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SG.KM.4:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SG.KM.4",
-     "field": "design.text",
-     "coins": [
-      "C250"
-     ],
-     "label": "design of C250 · Singapore · 1967 · 20 cents · SGD",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "value side rice stalks · big 20 · CENTS · 1967 · SINGAPORE · swordfish other side (Stuart Devlin)",
-      "their_source": "https://en.numista.com/catalogue/pieces975.html (Numista N#975): Reverse 'A swordfish (Xiphias gladius) facing right in the centre with wavy",
-      "links": [
-       "https://en.numista.com/catalogue/pieces975.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.26c:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.26c",
-     "field": "design.text",
-     "coins": [
-      "C075",
-      "C081"
-     ],
-     "label": "design of C075 · Switzerland · 1982 · 5 rappen · CHF",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "Libertas right (obv) · 5 in grapevine wreath (rev) · designers Karl Schwenzer / Carl Friedrich Voigt",
-      "their_source": "Third reader for D0054: Numista N#171 names Schwenzer and Voigt as designers. Claimant's source: Disagree in part — Numista N#171 (https://e",
-      "links": [
-       "https://en.numista.com/catalogue/pieces171.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:DE.KM.107:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.107",
-     "field": "design.text",
-     "coins": [
-      "C195",
-      "C196",
-      "C197",
-      "C237",
-      "C265"
-     ],
-     "label": "design of C195 · Germany · 1971 · 5 Pfennig · DEM",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "oak seedling obverse (Adolf Jäger) · value between rye ears / PFENNIG reverse",
-      "their_source": "Third reader for D0055: House rule (2026-10-04): the German oak side is the obverse; Numista N#658 agrees. Claimant's source: Disagree in pa",
-      "links": [
-       "https://en.numista.com/catalogue/pieces658.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SG.KM.3:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SG.KM.3",
-     "field": "design.text",
-     "coins": [
-      "C264"
-     ],
-     "label": "design of C264 · Singapore · 1973 · 10 cents · SGD",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "value side two rice (paddy) stalks · big 10 · CENTS · 1973 · SINGAPORE · crowned seahorse other side (Stuart Devlin)",
-      "their_source": "https://en.numista.com/catalogue/pieces1671.html (Numista N#1671): Reverse 'A stylized seahorse (Hippocampus coronatus) facing right in the ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces1671.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.204:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.204",
-     "field": "design.text",
-     "coins": [
-      "C010",
-      "C104"
-     ],
-     "label": "design of C010 · Netherlands · 1996 · 25 cents · NLG",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Beatrix portrait · reverse value and date within vertical lines (25ct · date)",
-      "their_source": "https://en.numista.com/catalogue/pieces731.html (Numista N#731): Reverse 'Value and date with rectangular patterns', Lettering '25CT 1996'",
-      "links": [
-       "https://en.numista.com/catalogue/pieces731.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MT.KM.129:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MT.KM.129",
-     "field": "design.text",
-     "coins": [
-      "C043"
-     ],
-     "label": "design of C043 · Malta · 2008 · 10 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Arms of Malta (flag shield · mural crown · olive & palm) + MALTA · date · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces2184.html (Numista N#2184): Reverse 'A map, next to the face value, symbolizes the gathering of the n",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2184.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.346:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.346",
-     "field": "design.text",
-     "coins": [
-      "C045"
-     ],
-     "label": "design of C045 · Netherlands · 2014 · 5 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Willem-Alexander right-facing portrait · Willem-Alexander Koning der Nederlanden (vertical) · date · 12 stars · common Europe globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces54953.html (Numista N#54953): Reverse 'A globe, next to the face value, shows Europe in relation to A",
-      "links": [
-       "https://en.numista.com/catalogue/pieces54953.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IT.KM.211:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.211",
-     "field": "design.text",
-     "coins": [
-      "C039"
-     ],
-     "label": "design of C039 · Italy · 2010 · 2 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Mole Antonelliana Turin (Luciana De Simoni) + RI · date · R · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces130.html (Numista N#130): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
-      "links": [
-       "https://en.numista.com/catalogue/pieces130.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:ES.KM.1040:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ES.KM.1040",
-     "field": "design.text",
-     "coins": [
-      "C140"
-     ],
-     "label": "design of C140 · Spain · 2008 · 1 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national side Cathedral of Santiago de Compostela (Garcilaso Rollán) + 12 EU stars · common side globe (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces81.html (Numista N#81): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces81.html"
       ],
       "photos": [],
       "audit": false,
@@ -3364,8 +2644,8 @@
        "denom": "1 cent · BSD",
        "mint": "no mint mark visible",
        "refs": "Schön#190a · Numista#92216",
-       "metal": "Copper plated steel · 1.70 g · 17 mm",
-       "specs": "thickness unknown",
+       "metal": "Copper plated steel · 1.70 g · 17 mm · Plain",
+       "specs": "thickness 1 mm · medal alignment",
        "mintage": "unknown",
        "design": "The obverse shows the coat of arms of The Bahamas, with a marlin and a flamingo holding a shield, and the words Commonwealth of The Bahamas with the date below. The reverse shows three starfish with the words 1 Cent.",
        "ruler": "Elizabeth II"
@@ -3458,9 +2738,10 @@
        "mint": "no mint mark visible",
        "refs": "KM#36 · Schön#6 · Numista#2238",
        "metal": "copper-nickel (75% copper, 25% nickel) · 5.66 g · 23.6 mm · reeded",
-       "specs": "thickness 1.9 mm",
+       "specs": "thickness 1.9 mm · medal alignment",
        "mintage": "unknown",
-       "design": "obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SECOND · reverse 25 CENTS within central beaded circle and ornamental border with BELIZE above and date below · Cecil Thomas (obverse)"
+       "design": "obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SECOND · reverse 25 CENTS within central beaded circle and ornamental border with BELIZE above and date below · Cecil Thomas (obverse)",
+       "ruler": "Elizabeth II"
       }
      },
      "blind": false,
@@ -11597,9 +10878,11 @@
        "denom": "25 cents · BSD",
        "mint": "not read (no photo of this coin yet)",
        "refs": "KM#63.1 · Schön#38 · Numista#9352",
-       "specs": "thickness unknown",
+       "metal": "Reeded",
+       "specs": "thickness 1.9 mm · medal alignment",
        "mintage": "unknown",
-       "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin"
+       "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin",
+       "ruler": "Elizabeth II"
       }
      },
      "blind": false,
@@ -11626,10 +10909,11 @@
        "denom": "500 pesos · MXP",
        "mint": "Mo",
        "refs": "KM#529 · Schön#88 · Numista#819",
-       "metal": "copper-nickel (75% copper, 25% nickel) · 12.64 g · 28.5 mm",
-       "specs": "thickness unknown",
+       "metal": "copper-nickel (75% copper, 25% nickel) · 12.64 g · 28.5 mm · Milled",
+       "specs": "thickness 2.64 mm · coin alignment",
        "mintage": "40,000,000",
-       "design": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse portrait of Francisco I. Madero facing right · Madero · $500 · Mo"
+       "design": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse portrait of Francisco I. Madero facing right · Madero · $500 · Mo",
+       "period": "United Mexican States/Mexican Republic"
       }
      },
      "blind": false,
@@ -11656,10 +10940,11 @@
        "denom": "1 penny · GBP",
        "mint": "no mint mark visible",
        "refs": "KM#810 · Schön#299 · Numista#578",
-       "metal": "bronze · 9.45 g · 30.8 mm",
-       "specs": "thickness unknown",
+       "metal": "bronze · 9.45 g · 30.8 mm · Plain",
+       "specs": "thickness 1.6 mm · medal alignment",
        "mintage": "16,346,700",
-       "design": "obverse uncrowned portrait of George V left · GEORGIVS V DEI GRA:BRITT:OMN:REX FID:DEF:IND:IMP: · reverse seated Britannia right with trident and shield · ONE PENNY · Edgar Bertram MacKennal / Leonard Charles Wyon"
+       "design": "obverse uncrowned portrait of George V left · GEORGIVS V DEI GRA:BRITT:OMN:REX FID:DEF:IND:IMP: · reverse seated Britannia right with trident and shield · ONE PENNY · Edgar Bertram MacKennal / Leonard Charles Wyon",
+       "ruler": "George V"
       }
      },
      "blind": false,
@@ -11687,9 +10972,10 @@
        "mint": "none on the value side",
        "refs": "KM#62 · Schön#49 · Numista#1559",
        "metal": "bronze (97% copper, 2.5% zinc, 0.5% tin) · 2.59 g · 17.53 mm · plain",
-       "specs": "thickness 1.5 mm",
+       "specs": "thickness 1.5 mm · medal alignment",
        "mintage": "unknown",
-       "design": "obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse feather-tailed glider · 1 · Stuart Devlin / Arnold Machin"
+       "design": "obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse feather-tailed glider · 1 · Stuart Devlin / Arnold Machin",
+       "ruler": "Elizabeth II"
       }
      },
      "blind": false,
@@ -11716,10 +11002,11 @@
        "denom": "20 pesos · MXN",
        "mint": "not read (no photo of this coin in Drive yet)",
        "refs": "KM#486 · Schön#78 · Numista#987",
-       "metal": "copper-nickel (75% copper, 25% nickel) · 15.20 g · 32.06 mm",
-       "specs": "thickness unknown",
+       "metal": "copper-nickel (75% copper, 25% nickel) · 15.20 g · 32.06 mm · Smooth with Inscription: INDEPENDENCIA Y LIBERTAD",
+       "specs": "thickness 2.44 mm · coin alignment",
        "mintage": "250,573,000",
-       "design": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse Maya ballplayer (Jugador de pelota) in circle · CULTURA MAYA · $20 · Mo · Alfonso Rodríguez Facio"
+       "design": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse Maya ballplayer (Jugador de pelota) in circle · CULTURA MAYA · $20 · Mo · Alfonso Rodríguez Facio",
+       "period": "United Mexican States/Mexican Republic"
       }
      },
      "blind": false,
@@ -12006,9 +11293,11 @@
        "denom": "25 cents · BSD",
        "mint": "not read (no photo of this coin yet)",
        "refs": "KM#63.1 · Schön#38 · Numista#9352",
-       "specs": "thickness unknown",
+       "metal": "Reeded",
+       "specs": "thickness 1.9 mm · medal alignment",
        "mintage": "unknown",
-       "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin"
+       "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin",
+       "ruler": "Elizabeth II"
       },
       "type": "BS.X.25-cents",
       "remove_with": []

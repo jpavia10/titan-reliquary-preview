@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-24T02:53:24Z",
+ "updated": "2026-10-24T06:49:04Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261020-1",
@@ -518,7 +518,7 @@
        "https://en.numista.com/catalogue/pieces972.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -546,7 +546,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": true,
       "recheck": false
      },
@@ -581,7 +581,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": true,
       "recheck": false
      },
@@ -4919,37 +4919,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:YU.KM.86:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "YU.KM.86",
-     "field": "design.text",
-     "coins": [
-      "C251",
-      "C262"
-     ],
-     "label": "design of C251 · Yugoslavia · 1984 · 1 dinar · YUD",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse SFRY arms (torch and wheat) · reverse big 1 · bilingual ДИНАР / DINAR legend · date · beaded rim",
-      "their_source": "https://en.numista.com/catalogue/pieces2417.html (Numista N#2417): Reverse 'Value in wreath, date above, denomination in Cyrillic and Latin ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2417.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:NL.KM.204:ruler",
      "kind": "verify",
      "entity": "type",
@@ -5079,38 +5048,6 @@
        "qualifier": null
       }
      }
-    },
-    {
-     "item": "verify:type:DE.KM.106a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.106a",
-     "field": "design.text",
-     "coins": [
-      "C018",
-      "C122",
-      "C123"
-     ],
-     "label": "design of C018 · Germany · 1983 · 2 Pfennig · DEM",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
-      "their_source": "Third reader for D0059: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
-      "links": [
-       "https://en.numista.com/catalogue/pieces1937.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
     },
     {
      "item": "verify:type:DE.KM.210:issues.0.mintage",
@@ -5418,7 +5355,7 @@
         "drive": "https://drive.google.com/file/d/1QC7cwjs3PoBJsVZVpkg5O2FNKSiBANMh/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -5521,7 +5458,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": true,
       "recheck": false
      },
@@ -8046,37 +7983,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:KY.KM.132:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "KY.KM.132",
-     "field": "design.text",
-     "coins": [
-      "C186",
-      "C215"
-     ],
-     "label": "design of C186 · Cayman Islands · 2002 · 5 cents · KYD",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse Cayman crayfish · 5 (Stuart Devlin)",
-      "their_source": "https://en.numista.com/catalogue/pieces2698.html (Numista N#2698): Reverse 'Crayfish (prawn) facing left, value at right', Lettering '5 SD'",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2698.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:KY.KM.132:ruler",
      "kind": "verify",
      "entity": "type",
@@ -8623,36 +8529,6 @@
       "ledger": false,
       "value": "copper-nickel (80% copper, 20% nickel)",
       "their_source": "Numista N#6694 (https://en.numista.com/catalogue/pieces6694.html): composition copper-nickel (80% copper, 20% nickel) -> metal_class cuproni",
-      "links": [
-       "https://en.numista.com/catalogue/pieces6694.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.KM.433:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.KM.433",
-     "field": "design.text",
-     "coins": [
-      "C161"
-     ],
-     "label": "design of C161 · Mexico · 1945 · 10 centavos · MXN",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse national arms (eagle on cactus) · reverse Aztec Sun Stone · big 10 · CENTAVOS · 1945 · M (Manuel Luna Negrete)",
-      "their_source": "https://en.numista.com/catalogue/pieces6694.html (Numista N#6694): Reverse 'Radiating rings of the Aztec Calendar Stone (Piedra del Sol) aro",
       "links": [
        "https://en.numista.com/catalogue/pieces6694.html"
       ],
@@ -9212,68 +9088,6 @@
       "ledger": false,
       "value": "Copper-nickel clad copper-nickel",
       "their_source": "Third reader for D0085: Both parties quote the same Numista N#1516 line (https://en.numista.com/catalogue/pieces1516.html): the 1968-1973 kr",
-      "links": [
-       "https://en.numista.com/catalogue/pieces1516.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.931.1:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.931.1",
-     "field": "design.text",
-     "coins": [
-      "C033",
-      "C060",
-      "C221"
-     ],
-     "label": "design of C033 · France · 1969 · 1/2 franc · FRF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse La Semeuse left (Oscar Roty) · reverse 1/2 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date",
-      "their_source": "https://en.numista.com/catalogue/pieces5.html (Numista N#5): Reverse 'Olive branch below face value, legend around, date below', Lettering '",
-      "links": [
-       "https://en.numista.com/catalogue/pieces5.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SE.KM.826a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SE.KM.826a",
-     "field": "design.text",
-     "coins": [
-      "C165"
-     ],
-     "label": "design of C165 · Sweden · 1973 · 1 krona · SEK",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse stylized bust of Gustaf VI Adolf facing left · GUSTAF VI ADOLF SVERIGES KONUNG · reverse crowned coat of arms of Sweden · 1 KR · PLIKTEN • FRAMFÖR • ALLT · date",
-      "their_source": "https://en.numista.com/catalogue/pieces1516.html (Numista N#1516): Reverse 'Crowned coat of arms dividing date (above) and value, with the K",
       "links": [
        "https://en.numista.com/catalogue/pieces1516.html"
       ],
@@ -10200,38 +10014,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:GB.KM.1109d:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1109d",
-     "field": "design.text",
-     "coins": [
-      "C180",
-      "C181",
-      "C182"
-     ],
-     "label": "design of C180 · United Kingdom · 2012 · 5 pence · GBP",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)",
-      "their_source": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): Reverse 'Centre section of the Royal Shield of Arms, denomination centr",
-      "links": [
-       "https://en.numista.com/catalogue/pieces25766.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:GB.KM.1109d:ruler",
      "kind": "verify",
      "entity": "type",
@@ -10584,38 +10366,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:GB.KM.915:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.915",
-     "field": "design.text",
-     "coins": [
-      "C105",
-      "C106",
-      "C216"
-     ],
-     "label": "design of C105 · United Kingdom · 1971 · 1 penny · GBP (decimal)",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Arnold Machin Elizabeth II · reverse crowned portcullis · NEW PENNY (Ironside)",
-      "their_source": "https://en.numista.com/catalogue/pieces665.html (Numista N#665): Reverse 'A portcullis with chains and a grid of 5 vertical bars and 4 horiz",
-      "links": [
-       "https://en.numista.com/catalogue/pieces665.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:GB.KM.915:ruler",
      "kind": "verify",
      "entity": "type",
@@ -10796,67 +10546,6 @@
       "ledger": false,
       "value": "bronze (97 Cu / 2.5 Zn / 0.5 Sn)",
       "their_source": "https://en.numista.com/catalogue/pieces856.html (Numista N#856, ½ New Penny - Elizabeth II (2nd portrait) - United Kingdom): Composition Bro",
-      "links": [
-       "https://en.numista.com/catalogue/pieces856.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.1334:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1334",
-     "field": "design.text",
-     "coins": [
-      "C183",
-      "C184"
-     ],
-     "label": "design of C183 · United Kingdom · 2015 · 5 pence · GBP",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Jody Clark Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)",
-      "their_source": "https://en.numista.com/catalogue/pieces70547.html (Numista N#70547): Reverse 'Centre section of the Royal Shield of Arms, denomination centr",
-      "links": [
-       "https://en.numista.com/catalogue/pieces70547.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.914:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.914",
-     "field": "design.text",
-     "coins": [
-      "C020"
-     ],
-     "label": "design of C020 · United Kingdom · 1973 · ½ new penny · GBP",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW PENNY ½",
-      "their_source": "https://en.numista.com/catalogue/pieces856.html (Numista N#856): Reverse 'Central Crown of St. Edward, denomination in letters above, fracti",
       "links": [
        "https://en.numista.com/catalogue/pieces856.html"
       ],
@@ -11079,36 +10768,6 @@
       "ledger": false,
       "value": "CuNi 75/25",
       "their_source": "https://en.numista.com/catalogue/pieces7350.html (Numista N#7350, 10 Pence - Elizabeth II (4th portrait; Royal Shield, non-magnetic) - Unite",
-      "links": [
-       "https://en.numista.com/catalogue/pieces7350.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.1110:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1110",
-     "field": "design.text",
-     "coins": [
-      "C154"
-     ],
-     "label": "design of C154 · United Kingdom · 2010 · 10 pence · GBP",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)",
-      "their_source": "https://en.numista.com/catalogue/pieces7350.html (Numista N#7350): Reverse 'Upper left section of the Royal Shield of Arms, denomination to ",
       "links": [
        "https://en.numista.com/catalogue/pieces7350.html"
       ],
@@ -11486,36 +11145,6 @@
       "ledger": false,
       "value": "nickel-plated steel",
       "their_source": "https://en.numista.com/catalogue/pieces70549.html (Numista N#70549, 10 Pence - Elizabeth II (5th portrait; Royal Shield) - United Kingdom): ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces70549.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.1335:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.1335",
-     "field": "design.text",
-     "coins": [
-      "C158"
-     ],
-     "label": "design of C158 · United Kingdom · 2016 · 10 pence · GBP",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Jody Clark Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)",
-      "their_source": "https://en.numista.com/catalogue/pieces70549.html (Numista N#70549): Reverse 'Top left section of the Royal Shield of Arms, denomination in ",
       "links": [
        "https://en.numista.com/catalogue/pieces70549.html"
       ],
@@ -12303,70 +11932,6 @@
       "their_source": "Numista N#108 (https://en.numista.com/catalogue/pieces108.html) Obverse: 'The Brandenburg Gate ... surrounded with the twelve stars of Europ",
       "links": [
        "https://en.numista.com/catalogue/pieces108.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.1285:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1285",
-     "field": "design.text",
-     "coins": [
-      "C095",
-      "C096"
-     ],
-     "label": "design of C095 · France · 1999 · 10 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national modern La Semeuse (Laurent Jorio after Roty) · RF · 12 EU stars · common map side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces100.html (Numista N#100): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
-      "links": [
-       "https://en.numista.com/catalogue/pieces100.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.986:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.986",
-     "field": "design.text",
-     "coins": [
-      "C112",
-      "C113",
-      "C217",
-      "C292"
-     ],
-     "label": "design of C112 · United Kingdom · 2003 · 1 penny · GBP (decimal)",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)",
-      "their_source": "https://en.numista.com/catalogue/pieces862.html (Numista N#862): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
-      "links": [
-       "https://en.numista.com/catalogue/pieces862.html"
       ],
       "photos": [],
       "audit": false,
@@ -13436,175 +13001,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:DE.KM.105:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.105",
-     "field": "design.text",
-     "coins": [
-      "C029",
-      "C187",
-      "C188",
-      "C189",
-      "C190",
-      "C191",
-      "C192"
-     ],
-     "label": "design of C029 · Germany · 1972 · 1 Pfennig · DEM",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse",
-      "their_source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNI",
-      "links": [
-       "https://en.numista.com/catalogue/pieces854.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.933:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.933",
-     "field": "design.text",
-     "coins": [
-      "C193",
-      "C194"
-     ],
-     "label": "design of C193 · France · 1973 · 5 centimes · FRF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 5 CENTIMES · olive/wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
-      "their_source": "https://en.numista.com/catalogue/pieces2.html (Numista N#2): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.935:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.935",
-     "field": "design.text",
-     "coins": [
-      "C107",
-      "C108",
-      "C297"
-     ],
-     "label": "design of C107 · United Kingdom · 1987 · 1 penny · GBP (decimal)",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Raphael Maklouf Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)",
-      "their_source": "https://en.numista.com/catalogue/pieces861.html (Numista N#861): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
-      "links": [
-       "https://en.numista.com/catalogue/pieces861.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.935a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.935a",
-     "field": "design.text",
-     "coins": [
-      "C109",
-      "C110",
-      "C111",
-      "C241"
-     ],
-     "label": "design of C109 · United Kingdom · 1995 · 1 penny · GBP (decimal)",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Raphael Maklouf Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)",
-      "their_source": "https://en.numista.com/catalogue/pieces860.html (Numista N#860): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
-      "links": [
-       "https://en.numista.com/catalogue/pieces860.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GB.KM.937b:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.KM.937b",
-     "field": "design.text",
-     "coins": [
-      "C167",
-      "C168",
-      "C169",
-      "C170",
-      "C171",
-      "C172",
-      "C275",
-      "C296"
-     ],
-     "label": "design of C167 · United Kingdom · 1990 · 5 pence · GBP",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
-      "their_source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
-      "links": [
-       "https://en.numista.com/catalogue/pieces875.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:GB.KM.935:ruler",
      "kind": "verify",
      "entity": "type",
@@ -14466,66 +13862,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:ES.KM.1042:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ES.KM.1042",
-     "field": "design.text",
-     "coins": [
-      "C098"
-     ],
-     "label": "design of C098 · Spain · 2000 · 5 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Cathedral of Santiago de Compostela (Garcilaso Rollán) + 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces83.html (Numista N#83): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces83.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:FR.KM.1284:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1284",
-     "field": "design.text",
-     "coins": [
-      "C052"
-     ],
-     "label": "design of C052 · France · 2009 · 5 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces99.html (Numista N#99): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces99.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:AU.X.1-cent:issues.0.mintage",
      "kind": "verify",
      "entity": "type",
@@ -14980,38 +14316,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:FR.KM.1283:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1283",
-     "field": "design.text",
-     "coins": [
-      "C034",
-      "C127",
-      "C128"
-     ],
-     "label": "design of C034 · France · 2009 · 2 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces98.html (Numista N#98): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces98.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:IE.KM.32:catalogs",
      "kind": "verify",
      "entity": "type",
@@ -15197,97 +14501,6 @@
      "inputs": []
     },
     {
-     "item": "verify:type:FR.KM.1282:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.KM.1282",
-     "field": "design.text",
-     "coins": [
-      "C141"
-     ],
-     "label": "design of C141 · France · 2009 · 1 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces97.html (Numista N#97): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces97.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IE.KM.32:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IE.KM.32",
-     "field": "design.text",
-     "coins": [
-      "C101",
-      "C143"
-     ],
-     "label": "design of C101 · Ireland · 2002 · 1 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces121.html (Numista N#121): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
-      "links": [
-       "https://en.numista.com/catalogue/pieces121.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.234:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.234",
-     "field": "design.text",
-     "coins": [
-      "C142"
-     ],
-     "label": "design of C142 · Netherlands · 2000 · 1 euro cent · EUR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "national Beatrix portrait + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "https://en.numista.com/catalogue/pieces145.html (Numista N#145): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
-      "links": [
-       "https://en.numista.com/catalogue/pieces145.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "verify:type:BS.X.1-cent:denomination.value",
      "kind": "verify",
      "entity": "type",
@@ -15351,6 +14564,2029 @@
       "recheck": false
      },
      "blind": true,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261024-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-10-24T06:40:21Z",
+   "lease_until": "2026-10-29T06:40:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C151",
+     "entity": "specimen",
+     "id": "C151",
+     "field": "story"
+    },
+    {
+     "item": "story:C152",
+     "entity": "specimen",
+     "id": "C152",
+     "field": "story"
+    },
+    {
+     "item": "story:C153",
+     "entity": "specimen",
+     "id": "C153",
+     "field": "story"
+    },
+    {
+     "item": "story:C154",
+     "entity": "specimen",
+     "id": "C154",
+     "field": "story"
+    },
+    {
+     "item": "story:C167",
+     "entity": "specimen",
+     "id": "C167",
+     "field": "story"
+    },
+    {
+     "item": "story:C168",
+     "entity": "specimen",
+     "id": "C168",
+     "field": "story"
+    },
+    {
+     "item": "story:C169",
+     "entity": "specimen",
+     "id": "C169",
+     "field": "story"
+    },
+    {
+     "item": "story:C170",
+     "entity": "specimen",
+     "id": "C170",
+     "field": "story"
+    },
+    {
+     "item": "story:C171",
+     "entity": "specimen",
+     "id": "C171",
+     "field": "story"
+    },
+    {
+     "item": "story:C172",
+     "entity": "specimen",
+     "id": "C172",
+     "field": "story"
+    },
+    {
+     "item": "story:C173",
+     "entity": "specimen",
+     "id": "C173",
+     "field": "story"
+    },
+    {
+     "item": "story:C174",
+     "entity": "specimen",
+     "id": "C174",
+     "field": "story"
+    },
+    {
+     "item": "story:C175",
+     "entity": "specimen",
+     "id": "C175",
+     "field": "story"
+    },
+    {
+     "item": "story:C176",
+     "entity": "specimen",
+     "id": "C176",
+     "field": "story"
+    },
+    {
+     "item": "story:C177",
+     "entity": "specimen",
+     "id": "C177",
+     "field": "story"
+    },
+    {
+     "item": "story:C178",
+     "entity": "specimen",
+     "id": "C178",
+     "field": "story"
+    },
+    {
+     "item": "story:C179",
+     "entity": "specimen",
+     "id": "C179",
+     "field": "story"
+    },
+    {
+     "item": "story:C193",
+     "entity": "specimen",
+     "id": "C193",
+     "field": "story"
+    },
+    {
+     "item": "story:C194",
+     "entity": "specimen",
+     "id": "C194",
+     "field": "story"
+    },
+    {
+     "item": "story:C203",
+     "entity": "specimen",
+     "id": "C203",
+     "field": "story"
+    },
+    {
+     "item": "story:C205",
+     "entity": "specimen",
+     "id": "C205",
+     "field": "story"
+    },
+    {
+     "item": "story:C206",
+     "entity": "specimen",
+     "id": "C206",
+     "field": "story"
+    },
+    {
+     "item": "story:C209",
+     "entity": "specimen",
+     "id": "C209",
+     "field": "story"
+    },
+    {
+     "item": "story:C210",
+     "entity": "specimen",
+     "id": "C210",
+     "field": "story"
+    },
+    {
+     "item": "story:C211",
+     "entity": "specimen",
+     "id": "C211",
+     "field": "story"
+    },
+    {
+     "item": "story:C220",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "story"
+    },
+    {
+     "item": "story:C222",
+     "entity": "specimen",
+     "id": "C222",
+     "field": "story"
+    },
+    {
+     "item": "story:C230",
+     "entity": "specimen",
+     "id": "C230",
+     "field": "story"
+    },
+    {
+     "item": "story:C232",
+     "entity": "specimen",
+     "id": "C232",
+     "field": "story"
+    },
+    {
+     "item": "story:C234",
+     "entity": "specimen",
+     "id": "C234",
+     "field": "story"
+    },
+    {
+     "item": "story:C235",
+     "entity": "specimen",
+     "id": "C235",
+     "field": "story"
+    },
+    {
+     "item": "story:C236",
+     "entity": "specimen",
+     "id": "C236",
+     "field": "story"
+    },
+    {
+     "item": "story:C242",
+     "entity": "specimen",
+     "id": "C242",
+     "field": "story"
+    },
+    {
+     "item": "story:C244",
+     "entity": "specimen",
+     "id": "C244",
+     "field": "story"
+    },
+    {
+     "item": "story:C247",
+     "entity": "specimen",
+     "id": "C247",
+     "field": "story"
+    },
+    {
+     "item": "story:C252",
+     "entity": "specimen",
+     "id": "C252",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C151",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C151",
+     "field": "story",
+     "coins": [
+      "C151"
+     ],
+     "label": "C151 · United Kingdom · 1992 · 10 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1992 10 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned lion walking, with the words TEN PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1992",
+       "denom": "10 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#938b · Numista#879",
+       "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module from Sep 1992",
+       "mintage": "1,413,455,170 (circulation · Royal Mint)",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C152",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C152",
+     "field": "story",
+     "coins": [
+      "C152"
+     ],
+     "label": "C152 · United Kingdom · 2001 · 10 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2001 10 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned lion walking, with the words TEN PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2001",
+       "denom": "10 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#989 · Schön#482 · Numista#2236",
+       "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module CuNi",
+       "mintage": "129,281,000 (circulation · Royal Mint)",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C153",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C153",
+     "field": "story",
+     "coins": [
+      "C153"
+     ],
+     "label": "C153 · United Kingdom · 2008 · 10 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2008 10 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned lion walking, with the words TEN PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2008",
+       "denom": "10 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#989 · Schön#482 · Numista#2236",
+       "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module CuNi",
+       "mintage": "9,720,000 (Ironside lion) + 71,447,000 (Dent shield) (circulation · Royal Mint)",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C154",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C154",
+     "field": "story",
+     "coins": [
+      "C154"
+     ],
+     "label": "C154 · United Kingdom · 2010 · 10 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2010 10 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a segment of the Royal Shield, with the words TEN PENCE; the design is by Matthew Dent. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2010",
+       "denom": "10 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#1110 · Numista#7350",
+       "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module CuNi shield (pre–Jan 2012 steel)",
+       "mintage": "96,600,500",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)",
+       "ruler": "Elizabeth II",
+       "series": "Shield series",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C167",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C167",
+     "field": "story",
+     "coins": [
+      "C167"
+     ],
+     "label": "C167 · United Kingdom · 1990 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1990 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1990",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "1,634,976,005 (circulation · Royal Mint)",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C168",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C168",
+     "field": "story",
+     "coins": [
+      "C168"
+     ],
+     "label": "C168 · United Kingdom · 1990 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1990 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1990",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "1,634,976,005 (circulation · Royal Mint)",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C169",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C169",
+     "field": "story",
+     "coins": [
+      "C169"
+     ],
+     "label": "C169 · United Kingdom · 1992 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1992 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1992",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "453,173,500 (circulation · Royal Mint)",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C170",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C170",
+     "field": "story",
+     "coins": [
+      "C170"
+     ],
+     "label": "C170 · United Kingdom · 1996 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1996 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1996",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "302,902,000 (circulation · Royal Mint)",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C171",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C171",
+     "field": "story",
+     "coins": [
+      "C171"
+     ],
+     "label": "C171 · United Kingdom · 1996 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1996 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1996",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "302,902,000 (circulation · Royal Mint)",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C172",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C172",
+     "field": "story",
+     "coins": [
+      "C172"
+     ],
+     "label": "C172 · United Kingdom · 1997 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1997 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1997",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "236,596,000 (circulation · Royal Mint)",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C173",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C173",
+     "field": "story",
+     "coins": [
+      "C173"
+     ],
+     "label": "C173 · United Kingdom · 1998 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1998 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1998",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#988 · Schön#198 · Numista#876",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "217,376,000 (circulation · Royal Mint)",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C174",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C174",
+     "field": "story",
+     "coins": [
+      "C174"
+     ],
+     "label": "C174 · United Kingdom · 2000 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2000 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2000",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#988 · Schön#198 · Numista#876",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "388,512,000 (circulation · Royal Mint)",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C175",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C175",
+     "field": "story",
+     "coins": [
+      "C175"
+     ],
+     "label": "C175 · United Kingdom · 2001 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2001 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2001",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#988 · Schön#198 · Numista#876",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "337,930,000 (circulation · Royal Mint)",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C176",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C176",
+     "field": "story",
+     "coins": [
+      "C176"
+     ],
+     "label": "C176 · United Kingdom · 2007 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2007 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2007",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#988 · Schön#198 · Numista#876",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "246,720,000 (circulation · Royal Mint)",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C177",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C177",
+     "field": "story",
+     "coins": [
+      "C177"
+     ],
+     "label": "C177 · United Kingdom · 2009 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2009 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a segment of the Royal Shield, with the words FIVE PENCE; the design is by Matthew Dent. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2009",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#1109 · Numista#6612",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "132,960,300 (circulation · Royal Mint)",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)",
+       "ruler": "Elizabeth II",
+       "series": "Shield series",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C178",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C178",
+     "field": "story",
+     "coins": [
+      "C178"
+     ],
+     "label": "C178 · United Kingdom · 2010 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2010 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a segment of the Royal Shield, with the words FIVE PENCE; the design is by Matthew Dent. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2010",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#1109 · Numista#6612",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "396,245,500",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)",
+       "ruler": "Elizabeth II",
+       "series": "Shield series",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C179",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C179",
+     "field": "story",
+     "coins": [
+      "C179"
+     ],
+     "label": "C179 · United Kingdom · 2010 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2010 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a segment of the Royal Shield, with the words FIVE PENCE; the design is by Matthew Dent. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2010",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#1109 · Numista#6612",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with small-module 5p family · CuNi small-module (1990–2011)",
+       "mintage": "396,245,500",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)",
+       "ruler": "Elizabeth II",
+       "series": "Shield series",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C193",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C193",
+     "field": "story",
+     "coins": [
+      "C193"
+     ],
+     "label": "C193 · France · 1973 · 5 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1973 5 centimes coin from France. The obverse shows Marianne, the symbol of Liberty, facing left; the design is by Henri Lagriffoul. The reverse shows 5 CENTIMES, with olive and wheat, the words LIBERTE, EGALITE, FRATERNITE and the date; the design is by Adrien Dieudonné. Struck in aluminum-bronze (92% copper, 6% aluminium, 2% nickel).",
+      "record": {
+       "country": "France",
+       "year": "1973",
+       "denom": "5 centimes · FRF",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#933 · Schön#228 · Numista#2",
+       "metal": "aluminum-bronze (Cu 92 / Al 6 / Ni 2) · 2.00 g · 17 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.3 mm · coin alignment · type specs shared with Al-bronze 5c 1966–2001 (KM#933)",
+       "mintage": "100,423,000 (circulation · Monnaie de Paris)",
+       "design": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 5 CENTIMES · olive/wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C194",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C194",
+     "field": "story",
+     "coins": [
+      "C194"
+     ],
+     "label": "C194 · France · 1980 · 5 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1980 5 centimes coin from France. The obverse shows Marianne, the symbol of Liberty, facing left; the design is by Henri Lagriffoul. The reverse shows 5 CENTIMES, with olive and wheat, the words LIBERTE, EGALITE, FRATERNITE and the date; the design is by Adrien Dieudonné. Struck in aluminum-bronze (92% copper, 6% aluminium, 2% nickel).",
+      "record": {
+       "country": "France",
+       "year": "1980",
+       "denom": "5 centimes · FRF",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#933 · Schön#228 · Numista#2",
+       "metal": "aluminum-bronze (Cu 92 / Al 6 / Ni 2) · 2.00 g · 17 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.3 mm · coin alignment · type specs shared with Al-bronze 5c 1966–2001 (KM#933)",
+       "mintage": "180,010,011 (circulation · Monnaie de Paris)",
+       "design": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 5 CENTIMES · olive/wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C203",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C203",
+     "field": "story",
+     "coins": [
+      "C203"
+     ],
+     "label": "C203 · India · 2001 · 1 rupee · INR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2001 1 rupee coin from India. The value side shows रुपया (rupee in Hindi), a big 1, the word RUPEE and the year 2001, flanked by grain stalks, with the small dot mint mark of the Noida mint. The obverse shows the Ashoka Lion Capital. Struck in stainless steel.",
+      "record": {
+       "country": "India",
+       "year": "2001",
+       "denom": "1 rupee · INR",
+       "mint": "Noida",
+       "refs": "KM#92.2 · Schön#216 · Numista#1609",
+       "metal": "stainless steel · 4.85 g · 25 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.4 mm · medal alignment · smooth-edge Noida type",
+       "mintage": "unknown",
+       "design": "value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion Capital reverse",
+       "period": "Republic of India"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C205",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C205",
+     "field": "story",
+     "coins": [
+      "C205"
+     ],
+     "label": "C205 · United Kingdom · 1982 · 20 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1982 20 pence coin from the United Kingdom. The obverse shows Arnold Machin's portrait of Elizabeth II. The reverse shows a crowned Tudor rose, with the words TWENTY PENCE, the number 20, and the date split by the crown; the design is by William Gardner. Struck in copper-nickel (84% copper, 16% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1982",
+       "denom": "20 pence · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#931 · Numista#865",
+       "metal": "CuNi 84/16 · 5.00 g · 21.4 mm · plain · heptagon (Reuleaux) · circulated / bright · white 2×2 staple flip",
+       "specs": "thickness 1.7 mm · medal alignment · type specs shared with first-issue 20p 1982–1984 Machin (KM#931)",
+       "mintage": "740,815,000 (circulation · Royal Mint)",
+       "design": "obverse Arnold Machin Elizabeth II · reverse crowned Tudor rose · TWENTY PENCE · date split by crown · 20 (William Gardner)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C206",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C206",
+     "field": "story",
+     "coins": [
+      "C206"
+     ],
+     "label": "C206 · Japan · 1976 · 1 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1976 1 yen coin from Japan. One side shows a young tree, with the words 日本国 and 一円. The other side shows a big 1 and the date in Showa regnal years (Showa 51 = 1976). Struck in aluminum.",
+      "record": {
+       "country": "Japan",
+       "year": "1976",
+       "denom": "1 yen · JPY",
+       "mint": "Japan Mint (not lettered on type)",
+       "refs": "Y#74 · JNDA#02-13 · Schön#48 · Numista#1590",
+       "metal": "aluminum · 1.00 g · 20 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.2 mm · medal alignment · Showa 51",
+       "mintage": "928,800,000 (Showa 51 / 1976)",
+       "design": "young tree / 日本国 · 一円 // big 1 · Showa regnal-year date (昭和 40 = 1965, 51 = 1976)",
+       "period": "Showa era"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C209",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C209",
+     "field": "story",
+     "coins": [
+      "C209"
+     ],
+     "label": "C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1987 5 pesos coin from Mexico. The value side shows a $ sign, a big 5, the year 1987 and the Mo mint mark, with a scroll ornament and a beaded rim. The obverse shows the national arms. Struck in brass.",
+      "record": {
+       "country": "Mexico",
+       "year": "1987",
+       "denom": "5 pesos · MXP (pre-nuevo)",
+       "mint": "Mo",
+       "refs": "KM#502 · Schön#82 · Numista#3445",
+       "metal": "brass · 3.00 g · 17 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.5 mm · coin alignment · 1985–88 brass type · 1987 scarcer calendar year",
+       "mintage": "81,900,000",
+       "design": "value side $ · big 5 · 1987 · Mo · scroll ornament · beaded rim · national arms reverse",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C210",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C210",
+     "field": "story",
+     "coins": [
+      "C210"
+     ],
+     "label": "C210 · South Korea · 2000 · 100 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2000 100 won coin from South Korea. The value side shows the year 2000, a big 100 and the words 한국은행 (Bank of Korea), with a beaded rim. The obverse shows a portrait of Yi Sun-sin. Struck in copper-nickel.",
+      "record": {
+       "country": "South Korea",
+       "year": "2000",
+       "denom": "100 won · KRW",
+       "mint": "none — Korea Minting and Security Printing Corporation (KOMSCO), Daejeon; no mint mark used on this type",
+       "refs": "KM#35.2 · Schön#81 · Numista#1052",
+       "metal": "cupronickel · 5.42 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness unknown · medal alignment · Yi Sun-sin type",
+       "mintage": "422,985,000",
+       "design": "value side 2000 · big 100 · 한국은행 · beaded rim · Yi Sun-sin portrait reverse",
+       "period": "Republic of Korea"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C211",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C211",
+     "field": "story",
+     "coins": [
+      "C211"
+     ],
+     "label": "C211 · Italy · 1987 · 500 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1987 500 lire coin from Italy. The obverse shows the head of Italia, the female symbol of Italy. The reverse shows the Palazzo del Quirinale with the Dioscuri statues, the value L. 500, the number 500 in Braille on the ring, wheat ears, the date and the mint mark R. Struck as a bimetallic coin, with a bronzital (aluminium-bronze) centre and an acmonital (stainless steel) ring.",
+      "record": {
+       "country": "Italy",
+       "year": "1987",
+       "denom": "500 lire · ITL",
+       "mint": "R",
+       "refs": "KM#111 · Schön#110 · Numista#302",
+       "metal": "bimetallic (bronzital center / acmonital ring) · 6.80 g · 25.8 mm · reeded · circulated bright · white 2×2 staple flip",
+       "specs": "thickness ~2.0 mm · coin alignment · Quirinale / Dioscuri type 1982–2001",
+       "mintage": "200,000,000",
+       "design": "obverse female head / Italia · reverse Quirinale Palazzo · Dioscuri · L. 500 · Braille 500 on ring · wheat · date · R",
+       "period": "Italian Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C220",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "story",
+     "coins": [
+      "C220"
+     ],
+     "label": "C220 · Japan · 1982 · 10 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1982 10 yen coin from Japan. One side shows the Phoenix Hall of the Byodoin temple, with the words 日本国 and 十円. The other side shows a large 10 inside a wreath of bay laurel (tokiwa), and the date in Showa regnal years (Showa 57 = 1982). Struck in bronze (95% copper, 3-4% zinc, 1-2% tin).",
+      "record": {
+       "country": "Japan",
+       "year": "1982",
+       "denom": "10 yen · JPY",
+       "mint": "Japan Mint (not lettered on type)",
+       "refs": "Y#73a · JNDA#02-9 · Schön#A53 · Numista#922",
+       "metal": "bronze (Cu 95% · Zn 3–4% · Sn 1–2%) · 4.50 g · 23.5 mm · plain (smooth-edge type) · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.5 mm · medal alignment · Showa 57",
+       "mintage": "890,000,000 (Showa 57 / 1982)",
+       "design": "Phoenix Hall / Byodoin temple · 日本国 · 十円 // big 10 · bay laurel (evergreen, tokiwa) wreath · Showa regnal-year date (昭和 57 = 1982, 63 = 1988)",
+       "period": "Showa era"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C222",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C222",
+     "field": "story",
+     "coins": [
+      "C222"
+     ],
+     "label": "C222 · Japan · 1965 · 1 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1965 1 yen coin from Japan. One side shows a young tree, with the words 日本国 and 一円. The other side shows a big 1 and the date in Showa regnal years (Showa 40 = 1965). Struck in aluminum.",
+      "record": {
+       "country": "Japan",
+       "year": "1965",
+       "denom": "1 yen · JPY",
+       "mint": "Japan Mint (not lettered on type)",
+       "refs": "Y#74 · JNDA#02-13 · Schön#48 · Numista#1590",
+       "metal": "aluminum · 1.00 g · 20 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.2 mm · medal alignment · Showa 40",
+       "mintage": "1,743,256,000 (Showa 40 / 1965)",
+       "design": "young tree / 日本国 · 一円 // big 1 · Showa regnal-year date (昭和 40 = 1965, 51 = 1976)",
+       "period": "Showa era"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C230",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C230",
+     "field": "story",
+     "coins": [
+      "C230"
+     ],
+     "label": "C230 · Jamaica · 2015 · 10 dollars · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2015 10 dollar coin from Jamaica. It shows the national arms, with a crocodile crest, Taino supporters and a motto ribbon, and the words JAMAICA and TEN DOLLARS with the year 2015. The coin is round. Struck in nickel-clad steel.",
+      "record": {
+       "country": "Jamaica",
+       "year": "2015",
+       "denom": "10 dollars · JMD",
+       "mint": "no mint mark (none on type)",
+       "refs": "KM#190 · Numista#14370",
+       "metal": "nickel-plated steel · scalloped 7-lobe · circulated bright · white 2×2 staple flip",
+       "specs": "weight/diameter unknown · thickness unknown · medal alignment",
+       "mintage": "unknown",
+       "design": "arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · 2015",
+       "period": "Independent Jamaica"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C232",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C232",
+     "field": "story",
+     "coins": [
+      "C232"
+     ],
+     "label": "C232 · Vietnam · 2003 · 1000 đồng · VND",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2003 1000 đồng coin from Vietnam. The emblem side shows a star and a cog inside a wreath of rice, with the words CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM and the year 2003. The reverse shows the value, 1000 ĐỒNG. Struck in brass-plated steel.",
+      "record": {
+       "country": "Vietnam",
+       "year": "2003",
+       "denom": "1000 đồng · VND",
+       "mint": "none — Mint of Finland (Suomen Rahapaja), Vantaa; struck under contract for the State Bank of Vietnam; no mint mark on the coin",
+       "refs": "KM#72 · Schön#144 · Numista#2104",
+       "metal": "brass plated steel · 3.80 g · 19 mm · reeded · circulated bright · white 2×2 staple flip",
+       "specs": "thickness 1.95 mm · medal alignment",
+       "mintage": "250,000,000",
+       "design": "obverse national emblem (star · cog · rice wreath) · CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM · 2003 · reverse Bat De Pagoda (Hanoi) · 1000 ĐỒNG · NGÂN HÀNG NHÀ NƯỚC VIỆT NAM",
+       "period": "Socialist Republic of Vietnam"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C234",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C234",
+     "field": "story",
+     "coins": [
+      "C234"
+     ],
+     "label": "C234 · United Kingdom · 1968 · 10 new pence · GBP (large module)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1968 10 new pence coin from the United Kingdom. The obverse shows Arnold Machin's portrait of Elizabeth II. The reverse shows a crowned lion walking with its head turned to the front, with the words NEW PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1968",
+       "denom": "10 new pence · GBP (large module)",
+       "mint": "Royal Mint",
+       "refs": "KM#912 · Numista#878",
+       "metal": "CuNi 75/25 · 11.31 g · 28.5 mm · milled · circulated · white 2×2 staple flip",
+       "specs": "thickness 2.25 mm · medal alignment · type specs shared with 10p family · large module (equal to florin / two shillings) · pre-decimalisation strike from 1968",
+       "mintage": "336,143,250 (circulation · Royal Mint)",
+       "design": "obverse Arnold Machin Elizabeth II · reverse crowned lion passant guardant · NEW PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C235",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C235",
+     "field": "story",
+     "coins": [
+      "C235"
+     ],
+     "label": "C235 · Guatemala · 1934 · 10 centavos · GTQ",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1934 10 centavos coin from Guatemala. One side shows the coat of arms - a quetzal, crossed rifles and swords, and laurel - with the words REPUBLICA DE GUATEMALA, the fineness 0.720 and the year 1934. The other side shows a quetzal perched on a column, with the words LEY DE 26 DE NOVIEMBRE DE 1924, 10 and CENTAVOS. Struck in silver, .720 fine.",
+      "record": {
+       "country": "Guatemala",
+       "year": "1934",
+       "denom": "10 centavos · GTQ",
+       "mint": "Royal Mint London era typical for 1934 (not lettered on shown sides)",
+       "refs": "KM#239.2 · Schön#27 · Numista#5128",
+       "metal": ".720 Ag · 3.33 g · ASW ~0.077 oz · circulated / toned · white 2×2 staple flip",
+       "specs": "diameter ~21 mm · thickness unknown · coin alignment",
+       "mintage": "300,000 (1934 · London)",
+       "design": "arms · Quetzal · crossed rifles/swords · laurel · REPUBLICA DE GUATEMALA · 0.720 · 1934 // Quetzal on column · LEY DE 26 DE NOVIEMBRE DE 1924 · 10 · CENTAVOS",
+       "period": "Jorge Ubico era"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C236",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C236",
+     "field": "story",
+     "coins": [
+      "C236"
+     ],
+     "label": "C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2010 2 pesos coin from Mexico. The value side shows a $ sign, a large 2, the year 2010 and the Mo mint mark, with the glyphs of the Ring of Days from the Aztec Sun Stone around the outer ring. The obverse shows the national arms. Struck as a bimetallic coin, with an aluminum-bronze centre and a stainless steel outer ring.",
+      "record": {
+       "country": "Mexico",
+       "year": "2010",
+       "denom": "2 pesos · MXN (nuevo)",
+       "mint": "Mo",
+       "refs": "KM#604 · Schön#178 · Numista#587",
+       "metal": "bimetallic (aluminum-bronze center / stainless ring) · 5.19 g · 23 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.4 mm · coin alignment · Aztec Sun Stone ring type",
+       "mintage": "34,878,000",
+       "design": "value side $ · big 2 · 2010 · Mo · Aztec Sun Stone / Ring of Days glyphs on outer ring · national arms reverse",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C242",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C242",
+     "field": "story",
+     "coins": [
+      "C242"
+     ],
+     "label": "C242 · Switzerland · 1883 · 10 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1883 10 rappen coin from Switzerland. The obverse shows the head of Libertas facing right. The reverse shows the number 10 inside a wreath. The designers were Karl Schwenzer and Carl Friedrich Voigt. Struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "Switzerland",
+       "year": "1883",
+       "denom": "10 rappen · CHF",
+       "mint": "B",
+       "refs": "KM#27 · Schön#25 · Y#24 · Numista#173",
+       "metal": "CuNi 75/25 · 3.00 g · 19.15 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.45 mm · medal alignment",
+       "mintage": "2,000,000 Bern B",
+       "design": "Libertas head right (obv; designer Karl Schwenzer) · 10 in oak wreath (rev; designer Carl Friedrich Voigt)",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C244",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C244",
+     "field": "story",
+     "coins": [
+      "C244"
+     ],
+     "label": "C244 · Mexico · 1964 · 20 centavos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1964 20 centavos coin from Mexico. The reverse shows the Pyramid of the Sun at Teotihuacan, with the volcanoes Popocatépetl and Iztaccíhuatl and a radiant Phrygian cap (cap of liberty), a large 20, the word CENTAVOS, the date and the Mo mint mark. The obverse shows the national arms. Struck in brass (95% copper, 5% zinc).",
+      "record": {
+       "country": "Mexico",
+       "year": "1964",
+       "denom": "20 centavos · MXN",
+       "mint": "Mo",
+       "refs": "KM#440 · Schön#51 · Numista#959",
+       "metal": "bronze · 10.00 g · 28.5 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness unknown · coin alignment · Teotihuacan Pyramid of the Sun type",
+       "mintage": "28,654,000 (1964 Mo)",
+       "design": "reverse Pyramid of the Sun at Teotihuacan · Popocatépetl & Iztaccíhuatl · radiant Phrygian cap · big 20 · CENTAVOS · date · Mo · national arms obverse",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C247",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C247",
+     "field": "story",
+     "coins": [
+      "C247"
+     ],
+     "label": "C247 · South Korea · 1966 · 1 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1966 1 won coin from South Korea. One side shows a Rose of Sharon flower (Hibiscus syriacus), with the words 일원 and 한국은행. The other side shows the words THE BANK OF KOREA, a big 1 and the year 1966. Struck in brass.",
+      "record": {
+       "country": "South Korea",
+       "year": "1966",
+       "denom": "1 won · KRW",
+       "mint": "Korea Minting and Security Printing (no letter on either shown side)",
+       "refs": "KM#4 · Schön#54 · Numista#5993",
+       "metal": "brass · 1.70 g · 17.2 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness unknown · medal alignment · Rose of Sharon type · first calendar year",
+       "mintage": "7,000,000",
+       "design": "Rose of Sharon (Hibiscus syriacus) · 일원 · 한국은행 // THE BANK OF KOREA · big 1 · 1966",
+       "period": "Republic of Korea"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C252",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C252",
+     "field": "story",
+     "coins": [
+      "C252"
+     ],
+     "label": "C252 · Cuba · 1962 · 20 centavos · CUP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1962 20 centavos coin from Cuba. The reverse shows a portrait of José Martí with the date. The arms side shows the words REPUBLICA DE CUBA and the national shield (the Escudo - a key, stripes and a palm), with oak and laurel branches and a star on a Phrygian cap, and the words VEINTE CENTAVOS. Struck in copper-nickel.",
+      "record": {
+       "country": "Cuba",
+       "year": "1962",
+       "denom": "20 centavos · CUP",
+       "mint": "Havana (no letter on shown arms side)",
+       "refs": "KM#31 · Y#25 · Schön#29 · Numista#1055",
+       "metal": "cupronickel · 6.40 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.8 mm · coin alignment",
+       "mintage": "83,860,000",
+       "design": "arms side REPUBLICA DE CUBA · Escudo (key · stripes · palm) · oak & laurel · Phrygian-cap star · VEINTE CENTAVOS · reverse José Martí left · PATRIA O MUERTE · date"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261024-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-10-24T06:40:21Z",
+   "lease_until": "2026-10-29T06:40:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:BS.X.5-cents",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": null
+    },
+    {
+     "item": "fill:AU.X.1-cent",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": null
+    },
+    {
+     "item": "fill:AU.X.10-cents",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "fill:BS.X.25-cents",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "fill:BZ.X.25-cents",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": null
+    },
+    {
+     "item": "fill:BS.X.1-cent",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.5-centavos",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.500-pesos",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:BS.X.5-cents",
+     "kind": "fill",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": null,
+     "coins": [
+      "C291"
+     ],
+     "label": "C291 · Bahamas · 1984 · 5 cents · BSD (BS.X.5-cents)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "legal tender",
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces5010.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:AU.X.1-cent",
+     "kind": "fill",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": null,
+     "coins": [
+      "C288",
+      "C303"
+     ],
+     "label": "C288 · Australia · 1983 · 1 cent · AUD (AU.X.1-cent)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "legal tender"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1559.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:AU.X.10-cents",
+     "kind": "fill",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": null,
+     "coins": [
+      "C295"
+     ],
+     "label": "C295 · Australia · 2006 · 10 cents · AUD (AU.X.10-cents)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "legal tender"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1565.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:BS.X.25-cents",
+     "kind": "fill",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": null,
+     "coins": [
+      "C300"
+     ],
+     "label": "C300 · Bahamas · 1984 · 25 cents · BSD (BS.X.25-cents)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "legal tender"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces9352.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:BZ.X.25-cents",
+     "kind": "fill",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": null,
+     "coins": [
+      "C280"
+     ],
+     "label": "C280 · Belize · 2007 · 25 cents · BZD (BZ.X.25-cents)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "legal tender"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2238.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:BS.X.1-cent",
+     "kind": "fill",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": null,
+     "coins": [
+      "C276"
+     ],
+     "label": "C276 · Bahamas · 2015 · 1 cent · BSD (BS.X.1-cent)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces92216.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.X.5-centavos",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": null,
+     "coins": [
+      "C294"
+     ],
+     "label": "C294 · Mexico · 1969 · 5 centavos · MXP (MX.X.5-centavos)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces953.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.X.500-pesos",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": null,
+     "coins": [
+      "C293",
+      "C301"
+     ],
+     "label": "C293 · Mexico · 1988 · 500 pesos · MXP (MX.X.500-pesos)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces819.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261024-1",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-10-24T06:40:21Z",
+   "lease_until": "2026-10-29T06:40:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:CH.KM.40a.4:design.text",
+     "entity": "type",
+     "id": "CH.KM.40a.4",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.1:design.text",
+     "entity": "type",
+     "id": "CH.KM.40a.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.110:design.text",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.20-pesos:period",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:GB.X.1-penny:ruler",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:BZ.X.25-cents:ruler",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:ruler",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:period",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:period",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:design.text",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:period",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:ruler",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:ruler",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:AU.X.1-cent:ruler",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": "ruler"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:MX.X.20-pesos:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": "period",
+     "coins": [
+      "C304"
+     ],
+     "label": "period of C304 · Mexico · 1981 · 20 pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States/Mexican Republic",
+      "their_source": "Numista N#987 https://en.numista.com/catalogue/pieces987.html read 2026-10-24: Features Period 'United Mexican States/Mexican Republic (1823",
+      "links": [
+       "https://en.numista.com/catalogue/pieces987.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.X.1-penny:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.1-penny",
+     "field": "ruler",
+     "coins": [
+      "C302"
+     ],
+     "label": "ruler of C302 · United Kingdom · 1922 · 1 penny · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "George V",
+      "their_source": "Numista N#578 https://en.numista.com/catalogue/pieces578.html read 2026-10-24: Features King 'George V (1910-1936)'",
+      "links": [
+       "https://en.numista.com/catalogue/pieces578.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BZ.X.25-cents:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "ruler",
+     "coins": [
+      "C280"
+     ],
+     "label": "ruler of C280 · Belize · 2007 · 25 cents · BZD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "Numista N#2238 https://en.numista.com/catalogue/pieces2238.html read 2026-10-24: Features Queen 'Elizabeth II (1973-2022)'",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2238.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "ruler",
+     "coins": [
+      "C291"
+     ],
+     "label": "ruler of C291 · Bahamas · 1984 · 5 cents · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "Numista N#5010 https://en.numista.com/catalogue/pieces5010.html read 2026-10-24: Features Queen 'Elizabeth II (1952-2022)'",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5010.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "period",
+     "coins": [
+      "C293",
+      "C301"
+     ],
+     "label": "period of C293 · Mexico · 1988 · 500 pesos · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States/Mexican Republic",
+      "their_source": "Numista N#819 https://en.numista.com/catalogue/pieces819.html read 2026-10-24: Features Period 'United Mexican States/Mexican Republic (1823",
+      "links": [
+       "https://en.numista.com/catalogue/pieces819.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "period",
+     "coins": [
+      "C294"
+     ],
+     "label": "period of C294 · Mexico · 1969 · 5 centavos · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States/Mexican Republic",
+      "their_source": "Numista N#953 https://en.numista.com/catalogue/pieces953.html read 2026-10-24: Features Period 'United Mexican States/Mexican Republic (1823",
+      "links": [
+       "https://en.numista.com/catalogue/pieces953.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.1-cent:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.1-cent",
+     "field": "design.text",
+     "coins": [
+      "C276"
+     ],
+     "label": "design of C276 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Muse",
+      "ledger": false,
+      "value": "The obverse shows the coat of arms of The Bahamas, with a marlin and a flamingo holding a shield, and the words Commonwealth of The Bahamas with the date below. The reverse shows three starfish with the words 1 Cent.",
+      "their_source": "Numista N#92216 https://en.numista.com/catalogue/pieces92216.html read 2026-10-24: Reverse 'Three starfish with the denomination above the c",
+      "links": [
+       "https://en.numista.com/catalogue/pieces92216.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "period",
+     "coins": [
+      "C289"
+     ],
+     "label": "period of C289 · Argentina · 1954 · 5 centavos · ARM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic",
+      "their_source": "Numista N#4835 https://en.numista.com/catalogue/pieces4835.html read 2026-10-24: Features Period 'Federal Republic (1861-date)'",
+      "links": [
+       "https://en.numista.com/catalogue/pieces4835.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "ruler",
+     "coins": [
+      "C295"
+     ],
+     "label": "ruler of C295 · Australia · 2006 · 10 cents · AUD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "Numista N#1565 https://en.numista.com/catalogue/pieces1565.html read 2026-10-24: Features Queen 'Elizabeth II (1952-2022)'",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1565.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.25-cents:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.25-cents",
+     "field": "ruler",
+     "coins": [
+      "C300"
+     ],
+     "label": "ruler of C300 · Bahamas · 1984 · 25 cents · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "Numista N#9352 https://en.numista.com/catalogue/pieces9352.html read 2026-10-24: Features Queen 'Elizabeth II (1952-2022)'",
+      "links": [
+       "https://en.numista.com/catalogue/pieces9352.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.1-cent:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.1-cent",
+     "field": "ruler",
+     "coins": [
+      "C288",
+      "C303"
+     ],
+     "label": "ruler of C288 · Australia · 1983 · 1 cent · AUD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "Numista N#1559 https://en.numista.com/catalogue/pieces1559.html read 2026-10-24: Features Queen 'Elizabeth II (1952-2022)'",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1559.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
      "inputs": []
     }
    ]

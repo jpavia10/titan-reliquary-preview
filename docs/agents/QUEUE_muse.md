@@ -1,9 +1,9 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-24 02:53 UTC)
+# WORK QUEUE for Muse (updated 2026-10-24 06:49 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
-**Status:** active (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+). Researcher and writer, loaded up (owner, 2026-10-23: "Load up muse"; 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
+**Status:** active. Researcher and writer, loaded up (owner, 2026-10-23: "Load up muse"; 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values). Off probation 2026-10-24: 4 files in a row scored 10 with no accuracy fault (changes_muse_20261024-0509 to -0552; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate.
 **How you get this:** Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
@@ -59,66 +59,7 @@ Items:
 - **C006 · Germany · 1984 · 1 Deutsche Mark · DEM**: «A 1984 1-Deutsche-Mark coin from Germany. The front shows the German federal eagle. The back shows the number 1 between oak twigs, with the words DEUTSCHE MARK. Josef Bernhart engraved the back. It is made of copper-nickel.» Record: «{"country": "Germany", "year": "1984", "denom": "1 Deutsche Mark · DEM", "mint": "unknown", "refs": "KM#110 · Schön#108 · J#385 · Numista#846", "metal": "CuNi · 5.50 g · 23.5 mm · ornamented (arabesque) · circulated · white 2×2 staple flip", "specs": "thickness 1.75 mm · medal alignment", "mintage": "all mints: D 8,400,000 + F 9,700,000 + G 5,600,000 + J 8,700,000 = 32,400,000 (circulation; proof…»
 - **C103 · Germany · 1982 · 1 Deutsche Mark · DEM**: «A 1982 1-Deutsche-Mark coin from Germany. The front shows the German federal eagle. The back shows the number 1 between oak twigs, with the words DEUTSCHE MARK. Josef Bernhart engraved the back. It is made of copper-nickel.» Record: «{"country": "Germany", "year": "1982", "denom": "1 Deutsche Mark · DEM", "mint": "J", "refs": "KM#110 · Schön#108 · J#385 · Numista#846", "metal": "CuNi · 5.50 g · 23.5 mm · ornamented (arabesque) · circulated · white 2×2 staple flip", "specs": "thickness 1.75 mm · medal alignment", "mintage": "11,520,000", "design": "Bundesadler · value 1 between oak sprigs / DEUTSCHE MARK (Josef Bernhart)", "pe…»
 
-### 2. HW-muse-verify-20261020-1 · Second reader · Check 49 facts another AI wrote · due 2026-10-27  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261020-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **year of C294 · Mexico · 5 centavos · MXP** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C294 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C294_rev.webp
-- **design of C036 · Italy · 2007 · 10 euro cent · EUR** `type IT.KM.213 design.text` = `national Botticelli Birth of Venus detail (Claudia Momoni) + RI · date · R · 12 EU stars …` (written by Gemini: «https://en.numista.com/catalogue/pieces132.html (Numista N#132): Reverse 'A map, next to the face value, symbolizes the gathering of the fif») [audit sample]
-- **mintage of C304 · Mexico · 1981 · 20 pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.20-pesos issues.0.mintage`
-- **composition of C304 · Mexico · 1981 · 20 pesos · MXN** `type MX.X.20-pesos composition.text` = `copper-nickel (75% copper, 25% nickel)` (written by Grok: «Numista N#987 (https://en.numista.com/catalogue/pieces987.html) Composition copper-nickel 75/25 -> metal_class cupronickel»)
-- **mintage of C302 · United Kingdom · 1922 · 1 penny · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.1-penny issues.0.mintage`
-- **composition of C302 · United Kingdom · 1922 · 1 penny · GBP** `type GB.X.1-penny composition.text` = `bronze` (written by Grok: «Numista N#578 (https://en.numista.com/catalogue/pieces578.html) Composition Bronze -> metal_class bronze»)
-- **mintage of C268 · Norway · 2000 · 50 øre · NOK** (blind: look it up yourself in your own exact source; the first value is not shown) `type NO.KM.460 issues.2.mintage`
-- **mintage of C124 · France · 1967 · 10 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.929 issues.1.mintage`
-- **mintage of C125 · France · 1984 · 10 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.929 issues.2.mintage`
-- **mintage of C063 · France · 1995 · 10 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.929 issues.3.mintage`
-- **mintage of C173 · United Kingdom · 1998 · 5 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.988 issues.0.mintage`
-- **mintage of C174 · United Kingdom · 2000 · 5 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.988 issues.1.mintage`
-- **mintage of C175 · United Kingdom · 2001 · 5 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.988 issues.2.mintage`
-- **mintage of C176 · United Kingdom · 2007 · 5 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.988 issues.3.mintage`
-- **composition of C295 · Australia · 2006 · 10 cents · AUD** `type AU.X.10-cents composition.text` = `copper-nickel (75% copper, 25% nickel)` (written by Grok: «Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html) Features table row 'Composition: Copper-nickel (75% Copper, 25% Nickel)' -»)
-- **composition of C019 · Germany · 1981 · 10 Pfennig · DEM** `type DE.KM.108 composition.text` = `copper` (written by Grok: «https://en.numista.com/catalogue/pieces850.html (Numista N#850, 10 Pfennig - Federal Republic of Germany): Composition Brass clad steel (90%»)
-- **composition of C173 · United Kingdom · 1998 · 5 pence · GBP** `type GB.KM.988 composition.text` = `CuNi 75/25` (written by Grok: «https://en.numista.com/catalogue/pieces876.html (Numista N#876, 5 Pence - Elizabeth II (4th portrait; Crowned Thistle) - United Kingdom): Co»)
-- **design of C007 · France · 1963 · 10 centimes · FRF** `type FR.KM.929 design.text` = `obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 10 CENTIMES · olive + wheat · …` (written by Gemini: «https://en.numista.com/catalogue/pieces3.html (Numista N#3): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the»)
-- **ruler of C173 · United Kingdom · 1998 · 5 pence · GBP** `type GB.KM.988 ruler` = `Elizabeth II` (written by Grok: «https://en.wikipedia.org/wiki/Elizabeth_II (Wikipedia infobox) 'Reign' = 6 February 1952 – 8 September 2022; the type's issue year(s) 1998,»)
-- **denomination of C295 · Australia · 2006** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type AU.X.10-cents denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C295_obv.webp
-- **denomination of C300 · Bahamas · 1984** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type BS.X.25-cents denomination.value`. Photos: none
-- **catalog of C131 · Germany · 2002 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.211 catalogs`
-- **catalog of C053 · Germany · 2011 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.255 catalogs`
-- **catalog of C129 · France · 2000 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.1286 catalogs`
-- **catalog of C155 · United Kingdom · 2013 · 10 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.1110d catalogs`
-- **catalog of C027 · Italy · 2002 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type IT.KM.214 catalogs`
-- **catalog of C220 · Japan · 1982 · 10 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.Y.73a catalogs`
-- **catalog of C056 · Portugal · 2002 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type PT.KM.744 catalogs`
-- **mintage of C155 · United Kingdom · 2013 · 10 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.1110d issues.0.mintage`
-- **mintage of C157 · United Kingdom · 2014 · 10 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.1110d issues.1.mintage`
-- **mintage of C270 · Japan · 1988 · 10 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.Y.73a issues.1.mintage`
-- **composition of C131 · Germany · 2002 · 20 euro cent · EUR** `type DE.KM.211 composition.text` = `Nordic gold (Cu89Al5Zn5Sn1)` (written by Grok: «https://en.numista.com/catalogue/pieces109.html (Numista N#109, 20 Euro Cents (1st map) - Federal Republic of Germany): Composition Nordic g»)
-- **composition of C053 · Germany · 2011 · 20 euro cent · EUR** `type DE.KM.255 composition.text` = `Nordic gold (Cu89Al5Zn5Sn1)` (written by Grok: «https://en.numista.com/catalogue/pieces6319.html (Numista N#6319, 20 Euro Cents (2nd map) - Federal Republic of Germany): Composition Nordic»)
-- **composition of C129 · France · 2000 · 20 euro cent · EUR** `type FR.KM.1286 composition.text` = `Nordic gold (CuAlZnSn)` (written by Grok: «https://en.numista.com/catalogue/pieces101.html (Numista N#101, 20 Euro Cents (1st map) - France): Composition Nordic gold (89% Copper, 5% A»)
-- **composition of C155 · United Kingdom · 2013 · 10 pence · GBP** `type GB.KM.1110d composition.text` = `nickel-plated steel` (written by Grok: «https://en.numista.com/catalogue/pieces25746.html (Numista N#25746, 10 Pence - Elizabeth II (4th portrait; Royal Shield, magnetic) - United»)
-- **composition of C027 · Italy · 2002 · 20 euro cent · EUR** `type IT.KM.214 composition.text` = `Nordic gold (Cu 89 / Al 5 / Zn 5 / Sn 1)` (written by Grok: «https://en.numista.com/catalogue/pieces133.html (Numista N#133, 20 Euro Cents (1st map) - Italy): Composition Nordic gold; matches the recor»)
-- **composition of C198 · Netherlands · 1948 · 1 cent · NLG** `type NL.KM.170 composition.text` = `bronze` (written by Grok: «https://en.numista.com/catalogue/pieces2562.html (Numista N#2562, 1 Cent - Wilhelmina - Netherlands): Composition Bronze; matches the record»)
-- **composition of C040 · Netherlands · 2001 · 20 euro cent · EUR** `type NL.KM.239 composition.text` = `Nordic gold (Cu 89 / Al 5 / Zn 5 / Sn 1)` (written by Grok: «https://en.numista.com/catalogue/pieces149.html (Numista N#149, 20 Euro Cents - Beatrix (1st map) - Netherlands): Composition Nordic gold (8»)
-- **composition of C056 · Portugal · 2002 · 20 euro cent · EUR** `type PT.KM.744 composition.text` = `Nordic gold (Cu 89 / Al 5 / Zn 5 / Sn 1)` (written by Grok: «https://en.numista.com/catalogue/pieces157.html (Numista N#157, 20 Euro Cents (1st map) - Portugal): Composition Nordic gold; matches the re»)
-- **design of C131 · Germany · 2002 · 20 euro cent · EUR** `type DE.KM.211 design.text` = `national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luyc…` (written by Grok: «Agree — Numista N#109 (https://en.numista.com/catalogue/pieces109.html): Obverse Brandenburg Gate with the 12 stars, Engraver Reinhart Heins»)
-- **design of C053 · Germany · 2011 · 20 euro cent · EUR** `type DE.KM.255 design.text` = `national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luyc…` (written by Grok: «Agree — Numista N#6319 (https://en.numista.com/catalogue/pieces6319.html): Obverse Brandenburg Gate with the 12 stars, Engraver Reinhart Hei»)
-- **design of C129 · France · 2000 · 20 euro cent · EUR** `type FR.KM.1286 design.text` = `national modern La Semeuse (Laurent Jorio after Roty) · RF · 12 EU stars · common map sid…` (written by Gemini: «https://en.numista.com/catalogue/pieces101.html (Numista N#101): Reverse 'A map, next to the face value, symbolizes the gathering of the fif»)
-- **design of C155 · United Kingdom · 2013 · 10 pence · GBP** `type GB.KM.1110d design.text` = `obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthe…` (written by Gemini: «https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): Reverse 'Upper left section of the Royal Shield of Arms, denomination i»)
-- **ruler of C155 · United Kingdom · 2013 · 10 pence · GBP** `type GB.KM.1110d ruler` = `Elizabeth II` (written by Grok: «https://en.wikipedia.org/wiki/Elizabeth_II (Wikipedia infobox) 'Reign' = 6 February 1952 – 8 September 2022; the type's issue year(s) 2013,»)
-- **ruler of C198 · Netherlands · 1948 · 1 cent · NLG** `type NL.KM.170 ruler` = `George VI` (written by Grok: «https://en.wikipedia.org/wiki/Wilhelmina_of_the_Netherlands (Wikipedia infobox) 'Reign' = 23 November 1890 – 4 September 1948; the type's is»)
-- **series of C155 · United Kingdom · 2013 · 10 pence · GBP** `type GB.KM.1110d series` = `["Shield series"]` (written by Grok: «https://www.royalmint.com/collect/decimalisation/refreshing-decimal-coins/ (The Royal Mint, official): 2008 redesign by Matthew Dent, the 1p»)
-- **catalog of C250 · Singapore · 1967 · 20 cents · SGD** (blind: look it up yourself in your own exact source; the first value is not shown) `type SG.KM.4 catalogs`
-- **catalog of C204 · Trinidad and Tobago · 2014 · 25 cents · TTD** (blind: look it up yourself in your own exact source; the first value is not shown) `type TT.KM.33 catalogs`
-- **mintage of C250 · Singapore · 1967 · 20 cents · SGD** (blind: look it up yourself in your own exact source; the first value is not shown) `type SG.KM.4 issues.0.mintage`
-
-### 3. HW-muse-read-mint-20261020-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-10-27  (fix list #57)
+### 2. HW-muse-read-mint-20261020-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-10-27  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -129,7 +70,7 @@ Phase 1 cannot finish until every coin's mint mark is read. Open each coin's pho
 Items:
 - **C304 · Mexico · 1981 · 20 pesos · MXN**: mint text now «not read (no photo of this coin in Drive yet)». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C304_rev.webp. Mexico City coins carry Mo (an M with a small o above it) near the date.
 
-### 4. HW-muse-arbitrate-20261020-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-27  (fix list #18)
+### 3. HW-muse-arbitrate-20261020-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-27  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -140,7 +81,7 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 Items:
 - **D0066 CH.KM.21a.3 issues.0.mintage**: record `12026100` (model:claude: «Muse deep review MUS-2-05 + NGC price guide Switzerland 2 Francs KM# 21a.3 1983-2012 (https://ngccoin.com/price-guide/w…») vs claim `12036000` (model:grok-bot: «Numista N#189 (https://en.numista.com/catalogue/pieces189.html) 2 Francs Helvetia copper-nickel (KM# 21a.3), Date table…»)
 
-### 5. HW-muse-verify-20261020-2 · Second reader · Check 49 facts another AI wrote · due 2026-10-27  (fix list #18)
+### 4. HW-muse-verify-20261020-2 · Second reader · Check 43 facts another AI wrote · due 2026-10-27  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -172,9 +113,6 @@ Items:
 - **composition of C206 · Japan · 1976 · 1 yen · JPY** `type JP.Y.74 composition.text` = `aluminum` (written by Grok: «https://en.numista.com/catalogue/pieces1590.html (Numista N#1590, 1 Yen - Shōwa - Japan): Composition Aluminium (100% Aluminium); matches th»)
 - **composition of C271 · Mexico · 2013 · 50 centavos · MXN (nuevo)** `type MX.KM.936 composition.text` = `stainless steel` (written by Grok: «https://en.numista.com/catalogue/pieces18097.html (Numista N#18097, 50 Centavos (small type) - Mexico): Composition Stainless steel; matches»)
 - **composition of C284 · Mexico · 2009 · 50 centavos · MXN** `type MX.X.50-centavos composition.text` = `aluminium bronze` (written by Grok: «Numista N#583 (https://en.numista.com/catalogue/pieces583.html): composition aluminium bronze -> metal_class bronze»)
-- **design of C005 · France · 1986 · 20 centimes · FRF** `type FR.KM.930 design.text` = `obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 20 CENTIMES · olive + wheat · …` (written by Gemini: «https://en.numista.com/catalogue/pieces4.html (Numista N#4): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the»)
-- **design of C234 · United Kingdom · 1968 · 10 new pence · GBP (large module)** `type GB.KM.912 design.text` = `obverse Arnold Machin Elizabeth II · reverse crowned lion passant guardant · NEW PENCE (I…` (written by Gemini: «https://en.numista.com/catalogue/pieces878.html (Numista N#878): Reverse 'Part of the Crest of England, a lion passant guardant royally crow»)
-- **design of C240 · Italy · 1965 · 100 lire · ITL** `type IT.KM.96.1 design.text` = `obverse Italia / Republic head · reverse Minerva with spear · olive tree · L.100 · date ·…` (written by Gemini: «https://en.numista.com/catalogue/pieces304.html (Numista N#304): Reverse 'Minerva standing left reaching with right hand an olive tree while»)
 - **ruler of C234 · United Kingdom · 1968 · 10 new pence · GBP (large module)** `type GB.KM.912 ruler` = `Elizabeth II` (written by Grok: «https://en.wikipedia.org/wiki/Elizabeth_II (Wikipedia infobox) 'Reign' = 6 February 1952 – 8 September 2022; the type's issue year(s) 1968 f»)
 - **catalog of C013 · United Kingdom · 1971 · 2 new pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.916 catalogs`
 - **catalog of C274 · Mexico · 1995 · 10 centavos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.10-centavos catalogs`
@@ -191,61 +129,12 @@ Items:
 - **composition of C147 · United Kingdom · 1992 · 10 pence · GBP** `type GB.KM.938b composition.text` = `CuNi 75/25` (written by Grok: «https://en.numista.com/catalogue/pieces879.html (Numista N#879, 10 Pence - Elizabeth II (3rd portrait; small type) - United Kingdom): Compos»)
 - **composition of C248 · Greece · 1982 · 2 drachmes · GRD** `type GR.KM.117 composition.text` = `nickel-brass` (written by Grok: «https://en.numista.com/catalogue/pieces549.html (Numista N#549, 2 Drachmes (new lettering) - Greece): Composition Nickel brass (79% Copper,»)
 - **composition of C245 · Greece · 1970 · 2 drachmai · GRD** `type GR.KM.90 composition.text` = `cupronickel` (written by Grok: «https://en.numista.com/catalogue/pieces545.html (Numista N#545, 2 Drachmai - Constantine II - Greece): Composition Copper-nickel (75% Copper»)
-- **design of C147 · United Kingdom · 1992 · 10 pence · GBP** `type GB.KM.938b design.text` = `obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)` (written by Gemini: «https://en.numista.com/catalogue/pieces879.html (Numista N#879): Reverse 'Part of the crest of England, a lion passant guardant royally crow»)
-- **design of C245 · Greece · 1970 · 2 drachmai · GRD** `type GR.KM.90 design.text` = `obverse Constantine II portrait · reverse royal arms crowned cross shield · Heracles supp…` (written by Gemini: «https://en.numista.com/catalogue/pieces545.html (Numista N#545): Reverse 'Crowned royal arms (shield with cross) with the defenders of the C»)
 - **ruler of C245 · Greece · 1970 · 2 drachmai · GRD** `type GR.KM.90 ruler` = `Constantine II` (written by Grok: «https://en.wikipedia.org/wiki/Constantine_II_of_Greece (Wikipedia infobox) 'Reign' = 6 March 1964 – 1 June 1973; the type's issue year(s) 19»)
 - **catalog of C177 · United Kingdom · 2009 · 5 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.1109 catalogs`
 - **mintage of C178 · United Kingdom · 2010 · 5 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.1109 issues.1.mintage`
 - **composition of C177 · United Kingdom · 2009 · 5 pence · GBP** `type GB.KM.1109 composition.text` = `CuNi 75/25` (written by Grok: «https://en.numista.com/catalogue/pieces6612.html (Numista N#6612, 5 Pence - Elizabeth II (4th portrait; Royal Shield, non-magnetic) - United»)
-- **design of C177 · United Kingdom · 2009 · 5 pence · GBP** `type GB.KM.1109 design.text` = `obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matth…` (written by Gemini: «https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): Reverse 'Central section of the Royal Shield of Arms showing elements of»)
 
-### 6. HW-muse-plain-story-20261020-1 · Writer · Rewrite 36 stories in plain English · due 2026-10-27  (fix list #60)
-
-Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
-
-**Done when:** One change file; the stories pass the plain-English check.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-plain-story-20261020-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C151 · United Kingdom · 1992 · 10 pence · GBP**: «A 1992 10 pence from United Kingdom. The obverse shows Raphael Maklouf Elizabeth II; the reverse shows crowned lion passant; TEN PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C152 · United Kingdom · 2001 · 10 pence · GBP**: «A 2001 10 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows crowned lion passant; TEN PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C153 · United Kingdom · 2008 · 10 pence · GBP**: «A 2008 10 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows crowned lion passant; TEN PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C154 · United Kingdom · 2010 · 10 pence · GBP**: «A 2010 10 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; TEN PENCE (Matthew Dent). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C167 · United Kingdom · 1990 · 5 pence · GBP**: «A 1990 5 pence from United Kingdom. The obverse shows Raphael Maklouf Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C168 · United Kingdom · 1990 · 5 pence · GBP**: «A 1990 5 pence from United Kingdom. The obverse shows Raphael Maklouf Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C169 · United Kingdom · 1992 · 5 pence · GBP**: «A 1992 5 pence from United Kingdom. The obverse shows Raphael Maklouf Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C170 · United Kingdom · 1996 · 5 pence · GBP**: «A 1996 5 pence from United Kingdom. The obverse shows Raphael Maklouf Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C171 · United Kingdom · 1996 · 5 pence · GBP**: «A 1996 5 pence from United Kingdom. The obverse shows Raphael Maklouf Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C172 · United Kingdom · 1997 · 5 pence · GBP**: «A 1997 5 pence from United Kingdom. The obverse shows Raphael Maklouf Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C173 · United Kingdom · 1998 · 5 pence · GBP**: «A 1998 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C174 · United Kingdom · 2000 · 5 pence · GBP**: «A 2000 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C175 · United Kingdom · 2001 · 5 pence · GBP**: «A 2001 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C176 · United Kingdom · 2007 · 5 pence · GBP**: «A 2007 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows crowned thistle; FIVE PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C177 · United Kingdom · 2009 · 5 pence · GBP**: «A 2009 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; FIVE PENCE (Matthew Dent). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C178 · United Kingdom · 2010 · 5 pence · GBP**: «A 2010 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; FIVE PENCE (Matthew Dent). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C179 · United Kingdom · 2010 · 5 pence · GBP**: «A 2010 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; FIVE PENCE (Matthew Dent). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C193 · France · 1973 · 5 centimes · FRF**: «A 1973 5 centimes from France. The obverse shows Marianne/Liberty left (Henri Lagriffoul); the reverse shows 5 CENTIMES; olive/wheat, LIBERTE, EGALITE, FRATERNITE, date (Adrien Dieudonné). Struck in aluminum-bronze (Cu 92 / Al 6 / Ni 2).» (shorthand: `Marianne/Liberty`)
-- **C194 · France · 1980 · 5 centimes · FRF**: «A 1980 5 centimes from France. The obverse shows Marianne/Liberty left (Henri Lagriffoul); the reverse shows 5 CENTIMES; olive/wheat, LIBERTE, EGALITE, FRATERNITE, date (Adrien Dieudonné). Struck in aluminum-bronze (Cu 92 / Al 6 / Ni 2).» (shorthand: `Marianne/Liberty`)
-- **C203 · India · 2001 · 1 rupee · INR**: «A 2001 1 rupee from India. Value side रुपया, big 1, RUPEE, 2001, Noida dot, grain stalks flanking, Ashoka Lion Capital obverse. Struck in stainless steel.» (shorthand: `Value side रुपया, big 1, RUPEE, 2001, No`)
-- **C205 · United Kingdom · 1982 · 20 pence · GBP**: «A 1982 20 pence from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows crowned Tudor rose; TWENTY PENCE, date split by crown, 20 (William Gardner). Struck in CuNi 84/16.» (shorthand: `CuNi`)
-- **C206 · Japan · 1976 · 1 yen · JPY**: «A 1976 1 yen from Japan. Young tree / 日本国, 一円 // big 1, Showa regnal-year date (昭和 40 = 1965, 51 = 1976). Struck in aluminum.» (shorthand: `//`)
-- **C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)**: «A 1987 5 pesos from Mexico. Value side $, big 5, 1987, Mo, scroll ornament, beaded rim, national arms obverse. Struck in brass.» (shorthand: `Value side $, big 5, 1987, Mo, scroll or`)
-- **C210 · South Korea · 2000 · 100 won · KRW**: «A 2000 100 won from South Korea. Value side 2000, big 100, 한국은행, beaded rim, Yi Sun-sin portrait obverse. Struck in cupronickel.» (shorthand: `Value side 2000, big 100, 한국은행, beaded r`)
-- **C211 · Italy · 1987 · 500 lire · ITL**: «A 1987 500 lire from Italy. The obverse shows female head of Italia; the reverse shows Quirinale Palazzo; Dioscuri, L. 500, Braille 500 on ring, wheat, date, R. Struck in bimetallic (bronzital center with an acmonital ring).» (shorthand: `500, Braille 500 on ring, wheat, date,`)
-- **C220 · Japan · 1982 · 10 yen · JPY**: «A 1982 10 yen from Japan. Phoenix Hall of Byodoin temple, 日本国, 十円 , large 10, bay laurel (evergreen, tokiwa) wreath, Showa regnal-year date (昭和 57 = 1982, 63 = 1988). Struck in bronze (Cu 95% · Zn 3–4% · Sn 1–2%).» (shorthand: `Phoenix Hall of Byodoin temple, 日本国, 十円 `)
-- **C222 · Japan · 1965 · 1 yen · JPY**: «A 1965 1 yen from Japan. Young tree / 日本国, 一円 // big 1, Showa regnal-year date (昭和 40 = 1965, 51 = 1976). Struck in aluminum.» (shorthand: `//`)
-- **C230 · Jamaica · 2015 · 10 dollars · JMD**: «A 2015 10 dollars from Jamaica. Arms, crocodile crest, Taino supporters, motto ribbon, JAMAICA, TEN DOLLARS, 2015, round. Struck in nickel-clad steel.» (shorthand: `Arms, crocodile crest, Taino supporters,`)
-- **C232 · Vietnam · 2003 · 1000 đồng · VND**: «A 2003 1000 đồng from Vietnam. Emblem side star, cog, rice wreath, CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM, 2003, value 1000 ĐỒNG reverse. Struck in brass-plated steel.» (shorthand: `Emblem side star, cog, rice wreath, CỘNG`)
-- **C234 · United Kingdom · 1968 · 10 new pence · GBP (large module)**: «A 1968 10 new pence from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows crowned lion passant guardant; NEW PENCE (Ironside). Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C235 · Guatemala · 1934 · 10 centavos · GTQ**: «A 1934 10 centavos from Guatemala. Arms, Quetzal, crossed rifles/swords, laurel, REPUBLICA DE GUATEMALA, 0.720, 1934 // Quetzal on column, LEY DE 26 DE NOVIEMBRE DE 1924, 10, CENTAVOS. Struck in .720 Ag.» (shorthand: `Arms, Quetzal, crossed rifles/swords, la`)
-- **C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)**: «A 2010 2 pesos from Mexico. Value side $, large 2, 2010, Mo, Aztec Sun Stone, also called the Ring of Days glyphs on outer ring, national arms obverse. Struck in bimetallic (aluminum-bronze center with a stainless steel outer ring).» (shorthand: `Value side $, large 2, 2010, Mo, Aztec S`)
-- **C242 · Switzerland · 1883 · 10 rappen · CHF**: «A 1883 10 rappen from Switzerland. Libertas right on the obverse, 10 in wreath on the reverse, designers Karl Schwenzer and Carl Friedrich Voigt. Struck in CuNi 75/25.» (shorthand: `CuNi`)
-- **C244 · Mexico · 1964 · 20 centavos · MXN**: «A 1964 20 centavos from Mexico. The reverse shows Pyramid of the Sun at Teotihuacan; Popocatépetl and Iztaccíhuatl, radiant Phrygian cap, large 20, CENTAVOS, date, Mo, national arms obverse. Struck in brass (95% copper, 5% zinc).» (shorthand: `Popocatépetl and Iztaccíhuatl, radiant P`)
-- **C247 · South Korea · 1966 · 1 won · KRW**: «A 1966 1 won from South Korea. Rose of Sharon (Hibiscus syriacus), 일원, 한국은행 // THE BANK OF KOREA, big 1, 1966. Struck in brass.» (shorthand: `Rose of Sharon (Hibiscus syriacus), 일원, `)
-- **C252 · Cuba · 1962 · 20 centavos · CUP**: «A 1962 20 centavos from Cuba. The reverse shows a portrait of José Martí with the date; arms side REPUBLICA DE CUBA, Escudo (key, stripes, palm), oak and laurel, Phrygian-cap star, VEINTE CENTAVOS. Struck in cupronickel.» (shorthand: `arms side REPUBLICA DE CUBA, Escudo (key`)
-
-### 7. HW-muse-story-check-20261020-2 · Fact-checker · Fact-check 41 coin stories · due 2026-10-27  (fix list #73)
+### 5. HW-muse-story-check-20261020-2 · Fact-checker · Fact-check 41 coin stories · due 2026-10-27  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -296,7 +185,7 @@ Items:
 - **C271 · Mexico · 2013 · 50 centavos · MXN (nuevo)**: «A 2013 Mexican 50-centavo coin. The value side shows a large 50¢, the year and the Mexico City mint mark Mo, inside a border taken from the Aztec Ring of Acceptance; the other side carries the national arms. Struck in stainless steel.» Record: «{"country": "Mexico", "year": "2013", "denom": "50 centavos · MXN (nuevo)", "mint": "Mo", "refs": "KM#936 · Schön#462 · Numista#18097", "metal": "stainless steel · 3.103 g · 17 mm · reeded · lightly circulated to near-UNC · bright silvery surfaces · white 2×2 staple flip", "specs": "thickness 2.15 mm · coin alignment · reduced-size 2009+ type (replaced Al-bronze KM#549)", "mintage": "359,338,000"…»
 - **C281 · France · 1994 · 5 francs · FRF**: «A 1994 five-franc coin from France. The side shown has a large 5 and FRANCS above olive and oak branches and wheat ears, with the national motto Liberté, Égalité, Fraternité around the rim and the date below.» Record: «{"country": "France", "year": "1994", "denom": "5 francs · FRF", "mint": "no mint mark visible", "refs": "KM#926a.1 · Schön#235a · Numista#8", "metal": "nickel plated copper-nickel · 10.00 g · 29 mm · reeded", "specs": "thickness 2.09 mm", "mintage": "9,973,818", "design": "obverse The Sower in Phrygian cap sowing against rising sun · REPUBLIQUE FRANÇAISE · reverse olive and oak branches with whe…»
 
-### 8. HW-muse-verify-20261020-3 · Second reader · Check 80 facts another AI wrote · due 2026-10-27  (fix list #18)
+### 6. HW-muse-verify-20261020-3 · Second reader · Check 79 facts another AI wrote · due 2026-10-27  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -357,7 +246,6 @@ Items:
 - **mint of C211 · Italy · 1987 · 500 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C211 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C211_rev.webp (original: https://drive.google.com/file/d/1tGRVQxZSmykDNl2rASe59nFLvMW3XGs2/view)
 - **denomination of C016 · Costa Rica · 1985** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type CR.KM.214.2 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C016_obv.webp (original: https://drive.google.com/file/d/1tpraCFpEWGTWK_DlFLymoia9cWTWYCGL/view)
 - **denomination of C211 · Italy · 1987** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type IT.KM.111 denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C211_rev.webp (original: https://drive.google.com/file/d/1tGRVQxZSmykDNl2rASe59nFLvMW3XGs2/view)
-- **design of C205 · United Kingdom · 1982 · 20 pence · GBP** `type GB.KM.931 design.text` = `obverse Arnold Machin Elizabeth II · reverse crowned Tudor rose · TWENTY PENCE · date spl…` (written by Gemini: «https://en.numista.com/catalogue/pieces865.html (Numista N#865): Reverse 'Crowned Tudor rose dividing date and legend, denomination below',») [audit sample]
 - **year of C166 · Mexico · 5 centavos · MXN** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C166 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C166_obv.webp (original: https://drive.google.com/file/d/1f4-Cj8s68KrvRTuUhaKQKa2dbE__oExE/view)
 - **year of C205 · United Kingdom · 20 pence · GBP** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C205 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C205_rev.webp (original: https://drive.google.com/file/d/1-nxjqq7UJWCWbIaFIG5MaiAnml6bUn7s/view)
 - **year of C209 · Mexico · 5 pesos · MXP (pre-nuevo)** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C209 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C209_rev.webp (original: https://drive.google.com/file/d/1ZoATqIulCHcZa93fPIdfpNdo-E4WzQcx/view)
@@ -386,7 +274,7 @@ Items:
 - **denomination of C269 · Cayman Islands · 1990** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type KY.KM.87 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C269_obv.webp (original: https://drive.google.com/file/d/14WhTWVSkkIwzNgmkjEbzIiDOjJ0vhftQ/view)
 - **year of C078 · Switzerland · 20 rappen · CHF** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C078 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C078_obv.webp (original: https://drive.google.com/file/d/1NBBKww5p8WQrxtPOxkxoWxRBGn57Numb/view)
 
-### 9. HW-muse-verify-20261020-4 · Second reader · Check 80 facts another AI wrote · due 2026-10-27  (fix list #18)
+### 7. HW-muse-verify-20261020-4 · Second reader · Check 75 facts another AI wrote · due 2026-10-27  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -466,17 +354,12 @@ Items:
 - **denomination of C101 · Ireland · 2002** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type IE.KM.32 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C101_obv.webp (original: https://drive.google.com/file/d/1Vn2PJXCbK_Z5YlCVB-QIuifg1VaD7OKN/view)
 - **design of C080 · Germany · 2002 · 1 euro · EUR** `type DE.KM.213 design.text` = `national Bundesadler + 12 EU stars · common map side (Luc Luycx) · national designers Hei…` (written by Grok: «Agree — every element checked against Numista N#111 (https://en.numista.com/catalogue/pieces111.html) Obverse/Reverse sections»)
 - **ruler of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR** `type SA.KM.20 ruler` = `King Saud` (written by Grok: «https://en.wikipedia.org/wiki/Saud_of_Saudi_Arabia (Wikipedia infobox) 'Reign' = 9 November 1953 – 2 November 1964; the type's issue year(s)»)
-- **design of C012 · France · 1962 · 1 franc · FRF (nouveau franc)** `type FR.KM.925.1 design.text` = `obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive spr…` (written by Gemini: «https://en.numista.com/catalogue/pieces6.html (Numista N#6): Reverse 'An olive branch below the face value is surrounded with the French mot»)
-- **design of C035 · Germany · 1971 · 50 Pfennig · DEM** `type DE.KM.109.1 design.text` = `obverse BUNDESREPUBLIK DEUTSCHLAND · 50 PFENNIG value side (Richard Martin Werner) · reve…` (written by Claude: «Third reader for D0073: The 50 pfennig value side carries 50 PFENNIG and BUNDESREPUBLIK DEUTSCHLAND, no Bundesadler; Gerda Werner was the mo»)
 - **composition of C249 · Australia · 1966 · 20 cents · AUD** `type AU.KM.66 composition.text` = `cupronickel` (written by Grok: «https://en.numista.com/catalogue/pieces1003.html (Numista N#1003, 20 Cents - Elizabeth II (2nd Portrait) - Australia): Composition Copper-ni»)
-- **design of C032 · Hungary · 1967 · 1 forint · HUF** `type HU.KM.575 design.text` = `obverse People’s Republic arms · MAGYAR NÉPKÖZTÁRSASÁG · wheat + star · reverse big 1 FOR…` (written by Gemini: «https://en.numista.com/catalogue/pieces1124.html (Numista N#1124): Reverse 'Value with leaves behind, mintmark between', Lettering '1 BP. FO»)
 - **composition of C152 · United Kingdom · 2001 · 10 pence · GBP** `type GB.KM.989 composition.text` = `CuNi 75/25` (written by Grok: «https://en.numista.com/catalogue/pieces2236.html (Numista N#2236, 10 Pence - Elizabeth II (4th portrait; Crowned Lion) - United Kingdom): Co»)
 - **design of C233 · Colombia · 2016 · 50 pesos · COP** `type CO.KM.295 design.text` = `value big 50 · PESOS · REPÚBLICA DE COLOMBIA · 2016 · wavy field · reverse spectacled / A…` (written by Grok: «Agree — every element checked against Numista N#34771 (https://en.numista.com/catalogue/pieces34771.html) Obverse/Reverse sections»)
-- **design of C152 · United Kingdom · 2001 · 10 pence · GBP** `type GB.KM.989 design.text` = `obverse Ian Rank-Broadley Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironsi…` (written by Gemini: «https://en.numista.com/catalogue/pieces2236.html (Numista N#2236): Reverse 'Part of the Crest of England, a lion passant guardant royally cr»)
-- **design of C269 · Cayman Islands · 1990 · 1 cent · KYD** `type KY.KM.87 design.text` = `obverse Raphael Maklouf crowned Elizabeth II right · legend CAYMAN ISLANDS · ELIZABETH II…` (written by Gemini: «https://en.numista.com/catalogue/pieces7364.html (Numista N#7364): Reverse 'Open-billed bird (Grand Cayman Thrush) on a branch left beside v»)
 - **composition of C210 · South Korea · 2000 · 100 won · KRW** `type KR.KM.35.2 composition.text` = `cupronickel` (written by Grok: «https://en.numista.com/catalogue/pieces1052.html (Numista N#1052, 100 Won - South Korea): Composition Copper-nickel (75% Copper, 25% Nickel)»)
 
-### 10. HW-muse-read-mint-20261021-1 · Photo reader · Read the mint mark on 4 coins from their photos · due 2026-10-28  (fix list #57)
+### 8. HW-muse-read-mint-20261021-1 · Photo reader · Read the mint mark on 4 coins from their photos · due 2026-10-28  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -490,7 +373,7 @@ Items:
 - **C050 · Germany · 1982 · 1 Deutsche Mark · DEM**: mint text now «unknown (letter under date unclear (soft D/G candidate))». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C050_rev.webp (original: https://drive.google.com/file/d/1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
 - **C287 · Italy · 1979 · 50 lire · ITL**: mint text now «not read on photo». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp (original: https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
 
-### 11. HW-muse-story-check-20261021-1 · Fact-checker · Fact-check 15 coin stories · due 2026-10-28  (fix list #73)
+### 9. HW-muse-story-check-20261021-1 · Fact-checker · Fact-check 15 coin stories · due 2026-10-28  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -515,7 +398,7 @@ Items:
 - **C146 · Hong Kong · 1998 · $1 · HKD**: «A 1998 $1 from Hong Kong. The obverse shows the Bauhinia, the Hong Kong orchid flower, with 香港 HONG KONG; the reverse shows large 1, 壹圓, ONE DOLLAR and 1998 (both sides by Joseph Yam). Struck in cupronickel.» Record: «{"country": "Hong Kong", "year": "1998", "denom": "$1 · HKD", "mint": "Llantrisant / HK Mint era)", "refs": "KM#69a · Schön#53a · Numista#2118", "metal": "cupronickel · 7.10 g · 25.5 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness 1.90 mm · medal alignment · Bauhinia series (non-magnetic CuNi)", "mintage": "unknown", "design": "Bauhinia / Hong Kong orchid flower · 香港 HONG K…»
 - **T001 · Germany · ND · Spielmarke “20” (GR)**: «An undated German game token (Spielmarke) marked 20. One side shows the letters GR in old German script with 13 stars; the other shows a large 20 inside a laurel wreath. Brass or bronze in colour. Tokens like this were used for games and are not money.» Record: «{"country": "Germany", "year": "ND", "denom": "Spielmarke “20” (GR)", "mint": "unknown", "refs": "unknown (Spielmarke / jeton · Lauer-style play money; no KM)", "metal": "brass/bronze tone · circulated · white 2×2 staple flip", "specs": "unknown · undated", "mintage": "unknown", "design": "obverse Fraktur monogram GR in a ring of stars (15 on T002; T001's count is an open owner question) · revers…»
 
-### 12. HW-muse-cite-20261022-1 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-29  (fix list #72)
+### 10. HW-muse-cite-20261022-1 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-10-29  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -527,28 +410,7 @@ Items:
 - **BS 25 cents (BS.X.25-cents)** coins C300. Ask: nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null); nominal.diameter_mm; composition.text + composition.metal_class; issues.0.mintage: 1984
 - **BS 5 cents (BS.X.5-cents)** coins C291. Ask: issues.0.mintage: 1984
 
-### 13. HW-muse-fill-20261023-1 · Cataloguer · Fill the blank facts of 11 coin types · due 2026-11-02  (fix list #72)
-
-Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
-
-**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C289 · Argentina · 1954 · 5 centavos · ARM (AR.X.5-centavos)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces4835.html
-- **C295 · Australia · 2006 · 10 cents · AUD (AU.X.10-cents)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1565.html
-- **C300 · Bahamas · 1984 · 25 cents · BSD (BS.X.25-cents)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces9352.html
-- **C291 · Bahamas · 1984 · 5 cents · BSD (BS.X.5-cents)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5010.html
-- **C302 · United Kingdom · 1922 · 1 penny · GBP (GB.X.1-penny)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces578.html
-- **C304 · Mexico · 1981 · 20 pesos · MXN (MX.X.20-pesos)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces987.html
-- **C294 · Mexico · 1969 · 5 centavos · MXP (MX.X.5-centavos)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces953.html
-- **C293 · Mexico · 1988 · 500 pesos · MXP (MX.X.500-pesos)**: blank: edge, thickness, alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces819.html
-- **C288 · Australia · 1983 · 1 cent · AUD (AU.X.1-cent)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1559.html
-- **C276 · Bahamas · 2015 · 1 cent · BSD (BS.X.1-cent)**: blank: edge, thickness, alignment, legal tender, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces92216.html
-- **C280 · Belize · 2007 · 25 cents · BZD (BZ.X.25-cents)**: blank: alignment, legal tender, era, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces2238.html
-
-### 14. HW-muse-fill-20261023-2 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+### 11. HW-muse-fill-20261023-2 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -570,7 +432,7 @@ Items:
 - **C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915) (MX-CHI.KM.612)**: blank: edge, thickness, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces32634.html
 - **C094 · Switzerland · 1986 · 1 franc · CHF (CH.KM.24a.3)**: blank: alignment, designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces185.html
 
-### 15. HW-muse-fill-20261023-3 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+### 12. HW-muse-fill-20261023-3 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -592,7 +454,7 @@ Items:
 - **C235 · Guatemala · 1934 · 10 centavos · GTQ (GT.KM.239.2)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5128.html
 - **C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.1)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces42670.html
 
-### 16. HW-muse-fill-20261023-4 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+### 13. HW-muse-fill-20261023-4 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -614,7 +476,7 @@ Items:
 - **C259 · Mexico · 1940 · 1 centavo · MXN (MX.KM.415)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5133.html
 - **C166 · Mexico · 1944 · 5 centavos · MXN (MX.KM.424)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces3136.html
 
-### 17. HW-muse-fill-20261023-5 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+### 14. HW-muse-fill-20261023-5 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -636,7 +498,7 @@ Items:
 - **C260 · USSR · 1931 · 3 kopecks · SUR (SU.Y.93)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces4042.html
 - **C261 · USSR · 1932 · 15 kopecks · SUR (SU.Y.97)**: blank: designers, obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5269.html
 
-### 18. HW-muse-fill-20261023-6 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+### 15. HW-muse-fill-20261023-6 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -658,29 +520,7 @@ Items:
 - **C001 · Switzerland · 1969 · 1 franc · CHF (CH.KM.24a.1)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces185.html
 - **C002 · Switzerland · 1963 · 5 rappen · CHF (CH.KM.26)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces168.html
 
-### 19. HW-muse-fill-20261023-7 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
-
-Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
-
-**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261023-7.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C075 · Switzerland · 1982 · 5 rappen · CHF (CH.KM.26c)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces171.html
-- **C082 · Switzerland · 1979 · 10 rappen · CHF (CH.KM.27)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces173.html
-- **C068 · Switzerland · 1963 · 20 rappen · CHF (CH.KM.29a)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces178.html
-- **C066 · Switzerland · 1978 · 5 francs · CHF (CH.KM.40a.1)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces195.html
-- **C065 · Switzerland · 2014 · 5 francs · CHF (CH.KM.40a.4)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces195.html
-- **C029 · Germany · 1972 · 1 Pfennig · DEM (DE.KM.105)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces854.html
-- **C018 · Germany · 1983 · 2 Pfennig · DEM (DE.KM.106a)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces1937.html
-- **C195 · Germany · 1971 · 5 Pfennig · DEM (DE.KM.107)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces658.html
-- **C019 · Germany · 1981 · 10 Pfennig · DEM (DE.KM.108)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces850.html
-- **C035 · Germany · 1971 · 50 Pfennig · DEM (DE.KM.109.1)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces847.html
-- **C057 · Germany · 1982 · 50 Pfennig · DEM (DE.KM.109.2)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces847.html
-- **C006 · Germany · 1984 · 1 Deutsche Mark · DEM (DE.KM.110)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces846.html
-
-### 20. HW-muse-fill-20261023-8 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
+### 16. HW-muse-fill-20261023-8 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-02  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -702,7 +542,7 @@ Items:
 - **C053 · Germany · 2011 · 20 euro cent · EUR (DE.KM.255)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces6319.html
 - **C159 · East Caribbean States · 2004 · 10 cents · XCD (EC.KM.38)**: blank: obverse, reverse. Entry on record: https://en.numista.com/catalogue/pieces5712.html
 
-### 21. HW-muse-verify-20261023-1 · Second reader · Check 26 facts another AI wrote · due 2026-10-30  (fix list #18)
+### 17. HW-muse-verify-20261023-1 · Second reader · Check 9 facts another AI wrote · due 2026-10-30  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -713,32 +553,15 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **design of T001 · Germany · ND · Spielmarke “20” (GR)** `type DE.X.spielmarke-20-gr design.text` = `obverse Fraktur monogram GR in a ring of stars (15 on T002; T001's count is an open owner…` (written by Claude: «photos T002_Germany_ND_Spielmarke20_obv.jpeg + T002_Germany_ND_Spielmarke20_rev.jpeg (photos/p1/T002_obv.webp, T002_rev.webp), read by Claud») [audit sample]
 - **design of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)** `type US.KM.204 design.text` = `obverse bust of George Washington left · LIBERTY · 1776–1976 · reverse colonial military …` (written by Gemini: «https://en.numista.com/catalogue/pieces56.html (Numista N#56): Reverse 'A Colonial patriot drummer facing left, with a victory torch encircl»)
-- **design of C304 · Mexico · 1981 · 20 pesos · MXN** `type MX.X.20-pesos design.text` = `obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · rever…` (written by Gemini: «Numista N#987 (https://en.numista.com/catalogue/pieces987.html, 1980-1984 20 Pesos for C304 dated 1981): verified reverse legend CULTURA MAY»)
 - **design of C281 · France · 1994 · 5 francs · FRF** `type FR.X.5-francs design.text` = `obverse The Sower in Phrygian cap sowing against rising sun · REPUBLIQUE FRANÇAISE · reve…` (written by Gemini: «Numista N#8 (https://en.numista.com/catalogue/pieces8.html, 1969-2001 5 Francs for C281 dated 1994): verified design text in house style»)
-- **design of C280 · Belize · 2007 · 25 cents · BZD** `type BZ.X.25-cents design.text` = `obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SEC…` (written by Gemini: «Numista N#2238 (https://en.numista.com/catalogue/pieces2238.html, 1974-2022 25 Cents for C280 dated 2007): obverse engraver Cecil Thomas, re»)
-- **design of C291 · Bahamas · 1984 · 5 cents · BSD** `type BS.X.5-cents design.text` = `obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWA…` (written by Gemini: «Numista N#5010 (https://en.numista.com/catalogue/pieces5010.html, 1974-2006 5 Cents for C291 dated 1984): verified design text in house styl»)
-- **design of C163 · Philippines · 1984 · 50 sentimo · PHP** `type PH.KM.242.1 design.text` = `obverse portrait of Marcelo H. del Pilar right · REPUBLIKA NG PILIPINAS · reverse Philipp…` (written by Gemini: «https://en.numista.com/catalogue/pieces2461.html (Numista N#2461): Reverse 'Philippine eagle (Pithecophaga jefferyi) flying right, denominat») [audit sample]
 - **design of C286 · Honduras · 2012 · 50 centavos · HNL** `type HN.X.50-centavos design.text` = `obverse national coat of arms · REPUBLICA DE HONDURAS · reverse portrait of cacique Lempi…` (written by Gemini: «Numista N#3190 (https://en.numista.com/catalogue/pieces3190.html): verified design text in house style»)
-- **design of C302 · United Kingdom · 1922 · 1 penny · GBP** `type GB.X.1-penny design.text` = `obverse uncrowned portrait of George V left · GEORGIVS V DEI GRA:BRITT:OMN:REX FID:DEF:IN…` (written by Gemini: «Numista N#578 (https://en.numista.com/catalogue/pieces578.html, 1911-1926 George V 1 Penny for C302 dated 1922): verified design text in hou») [audit sample]
-- **design of C293 · Mexico · 1988 · 500 pesos · MXP** `type MX.X.500-pesos design.text` = `obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · rever…` (written by Gemini: «Numista N#819 (https://en.numista.com/catalogue/pieces819.html, 1986-1992 500 Pesos for C293 1988 and C301 1989): verified design text in ho»)
 - **design of C249 · Australia · 1966 · 20 cents · AUD** `type AU.KM.66 design.text` = `young tree / 日本国 · 一円 // big 1 · Showa regnal-year date (昭和 40 = 1965, 51 = 1976)` (written by Gemini: «Numista N#1003 (https://en.numista.com/catalogue/pieces1003.html): verified design text in house style»)
-- **design of C294 · Mexico · 1969 · 5 centavos · MXP** `type MX.X.5-centavos design.text` = `obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · rever…` (written by Gemini: «Numista N#953 (https://en.numista.com/catalogue/pieces953.html, 1954-1969 5 Centavos for C294 dated 1969 Mo): verified design text in house»)
-- **design of C289 · Argentina · 1954 · 5 centavos · ARM** `type AR.X.5-centavos design.text` = `obverse denomination 5 CENTAVOS in center · REPUBLICA ARGENTINA · reverse portrait of Jos…` (written by Gemini: «Numista N#4835 (https://en.numista.com/catalogue/pieces4835.html, 1954-1956 5 Centavos for C289 dated 1954): verified design text in house s»)
 - **design of C279 · Philippines · 1997 · 1 piso · PHP** `type PH.X.1-piso design.text` = `obverse bust of José Rizal right · 1 PISO · REPUBLIKA NG PILIPINAS · reverse Bangko Sentr…` (written by Gemini: «Numista N#1681 (https://en.numista.com/catalogue/pieces1681.html): verified design text in house style») [audit sample]
-- **design of C295 · Australia · 2006 · 10 cents · AUD** `type AU.X.10-cents design.text` = `obverse 4th portrait bust of Elizabeth II right wearing tiara · ELIZABETH II AUSTRALIA · …` (written by Gemini: «Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html, 1999-2019 10 Cents for C295 dated 2006): verified design text in house sty») [audit sample]
-- **design of C300 · Bahamas · 1984 · 25 cents · BSD** `type BS.X.25-cents design.text` = `obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWA…` (written by Gemini: «Numista N#9352 (https://en.numista.com/catalogue/pieces9352.html, 1974-1992 25 Cents for C300 dated 1984): verified design text in house sty»)
-- **design of C013 · United Kingdom · 1971 · 2 new pence · GBP** `type GB.KM.916 design.text` = `obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Prince of Wales f…` (written by Gemini: «https://en.numista.com/catalogue/pieces664.html (Numista N#664): Reverse 'The badge of the Prince of Wales, a plume of three ostrich feather»)
-- **design of C213 · United Kingdom · 1991 · 2 pence · GBP** `type GB.KM.936 design.text` = `obverse 3rd crowned bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Princ…` (written by Gemini: «https://en.numista.com/catalogue/pieces867.html (Numista N#867): Reverse 'The badge of the Prince of Wales, a plume of three ostrich feather»)
 - **design of C282 · Yugoslavia · 1965 · 50 para · YUD** `type YU.X.50-para design.text` = `obverse SFRY socialist arms with six torches within wheat sheaf · reverse numeral 50 · ПА…` (written by Gemini: «Numista N#2006 (https://en.numista.com/catalogue/pieces2006.html): verified design text in house style»)
-- **design of C218 · United Kingdom · 2010 · 1 penny · GBP (decimal)** `type GB.KM.1107 design.text` = `obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse lower section of …` (written by Gemini: «https://en.numista.com/catalogue/pieces4038.html (Numista N#4038): Reverse 'Left part of the Royal Shield of Arms, denomination in left segm»)
-- **design of C054 · France · 2010 · 10 euro cent · EUR** `type FR.KM.1410 design.text` = `obverse The Sower walking left with rays and 12 stars · RF · L. JORIO d'ap. O. ROTY · rev…` (written by Gemini: «https://en.numista.com/catalogue/pieces3510.html (Numista N#3510): Reverse 'A map, next to the face value, symbolizes the gathering of the n»)
-- **design of C004 · Netherlands · 2000 · 5 euro cent · EUR** `type NL.KM.236 design.text` = `obverse profile portrait of Queen Beatrix left with 12 stars and BEATRIX KONINGIN DER NED…` (written by Gemini: «https://en.numista.com/catalogue/pieces147.html (Numista N#147): Reverse 'A globe, next to the face value, shows Europe in relation to Afric»)
 - **design of C285 · Slovakia · 2009 · 5 euro cent · EUR** `type SK.X.5-euro-cent design.text` = `obverse Kriváň peak in High Tatras · national double-cross arms · SLOVENSKO · reverse com…` (written by Gemini: «Numista N#5086 (https://en.numista.com/catalogue/pieces5086.html): verified design text in house style»)
-- **design of C288 · Australia · 1983 · 1 cent · AUD** `type AU.X.1-cent design.text` = `obverse bust of Elizabeth II right · ELIZABETH II AUSTRALIA · reverse feather-tailed glid…` (written by Gemini: «Numista N#1559 (https://en.numista.com/catalogue/pieces1559.html): verified design text in house style»)
-- **design of C038 · Slovakia · 2009 · 2 euro cent · EUR** `type SK.KM.96 design.text` = `obverse Kriváň peak in High Tatras · national double-cross arms · SLOVENSKO · reverse com…` (written by Gemini: «https://en.numista.com/catalogue/pieces5085.html (Numista N#5085): Reverse 'A globe, next to the face value, shows Europe in relation to Afr»)
 - **design of C284 · Mexico · 2009 · 50 centavos · MXN** `type MX.X.50-centavos design.text` = `obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · rever…` (written by Claude: «Greysheet KM-549 2009-Mo 50 centavos (https://www.greysheet.com/prices/item/2009-mo-50-centavos-reform-type-a1-km-549-mexico-world-coins/gsi»)
 
-### 22. HW-muse-value-20261023-1 · Appraiser · Cite collector values for 1 coins · due 2026-11-02  (fix list #62)
+### 18. HW-muse-value-20261023-1 · Appraiser · Cite collector values for 1 coins · due 2026-11-02  (fix list #62)
 
 For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
 
@@ -749,7 +572,7 @@ For each coin, find the retail value for its type, date and mint in the grade it
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD**: now $0.25 (low)
 
-### 23. HW-muse-plain-story-20261023-1 · Writer · Rewrite 3 stories in plain English · due 2026-10-30  (fix list #60)
+### 19. HW-muse-plain-story-20261023-1 · Writer · Rewrite 3 stories in plain English · due 2026-10-30  (fix list #60)
 
 Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
 
@@ -762,7 +585,7 @@ Items:
 - **C257 · Mexico · 1967 · 20 centavos · MXN**: «A 1967 20-centavo coin from Mexico. The front shows Mexico's national coat of arms. The back shows the Pyramid of the Sun at Teotihuacan with the volcanoes Popocatépetl and Iztaccíhuatl behind it, a shining liberty cap above, a large 20, the word CENTAVOS, the date 1967, and the Mo mint mark. It is made of brass (95% copper and 5% zinc).» (shorthand: `The back shows the Pyramid of the Sun at`)
 - **C279 · Philippines · 1997 · 1 piso · PHP**: «A 1997 1-piso coin from the Philippines. The side shown has a portrait of national hero José Rizal, the words Republika ng Pilipinas (Republic of the Philippines), a large 1, the word PISO, and the date 1997.» (shorthand: `The side shown has a portrait of nationa`)
 
-### 24. HW-muse-story-check-20261023-1 · Fact-checker · Fact-check 3 coin stories · due 2026-10-30  (fix list #73)
+### 20. HW-muse-story-check-20261023-1 · Fact-checker · Fact-check 3 coin stories · due 2026-10-30  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -775,7 +598,7 @@ Items:
 - **C017 · France · 1999 · 1 franc · FRF (nouveau franc)**: «A 1999 1-franc coin from France. The front shows La Semeuse (the Sower) walking to the left with the words REPUBLIQUE FRANCAISE, designed by Oscar Roty. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date 1999. It is made of nickel.» Record: «{"country": "France", "year": "1999", "denom": "1 franc · FRF (nouveau franc)", "mint": "Monnaie de Paris", "refs": "KM#925.1 · Schön#233 · Numista#6", "metal": "nickel · 6 g · 24 mm · reeded · nice circulated / clean · white 2×2 staple flip", "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)", "mintage": "80,457,…»
 - **C025 · France · 1965 · 1 franc · FRF (nouveau franc)**: «A 1965 1-franc coin from France. The front shows La Semeuse (the Sower) walking to the left with the words REPUBLIQUE FRANCAISE, designed by Oscar Roty. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date 1965. It is made of nickel.» Record: «{"country": "France", "year": "1965", "denom": "1 franc · FRF (nouveau franc)", "mint": "Monnaie de Paris", "refs": "KM#925.1 · Schön#233 · Numista#6", "metal": "nickel · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness 1.79 mm · coin alignment · type specs shared with nickel Semeuse 1 Fr 1960–2001 (KM#925.1) · magnetic Ni (not Ag)", "mintage": "44,286,591 (circu…»
 
-### 25. HW-muse-verify-20261023-2 · Second reader · Check 1 facts another AI wrote · due 2026-10-30  (fix list #18)
+### 21. HW-muse-verify-20261023-2 · Second reader · Check 1 facts another AI wrote · due 2026-10-30  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -786,7 +609,7 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **mint of C285 · Slovakia · 2009 · 5 euro cent · EUR** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C285 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C285_obv.webp (original: https://drive.google.com/file/d/1I8raIzKXi15TWX8U-MAf48jVmXL1FjB1/view)
 
-### 26. HW-muse-story-check-20261023-2 · Fact-checker · Fact-check 1 coin stories · due 2026-10-30  (fix list #73)
+### 22. HW-muse-story-check-20261023-2 · Fact-checker · Fact-check 1 coin stories · due 2026-10-30  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -797,7 +620,7 @@ Check each story against its own record (below) and the exact catalogue entry. I
 Items:
 - **C264 · Singapore · 1973 · 10 cents · SGD**: «A 1973 10-cent coin from Singapore. One side shows a crowned seahorse. The value side shows two stalks of rice, a large 10, and the words CENTS, 1973, and SINGAPORE. It is made of copper-nickel.» Record: «{"country": "Singapore", "year": "1973", "denom": "10 cents · SGD", "mint": "Singapore Mint (no letter on shown value side)", "refs": "KM#3 · Schön#3 · Numista#1671", "metal": "cupronickel · 2.83 g · 19.41 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness 1.397 mm · medal alignment", "mintage": "14,290,000", "design": "value side two rice (paddy) stalks · big 10 · CENTS · 197…»
 
-### 27. HW-muse-arbitrate-20261024-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-10-31  (fix list #18)
+### 23. HW-muse-arbitrate-20261024-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-10-31  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -809,7 +632,7 @@ Items:
 - **D0091 AT.KM.2826 catalogs**: record `[{"number": "2826", "system": "KM"}, {"number": "6133", "system": "Numista", "url": "http…` (model:claude: «Numista N#6133 (https://en.numista.com/catalogue/pieces6133.html): Austria 20 heller 1916-1918, KM#2826, Charles I, iro…») vs claim `["KM# 2826", "N# 6133", "Herinek Karl# 29", "J# 415", "ANK# 69"]` (model:gemini: «https://en.numista.com/catalogue/pieces6133.html (Numista N#6133): References row 'KM# 2826, Herinek Karl# 29, J# 415, …»)
 - **D0092 AT.KM.2826 issues.0.mintage**: record `48985000` (model:claude: «Numista N#6133 (https://en.numista.com/catalogue/pieces6133.html): Austria 20 heller 1916-1918, KM#2826, Charles I, iro…») vs claim `115245000` (model:gemini: «https://en.numista.com/catalogue/pieces6133.html (Numista N#6133): mintage table row '1918', column 'Mintage' = 115,245…»)
 
-### 28. HW-muse-story-check-20261024-1 · Fact-checker · Fact-check 2 coin stories · due 2026-10-31  (fix list #73)
+### 24. HW-muse-story-check-20261024-1 · Fact-checker · Fact-check 2 coin stories · due 2026-10-31  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -821,7 +644,7 @@ Items:
 - **C219 · Jamaica · 2015 · 1 dollar · JMD**: «A 2015 1 dollar from Jamaica. The obverse shows the coat of arms with a crocodile crest and Taino supporters, with JAMAICA, OUT OF MANY, ONE PEOPLE, ONE DOLLAR, and 2015. The reverse shows a facing bust of Sir Alexander Bustamante with THE RT. EXCELLENT SIR ALEXANDER BUSTAMANTE and NATIONAL HERO. The coin is round and struck in nickel-clad steel.» Record: «{"country": "Jamaica", "year": "2015", "denom": "1 dollar · JMD", "mint": "no mint mark (Royal Mint; none on type)", "refs": "KM#189 · Numista#14369", "metal": "nickel-plated steel · ~5–6 g · heptagon · circulated bright · white 2×2 staple flip", "specs": "thickness 2 mm · medal alignment · heptagonal module", "mintage": "unknown", "design": "reverse arms · crocodile crest · Taino supporters · JA…»
 - **C233 · Colombia · 2016 · 50 pesos · COP**: «A 2016 50 pesos from Colombia. The obverse shows the value 50 PESOS, REPÚBLICA DE COLOMBIA, 2016, and raised waves (José Antonio Suárez). The reverse shows the spectacled bear (Andean bear, Tremarctos ornatus) with OSO de ANTEOJOS and TREMARCTOS ORNATUS. Struck in nickel-plated steel.» Record: «{"country": "Colombia", "year": "2016", "denom": "50 pesos · COP", "mint": "Mint of Poland (2016 circulation strike", "refs": "KM#295 · Hernández#648 · Restrepo#444", "metal": "nickel-plated steel · 2.00 g · 17 mm · reeded · circulated bright · white 2×2 staple flip", "specs": "thickness 1.3 mm · coin alignment · New Family biodiversity series from 2012", "mintage": "141,000,000 (2016 · of which …»
 
-### 29. HW-muse-verify-20261024-1 · Second reader · Check 15 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 25. HW-muse-verify-20261024-1 · Second reader · Check 1 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -830,21 +653,19 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261024-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **design of C023 · Austria · 1918 · 20 heller** `type AT.KM.2826 design.text` = `obverse crowned double-headed eagle with the Austrian shield on its breast · reverse larg…` (written by Gemini: «https://en.numista.com/catalogue/pieces6133.html (Numista N#6133): Reverse 'Value in oak wreath, date below', Lettering '20 1918'») [audit sample]
-- **design of C173 · United Kingdom · 1998 · 5 pence · GBP** `type GB.KM.988 design.text` = `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)` (written by Gemini: «https://en.numista.com/catalogue/pieces876.html (Numista N#876): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de») [audit sample]
-- **design of C204 · Trinidad and Tobago · 2014 · 25 cents · TTD** `type TT.KM.33 design.text` = `obverse coat of arms · Scarlet Ibis + Cocrico supporters · REPUBLIC OF TRINIDAD AND TOBAG…` (written by Gemini: «https://en.numista.com/catalogue/pieces1159.html (Numista N#1159): Reverse 'Chaconia (Warszewiczia coccinea, the wild poinsettia, national f») [audit sample]
 - **year of C023 · Austria · 20 heller** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C023 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C023_rev.webp (original: https://drive.google.com/file/d/1AvM21rocsNxH3aDzEmOFa5QZqFXsVwwP/view)
-- **design of C088 · USA · 1957 · 10¢ Roosevelt** `type US.KM.195 design.text` = `obverse Roosevelt left (John R. Sinnock) · reverse torch · olive · oak · UNITED STATES OF…` (written by Claude: «Correction of Gemini's fill line (HW-gemini-fill-20261023-7): the Roosevelt dime reverse reads E PLURI left of the torch and BUS UNUM right»)
-- **design of C072 · France · 2000 · 2 euro · EUR** `type FR.KM.1289 design.text` = `national tree in hexagon · LIBERTÉ ÉGALITÉ FRATERNITÉ · RF (Joaquim Jimenez) · common map…` (written by Gemini: «https://en.numista.com/catalogue/pieces104.html (Numista N#104): Reverse 'A map, next to the face value, shows the fifteen states of the Eur»)
-- **design of C070 · Netherlands · 2002 · 2 euro · EUR** `type NL.KM.241 design.text` = `national Beatrix left + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 stars · common map s…` (written by Gemini: «https://en.numista.com/catalogue/pieces152.html (Numista N#152): Reverse 'A map, next to the face value, shows the fifteen states of the Eur»)
-- **design of C084 · Italy · 2002 · 1 euro · EUR** `type IT.KM.216 design.text` = `national Leonardo’s Vitruvian Man (Laura Cretara) + RI · date · R · 12 EU stars · common …` (written by Gemini: «https://en.numista.com/catalogue/pieces135.html (Numista N#135): Reverse 'A map, next to the face value, shows the fifteen states of the Eur»)
-- **design of C064 · Malta · 2008 · 1 euro · EUR** `type MT.KM.132 design.text` = `national Maltese Cross + MALTA · date · 12 EU stars · common map side (Luc Luycx) · Noel …` (written by Gemini: «https://en.numista.com/catalogue/pieces2187.html (Numista N#2187): Reverse 'A map, next to the face value, shows the European continent with»)
-- **design of C254 · Vatican City · 1951 · 10 lire · VAL** `type VA.KM.52.1 design.text` = `obverse Pius XII portrait · reverse standing Prudentia · CITTA' DEL VATICANO · 1951 · L. …` (written by Gemini: «https://en.numista.com/catalogue/pieces3935.html (Numista N#3935): Reverse 'Prudentia standing facing, dividing date and value', Lettering '»)
-- **design of C146 · Hong Kong · 1998 · $1 · HKD** `type HK.KM.69a design.text` = `Bauhinia / Hong Kong orchid flower · 香港 HONG KONG · reverse big 1 · 壹圓 · ONE DOLLAR · 199…` (written by Gemini: «https://en.numista.com/catalogue/pieces2118.html (Numista N#2118): Reverse 'The denomination in Chinese and English, with the Arabic numeral»)
-- **design of C164 · United Kingdom · 1932 · ½ penny · GBP** `type GB.KM.837 design.text` = `obverse George V left (Edgar Bertram Mackennal) · reverse seated Britannia with trident ·…` (written by Gemini: «https://en.numista.com/catalogue/pieces4004.html (Numista N#4004): Reverse 'Seated figure of Britannia right, with trident in left hand and»)
-- **design of C185 · Cayman Islands · 1996 · 5 cents · KYD** `type KY.KM.88a design.text` = `obverse Maklouf Elizabeth II right · CAYMAN ISLANDS · ELIZABETH II · date · reverse shrim…` (written by Gemini: «https://en.numista.com/catalogue/pieces10222.html (Numista N#10222): Reverse 'Prawn (Cayman Crayfish) left, value to right', Lettering '5 SD»)
-- **design of C211 · Italy · 1987 · 500 lire · ITL** `type IT.KM.111 design.text` = `obverse female head / Italia · reverse Quirinale Palazzo · Dioscuri · L. 500 · Braille 50…` (written by Gemini: «https://en.numista.com/catalogue/pieces302.html (Numista N#302): Reverse 'View of the Piazza del Quirinale in Rome in center inner circle, w»)
-- **design of C011 · Italy · 1970 · 50 lire · ITL** `type IT.KM.95.1 design.text` = `obverse Italia / Republic head oak-crowned (Romagnoli) · reverse Vulcan at anvil with ham…` (written by Gemini: «https://en.numista.com/catalogue/pieces724.html (Numista N#724): Reverse 'Naked Vulcan left beating the iron at the anvil. Date at upper lef»)
+
+### 26. HW-muse-verify-20261024-2 · Second reader · Check 2 facts another AI wrote · due 2026-10-31  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261024-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **mintage of C124 · France · 1967 · 10 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.929 issues.1.mintage`
+- **composition of C019 · Germany · 1981 · 10 Pfennig · DEM** `type DE.KM.108 composition.text` = `copper` (written by Grok: «https://en.numista.com/catalogue/pieces850.html (Numista N#850, 10 Pfennig - Federal Republic of Germany): Composition Brass clad steel (90%»)
 
 ## Projects (after the homework)
 
@@ -864,6 +685,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 21; expired: 0.
-- Your facts checked by another contributor: 290 (281 confirmed, 9 wrong; error rate 3.1 %, 95 % range 2-6 %). Checks you did for others: 99. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 8 of 8.
-- Share of your new facts that get checked first: 100 %.
+- Assignments answered: 25; expired: 0.
+- Your facts checked by another contributor: 327 (318 confirmed, 9 wrong; error rate 2.8 %, 95 % range 2-5 %). Checks you did for others: 144. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 10 of 10.
+- Share of your new facts that get checked first: 16 %.
