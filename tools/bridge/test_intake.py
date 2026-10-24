@@ -48,7 +48,10 @@ def gem_sheet(root):
         for l in open(sheet, encoding="utf-8"):
             ev = json.loads(l)
             if CAN.chosen(a["id"], item.get((ev["entity"], ev["id"], ev["field"]), "")): continue   # a planted value (canary): its answer is never filed
-            if ev.get("new") is not None: return a["id"], ev
+            if ev.get("new") is not None:
+                if a.pop("parts", None):     # a sheet split into Drive parts stays open to its deadline (2026-10-24); here it must close on answer
+                    with open(os.path.join(root, "docs", "agents", "homework", "assignments.json"), "w", encoding="utf-8") as fh: json.dump(asg, fh, indent=1, ensure_ascii=False)
+                return a["id"], ev
     raise AssertionError("no open Gemini verify sheet with a stated value to test with")
 
 

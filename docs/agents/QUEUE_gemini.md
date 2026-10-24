@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-24 01:22 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-24 02:53 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -71,13 +71,13 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-gemini-verify-20261020-1 · Second reader · Check 79 facts another AI wrote · due 2026-10-27  (fix list #18)
+### 1. HW-gemini-verify-20261020-1 · Second reader · Check 79 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261020-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261020-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 4 parts: answer each part into its own change file
 
 Items:
 - **design of C263 · Mexico · 1950 · 25 centavos · MXN** `type MX.KM.443 design.text` = `oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value betwe…` (written by Muse: «Numista N#972») [audit sample]
@@ -244,13 +244,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-20T16:00:29Z", "by": "model:gemini", "entity": "specimen", "id": "C240", "op": "set", "field": "issue.year", "new": null, "source": "FILL (year of C240 · Italy · 100 lire · ITL): the photo file you read it from, e.g. C240_rev.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-20", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261020-1", "run_id": "HW-gemini-verify-20261020-1", "inputs": [{"file": "C240_rev.webp"}]}}
 ```
 
-### 2. HW-gemini-verify-20261021-1 · Second reader · Check 80 facts another AI wrote · due 2026-10-28  (fix list #18)
+### 2. HW-gemini-verify-20261021-1 · Second reader · Check 80 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261021-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261021-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 4 parts: answer each part into its own change file
 
 Items:
 - **composition of C223 · Netherlands · 1967 · 1 gulden · NLG** `type NL.KM.184 composition.text` = `.720 Ag` (written by Grok: «https://en.numista.com/catalogue/pieces737.html (Numista N#737, 1 Gulden - Juliana - Netherlands): Composition Silver (.720) (28% copper); m») [audit sample]
@@ -419,13 +419,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-21T22:44:09Z", "by": "model:gemini", "entity": "type", "id": "AU.KM.36", "op": "set", "field": "composition.text", "old": "bronze", "new": "bronze", "source": "FILL (composition of C239 · Australia · 1944 · 1 penny · AUD (pre-decimal)): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-21", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261021-1", "run_id": "HW-gemini-verify-20261021-1", "inputs": []}}
 ```
 
-### 3. HW-gemini-verify-20261021-2 · Second reader · Check 78 facts another AI wrote · due 2026-10-28  (fix list #18)
+### 3. HW-gemini-verify-20261021-2 · Second reader · Check 78 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261021-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261021-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 4 parts: answer each part into its own change file
 
 Items:
 - **ruler of C239 · Australia · 1944 · 1 penny · AUD (pre-decimal)** `type AU.KM.36 ruler` = `George VI` (written by Grok: «https://en.wikipedia.org/wiki/George_VI (Wikipedia infobox) 'Reign' = 11 December 1936 – 6 February 1952; the type's issue year(s) 1944 fall»)
@@ -590,13 +590,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-21T22:44:09Z", "by": "model:gemini", "entity": "type", "id": "GB.KM.1109", "op": "set", "field": "series", "old": ["Shield series"], "new": ["Shield series"], "source": "FILL (series of C177 · United Kingdom · 2009 · 5 pence · GBP): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-21", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261021-2", "run_id": "HW-gemini-verify-20261021-2", "inputs": []}}
 ```
 
-### 4. HW-gemini-verify-20261022-1 · Second reader · Check 79 facts another AI wrote · due 2026-10-27  (fix list #18)
+### 4. HW-gemini-verify-20261022-1 · Second reader · Check 79 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261022-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261022-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 4 parts: answer each part into its own change file
 
 Items:
 - **catalog of C180 · United Kingdom · 2012 · 5 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.KM.1109d catalogs`
@@ -763,13 +763,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-22T13:53:57Z", "by": "model:gemini", "entity": "type", "id": "DE.KM.105", "op": "set", "field": "catalogs", "new": null, "source": "FILL (catalog of C029 · Germany · 1972 · 1 Pfennig · DEM): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-22", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261022-1", "run_id": "HW-gemini-verify-20261022-1", "inputs": []}}
 ```
 
-### 5. HW-gemini-verify-20261022-2 · Second reader · Check 75 facts another AI wrote · due 2026-10-27  (fix list #18)
+### 5. HW-gemini-verify-20261022-2 · Second reader · Check 75 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261022-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261022-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 4 parts: answer each part into its own change file
 
 Items:
 - **catalog of C193 · France · 1973 · 5 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.933 catalogs`

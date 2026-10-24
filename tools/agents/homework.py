@@ -17,6 +17,7 @@ Every run is a pure function of the collection (collection/), the roles (docs/ag
              (fill). A job disappears when its gap closes.
   2. CLOSE   an open assignment is done when all its items closed, or when the AI answered it (a merged event names it in
              provenance.assignment): items it left out go back to the pool, marked as tried by that AI. Past its lease it expires.
+             A sheet with `parts` (split by hand for an AI that reads Drive in small files) stays open to its lease once answered.
   3. ISSUE   each active AI is topped up to its capacity from the kinds it does (roles.json, in order; `per_kind` batches of a kind), highest priority first,
              due within the kind's lease or the AI's own `lease_days` when that is shorter (unanswered items come back sooner). An AI never
              gets a fact it wrote to check, nor a disagreement it is part of. Two AIs that tried and could not do an item park it.
@@ -653,6 +654,8 @@ def refresh(ctx, roles, queues, state, now, log=None):
         left = [it for it in a["items"] if it["item"] in pool]
         if not left:
             a.update(status="done", closed=now, result={"items": len(a["items"]), "closed": len(a["items"]), "left": 0}); log.append(f"{a['id']} done: every item closed"); continue
+        if a["id"] in ans and a.get("parts") and now <= a["lease_until"]:
+            continue                # a sheet split into parts for Drive (2026-10-24): one answered part is not the whole sheet, so it stays open to its deadline
         if a["id"] in ans:
             touched = ans[a["id"]]
             for it in left:
@@ -900,7 +903,8 @@ def agent_page(agent, roles, queues, state, pool, metrics, now):
             kd = roles["kinds"][a["kind"]]; items = [pool[x["item"]] for x in a["items"] if x["item"] in pool]
             L += [f"### {n}. {a['id']} · {kd['role']} · {kd['title'].format(n=len(items))} · due {a['lease_until'][:10]}  (fix list {kd['fix']})", "",
                   kd["what"], "", f"**Done when:** {kd['done_when']}", "",
-                  f"**Answer sheet:** {RAW}docs/agents/homework/sheets/{a['id']}.jsonl (save your edited copy as changes_{agent}_YYYYMMDD-HHMM.jsonl)", "",
+                  f"**Answer sheet:** {RAW}docs/agents/homework/sheets/{a['id']}.jsonl (save your edited copy as changes_{agent}_YYYYMMDD-HHMM.jsonl)"
+                  + (f"; on Drive in {a['parts']} parts: answer each part into its own change file" if a.get("parts") else ""), "",
                   "Items:"] + [item_md(it, a["id"]) for it in items] + [""]
             if ag.get("inline_sheets"):      # an AI that cannot open GitHub gets the sheet in the page itself
                 L += ["Answer sheet (the same as the link):", "", "```jsonl"] + [json.dumps(x, ensure_ascii=False) for x in sheet(a, pool, roles)] + ["```", ""]
@@ -978,7 +982,10 @@ def drive_copy(agent, page, note=None, name=None):
                 for k in range(i + 1, min(i + 40, len(L))):
                     if L[k].startswith("### ") or L[k].startswith("## "): break
                     if "**Answer sheet:**" in L[k]:
-                        m = re.search(r"sheets/(HW-[\w.\-]+)\.jsonl", L[k])
+                        m = re.search(r"sheets/(HW-[\w.\-]+)\.jsonl", L[k]); np = re.search(r"on Drive in (\d+) parts", L[k])
+                        if m and np:     # a big sheet split for Drive by hand: '{id} (part 1 of N).jsonl' ... '(part N of N).jsonl'
+                            out.append(f"  **Answer sheet:** Drive `Titan Reliquary/{SHEETS_FOLDER}/{name or agent}/{m.group(1)} (part 1 of {np.group(1)}).jsonl` "
+                                       f"to `(part {np.group(1)} of {np.group(1)}).jsonl`, one change file per part (all parts together: {RAW}docs/agents/homework/sheets/{m.group(1)}.jsonl)"); break
                         out.append(f"  **Answer sheet:** Drive `Titan Reliquary/{SHEETS_FOLDER}/{name or agent}/{m.group(1)}.jsonl` "
                                    f"(the same file: {RAW}docs/agents/homework/sheets/{m.group(1)}.jsonl)" if m else "  " + L[k].strip()); break
             i += 1; continue

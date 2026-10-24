@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-24] — Claude · Gemini loaded with its 5 check sheets (owner: "Load it up and give me a copy paste for it to continue")
+- Gemini's 5 big verify sheets (398 facts, about 50 KB each) were only on GitHub, which it cannot open. Copied by hand into Drive `homework sheets (current: refreshed every hour)/Gemini/` as 20 parts `HW-gemini-verify-{id} (part N of 4).jsonl` (~13 KB each, every size checked against the repo file); deadlines moved to 2026-10-31 (`lease_until` edited by hand in assignments.json) and `parts: 4` set on the 5 sheets.
+- Loop: `homework.py` keeps a sheet with `parts` open to its deadline once answered (one part answered used to close the whole sheet and hand the other three parts' items to Grok/Muse); the queue pages name the parts; test `test_a_sheet_split_into_parts_stays_open_until_its_deadline`. When these 5 sheets close, trash the 20 part files by hand (the bridge only removes the files it copied). Drive WORK QUEUE for Gemini updated; owner has a kick-off prompt for Gemini's chat.
+
 ### [2026-10-24] — Claude · Gemini's evening round reviewed (owner: "How did argon perform this round?")
 - Data: 10 change files merged (`changes_gemini_20261023-2101..2110`, 170 facts; all 7 fill sheets closed). Fault: the AT.KM.2826 1918 mintage 115,245,000 "quoted" from Numista exists in no source (1916 130.77M, 1917 127.42M, 1918 48.985M); D0091 (catalogs as strings) and D0092 go to Muse (record is Claude's). Dime lettering corrected (`changes_claude_20261024-0105`). Scores 10/6/10x5/10/8, theme 5, motion 7, music 3.
 - Cloud Forest package v1 run on software GL, not shipped: negative tap age blows out the basin for 99 s, texture() in a branch, the intro shader does not compile (`%` in GLSL ES 1.00); front fronds cover coin and title. REVIEW files in Drive `themes/canopy/` and `motion/`; v2 requested (queues.json 12-14). Music picks: 2 from the refused Pandora/Al Goldstein MIDI set, 2 already in the app.

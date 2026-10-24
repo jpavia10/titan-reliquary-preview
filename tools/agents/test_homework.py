@@ -358,6 +358,26 @@ class LoopUpgrades(unittest.TestCase):
             own = roles["agents"][a["agent"]].get("lease_days"); kd = roles["kinds"][a["kind"]].get("lease_days", 7)
             self.assertEqual(a["lease_until"], HW._days(NOW, min(kd, own) if own else kd), a["id"])
 
+    def test_a_sheet_split_into_parts_stays_open_until_its_deadline(self):
+        tmp = sandbox(); r = run_refresh(tmp, NOW)
+        a = next(x for x in r["state"]["assignments"] if x["agent"] == "muse" and x["kind"] == "verify")
+        sp = os.path.join(tmp, "docs", "agents", "homework", "assignments.json"); st = json.load(open(sp, encoding="utf-8"))
+        next(x for x in st["assignments"] if x["id"] == a["id"])["parts"] = 2
+        with open(sp, "w", encoding="utf-8") as fh: json.dump(st, fh, indent=1, ensure_ascii=False)
+        line = copy.deepcopy(HW.sheet(a, r["pool"], r["roles"])[0])
+        line["source"] = "https://www.ngccoin.com/price-guide/world/test-part-cuid-4: the same value, read again from part 1"
+        status, rep, _ = apply(tmp, [line])
+        self.assertEqual(status, "applied", rep)
+        r2 = HW.run(tmp, LATER)       # part 1 answered, before the deadline: still open, nothing handed back
+        a2 = next(x for x in r2["state"]["assignments"] if x["id"] == a["id"])
+        self.assertEqual(a2["status"], "open")
+        self.assertIn("on Drive in 2 parts", open(os.path.join(tmp, "docs", "agents", "QUEUE_muse.md"), encoding="utf-8").read())
+        self.assertIn(f"{a['id']} (part 1 of 2).jsonl", open(os.path.join(tmp, "docs", "agents", "drive", "QUEUE_muse.txt"), encoding="utf-8").read())
+        after = HW._days(a["lease_until"], 1)
+        r3 = HW.run(tmp, after)        # past the deadline it closes as answered (done), not expired
+        a3 = next(x for x in r3["state"]["assignments"] if x["id"] == a["id"])
+        self.assertEqual(a3["status"], "done")
+
     def test_only_your_own_sheet_and_a_real_assignment_are_accepted(self):
         """2026-10-22: Gemini sent Grok's Oct 10 sheet lines (from a stale Drive copy of the repository) under its own assignment id."""
         tmp = sandbox(); r = run_refresh(tmp, NOW); st = r["state"]
