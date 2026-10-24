@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-10-23T22:43:18Z",
- "content_hash": "7a377e608af60920",
+ "generated_at": "2026-10-24T01:18:12Z",
+ "content_hash": "f59eb151190427b2",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:7a377e608af60920",
+  "ledger_version": "v3:f59eb151190427b2",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5390.82,
@@ -197,8 +197,8 @@
      "Stefan Schwartz"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "crowned double-headed eagle with Austrian shield on breast",
+    "reverse": "value within oak wreath, date below · 20 · 1918",
     "text": "obverse crowned double-headed eagle with the Austrian shield on its breast · reverse large 20 in an oak wreath, date below · no legend (Stefan Schwartz)"
    },
    "die_variety": null,
@@ -222,14 +222,14 @@
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 21.0,
-    "edge": null,
+    "edge": "Reeded",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.25,
     "weight_approx": false,
     "weight_g": 3.5,
     "weight_max_g": null,
@@ -5274,8 +5274,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "main facade of the Cathedral of Santiago de Compostela and the twelve stars of Europe (five bound by a raised band) · ESPAÑA · 2008 · M",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 1 EURO CENT · LL",
     "text": "national side Cathedral of Santiago de Compostela (Garcilaso Rollán) + 12 EU stars · common side globe (Luc Luycx)"
    },
    "die_variety": null,
@@ -5362,8 +5362,8 @@
      "Luc Luycx (common side)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "main facade of the Cathedral of Santiago de Compostela and the twelve stars of Europe (five bound by a raised band) · ESPAÑA · 2000 · M",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 5 EURO CENT · LL",
     "text": "national Cathedral of Santiago de Compostela (Garcilaso Rollán) + 12 EU stars · common Europe globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -5450,8 +5450,8 @@
      "Luc Luycx"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "main facade of the Cathedral of Santiago de Compostela and the twelve stars of Europe · ESPAÑA · 2014 · M",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 1 EURO CENT · LL",
     "text": "national side Cathedral of Santiago de Compostela + 12 EU stars (2010 onward type) · common side globe (Luc Luycx)"
    },
    "die_variety": null,
@@ -5538,8 +5538,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "portrait of young Marianne in Phrygian cap surrounded by twelve stars of Europe · RF · 2009 · F. COURTIADE",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 1 EURO CENT · LL",
     "text": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -5626,8 +5626,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "portrait of young Marianne in Phrygian cap surrounded by twelve stars of Europe · RF · 2009 · F. COURTIADE",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 2 EURO CENT · LL",
     "text": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -5730,8 +5730,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "portrait of young Marianne in Phrygian cap surrounded by twelve stars of Europe · RF · 2009 · F. COURTIADE",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 5 EURO CENT · LL",
     "text": "national Marianne in Phrygian cap (Fabienne Courtiade) · RF · 12 EU stars · common globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -5818,8 +5818,8 @@
      "Luc Luycx (common side)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "modern adaptation of the Sower walking left encircled by twelve stars of Europe · RF · 1999 · L. JORIO D'AP. O. ROTY",
+    "reverse": "map of the fifteen nations of the European Union next to face value and twelve vertical stars · 10 EURO CENT · LL",
     "text": "national modern La Semeuse (Laurent Jorio after Roty) · RF · 12 EU stars · common map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -5914,8 +5914,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "modern adaptation of the Sower walking left encircled by twelve stars of Europe · L. JORIO D'AP. O. ROTY · 2000 · RF",
+    "reverse": "map of the fifteen nations of the European Union next to face value and twelve vertical stars · 20 EURO CENT · LL",
     "text": "national modern La Semeuse (Laurent Jorio after Roty) · RF · 12 EU stars · common map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -6002,8 +6002,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "stylised tree of life in a hexagon encircled by the French motto and twelve stars of Europe · LIBERTÉ ÉGALITÉ FRATERNITÉ · J. JIMENEZ · R F · 2000",
+    "reverse": "map of the fifteen states of the European Union next to face value and twelve vertical stars · 2 EURO · LL",
     "text": "national tree in hexagon · LIBERTÉ ÉGALITÉ FRATERNITÉ · RF (Joaquim Jimenez) · common map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -6090,8 +6090,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "the Sower walking left surrounded by rays, lines, and twelve stars of the European Union · RF · 2010 · L. JORIO D'AP. O. ROTY",
+    "reverse": "geographic map of Europe without internal borders next to face value and twelve vertical stars · 10 EURO CENT · LL",
     "text": "obverse The Sower walking left with rays and 12 stars · RF · L. JORIO d'ap. O. ROTY · reverse common Europe map side · 10 EURO CENT · Laurent Jorio / Luc Luycx"
    },
    "die_variety": null,
@@ -6272,8 +6272,8 @@
      "Louis-Oscar Roty"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "the Sower walking left sowing against rising sun · REPUBLIQUE FRANÇAISE · O. ROTY",
+    "reverse": "olive branch below face value surrounded by French motto, date below · LIBERTE·EGALITE·FRATERNITE · 1 FRANC · 1962",
     "text": "obverse La Semeuse left (Oscar Roty) · REPUBLIQUE FRANÇAISE · reverse 1 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date"
    },
    "die_variety": null,
@@ -6392,8 +6392,8 @@
      "Adrien Dieudonné (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Marianne in left profile wearing the Phrygian cap of liberty · REPUBLIQUE FRANÇAISE · LAGRIFFOUL",
+    "reverse": "face value surrounded by wheat ear, olive branch, and French motto · LIBERTE · EGALITE · FRATERNITE · 10 CENTIMES · 1963 · A. DIEUDONNE",
     "text": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 10 CENTIMES · olive + wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)"
    },
    "die_variety": null,
@@ -6512,8 +6512,8 @@
      "Adrien Dieudonné (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Marianne in left profile wearing the Phrygian cap of liberty · REPUBLIQUE FRANÇAISE · LAGRIFFOUL",
+    "reverse": "face value surrounded by wheat ear, olive branch, and French motto · A. DIEUDONNE · LIBERTE·EGALITE ·FRATERNITE· · 20 CENTIMES · 1986",
     "text": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 20 CENTIMES · olive + wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)"
    },
    "die_variety": null,
@@ -6607,8 +6607,8 @@
      "Louis-Oscar Roty"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "the Sower walking left sowing against rising sun · REPUBLIQUE FRANÇAISE · O. ROTY",
+    "reverse": "olive branch below face value surrounded by French motto, date below · LIBERTE·EGALITE·FRATERNITE · 1/2 FRANC · 1969",
     "text": "obverse La Semeuse left (Oscar Roty) · reverse 1/2 FRANC · olive sprig · LIBERTE · EGALITE · FRATERNITE · date"
    },
    "die_variety": null,
@@ -6711,8 +6711,8 @@
      "Adrien Dieudonné (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Marianne in left profile wearing the Phrygian cap of liberty · REPUBLIQUE FRANÇAISE · LAGRIFFOUL",
+    "reverse": "face value surrounded by wheat ear, olive branch, and French motto · A. DIEUDONNE · LIBERTE·EGALITE ·FRATERNITE· · 5 CENTIMES · 1973",
     "text": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 5 CENTIMES · olive/wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)"
    },
    "die_variety": null,
@@ -6807,8 +6807,8 @@
      "Atelier de Gravure des Monnaies et Médailles"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "winged Génie de la Liberté atop the July Column flanked by initials on a striated geometrical field · R F",
+    "reverse": "face value crossed with wide horizontal stripes surrounded by French motto and date · LIBERTÉ EGALITÉ · 10F · 1989 · FRATERNITÉ",
     "text": "Génie de la Liberté atop the July Column, Paris, between R F (obv; engravers Jean-Luc Maréchal, Atelier de Gravure) · 10 F crossed with wide stripes, LIBERTÉ ÉGALITÉ FRATERNITÉ, date (rev)"
    },
    "die_variety": null,
@@ -6976,8 +6976,8 @@
      "Matthew Dent (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II·D·G REG·F·D·2010 · IRB",
+    "reverse": "left part of the Royal Shield of Arms with denomination in left segment · ONE PENNY · MD",
     "text": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse lower section of Royal Arms shield · ONE PENNY · Matthew Dent / Ian Rank-Broadley"
    },
    "die_variety": null,
@@ -7070,8 +7070,8 @@
      "Matthew Dent (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II·D·G REG·F·D·2009 · IRB",
+    "reverse": "central section of the Royal Shield of Arms showing elements of all four quadrants · FIVE PENCE",
     "text": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)"
    },
    "die_variety": null,
@@ -7164,8 +7164,8 @@
      "Matthew Dent (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II·D·G REG·F·D·2012 · IRB",
+    "reverse": "centre section of the Royal Shield of Arms with denomination central · FIVE PENCE",
     "text": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)"
    },
    "die_variety": null,
@@ -7266,8 +7266,8 @@
      "Matthew Dent (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II·D·G REG·F·D·2010 · IRB",
+    "reverse": "upper left section of the Royal Shield of Arms with denomination in upper segment · TEN PENCE · MD",
     "text": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)"
    },
    "die_variety": null,
@@ -7352,8 +7352,8 @@
      "Matthew Dent (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II·D·G REG·F·D·2013 · IRB",
+    "reverse": "upper left section of the Royal Shield of Arms with denomination in upper segment · TEN PENCE",
     "text": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)"
    },
    "die_variety": null,
@@ -7446,8 +7446,8 @@
      "Matthew Dent (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fifth crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · ELIZABETH II∙DEI∙GRA∙REG∙FID∙DEF∙2015∙ · J.C",
+    "reverse": "centre section of the Royal Shield of Arms with denomination central · FIVE PENCE",
     "text": "obverse Jody Clark Elizabeth II · reverse Royal Shield segment · FIVE PENCE (Matthew Dent)"
    },
    "die_variety": null,
@@ -7540,8 +7540,8 @@
      "Matthew Dent (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fifth crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · ELIZABETH II∙DEI∙GRA∙REG∙FID∙DEF∙2016∙ · J.C",
+    "reverse": "top left section of the Royal Shield of Arms with denomination in upper segment · TEN PENCE · MD",
     "text": "obverse Jody Clark Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)"
    },
    "die_variety": null,
@@ -7626,8 +7626,8 @@
      "Leonard Charles Wyon (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "uncrowned portrait of King George V facing left · GEORGIVS V DEI GRA:BRITT:OMN:REX FID:DEF:IND:IMP · BM",
+    "reverse": "seated figure of Britannia right holding trident and Union shield with sea behind and date in exergue · HALF PENNY · 1932",
     "text": "obverse George V left (Edgar Bertram Mackennal) · reverse seated Britannia with trident · HALF PENNY + date"
    },
    "die_variety": null,
@@ -7710,8 +7710,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "second crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II D·G·REG·F·D·1968",
+    "reverse": "part of the Crest of England, a lion passant guardant royally crowned · NEW PENCE · 10",
     "text": "obverse Arnold Machin Elizabeth II · reverse crowned lion passant guardant · NEW PENCE (Ironside)"
    },
    "die_variety": null,
@@ -7794,8 +7794,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "second crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II D·G·REG·F·D·1973",
+    "reverse": "central Crown of St. Edward with denomination in letters above and fraction below · NEW PENNY · ½",
     "text": "obverse Arnold Machin Elizabeth II · reverse crowned St Edward's Crown (Christopher Ironside) · NEW PENNY ½"
    },
    "die_variety": null,
@@ -7882,8 +7882,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "second crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II D·G·REG·F·D·1971",
+    "reverse": "crowned portcullis with chains (Badge of the Palace of Westminster) · NEW PENNY · 1",
     "text": "obverse Arnold Machin Elizabeth II · reverse crowned portcullis · NEW PENNY (Ironside)"
    },
    "die_variety": null,
@@ -7978,8 +7978,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "second crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH · II D · G · REG · F · D · 1971",
+    "reverse": "badge of the Prince of Wales, three ostrich feathers enfiling a coronet of cross pattée and fleur-de-lis dividing motto · NEW PENCE · ICH DIEN · 2",
     "text": "obverse bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Prince of Wales feathers coronet badge · NEW PENCE 2 · Christopher Ironside / Arnold Machin"
    },
    "die_variety": null,
@@ -8070,8 +8070,8 @@
      "William Gardner (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "second crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH II D·G·REG·F·D·",
+    "reverse": "crowned Tudor rose dividing date and legend, denomination below · TWENTY PENCE · 1982 · W G · 20",
     "text": "obverse Arnold Machin Elizabeth II · reverse crowned Tudor rose · TWENTY PENCE · date split by crown · 20 (William Gardner)"
    },
    "die_variety": null,
@@ -8158,8 +8158,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "third crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · ELIZABETH II D·G·REG·F·D·1987 · RDM",
+    "reverse": "crowned portcullis with chains (Badge of the Palace of Westminster) · ONE PENNY · 1",
     "text": "obverse Raphael Maklouf Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)"
    },
    "die_variety": null,
@@ -8254,8 +8254,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "third crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · ELIZABETH II D·G·REG·F·D·1995 · RDM",
+    "reverse": "crowned portcullis with chains (Badge of the Palace of Westminster) · ONE PENNY · 1",
     "text": "obverse Raphael Maklouf Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)"
    },
    "die_variety": null,
@@ -8354,8 +8354,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "third crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · ELIZABETH II D·G·REG·F·D·1991 · RDM",
+    "reverse": "badge of the Prince of Wales, three ostrich feathers enfiling a coronet of cross pattée and fleur-de-lis dividing motto · TWO PENCE · ICH DIEN · 2",
     "text": "obverse 3rd crowned bust of Elizabeth II right · ELIZABETH II D·G·REG·F·D · reverse Prince of Wales feathers coronet badge with motto ICH DIEN · TWO PENCE 2 · Christopher Ironside / Raphael David Maklouf"
    },
    "die_variety": null,
@@ -8442,8 +8442,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "third crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · ELIZABETH II D·G·REG·F·D·1990 · RDM",
+    "reverse": "the Badge of Scotland, a thistle royally crowned · FIVE PENCE · 5",
     "text": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)"
    },
    "die_variety": null,
@@ -8550,8 +8550,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "third crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · ELIZABETH II D·G·REG·F·D·1992 · RDM",
+    "reverse": "part of the crest of England, a lion passant guardant royally crowned · TEN PENCE · 10",
     "text": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)"
    },
    "die_variety": null,
@@ -8638,8 +8638,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II·D·G REG·F·D·2003 · IRB",
+    "reverse": "crowned portcullis with chains (Badge of the Palace of Westminster) · ONE PENNY · 1",
     "text": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned portcullis · ONE PENNY (Ironside)"
    },
    "die_variety": null,
@@ -8750,8 +8750,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II·D·G REG·F·D·1998 · IRB",
+    "reverse": "the Badge of Scotland, a thistle royally crowned · FIVE PENCE · 5",
     "text": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)"
    },
    "die_variety": null,
@@ -8862,8 +8862,8 @@
      "Christopher Ironside (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · ELIZABETH·II·D·G REG·F·D·2001 · IRB",
+    "reverse": "part of the Crest of England, a lion passant guardant royally crowned · TEN PENCE · 10",
     "text": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)"
    },
    "die_variety": null,
@@ -9127,8 +9127,8 @@
      "Vasos Falireas"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "portrait of young King Constantine II left, date below · ΚΩΝCΤΑΝΤΙΝΟC ΒΑCΙΛΕΥC ΤΩΝ ΕΛΛΗΝΩΝ · 1970",
+    "reverse": "crowned royal arms (shield with cross) supported by two figures of Heracles (defenders of the Crown), denomination below · ΒΑCΙΛΕΙΟΝ ΤΗC ΕΛΛΑΔΟC · 2 ΔΡΑΧΜΑΙ",
     "text": "obverse Constantine II portrait · reverse royal arms crowned cross shield · Heracles supporters with clubs · ΒΑΣΙΛΕΙΟΝ ΤΗΣ ΕΛΛΑΔΟΣ · 2 ΔΡΑΧΜΑΙ · 1970"
    },
    "die_variety": null,
@@ -9384,8 +9384,8 @@
      "Joseph Yam"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Bauhinia orchid flower (Bauhinia blakeana) above issuer name · 香港 · HONG KONG",
+    "reverse": "denomination in Chinese and Arabic numerals above date and English denomination below · 壹圓 · 1 · 1998 · ONE DOLLAR",
     "text": "Bauhinia / Hong Kong orchid flower · 香港 HONG KONG · reverse big 1 · 壹圓 · ONE DOLLAR · 1998 (Joseph Yam)"
    },
    "die_variety": null,
@@ -9556,8 +9556,8 @@
      "Iván István"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "arms of the Hungarian People's Republic (shield with wreath around and star above), date below · MAGYAR · NÉPKÖZTÁRSASÁG · · 1967",
+    "reverse": "value with leaves behind and mintmark between · 1 · BP. · FORINT",
     "text": "obverse People’s Republic arms · MAGYAR NÉPKÖZTÁRSASÁG · wheat + star · reverse big 1 FORINT · BP. · date"
    },
    "die_variety": null,
@@ -9644,8 +9644,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Celtic harp flanked by country name and date, encircled by twelve five-pointed stars of the European Union · ÉIRE · 2002",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 1 EURO CENT · LL",
     "text": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common Europe globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -9740,8 +9740,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Celtic harp flanked by country name and date, encircled by twelve five-pointed stars of the European Union · ÉIRE · 2013",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 5 EURO CENT · LL",
     "text": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -9912,8 +9912,8 @@
      "Laura Cretara"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "female head representing the Italian Republic facing left with feathered wings at temples · REPVBBLICA ITALIANA · CRETARA",
+    "reverse": "view of the Piazza del Quirinale in Rome in center with date and mintmark, Braille value above and Latin denomination below flanked by wheat and oak branches · ⠨⠇⠄⠼⠑⠚⠚⠄ · R 1987 · L.500",
     "text": "obverse female head / Italia · reverse Quirinale Palazzo · Dioscuri · L. 500 · Braille 500 on ring · wheat · date · R"
    },
    "die_variety": null,
@@ -10002,8 +10002,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "the Mole Antonelliana tower in Turin encircled by twelve stars of Europe · RI · LDS · R · 2010",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 2 EURO CENT · LL",
     "text": "national Mole Antonelliana Turin (Luciana De Simoni) + RI · date · R · 12 EU stars · common Europe globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -10092,8 +10092,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "detail of Botticelli's 'Birth of Venus' encircled by twelve stars of Europe · 2007 · RI · R · CM",
+    "reverse": "map of the nations of the European Union next to face value and twelve vertical stars · 10 EURO CENT · LL",
     "text": "national Botticelli Birth of Venus detail (Claudia Momoni) + RI · date · R · 12 EU stars · common Europe map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -10182,8 +10182,8 @@
      "Luc Luycx (common side)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Umberto Boccioni's sculpture 'Unique Forms of Continuity in Space' encircled by twelve stars of Europe · R · RI · 2002 · M.A.C.",
+    "reverse": "map of the nations of the European Union next to face value and twelve vertical stars · 20 EURO CENT · LL",
     "text": "national Boccioni Unique Forms of Continuity in Space (M.A. Cassol) + RI · R · date · 12 EU stars · common Europe map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -10272,8 +10272,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "equestrian statue of Emperor Marcus Aurelius on the Piazza del Campidoglio encircled by twelve stars of Europe · R · RI · M · 2002",
+    "reverse": "map of the nations of the European Union next to face value and twelve vertical stars · 50 EURO CENT · LL",
     "text": "national equestrian Marcus Aurelius on the Campidoglio paving (engraver Roberto Mauri) + RI · R · date · 12 EU stars · common map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -10360,8 +10360,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Leonardo da Vinci's Vitruvian Man encircled by twelve stars of Europe · RI · R · 2002 · LC",
+    "reverse": "map of the nations of the European Union next to face value and twelve vertical stars · 1 EURO · LL",
     "text": "national Leonardo’s Vitruvian Man (Laura Cretara) + RI · date · R · 12 EU stars · common map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -10450,8 +10450,8 @@
      "Pietro Giampaoli (engraver)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "female head with oak wreath in hair facing right · REPVBBLICA·ITALIANA· · ROMAGNOLI · GIAMPAOLI-INC.",
+    "reverse": "naked god Vulcan standing left beating iron on an anvil · 1970 · L.50 · R",
     "text": "obverse Italia / Republic head oak-crowned (Romagnoli) · reverse Vulcan at anvil with hammer · L.50 · date · R (Giampaoli)"
    },
    "die_variety": null,
@@ -10566,8 +10566,8 @@
      "Pietro Giampaoli (engraver)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "female head with laurel wreath facing left · REPVBBLICA ITALIANA · ROMAGNOLI · GIAMPAOLI-INC.",
+    "reverse": "goddess Minerva standing left holding long spear and reaching toward an olive tree · L.100 · R · 1965",
     "text": "obverse Italia / Republic head · reverse Minerva with spear · olive tree · L.100 · date · R (Giuseppe Romagnoli)"
    },
    "die_variety": null,
@@ -11437,8 +11437,8 @@
      "Stuart Devlin (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "fourth crowned portrait of Queen Elizabeth II right wearing the Girls of Great Britain and Ireland tiara · CAYMAN ISLANDS ELIZABETH II · IRB · 2002",
+    "reverse": "Cayman crayfish (prawn) facing left, value at right · 5 · SD",
     "text": "obverse Rank-Broadley Elizabeth II · CAYMAN ISLANDS · ELIZABETH II · date · reverse Cayman crayfish · 5 (Stuart Devlin)"
    },
    "die_variety": null,
@@ -11529,8 +11529,8 @@
      "Stuart Devlin (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "third crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · CAYMAN ISLANDS ELIZABETH II · 1990 · RDM",
+    "reverse": "Grand Cayman thrush perched on a branch left beside value · 1 · SD",
     "text": "obverse Raphael Maklouf crowned Elizabeth II right · legend CAYMAN ISLANDS · ELIZABETH II · date 1990 below · reverse (not photographed) Grand Cayman thrush (Turdus ravidus, extinct) beside 1 · engraver SD (Stuart Devlin)"
    },
    "die_variety": null,
@@ -11613,8 +11613,8 @@
      "Stuart Devlin (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "third crowned portrait of Queen Elizabeth II right wearing the George IV State Diadem · CAYMAN ISLANDS ELIZABETH II · RDM · 1996",
+    "reverse": "Cayman crayfish (prawn) facing left, value at right · 5 · SD",
     "text": "obverse Maklouf Elizabeth II right · CAYMAN ISLANDS · ELIZABETH II · date · reverse shrimp / crayfish"
    },
    "die_variety": null,
@@ -11701,8 +11701,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "prehistoric Mnajdra temple altar encircled by twelve stars of the European Union · MALTA · 2013 · NGB",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 5 EURO CENT · LL",
     "text": "national Mnajdra Temple altar/trilithon + MALTA · date · 12 EU stars · common Europe globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -11792,8 +11792,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "coat of arms of Malta flanked by country name and date, encircled by twelve stars of Europe · MALTA · 2008 · REPUBBLIKA TA' MALTA · F",
+    "reverse": "map of Europe without internal borders next to face value and twelve vertical stars · 10 EURO CENT · LL",
     "text": "national Arms of Malta (flag shield · mural crown · olive & palm) + MALTA · date · 12 EU stars · common Europe map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -11883,8 +11883,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "eight-pointed Maltese cross on a striated field encircled by twelve stars of Europe · M A L T A · 2008 · F",
+    "reverse": "map of Europe without internal borders next to face value and twelve vertical stars · 1 EURO · LL",
     "text": "national Maltese Cross + MALTA · date · 12 EU stars · common map side (Luc Luycx) · Noel Galea Bason"
    },
    "die_variety": null,
@@ -12228,8 +12228,8 @@
      "Manuel Luna Negrete (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Mexican coat of arms (golden eagle perched left on prickly pear cactus devouring a rattlesnake above oak and laurel wreath) · ESTADOS UNIDOS MEXICANOS",
+    "reverse": "radiating rings of the Aztec Sun Stone (Piedra del Sol) surrounding date, mintmark, and denomination · 1945 · M · 10 CENTAVOS",
     "text": "obverse national arms (eagle on cactus) · reverse Aztec Sun Stone · big 10 · CENTAVOS · 1945 · M (Manuel Luna Negrete)"
    },
    "die_variety": null,
@@ -13462,8 +13462,8 @@
      "Ludwig Oswald Wenckebach (obverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "portrait of Queen Juliana facing right · JULIANA KONINGIN DER NEDERLANDEN · · W",
+    "reverse": "crowned coat of arms of the Netherlands dividing date and value · 1967 · 1 G · NEDERLAND",
     "text": "Juliana head right, JULIANA KONINGIN DER NEDERLANDEN (obv; engraver Ludwig Oswald Wenckebach) · crowned arms dividing date, 1 G, NEDERLAND (rev) · mintmaster fish mark"
    },
    "die_variety": null,
@@ -13549,8 +13549,8 @@
      "Bruno Ninaber van Eyben"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "half-profile head of Queen Beatrix facing left with vertical inscription at right · BEATRIX KONINGIN DER NEDERLANDEN",
+    "reverse": "denomination and date with rectangular grid of vertical lines · 25CT · 1996",
     "text": "obverse Beatrix portrait · reverse value and date within vertical lines (25ct · date)"
    },
    "die_variety": null,
@@ -13637,8 +13637,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "profile portrait of Queen Beatrix facing left encircled by twelve stars of Europe · BEATRIX KONINGIN DER NEDERLANDEN · 2000",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 1 EURO CENT · LL",
     "text": "national Beatrix portrait + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -13725,8 +13725,8 @@
      "Luc Luycx (common side)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "profile portrait of Queen Beatrix facing left encircled by twelve stars of Europe · BEATRIX KONINGIN DER NEDERLANDEN · 2000",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 5 EURO CENT · LL",
     "text": "obverse profile portrait of Queen Beatrix left with 12 stars and BEATRIX KONINGIN DER NEDERLANDEN · reverse common Europe on globe side · 5 EURO CENT · Bruno Ninaber van Eyben / Luc Luycx"
    },
    "die_variety": null,
@@ -13813,8 +13813,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "profile portrait of Queen Beatrix facing left encircled by twelve stars of Europe · BEATRIX KONINGIN DER NEDERLANDEN · 2001",
+    "reverse": "map of the European continent next to face value and twelve vertical stars · 20 EURO CENT · LL",
     "text": "national Beatrix stylized profile + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -13901,8 +13901,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "profile portrait of Queen Beatrix facing left with vertical inscription at right and twelve stars on left · BEATRIX KONINGIN DER NEDERLANDEN · 2002",
+    "reverse": "map of the fifteen states of the European Union next to face value and twelve vertical stars · 2 EURO · LL",
     "text": "national Beatrix left + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 stars · common map side (Luc Luycx)"
    },
    "die_variety": null,
@@ -13989,8 +13989,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "portrait of King Willem-Alexander facing right with vertical inscription and twelve stars · WILLEM-ALEXANDER KONING DER NEDERLANDEN · 2014",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 5 EURO CENT · LL",
     "text": "national Willem-Alexander right-facing portrait · Willem-Alexander Koning der Nederlanden (vertical) · date · 12 stars · common Europe globe side (Luc Luycx)"
    },
    "die_variety": null,
@@ -14075,8 +14075,8 @@
      "Grażyna Jolanta Lindau"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "royal crown above crossed hammers mintmark and mintmaster initials · ⚒ · JEJ",
+    "reverse": "stylised mythical dragon Nidhogg facing right · 50 ØRE · NOREG · 1998 · GJL",
     "text": "obverse large crown with crossed-hammers mint mark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)"
    },
    "die_variety": null,
@@ -14266,8 +14266,8 @@
      "Rafael Asuncion (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "head of Marcelo H. del Pilar facing left · REPUBLIKA NG PILIPINAS · MARCELO H. DEL PILAR · 1984",
+    "reverse": "Philippine eagle (Pithecophaga jefferyi) flying right · 50 SENTIMO · PITHECOPHAGA JEFFERYI",
     "text": "obverse portrait of Marcelo H. del Pilar right · REPUBLIKA NG PILIPINAS · reverse Philippine eagle (Pithecophaga jefferyi) perched with wings spread · 50 SENTIMO"
    },
    "die_variety": null,
@@ -14443,8 +14443,8 @@
      "Luc Luycx (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "royal seal of 1142 of King Afonso Henriques surrounded by seven castles, five shields, country name, date, and twelve stars of Europe · PORTUGAL · PO RT VG AL · VS · INCM · 2002",
+    "reverse": "map of the fifteen nations of the European Union next to face value and twelve vertical stars · 20 EURO CENT · LL",
     "text": "national royal seal of 1142 (seven castles · five shields) + PORTUGAL · 20★02 style date · 12 EU stars · common Europe map side (Luc Luycx) · Vítor Santos"
    },
    "die_variety": null,
@@ -14617,8 +14617,8 @@
      "Edvin Öhrström (obverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "bust of King Gustaf VI Adolf facing left · GUSTAF VI ADOLF SVERIGES KONUNG · Ö · U",
+    "reverse": "crowned coat of arms of Sweden dividing date and value with royal motto below · 1973 · 1 KR · PLIKTEN • FRAMFÖR • ALLT",
     "text": "obverse stylized bust of Gustaf VI Adolf facing left · GUSTAF VI ADOLF SVERIGES KONUNG · reverse crowned coat of arms of Sweden · 1 KR · PLIKTEN • FRAMFÖR • ALLT · date"
    },
    "die_variety": null,
@@ -14704,8 +14704,8 @@
      "Stuart Devlin"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "denomination flanked by two stalks of paddy left, date above and country name at right · 1973 · SINGAPORE · 10 CENTS",
+    "reverse": "crowned seahorse (Hippocampus coronatus) facing right",
     "text": "value side two rice (paddy) stalks · big 10 · CENTS · 1973 · SINGAPORE · crowned seahorse other side (Stuart Devlin)"
    },
    "die_variety": null,
@@ -14791,8 +14791,8 @@
      "Stuart Devlin"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "denomination flanked by two stalks of paddy left, date above and country name at right · 1967 · SINGAPORE · 20 CENTS",
+    "reverse": "swordfish (Xiphias gladius) facing right against wavy lines symbolising water",
     "text": "value side rice stalks · big 20 · CENTS · 1967 · SINGAPORE · swordfish other side (Stuart Devlin)"
    },
    "die_variety": null,
@@ -14879,8 +14879,8 @@
      "Luc Luycx (common side)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Kriváň peak in the High Tatras above national double-cross shield encircled by twelve stars of Europe · SLOVENSKO · 2009 · Z",
+    "reverse": "globe showing Europe in relation to Africa and Asia next to face value and twelve stars · 2 EURO CENT · LL",
     "text": "obverse Kriváň peak in High Tatras · national double-cross arms · SLOVENSKO · reverse common Europe on globe side · 2 EURO CENT · Drahomír Zobek / Luc Luycx"
    },
    "die_variety": null,
@@ -15325,8 +15325,8 @@
      "Supab Aun-aree (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "bust of King Bhumibol Adulyadej (Rama IX) facing left · ภูมิพลอดุลยเดช · รัชกาลที่ ๙",
+    "reverse": "Wat Phra Kaew (Temple of the Emerald Buddha) in Bangkok with date and denomination · ประเทศไทย · พ.ศ. ๒๕๔๙ · ๑ · 1 บาท",
     "text": "obverse Rama IX (Bhumibol Adulyadej) left-facing with glasses · reverse Wat Phra Kaew · ประเทศไทย · พ.ศ. ๒๕๔๙ · ๑ บาท"
    },
    "die_variety": null,
@@ -15658,8 +15658,8 @@
      "Ernest Lauser (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "coat of arms of Trinidad and Tobago with Scarlet Ibis and Cocrico supporters, motto and date below · REPUBLIC OF TRINIDAD AND TOBAGO · TOGETHER WE ASPIRE TOGETHER WE ACHIEVE · 2014",
+    "reverse": "Chaconia (wild poinsettia, Warszewiczia coccinea) national flower above denomination · 25 CENTS",
     "text": "obverse coat of arms · Scarlet Ibis + Cocrico supporters · REPUBLIC OF TRINIDAD AND TOBAGO · 2014 · reverse Chaconia flower (wild poinsettia, national flower) · 25 CENTS"
    },
    "die_variety": null,
@@ -15834,8 +15834,8 @@
      "John R. Sinnock"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "left-profile portrait of President Franklin D. Roosevelt · LIBERTY · IN GOD WE TRUST · 1957 · JS",
+    "reverse": "torch flanked by olive branch (left) and oak branch (right), the motto split by the torch · UNITED STATES OF AMERICA · E PLURI · BUS UNUM · ONE DIME",
     "text": "obverse Roosevelt left (John R. Sinnock) · reverse torch · olive · oak · UNITED STATES OF AMERICA · ONE DIME"
    },
    "die_variety": null,
@@ -15922,8 +15922,8 @@
      "Jack L. Ahr (reverse)"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "left-profile portrait of George Washington with dual Bicentennial dates · LIBERTY · IN GOD WE TRUST · JF · 1776-1976",
+    "reverse": "Colonial patriot drummer facing left beside victory torch encircled by thirteen stars · UNITED STATES OF AMERICA · E PLURIBUS UNUM · JLA · QUARTER DOLLAR",
     "text": "obverse bust of George Washington left · LIBERTY · 1776–1976 · reverse colonial military drummer boy facing left · victory torch with 13 stars · Jack L. Ahr / John Flanagan"
    },
    "die_variety": null,
@@ -16296,8 +16296,8 @@
      "Pietro Giampaoli"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "left-profile bust of Pope Pius XII wearing zucchetto and mozzetta · PIVS·XII·P·M·AN·XIII · GIAMPAOLI",
+    "reverse": "allegorical figure of Prudence (Prudentia) standing facing holding mirror and serpent, dividing date and value · CITTA DEL VATICANO · 1951 · L·10 · PRVDENTIA",
     "text": "obverse Pius XII portrait · reverse standing Prudentia · CITTA' DEL VATICANO · 1951 · L. 10 · PRVDENTIA"
    },
    "die_variety": null,
@@ -16553,8 +16553,8 @@
      "Dragomir Mileusnić"
     ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "state emblem of the Socialist Federal Republic of Yugoslavia (six torches within wheat wreath) · СФР JУГОСЛАВИJА · 29·XI·1943 · SFR JUGOSLAVIJA",
+    "reverse": "large numeral 1 within wreath with date above and denomination in Cyrillic and Latin around · ·ДИНАР·DINAR·ДИНАР·DINAR· · 1984 · 1",
     "text": "obverse SFRY arms (torch and wheat) · reverse big 1 · bilingual ДИНАР / DINAR legend · date · beaded rim"
    },
    "die_variety": null,
@@ -16845,8 +16845,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-23T17:48:00Z",
-    "phase2_by": "model:claude"
+    "phase2_at": "2026-10-23T21:02:00Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20549,8 +20549,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:55:22Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-23T21:01:00Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20558,7 +20558,7 @@
    "serial_number": null,
    "sort_weight": null,
    "storage_env": null,
-   "story": "A 2016 50 pesos from Colombia. The reverse shows spectacled bear (also called the Andean bear) (Tremarctos ornatus); value large 50, PESOS, REPÚBLICA DE COLOMBIA, 2016, wavy field, OSO de ANTEOJOS (José Antonio Suárez). Struck in nickel-plated steel.",
+   "story": "A 2016 50 pesos from Colombia. The obverse shows the value 50 PESOS, REPÚBLICA DE COLOMBIA, 2016, and raised waves (José Antonio Suárez). The reverse shows the spectacled bear (Andean bear, Tremarctos ornatus) with OSO de ANTEOJOS and TREMARCTOS ORNATUS. Struck in nickel-plated steel.",
    "tags": [],
    "tax_lot": null,
    "type": "CO.KM.295",
@@ -26016,7 +26016,7 @@
     "phase": 2,
     "phase1_at": "2026-10-02T04:46:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-23T16:42:00Z",
+    "phase2_at": "2026-10-23T21:10:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -29602,8 +29602,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:55:22Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-10-23T21:01:00Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37073,8 +37073,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-21T09:02:33Z",
-    "phase2_by": "model:claude"
+    "phase2_at": "2026-10-23T21:01:00Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37082,7 +37082,7 @@
    "serial_number": null,
    "sort_weight": null,
    "storage_env": null,
-   "story": "A 2015 1 dollar from Jamaica. The reverse shows arms; crocodile crest, Taino supporters, JAMAICA, ONE DOLLAR, 2015. The coin is round. Struck in nickel-clad steel.",
+   "story": "A 2015 1 dollar from Jamaica. The obverse shows the coat of arms with a crocodile crest and Taino supporters, with JAMAICA, OUT OF MANY, ONE PEOPLE, ONE DOLLAR, and 2015. The reverse shows a facing bust of Sir Alexander Bustamante with THE RT. EXCELLENT SIR ALEXANDER BUSTAMANTE and NATIONAL HERO. The coin is round and struck in nickel-clad steel.",
    "tags": [],
    "tax_lot": null,
    "type": "JM.KM.189",
@@ -41928,8 +41928,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-21T09:03:07Z",
-    "phase2_by": "model:claude"
+    "phase2_at": "2026-10-23T21:01:00Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -74666,7 +74666,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#147 (https://en.numista.com/catalogue/pieces147.html, 1999-2013 5 Euro Cents KM# 236 for C004 dated 2000): verified globe common s",
+    "source": "https://en.numista.com/catalogue/pieces147.html (Numista N#147): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
     "links": [
      "https://en.numista.com/catalogue/pieces147.html"
     ]
@@ -74736,9 +74736,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#4 (https://en.numista.com/catalogue/pieces4.html): Obverse 'Marianne in left profile wearing the Phrygian cap', Engraver H",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces4.html (Numista N#4): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces4.html"
     ]
@@ -74884,9 +74884,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#3 (https://en.numista.com/catalogue/pieces3.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces3.html"
     ]
@@ -75103,9 +75103,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0057: Netherlands 25 cents 1982-2001 (Bruno Ninaber van Eyben): value and date within vertical lines; Numista N#731. Claim",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces731.html (Numista N#731): Reverse 'Value and date with rectangular patterns', Lettering '25CT 1996'",
     "links": [
      "https://en.numista.com/catalogue/pieces731.html"
     ]
@@ -75185,14 +75185,13 @@
     ]
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces724.html (N#724, KM#95.1) — \"50 Lire (large type)\": Obverse Italia head, Engraver Giuseppe Romagnoli,",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces724.html (Numista N#724): Reverse 'Naked Vulcan left beating the iron at the anvil. Date at upper lef",
     "links": [
      "https://en.numista.com/catalogue/pieces724.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -75258,9 +75257,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): Reverse 'An olive branch below the face value is surrounded with the French mot",
     "links": [
      "https://en.numista.com/catalogue/pieces6.html"
     ]
@@ -75328,7 +75327,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#664 (https://en.numista.com/catalogue/pieces664.html): verified design text in house style",
+    "source": "https://en.numista.com/catalogue/pieces664.html (Numista N#664): Reverse 'The badge of the Prince of Wales, a plume of three ostrich feather",
     "links": [
      "https://en.numista.com/catalogue/pieces664.html"
     ]
@@ -75607,9 +75606,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): Reverse 'An olive branch below the face value is surrounded with the French mot",
     "links": [
      "https://en.numista.com/catalogue/pieces6.html"
     ]
@@ -75823,9 +75822,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-21",
-    "source": "Third reader for D0058: KM#914 (1971-1981) reads NEW PENNY above St Edward's Crown and ½ below; HALF PENNY is the 1982-1984 KM#926 (Numista ",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces856.html (Numista N#856): Reverse 'Central Crown of St. Edward, denomination in letters above, fracti",
     "links": [
      "https://en.numista.com/catalogue/pieces856.html"
     ]
@@ -75989,7 +75988,24 @@
    }
   },
   "C023": {
+   "year": {
+    "level": "photo",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "C023_rev.webp (C023_Germany_1918_20Pfennig_rev.jpeg): read date '1918' below the oak wreath at the bottom of the coin"
+   },
    "denomination": {
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-10-23",
+    "source": "C023_rev.webp (C023_Germany_1918_20Pfennig_rev.jpeg): read large numeral '20' in the center of the oak wreath",
+    "links": [
+     "https://en.numista.com/catalogue/pieces6133.html",
+     "https://numisquare.com/20-heller-1916-1918-1077918220.html"
+    ],
+    "n": 2
+   },
+   "mint": {
     "level": "reference",
     "by": "Claude",
     "ts": "2026-10-23",
@@ -75999,21 +76015,24 @@
      "https://numisquare.com/20-heller-1916-1918-1077918220.html"
     ]
    },
-   "mint": {
-    "level": "reference",
-    "like": "denomination"
-   },
    "catalog": {
     "level": "reference",
-    "like": "denomination"
+    "like": "mint"
    },
    "composition": {
-    "level": "reference",
-    "like": "denomination"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6133.html (Numista N#6133): Features table row 'Composition: Iron'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces6133.html",
+     "https://numisquare.com/20-heller-1916-1918-1077918220.html"
+    ],
+    "n": 2
    },
    "mintage": {
     "level": "reference",
-    "like": "denomination"
+    "like": "mint"
    },
    "value": {
     "level": "reference",
@@ -76027,19 +76046,38 @@
    },
    "story": {
     "level": "reference",
-    "like": "denomination"
+    "like": "mint"
    },
    "design": {
     "level": "reference",
-    "like": "denomination"
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6133.html (Numista N#6133): Reverse 'Value in oak wreath, date below', Lettering '20 1918'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces6133.html"
+    ]
    },
    "ruler": {
-    "level": "reference",
-    "like": "denomination"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6133.html (Numista N#6133): Features table row 'Emperor: Charles I (1916-1918)'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces6133.html",
+     "https://numisquare.com/20-heller-1916-1918-1077918220.html"
+    ],
+    "n": 2
    },
    "period": {
-    "level": "reference",
-    "like": "denomination"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6133.html (Numista N#6133): Features table row 'Issuer: Habsburg Monarchy (Austria) (Austro-Hungarian",
+    "links": [
+     "https://en.numista.com/catalogue/pieces6133.html",
+     "https://numisquare.com/20-heller-1916-1918-1077918220.html"
+    ],
+    "n": 2
    }
   },
   "C024": {
@@ -76098,7 +76136,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#664 (https://en.numista.com/catalogue/pieces664.html): verified design text in house style",
+    "source": "https://en.numista.com/catalogue/pieces664.html (Numista N#664): Reverse 'The badge of the Prince of Wales, a plume of three ostrich feather",
     "links": [
      "https://en.numista.com/catalogue/pieces664.html"
     ]
@@ -76178,9 +76216,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): Reverse 'An olive branch below the face value is surrounded with the French mot",
     "links": [
      "https://en.numista.com/catalogue/pieces6.html"
     ]
@@ -76327,9 +76365,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0050: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces133.html (Numista N#133): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces133.html"
     ]
@@ -76396,9 +76434,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0062: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2183.html (Numista N#2183): Reverse 'A globe, next to the face value, shows Europe in relation to Afr",
     "links": [
      "https://en.numista.com/catalogue/pieces2183.html"
     ]
@@ -76697,9 +76735,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#1124 (https://en.numista.com/catalogue/pieces1124.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces1124.html (Numista N#1124): Reverse 'Value with leaves behind, mintmark between', Lettering '1 BP. FO",
     "links": [
      "https://en.numista.com/catalogue/pieces1124.html"
     ]
@@ -76770,9 +76808,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#5 (https://en.numista.com/catalogue/pieces5.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces5.html (Numista N#5): Reverse 'Olive branch below face value, legend around, date below', Lettering '",
     "links": [
      "https://en.numista.com/catalogue/pieces5.html"
     ]
@@ -76833,9 +76871,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#98 (https://en.numista.com/catalogue/pieces98.html): Obverse young Marianne, RF, 'F. COURTIADE', Engraver Fabienne Courtia",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces98.html (Numista N#98): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
     "links": [
      "https://en.numista.com/catalogue/pieces98.html"
     ]
@@ -76972,9 +77010,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#132 (https://en.numista.com/catalogue/pieces132.html): Obverse detail of Botticelli's 'Birth of Venus', RI, date, R, Engra",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces132.html (Numista N#132): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces132.html"
     ]
@@ -77114,7 +77152,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#5085 (https://en.numista.com/catalogue/pieces5085.html): verified design text in house style",
+    "source": "https://en.numista.com/catalogue/pieces5085.html (Numista N#5085): Reverse 'A globe, next to the face value, shows Europe in relation to Afr",
     "links": [
      "https://en.numista.com/catalogue/pieces5085.html"
     ]
@@ -77186,9 +77224,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0064: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces130.html (Numista N#130): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
     "links": [
      "https://en.numista.com/catalogue/pieces130.html"
     ]
@@ -77251,9 +77289,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0051: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces149.html (Numista N#149): Reverse 'A map of the European continent is represented on a dynamic canvas",
     "links": [
      "https://en.numista.com/catalogue/pieces149.html"
     ]
@@ -77325,9 +77363,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#4 (https://en.numista.com/catalogue/pieces4.html): Obverse 'Marianne in left profile wearing the Phrygian cap', Engraver H",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces4.html (Numista N#4): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces4.html"
     ]
@@ -77456,9 +77494,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0060: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2184.html (Numista N#2184): Reverse 'A map, next to the face value, symbolizes the gathering of the n",
     "links": [
      "https://en.numista.com/catalogue/pieces2184.html"
     ]
@@ -77587,9 +77625,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0063: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces54953.html (Numista N#54953): Reverse 'A globe, next to the face value, shows Europe in relation to A",
     "links": [
      "https://en.numista.com/catalogue/pieces54953.html"
     ]
@@ -77864,9 +77902,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9, France 10 Francs KM#964.1): Obverse — Génie de la Liberté (top of the July Colum",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9): Reverse 'The face value, crossed with wide stripes, is surrounded by the French",
     "links": [
      "https://en.numista.com/catalogue/pieces9.html"
     ]
@@ -78082,9 +78120,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#99 (https://en.numista.com/catalogue/pieces99.html): Obverse young Marianne, RF, 'F. COURTIADE', Engraver Fabienne Courtia",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces99.html (Numista N#99): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
     "links": [
      "https://en.numista.com/catalogue/pieces99.html"
     ]
@@ -78228,7 +78266,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#3510 (https://en.numista.com/catalogue/pieces3510.html, 2007-2023 10 Euro Cents KM# 1410 for C054 and C097): verified design text ",
+    "source": "https://en.numista.com/catalogue/pieces3510.html (Numista N#3510): Reverse 'A map, next to the face value, symbolizes the gathering of the n",
     "links": [
      "https://en.numista.com/catalogue/pieces3510.html"
     ]
@@ -78296,9 +78334,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0019: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces134.html (Numista N#134): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces134.html"
     ]
@@ -78359,9 +78397,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0052: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces157.html (Numista N#157): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces157.html"
     ]
@@ -78580,9 +78618,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): Reverse 'An olive branch below the face value is surrounded with the French mot",
     "links": [
      "https://en.numista.com/catalogue/pieces6.html"
     ]
@@ -78651,9 +78689,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#5 (https://en.numista.com/catalogue/pieces5.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces5.html (Numista N#5): Reverse 'Olive branch below face value, legend around, date below', Lettering '",
     "links": [
      "https://en.numista.com/catalogue/pieces5.html"
     ]
@@ -78725,9 +78763,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0050: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces133.html (Numista N#133): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces133.html"
     ]
@@ -78798,9 +78836,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#3 (https://en.numista.com/catalogue/pieces3.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces3.html"
     ]
@@ -78871,9 +78909,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#3 (https://en.numista.com/catalogue/pieces3.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces3.html"
     ]
@@ -78936,14 +78974,13 @@
     ]
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces2187.html (N#2187, KM#131) — Obverse Maltese cross, \"M A L T A 2008 F\", Engraver Noel Galea Bason; Re",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2187.html (Numista N#2187): Reverse 'A map, next to the face value, shows the European continent with",
     "links": [
      "https://en.numista.com/catalogue/pieces2187.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -79378,14 +79415,13 @@
     ]
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces152.html (N#152, KM#241) — Obverse Beatrix facing left, \"BEATRIX KONINGIN DER NEDERLANDEN\", Engraver ",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces152.html (Numista N#152): Reverse 'A map, next to the face value, shows the fifteen states of the Eur",
     "links": [
      "https://en.numista.com/catalogue/pieces152.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -79524,14 +79560,13 @@
     "n": 2
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces104.html (N#104, KM#1289) — Obverse tree in hexagon, \"LIBERTÉ ÉGALITÉ FRATERNITÉ\", Engraver Joaquin J",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces104.html (Numista N#104): Reverse 'A map, next to the face value, shows the fifteen states of the Eur",
     "links": [
      "https://en.numista.com/catalogue/pieces104.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -79594,7 +79629,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#56 (https://en.numista.com/catalogue/pieces56.html): verified design text in house style",
+    "source": "https://en.numista.com/catalogue/pieces56.html (Numista N#56): Reverse 'A Colonial patriot drummer facing left, with a victory torch encircl",
     "links": [
      "https://en.numista.com/catalogue/pieces56.html"
     ]
@@ -80347,14 +80382,13 @@
     ]
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces135.html (N#135, KM#216) — Obverse Vitruvian Man of Leonardo da Vinci, 12 stars, \"RI R 2002\", Engrave",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces135.html (Numista N#135): Reverse 'A map, next to the face value, shows the fifteen states of the Eur",
     "links": [
      "https://en.numista.com/catalogue/pieces135.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -80421,14 +80455,13 @@
     "n": 2
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces52.html (N#52, KM#195) — Obverse Roosevelt left profile, Engraver John Ray Sinnock; Reverse torch, ol",
+    "level": "reference",
+    "by": "Claude",
+    "ts": "2026-10-24",
+    "source": "Correction of Gemini's fill line (HW-gemini-fill-20261023-7): the Roosevelt dime reverse reads E PLURI left of the torch and BUS UNUM right ",
     "links": [
      "https://en.numista.com/catalogue/pieces52.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -80944,9 +80977,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#100 (https://en.numista.com/catalogue/pieces100.html): Obverse modern Sower, RF, Engraver Laurent Jorio; Reverse 'A map, n",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces100.html (Numista N#100): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces100.html"
     ]
@@ -81013,9 +81046,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#100 (https://en.numista.com/catalogue/pieces100.html): Obverse modern Sower, RF, Engraver Laurent Jorio; Reverse 'A map, n",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces100.html (Numista N#100): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces100.html"
     ]
@@ -81086,7 +81119,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#3510 (https://en.numista.com/catalogue/pieces3510.html, 2007-2023 10 Euro Cents KM# 1410 for C054 and C097): verified design text ",
+    "source": "https://en.numista.com/catalogue/pieces3510.html (Numista N#3510): Reverse 'A map, next to the face value, symbolizes the gathering of the n",
     "links": [
      "https://en.numista.com/catalogue/pieces3510.html"
     ]
@@ -81146,9 +81179,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#83 (https://en.numista.com/catalogue/pieces83.html): Obverse 'Main facade of Cathedral of Santiago de Compostela and the t",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces83.html (Numista N#83): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
     "links": [
      "https://en.numista.com/catalogue/pieces83.html"
     ]
@@ -81360,9 +81393,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#121 (https://en.numista.com/catalogue/pieces121.html): Obverse 'The Celtic harp ... inscription \"éire\" and twelve five-poi",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces121.html (Numista N#121): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
     "links": [
      "https://en.numista.com/catalogue/pieces121.html"
     ]
@@ -81587,9 +81620,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0057: Netherlands 25 cents 1982-2001 (Bruno Ninaber van Eyben): value and date within vertical lines; Numista N#731. Claim",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces731.html (Numista N#731): Reverse 'Value and date with rectangular patterns', Lettering '25CT 1996'",
     "links": [
      "https://en.numista.com/catalogue/pieces731.html"
     ]
@@ -81661,9 +81694,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#665 (https://en.numista.com/catalogue/pieces665.html): Obverse second portrait, Designer Arnold Machin; Reverse 'A crowned",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces665.html (Numista N#665): Reverse 'A portcullis with chains and a grid of 5 vertical bars and 4 horiz",
     "links": [
      "https://en.numista.com/catalogue/pieces665.html"
     ]
@@ -81733,9 +81766,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#665 (https://en.numista.com/catalogue/pieces665.html): Obverse second portrait, Designer Arnold Machin; Reverse 'A crowned",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces665.html (Numista N#665): Reverse 'A portcullis with chains and a grid of 5 vertical bars and 4 horiz",
     "links": [
      "https://en.numista.com/catalogue/pieces665.html"
     ]
@@ -81807,9 +81840,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#861 (https://en.numista.com/catalogue/pieces861.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces861.html (Numista N#861): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces861.html"
     ]
@@ -81881,9 +81914,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#861 (https://en.numista.com/catalogue/pieces861.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces861.html (Numista N#861): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces861.html"
     ]
@@ -81953,9 +81986,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#860 (https://en.numista.com/catalogue/pieces860.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces860.html (Numista N#860): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces860.html"
     ]
@@ -82025,9 +82058,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#860 (https://en.numista.com/catalogue/pieces860.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces860.html (Numista N#860): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces860.html"
     ]
@@ -82099,9 +82132,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#860 (https://en.numista.com/catalogue/pieces860.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces860.html (Numista N#860): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces860.html"
     ]
@@ -82171,9 +82204,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#862 (https://en.numista.com/catalogue/pieces862.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'A cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces862.html (Numista N#862): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces862.html"
     ]
@@ -82243,9 +82276,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#862 (https://en.numista.com/catalogue/pieces862.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'A cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces862.html (Numista N#862): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces862.html"
     ]
@@ -82504,9 +82537,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): Reverse 'An olive branch below the face value is surrounded with the French mot",
     "links": [
      "https://en.numista.com/catalogue/pieces6.html"
     ]
@@ -82572,9 +82605,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): Reverse 'An olive branch below the face value is surrounded with the French mot",
     "links": [
      "https://en.numista.com/catalogue/pieces6.html"
     ]
@@ -82642,9 +82675,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): Reverse 'An olive branch below the face value is surrounded with the French mot",
     "links": [
      "https://en.numista.com/catalogue/pieces6.html"
     ]
@@ -82707,9 +82740,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0021: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces123.html (Numista N#123): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
     "links": [
      "https://en.numista.com/catalogue/pieces123.html"
     ]
@@ -82994,9 +83027,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#3 (https://en.numista.com/catalogue/pieces3.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces3.html"
     ]
@@ -83070,9 +83103,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#3 (https://en.numista.com/catalogue/pieces3.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces3.html"
     ]
@@ -83213,9 +83246,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#98 (https://en.numista.com/catalogue/pieces98.html): Obverse young Marianne, RF, 'F. COURTIADE', Engraver Fabienne Courtia",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces98.html (Numista N#98): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
     "links": [
      "https://en.numista.com/catalogue/pieces98.html"
     ]
@@ -83275,9 +83308,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#98 (https://en.numista.com/catalogue/pieces98.html): Obverse young Marianne, RF, 'F. COURTIADE', Engraver Fabienne Courtia",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces98.html (Numista N#98): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
     "links": [
      "https://en.numista.com/catalogue/pieces98.html"
     ]
@@ -83338,9 +83371,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#101 (https://en.numista.com/catalogue/pieces101.html): Obverse modern Sower 'L. JORIO d'ap. O. ROTY', RF, 12 stars, Engrav",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces101.html (Numista N#101): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces101.html"
     ]
@@ -83401,9 +83434,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#101 (https://en.numista.com/catalogue/pieces101.html): Obverse modern Sower 'L. JORIO d'ap. O. ROTY', RF, 12 stars, Engrav",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces101.html (Numista N#101): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
     "links": [
      "https://en.numista.com/catalogue/pieces101.html"
     ]
@@ -84013,11 +84046,10 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Numista N#10856 (https://en.numista.com/10856) — 1 Euro Cent (2nd type) KM#1144; obverse engraver Garcilaso Rollán Sánchez, reverse engraver",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces10856.html (Numista N#10856): Reverse 'A globe, next to the face value, shows Europe in relation to A",
     "links": [
-     "https://en.numista.com/10856",
      "https://en.numista.com/catalogue/pieces10856.html"
     ]
    },
@@ -84077,9 +84109,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0065: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces81.html (Numista N#81): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
     "links": [
      "https://en.numista.com/catalogue/pieces81.html"
     ]
@@ -84142,9 +84174,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#97 (https://en.numista.com/catalogue/pieces97.html): Obverse young Marianne, RF, Engraver Fabienne Courtiade; Reverse 'A g",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces97.html (Numista N#97): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
     "links": [
      "https://en.numista.com/catalogue/pieces97.html"
     ]
@@ -84208,9 +84240,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#145 (https://en.numista.com/catalogue/pieces145.html): Obverse 'Profile of Queen Beatrix', 'BEATRIX KONINGIN DER NEDERLAND",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces145.html (Numista N#145): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
     "links": [
      "https://en.numista.com/catalogue/pieces145.html"
     ]
@@ -84271,9 +84303,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#121 (https://en.numista.com/catalogue/pieces121.html): Obverse 'The Celtic harp ... inscription \"éire\" and twelve five-poi",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces121.html (Numista N#121): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
     "links": [
      "https://en.numista.com/catalogue/pieces121.html"
     ]
@@ -84346,9 +84378,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0023: Norway 50 øre 1996-2011: obverse is a large crown (no Harald V monogram on this coin). Claimant's source: Disagree —",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces1442.html (Numista N#1442): Reverse 'Stylised mythical animal (the dragon Nidhogg) facing right, valu",
     "links": [
      "https://en.numista.com/catalogue/pieces1442.html"
     ]
@@ -84486,14 +84518,13 @@
     ]
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces2118.html (N#2118, KM#69a) — Obverse Bauhinia (Hong Kong orchid flower), \"香 港 HONG KONG\", Engraver Jo",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2118.html (Numista N#2118): Reverse 'The denomination in Chinese and English, with the Arabic numeral",
     "links": [
      "https://en.numista.com/catalogue/pieces2118.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -84554,9 +84585,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#879 (https://en.numista.com/catalogue/pieces879.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse 'li",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): Reverse 'Part of the crest of England, a lion passant guardant royally crow",
     "links": [
      "https://en.numista.com/catalogue/pieces879.html"
     ]
@@ -84627,9 +84658,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#879 (https://en.numista.com/catalogue/pieces879.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse 'li",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): Reverse 'Part of the crest of England, a lion passant guardant royally crow",
     "links": [
      "https://en.numista.com/catalogue/pieces879.html"
     ]
@@ -84700,9 +84731,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#879 (https://en.numista.com/catalogue/pieces879.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse 'li",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): Reverse 'Part of the crest of England, a lion passant guardant royally crow",
     "links": [
      "https://en.numista.com/catalogue/pieces879.html"
     ]
@@ -84773,9 +84804,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#879 (https://en.numista.com/catalogue/pieces879.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse 'li",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): Reverse 'Part of the crest of England, a lion passant guardant royally crow",
     "links": [
      "https://en.numista.com/catalogue/pieces879.html"
     ]
@@ -84843,9 +84874,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#879 (https://en.numista.com/catalogue/pieces879.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse 'li",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): Reverse 'Part of the crest of England, a lion passant guardant royally crow",
     "links": [
      "https://en.numista.com/catalogue/pieces879.html"
     ]
@@ -84918,9 +84949,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#2236 (https://en.numista.com/catalogue/pieces2236.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2236.html (Numista N#2236): Reverse 'Part of the Crest of England, a lion passant guardant royally cr",
     "links": [
      "https://en.numista.com/catalogue/pieces2236.html"
     ]
@@ -84995,9 +85026,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#2236 (https://en.numista.com/catalogue/pieces2236.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2236.html (Numista N#2236): Reverse 'Part of the Crest of England, a lion passant guardant royally cr",
     "links": [
      "https://en.numista.com/catalogue/pieces2236.html"
     ]
@@ -85066,9 +85097,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#7350 (https://en.numista.com/catalogue/pieces7350.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'Upp",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces7350.html (Numista N#7350): Reverse 'Upper left section of the Royal Shield of Arms, denomination to ",
     "links": [
      "https://en.numista.com/catalogue/pieces7350.html"
     ]
@@ -85143,9 +85174,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#25746 (https://en.numista.com/catalogue/pieces25746.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'U",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): Reverse 'Upper left section of the Royal Shield of Arms, denomination i",
     "links": [
      "https://en.numista.com/catalogue/pieces25746.html"
     ]
@@ -85220,9 +85251,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#25746 (https://en.numista.com/catalogue/pieces25746.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'U",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): Reverse 'Upper left section of the Royal Shield of Arms, denomination i",
     "links": [
      "https://en.numista.com/catalogue/pieces25746.html"
     ]
@@ -85300,9 +85331,9 @@
    },
    "design": {
     "level": "review",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#25746 (https://en.numista.com/catalogue/pieces25746.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'U"
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): Reverse 'Upper left section of the Royal Shield of Arms, denomination i"
    },
    "series": {
     "level": "reference",
@@ -85374,9 +85405,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#70549 (https://en.numista.com/catalogue/pieces70549.html): Obverse fifth portrait, Designer Jody Clark; Reverse 'Top left ",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces70549.html (Numista N#70549): Reverse 'Top left section of the Royal Shield of Arms, denomination in ",
     "links": [
      "https://en.numista.com/catalogue/pieces70549.html"
     ]
@@ -85608,9 +85639,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-21",
-    "source": "Third reader for D0072: Numista N#6694 (https://en.numista.com/catalogue/pieces6694.html) and Greysheet KM-432 'Aztec Calendar': arms on the",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6694.html (Numista N#6694): Reverse 'Radiating rings of the Aztec Calendar Stone (Piedra del Sol) aro",
     "links": [
      "https://en.numista.com/catalogue/pieces6694.html"
     ]
@@ -85680,9 +85711,12 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "coinsbook.net Y#183"
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces1106.html (Numista N#1106): Reverse 'Wat Phra Kaew (Temple of the Emerald Buddha) in Bangkok, date ab",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1106.html"
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -85755,7 +85789,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#2461 (https://en.numista.com/catalogue/pieces2461.html): verified design text in house style",
+    "source": "https://en.numista.com/catalogue/pieces2461.html (Numista N#2461): Reverse 'Philippine eagle (Pithecophaga jefferyi) flying right, denominat",
     "links": [
      "https://en.numista.com/catalogue/pieces2461.html"
     ]
@@ -85834,14 +85868,13 @@
     "source": "plain-English rewrite (owner request 2026-10-04) of Muse's story, using only the coin's own specimen and type record"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces4004.html (N#4004, KM#837) — \"½ Penny - George V (smaller portrait)\": Obverse George V left, Engraver",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces4004.html (Numista N#4004): Reverse 'Seated figure of Britannia right, with trident in left hand and ",
     "links": [
      "https://en.numista.com/catalogue/pieces4004.html"
-    ],
-    "n": 2
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -85910,9 +85943,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-21",
-    "source": "Third reader for D0087: Numista N#1516 (https://en.numista.com/catalogue/pieces1516.html) and uCoin: the reverse reads 1 KR beside the crown",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces1516.html (Numista N#1516): Reverse 'Crowned coat of arms dividing date (above) and value, with the K",
     "links": [
      "https://en.numista.com/catalogue/pieces1516.html"
     ]
@@ -86045,9 +86078,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#875 (https://en.numista.com/catalogue/pieces875.html) Obverse: third crowned portrait, Engraver Raphael David Maklouf; Reverse: 'T",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces875.html"
     ]
@@ -86113,9 +86146,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#875 (https://en.numista.com/catalogue/pieces875.html) Obverse: third crowned portrait, Engraver Raphael David Maklouf; Reverse: 'T",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces875.html"
     ]
@@ -86181,9 +86214,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#875 (https://en.numista.com/catalogue/pieces875.html) Obverse: third crowned portrait, Engraver Raphael David Maklouf; Reverse: 'T",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces875.html"
     ]
@@ -86249,9 +86282,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#875 (https://en.numista.com/catalogue/pieces875.html) Obverse: third crowned portrait, Engraver Raphael David Maklouf; Reverse: 'T",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces875.html"
     ]
@@ -86317,9 +86350,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#875 (https://en.numista.com/catalogue/pieces875.html) Obverse: third crowned portrait, Engraver Raphael David Maklouf; Reverse: 'T",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces875.html"
     ]
@@ -86385,9 +86418,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#875 (https://en.numista.com/catalogue/pieces875.html) Obverse: third crowned portrait, Engraver Raphael David Maklouf; Reverse: 'T",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces875.html"
     ]
@@ -86459,14 +86492,13 @@
     "source": "Titan collection audit 2026-10-03: story composed from catalogued type record GB.KM.988 (design, denomination, composition as recorded)"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces876.html (N#876, KM#988) — Obverse fourth crowned portrait right, Engraver Ian Rank-Broadley; Reverse",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces876.html"
-    ],
-    "n": 2
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -86535,14 +86567,13 @@
     "source": "Titan collection audit 2026-10-03: story composed from catalogued type record GB.KM.988 (design, denomination, composition as recorded)"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces876.html (N#876, KM#988) — Obverse fourth crowned portrait right, Engraver Ian Rank-Broadley; Reverse",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces876.html"
-    ],
-    "n": 2
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -86605,14 +86636,13 @@
     "source": "Titan collection audit 2026-10-03: story composed from catalogued type record GB.KM.988 (design, denomination, composition as recorded)"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces876.html (N#876, KM#988) — Obverse fourth crowned portrait right, Engraver Ian Rank-Broadley; Reverse",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces876.html"
-    ],
-    "n": 2
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -86675,14 +86705,13 @@
     "source": "Titan collection audit 2026-10-03: story composed from catalogued type record GB.KM.988 (design, denomination, composition as recorded)"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces876.html (N#876, KM#988) — Obverse fourth crowned portrait right, Engraver Ian Rank-Broadley; Reverse",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces876.html"
-    ],
-    "n": 2
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -86745,9 +86774,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#6612 (https://en.numista.com/catalogue/pieces6612.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'Cen",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): Reverse 'Central section of the Royal Shield of Arms showing elements of ",
     "links": [
      "https://en.numista.com/catalogue/pieces6612.html"
     ]
@@ -86823,9 +86852,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#6612 (https://en.numista.com/catalogue/pieces6612.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'Cen",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): Reverse 'Central section of the Royal Shield of Arms showing elements of ",
     "links": [
      "https://en.numista.com/catalogue/pieces6612.html"
     ]
@@ -86901,9 +86930,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#6612 (https://en.numista.com/catalogue/pieces6612.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'Cen",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): Reverse 'Central section of the Royal Shield of Arms showing elements of ",
     "links": [
      "https://en.numista.com/catalogue/pieces6612.html"
     ]
@@ -86984,9 +87013,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#25766 (https://en.numista.com/catalogue/pieces25766.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'C",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): Reverse 'Centre section of the Royal Shield of Arms, denomination centr",
     "links": [
      "https://en.numista.com/catalogue/pieces25766.html"
     ]
@@ -87061,9 +87090,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#25766 (https://en.numista.com/catalogue/pieces25766.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'C",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): Reverse 'Centre section of the Royal Shield of Arms, denomination centr",
     "links": [
      "https://en.numista.com/catalogue/pieces25766.html"
     ]
@@ -87138,9 +87167,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#25766 (https://en.numista.com/catalogue/pieces25766.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'C",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): Reverse 'Centre section of the Royal Shield of Arms, denomination centr",
     "links": [
      "https://en.numista.com/catalogue/pieces25766.html"
     ]
@@ -87225,9 +87254,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#70547 (https://en.numista.com/catalogue/pieces70547.html) Obverse: fifth crowned portrait, Designer Jody Clark; Reverse: 'Centre s",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces70547.html (Numista N#70547): Reverse 'Centre section of the Royal Shield of Arms, denomination centr",
     "links": [
      "https://en.numista.com/catalogue/pieces70547.html"
     ]
@@ -87308,9 +87337,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#70547 (https://en.numista.com/catalogue/pieces70547.html) Obverse: fifth crowned portrait, Designer Jody Clark; Reverse: 'Centre s",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces70547.html (Numista N#70547): Reverse 'Centre section of the Royal Shield of Arms, denomination centr",
     "links": [
      "https://en.numista.com/catalogue/pieces70547.html"
     ]
@@ -87393,14 +87422,13 @@
     ]
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces10222.html (N#10222, KM#88a) — Obverse third portrait Elizabeth II right, \"CAYMAN ISLANDS ELIZABETH I",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces10222.html (Numista N#10222): Reverse 'Prawn (Cayman Crayfish) left, value to right', Lettering '5 SD",
     "links": [
      "https://en.numista.com/catalogue/pieces10222.html"
-    ],
-    "n": 2
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -87466,11 +87494,10 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-21",
-    "source": "Third reader for D0020: Cayman Islands Monetary Authority names the 5 cents animal the Cayman crayfish (a spiny lobster), not a shrimp; Numi",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2698.html (Numista N#2698): Reverse 'Crayfish (prawn) facing left, value at right', Lettering '5 SD'",
     "links": [
-     "https://pl.numista.com/forum/topic63325.html",
      "https://en.numista.com/catalogue/pieces2698.html"
     ]
    },
@@ -87929,9 +87956,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#2 (https://en.numista.com/catalogue/pieces2.html): Obverse 'Marianne in left profile wearing the Phrygian cap', Engraver H",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2.html (Numista N#2): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces2.html"
     ]
@@ -88000,9 +88027,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#2 (https://en.numista.com/catalogue/pieces2.html): Obverse 'Marianne in left profile wearing the Phrygian cap', Engraver H",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2.html (Numista N#2): Reverse 'The face value is surrounded with a wheat ear, an olive branch and the",
     "links": [
      "https://en.numista.com/catalogue/pieces2.html"
     ]
@@ -88348,14 +88375,13 @@
     "source": "Titan Round 10 story polish 2026-10-04: shorthand (+, &, /) replaced with plain reader-facing prose; factual content unchanged from Round 1 "
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces724.html (N#724, KM#95.1) — \"50 Lire (large type)\": Obverse Italia head, Engraver Giuseppe Romagnoli,",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces724.html (Numista N#724): Reverse 'Naked Vulcan left beating the iron at the anvil. Date at upper lef",
     "links": [
      "https://en.numista.com/catalogue/pieces724.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -88685,15 +88711,13 @@
     "source": "plain-English rewrite (owner request 2026-10-04) of Muse's story, using only the coin's own specimen and type record"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#1159 (https://en.numista.com/catalogue/pieces1159.html): Obverse 'Coat of arms', lettering REPUBLIC OF TRINIDAD AND TOBAGO",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces1159.html (Numista N#1159): Reverse 'Chaconia (Warszewiczia coccinea, the wild poinsettia, national f",
     "links": [
-     "https://en.numista.com/catalogue/pieces1159.html",
-     "https://en.numista.com/1159"
-    ],
-    "n": 2
+     "https://en.numista.com/catalogue/pieces1159.html"
+    ]
    },
    "period": {
     "level": "ai",
@@ -88763,9 +88787,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#865 (https://en.numista.com/catalogue/pieces865.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces865.html (Numista N#865): Reverse 'Crowned Tudor rose dividing date and legend, denomination below', ",
     "links": [
      "https://en.numista.com/catalogue/pieces865.html"
     ]
@@ -89214,14 +89238,13 @@
     ]
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces302.html (N#302, KM#111) — Obverse female head (Italia), \"REPVBBLICA ITALIANA\", Engraver Laura Cretar",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces302.html (Numista N#302): Reverse 'View of the Piazza del Quirinale in Rome in center inner circle, w",
     "links": [
      "https://en.numista.com/catalogue/pieces302.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -89357,7 +89380,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#867 (https://en.numista.com/catalogue/pieces867.html, 1985-1992 2 Pence KM# 936 for C213 dated 1991): verified design text in hous",
+    "source": "https://en.numista.com/catalogue/pieces867.html (Numista N#867): Reverse 'The badge of the Prince of Wales, a plume of three ostrich feather",
     "links": [
      "https://en.numista.com/catalogue/pieces867.html"
     ]
@@ -89428,14 +89451,13 @@
     ]
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces10222.html (N#10222, KM#88a) — Obverse third portrait Elizabeth II right, \"CAYMAN ISLANDS ELIZABETH I",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces10222.html (Numista N#10222): Reverse 'Prawn (Cayman Crayfish) left, value to right', Lettering '5 SD",
     "links": [
      "https://en.numista.com/catalogue/pieces10222.html"
-    ],
-    "n": 2
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -89516,11 +89538,10 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-21",
-    "source": "Third reader for D0020: Cayman Islands Monetary Authority names the 5 cents animal the Cayman crayfish (a spiny lobster), not a shrimp; Numi",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2698.html (Numista N#2698): Reverse 'Crayfish (prawn) facing left, value at right', Lettering '5 SD'",
     "links": [
-     "https://pl.numista.com/forum/topic63325.html",
      "https://en.numista.com/catalogue/pieces2698.html"
     ]
    },
@@ -89587,9 +89608,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#665 (https://en.numista.com/catalogue/pieces665.html): Obverse second portrait, Designer Arnold Machin; Reverse 'A crowned",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces665.html (Numista N#665): Reverse 'A portcullis with chains and a grid of 5 vertical bars and 4 horiz",
     "links": [
      "https://en.numista.com/catalogue/pieces665.html"
     ]
@@ -89663,9 +89684,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#862 (https://en.numista.com/catalogue/pieces862.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'A cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces862.html (Numista N#862): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces862.html"
     ]
@@ -89739,7 +89760,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#4038 (https://en.numista.com/catalogue/pieces4038.html): verified design text in house style",
+    "source": "https://en.numista.com/catalogue/pieces4038.html (Numista N#4038): Reverse 'Left part of the Royal Shield of Arms, denomination in left segm",
     "links": [
      "https://en.numista.com/catalogue/pieces4038.html"
     ]
@@ -89822,12 +89843,11 @@
    },
    "story": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-08",
-    "source": "Numista N#14369 (https://en.numista.com/catalogue/pieces14369.html): Jamaica 1 dollar round type 2008-2025, KM# 189, nickel clad steel, 3.65",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "checked against https://en.numista.com/catalogue/pieces14369.html (Numista N#14369): the coat of arms (JAMAICA · OUT OF MANY, ONE PEOPLE · O",
     "links": [
-     "https://en.numista.com/catalogue/pieces14369.html",
-     "https://en.numista.com/catalogue/pieces1078.html"
+     "https://en.numista.com/catalogue/pieces14369.html"
     ]
    },
    "period": {
@@ -89937,16 +89957,19 @@
     ]
    },
    "story": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-03",
-    "source": "Titan collection audit 2026-10-03: story composed from catalogued type record FR.KM.931.1 (design, denomination, composition as recorded)"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "checked against https://en.numista.com/catalogue/pieces5.html (Numista N#5): all claims hold (Obverse: La Semeuse walking left by Oscar Roty",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5.html"
+    ]
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#5 (https://en.numista.com/catalogue/pieces5.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces5.html (Numista N#5): Reverse 'Olive branch below face value, legend around, date below', Lettering '",
     "links": [
      "https://en.numista.com/catalogue/pieces5.html"
     ]
@@ -90063,9 +90086,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces737.html (Numista N#737, Netherlands 1 Gulden KM#184): Obverse — Juliana head right, lettering JULIAN",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces737.html (Numista N#737): Reverse 'Crowned Dutch coat of arms dividing the date and value, country na",
     "links": [
      "https://en.numista.com/catalogue/pieces737.html"
     ]
@@ -90762,10 +90785,13 @@
     ]
    },
    "story": {
-    "level": "ai",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Titan Round 10 story polish 2026-10-04: shorthand (+, &, /) replaced with plain reader-facing prose; factual content unchanged from Round 1 "
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "checked against https://en.numista.com/catalogue/pieces34771.html (Numista N#34771): separated obverse (value 50 PESOS, · REPÚBLICA DE COLOM",
+    "links": [
+     "https://en.numista.com/catalogue/pieces34771.html"
+    ]
    },
    "design": {
     "level": "reference",
@@ -90832,9 +90858,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#878 (https://en.numista.com/catalogue/pieces878.html): Obverse second portrait, Designer Arnold Machin; Reverse 'a lion pa",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces878.html (Numista N#878): Reverse 'Part of the Crest of England, a lion passant guardant royally crow",
     "links": [
      "https://en.numista.com/catalogue/pieces878.html"
     ]
@@ -91251,9 +91277,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#304 (https://en.numista.com/catalogue/pieces304.html): Obverse female head (Italia), Designer Giuseppe Romagnoli; Reverse ",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces304.html (Numista N#304): Reverse 'Minerva standing left reaching with right hand an olive tree while",
     "links": [
      "https://en.numista.com/catalogue/pieces304.html"
     ]
@@ -91310,9 +91336,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#860 (https://en.numista.com/catalogue/pieces860.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces860.html (Numista N#860): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces860.html"
     ]
@@ -91572,9 +91598,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#545 (https://en.numista.com/catalogue/pieces545.html): Obverse 'Portrait of young Constantine II'; Reverse 'Crowned arms (",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces545.html (Numista N#545): Reverse 'Crowned royal arms (shield with cross) with the defenders of the C",
     "links": [
      "https://en.numista.com/catalogue/pieces545.html"
     ]
@@ -91914,19 +91940,20 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-08",
-    "source": "Numista N#975 (https://en.numista.com/catalogue/pieces975.html): Singapore 20 cents 1967-1985 (KM# 4): obverse 'Denomination flanked by two ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-10-23",
+    "source": "checked against https://en.numista.com/catalogue/pieces975.html (Numista N#975): all claims hold (Obverse: two stalks of paddy rice left of ",
     "links": [
      "https://en.numista.com/catalogue/pieces975.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0053: Singapore 1967 series (Stuart Devlin): the 20 cents shows a swordfish, the lionfish is the 50 cents. Claimant's sour",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces975.html (Numista N#975): Reverse 'A swordfish (Xiphias gladius) facing right in the centre with wavy",
     "links": [
      "https://en.numista.com/catalogue/pieces975.html"
     ]
@@ -92000,9 +92027,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Numista N#2417",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2417.html (Numista N#2417): Reverse 'Value in wreath, date above, denomination in Cyrillic and Latin ",
     "links": [
      "https://en.numista.com/catalogue/pieces2417.html"
     ]
@@ -92181,14 +92208,13 @@
     "source": "Titan collection audit 2026-10-03: story composed from catalogued type record VA.KM.52.1 (design, denomination, composition as recorded)"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces3935.html (N#3935, KM#52) — \"10 Lire - Pius XII\": Obverse bust left \"PIVS·XII·P·M\", Engraver Pietro G",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces3935.html (Numista N#3935): Reverse 'Prudentia standing facing, dividing date and value', Lettering '",
     "links": [
      "https://en.numista.com/catalogue/pieces3935.html"
-    ],
-    "n": 2
+    ]
    },
    "ruler": {
     "level": "reference",
@@ -92738,9 +92764,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-04",
-    "source": "Numista N#2417",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces2417.html (Numista N#2417): Reverse 'Value in wreath, date above, denomination in Cyrillic and Latin ",
     "links": [
      "https://en.numista.com/catalogue/pieces2417.html"
     ]
@@ -92882,9 +92908,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0056: Singapore 1967 series (Stuart Devlin): the 10 cents shows a seahorse. Claimant's source: Disagree in part — Numista ",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces1671.html (Numista N#1671): Reverse 'A stylized seahorse (Hippocampus coronatus) facing right in the ",
     "links": [
      "https://en.numista.com/catalogue/pieces1671.html"
     ]
@@ -93179,9 +93205,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-20",
-    "source": "Third reader for D0023: Norway 50 øre 1996-2011: obverse is a large crown (no Harald V monogram on this coin). Claimant's source: Disagree —",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces1442.html (Numista N#1442): Reverse 'Stylised mythical animal (the dragon Nidhogg) facing right, valu",
     "links": [
      "https://en.numista.com/catalogue/pieces1442.html"
     ]
@@ -93246,9 +93272,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every element checked against Numista N#7364 (https://en.numista.com/catalogue/pieces7364.html) Obverse/Reverse sections",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces7364.html (Numista N#7364): Reverse 'Open-billed bird (Grand Cayman Thrush) on a branch left beside v",
     "links": [
      "https://en.numista.com/catalogue/pieces7364.html"
     ]
@@ -93527,7 +93553,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "https://en.numista.com/catalogue/pieces105.html (Numista N#105): value table rows '2005 A / 2005 D / 2005 F / 2005 G / 2005 J', grade VF med",
+    "source": "https://en.numista.com/catalogue/pieces105.html (Numista N#105): value table row '2005 J', grade VF = $0.01; grade assumed VF: high points w",
     "links": [
      "https://en.numista.com/catalogue/pieces105.html"
     ]
@@ -93697,9 +93723,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#875 (https://en.numista.com/catalogue/pieces875.html) Obverse: third crowned portrait, Engraver Raphael David Maklouf; Reverse: 'T",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces875.html"
     ]
@@ -94694,14 +94720,13 @@
     "n": 2
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces724.html (N#724, KM#95.1) — \"50 Lire (large type)\": Obverse Italia head, Engraver Giuseppe Romagnoli,",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces724.html (Numista N#724): Reverse 'Naked Vulcan left beating the iron at the anvil. Date at upper lef",
     "links": [
      "https://en.numista.com/catalogue/pieces724.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -94947,7 +94972,7 @@
     "level": "reference",
     "by": "Gemini",
     "ts": "2026-10-23",
-    "source": "Numista N#4038 (https://en.numista.com/catalogue/pieces4038.html): verified design text in house style",
+    "source": "https://en.numista.com/catalogue/pieces4038.html (Numista N#4038): Reverse 'Left part of the Royal Shield of Arms, denomination in left segm",
     "links": [
      "https://en.numista.com/catalogue/pieces4038.html"
     ]
@@ -95132,9 +95157,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#862 (https://en.numista.com/catalogue/pieces862.html): Obverse fourth portrait, Engraver Ian Rank-Broadley; Reverse 'A cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces862.html (Numista N#862): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces862.html"
     ]
@@ -95467,9 +95492,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "Numista N#875 (https://en.numista.com/catalogue/pieces875.html) Obverse: third crowned portrait, Engraver Raphael David Maklouf; Reverse: 'T",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): Reverse 'The Badge of Scotland, a thistle royally crowned, legend above, de",
     "links": [
      "https://en.numista.com/catalogue/pieces875.html"
     ]
@@ -95556,9 +95581,9 @@
    },
    "design": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "Agree — Numista N#861 (https://en.numista.com/catalogue/pieces861.html): Obverse third portrait, Engraver Raphael David Maklouf; Reverse cro",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces861.html (Numista N#861): Reverse 'A portcullis with chains (an adaptation of the Badge of King Henry",
     "links": [
      "https://en.numista.com/catalogue/pieces861.html"
     ]
@@ -95645,14 +95670,13 @@
     "like": "country"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces724.html (N#724, KM#95.1) — \"50 Lire (large type)\": Obverse Italia head, Engraver Giuseppe Romagnoli,",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces724.html (Numista N#724): Reverse 'Naked Vulcan left beating the iron at the anvil. Date at upper lef",
     "links": [
      "https://en.numista.com/catalogue/pieces724.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",
@@ -95729,14 +95753,13 @@
     "like": "country"
    },
    "design": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-17",
-    "source": "https://en.numista.com/catalogue/pieces724.html (N#724, KM#95.1) — \"50 Lire (large type)\": Obverse Italia head, Engraver Giuseppe Romagnoli,",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "https://en.numista.com/catalogue/pieces724.html (Numista N#724): Reverse 'Naked Vulcan left beating the iron at the anvil. Date at upper lef",
     "links": [
      "https://en.numista.com/catalogue/pieces724.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "ai",

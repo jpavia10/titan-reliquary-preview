@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-23T22:43:18Z",
+ "updated": "2026-10-24T01:22:12Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261019-1",
@@ -428,19 +428,19 @@
      ],
      "label": "design of C223 · Netherlands · 1967 · 1 gulden · NLG",
      "authors": [
-      "muse"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Muse",
+      "author": "Gemini",
       "ledger": false,
       "value": "Juliana head right, JULIANA KONINGIN DER NEDERLANDEN (obv; engraver Ludwig Oswald Wenckebach) · crowned arms dividing date, 1 G, NEDERLAND (rev) · mintmaster fish mark",
-      "their_source": "https://en.numista.com/catalogue/pieces737.html (Numista N#737, Netherlands 1 Gulden KM#184): Obverse — Juliana head right, lettering JULIAN",
+      "their_source": "https://en.numista.com/catalogue/pieces737.html (Numista N#737): Reverse 'Crowned Dutch coat of arms dividing the date and value, country na",
       "links": [
        "https://en.numista.com/catalogue/pieces737.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -585,19 +585,19 @@
      ],
      "label": "design of C049 · France · 1989 · 10 francs · FRF",
      "authors": [
-      "muse"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Muse",
+      "author": "Gemini",
       "ledger": false,
       "value": "Génie de la Liberté atop the July Column, Paris, between R F (obv; engravers Jean-Luc Maréchal, Atelier de Gravure) · 10 F crossed with wide stripes, LIBERTÉ ÉGALITÉ FRATERNITÉ, date (rev)",
-      "their_source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9, France 10 Francs KM#964.1): Obverse — Génie de la Liberté (top of the July Colum",
+      "their_source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9): Reverse 'The face value, crossed with wide stripes, is surrounded by the French",
       "links": [
        "https://en.numista.com/catalogue/pieces9.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -942,20 +942,19 @@
      ],
      "label": "design of C139 · Spain · 2014 · 1 euro cent · EUR",
      "authors": [
-      "muse"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Muse",
+      "author": "Gemini",
       "ledger": false,
       "value": "national side Cathedral of Santiago de Compostela + 12 EU stars (2010 onward type) · common side globe (Luc Luycx)",
-      "their_source": "Numista N#10856 (https://en.numista.com/10856) — 1 Euro Cent (2nd type) KM#1144; obverse engraver Garcilaso Rollán Sánchez, reverse engraver",
+      "their_source": "https://en.numista.com/catalogue/pieces10856.html (Numista N#10856): Reverse 'A globe, next to the face value, shows Europe in relation to A",
       "links": [
-       "https://en.numista.com/10856",
        "https://en.numista.com/catalogue/pieces10856.html"
       ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false
      },
@@ -1212,14 +1211,14 @@
      ],
      "label": "design of C144 · Norway · 1998 · 50 øre · NOK",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "obverse large crown with crossed-hammers mint mark · reverse Nidhogg dragon (Urnes stave-church portal) · 50 ØRE · NORGE (1998) / NOREG (2000) · date · engraver GJL (Grażyna Jolanta Lindau)",
-      "their_source": "Third reader for D0023: Norway 50 øre 1996-2011: obverse is a large crown (no Harald V monogram on this coin). Claimant's source: Disagree —",
+      "their_source": "https://en.numista.com/catalogue/pieces1442.html (Numista N#1442): Reverse 'Stylised mythical animal (the dragon Nidhogg) facing right, valu",
       "links": [
        "https://en.numista.com/catalogue/pieces1442.html"
       ],
@@ -1242,14 +1241,14 @@
      ],
      "label": "design of C056 · Portugal · 2002 · 20 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national royal seal of 1142 (seven castles · five shields) + PORTUGAL · 20★02 style date · 12 EU stars · common Europe map side (Luc Luycx) · Vítor Santos",
-      "their_source": "Third reader for D0052: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces157.html (Numista N#157): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
       "links": [
        "https://en.numista.com/catalogue/pieces157.html"
       ],
@@ -1272,14 +1271,14 @@
      ],
      "label": "design of C028 · Malta · 2013 · 5 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national Mnajdra Temple altar/trilithon + MALTA · date · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Third reader for D0062: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces2183.html (Numista N#2183): Reverse 'A globe, next to the face value, shows Europe in relation to Afr",
       "links": [
        "https://en.numista.com/catalogue/pieces2183.html"
       ],
@@ -1302,14 +1301,14 @@
      ],
      "label": "design of C055 · Italy · 2002 · 50 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national equestrian Marcus Aurelius on the Campidoglio paving (engraver Roberto Mauri) + RI · R · date · 12 EU stars · common map side (Luc Luycx)",
-      "their_source": "Third reader for D0019: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces134.html (Numista N#134): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
       "links": [
        "https://en.numista.com/catalogue/pieces134.html"
       ],
@@ -1332,14 +1331,14 @@
      ],
      "label": "design of C120 · Ireland · 2013 · 5 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national Celtic harp / cláirseach (Jarlath Hayes) + éire · date · 12 EU stars · common globe side (Luc Luycx)",
-      "their_source": "Third reader for D0021: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces123.html (Numista N#123): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
       "links": [
        "https://en.numista.com/catalogue/pieces123.html"
       ],
@@ -1496,14 +1495,14 @@
      ],
      "label": "design of C027 · Italy · 2002 · 20 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national Boccioni Unique Forms of Continuity in Space (M.A. Cassol) + RI · R · date · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "Third reader for D0050: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces133.html (Numista N#133): Reverse 'A map, next to the face value, symbolizes the gathering of the fif",
       "links": [
        "https://en.numista.com/catalogue/pieces133.html"
       ],
@@ -1526,14 +1525,14 @@
      ],
      "label": "design of C040 · Netherlands · 2001 · 20 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national Beatrix stylized profile + BEATRIX KONINGIN DER NEDERLANDEN · date · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "Third reader for D0051: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces149.html (Numista N#149): Reverse 'A map of the European continent is represented on a dynamic canvas",
       "links": [
        "https://en.numista.com/catalogue/pieces149.html"
       ],
@@ -1556,14 +1555,14 @@
      ],
      "label": "design of C250 · Singapore · 1967 · 20 cents · SGD",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "value side rice stalks · big 20 · CENTS · 1967 · SINGAPORE · swordfish other side (Stuart Devlin)",
-      "their_source": "Third reader for D0053: Singapore 1967 series (Stuart Devlin): the 20 cents shows a swordfish, the lionfish is the 50 cents. Claimant's sour",
+      "their_source": "https://en.numista.com/catalogue/pieces975.html (Numista N#975): Reverse 'A swordfish (Xiphias gladius) facing right in the centre with wavy",
       "links": [
        "https://en.numista.com/catalogue/pieces975.html"
       ],
@@ -1651,14 +1650,14 @@
      ],
      "label": "design of C264 · Singapore · 1973 · 10 cents · SGD",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "value side two rice (paddy) stalks · big 10 · CENTS · 1973 · SINGAPORE · crowned seahorse other side (Stuart Devlin)",
-      "their_source": "Third reader for D0056: Singapore 1967 series (Stuart Devlin): the 10 cents shows a seahorse. Claimant's source: Disagree in part — Numista ",
+      "their_source": "https://en.numista.com/catalogue/pieces1671.html (Numista N#1671): Reverse 'A stylized seahorse (Hippocampus coronatus) facing right in the ",
       "links": [
        "https://en.numista.com/catalogue/pieces1671.html"
       ],
@@ -1682,14 +1681,14 @@
      ],
      "label": "design of C010 · Netherlands · 1996 · 25 cents · NLG",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "obverse Beatrix portrait · reverse value and date within vertical lines (25ct · date)",
-      "their_source": "Third reader for D0057: Netherlands 25 cents 1982-2001 (Bruno Ninaber van Eyben): value and date within vertical lines; Numista N#731. Claim",
+      "their_source": "https://en.numista.com/catalogue/pieces731.html (Numista N#731): Reverse 'Value and date with rectangular patterns', Lettering '25CT 1996'",
       "links": [
        "https://en.numista.com/catalogue/pieces731.html"
       ],
@@ -1712,14 +1711,14 @@
      ],
      "label": "design of C043 · Malta · 2008 · 10 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national Arms of Malta (flag shield · mural crown · olive & palm) + MALTA · date · 12 EU stars · common Europe map side (Luc Luycx)",
-      "their_source": "Third reader for D0060: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces2184.html (Numista N#2184): Reverse 'A map, next to the face value, symbolizes the gathering of the n",
       "links": [
        "https://en.numista.com/catalogue/pieces2184.html"
       ],
@@ -1742,14 +1741,14 @@
      ],
      "label": "design of C045 · Netherlands · 2014 · 5 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national Willem-Alexander right-facing portrait · Willem-Alexander Koning der Nederlanden (vertical) · date · 12 stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Third reader for D0063: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces54953.html (Numista N#54953): Reverse 'A globe, next to the face value, shows Europe in relation to A",
       "links": [
        "https://en.numista.com/catalogue/pieces54953.html"
       ],
@@ -1772,14 +1771,14 @@
      ],
      "label": "design of C039 · Italy · 2010 · 2 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national Mole Antonelliana Turin (Luciana De Simoni) + RI · date · R · 12 EU stars · common Europe globe side (Luc Luycx)",
-      "their_source": "Third reader for D0064: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces130.html (Numista N#130): Reverse 'A globe, next to the face value, shows Europe in relation to Afric",
       "links": [
        "https://en.numista.com/catalogue/pieces130.html"
       ],
@@ -1802,14 +1801,14 @@
      ],
      "label": "design of C140 · Spain · 2008 · 1 euro cent · EUR",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "national side Cathedral of Santiago de Compostela (Garcilaso Rollán) + 12 EU stars · common side globe (Luc Luycx)",
-      "their_source": "Third reader for D0065: Euro common side (Luc Luycx): 1, 2 and 5 cent show Europe on a globe, 10 cent to 2 euro show the map; this coin's de",
+      "their_source": "https://en.numista.com/catalogue/pieces81.html (Numista N#81): Reverse 'A globe, next to the face value, shows Europe in relation to Africa ",
       "links": [
        "https://en.numista.com/catalogue/pieces81.html"
       ],

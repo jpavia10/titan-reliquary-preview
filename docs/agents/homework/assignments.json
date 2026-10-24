@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-23T22:43:18Z",
+ "updated": "2026-10-24T01:22:12Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -86,7 +86,10 @@
   "grok-research-20261023": 1,
   "gemini-story-check-20261023": 1,
   "gemini-verify-20261023": 1,
-  "gemini-fill-20261023": 7
+  "gemini-fill-20261023": 7,
+  "muse-arbitrate-20261024": 1,
+  "muse-story-check-20261024": 1,
+  "muse-verify-20261024": 1
  },
  "assignments": [
   {
@@ -17564,9 +17567,13 @@
    "kind": "story-check",
    "issued": "2026-10-23T18:01:21Z",
    "lease_until": "2026-10-28T18:01:21Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 4,
+    "closed": 2,
+    "left": 2
+   },
    "items": [
     {
      "item": "story:C219",
@@ -17618,9 +17625,13 @@
    "kind": "verify",
    "issued": "2026-10-23T18:01:21Z",
    "lease_until": "2026-10-28T18:01:21Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 8,
+    "closed": 6,
+    "left": 2
+   },
    "items": [
     {
      "item": "verify:type:AT.KM.2826:design.text",
@@ -17678,9 +17689,13 @@
    "kind": "fill",
    "issued": "2026-10-23T20:44:12Z",
    "lease_until": "2026-10-28T20:44:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 12,
+    "closed": 12,
+    "left": 0
+   },
    "items": [
     {
      "item": "fill:AT.KM.2826",
@@ -17762,9 +17777,13 @@
    "kind": "fill",
    "issued": "2026-10-23T20:44:12Z",
    "lease_until": "2026-10-28T20:44:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 12,
+    "closed": 12,
+    "left": 0
+   },
    "items": [
     {
      "item": "fill:FR.KM.929",
@@ -17846,9 +17865,13 @@
    "kind": "fill",
    "issued": "2026-10-23T20:44:12Z",
    "lease_until": "2026-10-28T20:44:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 12,
+    "closed": 12,
+    "left": 0
+   },
    "items": [
     {
      "item": "fill:GB.KM.837",
@@ -17930,9 +17953,13 @@
    "kind": "fill",
    "issued": "2026-10-23T20:44:12Z",
    "lease_until": "2026-10-28T20:44:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 12,
+    "closed": 12,
+    "left": 0
+   },
    "items": [
     {
      "item": "fill:GB.KM.988",
@@ -18014,9 +18041,13 @@
    "kind": "fill",
    "issued": "2026-10-23T20:44:12Z",
    "lease_until": "2026-10-28T20:44:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 12,
+    "closed": 12,
+    "left": 0
+   },
    "items": [
     {
      "item": "fill:IT.KM.216",
@@ -18098,9 +18129,13 @@
    "kind": "fill",
    "issued": "2026-10-23T20:44:12Z",
    "lease_until": "2026-10-28T20:44:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 12,
+    "closed": 12,
+    "left": 0
+   },
    "items": [
     {
      "item": "fill:NL.KM.234",
@@ -18182,9 +18217,13 @@
    "kind": "fill",
    "issued": "2026-10-23T20:44:12Z",
    "lease_until": "2026-10-28T20:44:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-24T00:58:04Z",
+   "result": {
+    "items": 6,
+    "closed": 6,
+    "left": 0
+   },
    "items": [
     {
      "item": "fill:TH.KM.183",
@@ -18221,6 +18260,156 @@
      "entity": "type",
      "id": "YU.KM.86",
      "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261024-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-10-24T00:58:04Z",
+   "lease_until": "2026-10-31T00:58:04Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0091",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "catalogs"
+    },
+    {
+     "item": "arb:D0092",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "issues.0.mintage"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261024-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-10-24T00:58:04Z",
+   "lease_until": "2026-10-31T00:58:04Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C219",
+     "entity": "specimen",
+     "id": "C219",
+     "field": "story"
+    },
+    {
+     "item": "story:C233",
+     "entity": "specimen",
+     "id": "C233",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261024-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-10-24T00:58:04Z",
+   "lease_until": "2026-10-31T00:58:04Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:AT.KM.2826:design.text",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.988:design.text",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TT.KM.33:design.text",
+     "entity": "type",
+     "id": "TT.KM.33",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C023:issue.year",
+     "entity": "specimen",
+     "id": "C023",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:US.KM.195:design.text",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:FR.KM.1289:design.text",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.241:design.text",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.216:design.text",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MT.KM.132:design.text",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:VA.KM.52.1:design.text",
+     "entity": "type",
+     "id": "VA.KM.52.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:HK.KM.69a:design.text",
+     "entity": "type",
+     "id": "HK.KM.69a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:GB.KM.837:design.text",
+     "entity": "type",
+     "id": "GB.KM.837",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KY.KM.88a:design.text",
+     "entity": "type",
+     "id": "KY.KM.88a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.111:design.text",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:design.text",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "design.text"
     }
    ]
   }
@@ -20566,6 +20755,38 @@
     "assignment": "HW-gemini-plain-story-20261020-1",
     "outcome": "attempted",
     "ts": "2026-10-23T17:49:40Z"
+   }
+  ],
+  "story:C219": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-story-check-20261023-1",
+    "outcome": "attempted",
+    "ts": "2026-10-24T00:58:04Z"
+   }
+  ],
+  "story:C233": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-story-check-20261023-1",
+    "outcome": "attempted",
+    "ts": "2026-10-24T00:58:04Z"
+   }
+  ],
+  "verify:type:AT.KM.2826:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261023-1",
+    "outcome": "attempted",
+    "ts": "2026-10-24T00:58:04Z"
+   }
+  ],
+  "verify:specimen:C023:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261023-1",
+    "outcome": "attempted",
+    "ts": "2026-10-24T00:58:04Z"
    }
   ]
  },

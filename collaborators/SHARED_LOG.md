@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-24] — Claude · Gemini's evening round reviewed (owner: "How did argon perform this round?")
+- Data: 10 change files merged (`changes_gemini_20261023-2101..2110`, 170 facts; all 7 fill sheets closed). Fault: the AT.KM.2826 1918 mintage 115,245,000 "quoted" from Numista exists in no source (1916 130.77M, 1917 127.42M, 1918 48.985M); D0091 (catalogs as strings) and D0092 go to Muse (record is Claude's). Dime lettering corrected (`changes_claude_20261024-0105`). Scores 10/6/10x5/10/8, theme 5, motion 7, music 3.
+- Cloud Forest package v1 run on software GL, not shipped: negative tap age blows out the basin for 99 s, texture() in a branch, the intro shader does not compile (`%` in GLSL ES 1.00); front fronds cover coin and title. REVIEW files in Drive `themes/canopy/` and `motion/`; v2 requested (queues.json 12-14). Music picks: 2 from the refused Pandora/Al Goldstein MIDI set, 2 already in the app.
+
 ### [2026-10-23] — Claude · Theme, motion and music builds move to Gemini (owner)
 - Owner: "keep its scope high. Ask it for more help on theming and advanced motion. Or songs etc. Off load your tokens here". Gemini owns themes #44-#50 (then Nocturne + Zen rebuilds) as 5-file packages, six Motion Lab studies on live data, and two recordings per new theme. Brief: `docs/design/BUILD_BRIEF_THEMES_MOTION.md` (Drive copy + Silver Screen reference files in `design-incoming (AI UI proposals)/themes/_kit .../`); queues.json tasks 12-14.
 - Loop: Gemini gets kind `fill` too (7 sheets, 78 types, hand-copied to its Drive sheets folder, sizes checked); 14 open sheets. Drive WORK QUEUE + FEEDBACK docs for Gemini updated. Claude reviews each package (run on GPU, AA, perf, add_theme.py, art request) before it ships.
