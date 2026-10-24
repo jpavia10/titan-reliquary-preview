@@ -1699,6 +1699,57 @@
     "synth",
     "orchestra"
    ]
+  },
+  {
+   "id": "canopy-noi-de-la-mare-guitar",
+   "title": "El Noi de la Mare",
+   "composer": "Traditional Catalan",
+   "traditional": true,
+   "query": "El Noi de la Mare guitar",
+   "files": [
+    "File:El Noi de la Mare (guitar).ogg"
+   ],
+   "must": [
+    "noi"
+   ],
+   "prefer": [
+    "guitar"
+   ],
+   "moods": [
+    "canopy"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "sequenced"
+   ],
+   "note": "Gemini's pick for Cloud Forest (music_gemini_20261023-2135.json, v2): Jujutacular, 2009, CC BY-SA 3.0 per its page quote; the intake checks the page itself."
+  },
+  {
+   "id": "canopy-cpe-bach-flute-sonata-wq131",
+   "title": "Flute Sonata in D major, Wq. 131",
+   "composer": "Carl Philipp Emanuel Bach",
+   "query": "C. P. E. Bach Flute Sonata D major Wq. 131",
+   "files": [
+    "File:C. P. E. Bach - Flute Sonata in D Major, Wq. 131, H. 561.webm"
+   ],
+   "must": [
+    "131"
+   ],
+   "prefer": [
+    "flute"
+   ],
+   "moods": [
+    "canopy"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "sequenced"
+   ],
+   "note": "Gemini's pick for Cloud Forest (v2): La Guirlande Early Music, 2016, CC BY 3.0 per its page quote (YouTubeReviewBot); the intake checks the page itself."
   }
  ]
 }

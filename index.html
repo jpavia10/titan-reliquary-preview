@@ -19,7 +19,7 @@
   <script>
     try {
       var __tr_a = localStorage.getItem("tr_atmo_v1");
-      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno","solaris","alchemist","glacier","valhalla","dynasty","zen","samadhi","silkroad","arcade","pulp","drafting","diorama","bauhaus","terminal","y2k","papercut","sketch","freefall","banknote","contour","cathedral","marbled","ferro","lumen","rift","horizon","kintsugi","supercell","tourbillon","darkroom","silverscreen"];
+      var __tr_ok = ["afterhours","conservator","colossus","nocturne","odyssey","cursedwing","kaleido","abyss","neon","notepad","construct","xeno","solaris","alchemist","glacier","valhalla","dynasty","zen","samadhi","silkroad","arcade","pulp","drafting","diorama","bauhaus","terminal","y2k","papercut","sketch","freefall","banknote","contour","cathedral","marbled","ferro","lumen","rift","horizon","kintsugi","supercell","tourbillon","darkroom","silverscreen","canopy"];
       if (!__tr_a || __tr_ok.indexOf(__tr_a) === -1) {
         var __tr_old = localStorage.getItem("tr_theme_v1");
         if (__tr_old) __tr_old = __tr_old.replace(/^"+|"+$/g, "");
@@ -34,9 +34,9 @@
     } catch (e) { /* private mode */ }
   </script>
   <!-- One motion setting + haptics (fix list #59): must run before every other script and before the first paint -->
-  <link rel="stylesheet" href="styles/quality.css?v=tr254" />
-  <script src="wings/quality.js?v=tr254"></script>
-  <script src="js/app-motion.js?v=tr254"></script>
+  <link rel="stylesheet" href="styles/quality.css?v=tr255" />
+  <script src="wings/quality.js?v=tr255"></script>
+  <script src="js/app-motion.js?v=tr255"></script>
   <!-- Splash gate: show the cinematic vault-door opening (splash v3) once per session on a plain load of the Grand Hall.
        ?nosplash skips it, ?splash=1 forces it, deep links (#coin=..., #vault ...) skip it, Motion "Off" skips it. Fails open after 7 s. -->
   <script>
@@ -53,9 +53,9 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=tr254" />
-  <link rel="stylesheet" href="splash.css?v=tr254" />
-  <link rel="stylesheet" href="styles/themes.css?v=tr254" />
+  <link rel="stylesheet" href="styles.css?v=tr255" />
+  <link rel="stylesheet" href="splash.css?v=tr255" />
+  <link rel="stylesheet" href="styles/themes.css?v=tr255" />
   <!-- Only the ACTIVE atmosphere's stylesheet loads (written here so it still blocks first paint: no flash of the wrong theme).
        Switching later is app.js (atmoCss loader): the new sheet loads first, then data-atmo flips and the old sheet is removed.
        sw.js precaches all 20 so switching works offline. styles/atmo/all.css is no longer linked. -->
@@ -67,25 +67,25 @@
       document.write('<link rel="stylesheet" id="atmo-css" data-atmo-css="' + a + '" href="styles/atmo/' + a + '.css' + window.__trAtmoQ + '">');
     })();
   </script>
-  <noscript><link rel="stylesheet" href="styles/atmo/afterhours.css?v=tr254" /></noscript>
-  <link rel="stylesheet" href="styles/slab-legibility.css?v=tr254" />
-  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr254" /> -->
-  <link rel="stylesheet" href="styles/hall.css?v=tr254" />
-  <link rel="stylesheet" href="styles/gallery.css?v=tr254" />
-  <link rel="stylesheet" href="styles/vault.css?v=tr254" />
-  <link rel="stylesheet" href="styles/study.css?v=tr254" />
-  <link rel="stylesheet" href="styles/wants.css?v=tr254" />
-  <link rel="stylesheet" href="styles/simple.css?v=tr254" />
-  <link rel="stylesheet" href="styles/health.css?v=tr254" />
-  <link rel="stylesheet" href="styles/questions.css?v=tr254" />
-  <link rel="stylesheet" href="styles/lab.css?v=tr254" />
-  <link rel="stylesheet" href="styles/table.css?v=tr254" />
-  <link rel="stylesheet" href="styles/fx.css?v=tr254" />
-  <link rel="stylesheet" href="styles/scene.css?v=tr254" />
-  <link rel="stylesheet" href="styles/worlds.css?v=tr254" />
-  <link rel="stylesheet" href="styles/style-layer.css?v=tr254" />
+  <noscript><link rel="stylesheet" href="styles/atmo/afterhours.css?v=tr255" /></noscript>
+  <link rel="stylesheet" href="styles/slab-legibility.css?v=tr255" />
+  <!-- AGENT STYLE HOOKS: an agent replaces ONLY its own line with <link rel="stylesheet" href="styles/NAME.css?v=tr255" /> -->
+  <link rel="stylesheet" href="styles/hall.css?v=tr255" />
+  <link rel="stylesheet" href="styles/gallery.css?v=tr255" />
+  <link rel="stylesheet" href="styles/vault.css?v=tr255" />
+  <link rel="stylesheet" href="styles/study.css?v=tr255" />
+  <link rel="stylesheet" href="styles/wants.css?v=tr255" />
+  <link rel="stylesheet" href="styles/simple.css?v=tr255" />
+  <link rel="stylesheet" href="styles/health.css?v=tr255" />
+  <link rel="stylesheet" href="styles/questions.css?v=tr255" />
+  <link rel="stylesheet" href="styles/lab.css?v=tr255" />
+  <link rel="stylesheet" href="styles/table.css?v=tr255" />
+  <link rel="stylesheet" href="styles/fx.css?v=tr255" />
+  <link rel="stylesheet" href="styles/scene.css?v=tr255" />
+  <link rel="stylesheet" href="styles/worlds.css?v=tr255" />
+  <link rel="stylesheet" href="styles/style-layer.css?v=tr255" />
   <!--WS:themes: shared atmosphere system + one stylesheet per atmosphere (notes/agents/themes.md)-->
-  <link rel="stylesheet" href="fx/textures.css?v=tr254">
+  <link rel="stylesheet" href="fx/textures.css?v=tr255">
 </head>
 <body>
   <!-- ══════════ SPLASH · THE VAULT DOOR (splash v3, see splash.js) ══════════ -->
@@ -398,6 +398,7 @@
       </symbol>
       <!-- 26. Grand Terminal: the station clock over a split flap (styles-20) -->
       <symbol id="crest-terminal" viewBox="0 0 200 200"><rect x="22" y="34" width="156" height="132" rx="7" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="3"/><rect x="26" y="38" width="148" height="124" rx="5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.4"/><line x1="22" y1="100" x2="178" y2="100" stroke="currentColor" stroke-width="2.6"/><rect x="34" y="46" width="38" height="50" rx="3" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/><rect x="34" y="104" width="38" height="50" rx="3" fill="currentColor" fill-opacity="0.32" stroke="currentColor" stroke-width="1.5"/><rect x="81" y="46" width="38" height="50" rx="3" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/><rect x="81" y="104" width="38" height="50" rx="3" fill="currentColor" fill-opacity="0.32" stroke="currentColor" stroke-width="1.5"/><rect x="128" y="46" width="38" height="50" rx="3" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="1.5"/><rect x="128" y="104" width="38" height="50" rx="3" fill="currentColor" fill-opacity="0.32" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="100" r="2.8" fill="currentColor"/><circle cx="76" cy="100" r="2.4" fill="currentColor"/><circle cx="123" cy="100" r="2.4" fill="currentColor"/><circle cx="170" cy="100" r="2.8" fill="currentColor"/><path d="M88 92 A12 12 0 0 1 112 92 M88 108 A12 12 0 0 0 112 108" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="100" cy="88" r="3" fill="currentColor"/><circle cx="100" cy="112" r="3" fill="currentColor"/><path d="M44 60 H62 M53 60 V90 M44 110 H62 M44 110 V140" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" opacity="0.85"/><rect x="136" y="60" width="22" height="6" fill="currentColor" opacity="0.85"/><rect x="136" y="110" width="22" height="6" fill="currentColor" opacity="0.85"/><circle cx="48" cy="40" r="2" fill="currentColor"/><circle cx="100" cy="40" r="2" fill="currentColor"/><circle cx="152" cy="40" r="2" fill="currentColor"/><line x1="30" y1="180" x2="170" y2="180" stroke="currentColor" stroke-width="2.4"/><path d="M46 174 V186 M72 174 V186 M100 174 V186 M128 174 V186 M154 174 V186" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="crest-canopy" viewBox="0 0 200 200"><path d="M100 178 V38" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><path d="M100 148 Q62 140 38 112 Q68 114 100 132 M100 148 Q138 140 162 112 Q132 114 100 132" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M100 114 Q66 104 46 78 Q74 82 100 98 M100 114 Q134 104 154 78 Q126 82 100 98" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M100 82 Q74 72 58 50 Q82 54 100 68 M100 82 Q126 72 142 50 Q118 54 100 68" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/><path d="M100 18 C92 30 92 38 100 38 C108 38 108 30 100 18 Z" fill="currentColor"/><circle cx="52" cy="152" r="5" fill="currentColor"/><circle cx="148" cy="152" r="5" fill="currentColor"/></symbol>
       <symbol id="crest-silverscreen" viewBox="0 0 200 200"><path d="M28 178 V70 Q100 12 172 70 V178" fill="none" stroke="currentColor" stroke-width="7"/><path d="M100 40 V20 M80 46 L68 28 M120 46 L132 28 M62 56 L46 42 M138 56 L154 42" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><rect x="60" y="80" width="80" height="60" rx="2" fill="currentColor"/><path d="M44 72 Q56 122 44 170 M156 72 Q144 122 156 170" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><path d="M50 188 Q100 176 150 188" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
       <symbol id="crest-darkroom" viewBox="0 0 200 200"><circle cx="162" cy="34" r="13" fill="currentColor"/><path d="M150 46 L128 68" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-dasharray="3 6"/><rect x="24" y="66" width="152" height="104" rx="16" fill="none" stroke="currentColor" stroke-width="7"/><rect x="54" y="82" width="92" height="72" rx="3" fill="none" stroke="currentColor" stroke-width="5" transform="rotate(-5 100 118)"/><circle cx="100" cy="116" r="19" fill="currentColor"/><path d="M52 186 Q100 172 148 186" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
       <symbol id="crest-tourbillon" viewBox="0 0 200 200"><circle cx="100" cy="100" r="72" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="100" cy="100" r="45" fill="none" stroke="currentColor" stroke-width="6" stroke-dasharray="5 6.8"/><circle cx="100" cy="100" r="38" fill="none" stroke="currentColor" stroke-width="3"/><path d="M100 28 V62 M37.6 136 L67.1 119 M162.4 136 L132.9 119" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><path d="M100 172 L92 186 H108 Z" fill="currentColor"/><circle cx="100" cy="100" r="12" fill="currentColor"/></symbol>
@@ -902,6 +903,13 @@
             <span class="atmo-card-pair">Pairs with · Trains and the hall + Adventure</span>
             <span class="atmo-card-scene" data-scene="terminal">Set the scene →</span>
           </button>
+          <button type="button" class="atmo-card" data-atmo-val="canopy">
+            <span class="atmo-swatch sw-canopy" aria-hidden="true"></span>
+            <span class="atmo-card-name">Cloud Forest</span>
+            <span class="atmo-card-desc">A dripping cloud forest at dawn: shafts of emerald sun pierce three layers of giant tree-fern fronds while fireflies drift past a mossy basalt altar holding your coins under a lens of clear rainwater. Open a coin to place it on the wet stone; tap the canopy to shake a shower of dewdrops and scatter the fireflies.</span>
+            <span class="atmo-card-pair">Pairs with · Cloud forest + Flute & Piano</span>
+            <span class="atmo-card-scene" data-scene="canopy">Set the scene →</span>
+          </button>
           <button type="button" class="atmo-card" data-atmo-val="silverscreen">
             <span class="atmo-swatch sw-silverscreen" aria-hidden="true"></span>
             <span class="atmo-card-name">Silver Screen</span>
@@ -1331,120 +1339,121 @@
 
     <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
   </div>
-  <script>window.TITAN_BUILD = "tr254";</script>
+  <script>window.TITAN_BUILD = "tr255";</script>
   <script src="js/three.min.js"></script>
-  <script src="js/motion-splash.js?v=tr254"></script>
-  <script src="js/intros/kit.js?v=tr254"></script>
-  <script src="js/intros/zen.js?v=tr254"></script>
-  <script src="js/intros/arcade.js?v=tr254"></script>
-  <script src="js/intros/construct.js?v=tr254"></script>
-  <script src="js/intros/neon.js?v=tr254"></script>
-  <script src="js/intros/notepad.js?v=tr254"></script>
-  <script src="js/intros/terminal.js?v=tr254"></script>
-  <script src="js/intros/valhalla.js?v=tr254"></script>
-  <script src="js/intros/xeno.js?v=tr254"></script>
-  <script src="js/intros/marbled.js?v=tr254"></script>
-  <script src="js/intros/drafting.js?v=tr254"></script>
-  <script src="js/intros/solaris.js?v=tr254"></script>
-  <script src="js/intros/conservator.js?v=tr254"></script>
-  <script src="js/intros/cathedral.js?v=tr254"></script>
-  <script src="js/intros/dynasty.js?v=tr254"></script>
-  <script src="js/intros/alchemist.js?v=tr254"></script>
-  <script src="js/intros/cursedwing.js?v=tr254"></script>
-  <script src="js/intros/samadhi.js?v=tr254"></script>
-  <script src="js/intros/abyss.js?v=tr254"></script>
-  <script src="js/intros/bauhaus.js?v=tr254"></script>
-  <script src="js/intros/odyssey.js?v=tr254"></script>
-  <script src="js/intros/kaleido.js?v=tr254"></script>
-  <script src="js/intros/y2k.js?v=tr254"></script>
-  <script src="js/intros/ferro.js?v=tr254"></script>
-  <script src="js/intros/lumen.js?v=tr254"></script>
-  <script src="js/intros/rift.js?v=tr254"></script>
-  <script src="js/intros/horizon.js?v=tr254"></script>
-  <script src="js/intros/kintsugi.js?v=tr254"></script>
-  <script src="js/intros/supercell.js?v=tr254"></script>
-  <script src="js/intros/tourbillon.js?v=tr254"></script>
-  <script src="js/intros/darkroom.js?v=tr254"></script>
-  <script src="js/intros/silverscreen.js?v=tr254"></script>
-  <script src="js/intros/silkroad.js?v=tr254"></script>
-  <script src="js/intros/diorama.js?v=tr254"></script>
-  <script src="js/intros/contour.js?v=tr254"></script>
-  <script src="js/intros/afterhours.js?v=tr254"></script>
-  <script src="js/intros/pulp.js?v=tr254"></script>
-  <script src="js/intros/glacier.js?v=tr254"></script>
-  <script src="js/intros/papercut.js?v=tr254"></script>
-  <script src="js/intros/colossus.js?v=tr254"></script>
-  <script src="js/intros/freefall.js?v=tr254"></script>
-  <script src="js/intros/sketch.js?v=tr254"></script>
-  <script src="js/intros/banknote.js?v=tr254"></script>
-  <script src="splash.js?v=tr254"></script>
+  <script src="js/motion-splash.js?v=tr255"></script>
+  <script src="js/intros/kit.js?v=tr255"></script>
+  <script src="js/intros/zen.js?v=tr255"></script>
+  <script src="js/intros/arcade.js?v=tr255"></script>
+  <script src="js/intros/construct.js?v=tr255"></script>
+  <script src="js/intros/neon.js?v=tr255"></script>
+  <script src="js/intros/notepad.js?v=tr255"></script>
+  <script src="js/intros/terminal.js?v=tr255"></script>
+  <script src="js/intros/valhalla.js?v=tr255"></script>
+  <script src="js/intros/xeno.js?v=tr255"></script>
+  <script src="js/intros/marbled.js?v=tr255"></script>
+  <script src="js/intros/drafting.js?v=tr255"></script>
+  <script src="js/intros/solaris.js?v=tr255"></script>
+  <script src="js/intros/conservator.js?v=tr255"></script>
+  <script src="js/intros/cathedral.js?v=tr255"></script>
+  <script src="js/intros/dynasty.js?v=tr255"></script>
+  <script src="js/intros/alchemist.js?v=tr255"></script>
+  <script src="js/intros/cursedwing.js?v=tr255"></script>
+  <script src="js/intros/samadhi.js?v=tr255"></script>
+  <script src="js/intros/abyss.js?v=tr255"></script>
+  <script src="js/intros/bauhaus.js?v=tr255"></script>
+  <script src="js/intros/odyssey.js?v=tr255"></script>
+  <script src="js/intros/kaleido.js?v=tr255"></script>
+  <script src="js/intros/y2k.js?v=tr255"></script>
+  <script src="js/intros/ferro.js?v=tr255"></script>
+  <script src="js/intros/lumen.js?v=tr255"></script>
+  <script src="js/intros/rift.js?v=tr255"></script>
+  <script src="js/intros/horizon.js?v=tr255"></script>
+  <script src="js/intros/kintsugi.js?v=tr255"></script>
+  <script src="js/intros/supercell.js?v=tr255"></script>
+  <script src="js/intros/tourbillon.js?v=tr255"></script>
+  <script src="js/intros/darkroom.js?v=tr255"></script>
+  <script src="js/intros/silverscreen.js?v=tr255"></script>
+  <script src="js/intros/canopy.js?v=tr255"></script>
+  <script src="js/intros/silkroad.js?v=tr255"></script>
+  <script src="js/intros/diorama.js?v=tr255"></script>
+  <script src="js/intros/contour.js?v=tr255"></script>
+  <script src="js/intros/afterhours.js?v=tr255"></script>
+  <script src="js/intros/pulp.js?v=tr255"></script>
+  <script src="js/intros/glacier.js?v=tr255"></script>
+  <script src="js/intros/papercut.js?v=tr255"></script>
+  <script src="js/intros/colossus.js?v=tr255"></script>
+  <script src="js/intros/freefall.js?v=tr255"></script>
+  <script src="js/intros/sketch.js?v=tr255"></script>
+  <script src="js/intros/banknote.js?v=tr255"></script>
+  <script src="splash.js?v=tr255"></script>
   <script src="js/OrbitControls.js"></script>
   <script src="js/fflate.min.js"></script>
   <script src="js/USDZExporter.js"></script>
   <script src="js/qrcode.min.js"></script>
-  <script src="spatial.js?v=tr254"></script>
-  <script src="deepzoom.js?v=tr254"></script>
-  <script src="atlas.js?v=tr254"></script>
-  <script src="js/app-format.js?v=tr254"></script>
-  <script src="js/app-data.js?v=tr254"></script>
-  <script src="js/app-insights.js?v=tr254"></script>
-  <script src="js/app-overlay.js?v=tr254"></script>
-  <script src="js/app-atmo-css.js?v=tr254"></script>
-  <script src="js/app-ui.js?v=tr254"></script>
-  <script src="js/app-palette.js?v=tr254"></script>
-  <script src="app.js?v=tr254"></script>
-  <script src="js/playlist.js?v=tr254"></script>
-  <script src="audio.js?v=tr254"></script>
-  <script src="ambient.js?v=tr254"></script>
-  <script src="audio/scape/bridge.js?v=tr254" defer></script>
-  <script src="wings/atmo/core.js?v=tr254"></script>
-  <script src="wings/atmo/afterhours.js?v=tr254"></script>
-  <script src="wings/atmo/conservator.js?v=tr254"></script>
-  <script src="wings/atmo/colossus.js?v=tr254"></script>
-  <script src="wings/atmo/nocturne.js?v=tr254"></script>
-  <script src="wings/atmo/odyssey.js?v=tr254"></script>
-  <script src="wings/atmo/cursedwing.js?v=tr254"></script>
-  <script src="wings/atmo/kaleido.js?v=tr254"></script>
-  <script src="wings/atmo/abyss.js?v=tr254"></script>
-  <script src="wings/atmo/neon.js?v=tr254"></script>
-  <script src="wings/atmo/notepad.js?v=tr254"></script>
-  <script src="wings/atmo/construct.js?v=tr254"></script>
-  <script src="wings/atmo/xeno.js?v=tr254"></script>
-  <script src="wings/atmo/solaris.js?v=tr254"></script>
-  <script src="wings/atmo/alchemist.js?v=tr254"></script>
-  <script src="wings/atmo/glacier.js?v=tr254"></script>
-  <script src="wings/atmo/valhalla.js?v=tr254"></script>
-  <script src="wings/atmo/dynasty.js?v=tr254"></script>
-  <script src="wings/atmo/zen.js?v=tr254"></script>
-  <script src="wings/atmo/samadhi.js?v=tr254"></script>
-  <script src="wings/atmo/silkroad.js?v=tr254"></script>
-  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr254"></script> -->
-  <script src="wings/hall.js?v=tr254"></script>
-  <script src="wings/gallery.js?v=tr254"></script>
-  <script src="wings/vault.js?v=tr254"></script>
-  <script src="wings/albums-data.js?v=tr254"></script><script src="wings/study.js?v=tr254"></script>
-  <script src="wings/wants.js?v=tr254"></script>
-  <script src="wings/simple.js?v=tr254"></script>
-  <script src="wings/health.js?v=tr254"></script>
-  <script src="wings/questions.js?v=tr254"></script>
-  <script src="wings/scan.js?v=tr254"></script>
-  <script src="wings/lab.js?v=tr254"></script>
+  <script src="spatial.js?v=tr255"></script>
+  <script src="deepzoom.js?v=tr255"></script>
+  <script src="atlas.js?v=tr255"></script>
+  <script src="js/app-format.js?v=tr255"></script>
+  <script src="js/app-data.js?v=tr255"></script>
+  <script src="js/app-insights.js?v=tr255"></script>
+  <script src="js/app-overlay.js?v=tr255"></script>
+  <script src="js/app-atmo-css.js?v=tr255"></script>
+  <script src="js/app-ui.js?v=tr255"></script>
+  <script src="js/app-palette.js?v=tr255"></script>
+  <script src="app.js?v=tr255"></script>
+  <script src="js/playlist.js?v=tr255"></script>
+  <script src="audio.js?v=tr255"></script>
+  <script src="ambient.js?v=tr255"></script>
+  <script src="audio/scape/bridge.js?v=tr255" defer></script>
+  <script src="wings/atmo/core.js?v=tr255"></script>
+  <script src="wings/atmo/afterhours.js?v=tr255"></script>
+  <script src="wings/atmo/conservator.js?v=tr255"></script>
+  <script src="wings/atmo/colossus.js?v=tr255"></script>
+  <script src="wings/atmo/nocturne.js?v=tr255"></script>
+  <script src="wings/atmo/odyssey.js?v=tr255"></script>
+  <script src="wings/atmo/cursedwing.js?v=tr255"></script>
+  <script src="wings/atmo/kaleido.js?v=tr255"></script>
+  <script src="wings/atmo/abyss.js?v=tr255"></script>
+  <script src="wings/atmo/neon.js?v=tr255"></script>
+  <script src="wings/atmo/notepad.js?v=tr255"></script>
+  <script src="wings/atmo/construct.js?v=tr255"></script>
+  <script src="wings/atmo/xeno.js?v=tr255"></script>
+  <script src="wings/atmo/solaris.js?v=tr255"></script>
+  <script src="wings/atmo/alchemist.js?v=tr255"></script>
+  <script src="wings/atmo/glacier.js?v=tr255"></script>
+  <script src="wings/atmo/valhalla.js?v=tr255"></script>
+  <script src="wings/atmo/dynasty.js?v=tr255"></script>
+  <script src="wings/atmo/zen.js?v=tr255"></script>
+  <script src="wings/atmo/samadhi.js?v=tr255"></script>
+  <script src="wings/atmo/silkroad.js?v=tr255"></script>
+  <!-- AGENT SCRIPT HOOKS (load after the app): an agent replaces ONLY its own line with <script src="wings/NAME.js?v=tr255"></script> -->
+  <script src="wings/hall.js?v=tr255"></script>
+  <script src="wings/gallery.js?v=tr255"></script>
+  <script src="wings/vault.js?v=tr255"></script>
+  <script src="wings/albums-data.js?v=tr255"></script><script src="wings/study.js?v=tr255"></script>
+  <script src="wings/wants.js?v=tr255"></script>
+  <script src="wings/simple.js?v=tr255"></script>
+  <script src="wings/health.js?v=tr255"></script>
+  <script src="wings/questions.js?v=tr255"></script>
+  <script src="wings/scan.js?v=tr255"></script>
+  <script src="wings/lab.js?v=tr255"></script>
   <!--WJ:table-->
-  <script src="fx/kit.js?v=tr254"></script><script src="fx/atmos.js?v=tr254"></script><script src="fx/particles-gpu.js?v=tr254"></script><script src="fx/fluid.js?v=tr254"></script><script src="fx/post.js?v=tr254"></script><script src="fx/volume.js?v=tr254"></script><script src="fx/metal.js?v=tr254"></script><script src="fx/rd.js?v=tr254"></script><script src="fx/themes.js?v=tr254"></script>
-  <script src="wings/fx/engine.js?v=tr254"></script><script src="wings/fx/presets.js?v=tr254"></script><script src="wings/fx/styles-a.js?v=tr254"></script><script src="wings/fx/styles-b.js?v=tr254"></script><script src="wings/fx/styles-c.js?v=tr254"></script><script src="wings/fx/styles-d.js?v=tr254"></script><script src="wings/fx/styles-e.js?v=tr254"></script><script src="wings/fx/styles-n.js?v=tr254"></script><script src="wings/fx/ui.js?v=tr254"></script>
-  <script src="wings/themes/manifest.js?v=tr254"></script>
-  <script src="wings/themes/worlds.js?v=tr254"></script>
-  <script src="wings/music-recorded.js?v=tr254"></script>
-  <script src="wings/score.js?v=tr254"></script>
-  <script src="wings/scene-engine.js?v=tr254"></script>
-  <script src="wings/signature/core.js?v=tr254"></script>
-  <script src="wings/relief.js?v=tr254"></script>
-  <script src="wings/cutouts.js?v=tr254"></script>
-  <script src="shells/shell.js?v=tr254"></script>
-  <script src="wings/coin3d.js?v=tr254"></script>
-  <script src="wings/ui-sounds.js?v=tr254"></script>
-  <script src="wings/scene.js?v=tr254"></script>
+  <script src="fx/kit.js?v=tr255"></script><script src="fx/atmos.js?v=tr255"></script><script src="fx/particles-gpu.js?v=tr255"></script><script src="fx/fluid.js?v=tr255"></script><script src="fx/post.js?v=tr255"></script><script src="fx/volume.js?v=tr255"></script><script src="fx/metal.js?v=tr255"></script><script src="fx/rd.js?v=tr255"></script><script src="fx/themes.js?v=tr255"></script>
+  <script src="wings/fx/engine.js?v=tr255"></script><script src="wings/fx/presets.js?v=tr255"></script><script src="wings/fx/styles-a.js?v=tr255"></script><script src="wings/fx/styles-b.js?v=tr255"></script><script src="wings/fx/styles-c.js?v=tr255"></script><script src="wings/fx/styles-d.js?v=tr255"></script><script src="wings/fx/styles-e.js?v=tr255"></script><script src="wings/fx/styles-n.js?v=tr255"></script><script src="wings/fx/ui.js?v=tr255"></script>
+  <script src="wings/themes/manifest.js?v=tr255"></script>
+  <script src="wings/themes/worlds.js?v=tr255"></script>
+  <script src="wings/music-recorded.js?v=tr255"></script>
+  <script src="wings/score.js?v=tr255"></script>
+  <script src="wings/scene-engine.js?v=tr255"></script>
+  <script src="wings/signature/core.js?v=tr255"></script>
+  <script src="wings/relief.js?v=tr255"></script>
+  <script src="wings/cutouts.js?v=tr255"></script>
+  <script src="shells/shell.js?v=tr255"></script>
+  <script src="wings/coin3d.js?v=tr255"></script>
+  <script src="wings/ui-sounds.js?v=tr255"></script>
+  <script src="wings/scene.js?v=tr255"></script>
   <!--WJ:themes: crest registry + one crest file per atmosphere-->
-  <script src="wings/themes.js?v=tr254"></script>
+  <script src="wings/themes.js?v=tr255"></script>
 </body>
 </html>

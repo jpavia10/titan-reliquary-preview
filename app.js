@@ -6793,6 +6793,7 @@
     diorama:     { name: "Clay Diorama",      themeColor: "#f3ece4", preset: "diorama",   station: "lofi",      pair: "Birds and stream + Lo-fi" },
     bauhaus:     { name: "Bauhaus",           themeColor: "#f2efe6", preset: "bauhaus",   station: "classical", pair: "Studio + Classical" },
     terminal:    { name: "Grand Terminal",    themeColor: "#0d0f12", preset: "terminal",  station: "adventure", pair: "Trains and the hall + Adventure" },
+    canopy:      { name: "Cloud Forest", themeColor: "#060d09", preset: "canopy", station: "dark", pair: "Cloud forest + Flute & Piano" },
     silverscreen: { name: "Silver Screen", themeColor: "#0a0809", preset: "silverscreen", station: "dark", pair: "Picture palace + Piano" },
     darkroom:    { name: "Darkroom", themeColor: "#0c0606", preset: "darkroom", station: "dark", pair: "Darkroom at night + Piano" },
     tourbillon:  { name: "Tourbillon", themeColor: "#0b0c10", preset: "tourbillon", station: "dark", pair: "Watchmaker's bench + Piano" },
@@ -6815,7 +6816,7 @@
     "afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss",
     "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla",
     "dynasty", "zen", "samadhi", "silkroad",
-    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k", "papercut", "sketch", "freefall", "banknote", "contour", "cathedral", "marbled", "ferro", "lumen", "rift", "horizon", "kintsugi", "supercell", "tourbillon", "darkroom", "silverscreen"
+    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k", "papercut", "sketch", "freefall", "banknote", "contour", "cathedral", "marbled", "ferro", "lumen", "rift", "horizon", "kintsugi", "supercell", "tourbillon", "darkroom", "silverscreen", "canopy"
   ];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");

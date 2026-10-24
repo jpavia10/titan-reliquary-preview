@@ -66,13 +66,15 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
-    { id: "silverscreen", name: "Silver Screen", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Silent cinema"],
+    { id: "canopy", name: "Cloud Forest", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Montane cloud forest"],
+      mood: "A dripping cloud forest at dawn: shafts of emerald sun pierce three layers of giant tree-fern fronds while fireflies drift past a mossy basalt altar holding your coins under a lens of clear rainwater. Open a coin to place it on the wet stone; tap the canopy to shake a shower of dewdrops and scatter the fireflies.", fx: "fxk", fxIntensity: 0.01, scene: "canopy", tokens: {} },
+    { id: "silverscreen", name: "Silver Screen", collection: "Studio", tier: "signature", art: C("silverscreen"), ui: [], styles: ["Silent cinema"],
       mood: "A 1920s picture palace from the stalls: a silent newsreel of your coins on the screen, a title card for each and then its shot, the projector's beam over your head. Open a coin and it is the next picture; tap the beam to stir the dust.", fx: "fxk", fxIntensity: 0.01, scene: "silverscreen", tokens: {} },
-    { id: "darkroom", name: "Darkroom", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Analog darkroom"],
+    { id: "darkroom", name: "Darkroom", collection: "Studio", tier: "signature", art: A("darkroom"), ui: [], styles: ["Analog darkroom"],
       mood: "A darkroom under the red safelight: your coins come up as prints in the developer, one after another. Open a coin and its print is next; tap the tray to rock it.", fx: "fxk", fxIntensity: 0.01, scene: "darkroom", tokens: {} },
-    { id: "tourbillon", name: "Tourbillon", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Haute horlogerie"],
+    { id: "tourbillon", name: "Tourbillon", collection: "Studio", tier: "signature", art: A("tourbillon"), ui: [], styles: ["Haute horlogerie"],
       mood: "Inside a watch movement under the loupe: C\u00f4tes de Gen\u00e8ve, blued screws, rubies and a flying tourbillon turning on the real seconds. Tap to wind it, hold for the repeater.", fx: "fxk", fxIntensity: 0.01, scene: "tourbillon", tokens: {} },
-    { id: "supercell", name: "Supercell", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Volumetric storm"],
+    { id: "supercell", name: "Supercell", collection: "Studio", tier: "signature", art: A("supercell"), ui: [], styles: ["Volumetric storm"],
       mood: "A rotating thunderstorm at dusk over open plains, lit from inside by lightning. Tap the sky to call a strike.", fx: "fxk", fxIntensity: 0.01, scene: "supercell", tokens: {} },
     { id: "kintsugi", name: "Kintsugi", collection: "Studio", tier: "signature", art: C("kintsugi"), ui: [], styles: ["Gold-mended glaze"],
       mood: "Black raku glaze mended with liquid gold. Tap to crack the glaze and watch gold run in and seal it.", fx: "fxk", fxIntensity: 0.01, scene: "kintsugi", tokens: {} },
@@ -115,7 +117,7 @@
   window.TITAN_WORLD_ALIASES = {
     kaleido: "Prism", afterhours: "Midnight Gallery", colossus: "The Mint", abyss: "Shipwreck", notepad: "Plaintext",
     solaris: "Solar Observatory", glacier: "Hyperborean Vault", valhalla: "Gilded Armory",
-    contour: "Survey Map", banknote: "Treasury Note", papercut: "Paper Hills", y2k: "Millennium Chrome"
+    contour: "Survey Map", banknote: "Treasury Note", papercut: "Paper Hills", y2k: "Millennium Chrome", canopy: "Cloud Forest"
   };
   /* TitanRegistry: the ONE theme registry. The picker, intros (js/intros/<id>.js), sound scene (world.scene), UI voice, coin-page
      world, FX (world.fx) and stylesheets (styles/atmo/<id>.css) are all keyed by these ids; tools/themes/test_registry.py fails

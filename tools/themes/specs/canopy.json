@@ -1,0 +1,30 @@
+{
+ "id": "canopy",
+ "name": "Cloud Forest",
+ "collection": "Studio",
+ "mood": "A dripping cloud forest at dawn: shafts of emerald sun pierce three layers of giant tree-fern fronds while fireflies drift past a mossy basalt altar holding your coins under a lens of clear rainwater. Open a coin to place it on the wet stone; tap the canopy to shake a shower of dewdrops and scatter the fireflies.",
+ "pair": "Cloud forest + Flute & Piano",
+ "scheme": "dark",
+ "themeColor": "#060d09",
+ "station": "dark",
+ "ui": [],
+ "styles": [
+  "Montane cloud forest"
+ ],
+ "fx": "fxk",
+ "fxIntensity": 0.01,
+ "tokens": "  --scheme: dark;\n  color-scheme: dark;\n  --bg: #060d09;\n  --bg2: #0a140f;\n  --surface: #0e1c15;\n  --surface2: #14261d;\n  --ink: #e9f5ee;\n  --muted: #b8d4c3;\n  --faint: #8eb09b;\n  --cardmeta: #d4eadc;\n  --gold: #a6e27a;\n  --gold-soft: #d2f4b8;\n  --gold-deep: #4e7a30;\n  --on-gold: #071409;\n  --ink-soft: #b8d4c3;\n  --line: rgba(166, 226, 122, 0.13);\n  --line-strong: rgba(166, 226, 122, 0.46);\n  --ok: #7fe3a8;\n  --warn: #f5c96b;\n  --bad: #ff8a7a;\n  --shadow: inset 0 1px 0 rgba(220, 255, 235, 0.08), 0 18px 50px rgba(0, 0, 0, 0.78);\n  --elev-1: inset 0 1px 0 rgba(220, 255, 235, 0.06), 0 2px 8px rgba(0, 0, 0, 0.52);\n  --elev-2: inset 0 1px 0 rgba(220, 255, 235, 0.08), 0 12px 30px rgba(0, 0, 0, 0.64);\n  --elev-3: inset 0 1px 0 rgba(220, 255, 235, 0.10), 0 28px 80px rgba(0, 0, 0, 0.82);\n  --scrim: rgba(3, 8, 5, 0.76);\n  --focus: #d2f4b8;\n  --th-bg: #14261d;\n  --tabgrad1: #14261d; --tabgrad2: #0e1c15;\n  --toastgrad1: #14261d; --toastgrad2: #0e1c15;\n  --foot-bg: rgba(6, 13, 9, 0.92);\n  --drawerbar-bg: rgba(14, 28, 21, 0.94);\n  --ph-bg: #14261d;\n  --sel-bg: rgba(166, 226, 122, 0.16);\n  --row-hover: rgba(166, 226, 122, 0.07);\n  --hold-bg: linear-gradient(160deg, #13281c, #060d09 60%);\n  --skeleton1: #14261d; --skeleton2: #060d09;\n  --grain-op: 0.03;\n  --wing-dur: 0.5s;\n  --wing-rise: 14px;\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Cormorant Garamond\", \"Hoefler Text\", \"Iowan Old Style\", Georgia, serif;\n  --mono: ui-monospace, \"SFMono-Regular\", Menlo, Consolas, monospace;\n  --radius: 8px;",
+ "extra_css": "/* Cloud Forest surfaces: wet basalt slabs rimmed with a specular dewdrop edge and bioluminescent lichen glint;\n   hover catches a shaft of dawn sun across the wet leaf-vein border. Headings gleam like sunlit dew on jade.\n   Scoped to own surfaces only. */\nhtml[data-atmo=\"canopy\"] .card, html[data-atmo=\"canopy\"] .panel, html[data-atmo=\"canopy\"] .gx-card {\n  background: radial-gradient(120% 85% at 30% 0%, rgba(166,226,122,.08), transparent 62%), linear-gradient(180deg, rgba(20,38,29,.88), rgba(6,13,9,.94));\n  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);\n  box-shadow: inset 0 1px 0 rgba(210,244,184,.28), inset 0 0 0 1px rgba(166,226,122,.22), 0 18px 46px rgba(0,0,0,.76);\n  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }\nhtml[data-atmo=\"canopy\"] .card:hover, html[data-atmo=\"canopy\"] .gx-card:hover {\n  transform: translateY(-2px);\n  background: radial-gradient(120% 85% at 30% 0%, rgba(190,245,148,.14), transparent 65%), linear-gradient(180deg, rgba(24,46,35,.91), rgba(8,17,12,.95));\n  box-shadow: inset 0 1px 0 rgba(225,252,204,.48), inset 0 0 0 1px rgba(166,226,122,.46), 0 0 28px rgba(166,226,122,.12), 0 22px 54px rgba(0,0,0,.8); }\nhtml[data-atmo=\"canopy\"] h1, html[data-atmo=\"canopy\"] h2 { background: linear-gradient(180deg, #f4fff7, #bfe8cb 52%, #7bb892); -webkit-background-clip: text; background-clip: text; color: transparent; }\nhtml[data-atmo=\"canopy\"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }\n",
+ "crest": "<path d=\"M100 178 V38\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linecap=\"round\"/><path d=\"M100 148 Q62 140 38 112 Q68 114 100 132 M100 148 Q138 140 162 112 Q132 114 100 132\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linejoin=\"round\"/><path d=\"M100 114 Q66 104 46 78 Q74 82 100 98 M100 114 Q134 104 154 78 Q126 82 100 98\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linejoin=\"round\"/><path d=\"M100 82 Q74 72 58 50 Q82 54 100 68 M100 82 Q126 72 142 50 Q118 54 100 68\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4.5\" stroke-linejoin=\"round\"/><path d=\"M100 18 C92 30 92 38 100 38 C108 38 108 30 100 18 Z\" fill=\"currentColor\"/><circle cx=\"52\" cy=\"152\" r=\"5\" fill=\"currentColor\"/><circle cx=\"148\" cy=\"152\" r=\"5\" fill=\"currentColor\"/>",
+ "swatch": ".sw-canopy { --sw-ink: #e9f5ee; background: linear-gradient(155deg, rgba(210,244,184,.28) 0%, rgba(166,226,122,.12) 32%, transparent 58%) 0 0 / 100% 100% no-repeat, radial-gradient(circle at 72% 36%, #d2f4b8 0 3%, rgba(166,226,122,.35) 7%, transparent 14%), radial-gradient(circle at 28% 64%, #d2f4b8 0 2.5%, rgba(166,226,122,.3) 6%, transparent 12%), linear-gradient(180deg, #132a1e 0%, #091710 55%, #050b07 100%); }",
+ "splash_pal": {
+  "bg": "#060d09",
+  "bg2": "#0a140f",
+  "surface": "#0e1c15",
+  "ink": "#e9f5ee",
+  "muted": "#b8d4c3",
+  "gold": "#a6e27a",
+  "soft": "#d2f4b8"
+ },
+ "scene": "{ rec: \"canopy|piano\", world: true, name: \"Cloud Forest\", icon: \"🌿\", desc: \"Montane cloud forest at dawn: rain dripping from giant ferns, tree frogs and waking birds in the mist, a recorded flute and piano.\", atmo: \"canopy\",\n               beds: { drips: 0.42, frogs: 0.28, birds: 0.24, rainLight: 0.18, windTrees: 0.22 }, pad: 0, piano: false, bells: false, beat: false,\n               root: \"D\", mode: \"dorian\", prog: [0], chordSec: 12, gap: [8, 12], vol: 0.5 }"
+}

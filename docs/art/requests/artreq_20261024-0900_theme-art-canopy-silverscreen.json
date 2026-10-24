@@ -1,0 +1,49 @@
+{
+ "request_id": "artreq_20261024-0900_theme-art-canopy-silverscreen",
+ "status": "open",
+ "assigned_to": "any",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-24T09:00:00Z",
+ "why": "New theme #44 Cloud Forest (canopy, built by Gemini, shipped 2026-10-24) has no picker card or hero, and the Silver Screen request (artreq_20261022-0200_theme-cards-silverscreen) came back with its two cards but no hero (owner rule 9: art is never rendered by code; the picker shows the CSS swatch until this lands).",
+ "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim it with {request id}.CLAIMED-{model}.txt first. takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261024-0900_theme-art-canopy-silverscreen/' with the exact file names, then write artreq_20261024-0900_theme-art-canopy-silverscreen.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+ "deliverable_spec": {
+  "card": "16:10, at least 1280x800, PNG; the subject must read at 220x138 px (the picker card size on a phone)",
+  "hero": "16:10, at least 2560x1600, PNG",
+  "safe_area": "keep the top-left third of heroes calm and darker (or plain paper on light themes): UI text sits there"
+ },
+ "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, true reflections, physically accurate materials (toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich natural grading, fine film grain. Real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Exception: an image whose `medium` names an illustration, pixel art, clay or poster style is made in that medium, at the same premium standard (clean, crafted, never cheap clip-art).",
+ "negative": "no readable text, no letters, no numbers, no logos, no watermark, no frame, no faces, no hands, no 3D-render plastic look in the photo images, no oversaturation, no HDR halos, no warped or melting coins, no invented legible inscriptions",
+ "coin_rule": "Coins look like real circulated or uncirculated world coins (a generic portrait, eagle or crest is fine); never invent a legible inscription.",
+ "images": [
+  {
+   "file_name": "world_canopy_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Cloud Forest",
+   "theme_id": "canopy",
+   "medium": "photo",
+   "prompt": "Nature photograph at dawn inside a montane cloud forest: giant tree-fern fronds arching overhead in three soft layers of mist, low green-gold sun shafts slanting through, moss and epiphytes on the trunks, water drops hanging from the frond tips. In the lower middle, a dark mossy basalt stone with a shallow pool of clear rainwater; one real circulated silver coin lies under the water, sharp and catching the light. A few out-of-focus fireflies. Shallow depth of field, natural greens, no people."
+  },
+  {
+   "file_name": "world_canopy_hero.png",
+   "priority": 2,
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Cloud Forest",
+   "theme_id": "canopy",
+   "medium": "photo",
+   "prompt": "The same cloud forest wider: a deep green valley of tree ferns in drifting mist at dawn, god rays through the canopy, a mossy basalt stone with a small rainwater pool and a silver coin in the lower right foreground. Keep the top-left third calm and darker (UI text sits there)."
+  },
+  {
+   "file_name": "world_silverscreen_hero.png",
+   "priority": 3,
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Silver Screen",
+   "theme_id": "silverscreen",
+   "medium": "photo",
+   "prompt": "A 1920s picture palace seen from the back of the stalls: gilded art deco proscenium, red velvet drapes, rows of empty velvet seats in soft light, the projector beam from the booth behind the camera cutting through haze to a silver screen that shows a black-and-white close-up of a real circulated silver coin. Keep the top-left third calm and darker (UI text sits there). No faces, no readable text."
+  }
+ ]
+}
