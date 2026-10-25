@@ -6793,6 +6793,7 @@
     diorama:     { name: "Clay Diorama",      themeColor: "#f3ece4", preset: "diorama",   station: "lofi",      pair: "Birds and stream + Lo-fi" },
     bauhaus:     { name: "Bauhaus",           themeColor: "#f2efe6", preset: "bauhaus",   station: "classical", pair: "Studio + Classical" },
     terminal:    { name: "Grand Terminal",    themeColor: "#0d0f12", preset: "terminal",  station: "adventure", pair: "Trains and the hall + Adventure" },
+    obsidian:    { name: "Obsidian Sun", themeColor: "#080709", preset: "obsidian", station: "dark", pair: "Obsidian mirror + Clay flute & Guitar" },
     lightwell:   { name: "Light Well", themeColor: "#0a0a0b", preset: "lightwell", station: "dark", pair: "Concrete rotunda + Choir & Organ" },
     saltflat:    { name: "Salt Mirror", themeColor: "#070b12", preset: "saltflat", station: "dark", pair: "Flooded salt flat + Piano" },
     sahel:       { name: "Sahel Futurism", themeColor: "#0c0806", preset: "sahel", station: "dark", pair: "Adobe solar towers + Guitar & Percussion" },
@@ -6821,7 +6822,7 @@
     "afterhours", "conservator", "colossus", "nocturne", "odyssey", "cursedwing", "kaleido", "abyss",
     "neon", "notepad", "construct", "xeno", "solaris", "alchemist", "glacier", "valhalla",
     "dynasty", "zen", "samadhi", "silkroad",
-    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k", "papercut", "sketch", "freefall", "banknote", "contour", "cathedral", "marbled", "ferro", "lumen", "rift", "horizon", "kintsugi", "supercell", "tourbillon", "darkroom", "silverscreen", "canopy", "glasshouse", "orbit", "sahel", "saltflat", "lightwell"
+    "arcade", "pulp", "drafting", "diorama", "bauhaus", "terminal", "y2k", "papercut", "sketch", "freefall", "banknote", "contour", "cathedral", "marbled", "ferro", "lumen", "rift", "horizon", "kintsugi", "supercell", "tourbillon", "darkroom", "silverscreen", "canopy", "glasshouse", "orbit", "sahel", "saltflat", "lightwell", "obsidian"
   ];
   function currentAtmo() {
     const a = document.documentElement.getAttribute("data-atmo");

@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "obsidian", name: "Obsidian Sun", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Volcanic glass & jade"],
+      mood: "Concentric Mesoamerican calendar rings of hammered gold and carved jadeite rotate over a polished volcanic-glass mirror holding your coins at the sun's center. Open a coin and the calendar rings index and lock onto it; tap the stone to send a golden shockwave through the glyphs.", fx: "fxk", fxIntensity: 0.01, scene: "obsidian", tokens: {} },
     { id: "lightwell", name: "Light Well", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Brutalist sanctuary"],
       mood: "A quiet architectural rotunda of board-formed concrete pierced by a single razor blade of golden sun that sweeps across your coins on a monolithic plinth. Open a coin to place it in the sunbeam; tap the beam to stir a vortex of illuminated dust motes.", fx: "fxk", fxIntensity: 0.01, scene: "lightwell", tokens: {} },
     { id: "saltflat", name: "Salt Mirror", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Altiplano salt mirror"],

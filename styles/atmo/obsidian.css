@@ -1,0 +1,67 @@
+/* ============================================================================
+   Atmosphere: OBSIDIAN SUN (obsidian) · Volcanic glass & jade
+   Concentric Mesoamerican calendar rings of hammered gold and carved jadeite rotate over a polished volcanic-glass mirror holding your coins at the sun's center. Open a coin and the calendar rings index and lock onto it; tap the stone to send a golden shockwave through the glyphs.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md): the shared treatments in styles/style-layer.css are switched on by
+   the theme's `ui` list in wings/themes/manifest.js (html[data-ui]); the effect is fxk (wings/fx/styles-e.js).
+   Legibility: checked with tools/themes/check_theme.js (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="obsidian"] {
+  --scheme: dark;
+  color-scheme: dark;
+  --bg: #080709;
+  --bg2: #0e0c10;
+  --surface: #141218;
+  --surface2: #1c1922;
+  --ink: #f4efe6;
+  --muted: #cfc4b4;
+  --faint: #a39888;
+  --cardmeta: #e3d9c8;
+  --gold: #f0bc58;
+  --gold-soft: #fae0a0;
+  --gold-deep: #8f681c;
+  --on-gold: #140e02;
+  --ink-soft: #cfc4b4;
+  --line: rgba(240, 188, 88, 0.14);
+  --line-strong: rgba(240, 188, 88, 0.48);
+  --ok: #68e0a4;
+  --warn: #f5c96b;
+  --bad: #ff8a7a;
+  --shadow: inset 0 1px 0 rgba(255, 240, 200, 0.08), 0 18px 50px rgba(0, 0, 0, 0.80);
+  --elev-1: inset 0 1px 0 rgba(255, 240, 200, 0.06), 0 2px 8px rgba(0, 0, 0, 0.54);
+  --elev-2: inset 0 1px 0 rgba(255, 240, 200, 0.08), 0 12px 30px rgba(0, 0, 0, 0.66);
+  --elev-3: inset 0 1px 0 rgba(255, 240, 200, 0.10), 0 28px 80px rgba(0, 0, 0, 0.84);
+  --scrim: rgba(5, 4, 6, 0.78);
+  --focus: #fae0a0;
+  --th-bg: #1c1922;
+  --tabgrad1: #1c1922; --tabgrad2: #141218;
+  --toastgrad1: #1c1922; --toastgrad2: #141218;
+  --foot-bg: rgba(8, 7, 9, 0.92);
+  --drawerbar-bg: rgba(20, 18, 24, 0.94);
+  --ph-bg: #1c1922;
+  --sel-bg: rgba(240, 188, 88, 0.16);
+  --row-hover: rgba(240, 188, 88, 0.07);
+  --hold-bg: linear-gradient(160deg, #241b12, #080709 60%);
+  --skeleton1: #1c1922; --skeleton2: #080709;
+  --grain-op: 0.03;
+  --wing-dur: 0.5s;
+  --wing-rise: 14px;
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --serif: "Cormorant Garamond", "Hoefler Text", "Iowan Old Style", Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 8px;
+}
+/* Obsidian Sun surfaces: conchoidal black volcanic glass bordered by hammered gold and green jadeite inlays;
+   hover ignites the solar gold bezel and jade corner accents. Headings gleam in hammered solar gold.
+   Scoped to own surfaces only. */
+html[data-atmo="obsidian"] .card, html[data-atmo="obsidian"] .panel, html[data-atmo="obsidian"] .gx-card {
+  background: radial-gradient(125% 80% at 50% 0%, rgba(240,188,88,.08), rgba(64,175,120,.04) 45%, transparent 65%), linear-gradient(180deg, rgba(28,25,34,.90), rgba(8,7,9,.96));
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(250,224,160,.32), inset 0 0 0 1px rgba(240,188,88,.24), inset 0 0 0 3px rgba(48,140,96,.18), 0 18px 46px rgba(0,0,0,.80);
+  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }
+html[data-atmo="obsidian"] .card:hover, html[data-atmo="obsidian"] .gx-card:hover {
+  transform: translateY(-2px);
+  background: radial-gradient(125% 80% at 50% 0%, rgba(250,224,160,.15), rgba(76,205,140,.07) 48%, transparent 68%), linear-gradient(180deg, rgba(34,30,42,.92), rgba(10,9,12,.97));
+  box-shadow: inset 0 1px 0 rgba(255,238,186,.56), inset 0 0 0 1px rgba(240,188,88,.50), inset 0 0 0 3px rgba(72,190,132,.32), 0 0 28px rgba(240,188,88,.14), 0 22px 54px rgba(0,0,0,.84); }
+html[data-atmo="obsidian"] h1, html[data-atmo="obsidian"] h2 { background: linear-gradient(180deg, #fff6dc, #f0bc58 52%, #9e7422); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-atmo="obsidian"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }

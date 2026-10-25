@@ -70,7 +70,7 @@
      lands in "New and more" until it is given a group. Filter chips: All / Light / Dark. The current theme sits on top, big. */
   var GROUPS = [
     { name: "Museum and study", note: "Calm rooms for looking closely", ids: ["afterhours", "conservator", "drafting", "sketch", "marbled", "banknote", "notepad", "darkroom", "silverscreen"] },
-    { name: "Vaults and treasure", note: "Gold, silver and hoards", ids: ["colossus", "glacier", "valhalla", "dynasty", "abyss", "alchemist"] },
+    { name: "Vaults and treasure", note: "Gold, silver and hoards", ids: ["colossus", "glacier", "valhalla", "dynasty", "abyss", "alchemist", "obsidian"] },
     { name: "Journeys", note: "Maps, ships, stations and stars", ids: ["odyssey", "silkroad", "terminal", "contour", "solaris", "sahel"] },
     { name: "Calm and quiet", note: "Slow, soft and still", ids: ["nocturne", "zen", "samadhi", "cathedral", "kintsugi", "glasshouse", "lightwell"] },
     { name: "Neon and otherworld", note: "Glow, code and strange places", ids: ["kaleido", "neon", "construct", "xeno", "cursedwing", "lumen", "horizon"] },
