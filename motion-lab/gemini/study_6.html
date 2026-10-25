@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titan Reliquary — Motion Study 6: Coin Page Worlds</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060608;
+    color: #f2eee6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  #worldCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+  .overlay {
+    position: relative;
+    z-index: 5;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+  .top-bar, .bottom-bar {
+    pointer-events: auto;
+    background: rgba(12, 11, 14, 0.84);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(225, 195, 120, 0.28);
+    border-radius: 14px;
+    padding: 16px 20px;
+  }
+  .top-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .top-bar h1 { font-family: Georgia, serif; font-size: 20px; }
+  .world-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .w-tab {
+    background: #1a181d; color: #f2eee6; border: 1px solid rgba(225,195,120,0.3);
+    padding: 8px 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;
+  }
+  .w-tab.active { border-color: #e8c468; background: #282219; }
+  .coin-strip {
+    display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; margin-top: 10px;
+  }
+  .c-pill {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 8px;
+    background: #17151a; border: 1px solid rgba(255,255,255,0.16); color: #fff;
+    padding: 6px 12px; border-radius: 999px; font-size: 16px; cursor: pointer;
+  }
+  .c-pill.active { border-color: #e8c468; }
+  .c-pill img { width: 32px; height: 32px; object-fit: contain; }
+  @media (max-width: 640px) {
+    .overlay { padding: 10px; }
+    .top-bar, .bottom-bar { padding: 10px 12px; border-radius: 10px; }
+    .top-bar h1 { font-size: 16px; }
+    .w-tab { padding: 6px 10px; font-size: 13px; }
+    #coinTitle { font-size: 17px !important; }
+    #worldDesc { font-size: 13px !important; line-height: 1.35; }
+    .c-pill { padding: 4px 10px; font-size: 13px; }
+    .c-pill img { width: 24px; height: 24px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="worldCanvas"></canvas>
+<div class="overlay">
+  <div class="top-bar">
+    <h1>TITAN RELIQUARY · Study 6: Coin Page Inside Three Worlds</h1>
+    <div class="world-tabs">
+      <button class="w-tab active" data-w="0" type="button">🎬 Silver Screen (Projector Shot)</button>
+      <button class="w-tab" data-w="1" type="button">🧪 Darkroom (Safelight Developer Tray)</button>
+      <button class="w-tab" data-w="2" type="button">⚙️ Tourbillon (Under Sapphire Crystal)</button>
+    </div>
+  </div>
+  <div class="bottom-bar">
+    <div id="coinTitle" style="font-family:Georgia,serif;font-size:22px;color:#f2dfa8;">Loading live specimen…</div>
+    <div id="worldDesc" style="color:#c8c0b4;font-size:16px;margin-top:2px;">Silver Screen: The coin is projected at 18 fps on the picture-palace screen with gate weave, nitrate flicker, and overhead projector beam.</div>
+    <div class="coin-strip" id="strip"></div>
+  </div>
+</div>
+<script>
+(function () {
+  "use strict";
+  var BASE = "../../";
+
+  var FALLBACK_FLIPS = [
+    { scan: "C001", label: "France · 1923 · 1 Franc", thumb: "thumbs/C001.jpg", thumb_side: "obv", metal: "#d8bd72" },
+    { scan: "C023", label: "Germany · 1918 · 20 Pfennig", thumb: "thumbs/C023.jpg", thumb_side: "rev", metal: "#b8c0c8" },
+    { scan: "C037", label: "Germany · 2002 · 10 Euro Cent", thumb: "thumbs/C037.jpg", thumb_side: "rev", metal: "#dfc06c" },
+    { scan: "C280", label: "Belize · 2007 · 25 Cents", thumb: "thumbs/C280.jpg", thumb_side: "rev", metal: "#c8d0d8" },
+    { scan: "C285", label: "Slovakia · 2009 · 5 Euro Cent", thumb: "thumbs/C285.jpg", thumb_side: "obv", metal: "#cd7f52" },
+    { scan: "C296", label: "United Kingdom · 1990 · 5 Pence", thumb: "thumbs/C296.jpg", thumb_side: "obv", metal: "#d0d6dc" },
+    { scan: "C302", label: "United Kingdom · 1922 · 1 Penny", thumb: "thumbs/C302.jpg", thumb_side: "rev", metal: "#b87348" },
+    { scan: "C304", label: "Mexico · 1981 · 20 Pesos", thumb: "thumbs/C304.jpg", thumb_side: "rev", metal: "#d4b468" }
+  ];
+  function makeFallbackCoinDataURL(item) {
+    var c = document.createElement("canvas"); c.width = 256; c.height = 256;
+    var g = c.getContext("2d");
+    var gr = g.createRadialGradient(100, 92, 12, 128, 128, 122);
+    gr.addColorStop(0, "#f2dfb0"); gr.addColorStop(0.68, item.metal || "#b89b5e"); gr.addColorStop(1, "#4e3e20");
+    g.fillStyle = gr; g.beginPath(); g.arc(128, 128, 122, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = "rgba(255,250,230,0.45)"; g.lineWidth = 3;
+    g.beginPath(); g.arc(128, 128, 112, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = "rgba(30,20,8,0.72)"; g.textAlign = "center"; g.textBaseline = "middle";
+    var parts = String(item.label || "").split(" · ");
+    g.font = "600 13px Georgia, serif"; g.fillText((parts[0] || "COIN").toUpperCase(), 128, 72);
+    g.font = "700 20px Georgia, serif"; g.fillText((parts[2] || parts[1] || item.scan).toUpperCase(), 128, 128);
+    g.font = "600 13px monospace"; g.fillText(parts[1] || item.scan, 128, 182);
+    return c.toDataURL("image/png");
+  }
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                new URLSearchParams(window.location.search).get("motion") === "off";
+  var canvas = document.getElementById("worldCanvas");
+  var gl = canvas.getContext("webgl");
+
+  function resize() {
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  var VS = "attribute vec2 P; void main(){ gl_Position = vec4(P, 0.0, 1.0); }";
+  var FS = [
+    "precision highp float;",
+    "uniform vec2 uRes; uniform float uT, uDev; uniform int uWorld; uniform vec2 uPtr; uniform sampler2D uCoin;",
+    "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
+    "void main(){",
+    "  float aspect = uRes.x / uRes.y;",
+    "  float S = min(1.0, aspect * 1.38);",
+    "  vec2 p = ((gl_FragCoord.xy - 0.5*uRes)/uRes.y - vec2(0.0, -0.015)) / S;",
+    "  float r = length(p);",
+    "  vec2 uv = p / 0.56 + 0.5;",
+    "  vec3 col = vec3(0.02);",
+    "  if(uWorld == 0){",
+    // WORLD 0: Silver Screen — 18 fps nitrate projection, gate weave, velvet drapes, overhead beam
+    "    float fr = floor(uT * 18.0);",
+    "    vec2 wv = (vec2(h1(fr), h1(fr+7.0)) - 0.5)*0.005;",
+    "    vec2 suv = clamp(uv + wv, 0.0, 1.0);",
+    "    vec4 tx = texture2D(uCoin, vec2(suv.x, 1.0 - suv.y));",
+    "    float gray = dot(tx.rgb, vec3(0.299, 0.587, 0.114));",
+    "    float fl = 0.88 + 0.12*h1(fr*1.37);",
+    "    float inScr = step(abs(p.x), 0.38) * step(abs(p.y), 0.32);",
+    "    vec3 film = vec3(gray * 0.95, gray * 0.92, gray * 0.85) * tx.a * fl;",
+    "    float beam = exp(-abs(p.x - p.y*0.45)*3.5) * (0.25 + 0.75*smoothstep(-0.4, 0.5, p.y));",
+    "    col = vec3(0.06, 0.015, 0.02) + film * inScr + vec3(0.95, 0.88, 0.72)*beam*0.22;",
+    "  } else if(uWorld == 1){",
+    // WORLD 1: Darkroom — Crimson safelight, coin developing in chemical tray with liquid ripples
+    "    vec2 rip = vec2(sin(p.y*28.0 + uT*2.6), cos(p.x*28.0 - uT*2.2))*0.004*(1.0 + length(p - uPtr));",
+    "    vec2 suv = clamp(uv + rip, 0.0, 1.0);",
+    "    vec4 tx = texture2D(uCoin, vec2(suv.x, 1.0 - suv.y));",
+    "    float lum = dot(tx.rgb, vec3(0.3, 0.59, 0.11));",
+    "    float dev = clamp(uDev, 0.0, 1.0);",
+    "    vec3 paper = mix(vec3(0.85, 0.18, 0.12), vec3(0.92, 0.84, 0.74)*(1.0 - (1.0 - lum)*dev), dev);",
+    "    float inTray = step(abs(p.x), 0.34) * step(abs(p.y), 0.34);",
+    "    float spec = pow(max(0.0, sin(p.x*40.0 + uT*3.0)*cos(p.y*35.0 - uT*2.0)), 8.0)*inTray;",
+    "    col = vec3(0.12, 0.01, 0.015) + mix(vec3(0.18, 0.02, 0.02), paper*tx.a + vec3(0.25,0.03,0.03)*(1.0-tx.a), inTray)*0.75 + vec3(1.0, 0.35, 0.25)*spec*0.3;",
+    "  } else {",
+    // WORLD 2: Tourbillon — Rotating brass escapement cage behind coin & refractive sapphire crystal dome over it
+    "    float a = atan(p.y, p.x);",
+    "    float gear1 = smoothstep(0.01, -0.01, abs(r - 0.32) - 0.015 - 0.012*sin(a*24.0 + uT*1.8));",
+    "    float gear2 = smoothstep(0.01, -0.01, abs(r - 0.24) - 0.010 - 0.008*cos(a*18.0 - uT*3.2));",
+    "    vec3 brass = vec3(0.76, 0.58, 0.24)*(gear1 + gear2);",
+    "    vec2 domeRefr = p * (1.0 - 0.08*smoothstep(0.32, 0.0, r));",
+    "    vec2 suv = clamp(domeRefr / 0.52 + 0.5, 0.0, 1.0);",
+    "    vec4 tx = texture2D(uCoin, vec2(suv.x, 1.0 - suv.y));",
+    "    float glare = smoothstep(0.18, 0.0, abs(p.x*0.7 + p.y*0.7 - (uPtr.x*0.3))) * smoothstep(0.32, 0.28, r);",
+    "    col = vec3(0.03, 0.04, 0.06) + brass + tx.rgb * tx.a * 0.88 + vec3(0.75, 0.88, 1.0)*glare*0.28;",
+    "  }",
+    "  gl_FragColor = vec4(col, 1.0);",
+    "}"
+  ].join("\n");
+
+  var vs = gl.createShader(gl.VERTEX_SHADER); gl.shaderSource(vs, VS); gl.compileShader(vs);
+  var fs = gl.createShader(gl.FRAGMENT_SHADER); gl.shaderSource(fs, FS); gl.compileShader(fs);
+  var prog = gl.createProgram(); gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+  gl.useProgram(prog);
+  var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  var aP = gl.getAttribLocation(prog, "P"); gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP, 2, gl.FLOAT, false, 0, 0);
+
+  var tCoin = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, tCoin);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  (function initDefaultCoinTex() {
+    var c = document.createElement("canvas"); c.width = 512; c.height = 512;
+    var g = c.getContext("2d");
+    var gr = g.createRadialGradient(210, 195, 20, 256, 256, 246);
+    gr.addColorStop(0, "#e5cf9c"); gr.addColorStop(0.75, "#a68b56"); gr.addColorStop(1, "#584626");
+    g.fillStyle = gr; g.beginPath(); g.arc(256, 256, 246, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = "rgba(255,250,230,0.45)"; g.lineWidth = 5;
+    g.beginPath(); g.arc(256, 256, 228, 0, Math.PI * 2); g.stroke();
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
+  })();
+
+  var world = 0, devStart = performance.now(), ptr = [0, 0];
+  var descs = [
+    "Silver Screen: The coin is projected at 18 fps on the picture-palace screen with gate weave, nitrate flicker, and overhead projector beam.",
+    "Darkroom: The coin emerges inside a gently sloshing chemical developer bath under crimson safelight.",
+    "Tourbillon: The coin sits over a live rotating brass escapement cage beneath a domed, glare-catching sapphire crystal."
+  ];
+  Array.prototype.forEach.call(document.querySelectorAll(".w-tab"), function (b) {
+    b.addEventListener("click", function () {
+      Array.prototype.forEach.call(document.querySelectorAll(".w-tab"), function (x) { x.classList.remove("active"); });
+      b.classList.add("active");
+      world = parseInt(b.getAttribute("data-w"), 10);
+      devStart = performance.now();
+      document.getElementById("worldDesc").textContent = descs[world];
+    });
+  });
+
+  window.addEventListener("pointermove", function (e) {
+    ptr[0] = (e.clientX / window.innerWidth) - 0.5;
+    ptr[1] = 0.5 - (e.clientY / window.innerHeight);
+  });
+
+  function loadCoin(item) {
+    document.getElementById("coinTitle").textContent = item.scan + " · " + (item.label || "");
+    devStart = performance.now();
+    var im = new Image(); im.crossOrigin = "anonymous";
+    im.onload = function () {
+      var c = document.createElement("canvas"); c.width = 512; c.height = 512;
+      var g = c.getContext("2d");
+      g.beginPath(); g.arc(256, 256, 248, 0, Math.PI * 2); g.closePath(); g.clip();
+      g.drawImage(im, 0, 0, 512, 512);
+      gl.bindTexture(gl.TEXTURE_2D, tCoin);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
+    };
+    im.src = (item.thumb.indexOf("data:") === 0 ? item.thumb : (item.thumb.indexOf("data:") === 0 ? item.thumb : BASE + item.thumb));
+  }
+
+  function loop(now) {
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.uniform2f(gl.getUniformLocation(prog, "uRes"), canvas.width, canvas.height);
+    gl.uniform1f(gl.getUniformLocation(prog, "uT"), reduced ? 0 : now * 0.001);
+    gl.uniform1f(gl.getUniformLocation(prog, "uDev"), reduced ? 1.0 : Math.min(1.0, (now - devStart) / 2200));
+    gl.uniform1i(gl.getUniformLocation(prog, "uWorld"), world);
+    gl.uniform2f(gl.getUniformLocation(prog, "uPtr"), ptr[0], ptr[1]);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  var strip = document.getElementById("strip");
+  function buildStrip(flips, isOffline) {
+    flips.slice(0, 16).forEach(function (item, idx) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "c-pill" + (idx === 0 ? " active" : "");
+      var im = document.createElement("img");
+      im.onerror = function () { im.onerror = null; im.src = makeFallbackCoinDataURL(item); };
+      im.src = isOffline ? makeFallbackCoinDataURL(item) : ((item.thumb.indexOf("data:") === 0 ? item.thumb : (item.thumb.indexOf("data:") === 0 ? item.thumb : BASE + item.thumb)));
+      im.alt = "";
+      var sp = document.createElement("span"); sp.textContent = item.scan;
+      b.appendChild(im); b.appendChild(sp);
+      b.addEventListener("click", function () {
+        Array.prototype.forEach.call(strip.children, function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        loadCoin(item);
+      });
+      strip.appendChild(b);
+      if (idx === 0) loadCoin(item);
+    });
+  }
+  fetch(BASE + "data/index.json").then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); }).then(function (data) {
+    var flips = (data.flips || []).filter(function (f) { return f.thumb; });
+    buildStrip(flips.length ? flips : FALLBACK_FLIPS, !flips.length);
+  }).catch(function () { buildStrip(FALLBACK_FLIPS, true); });
+})();
+</script>
+</body>
+</html>

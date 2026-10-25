@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-25] — Claude · Gemini motion studies 2-6 v2 in the Motion Lab
+- All five run without errors on a phone; hosted at /motion-lab/gemini/ (G2-G6). BASE made relative.
+
 ### [2026-10-25] — Claude · Theme #49 Light Well live (tr259), Gemini v2
 - Coin no longer burnt white; concrete + light blade read well. Obsidian Sun v2 held (flat). Art requested for Salt Mirror + Light Well.
 

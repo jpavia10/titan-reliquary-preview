@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titan Reliquary — Motion Study 5: Motif Shader Theme Switch</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #080a0c;
+    color: #f0f4f8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  #wipeCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+  .ui-layer {
+    position: relative;
+    z-index: 5;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 16px 20px;
+    background: rgba(12, 16, 22, 0.82);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 14px;
+    margin-bottom: 24px;
+  }
+  .bar h1 { font-family: Georgia, serif; font-size: 20px; }
+  .theme-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .t-btn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(24, 30, 38, 0.9);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .t-btn.active { border-color: #f0cf7a; box-shadow: 0 0 16px rgba(240, 207, 122, 0.35); }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .c-card {
+    background: rgba(14, 18, 24, 0.78);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+  }
+  .c-card img { width: 104px; height: 104px; object-fit: contain; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<canvas id="wipeCanvas"></canvas>
+<div class="ui-layer">
+  <div class="bar">
+    <h1>TITAN RELIQUARY · Study 5: Interruptible Shader Theme Wipe (0.8s)</h1>
+    <div class="theme-btns">
+      <button class="t-btn active" data-theme="0" type="button">🖋️ Sumi Ink Bleed</button>
+      <button class="t-btn" data-theme="1" type="button">❄️ Crystalline Frost</button>
+      <button class="t-btn" data-theme="2" type="button">☀️ Solar Blade Sweep</button>
+    </div>
+  </div>
+  <p style="margin-bottom:18px;background:rgba(10,14,18,0.78);padding:12px 16px;border-radius:10px;">
+    Tap any theme button — even halfway through an active transition — to immediately interrupt and dissolve from the current pixel state using the new theme's procedural shader motif (~0.8s).
+  </p>
+  <div class="cards" id="cards"></div>
+</div>
+<script>
+(function () {
+  "use strict";
+  var BASE = "../../";
+
+  var FALLBACK_FLIPS = [
+    { scan: "C001", label: "France · 1923 · 1 Franc", thumb: "thumbs/C001.jpg", thumb_side: "obv", metal: "#d8bd72" },
+    { scan: "C023", label: "Germany · 1918 · 20 Pfennig", thumb: "thumbs/C023.jpg", thumb_side: "rev", metal: "#b8c0c8" },
+    { scan: "C037", label: "Germany · 2002 · 10 Euro Cent", thumb: "thumbs/C037.jpg", thumb_side: "rev", metal: "#dfc06c" },
+    { scan: "C280", label: "Belize · 2007 · 25 Cents", thumb: "thumbs/C280.jpg", thumb_side: "rev", metal: "#c8d0d8" },
+    { scan: "C285", label: "Slovakia · 2009 · 5 Euro Cent", thumb: "thumbs/C285.jpg", thumb_side: "obv", metal: "#cd7f52" },
+    { scan: "C296", label: "United Kingdom · 1990 · 5 Pence", thumb: "thumbs/C296.jpg", thumb_side: "obv", metal: "#d0d6dc" },
+    { scan: "C302", label: "United Kingdom · 1922 · 1 Penny", thumb: "thumbs/C302.jpg", thumb_side: "rev", metal: "#b87348" },
+    { scan: "C304", label: "Mexico · 1981 · 20 Pesos", thumb: "thumbs/C304.jpg", thumb_side: "rev", metal: "#d4b468" }
+  ];
+  function makeFallbackCoinDataURL(item) {
+    var c = document.createElement("canvas"); c.width = 256; c.height = 256;
+    var g = c.getContext("2d");
+    var gr = g.createRadialGradient(100, 92, 12, 128, 128, 122);
+    gr.addColorStop(0, "#f2dfb0"); gr.addColorStop(0.68, item.metal || "#b89b5e"); gr.addColorStop(1, "#4e3e20");
+    g.fillStyle = gr; g.beginPath(); g.arc(128, 128, 122, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = "rgba(255,250,230,0.45)"; g.lineWidth = 3;
+    g.beginPath(); g.arc(128, 128, 112, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = "rgba(30,20,8,0.72)"; g.textAlign = "center"; g.textBaseline = "middle";
+    var parts = String(item.label || "").split(" · ");
+    g.font = "600 13px Georgia, serif"; g.fillText((parts[0] || "COIN").toUpperCase(), 128, 72);
+    g.font = "700 20px Georgia, serif"; g.fillText((parts[2] || parts[1] || item.scan).toUpperCase(), 128, 128);
+    g.font = "600 13px monospace"; g.fillText(parts[1] || item.scan, 128, 182);
+    return c.toDataURL("image/png");
+  }
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                new URLSearchParams(window.location.search).get("motion") === "off";
+  var canvas = document.getElementById("wipeCanvas");
+  var gl = canvas.getContext("webgl");
+
+  function resize() {
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  var VS = "attribute vec2 P; void main(){ gl_Position = vec4(P, 0.0, 1.0); }";
+  var FS = [
+    "precision highp float;",
+    "uniform vec2 uRes; uniform float uT, uProg; uniform int uFrom, uTo;",
+    "float h21(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }",
+    "float vn(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.-2.*f); return mix(mix(h21(i),h21(i+vec2(1,0)),f.x),mix(h21(i+vec2(0,1)),h21(i+vec2(1,1)),f.x),f.y); }",
+    "float fbm(vec2 p){ float v=0., a=.5; for(int i=0;i<4;i++){ v+=a*vn(p); p*=2.03; a*=.5; } return v; }",
+    "vec3 worldColor(int id, vec2 p, float t){",
+    "  float r = length(p);",
+    "  if(id == 0){",
+    // World 0: Sumi Ink Karesansui Garden — layered misty mountain ridges, raked gravel ripples & ink ring
+    "    float m1 = smoothstep(0.015, -0.015, p.y - (0.22 + 0.08*sin(p.x*3.2) + 0.05*fbm(p*4.0)));",
+    "    float m2 = smoothstep(0.015, -0.015, p.y - (0.06 + 0.07*cos(p.x*4.5 + 1.2) + 0.04*fbm(p*6.0)));",
+    "    float rake = 0.5 + 0.5*sin(r*64.0 - t*0.4 + fbm(p*3.0)*2.0);",
+    "    float ensou = smoothstep(0.035, 0.0, abs(r - 0.30 + 0.015*fbm(p*8.0))) * (0.65 + 0.35*fbm(p*12.0));",
+    "    vec3 sky = mix(vec3(0.18, 0.15, 0.12), vec3(0.10, 0.08, 0.07), clamp(p.y + 0.5, 0.0, 1.0));",
+    "    vec3 col = mix(sky, vec3(0.08, 0.07, 0.06), m1*0.6);",
+    "    col = mix(col, vec3(0.05, 0.045, 0.04) + vec3(0.045, 0.038, 0.03)*rake, m2);",
+    "    col += vec3(0.42, 0.33, 0.20) * ensou;",
+    "    return col;",
+    "  } else if(id == 1){",
+    // World 1: Crystalline Frost Vault — hexagonal ice facets, cryogenic caustic rings & frost specular glints
+    "    float a = atan(p.y, p.x);",
+    "    vec2 g = p * 7.0; vec2 id2 = floor(g); vec2 f = fract(g) - 0.5;",
+    "    float facet = length(f + 0.25*sin(id2*3.7 + t*0.3));",
+    "    float ridge = smoothstep(0.48, 0.42, facet) - smoothstep(0.42, 0.36, facet);",
+    "    float hexRing = smoothstep(0.018, 0.0, abs(cos(floor(0.5 + a/1.0472)*1.0472 - a)*r - 0.28));",
+    "    float caustic = pow(max(0.0, sin(r*38.0 - t*1.1 + fbm(p*8.0)*3.0)), 6.0) * smoothstep(0.55, 0.1, r);",
+    "    vec3 base = mix(vec3(0.03, 0.07, 0.13), vec3(0.10, 0.24, 0.38), fbm(p*4.5));",
+    "    return base + vec3(0.35, 0.68, 0.92)*(ridge*0.45 + hexRing*0.65 + caustic*0.35);",
+    "  } else {",
+    // World 2: Solar Blade Rotunda — board-formed architectural concrete, form-tie grid, plinth & golden sun shaft
+    "    vec2 plank = fract(p * vec2(2.5, 9.0));",
+    "    float seam = smoothstep(0.04, 0.0, plank.y) + smoothstep(0.96, 1.0, plank.y);",
+    "    float tie = smoothstep(0.025, 0.012, length( ( plank - vec2(0.5, 0.5) ) * vec2(1.0, 0.28) ));",
+    "    vec3 wall = vec3(0.07, 0.068, 0.065) * (1.0 - 0.25*seam - 0.35*tie);",
+    "    float plinth = smoothstep(0.31, 0.29, r) - smoothstep(0.28, 0.26, r);",
+    "    float beam = exp(-abs(p.x*1.15 + p.y*0.75 - 0.05*sin(t*0.4))*4.2);",
+    "    return wall + vec3(0.52, 0.38, 0.14)*beam + vec3(0.75, 0.58, 0.26)*plinth*(0.35 + 0.65*beam);",
+    "  }",
+    "}",
+    "void main(){",
+    "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  vec3 cA = worldColor(uFrom, p, uT);",
+    "  vec3 cB = worldColor(uTo, p, uT);",
+    "  float mask = 0.0; vec3 edgeGlow = vec3(0.0);",
+    "  if(uTo == 0){", // Motif 0: Organic Sumi Ink Bleed from center
+    "    float n = fbm(p*6.0);",
+    "    float r = length(p) + (n - 0.5)*0.45;",
+    "    float thr = uProg * 1.35;",
+    "    mask = smoothstep(thr + 0.04, thr - 0.04, r);",
+    "    edgeGlow = vec3(0.65, 0.48, 0.25) * smoothstep(0.05, 0.0, abs(r - thr));",
+    "  } else if(uTo == 1){", // Motif 1: Angular Crystalline Frost growth
+    "    float a = atan(p.y, p.x);",
+    "    float hex = cos(floor(0.5 + a/1.0471975)*1.0471975 - a)*length(p);",
+    "    float crystal = hex + (fbm(p*12.0) - 0.5)*0.22;",
+    "    float thr = uProg * 1.25;",
+    "    mask = smoothstep(thr + 0.02, thr - 0.02, crystal);",
+    "    edgeGlow = vec3(0.55, 0.88, 1.0) * smoothstep(0.04, 0.0, abs(crystal - thr));",
+    "  } else {", // Motif 2: Diagonal Solar Blade Sweep
+    "    float diag = (p.x*0.8 + p.y*0.6) + 0.9;",
+    "    float thr = uProg * 1.9;",
+    "    mask = smoothstep(thr + 0.05, thr - 0.05, diag);",
+    "    edgeGlow = vec3(1.0, 0.82, 0.38) * smoothstep(0.07, 0.0, abs(diag - thr));",
+    "  }",
+    "  vec3 col = mix(cA, cB, mask) + edgeGlow * sin(uProg * 3.14159);",
+    "  gl_FragColor = vec4(col, 1.0);",
+    "}"
+  ].join("\n");
+
+  var vs = gl.createShader(gl.VERTEX_SHADER); gl.shaderSource(vs, VS); gl.compileShader(vs);
+  var fs = gl.createShader(gl.FRAGMENT_SHADER); gl.shaderSource(fs, FS); gl.compileShader(fs);
+  var prog = gl.createProgram(); gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+  gl.useProgram(prog);
+  var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  var aP = gl.getAttribLocation(prog, "P"); gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP, 2, gl.FLOAT, false, 0, 0);
+
+  var uRes = gl.getUniformLocation(prog, "uRes");
+  var uT = gl.getUniformLocation(prog, "uT");
+  var uProg = gl.getUniformLocation(prog, "uProg");
+  var uFrom = gl.getUniformLocation(prog, "uFrom");
+  var uTo = gl.getUniformLocation(prog, "uTo");
+
+  var fromTheme = 0, toTheme = 0, progress = 1.0, startTime = 0;
+  var btns = document.querySelectorAll(".t-btn");
+  Array.prototype.forEach.call(btns, function (btn) {
+    btn.addEventListener("click", function () {
+      var next = parseInt(btn.getAttribute("data-theme"), 10);
+      Array.prototype.forEach.call(btns, function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      if (reduced) { fromTheme = next; toTheme = next; progress = 1.0; return; }
+      // Interruptible: if mid-wipe, pick up smoothly
+      fromTheme = progress > 0.5 ? toTheme : fromTheme;
+      toTheme = next;
+      progress = 0.0;
+      startTime = performance.now();
+    });
+  });
+
+  function render(now) {
+    if (progress < 1.0 && !reduced) {
+      var raw = Math.min(1.0, (now - startTime) / 800);
+      progress = raw * raw * (3.0 - 2.0 * raw);
+      if (raw >= 1.0) fromTheme = toTheme;
+    }
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.uniform1f(uT, reduced ? 0 : now * 0.001);
+    gl.uniform1f(uProg, progress);
+    gl.uniform1i(uFrom, fromTheme);
+    gl.uniform1i(uTo, toTheme);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+
+  var cardsEl = document.getElementById("cards");
+  function buildCards(flips, isOffline) {
+    flips.slice(0, 8).forEach(function (item) {
+      var d = document.createElement("div"); d.className = "c-card";
+      var im = document.createElement("img");
+      im.onerror = function () { im.onerror = null; im.src = makeFallbackCoinDataURL(item); };
+      im.src = isOffline ? makeFallbackCoinDataURL(item) : ((item.thumb.indexOf("data:") === 0 ? item.thumb : (item.thumb.indexOf("data:") === 0 ? item.thumb : BASE + item.thumb)));
+      im.alt = item.label || item.scan;
+      var p = document.createElement("div"); p.textContent = item.scan + " · " + String(item.label || "").split(" · ")[0];
+      d.appendChild(im); d.appendChild(p); cardsEl.appendChild(d);
+    });
+  }
+  fetch(BASE + "data/index.json").then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); }).then(function (data) {
+    var flips = (data.flips || []).filter(function (f) { return f.thumb; });
+    buildCards(flips.length ? flips : FALLBACK_FLIPS, !flips.length);
+  }).catch(function () { buildCards(FALLBACK_FLIPS, true); });
+})();
+</script>
+</body>
+</html>
