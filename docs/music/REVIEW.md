@@ -55,3 +55,6 @@ Darkroom, the right piece this time. The sonata video opens with a 30 s teaser a
 end of the Allegretto, so only the complete Andante is used (37.5-174.5 s, stream copy, -19.3 LUFS); `credit[file].span` in
 wanted.json now gives the fetcher a reviewed span, so the next run makes the same cut. The run's re-encode of the Chopin nocturne
 was not taken (main's copy has the silences trimmed), nor its regenerated performer strings.
+
+## 2026-10-25: intake for the five new themes (Claude)
+Kept (4), each checked against the run's Commons file data: Chopin Raindrop Prelude (eldüendesüarez, piano, CC BY-SA 4.0) for The Glasshouse; Holst Neptune ("The President's Own" US Marine Band, US government work, cut at 7 minutes with a fade) for Low Orbit; Debussy Reflets dans l'eau (Giorgi Latso, CC BY-SA 4.0) for Salt Mirror; Bach BWV 639 (Yeonju Sarah Kim, organ, CC0, an excerpt of the uploaded recital) for Light Well. Sahel's kora found nothing that passed; it stays wanted.

@@ -1,6 +1,6 @@
 {
  "schema": "music/1",
- "made": "2026-10-24T15:05:00Z",
+ "made": "2026-10-25T05:00:00Z",
  "note": "Recorded classical music (tools/music/fetch_classical.py). Every recording is Public Domain, CC0 or CC BY(-SA); credits in CREDITS.md and in the app's Scene Studio.",
  "tracks": [
   {
@@ -781,6 +781,58 @@
    "duration": 137.0,
    "moods": [
     "canopy"
+   ]
+  },
+  {
+   "id": "glasshouse-chopin-raindrop",
+   "title": "Prelude in D-flat major, Op. 28 No. 15 'Raindrop'",
+   "composer": "Frédéric Chopin",
+   "performer": "eldüendesüarez (piano)",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AChopin_-_Prelude_in_D-flat_Op-28_No-15_%28Raindrop%29_%28Piano_Performance_by_eld%C3%BCendes%C3%BCarez%29.wav",
+   "file": "glasshouse-chopin-raindrop.m4a",
+   "duration": 267.5,
+   "moods": [
+    "glasshouse"
+   ]
+  },
+  {
+   "id": "orbit-holst-neptune",
+   "title": "The Planets: VII. Neptune, the Mystic",
+   "composer": "Gustav Holst",
+   "performer": "\"The President's Own\" United States Marine Band",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AHOLST_%22The_Planets%2C_Op._32_7._Neptune%2C_the_Mystic%22_-_%22The_President%27s_Own%22_U.S._Marine_Band.opus",
+   "file": "orbit-holst-neptune.m4a",
+   "duration": 420,
+   "moods": [
+    "orbit"
+   ]
+  },
+  {
+   "id": "saltflat-debussy-reflets",
+   "title": "Images: I. Reflets dans l'eau",
+   "composer": "Claude Debussy",
+   "performer": "Giorgi Latso (piano)",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3ADebussy_%2C_Reflets_dans_l%27eau.ogg",
+   "file": "saltflat-debussy-reflets.m4a",
+   "duration": 332.9,
+   "moods": [
+    "saltflat"
+   ]
+  },
+  {
+   "id": "lightwell-bach-bwv639-organ",
+   "title": "Ich ruf zu dir, Herr Jesu Christ, BWV 639",
+   "composer": "Johann Sebastian Bach",
+   "performer": "Yeonju Sarah Kim (organ)",
+   "license": "CC0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AHeilig-Geist-Orgel_-_J_S_Bach-_Ich_ruf_zu_dir%2C_Herr_Jesu_Christ_BWV_639%2C_gespielt_von_Yeonju_Sarah_Kim%2C_Registrierung_u_a_Cornet_2_2_3%E2%80%B2_-_Teilausschnitt_aus_STE-015.ogg",
+   "file": "lightwell-bach-bwv639-organ.m4a",
+   "duration": 163.7,
+   "moods": [
+    "lightwell"
    ]
   }
  ]
