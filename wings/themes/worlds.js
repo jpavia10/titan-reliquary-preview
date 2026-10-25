@@ -71,12 +71,12 @@
   var GROUPS = [
     { name: "Museum and study", note: "Calm rooms for looking closely", ids: ["afterhours", "conservator", "drafting", "sketch", "marbled", "banknote", "notepad", "darkroom", "silverscreen"] },
     { name: "Vaults and treasure", note: "Gold, silver and hoards", ids: ["colossus", "glacier", "valhalla", "dynasty", "abyss", "alchemist"] },
-    { name: "Journeys", note: "Maps, ships, stations and stars", ids: ["odyssey", "silkroad", "terminal", "contour", "solaris"] },
-    { name: "Calm and quiet", note: "Slow, soft and still", ids: ["nocturne", "zen", "samadhi", "cathedral", "kintsugi"] },
+    { name: "Journeys", note: "Maps, ships, stations and stars", ids: ["odyssey", "silkroad", "terminal", "contour", "solaris", "sahel"] },
+    { name: "Calm and quiet", note: "Slow, soft and still", ids: ["nocturne", "zen", "samadhi", "cathedral", "kintsugi", "glasshouse"] },
     { name: "Neon and otherworld", note: "Glow, code and strange places", ids: ["kaleido", "neon", "construct", "xeno", "cursedwing", "lumen", "horizon"] },
     { name: "Playful and retro", note: "Games, comics, paper and toys", ids: ["arcade", "pulp", "diorama", "bauhaus", "y2k", "papercut", "freefall"] },
     { name: "Matter and machines", note: "Liquids, metals and moving parts", ids: ["ferro", "rift", "tourbillon"] },
-    { name: "Weather and sky", note: "Storms, light and open air", ids: ["supercell", "canopy"] }
+    { name: "Weather and sky", note: "Storms, light and open air", ids: ["supercell", "canopy", "orbit"] }
   ];
   var LIGHT = { banknote: 1, bauhaus: 1, conservator: 1, diorama: 1, marbled: 1, notepad: 1, papercut: 1, pulp: 1, sketch: 1, y2k: 1 };
   function isLight(w) { return w.scheme ? w.scheme === "light" : !!LIGHT[w.id]; }

@@ -1,0 +1,64 @@
+/* ============================================================================
+   Atmosphere: SAHEL FUTURISM (sahel) · Sahelian solar architecture
+   Monumental mudbrick towers and tracking brass heliostat mirrors rise through golden Harmattan dust haze toward a volumetric desert sun. Open a coin and the heliostat array aligns its golden beam onto the adobe plinth; tap to send a warm Harmattan dust gust across the towers.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md): the shared treatments in styles/style-layer.css are switched on by
+   the theme's `ui` list in wings/themes/manifest.js (html[data-ui]); the effect is fxk (wings/fx/styles-e.js).
+   Legibility: checked with tools/themes/check_theme.js (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="sahel"] {
+  --scheme: dark;
+  color-scheme: dark;
+  --bg: #0c0806;
+  --bg2: #140e0a;
+  --surface: #1d140f;
+  --surface2: #271b14;
+  --ink: #f6efe6;
+  --muted: #d4c3b0;
+  --faint: #a89682;
+  --cardmeta: #e6d8c8;
+  --gold: #f2b852;
+  --gold-soft: #fbe0a2;
+  --gold-deep: #946618;
+  --on-gold: #160e02;
+  --ink-soft: #d4c3b0;
+  --line: rgba(242, 184, 82, 0.14);
+  --line-strong: rgba(242, 184, 82, 0.48);
+  --ok: #7fe3a8;
+  --warn: #f5c96b;
+  --bad: #ff8a7a;
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 50px rgba(0, 0, 0, 0.78);
+  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.52);
+  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.64);
+  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 28px 80px rgba(0, 0, 0, 0.82);
+  --scrim: rgba(4, 6, 8, 0.76);
+  --focus: #fbe0a2;
+  --th-bg: #271b14;
+  --tabgrad1: #271b14; --tabgrad2: #1d140f;
+  --toastgrad1: #271b14; --toastgrad2: #1d140f;
+  --foot-bg: rgba(7, 9, 11, 0.92);
+  --drawerbar-bg: rgba(16, 20, 24, 0.94);
+  --ph-bg: #271b14;
+  --sel-bg: rgba(242, 184, 82, 0.16);
+  --row-hover: rgba(242, 184, 82, 0.07);
+  --hold-bg: linear-gradient(160deg, #271b14, #0c0806 60%);
+  --skeleton1: #271b14; --skeleton2: #0c0806;
+  --grain-op: 0.03;
+  --wing-dur: 0.5s;
+  --wing-rise: 14px;
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --serif: "Cormorant Garamond", "Hoefler Text", "Iowan Old Style", Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 8px;
+}
+/* Sahel Futurism surfaces: scoped to html[data-atmo="sahel"] only. */
+html[data-atmo="sahel"] .card, html[data-atmo="sahel"] .panel, html[data-atmo="sahel"] .gx-card {
+  background: radial-gradient(125% 80% at 50% 0%, rgba(242, 184, 82,.08), transparent 62%), linear-gradient(180deg, #271b14e0, #0c0806f2);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(242, 184, 82,.30), inset 0 0 0 1px rgba(242, 184, 82,.22), 0 18px 46px rgba(0,0,0,.78);
+  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }
+html[data-atmo="sahel"] .card:hover, html[data-atmo="sahel"] .gx-card:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(242, 184, 82,.52), inset 0 0 0 1px rgba(242, 184, 82,.46), 0 0 28px rgba(242, 184, 82,.14), 0 22px 54px rgba(0,0,0,.82); }
+html[data-atmo="sahel"] h1, html[data-atmo="sahel"] h2 { background: linear-gradient(180deg, #ffffff, #fbe0a2 50%, #f2b852); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-atmo="sahel"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }

@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-25] — Claude · Themes #45-#47 + Nocturne/Zen GPU rebuilds live (tr257), Gemini v2
+- Shipped Gemini's v2 worlds: The Glasshouse, Low Orbit, Sahel Futurism (new), Nocturne + Zen on the kit (Zen keeps Grok's opening). Real separate scenes now; run on software GL, no errors. 47 themes.
+- Not shipped: Titan v3 M2/M3 (flat grid, wrong album counts, a Dad mode). Not reviewed yet (5 % budget): motion v2, Salt Mirror/Light Well/Obsidian v2, ~40 data files in the drop folder.
+
 ### [2026-10-24] — Claude · Cloud Forest's own music + Darkroom's Gnossienne 3 (tr256); Drive side of round 2 done
 - Live: El Noi de la Mare (Jujutacular, guitar, PD) + C. P. E. Bach Wq. 131 Andante (Martínez Pueyo / Sebastián Alegre, CC BY 3.0; teaser cut off, reviewed span in wanted.json) for Cloud Forest; Gnossienne No. 3 (La Pianista, CC BY-SA 3.0) for Darkroom. Gemini's El Noi licence was wrong (the recording is PD).
 - Drive: round-2 reviews in every package folder, FEEDBACK + WORK QUEUE for Gemini and Muse updated, art request `artreq_20261024-0900` up, Muse's 20 merged drop files trashed. Gemini's 11 new sheets stay GitHub-only until the bridge.

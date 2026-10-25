@@ -1,0 +1,30 @@
+{
+ "id": "glasshouse",
+ "name": "The Glasshouse",
+ "collection": "Studio",
+ "mood": "A Victorian iron-and-glass palm conservatory in steady evening rain: refractive raindrops trail down a steamed pane while lush palms glow behind the condensation. Open a coin to view it through the cleared glass medallion; drag or tap to wipe the fog from the pane.",
+ "pair": "Victorian palm house + Music box & Piano",
+ "scheme": "dark",
+ "themeColor": "#070d0b",
+ "station": "dark",
+ "ui": [],
+ "styles": [
+  "Victorian conservatory"
+ ],
+ "fx": "fxk",
+ "fxIntensity": 0.01,
+ "tokens": "  --scheme: dark;\n  color-scheme: dark;\n  --bg: #070d0b;\n  --bg2: #0b1411;\n  --surface: #101d19;\n  --surface2: #162822;\n  --ink: #ecf5f2;\n  --muted: #b8d0c8;\n  --faint: #8ea8a0;\n  --cardmeta: #d5e8e1;\n  --gold: #8fe0c4;\n  --gold-soft: #c2f2e0;\n  --gold-deep: #2f7860;\n  --on-gold: #05140f;\n  --ink-soft: #b8d0c8;\n  --line: rgba(143, 224, 196, 0.14);\n  --line-strong: rgba(143, 224, 196, 0.48);\n  --ok: #7fe3a8;\n  --warn: #f5c96b;\n  --bad: #ff8a7a;\n  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 50px rgba(0, 0, 0, 0.78);\n  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.52);\n  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.64);\n  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 28px 80px rgba(0, 0, 0, 0.82);\n  --scrim: rgba(4, 6, 8, 0.76);\n  --focus: #c2f2e0;\n  --th-bg: #162822;\n  --tabgrad1: #162822; --tabgrad2: #101d19;\n  --toastgrad1: #162822; --toastgrad2: #101d19;\n  --foot-bg: rgba(7, 9, 11, 0.92);\n  --drawerbar-bg: rgba(16, 20, 24, 0.94);\n  --ph-bg: #162822;\n  --sel-bg: rgba(143, 224, 196, 0.16);\n  --row-hover: rgba(143, 224, 196, 0.07);\n  --hold-bg: linear-gradient(160deg, #162822, #070d0b 60%);\n  --skeleton1: #162822; --skeleton2: #070d0b;\n  --grain-op: 0.03;\n  --wing-dur: 0.5s;\n  --wing-rise: 14px;\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Cormorant Garamond\", \"Hoefler Text\", \"Iowan Old Style\", Georgia, serif;\n  --mono: ui-monospace, \"SFMono-Regular\", Menlo, Consolas, monospace;\n  --radius: 8px;",
+ "extra_css": "/* The Glasshouse surfaces: scoped to html[data-atmo=\"glasshouse\"] only. */\nhtml[data-atmo=\"glasshouse\"] .card, html[data-atmo=\"glasshouse\"] .panel, html[data-atmo=\"glasshouse\"] .gx-card {\n  background: radial-gradient(125% 80% at 50% 0%, rgba(143, 224, 196,.08), transparent 62%), linear-gradient(180deg, #162822e0, #070d0bf2);\n  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);\n  box-shadow: inset 0 1px 0 rgba(143, 224, 196,.30), inset 0 0 0 1px rgba(143, 224, 196,.22), 0 18px 46px rgba(0,0,0,.78);\n  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }\nhtml[data-atmo=\"glasshouse\"] .card:hover, html[data-atmo=\"glasshouse\"] .gx-card:hover {\n  transform: translateY(-2px);\n  box-shadow: inset 0 1px 0 rgba(143, 224, 196,.52), inset 0 0 0 1px rgba(143, 224, 196,.46), 0 0 28px rgba(143, 224, 196,.14), 0 22px 54px rgba(0,0,0,.82); }\nhtml[data-atmo=\"glasshouse\"] h1, html[data-atmo=\"glasshouse\"] h2 { background: linear-gradient(180deg, #ffffff, #c2f2e0 50%, #8fe0c4); -webkit-background-clip: text; background-clip: text; color: transparent; }\nhtml[data-atmo=\"glasshouse\"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }\n",
+ "crest": "<path d=\"M24 176 V96 Q100 16 176 96 V176 Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"6\" stroke-linejoin=\"round\"/><path d=\"M100 32 V176 M58 64 V176 M142 64 V176 M28 116 H172\" stroke=\"currentColor\" stroke-width=\"4\"/><path d=\"M100 72 C92 86 92 96 100 96 C108 96 108 86 100 72 Z\" fill=\"currentColor\"/>",
+ "swatch": ".sw-glasshouse { --sw-ink: #ecf5f2; background: radial-gradient(circle at 35% 38%, rgba(194,242,224,.45) 0 3%, transparent 7%), radial-gradient(circle at 68% 54%, rgba(194,242,224,.4) 0 4%, transparent 8%), linear-gradient(90deg, transparent 48%, rgba(143,224,196,.25) 49% 51%, transparent 52%), linear-gradient(180deg, #122822 0%, #091512 65%, #050b09 100%); }",
+ "splash_pal": {
+  "bg": "#070d0b",
+  "bg2": "#0b1411",
+  "surface": "#101d19",
+  "ink": "#ecf5f2",
+  "muted": "#b8d0c8",
+  "gold": "#8fe0c4",
+  "soft": "#c2f2e0"
+ },
+ "scene": "{ rec: \"glasshouse|piano\", world: true, name: \"The Glasshouse\", icon: \"🌧️\", desc: \"A Victorian iron palm house in steady rain: raindrops on steamed glass, warm conservatory foliage, a recorded piano.\", atmo: \"glasshouse\",\n               beds: { rainWindow: 0.42, rainLight: 0.24, drips: 0.20, leaves: 0.16 }, pad: 0, piano: false, bells: false, beat: false,\n               root: \"F\", mode: \"major\", prog: [0], chordSec: 12, gap: [8, 12], vol: 0.5 }"
+}

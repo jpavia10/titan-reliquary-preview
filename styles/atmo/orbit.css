@@ -1,0 +1,64 @@
+/* ============================================================================
+   Atmosphere: LOW ORBIT (orbit) · Orbital cupola
+   Looking down through a space-station cupola window as Earth's curved Rayleigh-scattered limb, nocturnal city-light webs, and an orbital sunrise sweep below your coins. Open a coin to lock it in the cupola reticle; tap to trigger an attitude-thruster star flare.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md): the shared treatments in styles/style-layer.css are switched on by
+   the theme's `ui` list in wings/themes/manifest.js (html[data-ui]); the effect is fxk (wings/fx/styles-e.js).
+   Legibility: checked with tools/themes/check_theme.js (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="orbit"] {
+  --scheme: dark;
+  color-scheme: dark;
+  --bg: #050811;
+  --bg2: #090e1c;
+  --surface: #0e1629;
+  --surface2: #142038;
+  --ink: #edf3fc;
+  --muted: #b4c6e0;
+  --faint: #899fc0;
+  --cardmeta: #d4e2f7;
+  --gold: #7cc8ff;
+  --gold-soft: #bce4ff;
+  --gold-deep: #286296;
+  --on-gold: #040d1a;
+  --ink-soft: #b4c6e0;
+  --line: rgba(124, 200, 255, 0.14);
+  --line-strong: rgba(124, 200, 255, 0.48);
+  --ok: #7fe3a8;
+  --warn: #f5c96b;
+  --bad: #ff8a7a;
+  --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 50px rgba(0, 0, 0, 0.78);
+  --elev-1: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.52);
+  --elev-2: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.64);
+  --elev-3: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 28px 80px rgba(0, 0, 0, 0.82);
+  --scrim: rgba(4, 6, 8, 0.76);
+  --focus: #bce4ff;
+  --th-bg: #142038;
+  --tabgrad1: #142038; --tabgrad2: #0e1629;
+  --toastgrad1: #142038; --toastgrad2: #0e1629;
+  --foot-bg: rgba(7, 9, 11, 0.92);
+  --drawerbar-bg: rgba(16, 20, 24, 0.94);
+  --ph-bg: #142038;
+  --sel-bg: rgba(124, 200, 255, 0.16);
+  --row-hover: rgba(124, 200, 255, 0.07);
+  --hold-bg: linear-gradient(160deg, #142038, #050811 60%);
+  --skeleton1: #142038; --skeleton2: #050811;
+  --grain-op: 0.03;
+  --wing-dur: 0.5s;
+  --wing-rise: 14px;
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --serif: "Cormorant Garamond", "Hoefler Text", "Iowan Old Style", Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 8px;
+}
+/* Low Orbit surfaces: scoped to html[data-atmo="orbit"] only. */
+html[data-atmo="orbit"] .card, html[data-atmo="orbit"] .panel, html[data-atmo="orbit"] .gx-card {
+  background: radial-gradient(125% 80% at 50% 0%, rgba(124, 200, 255,.08), transparent 62%), linear-gradient(180deg, #142038e0, #050811f2);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(124, 200, 255,.30), inset 0 0 0 1px rgba(124, 200, 255,.22), 0 18px 46px rgba(0,0,0,.78);
+  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }
+html[data-atmo="orbit"] .card:hover, html[data-atmo="orbit"] .gx-card:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(124, 200, 255,.52), inset 0 0 0 1px rgba(124, 200, 255,.46), 0 0 28px rgba(124, 200, 255,.14), 0 22px 54px rgba(0,0,0,.82); }
+html[data-atmo="orbit"] h1, html[data-atmo="orbit"] h2 { background: linear-gradient(180deg, #ffffff, #bce4ff 50%, #7cc8ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-atmo="orbit"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }

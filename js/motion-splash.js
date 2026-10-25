@@ -141,7 +141,10 @@
     tourbillon: { bg: "#0b0c10", bg2: "#101218", surface: "#15171e", ink: "#f1f2f5", muted: "#c0c4ce", gold: "#8fa8ff", soft: "#c9d4ff" },
     darkroom:   { bg: "#0c0606", bg2: "#120808", surface: "#180b0a", ink: "#f6eeec", muted: "#d2c2be", gold: "#ffa36b", soft: "#ffd0b0" },
     silverscreen: { bg: "#0a0809", bg2: "#100c0d", surface: "#161112", ink: "#f3eee6", muted: "#cdc4b7", gold: "#dcb862", soft: "#f1dfa6" },
-    canopy:     { bg: "#060d09", bg2: "#0a140f", surface: "#0e1c15", ink: "#e9f5ee", muted: "#b8d4c3", gold: "#a6e27a", soft: "#d2f4b8" }
+    canopy:     { bg: "#060d09", bg2: "#0a140f", surface: "#0e1c15", ink: "#e9f5ee", muted: "#b8d4c3", gold: "#a6e27a", soft: "#d2f4b8" },
+    glasshouse: { bg: "#070d0b", bg2: "#0b1411", surface: "#101d19", ink: "#ecf5f2", muted: "#b8d0c8", gold: "#8fe0c4", soft: "#c2f2e0" },
+    orbit:      { bg: "#050811", bg2: "#090e1c", surface: "#0e1629", ink: "#edf3fc", muted: "#b4c6e0", gold: "#7cc8ff", soft: "#bce4ff" },
+    sahel:      { bg: "#0c0806", bg2: "#140e0a", surface: "#1d140f", ink: "#f6efe6", muted: "#d4c3b0", gold: "#f2b852", soft: "#fbe0a2" }
   };
   function palette(id, tableOnly) {
     var base = PAL[id] || PAL.afterhours, out = {}, k;
