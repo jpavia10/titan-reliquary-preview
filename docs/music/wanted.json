@@ -1775,6 +1775,128 @@
      ]
     }
    }
+  },
+  {
+   "id": "glasshouse-chopin-raindrop",
+   "title": "Prelude in D-flat major, Op. 28 No. 15 'Raindrop'",
+   "composer": "Frédéric Chopin",
+   "query": "Chopin Prelude Op. 28 No. 15 Raindrop",
+   "must": [
+    "28"
+   ],
+   "prefer": [
+    "15",
+    "raindrop",
+    "piano"
+   ],
+   "moods": [
+    "glasshouse"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "sequenced",
+    "no. 4",
+    "no. 7",
+    "no. 20"
+   ],
+   "note": "The Glasshouse (tr257): rain on the palm house glass."
+  },
+  {
+   "id": "orbit-holst-neptune",
+   "title": "The Planets: VII. Neptune, the Mystic",
+   "composer": "Gustav Holst",
+   "query": "Holst The Planets Neptune",
+   "must": [
+    "neptune"
+   ],
+   "prefer": [
+    "orchestra",
+    "band"
+   ],
+   "moods": [
+    "orbit"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "sequenced",
+    "vpo",
+    "virtual"
+   ],
+   "note": "Low Orbit (tr257)."
+  },
+  {
+   "id": "sahel-kora-traditional",
+   "title": "Kora (traditional West African)",
+   "composer": "Traditional West African",
+   "traditional": true,
+   "query": "kora music Mali Senegal",
+   "must": [
+    "kora"
+   ],
+   "prefer": [
+    "traditional",
+    "live"
+   ],
+   "moods": [
+    "sahel"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "sequenced"
+   ],
+   "note": "Sahel Futurism (tr257): a real kora player, any traditional piece."
+  },
+  {
+   "id": "saltflat-debussy-reflets",
+   "title": "Images: I. Reflets dans l'eau",
+   "composer": "Claude Debussy",
+   "query": "Debussy Reflets dans l'eau",
+   "must": [
+    "reflets"
+   ],
+   "prefer": [
+    "piano"
+   ],
+   "moods": [
+    "saltflat"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "sequenced"
+   ],
+   "note": "Salt Mirror (tr258): reflections in the water."
+  },
+  {
+   "id": "lightwell-bach-bwv639-organ",
+   "title": "Ich ruf zu dir, Herr Jesu Christ, BWV 639",
+   "composer": "Johann Sebastian Bach",
+   "query": "Bach Ich ruf zu dir BWV 639 organ",
+   "must": [
+    "639"
+   ],
+   "prefer": [
+    "organ"
+   ],
+   "moods": [
+    "lightwell"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "sequenced",
+    "piano",
+    "busoni"
+   ],
+   "note": "Light Well (tr259): one organ chorale in a concrete room."
   }
  ]
 }
