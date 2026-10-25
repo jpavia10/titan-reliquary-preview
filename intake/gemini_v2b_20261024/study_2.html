@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titan Reliquary — Motion Study 2: Turn a Coin in 3D</title>
+<style>
+  :root {
+    --bg: #07090c;
+    --surface: #11161d;
+    --surface2: #18202a;
+    --ink: #eef3f8;
+    --muted: #b4c2d0;
+    --gold: #dfc06c;
+    --line: rgba(223, 192, 108, 0.22);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(120% 90% at 50% 0%, #151c26 0%, var(--bg) 70%);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(17, 22, 29, 0.88);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  header h1 { font-family: Georgia, serif; font-size: 22px; color: var(--ink); }
+  header span { color: var(--muted); font-size: 16px; }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  @media (min-width: 860px) {
+    .layout { grid-template-columns: 440px 1fr; align-items: start; }
+  }
+  @media (max-width: 859px) { .stage-card { position: relative !important; top: 0 !important; padding: 16px !important; } #glStage { width: 250px !important; height: 250px !important; } }
+  .stage-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 84px;
+    box-shadow: 0 28px 70px rgba(0,0,0,0.75);
+  }
+  #glStage {
+    width: 320px;
+    height: 320px;
+    max-width: 82vw;
+    max-height: 82vw;
+    cursor: grab;
+    touch-action: none;
+    border-radius: 50%;
+  }
+  #glStage:active { cursor: grabbing; }
+  .coin-shadow {
+    width: 210px;
+    height: 28px;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, transparent 72%);
+    margin-top: -12px;
+    margin-bottom: 14px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn {
+    background: var(--surface2);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn:hover { border-color: var(--gold); }
+  .stagger-meta {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .stagger-line {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.38s ease, transform 0.38s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .stagger-line.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .stagger-scan { color: var(--gold); font-weight: 600; font-size: 16px; }
+  .stagger-title { font-family: Georgia, serif; font-size: 24px; margin: 4px 0; color: var(--ink); }
+  .stagger-sub { color: var(--muted); font-size: 16px; }
+  .picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 14px;
+  }
+  .coin-tile {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    cursor: pointer;
+    text-align: center;
+    color: var(--ink);
+    font-size: 16px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .coin-tile:hover, .coin-tile.active {
+    border-color: var(--gold);
+    background: var(--surface2);
+    transform: translateY(-2px);
+  }
+  .coin-tile img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 8px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.65));
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>TITAN RELIQUARY · Study 2: Turn a Coin in 3D</h1>
+  <span id="status">Loading live collection…</span>
+</header>
+<div class="layout">
+  <section class="stage-card" aria-label="3D Coin Inspector">
+    <canvas id="glStage" width="640" height="640"></canvas>
+    <div class="coin-shadow" id="shadowEl"></div>
+    <div class="controls">
+      <button class="btn" id="flipBtn" type="button">Flip Obverse / Reverse (180°)</button>
+      <button class="btn" id="resetBtn" type="button">Reset Tilt</button>
+    </div>
+    <div class="stagger-meta" id="metaBox">
+      <div class="stagger-line stagger-scan" id="mScan"></div>
+      <div class="stagger-line stagger-title" id="mTitle"></div>
+      <div class="stagger-line stagger-sub" id="mSub"></div>
+      <div class="stagger-line stagger-sub" id="mHint" style="margin-top:6px;">Drag horizontally or vertically to turn the coin in 3D; rim light tracks your finger.</div>
+    </div>
+  </section>
+  <section aria-label="Select a specimen">
+    <div class="picker-grid" id="picker"></div>
+  </section>
+</div>
+<script>
+(function () {
+  "use strict";
+  var BASE = "https://jpavia10.github.io/titan-reliquary-preview/";
+
+  var FALLBACK_FLIPS = [
+    { scan: "C001", label: "France · 1923 · 1 Franc", thumb: "thumbs/C001.jpg", thumb_side: "obv", metal: "#d8bd72" },
+    { scan: "C023", label: "Germany · 1918 · 20 Pfennig", thumb: "thumbs/C023.jpg", thumb_side: "rev", metal: "#b8c0c8" },
+    { scan: "C037", label: "Germany · 2002 · 10 Euro Cent", thumb: "thumbs/C037.jpg", thumb_side: "rev", metal: "#dfc06c" },
+    { scan: "C280", label: "Belize · 2007 · 25 Cents", thumb: "thumbs/C280.jpg", thumb_side: "rev", metal: "#c8d0d8" },
+    { scan: "C285", label: "Slovakia · 2009 · 5 Euro Cent", thumb: "thumbs/C285.jpg", thumb_side: "obv", metal: "#cd7f52" },
+    { scan: "C296", label: "United Kingdom · 1990 · 5 Pence", thumb: "thumbs/C296.jpg", thumb_side: "obv", metal: "#d0d6dc" },
+    { scan: "C302", label: "United Kingdom · 1922 · 1 Penny", thumb: "thumbs/C302.jpg", thumb_side: "rev", metal: "#b87348" },
+    { scan: "C304", label: "Mexico · 1981 · 20 Pesos", thumb: "thumbs/C304.jpg", thumb_side: "rev", metal: "#d4b468" }
+  ];
+  function makeFallbackCoinDataURL(item) {
+    var c = document.createElement("canvas"); c.width = 256; c.height = 256;
+    var g = c.getContext("2d");
+    var gr = g.createRadialGradient(100, 92, 12, 128, 128, 122);
+    gr.addColorStop(0, "#f2dfb0"); gr.addColorStop(0.68, item.metal || "#b89b5e"); gr.addColorStop(1, "#4e3e20");
+    g.fillStyle = gr; g.beginPath(); g.arc(128, 128, 122, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = "rgba(255,250,230,0.45)"; g.lineWidth = 3;
+    g.beginPath(); g.arc(128, 128, 112, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = "rgba(30,20,8,0.72)"; g.textAlign = "center"; g.textBaseline = "middle";
+    var parts = String(item.label || "").split(" · ");
+    g.font = "600 13px Georgia, serif"; g.fillText((parts[0] || "COIN").toUpperCase(), 128, 72);
+    g.font = "700 20px Georgia, serif"; g.fillText((parts[2] || parts[1] || item.scan).toUpperCase(), 128, 128);
+    g.font = "600 13px monospace"; g.fillText(parts[1] || item.scan, 128, 182);
+    return c.toDataURL("image/png");
+  }
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                new URLSearchParams(window.location.search).get("motion") === "off";
+  var canvas = document.getElementById("glStage");
+  var gl = canvas.getContext("webgl", { alpha: true, antialias: true });
+  var shadowEl = document.getElementById("shadowEl");
+  var statusEl = document.getElementById("status");
+  var picker = document.getElementById("picker");
+  var mScan = document.getElementById("mScan");
+  var mTitle = document.getElementById("mTitle");
+  var mSub = document.getElementById("mSub");
+  var mHint = document.getElementById("mHint");
+
+  // Raymarched 3D Coin Cylinder with Obverse/Reverse textures, Milled Reeded Edge & Specular Rim Light
+  var VS = "attribute vec2 P; varying vec2 vUV; void main(){ vUV = P*0.5+0.5; gl_Position = vec4(P,0.0,1.0); }";
+  var FS = [
+    "precision highp float;",
+    "varying vec2 vUV;",
+    "uniform vec2 uRot; uniform vec2 uLight; uniform sampler2D uObv, uRev;",
+    "mat3 rotY(float a){ float c=cos(a), s=sin(a); return mat3(c,0.,s, 0.,1.,0., -s,0.,c); }",
+    "mat3 rotX(float a){ float c=cos(a), s=sin(a); return mat3(1.,0.,0., 0.,c,-s, 0.,s,c); }",
+    "void main(){",
+    "  vec2 p = (vUV - 0.5)*2.35;",
+    "  vec3 ro = vec3(0.0, 0.0, 3.2);",
+    "  vec3 rd = normalize(vec3(p, -1.85));",
+    "  mat3 R = rotX(uRot.y) * rotY(uRot.x);",
+    "  mat3 Rinv = rotY(-uRot.x) * rotX(-uRot.y);",
+    "  vec3 lro = R * ro;",
+    "  vec3 lrd = R * rd;",
+    // Intersect coin cylinder: radius R=1.0, half-thickness H=0.075 along local Z
+    "  float H = 0.075;",
+    "  float tMin = 1e5; int hitType = 0; vec3 hitPos; vec3 lNorm;",
+    // Caps z = +H and z = -H
+    "  if(abs(lrd.z) > 1e-5){",
+    "    for(int s=-1; s<=1; s+=2){",
+    "      float zc = float(s)*H;",
+    "      float t = (zc - lro.z)/lrd.z;",
+    "      if(t > 0.0 && t < tMin){",
+    "        vec3 hp = lro + lrd*t;",
+    "        if(dot(hp.xy, hp.xy) <= 1.0){ tMin = t; hitPos = hp; hitType = (s>0 ? 1 : 2); lNorm = vec3(0.0, 0.0, float(s)); }",
+    "      }",
+    "    }",
+    "  }",
+    // Cylinder wall x^2 + y^2 = 1.0, |z| <= H
+    "  float a = dot(lrd.xy, lrd.xy);",
+    "  float b = 2.0*dot(lro.xy, lrd.xy);",
+    "  float c = dot(lro.xy, lro.xy) - 1.0;",
+    "  float disc = b*b - 4.0*a*c;",
+    "  if(disc >= 0.0 && a > 1e-5){",
+    "    float t = (-b - sqrt(disc))/(2.0*a);",
+    "    if(t > 0.0 && t < tMin){",
+    "      vec3 hp = lro + lrd*t;",
+    "      if(abs(hp.z) <= H){ tMin = t; hitPos = hp; hitType = 3; lNorm = vec3(normalize(hp.xy), 0.0); }",
+    "    }",
+    "  }",
+    "  if(hitType == 0){ gl_FragColor = vec4(0.0); return; }",
+    "  vec3 L = normalize(vec3(uLight.x, uLight.y, 1.35));",
+    "  vec3 V = -rd;",
+    "  vec3 col;",
+    "  if(hitType == 3){",
+    // Milled / reeded coin edge with 140 reeds
+    "    float ang = atan(hitPos.y, hitPos.x);",
+    "    float reed = sin(ang*140.0);",
+    "    vec3 rNorm = normalize(lNorm + vec3(-hitPos.y, hitPos.x, 0.0)*reed*0.35);",
+    "    vec3 wNorm = Rinv * rNorm;",
+    "    float diff = max(0.0, dot(wNorm, L));",
+    "    float spec = pow(max(0.0, dot(reflect(-L, wNorm), V)), 28.0);",
+    "    col = vec3(0.58, 0.49, 0.32)*(0.28 + 0.72*diff) + vec3(1.0, 0.92, 0.72)*spec*0.85;",
+    "  } else {",
+    "    vec2 uv = hitPos.xy*0.5 + 0.5;",
+    "    if(hitType == 1) uv.y = 1.0 - uv.y;",
+    "    else { uv.x = 1.0 - uv.x; uv.y = 1.0 - uv.y; }",
+    "    vec4 tex = (hitType == 1) ? texture2D(uObv, uv) : texture2D(uRev, uv);",
+    // Perturb normal slightly from image luminance for relief raking light
+    "    float r = length(hitPos.xy);",
+    "    float rim = smoothstep(0.92, 0.995, r) * smoothstep(1.0, 0.985, r);",
+    "    vec3 wNorm = Rinv * normalize(lNorm + vec3(hitPos.xy*rim*0.45, 0.0));",
+    "    float diff = max(0.0, dot(wNorm, L));",
+    "    float spec = pow(max(0.0, dot(reflect(-L, wNorm), V)), 22.0);",
+    "    vec3 base = mix(vec3(0.68, 0.58, 0.38), tex.rgb, tex.a);",
+    "    col = base*(0.42 + 0.68*diff) + vec3(1.0, 0.94, 0.76)*spec*(0.35 + 0.65*rim);",
+    "  }",
+    // Anti-aliased silhouette edge
+    "  gl_FragColor = vec4(col, 1.0);",
+    "}"
+  ].join("\n");
+
+  function compile(gl, vsSrc, fsSrc) {
+    var vs = gl.createShader(gl.VERTEX_SHADER); gl.shaderSource(vs, vsSrc); gl.compileShader(vs);
+    if (!gl.getShaderParameter(vs, gl.COMPILE_STATUS)) {
+      console.error("VS error:", gl.getShaderInfoLog(vs));
+      if (statusEl) statusEl.textContent = "VS compile error: " + gl.getShaderInfoLog(vs);
+    }
+    var fs = gl.createShader(gl.FRAGMENT_SHADER); gl.shaderSource(fs, fsSrc); gl.compileShader(fs);
+    if (!gl.getShaderParameter(fs, gl.COMPILE_STATUS)) {
+      console.error("FS error:", gl.getShaderInfoLog(fs));
+      if (statusEl) statusEl.textContent = "FS compile error: " + gl.getShaderInfoLog(fs);
+    }
+    var p = gl.createProgram(); gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p);
+    if (!gl.getProgramParameter(p, gl.LINK_STATUS)) {
+      console.error("Link error:", gl.getProgramInfoLog(p));
+      if (statusEl) statusEl.textContent = "Shader link error: " + gl.getProgramInfoLog(p);
+    }
+    return p;
+  }
+  var prog = compile(gl, VS, FS);
+  gl.useProgram(prog);
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  var aP = gl.getAttribLocation(prog, "P");
+  gl.enableVertexAttribArray(aP);
+  gl.vertexAttribPointer(aP, 2, gl.FLOAT, false, 0, 0);
+
+  var uRot = gl.getUniformLocation(prog, "uRot");
+  var uLight = gl.getUniformLocation(prog, "uLight");
+  var uObv = gl.getUniformLocation(prog, "uObv");
+  var uRev = gl.getUniformLocation(prog, "uRev");
+
+  function mkTex() {
+    var t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([180, 155, 105, 255]));
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    return t;
+  }
+  var tObv = mkTex(), tRev = mkTex();
+
+  function loadTex(url, tex) {
+    var img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = function () {
+      var c = document.createElement("canvas"); c.width = 512; c.height = 512;
+      var g = c.getContext("2d");
+      g.beginPath(); g.arc(256, 256, 248, 0, Math.PI * 2); g.closePath(); g.clip();
+      g.drawImage(img, 0, 0, 512, 512);
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
+    };
+    img.src = url;
+  }
+
+  // Physics state: yaw (rotX), pitch (rotY), angular velocity, rim light
+  var yaw = 0.25, pitch = -0.12, vYaw = 0, vPitch = 0;
+  var targetYaw = null;
+  var lightX = -0.4, lightY = 0.6;
+  var dragging = false, lastX = 0, lastY = 0;
+
+  canvas.addEventListener("pointerdown", function (e) {
+    dragging = true; targetYaw = null;
+    lastX = e.clientX; lastY = e.clientY;
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", function (e) {
+    var rect = canvas.getBoundingClientRect();
+    lightX = ((e.clientX - rect.left) / rect.width - 0.5) * 2.2;
+    lightY = -((e.clientY - rect.top) / rect.height - 0.5) * 2.2;
+    if (!dragging) return;
+    var dx = e.clientX - lastX, dy = e.clientY - lastY;
+    lastX = e.clientX; lastY = e.clientY;
+    if (reduced) {
+      yaw += dx * 0.012; pitch = Math.max(-1.1, Math.min(1.1, pitch + dy * 0.012));
+    } else {
+      vYaw = dx * 0.16; vPitch = dy * 0.14;
+      yaw += dx * 0.01; pitch = Math.max(-1.1, Math.min(1.1, pitch + dy * 0.01));
+    }
+  });
+  function endDrag() { dragging = false; }
+  canvas.addEventListener("pointerup", endDrag);
+  canvas.addEventListener("pointercancel", endDrag);
+
+  document.getElementById("flipBtn").addEventListener("click", function () {
+    var base = Math.round(yaw / Math.PI) * Math.PI + Math.PI;
+    if (reduced) { yaw = base; pitch = 0; vYaw = 0; vPitch = 0; }
+    else { targetYaw = base; }
+  });
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    if (reduced) { yaw = 0; pitch = 0; vYaw = 0; vPitch = 0; }
+    else { targetYaw = 0; vPitch = -pitch * 4; }
+  });
+
+  function triggerStagger(item) {
+    var lines = [mScan, mTitle, mSub, mHint];
+    lines.forEach(function (el) { el.classList.remove("in"); });
+    var parts = String(item.label || "").split(" · ");
+    mScan.textContent = item.scan;
+    mTitle.textContent = parts[0] || item.scan;
+    mSub.textContent = parts.slice(1).join(" · ") || "Obverse & Reverse 3D Inspection";
+    lines.forEach(function (el, idx) {
+      setTimeout(function () { el.classList.add("in"); }, reduced ? 0 : 70 + idx * 65);
+    });
+  }
+
+  function drawStruckFace(item, tex, sideLabel) {
+    var c = document.createElement("canvas"); c.width = 512; c.height = 512;
+    var g = c.getContext("2d");
+    var grad = g.createRadialGradient(200, 190, 24, 256, 256, 250);
+    grad.addColorStop(0, "#d8c394");
+    grad.addColorStop(0.7, "#9e8454");
+    grad.addColorStop(1, "#5c4928");
+    g.fillStyle = grad;
+    g.beginPath(); g.arc(256, 256, 248, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = "rgba(255,245,215,0.42)"; g.lineWidth = 5;
+    g.beginPath(); g.arc(256, 256, 232, 0, Math.PI * 2); g.stroke();
+    g.strokeStyle = "rgba(25,18,8,0.45)"; g.lineWidth = 3;
+    g.beginPath(); g.arc(256, 256, 214, 0, Math.PI * 2); g.stroke();
+    for (var i = 0; i < 72; i++) {
+      var a = (i / 72) * Math.PI * 2;
+      g.save();
+      g.translate(256 + Math.cos(a) * 239, 256 + Math.sin(a) * 239);
+      g.rotate(a);
+      g.fillStyle = "rgba(255,245,215,0.32)";
+      g.fillRect(-5, -2, 10, 4);
+      g.restore();
+    }
+    var parts = String(item.label || "").split(" · ");
+    var topTxt = (parts[0] || item.scan || "TITAN RELIQUARY").toUpperCase();
+    var midTxt = (parts[1] || sideLabel || "REVERSE").toUpperCase();
+    var botTxt = (item.scan || "").toUpperCase();
+    g.textAlign = "center"; g.textBaseline = "middle";
+    g.fillStyle = "rgba(255,248,225,0.38)";
+    g.strokeStyle = "rgba(20,14,6,0.55)";
+    g.lineWidth = 3;
+    g.font = "600 22px Georgia, serif";
+    g.strokeText(topTxt.slice(0, 22), 256, 134);
+    g.fillText(topTxt.slice(0, 22), 254, 132);
+    g.font = "700 30px Georgia, serif";
+    g.strokeText(midTxt.slice(0, 18), 256, 256);
+    g.fillText(midTxt.slice(0, 18), 254, 254);
+    g.font = "600 20px monospace";
+    g.strokeText(botTxt + " · " + sideLabel, 256, 372);
+    g.fillText(botTxt + " · " + sideLabel, 254, 370);
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
+  }
+
+  function selectCoin(item, btnEl) {
+    Array.prototype.forEach.call(picker.children, function (c) { c.classList.remove("active"); });
+    if (btnEl) btnEl.classList.add("active");
+    var thumbUrl = (item.thumb.indexOf("data:") === 0 ? item.thumb : (item.thumb.indexOf("data:") === 0 ? item.thumb : BASE + item.thumb));
+    var isRev = (item.thumb_side === "rev") || (item.thumb && item.thumb.indexOf("_rev.") !== -1);
+    if (isRev) {
+      drawStruckFace(item, tObv, "OBVERSE");
+      loadTex(thumbUrl, tRev);
+    } else {
+      loadTex(thumbUrl, tObv);
+      if (item.rev_thumb) loadTex(BASE + item.rev_thumb, tRev);
+      else drawStruckFace(item, tRev, "REVERSE");
+    }
+    if (!reduced) { vYaw += 4.2; }
+    triggerStagger(item);
+  }
+  drawStruckFace({ scan: "C001", label: "France · 20 Francs" }, tObv, "OBVERSE");
+  drawStruckFace({ scan: "C001", label: "France · 20 Francs" }, tRev, "REVERSE");
+
+  var lastT = performance.now();
+  function loop(now) {
+    var dt = Math.min(0.032, (now - lastT) / 1000 || 0.016);
+    lastT = now;
+    if (!dragging && !reduced) {
+      if (targetYaw !== null) {
+        var diff = targetYaw - yaw;
+        vYaw += diff * 120 * dt;
+        vYaw *= Math.pow(0.0008, dt);
+        yaw += vYaw * dt;
+        pitch *= Math.pow(0.02, dt);
+        if (Math.abs(diff) < 0.005 && Math.abs(vYaw) < 0.02) { yaw = targetYaw; targetYaw = null; vYaw = 0; }
+      } else {
+        yaw += vYaw * dt;
+        pitch = Math.max(-1.1, Math.min(1.1, pitch + vPitch * dt));
+        vYaw *= Math.pow(0.04, dt);
+        vPitch *= Math.pow(0.04, dt);
+      }
+    }
+    var edgeFactor = Math.abs(Math.cos(yaw));
+    shadowEl.style.transform = "scaleX(" + (0.35 + 0.65 * edgeFactor).toFixed(3) + ")";
+    shadowEl.style.opacity = (0.55 + 0.35 * edgeFactor).toFixed(3);
+
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tObv); gl.uniform1i(uObv, 0);
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tRev); gl.uniform1i(uRev, 1);
+    gl.uniform2f(uRot, yaw, pitch);
+    gl.uniform2f(uLight, lightX, lightY);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  function populateCoins(flips, isOffline) {
+    statusEl.textContent = flips.length + (isOffline ? " specimens ready (offline preview)" : " live specimens ready");
+    flips.forEach(function (item, idx) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "coin-tile";
+      var im = document.createElement("img");
+      im.loading = "lazy";
+      im.onerror = function () { im.onerror = null; im.src = makeFallbackCoinDataURL(item); };
+      im.src = isOffline ? makeFallbackCoinDataURL(item) : ((item.thumb.indexOf("data:") === 0 ? item.thumb : (item.thumb.indexOf("data:") === 0 ? item.thumb : BASE + item.thumb)));
+      im.alt = item.label || item.scan;
+      var lb = document.createElement("div");
+      lb.textContent = item.scan + " · " + String(item.label || "").split(" · ")[0];
+      b.appendChild(im);
+      b.appendChild(lb);
+      b.addEventListener("click", function () { selectCoin(item, b); });
+      picker.appendChild(b);
+      if (idx === 0) selectCoin(item, b);
+    });
+  }
+  fetch(BASE + "data/index.json").then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); }).then(function (data) {
+    var flips = (data.flips || []).filter(function (f) { return f.thumb; }).slice(0, 24);
+    populateCoins(flips.length ? flips : FALLBACK_FLIPS, !flips.length);
+  }).catch(function () { populateCoins(FALLBACK_FLIPS, true); });
+})();
+</script>
+</body>
+</html>

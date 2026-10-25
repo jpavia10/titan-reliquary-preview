@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titan Reliquary — Motion Study 4: Into the Album</title>
+<style>
+  :root {
+    --bg: #090c10;
+    --board: #142234;
+    --board-rim: #243b56;
+    --hole: #070d14;
+    --ink: #eef4fa;
+    --muted: #a9bacb;
+    --gold: #e6c265;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(circle at 50% 15%, #16202e, var(--bg) 75%);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  header {
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(230, 194, 101, 0.22);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(9, 12, 16, 0.88);
+    backdrop-filter: blur(10px);
+  }
+  header h1 { font-family: Georgia, serif; font-size: 22px; }
+  .hint-bar {
+    text-align: center;
+    padding: 14px 20px;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .album-page {
+    max-width: 980px;
+    margin: 8px auto 48px;
+    padding: 28px 20px;
+    background: linear-gradient(165deg, #18293e, #0e1927);
+    border: 2px solid var(--board-rim);
+    border-radius: 18px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 28px 70px rgba(0,0,0,0.85);
+    perspective: 1100px;
+  }
+  .slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 24px;
+  }
+  .slot-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hole-well {
+    width: 138px;
+    height: 138px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 32%, #0c141f, #04070b 78%);
+    box-shadow: inset 0 7px 14px rgba(0,0,0,0.92), inset 0 -2px 4px rgba(255,255,255,0.08), 0 1px 0 rgba(255,255,255,0.12);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+  }
+  .drop-shadow {
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.85);
+    filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity, filter;
+  }
+  .coin-disc {
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    will-change: transform;
+  }
+  .slot-label {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 4px 12px;
+    border-radius: 999px;
+    transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  .slot-cell.lit .slot-label {
+    color: #091206;
+    background: var(--gold);
+    box-shadow: 0 0 22px rgba(230, 194, 101, 0.65);
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>TITAN RELIQUARY · Study 4: Into the Album</h1>
+  <span id="status">Loading live collection…</span>
+</header>
+<p class="hint-bar">Tap any coin slot to lift and drop the coin into its cardboard album port — complete with 3D rim wobble, acoustic press-fit click, and illuminated slot label.</p>
+<main class="album-page">
+  <div class="slots-grid" id="grid"></div>
+</main>
+<script>
+(function () {
+  "use strict";
+  var BASE = "https://jpavia10.github.io/titan-reliquary-preview/";
+
+  var FALLBACK_FLIPS = [
+    { scan: "C001", label: "France · 1923 · 1 Franc", thumb: "thumbs/C001.jpg", thumb_side: "obv", metal: "#d8bd72" },
+    { scan: "C023", label: "Germany · 1918 · 20 Pfennig", thumb: "thumbs/C023.jpg", thumb_side: "rev", metal: "#b8c0c8" },
+    { scan: "C037", label: "Germany · 2002 · 10 Euro Cent", thumb: "thumbs/C037.jpg", thumb_side: "rev", metal: "#dfc06c" },
+    { scan: "C280", label: "Belize · 2007 · 25 Cents", thumb: "thumbs/C280.jpg", thumb_side: "rev", metal: "#c8d0d8" },
+    { scan: "C285", label: "Slovakia · 2009 · 5 Euro Cent", thumb: "thumbs/C285.jpg", thumb_side: "obv", metal: "#cd7f52" },
+    { scan: "C296", label: "United Kingdom · 1990 · 5 Pence", thumb: "thumbs/C296.jpg", thumb_side: "obv", metal: "#d0d6dc" },
+    { scan: "C302", label: "United Kingdom · 1922 · 1 Penny", thumb: "thumbs/C302.jpg", thumb_side: "rev", metal: "#b87348" },
+    { scan: "C304", label: "Mexico · 1981 · 20 Pesos", thumb: "thumbs/C304.jpg", thumb_side: "rev", metal: "#d4b468" }
+  ];
+  function makeFallbackCoinDataURL(item) {
+    var c = document.createElement("canvas"); c.width = 256; c.height = 256;
+    var g = c.getContext("2d");
+    var gr = g.createRadialGradient(100, 92, 12, 128, 128, 122);
+    gr.addColorStop(0, "#f2dfb0"); gr.addColorStop(0.68, item.metal || "#b89b5e"); gr.addColorStop(1, "#4e3e20");
+    g.fillStyle = gr; g.beginPath(); g.arc(128, 128, 122, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = "rgba(255,250,230,0.45)"; g.lineWidth = 3;
+    g.beginPath(); g.arc(128, 128, 112, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = "rgba(30,20,8,0.72)"; g.textAlign = "center"; g.textBaseline = "middle";
+    var parts = String(item.label || "").split(" · ");
+    g.font = "600 13px Georgia, serif"; g.fillText((parts[0] || "COIN").toUpperCase(), 128, 72);
+    g.font = "700 20px Georgia, serif"; g.fillText((parts[2] || parts[1] || item.scan).toUpperCase(), 128, 128);
+    g.font = "600 13px monospace"; g.fillText(parts[1] || item.scan, 128, 182);
+    return c.toDataURL("image/png");
+  }
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                new URLSearchParams(window.location.search).get("motion") === "off";
+  var grid = document.getElementById("grid");
+  var statusEl = document.getElementById("status");
+  var actx = null;
+  var clankBuf = null;
+  var loadingClank = false;
+  var userGestureSeen = false;
+  window.addEventListener("pointerdown", function () { userGestureSeen = true; ensureClankBuffer(); }, { passive: true });
+  window.addEventListener("keydown", function () { userGestureSeen = true; ensureClankBuffer(); }, { passive: true });
+
+  function ensureClankBuffer() {
+    if (clankBuf || loadingClank) return;
+    loadingClank = true;
+    try {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      var tryLoad = function(ext) {
+        return fetch(BASE + "audio/ambience/clank." + ext)
+          .then(function(r) { if (!r.ok) throw new Error("http"); return r.arrayBuffer(); })
+          .then(function(ab) { return actx.decodeAudioData(ab); });
+      };
+      tryLoad("m4a").catch(function() { return tryLoad("webm"); }).then(function(buf) {
+        clankBuf = buf;
+      }).catch(function() { loadingClank = false; });
+    } catch (e) { loadingClank = false; }
+  }
+
+  function playClick(vol, rateOffset) {
+    if (!userGestureSeen) return;
+    try {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === "suspended") actx.resume();
+      ensureClankBuffer();
+      if (!clankBuf) return;
+      var now = actx.currentTime;
+      var src = actx.createBufferSource();
+      src.buffer = clankBuf;
+      src.playbackRate.value = rateOffset ? (rateOffset / 190) : 1.0;
+      var g = actx.createGain();
+      var dur = 0.085;
+      var offset = Math.min(0.15, Math.max(0, clankBuf.duration * 0.18));
+      g.gain.setValueAtTime(0.0001, now);
+      g.gain.linearRampToValueAtTime(vol || 0.22, now + 0.006);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+      src.connect(g); g.connect(actx.destination);
+      src.start(now, offset, dur + 0.01);
+    } catch (e) {}
+  }
+
+  function animateDrop(cell, img, shd) {
+    cell.classList.remove("lit");
+    if (reduced) {
+      img.style.transform = "translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1)";
+      shd.style.opacity = "0.6";
+      cell.classList.add("lit");
+      playClick(0.18, 210);
+      return;
+    }
+    var t0 = performance.now();
+    var clickedMain = false, clickedSettle = false;
+    function frame(now) {
+      var t = (now - t0) / 1000;
+      // Phase 1 (0..0.34s): Freefall from z=140px with slight tilt
+      // Phase 2 (0.34..0.95s): Damped rim-wobble precession around the hole edge before locking flat
+      var z = 0, rx = 0, ry = 0, sc = 1;
+      if (t < 0.34) {
+        var u = t / 0.34;
+        z = (1 - u * u) * 120;
+        sc = 1 + (1 - u * u) * 0.28;
+        rx = (1 - u) * 18;
+        ry = (1 - u) * -14;
+      } else {
+        if (!clickedMain) { clickedMain = true; playClick(0.22, 180); }
+        var w = t - 0.34;
+        var env = Math.exp(-w * 7.5);
+        rx = Math.cos(w * 34) * 16 * env;
+        ry = Math.sin(w * 34) * 16 * env;
+        z = Math.abs(Math.sin(w * 17)) * 8 * env;
+        sc = 1 + z * 0.002;
+        if (w > 0.28 && !clickedSettle) {
+          clickedSettle = true;
+          playClick(0.10, 260);
+          cell.classList.add("lit");
+        }
+      }
+      img.style.transform = "translate3d(0," + (-z * 0.35).toFixed(2) + "px,0) scale(" + sc.toFixed(4) + ") rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg)";
+      shd.style.opacity = (0.85 - (z / 120) * 0.55).toFixed(3);
+      shd.style.transform = "translate3d(" + (z * 0.12).toFixed(1) + "px," + (z * 0.22).toFixed(1) + "px,0) scale(" + (1 + z * 0.0025).toFixed(3) + ")";
+      if (t < 0.95) requestAnimationFrame(frame);
+      else {
+        img.style.transform = "translate3d(0,0,0) scale(1) rotateX(0deg) rotateY(0deg)";
+        cell.classList.add("lit");
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function buildAlbum(flips, isOffline) {
+    statusEl.textContent = flips.length + " album slots populated — tap any slot to seat coin";
+    flips.forEach(function (item, idx) {
+      var cell = document.createElement("div");
+      cell.className = "slot-cell";
+      var well = document.createElement("div");
+      well.className = "hole-well";
+      var shd = document.createElement("div");
+      shd.className = "drop-shadow";
+      shd.style.opacity = "0.35";
+      var img = document.createElement("img");
+      img.className = "coin-disc";
+      img.onerror = function () { img.onerror = null; img.src = makeFallbackCoinDataURL(item); };
+      img.src = isOffline ? makeFallbackCoinDataURL(item) : ((item.thumb.indexOf("data:") === 0 ? item.thumb : (item.thumb.indexOf("data:") === 0 ? item.thumb : BASE + item.thumb)));
+      img.alt = item.label || item.scan;
+      var parts = String(item.label || "").split(" · ");
+      var lbl = document.createElement("div");
+      lbl.className = "slot-label";
+      lbl.textContent = item.scan + " · " + (parts[1] || parts[0] || "");
+      well.appendChild(shd);
+      well.appendChild(img);
+      cell.appendChild(well);
+      cell.appendChild(lbl);
+      cell.addEventListener("click", function () { animateDrop(cell, img, shd); });
+      grid.appendChild(cell);
+      if (idx === 0) setTimeout(function () { animateDrop(cell, img, shd); }, 350);
+    });
+  }
+  fetch(BASE + "data/index.json").then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); }).then(function (data) {
+    var flips = (data.flips || []).filter(function (f) { return f.thumb; }).slice(0, 15);
+    buildAlbum(flips.length ? flips : FALLBACK_FLIPS, !flips.length);
+  }).catch(function () { buildAlbum(FALLBACK_FLIPS, true); });
+})();
+</script>
+</body>
+</html>

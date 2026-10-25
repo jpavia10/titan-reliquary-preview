@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titan Reliquary — Motion Study 3: Coin Dust</title>
+<style>
+  :root {
+    --bg: #07080a;
+    --surface: rgba(18, 22, 28, 0.84);
+    --ink: #f0f4f8;
+    --muted: #b6c2cf;
+    --gold: #e0bd68;
+    --line: rgba(224, 189, 104, 0.25);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 320vh;
+    overflow-x: hidden;
+  }
+  #glCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    touch-action: pan-y;
+  }
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    padding: 16px 24px;
+    background: rgba(7, 8, 10, 0.82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  header h1 { font-family: Georgia, serif; font-size: 20px; color: var(--ink); }
+  .coin-select {
+    background: #141920;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+  .scroll-steps {
+    position: relative;
+    z-index: 5;
+    pointer-events: none;
+    max-width: 520px;
+    padding: 136px 24px 120px;
+  }
+  .step-card {
+    pointer-events: auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 72vh;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+  }
+  .step-card h2 { font-family: Georgia, serif; font-size: 22px; color: var(--gold); margin-bottom: 6px; }
+  .step-card p { font-size: 16px; color: var(--ink); }
+</style>
+</head>
+<body>
+<canvas id="glCanvas"></canvas>
+<header>
+  <h1>TITAN RELIQUARY · Study 3: Scroll-Driven GPU Coin Dust</h1>
+  <div>
+    <label for="coinSel" style="color:var(--muted);margin-right:8px;">Specimen:</label>
+    <select id="coinSel" class="coin-select"></select>
+  </div>
+</header>
+<div class="scroll-steps">
+  <section class="step-card">
+    <h2 id="s1Title">Stage 1 · Real Coin Particles</h2>
+    <p id="s1Desc">16,384 GPU particles sampled directly from the live coin cut-out photo. Touch or move your pointer across the coin to stir the metallic dust with curl turbulence.</p>
+  </section>
+  <section class="step-card">
+    <h2 id="s2Title">Stage 2 · Country Silhouette</h2>
+    <p id="s2Desc">Scrolling drives curl-noise advection as the coin's metallic particles re-coalesce into its issuing country's geographic outline.</p>
+  </section>
+  <section class="step-card" style="margin-bottom: 20vh;">
+    <h2 id="s3Title">Stage 3 · Album Page & Lit Slot</h2>
+    <p id="s3Desc">Particles lock into the 4×5 Whitman album grid with this specimen's target slot illuminated in gold.</p>
+  </section>
+</div>
+<script>
+(function () {
+  "use strict";
+  var BASE = "https://jpavia10.github.io/titan-reliquary-preview/";
+
+  var FALLBACK_FLIPS = [
+    { scan: "C001", label: "France · 1923 · 1 Franc", thumb: "thumbs/C001.jpg", thumb_side: "obv", metal: "#d8bd72" },
+    { scan: "C023", label: "Germany · 1918 · 20 Pfennig", thumb: "thumbs/C023.jpg", thumb_side: "rev", metal: "#b8c0c8" },
+    { scan: "C037", label: "Germany · 2002 · 10 Euro Cent", thumb: "thumbs/C037.jpg", thumb_side: "rev", metal: "#dfc06c" },
+    { scan: "C280", label: "Belize · 2007 · 25 Cents", thumb: "thumbs/C280.jpg", thumb_side: "rev", metal: "#c8d0d8" },
+    { scan: "C285", label: "Slovakia · 2009 · 5 Euro Cent", thumb: "thumbs/C285.jpg", thumb_side: "obv", metal: "#cd7f52" },
+    { scan: "C296", label: "United Kingdom · 1990 · 5 Pence", thumb: "thumbs/C296.jpg", thumb_side: "obv", metal: "#d0d6dc" },
+    { scan: "C302", label: "United Kingdom · 1922 · 1 Penny", thumb: "thumbs/C302.jpg", thumb_side: "rev", metal: "#b87348" },
+    { scan: "C304", label: "Mexico · 1981 · 20 Pesos", thumb: "thumbs/C304.jpg", thumb_side: "rev", metal: "#d4b468" }
+  ];
+  function makeFallbackCoinDataURL(item) {
+    var c = document.createElement("canvas"); c.width = 256; c.height = 256;
+    var g = c.getContext("2d");
+    var gr = g.createRadialGradient(100, 92, 12, 128, 128, 122);
+    gr.addColorStop(0, "#f2dfb0"); gr.addColorStop(0.68, item.metal || "#b89b5e"); gr.addColorStop(1, "#4e3e20");
+    g.fillStyle = gr; g.beginPath(); g.arc(128, 128, 122, 0, Math.PI * 2); g.fill();
+    g.strokeStyle = "rgba(255,250,230,0.45)"; g.lineWidth = 3;
+    g.beginPath(); g.arc(128, 128, 112, 0, Math.PI * 2); g.stroke();
+    g.fillStyle = "rgba(30,20,8,0.72)"; g.textAlign = "center"; g.textBaseline = "middle";
+    var parts = String(item.label || "").split(" · ");
+    g.font = "600 13px Georgia, serif"; g.fillText((parts[0] || "COIN").toUpperCase(), 128, 72);
+    g.font = "700 20px Georgia, serif"; g.fillText((parts[2] || parts[1] || item.scan).toUpperCase(), 128, 128);
+    g.font = "600 13px monospace"; g.fillText(parts[1] || item.scan, 128, 182);
+    return c.toDataURL("image/png");
+  }
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                new URLSearchParams(window.location.search).get("motion") === "off";
+  var canvas = document.getElementById("glCanvas");
+  var gl = canvas.getContext("webgl", { alpha: false, antialias: true });
+  var sel = document.getElementById("coinSel");
+
+  function resize() {
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  var N = 128; // 128x128 = 16,384 GPU particles
+  var count = N * N;
+  var posCoin = new Float32Array(count * 2);
+  var posCountry = new Float32Array(count * 2);
+  var posAlbum = new Float32Array(count * 3); // x, y, isTargetLit
+  var colArr = new Float32Array(count * 3);
+
+  // Real normalized geographic country perimeter polygons [x, y] in [-95..95] canvas coords (y down)
+  var COUNTRY_POLYS = {
+    "France": [[-18,-82],[12,-88],[46,-62],[82,-48],[64,-12],[72,22],[84,52],[44,74],[18,66],[-8,84],[-52,68],[-44,18],[-68,-14],[-88,-32],[-54,-46],[-38,-72]],
+    "Germany": [[-16,-88],[18,-84],[54,-72],[68,-38],[56,-6],[82,18],[48,44],[62,78],[14,88],[-28,82],[-54,54],[-68,14],[-58,-24],[-38,-56]],
+    "USA": [[-88,-52],[-32,-52],[18,-56],[42,-38],[68,-44],[88,-62],[92,-32],[68,4],[58,42],[72,68],[56,74],[38,44],[6,48],[-14,78],[-32,48],[-68,38],[-90,12]],
+    "United States": [[-88,-52],[-32,-52],[18,-56],[42,-38],[68,-44],[88,-62],[92,-32],[68,4],[58,42],[72,68],[56,74],[38,44],[6,48],[-14,78],[-32,48],[-68,38],[-90,12]],
+    "United Kingdom": [[-12,-88],[18,-78],[10,-46],[32,-18],[24,18],[48,52],[36,76],[-8,72],[-48,84],[-36,52],[-18,34],[-34,4],[-18,-28],[-28,-62]],
+    "Great Britain": [[-12,-88],[18,-78],[10,-46],[32,-18],[24,18],[48,52],[36,76],[-8,72],[-48,84],[-36,52],[-18,34],[-34,4],[-18,-28],[-28,-62]],
+    "Mexico": [[-86,-72],[-38,-68],[2,-42],[24,-10],[48,28],[84,22],[88,46],[56,64],[22,74],[-18,46],[-46,6],[-72,-32]],
+    "Italy": [[-56,-82],[-12,-88],[26,-72],[14,-36],[46,8],[82,42],[68,58],[46,38],[34,68],[8,88],[-8,68],[14,28],[-24,-18],[-58,-48]],
+    "Spain": [[-78,-62],[18,-68],[78,-48],[86,-12],[52,28],[28,68],[-28,76],[-64,52],[-58,-12]],
+    "Canada": [[-88,-24],[-58,-76],[8,-84],[68,-52],[90,8],[64,58],[18,72],[-42,58],[-86,44]],
+    "Switzerland": [[-84,12],[-48,-42],[12,-58],[74,-28],[88,16],[46,52],[-18,48],[-68,56]],
+    "Slovakia": [[-86,18],[-52,-36],[24,-48],[88,-18],[72,28],[12,34],[-48,46]],
+    "Belize": [[-28,-86],[26,-78],[38,-22],[18,42],[8,86],[-32,82],[-36,12]]
+  };
+
+  function buildTargets(countryName, slotIdx) {
+    // 1. Sample real country geographic polygon on an offscreen 2D canvas
+    var mc = document.createElement("canvas"); mc.width = 256; mc.height = 256;
+    var mg = mc.getContext("2d");
+    mg.fillStyle = "#000"; mg.fillRect(0, 0, 256, 256);
+    mg.fillStyle = "#fff"; mg.strokeStyle = "#fff"; mg.lineWidth = 6;
+    mg.translate(128, 128);
+    var key = Object.keys(COUNTRY_POLYS).find(function(k) {
+      return countryName.toLowerCase().indexOf(k.toLowerCase()) !== -1;
+    });
+    var poly = key ? COUNTRY_POLYS[key] : COUNTRY_POLYS["France"];
+    mg.beginPath();
+    for (var i = 0; i < poly.length; i++) {
+      var x = poly[i][0], y = poly[i][1];
+      if (i === 0) mg.moveTo(x, y); else mg.lineTo(x, y);
+    }
+    mg.closePath(); mg.fill();
+    var mData = mg.getImageData(0, 0, 256, 256).data;
+    var pts = [];
+    for (var py = 0; py < 256; py += 2) {
+      for (var px = 0; px < 256; px += 2) {
+        if (mData[(py * 256 + px) * 4] > 128) pts.push([(px / 128 - 1) * 0.55, (1 - py / 128) * 0.55]);
+      }
+    }
+    if (!pts.length) pts.push([0, 0]);
+    for (var idx = 0; idx < count; idx++) {
+      var pt = pts[(idx * 73) % pts.length];
+      posCountry[idx * 2] = pt[0] + (((idx * 17) % 100) / 100 - 0.5) * 0.012;
+      posCountry[idx * 2 + 1] = pt[1] + (((idx * 31) % 100) / 100 - 0.5) * 0.012;
+    }
+
+    // 2. Album 4x5 grid with target slot lit
+    var cols = 5, rows = 4, tSlot = slotIdx % 20;
+    for (var j = 0; j < count; j++) {
+      var slot = j % 20;
+      var gx = (slot % cols) - (cols - 1) / 2;
+      var gy = ((rows - 1) / 2) - Math.floor(slot / cols);
+      var cx = gx * 0.24, cy = gy * 0.24;
+      var isLit = (slot === tSlot) ? 1.0 : 0.0;
+      var ang = (j / 20) * 0.37;
+      var rad = isLit ? Math.sqrt(((j * 19) % 1000) / 1000) * 0.088 : (0.078 + (((j * 13) % 100) / 100) * 0.014);
+      posAlbum[j * 3] = cx + Math.cos(ang) * rad;
+      posAlbum[j * 3 + 1] = cy + Math.sin(ang) * rad;
+      posAlbum[j * 3 + 2] = isLit;
+    }
+  }
+
+  var VS = [
+    "attribute vec2 aCoin; attribute vec2 aCountry; attribute vec3 aAlbum; attribute vec3 aCol;",
+    "uniform float uScroll, uT, uAspect; uniform vec2 uPtr;",
+    "varying vec3 vCol;",
+    "float h21(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }",
+    "vec2 curl(vec2 p, float t){",
+    "  float s = sin(p.x*5.0 + t)*cos(p.y*5.0 - t);",
+    "  return vec2(cos(p.y*6.0 + t + s), -sin(p.x*6.0 - t + s));",
+    "}",
+    "void main(){",
+    "  float s1 = clamp(uScroll * 2.35, 0.0, 1.0);",
+    "  float s2 = clamp((uScroll - 0.56) * 2.35, 0.0, 1.0);",
+    "  s1 = s1*s1*(3.0 - 2.0*s1); s2 = s2*s2*(3.0 - 2.0*s2);",
+    "  vec2 p = mix(aCoin, aCountry, s1);",
+    "  p = mix(p, aAlbum.xy, s2);",
+    // Curl noise between shapes
+    "  float mid = sin(s1 * 3.14159) + sin(s2 * 3.14159);",
+    "  p += curl(aCoin * 2.5, uT * 1.4) * mid * 0.14;",
+    // Pointer stir
+    "  vec2 d = p - uPtr;",
+    "  float dist = length(d);",
+    "  if(dist < 0.32){ p += normalize(d + 1e-4) * (0.32 - dist) * 0.45; }",
+    "  vec2 sc = (uAspect < 1.0) ? vec2(1.0, uAspect) * 1.42 : vec2(1.0 / uAspect, 1.0) * 1.18;",
+    "  gl_Position = vec4(p * sc, 0.0, 1.0);",
+    "  gl_PointSize = mix(3.2, aAlbum.z > 0.5 ? 4.2 : 2.4, s2);",
+    "  vec3 albumCol = aAlbum.z > 0.5 ? mix(aCol, vec3(0.96, 0.82, 0.38), 0.55) : vec3(0.24, 0.30, 0.38);",
+    "  vCol = mix(aCol, albumCol, s2);",
+    "}"
+  ].join("\n");
+
+  var FS = [
+    "precision mediump float; varying vec3 vCol;",
+    "void main(){",
+    "  vec2 c = gl_PointCoord - 0.5;",
+    "  float r2 = dot(c, c); if(r2 > 0.25) discard;",
+    "  gl_FragColor = vec4(vCol, (0.25 - r2) * 3.6);",
+    "}"
+  ].join("\n");
+
+  function compile(vsSrc, fsSrc) {
+    var vs = gl.createShader(gl.VERTEX_SHADER); gl.shaderSource(vs, vsSrc); gl.compileShader(vs);
+    var fs = gl.createShader(gl.FRAGMENT_SHADER); gl.shaderSource(fs, fsSrc); gl.compileShader(fs);
+    var p = gl.createProgram(); gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p);
+    return p;
+  }
+  var prog = compile(VS, FS);
+  gl.useProgram(prog);
+
+  var bCoin = gl.createBuffer(), bCountry = gl.createBuffer(), bAlbum = gl.createBuffer(), bCol = gl.createBuffer();
+  function bindAttr(buf, name, size) {
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    var loc = gl.getAttribLocation(prog, name);
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, size, gl.FLOAT, false, 0, 0);
+  }
+
+  function uploadBuffers() {
+    gl.bindBuffer(gl.ARRAY_BUFFER, bCoin); gl.bufferData(gl.ARRAY_BUFFER, posCoin, gl.STATIC_DRAW);
+    gl.bindBuffer(gl.ARRAY_BUFFER, bCountry); gl.bufferData(gl.ARRAY_BUFFER, posCountry, gl.STATIC_DRAW);
+    gl.bindBuffer(gl.ARRAY_BUFFER, bAlbum); gl.bufferData(gl.ARRAY_BUFFER, posAlbum, gl.STATIC_DRAW);
+    gl.bindBuffer(gl.ARRAY_BUFFER, bCol); gl.bufferData(gl.ARRAY_BUFFER, colArr, gl.STATIC_DRAW);
+  }
+
+  function sampleCoin(item, slotIdx) {
+    var parts = String(item.label || "").split(" · ");
+    var country = parts[0] || "Collection";
+    document.getElementById("s1Title").textContent = "Stage 1 · " + item.scan + " (" + country + ")";
+    document.getElementById("s2Title").textContent = "Stage 2 · " + country + " Outline";
+    document.getElementById("s3Title").textContent = "Stage 3 · Album Slot #" + ((slotIdx % 20) + 1) + " Lit";
+
+    buildTargets(country, slotIdx);
+    var img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = function () {
+      var c = document.createElement("canvas"); c.width = N; c.height = N;
+      var g = c.getContext("2d");
+      g.drawImage(img, 0, 0, N, N);
+      var d = g.getImageData(0, 0, N, N).data;
+      var k = 0;
+      for (var y = 0; y < N; y++) {
+        for (var x = 0; x < N; x++) {
+          var i4 = (y * N + x) * 4;
+          var nx = (x / (N - 1) - 0.5) * 1.1;
+          var ny = (0.5 - y / (N - 1)) * 1.1;
+          if (nx * nx + ny * ny > 0.3025) {
+            var a = (k * 0.618) * Math.PI * 2;
+            var rad = Math.sqrt(((k * 29) % 1000) / 1000) * 0.52;
+            nx = Math.cos(a) * rad; ny = Math.sin(a) * rad;
+          }
+          posCoin[k * 2] = nx; posCoin[k * 2 + 1] = ny;
+          colArr[k * 3] = Math.max(0.25, d[i4] / 255);
+          colArr[k * 3 + 1] = Math.max(0.22, d[i4 + 1] / 255);
+          colArr[k * 3 + 2] = Math.max(0.16, d[i4 + 2] / 255);
+          k++;
+        }
+      }
+      uploadBuffers();
+    };
+    img.src = (item.thumb.indexOf("data:") === 0 ? item.thumb : (item.thumb.indexOf("data:") === 0 ? item.thumb : BASE + item.thumb));
+  }
+
+  // Default circular layout before image arrives
+  for (var i = 0; i < count; i++) {
+    var a = i * 2.39996, r = Math.sqrt(i / count) * 0.52;
+    posCoin[i * 2] = Math.cos(a) * r; posCoin[i * 2 + 1] = Math.sin(a) * r;
+    colArr[i * 3] = 0.85; colArr[i * 3 + 1] = 0.72; colArr[i * 3 + 2] = 0.42;
+  }
+  buildTargets("France", 6);
+  uploadBuffers();
+
+  var uScroll = gl.getUniformLocation(prog, "uScroll");
+  var uT = gl.getUniformLocation(prog, "uT");
+  var uAspect = gl.getUniformLocation(prog, "uAspect");
+  var uPtr = gl.getUniformLocation(prog, "uPtr");
+
+  var ptr = [99, 99], smScroll = 0;
+  window.addEventListener("pointermove", function (e) {
+    var asp = canvas.width / canvas.height;
+    var sx = (asp < 1.0) ? 1.42 : (1.18 / asp);
+    var sy = (asp < 1.0) ? (asp * 1.42) : 1.18;
+    ptr[0] = ((e.clientX / window.innerWidth) * 2 - 1) / sx;
+    ptr[1] = (1 - (e.clientY / window.innerHeight) * 2) / sy;
+  });
+
+  function draw(now) {
+    var maxS = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    var rawS = Math.max(0, Math.min(1, window.scrollY / maxS));
+    smScroll = reduced ? rawS : (smScroll + (rawS - smScroll) * 0.12);
+
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.clearColor(0.027, 0.031, 0.039, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+    bindAttr(bCoin, "aCoin", 2);
+    bindAttr(bCountry, "aCountry", 2);
+    bindAttr(bAlbum, "aAlbum", 3);
+    bindAttr(bCol, "aCol", 3);
+
+    gl.uniform1f(uScroll, smScroll);
+    gl.uniform1f(uT, reduced ? 0 : now * 0.001);
+    gl.uniform1f(uAspect, canvas.width / canvas.height);
+    gl.uniform2f(uPtr, ptr[0], ptr[1]);
+    gl.drawArrays(gl.POINTS, 0, count);
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+
+  function initSelector(flips) {
+    flips.forEach(function (item, idx) {
+      var opt = document.createElement("option");
+      opt.value = String(idx);
+      opt.textContent = item.scan + " · " + (item.label || "");
+      sel.appendChild(opt);
+    });
+    sel.addEventListener("change", function () {
+      var i = parseInt(sel.value, 10) || 0;
+      sampleCoin(flips[i], i);
+    });
+    if (flips.length) sampleCoin(flips[0], 0);
+  }
+  fetch(BASE + "data/index.json").then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); }).then(function (data) {
+    var flips = (data.flips || []).filter(function (f) { return f.thumb; }).slice(0, 30);
+    initSelector(flips.length ? flips : FALLBACK_FLIPS);
+  }).catch(function () { initSelector(FALLBACK_FLIPS); });
+})();
+</script>
+</body>
+</html>
