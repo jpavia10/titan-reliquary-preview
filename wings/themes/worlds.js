@@ -72,7 +72,7 @@
     { name: "Museum and study", note: "Calm rooms for looking closely", ids: ["afterhours", "conservator", "drafting", "sketch", "marbled", "banknote", "notepad", "darkroom", "silverscreen"] },
     { name: "Vaults and treasure", note: "Gold, silver and hoards", ids: ["colossus", "glacier", "valhalla", "dynasty", "abyss", "alchemist"] },
     { name: "Journeys", note: "Maps, ships, stations and stars", ids: ["odyssey", "silkroad", "terminal", "contour", "solaris", "sahel"] },
-    { name: "Calm and quiet", note: "Slow, soft and still", ids: ["nocturne", "zen", "samadhi", "cathedral", "kintsugi", "glasshouse"] },
+    { name: "Calm and quiet", note: "Slow, soft and still", ids: ["nocturne", "zen", "samadhi", "cathedral", "kintsugi", "glasshouse", "lightwell"] },
     { name: "Neon and otherworld", note: "Glow, code and strange places", ids: ["kaleido", "neon", "construct", "xeno", "cursedwing", "lumen", "horizon"] },
     { name: "Playful and retro", note: "Games, comics, paper and toys", ids: ["arcade", "pulp", "diorama", "bauhaus", "y2k", "papercut", "freefall"] },
     { name: "Matter and machines", note: "Liquids, metals and moving parts", ids: ["ferro", "rift", "tourbillon"] },

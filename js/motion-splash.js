@@ -145,7 +145,8 @@
     glasshouse: { bg: "#070d0b", bg2: "#0b1411", surface: "#101d19", ink: "#ecf5f2", muted: "#b8d0c8", gold: "#8fe0c4", soft: "#c2f2e0" },
     orbit:      { bg: "#050811", bg2: "#090e1c", surface: "#0e1629", ink: "#edf3fc", muted: "#b4c6e0", gold: "#7cc8ff", soft: "#bce4ff" },
     sahel:      { bg: "#0c0806", bg2: "#140e0a", surface: "#1d140f", ink: "#f6efe6", muted: "#d4c3b0", gold: "#f2b852", soft: "#fbe0a2" },
-    saltflat:   { bg: "#070b12", bg2: "#0b111c", surface: "#101826", ink: "#eef4fc", muted: "#b8cae0", gold: "#8fd4ff", soft: "#c4e9ff" }
+    saltflat:   { bg: "#070b12", bg2: "#0b111c", surface: "#101826", ink: "#eef4fc", muted: "#b8cae0", gold: "#8fd4ff", soft: "#c4e9ff" },
+    lightwell:  { bg: "#0a0a0b", bg2: "#101012", surface: "#161619", ink: "#f2efe9", muted: "#c8c3b8", gold: "#ecc468", soft: "#f7df9e" }
   };
   function palette(id, tableOnly) {
     var base = PAL[id] || PAL.afterhours, out = {}, k;

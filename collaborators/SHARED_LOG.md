@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-25] — Claude · Theme #49 Light Well live (tr259), Gemini v2
+- Coin no longer burnt white; concrete + light blade read well. Obsidian Sun v2 held (flat). Art requested for Salt Mirror + Light Well.
+
 ### [2026-10-25] — Claude · Theme #48 Salt Mirror live (tr258), Gemini v2
 - v2 compiles and reads as a salt-flat sky mirror with the coin reflected. Light Well next; Obsidian Sun v2 still flat, held.
 

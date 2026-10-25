@@ -1,0 +1,30 @@
+{
+ "id": "lightwell",
+ "name": "Light Well",
+ "collection": "Studio",
+ "mood": "A quiet architectural rotunda of board-formed concrete pierced by a single razor blade of golden sun that sweeps across your coins on a monolithic plinth. Open a coin to place it in the sunbeam; tap the beam to stir a vortex of illuminated dust motes.",
+ "pair": "Concrete rotunda + Choir & Organ",
+ "scheme": "dark",
+ "themeColor": "#0a0a0b",
+ "station": "dark",
+ "ui": [],
+ "styles": [
+  "Brutalist sanctuary"
+ ],
+ "fx": "fxk",
+ "fxIntensity": 0.01,
+ "tokens": "  --scheme: dark;\n  color-scheme: dark;\n  --bg: #0a0a0b;\n  --bg2: #101012;\n  --surface: #161619;\n  --surface2: #1e1e22;\n  --ink: #f2efe9;\n  --muted: #c8c3b8;\n  --faint: #9f9a8f;\n  --cardmeta: #e0dbd0;\n  --gold: #ecc468;\n  --gold-soft: #f7df9e;\n  --gold-deep: #8c6e26;\n  --on-gold: #141004;\n  --ink-soft: #c8c3b8;\n  --line: rgba(236, 196, 104, 0.13);\n  --line-strong: rgba(236, 196, 104, 0.46);\n  --ok: #7fe3a8;\n  --warn: #f5c96b;\n  --bad: #ff8a7a;\n  --shadow: inset 0 1px 0 rgba(255, 250, 235, 0.08), 0 18px 50px rgba(0, 0, 0, 0.78);\n  --elev-1: inset 0 1px 0 rgba(255, 250, 235, 0.06), 0 2px 8px rgba(0, 0, 0, 0.52);\n  --elev-2: inset 0 1px 0 rgba(255, 250, 235, 0.08), 0 12px 30px rgba(0, 0, 0, 0.64);\n  --elev-3: inset 0 1px 0 rgba(255, 250, 235, 0.10), 0 28px 80px rgba(0, 0, 0, 0.82);\n  --scrim: rgba(6, 6, 7, 0.76);\n  --focus: #f7df9e;\n  --th-bg: #1e1e22;\n  --tabgrad1: #1e1e22; --tabgrad2: #161619;\n  --toastgrad1: #1e1e22; --toastgrad2: #161619;\n  --foot-bg: rgba(10, 10, 11, 0.92);\n  --drawerbar-bg: rgba(22, 22, 25, 0.94);\n  --ph-bg: #1e1e22;\n  --sel-bg: rgba(236, 196, 104, 0.16);\n  --row-hover: rgba(236, 196, 104, 0.07);\n  --hold-bg: linear-gradient(160deg, #242018, #0a0a0b 60%);\n  --skeleton1: #1e1e22; --skeleton2: #0a0a0b;\n  --grain-op: 0.04;\n  --wing-dur: 0.5s;\n  --wing-rise: 14px;\n  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);\n  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);\n  --serif: \"Cormorant Garamond\", \"Hoefler Text\", \"Iowan Old Style\", Georgia, serif;\n  --mono: ui-monospace, \"SFMono-Regular\", Menlo, Consolas, monospace;\n  --radius: 8px;",
+ "extra_css": "/* Light Well surfaces: board-formed architectural concrete slabs with tie-rod recesses and a razor edge of warm sunlight;\n   hover widens the golden light graze across the top bevel. Headings look cast and side-lit in warm travertine gold.\n   Scoped to own surfaces only. */\nhtml[data-atmo=\"lightwell\"] .card, html[data-atmo=\"lightwell\"] .panel, html[data-atmo=\"lightwell\"] .gx-card {\n  background: linear-gradient(125deg, rgba(236,196,104,.09) 0%, transparent 48%), linear-gradient(180deg, rgba(30,30,34,.90), rgba(10,10,11,.95));\n  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);\n  box-shadow: inset 0 1px 0 rgba(247,223,158,.32), inset 0 0 0 1px rgba(236,196,104,.20), 0 18px 46px rgba(0,0,0,.78);\n  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }\nhtml[data-atmo=\"lightwell\"] .card:hover, html[data-atmo=\"lightwell\"] .gx-card:hover {\n  transform: translateY(-2px);\n  background: linear-gradient(125deg, rgba(247,223,158,.15) 0%, transparent 55%), linear-gradient(180deg, rgba(36,36,40,.92), rgba(12,12,14,.96));\n  box-shadow: inset 0 1px 0 rgba(255,238,186,.55), inset 0 0 0 1px rgba(236,196,104,.46), 0 0 26px rgba(236,196,104,.12), 0 22px 54px rgba(0,0,0,.82); }\nhtml[data-atmo=\"lightwell\"] h1, html[data-atmo=\"lightwell\"] h2 { background: linear-gradient(180deg, #fffdf7, #e6dcc8 50%, #9e9686); -webkit-background-clip: text; background-clip: text; color: transparent; }\nhtml[data-atmo=\"lightwell\"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }\n",
+ "crest": "<rect x=\"28\" y=\"24\" width=\"144\" height=\"152\" rx=\"4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"6\"/><path d=\"M76 24 L132 176 M96 24 L152 176\" stroke=\"currentColor\" stroke-width=\"5\"/><circle cx=\"52\" cy=\"56\" r=\"4\" fill=\"currentColor\"/><circle cx=\"148\" cy=\"56\" r=\"4\" fill=\"currentColor\"/><circle cx=\"52\" cy=\"144\" r=\"4\" fill=\"currentColor\"/><circle cx=\"148\" cy=\"144\" r=\"4\" fill=\"currentColor\"/>",
+ "swatch": ".sw-lightwell { --sw-ink: #f2efe9; background: linear-gradient(118deg, transparent 34%, rgba(255,232,168,.42) 44%, rgba(236,196,104,.18) 54%, transparent 64%), repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 14px, rgba(0,0,0,.18) 14px 16px), linear-gradient(180deg, #1a1a1e, #09090b); }",
+ "splash_pal": {
+  "bg": "#0a0a0b",
+  "bg2": "#101012",
+  "surface": "#161619",
+  "ink": "#f2efe9",
+  "muted": "#c8c3b8",
+  "gold": "#ecc468",
+  "soft": "#f7df9e"
+ },
+ "scene": "{ rec: \"lightwell|organ\", world: true, name: \"Light Well\", icon: \"🏛️\", desc: \"A Tadao Ando-inspired concrete rotunda: deep sanctuary reverb, a single blade of sun, a real recorded choir and organ.\", atmo: \"lightwell\",\n               beds: { hall: 0.38, temple: 0.26, roomTone: 0.24, wind: 0.12 }, pad: 0, piano: false, bells: false, beat: false,\n               root: \"D\", mode: \"dorian\", prog: [0], chordSec: 12, gap: [8, 12], vol: 0.5 }"
+}

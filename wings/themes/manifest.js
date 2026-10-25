@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "lightwell", name: "Light Well", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Brutalist sanctuary"],
+      mood: "A quiet architectural rotunda of board-formed concrete pierced by a single razor blade of golden sun that sweeps across your coins on a monolithic plinth. Open a coin to place it in the sunbeam; tap the beam to stir a vortex of illuminated dust motes.", fx: "fxk", fxIntensity: 0.01, scene: "lightwell", tokens: {} },
     { id: "saltflat", name: "Salt Mirror", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Altiplano salt mirror"],
       mood: "An endless flooded salt flat at twilight where a thin film of brine doubles the star-streaked cobalt sky above submerged hexagonal salt ridges. Open a coin and it rises on a crystalline salt pedestal mirrored in the water; tap anywhere to send concentric ripple rings across the horizon.", fx: "fxk", fxIntensity: 0.01, scene: "saltflat", tokens: {} },
     { id: "sahel", name: "Sahel Futurism", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Sahelian solar architecture"],
