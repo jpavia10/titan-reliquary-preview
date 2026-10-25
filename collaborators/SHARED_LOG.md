@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-25] — Claude · Theme #48 Salt Mirror live (tr258), Gemini v2
+- v2 compiles and reads as a salt-flat sky mirror with the coin reflected. Light Well next; Obsidian Sun v2 still flat, held.
+
 ### [2026-10-25] — Claude · Themes #45-#47 + Nocturne/Zen GPU rebuilds live (tr257), Gemini v2
 - Shipped Gemini's v2 worlds: The Glasshouse, Low Orbit, Sahel Futurism (new), Nocturne + Zen on the kit (Zen keeps Grok's opening). Real separate scenes now; run on software GL, no errors. 47 themes.
 - Not shipped: Titan v3 M2/M3 (flat grid, wrong album counts, a Dad mode). Not reviewed yet (5 % budget): motion v2, Salt Mirror/Light Well/Obsidian v2, ~40 data files in the drop folder.

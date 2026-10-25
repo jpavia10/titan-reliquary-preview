@@ -15,7 +15,7 @@
     alchemist: "lava", glacier: "blizzard", valhalla: "fire", dynasty: "waterfall", zen: "sand", samadhi: "fluid", silkroad: "sandstorm",
     arcade: "fireworks", pulp: "rainforest", drafting: "storm", diorama: "bubbles", bauhaus: "crystal", terminal: "neon", lumen: "plasma",
     ferro: "metal", marbled: "fluid", cathedral: "cathedral", contour: "waterfall", banknote: "metal", freefall: "sandstorm", sketch: "rainforest",
-    papercut: "bubbles", y2k: "fireworks", rift: "plasma", horizon: "blackhole", kintsugi: "storm", supercell: "storm", tourbillon: "movement", darkroom: "darkroom", silverscreen: "picturehouse", canopy: "rainforest", glasshouse: "rainforest", orbit: "aurora", sahel: "sand"
+    papercut: "bubbles", y2k: "fireworks", rift: "plasma", horizon: "blackhole", kintsugi: "storm", supercell: "storm", tourbillon: "movement", darkroom: "darkroom", silverscreen: "picturehouse", canopy: "rainforest", saltflat: "sand", glasshouse: "rainforest", orbit: "aurora", sahel: "sand"
   };
   /* per-theme variants: where themes share a scape each gets its own room, tone, speed and layer balance (+ numeric params) */
   var PARAMS = {

@@ -1,15 +1,15 @@
-/* Titan Reliquary service worker · build tr257
+/* Titan Reliquary service worker · build tr258
    - App shell precached per build (versioned cache names; old caches deleted on activate)
    - version.json + data/*: network-first (no-store) so a new publish always wins; cache = offline fallback, and after 4 s on a hung connection
    - audio/ambience/ + audio/cuts/: runtime cache-first (filled the first time a sound is played; not precached)
    - thumbs/: cache-first (URLs carry ?v=<file hash>, so a changed image is a new URL)
    NOTE: publish_all.sh regenerates the build stamp on merge — update BUILD + SHELL_URLS then. */
-const BUILD = "tr257";
+const BUILD = "tr258";
 const SHELL = "titan-shell-" + BUILD;
 const DATA = "titan-data-" + BUILD;
 const IMG = "titan-thumbs-v1";
 const AMB = "titan-ambience-v1"; // real recordings: cached on first play (too big to precache), kept across builds
-const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "js/app-motion.js?v=" + BUILD, "js/app-format.js?v=" + BUILD, "js/app-data.js?v=" + BUILD, "js/app-insights.js?v=" + BUILD, "js/app-overlay.js?v=" + BUILD, "js/app-atmo-css.js?v=" + BUILD, "js/app-ui.js?v=" + BUILD, "js/app-palette.js?v=" + BUILD, "app.js?v=" + BUILD, "spatial.js?v=" + BUILD, "deepzoom.js?v=" + BUILD, "styles.css?v=" + BUILD, "js/motion-splash.js?v=" + BUILD, "js/intros/kit.js?v=" + BUILD, "js/intros/zen.js?v=" + BUILD, "js/intros/arcade.js?v=" + BUILD, "js/intros/construct.js?v=" + BUILD, "js/intros/neon.js?v=" + BUILD, "js/intros/notepad.js?v=" + BUILD, "js/intros/terminal.js?v=" + BUILD, "js/intros/valhalla.js?v=" + BUILD, "js/intros/xeno.js?v=" + BUILD, "js/intros/marbled.js?v=" + BUILD, "js/intros/drafting.js?v=" + BUILD, "js/intros/solaris.js?v=" + BUILD, "js/intros/conservator.js?v=" + BUILD, "js/intros/cathedral.js?v=" + BUILD, "js/intros/dynasty.js?v=" + BUILD, "js/intros/alchemist.js?v=" + BUILD, "js/intros/cursedwing.js?v=" + BUILD, "js/intros/samadhi.js?v=" + BUILD, "js/intros/abyss.js?v=" + BUILD, "js/intros/bauhaus.js?v=" + BUILD, "js/intros/odyssey.js?v=" + BUILD, "js/intros/kaleido.js?v=" + BUILD, "js/intros/y2k.js?v=" + BUILD, "js/intros/ferro.js?v=" + BUILD, "js/intros/lumen.js?v=" + BUILD, "js/intros/rift.js?v=" + BUILD, "js/intros/horizon.js?v=" + BUILD, "js/intros/kintsugi.js?v=" + BUILD, "js/intros/supercell.js?v=" + BUILD, "js/intros/tourbillon.js?v=" + BUILD, "js/intros/darkroom.js?v=" + BUILD, "js/intros/silverscreen.js?v=" + BUILD, "js/intros/canopy.js?v=" + BUILD, "js/intros/glasshouse.js?v=" + BUILD, "js/intros/orbit.js?v=" + BUILD, "js/intros/sahel.js?v=" + BUILD, "js/intros/nocturne.js?v=" + BUILD, "js/intros/silkroad.js?v=" + BUILD, "js/intros/diorama.js?v=" + BUILD, "js/intros/contour.js?v=" + BUILD, "js/intros/afterhours.js?v=" + BUILD, "js/intros/pulp.js?v=" + BUILD, "js/intros/glacier.js?v=" + BUILD, "js/intros/papercut.js?v=" + BUILD, "js/intros/colossus.js?v=" + BUILD, "js/intros/freefall.js?v=" + BUILD, "js/intros/sketch.js?v=" + BUILD, "js/intros/banknote.js?v=" + BUILD, "splash.js?v=" + BUILD, "splash.css?v=" + BUILD, "manifest.webmanifest",
+const SHELL_URLS = ["./", "index.html", "atlas.js?v=" + BUILD, "js/app-motion.js?v=" + BUILD, "js/app-format.js?v=" + BUILD, "js/app-data.js?v=" + BUILD, "js/app-insights.js?v=" + BUILD, "js/app-overlay.js?v=" + BUILD, "js/app-atmo-css.js?v=" + BUILD, "js/app-ui.js?v=" + BUILD, "js/app-palette.js?v=" + BUILD, "app.js?v=" + BUILD, "spatial.js?v=" + BUILD, "deepzoom.js?v=" + BUILD, "styles.css?v=" + BUILD, "js/motion-splash.js?v=" + BUILD, "js/intros/kit.js?v=" + BUILD, "js/intros/zen.js?v=" + BUILD, "js/intros/arcade.js?v=" + BUILD, "js/intros/construct.js?v=" + BUILD, "js/intros/neon.js?v=" + BUILD, "js/intros/notepad.js?v=" + BUILD, "js/intros/terminal.js?v=" + BUILD, "js/intros/valhalla.js?v=" + BUILD, "js/intros/xeno.js?v=" + BUILD, "js/intros/marbled.js?v=" + BUILD, "js/intros/drafting.js?v=" + BUILD, "js/intros/solaris.js?v=" + BUILD, "js/intros/conservator.js?v=" + BUILD, "js/intros/cathedral.js?v=" + BUILD, "js/intros/dynasty.js?v=" + BUILD, "js/intros/alchemist.js?v=" + BUILD, "js/intros/cursedwing.js?v=" + BUILD, "js/intros/samadhi.js?v=" + BUILD, "js/intros/abyss.js?v=" + BUILD, "js/intros/bauhaus.js?v=" + BUILD, "js/intros/odyssey.js?v=" + BUILD, "js/intros/kaleido.js?v=" + BUILD, "js/intros/y2k.js?v=" + BUILD, "js/intros/ferro.js?v=" + BUILD, "js/intros/lumen.js?v=" + BUILD, "js/intros/rift.js?v=" + BUILD, "js/intros/horizon.js?v=" + BUILD, "js/intros/kintsugi.js?v=" + BUILD, "js/intros/supercell.js?v=" + BUILD, "js/intros/tourbillon.js?v=" + BUILD, "js/intros/darkroom.js?v=" + BUILD, "js/intros/silverscreen.js?v=" + BUILD, "js/intros/canopy.js?v=" + BUILD, "js/intros/saltflat.js?v=" + BUILD, "js/intros/glasshouse.js?v=" + BUILD, "js/intros/orbit.js?v=" + BUILD, "js/intros/sahel.js?v=" + BUILD, "js/intros/nocturne.js?v=" + BUILD, "js/intros/silkroad.js?v=" + BUILD, "js/intros/diorama.js?v=" + BUILD, "js/intros/contour.js?v=" + BUILD, "js/intros/afterhours.js?v=" + BUILD, "js/intros/pulp.js?v=" + BUILD, "js/intros/glacier.js?v=" + BUILD, "js/intros/papercut.js?v=" + BUILD, "js/intros/colossus.js?v=" + BUILD, "js/intros/freefall.js?v=" + BUILD, "js/intros/sketch.js?v=" + BUILD, "js/intros/banknote.js?v=" + BUILD, "splash.js?v=" + BUILD, "splash.css?v=" + BUILD, "manifest.webmanifest",
   "icons/icon-192.png", "icons/apple-touch-icon.png", "icons/favicon-32.png", "favicon.svg",
   "fonts/Fraunces-500.woff2", "fonts/Fraunces-600.woff2", "fonts/Fraunces-700.woff2" , "fonts/Yellowtail-400.woff2",
   "js/three.min.js", "js/OrbitControls.js", "js/fflate.min.js", "js/USDZExporter.js", "js/qrcode.min.js", "js/openseadragon.min.js",
@@ -40,6 +40,7 @@ const WING_URLS = [
   "styles/atmo/diorama.css?v=" + BUILD,
   "styles/atmo/bauhaus.css?v=" + BUILD,
   "styles/atmo/terminal.css?v=" + BUILD,
+  "styles/atmo/saltflat.css?v=" + BUILD,
   "styles/atmo/sahel.css?v=" + BUILD,
   "styles/atmo/orbit.css?v=" + BUILD,
   "styles/atmo/glasshouse.css?v=" + BUILD,
@@ -133,7 +134,7 @@ const WING_URLS = [
   "fx/tourbillon.js?v=" + BUILD,
   "fx/darkroom.js?v=" + BUILD,
   "fx/silverscreen.js?v=" + BUILD,
-  "fx/canopy.js?v=" + BUILD, "fx/glasshouse.js?v=" + BUILD, "fx/orbit.js?v=" + BUILD, "fx/sahel.js?v=" + BUILD, "fx/nocturne.js?v=" + BUILD, "fx/zen.js?v=" + BUILD,
+  "fx/canopy.js?v=" + BUILD, "fx/saltflat.js?v=" + BUILD, "fx/glasshouse.js?v=" + BUILD, "fx/orbit.js?v=" + BUILD, "fx/sahel.js?v=" + BUILD, "fx/nocturne.js?v=" + BUILD, "fx/zen.js?v=" + BUILD,
   "fx/scenes-nms.js?v=" + BUILD,
   "fx/textures.css?v=" + BUILD,
   "wings/fx/ui.js?v=" + BUILD,

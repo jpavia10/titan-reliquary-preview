@@ -66,6 +66,8 @@
       mood: "Primary shapes and moving type: the coin legends as a Bauhaus poster.", fx: "style-bauhaus+style-kinetic*0.8", fxIntensity: 0.8, scene: "bauhaus", tokens: {} },
     { id: "terminal", name: "Grand Terminal", collection: "Journeys", tier: "signature", art: C("terminal"), ui: ["board"], styles: ["Split-flap"],
       mood: "A grand railway hall at night: fifty countries on the departures board.", fx: "style-splitflap", fxIntensity: 0.85, scene: "terminal", tokens: {} },
+    { id: "saltflat", name: "Salt Mirror", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Altiplano salt mirror"],
+      mood: "An endless flooded salt flat at twilight where a thin film of brine doubles the star-streaked cobalt sky above submerged hexagonal salt ridges. Open a coin and it rises on a crystalline salt pedestal mirrored in the water; tap anywhere to send concentric ripple rings across the horizon.", fx: "fxk", fxIntensity: 0.01, scene: "saltflat", tokens: {} },
     { id: "sahel", name: "Sahel Futurism", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Sahelian solar architecture"],
       mood: "Monumental mudbrick towers and tracking brass heliostat mirrors rise through golden Harmattan dust haze toward a volumetric desert sun. Open a coin and the heliostat array aligns its golden beam onto the adobe plinth; tap to send a warm Harmattan dust gust across the towers.", fx: "fxk", fxIntensity: 0.01, scene: "sahel", tokens: {} },
     { id: "orbit", name: "Low Orbit", collection: "Studio", tier: "signature", art: null, ui: [], styles: ["Orbital cupola"],
@@ -123,7 +125,7 @@
   window.TITAN_WORLD_ALIASES = {
     kaleido: "Prism", afterhours: "Midnight Gallery", colossus: "The Mint", abyss: "Shipwreck", notepad: "Plaintext",
     solaris: "Solar Observatory", glacier: "Hyperborean Vault", valhalla: "Gilded Armory",
-    contour: "Survey Map", banknote: "Treasury Note", papercut: "Paper Hills", y2k: "Millennium Chrome", canopy: "Cloud Forest"
+    contour: "Survey Map", banknote: "Treasury Note", papercut: "Paper Hills", y2k: "Millennium Chrome", canopy: "Cloud Forest", saltflat: "Salt Mirror"
   };
   /* TitanRegistry: the ONE theme registry. The picker, intros (js/intros/<id>.js), sound scene (world.scene), UI voice, coin-page
      world, FX (world.fx) and stylesheets (styles/atmo/<id>.css) are all keyed by these ids; tools/themes/test_registry.py fails

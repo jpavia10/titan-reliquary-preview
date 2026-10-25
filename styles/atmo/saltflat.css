@@ -1,0 +1,67 @@
+/* ============================================================================
+   Atmosphere: SALT MIRROR (saltflat) · Altiplano salt mirror
+   An endless flooded salt flat at twilight where a thin film of brine doubles the star-streaked cobalt sky above submerged hexagonal salt ridges. Open a coin and it rises on a crystalline salt pedestal mirrored in the water; tap anywhere to send concentric ripple rings across the horizon.
+   Token-only (Signature rule 1, notes/agents/theme-pot.md): the shared treatments in styles/style-layer.css are switched on by
+   the theme's `ui` list in wings/themes/manifest.js (html[data-ui]); the effect is fxk (wings/fx/styles-e.js).
+   Legibility: checked with tools/themes/check_theme.js (ink 7:1, muted 6:1, faint 4.5:1, accent 4.5:1).
+   ========================================================================== */
+html[data-atmo="saltflat"] {
+  --scheme: dark;
+  color-scheme: dark;
+  --bg: #070b12;
+  --bg2: #0b111c;
+  --surface: #101826;
+  --surface2: #162133;
+  --ink: #eef4fc;
+  --muted: #b8cae0;
+  --faint: #8fa6c2;
+  --cardmeta: #d6e4f5;
+  --gold: #8fd4ff;
+  --gold-soft: #c4e9ff;
+  --gold-deep: #346894;
+  --on-gold: #05101c;
+  --ink-soft: #b8cae0;
+  --line: rgba(143, 212, 255, 0.14);
+  --line-strong: rgba(143, 212, 255, 0.48);
+  --ok: #7fe3a8;
+  --warn: #f5c96b;
+  --bad: #ff8a7a;
+  --shadow: inset 0 1px 0 rgba(230, 245, 255, 0.09), 0 18px 50px rgba(0, 0, 0, 0.78);
+  --elev-1: inset 0 1px 0 rgba(230, 245, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.52);
+  --elev-2: inset 0 1px 0 rgba(230, 245, 255, 0.08), 0 12px 30px rgba(0, 0, 0, 0.64);
+  --elev-3: inset 0 1px 0 rgba(230, 245, 255, 0.10), 0 28px 80px rgba(0, 0, 0, 0.82);
+  --scrim: rgba(4, 7, 12, 0.76);
+  --focus: #c4e9ff;
+  --th-bg: #162133;
+  --tabgrad1: #162133; --tabgrad2: #101826;
+  --toastgrad1: #162133; --toastgrad2: #101826;
+  --foot-bg: rgba(7, 11, 18, 0.92);
+  --drawerbar-bg: rgba(16, 24, 38, 0.94);
+  --ph-bg: #162133;
+  --sel-bg: rgba(143, 212, 255, 0.16);
+  --row-hover: rgba(143, 212, 255, 0.07);
+  --hold-bg: linear-gradient(160deg, #132238, #070b12 60%);
+  --skeleton1: #162133; --skeleton2: #070b12;
+  --grain-op: 0.03;
+  --wing-dur: 0.5s;
+  --wing-rise: 14px;
+  --text: var(--ink); --panel: var(--surface); --chip: var(--surface2); --missing: var(--faint);
+  --border: var(--line); --gold-dim: var(--gold-deep); --danger: var(--bad);
+  --serif: "Cormorant Garamond", "Hoefler Text", "Iowan Old Style", Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 8px;
+}
+/* Salt Mirror surfaces: translucent brine-glass panels over hexagonal salt-crust facets with a crisp horizon rim reflection;
+   hover brightens the crystalline salt edge. Headings shimmer like twilight sky mirrored in still water.
+   Scoped to own surfaces only. */
+html[data-atmo="saltflat"] .card, html[data-atmo="saltflat"] .panel, html[data-atmo="saltflat"] .gx-card {
+  background: radial-gradient(130% 80% at 50% 0%, rgba(143,212,255,.08), transparent 62%), linear-gradient(180deg, rgba(22,33,51,.88), rgba(7,11,18,.94));
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(196,233,255,.30), inset 0 0 0 1px rgba(143,212,255,.22), 0 18px 46px rgba(0,0,0,.76);
+  transition: box-shadow .4s ease, transform .5s cubic-bezier(.2,1,.3,1), background .6s ease; }
+html[data-atmo="saltflat"] .card:hover, html[data-atmo="saltflat"] .gx-card:hover {
+  transform: translateY(-2px);
+  background: radial-gradient(130% 80% at 50% 0%, rgba(196,233,255,.14), transparent 65%), linear-gradient(180deg, rgba(28,42,64,.91), rgba(9,14,24,.95));
+  box-shadow: inset 0 1px 0 rgba(224,244,255,.52), inset 0 0 0 1px rgba(143,212,255,.48), 0 0 28px rgba(143,212,255,.14), 0 22px 54px rgba(0,0,0,.8); }
+html[data-atmo="saltflat"] h1, html[data-atmo="saltflat"] h2 { background: linear-gradient(180deg, #ffffff, #cce8ff 50%, #7aaad4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-atmo="saltflat"] h1 { filter: drop-shadow(0 2px 14px rgba(0,0,0,.9)) drop-shadow(0 0 2px rgba(0,0,0,.85)); }
