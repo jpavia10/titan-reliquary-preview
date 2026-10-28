@@ -1,0 +1,6 @@
+# Notes for Claude intake — changes_grok_20261028-catalogue-fix.jsonl (Grok, 2026-10-27)
+
+1. Type-key renames: FIELDS.md says `id` is pipeline-only, so the file creates EC.KM.37 / GT.KM.277.6a / TT.KM.32 / JM.KM.190 (verbatim copies of the old records, catalogs unchanged) and repoints C159/C202/C204/C230. **Claude: retire stale keys EC.KM.38, GT.KM.277.1, TT.KM.33, JM.KM.191** (or apply as a pipeline key-rename/merge instead of the creates if you prefer — same outcome, no duplicate catalogs left behind).
+2. C023 SER (not in change file — `ser` is pipeline-only): `EU-DE-001` → should be `EU-AT-002` (Austria 1918 20 heller, AT.KM.2826; C272 already EU-AT-001). Correcting wrong ISO only; global SER renumber still deferred to after Phase 1 at 100%. Also C023 `notes` starts "SER EU-DE-001" and ledger_text says "20 Pfennig · German Empire Mark system" / "0.20 Mark" — these are wrong for an Austrian heller; regenerate after the SER fix. value.face.currency is null (would be ATS? no — Austro-Hungarian krone, no ISO code; leave null).
+3. ledger_text (import-derived, not writable) still says MXN on C114, C259, C263 — will be stale after the MXP fix; rebuild derived text.
+4. Spotted, not changed: MX.KM.433 catalogs say KM 432 (key says 433) — same stale-key pattern, verify before renaming.

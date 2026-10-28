@@ -1,0 +1,332 @@
+{
+ "meta": {
+  "author": "grok-bot",
+  "stamp": "20261027-2000",
+  "purpose": "second source for the 40 most expensive priced missing holes across all 33 albums (fix list #62)",
+  "base": "origin/main data/wants.json",
+  "rule": "if sources differ >25% use higher, name both"
+ },
+ "items": [
+  {
+   "album": "A006",
+   "label": "1916-D",
+   "value_usd": 2150.0,
+   "grade": "VG",
+   "source": "NGC US Coin Price Guide, Mercury Dimes https://www.ngccoin.com/price-guide/united-states/dimes/31/ (read 2026-10-27) row '1916 D' MS, VG $2,150.00; same NGC value already in file from 20261015-2250, re-confirmed (no independent third source); original file $2,150.00 (NGC US Coin Price Guide, Mercury Dimes https://www.ngccoin.com/price-guide/united-states/dimes/31/ (read 2026-10-15) VG $2,150; original file $880; >25% apart, higher used); match",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1877",
+   "value_usd": 1599.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1877' MSBN, VF $1,550.00; original file $1,599.00 (https://www.usacoinbook.com/coins/small-cents/indian-head-cent/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A023",
+   "label": "1909-S V.D.B.",
+   "value_usd": 1300.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Lincoln Cents, Wheat Reverse https://www.ngccoin.com/price-guide/united-states/cents/99/ (read 2026-10-27) row '1909 S VDB' MSBN, VF $1,300.00; original file $1,300.00 (https://findrarecoins.com/1909-s-vdb-lincoln-cent/); match",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1869",
+   "value_usd": 755.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1869' MSBN, VF $375.00; original file $755.00 (https://www.usacoinbook.com/coins.php?id=286&listtype=gallery); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A031",
+   "label": "1937-D, 3-Legged",
+   "value_usd": 721.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Buffalo Five Cents https://www.ngccoin.com/price-guide/united-states/nickels/24/ (read 2026-10-27) row '1937 D 3 LEGS' MS, VF $700.00; original file $721.00 (https://www.usacoinbook.com/coins.php?id=974&listtype=list); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A031",
+   "label": "1913-S, Ground in Recess",
+   "value_usd": 556.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Buffalo Five Cents https://www.ngccoin.com/price-guide/united-states/nickels/24/ (read 2026-10-27) row '1913 S TYPE 2' MS, VF $425.00; original file $556.00 (https://www.usacoinbook.com/coins.php?id=912&displaytype=own); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1872",
+   "value_usd": 527.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1872' MSBN, VF $425.00; original file $527.00 (https://www.usacoinbook.com/coins/small-cents/indian-head-cent/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1871",
+   "value_usd": 498.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1871' MSBN, VF $350.00; original file $498.00 (https://www.usacoinbook.com/coins.php?id=290&sort=lowestprice); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A031",
+   "label": "1921-S",
+   "value_usd": 468.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Buffalo Five Cents https://www.ngccoin.com/price-guide/united-states/nickels/24/ (read 2026-10-27) row '1921 S' MS, VF $450.00; original file $468.00 (https://www.usacoinbook.com/coins/938/nickels/buffalo/1921-S/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A031",
+   "label": "1924-S",
+   "value_usd": 468.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Buffalo Five Cents https://www.ngccoin.com/price-guide/united-states/nickels/24/ (read 2026-10-27) row '1924 S' MS, VF $450.00; original file $468.00 (https://www.usacoinbook.com/coins.php?id=943&listtype=gallery); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1909-S",
+   "value_usd": 600.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1909 S INDIAN' MSBN, VF $600.00; original file $415.00 (https://www.greysheet.com/prices/item/indian-head-type-bronze-brown-surfaces/gsid/72337); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1870",
+   "value_usd": 376.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1870' MSBN, VF $350.00; original file $376.00 (https://www.usacoinbook.com/coins.php?id=289&sort=lowestprice); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A023",
+   "label": "1914-D",
+   "value_usd": 575.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Lincoln Cents, Wheat Reverse https://www.ngccoin.com/price-guide/united-states/cents/99/ (read 2026-10-27) row '1914 D' MSBN, VF $575.00; original file $344.00 (https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A031",
+   "label": "1926-S",
+   "value_usd": 375.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Buffalo Five Cents https://www.ngccoin.com/price-guide/united-states/nickels/24/ (read 2026-10-27) row '1926 S' MS, VF $375.00; original file $281.00 (https://www.usacoinbook.com/coins.php?id=949&displaytype=sell&page=1); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1864 With L",
+   "value_usd": 269.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1864 L BRONZE' MSBN, VF $215.00; original file $269.00 (https://www.usacoinbook.com/coins/281/small-cents/indian-head-cent/1864-P/with-l/); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A031",
+   "label": "1914-D",
+   "value_usd": 265.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Buffalo Five Cents https://www.ngccoin.com/price-guide/united-states/nickels/24/ (read 2026-10-27) row '1914 D' MS, VF $225.00; original file $265.00 (https://www.usacoinbook.com/coins.php?id=915&sort=lowestoffer); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A031",
+   "label": "1913-D, Ground in Recess",
+   "value_usd": 249.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Buffalo Five Cents https://www.ngccoin.com/price-guide/united-states/nickels/24/ (read 2026-10-27) row '1913 D TYPE 2' MS, VF $190.00; original file $249.00 (https://www.usacoinbook.com/coins.php?id=911&sort=highestprice); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A031",
+   "label": "1915-S",
+   "value_usd": 249.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Buffalo Five Cents https://www.ngccoin.com/price-guide/united-states/nickels/24/ (read 2026-10-27) row '1915 S' MS, VF $245.00; original file $249.00 (https://www.usacoinbook.com/coins.php?id=919&listtype=gallery); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1878",
+   "value_usd": 207.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1878' MSBN, VF $170.00; original file $207.00 (https://www.usacoinbook.com/coins/small-cents/indian-head-cent/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A029",
+   "label": "1932-D",
+   "value_usd": 201.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Washington Quarters https://www.ngccoin.com/price-guide/united-states/quarters/38/ (read 2026-10-27) row '1932 D' MS, VF $200.00; original file $201.00 (https://www.usacoinbook.com/coins/quarters/washington/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1876",
+   "value_usd": 186.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1876' MSBN, VF $130.00; original file $186.00 (https://www.usacoinbook.com/coins/small-cents/indian-head-cent/); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A023",
+   "label": "1909-S",
+   "value_usd": 178.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Lincoln Cents, Wheat Reverse https://www.ngccoin.com/price-guide/united-states/cents/99/ (read 2026-10-27) row '1909 S LINCOLN' MSBN, VF $160.00; original file $178.00 (https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A029",
+   "label": "1932-S",
+   "value_usd": 155.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Washington Quarters https://www.ngccoin.com/price-guide/united-states/quarters/38/ (read 2026-10-27) row '1932 S' MS, VF $145.00; original file $155.00 (https://www.usacoinbook.com/coins/quarters/washington/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1873",
+   "value_usd": 154.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1873' MSBN, VF $130.00; original file $154.00 (https://www.usacoinbook.com/coins/small-cents/indian-head-cent/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1908-S",
+   "value_usd": 160.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1908 S' MSBN, VF $160.00; original file $148.00 (https://www.APMEX.com/product/95874/1908-s-indian-head-cent-vf-35-pcgs); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A006",
+   "label": "1921-D",
+   "value_usd": 475.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Mercury Dimes https://www.ngccoin.com/price-guide/united-states/dimes/31/ (read 2026-10-27) row '1921 D' MS, VF $475.00; original file $140.00 (Numista N#51 value table, row '1921 D', VF = $140 (USD): https://en.numista.com/catalogue/pieces51.html; album target grade XF is not priced on that row, so this is the VF price (nearest grade given); a XF coin would cost more); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1867",
+   "value_usd": 140.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1867' MSBN, VF $140.00; original file $130.00 (http://values.hobbizine.com/indian-cents.html); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1868",
+   "value_usd": 160.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1868' MSBN, VF $160.00; original file $130.00 (http://values.hobbizine.com/indian-cents.html); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A023",
+   "label": "1931-S",
+   "value_usd": 123.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Lincoln Cents, Wheat Reverse https://www.ngccoin.com/price-guide/united-states/cents/99/ (read 2026-10-27) row '1931 S' MSBN, VF $120.00; original file $123.00 (https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1866",
+   "value_usd": 160.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1866' MSBN, VF $160.00; original file $120.00 (http://values.hobbizine.com/indian-cents.html); >25% apart, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A026",
+   "label": "1996",
+   "value_usd": 100.0,
+   "grade": "UNC",
+   "source": "NGC US Coin Price Guide, Silver Eagles https://www.ngccoin.com/price-guide/united-states/american-eagles-and-bullion-coins/76/ (read 2026-10-27) row '1996 EAGLE' MS, MS63 $62.00 (album grade UNC read as MS63; NGC gives same value for 1994/1995/1996); original file $100.00 (https://www.collectons.com/shop/item/704/1996-American-Silver-Eagle-Dollar-BU-1oz-Silver-Uncirculated-Coin); >25% apart, higher used",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1874",
+   "value_usd": 92.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1874' MSBN, VF $85.00; original file $92.00 (https://www.usacoinbook.com/coins/small-cents/indian-head-cent/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1875",
+   "value_usd": 92.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1875' MSBN, VF $85.00; original file $92.00 (https://www.usacoinbook.com/coins/small-cents/indian-head-cent/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A026",
+   "label": "1994",
+   "value_usd": 90.0,
+   "grade": "UNC",
+   "source": "NGC US Coin Price Guide, Silver Eagles https://www.ngccoin.com/price-guide/united-states/american-eagles-and-bullion-coins/76/ (read 2026-10-27) row '1994 EAGLE' MS, MS63 $62.00 (album grade UNC read as MS63; NGC gives same value for 1994/1995/1996); original file $90.00 (https://www.collectons.com/shop/item/702/1994-American-Silver-Eagle-Dollar-BU-1oz-Silver-Uncirculated-Coin); >25% apart, higher used",
+   "confidence": "low"
+  },
+  {
+   "album": "A023",
+   "label": "1911-S",
+   "value_usd": 81.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Lincoln Cents, Wheat Reverse https://www.ngccoin.com/price-guide/united-states/cents/99/ (read 2026-10-27) row '1911 S' MSBN, VF $75.00; original file $81.00 (https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1861",
+   "value_usd": 75.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1861' MS, VF $75.00; original file $71.00 (http://values.hobbizine.com/indian-cents.html); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A023",
+   "label": "1924-D",
+   "value_usd": 69.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Lincoln Cents, Wheat Reverse https://www.ngccoin.com/price-guide/united-states/cents/99/ (read 2026-10-27) row '1924 D' MSBN, VF $65.00; original file $69.00 (https://www.usacoinbook.com/coins.php?id=386&sort=oldest); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A026",
+   "label": "1995",
+   "value_usd": 68.0,
+   "grade": "UNC",
+   "source": "NGC US Coin Price Guide, Silver Eagles https://www.ngccoin.com/price-guide/united-states/american-eagles-and-bullion-coins/76/ (read 2026-10-27) row '1995 EAGLE' MS, MS63 $62.00 (album grade UNC read as MS63; NGC gives same value for 1994/1995/1996); original file $68.00 (low mintage 4.67M; slight premium over common-date ASE pricing per project brief); within 25%, higher used",
+   "confidence": "low"
+  },
+  {
+   "album": "A022",
+   "label": "1864",
+   "value_usd": 67.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Indian Cents https://www.ngccoin.com/price-guide/united-states/cents/17/ (read 2026-10-27) row '1864 BRONZE' MSBN, VF $65.00; original file $67.00 (http://values.hobbizine.com/indian-cents.html); within 25%, higher used",
+   "confidence": "medium"
+  },
+  {
+   "album": "A029",
+   "label": "1936-D",
+   "value_usd": 64.0,
+   "grade": "VF",
+   "source": "NGC US Coin Price Guide, Washington Quarters https://www.ngccoin.com/price-guide/united-states/quarters/38/ (read 2026-10-27) row '1936 D' MS, VF $50.00; original file $64.00 (https://www.usacoinbook.com/coins/quarters/washington/); >25% apart, higher used",
+   "confidence": "medium"
+  }
+ ],
+ "left_out": []
+}
