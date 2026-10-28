@@ -1,72 +1,71 @@
 {
- "updated": "2026-10-28T01:24:01Z",
+ "updated": "2026-10-28T16:48:19Z",
  "pools": {
-  "cite": 23,
-  "contradiction": 14,
-  "story-check": 108,
+  "cite": 25,
+  "story-check": 80,
   "plain-story": 5,
   "research": 1,
-  "value": 3,
-  "read-mint": 9,
-  "arbitrate": 7,
+  "value": 1,
+  "read-mint": 8,
+  "arbitrate": 17,
   "fill": 47,
-  "verify": 645
+  "verify": 277
  },
  "agents": {
-  "gemini": {
-   "confirmed": 114,
-   "wrong": 2,
-   "checks_done": 66,
-   "disagreements_open": 1,
-   "canaries_caught": 0,
-   "canaries_missed": 0,
-   "checked_n": 116,
-   "error_rate": 0.017,
-   "error_ci95": [
-    0.005,
-    0.061
-   ]
-  },
-  "grok": {
-   "confirmed": 556,
-   "wrong": 6,
-   "checks_done": 161,
-   "disagreements_open": 0,
-   "canaries_caught": 1,
-   "canaries_missed": 0,
-   "checked_n": 562,
-   "error_rate": 0.011,
-   "error_ci95": [
-    0.005,
-    0.023
-   ]
-  },
   "claude": {
-   "confirmed": 161,
+   "confirmed": 303,
    "wrong": 1,
    "checks_done": 213,
    "disagreements_open": 4,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 162,
-   "error_rate": 0.006,
+   "checked_n": 304,
+   "error_rate": 0.003,
    "error_ci95": [
     0.001,
-    0.034
+    0.018
+   ]
+  },
+  "grok": {
+   "confirmed": 916,
+   "wrong": 10,
+   "checks_done": 272,
+   "disagreements_open": 12,
+   "canaries_caught": 1,
+   "canaries_missed": 0,
+   "checked_n": 926,
+   "error_rate": 0.011,
+   "error_ci95": [
+    0.006,
+    0.02
+   ]
+  },
+  "gemini": {
+   "confirmed": 436,
+   "wrong": 2,
+   "checks_done": 398,
+   "disagreements_open": 11,
+   "canaries_caught": 8,
+   "canaries_missed": 0,
+   "checked_n": 438,
+   "error_rate": 0.005,
+   "error_ci95": [
+    0.001,
+    0.016
    ]
   },
   "muse": {
-   "confirmed": 486,
-   "wrong": 11,
+   "confirmed": 477,
+   "wrong": 12,
    "checks_done": 310,
-   "disagreements_open": 6,
+   "disagreements_open": 4,
    "canaries_caught": 6,
    "canaries_missed": 0,
-   "checked_n": 497,
-   "error_rate": 0.022,
+   "checked_n": 489,
+   "error_rate": 0.025,
    "error_ci95": [
-    0.012,
-    0.039
+    0.014,
+    0.042
    ]
   },
   "ledger": {
@@ -125,6 +124,7 @@
   "contra:mint_unknown:C088",
   "contra:mint_unknown:C091",
   "mint:C037",
+  "mint:C088",
   "plain:C012",
   "plain:C017",
   "plain:C025",
@@ -134,7 +134,9 @@
   "story:C114",
   "story:C145",
   "story:T001",
+  "verify:specimen:C301:issue.year",
   "verify:type:AU.X.1-cent:denomination.value",
+  "verify:type:AU.X.10-cents:catalogs",
   "verify:type:AU.X.10-cents:denomination.value",
   "verify:type:BS.X.25-cents:denomination.value",
   "verify:type:CH.KM.29a:denomination.value",
@@ -146,8 +148,8 @@
   "verify:type:MX.X.10-centavos:denomination.value"
  ],
  "open_assignments": {
-  "grok": 13,
-  "muse": 9,
+  "grok": 2,
+  "muse": 15,
   "gemini": 17,
   "chatgpt": 0
  }

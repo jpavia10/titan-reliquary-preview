@@ -303,6 +303,16 @@ class LoopUpgrades(unittest.TestCase):
         self.assertEqual(V("composition.text", "nickel brass (75% copper, 21% zinc, 4% nickel)", "Nickel brass (75 % Cu, 21 % Zn, 4% Ni)")[0], "same")
         self.assertEqual(V("composition.text", "bronze", "brass")[0], "differs")
         self.assertEqual(V("issues.0.mintage", 100, 101)[0], "differs")
+        self.assertEqual(V("issue.mint_marks", ["Mo"], "Mo")[0], "same", "one mark sent without its list is the same mark")
+        self.assertEqual(V("issue.mint_marks", ["B"], [])[0], "differs")
+        self.assertEqual(V("issue.mint_marks", ["D", "F"], "D")[0], "differs")
+        # alloy spellings (Gemini's verify answers, 2026-10-28): same metal and parts in another format = same
+        self.assertEqual(V("composition.text", "nickel brass (Cu 70 / Zn 18 / Ni 12)", "nickel brass (70% Copper, 18% Zinc, 12% Nickel)")[0], "same")
+        self.assertEqual(V("composition.text", "CuNi 75/25", "copper-nickel (75% copper, 25% nickel)")[0], "same")
+        self.assertEqual(V("composition.text", "cupronickel", "copper-nickel (75% Copper, 25% Nickel)")[0], "same")
+        self.assertEqual(V("composition.text", "nickel brass (Cu 70 / Zn 18 / Ni 12)", "nickel brass (75% Copper, 21% Zinc, 4% Nickel)")[0], "differs")
+        self.assertEqual(V("composition.text", "CuNi 75/25", "CuNi 80/20")[0], "differs")
+        self.assertEqual(V("composition.text", "copper-nickel", "nickel")[0], "differs")
 
     def test_a_dict_or_partial_catalogue_answer_never_rewrites_the_list(self):
         import canary as CAN

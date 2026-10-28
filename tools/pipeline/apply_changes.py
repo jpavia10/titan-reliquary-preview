@@ -78,6 +78,21 @@ def norm_text(s):
     s = re.sub(r"\s+", " ", s.strip().casefold()); s = re.sub(r"\s+%", "%", s)
     return re.sub(r"[a-z]+", lambda m: ELEMENT.get(m.group(0), m.group(0)), s)
 
+ALLOY_BASE = {"cupronickel": "copper-nickel", "cuni": "copper-nickel", "coppernickel": "copper-nickel", "aluminiumbronze": "aluminium-bronze",
+              "nickelbrass": "nickel-brass", "aluminiumnickelbronze": "aluminium-bronze"}
+
+def alloy_key(s):
+    """A composition text as (base metal, {element: percent}): 'CuNi 75/25', 'cupronickel' and 'copper-nickel (75% copper, 25% nickel)' share a
+    base; 'Cu 70 / Zn 18' and '70% Copper, 18% Zinc' give the same parts (Gemini's and Grok's spellings, 2026-10-28)."""
+    t = norm_text(s); head = t.split("(")[0]
+    base = re.sub(r"[^a-z]", "", re.sub(r"[\d/.%]+", "", head)); base = ALLOY_BASE.get(base, base)
+    parts = {}
+    for num, el in re.findall(r"(\d+(?:\.\d+)?)\s*%?\s*(copper|zinc|nickel|tin|aluminium|iron|silver|gold|manganese|lead)\b", t): parts[el] = float(num)
+    for el, num in re.findall(r"\b(copper|zinc|nickel|tin|aluminium|iron|silver|gold|manganese|lead)\s+(\d+(?:\.\d+)?)(?!\s*%)", t): parts.setdefault(el, float(num))
+    m = re.match(r"\s*cuni\s*(\d+)\s*/\s*(\d+)", head.replace("coppernickel", "cuni")) or re.match(r"\s*copper-?nickel\s*(\d+)\s*/\s*(\d+)", head)
+    if m and not parts: parts = {"copper": float(m.group(1)), "nickel": float(m.group(2))}
+    return base, parts
+
 def check_verdict(field, cur, new):
     """same | partial (agrees with every catalogue it names but leaves some of the record's out) | differs."""
     if cur == new: return "same", ""
@@ -91,6 +106,10 @@ def check_verdict(field, cur, new):
             if not shared: return "differs", ""
             return ("same" if set(a) <= shared else "partial"), note
     if isinstance(cur, str) and isinstance(new, str) and norm_text(cur) == norm_text(new): return "same", ""
+    if field.endswith("composition.text") and isinstance(cur, str) and isinstance(new, str):
+        (ba, pa), (bb, pb) = alloy_key(cur), alloy_key(new)
+        if ba and ba == bb and (pa == pb or not pa or not pb): return "same", ""
+    if isinstance(cur, list) and len(cur) == 1 and not isinstance(new, (list, dict)): return check_verdict(field, cur[0], new)   # "B" for ["B"] (Grok, 2026-10-28)
     return "differs", ""
 
 
