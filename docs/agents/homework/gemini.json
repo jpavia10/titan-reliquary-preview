@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-27T01:29:51Z",
+ "updated": "2026-10-28T01:24:01Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261020-1",
@@ -21806,6 +21806,55 @@
      "blind": true,
      "inputs": [
       "C046_obv.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-read-mint-20261028-1",
+   "agent": "gemini",
+   "kind": "read-mint",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-02T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C304",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "issue"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "mint:C304",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "issue",
+     "coins": [
+      "C304"
+     ],
+     "label": "C304 · Mexico · 1981 · 20 pesos · MXN",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C304_rev.webp",
+        "file": "C304_rev.webp",
+        "original": "C304_Mexico_1981_20Pesos_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "hint": "Mexico City coins carry Mo (an M with a small o above it) near the date.",
+      "mint_text_now": "not read (no photo of this coin in Drive yet)"
+     },
+     "blind": false,
+     "inputs": [
+      "C304_rev.webp"
      ]
     }
    ]

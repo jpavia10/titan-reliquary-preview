@@ -3,7 +3,7 @@ NEW (2026-10-20): score 9 for your Oct 15/19 files (FEEDBACK doc): every design-
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Grok (updated 2026-10-27 01:29 UTC)
+# WORK QUEUE for Grok (updated 2026-10-28 01:24 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -36,36 +36,30 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
 
 - 1. HW-grok-value-20261019-1 · Appraiser · Cite collector values for 2 coins · due 2026-10-29  (fix list #62)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-value-20261019-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261019-1.jsonl)
-- 2. HW-grok-arbitrate-20261020-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-27  (fix list #18)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261020-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261020-1.jsonl)
-- 3. HW-grok-story-check-20261020-1 · Fact-checker · Fact-check 3 coin stories · due 2026-10-27  (fix list #73)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-story-check-20261020-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261020-1.jsonl)
-- 4. HW-grok-verify-20261020-1 · Second reader · Check 8 facts another AI wrote · due 2026-10-27  (fix list #18)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261020-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261020-1.jsonl)
-- 5. HW-grok-verify-20261020-2 · Second reader · Check 1 facts another AI wrote · due 2026-10-27  (fix list #18)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261020-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261020-2.jsonl)
-- 6. HW-grok-story-check-20261020-2 · Fact-checker · Fact-check 45 coin stories · due 2026-10-27  (fix list #73)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-story-check-20261020-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261020-2.jsonl)
-- 7. HW-grok-verify-20261020-3 · Second reader · Check 79 facts another AI wrote · due 2026-10-27  (fix list #18)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261020-3.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261020-3.jsonl)
-- 8. HW-grok-verify-20261020-4 · Second reader · Check 80 facts another AI wrote · due 2026-10-27  (fix list #18)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261020-4.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261020-4.jsonl)
-- 9. HW-grok-arbitrate-20261021-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-28  (fix list #18)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261021-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261021-1.jsonl)
-- 10. HW-grok-read-mint-20261021-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-10-28  (fix list #57)
+- 2. HW-grok-read-mint-20261021-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-10-28  (fix list #57)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-read-mint-20261021-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-read-mint-20261021-1.jsonl)
-- 11. HW-grok-contradiction-20261022-1 · Fact fixer · Settle 14 contradictions in the record · due 2026-10-29  (fix list #102)
+- 3. HW-grok-contradiction-20261022-1 · Fact fixer · Settle 14 contradictions in the record · due 2026-10-29  (fix list #102)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-contradiction-20261022-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-contradiction-20261022-1.jsonl)
-- 12. HW-grok-story-check-20261022-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-29  (fix list #73)
+- 4. HW-grok-story-check-20261022-1 · Fact-checker · Fact-check 9 coin stories · due 2026-10-29  (fix list #73)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-story-check-20261022-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261022-1.jsonl)
-- 13. HW-grok-cite-20261023-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-10-30  (fix list #72)
+- 5. HW-grok-cite-20261023-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-10-30  (fix list #72)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-cite-20261023-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261023-1.jsonl)
-- 14. HW-grok-story-check-20261023-1 · Fact-checker · Fact-check 4 coin stories · due 2026-10-30  (fix list #73)
+- 6. HW-grok-story-check-20261023-1 · Fact-checker · Fact-check 4 coin stories · due 2026-10-30  (fix list #73)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-story-check-20261023-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261023-1.jsonl)
-- 15. HW-grok-research-20261023-1 · Researcher · Answer 1 open research questions · due 2026-11-02  (fix list #3)
+- 7. HW-grok-research-20261023-1 · Researcher · Answer 1 open research questions · due 2026-11-02  (fix list #3)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-research-20261023-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-research-20261023-1.jsonl)
-- 16. HW-grok-arbitrate-20261024-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-31  (fix list #18)
+- 8. HW-grok-arbitrate-20261024-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-10-31  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261024-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261024-1.jsonl)
+- 9. HW-grok-verify-20261028-1 · Second reader · Check 80 facts another AI wrote · due 2026-11-04  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261028-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261028-1.jsonl)
+- 10. HW-grok-arbitrate-20261028-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-04  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261028-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261028-1.jsonl)
+- 11. HW-grok-verify-20261028-2 · Second reader · Check 80 facts another AI wrote · due 2026-11-04  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261028-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261028-2.jsonl)
+- 12. HW-grok-story-check-20261028-1 · Fact-checker · Fact-check 28 coin stories · due 2026-11-04  (fix list #73)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-story-check-20261028-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261028-1.jsonl)
+- 13. HW-grok-verify-20261028-3 · Second reader · Check 8 facts another AI wrote · due 2026-11-04  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261028-3.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261028-3.jsonl)
 ## Projects (after the homework)
 
 ### UI rethink, step 2: The Field's three filters, on the real data  [LATER]  (fix list #116)
@@ -94,6 +88,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 22; expired: 3.
+- Assignments answered: 22; expired: 11.
 - Your facts checked by another contributor: 562 (556 confirmed, 6 wrong; error rate 1.1 %, 95 % range 0-2 %). Checks you did for others: 161. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 1 of 1.
 - Share of your new facts that get checked first: 15 %.

@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-27T01:29:51Z",
+ "updated": "2026-10-28T01:24:01Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -95,7 +95,13 @@
   "gemini-fill-20261024": 5,
   "gemini-verify-20261024": 3,
   "grok-arbitrate-20261024": 1,
-  "muse-cite-20261024": 1
+  "muse-cite-20261024": 1,
+  "grok-verify-20261028": 3,
+  "muse-story-check-20261028": 1,
+  "muse-arbitrate-20261028": 1,
+  "gemini-read-mint-20261028": 1,
+  "grok-arbitrate-20261028": 1,
+  "grok-story-check-20261028": 1
  },
  "assignments": [
   {
@@ -9599,9 +9605,13 @@
    "kind": "arbitrate",
    "issued": "2026-10-20T15:00:33Z",
    "lease_until": "2026-10-27T15:00:33Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 2,
+    "closed": 1,
+    "left": 1
+   },
    "items": [
     {
      "item": "arb:D0071",
@@ -9623,9 +9633,13 @@
    "kind": "story-check",
    "issued": "2026-10-20T15:00:33Z",
    "lease_until": "2026-10-27T15:00:33Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 3,
+    "closed": 0,
+    "left": 3
+   },
    "items": [
     {
      "item": "story:C117",
@@ -9653,9 +9667,13 @@
    "kind": "verify",
    "issued": "2026-10-20T15:00:33Z",
    "lease_until": "2026-10-27T15:00:33Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 21,
+    "closed": 13,
+    "left": 8
+   },
    "items": [
     {
      "item": "verify:type:NL.KM.184:design.text",
@@ -10211,9 +10229,13 @@
    "kind": "read-mint",
    "issued": "2026-10-20T15:00:33Z",
    "lease_until": "2026-10-27T15:00:33Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1
+   },
    "items": [
     {
      "item": "mint:C304",
@@ -10609,9 +10631,13 @@
    "kind": "verify",
    "issued": "2026-10-20T15:07:16Z",
    "lease_until": "2026-10-27T15:07:16Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 20,
+    "closed": 19,
+    "left": 1
+   },
    "items": [
     {
      "item": "verify:type:NO.KM.460:design.text",
@@ -11079,9 +11105,13 @@
    "kind": "story-check",
    "issued": "2026-10-20T16:00:29Z",
    "lease_until": "2026-10-27T16:00:29Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 45,
+    "closed": 0,
+    "left": 45
+   },
    "items": [
     {
      "item": "story:C155",
@@ -11697,9 +11727,13 @@
    "kind": "verify",
    "issued": "2026-10-20T16:00:29Z",
    "lease_until": "2026-10-27T16:00:29Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 80,
+    "closed": 1,
+    "left": 79
+   },
    "items": [
     {
      "item": "verify:specimen:C235:issue.year",
@@ -13236,9 +13270,13 @@
    "kind": "verify",
    "issued": "2026-10-20T16:00:29Z",
    "lease_until": "2026-10-27T16:00:29Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 80,
+    "closed": 0,
+    "left": 80
+   },
    "items": [
     {
      "item": "verify:specimen:C265:issue.year",
@@ -14224,9 +14262,13 @@
    "kind": "arbitrate",
    "issued": "2026-10-21T01:08:28Z",
    "lease_until": "2026-10-28T01:08:28Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-28T01:24:01Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1
+   },
    "items": [
     {
      "item": "arb:D0090",
@@ -20271,6 +20313,1416 @@
      "entity": "type",
      "id": "GB.KM.916",
      "field": "composition.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261028-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C235:issue.year",
+     "entity": "specimen",
+     "id": "C235",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:NL.KM.184:denomination.value",
+     "entity": "type",
+     "id": "NL.KM.184",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.4:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.40a.4",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C031:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:US.KM.195:denomination.value",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C009:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.140.1:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:T006:issue.year",
+     "entity": "specimen",
+     "id": "T006",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:US.X.prop-50:denomination.value",
+     "entity": "type",
+     "id": "US.X.prop-50",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C258:issue.year",
+     "entity": "specimen",
+     "id": "C258",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C014:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C014",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C067:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C067",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C077:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C077",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C070:issue.year",
+     "entity": "specimen",
+     "id": "C070",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C071:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C071",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.214:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:FR.KM.1289:denomination.value",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:NL.KM.241:denomination.value",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C263:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C242:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C242",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:CH.KM.27:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C001:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C093:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C093",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C094:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C094",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C080:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C080",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C084:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C084",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.213:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.213",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.216:denomination.value",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:MT.KM.132:denomination.value",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C006:issue.year",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C049:issue.year",
+     "entity": "specimen",
+     "id": "C049",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C048:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:FR.KM.888b.1:denomination.value",
+     "entity": "type",
+     "id": "FR.KM.888b.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:T005:issue.year",
+     "entity": "specimen",
+     "id": "T005",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:US.X.prop-1:denomination.value",
+     "entity": "type",
+     "id": "US.X.prop-1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C212:issue.year",
+     "entity": "specimen",
+     "id": "C212",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C252:issue.year",
+     "entity": "specimen",
+     "id": "C252",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C050:issue.year",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:catalogs",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:specimen:C081:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C081",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C083:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C083",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C196:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C196",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C224:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C224",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C240:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C240",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C271:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C271",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:CH.KM.26c:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.107:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.912:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.912",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.916:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.916",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C060:issue.year",
+     "entity": "specimen",
+     "id": "C060",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C021:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C021",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C075:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C075",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C199:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C199",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C177:issue.year",
+     "entity": "specimen",
+     "id": "C177",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GB.KM.1109:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1109",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C180:issue.year",
+     "entity": "specimen",
+     "id": "C180",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C200:issue.year",
+     "entity": "specimen",
+     "id": "C200",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C268:issue.year",
+     "entity": "specimen",
+     "id": "C268",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GB.KM.1109d:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1109d",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.936:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.936",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C228:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C228",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C020:issue.year",
+     "entity": "specimen",
+     "id": "C020",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C124:issue.year",
+     "entity": "specimen",
+     "id": "C124",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C183:issue.year",
+     "entity": "specimen",
+     "id": "C183",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C022:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C022",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C237:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C237",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:GB.KM.1334:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1334",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.914:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.914",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C162:issue.year",
+     "entity": "specimen",
+     "id": "C162",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C225:issue.year",
+     "entity": "specimen",
+     "id": "C225",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C225:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C225",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:TH.KM.183:denomination.value",
+     "entity": "type",
+     "id": "TH.KM.183",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C018:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C018",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.106a:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C036:issue.year",
+     "entity": "specimen",
+     "id": "C036",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C047:issue.year",
+     "entity": "specimen",
+     "id": "C047",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C054:issue.year",
+     "entity": "specimen",
+     "id": "C054",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GT.KM.239.2:denomination.value",
+     "entity": "type",
+     "id": "GT.KM.239.2",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C223:issue.year",
+     "entity": "specimen",
+     "id": "C223",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C065:issue.year",
+     "entity": "specimen",
+     "id": "C065",
+     "field": "issue.year"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261028-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C163",
+     "entity": "specimen",
+     "id": "C163",
+     "field": "story"
+    },
+    {
+     "item": "story:C164",
+     "entity": "specimen",
+     "id": "C164",
+     "field": "story"
+    },
+    {
+     "item": "story:C198",
+     "entity": "specimen",
+     "id": "C198",
+     "field": "story"
+    },
+    {
+     "item": "story:C204",
+     "entity": "specimen",
+     "id": "C204",
+     "field": "story"
+    },
+    {
+     "item": "story:C223",
+     "entity": "specimen",
+     "id": "C223",
+     "field": "story"
+    },
+    {
+     "item": "story:C243",
+     "entity": "specimen",
+     "id": "C243",
+     "field": "story"
+    },
+    {
+     "item": "story:C248",
+     "entity": "specimen",
+     "id": "C248",
+     "field": "story"
+    },
+    {
+     "item": "story:C263",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "story"
+    },
+    {
+     "item": "story:C266",
+     "entity": "specimen",
+     "id": "C266",
+     "field": "story"
+    },
+    {
+     "item": "story:C267",
+     "entity": "specimen",
+     "id": "C267",
+     "field": "story"
+    },
+    {
+     "item": "story:C272",
+     "entity": "specimen",
+     "id": "C272",
+     "field": "story"
+    },
+    {
+     "item": "story:C273",
+     "entity": "specimen",
+     "id": "C273",
+     "field": "story"
+    },
+    {
+     "item": "story:C274",
+     "entity": "specimen",
+     "id": "C274",
+     "field": "story"
+    },
+    {
+     "item": "story:C275",
+     "entity": "specimen",
+     "id": "C275",
+     "field": "story"
+    },
+    {
+     "item": "story:C276",
+     "entity": "specimen",
+     "id": "C276",
+     "field": "story"
+    },
+    {
+     "item": "story:C277",
+     "entity": "specimen",
+     "id": "C277",
+     "field": "story"
+    },
+    {
+     "item": "story:C278",
+     "entity": "specimen",
+     "id": "C278",
+     "field": "story"
+    },
+    {
+     "item": "story:C280",
+     "entity": "specimen",
+     "id": "C280",
+     "field": "story"
+    },
+    {
+     "item": "story:C282",
+     "entity": "specimen",
+     "id": "C282",
+     "field": "story"
+    },
+    {
+     "item": "story:C283",
+     "entity": "specimen",
+     "id": "C283",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261028-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0090",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "issue.year"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-read-mint-20261028-1",
+   "agent": "gemini",
+   "kind": "read-mint",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-02T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C304",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "issue"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261028-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0074",
+     "entity": "type",
+     "id": "AU.KM.66",
+     "field": "issues.0.mintage"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261028-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C065:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C065",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.1:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.40a.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C031:issue.year",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.KM.37:denomination.value",
+     "entity": "type",
+     "id": "AU.KM.37",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C088:issue.year",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C009:issue.year",
+     "entity": "specimen",
+     "id": "C009",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:denomination.value",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C014:issue.year",
+     "entity": "specimen",
+     "id": "C014",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C067:issue.year",
+     "entity": "specimen",
+     "id": "C067",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C077:issue.year",
+     "entity": "specimen",
+     "id": "C077",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:CH.KM.21a:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C071:issue.year",
+     "entity": "specimen",
+     "id": "C071",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C072:issue.year",
+     "entity": "specimen",
+     "id": "C072",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C263:issue.year",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:MX.KM.443:denomination.value",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C242:issue.year",
+     "entity": "specimen",
+     "id": "C242",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:DE.KM.124:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C001:issue.year",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C093:issue.year",
+     "entity": "specimen",
+     "id": "C093",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C094:issue.year",
+     "entity": "specimen",
+     "id": "C094",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C064:issue.year",
+     "entity": "specimen",
+     "id": "C064",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C080:issue.year",
+     "entity": "specimen",
+     "id": "C080",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C084:issue.year",
+     "entity": "specimen",
+     "id": "C084",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C048:issue.year",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C243:issue.year",
+     "entity": "specimen",
+     "id": "C243",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C261:issue.year",
+     "entity": "specimen",
+     "id": "C261",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:DE.KM.110:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:denomination.value",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:SU.Y.97:denomination.value",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C239:issue.year",
+     "entity": "specimen",
+     "id": "C239",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.KM.36:denomination.value",
+     "entity": "type",
+     "id": "AU.KM.36",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:CU.KM.32:denomination.value",
+     "entity": "type",
+     "id": "CU.KM.32",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:ER.KM.46:denomination.value",
+     "entity": "type",
+     "id": "ER.KM.46",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C230:issue.year",
+     "entity": "specimen",
+     "id": "C230",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:JM.KM.191:denomination.value",
+     "entity": "type",
+     "id": "JM.KM.191",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C260:issue.year",
+     "entity": "specimen",
+     "id": "C260",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:SU.Y.93:denomination.value",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:BS.X.5-cents:catalogs",
+     "entity": "type",
+     "id": "BS.X.5-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.500-pesos:catalogs",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:specimen:C293:issue.year",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C293:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C301:issue.year",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C301:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:MX.X.5-centavos:catalogs",
+     "entity": "type",
+     "id": "MX.X.5-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AR.X.5-centavos:catalogs",
+     "entity": "type",
+     "id": "AR.X.5-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:specimen:C265:issue.year",
+     "entity": "specimen",
+     "id": "C265",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C271:issue.year",
+     "entity": "specimen",
+     "id": "C271",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:FR.KM.930:denomination.value",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.96.1:denomination.value",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:JP.Y.74:denomination.value",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:MX.KM.936:denomination.value",
+     "entity": "type",
+     "id": "MX.KM.936",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C013:issue.year",
+     "entity": "specimen",
+     "id": "C013",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C021:issue.year",
+     "entity": "specimen",
+     "id": "C021",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C075:issue.year",
+     "entity": "specimen",
+     "id": "C075",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C199:issue.year",
+     "entity": "specimen",
+     "id": "C199",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C248:issue.year",
+     "entity": "specimen",
+     "id": "C248",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GR.KM.117:denomination.value",
+     "entity": "type",
+     "id": "GR.KM.117",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C089:issue.year",
+     "entity": "specimen",
+     "id": "C089",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C185:issue.year",
+     "entity": "specimen",
+     "id": "C185",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C041:issue.year",
+     "entity": "specimen",
+     "id": "C041",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C174:issue.year",
+     "entity": "specimen",
+     "id": "C174",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C213:issue.year",
+     "entity": "specimen",
+     "id": "C213",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C264:issue.year",
+     "entity": "specimen",
+     "id": "C264",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:SG.KM.3:denomination.value",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:TW.KM.551:denomination.value",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C010:issue.year",
+     "entity": "specimen",
+     "id": "C010",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C051:issue.year",
+     "entity": "specimen",
+     "id": "C051",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C104:issue.year",
+     "entity": "specimen",
+     "id": "C104",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C228:issue.year",
+     "entity": "specimen",
+     "id": "C228",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C262:issue.year",
+     "entity": "specimen",
+     "id": "C262",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C266:issue.year",
+     "entity": "specimen",
+     "id": "C266",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C267:issue.year",
+     "entity": "specimen",
+     "id": "C267",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C270:issue.year",
+     "entity": "specimen",
+     "id": "C270",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:KR.KM.103:denomination.value",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:NL.KM.204:denomination.value",
+     "entity": "type",
+     "id": "NL.KM.204",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:YU.KM.86:denomination.value",
+     "entity": "type",
+     "id": "YU.KM.86",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C022:issue.year",
+     "entity": "specimen",
+     "id": "C022",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C044:issue.year",
+     "entity": "specimen",
+     "id": "C044",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C237:issue.year",
+     "entity": "specimen",
+     "id": "C237",
+     "field": "issue.year"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-story-check-20261028-1",
+   "agent": "grok",
+   "kind": "story-check",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C117",
+     "entity": "specimen",
+     "id": "C117",
+     "field": "story"
+    },
+    {
+     "item": "story:C118",
+     "entity": "specimen",
+     "id": "C118",
+     "field": "story"
+    },
+    {
+     "item": "story:C119",
+     "entity": "specimen",
+     "id": "C119",
+     "field": "story"
+    },
+    {
+     "item": "story:C155",
+     "entity": "specimen",
+     "id": "C155",
+     "field": "story"
+    },
+    {
+     "item": "story:C156",
+     "entity": "specimen",
+     "id": "C156",
+     "field": "story"
+    },
+    {
+     "item": "story:C157",
+     "entity": "specimen",
+     "id": "C157",
+     "field": "story"
+    },
+    {
+     "item": "story:C158",
+     "entity": "specimen",
+     "id": "C158",
+     "field": "story"
+    },
+    {
+     "item": "story:C159",
+     "entity": "specimen",
+     "id": "C159",
+     "field": "story"
+    },
+    {
+     "item": "story:C160",
+     "entity": "specimen",
+     "id": "C160",
+     "field": "story"
+    },
+    {
+     "item": "story:C180",
+     "entity": "specimen",
+     "id": "C180",
+     "field": "story"
+    },
+    {
+     "item": "story:C181",
+     "entity": "specimen",
+     "id": "C181",
+     "field": "story"
+    },
+    {
+     "item": "story:C182",
+     "entity": "specimen",
+     "id": "C182",
+     "field": "story"
+    },
+    {
+     "item": "story:C184",
+     "entity": "specimen",
+     "id": "C184",
+     "field": "story"
+    },
+    {
+     "item": "story:C199",
+     "entity": "specimen",
+     "id": "C199",
+     "field": "story"
+    },
+    {
+     "item": "story:C201",
+     "entity": "specimen",
+     "id": "C201",
+     "field": "story"
+    },
+    {
+     "item": "story:C213",
+     "entity": "specimen",
+     "id": "C213",
+     "field": "story"
+    },
+    {
+     "item": "story:C216",
+     "entity": "specimen",
+     "id": "C216",
+     "field": "story"
+    },
+    {
+     "item": "story:C217",
+     "entity": "specimen",
+     "id": "C217",
+     "field": "story"
+    },
+    {
+     "item": "story:C218",
+     "entity": "specimen",
+     "id": "C218",
+     "field": "story"
+    },
+    {
+     "item": "story:C231",
+     "entity": "specimen",
+     "id": "C231",
+     "field": "story"
+    },
+    {
+     "item": "story:C240",
+     "entity": "specimen",
+     "id": "C240",
+     "field": "story"
+    },
+    {
+     "item": "story:C241",
+     "entity": "specimen",
+     "id": "C241",
+     "field": "story"
+    },
+    {
+     "item": "story:C245",
+     "entity": "specimen",
+     "id": "C245",
+     "field": "story"
+    },
+    {
+     "item": "story:C249",
+     "entity": "specimen",
+     "id": "C249",
+     "field": "story"
+    },
+    {
+     "item": "story:C254",
+     "entity": "specimen",
+     "id": "C254",
+     "field": "story"
+    },
+    {
+     "item": "story:C255",
+     "entity": "specimen",
+     "id": "C255",
+     "field": "story"
+    },
+    {
+     "item": "story:C261",
+     "entity": "specimen",
+     "id": "C261",
+     "field": "story"
+    },
+    {
+     "item": "story:C269",
+     "entity": "specimen",
+     "id": "C269",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261028-3",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C125:issue.year",
+     "entity": "specimen",
+     "id": "C125",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C018:issue.year",
+     "entity": "specimen",
+     "id": "C018",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C251:issue.year",
+     "entity": "specimen",
+     "id": "C251",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C024:issue.year",
+     "entity": "specimen",
+     "id": "C024",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C030:issue.year",
+     "entity": "specimen",
+     "id": "C030",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C037:issue.year",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C043:issue.year",
+     "entity": "specimen",
+     "id": "C043",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C090:issue.year",
+     "entity": "specimen",
+     "id": "C090",
+     "field": "issue.year"
     }
    ]
   }

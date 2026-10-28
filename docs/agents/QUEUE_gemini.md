@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-27 01:29 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-28 01:24 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -1419,6 +1419,24 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "specimen", "id": "C046", "op": "set", "field": "issue.year", "new": null, "source": "FILL (year of C046 · Germany · 2 euro cent · EUR): the photo file you read it from, e.g. C046_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261024-3", "run_id": "HW-gemini-verify-20261024-3", "inputs": [{"file": "C046_obv.webp"}]}}
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "specimen", "id": "C128", "op": "set", "field": "issue.year", "new": null, "source": "FILL (year of C128 · France · 2 euro cent · EUR): the photo file you read it from, e.g. C128_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261024-3", "run_id": "HW-gemini-verify-20261024-3", "inputs": [{"file": "C128_obv.webp"}]}}
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "specimen", "id": "C046", "op": "set", "field": "issue.mint_marks", "new": null, "source": "FILL (mint of C046 · Germany · 2010 · 2 euro cent · EUR): the photo file you read it from, e.g. C046_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261024-3", "run_id": "HW-gemini-verify-20261024-3", "inputs": [{"file": "C046_obv.webp"}]}}
+```
+
+### 17. HW-gemini-read-mint-20261028-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-11-02  (fix list #57)
+
+Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
+
+**Done when:** One change file; unreadable coins left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-read-mint-20261028-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C304 · Mexico · 1981 · 20 pesos · MXN**: mint text now «not read (no photo of this coin in Drive yet)». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C304_rev.webp. Mexico City coins carry Mo (an M with a small o above it) near the date.
+
+Answer sheet (the same as the link):
+
+```jsonl
+{"ts": "2026-10-28T01:24:01Z", "by": "model:gemini", "entity": "specimen", "id": "C304", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (C304 · Mexico · 1981 · 20 pesos · MXN): the photo file you read it from, e.g. C304_rev.webp, and where on the coin the mark is", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-28", "workflow": "homework-read-mint", "assignment": "HW-gemini-read-mint-20261028-1", "run_id": "HW-gemini-read-mint-20261028-1", "inputs": [{"file": "C304_rev.webp"}]}}
+{"ts": "2026-10-28T01:24:01Z", "by": "model:gemini", "entity": "specimen", "id": "C304", "op": "set", "field": "issue.mint_text", "old": "not read (no photo of this coin in Drive yet)", "new": "not read (no photo of this coin in Drive yet)", "source": "FILL (C304 · Mexico · 1981 · 20 pesos · MXN): the photo file you read it from, e.g. C304_rev.webp, and where on the coin the mark is", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-28", "workflow": "homework-read-mint", "assignment": "HW-gemini-read-mint-20261028-1", "run_id": "HW-gemini-read-mint-20261028-1", "inputs": [{"file": "C304_rev.webp"}]}}
 ```
 
 ## Projects (after the homework)

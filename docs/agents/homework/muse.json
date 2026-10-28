@@ -1,56 +1,7 @@
 {
  "agent": "muse",
- "updated": "2026-10-27T01:29:51Z",
+ "updated": "2026-10-28T01:24:01Z",
  "assignments": [
-  {
-   "id": "HW-muse-read-mint-20261020-1",
-   "agent": "muse",
-   "kind": "read-mint",
-   "issued": "2026-10-20T15:00:33Z",
-   "lease_until": "2026-10-27T15:00:33Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "mint:C304",
-     "entity": "specimen",
-     "id": "C304",
-     "field": "issue"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "mint:C304",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C304",
-     "field": "issue",
-     "coins": [
-      "C304"
-     ],
-     "label": "C304 · Mexico · 1981 · 20 pesos · MXN",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C304_rev.webp",
-        "file": "C304_rev.webp",
-        "original": "C304_Mexico_1981_20Pesos_rev.jpeg",
-        "drive": null
-       }
-      ],
-      "hint": "Mexico City coins carry Mo (an M with a small o above it) near the date.",
-      "mint_text_now": "not read (no photo of this coin in Drive yet)"
-     },
-     "blind": false,
-     "inputs": [
-      "C304_rev.webp"
-     ]
-    }
-   ]
-  },
   {
    "id": "HW-muse-read-mint-20261021-1",
    "agent": "muse",
@@ -818,6 +769,815 @@
       "audit": false,
       "lookup_blind": false,
       "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261028-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C163",
+     "entity": "specimen",
+     "id": "C163",
+     "field": "story"
+    },
+    {
+     "item": "story:C164",
+     "entity": "specimen",
+     "id": "C164",
+     "field": "story"
+    },
+    {
+     "item": "story:C198",
+     "entity": "specimen",
+     "id": "C198",
+     "field": "story"
+    },
+    {
+     "item": "story:C204",
+     "entity": "specimen",
+     "id": "C204",
+     "field": "story"
+    },
+    {
+     "item": "story:C223",
+     "entity": "specimen",
+     "id": "C223",
+     "field": "story"
+    },
+    {
+     "item": "story:C243",
+     "entity": "specimen",
+     "id": "C243",
+     "field": "story"
+    },
+    {
+     "item": "story:C248",
+     "entity": "specimen",
+     "id": "C248",
+     "field": "story"
+    },
+    {
+     "item": "story:C263",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "story"
+    },
+    {
+     "item": "story:C266",
+     "entity": "specimen",
+     "id": "C266",
+     "field": "story"
+    },
+    {
+     "item": "story:C267",
+     "entity": "specimen",
+     "id": "C267",
+     "field": "story"
+    },
+    {
+     "item": "story:C272",
+     "entity": "specimen",
+     "id": "C272",
+     "field": "story"
+    },
+    {
+     "item": "story:C273",
+     "entity": "specimen",
+     "id": "C273",
+     "field": "story"
+    },
+    {
+     "item": "story:C274",
+     "entity": "specimen",
+     "id": "C274",
+     "field": "story"
+    },
+    {
+     "item": "story:C275",
+     "entity": "specimen",
+     "id": "C275",
+     "field": "story"
+    },
+    {
+     "item": "story:C276",
+     "entity": "specimen",
+     "id": "C276",
+     "field": "story"
+    },
+    {
+     "item": "story:C277",
+     "entity": "specimen",
+     "id": "C277",
+     "field": "story"
+    },
+    {
+     "item": "story:C278",
+     "entity": "specimen",
+     "id": "C278",
+     "field": "story"
+    },
+    {
+     "item": "story:C280",
+     "entity": "specimen",
+     "id": "C280",
+     "field": "story"
+    },
+    {
+     "item": "story:C282",
+     "entity": "specimen",
+     "id": "C282",
+     "field": "story"
+    },
+    {
+     "item": "story:C283",
+     "entity": "specimen",
+     "id": "C283",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C163",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C163",
+     "field": "story",
+     "coins": [
+      "C163"
+     ],
+     "label": "C163 · Philippines · 1984 · 50 sentimo · PHP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1984 Philippine 50-sentimo coin. One side shows the Philippine eagle with its wings spread, with the bird's scientific name around the edge. Struck in cupronickel.",
+      "record": {
+       "country": "Philippines",
+       "year": "1984",
+       "denom": "50 sentimo · PHP",
+       "mint": "BSP / Philippine mint",
+       "refs": "KM#242.1 · Schön#83 · Numista#2461",
+       "metal": "cupronickel · 6.00 g · 25 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.62 mm · medal alignment · Flora and Fauna / eagle type",
+       "mintage": "121,408,000",
+       "design": "obverse portrait of Marcelo H. del Pilar left · REPUBLIKA NG PILIPINAS · reverse Philippine eagle (Pithecophaga jefferyi) flying right · 50 SENTIMO",
+       "series": "Flora and Fauna",
+       "period": "Republic of the Philippines"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C164",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C164",
+     "field": "story",
+     "coins": [
+      "C164"
+     ],
+     "label": "C164 · United Kingdom · 1932 · ½ penny · GBP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1932 British halfpenny. The front shows King George V facing left, by Bertram Mackennal; the back shows Britannia seated with her trident. Struck in bronze.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1932",
+       "denom": "½ penny · GBP",
+       "mint": "Royal Mint",
+       "refs": "KM#837 · Numista#4004",
+       "metal": "bronze · 5.67 g · 25.5 mm · plain · dark / worn circulated · white 2×2 staple flip",
+       "specs": "thickness ~1.7 mm · medal alignment · type specs shared with George V small-head halfpenny 1928–1936 (KM#837)",
+       "mintage": "14,448,000 (circulation · Royal Mint)",
+       "design": "obverse George V left (Edgar Bertram Mackennal) · reverse seated Britannia with trident · HALF PENNY + date",
+       "ruler": "George V",
+       "period": "British pre-decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C198",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C198",
+     "field": "story",
+     "coins": [
+      "C198"
+     ],
+     "label": "C198 · Netherlands · 1948 · 1 cent · NLG",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1948 Dutch 1-cent coin. The front carries the words WILHELMINA KONINGIN DER NEDERLANDEN (Wilhelmina, Queen of the Netherlands); the back shows a large 1 with the word CENT, the date and the mint marks. Struck in bronze.",
+      "record": {
+       "country": "Netherlands",
+       "year": "1948",
+       "denom": "1 cent · NLG",
+       "mint": "Utrecht",
+       "refs": "KM#175 · Schön#60 · Numista#2562",
+       "metal": "bronze · 2.00 g · 17 mm · plain · circulated / dark toning · white 2×2 staple flip",
+       "specs": "thickness unknown · coin alignment · late Wilhelmina cent",
+       "mintage": "175,000,000",
+       "design": "obverse WILHELMINA KONINGIN DER NEDERLANDEN · reverse 1 · CENT · date · fish + caduceus",
+       "ruler": "Wilhelmina",
+       "period": "Kingdom of the Netherlands"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C204",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C204",
+     "field": "story",
+     "coins": [
+      "C204"
+     ],
+     "label": "C204 · Trinidad and Tobago · 2014 · 25 cents · TTD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 2014 25-cent coin from Trinidad and Tobago. The front shows the national coat of arms, held up by a scarlet ibis and a cocrico, the two national birds, with the words REPUBLIC OF TRINIDAD AND TOBAGO; the value is on the back. Struck in cupronickel.",
+      "record": {
+       "country": "Trinidad and Tobago",
+       "year": "2014",
+       "denom": "25 cents · TTD",
+       "mint": "no mint mark (Royal Mint era; no FM)",
+       "refs": "KM#32 · Schön#31 · Numista#1159",
+       "metal": "cupronickel · 3.53 g · 20 mm · reeded · circulated / bright · white 2×2 staple flip",
+       "specs": "thickness 1.63 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse coat of arms · Scarlet Ibis + Cocrico supporters · REPUBLIC OF TRINIDAD AND TOBAGO · 2014 · reverse Chaconia flower (wild poinsettia, national flower) · 25 CENTS",
+       "period": "Republic of Trinidad and Tobago"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C223",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C223",
+     "field": "story",
+     "coins": [
+      "C223"
+     ],
+     "label": "C223 · Netherlands · 1967 · 1 gulden · NLG",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1967 Dutch 1-gulden coin. The front shows Queen Juliana; the back shows the crowned Dutch coat of arms with a lion. Struck in silver (72% fine).",
+      "record": {
+       "country": "Netherlands",
+       "year": "1967",
+       "denom": "1 gulden · NLG",
+       "mint": "Utrecht",
+       "refs": "KM#184 · Schön#68 (Ag type · last year)",
+       "metal": ".720 Ag · 6.5 g · 25 mm · reeded · circulated bright · white 2×2 staple flip · ASW ~0.150 oz",
+       "specs": "thickness ~1.8 mm · coin alignment · Juliana silver gulden (nickel KM#184a from 1968)",
+       "mintage": "7,000,000",
+       "design": "Juliana head right, JULIANA KONINGIN DER NEDERLANDEN (obv; engraver Ludwig Oswald Wenckebach) · crowned arms dividing date, 1 G, NEDERLAND (rev) · mintmaster fish mark",
+       "ruler": "Juliana",
+       "period": "Kingdom of the Netherlands"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C243",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C243",
+     "field": "story",
+     "coins": [
+      "C243"
+     ],
+     "label": "C243 · France · 1946 · 5 francs · FRF (old franc · pre-nouveau)",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1946 French 5-franc coin, struck just after the Second World War. The front shows Marianne, the symbol of France, wearing a laurel wreath, by André Lavrillier; the back shows 5 FRANCS inside a laurel wreath with the letters RF (République Française). Struck in aluminium.",
+      "record": {
+       "country": "France",
+       "year": "1946",
+       "denom": "5 francs · FRF (old franc · pre-nouveau)",
+       "mint": "Monnaie de Paris",
+       "refs": "KM#888b.1 · Schön#203b · Numista#1190",
+       "metal": "aluminum · ~3.50 g · 31 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness ~2.0 mm · coin alignment · type specs shared with Lavrillier Al 5 Fr 1945–1952 (KM#888b)",
+       "mintage": "61,332,000 (circulation · Monnaie de Paris)",
+       "design": "obverse laureate Marianne/Liberté left (André Lavrillier) · reverse RF · 5 FRANCS in laurel wreath · date · Paris cornucopia + Bazor wing",
+       "period": "Fourth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C248",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C248",
+     "field": "story",
+     "coins": [
+      "C248"
+     ],
+     "label": "C248 · Greece · 1982 · 2 drachmes · GRD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1982 2 drachmes from Greece. One side shows Georgios Karaiskakis, a commander in the Greek War of Independence; the other shows crossed rifles with a branch, ΕΛΛΗΝΙΚΗ ΔΗΜΟΚΡΑΤΙΑ, ΔΡΑΧΜΕΣ and the date 1982. Struck in nickel-brass.",
+      "record": {
+       "country": "Greece",
+       "year": "1982",
+       "denom": "2 drachmes · GRD",
+       "mint": "Athens (no letter on shown reverse)",
+       "refs": "KM#130 · Schön#140 · Numista#549",
+       "metal": "nickel-brass · 6.00 g · 24 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness unknown · coin alignment · Hellenic Republic type",
+       "mintage": "64,414,000",
+       "design": "two crossed rifles with branch, denomination and date below (obv; engraver Nikos Perantinos) · Georgios Karaiskakis portrait left (rev)",
+       "period": "Hellenic Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C263",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "story",
+     "coins": [
+      "C263"
+     ],
+     "label": "C263 · Mexico · 1950 · 25 centavos · MXN",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1950 Mexican 25-centavo coin. The back shows a balance scale and a scroll marked LEY (law) under a cap of liberty with rays of light; the front carries the national arms. Struck in silver (30% fine).",
+      "record": {
+       "country": "Mexico",
+       "year": "1950",
+       "denom": "25 centavos · MXN",
+       "mint": "Mo",
+       "refs": "KM#443 · Schön#43 · Numista#972",
+       "metal": ".300 Ag · 3.33 g · ASW ~0.0321 oz · circulated / toned · white 2×2 staple flip",
+       "specs": "diameter unknown · thickness unknown · alignment unknown",
+       "mintage": "77,060,000",
+       "design": "national arms / ESTADOS UNIDOS MEXICANOS (obv, not shown) · Balanza scales · scroll LEY · Phrygian cap rays · crossed sword · 25 · Cs. (rev)",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C266",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C266",
+     "field": "story",
+     "coins": [
+      "C266"
+     ],
+     "label": "C266 · South Korea · 2012 · 10 won · KRW",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 2012 South Korean 10-won coin. One side shows the Dabotap Pagoda, an eighth-century stone pagoda; the other shows a large 10 and the name of the Bank of Korea in Korean. Struck in copper-clad aluminium.",
+      "record": {
+       "country": "South Korea",
+       "year": "2012",
+       "denom": "10 won · KRW",
+       "mint": "Korea Minting and Security Printing (KOMSCO",
+       "refs": "KM#103 · Schön#163 · Numista#1654",
+       "metal": "copper-clad aluminium (48% Cu / 52% Al) · 1.22 g · 18 mm · plain · circulated · white 2×2 staple flip",
+       "specs": "thickness 1.2 mm · coin alignment · Dabotap / small-module redesign (2006+)",
+       "mintage": "370,000,000 (2012 circulation · Numista / Bank of Korea type data)",
+       "design": "value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse Dabotap Pagoda (십 원) · designer unknown",
+       "period": "Republic of Korea"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C267",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C267",
+     "field": "story",
+     "coins": [
+      "C267"
+     ],
+     "label": "C267 · South Korea · 2013 · 10 won · KRW",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 2013 South Korean 10-won coin. One side shows the Dabotap Pagoda, an eighth-century stone pagoda; the other shows a large 10 and the name of the Bank of Korea in Korean. Struck in copper-clad aluminium.",
+      "record": {
+       "country": "South Korea",
+       "year": "2013",
+       "denom": "10 won · KRW",
+       "mint": "Korea Minting and Security Printing (KOMSCO",
+       "refs": "KM#103 · Schön#163 · Numista#1654",
+       "metal": "copper-clad aluminium (48% Cu / 52% Al) · 1.22 g · 18 mm · plain · near-UNC to lightly circulated · bright copper/red · white 2×2 staple flip",
+       "specs": "thickness 1.2 mm · coin alignment · Dabotap / small-module redesign (2006+)",
+       "mintage": "400,000,000 (2013 circulation · Numista / Bank of Korea type data)",
+       "design": "value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse Dabotap Pagoda (십 원) · designer unknown",
+       "period": "Republic of Korea"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C272",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C272",
+     "field": "story",
+     "coins": [
+      "C272"
+     ],
+     "label": "C272 · Austria · 1925 · 2 groschen · ATS",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "An Austrian 2 groschen from 1925. One side is the federal cross with the date, the other a large 2 over the word GROSCHEN. 1925 is the year Austria introduced the schilling, and the groschen was its small change.",
+      "record": {
+       "country": "Austria",
+       "year": "1925",
+       "denom": "2 groschen · ATS",
+       "mint": "no mint mark visible",
+       "refs": "KM#2837 · Schön#40 · Numista#1944",
+       "metal": "bronze · 3.30 g · 19 mm · plain",
+       "specs": "thickness 1.41 mm · medal alignment",
+       "mintage": "29,892,000",
+       "design": "The obverse shows a thick cross with the date below and the word Oesterreich above. The reverse shows a large numeral 2 with the word Groschen.",
+       "period": "First Austrian Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C273",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C273",
+     "field": "story",
+     "coins": [
+      "C273"
+     ],
+     "label": "C273 · Germany · 2005 · 1 euro cent · EUR",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A German 1 euro cent from 2005: the oak twig that Germany kept from its old pfennig coins, ringed by the twelve EU stars. Germany's euro coins carry a mint letter, and this one is J, struck in Hamburg.",
+      "record": {
+       "country": "Germany",
+       "year": "2005",
+       "denom": "1 euro cent · EUR",
+       "mint": "J (Hamburg), from ledger request R001; not legible on the 2026-10-02 close-up",
+       "refs": "KM#207 · Schön#206 · J#482 · Numista#105",
+       "metal": "copper-plated steel · 2.30 g · 16.25 mm · plain",
+       "specs": "thickness 1.67 mm · medal alignment",
+       "mintage": "126,000,000",
+       "design": "national oak twig (Rolf Lederbogen) + 12 EU stars · common Europe globe side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C274",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C274",
+     "field": "story",
+     "coins": [
+      "C274"
+     ],
+     "label": "C274 · Mexico · 1995 · 10 centavos · MXN",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1995 Mexican 10 centavos from the nuevo peso reform series struck 1992-2009. The reverse shows a large 10¢ with the date above and the Mexico City mint mark below, framed by a border of points and beads taken from the Aztec Calendar Stone's Ring of Sacrifice. These stainless steel centavos were struck for everyday small change in the years after Mexico revalued the peso.",
+      "record": {
+       "country": "Mexico",
+       "year": "1995",
+       "denom": "10 centavos · MXN",
+       "mint": "Mexico City (Mo mint mark)",
+       "refs": "KM#547 · Schön#143 · Numista#581",
+       "metal": "stainless steel · 2.08 g · 17 mm · plain",
+       "specs": "thickness 1.33 mm · coin alignment",
+       "mintage": "560,000,000",
+       "design": "The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cactus and holding a snake in its beak, with the words Estados Unidos Mexicanos. The reverse shows stylized rays from the Aztec sun stone around the denomination and mint mark.",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C275",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C275",
+     "field": "story",
+     "coins": [
+      "C275"
+     ],
+     "label": "C275 · United Kingdom · 1992 · 5 pence · GBP",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A British five pence dated 1992, struck in cupronickel for everyday circulation. The obverse shows Raphael Maklouf's crowned portrait of Elizabeth II with the date in the legend. The reverse carries the crowned thistle design marked FIVE PENCE. The Royal Mint at Llantrisant struck about 453 million five pence coins in 1992.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1992",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint, Llantrisant (no mint mark on circulation)",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "453,173,500",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C276",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C276",
+     "field": "story",
+     "coins": [
+      "C276"
+     ],
+     "label": "C276 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 2015 one-cent coin from the Bahamas, the first Bahamian coin in the collection. The side shown carries the words COMMONWEALTH OF THE BAHAMAS and the date. The coin is heavily corroded, with green patches across the surface.",
+      "record": {
+       "country": "Bahamas",
+       "year": "2015",
+       "denom": "1 cent · BSD",
+       "mint": "no mint mark visible",
+       "refs": "Schön#190a · Numista#92216",
+       "metal": "Copper plated steel · 1.70 g · 17 mm · Plain",
+       "specs": "thickness 1 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "The obverse shows the coat of arms of The Bahamas, with a marlin and a flamingo holding a shield, and the words Commonwealth of The Bahamas with the date below. The reverse shows three starfish with the words 1 Cent.",
+       "ruler": "Elizabeth II"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C277",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C277",
+     "field": "story",
+     "coins": [
+      "C277"
+     ],
+     "label": "C277 · Bermuda · 2004 · 10 cents · BMD",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 2004 ten-cent coin from Bermuda. The side shown has the Bermuda Easter lily, with the date above it and TEN CENTS below. The other side, not photographed yet, carries Queen Elizabeth II.",
+      "record": {
+       "country": "Bermuda",
+       "year": "2004",
+       "denom": "10 cents · BMD",
+       "mint": "no mint mark visible",
+       "refs": "KM#109 · Schön#126 · Numista#3214",
+       "metal": "Copper-nickel (75 percent copper, 25 percent nickel) · 2.50 g · 17.8 mm · reeded",
+       "specs": "thickness 1.34 mm · medal alignment",
+       "mintage": "800,000",
+       "design": "The obverse shows Queen Elizabeth the Second wearing a tiara and facing right, with the words Elizabeth II Bermuda. The reverse shows a Bermuda lily flower, with the date above it and the words Ten Cents below.",
+       "ruler": "Elizabeth II"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C278",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C278",
+     "field": "story",
+     "coins": [
+      "C278"
+     ],
+     "label": "C278 · Switzerland · 1980 · 20 rappen · CHF",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1980 Swiss 20-rappen coin. The side shown has the head of Libertas, the figure of liberty, with the words CONFOEDERATIO HELVETICA (Swiss Confederation) and the date.",
+      "record": {
+       "country": "Switzerland",
+       "year": "1980",
+       "denom": "20 rappen · CHF",
+       "mint": "no mint mark on the side shown",
+       "refs": "KM#29a · Schön#26a · Y#25 · Numista#178",
+       "metal": "CuNi 75/25 · 4.00 g · 21.05 mm · plain",
+       "specs": "thickness 1.65 mm · medal alignment",
+       "mintage": "24,560,000",
+       "design": "Libertas head right (obv; designer Karl Schwenzer) · 20 in alpine rose wreath (rev; designer Carl Friedrich Voigt)",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C280",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C280",
+     "field": "story",
+     "coins": [
+      "C280"
+     ],
+     "label": "C280 · Belize · 2007 · 25 cents · BZD",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 2007 twenty-five-cent coin from Belize. The side shown has a large 25 and CENTS inside a beaded circle, with BELIZE above and the date below. The other side, not photographed yet, carries Queen Elizabeth II.",
+      "record": {
+       "country": "Belize",
+       "year": "2007",
+       "denom": "25 cents · BZD",
+       "mint": "no mint mark visible",
+       "refs": "KM#36 · Schön#6 · Numista#2238",
+       "metal": "copper-nickel (75% copper, 25% nickel) · 5.66 g · 23.6 mm · reeded",
+       "specs": "thickness 1.9 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SECOND · reverse 25 CENTS within central beaded circle and ornamental border with BELIZE above and date below · Cecil Thomas (obverse)",
+       "ruler": "Elizabeth II"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C282",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C282",
+     "field": "story",
+     "coins": [
+      "C282"
+     ],
+     "label": "C282 · Yugoslavia · 1965 · 50 para · YUD",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 1965 fifty-para coin from Yugoslavia. The side shown has a large 50 in a beaded circle, with the word para in the country's languages and Cyrillic and Latin letters around it, and the date split as 19 and 65.",
+      "record": {
+       "country": "Yugoslavia",
+       "year": "1965",
+       "denom": "50 para · YUD",
+       "mint": "no mint mark visible",
+       "refs": "KM#46.1 · Schön#42 · Numista#2006",
+       "metal": "aluminium brass (85% copper, 14.5% zinc, 0.5% aluminium) · 6.00 g · 25.5 mm · reeded",
+       "specs": "thickness 1.57 mm · medal alignment",
+       "mintage": "44,850,000",
+       "design": "obverse SFRY socialist arms with six torches within wheat sheaf · reverse numeral 50 · ПАРА / PARA · state title rim legend",
+       "period": "Socialist Federal Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C283",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C283",
+     "field": "story",
+     "coins": [
+      "C283"
+     ],
+     "label": "C283 · Germany · 2002 · 10 euro cent · EUR",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "story": "A 2002 ten-cent euro coin from Germany, from the first year of the euro. The German side shows the Brandenburg Gate in Berlin inside a ring of twelve stars, with the date and the D of the Munich mint below.",
+      "record": {
+       "country": "Germany",
+       "year": "2002",
+       "denom": "10 euro cent · EUR",
+       "mint": "D",
+       "refs": "KM#210 · Schön#209 · J#485 · Numista#108",
+       "metal": "Nordic gold (Cu89Al5Zn5Sn1) · 4.10 g · 19.75 mm · reeded (fine scallops)",
+       "specs": "thickness 1.93 mm · medal alignment",
+       "mintage": "721,950,000",
+       "design": "national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261028-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-10-28T01:24:01Z",
+   "lease_until": "2026-11-04T01:24:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0090",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "issue.year"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0090",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "issue.year",
+     "coins": [
+      "C220"
+     ],
+     "label": "D0090 C220 issue.year",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": 1982
+      },
+      "claim": {
+       "value": 1975,
+       "by": "model:claude",
+       "source": "read blind from photo photos/p1/C220_rev.webp (Claude spot check, full size)",
+       "ts": "2026-10-21T09:02:35Z"
+      }
      },
      "blind": false,
      "inputs": []
