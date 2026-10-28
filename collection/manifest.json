@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "359f6cb1ae4fce2bf75365d9922da68babcb50b0d4dae361dbabfb370bcce0cc",
+ "content_hash": "0702403eded7e57e73ba7974dbaef1dd93b3312fecef9b5324d0ab820e7a6990",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -121,6 +121,11 @@
    "path": "prices/spot_daily.jsonl",
    "sha256": "b9dc68653b071b4df5450af8d7cd31c9769d29cee529f7fe10d43bba3404093b",
    "bytes": 8198
+  },
+  {
+   "path": "prices/wants_values_gemini_20261024-1910.json",
+   "sha256": "813dda474cc50d9600823db468e53e2e7bb0f190a7aa4729b357b436d2829637",
+   "bytes": 928571
   },
   {
    "path": "prices/wants_values_grok_20261010-1949.json",
