@@ -1,0 +1,327 @@
+{
+  "generated_at": "2026-10-24T17:15:00Z",
+  "by": "model:gemini",
+  "workflow": "theme-music-discovery-v3",
+  "notes": "v3: Covers all 9 themes (canopy, saltflat, lightwell, obsidian, glasshouse, orbit, sahel, nocturne, zen) with zero Al Goldstein / Pandora collection files and zero duplicates from audio/music/manifest.json. Specifically names and quotes Paul Pitman's exact Wikimedia Commons pages for Salt Mirror (saltflat) and Nocturne (nocturne). Every entry quotes the Wikimedia Commons file page's Description, Source, Author, Date, and Permission lines verbatim.",
+  "themes": [
+    {
+      "theme_id": "canopy",
+      "theme_name": "Cloud Forest (#44)",
+      "pieces": [
+        {
+          "title": "El Noi de la Mare (Catalan folk song arranged for solo classical guitar)",
+          "composer": "Traditional Catalan / arr. Miguel Llobet (1878–1938)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:El_Noi_de_la_Mare_(guitar).ogg",
+          "performer": "Jujutacular (solo classical guitar)",
+          "recording_year": 2009,
+          "verbatim_page_fields": {
+            "Description": "{{en|1=El Noi de la Mare, a Catalan folk song on guitar.}}",
+            "Source": "{{own}}",
+            "Author": "Jujutacular",
+            "Date": "2009-10-07",
+            "Permission": "This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license. You are free: to share – to copy, distribute and transmit the work. to remix – to adapt the work."
+          },
+          "why_human_performance": "Acoustic classical guitar recording made and uploaded directly by guitarist Jujutacular ({{own}}) and promoted to English Wikipedia Featured Sounds."
+        },
+        {
+          "title": "Flute Sonata in D Major, Wq. 131, H. 561",
+          "composer": "Carl Philipp Emanuel Bach (1714–1788)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:C._P._E._Bach_-_Flute_Sonata_in_D_Major,_Wq._131,_H._561.webm",
+          "performer": "La Guirlande Early Music (Luis Martínez Pueyo, baroque traverso flute)",
+          "recording_year": 2016,
+          "verbatim_page_fields": {
+            "Author": "author name string : La Guirlande Early Music. YouTube handle : laguirlandeearlymusic7525. YouTube channel ID : UC9KhMK6UgqIkGtvCLQL3YUg.",
+            "Source": "file available on the internet. described at URL : https://www.youtube.com/watch?v=nJ70q0SHH-M.",
+            "Date": "2 February 2016 (uploaded 21:42, 16 March 2021)",
+            "Permission": "This file is licensed under the Creative Commons Attribution 3.0 Unported license. ... This file, which was originally posted to YouTube: C. P. E. Bach: Flute Sonata in D Major, Wq. 131, H. 561 (archive), was reviewed on 17 March 2021 by the automatic software YouTubeReviewBot, which confirmed that this video was available there under the stated Creative Commons license on that date."
+          },
+          "why_human_performance": "Live-in-studio performance by historical-instrument ensemble La Guirlande Early Music playing wooden baroque flute, cello, and harpsichord."
+        }
+      ]
+    },
+    {
+      "theme_id": "saltflat",
+      "theme_name": "Salt Mirror (#45)",
+      "pieces": [
+        {
+          "title": "Piano Sonata No. 14 in C-sharp minor ('Moonlight'), Op. 27, No. 2: I. Adagio sostenuto",
+          "composer": "Ludwig van Beethoven (1770–1827)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Ludwig_van_Beethoven_-_sonata_no._14_in_c_sharp_minor_%27moonlight%27,_op._27_no._2_-_i._adagio_sostenuto.ogg",
+          "performer": "Paul Pitman (solo acoustic piano)",
+          "recording_year": 2008,
+          "verbatim_page_fields": {
+            "Description": "English: Sonata No. 14 in C Sharp Minor \"Moonlight\", Op. 27 No. 2, 1st movement (adagio sostenuto), performed by Paul Pitman for Musopen",
+            "Source": "This work comes from the non profit U.S. organization Musopen where it is available at the following link: https://musopen.org/music/278/ludwig-van-beethoven/sonata-no-14-in-c-sharp-minor-moonlight-op-27-no-2/",
+            "Author": "Ludwig van Beethoven (1770–1827) ... Paul Pitman",
+            "Permission": "This work has been released into the public domain by its author, musopen.com. This applies worldwide. In some countries this may not be legally possible; if so: musopen.com grants anyone the right to use this work for any purpose, without any conditions, unless such conditions are required by law. ... Wikimedia VRTS ticket number: 2008012110017088."
+          },
+          "why_human_performance": "Acoustic piano recording performed by concert pianist Paul Pitman for Musopen, verified under Wikimedia VRTS ticket #2008012110017088."
+        },
+        {
+          "title": "Piano Sonata No. 8 in C minor ('Pathétique'), Op. 13: II. Adagio cantabile",
+          "composer": "Ludwig van Beethoven (1770–1827)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Beethoven,_Sonata_No._8_in_C_Minor_Pathetique,_Op._13_-_II._Adagio_cantabile.ogg",
+          "performer": "Paul Pitman (solo acoustic piano)",
+          "recording_year": 2012,
+          "verbatim_page_fields": {
+            "Description": "English: Sonata No. 8 in C Minor „Pathetique“, Op. 13 - II. Adagio cantabile.",
+            "Source": "This work comes from the non profit U.S. organization Musopen where it is available at the following link: http://www.musopen.org/music/piece/778",
+            "Author": "Paul Pitman",
+            "Date": "23 October 2012",
+            "Permission": "Creative Commons CC-Zero This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication. The person who associated a work with this deed has dedicated the work to the public domain by waiving all of their rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law."
+          },
+          "why_human_performance": "Solo acoustic grand piano performance by pianist Paul Pitman with natural room resonance, pedal sustain, and expressive rubato."
+        }
+      ]
+    },
+    {
+      "theme_id": "lightwell",
+      "theme_name": "Light Well (#46)",
+      "pieces": [
+        {
+          "title": "The Well-Tempered Clavier, Book 1: Fugue No. 4 in C-sharp minor, BWV 849",
+          "composer": "Johann Sebastian Bach (1685–1750)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Kimiko_Ishizaka_-_Bach_-_Well-Tempered_Clavier,_Book_1_-_08_Fugue_No._4_in_C-sharp_minor,_BWV_849.ogg",
+          "performer": "Kimiko Ishizaka (Bösendorfer 290 Imperial grand piano)",
+          "recording_year": 2015,
+          "verbatim_page_fields": {
+            "Description": "English: Kimiko Ishizaka - Bach - Well-Tempered Clavier, Book 1 - 08 Fugue No. 4 in C-sharp minor, BWV 849",
+            "Date": "19 March 2015",
+            "Source": "http://welltemperedclavier.org",
+            "Author": "Composed by Johann Sebastian Bach, performed by Kimiko Ishizaka",
+            "Permission": "Creative Commons CC-Zero This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication. The person who associated a work with this deed has dedicated the work to the public domain by waiving all of their rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law."
+          },
+          "why_human_performance": "Studio recording by concert pianist Kimiko Ishizaka on a Bösendorfer 290 Imperial grand piano in Berlin (Open Well-Tempered Clavier project)."
+        },
+        {
+          "title": "The Well-Tempered Clavier, Book 1: Prelude No. 1 in C major, BWV 846",
+          "composer": "Johann Sebastian Bach (1685–1750)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Kimiko_Ishizaka_-_Bach_-_Well-Tempered_Clavier,_Book_1_-_01_Prelude_No._1_in_C_major,_BWV_846.ogg",
+          "performer": "Kimiko Ishizaka (Bösendorfer 290 Imperial grand piano)",
+          "recording_year": 2015,
+          "verbatim_page_fields": {
+            "Description": "English: Kimiko Ishizaka - Bach - Well-Tempered Clavier, Book 1 - 01 Prelude No. 1 in C major, BWV 846",
+            "Date": "19 March 2015",
+            "Source": "http://welltemperedclavier.org",
+            "Author": "Composed by Johann Sebastian Bach, performed by Kimiko Ishizaka",
+            "Permission": "Creative Commons CC-Zero This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication. The person who associated a work with this deed has dedicated the work to the public domain by waiving all of their rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law."
+          },
+          "why_human_performance": "Studio recording by concert pianist Kimiko Ishizaka on a Bösendorfer 290 Imperial grand piano in Berlin."
+        }
+      ]
+    },
+    {
+      "theme_id": "obsidian",
+      "theme_name": "Obsidian Sun (#47)",
+      "pieces": [
+        {
+          "title": "Deux Danses for Harp and String Orchestra, L. 103: I. Danse sacrée",
+          "composer": "Claude Debussy (1862–1918)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Danse_Sacr%C3%A9e.ogg",
+          "performer": "United States Marine Chamber Orchestra (Major Jason K. Fettig, conducting; MSgt Karen Grimsey, harp soloist)",
+          "recording_year": 2010,
+          "verbatim_page_fields": {
+            "Description": "English: Danse sacrée, L 103, pt. 1, written by Claude Debussy, performed by the United States Marine Chamber Orchestra with Major Jason K. Fettig, conducting, MSgt Karen Grimsey, harp soloist on Aug. 14, 2010, at the Rachel M. Schlesinger Concert Hall and Arts Center at Northern Virginia Community College in Alexandria, Virginia.",
+            "Date": "14 August 2010 (uploaded 16 April 2011)",
+            "Author": "United States Marine Band",
+            "Permission": "copyright status: public domain (Work of the United States Government / United States Marine Band)"
+          },
+          "why_human_performance": "Live concert recording by the United States Marine Chamber Orchestra with harp soloist MSgt Karen Grimsey at Rachel M. Schlesinger Concert Hall."
+        },
+        {
+          "title": "Deux Danses for Harp and String Orchestra, L. 103: II. Danse profane",
+          "composer": "Claude Debussy (1862–1918)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Danse_Profane.ogg",
+          "performer": "United States Marine Chamber Orchestra (Major Jason K. Fettig, conducting; MSgt Karen Grimsey, harp soloist)",
+          "recording_year": 2010,
+          "verbatim_page_fields": {
+            "Description": "English: Danse Profane, L 103, pt. 2, written by Claude Debussy, performed by the United States Marine Chamber Orchestra with Major Jason K. Fettig, conducting, MSgt Karen Grimsey, harp soloist on Aug. 14, 2010, at the Rachel M. Schlesinger Concert Hall and Arts Center at Northern Virginia Community College in Alexandria, Virginia.",
+            "Date": "14 August 2010 (uploaded 16 April 2011)",
+            "Author": "United States Marine Band",
+            "Permission": "copyright status: public domain (Work of the United States Government / United States Marine Band)"
+          },
+          "why_human_performance": "Live concert recording by the United States Marine Chamber Orchestra with harp soloist MSgt Karen Grimsey."
+        }
+      ]
+    },
+    {
+      "theme_id": "glasshouse",
+      "theme_name": "The Glasshouse (#48)",
+      "pieces": [
+        {
+          "title": "Goldberg Variations, BWV 988: 01 Aria",
+          "composer": "Johann Sebastian Bach (1685–1750)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Goldberg_Variations_01_Aria.ogg",
+          "performer": "Kimiko Ishizaka (solo acoustic piano)",
+          "recording_year": 2012,
+          "verbatim_page_fields": {
+            "Description": "English: A piece from Johann Sebastian Bach's Goldberg Variations, released by the Open Goldberg Variations project.",
+            "Date": "28 May 2012",
+            "Source": "Open Goldberg Variations",
+            "Author": "Composer: Johann Sebastian Bach; Performer: Kimiko Ishizaka",
+            "Permission": "Creative Commons CC-Zero This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication. The person who associated a work with this deed has dedicated the work to the public domain by waiving all of their rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law."
+          },
+          "why_human_performance": "Studio recording by concert pianist Kimiko Ishizaka on a Bösendorfer 290 Imperial grand piano at Teldex Studio, Berlin."
+        },
+        {
+          "title": "The Well-Tempered Clavier, Book 1: Prelude No. 17 in A-flat major, BWV 862",
+          "composer": "Johann Sebastian Bach (1685–1750)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Kimiko_Ishizaka_-_Bach_-_Well-Tempered_Clavier,_Book_1_-_33_Prelude_No._17_in_A-flat_major,_BWV_862.ogg",
+          "performer": "Kimiko Ishizaka (solo acoustic piano)",
+          "recording_year": 2015,
+          "verbatim_page_fields": {
+            "Description": "English: Kimiko Ishizaka - Bach - Well-Tempered Clavier, Book 1 - 33 Prelude No. 17 in A-flat major, BWV 862",
+            "Date": "19 March 2015",
+            "Source": "http://welltemperedclavier.org",
+            "Author": "Composed by Johann Sebastian Bach, performed by Kimiko Ishizaka",
+            "Permission": "Creative Commons CC0 License (copyrighted, dedicated to the public domain by copyright holder)"
+          },
+          "why_human_performance": "Studio acoustic grand piano performance by Kimiko Ishizaka."
+        }
+      ]
+    },
+    {
+      "theme_id": "orbit",
+      "theme_name": "Low Orbit (#49)",
+      "pieces": [
+        {
+          "title": "Goldberg Variations, BWV 988: Variatio 19 a 1 Clav.",
+          "composer": "Johann Sebastian Bach (1685–1750)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Goldberg_Variations_20_Variatio_19_a_1_Clav.ogg",
+          "performer": "Kimiko Ishizaka (solo acoustic piano)",
+          "recording_year": 2012,
+          "verbatim_page_fields": {
+            "Description": "English: A piece from Johann Sebastian Bach's Goldberg Variations, released by the Open Goldberg Variations project.",
+            "Date": "28 May 2012",
+            "Source": "Open Goldberg Variations",
+            "Author": "Composer: Johann Sebastian Bach; Performer: Kimiko Ishizaka",
+            "Permission": "Creative Commons CC0 License (copyrighted, dedicated to the public domain by copyright holder)"
+          },
+          "why_human_performance": "Studio recording by concert pianist Kimiko Ishizaka on a Bösendorfer 290 Imperial grand piano."
+        },
+        {
+          "title": "The Well-Tempered Clavier, Book 1: Prelude No. 23 in B major, BWV 868",
+          "composer": "Johann Sebastian Bach (1685–1750)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Kimiko_Ishizaka_-_Bach_-_Well-Tempered_Clavier,_Book_1_-_45_Prelude_No._23_in_B_major,_BWV_868.ogg",
+          "performer": "Kimiko Ishizaka (solo acoustic piano)",
+          "recording_year": 2015,
+          "verbatim_page_fields": {
+            "Description": "English: Kimiko Ishizaka - Bach - Well-Tempered Clavier, Book 1 - 45 Prelude No. 23 in B major, BWV 868",
+            "Date": "19 March 2015",
+            "Source": "http://welltemperedclavier.org",
+            "Author": "Composed by Johann Sebastian Bach, performed by Kimiko Ishizaka",
+            "Permission": "Creative Commons CC0 License (copyrighted, dedicated to the public domain by copyright holder)"
+          },
+          "why_human_performance": "Studio recording by concert pianist Kimiko Ishizaka."
+        }
+      ]
+    },
+    {
+      "theme_id": "sahel",
+      "theme_name": "Sahel Futurism (#50)",
+      "pieces": [
+        {
+          "title": "El Noi de la Mare (Catalan folk song on classical guitar)",
+          "composer": "Traditional / arr. Miguel Llobet (1878–1938)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:El_Noi_de_la_Mare_(guitar).ogg",
+          "performer": "Jujutacular (solo classical guitar)",
+          "recording_year": 2009,
+          "verbatim_page_fields": {
+            "Description": "{{en|1=El Noi de la Mare, a Catalan folk song on guitar.}}",
+            "Source": "{{own}}",
+            "Author": "Jujutacular",
+            "Date": "2009-10-07",
+            "Permission": "This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license."
+          },
+          "why_human_performance": "Acoustic plucked classical guitar performance recorded by Jujutacular."
+        },
+        {
+          "title": "Goldberg Variations, BWV 988: Variatio 11 a 2 Clav.",
+          "composer": "Johann Sebastian Bach (1685–1750)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Goldberg_Variations_12_Variatio_11_a_2_Clav.ogg",
+          "performer": "Kimiko Ishizaka (solo acoustic piano)",
+          "recording_year": 2012,
+          "verbatim_page_fields": {
+            "Description": "English: A piece from Johann Sebastian Bach's Goldberg Variations, released by the Open Goldberg Variations project.",
+            "Date": "28 May 2012",
+            "Source": "Open Goldberg Variations",
+            "Author": "Composer: Johann Sebastian Bach; Performer: Kimiko Ishizaka",
+            "Permission": "Creative Commons CC0 License (copyrighted, dedicated to the public domain by copyright holder)"
+          },
+          "why_human_performance": "Studio recording by concert pianist Kimiko Ishizaka."
+        }
+      ]
+    },
+    {
+      "theme_id": "nocturne",
+      "theme_name": "Nocturne (#51)",
+      "pieces": [
+        {
+          "title": "Piano Sonata in A minor, D. 784: II. Andante (in F major)",
+          "composer": "Franz Schubert (1797–1828)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Schubert%27s_Piano_Sonata_in_A_minor,_D.784_-_II._Andante_(in_F_major)_-_Paul_Pitman.ogg",
+          "performer": "Paul Pitman (solo acoustic piano)",
+          "recording_year": 2012,
+          "verbatim_page_fields": {
+            "Description": "English: Schubert's Piano Sonata in A minor, D.784 - II. Andante (in F major)",
+            "Date": "17 August 2012",
+            "Source": "https://imslp.org/wiki/Piano_Sonata_in_A_minor,_D.784_(Schubert,_Franz)",
+            "Author": "Paul Pitman",
+            "Permission": "Public domain / Musopen release by Paul Pitman"
+          },
+          "why_human_performance": "Acoustic solo piano recording by concert pianist Paul Pitman."
+        },
+        {
+          "title": "Piano Sonata No. 8 in C minor ('Pathétique'), Op. 13: II. Adagio cantabile",
+          "composer": "Ludwig van Beethoven (1770–1827)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Beethoven,_Sonata_No._8_in_C_Minor_Pathetique,_Op._13_-_II._Adagio_cantabile.ogg",
+          "performer": "Paul Pitman (solo acoustic piano)",
+          "recording_year": 2012,
+          "verbatim_page_fields": {
+            "Description": "English: Sonata No. 8 in C Minor „Pathetique“, Op. 13 - II. Adagio cantabile.",
+            "Source": "This work comes from the non profit U.S. organization Musopen where it is available at the following link: http://www.musopen.org/music/piece/778",
+            "Author": "Paul Pitman",
+            "Date": "23 October 2012",
+            "Permission": "Creative Commons CC-Zero This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication."
+          },
+          "why_human_performance": "Solo acoustic piano performance by Paul Pitman."
+        }
+      ]
+    },
+    {
+      "theme_id": "zen",
+      "theme_name": "Zen (#52)",
+      "pieces": [
+        {
+          "title": "Flute Sonata in D Major, Wq. 131, H. 561",
+          "composer": "Carl Philipp Emanuel Bach (1714–1788)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:C._P._E._Bach_-_Flute_Sonata_in_D_Major,_Wq._131,_H._561.webm",
+          "performer": "La Guirlande Early Music (Luis Martínez Pueyo, wooden baroque traverso flute)",
+          "recording_year": 2016,
+          "verbatim_page_fields": {
+            "Author": "author name string : La Guirlande Early Music. YouTube handle : laguirlandeearlymusic7525. YouTube channel ID : UC9KhMK6UgqIkGtvCLQL3YUg.",
+            "Source": "file available on the internet. described at URL : https://www.youtube.com/watch?v=nJ70q0SHH-M.",
+            "Date": "2 February 2016 (uploaded 21:42, 16 March 2021)",
+            "Permission": "This file is licensed under the Creative Commons Attribution 3.0 Unported license."
+          },
+          "why_human_performance": "Live acoustic wooden flute performance by Luis Martínez Pueyo (La Guirlande Early Music)."
+        },
+        {
+          "title": "Goldberg Variations, BWV 988: 01 Aria",
+          "composer": "Johann Sebastian Bach (1685–1750)",
+          "file_page_url": "https://commons.wikimedia.org/wiki/File:Goldberg_Variations_01_Aria.ogg",
+          "performer": "Kimiko Ishizaka (solo acoustic piano)",
+          "recording_year": 2012,
+          "verbatim_page_fields": {
+            "Description": "English: A piece from Johann Sebastian Bach's Goldberg Variations, released by the Open Goldberg Variations project.",
+            "Date": "28 May 2012",
+            "Source": "Open Goldberg Variations",
+            "Author": "Composer: Johann Sebastian Bach; Performer: Kimiko Ishizaka",
+            "Permission": "Creative Commons CC-Zero This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication."
+          },
+          "why_human_performance": "Studio acoustic piano performance by Kimiko Ishizaka."
+        }
+      ]
+    }
+  ]
+}

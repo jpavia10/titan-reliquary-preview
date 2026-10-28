@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "agent": "gemini",
+    "generated_at": "2026-10-24T18:15:00Z",
+    "task": "Fix list #83 — Find real human recordings for the 19 wanted pieces + 9 Gemini themes (v4)",
+    "rules_verified": [
+      "Opened each Wikimedia Commons File: page directly and quoted Author, Source, and Permission verbatim.",
+      "Zero Al Goldstein / Pandora Music repository files (explicitly rejected Saint-Saens 07 Aquarium for Pandora source).",
+      "Zero MIDI, SoundFont, Finale, or sample-library renderings (explicitly rejected Mozart K. 608 Arachno SoundFont, Haydn Finale 2007, Debussy Nuages VPO digital samples, and Kevin MacLeod Sugar Plum synth).",
+      "Zero post-1925 disc transfers claimed as PD (explicitly rejected 1942 Pierre Monteux Scheherazade 78rpm transfer)."
+    ]
+  },
+  "wanted_19_pieces": [
+    {
+      "piece_id": "grieg_wedding_day_at_troldhaugen",
+      "work": "Edvard Grieg — Lyric Pieces, Book VIII, Op. 65, No. 6: Wedding Day at Troldhaugen (Bryllupsdag på Troldhaugen)",
+      "status": "found",
+      "performer": "Edvard Grieg (piano, recorded 1903 in Paris for Gramophone & Typewriter Ltd.)",
+      "recording_date": "1903",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Grieg%2Bplays%2BGrieg%2BWedding%2BDay%2B(1903).ogg",
+      "quoted_fields": {
+        "Description": "English: \"Wedding Day at Troldhaugen\", played by Edvard Grieg; recorded 1903. Original tape.",
+        "Author": "Edvard Grieg (1843–1907)",
+        "Source": "pd",
+        "Permission": "This work is in the public domain in its country of origin and other countries and areas where the copyright term is the author's life plus 100 years or fewer. Published prior to January 1, 1926 (recorded 1903)."
+      }
+    },
+    {
+      "piece_id": "wagner_ride_of_the_valkyries",
+      "work": "Richard Wagner — Die Walküre, Act III Prelude: Ride of the Valkyries",
+      "status": "found",
+      "performer": "American Symphony Orchestra (recorded December 1921 for Edison Records, Edison Diamond Disc 80638-R, Matrix 7846-B-1-6, NPS object catalog number: EDIS 41877)",
+      "recording_date": "1921-12",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Richard_Wagner_-_Ride_of_the_Valkyries.ogg",
+      "quoted_fields": {
+        "Description": "English: \"The Ride of the Valkyries\" from Richard Wagner's 1870 opera Die Walküre, the second opera in the sequence Der Ring des Nibelungen. Performed by the American Symphony Orchestra for Edison Records. This is Edison Diamond Disc 80638-R, Matrix 7846-B-1-6, NPS object catalog number: EDIS 41877",
+        "Author": "Richard Wagner (1813–1883) / American Symphony Orchestra",
+        "Source": "Park Service Menlo Park site, Classical Music collection",
+        "Permission": "Sound recordings that were first published prior to January 1, 1926 are in the public domain in the United States. For Edison Records recordings that were published before 1926 and that do not incorporate preexisting copyrighted material, the template {{PD-US-record-expired}} may be applicable."
+      }
+    },
+    {
+      "piece_id": "satie_gnossienne_no_3",
+      "work": "Erik Satie — Gnossienne No. 3",
+      "status": "found",
+      "performer": "La Pianista (piano)",
+      "recording_date": "2010-11-16",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Gnossienne_3_(Satie).ogg",
+      "quoted_fields": {
+        "Description": "English: French composer Erik Satie created several works for the piano entitled Gnossienne. This is the third piece in a set of three published in 1893, and the third piece of what ultimately became seven works that shared the name Gnossienne. This rendition was performed by the La Pianista.",
+        "Author": "Composer: Erik Satie; Performer: La Pianista",
+        "Source": "Own work.",
+        "Permission": "This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license."
+      }
+    },
+    {
+      "piece_id": "joplin_the_entertainer",
+      "work": "Scott Joplin — The Entertainer (1902)",
+      "status": "found",
+      "performer": "Gnissah (piano)",
+      "recording_date": "2024-12-01",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Scott_Joplin_-_The_Entertainer_(1902).ogg",
+      "quoted_fields": {
+        "Description": "English: Scott Joplin - The Entertainer (1902)",
+        "Author": "Gnissah",
+        "Source": "Own work",
+        "Permission": "This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license."
+      }
+    },
+    {
+      "piece_id": "beethoven_pastoral_iv_thunderstorm",
+      "work": "Ludwig van Beethoven — Symphony No. 6 in F major, Op. 68 'Pastoral', IV. Allegro (Gewitter, Sturm)",
+      "status": "found",
+      "performer": "Skidmore College Orchestra (Musopen public domain release, VRT ticket #2008012110017088)",
+      "recording_date": "2007-10-30",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Ludwig_van_Beethoven_-_symphony_no._6_in_f_major_%27pastoral%27,_op._68_-_iv._allegro.ogg",
+      "quoted_fields": {
+        "Description": "English: Symphony No. 6 in F major (Op. 68) - 4th movement, composed by Ludwig van Beethoven.",
+        "Author": "Ludwig van Beethoven (1770–1827) / Musopen",
+        "Source": "Musopen",
+        "Permission": "This work has been released into the public domain by its author, Musopen. This applies worldwide. The Wikimedia Foundation has received an e-mail confirming that the copyright holder has approved publication under the terms mentioned on this page. This correspondence has been reviewed by a Volunteer Response Team (VRT) member and stored in our permission archive. The correspondence is available to trusted volunteers as ticket #2008012110017088."
+      }
+    },
+    {
+      "piece_id": "zen_shakuhachi_honkyoku",
+      "work": "Traditional — Shakuhachi Honkyoku (solo bamboo flute)",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"shakuhachi\" OR \"honkyoku\" ogg OR flac",
+        "Checked File:Shakuhachi-flute-440Hz.ogg (only an 8.6s single-note pitch sample) and File:Shikanotoone_new.ogg (Japanese neighboring-rights tag without US PD or CC license)."
+      ]
+    },
+    {
+      "piece_id": "samadhi_bansuri_raga",
+      "work": "Classical Indian Raga on Bansuri",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"bansuri\" ogg OR flac",
+        "No full human raga recording with named performer and verified CC0/PD/CC-BY/CC-BY-SA license found on Wikimedia Commons."
+      ]
+    },
+    {
+      "piece_id": "silkroad_oud_taqsim",
+      "work": "Traditional Middle Eastern — Taqsim on solo Oud",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"oud\" OR \"taqsim\" ogg OR flac",
+        "No full solo oud taqsim recording with named human performer and open license found on Wikimedia Commons."
+      ]
+    },
+    {
+      "piece_id": "kintsugi_koto",
+      "work": "Yatsuhashi Kengyo / Traditional — Rokudan no Shirabe or Sakura on solo Koto",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"koto\" \"Sakura\" OR \"Rokudan\" ogg OR flac",
+        "No full human solo koto performance with US-valid open license found on Wikimedia Commons."
+      ]
+    },
+    {
+      "piece_id": "sibelius_finlandia_or_valse_triste",
+      "work": "Jean Sibelius — Finlandia, Op. 26 or Valse triste, Op. 44, No. 1",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Finlandia\" OR \"Valse triste\" Sibelius ogg OR flac",
+        "Sibelius died in 1957 (copyrighted in EU/EEA until 2028); no qualifying US-PD or CC-licensed full human orchestral recording hosted on Wikimedia Commons."
+      ]
+    },
+    {
+      "piece_id": "saint_saens_aquarium",
+      "work": "Camille Saint-Saëns — Le Carnaval des animaux: VII. Aquarium",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Carnaval des animaux\" OR \"Aquarium\" Saint-Saens ogg OR flac",
+        "Inspected File:Saint-Saens_-_The_Carnival_of_the_Animals_-_07_Aquarium.ogg (Neil and Nancy O'Doan, Seattle Youth Symphony) — disqualified because its Source is 'The Al Goldstein collection in the Pandora Music repository at ibiblio.org'."
+      ]
+    },
+    {
+      "piece_id": "debussy_nuages",
+      "work": "Claude Debussy — Nocturnes, L. 91: I. Nuages",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Debussy\" \"Nuages\" ogg OR flac",
+        "Inspected File:Debussy_Nocturnes1Nuages_VPO.ogg — disqualified because its Summary states 'Created with digital samples on a PC' (Vienna Symphonic Library virtual orchestra, not a human orchestral recording)."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_sugar_plum_fairy",
+      "work": "Pyotr Ilyich Tchaikovsky — The Nutcracker Suite, Op. 71a: Dance of the Sugar Plum Fairy",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Sugar Plum\" Tchaikovsky ogg OR flac",
+        "Inspected File:Sugar_Plum_Dark_Mix_(Kevin_MacLeod)_(ISRC_USUAN1100623).oga (disqualified: synthesizer mix) and File:Tchaikovsky_-_Dance_of_the_Sugar_Plum_Fairy_-_The_Nutcracker.ogg (disqualified: sourced from an unnamed 'Free Classical Music on YouTube' channel with no named human orchestra/conductor)."
+      ]
+    },
+    {
+      "piece_id": "tchaikovsky_reed_flutes",
+      "work": "Pyotr Ilyich Tchaikovsky — The Nutcracker Suite, Op. 71a: Dance of the Reed Flutes (Danse des mirlitons)",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Mirlitons\" OR \"Reed Flutes\" Tchaikovsky ogg OR flac",
+        "No standalone human orchestral recording with verified performer and license found on Wikimedia Commons."
+      ]
+    },
+    {
+      "piece_id": "rimsky_korsakov_scheherazade_i",
+      "work": "Nikolai Rimsky-Korsakov — Scheherazade, Op. 35: I. The Sea and Sinbad's Ship",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Scheherazade\" Rimsky-Korsakov ogg OR flac",
+        "Inspected File:Rimsky-Korsakov._Scheherazade,_Symphonic_Suite,_Op._35_-_01_The_Sea_And_Sinbads_Ship.ogg (San Francisco Symphony Orchestra conducted by Pierre Monteux, violin solo Naoum Blinder) — disqualified because it was recorded March 3 & 4, 1942 (Victor DM-920), which is post-1925 and not public domain in the US under the pre-1926 disc transfer rule."
+      ]
+    },
+    {
+      "piece_id": "dukas_sorcerers_apprentice",
+      "work": "Paul Dukas — The Sorcerer's Apprentice (L'Apprenti sorcier)",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Sorcerer's Apprentice\" OR \"Apprenti sorcier\" Dukas ogg OR flac",
+        "Inspected File:Apprentice.ogg — disqualified because it is a symphonic organ arrangement/rendering by FortunateTheognis rather than the orchestral work."
+      ]
+    },
+    {
+      "piece_id": "mozart_fantasia_k608",
+      "work": "Wolfgang Amadeus Mozart — Fantasia in F minor for Mechanical Organ, K. 608",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Mozart\" \"608\" ogg OR flac",
+        "Inspected File:W._A._Mozart_-_Fantasia_in_f_minor_for_mechanical_organ_K_608.ogg — disqualified because its Description states 'Rendered by Arachno SoundFont synthesizer 1.0.sf2 on church organ'."
+      ]
+    },
+    {
+      "piece_id": "haydn_musical_clock_hob_xix",
+      "work": "Joseph Haydn — Pieces for Musical Clock (Flötenuhr), Hob. XIX",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Haydn\" \"Flötenuhr\" OR \"musical clock\" OR \"XIX\" ogg OR flac",
+        "Inspected File:Musical_clock_haydn_wachtelschlag.ogg — disqualified because its Source states 'eigene Einspielung mit Finale 2007' (software rendering)."
+      ]
+    },
+    {
+      "piece_id": "debussy_golliwoggs_cakewalk",
+      "work": "Claude Debussy — Children's Corner, L. 113: VI. Golliwogg's Cakewalk",
+      "status": "not_found",
+      "searched": [
+        "site:commons.wikimedia.org \"File:\" \"Golliwogg\" Debussy ogg OR flac",
+        "Inspected Category:Children's_Corner_(Debussy) — Claude_Debussy_-_Children's_Corner.ogg is from the Pandora/Al Goldstein collection (disqualified)."
+      ]
+    }
+  ]
+}
