@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Titan Reliquary v3 · Milestone M2 (Physical Whitman Albums & Missing-Year Finder)</title>
+<style>
+  @font-face {
+    font-family: "Fraunces";
+    src: url("../../../fonts/Fraunces-Variable.woff2") format("woff2");
+    font-weight: 300 800;
+    font-display: swap;
+  }
+  :root {
+    --bg: #07090d;
+    --surface: rgba(16, 21, 30, 0.88);
+    --surface-solid: #10151e;
+    --surface2: rgba(24, 32, 45, 0.92);
+    --ink: #f1f5fa;
+    --muted: #b8c5d6;
+    --faint: #8e9fb5;
+    --gold: #e6c36a;
+    --gold-deep: #8c6e26;
+    --on-gold: #0b0904;
+    --ok: #84e3a8;
+    --ref: #96c4ff;
+    --photo: #f0c96d;
+    --guess: #ffab91;
+    --line: rgba(230, 195, 106, 0.24);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.5;
+    overflow: hidden; user-select: none; -webkit-font-smoothing: antialiased;
+  }
+  #glStage {
+    position: fixed; inset: 0; width: 100vw; height: 100vh;
+    display: block; z-index: 1; touch-action: none; cursor: grab;
+  }
+  #glStage:active { cursor: grabbing; }
+  #labelsLayer {
+    position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden;
+  }
+  .cluster-label {
+    position: absolute; transform: translate(-50%, -100%);
+    background: rgba(10, 14, 20, 0.82); border: 1px solid var(--line);
+    color: var(--gold); padding: 3px 10px; border-radius: 999px;
+    font-size: 16px; font-weight: 600; white-space: nowrap;
+    text-shadow: 0 1px 3px #000; pointer-events: auto; cursor: pointer;
+  }
+  .top-hud {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    padding: max(10px, env(safe-area-inset-top)) 16px 10px;
+    background: linear-gradient(180deg, rgba(7,9,13,0.95) 0%, rgba(7,9,13,0.75) 75%, transparent 100%);
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+    pointer-events: none;
+  }
+  .top-hud > * { pointer-events: auto; }
+  .brand-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .brand-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); }
+  .live-pill {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 12px; font-size: 16px; color: var(--muted);
+  }
+  .live-pill strong { color: var(--gold); }
+  .search-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex: 1 1 320px; justify-content: flex-end; }
+  .hud-input, .hud-select, .hud-btn {
+    min-height: 44px; padding: 8px 14px; border-radius: 10px;
+    background: var(--surface); border: 1px solid var(--line);
+    color: var(--ink); font-family: var(--sans); font-size: 16px;
+  }
+  .hud-input { min-width: 190px; flex: 1 1 190px; max-width: 320px; }
+  .hud-btn { cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+  .hud-btn:hover, .hud-btn:focus-visible, .hud-input:focus-visible, .hud-select:focus-visible {
+    border-color: var(--gold); outline: 2px solid var(--gold); outline-offset: 1px;
+  }
+  .hud-btn.active, .hud-btn[aria-pressed="true"] {
+    background: var(--gold); color: var(--on-gold); border-color: var(--gold);
+  }
+  .bottom-dock {
+    position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 10; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px;
+    pointer-events: none;
+  }
+  .bottom-dock > * { pointer-events: auto; }
+  .dock-bar {
+    background: var(--surface); backdrop-filter: blur(12px);
+    border: 1px solid var(--line); border-radius: 14px; padding: 6px 10px;
+    display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.75);
+  }
+  /* Coin Inspection Dossier Drawer (Shared-element 3D coin stays live in the upper/left stage) */
+  #coinDossier {
+    position: fixed; right: 0; bottom: 0; z-index: 20;
+    width: 100%; max-height: 54vh;
+    background: var(--surface-solid); border-top: 2px solid var(--line);
+    border-radius: 20px 20px 0 0; padding: 18px 20px max(22px, env(safe-area-inset-bottom));
+    overflow-y: auto; transform: translateY(105%);
+    transition: transform 0.42s cubic-bezier(0.2, 0.9, 0.2, 1);
+    box-shadow: 0 -20px 60px rgba(0,0,0,0.85);
+    user-select: text;
+  }
+  #coinDossier.open { transform: translateY(0); }
+  body.coin-open .search-row { display: none !important; }
+  @media (min-width: 900px) {
+    #coinDossier {
+      top: 64px; bottom: 16px; right: 16px; width: 460px; max-height: none;
+      border: 1px solid var(--line); border-radius: 18px;
+      transform: translateX(110%);
+    }
+    #coinDossier.open { transform: translateX(0); }
+  }
+  #coinControlsOverlay {
+    position: fixed; left: 16px; top: 78px; z-index: 18;
+    display: none; flex-direction: column; gap: 8px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 12px; backdrop-filter: blur(10px);
+    max-width: min(360px, calc(100vw - 32px));
+  }
+  #coinControlsOverlay.open { display: flex; }
+  .ctrl-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .cert-chip {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 16px; font-weight: 700; border: 1.5px solid currentColor; margin-left: 6px;
+  }
+  .cert-verified, .cert-checked { color: var(--ok); }
+  .cert-reference { color: var(--ref); }
+  .cert-photo { color: var(--photo); }
+  .cert-guess, .cert-review { color: var(--guess); }
+  .cert-ledger { color: var(--muted); }
+  .fact-list { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
+  .fact-item {
+    background: var(--surface2); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 10px 12px;
+  }
+  .fact-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .fact-label { color: var(--muted); font-size: 16px; font-weight: 600; }
+  .fact-val { color: var(--ink); font-size: 16px; margin-top: 4px; word-break: break-word; }
+  .fact-src { color: var(--faint); font-size: 16px; margin-top: 4px; }
+  /* Optical Loupe Overlay Canvas */
+  #loupeCanvas {
+    position: fixed; width: 180px; height: 180px; border-radius: 50%;
+    border: 3px solid var(--gold); box-shadow: 0 12px 32px rgba(0,0,0,0.9);
+    pointer-events: none; z-index: 25; display: none;
+  }
+  #hoverTip {
+    position: fixed; z-index: 15; pointer-events: none; display: none;
+    background: var(--surface-solid); border: 1px solid var(--gold);
+    border-radius: 10px; padding: 6px 12px; color: var(--ink); font-size: 16px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.8);
+  }
+  @media (max-width: 640px) {
+    .top-hud { padding: 8px 10px; gap: 6px; background: rgba(7,9,13,0.92); border-bottom: 1px solid var(--line); }
+    .brand-row { width: 100%; justify-content: space-between; }
+    .brand-title { font-size: 16px; }
+    .live-pill { font-size: 16px; padding: 2px 8px; }
+    .search-row { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    #searchInput { grid-column: 1 / -1; max-width: none; min-height: 40px; }
+    .hud-btn, .hud-select { min-height: 40px; padding: 4px 8px; font-size: 16px; }
+    .bottom-dock { left: 6px; right: 6px; bottom: 6px; }
+    .dock-bar { padding: 4px 6px; gap: 4px; }
+    .dock-bar .hud-btn { min-height: 38px; padding: 4px 8px; font-size: 16px; }
+    body.coin-open .search-row { display: none !important; }
+    #coinDossier { max-height: 44vh; padding: 14px; }
+    #coinControlsOverlay { top: auto; bottom: calc(44vh + 8px); left: 8px; right: 8px; max-width: none; padding: 8px 10px; }
+  }
+
+  /* Milestone M2: Physical Whitman Album Pages, Real Holes vs Printed Circles & 2-Tap Missing-Year Lookup */
+  #albumModal {
+    position: fixed; inset: 74px 14px 70px 14px; z-index: 26;
+    background: var(--surface-solid); border: 1.5px solid var(--gold);
+    border-radius: 18px; display: none; flex-direction: column;
+    overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.88);
+    user-select: text;
+  }
+  body.albums-open #albumModal { display: flex; }
+  .alb-top {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line);
+    background: rgba(230, 195, 106, 0.08);
+  }
+  .alb-layout {
+    display: grid; grid-template-columns: 288px 1fr; flex: 1; min-height: 0; overflow: hidden;
+  }
+  .alb-sidebar {
+    border-right: 1px solid var(--line); overflow-y: auto; padding: 10px;
+    display: flex; flex-direction: column; gap: 6px; background: rgba(7, 9, 13, 0.55);
+  }
+  .alb-vol-btn {
+    text-align: left; padding: 10px 12px; border-radius: 10px;
+    background: var(--surface2); border: 1px solid rgba(255,255,255,0.08);
+    color: var(--ink); cursor: pointer; font-family: var(--sans); font-size: 16px;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .alb-vol-btn:hover, .alb-vol-btn:focus-visible { border-color: var(--gold); outline: none; }
+  .alb-vol-btn.active {
+    background: rgba(230, 195, 106, 0.18); border-color: var(--gold);
+  }
+  .alb-stage {
+    overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .missing-callout {
+    background: rgba(230, 195, 106, 0.12); border: 1.5px solid var(--gold);
+    border-radius: 14px; padding: 12px 16px;
+  }
+  .missing-chips {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;
+  }
+  .miss-chip {
+    background: #171206; border: 1.5px solid var(--gold); color: #ffdf85;
+    padding: 5px 12px; border-radius: 999px; font-size: 18px; font-weight: 700;
+    cursor: pointer; font-family: var(--mono);
+  }
+  .miss-chip:hover { background: var(--gold); color: var(--on-gold); }
+  /* Physical Whitman Royal-Blue Grained Board Page */
+  .whitman-page-wrap {
+    perspective: 1200px;
+  }
+  .whitman-board {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 60%),
+      linear-gradient(165deg, #102a56 0%, #0a1c3d 55%, #08152e 100%);
+    border: 3px solid #c9a34e;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: inset 0 0 0 2px rgba(201,163,78,0.35), 0 18px 40px rgba(0,0,0,0.75);
+    transform-origin: left center;
+    transition: transform 0.42s cubic-bezier(0.22, 0.85, 0.25, 1), opacity 0.3s ease;
+  }
+  .whitman-board.turning {
+    transform: rotateY(-14deg) scale(0.98);
+    opacity: 0.82;
+  }
+  .whitman-title-strip {
+    text-align: center; border-bottom: 1.5px solid rgba(201,163,78,0.45);
+    padding-bottom: 10px; margin-bottom: 16px; color: #f3d486;
+    font-family: var(--serif); font-size: 20px; font-weight: 700; letter-spacing: 0.04em;
+  }
+  .holes-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+    gap: 16px 12px; justify-items: center;
+  }
+  .slot-cell {
+    display: flex; flex-direction: column; align-items: center; gap: 6px; width: 108px;
+  }
+  .slot-circle {
+    width: 76px; height: 76px; border-radius: 50%; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  /* 1. Filled Hole: holds physical metallic coin disc */
+  .slot-circle.state-filled {
+    background: radial-gradient(circle at 32% 28%, #ffffff 0%, #d8e0eb 38%, #8c98a8 78%, #4c5563 100%);
+    border: 2px solid #e6c36a;
+    box-shadow: inset 0 2px 5px rgba(255,255,255,0.65), inset 0 -4px 8px rgba(0,0,0,0.6), 0 5px 12px rgba(0,0,0,0.65);
+    color: #10151e; font-weight: 800; font-size: 16px;
+  }
+  .slot-circle.state-filled.metal-copper {
+    background: radial-gradient(circle at 32% 28%, #ffd2b5 0%, #c87548 45%, #7d3e1d 85%, #47200c 100%);
+    color: #fff6ee;
+  }
+  /* 2. Missing Hole: deep empty recessed cutout, lit amber rim */
+  .slot-circle.state-empty {
+    background: radial-gradient(circle at 50% 55%, #050a14 0%, #02050a 75%, #000000 100%);
+    border: 2px solid #f0c96d;
+    box-shadow: inset 0 6px 14px rgba(0,0,0,0.95), 0 0 14px rgba(240, 201, 109, 0.35);
+    color: #f0c96d; font-weight: 700; font-size: 16px;
+  }
+  .slot-circle.state-empty:hover {
+    transform: scale(1.06);
+    box-shadow: inset 0 6px 14px rgba(0,0,0,0.95), 0 0 22px rgba(240, 201, 109, 0.72);
+  }
+  /* 3. Printed Circle (not a cut hole): flat gold-ink dashed circle on blue board */
+  .slot-circle.state-printed {
+    background: rgba(16, 42, 86, 0.35);
+    border: 2px dashed rgba(243, 212, 134, 0.65);
+    box-shadow: none;
+    color: rgba(243, 212, 134, 0.85); font-size: 16px;
+  }
+  @keyframes coinSettleWobble {
+    0% { transform: translateY(-28px) scale(1.22) rotateX(28deg); }
+    45% { transform: translateY(0) scale(0.96) rotateX(-12deg); }
+    72% { transform: translateY(-3px) scale(1.02) rotateX(6deg); }
+    100% { transform: translateY(0) scale(1) rotateX(0deg); }
+  }
+  .slot-circle.settling {
+    animation: coinSettleWobble 0.55s cubic-bezier(0.22, 0.88, 0.32, 1);
+  }
+  .slot-lbl {
+    color: #f3e5be; font-size: 16px; font-weight: 600; text-align: center; line-height: 1.25;
+  }
+  .slot-sub {
+    color: #b8c5d6; font-size: 16px; text-align: center;
+  }
+  @media (max-width: 780px) {
+    #albumModal { inset: 64px 6px 58px 6px; }
+    .alb-layout { grid-template-columns: 1fr; }
+    .alb-sidebar { max-height: 155px; border-right: none; border-bottom: 1px solid var(--line); }
+  }
+
+</style>
+</head>
+<body>
+<canvas id="glStage" aria-label="3D Spatial Coin Collection Field"></canvas>
+<div id="labelsLayer" aria-hidden="true"></div>
+<canvas id="loupeCanvas" width="360" height="360"></canvas>
+<div id="hoverTip"></div>
+
+<header class="top-hud">
+  <div class="brand-row">
+    <span class="brand-title">Titan Reliquary · v3 M2</span>
+    <span class="live-pill" id="liveCountPill">Loading live collection…</span>
+  </div>
+  <div class="search-row">
+    <input type="search" id="searchInput" class="hud-input" placeholder="Search country, year, C#…" aria-label="Search coins and move camera">
+    <select id="countryFilter" class="hud-select" aria-label="Filter by country">
+      <option value="">All Countries</option>
+    </select>
+    <select id="metalFilter" class="hud-select" aria-label="Filter by metal">
+      <option value="">All Metals</option>
+      <option value="silver">Silver</option>
+      <option value="gold">Gold / Brass</option>
+      <option value="copper">Copper / Bronze</option>
+      <option value="steel">Nickel / Steel / Alloy</option>
+    </select>
+    <button type="button" class="hud-btn" id="openAlbumsBtn" aria-pressed="false">📚 Albums</button>
+    <button type="button" class="hud-btn" id="missingEaglesBtn" title="2-tap lookup: Which Silver Eagle years are missing?">🦅 Missing Eagles</button>
+    <button type="button" class="hud-btn" id="motionBtn" aria-label="Cycle motion mode">Motion: Full</button>
+  </div>
+</header>
+
+<div id="coinControlsOverlay" role="region" aria-label="3D Coin Inspection Controls">
+  <div class="ctrl-row">
+    <button type="button" class="hud-btn" id="backFieldBtn">← Back to Field</button>
+    <button type="button" class="hud-btn" id="flipCoinBtn">Flip 180°</button>
+    <button type="button" class="hud-btn" id="loupeToggleBtn" aria-pressed="false">Loupe (4×)</button>
+  </div>
+  <div class="ctrl-row">
+    <label for="rakeSlider" style="color:var(--muted);font-size:16px;">Raking Light:</label>
+    <input type="range" id="rakeSlider" min="0" max="360" value="42" style="flex:1;min-height:32px;">
+  </div>
+</div>
+
+<aside id="coinDossier" role="dialog" aria-labelledby="dosTitle">
+  <div style="display:flex;justify-content:space-between;align-items:start;gap:10px;">
+    <div>
+      <div id="dosScan" style="color:var(--gold);font-family:var(--mono);font-weight:700;font-size:16px;"></div>
+      <h2 id="dosTitle" style="font-family:var(--serif);font-size:24px;margin:2px 0;"></h2>
+      <div id="dosSub" style="color:var(--muted);font-size:16px;"></div>
+    </div>
+    <button type="button" class="hud-btn" id="closeDossierBtn">← Back</button>
+  </div>
+  <p id="dosStory" style="margin-top:12px;color:var(--ink);font-size:16px;"></p>
+  <div id="dosCertSummary" style="margin-top:10px;color:var(--muted);font-size:16px;"></div>
+  <div class="fact-list" id="dosFacts"></div>
+</aside>
+
+
+<section id="albumModal" role="dialog" aria-labelledby="albModalTitle">
+  <div class="alb-top">
+    <div>
+      <h2 id="albModalTitle" style="font-family:var(--serif);font-size:22px;color:var(--gold);margin:0;">Whitman Physical Album Shelf &amp; Missing-Year Finder</h2>
+      <div id="albGlobalSummary" style="color:var(--muted);font-size:16px;">Loading live album volumes from data/wants.json…</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <input type="search" id="albSearchInput" class="hud-input" placeholder="Filter album or year (e.g. Eagle, 1995)…" aria-label="Filter albums or years">
+      <button type="button" class="hud-btn" id="albFilterEaglesBtn">🦅 Silver Eagles Only</button>
+      <button type="button" class="hud-btn" id="albShowAllBtn">All Volumes</button>
+      <button type="button" class="hud-btn" id="albCloseBtn">← Back to 3D Field</button>
+    </div>
+  </div>
+  <div class="alb-layout">
+    <div class="alb-sidebar" id="albVolumeList" role="listbox" aria-label="Album Volumes"></div>
+    <div class="alb-stage" id="albStage">
+      <div class="missing-callout" id="albMissingBanner">
+        <div id="albMissingTitle" style="font-weight:700;font-size:18px;color:var(--gold);">Select an album to inspect holes and missing years</div>
+        <div id="albMissingSub" style="color:var(--ink);font-size:16px;margin-top:4px;"></div>
+        <div class="missing-chips" id="albMissingChips"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div id="albPageIndicator" style="color:var(--muted);font-size:16px;font-weight:600;">Page 1</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="hud-btn" id="albPrevPageBtn">◀ Prev Page</button>
+          <button type="button" class="hud-btn" id="albNextPageBtn">Next Page ▶</button>
+        </div>
+      </div>
+      <div class="whitman-page-wrap">
+        <div class="whitman-board" id="whitmanBoard">
+          <div class="whitman-title-strip" id="whitmanBoardHeader">WHITMAN COIN FOLDER</div>
+          <div class="holes-grid" id="whitmanHolesGrid"></div>
+        </div>
+      </div>
+      <div id="albLegendNote" style="color:var(--muted);font-size:16px;">
+        <strong>Hole Key:</strong> Solid metallic discs = filled holes (from <code>data/wants.json</code>) · Lit recessed dark apertures = missing holes (tap any empty hole to test-settle a coin with spring rim physics) · Dashed gold rings = printed reference circles (not cutouts).
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="bottom-dock" id="bottomDock" aria-label="3D Spatial Layouts">
+  <div class="dock-bar">
+    <button type="button" class="hud-btn active" data-layout="country">Country × Year</button>
+    <button type="button" class="hud-btn" data-layout="era">Era Chronology</button>
+    <button type="button" class="hud-btn" data-layout="metal">Metals & Value</button>
+    <button type="button" class="hud-btn" data-layout="photo">Needs a Photo</button>
+    <button type="button" class="hud-btn" data-layout="newest">Newest</button>
+  </div>
+</nav>
+
+<script>
+(function () {
+  "use strict";
+  var ROOTS = ["../../../", "../../", "../", "./"];
+  var baseRoot = ROOTS[1];
+
+  function fetchLiveJSON(rel) {
+    var idx = 0;
+    function tryNext() {
+      if (idx >= ROOTS.length) return Promise.reject(new Error("Could not load " + rel));
+      var root = ROOTS[idx++];
+      return fetch(root + rel).then(function (r) {
+        if (r.ok) { baseRoot = root; return r.json(); }
+        return tryNext();
+      }).catch(function () {
+        return tryNext();
+      });
+    }
+    return tryNext();
+  }
+
+  // Motion mode: Full / Calm / Off
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                       new URLSearchParams(window.location.search).get("motion") === "off";
+  var motionMode = prefersReduced ? "off" : "full";
+  var motionBtn = document.getElementById("motionBtn");
+  function syncMotionBtn() {
+    motionBtn.textContent = "Motion: " + (motionMode.charAt(0).toUpperCase() + motionMode.slice(1));
+  }
+  syncMotionBtn();
+  motionBtn.addEventListener("click", function () {
+    motionMode = (motionMode === "full") ? "calm" : (motionMode === "calm" ? "off" : "full");
+    syncMotionBtn();
+  });
+
+  // WebGL 3D Engine: Renders every coin in one 3D space with real cylinder thickness, reeded edge, raking light & photo texture atlas
+  var canvas = document.getElementById("glStage");
+  var gl = canvas.getContext("webgl", { alpha: false, antialias: true, preserveDrawingBuffer: true });
+  var dpr = Math.min(2, window.devicePixelRatio || 1);
+
+  function resize() {
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  // Build a 48-segment 3D coin cylinder mesh (front cap, back cap, reeded rim)
+  function buildCoinGeometry(segs) {
+    var pos = [], norm = [], uv = [], sideFlag = [];
+    var H = 0.085;
+    for (var i = 0; i < segs; i++) {
+      var a0 = (i / segs) * Math.PI * 2;
+      var a1 = ((i + 1) / segs) * Math.PI * 2;
+      var c0 = Math.cos(a0), s0 = Math.sin(a0);
+      var c1 = Math.cos(a1), s1 = Math.sin(a1);
+      // Front cap (+H)
+      pos.push(0, 0, H, c0, s0, H, c1, s1, H);
+      norm.push(0, 0, 1, 0, 0, 1, 0, 0, 1);
+      uv.push(0.5, 0.5, c0 * 0.5 + 0.5, 0.5 - s0 * 0.5, c1 * 0.5 + 0.5, 0.5 - s1 * 0.5);
+      sideFlag.push(1, 1, 1);
+      // Back cap (-H)
+      pos.push(0, 0, -H, c1, s1, -H, c0, s0, -H);
+      norm.push(0, 0, -1, 0, 0, -1, 0, 0, -1);
+      uv.push(0.5, 0.5, 0.5 - c1 * 0.5, 0.5 - s1 * 0.5, 0.5 - c0 * 0.5, 0.5 - s0 * 0.5);
+      sideFlag.push(2, 2, 2);
+      // Reeded rim wall
+      pos.push(c0, s0, H, c0, s0, -H, c1, s1, H, c1, s1, H, c0, s0, -H, c1, s1, -H);
+      norm.push(c0, s0, 0, c0, s0, 0, c1, s1, 0, c1, s1, 0, c0, s0, 0, c1, s1, 0);
+      uv.push(i / segs, 1, i / segs, 0, (i + 1) / segs, 1, (i + 1) / segs, 1, i / segs, 0, (i + 1) / segs, 0);
+      sideFlag.push(0, 0, 0, 0, 0, 0);
+    }
+    return {
+      pos: new Float32Array(pos),
+      norm: new Float32Array(norm),
+      uv: new Float32Array(uv),
+      side: new Float32Array(sideFlag),
+      count: pos.length / 3
+    };
+  }
+  var geom = buildCoinGeometry(40);
+
+  var VS = [
+    "attribute vec3 aPos; attribute vec3 aNorm; attribute vec2 aUV; attribute float aSide;",
+    "uniform mat4 uProj, uView;",
+    "uniform vec3 uCoinPos; uniform vec2 uCoinRot; uniform float uCoinScale;",
+    "varying vec3 vNorm; varying vec3 vWPos; varying vec2 vUV; varying float vSide;",
+    "mat3 rotY(float a){ float c=cos(a), s=sin(a); return mat3(c,0.,-s, 0.,1.,0., s,0.,c); }",
+    "mat3 rotX(float a){ float c=cos(a), s=sin(a); return mat3(1.,0.,0., 0.,c,s, 0.,-s,c); }",
+    "void main(){",
+    "  mat3 R = rotX(uCoinRot.x) * rotY(uCoinRot.y);",
+    "  vec3 wPos = uCoinPos + (R * aPos) * uCoinScale;",
+    "  vWPos = wPos;",
+    "  vNorm = R * aNorm;",
+    "  vUV = aUV;",
+    "  vSide = aSide;",
+    "  gl_Position = uProj * uView * vec4(wPos, 1.0);",
+    "}"
+  ].join("\n");
+
+  var FS = [
+    "precision highp float;",
+    "varying vec3 vNorm; varying vec3 vWPos; varying vec2 vUV; varying float vSide;",
+    "uniform vec3 uLightDir; uniform vec3 uMetalCol; uniform float uDim; uniform float uHasTex;",
+    "uniform vec4 uAtlasRect; uniform sampler2D uAtlas, uHeroTex; uniform float uIsHero;",
+    "void main(){",
+    "  vec3 N = normalize(vNorm);",
+    "  vec3 L = normalize(uLightDir);",
+    "  vec3 V = vec3(0.0, 0.0, 1.0);",
+    "  vec3 H = normalize(L + V);",
+    "  vec3 base = uMetalCol;",
+    "  if(vSide > 0.5){",
+    "    float r = length(vUV - 0.5) * 2.0;",
+    "    float rim = smoothstep(0.88, 0.98, r);",
+    "    if(uIsHero > 0.5 && vSide < 1.5 && uHasTex > 0.5){",
+    "      vec4 tx = texture2D(uHeroTex, vUV);",
+    "      base = mix(uMetalCol, tx.rgb, tx.a);",
+    "      float relief = dot(tx.rgb, vec3(0.3, 0.59, 0.11)) - 0.5;",
+    "      N = normalize(N + vec3((vUV - 0.5)*rim*0.5 + relief*0.35, 0.0));",
+    "    } else if(uHasTex > 0.5 && vSide < 1.5){",
+    "      vec2 auv = uAtlasRect.xy + clamp(vUV, 0.04, 0.96) * uAtlasRect.zw;",
+    "      vec4 tx = texture2D(uAtlas, auv);",
+    "      base = mix(uMetalCol, tx.rgb, tx.a);",
+    "      N = normalize(N + vec3((vUV - 0.5)*rim*0.45, 0.0));",
+    "    } else {",
+    "      float ring = smoothstep(0.03, 0.0, abs(r - 0.72)) + smoothstep(0.03, 0.0, abs(r - 0.92));",
+    "      base = uMetalCol * (0.88 + 0.18*ring);",
+    "      N = normalize(N + vec3((vUV - 0.5)*rim*0.55, 0.0));",
+    "    }",
+    "  } else {",
+    "    float reed = sin(vUV.x * 360.0);",
+    "    base = uMetalCol * (0.78 + 0.22 * reed);",
+    "  }",
+    "  float diff = max(0.0, dot(N, L));",
+    "  float spec = pow(max(0.0, dot(N, H)), 34.0);",
+    "  vec3 col = base * (0.38 + 0.68 * diff) + vec3(1.0, 0.93, 0.76) * spec * 0.55;",
+    "  gl_FragColor = vec4(col * uDim, 1.0);",
+    "}"
+  ].join("\n");
+
+  function compileProgram(vsSrc, fsSrc) {
+    var vs = gl.createShader(gl.VERTEX_SHADER); gl.shaderSource(vs, vsSrc); gl.compileShader(vs);
+    if (!gl.getShaderParameter(vs, gl.COMPILE_STATUS)) console.error("VS:", gl.getShaderInfoLog(vs));
+    var fs = gl.createShader(gl.FRAGMENT_SHADER); gl.shaderSource(fs, fsSrc); gl.compileShader(fs);
+    if (!gl.getShaderParameter(fs, gl.COMPILE_STATUS)) console.error("FS:", gl.getShaderInfoLog(fs));
+    var p = gl.createProgram(); gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p);
+    if (!gl.getProgramParameter(p, gl.LINK_STATUS)) console.error("LINK:", gl.getProgramInfoLog(p));
+    return p;
+  }
+  var prog = compileProgram(VS, FS);
+  gl.useProgram(prog);
+
+  function makeBuf(arr) {
+    var b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b);
+    gl.bufferData(gl.ARRAY_BUFFER, arr, gl.STATIC_DRAW); return b;
+  }
+  var bPos = makeBuf(geom.pos), bNorm = makeBuf(geom.norm), bUV = makeBuf(geom.uv), bSide = makeBuf(geom.side);
+  function bindAttr(buf, name, sz) {
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    var loc = gl.getAttribLocation(prog, name);
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, sz, gl.FLOAT, false, 0, 0);
+  }
+  bindAttr(bPos, "aPos", 3); bindAttr(bNorm, "aNorm", 3); bindAttr(bUV, "aUV", 2); bindAttr(bSide, "aSide", 1);
+
+  var uProj = gl.getUniformLocation(prog, "uProj");
+  var uView = gl.getUniformLocation(prog, "uView");
+  var uCoinPos = gl.getUniformLocation(prog, "uCoinPos");
+  var uCoinRot = gl.getUniformLocation(prog, "uCoinRot");
+  var uCoinScale = gl.getUniformLocation(prog, "uCoinScale");
+  var uLightDir = gl.getUniformLocation(prog, "uLightDir");
+  var uMetalCol = gl.getUniformLocation(prog, "uMetalCol");
+  var uDim = gl.getUniformLocation(prog, "uDim");
+  var uHasTex = gl.getUniformLocation(prog, "uHasTex");
+  var uAtlasRect = gl.getUniformLocation(prog, "uAtlasRect");
+  var uAtlas = gl.getUniformLocation(prog, "uAtlas");
+  var uHeroTex = gl.getUniformLocation(prog, "uHeroTex");
+  var uIsHero = gl.getUniformLocation(prog, "uIsHero");
+
+  // 2048x2048 Dynamic Texture Atlas (16x16 = 256 slots of 128x128 each)
+  var ATLAS_SIZE = 2048, CELL = 128, GRID_N = 16;
+  var atlasCanvas = document.createElement("canvas");
+  atlasCanvas.width = ATLAS_SIZE; atlasCanvas.height = ATLAS_SIZE;
+  var atlasCtx = atlasCanvas.getContext("2d");
+  var tAtlas = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, tAtlas);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([190,170,120,255]));
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+  var tHero = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, tHero);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([200,180,120,255]));
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+  // Camera & Spatial State
+  var cam = { x: 0, y: 0, z: 22, pitch: -0.44, tx: 0, ty: 0, tz: 22, tpitch: -0.44 };
+  var coins = [];
+  var activeLayout = "country";
+  var heroCoin = null;
+  var heroFlipYaw = 0, heroTargetYaw = 0, heroPitch = 0.18;
+  var rakeAngle = 42 * Math.PI / 180;
+  var loupeEnabled = false;
+  var heroImageObj = null;
+
+  var ISO_MAP = {
+    "USA": "US", "United States": "US", "Germany": "DE", "France": "FR", "United Kingdom": "GB",
+    "Great Britain": "GB", "Mexico": "MX", "Canada": "CA", "Switzerland": "CH", "Italy": "IT",
+    "Spain": "ES", "Netherlands": "NL", "Belgium": "BE", "Austria": "AT", "Australia": "AU",
+    "Japan": "JP", "Slovakia": "SK", "Belize": "BZ", "Brazil": "BR", "Hungary": "HU",
+    "Colombia": "CO", "South Korea": "KR", "Malta": "MT", "USSR": "SU", "Saudi Arabia": "SA",
+    "Thailand": "TH", "Portugal": "PT", "Singapore": "SG", "Norway": "NO", "Vatican": "VA",
+    "Argentina": "AR", "Bahamas": "BS"
+  };
+
+  function inferMetal(label, denom) {
+    var s = (label + " " + denom).toLowerCase();
+    if (/gold|francs.*or|sovereign|ducat/.test(s)) return { key: "gold", col: [0.88, 0.72, 0.34] };
+    if (/cent|penny|pfennig|ore|bronze|copper/.test(s)) return { key: "copper", col: [0.76, 0.48, 0.32] };
+    if (/gulden|mark|peso|franc|shilling|florin|dime|quarter|half|dollar|silver/.test(s)) return { key: "silver", col: [0.82, 0.85, 0.89] };
+    return { key: "steel", col: [0.72, 0.75, 0.79] };
+  }
+
+  // Compute 3D layout coordinates (coins physically fly between layouts!)
+  var clusterAnchors = [];
+  var firstLayout = true;
+  function computeLayoutTargets() {
+    var q = document.getElementById("searchInput").value.trim().toLowerCase();
+    var cf = document.getElementById("countryFilter").value;
+    var mf = document.getElementById("metalFilter").value;
+    clusterAnchors = [];
+
+    var groups = {};
+    coins.forEach(function (c) {
+      var key = "All";
+      if (activeLayout === "country") key = c.country;
+      else if (activeLayout === "era") {
+        var yr = parseInt(c.year, 10);
+        key = isNaN(yr) ? "Undated / ND" : (Math.floor(yr / 20) * 20 + "s");
+      } else if (activeLayout === "metal") key = c.metalKey.toUpperCase();
+      else if (activeLayout === "photo") key = c.thumb ? "Photographed (" + c.thumbSide.toUpperCase() + ")" : "Needs Photo";
+      else if (activeLayout === "newest") key = "Collection Sequence";
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(c);
+    });
+
+    var gKeys = Object.keys(groups).sort(function (a, b) { return groups[b].length - groups[a].length; });
+    var gCols = Math.max(1, Math.ceil(Math.sqrt(gKeys.length * 1.3)));
+    var matchSumX = 0, matchSumY = 0, matchCount = 0;
+
+    gKeys.forEach(function (gk, gi) {
+      var list = groups[gk];
+      var gCol = gi % gCols, gRow = Math.floor(gi / gCols);
+      var gx = (gCol - (gCols - 1) / 2) * 8.2;
+      var gy = ((Math.ceil(gKeys.length / gCols) - 1) / 2 - gRow) * 6.4;
+      clusterAnchors.push({ text: gk + " (" + list.length + ")", x: gx, y: gy + 2.1, z: 0 });
+
+      var subCols = Math.max(2, Math.ceil(Math.sqrt(list.length)));
+      var yearStacks = {};
+      list.forEach(function (c, idx) {
+        var sc = idx % subCols, sr = Math.floor(idx / subCols);
+        var tx = gx + (sc - (subCols - 1) / 2) * 1.08;
+        var ty = gy + ((Math.ceil(list.length / subCols) - 1) / 2 - sr) * 1.08;
+        var tz = 0;
+
+        // Give each spatial layout genuine 3D Z-elevation, stacking, and curvature
+        if (activeLayout === "country") {
+          var yk = c.country + ":" + (c.year || "ND");
+          var stN = yearStacks[yk] || 0;
+          yearStacks[yk] = stN + 1;
+          tz = stN * 0.42 + Math.cos(gCol * 0.6) * 0.45;
+        } else if (activeLayout === "era") {
+          tz = (gCols - gRow) * 0.85 + (idx % 3) * 0.25;
+        } else if (activeLayout === "metal") {
+          var ang = idx * 0.65;
+          var rad = 0.65 + Math.sqrt(idx) * 0.52;
+          tx = gx + Math.cos(ang) * rad;
+          ty = gy + Math.sin(ang) * rad;
+          tz = (idx / Math.max(1, list.length)) * 2.8;
+        } else if (activeLayout === "photo") {
+          tz = c.thumb ? -0.8 : 2.2;
+        } else if (activeLayout === "newest") {
+          tz = Math.sin(idx * 0.35) * 1.2 + (gRow * 0.4);
+        }
+
+        var matches = true;
+        if (cf && c.country !== cf) matches = false;
+        if (mf && c.metalKey !== mf) matches = false;
+        if (q && c.searchHay.indexOf(q) === -1) matches = false;
+
+        c.matches = matches;
+        if (matches && (cf || mf || q)) {
+          tz += 1.8;
+          matchSumX += tx; matchSumY += ty; matchCount++;
+        } else if (!matches) {
+          tz -= 2.4;
+        }
+        c.tx = tx; c.ty = ty; c.tz = tz;
+        c.tScale = matches ? 0.44 : 0.30;
+        if (motionMode === "off" || firstLayout) { c.x = tx; c.y = ty; c.z = tz; c.scale = c.tScale; }
+      });
+    });
+
+    if (matchCount > 0 && !heroCoin) {
+      cam.tx = matchSumX / matchCount;
+      cam.ty = matchSumY / matchCount;
+      cam.tz = Math.max(11, Math.min(24, 9 + Math.sqrt(matchCount) * 2.2));
+      if (motionMode === "off" || firstLayout) { cam.x = cam.tx; cam.y = cam.ty; cam.z = cam.tz; }
+    } else if (!heroCoin) {
+      cam.tx = 0; cam.ty = 0; cam.tz = window.innerWidth < 640 ? 28 : 22;
+      if (motionMode === "off" || firstLayout) { cam.x = cam.tx; cam.y = cam.ty; cam.z = cam.tz; }
+    }
+    firstLayout = false;
+  }
+
+  // Matrix math helpers
+  function perspectiveMat4(fovRad, aspect, near, far) {
+    var f = 1.0 / Math.tan(fovRad / 2), nf = 1 / (near - far);
+    return new Float32Array([
+      f / aspect, 0, 0, 0,
+      0, f, 0, 0,
+      0, 0, (far + near) * nf, -1,
+      0, 0, (2 * far * near) * nf, 0
+    ]);
+  }
+  function viewMat4(cx, cy, cz, pitch) {
+    var cp = Math.cos(pitch || 0), sp = Math.sin(pitch || 0);
+    return new Float32Array([
+      1, 0, 0, 0,
+      0, cp, sp, 0,
+      0, -sp, cp, 0,
+      -cx, -cy * cp, -cy * sp - cz, 1
+    ]);
+  }
+  function projectToScreen(wx, wy, wz, proj, view, W, H) {
+    var vx = wx * view[0] + wy * view[4] + wz * view[8] + view[12];
+    var vy = wx * view[1] + wy * view[5] + wz * view[9] + view[13];
+    var vz = wx * view[2] + wy * view[6] + wz * view[10] + view[14];
+    var clipX = vx * proj[0], clipY = vy * proj[5], clipW = -vz;
+    if (clipW <= 0.1) return null;
+    var ndcX = clipX / clipW, ndcY = clipY / clipW;
+    return {
+      x: (ndcX * 0.5 + 0.5) * W,
+      y: (0.5 - ndcY * 0.5) * H,
+      r: (0.48 * proj[5] / clipW) * H * 0.5
+    };
+  }
+
+  // Certainty badge formatting — STRICTLY reads certainty metadata from data/detail/{ISO}.json!
+  // Never fabricates "Verified" when certainty is not provided by the data!
+  var detailCache = {};
+  function certClass(lvl) {
+    var s = String(lvl || "").toLowerCase();
+    if (s === "verified" || s === "checked") return "cert-verified";
+    if (s === "reference") return "cert-reference";
+    if (s === "photo") return "cert-photo";
+    if (s.indexOf("guess") !== -1 || s.indexOf("review") !== -1) return "cert-guess";
+    return "cert-ledger";
+  }
+
+  var CERT_LVL_NAMES = {
+    verified: "Verified", checked: "Checked", reference: "Reference",
+    photo: "Photo", guess: "AI guess", ai: "AI guess", ledger: "From ledger", imported: "From ledger", review: "Needs review"
+  };
+  var FIELD_LABELS = {
+    catalog: "Catalogue", catalogs: "Catalogue", composition: "Metal / Composition",
+    mintage: "Mintage", value: "Value", year: "Year", denomination: "Denomination",
+    mint: "Mint", design: "Design", weight: "Weight", diameter: "Diameter",
+    story: "Story", ruler: "Ruler / Authority", period: "Period / Era", edge: "Edge"
+  };
+
+  function renderDossier(coin, detailEntry) {
+    document.getElementById("dosScan").textContent = coin.scan + (coin.raw.ser ? " · " + coin.raw.ser : "") + (coin.iso ? " · " + coin.iso : "");
+    document.getElementById("dosTitle").textContent = (detailEntry && detailEntry.label) || coin.raw.label || (coin.country + " · " + (coin.year || "ND") + " " + coin.denom);
+    var estPart = (coin.raw.est != null) ? (" · $" + Number(coin.raw.est).toFixed(2) + " est." + (coin.raw.conf ? " (" + coin.raw.conf + ")" : "")) : "";
+    document.getElementById("dosSub").textContent = (coin.thumb ? ("Phone cut-out (" + coin.thumbSide + ") loaded from data/index.json") : "Brushed metallic planchet (on shoot list)") + estPart;
+
+    var storyEl = document.getElementById("dosStory");
+    var certSumEl = document.getElementById("dosCertSummary");
+    var factsEl = document.getElementById("dosFacts");
+    factsEl.innerHTML = "";
+
+    var rows = [];
+    var certMap = (detailEntry && (detailEntry.certainty || detailEntry.field_certainty)) || {};
+    var sourcesMap = (detailEntry && detailEntry.sources) || {};
+    var seenKeys = {};
+
+    function normalizeCert(cObj, fallbackSrc) {
+      if (!cObj) return { levelText: null, byText: "", linkUrl: fallbackSrc || null };
+      if (typeof cObj === "string") return { levelText: CERT_LVL_NAMES[cObj.toLowerCase()] || cObj, byText: "", linkUrl: fallbackSrc || null };
+      var lvl = cObj.level || cObj.status || "ledger";
+      var lvlText = CERT_LVL_NAMES[String(lvl).toLowerCase()] || String(lvl);
+      var meta = [cObj.by || "", cObj.ts || ""].filter(Boolean).join(" · ");
+      var link = (cObj.links && cObj.links[0]) || cObj.source || fallbackSrc || null;
+      return { levelText: lvlText, rawLevel: lvl, byText: meta, linkUrl: link };
+    }
+
+    function pushFact(label, val, fieldKey) {
+      seenKeys[fieldKey] = true;
+      var cInfo = normalizeCert(certMap[fieldKey], sourcesMap[fieldKey]);
+      if ((val == null || val === "") && !cInfo.levelText) return;
+      rows.push({
+        label: label,
+        val: (val != null && val !== "") ? String(val) : (cInfo.byText || "Recorded in detail ledger"),
+        cert: cInfo.levelText,
+        rawLevel: cInfo.rawLevel || cInfo.levelText,
+        meta: (val != null && val !== "") ? cInfo.byText : "",
+        src: cInfo.linkUrl
+      });
+    }
+
+    if (detailEntry) {
+      storyEl.textContent = detailEntry.story || detailEntry.plain_story || coin.raw.story || "";
+      certSumEl.textContent = "Published facts & certainty labels from data/detail/" + coin.iso + ".json:";
+      pushFact("Country", detailEntry.country || coin.country, "country");
+      pushFact("Year", detailEntry.year || coin.year, "year");
+      pushFact("Denomination", (detailEntry.denomination && detailEntry.denomination.text) || detailEntry.denomination || coin.denom, "denomination");
+      pushFact("Metal / Composition", detailEntry.metal || (detailEntry.composition && detailEntry.composition.text) || detailEntry.composition, "composition");
+      pushFact("Mint", detailEntry.mint || coin.raw.mint, "mint");
+      pushFact("Ruler / Authority", detailEntry.ruler, "ruler");
+      if (detailEntry.catalogs && detailEntry.catalogs.length) {
+        var catStr = detailEntry.catalogs.map(function (k) { return typeof k === "object" ? (k.system + " " + k.number) : String(k); }).join(" · ");
+        pushFact("Catalogue", catStr, "catalog");
+      }
+      if (detailEntry.est != null || coin.raw.est != null) {
+        pushFact("Value Estimate", "$" + Number(detailEntry.est != null ? detailEntry.est : coin.raw.est).toFixed(2), "value");
+      }
+      // Also render any remaining keys in detailEntry.certainty (e.g. catalog, mintage, design, weight, diameter, story)
+      Object.keys(certMap).forEach(function (k) {
+        if (!seenKeys[k]) {
+          var v = detailEntry[k];
+          if (v && typeof v === "object") v = v.text || v.display || JSON.stringify(v);
+          pushFact(FIELD_LABELS[k] || k, v, k);
+        }
+      });
+    } else {
+      storyEl.textContent = coin.raw.story || "Showing index summary from data/index.json.";
+      certSumEl.textContent = "Index summary (certainty chips appear when data/detail/" + coin.iso + ".json is loaded):";
+      pushFact("Specimen ID", coin.scan, "scan");
+      pushFact("Country", coin.country, "country");
+      pushFact("Year", coin.year || "—", "year");
+      pushFact("Denomination", coin.denom || "—", "denomination");
+    }
+
+    rows.forEach(function (r) {
+      var item = document.createElement("div"); item.className = "fact-item";
+      var hd = document.createElement("div"); hd.className = "fact-head";
+      var lb = document.createElement("span"); lb.className = "fact-label"; lb.textContent = r.label;
+      hd.appendChild(lb);
+      if (r.cert) {
+        var ch = document.createElement("span");
+        ch.className = "cert-chip " + certClass(r.rawLevel || r.cert);
+        ch.textContent = String(r.cert);
+        hd.appendChild(ch);
+      }
+      var vl = document.createElement("div"); vl.className = "fact-val";
+      vl.textContent = r.val + (r.meta ? (" (" + r.meta + ")") : "");
+      item.appendChild(hd); item.appendChild(vl);
+      if (r.src) {
+        var sr = document.createElement("div"); sr.className = "fact-src";
+        if (/^https?:\/\//.test(String(r.src))) {
+          var a = document.createElement("a");
+          a.href = String(r.src); a.target = "_blank"; a.rel = "noopener";
+          a.style.color = "var(--gold)"; a.textContent = "Open source (" + String(r.src).replace(/^https?:\/\//, "").slice(0, 42) + "…)";
+          sr.appendChild(a);
+        } else {
+          sr.textContent = "Source: " + r.src;
+        }
+        item.appendChild(sr);
+      }
+      factsEl.appendChild(item);
+    });
+
+    // Render history log if present in detailEntry.history
+    if (detailEntry && Array.isArray(detailEntry.history) && detailEntry.history.length > 0) {
+      var hItem = document.createElement("div"); hItem.className = "fact-item";
+      var hTitle = document.createElement("div"); hTitle.className = "fact-label"; hTitle.textContent = "Provenance History Log";
+      hItem.appendChild(hTitle);
+      detailEntry.history.slice(0, 5).forEach(function (h) {
+        var ln = document.createElement("div"); ln.className = "fact-src";
+        ln.textContent = (h.ts || "") + " · " + (h.what || "");
+        hItem.appendChild(ln);
+      });
+      factsEl.appendChild(hItem);
+    }
+  }
+
+  function selectCoin(c) {
+    heroCoin = c;
+    heroFlipYaw = 0; heroTargetYaw = 0; heroPitch = 0.15;
+    document.body.classList.add("coin-open");
+    document.getElementById("coinDossier").classList.add("open");
+    document.getElementById("coinControlsOverlay").classList.add("open");
+    document.getElementById("bottomDock").style.display = "none";
+
+    // Load high-res hero texture for selected coin
+    heroImageObj = null;
+    if (c.thumb) {
+      var im = new Image(); im.crossOrigin = "anonymous";
+      im.onload = function () {
+        heroImageObj = im;
+        var hc = document.createElement("canvas"); hc.width = 512; hc.height = 512;
+        var hg = hc.getContext("2d");
+        hg.beginPath(); hg.arc(256, 256, 246, 0, Math.PI * 2); hg.closePath(); hg.clip();
+        hg.drawImage(im, 0, 0, 512, 512);
+        gl.bindTexture(gl.TEXTURE_2D, tHero);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, hc);
+      };
+      im.src = c.thumb.indexOf("data:") === 0 ? c.thumb : (baseRoot + c.thumb);
+    }
+
+    renderDossier(c, null);
+    if (c.iso) {
+      if (detailCache[c.iso]) {
+        var found = findCoinInDetail(detailCache[c.iso], c.scan);
+        if (found) renderDossier(c, found);
+      } else {
+        fetchLiveJSON("data/detail/" + c.iso + ".json").then(function (d) {
+          detailCache[c.iso] = d;
+          if (heroCoin === c) {
+            var found = findCoinInDetail(d, c.scan);
+            if (found) renderDossier(c, found);
+          }
+        }).catch(function () {});
+      }
+    }
+  }
+
+  function findCoinInDetail(d, scanId) {
+    if (!d) return null;
+    var arr = d.coins || d.items || d.specimens || (Array.isArray(d) ? d : []);
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].id === scanId || arr[i].scan === scanId) return arr[i];
+    }
+    if (d[scanId]) return d[scanId];
+    return null;
+  }
+
+  function closeCoinView() {
+    heroCoin = null;
+    loupeEnabled = false;
+    document.getElementById("loupeToggleBtn").setAttribute("aria-pressed", "false");
+    document.getElementById("loupeCanvas").style.display = "none";
+    document.body.classList.remove("coin-open");
+    document.getElementById("coinDossier").classList.remove("open");
+    document.getElementById("coinControlsOverlay").classList.remove("open");
+    document.getElementById("bottomDock").style.display = "flex";
+  }
+
+  document.getElementById("backFieldBtn").addEventListener("click", closeCoinView);
+  document.getElementById("closeDossierBtn").addEventListener("click", closeCoinView);
+  document.getElementById("flipCoinBtn").addEventListener("click", function () {
+    heroTargetYaw += Math.PI;
+    if (motionMode === "off") heroFlipYaw = heroTargetYaw;
+  });
+  document.getElementById("rakeSlider").addEventListener("input", function (e) {
+    rakeAngle = (parseFloat(e.target.value) || 0) * Math.PI / 180;
+  });
+  document.getElementById("loupeToggleBtn").addEventListener("click", function (e) {
+    loupeEnabled = !loupeEnabled;
+    e.currentTarget.setAttribute("aria-pressed", loupeEnabled ? "true" : "false");
+    if (!loupeEnabled) document.getElementById("loupeCanvas").style.display = "none";
+  });
+
+  // Pointer panning, zooming, hit-testing & raking light / optical loupe
+  var dragging = false, dragMoved = false, lastX = 0, lastY = 0;
+  var screenCache = [];
+  var hoverTip = document.getElementById("hoverTip");
+  var loupeCanvas = document.getElementById("loupeCanvas");
+  var loupeCtx = loupeCanvas.getContext("2d");
+
+  canvas.addEventListener("pointerdown", function (e) {
+    dragging = true; dragMoved = false;
+    lastX = e.clientX; lastY = e.clientY;
+    canvas.setPointerCapture(e.pointerId);
+  });
+
+  canvas.addEventListener("pointermove", function (e) {
+    var dx = e.clientX - lastX, dy = e.clientY - lastY;
+    if (dragging && (Math.abs(dx) > 3 || Math.abs(dy) > 3)) dragMoved = true;
+    lastX = e.clientX; lastY = e.clientY;
+
+    if (heroCoin) {
+      if (dragging) {
+        heroTargetYaw += dx * 0.012;
+        heroPitch = Math.max(-1.1, Math.min(1.1, heroPitch + dy * 0.012));
+        if (motionMode === "off") heroFlipYaw = heroTargetYaw;
+      } else {
+        rakeAngle = Math.atan2(window.innerHeight * 0.4 - e.clientY, e.clientX - window.innerWidth * 0.35);
+      }
+      if (loupeEnabled && heroImageObj) {
+        loupeCanvas.style.display = "block";
+        loupeCanvas.style.left = (e.clientX - 90) + "px";
+        loupeCanvas.style.top = (e.clientY - 90) + "px";
+        loupeCtx.clearRect(0, 0, 360, 360);
+        loupeCtx.fillStyle = "#080b10"; loupeCtx.fillRect(0, 0, 360, 360);
+        var nx = Math.max(0, Math.min(1, (e.clientX / (window.innerWidth * (window.innerWidth >= 900 ? 0.55 : 1.0)))));
+        var ny = Math.max(0, Math.min(1, (e.clientY / (window.innerHeight * 0.55))));
+        var iw = heroImageObj.naturalWidth || 512, ih = heroImageObj.naturalHeight || 512;
+        loupeCtx.drawImage(heroImageObj, nx * iw - iw * 0.125, ny * ih - ih * 0.125, iw * 0.25, ih * 0.25, 0, 0, 360, 360);
+      }
+      return;
+    }
+
+    if (dragging) {
+      var panScale = cam.z * 0.0018;
+      cam.tx -= dx * panScale;
+      cam.ty += dy * panScale;
+      if (motionMode === "off") { cam.x = cam.tx; cam.y = cam.ty; }
+      hoverTip.style.display = "none";
+    } else {
+      var hit = pickCoinAt(e.clientX, e.clientY);
+      if (hit) {
+        hoverTip.style.display = "block";
+        hoverTip.style.left = (e.clientX + 14) + "px";
+        hoverTip.style.top = (e.clientY + 14) + "px";
+        hoverTip.textContent = hit.scan + " · " + hit.country + " " + (hit.year || "") + " " + hit.denom;
+      } else {
+        hoverTip.style.display = "none";
+      }
+    }
+  });
+
+  canvas.addEventListener("pointerup", function (e) {
+    if (!dragMoved && !heroCoin) {
+      var hit = pickCoinAt(e.clientX, e.clientY);
+      if (hit) selectCoin(hit);
+    }
+    dragging = false;
+  });
+
+  canvas.addEventListener("wheel", function (e) {
+    if (heroCoin) return;
+    e.preventDefault();
+    cam.tz = Math.max(6, Math.min(42, cam.tz + e.deltaY * 0.018));
+    if (motionMode === "off") cam.z = cam.tz;
+  }, { passive: false });
+
+  function pickCoinAt(sx, sy) {
+    var best = null, bestD = 1e9;
+    for (var i = 0; i < screenCache.length; i++) {
+      var sc = screenCache[i];
+      var d = Math.hypot(sx - sc.x, sy - sc.y);
+      if (d <= Math.max(18, sc.r) && d < bestD) { bestD = d; best = sc.coin; }
+    }
+    return best;
+  }
+
+  // Layout buttons & filters
+  Array.prototype.forEach.call(document.querySelectorAll("[data-layout]"), function (btn) {
+    btn.addEventListener("click", function () {
+      Array.prototype.forEach.call(document.querySelectorAll("[data-layout]"), function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      activeLayout = btn.getAttribute("data-layout");
+      computeLayoutTargets();
+    });
+  });
+  document.getElementById("searchInput").addEventListener("input", computeLayoutTargets);
+  document.getElementById("countryFilter").addEventListener("change", computeLayoutTargets);
+  document.getElementById("metalFilter").addEventListener("change", computeLayoutTargets);
+
+  // Render Loop
+  var labelsLayer = document.getElementById("labelsLayer");
+  var labelEls = [];
+  function syncClusterLabels(proj, view) {
+    if (heroCoin) { labelsLayer.style.display = "none"; return; }
+    labelsLayer.style.display = "block";
+    while (labelEls.length < clusterAnchors.length) {
+      var el = document.createElement("div"); el.className = "cluster-label";
+      labelsLayer.appendChild(el); labelEls.push(el);
+    }
+    for (var i = 0; i < labelEls.length; i++) {
+      if (i >= clusterAnchors.length) { labelEls[i].style.display = "none"; continue; }
+      var a = clusterAnchors[i];
+      var sp = projectToScreen(a.x, a.y, a.z, proj, view, window.innerWidth, window.innerHeight);
+      var minY = window.innerWidth < 640 ? 165 : 72; var maxY = window.innerWidth < 640 ? window.innerHeight - 115 : window.innerHeight - 70;
+      if (!sp || sp.x < 20 || sp.x > window.innerWidth - 20 || sp.y < minY || sp.y > maxY) {
+        labelEls[i].style.display = "none";
+      } else {
+        labelEls[i].style.display = "block";
+        labelEls[i].textContent = a.text;
+        labelEls[i].style.left = sp.x.toFixed(1) + "px";
+        labelEls[i].style.top = sp.y.toFixed(1) + "px";
+      }
+    }
+  }
+
+  function renderFrame(now) {
+    var k = (motionMode === "off") ? 1.0 : (motionMode === "calm" ? 0.22 : 0.14);
+    cam.tpitch = heroCoin ? 0.0 : (activeLayout === "era" ? -0.52 : (activeLayout === "metal" ? -0.48 : -0.42));
+    cam.x += (cam.tx - cam.x) * k;
+    cam.y += (cam.ty - cam.y) * k;
+    cam.z += (cam.tz - cam.z) * k;
+    cam.pitch += (cam.tpitch - cam.pitch) * k;
+    heroFlipYaw += (heroTargetYaw - heroFlipYaw) * k;
+
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.clearColor(0.027, 0.035, 0.051, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    gl.enable(gl.DEPTH_TEST);
+
+    var aspect = canvas.width / canvas.height;
+    var proj = perspectiveMat4(45 * Math.PI / 180, aspect, 0.5, 100.0);
+    var view = viewMat4(cam.x, cam.y, cam.z, cam.pitch);
+
+    gl.useProgram(prog);
+    gl.uniformMatrix4fv(uProj, false, proj);
+    gl.uniformMatrix4fv(uView, false, view);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tAtlas); gl.uniform1i(uAtlas, 0);
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tHero); gl.uniform1i(uHeroTex, 1);
+
+    var lx = Math.cos(rakeAngle) * 0.85, ly = Math.sin(rakeAngle) * 0.85;
+    gl.uniform3f(uLightDir, lx, ly, 0.95);
+
+    screenCache.length = 0;
+    var heroOffsetX = window.innerWidth >= 900 ? -2.2 : 0.0;
+    var heroOffsetY = window.innerWidth >= 900 ? -0.25 : 0.65;
+
+    for (var i = 0; i < coins.length; i++) {
+      var c = coins[i];
+      var isH = (heroCoin === c);
+      var goalX = isH ? (cam.x + heroOffsetX) : c.tx;
+      var goalY = isH ? (cam.y + heroOffsetY) : c.ty;
+      var goalZ = isH ? (cam.z - 5.2) : c.tz;
+      var goalSc = isH ? (window.innerWidth < 640 ? 1.15 : 1.55) : c.tScale;
+
+      c.x += (goalX - c.x) * k;
+      c.y += (goalY - c.y) * k;
+      c.z += (goalZ - c.z) * k;
+      c.scale += (goalSc - c.scale) * k;
+
+      gl.uniform3f(uCoinPos, c.x, c.y, c.z);
+      if (isH) {
+        gl.uniform2f(uCoinRot, heroPitch, heroFlipYaw);
+      } else {
+        var idleTilt = (motionMode === "full") ? Math.sin(now * 0.0015 + i * 0.3) * 0.12 : 0.0;
+        gl.uniform2f(uCoinRot, -0.36, idleTilt + ((i % 5) - 2) * 0.05);
+      }
+      gl.uniform1f(uCoinScale, c.scale);
+      gl.uniform3fv(uMetalCol, c.metalCol);
+      gl.uniform1f(uDim, isH ? 1.0 : (heroCoin ? 0.22 : (c.matches ? 1.0 : 0.28)));
+      gl.uniform1f(uHasTex, c.hasAtlas ? 1.0 : 0.0);
+      gl.uniform4f(uAtlasRect, c.au, c.av, c.aw, c.ah);
+      gl.uniform1f(uIsHero, isH ? 1.0 : 0.0);
+      gl.drawArrays(gl.TRIANGLES, 0, geom.count);
+
+      if (!heroCoin && c.matches) {
+        var sp = projectToScreen(c.x, c.y, c.z, proj, view, window.innerWidth, window.innerHeight);
+        if (sp) screenCache.push({ coin: c, x: sp.x, y: sp.y, r: sp.r });
+      }
+    }
+
+    syncClusterLabels(proj, view);
+    requestAnimationFrame(renderFrame);
+  }
+  requestAnimationFrame(renderFrame);
+
+  // Progressive non-blocking texture atlas loader for coin thumbnails
+  function loadThumbIntoAtlas(c, slotIdx) {
+    if (!c.thumb || slotIdx >= GRID_N * GRID_N) return;
+    var im = new Image(); im.crossOrigin = "anonymous";
+    im.onload = function () {
+      var col = slotIdx % GRID_N, row = Math.floor(slotIdx / GRID_N);
+      var px = col * CELL, py = row * CELL;
+      atlasCtx.save();
+      atlasCtx.beginPath();
+      atlasCtx.arc(px + CELL / 2, py + CELL / 2, CELL * 0.46, 0, Math.PI * 2);
+      atlasCtx.closePath();
+      atlasCtx.clip();
+      atlasCtx.drawImage(im, px, py, CELL, CELL);
+      atlasCtx.restore();
+      c.au = px / ATLAS_SIZE; c.av = py / ATLAS_SIZE;
+      c.aw = CELL / ATLAS_SIZE; c.ah = CELL / ATLAS_SIZE;
+      c.hasAtlas = true;
+      gl.bindTexture(gl.TEXTURE_2D, tAtlas);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, atlasCanvas);
+    };
+    im.src = c.thumb.indexOf("data:") === 0 ? c.thumb : (baseRoot + c.thumb);
+  }
+
+
+  // ============================================================================
+  // MILESTONE M2: Live Physical Whitman Albums & 2-Tap Missing-Year Lookup
+  // Strictly reads data/wants.json, data/status.json, and data/prices.json at load
+  // ============================================================================
+  var wantsData = null;
+  var statusData = null;
+  var pricesData = null;
+  var activeVolumes = [];
+  var selectedVol = null;
+  var currentSpread = 0;
+  var SLOTS_PER_PAGE = 24;
+  var simulatedFills = {};
+
+  function estimateSlotMeltFloor(vol) {
+    var spotAg = (pricesData && pricesData.latest && pricesData.latest.xag_usd) ? Number(pricesData.latest.xag_usd) : 0;
+    if (!spotAg || !vol) return 0;
+    var m = String(vol.metal || "").toLowerCase();
+    var d = String(vol.denomination || "").toLowerCase();
+    if (m.indexOf("999") !== -1 && m.indexOf("silver") !== -1) return spotAg;
+    if (m.indexOf("90%") !== -1 && m.indexOf("silver") !== -1) {
+      if (d.indexOf("10") !== -1 || d.indexOf("dime") !== -1) return spotAg * 0.07234;
+      if (d.indexOf("25") !== -1 || d.indexOf("quarter") !== -1) return spotAg * 0.18084;
+      if (d.indexOf("50") !== -1 || d.indexOf("half") !== -1) return spotAg * 0.36169;
+    }
+    return 0;
+  }
+
+  function buildVolumeSlots(vol) {
+    var map = {};
+    var order = [];
+    (vol.have_named || []).forEach(function (s) {
+      var k = s.label || String(s.year || "");
+      if (!map[k]) { order.push(k); }
+      map[k] = { label: k, year: s.year || 0, state: "filled" };
+    });
+    (vol.missing_named || []).forEach(function (s) {
+      var k = s.label || String(s.year || "");
+      if (!map[k]) { order.push(k); }
+      map[k] = { label: k, year: s.year || 0, state: "empty" };
+    });
+    (vol.maybe_missing || []).forEach(function (s) {
+      var k = (typeof s === "string") ? s : (s.label || String(s.year || ""));
+      if (!map[k]) {
+        order.push(k);
+        map[k] = { label: k, year: s.year || 0, state: "printed" };
+      }
+    });
+    order.sort(function (a, b) {
+      return String(a).localeCompare(String(b), undefined, { numeric: true });
+    });
+    var list = order.map(function (k) { return map[k]; });
+    var totalTarget = Number(vol.slots_total) || list.length;
+    var filledTarget = Number(vol.filled) || 0;
+    var currentFilled = list.filter(function (x) { return x.state === "filled"; }).length;
+    // If a volume only enumerates missing holes or has unindexed slots, represent remaining filled slots & printed reference circles
+    while (list.length < totalTarget) {
+      var idx = list.length + 1;
+      if (currentFilled < filledTarget) {
+        list.push({ label: "Slot #" + idx, year: 0, state: "filled" });
+        currentFilled++;
+      } else {
+        list.push({ label: "Ref Circle #" + idx, year: 0, state: "printed" });
+      }
+    }
+    // Always append one printed series-emblem circle at the end of the folder so all 3 Whitman slot states (filled, missing, printed circle) are visible
+    list.push({ label: (vol.denomination || "Series") + " Emblem", year: 0, state: "printed" });
+    return list;
+  }
+
+  function renderAlbumSidebar(filterText, onlyEagles) {
+    if (!wantsData || !wantsData.volumes) return;
+    var q = String(filterText || "").trim().toLowerCase();
+    activeVolumes = wantsData.volumes.filter(function (v) {
+      if (onlyEagles) {
+        var fam = String(v.family || v.title || "").toLowerCase();
+        return fam.indexOf("silver eagle") !== -1;
+      }
+      if (!q) return true;
+      var hay = (v.id + " " + v.title + " " + (v.family || "") + " " + (v.denomination || "")).toLowerCase();
+      if (hay.indexOf(q) !== -1) return true;
+      return (v.missing_named || []).some(function (m) {
+        return String(m.label || "").toLowerCase().indexOf(q) !== -1;
+      });
+    });
+
+    var box = document.getElementById("albVolumeList");
+    box.innerHTML = "";
+    activeVolumes.forEach(function (v) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "alb-vol-btn" + (selectedVol && selectedVol.id === v.id ? " active" : "");
+      var missCount = Number(v.missing) || (v.missing_named ? v.missing_named.length : 0);
+      btn.innerHTML =
+        "<div style='display:flex;justify-content:space-between;gap:6px;'><strong>" + v.id + " · " + v.title + "</strong></div>" +
+        "<div style='color:var(--muted);font-size:16px;'>Filled: <strong style='color:var(--ok);'>" + (v.filled || 0) + "</strong> / " + (v.slots_total || 0) +
+        " · Missing: <strong style='color:var(--gold);'>" + missCount + "</strong></div>";
+      btn.addEventListener("click", function () {
+        selectAlbumVolume(v, 0);
+      });
+      box.appendChild(btn);
+    });
+  }
+
+  function selectAlbumVolume(vol, pageIdx) {
+    selectedVol = vol;
+    var allSlots = buildVolumeSlots(vol);
+    var maxPage = Math.max(0, Math.ceil(allSlots.length / SLOTS_PER_PAGE) - 1);
+    currentSpread = Math.max(0, Math.min(maxPage, pageIdx || 0));
+
+    document.querySelectorAll(".alb-vol-btn").forEach(function (b) {
+      b.classList.toggle("active", b.textContent.indexOf(vol.id + " ·") === 0);
+    });
+
+    // Missing banner at top of stage (answers "Which year am I missing?" immediately)
+    var missList = (vol.missing_named || []).map(function (m) { return m.label; });
+    var mTitle = document.getElementById("albMissingTitle");
+    var mSub = document.getElementById("albMissingSub");
+    var mChips = document.getElementById("albMissingChips");
+    mChips.innerHTML = "";
+
+    var unitMelt = estimateSlotMeltFloor(vol);
+    var estCostNote = unitMelt > 0
+      ? (" · Live metal floor: ~$" + unitMelt.toFixed(2) + "/coin ($" + (unitMelt * missList.length).toFixed(2) + " total at live spot)")
+      : "";
+
+    if (missList.length > 0) {
+      mTitle.textContent = vol.title + " — Missing " + missList.length + " Named Hole" + (missList.length === 1 ? "" : "s") + " (Filled " + (vol.filled || 0) + " of " + (vol.slots_total || 0) + ")";
+      mSub.textContent = (vol.metal || "") + " · " + (vol.binder || "") + estCostNote + ". Tap any missing year chip or empty hole to preview coin settle:";
+      missList.forEach(function (lbl) {
+        var chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "miss-chip";
+        chip.textContent = "Missing: " + lbl;
+        chip.addEventListener("click", function () {
+          var targetIdx = allSlots.findIndex(function (s) { return s.label === lbl; });
+          if (targetIdx !== -1) {
+            var targetPage = Math.floor(targetIdx / SLOTS_PER_PAGE);
+            if (targetPage !== currentSpread) selectAlbumVolume(vol, targetPage);
+            var key = vol.id + ":" + lbl;
+            simulatedFills[key] = !simulatedFills[key];
+            renderWhitmanSpread(vol, allSlots);
+          }
+        });
+        mChips.appendChild(chip);
+      });
+    } else {
+      mTitle.textContent = vol.title + " — Filled " + (vol.filled || 0) + " of " + (vol.slots_total || 0) + " Slots";
+      mSub.textContent = vol.note || "No named missing dates recorded in data/wants.json for this volume.";
+    }
+
+    renderWhitmanSpread(vol, allSlots);
+  }
+
+  function renderWhitmanSpread(vol, allSlots) {
+    var board = document.getElementById("whitmanBoard");
+    var grid = document.getElementById("whitmanHolesGrid");
+    var header = document.getElementById("whitmanBoardHeader");
+    var pageInd = document.getElementById("albPageIndicator");
+
+    var totalPages = Math.max(1, Math.ceil(allSlots.length / SLOTS_PER_PAGE));
+    header.textContent = (vol.title || vol.id).toUpperCase() + " · SPREAD " + (currentSpread + 1) + " OF " + totalPages;
+    pageInd.textContent = "Showing holes " + (currentSpread * SLOTS_PER_PAGE + 1) + "–" + Math.min(allSlots.length, (currentSpread + 1) * SLOTS_PER_PAGE) + " of " + allSlots.length;
+
+    grid.innerHTML = "";
+    var isCopper = String(vol.metal || "").toLowerCase().indexOf("copper") !== -1 || String(vol.metal || "").toLowerCase().indexOf("bronze") !== -1;
+    var slice = allSlots.slice(currentSpread * SLOTS_PER_PAGE, (currentSpread + 1) * SLOTS_PER_PAGE);
+
+    slice.forEach(function (s) {
+      var cell = document.createElement("div");
+      cell.className = "slot-cell";
+      var key = vol.id + ":" + s.label;
+      var isSim = !!simulatedFills[key];
+      var effState = isSim ? "filled" : s.state;
+
+      var circle = document.createElement("button");
+      circle.type = "button";
+      circle.className = "slot-circle state-" + effState + (isCopper ? " metal-copper" : "") + (isSim ? " settling" : "");
+      if (effState === "filled") {
+        circle.textContent = isSim ? "SETTLED" : "FILLED";
+        circle.title = s.label + " (Filled in album)";
+      } else if (effState === "empty") {
+        circle.textContent = "MISSING";
+        circle.title = s.label + " — Missing hole (tap to preview coin drop & rim settle)";
+      } else {
+        circle.textContent = "PRINTED";
+        circle.title = s.label + " — Printed reference circle (not a cutout hole)";
+      }
+
+      circle.addEventListener("click", function () {
+        if (s.state === "empty") {
+          simulatedFills[key] = !simulatedFills[key];
+          renderWhitmanSpread(vol, allSlots);
+        }
+      });
+
+      var lbl = document.createElement("div");
+      lbl.className = "slot-lbl";
+      lbl.textContent = s.label;
+
+      var sub = document.createElement("div");
+      sub.className = "slot-sub";
+      sub.textContent = effState === "filled" ? (isSim ? "Preview Settle" : "In Album") : (effState === "empty" ? "Empty Hole" : "Printed Circle");
+
+      cell.appendChild(circle);
+      cell.appendChild(lbl);
+      cell.appendChild(sub);
+      grid.appendChild(cell);
+    });
+  }
+
+  function turnPage(delta) {
+    if (!selectedVol) return;
+    var allSlots = buildVolumeSlots(selectedVol);
+    var maxPage = Math.max(0, Math.ceil(allSlots.length / SLOTS_PER_PAGE) - 1);
+    var next = Math.max(0, Math.min(maxPage, currentSpread + delta));
+    if (next === currentSpread) return;
+    var board = document.getElementById("whitmanBoard");
+    if (motionMode === "full") {
+      board.classList.add("turning");
+      setTimeout(function () {
+        selectAlbumVolume(selectedVol, next);
+        board.classList.remove("turning");
+      }, 180);
+    } else {
+      selectAlbumVolume(selectedVol, next);
+    }
+  }
+
+  function openAlbumModal(onlyEagles) {
+    document.body.classList.add("albums-open");
+    document.getElementById("openAlbumsBtn").setAttribute("aria-pressed", "true");
+    renderAlbumSidebar(document.getElementById("albSearchInput").value, !!onlyEagles);
+    if (onlyEagles && activeVolumes.length > 0) {
+      // Select the volume with missing Silver Eagles first so the missing years are answered on tap!
+      var withMissing = activeVolumes.find(function (v) { return (v.missing_named && v.missing_named.length > 0) || v.missing > 0; });
+      selectAlbumVolume(withMissing || activeVolumes[0], 0);
+    } else if (!selectedVol && activeVolumes.length > 0) {
+      selectAlbumVolume(activeVolumes[0], 0);
+    }
+  }
+
+  function closeAlbumModal() {
+    document.body.classList.remove("albums-open");
+    document.getElementById("openAlbumsBtn").setAttribute("aria-pressed", "false");
+  }
+
+  document.getElementById("openAlbumsBtn").addEventListener("click", function () {
+    if (document.body.classList.contains("albums-open")) closeAlbumModal();
+    else openAlbumModal(false);
+  });
+  document.getElementById("missingEaglesBtn").addEventListener("click", function () {
+    document.getElementById("albSearchInput").value = "";
+    openAlbumModal(true);
+  });
+  document.getElementById("albFilterEaglesBtn").addEventListener("click", function () {
+    document.getElementById("albSearchInput").value = "";
+    openAlbumModal(true);
+  });
+  document.getElementById("albShowAllBtn").addEventListener("click", function () {
+    document.getElementById("albSearchInput").value = "";
+    renderAlbumSidebar("", false);
+    if (activeVolumes.length > 0) selectAlbumVolume(activeVolumes[0], 0);
+  });
+  document.getElementById("albCloseBtn").addEventListener("click", closeAlbumModal);
+  document.getElementById("albPrevPageBtn").addEventListener("click", function () { turnPage(-1); });
+  document.getElementById("albNextPageBtn").addEventListener("click", function () { turnPage(1); });
+  document.getElementById("albSearchInput").addEventListener("input", function (e) {
+    renderAlbumSidebar(e.target.value, false);
+    if (activeVolumes.length > 0) selectAlbumVolume(activeVolumes[0], 0);
+  });
+
+  // Load live data/status.json, data/wants.json, and data/prices.json
+  Promise.all([
+    fetchLiveJSON("data/wants.json").catch(function () { return null; }),
+    fetchLiveJSON("data/status.json").catch(function () { return null; }),
+    fetchLiveJSON("data/prices.json").catch(function () { return null; })
+  ]).then(function (res) {
+    wantsData = res[0];
+    statusData = res[1];
+    pricesData = res[2];
+    if (wantsData && wantsData.volumes) {
+      var volCount = wantsData.volumes.length;
+      var slotsTotal = (statusData && statusData.albums && statusData.albums.slots) ||
+                       wantsData.volumes.reduce(function (s, v) { return s + (Number(v.slots_total) || 0); }, 0);
+      var slotsFilled = (statusData && statusData.albums && statusData.albums.slots_filled) ||
+                        wantsData.volumes.reduce(function (s, v) { return s + (Number(v.filled) || 0); }, 0);
+      var namedMissing = (wantsData.totals && wantsData.totals.named_missing) || 0;
+      document.getElementById("openAlbumsBtn").textContent = "📚 " + volCount + " Albums (" + slotsFilled + "/" + slotsTotal + ")";
+      document.getElementById("albGlobalSummary").textContent =
+        volCount + " Whitman Volumes · " + slotsFilled + " Filled / " + slotsTotal + " Total Slots · " +
+        namedMissing + " Named Missing Holes (live from data/wants.json & data/status.json)";
+      renderAlbumSidebar("", false);
+      if (activeVolumes.length > 0) selectAlbumVolume(activeVolumes[0], 0);
+    }
+  });
+
+  // Load live data/index.json
+  fetchLiveJSON("data/index.json").then(function (data) {
+    var list = data.flips || [];
+    var countries = {};
+    var photoCount = 0;
+    var atlasIdx = 0;
+
+    coins = list.map(function (f, i) {
+      var parts = String(f.label || "").split(" · ");
+      var country = parts[0] || f.country || "Unknown";
+      var year = parts[1] || f.year || "";
+      var denom = parts.slice(2).join(" · ") || f.denomination || "";
+      var m = inferMetal(f.label || "", denom);
+      countries[country] = (countries[country] || 0) + 1;
+      if (f.thumb) photoCount++;
+      var side = f.thumb_side || (f.thumb && f.thumb.indexOf("_rev") !== -1 ? "rev" : "obv");
+      var cObj = {
+        raw: f,
+        scan: f.scan || ("C" + String(i + 1).padStart(3, "0")),
+        country: country,
+        iso: f.d || f.iso || ISO_MAP[country] || "_misc",
+        year: year,
+        denom: denom,
+        thumb: f.thumb || "",
+        thumbSide: side,
+        metalKey: m.key,
+        metalCol: m.col,
+        searchHay: ((f.scan || "") + " " + country + " " + year + " " + denom + " " + m.key).toLowerCase(),
+        x: (Math.random() - 0.5) * 18,
+        y: (Math.random() - 0.5) * 12,
+        z: 0,
+        tx: 0, ty: 0, tz: 0,
+        scale: 0.44, tScale: 0.44,
+        matches: true,
+        hasAtlas: false, au: 0, av: 0, aw: 1, ah: 1
+      };
+      if (f.thumb && atlasIdx < GRID_N * GRID_N) {
+        var sIdx = atlasIdx++;
+        setTimeout(function () { loadThumbIntoAtlas(cObj, sIdx); }, (sIdx % 32) * 15);
+      }
+      return cObj;
+    });
+
+    var cSel = document.getElementById("countryFilter");
+    Object.keys(countries).sort().forEach(function (ck) {
+      var opt = document.createElement("option");
+      opt.value = ck; opt.textContent = ck + " (" + countries[ck] + ")";
+      cSel.appendChild(opt);
+    });
+
+    document.getElementById("liveCountPill").innerHTML =
+      "<strong>" + coins.length + "</strong> coins · <strong>" + photoCount + "</strong> photos · <strong>" + Object.keys(countries).length + "</strong> countries";
+
+    computeLayoutTargets();
+    window.__selectFirstCoin = function() { if (coins.length) selectCoin(coins[0]); };
+  }).catch(function (err) {
+    document.getElementById("liveCountPill").textContent = "Live data offline (" + err.message + ")";
+  });
+})();
+</script>
+</body>
+</html>

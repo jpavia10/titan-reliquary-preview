@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Titan Reliquary — Motion Study 1: Tile to Coin (Shared Element)</title>
+<style>
+  :root {
+    --bg: #080b0a;
+    --surface: #121816;
+    --surface2: #19221f;
+    --ink: #eef5f1;
+    --muted: #b6c8be;
+    --gold: #d8b560;
+    --line: rgba(216, 181, 96, 0.22);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(18, 24, 22, 0.88);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header h1 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  header span {
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 18px;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .tile {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: border-color 0.25s ease, background 0.25s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tile:hover, .tile:focus-visible {
+    border-color: var(--gold);
+    background: var(--surface2);
+    outline: none;
+  }
+  .tile-img-wrap {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tile-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.65));
+    will-change: transform;
+  }
+  .tile-scan {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .tile-label {
+    font-size: 16px;
+    color: var(--ink);
+  }
+  /* Detail sheet around the shared coin image */
+  .detail-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 9, 8, 0.88);
+    backdrop-filter: blur(12px);
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .detail-sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .detail-card {
+    width: min(640px, 94vw);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 24px 28px;
+    box-shadow: 0 28px 80px rgba(0,0,0,0.85);
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+    will-change: transform, opacity;
+  }
+  .detail-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .back-btn {
+    background: var(--surface2);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .back-btn:hover { border-color: var(--gold); }
+  .hero-slot {
+    width: 240px;
+    height: 240px;
+    margin: 8px auto 22px;
+  }
+  .detail-meta h2 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .detail-meta p {
+    font-size: 16px;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  /* Shared floating coin element */
+  #shared-coin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 60;
+    display: none;
+    transform-origin: 0 0;
+    will-change: transform;
+    filter: drop-shadow(0 16px 32px rgba(0,0,0,0.8));
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>TITAN RELIQUARY · Study 1: Tile to Coin</h1>
+  <span id="status">Loading live collection…</span>
+</header>
+<main class="grid" id="grid" aria-label="Coin gallery"></main>
+
+<div class="detail-scrim" id="scrim"></div>
+<div class="detail-sheet" id="sheet" aria-hidden="true">
+  <div class="detail-card" id="card">
+    <div class="detail-top">
+      <button class="back-btn" id="backBtn" type="button">← Back to Gallery</button>
+      <span id="detailScan" style="color:var(--gold);font-weight:600;font-size:16px;"></span>
+    </div>
+    <div class="hero-slot" id="heroSlot"></div>
+    <div class="detail-meta">
+      <h2 id="detailTitle"></h2>
+      <p id="detailSub"></p>
+      <p>Tap anywhere on the backdrop or press Back at any moment — even mid-flight — to smoothly reverse from the current position.</p>
+    </div>
+  </div>
+</div>
+<img id="shared-coin" alt="" />
+
+<script>
+(function () {
+  "use strict";
+  var BASE = "../../";
+  var grid = document.getElementById("grid");
+  var statusEl = document.getElementById("status");
+  var scrim = document.getElementById("scrim");
+  var sheet = document.getElementById("sheet");
+  var card = document.getElementById("card");
+  var heroSlot = document.getElementById("heroSlot");
+  var shared = document.getElementById("shared-coin");
+  var backBtn = document.getElementById("backBtn");
+  var detailScan = document.getElementById("detailScan");
+  var detailTitle = document.getElementById("detailTitle");
+  var detailSub = document.getElementById("detailSub");
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+                new URLSearchParams(window.location.search).get("motion") === "off";
+
+  // Spring / interruptible interpolation state
+  var activeTile = null;
+  var activeImg = null;
+  var targetOpen = 0; // 0 = gallery tile, 1 = coin page
+  var pos = 0;        // current progress 0..1
+  var vel = 0;
+  var rafId = null;
+  var lastT = 0;
+  var startRect = null;
+  var endRect = null;
+
+  function measureRects() {
+    if (activeImg) startRect = activeImg.getBoundingClientRect();
+    endRect = heroSlot.getBoundingClientRect();
+  }
+
+  function renderFrame(p) {
+    var c = Math.max(0, Math.min(1, p));
+    scrim.style.opacity = String(c);
+    scrim.style.pointerEvents = targetOpen > 0.5 ? "auto" : "none";
+    sheet.style.pointerEvents = targetOpen > 0.5 ? "auto" : "none";
+    sheet.setAttribute("aria-hidden", targetOpen > 0.5 ? "false" : "true");
+
+    var cardP = Math.max(0, Math.min(1, (c - 0.12) / 0.88));
+    card.style.opacity = String(cardP);
+    card.style.transform = "translateY(" + ((1 - cardP) * 24).toFixed(2) + "px) scale(" + (0.96 + 0.04 * cardP).toFixed(4) + ")";
+
+    if (startRect && endRect) {
+      var x = startRect.left + (endRect.left - startRect.left) * p;
+      var y = startRect.top + (endRect.top - startRect.top) * p;
+      var w = startRect.width + (endRect.width - startRect.width) * p;
+      var scale = w / Math.max(1, startRect.width);
+      shared.style.width = startRect.width + "px";
+      shared.style.height = startRect.height + "px";
+      shared.style.transform = "translate3d(" + x.toFixed(2) + "px," + y.toFixed(2) + "px,0) scale(" + scale.toFixed(4) + ")";
+    }
+  }
+
+  function step(now) {
+    var dt = Math.min(0.032, (now - lastT) / 1000 || 0.016);
+    lastT = now;
+    if (reduced) {
+      pos = targetOpen;
+      vel = 0;
+    } else {
+      // Critically damped spring (stiffness 260, damping 28)
+      var k = 260, d = 28;
+      var force = (targetOpen - pos) * k - vel * d;
+      vel += force * dt;
+      pos += vel * dt;
+    }
+    renderFrame(pos);
+    if (Math.abs(targetOpen - pos) > 0.001 || Math.abs(vel) > 0.005) {
+      rafId = requestAnimationFrame(step);
+    } else {
+      pos = targetOpen;
+      vel = 0;
+      renderFrame(pos);
+      rafId = null;
+      if (pos === 0 && activeImg) {
+        activeImg.style.visibility = "visible";
+        shared.style.display = "none";
+        activeTile = null;
+        activeImg = null;
+      }
+    }
+  }
+
+  function openCoin(tile, item, imgEl) {
+    if (activeImg && activeImg !== imgEl) {
+      activeImg.style.visibility = "visible";
+    }
+    activeTile = tile;
+    activeImg = imgEl;
+    var parts = String(item.label || "").split(" · ");
+    detailScan.textContent = item.scan || "";
+    detailTitle.textContent = parts[0] || item.scan;
+    detailSub.textContent = parts.slice(1).join(" · ") || "Titan Reliquary Collection";
+
+    shared.src = imgEl.src;
+    shared.style.display = "block";
+    imgEl.style.visibility = "hidden";
+    measureRects();
+    targetOpen = 1;
+    lastT = performance.now();
+    if (!rafId) rafId = requestAnimationFrame(step);
+  }
+
+  function closeCoin() {
+    if (!activeImg) return;
+    measureRects();
+    targetOpen = 0;
+    lastT = performance.now();
+    if (!rafId) rafId = requestAnimationFrame(step);
+  }
+
+  backBtn.addEventListener("click", closeCoin);
+  scrim.addEventListener("click", closeCoin);
+  window.addEventListener("keydown", function (e) { if (e.key === "Escape" && targetOpen === 1) closeCoin(); });
+  window.addEventListener("resize", function () { if (activeImg) { measureRects(); renderFrame(pos); } });
+
+  fetch(BASE + "data/index.json").then(function (r) { return r.json(); }).then(function (data) {
+    var flips = (data.flips || []).filter(function (f) { return f.thumb; }).slice(0, 36);
+    statusEl.textContent = flips.length + " live specimens loaded";
+    flips.forEach(function (item) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "tile";
+      var wrap = document.createElement("div");
+      wrap.className = "tile-img-wrap";
+      var img = document.createElement("img");
+      img.loading = "lazy";
+      img.src = BASE + item.thumb;
+      img.alt = item.label || item.scan;
+      wrap.appendChild(img);
+      var sc = document.createElement("div");
+      sc.className = "tile-scan";
+      sc.textContent = item.scan;
+      var lb = document.createElement("div");
+      lb.className = "tile-label";
+      lb.textContent = item.label || "";
+      btn.appendChild(wrap);
+      btn.appendChild(sc);
+      btn.appendChild(lb);
+      btn.addEventListener("click", function () {
+        if (activeTile === btn && targetOpen === 1) { closeCoin(); }
+        else { openCoin(btn, item, img); }
+      });
+      grid.appendChild(btn);
+    });
+  }).catch(function () {
+    statusEl.textContent = "Unable to reach live index.json";
+  });
+})();
+</script>
+</body>
+</html>
