@@ -1,29 +1,8 @@
 {
-"generated_at": "2026-10-28T17:05:46Z",
+"generated_at": "2026-10-28T17:10:05Z",
 "summary": {
-"total": 3,
-"by_rule": {
-"copy_differs": 3
-}
+"total": 0,
+"by_rule": {}
 },
-"findings": [
-{
-"rule": "copy_differs",
-"id": "C296",
-"field": "issue.mintage",
-"detail": "coin None vs type GB.KM.937b 1634976005"
-},
-{
-"rule": "copy_differs",
-"id": "C297",
-"field": "issue.mintage",
-"detail": "coin None vs type GB.KM.935 793492000"
-},
-{
-"rule": "copy_differs",
-"id": "C303",
-"field": "issue.mintage",
-"detail": "coin None vs type AU.X.1-cent 183600000"
-}
-]
+"findings": []
 }

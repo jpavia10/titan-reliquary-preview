@@ -106,7 +106,8 @@ class Loop(unittest.TestCase):
         ctx = HW.load_context(tmp)
         target = (agree["entity"], agree["id"], agree["field"])
         coins = [k for k, s in ctx["live"].items() if (s["type"] if target[0] == "type" else k) == target[1]]
-        fact = next(f for f, e, fld in HW.VERIFY_FACTS if e == target[0] and fld.replace("{N}", target[2].split(".")[1] if "{N}" in fld else "") == target[2])
+        n = target[2].split(".")[1] if "." in target[2] else ""      # issues.{N}.mintage; a plain field (ruler) has no index
+        fact = next(f for f, e, fld in HW.VERIFY_FACTS if e == target[0] and fld.replace("{N}", n) == target[2])
         lv = PV.level_of(ctx["details"][coins[0]]["certainty"], fact)
         self.assertEqual(lv, "checked", (target, PV.resolve(ctx["details"][coins[0]]["certainty"], fact)))
         # refresh: the assignment closes, left-out items are tried by muse, the disagreement is an arbitrate job for neither party
@@ -217,7 +218,10 @@ class LoopUpgrades(unittest.TestCase):
     """2026-10-15: contradictions as homework (#102), planted wrong values (#99), yearly re-checks (#94), Claude's spot checks (#95)."""
     def test_contradictions_become_homework_except_the_mechanical_ones(self):
         tmp = sandbox(); ctx = HW.load_context(tmp)
-        ctx["truth"] = ctx["truth"] + [{"rule": "copy_differs", "id": "C001", "field": "issue.mintage", "detail": "x"}]
+        # live data may hold no open contradiction (2026-10-28: the intake closed the last one), so plant one that needs research too
+        live = sorted(ctx["live"])[0]
+        ctx["truth"] = ctx["truth"] + [{"rule": "copy_differs", "id": "C001", "field": "issue.mintage", "detail": "x"},
+                                       {"rule": "mint_unknown", "id": live, "field": "issue.mintage", "detail": "planted by the test"}]
         pool = HW.pool_contradiction(ctx)
         self.assertTrue(pool, "the truth checks found contradictions, so there must be homework")
         self.assertFalse([i for i in pool if ":copy_differs:" in i], "mechanical findings stay with truth_checks.py --fix")

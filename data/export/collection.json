@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-10-28T17:05:46Z",
- "content_hash": "0702403eded7e57e",
+ "generated_at": "2026-10-28T17:10:05Z",
+ "content_hash": "0b71aff9791bbbcc",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:0702403eded7e57e",
+  "ledger_version": "v3:0b71aff9791bbbcc",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5389.74,
@@ -17885,7 +17885,7 @@
    "issue": {
     "mint_marks": [],
     "mint_text": "none on the value side",
-    "mintage": null,
+    "mintage": 183600000,
     "mintage_text": null,
     "qualifier": null,
     "year": 1983
@@ -34990,7 +34990,7 @@
    "issue": {
     "mint_marks": [],
     "mint_text": "none on the portrait side",
-    "mintage": null,
+    "mintage": 1634976005,
     "mintage_text": null,
     "qualifier": null,
     "year": 1990
@@ -35076,7 +35076,7 @@
    "issue": {
     "mint_marks": [],
     "mint_text": "none on the portrait side",
-    "mintage": null,
+    "mintage": 793492000,
     "mintage_text": null,
     "qualifier": null,
     "year": 1988
