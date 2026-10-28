@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-28] Claude: tr262 picker art for six themes
+- Gemini's art live for Glasshouse, Low Orbit, Sahel, Salt Mirror, Cloud Forest (card + hero) and the Silver Screen hero; Light Well live but re-requested (no coin). Obsidian Sun rejected (no sun, jade or coin): `artreq_20261028-1630_theme-art-obsidian-lightwell-redo`.
+- Next: Grok's tray and Gemini's 35 stuck verify files, then the intro overhaul review.
+
 ### [2026-10-25] — Claude · Music for Glasshouse, Low Orbit, Salt Mirror, Light Well (tr261)
 - Four real recordings from the intake (credits in audio/music/CREDITS.md). Sahel kora still wanted.
 

@@ -1,0 +1,53 @@
+{
+ "request_id": "artreq_20261028-1630_theme-art-obsidian-lightwell-redo",
+ "status": "open",
+ "assigned_to": "any",
+ "requested_by": "Claude (integrator)",
+ "deliverable_spec": {
+  "card": "16:10, at least 1280x800, PNG; the subject must read at 220x138 px (the picker card size on a phone)",
+  "hero": "16:10, at least 2560x1600, PNG",
+  "safe_area": "keep the top-left third of heroes calm and darker (or plain paper on light themes): UI text sits there"
+ },
+ "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, true reflections, physically accurate materials (toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich natural grading, fine film grain. Real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Exception: an image whose `medium` names an illustration, pixel art, clay or poster style is made in that medium, at the same premium standard (clean, crafted, never cheap clip-art).",
+ "negative": "no readable text, no letters, no numbers, no logos, no watermark, no frame, no faces, no hands, no 3D-render plastic look in the photo images, no oversaturation, no HDR halos, no warped or melting coins, no invented legible inscriptions",
+ "coin_rule": "Coins look like real circulated or uncirculated world coins (a generic portrait, eagle or crest is fine); never invent a legible inscription.",
+ "created": "2026-10-28T16:30:00Z",
+ "why": "Redo (review of 2026-10-28). Obsidian Sun: all three images from artreq_20261025-0500 showed plain obsidian only: no gold sun stone, no jade, no coin, so the theme's subject is missing; rejected. Light Well: the card and hero from artreq_20261025-0430 are fine rooms but have no plinth and no coin; they are live for now, this asks for the card with its subject.",
+ "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim it with {request id}.CLAIMED-{model}.txt first. takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261028-1630_theme-art-obsidian-lightwell-redo/' with the exact file names, then write artreq_20261028-1630_theme-art-obsidian-lightwell-redo.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+ "review_notes": {
+  "obsidian": "Every image must show three things together: (1) black volcanic glass, (2) a hammered GOLD sun with sharp pointed rays, set with carved GREEN jade, (3) one real silver coin at the sun's centre. An obsidian rock on its own is not this theme.",
+  "lightwell": "The coin on its small dark stone plinth, inside the blade of light, must be clearly visible at 220x138 px. The concrete room alone was not enough."
+ },
+ "images": [
+  {
+   "file_name": "world_obsidian_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Obsidian Sun",
+   "theme_id": "obsidian",
+   "medium": "photo",
+   "prompt": "Studio product photograph, seen from slightly above: a large hammered GOLD sun disc with sixteen sharp pointed rays, its inner ring set with carved GREEN jadeite cabochons, lies on a polished black obsidian slab with glassy conchoidal ripples; in the exact centre of the sun one real circulated silver coin, sharp. Low warm raking light makes the gold glow and the jade translucent; the obsidian mirrors the gold. Gold, green and black must all be clearly visible."
+  },
+  {
+   "file_name": "world_obsidian_hero.png",
+   "priority": 2,
+   "takes": 1,
+   "aspect_ratio": "16:10",
+   "world": "Obsidian Sun",
+   "theme_id": "obsidian",
+   "medium": "photo",
+   "prompt": "Wider studio photograph of the same piece: a hammered GOLD sun disc with sharp pointed rays and a ring of carved GREEN jadeite, one real circulated silver coin at its centre, set into a polished black obsidian slab, placed in the right half of the frame; warm low light, deep black surroundings. Keep the top-left third calm and dark (UI text sits there)."
+  },
+  {
+   "file_name": "world_lightwell_card.png",
+   "priority": 3,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Light Well",
+   "theme_id": "lightwell",
+   "medium": "photo",
+   "prompt": "A quiet board-formed concrete chapel in the style of Tadao Ando, framed closer: one blade of sunlight from a roof slot falls across the wall and lands squarely on a small dark stone plinth in the lower middle of the frame; on the plinth lies one real circulated silver coin, sharp and bright in the light; dust in the beam, deep soft shadows. The plinth and coin must be the clear subject."
+  }
+ ]
+}

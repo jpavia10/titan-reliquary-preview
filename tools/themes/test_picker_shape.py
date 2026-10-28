@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 # themes from before portraits were required; they show their CSS swatch. Do not add new ids here.
 LEGACY_NO_ART = {"marbled", "cathedral", "contour", "banknote", "freefall", "sketch", "papercut", "y2k"}
 # owner rule 9 (CLAUDE.md): art is never rendered by code; a theme whose card is requested in the art queue shows its CSS swatch until it lands
-AWAITING_ART = {"canopy", "obsidian", "lightwell", "saltflat", "glasshouse", "orbit", "sahel"}   # docs/art/requests/artreq_20261024-0900_theme-art-canopy-silverscreen.json (supercell, tourbillon, darkroom, silverscreen cards landed 2026-10-24, Gemini)
+AWAITING_ART = {"obsidian"}   # docs/art/requests/artreq_20261028-1630_theme-art-obsidian-lightwell-redo.json (the 2026-10-25 obsidian art missed the gold sun, jade and coin; rejected 2026-10-28)
 LEGACY_NO_ART |= AWAITING_ART
 
 MEASURE = r"""() => {
