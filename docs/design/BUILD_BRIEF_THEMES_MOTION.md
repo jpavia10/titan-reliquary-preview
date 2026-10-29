@@ -6,8 +6,8 @@
 page asks for one by name. Music and field recordings go through the sound hunt (`docs/agents/SOUND_HUNT.md`), not section 5 below.
 **Changed again 2026-10-29 (theme framework locked):** every theme is now built to one contract,
 `docs/design/THEME_FRAMEWORK.md` (normative). The one kind of build wanted from outside is a **GPU world** for a theme still on the
-first engine, written to that contract (one `fx_{id}.js` with its room data: limits, look controls, touch, opening path), when your WORK
-QUEUE page names the theme. No separate openings: a world's opening is its camera path. Sections 1-4 below describe the old
+first engine, written to that contract (one world file with its room data: limits, look controls, touch, opening path), saved as
+`themes/{id}/world_{id}_{you}_{YYYYMMDD-HHMM}.js` + a short README, when your WORK QUEUE page names the theme. No separate openings: a world's opening is its camera path. Sections 1-4 below describe the old
 5-file packages and are kept for reference only; where they disagree with THEME_FRAMEWORK.md, the framework wins.
 
 Owner, 2026-10-23: "Ask it for more help on theming and advanced motion. Or songs etc. Off load your tokens here."

@@ -10,10 +10,16 @@
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
   function fmt(x) { return Math.abs(x) >= 10 ? x.toFixed(0) : x.toFixed(2).replace(/\.?0+$/, "") || "0"; }
 
+  /* a page without the app's audio bridge (the test site) drives the sound engine itself */
+  function direct() {
+    var T = window.TitanScape; if (!T) return null;
+    return { map: {}, take: function (id) { try { if (T.unlock) T.unlock(); } catch (e) { /* ignore */ } T.play(id); return Promise.resolve(T); },
+      release: function () { T.stop(); }, set: function (k, v) { T.setParam(k, v); }, layers: function () { return T.layers(); }, setLayer: function (id, g) { T.setLayer(id, g); } };
+  }
   function open(lib) {
     if (cur) return cur;
     var id = html.dataset.atmo, K = window.TitanFXK, d = K && K.debug ? K.debug() : {}, R = d.id === id && K.room ? K.room(id) : null;
-    var FX = window.TitanFX, fx0 = FX && FX.state ? FX.state() : null, scape = window.TitanScapeApp, took = false, before = document.activeElement;
+    var FX = window.TitanFX, fx0 = FX && FX.state ? FX.state() : null, scape = window.TitanScapeApp || direct(), took = false, before = document.activeElement;
     var v = { yaw: 0, pitch: 0, move: 0, up: 0, look: {} }, tilt = { yaw: 0, pitch: 0, b0: null, g0: null, on: false }, playing = null;
     if (R) (R.look || []).forEach(function (c) { v.look[c.id] = c.def; });
 
