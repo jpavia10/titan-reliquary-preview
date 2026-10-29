@@ -7,7 +7,7 @@
   "use strict";
   var html = document.documentElement;
   /* a theme is listed here once its opening path (K.themes[id].room.opening) has been looked at on a phone and a desktop */
-  var OPENINGS = { supercell: 1, tourbillon: 1, silverscreen: 1 };
+  var OPENINGS = { supercell: 1 };
   function K() { return window.TitanFXK; }
   function motion() {
     var m = html.dataset.motion; if (m === "calm" || m === "off") return m;
@@ -43,13 +43,13 @@
      5 s (slow line, no WebGL2), fallback() runs the theme's separate opening scene instead. */
   var op = null;
   function engineOpening(root, id, done, fallback) {
-    var k = K(), stopped = false, p = null, w0 = performance.now();
+    var k = null, stopped = false, p = null, w0 = performance.now();
     function cls(on) { html.classList.toggle("ts-engine", on); root.classList.toggle("ts-engine", on); }
     cls(true);
     var dark = document.createElement("div"); dark.className = "ts-engine-dark"; root.appendChild(dark);
     var title = document.createElement("div"); title.className = "ts-engine-title"; title.setAttribute("aria-hidden", "true"); title.textContent = label(id); root.appendChild(title);
     window.__tsFilmUntil = performance.now() + 17000;          // the splash's 7.4 s cap waits for this opening (it ends itself)
-    function ready() { var d = k && k.debug && k.debug(), R = k && k.room && k.room(id); return !!(d && d.id === id && d.frames > 2 && R && R.opening); }
+    function ready() { k = K(); var d = k && k.debug && k.debug(), R = k && k.room && k.room(id); return !!(d && d.id === id && d.frames > 2 && R && R.opening); }
     function undo() { cls(false); [dark, title].forEach(function (e) { if (e.parentNode) e.parentNode.removeChild(e); }); }
     function back() { if (k && k.resetView) k.resetView(); html.classList.remove("ts-engine"); root.classList.remove("ts-engine"); setTimeout(function () { html.classList.remove("ts-engine-fade"); }, 1100); }
     (function wait() {
@@ -69,10 +69,9 @@
       stop: function () { if (stopped) return; stopped = true; if (p) p.stop(); back(); undo(); op = null; } };
     return op;
   }
-  function hasOpening(id) {
-    var k = K();
-    return !!(OPENINGS[id] && motion() === "full" && k && (k.themes[id] || k.lazy[id]) && window.WebGL2RenderingContext);
-  }
+  /* splash.js asks this before fx/kit.js has loaded (the kit comes at the end of the page), so only the list, the motion level and
+     WebGL2 are checked here; engineOpening waits for the world itself */
+  function hasOpening(id) { return !!(OPENINGS[id] && motion() === "full" && window.WebGL2RenderingContext); }
 
   /* ============================== the room (wings/room-shell.js, loaded on first use) ============================== */
   var loading = null;
