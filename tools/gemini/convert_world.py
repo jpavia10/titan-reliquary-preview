@@ -11,7 +11,7 @@ through tools/rooms/check_conversion.py first (parses, contract markers, backdro
 import os, re, subprocess, sys, time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-FALLBACK = {"gemini-3.6-flash": "gemini-3-flash-preview", "gemini-3.8-flash": "gemini-3-flash-preview"}   # 3.8 Flash stalls on long answers (2026-10-29)
+FALLBACK = {"gemini-3.6-flash": "gemini-3-flash-preview", "gemini-3.8-flash": "gemini-3-flash-preview", "gemini-3-flash-preview": "gemini-3.5-flash-lite"}   # 3.8 Flash stalls on long answers (2026-10-29)
 P = os.path.join(ROOT, "tools", "gemini", "prompts")
 
 

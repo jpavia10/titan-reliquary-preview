@@ -7,7 +7,7 @@
 The key comes from $GEMINI_API_KEY or ~/.gemini_key (never from the repository; a new session copies it from the Drive file named in
 CLAUDE.md rule 13). Each --file is appended as "=== FILE: path ===" + its text. The answer streams (server-sent events), so a long answer
 is not lost to an idle connection; network errors, 429 and 5xx are retried 4 times (2, 4, 8, 16 s). --code keeps only the longest
-fenced code block. One line goes to stdout: model, tokens in/out, finish reason. Exit 0 = the answer finished (STOP); 2 = cut short.
+fenced code block. --thinking caps the model's thinking (auto: low on 3 Flash and the lite models). One line goes to stdout: model, tokens in/out, finish reason. Exit 0 = the answer finished (STOP); 2 = cut short.
 Everything Gemini writes passes the same checks as any contributor's work before it is used.
 """
 import argparse, json, os, re, ssl, sys, time, urllib.error, urllib.request
@@ -29,9 +29,10 @@ def context():
     return ssl.create_default_context()
 
 
-def ask(text, model, max_tokens, temperature, system=None):
+def ask(text, model, max_tokens, temperature, system=None, thinking=None):
     body = {"contents": [{"role": "user", "parts": [{"text": text}]}],
             "generationConfig": {"maxOutputTokens": max_tokens, "temperature": temperature}}
+    if thinking: body["generationConfig"]["thinkingConfig"] = {"thinkingLevel": thinking}   # its thinking counts against maxOutputTokens
     if system: body["systemInstruction"] = {"parts": [{"text": system}]}
     data = json.dumps(body).encode()
     for attempt in range(5):
@@ -51,7 +52,8 @@ def ask(text, model, max_tokens, temperature, system=None):
             return "".join(out), finish, usage
         except urllib.error.HTTPError as e:
             msg = e.read().decode("utf-8", "replace")[:400]
-            if e.code not in (429, 500, 502, 503, 504) or attempt == 4: sys.exit("HTTP %d: %s" % (e.code, msg))
+            daily = e.code == 429 and ("free_tier_requests" in msg or "PerDay" in msg)   # the day's quota: waiting does not help
+            if e.code not in (429, 500, 502, 503, 504) or attempt == 4 or daily: sys.exit("HTTP %d: %s" % (e.code, msg))
         except Exception as e:  # dropped connection, timeout (a stalled model is tried twice, not five times)
             if attempt == 4 or ("timed out" in str(e) and attempt >= 1): sys.exit("failed: %s" % e)
         time.sleep(2 ** (attempt + 1))
@@ -67,11 +69,13 @@ def main():
     a.add_argument("--prompt"); a.add_argument("--text"); a.add_argument("--system"); a.add_argument("--file", action="append", default=[])
     a.add_argument("--model", default="gemini-3.6-flash"); a.add_argument("--out"); a.add_argument("--code", action="store_true")
     a.add_argument("--max-tokens", type=int, default=65536); a.add_argument("--temperature", type=float, default=0.2)
+    a.add_argument("--thinking", default="auto", help="low | medium | high | none; auto = low for gemini-3-flash-preview and the lite models (mechanical work)")
     o = a.parse_args()
     text = (open(o.prompt, encoding="utf-8").read() if o.prompt else "") + (o.text or "")
     for f in o.file: text += "\n\n=== FILE: %s ===\n%s" % (f, open(f, encoding="utf-8").read())
     system = open(o.system, encoding="utf-8").read() if o.system else None
-    ans, finish, usage = ask(text, o.model, o.max_tokens, o.temperature, system)
+    th = o.thinking if o.thinking not in ("auto", "none") else (("low" if o.model == "gemini-3-flash-preview" or "lite" in o.model else None) if o.thinking == "auto" else None)
+    ans, finish, usage = ask(text, o.model, o.max_tokens, o.temperature, system, th)
     if o.code: ans = longest_block(ans)
     if o.out: open(o.out, "w", encoding="utf-8").write(ans)
     else: sys.stdout.write(ans + "\n")
