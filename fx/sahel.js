@@ -4,6 +4,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) {}
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) {}
@@ -12,11 +13,14 @@
   var SEG = 12;
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
-    "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
+    "uniform vec2 uRes; uniform float uT, uPh, uPort, uZoom, uYaw, uPitch, uUp, uHaze, uGlow, uSpeed; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
     "uniform sampler2D uCard, uShot;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     "void main(){",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  p.x -= uYaw * 0.4; p.y -= uPitch * 0.4;",
+    "  p *= (1.0 - uZoom * 0.35);",
+    "  p.y -= uUp * 0.35;",
     "  float A = uRes.x/uRes.y;",
     "  float S = min(1.0, A * 0.96);",
     "  vec2 par = (uPtr - 0.5)*vec2(0.035, 0.035)*S;",
@@ -27,7 +31,7 @@
     "  vec2 rDir = bp / (r + 1e-5);",
     "  vec2 tDir = vec2(-rDir.y, rDir.x);",
     "  float bRad = 0.226;",
-    "  vec2 lXY = vec2(0.35*cos(uT*0.24), 0.32*sin(uT*0.20)) + (uPtr - 0.5)*vec2(0.45, 0.45);",
+    "  vec2 lXY = vec2(0.35*cos(uT*0.24*uSpeed), 0.32*sin(uT*0.20*uSpeed)) + (uPtr - 0.5)*vec2(0.45, 0.45);",
     "  vec3 L = normalize(vec3(lXY - bp, 0.42));",
     "  vec3 V = vec3(0.0, 0.0, 1.0);",
     "  vec3 H = normalize(L + V);",
@@ -67,7 +71,7 @@
     "    float brDiff = max(0.0, dot(brN, L));",
     "    float brSpec = pow(max(0.0, dot(brN, H)), 44.0);",
     "    vec3 indigoInlay = vec3(0.04, 0.06, 0.14)*(0.6 + 0.4*plaster);",
-    "    vec3 brassCol = vec3(0.80, 0.54, 0.22)*(0.42 + 0.85*brDiff - 0.18*degTick) + vec3(1.0, 0.88, 0.58)*brSpec*0.72;",
+    "    vec3 brassCol = vec3(0.80, 0.54, 0.22)*(0.42 + 0.85*brDiff - 0.18*degTick) + vec3(1.0, 0.88, 0.58)*brSpec*0.72*uGlow;",
     "    vec3 dialCol = mix(indigoInlay, brassCol, brassMask);",
     "    col = mix(col, dialCol, smoothstep(astIn, astIn+0.004, r) * smoothstep(astOut, astOut-0.004, r));",
     "  }",
@@ -75,7 +79,7 @@
     "    float bezel = smoothstep(bRad+0.014, bRad+0.002, r) * smoothstep(bRad-0.006, bRad+0.002, r);",
     "    vec3 bN = normalize(vec3(-rDir*(r - (bRad+0.004))*48.0, 1.0));",
     "    float bSpec = pow(max(0.0, dot(bN, H)), 40.0);",
-    "    col = mix(col, vec3(0.82, 0.56, 0.24) + vec3(1.0, 0.88, 0.56)*bSpec*0.55, bezel);",
+    "    col = mix(col, vec3(0.82, 0.56, 0.24) + vec3(1.0, 0.88, 0.56)*bSpec*0.55*uGlow, bezel);",
     "    if(r < bRad){",
     "      vec2 cuv = clamp(bp / (bRad*2.0) + 0.5 + rDir*shock*0.010, 0.0, 1.0);",
     "      vec3 shotC = textureLod(uShot, vec2(cuv.x, 1.0 - cuv.y), 0.0).rgb;",
@@ -84,12 +88,13 @@
     "      if(uNoShot > 0.5) showCard = 1.0;",
     "      vec3 pic = mix(shotC, cardC, showCard);",
     "      pic = pic / (1.0 + 0.36*pic);",
-    "      float sunGlint = smoothstep(bRad*0.55, bRad, r) * exp(-abs(bp.x*0.75 + bp.y*0.65 - 0.04)*16.0)*0.08;",
+    "      float sunGlint = smoothstep(bRad*0.55, bRad, r) * exp(-abs(bp.x*0.75 + bp.y*0.65 - 0.04)*16.0)*0.08*uGlow;",
     "      col = mix(col, pic*0.68 + vec3(0.96, 0.76, 0.42)*sunGlint, smoothstep(bRad, bRad-0.005, r));",
     "    }",
     "  }",
     "  float outerMask = smoothstep(bRad - 0.01, bRad + 0.03, r);",
     "  col += vec3(0.96, 0.68, 0.32) * max(0.0, shock) * (0.15 + 0.85*outerMask) * 0.30;",
+    "  col *= (1.0 - (uHaze - 1.0) * 0.15);",   // haze 1 (the default) = the backdrop as it was
     "  col *= 1.0 - 0.32*smoothstep(0.45, 1.05, length(p*vec2(1.0/A*1.15, 1.0)));",
     "  col = min(col, vec3(0.58));",
     "  o = vec4(col, 1.0);",
@@ -194,9 +199,13 @@
     return {
       name: "sahel",
       step: function (c) {
+        var v = c.view || {};
         var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var room = v.mode === "room";
+        var swayX = room ? 0.5 : (P.x || 0.5);
+        var swayY = room ? 0.5 : (P.y || 0.5);
+        ptr[0] += (swayX - ptr[0]) * 0.08;
+        ptr[1] += (swayY - ptr[1]) * 0.08;
         if (si !== seg) {
           pinned = false;
           if (seg == null) show(null);
@@ -208,6 +217,7 @@
         if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
       },
       draw: function (c) {
+        var v = c.view || {};
         var A = c.w / c.h, now = Date.now() / 1000;
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
@@ -216,9 +226,22 @@
         gl.uniform1f(u.uPh, pinned ? 6.0 : (now % SEG));
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform1f(u.uZoom, v.move || 0);
+        gl.uniform1f(u.uYaw, v.yaw || 0);
+        gl.uniform1f(u.uPitch, v.pitch || 0);
+        gl.uniform1f(u.uUp, v.up || 0);
+        gl.uniform1f(u.uHaze, look("haze", 1));
+        gl.uniform1f(u.uGlow, look("glow", 1));
+        gl.uniform1f(u.uSpeed, look("speed", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () {
+        var v = {};
+        try { v = window.TitanFXK && window.TitanFXK.view || {}; } catch(e){}
+        return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
+          cam: [+(v.yaw||0).toFixed(3), +(v.pitch||0).toFixed(3), +(v.move||0).toFixed(3), +(v.up||0).toFixed(3)],
+          look: { haze: look("haze", 1), glow: look("glow", 1), speed: look("speed", 1) } };
+      },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -226,6 +249,10 @@
     stack: [
       { mod: "sahel" },
       { mod: "post", bloom: 0.48, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.03, grain: 0.035, vig: 0.34 }
-    ]
+    ],
+    room: { name: "The Saharan Solar Court", yaw: [-0.8, 0.8], pitch: [-0.6, 0.6], move: [-0.6, 0.6], up: [-0.5, 0.5], unit: "screen", sound: "sand",
+      look: [{ id: "haze", label: "Desert Haze", min: 0, max: 2, def: 1 }, { id: "glow", label: "Astrolabe Glow", min: 0.2, max: 2, def: 1 }, { id: "speed", label: "Rotation Speed", min: 0, max: 3, def: 1 }],
+      touch: "Tap the astrolabe: a ripple across the solar court.",
+      opening: { dur: 5, from: { yaw: 0.4, pitch: -0.3, move: -0.4, up: 0.2 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [0.5, 0.5] } }
   };
 })();

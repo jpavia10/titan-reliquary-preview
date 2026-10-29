@@ -4,6 +4,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) {}
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) {}
@@ -13,11 +14,12 @@
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
     "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
-    "uniform sampler2D uCard, uShot;",
+    "uniform sampler2D uCard, uShot; uniform vec4 uView; uniform float uMoss, uGravel, uSway;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     "void main(){",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
     "  float A = uRes.x/uRes.y;",
+    "  p.x -= uView.x; p.y -= uView.y; float zoom = exp(uView.z); p /= zoom;",
     "  float S = min(1.0, A * 0.96);",
     "  vec2 par = (uPtr - 0.5)*vec2(0.03, 0.03)*S;",
     "  vec2 bCenter = vec2(0.0, uPort>0.5 ? -0.01 : -0.02) - par;",
@@ -50,8 +52,8 @@
     "  vec3 gN = normalize(vec3(-gGrad, 1.0));",
     "  float gDiff = max(0.0, dot(gN, L));",
     "  float gSpec = pow(max(0.0, dot(gN, H)), 32.0);",
-    "  vec3 shirakawa = vec3(0.11, 0.125, 0.115)*(0.45 + 0.75*gDiff + 0.12*ridge) + vec3(0.76, 0.86, 0.72)*gSpec*0.28;",
-    "  float sway = 0.018*sin(uT*0.75 + bp.y*2.5);",
+    "  vec3 shirakawa = vec3(0.11, 0.125, 0.115)*(0.45 + 0.75*gDiff + 0.12*ridge*uGravel) + vec3(0.76, 0.86, 0.72)*gSpec*0.28;",
+    "  float sway = 0.018*sin(uT*0.75 + bp.y*2.5)*uSway;",
     "  float culm1 = smoothstep(0.014, 0.003, abs((bp.x - 0.36) + (bp.y - 0.10)*0.55 + 0.08*bp.y*bp.y + sway)) * step(-0.15, bp.y);",
     "  float culm2 = smoothstep(0.011, 0.002, abs((bp.x + 0.38) - (bp.y - 0.18)*0.65 + sway*0.8)) * step(0.05, bp.y);",
     "  vec2 lf1 = (bp - vec2(0.24 - sway, 0.32)) * mat2(0.86, -0.50, 0.50, 0.86);",
@@ -74,7 +76,7 @@
     "    vec3 mN = normalize(vec3(-rDir*(r - (bRad+0.025))*24.0 + (mossTurf - 0.5)*0.45, 1.0));",
     "    float mDiff = max(0.0, dot(mN, L));",
     "    vec3 mossCol = mix(vec3(0.10, 0.19, 0.09), vec3(0.28, 0.44, 0.22), mossTurf)*(0.48 + 0.72*mDiff);",
-    "    col = mix(col, mossCol, mossRing);",
+    "    col = mix(col, mossCol * uMoss, mossRing);",
     "  }",
     "  if(r < bRad + 0.018){",
     "    float bezel = smoothstep(bRad+0.018, bRad+0.002, r) * smoothstep(bRad-0.006, bRad+0.002, r);",
@@ -202,9 +204,10 @@
     return {
       name: "zen",
       step: function (c) {
-        var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var P = c.ptr, v = c.view || {}, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
+        var room = v.mode === "room", sway = room ? 0.5 : P.x || 0.5, swayY = room ? 0.5 : P.y || 0.5;
+        ptr[0] += (sway - ptr[0]) * 0.08;
+        ptr[1] += (swayY - ptr[1]) * 0.08;
         if (si !== seg) {
           pinned = false;
           if (seg == null) show(null);
@@ -216,7 +219,7 @@
         if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
       },
       draw: function (c) {
-        var A = c.w / c.h, now = Date.now() / 1000;
+        var A = c.w / c.h, v = c.view || {}, now = Date.now() / 1000;
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
         gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tShot); gl.uniform1i(u.uShot, 1); gl.activeTexture(gl.TEXTURE0);
@@ -224,9 +227,16 @@
         gl.uniform1f(u.uPh, pinned ? 6.0 : (now % SEG));
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform4f(u.uView, v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0);
+        gl.uniform1f(u.uMoss, look("moss", 1)); gl.uniform1f(u.uGravel, look("gravel", 1)); gl.uniform1f(u.uSway, look("sway", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () {
+        var v = K.view || {};
+        return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
+          cam: [v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0].map(function (x) { return +x.toFixed(3); }),
+          look: { moss: look("moss", 1), gravel: look("gravel", 1), sway: look("sway", 1) } };
+      },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -234,6 +244,15 @@
     stack: [
       { mod: "zen" },
       { mod: "post", bloom: 0.44, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.025, grain: 0.03, vig: 0.32 }
-    ]
+    ],
+    room: { name: "The dry garden courtyard", yaw: [-0.6, 0.6], pitch: [-0.4, 0.4], move: [-0.5, 1.2], up: [-0.3, 0.3],
+      unit: "screen", sound: "sand",
+      look: [
+        { id: "moss", label: "Moss growth", min: 0, max: 2.5, def: 1 },
+        { id: "gravel", label: "Rake depth", min: 0, max: 3, def: 1 },
+        { id: "sway", label: "Bamboo sway", min: 0, max: 4, def: 1 }
+      ],
+      touch: "A tap on the gravel creates a ripple of focus and light.",
+      opening: { dur: 5.5, from: { yaw: 0.4, pitch: -0.2, move: -0.4, up: 0.2 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.5, at: [0.5, 0.5] } }
   };
 })();

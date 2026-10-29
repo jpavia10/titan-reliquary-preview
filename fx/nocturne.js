@@ -4,6 +4,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) {}
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) {}
@@ -12,11 +13,12 @@
   var SEG = 12;
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
-    "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
+    "uniform vec2 uRes; uniform float uT, uPh, uPort, uGlow, uVib, uWarm; uniform vec2 uPtr, uView; uniform vec3 uTap; uniform float uNoShot;",
     "uniform sampler2D uCard, uShot;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     "void main(){",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  p -= uView;",
     "  float A = uRes.x/uRes.y;",
     "  float S = min(1.0, A * 0.96);",
     "  vec2 par = (uPtr - 0.5)*vec2(0.032, 0.032)*S;",
@@ -43,14 +45,14 @@
     "  vec3 soundboard = mix(vec3(0.045, 0.028, 0.018), vec3(0.095, 0.058, 0.032), spruceGrain*0.65);",
     "  float uTreb = bp.x*0.848 + bp.y*0.530;",
     "  float vTreb = -bp.x*0.530 + bp.y*0.848;",
-    "  float trebVib = 0.0025 * sin(vTreb*18.0 + uT*24.0) * (0.25 + 0.75*stringPluck);",
+    "  float trebVib = 0.0025 * uVib * sin(vTreb*18.0 + uT*24.0) * (0.25 + 0.75*stringPluck);",
     "  float trebPhase = (uTreb + trebVib)*125.0;",
     "  float trebWire = smoothstep(0.15, 0.85, cos(trebPhase));",
     "  vec3 trebN = normalize(vec3(-0.848*sin(trebPhase)*0.75, -0.530*sin(trebPhase)*0.75, 1.0));",
     "  float trebSpec = pow(max(0.0, dot(trebN, H)), 56.0) * trebWire;",
     "  float uBass = bp.x*0.914 - bp.y*0.407;",
     "  float bassMask = smoothstep(0.26, 0.14, abs(uBass - 0.12)) * step(bRad + 0.02, r);",
-    "  float bassVib = 0.0035 * sin(bp.y*14.0 - uT*19.0) * (0.3 + 0.7*stringPluck);",
+    "  float bassVib = 0.0035 * uVib * sin(bp.y*14.0 - uT*19.0) * (0.3 + 0.7*stringPluck);",
     "  float bassPhase = (uBass + bassVib)*78.0;",
     "  float bassWire = smoothstep(0.10, 0.88, cos(bassPhase)) * bassMask;",
     "  vec3 bassN = normalize(vec3(-0.914*sin(bassPhase)*0.82, 0.407*sin(bassPhase)*0.82, 1.0));",
@@ -100,8 +102,9 @@
     "    }",
     "  }",
     "  float outerMask = smoothstep(bRad - 0.01, bRad + 0.03, r);",
-    "  col += vec3(0.96, 0.78, 0.40) * max(0.0, shock) * (0.15 + 0.85*outerMask) * 0.30;",
+    "  col += vec3(0.96, 0.78, 0.40) * max(0.0, shock) * (0.15 + 0.85*outerMask) * 0.30 * uGlow;",
     "  col *= 1.0 - 0.34*smoothstep(0.45, 1.05, length(p*vec2(1.0/A*1.15, 1.0)));",
+    "  col = mix(col, col * vec3(1.1, 1.0, 0.85), uWarm - 1.0);",
     "  col = min(col, vec3(0.58));",
     "  o = vec4(col, 1.0);",
     "}"
@@ -206,8 +209,10 @@
       name: "nocturne",
       step: function (c) {
         var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var v = c.view || {}, room = v.mode === "room";
+        var sx = room ? 0.5 : P.x, sy = room ? 0.5 : P.y;
+        ptr[0] += ((sx || 0.5) - ptr[0]) * 0.08;
+        ptr[1] += ((sy || 0.5) - ptr[1]) * 0.08;
         if (si !== seg) {
           pinned = false;
           if (seg == null) show(null);
@@ -216,20 +221,27 @@
           if (!next && coins.length) prepare(pick(si + 1));
         }
         if (late && next && next.ok) { late = false; if (ph < 0.45) { show(next); next = null; prepare(pick(si + 1)); } }
-        if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
+        if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A - (v.yaw || 0), P.ty - 0.5 - (v.pitch || 0), c.t]; }
       },
       draw: function (c) {
-        var A = c.w / c.h, now = Date.now() / 1000;
+        var A = c.w / c.h, now = Date.now() / 1000, v = c.view || {};
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
         gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tShot); gl.uniform1i(u.uShot, 1); gl.activeTexture(gl.TEXTURE0);
         gl.uniform2f(u.uRes, c.w, c.h); gl.uniform1f(u.uT, c.t);
         gl.uniform1f(u.uPh, pinned ? 6.0 : (now % SEG));
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
+        gl.uniform2f(u.uView, v.yaw || 0, v.pitch || 0);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform1f(u.uGlow, look("glow", 1)); gl.uniform1f(u.uVib, look("vib", 1)); gl.uniform1f(u.uWarm, look("warm", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () {
+        var v = (window.TitanFXK && window.TitanFXK.view) || {};
+        return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
+          cam: [+(v.yaw || 0).toFixed(3), +(v.pitch || 0).toFixed(3), +(v.move || 0).toFixed(3), +(v.up || 0).toFixed(3)],
+          look: { glow: look("glow", 1), vib: look("vib", 1), warm: look("warm", 1) } };
+      },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -237,6 +249,11 @@
     stack: [
       { mod: "nocturne" },
       { mod: "post", bloom: 0.46, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.03, grain: 0.03, vig: 0.34 }
-    ]
+    ],
+    room: { name: "The candlelit recital salon", yaw: [-0.4, 0.4], pitch: [-0.3, 0.3], move: [0, 0], up: [0, 0],
+      unit: "screen", sound: "fireflies",
+      look: [{ id: "glow", label: "Candlelight", min: 0, max: 3, def: 1 }, { id: "vib", label: "Vibration", min: 0, max: 4, def: 1 }, { id: "warm", label: "Warmth", min: 0.5, max: 2, def: 1 }],
+      touch: "A tap on the soundboard creates a ripple of vibration and a golden glow.",
+      opening: { dur: 5.5, from: { yaw: 0, pitch: -0.25, move: 0, up: 0 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.5, at: [0.5, 0.48] } }
   };
 })();
