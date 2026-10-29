@@ -1,6 +1,6 @@
 {
   "about": "Hand-written PROJECTS for the other AIs (owner rule 10, 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Since 2026-10-09 most work is generated homework (tools/agents/homework.py from docs/agents/roles.json; docs/agents/RESEARCH_LOOP.md): this file keeps only what cannot be computed from the data (work in progress, code reviews, guides, music, motion, onboarding). A task with `reserves` holds those coins of those kinds for its AI while it is open. Each AI's page (docs/agents/QUEUE_{ai}.md, the same text as its Drive doc 'WORK QUEUE for ...') shows: finish first (state now), then its homework, then the other projects.",
-  "updated": "2026-10-24",
+  "updated": "2026-10-28",
   "agents": [
     {
       "id": "grok",
@@ -10,10 +10,18 @@
       "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ + this repo (raw GitHub URLs)",
       "tasks": [
         {
+          "n": 9,
+          "title": "Album prices: third reader for the 40 holes in A017-A033 where the first two prices disagree most",
+          "fix": "#62",
+          "state": "now",
+          "what": "Muse priced A017-A033 first; Gemini gave a second price on 2026-10-24, and on 637 of 847 holes the two differ by more than 25 %. The 40 biggest gaps in A017-A033 are listed under 'for_grok (A017-A033: Muse priced first)' in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/album_price_third_reader_20261028.json (album, hole label, grade, both prices and both sources). For each, price the hole from a THIRD source for the same grade (PCGS CoinFacts price guide, Greysheet retail, Heritage realised prices of the last 3 years, or a dealer listing; not Numista, USA Coin Book or the two sources already named). Send wants_values_grok_{YYYYMMDD-HHMM}.json in the same shape as your earlier album price file (items: album, label, value_usd, grade, source = exact URL + row, confidence); put every hole you could not price in left_out with the reason. Copy no price from the two earlier files.",
+          "done_when": "One file in collection-incoming; Claude spot-checks 5 rows and the median of the three prices becomes the hole's price."
+        },
+        {
           "n": 7,
           "title": "Varieties to look for at the pro-photo session (every US, UK and German coin in a flip)",
           "fix": "#61",
-          "state": "now",
+          "state": "done",
           "what": "Phase 2 will photograph every coin with a loupe. Before that session, list for every US, UK and German coin in a flip (data/index.json, by id) each KNOWN variety or error for that exact year and mint that a collector would pay more for: e.g. 1982 small vs large date cents, 1983/1984 doubled-die Lincoln cents, 1970-S small date, 1999/2000 wide vs close AM, 1995 DDO, UK 2008 undated 20p mule, German 1950-G 'BANK DEUTSCHER LÄNDER' 50 pfennig. For each: what to look for, on which side, how big a loupe it needs, and the value if found with an exact price source. Send varieties_grok_{YYYYMMDD-HHMM}.json as [{\"id\": \"C0xx\", \"type\": \"...\", \"year\": 1982, \"mint\": \"D\", \"variety\": \"...\", \"look_for\": \"...\", \"side\": \"obv|rev\", \"value_if_found_usd\": 0, \"source\": \"exact URL + row\"}]. Leave a coin out when its year and mint have no known variety; never claim this coin IS the variety (only the photo can say).",
           "done_when": "One file in reviews-incoming; Claude turns it into the Phase 2 shoot checklist (fix list #61)."
         },
@@ -29,7 +37,7 @@
           "n": 8,
           "title": "Mintages still blank on 24 coins",
           "fix": "#3",
-          "state": "now",
+          "state": "done",
           "what": "These coins show no mintage: C023 (DE Empire 1918 20 pfennig), C114 (Mexico Chihuahua 1914 5 centavos), C146 (HK 1998 KM#69a), C159 (Ecuador 2004 KM#38), C185 + C214 (Cayman 1996 KM#88a), C200 (Taiwan ROC 97 KM#551), C202 (Guatemala 2010 KM#277.1), C203 (India 2001 KM#92.2), C204 (Trinidad 2014 KM#33), C207 (Trinidad 2016 KM#31), C212 (Eritrea 1997 KM#46), C219 (Jamaica 2015 KM#189), C230 (Jamaica 2015 KM#191), C253 (Jamaica 1993 KM#146), C269 (Cayman 1990 KM#87), C276 (Bahamas 2015 1 cent), C279 (Philippines 1997 1 piso), C280 (Belize 2007 25 cents), C291 (Bahamas 1984 5 cents), C296 (UK 1990 5p KM#937b), C297 (UK 1988 1p KM#935), C299 (Italy 1979 50 lire KM#95.1), C303 (Australia 1983 1 cent). For each, send `type issues.N.mintage` (the issue matching the coin's year and mint) with the exact entry URL and the row you read; where the catalogue says 'unknown' or gives none, send nothing and say so in one line of notes. (The tokens T001-T006 have no mintage by nature: skip them.)",
           "done_when": "One change file; Claude merges it like homework."
         },
@@ -37,7 +45,7 @@
           "n": 2,
           "title": "Album prices: a second source for the 40 most expensive holes",
           "fix": "#62",
-          "state": "now",
+          "state": "done",
           "what": "Your first second-source file priced 3 holes (A006 1916-D $2,150 VG, 1916-S $50, 1918-D $34; NGC); 7 were left out because NGC lazy-loads past row 25. Now do the 40 most expensive missing holes across ALL 33 albums (data/wants.json `price`, highest first; both your A001-A016 file and Muse's A017-A033 file count). Use any of PCGS CoinFacts price guide, Greysheet retail, Heritage auction archives (realised prices, last 3 years) or APMEX/JM Bullion listings when NGC fails, for the SAME grade as the hole's existing row. Send wants_values_grok_{YYYYMMDD-HHMM}.json in the same shape; where the two sources differ by more than 25 %, give the higher and name both in source; put every hole you could not price in `left_out` with the reason.",
           "done_when": "One file in collection-incoming or reviews-incoming; Claude spot-checks 5 rows and the album totals in the app update."
         },
@@ -66,7 +74,7 @@
           "done_when": "Ongoing."
         }
       ],
-      "drive_note": "NEW (2026-10-20): score 9 for your Oct 15/19 files (FEEDBACK doc): every design-text dispute Claude could settle went your way, incl. the euro globe/map side on 10 types. More work now: capacity 24, bigger batches, and your check batches start with the ledger's never-checked year, mint and face value, read blind from the photo. Projects: varieties checklist for the pro-photo session, the 40 most expensive album holes, 24 blank mintages."
+      "drive_note": "FLEET COMMAND IS PAUSED (Joseph, 2026-10-28): write no fleet-*.json file anywhere and send no status to the Fleet Command folder or dashboard. NEW (2026-10-28): your Oct 27/28 tray is merged in the order you gave (scores 9, 8, 9, 9; FEEDBACK doc). The four type renames and MXP are live, your three owner-question photo reads were confirmed by Claude and the questions closed. Format rules for next time: provenance.assignment takes only HW-... homework ids (a project id goes in run_id); no extra top-level keys; inputs are objects {\"file\": ...}; a create line has field \"(new record)\" and no pipeline-only fields such as country; only the owner sets verified: true. C053's 2011 F mintage stays blank until a page shows a figure (Numista lists it as undetermined). Your varieties list, the 24 blank mintages and the 40 album prices are done; new project: a third price for the 40 A017-A033 album holes where Muse's and Gemini's prices disagree most (list on GitHub, linked below)."
     },
     {
       "id": "muse",
@@ -90,6 +98,14 @@
           "state": "now",
           "what": "31 coins miss the Phase 1 finish line only because their mint mark is not read (data/status.json phase1.missing.mint; the list is data/reshoot.json phase1 rows lacking 'mint'). For each: from the type's catalogue entry, say on which side and where the mint mark sits for that year (or that the type never carries one), and whether the photo we have shows that side. Send shootnotes_muse_{YYYYMMDD-HHMM}.json as [{\"id\": \"C0xx\", \"mark_side\": \"obv|rev|none\", \"where\": \"below the date\", \"our_photo_shows_it\": true, \"source\": \"exact URL\"}]. Where the photo shows that side clearly, also send the reading as a Phase 1 change line (issue.mint_marks + mint_text) with the photo file in source.",
           "done_when": "One file; Claude moves the 'needs other side' coins to the top of the shoot list."
+        },
+        {
+          "n": 9,
+          "title": "Album prices: third reader for the 40 holes in A001-A016 where the first two prices disagree most",
+          "fix": "#62",
+          "state": "now",
+          "what": "Grok priced A001-A016 first; Gemini gave a second price on 2026-10-24, and on 637 of 847 holes the two differ by more than 25 %. The 40 biggest gaps in A001-A016 are listed under 'for_muse (A001-A016: Grok priced first)' in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/album_price_third_reader_20261028.json (album, hole label, grade, both prices and both sources). For each, price the hole from a THIRD source for the same grade (PCGS CoinFacts price guide, Greysheet retail, Heritage realised prices of the last 3 years, or a dealer listing; not Numista, USA Coin Book or the two sources already named). Send wants_values_muse_{YYYYMMDD-HHMM}.json in the same shape as your earlier album price file (items: album, label, value_usd, grade, source = exact URL + row, confidence); put every hole you could not price in left_out with the reason. Copy no price from the two earlier files.",
+          "done_when": "One file in collection-incoming; Claude spot-checks 5 rows and the median of the three prices becomes the hole's price."
         },
         {
           "n": 2,
@@ -116,7 +132,7 @@
           "done_when": "Ongoing."
         }
       ],
-      "drive_note": "NEW (2026-10-23): Joseph has loaded your queue up: up to 40 open sheets, 8 per kind, catalogue-number disputes included, and a new kind of sheet: 'Fill the blank facts' (edge, thickness, alignment, legal tender, era, designers and each side's description for the coin types we hold; every blank names its coin and year). Open each answer sheet from its GitHub link below, as before (your Drive sheet folder stays empty until Joseph switches on the Drive bridge). Work only from this page, those sheets and the records on GitHub: never from a saved copy of the repository. Read the coin's year before you answer. A file is rejected whole if a line names an assignment that is not yours or a coin that is not on that sheet. Time stamps need seconds (2026-10-23T14:05:00Z). Order: the sheets by due date, then the projects."
+      "drive_note": "FLEET COMMAND IS PAUSED (Joseph, 2026-10-28: 'That is on pause. Its undeveloped and unused'): stop your scheduled jobs 'Fleet Command live feed (Sebastian)' (every 5 minutes) and 'Fleet Command watchdog' (every 15 minutes) and any other job whose only purpose is that feed; write no more fleet-sebastian.json (it was still rewritten at 22:16 UTC on 2026-10-28) and nothing else in the Drive folder 'Fleet Command'. Nothing new from you has reached Titan since your 2026-10-24 round: your open sheets and the album-price project below are waiting. NEW (2026-10-28): new project: a third price for the 40 A001-A016 album holes where Grok's and Gemini's prices disagree most (list on GitHub, linked below); it comes after your open sheets. NEW (2026-10-23): Joseph has loaded your queue up: up to 40 open sheets, 8 per kind, catalogue-number disputes included, and a new kind of sheet: 'Fill the blank facts' (edge, thickness, alignment, legal tender, era, designers and each side's description for the coin types we hold; every blank names its coin and year). Open each answer sheet from its GitHub link below, as before (your Drive sheet folder stays empty until Joseph switches on the Drive bridge). Work only from this page, those sheets and the records on GitHub: never from a saved copy of the repository. Read the coin's year before you answer. A file is rejected whole if a line names an assignment that is not yours or a coin that is not on that sheet. Time stamps need seconds (2026-10-23T14:05:00Z). Order: the sheets by due date, then the projects."
     },
     {
       "id": "chatgpt",
@@ -137,7 +153,7 @@
           "n": 12,
           "title": "Build themes #45 to #50, one complete package at a time (Cloud Forest shipped)",
           "fix": "#113",
-          "state": "now",
+          "state": "done",
           "what": "Cloud Forest v2 shipped 2026-10-24 as theme #44 (tr255): well done, every review point fixed. Round 2 (2026-10-24) was run by Claude in the app on phone and desktop; read 'REVIEW from Claude (2026-10-24).txt' in each theme folder. Not shipped: Salt Mirror (neither shader compiles: the lines are joined with a backslash and an n instead of a line break), Light Well (on a phone the sun blade burns the coin photo to plain white; the concrete reads as wood), Obsidian Sun (a flat 2D graphic, no volcanic glass, cut off on a phone), and Glasshouse, Low Orbit, Sahel, Nocturne and Zen (one template copied five times with '#define MOTIF 1..5': refused; each theme must be its own design). Every intro drew the name upside down: the intro kit already flips textures on upload, so sample texture2D(TX, uv) and never 1.0 - uv.y. Next, in this order, one theme at a time, each finished before the next: Light Well v2, Salt Mirror v2, Obsidian Sun v2, then The Glasshouse, Low Orbit and Sahel Futurism built from scratch, then the Nocturne and Zen rebuilds. Before you send a package: open it in a browser at phone size (390x844) and desktop size, read the console (no shader errors), look at the world, open a coin, tap, and watch the intro to the end; your README lists only what you actually checked and what you saw. Each package is five files in 'design-incoming (AI UI proposals)/themes/{id}/' as before ({id}.spec.json, fx_{id}.js, intro_{id}.js, sound_{id}.md, README.md); Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' and the Silver Screen files in 'themes/_kit (reference copies from GitHub, 2026-10-23)/'. Claim a theme first (CLAIMED-gemini.txt).",
           "done_when": "DONE.txt in a theme's folder; Claude runs it, writes a REVIEW, and ships it or sends it back. The project is done when all eight are shipped."
         },
@@ -145,7 +161,7 @@
           "n": 13,
           "title": "Advanced motion: six Motion Lab studies on live data",
           "fix": "#56",
-          "state": "now",
+          "state": "done",
           "what": "Studies 2-6 arrived 2026-10-24 (review in motion/: 3 of 10): fix them, one file each, same names. Study 2 never draws: transpose() does not exist in WebGL 1 shaders, so the program does not link; check every compile and link status and show the error, and only load a back photo the index actually lists. Study 3: the country stage must be the country's real outline, never a shape generated from its name; keep the coin round on a phone. Study 4: the click must be a recorded sound (the brief: recordings only, never an oscillator); a slot lights only when its coin has landed. Study 6: fit the coin on a phone screen. Study 5 works; give each world more than a colour field. Live data only from https://jpavia10.github.io/titan-reliquary-preview/data/index.json and the coin photos on the same site; 60 fps target, interruptible, a still end state for reduced motion; open each study at phone size with the console open before you send it. Full rules: BUILD BRIEF section 4.",
           "done_when": "The six .html files in the motion folder; Claude hosts the good ones at /motion-lab/gemini/ and Joseph picks on his phone what goes into the app."
         },
@@ -177,7 +193,7 @@
           "n": 9,
           "title": "A second price for every missing album hole (about 820 holes)",
           "fix": "#62",
-          "state": "now",
+          "state": "done",
           "what": "The 861 empty holes in the 33 albums are priced from one source each (Grok A001-A016, Muse A017-A033; about $20,338 to finish). Grok is re-pricing the 40 most expensive; you price every other hole again, from a DIFFERENT source than the one the record names: PCGS Price Guide, NGC price guide, Greysheet/CDN retail, or a dated auction result, at the grade policy of the first file (dated before 1965: XF; 1965 and later: UNC). The holes, with their current price and source, are in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json (volumes[].missing_named[]). Save wants_values_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)' in the same shape as https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/prices/wants_values_grok_20261010-1949.json (meta + items: album, label, value_usd, grade, source = the exact page and row, confidence). Silver never below melt (data/prices.json). Several files are fine: send each one as soon as an album family is done.",
           "done_when": "Files covering as many holes as you can price; Claude compares the two sources and sends holes that differ by more than 50 % to a third reader."
         },
@@ -238,7 +254,7 @@
           "done_when": "Your arbitrate answer file; each one you send settles its disagreement."
         }
       ],
-      "drive_note": "CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answer: monkey. The codeword is only in this current page, never in an old copy of the repository, so it tells Joseph you are reading the right doc. NEW (2026-10-24): your 5 check sheets (398 facts) are now in your Drive sheet folder 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/', each split into 4 parts named like 'HW-gemini-verify-20261020-1 (part 1 of 4).jsonl'; deadline moved to 2026-10-31. Answer each part into its own change file (any order; keep the assignment id that is already in every line). Never write a number or a quote you did not read on the page; if a page will not open, leave that line out. NEW (2026-10-22, read this first): your last files were built from an OLD copy of the repository: the Drive folder 'AI experiements/Titan/repo' is Joseph's computer's checkout from Oct 12, and the lines you sent were Grok's Oct 10 sheet under your id. Never open that folder or any saved copy again. Your real, current sheets are in Drive 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/' (one file per assignment, named by its id); this doc lists them. If a sheet named here is not in that folder, skip it and do the others: never look for it anywhere else. From now on a file is rejected whole when a line names an assignment that does not exist or is not yours, or is about a coin that is not on that sheet. Every blank on a sheet names its coin, e.g. 'FILL (design of C263 · Mexico · 1950 · 25 centavos · MXN)': read that coin and that year before you answer. Your queue stays at the maximum Joseph set: up to 40 open sheets, each due in 5 days, plus the projects below. Other rules: a `catalogs` line sends the whole list, Schön included, changing only what the entry proves wrong; cite the exact entry page, never a search page. DONE 2026-10-23: your redo of the 26 design texts (8 of 10) and 6 homework sheets are merged; see 'FEEDBACK for Gemini'. DELIVERY RULE (Joseph, 2026-10-23): save every file yourself in Drive (change files in 'collection-incoming (AI change files)/', other files where the task says). Never put a file in the chat for Joseph to copy, never ask him to paste or pass anything on, and never stop to ask him what to do next: when the sheets you can open are done, start the next project below without asking. NEW 2026-10-23 (Joseph: 'Ask it for more help on theming and advanced motion. Or songs'): you now build themes #44 to #50, six advanced-motion studies and the music for them; read 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' first. Order: sheets due in the next two days first, then theme packages (one at a time), with the motion studies and the music between them, then the other projects."
+      "drive_note": "CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answer: monkey. The codeword is only in this current page, never in an old copy of the repository, so it tells Joseph you are reading the right doc. FLEET COMMAND IS PAUSED (Joseph, 2026-10-28): write no fleet-*.json file anywhere and send no status to the Fleet Command folder or dashboard. Your old fleet-gemini.json status files (about 50 in the Drive root, Oct 17-21) were moved to the trash. NEW (2026-10-28): your 35 check files of Oct 24 are merged: 391 answers after removing the 211 fields you answered twice, 0 wrong, all 8 planted wrong values caught (score 9, FEEDBACK doc). Next time send each sheet part once; if you redo a part, send all of its lines in one file named ...-redo. Not taken, and why, in the FEEDBACK doc: the v6 and v8 openings, the Titan v3 rebuild, the 8 world files with moved centres. The album 'blind reading' was built from the app's own data (1,769 of 1,770 labels identical), so it counts as nothing: blind means you open only the album page photos. Art: 5 themes shipped; Obsidian Sun rejected and asked again (artreq_20261028-1630: the gold sun, the green jade and the coin must all show), the Light Well card asked again with the plinth and coin. Your themes #45-#50 and the six motion studies are done (all 50 themes are live); your second album price for all 847 holes is recorded. DELIVERY RULE (Joseph, 2026-10-23): save every file yourself in Drive (change files in 'collection-incoming (AI change files)/', other files where the task says). Never put a file in the chat for Joseph to copy, never ask him to paste or pass anything on, and never stop to ask him what to do next: when the sheets you can open are done, start the next project below without asking. Standing rules: work only from this page, your Drive sheet folder 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/' and the records on GitHub, never from a saved copy of the repository (the Drive folder 'AI experiements/Titan/repo' is an old copy: never open it). A file is rejected whole when a line names an assignment that is not yours or a coin that is not on that sheet. Every blank names its coin and year: read that coin and that year before you answer. Never write a number or a quote you did not read on the page; cite the exact entry page, never a search page. The 5 Oct 20-22 check sheets stay listed until 2026-10-31 for any part you have not sent."
     }
   ]
 }

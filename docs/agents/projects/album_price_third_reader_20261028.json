@@ -1,0 +1,727 @@
+{
+ "about": "Album holes where the first price (Grok A001-A016, Muse A017-A033) and Gemini's second price (2026-10-24) differ by more than 25 %, the 40 biggest dollar gaps in each half. A third reader prices each one from a third source for the same grade (owner rule: nobody checks their own work). Generated 2026-10-28 by Claude from collection/prices/wants_values_gemini_20261024-1910.json.",
+ "for_grok (A017-A033: Muse priced first)": [
+  {
+   "album": "A022",
+   "label": "1877",
+   "grade": "VG",
+   "first_price_usd": 1599.0,
+   "first_source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 550.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1877', VG = $550.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$1599.00 (>25% diff, higher=$1599.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1869",
+   "grade": "VF",
+   "first_price_usd": 755.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=286&listtype=gallery (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 120.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1869', VF = $120.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$755.00 (>25% diff, higher=$755.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1871",
+   "grade": "VF",
+   "first_price_usd": 498.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=290&sort=lowestprice (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 62.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1871', VF = $62.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$498.00 (>25% diff, higher=$498.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1924-S",
+   "grade": "F12",
+   "first_price_usd": 468.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=943&listtype=gallery (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 38.0,
+   "second_source": "Numista N#1109 value table, row '1924 S', F = $38: https://en.numista.com/catalogue/pieces1109.html ; prior Muse=$468.00 (>25% diff, higher=$468.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1872",
+   "grade": "VF",
+   "first_price_usd": 527.0,
+   "first_source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 110.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1872', VF = $110.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$527.00 (>25% diff, higher=$527.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1921-S",
+   "grade": "VF20",
+   "first_price_usd": 468.0,
+   "first_source": "https://www.usacoinbook.com/coins/938/nickels/buffalo/1921-S/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 110.0,
+   "second_source": "Numista N#1109 value table, row '1921 S', VF = $110: https://en.numista.com/catalogue/pieces1109.html ; prior Muse=$468.00 (>25% diff, higher=$468.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1913-S, Ground in Recess",
+   "grade": "F12",
+   "first_price_usd": 556.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=912&displaytype=own (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 280.0,
+   "second_source": "Numista N#1109 value table, row '1913 S Type 2', F = $280: https://en.numista.com/catalogue/pieces1109.html ; prior Muse=$556.00 (>25% diff, higher=$556.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1864 With L",
+   "grade": "VF",
+   "first_price_usd": 269.0,
+   "first_source": "https://www.usacoinbook.com/coins/281/small-cents/indian-head-cent/1864-P/with-l/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 20.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1864 With L', VF = $20.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$269.00 (>25% diff, higher=$269.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1870",
+   "grade": "VF",
+   "first_price_usd": 376.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=289&sort=lowestprice (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 130.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1870', VF = $130.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$376.00 (>25% diff, higher=$376.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1915-S",
+   "grade": "VG8",
+   "first_price_usd": 249.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=919&listtype=gallery (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 30.0,
+   "second_source": "Numista N#1109 value table, row '1915 S', VG = $30: https://en.numista.com/catalogue/pieces1109.html ; prior Muse=$249.00 (>25% diff, higher=$249.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1909-S",
+   "grade": "VF20",
+   "first_price_usd": 415.0,
+   "first_source": "https://www.greysheet.com/prices/item/indian-head-type-bronze-brown-surfaces/gsid/72337 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 612.0,
+   "second_source": "USA Coin Book Small Cents Price Guide, row '1909-S', VF20 = $612.00: https://www.usacoinbook.com/coins/small-cents/indian-head-cent/ ; prior Muse=$415.00 (>25% diff, higher=$612.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1878",
+   "grade": "VF",
+   "first_price_usd": 207.0,
+   "first_source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 33.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1878', VF = $33.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$207.00 (>25% diff, higher=$207.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1913-D, Ground in Recess",
+   "grade": "VF20",
+   "first_price_usd": 249.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=911&sort=highestprice (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 83.0,
+   "second_source": "Numista N#1109 value table, row '1913 D Type 2', VF = $83: https://en.numista.com/catalogue/pieces1109.html ; prior Muse=$249.00 (>25% diff, higher=$249.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1923-S",
+   "grade": "VF20",
+   "first_price_usd": 12.9,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 163.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1923-S', VF20 = $163.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$12.90 (>25% diff, higher=$163.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1876",
+   "grade": "VF",
+   "first_price_usd": 186.0,
+   "first_source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 36.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1876', VF = $36.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$186.00 (>25% diff, higher=$186.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1919-D",
+   "grade": "VF20",
+   "first_price_usd": 29.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 163.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1919-D', VF20 = $163.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$29.00 (>25% diff, higher=$163.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1918-D",
+   "grade": "VF20",
+   "first_price_usd": 31.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 163.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1918-D', VF20 = $163.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$31.00 (>25% diff, higher=$163.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1873",
+   "grade": "VF",
+   "first_price_usd": 154.0,
+   "first_source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 23.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1873', VF = $23.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$154.00 (>25% diff, higher=$154.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1919-S",
+   "grade": "VF20",
+   "first_price_usd": 24.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 154.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1919-S', VF20 = $154.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$24.00 (>25% diff, higher=$154.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1920-D",
+   "grade": "VF20",
+   "first_price_usd": 19.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 148.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1920-D', VF20 = $148.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$19.00 (>25% diff, higher=$148.00)"
+  },
+  {
+   "album": "A029",
+   "label": "1932-D",
+   "grade": "VF",
+   "first_price_usd": 201.0,
+   "first_source": "https://www.usacoinbook.com/coins/quarters/washington/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 82.0,
+   "second_source": "Numista N#54 Washington Silver Quarter value table, row '1932-D', VF = $82.00 (melt floor $11.02 applied): https://en.numista.com/catalogue/pieces54.html ; prior Muse=$201.00 (>25% diff, higher=$201.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1914-D",
+   "grade": "VF20",
+   "first_price_usd": 265.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=915&sort=lowestoffer (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 150.0,
+   "second_source": "Numista N#1109 value table, row '1914 D', VF = $150: https://en.numista.com/catalogue/pieces1109.html ; prior Muse=$265.00 (>25% diff, higher=$265.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1926-S",
+   "grade": "VF20",
+   "first_price_usd": 281.0,
+   "first_source": "https://www.usacoinbook.com/coins.php?id=949&displaytype=sell&page=1 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 170.0,
+   "second_source": "Numista N#1109 value table, row '1926 S', VF = $170: https://en.numista.com/catalogue/pieces1109.html ; prior Muse=$281.00 (>25% diff, higher=$281.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1920-S",
+   "grade": "VF20",
+   "first_price_usd": 13.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 123.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1920-S', VF20 = $123.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$13.00 (>25% diff, higher=$123.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1917-S",
+   "grade": "VF20",
+   "first_price_usd": 43.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 148.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1917-S', VF20 = $148.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$43.00 (>25% diff, higher=$148.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1918-S",
+   "grade": "VF20",
+   "first_price_usd": 27.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 132.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1918-S', VF20 = $132.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$27.00 (>25% diff, higher=$132.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1926-D",
+   "grade": "VF20",
+   "first_price_usd": 15.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 112.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1926-D', VF20 = $112.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$15.00 (>25% diff, higher=$112.00)"
+  },
+  {
+   "album": "A023",
+   "label": "1914-D",
+   "grade": "VF",
+   "first_price_usd": 344.0,
+   "first_source": "https://www.usacoinbook.com/coins/small-cents/lincoln-wheat-cent/?sort=recent (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 250.0,
+   "second_source": "Numista N#908 Lincoln Wheat Cent value table, row '1914-D', VF = $250.00: https://en.numista.com/catalogue/pieces908.html ; prior Muse=$344.00 (>25% diff, higher=$344.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1925-S",
+   "grade": "VF20",
+   "first_price_usd": 10.2,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 100.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1925-S', VF20 = $100.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$10.20 (>25% diff, higher=$100.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1924-D",
+   "grade": "VF20",
+   "first_price_usd": 15.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 103.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1924-D', VF20 = $103.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$15.00 (>25% diff, higher=$103.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1886",
+   "grade": "VF20",
+   "first_price_usd": 5.5,
+   "first_source": "https://en.numista.com/catalogue/pieces2356.html (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 92.0,
+   "second_source": "USA Coin Book Small Cents Price Guide, row '1886', VF20 = $92.00: https://www.usacoinbook.com/coins/small-cents/indian-head-cent/ ; prior Muse=$5.50 (>25% diff, higher=$92.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1917-D",
+   "grade": "VF20",
+   "first_price_usd": 29.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 112.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1917-D', VF20 = $112.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$29.00 (>25% diff, higher=$112.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1925-D",
+   "grade": "VF20",
+   "first_price_usd": 19.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 100.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1925-D', VF20 = $100.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$19.00 (>25% diff, higher=$100.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1915-D",
+   "grade": "VF20",
+   "first_price_usd": 26.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 103.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1915-D', VF20 = $103.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$26.00 (>25% diff, higher=$103.00)"
+  },
+  {
+   "album": "A029",
+   "label": "1932-S",
+   "grade": "VF",
+   "first_price_usd": 155.0,
+   "first_source": "https://www.usacoinbook.com/coins/quarters/washington/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 80.0,
+   "second_source": "Numista N#54 Washington Silver Quarter value table, row '1932-S', VF = $80.00 (melt floor $11.02 applied): https://en.numista.com/catalogue/pieces54.html ; prior Muse=$155.00 (>25% diff, higher=$155.00)"
+  },
+  {
+   "album": "A023",
+   "label": "1909-S",
+   "grade": "VF",
+   "first_price_usd": 178.0,
+   "first_source": "https://www.usacoinbook.com/Elitecoins/owned/coins/small-cents/lincoln-wheat-cent/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 110.0,
+   "second_source": "Numista N#908 Lincoln Wheat Cent value table, row '1909-S', VF = $110.00: https://en.numista.com/catalogue/pieces908.html ; prior Muse=$178.00 (>25% diff, higher=$178.00)"
+  },
+  {
+   "album": "A022",
+   "label": "1875",
+   "grade": "VF",
+   "first_price_usd": 92.0,
+   "first_source": "https://www.usacoinbook.com/coins/small-cents/indian-head-cent/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 28.0,
+   "second_source": "Numista N#2356 Indian Head Cent value table, row '1875', VF = $28.00: https://en.numista.com/catalogue/pieces2356.html ; prior Muse=$92.00 (>25% diff, higher=$92.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1913-S, Raised Ground",
+   "grade": "VF20",
+   "first_price_usd": 42.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 100.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1913-S, Raised Ground', VF20 = $100.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$42.00 (>25% diff, higher=$100.00)"
+  },
+  {
+   "album": "A031",
+   "label": "1914-S",
+   "grade": "VF20",
+   "first_price_usd": 31.0,
+   "first_source": "https://www.thesprucecrafts.com/buffalo-nickel-values-3860294 (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 81.0,
+   "second_source": "USA Coin Book Buffalo Nickel Price Guide, row '1914-S', VF20 = $81.00: https://www.usacoinbook.com/coins/nickels/buffalo/ ; prior Muse=$31.00 (>25% diff, higher=$81.00)"
+  },
+  {
+   "album": "A029",
+   "label": "1936-D",
+   "grade": "VF",
+   "first_price_usd": 64.0,
+   "first_source": "https://www.usacoinbook.com/coins/quarters/washington/ (wants_values_muse_20261015-0325.json)",
+   "second_price_usd": 15.0,
+   "second_source": "Numista N#54 Washington Silver Quarter value table, row '1936-D', VF = $15.00 (melt floor $11.02 applied): https://en.numista.com/catalogue/pieces54.html ; prior Muse=$64.00 (>25% diff, higher=$64.00)"
+  }
+ ],
+ "for_muse (A001-A016: Grok priced first)": [
+  {
+   "album": "A006",
+   "label": "1916-D",
+   "grade": "VG8",
+   "first_price_usd": 880.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 1881.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1916-D', VG8 = $1881.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$880.00 (>25% diff, higher=$1881.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1921-D",
+   "grade": "EF40",
+   "first_price_usd": 140.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 828.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1921-D', EF40 = $828.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$140.00 (>25% diff, higher=$828.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1921",
+   "grade": "EF40",
+   "first_price_usd": 49.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 669.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1921', EF40 = $669.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$49.00 (>25% diff, higher=$669.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1926-S",
+   "grade": "EF40",
+   "first_price_usd": 25.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 316.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1926-S', EF40 = $316.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$25.00 (>25% diff, higher=$316.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1925-D",
+   "grade": "EF40",
+   "first_price_usd": 7.5,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 151.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1925-D', EF40 = $151.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$7.50 (>25% diff, higher=$151.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1927-D",
+   "grade": "EF40",
+   "first_price_usd": 21.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 103.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1927-D', EF40 = $103.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$21.00 (>25% diff, higher=$103.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1924-D",
+   "grade": "EF40",
+   "first_price_usd": 11.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 90.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1924-D', EF40 = $90.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$11.00 (>25% diff, higher=$90.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1925-S",
+   "grade": "EF40",
+   "first_price_usd": 12.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 90.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1925-S', EF40 = $90.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$12.00 (>25% diff, higher=$90.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1924-S",
+   "grade": "EF40",
+   "first_price_usd": 15.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 76.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1924-S', EF40 = $76.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$15.00 (>25% diff, higher=$76.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1923-S",
+   "grade": "EF40",
+   "first_price_usd": 29.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 84.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1923-S', EF40 = $84.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$29.00 (>25% diff, higher=$84.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1928-D",
+   "grade": "EF40",
+   "first_price_usd": 10.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 64.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1928-D', EF40 = $64.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$10.00 (>25% diff, higher=$64.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1917-D",
+   "grade": "EF40",
+   "first_price_usd": 13.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 59.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1917-D', EF40 = $59.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$13.00 (>25% diff, higher=$59.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1919-D",
+   "grade": "EF40",
+   "first_price_usd": 9.5,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 46.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1919-D', EF40 = $46.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$9.50 (>25% diff, higher=$46.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1931-D",
+   "grade": "EF40",
+   "first_price_usd": 13.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 46.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1931-D', EF40 = $46.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$13.00 (>25% diff, higher=$46.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1919-S",
+   "grade": "EF40",
+   "first_price_usd": 16.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 46.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1919-S', EF40 = $46.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$16.00 (>25% diff, higher=$46.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1926-D",
+   "grade": "EF40",
+   "first_price_usd": 10.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 37.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1926-D', EF40 = $37.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$10.00 (>25% diff, higher=$37.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1927-S",
+   "grade": "EF40",
+   "first_price_usd": 14.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 37.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1927-S', EF40 = $37.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$14.00 (>25% diff, higher=$37.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1918",
+   "grade": "EF40",
+   "first_price_usd": 12.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 33.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1918', EF40 = $33.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$12.00 (>25% diff, higher=$33.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1918-S",
+   "grade": "EF40",
+   "first_price_usd": 8.5,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 25.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1918-S', EF40 = $25.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$8.50 (>25% diff, higher=$25.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1920-D",
+   "grade": "EF40",
+   "first_price_usd": 12.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 28.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1920-D', EF40 = $28.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$12.00 (>25% diff, higher=$28.00)"
+  },
+  {
+   "album": "A015",
+   "label": "1939-D",
+   "grade": "EF40",
+   "first_price_usd": 3.9,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 19.0,
+   "second_source": "USA Coin Book Jefferson Nickel Price Guide, row '1939-D', EF40 = $19.00: https://www.usacoinbook.com/coins/nickels/jefferson/ ; prior Numista=$3.90 (>25% diff, higher=$19.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1918-D",
+   "grade": "EF40",
+   "first_price_usd": 19.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 33.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1918-D', EF40 = $33.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$19.00 (>25% diff, higher=$33.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1928-S",
+   "grade": "EF40",
+   "first_price_usd": 8.4,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 22.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1928-S', EF40 = $22.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$8.40 (>25% diff, higher=$22.00)"
+  },
+  {
+   "album": "A015",
+   "label": "1950-D",
+   "grade": "MS60",
+   "first_price_usd": 5.5,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 19.0,
+   "second_source": "USA Coin Book Jefferson Nickel Price Guide, row '1950-D', MS60 = $19.00: https://www.usacoinbook.com/coins/nickels/jefferson/ ; prior Numista=$5.50 (>25% diff, higher=$19.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1929-D",
+   "grade": "EF40",
+   "first_price_usd": 8.8,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 21.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1929-D', EF40 = $21.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$8.80 (>25% diff, higher=$21.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1916",
+   "grade": "EF40",
+   "first_price_usd": 10.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 21.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1916', EF40 = $21.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$10.00 (>25% diff, higher=$21.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1920-S",
+   "grade": "EF40",
+   "first_price_usd": 15.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 25.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1920-S', EF40 = $25.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$15.00 (>25% diff, higher=$25.00)"
+  },
+  {
+   "album": "A012",
+   "label": "1949",
+   "grade": "EF40",
+   "first_price_usd": 11.02,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 21.0,
+   "second_source": "USA Coin Book Washington Quarter Price Guide, row '1949', EF40 = $21.00 (above $11.02 silver melt floor): https://www.usacoinbook.com/coins/quarters/washington/ ; prior Numista=$11.02 (>25% diff, higher=$21.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1916-S",
+   "grade": "EF40",
+   "first_price_usd": 19.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 28.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1916-S', EF40 = $28.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$19.00 (>25% diff, higher=$28.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1917-S",
+   "grade": "EF40",
+   "first_price_usd": 9.4,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 18.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1917-S', EF40 = $18.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$9.40 (>25% diff, higher=$18.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1929",
+   "grade": "EF40",
+   "first_price_usd": 7.2,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 15.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1929', EF40 = $15.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$7.20 (>25% diff, higher=$15.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1924",
+   "grade": "EF40",
+   "first_price_usd": 14.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 21.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1924', EF40 = $21.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$14.00 (>25% diff, higher=$21.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1931-S",
+   "grade": "EF40",
+   "first_price_usd": 15.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 22.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1931-S', EF40 = $22.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$15.00 (>25% diff, higher=$22.00)"
+  },
+  {
+   "album": "A015",
+   "label": "1939-S",
+   "grade": "EF40",
+   "first_price_usd": 2.5,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 8.64,
+   "second_source": "USA Coin Book Jefferson Nickel Price Guide, row '1939-S', EF40 = $8.64: https://www.usacoinbook.com/coins/nickels/jefferson/ ; prior Numista=$2.50 (>25% diff, higher=$8.64)"
+  },
+  {
+   "album": "A006",
+   "label": "1930-S",
+   "grade": "EF40",
+   "first_price_usd": 15.0,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 21.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1930-S', EF40 = $21.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$15.00 (>25% diff, higher=$21.00)"
+  },
+  {
+   "album": "A007",
+   "label": "1964-D",
+   "grade": "EF40",
+   "first_price_usd": 22.05,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 28.0,
+   "second_source": "USA Coin Book Kennedy Half Dollar Price Guide, row '1964-D', EF40 = $28.00: https://www.usacoinbook.com/coins/half-dollars/kennedy/ ; prior Numista=$22.05 (>25% diff, higher=$28.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1930",
+   "grade": "EF40",
+   "first_price_usd": 7.2,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 13.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1930', EF40 = $13.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$7.20 (>25% diff, higher=$13.00)"
+  },
+  {
+   "album": "A006",
+   "label": "1931",
+   "grade": "EF40",
+   "first_price_usd": 9.8,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 15.0,
+   "second_source": "USA Coin Book Mercury Dime Price Guide, row '1931', EF40 = $15.00: https://www.usacoinbook.com/coins/dimes/mercury/ ; prior Numista=$9.80 (>25% diff, higher=$15.00)"
+  },
+  {
+   "album": "A015",
+   "label": "1942-D",
+   "grade": "EF40",
+   "first_price_usd": 1.1,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 6.25,
+   "second_source": "USA Coin Book Jefferson Nickel Price Guide, row '1942-D', EF40 = $6.25: https://www.usacoinbook.com/coins/nickels/jefferson/ ; prior Numista=$1.10 (>25% diff, higher=$6.25)"
+  },
+  {
+   "album": "A015",
+   "label": "1952-D",
+   "grade": "MS60",
+   "first_price_usd": 0.59,
+   "first_source": "Numista (wants_values_grok_20261010-1949.json)",
+   "second_price_usd": 5.3,
+   "second_source": "USA Coin Book Jefferson Nickel Price Guide, row '1952-D', MS60 = $5.30: https://www.usacoinbook.com/coins/nickels/jefferson/ ; prior Numista=$0.59 (>25% diff, higher=$5.30)"
+  }
+ ]
+}

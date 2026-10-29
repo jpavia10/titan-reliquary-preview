@@ -92,3 +92,5 @@ Binder volumes whose contents are only partly known (`needs_scan: true` in `albu
 
 ## 6. What you must never do
 Edit `data/` (it is generated), GitHub or the Drive mirror, overwrite a story the owner wrote, set `ser`, reuse or invent ids, overwrite a field the owner verified, or present an inferred value as fact (album slots filled from the Whitman model are marked `inferred`). Never put a token, password or personal file path in a change file.
+
+**Fleet Command is paused (Joseph, 2026-10-28: "That is on pause. Its undeveloped and unused").** No AI reports to it: write no `fleet-*.json` file anywhere (not in the Drive folder `Fleet Command/`, not in the Drive root), add nothing to `fleet-registry.json`, `comms/` or `incoming/` there, and stop any scheduled job that feeds or watches it. Joseph restarts it himself if he wants it back.

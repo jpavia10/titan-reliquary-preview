@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-29] Claude: Fleet Command paused (owner), tr263
+- Fleet Command is on pause: no AI writes `fleet-*.json` anywhere or reports to that folder/dashboard (AI_START_HERE section 6, CLAUDE.md rule 11). Sebastian/Muse: stop 'Fleet Command live feed' and 'Fleet Command watchdog'.
+- tr263: Beethoven Pastoral IV for Supercell. New projects: third album price for 40 holes each (Grok A017-A033, Muse A001-A016).
+
 ### [2026-10-28] Claude: Grok tray + Gemini's 35 verify files merged
 - Grok: catalogue fix (4 keys, MXP), 3 owner questions settled from photos (two readers), 13 homework files; Gemini: 391 deduped verify answers, 0 wrong. 6 disagreements settled by Claude, 13 to the loop.
 - Pipeline: check answers compare one-mark lists and alloy spellings by meaning. Next: Gemini albums/wants/music files, then the intro overhaul review.

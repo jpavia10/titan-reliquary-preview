@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-28 17:10 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-28 22:23 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,29 +8,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### Build themes #45 to #50, one complete package at a time (Cloud Forest shipped)  (fix list #113)
-
-Cloud Forest v2 shipped 2026-10-24 as theme #44 (tr255): well done, every review point fixed. Round 2 (2026-10-24) was run by Claude in the app on phone and desktop; read 'REVIEW from Claude (2026-10-24).txt' in each theme folder. Not shipped: Salt Mirror (neither shader compiles: the lines are joined with a backslash and an n instead of a line break), Light Well (on a phone the sun blade burns the coin photo to plain white; the concrete reads as wood), Obsidian Sun (a flat 2D graphic, no volcanic glass, cut off on a phone), and Glasshouse, Low Orbit, Sahel, Nocturne and Zen (one template copied five times with '#define MOTIF 1..5': refused; each theme must be its own design). Every intro drew the name upside down: the intro kit already flips textures on upload, so sample texture2D(TX, uv) and never 1.0 - uv.y. Next, in this order, one theme at a time, each finished before the next: Light Well v2, Salt Mirror v2, Obsidian Sun v2, then The Glasshouse, Low Orbit and Sahel Futurism built from scratch, then the Nocturne and Zen rebuilds. Before you send a package: open it in a browser at phone size (390x844) and desktop size, read the console (no shader errors), look at the world, open a coin, tap, and watch the intro to the end; your README lists only what you actually checked and what you saw. Each package is five files in 'design-incoming (AI UI proposals)/themes/{id}/' as before ({id}.spec.json, fx_{id}.js, intro_{id}.js, sound_{id}.md, README.md); Drive 'design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music).md' and the Silver Screen files in 'themes/_kit (reference copies from GitHub, 2026-10-23)/'. Claim a theme first (CLAIMED-gemini.txt).
-
-**Done when:** DONE.txt in a theme's folder; Claude runs it, writes a REVIEW, and ships it or sends it back. The project is done when all eight are shipped.
-
-### Advanced motion: six Motion Lab studies on live data  (fix list #56)
-
-Studies 2-6 arrived 2026-10-24 (review in motion/: 3 of 10): fix them, one file each, same names. Study 2 never draws: transpose() does not exist in WebGL 1 shaders, so the program does not link; check every compile and link status and show the error, and only load a back photo the index actually lists. Study 3: the country stage must be the country's real outline, never a shape generated from its name; keep the coin round on a phone. Study 4: the click must be a recorded sound (the brief: recordings only, never an oscillator); a slot lights only when its coin has landed. Study 6: fit the coin on a phone screen. Study 5 works; give each world more than a colour field. Live data only from https://jpavia10.github.io/titan-reliquary-preview/data/index.json and the coin photos on the same site; 60 fps target, interruptible, a still end state for reduced motion; open each study at phone size with the console open before you send it. Full rules: BUILD BRIEF section 4.
-
-**Done when:** The six .html files in the motion folder; Claude hosts the good ones at /motion-lab/gemini/ and Joseph picks on his phone what goes into the app.
-
 ### Recorded music for the nine themes you build  (fix list #83)
 
 Cloud Forest's two picks (El Noi de la Mare by Jujutacular; C. P. E. Bach Wq. 131 by La Guirlande) are queued for the music intake (2026-10-24): good. Salt Mirror's sheet named a 1932 Schnabel recording (not public domain in the US) 'or Paul Pitman': name one exact file page and quote it. Rules as before: never the Al Goldstein / Pandora collection, never a recording already in audio/music/manifest.json, quote each page's Author, Source and Permission lines word for word. For each theme you build, two pieces in one music_gemini_{YYYYMMDD-HHMM}.json, in 'reviews-incoming (AI deep reviews)'.
 
 **Done when:** Two qualifying recordings per theme (or a 'not found' with what you searched), in 'reviews-incoming (AI deep reviews)'.
-
-### A second price for every missing album hole (about 820 holes)  (fix list #62)
-
-The 861 empty holes in the 33 albums are priced from one source each (Grok A001-A016, Muse A017-A033; about $20,338 to finish). Grok is re-pricing the 40 most expensive; you price every other hole again, from a DIFFERENT source than the one the record names: PCGS Price Guide, NGC price guide, Greysheet/CDN retail, or a dated auction result, at the grade policy of the first file (dated before 1965: XF; 1965 and later: UNC). The holes, with their current price and source, are in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/data/wants.json (volumes[].missing_named[]). Save wants_values_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)' in the same shape as https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/prices/wants_values_grok_20261010-1949.json (meta + items: album, label, value_usd, grade, source = the exact page and row, confidence). Silver never below melt (data/prices.json). Several files are fine: send each one as soon as an album family is done.
-
-**Done when:** Files covering as many holes as you can price; Claude compares the two sources and sends holes that differ by more than 50 % to a third reader.
 
 ### Second reader for all 33 albums, from the page photos (blind)  (fix list #55)
 

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-28 17:10 UTC)
+# WORK QUEUE for Grok (updated 2026-10-28 22:23 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,23 +8,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### Varieties to look for at the pro-photo session (every US, UK and German coin in a flip)  (fix list #61)
+### Album prices: third reader for the 40 holes in A017-A033 where the first two prices disagree most  (fix list #62)
 
-Phase 2 will photograph every coin with a loupe. Before that session, list for every US, UK and German coin in a flip (data/index.json, by id) each KNOWN variety or error for that exact year and mint that a collector would pay more for: e.g. 1982 small vs large date cents, 1983/1984 doubled-die Lincoln cents, 1970-S small date, 1999/2000 wide vs close AM, 1995 DDO, UK 2008 undated 20p mule, German 1950-G 'BANK DEUTSCHER LÄNDER' 50 pfennig. For each: what to look for, on which side, how big a loupe it needs, and the value if found with an exact price source. Send varieties_grok_{YYYYMMDD-HHMM}.json as [{"id": "C0xx", "type": "...", "year": 1982, "mint": "D", "variety": "...", "look_for": "...", "side": "obv|rev", "value_if_found_usd": 0, "source": "exact URL + row"}]. Leave a coin out when its year and mint have no known variety; never claim this coin IS the variety (only the photo can say).
+Muse priced A017-A033 first; Gemini gave a second price on 2026-10-24, and on 637 of 847 holes the two differ by more than 25 %. The 40 biggest gaps in A017-A033 are listed under 'for_grok (A017-A033: Muse priced first)' in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/album_price_third_reader_20261028.json (album, hole label, grade, both prices and both sources). For each, price the hole from a THIRD source for the same grade (PCGS CoinFacts price guide, Greysheet retail, Heritage realised prices of the last 3 years, or a dealer listing; not Numista, USA Coin Book or the two sources already named). Send wants_values_grok_{YYYYMMDD-HHMM}.json in the same shape as your earlier album price file (items: album, label, value_usd, grade, source = exact URL + row, confidence); put every hole you could not price in left_out with the reason. Copy no price from the two earlier files.
 
-**Done when:** One file in reviews-incoming; Claude turns it into the Phase 2 shoot checklist (fix list #61).
-
-### Mintages still blank on 24 coins  (fix list #3)
-
-These coins show no mintage: C023 (DE Empire 1918 20 pfennig), C114 (Mexico Chihuahua 1914 5 centavos), C146 (HK 1998 KM#69a), C159 (Ecuador 2004 KM#38), C185 + C214 (Cayman 1996 KM#88a), C200 (Taiwan ROC 97 KM#551), C202 (Guatemala 2010 KM#277.1), C203 (India 2001 KM#92.2), C204 (Trinidad 2014 KM#33), C207 (Trinidad 2016 KM#31), C212 (Eritrea 1997 KM#46), C219 (Jamaica 2015 KM#189), C230 (Jamaica 2015 KM#191), C253 (Jamaica 1993 KM#146), C269 (Cayman 1990 KM#87), C276 (Bahamas 2015 1 cent), C279 (Philippines 1997 1 piso), C280 (Belize 2007 25 cents), C291 (Bahamas 1984 5 cents), C296 (UK 1990 5p KM#937b), C297 (UK 1988 1p KM#935), C299 (Italy 1979 50 lire KM#95.1), C303 (Australia 1983 1 cent). For each, send `type issues.N.mintage` (the issue matching the coin's year and mint) with the exact entry URL and the row you read; where the catalogue says 'unknown' or gives none, send nothing and say so in one line of notes. (The tokens T001-T006 have no mintage by nature: skip them.)
-
-**Done when:** One change file; Claude merges it like homework.
-
-### Album prices: a second source for the 40 most expensive holes  (fix list #62)
-
-Your first second-source file priced 3 holes (A006 1916-D $2,150 VG, 1916-S $50, 1918-D $34; NGC); 7 were left out because NGC lazy-loads past row 25. Now do the 40 most expensive missing holes across ALL 33 albums (data/wants.json `price`, highest first; both your A001-A016 file and Muse's A017-A033 file count). Use any of PCGS CoinFacts price guide, Greysheet retail, Heritage auction archives (realised prices, last 3 years) or APMEX/JM Bullion listings when NGC fails, for the SAME grade as the hole's existing row. Send wants_values_grok_{YYYYMMDD-HHMM}.json in the same shape; where the two sources differ by more than 25 %, give the higher and name both in source; put every hole you could not price in `left_out` with the reason.
-
-**Done when:** One file in collection-incoming or reviews-incoming; Claude spot-checks 5 rows and the album totals in the app update.
+**Done when:** One file in collection-incoming; Claude spot-checks 5 rows and the median of the three prices becomes the hole's price.
 
 ## Homework (generated from the data)
 
