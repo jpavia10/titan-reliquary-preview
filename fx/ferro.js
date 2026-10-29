@@ -14,6 +14,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   K.mod("ferro", function (gl, s, K) {
     if (!K.halfRT) return null;
     var lite = (function () { try { return localStorage.getItem("tr_lite_v1") === "1"; } catch (e) { return false; } })();
@@ -34,7 +35,7 @@
     var HEAD = "#version 300 es\nprecision highp float;\n" + K.NOISE + "float sq(float x){ return x*x; }\n";
     /* camera shared by the sim mapping and the raymarch: ro (0,.95,-1.2); ray (p.x, p.y-.12, 1.25); pool plane coords -> sim uv */
     var CAM = [
-      "const vec3 RO = vec3(0., .95, -1.2);",
+      "uniform vec3 uRO, uCF, uCR, uCU;",
       "vec2 toUV(vec2 q){ return vec2(q.x/7.+.5, (q.y-.4)/9.); }",
       "vec2 toQ(vec2 uv){ return vec2((uv.x-.5)*7., uv.y*9.+.4); }"].join("\n") + "\n";
     var sim = K.compile(K.FSQ, HEAD + CAM + [
@@ -70,18 +71,18 @@
       "  c += vec3(.25,1.6,2.2)*exp(-sq((r.y-.03)*18.))*(.6+.4*sin(a.x*2.+uT*.2));",                           // cyan horizon rim
       "  c += vec3(1.3,1.4,1.6)*exp(-sq((a.x-2.6)*2.))*smoothstep(.0,.3,r.y)*.18;",                               // warm kicker behind
       "  return c; }",
-      "void main(){ vec2 p = (gl_FragCoord.xy-.5*uRes)/uRes.y; vec3 rd = normalize(vec3(p.x, p.y-.12, 1.25));",
+      "void main(){ vec2 p = (gl_FragCoord.xy-.5*uRes)/uRes.y; vec3 rd = normalize(uCF*1.25 + p.x*uCR + (p.y-.12)*uCU);",
       "  vec3 col;",
       "  if (rd.y > -.004) { col = vec3(.002,.003,.004) + vec3(.0,.006,.009)*exp(-sq(rd.y*30.)); o = vec4(col, 1.); return; }",
-      "  float t0 = (RO.y-.75)/-rd.y; float tm = RO.y/-rd.y + .3; t0 = max(t0, 0.);",
+      "  float t0 = (uRO.y-.75)/-rd.y; float tm = uRO.y/-rd.y + .3; t0 = max(t0, 0.);",
       "  int N = uQ > .75 ? 80 : uQ > .45 ? 56 : 36; float dt = (tm-t0)/float(N), t = t0, lt = t0; bool hit = false;",
-      "  for (int i=0;i<80;i++){ if (i>=N) break; vec3 x = RO+rd*t; if (x.y-hgt(x.xz) < 0.) { hit = true; break; } lt = t; t += dt; }",
+      "  for (int i=0;i<80;i++){ if (i>=N) break; vec3 x = uRO+rd*t; if (x.y-hgt(x.xz) < 0.) { hit = true; break; } lt = t; t += dt; }",
       "  if (!hit) { t = tm; lt = tm-dt; }",
-      "  for (int i=0;i<7;i++){ float m = .5*(t+lt); vec3 x = RO+rd*m; if (x.y-hgt(x.xz) < 0.) t = m; else lt = m; }",
-      "  vec3 x = RO+rd*t; float e = .0035*(1.+t*.25);",
+      "  for (int i=0;i<7;i++){ float m = .5*(t+lt); vec3 x = uRO+rd*m; if (x.y-hgt(x.xz) < 0.) t = m; else lt = m; }",
+      "  vec3 x = uRO+rd*t; float e = .0035*(1.+t*.25);",
       "  vec3 n = normalize(vec3(hgt(x.xz-vec2(e,0.))-hgt(x.xz+vec2(e,0.)), 2.*e, hgt(x.xz-vec2(0.,e))-hgt(x.xz+vec2(0.,e))));",
       "  vec3 r = reflect(rd, n); float nv = max(dot(n,-rd),0.); float F = .05 + .95*pow(1.-nv, 5.);",
-      "  float rough = .04 + .1*smoothstep(.0,.3,x.y);",                                     // tips slightly satin, flats glassy
+      "  float rough = (.04 + .1*smoothstep(.0,.3,x.y)) * uK;",                                     // tips slightly satin, flats glassy
       "  vec3 spec = studio(r); spec = mix(spec, studio(normalize(r+vec3(0.,rough,0.))), .5);",
       "  col = spec*(F*.9 + .05) + vec3(.003,.004,.006);",
       "  col += vec3(.1,.6,.9)*pow(1.-nv,3.)*.08*smoothstep(.02,.2,x.y);",                  // thin cyan sheen on spike flanks
@@ -93,9 +94,9 @@
     var blur = K.compile(K.FSQ, HEAD + "uniform sampler2D uI; uniform vec2 uRes, uDir; out vec4 o;\nvoid main(){ vec2 uv = gl_FragCoord.xy/uRes;\n" +
       "  vec3 c = texture(uI, uv).rgb*.227; float w[4] = float[4](.194,.121,.054,.016);\n" +
       "  for (int i=1;i<=4;i++){ vec2 d = uDir*float(i)*1.6/uRes; c += (texture(uI, uv+d).rgb + texture(uI, uv-d).rgb)*w[i-1]; } o = vec4(c,1.); }");
-    var comp = K.compile(K.FSQ, HEAD + "uniform sampler2D uI, uB; uniform vec2 uRes; uniform float uT; out vec4 o;\n" +
+    var comp = K.compile(K.FSQ, HEAD + "uniform sampler2D uI, uB; uniform vec2 uRes; uniform float uT, uBloom; out vec4 o;\n" +
       "vec3 aces(vec3 x){ return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14), 0., 1.); }\n" +
-      "void main(){ vec2 uv = gl_FragCoord.xy/uRes; vec3 c = texture(uI, uv).rgb + texture(uB, uv).rgb*.85;\n" +
+      "void main(){ vec2 uv = gl_FragCoord.xy/uRes; vec3 c = texture(uI, uv).rgb + texture(uB, uv).rgb*uBloom;\n" +
       "  c = aces(c*1.15); c = pow(c, vec3(1./2.2)); c += (h21(gl_FragCoord.xy+fract(uT)*91.)-.5)*.012;\n" +
       "  vec2 v = uv-.5; c *= 1.-dot(v,v)*.55; o = vec4(c, 1.); }");
     if (!sim || !scene || !bright || !blur || !comp) return null;
@@ -116,13 +117,31 @@
               n.buffer = buf; n.connect(bf); bf.connect(gg); gg.connect(window.TitanGen.uiBus().input); n.start(); } } }
       } catch (e) { /* audio is optional */ }
     }
-    function toPlane(px, py, asp) {      // the pointer (0..1, y up) -> pool plane coords, with the scene's camera
-      var x = (px - .5) * asp, y = py - .5, ry = y - .12; if (ry > -.01) ry = -.01; var t = .95 / -ry; return [x * t, -1.2 + 1.25 * t];
+    var CAM_DEF = { o: [0, .95, -1.2], pitch: .12 };
+    function basis(v) {
+      var yaw = v && v.yaw || 0, pitch = (v && v.pitch || 0);
+      var cy = Math.cos(yaw), sy = Math.sin(yaw);
+      var cp = Math.cos(pitch), sp = Math.sin(pitch);
+      var f = [sy * cp, sp, cy * cp];
+      var r = [cy, 0, -sy];
+      var u = [ -sy * sp, cp, -cy * sp ];
+      var move = v && v.move || 0, up = v && v.up || 0;
+      var ro = [ CAM_DEF.o[0] + f[0] * move, CAM_DEF.o[1] + up + f[1] * move, CAM_DEF.o[2] + f[2] * move ];   // move > 0 = toward the pool
+      return { ro: ro, f: f, r: r, u: u };
+    }
+    function toPlane(px, py, asp, B) {      // the pointer (0..1, y up) -> pool plane coords, with the scene's camera
+      var x = (px - .5) * asp, y = py - .5 - .12;          // the same ray as the shader; the default view gives the backdrop's mapping
+      var rd = [ B.f[0] * 1.25 + x * B.r[0] + y * B.u[0], B.f[1] * 1.25 + x * B.r[1] + y * B.u[1], B.f[2] * 1.25 + x * B.r[2] + y * B.u[2] ];
+      if (rd[1] > -.01) rd[1] = -.01; var t = B.ro[1] / -rd[1];
+      return [ B.ro[0] + rd[0] * t, B.ro[2] + rd[2] * t ];
     }
     var surge = { next: 14 + Math.random() * 10, t0: -1 };
+    var currentB = basis(null);
     return {
       name: "ferro",
       step: function (c) {
+        var v = c.view || {};
+        currentB = basis(v);
         var asp = c.w / c.h, p = c.ptr, dt = c.still ? 0 : Math.min(c.dt, .033);
         var moved = Math.abs(p.x - ch.px) + Math.abs(p.y - ch.py); ch.px = p.x; ch.py = p.y;
         if (p.down) { ch.hold += dt; if (moved > .02 && ch.hold < .3) ch.hold = 0; } 
@@ -132,8 +151,12 @@
         ch.charge = p.down ? k : 0;
         if (surge.t0 < 0 && c.t > surge.next) surge.t0 = c.t;
         var sg = surge.t0 >= 0 ? (c.t - surge.t0) / 3.2 : -1; if (sg > 1) { surge.t0 = -1; surge.next = c.t + 18 + Math.random() * 18; sg = -1; }
-        var pq = toPlane(p.x, p.y, asp), tq = toPlane(p.tx, p.ty, asp);
+        var pq = toPlane(p.x, p.y, asp, currentB), tq = toPlane(p.tx, p.ty, asp, currentB);
         gl.disable(gl.BLEND); gl.useProgram(sim.p); var u = sim.u;
+        gl.uniform3f(u.uRO, currentB.ro[0], currentB.ro[1], currentB.ro[2]);
+        gl.uniform3f(u.uCF, currentB.f[0], currentB.f[1], currentB.f[2]);
+        gl.uniform3f(u.uCR, currentB.r[0], currentB.r[1], currentB.r[2]);
+        gl.uniform3f(u.uCU, currentB.u[0], currentB.u[1], currentB.u[2]);
         gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uCharge, ch.charge); gl.uniform2f(u.uP, pq[0], pq[1]); gl.uniform2f(u.uTap, tq[0], tq[1]);
         gl.uniform1f(u.uHover, ("ontouchstart" in window) ? (p.down ? 1 : 0) : 1); gl.uniform1f(u.uSurge, sg); gl.uniform1f(u.uTapAge, Math.max(0, c.t - p.tap));
         var subs = dt > 0 ? 3 : 1;
@@ -144,10 +167,17 @@
         ch.splash = 0;
       },
       draw: function (c) {
+        var v = c.view || {};
+        currentB = basis(v);
         var sc = (c.lite ? .45 : .62) * (.6 + .4 * c.q), w = Math.max(2, Math.round(c.w * sc)), h = Math.max(2, Math.round(c.h * sc)); sizeRT(w, h);
         gl.disable(gl.BLEND);
         gl.bindFramebuffer(gl.FRAMEBUFFER, RT.sf); gl.viewport(0, 0, w, h); gl.useProgram(scene.p);
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, ST[cur]); gl.uniform1i(scene.u.uS, 0); gl.uniform2f(scene.u.uRes, w, h); gl.uniform1f(scene.u.uT, c.t); gl.uniform1f(scene.u.uQ, c.q);
+        gl.uniform3f(scene.u.uRO, currentB.ro[0], currentB.ro[1], currentB.ro[2]);
+        gl.uniform3f(scene.u.uCF, currentB.f[0], currentB.f[1], currentB.f[2]);
+        gl.uniform3f(scene.u.uCR, currentB.r[0], currentB.r[1], currentB.r[2]);
+        gl.uniform3f(scene.u.uCU, currentB.u[0], currentB.u[1], currentB.u[2]);
+        gl.uniform1f(scene.u.uK, look("roughness", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
         gl.bindFramebuffer(gl.FRAMEBUFFER, RT.bf1); gl.viewport(0, 0, RT.bw, RT.bh); gl.useProgram(bright.p); gl.bindTexture(gl.TEXTURE_2D, RT.sc); gl.uniform1i(bright.u.uI, 0); gl.uniform2f(bright.u.uRes, RT.bw, RT.bh); gl.drawArrays(gl.TRIANGLES, 0, 3);
         gl.useProgram(blur.p); gl.uniform1i(blur.u.uI, 0); gl.uniform2f(blur.u.uRes, RT.bw, RT.bh);
@@ -158,9 +188,11 @@
         gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, c.w, c.h); gl.useProgram(comp.p);
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, RT.sc); gl.uniform1i(comp.u.uI, 0);
         gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, RT.b1); gl.uniform1i(comp.u.uB, 1); gl.activeTexture(gl.TEXTURE0);
-        gl.uniform2f(comp.u.uRes, c.w, c.h); gl.uniform1f(comp.u.uT, c.t); gl.drawArrays(gl.TRIANGLES, 0, 3);
+        gl.uniform2f(comp.u.uRes, c.w, c.h); gl.uniform1f(comp.u.uT, c.t); gl.uniform1f(comp.u.uBloom, .85 * look("bloom", 1)); gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { charge: ch.charge, sim: SIM, rt: [RT.w, RT.h] }; },
+      debug: function () { return { charge: ch.charge, sim: SIM, rt: [RT.w, RT.h],
+        cam: currentB.ro.map(function(x){ return +x.toFixed(3); }).concat(currentB.f.map(function(x){ return +x.toFixed(3); })),
+        look: { bloom: look("bloom", 1), roughness: look("roughness", 1) } }; },
       dispose: function () { hum(false, 0); ST.forEach(function (t) { gl.deleteTexture(t); }); SF.forEach(function (f) { gl.deleteFramebuffer(f); }); free(RT.list || []); [sim, scene, bright, blur, comp].forEach(function (p) { gl.deleteProgram(p.p); }); }
     };
   });
@@ -168,5 +200,9 @@
   K.themes.ferro = { stack: [
     { mod: "ferro" },
     { mod: "particles", count: .08, shape: "mote", size: 2.4, gravity: -.004, curl: .8, scale: 1.4, speed: .02, life: .04, c1: [.55, .7, .8], c2: [.25, .9, 1], alpha: .022, blend: "add", depth: 1, glint: 1, rake: .5 }
-  ] };
+  ],
+    room: { name: "The magnetic mirror pool", yaw: [-.35, .35], pitch: [-.12, .2], move: [-.6, .8], up: [-.3, .5], unit: "m", sound: "metal",
+      look: [{ id: "bloom", label: "Bloom", min: 0, max: 3, def: 1 }, { id: "roughness", label: "Roughness", min: .2, max: 2.5, def: 1 }],
+      touch: "Hold to charge the magnetic field and raise a crown of spikes; let go to splash.",
+      opening: { dur: 5.0, from: { yaw: .25, pitch: -.08, move: -.4, up: .2 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.0, at: [.5, .5] } } };
 })();
