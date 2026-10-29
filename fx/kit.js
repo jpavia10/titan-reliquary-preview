@@ -153,9 +153,10 @@
       var s = document.createElement("script"); s.src = list[i] + lazyV;
       s.onload = function () { lazyDone[list[i]] = 1; next(i + 1); }; s.onerror = function () { lazyBusy[id] = 0; }; document.head.appendChild(s); })(0); }
   K.apply = apply;
-  /* tier: the one quality setting (wings/quality.js TitanQuality); the worlds read it themselves, this is what they were given */
-  K.tier = function () { try { var q = window.TitanQuality && TitanQuality.tier && String(TitanQuality.tier()).toLowerCase(); if (/^(low|medium|high|ultra|max)$/.test(q)) return q; } catch (e) { /* ignore */ } return "high"; };
-  K.debug = function () { return { id: active && active.id, q: Q.q, scale: Q.scale, w: cv && cv.width, h: cv && cv.height, tier: K.tier(), frames: K.frames, loop: raf ? 1 : 0,
+  /* tierName: the one quality setting (wings/quality.js TitanQuality) by name; the worlds read it themselves, this is what they were given.
+     (K.tier() is the shared scene module's quality factor, a number: fx/scenes-nms.js) */
+  K.tierName = function () { try { var q = window.TitanQuality && TitanQuality.tier && String(TitanQuality.tier()).toLowerCase(); if (/^(low|medium|high|ultra|max)$/.test(q)) return q; } catch (e) { /* ignore */ } return "high"; };
+  K.debug = function () { return { id: active && active.id, q: Q.q, scale: Q.scale, w: cv && cv.width, h: cv && cv.height, tier: K.tierName(), frames: K.frames, loop: raf ? 1 : 0,
     canvases: document.querySelectorAll("canvas#fxk").length, view: JSON.parse(JSON.stringify(K.view)),
     parts: active ? active.parts.map(function (p) { return p.name + (p.count ? ":" + p.count() : ""); }) : [],
     worlds: active ? active.parts.filter(function (p) { return p.debug; }).map(function (p) { var d = {}; try { d = p.debug() || {}; } catch (e) { d = { error: String(e) }; } d.name = p.name; return d; }) : [] }; };

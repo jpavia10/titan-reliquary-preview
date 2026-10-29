@@ -26,7 +26,7 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
 2. **The world contract** (`fx/kit.js`): `K.view = { mode, yaw, pitch, move, up, look }`, written only through `K.setView(v)`,
    which keeps a mode from `K.MODES` (`backdrop`, `opening`, `room`), ignores numbers that are not finite, clamps the camera and every
    look control to the world's room limits and drops unknown ids; `K.resetView()`; `K.look(id, def)`; `K.tap(x, y)` (a touch from a page
-   that reads the pointer itself); `K.room(id)`; `K.tier()`; `K.frames`; `K.debug()` (id, tier, view, canvases, loop, frames, and each
+   that reads the pointer itself); `K.room(id)`; `K.tierName()` (the TitanQuality tier by name; `K.tier()` stays the shared scene module's quality factor); `K.frames`; `K.debug()` (id, tier, view, canvases, loop, frames, and each
    world's own `debug()`, which reports at least `cam` and `look`). A view change with the loop stopped (Motion Calm/Off, hidden tab)
    draws one still frame.
 3. **Room data** (`K.themes[id].room`): `{ name, yaw: [min, max], pitch, move, up, unit, sound, look: [{ id, label, min, max, def, scape? }],
