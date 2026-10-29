@@ -65,7 +65,7 @@
     "}",
     "void main(){",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
-    "  p = (p - vec2(0., uView.w)) * (1.0 + uView.z);",
+    "  p = (p - vec2(0., uView.w)) * exp(-uView.z);",   // move > 0 = toward the medallion (world contract)
     "  p.x += uView.x; p.y += uView.y;",
     "  float A = uRes.x/uRes.y;",
     "  vec2 par = (uPtr - 0.5)*vec2(0.04, 0.02);",
@@ -243,7 +243,7 @@
       { mod: "saltflat" },
       { mod: "post", bloom: 0.52, threshold: 0.76, knee: 0.45, exposure: 0.98, aberr: 0.04, grain: 0.03, vig: 0.34 }
     ],
-    room: { name: "The Altiplano Mirror", yaw: [-0.6, 0.6], pitch: [-0.2, 0.2], move: [-0.3, 0.5], up: [-0.1, 0.1],
+    room: { name: "The Altiplano Mirror", yaw: [-.15, .15], pitch: [-.1, .1], move: [-.3, .4], up: [-.06, .06],
       unit: "screen", sound: "sand",
       look: [
         { id: "salt", label: "Salt Crust", min: 0, max: 3, def: 1 },
@@ -251,6 +251,6 @@
         { id: "wind", label: "Wind Ripples", min: 0, max: 4, def: 1 }
       ],
       touch: "A tap on the flooded surface sends out a ripple ring from that point.",
-      opening: { dur: 5.0, from: { yaw: -0.4, pitch: 0.15, move: 0.4, up: -0.05 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [0.5, 0.3] } }
+      opening: { dur: 5.0, from: { yaw: -.12, pitch: .08, move: .32, up: -.048 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [0.5, 0.3] } }
   };
 })();

@@ -250,10 +250,10 @@
       { mod: "lightwell" },
       { mod: "post", bloom: 0.48, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.04, grain: 0.03, vig: 0.34 }
     ],
-    room: { name: "The Concrete Rotunda", yaw: [-.4, .4], pitch: [-.3, .3], move: [-.5, .5], up: [-.3, .3],
+    room: { name: "The Concrete Rotunda", yaw: [-.12, .12], pitch: [-.1, .1], move: [-.4, .4], up: [-.08, .08],
       unit: "screen", sound: "cathedral",
       look: [{ id: "dust", label: "Dust Motes", min: 0, max: 3, def: 1 }, { id: "light", label: "Sunlight", min: .2, max: 2, def: 1 }],
       touch: "Tap the concrete or the coin: a soft ripple across the light well.",
-      opening: { dur: 5, from: { yaw: .2, pitch: -.15, move: .3, up: -.1 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3, at: [.5, .5] } }
+      opening: { dur: 5, from: { yaw: .096, pitch: -.08, move: .3, up: -.064 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3, at: [.5, .5] } }
   };
 })();
