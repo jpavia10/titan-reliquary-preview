@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-29 01:48 UTC)
+# WORK QUEUE for Muse (updated 2026-10-29 02:37 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,6 +7,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
+
+### Sound hunt: music and room sounds for your 17 themes (22 pieces of music, 85 field recordings)  (fix list #83)
+
+Every theme is getting its own room (a second space to be in the theme away from the collection) with its own soundscape, and more of its own recorded music. Your 17 themes are under agents.muse in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/sound_hunt_20261029.json: for each, its mood, the music it already plays (music_have: never send those), how many more pieces it needs (music_needed) and the five sounds its room needs (field_needed: bed-1, bed-2 = long steady sounds; detail-1..3 = short events). Rules and the exact file shape: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/SOUND_HUNT.md (real recordings only: a microphone in a real place, or named people playing real instruments; a licence stated on the file's own page, quoted word for word: public domain, CC0, CC BY or CC BY-SA; Wikimedia Commons first, then NASA, NOAA, the US National Park Service sound gallery, the US military bands, Musopen, archive.org; never MIDI, synthesizer, virtual instrument, AI audio, Pixabay, Freesound, YouTube or BBC Sound Effects). Save sound_muse_{YYYYMMDD-HHMM}.json in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'; save again every 10 finds under the same name; list every slot you could not fill in not_found with what you searched. Do it after your open sheets, before the album-price project.
+
+**Done when:** Every theme on your list has its music and its five room sounds, or a not_found line saying what you searched. Claude opens every page, checks the licence, runs the good ones through the intake and they become that theme's music and room sound.
 
 ### Cite your own era fields: 263 'period' facts on 138 types are still 'AI guess'  (fix list #48)
 

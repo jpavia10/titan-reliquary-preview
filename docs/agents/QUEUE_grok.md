@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-29 01:48 UTC)
+# WORK QUEUE for Grok (updated 2026-10-29 02:37 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,6 +7,18 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
+
+### Sound hunt: music and room sounds for your 17 themes (24 pieces of music, 85 field recordings)  (fix list #83)
+
+Every theme is getting its own room (a second space to be in the theme away from the collection) with its own soundscape, and more of its own recorded music. Your 17 themes are under agents.grok in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/sound_hunt_20261029.json: for each, its mood, the music it already plays (music_have: never send those), how many more pieces it needs (music_needed) and the five sounds its room needs (field_needed: bed-1, bed-2 = long steady sounds; detail-1..3 = short events). Rules and the exact file shape: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/SOUND_HUNT.md (real recordings only: a microphone in a real place, or named people playing real instruments; a licence stated on the file's own page, quoted word for word: public domain, CC0, CC BY or CC BY-SA; Wikimedia Commons first, then NASA, NOAA, the US National Park Service sound gallery, the US military bands, Musopen, archive.org; never MIDI, synthesizer, virtual instrument, AI audio, Pixabay, Freesound, YouTube or BBC Sound Effects). Save sound_grok_{YYYYMMDD-HHMM}.json in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'; save again every 10 finds under the same name; list every slot you could not fill in not_found with what you searched.
+
+**Done when:** Every theme on your list has its music and its five room sounds, or a not_found line saying what you searched. Claude opens every page, checks the licence, runs the good ones through the intake and they become that theme's music and room sound.
+
+### Replace the 45 ambience sounds of unknown licence with recordings whose licence is on their own page  (fix list #83)
+
+Every ambience sound the app plays today is an excerpt from the Moodist pack, whose licence is 'CC0 or Pixabay' with no per-file record (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/audio/ambience/CREDITS.md). moodist_replace in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/sound_hunt_20261029.json lists all 45 (id, bed or one-shots, the Moodist file it came from). For each, find a recording of the same kind (rain on a window for rainWindow, a ticking clock for clock, ...) under the rules of SOUND_HUNT.md, at least 60 s for a bed. Put them in the same sound_grok_{YYYYMMDD-HHMM}.json under 'replace' (one or two finds per id, best first), saved in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'.
+
+**Done when:** Each of the 45 ids has a replacement or a not_found line; Claude swaps in the ones that pass, so every ambience file in the app has a licence on record.
 
 ### Album prices: third reader for the 40 holes in A017-A033 where the first two prices disagree most  (fix list #62)
 

@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-29T01:48:54Z",
+ "updated": "2026-10-29T02:37:08Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -18632,7 +18632,7 @@
    "agent": "gemini",
    "kind": "story-check",
    "issued": "2026-10-24T06:40:21Z",
-   "lease_until": "2026-10-29T06:40:21Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -18853,14 +18853,22 @@
      "id": "C252",
      "field": "story"
     }
-   ]
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T06:40:21Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
+   ],
+   "parts": 4
   },
   {
    "id": "HW-gemini-fill-20261024-1",
    "agent": "gemini",
    "kind": "fill",
    "issued": "2026-10-24T06:40:21Z",
-   "lease_until": "2026-10-29T06:40:21Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -18913,6 +18921,13 @@
      "id": "MX.X.500-pesos",
      "field": null
     }
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T06:40:21Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
    ]
   },
   {
@@ -18920,7 +18935,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-24T06:40:21Z",
-   "lease_until": "2026-10-29T06:40:21Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19009,6 +19024,13 @@
      "id": "AU.X.1-cent",
      "field": "ruler"
     }
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T06:40:21Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
    ]
   },
   {
@@ -19040,7 +19062,7 @@
    "agent": "gemini",
    "kind": "arbitrate",
    "issued": "2026-10-24T07:28:18Z",
-   "lease_until": "2026-10-29T07:28:18Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19105,6 +19127,13 @@
      "id": "MX.X.50-centavos",
      "field": "design.text"
     }
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T07:28:18Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
    ]
   },
   {
@@ -19112,7 +19141,7 @@
    "agent": "gemini",
    "kind": "story-check",
    "issued": "2026-10-24T07:28:18Z",
-   "lease_until": "2026-10-29T07:28:18Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19129,6 +19158,13 @@
      "id": "C246",
      "field": "story"
     }
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T07:28:18Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
    ]
   },
   {
@@ -19136,7 +19172,7 @@
    "agent": "gemini",
    "kind": "fill",
    "issued": "2026-10-24T07:28:18Z",
-   "lease_until": "2026-10-29T07:28:18Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19213,7 +19249,15 @@
      "id": "GT.KM.239.2",
      "field": null
     }
-   ]
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T07:28:18Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
+   ],
+   "parts": 2
   },
   {
    "id": "HW-grok-arbitrate-20261024-1",
@@ -19254,7 +19298,7 @@
    "agent": "gemini",
    "kind": "fill",
    "issued": "2026-10-24T07:28:18Z",
-   "lease_until": "2026-10-29T07:28:18Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19331,6 +19375,13 @@
      "id": "MX.KM.424",
      "field": null
     }
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T07:28:18Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
    ]
   },
   {
@@ -19338,7 +19389,7 @@
    "agent": "gemini",
    "kind": "fill",
    "issued": "2026-10-24T07:28:18Z",
-   "lease_until": "2026-10-29T07:28:18Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19415,6 +19466,13 @@
      "id": "TW.KM.551",
      "field": null
     }
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T07:28:18Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
    ]
   },
   {
@@ -19422,7 +19480,7 @@
    "agent": "gemini",
    "kind": "fill",
    "issued": "2026-10-24T07:28:18Z",
-   "lease_until": "2026-10-29T07:28:18Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19445,6 +19503,13 @@
      "id": "CO.KM.295",
      "field": null
     }
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T07:28:18Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
    ]
   },
   {
@@ -19452,7 +19517,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-24T07:28:18Z",
-   "lease_until": "2026-10-29T07:28:18Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19937,14 +20002,22 @@
      "id": "SU.Y.93",
      "field": "design.text"
     }
-   ]
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T07:28:18Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
+   ],
+   "parts": 4
   },
   {
    "id": "HW-gemini-verify-20261024-3",
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-24T07:28:18Z",
-   "lease_until": "2026-10-29T07:28:18Z",
+   "lease_until": "2026-11-05T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -20267,7 +20340,15 @@
      "id": "C046",
      "field": "issue.mint_marks"
     }
-   ]
+   ],
+   "extended": [
+    {
+     "from": "2026-10-29T07:28:18Z",
+     "to": "2026-11-05T23:59:00Z",
+     "reason": "never reached Gemini: it reads Drive only and the bridge is not installed; copied to its Drive sheet folder by hand on 2026-10-29"
+    }
+   ],
+   "parts": 2
   },
   {
    "id": "HW-muse-cite-20261024-1",

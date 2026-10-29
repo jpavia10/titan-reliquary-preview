@@ -77,6 +77,14 @@ class Loop(unittest.TestCase):
         HW.withdraw(r["state"], a["id"], NOW, "test")
         self.assertEqual(a["status"], "withdrawn")
         self.assertRaises(SystemExit, HW.withdraw, r["state"], a["id"], NOW, "twice")
+        # an extended assignment keeps its items to the new deadline, and a deadline can only move later
+        b = next(x for x in r["state"]["assignments"] if x["status"] == "open")
+        later = HW._days(b["lease_until"], 7)
+        HW.extend(r["state"], b["id"], later, "test", parts=2)
+        self.assertEqual((b["lease_until"], b["parts"], b["extended"][0]["to"]), (later, 2, later))
+        self.assertRaises(SystemExit, HW.extend, r["state"], b["id"], NOW, "earlier")
+        HW.refresh(HW.load_context(tmp), r["roles"], r["queues"], r["state"], HW._days(later, -1))
+        self.assertEqual(b["status"], "open")
 
     def test_2_deterministic(self):
         other = sandbox(); r = run_refresh(other, NOW)

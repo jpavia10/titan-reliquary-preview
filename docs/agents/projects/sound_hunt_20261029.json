@@ -1,0 +1,1798 @@
+{
+ "schema": "titan-sound-hunt/1",
+ "made": "2026-10-29",
+ "about": "Sound hunt (owner, 2026-10-29: 'In the homework make them find more music also'; Claude owns the ambient and depth upgrade the same day). Two jobs per theme: (1) recorded music the theme still lacks, (2) five field recordings for the theme's own room (the secondary space where you experience the theme away from the collection). Every find is a real microphone recording with a licence stated on its own page. Answers go in one file per session: sound_{agent}_{YYYYMMDD-HHMM}.json in Drive Titan Reliquary/sound-incoming (AI music + field recording finds)/. Rules and file shape: docs/agents/SOUND_HUNT.md.",
+ "agents": {
+  "grok": {
+   "themes": [
+    {
+     "theme": "sahel",
+     "name": "Sahel Futurism",
+     "mood": "Monumental mudbrick towers and tracking brass heliostat mirrors rise through golden Harmattan dust haze toward a volumetric desert sun. Open a coin and the heliostat array aligns its golden beam onto the adobe plinth; tap to send a warm Harmattan dust gust across the towers.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "desert wind carrying sand"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a village in the Sahel at dusk with no music"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a mortar and pestle pounding grain"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a goat bleating"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a metal sheet rattling in the wind"
+      }
+     ],
+     "music_hint": "a real kora player (any traditional West African piece) or another Sahel instrument (ngoni, balafon, Tuareg guitar) with a clear licence"
+    },
+    {
+     "theme": "zen",
+     "name": "Zen Garden",
+     "mood": "Raked gravel, wet slate and falling petals.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a Japanese garden with water and birds"
+      },
+      {
+       "slot": "bed-2",
+       "what": "light rain on a temple roof"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a shishi-odoshi bamboo fountain clacking"
+      },
+      {
+       "slot": "detail-2",
+       "what": "one temple bell strike"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a rake drawn through gravel"
+      }
+     ],
+     "music_hint": "a real shakuhachi or koto player"
+    },
+    {
+     "theme": "kintsugi",
+     "name": "Kintsugi",
+     "mood": "Black raku glaze mended with liquid gold. Tap to crack the glaze and watch gold run in and seal it.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a quiet pottery studio"
+      },
+      {
+       "slot": "bed-2",
+       "what": "rain on a wooden roof"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a ceramic bowl cracking or breaking"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a raku kiln firing (burner roar)"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a brush on ceramic"
+      }
+     ],
+     "music_hint": "a real koto, shamisen or shakuhachi player"
+    },
+    {
+     "theme": "dynasty",
+     "name": "Dynasty",
+     "mood": "Imperial lacquer, cinnabar and 24K gold foil.",
+     "music_have": [
+      "Traditional (China) - Guqin (traditional) - Charlie Huang (guqin)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a Chinese garden with water and birds"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a temple courtyard"
+      },
+      {
+       "slot": "detail-1",
+       "what": "one gong strike"
+      },
+      {
+       "slot": "detail-2",
+       "what": "silk fabric rustling"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a folding fan opening"
+      }
+     ],
+     "music_hint": "a real guqin, pipa or erhu player"
+    },
+    {
+     "theme": "samadhi",
+     "name": "Samadhi",
+     "mood": "Saffron, sandalwood smoke and stillness.",
+     "music_have": [
+      "Traditional (India) - Raga on sitar - Ashok Ayengar (sitar), live in Bangalore, 2015"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "an Indian temple courtyard in the morning"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a gentle river"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a singing bowl struck"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a temple hand bell"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a match lighting incense"
+      }
+     ],
+     "music_hint": "a real bansuri, sitar or sarod player"
+    },
+    {
+     "theme": "silkroad",
+     "name": "Silk Road",
+     "mood": "Desert caravanserai, lapis tiles, starlight.",
+     "music_have": [
+      "Traditional (Persia) - Santur (Persian classical) - santur and orchestra (Iran)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "desert wind"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a desert night with crickets"
+      },
+      {
+       "slot": "detail-1",
+       "what": "camel bells or a camel grunting"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a market crowd far off with no music"
+      },
+      {
+       "slot": "detail-3",
+       "what": "tent cloth flapping"
+      }
+     ],
+     "music_hint": "a real oud, santur, ney or kamancheh player"
+    },
+    {
+     "theme": "obsidian",
+     "name": "Obsidian Sun",
+     "mood": "Concentric Mesoamerican calendar rings of hammered gold and carved jadeite rotate over a polished volcanic-glass mirror holding your coins at the sun's center. Open a coin and the calendar rings index and lock onto it; tap the stone to send a golden shockwave through the glyphs.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "volcanic steam vents or a fumarole"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a night in a dry Mexican valley with insects"
+      },
+      {
+       "slot": "detail-1",
+       "what": "stone being knapped (flint knapping)"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a conch shell trumpet blown"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a wooden slit drum (teponaztli) struck"
+      }
+     ],
+     "music_hint": "a real marimba ensemble or Mexican traditional players (no synthesizer)"
+    },
+    {
+     "theme": "glacier",
+     "name": "Hyperborean Vault",
+     "mood": "A bullion reserve in Arctic bedrock under aurora.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "arctic wind over ice"
+      },
+      {
+       "slot": "bed-2",
+       "what": "glacier ice creaking and cracking"
+      },
+      {
+       "slot": "detail-1",
+       "what": "ice calving far off"
+      },
+      {
+       "slot": "detail-2",
+       "what": "footsteps in deep snow"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a heavy steel vault door shutting"
+      }
+     ]
+    },
+    {
+     "theme": "valhalla",
+     "name": "Gilded Armory",
+     "mood": "Viking hoard hall by hearthfire.",
+     "music_have": [
+      "Edvard Grieg - In the Hall of the Mountain King - Musopen Symphony"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a large hearth fire crackling"
+      },
+      {
+       "slot": "bed-2",
+       "what": "wind outside a wooden hall"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a sword drawn from a scabbard"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a wooden cup set down on a table"
+      },
+      {
+       "slot": "detail-3",
+       "what": "chainmail rustling"
+      }
+     ]
+    },
+    {
+     "theme": "colossus",
+     "name": "The Mint",
+     "mood": "Molten silver, the coining press, ember light.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a foundry furnace roaring"
+      },
+      {
+       "slot": "bed-2",
+       "what": "an industrial machine hall"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a metal stamping or coining press strike"
+      },
+      {
+       "slot": "detail-2",
+       "what": "hot metal quenched in water (hiss)"
+      },
+      {
+       "slot": "detail-3",
+       "what": "coins poured into a metal tray"
+      }
+     ]
+    },
+    {
+     "theme": "alchemist",
+     "name": "The Alchemist",
+     "mood": "Emerald vitriol and glowing hermetic rings.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a fire in a hearth"
+      },
+      {
+       "slot": "bed-2",
+       "what": "liquid bubbling in glassware"
+      },
+      {
+       "slot": "detail-1",
+       "what": "glass bottles clinking"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a mortar and pestle grinding"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a hiss of steam"
+      }
+     ]
+    },
+    {
+     "theme": "cursedwing",
+     "name": "The Cursed Wing",
+     "mood": "Black wax, blood-red seals, something in the walls.",
+     "music_have": [
+      "Johann Sebastian Bach - Toccata and Fugue in D minor, BWV 565 - Ashtar Moïra (Tamburini organ)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a stone crypt or cave with slow drips"
+      },
+      {
+       "slot": "bed-2",
+       "what": "wind whistling through a crack in an old building"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a heavy wooden door creaking open"
+      },
+      {
+       "slot": "detail-2",
+       "what": "chains rattling"
+      },
+      {
+       "slot": "detail-3",
+       "what": "rats or mice scurrying"
+      }
+     ]
+    },
+    {
+     "theme": "tourbillon",
+     "name": "Tourbillon",
+     "mood": "Inside a watch movement under the loupe: C\\u00f4tes de Gen\\u00e8ve, blued screws, rubies and a flying tourbillon turning on the real seconds. Tap to wind it, hold for the repeater.",
+     "music_have": [
+      "Joseph Haydn - Symphony No. 101 'The Clock': II. Andante - The Geneva Camerata"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a workshop with many clocks ticking"
+      },
+      {
+       "slot": "bed-2",
+       "what": "one mechanical watch ticking close up"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a mechanical watch being wound by the crown"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a minute repeater watch striking"
+      },
+      {
+       "slot": "detail-3",
+       "what": "tweezers set down on a metal plate"
+      }
+     ]
+    },
+    {
+     "theme": "orbit",
+     "name": "Low Orbit",
+     "mood": "Looking down through a space-station cupola window as Earth's curved Rayleigh-scattered limb, nocturnal city-light webs, and an orbital sunrise sweep below your coins. Open a coin to lock it in the cupola reticle; tap to trigger an attitude-thruster star flare.",
+     "music_have": [
+      "Gustav Holst - The Planets: VII. Neptune, the Mystic - \"The President's Own\" United States Marine Band"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "the International Space Station interior (NASA, public domain)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a spacecraft fan hum (NASA)"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a NASA radio beep (Quindar tone) from a mission recording"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a hatch closing on the ISS (NASA)"
+      },
+      {
+       "slot": "detail-3",
+       "what": "natural radio from space (a NASA plasma-wave recording such as EMFISIS 'chorus')"
+      }
+     ],
+     "music_hint": "calm and spacious, real players"
+    },
+    {
+     "theme": "horizon",
+     "name": "Event Horizon",
+     "mood": "A black hole up close: a blazing accretion disk, light bent into rings, and stars smeared around the dark. Drag to orbit; hold to lean in.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a deep low rumble in a large space (a hall, a tunnel)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a spacecraft plasma-wave recording (NASA Voyager, Cassini or Juno; public domain)"
+      },
+      {
+       "slot": "detail-1",
+       "what": "Saturn radio emissions (NASA Cassini)"
+      },
+      {
+       "slot": "detail-2",
+       "what": "Juno crossing Jupiter's bow shock (NASA)"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a heavy metal door booming shut in a large space (no sonification of images)"
+      }
+     ],
+     "music_hint": "vast and slow, real players (organ or orchestra)"
+    },
+    {
+     "theme": "supercell",
+     "name": "Supercell",
+     "mood": "A rotating thunderstorm at dusk over open plains, lit from inside by lightning. Tap the sky to call a strike.",
+     "music_have": [
+      "Ludwig van Beethoven - Symphony No. 6 'Pastoral': IV. Thunderstorm - Musopen (orchestra)",
+      "Antonio Vivaldi - The Four Seasons, Summer: III. Presto (the storm) - John Harrison (violin), Wiedemann Recital"
+     ],
+     "music_needed": 0,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a thunderstorm over open plains with heavy rain"
+      },
+      {
+       "slot": "bed-2",
+       "what": "strong wind over grassland before a storm"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a close lightning strike and its thunder clap"
+      },
+      {
+       "slot": "detail-2",
+       "what": "hail falling"
+      },
+      {
+       "slot": "detail-3",
+       "what": "distant rolling thunder"
+      }
+     ]
+    },
+    {
+     "theme": "abyss",
+     "name": "Shipwreck",
+     "mood": "Forty fathoms down, god rays on a wreck.",
+     "music_have": [
+      "Claude Debussy - La cathédrale engloutie - Ivan Ilić (piano)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "an open-ocean hydrophone recording (NOAA)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a deep-ocean low rumble or a ship hull underwater"
+      },
+      {
+       "slot": "detail-1",
+       "what": "whale song from a hydrophone (NOAA)"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a diver's regulator bubbles"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a metal hull groaning"
+      }
+     ]
+    }
+   ],
+   "music_total": 24,
+   "field_total": 85
+  },
+  "muse": {
+   "themes": [
+    {
+     "theme": "nocturne",
+     "name": "Nocturne",
+     "mood": "A smoky jazz cellar: deep blue, brass, art deco.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a small club crowd murmur with no music playing"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a bar: glasses, bottles, low talk with no words you can follow"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a match struck"
+      },
+      {
+       "slot": "detail-2",
+       "what": "ice dropped in a glass"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a wooden chair creak"
+      }
+     ],
+     "music_hint": "jazz by a real band: the US military jazz ensembles (Airmen of Note, Navy Commodores, Army Jazz Ambassadors) are US government works in the public domain"
+    },
+    {
+     "theme": "neon",
+     "name": "Neon Vault",
+     "mood": "Neon noir: buzzing tubes, rain on wet asphalt, fog lit pink and cyan.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a city street at night in the rain"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a neon sign or transformer buzzing"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a car driving through a puddle"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a distant siren"
+      },
+      {
+       "slot": "detail-3",
+       "what": "footsteps on wet pavement"
+      }
+     ],
+     "music_hint": "slow jazz, blues or a ballad by a real band (US military jazz ensembles are public domain)"
+    },
+    {
+     "theme": "arcade",
+     "name": "Arcade",
+     "mood": "Insert coin: an 8-bit arcade where every piece is a token.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "an arcade or game room recorded on site (crowd and machines)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a busy amusement hall far off"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a coin dropped into a coin slot"
+      },
+      {
+       "slot": "detail-2",
+       "what": "arcade buttons and a joystick clicking"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a pinball machine's flippers and bumpers"
+      }
+     ],
+     "music_hint": "ragtime, swing or a march played by real musicians, upbeat (no chiptune: that is a synthesizer)"
+    },
+    {
+     "theme": "diorama",
+     "name": "Clay Diorama",
+     "mood": "A miniature vault in soft clay, seen from above like a toy model.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a small room with a soft breeze"
+      },
+      {
+       "slot": "bed-2",
+       "what": "birds in a small garden"
+      },
+      {
+       "slot": "detail-1",
+       "what": "clay being kneaded"
+      },
+      {
+       "slot": "detail-2",
+       "what": "small wooden toys knocked together"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a music box being wound (no melody)"
+      }
+     ]
+    },
+    {
+     "theme": "y2k",
+     "name": "Millennium Chrome",
+     "mood": "Liquid chrome and pastel sparkle: the collection as a Y2K dream, every coin polished to a mirror.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a shopping mall atrium with no music"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a fountain in a mall"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a CD tray opening and a disc spinning up"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a flip phone opening and closing"
+      },
+      {
+       "slot": "detail-3",
+       "what": "chrome or steel balls clinking"
+      }
+     ],
+     "music_hint": "a bright, glossy piece by real players (e.g. a brass quintet or big band from a US military band)"
+    },
+    {
+     "theme": "freefall",
+     "name": "Free Fall",
+     "mood": "A physics lab at night: coins rain from above, bounce, roll and heap up. Tap to knock them about.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a large empty gym or hall room tone"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a physics lab ventilation hum"
+      },
+      {
+       "slot": "detail-1",
+       "what": "coins dropped on a hard floor"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a coin spinning down on a table"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a pile of coins poured out"
+      }
+     ],
+     "music_hint": "playful, real players (pizzicato strings, woodwind quintet, ragtime)"
+    },
+    {
+     "theme": "lumen",
+     "name": "Lumen Circuit",
+     "mood": "A black glass grid at night: runners of light race the lanes and leave walls of light behind them. Touch to launch your own.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a city at night from a rooftop"
+      },
+      {
+       "slot": "bed-2",
+       "what": "electric power lines humming"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a motorcycle passing at speed"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a relay or big switch clicking"
+      },
+      {
+       "slot": "detail-3",
+       "what": "an electric car or tram whining past"
+      }
+     ],
+     "music_hint": "driving, fast, real players (e.g. a percussion ensemble or a moto perpetuo on strings)"
+    },
+    {
+     "theme": "rift",
+     "name": "Rift Garage",
+     "mood": "A garage workshop at 2 a.m. with a swirling green rift torn open over the workbench. Tap to pop a pocket rift; hold to charge the big one.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a garage at night: a fridge hum and a fluorescent light"
+      },
+      {
+       "slot": "bed-2",
+       "what": "rain on a garage roof"
+      },
+      {
+       "slot": "detail-1",
+       "what": "an electrical arc or a welder"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a socket wrench ratcheting"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a Tesla coil buzzing (a real recording)"
+      }
+     ],
+     "music_hint": "tense or strange, real players (e.g. a modern string quartet or percussion piece with a clear licence)"
+    },
+    {
+     "theme": "ferro",
+     "name": "Ferrofluid",
+     "mood": "A pool of mirror-black ferrofluid that stands up in spikes wherever your finger goes.",
+     "music_have": [],
+     "music_needed": 2,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a laboratory with a magnet or electrical hum"
+      },
+      {
+       "slot": "bed-2",
+       "what": "thick oil poured slowly"
+      },
+      {
+       "slot": "detail-1",
+       "what": "magnets snapping together"
+      },
+      {
+       "slot": "detail-2",
+       "what": "oil dripping into oil"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a solenoid clicking"
+      }
+     ],
+     "music_hint": "dark and slow, real players (cello, low strings, organ)"
+    },
+    {
+     "theme": "pulp",
+     "name": "Pulp Adventure",
+     "mood": "A 1940s treasure-hunt comic: ink, Ben-Day dots, a POW on every find.",
+     "music_have": [
+      "George Gershwin - Rhapsody in Blue - Paul Whiteman and his Concert Orchestra, George Gershwin (piano), 1924",
+      "George Gershwin - Rhapsody in Blue (part 1, 1924, with Gershwin at the piano) - Paul Whiteman and his Concert Orchestra, George Gershwin (piano), 1924"
+     ],
+     "music_needed": 0,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a jungle in the daytime"
+      },
+      {
+       "slot": "bed-2",
+       "what": "an old propeller plane flying over"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a typewriter"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a whip crack"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a creaking rope bridge or wooden boards"
+      }
+     ]
+    },
+    {
+     "theme": "terminal",
+     "name": "Grand Terminal",
+     "mood": "A grand railway hall at night: fifty countries on the departures board.",
+     "music_have": [
+      "Antonin Dvorak - Slavonic Dances - Strolling Strings, United States Air Force Band"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a large railway station hall (no announcements you can follow)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "trains idling at a platform"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a split-flap departures board flipping"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a train whistle"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a station bell"
+      }
+     ]
+    },
+    {
+     "theme": "silverscreen",
+     "name": "Silver Screen",
+     "mood": "A 1920s picture palace from the stalls: a silent newsreel of your coins on the screen, a title card for each and then its shot, the projector's beam over your head. Open a coin and it is the next picture; tap the beam to stir the dust.",
+     "music_have": [
+      "Scott Joplin - Maple Leaf Rag - United States Air Force Band, Strolling Strings (1994)",
+      "Scott Joplin - Solace (A Mexican Serenade) - Constantin Stephan (piano)"
+     ],
+     "music_needed": 0,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "an old cinema audience murmuring before the film (no words you can follow)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a 35 mm film projector running"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a film reel changeover"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a theatre seat creaking"
+      },
+      {
+       "slot": "detail-3",
+       "what": "an audience applauding"
+      }
+     ]
+    },
+    {
+     "theme": "darkroom",
+     "name": "Darkroom",
+     "mood": "A darkroom under the red safelight: your coins come up as prints in the developer, one after another. Open a coin and its print is next; tap the tray to rock it.",
+     "music_have": [
+      "Frédéric Chopin - Nocturne in C minor, Op. 48 No. 1 - Luke Faulkner (piano), Musopen 'Set Chopin Free'",
+      "Maurice Ravel - Gaspard de la nuit: II. Le Gibet - OE1FEU (Bechstein concert grand, Wiener Kaisersaal)",
+      "Erik Satie - Gnossienne No. 3 - La Pianista (piano)"
+     ],
+     "music_needed": 0,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a darkroom ventilation fan"
+      },
+      {
+       "slot": "bed-2",
+       "what": "water running in a sink"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a darkroom timer ticking and its bell"
+      },
+      {
+       "slot": "detail-2",
+       "what": "photo paper sliding into a tray"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a switch clicking"
+      }
+     ]
+    },
+    {
+     "theme": "construct",
+     "name": "The Construct",
+     "mood": "Green phosphor and falling code.",
+     "music_have": [
+      "Gustav Holst - The Planets - \"The President's Own\" United States Marine Band"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a server room hum"
+      },
+      {
+       "slot": "bed-2",
+       "what": "an old CRT monitor's whine and electrical hum"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a burst of mechanical keyboard typing"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a dial-up modem connecting (a real recording of the device)"
+      },
+      {
+       "slot": "detail-3",
+       "what": "relays clicking"
+      }
+     ]
+    },
+    {
+     "theme": "xeno",
+     "name": "Xenohold",
+     "mood": "Bioluminescent containment for strange artifacts.",
+     "music_have": [
+      "Gustav Holst - The Planets: Neptune, the Mystic - \"The President's Own\" United States Marine Band"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a laboratory with ventilation and equipment hum"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a bubbling aquarium or water tank"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a pneumatic door hiss"
+      },
+      {
+       "slot": "detail-2",
+       "what": "liquid nitrogen or a gas valve hissing"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a tropical night chorus of frogs and insects"
+      }
+     ]
+    },
+    {
+     "theme": "solaris",
+     "name": "Solar Observatory",
+     "mood": "Coronagraph gold on deep indigo.",
+     "music_have": [
+      "Gustav Holst - The Planets: Venus, the Bringer of Peace - United States Air Force Heritage of America Band",
+      "Gustav Holst - The Planets: Jupiter, the Bringer of Jollity - United States Air Force Heritage of America Band"
+     ],
+     "music_needed": 0,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "an observatory dome interior, quiet with a motor hum"
+      },
+      {
+       "slot": "bed-2",
+       "what": "night wind on a mountain top"
+      },
+      {
+       "slot": "detail-1",
+       "what": "an observatory dome rotating"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a telescope slit or shutter opening"
+      },
+      {
+       "slot": "detail-3",
+       "what": "crickets far away"
+      }
+     ]
+    },
+    {
+     "theme": "odyssey",
+     "name": "Odyssey",
+     "mood": "A night voyage toward an amber dawn.",
+     "music_have": [
+      "Felix Mendelssohn - The Hebrides (Fingal's Cave) - Musopen Symphony"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a wooden ship at sea at night, hull creaks and waves"
+      },
+      {
+       "slot": "bed-2",
+       "what": "wind in a ship's rigging"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a ship's bell"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a rope creaking on a capstan or winch"
+      },
+      {
+       "slot": "detail-3",
+       "what": "gulls at dawn"
+      }
+     ]
+    }
+   ],
+   "music_total": 22,
+   "field_total": 85
+  },
+  "gemini": {
+   "themes": [
+    {
+     "theme": "kaleido",
+     "name": "Prism",
+     "mood": "A silver coin on cut crystal, splitting light into rainbows.",
+     "music_have": [
+      "Claude Debussy - Reflets dans l'eau - Giorgi Latsabidze (piano), 2017",
+      "Maurice Ravel - Jeux d'eau - Anna Sutyagina (piano)"
+     ],
+     "music_needed": 0,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a quiet glass atrium or conservatory room tone"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a crystal chandelier tinkling softly in a draught"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a rubbed wine glass singing one note"
+      },
+      {
+       "slot": "detail-2",
+       "what": "two crystal glasses clinking"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a cut-glass stopper set down on glass"
+      }
+     ]
+    },
+    {
+     "theme": "afterhours",
+     "name": "Midnight Gallery",
+     "mood": "Cold moonlight on black marble, the gallery after midnight.",
+     "music_have": [
+      "Maurice Ravel - Pavane pour une infante défunte - Wasei Duo (David Hernando Vitores, Kayoko Morimoto)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "an empty museum hall at night, ventilation hum"
+      },
+      {
+       "slot": "bed-2",
+       "what": "rain on a large skylight, heard from inside"
+      },
+      {
+       "slot": "detail-1",
+       "what": "footsteps on marble far away"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a heavy door closing far off in a stone building"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a ring of keys jingling"
+      }
+     ]
+    },
+    {
+     "theme": "conservator",
+     "name": "Conservator",
+     "mood": "Archival paper and ledger lines, the conservator's desk at noon.",
+     "music_have": [
+      "Johann Sebastian Bach - The Well-Tempered Clavier (Book 1) - Kimiko Ishizaka (piano)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a quiet study with a distant clock"
+      },
+      {
+       "slot": "bed-2",
+       "what": "light city traffic through a closed window at noon"
+      },
+      {
+       "slot": "detail-1",
+       "what": "pages of an old book turning"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a pencil writing on paper"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a small metal tool set down on a wooden desk"
+      }
+     ]
+    },
+    {
+     "theme": "notepad",
+     "name": "Plaintext",
+     "mood": "Black on white. Just the coins.",
+     "music_have": [
+      "Johann Sebastian Bach - Two-Part Inventions - Strolling Strings, United States Air Force Band"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a near-silent room tone"
+      },
+      {
+       "slot": "bed-2",
+       "what": "soft rain outside a window"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a mechanical keyboard typing"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a pen click"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a sheet of paper sliding on a desk"
+      }
+     ]
+    },
+    {
+     "theme": "drafting",
+     "name": "Drafting Room",
+     "mood": "The engraver's drafting room: every coin drawn to scale.",
+     "music_have": [
+      "Johann Sebastian Bach - Brandenburg Concerto No. 3 - Vince DiMartino and the Lexington Bach Choir Orchestra"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a quiet studio room tone"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a wall clock ticking"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a pencil and ruler on paper"
+      },
+      {
+       "slot": "detail-2",
+       "what": "an eraser rubbing"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a large sheet of paper unrolled"
+      }
+     ]
+    },
+    {
+     "theme": "bauhaus",
+     "name": "Bauhaus",
+     "mood": "Primary shapes and moving type: the coin legends as a Bauhaus poster.",
+     "music_have": [
+      "Maurice Ravel - Le Tombeau de Couperin - Isaac David (piano), 2017"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a machine workshop"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a quiet modern gallery"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a letterpress printing press running"
+      },
+      {
+       "slot": "detail-2",
+       "what": "metal type dropped into a composing stick"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a printed sheet pulled off a press"
+      }
+     ]
+    },
+    {
+     "theme": "lightwell",
+     "name": "Light Well",
+     "mood": "A quiet architectural rotunda of board-formed concrete pierced by a single razor blade of golden sun that sweeps across your coins on a monolithic plinth. Open a coin to place it in the sunbeam; tap the beam to stir a vortex of illuminated dust motes.",
+     "music_have": [
+      "Johann Sebastian Bach - Ich ruf zu dir, Herr Jesu Christ, BWV 639 - Yeonju Sarah Kim (organ)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a concrete space with a long reverb (a cistern, a stairwell)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "light wind through an opening"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a single drip in a concrete room"
+      },
+      {
+       "slot": "detail-2",
+       "what": "footsteps on concrete"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a pigeon's wings in a building"
+      }
+     ]
+    },
+    {
+     "theme": "saltflat",
+     "name": "Salt Mirror",
+     "mood": "An endless flooded salt flat at twilight where a thin film of brine doubles the star-streaked cobalt sky above submerged hexagonal salt ridges. Open a coin and it rises on a crystalline salt pedestal mirrored in the water; tap anywhere to send concentric ripple rings across the horizon.",
+     "music_have": [
+      "Claude Debussy - Images: I. Reflets dans l'eau - Giorgi Latso (piano)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a very quiet open plain with faint wind"
+      },
+      {
+       "slot": "bed-2",
+       "what": "shallow water lapping very gently"
+      },
+      {
+       "slot": "detail-1",
+       "what": "footsteps in shallow water or on wet salt crust"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a far bird call over water"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a salt crust crunching"
+      }
+     ]
+    },
+    {
+     "theme": "glasshouse",
+     "name": "The Glasshouse",
+     "mood": "A Victorian iron-and-glass palm conservatory in steady evening rain: refractive raindrops trail down a steamed pane while lush palms glow behind the condensation. Open a coin to view it through the cleared glass medallion; drag or tap to wipe the fog from the pane.",
+     "music_have": [
+      "Frédéric Chopin - Prelude in D-flat major, Op. 28 No. 15 'Raindrop' - eldüendesüarez (piano)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "rain on a glass roof inside a greenhouse"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a greenhouse with dripping water and a fan"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a watering can pouring"
+      },
+      {
+       "slot": "detail-2",
+       "what": "water dripping onto leaves"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a glass door opening"
+      }
+     ]
+    },
+    {
+     "theme": "canopy",
+     "name": "Cloud Forest",
+     "mood": "A dripping cloud forest at dawn: shafts of emerald sun pierce three layers of giant tree-fern fronds while fireflies drift past a mossy basalt altar holding your coins under a lens of clear rainwater. Open a coin to place it on the wet stone; tap the canopy to shake a shower of dewdrops and scatter the fireflies.",
+     "music_have": [
+      "Traditional Catalan - El Noi de la Mare - Jujutacular (guitar)",
+      "Carl Philipp Emanuel Bach - Flute Sonata in D major, Wq. 131: I. Andante - Luis Martínez Pueyo (traverso), Alfonso Sebastián Alegre (harpsichord)"
+     ],
+     "music_needed": 0,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a cloud forest dawn chorus (Central or South America)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a rainforest dripping after rain"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a quetzal or bellbird call"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a tree frog"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a far waterfall"
+      }
+     ]
+    },
+    {
+     "theme": "marbled",
+     "name": "Marbled Endpapers",
+     "mood": "A bookbinder's endpapers: marbled paper in indigo, oxblood and ochre swirls slowly at the edges of every page.",
+     "music_have": [
+      "Franz Schubert - Impromptus, D. 899 - Chiara Bertoglio (piano)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a bookbinder's workshop"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a quiet library"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a sheet of paper laid on liquid or wet paper peeled"
+      },
+      {
+       "slot": "detail-2",
+       "what": "paint flicked from a brush"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a bone folder creasing paper"
+      }
+     ]
+    },
+    {
+     "theme": "cathedral",
+     "name": "Cathedral Glass",
+     "mood": "A nave at dusk: a rose window of jewel-coloured glass, lit by a slow sun, throwing coloured light across the collection.",
+     "music_have": [
+      "Gregorio Allegri - Miserere mei, Deus - Ensamble Escénico Vocal",
+      "Charles-Marie Widor - Organ Symphony No. 5: Toccata - Hans-Eberhard Roß (Goll organ, St. Martin, Memmingen)"
+     ],
+     "music_needed": 0,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "inside a large cathedral with no service and no organ"
+      },
+      {
+       "slot": "bed-2",
+       "what": "cathedral bells heard from inside the nave"
+      },
+      {
+       "slot": "detail-1",
+       "what": "one church bell toll"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a coin dropped into an offering box"
+      },
+      {
+       "slot": "detail-3",
+       "what": "footsteps on stone in a nave"
+      }
+     ]
+    },
+    {
+     "theme": "contour",
+     "name": "Survey Map",
+     "mood": "A night survey chart: glowing contour lines of a slowly shifting terrain, and now and then a survey ping.",
+     "music_have": [
+      "Bedřich Smetana - Má vlast: Vltava (The Moldau) - Musopen Symphony"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a mountain valley at night with wind"
+      },
+      {
+       "slot": "bed-2",
+       "what": "shortwave radio static (a real receiver)"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a ship's sonar ping (a real recording)"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a surveyor's tripod being set up"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a large paper map unfolded"
+      }
+     ]
+    },
+    {
+     "theme": "banknote",
+     "name": "Treasury Note",
+     "mood": "Engraved like a banknote: guilloche rosettes shimmer in fine green lines and the treasury seal stamps in red.",
+     "music_have": [
+      "John Philip Sousa - Marches (The Liberty Bell, The Washington Post) - \"The President's Own\" United States Marine Band"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a bank hall (no words you can follow)"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a printing works with presses running"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a banknote counting machine"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a rubber stamp hitting paper"
+      },
+      {
+       "slot": "detail-3",
+       "what": "crisp banknotes shuffled"
+      }
+     ]
+    },
+    {
+     "theme": "sketch",
+     "name": "Sketchbook",
+     "mood": "Pencil on drawing paper: doodles sketch themselves in the margins while the collection is drawn by hand.",
+     "music_have": [
+      "Wolfgang Amadeus Mozart - Piano Sonata No. 16 in C major, K. 545 - Musopen (piano)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a quiet art studio with a window open"
+      },
+      {
+       "slot": "bed-2",
+       "what": "a café far off with no music"
+      },
+      {
+       "slot": "detail-1",
+       "what": "a pencil sketching on paper"
+      },
+      {
+       "slot": "detail-2",
+       "what": "an eraser rubbing"
+      },
+      {
+       "slot": "detail-3",
+       "what": "a pencil sharpener"
+      }
+     ]
+    },
+    {
+     "theme": "papercut",
+     "name": "Paper Hills",
+     "mood": "A layered paper landscape: hills, sun and balloons cut from card, the collection pinned to the paper.",
+     "music_have": [
+      "Ludwig van Beethoven - Symphony No. 6 'Pastoral' - Musopen (orchestra)"
+     ],
+     "music_needed": 1,
+     "field_needed": [
+      {
+       "slot": "bed-1",
+       "what": "a summer meadow with birds"
+      },
+      {
+       "slot": "bed-2",
+       "what": "light wind in grass"
+      },
+      {
+       "slot": "detail-1",
+       "what": "paper cut with scissors"
+      },
+      {
+       "slot": "detail-2",
+       "what": "a hot-air balloon burner"
+      },
+      {
+       "slot": "detail-3",
+       "what": "card folded and creased"
+      }
+     ]
+    }
+   ],
+   "music_total": 13,
+   "field_total": 80
+  }
+ },
+ "moodist_replace": {
+  "agent": "grok",
+  "about": "Every ambience sound in the app today is an excerpt from the Moodist pack, whose licence is 'CC0 or Pixabay' with no per-file record (audio/ambience/CREDITS.md). Find a replacement of the same kind for each, with a licence on its own page.",
+  "sounds": [
+   {
+    "id": "birds",
+    "kind": "bed",
+    "now": "animals/birds.mp3"
+   },
+   {
+    "id": "brown",
+    "kind": "bed",
+    "now": "noise/brown-noise.wav"
+   },
+   {
+    "id": "cafe",
+    "kind": "bed",
+    "now": "places/cafe.mp3"
+   },
+   {
+    "id": "chimes",
+    "kind": "bed",
+    "now": "things/wind-chimes.mp3"
+   },
+   {
+    "id": "city",
+    "kind": "bed",
+    "now": "urban/busy-street.mp3"
+   },
+   {
+    "id": "clock",
+    "kind": "bed",
+    "now": "things/clock.mp3"
+   },
+   {
+    "id": "club",
+    "kind": "bed",
+    "now": "places/crowded-bar.mp3"
+   },
+   {
+    "id": "crickets",
+    "kind": "bed",
+    "now": "animals/crickets.mp3"
+   },
+   {
+    "id": "crowd",
+    "kind": "bed",
+    "now": "urban/crowd.mp3"
+   },
+   {
+    "id": "drips",
+    "kind": "bed",
+    "now": "nature/droplets.mp3"
+   },
+   {
+    "id": "fire",
+    "kind": "bed",
+    "now": "nature/campfire.mp3"
+   },
+   {
+    "id": "frogs",
+    "kind": "bed",
+    "now": "animals/frog.mp3"
+   },
+   {
+    "id": "gulls",
+    "kind": "bed",
+    "now": "animals/seagulls.mp3"
+   },
+   {
+    "id": "hall",
+    "kind": "bed",
+    "now": "places/church.mp3"
+   },
+   {
+    "id": "keys",
+    "kind": "bed",
+    "now": "things/keyboard.mp3"
+   },
+   {
+    "id": "labHum",
+    "kind": "bed",
+    "now": "places/laboratory.mp3"
+   },
+   {
+    "id": "leaves",
+    "kind": "bed",
+    "now": "rain/rain-on-leaves.mp3"
+   },
+   {
+    "id": "library",
+    "kind": "bed",
+    "now": "places/library.mp3"
+   },
+   {
+    "id": "pink",
+    "kind": "bed",
+    "now": "noise/pink-noise.wav"
+   },
+   {
+    "id": "rainHeavy",
+    "kind": "bed",
+    "now": "rain/heavy-rain.mp3"
+   },
+   {
+    "id": "rainLight",
+    "kind": "bed",
+    "now": "rain/light-rain.mp3"
+   },
+   {
+    "id": "rainUmbrella",
+    "kind": "bed",
+    "now": "rain/rain-on-umbrella.mp3"
+   },
+   {
+    "id": "rainWindow",
+    "kind": "bed",
+    "now": "rain/rain-on-window.mp3"
+   },
+   {
+    "id": "river",
+    "kind": "bed",
+    "now": "nature/river.mp3"
+   },
+   {
+    "id": "roomTone",
+    "kind": "bed",
+    "now": "things/ceiling-fan.mp3"
+   },
+   {
+    "id": "ship",
+    "kind": "bed",
+    "now": "transport/sailboat.mp3"
+   },
+   {
+    "id": "telemetry",
+    "kind": "bed",
+    "now": "things/morse-code.mp3"
+   },
+   {
+    "id": "temple",
+    "kind": "bed",
+    "now": "places/temple.mp3"
+   },
+   {
+    "id": "train",
+    "kind": "bed",
+    "now": "transport/train.mp3"
+   },
+   {
+    "id": "trainIn",
+    "kind": "bed",
+    "now": "transport/inside-a-train.mp3"
+   },
+   {
+    "id": "underwater",
+    "kind": "bed",
+    "now": "places/underwater.mp3"
+   },
+   {
+    "id": "village",
+    "kind": "bed",
+    "now": "places/night-village.mp3"
+   },
+   {
+    "id": "vinyl",
+    "kind": "bed",
+    "now": "things/vinyl-effect.mp3"
+   },
+   {
+    "id": "waterfall",
+    "kind": "bed",
+    "now": "nature/waterfall.mp3"
+   },
+   {
+    "id": "waves",
+    "kind": "bed",
+    "now": "nature/waves.mp3"
+   },
+   {
+    "id": "wind",
+    "kind": "bed",
+    "now": "nature/wind.mp3"
+   },
+   {
+    "id": "windHowl",
+    "kind": "bed",
+    "now": "nature/howling-wind.mp3"
+   },
+   {
+    "id": "windTrees",
+    "kind": "bed",
+    "now": "nature/wind-in-trees.mp3"
+   },
+   {
+    "id": "bowl",
+    "kind": "one-shots",
+    "now": "things/singing-bowl.mp3"
+   },
+   {
+    "id": "clank",
+    "kind": "one-shots",
+    "now": "things/slide-projector.mp3"
+   },
+   {
+    "id": "creak",
+    "kind": "one-shots",
+    "now": "transport/sailboat.mp3"
+   },
+   {
+    "id": "owl",
+    "kind": "one-shots",
+    "now": "animals/owl.mp3"
+   },
+   {
+    "id": "pages",
+    "kind": "one-shots",
+    "now": "things/paper.mp3"
+   },
+   {
+    "id": "thunder",
+    "kind": "one-shots",
+    "now": "rain/thunder.mp3"
+   },
+   {
+    "id": "whale",
+    "kind": "one-shots",
+    "now": "animals/whale.mp3"
+   }
+  ]
+ }
+}

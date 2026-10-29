@@ -722,6 +722,19 @@ def withdraw(state, aid, now, reason):
     raise SystemExit(f"no open assignment {aid}")
 
 
+def extend(state, aid, until, reason, parts=None):
+    """Move an open assignment's deadline later, e.g. a sheet that was never where its AI could open it (Gemini reads Drive only, and
+    the bridge that copies sheets there is not installed). parts = the number of Drive parts it was split into by hand (see refresh)."""
+    for a in state["assignments"]:
+        if a["id"] == aid and a["status"] == "open":
+            if until <= a["lease_until"]: raise SystemExit(f"{aid}: {until} is not later than its deadline {a['lease_until']}")
+            a.setdefault("extended", []).append({"from": a["lease_until"], "to": until, "reason": reason})
+            a["lease_until"] = until
+            if parts: a["parts"] = parts
+            return a
+    raise SystemExit(f"no open assignment {aid}")
+
+
 def new_assignment(state, agent, kind, items, now, kd):
     day = now[:10].replace("-", "")
     key = f"{agent}-{kind}-{day}"; n = state["seq"].get(key, 0) + 1; state["seq"][key] = n
@@ -1090,6 +1103,12 @@ def main(argv):
         reason = argv[i + 2] if i + 2 < len(argv) and not argv[i + 2].startswith("--") else "withdrawn by Claude"
         state = _load(P["state"]) or empty_state(); withdraw(state, aid, now or now_utc(), reason)
         _write(P["state"], json.dumps(state, ensure_ascii=False, indent=1) + "\n"); print(f"{aid} withdrawn: {reason}")
+    if "--extend" in argv:            # --extend HW-... 2026-11-05T23:59:00Z [--parts N] "why": a later deadline for an open assignment
+        i = argv.index("--extend"); aid, until = argv[i + 1], argv[i + 2]
+        reason = argv[i + 3] if i + 3 < len(argv) and not argv[i + 3].startswith("--") else "extended by Claude"
+        parts = int(argv[argv.index("--parts") + 1]) if "--parts" in argv else None
+        state = _load(P["state"]) or empty_state(); extend(state, aid, until, reason, parts)
+        _write(P["state"], json.dumps(state, ensure_ascii=False, indent=1) + "\n"); print(f"{aid} extended to {until}: {reason}")
     r = run(root, now, dry="--dry-run" in argv)
     print("\n".join(r["log"]) or "no change")
     from collections import Counter

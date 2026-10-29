@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-29] Claude: homework loaded + sound hunt (owner)
+- Sound hunt for every theme (`docs/agents/SOUND_HUNT.md`, list `docs/agents/projects/sound_hunt_20261029.json`): recorded music each theme still lacks + 5 field recordings for its new theme room. Grok 17 themes + same-kind replacements for the 45 Moodist ambience sounds; Muse 17; Gemini 16. Answers in Drive `sound-incoming (AI music + field recording finds)/` as `sound_{agent}_{stamp}.json`.
+- Gemini: 11 sheets it could never open (GitHub only, bridge not installed) copied into its Drive sheet folder as 19 byte-exact parts, leases to 2026-11-05 (`homework.py --extend`, new). Its WORK QUEUE doc starts with a strict 'do the homework' routine (file in the folder = the only answer).
+
 ### [2026-10-29] Claude: Fleet Command paused (owner), tr263
 - Fleet Command is on pause: no AI writes `fleet-*.json` anywhere or reports to that folder/dashboard (AI_START_HERE section 6, CLAUDE.md rule 11). Sebastian/Muse: stop 'Fleet Command live feed' and 'Fleet Command watchdog'.
 - tr263: Beethoven Pastoral IV for Supercell. New projects: third album price for 40 holes each (Grok A017-A033, Muse A001-A016).

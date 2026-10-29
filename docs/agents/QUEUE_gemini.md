@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-29 01:48 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-29 02:37 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,29 +8,17 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### Recorded music for the nine themes you build  (fix list #83)
+### Sound hunt: music and room sounds for your 16 themes (13 pieces of music, 80 field recordings)  (fix list #83)
 
-Cloud Forest's two picks (El Noi de la Mare by Jujutacular; C. P. E. Bach Wq. 131 by La Guirlande) are queued for the music intake (2026-10-24): good. Salt Mirror's sheet named a 1932 Schnabel recording (not public domain in the US) 'or Paul Pitman': name one exact file page and quote it. Rules as before: never the Al Goldstein / Pandora collection, never a recording already in audio/music/manifest.json, quote each page's Author, Source and Permission lines word for word. For each theme you build, two pieces in one music_gemini_{YYYYMMDD-HHMM}.json, in 'reviews-incoming (AI deep reviews)'.
+Every theme is getting its own room (a second space to be in the theme away from the collection) with its own soundscape, and more of its own recorded music. Your 16 themes are under agents.gemini in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/sound_hunt_20261029.json: for each, its mood, the music it already plays (music_have: never send those), how many more pieces it needs (music_needed) and the five sounds its room needs (field_needed: bed-1, bed-2 = long steady sounds; detail-1..3 = short events). Rules and the exact file shape: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/SOUND_HUNT.md (real recordings only: a microphone in a real place, or named people playing real instruments; a licence stated on the file's own page, quoted word for word: public domain, CC0, CC BY or CC BY-SA; Wikimedia Commons first, then NASA, NOAA, the US National Park Service sound gallery, the US military bands, Musopen, archive.org; never MIDI, synthesizer, virtual instrument, AI audio, Pixabay, Freesound, YouTube or BBC Sound Effects). Save sound_gemini_{YYYYMMDD-HHMM}.json in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'; save again every 10 finds under the same name; list every slot you could not fill in not_found with what you searched. Your list is also in Drive (you cannot open GitHub): 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/SOUND HUNT for Gemini (2026-10-29).json', and the rules in the same folder as 'SOUND HUNT rules (2026-10-29).md'.
 
-**Done when:** Two qualifying recordings per theme (or a 'not found' with what you searched), in 'reviews-incoming (AI deep reviews)'.
+**Done when:** Every theme on your list has its music and its five room sounds, or a not_found line saying what you searched. Claude opens every page, checks the licence, runs the good ones through the intake and they become that theme's music and room sound.
 
 ### Second reader for all 33 albums, from the page photos (blind)  (fix list #55)
 
 Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {"A001": {"photos": [file names], "slots": [{"label": "1941-D", "state": "filled|empty|unclear"}]}, ...}.
 
 **Done when:** One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look.
-
-### Find real recordings for the 19 pieces nobody has found yet  (fix list #83)
-
-These themes still play shared music because no qualifying recording was found: zen shakuhachi (honkyoku), samadhi raga on bansuri, silkroad taqsim on oud, kintsugi koto, Sibelius Finlandia or Valse triste, Saint-Saëns Aquarium, Debussy Nuages, Tchaikovsky Sugar Plum Fairy and Reed Flutes, Grieg Wedding Day at Troldhaugen, Rimsky-Korsakov Scheherazade I, Dukas The Sorcerer's Apprentice, Wagner Ride of the Valkyries, Beethoven Pastoral IV (Thunderstorm), Mozart Fantasia K. 608, Haydn's musical-clock pieces (Hob. XIX), Satie Gnossienne No. 3, Joplin The Entertainer, Debussy Golliwogg's Cakewalk (ids and the rules the intake applies: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/music/wanted.json). Each recording must have a named human performer (no MIDI, synthesizer, keyboard, virtual instrument or sample-library rendering), a recording licence that is public domain, CC0, CC BY or CC BY-SA and valid in the US (transfers of old discs only if recorded and published before 1926), and be the right piece (not an arrangement, medley or excerpt). Look on Wikimedia Commons first, then Musopen, the US military bands (music.af.mil, marineband.marines.mil, army.mil) and archive.org items with an explicit licence. For each piece send the file page URL, performer, recording year, the licence and where the page states it, and why it is a human performance. Save music_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)' in the shape of https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/music/grok_check_20261008-1107.json.
-
-**Done when:** One file; a piece with no qualifying recording is listed as not found, with what you searched.
-
-### Titan v3 M1: build the accepted spec (the 2026-10-24 file is not it)  (fix list #116, #117)
-
-design_gemini_20261016-0610_v3-m1.html arrived 2026-10-24: a flat grid of tiles with a 2D magnifier, not the spec in docs/design/v3/M1_SPEC.md (one 3D field of every coin, layouts the coins fly between, a shared-element flight into the coin, certainty chips read from data/detail/{ISO}.json). It also labelled every country, year and denomination 'Verified' without reading any certainty data: never show a certainty the data does not give. Build the spec as written, on live data, and run it at phone size with the console open before you send it. Lower priority than the theme project.
-
-**Done when:** The .html is in Drive 'design-incoming (AI UI proposals)'; Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app.
 
 ## Homework (generated from the data)
 
@@ -234,13 +222,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-22T13:53:57Z", "by": "model:gemini", "entity": "type", "id": "ES.KM.1144", "op": "set", "field": "denomination.value", "new": null, "source": "FILL (denomination of C139 · Spain · 2014): the photo file you read it from, e.g. C123_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-22", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261022-2", "run_id": "HW-gemini-verify-20261022-2", "inputs": []}}
 ```
 
-### 6. HW-gemini-story-check-20261024-1 · Fact-checker · Fact-check 36 coin stories · due 2026-10-29  (fix list #73)
+### 6. HW-gemini-story-check-20261024-1 · Fact-checker · Fact-check 36 coin stories · due 2026-11-05  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
 **Done when:** One change file covering every story you could check.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261024-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261024-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 4 parts: answer each part into its own change file
 
 Items:
 - **C151 · United Kingdom · 1992 · 10 pence · GBP**: «A 1992 10 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned lion walking, with the words TEN PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel).» Record: «{"country": "United Kingdom", "year": "1992", "denom": "10 pence · GBP", "mint": "Royal Mint", "refs": "KM#938b · Numista#879", "metal": "CuNi 75/25 · 6.50 g · 24.5 mm · milled · circulated · white 2×2 staple flip", "specs": "thickness 1.85 mm · medal alignment · type specs shared with 10p family · small-module from Sep 1992", "mintage": "1,413,455,170 (circulation · Royal Mint)", "design": "obve…»
@@ -321,7 +309,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T06:40:21Z", "by": "model:gemini", "entity": "specimen", "id": "C252", "op": "set", "field": "story", "old": "A 1962 20 centavos coin from Cuba. The reverse shows a portrait of José Martí with the date. The arms side shows the words REPUBLICA DE CUBA and the national shield (the Escudo - a key, stripes and a palm), with oak and laurel branches and a star on a Phrygian cap, and the words VEINTE CENTAVOS. Struck in copper-nickel.", "new": "A 1962 20 centavos coin from Cuba. The reverse shows a portrait of José Martí with the date. The arms side shows the words REPUBLICA DE CUBA and the national shield (the Escudo - a key, stripes and a palm), with oak and laurel branches and a star on a Phrygian cap, and the words VEINTE CENTAVOS. Struck in copper-nickel.", "source": "FILL (C252 · Cuba · 1962 · 20 centavos · CUP): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-story-check", "assignment": "HW-gemini-story-check-20261024-1", "run_id": "HW-gemini-story-check-20261024-1", "inputs": []}}
 ```
 
-### 7. HW-gemini-fill-20261024-1 · Cataloguer · Fill the blank facts of 8 coin types · due 2026-10-29  (fix list #72)
+### 7. HW-gemini-fill-20261024-1 · Cataloguer · Fill the blank facts of 8 coin types · due 2026-11-05  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -358,7 +346,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T06:40:21Z", "by": "model:gemini", "entity": "type", "id": "MX.X.500-pesos", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C293 · Mexico · 1988 · 500 pesos · MXP (MX.X.500-pesos)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261024-1", "run_id": "HW-gemini-fill-20261024-1", "inputs": []}}
 ```
 
-### 8. HW-gemini-verify-20261024-1 · Second reader · Check 11 facts another AI wrote · due 2026-10-29  (fix list #18)
+### 8. HW-gemini-verify-20261024-1 · Second reader · Check 11 facts another AI wrote · due 2026-11-05  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -395,7 +383,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T06:40:21Z", "by": "model:gemini", "entity": "type", "id": "AU.X.1-cent", "op": "set", "field": "ruler", "old": "George VI", "new": "George VI", "source": "FILL (ruler of C288 · Australia · 1983 · 1 cent · AUD): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261024-1", "run_id": "HW-gemini-verify-20261024-1", "inputs": []}}
 ```
 
-### 9. HW-gemini-arbitrate-20261024-2 · Arbiter · Settle 4 disagreements between two AIs · due 2026-10-29  (fix list #18)
+### 9. HW-gemini-arbitrate-20261024-2 · Arbiter · Settle 4 disagreements between two AIs · due 2026-11-05  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -418,7 +406,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "type", "id": "MX.X.50-centavos", "op": "set", "field": "design.text", "old": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse large 50¢ in a 12-sided field, date above, mint mark below · border of stylized feathers and blade handles from the Ring of Sacrifice (Anillo del Sacrificio) on the Aztec sun stone", "new": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse large 50¢ in a 12-sided field, date above, mint mark below · border of stylized feathers and blade handles from the Ring of Sacrifice (Anillo del Sacrificio) on the Aztec sun stone", "source": "FILL (D0107 MX.X.50-centavos design.text): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261024-2", "run_id": "HW-gemini-arbitrate-20261024-2", "inputs": []}}
 ```
 
-### 10. HW-gemini-story-check-20261024-2 · Fact-checker · Fact-check 2 coin stories · due 2026-10-29  (fix list #73)
+### 10. HW-gemini-story-check-20261024-2 · Fact-checker · Fact-check 2 coin stories · due 2026-11-05  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -437,13 +425,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "specimen", "id": "C246", "op": "set", "field": "story", "old": "A 1971 10 sentimos from Philippines. Coat of arms and date on the obverse; the reverse shows Francisco Baltazar (Balagtas) left, SAMPUNG SENTIMOS, large 10. Struck in nickel-brass.", "new": "A 1971 10 sentimos from Philippines. Coat of arms and date on the obverse; the reverse shows Francisco Baltazar (Balagtas) left, SAMPUNG SENTIMOS, large 10. Struck in nickel-brass.", "source": "FILL (C246 · Philippines · 1971 · 10 sentimos · PHP): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-story-check", "assignment": "HW-gemini-story-check-20261024-2", "run_id": "HW-gemini-story-check-20261024-2", "inputs": []}}
 ```
 
-### 11. HW-gemini-fill-20261024-2 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-10-29  (fix list #72)
+### 11. HW-gemini-fill-20261024-2 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-05  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
 **Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261024-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261024-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 2 parts: answer each part into its own change file
 
 Items:
 - **C286 · Honduras · 2012 · 50 centavos · HNL (HN.X.50-centavos)**: blank: legal tender, designers. Entry on record: https://en.numista.com/catalogue/pieces3190.html
@@ -488,7 +476,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.239.2", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C235 · Guatemala · 1934 · 10 centavos · GTQ (GT.KM.239.2)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261024-2", "run_id": "HW-gemini-fill-20261024-2", "inputs": []}}
 ```
 
-### 12. HW-gemini-fill-20261024-3 · Cataloguer · Fill the blank facts of 10 coin types · due 2026-10-29  (fix list #72)
+### 12. HW-gemini-fill-20261024-3 · Cataloguer · Fill the blank facts of 10 coin types · due 2026-11-05  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -523,7 +511,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "type", "id": "MX.KM.424", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C166 · Mexico · 1944 · 5 centavos · MXP (MX.KM.424)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261024-3", "run_id": "HW-gemini-fill-20261024-3", "inputs": []}}
 ```
 
-### 13. HW-gemini-fill-20261024-4 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-10-29  (fix list #72)
+### 13. HW-gemini-fill-20261024-4 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-05  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -564,7 +552,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "type", "id": "TW.KM.551", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD (TW.KM.551)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261024-4", "run_id": "HW-gemini-fill-20261024-4", "inputs": []}}
 ```
 
-### 14. HW-gemini-fill-20261024-5 · Cataloguer · Fill the blank facts of 3 coin types · due 2026-10-29  (fix list #72)
+### 14. HW-gemini-fill-20261024-5 · Cataloguer · Fill the blank facts of 3 coin types · due 2026-11-05  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -585,13 +573,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "type", "id": "CO.KM.295", "op": "set", "field": "design.reverse", "old": null, "new": null, "source": "FILL (C233 · Colombia · 2016 · 50 pesos · COP (CO.KM.295)): the exact entry URL for the coin we hold + the line you read (`new` = what the reverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261024-5", "run_id": "HW-gemini-fill-20261024-5", "inputs": []}}
 ```
 
-### 15. HW-gemini-verify-20261024-2 · Second reader · Check 66 facts another AI wrote · due 2026-10-29  (fix list #18)
+### 15. HW-gemini-verify-20261024-2 · Second reader · Check 66 facts another AI wrote · due 2026-11-05  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261024-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261024-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 4 parts: answer each part into its own change file
 
 Items:
 - **design of T001 · Germany · ND · Spielmarke “20” (GR)** `type DE.X.spielmarke-20-gr design.text` = `standing Helvetia facing left, spear and Swiss shield, 22 stars, HELVETIA (obv; engraver …` (written by Claude: «photos T002_Germany_ND_Spielmarke20_obv.jpeg + T002_Germany_ND_Spielmarke20_rev.jpeg (photos/p1/T002_obv.webp, T002_rev.webp), read by Claud») [audit sample]
@@ -732,13 +720,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-24T07:28:18Z", "by": "model:gemini", "entity": "type", "id": "ER.KM.46", "op": "set", "field": "period", "old": "State", "new": "State", "source": "FILL (period of C212 · Eritrea · 1997 · 50 cents · ERN (nakfa)): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-24", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261024-2", "run_id": "HW-gemini-verify-20261024-2", "inputs": []}}
 ```
 
-### 16. HW-gemini-verify-20261024-3 · Second reader · Check 23 facts another AI wrote · due 2026-10-29  (fix list #18)
+### 16. HW-gemini-verify-20261024-3 · Second reader · Check 23 facts another AI wrote · due 2026-11-05  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261024-3.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261024-3.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl); on Drive in 2 parts: answer each part into its own change file
 
 Items:
 - **year of C042 · USSR · 1 kopek · SUR** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C042 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C042_obv.webp (original: https://drive.google.com/file/d/1yitG_oo9tf_45J0wmgibqRjbMgWtEerI/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C042_rev.webp (original: https://drive.google.com/file/d/1oMc1IVXPPMNjnfDN-EU2yxmL4ukmdEQ9/view)
@@ -818,6 +806,12 @@ Answer sheet (the same as the link):
 Whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for them per AI_START_HERE (section 2b), without looking at Grok's or Muse's reads first.
 
 **Done when:** Ongoing.
+
+### Titan v3 M1: build the accepted spec (the 2026-10-24 file is not it)  [LATER]  (fix list #116, #117)
+
+Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (owner: Claude is in charge of depth, ambience, atmosphere and effects). Do not send another Titan v3 build unless this page asks again. design_gemini_20261016-0610_v3-m1.html arrived 2026-10-24: a flat grid of tiles with a 2D magnifier, not the spec in docs/design/v3/M1_SPEC.md (one 3D field of every coin, layouts the coins fly between, a shared-element flight into the coin, certainty chips read from data/detail/{ISO}.json). It also labelled every country, year and denomination 'Verified' without reading any certainty data: never show a certainty the data does not give. Build the spec as written, on live data, and run it at phone size with the console open before you send it. Lower priority than the theme project.
+
+**Done when:** The .html is in Drive 'design-incoming (AI UI proposals)'; Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app.
 
 ## Your recent files (what happened to each file you sent)
 
