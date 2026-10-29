@@ -8,6 +8,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) { /* ignore */ }
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) { /* ignore */ }
@@ -16,11 +17,17 @@
   var SEG = 12;
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
-    "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
+    "uniform vec2 uRes; uniform float uT, uPh, uPort, uViewYaw, uViewPitch, uViewMove, uViewUp, uSpin, uGlow, uFog, uWarm;",
+    "uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
     "uniform sampler2D uCard, uShot;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     "void main(){",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  p.x -= uViewYaw * 0.3;",
+    "  p.y -= uViewPitch * 0.3;",
+    "  p -= vec2(0.0, uViewUp * 0.1);",
+    "  float zoom = 1.0 + uViewMove * 0.25;",
+    "  p *= zoom;",
     "  float A = uRes.x/uRes.y;",
     "  float S = min(1.0, A * 0.96);",
     "  vec2 par = (uPtr - 0.5)*vec2(0.03, 0.03)*S;",
@@ -32,7 +39,7 @@
     "  vec2 tDir = vec2(-rDir.y, rDir.x);",
     "  float bRad = 0.225;",
     // Moving ceremonial torch + pointer light in 3D space
-    "  vec2 lXY = vec2(0.34*cos(uT*0.38), 0.30*sin(uT*0.31)) + (uPtr - 0.5)*vec2(0.45, 0.45);",
+    "  vec2 lXY = vec2(0.34*cos(uT*0.38*uSpin), 0.30*sin(uT*0.31*uSpin)) + (uPtr - 0.5)*vec2(0.45, 0.45);",
     "  vec3 L = normalize(vec3(lXY - bp, 0.44));",
     "  vec3 V = vec3(0.0, 0.0, 1.0);",
     "  vec3 H = normalize(L + V);",
@@ -44,7 +51,7 @@
     "  float obDiff = max(0.0, dot(obN, L));",
     "  float obSpec = pow(max(0.0, dot(obN, H)), 52.0);",
     "  float obFres = pow(1.0 - max(0.0, dot(obN, V)), 3.2);",
-    "  vec3 col = vec3(0.022, 0.019, 0.028)*(0.60 + 0.85*obDiff) + vec3(0.14, 0.11, 0.20)*obFres*0.58 + vec3(0.95, 0.86, 0.70)*obSpec*0.34;",
+    "  vec3 col = (vec3(0.022, 0.019, 0.028)*(0.60 + 0.85*obDiff) + vec3(0.14, 0.11, 0.20)*obFres*0.58 + vec3(0.95, 0.86, 0.70)*obSpec*0.34) * uFog;",
     // 12-second wall-clock ratchet rotation
     "  float turn = smoothstep(0.0, 1.1, uPh);",
     "  turn = turn*turn*(3.0 - 2.0*turn);",
@@ -71,7 +78,7 @@
     "    vec3 darkNiello = vec3(0.05, 0.038, 0.022);",
     "    vec3 gR = reflect(vec3(0.0, 0.0, -1.0), gN);",
     "    float gEnv = smoothstep(0.05, 0.85, gR.y*0.65 + gR.x*0.35 + 0.18*sin(uT*0.21 + a*3.0));",
-    "    vec3 baseGold = vec3(0.84, 0.61, 0.21)*(0.07 + 0.28*gDiff + 0.85*gEnv*gEnv + 0.10*glyphRelief) + vec3(1.0, 0.92, 0.66)*gSpec*0.90;",
+    "    vec3 baseGold = (vec3(0.84, 0.61, 0.21)*(0.07 + 0.28*gDiff + 0.85*gEnv*gEnv + 0.10*glyphRelief) + vec3(1.0, 0.92, 0.66)*gSpec*0.90) * uGlow;",
     "    vec3 ring1Col = mix(darkNiello, baseGold, 0.20 + 0.80*cartouche);",
     "    float edge1 = smoothstep(r1In, r1In+0.004, r) * smoothstep(r1Out, r1Out-0.004, r);",
     "    col = mix(col, ring1Col, edge1);",
@@ -121,14 +128,14 @@
     "    float rSpec = pow(max(0.0, dot(rN, H)), 42.0);",
     "    vec3 rR = reflect(vec3(0.0, 0.0, -1.0), rN);",
     "    float rEnv = smoothstep(0.05, 0.85, rR.y*0.65 + rR.x*0.35 + 0.18*sin(uT*0.21 + a*2.0));",
-    "    vec3 rayGold = vec3(0.86, 0.62, 0.22)*(0.06 + 0.26*rDiff + 0.95*rEnv*rEnv) + vec3(1.0, 0.93, 0.70)*rSpec*0.95;",
+    "    vec3 rayGold = (vec3(0.86, 0.62, 0.22)*(0.06 + 0.26*rDiff + 0.95*rEnv*rEnv) + vec3(1.0, 0.93, 0.70)*rSpec*0.95) * uGlow;",
     "    col = mix(col, rayGold, mask3 * smoothstep(r3In, r3In+0.004, r));",
     "  }",
     // Central Polished Obsidian Mirror Basin holding the active coin (unobstructed & tone-mapped)
     "  if(r < bRad + 0.012){",
     "    float bezel = smoothstep(bRad+0.012, bRad+0.002, r) * smoothstep(bRad-0.006, bRad+0.002, r);",
     "    float bSpec = pow(max(0.0, dot(rDir, normalize(lXY))), 4.0);",
-    "    col = mix(col, vec3(0.78, 0.58, 0.22) + vec3(0.98, 0.86, 0.52)*bSpec*0.45, bezel*0.90);",
+    "    col = mix(col, (vec3(0.78, 0.58, 0.22) + vec3(0.98, 0.86, 0.52)*bSpec*0.45) * uGlow, bezel*0.90);",
     "    if(r < bRad){",
     "      vec2 cuv = clamp(bp / (bRad*2.0) + 0.5 + rDir*shock*0.010, 0.0, 1.0);",
     "      vec3 shotC = textureLod(uShot, vec2(cuv.x, 1.0 - cuv.y), 0.0).rgb;",
@@ -144,6 +151,7 @@
     "  float mirrorMask = smoothstep(bRad - 0.01, bRad + 0.03, r);",
     "  col += vec3(0.96, 0.78, 0.34) * max(0.0, shock) * (0.15 + 0.85*mirrorMask) * 0.30;",
     "  col *= 1.0 - 0.34*smoothstep(0.44, 1.06, length(p*vec2(1.0/A*1.15, 1.0)));",
+    "  col *= mix(vec3(1.0, 0.95, 0.85), vec3(1.05, 0.98, 0.90), uWarm - 1.0);",
     "  col = min(col, vec3(0.58));",
     "  o = vec4(col, 1.0);",
     "}"
@@ -238,9 +246,11 @@
     return {
       name: "obsidian",
       step: function (c) {
+        var v = c.view || {};
         var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var room = v.mode === "room";
+        ptr[0] += ((room ? 0.5 : (P.x || 0.5)) - ptr[0]) * 0.08;
+        ptr[1] += ((room ? 0.5 : (P.y || 0.5)) - ptr[1]) * 0.08;
         if (si !== seg) {
           if (seg == null) show(null);
           else if (next && next.ok) { show(next); next = null; } else late = true;
@@ -251,6 +261,7 @@
         if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
       },
       draw: function (c) {
+        var v = c.view || {};
         var A = c.w / c.h, now = Date.now() / 1000;
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
@@ -258,9 +269,18 @@
         gl.uniform2f(u.uRes, c.w, c.h); gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uPh, now % SEG);
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform1f(u.uViewYaw, v.yaw || 0); gl.uniform1f(u.uViewPitch, v.pitch || 0);
+        gl.uniform1f(u.uViewMove, v.move || 0); gl.uniform1f(u.uViewUp, v.up || 0);
+        gl.uniform1f(u.uSpin, look("spin", 1)); gl.uniform1f(u.uGlow, look("glow", 1));
+        gl.uniform1f(u.uFog, look("fog", 1)); gl.uniform1f(u.uWarm, look("warm", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () {
+        var v = K.view || {};
+        return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
+          cam: [+(v.yaw || 0).toFixed(3), +(v.pitch || 0).toFixed(3), +(v.move || 0).toFixed(3), +(v.up || 0).toFixed(3)],
+          look: { spin: look("spin", 1), glow: look("glow", 1), fog: look("fog", 1), warm: look("warm", 1) } };
+      },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -268,6 +288,11 @@
     stack: [
       { mod: "obsidian" },
       { mod: "post", bloom: 0.48, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.04, grain: 0.03, vig: 0.34 }
-    ]
+    ],
+    room: { name: "The Obsidian Sun Stone", yaw: [-0.6, 0.6], pitch: [-0.6, 0.6], move: [-1.5, 1.5], up: [-1, 1], unit: "screen", sound: "lava",
+      look: [{ id: "spin", label: "Rotation", min: 0.2, max: 3, def: 1 }, { id: "glow", label: "Solar Gold", min: 0.2, max: 2, def: 1 },
+        { id: "fog", label: "Obsidian Sheen", min: 0.5, max: 1.5, def: 1 }, { id: "warm", label: "Warmth", min: 0.8, max: 1.2, def: 1 }],
+      touch: "Tap the mirror surface: ripples the obsidian glass and triggers a pulse wave.",
+      opening: { dur: 5.0, from: { yaw: 0.3, pitch: -0.2, move: -1.0, up: 0.5 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.0, at: [0.5, 0.5] } }
   };
 })();
