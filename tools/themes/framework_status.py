@@ -30,7 +30,7 @@ def themes():
 def build():
     kit = read("fx", "kit.js"); lazy = set(re.findall(r"([a-z0-9]+):", re.search(r"K\.lazy = K\.lazy \|\| \{(.*?)\};", kit, re.S).group(1)))
     inline = set(re.findall(r"\bT\.([a-z0-9]+) = \{ stack", read("fx", "themes.js")))
-    ops = set(re.findall(r"([a-z0-9]+):", re.search(r"var OPENINGS = \{(.*?)\};", read("wings", "room.js")).group(1)))
+    ops = set(re.findall(r"([a-z0-9]+):", re.search(r"var OPENINGS = \{(.*?)\};", read("wings", "room.js"), re.S).group(1)))
     scape = dict(re.findall(r'\b([a-z0-9]+): "([a-z]+)"', re.search(r"var THEME_SCAPE = \{(.*?)\};", read("audio", "scape", "bridge.js"), re.S).group(1)))
     tracks = json.loads(read("audio", "music", "manifest.json"))["tracks"]
     own = set(re.findall(r'"([a-z0-9]+)"', re.search(r"const KNOWN = \[(.*?)\]", read("wings", "score.js")).group(1)))

@@ -24,7 +24,7 @@ python3 - "$APP" "$R" <<'PY'
 import html, os, re, sys
 app, out = sys.argv[1], sys.argv[2]
 names = dict(re.findall(r'\{ id: "([a-z0-9]+)", name: "([^"]+)"', open(os.path.join(app, "wings/themes/manifest.js"), encoding="utf-8").read()))
-ops = set(re.findall(r"([a-z0-9]+):", re.search(r"var OPENINGS = \{(.*?)\};", open(os.path.join(app, "wings/room.js")).read()).group(1)))
+ops = set(re.findall(r"([a-z0-9]+):", re.search(r"var OPENINGS = \{(.*?)\};", open(os.path.join(app, "wings/room.js")).read(), re.S).group(1)))
 cards = []
 for f in sorted(os.listdir(os.path.join(app, "fx"))):
     src = open(os.path.join(app, "fx", f), encoding="utf-8").read()

@@ -51,7 +51,7 @@ def gpu_worlds():
 
 def openings():
     src = open(os.path.join(ROOT, "wings", "room.js"), encoding="utf-8").read()
-    m = re.search(r"var OPENINGS = \{(.*?)\};", src)
+    m = re.search(r"var OPENINGS = \{(.*?)\};", src, re.S)
     return re.findall(r"([a-z0-9]+):", m.group(1)) if m else []
 
 
