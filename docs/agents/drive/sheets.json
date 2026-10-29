@@ -147,14 +147,6 @@
    "name": "Muse",
    "sheets": [
     {
-     "id": "HW-muse-read-mint-20261021-1",
-     "kind": "read-mint",
-     "due": "2026-10-28",
-     "path": "docs/agents/homework/sheets/HW-muse-read-mint-20261021-1.jsonl",
-     "sha256": "2a0c724cb7395d02ee2ce970746353d2d859a8143945c6cb24d3e0d9eee50bb7",
-     "lines": 8
-    },
-    {
      "id": "HW-muse-value-20261023-1",
      "kind": "value",
      "due": "2026-11-02",
@@ -265,6 +257,14 @@
      "path": "docs/agents/homework/sheets/HW-muse-verify-20261028-2.jsonl",
      "sha256": "59af4b805bfdde3ad5f1b941b04e2336edbb9cbd4d73ed8ea36e474964ed3125",
      "lines": 21
+    },
+    {
+     "id": "HW-muse-read-mint-20261029-1",
+     "kind": "read-mint",
+     "due": "2026-11-05",
+     "path": "docs/agents/homework/sheets/HW-muse-read-mint-20261029-1.jsonl",
+     "sha256": "da3677c1984da208ef931fc04899210c7893299a87cc359f90ba1c8233e741aa",
+     "lines": 8
     }
    ]
   },

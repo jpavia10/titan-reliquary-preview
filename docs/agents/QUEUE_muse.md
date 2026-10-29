@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-28 22:23 UTC)
+# WORK QUEUE for Muse (updated 2026-10-29 01:48 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -53,21 +53,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-muse-read-mint-20261021-1 · Photo reader · Read the mint mark on 4 coins from their photos · due 2026-10-28  (fix list #57)
-
-Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
-
-**Done when:** One change file; unreadable coins left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-read-mint-20261021-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)**: mint text now «not on shown rice side (date on dragon reverse — Joseph 1953)». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C258_rev.webp (original: https://drive.google.com/file/d/1o4n0uJ97jgKfpfReNjsRCmkBr1XmQzhU/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
-- **C006 · Germany · 1984 · 1 Deutsche Mark · DEM**: mint text now «unknown». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C006_rev.webp (original: https://drive.google.com/file/d/1WBYI3D2tv7ia4-2_WlLns9pgPiSY-Kv5/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
-- **C050 · Germany · 1982 · 1 Deutsche Mark · DEM**: mint text now «unknown (letter under date unclear (soft D/G candidate))». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C050_rev.webp (original: https://drive.google.com/file/d/1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
-- **C287 · Italy · 1979 · 50 lire · ITL**: mint text now «not read on photo». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp (original: https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
-
-### 2. HW-muse-value-20261023-1 · Appraiser · Cite collector values for 1 coins · due 2026-11-02  (fix list #62)
+### 1. HW-muse-value-20261023-1 · Appraiser · Cite collector values for 1 coins · due 2026-11-02  (fix list #62)
 
 For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
 
@@ -78,7 +64,7 @@ For each coin, find the retail value for its type, date and mint in the grade it
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD**: now $0.25 (low)
 
-### 3. HW-muse-plain-story-20261023-1 · Writer · Rewrite 3 stories in plain English · due 2026-10-30  (fix list #60)
+### 2. HW-muse-plain-story-20261023-1 · Writer · Rewrite 3 stories in plain English · due 2026-10-30  (fix list #60)
 
 Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
 
@@ -91,7 +77,7 @@ Items:
 - **C257 · Mexico · 1967 · 20 centavos · MXP**: «A 1967 20-centavo coin from Mexico. The front shows Mexico's national coat of arms. The back shows the Pyramid of the Sun at Teotihuacan with the volcanoes Popocatépetl and Iztaccíhuatl behind it, a shining liberty cap above, a large 20, the word CENTAVOS, the date 1967, and the Mo mint mark. It is made of brass (95% copper and 5% zinc).» (shorthand: `The back shows the Pyramid of the Sun at`)
 - **C279 · Philippines · 1997 · 1 piso · PHP**: «A 1997 1-piso coin from the Philippines. The side shown has a portrait of national hero José Rizal, the words Republika ng Pilipinas (Republic of the Philippines), a large 1, the word PISO, and the date 1997.» (shorthand: `The side shown has a portrait of nationa`)
 
-### 4. HW-muse-verify-20261024-2 · Second reader · Check 2 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 3. HW-muse-verify-20261024-2 · Second reader · Check 2 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -103,7 +89,7 @@ Items:
 - **mintage of C124 · France · 1967 · 10 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.929 issues.1.mintage`
 - **composition of C019 · Germany · 1981 · 10 Pfennig · DEM** `type DE.KM.108 composition.text` = `copper` (written by Grok: «https://en.numista.com/catalogue/pieces850.html (Numista N#850, 10 Pfennig - Federal Republic of Germany): Composition Brass clad steel (90%»)
 
-### 5. HW-muse-cite-20261024-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-10-31  (fix list #72)
+### 4. HW-muse-cite-20261024-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-10-31  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -114,7 +100,7 @@ For each coin type below, open its Numista entry (or find it) and send the facts
 Items:
 - **CL 50 pesos (CL.KM.219.2)** coins C145. Ask: issues.1.mintage: 1996 So
 
-### 6. HW-muse-verify-20261024-3 · Second reader · Check 4 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 5. HW-muse-verify-20261024-3 · Second reader · Check 4 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -128,7 +114,7 @@ Items:
 - **design of C032 · Hungary · 1967 · 1 forint · HUF** `type HU.KM.575 design.text` = `obverse People’s Republic arms · MAGYAR NÉPKÖZTÁRSASÁG · wheat + star · date · reverse bi…` (written by Claude: «Third reader for D0102 (Claude, 2026-10-24): the phone photos of C032 show the date (1967) under the wreath on the arms side and no date on»)
 - **design of C233 · Colombia · 2016 · 50 pesos · COP** `type CO.KM.295 design.text` = `value big 50 · PESOS · REPÚBLICA DE COLOMBIA · date · wavy field · reverse spectacled / A…` (written by Claude: «Third reader for D0103 (Claude, 2026-10-24): the type was struck 2012-2026 (Muse's source, Numista N#34771 https://en.numista.com/catalogue/»)
 
-### 7. HW-muse-verify-20261024-4 · Second reader · Check 3 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 6. HW-muse-verify-20261024-4 · Second reader · Check 3 facts another AI wrote · due 2026-10-31  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -141,7 +127,7 @@ Items:
 - **ruler of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR** `type SA.KM.20 ruler` = `King Saud` (written by Grok: «https://en.wikipedia.org/wiki/Saud_of_Saudi_Arabia (Wikipedia infobox) 'Reign' = 9 November 1953 – 2 November 1964; the type's issue year(s)»)
 - **composition of C013 · United Kingdom · 1971 · 2 new pence · GBP** `type GB.KM.916 composition.text` = `bronze (97 Cu / 2.5 Zn / 0.5 Sn)` (written by Grok: «https://en.numista.com/catalogue/pieces664.html (Numista N#664, 2 New Pence - Elizabeth II (2nd portrait) - United Kingdom): Composition Bro»)
 
-### 8. HW-muse-story-check-20261028-1 · Fact-checker · Fact-check 20 coin stories · due 2026-11-04  (fix list #73)
+### 7. HW-muse-story-check-20261028-1 · Fact-checker · Fact-check 20 coin stories · due 2026-11-04  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -171,7 +157,7 @@ Items:
 - **C282 · Yugoslavia · 1965 · 50 para · YUD**: «A 1965 fifty-para coin from Yugoslavia. The side shown has a large 50 in a beaded circle, with the word para in the country's languages and Cyrillic and Latin letters around it, and the date split as 19 and 65.» Record: «{"country": "Yugoslavia", "year": "1965", "denom": "50 para · YUD", "mint": "no mint mark visible", "refs": "KM#46.1 · Schön#42 · Numista#2006", "metal": "aluminium brass (85% copper, 14.5% zinc, 0.5% aluminium) · 6.00 g · 25.5 mm · reeded", "specs": "thickness 1.57 mm · medal alignment", "mintage": "44,850,000", "design": "obverse SFRY socialist arms with six torches within wheat sheaf · reverse…»
 - **C283 · Germany · 2002 · 10 euro cent · EUR**: «A 2002 ten-cent euro coin from Germany, from the first year of the euro. The German side shows the Brandenburg Gate in Berlin inside a ring of twelve stars, with the date and the D of the Munich mint below.» Record: «{"country": "Germany", "year": "2002", "denom": "10 euro cent · EUR", "mint": "D", "refs": "KM#210 · Schön#209 · J#485 · Numista#108", "metal": "Nordic gold (Cu89Al5Zn5Sn1) · 4.10 g · 19.75 mm · reeded (fine scallops)", "specs": "thickness 1.93 mm · medal alignment", "mintage": "721,950,000", "design": "national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luycx)", …»
 
-### 9. HW-muse-arbitrate-20261028-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-04  (fix list #18)
+### 8. HW-muse-arbitrate-20261028-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-04  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -182,7 +168,7 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 Items:
 - **D0090 C220 issue.year**: record `1982` (None: «null») vs claim `1975` (model:claude: «read blind from photo photos/p1/C220_rev.webp (Claude spot check, full size)»)
 
-### 10. HW-muse-fill-20261028-1 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-07  (fix list #72)
+### 9. HW-muse-fill-20261028-1 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-07  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -194,7 +180,7 @@ Items:
 - **C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces42670.html
 - **C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces14370.html
 
-### 11. HW-muse-story-check-20261028-2 · Fact-checker · Fact-check 13 coin stories · due 2026-11-04  (fix list #73)
+### 10. HW-muse-story-check-20261028-2 · Fact-checker · Fact-check 13 coin stories · due 2026-11-04  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -217,7 +203,7 @@ Items:
 - **C301 · Mexico · 1989 · 500 pesos · MXP**: «A 1989 five-hundred-peso coin from Mexico with Francisco I. Madero, who started the Mexican Revolution in 1910, above a large $500. Inflation made coins this big in the 1980s; in 1993 Mexico dropped three zeros from its money. There is no photo of this coin yet.» Record: «{"country": "Mexico", "year": "1989", "denom": "500 pesos · MXP", "mint": "Mo", "refs": "KM#529 · Schön#88 · Numista#819", "metal": "copper-nickel (75% copper, 25% nickel) · 12.64 g · 28.5 mm · Milled", "specs": "thickness 2.64 mm · coin alignment", "mintage": "40,000,000", "design": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse portrait of Francisco…»
 - **C304 · Mexico · 1981 · 20 pesos · MXP**: «Mexican 20 pesos from the Cultura Maya series, showing a Maya ball player inside a circle. CULTURA MAYA legend, date 1981, $20 at the left.» Record: «{"country": "Mexico", "year": "1981", "denom": "20 pesos · MXP", "mint": "not read (no photo of this coin in Drive yet)", "refs": "KM#486 · Schön#78 · Numista#987", "metal": "copper-nickel (75% copper, 25% nickel) · 15.20 g · 32.06 mm · Smooth with Inscription: INDEPENDENCIA Y LIBERTAD", "specs": "thickness 2.44 mm · coin alignment", "mintage": "250,573,000", "design": "obverse national arms · ea…»
 
-### 12. HW-muse-arbitrate-20261028-2 · Arbiter · Settle 12 disagreements between two AIs · due 2026-11-04  (fix list #18)
+### 11. HW-muse-arbitrate-20261028-2 · Arbiter · Settle 12 disagreements between two AIs · due 2026-11-04  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -239,7 +225,7 @@ Items:
 - **D0122 CH.KM.29a catalogs**: record `[{"number": "29a", "system": "KM"}, {"number": "26a", "system": "Schön"}, {"number": "25"…` (model:grok-bot: «Numista N#178 (https://en.numista.com/catalogue/pieces178.html) references: KM# 29a, Schön# 26a, Y# 25 [phase 2; confid…») vs claim `[{"number": "29a", "system": "KM"}, {"number": "29a", "system": "Schön"}, {"number": "178…` (model:gemini: «https://en.numista.com/catalogue/pieces178.html Features > Number: N# 178; References: KM# 29a, Schön# 29a»)
 - **D0124 DE.KM.208 issues.2.mintage**: record `72800000` (model:grok-bot: «https://en.numista.com/catalogue/pieces106.html (Numista N#106, 2 Euro Cents - Federal Republic of Germany): mintage ta…») vs claim `76440000` (model:gemini: «https://en.numista.com/catalogue/pieces106.html (Numista N# 106 2010 A row: 76,440,000)»)
 
-### 13. HW-muse-read-mint-20261028-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-11-04  (fix list #57)
+### 12. HW-muse-read-mint-20261028-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-11-04  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -250,7 +236,7 @@ Phase 1 cannot finish until every coin's mint mark is read. Open each coin's pho
 Items:
 - **C298 · Italy · 1978 · 50 lire · ITL**: mint text now «not visible on the Vulcan side». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp. Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
 
-### 14. HW-muse-verify-20261028-1 · Second reader · Check 80 facts another AI wrote · due 2026-11-04  (fix list #18)
+### 13. HW-muse-verify-20261028-1 · Second reader · Check 80 facts another AI wrote · due 2026-11-04  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -340,7 +326,7 @@ Items:
 - **denomination of C202 · Guatemala · 2010** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type GT.KM.277.6a denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C202_rev.webp (original: https://drive.google.com/file/d/14EUPS609595wCSAS84tA8zb4Na4TQG1s/view)
 - **year of C293 · Mexico · 500 pesos · MXP** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C293 issue.year`. Photos: none
 
-### 15. HW-muse-verify-20261028-2 · Second reader · Check 21 facts another AI wrote · due 2026-11-04  (fix list #18)
+### 14. HW-muse-verify-20261028-2 · Second reader · Check 21 facts another AI wrote · due 2026-11-04  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -371,6 +357,20 @@ Items:
 - **year of C047 · Brazil · 5 centavos · BRL** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C047 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C047_obv.webp (original: https://drive.google.com/file/d/1E17ZrK0Lsvb-3AACaLNSz7S46GZiKG_a/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C047_rev.webp (original: https://drive.google.com/file/d/1_y_UN1BVoFy5X308Qg2O4qJ4kqE5saOL/view)
 - **mintage of C285 · Slovakia · 2009 · 5 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type SK.X.5-euro-cent issues.1.mintage`
 
+### 15. HW-muse-read-mint-20261029-1 · Photo reader · Read the mint mark on 4 coins from their photos · due 2026-11-05  (fix list #57)
+
+Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
+
+**Done when:** One change file; unreadable coins left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-read-mint-20261029-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)**: mint text now «not on shown rice side (date on dragon reverse — Joseph 1953)». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C258_rev.webp (original: https://drive.google.com/file/d/1o4n0uJ97jgKfpfReNjsRCmkBr1XmQzhU/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
+- **C006 · Germany · 1984 · 1 Deutsche Mark · DEM**: mint text now «unknown». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C006_rev.webp (original: https://drive.google.com/file/d/1WBYI3D2tv7ia4-2_WlLns9pgPiSY-Kv5/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
+- **C050 · Germany · 1982 · 1 Deutsche Mark · DEM**: mint text now «unknown (letter under date unclear (soft D/G candidate))». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C050_rev.webp (original: https://drive.google.com/file/d/1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
+- **C287 · Italy · 1979 · 50 lire · ITL**: mint text now «not read on photo». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp (original: https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
+
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -389,6 +389,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 46; expired: 1.
+- Assignments answered: 46; expired: 2.
 - Your facts checked by another contributor: 489 (477 confirmed, 12 wrong; error rate 2.5 %, 95 % range 1-4 %). Checks you did for others: 310. Open disagreements you are part of: 4. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 15 %.

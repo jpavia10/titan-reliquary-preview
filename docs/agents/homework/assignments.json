@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-28T22:23:01Z",
+ "updated": "2026-10-29T01:48:54Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -105,7 +105,8 @@
   "grok-cite-20261028": 1,
   "muse-fill-20261028": 1,
   "muse-read-mint-20261028": 1,
-  "muse-verify-20261028": 2
+  "muse-verify-20261028": 2,
+  "muse-read-mint-20261029": 1
  },
  "assignments": [
   {
@@ -14332,9 +14333,13 @@
    "kind": "read-mint",
    "issued": "2026-10-21T22:44:09Z",
    "lease_until": "2026-10-28T22:44:09Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-10-29T01:48:54Z",
+   "result": {
+    "items": 4,
+    "closed": 0,
+    "left": 4
+   },
    "items": [
     {
      "item": "mint:C258",
@@ -22675,6 +22680,42 @@
      "entity": "type",
      "id": "SK.X.5-euro-cent",
      "field": "issues.1.mintage"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-read-mint-20261029-1",
+   "agent": "muse",
+   "kind": "read-mint",
+   "issued": "2026-10-29T01:48:54Z",
+   "lease_until": "2026-11-05T01:48:54Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C258",
+     "entity": "specimen",
+     "id": "C258",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C287",
+     "entity": "specimen",
+     "id": "C287",
+     "field": "issue"
     }
    ]
   }
