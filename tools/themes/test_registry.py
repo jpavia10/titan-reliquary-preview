@@ -42,7 +42,8 @@ def main():
     with sync_playwright() as pw:
         b = pw.chromium.launch(**kw); p = b.new_page()
         p.goto(f"http://127.0.0.1:{port}/?nosplash"); p.wait_for_timeout(3000)
-        r = p.evaluate(JS); b.close()
+        p.evaluate("() => Promise.all((TitanOpening.INTROS || []).map((i) => TitanOpening.need(i)))")   # the scenes load on demand
+        r = p.evaluate(JS); r["intros"] = p.evaluate("TitanOpening.INTROS || []"); b.close()
     out = r["out"]
     for i in r["classic"]:
         if not os.path.exists(os.path.join(ROOT, "styles", "atmo", i + ".css")): out.append(f"missing stylesheet styles/atmo/{i}.css: {r['labels'][i]}")
@@ -50,6 +51,7 @@ def main():
         if f.endswith(".css") and not f.startswith("_") and f != "all.css" and f[:-4] not in r["ids"]: out.append(f"orphan stylesheet styles/atmo/{f}")
     for f in os.listdir(os.path.join(ROOT, "js", "intros")):
         if f.endswith(".js") and f != "kit.js" and f[:-3] not in r["ids"]: out.append(f"orphan intro file js/intros/{f}")
+        if f.endswith(".js") and f != "kit.js" and f[:-3] not in r["intros"]: out.append(f"intro file js/intros/{f} is not in TitanOpening INTROS (js/motion-splash.js), so it never loads")
     for line in out: print("FAIL: " + line)
     print(f"registry: {len(r['ids'])} themes; " + ("ALL AGREE" if not out else f"{len(out)} mismatch(es)"))
     sys.exit(1 if out else 0)

@@ -51,6 +51,11 @@
   ];
   var opening = "film";                          // "film" | "motion" | "none" (TitanOpening.pick(): the Opening setting, Motion level, ?opening=)
   try { if (window.TitanOpening && window.TitanOpening.pick) opening = window.TitanOpening.pick(); } catch (e) { opening = "film"; }
+  /* rule 12: a theme whose opening runs on its own world (wings/room.js OPENINGS) plays that instead of a film or a separate scene;
+     ?opening=film or ?film=N still forces a film */
+  var engineOpen = false;
+  try { engineOpen = (opening === "film" || opening === "motion") && !/[?&](opening=film|film=\d)/.test(location.search) && !!(window.TitanRoom && window.TitanOpening && TitanRoom.hasOpening(TitanOpening.theme()));
+    if (engineOpen) opening = "motion"; } catch (e) { engineOpen = false; }
   var featured = null, featWait = [];
   function titleCase(s) { return s.replace(/\b([a-z])([a-z]*)/g, function (m, a, b) { return a.toUpperCase() + b; }); }
   function fromFlip(f) {
@@ -374,15 +379,25 @@
     function go() {
       if (started || state === "done") return;
       started = true;
-      try {
-        motion = TO.play(root, TO.theme(), featured, function (info) {
-          if (state === "done") return;
-          if (info && info.wiped) finish(false); else finish(true, 0.7);          // wiped: the canvas already cleared itself; else a 0.7 s dissolve
-        }, { cue: function () { if (Sfx.isOn() && !Sfx.blocked()) Sfx.shimmer(); } });
-      } catch (err) {
-        if (window.console) console.warn("opening motion", err);
-        motion = null; finish(true, 0.25);
+      if (engineOpen) {                                // the theme's own world plays the opening, then stays as the backdrop under the app
+        motion = window.TitanRoom.engineOpening(root, TO.theme(), function () { if (state !== "done") finish(true, 0.9); }, playMotion);
+        return;
       }
+      playMotion();
+    }
+    function playMotion() {                            // the theme's scene file loads on demand (TitanOpening.need), then plays
+      (TO.need ? TO.need(TO.theme()) : Promise.resolve()).then(function () {
+        if (state === "done") return;
+        try {
+          motion = TO.play(root, TO.theme(), featured, function (info) {
+            if (state === "done") return;
+            if (info && info.wiped) finish(false); else finish(true, 0.7);        // wiped: the canvas already cleared itself; else a 0.7 s dissolve
+          }, { cue: function () { if (Sfx.isOn() && !Sfx.blocked()) Sfx.shimmer(); } });
+        } catch (err) {
+          if (window.console) console.warn("opening motion", err);
+          motion = null; finish(true, 0.25);
+        }
+      });
     }
     whenFeatured(go);                                  // the coin is known (or fell back) within ~0.9 s; start by 0.3 s whatever happens
     later(go, 300);

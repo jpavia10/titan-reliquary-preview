@@ -45,7 +45,8 @@ with sync_playwright() as p:
         pg.wait_for_function("window.TitanOpening && TitanOpening._debug.api && TitanOpening._debug.C", timeout=30000)
         pg.evaluate("TitanOpening._debug.api.seek(2.0)"); pg.wait_for_timeout(120)
         return pg.evaluate(STATE)
-    pg.goto(f"{base}?q=high"); pg.wait_for_function("window.TitanIntro", timeout=30000)
+    pg.goto(f"{base}?q=high"); pg.wait_for_function("window.TitanOpening && TitanOpening.need", timeout=30000)
+    pg.evaluate("() => Promise.all(TitanOpening.INTROS.map((i) => TitanOpening.need(i)))")   # the scenes load on demand
     ids = pg.evaluate("TitanIntro.ids()")
     # 4a. the scaling helpers grow with the tier
     grow = pg.evaluate("""() => { const T = ["low","medium","high","ultra","max"], r = T.map(t => TitanIntro.res({ tier: t, detail: {low:.6,medium:.8,high:1,ultra:1.3,max:1.6}[t], W: 400, H: 800 }, 1)),

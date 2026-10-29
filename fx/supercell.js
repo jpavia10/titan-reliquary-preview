@@ -177,7 +177,9 @@
         cam(u); gl.uniform1f(u.uSun, sun);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, steps: cfg[0], res: cfg[2], flashes: flashes.length, bolts: bolts.length }; },
+      debug: function () { return { tier: T, steps: cfg[0], res: cfg[2], flashes: flashes.length, bolts: bolts.length,
+        cam: O.map(function (x) { return +x.toFixed(3); }).concat(B ? B.f.map(function (x) { return +x.toFixed(3); }) : []),
+        look: { rain: look("rain", 1), lightning: look("lightning", 1), spin: look("spin", 1), sun: look("sun", 1) } }; },
       flash: function (x, ground) { if (ground) strike(x, 1.2); else inCloud(x, 1.2); },     // for tests and the intro hand-over
       dispose: function () { removeEventListener("titan:scape", onScape); if (rt) { gl.deleteTexture(rt.t); gl.deleteFramebuffer(rt.f); } gl.deleteProgram(pv.p); gl.deleteProgram(pc.p); } };
   });

@@ -72,6 +72,7 @@
         <span class="ss-now-pic" id="ss-now-pic" aria-hidden="true"></span>
         <div class="ss-now-txt"><span class="ss-now-theme" id="ss-now-theme"></span><p class="ss-status" id="ss-status" role="status" aria-live="polite"></p></div>
         <button type="button" class="ss-btn primary ss-playbtn" id="ss-play">▶ Play</button>
+        <button type="button" class="ss-btn ss-roombtn" id="ss-room" title="The theme on its own, away from the collection">Step inside</button>
       </div>
       <div class="ss-master"><label for="ss-vol">Volume</label><input type="range" id="ss-vol" min="0" max="1" step="0.01" aria-label="Master volume"><span class="ss-vol-n" id="ss-vol-n"></span><button type="button" class="ss-btn off ss-offbtn" id="ss-off" aria-label="Sound off (stays off next time)">■ Off</button></div>
       <p class="ss-now" id="ss-now" hidden></p>
@@ -360,6 +361,8 @@
     if (last && document.contains(last) && last.focus) { try { last.focus(); } catch (e) { /* ignore */ } }
   }
   $("#ss-close", sheet).addEventListener("click", close);
+  // the theme's room (wings/room.js): Scene Studio closes first, then the room opens over the live world
+  $("#ss-room", sheet).addEventListener("click", () => { close(); setTimeout(() => { if (window.TitanRoom) window.TitanRoom.open(); }, 120); });
   sheet.addEventListener("click", (e) => { if (e.target === sheet) close(); });
   el.play.addEventListener("click", () => {
     if (G.isPlaying()) { G.pause(); st.wasPlaying = false; save(); render(); }

@@ -328,6 +328,23 @@
   /* ============================== engine ============================== */
   var STYLES = {};
   function styleFor(id) { return STYLES[id] || STYLES.__crest; }
+  /* The themes' own scenes (js/intros/<id>.js, on the shared js/intros/kit.js) load when they are needed, not at boot: the opening of the
+     theme on screen, a theme switch, a test. need(id) resolves once the scene is registered, or after 2.5 s (then the built-in style plays).
+     A new scene file goes in INTROS (tools/themes/test_registry.py checks the list against the folder). */
+  var INTROS = ["zen", "arcade", "construct", "neon", "notepad", "terminal", "valhalla", "xeno", "marbled", "drafting", "solaris", "conservator", "cathedral", "dynasty", "alchemist", "cursedwing", "samadhi", "abyss", "bauhaus", "odyssey", "kaleido", "y2k", "ferro", "lumen", "rift", "horizon", "kintsugi", "supercell", "tourbillon", "darkroom", "silverscreen", "canopy", "obsidian", "lightwell", "saltflat", "glasshouse", "orbit", "sahel", "nocturne", "silkroad", "diorama", "contour", "afterhours", "pulp", "glacier", "papercut", "colossus", "freefall", "sketch", "banknote"];
+  var loads = {};
+  function src(f) { var v = (document.querySelector('script[src*="js/motion-splash.js"]') || {}).src || ""; v = (v.split("?")[1] || ""); return "js/intros/" + f + ".js" + (v ? "?" + v : ""); }
+  function load(f) {
+    if (!loads[f]) loads[f] = new Promise(function (res) {
+      var s = document.createElement("script"); s.src = src(f); s.async = false;
+      s.onload = s.onerror = function () { res(); }; document.head.appendChild(s); });
+    return loads[f];
+  }
+  function need(id) {
+    if (INTROS.indexOf(id) < 0 || (STYLES[id] && STYLES[id].native)) return Promise.resolve();
+    var p = (window.TitanIntro ? Promise.resolve() : load("kit")).then(function () { return load(id); });
+    return Promise.race([p, new Promise(function (res) { setTimeout(res, 2500); })]);
+  }
 
   function play(root, id, featured, done, opts) {
     opts = opts || {};
@@ -2515,10 +2532,13 @@
     window.addEventListener("keydown", cur.onKey, true);
     root.addEventListener("pointerdown", function (e) { e.preventDefault(); endSwitch(true); });
     sw = cur;
-    try {
-      cur.api = play(root, id, null, function (info) { if (sw === cur) endSwitch(!!(info && info.wiped)); }, { tableOnly: true, cue: function () { try { if (window.TitanUISounds && window.TitanUISounds.play) window.TitanUISounds.play("coin-open"); } catch (e) {} } });
-    } catch (e) { if (window.console) console.warn("opening switch", e); endSwitch(true); return false; }
-    setTimeout(function () { if (sw === cur) endSwitch(false); }, 6000);   // backstop
+    need(id).then(function () {
+      if (sw !== cur) return;
+      try {
+        cur.api = play(root, id, null, function (info) { if (sw === cur) endSwitch(!!(info && info.wiped)); }, { tableOnly: true, cue: function () { try { if (window.TitanUISounds && window.TitanUISounds.play) window.TitanUISounds.play("coin-open"); } catch (e) {} } });
+      } catch (e) { if (window.console) console.warn("opening switch", e); endSwitch(true); return; }
+      setTimeout(function () { if (sw === cur) endSwitch(false); }, 6000);   // backstop
+    });
     return true;
   }
   function mountSwitch(box) {
@@ -2530,7 +2550,7 @@
   }
 
   var TitanOpening = window.TitanOpening = {
-    choice: choice, set: set, pick: pick, after: after, play: play, switchTo: switchTo, mount: mount, theme: themeId, palette: palette, MODES: MODES.slice(),
+    choice: choice, set: set, pick: pick, after: after, play: play, need: need, INTROS: INTROS.slice(), switchTo: switchTo, mount: mount, theme: themeId, palette: palette, MODES: MODES.slice(),
     _debug: { K: K, STYLES: STYLES }
   };
 })();
