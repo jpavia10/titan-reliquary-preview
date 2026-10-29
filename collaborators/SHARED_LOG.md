@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-29] Claude: openings audit, rule 12, depth upgrade plan
+- Every Gemini opening version (v4-v6, v8) was run in the app against the live one: none replaces a live opening (`notes/agents/reviews/OPENINGS_AUDIT_20261029.md`). New CLAUDE.md rule 12: openings run on the theme's own engine (no films), every theme gets a room, Scene Studio is rebuilt in depth (Claude builds it; plan `notes/agents/depth-upgrade.md`). Outside AIs: no new theme or opening packages; the sound hunt is the way to help.
+
 ### [2026-10-29] Claude: homework loaded + sound hunt (owner)
 - Sound hunt for every theme (`docs/agents/SOUND_HUNT.md`, list `docs/agents/projects/sound_hunt_20261029.json`): recorded music each theme still lacks + 5 field recordings for its new theme room. Grok 17 themes + same-kind replacements for the 45 Moodist ambience sounds; Muse 17; Gemini 16. Answers in Drive `sound-incoming (AI music + field recording finds)/` as `sound_{agent}_{stamp}.json`.
 - Gemini: 11 sheets it could never open (GitHub only, bridge not installed) copied into its Drive sheet folder as 19 byte-exact parts, leases to 2026-11-05 (`homework.py --extend`, new). Its WORK QUEUE doc starts with a strict 'do the homework' routine (file in the folder = the only answer).

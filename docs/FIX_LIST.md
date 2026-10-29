@@ -1,18 +1,18 @@
 <!-- doc-status: current; normative: no -->
 # Titan Fix List (text copy)
 
-Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-21, build tr192.
+Text copy of the owner's live checklist (claude.ai/artifact/Aogoa4MfwCVPpck9xKUV8M), rendered from docs/fixlist/items.json by tools/fixlist/render.py together with the artifact, so the two never differ. Item numbers never change. Copied 2026-10-29, build tr263.
 
-## State of the union (2026-10-21, build tr192)
+## State of the union (2026-10-29, build tr263)
 
 The one thing to be best in the world at: the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.
 
 - **306** pieces in flips (300 coins, 6 tokens), 51 countries
 - **$5,390** headline value at the latest metal prices (silver $60.59, gold $4,162)
 - **227** pieces with a phone photo; 79 still need one, 14 have both sides
-- **216 / 306** pieces through Phase 1 (70.6 %): 79 need a photo, 31 need a mint mark read
+- **219 / 306** pieces through Phase 1 (71.6 %): 79 need a photo, 28 need a mint mark read
 - **917 / 1775** album slots filled, all 33 albums read from your page photos
-- **52.4 %** of the 3,402 facts on screen are cited or confirmed; 474 are Checked by two independent sources
+- **57.0 %** of the 3,449 facts on screen are cited or confirmed; 1367 are Checked by two independent sources
 
 ### What is strong
 
@@ -47,25 +47,22 @@ The one thing to be best in the world at: the most trustworthy record of a perso
 - Photograph the missing coins with Scan a coin (Hall footer): 79 pieces still have no photo. That is most of what stands between Phase 1 and 100 %.
 - Optional: a free Numista API key as the GitHub secret NUMISTA_API_KEY turns on collector values for every coin (#62). Never paste the key in a chat.
 
-## Questions for you (14 open, all in the app; only the coin itself can answer)
+## Questions for you (11 open, all in the app; only the coin itself can answer)
 
-- **C066** Look at the date on C066, the Swiss 5 francs. Does it end in 6 or in 8?
 - **T001** How many stars are on token T001 (the 20 play token with GR)?
 - **C153** Turn over C153, the 2008 UK 10 pence. Does the back show a crowned lion, or a piece of the Royal Shield?
 - **C159** East Caribbean coins are filed under the code EC, which is really Ecuador's code. Switch East Caribbean to XC?
 - **?** Your Mercury dime album (A006): from your page photos it has 77 holes, but the record says about 80. Is 77 right?
 - **C275** Do you have two UK 5 pence coins dated 1992?
 - **C140** Please take a phone photo of C140's map side (Spain 2008 1 cent) and drop it in the STAGING folder.
-- **C053** Look under the date on C053, the 2011 German 20 cent. Is the small letter an F or a J?
-- **C206** On C206, the Japanese 1 yen, read the date characters at the bottom. Is it 四十六 (46) or 五十一 (51)?
-- **C023** Turn over C023, the 1918 iron 20 with the oak wreath. What words are on the other side?
+- **C023** Turn over C023, the 1918 iron 20 in the oak wreath. Is the other side a crowned double-headed eagle with a shield on its chest?
 - **C238** On C238, the 1973 D West German 2 mark, whose name is written next to the portrait: KONRAD ADENAUER or THEODOR HEUSS?
 - **C088** On C088, the 1957 dime, look on the torch side, left of the torch near the bottom. Is there a small D?
 - **C064** On C064, the Malta 2008 1 euro, is there a small F on the Maltese (cross) side?
 - **C073** C073 is a tube of 26 1976 quarters. Keep it as one mixed lot, or sort it into no-letter and D piles?
 - **→** Answer them in the app: Hall footer → Questions. Tap your answers, then “Save answers file” into the Drive change-file folder, or “Copy for chat” and paste it to me.
 
-## The other AIs (what each one is doing now (updated 2026-10-21))
+## The other AIs (what each one is doing now (updated 2026-10-29))
 
 The research loop hands out homework from the data after every update (docs/agents/RESEARCH_LOOP.md): each AI gets the kinds it is best at, never its own facts to check, and a different AI checks every fact. Their full pages: Drive “WORK QUEUE for …” docs, and docs/agents/ in the repo.
 
@@ -74,75 +71,76 @@ The research loop hands out homework from the data after every update (docs/agen
 
 Strongest contributor, treated as a top model (owner, 2026-10-10: "Grok is basically opus if it needs to be so I think they get the hardest shit"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.
 
-- Now Varieties to look for at the pro-photo session (every US, UK and German coin in a flip) #61
-- Now Mintages still blank on 24 coins #3
-- Now Album prices: a second source for the 40 most expensive holes #62
-- Homework Photo reader: 2 items, due 10-21 HW-grok-read-mint-20261014-1
-- Homework Photo reader: 2 items, due 10-21 HW-grok-read-mint-20261014-2
-- Homework Appraiser: 2 items, due 10-29 HW-grok-value-20261019-1
-- Homework Arbiter: 2 items, due 10-27 HW-grok-arbitrate-20261020-1
-- Homework Fact-checker: 3 items, due 10-27 HW-grok-story-check-20261020-1
-- Homework Second reader: 21 items, due 10-27 HW-grok-verify-20261020-1
-- Homework Second reader: 20 items, due 10-27 HW-grok-verify-20261020-2
-- Homework Fact-checker: 45 items, due 10-27 HW-grok-story-check-20261020-2
-- Homework Second reader: 80 items, due 10-27 HW-grok-verify-20261020-3
-- Homework Second reader: 80 items, due 10-27 HW-grok-verify-20261020-4
-- Homework Arbiter: 1 items, due 10-28 HW-grok-arbitrate-20261021-1
+- Now Sound hunt: music and room sounds for your 17 themes (24 pieces of music, 85 field recordings) #83
+- Now Replace the 45 ambience sounds of unknown licence with recordings whose licence is on their own page #83
+- Now Album prices: third reader for the 40 holes in A017-A033 where the first two prices disagree most #62
+- Homework Researcher: 1 items, due 11-02 HW-grok-research-20261023-1
+- Homework Cataloguer: 7 items, due 11-04 HW-grok-cite-20261028-1
 - Then UI rethink, step 2: The Field's three filters, on the real data #116
 - Then Splash film: Coinverse 16:9 again, plain coins (only when Joseph says the credits allow) #56
 - Then Music: a recording for each of the 3 held pieces #83
 - Always Read new coin photos (with Muse, blind)
 
-Measured: 441 of its facts checked by another AI: 436 confirmed, 5 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
+Measured: 926 of its facts checked by another AI: 916 confirmed, 10 wrong. Gets work: Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 
 ### Muse (active)
 
-Researcher and writer stepping up (owner, 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): harder work first now (research questions, catalogue citations, collector values); every fact it writes is still checked while it is on probation.
+Researcher and writer, loaded up (owner, 2026-10-23: "Load up muse"; 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values). Off probation 2026-10-24: 4 files in a row scored 10 with no accuracy fault (changes_muse_20261024-0509 to -0552; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate.
 
+- Now Sound hunt: music and room sounds for your 17 themes (22 pieces of music, 85 field recordings) #83
 - Now Cite your own era fields: 263 'period' facts on 138 types are still 'AI guess' #48
 - Now Which side to shoot: the 31 coins whose mint mark is unread #57
+- Now Album prices: third reader for the 40 holes in A001-A016 where the first two prices disagree most #62
 - Now Second reader on Grok's Numista batches #72
 - Now Theme pictures: the 22 wide heroes (priority 2) #113
-- Homework Fact-checker: 2 items, due 10-27 HW-muse-story-check-20261020-1
-- Homework Second reader: 50 items, due 10-27 HW-muse-verify-20261020-1
-- Homework Photo reader: 1 items, due 10-27 HW-muse-read-mint-20261020-1
-- Homework Arbiter: 8 items, due 10-27 HW-muse-arbitrate-20261020-2
-- Homework Second reader: 50 items, due 10-27 HW-muse-verify-20261020-2
-- Homework Writer: 40 items, due 10-27 HW-muse-plain-story-20261020-1
-- Homework Fact-checker: 41 items, due 10-27 HW-muse-story-check-20261020-2
-- Homework Second reader: 80 items, due 10-27 HW-muse-verify-20261020-3
-- Homework Second reader: 80 items, due 10-27 HW-muse-verify-20261020-4
+- Homework Appraiser: 1 items, due 11-02 HW-muse-value-20261023-1
+- Homework Writer: 4 items, due 10-30 HW-muse-plain-story-20261023-1
+- Homework Second reader: 2 items, due 10-31 HW-muse-verify-20261024-2
+- Homework Cataloguer: 1 items, due 10-31 HW-muse-cite-20261024-1
+- Homework Second reader: 4 items, due 10-31 HW-muse-verify-20261024-3
+- Homework Second reader: 3 items, due 10-31 HW-muse-verify-20261024-4
+- Homework Fact-checker: 20 items, due 11-04 HW-muse-story-check-20261028-1
+- Homework Arbiter: 1 items, due 11-04 HW-muse-arbitrate-20261028-1
+- Homework Cataloguer: 2 items, due 11-07 HW-muse-fill-20261028-1
+- Homework Fact-checker: 13 items, due 11-04 HW-muse-story-check-20261028-2
+- Homework Arbiter: 12 items, due 11-04 HW-muse-arbitrate-20261028-2
+- Homework Photo reader: 1 items, due 11-04 HW-muse-read-mint-20261028-1
+- Homework Second reader: 80 items, due 11-04 HW-muse-verify-20261028-1
+- Homework Second reader: 21 items, due 11-04 HW-muse-verify-20261028-2
+- Homework Photo reader: 4 items, due 11-05 HW-muse-read-mint-20261029-1
 - Always Read new coin photos (with Grok, blind)
 
-Measured: 302 of its facts checked by another AI: 293 confirmed, 9 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
+Measured: 489 of its facts checked by another AI: 477 confirmed, 12 wrong. Gets work: Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 
 ### Gemini (active)
 
-Back on (owner, 2026-10-15: "Unpause gemini I pay for the shit so I expect it to function as we desire. Whether on gemini argon in chat or antigravity or gemini spark"). The third research AI (fix list #101): it settles Grok-vs-Muse disagreements first, then every other kind, in full batches. Expected to be a powerhouse (owner, 2026-10-10): vision, research, code (Antigravity) and Veo video. On probation: every fact it writes is checked by another AI until it has 3 good submissions in a row.
+Loaded to the maximum (owner, 2026-10-22: "Homework is the best way I can get it to listen to me and complete tasks. Load it up with an obscene amount of homework"). Measured 2026-10-22: 0 of 16 assignments issued since Oct 14 answered; tonight's design-text file 11 of 26 right (its redo on 2026-10-23: 24 of 26, score 8); blind locked photo test 76 % core, 3.0 % invented (ties Grok). Capacity 40, up to 8 batches per kind, 5-day deadlines (an ignored sheet goes back to the pool for Grok and Muse sooner). Off probation 2026-10-23: 4 files in a row scored 8+ with no accuracy fault (changes_gemini_20261023-1644 to -1647; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate like Grok's. 2026-10-23 (owner: 'update its homework but keep its scope high'): + fill (blank Phase 2 facts, the kind its design-text redo did well), and theme, motion and music builds as projects.
 
-- Now Design text for the 26 types that have none or only a guess #72
-- Test Blind photo test, the locked pack (15 coins) #19
-- Homework Photo reader: 4 items, due 10-21 HW-gemini-read-mint-20261014-1
-- Homework Second reader: 50 items, due 10-21 HW-gemini-verify-20261014-1
-- Homework Appraiser: 13 items, due 10-24 HW-gemini-value-20261014-1
-- Homework Fact-checker: 17 items, due 10-21 HW-gemini-story-check-20261014-1
-- Homework Second reader: 50 items, due 10-21 HW-gemini-verify-20261014-2
-- Homework Fact fixer: 15 items, due 10-22 HW-gemini-contradiction-20261015-1
-- Homework Appraiser: 9 items, due 10-25 HW-gemini-value-20261015-1
-- Homework Fact-checker: 9 items, due 10-22 HW-gemini-story-check-20261015-1
-- Homework Cataloguer: 2 items, due 10-22 HW-gemini-cite-20261015-1
-- Homework Writer: 11 items, due 10-27 HW-gemini-plain-story-20261020-1
-- Homework Photo reader: 2 items, due 10-27 HW-gemini-read-mint-20261020-1
-- Homework Second reader: 80 items, due 10-27 HW-gemini-verify-20261020-1
-- Homework Fact-checker: 7 items, due 10-27 HW-gemini-story-check-20261020-1
-- Then Send the Titan v3 M1 build (your spec is accepted; only the .html is missing) #116, #117
-- Then Second reader for all 33 albums, from the page photos (blind) #55
-- Then Theme pictures: the heroes for Prism, Midnight Gallery, The Mint and Shipwreck #113
+- Now Sound hunt: music and room sounds for your 16 themes (13 pieces of music, 80 field recordings) #83
+- Now Second reader for all 33 albums, from the page photos (blind) #55
+- Homework Second reader: 80 items, due 10-31 HW-gemini-verify-20261020-1
+- Homework Second reader: 80 items, due 10-31 HW-gemini-verify-20261021-1
+- Homework Second reader: 80 items, due 10-31 HW-gemini-verify-20261021-2
+- Homework Second reader: 80 items, due 10-31 HW-gemini-verify-20261022-1
+- Homework Second reader: 78 items, due 10-31 HW-gemini-verify-20261022-2
+- Homework Fact-checker: 36 items, due 11-05 HW-gemini-story-check-20261024-1
+- Homework Cataloguer: 8 items, due 11-05 HW-gemini-fill-20261024-1
+- Homework Second reader: 14 items, due 11-05 HW-gemini-verify-20261024-1
+- Homework Arbiter: 10 items, due 11-05 HW-gemini-arbitrate-20261024-2
+- Homework Fact-checker: 2 items, due 11-05 HW-gemini-story-check-20261024-2
+- Homework Cataloguer: 12 items, due 11-05 HW-gemini-fill-20261024-2
+- Homework Cataloguer: 12 items, due 11-05 HW-gemini-fill-20261024-3
+- Homework Cataloguer: 12 items, due 11-05 HW-gemini-fill-20261024-4
+- Homework Cataloguer: 3 items, due 11-05 HW-gemini-fill-20261024-5
+- Homework Second reader: 80 items, due 11-05 HW-gemini-verify-20261024-2
+- Homework Second reader: 53 items, due 11-05 HW-gemini-verify-20261024-3
+- Homework Photo reader: 1 items, due 11-02 HW-gemini-read-mint-20261028-1
+- Then Titan v3 M1: build the accepted spec (the 2026-10-24 file is not it) #116, #117
 - Always Read new coin photos as the third blind reader
 
-Measured: 96 of its facts checked by another AI: 96 confirmed, 0 wrong. Gets work: Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl; a surface that cannot write to Drive replies with the file in one code block and Joseph pastes it to Claude.
+Measured: 438 of its facts checked by another AI: 436 confirmed, 2 wrong. Gets work: Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).
 
 
 ### ChatGPT (parked)
@@ -151,12 +149,13 @@ Parked (owner, 2026-10-10: "Chatgpt is too manual so I dont expect stuff to come
 
 - Test Blind photo test, the main pack (30 coins) #4
 
-Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md into ChatGPT and says 'do the next task'; the answer is pasted back to Claude.
+Measured: None of its facts checked by another AI yet. Gets work: Its page is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md; it takes part only when it can save its files to Drive itself (ChatGPT's Google Drive connector). Joseph never pastes anything for it (owner, 2026-10-23).
 
 
 ## Your calls (only you can do these; each takes minutes)
 
-- [ ] **#92 The loop turns without a chat: autonomous intake**: Built and tested. Every hour a GitHub job merges the AIs' change files from Drive through every gate and test, rebuilds the site and refreshes each AI's WORK QUEUE doc; the same install starts the daily Drive backup and Health's stale-backup warning. Until then I merge by hand in a session. Needs first: you: the one-time install, about 10 minutes (docs/INTAKE_BRIDGE.md: one Apps Script project, two GitHub secrets) · Unlocks: #50, #93, daily progress with no session open _[partly done, large, needs you, new]_
+- [ ] **#129 The opening films and the 1 GB site limit**: The site is at 924 MB of GitHub Pages' 1 GB. Under your new rule (no prerendered openings) the Grok films stop playing; they are 430 MB. Say 'remove the films' (they stay in git history and on Drive) and the site drops to about 500 MB, with room for the new recordings. The other way out is #99: create the empty repos titan-films and titan-music so I can move the films and music there. Needs first: you: one word · Unlocks: the sound hunt's recordings, more themes _[small, needs you, new]_
+- [ ] **#92 The loop turns without a chat: autonomous intake**: Built and tested. Every hour a GitHub job merges the AIs' change files from Drive through every gate and test, rebuilds the site and refreshes each AI's WORK QUEUE doc; the same install starts the daily Drive backup and Health's stale-backup warning. Until then I merge by hand in a session. Until then nothing backs up to Drive by itself: the newest site backup in Drive is from Sep 28 (the daily one on GitHub is current), and Gemini can only open sheets Claude copies to Drive by hand. Needs first: you: the one-time install, about 10 minutes (docs/INTAKE_BRIDGE.md: one Apps Script project, two GitHub secrets) · Unlocks: #50, #93, daily progress with no session open _[partly done, large, needs you, new]_
 - [ ] **#114 Try it on your phone and tell me**: Everything was tuned on a software graphics chip, never on a real phone. Open a few themes; tell me which effects are too strong, too faint or stutter, and anything in the sound or music that bothers you. One tap adds your phone's speed: Health → Measure speed → Add this speed report. Needs first: your phone, 10 minutes _[small, needs you, new]_
 - [ ] **#3 Settle the open curation questions**: 14 questions wait in the app (Hall footer → Questions), including the A006 hole count (80 → 77, only you can lower it) and “Where did they come from?”. With the coin in hand each takes seconds; most can wait for the pro-photo session. Needs first: you, with the coins · Unlocks: Phase 1 at 100 %, #5 _[partly done, medium, needs you]_
 - [ ] **#30 Pick the final design direction**: Grok's The Field is in the app as a UI toggle since tr181; the AIs' other proposals are in /prototypes/v2/. Pick a direction (or say "neither") and buttons, layout and Titan v3 follow it. Unlocks: #29, #63, splash and icon _[large, needs you]_
@@ -164,15 +163,12 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 
 ## Next up (me and the AIs)
 
+- [ ] **#128 Depth upgrade: a room for every theme, openings on the theme's own engine, Scene Studio in depth**: Owner, Oct 29: Claude is in charge. Each theme's GPU world runs as the backdrop, as the opening (live code at your quality tier, never a film) and as its own room you walk into and play with (look, particles, light, placed sounds). Scene Studio becomes a depth shelf of live worlds with sound and effect layers. Steps: world contract on 3 themes (Supercell, Tourbillon, Silver Screen), their rooms on a test page for your phone, their openings, Scene Studio v4, the other 15 GPU worlds, then the 32 themes without one. Plan: notes/agents/depth-upgrade.md; sounds come from the AIs' sound hunt. Needs first: nothing to start; your phone to judge each step (#114) · Unlocks: rooms for all 50 themes, openings without films (#129) _[large, new]_
 - [ ] **#5 Reassign the serial numbers (grouped by country)**: Decided (you, Oct 21): grouped by country, e.g. EU-CH-001, EU-CH-002 in year order, ties broken by a salted hash so scan order never shows. The plan for all 306 pieces is ready (collection/SER_REASSIGN_PLAN.md); it is applied once, then frozen, and the new number is what you write on each flip's back. Needs first: Phase 1 at 100 % (216 of 306) and your East Caribbean code answer (EC or XC, in Questions) · Unlocks: #61 (Phase 2 pro photos) _[large]_
 - [ ] **#61 Phase 2 photo standard and a 5-coin test shoot**: Light, background, scale and file names for the pro photos, tested on 5 coins end to end (pairing, 2x2 and circle crops, registering, the quality check) so the rest are shot once. Grok's varieties checklist (what to look for under the loupe on each US, UK and German coin) becomes the shoot checklist. Needs first: nothing for the test; the full shoot needs #5 · Unlocks: Phase 2, #64, #79 _[medium, needs you, new]_
 - [ ] **#62 Real collector values**: Grok appraises with a cited price page per value (63 coins priced twice so far, 62 agreed). Your free Numista API key turns on a weekly job that fills in every coin. Needs first: your free Numista API key (Waiting on you) · Unlocks: a firmer headline, #107 _[partly done, large, new]_
 
-## On hold (while Grok upgrades the themes)
-
-- [ ] **#119 Titan v3: the collection as one 3D space, albums as real pages, live value**: One plan in three steps: every piece as a real 3D coin you fly into; albums as physical pages with real holes; a headline that moves with the metal prices and one world switch for look, light and sound. Spec in docs/design/v3/M1_SPEC.md. On hold (you, Oct 20) while Grok upgrades the themes. Needs first: Gemini's build (its first task) · Unlocks: #120, #121, the blind test against today's app (#122) _[partly done, large, new]_
-
-## Done (118 shipped, merged or dropped (numbers never change))
+## Done (119 shipped, merged or dropped (numbers never change))
 
 - [x] **#104 Export everything in plain formats**: Oct 20: data/export/ is rebuilt on every publish: coins.csv (all 306 pieces, 41 columns, with "how sure" and the source for 9 key facts), album_holes.csv (all 1,775 holes, with the price and source of each missing one), lots.csv, collection.json (the whole master record plus every certainty label) and a plain README. Opens in Excel, Numbers or Google Sheets; linked from the printable inventory (insurance copy). _[done Oct 20]_
 - [x] **#106 Who can change what**: Oct 20: docs/WHO_CAN_CHANGE_WHAT.md lists every way in (GitHub accounts and app, each GitHub job's token, the repo secrets, Drive and its connectors, the Apps Script) with its guard. Narrowed: the integrity, smoke and restore-drill jobs now get read-only tokens. Two paths are wider than needed and wait for you: #127. _[done Oct 20]_
@@ -292,3 +288,4 @@ Measured: None of its facts checked by another AI yet. Gets work: Joseph pastes 
 - [x] **#98 Targets and progress per kind of fact**: The trust meter and the Phase 1 bar already show the progress. _[dropped Oct 21]_
 - [x] **#108 Family stories for each coin**: Not asked for; Where it came from (#3) covers the basics. Say so to bring it back. _[dropped Oct 21]_
 - [x] **#113 Pictures for every theme card**: Superseded: Grok's theme rebuild brings each theme's pictures with it. _[dropped Oct 21]_
+- [x] **#119 Titan v3: the collection as one 3D space, albums as real pages, live value**: One plan in three steps: every piece as a real 3D coin you fly into; albums as physical pages with real holes; a headline that moves with the metal prices and one world switch for look, light and sound. Spec in docs/design/v3/M1_SPEC.md. On hold (you, Oct 20) while Grok upgrades the themes. _[merged into #128]_

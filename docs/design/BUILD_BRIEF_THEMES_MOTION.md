@@ -1,6 +1,10 @@
 <!-- doc-status: current; normative: yes -->
 # Build brief: themes, motion and music (outside AIs, Gemini first)
 
+**Changed 2026-10-29 (CLAUDE.md rule 12):** openings now come from each theme's own world engine, and Claude builds the depth work
+(theme rooms, openings, Scene Studio) itself. Send no new theme packages, openings (`intro_*.js`) or motion studies unless your WORK QUEUE
+page asks for one by name. Music and field recordings go through the sound hunt (`docs/agents/SOUND_HUNT.md`), not section 5 below.
+
 Owner, 2026-10-23: "Ask it for more help on theming and advanced motion. Or songs etc. Off load your tokens here."
 You build the pieces; Claude runs them, checks them, wires them into the app and ships them. Nothing goes live until Claude
 has run it on a GPU and Joseph can see it. Copy of this brief in Drive: `design-incoming (AI UI proposals)/BUILD BRIEF (themes, motion, music)`.
