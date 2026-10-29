@@ -76,6 +76,12 @@ The Moodist sounds are replaced as licence-clean recordings arrive.
   and `K.audioCouple(analyser)` so a sound's low end (a boom, thunder) pushes a world's particles, and a render scale per tier.
   The Obsidian room starts from gold-live's black-glass point on the shared kit.
 - Next: Tourbillon and Silver Screen rooms, then the Obsidian room, then step 3 (the app's openings on the engine).
+- **Later on 2026-10-29 (owner: "get the framework for all of the themes locked"): the framework is locked and steps 1-3 are in the
+  app** for the three reference worlds. The plan from here is `docs/design/THEME_FRAMEWORK.md` (normative: one engine, the slots, the
+  gate CL-WORLD-01, who does what, phases A-F); per-theme status `docs/themes/FRAMEWORK_STATUS.md`. The room lives in the app now
+  (Scene Studio > Step inside; `wings/room.js` + `wings/room-shell.js`), so the test site's own shell is superseded: it runs the app's
+  shell and worlds (`tools/rooms/sync_test_site.sh`). The other GPU worlds go through Gemini's conversion (`tools/gemini/convert_world.py`)
+  and the conversion gate; the 31 themes without a world are Grok's homework (task 12).
 
 ## Decisions for the owner (asked in the readiness report)
 - The Grok opening films: under rule 12 they stop playing; remove them from the site (frees about 430 MB of the 1 GB limit) or keep

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-29 03:53 UTC)
+# WORK QUEUE for Grok (updated 2026-10-29 15:17 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,6 +7,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
+
+### GPU worlds for the 31 themes still on the first engine, one at a time (Midnight Gallery first)  (fix list #128)
+
+The theme framework is locked (owner: "get the framework for all of the themes locked so i can just improve piece by piece"): every theme becomes one live GPU world on the app's own kit that runs as the backdrop, as its opening and as its room. 31 themes still only have a flat effect layer. Build their worlds, one theme at a time, in this order: afterhours (Midnight Gallery), colossus (The Mint), kaleido (Prism), abyss (Shipwreck), then every theme whose Next column says 'a GPU world on the kit' in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/themes/FRAMEWORK_STATUS.md. The contract and every rule: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/THEME_FRAMEWORK.md (normative; read sections 1-3 first). Worked examples on the same contract: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/supercell.js (3D, orbit room) and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/silverscreen.js (flat, pan and zoom room); the kit: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/kit.js. Each world is ONE file fx_{id}.js: a K.mod module and K.themes[id] = { stack, room } with the room data (limits, 3-4 look controls as multipliers with default 1, a one-line touch, an opening camera path that ends on the backdrop view). Its soundscape preset is the theme's entry in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/audio/scape/bridge.js THEME_SCAPE. Rules: the kit's one WebGL2 canvas and GLSL ES 3.00, no outside libraries, CDNs or engines (no three.js), no prerendered video or images (only the coin photos the app already has, as Silver Screen does), the tier from TitanQuality (Low to Max, never lowered on its own), Motion Calm/Off = one still frame, the theme's mood from wings/themes/manifest.js, and the collection still readable on top of it as a backdrop. Save each as fx_{id}.js + README_{id}.md (what it shows, what you checked, what you could not) in Drive 'Titan Reliquary/design-incoming (AI UI proposals)/worlds/{id}/' (or push them to the owner's test repo jpavia10/titan-v6-splash-viewer under worlds/{id}/). Claude runs each through the gate (CL-WORLD-01 and tools/rooms/check_conversion.py), looks at it on a phone and a desktop, and ships it; a weak one comes back with notes.
+
+**Done when:** Every theme in docs/themes/FRAMEWORK_STATUS.md shows 'TitanFXK world' with a room.
 
 ### Sound hunt: music and room sounds for your 17 themes (24 pieces of music, 85 field recordings)  (fix list #83)
 
