@@ -22,6 +22,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) { /* ignore */ }
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) { /* ignore */ }
@@ -67,6 +68,7 @@
     "uniform vec4 uG[6]; uniform vec4 uGs[6];",                // wheel (cx, cy, R, angle), (teeth, kind, spokes, height)
     "uniform vec3 uL; uniform vec2 uTilt;",                     // the lamp (movement space + height), viewer offset for parallax
     "uniform float uCage, uEsc, uFork, uRat, uCrown, uClick; uniform vec2 uBal, uHam, uGong;",
+    "uniform vec4 uView; uniform vec3 uLook;",
     "vec2 r2(vec2 v, float a){ float c=cos(a), s=sin(a); return vec2(c*v.x-s*v.y, s*v.x+c*v.y); }",
     "float smin(float a,float b,float k){ float h=max(k-abs(a-b),0.)/k; return min(a,b)-h*h*k*.25; }",
     "float smax(float a,float b,float k){ float h=max(k-abs(a-b),0.)/k; return max(a,b)+h*h*k*.25; }",
@@ -93,12 +95,12 @@
     // P surface point (z = height), n normal, base albedo, sc metal colour, T groove direction (brushed when an=1), gloss, shadow
     "float brush(vec2 T, vec3 H, float w){ vec2 Bt=vec2(-T.y,T.x); float a=dot(T,H.xy)/w, b=dot(Bt,H.xy)/(H.z*.5); return exp(-a*a-b*b); }",
     "vec3 shade(vec3 P, vec3 n, vec3 base, vec3 sc, vec2 T, float an, float gl, float sh){",
-    "  vec3 Ld=uL-P; float dl=length(Ld); Ld/=dl; float att=1.25/(1.+dl*dl*1.4); vec3 H=normalize(Ld+vec3(0.,0.,1.)); float ndl=max(dot(n,Ld),0.);",
+    "  vec3 Ld=uL-P; float dl=length(Ld); Ld/=dl; float att=1.25/(1.+dl*dl*1.4)*uLook.x; vec3 H=normalize(Ld+vec3(0.,0.,1.)); float ndl=max(dot(n,Ld),0.);",
     "  vec3 HF=normalize(LF+vec3(0.,0.,1.)); float ndf=max(dot(n,LF),0.);",
     "  vec3 c=base*(.07+ndl*att*sh*.9+ndf*.45*(.6+.4*sh)); float sp, sf;",
     "  if(an>0.){ sp=brush(T,H,an)*1.1; sf=brush(T,HF,an*1.3)*.12; }",
     "  else { sp=pow(max(dot(n,H),0.),gl)*(.25+gl*.01); sf=pow(max(dot(n,HF),0.),gl*.5)*(.25+gl*.005)*.22; }",
-    "  c+=sc*(sp*att*sh*(.3+.7*ndl)*1.25+sf*(.6+.4*sh)); c+=sc*env(reflect(vec3(0.,0.,-1.),n),Ld)*(an>0.?.4:1.); return c; }",
+    "  c+=sc*(sp*att*sh*(.3+.7*ndl)*1.25+sf*(.6+.4*sh))*uLook.y; c+=sc*env(reflect(vec3(0.,0.,-1.),n),Ld)*(an>0.?.4:1.)*uLook.y; return c; }",
     "vec3 bevN(vec2 g, float t){ return normalize(vec3(g*mix(.55,1.5,t),1.)); }",               // a polished chamfer: steeper toward the edge
     "float cov(float d, float px){ return clamp(.5-d/px,0.,1.); }",
     /* layer shapes */
@@ -156,7 +158,7 @@
     "  vec2 sl=r2(q,-sa); float slot=sdBox(sl,vec2(rs*1.1,rs*.13),.0005); c=mix(c,vec3(.003,.005,.02),cov(slot,px));",
     "  return mix(col,c,cov(d,px)); }",
     /* ---------------- main ---------------- */
-    "void main(){ vec2 p=(gl_FragCoord.xy-.5*uRes)/uRes.y; vec2 m=(uPort>.5?vec2(-p.y,p.x):p)*uScale; float px=uScale/uRes.y;",
+    "void main(){ vec2 p=(gl_FragCoord.xy-.5*uRes)/uRes.y; p-=vec2(uView.x,uView.y); float zFactor=exp(-uView.z); p*=zFactor; vec2 m=(uPort>.5?vec2(-p.y,p.x):p)*uScale; float px=uScale/uRes.y*zFactor;",
     "  vec2 e=vec2(px*.7,0.);",
     // bridges first: where they cover the pixel completely, nothing under them needs shading
     "  vec2 qb=m+uTilt*.08; float dB=sdBridges(qb); vec3 col=vec3(0.);",
@@ -266,8 +268,8 @@
     var T = tier();
     var pr = K.compile(K.FSQ, FRAG(T === "low")); if (!pr) return null;
     var seen = K.ptr.tap, pend = null, held = false, lastMove = -99, px0 = K.ptr.x, py0 = K.ptr.y;
-    var L = [.1, .1, .6], tilt = [0, 0];
-    var rat = 0, clicks = [], boost = 0, lastT = 0, rep = null;
+    var L = [.1, .1, .6], tilt = [0, 0], lastView = null;
+    var rat = 0, clicks = [], boost = 0, lastT = 0, rep = null, wOff = 0;
     var G = new Float32Array(24), GS = new Float32Array(24);
     GEAR.forEach(function (g, i) { GS.set([g.n, g.k, g.s, g.z], i * 4); });
     function wall() { return (Date.now() % 600000) / 1000; }          // 10 min wraps on whole beats and whole balance swings
@@ -285,7 +287,9 @@
     addEventListener("titan:coin", onCoin);
     function lift(t, ts) { return Math.min(1, Math.max(0, (t - (ts - .2)) / .17)) * (t < ts ? 1 : Math.max(0, 1 - (t - ts) / .025)); }
     return { name: "tourbillon",
-      step: function (c) { var P = c.ptr, t = c.t; lastT = t;
+      step: function (c) { var P = c.ptr, t = c.t, v = c.view || {}; lastView = v; lastT = t;
+        // Tempo (room only): an offset on the wall clock, so at 1 the movement still turns on the real seconds with its ticking sound
+        if (v.mode === "backdrop") wOff = 0; else wOff += (c.dt || .016) * (look("speed", 1) - 1);
         if (P.tap !== seen) { seen = P.tap; pend = { t: P.tap, x: P.tx, y: P.ty }; held = false; }
         if (pend) { var moved = Math.hypot(P.x - pend.x, P.y - pend.y) > .02;
           if (moved) pend = null;
@@ -298,20 +302,22 @@
         if (live) { var pm = toM(P.x, P.y); tgt = [pm[0], pm[1], .55]; }
         else tgt = [.2 + .6 * Math.cos(t * .09), -.16 + .24 * Math.sin(t * .13), .6];   // idle: the lamp drifts over the lower half, away from the title
         var k = live ? .16 : .02; for (var i = 0; i < 3; i++) L[i] += (tgt[i] - L[i]) * k;
-        var tp = toM(P.x, P.y), tx = live ? -tp[0] * .05 : .02 * Math.sin(t * .07), ty = live ? -tp[1] * .05 : .015 * Math.cos(t * .05);
+        var room = v.mode === "room";
+        var tp = toM(P.x, P.y), tx = room ? 0 : (live ? -tp[0] * .05 : .02 * Math.sin(t * .07)), ty = room ? 0 : (live ? -tp[1] * .05 : .015 * Math.cos(t * .05));
         tilt[0] += (tx - tilt[0]) * .06; tilt[1] += (ty - tilt[1]) * .06;
         boost *= Math.exp(-c.dt / 22);
         clicks = clicks.filter(function (tc) { if (t - tc > .3) { rat -= TAU / 60; return false; } return true; });
         if (rep && t > rep.end) rep = null; },
       draw: function (c) {
-        var A = c.w / c.h, port = A < 1, sc = 2 / Math.max(A, 1), t = c.t, w = wall();
+        var v = c.view || {}; lastView = v;
+        var A = c.w / c.h, port = A < 1, sc = 2 / Math.max(A, 1), t = c.t, w = wall() + wOff;
         var z0 = port ? PI : PI / 2;                                   // the seconds ring's 60 points up the screen
         var beats = Math.floor(w * 6) + ease(w * 6 % 1);
         var cage = z0 - PI - TAU * beats / 360;                        // the arrow (cage-local angle 180 deg) reads the real seconds
         var esc = mesh(0, 72, 8, cage) - cage;                         // relative to the cage: 9 x the cage angle
         var n6 = Math.floor(w * 6), f6 = w * 6 % 1, side = n6 % 2 ? -1 : 1, fsw = Math.min(1, f6 / .1);
         var fork = .11 * side * (fsw * fsw * (3 - 2 * fsw) * 2 - 1);
-        var amp = 4.36 + .9 * boost;                                   // 250 deg, wound up to about 300 deg
+        var amp = (4.36 + .9 * boost) * look("amplitude", 1);          // 250 deg, wound up to about 300 deg
         var ph = TAU * 3 * w, bal = amp * Math.sin(ph), sweepA = amp * TAU * 3 * Math.cos(ph) * SHUTTER;   // the swing during the shutter
         var third = -cage * 10 / 80, centre = mesh(third, 10, 80, ang(TW, W2)), barrel = mesh(centre, 12, 96, ang(W2, BR));
         var ratA = rat, clk = 0; clicks.forEach(function (tc) { var u = Math.min(1, Math.max(0, (t - tc) / .07)); ratA -= TAU / 60 * u * u * (3 - 2 * u); if (t > tc - .05 && t < tc + .1) clk = Math.max(clk, Math.sin(Math.min(1, (t - tc + .05) / .12) * PI)); });
@@ -325,14 +331,22 @@
         gl.uniform4fv(u.uG, G); gl.uniform4fv(u.uGs, GS); gl.uniform3f(u.uL, L[0], L[1], L[2]); gl.uniform2f(u.uTilt, tilt[0], tilt[1]);
         gl.uniform1f(u.uCage, cage); gl.uniform1f(u.uEsc, esc); gl.uniform1f(u.uFork, fork); gl.uniform1f(u.uRat, ratA); gl.uniform1f(u.uCrown, crown); gl.uniform1f(u.uClick, clk);
         gl.uniform2f(u.uBal, bal, sweepA); gl.uniform2f(u.uHam, hm[0], hm[1]); gl.uniform2f(u.uGong, gg[0], gg[1]);
+        gl.uniform4f(u.uView, v.yaw || 0, (v.pitch || 0) + (v.up || 0), v.move || 0, 0);
+        gl.uniform3f(u.uLook, look("lamp", 1), look("finish", 1), 0);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, light: L.map(function (v) { return +v.toFixed(3); }), boost: +boost.toFixed(2), repeating: !!rep }; },
+      debug: function () { var v = lastView || {}; return { tier: T, light: L.map(function (v) { return +v.toFixed(3); }), boost: +boost.toFixed(2), repeating: !!rep, cam: [(v.yaw || 0), (v.pitch || 0), (v.move || 0), (v.up || 0)].map(function (x) { return +x.toFixed(3); }), look: { lamp: look("lamp", 1), speed: look("speed", 1), amplitude: look("amplitude", 1), finish: look("finish", 1) } }; },
       wind: function () { wind(lastT); }, repeat: function () { repeater(lastT); },          // for tests and the intro hand-over
       dispose: function () { removeEventListener("titan:coin", onCoin); gl.deleteProgram(pr.p); } };
   });
   K.themes.tourbillon = { stack: [
     { mod: "tourbillon" },
     { mod: "post", bloom: .9, threshold: .8, knee: .45, exposure: 1, aberr: .06, grain: .025, vig: .35 }
-  ] };
+  ],
+    // a flat world: yaw and pitch pan in screen heights (a phone is only ~.46 wide); up adds to pitch
+    room: { name: "Inside the caliber", yaw: [-.18, .18], pitch: [-.2, .2], move: [-.4, .9], up: [-.1, .1], unit: "screen", sound: "movement",
+      look: [{ id: "lamp", label: "Lamp light", min: 0, max: 2.5, def: 1 }, { id: "speed", label: "Tempo", min: .2, max: 3, def: 1 },
+        { id: "amplitude", label: "Amplitude", min: .5, max: 2, def: 1 }, { id: "finish", label: "Polish", min: 0, max: 2.5, def: 1 }],
+      touch: "Tap to wind the movement; press and hold to sound the minute repeater.",
+      opening: { dur: 5.0, from: { yaw: .12, pitch: -.12, move: -.4, up: .05 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [.5, .5] } } };
 })();

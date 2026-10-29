@@ -7,7 +7,7 @@
   "use strict";
   var html = document.documentElement;
   /* a theme is listed here once its opening path (K.themes[id].room.opening) has been looked at on a phone and a desktop */
-  var OPENINGS = { supercell: 1, silverscreen: 1 };
+  var OPENINGS = { supercell: 1, tourbillon: 1, silverscreen: 1 };
   function K() { return window.TitanFXK; }
   function motion() {
     var m = html.dataset.motion; if (m === "calm" || m === "off") return m;
