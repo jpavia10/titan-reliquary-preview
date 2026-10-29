@@ -11,8 +11,9 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function persp(f, a, n, fa) { var t = 1 / Math.tan(f / 2); return [t / a, 0, 0, 0, 0, t, 0, 0, 0, 0, (fa + n) / (n - fa), -1, 0, 0, 2 * fa * n / (n - fa), 0]; }
-  function look(e, c, u) {
+  function lookMatrix(e, c, u) {
     var z = [e[0] - c[0], e[1] - c[1], e[2] - c[2]], l = Math.hypot(z[0], z[1], z[2]); z = z.map(function (v) { return v / l; });
     var x = [u[1] * z[2] - u[2] * z[1], u[2] * z[0] - u[0] * z[2], u[0] * z[1] - u[1] * z[0]]; l = Math.hypot(x[0], x[1], x[2]); x = x.map(function (v) { return v / l; });
     var y = [z[1] * x[2] - z[2] * x[1], z[2] * x[0] - z[0] * x[2], z[0] * x[1] - z[1] * x[0]];
@@ -36,7 +37,7 @@
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) { /* ignore */ }
     return "high";
   };
-  K.lumenMath = { persp: persp, look: look, mul: mul, inv: inv };
+  K.lumenMath = { persp: persp, look: lookMatrix, mul: mul, inv: inv };
 
   var FLOOR = "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "uniform mat4 uInv; uniform vec3 uEye; uniform vec2 uRes; uniform float uT, uBoost; uniform vec4 uL[13]; uniform vec3 uLC[13]; uniform vec3 uGridC, uSkyC;",
@@ -100,7 +101,7 @@
     function up() { drag.on = false; }
     addEventListener("pointerdown", down, { passive: true }); addEventListener("pointermove", move, { passive: true }); addEventListener("pointerup", up, { passive: true }); addEventListener("pointercancel", up, { passive: true });
     function turn(r, s1) { var d = r.d, nd = s1 > 0 ? [d[1], -d[0]] : [-d[1], d[0]]; r.x = Math.round(r.x); r.z = Math.round(r.z); r.pts.push([r.x, r.z]); r.d = nd; if (r.d[1] < 0 && !r.me) r.d = [0, 1]; }
-    var VP = null, INV = null, EYE = [0, 1, 0];
+    var VP = null, INV = null, EYE = [0, 1, 0], camV = [0, 0, 0, 0];
     function stepR(r, dt, boost) {
       var sp = r.v * (boost ? 1.8 : 1); var ox = r.x, oz = r.z; r.x += r.d[0] * sp * dt; r.z += r.d[1] * sp * dt; r.age += dt;
       if (!r.me && Math.floor(ox) !== Math.floor(r.x) || !r.me && Math.floor(oz) !== Math.floor(r.z)) {          // crossed a lane: maybe turn
@@ -115,15 +116,21 @@
     return {
       name: "lumen",
       step: function (c) {
+        var v = c.view || {};
         var dt = c.still ? 0 : Math.min(c.dt, .05), boost = drag.on && me && !me.dead && performance.now() - drag.t > 350;
-        cam.z += dt * (3.6 + (boost ? 1.6 : 0)); cam.lean += ((boost ? 1 : 0) - cam.lean) * Math.min(1, dt * 3);
+        cam.z += dt * (3.6 * look("speed", 1) + (boost ? 1.6 : 0)); cam.lean += ((boost ? 1 : 0) - cam.lean) * Math.min(1, dt * 3);
         var tx = me && !me.dead ? me.x * .5 : 0; cam.x += (tx - cam.x) * Math.min(1, dt * .6);
         for (var i = 0; i < R.length; i++) { var r = R[i]; stepR(r, dt, false);
           if (r.z < cam.z - 6 || r.z > cam.z + 60 || Math.abs(r.x - cam.x) > 16) { R[i] = spawn(i, cam.z + 10); R[i].pts.push([R[i].x, R[i].z]); } }
         if (me && !me.dead) { stepR(me, dt, boost); if (me.z < cam.z - 8 || Math.abs(me.x - cam.x) > 18 || me.z > cam.z + 70) me.dead = true; }
-        var asp = c.w / c.h, sw = Math.sin(c.t * .23) * .25 + (c.ptr.x - .5) * .6, fov = asp < 1 ? 1.15 : .9;
-        EYE = [cam.x + sw, 1.05 + Math.sin(c.t * .31) * .05 - cam.lean * .2, cam.z - 2.2];
-        var V = look(EYE, [cam.x + sw * .4, .45 + (c.ptr.y - .5) * .3, cam.z + 10], [Math.sin(cam.lean * .1) * .2, 1, 0]);
+        var asp = c.w / c.h, room = v.mode === "room", sw = room ? 0 : (Math.sin(c.t * .23) * .25 + (c.ptr.x - .5) * .6), fov = asp < 1 ? 1.15 : .9;
+        var yaw = v.yaw || 0, pitch = v.pitch || 0, move = v.move || 0, up = v.up || 0; camV = [yaw, pitch, move, up];
+        // the room turns the view (yaw, pitch), moves along it (move) and lifts it (up); the default view is the backdrop's eye and target
+        var E0 = [cam.x + sw, 1.05 + Math.sin(c.t * .31) * .05 - cam.lean * .2, cam.z - 2.2], T0 = [cam.x + sw * .4, .45 + (room ? 0 : (c.ptr.y - .5) * .3), cam.z + 10];
+        var dx = T0[0] - E0[0], dy = T0[1] - E0[1], dz = T0[2] - E0[2], cy = Math.cos(yaw), sy = Math.sin(yaw);
+        var rx = dx * cy + dz * sy, rz = -dx * sy + dz * cy; dy += pitch * Math.hypot(rx, dy, rz); var n = Math.hypot(rx, dy, rz) || 1;
+        EYE = [E0[0] + rx / n * move, E0[1] + dy / n * move + up, E0[2] + rz / n * move];
+        var V = lookMatrix(EYE, [EYE[0] + rx, EYE[1] + dy, EYE[2] + rz], [Math.sin(cam.lean * .1) * .2, 1, 0]);
         VP = mul(persp(fov, asp, .05, 200), V); INV = inv(VP);
       },
       draw: function (c) {
@@ -140,7 +147,7 @@
           for (k = 1; k < p.length; k++) { var seg = Math.abs(p[k][0] - p[k - 1][0]) + Math.abs(p[k][1] - p[k - 1][1]); if (seg < 1e-4) continue;
             var n = Math.max(1, Math.ceil(seg / 3)); for (var j = 0; j < n; j++) { var a0 = j / n, a1 = (j + 1) / n, A = [p[k - 1][0] + (p[k][0] - p[k - 1][0]) * a0, p[k - 1][1] + (p[k][1] - p[k - 1][1]) * a0], B = [p[k - 1][0] + (p[k][0] - p[k - 1][0]) * a1, p[k - 1][1] + (p[k][1] - p[k - 1][1]) * a1];
               var s0 = acc + seg * a0, s1 = acc + seg * a1, fade0 = Math.min(1, s0 / (tot * .5 + .01)); if (o + 48 > buf.length) return;
-              o = quad(o, A, B, [r.c[0], r.c[1], r.c[2], .25 + .75 * fade0], s0, s1); }
+              o = quad(o, A, B, [r.c[0], r.c[1], r.c[2], (.25 + .75 * fade0) * look("glow", 1)], s0, s1); }
             acc += seg; } });
         gl.bindVertexArray(vao); gl.bindBuffer(gl.ARRAY_BUFFER, vb); gl.bufferSubData(gl.ARRAY_BUFFER, 0, buf.subarray(0, o));
         gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE); gl.useProgram(wl.p); gl.uniformMatrix4fv(wl.u.uVP, false, VP); gl.uniform1f(wl.u.uT, c.t);
@@ -152,7 +159,11 @@
         gl.useProgram(hd.p); gl.uniformMatrix4fv(hd.u.uVP, false, VP); gl.uniform1f(hd.u.uPx, c.h * .09); gl.drawArrays(gl.POINTS, 0, h / 8);
         gl.bindVertexArray(null);
       },
-      debug: function () { return { tier: TIER, riders: R.length, me: !!(me && !me.dead), cam: cam }; },
+      debug: function () {
+        return { tier: TIER, riders: R.length, me: !!(me && !me.dead), ride: cam,
+          cam: camV.map(function (x) { return +x.toFixed(3); }),   // the view on top of the ride (the eye itself bobs and rides on)
+          look: { speed: look("speed", 1), glow: look("glow", 1) } };
+      },
       dispose: function () { removeEventListener("pointerdown", down); removeEventListener("pointermove", move); removeEventListener("pointerup", up); removeEventListener("pointercancel", up);
         gl.deleteBuffer(vb); gl.deleteBuffer(hb); gl.deleteVertexArray(vao); gl.deleteVertexArray(hvao); [fl, wl, hd].forEach(function (p) { gl.deleteProgram(p.p); }); }
     };
@@ -161,5 +172,9 @@
     { mod: "lumen" },
     { mod: "particles", count: { low: .025, medium: .04, high: .05, max: .09 }[K.lumenTier()], shape: "mote", size: 2, gravity: -.003, curl: .5, scale: 1.2, speed: .02, life: .05, c1: [.2, .8, 1], c2: [.6, .3, 1], alpha: .05, blend: "add", depth: 1, glint: .6, rake: .3 },
     { mod: "post", bloom: 1.35, threshold: .6, knee: .45, exposure: 1.1, aberr: .35, grain: .025, vig: .5, trails: .2 }
-  ] };
+  ],
+    room: { name: "On the grid", yaw: [-.8, .8], pitch: [-.2, .35], move: [-3, 4], up: [-.5, 2], unit: "m", sound: "plasma",
+      look: [{ id: "speed", label: "Speed", min: 0.5, max: 2, def: 1 }, { id: "glow", label: "Glow", min: 0.2, max: 2.5, def: 1 }],
+      touch: "Tap the grid to launch your light runner.",
+      opening: { dur: 5, from: { yaw: 0.5, pitch: -0.1, move: -2, up: 0.5 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [.5, .5] } } };
 })();

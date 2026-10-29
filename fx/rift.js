@@ -9,6 +9,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) { /* ignore */ }
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) { /* ignore */ }
@@ -16,7 +17,7 @@
   }
   K.riftTier = tier;
   var FS = function (oct, arcs) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
-    "uniform vec2 uRes, uPtr; uniform float uT, uCharge, uPulse, uPop; uniform vec3 uPopP;",
+    "uniform vec2 uRes, uPtr; uniform float uT, uCharge, uPulse, uPop, uViewYaw, uViewPitch, uViewMove, uViewUp, uGlow, uHaze, uSpinScale, uWarmth; uniform vec3 uPopP;",
     "#define OCT " + oct, "#define ARCS " + arcs,
     "float wfbm(vec2 p){ float s=0., a=.5; for(int i=0;i<OCT;i++){ s+=a*vn(p); p=mat2(1.6,1.2,-1.2,1.6)*p; a*=.5; } return s; }",
     "float box(vec2 p, vec2 b){ vec2 d=abs(p)-b; return length(max(d,0.))+min(max(d.x,d.y),0.); }",
@@ -24,10 +25,10 @@
     "vec4 rift(vec2 p, vec2 c, float R, float spin){",
     "  vec2 q=p-c; q.x*=.82; float r=length(q), a=atan(q.y,q.x);",
     "  float edgeN=wfbm(vec2(a*2.,uT*.6))*.18; float rr=r/(R*(1.+edgeN));",
-    "  float sw=a+spin*uT+3.2/(rr+.25);",
+    "  float sw=a+spin*uT*uSpinScale+3.2/(rr+.25);",
     "  vec2 w=vec2(cos(sw),sin(sw))*rr*3.; float f=wfbm(w+wfbm(w*1.7+uT*.4)*1.6);",
     "  float inside=smoothstep(1.02,.94,rr);",
-    "  vec3 g1=vec3(.15,1.,.35), g2=vec3(.55,1.,.15), core=vec3(.85,1.,.8);",
+    "  vec3 g1=vec3(.15,1.,.35)*uWarmth, g2=vec3(.55,1.,.15), core=vec3(.85,1.,.8);",
     "  vec3 col=mix(g1,g2,f)*(.35+1.1*f*f)*inside;",
     "  col+=core*exp(-rr*rr*9.)*1.4*inside;",
     "  float rim=exp(-pow((rr-1.)*16.,2.)); col+=vec3(.4,1.,.5)*rim*1.6;",
@@ -36,6 +37,7 @@
     "  col+=vec3(.6,1.,.7)*arcs*1.6;",
     "  return vec4(col, inside); }",
     "void main(){ vec2 uv=gl_FragCoord.xy/uRes; float asp=uRes.x/uRes.y; vec2 p=(gl_FragCoord.xy-.5*uRes)/uRes.y;",
+    "  p += vec2(uViewYaw, uViewPitch); p *= (1.0 - uViewMove * 0.25); p.y -= uViewUp * 0.25;",
     "  vec2 par=(uPtr-.5)*vec2(.05,.03); vec2 pw=p+par*.4;",          // parallax: back wall moves less than the bench
     "  float R=.2*(1.+uCharge*.55+uPulse*.15)*min(1.,asp*1.2+.3); vec2 C=vec2(0.,.06)+par*.6;",
     "  float floorY=-.25;",
@@ -49,9 +51,9 @@
     "  vec3 col=wall;",
     // floor: concrete with a wet sheen that reflects the rift
     "  if(p.y<floorY){ float d=floorY-p.y; vec3 fl=vec3(.03,.032,.03)*(.7+.6*wfbm(vec2(p.x/(d+.05),1./(d+.05))*1.5)); col=fl;",
-    "    vec4 rf=rift(vec2(p.x,2.*floorY-p.y+.01*sin(p.x*80.+uT)), C, R, 1.4+uCharge*3.); col+=rf.rgb*.22*smoothstep(.0,.35,d)*(1.-smoothstep(.3,.7,d))*(.6+.4*vn(p*vec2(30.,90.))); }",
+    "    vec4 rf=rift(vec2(p.x,2.*floorY-p.y+.01*sin(p.x*80.+uT)), C, R, 1.4+uCharge*3.); col+=rf.rgb*.22*uHaze*smoothstep(.0,.35,d)*(1.-smoothstep(.3,.7,d))*(.6+.4*vn(p*vec2(30.,90.))); }",
     // light from the rift + a warm hanging bulb
-    "  float dl=length((p-C)*vec2(.8,1.)); vec3 rl=vec3(.25,1.,.4)*(.05+.22*uCharge+.25*uPulse)/(1.+dl*dl*22.);",
+    "  float dl=length((p-C)*vec2(.8,1.)); vec3 rl=vec3(.25,1.,.4)*uGlow*(.05+.22*uCharge+.25*uPulse)/(1.+dl*dl*22.);",
     "  vec2 bp=vec2(-.25*asp,.42)+par*.3; float db=length(p-bp); vec3 bulb=vec3(1.,.72,.4)*(.04/(1.+db*db*30.)+exp(-db*90.)*2.);",
     "  col=col*(1.+rl*7.)+rl*.15+bulb+col*vec3(1.,.8,.6)*.6/(1.+db*db*12.);",
     "  col+=vec3(1.,.8,.5)*step(abs(p.x-bp.x),.0012)*step(bp.y,p.y)*.15;",               // the bulb's cord
@@ -74,6 +76,7 @@
     return {
       name: "rift",
       step: function (c) {
+        var v = c.view || {};
         var dt = c.still ? 0 : Math.min(c.dt, .05), P = c.ptr;
         if (P.down) held += dt; else { if (wasDown && held > .35) pulse = 1; held = 0; }
         wasDown = P.down;
@@ -83,12 +86,28 @@
         pop = Math.max(0, pop - dt * 1.1);
       },
       draw: function (c) {
+        var v = c.view || {};
         gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
-        gl.uniform2f(u.uRes, c.w, c.h); gl.uniform2f(u.uPtr, c.ptr.x, c.ptr.y); gl.uniform1f(u.uT, c.t);
+        gl.uniform2f(u.uRes, c.w, c.h); gl.uniform2f(u.uPtr, v.mode === "room" ? 0.5 : c.ptr.x, v.mode === "room" ? 0.5 : c.ptr.y); gl.uniform1f(u.uT, c.t);
         gl.uniform1f(u.uCharge, charge); gl.uniform1f(u.uPulse, pulse); gl.uniform1f(u.uPop, Math.sin(Math.min(1, pop) * Math.PI) * (pop > 0 ? 1 : 0));
-        gl.uniform3f(u.uPopP, popP[0], popP[1], 0); gl.drawArrays(gl.TRIANGLES, 0, 3);
+        gl.uniform3f(u.uPopP, popP[0], popP[1], 0);
+        gl.uniform1f(u.uViewYaw, v.yaw || 0);
+        gl.uniform1f(u.uViewPitch, v.pitch || 0);
+        gl.uniform1f(u.uViewMove, v.move || 0);
+        gl.uniform1f(u.uViewUp, v.up || 0);
+        gl.uniform1f(u.uGlow, look("glow", 1));
+        gl.uniform1f(u.uHaze, look("haze", 1));
+        gl.uniform1f(u.uSpinScale, look("spin", 1));
+        gl.uniform1f(u.uWarmth, look("warmth", 1));
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, charge: charge }; },
+      debug: function () {
+        var v = K.view || {};
+        return { tier: T, charge: charge,
+          cam: [+(v.yaw || 0).toFixed(3), +(v.pitch || 0).toFixed(3), +(v.move || 0).toFixed(3), +(v.up || 0).toFixed(3)],
+          look: { glow: look("glow", 1), haze: look("haze", 1), spin: look("spin", 1), warmth: look("warmth", 1) }
+        };
+      },
       dispose: function () { gl.deleteProgram(pr.p); }
     };
   });
@@ -96,5 +115,16 @@
     { mod: "rift" },
     { mod: "particles", count: { low: .02, medium: .035, high: .05, max: .09 }[tier()], shape: "mote", size: 1.6, gravity: -.002, curl: 1.2, scale: 1.6, speed: .03, life: .05, c1: [.3, 1, .45], c2: [.8, 1, .4], alpha: .035, blend: "add", depth: .4, glint: .3, rake: .4 },
     { mod: "post", bloom: 1.05, threshold: .75, knee: .45, exposure: 1.0, aberr: .4, grain: .035, vig: .55, trails: .15 }
-  ] };
+  ],
+    room: { name: "The garage laboratory", yaw: [-.6, .6], pitch: [-.2, .2], move: [-1.5, 1.5], up: [-.5, .5],
+      unit: "m", sound: "plasma",
+      look: [
+        { id: "glow", label: "Glow", min: 0.2, max: 2, def: 1 },
+        { id: "haze", label: "Haze", min: 0, max: 2, def: 1 },
+        { id: "spin", label: "Spin", min: 0, max: 3, def: 1 },
+        { id: "warmth", label: "Warmth", min: 0.5, max: 1.5, def: 1 }
+      ],
+      touch: "Tap anywhere to pop a small pocket rift under your finger; press and hold to charge the main rift.",
+      opening: { dur: 5.0, from: { yaw: .3, pitch: -.1, move: -1.0, up: .2 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [.5, .5] } }
+  };
 })();
