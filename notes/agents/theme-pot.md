@@ -30,6 +30,7 @@ consolidate, rename, re-vibe, take creative liberty. Rebuild one at a time ("pul
 9. **Room (owner rule, 2026-10-29):** the world also runs as the theme's room: full screen, you move through it and touch it, its
    look controls and its five placed sounds (two beds, three details) are there to play with. Until step 5 of the plan reaches a theme,
    items 8-9 apply to new themes only.
+   How items 8 and 9 are built (the contract, the room data, the opening path, the gate): `docs/design/THEME_FRAMEWORK.md` (normative).
 
 ## Audit of the 20 → the new pot
 | Old (id) | Problem | New World | Vibe / hero render | FX | Ambience |

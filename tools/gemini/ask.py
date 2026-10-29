@@ -38,7 +38,7 @@ def ask(text, model, max_tokens, temperature, system=None):
         out, finish, usage = [], None, {}
         try:
             req = urllib.request.Request(API % model, data=data, headers={"Content-Type": "application/json", "x-goog-api-key": key()})
-            with urllib.request.urlopen(req, timeout=600, context=context()) as r:
+            with urllib.request.urlopen(req, timeout=240, context=context()) as r:   # a stream silent for 4 minutes has stalled
                 for raw in r:
                     line = raw.decode("utf-8", "replace").strip()
                     if not line.startswith("data:"): continue
@@ -52,8 +52,8 @@ def ask(text, model, max_tokens, temperature, system=None):
         except urllib.error.HTTPError as e:
             msg = e.read().decode("utf-8", "replace")[:400]
             if e.code not in (429, 500, 502, 503, 504) or attempt == 4: sys.exit("HTTP %d: %s" % (e.code, msg))
-        except Exception as e:  # dropped connection, timeout
-            if attempt == 4: sys.exit("failed: %s" % e)
+        except Exception as e:  # dropped connection, timeout (a stalled model is tried twice, not five times)
+            if attempt == 4 or ("timed out" in str(e) and attempt >= 1): sys.exit("failed: %s" % e)
         time.sleep(2 ** (attempt + 1))
 
 

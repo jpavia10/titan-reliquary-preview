@@ -40,3 +40,10 @@ Grok's Obsidian openings (gold v2 to v9 and gold-live) are in the owner's other 
 Drive or Gemini bundle, so this pass did not see them. Reviewed separately: `GROK_OBSIDIAN_20261029.md` (gold-live is plainly obsidian
 and beats the live Obsidian Sun opening as a direction; it becomes the starting point of the Obsidian room and opening).
 
+## Later the same day: the openings move onto the engine
+The theme framework is locked (`docs/design/THEME_FRAMEWORK.md`): an opening is now the theme's own world in opening mode, a camera path
+that ends on the backdrop view, so the separate-scene question this audit asked ("does a new opening beat the live one?") closes for every
+theme that gets there. Supercell, Tourbillon and Silver Screen open this way in the app; the rest follow as their worlds join the contract.
+The owner's test server (`jpavia10/titan-v6-splash-viewer`) still has Gemini's v6 theater (`theater.html`, all 54 v6 intros) for reference;
+its root is now a hub, marked rejected there, with Grok's review next to it.
+
