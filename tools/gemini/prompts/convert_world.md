@@ -39,5 +39,21 @@ WHAT TO CHANGE (and only this)
    Limits: wide enough to explore, never so wide the subject leaves the screen or the camera goes through a wall or the floor.
    The opening is a camera move that ends exactly on the backdrop view, with one tap (`hit` seconds in, at screen point `at`, y up)
    where the world reacts visibly.
+LESSONS FROM THE FIRST 16 CONVERSIONS (each one broke a world until it was fixed by hand; do not repeat them)
+- Limits: a phone screen is only about .46 screen heights wide. In a flat world (yaw/pitch pan in screen heights) keep yaw within
+  [-.15, .15], pitch within [-.12, .12] and up within [-.08, .08], unless your pan is scaled down; the subject must stay fully on screen
+  at every limit. A 3D world that orbits its subject may turn further.
+- move > 0 goes TOWARD the subject (zoom in). For a flat world use p *= exp(-move) (never 1 + move, which zooms out).
+- Every look control at its default (1) must leave the picture exactly as it is: multiply by look("id", 1), or use (look - 1) in an
+  offset. Never write x * (1 - look * k): at 1 that changes the backdrop.
+- A speed control never multiplies the clock (the picture jumps and the sound locked to the clock drifts): keep an offset,
+  off += dt * (look("speed", 1) - 1), add it to the time, and reset it to 0 when c.view.mode is "backdrop".
+- A 3D camera at the default view must be exactly the old eye and target (same position, same direction, same field of view, same
+  look-down offset); build the room camera as a rotation of the old view direction, not a new orbit radius.
+- debug() runs outside step/draw: store the view the world last drew (lastView = v in step or draw) and report that; never read c there.
+- Never drop or rename an existing uniform declaration. A new uniform's GLSL type must match how it is read (.w needs a vec4) and how it
+  is set (uniform4f for a vec4); never do arithmetic on a uniform location.
+- Close every bracket of the theme entry: K.themes.<id> = { stack: [ ... ], room: { ... } };
+
 8. Do not change anything else: no new effects, no renamed variables, no reformatting, no removed comments, GLSL ES 3.00 stays.
    Comments you add are short, plain English, in the same style as the file.
