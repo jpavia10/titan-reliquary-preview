@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-10-29] Claude: Grok's Obsidian openings reviewed, first theme room live on the test site, Numista prices to Gemini
+- Grok's Obsidian series in `jpavia10/titan-v6-splash-viewer` (gold v2-v9, gold-live) reviewed (`notes/agents/reviews/GROK_OBSIDIAN_20261029.md`, Grok row 32: 6/10): gold-live (live three.js black glass, sound drives the physics, a chill realm) beats the live Obsidian opening as a direction and becomes the Obsidian room's start; v8/v9 are films (rule 12).
+- World contract in `fx/kit.js` (`K.view`, `K.look`, `K.tap`, `ctx.view`); `fx/supercell.js` camera from uniforms (backdrop unchanged, smoke 38/38) + an orbit room; `TitanScape.face()` turns the listener. Supercell room + opening on the owner's test site `rooms/` (shell only there; world code synced by `tools/rooms/sync_test_site.sh`).
+- Gemini task 16: Numista price estimates for 268 issues of 173 types from the public entry pages (`docs/agents/projects/numista_values_20261029.json`, 3 Drive parts); answers `numista_values_gemini_*.json` in reviews-incoming. The API key was not put anywhere (Gemini's chat cannot send it; the repo secret is the owner's to add).
+
 ### [2026-10-29] Claude: openings audit, rule 12, depth upgrade plan
 - Every Gemini opening version (v4-v6, v8) was run in the app against the live one: none replaces a live opening (`notes/agents/reviews/OPENINGS_AUDIT_20261029.md`). New CLAUDE.md rule 12: openings run on the theme's own engine (no films), every theme gets a room, Scene Studio is rebuilt in depth (Claude builds it; plan `notes/agents/depth-upgrade.md`). Outside AIs: no new theme or opening packages; the sound hunt is the way to help.
 

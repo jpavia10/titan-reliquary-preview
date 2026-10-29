@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-29 02:37 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-29 03:53 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,6 +7,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).
 
 ## Finish first
+
+### Numista price estimates for every coin we hold (268 issues of 173 types)  (fix list #62)
+
+Joseph wants you to do the Numista price work (2026-10-29). The list is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/numista_values_20261029.json (and in your Drive sheet folder as 'NUMISTA VALUES for Gemini (2026-10-29) part N of 3.json'): for each type, its exact Numista entry (url) and the issues we hold (year, then mint letter). Open that entry, find the price estimates for each of those issues, and copy them per grade (vg, f, vf, xf, au, unc) in US dollars exactly as the page shows them, with the row quoted. Never a search page, another catalogue or another year's row; never convert a currency (name it in currency_shown); never estimate. An issue the page shows no estimate for goes in not_shown with the reason. Save numista_values_gemini_{YYYYMMDD-HHMM}.json in Drive 'Titan Reliquary/reviews-incoming (AI deep reviews)/' in the answer_shape the list gives; save again after every 10 types under the same name.
+
+**Done when:** Every issue on the list has its prices or a not_shown line. Claude checks a sample against the entries; the rows then go to the appraiser in the research loop (a coin's value changes only through a cited change file).
 
 ### Sound hunt: music and room sounds for your 16 themes (13 pieces of music, 80 field recordings)  (fix list #83)
 

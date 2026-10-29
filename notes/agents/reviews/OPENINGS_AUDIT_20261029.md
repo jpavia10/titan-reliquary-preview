@@ -34,3 +34,9 @@ live from code at the device's quality tier, never a film. None of the live open
 scene in `js/intros/{id}.js`. So the openings get rebuilt on the theme engines as part of the depth upgrade (see
 `notes/agents/depth-upgrade.md`), and these Gemini versions are not the starting point. Not scored again: v4-v6 and v8 were scored
 on 2026-10-27/28 (CONTRIBUTOR_SCORES rows 39-40); this pass confirms those scores by running every version in the app.
+
+## Missed in this pass, reviewed the same day
+Grok's Obsidian openings (gold v2 to v9 and gold-live) are in the owner's other repo, `jpavia10/titan-v6-splash-viewer`, not in any
+Drive or Gemini bundle, so this pass did not see them. Reviewed separately: `GROK_OBSIDIAN_20261029.md` (gold-live is plainly obsidian
+and beats the live Obsidian Sun opening as a direction; it becomes the starting point of the Obsidian room and opening).
+

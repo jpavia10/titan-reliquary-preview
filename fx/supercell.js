@@ -12,6 +12,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) { /* ignore */ }
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) { /* ignore */ }
@@ -20,10 +21,11 @@
   var TIERS = { low: [26, 3, .32], medium: [38, 4, .4], high: [56, 5, .5], max: [80, 5, .66] };
   // the camera is shared by the volume, the composite and the JS that places flashes, so all three agree on where things are
   var CAM = { o: [0, .25, 0], pitch: .16, fov: .95 };
+  // CAM is the backdrop view; the room moves away from it (world contract in fx/kit.js: ctx.view yaw, pitch, move, up)
   var CAM_GLSL = [
-    "vec3 camRay(vec2 uv, float A){ vec2 p=(uv-.5)*vec2(A,1.); vec3 f=normalize(vec3(0.," + CAM.pitch.toFixed(3) + ",1.)); vec3 r=normalize(cross(vec3(0.,1.,0.),f)); vec3 u=cross(f,r);",
-    "  return normalize(f+(p.x*r+p.y*u)*" + CAM.fov.toFixed(3) + "); }",
-    "const vec3 CO=vec3(" + CAM.o.join(",") + ");"
+    "uniform vec3 uCO, uCF, uCR, uCU; uniform float uFov;",
+    "vec3 camRay(vec2 uv, float A){ vec2 p=(uv-.5)*vec2(A,1.); return normalize(uCF+(p.x*uCR+p.y*uCU)*uFov); }",
+    "#define CO uCO", ""
   ].join("\n");
   var N3 = [
     "float h31(vec3 p){ p=fract(p*.3183099+vec3(.1,.2,.3)); p*=17.; return fract(p.x*p.y*p.z*(p.x+p.y+p.z)); }",
@@ -34,12 +36,12 @@
 
   /* ---- the volume ---- */
   var VOL = function (steps, oct) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + N3 + "\n" + CAM_GLSL + [
-    "uniform vec2 uRes; uniform float uT, uA; uniform vec3 uC; uniform vec4 uF[4]; uniform vec2 uSway;",
+    "uniform vec2 uRes; uniform float uT, uA, uTr, uRain, uSun; uniform vec3 uC; uniform vec4 uF[4]; uniform vec2 uSway;",
     "#define STEPS " + steps, "#define OCT " + oct,
     "float fb3(vec3 p){ float s=0., a=.5; for(int i=0;i<OCT;i++){ s+=a*vn3(p); p=p*2.03+vec3(1.7,9.2,3.1); a*=.5; } return s; }",
     // storm shape in storm-local space (km): tower, anvil + overshooting dome, striated rotating base shelf, wall cloud
     "float shape(vec3 q, out float ang, out float r){ float y=q.y;",
-    "  float a=uT*.045*(1.5-y*.11); float c=cos(a), s=sin(a); q.xz=mat2(c,-s,s,c)*q.xz; r=length(q.xz); ang=atan(q.z,q.x);",
+    "  float a=uTr*.045*(1.5-y*.11); float c=cos(a), s=sin(a); q.xz=mat2(c,-s,s,c)*q.xz; r=length(q.xz); ang=atan(q.z,q.x);",
     "  float lean=max(0.,y-1.5)*.16; float rt=length(vec2(q.x-lean,q.z));",
     "  float ta=atan(q.z,q.x-lean); float bump=1.3*(vn3(vec3(ta*1.6,y*.55,1.))-.5)+.7*(vn3(q*vec3(.55,.4,.55)+2.)-.5);",   // turrets and bulges, not a cylinder
     "  float tower=smoothstep(mix(3.8,2.4,smoothstep(1.5,7.5,y))+bump,.8+bump*.5,rt)*smoothstep(1.4,2.6,y)*smoothstep(9.6,8.0,y);",
@@ -52,7 +54,7 @@
     "  float wall=smoothstep(1.7,.6,r)*smoothstep(.42,.78,y)*smoothstep(1.45,1.05,y);",
     "  return max(max(tower,anvil),max(shelf,wall)); }",
     "float dens(vec3 p, out float rain){ vec3 q=p-uC; float ang, r; float b=shape(q,ang,r); rain=0.;",
-    "  if(q.y<1.25){ rain=.2*smoothstep(3.4,1.6,r+.6*vn3(vec3(q.xz*.6,1.)))*smoothstep(1.25,.95,q.y)*(.45+.55*vn3(vec3(q.x*2.6,(q.y+uT*1.7)*.35,q.z*2.6))); }",
+    "  if(q.y<1.25){ rain=.2*uRain*smoothstep(3.4,1.6,r+.6*vn3(vec3(q.xz*.6,1.)))*smoothstep(1.25,.95,q.y)*(.45+.55*vn3(vec3(q.x*2.6,(q.y+uT*1.7)*.35,q.z*2.6))); }",
     "  if(b<.02) return 0.;",
     "  vec3 w=q*vec3(.42,.5,.42)+vec3(uT*.01,-uT*.02,0.); w+=.9*vec3(vn3(w*.7+5.),vn3(w*.7+11.),vn3(w*.7+17.))-.45;",
     "  float n=fb3(w*1.35);",
@@ -63,7 +65,7 @@
     "void main(){ vec2 uv=gl_FragCoord.xy/uRes; vec3 rd=camRay(uv,uA); rd.x+=uSway.x*.02; rd=normalize(rd);",
     "  vec2 tb=box(CO,rd,uC+vec3(-12.,-.05,-11.),uC+vec3(13.,11.,11.)); if(tb.y<=max(tb.x,0.)){ o=vec4(0.); return; }",
     "  float t0=max(tb.x,0.), t1=tb.y, dt=(t1-t0)/float(STEPS); float t=t0+dt*h21(gl_FragCoord.xy+fract(uT)*7.);",
-    "  vec3 Ls=normalize(vec3(-.78,.2,-.58)); vec3 sunC=vec3(1.,.5,.24)*1.55, skyC=vec3(.05,.07,.12), fogC=vec3(.32,.22,.22);",
+    "  vec3 Ls=normalize(vec3(-.78,.2,-.58)); vec3 sunC=vec3(1.,.5,.24)*1.55*uSun, skyC=vec3(.05,.07,.12), fogC=vec3(.32,.22,.22);",
     "  vec3 col=vec3(0.); float T=1.;",
     "  for(int i=0;i<STEPS;i++){ if(T<.02) break; vec3 p=CO+rd*t; float rain; float d=dens(p,rain);",
     "    float dd=d+rain;",
@@ -81,7 +83,7 @@
 
   /* ---- the composite: sky, ground, the volume, bolts ---- */
   var COMP = "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + "\n" + CAM_GLSL + [
-    "uniform vec2 uRes; uniform float uT, uA, uFl; uniform sampler2D uV; uniform vec4 uB[2]; uniform vec4 uBI[2]; uniform vec2 uSway;",
+    "uniform vec2 uRes; uniform float uT, uA, uFl, uSun; uniform sampler2D uV; uniform vec4 uB[2]; uniform vec4 uBI[2]; uniform vec2 uSway;",
     "float boltX(float s, vec4 b, float seed){ return mix(b.z,b.x,s)+(vn(vec2(s*7.,seed))-.5)*.07*(1.-s*.3)+(vn(vec2(s*24.,seed*3.1))-.5)*.016+(vn(vec2(s*70.,seed*7.7))-.5)*.003; }",
     "float boltD(vec2 p, vec4 b, float seed, out float s){ float top=b.y, bot=b.w; s=clamp((p.y-bot)/(top-bot),0.,1.);",
     "  float x=boltX(s,b,seed), sl=(boltX(s+.004,b,seed)-x)/(.004*(top-bot));",                // the zigzag's slope: perpendicular distance, so the line never breaks into dots
@@ -90,7 +92,7 @@
     "  vec3 Ls=normalize(vec3(-.78,.2,-.58)); vec2 sunDir=normalize(vec2(Ls.x,Ls.z));",
     // dusk sky: deep blue overhead, mauve, a burning band on the horizon, the sun's glow off to the left behind us
     "  float e=rd.y; vec3 sky=mix(vec3(.5,.24,.13),vec3(.2,.13,.17),smoothstep(0.,.12,e)); sky=mix(sky,vec3(.04,.055,.1),smoothstep(.1,.5,e));",
-    "  float az=dot(normalize(rd.xz),-sunDir); sky+=vec3(1.,.45,.15)*pow(max(0.,1.-abs(e)*6.),3.)*(.35+.65*smoothstep(-.6,1.,-rd.x))*.6;",
+    "  float az=dot(normalize(rd.xz),-sunDir); sky+=vec3(1.,.45,.15)*pow(max(0.,1.-abs(e)*6.),3.)*(.35+.65*smoothstep(-.6,1.,-rd.x))*.6*uSun;",
     "  sky*=1.+uFl*vec3(.6,.7,.95)*1.8;",                                                                           // the whole sky lights with a flash
     "  vec3 col=sky;",
     "  if(e<0.){ float tg=-CO.y/e; vec3 g=CO+rd*tg; float far=1.-exp(-tg*.06);",
@@ -119,48 +121,60 @@
       var f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f); gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0); rt = { t: t, f: f, w: w, h: h }; }
 
     /* camera maths in JS (same as camRay) to place flashes and bolts */
-    function basis() { var f = norm([0, CAM.pitch, 1]), r = norm(cross([0, 1, 0], f)), u = cross(f, r); return { f: f, r: r, u: u }; }
+    // yaw orbits the camera around a pivot ORBIT km ahead of the backdrop view (the storm), so the storm stays in view from every side;
+    // pitch tilts the view, move dollies toward the pivot, up raises the camera. yaw = pitch = move = up = 0 is the backdrop view exactly.
+    var ORBIT = 15;
+    function basis(v) { var yaw = v && v.yaw || 0, pit = Math.tan(Math.atan(CAM.pitch) + (v && v.pitch || 0)), cy = Math.cos(yaw), sy = Math.sin(yaw);
+      var f0 = norm([0, pit, 1]), f = [f0[2] * sy, f0[1], f0[2] * cy], r = norm(cross([0, 1, 0], f)), u = cross(f, r), d = ORBIT - (v && v.move || 0);
+      O = [CAM.o[0] - sy * d, CAM.o[1] + (v && v.up || 0), CAM.o[2] + ORBIT - cy * d]; return { f: f, r: r, u: u, h: [sy, 0, cy] }; }
     function norm(v) { var l = Math.hypot(v[0], v[1], v[2]) || 1; return [v[0] / l, v[1] / l, v[2] / l]; }
     function cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
     function dot(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
-    var B = basis();
+    var O = CAM.o.slice(), B = basis();
     function ray(uvx, uvy, A) { var px = (uvx - .5) * A, py = uvy - .5; return norm([B.f[0] + (px * B.r[0] + py * B.u[0]) * CAM.fov, B.f[1] + (px * B.r[1] + py * B.u[1]) * CAM.fov, B.f[2] + (px * B.r[2] + py * B.u[2]) * CAM.fov]); }
-    function proj(P, A) { var d = norm([P[0] - CAM.o[0], P[1] - CAM.o[1], P[2] - CAM.o[2]]); var z = dot(d, B.f); return [dot(d, B.r) / z / CAM.fov / A + .5, dot(d, B.u) / z / CAM.fov + .5]; }
-    function onPlane(uvx, A, zc) { var d = ray(uvx, .5, A); var k = (zc - CAM.o[2]) / d[2]; return CAM.o[0] + d[0] * k; }
+    function proj(P, A) { var d = norm([P[0] - O[0], P[1] - O[1], P[2] - O[2]]); var z = dot(d, B.f); if (z < .05) return null; return [dot(d, B.r) / z / CAM.fov / A + .5, dot(d, B.u) / z / CAM.fov + .5]; }
+    // where a screen x meets the storm: on the plane through the storm centre that faces the way we look (z = the centre's z when we look straight)
+    function onPlane(uvx, A, zc) { var d = ray(uvx, .5, A), C = center(A), dz = (C[0] - O[0]) * B.h[0] + (zc - O[2]) * B.h[2], k = dz / Math.max(.05, d[0] * B.h[0] + d[2] * B.h[2]);
+      return [O[0] + d[0] * k, O[2] + d[2] * k]; }
     function center(A) { return [A > 1 ? 1.2 : .2, 0, A > 1 ? 15 : 16]; }
 
     /* flashes: in-cloud lights (4 slots) and ground strikes (2 slots), each with a few return strokes */
     var flashes = [], bolts = [], nextOwn = 2 + Math.random() * 3, lastScape = -99, seen = K.ptr.tap, tNow = 0, Aspect = 1;
     var STROKES = [[0, 1], [.07, .7], [.15, .9], [.31, .45]];
     function env(age) { var v = 0; for (var i = 0; i < STROKES.length; i++) { var o = STROKES[i][0]; if (age >= o) v += STROKES[i][1] * Math.exp(-(age - o) * 16); } return age > 1.2 ? 0 : v; }
-    function inCloud(x, power) { var C = center(Aspect), X = x == null ? C[0] + (Math.random() - .5) * 6 : onPlane(x, Aspect, C[2]);
-      flashes.push({ P: [X, 2.5 + Math.random() * 5.5, C[2] + (Math.random() - .5) * 3], t: tNow, p: power || 1 }); if (flashes.length > 4) flashes.shift(); }
+    function inCloud(x, power) { var C = center(Aspect), X = x == null ? [C[0] + (Math.random() - .5) * 6, C[2]] : onPlane(x, Aspect, C[2]);
+      flashes.push({ P: [X[0], 2.5 + Math.random() * 5.5, X[1] + (Math.random() - .5) * 3], t: tNow, p: power || 1 }); if (flashes.length > 4) flashes.shift(); }
+    // a bolt keeps its place in the world (top and ground point) and is projected every frame, so it stays put while the room camera moves
     function strike(x, power) { var C = center(Aspect), X = onPlane(x == null ? .3 + Math.random() * .4 : x, Aspect, C[2]);
-      var top = [X, 1.05, C[2] - .5], gnd = [X + (Math.random() - .5) * 1.4, 0, C[2] - 2 - Math.random() * 3];
-      var a = proj(top, Aspect), b = proj(gnd, Aspect);
-      bolts.push({ b: [a[0], a[1], b[0], Math.max(b[1], .02)], t: tNow, seed: Math.random() * 100, p: power || 1 }); if (bolts.length > 2) bolts.shift();
-      flashes.push({ P: [X, 1.3, C[2] - .3], t: tNow, p: (power || 1) * 1.4 }); if (flashes.length > 4) flashes.shift(); }
+      var top = [X[0], 1.05, X[1] - .5], gnd = [X[0] + (Math.random() - .5) * 1.4, 0, X[1] - 2 - Math.random() * 3];
+      bolts.push({ top: top, gnd: gnd, t: tNow, seed: Math.random() * 100, p: power || 1 }); if (bolts.length > 2) bolts.shift();
+      flashes.push({ P: [X[0], 1.3, X[1] - .3], t: tNow, p: (power || 1) * 1.4 }); if (flashes.length > 4) flashes.shift(); }
     function onScape(e) { var d = e.detail || {}; if (d.type !== "flash") return; lastScape = tNow;
       var dist = d.dist == null ? 3 : d.dist, x = d.x == null ? null : Math.min(.92, Math.max(.08, d.x)); if (dist < 1.4) strike(x, d.power); else inCloud(x, d.power); }
     addEventListener("titan:scape", onScape);
-    var F = new Float32Array(16), UB = new Float32Array(8), UBI = new Float32Array(8);
+    var F = new Float32Array(16), UB = new Float32Array(8), UBI = new Float32Array(8), trOff = 0;
 
     return { name: "supercell",
-      step: function (c) { tNow = c.t; Aspect = c.w / c.h; var P = c.ptr;
+      step: function (c) { tNow = c.t; Aspect = c.w / c.h; var P = c.ptr, v = c.view || {}; B = basis(v); trOff += (look("spin", 1) - 1) * c.dt;
         if (P.tap !== seen) { seen = P.tap; strike(P.tx, 1.3);
           try { dispatchEvent(new CustomEvent("titan:fx", { detail: { type: "lightning", dist: .7, x: P.tx, power: 1, from: "scene" } })); } catch (e) { /* ignore */ } }
-        if (c.t - lastScape > 25 && c.t > nextOwn) { if (Math.random() < .28) strike(null, .9); else inCloud(null, .8 + Math.random() * .5); nextOwn = c.t + 3 + Math.random() * 7; } },
+        var rate = look("lightning", 1);
+        if (c.t - lastScape > 25 && c.t > nextOwn && rate > 0) { if (Math.random() < .28) strike(null, .9); else inCloud(null, .8 + Math.random() * .5); nextOwn = c.t + (3 + Math.random() * 7) / rate; } },
       draw: function (c) {
         var A = c.w / c.h, C = center(A), w = Math.max(2, Math.round(c.w * cfg[2])), h = Math.max(2, Math.round(c.h * cfg[2])); mk(w, h);
         var sum = 0; F.fill(0); for (var i = 0; i < flashes.length; i++) { var f = flashes[i], I = env(c.t - f.t) * f.p; F.set([f.P[0], f.P[1], f.P[2], I], i * 4); sum += I; }
-        UB.fill(0); UBI.fill(0); for (i = 0; i < bolts.length; i++) { var b = bolts[i], bi = env(c.t - b.t) * b.p; UB.set(b.b, i * 4); UBI.set([bi, b.seed, 0, 0], i * 4); }
-        var sway = [(c.ptr.x - .5), (c.ptr.y - .5)];
+        UB.fill(0); UBI.fill(0); for (i = 0; i < bolts.length; i++) { var b = bolts[i], bi = env(c.t - b.t) * b.p, ta = proj(b.top, A), gb = proj(b.gnd, A); if (!ta || !gb) continue;
+          UB.set([ta[0], ta[1], gb[0], Math.max(gb[1], .02)], i * 4); UBI.set([bi, b.seed, 0, 0], i * 4); }
+        var room = c.view && c.view.mode === "room", sway = room ? [0, 0] : [(c.ptr.x - .5), (c.ptr.y - .5)], sun = look("sun", 1);
+        function cam(u) { gl.uniform3f(u.uCO, O[0], O[1], O[2]); gl.uniform3f(u.uCF, B.f[0], B.f[1], B.f[2]); gl.uniform3f(u.uCR, B.r[0], B.r[1], B.r[2]); gl.uniform3f(u.uCU, B.u[0], B.u[1], B.u[2]); gl.uniform1f(u.uFov, CAM.fov); }
         gl.bindFramebuffer(gl.FRAMEBUFFER, rt.f); gl.viewport(0, 0, w, h); gl.disable(gl.BLEND); gl.useProgram(pv.p); var u = pv.u;
         gl.uniform2f(u.uRes, w, h); gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uA, A); gl.uniform3f(u.uC, C[0], C[1], C[2]); gl.uniform4fv(u.uF, F); gl.uniform2f(u.uSway, sway[0], sway[1]);
+        cam(u); gl.uniform1f(u.uTr, c.t + trOff); gl.uniform1f(u.uRain, look("rain", 1)); gl.uniform1f(u.uSun, sun);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pc.p); u = pc.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, rt.t); gl.uniform1i(u.uV, 0);
         gl.uniform2f(u.uRes, c.w, c.h); gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uA, A); gl.uniform1f(u.uFl, Math.min(1.5, sum * .35)); gl.uniform4fv(u.uB, UB); gl.uniform4fv(u.uBI, UBI); gl.uniform2f(u.uSway, sway[0], sway[1]);
+        cam(u); gl.uniform1f(u.uSun, sun);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
       debug: function () { return { tier: T, steps: cfg[0], res: cfg[2], flashes: flashes.length, bolts: bolts.length }; },
@@ -170,5 +184,12 @@
   K.themes.supercell = { stack: [
     { mod: "supercell" },
     { mod: "post", bloom: 1.2, threshold: .75, knee: .5, exposure: .95, aberr: .1, grain: .035, vig: .55 }
-  ] };
+  ],
+    // the room: how far you may look and move (radians, km), the named look controls, and its soundscape (audio/scape preset)
+    room: { name: "The plains under the storm", yaw: [-3.1, 3.1], pitch: [-.12, .6], move: [-4, 8], up: [0, 3], orbit: true, unit: "km", sound: "storm",
+      look: [{ id: "rain", label: "Rain", min: 0, max: 2.5, def: 1, scape: "rain" }, { id: "lightning", label: "Lightning", min: 0, max: 4, def: 1, scape: "intensity" },
+        { id: "spin", label: "Rotation", min: 0, max: 6, def: 1 }, { id: "sun", label: "Sunset", min: .2, max: 2, def: 1 }],
+      touch: "Tap the sky: a ground strike where you tapped, and its thunder.",
+      // the opening on this engine: a camera move from the dark plains up to the storm, a strike, then the name
+      opening: { dur: 5.2, from: { yaw: .62, pitch: -.1, move: -2.6, up: 0 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.1, at: [.5, .56] } } };
 })();

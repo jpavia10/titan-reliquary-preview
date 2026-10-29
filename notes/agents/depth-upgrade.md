@@ -58,6 +58,25 @@ The Moodist sounds are replaced as licence-clean recordings arrive.
 5. **The other 15 GPU worlds**, then the 32 themes without one (each needs a world before it can have a room).
 6. **Ambience v5** with the sound-hunt recordings as they pass review.
 
+## Status (2026-10-29)
+- **Test site (owner: "Grok already made a github test pave for them u can use my other github site"):** the rooms and openings are
+  tried on `jpavia10/titan-v6-splash-viewer`, folder `rooms/` (`https://jpavia10.github.io/titan-v6-splash-viewer/rooms/`). The room shell
+  (`rooms/room.html`, `room.js`, `room.css`, hub `index.html`) lives only there; the world code and the sounds are the app's own, copied by
+  `tools/rooms/sync_test_site.sh` (never edit them in the test site). Pages there also needs a stamp commit through the connector
+  (`rooms/DEPLOY_STAMP.txt`), like rule 0.
+- **Step 1 done for Supercell:** the kit has the world contract (`K.view` mode/yaw/pitch/move/up/look, `K.look(id, def)`, `K.tap(x, y)`,
+  `ctx.view`); `fx/supercell.js` takes its camera from uniforms (backdrop unchanged: same frame within run-to-run noise, smoke 38/38),
+  orbits the storm in the room (yaw circles a pivot 15 km ahead, so the storm stays in view from every side, backlit from the far
+  side), keeps bolts in world space, and lists its room in `K.themes.supercell.room` (limits, four look controls with their soundscape
+  parameters, the touch, the opening path). Soundscape: `TitanScape.face(yaw, pitch)` turns the listener with the camera.
+- **Room v1 + opening v1 for Supercell** on the test site: drag orbits, pinch or scroll moves in, tap = a ground strike and its
+  thunder, tilt the phone to look, Look / Sound / Quality panels as frosted glass planes that slide against each other, and the
+  opening in the same world (out of black, the camera swings in, a strike, the name). Not yet on a real phone.
+- **Grok's ideas carried into the contract next** (from `gold-live`, `notes/agents/reviews/GROK_OBSIDIAN_20261029.md`): `K.shock(x, y, p)`
+  and `K.audioCouple(analyser)` so a sound's low end (a boom, thunder) pushes a world's particles, and a render scale per tier.
+  The Obsidian room starts from gold-live's black-glass point on the shared kit.
+- Next: Tourbillon and Silver Screen rooms, then the Obsidian room, then step 3 (the app's openings on the engine).
+
 ## Decisions for the owner (asked in the readiness report)
 - The Grok opening films: under rule 12 they stop playing; remove them from the site (frees about 430 MB of the 1 GB limit) or keep
   them as files only.

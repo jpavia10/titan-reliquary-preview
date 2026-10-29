@@ -10,6 +10,11 @@
   var K = window.TitanFXK = window.TitanFXK || { mods: {}, themes: {} };
   K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js", supercell: "fx/supercell.js", tourbillon: "fx/tourbillon.js", darkroom: "fx/darkroom.js", silverscreen: "fx/silverscreen.js", canopy: "fx/canopy.js", glasshouse: "fx/glasshouse.js", orbit: "fx/orbit.js", sahel: "fx/sahel.js", nocturne: "fx/nocturne.js", zen: "fx/zen.js", saltflat: "fx/saltflat.js", lightwell: "fx/lightwell.js", obsidian: "fx/obsidian.js" };   /* a list loads in order */
   K.mod = function (name, f) { K.mods[name] = f; };
+  /* world contract (depth upgrade, notes/agents/depth-upgrade.md): one world runs as the backdrop (default, unchanged), the opening or
+     the theme's room. A world reads ctx.view: mode, the camera offset from its own view (yaw and pitch in radians, move = metres along
+     the view, up = metres) and look = its named controls (each world lists them in K.themes[id].room.look; a missing one = its default). */
+  K.view = K.view || { mode: "backdrop", yaw: 0, pitch: 0, move: 0, up: 0, look: {} };
+  K.look = function (id, def) { var v = K.view.look && K.view.look[id]; return v == null ? def : v; };
   var root = document.documentElement, cv = null, gl = null, active = null, raf = 0, last = 0, t0 = performance.now();
   var lite = function () { try { return localStorage.getItem("tr_lite_v1") === "1"; } catch (e) { return false; } };   /* owner rule: assume a capable GPU; only an explicit Lite choice scales down */
   var still = function () { var m = root.dataset.motion; return m === "calm" || m === "off" || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); };
@@ -19,6 +24,8 @@
   K.quality = function () { return Q.q; };
   /* pointer: position in canvas uv (0..1, y up), velocity, down flag; also a short history used for raking */
   var ptr = K.ptr = { x: .5, y: .5, vx: 0, vy: 0, down: 0, t: 0, tap: -9, tx: .5, ty: .5 };
+  /* a tap from a page that reads the pointer itself (the room: a drag looks around, only a short tap reaches the world) */
+  K.tap = function (x, y) { ptr.x = ptr.tx = x; ptr.y = ptr.ty = y; ptr.t = performance.now(); ptr.tap = (ptr.t - t0) / 1000; };
   function pmove(e) { var nx = e.clientX / innerWidth, ny = 1 - e.clientY / innerHeight, now = performance.now(), dt = Math.max(8, now - ptr.t);
     ptr.vx = ptr.vx * .5 + (nx - ptr.x) / dt * 1000 * .5; ptr.vy = ptr.vy * .5 + (ny - ptr.y) / dt * 1000 * .5; ptr.x = nx; ptr.y = ny; ptr.t = now; }
   addEventListener("pointermove", pmove, { passive: true });
@@ -98,7 +105,7 @@
     scanObs(performance.now()); size();
     gl.viewport(0, 0, cv.width, cv.height); gl.bindFramebuffer(gl.FRAMEBUFFER, null);
     gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
-    var ctx = { t: t, dt: dt, w: cv.width, h: cv.height, q: Q.q, lite: lite(), still: still(), ptr: ptr, obs: obs, obsN: obsN, cfg: active.cfg, id: active.id };
+    var ctx = { t: t, dt: dt, w: cv.width, h: cv.height, q: Q.q, lite: lite(), still: still(), ptr: ptr, obs: obs, obsN: obsN, cfg: active.cfg, id: active.id, view: K.view };
     for (var i = 0; i < active.parts.length; i++) active.parts[i].step && active.parts[i].step(ctx);
     if (active.post) { ensureHdr(cv.width, cv.height); K.bindTarget(); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); } else K.bindTarget();
     for (i = 0; i < active.parts.length; i++) { if (active.parts[i].name !== "post") K.bindTarget(); active.parts[i].draw(ctx); }

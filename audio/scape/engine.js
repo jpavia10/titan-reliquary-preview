@@ -283,6 +283,13 @@
   function setVolume(v) { vol = clamp(v, 0, 1); try { localStorage.setItem("tr_scape_vol", vol); } catch (e) {} if (master && !muted) master.gain.setTargetAtTime(vol, ctx.currentTime, .1); }
   function sleep(min) { clearTimeout(sleepT); if (!min) return; sleepT = setTimeout(function () { master.gain.setTargetAtTime(0, ctx.currentTime, 20); setTimeout(function () { stopAll(1); master.gain.value = muted ? 0 : vol; }, 70000); }, min * 60000); }
 
+  /* the listener turns with a room's camera (yaw right = positive, pitch up = positive, radians): sounds stay where they are in the
+     room while you look around. Positions in presets are metres with the listener facing -z at yaw 0. */
+  function face(yaw, pitch) { if (!init()) return; var L = ctx.listener, cp = Math.cos(pitch || 0), fx = Math.sin(yaw) * cp, fy = Math.sin(pitch || 0), fz = -Math.cos(yaw) * cp;
+    var ux = -Math.sin(yaw) * fy, uy = cp, uz = Math.cos(yaw) * fy, t = ctx.currentTime;
+    if (L.forwardX) { L.forwardX.setTargetAtTime(fx, t, .03); L.forwardY.setTargetAtTime(fy, t, .03); L.forwardZ.setTargetAtTime(fz, t, .03);
+      L.upX.setTargetAtTime(ux, t, .03); L.upY.setTargetAtTime(uy, t, .03); L.upZ.setTargetAtTime(uz, t, .03); } else if (L.setOrientation) L.setOrientation(fx, fy, fz, ux, uy, uz); }
+
   window.TitanScape = {
     define: def, presets: PRESETS, play: play, stop: function () { if (ctx) stopAll(1.2); },
     attach: function (c, dest) { if (ctx) return ctx === c; ext = { ctx: c, dest: dest }; init(); return true; },
@@ -290,7 +297,7 @@
     get current() { return preset && preset.id; }, layers: function () { return layers.map(function (L) { return { id: L.id, label: L.label, gain: L.user }; }); },
     setLayer: function (id, g) { layers.forEach(function (L) { if (L.id === id) { L.user = g; L.level(.3); } }); },
     setParam: setParam, params: P, setVolume: setVolume, get volume() { return vol; }, setMuted: setMuted, get muted() { return muted; },
-    duck: duck, sidechain: sidechain, sleep: sleep, fx: function (d) { if (preset && preset.on && ctx) preset.on(d, ctx.currentTime); },
+    duck: duck, sidechain: sidechain, sleep: sleep, face: face, fx: function (d) { if (preset && preset.on && ctx) preset.on(d, ctx.currentTime); },
     _dbg: function () { return layers.map(function (L) { return L.id + ":" + L.g.gain.value.toFixed(3) + "/" + L.mod; }).join(" ") + " ctxT=" + ctx.currentTime.toFixed(1); }, on: function (t, f) { (listeners[t] = listeners[t] || []).push(f); }, spaces: SPACES, _S: S
   };
 })();

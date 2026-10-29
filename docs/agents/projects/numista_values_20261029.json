@@ -1,0 +1,1702 @@
+{
+ "about": "Numista price estimates for every coin type we hold that has a Numista number (owner, 2026-10-29: Gemini does the Numista work through homework). For each type: open its url (the exact Numista entry), find the price estimates for each issue we hold (year, then mint letter), and copy them in US dollars, per grade, exactly as the page shows them.",
+ "agent": "gemini",
+ "made": "2026-10-29",
+ "types_n": 173,
+ "issues_n": 268,
+ "save": "numista_values_gemini_{YYYYMMDD-HHMM}.json in Drive 'Titan Reliquary/reviews-incoming (AI deep reviews)/'; save again after every 10 types under the same name",
+ "answer_shape": {
+  "source": "Numista catalogue pages, read by Gemini",
+  "made": "2026-10-29T15:30:00Z",
+  "types": {
+   "XX.EXAMPLE": {
+    "numista": 0,
+    "url": "the url from the list, exactly",
+    "currency_shown": "USD",
+    "issues": {
+     "1968 B": {
+      "prices": {
+       "vg": 0.0,
+       "f": 0.0,
+       "vf": 0.0,
+       "xf": 0.0,
+       "au": 0.0,
+       "unc": 0.0
+      },
+      "quote": "the price row exactly as printed on the page"
+     }
+    }
+   }
+  },
+  "not_shown": [
+   {
+    "type": "XX.EXAMPLE",
+    "numista": 0,
+    "issue": "1975",
+    "why": "e.g. the entry shows no estimates for 1975, or prices need sign-in"
+   }
+  ]
+ },
+ "rules": [
+  "Only the url given for the type: never a search page, never another catalogue, never another year's row.",
+  "Grades as Numista names them (vg, f, vf, xf, au, unc; g if shown). Leave out a grade the page has no price for.",
+  "US dollars: if the page lets you pick the currency, pick USD; if it only shows another currency, copy that currency and name it in currency_shown. Never convert.",
+  "If the page shows no estimate for an issue (or needs sign-in), put that issue in not_shown with the reason. Never estimate, never fill from memory.",
+  "The issue key is the year then the mint letter exactly as in issues (e.g. '1968 B', '2002 D', '1979').",
+  "The example in answer_shape is made up (XX.EXAMPLE, zeros): never copy its numbers."
+ ],
+ "types": [
+  {
+   "type": "AR.X.5-centavos",
+   "numista": 4835,
+   "url": "https://en.numista.com/catalogue/pieces4835.html",
+   "coin": "AR 5 centavos",
+   "issues": [
+    "1954"
+   ]
+  },
+  {
+   "type": "AT.KM.2826",
+   "numista": 6133,
+   "url": "https://en.numista.com/catalogue/pieces6133.html",
+   "coin": "AT 20 heller",
+   "issues": [
+    "1918"
+   ]
+  },
+  {
+   "type": "AT.X.2-groschen",
+   "numista": 1944,
+   "url": "https://en.numista.com/catalogue/pieces1944.html",
+   "coin": "AT 2 groschen",
+   "issues": [
+    "1925"
+   ]
+  },
+  {
+   "type": "AU.KM.36",
+   "numista": 5788,
+   "url": "https://en.numista.com/catalogue/pieces5788.html",
+   "coin": "AU 1 penny",
+   "issues": [
+    "1944"
+   ]
+  },
+  {
+   "type": "AU.KM.37",
+   "numista": 2980,
+   "url": "https://en.numista.com/catalogue/pieces2980.html",
+   "coin": "AU 3 pence",
+   "issues": [
+    "1943 S"
+   ]
+  },
+  {
+   "type": "AU.KM.66",
+   "numista": 1003,
+   "url": "https://en.numista.com/catalogue/pieces1003.html",
+   "coin": "AU 20 cents",
+   "issues": [
+    "1966"
+   ]
+  },
+  {
+   "type": "AU.X.1-cent",
+   "numista": 1559,
+   "url": "https://en.numista.com/catalogue/pieces1559.html",
+   "coin": "AU 1 cent",
+   "issues": [
+    "1983"
+   ]
+  },
+  {
+   "type": "AU.X.10-cents",
+   "numista": 1565,
+   "url": "https://en.numista.com/catalogue/pieces1565.html",
+   "coin": "AU 10 cents",
+   "issues": [
+    "2006"
+   ]
+  },
+  {
+   "type": "BM.X.10-cents",
+   "numista": 3214,
+   "url": "https://en.numista.com/catalogue/pieces3214.html",
+   "coin": "BM 10 cents",
+   "issues": [
+    "2004"
+   ]
+  },
+  {
+   "type": "BR.KM.648.1",
+   "numista": 1049,
+   "url": "https://en.numista.com/catalogue/pieces1049.html",
+   "coin": "BR 5 centavos",
+   "issues": [
+    "2006"
+   ]
+  },
+  {
+   "type": "BS.X.1-cent",
+   "numista": 92216,
+   "url": "https://en.numista.com/catalogue/pieces92216.html",
+   "coin": "BS 1 cent",
+   "issues": [
+    "2015"
+   ]
+  },
+  {
+   "type": "BS.X.25-cents",
+   "numista": 9352,
+   "url": "https://en.numista.com/catalogue/pieces9352.html",
+   "coin": "BS 25 cents",
+   "issues": [
+    "1984"
+   ]
+  },
+  {
+   "type": "BS.X.5-cents",
+   "numista": 5010,
+   "url": "https://en.numista.com/catalogue/pieces5010.html",
+   "coin": "BS 5 cents",
+   "issues": [
+    "1984"
+   ]
+  },
+  {
+   "type": "BZ.X.25-cents",
+   "numista": 2238,
+   "url": "https://en.numista.com/catalogue/pieces2238.html",
+   "coin": "BZ 25 cents",
+   "issues": [
+    "2007"
+   ]
+  },
+  {
+   "type": "CA.KM.33",
+   "numista": 413,
+   "url": "https://en.numista.com/catalogue/pieces413.html",
+   "coin": "CA 5 cents",
+   "issues": [
+    "1939"
+   ]
+  },
+  {
+   "type": "CH.KM.21a",
+   "numista": 189,
+   "url": "https://en.numista.com/catalogue/pieces189.html",
+   "coin": "CH 2 francs",
+   "issues": [
+    "1968 B",
+    "1974",
+    "1981 B"
+   ]
+  },
+  {
+   "type": "CH.KM.21a.3",
+   "numista": 189,
+   "url": "https://en.numista.com/catalogue/pieces189.html",
+   "coin": "CH 2 francs",
+   "issues": [
+    "1991 B"
+   ]
+  },
+  {
+   "type": "CH.KM.23a",
+   "numista": 181,
+   "url": "https://en.numista.com/catalogue/pieces181.html",
+   "coin": "CH 0.5 franc",
+   "issues": [
+    "1968 B",
+    "1971 B"
+   ]
+  },
+  {
+   "type": "CH.KM.24a.1",
+   "numista": 185,
+   "url": "https://en.numista.com/catalogue/pieces185.html",
+   "coin": "CH 1 franc",
+   "issues": [
+    "1969 B",
+    "1970 B"
+   ]
+  },
+  {
+   "type": "CH.KM.24a.3",
+   "numista": 185,
+   "url": "https://en.numista.com/catalogue/pieces185.html",
+   "coin": "CH 1 franc",
+   "issues": [
+    "1986 B"
+   ]
+  },
+  {
+   "type": "CH.KM.26",
+   "numista": 168,
+   "url": "https://en.numista.com/catalogue/pieces168.html",
+   "coin": "CH 5 rappen",
+   "issues": [
+    "1963 B"
+   ]
+  },
+  {
+   "type": "CH.KM.26c",
+   "numista": 171,
+   "url": "https://en.numista.com/catalogue/pieces171.html",
+   "coin": "CH 5 rappen",
+   "issues": [
+    "1982 B",
+    "1983 B"
+   ]
+  },
+  {
+   "type": "CH.KM.27",
+   "numista": 173,
+   "url": "https://en.numista.com/catalogue/pieces173.html",
+   "coin": "CH 10 rappen",
+   "issues": [
+    "1883 B",
+    "1979 B",
+    "1981 B"
+   ]
+  },
+  {
+   "type": "CH.KM.29a",
+   "numista": 178,
+   "url": "https://en.numista.com/catalogue/pieces178.html",
+   "coin": "CH 20 rappen",
+   "issues": [
+    "1959 B",
+    "1963 B",
+    "1969 B",
+    "1980",
+    "1989 B",
+    "1991 B"
+   ]
+  },
+  {
+   "type": "CH.KM.40a.1",
+   "numista": 195,
+   "url": "https://en.numista.com/catalogue/pieces195.html",
+   "coin": "CH 5 francs",
+   "issues": [
+    "1976"
+   ]
+  },
+  {
+   "type": "CH.KM.40a.4",
+   "numista": 195,
+   "url": "https://en.numista.com/catalogue/pieces195.html",
+   "coin": "CH 5 francs",
+   "issues": [
+    "2014 B"
+   ]
+  },
+  {
+   "type": "CL.KM.219.2",
+   "numista": 2834,
+   "url": "https://en.numista.com/catalogue/pieces2834.html",
+   "coin": "CL 50 pesos",
+   "issues": [
+    "1996 So"
+   ]
+  },
+  {
+   "type": "CO.KM.295",
+   "numista": 34771,
+   "url": "https://en.numista.com/catalogue/pieces34771.html",
+   "coin": "CO 50 pesos",
+   "issues": [
+    "2016"
+   ]
+  },
+  {
+   "type": "CR.KM.214.2",
+   "numista": 69,
+   "url": "https://en.numista.com/catalogue/pieces69.html",
+   "coin": "CR 5 colones",
+   "issues": [
+    "1985"
+   ]
+  },
+  {
+   "type": "CU.KM.32",
+   "numista": 1055,
+   "url": "https://en.numista.com/catalogue/pieces1055.html",
+   "coin": "CU 20 centavos",
+   "issues": [
+    "1962"
+   ]
+  },
+  {
+   "type": "DE.KM.105",
+   "numista": 854,
+   "url": "https://en.numista.com/catalogue/pieces854.html",
+   "coin": "DE 1 Pfennig",
+   "issues": [
+    "1972 F",
+    "1985",
+    "1986",
+    "1991"
+   ]
+  },
+  {
+   "type": "DE.KM.106a",
+   "numista": 1937,
+   "url": "https://en.numista.com/catalogue/pieces1937.html",
+   "coin": "DE 2 Pfennig",
+   "issues": [
+    "1983 D",
+    "1983 G",
+    "1988 G"
+   ]
+  },
+  {
+   "type": "DE.KM.107",
+   "numista": 658,
+   "url": "https://en.numista.com/catalogue/pieces658.html",
+   "coin": "DE 5 Pfennig",
+   "issues": [
+    "1950",
+    "1971 D",
+    "1971 F",
+    "1987 F",
+    "1992 F"
+   ]
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "url": "https://en.numista.com/catalogue/pieces850.html",
+   "coin": "DE 10 Pfennig",
+   "issues": [
+    "1966 D",
+    "1970 J",
+    "1977 J",
+    "1980 F",
+    "1981",
+    "1982",
+    "1982 G",
+    "1984 D",
+    "1986",
+    "1989 G",
+    "1990 F",
+    "1995"
+   ]
+  },
+  {
+   "type": "DE.KM.109.1",
+   "numista": 847,
+   "url": "https://en.numista.com/catalogue/pieces847.html",
+   "coin": "DE 50 Pfennig",
+   "issues": [
+    "1971"
+   ]
+  },
+  {
+   "type": "DE.KM.109.2",
+   "numista": 847,
+   "url": "https://en.numista.com/catalogue/pieces847.html",
+   "coin": "DE 50 Pfennig",
+   "issues": [
+    "1982",
+    "1985"
+   ]
+  },
+  {
+   "type": "DE.KM.110",
+   "numista": 846,
+   "url": "https://en.numista.com/catalogue/pieces846.html",
+   "coin": "DE 1 Deutsche Mark",
+   "issues": [
+    "1982",
+    "1982 J",
+    "1984",
+    "1993 D"
+   ]
+  },
+  {
+   "type": "DE.KM.124",
+   "numista": 844,
+   "url": "https://en.numista.com/catalogue/pieces844.html",
+   "coin": "DE 2 Deutsche Mark",
+   "issues": [
+    "1973 D"
+   ]
+  },
+  {
+   "type": "DE.KM.140.1",
+   "numista": 843,
+   "url": "https://en.numista.com/catalogue/pieces843.html",
+   "coin": "DE 5 Deutsche Mark",
+   "issues": [
+    "1987 J"
+   ]
+  },
+  {
+   "type": "DE.KM.207",
+   "numista": 105,
+   "url": "https://en.numista.com/catalogue/pieces105.html",
+   "coin": "DE 1 euro cent",
+   "issues": [
+    "2002",
+    "2005 J",
+    "2008",
+    "2009",
+    "2012",
+    "2015"
+   ]
+  },
+  {
+   "type": "DE.KM.208",
+   "numista": 106,
+   "url": "https://en.numista.com/catalogue/pieces106.html",
+   "coin": "DE 2 euro cent",
+   "issues": [
+    "2002 D",
+    "2002 G",
+    "2010 A"
+   ]
+  },
+  {
+   "type": "DE.KM.209",
+   "numista": 107,
+   "url": "https://en.numista.com/catalogue/pieces107.html",
+   "coin": "DE 5 euro cent",
+   "issues": [
+    "2002 J",
+    "2014 A"
+   ]
+  },
+  {
+   "type": "DE.KM.210",
+   "numista": 108,
+   "url": "https://en.numista.com/catalogue/pieces108.html",
+   "coin": "DE 10 euro cent",
+   "issues": [
+    "2002",
+    "2002 D"
+   ]
+  },
+  {
+   "type": "DE.KM.211",
+   "numista": 109,
+   "url": "https://en.numista.com/catalogue/pieces109.html",
+   "coin": "DE 20 euro cent",
+   "issues": [
+    "2002 G"
+   ]
+  },
+  {
+   "type": "DE.KM.212",
+   "numista": 110,
+   "url": "https://en.numista.com/catalogue/pieces110.html",
+   "coin": "DE 50 euro cent",
+   "issues": [
+    "2002 G"
+   ]
+  },
+  {
+   "type": "DE.KM.213",
+   "numista": 111,
+   "url": "https://en.numista.com/catalogue/pieces111.html",
+   "coin": "DE 1 euro",
+   "issues": [
+    "2002 F"
+   ]
+  },
+  {
+   "type": "DE.KM.214",
+   "numista": 112,
+   "url": "https://en.numista.com/catalogue/pieces112.html",
+   "coin": "DE 2 euro",
+   "issues": [
+    "2003 A"
+   ]
+  },
+  {
+   "type": "DE.KM.255",
+   "numista": 6319,
+   "url": "https://en.numista.com/catalogue/pieces6319.html",
+   "coin": "DE 20 euro cent",
+   "issues": [
+    "2011 F",
+    "2015 F"
+   ]
+  },
+  {
+   "type": "EC.KM.37",
+   "numista": 5712,
+   "url": "https://en.numista.com/catalogue/pieces5712.html",
+   "coin": "EC 10 cents",
+   "issues": [
+    "2004"
+   ]
+  },
+  {
+   "type": "ER.KM.46",
+   "numista": 2403,
+   "url": "https://en.numista.com/catalogue/pieces2403.html",
+   "coin": "ER 50 cents",
+   "issues": [
+    "1997"
+   ]
+  },
+  {
+   "type": "ES.KM.1040",
+   "numista": 81,
+   "url": "https://en.numista.com/catalogue/pieces81.html",
+   "coin": "ES 1 euro cent",
+   "issues": [
+    "2008"
+   ]
+  },
+  {
+   "type": "ES.KM.1042",
+   "numista": 83,
+   "url": "https://en.numista.com/catalogue/pieces83.html",
+   "coin": "ES 5 euro cent",
+   "issues": [
+    "2000"
+   ]
+  },
+  {
+   "type": "ES.KM.1144",
+   "numista": 10856,
+   "url": "https://en.numista.com/catalogue/pieces10856.html",
+   "coin": "ES 1 euro cent",
+   "issues": [
+    "2014"
+   ]
+  },
+  {
+   "type": "FR.KM.1282",
+   "numista": 97,
+   "url": "https://en.numista.com/catalogue/pieces97.html",
+   "coin": "FR 1 euro cent",
+   "issues": [
+    "2009"
+   ]
+  },
+  {
+   "type": "FR.KM.1283",
+   "numista": 98,
+   "url": "https://en.numista.com/catalogue/pieces98.html",
+   "coin": "FR 2 euro cent",
+   "issues": [
+    "2009",
+    "2010",
+    "2017"
+   ]
+  },
+  {
+   "type": "FR.KM.1284",
+   "numista": 99,
+   "url": "https://en.numista.com/catalogue/pieces99.html",
+   "coin": "FR 5 euro cent",
+   "issues": [
+    "2009"
+   ]
+  },
+  {
+   "type": "FR.KM.1285",
+   "numista": 100,
+   "url": "https://en.numista.com/catalogue/pieces100.html",
+   "coin": "FR 10 euro cent",
+   "issues": [
+    "1999",
+    "2002"
+   ]
+  },
+  {
+   "type": "FR.KM.1286",
+   "numista": 101,
+   "url": "https://en.numista.com/catalogue/pieces101.html",
+   "coin": "FR 20 euro cent",
+   "issues": [
+    "2000"
+   ]
+  },
+  {
+   "type": "FR.KM.1289",
+   "numista": 104,
+   "url": "https://en.numista.com/catalogue/pieces104.html",
+   "coin": "FR 2 euro",
+   "issues": [
+    "2000"
+   ]
+  },
+  {
+   "type": "FR.KM.1410",
+   "numista": 3510,
+   "url": "https://en.numista.com/catalogue/pieces3510.html",
+   "coin": "FR 10 euro cent",
+   "issues": [
+    "2010",
+    "2015"
+   ]
+  },
+  {
+   "type": "FR.KM.888b.1",
+   "numista": 1190,
+   "url": "https://en.numista.com/catalogue/pieces1190.html",
+   "coin": "FR 5 francs",
+   "issues": [
+    "1946"
+   ]
+  },
+  {
+   "type": "FR.KM.925.1",
+   "numista": 6,
+   "url": "https://en.numista.com/catalogue/pieces6.html",
+   "coin": "FR 1 franc",
+   "issues": [
+    "1960",
+    "1962",
+    "1965",
+    "1977",
+    "1999"
+   ]
+  },
+  {
+   "type": "FR.KM.929",
+   "numista": 3,
+   "url": "https://en.numista.com/catalogue/pieces3.html",
+   "coin": "FR 10 centimes",
+   "issues": [
+    "1963",
+    "1967",
+    "1984",
+    "1995",
+    "1998"
+   ]
+  },
+  {
+   "type": "FR.KM.930",
+   "numista": 4,
+   "url": "https://en.numista.com/catalogue/pieces4.html",
+   "coin": "FR 20 centimes",
+   "issues": [
+    "1974",
+    "1986"
+   ]
+  },
+  {
+   "type": "FR.KM.931.1",
+   "numista": 5,
+   "url": "https://en.numista.com/catalogue/pieces5.html",
+   "coin": "FR 0.5 franc",
+   "issues": [
+    "1969",
+    "1971",
+    "1986"
+   ]
+  },
+  {
+   "type": "FR.KM.933",
+   "numista": 2,
+   "url": "https://en.numista.com/catalogue/pieces2.html",
+   "coin": "FR 5 centimes",
+   "issues": [
+    "1973",
+    "1980"
+   ]
+  },
+  {
+   "type": "FR.KM.964.1",
+   "numista": 9,
+   "url": "https://en.numista.com/catalogue/pieces9.html",
+   "coin": "FR 10 francs",
+   "issues": [
+    "1989"
+   ]
+  },
+  {
+   "type": "FR.X.5-francs",
+   "numista": 8,
+   "url": "https://en.numista.com/catalogue/pieces8.html",
+   "coin": "FR 5 francs",
+   "issues": [
+    "1994"
+   ]
+  },
+  {
+   "type": "GB.KM.1107",
+   "numista": 4038,
+   "url": "https://en.numista.com/catalogue/pieces4038.html",
+   "coin": "GB 1 penny",
+   "issues": [
+    "2010",
+    "2013"
+   ]
+  },
+  {
+   "type": "GB.KM.1109",
+   "numista": 6612,
+   "url": "https://en.numista.com/catalogue/pieces6612.html",
+   "coin": "GB 5 pence",
+   "issues": [
+    "2009",
+    "2010"
+   ]
+  },
+  {
+   "type": "GB.KM.1109d",
+   "numista": 25766,
+   "url": "https://en.numista.com/catalogue/pieces25766.html",
+   "coin": "GB 5 pence",
+   "issues": [
+    "2012",
+    "2014"
+   ]
+  },
+  {
+   "type": "GB.KM.1110",
+   "numista": 7350,
+   "url": "https://en.numista.com/catalogue/pieces7350.html",
+   "coin": "GB 10 pence",
+   "issues": [
+    "2010"
+   ]
+  },
+  {
+   "type": "GB.KM.1110d",
+   "numista": 25746,
+   "url": "https://en.numista.com/catalogue/pieces25746.html",
+   "coin": "GB 10 pence",
+   "issues": [
+    "2013",
+    "2014"
+   ]
+  },
+  {
+   "type": "GB.KM.1334",
+   "numista": 70547,
+   "url": "https://en.numista.com/catalogue/pieces70547.html",
+   "coin": "GB 5 pence",
+   "issues": [
+    "2015",
+    "2016"
+   ]
+  },
+  {
+   "type": "GB.KM.1335",
+   "numista": 70549,
+   "url": "https://en.numista.com/catalogue/pieces70549.html",
+   "coin": "GB 10 pence",
+   "issues": [
+    "2016"
+   ]
+  },
+  {
+   "type": "GB.KM.837",
+   "numista": 4004,
+   "url": "https://en.numista.com/catalogue/pieces4004.html",
+   "coin": "GB 0.5 penny",
+   "issues": [
+    "1932"
+   ]
+  },
+  {
+   "type": "GB.KM.912",
+   "numista": 878,
+   "url": "https://en.numista.com/catalogue/pieces878.html",
+   "coin": "GB 10 new pence",
+   "issues": [
+    "1968"
+   ]
+  },
+  {
+   "type": "GB.KM.914",
+   "numista": 856,
+   "url": "https://en.numista.com/catalogue/pieces856.html",
+   "coin": "GB 0.5 new penny",
+   "issues": [
+    "1973"
+   ]
+  },
+  {
+   "type": "GB.KM.915",
+   "numista": 665,
+   "url": "https://en.numista.com/catalogue/pieces665.html",
+   "coin": "GB 1 penny",
+   "issues": [
+    "1971",
+    "1975"
+   ]
+  },
+  {
+   "type": "GB.KM.916",
+   "numista": 664,
+   "url": "https://en.numista.com/catalogue/pieces664.html",
+   "coin": "GB 2 new pence",
+   "issues": [
+    "1971",
+    "1977"
+   ]
+  },
+  {
+   "type": "GB.KM.931",
+   "numista": 865,
+   "url": "https://en.numista.com/catalogue/pieces865.html",
+   "coin": "GB 20 pence",
+   "issues": [
+    "1982"
+   ]
+  },
+  {
+   "type": "GB.KM.935",
+   "numista": 861,
+   "url": "https://en.numista.com/catalogue/pieces861.html",
+   "coin": "GB 1 penny",
+   "issues": [
+    "1987",
+    "1988"
+   ]
+  },
+  {
+   "type": "GB.KM.935a",
+   "numista": 860,
+   "url": "https://en.numista.com/catalogue/pieces860.html",
+   "coin": "GB 1 penny",
+   "issues": [
+    "1995",
+    "1996",
+    "1997"
+   ]
+  },
+  {
+   "type": "GB.KM.936",
+   "numista": 867,
+   "url": "https://en.numista.com/catalogue/pieces867.html",
+   "coin": "GB 2 pence",
+   "issues": [
+    "1991"
+   ]
+  },
+  {
+   "type": "GB.KM.937b",
+   "numista": 875,
+   "url": "https://en.numista.com/catalogue/pieces875.html",
+   "coin": "GB 5 pence",
+   "issues": [
+    "1990",
+    "1992",
+    "1996",
+    "1997"
+   ]
+  },
+  {
+   "type": "GB.KM.938b",
+   "numista": 879,
+   "url": "https://en.numista.com/catalogue/pieces879.html",
+   "coin": "GB 10 pence",
+   "issues": [
+    "1992"
+   ]
+  },
+  {
+   "type": "GB.KM.986",
+   "numista": 862,
+   "url": "https://en.numista.com/catalogue/pieces862.html",
+   "coin": "GB 1 penny",
+   "issues": [
+    "1998",
+    "2002",
+    "2003",
+    "2007"
+   ]
+  },
+  {
+   "type": "GB.KM.988",
+   "numista": 876,
+   "url": "https://en.numista.com/catalogue/pieces876.html",
+   "coin": "GB 5 pence",
+   "issues": [
+    "1998",
+    "2000",
+    "2001",
+    "2007"
+   ]
+  },
+  {
+   "type": "GB.KM.989",
+   "numista": 2236,
+   "url": "https://en.numista.com/catalogue/pieces2236.html",
+   "coin": "GB 10 pence",
+   "issues": [
+    "2001",
+    "2008"
+   ]
+  },
+  {
+   "type": "GB.X.1-penny",
+   "numista": 578,
+   "url": "https://en.numista.com/catalogue/pieces578.html",
+   "coin": "GB 1 penny",
+   "issues": [
+    "1922"
+   ]
+  },
+  {
+   "type": "GR.KM.117",
+   "numista": 549,
+   "url": "https://en.numista.com/catalogue/pieces549.html",
+   "coin": "GR 2 drachmes",
+   "issues": [
+    "1982"
+   ]
+  },
+  {
+   "type": "GR.KM.90",
+   "numista": 545,
+   "url": "https://en.numista.com/catalogue/pieces545.html",
+   "coin": "GR 2 drachmai",
+   "issues": [
+    "1970"
+   ]
+  },
+  {
+   "type": "GT.KM.239.2",
+   "numista": 5128,
+   "url": "https://en.numista.com/catalogue/pieces5128.html",
+   "coin": "GT 10 centavos",
+   "issues": [
+    "1934"
+   ]
+  },
+  {
+   "type": "GT.KM.277.6a",
+   "numista": 42670,
+   "url": "https://en.numista.com/catalogue/pieces42670.html",
+   "coin": "GT 10 centavos",
+   "issues": [
+    "2010"
+   ]
+  },
+  {
+   "type": "HK.KM.69a",
+   "numista": 2118,
+   "url": "https://en.numista.com/catalogue/pieces2118.html",
+   "coin": "HK 1 $",
+   "issues": [
+    "1998"
+   ]
+  },
+  {
+   "type": "HN.X.50-centavos",
+   "numista": 3190,
+   "url": "https://en.numista.com/catalogue/pieces3190.html",
+   "coin": "HN 50 centavos",
+   "issues": [
+    "2012"
+   ]
+  },
+  {
+   "type": "HU.KM.575",
+   "numista": 1124,
+   "url": "https://en.numista.com/catalogue/pieces1124.html",
+   "coin": "HU 1 forint",
+   "issues": [
+    "1967"
+   ]
+  },
+  {
+   "type": "IE.KM.32",
+   "numista": 121,
+   "url": "https://en.numista.com/catalogue/pieces121.html",
+   "coin": "IE 1 euro cent",
+   "issues": [
+    "2002",
+    "2004"
+   ]
+  },
+  {
+   "type": "IE.KM.34",
+   "numista": 123,
+   "url": "https://en.numista.com/catalogue/pieces123.html",
+   "coin": "IE 5 euro cent",
+   "issues": [
+    "2013"
+   ]
+  },
+  {
+   "type": "IN.KM.92.2",
+   "numista": 1609,
+   "url": "https://en.numista.com/catalogue/pieces1609.html",
+   "coin": "IN 1 rupee",
+   "issues": [
+    "2001"
+   ]
+  },
+  {
+   "type": "IT.KM.111",
+   "numista": 302,
+   "url": "https://en.numista.com/catalogue/pieces302.html",
+   "coin": "IT 500 lire",
+   "issues": [
+    "1987 R"
+   ]
+  },
+  {
+   "type": "IT.KM.211",
+   "numista": 130,
+   "url": "https://en.numista.com/catalogue/pieces130.html",
+   "coin": "IT 2 euro cent",
+   "issues": [
+    "2010 R"
+   ]
+  },
+  {
+   "type": "IT.KM.213",
+   "numista": 132,
+   "url": "https://en.numista.com/catalogue/pieces132.html",
+   "coin": "IT 10 euro cent",
+   "issues": [
+    "2007 R"
+   ]
+  },
+  {
+   "type": "IT.KM.214",
+   "numista": 133,
+   "url": "https://en.numista.com/catalogue/pieces133.html",
+   "coin": "IT 20 euro cent",
+   "issues": [
+    "2002 R"
+   ]
+  },
+  {
+   "type": "IT.KM.215",
+   "numista": 134,
+   "url": "https://en.numista.com/catalogue/pieces134.html",
+   "coin": "IT 50 euro cent",
+   "issues": [
+    "2002"
+   ]
+  },
+  {
+   "type": "IT.KM.216",
+   "numista": 135,
+   "url": "https://en.numista.com/catalogue/pieces135.html",
+   "coin": "IT 1 euro",
+   "issues": [
+    "2002 R"
+   ]
+  },
+  {
+   "type": "IT.KM.95.1",
+   "numista": 724,
+   "url": "https://en.numista.com/catalogue/pieces724.html",
+   "coin": "IT 50 lire",
+   "issues": [
+    "1970 R",
+    "1978",
+    "1978 R",
+    "1979",
+    "1979 R"
+   ]
+  },
+  {
+   "type": "IT.KM.96.1",
+   "numista": 304,
+   "url": "https://en.numista.com/catalogue/pieces304.html",
+   "coin": "IT 100 lire",
+   "issues": [
+    "1965 R"
+   ]
+  },
+  {
+   "type": "JM.KM.146",
+   "numista": 2617,
+   "url": "https://en.numista.com/catalogue/pieces2617.html",
+   "coin": "JM 10 cents",
+   "issues": [
+    "1993"
+   ]
+  },
+  {
+   "type": "JM.KM.189",
+   "numista": 14369,
+   "url": "https://en.numista.com/catalogue/pieces14369.html",
+   "coin": "JM 1 dollar",
+   "issues": [
+    "2015"
+   ]
+  },
+  {
+   "type": "JM.KM.190",
+   "numista": 14370,
+   "url": "https://en.numista.com/catalogue/pieces14370.html",
+   "coin": "JM 10 dollars",
+   "issues": [
+    "2015"
+   ]
+  },
+  {
+   "type": "JM.KM.65",
+   "numista": 7457,
+   "url": "https://en.numista.com/catalogue/pieces7457.html",
+   "coin": "JM 50 cents",
+   "issues": [
+    "1975"
+   ]
+  },
+  {
+   "type": "JP.Y.73a",
+   "numista": 922,
+   "url": "https://en.numista.com/catalogue/pieces922.html",
+   "coin": "JP 10 yen",
+   "issues": [
+    "1982",
+    "1988"
+   ]
+  },
+  {
+   "type": "JP.Y.74",
+   "numista": 1590,
+   "url": "https://en.numista.com/catalogue/pieces1590.html",
+   "coin": "JP 1 yen",
+   "issues": [
+    "1965",
+    "1971"
+   ]
+  },
+  {
+   "type": "KR.KM.103",
+   "numista": 1654,
+   "url": "https://en.numista.com/catalogue/pieces1654.html",
+   "coin": "KR 10 won",
+   "issues": [
+    "2012",
+    "2013"
+   ]
+  },
+  {
+   "type": "KR.KM.35.2",
+   "numista": 1052,
+   "url": "https://en.numista.com/catalogue/pieces1052.html",
+   "coin": "KR 100 won",
+   "issues": [
+    "2000"
+   ]
+  },
+  {
+   "type": "KR.KM.4",
+   "numista": 5993,
+   "url": "https://en.numista.com/catalogue/pieces5993.html",
+   "coin": "KR 1 won",
+   "issues": [
+    "1966"
+   ]
+  },
+  {
+   "type": "KY.KM.132",
+   "numista": 2698,
+   "url": "https://en.numista.com/catalogue/pieces2698.html",
+   "coin": "KY 5 cents",
+   "issues": [
+    "2002",
+    "2008"
+   ]
+  },
+  {
+   "type": "KY.KM.87",
+   "numista": 7364,
+   "url": "https://en.numista.com/catalogue/pieces7364.html",
+   "coin": "KY 1 cent",
+   "issues": [
+    "1990"
+   ]
+  },
+  {
+   "type": "KY.KM.88a",
+   "numista": 10222,
+   "url": "https://en.numista.com/catalogue/pieces10222.html",
+   "coin": "KY 5 cents",
+   "issues": [
+    "1996"
+   ]
+  },
+  {
+   "type": "MT.KM.128",
+   "numista": 2183,
+   "url": "https://en.numista.com/catalogue/pieces2183.html",
+   "coin": "MT 5 euro cent",
+   "issues": [
+    "2013"
+   ]
+  },
+  {
+   "type": "MT.KM.129",
+   "numista": 2184,
+   "url": "https://en.numista.com/catalogue/pieces2184.html",
+   "coin": "MT 10 euro cent",
+   "issues": [
+    "2008"
+   ]
+  },
+  {
+   "type": "MT.KM.132",
+   "numista": 2187,
+   "url": "https://en.numista.com/catalogue/pieces2187.html",
+   "coin": "MT 1 euro",
+   "issues": [
+    "2008"
+   ]
+  },
+  {
+   "type": "MX-CHI.KM.612",
+   "numista": 32634,
+   "url": "https://en.numista.com/catalogue/pieces32634.html",
+   "coin": "MX 5 centavos",
+   "issues": [
+    "1914"
+   ]
+  },
+  {
+   "type": "MX.KM.415",
+   "numista": 5133,
+   "url": "https://en.numista.com/catalogue/pieces5133.html",
+   "coin": "MX 1 centavo",
+   "issues": [
+    "1940 Mo"
+   ]
+  },
+  {
+   "type": "MX.KM.424",
+   "numista": 3136,
+   "url": "https://en.numista.com/catalogue/pieces3136.html",
+   "coin": "MX 5 centavos",
+   "issues": [
+    "1944 Mo"
+   ]
+  },
+  {
+   "type": "MX.KM.433",
+   "numista": 6694,
+   "url": "https://en.numista.com/catalogue/pieces6694.html",
+   "coin": "MX 10 centavos",
+   "issues": [
+    "1945"
+   ]
+  },
+  {
+   "type": "MX.KM.440",
+   "numista": 959,
+   "url": "https://en.numista.com/catalogue/pieces959.html",
+   "coin": "MX 20 centavos",
+   "issues": [
+    "1964 Mo",
+    "1967 Mo"
+   ]
+  },
+  {
+   "type": "MX.KM.443",
+   "numista": 972,
+   "url": "https://en.numista.com/catalogue/pieces972.html",
+   "coin": "MX 25 centavos",
+   "issues": [
+    "1950 Mo"
+   ]
+  },
+  {
+   "type": "MX.KM.502",
+   "numista": 3445,
+   "url": "https://en.numista.com/catalogue/pieces3445.html",
+   "coin": "MX 5 pesos",
+   "issues": [
+    "1987 Mo"
+   ]
+  },
+  {
+   "type": "MX.KM.604",
+   "numista": 587,
+   "url": "https://en.numista.com/catalogue/pieces587.html",
+   "coin": "MX 2 pesos",
+   "issues": [
+    "2010 Mo"
+   ]
+  },
+  {
+   "type": "MX.KM.936",
+   "numista": 18097,
+   "url": "https://en.numista.com/catalogue/pieces18097.html",
+   "coin": "MX 50 centavos",
+   "issues": [
+    "2013 Mo"
+   ]
+  },
+  {
+   "type": "MX.X.10-centavos",
+   "numista": 581,
+   "url": "https://en.numista.com/catalogue/pieces581.html",
+   "coin": "MX 10 centavos",
+   "issues": [
+    "1995 Mo"
+   ]
+  },
+  {
+   "type": "MX.X.20-pesos",
+   "numista": 987,
+   "url": "https://en.numista.com/catalogue/pieces987.html",
+   "coin": "MX 20 pesos",
+   "issues": [
+    "1981"
+   ]
+  },
+  {
+   "type": "MX.X.5-centavos",
+   "numista": 953,
+   "url": "https://en.numista.com/catalogue/pieces953.html",
+   "coin": "MX 5 centavos",
+   "issues": [
+    "1969 Mo"
+   ]
+  },
+  {
+   "type": "MX.X.50-centavos",
+   "numista": 583,
+   "url": "https://en.numista.com/catalogue/pieces583.html",
+   "coin": "MX 50 centavos",
+   "issues": [
+    "2009 Mo"
+   ]
+  },
+  {
+   "type": "MX.X.500-pesos",
+   "numista": 819,
+   "url": "https://en.numista.com/catalogue/pieces819.html",
+   "coin": "MX 500 pesos",
+   "issues": [
+    "1988 Mo",
+    "1989 Mo"
+   ]
+  },
+  {
+   "type": "NG.KM.10.1",
+   "numista": 4461,
+   "url": "https://en.numista.com/catalogue/pieces4461.html",
+   "coin": "NG 10 kobo",
+   "issues": [
+    "1976"
+   ]
+  },
+  {
+   "type": "NL.KM.107.2",
+   "numista": 1070,
+   "url": "https://en.numista.com/catalogue/pieces1070.html",
+   "coin": "NL 1 cent",
+   "issues": [
+    "1892"
+   ]
+  },
+  {
+   "type": "NL.KM.170",
+   "numista": 2562,
+   "url": "https://en.numista.com/catalogue/pieces2562.html",
+   "coin": "NL 1 cent",
+   "issues": [
+    "1948"
+   ]
+  },
+  {
+   "type": "NL.KM.184",
+   "numista": 737,
+   "url": "https://en.numista.com/catalogue/pieces737.html",
+   "coin": "NL 1 gulden",
+   "issues": [
+    "1967"
+   ]
+  },
+  {
+   "type": "NL.KM.204",
+   "numista": 731,
+   "url": "https://en.numista.com/catalogue/pieces731.html",
+   "coin": "NL 25 cents",
+   "issues": [
+    "1996"
+   ]
+  },
+  {
+   "type": "NL.KM.234",
+   "numista": 145,
+   "url": "https://en.numista.com/catalogue/pieces145.html",
+   "coin": "NL 1 euro cent",
+   "issues": [
+    "2000"
+   ]
+  },
+  {
+   "type": "NL.KM.236",
+   "numista": 147,
+   "url": "https://en.numista.com/catalogue/pieces147.html",
+   "coin": "NL 5 euro cent",
+   "issues": [
+    "2000"
+   ]
+  },
+  {
+   "type": "NL.KM.239",
+   "numista": 149,
+   "url": "https://en.numista.com/catalogue/pieces149.html",
+   "coin": "NL 20 euro cent",
+   "issues": [
+    "2001"
+   ]
+  },
+  {
+   "type": "NL.KM.241",
+   "numista": 152,
+   "url": "https://en.numista.com/catalogue/pieces152.html",
+   "coin": "NL 2 euro",
+   "issues": [
+    "2002"
+   ]
+  },
+  {
+   "type": "NL.KM.346",
+   "numista": 54953,
+   "url": "https://en.numista.com/catalogue/pieces54953.html",
+   "coin": "NL 5 euro cent",
+   "issues": [
+    "2014"
+   ]
+  },
+  {
+   "type": "NO.KM.460",
+   "numista": 1442,
+   "url": "https://en.numista.com/catalogue/pieces1442.html",
+   "coin": "NO 50 øre",
+   "issues": [
+    "1998",
+    "2000 crossed hammers"
+   ]
+  },
+  {
+   "type": "PH.KM.198",
+   "numista": 3752,
+   "url": "https://en.numista.com/catalogue/pieces3752.html",
+   "coin": "PH 10 sentimos",
+   "issues": [
+    "1971"
+   ]
+  },
+  {
+   "type": "PH.KM.242.1",
+   "numista": 2461,
+   "url": "https://en.numista.com/catalogue/pieces2461.html",
+   "coin": "PH 50 sentimo",
+   "issues": [
+    "1984 BSP"
+   ]
+  },
+  {
+   "type": "PH.X.1-piso",
+   "numista": 1681,
+   "url": "https://en.numista.com/catalogue/pieces1681.html",
+   "coin": "PH 1 piso",
+   "issues": [
+    "1997"
+   ]
+  },
+  {
+   "type": "PT.KM.744",
+   "numista": 157,
+   "url": "https://en.numista.com/catalogue/pieces157.html",
+   "coin": "PT 20 euro cent",
+   "issues": [
+    "2002"
+   ]
+  },
+  {
+   "type": "SA.KM.20",
+   "numista": 2940,
+   "url": "https://en.numista.com/catalogue/pieces2940.html",
+   "coin": "SA 1 qirsh",
+   "issues": [
+    "1958"
+   ]
+  },
+  {
+   "type": "SE.KM.826a",
+   "numista": 1516,
+   "url": "https://en.numista.com/catalogue/pieces1516.html",
+   "coin": "SE 1 krona",
+   "issues": [
+    "1973"
+   ]
+  },
+  {
+   "type": "SG.KM.3",
+   "numista": 1671,
+   "url": "https://en.numista.com/catalogue/pieces1671.html",
+   "coin": "SG 10 cents",
+   "issues": [
+    "1973"
+   ]
+  },
+  {
+   "type": "SG.KM.4",
+   "numista": 975,
+   "url": "https://en.numista.com/catalogue/pieces975.html",
+   "coin": "SG 20 cents",
+   "issues": [
+    "1967"
+   ]
+  },
+  {
+   "type": "SK.KM.96",
+   "numista": 5085,
+   "url": "https://en.numista.com/catalogue/pieces5085.html",
+   "coin": "SK 2 euro cent",
+   "issues": [
+    "2009"
+   ]
+  },
+  {
+   "type": "SK.X.5-euro-cent",
+   "numista": 5086,
+   "url": "https://en.numista.com/catalogue/pieces5086.html",
+   "coin": "SK 5 euro cent",
+   "issues": [
+    "2009 MK"
+   ]
+  },
+  {
+   "type": "SU.Y.126a",
+   "numista": 767,
+   "url": "https://en.numista.com/catalogue/pieces767.html",
+   "coin": "SU 1 kopek",
+   "issues": [
+    "1962",
+    "1974"
+   ]
+  },
+  {
+   "type": "SU.Y.93",
+   "numista": 4042,
+   "url": "https://en.numista.com/catalogue/pieces4042.html",
+   "coin": "SU 3 kopecks",
+   "issues": [
+    "1931"
+   ]
+  },
+  {
+   "type": "SU.Y.97",
+   "numista": 5269,
+   "url": "https://en.numista.com/catalogue/pieces5269.html",
+   "coin": "SU 15 kopecks",
+   "issues": [
+    "1932"
+   ]
+  },
+  {
+   "type": "TH.KM.183",
+   "numista": 1106,
+   "url": "https://en.numista.com/catalogue/pieces1106.html",
+   "coin": "TH 1 baht",
+   "issues": [
+    "2006"
+   ]
+  },
+  {
+   "type": "TR.KM.1241",
+   "numista": 6165,
+   "url": "https://en.numista.com/catalogue/pieces6165.html",
+   "coin": "TR 10 kuruş",
+   "issues": [
+    "2011"
+   ]
+  },
+  {
+   "type": "TT.KM.31",
+   "numista": 3463,
+   "url": "https://en.numista.com/catalogue/pieces3463.html",
+   "coin": "TT 10 cents",
+   "issues": [
+    "2016"
+   ]
+  },
+  {
+   "type": "TT.KM.32",
+   "numista": 1159,
+   "url": "https://en.numista.com/catalogue/pieces1159.html",
+   "coin": "TT 25 cents",
+   "issues": [
+    "2014"
+   ]
+  },
+  {
+   "type": "TW.KM.551",
+   "numista": 966,
+   "url": "https://en.numista.com/catalogue/pieces966.html",
+   "coin": "TW 1 yuan",
+   "issues": [
+    "2008"
+   ]
+  },
+  {
+   "type": "US.KM.195",
+   "numista": 52,
+   "url": "https://en.numista.com/catalogue/pieces52.html",
+   "coin": "US 10 ¢ Roosevelt",
+   "issues": [
+    "1957"
+   ]
+  },
+  {
+   "type": "US.KM.204",
+   "numista": 56,
+   "url": "https://en.numista.com/catalogue/pieces56.html",
+   "coin": "US 25 cents",
+   "issues": [
+    "1976"
+   ]
+  },
+  {
+   "type": "VA.KM.52.1",
+   "numista": 3935,
+   "url": "https://en.numista.com/catalogue/pieces3935.html",
+   "coin": "VA 10 lire",
+   "issues": [
+    "1951"
+   ]
+  },
+  {
+   "type": "VN-SOV.KM.1",
+   "numista": 5904,
+   "url": "https://en.numista.com/catalogue/pieces5904.html",
+   "coin": "VN 20 su",
+   "issues": [
+    "1953"
+   ]
+  },
+  {
+   "type": "VN.KM.71",
+   "numista": 2104,
+   "url": "https://en.numista.com/catalogue/pieces2104.html",
+   "coin": "VN 1000 đồng",
+   "issues": [
+    "2003"
+   ]
+  },
+  {
+   "type": "YU.KM.86",
+   "numista": 2417,
+   "url": "https://en.numista.com/catalogue/pieces2417.html",
+   "coin": "YU 1 dinar",
+   "issues": [
+    "1984"
+   ]
+  },
+  {
+   "type": "YU.X.50-para",
+   "numista": 2006,
+   "url": "https://en.numista.com/catalogue/pieces2006.html",
+   "coin": "YU 50 para",
+   "issues": [
+    "1965"
+   ]
+  }
+ ]
+}
