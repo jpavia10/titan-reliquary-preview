@@ -13,6 +13,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) { /* ignore */ }
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) { /* ignore */ }
@@ -22,6 +23,7 @@
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
     "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
+    "uniform vec4 uView; uniform vec4 uLook;",
     "uniform sampler2D uCard, uShot;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     // Organic drooping Cyathea tree-fern frond returns vec2(signedDist, localThicknessAndVein)
@@ -70,7 +72,8 @@
     "  return best;",
     "}",
     "void main(){",
-    "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  vec2 sp = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  vec2 p = (sp - vec2(uView.x, uView.y + uView.w)) * exp(-uView.z);",
     "  float A = uRes.x/uRes.y, px = 1.0/uRes.y;",
     "  vec2 par = (uPtr - 0.5)*vec2(0.055, 0.035);",
     // Rich dawn cloud-forest atmosphere
@@ -94,11 +97,11 @@
     "  float shafts = (0.35*pow(s1, 1.8) + 0.65*pow(s1*s2, 2.4)) * cone;",
     "  vec2 mUV = p*vec2(2.0, 2.8) + vec2(uT*0.025, -uT*0.012);",
     "  #if LITE",
-    "  float mist = fbm3(mUV);",
+    "  float mist = fbm3(mUV) * uLook.y;",
     "  #else",
-    "  float mist = fbm(mUV)*0.65 + fbm3(mUV*2.6 - vec2(uT*0.018, 0.0))*0.35;",
+    "  float mist = (fbm(mUV)*0.65 + fbm3(mUV*2.6 - vec2(uT*0.018, 0.0))*0.35) * uLook.y;",
     "  #endif",
-    "  float beam = shafts * (0.38 + 1.55*mist*mist) * exp(-rDist*0.78);",
+    "  float beam = shafts * (0.38 + 1.55*mist*mist) * exp(-rDist*0.78) * uLook.x;",
     // Far parallax canopy layer (soft depth blur + warm dawn haze)
     "  vec2 fFar = canopyLayer(p, 1.32, 1.0, uT*0.55, par*0.35);",
     "  float aFar = smoothstep(px*6.5, -px*4.5, fFar.x) * clearMask;",
@@ -117,12 +120,12 @@
     "  float dropRip = 0.0;",
     "  if(dropAge >= 0.0 && dropAge < " + (DROP * 2.5).toFixed(2) + "){",
     "    float w = bDist*42.0 - dropAge*14.0;",
-    "    dropRip += sin(w) * exp(-dropAge*1.35) * exp(-bDist*5.5) * smoothstep(0.0, 0.15, dropAge);",
+    "    dropRip += sin(w) * exp(-dropAge*1.35) * exp(-bDist*5.5) * smoothstep(0.0, 0.15, dropAge) * uLook.w;",
     "  }",
     "  float tapAge = uTap.z;",
     "  if(tapAge >= 0.0 && tapAge < 3.5){",
     "    float td = length(p - uTap.xy);",
-    "    dropRip += sin(td*48.0 - tapAge*16.0) * exp(-tapAge*1.4) * exp(-td*6.0);",
+    "    dropRip += sin(td*48.0 - tapAge*16.0) * exp(-tapAge*1.4) * exp(-td*6.0) * uLook.w;",
     "  }",
     "  if(bDist < bRad + 0.044){",
     "    float rim = smoothstep(bRad+0.044, bRad+0.016, bDist) * smoothstep(bRad-0.010, bRad+0.012, bDist);",
@@ -166,9 +169,9 @@
     "    if(tapAge >= 0.0 && tapAge < 2.5){ vec2 df = fp - uTap.xy; fp += normalize(df + 1e-4)*0.18*exp(-length(df)*4.0)*(1.0 - tapAge/2.5); }",
     "    float fd = length(p - fp);",
     "    float pulse = 0.35 + 0.65*pow(0.5 + 0.5*sin(uT*2.4 + fi*4.3), 3.0);",
-    "    col += vec3(0.62, 0.96, 0.38) * pulse * (0.00042 / (fd*fd + 0.00085));",
+    "    col += vec3(0.62, 0.96, 0.38) * pulse * (0.00042 / (fd*fd + 0.00085)) * uLook.z;",
     "  }",
-    "  col *= 1.0 - 0.36*smoothstep(0.40, 1.04, length(p*vec2(1.0/A*1.15, 1.0)));",
+    "  col *= 1.0 - 0.36*smoothstep(0.40, 1.04, length(sp*vec2(1.0/A*1.15, 1.0)));",
     "  col = min(col, vec3(0.60));",
     "  o = vec4(col, 1.0);",
     "}"
@@ -253,13 +256,17 @@
     } catch (e) {}
     function onCoin(ev) { var id = ev.detail && ev.detail.id; var e = coins.filter(function (x) { return x.scan === id; })[0]; if (!e || shown === id) return; prepare(e); }
     addEventListener("titan:coin", onCoin);
-    var seen = K.ptr.tap, tap = [9, 9, -99], ptr = [0.5, 0.5];
+    var seen = K.ptr.tap, tap = [9, 9, -99], ptr = [0.5, 0.5], camVals = [0, 0, 0, 0];
     return {
       name: "canopy",
       step: function (c) {
+        var v = c.view || {}, room = v.mode === "room";
+        camVals = [v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0];
         var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var px = room ? 0.5 : (P.x || 0.5);
+        var py = room ? 0.5 : (P.y || 0.5);
+        ptr[0] += (px - ptr[0]) * 0.08;
+        ptr[1] += (py - ptr[1]) * 0.08;
         if (si !== seg) {
           if (seg == null) show(null);
           else if (next && next.ok) { show(next); next = null; } else late = true;
@@ -267,9 +274,16 @@
           if (!next && coins.length) prepare(pick(si + 1));
         }
         if (late && next && next.ok) { late = false; if (ph < 0.45) { show(next); next = null; prepare(pick(si + 1)); } }
-        if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
+        if (P.tap !== seen) {
+          seen = P.tap; var A = c.w / c.h;
+          var tx = ((P.tx - 0.5) * A - camVals[0]) * Math.exp(-camVals[2]);
+          var ty = (P.ty - 0.5 - (camVals[1] + camVals[3])) * Math.exp(-camVals[2]);
+          tap = [tx, ty, c.t];
+        }
       },
       draw: function (c) {
+        var v = c.view || {};
+        camVals = [v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0];
         var A = c.w / c.h, now = Date.now() / 1000;
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
@@ -277,9 +291,11 @@
         gl.uniform2f(u.uRes, c.w, c.h); gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uPh, now % SEG);
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform4f(u.uView, camVals[0], camVals[1], camVals[2], camVals[3]);
+        gl.uniform4f(u.uLook, look("rays", 1), look("mist", 1), look("fireflies", 1), look("ripples", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok), cam: camVals.map(function (x) { return +x.toFixed(3); }), look: { rays: look("rays", 1), mist: look("mist", 1), fireflies: look("fireflies", 1), ripples: look("ripples", 1) } }; },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -287,6 +303,23 @@
     stack: [
       { mod: "canopy" },
       { mod: "post", bloom: 0.85, threshold: 0.68, knee: 0.5, exposure: 1.04, aberr: 0.06, grain: 0.03, vig: 0.34 }
-    ]
+    ],
+    room: {
+      name: "The montane cloud forest basin",
+      yaw: [-0.22, 0.22],     // kept so the medallion stays on a phone's screen at every limit
+      pitch: [-0.16, 0.2],
+      move: [-0.5, 0.6],
+      up: [-0.1, 0.12],
+      unit: "m",
+      sound: "rainforest",
+      look: [
+        { id: "rays", label: "Sunbeams", min: 0, max: 2.5, def: 1 },
+        { id: "mist", label: "Mist", min: 0, max: 2.5, def: 1 },
+        { id: "fireflies", label: "Fireflies", min: 0, max: 3, def: 1 },
+        { id: "ripples", label: "Ripples", min: 0, max: 2.5, def: 1 }
+      ],
+      touch: "Tap the clearing: creates ripples in the rainwater basin and scatters nearby fireflies.",
+      opening: { dur: 5.0, from: { yaw: -0.18, pitch: 0.16, move: -0.45, up: -0.06 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.8, at: [0.5, 0.48] }
+    }
   };
 })();

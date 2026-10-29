@@ -1,5 +1,5 @@
 {
- "version": 32,
+ "version": 33,
  "intro": "Everything open on Titan Reliquary, as of build BUILD, ordered by what matters most now: turning the ledger's guesses into checked facts and the research loop that does it, then safety, then the new app (on hold while Grok upgrades the themes), motion and polish. Designed for your own experience (Oct 20: no separate Dad mode). Every item says what it needs first. Tick what you want, press Copy my picks and paste the line back to me. Numbers never change between versions; new items are marked new. The numbers at the top, the questions and the AI cards are read live from the data.",
  "sotu": {
   "one": "the most trustworthy record of a personal coin collection, researched by a team of AIs that check each other. Every fact shows where it came from, which AI or person said it, who checked it and how sure we are, and you confirm what only the coin can answer with one tap. Nobody does this for a private collection.",
@@ -1768,14 +1768,14 @@
    "note": null
   },
   "128": {
-   "title": "Depth upgrade: a room for every theme, openings on the theme's own engine, Scene Studio in depth",
-   "desc": "Owner, Oct 29: Claude is in charge. Each theme's GPU world runs as the backdrop, as the opening (live code at your quality tier, never a film) and as its own room you walk into and play with (look, particles, light, placed sounds). Scene Studio becomes a depth shelf of live worlds with sound and effect layers. Steps: world contract on 3 themes (Supercell, Tourbillon, Silver Screen), their rooms on a test page for your phone, their openings, Scene Studio v4, the other 15 GPU worlds, then the 32 themes without one. Plan: notes/agents/depth-upgrade.md; sounds come from the AIs' sound hunt.",
-   "needs": "nothing to start; your phone to judge each step (#114)",
+   "title": "Theme framework: one engine, a room for every theme, openings on the theme's own world (locked; now piece by piece)",
+   "desc": "Owner, Oct 29: \"get the framework for all of the themes locked so i can just improve piece by piece\". Locked: one engine (TitanFXK), the world contract, the room shell and the gate CL-WORLD-01 (docs/design/THEME_FRAMEWORK.md; status per theme in docs/themes/FRAMEWORK_STATUS.md). In the app: Scene Studio > Step inside opens any theme's room over its live world (drag, pinch, tap, tilt; Look, Sound, Opening), and Supercell, Tourbillon and Silver Screen open on their own world at launch, handing the same world to the app. The other GPU worlds go through Gemini's conversion and the gate; the 31 themes still on the first engine are Grok's homework (task 12); then Scene Studio v4 in depth.",
+   "needs": "your phone to judge the rooms and openings (#114)",
    "unlocks": "rooms for all 50 themes, openings without films (#129)",
    "size": "large",
    "you": false,
-   "new": true,
-   "partly": false,
+   "new": false,
+   "partly": true,
    "state": "open",
    "note": null
   },
