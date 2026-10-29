@@ -18,6 +18,9 @@
     var m = /[?&]q=(low|medium|high|ultra|max)/i.exec(location.search); if (m) v = m[1];
     return TIERS[String(v || "high").toLowerCase()] || .85; };
   var HEAD = "#version 300 es\nprecision highp float;\nNOISE\nuniform vec2 uRes, uP, uTapP, uDrag; uniform float uT, uDown, uTap, uQ, uFl; out vec4 o;\n" +
+    /* world contract (fx/kit.js): every kind reads its pixel through FC(), the screen seen through the room camera: yaw and pitch pan
+       (in screen heights), move zooms toward the centre, up lifts. The default view gives gl_FragCoord exactly. */
+    "uniform vec4 uView;\nvec4 FC(){ vec2 c = (gl_FragCoord.xy-.5*uRes)*exp(-uView.z)+.5*uRes+vec2(uView.x, uView.y+uView.w)*uRes.y; return vec4(c, gl_FragCoord.zw); }\n" +
     "float h31(vec3 p){ p = fract(p*vec3(.1031,.1030,.0973)); p += dot(p, p.yxz+33.33); return fract((p.x+p.y)*p.z); }\n" +
     "mat2 rot(float a){ float c = cos(a), s = sin(a); return mat2(c,s,-s,c); }\n" +
     "vec3 aspectP(){ vec2 uv = gl_FragCoord.xy/uRes; return vec3((uv-.5)*vec2(uRes.x/uRes.y,1.), 0.); }\n";
@@ -816,13 +819,15 @@
     glowforest: "fireflies", jellyfish: "underwater", orbit: "space", eclipse: "space", glowworms: "underwater", opal: "crystal", spellorb: "plasma", comet: "space", pulsar: "space", dunes: "sandstorm", frost: "blizzard", clockwork: "crystal", ringworld: "space", wormhole: "space", sakura: "rainforest", cathedral: "crystal", bubbles: "bubbles", shatter: "glass", crystals: "crystal", arcane: "plasma", portal: "plasma", plasmaglobe: "plasma" };
   K.mod("scene", function (gl, s, K) {
     var src = S[s.kind]; if (!src) return null;
-    var pr = K.compile(K.FSQ, HEAD.replace("NOISE", K.NOISE) + src); if (!pr) return null;
+    var pr = K.compile(K.FSQ, HEAD.replace("NOISE", K.NOISE) + src.replace(/gl_FragCoord/g, "FC()")); if (!pr) return null;
+    var look = K.look || function (id, def) { return def; }, tOff = 0, lastView = {};   // an older cached kit has no world contract: the backdrop as before
     var flAt = -1, arcT = 0, onScape = function (e) { var d = e.detail || {}; if (d.type === "flash" || d.type === "arc" || d.type === "ripple") flAt = K.now ? K.now() : performance.now() / 1000; };
     addEventListener("titan:scape", onScape);
     var drag = [0, 0], lastX = null, lastY = null, tapAt = -1, tapP = [.5, .5], tapSeen = K.ptr.tap, bubbles = null, pops = null;
     if (s.kind === "bubbles") { bubbles = []; pops = new Float32Array(10); for (var i = 0; i < 10; i++) bubbles.push(newB(i, true)); }
     function newB(i, any) { var A = innerWidth / innerHeight; return { x: (Math.random() - .5) * A * .9, y: any ? Math.random() - .5 : -.75, vx: 0, vy: 0, r: .07 + Math.random() * .13 * (s.big || 1), seed: Math.random() * 9 }; }
     return { name: "scene", step: function (c) {
+      var v = c.view || {}; lastView = v; if (v.mode === "backdrop") tOff = 0; else tOff += c.dt * (look("speed", 1) - 1);   // Speed (room): an offset on the clock
       var p = c.ptr; if (p.down) { if (lastX != null) { drag[0] += p.x - lastX; drag[1] += p.y - lastY; } lastX = p.x; lastY = p.y; } else lastX = lastY = null;
       if (p.tap !== tapSeen) { tapSeen = p.tap; tapAt = c.t; tapP = [p.tx, p.ty]; if (bubbles) popAt(p.tx, p.ty); else fx(TAPFX[s.kind] || "touch", p.tx, p.ty, 1); }
       if (s.kind === "plasmaglobe" && p.down && (arcT -= c.dt) <= 0) { arcT = .18 + Math.random() * .25; fx("arc", p.x, p.y, .6); }
@@ -836,10 +841,11 @@
     }, draw: function (c) {
       gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
       gl.uniform2f(u.uRes, c.w, c.h); gl.uniform2f(u.uP, c.ptr.x, c.ptr.y); gl.uniform2f(u.uTapP, tapP[0], tapP[1]); gl.uniform2f(u.uDrag, drag[0], drag[1]);
-      gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uDown, c.ptr.down); gl.uniform1f(u.uTap, tapAt < 0 ? -1 : c.t - tapAt); gl.uniform1f(u.uQ, K.tier() * Math.max(.5, c.q)); if (u.uFl) { var nw = K.now ? K.now() : performance.now() / 1000; gl.uniform1f(u.uFl, flAt < 0 ? -1 : nw - flAt); }
+      gl.uniform1f(u.uT, c.t + tOff); gl.uniform4f(u.uView, lastView.yaw || 0, lastView.pitch || 0, lastView.move || 0, lastView.up || 0); gl.uniform1f(u.uDown, c.ptr.down); gl.uniform1f(u.uTap, tapAt < 0 ? -1 : c.t - tapAt); gl.uniform1f(u.uQ, K.tier() * Math.max(.5, c.q)); if (u.uFl) { var nw = K.now ? K.now() : performance.now() / 1000; gl.uniform1f(u.uFl, flAt < 0 ? -1 : nw - flAt); }
       if (bubbles) { var B = new Float32Array(40); bubbles.forEach(function (b, i) { B.set([b.x, b.y, 0, b.r], i * 4); }); gl.uniform4fv(u.uB, B); gl.uniform1fv(u.uPop, pops); }
       gl.drawArrays(gl.TRIANGLES, 0, 3);
-    }, dispose: function () { removeEventListener("titan:scape", onScape); gl.deleteProgram(pr.p); } };
+    }, debug: function () { return { kind: s.kind, cam: [lastView.yaw || 0, lastView.pitch || 0, lastView.move || 0, lastView.up || 0].map(function (x) { return +x.toFixed(3); }), look: { speed: look("speed", 1) } }; },
+    dispose: function () { removeEventListener("titan:scape", onScape); gl.deleteProgram(pr.p); } };
   });
   /* Presets themes can pull in: K.preset("rainforest") returns a full stack (scene + companions + post). */
   var POST = function (o) { return Object.assign({ mod: "post", bloom: 1, threshold: .65, exposure: 1.15, aberr: .3, grain: .025, vig: .4 }, o || {}); };
