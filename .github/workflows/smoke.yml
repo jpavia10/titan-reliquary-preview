@@ -58,8 +58,29 @@ jobs:
         run: python tools/photos/test_cutouts.py
       - name: Graphics quality setting
         run: python tools/smoke/test_regress_grk_q01.py
+      - name: theme framework status page matches the code (docs/themes/FRAMEWORK_STATUS.md)
+        run: python tools/themes/framework_status.py --check
       - if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: smoke-shots
           path: smoke-shots
+
+  # CL-WORLD-01: the world contract every theme is built on (docs/design/THEME_FRAMEWORK.md section 3). Its own job: it boots every GPU
+  # world on a phone and the three reference worlds on a desktop on software GL, which takes longer than the rest of the smoke test.
+  world:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install playwright pillow && python -m playwright install --with-deps chromium
+      - name: CL-WORLD-01 world contract (backdrop, opening, room)
+        run: python tools/smoke/test_regress_cl_world_contract.py --shots world-shots
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: world-shots
+          path: world-shots
