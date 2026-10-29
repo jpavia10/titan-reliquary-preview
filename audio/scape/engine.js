@@ -52,9 +52,10 @@
     budget = tier();
     return ctx;
   }
+  function resume() { var p = ctx.resume(); if (p && p.catch) p.catch(function () { /* closed or still waiting for a gesture */ }); }
   function unlock() {
     if (!init()) return;
-    if (ctx.state !== "running") ctx.resume();
+    if (ctx.state !== "running") resume();
     var b = ctx.createBuffer(1, 1, 22050), s = ctx.createBufferSource(); s.buffer = b; s.connect(ctx.destination); s.start(0);
   }
   /* pointer: P.px/P.py (0..1), P.drag (smoothed speed 0..1) for drag-driven layers (stir, rake, pour) */
@@ -64,7 +65,7 @@
     lastPM = [x, y, t]; P.px = x; P.py = y; }, { passive: true });
   addEventListener("pointerdown", function (e) { P.px = e.clientX / innerWidth; P.py = e.clientY / innerHeight; if (preset && preset.on && ctx) try { preset.on({ type: "touch", x: P.px, y: P.py }, ctx.currentTime); } catch (er) {} }, { passive: true });
   setInterval(function () { P.drag *= .86; }, 50);
-  ["pointerdown", "touchend", "keydown"].forEach(function (ev) { addEventListener(ev, function () { if (ctx && ctx.state !== "running") ctx.resume(); }, { passive: true, capture: true }); });
+  ["pointerdown", "touchend", "keydown"].forEach(function (ev) { addEventListener(ev, function () { if (ctx && ctx.state !== "running") resume(); }, { passive: true, capture: true }); });
   document.addEventListener("visibilitychange", function () { if (!ctx || ext) return; if (document.hidden) ctx.suspend(); else if (preset && !muted) ctx.resume(); });
 
   function setMuted(m, silent) { muted = !!m; try { localStorage.setItem("tr_mute_v1", muted ? "1" : "0"); } catch (e) {}

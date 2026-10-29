@@ -125,7 +125,7 @@
           verb = ctx.createConvolver(); verb.buffer = rb;
           room = ctx.createGain(); room.gain.value = 0.55; verb.connect(room); room.connect(out);
         }
-        if (ctx.state === "suspended" && ctx.resume) ctx.resume();
+        if (ctx.state === "suspended" && ctx.resume) { var rp = ctx.resume(); if (rp && rp.catch) rp.catch(function () {}); }   // a resume still waiting for a tap is rejected when the splash closes the context
       } catch (e) { ctx = null; return null; }
       return ctx;
     }
