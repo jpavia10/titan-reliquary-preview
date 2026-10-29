@@ -6,6 +6,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) { /* ignore */ }
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) { /* ignore */ }
@@ -15,7 +16,7 @@
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
     "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
-    "uniform sampler2D uCard, uShot;",
+    "uniform sampler2D uCard, uShot; uniform vec4 uView; uniform float uSalt, uGlow, uWind;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     // Distance to nearest hexagonal salt-crust ridge in ground plane coordinates
     "float hexRidge(vec2 p){",
@@ -36,12 +37,12 @@
     "  vec3 sky = mix(hor, mid, smoothstep(0.0, 0.22, y));",
     "  sky = mix(sky, zen, smoothstep(0.18, 0.62, y));",
     "  float cir = fbm3(vec2(sp.x*2.4 + t*0.015, y*6.5));",
-    "  sky += vec3(0.24, 0.22, 0.28) * smoothstep(0.42, 0.78, cir) * exp(-y*3.2) * 0.45;",
+    "  sky += vec3(0.24, 0.22, 0.28) * smoothstep(0.42, 0.78, cir) * exp(-y*3.2) * 0.45 * uGlow;",
     "  #if !LITE",
     "  vec2 sg = floor((sp + vec2(0.0, 0.5))*95.0);",
     "  vec2 sf = fract((sp + vec2(0.0, 0.5))*95.0) - 0.5;",
     "  float st = smoothstep(0.08, 0.0, length(sf)) * step(0.965, h21(sg)) * smoothstep(0.12, 0.35, y);",
-    "  sky += vec3(0.75, 0.88, 1.0) * st * (0.5 + 0.5*sin(t*2.2 + h21(sg)*12.0));",
+    "  sky += vec3(0.75, 0.88, 1.0) * st * (0.5 + 0.5*sin(t*2.2 + h21(sg)*12.0)) * uGlow;",
     "  #endif",
     "  vec2 cCenter = vec2(0.0, bRad + 0.018);",
     "  vec2 cp = sp - cCenter;",
@@ -64,6 +65,8 @@
     "}",
     "void main(){",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  p = (p - vec2(0., uView.w)) * (1.0 + uView.z);",
+    "  p.x += uView.x; p.y += uView.y;",
     "  float A = uRes.x/uRes.y;",
     "  vec2 par = (uPtr - 0.5)*vec2(0.04, 0.02);",
     "  float horY = (uPort > 0.5 ? -0.02 : -0.04) - par.y;",
@@ -77,7 +80,7 @@
     "    vec2 gnd = vec2(sp.x / depth, 1.0 / depth) * 0.32;",
     "    vec2 gWarp = gnd + 0.08*vec2(vn(gnd*1.8), vn(gnd*1.8 + 5.2));",
     "    float hr = hexRidge(gWarp * 1.45);",
-    "    float crustRidge = smoothstep(0.075, 0.0, hr) * exp(-depth*3.0);",
+    "    float crustRidge = smoothstep(0.075, 0.0, hr) * exp(-depth*3.0) * uSalt;",
     "    vec2 ripGrad = vec2(0.0);",
     "    if(uPh >= 0.0 && uPh < " + (STEP_RIP * 2.2).toFixed(2) + "){",
     "      vec2 dp = p - vec2(par.x, horY - 0.06);",
@@ -96,7 +99,7 @@
     "      float amp2 = cos(w2) * exp(-tapAge*1.25) * exp(-td*5.0);",
     "      ripGrad += normalize(tp + 1e-4) * amp2 * 0.024;",
     "    }",
-    "    float windRip = sin(gnd.y*12.0 - uT*1.6 + sin(gnd.x*4.0))*0.0025*smoothstep(0.0, 0.25, depth);",
+    "    float windRip = sin(gnd.y*12.0 - uT*1.6 + sin(gnd.x*4.0))*0.0025*smoothstep(0.0, 0.25, depth) * uWind;",
     "    vec2 reflP = vec2(sp.x + ripGrad.x + windRip, -sp.y + ripGrad.y);",
     "    vec3 reflSky = sampleSkyAndCoin(reflP, horY, bRad, uT, uPh, uNoShot);",
     "    float fres = 0.72 + 0.26*exp(-depth*4.5);",
@@ -201,8 +204,10 @@
       name: "saltflat",
       step: function (c) {
         var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var v = c.view || {};
+        var sway = v.mode === "room" ? 0 : 1;
+        ptr[0] += (((P.x || 0.5) - ptr[0]) * 0.08) * sway;
+        ptr[1] += (((P.y || 0.5) - ptr[1]) * 0.08) * sway;
         if (si !== seg) {
           if (seg == null) show(null);
           else if (next && next.ok) { show(next); next = null; } else late = true;
@@ -213,16 +218,23 @@
         if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
       },
       draw: function (c) {
-        var A = c.w / c.h, now = Date.now() / 1000;
+        var A = c.w / c.h, now = Date.now() / 1000, v = c.view || {};
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
         gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tShot); gl.uniform1i(u.uShot, 1); gl.activeTexture(gl.TEXTURE0);
         gl.uniform2f(u.uRes, c.w, c.h); gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uPh, now % SEG);
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform4f(u.uView, v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0);
+        gl.uniform1f(u.uSalt, look("salt", 1)); gl.uniform1f(u.uGlow, look("glow", 1)); gl.uniform1f(u.uWind, look("wind", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () {
+        var v = TitanFXK.view || {};
+        return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
+          cam: [v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0].map(function (x) { return +x.toFixed(3); }),
+          look: { salt: look("salt", 1), glow: look("glow", 1), wind: look("wind", 1) } };
+      },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -230,6 +242,15 @@
     stack: [
       { mod: "saltflat" },
       { mod: "post", bloom: 0.52, threshold: 0.76, knee: 0.45, exposure: 0.98, aberr: 0.04, grain: 0.03, vig: 0.34 }
-    ]
+    ],
+    room: { name: "The Altiplano Mirror", yaw: [-0.6, 0.6], pitch: [-0.2, 0.2], move: [-0.3, 0.5], up: [-0.1, 0.1],
+      unit: "screen", sound: "sand",
+      look: [
+        { id: "salt", label: "Salt Crust", min: 0, max: 3, def: 1 },
+        { id: "glow", label: "Sky Glow", min: 0, max: 2.5, def: 1 },
+        { id: "wind", label: "Wind Ripples", min: 0, max: 4, def: 1 }
+      ],
+      touch: "A tap on the flooded surface sends out a ripple ring from that point.",
+      opening: { dur: 5.0, from: { yaw: -0.4, pitch: 0.15, move: 0.4, up: -0.05 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [0.5, 0.3] } }
   };
 })();

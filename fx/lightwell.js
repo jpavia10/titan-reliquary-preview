@@ -8,6 +8,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) { /* ignore */ }
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) { /* ignore */ }
@@ -16,7 +17,7 @@
   var SEG = 12;
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
-    "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
+    "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot; uniform vec4 uView;",
     "uniform sampler2D uCard, uShot;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     // Board-formed architectural concrete: cool mineral grey, fine aggregate, faint formwork imprint, form-tie cones, analytical normal
@@ -43,6 +44,9 @@
     "}",
     "void main(){",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  p += uView.xy;",
+    "  p *= (1.0 - uView.z * 0.25);",
+    "  p.y -= uView.w;",
     "  float A = uRes.x/uRes.y;",
     "  vec2 par = (uPtr - 0.5)*vec2(0.035, 0.025);",
     "  vec2 wp = p - par;",
@@ -202,12 +206,15 @@
     function onCoin(ev) { var id = ev.detail && ev.detail.id; var e = coins.filter(function (x) { return x.scan === id; })[0]; if (!e || shown === id) return; prepare(e); }
     addEventListener("titan:coin", onCoin);
     var seen = K.ptr.tap, tap = [9, 9, -99], ptr = [0.5, 0.5];
+    var lastView = {};   // the view the world last drew (for debug)
     return {
       name: "lightwell",
       step: function (c) {
+        var v = c.view || {}; lastView = v;
         var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var room = v.mode === "room";
+        ptr[0] = room ? 0.5 : (ptr[0] + ((P.x || 0.5) - ptr[0]) * 0.08);
+        ptr[1] = room ? 0.5 : (ptr[1] + ((P.y || 0.5) - ptr[1]) * 0.08);
         if (si !== seg) {
           if (seg == null) show(null);
           else if (next && next.ok) { show(next); next = null; } else late = true;
@@ -218,6 +225,7 @@
         if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
       },
       draw: function (c) {
+        var v = c.view || {}; lastView = v;
         var A = c.w / c.h, now = Date.now() / 1000;
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
@@ -225,9 +233,15 @@
         gl.uniform2f(u.uRes, c.w, c.h); gl.uniform1f(u.uT, c.t); gl.uniform1f(u.uPh, now % SEG);
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform4f(u.uView, v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () {
+        var v = lastView;
+        return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
+          cam: [+(v.yaw || 0).toFixed(3), +(v.pitch || 0).toFixed(3), +(v.move || 0).toFixed(3), +(v.up || 0).toFixed(3)],
+          look: { dust: look("dust", 1), light: look("light", 1) } };
+      },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -235,6 +249,11 @@
     stack: [
       { mod: "lightwell" },
       { mod: "post", bloom: 0.48, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.04, grain: 0.03, vig: 0.34 }
-    ]
+    ],
+    room: { name: "The Concrete Rotunda", yaw: [-.4, .4], pitch: [-.3, .3], move: [-.5, .5], up: [-.3, .3],
+      unit: "screen", sound: "cathedral",
+      look: [{ id: "dust", label: "Dust Motes", min: 0, max: 3, def: 1 }, { id: "light", label: "Sunlight", min: .2, max: 2, def: 1 }],
+      touch: "Tap the concrete or the coin: a soft ripple across the light well.",
+      opening: { dur: 5, from: { yaw: .2, pitch: -.15, move: .3, up: -.1 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3, at: [.5, .5] } }
   };
 })();
