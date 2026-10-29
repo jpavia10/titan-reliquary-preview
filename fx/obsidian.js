@@ -26,7 +26,7 @@
     "  p.x -= uViewYaw * 0.3;",
     "  p.y -= uViewPitch * 0.3;",
     "  p -= vec2(0.0, uViewUp * 0.1);",
-    "  float zoom = 1.0 + uViewMove * 0.25;",
+    "  float zoom = exp(-uViewMove * 0.25);",   // move > 0 = toward the sun (world contract)
     "  p *= zoom;",
     "  float A = uRes.x/uRes.y;",
     "  float S = min(1.0, A * 0.96);",
@@ -289,10 +289,10 @@
       { mod: "obsidian" },
       { mod: "post", bloom: 0.48, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.04, grain: 0.03, vig: 0.34 }
     ],
-    room: { name: "The Obsidian Sun Stone", yaw: [-0.6, 0.6], pitch: [-0.6, 0.6], move: [-1.5, 1.5], up: [-1, 1], unit: "screen", sound: "lava",
+    room: { name: "The Obsidian Sun Stone", yaw: [-.3, .3], pitch: [-.25, .25], move: [-1.2, 1.5], up: [-.6, .6], unit: "screen", sound: "lava",
       look: [{ id: "spin", label: "Rotation", min: 0.2, max: 3, def: 1 }, { id: "glow", label: "Solar Gold", min: 0.2, max: 2, def: 1 },
         { id: "fog", label: "Obsidian Sheen", min: 0.5, max: 1.5, def: 1 }, { id: "warm", label: "Warmth", min: 0.8, max: 1.2, def: 1 }],
       touch: "Tap the mirror surface: ripples the obsidian glass and triggers a pulse wave.",
-      opening: { dur: 5.0, from: { yaw: 0.3, pitch: -0.2, move: -1.0, up: 0.5 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.0, at: [0.5, 0.5] } }
+      opening: { dur: 5.0, from: { yaw: .24, pitch: -.2, move: -.96, up: .48 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.0, at: [0.5, 0.5] } }
   };
 })();
