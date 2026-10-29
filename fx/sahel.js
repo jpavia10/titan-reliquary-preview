@@ -250,9 +250,9 @@
       { mod: "sahel" },
       { mod: "post", bloom: 0.48, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.03, grain: 0.035, vig: 0.34 }
     ],
-    room: { name: "The Saharan Solar Court", yaw: [-0.8, 0.8], pitch: [-0.6, 0.6], move: [-0.6, 0.6], up: [-0.5, 0.5], unit: "screen", sound: "sand",
+    room: { name: "The Saharan Solar Court", yaw: [-.3, .3], pitch: [-.25, .25], move: [-.5, .5], up: [-.2, .2], unit: "screen", sound: "sand",
       look: [{ id: "haze", label: "Desert Haze", min: 0, max: 2, def: 1 }, { id: "glow", label: "Astrolabe Glow", min: 0.2, max: 2, def: 1 }, { id: "speed", label: "Rotation Speed", min: 0, max: 3, def: 1 }],
       touch: "Tap the astrolabe: a ripple across the solar court.",
-      opening: { dur: 5, from: { yaw: 0.4, pitch: -0.3, move: -0.4, up: 0.2 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [0.5, 0.5] } }
+      opening: { dur: 5, from: { yaw: .24, pitch: -.2, move: -.4, up: .16 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [0.5, 0.5] } }
   };
 })();

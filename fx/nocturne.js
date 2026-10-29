@@ -250,10 +250,10 @@
       { mod: "nocturne" },
       { mod: "post", bloom: 0.46, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.03, grain: 0.03, vig: 0.34 }
     ],
-    room: { name: "The candlelit recital salon", yaw: [-0.4, 0.4], pitch: [-0.3, 0.3], move: [0, 0], up: [0, 0],
+    room: { name: "The candlelit recital salon", yaw: [-.12, .12], pitch: [-.1, .1], move: [0, 0], up: [0, 0],
       unit: "screen", sound: "fireflies",
       look: [{ id: "glow", label: "Candlelight", min: 0, max: 3, def: 1 }, { id: "vib", label: "Vibration", min: 0, max: 4, def: 1 }, { id: "warm", label: "Warmth", min: 0.5, max: 2, def: 1 }],
       touch: "A tap on the soundboard creates a ripple of vibration and a golden glow.",
-      opening: { dur: 5.5, from: { yaw: 0, pitch: -0.25, move: 0, up: 0 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.5, at: [0.5, 0.48] } }
+      opening: { dur: 5.5, from: { yaw: 0, pitch: -.08, move: 0, up: 0 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.5, at: [0.5, 0.48] } }
   };
 })();

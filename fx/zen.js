@@ -245,7 +245,7 @@
       { mod: "zen" },
       { mod: "post", bloom: 0.44, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.025, grain: 0.03, vig: 0.32 }
     ],
-    room: { name: "The dry garden courtyard", yaw: [-0.6, 0.6], pitch: [-0.4, 0.4], move: [-0.5, 1.2], up: [-0.3, 0.3],
+    room: { name: "The dry garden courtyard", yaw: [-.15, .15], pitch: [-.12, .12], move: [-.4, .6], up: [-.08, .08],
       unit: "screen", sound: "sand",
       look: [
         { id: "moss", label: "Moss growth", min: 0, max: 2.5, def: 1 },
@@ -253,6 +253,6 @@
         { id: "sway", label: "Bamboo sway", min: 0, max: 4, def: 1 }
       ],
       touch: "A tap on the gravel creates a ripple of focus and light.",
-      opening: { dur: 5.5, from: { yaw: 0.4, pitch: -0.2, move: -0.4, up: 0.2 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.5, at: [0.5, 0.5] } }
+      opening: { dur: 5.5, from: { yaw: .12, pitch: -.096, move: -.32, up: .064 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.5, at: [0.5, 0.5] } }
   };
 })();
