@@ -4,6 +4,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) {}
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) {}
@@ -13,10 +14,13 @@
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
     "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
+    "uniform vec4 uView; uniform float uRain, uGlow, uSpeed;",
     "uniform sampler2D uCard, uShot;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     "void main(){",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  p += uView.xy;",
+    "  p *= (1.0 - uView.z * 0.4);",
     "  float A = uRes.x/uRes.y;",
     "  float S = min(1.0, A * 0.96);",
     "  vec2 par = (uPtr - 0.5)*vec2(0.035, 0.035)*S;",
@@ -27,7 +31,7 @@
     "  vec2 rDir = bp / (r + 1e-5);",
     "  vec2 tDir = vec2(-rDir.y, rDir.x);",
     "  float bRad = 0.228;",
-    "  vec2 lXY = vec2(0.28*sin(uT*0.25), 0.24*cos(uT*0.22)) + (uPtr - 0.5)*vec2(0.45, 0.45);",
+    "  vec2 lXY = vec2(0.28*sin(uT*0.25*uSpeed), 0.24*cos(uT*0.22*uSpeed)) + (uPtr - 0.5)*vec2(0.45, 0.45);",
     "  vec3 L = normalize(vec3(lXY - bp, 0.48));",
     "  vec3 V = vec3(0.0, 0.0, 1.0);",
     "  vec3 H = normalize(L + V);",
@@ -42,24 +46,24 @@
     "  float purlins = 5.0;",
     "  float purlR = (fract((r - bRad)*purlins) - 0.5)*2.0;",
     "  float dropCell = floor(a*48.0);",
-    "  float dropSpeed = 0.18 + 0.12*h1(dropCell);",
+    "  float dropSpeed = (0.18 + 0.12*h1(dropCell)) * uSpeed;",
     "  float dropR = fract(r*2.4 + uT*dropSpeed + h1(dropCell*3.1));",
-    "  float dropTrail = smoothstep(0.35, 0.0, abs(fract(a*48.0) - 0.5)) * smoothstep(0.25, 0.0, dropR);",
+    "  float dropTrail = smoothstep(0.35, 0.0, abs(fract(a*48.0) - 0.5)) * smoothstep(0.25, 0.0, dropR) * uRain;",
     "  vec2 paneGrad = rDir*(purlR*0.22 - dropTrail*0.35) + tDir*(secA*0.24);",
     "  vec3 gN = normalize(vec3(-paneGrad, 1.0));",
     "  vec2 botP = bp + gN.xy*0.035;",
-    "  float frond1A = atan(botP.y - 0.32, botP.x + 0.36) + 0.04*sin(uT*0.7);",
+    "  float frond1A = atan(botP.y - 0.32, botP.x + 0.36) + 0.04*sin(uT*0.7*uSpeed);",
     "  float frond1R = length(botP - vec2(-0.36, 0.32));",
     "  float leaflets1 = smoothstep(0.15, 0.65, sin(frond1A*28.0 + frond1R*12.0)) * smoothstep(0.62, 0.18, frond1R) * smoothstep(0.05, 0.15, frond1R);",
-    "  float frond2A = atan(botP.y - 0.28, botP.x - 0.38) - 0.04*cos(uT*0.65);",
+    "  float frond2A = atan(botP.y - 0.28, botP.x - 0.38) - 0.04*cos(uT*0.65*uSpeed);",
     "  float frond2R = length(botP - vec2(0.38, 0.28));",
     "  float leaflets2 = smoothstep(0.15, 0.65, sin(frond2A*26.0 - frond2R*11.0)) * smoothstep(0.64, 0.18, frond2R) * smoothstep(0.05, 0.15, frond2R);",
-    "  float frond3A = atan(botP.y + 0.36, botP.x + 0.28) + 0.03*sin(uT*0.55);",
+    "  float frond3A = atan(botP.y + 0.36, botP.x + 0.28) + 0.03*sin(uT*0.55*uSpeed);",
     "  float frond3R = length(botP - vec2(-0.28, -0.36));",
     "  float leaflets3 = smoothstep(0.20, 0.70, cos(frond3A*24.0 + frond3R*10.0)) * smoothstep(0.58, 0.16, frond3R);",
     "  float foliage = clamp(leaflets1 + leaflets2 + leaflets3*0.8, 0.0, 1.0);",
-    "  float steam = fbm(bp*5.5 + vec2(0.0, uT*0.03)) * (1.0 - 0.35*dropTrail);",
-    "  float lanternGlow = exp(-length(bp - lXY*0.5)*3.2);",
+    "  float steam = fbm(bp*5.5 + vec2(0.0, uT*0.03*uSpeed)) * (1.0 - 0.35*dropTrail);",
+    "  float lanternGlow = exp(-length(bp - lXY*0.5)*3.2) * uGlow;",
     "  vec3 nightSky = mix(vec3(0.025, 0.055, 0.048), vec3(0.06, 0.14, 0.11), steam);",
     "  vec3 palmCol = mix(vec3(0.03, 0.09, 0.06), vec3(0.14, 0.32, 0.21), steam*0.8 + lanternGlow*0.5);",
     "  vec3 col = mix(nightSky, palmCol, foliage*0.78);",
@@ -209,9 +213,13 @@
     return {
       name: "glasshouse",
       step: function (c) {
+        var v = c.view || {};
         var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var room = v.mode === "room";
+        var targetPtrX = room ? 0.5 : (P.x || 0.5);
+        var targetPtrY = room ? 0.5 : (P.y || 0.5);
+        ptr[0] += (targetPtrX - ptr[0]) * 0.08;
+        ptr[1] += (targetPtrY - ptr[1]) * 0.08;
         if (si !== seg) {
           pinned = false;
           if (seg == null) show(null);
@@ -223,6 +231,8 @@
         if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
       },
       draw: function (c) {
+        var v = c.view || {};
+        var yaw = v.yaw || 0, pitch = v.pitch || 0, move = v.move || 0, upVal = v.up || 0;
         var A = c.w / c.h, now = Date.now() / 1000;
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
@@ -231,9 +241,18 @@
         gl.uniform1f(u.uPh, pinned ? 6.0 : (now % SEG));
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform4f(u.uView, yaw, pitch, move, upVal);
+        gl.uniform1f(u.uRain, look("rain", 1));
+        gl.uniform1f(u.uGlow, look("glow", 1));
+        gl.uniform1f(u.uSpeed, look("speed", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () {
+        var v = K.view || {};
+        return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
+          cam: [+(v.yaw || 0).toFixed(3), +(v.pitch || 0).toFixed(3), +(v.move || 0).toFixed(3), +(v.up || 0).toFixed(3)],
+          look: { rain: look("rain", 1), glow: look("glow", 1), speed: look("speed", 1) } };
+      },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -241,6 +260,11 @@
     stack: [
       { mod: "glasshouse" },
       { mod: "post", bloom: 0.46, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.03, grain: 0.03, vig: 0.32 }
-    ]
+    ],
+    room: { name: "The Victorian conservatory dome", yaw: [-.15, .15], pitch: [-.12, .12], move: [-.4, .5], up: [-.08, .08],
+      unit: "m", sound: "rainforest",
+      look: [{ id: "rain", label: "Rain", min: 0, max: 2.5, def: 1, scape: "rain" }, { id: "glow", label: "Lantern Glow", min: 0.2, max: 2.5, def: 1 }, { id: "speed", label: "Frond Speed", min: 0.2, max: 3, def: 1 }],
+      touch: "Tap the conservatory: a ripple of raindrops across the glass dome.",
+      opening: { dur: 5.0, from: { yaw: 0, pitch: 0, move: -.32, up: .064 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.0, at: [.5, .5] } }
   };
 })();

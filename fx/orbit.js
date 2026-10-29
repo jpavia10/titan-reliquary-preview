@@ -4,6 +4,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK; if (!K) return;
+  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
   function tier() {
     try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) {}
     try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) {}
@@ -13,10 +14,13 @@
   var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
     "#define LITE " + (lite ? 1 : 0),
     "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
+    "uniform vec4 uView; uniform float uAtm, uCity, uStar, uSpeed;",
     "uniform sampler2D uCard, uShot;",
     "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
     "void main(){",
+    "  float t = uT * uSpeed;",
     "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
+    "  p = (p - vec2(uView.x, uView.y + uView.w)) * exp(-uView.z);",   // the room: pan (yaw, pitch, up) and zoom (move) in screen heights
     "  float A = uRes.x/uRes.y;",
     "  float S = min(1.0, A * 0.96);",
     "  vec2 par = (uPtr - 0.5)*vec2(0.035, 0.035)*S;",
@@ -27,7 +31,7 @@
     "  vec2 rDir = bp / (r + 1e-5);",
     "  vec2 tDir = vec2(-rDir.y, rDir.x);",
     "  float bRad = 0.228;",
-    "  vec2 lXY = vec2(0.36*cos(uT*0.22), 0.28 + 0.10*sin(uT*0.18)) + (uPtr - 0.5)*vec2(0.48, 0.48);",
+    "  vec2 lXY = vec2(0.36*cos(t*0.22), 0.28 + 0.10*sin(t*0.18)) + (uPtr - 0.5)*vec2(0.48, 0.48);",
     "  vec3 L = normalize(vec3(lXY - bp, 0.45));",
     "  vec3 V = vec3(0.0, 0.0, 1.0);",
     "  vec3 H = normalize(L + V);",
@@ -41,21 +45,21 @@
     "  float earthR = 1.42;",
     "  float dEarth = length(bp - earthCenter) - earthR;",
     "  float onEarth = smoothstep(0.008, -0.012, dEarth);",
-    "  float airglow1 = exp(-abs(dEarth - 0.012)*38.0);",
-    "  float airglow2 = exp(-max(0.0, dEarth)*14.0);",
+    "  float airglow1 = exp(-abs(dEarth - 0.012)*38.0) * uAtm;",
+    "  float airglow2 = exp(-max(0.0, dEarth)*14.0) * uAtm;",
     "  float sunAng = atan(bp.y - earthCenter.y, bp.x - earthCenter.x);",
-    "  float termFlare = exp(-abs(sunAng - (1.48 + (uPtr.x - 0.5)*0.35))*4.5) * exp(-abs(dEarth)*24.0);",
-    "  vec2 geoUV = (bp - earthCenter)*3.4 + vec2(uT*0.025, -uT*0.01);",
+    "  float termFlare = exp(-abs(sunAng - (1.48 + (uPtr.x - 0.5)*0.35))*4.5) * exp(-abs(dEarth)*24.0) * uAtm;",
+    "  vec2 geoUV = (bp - earthCenter)*3.4 + vec2(t*0.025, -t*0.01);",
     "  float landMask = smoothstep(0.42, 0.56, fbm(geoUV*1.2));",
     "  float cityGrid = fbm3(geoUV*14.0) * fbm3(geoUV*28.0 + 2.3);",
-    "  float cities = smoothstep(0.26, 0.48, cityGrid) * landMask * smoothstep(0.0, -0.06, dEarth);",
-    "  float clouds = fbm(geoUV*2.8 + vec2(uT*0.015, 0.0));",
+    "  float cities = smoothstep(0.26, 0.48, cityGrid) * landMask * smoothstep(0.0, -0.06, dEarth) * uCity;",
+    "  float clouds = fbm(geoUV*2.8 + vec2(t*0.015, 0.0));",
     "  vec3 earthSurface = mix(vec3(0.012, 0.028, 0.058), vec3(0.03, 0.065, 0.12), clouds);",
     "  earthSurface += vec3(0.98, 0.76, 0.36) * cities * (1.0 - 0.5*clouds) * 0.85;",
     "  vec2 starCell = floor(bp*65.0);",
     "  vec2 starF = fract(bp*65.0) - 0.5;",
     "  float starH = h21(starCell);",
-    "  float star = smoothstep(0.09, 0.01, length(starF - (vec2(starH, fract(starH*17.3)) - 0.5)*0.5)) * step(0.93, starH) * (1.0 - onEarth);",
+    "  float star = smoothstep(0.09, 0.01, length(starF - (vec2(starH, fract(starH*17.3)) - 0.5)*0.5)) * step(0.93, starH) * (1.0 - onEarth) * uStar;",
     "  vec3 spaceCol = vec3(0.01, 0.015, 0.025) + vec3(0.80, 0.90, 1.0)*star*0.65;",
     "  vec3 col = mix(spaceCol, earthSurface, onEarth);",
     "  col += vec3(0.16, 0.58, 0.98)*airglow2*0.42 + vec3(0.38, 0.90, 0.98)*airglow1*0.52 + vec3(1.0, 0.82, 0.46)*termFlare*0.48;",
@@ -207,9 +211,11 @@
     return {
       name: "orbit",
       step: function (c) {
+        var v = c.view || {};
         var P = c.ptr, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        ptr[0] += ((P.x || 0.5) - ptr[0]) * 0.08;
-        ptr[1] += ((P.y || 0.5) - ptr[1]) * 0.08;
+        var room = v.mode === "room";
+        ptr[0] += ((room ? 0.5 : (P.x || 0.5)) - ptr[0]) * 0.08;
+        ptr[1] += ((room ? 0.5 : (P.y || 0.5)) - ptr[1]) * 0.08;
         if (si !== seg) {
           pinned = false;
           if (seg == null) show(null);
@@ -221,6 +227,7 @@
         if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
       },
       draw: function (c) {
+        var v = c.view || {};
         var A = c.w / c.h, now = Date.now() / 1000;
         K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
         gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
@@ -229,9 +236,21 @@
         gl.uniform1f(u.uPh, pinned ? 6.0 : (now % SEG));
         gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
         gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
+        gl.uniform4f(u.uView, v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0);
+        gl.uniform1f(u.uAtm, look("atmosphere", 1));
+        gl.uniform1f(u.uCity, look("cities", 1));
+        gl.uniform1f(u.uStar, look("stars", 1));
+        gl.uniform1f(u.uSpeed, look("speed", 1));
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       },
-      debug: function () { return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok) }; },
+      debug: function () {
+        var v = K.view || {};
+        return {
+          tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
+          cam: [+(v.yaw || 0).toFixed(3), +(v.pitch || 0).toFixed(3), +(v.move || 0).toFixed(3), +(v.up || 0).toFixed(3)],
+          look: { atmosphere: look("atmosphere", 1), cities: look("cities", 1), stars: look("stars", 1), speed: look("speed", 1) }
+        };
+      },
       dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
     };
   });
@@ -239,6 +258,10 @@
     stack: [
       { mod: "orbit" },
       { mod: "post", bloom: 0.48, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.04, grain: 0.025, vig: 0.34 }
-    ]
+    ],
+    room: { name: "The Cupola window", yaw: [-.12, .12], pitch: [-.1, .1], move: [-.4, .5], up: [-.06, .06], unit: "screen", sound: "aurora",
+      look: [{ id: "atmosphere", label: "Atmosphere", min: 0.2, max: 2, def: 1 }, { id: "cities", label: "City Lights", min: 0, max: 2.5, def: 1 }, { id: "stars", label: "Starlight", min: 0, max: 2, def: 1 }, { id: "speed", label: "Orbit Speed", min: 0, max: 3, def: 1 }],
+      touch: "Tap the window: a ripple across the cupola glass.",
+      opening: { dur: 5, from: { yaw: .096, pitch: -.08, move: -.3, up: .048 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3, at: [0.5, 0.5] } }
   };
 })();

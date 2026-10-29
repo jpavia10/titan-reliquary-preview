@@ -116,7 +116,7 @@
     { mod: "particles", count: { low: .02, medium: .035, high: .05, max: .09 }[tier()], shape: "mote", size: 1.6, gravity: -.002, curl: 1.2, scale: 1.6, speed: .03, life: .05, c1: [.3, 1, .45], c2: [.8, 1, .4], alpha: .035, blend: "add", depth: .4, glint: .3, rake: .4 },
     { mod: "post", bloom: 1.05, threshold: .75, knee: .45, exposure: 1.0, aberr: .4, grain: .035, vig: .55, trails: .15 }
   ],
-    room: { name: "The garage laboratory", yaw: [-.6, .6], pitch: [-.2, .2], move: [-1.5, 1.5], up: [-.5, .5],
+    room: { name: "The garage laboratory", yaw: [-.12, .12], pitch: [-.1, .1], move: [-.4, .6], up: [-.06, .06],
       unit: "m", sound: "plasma",
       look: [
         { id: "glow", label: "Glow", min: 0.2, max: 2, def: 1 },
@@ -125,6 +125,6 @@
         { id: "warmth", label: "Warmth", min: 0.5, max: 1.5, def: 1 }
       ],
       touch: "Tap anywhere to pop a small pocket rift under your finger; press and hold to charge the main rift.",
-      opening: { dur: 5.0, from: { yaw: .3, pitch: -.1, move: -1.0, up: .2 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [.5, .5] } }
+      opening: { dur: 5.0, from: { yaw: .096, pitch: -.08, move: -.32, up: .048 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 2.5, at: [.5, .5] } }
   };
 })();

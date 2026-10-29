@@ -20,7 +20,7 @@
   var HEAD = "#version 300 es\nprecision highp float;\nNOISE\nuniform vec2 uRes, uP, uTapP, uDrag; uniform float uT, uDown, uTap, uQ, uFl; out vec4 o;\n" +
     /* world contract (fx/kit.js): every kind reads its pixel through FC(), the screen seen through the room camera: yaw and pitch pan
        (in screen heights), move zooms toward the centre, up lifts. The default view gives gl_FragCoord exactly. */
-    "uniform vec4 uView;\nvec4 FC(){ vec2 c = (gl_FragCoord.xy-.5*uRes)*exp(-uView.z)+.5*uRes+vec2(uView.x, uView.y+uView.w)*uRes.y; return vec4(c, gl_FragCoord.zw); }\n" +
+    "uniform vec4 uView;\nvec4 FC(){ vec2 c = (FC_RAW.xy-.5*uRes)*exp(-uView.z)+.5*uRes+vec2(uView.x, uView.y+uView.w)*uRes.y; return vec4(c, FC_RAW.zw); }\n" +
     "float h31(vec3 p){ p = fract(p*vec3(.1031,.1030,.0973)); p += dot(p, p.yxz+33.33); return fract((p.x+p.y)*p.z); }\n" +
     "mat2 rot(float a){ float c = cos(a), s = sin(a); return mat2(c,s,-s,c); }\n" +
     "vec3 aspectP(){ vec2 uv = gl_FragCoord.xy/uRes; return vec3((uv-.5)*vec2(uRes.x/uRes.y,1.), 0.); }\n";
@@ -819,7 +819,8 @@
     glowforest: "fireflies", jellyfish: "underwater", orbit: "space", eclipse: "space", glowworms: "underwater", opal: "crystal", spellorb: "plasma", comet: "space", pulsar: "space", dunes: "sandstorm", frost: "blizzard", clockwork: "crystal", ringworld: "space", wormhole: "space", sakura: "rainforest", cathedral: "crystal", bubbles: "bubbles", shatter: "glass", crystals: "crystal", arcane: "plasma", portal: "plasma", plasmaglobe: "plasma" };
   K.mod("scene", function (gl, s, K) {
     var src = S[s.kind]; if (!src) return null;
-    var pr = K.compile(K.FSQ, HEAD.replace("NOISE", K.NOISE) + src.replace(/gl_FragCoord/g, "FC()")); if (!pr) return null;
+    // every read of the pixel position (the kinds and the shared helpers such as aspectP) goes through FC(); only FC() reads the raw one
+    var pr = K.compile(K.FSQ, (HEAD.replace("NOISE", K.NOISE) + src).replace(/gl_FragCoord/g, "FC()").replace(/FC_RAW/g, "gl_FragCoord")); if (!pr) return null;
     var look = K.look || function (id, def) { return def; }, tOff = 0, lastView = {};   // an older cached kit has no world contract: the backdrop as before
     var flAt = -1, arcT = 0, onScape = function (e) { var d = e.detail || {}; if (d.type === "flash" || d.type === "arc" || d.type === "ripple") flAt = K.now ? K.now() : performance.now() / 1000; };
     addEventListener("titan:scape", onScape);
