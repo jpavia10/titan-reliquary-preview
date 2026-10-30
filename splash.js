@@ -12,9 +12,10 @@
    dual-filter bloom, depth-of-field focus pull, ACES, grain, vignette. Optional WebAudio sound (off by default).
    Tiers 0-4 (?splashq=N forces one); the tier is chosen from the frame time of the first ~500 ms (still black).
    Replay: TitanSplash.replay() or ?splash=1.  Skip: ?nosplash, or tap / click / any key.  See notes/agents/splash-v3.md
-   Opening setting (Scene Studio > Settings > Opening, js/motion-splash.js): TitanOpening.pick() chooses "film" (everything below: the film,
-   then the 3D vault as its fallback), "motion" (the theme's own 2.5-3.5 s canvas splash, motionPath()) or "none" (straight into the app).
-   Test overrides: ?opening=motion|film|none, ?theme=<id> (the splash only), ?splashhold (no clock; TitanOpening._debug.seek(t)). */
+   Opening setting (Scene Studio > Settings > Opening, js/motion-splash.js): TitanOpening.pick() chooses "motion" (the theme's own
+   opening: on its GPU world when wings/room.js OPENINGS lists it, else its 2.5-3.5 s canvas splash, motionPath(); the 3D vault below is
+   the last fallback) or "none" (straight into the app). No opening films (owner 2026-10-30).
+   Test overrides: ?opening=motion|none, ?theme=<id> (the splash only), ?splashhold (no clock; TitanOpening._debug.seek(t)). */
 (function () {
   "use strict";
   var html = document.documentElement;
@@ -49,13 +50,11 @@
     { country: "Guatemala", year: "1934", denom: "10 Centavos", scan: "C235" },
     { country: "Australia", year: "1943", denom: "Threepence", scan: "C031" }
   ];
-  var opening = "film";                          // "film" | "motion" | "none" (TitanOpening.pick(): the Opening setting, Motion level, ?opening=)
-  try { if (window.TitanOpening && window.TitanOpening.pick) opening = window.TitanOpening.pick(); } catch (e) { opening = "film"; }
-  /* rule 12: a theme whose opening runs on its own world (wings/room.js OPENINGS) plays that instead of a film or a separate scene;
-     ?opening=film or ?film=N still forces a film */
+  var opening = "motion";                        // "motion" | "none" (TitanOpening.pick(): the Opening setting, Motion level, ?opening=)
+  try { if (window.TitanOpening && window.TitanOpening.pick) opening = window.TitanOpening.pick(); } catch (e) { opening = "motion"; }
+  /* rule 12: a theme whose opening runs on its own world (wings/room.js OPENINGS) plays that; any other theme plays its motion splash */
   var engineOpen = false;
-  try { engineOpen = (opening === "film" || opening === "motion") && !/[?&](opening=film|film=\d)/.test(location.search) && !!(window.TitanRoom && window.TitanOpening && TitanRoom.hasOpening(TitanOpening.theme()));
-    if (engineOpen) opening = "motion"; } catch (e) { engineOpen = false; }
+  try { engineOpen = opening === "motion" && !!(window.TitanRoom && window.TitanOpening && TitanRoom.hasOpening(TitanOpening.theme())); } catch (e) { engineOpen = false; }
   var featured = null, featWait = [];
   function titleCase(s) { return s.replace(/\b([a-z])([a-z]*)/g, function (m, a, b) { return a.toUpperCase() + b; }); }
   function fromFlip(f) {
@@ -347,7 +346,10 @@
   window.addEventListener("popstate", onNav);
   window.addEventListener("resize", onResize);
   var hold = /[?&]splashhold/.test(location.search);       // test/capture only: no cap, no auto-render (frames come from _debug.seek)
-  if (!hold) later(function () { if (window.__tsFilmUntil && performance.now() < window.__tsFilmUntil) return; finish(true, 0.4); }, CAP_MS);       // wall-clock cap, whatever the GPU is doing
+  /* the wall-clock cap: an opening that asked for more time (window.__tsFilmUntil, the engine opening) gets it, and the cap checks again
+     then, so a stalled opening (a slow GPU, a frame loop that stops) can never hold the app back */
+  function capCheck() { if (state === "done") return; var u = window.__tsFilmUntil || 0, now = performance.now(); if (u && now < u) { later(capCheck, u - now + 200); return; } finish(true, 0.4); }
+  if (!hold) later(capCheck, CAP_MS);       // wall-clock cap, whatever the GPU is doing
 
   window.TitanSplash = {
     replay: function () {
@@ -407,112 +409,7 @@
 
   if (reduce) { stillPath("reduced"); return; }
 
-  /* ---------- FILM path (2026-10-01): a photoreal AI-generated opening film, when one has been imported ----------
-     FILM is set by the integrator on "Titan: import the art" (art/splash/*.mp4, from the Drive art queue, docs/art/ART_QUEUE.md).
-     null = no film yet, so the real-time 3D scene below runs. If the film cannot start within 5 s (or the codec is unsupported), the 3D scene runs instead. */
-  var FILM = {     // tr71: Grok Imagine Video 1.5 clips (artreq_20261001-2045_splash-film-v3-maximal), 1080p + sound; one picked at random per launch, never the same twice in a row
-    portrait:  ["art/splash/zoom1_9x16", "art/splash/zoom2_9x16", "art/splash/titan_9x16", "art/splash/dragon_9x16",
-                "art/splash/coinverse1_9x16", "art/splash/coinverse2_9x16",   // tr89: v5 "The Coinverse Opens" takes 1 + 2 (SuperGrok, artreq_20261005-0900)
-                "art/splash/hoard_9x16", "art/splash/fractal_9x16", "art/splash/cathedral_9x16", "art/splash/coinrain_9x16",
-                "art/splash/forge1_9x16", "art/splash/forge2_9x16"],   // tr114: the rest of v5 (Grok; 4 Mbps VP9 / 6 Mbps H.264)
-    landscape: ["art/splash/zoom1_16x9", "art/splash/hoard_16x9", "art/splash/cathedral_16x9", "art/splash/forge_16x9"],
-                                              // base names: .webm (VP9 + Opus) where supported, else .mp4 (H.264 + AAC)
-    tail: 1.4,
-    exit: 1.6
-  };
-  if (FILM && !/[?&]splashgl\b/.test(location.search) && filmPath()) return;
-  function pickFilm(list) {
-    if (!list || !list.length) return null;
-    if (typeof list === "string") return list;
-    var forced = /[?&]film=(\d+)/.exec(location.search);
-    if (forced) return list[clamp(+forced[1], 0, list.length - 1)];
-    var last = null; try { last = localStorage.getItem("tr_splash_film_last"); } catch (e) {}
-    var pool = list.length > 1 ? list.filter(function (f) { return f !== last; }) : list;
-    var pick = pool[Math.floor(Math.random() * pool.length)];
-    try { localStorage.setItem("tr_splash_film_last", pick); } catch (e) {}
-    return pick;
-  }
-  /* The clips are 8-12 Mbps and 13-24 MB. On Data Saver or a 2g/3g connection, use the real-time 3D opening instead (nothing to
-     download, capped at CAP_MS). ?film=N still forces a clip. Browsers without navigator.connection (Safari) are unchanged.
-     2026-10-20 (owner: "None of groks intros appear"): the tr117 rule also skipped the film when navigator.connection.downlink was
-     under 5 Mbps, but Chrome's downlink is a rough estimate that often reads 1-2 Mbps on a fast line, so the film almost never
-     played. A slow line is now caught by watching the film itself: a clip that stalls is cut short (STALL_MS in filmPath). */
-  function slowNet() {
-    var c = navigator.connection;
-    if (!c || /[?&]film=\d/.test(location.search)) return false;
-    return !!(c.saveData || /(^|-)2g$|^3g$/.test(c.effectiveType || ""));
-  }
-  function filmPath() {
-    if (slowNet()) return false;
-    var portrait = (window.innerHeight || 1) >= (window.innerWidth || 1);
-    // One clip per launch: if the page reloaded mid-film (tab restore, manual refresh), resume the SAME clip where it was.
-    var resume = null;
-    try { resume = JSON.parse(sessionStorage.getItem("tr_splash_film_resume") || "null"); } catch (e) {}
-    if (resume && !(resume.src && Date.now() - resume.at < 90000)) resume = null;
-    var src = resume ? resume.src : pickFilm((portrait ? FILM.portrait : FILM.landscape) || FILM.portrait || FILM.landscape);
-    if (!src) return false;
-    var v = document.createElement("video");
-    if (!resume) src += v.canPlayType('video/webm; codecs="vp9, opus"') ? ".webm" : ".mp4";
-    if (resume && resume.t > 0.5) v.addEventListener("loadedmetadata", function () { try { v.currentTime = Math.min(resume.t, (v.duration || 99) - 2); } catch (e) {} }, { once: true });
-    var lastSave = 0;
-    v.className = "ts-film"; v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute("playsinline", ""); v.setAttribute("muted", "");
-    v.preload = "auto"; v.src = src;
-    v.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;background:#000;z-index:1";
-    root.insertBefore(v, root.firstChild);
-    root.classList.add("ts-filmon");
-    filmEl = v;
-    window.__tsFilmUntil = performance.now() + 20000; later(function () { if (!motion) finish(true, 0.5); }, 20000);   // clips run ~15 s; the film's own hard cap (the motion after it ends itself)
-    var started = false, tail = FILM.tail || 1.4, shown = false;
-    var fallback = later(function () { if (started || state === "done") return; filmEl = null; dropVideo(v); root.classList.remove("ts-filmon"); window.__tsFilmUntil = 0; runGL(); }, 5000);
-    // A line too slow for the clip shows up as buffering mid-film: a second stall, or one longer than STALL_MS, goes on to the app
-    // (measured 2026-10-20, throttled: 12 Mbps plays the whole clip smoothly, 5 Mbps stalls every 1-2 s and is cut at the second stall).
-    var stall = 0, stalls = 0, STALL_MS = 1500;
-    v.addEventListener("playing", function () { started = true; clearTimeout(fallback); clearTimeout(stall); stall = 0; v.style.opacity = "1"; });
-    v.addEventListener("waiting", function () {
-      if (!started || stall || state === "done" || filmEl !== v) return;
-      if (++stalls >= 2) { filmEnd(0.6); return; }
-      stall = later(function () { stall = 0; if (state !== "done" && filmEl === v && v.readyState < 3) filmEnd(0.6); }, STALL_MS);
-    });
-    var EXIT = FILM.exit || 1.6;                        // seconds: the zoom-through starts this long before the last frame
-    v.addEventListener("timeupdate", function () {
-      if (v.duration && v.currentTime > v.duration - EXIT) filmEnd(EXIT);
-      if (performance.now() - lastSave > 500) { lastSave = performance.now(); try { sessionStorage.setItem("tr_splash_film_resume", JSON.stringify({ src: src, t: v.currentTime, at: Date.now() })); } catch (e) {} }
-      if (!shown && v.duration && v.currentTime > v.duration - tail - 1.2) {
-        shown = true;
-        whenFeatured(function () { if (state === "done") return; showFeatureText(); var f = $(".ts-feature"); if (f) { f.style.transition = "opacity .6s ease"; f.style.opacity = "1"; } });
-      }
-    });
-    v.addEventListener("ended", function () { filmEnd(0.6); });
-    v.addEventListener("error", function () { if (!started) { clearTimeout(fallback); filmEl = null; dropVideo(v); root.classList.remove("ts-filmon"); runGL(); } });
-    if (Sfx.isOn()) { v.muted = false; }
-    var p = v.play();
-    if (p && p.catch) p.catch(function () {                 // sound blocked by the browser: play muted, show the real state and "Tap for sound"
-      v.muted = true; var p2 = v.play(); if (p2 && p2.catch) p2.catch(function () {});
-      syncSound(); if (Sfx.isOn()) showSoundHint();
-    });
-    syncSound();
-    return true;
-  }
-  /* the film has reached its end: Opening "both" hands over to the theme's motion splash (owner 2026-10-11: "You can put the new motion
-     after before main pages"); otherwise the zoom-through into the app. A tap during either still skips straight to the app. */
-  var filmDone = false;
-  function filmEnd(sec) {
-    if (filmDone || finished) return; filmDone = true;
-    var TO = window.TitanOpening;
-    if (!(TO && TO.after && TO.after() && TO.play)) { filmExit(sec); return; }
-    var v = filmEl; filmEl = null;                          // from here finish() is the plain dissolve, not the film zoom
-    window.__tsFilmUntil = performance.now() + 6000;
-    later(function () { if (state !== "done") finish(true, 0.6); }, 6500);   // backstop: the motion ends itself after ~3 s
-    if (soundHint) { soundHint.remove(); soundHint = null; }
-    var f = $(".ts-feature"); if (f) f.style.opacity = "0";
-    motionPath();                                          // the motion canvas starts under the film
-    if (v) {
-      var v0 = v.volume, t0 = performance.now();
-      v.style.transition = "opacity .7s ease"; v.style.opacity = "0";
-      (function fade() { var k = Math.min(1, (performance.now() - t0) / 700); try { v.volume = v0 * (1 - k); } catch (e) {} if (k < 1 && state !== "done") requestAnimationFrame(fade); })();
-      later(function () { dropVideo(v); root.classList.remove("ts-filmon"); }, 760);
-    }
-  }
+  /* No opening films (owner 2026-10-30: "Right i dont want films"): the theme's own opening runs above, on its world or as its motion. */
   runGL();
   function runGL() {
   if (!window.THREE) { stillPath("nogl"); finish(true, 0.25); return; }

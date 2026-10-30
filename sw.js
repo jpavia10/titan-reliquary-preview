@@ -296,7 +296,6 @@ self.addEventListener("fetch", (e) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.origin !== location.origin) return; // shard images: browser HTTP cache
-  if (url.pathname.includes("/art/splash/")) return;   // splash films: native range requests, never cached by the SW
   if (url.pathname.includes("/audio/music/") && !url.pathname.endsWith("manifest.json")) return;   // recorded music streams (range requests); offline = no music (never generated)
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {

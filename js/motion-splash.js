@@ -2,16 +2,14 @@
    Loaded before splash.js. Exposes window.TitanOpening.
 
    The setting (Scene Studio > Settings > Opening, localStorage "titan.opening"):
-     both    (default, owner 2026-10-11: "Grok splash missing. You can put the new motion after before main pages") the opening film,
-             then the theme's motion splash, then the app (a tap skips straight to the app); a stored "mix" from tr110 counts as "both"
-     film    the film every time
-     motion  the theme's motion splash every time
+     motion  (default) the theme's own opening: on its GPU world when it has one (wings/room.js OPENINGS), else its motion splash
      none    no opening
-   Motion Off (TitanMotion) = no opening at all (index.html never shows the splash). Motion Calm = ONE still frame of the theme's splash
-   for about a second, then a fade (never the film).
+   No films (owner 2026-10-30: "Right i dont want films"): the AI opening films are gone; a stored "both", "film" or "mix" counts as
+   "motion". Motion Off (TitanMotion) = no opening at all (index.html never shows the splash). Motion Calm = ONE still frame of the
+   theme's opening for about a second, then a fade.
 
-   TitanOpening.choice()  -> "mix"|"film"|"motion"|"none"        TitanOpening.set(v)
-   TitanOpening.pick()    -> "film"|"motion"|"none"               what to run for this launch (decided once per page load)
+   TitanOpening.choice()  -> "motion"|"none"                       TitanOpening.set(v)
+   TitanOpening.pick()    -> "motion"|"none"                       what to run for this launch (decided once per page load)
    TitanOpening.play(root, themeId, featured, done[, opts])       runs the motion splash inside #tr-splash; returns {stop(), feature(f)}
         done({wiped})  is called when the timeline ends. The splash holds its last frame; the caller dissolves it into the app
         (wiped:true = the splash already cleared itself to transparent, the caller can clean up at once).
@@ -19,20 +17,20 @@
 
    Every splash is one 2D canvas, drawn as a pure function of time t (seconds), so a frame dropped is never a stutter, and
    TitanOpening._debug.seek(t) (with ?splashhold) gives deterministic frames for tests.
-   URL overrides (tests): ?opening=motion|film|none   ?theme=<id> (the splash only, not the app)   ?splashhold (no clock, frames from seek()) */
+   URL overrides (tests): ?opening=motion|none   ?theme=<id> (the splash only, not the app)   ?splashhold (no clock, frames from seek()) */
 (function () {
   "use strict";
   if (window.TitanOpening) return;
   var html = document.documentElement;
   var KEY = "titan.opening", COINKEY = "titan.opening.coin";
-  var MODES = ["both", "film", "motion", "none"];
+  var MODES = ["motion", "none"];
   var PI2 = Math.PI * 2;
 
   /* ============================== setting ============================== */
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { /* private mode: this visit only */ } }
   function qs(name) { var m = new RegExp("[?&]" + name + "=([^&#]*)").exec(location.search); return m ? decodeURIComponent(m[1]) : null; }
-  function choice() { var v = lsGet(KEY); if (v === "mix") v = "both"; return MODES.indexOf(v) >= 0 ? v : "both"; }
+  function choice() { var v = lsGet(KEY); if (v === "mix" || v === "both" || v === "film") v = "motion"; return MODES.indexOf(v) >= 0 ? v : "motion"; }
   function set(v) {
     if (MODES.indexOf(v) < 0) return;
     lsSet(KEY, v);
@@ -48,15 +46,12 @@
     if (picked) return picked;
     var lv = motionLevel(), f = qs("opening"), c = choice(), r;
     if (lv === "off") r = "none";
-    else if (f === "motion" || f === "film" || f === "none") r = f;          // test override: remembers nothing
-    else if (c === "both") r = "film";                                       // the film first; splash.js runs the theme motion after it (after())
+    else if (f === "motion" || f === "none") r = f;                          // test override: remembers nothing
     else r = c;
-    if (lv === "calm" && r === "film") r = "motion";                         // Calm: no film, one still frame of the theme splash
     picked = r;
     return r;
   }
-  /* true when the theme's motion should follow the film (Opening "both", Motion Full, no test override) */
-  function after() { return pick() === "film" && qs("opening") !== "film" && choice() === "both" && motionLevel() === "full"; }
+  function after() { return false; }   /* no film any more, so nothing ever follows one (kept for old callers) */
   function themeId() {
     var t = qs("theme") || html.getAttribute("data-atmo") || "afterhours";
     return /^[a-z0-9_-]+$/i.test(t) ? t : "afterhours";
@@ -2472,11 +2467,9 @@
   };
 
   /* ============================== settings row ============================== */
-  var WORDS = { both: "Film, then theme motion", film: "Film only", motion: "Theme motion only", none: "None" };
+  var WORDS = { motion: "The theme's own opening", none: "None" };
   var NOTES = {
-    both: "The opening film plays, then this theme's own short motion leads into the app. A tap skips straight to the app.",
-    film: "The opening film plays every time you open the app.",
-    motion: "Each theme opens with its own short motion (about three seconds).",
+    motion: "Each theme opens on its own world, rendered live, then the app appears over it. A tap skips straight to the app.",
     none: "The app opens straight away, with no opening."
   };
   function mount(sheet) {
@@ -2495,7 +2488,7 @@
     var note = box.querySelector("#ss-op-note");
     function say() {
       var c = choice(), lv = motionLevel();
-      note.textContent = NOTES[c] + (lv === "off" ? " Motion is Off, so nothing opens first." : lv === "calm" ? " Motion is Calm: one still frame, no film." : "");
+      note.textContent = NOTES[c] + (lv === "off" ? " Motion is Off, so nothing opens first." : lv === "calm" ? " Motion is Calm: one still frame." : "");
       box.querySelectorAll("[data-opening]").forEach(function (x) { x.setAttribute("aria-checked", String(x.dataset.opening === c)); });
     }
     say();
