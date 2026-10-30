@@ -55,7 +55,7 @@
       var steps = (def.steps || [48, 64, 90, 120])[tq], sh = (def.shadowSteps || [12, 18, 24, 32])[tq];
       var src = "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + (K.NOISE3 || "") + "#define STEPS " + steps + "\n#define SHADOW_STEPS " + sh +
         "\n#define TIER " + tq + "\n#define GRADE " + (def.grade || 1).toFixed(3) + "\n" + COMMON + def.glsl +
-        "\nvoid main(){ o = vec4(pow(max(render(gl_FragCoord.xy/uRes), 0.), vec3(GRADE)), 1.); }";
+        "\nvoid main(){ o = vec4(min(pow(max(render(gl_FragCoord.xy/uRes), 0.), vec3(GRADE)), vec3(64.)), 1.); }";   /* never an infinity: the bloom would spread it over the screen */
       var pw = K.compile(K.FSQ, src); if (!pw) return null;
       var pu = scale < 1 ? K.compile(K.FSQ, UP) : null; if (scale < 1 && !pu) return null;
       var S = { tier: T, tq: tq, scale: scale, look: look, taps: [], tOff: 0, moment: null, nextMoment: 0, ptr: [.5, .5], view: {}, data: {} };
