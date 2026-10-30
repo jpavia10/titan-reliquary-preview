@@ -1,0 +1,59 @@
+{
+ "request_id": "artreq_20261030-1500_room-plates-pilot-afterhours-neon",
+ "status": "open",
+ "assigned_to": "any",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-30T15:00:00Z",
+ "why": "Owner, 2026-10-30, after trying the Midnight Gallery and Neon Vault rooms: the code-drawn rooms look like low-quality 3D and run poorly on a phone; instead an image AI makes the art for each theme's room (the 'third place', away from the collection), and the app lays its own live light, particles, depth and sound over it. This is the pilot for two themes; the other themes follow once these are judged.",
+ "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim it with {request id}.CLAIMED-{model}.txt first. takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261030-1500_room-plates-pilot-afterhours-neon/' with the exact file names at full native resolution, then write artreq_20261030-1500_room-plates-pilot-afterhours-neon.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+ "deliverable_spec": {
+  "wide": "21:9 (or the widest your model makes), at least 3440x1472, PNG: the room is panned across with a finger on a phone and seen whole on a desktop",
+  "portrait": "9:16, at least 1440x2560, PNG: the same place from the same spot, composed for a phone held upright",
+  "depth": "OPTIONAL, only if your tool can derive it from the image you just made (for example an image-editing model asked for a depth map of it): a greyscale depth map of the wide take, same size and framing, white = near, black = far, smooth, no text. Skip it otherwise and say so in the DONE file; never guess one by hand.",
+  "consistency": "wide and portrait are the same place, light and time of night, so the app can switch between them when the phone turns"
+ },
+ "global_style": "Real photography, not a render: shot on a full-frame camera with a 24-35 mm lens at night, true reflections, physically accurate materials, deep blacks with detail, practical light sources only, soft volumetric light, rich natural grading, fine film grain. Calm, expensive, cinematic. It must not look like a video game or a 3D render.",
+ "negative": "no readable text, no letters, no numbers, no logos, no signage with words, no watermark, no frame, no people, no faces, no hands, no coins, no 3D-render plastic look, no oversaturation, no HDR halos, no fisheye",
+ "images": [
+  {
+   "file_name": "room_afterhours_wide.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "21:9",
+   "world": "Midnight Gallery",
+   "theme_id": "afterhours",
+   "medium": "photo",
+   "prompt": "A grand classical museum gallery after midnight, empty: cold moonlight falls through tall arched windows in long blue shafts across a black marble floor that mirrors them; gilt-framed old master paintings hang dark on deep red walls, one lit by a single warm picture light; a leather viewing bench in the middle distance; a far doorway glows faintly amber. Seen at eye level from where you would stand in it, as a place to be in (no coins, no collection, no display cases in front). Keep the light sources in the picture (they will be made to glow and flicker live) and keep open air in the middle third (live dust, rain and haze go there). Nothing important within 8 % of the edges."
+  },
+  {
+   "file_name": "room_afterhours_portrait.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "9:16",
+   "world": "Midnight Gallery",
+   "theme_id": "afterhours",
+   "medium": "photo",
+   "prompt": "The same empty museum gallery after midnight, upright view: tall arched window with cold moonlight shafts falling onto the black marble floor, a gilt-framed painting lit by one warm picture light, the leather bench in front, the high coffered ceiling fading into darkness. Seen at eye level from where you would stand in it, as a place to be in (no coins, no collection, no display cases in front). Keep the light sources in the picture (they will be made to glow and flicker live) and keep open air in the middle third (live dust, rain and haze go there). Nothing important within 8 % of the edges."
+  },
+  {
+   "file_name": "room_neon_wide.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "21:9",
+   "world": "Neon Vault",
+   "theme_id": "neon",
+   "medium": "photo",
+   "prompt": "A narrow back street in a rain-soaked city at 3 a.m., empty: buzzing neon tubes in pink and cyan (abstract shapes and lines only, no letters) on brick and steel walls, wet black asphalt mirroring every light, steam rising from a grate, fog lit pink and cyan down the street, a heavy steel vault door with rivets set into one wall under a single bare bulb, puddles, cables overhead. Seen at eye level from where you would stand in it, as a place to be in (no coins, no collection, no display cases in front). Keep the light sources in the picture (they will be made to glow and flicker live) and keep open air in the middle third (live dust, rain and haze go there). Nothing important within 8 % of the edges."
+  },
+  {
+   "file_name": "room_neon_portrait.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "9:16",
+   "world": "Neon Vault",
+   "theme_id": "neon",
+   "medium": "photo",
+   "prompt": "The same empty rain-soaked back street at 3 a.m., upright view: neon tubes in pink and cyan (shapes only, no letters) climbing the walls, the steel vault door under a bare bulb, wet asphalt mirroring the lights, steam from a grate, fog down the street, cables overhead. Seen at eye level from where you would stand in it, as a place to be in (no coins, no collection, no display cases in front). Keep the light sources in the picture (they will be made to glow and flicker live) and keep open air in the middle third (live dust, rain and haze go there). Nothing important within 8 % of the edges."
+  }
+ ]
+}
