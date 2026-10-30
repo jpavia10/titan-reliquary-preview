@@ -139,8 +139,18 @@ def scenario(r):
     r.check(f"scan: the photo check finds the coin ({got.get('coinPx')} px)", got.get("found") and 520 <= got.get("coinPx", 0) <= 680, str(got)[:120])
     # Scene Studio
     r.go("hall", 2500)
-    p.click("#btn-atmo"); p.wait_for_timeout(1000)
-    r.check("Scene Studio opens", p.evaluate("!!document.querySelector('#ss-title') && document.querySelector('#ss-title').offsetParent !== null"))
+    p.click("#btn-atmo"); p.wait_for_timeout(1500)
+    # the Atmosphere (2026-10-30): the scene button opens it over the live world, the collection hidden, every theme a portal in the ring
+    at = p.evaluate("""() => { const a = document.getElementById('atmos'); return { open: !!(window.TitanAtmosphere && TitanAtmosphere.isOpen()) && !!a && !a.hidden,
+      cards: a ? a.querySelectorAll('.atm-card').length : 0, themes: (window.TITAN_WORLDS || []).length, front: !!(a && a.querySelector('.atm-card.front')),
+      app: getComputedStyle(document.getElementById('app') || document.body).visibility }; }""")
+    r.check(f"the Atmosphere opens over the world ({at})", at["open"] and at["cards"] == at["themes"] and at["front"] and at["app"] == "hidden")
+    p.evaluate("document.querySelector('#atmos [data-open=sound]').click()"); p.wait_for_timeout(500)
+    r.check("Atmosphere: the Sound panel opens", p.evaluate("!document.getElementById('atm-p-sound').hidden && !!document.querySelector('#atm-p-sound h3')"))
+    p.keyboard.press("Escape"); p.wait_for_timeout(200); p.keyboard.press("Escape"); p.wait_for_timeout(500)
+    r.check("Atmosphere: Escape closes it and the collection is back", p.evaluate("!TitanAtmosphere.isOpen() && getComputedStyle(document.getElementById('app') || document.body).visibility === 'visible'"))
+    p.evaluate("TitanScene.open('themes')"); p.wait_for_timeout(800)
+    r.check("Scene Studio (All settings) opens", p.evaluate("!!document.querySelector('#ss-title') && document.querySelector('#ss-title').offsetParent !== null"))
     tab = p.query_selector("#ss-tab-sound")
     if tab: tab.click(); p.wait_for_timeout(400)
     # owner 2026-10-21 "I dont want computer generated music!!!!": the music choices are real recordings only (no pads, bells, beat or tempo)

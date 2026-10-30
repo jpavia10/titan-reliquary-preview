@@ -423,9 +423,15 @@
   });
 
   // The bar button opens the studio (app.js binds #btn-atmo -> openAtmoSheet -> TitanScene.open).
+  /* the controls the Atmosphere screen (wings/atmosphere.js) drives: the same state, saved the same way */
+  const toggle = () => { if (G.isPlaying()) { G.pause(); st.wasPlaying = false; } else if (G.isPaused()) { G.resume(); st.wasPlaying = true; } else { st.userOff = false; start(2); } save(); render(); };
+  const setVol = (v) => { st.vol = Math.min(1, Math.max(0, +v || 0)); G.setVolume(st.vol); if (radioOn) { try { radio.setVolume(st.vol); } catch (e) { /* ignore */ } } save(); render(); };
+  const themeScene = (id) => { const w = window.TitanWorlds && window.TitanWorlds.byId(id || lastAtmo); let s = w && w.scene; if (s && G.ALIASES && G.ALIASES[s]) s = G.ALIASES[s]; return s && G.SCENES[s] ? s : null; };
+  const playTheme = (id) => { const s = themeScene(id); if (s) { st.userOff = false; pickScene(s, { visual: false, fade: 2.5 }); } };
   window.TitanScene = {
     open, close, setTab, openThemes: () => open("themes"), isOpen: () => !sheet.hidden, stop: stopAll,
-    state: () => clone(st), play: pickScene, scenes: () => G.SCENE_ORDER.slice(), worlds: () => G.WORLD_ORDER.slice()
+    state: () => clone(st), play: pickScene, scenes: () => G.SCENE_ORDER.slice(), worlds: () => G.WORLD_ORDER.slice(),
+    toggle, setVolume: setVol, setLevel, themeScene, playTheme, name: sceneName
   };
   if (!st.mix && st.scene === "custom") { const m = loadMine(); if (m) st.mix = m; }
   render();

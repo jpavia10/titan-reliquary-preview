@@ -2515,6 +2515,7 @@
   }
   function switchTo(id) {
     if (!switchOn() || !STYLES || html.classList.contains("ts-on")) return false;    // the boot opening is still on screen: leave it alone
+    if (html.classList.contains("tr-atmos")) return false;                            // the Atmosphere flies into the theme's own world instead
     if (sw) { var old = sw; sw = null; window.removeEventListener("keydown", old.onKey, true); try { old.api && old.api.stop(); } catch (e) {} if (old.root.parentNode) old.root.parentNode.removeChild(old.root); }
     var root = document.createElement("div");
     root.className = "ts-switch"; root.setAttribute("role", "presentation");

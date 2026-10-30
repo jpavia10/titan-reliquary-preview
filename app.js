@@ -7080,6 +7080,7 @@
      Focus memory, the Tab trap, topOverlayEl() and the offline banner live in js/app-overlay.js (fix list #32, step 3). --- */
   const { rememberFocus, restoreFocus, topOverlayEl } = window.TitanOverlay;
   function openAtmoSheet() {
+    if (window.TitanAtmosphere && window.TitanAtmosphere.open) { window.TitanAtmosphere.open(); return; }   // the Atmosphere (2026-10-30)
     if (window.TitanScene && window.TitanScene.open) { window.TitanScene.open("themes"); return; }
     rememberFocus();
     setAtmo(currentAtmo(), false); // refresh the "On display" marks

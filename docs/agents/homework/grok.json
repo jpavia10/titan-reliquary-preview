@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-29T15:21:22Z",
+ "updated": "2026-10-30T06:08:06Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261023-1",
@@ -54,152 +54,1578 @@
    ]
   },
   {
-   "id": "HW-grok-cite-20261028-1",
+   "id": "HW-grok-arbitrate-20261030-1",
    "agent": "grok",
-   "kind": "cite",
-   "issued": "2026-10-28T16:48:19Z",
-   "lease_until": "2026-11-04T16:48:19Z",
+   "kind": "arbitrate",
+   "issued": "2026-10-30T06:08:06Z",
+   "lease_until": "2026-11-06T06:08:06Z",
    "status": "open",
    "closed": null,
    "result": null,
    "items": [
     {
-     "item": "cite:DE.KM.255",
+     "item": "arb:D0126",
      "entity": "type",
-     "id": "DE.KM.255",
-     "field": null
+     "id": "DE.X.spielmarke-20-gr",
+     "field": "design.text"
     },
     {
-     "item": "cite:CH.KM.21a",
+     "item": "arb:D0127",
      "entity": "type",
-     "id": "CH.KM.21a",
-     "field": null
+     "id": "VN-SOV.KM.1",
+     "field": "design.text"
     },
     {
-     "item": "cite:EC.KM.37",
-     "entity": "type",
-     "id": "EC.KM.37",
-     "field": null
+     "item": "arb:D0128",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "issue.mint_marks"
     },
     {
-     "item": "cite:GT.KM.277.6a",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null
+     "item": "arb:D0129",
+     "entity": "specimen",
+     "id": "C067",
+     "field": "issue.mint_marks"
     },
     {
-     "item": "cite:IT.KM.95.1",
-     "entity": "type",
-     "id": "IT.KM.95.1",
-     "field": null
+     "item": "arb:D0130",
+     "entity": "specimen",
+     "id": "C093",
+     "field": "issue.mint_marks"
     },
     {
-     "item": "cite:JM.KM.190",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null
+     "item": "arb:D0131",
+     "entity": "specimen",
+     "id": "C081",
+     "field": "issue.mint_marks"
     },
     {
-     "item": "cite:TT.KM.32",
+     "item": "arb:D0132",
+     "entity": "specimen",
+     "id": "C083",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0133",
+     "entity": "specimen",
+     "id": "C075",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0126",
+     "kind": "arbitrate",
      "entity": "type",
-     "id": "TT.KM.32",
+     "id": "DE.X.spielmarke-20-gr",
+     "field": "design.text",
+     "coins": [
+      "T001",
+      "T002"
+     ],
+     "label": "D0126 DE.X.spielmarke-20-gr design.text",
+     "authors": [
+      "claude",
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:claude",
+       "source": "photos T002_Germany_ND_Spielmarke20_obv.jpeg + T002_Germany_ND_Spielmarke20_rev.jpeg (photos/p1/T002_obv.webp, T002_rev.webp), read by Claude at 2x: 15 stars, no ribbon; corrects Gemini's '16 stars' and 'tied with ribbon' (changes_gemini_20261023-1601, line left out) [phase 2; confidence high]",
+       "ts": "2026-10-23T16:40:00Z",
+       "value": "obverse Fraktur monogram GR in a ring of stars (15 on T002; T001's count is an open owner question) · reverse large 20 in a laurel wreath open at the top, the stems crossed at the bottom"
+      },
+      "claim": {
+       "value": "obverse Gothic monogram GR within ring of 16 five-pointed stars · reverse 20 within laurel wreath",
+       "by": "model:gemini",
+       "source": "T002_Germany_ND_Spielmarke20_obv.jpeg and T002_Germany_ND_Spielmarke20_rev.jpeg (also visible in album slot labeled 'Spielmarke 20 (GR)' on C008_Switzerland_1968_HalfFranc_rev.jpeg: obverse shows Gothic/Fraktur monogram GR inside circle of 16 stars; reverse shows numeral 20 inside laurel wreath; old value was a planted wrong value copied from Switzerland 1/2 Franc)",
+       "ts": "2026-10-30T02:50:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0127",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "design.text",
+     "coins": [
+      "C258"
+     ],
+     "label": "D0127 VN-SOV.KM.1 design.text",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "reverse three rice stalks tied with ribbon · VIET-NAM · 20 SU · three-dragon obverse / date"
+      },
+      "claim": {
+       "value": "obverse three women in profile facing left · QUỐC-GIA VIỆT-NAM · 1953 (engraver Lucien Georges Bazor) · reverse rice plant · VIỆT-NAM · 20 SU (engraver Lucien Georges Bazor)",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces5904.html (1953 South Vietnam / State of Vietnam 20 Su N# 5904: Obverse shows 'Three women, in profile view, facing left' with lettering 'QUỐC-GIA VIỆT-NAM 1953', engraver Lucien Georges Bazor; Reverse shows 'A rice plant' with lettering 'VIỆT-NAM 20 SU'; old value wrongly claimed 'three-dragon obverse', which belongs to the 50 Xu coin)",
+       "ts": "2026-10-30T02:53:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0128",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C031"
+     ],
+     "label": "D0128 C031 issue.mint_marks",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "S"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:muse-spark",
+       "source": "Photo read: C031_rev.webp - reverse reads AUSTRALIA / 19|43 / THREE PENCE between the wheat ears; the mint-letter position immediately after '43' is empty field, no D or S. Cross-check https://en.numista.com/catalogue/pieces2980.html (Numista N#2980) years table: plain 1943 (Melbourne) vs 1943 D / 1943 S rows, where the letter follows the date.",
+       "ts": "2026-10-30T02:55:30Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0129",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C067",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C067"
+     ],
+     "label": "D0129 C067 issue.mint_marks",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "B"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:muse-spark",
+       "source": "Photo read: C067_rev.webp - 2 francs reverse dated 1981, no letter below the wreath bow. https://en.numista.com/catalogue/pieces189.html (Numista N#189) comment: Bern dropped the B mintmark after 1970 until 1985, so a 1981 strike carries no B.",
+       "ts": "2026-10-30T02:55:30Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0130",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C093",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C093"
+     ],
+     "label": "D0130 C093 issue.mint_marks",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "B"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:muse-spark",
+       "source": "Photo read: C093_rev.webp - 1 franc reverse dated 1970, no letter below the wreath bow. https://en.numista.com/catalogue/pieces185.html (Numista N#185) years table: the 1970 row carries no B.",
+       "ts": "2026-10-30T02:55:30Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0131",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C081",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C081"
+     ],
+     "label": "D0131 C081 issue.mint_marks",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "B"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:muse-spark",
+       "source": "Photo read: C081_obv.webp - 5 rappen dated 1983. https://en.numista.com/catalogue/pieces171.html (Numista N#171, KM#26c) years table: the 1981-1985 rows carry no B (the B sits on the reverse; it resumes at 1986 B).",
+       "ts": "2026-10-30T02:55:30Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0132",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C083",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C083"
+     ],
+     "label": "D0132 C083 issue.mint_marks",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "B"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:muse-spark",
+       "source": "Photo read: C083_obv.webp - 10 rappen dated 1981. https://en.numista.com/catalogue/pieces173.html (Numista N#173, KM#27) years table: 1970-1985 rows carry no letter (B appears 1879-1969 and 1986 B-1993 B).",
+       "ts": "2026-10-30T02:55:30Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0133",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C075",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C075"
+     ],
+     "label": "D0133 C075 issue.mint_marks",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "B"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:muse-spark",
+       "source": "Photo read: C075_obv.webp - 5 rappen dated 1982. https://en.numista.com/catalogue/pieces171.html (Numista N#171, KM#26c) years table: the 1981-1985 rows carry no B on the reverse.",
+       "ts": "2026-10-30T02:55:30Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-cite-20261030-1",
+   "agent": "grok",
+   "kind": "cite",
+   "issued": "2026-10-30T06:08:06Z",
+   "lease_until": "2026-11-06T06:08:06Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:MX.X.20-pesos",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
      "field": null
     }
    ],
    "items_full": [
     {
-     "item": "cite:DE.KM.255",
+     "item": "cite:MX.X.20-pesos",
      "kind": "cite",
      "entity": "type",
-     "id": "DE.KM.255",
+     "id": "MX.X.20-pesos",
      "field": null,
      "coins": [
-      "C053",
-      "C102"
+      "C304"
      ],
-     "label": "DE 20 euro cent (DE.KM.255)",
+     "label": "MX 20 pesos (MX.X.20-pesos)",
      "authors": [],
      "payload": {
       "issues": [
        {
-        "N": 2,
-        "year": 2011,
+        "N": 1,
+        "year": 1981,
         "mint_marks": [
-         "F"
+         "Mo"
         ],
         "coins": [
-         "C053"
+         "C304"
         ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       },
-       {
-        "N": 3,
-        "year": 2015,
-        "mint_marks": [
-         "F"
-        ],
-        "coins": [
-         "C102"
-        ],
-        "mintage": null,
-        "mintage_label": null,
+        "mintage": 250573000,
+        "mintage_label": "ai",
         "mint_read": true
        }
       ],
       "catalogs": [
        {
         "system": "KM",
-        "number": "255"
+        "number": "486"
        },
        {
         "system": "Schön",
-        "number": "250"
-       },
-       {
-        "system": "J",
-        "number": "486a"
+        "number": "78"
        },
        {
         "system": "Numista",
-        "number": "6319"
+        "number": "987"
        }
       ],
-      "weight_g": 5.74,
-      "diameter_mm": 22.25,
-      "composition": "Nordic gold (Cu89Al5Zn5Sn1)",
+      "weight_g": 15.2,
+      "diameter_mm": 32.06,
+      "composition": "copper-nickel (75% copper, 25% nickel)",
       "ask": [
-       "issues.2.mintage: 2011 F",
-       "issues.3.mintage: 2015 F"
+       "issues.1.mintage: 1981 Mo"
       ],
       "note": null
      },
      "blind": false,
      "inputs": [],
      "issue_of": {
-      "issues.2.mintage": {
-       "year": 2011,
+      "issues.1.mintage": {
+       "year": 1981,
        "mint": [
-        "F"
-       ],
-       "qualifier": null
-      },
-      "issues.3.mintage": {
-       "year": 2015,
-       "mint": [
-        "F"
+        "Mo"
        ],
        "qualifier": null
       }
      }
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-story-check-20261030-1",
+   "agent": "grok",
+   "kind": "story-check",
+   "issued": "2026-10-30T06:08:06Z",
+   "lease_until": "2026-11-06T06:08:06Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C253",
+     "entity": "specimen",
+     "id": "C253",
+     "field": "story"
     },
     {
-     "item": "cite:CH.KM.21a",
-     "kind": "cite",
+     "item": "story:C257",
+     "entity": "specimen",
+     "id": "C257",
+     "field": "story"
+    },
+    {
+     "item": "story:C279",
+     "entity": "specimen",
+     "id": "C279",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C253",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C253",
+     "field": "story",
+     "coins": [
+      "C253"
+     ],
+     "label": "C253 · Jamaica · 1993 · 10 cents · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1993 10-cent coin from Jamaica. One side shows the coat of arms of Jamaica. A crocodile sits on top. Two Taino people hold the shield. The shield has a cross with pineapples on it. The coin also says JAMAICA, TEN CENTS, and 1993. It also says the motto OUT OF MANY, ONE PEOPLE. The coin is made of steel with a thin coat of nickel on it.",
+      "record": {
+       "country": "Jamaica",
+       "year": "1993",
+       "denom": "10 cents · JMD",
+       "mint": "Royal Mint / Jamaica (no letter on shown arms side)",
+       "refs": "KM#146.1 · Numista#2617",
+       "metal": "nickel plated steel · 5.68 g · 23.5 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness 2 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "arms · crocodile crest · Taino supporters · pineapple cross · OUT OF MANY, ONE PEOPLE · JAMAICA · TEN CENTS · 1993",
+       "ruler": "Elizabeth II",
+       "period": "Independent Jamaica"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C257",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C257",
+     "field": "story",
+     "coins": [
+      "C257"
+     ],
+     "label": "C257 · Mexico · 1967 · 20 centavos · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1967 20-centavo coin from Mexico. The front shows the coat of arms of Mexico. The back shows the Pyramid of the Sun at Teotihuacan. Two volcanoes stand behind it. Their names are Popocatépetl and Iztaccíhuatl. A liberty cap shines above the pyramid. The back also has a big 20, the word CENTAVOS, the date 1967, and the Mo mint mark. The coin is made of brass. The brass is 95% copper and 5% zinc.",
+      "record": {
+       "country": "Mexico",
+       "year": "1967",
+       "denom": "20 centavos · MXP",
+       "mint": "Mo",
+       "refs": "KM#440 · Schön#51 · Numista#959",
+       "metal": "bronze · 10.00 g · 28.5 mm · reeded · circulated · white 2×2 staple flip",
+       "specs": "thickness unknown · coin alignment · same Teotihuacan type as C244",
+       "mintage": "46,847,000 (1967 Mo)",
+       "design": "reverse Pyramid of the Sun at Teotihuacan · Popocatépetl & Iztaccíhuatl · radiant Phrygian cap · big 20 · CENTAVOS · date · Mo · national arms obverse",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C279",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C279",
+     "field": "story",
+     "coins": [
+      "C279"
+     ],
+     "label": "C279 · Philippines · 1997 · 1 piso · PHP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1997 1-piso coin from the Philippines. The side in the photo shows José Rizal. He is a national hero of the Philippines. The coin says Republika ng Pilipinas. That means Republic of the Philippines in English. It also has a big 1, the word PISO, and the date 1997.",
+      "record": {
+       "country": "Philippines",
+       "year": "1997",
+       "denom": "1 piso · PHP",
+       "mint": "no mint mark visible",
+       "refs": "KM#269 · Schön#119 · Numista#1681",
+       "metal": "copper-nickel · 6.10 g · 24 mm · reeded",
+       "specs": "thickness 1.75 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse bust of José Rizal right · 1 PISO · REPUBLIKA NG PILIPINAS · reverse Bangko Sentral ng Pilipinas seal · date",
+       "period": "Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261030-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-30T06:08:06Z",
+   "lease_until": "2026-11-06T06:08:06Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:US.KM.195:period",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:NL.KM.241:ruler",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:DE.KM.124:period",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:SU.Y.93:period",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:VN.KM.71:period",
+     "entity": "type",
+     "id": "VN.KM.71",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:JM.KM.65:ruler",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:MX.KM.424:period",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.KM.502:period",
+     "entity": "type",
+     "id": "MX.KM.502",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CH.KM.29a:period",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:AT.X.2-groschen:period",
+     "entity": "type",
+     "id": "AT.X.2-groschen",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:NL.KM.239:ruler",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:FR.KM.930:period",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:IT.KM.96.1:period",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:specimen:C036:issue.year",
+     "entity": "specimen",
+     "id": "C036",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:MX-CHI.KM.612:denomination.value",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:US.KM.204:period",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.4:period",
+     "entity": "type",
+     "id": "CH.KM.40a.4",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CH.KM.40a.1:period",
+     "entity": "type",
+     "id": "CH.KM.40a.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.140.1:period",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CH.KM.21a:period",
      "entity": "type",
      "id": "CH.KM.21a",
-     "field": null,
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.KM.443:period",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CH.KM.27:period",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:period",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.110:period",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:period",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:SU.Y.97:period",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "period"
+    },
+    {
+     "item": "verify:specimen:C304:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:SU.Y.126a:period",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.KM.415:period",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:SA.KM.20:design.text",
+     "entity": "type",
+     "id": "SA.KM.20",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.23a:period",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:FR.KM.925.1:period",
+     "entity": "type",
+     "id": "FR.KM.925.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.KM.440:period",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:JM.KM.146:ruler",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:specimen:C253:issue.year",
+     "entity": "specimen",
+     "id": "C253",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:PH.KM.242.1:period",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CL.KM.219.2:issues.1.mintage",
+     "entity": "type",
+     "id": "CL.KM.219.2",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:MX.KM.433:period",
+     "entity": "type",
+     "id": "MX.KM.433",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.KM.433:denomination.value",
+     "entity": "type",
+     "id": "MX.KM.433",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.111:period",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.109.2:period",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.109.1:period",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:HU.KM.575:period",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:KR.KM.4:period",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "period"
+    },
+    {
+     "item": "verify:specimen:C058:issue.year",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:period",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:JM.KM.189:ruler",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:period",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:FR.KM.931.1:period",
+     "entity": "type",
+     "id": "FR.KM.931.1",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:PH.KM.198:period",
+     "entity": "type",
+     "id": "PH.KM.198",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:TT.KM.31:period",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CH.KM.26:period",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.108:period",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:FR.KM.929:period",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:JP.Y.73a:ruler",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:SG.KM.4:period",
+     "entity": "type",
+     "id": "SG.KM.4",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:JP.Y.74:ruler",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:CH.KM.26c:period",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.107:period",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.KM.936:period",
+     "entity": "type",
+     "id": "MX.KM.936",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:period",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:SG.KM.3:period",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:TW.KM.551:period",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:KR.KM.103:period",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:YU.KM.86:period",
+     "entity": "type",
+     "id": "YU.KM.86",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.106a:period",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.KM.604:period",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.105:period",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:FR.KM.933:period",
+     "entity": "type",
+     "id": "FR.KM.933",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:IN.KM.92.2:period",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:ES.KM.1042:ruler",
+     "entity": "type",
+     "id": "ES.KM.1042",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:NL.KM.236:ruler",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:NL.KM.346:ruler",
+     "entity": "type",
+     "id": "NL.KM.346",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:ES.KM.1040:ruler",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:NL.KM.234:ruler",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "ruler"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:US.KM.195:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": "period",
+     "coins": [
+      "C088"
+     ],
+     "label": "period of C088 · USA · 1957 · 10¢ Roosevelt",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United States",
+      "their_source": "https://en.numista.com/catalogue/pieces52.html (Numista N#52) Features: Issuer 'United States'; Period 'Federal republic (1776-date)'. Re-ci",
+      "links": [
+       "https://en.numista.com/catalogue/pieces52.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.241:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "ruler",
+     "coins": [
+      "C070"
+     ],
+     "label": "ruler of C070 · Netherlands · 2002 · 2 euro · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Beatrix",
+      "their_source": "https://en.numista.com/catalogue/pieces152.html (Numista N#152) Features Issuer line: 'Netherlands Queen Beatrix ( 1980-2013 )'. Record had ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces152.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.124:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.124",
+     "field": "period",
+     "coins": [
+      "C238"
+     ],
+     "label": "period of C238 · Germany · 1973 · 2 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces844.html (Numista N#844) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (19",
+      "links": [
+       "https://en.numista.com/catalogue/pieces844.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SU.Y.93:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "period",
+     "coins": [
+      "C260"
+     ],
+     "label": "period of C260 · USSR · 1931 · 3 kopecks · SUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Soviet Union",
+      "their_source": "https://en.numista.com/catalogue/pieces4042.html (Numista N#4042) Features: Issuer 'Soviet Union (Russia)'; Period 'Soviet Union (1922-1991)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces4042.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VN.KM.71:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VN.KM.71",
+     "field": "period",
+     "coins": [
+      "C232"
+     ],
+     "label": "period of C232 · Vietnam · 2003 · 1000 đồng · VND",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Socialist Republic of Vietnam",
+      "their_source": "https://en.numista.com/catalogue/pieces2104.html (Numista N#2104) Features: Issuer 'Vietnam Issuing bank State Bank of Vietnam (Ngân hàng Nh",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2104.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.65:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": "ruler",
+     "coins": [
+      "C069"
+     ],
+     "label": "ruler of C069 · Jamaica · 1975 · 50 cents · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "https://en.numista.com/catalogue/pieces7457.html (Numista N#7457) Features Issuer line: 'Jamaica Queen Elizabeth II ( 1952-2022 )'. Record h",
+      "links": [
+       "https://en.numista.com/catalogue/pieces7457.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.424:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": "period",
+     "coins": [
+      "C166"
+     ],
+     "label": "period of C166 · Mexico · 1944 · 5 centavos · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces3136.html (Numista N#3136) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republic ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3136.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.502:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.502",
+     "field": "period",
+     "coins": [
+      "C209"
+     ],
+     "label": "period of C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces3445.html (Numista N#3445) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republic ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3445.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.29a:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": "period",
+     "coins": [
+      "C068",
+      "C076",
+      "C078",
+      "C079",
+      "C256",
+      "C278"
+     ],
+     "label": "period of C068 · Switzerland · 1963 · 20 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces178.html (Numista N#178) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces178.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AT.X.2-groschen:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AT.X.2-groschen",
+     "field": "period",
+     "coins": [
+      "C272"
+     ],
+     "label": "period of C272 · Austria · 1925 · 2 groschen · ATS",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "First Austrian Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces1944.html (Numista N#1944) Features: Issuer 'Austria'; Period 'First Republic (1919-1934)'. Re-citati",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1944.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.239:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "ruler",
+     "coins": [
+      "C040"
+     ],
+     "label": "ruler of C040 · Netherlands · 2001 · 20 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Beatrix",
+      "their_source": "https://en.numista.com/catalogue/pieces149.html (Numista N#149) Features Issuer line: 'Netherlands Queen Beatrix ( 1980-2013 )'. Record had ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces149.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.930:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "period",
+     "coins": [
+      "C005",
+      "C041"
+     ],
+     "label": "period of C005 · France · 1986 · 20 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Fifth Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces4.html (Numista N#4) Features: Issuer 'France'; Period 'Fifth Republic (1958-date)'. Re-citation of t",
+      "links": [
+       "https://en.numista.com/catalogue/pieces4.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.96.1:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.96.1",
+     "field": "period",
+     "coins": [
+      "C240"
+     ],
+     "label": "period of C240 · Italy · 1965 · 100 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Italian Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces304.html (Numista N#304) Features: Issuer 'Italy'; Period 'Republic (1946-date)'. Re-citation of the ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces304.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C036:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C036",
+     "field": "issue.year",
+     "coins": [
+      "C036"
+     ],
+     "label": "year of C036 · Italy · 10 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C036_obv.webp",
+        "file": "C036_obv.webp",
+        "original": "C036_Italy_2007_10EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1TIXtas_8Sb2NpyQ-ILaDRbfv9bTjJ8Cv/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C036_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:MX-CHI.KM.612:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": "denomination.value",
+     "coins": [
+      "C114"
+     ],
+     "label": "denomination of C114 · Mexico (Chihuahua) · 1914",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:US.KM.204:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "period",
+     "coins": [
+      "C073"
+     ],
+     "label": "period of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United States",
+      "their_source": "https://en.numista.com/catalogue/pieces56.html (Numista N#56) Features: Issuer 'United States'; Period 'Federal republic (1776-date)'. Re-ci",
+      "links": [
+       "https://en.numista.com/catalogue/pieces56.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.40a.4:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.40a.4",
+     "field": "period",
+     "coins": [
+      "C065"
+     ],
+     "label": "period of C065 · Switzerland · 2014 · 5 francs · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces195.html (Numista N#195) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces195.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.40a.1:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.40a.1",
+     "field": "period",
+     "coins": [
+      "C066"
+     ],
+     "label": "period of C066 · Switzerland · 1976 · 5 francs · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces195.html (Numista N#195) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces195.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.140.1:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "period",
+     "coins": [
+      "C009"
+     ],
+     "label": "period of C009 · Germany · 1987 · 5 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces843.html (Numista N#843) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (19",
+      "links": [
+       "https://en.numista.com/catalogue/pieces843.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.21a:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": "period",
      "coins": [
       "C003",
       "C014",
@@ -207,194 +1633,888 @@
       "C115",
       "C116"
      ],
-     "label": "CH 2 francs (CH.KM.21a)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1968,
-        "mint_marks": [
-         "B"
-        ],
-        "coins": [
-         "C003",
-         "C115"
-        ],
-        "mintage": 31588000,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 2,
-        "year": 1981,
-        "mint_marks": [
-         "B"
-        ],
-        "coins": [
-         "C067",
-         "C116"
-        ],
-        "mintage": 13852000,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 3,
-        "year": 1974,
-        "mint_marks": [],
-        "coins": [
-         "C014"
-        ],
-        "mintage": 15007000,
-        "mintage_label": "imported",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "21a.1"
-       },
-       {
-        "system": "Numista",
-        "number": "189"
-       }
-      ],
-      "weight_g": 8.8,
-      "diameter_mm": 27.4,
-      "composition": "CuNi 75/25",
-      "ask": [
-       "issues.3.mintage: 1974"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.3.mintage": {
-       "year": 1974,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:EC.KM.37",
-     "kind": "cite",
-     "entity": "type",
-     "id": "EC.KM.37",
-     "field": null,
-     "coins": [
-      "C159"
+     "label": "period of C003 · Switzerland · 1968 · 2 francs · CHF",
+     "authors": [
+      "muse"
      ],
-     "label": "EC 10 cents (EC.KM.37)",
-     "authors": [],
      "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2004,
-        "mint_marks": [],
-        "coins": [
-         "C159"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces189.html (Numista N#189) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces189.html"
       ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "37"
-       },
-       {
-        "system": "Numista",
-        "number": "5712"
-       }
-      ],
-      "weight_g": 2.59,
-      "diameter_mm": 18.06,
-      "composition": "cupronickel",
-      "ask": [
-       "issues.0.mintage: 2004"
-      ],
-      "note": null
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2004,
-       "mint": [],
-       "qualifier": null
-      }
-     }
+     "inputs": []
     },
     {
-     "item": "cite:GT.KM.277.6a",
-     "kind": "cite",
+     "item": "verify:type:MX.KM.443:period",
+     "kind": "verify",
      "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null,
+     "id": "MX.KM.443",
+     "field": "period",
      "coins": [
-      "C202"
+      "C263"
      ],
-     "label": "GT 10 centavos (GT.KM.277.6a)",
-     "authors": [],
+     "label": "period of C263 · Mexico · 1950 · 25 centavos · MXP",
+     "authors": [
+      "muse"
+     ],
      "payload": {
-      "issues": [
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces972.html (Numista N#972) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republic (1",
+      "links": [
+       "https://en.numista.com/catalogue/pieces972.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.27:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "period",
+     "coins": [
+      "C082",
+      "C083",
+      "C242"
+     ],
+     "label": "period of C082 · Switzerland · 1979 · 10 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces173.html (Numista N#173) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces173.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "period",
+     "coins": [
+      "C001",
+      "C093"
+     ],
+     "label": "period of C001 · Switzerland · 1969 · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces185.html (Numista N#185) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces185.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.110:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.110",
+     "field": "period",
+     "coins": [
+      "C006",
+      "C048",
+      "C050",
+      "C103"
+     ],
+     "label": "period of C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces846.html (Numista N#846) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (19",
+      "links": [
+       "https://en.numista.com/catalogue/pieces846.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "period",
+     "coins": [
+      "C049"
+     ],
+     "label": "period of C049 · France · 1989 · 10 francs · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Fifth Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9) Features: Issuer 'France'; Period 'Fifth Republic (1958-date)'. Re-citation of t",
+      "links": [
+       "https://en.numista.com/catalogue/pieces9.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SU.Y.97:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "period",
+     "coins": [
+      "C261"
+     ],
+     "label": "period of C261 · USSR · 1932 · 15 kopecks · SUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Soviet Union",
+      "their_source": "https://en.numista.com/catalogue/pieces5269.html (Numista N#5269) Features: Issuer 'Soviet Union (Russia)'; Period 'Soviet Union (1922-1991)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5269.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C304:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C304"
+     ],
+     "label": "mint of C304 · Mexico · 1981 · 20 pesos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
        {
-        "N": 0,
-        "year": 2010,
-        "mint_marks": [],
-        "coins": [
-         "C202"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C304_rev.webp",
+        "file": "C304_rev.webp",
+        "original": "C304_Mexico_1981_20Pesos_rev.jpeg",
+        "drive": null
        }
       ],
-      "catalogs": [
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C304_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:SU.Y.126a:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "period",
+     "coins": [
+      "C042",
+      "C044"
+     ],
+     "label": "period of C042 · USSR · 1962 · 1 kopek · SUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Soviet Union",
+      "their_source": "https://en.numista.com/catalogue/pieces767.html (Numista N#767) Features: Issuer 'Soviet Union (Russia)'; Period 'Soviet Union (1922-1991)'.",
+      "links": [
+       "https://en.numista.com/catalogue/pieces767.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.415:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "period",
+     "coins": [
+      "C259"
+     ],
+     "label": "period of C259 · Mexico · 1940 · 1 centavo · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces5133.html (Numista N#5133) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republic ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5133.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SA.KM.20:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SA.KM.20",
+     "field": "design.text",
+     "coins": [
+      "C231"
+     ],
+     "label": "design of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "value side قرش واحد · big ١ · Hijri ١٣٧٨ (AH 1378 ≈ 1958 CE) · المملكة العربية السعودية on rim",
+      "their_source": "https://en.numista.com/catalogue/pieces2940.html (Reverse: 'Denomination and year'; Lettering: 'قِرْش وَاحِد / ١ / ١٣٧٨')",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2940.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.23a:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": "period",
+     "coins": [
+      "C008",
+      "C015"
+     ],
+     "label": "period of C008 · Switzerland · 1968 · 1/2 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces181.html (Numista N#181) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces181.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.925.1:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.925.1",
+     "field": "period",
+     "coins": [
+      "C012",
+      "C017",
+      "C025",
+      "C059",
+      "C117",
+      "C118",
+      "C119"
+     ],
+     "label": "period of C012 · France · 1962 · 1 franc · FRF (nouveau franc)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Fifth Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6) Features: Issuer 'France'; Period 'Fifth Republic (1958-date)'. Re-citation of t",
+      "links": [
+       "https://en.numista.com/catalogue/pieces6.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.440:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": "period",
+     "coins": [
+      "C244",
+      "C257"
+     ],
+     "label": "period of C244 · Mexico · 1964 · 20 centavos · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces959.html (Numista N#959) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republic (1",
+      "links": [
+       "https://en.numista.com/catalogue/pieces959.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.146:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": "ruler",
+     "coins": [
+      "C253"
+     ],
+     "label": "ruler of C253 · Jamaica · 1993 · 10 cents · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "https://en.numista.com/catalogue/pieces2617.html (Numista N#2617) Features Issuer line: 'Jamaica Queen Elizabeth II ( 1952-2022 )'. Record h",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2617.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C253:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C253",
+     "field": "issue.year",
+     "coins": [
+      "C253"
+     ],
+     "label": "year of C253 · Jamaica · 10 cents · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
        {
-        "system": "KM",
-        "number": "277.6a"
-       },
-       {
-        "system": "Schön",
-        "number": "56a"
-       },
-       {
-        "system": "Numista",
-        "number": "42670"
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C253_obv.webp",
+        "file": "C253_obv.webp",
+        "original": "C253_Jamaica_1993_10Cents_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/10vTD-h_lsUNFHDEkFdx7-NBgBiRs_eX5/view"
        }
       ],
-      "weight_g": 2.42,
-      "diameter_mm": 21.0,
-      "composition": "stainless steel",
-      "ask": [
-       "issues.0.mintage: 2010"
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C253_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:PH.KM.242.1:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PH.KM.242.1",
+     "field": "period",
+     "coins": [
+      "C163"
+     ],
+     "label": "period of C163 · Philippines · 1984 · 50 sentimo · PHP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of the Philippines",
+      "their_source": "https://en.numista.com/catalogue/pieces2461.html (Numista N#2461) Features: Issuer 'Philippines'; Period 'Republic (1946-date)'. Re-citation",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2461.html"
       ],
-      "note": null
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CL.KM.219.2:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CL.KM.219.2",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C145"
+     ],
+     "label": "mintage of C145 · Chile · 1996 · 50 pesos · CLP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false
      },
      "blind": false,
      "inputs": [],
      "issue_of": {
-      "issues.0.mintage": {
-       "year": 2010,
-       "mint": [],
+      "issues.1.mintage": {
+       "year": 1996,
+       "mint": [
+        "So"
+       ],
        "qualifier": null
       }
      }
     },
     {
-     "item": "cite:IT.KM.95.1",
-     "kind": "cite",
+     "item": "verify:type:MX.KM.433:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.433",
+     "field": "period",
+     "coins": [
+      "C161"
+     ],
+     "label": "period of C161 · Mexico · 1945 · 10 centavos · MXP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces6694.html (Numista N#6694) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republic ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces6694.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.433:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.433",
+     "field": "denomination.value",
+     "coins": [
+      "C161"
+     ],
+     "label": "denomination of C161 · Mexico · 1945",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.111:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.111",
+     "field": "period",
+     "coins": [
+      "C211"
+     ],
+     "label": "period of C211 · Italy · 1987 · 500 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Italian Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces302.html (Numista N#302) Features: Issuer 'Italy'; Period 'Republic (1946-date)'. Re-citation of the ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces302.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.109.2:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.109.2",
+     "field": "period",
+     "coins": [
+      "C057",
+      "C058"
+     ],
+     "label": "period of C057 · Germany · 1982 · 50 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces847.html (Numista N#847) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (19",
+      "links": [
+       "https://en.numista.com/catalogue/pieces847.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.109.1:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": "period",
+     "coins": [
+      "C035"
+     ],
+     "label": "period of C035 · Germany · 1971 · 50 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces847.html (Numista N#847) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (19",
+      "links": [
+       "https://en.numista.com/catalogue/pieces847.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:HU.KM.575:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": "period",
+     "coins": [
+      "C032"
+     ],
+     "label": "period of C032 · Hungary · 1967 · 1 forint · HUF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Hungarian People's Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces1124.html (Numista N#1124) Features: Issuer 'Hungary'; Period 'People's Republic (1949-1989)'. Re-cit",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1124.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.KM.4:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "period",
+     "coins": [
+      "C247"
+     ],
+     "label": "period of C247 · South Korea · 1966 · 1 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of Korea",
+      "their_source": "https://en.numista.com/catalogue/pieces5993.html (Numista N#5993) Features: Issuer 'South Korea Issuing bank Bank of Korea (한국은행)'; Period '",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5993.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C058:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.year",
+     "coins": [
+      "C058"
+     ],
+     "label": "year of C058 · Germany · 50 Pfennig · DEM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C058_rev.webp",
+        "file": "C058_rev.webp",
+        "original": "C058_Germany_1985_50Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1k0Xkr2HdmExUjMDFmvw1NQWRyr_90Jrb/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C058_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "period",
+     "coins": [
+      "C210"
+     ],
+     "label": "period of C210 · South Korea · 2000 · 100 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of Korea",
+      "their_source": "https://en.numista.com/catalogue/pieces1052.html (Numista N#1052) Features: Issuer 'South Korea Issuing bank Bank of Korea (한국은행)'; Period '",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1052.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.189:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "ruler",
+     "coins": [
+      "C219"
+     ],
+     "label": "ruler of C219 · Jamaica · 2015 · 1 dollar · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "https://en.numista.com/catalogue/pieces14369.html (Numista N#14369) Features Issuer line: 'Jamaica Queen Elizabeth II ( 1952-2022 ) King Cha",
+      "links": [
+       "https://en.numista.com/catalogue/pieces14369.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:period",
+     "kind": "verify",
      "entity": "type",
      "id": "IT.KM.95.1",
-     "field": null,
+     "field": "period",
      "coins": [
       "C011",
       "C199",
@@ -402,215 +2522,874 @@
       "C298",
       "C299"
      ],
-     "label": "IT 50 lire (IT.KM.95.1)",
-     "authors": [],
+     "label": "period of C011 · Italy · 1970 · 50 lire · ITL",
+     "authors": [
+      "muse"
+     ],
      "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1970,
-        "mint_marks": [
-         "R"
-        ],
-        "coins": [
-         "C011"
-        ],
-        "mintage": 21411000,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 1,
-        "year": 1978,
-        "mint_marks": [
-         "R"
-        ],
-        "coins": [
-         "C199"
-        ],
-        "mintage": 416808000,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 2,
-        "year": 1979,
-        "mint_marks": [],
-        "coins": [
-         "C287"
-        ],
-        "mintage": 315000000,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 3,
-        "year": 1978,
-        "mint_marks": [],
-        "coins": [
-         "C298"
-        ],
-        "mintage": 416808000,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 4,
-        "year": 1979,
-        "mint_marks": [
-         "R"
-        ],
-        "coins": [
-         "C299"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Italian Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces724.html (Numista N#724) Features: Issuer 'Italy'; Period 'Republic (1946-date)'. Re-citation of the ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces724.html"
       ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "95.1"
-       },
-       {
-        "system": "Schön",
-        "number": "95"
-       },
-       {
-        "system": "Numista",
-        "number": "724"
-       }
-      ],
-      "weight_g": 6.25,
-      "diameter_mm": 24.8,
-      "composition": "Acmonital stainless steel",
-      "ask": [
-       "issues.4.mintage: 1979 R"
-      ],
-      "note": null
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.4.mintage": {
-       "year": 1979,
-       "mint": [
-        "R"
-       ],
-       "qualifier": null
-      }
-     }
+     "inputs": []
     },
     {
-     "item": "cite:JM.KM.190",
-     "kind": "cite",
+     "item": "verify:type:FR.KM.931.1:period",
+     "kind": "verify",
      "entity": "type",
-     "id": "JM.KM.190",
-     "field": null,
+     "id": "FR.KM.931.1",
+     "field": "period",
      "coins": [
-      "C230"
+      "C033",
+      "C060",
+      "C221"
      ],
-     "label": "JM 10 dollars (JM.KM.190)",
-     "authors": [],
+     "label": "period of C033 · France · 1969 · 1/2 franc · FRF",
+     "authors": [
+      "muse"
+     ],
      "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2015,
-        "mint_marks": [],
-        "coins": [
-         "C230"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Fifth Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces5.html (Numista N#5) Features: Issuer 'France'; Period 'Fifth Republic (1958-date)'. Re-citation of t",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5.html"
       ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "190"
-       },
-       {
-        "system": "Numista",
-        "number": "14370"
-       }
-      ],
-      "weight_g": 5,
-      "diameter_mm": 24.5,
-      "composition": "nickel clad steel",
-      "ask": [
-       "issues.0.mintage: 2015"
-      ],
-      "note": null
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2015,
-       "mint": [],
-       "qualifier": null
-      }
-     }
+     "inputs": []
     },
     {
-     "item": "cite:TT.KM.32",
-     "kind": "cite",
+     "item": "verify:type:PH.KM.198:period",
+     "kind": "verify",
      "entity": "type",
-     "id": "TT.KM.32",
-     "field": null,
+     "id": "PH.KM.198",
+     "field": "period",
      "coins": [
-      "C204"
+      "C246"
      ],
-     "label": "TT 25 cents (TT.KM.32)",
-     "authors": [],
+     "label": "period of C246 · Philippines · 1971 · 10 sentimos · PHP",
+     "authors": [
+      "muse"
+     ],
      "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2014,
-        "mint_marks": [],
-        "coins": [
-         "C204"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of the Philippines",
+      "their_source": "https://en.numista.com/catalogue/pieces3752.html (Numista N#3752) Features: Issuer 'Philippines Issuing bank Central Bank of the Philippines",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3752.html"
       ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "32"
-       },
-       {
-        "system": "Schön",
-        "number": "31"
-       },
-       {
-        "system": "Numista",
-        "number": "1159"
-       }
-      ],
-      "weight_g": 3.53,
-      "diameter_mm": 20,
-      "composition": "cupronickel",
-      "ask": [
-       "issues.0.mintage: 2014"
-      ],
-      "note": null
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
      },
      "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2014,
-       "mint": [],
-       "qualifier": null
-      }
-     }
+     "inputs": []
+    },
+    {
+     "item": "verify:type:TT.KM.31:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "period",
+     "coins": [
+      "C207"
+     ],
+     "label": "period of C207 · Trinidad and Tobago · 2016 · 10 cents · TTD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of Trinidad and Tobago",
+      "their_source": "https://en.numista.com/catalogue/pieces3463.html (Numista N#3463) Features: Issuer 'Trinidad and Tobago'; Period 'Republic (1976-date)'. Re-",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3463.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.26:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "period",
+     "coins": [
+      "C002"
+     ],
+     "label": "period of C002 · Switzerland · 1963 · 5 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces168.html (Numista N#168) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces168.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.108:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "period",
+     "coins": [
+      "C019",
+      "C021",
+      "C022",
+      "C030",
+      "C051",
+      "C089",
+      "C090",
+      "C091",
+      "C092",
+      "C224",
+      "C225",
+      "C226",
+      "C227",
+      "C228",
+      "C229"
+     ],
+     "label": "period of C019 · Germany · 1981 · 10 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces850.html (Numista N#850) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (19",
+      "links": [
+       "https://en.numista.com/catalogue/pieces850.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.929:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": "period",
+     "coins": [
+      "C007",
+      "C062",
+      "C063",
+      "C124",
+      "C125"
+     ],
+     "label": "period of C007 · France · 1963 · 10 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Fifth Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3) Features: Issuer 'France'; Period 'Fifth Republic (1958-date)'. Re-citation of t",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.Y.73a:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": "ruler",
+     "coins": [
+      "C220",
+      "C270"
+     ],
+     "label": "ruler of C220 · Japan · 1982 · 10 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Shōwa",
+      "their_source": "https://en.numista.com/catalogue/pieces922.html (Numista N#922) Features Issuer line: 'Japan Emperor Shōwa ( 1926-1989 )'. Record had no rul",
+      "links": [
+       "https://en.numista.com/catalogue/pieces922.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SG.KM.4:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SG.KM.4",
+     "field": "period",
+     "coins": [
+      "C250"
+     ],
+     "label": "period of C250 · Singapore · 1967 · 20 cents · SGD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of Singapore",
+      "their_source": "https://en.numista.com/catalogue/pieces975.html (Numista N#975) Features: Issuer 'Singapore'; Period 'Republic (1965-date)'. Re-citation of ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces975.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.Y.74:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": "ruler",
+     "coins": [
+      "C206",
+      "C222"
+     ],
+     "label": "ruler of C206 · Japan · 1971 · 1 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Shōwa",
+      "their_source": "https://en.numista.com/catalogue/pieces1590.html (Numista N#1590) Features Issuer line: 'Japan Emperor Shōwa ( 1926-1989 )'. Record had no r",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1590.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.26c:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": "period",
+     "coins": [
+      "C075",
+      "C081"
+     ],
+     "label": "period of C075 · Switzerland · 1982 · 5 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Swiss Confederation",
+      "their_source": "https://en.numista.com/catalogue/pieces171.html (Numista N#171) Features: Issuer 'Switzerland › Switzerland (1848-date)'; Period 'Federal St",
+      "links": [
+       "https://en.numista.com/catalogue/pieces171.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.107:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.107",
+     "field": "period",
+     "coins": [
+      "C195",
+      "C196",
+      "C197",
+      "C237",
+      "C265"
+     ],
+     "label": "period of C195 · Germany · 1971 · 5 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces658.html (Numista N#658) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (19",
+      "links": [
+       "https://en.numista.com/catalogue/pieces658.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.936:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.936",
+     "field": "period",
+     "coins": [
+      "C271"
+     ],
+     "label": "period of C271 · Mexico · 2013 · 50 centavos · MXN (nuevo)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces18097.html (Numista N#18097) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republi",
+      "links": [
+       "https://en.numista.com/catalogue/pieces18097.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "period",
+     "coins": [
+      "C274"
+     ],
+     "label": "period of C274 · Mexico · 1995 · 10 centavos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces581.html (Numista N#581) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republic (1",
+      "links": [
+       "https://en.numista.com/catalogue/pieces581.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SG.KM.3:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SG.KM.3",
+     "field": "period",
+     "coins": [
+      "C264"
+     ],
+     "label": "period of C264 · Singapore · 1973 · 10 cents · SGD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of Singapore",
+      "their_source": "https://en.numista.com/catalogue/pieces1671.html (Numista N#1671) Features: Issuer 'Singapore'; Period 'Republic (1965-date)'. Re-citation o",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1671.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:TW.KM.551:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "period",
+     "coins": [
+      "C200"
+     ],
+     "label": "period of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of China",
+      "their_source": "https://en.numista.com/catalogue/pieces966.html (Numista N#966) Features: Issuer 'Taiwan'; Period 'Republic (1949-date)'. Re-citation of the",
+      "links": [
+       "https://en.numista.com/catalogue/pieces966.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.KM.103:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": "period",
+     "coins": [
+      "C266",
+      "C267"
+     ],
+     "label": "period of C266 · South Korea · 2012 · 10 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of Korea",
+      "their_source": "https://en.numista.com/catalogue/pieces1654.html (Numista N#1654) Features: Issuer 'South Korea Issuing bank Bank of Korea (한국은행)'; Period '",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1654.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:YU.KM.86:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "YU.KM.86",
+     "field": "period",
+     "coins": [
+      "C251",
+      "C262"
+     ],
+     "label": "period of C251 · Yugoslavia · 1984 · 1 dinar · YUD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Socialist Federal Republic of Yugoslavia",
+      "their_source": "https://en.numista.com/catalogue/pieces2417.html (Numista N#2417) Features: Issuer 'Yugoslavia Issuing entity National Bank of Yugoslavia (N",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2417.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.106a:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.106a",
+     "field": "period",
+     "coins": [
+      "C018",
+      "C122",
+      "C123"
+     ],
+     "label": "period of C018 · Germany · 1983 · 2 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces1937.html (Numista N#1937) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1937.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.604:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "period",
+     "coins": [
+      "C236"
+     ],
+     "label": "period of C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "United Mexican States",
+      "their_source": "https://en.numista.com/catalogue/pieces587.html (Numista N#587) Features: Issuer 'Mexico'; Period 'United Mexican States/Mexican Republic (1",
+      "links": [
+       "https://en.numista.com/catalogue/pieces587.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.105:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "period",
+     "coins": [
+      "C029",
+      "C187",
+      "C188",
+      "C189",
+      "C190",
+      "C191",
+      "C192"
+     ],
+     "label": "period of C029 · Germany · 1972 · 1 Pfennig · DEM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Federal Republic of Germany",
+      "their_source": "https://en.numista.com/catalogue/pieces854.html (Numista N#854) Features: Issuer 'Federal Republic of Germany'; Period 'Federal Republic (19",
+      "links": [
+       "https://en.numista.com/catalogue/pieces854.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.933:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.933",
+     "field": "period",
+     "coins": [
+      "C193",
+      "C194"
+     ],
+     "label": "period of C193 · France · 1973 · 5 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Fifth Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces2.html (Numista N#2) Features: Issuer 'France'; Period 'Fifth Republic (1958-date)'. Re-citation of t",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IN.KM.92.2:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": "period",
+     "coins": [
+      "C203"
+     ],
+     "label": "period of C203 · India · 2001 · 1 rupee · INR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic of India",
+      "their_source": "https://en.numista.com/catalogue/pieces1609.html (Numista N#1609) Features: Issuer 'India'; Period 'Republic (1950-date)'. Re-citation of th",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1609.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.KM.1042:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.KM.1042",
+     "field": "ruler",
+     "coins": [
+      "C098"
+     ],
+     "label": "ruler of C098 · Spain · 2000 · 5 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Juan Carlos I",
+      "their_source": "https://en.numista.com/catalogue/pieces83.html (Numista N#83) Features Issuer line: 'Spain King Juan Carlos I ( 1975-2014 )'. Record had no ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces83.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.236:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.236",
+     "field": "ruler",
+     "coins": [
+      "C004"
+     ],
+     "label": "ruler of C004 · Netherlands · 2000 · 5 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Beatrix",
+      "their_source": "https://en.numista.com/catalogue/pieces147.html (Numista N#147) Features Issuer line: 'Netherlands Queen Beatrix ( 1980-2013 )'. Record had ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces147.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.346:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.346",
+     "field": "ruler",
+     "coins": [
+      "C045"
+     ],
+     "label": "ruler of C045 · Netherlands · 2014 · 5 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Willem-Alexander",
+      "their_source": "https://en.numista.com/catalogue/pieces54953.html (Numista N#54953) Features Issuer line: 'Netherlands King Willem-Alexander ( 2013-date )'.",
+      "links": [
+       "https://en.numista.com/catalogue/pieces54953.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.KM.1040:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "ruler",
+     "coins": [
+      "C140"
+     ],
+     "label": "ruler of C140 · Spain · 2008 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Juan Carlos I",
+      "their_source": "https://en.numista.com/catalogue/pieces81.html (Numista N#81) Features Issuer line: 'Spain King Juan Carlos I ( 1975-2014 )'. Record had no ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces81.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.234:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "ruler",
+     "coins": [
+      "C142"
+     ],
+     "label": "ruler of C142 · Netherlands · 2000 · 1 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Beatrix",
+      "their_source": "https://en.numista.com/catalogue/pieces145.html (Numista N#145) Features Issuer line: 'Netherlands Queen Beatrix ( 1980-2013 )'. Record had ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces145.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }
