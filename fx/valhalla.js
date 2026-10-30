@@ -30,7 +30,7 @@
     "  vec3 rf = vec3(p.x, p.y - roofY(p.x) + .2, mod(p.z + 1.25, 2.5) - 1.25); post = min(post, sdBox(rf, vec3(HW, .12, .1)));",   // rafters
     "  post = min(post, sdBox(vec3(abs(p.x) - 2.15, p.y - 4.35, p.z - 4.5), vec3(.12, .14, 11.)));",   // the beams on the posts
     "  U(r, post, 2.);",
-    "  vec3 h = p - vec3(0., 0., 5.5); float rim = sdBox(h, vec3(.75, .12, 3.2)) - .1, pit = sdBox(h - vec3(0., .1, 0.), vec3(.55, .12, 3.));",
+    "  vec3 h = p - vec3(0., 0., 5.5); float rim = sdBox(h, vec3(.72, .07, 3.15)) - .07, pit = sdBox(h - vec3(0., .08, 0.), vec3(.58, .1, 3.02));",
     "  U(r, max(rim + .04*vn(h.xz*7.), -pit), 3.);",                                   // the stone-lined hearth
     "  vec3 s = vec3(HW - abs(p.x), p.y - 2.3, mod(p.z + .625, 1.25) - .625);",       // shields along both walls
     "  float sh = max(sdCylX(s, .4, .04), abs(p.z - 4.5) - 9.5); U(r, sh, 4.);",
@@ -52,7 +52,7 @@
     "  if (id < .5) return vec3(.12,.09,.06)*(.7 + .5*vn(p.xz*2.) + .2*vn(p.xz*vec2(30.,4.)));",
     "  if (id < 1.5) { float pl = smoothstep(.04,.0,abs(fract(p.y*2.4)-.5)-.46); return vec3(.16,.1,.06)*(.65 + .5*vn(vec2(p.z*.6, p.y*24.)))*(1. - .6*pl); }",
     "  if (id < 2.5) return vec3(.14,.085,.045)*(.7 + .5*vn(p.xz*5. + p.y*.4));",
-    "  if (id < 3.5) return vec3(.17,.16,.15)*(.6 + .6*vn(p.xz*6.));",
+    "  if (id < 3.5) return vec3(.08,.075,.07)*(.5 + .7*vn(p.xz*6.))*(1. - .5*smoothstep(.9,.6,abs(p.x))*step(p.y,.3));",   // stones, sooty near the fire
     "  if (id < 4.5) { float sx = floor(p.z/1.25 + .5); vec3 s = vec3(HW - abs(p.x), p.y - 2.3, mod(p.z + .625, 1.25) - .625); float a = atan(s.y, s.z), h = h21(vec2(sx, sign(p.x)));",
     "    vec3 c1 = h < .33 ? vec3(.5,.08,.05) : h < .66 ? vec3(.06,.14,.32) : vec3(.55,.42,.1), c2 = vec3(.62,.58,.5);",
     "    float pat = h < .5 ? step(0., sin(a*2.)) : step(.5, fract(a/1.5708 + .25));",
@@ -64,25 +64,31 @@
     "vec3 shade(vec3 p, vec3 n, vec3 rd, float id){",
     "  vec3 a = albedo(id, p); float oc = TIER > 0 ? ao(p,n) : 1.;",
     "  vec3 c = a*(fireLight(p, n) + vec3(.012,.012,.02)*oc + moonShaft(p)*max(dot(n, normalize(vec3(.25,1.,-.15))),0.)*1.6);",
-    "  if (id > 2.5 && id < 3.5 && length(p.xz - vec2(0.,5.5)) < 3.4 && p.y < .3) c += FIRE*.25*fireK()*smoothstep(.85,.55,abs(p.x));",   // stones hot from the fire
+    "  if (id > 2.5 && id < 3.5 && abs(p.z - 5.5) < 3.1 && abs(p.x) < .6 && p.y < .14) { float co = vn(p.xz*7. + vec2(0., uT*.15)); c += mix(vec3(.35,.04,.01), FIRE, co*co)*smoothstep(.3,.8,co + .2*uFlick)*fireK()*.9; }",   // the bed of coals
     "  if ((id > 4.5 && id < 6.5)) { vec3 l = vec3(0., .8, 5.5); vec3 h = normalize(normalize(l - p) - rd); float sp = pow(max(dot(n,h),0.), id > 5.5 ? 30. : 50.);",
     "    c += (id > 5.5 ? GOLD : vec3(.9))*HOT*sp*fireK()*(id > 5.5 ? 2.2 : .8)/(1. + .05*dot(l-p,l-p));",
     "    if (id > 5.5) c += GOLD*step(.985, h21(floor(p.xz*30.) + floor(uT*2.)))*fireK()*.8; }",
     "  return c; }",
-    "float flame(vec3 x){ vec3 h = x - vec3(0., .12, 5.5); if (abs(h.x) > .65 || abs(h.z) > 3.1 || h.y < 0. || h.y > 2.4) return 0.;",   // the fire in the pit, a volume
-    "  float base = smoothstep(.62, .1, abs(h.x))*smoothstep(3.1, 2.4, abs(h.z)), f = fbm3(vec3(h.x*3., h.y*2. - uT*2.2, h.z*1.6 + uT*.3));",
-    "  float top = (.55 + .9*f + .5*uRoar)*(.7 + .5*vn(vec2(h.z*1.3, uT*.7)));",
-    "  return base*smoothstep(top, top*.3, h.y)*smoothstep(.0, .08, h.y); }",
-    "vec3 volume(vec3 ro, vec3 rd, float tEnd){ int N = 14 + 8*int(uTier); float t0 = 0., t1 = min(tEnd, 28.), dt = (t1-t0)/float(N), tr = 1.;",
-    "  vec3 acc = vec3(0.); float j = .25 + .5*h21(gl_FragCoord.xy + fract(uT*.37)*91.);",
-    "  for (int i=0;i<40;i++){ if (i >= N) break; vec3 x = ro + rd*(t0 + (float(i)+j)*dt);",
-    "    float fl = flame(x); acc += mix(FIRE, HOT, fl*fl)*fl*dt*7.*fireK()*tr;",
-    "    float sm = (.004 + .03*fbm3(x*.5 + vec3(0., -uT*.25, 0.))*smoothstep(1.5, 5.5, x.y))*uLook.z;",
-    "    float r = length(x - vec3(0., .8, 5.5)); acc += (FIRE*fireK()*1.6/(1. + r*r*.25) + moonShaft(x)*1.2)*sm*dt*tr; tr *= exp(-(sm + fl*.5)*dt); }",
+    "float flame(vec3 x){ vec3 h = x - vec3(0., .14, 5.5); if (abs(h.x) > .6 || abs(h.z) > 3. || h.y < 0. || h.y > 2.2) return 0.;",   // tongues of fire along the pit
+    "  float n = fbm3(vec3(h.x*4.2, h.y*3.2 - uT*2.8, h.z*2.6 + uT*.4)), top = 1. + .45*vn(vec2(h.z*1.4, uT*.8)) + .6*uRoar;",
+    "  float shape = (1. - h.y/top) - abs(h.x)*1.5;",
+    "  return smoothstep(.3, .62, n*.95 + shape*.85 - .3)*smoothstep(3., 2.5, abs(h.z))*smoothstep(0., .06, h.y); }",
+    "vec3 fireVol(vec3 ro, vec3 rd, float tEnd){ vec3 bmin = vec3(-.62,.14,2.45), bmax = vec3(.62,2.4,8.55), ir = 1./rd;",   // the flames, sampled finely inside their own box
+    "  vec3 t0 = (bmin-ro)*ir, t1 = (bmax-ro)*ir, lo = min(t0,t1), hi = max(t0,t1); float ta = max(max(lo.x,lo.y),max(lo.z,0.)), tb = min(min(hi.x,hi.y),min(hi.z,tEnd));",
+    "  if (tb <= ta) return vec3(0.); int N = 10 + 8*int(uTier); float dt = (tb-ta)/float(N), j = h21(gl_FragCoord.xy + fract(uT*.41)*57.); vec3 acc = vec3(0.); float tr = 1.;",
+    "  for (int i=0;i<40;i++){ if (i >= N) break; vec3 x = ro + rd*(ta + (float(i)+j)*dt); float fl = flame(x), hy = x.y - .14;",
+    "    vec3 c = mix(vec3(1.,.62,.25)*1.2, mix(FIRE, vec3(.5,.08,.02), smoothstep(.5, 1.4, hy)), smoothstep(.05, .5, hy));",
+    "    acc += c*fl*dt*5.*fireK()*tr; tr *= exp(-fl*dt*6.); }",
     "  return acc; }",
+    "vec3 volume(vec3 ro, vec3 rd, float tEnd){ int N = 6 + 6*int(uTier); float dt = min(tEnd, 28.)/float(N), tr = 1.;",
+    "  vec3 acc = vec3(0.); float j = .25 + .5*h21(gl_FragCoord.xy + fract(uT*.37)*91.);",
+    "  for (int i=0;i<30;i++){ if (i >= N) break; vec3 x = ro + rd*(float(i)+j)*dt;",
+    "    float sm = (.002 + .02*fbm3(x*.5 + vec3(0., -uT*.25, 0.))*smoothstep(1.5, 5.5, x.y))*uLook.z;",
+    "    float r = length(x - vec3(0., .8, 5.5)); acc += (FIRE*fireK()*1.6/(1. + r*r*.25) + moonShaft(x)*1.2)*sm*dt*tr; tr *= exp(-sm*dt); }",
+    "  return acc + fireVol(ro, rd, tEnd); }",
     "vec2 toScreen(vec3 x){ vec3 d = x-uCO; float z = dot(d,uCF); return vec2(dot(d,uCR)/(z*uFov)/ASP(), dot(d,uCU)/(z*uFov)) + .5; }",
     "vec3 embers(vec2 uv, vec3 ro, float tHit){ vec3 s = vec3(0.); vec2 a = vec2(ASP(),1.);",
-    "  for (int i=0;i<26;i++){ vec2 h = h22(vec2(float(i), 5.7)); float life = 3. + 2.5*h.y, age = mod(uT*.7 + h.x*life*5.3, life);",
+    "  for (int i=0;i<26;i++){ if (i >= 14 + 4*int(uTier)) break; vec2 h = h22(vec2(float(i), 5.7)); float life = 3. + 2.5*h.y, age = mod(uT*.7 + h.x*life*5.3, life);",
     "    vec3 x = vec3((h.x-.5)*.9 + .35*sin(age*1.7 + h.y*6.), .4 + age*1.15*(1. + .6*uRoar), 3.2 + 4.6*h.y + .3*sin(age*2.3));",
     "    vec3 dx = x-ro; float z = dot(dx, uCF); if (z < .4 || length(dx) > tHit) continue;",
     "    vec2 q = (uv-toScreen(x))*a; float rad = .016/(z*uFov);",
@@ -105,8 +111,8 @@
   function sm(a, b, k) { return a + (b - a) * k; }
   K.stage("valhalla", {
     kind: "ray", glsl: G, grade: .82,
-    cam: { mode: "walk", pos: [1.15, 1.75, -3.6], target: [-.25, 1.3, 9], fov: 1.04, walk: [0, 0, 1], bounds: [[-1.6, .6, -5.6], [1.6, 5., 10.5]] },
-    steps: [48, 64, 90, 120], shadowSteps: [0, 0, 14, 22], scale: { low: .44 },
+    cam: { mode: "walk", pos: [1.2, 1.9, -3.4], target: [-.3, 2.6, 9], fov: 1.04, walk: [0, 0, 1], bounds: [[-1.6, .6, -5.6], [1.6, 5., 10.5]] },
+    steps: [40, 60, 86, 120], shadowSteps: [0, 0, 14, 22], scale: { low: .4 },
     moments: [{ name: "the fire roars", every: [25, 45], dur: 4.5 }],
     onTap: function (x, y, S) { S.data.breath = 1; if (S.view.mode === "opening") S.startMoment(0); },
     step: function (c, S) {
@@ -123,6 +129,6 @@
       look: [{ id: "fire", label: "Hearthfire", min: 0, max: 2, def: 1 }, { id: "moon", label: "Moon through the roof", min: 0, max: 2.5, def: 1 },
         { id: "smoke", label: "Smoke", min: 0, max: 2, def: 1 }, { id: "speed", label: "Pace", min: 0, max: 3, def: 1 }],
       touch: "Tap anywhere: sparks burst from where you tapped and the fire answers.",
-      opening: { dur: 5.8, from: { yaw: -.35, pitch: .4, move: 5.5, up: 2.4 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.4, at: [.5, .3] } }
+      opening: { dur: 5.8, from: { yaw: .12, pitch: -.2, move: 9.5, up: 0 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.4, at: [.5, .3] } }
   });
 })();

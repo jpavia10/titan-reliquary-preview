@@ -14,8 +14,8 @@
     afterhours: ["fxk", 0.01], nocturne: ["style-deco+bluenote*0.45", 0.85], conservator: ["style-halftone+loupe*0.4", 0.7],
     colossus: ["fxk", 0.01], odyssey: ["voyage", 0.85], cursedwing: ["crypt", 0.9], kaleido: ["style-kaleido+style-holo*0.4", 0.8],
     abyss: ["fxk", 0.01], neon: ["fxk", 0.01], notepad: ["paperink", 0.6], construct: ["style-ascii", 0.8], xeno: ["spores", 0.85],
-    solaris: ["style-wireframe+coronagraph*0.5", 0.85], alchemist: ["athanor", 0.85], glacier: ["fxk", 0.01], valhalla: ["mead-hall", 0.9],
-    dynasty: ["lantern-feast", 0.85], zen: ["garden", 0.85], samadhi: ["style-mesh+incense-curl*0.5", 0.85], silkroad: ["dunes", 0.85],
+    solaris: ["style-wireframe+coronagraph*0.5", 0.85], alchemist: ["athanor", 0.85], glacier: ["fxk", 0.01], valhalla: ["fxk", 0.01],
+    dynasty: ["fxk", 0.01], zen: ["garden", 0.85], samadhi: ["style-mesh+incense-curl*0.5", 0.85], silkroad: ["dunes", 0.85],
     /* styles-20 (notes/agents/styles-20.md): the six new themes, one style preset each (wings/fx/styles-*.js) */
     arcade: ["style-pixel", 0.85], pulp: ["style-comic", 0.8], drafting: ["style-blueprint", 0.85], diorama: ["style-clay", 0.65],
     bauhaus: ["style-bauhaus+style-kinetic*0.8", 0.8], terminal: ["style-splitflap", 0.85], obsidian: ["fxk", 0.01], lightwell: ["fxk", 0.01], saltflat: ["fxk", 0.01], sahel: ["fxk", 0.01], orbit: ["fxk", 0.01], glasshouse: ["fxk", 0.01], canopy: ["fxk", 0.01], silverscreen: ["fxk", 0.01], darkroom: ["fxk", 0.01], tourbillon: ["fxk", 0.01], supercell: ["fxk", 0.01], kintsugi: ["fxk", 0.01], horizon: ["fxk", 0.01], rift: ["fxk", 0.01], lumen: ["fxk", 0.01], ferro: ["fxk", 0.01], marbled: ["style-marble", 0.85], cathedral: ["style-glass", 0.85], contour: ["style-topo", 1.05], banknote: ["style-guilloche", 0.85], freefall: ["style-physics", 0.9], sketch: ["style-sketch", 0.85], papercut: ["style-papercut", 0.6], y2k: ["style-y2k", 0.85],

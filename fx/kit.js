@@ -8,7 +8,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK = window.TitanFXK || { mods: {}, themes: {} };
-  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js", supercell: "fx/supercell.js", tourbillon: "fx/tourbillon.js", darkroom: "fx/darkroom.js", silverscreen: "fx/silverscreen.js", canopy: "fx/canopy.js", glasshouse: "fx/glasshouse.js", orbit: "fx/orbit.js", sahel: "fx/sahel.js", nocturne: "fx/nocturne.js", zen: "fx/zen.js", saltflat: "fx/saltflat.js", lightwell: "fx/lightwell.js", obsidian: "fx/obsidian.js", afterhours: ["fx/stage.js", "fx/afterhours.js"], colossus: ["fx/stage.js", "fx/colossus.js"], abyss: ["fx/stage.js", "fx/abyss.js"], glacier: ["fx/stage.js", "fx/glacier.js"], neon: ["fx/stage.js", "fx/neon.js"] };   /* a list loads in order */
+  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js", supercell: "fx/supercell.js", tourbillon: "fx/tourbillon.js", darkroom: "fx/darkroom.js", silverscreen: "fx/silverscreen.js", canopy: "fx/canopy.js", glasshouse: "fx/glasshouse.js", orbit: "fx/orbit.js", sahel: "fx/sahel.js", nocturne: "fx/nocturne.js", zen: "fx/zen.js", saltflat: "fx/saltflat.js", lightwell: "fx/lightwell.js", obsidian: "fx/obsidian.js", afterhours: ["fx/stage.js", "fx/afterhours.js"], colossus: ["fx/stage.js", "fx/colossus.js"], abyss: ["fx/stage.js", "fx/abyss.js"], glacier: ["fx/stage.js", "fx/glacier.js"], neon: ["fx/stage.js", "fx/neon.js"], valhalla: ["fx/stage.js", "fx/valhalla.js"], dynasty: ["fx/stage.js", "fx/dynasty.js"] };   /* a list loads in order */
   K.mod = function (name, f) { K.mods[name] = f; };
   /* world contract (depth upgrade, notes/agents/depth-upgrade.md): one world runs as the backdrop (default, unchanged), the opening or
      the theme's room. A world reads ctx.view: mode, the camera offset from its own view (yaw and pitch in radians, move = metres along
@@ -120,6 +120,7 @@
   function stop() { if (raf) cancelAnimationFrame(raf); raf = 0; }
   /* a view change while the loop is not running (Motion Calm / Off, a hidden tab) draws one new still frame */
   function redraw() { if (active && !raf && !document.hidden) { last = 0; raf = requestAnimationFrame(frame); } }
+  K.redraw = redraw;   /* a world whose shader is still compiling asks for its still frame again (fx/stage.js) */
   function teardown() { stop(); if (active) active.parts.forEach(function (p) { p.dispose && p.dispose(); }); active = null; if (cv) cv.style.opacity = "0"; root.removeAttribute("data-fxk"); }
   function frame(now) {
     raf = 0; if (!active) return;

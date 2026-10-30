@@ -8,7 +8,8 @@ One GPU world (fx/kit.js TitanFXK) runs as the backdrop, the opening and the the
      to the world's room limits, drops unknown look ids; resetView gives the backdrop view back
   3. for every world with a room: a camera move and a look change reach the world (its debug), and resetView puts its camera back
   4. six theme switches leave one world canvas and at most one animation loop (no piling up)
-  5. the room in the app: Step inside opens it over the live world (the app hidden), Escape closes it and the view is the backdrop again;
+  5. the room in the app: Step inside opens it over the live world (the app hidden, nothing of it showing through, the Hall scrolled to
+     its showcase), Escape closes it and the view is the backdrop again;
      a theme without a GPU world gets the basic room
   6. the launch opening on the engine (?splash=1): the splash goes transparent over the running world, the view runs in mode "opening",
      then the app appears over the same world in mode "backdrop" (one canvas)
@@ -82,7 +83,7 @@ def main(argv):
                 p.goto(f"{base}?nosplash&q={q}{extra}#hall")
                 return ctx, p, errs
             def wait_world(p, theme, n=2, ms=90000):
-                try: p.wait_for_function("([id, n]) => { const d = window.TitanFXK && TitanFXK.debug(); return d && d.id === id && d.frames >= n; }", arg=[theme, n], timeout=ms); return True
+                try: p.wait_for_function("([id, n]) => { const d = window.TitanFXK && TitanFXK.debug(); return d && d.id === id && d.frames >= n && (d.worlds || []).every((w) => !w || w.ready !== false); }", arg=[theme, n], timeout=ms); return True
                 except Exception: return False
 
             # 1 + 3. every world boots as the backdrop; a world with a room takes the view
@@ -139,11 +140,18 @@ def main(argv):
             check(d["canvases"] == 1 and d["loop"] <= 1 and d["id"] == "supercell", f"[{dev}] six theme switches: {d['canvases']} world canvas, {d['loop']} loop, on {d['id']}")
             check(not errs, f"[{dev}] no page errors through the switches" + (": " + errs[0][:120] if errs else ""))
 
-            # 5. the room in the app
+            # 5. the room in the app (the Hall scrolled to its showcase first: its slide sets visibility: visible itself)
+            p.evaluate("() => { const e = document.querySelector('.exhibit-slide.on'); if (e) e.scrollIntoView({ block: 'center' }); }"); p.wait_for_timeout(600)
             r = p.evaluate("""() => TitanRoom.open().then((c) => new Promise((ok) => setTimeout(() => ok({ kit: c.kit, open: !!document.getElementById('troom'),
               hidden: document.documentElement.classList.contains('tr-room'), mode: TitanFXK.view.mode,
               app: getComputedStyle(document.getElementById('app') || document.body).visibility }), 600)))""")
             check(r["kit"] and r["open"] and r["hidden"] and r["mode"] == "room" and r["app"] == "hidden", f"[{dev}] Step inside: the room opens over the live world, the app hidden ({r})")
+            # nothing of the app shows through, even a part that sets visibility: visible itself (tr266: the Hall's showcase slide did)
+            leak = p.evaluate("""() => { const out = []; document.querySelectorAll('body *').forEach((e) => { if (e.closest('#troom') || e.id === 'fxk' || e.id === 'titan-fx') return;
+              if (getComputedStyle(e).visibility !== 'visible') return; const r = e.getBoundingClientRect(); if (r.width < 4 || r.height < 4 || r.bottom < 0 || r.top > innerHeight) return;
+              let op = 1, x = e; while (x && x !== document.documentElement) { op *= +getComputedStyle(x).opacity; x = x.parentElement; } if (op >= .02) out.push(e.tagName + '.' + String(e.className).split(' ')[0]); });
+              return out.slice(0, 5); }""")
+            check(not leak, f"[{dev}] Step inside: no part of the app shows through the room ({leak})")
             if shots: p.screenshot(path=os.path.join(shots, f"inapp_room_{dev}_supercell.png"))
             p.keyboard.press("Escape"); p.wait_for_timeout(500)
             r = p.evaluate("({ open: !!document.getElementById('troom'), cls: document.documentElement.classList.contains('tr-room'), view: JSON.stringify(TitanFXK.view) })")

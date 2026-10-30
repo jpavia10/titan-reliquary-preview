@@ -48,6 +48,24 @@
   function norm(v) { var l = Math.hypot(v[0], v[1], v[2]) || 1; return [v[0] / l, v[1] / l, v[2] / l]; }
   function cross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
 
+  /* the world's shader compiles in the background (KHR_parallel_shader_compile): a big raymarcher can take a second to link on a phone,
+     and a synchronous compile would freeze the page for it. Until it is ready the world draws its dark base; errors log as "[fxk]". */
+  function compileAsync(gl, fsSrc) {
+    var ext = gl.getExtension("KHR_parallel_shader_compile"), vs = gl.createShader(gl.VERTEX_SHADER), fs = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(vs, K.FSQ); gl.shaderSource(fs, fsSrc); gl.compileShader(vs); gl.compileShader(fs);
+    var p = gl.createProgram(); gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p);
+    var h = { p: p, u: null, state: 0 };
+    h.poll = function () {
+      if (h.state) return h.state;
+      if (ext && !gl.getProgramParameter(p, ext.COMPLETION_STATUS_KHR)) return 0;
+      if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { console.warn("[fxk]", gl.getShaderInfoLog(fs) || gl.getProgramInfoLog(p)); h.state = -1; return -1; }
+      var u = {}, n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+      for (var i = 0; i < n; i++) { var a = gl.getActiveUniform(p, i); u[a.name.replace(/\[0\]$/, "")] = gl.getUniformLocation(p, a.name); }
+      h.u = u; h.state = 1; gl.deleteShader(vs); gl.deleteShader(fs); return 1;
+    };
+    return h;
+  }
+
   K.stage = function (id, def) {
     var look = K.look || function (i, d) { return d; };
     K.mod(id, function (gl, s, K) {
@@ -56,7 +74,7 @@
       var src = "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + (K.NOISE3 || "") + "#define STEPS " + steps + "\n#define SHADOW_STEPS " + sh +
         "\n#define TIER " + tq + "\n#define GRADE " + (def.grade || 1).toFixed(3) + "\n" + COMMON + def.glsl +
         "\nvoid main(){ o = vec4(min(pow(max(render(gl_FragCoord.xy/uRes), 0.), vec3(GRADE)), vec3(64.)), 1.); }";   /* never an infinity: the bloom would spread it over the screen */
-      var pw = K.compile(K.FSQ, src); if (!pw) return null;
+      var pw = compileAsync(gl, src);
       var pu = scale < 1 ? K.compile(K.FSQ, UP) : null; if (scale < 1 && !pu) return null;
       var S = { tier: T, tq: tq, scale: scale, look: look, taps: [], tOff: 0, moment: null, nextMoment: 0, ptr: [.5, .5], view: {}, data: {} };
       var rt = null, seen = K.ptr.tap, TAPS = new Float32Array(24), CAM = def.cam || { pos: [0, 1, -4], target: [0, 1, 0], fov: 1 };
@@ -108,6 +126,8 @@
           if (def.step) def.step(c, S);
         },
         draw: function (c) {
+          var st = pw.poll();
+          if (st !== 1) { K.bindTarget(); gl.clearColor(.006, .006, .01, 1); gl.clear(gl.COLOR_BUFFER_BIT); if (st === 0 && c.still && K.redraw) setTimeout(K.redraw, 150); return; }
           var w = Math.max(2, Math.round(c.w * scale)), h = Math.max(2, Math.round(c.h * scale)), v = S.view || {};
           if (pu) { mk(w, h); gl.bindFramebuffer(gl.FRAMEBUFFER, rt.f); gl.viewport(0, 0, w, h); } else { K.bindTarget(); w = c.w; h = c.h; }
           gl.disable(gl.BLEND); gl.useProgram(pw.p); var u = pw.u, t = c.t + S.tOff;
@@ -128,7 +148,7 @@
         },
         debug: function () { var v = S.view || {}, L = {}; ((def.room && def.room.look) || []).forEach(function (x) { L[x.id] = look(x.id, 1); });
           var cam = def.kind === "ray" && S.cam ? S.cam.pos.concat(S.cam.f) : [v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0];
-          return { tier: T, scale: scale, cam: cam.map(function (x) { return +x.toFixed(3); }), look: L, moment: S.moment ? def.moments[S.moment.i].name : null, taps: S.taps.length }; },
+          return { tier: T, scale: scale, ready: pw.state !== 0, failed: pw.state === -1, cam: cam.map(function (x) { return +x.toFixed(3); }), look: L, moment: S.moment ? def.moments[S.moment.i].name : null, taps: S.taps.length }; },
         dispose: function () { if (def.dispose) def.dispose(gl, S); gl.deleteProgram(pw.p); if (pu) gl.deleteProgram(pu.p); if (rt) { gl.deleteTexture(rt.t); gl.deleteFramebuffer(rt.f); } }
       };
       return part;

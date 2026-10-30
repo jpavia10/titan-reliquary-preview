@@ -47,6 +47,8 @@ def shots(base, tid, script_url, b):
         p.route(re.compile(r".*/__harness\.html.*"), lambda route, req=None: route.fulfill(status=200, content_type="text/html", body=html))
         p.add_init_script("localStorage.setItem('tr_quality','high')")
         p.goto(base + "__harness.html", wait_until="load"); p.wait_for_timeout(6000)
+        try: p.wait_for_function("() => { const d = window.TitanFXK && TitanFXK.debug(); return d && (d.worlds || []).every((w) => !w || w.ready !== false); }", timeout=60000); p.wait_for_timeout(800)
+        except Exception: pass   # a world still compiling after a minute shows up as a black picture below
         out[name] = (p.screenshot(timeout=120000), p.evaluate("() => TitanFXK.debug()"), errs)
         p.close()
     return out
@@ -102,7 +104,7 @@ def main(argv):
             p = b.new_page(viewport={"width": 390, "height": 844}); html = page(tid, "fx/__new_%s.js" % tid, "full")
             p.route(re.compile(r".*/__room\.html.*"), lambda route, req=None: route.fulfill(status=200, content_type="text/html", body=html))
             p.add_init_script("localStorage.setItem('tr_quality','low')")
-            p.goto(base + "__room.html"); p.wait_for_function("() => TitanFXK.frames > 2", timeout=60000)
+            p.goto(base + "__room.html"); p.wait_for_function("() => { const d = TitanFXK.debug(); return TitanFXK.frames > 2 && d && (d.worlds || []).every((w) => !w || w.ready !== false); }", timeout=120000)
             f0, t0 = p.evaluate("TitanFXK.frames"), p.evaluate("performance.now()"); p.wait_for_timeout(5000)
             fps = (p.evaluate("TitanFXK.frames") - f0) / ((p.evaluate("performance.now()") - t0) / 1000)
             print("info: %.1f frames a second at Low on this machine's software GL" % fps, flush=True)
