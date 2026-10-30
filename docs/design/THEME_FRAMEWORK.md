@@ -14,7 +14,8 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
 | **TitanFXK** (`fx/kit.js`, worlds in `fx/<id>.js`, shared modules `fx/atmos.js`, `fx/particles-gpu.js`, `fx/post.js`, ...) | The engine. One WebGL2 canvas (`#fxk`) behind the app, one loop, one clock. A theme's world is a module (`K.mod`) plus its entry `K.themes[id] = { stack, room }`. | **The** engine: every theme ends up here. |
 | TitanFX (`wings/fx/engine.js`, presets in `wings/fx/*.js`) | The first engine: one effect layer per theme. | Kept until the theme has a GPU world, then that theme stops using it. |
 | Openings kit (`js/intros/kit.js`, `js/intros/{id}.js`, `js/motion-splash.js`) | Old separate opening scenes, loaded only when one plays (`TitanOpening.need(id)`, list `INTROS` in `js/motion-splash.js`). | A theme's file is deleted once its opening plays on its world (`wings/room.js` `OPENINGS`). |
-| Films (`art/splash/`) | Prerendered openings (rule 12 a: never the way forward). | Leave once every theme opens on its world (fix list #129). |
+| **Scene library** (`fx/stage.js`, `K.stage(id, def)`) | How a new world is written (2026-10-30): the world gives its GLSL `render(uv)` (and for a raymarched world `map(p)`, with `K.stage.RAY` for march, normal, shadow and ao), a camera, its tier steps and render scale, look ids, moments, taps; the library does the camera, the uniforms, the background shader compile, the clamp and the room plumbing. | Every world written since tr267; the older worlds keep their own module until they are rebuilt. |
+| Films (`art/splash/`) | Prerendered openings. | Deleted 2026-10-30 (tr267; owner: "Right i dont want films"). |
 | TitanScape (`audio/scape/`) | The sound engine for the backdrop and the room: recorded layers, placed in space, turned with the camera (`TitanScape.face`). | The sound engine. |
 | TitanQuality (`wings/quality.js`) | The one quality setting (Low, Medium, High, Ultra, Max). Worlds read it; nothing lowers it on its own. | The only tier. |
 
@@ -23,6 +24,10 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
 1. **World** (`fx/<id>.js`): one GPU world, drawn live at the device's tier. It reads `c.view` every frame and works without it
    (an older cached kit): `var look = K.look || function (id, def) { return def; };` and `var v = c.view || {};`.
    With the default view (all zero, every look control at its default) it draws exactly the backdrop it drew before.
+   A new world is a `K.stage` definition (`fx/stage.js`): `cam` (orbit, or `mode: "walk"` with `walk` and `bounds`), `steps` and
+   `shadowSteps` per tier (Low, Medium, High, Ultra), `scale` per tier, `grade`, `moments`, `onTap`, `step(c, S)` and `pre(gl, c, S)` (its
+   own passes before the frame, e.g. Zen Garden's sand height map), `uniforms`, `init`, `dispose`, `post`, `room`. A branch inside `map`
+   does not save time on software GL (every lane runs both sides): cut work per tier with `TIER` constants instead.
 2. **The world contract** (`fx/kit.js`): `K.view = { mode, yaw, pitch, move, up, look }`, written only through `K.setView(v)`,
    which keeps a mode from `K.MODES` (`backdrop`, `opening`, `room`), ignores numbers that are not finite, clamps the camera and every
    look control to the world's room limits and drops unknown ids; `K.resetView()`; `K.look(id, def)`; `K.tap(x, y)` (a touch from a page
@@ -31,7 +36,11 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
    draws one still frame.
 3. **Room data** (`K.themes[id].room`): `{ name, yaw: [min, max], pitch, move, up, unit, sound, look: [{ id, label, min, max, def, scape? }],
    touch, opening: { dur, from, to, hit, at } }`. A 3D world orbits its subject with yaw; a flat world pans (in screen heights: a phone
-   is only about .46 wide, so its limits keep the subject in view on a phone), zooms with move and lifts with up. Every look control is a
+   is only about .46 wide, so its limits keep the subject in view on a phone), zooms with move and lifts with up. **The room is a third
+   place** (owner, 2026-10-30: "something entirely new ... not just clone of other screen stripped of ui"): a stage world gives it its
+   own camera, `roomCam` (a bench in Midnight Gallery, kneeling at the gravel in Zen Garden, inside the vault in Hyperborean), blended in
+   over about a second on Step inside and snapped back by `K.resetView()`; `drag: "world"` hands one-finger drags to the world (Zen
+   Garden rakes with them) instead of turning the head. Every look control is a
    multiplier on something the world already has (default 1 = today). `scape` names the soundscape parameter the control also moves.
 4. **Opening** (`room.opening` + `wings/room.js` `OPENINGS`): a camera path on the running world that ends exactly on the backdrop view,
    with one touch at `hit` seconds on screen point `at`; the name comes up at 55 %. At launch (`splash.js` motion path) the splash goes
@@ -57,7 +66,9 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
   Motion Off = one still frame.
 - **Conversion gate** (`tools/rooms/check_conversion.py ID FILE [--install]`): a converted world is installed only when it parses, has
   the contract's markers, draws the same backdrop (old vs new within the scene's own run-to-run noise, phone and desktop) and takes a
-  camera move and a look change.
+  camera move and a look change. With `--new` (a world written fresh on the scene library) it checks that it boots with no shader or
+  page error, draws a picture on a phone and a desktop, keeps at least 1 frame a second at Low on software GL, and takes a camera move
+  and a look change. `tools/themes/wire_world.py ID` wires a passing world in one step (lazy map, sw, status).
 - `tools/themes/framework_status.py --check` (smoke job): the status page matches the code.
 - Everything else that already gates a theme still does (smoke, contrast, registry, GRK-Q-02, GRK-M-04, Signature standard in
   `notes/agents/theme-pot.md`).
@@ -68,8 +79,9 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
 - **Gemini through the API** (rule 13, `tools/gemini/`): mechanical conversions of existing worlds to the contract
   (`tools/gemini/convert_world.py`, brief `tools/gemini/prompts/convert_world.md`, Supercell's conversion as the worked example); every
   answer passes the conversion gate, and Claude looks at the contact sheet before a theme goes in `OPENINGS`.
-- **Grok** (homework, `docs/agents/queues.json`): GPU worlds for the themes still on the first engine, one at a time, Midnight Gallery
-  first, written to this contract (a world file with its room data); nothing ships without the gate.
+- **Grok** (homework, `docs/agents/queues.json`): GPU worlds for the themes still on the first engine, one at a time, written as a
+  `K.stage` definition with its own `roomCam` and opening; nothing ships without `check_conversion.py ID FILE --new`. Its 31 drafts of
+  2026-10-29 were single-mode backdrops: Claude builds those themes on the scene library and keeps Grok's good ideas.
 - **Gemini, Muse, Grok** (homework): the sound hunt (`docs/agents/SOUND_HUNT.md`: music each theme lacks, field recordings for each room).
 
 ## 5. The plan, in order
@@ -80,4 +92,4 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
 - **C. Openings**: each converted world's opening path looked at, then listed in `OPENINGS`; its separate scene file retires.
 - **D. A GPU world for every first-engine theme** (Grok's homework, Claude's review), so every theme has a full room.
 - **E. Scene Studio v4** (rule 12 c): theme picking, sound, ambience and effects in layers that move in depth, leading into the room.
-- **F. Retire**: the films, the openings kit and TitanFX once nothing uses them (fix list #129: the films are 430 MB of the 1 GB site).
+- **F. Retire**: the films (done, tr267), then the openings kit and TitanFX once nothing uses them.
