@@ -8,7 +8,7 @@
   var html = document.documentElement;
   /* a theme is listed here once its opening path (K.themes[id].room.opening) has been looked at on a phone and a desktop */
   var OPENINGS = { supercell: 1, tourbillon: 1, silverscreen: 1, darkroom: 1, canopy: 1, glasshouse: 1, orbit: 1, sahel: 1, nocturne: 1, zen: 1,
-    saltflat: 1, lightwell: 1, obsidian: 1, kintsugi: 1, rift: 1, lumen: 1, horizon: 1, afterhours: 1, colossus: 1, abyss: 1, glacier: 1 };   // ferro: too dark to judge at Low, looked at again later
+    saltflat: 1, lightwell: 1, obsidian: 1, kintsugi: 1, rift: 1, lumen: 1, horizon: 1, afterhours: 1, colossus: 1, abyss: 1, glacier: 1, neon: 1 };   // ferro: too dark to judge at Low, looked at again later
   function K() { return window.TitanFXK; }
   function motion() {
     var m = html.dataset.motion; if (m === "calm" || m === "off") return m;

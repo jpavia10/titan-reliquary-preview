@@ -1,6 +1,8 @@
 /* styles/room-shell.css: the theme's room (wings/room-shell.js, #troom), loaded with it on the first Step inside.
    Glass planes over the live world; each sits a little nearer than the last, so they slide against each other as you look around. */
-html.tr-room body > :not(#troom):not(#fxk):not(#titan-fx) { visibility: hidden !important; }
+/* the app is hidden while you are in the room; opacity as well as visibility, because a part that sets visibility: visible itself (the Hall's
+   showcase slide) would show through a hidden parent */
+html.tr-room body > :not(#troom):not(#fxk):not(#titan-fx) { visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
 html.tr-room, html.tr-room body { overflow: hidden; }
 #troom { position: fixed; inset: 0; z-index: 100500; touch-action: none; color: #fff; font: 15px/1.35 system-ui, -apple-system, "Segoe UI", sans-serif;
   user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
