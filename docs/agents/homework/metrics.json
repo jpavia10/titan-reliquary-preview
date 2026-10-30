@@ -1,25 +1,25 @@
 {
- "updated": "2026-10-30T06:15:11Z",
+ "updated": "2026-10-30T06:56:08Z",
  "pools": {
-  "cite": 22,
+  "cite": 26,
   "story-check": 11,
   "plain-story": 2,
   "research": 1,
   "value": 1,
-  "read-mint": 7,
+  "read-mint": 6,
   "arbitrate": 9,
   "fill": 38,
   "verify": 252
  },
  "agents": {
   "claude": {
-   "confirmed": 331,
+   "confirmed": 330,
    "wrong": 2,
-   "checks_done": 213,
-   "disagreements_open": 1,
+   "checks_done": 220,
+   "disagreements_open": 8,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 333,
+   "checked_n": 332,
    "error_rate": 0.006,
    "error_ci95": [
     0.002,
@@ -27,27 +27,27 @@
    ]
   },
   "grok": {
-   "confirmed": 984,
-   "wrong": 15,
+   "confirmed": 981,
+   "wrong": 16,
    "checks_done": 272,
-   "disagreements_open": 1,
+   "disagreements_open": 0,
    "canaries_caught": 1,
    "canaries_missed": 0,
-   "checked_n": 999,
-   "error_rate": 0.015,
+   "checked_n": 997,
+   "error_rate": 0.016,
    "error_ci95": [
-    0.009,
-    0.025
+    0.01,
+    0.026
    ]
   },
   "gemini": {
-   "confirmed": 486,
+   "confirmed": 484,
    "wrong": 9,
    "checks_done": 452,
-   "disagreements_open": 2,
+   "disagreements_open": 3,
    "canaries_caught": 11,
    "canaries_missed": 0,
-   "checked_n": 495,
+   "checked_n": 493,
    "error_rate": 0.018,
    "error_ci95": [
     0.01,
@@ -55,16 +55,16 @@
    ]
   },
   "muse": {
-   "confirmed": 621,
+   "confirmed": 626,
    "wrong": 16,
    "checks_done": 386,
-   "disagreements_open": 7,
+   "disagreements_open": 1,
    "canaries_caught": 8,
    "canaries_missed": 0,
-   "checked_n": 637,
+   "checked_n": 642,
    "error_rate": 0.025,
    "error_ci95": [
-    0.016,
+    0.015,
     0.04
    ]
   },
@@ -86,7 +86,7 @@
    "confirmed": 0,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 7,
+   "disagreements_open": 6,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 0,
@@ -214,9 +214,9 @@
   "verify:type:US.KM.195:denomination.value"
  ],
  "open_assignments": {
-  "grok": 5,
-  "muse": 6,
-  "gemini": 12,
+  "grok": 7,
+  "muse": 7,
+  "gemini": 13,
   "chatgpt": 0
  }
 }

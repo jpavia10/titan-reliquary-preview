@@ -62,6 +62,7 @@
         var span = (R.move[1] - R.move[0]) || 1; v.move = move0 + (dd - pinch0) / Math.min(innerWidth, innerHeight) * span * .8; push(); return; }
       if (!down || !R) return;
       var dx = e.clientX - down.x, dy = e.clientY - down.y; if (Math.hypot(dx, dy) > 8) down.far = true;
+      if (R.drag === "world") return;   /* the world takes the drag (it reads the pointer itself): a finger rakes the Zen Garden */
       v.yaw = down.yaw - dx / innerWidth * 2.4; v.pitch = down.pitch + dy / innerHeight * 1.4; push();
     });
     function up(e) {

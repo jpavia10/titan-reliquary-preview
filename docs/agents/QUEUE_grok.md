@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-10-30 06:15 UTC)
+# WORK QUEUE for Grok (updated 2026-10-30 06:56 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -58,7 +58,7 @@ Each item is a question the record still carries ('Still being checked' in the a
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD** (BS.X.25-cents): «Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1).» Record: «{"country": "Bahamas", "year": "1984", "denom": "25 cents · BSD", "mint": "not read (no photo of this coin yet)", "refs": "KM#63.1 · Schön#38 · Numista#9352", "metal": "nickel · 6.90 g · 24.26 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "unknown", "design": "obverse coat…»
 
-### 2. HW-grok-arbitrate-20261030-1 · Arbiter · Settle 8 disagreements between two AIs · due 2026-11-06  (fix list #18)
+### 2. HW-grok-arbitrate-20261030-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-06  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -68,13 +68,7 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 
 Items:
 - **D0126 DE.X.spielmarke-20-gr design.text**: record `obverse Fraktur monogram GR in a ring of stars (15 on T002; T001's count is an open owner…` (model:claude: «photos T002_Germany_ND_Spielmarke20_obv.jpeg + T002_Germany_ND_Spielmarke20_rev.jpeg (photos/p1/T002_obv.webp, T002_rev…») vs claim `obverse Gothic monogram GR within ring of 16 five-pointed stars · reverse 20 within laure…` (model:gemini: «T002_Germany_ND_Spielmarke20_obv.jpeg and T002_Germany_ND_Spielmarke20_rev.jpeg (also visible in album slot labeled 'Sp…»)
-- **D0127 VN-SOV.KM.1 design.text**: record `reverse three rice stalks tied with ribbon · VIET-NAM · 20 SU · three-dragon obverse / da…` (None: «null») vs claim `obverse three women in profile facing left · QUỐC-GIA VIỆT-NAM · 1953 (engraver Lucien Ge…` (model:gemini: «https://en.numista.com/catalogue/pieces5904.html (1953 South Vietnam / State of Vietnam 20 Su N# 5904: Obverse shows 'T…»)
 - **D0128 C031 issue.mint_marks**: record `["S"]` (None: «null») vs claim `[]` (model:muse-spark: «Photo read: C031_rev.webp - reverse reads AUSTRALIA / 19|43 / THREE PENCE between the wheat ears; the mint-letter posit…»)
-- **D0129 C067 issue.mint_marks**: record `["B"]` (None: «null») vs claim `[]` (model:muse-spark: «Photo read: C067_rev.webp - 2 francs reverse dated 1981, no letter below the wreath bow. https://en.numista.com/catalog…»)
-- **D0130 C093 issue.mint_marks**: record `["B"]` (None: «null») vs claim `[]` (model:muse-spark: «Photo read: C093_rev.webp - 1 franc reverse dated 1970, no letter below the wreath bow. https://en.numista.com/catalogu…»)
-- **D0131 C081 issue.mint_marks**: record `["B"]` (None: «null») vs claim `[]` (model:muse-spark: «Photo read: C081_obv.webp - 5 rappen dated 1983. https://en.numista.com/catalogue/pieces171.html (Numista N#171, KM#26c…»)
-- **D0132 C083 issue.mint_marks**: record `["B"]` (None: «null») vs claim `[]` (model:muse-spark: «Photo read: C083_obv.webp - 10 rappen dated 1981. https://en.numista.com/catalogue/pieces173.html (Numista N#173, KM#27…»)
-- **D0133 C075 issue.mint_marks**: record `["B"]` (None: «null») vs claim `[]` (model:muse-spark: «Photo read: C075_obv.webp - 5 rappen dated 1982. https://en.numista.com/catalogue/pieces171.html (Numista N#171, KM#26c…»)
 
 ### 3. HW-grok-cite-20261030-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-11-06  (fix list #72)
 
@@ -185,6 +179,28 @@ Items:
 - **ruler of C140 · Spain · 2008 · 1 euro cent · EUR** `type ES.KM.1040 ruler` = `Juan Carlos I` (written by Muse: «https://en.numista.com/catalogue/pieces81.html (Numista N#81) Features Issuer line: 'Spain King Juan Carlos I ( 1975-2014 )'. Record had no»)
 - **ruler of C142 · Netherlands · 2000 · 1 euro cent · EUR** `type NL.KM.234 ruler` = `Beatrix` (written by Muse: «https://en.numista.com/catalogue/pieces145.html (Numista N#145) Features Issuer line: 'Netherlands Queen Beatrix ( 1980-2013 )'. Record had»)
 
+### 6. HW-grok-verify-20261030-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-06  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261030-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **design of C230 · Jamaica · 2015 · 10 dollars · JMD** `type JM.KM.190 design.text` = `arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · date` (written by Claude: «disagreement D0134 settled for the claim (Muse): a type's side text names the varying year as 'date' (the type runs from 2008, https://en.nu»)
+
+### 7. HW-grok-arbitrate-20261030-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-06  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261030-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0136 C015 issue.mint_marks**: record `["B"]` (model:gemini: «C015_rev.webp / C015_Switzerland_1971_HalfFranc_rev.jpeg (read mint mark 'B' below the wreath ribbon tie under ½ Fr. 19…») vs claim `[]` (model:claude: «Swiss circulation coins dated 1970-1985 carry no B (Bern left it off; https://coinvarieties.com/index.php/Switzerland_1…»)
+
 ## Projects (after the homework)
 
 ### UI rethink, step 2: The Field's three filters, on the real data  [LATER]  (fix list #116)
@@ -222,5 +238,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 35; expired: 11.
-- Your facts checked by another contributor: 999 (984 confirmed, 15 wrong; error rate 1.5 %, 95 % range 1-2 %). Checks you did for others: 272. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 1 of 1.
+- Your facts checked by another contributor: 997 (981 confirmed, 16 wrong; error rate 1.6 %, 95 % range 1-3 %). Checks you did for others: 272. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 1 of 1.
 - Share of your new facts that get checked first: 15 %.

@@ -112,6 +112,7 @@
   ].join("\n");
   K.stage("abyss", {
     kind: "ray", glsl: G, grade: .82,
+    roomCam: { mode: "walk", pos: [1.45, .42, 1.7], target: [-.6, 2.2, 10.5], fov: 1.06, bounds: [[-3, .3, -1], [3, 3, 7]] },   // down on the sand by the chest, looking up at the wreck and the light
     cam: { pos: [1.8, 1.35, -2.4], target: [-.3, 1.7, 9.5], fov: 1.02 },
     steps: [44, 64, 90, 120], shadowSteps: [0, 0, 14, 22], scale: { low: .42 },
     moments: [{ name: "shoal", every: [30, 60], dur: 14 }],

@@ -419,6 +419,61 @@
           "followup": "Drop Muse's 1981 20 pesos."
         }
       ]
+    },
+    {
+      "id": "q-c031-mint",
+      "coin": "C031",
+      "ask": "Australia 1943 threepence (C031): look closely around the date 43. Is there a small D or S letter, or no letter?",
+      "why": "Muse read no letter, the record says S (San Francisco); the phone photo is too small to tell. It decides the mintage: plain 1943 (Melbourne), 1943 D (Denver) or 1943 S (San Francisco).",
+      "options": [
+        {
+          "label": "An S",
+          "effect": [
+            {
+              "confirm": {
+                "scan": "C031",
+                "fact": "mint"
+              }
+            }
+          ],
+          "followup": "C031 stays 1943 S: settle D0128 for the record."
+        },
+        {
+          "label": "A D",
+          "effect": [
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C031",
+                "field": "issue.mint_marks",
+                "new": [
+                  "D"
+                ]
+              }
+            }
+          ],
+          "followup": "C031 is 1943 D (Denver): fix its mint text and mintage; settle D0128 (neither)."
+        },
+        {
+          "label": "No letter",
+          "effect": [
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C031",
+                "field": "issue.mint_marks",
+                "new": []
+              }
+            }
+          ],
+          "followup": "C031 is plain 1943 (Melbourne): fix its mint text and mintage; settle D0128 for Muse."
+        },
+        {
+          "label": "Can't tell",
+          "effect": [],
+          "followup": "Leave D0128 open for the pro photo."
+        }
+      ]
     }
   ]
 }

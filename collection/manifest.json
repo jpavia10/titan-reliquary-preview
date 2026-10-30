@@ -19,7 +19,7 @@
   "photos": 243,
   "valuations": 635,
   "spot_days": 50,
-  "changes": 8172,
+  "changes": 8190,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "c9afc058bf1ca3a18390b4cabb8b477ce732880d66064201b3391ff0bd051e5b",
+ "content_hash": "9849b179a0ea45ce4a7efbb178c03b8301448e03c1d0887b51a2ea5773a425ea",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -79,18 +79,18 @@
   },
   {
    "path": "changes.chain",
-   "sha256": "917f36ed57be538401a43245dd69c87f1cb6b432eb92112151247522ff2b62ff",
-   "bytes": 321489
+   "sha256": "82983c601089bf8c127b5923f4f650630cdb1c9fe9ca93504585540a1f32b799",
+   "bytes": 322191
   },
   {
    "path": "changes.jsonl",
-   "sha256": "28fc3e19599678ab246e75b16b92ba3231b128fbc1fc014d2ac23b79b7c03065",
-   "bytes": 6195046
+   "sha256": "9346110ec8a45a4e27251fdd3c8b34aaf2cf3d3c8021541565a9df607d506942",
+   "bytes": 6210084
   },
   {
    "path": "disagreements.jsonl",
-   "sha256": "2f1c06a03d13f9357ccb064bf97b2ef39301bd7a20666d78941f004f0801fa9d",
-   "bytes": 209503
+   "sha256": "68a0121bc071c3c5f85f5fee765ae897c750cb8217a30d68a11eceae6c39b1db",
+   "bytes": 218942
   },
   {
    "path": "lots.json",
@@ -104,8 +104,8 @@
   },
   {
    "path": "owner_questions.json",
-   "sha256": "71c88a26f9469aea870aec034e69a1f419f8d72ba8230275a3cc40ad42d23ca7",
-   "bytes": 15631
+   "sha256": "0403c3b5d474081824466999ed130f14825f3286b38b4c186b47d9e600a203d3",
+   "bytes": 17311
   },
   {
    "path": "photos.json",
@@ -116,6 +116,11 @@
    "path": "prices/latest.json",
    "sha256": "773df6e75565b1ce43686851347c75d8b31f4cade868a0d1ba0b1b074c1c0d8d",
    "bytes": 148
+  },
+  {
+   "path": "prices/numista_values.json",
+   "sha256": "2edfd9beabd442bc53d3a7afe9fe2825194d31bc629d70abd95494b2baf23258",
+   "bytes": 61771
   },
   {
    "path": "prices/spot_daily.jsonl",
@@ -143,9 +148,19 @@
    "bytes": 16971
   },
   {
+   "path": "prices/wants_values_grok_20261029-1931.json",
+   "sha256": "f587691c1d6e3776cf30243917d5d53c3ecb44136edf64977746fb85b337b057",
+   "bytes": 13827
+  },
+  {
    "path": "prices/wants_values_muse_20261015-0325.json",
    "sha256": "e5ed16393a590e8f1d774bb8e43f8625cc7a4dce332ac325a4a8995dc3b6862c",
    "bytes": 112445
+  },
+  {
+   "path": "prices/wants_values_muse_20261030-0312.json",
+   "sha256": "cab4dcf27c915bafbad61e2ce9afc2297a54dff3902b35c00bf514658ce4e1e5",
+   "bytes": 14425
   },
   {
    "path": "ref/issuers.json",
@@ -199,8 +214,8 @@
   },
   {
    "path": "specimens/CH.json",
-   "sha256": "2a4dce8db153823da8499e46c17ac5bc788ef4dbd88494f8f965ab5b9d9e0e20",
-   "bytes": 52264
+   "sha256": "a8ada70f45fb3a143544efbfafed8302cc1164a23651274ea74802cef96a22fa",
+   "bytes": 52239
   },
   {
    "path": "specimens/CL.json",
@@ -404,8 +419,8 @@
   },
   {
    "path": "specimens/VN.json",
-   "sha256": "20eed1cf0d460f4c18cb9074a9515123198cacde90a9ef1ec423d2324792500a",
-   "bytes": 4517
+   "sha256": "3759c9ac8fedba96cade0f057c08e04bef9543cefb8e9925ea6496e0fd0bb6a0",
+   "bytes": 4497
   },
   {
    "path": "specimens/YU.json",
@@ -474,8 +489,8 @@
   },
   {
    "path": "types/CH.json",
-   "sha256": "277e44fdd59b9d998bf0d88f5ca6edb62024bee8f268a79a97d99bf59e9cb53b",
-   "bytes": 23240
+   "sha256": "03a11a4ed01cabebb2d7badf6907804d6e222b65e11a3d315613365e4500aba7",
+   "bytes": 23926
   },
   {
    "path": "types/CL.json",
@@ -569,7 +584,7 @@
   },
   {
    "path": "types/JM.json",
-   "sha256": "f2f2cf5a430196e922b2742516f77d7c3a4e31a70889678bda830d712df7b719",
+   "sha256": "4a54e2e79c8eb67e526c84b7ffe459e7cbfe551fbb046547942ed17bad1cec17",
    "bytes": 7451
   },
   {
@@ -679,8 +694,8 @@
   },
   {
    "path": "types/VN.json",
-   "sha256": "a7924558dad78180c77eb6a4d6d43d05faed3ff0a4542eef9254861498de9ad0",
-   "bytes": 3199
+   "sha256": "2dfdfa7de88b1bb96099493f5203414d5fd9a3932b19db616366d28587004150",
+   "bytes": 3289
   },
   {
    "path": "types/YU.json",

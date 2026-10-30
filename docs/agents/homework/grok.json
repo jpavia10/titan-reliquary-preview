@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-10-30T06:15:11Z",
+ "updated": "2026-10-30T06:56:08Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261023-1",
@@ -146,36 +146,6 @@
      "inputs": []
     },
     {
-     "item": "arb:D0127",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "VN-SOV.KM.1",
-     "field": "design.text",
-     "coins": [
-      "C258"
-     ],
-     "label": "D0127 VN-SOV.KM.1 design.text",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "reverse three rice stalks tied with ribbon · VIET-NAM · 20 SU · three-dragon obverse / date"
-      },
-      "claim": {
-       "value": "obverse three women in profile facing left · QUỐC-GIA VIỆT-NAM · 1953 (engraver Lucien Georges Bazor) · reverse rice plant · VIỆT-NAM · 20 SU (engraver Lucien Georges Bazor)",
-       "by": "model:gemini",
-       "source": "https://en.numista.com/catalogue/pieces5904.html (1953 South Vietnam / State of Vietnam 20 Su N# 5904: Obverse shows 'Three women, in profile view, facing left' with lettering 'QUỐC-GIA VIỆT-NAM 1953', engraver Lucien Georges Bazor; Reverse shows 'A rice plant' with lettering 'VIỆT-NAM 20 SU'; old value wrongly claimed 'three-dragon obverse', which belongs to the 50 Xu coin)",
-       "ts": "2026-10-30T02:53:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "arb:D0128",
      "kind": "arbitrate",
      "entity": "specimen",
@@ -201,166 +171,6 @@
        "value": [],
        "by": "model:muse-spark",
        "source": "Photo read: C031_rev.webp - reverse reads AUSTRALIA / 19|43 / THREE PENCE between the wheat ears; the mint-letter position immediately after '43' is empty field, no D or S. Cross-check https://en.numista.com/catalogue/pieces2980.html (Numista N#2980) years table: plain 1943 (Melbourne) vs 1943 D / 1943 S rows, where the letter follows the date.",
-       "ts": "2026-10-30T02:55:30Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0129",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C067",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C067"
-     ],
-     "label": "D0129 C067 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": [
-        "B"
-       ]
-      },
-      "claim": {
-       "value": [],
-       "by": "model:muse-spark",
-       "source": "Photo read: C067_rev.webp - 2 francs reverse dated 1981, no letter below the wreath bow. https://en.numista.com/catalogue/pieces189.html (Numista N#189) comment: Bern dropped the B mintmark after 1970 until 1985, so a 1981 strike carries no B.",
-       "ts": "2026-10-30T02:55:30Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0130",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C093",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C093"
-     ],
-     "label": "D0130 C093 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": [
-        "B"
-       ]
-      },
-      "claim": {
-       "value": [],
-       "by": "model:muse-spark",
-       "source": "Photo read: C093_rev.webp - 1 franc reverse dated 1970, no letter below the wreath bow. https://en.numista.com/catalogue/pieces185.html (Numista N#185) years table: the 1970 row carries no B.",
-       "ts": "2026-10-30T02:55:30Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0131",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C081",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C081"
-     ],
-     "label": "D0131 C081 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": [
-        "B"
-       ]
-      },
-      "claim": {
-       "value": [],
-       "by": "model:muse-spark",
-       "source": "Photo read: C081_obv.webp - 5 rappen dated 1983. https://en.numista.com/catalogue/pieces171.html (Numista N#171, KM#26c) years table: the 1981-1985 rows carry no B (the B sits on the reverse; it resumes at 1986 B).",
-       "ts": "2026-10-30T02:55:30Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0132",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C083",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C083"
-     ],
-     "label": "D0132 C083 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": [
-        "B"
-       ]
-      },
-      "claim": {
-       "value": [],
-       "by": "model:muse-spark",
-       "source": "Photo read: C083_obv.webp - 10 rappen dated 1981. https://en.numista.com/catalogue/pieces173.html (Numista N#173, KM#27) years table: 1970-1985 rows carry no letter (B appears 1879-1969 and 1986 B-1993 B).",
-       "ts": "2026-10-30T02:55:30Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0133",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C075",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C075"
-     ],
-     "label": "D0133 C075 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": [
-        "B"
-       ]
-      },
-      "claim": {
-       "value": [],
-       "by": "model:muse-spark",
-       "source": "Photo read: C075_obv.webp - 5 rappen dated 1982. https://en.numista.com/catalogue/pieces171.html (Numista N#171, KM#26c) years table: the 1981-1985 rows carry no B on the reverse.",
        "ts": "2026-10-30T02:55:30Z"
       }
      },
@@ -3387,6 +3197,109 @@
       "audit": false,
       "lookup_blind": false,
       "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261030-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-30T06:49:32Z",
+   "lease_until": "2026-11-06T06:49:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:JM.KM.190:design.text",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:JM.KM.190:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": "design.text",
+     "coins": [
+      "C230"
+     ],
+     "label": "design of C230 · Jamaica · 2015 · 10 dollars · JMD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · date",
+      "their_source": "disagreement D0134 settled for the claim (Muse): a type's side text names the varying year as 'date' (the type runs from 2008, https://en.nu",
+      "links": [
+       "https://en.numista.com/catalogue/pieces14370.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261030-2",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-10-30T06:56:08Z",
+   "lease_until": "2026-11-06T06:56:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0136",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0136",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C015"
+     ],
+     "label": "D0136 C015 issue.mint_marks",
+     "authors": [
+      "claude",
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:gemini",
+       "source": "C015_rev.webp / C015_Switzerland_1971_HalfFranc_rev.jpeg (read mint mark 'B' below the wreath ribbon tie under ½ Fr. 1971) [phase 2; confidence high]",
+       "ts": "2026-10-30T02:50:00Z",
+       "value": [
+        "B"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:claude",
+       "source": "Swiss circulation coins dated 1970-1985 carry no B (Bern left it off; https://coinvarieties.com/index.php/Switzerland_1973_10_rappen, https://coinvarieties.com/index.php/Switzerland_1985_2_francs); same rule as D0129-D0133 (settled 2026-10-30 for Muse) and D0108; 1/2 franc 1971; the ledger's B was a default",
+       "ts": "2026-10-30T07:20:00Z"
+      }
      },
      "blind": false,
      "inputs": []

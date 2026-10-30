@@ -105,6 +105,7 @@
   ].join("\n");
   K.stage("neon", {
     kind: "ray", glsl: G, grade: .85,
+    roomCam: { mode: "walk", pos: [.1, 1.5, 6.6], target: [-1.9, 5.2, 11], fov: 1.08, walk: [0, 0, 1], bounds: [[-1.3, .6, 0], [1.3, 6.5, 18]] },   // in the street under the signs
     cam: { mode: "walk", pos: [.35, 1.6, -2.5], target: [-.1, 3.4, 20], fov: 1.04, walk: [0, 0, 1], bounds: [[-1.3, .6, -5], [1.3, 6.5, 16]] },
     steps: [48, 64, 90, 120], shadowSteps: [0, 0, 0, 0], scale: { low: .44 },
     moments: [{ name: "stutter", every: [12, 30], dur: 3 }],

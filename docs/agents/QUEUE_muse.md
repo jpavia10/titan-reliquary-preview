@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-10-30 06:15 UTC)
+# WORK QUEUE for Muse (updated 2026-10-30 06:56 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -93,7 +93,7 @@ Phase 1 cannot finish until every coin's mint mark is read. Open each coin's pho
 Items:
 - **C298 · Italy · 1978 · 50 lire · ITL**: mint text now «not visible on the Vulcan side». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp. Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
 
-### 4. HW-muse-read-mint-20261029-1 · Photo reader · Read the mint mark on 4 coins from their photos · due 2026-11-05  (fix list #57)
+### 4. HW-muse-read-mint-20261029-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-11-05  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -102,7 +102,6 @@ Phase 1 cannot finish until every coin's mint mark is read. Open each coin's pho
 **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-read-mint-20261029-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)**: mint text now «not on shown rice side (date on dragon reverse — Joseph 1953)». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C258_rev.webp (original: https://drive.google.com/file/d/1o4n0uJ97jgKfpfReNjsRCmkBr1XmQzhU/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
 - **C006 · Germany · 1984 · 1 Deutsche Mark · DEM**: mint text now «unknown». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C006_rev.webp (original: https://drive.google.com/file/d/1WBYI3D2tv7ia4-2_WlLns9pgPiSY-Kv5/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
 - **C050 · Germany · 1982 · 1 Deutsche Mark · DEM**: mint text now «unknown (letter under date unclear (soft D/G candidate))». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C050_rev.webp (original: https://drive.google.com/file/d/1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
 - **C287 · Italy · 1979 · 50 lire · ITL**: mint text now «not read on photo». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp (original: https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
@@ -135,6 +134,17 @@ Items:
 - **mintage of C053 · Germany · 2011 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.255 issues.2.mintage`
 - **mintage of C102 · Germany · 2015 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.255 issues.3.mintage`
 
+### 7. HW-muse-arbitrate-20261030-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-06  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261030-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0135 PH.X.1-piso legal_tender.text**: record `current (Philippine piso, 1967–date; New Design Series)` (model:gemini: «https://en.numista.com/catalogue/pieces1681.html (Features: 'Value: 1 Peso (1 piso) (1 PHP = USD 0.016)'; 'Currency: Pi…») vs claim `current (Philippine piso, 1967–date; BSP series)` (model:claude: «C279 is the 1997 1 piso with Rizal, the BSP series (KM#269, https://www.coin-brothers.com/catalog/coin2524), not the Ne…»)
+
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -154,5 +164,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 57; expired: 2.
-- Your facts checked by another contributor: 637 (621 confirmed, 16 wrong; error rate 2.5 %, 95 % range 2-4 %). Checks you did for others: 386. Open disagreements you are part of: 7. Values planted wrong on purpose in your checks: you caught 8 of 8.
+- Your facts checked by another contributor: 642 (626 confirmed, 16 wrong; error rate 2.5 %, 95 % range 2-4 %). Checks you did for others: 386. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 8 of 8.
 - Share of your new facts that get checked first: 15 %.

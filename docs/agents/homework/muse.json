@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-10-30T06:15:11Z",
+ "updated": "2026-10-30T06:56:08Z",
  "assignments": [
   {
    "id": "HW-muse-value-20261023-1",
@@ -197,35 +197,6 @@
     }
    ],
    "items_full": [
-    {
-     "item": "mint:C258",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C258",
-     "field": "issue",
-     "coins": [
-      "C258"
-     ],
-     "label": "C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C258_rev.webp",
-        "file": "C258_rev.webp",
-        "original": "C258_Vietnam_1953_20Su_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1o4n0uJ97jgKfpfReNjsRCmkBr1XmQzhU/view"
-       }
-      ],
-      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
-      "mint_text_now": "not on shown rice side (date on dragon reverse — Joseph 1953)"
-     },
-     "blind": false,
-     "inputs": [
-      "C258_rev.webp"
-     ]
-    },
     {
      "item": "mint:C006",
      "kind": "read-mint",
@@ -754,6 +725,57 @@
        "qualifier": null
       }
      }
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261030-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-10-30T06:51:09Z",
+   "lease_until": "2026-11-06T06:51:09Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0135",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "legal_tender.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0135",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "legal_tender.text",
+     "coins": [
+      "C279"
+     ],
+     "label": "D0135 PH.X.1-piso legal_tender.text",
+     "authors": [
+      "claude",
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces1681.html (Features: 'Value: 1 Peso (1 piso) (1 PHP = USD 0.016)'; 'Currency: Piso (1967-date)'; 'Series: New Design Series') [phase 2; confidence high]",
+       "ts": "2026-10-30T04:57:00Z",
+       "value": "current (Philippine piso, 1967–date; New Design Series)"
+      },
+      "claim": {
+       "value": "current (Philippine piso, 1967–date; BSP series)",
+       "by": "model:claude",
+       "source": "C279 is the 1997 1 piso with Rizal, the BSP series (KM#269, https://www.coin-brothers.com/catalog/coin2524), not the New Design Series (1983-1994); corrects the series named in changes_gemini_20261030-0457",
+       "ts": "2026-10-30T07:10:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

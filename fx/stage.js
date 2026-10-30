@@ -10,6 +10,7 @@
        the room's order), the smoothed pointer (uPtr; held at the centre in the room, which reads the pointer itself)
      - debug (tier, scale, cam, look) and dispose
    def = { kind: "ray" | "flat", glsl: "...the scene: vec3 render(vec2 uv) ...", cam: { pos, target, fov, mode } (ray), scale: { low.. } (optional),
+           roomCam: { pos, target, fov, mode } (the room's own place, blended to on entering), pre: function (gl, c, S) {} (own passes first),
            grade: a power on the scene's colour before the post module (.75 lifts the darks; default 1),
            moments: [{ name, every: [min, max], dur }], uniforms: function (gl, u, c, S) {}, step: function (c, S) {}, init: function (gl, S) {},
            dispose: function (gl, S) {}, particles: [ kit particle stacks ], post: { post module settings }, room: { ... } }
@@ -85,7 +86,20 @@
         [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T].forEach(function (k) { gl.texParameteri(gl.TEXTURE_2D, k, gl.CLAMP_TO_EDGE); });
         var f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f); gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0); rt = { t: t, f: f, w: w, h: h }; }
       /* the camera: yaw orbits the target, pitch tilts the view, move goes toward the target (never through it), up lifts both */
+      /* the room is its own place (owner 2026-10-30: "a third place ... something entirely new"): a world may give it its own camera
+         (def.roomCam); entering and leaving the room blends between the two over about a second */
+      var CAM0 = CAM;
+      function camFor(v) {
+        var RC = def.roomCam; if (!RC) return CAM0;
+        var want = v.mode === "room" ? 1 : 0, dt = S.c ? Math.min(.1, S.c.dt || .016) : .016;
+        S.camK = S.camK == null ? want : S.camK + (want - S.camK) * Math.min(1, dt * 2.2);
+        if ((S.c && S.c.still) || S.resetSeen !== K.viewReset) { S.camK = want; S.resetSeen = K.viewReset; }   // a reset puts the camera back at once
+        var k = S.camK * S.camK * (3 - 2 * S.camK), L = function (a, b) { return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k]; };
+        return { mode: k > .5 ? (RC.mode || CAM0.mode) : CAM0.mode, pos: L(CAM0.pos, RC.pos), target: L(CAM0.target, RC.target), fov: (CAM0.fov || 1) + ((RC.fov || 1) - (CAM0.fov || 1)) * k,
+          walk: CAM0.walk, bounds: k > .5 ? RC.bounds : CAM0.bounds };
+      }
       function camera(v) {
+        CAM = camFor(v); S.camFov = CAM.fov || 1;
         if (CAM.mode === "walk") return walk(v);
         var p = CAM.pos, tg = CAM.target, yaw = v.yaw || 0, d = [p[0] - tg[0], p[1] - tg[1], p[2] - tg[2]], cy = Math.cos(yaw), sy = Math.sin(yaw);
         var dr = [d[0] * cy + d[2] * sy, d[1], -d[0] * sy + d[2] * cy], L = Math.hypot(dr[0], dr[1], dr[2]), k = Math.max(.15, (L - (v.move || 0)) / L), up = v.up || 0;
@@ -127,6 +141,7 @@
         },
         draw: function (c) {
           var st = pw.poll();
+          if (st === 1 && def.pre) def.pre(gl, c, S);   /* the world's own passes first (a simulation into its textures) */
           if (st !== 1) { K.bindTarget(); gl.clearColor(.006, .006, .01, 1); gl.clear(gl.COLOR_BUFFER_BIT); if (st === 0 && c.still && K.redraw) setTimeout(K.redraw, 150); return; }
           var w = Math.max(2, Math.round(c.w * scale)), h = Math.max(2, Math.round(c.h * scale)), v = S.view || {};
           if (pu) { mk(w, h); gl.bindFramebuffer(gl.FRAMEBUFFER, rt.f); gl.viewport(0, 0, w, h); } else { K.bindTarget(); w = c.w; h = c.h; }

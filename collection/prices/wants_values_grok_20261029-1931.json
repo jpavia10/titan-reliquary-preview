@@ -1,0 +1,344 @@
+{
+ "meta": {
+  "author": "grok-bot",
+  "stamp": "20261029-1931",
+  "run_id": "grok-album-third-20261029-1931",
+  "purpose": "third source for 40 album holes A017-A033 (Muse first, Gemini second); same grade; PCGS Price Guide / Heritage realised; no Numista, no USA Coin Book",
+  "grade_note": "album grade VF read as VF20, VG as VG8, F as F12; Brown (BN) rows for copper",
+  "provenance": {
+   "inputs": [
+    {
+     "file": "docs/agents/projects/album_price_third_reader_20261028.json"
+    }
+   ]
+  }
+ },
+ "items": [
+  {
+   "album": "A022",
+   "label": "1877",
+   "value_usd": 975,
+   "grade": "VG",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2127 '1877 BN', column 8 (VG8) = $975 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1869",
+   "value_usd": 325,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2094 '1869 BN', column 20 (VF20) = $325 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1871",
+   "value_usd": 350,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2100 '1871 BN', column 20 (VF20) = $350 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1924-S",
+   "value_usd": 110,
+   "grade": "F12",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3953 '1924-S', column 12 (F12) = $110 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1872",
+   "value_usd": 325,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2103 '1872 BN', column 20 (VF20) = $325 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1921-S",
+   "value_usd": 285,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3948 '1921-S', column 20 (VF20) = $285 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1913-S, Ground in Recess",
+   "value_usd": 360,
+   "grade": "F12",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3923 '1913-S, Ground in Recess', column 12 (F12) = $360 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1864 With L",
+   "value_usd": 190,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2079 '1864 L on Ribbon BN', column 20 (VF20) = $190 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1870",
+   "value_usd": 280,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2097 '1870 BN', column 20 (VF20) = $280 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1915-S",
+   "value_usd": 100,
+   "grade": "VG8",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3929 '1915-S', column 8 (VG8) = $100 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1909-S",
+   "value_usd": 414.8,
+   "grade": "VF20",
+   "source": "Heritage Auctions realised 2026-02-11, Tuesday & Wednesday US Coins Select Auction 132607, lot 25003, 1909-S Indian 1C PCGS VF20 Brown, $414.80 incl. BP (listed on NGC Auction Central: https://www.ngccoin.com/auction-central/us/indian-cents-1859-1909-pscid-17/auctions/1909-s-indian-1c-ms-coinid-12238, row 2/11/2026 VF20 Brown PCGS)",
+   "confidence": "medium"
+  },
+  {
+   "album": "A022",
+   "label": "1878",
+   "value_usd": 140,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2130 '1878 BN', column 20 (VF20) = $140 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1913-D, Ground in Recess",
+   "value_usd": 200,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3922 '1913-D, Ground in Recess', column 20 (VF20) = $200 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1923-S",
+   "value_usd": 100,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3950 '1923-S', column 20 (VF20) = $100 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1876",
+   "value_usd": 135,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2124 '1876 BN', column 20 (VF20) = $135 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1919-D",
+   "value_usd": 125,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3942 '1919-D', column 20 (VF20) = $125 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1918-D",
+   "value_usd": 130,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3938 '1918-D', column 20 (VF20) = $130 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1873",
+   "value_usd": 100,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2106 '1873 Open 3 BN', column 20 (VF20) = $100 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1919-S",
+   "value_usd": 110,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3943 '1919-S', column 20 (VF20) = $110 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1920-D",
+   "value_usd": 125,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3945 '1920-D', column 20 (VF20) = $125 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A029",
+   "label": "1932-D",
+   "value_usd": 150,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Washington Quarter grades 1-20: https://www.pcgs.com/prices/detail/washington-quarter/112/grades-1-20 , row PCGS #5791 '1932-D', column 20 (VF20) = $150 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1914-D",
+   "value_usd": 170,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3925 '1914-D', column 20 (VF20) = $170 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1926-S",
+   "value_usd": 185,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3959 '1926-S', column 20 (VF20) = $185 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1920-S",
+   "value_usd": 105,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3946 '1920-S', column 20 (VF20) = $105 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1917-S",
+   "value_usd": 155,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3936 '1917-S', column 20 (VF20) = $155 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1918-S",
+   "value_usd": 150,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3940 '1918-S', column 20 (VF20) = $150 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1926-D",
+   "value_usd": 90,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3958 '1926-D', column 20 (VF20) = $90 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A023",
+   "label": "1914-D",
+   "value_usd": 375,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Lincoln Cent Wheat grades 1-20: https://www.pcgs.com/prices/detail/lincoln-cent-wheat-reverse/46/grades-1-20/ms , row PCGS #2471 '1914-D BN', column 20 (VF20) = $375 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1925-S",
+   "value_usd": 100,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3956 '1925-S', column 20 (VF20) = $100 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1924-D",
+   "value_usd": 115,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3952 '1924-D', column 20 (VF20) = $115 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1886",
+   "value_usd": 65,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2154 '1886 Type 1 BN', column 20 (VF20) = $65 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1917-D",
+   "value_usd": 90,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3935 '1917-D', column 20 (VF20) = $90 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1925-D",
+   "value_usd": 110,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3955 '1925-D', column 20 (VF20) = $110 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1915-D",
+   "value_usd": 75,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3928 '1915-D', column 20 (VF20) = $75 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A029",
+   "label": "1932-S",
+   "value_usd": 120,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Washington Quarter grades 1-20: https://www.pcgs.com/prices/detail/washington-quarter/112/grades-1-20 , row PCGS #5792 '1932-S', column 20 (VF20) = $120 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A023",
+   "label": "1909-S",
+   "value_usd": 150,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Lincoln Cent Wheat grades 1-20: https://www.pcgs.com/prices/detail/lincoln-cent-wheat-reverse/46/grades-1-20/ms , row PCGS #2432 '1909-S BN', column 20 (VF20) = $150 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A022",
+   "label": "1875",
+   "value_usd": 75,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Indian Cent grades 1-20: https://www.pcgs.com/prices/detail/indian-cent/44/grades-1-20/ms , row PCGS #2121 '1875 BN', column 20 (VF20) = $75 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1913-S, Raised Ground",
+   "value_usd": 95,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3917 '1913-S, Raised Ground', column 20 (VF20) = $95 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A031",
+   "label": "1914-S",
+   "value_usd": 80,
+   "grade": "VF20",
+   "source": "PCGS Price Guide (CoinFacts), Buffalo Nickel grades 1-20: https://www.pcgs.com/prices/detail/buffalo-nickel/83/grades-1-20 , row PCGS #3926 '1914-S', column 20 (VF20) = $80 (read 2026-10-29)",
+   "confidence": "high"
+  },
+  {
+   "album": "A029",
+   "label": "1936-D",
+   "value_usd": 30,
+   "grade": "VF",
+   "source": "PCGS Price Guide (CoinFacts), Washington Quarter grades 1-20: https://www.pcgs.com/prices/detail/washington-quarter/112/grades-1-20 , row PCGS #5801 '1936-D', column 20 (VF20) = $30 (read 2026-10-29)",
+   "confidence": "high"
+  }
+ ],
+ "left_out": [],
+ "totals": {
+  "priced": 40,
+  "left_out": 0,
+  "sum_value_usd": 7364.8
+ }
+}

@@ -145,6 +145,7 @@
   ].join("\n");
   K.stage("afterhours", {
     kind: "ray", glsl: G, grade: .78,
+    roomCam: { mode: "walk", pos: [.45, 1.18, 5.3], target: [-1.6, 2.15, 8.0], fov: 1.0, walk: [0, 0, 1], bounds: [[-1.2, .6, 2], [1.2, 4.2, 11.6]] },   // on the bench, before a painting
     cam: { mode: "walk", pos: [.75, 1.62, -1.2], target: [-1.6, 2.3, 7.4], fov: 1.02, walk: [0, 0, 1], bounds: [[-1.1, .5, -7], [1.1, 5.2, 11.6]] },
     steps: [64, 80, 100, 130], shadowSteps: [0, 0, 16, 24],
     moments: [{ name: "moonrise", every: [40, 80], dur: 12 }],

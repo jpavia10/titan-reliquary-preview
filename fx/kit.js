@@ -8,7 +8,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK = window.TitanFXK || { mods: {}, themes: {} };
-  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js", supercell: "fx/supercell.js", tourbillon: "fx/tourbillon.js", darkroom: "fx/darkroom.js", silverscreen: "fx/silverscreen.js", canopy: "fx/canopy.js", glasshouse: "fx/glasshouse.js", orbit: "fx/orbit.js", sahel: "fx/sahel.js", nocturne: "fx/nocturne.js", zen: "fx/zen.js", saltflat: "fx/saltflat.js", lightwell: "fx/lightwell.js", obsidian: "fx/obsidian.js", afterhours: ["fx/stage.js", "fx/afterhours.js"], colossus: ["fx/stage.js", "fx/colossus.js"], abyss: ["fx/stage.js", "fx/abyss.js"], glacier: ["fx/stage.js", "fx/glacier.js"], neon: ["fx/stage.js", "fx/neon.js"], valhalla: ["fx/stage.js", "fx/valhalla.js"], dynasty: ["fx/stage.js", "fx/dynasty.js"] };   /* a list loads in order */
+  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js", supercell: "fx/supercell.js", tourbillon: "fx/tourbillon.js", darkroom: "fx/darkroom.js", silverscreen: "fx/silverscreen.js", canopy: "fx/canopy.js", glasshouse: "fx/glasshouse.js", orbit: "fx/orbit.js", sahel: "fx/sahel.js", nocturne: "fx/nocturne.js", zen: ["fx/stage.js", "fx/zen.js"], saltflat: "fx/saltflat.js", lightwell: "fx/lightwell.js", obsidian: "fx/obsidian.js", afterhours: ["fx/stage.js", "fx/afterhours.js"], colossus: ["fx/stage.js", "fx/colossus.js"], abyss: ["fx/stage.js", "fx/abyss.js"], glacier: ["fx/stage.js", "fx/glacier.js"], neon: ["fx/stage.js", "fx/neon.js"], valhalla: ["fx/stage.js", "fx/valhalla.js"], dynasty: ["fx/stage.js", "fx/dynasty.js"] };   /* a list loads in order */
   K.mod = function (name, f) { K.mods[name] = f; };
   /* world contract (depth upgrade, notes/agents/depth-upgrade.md): one world runs as the backdrop (default, unchanged), the opening or
      the theme's room. A world reads ctx.view: mode, the camera offset from its own view (yaw and pitch in radians, move = metres along
@@ -32,7 +32,7 @@
     }
     K.view = next; redraw(); return K.view;
   };
-  K.resetView = function () { K.view = { mode: "backdrop", yaw: 0, pitch: 0, move: 0, up: 0, look: {} }; redraw(); return K.view; };
+  K.resetView = function () { K.viewReset = (K.viewReset || 0) + 1; K.view = { mode: "backdrop", yaw: 0, pitch: 0, move: 0, up: 0, look: {} }; redraw(); return K.view; };
   K.frames = 0;
   var root = document.documentElement, cv = null, gl = null, active = null, raf = 0, last = 0, t0 = performance.now();
   var lite = function () { try { return localStorage.getItem("tr_lite_v1") === "1"; } catch (e) { return false; } };   /* owner rule: assume a capable GPU; only an explicit Lite choice scales down */
@@ -85,8 +85,10 @@
     "float fbm(vec3 p){ float s = 0., a = .5; for (int i=0;i<5;i++){ s += a*vn(p); p = p*2.03+vec3(1.7,9.2,5.3); a *= .5; } return s; }",
     "float fbm3(vec3 p){ float s = 0., a = .5; for (int i=0;i<3;i++){ s += a*vn(p); p = p*2.03+vec3(1.7,9.2,5.3); a *= .5; } return s; }"
   ].join("\n") + "\n";
+  var TOUCH = !!(window.matchMedia && matchMedia("(pointer: coarse)").matches);
   function size() {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2), s = (lite() ? .45 : 1) * Q.scale;
+    var TD = { low: 1, medium: 1.25, high: 1.5, ultra: 2, max: 2 }[K.tierName ? K.tierName() : "high"] || 1.5;
+    var dpr = Math.min(window.devicePixelRatio || 1, TD), s = (lite() ? .45 : 1) * Q.scale;
     var w = Math.max(2, Math.round(innerWidth * dpr * s)), h = Math.max(2, Math.round(innerHeight * dpr * s));
     if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
   }
@@ -124,7 +126,8 @@
   function teardown() { stop(); if (active) active.parts.forEach(function (p) { p.dispose && p.dispose(); }); active = null; if (cv) cv.style.opacity = "0"; root.removeAttribute("data-fxk"); }
   function frame(now) {
     raf = 0; if (!active) return;
-    var cap = lite() ? 33 : 15.5; if (now - last < cap) { raf = requestAnimationFrame(frame); return; }
+    var cap = lite() ? 33 : (TOUCH && K.view.mode === "backdrop" && !root.classList.contains("tr-atmos")) ? 32 : 15.5;   /* behind the collection on a phone: 30 fps */
+    if (now - last < cap) { raf = requestAnimationFrame(frame); return; }
     var dt = Math.min(.05, (now - last) / 1000 || .016);
     /* no automatic quality drop (owner rule: the S24 Ultra is the floor, never downscale on our own); only Lite mode lowers quality */
     last = now; draw((now - t0) / 1000, dt);

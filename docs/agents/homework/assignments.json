@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-30T06:15:11Z",
+ "updated": "2026-10-30T06:56:08Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -107,15 +107,17 @@
   "muse-read-mint-20261028": 1,
   "muse-verify-20261028": 2,
   "muse-read-mint-20261029": 1,
-  "grok-arbitrate-20261030": 1,
+  "grok-arbitrate-20261030": 2,
   "grok-cite-20261030": 1,
   "grok-story-check-20261030": 1,
-  "grok-verify-20261030": 1,
+  "grok-verify-20261030": 2,
   "muse-cite-20261030": 1,
   "muse-verify-20261030": 1,
-  "gemini-arbitrate-20261030": 1,
+  "gemini-arbitrate-20261030": 2,
   "gemini-plain-story-20261030": 1,
-  "gemini-verify-20261030": 1
+  "gemini-verify-20261030": 1,
+  "gemini-cite-20261030": 1,
+  "muse-arbitrate-20261030": 1
  },
  "assignments": [
   {
@@ -23537,9 +23539,13 @@
    "kind": "arbitrate",
    "issued": "2026-10-30T06:08:06Z",
    "lease_until": "2026-11-04T06:08:06Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-10-30T06:49:32Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0134",
@@ -23593,6 +23599,138 @@
      "item": "verify:specimen:C299:issue.mint_marks",
      "entity": "specimen",
      "id": "C299",
+     "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261030-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-10-30T06:49:32Z",
+   "lease_until": "2026-11-04T06:49:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:CH.KM.26c",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.21a",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.24a.1",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.27",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261030-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-10-30T06:49:32Z",
+   "lease_until": "2026-11-06T06:49:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:JM.KM.190:design.text",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261030-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-10-30T06:51:09Z",
+   "lease_until": "2026-11-06T06:51:09Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0135",
+     "entity": "type",
+     "id": "PH.X.1-piso",
+     "field": "legal_tender.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-arbitrate-20261030-2",
+   "agent": "gemini",
+   "kind": "arbitrate",
+   "issued": "2026-10-30T06:56:08Z",
+   "lease_until": "2026-11-04T06:56:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0137",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "issue.mint_text"
+    },
+    {
+     "item": "arb:D0138",
+     "entity": "specimen",
+     "id": "C082",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0139",
+     "entity": "specimen",
+     "id": "C082",
+     "field": "issue.mint_text"
+    },
+    {
+     "item": "arb:D0140",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0141",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "issue.mint_text"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261030-2",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-10-30T06:56:08Z",
+   "lease_until": "2026-11-06T06:56:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0136",
+     "entity": "specimen",
+     "id": "C015",
      "field": "issue.mint_marks"
     }
    ]

@@ -1,0 +1,2687 @@
+{
+ "fetched_at": "2026-10-30T05:02:00Z",
+ "source": "Numista catalogue pages, read by Gemini (project numista_values_20261029, file numista_values_gemini_20261030-0502.json); not the API: the appraiser cites the entry itself",
+ "agent": "gemini",
+ "types": {
+  "AR.X.5-centavos": {
+   "numista": 4835,
+   "url": "https://en.numista.com/catalogue/pieces4835.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1954": {
+     "prices": {
+      "vg": 0.15,
+      "f": 0.28,
+      "vf": 0.42,
+      "xf": 0.45,
+      "au": 0.45,
+      "unc": 0.47
+     },
+     "quote": "1954 50 640 000 $ 0.15 $ 0.28 $ 0.42 $ 0.45 $ 0.45 $ 0.47"
+    }
+   }
+  },
+  "AT.KM.2826": {
+   "numista": 6133,
+   "url": "https://en.numista.com/catalogue/pieces6133.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1918": {
+     "prices": {
+      "g": 0.23,
+      "vg": 0.23,
+      "f": 0.8,
+      "vf": 0.8,
+      "xf": 1.1,
+      "au": 1.2,
+      "unc": 2.1
+     },
+     "quote": "1918 Photo 48 985 000 $ 0.23 $ 0.23 $ 0.80 $ 0.80 $ 1.10 $ 1.20 $ 2.10"
+    }
+   }
+  },
+  "AT.X.2-groschen": {
+   "numista": 1944,
+   "url": "https://en.numista.com/catalogue/pieces1944.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1925": {
+     "prices": {
+      "g": 0.24,
+      "vg": 0.24,
+      "f": 0.32,
+      "vf": 0.32,
+      "xf": 0.56,
+      "au": 1.7,
+      "unc": 1.7
+     },
+     "quote": "1925 Photo 29 892 000 $ 0.24 $ 0.24 $ 0.32 $ 0.32 $ 0.56 $ 1.70 $ 1.70"
+    }
+   }
+  },
+  "AU.KM.36": {
+   "numista": 5788,
+   "url": "https://en.numista.com/catalogue/pieces5788.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1944": {
+     "prices": {
+      "vg": 0.23,
+      "f": 0.93,
+      "vf": 0.93,
+      "xf": 1.6,
+      "au": 1.6
+     },
+     "quote": "1944 2 112 000 $ 0.23 $ 0.93 $ 0.93 $ 1.60 $ 1.60 Melbourne Mint 13%"
+    }
+   }
+  },
+  "AU.KM.37": {
+   "url": "https://en.numista.com/catalogue/pieces2980.html",
+   "numista": "2980",
+   "via": "page",
+   "issues": {
+    "1943 S": {
+     "mintage": 8000000,
+     "prices": {
+      "f": 4.9,
+      "vf": 4.9,
+      "xf": 4.9,
+      "au": 6.0,
+      "unc": 6.0
+     },
+     "row": "1943 S | 8 000 000 | F $ 4.90 | VF $ 4.90 | XF $ 4.90 | AU $ 6.00 | UNC $ 6.00"
+    }
+   }
+  },
+  "AU.KM.66": {
+   "numista": 1003,
+   "url": "https://en.numista.com/catalogue/pieces1003.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1966": {
+     "prices": {
+      "g": 0.13,
+      "vg": 0.16,
+      "f": 0.21,
+      "vf": 0.38,
+      "xf": 0.45,
+      "au": 1.1,
+      "unc": 1.5
+     },
+     "quote": "1966 Photo 28 223 000 $ 0.13 $ 0.16 $ 0.21 $ 0.38 $ 0.45 $ 1.10 $ 1.50 Circulation - Canberra Mint"
+    }
+   }
+  },
+  "AU.X.1-cent": {
+   "numista": 1559,
+   "url": "https://en.numista.com/catalogue/pieces1559.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1983": {
+     "prices": {
+      "g": 0.09,
+      "vg": 0.09,
+      "f": 0.09,
+      "vf": 0.19,
+      "xf": 0.22,
+      "au": 0.39
+     },
+     "quote": "1983 155 700 $ 3.30"
+    }
+   }
+  },
+  "AU.X.10-cents": {
+   "numista": 1565,
+   "url": "https://en.numista.com/catalogue/pieces1565.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2006": {
+     "prices": {
+      "g": 0.13,
+      "vg": 0.13,
+      "f": 0.13,
+      "vf": 0.19,
+      "xf": 0.25,
+      "au": 0.4
+     },
+     "quote": "2006 84 407 $ 2.70"
+    }
+   }
+  },
+  "BM.X.10-cents": {
+   "numista": 3214,
+   "url": "https://en.numista.com/catalogue/pieces3214.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2004": {
+     "prices": {
+      "vf": 0.7,
+      "xf": 0.7,
+      "au": 0.74,
+      "unc": 0.84
+     },
+     "quote": "2004 800 000 $ 0.70 $ 0.70 $ 0.74 $ 0.84"
+    }
+   }
+  },
+  "BR.KM.648.1": {
+   "numista": 1049,
+   "url": "https://en.numista.com/catalogue/pieces1049.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2006": {
+     "prices": {
+      "g": 0.03,
+      "vg": 0.08,
+      "f": 0.12,
+      "vf": 0.12,
+      "xf": 0.21,
+      "au": 0.98
+     },
+     "quote": "2006 255 488 000 $ 0.03 $ 0.08 $ 0.12 $ 0.12 $ 0.21 $ 0.98"
+    }
+   }
+  },
+  "BS.X.1-cent": {
+   "numista": 92216,
+   "url": "https://en.numista.com/catalogue/pieces92216.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2015": {
+     "prices": {
+      "vg": 0.18,
+      "f": 0.21,
+      "vf": 0.28,
+      "xf": 0.28,
+      "au": 0.38,
+      "unc": 0.46
+     },
+     "quote": "2015 $ 0.18 $ 0.21 $ 0.28 $ 0.28 $ 0.38 $ 0.46"
+    }
+   }
+  },
+  "BS.X.5-cents": {
+   "numista": 5010,
+   "url": "https://en.numista.com/catalogue/pieces5010.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1984": {
+     "prices": {
+      "f": 0.26,
+      "vf": 0.54,
+      "xf": 0.54,
+      "au": 0.78,
+      "unc": 1.3
+     },
+     "quote": "1984 $ 0.26 $ 0.54 $ 0.54 $ 0.78 $ 1.30"
+    }
+   }
+  },
+  "BZ.X.25-cents": {
+   "numista": 2238,
+   "url": "https://en.numista.com/catalogue/pieces2238.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2007": {
+     "prices": {
+      "g": 0.43,
+      "vg": 0.43,
+      "f": 0.65,
+      "vf": 0.65,
+      "xf": 1.0,
+      "au": 1.2,
+      "unc": 1.4
+     },
+     "quote": "2007 $ 0.43 $ 0.43 $ 0.65 $ 0.65 $ 1.00 $ 1.20 $ 1.40"
+    }
+   }
+  },
+  "CA.KM.33": {
+   "numista": 413,
+   "url": "https://en.numista.com/catalogue/pieces413.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1939": {
+     "prices": {
+      "g": 0.08,
+      "vg": 0.19,
+      "f": 0.41,
+      "vf": 0.67,
+      "xf": 2.7,
+      "au": 14.0,
+      "unc": 190.0
+     },
+     "quote": "1939 Photo 5 661 123 $ 0.08 $ 0.19 $ 0.41 $ 0.67 $ 2.70 $ 14 $ 190 34%"
+    }
+   }
+  },
+  "CH.KM.21a": {
+   "numista": 189,
+   "url": "https://en.numista.com/catalogue/pieces189.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1968 B": {
+     "prices": {
+      "g": 0.53,
+      "vg": 1.9,
+      "f": 1.9,
+      "vf": 2.0,
+      "xf": 2.0,
+      "au": 2.4,
+      "unc": 2.4
+     },
+     "quote": "1968 B 31 588 000 $ 0.53 $ 1.90 $ 1.90 $ 2.00 $ 2.00 $ 2.40 $ 2.40 KM# 21a.1"
+    },
+    "1974": {
+     "prices": {
+      "g": 0.21,
+      "f": 2.0,
+      "vf": 2.2,
+      "xf": 2.2,
+      "au": 2.4,
+      "unc": 2.6
+     },
+     "quote": "1974 Photo 15 007 000 $ 0.21 $ 2.00 $ 2.20 $ 2.20 $ 2.40 $ 2.60 KM# 21a.1"
+    },
+    "1981 B": {
+     "prices": {
+      "f": 2.0,
+      "vf": 2.1,
+      "xf": 2.1,
+      "au": 2.4,
+      "unc": 3.1
+     },
+     "quote": "1981 Photo 13 852 000 $ 2.00 $ 2.10 $ 2.10 $ 2.40 $ 3.10 KM# 21a.1 (Note: Bern dropped B mintmark 1970-1985; row is listed as 1981)"
+    }
+   }
+  },
+  "CH.KM.21a.3": {
+   "numista": 189,
+   "url": "https://en.numista.com/catalogue/pieces189.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1991 B": {
+     "prices": {
+      "vg": 1.4,
+      "f": 2.1,
+      "vf": 2.1,
+      "xf": 2.1,
+      "au": 2.1,
+      "unc": 2.4
+     },
+     "quote": "1991 B 12 036 000 $ 1.40 $ 2.10 $ 2.10 $ 2.10 $ 2.10 $ 2.40 KM# 21a.3"
+    }
+   }
+  },
+  "CH.KM.24a.1": {
+   "numista": 185,
+   "url": "https://en.numista.com/catalogue/pieces185.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1969 B": {
+     "prices": {
+      "g": 0.91,
+      "vg": 0.91,
+      "f": 1.1,
+      "vf": 1.1,
+      "xf": 1.1,
+      "au": 1.1,
+      "unc": 1.1
+     },
+     "quote": "1969 B Photo 37 598 000 $ 0.91 $ 0.91 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.10"
+    },
+    "1970": {
+     "prices": {
+      "g": 0.9,
+      "vg": 0.9,
+      "f": 1.1,
+      "vf": 1.1,
+      "xf": 1.1,
+      "au": 2.0,
+      "unc": 3.0
+     },
+     "quote": "1970 24 240 000 $ 0.90 $ 0.90 $ 1.10 $ 1.10 $ 1.10 $ 2.00 $ 3.00",
+     "sheet_key": "1970 B"
+    }
+   }
+  },
+  "CH.KM.24a.3": {
+   "numista": 185,
+   "url": "https://en.numista.com/catalogue/pieces185.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1986 B": {
+     "prices": {
+      "g": 0.74,
+      "vg": 0.74,
+      "f": 0.74,
+      "vf": 1.1,
+      "xf": 1.1,
+      "au": 1.1,
+      "unc": 1.3
+     },
+     "quote": "1986 B 17 997 000 $ 0.74 $ 0.74 $ 0.74 $ 1.10 $ 1.10 $ 1.10 $ 1.30"
+    }
+   }
+  },
+  "CL.KM.219.2": {
+   "numista": 2834,
+   "url": "https://en.numista.com/catalogue/pieces2834.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1996 So": {
+     "prices": {
+      "f": 0.09,
+      "vf": 0.3,
+      "xf": 0.55
+     },
+     "quote": "1996 So 8 100 000 $ 0.09 $ 0.30 $ 0.55"
+    }
+   }
+  },
+  "CO.KM.295": {
+   "numista": 34771,
+   "url": "https://en.numista.com/catalogue/pieces34771.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2016": {
+     "prices": {
+      "vg": 0.11,
+      "f": 0.17,
+      "vf": 0.35,
+      "xf": 0.35,
+      "au": 0.44,
+      "unc": 0.74
+     },
+     "quote": "2016 Photo 141 000 000 $ 0.11 $ 0.17 $ 0.35 $ 0.35 $ 0.44 $ 0.74"
+    }
+   }
+  },
+  "CR.KM.214.2": {
+   "numista": 69,
+   "url": "https://en.numista.com/catalogue/pieces69.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1985": {
+     "prices": {
+      "g": 0.34,
+      "vg": 0.34,
+      "f": 0.34,
+      "vf": 0.34,
+      "xf": 0.46,
+      "au": 0.51,
+      "unc": 1.1
+     },
+     "quote": "1985 Photo 25 000 000 $ 0.34 $ 0.34 $ 0.34 $ 0.34 $ 0.46 $ 0.51 $ 1.10"
+    }
+   }
+  },
+  "CU.KM.32": {
+   "numista": 1055,
+   "url": "https://en.numista.com/catalogue/pieces1055.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1962": {
+     "prices": {
+      "vf": 0.92
+     },
+     "quote": "1962 | 83 860 000 | $ 0.92"
+    }
+   }
+  },
+  "DE.KM.105": {
+   "numista": 854,
+   "url": "https://en.numista.com/catalogue/pieces854.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1972 F": {
+     "prices": {
+      "g": 0.03,
+      "vg": 0.07,
+      "f": 0.11,
+      "vf": 0.11,
+      "xf": 0.14,
+      "au": 0.22
+     },
+     "quote": "1972 F 105 006 000 $ 0.03 $ 0.07 $ 0.11 $ 0.11 $ 0.14 $ 0.22"
+    },
+    "1985": {
+     "prices": {
+      "g": 0.03,
+      "vg": 0.08,
+      "f": 0.08,
+      "vf": 0.11,
+      "xf": 0.11,
+      "au": 0.11
+     },
+     "quote": "1985 D 19 500 000 $ 0.03 $ 0.08 $ 0.08 $ 0.11 $ 0.11 $ 0.11"
+    },
+    "1986": {
+     "prices": {
+      "g": 0.06,
+      "vg": 0.07,
+      "f": 0.07,
+      "vf": 0.12,
+      "xf": 0.12,
+      "au": 0.12,
+      "unc": 0.12
+     },
+     "quote": "1986 D 39 000 000 $ 0.06 $ 0.07 $ 0.07 $ 0.12 $ 0.12 $ 0.12 $ 0.12"
+    },
+    "1991": {
+     "prices": {
+      "g": 0.03,
+      "vg": 0.06,
+      "f": 0.1,
+      "vf": 0.11,
+      "xf": 0.14,
+      "au": 0.14,
+      "unc": 0.18
+     },
+     "quote": "1991 A 260 000 000 $ 0.03 $ 0.06 $ 0.10 $ 0.11 $ 0.14 $ 0.14 $ 0.18"
+    }
+   }
+  },
+  "DE.KM.109.1": {
+   "numista": 847,
+   "url": "https://en.numista.com/catalogue/pieces847.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1971": {
+     "prices": {
+      "g": 0.13,
+      "vg": 0.13,
+      "f": 0.13,
+      "vf": 0.34,
+      "xf": 0.34,
+      "au": 0.35
+     },
+     "quote": "1971 D 23 393 000 $ 0.13 $ 0.13 $ 0.13 $ 0.34 $ 0.34 $ 0.35"
+    }
+   }
+  },
+  "DE.KM.109.2": {
+   "numista": 847,
+   "url": "https://en.numista.com/catalogue/pieces847.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1982": {
+     "prices": {
+      "vg": 0.06,
+      "f": 0.19,
+      "vf": 0.33,
+      "xf": 0.49,
+      "au": 0.9
+     },
+     "quote": "1982 D 21 540 000 $ 0.06 $ 0.19 $ 0.33 $ 0.49 $ 0.90"
+    },
+    "1985": {
+     "prices": {
+      "f": 0.2,
+      "vf": 0.38,
+      "xf": 0.89,
+      "au": 1.1
+     },
+     "quote": "1985 D 15 700 000 $ 0.20 $ 0.38 $ 0.89 $ 1.10"
+    }
+   }
+  },
+  "DE.KM.209": {
+   "numista": 107,
+   "url": "https://en.numista.com/catalogue/pieces107.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2002 J": {
+     "prices": {
+      "g": 0.06,
+      "vg": 0.06,
+      "f": 0.06,
+      "vf": 0.06,
+      "xf": 0.06,
+      "au": 0.25,
+      "unc": 0.35
+     },
+     "quote": "2002 J 504 000 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.25 $ 0.35"
+    },
+    "2014 A": {
+     "prices": {
+      "g": 0.06,
+      "vg": 0.06,
+      "f": 0.06,
+      "vf": 0.06,
+      "xf": 0.06,
+      "au": 0.36
+     },
+     "quote": "2014 A 32 000 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.36"
+    }
+   }
+  },
+  "DE.KM.212": {
+   "numista": 110,
+   "url": "https://en.numista.com/catalogue/pieces110.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2002 G": {
+     "prices": {
+      "g": 0.56,
+      "vg": 0.56,
+      "f": 0.56,
+      "vf": 0.56,
+      "xf": 0.56,
+      "au": 0.56,
+      "unc": 1.0
+     },
+     "quote": "2002 G 256 650 000 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 1.00"
+    }
+   }
+  },
+  "ER.KM.46": {
+   "numista": 2403,
+   "url": "https://en.numista.com/catalogue/pieces2403.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1997": {
+     "prices": {
+      "vg": 0.94,
+      "f": 0.94,
+      "vf": 0.94,
+      "xf": 1.0,
+      "au": 1.1,
+      "unc": 1.5
+     },
+     "quote": "1997 Photo $ 0.94 $ 0.94 $ 0.94 $ 1.00 $ 1.10 $ 1.50"
+    }
+   }
+  },
+  "ES.KM.1042": {
+   "numista": 83,
+   "url": "https://en.numista.com/catalogue/pieces83.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2000": {
+     "prices": {
+      "g": 0.06,
+      "vg": 0.06,
+      "f": 0.06,
+      "vf": 0.06,
+      "xf": 0.06,
+      "au": 0.06,
+      "unc": 0.28
+     },
+     "quote": "2000 M 399 900 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.28"
+    }
+   }
+  },
+  "FR.KM.1285": {
+   "numista": 100,
+   "url": "https://en.numista.com/catalogue/pieces100.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1999": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.11,
+      "f": 0.11,
+      "vf": 0.11,
+      "xf": 0.11,
+      "au": 0.11
+     },
+     "quote": "1999 447 249 600 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11"
+    },
+    "2002": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.11,
+      "f": 0.11,
+      "vf": 0.11,
+      "xf": 0.11,
+      "au": 0.11
+     },
+     "quote": "2002 206 640 013 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11"
+    }
+   }
+  },
+  "FR.KM.1410": {
+   "numista": 3510,
+   "url": "https://en.numista.com/catalogue/pieces3510.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2010": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.11,
+      "f": 0.11,
+      "vf": 0.11,
+      "xf": 0.11,
+      "au": 0.11
+     },
+     "quote": "2010 76 000 000 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11"
+    },
+    "2015": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.11,
+      "f": 0.11,
+      "vf": 0.11,
+      "xf": 0.11,
+      "au": 0.11
+     },
+     "quote": "2015 70 990 000 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11"
+    }
+   }
+  },
+  "FR.KM.888b.1": {
+   "numista": 1190,
+   "url": "https://en.numista.com/catalogue/pieces1190.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1946": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.4,
+      "f": 0.55,
+      "vf": 1.1,
+      "xf": 1.1,
+      "au": 2.8,
+      "unc": 5.6
+     },
+     "quote": "1946 Wing Photo 61 332 000 $ 0.11 $ 0.40 $ 0.55 $ 1.10 $ 1.10 $ 2.80 $ 5.60 KM# 888b.1"
+    }
+   }
+  },
+  "FR.X.5-francs": {
+   "numista": 8,
+   "url": "https://en.numista.com/catalogue/pieces8.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1994": {
+     "prices": {
+      "vf": 3.8,
+      "xf": 3.8,
+      "au": 18.0
+     },
+     "quote": "1994 3 973 818 $ 3.80 $ 3.80 $ 18"
+    }
+   }
+  },
+  "GB.KM.989": {
+   "numista": 2236,
+   "url": "https://en.numista.com/catalogue/pieces2236.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2001": {
+     "prices": {
+      "g": 0.13,
+      "vg": 0.13,
+      "f": 0.13,
+      "vf": 0.14,
+      "xf": 0.3,
+      "au": 0.3,
+      "unc": 1.1
+     },
+     "quote": "2001 129 281 000 $ 0.13 $ 0.13 $ 0.13 $ 0.14 $ 0.30 $ 0.30 $ 1.10"
+    },
+    "2008": {
+     "prices": {
+      "g": 0.13,
+      "vg": 0.13,
+      "f": 0.13,
+      "vf": 0.13,
+      "xf": 0.35,
+      "au": 0.35,
+      "unc": 1.1
+     },
+     "quote": "2008 9 720 000 $ 0.13 $ 0.13 $ 0.13 $ 0.13 $ 0.35 $ 0.35 $ 1.10"
+    }
+   }
+  },
+  "GB.X.1-penny": {
+   "numista": 578,
+   "url": "https://en.numista.com/catalogue/pieces578.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1922": {
+     "prices": {
+      "g": 0.79,
+      "vg": 0.79,
+      "f": 0.79,
+      "vf": 1.2,
+      "xf": 1.2
+     },
+     "quote": "1922 16 346 700 $ 0.79 $ 0.79 $ 0.79 $ 1.20 $ 1.20"
+    }
+   }
+  },
+  "GT.KM.239.2": {
+   "numista": 5128,
+   "url": "https://en.numista.com/catalogue/pieces5128.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1934": {
+     "prices": {
+      "f": 11.0,
+      "vf": 11.0,
+      "xf": 11.0
+     },
+     "quote": "1934 Photo 300 000 $ 11 $ 11 $ 11"
+    }
+   }
+  },
+  "HN.X.50-centavos": {
+   "numista": 3190,
+   "url": "https://en.numista.com/catalogue/pieces3190.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2012": {
+     "prices": {
+      "vf": 0.51,
+      "xf": 0.52,
+      "au": 0.72,
+      "unc": 0.86
+     },
+     "quote": "2012 20 000 000 $ 0.51 $ 0.52 $ 0.72 $ 0.86"
+    }
+   }
+  },
+  "IN.KM.92.2": {
+   "numista": 1609,
+   "url": "https://en.numista.com/catalogue/pieces1609.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2001": {
+     "prices": {
+      "g": 0.01,
+      "vg": 0.02,
+      "f": 0.08,
+      "vf": 0.11,
+      "xf": 0.22
+     },
+     "quote": "2001 $ 0.01 $ 0.02 $ 0.08 $ 0.11 $ 0.22"
+    }
+   }
+  },
+  "IT.KM.213": {
+   "numista": 132,
+   "url": "https://en.numista.com/catalogue/pieces132.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2007 R": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.11,
+      "f": 0.11,
+      "vf": 0.11,
+      "xf": 0.11,
+      "au": 0.11,
+      "unc": 0.34
+     },
+     "quote": "2007 R 104 955 490 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.34"
+    }
+   }
+  },
+  "IT.KM.215": {
+   "numista": 134,
+   "url": "https://en.numista.com/catalogue/pieces134.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2002": {
+     "prices": {
+      "g": 0.56,
+      "vg": 0.56,
+      "f": 0.56,
+      "vf": 0.56,
+      "xf": 0.56,
+      "au": 0.56,
+      "unc": 0.78
+     },
+     "quote": "2002 R 1 136 418 000 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.78"
+    }
+   }
+  },
+  "JM.KM.146": {
+   "numista": 2617,
+   "url": "https://en.numista.com/catalogue/pieces2617.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1993": {
+     "prices": {
+      "vg": 0.28,
+      "f": 0.28,
+      "vf": 0.55,
+      "xf": 0.56,
+      "au": 0.56
+     },
+     "quote": "1993 $ 0.28 $ 0.28 $ 0.55 $ 0.56 $ 0.56"
+    }
+   }
+  },
+  "JM.KM.189": {
+   "numista": 14369,
+   "url": "https://en.numista.com/catalogue/pieces14369.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2015": {
+     "prices": {
+      "vg": 0.08,
+      "f": 0.1,
+      "vf": 0.28,
+      "xf": 0.28,
+      "au": 0.49,
+      "unc": 0.56
+     },
+     "quote": "2015 $ 0.08 $ 0.10 $ 0.28 $ 0.28 $ 0.49 $ 0.56"
+    }
+   }
+  },
+  "JM.KM.65": {
+   "numista": 7457,
+   "url": "https://en.numista.com/catalogue/pieces7457.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1975": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.3,
+      "f": 0.49,
+      "vf": 0.56,
+      "xf": 0.6,
+      "au": 0.83,
+      "unc": 1.1
+     },
+     "quote": "1975 12 010 000 $ 0.11 $ 0.30 $ 0.49 $ 0.56 $ 0.60 $ 0.83 $ 1.10"
+    }
+   }
+  },
+  "JP.Y.73a": {
+   "numista": 922,
+   "url": "https://en.numista.com/catalogue/pieces922.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1982": {
+     "prices": {
+      "g": 0.1,
+      "vg": 0.1,
+      "f": 0.11,
+      "vf": 0.24,
+      "xf": 0.24,
+      "au": 0.24,
+      "unc": 0.24
+     },
+     "quote": "57 (1982) Photo 890 000 000 $ 0.10 $ 0.10 $ 0.11 $ 0.24 $ 0.24 $ 0.24 $ 0.24"
+    },
+    "1988": {
+     "prices": {
+      "g": 0.1,
+      "vg": 0.12,
+      "f": 0.17,
+      "vf": 0.17,
+      "xf": 0.22,
+      "au": 0.46,
+      "unc": 0.61
+     },
+     "quote": "63 (1988) 617 912 000 $ 0.10 $ 0.12 $ 0.17 $ 0.17 $ 0.22 $ 0.46 $ 0.61"
+    }
+   }
+  },
+  "JP.Y.74": {
+   "numista": 1590,
+   "url": "https://en.numista.com/catalogue/pieces1590.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1965": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.14,
+      "f": 0.14,
+      "vf": 0.14,
+      "xf": 0.22,
+      "au": 0.3,
+      "unc": 0.76
+     },
+     "quote": "40 (1965) 1 743 256 000 $ 0.11 $ 0.14 $ 0.14 $ 0.14 $ 0.22 $ 0.30 $ 0.76"
+    },
+    "1971": {
+     "prices": {
+      "g": 0.08,
+      "vg": 0.11,
+      "f": 0.12,
+      "vf": 0.17,
+      "xf": 0.17,
+      "au": 0.2,
+      "unc": 0.76
+     },
+     "quote": "46 (1971) 904 050 000 $ 0.08 $ 0.11 $ 0.12 $ 0.17 $ 0.17 $ 0.20 $ 0.76"
+    }
+   }
+  },
+  "KR.KM.103": {
+   "numista": 1654,
+   "url": "https://en.numista.com/catalogue/pieces1654.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2012": {
+     "prices": {
+      "vg": 0.1,
+      "f": 0.1,
+      "vf": 0.17,
+      "xf": 0.17,
+      "au": 0.4,
+      "unc": 0.56
+     },
+     "quote": "2012 Photo 370 000 000 $ 0.10 $ 0.10 $ 0.17 $ 0.17 $ 0.40 $ 0.56"
+    },
+    "2013": {
+     "prices": {
+      "g": 0.14,
+      "vg": 0.14,
+      "f": 0.14,
+      "vf": 0.14,
+      "xf": 0.17,
+      "au": 0.26,
+      "unc": 0.29
+     },
+     "quote": "2013 400 000 000 $ 0.14 $ 0.14 $ 0.14 $ 0.14 $ 0.17 $ 0.26 $ 0.29"
+    }
+   }
+  },
+  "KR.KM.35.2": {
+   "numista": 1052,
+   "url": "https://en.numista.com/catalogue/pieces1052.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2000": {
+     "prices": {
+      "vg": 0.32,
+      "f": 0.32,
+      "vf": 0.32,
+      "xf": 0.32,
+      "au": 0.32,
+      "unc": 0.32
+     },
+     "quote": "2000 422 985 000 $ 0.32 $ 0.32 $ 0.32 $ 0.32 $ 0.32 $ 0.32"
+    }
+   }
+  },
+  "KY.KM.132": {
+   "numista": 2698,
+   "url": "https://en.numista.com/catalogue/pieces2698.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2002": {
+     "prices": {
+      "vf": 0.45,
+      "xf": 0.45,
+      "au": 0.78,
+      "unc": 0.83
+     },
+     "quote": "2002 2 500 000 $ 0.45 $ 0.45 $ 0.78 $ 0.83"
+    },
+    "2008": {
+     "prices": {
+      "f": 0.54,
+      "vf": 0.57,
+      "xf": 0.57,
+      "au": 0.71,
+      "unc": 1.0
+     },
+     "quote": "2008 3 000 000 $ 0.54 $ 0.57 $ 0.57 $ 0.71 $ 1.00"
+    }
+   }
+  },
+  "KY.KM.87": {
+   "numista": 7364,
+   "url": "https://en.numista.com/catalogue/pieces7364.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1990": {
+     "prices": {
+      "g": 0.24,
+      "vg": 0.24,
+      "f": 0.26,
+      "vf": 0.26,
+      "xf": 0.34,
+      "au": 0.45,
+      "unc": 0.55
+     },
+     "quote": "1990 $ 0.24 $ 0.24 $ 0.26 $ 0.26 $ 0.34 $ 0.45 $ 0.55"
+    }
+   }
+  },
+  "KY.KM.88a": {
+   "numista": 10222,
+   "url": "https://en.numista.com/catalogue/pieces10222.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1996": {
+     "prices": {
+      "f": 0.19,
+      "vf": 0.37,
+      "xf": 0.47,
+      "au": 0.56,
+      "unc": 0.67
+     },
+     "quote": "1996 $ 0.19 $ 0.37 $ 0.47 $ 0.56 $ 0.67"
+    }
+   }
+  },
+  "MT.KM.129": {
+   "numista": 2184,
+   "url": "https://en.numista.com/catalogue/pieces2184.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2008": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.11,
+      "f": 0.11,
+      "vf": 0.11,
+      "xf": 0.11,
+      "au": 0.11,
+      "unc": 0.33
+     },
+     "quote": "2008 F 41 000 000 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.33"
+    }
+   }
+  },
+  "MX-CHI.KM.612": {
+   "url": "https://en.numista.com/catalogue/pieces32634.html",
+   "numista": "32634",
+   "via": "page",
+   "issues": {
+    "1914": {
+     "mintage": null,
+     "prices": {
+      "vf": 13.0
+     },
+     "row": "1914 | VF $ 13"
+    }
+   }
+  },
+  "MX.KM.415": {
+   "numista": 5133,
+   "url": "https://en.numista.com/catalogue/pieces5133.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1940 Mo": {
+     "prices": {
+      "g": 0.06,
+      "vg": 0.22,
+      "f": 0.67,
+      "vf": 0.67,
+      "xf": 0.67,
+      "au": 1.4,
+      "unc": 1.5
+     },
+     "quote": "1940 Mo 10 000 000 $ 0.06 $ 0.22 $ 0.67 $ 0.67 $ 0.67 $ 1.40 $ 1.50"
+    }
+   }
+  },
+  "MX.KM.424": {
+   "numista": 3136,
+   "url": "https://en.numista.com/catalogue/pieces3136.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1944 Mo": {
+     "prices": {
+      "g": 0.17,
+      "vg": 0.2,
+      "f": 0.27,
+      "vf": 0.45,
+      "xf": 0.76,
+      "au": 0.79,
+      "unc": 1.7
+     },
+     "quote": "1944 Mo Photo 53 463 000 $ 0.17 $ 0.20 $ 0.27 $ 0.45 $ 0.76 $ 0.79 $ 1.70"
+    }
+   }
+  },
+  "MX.KM.433": {
+   "numista": 6694,
+   "url": "https://en.numista.com/catalogue/pieces6694.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1945": {
+     "prices": {
+      "g": 0.18,
+      "vg": 0.3,
+      "f": 0.3,
+      "vf": 0.48,
+      "xf": 0.75,
+      "au": 1.7,
+      "unc": 3.9
+     },
+     "quote": "1945 M 9 558 000 $ 0.18 $ 0.30 $ 0.30 $ 0.48 $ 0.75 $ 1.70 $ 3.90"
+    }
+   }
+  },
+  "MX.KM.440": {
+   "numista": 959,
+   "url": "https://en.numista.com/catalogue/pieces959.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1964 Mo": {
+     "prices": {
+      "g": 0.1,
+      "vg": 0.17,
+      "f": 0.22,
+      "vf": 0.31,
+      "xf": 0.57,
+      "au": 0.57,
+      "unc": 1.3
+     },
+     "quote": "1964 Mo 28 654 000 $ 0.10 $ 0.17 $ 0.22 $ 0.31 $ 0.57 $ 0.57 $ 1.30"
+    },
+    "1967 Mo": {
+     "prices": {
+      "g": 0.09,
+      "vg": 0.09,
+      "f": 0.11,
+      "vf": 0.56,
+      "xf": 0.56,
+      "au": 1.0,
+      "unc": 2.3
+     },
+     "quote": "1967 Mo Photo 46 847 000 $ 0.09 $ 0.09 $ 0.11 $ 0.56 $ 0.56 $ 1.00 $ 2.30"
+    }
+   }
+  },
+  "MX.KM.502": {
+   "numista": 3445,
+   "url": "https://en.numista.com/catalogue/pieces3445.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1987 Mo": {
+     "prices": {
+      "vf": 0.31,
+      "xf": 0.44,
+      "au": 0.49,
+      "unc": 1.1
+     },
+     "quote": "1987 Mo 81 900 000 $ 0.31 $ 0.44 $ 0.49 $ 1.10"
+    }
+   }
+  },
+  "MX.KM.604": {
+   "numista": 587,
+   "url": "https://en.numista.com/catalogue/pieces587.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2010 Mo": {
+     "prices": {
+      "vf": 0.12,
+      "xf": 0.23,
+      "au": 0.82,
+      "unc": 0.82
+     },
+     "quote": "2010 Mo 34 878 000 $ 0.12 $ 0.23 $ 0.82 $ 0.82"
+    }
+   }
+  },
+  "MX.KM.936": {
+   "numista": 18097,
+   "url": "https://en.numista.com/catalogue/pieces18097.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2013 Mo": {
+     "prices": {
+      "g": 0.03,
+      "vg": 0.06,
+      "f": 0.11,
+      "vf": 0.21,
+      "xf": 0.22,
+      "au": 0.26,
+      "unc": 0.26
+     },
+     "quote": "2013 Mo 359 338 000 $ 0.03 $ 0.06 $ 0.11 $ 0.21 $ 0.22 $ 0.26 $ 0.26"
+    }
+   }
+  },
+  "MX.X.10-centavos": {
+   "numista": 581,
+   "url": "https://en.numista.com/catalogue/pieces581.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1995 Mo": {
+     "prices": {
+      "g": 0.08,
+      "vg": 0.08,
+      "f": 0.19,
+      "vf": 0.21,
+      "xf": 0.21,
+      "au": 0.22,
+      "unc": 0.26
+     },
+     "quote": "1995 Mo 560 000 000 $ 0.08 $ 0.08 $ 0.19 $ 0.21 $ 0.21 $ 0.22 $ 0.26"
+    }
+   }
+  },
+  "MX.X.20-pesos": {
+   "numista": 987,
+   "url": "https://en.numista.com/catalogue/pieces987.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1981 Mo": {
+     "prices": {
+      "g": 0.58,
+      "vg": 0.58,
+      "f": 0.58,
+      "vf": 1.0,
+      "xf": 1.1,
+      "au": 1.1,
+      "unc": 2.0
+     },
+     "quote": "1981 Mo Photo 250 573 000 $ 0.58 $ 0.58 $ 0.58 $ 1.00 $ 1.10 $ 1.10 $ 2.00",
+     "sheet_key": "1981"
+    }
+   }
+  },
+  "MX.X.5-centavos": {
+   "numista": 953,
+   "url": "https://en.numista.com/catalogue/pieces953.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1969 Mo": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.12,
+      "f": 0.21,
+      "vf": 0.31,
+      "xf": 0.31,
+      "au": 0.48,
+      "unc": 0.6
+     },
+     "quote": "1969 Mo Photo 210 492 000 $ 0.11 $ 0.12 $ 0.21 $ 0.31 $ 0.31 $ 0.48 $ 0.60"
+    }
+   }
+  },
+  "MX.X.50-centavos": {
+   "numista": 583,
+   "url": "https://en.numista.com/catalogue/pieces583.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2009 Mo": {
+     "prices": {
+      "f": 0.14,
+      "vf": 0.22,
+      "xf": 0.24,
+      "au": 0.27,
+      "unc": 0.33
+     },
+     "quote": "2009 Mo 90 602 000 $ 0.14 $ 0.22 $ 0.24 $ 0.27 $ 0.33"
+    }
+   }
+  },
+  "MX.X.500-pesos": {
+   "numista": 819,
+   "url": "https://en.numista.com/catalogue/pieces819.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1988 Mo": {
+     "prices": {
+      "g": 0.25,
+      "vg": 0.25,
+      "f": 0.25,
+      "vf": 0.5,
+      "xf": 1.0,
+      "au": 1.1,
+      "unc": 2.2
+     },
+     "quote": "1988 Mo 230 000 000 $ 0.25 $ 0.25 $ 0.25 $ 0.50 $ 1.00 $ 1.10 $ 2.20"
+    },
+    "1989 Mo": {
+     "prices": {
+      "g": 0.14,
+      "vg": 0.14,
+      "f": 0.36,
+      "vf": 0.36,
+      "xf": 0.96,
+      "au": 0.96
+     },
+     "quote": "1989 Mo 40 000 000 $ 0.14 $ 0.14 $ 0.36 $ 0.36 $ 0.96 $ 0.96"
+    }
+   }
+  },
+  "NG.KM.10.1": {
+   "numista": 4461,
+   "url": "https://en.numista.com/catalogue/pieces4461.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1976": {
+     "prices": {
+      "g": 0.18,
+      "vg": 0.29,
+      "f": 0.45,
+      "vf": 0.64,
+      "xf": 0.8,
+      "au": 1.0,
+      "unc": 1.0
+     },
+     "quote": "1976 Photo 7 000 000 $ 0.18 $ 0.29 $ 0.45 $ 0.64 $ 0.80 $ 1.00 $ 1.00"
+    }
+   }
+  },
+  "NL.KM.107.2": {
+   "numista": 1070,
+   "url": "https://en.numista.com/catalogue/pieces1070.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1892": {
+     "prices": {
+      "vg": 1.6,
+      "f": 1.6,
+      "vf": 1.6,
+      "xf": 1.6,
+      "au": 1.6
+     },
+     "quote": "1892 5 000 000 $ 1.60 $ 1.60 $ 1.60 $ 1.60 $ 1.60"
+    }
+   }
+  },
+  "NL.KM.170": {
+   "numista": 2562,
+   "url": "https://en.numista.com/catalogue/pieces2562.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1948": {
+     "prices": {
+      "g": 0.13,
+      "vg": 0.21,
+      "f": 0.22,
+      "vf": 0.23,
+      "xf": 0.31,
+      "au": 0.5,
+      "unc": 2.6
+     },
+     "quote": "1948 Fish Photo 175 000 000 $ 0.13 $ 0.21 $ 0.22 $ 0.23 $ 0.31 $ 0.50 $ 2.60"
+    }
+   }
+  },
+  "PH.KM.198": {
+   "numista": 3752,
+   "url": "https://en.numista.com/catalogue/pieces3752.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1971": {
+     "prices": {
+      "g": 0.08,
+      "vg": 0.09,
+      "f": 0.16,
+      "vf": 0.25,
+      "xf": 0.28,
+      "au": 0.37,
+      "unc": 0.58
+     },
+     "quote": "1971 80 000 000 $ 0.08 $ 0.09 $ 0.16 $ 0.25 $ 0.28 $ 0.37 $ 0.58"
+    }
+   }
+  },
+  "PH.X.1-piso": {
+   "numista": 1681,
+   "url": "https://en.numista.com/catalogue/pieces1681.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1997": {
+     "prices": {
+      "g": 0.11,
+      "vg": 0.11,
+      "f": 0.16,
+      "vf": 0.26,
+      "xf": 0.38,
+      "au": 0.48
+     },
+     "quote": "1997 PI $ 0.11 $ 0.11 $ 0.16 $ 0.26 $ 0.38 $ 0.48"
+    }
+   }
+  },
+  "SK.KM.96": {
+   "numista": 5085,
+   "url": "https://en.numista.com/catalogue/pieces5085.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2009": {
+     "prices": {
+      "g": 0.02,
+      "vg": 0.02,
+      "f": 0.02,
+      "vf": 0.02,
+      "xf": 0.03,
+      "au": 0.26,
+      "unc": 0.26
+     },
+     "quote": "2009 74 368 000 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.03 $ 0.26 $ 0.26 68%"
+    }
+   }
+  },
+  "SU.Y.126a": {
+   "numista": 767,
+   "url": "https://en.numista.com/catalogue/pieces767.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1962": {
+     "prices": {
+      "g": 0.01,
+      "vg": 0.08,
+      "f": 0.23,
+      "vf": 0.71,
+      "xf": 0.92,
+      "au": 1.0,
+      "unc": 1.9
+     },
+     "quote": "1962 $ 0.01 $ 0.08 $ 0.23 $ 0.71 $ 0.92 $ 1.00 $ 1.90"
+    },
+    "1974": {
+     "prices": {
+      "g": 0.17,
+      "vg": 0.17,
+      "f": 0.17,
+      "vf": 0.17,
+      "xf": 0.17,
+      "au": 0.17,
+      "unc": 0.48
+     },
+     "quote": "1974 $ 0.17 $ 0.17 $ 0.17 $ 0.17 $ 0.17 $ 0.17 $ 0.48"
+    }
+   }
+  },
+  "SU.Y.93": {
+   "numista": 4042,
+   "url": "https://en.numista.com/catalogue/pieces4042.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1931": {
+     "prices": {
+      "g": 0.15,
+      "vg": 0.56,
+      "f": 0.71,
+      "vf": 0.71,
+      "xf": 2.2
+     },
+     "quote": "1931 121 168 000 $ 0.15 $ 0.56 $ 0.71 $ 0.71 $ 2.20"
+    }
+   }
+  },
+  "SU.Y.97": {
+   "numista": 5269,
+   "url": "https://en.numista.com/catalogue/pieces5269.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1932": {
+     "prices": {
+      "g": 0.17,
+      "vg": 0.44,
+      "f": 1.1,
+      "vf": 1.1,
+      "xf": 1.8,
+      "au": 2.9,
+      "unc": 30.0
+     },
+     "quote": "1932 Photo 136 046 000 $ 0.17 $ 0.44 $ 1.10 $ 1.10 $ 1.80 $ 2.90 $ 30"
+    }
+   }
+  },
+  "TR.KM.1241": {
+   "numista": 6165,
+   "url": "https://en.numista.com/catalogue/pieces6165.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2011": {
+     "prices": {
+      "g": 0.09,
+      "vg": 0.11,
+      "f": 0.11,
+      "vf": 0.11,
+      "xf": 0.11,
+      "au": 0.13,
+      "unc": 0.51
+     },
+     "quote": "2011 Photo 156 279 000 $ 0.09 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.13 $ 0.51"
+    }
+   }
+  },
+  "TW.KM.551": {
+   "numista": 966,
+   "url": "https://en.numista.com/catalogue/pieces966.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2008": {
+     "prices": {
+      "g": 0.08,
+      "vg": 0.21,
+      "f": 0.21,
+      "vf": 0.21,
+      "xf": 0.34
+     },
+     "quote": "(2008) $ 0.08 $ 0.21 $ 0.21 $ 0.21 $ 0.34"
+    }
+   }
+  },
+  "VN-SOV.KM.1": {
+   "numista": 5904,
+   "url": "https://en.numista.com/catalogue/pieces5904.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1953": {
+     "prices": {
+      "vg": 0.48,
+      "f": 1.2,
+      "vf": 1.9,
+      "xf": 2.8,
+      "au": 3.4
+     },
+     "quote": "1953 15 000 000 $ 0.48 $ 1.20 $ 1.90 $ 2.80 $ 3.40"
+    }
+   }
+  },
+  "VN.KM.71": {
+   "numista": 2104,
+   "url": "https://en.numista.com/catalogue/pieces2104.html",
+   "currency_shown": "USD",
+   "issues": {
+    "2003": {
+     "prices": {
+      "g": 0.16,
+      "vg": 0.43,
+      "f": 0.45,
+      "vf": 0.5,
+      "xf": 0.67,
+      "au": 0.72,
+      "unc": 1.4
+     },
+     "quote": "2003 250 000 000 $ 0.16 $ 0.43 $ 0.45 $ 0.50 $ 0.67 $ 0.72 $ 1.40"
+    }
+   }
+  },
+  "YU.X.50-para": {
+   "numista": 2006,
+   "url": "https://en.numista.com/catalogue/pieces2006.html",
+   "currency_shown": "USD",
+   "issues": {
+    "1965": {
+     "prices": {
+      "g": 0.14,
+      "vg": 0.14,
+      "f": 0.17,
+      "vf": 0.17,
+      "xf": 0.22,
+      "au": 0.69,
+      "unc": 0.69
+     },
+     "quote": "1965 Photo 44 850 000 $ 0.14 $ 0.14 $ 0.17 $ 0.17 $ 0.22 $ 0.69 $ 0.69 KM# 46.1"
+    }
+   }
+  },
+  "DE.KM.208": {
+   "url": "https://en.numista.com/catalogue/pieces106.html",
+   "numista": "106",
+   "via": "page",
+   "issues": {
+    "2002 D": {
+     "mintage": 483000000,
+     "prices": {
+      "vg": 0.02,
+      "f": 0.02,
+      "vf": 0.02,
+      "xf": 0.02,
+      "au": 0.06,
+      "unc": 0.33
+     },
+     "row": "2002 D | 483 000 000 | G $ 0.02 | VG $ 0.02 | F $ 0.02 | VF $ 0.02 | XF $ 0.02 | AU $ 0.06 | UNC $ 0.33"
+    },
+    "2002 G": {
+     "mintage": 311800000,
+     "prices": {
+      "vg": 0.02,
+      "f": 0.02,
+      "vf": 0.02,
+      "xf": 0.02,
+      "au": 0.05,
+      "unc": 0.22
+     },
+     "row": "2002 G | 311 800 000 | G $ 0.02 | VG $ 0.02 | F $ 0.02 | VF $ 0.02 | XF $ 0.02 | AU $ 0.05 | UNC $ 0.22"
+    },
+    "2010 A": {
+     "mintage": 76440000,
+     "prices": {
+      "vg": 0.02,
+      "f": 0.02,
+      "vf": 0.02,
+      "xf": 0.03,
+      "au": 0.03,
+      "unc": 0.14
+     },
+     "row": "2010 A | 76 440 000 | G $ 0.02 | VG $ 0.02 | F $ 0.02 | VF $ 0.02 | XF $ 0.03 | AU $ 0.03 | UNC $ 0.14"
+    }
+   }
+  },
+  "CH.KM.26": {
+   "url": "https://en.numista.com/catalogue/pieces168.html",
+   "numista": "168",
+   "via": "page",
+   "issues": {
+    "1963 B": {
+     "mintage": 29730000,
+     "prices": {
+      "vg": 0.13,
+      "f": 0.27,
+      "vf": 0.28,
+      "xf": 0.38,
+      "au": 0.38,
+      "unc": 1.0
+     },
+     "row": "1963 B | 29 730 000 | G $ 0.09 | VG $ 0.13 | F $ 0.27 | VF $ 0.28 | XF $ 0.38 | AU $ 0.38 | UNC $ 1.00"
+    }
+   }
+  }
+ },
+ "not_shown": [
+  {
+   "type": "BS.X.25-cents",
+   "numista": 9352,
+   "issue": "1984",
+   "why": "Opened https://en.numista.com/catalogue/pieces9352.html; no USD price estimate row shown for issue '1984' in the Manage my collection table."
+  },
+  {
+   "type": "CH.KM.23a",
+   "numista": 181,
+   "issue": "1968 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.23a",
+   "numista": 181,
+   "issue": "1971 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.26c",
+   "numista": 171,
+   "issue": "1982 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.26c",
+   "numista": 171,
+   "issue": "1983 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.27",
+   "numista": 173,
+   "issue": "1883 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.27",
+   "numista": 173,
+   "issue": "1979 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.27",
+   "numista": 173,
+   "issue": "1981 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.29a",
+   "numista": 178,
+   "issue": "1959 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.29a",
+   "numista": 178,
+   "issue": "1963 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.29a",
+   "numista": 178,
+   "issue": "1969 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.29a",
+   "numista": 178,
+   "issue": "1980",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.29a",
+   "numista": 178,
+   "issue": "1989 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.29a",
+   "numista": 178,
+   "issue": "1991 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.40a.1",
+   "numista": 195,
+   "issue": "1976",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "CH.KM.40a.4",
+   "numista": 195,
+   "issue": "2014 B",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.106a",
+   "numista": 1937,
+   "issue": "1983 D",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.106a",
+   "numista": 1937,
+   "issue": "1983 G",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.106a",
+   "numista": 1937,
+   "issue": "1988 G",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.107",
+   "numista": 658,
+   "issue": "1950",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.107",
+   "numista": 658,
+   "issue": "1971 D",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.107",
+   "numista": 658,
+   "issue": "1971 F",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.107",
+   "numista": 658,
+   "issue": "1987 F",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.107",
+   "numista": 658,
+   "issue": "1992 F",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1966 D",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1970 J",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1977 J",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1980 F",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1981",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1982",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1982 G",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1984 D",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1986",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1989 G",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1990 F",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.108",
+   "numista": 850,
+   "issue": "1995",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.110",
+   "numista": 846,
+   "issue": "1982",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.110",
+   "numista": 846,
+   "issue": "1982 J",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.110",
+   "numista": 846,
+   "issue": "1984",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.110",
+   "numista": 846,
+   "issue": "1993 D",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.124",
+   "numista": 844,
+   "issue": "1973 D",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.140.1",
+   "numista": 843,
+   "issue": "1987 J",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.207",
+   "numista": 105,
+   "issue": "2002",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.207",
+   "numista": 105,
+   "issue": "2005 J",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.207",
+   "numista": 105,
+   "issue": "2008",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.207",
+   "numista": 105,
+   "issue": "2009",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.207",
+   "numista": 105,
+   "issue": "2012",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.207",
+   "numista": 105,
+   "issue": "2015",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.210",
+   "numista": 108,
+   "issue": "2002",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.210",
+   "numista": 108,
+   "issue": "2002 D",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.211",
+   "numista": 109,
+   "issue": "2002 G",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.213",
+   "numista": 111,
+   "issue": "2002 F",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.214",
+   "numista": 112,
+   "issue": "2003 A",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.255",
+   "numista": 6319,
+   "issue": "2011 F",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "DE.KM.255",
+   "numista": 6319,
+   "issue": "2015 F",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "EC.KM.37",
+   "numista": 5712,
+   "issue": "2004",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "ES.KM.1040",
+   "numista": 81,
+   "issue": "2008",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "ES.KM.1144",
+   "numista": 10856,
+   "issue": "2014",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.1282",
+   "numista": 97,
+   "issue": "2009",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.1283",
+   "numista": 98,
+   "issue": "2009",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.1283",
+   "numista": 98,
+   "issue": "2010",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.1283",
+   "numista": 98,
+   "issue": "2017",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.1284",
+   "numista": 99,
+   "issue": "2009",
+   "why": "Opened https://en.numista.com/catalogue/pieces99.html; no USD price estimate row shown for issue '2009' in the Manage my collection table."
+  },
+  {
+   "type": "FR.KM.1286",
+   "numista": 101,
+   "issue": "2000",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.1289",
+   "numista": 104,
+   "issue": "2000",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.925.1",
+   "numista": 6,
+   "issue": "1960",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.925.1",
+   "numista": 6,
+   "issue": "1962",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.925.1",
+   "numista": 6,
+   "issue": "1965",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.925.1",
+   "numista": 6,
+   "issue": "1977",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.925.1",
+   "numista": 6,
+   "issue": "1999",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.929",
+   "numista": 3,
+   "issue": "1963",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.929",
+   "numista": 3,
+   "issue": "1967",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.929",
+   "numista": 3,
+   "issue": "1984",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.929",
+   "numista": 3,
+   "issue": "1995",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.929",
+   "numista": 3,
+   "issue": "1998",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.930",
+   "numista": 4,
+   "issue": "1974",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.930",
+   "numista": 4,
+   "issue": "1986",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.931.1",
+   "numista": 5,
+   "issue": "1969",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.931.1",
+   "numista": 5,
+   "issue": "1971",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.931.1",
+   "numista": 5,
+   "issue": "1986",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.933",
+   "numista": 2,
+   "issue": "1973",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.933",
+   "numista": 2,
+   "issue": "1980",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "FR.KM.964.1",
+   "numista": 9,
+   "issue": "1989",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1107",
+   "numista": 4038,
+   "issue": "2010",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1107",
+   "numista": 4038,
+   "issue": "2013",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1109",
+   "numista": 6612,
+   "issue": "2009",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1109",
+   "numista": 6612,
+   "issue": "2010",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1109d",
+   "numista": 25766,
+   "issue": "2012",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1109d",
+   "numista": 25766,
+   "issue": "2014",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1110",
+   "numista": 7350,
+   "issue": "2010",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1110d",
+   "numista": 25746,
+   "issue": "2013",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1110d",
+   "numista": 25746,
+   "issue": "2014",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1334",
+   "numista": 70547,
+   "issue": "2015",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1334",
+   "numista": 70547,
+   "issue": "2016",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.1335",
+   "numista": 70549,
+   "issue": "2016",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.837",
+   "numista": 4004,
+   "issue": "1932",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.912",
+   "numista": 878,
+   "issue": "1968",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.914",
+   "numista": 856,
+   "issue": "1973",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.915",
+   "numista": 665,
+   "issue": "1971",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.915",
+   "numista": 665,
+   "issue": "1975",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.916",
+   "numista": 664,
+   "issue": "1971",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.916",
+   "numista": 664,
+   "issue": "1977",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.931",
+   "numista": 865,
+   "issue": "1982",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.935",
+   "numista": 861,
+   "issue": "1987",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.935",
+   "numista": 861,
+   "issue": "1988",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.935a",
+   "numista": 860,
+   "issue": "1995",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.935a",
+   "numista": 860,
+   "issue": "1996",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.935a",
+   "numista": 860,
+   "issue": "1997",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.936",
+   "numista": 867,
+   "issue": "1991",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.937b",
+   "numista": 875,
+   "issue": "1990",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.937b",
+   "numista": 875,
+   "issue": "1992",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.937b",
+   "numista": 875,
+   "issue": "1996",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.937b",
+   "numista": 875,
+   "issue": "1997",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.938b",
+   "numista": 879,
+   "issue": "1992",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.986",
+   "numista": 862,
+   "issue": "1998",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.986",
+   "numista": 862,
+   "issue": "2002",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.986",
+   "numista": 862,
+   "issue": "2003",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.986",
+   "numista": 862,
+   "issue": "2007",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.988",
+   "numista": 876,
+   "issue": "1998",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.988",
+   "numista": 876,
+   "issue": "2000",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.988",
+   "numista": 876,
+   "issue": "2001",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GB.KM.988",
+   "numista": 876,
+   "issue": "2007",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GR.KM.117",
+   "numista": 549,
+   "issue": "1982",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GR.KM.90",
+   "numista": 545,
+   "issue": "1970",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "GT.KM.277.6a",
+   "numista": 42670,
+   "issue": "2010",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "HK.KM.69a",
+   "numista": 2118,
+   "issue": "1998",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "HU.KM.575",
+   "numista": 1124,
+   "issue": "1967",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IE.KM.32",
+   "numista": 121,
+   "issue": "2002",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IE.KM.32",
+   "numista": 121,
+   "issue": "2004",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IE.KM.34",
+   "numista": 123,
+   "issue": "2013",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.111",
+   "numista": 302,
+   "issue": "1987 R",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.211",
+   "numista": 130,
+   "issue": "2010 R",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.214",
+   "numista": 133,
+   "issue": "2002 R",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.216",
+   "numista": 135,
+   "issue": "2002 R",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.95.1",
+   "numista": 724,
+   "issue": "1970 R",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.95.1",
+   "numista": 724,
+   "issue": "1978",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.95.1",
+   "numista": 724,
+   "issue": "1978 R",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.95.1",
+   "numista": 724,
+   "issue": "1979",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.95.1",
+   "numista": 724,
+   "issue": "1979 R",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "IT.KM.96.1",
+   "numista": 304,
+   "issue": "1965 R",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "JM.KM.190",
+   "numista": 14370,
+   "issue": "2015",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "KR.KM.4",
+   "numista": 5993,
+   "issue": "1966",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "MT.KM.128",
+   "numista": 2183,
+   "issue": "2013",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "MT.KM.132",
+   "numista": 2187,
+   "issue": "2008",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "MX.KM.443",
+   "numista": 972,
+   "issue": "1950 Mo",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NL.KM.184",
+   "numista": 737,
+   "issue": "1967",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NL.KM.204",
+   "numista": 731,
+   "issue": "1996",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NL.KM.234",
+   "numista": 145,
+   "issue": "2000",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NL.KM.236",
+   "numista": 147,
+   "issue": "2000",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NL.KM.239",
+   "numista": 149,
+   "issue": "2001",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NL.KM.241",
+   "numista": 152,
+   "issue": "2002",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NL.KM.346",
+   "numista": 54953,
+   "issue": "2014",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NO.KM.460",
+   "numista": 1442,
+   "issue": "1998",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "NO.KM.460",
+   "numista": 1442,
+   "issue": "2000 crossed hammers",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "PH.KM.242.1",
+   "numista": 2461,
+   "issue": "1984 BSP",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "PT.KM.744",
+   "numista": 157,
+   "issue": "2002",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "SA.KM.20",
+   "numista": 2940,
+   "issue": "1958",
+   "why": "Opened https://en.numista.com/catalogue/pieces2940.html; no USD price estimate row shown for issue '1958' in the Manage my collection table."
+  },
+  {
+   "type": "SE.KM.826a",
+   "numista": 1516,
+   "issue": "1973",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "SG.KM.3",
+   "numista": 1671,
+   "issue": "1973",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "SG.KM.4",
+   "numista": 975,
+   "issue": "1967",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "SK.X.5-euro-cent",
+   "numista": 5086,
+   "issue": "2009 MK",
+   "why": "Opened https://en.numista.com/catalogue/pieces5086.html; no USD price estimate row shown for issue '2009 MK' in the Manage my collection table."
+  },
+  {
+   "type": "TH.KM.183",
+   "numista": 1106,
+   "issue": "2006",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "TT.KM.31",
+   "numista": 3463,
+   "issue": "2016",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "TT.KM.32",
+   "numista": 1159,
+   "issue": "2014",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "US.KM.195",
+   "numista": 52,
+   "issue": "1957",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "US.KM.204",
+   "numista": 56,
+   "issue": "1976",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "VA.KM.52.1",
+   "numista": 3935,
+   "issue": "1951",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  },
+  {
+   "type": "YU.KM.86",
+   "numista": 2417,
+   "issue": "1984",
+   "why": "Page not yet fetched in this session due to browse quota throttling."
+  }
+ ]
+}

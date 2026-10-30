@@ -107,6 +107,7 @@
   ].join("\n");
   K.stage("dynasty", {
     kind: "ray", glsl: G, grade: .85,
+    roomCam: { mode: "walk", pos: [0, 1.55, 9.6], target: [-.4, 7.5, 26], fov: 1.08, walk: [0, 0, 1], bounds: [[-2.4, .9, 7.2], [2.4, 3.2, 10.8]] },   // under the pavilion roof, the lanterns going up
     cam: { pos: [1.4, 1.5, -6.5], target: [-.3, 3.1, 9], fov: 1.04 },
     steps: [32, 56, 84, 120], shadowSteps: [0, 0, 0, 0], scale: { low: .36 },
     moments: [{ name: "release", every: [30, 55], dur: 16 }],

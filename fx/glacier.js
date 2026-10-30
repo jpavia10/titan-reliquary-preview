@@ -49,7 +49,7 @@
     "vec3 skyLight(){ return vec3(.02,.06,.05)*uLook.x*surgeK() + vec3(.012,.016,.03); }",   // what the aurora and the night give the snow
     "vec3 lampLight(vec3 p, vec3 n){ if (p.z < 3.) return vec3(0.); vec3 s = vec3(0.); float z0 = floor((p.z - 4.6 + 1.3)/2.6)*2.6 + 4.6;",
     "  for (int k=-1;k<=1;k++){ vec3 l = vec3(0.,2.4,z0 + float(k)*2.6); if (l.z > 16.4 || l.z < 3.5) continue; vec3 d = l-p; float r = length(d); s += WARM*max(dot(n, d/r),0.)/(.4+r*r*.8); }",
-    "  return s*1.6*uLook.y; }",
+    "  return s*1.6*uLook.y/(1. + .8*step(3.6, uCO.z)); }",   // standing in the corridor the lamps are near: softer
     "vec3 albedo(float id, vec3 p){",
     "  if (id < .5) return vec3(.82,.86,.92)*(.92+.08*vn(p.xz*3.));",
     "  if (id < 1.5) return vec3(.22,.22,.23)*(.75+.35*vn(p.xy*vec2(1.5,6.)+p.z));",
@@ -95,6 +95,7 @@
   ].join("\n");
   K.stage("glacier", {
     kind: "ray", glsl: G, grade: .85,
+    roomCam: { mode: "walk", pos: [.1, 1.45, 13.3], target: [0, 1.75, 1.5], fov: 1.05, walk: [0, 0, -1], bounds: [[-.75, .5, 4], [.75, 2.3, 15.6]] },   // inside the vault by the gold, the door and the aurora ahead
     cam: { pos: [1.3, 1.3, -8.2], target: [-.1, 3.25, 3.], fov: 1.04 },
     steps: [56, 72, 96, 128], shadowSteps: [0, 0, 14, 22], scale: { low: .44 },
     moments: [{ name: "surge", every: [30, 60], dur: 14 }],

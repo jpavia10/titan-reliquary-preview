@@ -10,8 +10,8 @@
      "kind": "verify",
      "due": "2026-10-31",
      "path": "docs/agents/homework/sheets/HW-gemini-verify-20261020-1.jsonl",
-     "sha256": "008cb41fec784c370c7b90b5a005ee5f33670160b1273b592c5e9348d1fe4063",
-     "lines": 31
+     "sha256": "57b72e77a55b09ed50e69e7981d93978f4637e01c5fcb69d1d3fa8eef650ae20",
+     "lines": 30
     },
     {
      "id": "HW-gemini-verify-20261021-1",
@@ -66,7 +66,7 @@
      "kind": "verify",
      "due": "2026-11-05",
      "path": "docs/agents/homework/sheets/HW-gemini-verify-20261024-2.jsonl",
-     "sha256": "0b89a96c646ba5dd72c17c0a66dc3d9aed30de3f6f94348cda92b2735d735ca2",
+     "sha256": "48d6bdf84c6e92022d0e15e211da2b1a120d0bbcf842dcaae044fa49787d1332",
      "lines": 55
     },
     {
@@ -76,14 +76,6 @@
      "path": "docs/agents/homework/sheets/HW-gemini-verify-20261024-3.jsonl",
      "sha256": "2857eb4d39f8b8d22e7ca59c42c01b654f7cca683ee28c8b0b8cf9b7384eff54",
      "lines": 2
-    },
-    {
-     "id": "HW-gemini-arbitrate-20261030-1",
-     "kind": "arbitrate",
-     "due": "2026-11-04",
-     "path": "docs/agents/homework/sheets/HW-gemini-arbitrate-20261030-1.jsonl",
-     "sha256": "df4b35b7231cc30539406c60113a47f5475d56e27a0be16e557aabe27b2658c0",
-     "lines": 1
     },
     {
      "id": "HW-gemini-plain-story-20261030-1",
@@ -100,6 +92,22 @@
      "path": "docs/agents/homework/sheets/HW-gemini-verify-20261030-1.jsonl",
      "sha256": "8f0e6e67e74195026616a1c6be895f72fe15caa6f8ac1686963eb5ba35791d13",
      "lines": 2
+    },
+    {
+     "id": "HW-gemini-cite-20261030-1",
+     "kind": "cite",
+     "due": "2026-11-04",
+     "path": "docs/agents/homework/sheets/HW-gemini-cite-20261030-1.jsonl",
+     "sha256": "792342bd33a0dc8e5bf85e463ba9b593f8427d62e00a67030c33f561e3ff534d",
+     "lines": 5
+    },
+    {
+     "id": "HW-gemini-arbitrate-20261030-2",
+     "kind": "arbitrate",
+     "due": "2026-11-04",
+     "path": "docs/agents/homework/sheets/HW-gemini-arbitrate-20261030-2.jsonl",
+     "sha256": "d1b2ca10d5422da3443fc87171ffc7fe270e4d946cd8b4af77e4effac8f47e7e",
+     "lines": 5
     }
    ]
   },
@@ -135,8 +143,8 @@
      "kind": "read-mint",
      "due": "2026-11-05",
      "path": "docs/agents/homework/sheets/HW-muse-read-mint-20261029-1.jsonl",
-     "sha256": "da3677c1984da208ef931fc04899210c7893299a87cc359f90ba1c8233e741aa",
-     "lines": 8
+     "sha256": "ad0cd814d5b3daa491967c28d1d99c3ca6253770b0ae5ff2352fe79a142d024d",
+     "lines": 6
     },
     {
      "id": "HW-muse-cite-20261030-1",
@@ -153,6 +161,14 @@
      "path": "docs/agents/homework/sheets/HW-muse-verify-20261030-1.jsonl",
      "sha256": "f30c36a1fd57ea54dfcc4e6dcaf00607afff3e2f9fec65c720e7c9449499c2d7",
      "lines": 4
+    },
+    {
+     "id": "HW-muse-arbitrate-20261030-1",
+     "kind": "arbitrate",
+     "due": "2026-11-06",
+     "path": "docs/agents/homework/sheets/HW-muse-arbitrate-20261030-1.jsonl",
+     "sha256": "8fc151ef30cbfbc69e4e338cc65e54a7c9dcc9d56c262aa02120cdb9680fc08e",
+     "lines": 1
     }
    ]
   },
@@ -172,8 +188,8 @@
      "kind": "arbitrate",
      "due": "2026-11-06",
      "path": "docs/agents/homework/sheets/HW-grok-arbitrate-20261030-1.jsonl",
-     "sha256": "ec94904fc7ceb385eed65fe514d95e7562b63a80ebba62b8d269456dbff6fd4a",
-     "lines": 8
+     "sha256": "5117cb20637fd3b945244d4f93e47a6dd72b2403bf30535a6adec20fe4ade609",
+     "lines": 2
     },
     {
      "id": "HW-grok-cite-20261030-1",
@@ -198,6 +214,22 @@
      "path": "docs/agents/homework/sheets/HW-grok-verify-20261030-1.jsonl",
      "sha256": "2058b6028ebd45bb939eec5b9fae00b334d72bf257820b11cdae5fde676654ce",
      "lines": 75
+    },
+    {
+     "id": "HW-grok-verify-20261030-2",
+     "kind": "verify",
+     "due": "2026-11-06",
+     "path": "docs/agents/homework/sheets/HW-grok-verify-20261030-2.jsonl",
+     "sha256": "b3ada51eaa0d6aad6fa6dbafc74f2525ac6e194723a921de05bdd461e9405b65",
+     "lines": 1
+    },
+    {
+     "id": "HW-grok-arbitrate-20261030-2",
+     "kind": "arbitrate",
+     "due": "2026-11-06",
+     "path": "docs/agents/homework/sheets/HW-grok-arbitrate-20261030-2.jsonl",
+     "sha256": "d2b4186ae04421b50f3b7fb8757697f6c94faf497096162e757e08419093398f",
+     "lines": 1
     }
    ]
   }

@@ -77,8 +77,8 @@
     "  vec3 t0 = (bmin-ro)*ir, t1 = (bmax-ro)*ir, lo = min(t0,t1), hi = max(t0,t1); float ta = max(max(lo.x,lo.y),max(lo.z,0.)), tb = min(min(hi.x,hi.y),min(hi.z,tEnd));",
     "  if (tb <= ta) return vec3(0.); int N = 10 + 8*int(uTier); float dt = (tb-ta)/float(N), j = h21(gl_FragCoord.xy + fract(uT*.41)*57.); vec3 acc = vec3(0.); float tr = 1.;",
     "  for (int i=0;i<40;i++){ if (i >= N) break; vec3 x = ro + rd*(ta + (float(i)+j)*dt); float fl = flame(x), hy = x.y - .14;",
-    "    vec3 c = mix(vec3(1.,.62,.25)*1.2, mix(FIRE, vec3(.5,.08,.02), smoothstep(.5, 1.4, hy)), smoothstep(.05, .5, hy));",
-    "    acc += c*fl*dt*5.*fireK()*tr; tr *= exp(-fl*dt*6.); }",
+    "    vec3 c = mix(vec3(1.,.55,.2)*.9, mix(FIRE*.85, vec3(.45,.07,.02), smoothstep(.45, 1.3, hy)), smoothstep(.05, .45, hy));",
+    "    acc += c*fl*dt*3.2*fireK()*tr/(1. + .25*max(0., 7. - length(x - ro))); tr *= exp(-fl*dt*6.); }",   // up close the flames are thinner, not a white wall
     "  return acc; }",
     "vec3 volume(vec3 ro, vec3 rd, float tEnd){ int N = 6 + 6*int(uTier); float dt = min(tEnd, 28.)/float(N), tr = 1.;",
     "  vec3 acc = vec3(0.); float j = .25 + .5*h21(gl_FragCoord.xy + fract(uT*.37)*91.);",
@@ -111,6 +111,7 @@
   function sm(a, b, k) { return a + (b - a) * k; }
   K.stage("valhalla", {
     kind: "ray", glsl: G, grade: .82,
+    roomCam: { mode: "walk", pos: [.7, 1.55, 11.0], target: [-.1, 1.1, 2.0], fov: 1.04, walk: [0, 0, -1], bounds: [[-1.6, .6, 2], [1.6, 5, 11.4]] },   // on the dais by the hoard, the fire below
     cam: { mode: "walk", pos: [1.2, 1.9, -3.4], target: [-.3, 2.6, 9], fov: 1.04, walk: [0, 0, 1], bounds: [[-1.6, .6, -5.6], [1.6, 5., 10.5]] },
     steps: [40, 60, 86, 120], shadowSteps: [0, 0, 14, 22], scale: { low: .4 },
     moments: [{ name: "the fire roars", every: [25, 45], dur: 4.5 }],

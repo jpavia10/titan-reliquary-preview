@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-10-30T06:15:11Z",
+ "updated": "2026-10-30T06:56:08Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261020-1",
@@ -905,44 +905,6 @@
      "blind": true,
      "inputs": [
       "C076_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C082:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C082",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C082"
-     ],
-     "label": "mint of C082 · Switzerland · 1979 · 10 rappen · CHF",
-     "authors": [
-      "ledger"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "ledger",
-      "ledger": true,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C082_obv.webp",
-        "file": "C082_obv.webp",
-        "original": "C082_Switzerland_1979_10Rappen_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1VHjj9b0jZ-AhMm5XmsByEfjRdzFQZ89x/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C082_obv.webp"
      ]
     },
     {
@@ -5648,44 +5610,6 @@
      ]
     },
     {
-     "item": "verify:specimen:C015:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C015",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C015"
-     ],
-     "label": "mint of C015 · Switzerland · 1971 · 1/2 franc · CHF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C015_rev.webp",
-        "file": "C015_rev.webp",
-        "original": "C015_Switzerland_1971_HalfFranc_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1DoPJqvCEo5jMYFZ5WLwxk5-Ih-oTJNCA/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false
-     },
-     "blind": true,
-     "inputs": [
-      "C015_rev.webp"
-     ]
-    },
-    {
      "item": "verify:type:DE.KM.212:denomination.value",
      "kind": "verify",
      "entity": "type",
@@ -7633,6 +7557,37 @@
      },
      "blind": false,
      "inputs": []
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "design.text",
+     "coins": [
+      "C258"
+     ],
+     "label": "design of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse three women in profile facing left · QUỐC-GIA VIỆT-NAM · 1953 (engraver Lucien Georges Bazor) · reverse rice plant · VIỆT-NAM · 20 SU (engraver Lucien Georges Bazor)",
+      "their_source": "disagreement D0127 settled for the claim (Gemini): the phone photo photos/p1/C258_rev.webp shows one rice plant dividing 20 SU under VIỆT-NA",
+      "links": [
+       "https://ngccoin.com/price-guide/world/viet-nam-state-of-south-viet-nam-20-su-km-2-1953-cuid-1078927-duid-1602770",
+       "https://coinvarieties.com/index.php/South_Vietnam_1953(a"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   },
@@ -8037,57 +7992,6 @@
    ]
   },
   {
-   "id": "HW-gemini-arbitrate-20261030-1",
-   "agent": "gemini",
-   "kind": "arbitrate",
-   "issued": "2026-10-30T06:08:06Z",
-   "lease_until": "2026-11-04T06:08:06Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "arb:D0134",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": "design.text"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "arb:D0134",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": "design.text",
-     "coins": [
-      "C230"
-     ],
-     "label": "D0134 JM.KM.190 design.text",
-     "authors": [
-      "grok",
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:grok-bot",
-       "source": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/types/JM.json key JM.KM.191 catalogs[] KM 190 + https://en.numista.com/catalogue/pieces14370.html; type key carries stale catalog number; record copied verbatim from JM.KM.191 under corrected key. Claude: retire stale key JM.KM.191 after specimens repoint (type ids pipeline-written; FIELDS.md) [phase 2; confidence high]",
-       "ts": "2026-10-28T03:02:25Z",
-       "value": "arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · 2015"
-      },
-      "claim": {
-       "value": "arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · date",
-       "by": "model:muse-spark",
-       "source": "https://en.numista.com/catalogue/pieces14370.html - Numista N#14370 obverse lettering: 'JAMAICA / OUT OF MANY. ONE PEOPLE / TEN DOLLARS 2008'. The year in a type-level design text is the varying date (the type runs 2008-2025); the record had copied the specimen's own year '2015' into the text - corrected to 'date'. All other elements match the entry's arms description.",
-       "ts": "2026-10-30T02:55:30Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
    "id": "HW-gemini-plain-story-20261030-1",
    "agent": "gemini",
    "kind": "plain-story",
@@ -8245,6 +8149,568 @@
      "inputs": [
       "C299_rev.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261030-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-10-30T06:49:32Z",
+   "lease_until": "2026-11-04T06:49:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:CH.KM.26c",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.21a",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.24a.1",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.27",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:CH.KM.26c",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CH.KM.26c",
+     "field": null,
+     "coins": [
+      "C075",
+      "C081"
+     ],
+     "label": "CH 5 rappen (CH.KM.26c)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 2,
+        "year": 1983,
+        "mint_marks": [],
+        "coins": [
+         "C081"
+        ],
+        "mintage": 92746000,
+        "mintage_label": "imported",
+        "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 1982,
+        "mint_marks": [],
+        "coins": [
+         "C075"
+        ],
+        "mintage": 75340000,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "26c"
+       },
+       {
+        "system": "Schön",
+        "number": "24c"
+       },
+       {
+        "system": "Numista",
+        "number": "171"
+       }
+      ],
+      "weight_g": 1.8,
+      "diameter_mm": 17.15,
+      "composition": "aluminum-bronze (Cu 92 / Al 6 / Ni 2)",
+      "ask": [
+       "issues.2.mintage: 1983",
+       "issues.3.mintage: 1982"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1983,
+       "mint": [],
+       "qualifier": null
+      },
+      "issues.3.mintage": {
+       "year": 1982,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:CH.KM.21a",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CH.KM.21a",
+     "field": null,
+     "coins": [
+      "C003",
+      "C014",
+      "C067",
+      "C115",
+      "C116"
+     ],
+     "label": "CH 2 francs (CH.KM.21a)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1968,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C003",
+         "C115"
+        ],
+        "mintage": 31588000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1981,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C116"
+        ],
+        "mintage": 13852000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 1974,
+        "mint_marks": [],
+        "coins": [
+         "C014"
+        ],
+        "mintage": 15007000,
+        "mintage_label": "reference",
+        "mint_read": true
+       },
+       {
+        "N": 4,
+        "year": 1981,
+        "mint_marks": [],
+        "coins": [
+         "C067"
+        ],
+        "mintage": 13852000,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "21a.1"
+       },
+       {
+        "system": "Numista",
+        "number": "189"
+       }
+      ],
+      "weight_g": 8.8,
+      "diameter_mm": 27.4,
+      "composition": "CuNi 75/25",
+      "ask": [
+       "issues.4.mintage: 1981"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.4.mintage": {
+       "year": 1981,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:CH.KM.24a.1",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": null,
+     "coins": [
+      "C001",
+      "C093"
+     ],
+     "label": "CH 1 franc (CH.KM.24a.1)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1969,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C001"
+        ],
+        "mintage": 37598000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1970,
+        "mint_marks": [],
+        "coins": [
+         "C093"
+        ],
+        "mintage": 24240000,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "24a.1"
+       },
+       {
+        "system": "Numista",
+        "number": "185"
+       }
+      ],
+      "weight_g": 4.4,
+      "diameter_mm": 23.2,
+      "composition": "CuNi 75/25",
+      "ask": [
+       "issues.2.mintage: 1970"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1970,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:CH.KM.27",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": null,
+     "coins": [
+      "C082",
+      "C083",
+      "C242"
+     ],
+     "label": "CH 10 rappen (CH.KM.27)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1883,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C242"
+        ],
+        "mintage": 2000000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1979,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C082"
+        ],
+        "mintage": 18000000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 1981,
+        "mint_marks": [],
+        "coins": [
+         "C083"
+        ],
+        "mintage": 30140000,
+        "mintage_label": "imported",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "27"
+       },
+       {
+        "system": "Schön",
+        "number": "25"
+       },
+       {
+        "system": "Y",
+        "number": "24"
+       },
+       {
+        "system": "Numista",
+        "number": "173"
+       }
+      ],
+      "weight_g": 3.0,
+      "diameter_mm": 19.15,
+      "composition": "CuNi 75/25",
+      "ask": [
+       "issues.3.mintage: 1981"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.3.mintage": {
+       "year": 1981,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-arbitrate-20261030-2",
+   "agent": "gemini",
+   "kind": "arbitrate",
+   "issued": "2026-10-30T06:56:08Z",
+   "lease_until": "2026-11-04T06:56:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0137",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "issue.mint_text"
+    },
+    {
+     "item": "arb:D0138",
+     "entity": "specimen",
+     "id": "C082",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0139",
+     "entity": "specimen",
+     "id": "C082",
+     "field": "issue.mint_text"
+    },
+    {
+     "item": "arb:D0140",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0141",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "issue.mint_text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0137",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C015",
+     "field": "issue.mint_text",
+     "coins": [
+      "C015"
+     ],
+     "label": "D0137 C015 issue.mint_text",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "B · Bern (typical)"
+      },
+      "claim": {
+       "value": "Bern (no mint mark 1970-1985)",
+       "by": "model:claude",
+       "source": "Swiss circulation coins dated 1970-1985 carry no B (Bern left it off; https://coinvarieties.com/index.php/Switzerland_1973_10_rappen, https://coinvarieties.com/index.php/Switzerland_1985_2_francs); same rule as D0129-D0133 (settled 2026-10-30 for Muse) and D0108; 1/2 franc 1971; the ledger's B was a default",
+       "ts": "2026-10-30T07:20:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0138",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C082",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C082"
+     ],
+     "label": "D0138 C082 issue.mint_marks",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "B"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:claude",
+       "source": "Swiss circulation coins dated 1970-1985 carry no B (Bern left it off; https://coinvarieties.com/index.php/Switzerland_1973_10_rappen, https://coinvarieties.com/index.php/Switzerland_1985_2_francs); same rule as D0129-D0133 (settled 2026-10-30 for Muse) and D0108; 10 rappen 1979; the ledger's B was a default",
+       "ts": "2026-10-30T07:20:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0139",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C082",
+     "field": "issue.mint_text",
+     "coins": [
+      "C082"
+     ],
+     "label": "D0139 C082 issue.mint_text",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "B · Bern (typical)"
+      },
+      "claim": {
+       "value": "Bern (no mint mark 1970-1985)",
+       "by": "model:claude",
+       "source": "Swiss circulation coins dated 1970-1985 carry no B (Bern left it off; https://coinvarieties.com/index.php/Switzerland_1973_10_rappen, https://coinvarieties.com/index.php/Switzerland_1985_2_francs); same rule as D0129-D0133 (settled 2026-10-30 for Muse) and D0108; 10 rappen 1979; the ledger's B was a default",
+       "ts": "2026-10-30T07:20:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0140",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C116"
+     ],
+     "label": "D0140 C116 issue.mint_marks",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "B"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:claude",
+       "source": "Swiss circulation coins dated 1970-1985 carry no B (Bern left it off; https://coinvarieties.com/index.php/Switzerland_1973_10_rappen, https://coinvarieties.com/index.php/Switzerland_1985_2_francs); same rule as D0129-D0133 (settled 2026-10-30 for Muse) and D0108; 2 francs 1981; the ledger's B was a default; Gemini's Numista row for this issue reads '1981 Photo 13 852 000', no letter (collection/prices/numista_values.json)",
+       "ts": "2026-10-30T07:20:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0141",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C116",
+     "field": "issue.mint_text",
+     "coins": [
+      "C116"
+     ],
+     "label": "D0141 C116 issue.mint_text",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "B · Bern (under wreath ribbon)"
+      },
+      "claim": {
+       "value": "Bern (no mint mark 1970-1985)",
+       "by": "model:claude",
+       "source": "Swiss circulation coins dated 1970-1985 carry no B (Bern left it off; https://coinvarieties.com/index.php/Switzerland_1973_10_rappen, https://coinvarieties.com/index.php/Switzerland_1985_2_francs); same rule as D0129-D0133 (settled 2026-10-30 for Muse) and D0108; 2 francs 1981; the ledger's B was a default; Gemini's Numista row for this issue reads '1981 Photo 13 852 000', no letter (collection/prices/numista_values.json)",
+       "ts": "2026-10-30T07:20:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

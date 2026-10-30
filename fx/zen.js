@@ -1,258 +1,210 @@
-/* fx/zen.js: Zen (zen), theme #52 v2, on the TitanFXK kit (Gemini, 2026-10-24).
-   Bespoke Kyoto karesansui dry landscape courtyard with 3D analytical raked Shirakawa gravel ridges,
-   moss-rimmed Kurama basalt islands, swaying bamboo moon-shadows, and a hand-chiselled tsukubai stone basin. */
+/* fx/zen.js: Zen Garden (zen) on the GPU kit, through the stage library (fx/stage.js). Claude, 2026-10-30 (replaces the converted
+   first-engine world; owner: "why wouldnt it have interactive sand or a legit intro").
+   A karesansui at the end of a late-autumn afternoon, seen from the wooden veranda: white gravel raked in straight lines that bend into
+   rings around three rock groups with moss at their feet, a stone lantern, a clay wall with a tiled coping at the back and a maple
+   leaning over it, dropping red leaves. Low warm sun from the left; the rocks throw long shadows across the grooves.
+   The sand is real and it remembers: its grooves live in a height map on the GPU (512 x 512 over the garden). A tap drops a pebble and
+   rakes a ring around where it fell; in the room you rake it yourself: drag a finger and five tines draw a fresh line behind it,
+   wherever you take them. The room is its own place: you kneel at the edge of the gravel, close to it, the rake in your hand.
+   Moment "wind": the maple lets go of a gust of leaves. Opening: the camera comes down over the wall while a fresh line rakes itself
+   across the garden and rings the near rock. Quality: march steps (rocks, lantern, wall, veranda), the shadows, the leaf count and the
+   render scale follow the tier (fx/stage.js). */
 (function () {
   "use strict";
-  var K = window.TitanFXK; if (!K) return;
-  var look = K.look || function (id, def) { return def; };   // an older cached kit has no world contract: the backdrop as before
-  function tier() {
-    try { if (window.TitanQuality && TitanQuality.tier) { var q = String(TitanQuality.tier()).toLowerCase(); if (q === "ultra") q = "max"; if (/^(low|medium|high|max)$/.test(q)) return q; } } catch (e) {}
-    try { var v = (localStorage.getItem("tr_quality") || "").toLowerCase(); if (v === "ultra") v = "max"; if (/^(low|medium|high|max)$/.test(v)) return v; if (localStorage.getItem("tr_lite_v1") === "1") return "low"; } catch (e) {}
-    return "high";
-  }
-  var SEG = 12;
-  var FRAG = function (lite) { return "#version 300 es\nprecision highp float; out vec4 o;\n" + K.NOISE + [
-    "#define LITE " + (lite ? 1 : 0),
-    "uniform vec2 uRes; uniform float uT, uPh, uPort; uniform vec2 uPtr; uniform vec3 uTap; uniform float uNoShot;",
-    "uniform sampler2D uCard, uShot; uniform vec4 uView; uniform float uMoss, uGravel, uSway;",
-    "float h1(float n){ return fract(sin(n*127.1)*43758.5453); }",
-    "void main(){",
-    "  vec2 p = (gl_FragCoord.xy - 0.5*uRes)/uRes.y;",
-    "  float A = uRes.x/uRes.y;",
-    "  p.x -= uView.x; p.y -= uView.y; float zoom = exp(uView.z); p /= zoom;",
-    "  float S = min(1.0, A * 0.96);",
-    "  vec2 par = (uPtr - 0.5)*vec2(0.03, 0.03)*S;",
-    "  vec2 bCenter = vec2(0.0, uPort>0.5 ? -0.01 : -0.02) - par;",
-    "  vec2 bp = (p - bCenter) / S;",
-    "  float r = length(bp);",
-    "  float a = atan(bp.y, bp.x);",
-    "  vec2 rDir = bp / (r + 1e-5);",
-    "  vec2 tDir = vec2(-rDir.y, rDir.x);",
-    "  float bRad = 0.226;",
-    "  vec2 lXY = vec2(0.32*cos(uT*0.18), 0.28*sin(uT*0.15)) + (uPtr - 0.5)*vec2(0.45, 0.45);",
-    "  vec3 L = normalize(vec3(lXY - bp, 0.46));",
-    "  vec3 V = vec3(0.0, 0.0, 1.0);",
-    "  vec3 H = normalize(L + V);",
-    "  float tapAge = uTap.z;",
-    "  float shock = 0.0;",
-    "  if(tapAge >= 0.0 && tapAge < 3.4){",
-    "    float td = length(p - uTap.xy);",
-    "    shock = cos(td*42.0 - tapAge*12.0) * exp(-tapAge*1.1) * exp(-td*4.2);",
-    "  }",
-    "  vec2 st2 = bp - vec2(0.34, 0.26);",
-    "  float r2 = length(st2);",
-    "  float ringWeight1 = exp(-max(0.0, r - bRad)*5.5);",
-    "  float ringWeight2 = exp(-max(0.0, r2 - 0.06)*9.0);",
-    "  float grooveField = mix(bp.y + 0.08*sin(bp.x*6.0), r, ringWeight1) - 0.05*ringWeight2;",
-    "  float groovePhase = grooveField * 135.0;",
-    "  float ridge = sin(groovePhase);",
-    "  float ridgeSlope = cos(groovePhase);",
-    "  float gravelSpeckle = fbm(bp*68.0) - 0.5;",
-    "  vec2 gGrad = mix(vec2(0.0, 1.0), rDir, ringWeight1) * ridgeSlope * 0.72 + vec2(gravelSpeckle, -gravelSpeckle)*0.32;",
-    "  vec3 gN = normalize(vec3(-gGrad, 1.0));",
-    "  float gDiff = max(0.0, dot(gN, L));",
-    "  float gSpec = pow(max(0.0, dot(gN, H)), 32.0);",
-    "  vec3 shirakawa = vec3(0.11, 0.125, 0.115)*(0.45 + 0.75*gDiff + 0.12*ridge*uGravel) + vec3(0.76, 0.86, 0.72)*gSpec*0.28;",
-    "  float sway = 0.018*sin(uT*0.75 + bp.y*2.5)*uSway;",
-    "  float culm1 = smoothstep(0.014, 0.003, abs((bp.x - 0.36) + (bp.y - 0.10)*0.55 + 0.08*bp.y*bp.y + sway)) * step(-0.15, bp.y);",
-    "  float culm2 = smoothstep(0.011, 0.002, abs((bp.x + 0.38) - (bp.y - 0.18)*0.65 + sway*0.8)) * step(0.05, bp.y);",
-    "  vec2 lf1 = (bp - vec2(0.24 - sway, 0.32)) * mat2(0.86, -0.50, 0.50, 0.86);",
-    "  float blade1 = smoothstep(0.022*(1.0 - clamp(abs(lf1.x)*7.0, 0.0, 1.0)), 0.0, abs(lf1.y)) * step(abs(lf1.x), 0.14);",
-    "  vec2 lf2 = (bp - vec2(0.30 - sway, 0.22)) * mat2(0.64, 0.76, -0.76, 0.64);",
-    "  float blade2 = smoothstep(0.020*(1.0 - clamp(abs(lf2.x)*8.0, 0.0, 1.0)), 0.0, abs(lf2.y)) * step(abs(lf2.x), 0.12);",
-    "  float shadowMask = clamp((culm1 + culm2 + blade1 + blade2)*0.55, 0.0, 0.52) * smoothstep(bRad, bRad+0.06, r);",
-    "  vec3 col = shirakawa * (1.0 - shadowMask*0.62);",
-    "  if(r2 < 0.085){",
-    "    float rockM = smoothstep(0.085, 0.055, r2 + 0.012*fbm(st2*24.0));",
-    "    vec3 rkN = normalize(vec3(-st2/0.08, 1.0));",
-    "    float rkDiff = max(0.0, dot(rkN, L));",
-    "    vec3 rkCol = mix(vec3(0.12, 0.22, 0.11), vec3(0.08, 0.09, 0.08), smoothstep(0.06, 0.02, r2))*(0.5 + 0.7*rkDiff);",
-    "    col = mix(col, rkCol, rockM);",
-    "  }",
-    "  float mossOuter = bRad + 0.052 + 0.014*fbm(bp*14.0);",
-    "  if(r < mossOuter){",
-    "    float mossRing = smoothstep(mossOuter, mossOuter - 0.014, r) * smoothstep(bRad, bRad + 0.018, r);",
-    "    float mossTurf = fbm(bp*36.0);",
-    "    vec3 mN = normalize(vec3(-rDir*(r - (bRad+0.025))*24.0 + (mossTurf - 0.5)*0.45, 1.0));",
-    "    float mDiff = max(0.0, dot(mN, L));",
-    "    vec3 mossCol = mix(vec3(0.10, 0.19, 0.09), vec3(0.28, 0.44, 0.22), mossTurf)*(0.48 + 0.72*mDiff);",
-    "    col = mix(col, mossCol * uMoss, mossRing);",
-    "  }",
-    "  if(r < bRad + 0.018){",
-    "    float bezel = smoothstep(bRad+0.018, bRad+0.002, r) * smoothstep(bRad-0.006, bRad+0.002, r);",
-    "    float chisel = fbm3(bp*44.0) - 0.5;",
-    "    vec3 bN = normalize(vec3(-rDir*(r - (bRad+0.005))*45.0 + vec2(chisel, -chisel)*0.3, 1.0));",
-    "    float bDiff = max(0.0, dot(bN, L));",
-    "    float bSpec = pow(max(0.0, dot(bN, H)), 28.0);",
-    "    vec3 kuramaStone = vec3(0.26, 0.30, 0.25)*(0.45 + 0.75*bDiff) + vec3(0.78, 0.90, 0.72)*bSpec*0.42;",
-    "    col = mix(col, kuramaStone, bezel);",
-    "    if(r < bRad){",
-    "      vec2 cuv = clamp(bp / (bRad*2.0) + 0.5 + rDir*shock*0.010, 0.0, 1.0);",
-    "      vec3 shotC = textureLod(uShot, vec2(cuv.x, 1.0 - cuv.y), 0.0).rgb;",
-    "      vec3 cardC = textureLod(uCard, vec2(cuv.x, 1.0 - cuv.y), 0.0).rgb;",
-    "      float showCard = smoothstep(0.0, 0.45, uPh) * (1.0 - smoothstep(2.6, 3.2, uPh));",
-    "      if(uNoShot > 0.5) showCard = 1.0;",
-    "      vec3 pic = mix(shotC, cardC, showCard);",
-    "      pic = pic / (1.0 + 0.36*pic);",
-    "      float waterSheen = smoothstep(bRad*0.55, bRad, r) * exp(-abs(bp.x*0.7 + bp.y*0.7 - 0.04)*16.0)*0.07;",
-    "      col = mix(col, pic*0.68 + vec3(0.76, 0.90, 0.72)*waterSheen, smoothstep(bRad, bRad-0.005, r));",
-    "    }",
-    "  }",
-    "  float outerMask = smoothstep(bRad - 0.01, bRad + 0.03, r);",
-    "  col += vec3(0.72, 0.88, 0.64) * max(0.0, shock) * (0.15 + 0.85*outerMask) * 0.28;",
-    "  col *= 1.0 - 0.32*smoothstep(0.45, 1.05, length(p*vec2(1.0/A*1.15, 1.0)));",
-    "  col = min(col, vec3(0.58));",
-    "  o = vec4(col, 1.0);",
-    "}"
-  ].join("\n"); };
+  var K = window.TitanFXK; if (!K || !K.stage) return;
+  var GX = 6.5, GZ0 = -.2, GZ1 = 12;                   // the gravel: x in [-GX, GX], z in [GZ0, GZ1] (the height map covers it)
+  var ROCKS = [[-1.9, 6.6, 1.05], [2.3, 8.4, .8], [.55, 3.9, .5]];   // x, z, size
+  var G = [
+    "uniform sampler2D uH; uniform vec4 uStroke;",
+    "const vec3 SUN = vec3(1.,.78,.55), SKY = vec3(.55,.62,.78);",
+    "const float GX = " + GX.toFixed(2) + ", GZ0 = " + GZ0.toFixed(2) + ", GZ1 = " + GZ1.toFixed(2) + ";",
+    "const vec3 R0 = vec3(" + ROCKS[0][0] + ",0.," + ROCKS[0][1] + "), R1 = vec3(" + ROCKS[1][0] + ",0.," + ROCKS[1][1] + "), R2 = vec3(" + ROCKS[2][0] + ",0.," + ROCKS[2][1] + ");",
+    "vec3 LDIR(){ return normalize(vec3(.75,-.42,-.5)); }",                     // the way the sunlight travels
+    "float sdBox(vec3 p, vec3 b){ vec3 q = abs(p)-b; return length(max(q,0.))+min(max(q.x,max(q.y,q.z)),0.); }",
+    "float sdEll(vec3 p, vec3 r){ float k0 = length(p/r), k1 = max(length(p/(r*r)), 1e-5); return k0*(k0-1.)/k1; }",
+    "float sdCylY(vec3 p, float r, float h){ vec2 d = abs(vec2(length(p.xz), p.y)) - vec2(r,h); return min(max(d.x,d.y),0.) + length(max(d,0.)); }",
+    "float smin(float a, float b, float k){ float h = clamp(.5+.5*(b-a)/k, 0., 1.); return mix(b, a, h) - k*h*(1.-h); }",
+    "void U(inout vec2 r, float d, float id){ if (d < r.x) r = vec2(d, id); }",
+    "float rock(vec3 p, vec3 c, float s, float seed){ vec3 q = (p - c)/s;",
+    "  q.xz = mat2(cos(seed),-sin(seed),sin(seed),cos(seed))*q.xz;",   // a standing stone and its low companion, split along a few faces
+    "  float d = sdEll(q - vec3(0.,.62,0.), vec3(.62,1.,.52)); d = smin(d, sdEll(q - vec3(.62,.22,.28), vec3(.55,.36,.45)), .18);",
+    "  d = max(d, dot(q, normalize(vec3(.9,.35,.2))) - .5); d = max(d, dot(q, normalize(vec3(-.6,.5,.62))) - .52); d = max(d, dot(q - vec3(0.,1.2,0.), normalize(vec3(.3,1.,-.4))) );",
+    "  d += .07*vn(q.xy*3.1 + seed) + (TIER > 0 ? .04*vn(q.zy*7.3 + seed*2.) + .02*vn(q.xz*17.) : .02); return max(d*s*.75, -p.y - .2); }",   // Low: one layer of weathering
+    // ids: 0 gravel, 1 rock, 2 moss, 3 lantern stone, 4 clay wall, 5 tiles, 6 veranda wood, 7 maple
+    "vec2 mapM(vec3 p){",
+    "  vec2 r = vec2(1e3, 0.);",
+    "  if (p.y < 2.2 && p.z > 1.) { float b0 = length(p - R0 - vec3(0.,.63,0.)) - 1.8, b1 = length(p - R1 - vec3(0.,.48,0.)) - 1.4, b2 = length(p - R2 - vec3(0.,.3,0.)) - .9;",
+"    vec4 k = b0 < b1 ? (b0 < b2 ? vec4(R0.xz, 1.05, .7) : vec4(R2.xz, .5, 4.2)) : (b1 < b2 ? vec4(R1.xz, .8, 2.1) : vec4(R2.xz, .5, 4.2));",   // only the nearest stone in full; the other two by their bounding balls
+"    float far = b0 < b1 ? (b0 < b2 ? min(b1, b2) : min(b0, b1)) : (b1 < b2 ? min(b0, b2) : min(b0, b1));",
+"    U(r, min(rock(p, vec3(k.x, 0., k.y), k.z, k.w), max(far, .02)), 1.);",
+    "    float ms = min(min(length(p.xz - R0.xz) - 1.25, length(p.xz - R1.xz) - .95), length(p.xz - R2.xz) - .62) + .35*vn(p.xz*1.7) + (TIER > 0 ? .12*vn(p.xz*5.) : .06);",   // moss at the rock feet, ragged
+    "    U(r, max(p.y - .05 - .06*vn(p.xz*7.) + .08*smoothstep(-.3,.0,ms), ms), 2.); }",
+    "  vec3 l = p - vec3(-4.6,0.,9.6);",                                                 // the stone lantern
+    "  if (length(l) < 3.) { float d = sdCylY(l - vec3(0.,.35,0.), .2, .35); d = min(d, sdBox(l - vec3(0.,.78,0.), vec3(.32,.08,.32)) - .02);",
+    "    d = min(d, sdBox(l - vec3(0.,1.02,0.), vec3(.22,.16,.22))); d = min(d, sdBox(l - vec3(0.,1.24,0.), vec3(.42,.05,.42)) - .03);",
+    "    d = min(d, sdEll(l - vec3(0.,1.4,0.), vec3(.16,.14,.16))); U(r, d, 3.); }",
+    "  U(r, sdBox(p - vec3(0.,.8,GZ1 + .6), vec3(12.,.8,.25)), 4.);",                    // the clay wall
+    "  U(r, sdBox(p - vec3(0.,1.68,GZ1 + .6), vec3(12.,.08 + .05*(1.-abs(fract(p.x*3.)-.5)*2.),.42)) - .02, 5.);",   // its tiled coping
+    "  U(r, sdBox(p - vec3(0.,.42,-1.15), vec3(12.,.04,.95)), 6.);",                     // the veranda deck and its edge beam
+    "  U(r, sdBox(p - vec3(0.,.22,-.22), vec3(12.,.2,.07)), 6.);",
+    "  vec3 m = p - vec3(3.3,0.,13.3);",                                                   // the maple behind the wall, leaning in
+    "  if (length(m - vec3(-1.,3.,0.)) < 5.) { float tr = sdCylY(vec3(m.x + .35*m.y - .15*sin(m.y*1.3), m.y - 1.8, m.z), .16 + .07*smoothstep(3.,0.,m.y), 1.8);",
+    "    tr = min(tr, sdCylY(vec3((m.x + 1.2) + .9*(m.y - 3.), m.y - 3.3, m.z + .2), .07, .6));",
+    "    float can = sdEll(m - vec3(-1.4,4.,-.2), vec3(1.3,.55,1.)); can = min(can, sdEll(m - vec3(-.1,4.6,.3), vec3(1.1,.5,.9)));",   // the crown: tiers of leaf clusters, ragged
+    "    can = min(can, sdEll(m - vec3(-2.6,3.4,-.5), vec3(.95,.42,.8))); can = min(can, sdEll(m - vec3(.6,3.7,-.4), vec3(.8,.4,.7))); can = min(can, sdEll(m - vec3(-1.9,4.9,.2), vec3(.7,.35,.6)));",
+    "    if (can < .9) { can += (TIER > 0 ? .5*fbm3(m*2.1) : .3*vn(m*2.1)) - .22; if (TIER > 0) can = max(can, -(fbm3(m*3.7 + 2.) - .6)*.6); }",   // the leaf noise only near the crown; the holes from Medium up
+    "    U(r, min(tr, can*.5), 7.); }",
+    "  return r; }",
+    "float map(vec3 p){ return mapM(p).x; }",
+    K.stage.RAY,
+    "vec2 guv(vec2 xz){ return vec2((xz.x + GX)/(2.*GX), (xz.y - GZ0)/(GZ1 - GZ0)); }",
+    "float H(vec2 xz){ vec2 u = guv(xz); if (u.x < 0. || u.x > 1. || u.y < 0. || u.y > 1.) return .5; return texture(uH, u).r; }",
+    "float sunShadow(vec3 p){ if (TIER < 1) return 1.; vec3 L = -LDIR(); float r = 1., t = .03;",   // only the solid things throw shadows on the sand
+    "  for (int i=0;i<24;i++){ if (i >= 10 + 7*int(uTier)) break; float h = map(p + L*t); r = min(r, 9.*h/t); t += clamp(h, .04, .6); if (r < .02 || t > 14.) break; } return clamp(r, 0., 1.); }",
+    "vec3 gravel(vec3 p, vec3 rd){",
+    "  float e = 12./512., h = H(p.xz), hx = H(p.xz + vec2(e,0.)) - H(p.xz - vec2(e,0.)), hz = H(p.xz + vec2(0.,e)) - H(p.xz - vec2(0.,e));",
+    "  float amp = .024*uLook.y; vec3 n = normalize(vec3(-hx*amp/(2.*e), 1., -hz*amp/(2.*e)));",
+    "  vec2 g = p.xz*55.; float grain = h21(floor(g)), sp = step(.985, h21(floor(g*1.7) + 3.1));",
+    "  vec3 a = vec3(.78,.76,.72)*(.86 + .14*grain)*(.9 + .1*vn(p.xz*1.3));",
+    "  vec3 L = -LDIR(); float sh = sunShadow(p + vec3(0.,.01,0.)), dl = max(dot(n,L),0.), cav = mix(.72, 1., smoothstep(.15,.85,h));",
+    "  vec3 c = a*(SUN*dl*sh*1.55*uLook.x + SKY*.22*cav + vec3(.05,.04,.035));",
+    "  c += SUN*sp*pow(max(dot(reflect(rd, n), L), 0.), 30.)*sh*.6*uLook.x;",           // a few grains catch the sun
+    "  return c; }",
+    "vec3 albedo(float id, vec3 p){",
+    "  if (id < 1.5) { float st = vn(p.xy*4. + p.z) + .4*vn(vec2(p.y*22., p.x*2.)); return vec3(.2,.19,.18)*(.5 + .55*st) + vec3(.04,.06,.02)*smoothstep(.55,.85,vn(p.xz*3. + p.y))*smoothstep(1.,.1,p.y); }",   // weathered stone, banded, lichen low down
+    "  if (id < 2.5) return vec3(.12,.2,.05)*(.6 + .6*vn(p.xz*14.));",
+    "  if (id < 3.5) return vec3(.32,.31,.28)*(.65 + .5*vn(p.xy*8. + p.z*3.));",
+    "  if (id < 4.5) return vec3(.62,.48,.34)*(.75 + .3*vn(vec2(p.x*.8, p.y*6.)));",
+    "  if (id < 5.5) return vec3(.12,.12,.13);",
+    "  if (id < 6.5) { float gr = vn(vec2(p.x*.6, p.z*30.)); return vec3(.32,.2,.11)*(.65 + .5*gr); }",
+    "  return mix(vec3(.12,.08,.05), vec3(.62,.12,.05), smoothstep(1.6,2.4,p.y))*(.7 + .5*vn(p.xy*6.)); }",
+    "vec3 shade(vec3 p, vec3 n, vec3 rd, float id){",
+    "  vec3 a = albedo(id, p), L = -LDIR(); float oc = TIER > 0 ? ao(p,n) : 1.;",
+    "  float sh = (TIER > 1 && id < 3.5) ? shadow(p + n*.02, L, 10.) : 1.;",
+    "  vec3 c = a*(SUN*max(dot(n,L),0.)*sh*1.5*uLook.x + SKY*.42*(.55 + .45*n.y)*oc + vec3(.07,.06,.05) + vec3(.16,.14,.12)*max(-n.z, 0.)*.6);",   // the gravel throws light back onto the stones
+    "  if (id > 6.5) c += vec3(.5,.1,.03)*pow(max(dot(-rd, L), 0.), 3.)*.5*uLook.x;",    // sun through the maple
+    "  return c; }",
+    "vec3 sky(vec3 rd){ vec3 L = -LDIR(); float g = max(dot(rd, L), 0.);",
+    "  vec3 c = mix(vec3(.96,.7,.48), vec3(.36,.46,.66), smoothstep(-.02,.55,rd.y)) + SUN*(pow(g, 40.)*1.5 + pow(g, 4.)*.2)*uLook.x;",
+    "  float ridge = .05 + .05*vn(vec2(atan(rd.x, rd.z)*6., 1.)) + .03*vn(vec2(atan(rd.x, rd.z)*23., 2.));",   // a wooded hill beyond the wall
+    "  c = mix(c, mix(vec3(.16,.2,.17), vec3(.5,.42,.36), .35), smoothstep(ridge + .004, ridge - .004, rd.y)*smoothstep(-.1, .02, rd.y));",
+    "  c *= 1. - .25*smoothstep(.0,.6,rd.y)*vn(rd.xz*4. + uT*.005); return c; }",
+    "vec2 toScreen(vec3 x){ vec3 d = x-uCO; float z = dot(d,uCF); return vec2(dot(d,uCR)/(z*uFov)/ASP(), dot(d,uCU)/(z*uFov)) + .5; }",
+    "vec4 leaves(vec2 uv, vec3 ro, float tHit){ vec4 s = vec4(0.); vec2 a = vec2(ASP(),1.); int N = int(float(6 + 6*int(uTier) + int(momentK()*16.))*uLook.z);",   // maple leaves drifting down
+    "  for (int i=0;i<40;i++){ if (i >= N) break; vec3 h = vec3(h22(vec2(float(i), 4.4)), h21(vec2(float(i), 9.3))); float life = 9. + 5.*h.z, age = mod(uT*.5*(1. + momentK()) + h.x*life*3.1, life);",
+    "    vec3 x = vec3(2.6 + (h.x - .5)*5. - age*.35, 4.2 - age*.42, 13. - age*(.55 + .4*h.y)) + vec3(sin(age*1.7 + h.y*9.)*.35, 0., cos(age*1.3)*.2);",
+    "    if (x.y < 0.) continue; vec3 dx = x - ro; float z = dot(dx, uCF); if (z < .3 || length(dx) > tHit) continue;",
+    "    vec2 q = (uv - toScreen(x))*a; float an = age*3. + h.x*6.; q = mat2(cos(an),-sin(an),sin(an),cos(an))*q; float rr = .028/(z*uFov);",
+    "    float leaf = smoothstep(rr, rr*.6, length(q*vec2(1., 1.9 + .8*sin(age*4. + h.y*7.))));",
+    "    vec3 lc = mix(vec3(.62,.1,.03), vec3(.85,.35,.06), h.y)*(.6 + .5*max(dot(-LDIR(), normalize(vec3(sin(an),.6,cos(an)))),0.))*uLook.x;",
+    "    s.rgb = mix(s.rgb, lc, leaf); s.a = max(s.a, leaf); }",
+    "  return s; }",
+    "void bsp(vec3 ro, vec3 rd, vec3 c, float r, inout float t0, inout float t1){ vec3 oc = ro - c; float b = dot(oc, rd), h = b*b - dot(oc,oc) + r*r;",
+"  if (h > 0.) { h = sqrt(h); t0 = min(t0, max(-b - h, 0.)); t1 = max(t1, -b + h); } }",
+"vec3 render(vec2 uv){",
+    "  vec2 par = (uPtr-.5)*.05; vec3 ro = uCO + uCR*par.x + uCU*par.y*.6, rd = camRay(uv);",
+    "  float tg = rd.y < -.001 ? -ro.y/rd.y : 1e4; vec3 pg = ro + rd*tg;",
+    "  bool onG = tg < 1e3 && abs(pg.x) < GX && pg.z > GZ0 && pg.z < GZ1;",
+    "  float tm = onG ? tg : 60., t, t0 = 1e4, t1 = -1.; vec3 col;",
+"  if (onG) {",                                                                         // a ray that lands on the gravel only searches where a rock or the lantern stands
+"    bsp(ro, rd, vec3(R0.x,.63,R0.z), 1.8, t0, t1); bsp(ro, rd, vec3(R1.x,.48,R1.z), 1.45, t0, t1); bsp(ro, rd, vec3(R2.x,.3,R2.z), 1.1, t0, t1); bsp(ro, rd, vec3(-4.6,.8,9.6), 1.05, t0, t1);",
+"    float te = min(t1, tg); t = (t1 < 0. || t0 > tg) ? tm : t0 + march(ro + rd*t0, rd, te - t0); if (t > te) t = tm;",
+"  } else t = march(ro, rd, tm);",
+    "  if (t >= tm && onG) col = gravel(pg, rd), t = tg;",
+    "  else if (t < tm) { vec3 p = ro + rd*t, n = nrm(p); vec2 hm = mapM(p); if (TIER > 0) { p -= n*hm.x; n = nrm(p); } col = shade(p, n, rd, hm.y); }",
+    "  else { col = tg < 1e3 ? vec3(.18,.2,.12)*(.6 + .4*vn(pg.xz*.5)) : sky(rd); }",   // moss beyond the gravel, or the sky
+    "  col = mix(col, vec3(.62,.58,.56), 1. - exp(-t*.012));",
+    "  vec4 lv = leaves(uv, ro, t); col = mix(col, lv.rgb, lv.a);",
+    "  return col; }"
+  ].join("\n");
 
-  function borderMedallion(g, W, H) {
-    var cx = W / 2, cy = H / 2;
-    g.strokeStyle = "#b8d89a"; g.lineWidth = 3;
-    g.beginPath(); g.arc(cx, cy, 224, 0, Math.PI * 2); g.stroke();
-    g.strokeStyle = "rgba(192, 204, 192, 0.45)"; g.lineWidth = 1.5;
-    g.beginPath(); g.arc(cx, cy, 210, 0, Math.PI * 2); g.stroke();
+  /* ---------- the sand: a height map (R channel, 0 = groove bottom, 1 = ridge) ping-ponged by a small pass ---------- */
+  var SIM = [
+    "#version 300 es\nprecision highp float; out vec4 o; uniform sampler2D uPrev; uniform vec4 uA; uniform vec4 uB; uniform float uMode;",
+    "const float GX = " + GX.toFixed(2) + ", GZ0 = " + GZ0.toFixed(2) + ", GZ1 = " + GZ1.toFixed(2) + ";",
+    "const vec3 R0 = vec3(" + ROCKS[0].join(",") + "), R1 = vec3(" + ROCKS[1].join(",") + "), R2 = vec3(" + ROCKS[2].join(",") + ");",
+    "float tines(float off, float w){ float x = off/w; if (abs(x) > 1.) return -1.; return .5 + .5*cos(x*3.14159*5.); }",   // five tines across the rake
+    "float pattern(vec2 p){",                                                               // the garden as it was raked this morning
+    "  float h = .5 + .5*cos(p.y*3.14159*2./.16);",
+    "  vec3 R[3] = vec3[3](R0, R1, R2); float best = 1.;",
+    "  for (int i=0;i<3;i++){ float d = length(p - R[i].xy) - R[i].z*1.35; if (d < R[i].z*1.6) { float ring = .5 + .5*cos(d*3.14159*2./.16); float k = smoothstep(R[i].z*1.6, R[i].z*1.2, d); h = mix(h, ring, k); } }",
+    "  return h; }",
+    "void main(){ vec2 u = gl_FragCoord.xy/vec2(textureSize(uPrev, 0)); vec2 p = vec2(-GX + u.x*2.*GX, GZ0 + u.y*(GZ1 - GZ0));",
+    "  if (uMode < .5) { o = vec4(pattern(p), 0., 0., 1.); return; }",                      // 0: the morning pattern
+    "  float h = texture(uPrev, u).r;",
+    "  if (uMode < 1.5) {",                                                                 // 1: a rake stroke from uA.xy to uA.zw, half width uB.x
+    "    vec2 a = uA.xy, b = uA.zw, ba = b - a; float L = length(ba); vec2 dir = L > 1e-4 ? ba/L : vec2(1.,0.);",
+    "    float s = clamp(dot(p - a, dir), 0., L), off = dot(p - a, vec2(-dir.y, dir.x)), along = length(p - a - dir*s - vec2(-dir.y, dir.x)*off);",
+    "    float t = along < 1e-3 ? tines(off, uB.x) : -1.; if (t >= 0.) h = mix(h, t, smoothstep(uB.x, uB.x*.85, abs(off))*.95);",
+    "  } else {",                                                                          // 2: a pebble: rings around uA.xy, out to uB.x
+    "    float d = length(p - uA.xy); if (d < uB.x) { float ring = .5 + .5*cos(d*3.14159*2./.16); h = mix(h, ring, smoothstep(uB.x, uB.x*.8, d)*smoothstep(.05, .12, d)); }",
+    "  }",
+    "  o = vec4(h, 0., 0., 1.); }"
+  ].join("\n");
+  var sim = null, tex = [], fbo = [], cur = 0, RES = 512, queue = [], lastStroke = null;
+  function simInit(gl) {
+    sim = K.compile(K.FSQ, SIM); if (!sim) return;
+    var half = gl.getExtension("EXT_color_buffer_float") || gl.getExtension("EXT_color_buffer_half_float"), IF = half ? gl.RGBA16F : gl.RGBA8, TY = half ? gl.HALF_FLOAT : gl.UNSIGNED_BYTE;
+    for (var i = 0; i < 2; i++) {
+      var t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t); gl.texImage2D(gl.TEXTURE_2D, 0, IF, RES, RES, 0, gl.RGBA, TY, null);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      var f = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, f); gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0);
+      tex.push(t); fbo.push(f);
+    }
+    queue.push({ mode: 0 });
   }
-  function cardFor(e) {
-    var W = 512, H = 512, c = document.createElement("canvas"); c.width = W; c.height = H; var g = c.getContext("2d");
-    var gr = g.createRadialGradient(W/2, H/2, 20, W/2, H/2, W/2);
-    gr.addColorStop(0, "#151b15"); gr.addColorStop(1, "#090b09");
-    g.fillStyle = gr; g.fillRect(0, 0, W, H); borderMedallion(g, W, H);
-    g.fillStyle = "#eff4ee"; g.textAlign = "center"; g.textBaseline = "middle";
-    var serif = "\"Cormorant Garamond\", \"Iowan Old Style\", Georgia, serif";
-    if (!e) {
-      g.font = "italic 500 24px " + serif; g.fillText("raked shirakawa gravel & moss", W / 2, 178);
-      g.font = "600 56px " + serif; g.fillText("TITAN", W / 2, 242);
-      g.font = "600 36px " + serif; g.fillText("RELIQUARY", W / 2, 296);
-      g.font = "italic 22px " + serif; g.fillText("in the karesansui courtyard", W / 2, 352);
-      return c;
-    }
-    var parts = String(e.label || "").split(" · ");
-    g.fillStyle = "#c0ccc0"; g.font = "italic 23px " + serif; g.fillText("— resting on the garden stone —", W / 2, 162);
-    g.fillStyle = "#eff4ee"; var t = (parts[0] || "").toUpperCase(), fs = 46;
-    g.font = "600 " + fs + "px " + serif;
-    while (fs > 22 && g.measureText(t).width > 330) { fs -= 2; g.font = "600 " + fs + "px " + serif; }
-    g.fillText(t, W / 2, 226);
-    var sub = (parts[1] || "") + (parts[2] ? " · " + parts[2] : ""), sfs = 32;
-    g.fillStyle = "#dcf0c8"; g.font = "500 " + sfs + "px " + serif;
-    while (sfs > 18 && g.measureText(sub).width > 330) { sfs -= 2; g.font = "500 " + sfs + "px " + serif; }
-    g.fillText(sub, W / 2, 286);
-    g.fillStyle = "#c0ccc0"; g.font = "italic 22px " + serif; g.fillText("No. " + (e.scan || ""), W / 2, 346);
-    return c;
+  function pass(gl, q) {
+    var src = cur, dst = 1 - cur;
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fbo[dst]); gl.viewport(0, 0, RES, RES); gl.disable(gl.BLEND); gl.useProgram(sim.p);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex[src]); gl.uniform1i(sim.u.uPrev, 0);
+    gl.uniform1f(sim.u.uMode, q.mode); gl.uniform4f(sim.u.uA, q.a ? q.a[0] : 0, q.a ? q.a[1] : 0, q.b ? q.b[0] : 0, q.b ? q.b[1] : 0); gl.uniform4f(sim.u.uB, q.w || .3, 0, 0, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, 3); cur = dst;
   }
-  // shotFor draws ONLY the circular-clipped coin photograph inside the medallion bezel — never drawing text over the coin photo
-  function shotFor(img) {
-    var W = 512, H = 512, c = document.createElement("canvas"); c.width = W; c.height = H; var g = c.getContext("2d");
-    var gr = g.createRadialGradient(W * 0.5, H * 0.48, 16, W * 0.5, H * 0.5, W * 0.52);
-    gr.addColorStop(0, "#151b15"); gr.addColorStop(1, "#090b09");
-    g.fillStyle = gr; g.fillRect(0, 0, W, H);
-    if (img) {
-      var iw = img.naturalWidth || img.width || 512, ih = img.naturalHeight || img.height || 512;
-      var rad = 198, sc = Math.max((rad * 2) / iw, (rad * 2) / ih);
-      var dw = iw * sc, dh = ih * sc;
-      g.save();
-      g.beginPath(); g.arc(W / 2, H / 2, rad, 0, Math.PI * 2); g.closePath(); g.clip();
-      g.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
-      g.restore();
-      g.strokeStyle = "rgba(255,255,255,0.22)"; g.lineWidth = 2;
-      g.beginPath(); g.arc(W / 2, H / 2, rad, 0, Math.PI * 2); g.stroke();
-    }
-    borderMedallion(g, W, H);
-    return c;
+  /* where a screen point lands on the gravel (the camera is the stage's, kept in S.cam) */
+  function ground(S, x, y) {
+    var B = S.cam; if (!B) return null; var asp = S.c ? S.c.w / S.c.h : 1, fov = (S.camFov || 1.02), px = (x - .5) * asp, py = y - .5;
+    var d = [B.f[0] + (px * B.r[0] + py * B.u[0]) * fov, B.f[1] + (px * B.r[1] + py * B.u[1]) * fov, B.f[2] + (px * B.r[2] + py * B.u[2]) * fov];
+    if (d[1] > -.001) return null; var t = -B.pos[1] / d[1], gx = B.pos[0] + d[0] * t, gz = B.pos[2] + d[2] * t;
+    if (Math.abs(gx) > GX || gz < GZ0 || gz > GZ1) return null; return [gx, gz];
   }
-
-  K.mod("zen", function (gl, s, K) {
-    var T = tier(), pr = K.compile(K.FSQ, FRAG(T === "low")); if (!pr) return null;
-    function mkTex() {
-      var t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([8, 10, 12, 255]));
-      [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T].forEach(function (k) { gl.texParameteri(gl.TEXTURE_2D, k, gl.CLAMP_TO_EDGE); });
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-      return t;
-    }
-    var tCard = mkTex(), tShot = mkTex();
-    function up(t, c) {
-      gl.bindTexture(gl.TEXTURE_2D, t); gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-      gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
-      gl.generateMipmap(gl.TEXTURE_2D);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
-    }
-    var coins = [], queue = [], next = null, seg = null, shown = null, pinned = false, dead = false, late = false;
-    function prepare(e) { if (!e) return; var img = new Image(), nx = { e: e, img: img, ok: false }; img.onload = function () { nx.ok = true; }; img.src = e.thumb; next = nx; }
-    function pick(si) { if (queue.length) return queue.shift(); if (!coins.length) return null; var h = Math.abs(Math.sin(si * 78.233) * 43758.5453) % 1; return coins[Math.floor(h * coins.length)]; }
-    function show(nx) { up(tCard, cardFor(nx ? nx.e : null)); up(tShot, shotFor(nx ? nx.img : null)); shown = nx ? nx.e.scan : null; }
-    try {
-      fetch("data/index.json").then(function (r) { return r.json(); }).then(function (d) {
-        if (dead) return;
-        coins = (d.flips || []).filter(function (f) { return f.thumb; }).map(function (f) { return { scan: f.scan, thumb: f.thumb, label: f.label }; });
-        if (!next && seg != null) prepare(pick(seg + 1));
-      }).catch(function () {});
-    } catch (e) {}
-    function onCoin(ev) {
-      var id = ev.detail && ev.detail.id;
-      var e = coins.filter(function (x) { return x.scan === id; })[0];
-      if (!e) return;
-      pinned = true;
-      var img = new Image();
-      img.onload = function () { if (!dead) show({ e: e, img: img, ok: true }); };
-      img.src = e.thumb;
-    }
-    addEventListener("titan:coin", onCoin);
-    var seen = K.ptr.tap, tap = [9, 9, -99], ptr = [0.5, 0.5];
-    return {
-      name: "zen",
-      step: function (c) {
-        var P = c.ptr, v = c.view || {}, now = Date.now() / 1000, si = Math.floor(now / SEG), ph = now % SEG;
-        var room = v.mode === "room", sway = room ? 0.5 : P.x || 0.5, swayY = room ? 0.5 : P.y || 0.5;
-        ptr[0] += (sway - ptr[0]) * 0.08;
-        ptr[1] += (swayY - ptr[1]) * 0.08;
-        if (si !== seg) {
-          pinned = false;
-          if (seg == null) show(null);
-          else if (next && next.ok) { show(next); next = null; } else late = true;
-          seg = si;
-          if (!next && coins.length) prepare(pick(si + 1));
-        }
-        if (late && next && next.ok) { late = false; if (ph < 0.45) { show(next); next = null; prepare(pick(si + 1)); } }
-        if (P.tap !== seen) { seen = P.tap; var A = c.w / c.h; tap = [(P.tx - 0.5) * A, P.ty - 0.5, c.t]; }
-      },
-      draw: function (c) {
-        var A = c.w / c.h, v = c.view || {}, now = Date.now() / 1000;
-        K.bindTarget(); gl.disable(gl.BLEND); gl.useProgram(pr.p); var u = pr.u;
-        gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tCard); gl.uniform1i(u.uCard, 0);
-        gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tShot); gl.uniform1i(u.uShot, 1); gl.activeTexture(gl.TEXTURE0);
-        gl.uniform2f(u.uRes, c.w, c.h); gl.uniform1f(u.uT, c.t);
-        gl.uniform1f(u.uPh, pinned ? 6.0 : (now % SEG));
-        gl.uniform1f(u.uPort, A < 1 ? 1 : 0); gl.uniform2f(u.uPtr, ptr[0], ptr[1]);
-        gl.uniform3f(u.uTap, tap[0], tap[1], c.t - tap[2]); gl.uniform1f(u.uNoShot, shown ? 0 : 1);
-        gl.uniform4f(u.uView, v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0);
-        gl.uniform1f(u.uMoss, look("moss", 1)); gl.uniform1f(u.uGravel, look("gravel", 1)); gl.uniform1f(u.uSway, look("sway", 1));
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
-      },
-      debug: function () {
-        var v = K.view || {};
-        return { tier: T, coins: coins.length, shot: shown, nextReady: !!(next && next.ok),
-          cam: [v.yaw || 0, v.pitch || 0, v.move || 0, v.up || 0].map(function (x) { return +x.toFixed(3); }),
-          look: { moss: look("moss", 1), gravel: look("gravel", 1), sway: look("sway", 1) } };
-      },
-      dispose: function () { dead = true; removeEventListener("titan:coin", onCoin); gl.deleteTexture(tCard); gl.deleteTexture(tShot); gl.deleteProgram(pr.p); }
-    };
+  var autoPath = null;
+  K.stage("zen", {
+    kind: "ray", glsl: G, grade: .9,
+    cam: { pos: [.35, 1.25, -1.35], target: [-.15, .2, 7.5], fov: 1.02 },
+    roomCam: { pos: [.2, .62, .25], target: [.05, -.35, 3.2], fov: 1.05 },
+    steps: [32, 56, 86, 120], shadowSteps: [0, 0, 14, 22], scale: { low: .36 },
+    moments: [{ name: "wind", every: [25, 50], dur: 9 }],
+    init: function (gl, S) { simInit(gl); },
+    onTap: function (x, y, S) {
+      /* a pebble: in the room only on a short tap (the room shell sends it on release); a press that starts a rake drops nothing */
+      var g = ground(S, x, y); if (g && !(S.view.mode === "room" && (K.ptr.down || S.data.raking))) queue.push({ mode: 2, a: g, w: .75 });
+      if (S.view.mode === "opening") S.startMoment(0);
+    },
+    step: function (c, S) {
+      var v = c.view || {}, D = S.data;
+      /* the room: a finger drag rakes (the room shell leaves one-finger drags to the world: room.drag "world") */
+      if (v.mode === "room" && c.ptr.down) {
+        var g = ground(S, c.ptr.x, c.ptr.y);
+        if (g && lastStroke) { var dx = g[0] - lastStroke[0], dz = g[1] - lastStroke[1]; if (dx * dx + dz * dz > .0016) { queue.push({ mode: 1, a: lastStroke, b: g, w: .32 }); lastStroke = g; D.raking = true; } }
+        else lastStroke = g;
+      } else { lastStroke = null; D.raking = false; }
+      /* the opening rakes a line by itself: a slow S across the garden, then a ring round the near rock */
+      if (v.mode === "opening") {
+        if (!autoPath) { autoPath = { t0: c.t, last: null }; }
+        var k = Math.min(1, (c.t - autoPath.t0) / 4.2), x = -5.6 + k * 11.2, z = 2.3 + Math.sin(k * 3.1) * .7, p = [x, z];
+        if (autoPath.last && k < 1) queue.push({ mode: 1, a: autoPath.last, b: p, w: .32 }); autoPath.last = p;
+      } else autoPath = null;
+      if (queue.length > 24) queue.splice(0, queue.length - 24);
+    },
+    pre: function (gl, c, S) { if (!sim) return; while (queue.length) pass(gl, queue.shift()); },
+    uniforms: function (gl, u, c, S) { gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, tex[cur] || null); if (u.uH) gl.uniform1i(u.uH, 3); },
+    dispose: function (gl) { tex.forEach(function (t) { gl.deleteTexture(t); }); fbo.forEach(function (f) { gl.deleteFramebuffer(f); }); if (sim) gl.deleteProgram(sim.p); tex = []; fbo = []; sim = null; },
+    post: { bloom: .55, threshold: .82, knee: .5, exposure: 1.05, aberr: .04, grain: .03, vig: .45 },
+    room: { name: "Kneeling at the gravel", yaw: [-.6, .6], pitch: [-.3, .35], move: [-1, 1.6], up: [-.2, 1.2], unit: "m", sound: "sand", drag: "world",
+      look: [{ id: "sun", label: "Sun", min: .2, max: 1.8, def: 1 }, { id: "grooves", label: "Grooves", min: .3, max: 2.2, def: 1 },
+        { id: "leaves", label: "Falling leaves", min: 0, max: 2, def: 1 }, { id: "speed", label: "Pace", min: 0, max: 3, def: 1 }],
+      touch: "Drag a finger across the gravel to rake it; tap to drop a pebble and ring it.",
+      opening: { dur: 5.6, from: { yaw: .08, pitch: -.35, move: -2.2, up: 4.2 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 4.6, at: [.62, .38] } }
   });
-  K.themes.zen = {
-    stack: [
-      { mod: "zen" },
-      { mod: "post", bloom: 0.44, threshold: 0.78, knee: 0.45, exposure: 0.96, aberr: 0.025, grain: 0.03, vig: 0.32 }
-    ],
-    room: { name: "The dry garden courtyard", yaw: [-.15, .15], pitch: [-.12, .12], move: [-.4, .6], up: [-.08, .08],
-      unit: "screen", sound: "sand",
-      look: [
-        { id: "moss", label: "Moss growth", min: 0, max: 2.5, def: 1 },
-        { id: "gravel", label: "Rake depth", min: 0, max: 3, def: 1 },
-        { id: "sway", label: "Bamboo sway", min: 0, max: 4, def: 1 }
-      ],
-      touch: "A tap on the gravel creates a ripple of focus and light.",
-      opening: { dur: 5.5, from: { yaw: .12, pitch: -.096, move: -.32, up: .064 }, to: { yaw: 0, pitch: 0, move: 0, up: 0 }, hit: 3.5, at: [0.5, 0.5] } }
-  };
 })();

@@ -3,7 +3,7 @@ NEW (2026-10-29): two sound projects (tasks 10 and 11): music and five room soun
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Grok (updated 2026-10-30 06:15 UTC)
+# WORK QUEUE for Grok (updated 2026-10-30 06:56 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -42,7 +42,7 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
 
 - 1. HW-grok-research-20261023-1 · Researcher · Answer 1 open research questions · due 2026-11-02  (fix list #3)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-research-20261023-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-research-20261023-1.jsonl)
-- 2. HW-grok-arbitrate-20261030-1 · Arbiter · Settle 8 disagreements between two AIs · due 2026-11-06  (fix list #18)
+- 2. HW-grok-arbitrate-20261030-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-06  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261030-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261030-1.jsonl)
 - 3. HW-grok-cite-20261030-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-11-06  (fix list #72)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-cite-20261030-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261030-1.jsonl)
@@ -50,6 +50,10 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-story-check-20261030-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261030-1.jsonl)
 - 5. HW-grok-verify-20261030-1 · Second reader · Check 75 facts another AI wrote · due 2026-11-06  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261030-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261030-1.jsonl)
+- 6. HW-grok-verify-20261030-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-06  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261030-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261030-2.jsonl)
+- 7. HW-grok-arbitrate-20261030-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-06  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261030-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261030-2.jsonl)
 ## Projects (after the homework)
 
 ### UI rethink, step 2: The Field's three filters, on the real data  [LATER]  (fix list #116)
@@ -79,5 +83,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 35; expired: 11.
-- Your facts checked by another contributor: 999 (984 confirmed, 15 wrong; error rate 1.5 %, 95 % range 1-2 %). Checks you did for others: 272. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 1 of 1.
+- Your facts checked by another contributor: 997 (981 confirmed, 16 wrong; error rate 1.6 %, 95 % range 1-3 %). Checks you did for others: 272. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 1 of 1.
 - Share of your new facts that get checked first: 15 %.

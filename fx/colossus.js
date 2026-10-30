@@ -125,6 +125,7 @@
   function smooth(a, b, k) { return a + (b - a) * k; }
   K.stage("colossus", {
     kind: "ray", glsl: G, grade: .8,
+    roomCam: { pos: [-.35, 1.45, 2.55], target: [.6, 1.15, 4.5], fov: 1.0 },   // at the press, the die under the screw
     cam: { pos: [-.6, 1.55, -1.5], target: [.55, 1.8, 4.5], fov: 1.05 },
     steps: [44, 64, 90, 120], shadowSteps: [0, 0, 16, 24], scale: { low: .44 },
     moments: [{ name: "strike", every: [18, 36], dur: 3.2 }],

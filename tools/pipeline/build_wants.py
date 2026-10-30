@@ -31,17 +31,31 @@ def unit_of(slots):
     return "coins" if any(s.get("mint") for s in slots) else "years"
 
 def load_values(coll):
-    """{(album, label): price row} from collection/prices/wants_values_{agent}_{stamp}.json (newest file wins per hole)."""
-    vals = {}
+    """{(album, label): price row} from collection/prices/wants_values_{agent}_{stamp}.json. Each AI's newest price for a hole counts once;
+    with three or more AIs pricing a hole, the middle price stands (the third reader settles a two-source gap, a real cited row, never an
+    average); with fewer, the first pricing pass stands (the second source is a check, not a replacement)."""
+    rows = {}
     for p in sorted(glob.glob(os.path.join(coll, "prices", "wants_values_*.json"))):
         m = re.match(r"wants_values_([a-z0-9-]+)_(\d{8}-\d{4})\.json$", os.path.basename(p))
         if not m: continue
         with open(p, encoding="utf-8") as f: d = json.load(f)
         for it in d.get("items", []):
             if not isinstance(it.get("value_usd"), (int, float)) or not it.get("source"): continue
-            vals[(it["album"], it["label"])] = {"usd": round(float(it["value_usd"]), 2), "grade": it.get("grade"), "source": it["source"],
-                                                "confidence": it.get("confidence") or "low", "by": m.group(1), "file": os.path.basename(p),
-                                                "date": f"{m.group(2)[:4]}-{m.group(2)[4:6]}-{m.group(2)[6:8]}"}
+            r = {"usd": round(float(it["value_usd"]), 2), "grade": it.get("grade"), "source": it["source"],
+                 "confidence": it.get("confidence") or "low", "by": m.group(1), "file": os.path.basename(p),
+                 "date": f"{m.group(2)[:4]}-{m.group(2)[4:6]}-{m.group(2)[6:8]}", "_stamp": m.group(2)}
+            per = rows.setdefault((it["album"], it["label"]), {}); was = per.get(m.group(1))
+            r["_first"] = min(was["_first"], r["_stamp"]) if was else r["_stamp"]
+            if not was or was["_stamp"] <= r["_stamp"]: per[m.group(1)] = r
+            else: was["_first"] = r["_first"]
+    vals = {}
+    for k, per in rows.items():
+        rs = list(per.values())
+        if len(rs) >= 3:
+            rs.sort(key=lambda r: (r["usd"], r["_stamp"])); pick = dict(rs[(len(rs) - 1) // 2]); pick["of"] = len(rs)
+        else:
+            pick = dict(min(rs, key=lambda r: (r["_first"], r["by"])))   # the AI that priced it first, at its newest price
+        pick.pop("_stamp", None); pick.pop("_first", None); vals[k] = pick
     return vals
 
 def cost_of(vid, named, values):

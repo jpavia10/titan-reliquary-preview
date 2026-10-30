@@ -1,0 +1,334 @@
+{
+ "generated_at": "2026-10-30T03:12:45Z",
+ "by": "model:muse-spark",
+ "project": "album-price-third-reader (fix list #62) - 40 holes in A001-A016 where Grok and Gemini prices disagree most",
+ "basis": "Third independent prices. CoinStudy charts state their values are wholesale, computed from dealer price lists (updated 2026-10-26, silver $54.05/oz); the 1916-D VG8 price is a single Heritage realised auction result (Mar 2026). No price copied from the Grok (Numista) or Gemini (USA Coin Book) files.",
+ "totals": {
+  "all_40_usd": 5360.11,
+  "without_1916D_outlier_usd": 2609.11,
+  "note": "The 1916-D Heritage result ($2,751) is 73% of the 40-hole total; treat totals without it as the stable figure."
+ },
+ "items": [
+  {
+   "album": "A006",
+   "label": "1916-D",
+   "grade": "VG8",
+   "value_usd": 2751,
+   "source": "Heritage Auctions realised price, 2026 March 26-28 U.S. Coins Signature Auction #1391, lot 7067: 1916-D Mercury dime, PCGS VG8, sold $2,751 (auction record as listed on PCGS Auction Prices, Mercury Dime 1916-D page https://www.pcgs.com/auctionprices/details/1916-d-ms/4907 ) - single certified sale, not a guide price",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1921-D",
+   "grade": "EF40",
+   "value_usd": 487,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1921 D', Extremely Fine column = $487",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1921",
+   "grade": "EF40",
+   "value_usd": 467,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1921', Extremely Fine column = $467",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1926-S",
+   "grade": "EF40",
+   "value_usd": 275,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1926 S', Extremely Fine column = $275",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1925-D",
+   "grade": "EF40",
+   "value_usd": 116,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1925 D', Extremely Fine column = $116",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1927-D",
+   "grade": "EF40",
+   "value_usd": 96,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1927 D', Extremely Fine column = $96",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1924-D",
+   "grade": "EF40",
+   "value_usd": 53,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1924 D', Extremely Fine column = $53",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1925-S",
+   "grade": "EF40",
+   "value_usd": 96,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1925 S', Extremely Fine column = $96",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1924-S",
+   "grade": "EF40",
+   "value_usd": 68,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1924 S', Extremely Fine column = $68",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1923-S",
+   "grade": "EF40",
+   "value_usd": 93,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1923 S', Extremely Fine column = $93",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1928-D",
+   "grade": "EF40",
+   "value_usd": 77,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1928 D', Extremely Fine column = $77",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1917-D",
+   "grade": "EF40",
+   "value_usd": 67,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1917 D', Extremely Fine column = $67",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1919-D",
+   "grade": "EF40",
+   "value_usd": 68,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1919 D', Extremely Fine column = $68",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1931-D",
+   "grade": "EF40",
+   "value_usd": 52,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1931 D', Extremely Fine column = $52",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1919-S",
+   "grade": "EF40",
+   "value_usd": 54,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1919 S', Extremely Fine column = $54",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1926-D",
+   "grade": "EF40",
+   "value_usd": 36,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1926 D', Extremely Fine column = $36",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1927-S",
+   "grade": "EF40",
+   "value_usd": 41,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1927 S', Extremely Fine column = $41",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1918",
+   "grade": "EF40",
+   "value_usd": 32,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1918', Extremely Fine column = $32",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1918-S",
+   "grade": "EF40",
+   "value_usd": 30,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1918 S', Extremely Fine column = $30",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1920-D",
+   "grade": "EF40",
+   "value_usd": 30,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1920 D', Extremely Fine column = $30",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1939-D",
+   "grade": "EF40",
+   "value_usd": 6.5,
+   "source": "http://www.coinstudy.com/jefferson-nickel-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1939 D', Extremely Fine column = $6.5",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1918-D",
+   "grade": "EF40",
+   "value_usd": 38,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1918 D', Extremely Fine column = $38",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1928-S",
+   "grade": "EF40",
+   "value_usd": 25,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1928 S', Extremely Fine column = $25",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1950-D",
+   "grade": "MS60",
+   "value_usd": 7.83,
+   "source": "http://www.coinstudy.com/jefferson-nickel-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1950 D', Mint State column = $7.83",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1929-D",
+   "grade": "EF40",
+   "value_usd": 17,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1929 D', Extremely Fine column = $17",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1916",
+   "grade": "EF40",
+   "value_usd": 17,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1916', Extremely Fine column = $17",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1920-S",
+   "grade": "EF40",
+   "value_usd": 54,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1920 S', Extremely Fine column = $54",
+   "confidence": "med"
+  },
+  {
+   "album": "A012",
+   "label": "1949",
+   "grade": "EF40",
+   "value_usd": 11.75,
+   "source": "https://www.coinstudy.com/1949-quarter-value.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1949', Extremely Fine column = $11.75",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1916-S",
+   "grade": "EF40",
+   "value_usd": 29,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1916 S', Extremely Fine column = $29",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1917-S",
+   "grade": "EF40",
+   "value_usd": 20,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1917 S', Extremely Fine column = $20",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1929",
+   "grade": "EF40",
+   "value_usd": 7.34,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1929', Extremely Fine column = $7.34",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1924",
+   "grade": "EF40",
+   "value_usd": 17,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1924', Extremely Fine column = $17",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1931-S",
+   "grade": "EF40",
+   "value_usd": 30,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1931 S', Extremely Fine column = $30",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1939-S",
+   "grade": "EF40",
+   "value_usd": 2.25,
+   "source": "http://www.coinstudy.com/jefferson-nickel-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1939 S', Extremely Fine column = $2.25",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1930-S",
+   "grade": "EF40",
+   "value_usd": 29,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1930 S', Extremely Fine column = $29",
+   "confidence": "med"
+  },
+  {
+   "album": "A007",
+   "label": "1964-D",
+   "grade": "EF40",
+   "value_usd": 18.21,
+   "source": "https://www.coinstudy.com/silver-kennedy-half-dollars.html - CoinStudy silver Kennedy half dollar page (updated 2026-10-26, silver $54.05/oz): 'Value of a 1964 Kennedy half is $18.21 each' - melt-based per-coin figure, not grade-specific, so low confidence for an EF40 hole",
+   "confidence": "low"
+  },
+  {
+   "album": "A006",
+   "label": "1930",
+   "grade": "EF40",
+   "value_usd": 9.76,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1930', Extremely Fine column = $9.76",
+   "confidence": "med"
+  },
+  {
+   "album": "A006",
+   "label": "1931",
+   "grade": "EF40",
+   "value_usd": 27,
+   "source": "http://www.coinstudy.com/mercury-dime-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1931', Extremely Fine column = $27",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1942-D",
+   "grade": "EF40",
+   "value_usd": 0.75,
+   "source": "http://www.coinstudy.com/jefferson-nickel-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1942 D', Extremely Fine column = $0.75",
+   "confidence": "med"
+  },
+  {
+   "album": "A015",
+   "label": "1952-D",
+   "grade": "MS60",
+   "value_usd": 3.72,
+   "source": "http://www.coinstudy.com/jefferson-nickel-values.html - CoinStudy value chart (updated 2026-10-26, silver $54.05/oz; wholesale values computed from dealer price lists), row '1952 D', Mint State column = $3.72",
+   "confidence": "low"
+  }
+ ],
+ "left_out": []
+}
