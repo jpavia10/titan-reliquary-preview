@@ -1,0 +1,172 @@
+{
+ "request_id": "artreq_20261030-1520_room-layers-gemini",
+ "status": "open",
+ "assigned_to": "gemini",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-30T15:20:00Z",
+ "supersedes": "artreq_20261030-1500_room-plates-pilot-afterhours-neon",
+ "why": "Owner, 2026-10-30: the code-drawn rooms (Midnight Gallery, Neon Vault, Zen Garden) are rejected: 'thats just blender like 3 quality running poorly on a phone ... I want you to have gemini and grok do it for you. Argon and grok can do it better if prompted correctly.' Each theme's room (the 'third place', away from the collection) becomes generated photography that the app brings to life with its own live light, particles, depth and sound. Pilot: three rooms; the other 47 follow once Joseph judges these on his phone.",
+ "global_style": "Real photography: full-frame camera, 24 mm lens at eye height (about 1.6 m), level horizon, natural perspective, deep shadows that still hold detail, true reflections, physically accurate materials, practical light only, rich natural colour, fine film grain. It reads as a photograph in an architecture magazine, never as a video game, a 3D render or an illustration.",
+ "room_rule": "This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges.",
+ "negative": "no readable text, letters, numbers, logos or signs with words; no people, faces or hands; no coins; no watermark or frame; no 3D-render plastic look; no oversaturation or HDR halos; no fisheye or tilted horizon",
+ "instructions": "Gemini: this one is yours (Joseph asked for you by name). Follow 'ART_START_HERE (any AI: images + video)'; claim it with artreq_20261030-1520_room-layers-gemini.CLAIMED-gemini.txt. For each room, in order: (1) make the wide photo from its prompt + the global_style sentence, 16:9, highest resolution; look at it and remake it (at most 3 tries) if it has letters, a person, a coin, a crooked horizon or looks like a render. (2) Then work FROM THAT SAME IMAGE with image editing, one edit per step, giving the image back to yourself each time, so every file lines up pixel for pixel: the edit prompts are in 'edits' below. Save every file to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261030-1520_room-layers-gemini/' with the exact names, at the size the tool returns (never upscale or crop), then write artreq_20261030-1520_room-layers-gemini.DONE.txt (one line per file: ok or skipped: reason; model name and date). One room at a time; stop at the first failure or quota warning and say how far you got. Save files in Drive only: Joseph cannot see your chat replies.",
+ "edits": {
+  "upright": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_{id}_upright.png.",
+  "depth": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_{id}_depth.png.",
+  "lights": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_{id}_lights.png.",
+  "foreground": "Using this image, keep only the nearest object or surface ({foreground}) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_{id}_front.png.",
+  "clean_back": "Using this image, remove {foreground} and fill that area naturally with what would be behind it, changing nothing else. Save as room_{id}_back.png."
+ },
+ "images": [
+  {
+   "file_name": "room_afterhours_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "Midnight Gallery",
+   "theme_id": "afterhours",
+   "medium": "photo",
+   "prompt": "Night photograph of an empty grand classical museum gallery at 2 a.m. Cold blue moonlight pours through tall arched windows in long visible shafts and lies in bright pools on a polished black marble floor that mirrors it. Deep oxblood walls hold gilt-framed old master paintings in near darkness; one painting glows under a single warm brass picture light. A buttoned leather viewing bench stands in the middle distance. At the far end an open doorway glows soft amber. Faint dust hangs in the moonbeams. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_afterhours_upright.png",
+   "priority": 2,
+   "edit_of": "room_afterhours_wide.png",
+   "world": "Midnight Gallery",
+   "theme_id": "afterhours",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_afterhours_upright.png."
+  },
+  {
+   "file_name": "room_afterhours_depth.png",
+   "priority": 3,
+   "edit_of": "room_afterhours_wide.png",
+   "world": "Midnight Gallery",
+   "theme_id": "afterhours",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_afterhours_depth.png."
+  },
+  {
+   "file_name": "room_afterhours_lights.png",
+   "priority": 4,
+   "edit_of": "room_afterhours_wide.png",
+   "world": "Midnight Gallery",
+   "theme_id": "afterhours",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_afterhours_lights.png."
+  },
+  {
+   "file_name": "room_afterhours_front.png",
+   "priority": 5,
+   "edit_of": "room_afterhours_wide.png",
+   "world": "Midnight Gallery",
+   "theme_id": "afterhours",
+   "edit": "Using this image, keep only the nearest object or surface (the leather bench) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_afterhours_front.png."
+  },
+  {
+   "file_name": "room_afterhours_back.png",
+   "priority": 5,
+   "edit_of": "room_afterhours_wide.png",
+   "world": "Midnight Gallery",
+   "theme_id": "afterhours",
+   "edit": "Using this image, remove the leather bench and fill that area naturally with what would be behind it, changing nothing else. Save as room_afterhours_back.png."
+  },
+  {
+   "file_name": "room_neon_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "Neon Vault",
+   "theme_id": "neon",
+   "medium": "photo",
+   "prompt": "Night photograph of an empty narrow back street in a rain-soaked city at 3 a.m. Unlettered neon tubes bent into abstract lines, circles and arrows glow hot pink and electric cyan on old brick and corrugated steel. Black asphalt shines wet and mirrors every light; shallow puddles ripple. Steam rises from a street grate. Pink and cyan fog fills the far end of the street. Set into the right-hand wall is a heavy riveted steel vault door under one bare tungsten bulb. Cables sag overhead. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_neon_upright.png",
+   "priority": 2,
+   "edit_of": "room_neon_wide.png",
+   "world": "Neon Vault",
+   "theme_id": "neon",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_neon_upright.png."
+  },
+  {
+   "file_name": "room_neon_depth.png",
+   "priority": 3,
+   "edit_of": "room_neon_wide.png",
+   "world": "Neon Vault",
+   "theme_id": "neon",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_neon_depth.png."
+  },
+  {
+   "file_name": "room_neon_lights.png",
+   "priority": 4,
+   "edit_of": "room_neon_wide.png",
+   "world": "Neon Vault",
+   "theme_id": "neon",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_neon_lights.png."
+  },
+  {
+   "file_name": "room_neon_front.png",
+   "priority": 5,
+   "edit_of": "room_neon_wide.png",
+   "world": "Neon Vault",
+   "theme_id": "neon",
+   "edit": "Using this image, keep only the nearest object or surface (the steam grate and the nearest puddle) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_neon_front.png."
+  },
+  {
+   "file_name": "room_neon_back.png",
+   "priority": 5,
+   "edit_of": "room_neon_wide.png",
+   "world": "Neon Vault",
+   "theme_id": "neon",
+   "edit": "Using this image, remove the steam grate and the nearest puddle and fill that area naturally with what would be behind it, changing nothing else. Save as room_neon_back.png."
+  },
+  {
+   "file_name": "room_zen_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "Zen Garden",
+   "theme_id": "zen",
+   "medium": "photo",
+   "prompt": "Photograph of a Kyoto temple dry garden (karesansui) at first light, seen from the edge of the wooden veranda of the abbot's hall. In the near foreground the worn cedar boards of the veranda and one dark round wooden pillar. Beyond, white gravel raked in long parallel lines and in rings around three weathered standing stones set in cushions of green moss. A low earthen wall with a grey tiled coping closes the garden; a red Japanese maple leans over it. Mist hangs in the cedar forest behind. Low golden sunlight rakes across the gravel so every groove holds a shadow. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_zen_upright.png",
+   "priority": 2,
+   "edit_of": "room_zen_wide.png",
+   "world": "Zen Garden",
+   "theme_id": "zen",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_zen_upright.png."
+  },
+  {
+   "file_name": "room_zen_depth.png",
+   "priority": 3,
+   "edit_of": "room_zen_wide.png",
+   "world": "Zen Garden",
+   "theme_id": "zen",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_zen_depth.png."
+  },
+  {
+   "file_name": "room_zen_lights.png",
+   "priority": 4,
+   "edit_of": "room_zen_wide.png",
+   "world": "Zen Garden",
+   "theme_id": "zen",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_zen_lights.png."
+  },
+  {
+   "file_name": "room_zen_front.png",
+   "priority": 5,
+   "edit_of": "room_zen_wide.png",
+   "world": "Zen Garden",
+   "theme_id": "zen",
+   "edit": "Using this image, keep only the nearest object or surface (the veranda boards and the round pillar) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_zen_front.png."
+  },
+  {
+   "file_name": "room_zen_back.png",
+   "priority": 5,
+   "edit_of": "room_zen_wide.png",
+   "world": "Zen Garden",
+   "theme_id": "zen",
+   "edit": "Using this image, remove the veranda boards and the round pillar and fill that area naturally with what would be behind it, changing nothing else. Save as room_zen_back.png."
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-30 14:45 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-30 15:05 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,6 +7,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).
 
 ## Finish first
+
+### FIRST: photograph the rooms for Midnight Gallery, Neon Vault and Zen Garden, then make their depth, light and layer images (Joseph asked for you by name)  (fix list #128)
+
+Art request artreq_20261030-1520_room-layers-gemini in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'. Joseph rejected the code-drawn rooms and wants you and Grok to make them as real-looking photographs; the app adds live light, dust, rain and sound on top. For each room: make the wide 16:9 photo from its prompt, then use image editing on THAT image for the upright 9:16 version, a depth map, a light mask, the foreground on flat green and the background with the foreground removed (the exact edit prompts are in the request). 18 files. Save them in Drive only (Joseph cannot see your chat replies) and write the DONE file.
+
+**Done when:** 18 images in 'art-incoming (AI images + video)/artreq_20261030-1520_room-layers-gemini/' and the .DONE.txt next to the request
 
 ### Numista price estimates for every coin we hold (268 issues of 173 types)  (fix list #62)
 

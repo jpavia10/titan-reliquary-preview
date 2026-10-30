@@ -1,6 +1,6 @@
 {
  "request_id": "artreq_20261030-1500_room-plates-pilot-afterhours-neon",
- "status": "open",
+ "status": "superseded",
  "assigned_to": "any",
  "requested_by": "Claude (integrator)",
  "created": "2026-10-30T15:00:00Z",
@@ -55,5 +55,9 @@
    "medium": "photo",
    "prompt": "The same empty rain-soaked back street at 3 a.m., upright view: neon tubes in pink and cyan (shapes only, no letters) climbing the walls, the steel vault door under a bare bulb, wet asphalt mirroring the lights, steam from a grate, fog down the street, cables overhead. Seen at eye level from where you would stand in it, as a place to be in (no coins, no collection, no display cases in front). Keep the light sources in the picture (they will be made to glow and flicker live) and keep open air in the middle third (live dust, rain and haze go there). Nothing important within 8 % of the edges."
   }
+ ],
+ "superseded_by": [
+  "artreq_20261030-1520_room-plates-grok",
+  "artreq_20261030-1520_room-layers-gemini"
  ]
 }
