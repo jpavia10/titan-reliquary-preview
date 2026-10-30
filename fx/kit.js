@@ -8,7 +8,7 @@
 (function () {
   "use strict";
   var K = window.TitanFXK = window.TitanFXK || { mods: {}, themes: {} };
-  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js", supercell: "fx/supercell.js", tourbillon: "fx/tourbillon.js", darkroom: "fx/darkroom.js", silverscreen: "fx/silverscreen.js", canopy: "fx/canopy.js", glasshouse: "fx/glasshouse.js", orbit: "fx/orbit.js", sahel: "fx/sahel.js", nocturne: "fx/nocturne.js", zen: "fx/zen.js", saltflat: "fx/saltflat.js", lightwell: "fx/lightwell.js", obsidian: "fx/obsidian.js" };   /* a list loads in order */
+  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js", supercell: "fx/supercell.js", tourbillon: "fx/tourbillon.js", darkroom: "fx/darkroom.js", silverscreen: "fx/silverscreen.js", canopy: "fx/canopy.js", glasshouse: "fx/glasshouse.js", orbit: "fx/orbit.js", sahel: "fx/sahel.js", nocturne: "fx/nocturne.js", zen: "fx/zen.js", saltflat: "fx/saltflat.js", lightwell: "fx/lightwell.js", obsidian: "fx/obsidian.js", afterhours: ["fx/stage.js", "fx/afterhours.js"], colossus: ["fx/stage.js", "fx/colossus.js"] };   /* a list loads in order */
   K.mod = function (name, f) { K.mods[name] = f; };
   /* world contract (depth upgrade, notes/agents/depth-upgrade.md): one world runs as the backdrop (default, unchanged), the opening or
      the theme's room. A world reads ctx.view: mode, the camera offset from its own view (yaw and pitch in radians, move = metres along
@@ -77,6 +77,13 @@
     "float fbm(vec2 p){ float s = 0., a = .5; for (int i=0;i<5;i++){ s += a*vn(p); p = mat2(1.6,1.2,-1.2,1.6)*p; a *= .5; } return s; }",
     "float fbm3(vec2 p){ float s = 0., a = .5; for (int i=0;i<3;i++){ s += a*vn(p); p = mat2(1.6,1.2,-1.2,1.6)*p; a *= .5; } return s; }",
     "vec2 curl(vec2 p, float t){ float e = .02; float n1 = fbm3(p+vec2(0,e)+t), n2 = fbm3(p-vec2(0,e)+t), n3 = fbm3(p+vec2(e,0)+t), n4 = fbm3(p-vec2(e,0)+t); return vec2(n1-n2, -(n3-n4))/(2.*e); }"
+  ].join("\n") + "\n";
+  /* the same in 3D (overloads, so fbm(vec3) and fbm(vec2) both work): put it after K.NOISE */
+  K.NOISE3 = [
+    "float h31(vec3 p){ p = fract(p*vec3(.1031,.1030,.0973)); p += dot(p, p.yxz+33.33); return fract((p.x+p.y)*p.z); }",
+    "float vn(vec3 p){ vec3 i = floor(p), f = fract(p); f = f*f*(3.-2.*f); return mix(mix(mix(h31(i),h31(i+vec3(1,0,0)),f.x), mix(h31(i+vec3(0,1,0)),h31(i+vec3(1,1,0)),f.x), f.y), mix(mix(h31(i+vec3(0,0,1)),h31(i+vec3(1,0,1)),f.x), mix(h31(i+vec3(0,1,1)),h31(i+vec3(1,1,1)),f.x), f.y), f.z); }",
+    "float fbm(vec3 p){ float s = 0., a = .5; for (int i=0;i<5;i++){ s += a*vn(p); p = p*2.03+vec3(1.7,9.2,5.3); a *= .5; } return s; }",
+    "float fbm3(vec3 p){ float s = 0., a = .5; for (int i=0;i<3;i++){ s += a*vn(p); p = p*2.03+vec3(1.7,9.2,5.3); a *= .5; } return s; }"
   ].join("\n") + "\n";
   function size() {
     var dpr = Math.min(window.devicePixelRatio || 1, 2), s = (lite() ? .45 : 1) * Q.scale;

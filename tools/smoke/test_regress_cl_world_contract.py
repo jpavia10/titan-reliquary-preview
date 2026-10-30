@@ -23,6 +23,14 @@ from smoke import ROOT, CHROMIUM
 from playwright.sync_api import sync_playwright
 
 REF = ["supercell", "tourbillon", "silverscreen"]
+
+
+def first_engine_theme():
+    """a theme still on the first engine (manifest fx not "fxk"), for the basic-room check; None once every theme has a GPU world"""
+    man = open(os.path.join(ROOT, "wings", "themes", "manifest.js"), encoding="utf-8").read()
+    for m in re.finditer(r'\{ id: "([a-z0-9]+)",.*?fx: "([^"]*)"', man, re.S):
+        if m.group(2) != "fxk": return m.group(1)
+    return None
 GL = ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"]
 
 
@@ -140,9 +148,11 @@ def main(argv):
             p.keyboard.press("Escape"); p.wait_for_timeout(500)
             r = p.evaluate("({ open: !!document.getElementById('troom'), cls: document.documentElement.classList.contains('tr-room'), view: JSON.stringify(TitanFXK.view) })")
             check(not r["open"] and not r["cls"] and '"mode":"backdrop"' in r["view"] and '"yaw":0' in r["view"], f"[{dev}] Escape closes the room, the view is the backdrop again")
-            p.evaluate("() => { document.documentElement.dataset.atmo = 'afterhours'; }"); p.wait_for_timeout(1500)
-            r = p.evaluate("TitanRoom.open().then((c) => { const o = { kit: c.kit, open: !!document.getElementById('troom'), look: !!document.querySelector('#troom .troom-bar button') }; c.close(); return o; })")
-            check(r["open"] and not r["kit"] and r["look"], f"[{dev}] a theme without a GPU world gets the basic room ({r})")
+            basic = first_engine_theme()
+            if basic:
+                p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", basic); p.wait_for_timeout(1500)
+                r = p.evaluate("TitanRoom.open().then((c) => { const o = { kit: c.kit, open: !!document.getElementById('troom'), look: !!document.querySelector('#troom .troom-bar button') }; c.close(); return o; })")
+                check(r["open"] and not r["kit"] and r["look"], f"[{dev}] a theme without a GPU world ({basic}) gets the basic room ({r})")
             ctx.close()
 
             # 6. the launch opening on the engine, handed to the app

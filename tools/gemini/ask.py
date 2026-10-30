@@ -5,12 +5,12 @@
   python3 tools/gemini/ask.py --text "one line question"
 
 The key comes from $GEMINI_API_KEY or ~/.gemini_key (never from the repository; a new session copies it from the Drive file named in
-CLAUDE.md rule 13). Each --file is appended as "=== FILE: path ===" + its text. The answer streams (server-sent events), so a long answer
+CLAUDE.md rule 13). Each --file is appended as "=== FILE: path ===" + its text; each --image is sent as a picture the model sees. The answer streams (server-sent events), so a long answer
 is not lost to an idle connection; network errors, 429 and 5xx are retried 4 times (2, 4, 8, 16 s). --code keeps only the longest
 fenced code block. --thinking caps the model's thinking (auto: low on 3 Flash and the lite models). One line goes to stdout: model, tokens in/out, finish reason. Exit 0 = the answer finished (STOP); 2 = cut short.
 Everything Gemini writes passes the same checks as any contributor's work before it is used.
 """
-import argparse, json, os, re, ssl, sys, time, urllib.error, urllib.request
+import argparse, base64, json, mimetypes, os, re, ssl, sys, time, urllib.error, urllib.request
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/%s:streamGenerateContent?alt=sse"
 
@@ -29,8 +29,9 @@ def context():
     return ssl.create_default_context()
 
 
-def ask(text, model, max_tokens, temperature, system=None, thinking=None):
-    body = {"contents": [{"role": "user", "parts": [{"text": text}]}],
+def ask(text, model, max_tokens, temperature, system=None, thinking=None, images=()):
+    parts = [{"text": text}] + [{"inline_data": {"mime_type": mimetypes.guess_type(f)[0] or "image/png", "data": base64.b64encode(open(f, "rb").read()).decode()}} for f in images]
+    body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"maxOutputTokens": max_tokens, "temperature": temperature}}
     if thinking: body["generationConfig"]["thinkingConfig"] = {"thinkingLevel": thinking}   # its thinking counts against maxOutputTokens
     if system: body["systemInstruction"] = {"parts": [{"text": system}]}
@@ -66,7 +67,7 @@ def longest_block(s):
 
 def main():
     a = argparse.ArgumentParser()
-    a.add_argument("--prompt"); a.add_argument("--text"); a.add_argument("--system"); a.add_argument("--file", action="append", default=[])
+    a.add_argument("--prompt"); a.add_argument("--text"); a.add_argument("--system"); a.add_argument("--file", action="append", default=[]); a.add_argument("--image", action="append", default=[], help="an image the model looks at (png/jpg/webp)")
     a.add_argument("--model", default="gemini-3.6-flash"); a.add_argument("--out"); a.add_argument("--code", action="store_true")
     a.add_argument("--max-tokens", type=int, default=65536); a.add_argument("--temperature", type=float, default=0.2)
     a.add_argument("--thinking", default="auto", help="low | medium | high | none; auto = low for gemini-3-flash-preview and the lite models (mechanical work)")
@@ -75,7 +76,7 @@ def main():
     for f in o.file: text += "\n\n=== FILE: %s ===\n%s" % (f, open(f, encoding="utf-8").read())
     system = open(o.system, encoding="utf-8").read() if o.system else None
     th = o.thinking if o.thinking not in ("auto", "none") else (("low" if o.model == "gemini-3-flash-preview" or "lite" in o.model else None) if o.thinking == "auto" else None)
-    ans, finish, usage = ask(text, o.model, o.max_tokens, o.temperature, system, th)
+    ans, finish, usage = ask(text, o.model, o.max_tokens, o.temperature, system, th, o.image)
     if o.code: ans = longest_block(ans)
     if o.out: open(o.out, "w", encoding="utf-8").write(ans)
     else: sys.stdout.write(ans + "\n")

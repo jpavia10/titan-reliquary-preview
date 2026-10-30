@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Check a world-contract conversion before it replaces fx/<id>.js (theme framework, phase B; docs/design/THEME_FRAMEWORK.md).
 
-  python3 tools/rooms/check_conversion.py ID NEW_FILE [--install]
+  python3 tools/rooms/check_conversion.py ID NEW_FILE [--install] [--new]
+  (a world written on the stage library, fx/stage.js, is checked together with the library, which carries its view, look and debug)
 
 1. the new file parses (node --check) and has the contract's markers: the look guard, `c.view || {}`, a `room: { name:` block with
    yaw/pitch/move/up, look, touch, opening, and debug cam/look
 2. the backdrop is unchanged: the app's kit + post + the world, Motion Off (one still frame), phone and desktop, old file vs new file,
    measured against the new file's own run-to-run difference (a moving scene never gives the same frame twice)
 3. a camera move and a look change at the room limits reach the world (its debug)
+--new: a world for a theme that had none (phase D): no old backdrop to match, so 2 becomes "draws a picture" (not black, not flat) and
+the frame rate at Low on this machine's software GL is reported (a floor of 1 frame a second catches a runaway shader).
 --install copies NEW_FILE over fx/<id>.js when every check passes. Exit 0 = all pass. Needs playwright + pillow.
 """
 import functools, http.server, io, os, re, shutil, socket, subprocess, sys, tempfile, threading
@@ -49,6 +52,11 @@ def shots(base, tid, script_url, b):
     return out
 
 
+def stats(a):
+    from PIL import Image, ImageStat
+    s = ImageStat.Stat(Image.open(io.BytesIO(a)).convert("L")); return s.mean[0], s.stddev[0]
+
+
 def diff(a, b):
     from PIL import Image, ImageChops, ImageStat
     x = Image.open(io.BytesIO(a)).convert("RGB"); y = Image.open(io.BytesIO(b)).convert("RGB")
@@ -63,6 +71,8 @@ def main(argv):
     src = open(new, encoding="utf-8").read()
     r = subprocess.run(["node", "--check", new], capture_output=True, text=True)
     check("parses", r.returncode == 0, r.stderr[-300:])
+    if "K.stage(" in src:   # a world on the stage library (fx/stage.js): the view, look and debug parts of the contract live there
+        src = src + "\n" + open(os.path.join(ROOT, "fx", "stage.js"), encoding="utf-8").read().replace("var look = K.look || function (i, d)", "var look = K.look || function")
     check("look guard", "var look = K.look || function" in src)
     check("reads c.view with a guard", "c.view || {}" in src)
     room = src.split("room:", 1)[1] if re.search(r"\broom:\s*\{\s*name:", src) else ""
@@ -78,15 +88,25 @@ def main(argv):
         kw = {"executable_path": CHROMIUM} if os.path.exists(CHROMIUM) else {}
         with sync_playwright() as pw:
             b = pw.chromium.launch(args=GL, **kw)
-            old = shots(base, tid, "fx/%s.js" % tid, b); n1 = shots(base, tid, "fx/__new_%s.js" % tid, b); n2 = shots(base, tid, "fx/__new_%s.js" % tid, b)
+            new_world = "--new" in argv
+            old = None if new_world else shots(base, tid, "fx/%s.js" % tid, b)
+            n1 = shots(base, tid, "fx/__new_%s.js" % tid, b); n2 = None if new_world else shots(base, tid, "fx/__new_%s.js" % tid, b)
             for v in ("phone", "desk"):
                 check(v + ": the new world boots with no shader or page errors", n1[v][1].get("id") == tid and not n1[v][2], n1[v][2][:2])
+                if new_world:
+                    mean, sd = stats(n1[v][0])
+                    check(v + ": draws a picture (not black, not flat)", mean > 6 and sd > 5, {"mean": round(mean, 1), "stddev": round(sd, 1)})
+                    continue
                 d_old, d_run = diff(old[v][0], n1[v][0]), diff(n1[v][0], n2[v][0])
                 check(v + ": backdrop unchanged (old vs new within 1.6x run-to-run + 1.5)", d_old <= d_run * 1.6 + 1.5, {"old_vs_new": round(d_old, 2), "run_to_run": round(d_run, 2)})
             p = b.new_page(viewport={"width": 390, "height": 844}); html = page(tid, "fx/__new_%s.js" % tid, "full")
             p.route(re.compile(r".*/__room\.html.*"), lambda route, req=None: route.fulfill(status=200, content_type="text/html", body=html))
             p.add_init_script("localStorage.setItem('tr_quality','low')")
             p.goto(base + "__room.html"); p.wait_for_function("() => TitanFXK.frames > 2", timeout=60000)
+            f0, t0 = p.evaluate("TitanFXK.frames"), p.evaluate("performance.now()"); p.wait_for_timeout(5000)
+            fps = (p.evaluate("TitanFXK.frames") - f0) / ((p.evaluate("performance.now()") - t0) / 1000)
+            print("info: %.1f frames a second at Low on this machine's software GL" % fps, flush=True)
+            if "--new" in argv: check("at least 1 frame a second at Low (software GL)", fps >= 1, round(fps, 2))
             c0 = p.evaluate("() => (TitanFXK.debug().worlds || [])[0]")
             p.evaluate("(id) => { const R = TitanFXK.room(id); const L = {}; (R.look || []).forEach((c) => { L[c.id] = c.max; }); TitanFXK.setView({ mode: 'room', yaw: R.yaw[1], pitch: R.pitch[1], move: R.move[1], up: R.up[1], look: L }); }", tid)
             f0 = p.evaluate("TitanFXK.frames"); p.wait_for_function("(f) => TitanFXK.frames > f + 2", arg=f0, timeout=60000)

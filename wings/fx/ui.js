@@ -11,8 +11,8 @@
   var ATMO = {
     /* fx-v3: every atmosphere has its own signature preset (wings/fx/presets.js, section fx-v3); the manifest's `fx` says the same */
     /* styles-20: ten of them now lead with their style preset (wings/fx/styles-a.js, styles-c.js) and keep the fx-v3 signature underneath at a lower weight */
-    afterhours: ["style-particles+moonlit*0.35", 0.85], nocturne: ["style-deco+bluenote*0.45", 0.85], conservator: ["style-halftone+loupe*0.4", 0.7],
-    colossus: ["style-liquid+mint-forge*0.5", 0.85], odyssey: ["voyage", 0.85], cursedwing: ["crypt", 0.9], kaleido: ["style-kaleido+style-holo*0.4", 0.8],
+    afterhours: ["fxk", 0.01], nocturne: ["style-deco+bluenote*0.45", 0.85], conservator: ["style-halftone+loupe*0.4", 0.7],
+    colossus: ["fxk", 0.01], odyssey: ["voyage", 0.85], cursedwing: ["crypt", 0.9], kaleido: ["style-kaleido+style-holo*0.4", 0.8],
     abyss: ["deepsea", 0.9], neon: ["fxk", 0.01], notepad: ["paperink", 0.6], construct: ["style-ascii", 0.8], xeno: ["spores", 0.85],
     solaris: ["style-wireframe+coronagraph*0.5", 0.85], alchemist: ["athanor", 0.85], glacier: ["style-ice-glass+polar-ice*0.4", 0.85], valhalla: ["mead-hall", 0.9],
     dynasty: ["lantern-feast", 0.85], zen: ["garden", 0.85], samadhi: ["style-mesh+incense-curl*0.5", 0.85], silkroad: ["dunes", 0.85],
