@@ -215,7 +215,6 @@
     renderThemeSound();
     const mine = $("#ss-mine", sheet); $("#ss-mine-wrap", sheet).hidden = !st.mine.length;
     mine.innerHTML = st.mine.map((u) => `<div class="ss-mine-item">${sceneBtn(u.id, { icon: "★", name: u.name, desc: "Your scene" })}<button type="button" class="ss-del" data-del="${u.id}" aria-label="Remove ${esc(u.name)}">Remove</button></div>`).join("");
-    const recOf = (x) => x.rec || ((x.pad > 0 || x.piano || x.bells || x.beat) ? "piano" : null);   // an old saved mix: its music was the piano
     sheet.querySelectorAll("[data-mus]").forEach((b) => { b.setAttribute("aria-pressed", String(!m.score && recOf(m) === b.dataset.mus)); });
     $("#ss-mus", sheet).value = st.mus; $("#ss-amb", sheet).value = st.amb;
     $("#ss-bass", sheet).value = st.bass; $("#ss-mid", sheet).value = st.mid; $("#ss-treble", sheet).value = st.treble;
@@ -268,12 +267,39 @@
     if (G.isActive() && (had || v <= 0) && G.setBedLevel(id, v)) { render(); return; }
     if (v > 0) start(1.5); else render();
   }
-  function saveScene() {
-    const name = ($("#ss-savename", sheet).value || "").trim();
-    if (!st.mix || !Object.keys(st.mix.beds || {}).length) { msg("Add at least one sound first."); return; }
-    if (!name) { msg("Type a name first."); return; }
-    st.mine.push({ id: "u" + Date.now().toString(36), name: name.slice(0, 30), mix: clone(st.mix), atmo: lastAtmo });
-    $("#ss-savename", sheet).value = ""; save(); render(); msg(`Saved "${name}" under My scenes.`);
+  /* save the mix as a named scene; returns what to tell the user (the Atmosphere passes the name, the studio reads its own box) */
+  function saveScene(given) {
+    const fromBox = given == null, name = String(fromBox ? ($("#ss-savename", sheet).value || "") : given).trim();
+    let t;
+    if (!st.mix || !Object.keys(st.mix.beds || {}).length) t = "Add at least one sound first.";
+    else if (!name) t = "Type a name first.";
+    else {
+      st.mine.push({ id: "u" + Date.now().toString(36), name: name.slice(0, 30), mix: clone(st.mix), atmo: lastAtmo });
+      if (fromBox) $("#ss-savename", sheet).value = "";
+      save(); render(); t = `Saved "${name.slice(0, 30)}" under My scenes.`;
+    }
+    msg(t); return t;
+  }
+  const EMPTY = () => ({ beds: {}, pad: 0, piano: false, bells: false, beat: false, root: "D", mode: "dorian", prog: [0, 4, 3, 1], chordSec: 14, gap: [5, 10], bpm: 74 });
+  function deleteScene(id) { st.mine = st.mine.filter((u) => u.id !== id); if (st.scene === id) st.scene = "custom"; save(); render(); }
+  function loadMix() { const m = loadMine(); if (!m) { msg("No saved mix yet."); return false; } st.mix = m; st.scene = "custom"; start(2); return true; }
+  function clearMix() { st.mix = EMPTY(); st.scene = "custom"; saveMine(); G.stop(0.8); st.wasPlaying = false; save(); render(); }
+  const recOf = (x) => x.rec || ((x.pad > 0 || x.piano || x.bells || x.beat) ? "piano" : null);   // an old saved mix: its music was the piano
+  /* one recorded music at a time; the same kind again = no music */
+  function setMusic(k) { customise((m) => { const on = !m.score && recOf(m) === k; m.rec = on || !k ? null : k; m.score = null; m.pad = 0; m.piano = m.bells = m.beat = false; }); }
+  const musicOf = () => (st.mix && !st.mix.score ? recOf(st.mix) : null);
+  function toggleBed(id) { if (!G.BEDS[id]) return; setLevel(id, ((st.mix && st.mix.beds && st.mix.beds[id]) > 0) ? 0 : G.BEDS[id].level); }
+  function setMix(mus, amb) { if (mus != null) st.mus = Math.min(1, Math.max(0, +mus)); if (amb != null) st.amb = Math.min(1, Math.max(0, +amb)); G.setLevels(mus == null ? null : st.mus, amb == null ? null : st.amb); save(); }
+  function setTone(b, m, t) { if (b != null) st.bass = +b; if (m != null) st.mid = +m; if (t != null) st.treble = +t; G.setTone(st.bass, st.mid, st.treble); save(); }
+  /* the switches in Settings, by name (the Atmosphere's Sound > Settings uses the same ones) */
+  function setOpt(k, v) {
+    if (k === "follow") { st.follow = !!v; save(); if (st.follow) followTheme(lastAtmo); }
+    else if (k === "bgPause") { st.bgPause = !!v; window.TITAN_BG_PAUSE = st.bgPause; G.setBackgroundPause(st.bgPause); save(); }
+    else if (k === "timeAware") { st.timeAware = !!v; G.setTimeAware(st.timeAware); save(); }
+    else if (k === "spatial") { st.spatial = String(v); G.setSpatial(st.spatial); save(); }
+    else if (k === "motion") { st.motion = !!v; save(); if (window.TitanAmbient && window.TitanAmbient.setVisualEnabled) window.TitanAmbient.setVisualEnabled(st.motion); }
+    else return;
+    render();
   }
   function stopAll() { G.stop(0.8); st.wasPlaying = false; st.userOff = true; save(); render(); }      // Off is remembered: no auto-start next visit
 
@@ -285,6 +311,13 @@
     try { selSt.value = radio.station(); } catch (e) { /* ignore */ }
   } else { $("#ss-radio-d", sheet).hidden = true; }
   function stopRadio() { try { radio.pause(); } catch (e) { /* ignore */ } radioOn = false; G.setMusicDuck(false); renderRadio(); }
+  function playRadio(key) {
+    if (!radio) return false;
+    radioOn = true; G.setMusicDuck(true);       // the scene's music steps aside; ambient beds stay
+    try { radio.setVolume(st.vol); radio.setMuted(false); radio.setStation(key || selSt.value); radio.play(); } catch (e) { /* ignore */ }
+    if (key) { try { selSt.value = key; } catch (e) { /* ignore */ } }
+    renderRadio(); return true;
+  }
   function renderRadio() {
     if (!radio) return;
     const s = radio.status ? radio.status() : {};
@@ -295,9 +328,7 @@
   radioBtn.addEventListener("click", () => {
     const s = radio.status();
     if (s.playing || s.wantPlay) { stopRadio(); return; }
-    radioOn = true; G.setMusicDuck(true);       // the scene's music steps aside; ambient beds stay
-    try { radio.setVolume(st.vol); radio.setMuted(false); radio.setStation(selSt.value); radio.play(); } catch (e) { /* ignore */ }
-    renderRadio();
+    playRadio();
   });
   selSt.addEventListener("change", () => { try { radio.setStation(selSt.value); } catch (e) { /* ignore */ } });
   window.addEventListener("titan:radio", () => { renderRadio(); const s = radio.status(); if (!s.playing && !s.wantPlay && radioOn) { radioOn = false; G.setMusicDuck(false); } });
@@ -381,12 +412,11 @@
     if (b.dataset.scene) pickScene(b.dataset.scene);
     else if (b.dataset.atmo) { if (window.TitanSetAtmo) window.TitanSetAtmo(b.dataset.atmo); lastAtmo = b.dataset.atmo; render(); }
     else if (b.dataset.bed) setLevel(b.dataset.bed, ((st.mix && st.mix.beds && st.mix.beds[b.dataset.bed]) > 0) ? 0 : G.BEDS[b.dataset.bed].level);
-    else if (b.dataset.del) { st.mine = st.mine.filter((u) => u.id !== b.dataset.del); if (st.scene === b.dataset.del) st.scene = "custom"; save(); render(); }
+    else if (b.dataset.del) deleteScene(b.dataset.del);
     else if (b.id === "ss-save") saveScene();
-    else if (b.id === "ss-loadmine") { const m = loadMine(); if (m) { st.mix = m; st.scene = "custom"; start(2); } else msg("No saved mix yet."); }
-    else if (b.id === "ss-clearmix") { st.mix = { beds: {}, pad: 0, piano: false, bells: false, beat: false, root: "D", mode: "dorian", prog: [0, 4, 3, 1], chordSec: 14, gap: [5, 10], bpm: 74 }; st.scene = "custom"; saveMine(); G.stop(0.8); st.wasPlaying = false; save(); render(); }
-    else if (b.dataset.mus) customise((m) => { const k = b.dataset.mus, on = !m.score && (m.rec || ((m.pad > 0 || m.piano || m.bells || m.beat) ? "piano" : null)) === k;
-      m.rec = on ? null : k; m.score = null; m.pad = 0; m.piano = m.bells = m.beat = false; });   // one recorded music at a time; tap again = no music
+    else if (b.id === "ss-loadmine") loadMix();
+    else if (b.id === "ss-clearmix") clearMix();
+    else if (b.dataset.mus) setMusic(b.dataset.mus);
   });
   sheet.addEventListener("input", (e) => { const t = e.target; if (t.dataset && t.dataset.level) { setLevel(t.dataset.level, +t.value); const n = t.parentNode.querySelector(".ss-mn"); if (n) n.textContent = +t.value > 0 ? Math.round(t.value * 100) : ""; } });
   $("#ss-motion", sheet).addEventListener("change", (e) => { st.motion = e.target.checked; save(); if (window.TitanAmbient && window.TitanAmbient.setVisualEnabled) window.TitanAmbient.setVisualEnabled(st.motion); });
@@ -424,14 +454,24 @@
 
   // The bar button opens the studio (app.js binds #btn-atmo -> openAtmoSheet -> TitanScene.open).
   /* the controls the Atmosphere screen (wings/atmosphere.js) drives: the same state, saved the same way */
-  const toggle = () => { if (G.isPlaying()) { G.pause(); st.wasPlaying = false; } else if (G.isPaused()) { G.resume(); st.wasPlaying = true; } else { st.userOff = false; start(2); } save(); render(); };
+  const toggle = () => {
+    if (G.isPlaying()) { G.pause(); st.wasPlaying = false; }
+    else if (G.isPaused()) { G.resume(); st.wasPlaying = true; }
+    else { st.userOff = false; off(); if (st.mix && Object.keys(st.mix.beds || {}).length) start(2); else { const s = themeScene(); if (s) { pickScene(s, { visual: false, fade: 2 }); return; } } }   // nothing chosen yet: this theme's sound
+    save(); render();
+  };
   const setVol = (v) => { st.vol = Math.min(1, Math.max(0, +v || 0)); G.setVolume(st.vol); if (radioOn) { try { radio.setVolume(st.vol); } catch (e) { /* ignore */ } } save(); render(); };
   const themeScene = (id) => { const w = window.TitanWorlds && window.TitanWorlds.byId(id || lastAtmo); let s = w && w.scene; if (s && G.ALIASES && G.ALIASES[s]) s = G.ALIASES[s]; return s && G.SCENES[s] ? s : null; };
   const playTheme = (id) => { const s = themeScene(id); if (s) { st.userOff = false; pickScene(s, { visual: false, fade: 2.5 }); } };
   window.TitanScene = {
     open, close, setTab, openThemes: () => open("themes"), isOpen: () => !sheet.hidden, stop: stopAll,
     state: () => clone(st), play: pickScene, scenes: () => G.SCENE_ORDER.slice(), worlds: () => G.WORLD_ORDER.slice(),
-    toggle, setVolume: setVol, setLevel, themeScene, playTheme, name: sceneName
+    toggle, setVolume: setVol, setLevel, themeScene, playTheme, name: sceneName,
+    /* everything else the studio does, for the Atmosphere (wings/atmosphere.js): same state, saved the same way */
+    toggleBed, setMusic, music: musicOf, setMix, setTone, saveScene, deleteScene, loadMix, clearMix, hasSavedMix: () => !!loadMine(), setOpt,
+    worldSounds: () => WORLD_SOUNDS.slice(), sceneOfWorld: worldOfScene, userScenes: () => clone(st.mine),
+    radio: { ok: () => !!(radio && radio.stations), stations: () => (radio && radio.stations ? radio.stations() : []), station: () => { try { return selSt.value || radio.station(); } catch (e) { return ""; } },
+      status: () => (radio && radio.status ? radio.status() : {}), on: () => radioOn, play: playRadio, stop: stopRadio, set: (k) => { try { selSt.value = k; radio.setStation(k); } catch (e) { /* ignore */ } } }
   };
   if (!st.mix && st.scene === "custom") { const m = loadMine(); if (m) st.mix = m; }
   render();

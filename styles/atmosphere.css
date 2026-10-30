@@ -1,6 +1,7 @@
 /* styles/atmosphere.css: the Atmosphere (wings/atmosphere.js), loaded on its first open. Claude, 2026-10-30.
-   Glass over the live world, in four depths (--px, --py: pointer or tilt, smoothed): the name far back, the group pills, the ring of
-   portals, the dock nearest. No gold-on-black chrome: neutral glass, white type, the theme's own accent only for the small marks. */
+   Glass over the live world, in four depths (atmosphere.js moves .atm-l1 .. .atm-l4 with the mouse or the tilt): the name far back, the
+   group pills, the ring of portals, the dock nearest. No gold-on-black chrome: neutral glass, white type, the theme's own accent only for
+   the small marks. The Sound and Look panels fill the space under the name while the ring steps back. */
 html.tr-atmos body > :not(#atmos):not(#fxk):not(#titan-fx):not(#troom) { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transition: opacity .32s ease, visibility 0s .32s; }
 html.tr-atmos, html.tr-atmos body { overflow: hidden; }
 .atm {
@@ -16,12 +17,8 @@ html.tr-atmos, html.tr-atmos body { overflow: hidden; }
 /* legibility over any world: a soft dark at the top for the name and at the bottom for the dock, nothing in the middle */
 .atm-shade { position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, .12) 26%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .55) 100%); }
-/* the depths */
-.atm-l1 { transform: translate3d(calc(var(--px, 0) * -10px), calc(var(--py, 0) * -6px), 0); }
-.atm-l2 { transform: translate3d(calc(var(--px, 0) * -18px), calc(var(--py, 0) * -10px), 0); }
-.atm-l3 { transform: translate3d(calc(var(--px, 0) * -30px), calc(var(--py, 0) * -16px), 0); }
-.atm-l4 { transform: translate3d(calc(var(--px, 0) * -6px), calc(var(--py, 0) * -3px), 0); }   /* the controls barely move: they stay where the thumb expects them */
-html[data-motion="off"] .atm-l1, html[data-motion="off"] .atm-l2, html[data-motion="off"] .atm-l3, html[data-motion="off"] .atm-l4 { transform: none; }
+/* the depths: transforms written by atmosphere.js (the controls barely move: they stay where the thumb expects them) */
+.atm-l1, .atm-l2, .atm-l3, .atm-l4 { transition: opacity .28s ease; }
 
 /* far: the name */
 .atm-head { position: absolute; left: 20px; right: 76px; top: max(18px, env(safe-area-inset-top)); text-shadow: 0 2px 18px rgba(0, 0, 0, .55); pointer-events: none; }
@@ -51,7 +48,8 @@ html[data-motion="off"] .atm-l1, html[data-motion="off"] .atm-l2, html[data-moti
 .atm-card-img { position: absolute; inset: 0; background: linear-gradient(160deg, #22262f, #0d0f14) center / cover no-repeat; transform: scale(1.04); transition: transform 1.2s ease; }
 .atm-card.front .atm-card-img { transform: scale(1.1); }
 .atm-card-glow { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, .22), transparent 55%), linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, .78)); }
-.atm-card-t { position: absolute; left: 16px; right: 16px; bottom: 14px; text-align: left; text-shadow: 0 1px 10px rgba(0, 0, 0, .7); }
+.atm-card-t { position: absolute; left: 16px; right: 16px; bottom: 14px; text-align: left; text-shadow: 0 1px 10px rgba(0, 0, 0, .7); opacity: 0; transition: opacity .25s ease; }
+.atm-card.front .atm-card-t { opacity: 1; }   /* the side portals are pictures only: their names ran off the screen edge */
 .atm-card-t b { display: block; font-weight: 500; font-size: 19px; letter-spacing: -.01em; }
 .atm-card-t small { display: block; margin-top: 2px; font-size: 12px; color: var(--ink2); }
 .atm-card-on { position: absolute; top: 12px; left: 12px; height: 24px; padding: 0 10px; border-radius: 12px; font-size: 11px; letter-spacing: .08em; line-height: 24px;
@@ -83,8 +81,8 @@ html[data-motion="off"] .atm-enter-ring, html[data-motion="calm"] .atm-enter-rin
   box-shadow: 0 20px 60px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .1); }
 @media (min-width: 760px) { .atm-dock { left: 50%; right: auto; translate: -50% 0; width: 640px; } }
 .atm-orb { position: relative; flex: none; width: 50px; height: 50px; border-radius: 25px; border: 0; cursor: pointer; display: grid; place-items: center; background: rgba(255, 255, 255, .92); color: #101216; }
-.atm-orb.on { background: var(--acc); color: #0b0c10; }
-.atm-orb-lv { position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--acc); opacity: calc(.15 + var(--atm-lv, 0) * 1.2); transform: scale(calc(1 + var(--atm-lv, 0) * .35)); }
+.atm-orb.on { background: rgba(255, 255, 255, .16); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .7); }
+.atm-orb-lv { position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--acc); opacity: .15; will-change: transform, opacity; }   /* level: atmosphere.js */
 .atm-orb-i { display: grid; place-items: center; }
 .atm-vol { flex: 1; min-width: 0; display: grid; gap: 2px; padding: 0 4px; }
 .atm-vol input { width: 100%; margin: 0; accent-color: #fff; height: 22px; }
@@ -92,36 +90,61 @@ html[data-motion="off"] .atm-enter-ring, html[data-motion="calm"] .atm-enter-rin
 .atm-pill { flex: none; height: 44px; padding: 0 16px; border-radius: 22px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); cursor: pointer; font-size: 14px; font-weight: 600; }
 .atm-pill[aria-expanded="true"] { background: rgba(255, 255, 255, .92); color: #101216; border-color: transparent; }
 
-/* the panels */
-.atm-panel { position: absolute; left: 12px; right: 12px; bottom: calc(max(16px, env(safe-area-inset-bottom)) + 76px); max-height: min(62vh, 560px); overflow: auto; padding: 18px 18px 20px;
-  border-radius: 26px; border: 1px solid var(--line); background: rgba(12, 14, 20, .7); -webkit-backdrop-filter: blur(26px) saturate(1.4); backdrop-filter: blur(26px) saturate(1.4);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, .5); user-select: text; animation: atm-up .34s cubic-bezier(.2, .8, .2, 1); }
-@media (min-width: 760px) { .atm-panel { left: 50%; right: auto; translate: -50% 0; width: 620px; } }
+/* the panels: under the theme's name, over the dock; the ring, the pills and Step inside step back while one is open */
+.atm.panel-on .atm-groups, .atm.panel-on .atm-ring, .atm.panel-on .atm-hint, .atm.panel-on .atm-enter, .atm.panel-on .atm-mood { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .28s ease, visibility 0s .28s; }
+.atm-panel { position: absolute; left: 12px; right: 12px; top: var(--atm-ptop, 30vh); bottom: calc(max(16px, env(safe-area-inset-bottom)) + 76px); display: flex; flex-direction: column;
+  border-radius: 26px; border: 1px solid var(--line); background: rgba(12, 14, 20, .72); -webkit-backdrop-filter: blur(26px) saturate(1.4); backdrop-filter: blur(26px) saturate(1.4);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .5); user-select: text; -webkit-user-select: text; animation: atm-up .34s cubic-bezier(.2, .8, .2, 1); overflow: hidden; }
+.atm-panel[hidden] { display: none; }
+@media (min-width: 760px) { .atm-panel { left: 50%; right: auto; translate: -50% 0; width: 640px; } }
 @keyframes atm-up { from { opacity: 0; transform: translateY(16px) scale(.98); } }
-.atm.panel-on .atm-enter { opacity: 0; pointer-events: none; transition: opacity .2s; }
-.atm-ph { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.atm-ph h3 { margin: 0; font-size: 22px; font-weight: 300; letter-spacing: -.01em; }
-.atm-panel h4 { margin: 16px 0 8px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink2); font-weight: 600; }
-.atm-link { border: 0; background: none; color: var(--ink2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: 13px; padding: 8px 0; }
-.atm-own { margin-top: 12px; width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); cursor: pointer; text-align: left; }
-.atm-own.on { border-color: var(--acc); box-shadow: 0 0 0 1px var(--acc) inset; }
+.atm-ph { flex: none; display: flex; align-items: center; gap: 10px; padding: 14px 12px 6px 20px; }
+.atm-ph h3 { margin: 0; margin-right: auto; font-size: 22px; font-weight: 300; letter-spacing: -.01em; }
+.atm-off { height: 36px; padding: 0 14px 0 10px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; }
+.atm-off svg { width: 14px; height: 14px; }
+.atm-px { width: 40px; height: 40px; border-radius: 20px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); display: grid; place-items: center; cursor: pointer; }
+.atm-tabs { flex: none; display: flex; gap: 4px; margin: 4px 12px 0; padding: 4px; border-radius: 16px; background: rgba(255, 255, 255, .06); }
+.atm-tab { flex: 1 1 0; min-width: 0; height: 36px; border: 0; border-radius: 12px; background: none; cursor: pointer; font-size: 13.5px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.atm-tab[aria-selected="true"] { background: rgba(255, 255, 255, .92); color: #101216; font-weight: 600; }
+.atm-pb { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: 4px 18px 22px; }
+.atm-panel h4 { margin: 18px 0 8px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink2); font-weight: 600; }
+.atm-note { margin: 8px 0 0; font-size: 12.5px; color: var(--ink2); }
+.atm-note:empty { display: none; }
+.atm-sub { margin: -2px 0 10px; }
+.atm-own { margin-top: 14px; width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); cursor: pointer; text-align: left; }
+.atm-own[aria-pressed="true"] { border-color: rgba(255, 255, 255, .8); box-shadow: 0 0 0 1px rgba(255, 255, 255, .8) inset, 0 0 30px -12px var(--acc); }
 .atm-own-i { width: 40px; height: 40px; border-radius: 20px; display: grid; place-items: center; background: rgba(255, 255, 255, .1); font-size: 20px; }
 .atm-own b { display: block; font-weight: 600; } .atm-own small { color: var(--ink2); }
-.atm-moods { display: flex; flex-wrap: wrap; gap: 8px; }
-.atm-mood-b { height: 38px; padding: 0 14px; border-radius: 19px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); cursor: pointer; font-size: 13.5px; display: inline-flex; align-items: center; gap: 8px; }
-.atm-mood-b.on { background: rgba(255, 255, 255, .92); color: #101216; border-color: transparent; }
-.atm-mix { display: grid; gap: 6px; }
-.atm-mrow { display: grid; grid-template-columns: 28px minmax(0, 7.5em) 1fr; align-items: center; gap: 10px; min-height: 40px; }
-.atm-mi { text-align: center; font-size: 18px; } .atm-ml { font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.atm-mrow input { width: 100%; accent-color: var(--acc); }
-.atm-note { margin: 8px 0 0; font-size: 12.5px; color: var(--ink2); }
-.atm-set { margin-top: 16px; }
-.atm-set-h { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink2); font-weight: 600; margin-bottom: 8px; }
+.atm-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.atm-mood-b, .atm-chip { min-height: 38px; padding: 0 14px; border-radius: 19px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); cursor: pointer; font-size: 13.5px; display: inline-flex; align-items: center; gap: 8px; text-align: left; }
+.atm-mood-b[aria-pressed="true"], .atm-chip[aria-pressed="true"] { background: rgba(255, 255, 255, .92); color: #101216; border-color: transparent; }
+.atm-chip small { opacity: .7; font-size: 11.5px; }
+.atm-small { min-height: 34px; padding: 0 12px; font-size: 12.5px; }
+.atm-ic { font-size: 15px; line-height: 1; }
+.atm-mine { display: inline-flex; align-items: center; gap: 2px; }
+.atm-rm { flex: none; width: 34px; height: 34px; border-radius: 17px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); cursor: pointer; font-size: 18px; line-height: 1; display: grid; place-items: center; }
+.atm-mix { display: grid; gap: 4px; }
+.atm-mrow { display: grid; grid-template-columns: 26px minmax(0, 1fr) 34px; align-items: center; gap: 8px; }
+.atm-mi { text-align: center; font-size: 18px; }
+.atm-mrow .atm-sl { grid-template-columns: minmax(0, 6.4em) minmax(0, 1fr) 2.8em; gap: 8px; }
+.atm-sl { display: grid; grid-template-columns: minmax(0, 7.8em) minmax(0, 1fr) 3.6em; align-items: center; gap: 10px; min-height: 42px; }
+.atm-sl-l { font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.atm-sl input { width: 100%; margin: 0; accent-color: #fff; height: 28px; }
+.atm-sl-n { font-size: 12px; color: var(--ink2); text-align: right; font-variant-numeric: tabular-nums; }
+.atm-sl input:disabled { opacity: .4; }
+.atm-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.atm-btn { min-height: 40px; padding: 0 16px; border-radius: 20px; border: 1px solid var(--line); background: rgba(255, 255, 255, .08); cursor: pointer; font-size: 13.5px; font-weight: 600; }
+.atm-btn:active, .atm-chip:active, .atm-mood-b:active { transform: scale(.97); }
+.atm-save, .atm-radio { display: flex; gap: 8px; align-items: center; }
+.atm-save input, .atm-radio select, .atm-field select { flex: 1; min-width: 0; height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0, 0, 0, .3); color: #fff; font: inherit; font-size: 14px; }
+.atm-radio select option, .atm-field select option { color: #101216; }
+.atm-field { display: flex; align-items: center; gap: 12px; margin-top: 12px; min-height: 44px; font-size: 14px; }
+.atm-field span { flex: none; }
 .atm-seg { display: flex; flex-wrap: wrap; gap: 6px; }
 .atm-seg button { min-height: 40px; padding: 0 14px; border-radius: 20px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); cursor: pointer; font-size: 13.5px; }
 .atm-seg button[aria-checked="true"] { background: rgba(255, 255, 255, .92); color: #101216; border-color: transparent; }
-.atm-tog { margin-top: 16px; display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; cursor: pointer; }
-.atm-tog input { width: 20px; height: 20px; accent-color: var(--acc); }
+.atm-tog { margin-top: 10px; display: flex; align-items: center; gap: 12px; min-height: 44px; font-size: 14px; cursor: pointer; }
+.atm-tog input { flex: none; width: 20px; height: 20px; accent-color: #fff; }
 
 /* desktop: a wider stage */
 @media (min-width: 900px) {

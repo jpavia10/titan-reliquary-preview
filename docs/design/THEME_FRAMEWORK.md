@@ -30,7 +30,9 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
    does not save time on software GL (every lane runs both sides): cut work per tier with `TIER` constants instead.
 2. **The world contract** (`fx/kit.js`): `K.view = { mode, yaw, pitch, move, up, look }`, written only through `K.setView(v)`,
    which keeps a mode from `K.MODES` (`backdrop`, `opening`, `room`), ignores numbers that are not finite, clamps the camera and every
-   look control to the world's room limits and drops unknown ids; `K.resetView()`; `K.look(id, def)`; `K.tap(x, y)` (a touch from a page
+   look control to the world's room limits and drops unknown ids; `K.resetView()`; `K.look(id, def)` (the view's value, else the owner's saved
+   value for this theme, else the default); `K.saveLook(theme, look)` / `K.savedLook(theme)` (the owner's own setting of a theme's look
+   controls, from the Atmosphere's Look > Effects, kept in localStorage `titan.fxk.look.v1`; the backdrop and the room start from it); `K.tap(x, y)` (a touch from a page
    that reads the pointer itself); `K.room(id)`; `K.tierName()` (the TitanQuality tier by name; `K.tier()` stays the shared scene module's quality factor); `K.frames`; `K.debug()` (id, tier, view, canvases, loop, frames, and each
    world's own `debug()`, which reports at least `cam` and `look`). A view change with the loop stopped (Motion Calm/Off, hidden tab)
    draws one still frame.
@@ -92,4 +94,5 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
 - **C. Openings**: each converted world's opening path looked at, then listed in `OPENINGS`; its separate scene file retires.
 - **D. A GPU world for every first-engine theme** (Grok's homework, Claude's review), so every theme has a full room.
 - **E. Scene Studio v4** (rule 12 c): theme picking, sound, ambience and effects in layers that move in depth, leading into the room.
+  The Atmosphere (`wings/atmosphere.js`, tr267, every studio control since tr269) is this; the classic studio stays as a list view.
 - **F. Retire**: the films (done, tr267), then the openings kit and TitanFX once nothing uses them.

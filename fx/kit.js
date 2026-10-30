@@ -14,7 +14,25 @@
      the theme's room. A world reads ctx.view: mode, the camera offset from its own view (yaw and pitch in radians, move = metres along
      the view, up = metres) and look = its named controls (each world lists them in K.themes[id].room.look; a missing one = its default). */
   K.view = K.view || { mode: "backdrop", yaw: 0, pitch: 0, move: 0, up: 0, look: {} };
-  K.look = function (id, def) { var v = K.view.look && K.view.look[id]; return v == null ? def : v; };
+  /* the owner's own setting of a world's look controls, kept per theme (the Atmosphere: Look > Effects). The backdrop and the room
+     start from it; a value in K.view.look (the room's sliders, an opening) wins while it is set. K.saveLook(theme, {id: value}) clamps
+     to the room limits and drops values at their default; K.savedLook(theme) gives a copy. */
+  var LOOKS = "titan.fxk.look.v1", saved = {};
+  try { saved = JSON.parse(localStorage.getItem(LOOKS) || "{}") || {}; } catch (e) { saved = {}; }
+  K.look = function (id, def) {
+    var v = K.view.look && K.view.look[id];
+    if (v == null) { var s = saved[(active && active.id) || root.dataset.atmo]; v = s && s[id]; }
+    return v == null ? def : v;
+  };
+  K.savedLook = function (theme) { var s = saved[theme || (active && active.id) || root.dataset.atmo] || {}, o = {}; for (var k in s) o[k] = s[k]; return o; };
+  K.saveLook = function (theme, look) {
+    theme = theme || (active && active.id) || root.dataset.atmo;
+    var R = K.room(theme), out = {};
+    (R && R.look || []).forEach(function (c) { var x = look && look[c.id]; if (num(x)) { x = clamp(x, [c.min, c.max]); if (Math.abs(x - c.def) > 1e-4) out[c.id] = x; } });
+    if (Object.keys(out).length) saved[theme] = out; else delete saved[theme];
+    try { localStorage.setItem(LOOKS, JSON.stringify(saved)); } catch (e) { /* private mode: this visit only */ }
+    redraw(); return K.savedLook(theme);
+  };
   /* The view is written only through setView: a mode outside MODES is ignored, a number that is not finite is ignored, the camera and
      every look control are clamped to the world's room limits (K.themes[id].room), unknown look ids are dropped. A world without a room
      keeps the backdrop camera. Nothing here can throw on bad input: the page keeps running with the last good view. */

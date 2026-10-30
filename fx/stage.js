@@ -126,7 +126,7 @@
         name: id,
         step: function (c) {
           var v = c.view || {}; S.view = v; S.c = c;
-          if (v.mode === "backdrop" || !v.mode) S.tOff = 0; else S.tOff += c.dt * (look("speed", 1) - 1);
+          var sp = look("speed", 1); if ((v.mode === "backdrop" || !v.mode) && sp === 1) S.tOff = 0; else S.tOff += c.dt * (sp - 1);   // a saved speed runs the backdrop too
           var room = v.mode === "room", tx = room ? .5 : c.ptr.x, ty = room ? .5 : c.ptr.y, k = Math.min(1, c.dt * 2.5);
           S.ptr[0] += (tx - S.ptr[0]) * k; S.ptr[1] += (ty - S.ptr[1]) * k;
           if (c.ptr.tap !== seen) { seen = c.ptr.tap; S.taps.unshift({ x: c.ptr.tx, y: c.ptr.ty, t: c.t, s: 1 }); if (S.taps.length > 6) S.taps.length = 6; if (def.onTap) def.onTap(c.ptr.tx, c.ptr.ty, S); }

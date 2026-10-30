@@ -310,7 +310,8 @@
   window.TitanUISounds = {
     play: play, mount: mount, voices: function () { return Object.keys(VOICE); }, kinds: function () { return Object.keys(SOUNDS); },
     setHaptics: function (v) { S.haptics = !!v; save(); }, playMoment: playMoment, moments: function () { return Object.keys(MOMENT).concat(Object.keys(MOMENT_ALIAS)); },
-    setEnabled: function (v) { S.on = !!v; save(); }, isEnabled: function () { return S.on; },
+    setEnabled: function (v) { S.on = !!v; save(); if (S.on) { gestured = true; play("wing"); } }, isEnabled: function () { return S.on; },
+    setMomentSounds: function (v) { S.moments = !!v; save(); }, momentSounds: function () { return S.moments; },
     setVolume: function (v) { S.vol = Math.min(1, Math.max(0, v)); save(); }, getVolume: function () { return S.vol; },
     stats: function () { return { played: stats.played, skipped: stats.skipped, duckCalls: stats.duckCalls, holds: stats.holds, voices: voices.length, hold: hold.db, muted: muted, on: S.on, gestured: gestured, shared: !!busOf(), ownCtx: ownCtx ? ownCtx.state : "none" }; },
     _debug: { ownCtx: function () { return ownCtx; }, ownOut: function () { return ownOut; } }

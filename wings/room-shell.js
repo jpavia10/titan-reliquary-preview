@@ -21,7 +21,7 @@
     var id = html.dataset.atmo, K = window.TitanFXK, d = K && K.debug ? K.debug() : {}, R = d.id === id && K.room ? K.room(id) : null;
     var FX = window.TitanFX, fx0 = FX && FX.state ? FX.state() : null, scape = window.TitanScapeApp || direct(), took = false, before = document.activeElement;
     var v = { yaw: 0, pitch: 0, move: 0, up: 0, look: {} }, tilt = { yaw: 0, pitch: 0, b0: null, g0: null, on: false }, playing = null;
-    if (R) (R.look || []).forEach(function (c) { v.look[c.id] = c.def; });
+    if (R) (R.look || []).forEach(function (c) { v.look[c.id] = K.look ? K.look(c.id, c.def) : c.def; });   // the room starts from the theme's saved look
 
     var box = el("div", "troom"); box.id = "troom"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true");
     box.setAttribute("aria-label", lib.label(id) + ": the room");
