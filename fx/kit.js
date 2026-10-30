@@ -154,6 +154,7 @@
   function draw(t, dt) {
     scanObs(performance.now()); size(); K.frames++;
     gl.viewport(0, 0, cv.width, cv.height); gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    if (active.extra && active.extra.length) gl.disable(gl.BLEND);   // an added layer leaves blending on; the world's passes start without it
     gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
     var ctx = { t: t, dt: dt, w: cv.width, h: cv.height, q: Q.q, lite: lite(), still: still(), ptr: ptr, obs: obs, obsN: obsN, cfg: active.cfg, id: active.id, view: K.view };
     for (var i = 0; i < active.parts.length; i++) active.parts[i].step && active.parts[i].step(ctx);
@@ -161,15 +162,43 @@
     for (i = 0; i < active.parts.length; i++) { if (active.parts[i].name !== "post") K.bindTarget(); active.parts[i].draw(ctx); }
     ptr.vx *= .85; ptr.vy *= .85;
   }
+  /* layers the owner added to this theme (wings/fx/layers.js): extra modules drawn over the world (before its post pass), or alone
+     over a theme that has no GPU world yet. K.setExtras() swaps them without rebuilding the world. A module not loaded yet is
+     fetched first (its stack entry names its file). */
+  K.extraStack = function (id) { var L = window.TitanFXLayers; try { return L && L.kitStack ? L.kitStack(id) : []; } catch (e) { return []; } };
+  var modBusy = {};
+  function needMods(list) {
+    var miss = list.filter(function (s) { return !K.mods[s.mod] && s.file && !modBusy[s.file]; });
+    miss.forEach(function (s) { modBusy[s.file] = 1; var el = document.createElement("script"); el.src = s.file + lazyV;
+      el.onload = function () { K.setExtras(); }; el.onerror = function () { console.warn("[fxk] could not load", s.file); }; document.head.appendChild(el); });
+    return list.filter(function (s) { return K.mods[s.mod]; });
+  }
+  function makeParts(stack) { var out = []; stack.forEach(function (s) { var f = K.mods[s.mod]; if (f) { try { var p = f(gl, s, K); if (p) { p.layer = s.layer || null; out.push(p); } } catch (e) { console.warn("[fxk]", s.mod, e); } } }); return out; }
+  function insertExtras(parts, extra) { var i = parts.map(function (p) { return p.name; }).indexOf("post"); if (i < 0) i = parts.length; parts.splice.apply(parts, [i, 0].concat(extra)); return parts; }
+  K.setExtras = function () {
+    var id = K.forced || root.dataset.atmo, want = K.extraStack(id);
+    if (!active || active.id !== id) { if (want.length) apply(true); return; }
+    if (active.cfg.extrasOnly && !want.length) { teardown(); return; }
+    var have = active.extra || [], ready = needMods(want);
+    if (have.length === ready.length && have.every(function (p, i) { return p.layer === ready[i].layer; })) return;   // a strength change: the module reads it live
+    have.forEach(function (p) { try { p.dispose && p.dispose(); } catch (e) { /* ignore */ } });
+    active.parts = active.parts.filter(function (p) { return have.indexOf(p) < 0; });
+    active.extra = makeParts(ready); insertExtras(active.parts, active.extra);
+    if (!active.parts.length) { teardown(); return; }
+    redraw();
+  };
   function apply(force) {
     var id = K.forced || root.dataset.atmo, cfg = K.themes[id];
     if (!force && active && active.id === id) return;
     if (!cfg && K.lazy[id]) { lazyLoad(id); return; }
-    teardown(); if (!cfg || root.dataset.ui === "field" && !cfg.field) return;
+    var want = K.extraStack(id);
+    teardown(); if (!cfg && want.length) cfg = { stack: [], extrasOnly: true };
+    if (!cfg || root.dataset.ui === "field" && !cfg.field) return;
     if (!ensure()) return;
-    var parts = []; (cfg.stack || []).forEach(function (s) { var f = K.mods[s.mod]; if (f) { try { var p = f(gl, s, K); if (p) parts.push(p); } catch (e) { console.warn("[fxk]", s.mod, e); } } });
+    var parts = makeParts(cfg.stack || []), extra = makeParts(needMods(want));
+    insertExtras(parts, extra);
     if (!parts.length) return;
-    active = { id: id, cfg: cfg, parts: parts, post: parts.some(function (p) { return p.name === "post"; }) }; root.setAttribute("data-fxk", id);
+    active = { id: id, cfg: cfg, parts: parts, extra: extra, post: parts.some(function (p) { return p.name === "post"; }) }; root.setAttribute("data-fxk", id);
     cv.style.opacity = String(cfg.opacity == null ? 1 : cfg.opacity); last = 0; Q.slow = Q.fast = 0;
     raf = requestAnimationFrame(frame);
   }

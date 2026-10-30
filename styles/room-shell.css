@@ -34,3 +34,10 @@ html.tr-room, html.tr-room body { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .troom-top, .troom-bar, .troom-panel { transform: none; } .troom-bar { transform: translateX(-50%); } }
 html[data-motion="off"] .troom-top, html[data-motion="off"] .troom-panel, html[data-motion="calm"] .troom-top, html[data-motion="calm"] .troom-panel { transform: none; }
 html[data-motion="off"] .troom-bar, html[data-motion="calm"] .troom-bar { transform: translateX(-50%); }
+/* Effects tab: what was added to this theme (a level and a remove each), then the whole library as chips */
+.troom-row.has-x { grid-template-columns: 7.2em 1fr 3em 34px; }
+.troom-row.has-x button { width: 34px; height: 34px; min-height: 0; padding: 0; border-radius: 17px; border: 1px solid rgba(255, 255, 255, .3); background: rgba(255, 255, 255, .08); color: #fff; cursor: pointer; font-size: 17px; }
+.troom-h { margin: 14px 0 6px; font: 600 11px system-ui, -apple-system, sans-serif; letter-spacing: .2em; text-transform: uppercase; opacity: .75; }
+.troom-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.troom-chips button { min-height: 36px; padding: 0 12px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, .26); background: rgba(255, 255, 255, .06); color: #fff; cursor: pointer; font: 500 13px system-ui, -apple-system, sans-serif; }
+.troom-chips button[aria-pressed="true"] { background: rgba(255, 255, 255, .92); color: #101216; border-color: transparent; }

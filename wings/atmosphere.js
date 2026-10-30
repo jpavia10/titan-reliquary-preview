@@ -15,6 +15,7 @@
             recorded layer, the music, a level each, save as a scene, load, clear) · Levels (music, ambience, bass, mid, treble) ·
             Settings (sound follows the theme, background, time of day, sound space, interface sounds)
      Look   Effects (this theme's own effect controls, kept per theme; the screen effects Off / Subtle / Full, strength, film, a moment) ·
+            + Add (any effect in the library on top of this theme, a strength each, wings/fx/layers.js) ·
             Motion (Full / Calm / Off, taps, graphics quality) · Opening (the opening, fly-in on a pick, play it now) · App (updates,
             the classic studio)
    Everything goes through the same calls as before (TitanScene, TitanWorlds, TitanFX, TitanFXK, TitanMotion, TitanQuality,
@@ -61,7 +62,7 @@
   /* ------------------------------------------------------------------ markup ------------------------------------------------------------------ */
   var TABS = {
     sound: [["scenes", "Scenes"], ["mixer", "Mixer"], ["levels", "Levels"], ["settings", "Settings"]],
-    look: [["effects", "Effects"], ["motion", "Motion"], ["opening", "Opening"], ["app", "App"]]
+    look: [["effects", "Effects"], ["add", "+ Add"], ["motion", "Motion"], ["opening", "Opening"], ["app", "App"]]
   };
   function panelShell(name, title) {
     return '<section class="atm-panel" id="atm-p-' + name + '" data-panel="' + name + '" aria-label="' + title + '" hidden>' +
@@ -490,6 +491,29 @@
         if (fs) { radios(box, "fxlevel", fs.level); var a = box.querySelector('[data-in="fxint"]'); if (a) { if (!held(a)) a.value = fs.intensity; outOf(a, pct(+a.value)); } var f = box.querySelector('[data-in="film"]'); if (f) { if (!held(f)) f.value = fs.film; outOf(f, pct(+f.value)); } }
       }
     },
+    /* ---- Look > + Add: any effect in the library on top of this theme (wings/fx/layers.js), saved per theme, on in the room too ---- */
+    "look:add": {
+      key: function () { var L = window.TitanFXLayers; return L ? current() + "|" + L.list(current()).map(function (e) { return e.id; }).join() + "|" + L.lib().length : "none"; },
+      build: function () {
+        var L = window.TitanFXLayers; if (!L) return note("Effects are not available in this browser.");
+        var cur = current(), mine = L.list(cur), libl = L.lib();
+        return h("Added to " + themeName(cur), "Any effect, on top of the theme's own world; kept for this theme and on in the room too. Up to three screen effects at once (a fourth takes the place of the oldest); the paint swirl runs on the world itself and follows your finger.") +
+          (mine.length ? '<div class="atm-mix">' + mine.map(function (e) {
+            return '<div class="atm-mrow"><span class="atm-mi" aria-hidden="true">' + esc(e.icon) + "</span>" + slider("layer:" + e.id, e.name, .05, 1.6, .05, e.w) +
+              '<button type="button" class="atm-rm" data-act="unlayer" data-id="' + esc(e.id) + '" aria-label="Remove ' + esc(e.name) + '">×</button></div>'; }).join("") + "</div>" +
+            '<div class="atm-row"><button type="button" class="atm-btn" data-act="layers-clear">Remove all</button>' + (window.TitanRoom ? '<button type="button" class="atm-btn" data-act="room">Step inside with them</button>' : "") + "</div>"
+            : note("Nothing added yet: pick any effect below.")) +
+          L.groups().map(function (g) {
+            var items = libl.filter(function (x) { return x.group === g; }); if (!items.length) return "";
+            return h(g) + '<div class="atm-chips">' + items.map(function (x) { return '<button type="button" class="atm-chip" data-act="layer" data-id="' + esc(x.id) + '" aria-pressed="false"><span class="atm-ic" aria-hidden="true">' + esc(x.icon) + "</span>" + esc(x.name) + "</button>"; }).join("") + "</div>";
+          }).join("");
+      },
+      update: function (box) {
+        var L = window.TitanFXLayers; if (!L) return; var cur = current(), mine = L.list(cur);
+        pressed(box, '[data-act="layer"]', function (b) { return L.on(cur, b.dataset.id); });
+        mine.forEach(function (e) { var el = box.querySelector('[data-in="layer:' + e.id + '"]'); if (!el) return; if (!held(el)) el.value = e.w; outOf(el, Math.round(e.w * 100) + "%"); });
+      }
+    },
     /* ---- Look > Motion: motion, taps, graphics ---- */
     "look:motion": {
       key: function () { return "1"; },
@@ -556,6 +580,9 @@
       case "flat": if (s) s.setTone(0, 0, 0); break;
       case "radio": if (s && s.radio) { var r = s.radio.status() || {}; if (r.playing || r.wantPlay) s.radio.stop(); else { var sel = p.querySelector('[data-sel="station"]'); s.radio.play(sel ? sel.value : null); } } break;
       case "moment": if (FX && FX.moment) FX.moment(); break;
+      case "layer": if (window.TitanFXLayers) window.TitanFXLayers.toggle(current(), b.dataset.id); break;
+      case "unlayer": if (window.TitanFXLayers && window.TitanFXLayers.on(current(), b.dataset.id)) window.TitanFXLayers.toggle(current(), b.dataset.id); break;
+      case "layers-clear": if (window.TitanFXLayers) window.TitanFXLayers.clear(current()); break;
       case "lookreset": if (K && K.saveLook) { K.saveLook(current(), {}); lookScape({}); } break;
       case "room": enter(); return;
       case "flyin": panel(null); flyIn(current(), true); return;
@@ -581,6 +608,7 @@
     else if (id === "uivol") { var U = window.TitanUISounds; if (U) { U.setVolume(v); clearTimeout(uiT); uiT = setTimeout(function () { U.play("flip"); }, 160); } outOf(t, pct(v)); }
     else if (id === "fxint") { if (FX) FX.setIntensity(v); outOf(t, pct(v)); }
     else if (id === "film") { if (FX) FX.setFilm(v); outOf(t, pct(v)); }
+    else if (id.indexOf("layer:") === 0) { if (window.TitanFXLayers) window.TitanFXLayers.set(current(), id.slice(6), v); outOf(t, Math.round(v * 100) + "%"); }
     else if (id.indexOf("look:") === 0 && K && K.saveLook) {
       var R = kitRoom(); if (!R) return;
       var look = K.savedLook(current()); look[id.slice(5)] = v;      // only the control that moved: the others keep their exact value

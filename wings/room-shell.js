@@ -120,6 +120,27 @@
         p.appendChild(el("p", "troom-note", "This theme's own world is still to come; this is its effect on its own."));
       }
     });
+    /* effects added to this theme (wings/fx/layers.js): any effect in the library, on top of the theme's own; they stay after the room */
+    var LY = window.TitanFXLayers;
+    if (LY) tab("Effects", function (p) {
+      function draw() {
+        var top = p.scrollTop; p.innerHTML = ""; rows = [];
+        var mine = LY.list(id);
+        p.appendChild(el("p", "troom-note", mine.length ? "Added to this theme; they stay when you leave the room." : "Add any effect to this theme: it plays here and behind the collection."));
+        mine.forEach(function (e) {
+          var r = slider(e.icon + " " + e.name, .05, 1.6, .05, function () { var x = LY.list(id).filter(function (y) { return y.id === e.id; })[0]; return x ? x.w : 0; }, function (w) { LY.set(id, e.id, w); });
+          var x = btn("×", function () { LY.toggle(id, e.id); draw(); }); x.setAttribute("aria-label", "Remove " + e.name); r.classList.add("has-x"); r.appendChild(x); p.appendChild(r);
+        });
+        LY.groups().forEach(function (g) {
+          var items = LY.lib().filter(function (x) { return x.group === g; }); if (!items.length) return;
+          p.appendChild(el("h4", "troom-h", g)); var row = el("div", "troom-chips");
+          items.forEach(function (x) { var b = btn(x.icon + " " + x.name, function () { LY.toggle(id, x.id); draw(); }); b.setAttribute("aria-pressed", String(LY.on(id, x.id))); row.appendChild(b); });
+          p.appendChild(row);
+        });
+        p.scrollTop = top;
+      }
+      draw();
+    });
     tab("Sound", function (p) {
       if (!scape || !(R && R.sound || scape.map[id])) { p.appendChild(el("p", "troom-note", "This theme has no soundscape yet.")); return; }
       function list() {

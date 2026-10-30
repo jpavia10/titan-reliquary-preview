@@ -149,6 +149,11 @@ def scenario(r):
     r.check("Atmosphere: the Sound panel opens", p.evaluate("!document.getElementById('atm-p-sound').hidden && !!document.querySelector('#atm-p-sound h3')"))
     p.keyboard.press("Escape"); p.wait_for_timeout(200); p.keyboard.press("Escape"); p.wait_for_timeout(500)
     r.check("Atmosphere: Escape closes it and the collection is back", p.evaluate("!TitanAtmosphere.isOpen() && getComputedStyle(document.getElementById('app') || document.body).visibility === 'visible'"))
+    # owner 2026-10-30: "I should be able to add any of the available effects on any scene": an effect added to a theme plays over it and goes again
+    lay = p.evaluate("""() => { const L = window.TitanFXLayers, t = document.documentElement.dataset.atmo; if (!L) return { ok: false };
+      const lib = L.lib().length; L.toggle(t, 'fireworks'); const on = (TitanFX.state().playing || '').indexOf('fireworks') >= 0;
+      L.toggle(t, 'fireworks'); const off = (TitanFX.state().playing || '').indexOf('fireworks') < 0 && !L.list(t).length; return { ok: lib >= 60 && on && off, lib, on, off }; }""")
+    r.check(f"an effect added to any theme plays over it and comes off again ({lay})", lay.get("ok"))
     p.evaluate("TitanScene.open('themes')"); p.wait_for_timeout(800)
     r.check("Scene Studio (All settings) opens", p.evaluate("!!document.querySelector('#ss-title') && document.querySelector('#ss-title').offsetParent !== null"))
     tab = p.query_selector("#ss-tab-sound")

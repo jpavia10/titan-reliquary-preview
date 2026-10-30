@@ -117,6 +117,7 @@ const WING_URLS = [
   "wings/fx/styles-d.js?v=" + BUILD,
   "wings/fx/styles-e.js?v=" + BUILD,
   "wings/fx/styles-n.js?v=" + BUILD,
+  "wings/fx/styles-x.js?v=" + BUILD, "wings/fx/layers.js?v=" + BUILD, "fx/fluid.js?v=" + BUILD,   // added effects (any effect on any theme) and the paint swirl
   "fx/kit.js?v=" + BUILD,
   "fx/particles-gpu.js?v=" + BUILD,
   "fx/post.js?v=" + BUILD,

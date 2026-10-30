@@ -50,12 +50,25 @@
     if (sceneName && SCENE[sceneName] && sceneAtmo === atmo) return SCENE[sceneName];
     return ATMO[atmo] || ["fog", 0.5];
   }
+  /* a composite spec times a weight: "a+b*0.45" * 0.8 = "a*0.8+b*0.36" (the weights multiply, the ids stay) */
+  function scaled(spec, k) {
+    return String(spec).split("+").map(function (part) { var m = part.trim().split("*"), w = (m[1] ? parseFloat(m[1]) : 1) * k; return m[0].trim() + "*" + (isFinite(w) ? w : k).toFixed(3); }).join("+");
+  }
   function apply() {
     var m = pick();
+    /* the effects the owner added to this theme (wings/fx/layers.js) come first, so they win the overlay's three places; the theme's
+       own effect follows at its own weight (a GPU world's "fxk" entry is no overlay at all) */
+    var L = window.TitanFXLayers, extra = L && L.overlay ? L.overlay(atmo) : [];
+    if (extra.length) {
+      var own = m[0] && m[0] !== "fxk" ? [scaled(m[0], m[1])] : [];
+      FX.play(extra.map(function (e) { return e.id + "*" + e.w.toFixed(3); }).concat(own).join("+"), { intensity: 1, video: null });
+      return;
+    }
     if (!m[0]) { if (FX.state().playing) FX.stop(1); return; }
     var mw = manifestWorld(), vid = (world && world.video) || (mw && mw.fxVideo) || VIDEO[atmo] || null;
     FX.play(m[0], { intensity: m[1], video: vid });
   }
+  window.addEventListener("titan:fxlayers", function (e) { if (!e.detail || !e.detail.theme || e.detail.theme === atmo) apply(); });
   window.addEventListener("titan:atmo", function (e) {
     atmo = (e.detail && e.detail.atmo) || atmo;
     if (sceneAtmo && sceneAtmo !== atmo) { sceneName = null; sceneAtmo = null; }

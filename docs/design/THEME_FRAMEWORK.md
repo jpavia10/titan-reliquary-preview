@@ -55,9 +55,15 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
    little look, panels Look (the theme's controls, Move, Height), Sound (the theme's soundscape and its layers) and Opening (replay it).
    A theme without a GPU world gets the basic room (its TitanFX effect: strength, film, a moment). ✕, Escape or Back close it and the
    view goes back to the backdrop.
-6. **Sound**: the soundscape preset (`audio/scape/bridge.js` `THEME_SCAPE`, presets in `audio/scape/presets.js`) from recordings only,
+6. **Added effects** (owner, 2026-10-30: "I should be able to add any of the available effects on any scene regardless of the default
+   configuration"): `wings/fx/layers.js` (TitanFXLayers) keeps, per theme, the effects the owner added from the whole library (every
+   TitanFX preset, Fireworks and Explosions in `wings/fx/styles-x.js`, and the paint swirl = `fx/fluid.js` on the kit). Overlay ones
+   go first in the TitanFX composite (`wings/fx/ui.js`; the overlay draws at most three); kit ones are extra parts over the world
+   (`K.extraStack(id)`, swapped live by `K.setExtras()` without rebuilding the world, drawn before its post pass, or alone over a theme
+   without a GPU world). Same in the backdrop, the Atmosphere (Look > + Add) and the room (Effects). A theme's own slots never change.
+7. **Sound**: the soundscape preset (`audio/scape/bridge.js` `THEME_SCAPE`, presets in `audio/scape/presets.js`) from recordings only,
    and the theme's recorded music (`audio/music/manifest.json` moods; rule: no generated music).
-7. **Art** (rule 9, `docs/art/ART_QUEUE.md`): picker card + hero, requested from the image AIs, never rendered in the container.
+8. **Art** (rule 9, `docs/art/ART_QUEUE.md`): picker card + hero, requested from the image AIs, never rendered in the container.
 
 ## 3. The gate
 
