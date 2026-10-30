@@ -103,8 +103,9 @@ html[data-motion="off"] .atm-enter-ring, html[data-motion="calm"] .atm-enter-rin
 .atm-off { height: 36px; padding: 0 14px 0 10px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; }
 .atm-off svg { width: 14px; height: 14px; }
 .atm-px { width: 40px; height: 40px; border-radius: 20px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); display: grid; place-items: center; cursor: pointer; }
-.atm-tabs { flex: none; display: flex; gap: 4px; margin: 4px 12px 0; padding: 4px; border-radius: 16px; background: rgba(255, 255, 255, .06); }
-.atm-tab { flex: 1 1 0; min-width: 0; height: 36px; border: 0; border-radius: 12px; background: none; cursor: pointer; font-size: 13.5px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.atm-tabs { flex: none; display: flex; gap: 2px; margin: 4px 12px 0; padding: 4px; border-radius: 16px; background: rgba(255, 255, 255, .06); overflow-x: auto; scrollbar-width: none; }
+.atm-tabs::-webkit-scrollbar { display: none; }
+.atm-tab { flex: 1 0 auto; height: 36px; padding: 0 8px; border: 0; border-radius: 12px; background: none; cursor: pointer; font-size: 13.5px; color: var(--ink2); white-space: nowrap; }   /* each tab as wide as its word; a narrow phone scrolls them instead of cutting a word */
 .atm-tab[aria-selected="true"] { background: rgba(255, 255, 255, .92); color: #101216; font-weight: 600; }
 .atm-pb { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: 4px 18px 22px; }
 .atm-panel h4 { margin: 18px 0 8px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--ink2); font-weight: 600; }
@@ -153,3 +154,4 @@ html[data-motion="off"] .atm-enter-ring, html[data-motion="calm"] .atm-enter-rin
   .atm-x { right: 32px; top: 32px; }
 }
 @media (max-height: 700px) { .atm-mood { display: none; } }
+@media (max-width: 380px) { .atm-tab { padding: 0 5px; font-size: 12.5px; } }
