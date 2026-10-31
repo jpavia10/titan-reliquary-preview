@@ -24,6 +24,7 @@
     if (R) (R.look || []).forEach(function (c) { v.look[c.id] = K.look ? K.look(c.id, c.def) : c.def; });   // the room starts from the theme's saved look
 
     var box = el("div", "troom"); box.id = "troom"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true");
+    var TW = window.TitanWorlds, tw = TW && TW.byId && TW.byId(id); if (tw && TW.isLight && TW.isLight(tw)) box.classList.add("is-light");   // a light theme: dark type
     box.setAttribute("aria-label", lib.label(id) + ": the room");
     var top = el("div", "troom-top"), nm = el("div", "troom-name"); nm.appendChild(el("b", "", lib.label(id)));
     nm.appendChild(el("span", "", R ? R.name : "Inside the theme")); top.appendChild(nm);

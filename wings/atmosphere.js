@@ -30,7 +30,9 @@
   var esc = function (t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
   var motion = function () { return window.TitanMotion && window.TitanMotion.level ? window.TitanMotion.level() : "full"; };
   var ls = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
-  var TABKEY = "titan.atmos.tabs";
+  var TABKEY = "titan.atmos.tabs", kbd = false;   // kbd: the last input was a key (then the focus ring shows)
+  addEventListener("keydown", function (e) { if (e.key === "Tab" || e.key.indexOf("Arrow") === 0 || e.key === "Enter") kbd = true; }, true);
+  addEventListener("pointerdown", function () { kbd = false; }, true);
   var root = null, cssReady = null, layers = [];
   var state = { open: false, pos: 0, vel: 0, target: 0, group: "All", list: [], raf: 0, drag: null, panel: null, last: null, tilt: [0, 0], ptr: [0, 0],
     tabs: { sound: "scenes", look: "effects" }, keys: {} };
@@ -83,6 +85,7 @@
         '<p class="atm-mood" id="atm-mood"></p>' +
       '</header>' +
       '<button type="button" class="atm-x" id="atm-x" aria-label="Close the Atmosphere">' + svg("x") + '</button>' +
+      '<button type="button" class="atm-all" id="atm-all" data-open="all" aria-expanded="false" aria-label="See every theme at once">' + svg("grid") + '<span>All themes</span></button>' +
       '<div class="atm-groups atm-l2" role="tablist" aria-label="Kinds of theme" id="atm-groups"></div>' +
       '<div class="atm-ring atm-l3" id="atm-ring" aria-label="Themes: drag to turn, tap the front one to go there" role="listbox"></div>' +
       '<p class="atm-hint atm-l3" id="atm-hint" aria-live="polite"></p>' +
@@ -93,7 +96,9 @@
         '<button type="button" class="atm-pill" data-open="sound" aria-expanded="false">Sound</button>' +
         '<button type="button" class="atm-pill" data-open="look" aria-expanded="false">Look</button>' +
       '</div>' +
-      panelShell("sound", "Sound") + panelShell("look", "Look");
+      panelShell("sound", "Sound") + panelShell("look", "Look") +
+      '<section class="atm-panel atm-panel-all" id="atm-p-all" data-panel="all" aria-label="Every theme" hidden><div class="atm-ph"><h3>Every theme</h3>' +
+        '<button type="button" class="atm-px" data-act="close-panel" aria-label="Close every theme">' + svg("down") + '</button></div><div class="atm-pb"></div></section>';
     document.body.appendChild(root);
     layers = [[".atm-l1", -10, -6], [".atm-l2", -18, -10], [".atm-l3", -30, -16], [".atm-l4", -6, -3]].map(function (L) { return { els: [].slice.call(root.querySelectorAll(L[0])), x: L[1], y: L[2] }; });
     root.querySelector("#atm-x").addEventListener("click", function () { close(); });
@@ -120,7 +125,8 @@
   }
   function svg(n) {
     var P = { x: '<path d="M6 6l12 12M18 6L6 18"/>', play: '<path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none"/>', pause: '<path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/>',
-      stop: '<rect x="7" y="7" width="10" height="10" rx="1.5" fill="currentColor" stroke="none"/>', down: '<path d="M6 9l6 6 6-6"/>' };
+      stop: '<rect x="7" y="7" width="10" height="10" rx="1.5" fill="currentColor" stroke="none"/>', down: '<path d="M6 9l6 6 6-6"/>',
+      grid: '<rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/>' };
     return '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + P[n] + "</svg>";
   }
   var later = function (f, ms) { return setTimeout(f, ms); };
@@ -141,14 +147,17 @@
     root.querySelectorAll(".atm-g").forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.g === name)); });
     renderRing(true);
   }
+  function groupOf() { var m = {}; groups().slice(1).forEach(function (g) { g.list.forEach(function (w) { m[w.id] = g.name; }); }); return m; }
+  /* a theme's picture: its card art, or (no art yet) its colour swatch from styles/themes.css, never an empty panel */
+  function pic(w, cls) { return w.art && w.art.card ? '<span class="' + cls + '" aria-hidden="true" data-art="' + esc(w.art.card) + '"></span>' : '<span class="' + cls + '" aria-hidden="true"><span class="atm-sw atmo-swatch sw-' + esc(w.id) + '"></span></span>'; }
   function renderRing(fly) {
-    var ring = root.querySelector("#atm-ring");
+    var ring = root.querySelector("#atm-ring"), gm = groupOf();
     ring.innerHTML = ""; cards = [];
     state.list.forEach(function (w, i) {
       var b = document.createElement("button");
       b.type = "button"; b.className = "atm-card"; b.dataset.i = i; b.dataset.id = w.id; b.setAttribute("role", "option");
-      b.innerHTML = '<span class="atm-card-img" aria-hidden="true"></span><span class="atm-card-glow" aria-hidden="true"></span>' +
-        '<span class="atm-card-t"><b>' + esc(w.name) + "</b><small>" + esc((w.styles && w.styles[0]) || w.collection || "") + "</small></span>" +
+      b.innerHTML = pic(w, "atm-card-img") + '<span class="atm-card-glow" aria-hidden="true"></span>' +
+        '<span class="atm-card-t"><b>' + esc(w.name) + "</b><small>" + esc(gm[w.id] || "") + "</small></span>" +
         '<span class="atm-card-on" hidden>On now</span>';
       ring.appendChild(b); cards.push({ el: b, w: w, img: false });
     });
@@ -189,7 +198,7 @@
       var n = cards.length, c = cards[i], d = n > 2 ? ((i - state.pos) % n + n * 1.5) % n - n / 2 : i - state.pos, a = d * STEP, vis = Math.abs(d) < (narrow ? 3.2 : 4.2);   // a ring: it wraps around
       if (!vis) { if (c.el.style.display !== "none") c.el.style.display = "none"; continue; }
       if (c.el.style.display === "none") c.el.style.display = "";
-      if (!c.img && c.w.art && c.w.art.card) { c.img = true; c.el.querySelector(".atm-card-img").style.backgroundImage = 'url("art/themes/' + c.w.art.card + '")'; }
+      if (!c.img) { c.img = true; var im = c.el.querySelector(".atm-card-img[data-art]"); if (im) { im.style.backgroundImage = 'url("art/themes/' + im.dataset.art + '")'; im.removeAttribute("data-art"); } }
       var x = Math.sin(a) * R, z = (Math.cos(a) - 1) * R, k = Math.max(0, 1 - Math.abs(d) * .28);
       c.el.style.width = Math.round(W) + "px"; c.el.style.height = Math.round(geo.H) + "px";
       c.el.style.transform = "translate(-50%,-50%) translate3d(" + x.toFixed(1) + "px,0," + z.toFixed(1) + "px) rotateY(" + (a * -57.3 * .85).toFixed(2) + "deg)";
@@ -202,7 +211,7 @@
   function hint() {
     var i = idx(state.pos), w = state.list[i], h = root.querySelector("#atm-hint");
     if (!w) { h.textContent = ""; return; }
-    var t = w.id === current() ? '<span class="atm-on-dot"></span>You are here' : "Tap to go to <b>" + esc(w.name) + "</b>";
+    var t = w.id === current() ? "" : "Tap to go to <b>" + esc(w.name) + "</b>";   // the On now badge already says which one is on
     if (h.innerHTML !== t) h.innerHTML = t;
   }
   function down(e) {
@@ -277,6 +286,7 @@
     root.querySelector("#atm-name").textContent = w ? w.name : "";
     root.querySelector("#atm-mood").textContent = w ? w.mood || "" : "";
     root.style.setProperty("--atm-acc", accent());
+    root.classList.toggle("is-light", !!(w && W.isLight && W.isLight(w)));   // a light theme: dark type over a light veil at the top
   }
   var music = null;
   window.addEventListener("titan:music", function (e) { music = e.detail || null; if (state.open) sync(); });
@@ -319,11 +329,31 @@
 
   /* ------------------------------------------------------------------ panels ------------------------------------------------------------------ */
   function panelEl(name) { return root.querySelector("#atm-p-" + name); }
+  /* every theme at once, by group: tap one to go there (the ring turns to it behind) */
+  function renderAll() {
+    var body = panelEl("all").querySelector(".atm-pb"), cur = current();
+    body.innerHTML = groups().slice(1).map(function (g) {
+      return "<h4>" + esc(g.name) + '</h4><div class="atm-grid">' + g.list.map(function (w) {
+        return '<button type="button" class="atm-tile" data-act="pick" data-id="' + esc(w.id) + '" aria-pressed="' + (w.id === cur) + '">' + pic(w, "atm-tile-img") +
+          '<span class="atm-tile-t">' + esc(w.name) + "</span>" + (w.id === cur ? '<span class="atm-card-on">On now</span>' : "") + "</button>"; }).join("") + "</div>";
+    }).join("");
+    lazyArt(body);
+  }
+  /* pictures load as they come into view */
+  var io = null;
+  function lazyArt(box) {
+    var els = box.querySelectorAll("[data-art]");
+    var set = function (el) { el.style.backgroundImage = 'url("art/themes/' + el.dataset.art + '")'; el.removeAttribute("data-art"); };
+    if (!("IntersectionObserver" in window)) { els.forEach(set); return; }
+    if (!io) io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { set(e.target); io.unobserve(e.target); } }); }, { rootMargin: "200px" });
+    els.forEach(function (el) { io.observe(el); });
+  }
   function panel(name) {
     state.panel = name;
     root.querySelectorAll(".atm-panel").forEach(function (p) { p.hidden = p.dataset.panel !== name; });
     root.querySelectorAll("[data-open]").forEach(function (b) { b.setAttribute("aria-expanded", String(b.dataset.open === name)); });
     root.classList.toggle("panel-on", !!name);
+    if (name === "all") { fit(); renderAll(); return; }
     if (name) { fit(); setTab(name, state.tabs[name]); }
   }
   function setTab(name, tab, focus) {
@@ -336,6 +366,7 @@
   }
   /* each tab: key() names what its markup depends on (a change rebuilds it), build() writes it, update() sets the live values in place */
   function refresh(name) {
+    if (name === "all") { var cur = current(); panelEl("all").querySelectorAll(".atm-tile").forEach(function (b) { var v = String(b.dataset.id === cur); if (b.getAttribute("aria-pressed") !== v) b.setAttribute("aria-pressed", v); }); return; }
     var p = panelEl(name), T = PANES[name + ":" + state.tabs[name]]; if (!p || !T) return;
     var body = p.querySelector(".atm-pb"), k = state.tabs[name] + "|" + T.key();
     if (k !== state.keys[name]) {
@@ -564,6 +595,7 @@
     if (sg && b.dataset.v) { segPick(sg.dataset.seg, b.dataset.v); radios(p, sg.dataset.seg, b.dataset.v); later(sync, 60); return; }
     switch (b.dataset.act) {
       case "close-panel": panel(null); return;
+      case "pick": { var W0 = worlds(), w0 = W0 && W0.byId(b.dataset.id); panel(null); if (w0 && w0.id !== current()) go(w0); else follow(); return; }
       case "off": if (s) { s.stop(); if (s.radio && s.radio.on()) s.radio.stop(); } break;
       case "scene":
         if (!s) break;
@@ -661,7 +693,8 @@
       state.poll = setInterval(sync, 2000);
       window.addEventListener("keydown", onKey, true);   // on the window: Escape works wherever the focus went
       window.dispatchEvent(new CustomEvent("titan:overlay", { detail: { open: true } }));
-      setTimeout(function () { var f = root.querySelector(".atm-card.front") || root.querySelector("#atm-x"); if (f) f.focus({ preventScroll: true }); }, 60);
+      /* focus goes into the dialog, but the focus ring shows only for a keyboard (it read as a gold or blue frame on the front card) */
+      setTimeout(function () { var f = root.querySelector(".atm-card.front") || root.querySelector("#atm-x"); if (f) f.focus({ preventScroll: true, focusVisible: kbd }); }, 60);
     });
   }
   function close(quick) {

@@ -3766,13 +3766,14 @@ html[data-atmo="notepad"] {
   --grain-op: 0;
 }
 html[data-atmo="notepad"] body { background: #ffffff; }
-html[data-atmo="notepad"] *, html[data-atmo="notepad"] *::before, html[data-atmo="notepad"] *::after {
+/* the Atmosphere and the theme's room keep their own look on every theme (:where adds no specificity) */
+html[data-atmo="notepad"] :not(:where(#atmos, #atmos *, #troom, #troom *)), html[data-atmo="notepad"] :not(:where(#atmos, #atmos *, #troom, #troom *))::before, html[data-atmo="notepad"] :not(:where(#atmos, #atmos *, #troom, #troom *))::after {
   animation-duration: 0.001s !important;
   text-shadow: none !important;
   box-shadow: none !important;
 }
 html[data-atmo="notepad"] .card, html[data-atmo="notepad"] .tile, html[data-atmo="notepad"] .album-card,
-html[data-atmo="notepad"] .badge, html[data-atmo="notepad"] .btn, html[data-atmo="notepad"] button {
+html[data-atmo="notepad"] .badge, html[data-atmo="notepad"] .btn, html[data-atmo="notepad"] button:not(:where(#atmos *, #troom *)) {
   border: 1px solid #000 !important; border-radius: 0 !important;
 }
 html[data-atmo="notepad"] .wordmark::after { content: "_"; animation: np-blink 1.06s steps(1) infinite !important; }

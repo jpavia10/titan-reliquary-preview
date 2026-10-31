@@ -1,0 +1,179 @@
+{
+ "request_id": "artreq_20261031-0300_theme-art-eight-missing",
+ "status": "open",
+ "assigned_to": "any",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-31T03:00:00Z",
+ "why": "Eight themes still have no picture of their own, so the theme selector (the Atmosphere's ring and its All themes grid) shows only their colour swatch for them: Sketchbook, Marbled Endpapers, Treasury Note, Survey Map, Cathedral Glass, Millennium Chrome, Paper Hills, Free Fall. A card and a hero each. Obsidian Sun is already asked for in artreq_20261028-1630_theme-art-obsidian-lightwell-redo.",
+ "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim it with {request id}.CLAIMED-{model}.txt first. takes 2 = make 2 versions named _take1/_take2 before the extension. One image at a time; stop at the first failure or credit warning and say how far you got. Save to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261031-0300_theme-art-eight-missing/' with the exact file names, then write artreq_20261031-0300_theme-art-eight-missing.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+ "deliverable_spec": {
+  "card": "16:10, at least 1280x800, PNG; the subject must read at 220x138 px (the picker card size on a phone)",
+  "hero": "16:10, at least 2560x1600, PNG",
+  "safe_area": "keep the top-left third of heroes calm and darker (or plain paper on light themes): UI text sits there"
+ },
+ "global_style": "Real photography, not a render: shot like a high-end editorial or luxury-watch campaign on a full-frame camera, shallow depth of field, true reflections, physically accurate materials (toned silver with micro-scratches, gold, brass, marble, walnut, velvet, glass), soft volumetric light, rich natural grading, fine film grain. Real-looking coins or bullion in a place that fits the mood. Calm, expensive, cinematic. Exception: an image whose `medium` names an illustration, pixel art, clay or poster style is made in that medium, at the same premium standard (clean, crafted, never cheap clip-art).",
+ "negative": "no readable text, no letters, no numbers, no logos, no watermark, no frame, no faces, no hands, no 3D-render plastic look in the photo images, no oversaturation, no HDR halos, no warped or melting coins, no invented legible inscriptions",
+ "coin_rule": "Coins look like real circulated or uncirculated world coins (a generic portrait, eagle or crest is fine); never invent a legible inscription.",
+ "images": [
+  {
+   "file_name": "world_sketch_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Sketchbook",
+   "theme_id": "sketch",
+   "medium": "pencil illustration on paper",
+   "prompt": "Graphite pencil drawing on cream drawing paper, crafted like a master's sketchbook page: one real silver coin drawn in fine cross-hatching with a soft shadow, loose margin doodles of more coins, a ruler line and a smudged eraser mark around it; the paper's tooth visible. Hand-drawn, elegant, never cartoonish. Card: the subject (the coin and what makes the theme) reads at 220x138 px."
+  },
+  {
+   "file_name": "world_sketch_hero.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Sketchbook",
+   "theme_id": "sketch",
+   "medium": "pencil illustration on paper",
+   "prompt": "Graphite pencil drawing on cream drawing paper, crafted like a master's sketchbook page: one real silver coin drawn in fine cross-hatching with a soft shadow, loose margin doodles of more coins, a ruler line and a smudged eraser mark around it; the paper's tooth visible. Hand-drawn, elegant, never cartoonish. Hero: the same scene, wider; keep the top-left third calm and plain and pale for the interface text."
+  },
+  {
+   "file_name": "world_marbled_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Marbled Endpapers",
+   "theme_id": "marbled",
+   "medium": "photo",
+   "prompt": "Overhead photograph of a bookbinder's marbled endpaper in indigo, oxblood and ochre swirls (real Turkish ebru paper with fine combed veins), an open antique book at one edge, one real silver coin resting on the paper in sharp focus, soft window light, fine paper fibres visible. Card: the subject (the coin and what makes the theme) reads at 220x138 px."
+  },
+  {
+   "file_name": "world_marbled_hero.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Marbled Endpapers",
+   "theme_id": "marbled",
+   "medium": "photo",
+   "prompt": "Overhead photograph of a bookbinder's marbled endpaper in indigo, oxblood and ochre swirls (real Turkish ebru paper with fine combed veins), an open antique book at one edge, one real silver coin resting on the paper in sharp focus, soft window light, fine paper fibres visible. Hero: the same scene, wider; keep the top-left third calm and plain and pale for the interface text."
+  },
+  {
+   "file_name": "world_banknote_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Treasury Note",
+   "theme_id": "banknote",
+   "medium": "photo",
+   "prompt": "Macro photograph of finely engraved guilloche rosettes in green intaglio ink on cream security paper (no numbers, no text, no portrait of a real person), a red embossed seal-like rosette, one real silver coin lying across the engraving; raking light shows the raised ink and paper fibres. Card: the subject (the coin and what makes the theme) reads at 220x138 px."
+  },
+  {
+   "file_name": "world_banknote_hero.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Treasury Note",
+   "theme_id": "banknote",
+   "medium": "photo",
+   "prompt": "Macro photograph of finely engraved guilloche rosettes in green intaglio ink on cream security paper (no numbers, no text, no portrait of a real person), a red embossed seal-like rosette, one real silver coin lying across the engraving; raking light shows the raised ink and paper fibres. Hero: the same scene, wider; keep the top-left third calm and plain and pale for the interface text."
+  },
+  {
+   "file_name": "world_contour_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Survey Map",
+   "theme_id": "contour",
+   "medium": "photo",
+   "prompt": "A night survey table: a dark topographic chart whose contour lines glow faint cyan as if lit from within, a brass surveyor's compass and one real silver coin on it in sharp focus, low blue light, shallow depth of field. Card: the subject (the coin and what makes the theme) reads at 220x138 px."
+  },
+  {
+   "file_name": "world_contour_hero.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Survey Map",
+   "theme_id": "contour",
+   "medium": "photo",
+   "prompt": "A night survey table: a dark topographic chart whose contour lines glow faint cyan as if lit from within, a brass surveyor's compass and one real silver coin on it in sharp focus, low blue light, shallow depth of field. Hero: the same scene, wider; keep the top-left third calm and darker for the interface text."
+  },
+  {
+   "file_name": "world_cathedral_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Cathedral Glass",
+   "theme_id": "cathedral",
+   "medium": "photo",
+   "prompt": "Inside a stone nave at dusk: a rose window of jewel-coloured stained glass throws pools of ruby, sapphire and emerald light across a worn stone ledge where one real silver coin lies, lit by the coloured beams; dust in the air, deep shadows. Card: the subject (the coin and what makes the theme) reads at 220x138 px."
+  },
+  {
+   "file_name": "world_cathedral_hero.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Cathedral Glass",
+   "theme_id": "cathedral",
+   "medium": "photo",
+   "prompt": "Inside a stone nave at dusk: a rose window of jewel-coloured stained glass throws pools of ruby, sapphire and emerald light across a worn stone ledge where one real silver coin lies, lit by the coloured beams; dust in the air, deep shadows. Hero: the same scene, wider; keep the top-left third calm and darker for the interface text."
+  },
+  {
+   "file_name": "world_y2k_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Millennium Chrome",
+   "theme_id": "y2k",
+   "medium": "photo",
+   "prompt": "Studio photograph in the Y2K style: liquid chrome blobs and a polished chrome ring on a pale pastel lilac-to-ice-blue background with tiny star sparkles, one real silver coin polished to a mirror at the centre; glossy, playful, premium, never plastic. Card: the subject (the coin and what makes the theme) reads at 220x138 px."
+  },
+  {
+   "file_name": "world_y2k_hero.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Millennium Chrome",
+   "theme_id": "y2k",
+   "medium": "photo",
+   "prompt": "Studio photograph in the Y2K style: liquid chrome blobs and a polished chrome ring on a pale pastel lilac-to-ice-blue background with tiny star sparkles, one real silver coin polished to a mirror at the centre; glossy, playful, premium, never plastic. Hero: the same scene, wider; keep the top-left third calm and plain and pale for the interface text."
+  },
+  {
+   "file_name": "world_papercut_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Paper Hills",
+   "theme_id": "papercut",
+   "medium": "photo of a paper-craft diorama",
+   "prompt": "Photograph of a real layered paper-cut diorama: rolling hills cut from cream, sage and terracotta card in overlapping layers, a paper sun and two tiny paper hot-air balloons, one real silver coin standing in the foreground as if pinned to the paper; soft side light makes the layers cast shadows. Card: the subject (the coin and what makes the theme) reads at 220x138 px."
+  },
+  {
+   "file_name": "world_papercut_hero.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Paper Hills",
+   "theme_id": "papercut",
+   "medium": "photo of a paper-craft diorama",
+   "prompt": "Photograph of a real layered paper-cut diorama: rolling hills cut from cream, sage and terracotta card in overlapping layers, a paper sun and two tiny paper hot-air balloons, one real silver coin standing in the foreground as if pinned to the paper; soft side light makes the layers cast shadows. Hero: the same scene, wider; keep the top-left third calm and plain and pale for the interface text."
+  },
+  {
+   "file_name": "world_freefall_card.png",
+   "priority": 1,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Free Fall",
+   "theme_id": "freefall",
+   "medium": "photo",
+   "prompt": "High-speed photograph in a dark physics lab: real silver and copper coins frozen mid-fall against black, a few bouncing off a heap of coins below, crisp motion freeze, a single hard spotlight from above, tiny specks of dust in the beam. Card: the subject (the coin and what makes the theme) reads at 220x138 px."
+  },
+  {
+   "file_name": "world_freefall_hero.png",
+   "priority": 2,
+   "takes": 2,
+   "aspect_ratio": "16:10",
+   "world": "Free Fall",
+   "theme_id": "freefall",
+   "medium": "photo",
+   "prompt": "High-speed photograph in a dark physics lab: real silver and copper coins frozen mid-fall against black, a few bouncing off a heap of coins below, crisp motion freeze, a single hard spotlight from above, tiny specks of dust in the beam. Hero: the same scene, wider; keep the top-left third calm and darker for the interface text."
+  }
+ ]
+}
